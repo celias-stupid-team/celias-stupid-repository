@@ -386,7 +386,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
 1. If pokefirered is not already downloaded (some users may prefer to download pokefirered via a git client like GitHub Desktop), run:
 
     ```bash
-    git clone https://github.com/pret/pokefirered
+    git clone https://github.com/celias-stinstall-md-updateupid-team/celias-stupid-repository
     ```
 
     <details>
@@ -402,7 +402,16 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
    >   Where *\<folder where pokefirered is to be stored>* is the path of the folder [where you chose to store pokefirered](#Choosing-where-to-store-pokefirered-WSL1). Then run the `git clone` command again.
     </details>
 
-2. Install agbcc into pokefirered. The commands to run depend on certain conditions. **You should only follow one of the listed instructions**:
+2. Copy [poryscript files](https://github.com/huderlem/poryscript/releases/tag/3.3.0) for your environment (probalby linux) to a new directory `/tools/poryscript`
+
+    <details>
+        <summary><i>Note...</i></summary>
+
+   > Note: `font_config.json` should be located at `/tools/poryscript/font_config.json` when copied over.
+    </details>
+
+
+3. Install agbcc into pokefirered. The commands to run depend on certain conditions. **You should only follow one of the listed instructions**:
 - If agbcc has **not been built before** in the folder where you chose to store pokefirered, run the following commands to build and install it into pokefirered:
 
     ```bash
@@ -434,7 +443,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
         > If building agbcc or pokefirered results in an error, try deleting the agbcc folder and re-installing agbcc as if it has not been built before.
     </details>
 
-3. Once agbcc is installed, change directory back to the base directory where pokefirered and agbcc are stored:
+4. Once agbcc is installed, change directory back to the base directory where pokefirered and agbcc are stored:
 
     ```bash
     cd ..
