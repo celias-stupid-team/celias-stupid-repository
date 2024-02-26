@@ -386,7 +386,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
 1. If pokefirered is not already downloaded (some users may prefer to download pokefirered via a git client like GitHub Desktop), run:
 
     ```bash
-    git clone https://github.com/celias-stinstall-md-updateupid-team/celias-stupid-repository
+    git clone https://github.com/celias-stupid-team/celias-stupid-repository
     ```
 
     <details>
