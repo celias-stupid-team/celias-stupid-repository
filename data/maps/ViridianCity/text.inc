@@ -50,7 +50,7 @@ ViridianCity_Text_ThatWasEducationalTakeThis::
 ViridianCity_Text_WatchThatToLearnBasics::
     .string "All right, 0x59:mna!\n"
     .string "Now quickly!\l"
-    .string "FLY over to CINNABAR ISLAND\P"
+    .string "FLY over to CINNABAR ISLAND\p"
     .string "…What's that?\n"
     .string "You can't FLY yet?\p"
     .string "Darn.$"
