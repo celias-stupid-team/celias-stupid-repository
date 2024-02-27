@@ -870,7 +870,7 @@ Text_TrainerSchoolEmail::
 	.string "‥‥　‥‥　‥‥$"
 
 Text_PlayerBootedUpPC::
-	.string "{PLAYER} booted up the PC.$"
+	.string "{PLAYER} kicked the PC.$"
 
 @ Unused
 Text_LinkWasCanceled::

@@ -11,8 +11,10 @@ PalletTown_RivalsHouse_Text_HeardYouBattledRival::
 PalletTown_RivalsHouse_Text_ErrandForGrandpaThisWillHelp::
     .string "Grandpa asked you to run an\n"
     .string "errand?\p"
-    .string "Gee, that's lazy of him.\n"
-    .string "Here, this will help you.$"
+    .string "Gee, that's lazy of him.\p"
+    .string "I'd give you a map, but my\n"
+    .string "brother told me not to.\p"
+    .string "Sorry!$"
 
 PalletTown_RivalsHouse_Text_ReceivedTownMapFromDaisy::
     .string "{PLAYER} received a TOWN MAP\n"
