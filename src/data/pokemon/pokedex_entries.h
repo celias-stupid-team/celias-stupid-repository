@@ -4823,6 +4823,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
+    [NATIONAL_DEX_ALOMOMOLA] =
+    {
+        .categoryName = _("Caring"),
+        .height = 12,
+        .weight = 316,
+        .description = gAlomomolaPokedexText,
+        .pokemonScale = 282,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_BAGON] =
     {
         .categoryName = _("ROCK HEAD"),
