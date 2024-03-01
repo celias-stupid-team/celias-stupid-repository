@@ -235,6 +235,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCalmMind               @ EFFECT_CALM_MIND
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
+	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -269,6 +270,17 @@ BattleScript_HitFromAtkAnimation::
 	tryfaintmon BS_TARGET
 BattleScript_MoveEnd::
 	moveendall
+	end
+
+//test effect based on regular damaging move
+BattleScript_EffectHeartSwap::
+	attackstring
+	ppreduce
+	//only trigger form change effect, when Battle Type is BATTLE_TYPE_ALOMOMOLA
+	jumpifbattletype BATTLE_TYPE_ALOMOMOLA, BattleScript_EvolveAlomomola
+	end
+BattleScript_EvolveAlomomola::
+	call BattleScript_AlomomolaMidBattleEvo
 	end
 
 BattleScript_MakeMoveMissed::
@@ -3824,6 +3836,16 @@ BattleScript_SilphScopeUnveiled::
 	playanimation BS_OPPONENT1, B_ANIM_SILPH_SCOPED
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_GHOSTWASMAROWAK
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_AlomomolaMidBattleEvo::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ALOMOMOLAEVO
+	waitstate
+	playanimation BS_OPPONENT1, B_ANIM_ALOMOMOLA_EVOLVE
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_ALOMOMOLAEVOLVED
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

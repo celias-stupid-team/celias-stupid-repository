@@ -419,6 +419,7 @@ gBattleAnims_General::
 	.4byte General_SilphScoped              @ B_ANIM_SILPH_SCOPED
 	.4byte General_SafariRockThrow          @ B_ANIM_ROCK_THROW
 	.4byte General_SafariReaction           @ B_ANIM_SAFARI_REACTION
+	.4byte General_AlomomolaEvolve          @ B_ANIM_ALOMOMOLA_EVOLVE
 
 	.align 2
 gBattleAnims_Special::
@@ -10939,6 +10940,16 @@ General_GhostGetOut:
 	end
 
 General_SilphScoped:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
+General_AlomomolaEvolve:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48

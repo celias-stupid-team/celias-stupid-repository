@@ -1056,6 +1056,7 @@ const u8 gText_BerryCrush2[] = _("BERRY CRUSH");
 const u8 gText_PressingSpeedRankings[] = _("Pressing-Speed Rankings");
 const u8 gText_Var1Players[] = _("{STR_VAR_1} PLAYERS");
 ALIGNED(4) const u8 gText_Ghost[] = _("GHOST");
+ALIGNED(4) const u8 gText_Luvdisc[] = _("LUVDISC");
 const u8 gText_PokemonOnHook[] = _("A POKéMON's on the hook!{PAUSE_UNTIL_PRESS}");
 const u8 gText_NotEvenANibble[] = _("Not even a nibble‥{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItGotAway[] = _("It got away‥{PAUSE_UNTIL_PRESS}");

@@ -335,6 +335,17 @@ void StartMarowakBattle(void)
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
 }
 
+void StartAlomomolaBattle(void)
+{
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_ALOMOMOLA;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+    //SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Luvdisc);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+}
+
 void StartSouthernIslandBattle(void)
 {
     LockPlayerFieldControls();
