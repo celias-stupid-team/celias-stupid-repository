@@ -1,6 +1,7 @@
 PewterCity_PokemonCenter_1F_Text_TeamRocketMtMoonImOnPhone::
     .string "What!?\p"
-    .string "TEAM ROCKET is at MT. MOON?\n"
+    .string "They think MT. MOON is copyright\n"
+    .string "infringement?\p"
     .string "Huh?\p"
     .string "I'm on the phone!\n"
     .string "Scram!$"
@@ -10,8 +11,8 @@ PewterCity_PokemonCenter_1F_Text_Jigglypuff::
 
 PewterCity_PokemonCenter_1F_Text_WhenJiggylypuffSingsMonsGetDrowsy::
     .string "Yawn!\p"
-    .string "When JIGGLYPUFF sings, POKéMON get\n"
-    .string "drowsy…\p"
+    .string "When JIGGLYPUFF plays,spectators\n"
+    .string "get bored…\p"
     .string "…Me, too…\n"
     .string "Snore…$"
 
