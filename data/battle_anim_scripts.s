@@ -375,7 +375,9 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
-	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
+	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
+	.4byte Move_HEART_SWAP
+	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
 gBattleAnims_StatusConditions::
@@ -9717,6 +9719,9 @@ Move_PSYCHO_BOOST:
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
 	call UnsetPsychicBackground
+	end
+
+Move_HEART_SWAP:
 	end
 
 Move_KNOCK_OFF:

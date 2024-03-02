@@ -5708,6 +5708,7 @@ static const u16 sChimechoLevelUpLearnset[] = {
 
 static const u16 sAlomomolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_TACKLE),
+    LEVEL_UP_MOVE(2, MOVE_HEART_SWAP),
     LEVEL_UP_MOVE(4, MOVE_CHARM),
     LEVEL_UP_MOVE(12, MOVE_WATER_GUN),
     LEVEL_UP_MOVE(16, MOVE_AGILITY),

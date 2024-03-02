@@ -274,14 +274,29 @@ BattleScript_MoveEnd::
 
 //test effect based on regular damaging move
 BattleScript_EffectHeartSwap::
+	attackcanceler
 	attackstring
 	ppreduce
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	swapstatstages STAT_ATK
+	swapstatstages STAT_DEF
+	swapstatstages STAT_SPEED
+	swapstatstages STAT_SPATK
+	swapstatstages STAT_SPDEF
+	swapstatstages STAT_EVASION
+	swapstatstages STAT_ACC
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
+	waitmessage B_WAIT_TIME_LONG
 	//only trigger form change effect, when Battle Type is BATTLE_TYPE_ALOMOMOLA
 	jumpifbattletype BATTLE_TYPE_ALOMOMOLA, BattleScript_EvolveAlomomola
-	end
+	goto BattleScript_MoveEnd
 BattleScript_EvolveAlomomola::
+	//only trigger form change effect, when opponent is SPECIES_LUVDISC
+	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
 	call BattleScript_AlomomolaMidBattleEvo
-	end
+	goto BattleScript_MoveEnd
 
 BattleScript_MakeMoveMissed::
 	orbyte gMoveResultFlags, MOVE_RESULT_MISSED

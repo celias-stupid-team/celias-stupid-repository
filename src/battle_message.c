@@ -386,8 +386,9 @@ static const u8 sText_TheGhostAppeared[] = _("The GHOST appeared!\p");
 static const u8 sText_LuvdiscAppeared[] = _("A wild LUVDISC appeared!\p");
 static const u8 sText_SilphScopeUnveil[] = _("SILPH SCOPE unveiled the GHOST's\nidentity!");
 static const u8 sText_TheGhostWas[] = _("The GHOST was MAROWAK!\p\n");
-static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC evolves!");
+static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC is evolving!");
 static const u8 sText_AlomomolaEvolved[] = _("LUVDISC evolved to ALOMOMOLA!");
+static const u8 sText_PkmnSwitchedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} switched stat changes\nwith the target!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
@@ -893,7 +894,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TRAINER1MON2COMEBACK - BATTLESTRINGS_TABLE_START]          = sText_Trainer1RecallPkmn2,
     [STRINGID_TRAINER1MON1AND2COMEBACK - BATTLESTRINGS_TABLE_START]      = sText_Trainer1RecallBoth,
     [STRINGID_ALOMOMOLAEVO - BATTLESTRINGS_TABLE_START]                  = sText_AlomomolaEvo,
-    [STRINGID_ALOMOMOLAEVOLVED - BATTLESTRINGS_TABLE_START]              = sText_AlomomolaEvolved
+    [STRINGID_ALOMOMOLAEVOLVED - BATTLESTRINGS_TABLE_START]              = sText_AlomomolaEvolved,
+    [STRINGID_PKMNSWITCHEDSTATCHANGES - BATTLESTRINGS_TABLE_START]       = sText_PkmnSwitchedStatChanges
 };
 
 const u16 gMissStringIds[] =

@@ -362,6 +362,8 @@ static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_callnative(void);
+static void Cmd_swapstatstages(void);
+static void Cmd_jumpifnotspeciescondition(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -614,6 +616,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_callnative,                              //0xF8
+    Cmd_swapstatstages,                          //0xF9
+    Cmd_jumpifnotspeciescondition,               //0xFA
 };
 
 struct StatFractions
@@ -9956,4 +9960,39 @@ static void Cmd_callnative(void)
     CMD_ARGS(void (*func)(void));
     void (*func)(void) = cmd->func;
     func();
+}
+
+static void Cmd_swapstatstages(void)
+{
+    CMD_ARGS(u8 stat);
+
+    u8 stat = cmd->stat;
+    s8 atkStatStage = gBattleMons[gBattlerAttacker].statStages[stat];
+    s8 defStatStage = gBattleMons[gBattlerTarget].statStages[stat];
+
+    gBattleMons[gBattlerAttacker].statStages[stat] = defStatStage;
+    gBattleMons[gBattlerTarget].statStages[stat] = atkStatStage;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_jumpifnotspeciescondition(void)
+{
+    CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
+
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    if (cmd->jumpIfTrue)
+    {
+        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+    else
+    {
+        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
