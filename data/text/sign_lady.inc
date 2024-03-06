@@ -14,7 +14,7 @@ PalletTown_Text_ReadItReadIt::
 @ Used by sign
 PalletTown_Text_PressStartToOpenMenu::
 	.string "TRAINER TIPS\p"
-	.string "Press START to open the MENU!$"
+	.string "Talk to her again!$"
 
 PalletTown_Text_SignsAreUsefulArentThey::
 	.string "Signs are useful, aren't they?$"

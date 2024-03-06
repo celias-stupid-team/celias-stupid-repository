@@ -1464,9 +1464,9 @@ PokemonJournal_Text_SpecialFeatureLance::
 PokemonJournal_Text_SpecialFeatureProfOak::
 	.string "POKéMON JOURNAL\p"
 	.string "Special Feature: PROF. OAK,\n"
-	.string "the POKéMON Researcher!\p"
-	.string "PROF. OAK reportedly lives with his\n"
-	.string "grandchildren DAISY and {RIVAL}.$"
+	.string "the POKéMON tree!\p"
+	.string "PROF. OAK is continuing to grow\n"
+	.string "at a rate of one ring per year!$"
 
 PokemonJournal_Text_SpecialFeatureDaisyOak::
 	.string "This is a POKéMON JOURNAL from\n"

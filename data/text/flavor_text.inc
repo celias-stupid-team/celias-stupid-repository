@@ -12,8 +12,8 @@ Text_ATownMap::
 	.string "A TOWN MAP.$"
 
 Text_PokeMartShelf::
-	.string "Wow!\n"
-	.string "Tons of POKéMON stuff!$"
+	.string "The POTION section is suspiciously\n"
+	.string "empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
 	.string "Dishes and plates are neatly\n"
@@ -24,8 +24,8 @@ Text_Kitchen::
 	.string "Somebody's been cooking here.$"
 
 Text_Dresser::
-	.string "It's a nicely made dresser.\n"
-	.string "It will hold a lot of stuff.$"
+	.string "Twelve identical copies of your\n"
+	.string "favorite shirt.$"
 
 Text_Snacks::
 	.string "There's a pile of snacks here.$"
@@ -61,8 +61,8 @@ Text_Painting::
 	.string "It looks like it's feeling good.$"
 
 Text_PowerPlantMachine::
-	.string "What could this machine be?\n"
-	.string "Better not mess around with it!$"
+	.string "It appears to be a hobbyist\n"
+	.string "nuclear reactor.$"
 
 Text_Telephone::
 	.string "It's a telephone.\n"
@@ -98,12 +98,12 @@ Text_BeautifulSkyWindow::
 	.string "beautiful.$"
 
 Text_BlinkingLights::
-	.string "Lights in different colors are\n"
-	.string "flashing on and off.$"
+	.string "Oh no!\n"
+	.string "The patient appears to be flatlining!$"
 
 Text_NeatlyLinedUpTools::
-	.string "All sorts of tools are lined up\n"
-	.string "neatly.$"
+	.string "The wall is painted over to give\n"
+	.string "the appearance of merchandise.$"
 
 Text_ImpressiveMachine::
 	.string "It's a machine of some sort.\n"
@@ -118,5 +118,5 @@ Text_Burglary::
 	.string "here…$"
 
 Text_PlayerFacingTVScreen::
-	.string "There's a POKéMON on TV!\n"
-	.string "It looks like it's having fun.$"
+	.string "Wasn't this episode banned in this\n"
+	.string "country?$"
