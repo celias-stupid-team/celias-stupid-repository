@@ -1,6 +1,7 @@
 Route4_Text_TrippedOverGeodude::
-    .string "Ouch! I tripped over a rocky\n"
-    .string "POKéMON, GEODUDE!$"
+    .string "That cave is scary!\p"
+    .string "You can't run from the wild\n"
+    .string "POKéMON there!\p"
 
 Route4_Text_CrissyIntro::
     .string "I came to MT. MOON in search of\n"
@@ -16,7 +17,7 @@ Route4_Text_CrissyPostBattle::
 
 Route4_Text_MtMoonEntrance::
     .string "MT. MOON\n"
-    .string "Tunnel Entrance$"
+    .string "NEW WILD POKéMON: 2$"
 
 Route4_Text_RouteSign::
     .string "ROUTE 4\n"
@@ -71,9 +72,7 @@ Text_MegaKickTaught::
     .string "only simple punching over there.$"
 
 Route4_Text_PeopleLikeAndRespectBrock::
-    .string "Oh, wow, that's the BOULDERBADGE!\n"
-    .string "You got it from BROCK, didn't you?\p"
-    .string "BROCK is cool. He's not just tough.\n"
-    .string "People like and respect him.\p"
-    .string "I want to become a GYM LEADER\n"
-    .string "like him.$"
+    .string "Some POKéMON have abilities that!\n"
+    .string "make them immune to what you have.\p"
+    .string "If that happens, you'll need to.\n"
+    .string "change your approach!$"
