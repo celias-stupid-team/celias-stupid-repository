@@ -12,16 +12,17 @@ MtMoon_1F_Text_MarcosPostBattle::
     .string "wandering around here in the dark.$"
 
 MtMoon_1F_Text_JoshIntro::
-    .string "Did you come to explore the cave,\n"
-    .string "too?$"
+    .string "TENTACOOL stops you from running,\n"
+    .string "but…$"
 
 MtMoon_1F_Text_JoshDefeat::
     .string "Losing stinks!\n"
     .string "It's so uncool.$"
 
 MtMoon_1F_Text_JoshPostBattle::
-    .string "I came all the way down here to\n"
-    .string "show off to girls.$"
+    .string "TENTACOOL stops you from running.\p"
+    .string "I think maybe he just wants to\n"
+    .string "run too…$"
 
 MtMoon_1F_Text_MiriamIntro::
     .string "Wow! It's way bigger in here than\n"
@@ -36,38 +37,39 @@ MtMoon_1F_Text_MiriamPostBattle::
     .string "It's so big, I may get lost.$"
 
 MtMoon_1F_Text_JovanIntro::
-    .string "What!\n"
-    .string "Don't sneak up on me!$"
+    .string "What!?\n"
+    .string "This game is awful!$"
 
 MtMoon_1F_Text_JovanDefeat::
-    .string "My POKéMON won't do!$"
+    .string "Ass!$"
 
 MtMoon_1F_Text_JovanPostBattle::
-    .string "I have to find stronger POKéMON.\n"
-    .string "Where might they be?$"
+    .string "This game fucking sucks!$"
 
 MtMoon_1F_Text_IrisIntro::
-    .string "What?\n"
-    .string "I'm waiting for my friends to find\l"
-    .string "me here.$"
+    .string "Gah!\n"
+    .string "I'm I'm stuck in place!$"
 
 MtMoon_1F_Text_IrisDefeat::
     .string "I lost?$"
 
 MtMoon_1F_Text_IrisPostBattle::
-    .string "I came because I heard there are\n"
-    .string "some very rare fossils here.$"
+    .string "The TENTACOOL everywhere are\n"
+    .string "stopping me from running.\l"
+    .string "Now everyone can look at me!$"
 
 MtMoon_1F_Text_KentIntro::
-    .string "Suspicious men are in the cave.\n"
+    .string "Suspicious layers are in the cave.\n"
     .string "What about you?$"
 
 MtMoon_1F_Text_KentDefeat::
     .string "You got me!$"
 
 MtMoon_1F_Text_KentPostBattle::
-    .string "I saw them!\n"
-    .string "I'm sure they're from TEAM ROCKET!$"
+    .string "Downstairs, there's a bunch of\n"
+    .string "lawyers taking a lay of this place.\p"
+    .string "Be careful if you have any\n"
+    .string "copyrighted material on you!$"
 
 MtMoon_1F_Text_RobbyIntro::
     .string "You need to go through this cave\n"
@@ -83,10 +85,11 @@ MtMoon_1F_Text_RobbyPostBattle::
 
 MtMoon_1F_Text_ZubatIsABloodsucker::
     .string "Beware!\n"
-    .string "ZUBAT is a bloodsucker!$"
+    .string "TENTACOOL is annoying!\p"
+    .string "Be sure to have a FLYING-TYPE!$"
 
 MtMoon_1F_Text_BrockHelpsExcavateFossils::
-    .string "Hi, I'm excavating for fossils here\n"
-    .string "under MT. MOON.\p"
-    .string "Sometimes, BROCK of PEWTER GYM\n"
-    .string "lends me a hand.$"
+    .string "I hear there's someone in this cave\n"
+    .string "with an invincible POKéMON\p"
+    .string "It's only vulnerable to moves that\n"
+    .string "are SUPER-EFFECTIVE against it.$"
