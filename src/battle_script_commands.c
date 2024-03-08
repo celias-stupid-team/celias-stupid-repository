@@ -7213,12 +7213,12 @@ static void Cmd_tryKO_Flash(void)
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
 
-    if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY)
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gLastUsedAbility = ABILITY_STURDY;
+        gLastUsedAbility = ABILITY_SICK_SHADES;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
-        RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
+        RecordAbilityBattle(gBattlerTarget, ABILITY_SICK_SHADES);
     }
     else
     {
