@@ -191,7 +191,7 @@
 
 // Unused?
 #define FLAG_FOUND_Y             0x0AF
-#define FLAG_0x0B0               0x0B0
+#define FLAG_MID_BATTLE_EVENT    0x0B0
 #define FLAG_0x0B1               0x0B1
 #define FLAG_0x0B2               0x0B2
 #define FLAG_0x0B3               0x0B3
