@@ -6057,6 +6057,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "FOCUS SASH",
+      "itemId": "ITEM_FOCUS_SASH",
+      "price": 4000,
+      "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
+      "holdEffectParam": 10,
+      "description_english": "If the holder has\nfull HP, it endures\nKO hits with 1 HP.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }
