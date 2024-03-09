@@ -7213,6 +7213,7 @@ static void Cmd_tryKO_Flash(void)
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
 
+    //Squirtle with Sick Shades Lt. Surge battle solution
     if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
@@ -7223,27 +7224,10 @@ static void Cmd_tryKO_Flash(void)
     else
     {
         u16 chance;
-        if (!(gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS))
-        {
-            chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
-            if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-                chance = TRUE;
-            else
-                chance = FALSE;
-        }
-        else if (gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker
-                 && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-        {
-            chance = TRUE;
-        }
-        else
-        {
-            chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
-            if (Random() % 100 + 1 < chance && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-                chance = TRUE;
-            else
-                chance = FALSE;
-        }
+        
+        //move always hits without restrictions
+        chance = TRUE;
+                
         if (chance)
         {
             if (gProtectStructs[gBattlerTarget].endured)
