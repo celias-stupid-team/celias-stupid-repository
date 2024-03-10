@@ -20,7 +20,7 @@ PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
 
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
     .string "{RIVAL} received the {STR_VAR_1}\n"
-    .string "from PROF. OAK!$"
+    .string "from PROF. OAK (somehow)!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalMyMonLooksTougher::
     .string "{RIVAL}: My POKéMON looks a lot\n"
@@ -86,43 +86,44 @@ PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
     .string "Go on, choose!$"
 
 PalletTown_ProfessorOaksLab_Text_OakBePatientRival::
-    .string "OAK: Be patient, {RIVAL}.\n"
-    .string "You can have one, too!$"
+    .string "OAK: Don't worry, {RIVAL}.\n"
+    .string "If you go second, you'll get the\l"
+    .string "one thats's super-effective!$"
 
 PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose::
     .string "OAK: Now, {PLAYER}.\p"
     .string "Inside those three POKé BALLS are\n"
     .string "POKéMON.\p"
-    .string "Which one will you choose for\n"
-    .string "yourself?$"
+    .string "…What?\n"
+    .string "Why are you looking at me that way??$"
 
 PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
     .string "OAK: Hey!\n"
     .string "Don't go away yet!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
-    .string "Ah! CHARMANDER is your choice.\n"
-    .string "You should raise it patiently.\p"
-    .string "So, {PLAYER}, you're claiming the\n"
-    .string "FIRE POKéMON CHARMANDER?$"
+    .string "You're getting CHARMANDER.\n"
+    .string "whether you like it or not.\p"
+    .string "After all, we need to sell this\n"
+    .string "game to old fans somehow!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
-    .string "Hm! SQUIRTLE is your choice.\n"
-    .string "It's one worth raising.\p"
-    .string "So, {PLAYER}, you've decided on the\n"
-    .string "WATER POKéMON SQUIRTLE?$"
+    .string "you'd like CHARMANDER then?\n"
+    .string "I hear he's very popular.\p"
+    .string "So, {PLAYER}, you're going with\n"
+    .string "the FIRE POKéMON CHARMANDER, yes?$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur::
-    .string "I see! BULBASAUR is your choice.\n"
-    .string "It's very easy to raise.\p"
+    .string "I see! CHARMANDER is your choice.\n"
+    .string "It's one of my favorites!\p"
     .string "So, {PLAYER}, you want to go with\n"
-    .string "the GRASS POKéMON BULBASAUR?$"
+    .string "the FIRE POKéMON CHARMANDER?$"
 
 PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic::
     .string "This POKéMON is really quite\n"
-    .string "energetic!$"
+    .string "marketable!$"
 
-PalletTown_ProfessorOaksLab_Text_ReceivedMonFromOak::
+    PalletTown_ProfessorOaksLab_Text_ReceivedMonFromOak::
     .string "{PLAYER} received the {STR_VAR_1}\n"
     .string "from PROF. OAK!$"
 
@@ -139,12 +140,6 @@ PalletTown_ProfessorOaksLab_Text_OakBattleMonForItToGrow::
 
 PalletTown_ProfessorOaksLab_Text_OakHaveSomethingForMe::
     .string "OAK: Oh, {PLAYER}!\n"
-    .string "How is my old POKéMON?\p"
-    .string "Well, it seems to be growing more\n"
-    .string "attached to you.\p"
-    .string "You must be talented as a POKéMON\n"
-    .string "TRAINER.\p"
-    .string "What's that?\n"
     .string "You have something for me?$"
 
 PalletTown_ProfessorOaksLab_Text_DeliveredOaksParcel::
@@ -152,9 +147,9 @@ PalletTown_ProfessorOaksLab_Text_DeliveredOaksParcel::
 
 PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered::
     .string "Ah! \n"
-    .string "It's the custom POKé BALL!\p"
-    .string "I had it on order.\n"
-    .string "Thank you!$"
+    .string "It's the GS BALL!\p"
+    .string "This will definitely be\n"
+    .string "Important and plot-relevant!$"
 
 PalletTown_ProfessorOaksLab_Text_OakHaveRequestForYouTwo::
     .string "OAK: Oh, right!\n"
@@ -163,9 +158,9 @@ PalletTown_ProfessorOaksLab_Text_OakHaveRequestForYouTwo::
 PalletTown_ProfessorOaksLab_Text_OakPokedexOnDesk::
     .string "On the desk there is my invention,\n"
     .string "the POKéDEX!\p"
-    .string "It automatically records data on\n"
-    .string "POKéMON you've seen or caught.\p"
-    .string "It's a high-tech encyclopedia!$"
+    .string "It is a device that I absolutely\n"
+    .string "made, and which no one else will\l"
+    .string "ever copy!$"
 
 PalletTown_ProfessorOaksLab_Text_OakTakeTheseWithYou::
     .string "OAK: {PLAYER} and {RIVAL}.\n"
@@ -176,24 +171,17 @@ PalletTown_ProfessorOaksLab_Text_ReceivedPokedexFromOak::
     .string "from PROF. OAK.$"
 
 PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese::
-    .string "OAK: You can't get detailed data\n"
-    .string "on POKéMON by just seeing them.\p"
-    .string "You must catch them to obtain\n"
-    .string "complete data.\p"
-    .string "So, here are some tools for\n"
-    .string "catching wild POKéMON.$"
+    .string "OAK: And these too!$"
 
-PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls::
-    .string "{PLAYER} received five POKé BALLS.$"
+PalletTown_ProfessorOaksLab_Text_ReceivedSevenPokeBalls::
+    .string "{PLAYER} received seven POKé BALLS.$"
 
 PalletTown_ProfessorOaksLab_Text_OakExplainCatching::
-    .string "When a wild POKéMON appears,\n"
-    .string "it's fair game.\p"
-    .string "Just throw a POKé BALL at it and\n"
-    .string "try to catch it!\p"
-    .string "This won't always work, however.\p"
-    .string "A healthy POKéMON can escape.\n"
-    .string "You have to be lucky!$"
+    .string "Now, this is important!\p"
+    .string "It is VERY strongly recommended that\n"
+    .string "you complete the POKéDEX!\p"
+    .string "Otherwise you'll miss out on\n"
+    .string "a lot of the fun!$"
 
 PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "To make a complete guide on all\n"
@@ -208,8 +196,10 @@ PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "POKéMON history!$"
 
 PalletTown_ProfessorOaksLab_Text_OakMonsAroundWorldWait::
-    .string "POKéMON around the world wait for\n"
-    .string "you, {PLAYER}!$"
+    .string "All right, {PLAYER}, remember!\p"
+    .string "It is VERY strongly recommended\n"
+    .string "that you complete your POKéDEX!\p"
+    .string "Please do keep that in mind.$"
 
 PalletTown_ProfessorOaksLab_Text_OakAddedNothingToPokedex::
     .string "Ah, {PLAYER}!\n"
@@ -229,8 +219,9 @@ PalletTown_ProfessorOaksLab_Text_OakComeSeeMeSometime::
     .string "POKéDEX is coming along.$"
 
 PalletTown_ProfessorOaksLab_Text_BlankEncyclopedia::
-    .string "It's like an encyclopedia, but the\n"
-    .string "pages are blank.$"
+    .string "It's like an encyclopedia.\p"
+    .string "…What, you've never seen an.\n"
+    .string "encyclopedia that looks like this?$"
 
 PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "Those are POKé BALLS.\n"
@@ -240,11 +231,11 @@ PalletTown_ProfessorOaksLab_Text_OaksLastMon::
     .string "That's PROF. OAK's last POKéMON.$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
-    .string "Press START to open the MENU!$"
+    .string "Press SPACE to speed up!$"
 
 PalletTown_ProfessorOaksLab_Text_SaveOptionInMenu::
-    .string "The SAVE option is on the MENU.\n"
-    .string "Use it regularly.$"
+    .string "The SAVESTATE option is in your.\n"
+    .string "emulator.$"
 
 PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
     .string "All POKéMON types have strong and\n"
@@ -253,16 +244,15 @@ PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
 PalletTown_ProfessorOaksLab_Text_EmailMessage::
     .string "There's an e-mail message here.\p"
     .string "…\p"
-    .string "Finally!\n"
-    .string "The ultimate TRAINERS of the\l"
-    .string "POKéMON LEAGUE are ready to\l"
-    .string "take on all comers!\p"
-    .string "Bring your best POKéMON and see\n"
-    .string "how you rate as a TRAINER!\p"
-    .string "POKéMON LEAGUE HQ\n"
-    .string "INDIGO PLATEAU\p"
-    .string "PROF. OAK, please visit us!\n"
-    .string "…$"
+    .string "Greetings, friend!\n"
+    .string "It is indeed my pleasure to write\l"
+    .string "to you this letter.\p"
+    .string "My name is Mutassim Gaddafi, and I\n"
+    .string "am a prince of Nigeria.\p"
+    .string "Recently, my father has passed away\n"
+    .string "and left me with a large sum.\p"
+    .string "MR. OAK, please send us a\n"
+    .string "small fee…$"
 
 PalletTown_ProfessorOaksLab_Text_StudyAsOaksAide::
     .string "I study POKéMON as PROF. OAK's\n"

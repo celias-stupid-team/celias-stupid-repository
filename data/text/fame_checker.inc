@@ -77,7 +77,8 @@ gFameCheckerFlavorText_Brock0:: @ 0x81AD705
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PEWTER CITY POKéMON GYM\n"
 	.string "LEADER: BROCK\l"
-	.string "The Rock-Solid POKéMON TRAINER!$"
+	.string "The longest GYM in KANTO!\p"
+    .string "RECOMMENDED LEVEL: 10$"
 
 gFameCheckerFlavorText_Brock1:: @ 0x81AD771
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
@@ -1464,9 +1465,9 @@ PokemonJournal_Text_SpecialFeatureLance::
 PokemonJournal_Text_SpecialFeatureProfOak::
 	.string "POKéMON JOURNAL\p"
 	.string "Special Feature: PROF. OAK,\n"
-	.string "the POKéMON Researcher!\p"
-	.string "PROF. OAK reportedly lives with his\n"
-	.string "grandchildren DAISY and {RIVAL}.$"
+	.string "the POKéMON tree!\p"
+	.string "PROF. OAK is continuing to grow\n"
+	.string "at a rate of one ring per year!$"
 
 PokemonJournal_Text_SpecialFeatureDaisyOak::
 	.string "This is a POKéMON JOURNAL from\n"

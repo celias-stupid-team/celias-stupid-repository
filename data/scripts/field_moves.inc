@@ -53,8 +53,10 @@ Text_MonUsedMove::
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
 
 Text_TreeCanBeCutDown::
-	.string "This tree looks like it can be CUT\n"
-	.string "down!$"
+	.string "OAK: Hi there, {PLAYER}! How's your\n"
+	.string "POKéDEX coming along?\p"
+	.string "OAK: Don't forget, there's a time\n"
+	.string "and a place for everything!$"
 
 EventScript_RockSmash::
 	goto_if_questlog EventScript_ReleaseEnd

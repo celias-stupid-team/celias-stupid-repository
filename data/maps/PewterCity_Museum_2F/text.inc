@@ -22,16 +22,17 @@ Text_SeismicTossTaught::
     .string "Keep it up.$"
 
 PewterCity_Museum_1F_Text_WhatsSpecialAboutMoonStone::
-    .string "MOON STONE, huh?\p"
-    .string "What's so special about it?\n"
-    .string "Looks like an ordinary rock to me.$"
+    .string "MOON STONE, huh?\n"
+    .string "Those are extremely rare!\p"
+    .string "I hear you can't even find them\n"
+    .string "in MT. MOON anymore!$"
 
 PewterCity_Museum_1F_Text_BoughtColorTVForMoonLanding::
-    .string "July 20, 1969!\p"
-    .string "Humankind first set foot on the\n"
-    .string "moon that day.\p"
-    .string "I bought a color TV just so I\n"
-    .string "could watch that news.$"
+    .string "I remember when they finally\n"
+    .string "launched a rocked from the\l"
+    .string "MOSSDEEP SPACE CENTER.\p"
+    .string "It turns out the WHITE ROCK was the\n"
+    .string "key all along!$"
 
 PewterCity_Museum_1F_Text_RunningSpaceExhibitThisMonth::
     .string "This month, we're running a space\n"
@@ -43,12 +44,15 @@ PewterCity_Museum_1F_Text_AskedDaddyToCatchPikachu::
     .string "I asked my daddy to catch me one!$"
 
 PewterCity_Museum_1F_Text_PikachuSoonIPromise::
-    .string "Yeah, a PIKACHU soon, I promise!$"
+    .string "Sweetie, we have PIKACHU at home.\p"
+    .string "...What do you mean, “EMOLGA isn't\n"
+    .string "the same thing?”$"
 
 PewterCity_Museum_1F_Text_SpaceShuttle::
-    .string "Space Shuttle$"
+    .string "It looks like a space shuttle, but\n"
+    .string "it's actually a very fancy toaster.$"
 
 PewterCity_Museum_1F_Text_MeteoriteThatFellOnMtMoon::
-    .string "A meteorite that fell on MT. MOON.\n"
-    .string "It is thought to be a MOON STONE.$"
+    .string "There should be a MOON STONE here,\n"
+    .string "but it appears to be missing.$"
 
