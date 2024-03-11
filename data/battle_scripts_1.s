@@ -2487,6 +2487,7 @@ BattleScript_EffectEndeavor::
 	attackcanceler
 	attackstring
 	ppreduce
+	goto_if_set FLAG_TEMP_START_EVENT_BATTLE, BattleScript_SetMidBattleEventFlag
 	setdamagetohealthdifference BattleScript_ButItFailed
 	copyword gHpDealt, gBattleMoveDamage
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
@@ -4391,4 +4392,8 @@ BattleScript_ActionSelectionItemsCantBeUsed::
 
 BattleScript_FlushMessageBox::
 	printstring STRINGID_EMPTYSTRING3
+	return
+
+BattleScript_SetMidBattleEventFlag::
+	setflag FLAG_TEMP_MID_BATTLE_EVENT
 	return
