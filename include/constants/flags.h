@@ -190,9 +190,9 @@
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
 // Unused?
-#define FLAG_FOUND_Y             0x0AF
-#define FLAG_MID_BATTLE_EVENT    0x0B0
-#define FLAG_0x0B1               0x0B1
+#define FLAG_FOUND_Y                    0x0AF
+#define FLAG_TEMP_MID_BATTLE_EVENT      0x0B0
+#define FLAG_TEMP_START_EVENT_BATTLE    0x0B1
 #define FLAG_0x0B2               0x0B2
 #define FLAG_0x0B3               0x0B3
 #define FLAG_0x0B4               0x0B4
