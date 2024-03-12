@@ -190,8 +190,15 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
-
-#define VAR_0x408C                 0x408C
+/*VAR_TEMP_START_EVENT_BATTLE:
+0 = no event battle (default)
+1 = Larry with Zapdos
+2 = Brock
+3 = Scientist Miguel
+4 = Surge
+5 = Giovanni 1
+*/
+#define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F

@@ -1633,6 +1633,11 @@
 	.2byte \quantity
 	.endm
 
+	@Creates a DebugPrintf output for the given text
+	.macro debugprintf text:req
+	.byte 0xd5
+	.4byte \text
+	.endm
 
 @ Supplementary
 

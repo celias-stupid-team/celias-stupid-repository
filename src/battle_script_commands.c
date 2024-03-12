@@ -7238,9 +7238,9 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_SICK_SHADES;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_SICK_SHADES);
-        if (FlagGet(FLAG_TEMP_START_EVENT_BATTLE)) {
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 4) {
             FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
-            DebugPrintf("Mid-battle-event: SICK SHADES activated!");
+            DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
         }
     }
     else

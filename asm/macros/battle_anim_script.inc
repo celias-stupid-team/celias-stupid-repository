@@ -283,3 +283,80 @@
 	.macro jumpretfalse ptr:req
 	jumpreteq FALSE, \ptr
 	.endm
+	
+
+
+	@ If the result of the last comparison matches condition (see Comparison operators), jumps to destination and continues script execution from there.
+	.macro call_if condition:req, destination:req
+	.byte 0x30
+	.byte \condition
+	.4byte \destination
+	.endm
+
+	@ Compares the value of 'var' to a fixed value.
+	@ The result is stored in gBattleAnimArgs to be acted on by call_if / call_if
+	.macro compare_var_to_value var:req, value:req
+	.byte 0x31
+	.2byte \var
+	.2byte \value
+	.endm
+
+	@ Compares the value of 'var1' to the value of 'var2'.
+	@ The result is stored in gBattleAnimArgs to be acted on by call_if / call_if
+	.macro compare_var_to_var var1:req, var2:req
+	.byte 0x32
+	.2byte \var1
+	.2byte \var2
+	.endm
+
+	@ Generic compare macro which attempts to deduce argument types based on their values
+	@ Any values between VARS_START to VARS_END and SPECIAL_VARS_START to SPECIAL_VARS_END are considered event variable identifiers
+	.macro compare var:req, arg:req
+		.if ((\arg >= VARS_START && \arg <= VARS_END) || (\arg >= SPECIAL_VARS_START && \arg <= SPECIAL_VARS_END))
+			compare_var_to_var \var, \arg
+		.else
+			compare_var_to_value \var, \arg
+		.endif
+	.endm
+
+	.macro call_if_lt a:req @ LESS THAN
+	call_if 0, \a
+	.endm
+
+	.macro call_if_eq a:req @ EQUAL
+	call_if 1, \a
+	.endm
+
+	.macro call_if_gt a:req @ GREATER THAN
+	call_if 2, \a
+	.endm
+
+	.macro call_if_le a:req @ LESS THAN OR EQUAL
+	call_if 3, \a
+	.endm
+
+	.macro call_if_ge a:req @ GREATER THAN OR EQUAL
+	call_if 4, \a
+	.endm
+
+	.macro call_if_ne a:req @ NOT EQUAL
+	call_if 5, \a
+	.endm
+
+	@ Sets flag to TRUE.
+	.macro setflag flag:req
+	.byte 0x33
+	.2byte \flag
+	.endm
+
+	@ Sets flag to FALSE.
+	.macro clearflag flag:req
+	.byte 0x34
+	.2byte \flag
+	.endm
+
+	@Creates a DebugPrintf output for the given text
+	.macro debugprintf text:req
+	.byte 0x35
+	.4byte \text
+	.endm

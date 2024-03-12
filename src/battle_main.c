@@ -3869,6 +3869,7 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
             FreeMonSpritesGfx();
             FreeBattleSpritesData();
             FreeBattleResources();
+            ClearTempData_CSR();
         }
     }
 }
