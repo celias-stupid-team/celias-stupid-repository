@@ -1,5 +1,5 @@
 Route22_Text_EarlyRivalIntro::
-	.string "{RIVAL}: Hey! {PLAYER}!\p"
+	.string "LARRY: Hey! {PLAYER}!\p"
 	.string "You're off to the POKéMON LEAGUE?\n"
 	.string "Forget about it!\p"
 	.string "You probably don't have any\n"
@@ -11,15 +11,14 @@ Route22_Text_EarlyRivalIntro::
 
 Route22_Text_EarlyRivalDefeat::
 	.string "Awww!\n"
-	.string "You just lucked out!$"
+	.string "You just lucked with that FOCUS BAND!$"
 
 Route22_Text_EarlyRivalPostBattle::
-	.string "I heard the POKéMON LEAGUE is\n"
-	.string "crawling with tough TRAINERS.\p"
-	.string "I have to figure out how to get\n"
-	.string "past them.\p"
-	.string "You should quit dawdling and get a\n"
-	.string "move on!$"
+	.string "LARRY: I thought for sure that\n"
+	.string "my ZAPDOS could beat you!\l"
+	.string "Stupid rat!\p"
+	.string "…Huh? GARY? Who's that?\p"
+	.string "My name is LARRY!$"
 
 @ Translated in RB as "{RIVAL}: What? Why do I have 2 POKéMON? You should catch some more too!"
 Route22_Text_RivalShouldCatchSomeMons::

@@ -1,8 +1,9 @@
 PewterCity_House2_Text_MonsLearnTechniquesAsTheyGrow::
-    .string "POKéMON learn new techniques as\n"
-    .string "they grow.\p"
-    .string "But some moves must be taught to\n"
-    .string "them by people.$"
+    .string "You're completing the POKéDEX?\n"
+    .string "Good luck!\p"
+    .string "You can save yourself some grinding\n"
+    .string "by catching evolved POKéMON in the\l"
+    .string "wild$"
 
 PewterCity_House2_Text_MonsEasierCatchIfStatused::
     .string "A POKéMON becomes easier to \n"

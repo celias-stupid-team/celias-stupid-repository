@@ -19,8 +19,4 @@ ViridianCity_House_EventScript_Speary::
 	waitmoncry
 	release
 	end
-
-ViridianCity_House_EventScript_NicknameSign::
-	msgbox ViridianCity_House_Text_SpearowNameSpeary, MSGBOX_SIGN
-	end
 `

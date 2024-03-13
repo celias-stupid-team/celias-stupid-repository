@@ -281,6 +281,7 @@ static const struct SpriteTemplate sSpriteTemplate_InputArrow;
 static const struct SpriteTemplate sSpriteTemplate_Underscore;
 static const struct SpriteTemplate sSpriteTemplate_PCIcon;
 static const u8 *const sNamingScreenKeyboardText[][KBROW_COUNT];
+static const u8 *const sNamingScreenKeyboardTextNoY[][KBROW_COUNT];
 static const struct SpriteSheet sSpriteSheets[];
 static const struct SpritePalette sSpritePalettes[];
 static const struct NamingScreenTemplate *const sNamingScreenTemplates[];
@@ -1820,9 +1821,20 @@ static bool8 AddTextCharacter(void)
 {
     s16 x;
     s16 y;
+    u8 ch;
 
     GetCursorPos(&x, &y);
-    BufferCharacter(GetCharAtKeyboardPos(x, y));
+    ch = GetCharAtKeyboardPos(x, y);
+
+    if(ch == CHAR_Y || ch == CHAR_y){
+        if(!FlagGet(FLAG_FOUND_Y)){
+            PlaySE(SE_BOO);
+
+            return FALSE;
+        }
+    }
+
+    BufferCharacter(ch);
     DrawTextEntry();
     CopyBgTilemapBufferToVram(3);
     PlaySE(SE_SELECT);
@@ -1831,6 +1843,9 @@ static bool8 AddTextCharacter(void)
         return FALSE;
     else
         return TRUE;
+
+
+
 }
 
 static void BufferCharacter(u8 ch)
@@ -1939,9 +1954,10 @@ static void PrintKeyboardKeys(u8 window, u8 page)
 
     FillWindowPixelBuffer(window, sFillValues[page]);
 
-    for (i = 0; i < KBROW_COUNT; i++)
-        AddTextPrinterParameterized3(window, FONT_NORMAL_COPY_1, 0, i * 16 + 1, sKeyboardTextColors[page], 0, sNamingScreenKeyboardText[page][i]);
-
+    for (i = 0; i < KBROW_COUNT; i++){
+        const u8 *const keyboardTextToUse = FlagGet(FLAG_FOUND_Y) ? sNamingScreenKeyboardText[page][i] : sNamingScreenKeyboardTextNoY[page][i];
+        AddTextPrinterParameterized3(window, FONT_NORMAL_COPY_1, 0, i * 16 + 1, sKeyboardTextColors[page], 0, keyboardTextToUse);
+    }
     PutWindowTilemap(window);
 }
 
@@ -2462,6 +2478,27 @@ static const u8 *const sNamingScreenKeyboardText[KBPAGE_COUNT][KBROW_COUNT] = {
         gText_NamingScreenKeyboard_GHIJKL,
         gText_NamingScreenKeyboard_MNOPQRS,
         gText_NamingScreenKeyboard_TUVWXYZ
+    },
+    [KEYBOARD_SYMBOLS] = {
+        gText_NamingScreenKeyboard_01234,
+        gText_NamingScreenKeyboard_56789,
+        gText_NamingScreenKeyboard_Symbols1,
+        gText_NamingScreenKeyboard_Symbols2
+    },
+};
+
+static const u8 *const sNamingScreenKeyboardTextNoY[KBPAGE_COUNT][KBROW_COUNT] = {
+    [KEYBOARD_LETTERS_LOWER] = {
+        gText_NamingScreenKeyboard_abcdef,
+        gText_NamingScreenKeyboard_ghijkl,
+        gText_NamingScreenKeyboard_mnopqrs,
+        gText_NamingScreenKeyboard_tuvwxz
+    },
+    [KEYBOARD_LETTERS_UPPER] = {
+        gText_NamingScreenKeyboard_ABCDEF,
+        gText_NamingScreenKeyboard_GHIJKL,
+        gText_NamingScreenKeyboard_MNOPQRS,
+        gText_NamingScreenKeyboard_TUVWXZ
     },
     [KEYBOARD_SYMBOLS] = {
         gText_NamingScreenKeyboard_01234,

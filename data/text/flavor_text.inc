@@ -1,42 +1,8 @@
 @ Flavor text for interacting with various background objects
 
 Text_Bookshelf::
-	.string "My Secret Life, chapter three.\n"
-	.string "\n"
-	.string "I was neither a murder suspect, nor\n"
-	.string "a target for an international spy\n"
-	.string "organization.\n"
-	.string "\n"
-	.string "But I drove a car down the Jersey\n"
-	.string "Turnpike at 80 mph.\n"
-	.string "\n"
-	.string "\.A police officer pulled me over\n"
-	.string "and asked for my driver's license.\n"
-	.string "\n"
-	.string "He said I was going 20 mph over the\n"
-	.string "speed limit. I instantly pointed to\n"
-	.string "my wife and said, \qoI'm in a hurry,\n"
-	.string "my wife is in labor.\qc\n"
-	.string "\n"
-	.string "Fortunately, my wife actually had a\n"
-	.string "big stomach.\n"
-	.string "\n"
-	.string "I hoped he'd let me go with this\n"
-	.string "excuse.\n"
-	.string "\n"
-	.string "\qoOh, since it's an emergency, I'll\n"
-	.string "lead you to the hospital with my\n"
-	.string "police car,\qc he said.\n"
-	.string "\n"
-	.string "\qoNo, it's not necessary.\qc\n"
-	.string "\n"
-	.string "\qoWhy not?\qc asked the officer.\n"
-	.string "\qoUh\. well\.\qc\n"
-	.string "\n"
-	.string "\qoLet's get going,\qc said the officer.\n"
-	.string "\n"
-	.string "\qoNo, no! We can't! This baby is a\n"
-	.string "demon child!\qc\n"
+	.string "It's crammed full of POKéMON\n"
+	.string "books.$"
 
 Text_NothingButPokemonBooks::
 	.string "ほんだなに　ならんでいるのは\n"
@@ -46,8 +12,8 @@ Text_ATownMap::
 	.string "A TOWN MAP.$"
 
 Text_PokeMartShelf::
-	.string "Wow!\n"
-	.string "Tons of POKéMON stuff!$"
+	.string "The POTION section is suspiciously\n"
+	.string "empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
 	.string "Dishes and plates are neatly\n"
@@ -58,8 +24,8 @@ Text_Kitchen::
 	.string "Somebody's been cooking here.$"
 
 Text_Dresser::
-	.string "It's a nicely made dresser.\n"
-	.string "It will hold a lot of stuff.$"
+	.string "Twelve identical copies of your\n"
+	.string "favorite shirt.$"
 
 Text_Snacks::
 	.string "There's a pile of snacks here.$"
@@ -95,8 +61,8 @@ Text_Painting::
 	.string "It looks like it's feeling good.$"
 
 Text_PowerPlantMachine::
-	.string "What could this machine be?\n"
-	.string "Better not mess around with it!$"
+	.string "It appears to be a hobbyist\n"
+	.string "nuclear reactor.$"
 
 Text_Telephone::
 	.string "It's a telephone.\n"
@@ -132,12 +98,12 @@ Text_BeautifulSkyWindow::
 	.string "beautiful.$"
 
 Text_BlinkingLights::
-	.string "Lights in different colors are\n"
-	.string "flashing on and off.$"
+	.string "Oh no!\n"
+	.string "The patient appears to be flatlining!$"
 
 Text_NeatlyLinedUpTools::
-	.string "All sorts of tools are lined up\n"
-	.string "neatly.$"
+	.string "The wall is painted over to give\n"
+	.string "the appearance of merchandise.$"
 
 Text_ImpressiveMachine::
 	.string "It's a machine of some sort.\n"
@@ -152,5 +118,5 @@ Text_Burglary::
 	.string "here…$"
 
 Text_PlayerFacingTVScreen::
-	.string "There's a POKéMON on TV!\n"
-	.string "It looks like it's having fun.$"
+	.string "Wasn't this episode banned in this\n"
+	.string "country?$"

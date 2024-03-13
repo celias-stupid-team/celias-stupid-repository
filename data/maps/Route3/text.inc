@@ -1,23 +1,25 @@
 Route3_Text_TunnelFromCeruleanTiring::
     .string "Whew… I better take a rest…\n"
     .string "Groan…\p"
-    .string "That tunnel from CERULEAN takes a\n"
-    .string "lot out of you!$"
+    .string "That tunnel from VERMILLION over to\n"
+    .string "ROUTE 2 up through PEWTER and now\l"
+    .string "onto ROUTE 3 really takes it out of\l"
+    .string "you.$"
 
 Route3_Text_ColtonIntro::
     .string "Hey!\n"
-    .string "I saw you in VIRIDIAN FOREST!$"
+    .string "I saw you in PETALBURG WOODS!$"
 
 Route3_Text_ColtonDefeat::
-    .string "You beat me again!$"
+    .string "Wait, was that you?$"
 
 Route3_Text_ColtonPostBattle::
-    .string "There are other kinds of POKéMON\n"
-    .string "than the ones you find in forests.$"
+    .string "Oh, maybe it was SANTALUNE FOREST\n"
+    .string "I saw you in?$"
 
 Route3_Text_BenIntro::
-    .string "Hi!\n"
-    .string "I like shorts!\p"
+    .string "I am SHORTS!\n"
+    .string "I'm comfy and easy to wear!\p"
     .string "They're delightfully comfy and\n"
     .string "easy to wear!$"
 
@@ -25,21 +27,24 @@ Route3_Text_BenDefeat::
     .string "I don't believe it!$"
 
 Route3_Text_BenPostBattle::
-    .string "Are you using a POKéMON CENTER's\n"
-    .string "PC for storing your POKéMON?\p"
-    .string "Each BOX can hold up to\n"
-    .string "30 POKéMON.$"
+    .string "I am SHORTS\p"
+    .string "Put me on please!$"
 
 Route3_Text_JaniceIntro::
     .string "Excuse me!\n"
-    .string "You looked at me, didn't you?$"
+    .string "You looked at me, didn't you?\p"
+    .string "Yup, you definitely looked\n"
+    .string "at me.\p"
+    .string "That certainly is what just\n"
+    .string "happened.$"
 
 Route3_Text_JaniceDefeat::
-    .string "You're mean!$"
+    .string "You're mean!\n"
+    .string "Stop looking at me!$"
 
 Route3_Text_JanicePostBattle::
-    .string "You shouldn't be staring if you\n"
-    .string "don't want to battle!$"
+    .string "Excuse me!\n"
+    .string "don'How DARE you have eyes!$"
 
 Route3_Text_GregIntro::
     .string "Are you a TRAINER?\n"
@@ -55,7 +60,9 @@ Route3_Text_GregPostBattle::
 
 Route3_Text_SallyIntro::
     .string "That look you gave me…\n"
-    .string "It's so intriguing!$"
+    .string "It was.\p"
+    .string "Yup.\n"
+    .string "There definitely was a look.$"
 
 Route3_Text_SallyDefeat::
     .string "Be nice!$"
@@ -65,8 +72,8 @@ Route3_Text_SallyPostBattle::
     .string "letting TRAINERS see you.$"
 
 Route3_Text_CalvinIntro::
-    .string "Hey! You're not wearing shorts!\n"
-    .string "What's wrong with you?$"
+    .string "Hey! I'm the other shorts kid!\n"
+    .string "No one seems to remember me though…$"
 
 Route3_Text_CalvinDefeat::
     .string "Lost!\n"
@@ -88,8 +95,8 @@ Route3_Text_JamesPostBattle::
     .string "the wild ones.$"
 
 Route3_Text_RobinIntro::
-    .string "Eek!\n"
-    .string "Did you touch me?$"
+    .string "You can avoid battles by not\n"
+    .string "letting TRAINERS see you.$"
 
 Route3_Text_RobinDefeat::
     .string "That's it?$"
@@ -100,5 +107,6 @@ Route3_Text_RobinPostBattle::
 
 Route3_Text_RouteSign::
     .string "ROUTE 3\n"
-    .string "MT. MOON AHEAD$"
+    .string "NEW WILD POKéMON: 1\l"
+    .string "NEW SMASH BROS CHARACTERS: 1$"
 

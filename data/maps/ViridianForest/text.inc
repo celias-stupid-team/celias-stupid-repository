@@ -1,8 +1,6 @@
 ViridianForest_Text_FriendsItchingToBattle::
-    .string "I came here with some friends to\n"
-    .string "catch us some BUG POKéMON!\p"
-    .string "They're all itching to get into\n"
-    .string "some POKéMON battles!$"
+    .string "Did you know you can't encounter\n"
+    .string "POKéMON in tiles that have flowers?$"
 
 ViridianForest_Text_RickIntro::
     .string "Hey! You have POKéMON!\n"
@@ -10,24 +8,28 @@ ViridianForest_Text_RickIntro::
     .string "Let's battle 'em!$"
 
 ViridianForest_Text_RickDefeat::
-    .string "No!\nCATERPIE can't hack it!$"
+    .string "No!\n"
+    .string "CATERPIE is unable to modify the\l"
+    .string "existing ROM to create unintended\l"
+    .string "behavior!$"
 
 ViridianForest_Text_RickPostBattle::
-    .string "Ssh! You'll scare the bugs away.\n"
-    .string "Another time, okay?$"
+    .string "CATERPIE is unable to modify the\l"
+    .string "existing ROM to create unintended\l"
+    .string "behavior!$"
 
 ViridianForest_Text_DougIntro::
     .string "Yo!\n"
-    .string "You can't jam out if you're a\l"
-    .string "POKéMON TRAINER!$"
+    .string "I like jam!$"
 
 ViridianForest_Text_DougDefeat::
     .string "Huh?\n"
     .string "I ran out of POKéMON!$"
 
 ViridianForest_Text_DougPostBattle::
-    .string "That totally stinks! I'm going to\n"
-    .string "catch some stronger ones!$"
+    .string "Man, I thought I was so strong!\p"
+    .string "I beat this one guy more than\n"
+    .string "300 times in a row once!$"
 
 ViridianForest_Text_SammyIntro::
     .string "Hey, wait up!\n"
@@ -44,32 +46,36 @@ ViridianForest_Text_SammyPostBattle::
     .string "dropped. Can you help me?$"
 
 ViridianForest_Text_AnthonyIntro::
-    .string "I might be little, but I won't like\n"
-    .string "it if you go easy on me!$"
+    .string "I might be little, but I'm the \n"
+    .string "POKéMON 10U champion!$"
 
 ViridianForest_Text_AnthonyDefeat::
     .string "Oh, boo.\n"
     .string "Nothing went right.$"
 
 ViridianForest_Text_AnthonyPostBattle::
-    .string "I lost some of my allowance…$"
+    .string "Huh? DITTO isn't showing up in\n"
+    .string "your POKéDEX?$"
 
 ViridianForest_Text_CharlieIntro::
-    .string "Did you know that POKéMON evolve?$"
+    .string "Did you know that POKéMON evolve?\p"
+    .string "That's why my parents didn't let\n"
+    .string "me play it!$"
 
 ViridianForest_Text_CharlieDefeat::
     .string "Oh!\n"
     .string "I lost!$"
 
 ViridianForest_Text_CharliePostBattle::
-    .string "BUG POKéMON evolve quickly.\n"
-    .string "They're a lot of fun!$"
+    .string "BUG POKéMON evolve quickly.\p"
+    .string "Well, except for CATERPIE.$"
 
 ViridianForest_Text_RanOutOfPokeBalls::
     .string "I was throwing POKé BALLS to\n"
     .string "catch POKéMON, and I ran out.\p"
-    .string "That's why you can never have too\n"
-    .string "many POKé BALLS.$"
+    .string "Thankfully, catch rates are all\n"
+    .string "set to the maximum!\l"
+    .string "(...mostly.)$"
 
 ViridianForest_Text_AvoidGrassyAreasWhenWeak::
     .string "TRAINER TIPS\p"
@@ -82,22 +88,20 @@ ViridianForest_Text_UseAntidoteForPoison::
     .string "Get it at POKéMON MARTS!$"
 
 ViridianForest_Text_ContactOakViaPCToRatePokedex::
-    .string "TRAINER TIPS\p"
-    .string "Contact PROF. OAK via a PC to\n"
-    .string "get your POKéDEX evaluated!$"
+    .string "For bugs, use POISON\p"
+    .string "This message brought to you by\n"
+    .string "the RBY type chart!$"
 
 ViridianForest_Text_CantCatchOwnedMons::
     .string "TRAINER TIPS\p"
-    .string "You can't catch a POKéMON that\n"
-    .string "belongs to someone else.\p"
-    .string "Throw POKé BALLS only at wild\n"
-    .string "POKéMON to catch them!$"
+    .string "Contact PROF. OAK via a PC to\n"
+    .string "get your POKéDEX evaluated!…\p"
+    .string "(Seriously, has anyone ever\n"
+    .string "actually done this?)$"
 
 ViridianForest_Text_WeakenMonsBeforeCapture::
-    .string "TRAINER TIPS\p"
-    .string "Weaken POKéMON before attempting\n"
-    .string "capture!\p"
-    .string "When healthy, they may escape!$"
+    .string "VIRIDIAN FOREST\p"
+    .string "NEW WILD POKéMON: 2$"
 
 ViridianForest_Text_LeavingViridianForest::
     .string "LEAVING VIRIDIAN FOREST\n"

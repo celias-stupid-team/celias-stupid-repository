@@ -7,6 +7,14 @@ Route1_Text_WorkAtPokeMartTakeSample::
     .string "I know, I'll give you a sample.\n"
     .string "Here you go!$"
 
+    .string "Uh, hi!\p"
+    .string "I work at a POKé Mart, and I was\n"
+    .string "supposed to be handing out free\l"
+    .string "POTIONS.\p"
+    .string "However, it appears that this is the\n"
+    .string "last POTION in the known universe.\p"
+    .string "Uh, I guess you can have it.$"
+
 Route1_Text_ComeSeeUsIfYouNeedPokeBalls::
     .string "Please come see us if you need\n"
     .string "POKé BALLS for catching POKéMON.$"
@@ -16,13 +24,12 @@ Route1_Text_PutPotionAway::
     .string "the BAG's ITEMS POCKET.$"
 
 Route1_Text_CanJumpFromLedges::
-    .string "See those ledges along the road?\p"
-    .string "It's a bit scary, but you can jump\n"
-    .string "from them.\p"
-    .string "You can get back to PALLET TOWN\n"
-    .string "quicker that way.$"
+    .string "I've been looking around of a\n"
+    .string "PIDGEY, but I haven't had any luck.\p"
+    .string "Something so strong probably\n"
+    .string "wouldn't be on this ROUTE$"
 
 Route1_Text_RouteSign::
     .string "ROUTE 1\n"
-    .string "PALLET TOWN - VIRIDIAN CITY$"
+    .string "NEW WILD POKéMON: 1$"
 

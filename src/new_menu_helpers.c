@@ -26,9 +26,9 @@ const u16 gStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapa
 
 static const u8 sTextSpeedFrameDelays[] =
 {
-    [OPTIONS_TEXT_SPEED_SLOW] = 8,
+    [OPTIONS_TEXT_SPEED_SLOW] = 1,
     [OPTIONS_TEXT_SPEED_MID]  = 4,
-    [OPTIONS_TEXT_SPEED_FAST] = 1
+    [OPTIONS_TEXT_SPEED_FAST] = 8
 };
 
 static const struct WindowTemplate sStandardTextBox_WindowTemplates[] = 
@@ -758,4 +758,10 @@ u8 GetFontAttribute(u8 fontId, u8 attributeId)
 u8 GetMenuCursorDimensionByFont(u8 fontId, u8 whichDimension)
 {
     return gMenuCursorDimensions[fontId][whichDimension];
+}
+
+void LoadMessageBoxAndBorderGfx(void)
+{
+    LoadStdWindowGfx(0, DLG_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(DLG_WINDOW_PALETTE_NUM));
+    LoadUserWindowGfx(0, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
 }
