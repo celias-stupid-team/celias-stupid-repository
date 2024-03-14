@@ -11106,5 +11106,8 @@ Special_MonToSubstitute:
 
 SetMidBattleEventFlag:
 	setflag FLAG_TEMP_MID_BATTLE_EVENT
-	debugprintf textdebugmitbattle
+	debugprintf Text_MidBattleEvent
 	return
+
+Text_MidBattleEvent::
+    .string "Mid battle event triggered!$"

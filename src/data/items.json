@@ -6064,7 +6064,7 @@
       "price": 4000,
       "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
       "holdEffectParam": 10,
-      "description_english": "If the holder has\nfull HP, it endures\nKO hits with 1 HP.",
+      "description_english": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

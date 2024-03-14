@@ -356,6 +356,7 @@
 	.endm
 
 	@Creates a DebugPrintf output for the given text
+	@The string must be defined as a script string (.string "my string$")
 	.macro debugprintf text:req
 	.byte 0x35
 	.4byte \text

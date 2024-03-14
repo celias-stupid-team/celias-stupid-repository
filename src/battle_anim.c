@@ -169,7 +169,7 @@ static void (*const sScriptCmdTable[])(void) =
     Cmd_compare_var_to_var,   // 0x32
     Cmd_setflag,              // 0x33
 	Cmd_clearflag,            // 0x34
-    Cmd_debugprintf,          // 0xd5
+    Cmd_debugprintf,          // 0x35
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -1841,5 +1841,15 @@ static void Cmd_clearflag(void)
 
 static void Cmd_debugprintf(void)
 {
-    
+    u32 limit;
+    u8 *stringPtr;
+
+    DebugPrintf("Cmd_debugprintf");
+    sBattleAnimScriptPtr++;
+    stringPtr = T1_READ_PTR(sBattleAnimScriptPtr);
+    limit = StringLength(stringPtr);
+    Get_String_to_gStringVar1(stringPtr, limit);
+
+    DebugPrintf("string: %S", gStringVar1);
+    sBattleAnimScriptPtr += 4;
 }
