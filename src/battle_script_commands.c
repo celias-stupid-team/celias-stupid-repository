@@ -1765,6 +1765,8 @@ static void Cmd_waitanimation(void)
 
 static void Cmd_healthbarupdate(void)
 {
+    u8 moveType;
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -1793,6 +1795,22 @@ static void Cmd_healthbarupdate(void)
 
             if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleMoveDamage > 0)
                 gBattleResults.playerMonWasDamaged = TRUE;
+
+            //mid battle event check
+            if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleMoveDamage > 0)
+            {
+                moveType = gBattleMoves[gBattleResults.lastUsedMovePlayer].type;
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 3 && (moveType == TYPE_BUG || moveType == TYPE_GROUND))
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Miguel - BUG or GROUND type move used!");
+                }
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 3 && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY))
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Giovanni - FAIRY or FIGHTING type move used during Odor Sleuth!");
+                }
+            }
         }
     }
 
