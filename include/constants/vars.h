@@ -191,6 +191,7 @@
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 /*VAR_TEMP_START_EVENT_BATTLE:
+It is reset after every battle.
 0 = no event battle (default)
 1 = Larry with Zapdos
 2 = Brock

@@ -285,7 +285,7 @@
 	.endm
 	
 
-
+@newly added macros by wiz1989
 	@ If the result of the last comparison matches condition (see Comparison operators), jumps to destination and continues script execution from there.
 	.macro call_if condition:req, destination:req
 	.byte 0x30

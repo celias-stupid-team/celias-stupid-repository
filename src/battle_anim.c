@@ -1800,7 +1800,6 @@ static void Cmd_compare_var_to_value(void)
     DebugPrintf("\nsave data in gBattleAnimArgs[0]: %d", gBattleAnimArgs[0]);
 }
 
-//copy of Cmd_compare_var_to_value -> should be updated to handle actual vars with pointers
 static void Cmd_compare_var_to_var(void)
 {
     u8 numArgs;

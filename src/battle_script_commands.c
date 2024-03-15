@@ -46,6 +46,8 @@ extern const u8 *const gBattleScriptsForMoveEffects[];
 
 #define TAG_LVLUP_BANNER_MON_ICON 55130
 
+EWRAM_DATA s16 gBattleScriptArgs[BATTLE_ARGS_COUNT] = {0};
+
 static bool8 IsTwoTurnsMove(u16 move);
 static void TrySetDestinyBondToHappen(void);
 static u8 AttacksThisTurn(u8 battlerId, u16 move); // Note: returns 1 if it's a charging turn, otherwise 2.
@@ -309,6 +311,12 @@ static void Cmd_subattackerhpbydmg(void);
 static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
+static void Cmd_call_if(void);
+static void Cmd_compare_var_to_value(void);
+static void Cmd_compare_var_to_var(void);
+static void Cmd_setflag(void);
+static void Cmd_clearflag(void);
+static void Cmd_debugprintf(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -561,7 +569,34 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_tryKO_Flash,                             //0xF8
+    Cmd_call_if,                                 //0xF9
+    Cmd_compare_var_to_value,                    //0xFA
+    Cmd_compare_var_to_var,                      //0xFB
+    Cmd_setflag,                                 //0xFC
+	Cmd_clearflag,                               //0xFD
+    Cmd_debugprintf,                             //0xFE
 };
+
+static const u8 sScriptConditionTable[6][3] =
+{
+//  <  =  >
+    1, 0, 0, // <
+    0, 1, 0, // =
+    0, 0, 1, // >
+    1, 1, 0, // <=
+    0, 1, 1, // >=
+    1, 0, 1, // !=
+};
+
+static u8 Compare(u16 a, u16 b)
+{
+    if (a < b)
+        return 0;
+    else if (a == b)
+        return 1;
+    else
+        return 2;
+}
 
 struct StatFractions
 {
@@ -817,6 +852,15 @@ static const u8 sBallCatchBonuses[] =
 
 // unknown unused data
 static const u32 sUnused = 0xFF7EAE60;
+
+void ClearBattleScriptVars(void)
+{
+    s32 i;
+
+    // Clear anim args.
+    for (i = 0; i < BATTLE_ARGS_COUNT; i++)
+        gBattleScriptArgs[i] = 0;
+}
 
 static void Cmd_attackcanceler(void)
 {
@@ -9973,4 +10017,99 @@ static void Cmd_finishturn(void)
 {
     gCurrentActionFuncId = B_ACTION_FINISHED;
     gCurrentTurnActionNumber = gBattlersCount;
+}
+
+static void Cmd_call_if(void)
+{
+    u8 condition;
+    u8 comparison;
+
+    DebugPrintf("\nCmd_call_if");
+    
+    BattleScriptPush(gBattlescriptCurrInstr + 5);
+    gBattlescriptCurrInstr++;
+    condition = gBattlescriptCurrInstr[0];
+    DebugPrintf("\ncondition = %d", condition);
+    gBattlescriptCurrInstr++;
+    comparison = gBattleScriptArgs[0];
+    DebugPrintf("\ncomparison = %d", comparison);
+    DebugPrintf("\nresult = %d", sScriptConditionTable[condition][comparison]);
+
+    if (sScriptConditionTable[condition][comparison] == 1)
+        gBattlescriptCurrInstr = T2_READ_PTR(gBattlescriptCurrInstr);
+    else
+        gBattlescriptCurrInstr += 4;
+}
+
+static void Cmd_compare_var_to_value(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+
+    DebugPrintf("\nCmd_compare_var_to_value");
+    
+    gBattlescriptCurrInstr++;
+    value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    DebugPrintf("\nvalue1 = %d", value1);
+    gBattlescriptCurrInstr += 2;
+    value2 = T1_READ_16(gBattlescriptCurrInstr);
+    DebugPrintf("\nvalue2 = %d", value2);
+    gBattlescriptCurrInstr += 2;
+
+    gBattleScriptArgs[0] = Compare(value1, value2);
+    DebugPrintf("\nsave data in gBattleScriptArgs[0]: %d", gBattleScriptArgs[0]);
+}
+
+static void Cmd_compare_var_to_var(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+
+    DebugPrintf("\nCmd_compare_var_to_var");
+    
+    gBattlescriptCurrInstr++;
+    value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    DebugPrintf("\nvalue1 = %d", value1);
+    gBattlescriptCurrInstr += 2;
+    value2 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    DebugPrintf("\nvalue2 = %d", value2);
+    gBattlescriptCurrInstr += 2;
+
+    gBattleScriptArgs[0] = Compare(value1, value2);
+    DebugPrintf("\nsave data in gBattleScriptArgs[0]: %d", gBattleScriptArgs[0]);
+}
+
+static void Cmd_setflag(void)
+{
+    gBattlescriptCurrInstr++;
+    DebugPrintf("\nCmd_setflag 0x%x", T1_READ_16(gBattlescriptCurrInstr));
+    FlagSet(T1_READ_16(gBattlescriptCurrInstr));
+    gBattlescriptCurrInstr += 2;
+    DebugPrintf("\nFlag was set");
+}
+
+static void Cmd_clearflag(void)
+{
+    gBattlescriptCurrInstr++;
+    DebugPrintf("\nCmd_clearflag 0x%x", T1_READ_16(gBattlescriptCurrInstr));
+    FlagClear(T1_READ_16(gBattlescriptCurrInstr));
+    gBattlescriptCurrInstr += 2;
+    DebugPrintf("\nFlag was cleared");
+}
+
+static void Cmd_debugprintf(void)
+{
+    u32 limit;
+    u8 *stringPtr;
+
+    DebugPrintf("Cmd_debugprintf");
+    gBattlescriptCurrInstr++;
+    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr);
+    limit = StringLength(stringPtr);
+    Get_String_to_gStringVar1(stringPtr, limit);
+
+    DebugPrintf("string: %S", gStringVar1);
+    gBattlescriptCurrInstr += 4;
 }
