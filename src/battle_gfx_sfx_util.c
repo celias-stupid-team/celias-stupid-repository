@@ -659,7 +659,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution
     {
         const void *src;
         void *dst;

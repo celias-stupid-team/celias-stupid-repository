@@ -440,12 +440,13 @@ static const u16 sDexCategory_SeaPkmn_Page7[] = {
     SPECIES_QWILFISH,
     SPECIES_CORSOLA,
     SPECIES_MANTINE,
-    SPECIES_LUVDISC,
 };
 
 static const u16 sDexCategory_SeaPkmn_Page8[] = {
     SPECIES_SEEL,
     SPECIES_DEWGONG,
+    SPECIES_LUVDISC,
+    SPECIES_ALOMOMOLA,
 };
 
 static const u16 sDexCategory_SeaPkmn_Page9[] = {

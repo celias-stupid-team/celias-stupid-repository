@@ -1,41 +1,94 @@
 #include "global.h"
 #include "gflib.h"
-#include "item.h"
-#include "util.h"
-#include "random.h"
-#include "pokedex.h"
-#include "money.h"
-#include "pokemon_icon.h"
-#include "mail.h"
-#include "event_data.h"
-#include "strings.h"
-#include "pokemon_special_anim.h"
-#include "pokemon_storage_system.h"
-#include "pokemon_summary_screen.h"
-#include "task.h"
-#include "naming_screen.h"
-#include "overworld.h"
-#include "party_menu.h"
-#include "trainer_pokemon_sprites.h"
-#include "field_specials.h"
 #include "battle.h"
 #include "battle_message.h"
 #include "battle_anim.h"
 #include "battle_ai_script_commands.h"
 #include "battle_scripts.h"
-#include "reshow_battle_screen.h"
-#include "battle_controllers.h"
-#include "battle_interface.h"
-#include "constants/battle_anim.h"
-#include "constants/battle_move_effects.h"
-#include "constants/battle_script_commands.h"
-#include "constants/items.h"
-#include "constants/hold_effects.h"
-#include "constants/songs.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
-#include "constants/pokemon.h"
+#include "item.h"
+#include "util.h"
+#include "pokemon.h"
+#include "random.h"
+#include "battle_controllers.h"
+#include "battle_interface.h"
+#include "text.h"
+#include "sound.h"
+#include "pokedex.h"
+#include "window.h"
+#include "reshow_battle_screen.h"
+#include "main.h"
+#include "palette.h"
+#include "money.h"
+#include "malloc.h"
+#include "bg.h"
+#include "string_util.h"
+#include "pokemon_icon.h"
+#include "m4a.h"
+#include "mail.h"
+#include "event_data.h"
+#include "strings.h"
+#include "pokemon_special_anim.h"
+#include "pokemon_storage_system.h"
+#include "task.h"
+#include "naming_screen.h"
+#include "battle_setup.h"
+#include "overworld.h"
+#include "wild_encounter.h"
+#include "party_menu.h"
+#include "trainer_pokemon_sprites.h"
+#include "field_specials.h"
+#include "pokemon_summary_screen.h"
+#include "data.h"
+#include "constants/abilities.h"
+#include "constants/battle_script_commands.h"
+#include "constants/battle_anim.h"
+#include "constants/battle_move_effects.h"
+#include "constants/battle_string_ids.h"
+#include "constants/hold_effects.h"
+#include "constants/items.h"
+#include "constants/item_effects.h"
+#include "constants/map_types.h"
 #include "constants/maps.h"
+#include "constants/moves.h"
+#include "constants/party_menu.h"
+#include "constants/rgb.h"
+#include "constants/songs.h"
+#include "constants/trainers.h"
+#include "battle_util.h"
+#include "constants/pokemon.h"
+
+// Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
+//
+// For example accuracycheck is defined as:
+//
+//     .macro accuracycheck failInstr:req, move:req
+//     .byte 0x1
+//     .4byte \failInstr
+//     .2byte \move
+//     .endm
+//
+// Which corresponds to:
+//
+//     CMD_ARGS(const u8 *failInstr, u16 move);
+//
+// The arguments can be accessed as cmd->failInstr and cmd->move.
+// gBattlescriptCurrInstr = cmd->nextInstr; advances to the next instruction.
+#define CMD_ARGS(...) const struct __attribute__((packed)) { u8 opcode; MEMBERS(__VA_ARGS__) const u8 nextInstr[0]; } *const cmd  = (const void *)gBattlescriptCurrInstr
+#define VARIOUS_ARGS(...) CMD_ARGS(u8 battler, u8 id, ##__VA_ARGS__)
+#define NATIVE_ARGS(...) CMD_ARGS(void (*func)(void), ##__VA_ARGS__)
+
+#define MEMBERS(...) VARARG_8(MEMBERS_, __VA_ARGS__)
+#define MEMBERS_0()
+#define MEMBERS_1(a) a;
+#define MEMBERS_2(a, b) a; b;
+#define MEMBERS_3(a, b, c) a; b; c;
+#define MEMBERS_4(a, b, c, d) a; b; c; d;
+#define MEMBERS_5(a, b, c, d, e) a; b; c; d; e;
+#define MEMBERS_6(a, b, c, d, e, f) a; b; c; d; e; f;
+#define MEMBERS_7(a, b, c, d, e, f, g) a; b; c; d; e; f; g;
+#define MEMBERS_8(a, b, c, d, e, f, g, h) a; b; c; d; e; f; g; h;
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
@@ -308,6 +361,9 @@ static void Cmd_subattackerhpbydmg(void);
 static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
+static void Cmd_callnative(void);
+static void Cmd_swapstatstages(void);
+static void Cmd_jumpifnotspeciescondition(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -559,6 +615,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
+    Cmd_callnative,                              //0xF8
+    Cmd_swapstatstages,                          //0xF9
+    Cmd_jumpifnotspeciescondition,               //0xFA
 };
 
 struct StatFractions
@@ -583,6 +642,9 @@ static const struct StatFractions sAccuracyStageRatios[] =
     {133,  50}, // +5
     {  3,   1}, // +6
 };
+
+extern u16 (*const gSpecials[])(void);
+extern u16 (*const gSpecialsEnd[])(void);
 
 // The chance is 1/N for each stage.
 static const u16 sCriticalHitChance[] = {16, 8, 4, 3, 2};
@@ -3849,18 +3911,26 @@ static void Cmd_endselectionscript(void)
 static void Cmd_playanimation(void)
 {
     const u16 *argumentPtr;
-
+    struct Pokemon *mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+    
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     argumentPtr = T2_READ_PTR(gBattlescriptCurrInstr + 3);
 
     if (gBattlescriptCurrInstr[2] == B_ANIM_STATS_CHANGE
      || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
      || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE
-     || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED)
+     || gBattlescriptCurrInstr[2] == B_ANIM_SILPH_SCOPED
+     || gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
     {
+        //create Alomomola right before form change
+        if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
+        {
+            CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_ALOMOMOLA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+        }
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
+        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gActiveBattler].species), FLAG_SET_SEEN, gBattleMons[gActiveBattler].personality);
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {
@@ -9881,4 +9951,46 @@ static void Cmd_finishturn(void)
 {
     gCurrentActionFuncId = B_ACTION_FINISHED;
     gCurrentTurnActionNumber = gBattlersCount;
+}
+
+static void Cmd_callnative(void)
+{
+    CMD_ARGS(void (*func)(void));
+    void (*func)(void) = cmd->func;
+    func();
+}
+
+static void Cmd_swapstatstages(void)
+{
+    CMD_ARGS(u8 stat);
+
+    u8 stat = cmd->stat;
+    s8 atkStatStage = gBattleMons[gBattlerAttacker].statStages[stat];
+    s8 defStatStage = gBattleMons[gBattlerTarget].statStages[stat];
+
+    gBattleMons[gBattlerAttacker].statStages[stat] = defStatStage;
+    gBattleMons[gBattlerTarget].statStages[stat] = atkStatStage;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_jumpifnotspeciescondition(void)
+{
+    CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
+
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    if (cmd->jumpIfTrue)
+    {
+        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+    else
+    {
+        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
