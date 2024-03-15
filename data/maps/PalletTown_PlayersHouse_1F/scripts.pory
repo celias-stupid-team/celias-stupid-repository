@@ -37,22 +37,18 @@ PalletTown_PlayersHouse_1F_EventScript_MomHeal::
 PalletTown_PlayersHouse_1F_EventScript_TV::
 	lockall
 	goto_if_eq VAR_FACING, DIR_NORTH, PalletTown_PlayersHouse_1F_EventScript_TVScreen
-	msgbox PalletTown_PlayersHouse_1F_Text_OopsWrongSide
+	goto_if_eq VAR_FACING, DIR_EAST, PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide
+	msgbox PalletTown_PlayersHouse_1F_Text_YayRightSide
 	releaseall
 	end
 
 PalletTown_PlayersHouse_1F_EventScript_TVScreen::
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenMale
-	call_if_eq VAR_RESULT, FEMALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
 	releaseall
 	end
 
-PalletTown_PlayersHouse_1F_EventScript_TVScreenMale::
-	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
-	return
-
-PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
-	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad
-	return
+PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide::
+	msgbox PalletTown_PlayersHouse_1F_Text_OopsLeftSide
+	releaseall
+	end
 `
