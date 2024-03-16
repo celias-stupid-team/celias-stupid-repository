@@ -182,6 +182,7 @@ extern const u8 gText_WontHaveEffect[];
 extern const u8 gText_YesNo[];
 extern const u8 gText_Berry[];
 extern const u8 gText_Ghost[];
+extern const u8 gText_Luvdisc[];
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -639,6 +640,7 @@ extern const u8 gStartMenuDesc_Option[];
 extern const u8 gStartMenuDesc_Exit[];
 extern const u8 gStartMenuDesc_Retire[];
 extern const u8 gStartMenuDesc_Player[];
+extern const u8 gStartMenuDesc_Debug[];
 extern const u8 gText_SaveError_PleaseExchangeBackupMemory[];
 extern const u8 gText_SavingDontTurnOffThePower2[];
 extern const u8 gSaveStatName_Player[];

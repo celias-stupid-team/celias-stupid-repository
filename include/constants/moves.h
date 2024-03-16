@@ -356,8 +356,10 @@
 #define MOVE_WATER_PULSE 352
 #define MOVE_DOOM_DESIRE 353
 #define MOVE_PSYCHO_BOOST 354
+//@@@@@ new moves for CSR below @@@@@
+#define MOVE_HEART_SWAP 355
 
-#define MOVES_COUNT 355
+#define MOVES_COUNT 356
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

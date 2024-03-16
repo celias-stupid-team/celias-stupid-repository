@@ -1249,6 +1249,25 @@
 	.byte 0xf7
 	.endm
 
+	@ Calls the native C function stored at func.
+	.macro callnative func:req
+	.byte 0xf8
+	.4byte \func
+	.endm
+
+	.macro swapstatstages stat:req
+	.byte 0xf9
+	.byte \stat
+	.endm
+
+	.macro jumpifnotspeciescondition battler:req, species:req, jumpIfTrue:req, jumpInstr:req
+	.byte 0xfa
+	.byte \battler
+	.4byte \species
+	.byte \jumpIfTrue
+	.4byte \jumpInstr
+	.endm
+
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
 	various \battler, VARIOUS_CANCEL_MULTI_TURN_MOVES
@@ -1377,4 +1396,12 @@
 
 	.macro jumpifnotbattletype flags:req, jumpptr:req
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
+	.endm
+
+	.macro jumpifspecies battler:req, species:req, jumpptr:req
+	jumpifnotspeciescondition \battler, \species, TRUE, \jumpptr
+	.endm
+
+	.macro jumpifnotspecies battler:req, species:req, jumpptr:req
+	jumpifnotspeciescondition \battler, \species, FALSE, \jumpptr
 	.endm

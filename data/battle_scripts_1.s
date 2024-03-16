@@ -235,6 +235,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCalmMind               @ EFFECT_CALM_MIND
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
+	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
 	.4byte BattleScript_CeliaTest 					 @ EFFECT_CELIATEST
 
 BattleScript_EffectHit::
@@ -271,6 +272,32 @@ BattleScript_HitFromAtkAnimation::
 BattleScript_MoveEnd::
 	moveendall
 	end
+
+//test effect based on regular damaging move
+BattleScript_EffectHeartSwap::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	swapstatstages STAT_ATK
+	swapstatstages STAT_DEF
+	swapstatstages STAT_SPEED
+	swapstatstages STAT_SPATK
+	swapstatstages STAT_SPDEF
+	swapstatstages STAT_EVASION
+	swapstatstages STAT_ACC
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
+	waitmessage B_WAIT_TIME_LONG
+	//only trigger form change effect, when Battle Type is BATTLE_TYPE_ALOMOMOLA
+	jumpifbattletype BATTLE_TYPE_ALOMOMOLA, BattleScript_EvolveAlomomola
+	goto BattleScript_MoveEnd
+BattleScript_EvolveAlomomola::
+	//only trigger form change effect, when opponent is SPECIES_LUVDISC
+	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
+	call BattleScript_AlomomolaMidBattleEvo
+	goto BattleScript_MoveEnd
 
 BattleScript_MakeMoveMissed::
 	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
@@ -3835,6 +3862,16 @@ BattleScript_SilphScopeUnveiled::
 	playanimation BS_OPPONENT1, B_ANIM_SILPH_SCOPED
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_GHOSTWASMAROWAK
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_AlomomolaMidBattleEvo::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_ALOMOMOLAEVO
+	waitstate
+	playanimation BS_OPPONENT1, B_ANIM_ALOMOMOLA_EVOLVE
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_ALOMOMOLAEVOLVED
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

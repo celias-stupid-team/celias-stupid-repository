@@ -2346,6 +2346,12 @@ extern const u32 gMonBackPic_Chimecho[];
 extern const u32 gMonShinyPalette_Chimecho[];
 extern const u8 gMonIcon_Chimecho[];
 extern const u8 gMonFootprint_Chimecho[];
+extern const u32 gMonFrontPic_Alomomola[];
+extern const u32 gMonPalette_Alomomola[];
+extern const u32 gMonBackPic_Alomomola[];
+extern const u32 gMonShinyPalette_Alomomola[];
+extern const u8 gMonIcon_Alomomola[];
+extern const u8 gMonFootprint_Alomomola[];
 extern const u32 gMonFrontPic_Egg[];
 extern const u32 gMonPalette_Egg[];
 extern const u8 gMonIcon_Egg[];
@@ -4403,6 +4409,7 @@ extern const u8 gMonIcon_Latios[];
 extern const u8 gMonIcon_Jirachi[];
 extern const u8 gMonIcon_Deoxys[];
 extern const u8 gMonIcon_Chimecho[];
+extern const u8 gMonIcon_Alomomola[];
 extern const u8 gMonIcon_Egg[];
 extern const u8 gMonIcon_Unown_B[];
 extern const u8 gMonIcon_Unown_C[];
@@ -4548,5 +4555,23 @@ extern const u16 gPokeStorageInterface_NoDisplayMon_Pal[];
 // pokedex_screen
 extern const u16 gDexScreen_TopMenuIconPals_AtoZ[];
 extern const u32 gDexScreen_TopMenuIconTiles_AtoZ[];
+
+// battle terrain
+extern const u32 gBattleTerrainPalette_Building[];
+extern const u32 gBattleTerrainTiles_Building[];
+extern const u32 gBattleTerrainTilemap_Building[];
+extern const u32 gBattleTerrainPalette_Link[];
+extern const u32 gBattleTerrainPalette_Gym[];
+extern const u32 gBattleTerrainPalette_Leader[];
+extern const u32 gBattleTerrainPalette_Indoor2[];
+extern const u32 gBattleTerrainPalette_Indoor1[];
+extern const u32 gBattleTerrainPalette_Lorelei[];
+extern const u32 gBattleTerrainPalette_Bruno[];
+extern const u32 gBattleTerrainPalette_Agatha[];
+extern const u32 gBattleTerrainPalette_Lance[];
+extern const u32 gBattleTerrainPalette_Champion[];
+extern const u32 gBattleTerrainPalette_Plain[];
+extern const u32 gBattleTerrainTiles_Indoor[];
+extern const u32 gBattleTerrainTilemap_Indoor[];
 
 #endif //GUARD_GRAPHICS_H

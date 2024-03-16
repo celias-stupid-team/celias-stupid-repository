@@ -2607,6 +2607,12 @@ const u8 gLuvdiscPokedexText[] = _(
 
 const u8 gLuvdiscPokedexTextUnused[] = _("");
 
+const u8 gAlomomolaPokedexText[] = _(
+    "When they find a wounded Pokémon,\n"
+    "they embrace it and bring it to shore.\n"
+    "The special membrane enveloping\n"
+    "Alomomola has the ability to heal wounds.");
+
 const u8 gBagonPokedexText[] = _(
     "Its steel-hard head can shatter boulders.\n"
     "It longingly hopes for wings to grow so it\n"

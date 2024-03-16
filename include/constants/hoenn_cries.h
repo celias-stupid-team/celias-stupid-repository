@@ -138,6 +138,7 @@ enum
     CRY_JIRACHI = 385,
     CRY_DEOXYS = 386,
     CRY_CHIMECHO = 387,
+    CRY_ALOMOMOLA = 387,
 };
 
 #endif
