@@ -2256,6 +2256,6 @@ bool8 ScrCmd_DebugPrintf(struct ScriptContext * ctx)
 
     if (msg == NULL)
         msg = (const u8 *)ctx->data[0];
-    DebugPrintf("\nScript Debug: %s", msg );
+    DebugPrintf("Script Debug: %S", msg);
     return FALSE;
 }

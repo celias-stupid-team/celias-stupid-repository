@@ -1799,10 +1799,7 @@ static void Cmd_healthbarupdate(void)
             //mid battle event checks
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleMoveDamage > 0)
             {
-                DebugPrintf("mid battle event check");
                 moveType = gBattleMoves[gCurrentMove].type;
-                DebugPrintf("move 2: %d", gCurrentMove);
-                DebugPrintf("move type: %d", moveType);
                 // 1 = Larry Zapdos
                 if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 1 && gCurrentMove == 283)
                 {
@@ -10058,17 +10055,12 @@ static void Cmd_call_if(void)
 {
     u8 condition;
     u8 comparison;
-
-    DebugPrintf("\nCmd_call_if");
     
     BattleScriptPush(gBattlescriptCurrInstr + 5);
     gBattlescriptCurrInstr++;
     condition = gBattlescriptCurrInstr[0];
-    DebugPrintf("\ncondition = %d", condition);
     gBattlescriptCurrInstr++;
     comparison = gBattleScriptArgs[0];
-    DebugPrintf("\ncomparison = %d", comparison);
-    DebugPrintf("\nresult = %d", sScriptConditionTable[condition][comparison]);
 
     if (sScriptConditionTable[condition][comparison] == 1)
         gBattlescriptCurrInstr = T2_READ_PTR(gBattlescriptCurrInstr);
@@ -10081,19 +10073,13 @@ static void Cmd_compare_var_to_value(void)
     u8 numArgs;
     u16 value1;
     u16 value2;
-
-    DebugPrintf("\nCmd_compare_var_to_value");
     
     gBattlescriptCurrInstr++;
     value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
-    DebugPrintf("\nvalue1 = %d", value1);
     gBattlescriptCurrInstr += 2;
     value2 = T1_READ_16(gBattlescriptCurrInstr);
-    DebugPrintf("\nvalue2 = %d", value2);
     gBattlescriptCurrInstr += 2;
-
     gBattleScriptArgs[0] = Compare(value1, value2);
-    DebugPrintf("\nsave data in gBattleScriptArgs[0]: %d", gBattleScriptArgs[0]);
 }
 
 static void Cmd_compare_var_to_var(void)
@@ -10102,36 +10088,26 @@ static void Cmd_compare_var_to_var(void)
     u16 value1;
     u16 value2;
 
-    DebugPrintf("\nCmd_compare_var_to_var");
-    
     gBattlescriptCurrInstr++;
     value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
-    DebugPrintf("\nvalue1 = %d", value1);
     gBattlescriptCurrInstr += 2;
     value2 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
-    DebugPrintf("\nvalue2 = %d", value2);
     gBattlescriptCurrInstr += 2;
-
     gBattleScriptArgs[0] = Compare(value1, value2);
-    DebugPrintf("\nsave data in gBattleScriptArgs[0]: %d", gBattleScriptArgs[0]);
 }
 
 static void Cmd_setflag(void)
 {
     gBattlescriptCurrInstr++;
-    DebugPrintf("\nCmd_setflag 0x%x", T1_READ_16(gBattlescriptCurrInstr));
     FlagSet(T1_READ_16(gBattlescriptCurrInstr));
     gBattlescriptCurrInstr += 2;
-    DebugPrintf("\nFlag was set");
 }
 
 static void Cmd_clearflag(void)
 {
     gBattlescriptCurrInstr++;
-    DebugPrintf("\nCmd_clearflag 0x%x", T1_READ_16(gBattlescriptCurrInstr));
     FlagClear(T1_READ_16(gBattlescriptCurrInstr));
     gBattlescriptCurrInstr += 2;
-    DebugPrintf("\nFlag was cleared");
 }
 
 static void Cmd_debugprintf(void)
@@ -10139,12 +10115,10 @@ static void Cmd_debugprintf(void)
     u32 limit;
     u8 *stringPtr;
 
-    DebugPrintf("Cmd_debugprintf");
     gBattlescriptCurrInstr++;
     stringPtr = T1_READ_PTR(gBattlescriptCurrInstr);
     limit = StringLength(stringPtr);
     Get_String_to_gStringVar1(stringPtr, limit);
-
-    DebugPrintf("string: %S", gStringVar1);
+    DebugPrintf("\nScript Debug: %S", gStringVar1);
     gBattlescriptCurrInstr += 4;
 }

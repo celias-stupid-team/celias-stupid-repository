@@ -1762,17 +1762,12 @@ static void Cmd_call_if(void)
 {
     u8 condition;
     u8 comparison;
-
-    DebugPrintf("\nCmd_call_if");
     
     sBattleAnimScriptPtr++;
     sBattleAnimScriptRetAddr = sBattleAnimScriptPtr + 5;
     condition = sBattleAnimScriptPtr[0];
-    DebugPrintf("\ncondition = %d", condition);
     sBattleAnimScriptPtr++;
     comparison = gBattleAnimArgs[0];
-    DebugPrintf("\ncomparison = %d", comparison);
-    DebugPrintf("\nresult = %d", sScriptConditionTable[condition][comparison]);
 
     if (sScriptConditionTable[condition][comparison] == 1)
         sBattleAnimScriptPtr = T2_READ_PTR(sBattleAnimScriptPtr);
@@ -1785,19 +1780,13 @@ static void Cmd_compare_var_to_value(void)
     u8 numArgs;
     u16 value1;
     u16 value2;
-
-    DebugPrintf("\nCmd_compare_var_to_value");
     
     sBattleAnimScriptPtr++;
     value1 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
-    DebugPrintf("\nvalue1 = %d", value1);
     sBattleAnimScriptPtr += 2;
     value2 = T1_READ_16(sBattleAnimScriptPtr);
-    DebugPrintf("\nvalue2 = %d", value2);
     sBattleAnimScriptPtr += 2;
-
     gBattleAnimArgs[0] = Compare(value1, value2);
-    DebugPrintf("\nsave data in gBattleAnimArgs[0]: %d", gBattleAnimArgs[0]);
 }
 
 static void Cmd_compare_var_to_var(void)
@@ -1805,37 +1794,27 @@ static void Cmd_compare_var_to_var(void)
     u8 numArgs;
     u16 value1;
     u16 value2;
-
-    DebugPrintf("\nCmd_compare_var_to_var");
     
     sBattleAnimScriptPtr++;
     value1 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
-    DebugPrintf("\nvalue1 = %d", value1);
     sBattleAnimScriptPtr += 2;
     value2 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
-    DebugPrintf("\nvalue2 = %d", value2);
     sBattleAnimScriptPtr += 2;
-
     gBattleAnimArgs[0] = Compare(value1, value2);
-    DebugPrintf("\nsave data in gBattleAnimArgs[0]: %d", gBattleAnimArgs[0]);
 }
 
 static void Cmd_setflag(void)
 {
     sBattleAnimScriptPtr++;
-    DebugPrintf("\nCmd_setflag 0x%x", T1_READ_16(sBattleAnimScriptPtr));
     FlagSet(T1_READ_16(sBattleAnimScriptPtr));
     sBattleAnimScriptPtr += 2;
-    DebugPrintf("\nFlag was set");
 }
 
 static void Cmd_clearflag(void)
 {
     sBattleAnimScriptPtr++;
-    DebugPrintf("\nCmd_clearflag 0x%x", T1_READ_16(sBattleAnimScriptPtr));
     FlagClear(T1_READ_16(sBattleAnimScriptPtr));
     sBattleAnimScriptPtr += 2;
-    DebugPrintf("\nFlag was cleared");
 }
 
 static void Cmd_debugprintf(void)
@@ -1843,12 +1822,10 @@ static void Cmd_debugprintf(void)
     u32 limit;
     u8 *stringPtr;
 
-    DebugPrintf("Cmd_debugprintf");
     sBattleAnimScriptPtr++;
     stringPtr = T1_READ_PTR(sBattleAnimScriptPtr);
     limit = StringLength(stringPtr);
     Get_String_to_gStringVar1(stringPtr, limit);
-
-    DebugPrintf("string: %S", gStringVar1);
+    DebugPrintf("\nScript Debug: %S", gStringVar1);
     sBattleAnimScriptPtr += 4;
 }
