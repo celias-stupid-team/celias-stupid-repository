@@ -60,7 +60,7 @@ void ClearTempFieldEventData(void)
 
 void ClearTempData_CSR(void)
 {
-    VarSet(VAR_TEMP_START_EVENT_BATTLE, 2); //reset var every time a map loads || 2 = TEST SETTING!!!!
+    VarSet(VAR_TEMP_START_EVENT_BATTLE, 3); //reset var every time a map loads || <>0 = TEST SETTING!!!!
     FlagClear(FLAG_TEMP_MID_BATTLE_EVENT); //clear flag every time a map loads
 }
 

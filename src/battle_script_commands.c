@@ -1796,16 +1796,33 @@ static void Cmd_healthbarupdate(void)
             if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleMoveDamage > 0)
                 gBattleResults.playerMonWasDamaged = TRUE;
 
-            //mid battle event check
+            //mid battle event checks
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleMoveDamage > 0)
             {
-                moveType = gBattleMoves[gBattleResults.lastUsedMovePlayer].type;
+                DebugPrintf("mid battle event check");
+                moveType = gBattleMoves[gCurrentMove].type;
+                DebugPrintf("move 2: %d", gCurrentMove);
+                DebugPrintf("move type: %d", moveType);
+                // 1 = Larry Zapdos
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 1 && gCurrentMove == 283)
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Larry Zapdos - ENDEAVOR used!");
+                }
+                // 2 = Brock
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 2 && gCurrentMove == 93)
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Brock - CONFUSION used!");
+                }
+                // 3 = Miguel
                 if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 3 && (moveType == TYPE_BUG || moveType == TYPE_GROUND))
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Miguel - BUG or GROUND type move used!");
                 }
-                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 3 && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY))
+                // 5 = Giovanni
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 5 && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY) && (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT))
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Giovanni - FAIRY or FIGHTING type move used during Odor Sleuth!");

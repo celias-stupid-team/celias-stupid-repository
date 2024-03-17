@@ -3856,8 +3856,6 @@ Move_YAWN:
 	end
 
 Move_ENDEAVOR:
-	compare VAR_TEMP_START_EVENT_BATTLE, 1
-	call_if_eq SetMidBattleEventFlag
 	loadspritegfx ANIM_TAG_SWEAT_DROP
 	loadspritegfx ANIM_TAG_IMPACT
 	createvisualtask AnimTask_SquishAndSweatDroplets, 2, ANIM_ATTACKER, 2
@@ -4787,8 +4785,6 @@ Move_REST:
 	end
 
 Move_CONFUSION:
-	compare VAR_TEMP_START_EVENT_BATTLE, 2
-	call_if_eq SetMidBattleEventFlag
 	monbg ANIM_DEF_PARTNER
 	call SetPsychicBackground
 	setalpha 8, 8
@@ -11103,11 +11099,3 @@ Special_SubstituteToMon:
 Special_MonToSubstitute:
 	createvisualtask AnimTask_SwapMonSpriteToFromSubstitute, 2, FALSE
 	end
-
-SetMidBattleEventFlag:
-	setflag FLAG_TEMP_MID_BATTLE_EVENT
-	debugprintf Text_MidBattleEvent
-	return
-
-Text_MidBattleEvent::
-    .string "Mid battle event triggered!$"
