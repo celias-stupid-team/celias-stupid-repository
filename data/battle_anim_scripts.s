@@ -377,6 +377,7 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHO_BOOST
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
 	.4byte Move_HEART_SWAP
+	.4byte Move_RETREAT
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -2831,6 +2832,13 @@ Move_TELEPORT:
 	delay 15
 	call UnsetPsychicBackground
 	waitforvisualfinish
+	end
+
+Move_RETREAT: //WIP
+	loadspritegfx ANIM_TAG_POKEBALL
+	playsewithpan SE_M_BATON_PASS, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 2, 0, 11, RGB(31, 22, 30)
+	createsprite gBatonPassPokeballSpriteTemplate, ANIM_ATTACKER, 2
 	end
 
 Move_DOUBLE_TEAM:

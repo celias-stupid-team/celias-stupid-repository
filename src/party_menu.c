@@ -3954,6 +3954,13 @@ static void CursorCB_FieldMove(u8 taskId)
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
                 Task_ClosePartyMenu(taskId);
                 break;
+            case FIELD_MOVE_RETREAT: //WIP
+                mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
+                GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId); //StringVar for message output WIP
+                StringExpandPlaceholders(gStringVar4, gText_ReturnToBench);
+                DisplayFieldMoveExitAreaMessage(taskId);
+                sPartyMenuInternal->data[0] = fieldMove;
+                break;
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], fieldMove);
@@ -4156,6 +4163,9 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
         break;
     case FIELD_MOVE_DIG:
         data->mapSec = gMapHeader.regionMapSectionId;
+        break;
+    case FIELD_MOVE_RETREAT: //WIP
+        data->mapSec = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum)->regionMapSectionId;
         break;
     default:
         data->mapSec = 0xFF;
