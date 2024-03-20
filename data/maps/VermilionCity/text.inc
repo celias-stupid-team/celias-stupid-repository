@@ -26,9 +26,10 @@ VermilionCity_Text_Machop::
     .string "'takedown' means in this context.$"
 
 VermilionCity_Text_SSAnneVisitsOnceAYear::
-    .string "The S.S. ANNE is a famous luxury\n"
-    .string "cruise ship.\p"
-    .string "It visits VERMILION once a year.$"
+    .string "The ship is gone, so the captain\n"
+    .string "isn't around to teach CUT.\p"
+    .string "I wonder how else you could use\n"
+    .string "it?$"
 
 VermilionCity_Text_CitySign::
     .string "VERMILION CITY\n"
@@ -49,7 +50,10 @@ VermilionCity_Text_PokemonFanClubSign::
 VermilionCity_Text_GymSign::
     .string "VERMILION CITY POKéMON GYM\n"
     .string "LEADER: LT. SURGE\l"
-    .string "The Lightning American!$"
+    .string "The Lightning American!\p"
+    .string "Note: LT. SURGE and is POKéMON\n"
+    .string "are no longer allowed in America.\p"
+    .string "Recommended level: 23$"
 
 VermilionCity_Text_VermilionHarbor::
     .string "VERMILION HARBOR$"
@@ -60,7 +64,7 @@ VermilionCity_Text_WelcomeToTheSSAnne::
 VermilionCity_Text_DoYouHaveATicket::
     .string "Welcome to the S.S. ANNE!\p"
     .string "Excuse me, do you have a ticket?$"
-
+    
 VermilionCity_Text_FlashedSSTicket::
     .string "{FONT_NORMAL}{PLAYER} flashed the S.S. TICKET!\p"
     .string "{FONT_MALE}Great!\n"

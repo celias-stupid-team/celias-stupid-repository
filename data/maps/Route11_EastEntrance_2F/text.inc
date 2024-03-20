@@ -35,18 +35,21 @@ Route11_EastEntrance_2F_Text_ExplainItemfinder::
 Route11_EastEntrance_2F_Text_BigMonAsleepOnRoad::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "A big POKéMON is asleep on a road!$"
+    .string "I'm sure that after it's taken care\p"
+    .string "of, people will come back to this\l"
+    .string "dialogue box to see if it's changed!$"
 
 Route11_EastEntrance_2F_Text_WhatABreathtakingView::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "What a breathtaking view!$"
+    .string "Thank you for taking the time to\n"
+    .string "check these binoculars.\p"
+    .string "...\p"
+    .string "These binoculars love you.$"
 
 Route11_EastEntrance_2F_Text_RockTunnelGoodRouteToLavender::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "To get to LAVENDER TOWN from\n"
-    .string "CERULEAN CITY…\p"
-    .string "ROCK TUNNEL appears to be a good\n"
-    .string "route to take.$"
+    .string "Several folks dressed as animals\n"
+    .string "are entering ROCK TUNNEL!$"
 

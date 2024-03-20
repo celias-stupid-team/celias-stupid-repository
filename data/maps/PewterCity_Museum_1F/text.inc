@@ -19,10 +19,10 @@ PewterCity_Museum_1F_Text_PleaseEnjoyYourself::
     .string "Please enjoy yourself.$"
 
 PewterCity_Museum_1F_Text_DoYouKnowWhatAmberIs::
-    .string "You can't sneak in the back way!\n"
-    .string "Nice try, kid, but no.\p"
-    .string "Oh, whatever!\n"
-    .string "Do you know what AMBER is?$"
+    .string "y'know I only ever wanted\n"
+    .string "to be a gardener.\p"
+    .string "I guess this is just what that\n"
+    .string "entails nowadays.$"
 
 PewterCity_Museum_1F_Text_AmberContainsGeneticMatter::
     .string "AMBER contains the genetic matter\n"

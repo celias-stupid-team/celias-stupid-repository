@@ -62,7 +62,6 @@ ViridianCity_Text_WeakenMonsFirstToCatch::
     .string "TEACHY TV isn't changed yet.\l"
     .string "It's coming next update.$"
 
-
 ViridianCity_Text_HowsTeachyTVHelping::
     .string "Be ready to FLY over to\n"
     .string "CINNABAR ISLAND!\p"
