@@ -2558,6 +2558,7 @@ static void (*const sRetreatEffectFuncs[])(struct Task *) = {
 
 void CreateRetreatFieldEffectTask(void)
 {
+    DebugPrintf("CreateRetreatFieldEffectTask");
     CreateTask(Task_DoRetreatFieldEffect, 0);
 }
 
@@ -2568,6 +2569,7 @@ static void Task_DoRetreatFieldEffect(u8 taskId)
 
 static void RetreatFieldEffectTask1(struct Task *task)
 {
+    DebugPrintf("RetreatFieldEffectTask1");
     LockPlayerFieldControls();
     FreezeObjectEvents();
     CameraObjectReset2();
@@ -2635,7 +2637,7 @@ static void RetreatFieldEffectTask4(struct Task *task)
     {
         if (BGMusicStopped() == TRUE)
         {
-            SetWarpDestinationToLastHealLocation(); //WIP
+            SetWarpDestinationToBench();
             WarpIntoMap();
             SetMainCallback2(CB2_LoadMap);
             gFieldCallback = FieldCallback_RetreatIn;
@@ -2652,6 +2654,7 @@ static void (*const sRetreatInEffectFuncs[])(struct Task *) = {
 
 static void FieldCallback_RetreatIn(void)
 {
+    DebugPrintf("FieldCallback_RetreatIn");
     Overworld_PlaySpecialMapMusic();
     WarpFadeInScreen();
     QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode();

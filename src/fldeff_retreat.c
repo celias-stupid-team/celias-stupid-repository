@@ -12,6 +12,7 @@ bool8 SetUpFieldMove_Retreat(void)
 {
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
     {
+        DebugPrintf("Overworld_MapTypeAllowsTeleportAndFly");
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_Retreat;
         return TRUE;
@@ -21,6 +22,7 @@ bool8 SetUpFieldMove_Retreat(void)
 
 static void FieldCallback_Retreat(void)
 {
+    DebugPrintf("FieldCallback_Retreat");
     Overworld_ResetStateAfterTeleport();
     FieldEffectStart(FLDEFF_USE_RETREAT);
     gFieldEffectArguments[0] = (u32)GetCursorSelectionMonId();
@@ -28,7 +30,10 @@ static void FieldCallback_Retreat(void)
 
 bool8 FldEff_UseRetreat(void)
 {
-    u8 taskId = CreateFieldEffectShowMon();
+    u8 taskId;
+    
+    DebugPrintf("FldEff_UseRetreat");
+    taskId = CreateFieldEffectShowMon();
     FLDEFF_SET_FUNC_TO_DATA(StartRetreatFieldEffect);
     SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
     return FALSE;

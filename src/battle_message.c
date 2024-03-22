@@ -1448,7 +1448,7 @@ static const u16 sGrammarMoveUsedTable[] =
     MOVE_BOUNCE,
     MOVE_NONE,
 
-    MOVE_TELEPORT, //WIP?
+    MOVE_TELEPORT,
     MOVE_RECOVER,
     MOVE_BIDE,
     MOVE_AMNESIA,

@@ -454,4 +454,5 @@ gSpecials::
 	def_special CreateEnemyEventMon
 	def_special StartAlomomolaBattle
 	def_special ScriptGetPartyMonSpecies
+	def_special ClearBenchWarp
 gSpecialsEnd::

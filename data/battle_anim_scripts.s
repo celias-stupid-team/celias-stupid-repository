@@ -2835,10 +2835,14 @@ Move_TELEPORT:
 	end
 
 Move_RETREAT: //WIP
+	//monbg ANIM_ATK_PARTNER
 	loadspritegfx ANIM_TAG_POKEBALL
 	playsewithpan SE_M_BATON_PASS, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 2, 0, 11, RGB(31, 22, 30)
 	createsprite gBatonPassPokeballSpriteTemplate, ANIM_ATTACKER, 2
+	//clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	delay 1
 	end
 
 Move_DOUBLE_TEAM:

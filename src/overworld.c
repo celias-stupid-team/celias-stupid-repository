@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "bench_location.h"
 #include "bg_regs.h"
 #include "cable_club.h"
 #include "credits.h"
@@ -584,6 +585,7 @@ void WarpIntoMap(void)
 
 void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
+    DebugPrintf("SetWarpDestination");
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
 }
 
@@ -619,6 +621,11 @@ void SetWarpDestinationToLastHealLocation(void)
     sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
+bool8 SetWarpDestinationToBench(void) //WIP
+{
+    SetWarpDestination(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum, -1, gSaveBlock1Ptr->lastBenchLocation.x, gSaveBlock1Ptr->lastBenchLocation.y);
+}
+
 static void Overworld_SetWhiteoutRespawnPoint(void)
 {
     SetWhiteoutRespawnWarpAndHealerNpc(&sWarpDestination);
@@ -629,6 +636,22 @@ void SetLastHealLocationWarp(u8 healLocationId)
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
     if (healLocation)
         SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, -1, healLocation->x, healLocation->y);
+}
+
+void SetLastBenchWarp(u8 benchLocationId)
+{
+    const struct BenchLocation *benchLocation = GetBenchLocation(benchLocationId);
+    if (benchLocation)
+        SetWarpData(&gSaveBlock1Ptr->lastBenchLocation, benchLocation->group, benchLocation->map, -1, benchLocation->x, benchLocation->y); //WIP
+}
+
+void ClearBenchWarp(void)
+{
+    gSaveBlock1Ptr->lastBenchLocation.mapGroup = 0;
+    gSaveBlock1Ptr->lastBenchLocation.mapNum = 0;
+    gSaveBlock1Ptr->lastBenchLocation.warpId = 0;
+    gSaveBlock1Ptr->lastBenchLocation.x = 0;
+    gSaveBlock1Ptr->lastBenchLocation.y = 0;
 }
 
 void UpdateEscapeWarp(s16 x, s16 y)

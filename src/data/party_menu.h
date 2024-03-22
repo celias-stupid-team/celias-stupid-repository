@@ -1181,7 +1181,7 @@ static struct
     [FIELD_MOVE_MILK_DRINK]   = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SOFT_BOILED]  = {SetUpFieldMove_SoftBoiled,  PARTY_MSG_NOT_ENOUGH_HP},
     [FIELD_MOVE_SWEET_SCENT]  = {SetUpFieldMove_SweetScent,  PARTY_MSG_CANT_USE_HERE},
-    [FIELD_MOVE_RETREAT]      = {SetUpFieldMove_Retreat,     PARTY_MSG_CANT_USE_HERE}, //WIP
+    [FIELD_MOVE_RETREAT]      = {SetUpFieldMove_Retreat,     PARTY_MSG_CANT_USE_HERE},
 };
 
 static const u8 *const sUnionRoomTradeMessages[] =

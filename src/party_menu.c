@@ -4164,9 +4164,9 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
     case FIELD_MOVE_DIG:
         data->mapSec = gMapHeader.regionMapSectionId;
         break;
-    case FIELD_MOVE_RETREAT: //WIP
-        data->mapSec = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum)->regionMapSectionId;
-        break;
+    //case FIELD_MOVE_RETREAT: //WIP
+        //data->mapSec = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum)->regionMapSectionId;
+        //break;
     default:
         data->mapSec = 0xFF;
     }

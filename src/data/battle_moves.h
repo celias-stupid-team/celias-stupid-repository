@@ -4630,7 +4630,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_RETREAT] =
     {
-        .effect = EFFECT_BATON_PASS, //WIP: own effect required?
+        .effect = EFFECT_BATON_PASS,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

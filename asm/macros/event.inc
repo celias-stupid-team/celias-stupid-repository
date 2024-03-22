@@ -1633,6 +1633,17 @@
 	.2byte \quantity
 	.endm
 
+	@ Sets which bench the player will warp to by using MOVE_RETEAT.
+	.macro setbench benchlocation:req
+	.byte 0xd5
+	.2byte \benchlocation
+	.endm
+
+	@ Clears the last bench so MOVE_RETEAT won't warp.
+	.macro clearbench
+	special ClearBenchWarp
+	.endm
+
 
 @ Supplementary
 
