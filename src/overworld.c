@@ -585,7 +585,6 @@ void WarpIntoMap(void)
 
 void SetWarpDestination(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
-    DebugPrintf("SetWarpDestination");
     SetWarpData(&sWarpDestination, mapGroup, mapNum, warpId, x, y);
 }
 

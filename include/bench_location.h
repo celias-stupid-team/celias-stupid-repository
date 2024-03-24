@@ -12,6 +12,5 @@ struct BenchLocation
 };
 
 const struct BenchLocation *GetBenchLocation(u32 loc);
-//void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp); WIP?
 
 #endif // GUARD_BENCH_LOCATION_H

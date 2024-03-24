@@ -3959,7 +3959,7 @@ static void CursorCB_FieldMove(u8 taskId)
                 if(gSaveBlock1Ptr->lastBenchLocation.mapGroup > 0)
                 {
                     mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum);
-                    GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId); //StringVar for message output WIP
+                    GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId);
                     StringExpandPlaceholders(gStringVar4, gText_ReturnToBench);
                     DisplayFieldMoveExitAreaMessage(taskId);
                     sPartyMenuInternal->data[0] = fieldMove;
@@ -3979,10 +3979,9 @@ static void CursorCB_FieldMove(u8 taskId)
                 break;
             }
         }
-        // Cant use Field Move - WIP
+        // Cant use Field Move
         else
         {
-            DebugPrintf("Can't use Field Move");
             switch (fieldMove)
             {
             case FIELD_MOVE_SURF:

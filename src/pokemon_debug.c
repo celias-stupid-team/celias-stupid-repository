@@ -879,8 +879,6 @@ void CB2_Debug_Pokemon(void)
     u8 front_y;
     u8 battlerPos;
 
-    DebugPrintf("switch case: %d", gMain.state);
-
     switch (gMain.state)
     {
         case 0:
