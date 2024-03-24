@@ -621,7 +621,7 @@ void SetWarpDestinationToLastHealLocation(void)
     sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
-bool8 SetWarpDestinationToBench(void) //WIP
+bool8 SetWarpDestinationToBench(void)
 {
     SetWarpDestination(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum, -1, gSaveBlock1Ptr->lastBenchLocation.x, gSaveBlock1Ptr->lastBenchLocation.y);
 }
@@ -642,7 +642,7 @@ void SetLastBenchWarp(u8 benchLocationId)
 {
     const struct BenchLocation *benchLocation = GetBenchLocation(benchLocationId);
     if (benchLocation)
-        SetWarpData(&gSaveBlock1Ptr->lastBenchLocation, benchLocation->group, benchLocation->map, -1, benchLocation->x, benchLocation->y); //WIP
+        SetWarpData(&gSaveBlock1Ptr->lastBenchLocation, benchLocation->group, benchLocation->map, -1, benchLocation->x, benchLocation->y);
 }
 
 void ClearBenchWarp(void)
@@ -778,6 +778,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     LoadObjEventTemplatesFromHeader();
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
+    ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(mapGroup, mapNum);
@@ -813,6 +814,7 @@ static void LoadMapFromWarp(bool32 unused)
 
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
+    ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);

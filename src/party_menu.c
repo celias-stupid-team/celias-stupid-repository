@@ -303,6 +303,7 @@ static void Task_HandleLoseMailMessageYesNoInput(u8 taskId);
 static bool8 TrySwitchInPokemon(void);
 static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
+static void DisplayCantUseRetreatMessage(void);
 static void Task_CancelAfterAorBPress(u8 taskId);
 static void DisplayFieldMoveExitAreaMessage(u8 taskId);
 static void Task_FieldMoveExitAreaYesNo(u8 taskId);
@@ -3954,13 +3955,23 @@ static void CursorCB_FieldMove(u8 taskId)
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
                 Task_ClosePartyMenu(taskId);
                 break;
-            case FIELD_MOVE_RETREAT: //WIP
-                mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
-                GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId); //StringVar for message output WIP
-                StringExpandPlaceholders(gStringVar4, gText_ReturnToBench);
-                DisplayFieldMoveExitAreaMessage(taskId);
-                sPartyMenuInternal->data[0] = fieldMove;
-                break;
+            case FIELD_MOVE_RETREAT:
+                if(gSaveBlock1Ptr->lastBenchLocation.mapGroup > 0)
+                {
+                    mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum);
+                    GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId); //StringVar for message output WIP
+                    StringExpandPlaceholders(gStringVar4, gText_ReturnToBench);
+                    DisplayFieldMoveExitAreaMessage(taskId);
+                    sPartyMenuInternal->data[0] = fieldMove;
+                    break;
+                }
+                else
+                {
+                    //no bench around
+                    DisplayCantUseRetreatMessage();
+                    gTasks[taskId].func = Task_CancelAfterAorBPress;
+                    break;
+                }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 SetUsedFieldMoveQuestLogEvent(&gPlayerParty[GetCursorSelectionMonId()], fieldMove);
@@ -3968,9 +3979,10 @@ static void CursorCB_FieldMove(u8 taskId)
                 break;
             }
         }
-        // Cant use Field Move
+        // Cant use Field Move - WIP
         else
         {
+            DebugPrintf("Can't use Field Move");
             switch (fieldMove)
             {
             case FIELD_MOVE_SURF:
@@ -4049,6 +4061,11 @@ static void Task_CancelAfterAorBPress(u8 taskId)
 {
     if ((gMain.newKeys & A_BUTTON) || (gMain.newKeys & B_BUTTON))
         CursorCB_Cancel1(taskId);
+}
+
+static void DisplayCantUseRetreatMessage(void)
+{
+    DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_RETREAT);
 }
 
 static void DisplayCantUseFlashMessage(void)
@@ -4164,9 +4181,6 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
     case FIELD_MOVE_DIG:
         data->mapSec = gMapHeader.regionMapSectionId;
         break;
-    //case FIELD_MOVE_RETREAT: //WIP
-        //data->mapSec = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum)->regionMapSectionId;
-        //break;
     default:
         data->mapSec = 0xFF;
     }
