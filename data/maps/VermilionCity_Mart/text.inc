@@ -8,7 +8,7 @@ VermilionCity_Mart_Text_TeamRocketAreWickedPeople::
     .string "they are, the DMCA.$"
 
 VermilionCity_Mart_Text_MonsGoodOrBadDependingOnTrainer::
-    .string "I must'vs parked my TRUCK somewhere\n"
+    .string "I must've parked my TRUCK somewhere\n"
     .string "in this city...\l"
     .string "Do you have any idea where it is?"
 
