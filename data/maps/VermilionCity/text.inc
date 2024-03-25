@@ -51,7 +51,7 @@ VermilionCity_Text_GymSign::
     .string "VERMILION CITY POKéMON GYM\n"
     .string "LEADER: LT. SURGE\l"
     .string "The Lightning American!\p"
-    .string "Note: LT. SURGE and is POKéMON\n"
+    .string "Note: LT. SURGE and his POKéMON\n"
     .string "are no longer allowed in America.\p"
     .string "Recommended level: 23$"
 
