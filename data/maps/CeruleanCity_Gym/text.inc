@@ -1,7 +1,7 @@
 CeruleanCity_Gym_Text_MistyIntro::
     .string "Hi, you're a new face!\p"
     .string "Only those TRAINERS who have a\n"
-    .string "strong win condition can win at.\l"
+    .string "strong win condition can win at\l"
     .string "our events!\p"
     .string "Let me show you what got my cards\n"
     .string "banned!$"
