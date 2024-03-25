@@ -24,12 +24,12 @@ CeruleanCity_Text_RivalPostBattle::
 CeruleanCity_Text_OhRightLittlePresentAsFavor::
     .string "Oh, yeah, right.\p"
     .string "I feel sorry for you.\n"
-    .string "No, really\l"
+    .string "No, really!\l"
     .string "The hack creator is really mean.\p"
     .string "You're always struggling to figure\n"
-    .string "out waht to do.\p"
+    .string "out what to do.\p"
     .string "Here, GRAMPS gave me this.\n"
-    .string "you can have it!$"
+    .string "You can have it!$"
 
 CeruleanCity_Text_ExplainFameCheckerSmellYa::
     .string "A chatty gossip like you…\n"
@@ -139,7 +139,7 @@ CeruleanCity_Text_SlowbroIgnoredOrders::
     .string "SLOWBRO ignored orders…$"
 
 CeruleanCity_Text_WantBrightRedBicycle::
-    .string "I saw someone with a BICYCle that\n"
+    .string "I saw someone with a BICYCLE that\n"
     .string "he got for free!\p"
     .string "When I looked at it, it said:\p"
     .string "RYDEL RYDEL RYDEL RYDEL RYDEL \n"
