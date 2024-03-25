@@ -3,7 +3,7 @@ VermilionCity_PokemonFanClub_Text_AdmirePikachusTail::
     .string "adorable tail?$"
 
 VermilionCity_PokemonFanClub_Text_PikachuTwiceAsCute::
-    .string "I wasnted a RAICHU, so my friend\n"
+    .string "I wanted a RAICHU, so my friend\n"
     .string "offered to give me one.\p"
     .string "I'm not sure either of us expected\n"
     .string "what happened next.$"
