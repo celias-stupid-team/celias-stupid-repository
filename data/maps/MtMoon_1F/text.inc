@@ -48,7 +48,7 @@ MtMoon_1F_Text_JovanPostBattle::
 
 MtMoon_1F_Text_IrisIntro::
     .string "Gah!\n"
-    .string "I'm I'm stuck in place!$"
+    .string "I'm stuck in place!$"
 
 MtMoon_1F_Text_IrisDefeat::
     .string "I lost?$"
@@ -90,6 +90,6 @@ MtMoon_1F_Text_ZubatIsABloodsucker::
 
 MtMoon_1F_Text_BrockHelpsExcavateFossils::
     .string "I hear there's someone in this cave\n"
-    .string "with an invincible POKéMON\p"
+    .string "with an invincible POKéMON.\p"
     .string "It's only vulnerable to moves that\n"
     .string "are SUPER-EFFECTIVE against it.$"
