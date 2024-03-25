@@ -11,7 +11,7 @@ VermilionCity_House3_Text_DearPippiLetter::
     .string "Here in VERMILLION, we're\n"
     .string "facing major paper shortages.\p"
     .string "Sadly, I had to write this letter\n"
-    .string "on an NES.\p"
+    .string "on a NES.\p"
     .string "I hope you are doing well!\p"
 
 VermilionCity_House3_Text_SendMyPidgeyToUnionRoom::
