@@ -19,7 +19,7 @@ PewterCity_Museum_1F_Text_PleaseEnjoyYourself::
     .string "Please enjoy yourself.$"
 
 PewterCity_Museum_1F_Text_DoYouKnowWhatAmberIs::
-    .string "y'know I only ever wanted\n"
+    .string "Y'know I only ever wanted\n"
     .string "to be a gardener.\p"
     .string "I guess this is just what that\n"
     .string "entails nowadays.$"
