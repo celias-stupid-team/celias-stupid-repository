@@ -122,7 +122,7 @@ VermilionCity_Gym_Text_DwaynePostBattle::
     .string "will be immediately next to the\l"
     .string "FOURTH switch.\p"
     .string "Otherwise, the FIFTH switch will be\n"
-    .string "located on other the bottom left or\l"
+    .string "located on either the bottom left or\l"
     .string "right can, depending on where the\n"
     .string "FIRST switch was located.$"
 
