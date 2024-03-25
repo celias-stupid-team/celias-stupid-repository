@@ -15,11 +15,11 @@ Route11_EastEntrance_1F_Text_RockTunnelToReachLavender::
     .string "Ever since I moved to KANTO, I've\n"
     .string "been keeping up with my friends\l"
     .string "from JOHTO via MAIL.\p"
-    .string "I had someone deliver a ltter to\n"
+    .string "I had someone deliver a letter to\n"
     .string "my one friend a while back.\l"
     .string "I think he's in VIRIDIAN still?\p"
     .string "Someone should check on him to see\n"
-    .string "if he recieved it.$"
+    .string "if he received it.$"
 
 Route11_EastEntrance_1F_Text_GotKenya::
     .string "...\n"
