@@ -19,8 +19,8 @@ Route25_Text_DanDefeat::
     .string "I'm not mad!$"
 
 Route25_Text_DanPostBattle::
-    .string "On the S.S. ANNE, I saw  worn by\n"
-    .string "TRAINER from around the world!$"
+    .string "On the S.S. ANNE, I was worn by\n"
+    .string "TRAINERS from around the world!$"
 
 Route25_Text_FlintIntro::
     .string "GSC is NOT all stall!\p"
