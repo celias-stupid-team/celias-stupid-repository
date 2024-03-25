@@ -50,7 +50,7 @@ MtMoon_B2F_Text_Grunt2PostBattle::
 
 MtMoon_B2F_Text_Grunt3Intro::
     .string "There's lots of content to claim\n"
-    .string "gere, kid!\p"
+    .string "here, kid!\p"
     .string "We're the DMCA, and we don't"
     .string "take kindly to being messed with!\p"
 
