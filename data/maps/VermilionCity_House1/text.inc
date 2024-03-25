@@ -9,7 +9,7 @@ VermilionCity_House1_Text_TakeThisAndFish::
     .string "Take it!$"
 
 VermilionCity_House1_Text_ReceivedOldRodFromFishingGuru::
-    .string "{PLAYER} received an GOOD ROD from\n"
+    .string "{PLAYER} received a GOOD ROD from\n"
     .string "the FISHING GURU.$"
 
 VermilionCity_House1_Text_FishingIsAWayOfLife::
@@ -17,7 +17,7 @@ VermilionCity_House1_Text_FishingIsAWayOfLife::
     .string "upgrade that GOOD ROD for you!\l"
     .string "I'll give you a fancy SUPER ROD!\p"
     .string "All I need is your date of birth,\n"
-    .string "social security, and credit card info!\l"
+    .string "social security and credit card info!\l"
     .string "How about it?$"
 
 VermilionCity_House1_Text_OhThatsSoDisappointing::
