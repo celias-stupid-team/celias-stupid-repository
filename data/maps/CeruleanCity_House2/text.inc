@@ -1,5 +1,5 @@
 CeruleanCity_House2_Text_RocketsStoleTMForDig::
-    .string "Those miserable DMCA!\p"
+    .string "Those miserable DMCAs!\p"
     .string "Look what they've done to my\n"
     .string "house!\p"
     .string "I was inspired by a TM to teach\n"
