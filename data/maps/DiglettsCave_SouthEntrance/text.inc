@@ -1,6 +1,6 @@
 DiglettsCave_SouthEntrance_Text_DiglettDugThisTunnel::
-    .string "Well, isn't this a surprise!\n"
-    .string "DIGLETT dug this long tunnel!\p"
-    .string "It goes right to VIRIDIAN CITY,\n"
-    .string "they tell me.$"
-
+    .string "This is DIGGLETS' CAVE.\p"
+    .string "Do note how that's DIGGLETS', and\n"
+    .string "not DIGGLET'S\p"
+    .string "This is a very important\n"
+    .string "distinction.$"

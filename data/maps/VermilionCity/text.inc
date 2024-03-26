@@ -1,11 +1,14 @@
 VermilionCity_Text_GrimerMultipliesInSludge::
-    .string "We're careful about pollution here.\p"
-    .string "We've heard GRIMER multiplies in\n"
-    .string "toxic sludge.$"
+    .string "Hey you! Have you seen any SPEAROW\n"
+    .string "on your journey?\p"
+    .string "I really want one, but I can't seem\n"
+    .string "to find any in the wild!$"
 
 VermilionCity_Text_DidYouSeeSSAnneInHarbor::
-    .string "Did you see the S.S. ANNE moored\n"
-    .string "in the harbor?$"
+    .string "The S.S. ANNE normally arrives\n"
+    .string "in VERMILLION around this time.\p"
+    .string "It doesn't seem to have made it\n"
+    .string "to the harbor, though…\p"
 
 VermilionCity_Text_SSAnneHasDepartedForYear::
     .string "So, the S.S. ANNE has departed?\p"
@@ -13,21 +16,20 @@ VermilionCity_Text_SSAnneHasDepartedForYear::
     .string "this time next year.$"
 
 VermilionCity_Text_BuildingOnThisLand::
-    .string "I'm putting up a building on this\n"
-    .string "plot of land. I own it all.\p"
-    .string "My POKéMON is tamping the land\n"
-    .string "to lay the foundation.$"
-
-VermilionCity_Text_Machop::
-    .string "MACHOP: Guoh! Gogogoh!$"
-
-VermilionCity_Text_MachopStompingLandFlat::
+    .string "MACHOP: Guoh! Gogogoh!\p"
     .string "A MACHOP is stomping the land flat.$"
 
+VermilionCity_Text_Machop::
+    .string "When we got the takedown notice,\n"
+    .string "BOSS told us to demolish the TOWER.\p"
+    .string "I'm not sure he understands what\n"
+    .string "'takedown' means in this context.$"
+
 VermilionCity_Text_SSAnneVisitsOnceAYear::
-    .string "The S.S. ANNE is a famous luxury\n"
-    .string "cruise ship.\p"
-    .string "It visits VERMILION once a year.$"
+    .string "The ship is gone, so the captain\n"
+    .string "isn't around to teach CUT.\p"
+    .string "I wonder how else you could use\n"
+    .string "it?$"
 
 VermilionCity_Text_CitySign::
     .string "VERMILION CITY\n"
@@ -48,7 +50,10 @@ VermilionCity_Text_PokemonFanClubSign::
 VermilionCity_Text_GymSign::
     .string "VERMILION CITY POKéMON GYM\n"
     .string "LEADER: LT. SURGE\l"
-    .string "The Lightning American!$"
+    .string "The Lightning American!\p"
+    .string "Note: LT. SURGE and his POKéMON\n"
+    .string "are no longer allowed in America.\p"
+    .string "Recommended level: 23$"
 
 VermilionCity_Text_VermilionHarbor::
     .string "VERMILION HARBOR$"
@@ -59,7 +64,7 @@ VermilionCity_Text_WelcomeToTheSSAnne::
 VermilionCity_Text_DoYouHaveATicket::
     .string "Welcome to the S.S. ANNE!\p"
     .string "Excuse me, do you have a ticket?$"
-
+    
 VermilionCity_Text_FlashedSSTicket::
     .string "{FONT_NORMAL}{PLAYER} flashed the S.S. TICKET!\p"
     .string "{FONT_MALE}Great!\n"
