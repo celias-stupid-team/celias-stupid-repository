@@ -358,8 +358,9 @@
 #define MOVE_PSYCHO_BOOST 354
 //@@@@@ new moves for CSR below @@@@@
 #define MOVE_HEART_SWAP 355
+#define MOVE_RETREAT 356
 
-#define MOVES_COUNT 356
+#define MOVES_COUNT 357
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

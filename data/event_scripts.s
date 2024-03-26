@@ -15,6 +15,7 @@
 #include "constants/vars.h"
 #include "constants/battle.h"
 #include "constants/heal_locations.h"
+#include "constants/bench_locations.h"
 #include "constants/field_effects.h"
 #include "constants/trainers.h"
 #include "constants/trainer_tower.h"

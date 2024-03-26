@@ -43,7 +43,8 @@
 #define FIELD_MOVE_MILK_DRINK   9
 #define FIELD_MOVE_SOFT_BOILED  10
 #define FIELD_MOVE_SWEET_SCENT  11
-#define FIELD_MOVE_END          12
+#define FIELD_MOVE_RETREAT      12
+#define FIELD_MOVE_END          13
 
 #define PARTY_LAYOUT_SINGLE          0
 #define PARTY_LAYOUT_DOUBLE          1
@@ -109,6 +110,7 @@
 #define PARTY_MSG_BOOST_PP_WHICH_MOVE       24
 #define PARTY_MSG_DO_WHAT_WITH_ITEM         25
 #define PARTY_MSG_DO_WHAT_WITH_MAIL         26
+#define PARTY_MSG_CANT_USE_RETREAT          27
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

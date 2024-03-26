@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "bench_location.h"
 #include "bg_regs.h"
 #include "cable_club.h"
 #include "credits.h"
@@ -619,6 +620,11 @@ void SetWarpDestinationToLastHealLocation(void)
     sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
+bool8 SetWarpDestinationToBench(void)
+{
+    SetWarpDestination(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum, -1, gSaveBlock1Ptr->lastBenchLocation.x, gSaveBlock1Ptr->lastBenchLocation.y);
+}
+
 static void Overworld_SetWhiteoutRespawnPoint(void)
 {
     SetWhiteoutRespawnWarpAndHealerNpc(&sWarpDestination);
@@ -629,6 +635,22 @@ void SetLastHealLocationWarp(u8 healLocationId)
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
     if (healLocation)
         SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, -1, healLocation->x, healLocation->y);
+}
+
+void SetLastBenchWarp(u8 benchLocationId)
+{
+    const struct BenchLocation *benchLocation = GetBenchLocation(benchLocationId);
+    if (benchLocation)
+        SetWarpData(&gSaveBlock1Ptr->lastBenchLocation, benchLocation->group, benchLocation->map, -1, benchLocation->x, benchLocation->y);
+}
+
+void ClearBenchWarp(void)
+{
+    gSaveBlock1Ptr->lastBenchLocation.mapGroup = 0;
+    gSaveBlock1Ptr->lastBenchLocation.mapNum = 0;
+    gSaveBlock1Ptr->lastBenchLocation.warpId = 0;
+    gSaveBlock1Ptr->lastBenchLocation.x = 0;
+    gSaveBlock1Ptr->lastBenchLocation.y = 0;
 }
 
 void UpdateEscapeWarp(s16 x, s16 y)
@@ -755,6 +777,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     LoadObjEventTemplatesFromHeader();
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
+    ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(mapGroup, mapNum);
@@ -790,6 +813,7 @@ static void LoadMapFromWarp(bool32 unused)
 
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
+    ClearBenchWarp();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);

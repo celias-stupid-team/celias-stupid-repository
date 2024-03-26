@@ -2249,3 +2249,11 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
     return FALSE;
 }
+
+bool8 ScrCmd_setbench(struct ScriptContext * ctx)
+{
+    u16 benchId = VarGet(ScriptReadHalfword(ctx));
+
+    SetLastBenchWarp(benchId);
+    return FALSE;
+}
