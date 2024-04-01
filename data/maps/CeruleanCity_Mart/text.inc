@@ -7,8 +7,8 @@ CeruleanCity_Mart_Text_RepelWorksOnWeakMons::
     .string "REPEL's effect is boosted.$"
 
 CeruleanCity_Mart_Text_DoYouKnowAboutRareCandy::
-    .string "Do you know about RARE CANDY?\n"
-    .string "They don't sell it in shops.\p"
+    .string "Do you know about COMMON CANDY?\n"
+    .string "They sell it everywhere.\p"
     .string "I think it makes POKéMON grow\n"
     .string "very quickly all of a sudden.$"
 
