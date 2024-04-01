@@ -5139,20 +5139,19 @@ static void Task_TryLearningNextMove(u8 taskId)
 {
     u16 result = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], FALSE);
 
-    DebugPrintf("Task_TryLearningNextMove");
-    if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    if(result == MON_ALREADY_KNOWS_MOVE)
+        Task_TryLearningNextMove(taskId);
+    else
     {
         switch (result)
         {
         case MOVE_NONE: // No moves to learn
             PartyMenuTryEvolution(taskId);
             break;
-        case MON_HAS_MAX_MOVES:
+        case MON_HAS_MAX_MOVES: // replace move
             DisplayMonNeedsToReplaceMove(taskId);
             break;
-        case MON_ALREADY_KNOWS_MOVE:
-            return;
-        default:
+        default: // auto learned move to empty slot
             DisplayMonLearnedMove(taskId, result);
             break;
         }
