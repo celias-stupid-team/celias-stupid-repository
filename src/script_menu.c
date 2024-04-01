@@ -869,6 +869,20 @@ bool8 ScriptMenu_YesNo(u8 unused, u8 stuff)
     return TRUE;
 }
 
+bool8 ScriptMenu_NoYes(u8 unused, u8 stuff)
+{
+    if (FuncIsActiveTask(Task_YesNoMenu_HandleInput) == TRUE)
+        return FALSE;
+    gSpecialVar_Result = SCR_MENU_UNSET;
+
+    if (QL_AvoidDisplay(QL_DestroyAbortedDisplay))
+        return TRUE;
+
+    DisplayYesNoMenuDefaultNo();
+    CreateTask(Task_YesNoMenu_HandleInput, 80);
+    return TRUE;
+}
+
 // Unused
 static bool8 IsScriptActive(void)
 {

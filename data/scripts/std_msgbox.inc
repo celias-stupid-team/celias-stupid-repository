@@ -27,6 +27,12 @@ Std_MsgboxYesNo::
 	yesnobox 20, 8
 	return
 
+Std_MsgboxNoYes::
+	message 0x0
+	waitmessage
+	noyesbox 20, 8
+	return
+
 Std_ReceivedItem::
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	call_if_eq VAR_0x8002, MUS_LEVEL_UP, EventScript_ReceivedItemFanfare1
