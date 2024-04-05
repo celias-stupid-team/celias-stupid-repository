@@ -377,6 +377,7 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHO_BOOST
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
 	.4byte Move_HEART_SWAP
+	.4byte Move_SUBSTITUTE_TEACHER
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -11112,4 +11113,9 @@ Special_SubstituteToMon:
 
 Special_MonToSubstitute:
 	createvisualtask AnimTask_SwapMonSpriteToFromSubstitute, 2, FALSE
+	end
+
+Move_SUBSTITUTE_TEACHER:
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MonToSubstitute, 2
 	end

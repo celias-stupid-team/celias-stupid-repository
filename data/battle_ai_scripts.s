@@ -211,6 +211,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
+	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CBM_Substitute
 	end
 
 AI_CBM_Sleep::
@@ -773,6 +774,7 @@ AI_CheckViability::
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
+	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
 	end
 
 AI_CV_Sleep::
@@ -2855,6 +2857,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_BULK_UP
 	.byte EFFECT_CALM_MIND
 	.byte EFFECT_CAMOUFLAGE
+	.byte EFFECT_SUBSTITUTE_TEACHER
 	.byte -1
 
 AI_PreferStrongestMove::

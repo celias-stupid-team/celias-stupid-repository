@@ -236,6 +236,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
+	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -251,6 +252,7 @@ BattleScript_HitFromAtkString::
 	ppreduce
 	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
 BattleScript_HitFromCritCalc::
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
 	critcalc
 	damagecalc
 	typecalc
@@ -275,6 +277,12 @@ BattleScript_MoveEnd::
 
 BattleScript_MathClubSingleHit::
 	setmultihitcounter 2
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_MultiHitLoop
+
+BattleScript_MathClubDoubleHit::
+	setmultihitcounter 4
 	initmultihitstring
 	setbyte sMULTIHIT_EFFECT, 0
 	goto BattleScript_MultiHitLoop
@@ -875,6 +883,7 @@ BattleScript_EffectDoubleHit::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubDoubleHit
 	setmultihitcounter 2
 	initmultihitstring
 	setbyte sMULTIHIT_EFFECT, 0
@@ -4425,3 +4434,20 @@ BattleScript_ActionSelectionItemsCantBeUsed::
 BattleScript_FlushMessageBox::
 	printstring STRINGID_EMPTYSTRING3
 	return
+
+BattleScript_EffectSubstituteTeacher::
+	attackcanceler
+	ppreduce
+	attackstring
+	waitstate
+	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	setsubstituteteacher
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteTeacherAnim
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_SubstituteString
+BattleScript_SubstituteTeacherAnim::
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	goto BattleScript_SubstituteString

@@ -1272,8 +1272,11 @@
 	.byte 0xfb
 	.byte \battler
 	.4byte \item
-	.byte TRUE
 	.4byte \jumpInstr
+	.endm
+
+	.macro setsubstituteteacher
+	.byte 0xfc
 	.endm
 
 @ various command changed to more readable macros

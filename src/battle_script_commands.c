@@ -365,6 +365,7 @@ static void Cmd_callnative(void);
 static void Cmd_swapstatstages(void);
 static void Cmd_jumpifnotspeciescondition(void);
 static void Cmd_jumpifhelditem(void);
+static void Cmd_setsubstituteteacher(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -619,7 +620,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_callnative,                              //0xF8
     Cmd_swapstatstages,                          //0xF9
     Cmd_jumpifnotspeciescondition,               //0xFA
-    Cmd_jumpifhelditem,               //0xFB
+    Cmd_jumpifhelditem,                          //0xFB
+    Cmd_setsubstituteteacher,                    //0xFC
 };
 
 struct StatFractions
@@ -1728,7 +1730,7 @@ static void Cmd_attackanimation(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE))
+    if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER))
     {
         BattleScriptPush(gBattlescriptCurrInstr + 1);
         gBattlescriptCurrInstr = BattleScript_Pausex20;
@@ -10001,15 +10003,53 @@ static void Cmd_jumpifhelditem(void)
 {
     CMD_ARGS(u8 battler, u32 item, const u8 *jumpInstr);
 
+    struct Pokemon *party;
+    u32 species, item;
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    //check for attacker battle side
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
+
+    species = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
+    item = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM);
+
     DebugPrintf("Cmd_jumpifhelditem");
-    //only works for player party??? gBattleMons[gBattlerTarget]
-    DebugPrintf("itemID: %d", GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM));
-    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM) != cmd->item)
-        gBattlescriptCurrInstr = cmd->nextInstr;
+    DebugPrintf("itemID: %d", item);
+    DebugPrintf("Battler species: %S", gSpeciesNames[species]);
+
+    //special handling of ITEM_MATH_CLUB --> only trigger for CUBONE/MAROWAK
+    if (item == ITEM_MATH_CLUB)
+    {
+        if (item == cmd->item && (species == SPECIES_CUBONE || species == SPECIES_MAROWAK))
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        } 
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+    }
     else
     {
-        DebugPrintf("Math Club effect triggered");
-        gBattlescriptCurrInstr = cmd->jumpInstr;
+        if (item != cmd->item)
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else
+            gBattlescriptCurrInstr = cmd->jumpInstr;
     }
+}
+
+static void Cmd_setsubstituteteacher(void)
+{
+    //set HP to full through negative damage
+    gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp - gBattleMons[gBattlerAttacker].maxHP;
+    gBattleMons[gBattlerAttacker].hp = gBattleMons[gBattlerAttacker].maxHP;
+    gBattleMons[gBattlerAttacker].status2 |= STATUS2_SUBSTITUTE;
+    gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_WRAPPED;
+    //set substitute HP to 1/4 of max HP
+    gDisableStructs[gBattlerAttacker].substituteHP = gBattleMons[gBattlerAttacker].maxHP / 4;
+    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
+    gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
+
+    gBattlescriptCurrInstr++;
 }
