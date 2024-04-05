@@ -364,6 +364,7 @@ static void Cmd_finishturn(void);
 static void Cmd_callnative(void);
 static void Cmd_swapstatstages(void);
 static void Cmd_jumpifnotspeciescondition(void);
+static void Cmd_jumpifhelditem(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -618,6 +619,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_callnative,                              //0xF8
     Cmd_swapstatstages,                          //0xF9
     Cmd_jumpifnotspeciescondition,               //0xFA
+    Cmd_jumpifhelditem,               //0xFB
 };
 
 struct StatFractions
@@ -9992,5 +9994,22 @@ static void Cmd_jumpifnotspeciescondition(void)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_jumpifhelditem(void)
+{
+    CMD_ARGS(u8 battler, u32 item, const u8 *jumpInstr);
+
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    DebugPrintf("Cmd_jumpifhelditem");
+    //only works for player party??? gBattleMons[gBattlerTarget]
+    DebugPrintf("itemID: %d", GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM));
+    if (GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM) != cmd->item)
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    else
+    {
+        DebugPrintf("Math Club effect triggered");
+        gBattlescriptCurrInstr = cmd->jumpInstr;
     }
 }

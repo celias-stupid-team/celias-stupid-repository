@@ -249,6 +249,7 @@ BattleScript_HitFromAccCheck::
 BattleScript_HitFromAtkString::
 	attackstring
 	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
 BattleScript_HitFromCritCalc::
 	critcalc
 	damagecalc
@@ -271,6 +272,13 @@ BattleScript_HitFromAtkAnimation::
 BattleScript_MoveEnd::
 	moveendall
 	end
+
+BattleScript_MathClubSingleHit::
+	setmultihitcounter 2
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_MultiHitLoop
+
 
 //test effect based on regular damaging move
 BattleScript_EffectHeartSwap::
