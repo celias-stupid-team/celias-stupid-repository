@@ -4556,7 +4556,7 @@ static void Cmd_switchindataupdate(void)
 
     gBattleMons[gActiveBattler].type1 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[0];
     gBattleMons[gActiveBattler].type2 = gSpeciesInfo[gBattleMons[gActiveBattler].species].types[1];
-    gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum);
+    gBattleMons[gActiveBattler].ability = GetAbilityBySpecies(gBattleMons[gActiveBattler].species, gBattleMons[gActiveBattler].abilityNum, gBattleMons[gActiveBattler].lockedAbility);
 
     // check knocked off item
     i = GetBattlerSide(gActiveBattler);
@@ -5437,6 +5437,13 @@ static void Cmd_getmoneyreward(void)
                     lastMonLevel = party4[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
                 }
                 break;
+            case (F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_ABILITY):
+                {
+                    const struct TrainerMonItemAbilityCustomMoves *party5 = gTrainers[gTrainerBattleOpponent_A].party.ItemAbilityCustomMoves;
+                    
+                    lastMonLevel = party4[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
+                }
+                break;
             }
             for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
             {
@@ -6136,6 +6143,7 @@ static void Cmd_various(void)
     u32 monToCheck, status;
     u16 species;
     u8 abilityNum;
+    u8 lockedAbility;
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
@@ -6244,11 +6252,12 @@ static void Cmd_various(void)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
             abilityNum = GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM);
+            lockedAbility = GetMonData(&gPlayerParty[i], MON_DATA_LOCKED_ABILITY);
             status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
             if (species != SPECIES_NONE
              && species != SPECIES_EGG
              && status & AILMENT_FNT
-             && GetAbilityBySpecies(species, abilityNum) != ABILITY_SOUNDPROOF)
+             && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
                 monToCheck |= (1 << i);
         }
         if (monToCheck)
@@ -6264,12 +6273,13 @@ static void Cmd_various(void)
         {
             species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG);
             abilityNum = GetMonData(&gEnemyParty[i], MON_DATA_ABILITY_NUM);
+            lockedAbility = GetMonData(&gEnemyParty[i], MON_DATA_LOCKED_ABILITY);
             status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
 
             if (species != SPECIES_NONE
              && species != SPECIES_EGG
              && status & AILMENT_FNT
-             && GetAbilityBySpecies(species, abilityNum) != ABILITY_SOUNDPROOF)
+             && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
                 monToCheck |= (1 << i);
         }
         if (monToCheck)
@@ -8129,7 +8139,7 @@ static void Cmd_healpartystatus(void)
                          && !(gAbsentBattlerFlags & gBitTable[gActiveBattler]))
                     ability = gBattleMons[gActiveBattler].ability;
                 else
-                    ability = GetAbilityBySpecies(species, abilityNum);
+                    ability = GetAbilityBySpecies(species, abilityNum, gBattleMons[gBattlerAttacker].lockedAbility);
 
                 if (ability != ABILITY_SOUNDPROOF)
                     toHeal |= (1 << i);
