@@ -675,6 +675,7 @@ BattleScript_DoMultiHit::
 	datahpupdate BS_TARGET
 	critmessage
 	waitmessage B_WAIT_TIME_LONG
+	multihitresultmessage
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 1
 	addbyte sMULTIHIT_STRING + 4, 1
@@ -3674,6 +3675,11 @@ BattleScript_EnduredMsg::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_SturdiedMsg::
+	printstring STRINGID_ENDUREDSTURDY
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_OneHitKOMsg::
 	printstring STRINGID_ONEHITKO
 	waitmessage B_WAIT_TIME_LONG
@@ -4451,3 +4457,12 @@ BattleScript_SubstituteTeacherAnim::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	goto BattleScript_SubstituteString
+
+BattleScript_HangedOnMsg::
+	playanimation BS_TARGET, B_ANIM_HANGED_ON
+	printstring STRINGID_PKMNHUNGONWITHX
+	waitmessage B_WAIT_TIME_LONG
+	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_FOCUS_SASH, BattleScript_HangedOnMsgRet
+	removeitem BS_TARGET
+BattleScript_HangedOnMsgRet:
+	return

@@ -1279,6 +1279,10 @@
 	.byte 0xfc
 	.endm
 
+	.macro multihitresultmessage
+	.byte 0xfd
+	.endm
+
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
 	various \battler, VARIOUS_CANCEL_MULTI_TURN_MOVES
@@ -1415,4 +1419,10 @@
 
 	.macro jumpifnotspecies battler:req, species:req, jumpptr:req
 	jumpifnotspeciescondition \battler, \species, FALSE, \jumpptr
+	.endm
+
+	.macro jumpifnoholdeffect battler:req, holdEffect:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_NO_HOLD_EFFECT
+	.byte \holdEffect
+	.4byte \jumpInstr
 	.endm

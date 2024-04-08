@@ -423,6 +423,7 @@ gBattleAnims_General::
 	.4byte General_SafariRockThrow          @ B_ANIM_ROCK_THROW
 	.4byte General_SafariReaction           @ B_ANIM_SAFARI_REACTION
 	.4byte General_AlomomolaEvolve          @ B_ANIM_ALOMOMOLA_EVOLVE
+	.4byte General_HangedOn                 @ B_ANIM_HANGED_ON
 
 	.align 2
 gBattleAnims_Special::

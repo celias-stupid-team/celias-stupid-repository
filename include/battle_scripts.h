@@ -95,6 +95,7 @@ extern const u8 BattleScript_GrudgeTakesPp[];
 extern const u8 BattleScript_MagicCoatBounce[];
 extern const u8 BattleScript_SnatchedMove[];
 extern const u8 BattleScript_EnduredMsg[];
+extern const u8 BattleScript_SturdiedMsg[];
 extern const u8 BattleScript_OneHitKOMsg[];
 extern const u8 BattleScript_SAtkDown2[];
 extern const u8 BattleScript_FocusPunchSetUp[];
@@ -230,6 +231,7 @@ extern const u8 BattleScript_OldMan_Pokedude_CaughtMessage[];
 extern const u8 BattleScript_SilphScopeUnveiled[];
 extern const u8 BattleScript_BattleTowerTrainerBattleWon[];
 extern const u8 BattleScript_AlomomolaMidBattleEvo[];
+extern const u8 BattleScript_HangedOnMsg[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForBallThrow[];
