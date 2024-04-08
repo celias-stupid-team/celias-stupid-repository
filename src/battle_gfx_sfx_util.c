@@ -758,14 +758,33 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
     u8 position;
     s32 i;
     u32 palOffset;
+    bool8 knowsSubTeacher = FALSE;
+
+    //WIP
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER)
+            knowsSubTeacher = TRUE;
+    }
 
     if (!loadMonSprite)
     {
+        DebugPrintf("BattleLoadSubstituteOrMonSpriteGfx");
         position = GetBattlerPosition(battlerId);
-        if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-            LZDecompressVram(gSubstituteDollGfx, gMonSpritesGfxPtr->sprites[position]);
+        if (GetBattlerSide(battlerId) != B_SIDE_PLAYER) {
+            if (knowsSubTeacher)
+                LZDecompressVram(gSubstituteKangaGfx, gMonSpritesGfxPtr->sprites[position]);
+            else
+                LZDecompressVram(gSubstituteDollGfx, gMonSpritesGfxPtr->sprites[position]);
+        }
         else
-            LZDecompressVram(gSubstituteDollTilemap, gMonSpritesGfxPtr->sprites[position]);
+        {
+            if (knowsSubTeacher)
+                LZDecompressVram(gSubstituteKangaBackGfx, gMonSpritesGfxPtr->sprites[position]);
+            else
+                LZDecompressVram(gSubstituteDollTilemap, gMonSpritesGfxPtr->sprites[position]);
+        }
+
         for (i = 1; i < 4; ++i)
         {
             u8 (*ptr)[4][0x800] = gMonSpritesGfxPtr->sprites[position];
@@ -775,7 +794,10 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
             DmaCopy32Defvars(3, (*ptr)[0], (*ptr)[i], 0x800);
         }
         palOffset = OBJ_PLTT_ID(battlerId);
-        LoadCompressedPalette(gSubstituteDollPal, palOffset, PLTT_SIZE_4BPP);
+        if (knowsSubTeacher)
+            LoadCompressedPalette(gSubstituteKangaPal, palOffset, PLTT_SIZE_4BPP);
+        else
+            LoadCompressedPalette(gSubstituteDollPal, palOffset, PLTT_SIZE_4BPP);
     }
     else
     {

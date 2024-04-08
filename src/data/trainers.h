@@ -5319,8 +5319,8 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("CHARLIE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_BugCatcherCharlie),
+        .aiFlags = AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_BugCatcherCharlie), //TEST setting WIP
     },
     [TRAINER_TWINS_ELI_ANNE_2] = {
         .trainerClass = TRAINER_CLASS_TWINS,

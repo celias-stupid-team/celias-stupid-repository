@@ -8,6 +8,7 @@
 #include "trig.h"
 #include "util.h"
 #include "constants/battle_anim.h"
+#include "constants/moves.h"
 
 #define IS_DOUBLE_BATTLE() (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
 
@@ -286,11 +287,31 @@ u8 GetBattlerSpriteDefault_Y(u8 battlerId)
 u8 GetSubstituteSpriteDefault_Y(u8 battlerId)
 {
     u16 y;
+    bool8 knowsSubTeacher = FALSE;
+    int i;
+
+    //WIP
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER)
+            knowsSubTeacher = TRUE;
+    }
 
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-        y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 16;
+    {
+        if (knowsSubTeacher) //position of Kangaskhan baby
+            y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 10;
+        else
+            y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 16;
+    }
     else
-        y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 17;
+    {
+        if (knowsSubTeacher) //position of Kangaskhan baby
+            y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 15;
+        else
+            y = GetBattlerSpriteCoord(battlerId, BATTLER_COORD_Y) + 17;
+    }
+    
     return y;
 }
 

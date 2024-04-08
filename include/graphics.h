@@ -3945,6 +3945,9 @@ extern const u32 gGhostPalette[];
 extern const u32 gSubstituteDollGfx[];
 extern const u32 gSubstituteDollTilemap[];
 extern const u32 gSubstituteDollPal[];
+extern const u32 gSubstituteKangaGfx[];
+extern const u32 gSubstituteKangaBackGfx[];
+extern const u32 gSubstituteKangaPal[];
 
 // ice
 extern const u8 gWeatherFogHorizontalTiles[];

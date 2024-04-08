@@ -1859,6 +1859,13 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     }
 
     GiveBoxMonInitialMoveset(boxMon);
+
+    //WIP - special Kanga
+    if (species == SPECIES_RATTATA)
+    {
+        value = ITEM_MATH_CLUB;
+        SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &value);
+    }
 }
 
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
