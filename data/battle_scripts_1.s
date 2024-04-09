@@ -6,6 +6,7 @@
 #include "constants/battle_anim.h"
 #include "constants/items.h"
 #include "constants/abilities.h"
+#include "constants/hold_effects.h"
 #include "constants/species.h"
 #include "constants/pokemon.h"
 #include "constants/songs.h"

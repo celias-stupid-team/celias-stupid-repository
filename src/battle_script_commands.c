@@ -1668,6 +1668,7 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        DebugPrintf("adjustnormaldamage");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -1688,6 +1689,7 @@ static void Cmd_adjustnormaldamage(void)
         }
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
+            DebugPrintf("set MOVE_RESULT_STURDIED");
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
             gLastUsedAbility = ABILITY_STURDY;
         }
@@ -1722,6 +1724,7 @@ static void Cmd_adjustnormaldamage2(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        DebugPrintf("adjustnormaldamage2");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -2022,6 +2025,8 @@ static void Cmd_resultmessage(void)
 {
     u32 stringId = 0;
 
+    DebugPrintf("resultmessage");
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -2076,6 +2081,7 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
+                DebugPrintf("resultmessage - reset sturdied");
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
                 BattleScriptPushCursor();
@@ -5737,6 +5743,7 @@ static void Cmd_adjustsetdamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
+        DebugPrintf("adjustsetdamage");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -6193,166 +6200,169 @@ static void Cmd_various(void)
 
     switch (gBattlescriptCurrInstr[2])
     {
-    case VARIOUS_CANCEL_MULTI_TURN_MOVES:
-        CancelMultiTurnMoves(gActiveBattler);
-        break;
-    case VARIOUS_SET_MAGIC_COAT_TARGET:
-        gBattlerAttacker = gBattlerTarget;
-        side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
-        if (gSideTimers[side].followmeTimer != 0 && gBattleMons[gSideTimers[side].followmeTarget].hp != 0)
-            gBattlerTarget = gSideTimers[side].followmeTarget;
-        else
-            gBattlerTarget = gActiveBattler;
-        break;
-    case VARIOUS_IS_RUNNING_IMPOSSIBLE:
-        gBattleCommunication[0] = IsRunningFromBattleImpossible();
-        break;
-    case VARIOUS_GET_MOVE_TARGET:
-        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
-        break;
-    case VARIOUS_GET_BATTLER_FAINTED:
-        if (gHitMarker & HITMARKER_FAINTED(gActiveBattler))
-            gBattleCommunication[0] = TRUE;
-        else
-            gBattleCommunication[0] = FALSE;
-        break;
-    case VARIOUS_RESET_INTIMIDATE_TRACE_BITS:
-        gSpecialStatuses[gActiveBattler].intimidatedMon = 0;
-        gSpecialStatuses[gActiveBattler].traced = 0;
-        break;
-    case VARIOUS_UPDATE_CHOICE_MOVE_ON_LVL_UP:
-        if (gBattlerPartyIndexes[0] == gBattleStruct->expGetterMonId || gBattlerPartyIndexes[2] == gBattleStruct->expGetterMonId)
-        {
-            u16 *choicedMove;
-
-            if (gBattlerPartyIndexes[0] == gBattleStruct->expGetterMonId)
-                gActiveBattler = 0;
+        case VARIOUS_CANCEL_MULTI_TURN_MOVES:
+            CancelMultiTurnMoves(gActiveBattler);
+            break;
+        case VARIOUS_SET_MAGIC_COAT_TARGET:
+            gBattlerAttacker = gBattlerTarget;
+            side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+            if (gSideTimers[side].followmeTimer != 0 && gBattleMons[gSideTimers[side].followmeTarget].hp != 0)
+                gBattlerTarget = gSideTimers[side].followmeTarget;
             else
-                gActiveBattler = 2;
-
-            choicedMove = &gBattleStruct->choicedMove[gActiveBattler];
-
-            for (i = 0; i < MAX_MON_MOVES; i++)
+                gBattlerTarget = gActiveBattler;
+            break;
+        case VARIOUS_IS_RUNNING_IMPOSSIBLE:
+            gBattleCommunication[0] = IsRunningFromBattleImpossible();
+            break;
+        case VARIOUS_GET_MOVE_TARGET:
+            gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+            break;
+        case VARIOUS_GET_BATTLER_FAINTED:
+            if (gHitMarker & HITMARKER_FAINTED(gActiveBattler))
+                gBattleCommunication[0] = TRUE;
+            else
+                gBattleCommunication[0] = FALSE;
+            break;
+        case VARIOUS_RESET_INTIMIDATE_TRACE_BITS:
+            gSpecialStatuses[gActiveBattler].intimidatedMon = 0;
+            gSpecialStatuses[gActiveBattler].traced = 0;
+            break;
+        case VARIOUS_UPDATE_CHOICE_MOVE_ON_LVL_UP:
+            if (gBattlerPartyIndexes[0] == gBattleStruct->expGetterMonId || gBattlerPartyIndexes[2] == gBattleStruct->expGetterMonId)
             {
-                if (gBattleMons[gActiveBattler].moves[i] == *choicedMove)
-                    break;
+                u16 *choicedMove;
+
+                if (gBattlerPartyIndexes[0] == gBattleStruct->expGetterMonId)
+                    gActiveBattler = 0;
+                else
+                    gActiveBattler = 2;
+
+                choicedMove = &gBattleStruct->choicedMove[gActiveBattler];
+
+                for (i = 0; i < MAX_MON_MOVES; i++)
+                {
+                    if (gBattleMons[gActiveBattler].moves[i] == *choicedMove)
+                        break;
+                }
+                if (i == MAX_MON_MOVES)
+                    *choicedMove = MOVE_NONE;
             }
-            if (i == MAX_MON_MOVES)
-                *choicedMove = MOVE_NONE;
-        }
-        break;
-    case VARIOUS_RESET_PLAYER_FAINTED:
-        if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE))
-            && gBattleTypeFlags & BATTLE_TYPE_TRAINER
-            && gBattleMons[0].hp != 0
-            && gBattleMons[1].hp != 0)
-        {
-            gHitMarker &= ~HITMARKER_PLAYER_FAINTED;
-        }
-        break;
-    case VARIOUS_GET_BATTLERS_FOR_RECALL:
-        i = 0; // redundant
-        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-        gActiveBattler = 1;
-        for (i = 0; gActiveBattler < MAX_BATTLERS_COUNT; gActiveBattler += 2)
-        {
-            if (gActiveBattler < gBattlersCount && gBattleMons[gActiveBattler].hp != 0)
-                gBattleCommunication[MULTISTRING_CHOOSER] |= gBitTable[i];
-            i++;
-        }
-        break;
-    case VARIOUS_RETURN_OPPONENT_MON1:
-        gActiveBattler = 1;
-        if (gBattleMons[gActiveBattler].hp != 0)
-        {
-            BtlController_EmitReturnMonToBall(BUFFER_A, FALSE);
-            MarkBattlerForControllerExec(gActiveBattler);
-        }
-        break;
-    case VARIOUS_RETURN_OPPONENT_MON2:
-        if (gBattlersCount > 3)
-        {
-            gActiveBattler = 3;
+            break;
+        case VARIOUS_RESET_PLAYER_FAINTED:
+            if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE))
+                && gBattleTypeFlags & BATTLE_TYPE_TRAINER
+                && gBattleMons[0].hp != 0
+                && gBattleMons[1].hp != 0)
+            {
+                gHitMarker &= ~HITMARKER_PLAYER_FAINTED;
+            }
+            break;
+        case VARIOUS_GET_BATTLERS_FOR_RECALL:
+            i = 0; // redundant
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+            gActiveBattler = 1;
+            for (i = 0; gActiveBattler < MAX_BATTLERS_COUNT; gActiveBattler += 2)
+            {
+                if (gActiveBattler < gBattlersCount && gBattleMons[gActiveBattler].hp != 0)
+                    gBattleCommunication[MULTISTRING_CHOOSER] |= gBitTable[i];
+                i++;
+            }
+            break;
+        case VARIOUS_RETURN_OPPONENT_MON1:
+            gActiveBattler = 1;
             if (gBattleMons[gActiveBattler].hp != 0)
             {
                 BtlController_EmitReturnMonToBall(BUFFER_A, FALSE);
                 MarkBattlerForControllerExec(gActiveBattler);
             }
-        }
-        break;
-    case VARIOUS_CHECK_POKEFLUTE:
-        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-        monToCheck = 0;
-        for (i = 0; i < gBattlersCount; i++)
-        {
-            if (gBattleMons[i].ability != ABILITY_SOUNDPROOF)
+            break;
+        case VARIOUS_RETURN_OPPONENT_MON2:
+            if (gBattlersCount > 3)
             {
-                gBattleMons[i].status1 &= ~STATUS1_SLEEP;
-                gBattleMons[i].status2 &= ~STATUS2_NIGHTMARE;
-
+                gActiveBattler = 3;
+                if (gBattleMons[gActiveBattler].hp != 0)
+                {
+                    BtlController_EmitReturnMonToBall(BUFFER_A, FALSE);
+                    MarkBattlerForControllerExec(gActiveBattler);
+                }
             }
-        }
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
-            abilityNum = GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM);
-            lockedAbility = GetMonData(&gPlayerParty[i], MON_DATA_LOCKED_ABILITY);
-            status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
-            if (species != SPECIES_NONE
-             && species != SPECIES_EGG
-             && status & AILMENT_FNT
-             && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
-                monToCheck |= (1 << i);
-        }
-        if (monToCheck)
-        {
-            gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-            status = 0;
-            BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, monToCheck, 4, &status);
-            MarkBattlerForControllerExec(gActiveBattler);
-            gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-        }
-        monToCheck = 0;
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG);
-            abilityNum = GetMonData(&gEnemyParty[i], MON_DATA_ABILITY_NUM);
-            lockedAbility = GetMonData(&gEnemyParty[i], MON_DATA_LOCKED_ABILITY);
-            status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
+            break;
+        case VARIOUS_CHECK_POKEFLUTE:
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+            monToCheck = 0;
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleMons[i].ability != ABILITY_SOUNDPROOF)
+                {
+                    gBattleMons[i].status1 &= ~STATUS1_SLEEP;
+                    gBattleMons[i].status2 &= ~STATUS2_NIGHTMARE;
 
-            if (species != SPECIES_NONE
-             && species != SPECIES_EGG
-             && status & AILMENT_FNT
-             && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
-                monToCheck |= (1 << i);
-        }
-        if (monToCheck)
+                }
+            }
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+                abilityNum = GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM);
+                lockedAbility = GetMonData(&gPlayerParty[i], MON_DATA_LOCKED_ABILITY);
+                status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
+                if (species != SPECIES_NONE
+                && species != SPECIES_EGG
+                && status & AILMENT_FNT
+                && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
+                    monToCheck |= (1 << i);
+            }
+            if (monToCheck)
+            {
+                gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+                status = 0;
+                BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, monToCheck, 4, &status);
+                MarkBattlerForControllerExec(gActiveBattler);
+                gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+            }
+            monToCheck = 0;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_OR_EGG);
+                abilityNum = GetMonData(&gEnemyParty[i], MON_DATA_ABILITY_NUM);
+                lockedAbility = GetMonData(&gEnemyParty[i], MON_DATA_LOCKED_ABILITY);
+                status = GetMonData(&gEnemyParty[i], MON_DATA_STATUS);
+
+                if (species != SPECIES_NONE
+                && species != SPECIES_EGG
+                && status & AILMENT_FNT
+                && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
+                    monToCheck |= (1 << i);
+            }
+            if (monToCheck)
+            {
+                gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+                status = 0;
+                BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, monToCheck, 4, &status);
+                MarkBattlerForControllerExec(gActiveBattler);
+                gBattleCommunication[5] = 1;
+            }
+            break;
+        case VARIOUS_WAIT_FANFARE:
+            if (!IsFanfareTaskInactive())
+                return;
+            break;
+        case VARIOUS_JUMP_IF_NO_HOLD_EFFECT:
         {
-            gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-            status = 0;
-            BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, monToCheck, 4, &status);
-            MarkBattlerForControllerExec(gActiveBattler);
-            gBattleCommunication[5] = 1;
-        }
-        break;
-    case VARIOUS_WAIT_FANFARE:
-        if (!IsFanfareTaskInactive())
+            VARIOUS_ARGS(u8 holdEffect, const u8 *jumpInstr);
+            
+            gPotentialItemEffectBattler = gActiveBattler;
+
+            if (ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != cmd->holdEffect)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            }
+            else
+            {
+                gLastUsedItem = gBattleMons[gActiveBattler].item;   // For B_LAST_USED_ITEM
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
             return;
-        break;
-    case VARIOUS_JUMP_IF_NO_HOLD_EFFECT:
-    {
-        VARIOUS_ARGS(u8 holdEffect, const u8 *jumpInstr);
-        if (GetBattlerHoldEffect(battler, TRUE) != cmd->holdEffect)
-        {
-            gBattlescriptCurrInstr = cmd->jumpInstr;
         }
-        else
-        {
-            gLastUsedItem = gBattleMons[battler].item;   // For B_LAST_USED_ITEM
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        }
-        return;
-    }
     }
 
     gBattlescriptCurrInstr += 3;
@@ -10133,6 +10143,7 @@ static void Cmd_multihitresultmessage(void)
     {
         if (gMoveResultFlags & MOVE_RESULT_STURDIED)
         {
+            DebugPrintf("multihitresultmessage - reset sturdied");
             gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
             gSpecialStatuses[gBattlerTarget].sturdied = FALSE; // Delete this line to make Sturdy last for the duration of the whole move turn.
             BattleScriptPushCursor();
