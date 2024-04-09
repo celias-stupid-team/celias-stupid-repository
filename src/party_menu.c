@@ -4331,7 +4331,10 @@ static bool8 IsHPRecoveryItem(u16 item)
     else
         effect = gItemEffectTable[item - ITEM_POTION];
     if (effect[4] & ITEM4_HEAL_HP)
+    {
+        DebugPrintf("is recovery item");
         return TRUE;
+    }
     else
         return FALSE;
 }

@@ -769,7 +769,6 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
 
     if (!loadMonSprite)
     {
-        DebugPrintf("BattleLoadSubstituteOrMonSpriteGfx");
         position = GetBattlerPosition(battlerId);
         if (GetBattlerSide(battlerId) != B_SIDE_PLAYER) {
             if (knowsSubTeacher)

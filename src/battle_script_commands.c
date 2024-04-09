@@ -1648,6 +1648,8 @@ static void Cmd_adjustnormaldamage(void)
 
     ApplyRandomDmgMultiplier();
 
+    DebugPrintf("Cmd_adjustnormaldamage");
+
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
         holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -1661,6 +1663,11 @@ static void Cmd_adjustnormaldamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
+    DebugPrintf("Battler species: %S", gSpeciesNames[gBattleMons[gBattlerTarget].species]);
+    DebugPrintf("ability = %d", gBattleMons[gBattlerTarget].ability);
+    DebugPrintf("has max HP? %d", BATTLER_MAX_HP(gBattlerTarget));
+    DebugPrintf("sturdied TRUE? - %d", gSpecialStatuses[gBattlerTarget].sturdied);
+
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
@@ -1668,13 +1675,13 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("adjustnormaldamage");
+        DebugPrintf("A");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].sturdied)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1683,6 +1690,18 @@ static void Cmd_adjustnormaldamage(void)
             gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
         else if (gSpecialStatuses[gBattlerTarget].focusBanded)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
+            gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
+    }
+    else if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
+     && (gSpecialStatuses[gBattlerTarget].focusSashed || gSpecialStatuses[gBattlerTarget].sturdied)
+     && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP
+     && gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage)
+     {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+        if (gSpecialStatuses[gBattlerTarget].focusSashed)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -1704,6 +1723,8 @@ static void Cmd_adjustnormaldamage2(void)
 
     ApplyRandomDmgMultiplier();
 
+    DebugPrintf("Cmd_adjustnormaldamage2");
+
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
         holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -1724,13 +1745,12 @@ static void Cmd_adjustnormaldamage2(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("adjustnormaldamage2");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].sturdied)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1743,10 +1763,22 @@ static void Cmd_adjustnormaldamage2(void)
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
         }
+    }
+    else if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
+     && (gSpecialStatuses[gBattlerTarget].focusSashed || gSpecialStatuses[gBattlerTarget].sturdied)
+     && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP
+     && gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage)
+     {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+        if (gSpecialStatuses[gBattlerTarget].focusSashed)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
+            gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedItem = gBattleMons[gBattlerTarget].item;
+            gLastUsedAbility = ABILITY_STURDY;
         }
     }
     gBattlescriptCurrInstr++;
@@ -1823,6 +1855,8 @@ static void Cmd_healthbarupdate(void)
             else
                 healthValue = maxPossibleDmgValue;
 
+            DebugPrintf("healthValue: %d", healthValue);
+
             BtlController_EmitHealthBarUpdate(BUFFER_A, healthValue);
             MarkBattlerForControllerExec(gActiveBattler);
 
@@ -1881,6 +1915,7 @@ static void Cmd_datahpupdate(void)
             gHitMarker &= ~HITMARKER_IGNORE_SUBSTITUTE;
             if (gBattleMoveDamage < 0) // hp goes up
             {
+                DebugPrintf("HP goes up");
                 gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
                 if (gBattleMons[gActiveBattler].hp > gBattleMons[gActiveBattler].maxHP)
                     gBattleMons[gActiveBattler].hp = gBattleMons[gActiveBattler].maxHP;
@@ -5723,6 +5758,8 @@ static void Cmd_adjustsetdamage(void)
 {
     u8 holdEffect, param;
 
+    DebugPrintf("Cmd_adjustsetdamage");
+
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
         holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -5743,13 +5780,12 @@ static void Cmd_adjustsetdamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("adjustsetdamage");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
 
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].sturdied)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -5762,10 +5798,22 @@ static void Cmd_adjustsetdamage(void)
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
         }
+    }
+    else if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
+     && (gSpecialStatuses[gBattlerTarget].focusSashed || gSpecialStatuses[gBattlerTarget].sturdied)
+     && gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP
+     && gBattleMons[gBattlerTarget].maxHP <= gBattleMoveDamage)
+     {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+        if (gSpecialStatuses[gBattlerTarget].focusSashed)
+        {
+            gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
+            gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        }
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
-            gLastUsedItem = gBattleMons[gBattlerTarget].item;
+            gLastUsedAbility = ABILITY_STURDY;
         }
     }
     gBattlescriptCurrInstr++;
@@ -10094,10 +10142,6 @@ static void Cmd_jumpifhelditem(void)
     species = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES);
     item = GetMonData(&party[gBattlerPartyIndexes[battler]], MON_DATA_HELD_ITEM);
 
-    DebugPrintf("Cmd_jumpifhelditem");
-    DebugPrintf("itemID: %d", item);
-    DebugPrintf("Battler species: %S", gSpeciesNames[species]);
-
     //special handling of ITEM_MATH_CLUB --> only trigger for CUBONE/MAROWAK
     if (item == ITEM_MATH_CLUB)
     {
@@ -10163,14 +10207,4 @@ static void Cmd_multihitresultmessage(void)
         }
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
-
-    /* WIP
-    // Print berry reducing message after result message.
-    if (gSpecialStatuses[gBattlerTarget].berryReduced
-        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
-    {
-        gSpecialStatuses[gBattlerTarget].berryReduced = FALSE;
-        BattleScriptPushCursor();
-        gBattlescriptCurrInstr = BattleScript_PrintBerryReduceString;
-    }*/
 }
