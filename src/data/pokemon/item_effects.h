@@ -335,6 +335,11 @@ static const u8 sItemEffect_SitrusBerry[7] = {
     [6] = 30, // Amount of HP to recover
 };
 
+static const u8 sItemEffect_Liberry[7] = {
+    [4] = ITEM4_HEAL_HP,
+    [6] = ITEM6_HEAL_HP_FULL,
+};
+
 const u8 *const gItemEffectTable[] =
 {
     [ITEM_POTION - ITEM_POTION]        = sItemEffect_Potion,
@@ -400,5 +405,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_PERSIM_BERRY - ITEM_POTION]  = sItemEffect_PersimBerry,
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
-    [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
+    [ITEM_LIBERRY - ITEM_POTION]       = sItemEffect_Liberry,
+    //LAST_BERRY_INDEX commented becaus it is equal to ITEM_LIBERRY
+    //[LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

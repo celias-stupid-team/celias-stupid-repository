@@ -89,6 +89,8 @@ static const u8 sBerryDescriptionPart1_Starf[] = _("あまりにも ちからが
 static const u8 sBerryDescriptionPart2_Starf[] = _("せかいの はてに すてた まぼろしのみ.");
 static const u8 sBerryDescriptionPart1_Enigma[] = _("しょうたい ふめいの きのみ.");
 static const u8 sBerryDescriptionPart2_Enigma[] = _("ほしの ちからを もっている らしい.");
+static const u8 sBerryDescriptionPart1_Liberry[] = _("しょうたい ふめいの きのみ.");
+static const u8 sBerryDescriptionPart2_Liberry[] = _("ほしの ちからを もっている らしい.");
 
 const struct Berry gBerries[] = {
     [ITEM_CHERI_BERRY - FIRST_BERRY_INDEX] =
@@ -865,6 +867,23 @@ const struct Berry gBerries[] = {
             .smoothness = 40
         },
 
+    [ITEM_LIBERRY - FIRST_BERRY_INDEX] =
+        {
+            .name = _("LIBERRY"),
+            .firmness = BERRY_FIRMNESS_UNKNOWN,
+            .size = 0,
+            .maxYield = 0,
+            .minYield = 0,
+            .description1 = sBerryDescriptionPart1_Liberry,
+            .description2 = sBerryDescriptionPart2_Liberry,
+            .stageDuration = 24,
+            .spicy = 40,
+            .dry = 40,
+            .sweet = 40,
+            .bitter = 40,
+            .sour = 40,
+            .smoothness = 40
+        },
 };
 
 const struct BerryCrushStats gBerryCrush_BerryData[] = {
@@ -910,7 +929,8 @@ const struct BerryCrushStats gBerryCrush_BerryData[] = {
     [ITEM_APICOT_BERRY - FIRST_BERRY_INDEX] = {180, 500},
     [ITEM_LANSAT_BERRY - FIRST_BERRY_INDEX] = {200, 750},
     [ITEM_STARF_BERRY  - FIRST_BERRY_INDEX] = {200, 750},
-    [ITEM_ENIGMA_BERRY - FIRST_BERRY_INDEX] = {150, 200}
+    [ITEM_ENIGMA_BERRY - FIRST_BERRY_INDEX] = {150, 200},
+    [ITEM_LIBERRY      - FIRST_BERRY_INDEX] = {150, 200}
 };
 
 // Leftover from R/S
