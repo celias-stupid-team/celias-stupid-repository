@@ -1918,7 +1918,12 @@ static void Cmd_datahpupdate(void)
                 DebugPrintf("HP goes up");
                 gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
                 if (gBattleMons[gActiveBattler].hp > gBattleMons[gActiveBattler].maxHP)
+                {
                     gBattleMons[gActiveBattler].hp = gBattleMons[gActiveBattler].maxHP;
+                    //Message handling for MOVE_SUBSTITUTE_TEACHER
+                    if (gCurrentMove == MOVE_SUBSTITUTE_TEACHER)
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_REGAINED_HEALTH;
+                }
 
             }
             else // hp goes down
@@ -7642,6 +7647,7 @@ static void Cmd_transformdataexecution(void)
 static void Cmd_setsubstitute(void)
 {
     u32 hp = gBattleMons[gBattlerAttacker].maxHP / 4;
+    
     if (gBattleMons[gBattlerAttacker].maxHP / 4 == 0)
         hp = 1;
 
@@ -9567,6 +9573,10 @@ static void Cmd_tryrecycleitem(void)
 {
     u16 *usedHeldItem;
 
+    //replace current move for Recycle handling after Substitute Teacher Script
+    if (gCurrentMove == MOVE_SUBSTITUTE_TEACHER)
+        gCurrentMove = MOVE_RECYCLE;
+
     gActiveBattler = gBattlerAttacker;
     usedHeldItem = &gBattleStruct->usedHeldItems[gActiveBattler];
     if (*usedHeldItem != ITEM_NONE && gBattleMons[gActiveBattler].item == ITEM_NONE)
@@ -10165,12 +10175,12 @@ static void Cmd_setsubstituteteacher(void)
 {
     //set HP to full through negative damage
     gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp - gBattleMons[gBattlerAttacker].maxHP;
-    gBattleMons[gBattlerAttacker].hp = gBattleMons[gBattlerAttacker].maxHP;
+    gBattleMons[gBattlerAttacker].hp = gBattleMons[gBattlerAttacker].maxHP;    
     gBattleMons[gBattlerAttacker].status2 |= STATUS2_SUBSTITUTE;
     gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_WRAPPED;
     //set substitute HP to 1/4 of max HP
     gDisableStructs[gBattlerAttacker].substituteHP = gBattleMons[gBattlerAttacker].maxHP / 4;
-    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
+    //gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
     gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
 
     gBattlescriptCurrInstr++;

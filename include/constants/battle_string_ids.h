@@ -518,6 +518,10 @@
 #define B_MSG_SET_SUBSTITUTE    0
 #define B_MSG_SUBSTITUTE_FAILED 1
 
+//gSubstituteTeacherStringIds
+#define B_MSG_ALREADY_FULL_HEALTH 0
+#define B_MSG_REGAINED_HEALTH     1
+
 // gPartyStatusHealStringIds
 #define B_MSG_BELL                     0
 #define B_MSG_BELL_SOUNDPROOF_ATTACKER 1

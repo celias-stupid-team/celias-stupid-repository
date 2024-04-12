@@ -3677,6 +3677,7 @@ BattleScript_EnduredMsg::
 	return
 
 BattleScript_SturdiedMsg::
+	playanimation BS_TARGET, B_ANIM_FOCUS_BAND
 	printstring STRINGID_ENDUREDSTURDY
 	waitmessage B_WAIT_TIME_LONG
 	return
@@ -4457,17 +4458,35 @@ BattleScript_EffectSubstituteTeacher::
 	ppreduce
 	attackstring
 	waitstate
-	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstituteTeacher
 	setsubstituteteacher
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteTeacherAnim
-	pause B_WAIT_TIME_SHORT
-	goto BattleScript_SubstituteString
+	//jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteTeacherAnim
+	//pause B_WAIT_TIME_SHORT
+	//goto BattleScript_SubstituteTeacherString
 BattleScript_SubstituteTeacherAnim::
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
-	goto BattleScript_SubstituteString
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_REGAINED_HEALTH, BattleScript_SubTeacherRecycle
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SubstituteTeacherString::
+	printstring STRINGID_PKMNMADESUBSTITUTE
+	//printfromtable gSubstituteUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_SubTeacherRecycle
+BattleScript_AlreadyHasSubstituteTeacher::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNHASSUBSTITUTE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SubTeacherRecycle::
+	tryrecycleitem BattleScript_MoveEnd
+	attackanimation
+	waitanimation
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_HangedOnMsg::
 	playanimation BS_TARGET, B_ANIM_HANGED_ON
