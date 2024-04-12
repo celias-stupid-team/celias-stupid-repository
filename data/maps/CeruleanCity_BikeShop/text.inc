@@ -39,12 +39,20 @@ CeruleanCity_BikeShop_Text_CityBikeGoodEnoughForMe::
     .string "basket on a mountain bike.$"
 
 CeruleanCity_BikeShop_Text_BikesCoolButExpensive::
-    .string "These bikes are cool, but they're\n"
-    .string "way expensive!$"
+    .string "I got a BIKE that can SHED\n"
+    .string "its TAIL!\p"
+    .string "Sadly the people to the north\n"
+    .string "won't let me play with them.$"
 
 CeruleanCity_BikeShop_Text_WowYourBikeIsCool::
-    .string "Wow.\n"
-    .string "Your BIKE is really cool!$"
+    .string "I got a BIKE that can SHED\n"
+    .string "its TAIL!\p"
+    .string "Sadly the people to the north\n"
+    .string "won't let me play with them.\p"
+    .string "But wait, wow!\n"
+    .string "Your BIKE is really cool!\p"
+    .string "It's like a vintage version of\n"
+    .string "mine!$"
 
 @ Unused
 CeruleanCity_BikeShop_Text_GermanFoldableBicyleFinallyOnMarket::
@@ -53,5 +61,5 @@ CeruleanCity_BikeShop_Text_GermanFoldableBicyleFinallyOnMarket::
     .string "おりたたみ　じてんしゃ！$"
 
 CeruleanCity_BikeShop_Text_ShinyNewBicycle::
-    .string "A shiny new BICYCLE!$"
+    .string "An amputated tricycle!$"
 

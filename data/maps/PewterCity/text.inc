@@ -1,16 +1,18 @@
 Text_DreamEaterTeach::
     .string "Yawn!\n"
-    .string "I must have dozed off in the sun.\p"
-    .string "I had this weird dream about\n"
-    .string "a DROWZEE eating my dream.\p"
-    .string "And…\n"
-    .string "I learned how to eat dreams…\p"
-    .string "Oogh, this is too spooky!\p"
-    .string "Let me teach it to a POKéMON so\n"
-    .string "I can forget about it!$"
+    .string "I'm always so sleepy.\p"
+    .string "My friend sent me some MAIL, but\n"
+    .string "he left his POKéMON with me.\p"
+    .string "I'm not a trainer, so I'm not sure\n"
+    .string "what to do with it.\p"
+    .string "Here - why don't you take it?$"
 
 Text_DreamEaterDeclined::
-    .string "…Snore…$"
+    .string "Y'know now that I think about it,\n"
+    .string "POKéMON MAIL really isn't a very\l"
+    .string "efficient delivery service.\p"
+    .string "Oh well, back to sleep.\p"
+    .string "Yawn…$"
 
 Text_DreamEaterWhichMon::
     .string "Which POKéMON wants to learn\n"

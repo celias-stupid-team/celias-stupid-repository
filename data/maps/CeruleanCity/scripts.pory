@@ -289,9 +289,10 @@ CeruleanCity_EventScript_Lass::
 	applymovement LOCALID_SLOWBRO, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 30
-	call_if_eq VAR_0x8008, 0, CeruleanCity_EventScript_SlowbroFailed1
-	call_if_eq VAR_0x8008, 1, CeruleanCity_EventScript_SlowbroFailed2
-	call_if_eq VAR_0x8008, 2, CeruleanCity_EventScript_SlowbroFailed3
+	msgbox CeruleanCity_Text_NoWrong
+	faceplayer
+	msgbox CeruleanCity_Text_HardToControlMonsObedience
+	turnobject LOCALID_LASS, DIR_WEST
 	release
 	end
 
@@ -305,18 +306,6 @@ CeruleanCity_EventScript_SlowbroCommand2::
 
 CeruleanCity_EventScript_SlowbroCommand3::
 	message CeruleanCity_Text_SlowbroWithdraw
-	return
-
-CeruleanCity_EventScript_SlowbroFailed1::
-	msgbox CeruleanCity_Text_SlowbroPayAttention
-	return
-
-CeruleanCity_EventScript_SlowbroFailed2::
-	msgbox CeruleanCity_Text_NoYouBlewItAgain
-	return
-
-CeruleanCity_EventScript_SlowbroFailed3::
-	msgbox CeruleanCity_Text_HardToControlMonsObedience
 	return
 
 CeruleanCity_EventScript_Slowbro::

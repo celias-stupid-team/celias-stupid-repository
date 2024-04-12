@@ -3,5 +3,6 @@ Route2_Text_RouteSign::
     .string "VIRIDIAN CITY - PEWTER CITY$"
 
 Route2_Text_DiglettsCave::
-    .string "DIGLETT'S CAVE$"
+    .string "ROUTE 2\n"
+    .string "NEW WILD POKéMON: 1$"
 
