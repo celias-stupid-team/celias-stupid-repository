@@ -4460,9 +4460,6 @@ BattleScript_EffectSubstituteTeacher::
 	waitstate
 	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstituteTeacher
 	setsubstituteteacher
-	//jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteTeacherAnim
-	//pause B_WAIT_TIME_SHORT
-	//goto BattleScript_SubstituteTeacherString
 BattleScript_SubstituteTeacherAnim::
 	attackanimation
 	waitanimation
@@ -4473,7 +4470,6 @@ BattleScript_SubstituteTeacherAnim::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SubstituteTeacherString::
 	printstring STRINGID_PKMNMADESUBSTITUTE
-	//printfromtable gSubstituteUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_SubTeacherRecycle
 BattleScript_AlreadyHasSubstituteTeacher::

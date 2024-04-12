@@ -290,7 +290,6 @@ u8 GetSubstituteSpriteDefault_Y(u8 battlerId)
     bool8 knowsSubTeacher = FALSE;
     int i;
 
-    //WIP
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER)

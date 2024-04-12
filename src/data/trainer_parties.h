@@ -7357,13 +7357,21 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherAnthony[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherCharlie[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherCharlie[] = {
     {
-        //TEST settings WIP
-        .iv = 31,
-        .lvl = 20,
-        .species = SPECIES_KANGASKHAN,
-        .moves = {MOVE_SUBSTITUTE_TEACHER, MOVE_TACKLE},
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_METAPOD,
+    },
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_CATERPIE,
+    },
+    {
+        .iv = 0,
+        .lvl = 7,
+        .species = SPECIES_METAPOD,
     },
 };
 

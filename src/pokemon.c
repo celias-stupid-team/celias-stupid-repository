@@ -1859,13 +1859,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     }
 
     GiveBoxMonInitialMoveset(boxMon);
-
-    //WIP - special Kanga
-    if (species == SPECIES_RATTATA)
-    {
-        value = ITEM_MATH_CLUB;
-        SetBoxMonData(boxMon, MON_DATA_HELD_ITEM, &value);
-    }
 }
 
 void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature)
@@ -4027,8 +4020,6 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u8 val;
     u32 evDelta;
 
-    DebugPrintf("PokemonUseItemEffects");
-
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
     if (heldItem == ITEM_ENIGMA_BERRY)
@@ -4270,7 +4261,6 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         break;
                     case 2: // ITEM4_HEAL_HP
                         // If Revive, update number of times revive has been used
-                        DebugPrintf("ITEM4_HEAL_HP");
                         if (val & (ITEM4_REVIVE >> 2))
                         {
                             if (GetMonData(mon, MON_DATA_HP, NULL) != 0)

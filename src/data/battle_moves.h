@@ -2018,9 +2018,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BONEMERANG] =
     {
         .effect = EFFECT_DOUBLE_HIT,
-        .power = 250, //test WIP
+        .power = 50,
         .type = TYPE_GROUND,
-        .accuracy = 100, //test WIP
+        .accuracy = 90,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

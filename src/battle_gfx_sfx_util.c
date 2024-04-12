@@ -760,7 +760,6 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
     u32 palOffset;
     bool8 knowsSubTeacher = FALSE;
 
-    //WIP
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER)

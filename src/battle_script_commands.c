@@ -1648,8 +1648,6 @@ static void Cmd_adjustnormaldamage(void)
 
     ApplyRandomDmgMultiplier();
 
-    DebugPrintf("Cmd_adjustnormaldamage");
-
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
         holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -1663,11 +1661,6 @@ static void Cmd_adjustnormaldamage(void)
 
     gPotentialItemEffectBattler = gBattlerTarget;
 
-    DebugPrintf("Battler species: %S", gSpeciesNames[gBattleMons[gBattlerTarget].species]);
-    DebugPrintf("ability = %d", gBattleMons[gBattlerTarget].ability);
-    DebugPrintf("has max HP? %d", BATTLER_MAX_HP(gBattlerTarget));
-    DebugPrintf("sturdied TRUE? - %d", gSpecialStatuses[gBattlerTarget].sturdied);
-
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
@@ -1675,7 +1668,6 @@ static void Cmd_adjustnormaldamage(void)
     }
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        DebugPrintf("A");
         RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
@@ -1708,7 +1700,6 @@ static void Cmd_adjustnormaldamage(void)
         }
         else if (gSpecialStatuses[gBattlerTarget].sturdied)
         {
-            DebugPrintf("set MOVE_RESULT_STURDIED");
             gMoveResultFlags |= MOVE_RESULT_STURDIED;
             gLastUsedAbility = ABILITY_STURDY;
         }
@@ -1722,8 +1713,6 @@ static void Cmd_adjustnormaldamage2(void)
     u8 holdEffect, param;
 
     ApplyRandomDmgMultiplier();
-
-    DebugPrintf("Cmd_adjustnormaldamage2");
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -1855,8 +1844,6 @@ static void Cmd_healthbarupdate(void)
             else
                 healthValue = maxPossibleDmgValue;
 
-            DebugPrintf("healthValue: %d", healthValue);
-
             BtlController_EmitHealthBarUpdate(BUFFER_A, healthValue);
             MarkBattlerForControllerExec(gActiveBattler);
 
@@ -1915,7 +1902,6 @@ static void Cmd_datahpupdate(void)
             gHitMarker &= ~HITMARKER_IGNORE_SUBSTITUTE;
             if (gBattleMoveDamage < 0) // hp goes up
             {
-                DebugPrintf("HP goes up");
                 gBattleMons[gActiveBattler].hp -= gBattleMoveDamage;
                 if (gBattleMons[gActiveBattler].hp > gBattleMons[gActiveBattler].maxHP)
                 {
@@ -2065,8 +2051,6 @@ static void Cmd_resultmessage(void)
 {
     u32 stringId = 0;
 
-    DebugPrintf("resultmessage");
-
     if (gBattleControllerExecFlags)
         return;
 
@@ -2121,7 +2105,6 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_STURDIED)
             {
-                DebugPrintf("resultmessage - reset sturdied");
                 gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 gSpecialStatuses[gBattlerTarget].sturdied = FALSE;
                 BattleScriptPushCursor();
@@ -5762,8 +5745,6 @@ static void Cmd_cancelallactions(void)
 static void Cmd_adjustsetdamage(void)
 {
     u8 holdEffect, param;
-
-    DebugPrintf("Cmd_adjustsetdamage");
 
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
@@ -10197,7 +10178,6 @@ static void Cmd_multihitresultmessage(void)
     {
         if (gMoveResultFlags & MOVE_RESULT_STURDIED)
         {
-            DebugPrintf("multihitresultmessage - reset sturdied");
             gMoveResultFlags &= ~(MOVE_RESULT_STURDIED | MOVE_RESULT_FOE_HUNG_ON);
             gSpecialStatuses[gBattlerTarget].sturdied = FALSE; // Delete this line to make Sturdy last for the duration of the whole move turn.
             BattleScriptPushCursor();
