@@ -5165,6 +5165,7 @@ static void PartyMenuTryEvolution(u8 taskId)
 
     if (targetSpecies != SPECIES_NONE)
     {
+        FreePartyPointers();
         if (gSpecialVar_ItemId == ITEM_RARE_CANDY && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
         else
