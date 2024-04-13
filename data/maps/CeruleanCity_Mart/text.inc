@@ -5,8 +5,7 @@ CeruleanCity_Mart_Text_RepelWorksOnWeakMons::
     .string "Maybe if I visited BILL again…$"
 
 CeruleanCity_Mart_Text_DoYouKnowAboutRareCandy::
-    .string "Do you know about RARE CANDY?\n"
+    .string "Do you know about COMMON CANDY?\n"
     .string "They sell it in shops.\p"
     .string "It basically lets you bypass\n"
     .string "annoying grinding!$"
-

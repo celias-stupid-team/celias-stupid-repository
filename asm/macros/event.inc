@@ -64,6 +64,8 @@
 	STD_PUT_ITEM_AWAY = 8
 	STD_RECEIVED_ITEM = 9
 
+	MSGBOX_NOYES = 10
+
 	@ Calls the script in gStdScripts at index function.
 	.macro callstd function:req
 	.byte 0x09
@@ -1631,6 +1633,14 @@
 	stringvar \stringVarId
 	.2byte \item
 	.2byte \quantity
+	.endm
+
+	@ Displays a NO/YES multichoice box at the specified coordinates, and blocks script execution until the user makes a selection.
+	@ Their selection is stored in VAR_RESULT as NO (0) or YES (1). Pressing B is equivalent to answering NO
+	.macro noyesbox x:req, y:req
+	.byte 0xd5
+	.byte \x
+	.byte \y
 	.endm
 
 
