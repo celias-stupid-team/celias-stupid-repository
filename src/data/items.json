@@ -1089,7 +1089,7 @@
       "secondaryId": 0
     },
     {
-      "english": "RARE CANDY",
+      "english": "COMMON CANDY",
       "itemId": "ITEM_RARE_CANDY",
       "price": 4800,
       "holdEffect": "HOLD_EFFECT_NONE",

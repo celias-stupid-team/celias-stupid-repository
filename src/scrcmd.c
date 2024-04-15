@@ -1423,6 +1423,22 @@ bool8 ScrCmd_yesnobox(struct ScriptContext * ctx)
     }
 }
 
+bool8 ScrCmd_noyesbox(struct ScriptContext * ctx)
+{
+    u8 left = ScriptReadByte(ctx);
+    u8 top = ScriptReadByte(ctx);
+
+    if (ScriptMenu_NoYes(left, top) == TRUE)
+    {
+        ScriptContext_Stop();
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 bool8 ScrCmd_multichoice(struct ScriptContext * ctx)
 {
     u8 left = ScriptReadByte(ctx);

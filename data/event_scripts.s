@@ -87,6 +87,7 @@ gStdScripts::
 	.4byte Std_ObtainDecoration     @ STD_OBTAIN_DECORATION
 	.4byte Std_PutItemAway          @ STD_PUT_ITEM_AWAY
 	.4byte Std_ReceivedItem         @ STD_RECEIVED_ITEM
+	.4byte Std_MsgboxNoYes          @ MSGBOX_NOYES
 gStdScriptsEnd::
 
 	.include "data/maps/BattleColosseum_2P/scripts.inc"

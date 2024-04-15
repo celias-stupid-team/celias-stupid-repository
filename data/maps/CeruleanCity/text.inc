@@ -13,34 +13,31 @@ CeruleanCity_Text_RivalDefeat::
     .string "You won already!$"
 
 CeruleanCity_Text_RivalPostBattle::
-    .string "{RIVAL}: Hey, guess what?\p"
-    .string "I went to BILL's and got him to\n"
-    .string "show me his rare POKéMON.\p"
-    .string "That added a lot of pages to my\n"
-    .string "POKéDEX!\p"
-    .string "After all, BILL's world famous as a\n"
-    .string "POKéMANIAC.\p"
-    .string "He invented the POKéMON Storage\n"
-    .string "System on PC, too.\p"
-    .string "Since you're using his system,\n"
-    .string "you should go thank him.\p"
+    .string "JERRY: Huh?\p"
+    .string "GARY? LARRY?\n"
+    .string "Who's that?\p"
+    .string "My name is Jerry!\n"
+    .string "What are you talking about?\p"
     .string "Well, I better get rolling!\n"
-    .string "Smell ya later!$"
+    .string "Touch ya later!$"
 
 CeruleanCity_Text_OhRightLittlePresentAsFavor::
     .string "Oh, yeah, right.\p"
-    .string "I feel sorry for you. No, really.\n"
-    .string "You're always plodding behind me.\p"
-    .string "So here, I'll give you a little\n"
-    .string "present as a favor.$"
+    .string "I feel sorry for you.\n"
+    .string "No, really!\l"
+    .string "The hack creator is really mean.\p"
+    .string "You're always struggling to figure\n"
+    .string "out what to do.\p"
+    .string "Here, GRAMPS gave me this.\n"
+    .string "You can have it!$"
 
 CeruleanCity_Text_ExplainFameCheckerSmellYa::
     .string "A chatty gossip like you…\n"
     .string "That thing's perfect.\p"
-    .string "I don't need it because I don't\n"
-    .string "give a hoot about others.\p"
+    .string "Yes, you are absolutely known\n"
+    .string "for being chatty and gossipy.\p"
     .string "All right, this time I really am\n"
-    .string "gone. Smell ya!$"
+    .string "gone. Feel ya!$"
 
 @ RB translation: "Heh! You're no match for my genius!"
 CeruleanCity_Text_RivalVictory::
@@ -48,28 +45,30 @@ CeruleanCity_Text_RivalVictory::
     .string "おれは　てんさい　だからよ！$"
 
 CeruleanCity_Text_GruntIntro::
-    .string "Hey! Stay out!\n"
-    .string "It's not your yard!\p"
+    .string "Hey! Go away!\p"
+    .string "This TM contains obvious\n"
+    .string "copyrighted material!\p"
     .string "…Huh?\n"
     .string "Me?\p"
-    .string "I'm an innocent bystander!\n"
-    .string "Don't you believe me?{PLAY_BGM}{MUS_ENCOUNTER_ROCKET}$"
+    .string "You think I should give it back?\n"
+    .string "You'll have to take me to court!$"
 
 CeruleanCity_Text_GruntDefeat::
-    .string "GRUNT: Stop! I give up!\n"
-    .string "I'll leave quietly!$"
+    .string "DMCA: Okay! Fine!\n"
+    .string "I'll drop the charges!$"
 
 CeruleanCity_Text_OkayIllReturnStolenTM::
     .string "…Okay.\n"
-    .string "I'll return the TM I stole.$"
+    .string "Just look at this!\l"
+    .string "It's an obvious ripoff!"
 
 CeruleanCity_Text_RecoveredTM28FromGrunt::
     .string "{PLAYER} recovered TM28 from\n"
-    .string "the TEAM ROCKET GRUNT.$"
+    .string "the DMCA.$"
 
 CeruleanCity_Text_BetterGetMovingBye::
-    .string "I better get moving!\n"
-    .string "Bye!$"
+    .string "Don't teach that to anything or\n"
+    .string "we'll sue you!$"
 
 CeruleanCity_Text_MakeRoomForThisCantRun::
     .string "Make room for this!\n"
@@ -101,34 +100,31 @@ CeruleanCity_Text_PokemonEncyclopediaAmusing::
     .string "POKéMON? That sounds amusing.$"
 
 CeruleanCity_Text_PeopleHereWereRobbed::
-    .string "The people here were robbed.\p"
-    .string "It's obvious that TEAM ROCKET is\n"
-    .string "behind this most heinous crime!\p"
-    .string "Even our POLICE FORCE has\n"
-    .string "trouble with the ROCKETS!$"
+    .string "The people here owned a copyrighted\n"
+    .string "TM.\p"
+    .string "The DMCA claimed it, and because\n"
+    .string "the POLICE FORCE exists only to\l"
+    .string "protect and uphold capital,\l"
+    .string "we had to let them take it.$"
 
 CeruleanCity_Text_SlowbroUseSonicboom::
     .string "Okay! SLOWBRO!\n"
-    .string "Use SONICBOOM!$"
-
-CeruleanCity_Text_SlowbroPayAttention::
-    .string "Come on, SLOWBRO, pay attention!$"
+    .string "Use MIND GAMES!$"
 
 CeruleanCity_Text_SlowbroPunch::
-    .string "SLOWBRO, punch!$"
-
-CeruleanCity_Text_NoYouBlewItAgain::
-    .string "No!\n"
-    .string "You blew it again!$"
+    .string "SLOWBRO, MIND GAMES!$"
 
 CeruleanCity_Text_SlowbroWithdraw::
-    .string "SLOWBRO, WITHDRAW!$"
+    .string "SLOWBRO!\n"
+    .string "MIND GAMES, now!$"
+
+CeruleanCity_Text_NoWrong::
+    .string "No! That's wrong!$"
 
 CeruleanCity_Text_HardToControlMonsObedience::
-    .string "No! That's wrong!\n"
-    .string "It's so hard to control POKéMON!\p"
-    .string "Your POKéMON's obedience depends\n"
-    .string "on your abilities as a TRAINER.$"
+    .string "You can't get SLOWKING in this\n"
+    .string "hack, so I'm trying to break the\l"
+    .string "TCG with SLOWBRO instead.$"
 
 CeruleanCity_Text_SlowbroTookSnooze::
     .string "SLOWBRO took a snooze…$"
@@ -143,9 +139,16 @@ CeruleanCity_Text_SlowbroIgnoredOrders::
     .string "SLOWBRO ignored orders…$"
 
 CeruleanCity_Text_WantBrightRedBicycle::
-    .string "I want a bright red bicycle.\p"
-    .string "I'll keep it at home, so it won't\n"
-    .string "get dirty.$"
+    .string "I saw someone with a BICYCLE that\n"
+    .string "he got for free!\p"
+    .string "When I looked at it, it said:\p"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \n"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \l"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \l"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \l"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \l"
+    .string "RYDEL RYDEL RYDEL RYDEL RYDEL \p"
+    .string "I wonder who he bought it from…$"
 
 CeruleanCity_Text_ThisIsCeruleanCave::
     .string "This is CERULEAN CAVE.\p"
@@ -161,8 +164,8 @@ CeruleanCity_Text_ThisIsCeruleanCave::
 
 CeruleanCity_Text_CitySign::
     .string "CERULEAN CITY\n"
-    .string "A Mysterious, Blue Aura Surrounds\l"
-    .string "It$"
+    .string "The Home of Competition\p"
+    .string "RECOMMENDED POKéDEX COMPLETION: 30$"
 
 CeruleanCity_Text_TrainerTipsHeldItems::
     .string "TRAINER TIPS\p"
@@ -176,7 +179,7 @@ CeruleanCity_Text_BikeShopSign::
     .string "BIKE SHOP$"
 
 CeruleanCity_Text_GymSign::
-    .string "CERULEAN CITY POKéMON GYM\n"
+    .string "CERULEAN CITY POKéMON CLUB\n"
     .string "LEADER: MISTY\l"
-    .string "The Tomboyish Mermaid!$"
+    .string "The TCG Expert!$"
 

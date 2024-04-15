@@ -11,17 +11,18 @@ Route24_Text_YouDontHaveAnyRoom::
     .string "You don't have any room!$"
 
 Route24_Text_JoinTeamRocket::
-    .string "By the way, how would you like to\n"
-    .string "join TEAM ROCKET?\p"
-    .string "We're a group of professional\n"
-    .string "criminals specializing in POKéMON!\p"
-    .string "Want to join?\p"
-    .string "Are you sure?\p"
-    .string "Come on, join us!\p"
-    .string "I'm telling you to join!\p"
-    .string "…Okay, you need convincing!\p"
-    .string "I'll make you an offer you can't\n"
-    .string "refuse!$"
+    .string "By the way, how did you get so good\n"
+    .string "at VGC?\p"
+    .string "You didn't use an illegal site like\n"
+    .string "POKéMON SHOWDOWN, did you?\p"
+    .string "Because that would be a violation of\n"
+    .string "copyright!\p"
+    .string "…What's that? You did?\p"
+    .string "…\p"
+    .string "We at the DMCA can't let something\n"
+    .string "like that slide!\p"
+    .string "You'll regret ever playing this\n"
+    .string "game!\p"
 
 Route24_Text_RocketDefeat::
     .string "Arrgh!\n"
@@ -29,18 +30,20 @@ Route24_Text_RocketDefeat::
 
 Route24_Text_YoudBecomeTopRocketLeader::
     .string "With your ability, you'd become\n"
-    .string "a top leader in TEAM ROCKET.\p"
+    .string "a top leader in DMCA.\p"
     .string "Come on, think of the opportunity!\n"
     .string "Don't let this chance go to waste.$"
 
 Route24_Text_ShaneIntro::
-    .string "I saw your feat from the grass!$"
+    .string "I saw your feat from the grass!\p"
+    .string "I bet you're a filthy cheater\n"
+    .string "just like those players over there!$"
 
 Route24_Text_ShaneDefeat::
-    .string "I thought not!$"
+    .string "I thought so!$"
 
 Route24_Text_ShanePostBattle::
-    .string "I hid because the people on the\n"
+    .string "I hid because the tryhards on the\n"
     .string "bridge frightened me.$"
 
 Route24_Text_EthanIntro::
