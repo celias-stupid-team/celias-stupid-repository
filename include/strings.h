@@ -182,6 +182,7 @@ extern const u8 gText_WontHaveEffect[];
 extern const u8 gText_YesNo[];
 extern const u8 gText_Berry[];
 extern const u8 gText_Ghost[];
+extern const u8 gText_Luvdisc[];
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -310,6 +311,7 @@ extern const u8 gText_EscapeFromHere[];
 extern const u8 gText_LureWildPokemon[];
 extern const u8 gText_ShareHp[];
 extern const u8 gText_ReturnToAHealingSpot[];
+extern const u8 gText_ReturnToABench[];
 extern const u8 gText_Summary5[];
 extern const u8 gText_Switch2[];
 extern const u8 gText_Item[];
@@ -352,6 +354,7 @@ extern const u8 gText_NoMoreThanThreeMayEnter[];
 extern const u8 gText_PauseUntilPress[];
 extern const u8 gText_CantUseUntilNewBadge[];
 extern const u8 gText_ReturnToHealingSpot[];
+extern const u8 gText_ReturnToBench[];
 extern const u8 gText_EscapeFromHereAndReturnTo[];
 extern const u8 gText_PkmnCuredOfPoison[];
 extern const u8 gText_PkmnWokeUp2[];
@@ -389,6 +392,7 @@ extern const u8 gText_PkmnAlreadyInBattle[];
 extern const u8 gText_EggCantBattle[];
 extern const u8 gText_PkmnAlreadySelected[];
 extern const u8 gText_PkmnCantSwitchOut[];
+extern const u8 gText_CantUseRetreat[];
 
 // credits
 extern const u8 gString_Dummy[];

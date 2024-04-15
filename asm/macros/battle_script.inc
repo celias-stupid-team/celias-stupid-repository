@@ -1249,9 +1249,113 @@
 	.byte 0xf7
 	.endm
 
-	.macro tryKO_Flash param0:req
+@newly added macros by wiz1989
+	@ Calls the native C function stored at func.
+	.macro callnative func:req
 	.byte 0xf8
+	.4byte \func
+	.endm
+
+	.macro swapstatstages stat:req
+	.byte 0xf9
+	.byte \stat
+	.endm
+
+	.macro jumpifnotspeciescondition battler:req, species:req, jumpIfTrue:req, jumpInstr:req
+	.byte 0xfa
+	.byte \battler
+	.4byte \species
+	.byte \jumpIfTrue
+	.4byte \jumpInstr
+	.endm
+
+	.macro tryKO_Flash param0:req
+	.byte 0xfb
 	.4byte \param0
+	.endm
+
+	@ If the result of the last comparison matches condition (see Comparison operators), jumps to destination and continues script execution from there.
+	.macro call_if condition:req, destination:req
+	.byte 0xfc
+	.byte \condition
+	.4byte \destination
+	.endm
+
+	@ Compares the value of 'var' to a fixed value.
+	@ The result is stored in gBattleScriptArgs to be acted on by call_if / call_if
+	.macro compare_var_to_value var:req, value:req
+	.byte 0xfd
+	.2byte \var
+	.2byte \value
+	.endm
+
+	@ Compares the value of 'var1' to the value of 'var2'.
+	@ The result is stored in gBattleScriptArgs to be acted on by call_if / call_if
+	.macro compare_var_to_var var1:req, var2:req
+	.byte 0xfe
+	.2byte \var1
+	.2byte \var2
+	.endm
+
+	@ Generic compare macro which attempts to deduce argument types based on their values
+	@ Any values between VARS_START to VARS_END and SPECIAL_VARS_START to SPECIAL_VARS_END are considered event variable identifiers
+	.macro compare var:req, arg:req
+		.if ((\arg >= VARS_START && \arg <= VARS_END) || (\arg >= SPECIAL_VARS_START && \arg <= SPECIAL_VARS_END))
+			compare_var_to_var \var, \arg
+		.else
+			compare_var_to_value \var, \arg
+		.endif
+	.endm
+
+	.macro call_if_lt a:req @ LESS THAN
+	call_if 0, \a
+	.endm
+
+	.macro call_if_eq a:req @ EQUAL
+	call_if 1, \a
+	.endm
+
+	.macro call_if_gt a:req @ GREATER THAN
+	call_if 2, \a
+	.endm
+
+	.macro call_if_le a:req @ LESS THAN OR EQUAL
+	call_if 3, \a
+	.endm
+
+	.macro call_if_ge a:req @ GREATER THAN OR EQUAL
+	call_if 4, \a
+	.endm
+
+	.macro call_if_ne a:req @ NOT EQUAL
+	call_if 5, \a
+	.endm
+
+	@ Sets flag to TRUE.
+	.macro setflag flag:req
+	.byte 0xff
+	.2byte \flag
+	.endm
+
+	@ Sets flag to FALSE.
+	.macro clearflag flag:req
+	.byte 0xfg
+	.2byte \flag
+	.endm
+
+	@Creates a DebugPrintf output for the given text
+	@The string must be defined as a script string (.string "my string$")
+	.macro debugprintf text:req
+	.byte 0xfh
+	.4byte \text
+	.endm
+
+	.macro jumpifspecies battler:req, species:req, jumpptr:req
+	jumpifnotspeciescondition \battler, \species, TRUE, \jumpptr
+	.endm
+
+	.macro jumpifnotspecies battler:req, species:req, jumpptr:req
+	jumpifnotspeciescondition \battler, \species, FALSE, \jumpptr
 	.endm
 
 @ various command changed to more readable macros
@@ -1382,82 +1486,4 @@
 
 	.macro jumpifnotbattletype flags:req, jumpptr:req
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
-	.endm
-
-
-@newly added macros by wiz1989
-	@ If the result of the last comparison matches condition (see Comparison operators), jumps to destination and continues script execution from there.
-	.macro call_if condition:req, destination:req
-	.byte 0xf9
-	.byte \condition
-	.4byte \destination
-	.endm
-
-	@ Compares the value of 'var' to a fixed value.
-	@ The result is stored in gBattleScriptArgs to be acted on by call_if / call_if
-	.macro compare_var_to_value var:req, value:req
-	.byte 0xfa
-	.2byte \var
-	.2byte \value
-	.endm
-
-	@ Compares the value of 'var1' to the value of 'var2'.
-	@ The result is stored in gBattleScriptArgs to be acted on by call_if / call_if
-	.macro compare_var_to_var var1:req, var2:req
-	.byte 0xfb
-	.2byte \var1
-	.2byte \var2
-	.endm
-
-	@ Generic compare macro which attempts to deduce argument types based on their values
-	@ Any values between VARS_START to VARS_END and SPECIAL_VARS_START to SPECIAL_VARS_END are considered event variable identifiers
-	.macro compare var:req, arg:req
-		.if ((\arg >= VARS_START && \arg <= VARS_END) || (\arg >= SPECIAL_VARS_START && \arg <= SPECIAL_VARS_END))
-			compare_var_to_var \var, \arg
-		.else
-			compare_var_to_value \var, \arg
-		.endif
-	.endm
-
-	.macro call_if_lt a:req @ LESS THAN
-	call_if 0, \a
-	.endm
-
-	.macro call_if_eq a:req @ EQUAL
-	call_if 1, \a
-	.endm
-
-	.macro call_if_gt a:req @ GREATER THAN
-	call_if 2, \a
-	.endm
-
-	.macro call_if_le a:req @ LESS THAN OR EQUAL
-	call_if 3, \a
-	.endm
-
-	.macro call_if_ge a:req @ GREATER THAN OR EQUAL
-	call_if 4, \a
-	.endm
-
-	.macro call_if_ne a:req @ NOT EQUAL
-	call_if 5, \a
-	.endm
-
-	@ Sets flag to TRUE.
-	.macro setflag flag:req
-	.byte 0xfc
-	.2byte \flag
-	.endm
-
-	@ Sets flag to FALSE.
-	.macro clearflag flag:req
-	.byte 0xfd
-	.2byte \flag
-	.endm
-
-	@Creates a DebugPrintf output for the given text
-	@The string must be defined as a script string (.string "my string$")
-	.macro debugprintf text:req
-	.byte 0xfe
-	.4byte \text
 	.endm

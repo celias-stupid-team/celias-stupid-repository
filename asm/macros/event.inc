@@ -64,6 +64,8 @@
 	STD_PUT_ITEM_AWAY = 8
 	STD_RECEIVED_ITEM = 9
 
+	MSGBOX_NOYES = 10
+
 	@ Calls the script in gStdScripts at index function.
 	.macro callstd function:req
 	.byte 0x09
@@ -1633,9 +1635,28 @@
 	.2byte \quantity
 	.endm
 
+	@ Sets which bench the player will warp to by using MOVE_RETREAT.
+	.macro setbench benchlocation:req
+	.byte 0xd5
+	.2byte \benchlocation
+	.endm
+
+	@ Clears the last bench so MOVE_RETREAT won't warp.
+	.macro clearbench
+	special ClearBenchWarp
+  .endm
+
+	@ Displays a NO/YES multichoice box at the specified coordinates, and blocks script execution until the user makes a selection.
+	@ Their selection is stored in VAR_RESULT as NO (0) or YES (1). Pressing B is equivalent to answering NO
+	.macro noyesbox x:req, y:req
+	.byte 0xd6
+	.byte \x
+	.byte \y
+	.endm
+
 	@Creates a DebugPrintf output for the given text
 	.macro debugprintf text:req
-	.byte 0xd5
+	.byte 0xd7
 	.4byte \text
 	.endm
 

@@ -3,8 +3,9 @@ Text_MayIHelpYou::
 	.string "May I help you?$"
 
 Text_FillOutQuestionnaire::
-	.string "There is a questionnaire.\n"
-	.string "Would you like to fill it out?$"
+	.string "MYSTERY GIFT is not supported\n"
+	.string "in this ROMhack. Sorry!\l"
+	.string "Fill the questionnaire out anyway?$"
 
 Text_QuestionnaireThankYou::
 	.string "Thank you for taking the time to\n"

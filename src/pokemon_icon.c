@@ -20,7 +20,6 @@ static u8 CreateMonIconSprite(const struct MonIconSpriteTemplate * template, s16
 static void DestroyMonIconInternal(struct Sprite *sprite);
 static void FreeAndDestroyMonIconSprite_(struct Sprite *sprite);
 
-
 const u16 gMonIconPalettes[][16] = {
     INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_0.gbapal"),
     INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_1.gbapal"),
@@ -440,6 +439,7 @@ const u8 *const gMonIconTable[] = {
     [SPECIES_JIRACHI]     = gMonIcon_Jirachi,
     [SPECIES_DEOXYS]      = gMonIcon_Deoxys,
     [SPECIES_CHIMECHO]    = gMonIcon_Chimecho,
+    [SPECIES_ALOMOMOLA]   = gMonIcon_Alomomola,
     [SPECIES_EGG]         = gMonIcon_Egg,
     [SPECIES_UNOWN_B]     = gMonIcon_UnownB,
     [SPECIES_UNOWN_C]     = gMonIcon_UnownC,
@@ -883,6 +883,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_JIRACHI]     = 0,
     [SPECIES_DEOXYS]      = 0,
     [SPECIES_CHIMECHO]    = 0,
+    [SPECIES_ALOMOMOLA]   = 0,
     [SPECIES_EGG]         = 1,
     [SPECIES_UNOWN_B]     = 0,
     [SPECIES_UNOWN_C]     = 0,

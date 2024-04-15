@@ -19,19 +19,21 @@ Route25_Text_DanDefeat::
     .string "I'm not mad!$"
 
 Route25_Text_DanPostBattle::
-    .string "On the S.S. ANNE, I saw TRAINERS\n"
-    .string "from around the world.$"
+    .string "On the S.S. ANNE, I was worn by\n"
+    .string "TRAINERS from around the world!$"
 
 Route25_Text_FlintIntro::
-    .string "I'm a cool guy.\n"
-    .string "I've got a girlfriend!$"
+    .string "GSC is NOT all stall!\p"
+    .string "Here, I'll prove it!$"
 
 Route25_Text_FlintDefeat::
     .string "Aww, darn…$"
 
 Route25_Text_FlintPostBattle::
-    .string "Oh, well.\n"
-    .string "My girlfriend will cheer me up.$"
+    .string "Battles only last 57 turns on\n"
+    .string "average!\p"
+    .string "I don't know what new gen players\n"
+    .string "are talking about!\p"
 
 Route25_Text_KelseyIntro::
     .string "Hi!\n"
@@ -68,15 +70,15 @@ Route25_Text_HaleyPostBattle::
     .string "May I have a CLEFAIRY?$"
 
 Route25_Text_FranklinIntro::
-    .string "I just got down from MT. MOON,\n"
-    .string "but I've still got gas in the tank!$"
+    .string "Hi.\p"
+    .string "I am NOB.$"
 
 Route25_Text_FranklinDefeat::
-    .string "You worked hard!$"
+    .string "You done got me, and real good,\p"
+    .string "too!$"
 
 Route25_Text_FranklinPostBattle::
-    .string "Drat!\n"
-    .string "A ZUBAT bit me back in that cave.$"
+    .string "See ya around!$"
 
 Route25_Text_NobIntro::
     .string "I'm off to see a POKéMANIAC's\n"
@@ -108,12 +110,15 @@ Route25_Text_SeaCottageSign::
     .string "BILL lives here!$"
 
 Route25_Text_MistyHighHopesAboutThisPlace::
-    .string "This cape is a famous date spot.\p"
-    .string "MISTY, the GYM LEADER, has high\n"
-    .string "hopes about this place.$"
+    .string "If you look behind that cottage,\n"
+    .string "you can see a path going north!\p"
+    .string "I bet that's where you can catch\n"
+    .string "the starters!$"
 
 Route25_Text_AreYouHereAlone::
-    .string "Hello, are you here alone?\p"
-    .string "If you're out at CERULEAN's cape…\n"
-    .string "Well, it should be as a couple.$"
+    .string "I heard from my cousin that\n"
+    .string "somewhere around here, you can\l"
+    .string "catch something super rare!\p"
+    .string "I bet if I look hard enough, I'll\n"
+    .string "finally find a PIKABLU!$"
 

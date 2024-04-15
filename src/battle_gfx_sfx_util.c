@@ -95,7 +95,7 @@ static const struct CompressedSpriteSheet sSpriteSheets_HealthBar[MAX_BATTLERS_C
     },
 };
 
-static const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
+const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
 {
     {
         .data = gBattleInterface_Healthbox_Pal,
@@ -659,7 +659,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, u8 transformType)
     const u32 *lzPaletteData;
     void *buffer;
 
-    if (transformType == 255) // Ghost unveiled with Silph Scope
+    if (transformType == 255) // Ghost unveiled with Silph Scope OR Alomomola mid-battle evolution
     {
         const void *src;
         void *dst;

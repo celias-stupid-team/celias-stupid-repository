@@ -109,5 +109,6 @@ Route11_Text_DavePostBattle::
     .string "I better go find stronger ones!$"
 
 Route11_Text_DiglettsCave::
-    .string "DIGLETT'S CAVE$"
+    .string "DIGLETTS' CAVE\n"
+    .string "NEW WILD POKéMON: 2$"
 
