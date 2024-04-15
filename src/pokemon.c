@@ -3790,10 +3790,7 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u8 lockedAbility)
     case 1:
         gLastUsedAbility = gSpeciesInfo[species].abilities[abilityNum];
         break;
-    case 2: //hidden ability
-        //gLastUsedAbility = gBaseStats[species].abilityHidden;
-        break;
-    case 3: //locked ability (tutor)
+    case 3: //locked ability (any)
         gLastUsedAbility = lockedAbility;
         break;
     }
