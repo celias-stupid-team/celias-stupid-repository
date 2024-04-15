@@ -2273,3 +2273,13 @@ bool8 ScrCmd_setbench(struct ScriptContext * ctx)
     SetLastBenchWarp(benchId);
     return FALSE;
 }
+
+bool8 ScrCmd_DebugPrintf(struct ScriptContext * ctx)
+{
+    const u8 *msg = (const u8 *)ScriptReadWord(ctx);
+
+    if (msg == NULL)
+        msg = (const u8 *)ctx->data[0];
+    DebugPrintf("Script Debug: %S", msg);
+    return FALSE;
+}

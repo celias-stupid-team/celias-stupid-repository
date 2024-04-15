@@ -6,6 +6,7 @@
 #include "battle_interface.h"
 #include "battle_bg.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "graphics.h"
 #include "m4a.h"
 #include "task.h"
@@ -104,6 +105,12 @@ static void Cmd_visible(void);
 static void Cmd_teamattack_moveback(void);
 static void Cmd_teamattack_movefwd(void);
 static void Cmd_stopsound(void);
+static void Cmd_call_if(void);
+static void Cmd_compare_var_to_value(void);
+static void Cmd_compare_var_to_var(void);
+static void Cmd_setflag(void);
+static void Cmd_clearflag(void);
+static void Cmd_debugprintf(void);
 
 #include "data/battle_anim.h"
 
@@ -157,7 +164,34 @@ static void (*const sScriptCmdTable[])(void) =
     Cmd_teamattack_moveback,  // 0x2D
     Cmd_teamattack_movefwd,   // 0x2E
     Cmd_stopsound,            // 0x2F
+    Cmd_call_if,              // 0x30
+    Cmd_compare_var_to_value, // 0x31
+    Cmd_compare_var_to_var,   // 0x32
+    Cmd_setflag,              // 0x33
+	Cmd_clearflag,            // 0x34
+    Cmd_debugprintf,          // 0x35
 };
+
+static const u8 sScriptConditionTable[6][3] =
+{
+//  <  =  >
+    1, 0, 0, // <
+    0, 1, 0, // =
+    0, 0, 1, // >
+    1, 1, 0, // <=
+    0, 1, 1, // >=
+    1, 0, 1, // !=
+};
+
+static u8 Compare(u16 a, u16 b)
+{
+    if (a < b)
+        return 0;
+    else if (a == b)
+        return 1;
+    else
+        return 2;
+}
 
 void ClearBattleAnimationVars(void)
 {
@@ -1722,4 +1756,76 @@ static void Cmd_stopsound(void)
     m4aMPlayStop(&gMPlayInfo_SE1);
     m4aMPlayStop(&gMPlayInfo_SE2);
     sBattleAnimScriptPtr++;
+}
+
+static void Cmd_call_if(void)
+{
+    u8 condition;
+    u8 comparison;
+    
+    sBattleAnimScriptPtr++;
+    sBattleAnimScriptRetAddr = sBattleAnimScriptPtr + 5;
+    condition = sBattleAnimScriptPtr[0];
+    sBattleAnimScriptPtr++;
+    comparison = gBattleAnimArgs[0];
+
+    if (sScriptConditionTable[condition][comparison] == 1)
+        sBattleAnimScriptPtr = T2_READ_PTR(sBattleAnimScriptPtr);
+    else
+        sBattleAnimScriptPtr += 4;
+}
+
+static void Cmd_compare_var_to_value(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+    
+    sBattleAnimScriptPtr++;
+    value1 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
+    sBattleAnimScriptPtr += 2;
+    value2 = T1_READ_16(sBattleAnimScriptPtr);
+    sBattleAnimScriptPtr += 2;
+    gBattleAnimArgs[0] = Compare(value1, value2);
+}
+
+static void Cmd_compare_var_to_var(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+    
+    sBattleAnimScriptPtr++;
+    value1 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
+    sBattleAnimScriptPtr += 2;
+    value2 = VarGet(T1_READ_16(sBattleAnimScriptPtr));
+    sBattleAnimScriptPtr += 2;
+    gBattleAnimArgs[0] = Compare(value1, value2);
+}
+
+static void Cmd_setflag(void)
+{
+    sBattleAnimScriptPtr++;
+    FlagSet(T1_READ_16(sBattleAnimScriptPtr));
+    sBattleAnimScriptPtr += 2;
+}
+
+static void Cmd_clearflag(void)
+{
+    sBattleAnimScriptPtr++;
+    FlagClear(T1_READ_16(sBattleAnimScriptPtr));
+    sBattleAnimScriptPtr += 2;
+}
+
+static void Cmd_debugprintf(void)
+{
+    u32 limit;
+    u8 *stringPtr;
+
+    sBattleAnimScriptPtr++;
+    stringPtr = T1_READ_PTR(sBattleAnimScriptPtr);
+    limit = StringLength(stringPtr);
+    Get_String_to_gStringVar1(stringPtr, limit);
+    DebugPrintf("\nScript Debug: %S", gStringVar1);
+    sBattleAnimScriptPtr += 4;
 }

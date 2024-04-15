@@ -12,6 +12,7 @@ enum StringConvertMode
 
 u8 *StringCopy_Nickname(u8 *dest, const u8 *src);
 u8 *StringGet_Nickname(u8 *str);
+u8 Get_String_to_gStringVar1(char *str, u8 limit);
 u8 *StringCopy_PlayerName(u8 *dest, const u8 *src);
 u8 *StringCopy(u8 *dest, const u8 *src);
 u8 *StringAppend(u8 *dest, const u8 *src);

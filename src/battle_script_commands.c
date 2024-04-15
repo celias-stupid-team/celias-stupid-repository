@@ -99,6 +99,8 @@ extern const u8 *const gBattleScriptsForMoveEffects[];
 
 #define TAG_LVLUP_BANNER_MON_ICON 55130
 
+EWRAM_DATA s16 gBattleScriptArgs[BATTLE_ARGS_COUNT] = {0};
+
 static bool8 IsTwoTurnsMove(u16 move);
 static void TrySetDestinyBondToHappen(void);
 static u8 AttacksThisTurn(u8 battlerId, u16 move); // Note: returns 1 if it's a charging turn, otherwise 2.
@@ -261,6 +263,7 @@ static void Cmd_tryconversiontypechange(void);
 static void Cmd_givepaydaymoney(void);
 static void Cmd_setlightscreen(void);
 static void Cmd_tryKO(void);
+static void Cmd_tryKO_Flash(void);
 static void Cmd_damagetohalftargethp(void);
 static void Cmd_setsandstorm(void);
 static void Cmd_weatherdamage(void);
@@ -364,6 +367,9 @@ static void Cmd_finishturn(void);
 static void Cmd_callnative(void);
 static void Cmd_swapstatstages(void);
 static void Cmd_jumpifnotspeciescondition(void);
+static void Cmd_call_if(void);
+static void Cmd_compare_var_to_value(void);
+static void Cmd_compare_var_to_var(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -618,7 +624,32 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_callnative,                              //0xF8
     Cmd_swapstatstages,                          //0xF9
     Cmd_jumpifnotspeciescondition,               //0xFA
+    Cmd_tryKO_Flash,                             //0xFB
+    Cmd_call_if,                                 //0xFC
+    Cmd_compare_var_to_value,                    //0xFD
+    Cmd_compare_var_to_var,                      //0xFE
 };
+
+static const u8 sScriptConditionTable[6][3] =
+{
+//  <  =  >
+    1, 0, 0, // <
+    0, 1, 0, // =
+    0, 0, 1, // >
+    1, 1, 0, // <=
+    0, 1, 1, // >=
+    1, 0, 1, // !=
+};
+
+static u8 Compare(u16 a, u16 b)
+{
+    if (a < b)
+        return 0;
+    else if (a == b)
+        return 1;
+    else
+        return 2;
+}
 
 struct StatFractions
 {
@@ -877,6 +908,15 @@ static const u8 sBallCatchBonuses[] =
 
 // unknown unused data
 static const u32 sUnused = 0xFF7EAE60;
+
+void ClearBattleScriptVars(void)
+{
+    s32 i;
+
+    // Clear anim args.
+    for (i = 0; i < BATTLE_ARGS_COUNT; i++)
+        gBattleScriptArgs[i] = 0;
+}
 
 static void Cmd_attackcanceler(void)
 {
@@ -1660,8 +1700,14 @@ static void Cmd_adjustnormaldamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1669,7 +1715,7 @@ static void Cmd_adjustnormaldamage(void)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
+        else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -1703,8 +1749,14 @@ static void Cmd_adjustnormaldamage2(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -1712,7 +1764,7 @@ static void Cmd_adjustnormaldamage2(void)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
+        else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -1769,6 +1821,8 @@ static void Cmd_waitanimation(void)
 
 static void Cmd_healthbarupdate(void)
 {
+    u8 moveType;
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -1797,6 +1851,32 @@ static void Cmd_healthbarupdate(void)
 
             if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER && gBattleMoveDamage > 0)
                 gBattleResults.playerMonWasDamaged = TRUE;
+
+            //mid battle event checks
+            if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleMoveDamage > 0)
+            {
+                moveType = gBattleMoves[gCurrentMove].type;
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LARRY_ZAPDOS && gCurrentMove == 283)
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Larry Zapdos - ENDEAVOR used!");
+                }
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BROCK && gCurrentMove == 93)
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Brock - CONFUSION used!");
+                }
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_MIGUEL && (moveType == TYPE_BUG || moveType == TYPE_GROUND))
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Miguel - BUG or GROUND type move used!");
+                }
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_GIOVANNI_WONDERGUARD && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY) && (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT))
+                {
+                    FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+                    DebugPrintf("Mid-battle-event: Giovanni - FAIRY or FIGHTING type move used during Odor Sleuth!");
+                }
+            }
         }
     }
 
@@ -5691,8 +5771,14 @@ static void Cmd_adjustsetdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
+    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
+    }
+
     if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE)
-     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded)
+     && (gBattleMoves[gCurrentMove].effect == EFFECT_FALSE_SWIPE || gProtectStructs[gBattlerTarget].endured || gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
      && gBattleMons[gBattlerTarget].hp <= gBattleMoveDamage)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
@@ -5700,7 +5786,7 @@ static void Cmd_adjustsetdamage(void)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
-        else if (gSpecialStatuses[gBattlerTarget].focusBanded)
+        else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
         {
             gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -7175,6 +7261,7 @@ static void Cmd_tryKO(void)
 {
     u8 holdEffect, param;
 
+    //get effect from held items
     if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
     {
        holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
@@ -7191,7 +7278,12 @@ static void Cmd_tryKO(void)
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < param)
     {
         RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_BAND);
-        gSpecialStatuses[gBattlerTarget].focusBanded = 1;
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
+    }
+    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
+    {
+        RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_FOCUS_SASH);
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
     }
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_STURDY)
@@ -7232,7 +7324,7 @@ static void Cmd_tryKO(void)
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
             }
-            else if (gSpecialStatuses[gBattlerTarget].focusBanded)
+            else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
             {
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
@@ -7254,6 +7346,54 @@ static void Cmd_tryKO(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_UNAFFECTED;
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
         }
+    }
+}
+
+//special OHKO logic for FLASH
+static void Cmd_tryKO_Flash(void)
+{
+    u8 holdEffect, param;
+
+    if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
+    {
+       holdEffect = gEnigmaBerries[gBattlerTarget].holdEffect;
+       param = gEnigmaBerries[gBattlerTarget].holdEffectParam;
+    }
+    else
+    {
+        holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
+        param = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
+    }
+
+    gPotentialItemEffectBattler = gBattlerTarget;
+
+    //Squirtle with Sick Shades Lt. Surge battle solution
+    if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gLastUsedAbility = ABILITY_SICK_SHADES;
+        gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_SICK_SHADES);
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
+            FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
+            DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
+        }
+    }
+    else
+    {
+        //move always hits without restrictions
+        if (gProtectStructs[gBattlerTarget].endured)
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
+        }
+        //Move never procs Focus Band or Focus Sash
+        else
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].hp;
+            gMoveResultFlags |= MOVE_RESULT_ONE_HIT_KO;
+        }
+        gBattlescriptCurrInstr += 5;
     }
 }
 
@@ -9993,4 +10133,77 @@ static void Cmd_jumpifnotspeciescondition(void)
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+static void Cmd_call_if(void)
+{
+    u8 condition;
+    u8 comparison;
+    
+    BattleScriptPush(gBattlescriptCurrInstr + 5);
+    gBattlescriptCurrInstr++;
+    condition = gBattlescriptCurrInstr[0];
+    gBattlescriptCurrInstr++;
+    comparison = gBattleScriptArgs[0];
+
+    if (sScriptConditionTable[condition][comparison] == 1)
+        gBattlescriptCurrInstr = T2_READ_PTR(gBattlescriptCurrInstr);
+    else
+        gBattlescriptCurrInstr += 4;
+}
+
+static void Cmd_compare_var_to_value(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+    
+    gBattlescriptCurrInstr++;
+    value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    gBattlescriptCurrInstr += 2;
+    value2 = T1_READ_16(gBattlescriptCurrInstr);
+    gBattlescriptCurrInstr += 2;
+    gBattleScriptArgs[0] = Compare(value1, value2);
+}
+
+static void Cmd_compare_var_to_var(void)
+{
+    u8 numArgs;
+    u16 value1;
+    u16 value2;
+
+    gBattlescriptCurrInstr++;
+    value1 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    gBattlescriptCurrInstr += 2;
+    value2 = VarGet(T1_READ_16(gBattlescriptCurrInstr));
+    gBattlescriptCurrInstr += 2;
+    gBattleScriptArgs[0] = Compare(value1, value2);
+}
+
+//callnative battle scripts
+//callnative macro requires 5 bytes, so always add 5 to the macro execution
+void BS_SetFlag(void)
+{
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagSet(flag);
+    gBattlescriptCurrInstr += 7;
+}
+
+void BS_ClearFlag(void)
+{
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagClear(flag);
+    gBattlescriptCurrInstr += 7;
+}
+
+void BS_DebugPrintf(void)
+{
+    u32 limit;
+    u8 *stringPtr;
+
+    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
+    limit = StringLength(stringPtr);
+    Get_String_to_gStringVar1(stringPtr, limit);
+    DebugPrintf("\nScript Debug: %S", gStringVar1);
+    gBattlescriptCurrInstr += 9;
 }

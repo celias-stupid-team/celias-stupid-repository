@@ -229,7 +229,8 @@ struct SpecialStatus
     s32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
-    u8 field12;
+    u8 focusSashed:1;
+    u8 field12:7;
     u8 field13;
 };
 
@@ -725,3 +726,5 @@ extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
 
 #endif // GUARD_BATTLE_H
+
+#define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)

@@ -1654,6 +1654,11 @@
 	.byte \y
 	.endm
 
+	@Creates a DebugPrintf output for the given text
+	.macro debugprintf text:req
+	.byte 0xd7
+	.4byte \text
+	.endm
 
 @ Supplementary
 

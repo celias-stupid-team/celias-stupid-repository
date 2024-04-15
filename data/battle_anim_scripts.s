@@ -5,6 +5,8 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/moves.h"
+#include "constants/flags.h"
+#include "constants/vars.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
 	.include "constants/constants.inc"
