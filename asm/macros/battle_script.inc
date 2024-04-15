@@ -1331,25 +1331,6 @@
 	call_if 5, \a
 	.endm
 
-	@ Sets flag to TRUE.
-	.macro setflag flag:req
-	.byte 0xff
-	.2byte \flag
-	.endm
-
-	@ Sets flag to FALSE.
-	.macro clearflag flag:req
-	.byte 0xfg
-	.2byte \flag
-	.endm
-
-	@Creates a DebugPrintf output for the given text
-	@The string must be defined as a script string (.string "my string$")
-	.macro debugprintf text:req
-	.byte 0xfh
-	.4byte \text
-	.endm
-
 	.macro jumpifspecies battler:req, species:req, jumpptr:req
 	jumpifnotspeciescondition \battler, \species, TRUE, \jumpptr
 	.endm
@@ -1486,4 +1467,24 @@
 
 	.macro jumpifnotbattletype flags:req, jumpptr:req
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
+	.endm
+
+@ callnative macros
+	@ Sets flag to TRUE.
+	.macro setflag flag:req
+	callnative BS_SetFlag
+	.2byte \flag
+	.endm
+
+	@ Sets flag to FALSE.
+	.macro clearflag flag:req
+	callnative BS_ClearFlag
+	.2byte \flag
+	.endm
+
+	@Creates a DebugPrintf output for the given text
+	@The string must be defined as a script string (.string "my string$")
+	.macro debugprintf text:req
+	callnative BS_DebugPrintf
+	.4byte \text
 	.endm

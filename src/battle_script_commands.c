@@ -370,9 +370,6 @@ static void Cmd_jumpifnotspeciescondition(void);
 static void Cmd_call_if(void);
 static void Cmd_compare_var_to_value(void);
 static void Cmd_compare_var_to_var(void);
-static void Cmd_setflag(void);
-static void Cmd_clearflag(void);
-static void Cmd_debugprintf(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -631,9 +628,6 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_call_if,                                 //0xFC
     Cmd_compare_var_to_value,                    //0xFD
     Cmd_compare_var_to_var,                      //0xFE
-    Cmd_setflag,                                 //0xFF
-	Cmd_clearflag,                               //0xFG //issue
-    Cmd_debugprintf,                             //0xFH //issue
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -10186,29 +10180,30 @@ static void Cmd_compare_var_to_var(void)
     gBattleScriptArgs[0] = Compare(value1, value2);
 }
 
-static void Cmd_setflag(void)
+//callnative battle scripts
+//callnative macro requires 5 bytes, so always add 5 to the macro execution
+void BS_SetFlag(void)
 {
-    gBattlescriptCurrInstr++;
-    FlagSet(T1_READ_16(gBattlescriptCurrInstr));
-    gBattlescriptCurrInstr += 2;
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagSet(flag);
+    gBattlescriptCurrInstr += 7;
 }
 
-static void Cmd_clearflag(void)
+void BS_ClearFlag(void)
 {
-    gBattlescriptCurrInstr++;
-    FlagClear(T1_READ_16(gBattlescriptCurrInstr));
-    gBattlescriptCurrInstr += 2;
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagClear(flag);
+    gBattlescriptCurrInstr += 7;
 }
 
-static void Cmd_debugprintf(void)
+void BS_DebugPrintf(void)
 {
     u32 limit;
     u8 *stringPtr;
 
-    gBattlescriptCurrInstr++;
-    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr);
+    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
     limit = StringLength(stringPtr);
     Get_String_to_gStringVar1(stringPtr, limit);
     DebugPrintf("\nScript Debug: %S", gStringVar1);
-    gBattlescriptCurrInstr += 4;
+    gBattlescriptCurrInstr += 9;
 }
