@@ -356,6 +356,7 @@ const u8 gMoveDescription_WaterPulse[] = _("An attack with a\npulsing blast of\n
 const u8 gMoveDescription_DoomDesire[] = _("A move that attacks\nthe foe with a\nblast of light two\nturns after use.");
 const u8 gMoveDescription_PsychoBoost[] = _("An intense attack\nthat also sharply\nreduces the user's\nSP. ATK stat.");
 const u8 gMoveDescription_HeartSwap[] = _("Swaps any stat changes\nwith the foe.");
+const u8 gMoveDescription_Retreat[] = _("Switch your active\nPOKéMON with one\nof your benched\nPOKéMON.");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -713,4 +714,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_DOOM_DESIRE   - 1] = gMoveDescription_DoomDesire,
     [MOVE_PSYCHO_BOOST  - 1] = gMoveDescription_PsychoBoost,
     [MOVE_HEART_SWAP    - 1] = gMoveDescription_HeartSwap,
+    [MOVE_RETREAT       - 1] = gMoveDescription_Retreat,
 };

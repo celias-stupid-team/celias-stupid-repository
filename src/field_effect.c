@@ -2537,6 +2537,231 @@ static void TeleportInFieldEffectTask3(struct Task *task)
     }
 }
 
+// new functions for Retreat field effect
+static void Task_DoRetreatFieldEffect(u8 taskId);
+static void RetreatFieldEffectTask1_PreparePlayer(struct Task *task);
+static void RetreatFieldEffectTask2_SetSpin(struct Task *task);
+static void RetreatFieldEffectTask3_FadeOut(struct Task *task);
+static void RetreatFieldEffectTask4_DoWarp(struct Task *task);
+static void FieldCallback_RetreatIn(void);
+static void Task_DoRetreatInFieldEffect(u8 taskId);
+static void RetreatInFieldEffectTask1_PreparePlayer(struct Task *task);
+static void RetreatInFieldEffectTask2_SetSpin(struct Task *task);
+static void RetreatInFieldEffectTask3_Release(struct Task *task);
+
+static void (*const sRetreatEffectFuncs[])(struct Task *) = {
+    RetreatFieldEffectTask1_PreparePlayer,
+    RetreatFieldEffectTask2_SetSpin,
+    RetreatFieldEffectTask3_FadeOut,
+    RetreatFieldEffectTask4_DoWarp
+};
+
+// Task data for Task_DoRetreatFieldEffect
+#define tState         data[0]
+#define tMovingState   data[1]
+#define tTurnCount     data[2]
+#define tOffsetY       data[3]
+#define tGroundEffect  data[13]
+#define tSubspriteMode data[14]
+#define tOriginalDir   data[15]
+
+void CreateRetreatFieldEffectTask(void)
+{
+    CreateTask(Task_DoRetreatFieldEffect, 0);
+}
+
+static void Task_DoRetreatFieldEffect(u8 taskId)
+{
+    sRetreatEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
+}
+
+static void RetreatFieldEffectTask1_PreparePlayer(struct Task *task)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    CameraObjectReset2();
+    task->tOriginalDir = GetPlayerFacingDirection();
+    task->tState++;
+}
+
+static void RetreatFieldEffectTask2_SetSpin(struct Task *task)
+{
+    u8 spinDirections[5] = {
+        [DIR_NONE]  = DIR_SOUTH,
+        [DIR_SOUTH] = DIR_WEST,
+        [DIR_WEST]  = DIR_NORTH,
+        [DIR_NORTH] = DIR_EAST,
+        [DIR_EAST]  = DIR_SOUTH
+    };
+    struct ObjectEvent * objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if (task->tMovingState == 0 || (--task->tMovingState) == 0)
+    {
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+        task->tMovingState = 8;
+        task->tTurnCount++;
+    }
+    if (task->tTurnCount > 7 && task->tOriginalDir == objectEvent->facingDirection)
+    {
+        task->tState++;
+        task->tMovingState = 4;
+        task->tTurnCount = 8;
+        task->tOffsetY = 1;
+        PlaySE(SE_WARP_IN);
+    }
+}
+
+static void RetreatFieldEffectTask3_FadeOut(struct Task *task)
+{
+    u8 spinDirections[5] = {DIR_SOUTH, DIR_WEST, DIR_EAST, DIR_NORTH, DIR_SOUTH};
+    struct ObjectEvent * objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct Sprite *sprite = &gSprites[gPlayerAvatar.spriteId];
+    if ((--task->tMovingState) <= 0)
+    {
+        task->tMovingState = 4;
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+    }
+    sprite->y -= task->tOffsetY;
+    task->data[4] += task->tOffsetY;
+    if ((--task->tTurnCount) <= 0 && (task->tTurnCount = 4, task->tOffsetY < 8))
+    {
+        task->tOffsetY <<= 1;
+    }
+    if (task->data[4] > 8 && (sprite->oam.priority = 1, sprite->subspriteMode != SUBSPRITES_OFF))
+    {
+        sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
+    }
+    if (task->data[4] >= 0xa8)
+    {
+        task->tState++;
+        TryFadeOutOldMapMusic();
+        WarpFadeOutScreen();
+    }
+}
+
+static void RetreatFieldEffectTask4_DoWarp(struct Task *task)
+{
+    if (!gPaletteFade.active)
+    {
+        if (BGMusicStopped() == TRUE)
+        {
+            SetWarpDestinationToBench();
+            WarpIntoMap();
+            SetMainCallback2(CB2_LoadMap);
+            gFieldCallback = FieldCallback_RetreatIn;
+            DestroyTask(FindTaskIdByFunc(Task_DoRetreatFieldEffect));
+        }
+    }
+}
+
+static void (*const sRetreatInEffectFuncs[])(struct Task *) = {
+    RetreatInFieldEffectTask1_PreparePlayer,
+    RetreatInFieldEffectTask2_SetSpin,
+    RetreatInFieldEffectTask3_Release
+};
+
+static void FieldCallback_RetreatIn(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    WarpFadeInScreen();
+    QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode();
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+    gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    CameraObjectReset2();
+    CreateTask(Task_DoRetreatInFieldEffect, 0);
+}
+
+static void Task_DoRetreatInFieldEffect(u8 taskId)
+{
+    sRetreatInEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
+}
+
+static void RetreatInFieldEffectTask1_PreparePlayer(struct Task *task)
+{
+    struct Sprite *sprite;
+    s16 centerToCornerVecY;
+    if (IsWeatherNotFadingIn())
+    {
+        sprite = &gSprites[gPlayerAvatar.spriteId];
+        centerToCornerVecY = -(sprite->centerToCornerVecY << 1);
+        sprite->y2 = -(sprite->y + sprite->centerToCornerVecY + gSpriteCoordOffsetY + centerToCornerVecY);
+        gObjectEvents[gPlayerAvatar.objectEventId].invisible = FALSE;
+        task->tState++;
+        task->tMovingState = 8;
+        task->tTurnCount = 1;
+        task->tSubspriteMode = sprite->subspriteMode;
+        task->tOriginalDir = GetPlayerFacingDirection();
+        PlaySE(SE_WARP_IN);
+    }
+}
+
+static void RetreatInFieldEffectTask2_SetSpin(struct Task *task)
+{
+    u8 spinDirections[5] = {1, 3, 4, 2, 1};
+    struct ObjectEvent * objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct Sprite *sprite = &gSprites[gPlayerAvatar.spriteId];
+    if ((sprite->y2 += task->tMovingState) >= -8)
+    {
+        if (task->tGroundEffect == 0)
+        {
+            task->tGroundEffect++;
+            objectEvent->triggerGroundEffectsOnMove = TRUE;
+            sprite->subspriteMode = task->tSubspriteMode;
+        }
+    } else
+    {
+        sprite->oam.priority = 1;
+        if (sprite->subspriteMode != SUBSPRITES_OFF)
+        {
+            sprite->subspriteMode = SUBSPRITES_IGNORE_PRIORITY;
+        }
+    }
+    if (sprite->y2 >= -0x30 && task->tMovingState > 1 && !(sprite->y2 & 1))
+    {
+        task->tMovingState--;
+    }
+    if ((--task->tTurnCount) == 0)
+    {
+        task->tTurnCount = 4;
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+    }
+    if (sprite->y2 >= 0)
+    {
+        sprite->y2 = 0;
+        task->tState++;
+        task->tMovingState = 1;
+        task->tTurnCount = 0;
+    }
+}
+
+static void RetreatInFieldEffectTask3_Release(struct Task *task)
+{
+    u8 spinDirections[5] = {1, 3, 4, 2, 1};
+    struct ObjectEvent * objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if ((--task->tMovingState) == 0)
+    {
+        ObjectEventTurn(objectEvent, spinDirections[objectEvent->facingDirection]);
+        task->tMovingState = 8;
+        if ((++task->tTurnCount) > 4 && task->tSubspriteMode == objectEvent->facingDirection)
+        {
+            UnlockPlayerFieldControls();
+            CameraObjectReset1();
+            UnfreezeObjectEvents();
+            DestroyTask(FindTaskIdByFunc(Task_DoRetreatInFieldEffect));
+        }
+    }
+}
+
+#undef tState
+#undef tMovingState
+#undef tTurnCount
+#undef tOffsetY
+#undef tWTF
+#undef tGroundEffect
+#undef tSubspriteMode
+#undef tOriginalDir
+
 static void Task_ShowMon_Outdoors(u8 taskId);
 static void ShowMonEffect_Outdoors_1(struct Task *task);
 static void ShowMonEffect_Outdoors_2(struct Task *task);
