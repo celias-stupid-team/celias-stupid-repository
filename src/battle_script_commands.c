@@ -1800,26 +1800,22 @@ static void Cmd_healthbarupdate(void)
             if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT && gBattleMoveDamage > 0)
             {
                 moveType = gBattleMoves[gCurrentMove].type;
-                // 1 = Larry Zapdos
-                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 1 && gCurrentMove == 283)
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LARRY_ZAPDOS && gCurrentMove == 283)
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Larry Zapdos - ENDEAVOR used!");
                 }
-                // 2 = Brock
-                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 2 && gCurrentMove == 93)
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_BROCK && gCurrentMove == 93)
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Brock - CONFUSION used!");
                 }
-                // 3 = Miguel
-                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 3 && (moveType == TYPE_BUG || moveType == TYPE_GROUND))
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_MIGUEL && (moveType == TYPE_BUG || moveType == TYPE_GROUND))
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Miguel - BUG or GROUND type move used!");
                 }
-                // 5 = Giovanni
-                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 5 && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY) && (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT))
+                if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_GIOVANNI_WONDERGUARD && (moveType == TYPE_FIGHTING || moveType == TYPE_FAIRY) && (gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT))
                 {
                     FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
                     DebugPrintf("Mid-battle-event: Giovanni - FAIRY or FIGHTING type move used during Odor Sleuth!");
@@ -7314,42 +7310,26 @@ static void Cmd_tryKO_Flash(void)
         gLastUsedAbility = ABILITY_SICK_SHADES;
         gBattlescriptCurrInstr = BattleScript_SturdyPreventsOHKO;
         RecordAbilityBattle(gBattlerTarget, ABILITY_SICK_SHADES);
-        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == 4) {
+        if (VarGet(VAR_TEMP_START_EVENT_BATTLE) == EVENT_LT_SURGE) {
             FlagSet(FLAG_TEMP_MID_BATTLE_EVENT);
             DebugPrintf("Mid-battle-event: Surge - SICK SHADES activated!");
         }
     }
     else
     {
-        u16 chance;
-        
         //move always hits without restrictions
-        chance = TRUE;
-                
-        if (chance)
+        if (gProtectStructs[gBattlerTarget].endured)
         {
-            if (gProtectStructs[gBattlerTarget].endured)
-            {
-                gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
-                gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
-            }
-            //Move never procs Focus Band or Focus Sash
-            else
-            {
-                gBattleMoveDamage = gBattleMons[gBattlerTarget].hp;
-                gMoveResultFlags |= MOVE_RESULT_ONE_HIT_KO;
-            }
-            gBattlescriptCurrInstr += 5;
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
         }
+        //Move never procs Focus Band or Focus Sash
         else
         {
-            gMoveResultFlags |= MOVE_RESULT_MISSED;
-            if (gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_MISS;
-            else
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_UNAFFECTED;
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].hp;
+            gMoveResultFlags |= MOVE_RESULT_ONE_HIT_KO;
         }
+        gBattlescriptCurrInstr += 5;
     }
 }
 

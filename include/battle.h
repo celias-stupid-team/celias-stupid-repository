@@ -222,14 +222,14 @@ struct SpecialStatus
     u8 ppNotAffectedByPressure:1;
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
-    u8 focusSashed:1;
     u8 field1[3];
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
-    u8 field12;
+    u8 focusSashed:1;
+    u8 field12:7;
     u8 field13;
 };
 

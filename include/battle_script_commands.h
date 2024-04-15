@@ -2,6 +2,13 @@
 #define GUARD_BATTLE_SCRIPT_COMMANDS_H
 #define BATTLE_ARGS_COUNT 8
 
+//mid battle events
+#define EVENT_LARRY_ZAPDOS          1
+#define EVENT_BROCK                 2
+#define EVENT_MIGUEL                3
+#define EVENT_LT_SURGE              4
+#define EVENT_GIOVANNI_WONDERGUARD  5
+
 #include "global.h"
 
 // Arguments for 'flags' in HandleBattleWindow
