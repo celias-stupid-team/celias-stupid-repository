@@ -6476,6 +6476,13 @@ static void Cmd_various(void)
             }
             return;
         }
+        case VARIOUS_EMIT_YESNOBOX:
+        {
+            VARIOUS_ARGS();
+            BtlController_EmitYesNoBox(BUFFER_A);
+            MarkBattlerForControllerExec(gActiveBattler);
+            break;
+        }
     }
 
     gBattlescriptCurrInstr += 3;

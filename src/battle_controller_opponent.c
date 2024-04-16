@@ -111,6 +111,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = OpponentHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = OpponentHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = OpponentHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = OpponentBufferExecCompleted,
     [CONTROLLER_UNKNOWNYESNOBOX]          = OpponentHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = OpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = OpponentHandleChooseItem,

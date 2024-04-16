@@ -519,7 +519,9 @@ const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm! Excellent!\pIf you win, you ea
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pIf you win, you earn prize money,\nand your POKéMON grow.\pBut if you lose, {B_PLAYER_NAME}, you end\nup paying prize money…\pHowever, since you had no warning\nthis time, I'll pay for you.\pBut things won't be this way once\nyou step outside these doors.\pThat's why you must strengthen your\nPOKéMON by battling wild POKéMON.\p");
 
 // New battle strings.
-static const s8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
+static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
+static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the match!");
+static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the match\nand quit now?");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -899,7 +901,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_ALOMOMOLAEVO - BATTLESTRINGS_TABLE_START]                  = sText_AlomomolaEvo,
     [STRINGID_ALOMOMOLAEVOLVED - BATTLESTRINGS_TABLE_START]              = sText_AlomomolaEvolved,
     [STRINGID_PKMNSWITCHEDSTATCHANGES - BATTLESTRINGS_TABLE_START]       = sText_PkmnSwitchedStatChanges,
-    [STRINGID_ENDUREDSTURDY - BATTLESTRINGS_TABLE_START]                 = sText_EnduredViaSturdy
+    [STRINGID_ENDUREDSTURDY - BATTLESTRINGS_TABLE_START]                 = sText_EnduredViaSturdy,
+    [STRINGID_FORFEITEDMATCH - BATTLESTRINGS_TABLE_START]                = sText_ForfeitedMatch,
+    [STRINGID_QUESTIONFORFEITMATCH - BATTLESTRINGS_TABLE_START]          = sText_QuestionForfeitMatch
 };
 
 const u16 gMissStringIds[] =

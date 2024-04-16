@@ -963,9 +963,18 @@ static void CB2_EndTrainerBattle(void)
         }
         else
         {
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-            SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
+            // WIP
+            DebugPrintf("if (!gBattleOutcome == B_OUTCOME_RAN)");
+            if (!gBattleOutcome == B_OUTCOME_RAN){
+                DebugPrintf("BATTLE WON");
+                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                SetBattledTrainerFlag();
+            }
+            else
+            {
+                DebugPrintf("BATTLE RAN");
+                SetMainCallback2(CB2_WhiteOut);
+            }
         }
     }
 }
