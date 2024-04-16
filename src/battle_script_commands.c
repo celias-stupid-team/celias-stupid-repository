@@ -371,8 +371,6 @@ static void Cmd_call_if(void);
 static void Cmd_compare_var_to_value(void);
 static void Cmd_compare_var_to_var(void);
 static void Cmd_jumpifhelditem(void);
-static void Cmd_setsubstituteteacher(void);
-static void Cmd_multihitresultmessage(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -627,13 +625,11 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_callnative,                              //0xF8
     Cmd_swapstatstages,                          //0xF9
     Cmd_jumpifnotspeciescondition,               //0xFA
-    Cmd_jumpifhelditem,                          //0xFB
-    Cmd_setsubstituteteacher,                    //0xFC
-    Cmd_multihitresultmessage,                   //0xFD
     Cmd_tryKO_Flash,                             //0xFB
     Cmd_call_if,                                 //0xFC
     Cmd_compare_var_to_value,                    //0xFD
     Cmd_compare_var_to_var,                      //0xFE
+    Cmd_jumpifhelditem,                          //0xFF
 };
 
 static const u8 sScriptConditionTable[6][3] =
@@ -10298,34 +10294,6 @@ static void Cmd_compare_var_to_var(void)
     gBattleScriptArgs[0] = Compare(value1, value2);
 }
 
-//callnative battle scripts
-//callnative macro requires 5 bytes, so always add 5 to the macro execution
-void BS_SetFlag(void)
-{
-    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
-    FlagSet(flag);
-    gBattlescriptCurrInstr += 7;
-}
-
-void BS_ClearFlag(void)
-{
-    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
-    FlagClear(flag);
-    gBattlescriptCurrInstr += 7;
-}
-
-void BS_DebugPrintf(void)
-{
-    u32 limit;
-    u8 *stringPtr;
-
-    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
-    limit = StringLength(stringPtr);
-    Get_String_to_gStringVar1(stringPtr, limit);
-    DebugPrintf("\nScript Debug: %S", gStringVar1);
-    gBattlescriptCurrInstr += 9;
-}
-
 static void Cmd_jumpifhelditem(void)
 {
     CMD_ARGS(u8 battler, u32 item, const u8 *jumpInstr);
@@ -10362,7 +10330,35 @@ static void Cmd_jumpifhelditem(void)
     }
 }
 
-static void Cmd_setsubstituteteacher(void)
+//callnative battle scripts
+//callnative macro requires 5 bytes, so always add 5 to the macro execution
+void BS_SetFlag(void)
+{
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagSet(flag);
+    gBattlescriptCurrInstr += 7;
+}
+
+void BS_ClearFlag(void)
+{
+    u16 flag = T1_READ_16(gBattlescriptCurrInstr + 5);
+    FlagClear(flag);
+    gBattlescriptCurrInstr += 7;
+}
+
+void BS_DebugPrintf(void)
+{
+    u32 limit;
+    u8 *stringPtr;
+
+    stringPtr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
+    limit = StringLength(stringPtr);
+    Get_String_to_gStringVar1(stringPtr, limit);
+    DebugPrintf("\nScript Debug: %S", gStringVar1);
+    gBattlescriptCurrInstr += 9;
+}
+
+void BS_SetSubstituteTeacher(void)
 {
     //set HP to full through negative damage
     gBattleMoveDamage = gBattleMons[gBattlerAttacker].hp - gBattleMons[gBattlerAttacker].maxHP;
@@ -10371,16 +10367,13 @@ static void Cmd_setsubstituteteacher(void)
     gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_WRAPPED;
     //set substitute HP to 1/4 of max HP
     gDisableStructs[gBattlerAttacker].substituteHP = gBattleMons[gBattlerAttacker].maxHP / 4;
-    //gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
     gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
 
-    gBattlescriptCurrInstr++;
+    gBattlescriptCurrInstr += 5;
 }
 
-static void Cmd_multihitresultmessage(void)
+void BS_MultihitResultMessage(void)
 {
-    CMD_ARGS();
-
     if (gBattleControllerExecFlags)
         return;
 
@@ -10406,5 +10399,5 @@ static void Cmd_multihitresultmessage(void)
             return;
         }
     }
-    gBattlescriptCurrInstr = cmd->nextInstr;
+    gBattlescriptCurrInstr += 5;
 }

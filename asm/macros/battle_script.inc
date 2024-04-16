@@ -1346,13 +1346,6 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro setsubstituteteacher
-	.byte 0xfc
-	.endm
-
-	.macro multihitresultmessage
-	.byte 0xfd
-	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
@@ -1406,6 +1399,13 @@
 	.macro waitfanfare battler:req
 	various \battler, VARIOUS_WAIT_FANFARE
 	.endm
+
+	.macro jumpifnoholdeffect battler:req, holdEffect:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_NO_HOLD_EFFECT
+	.byte \holdEffect
+	.4byte \jumpInstr
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
@@ -1484,6 +1484,7 @@
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
 	.endm
 
+
 @ callnative macros
 	@ Sets flag to TRUE.
 	.macro setflag flag:req
@@ -1504,8 +1505,12 @@
 	.4byte \text
 	.endm
 
-	.macro jumpifnoholdeffect battler:req, holdEffect:req, jumpInstr:req
-	various \battler, VARIOUS_JUMP_IF_NO_HOLD_EFFECT
-	.byte \holdEffect
-	.4byte \jumpInstr
+	@Sets the Substitute Teacher doll for MOVE_SUBSTITUTE_TEACHER
+	.macro setsubstituteteacher
+	callnative BS_SetSubstituteTeacher
+	.endm
+
+	@Handle multihit result messages
+	.macro multihitresultmessage
+	callnative BS_MultihitResultMessage
 	.endm

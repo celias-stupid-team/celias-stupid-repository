@@ -227,16 +227,14 @@ extern struct ProtectStruct gProtectStructs[MAX_BATTLERS_COUNT];
 
 struct SpecialStatus
 {
-    u8 statLowered:1;             // 0x1
-    u8 lightningRodRedirected:1;  // 0x2
-    u8 restoredBattlerSprite:1;   // 0x4
-    u8 intimidatedMon:1;          // 0x8
-    u8 traced:1;                  // 0x10
+    u8 statLowered:1;
+    u8 lightningRodRedirected:1;
+    u8 restoredBattlerSprite:1;
+    u8 intimidatedMon:1;
+    u8 traced:1;
     u8 ppNotAffectedByPressure:1;
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
-    u8 focusSashed:1;
-    u8 sturdied:1;
     u8 field1[3];
     s32 dmg;
     s32 physicalDmg;
@@ -244,7 +242,8 @@ struct SpecialStatus
     u8 physicalBattlerId;
     u8 specialBattlerId;
     u8 focusSashed:1;
-    u8 field12:7;
+    u8 sturdied:1;
+    u8 filler:6;
     u8 field13;
 };
 
