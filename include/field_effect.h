@@ -11,6 +11,7 @@ extern bool8 (*gFieldCallback2)(void);
 u32 FieldEffectStart(u8);
 bool8 FieldEffectActiveListContains(u8 id);
 void CreateTeleportFieldEffectTask(void);
+void CreateRetreatFieldEffectTask(void);
 void FieldEffectActiveListRemove(u8 id);
 void StartEscapeRopeFieldEffect(void);
 void FieldEffectStop(struct Sprite *sprite, u8 id);

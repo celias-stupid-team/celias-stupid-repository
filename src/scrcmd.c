@@ -1423,6 +1423,22 @@ bool8 ScrCmd_yesnobox(struct ScriptContext * ctx)
     }
 }
 
+bool8 ScrCmd_noyesbox(struct ScriptContext * ctx)
+{
+    u8 left = ScriptReadByte(ctx);
+    u8 top = ScriptReadByte(ctx);
+
+    if (ScriptMenu_NoYes(left, top) == TRUE)
+    {
+        ScriptContext_Stop();
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 bool8 ScrCmd_multichoice(struct ScriptContext * ctx)
 {
     u8 left = ScriptReadByte(ctx);
@@ -2247,5 +2263,23 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext * ctx)
 
     if (partyIndex < PARTY_SIZE)
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
+    return FALSE;
+}
+
+bool8 ScrCmd_setbench(struct ScriptContext * ctx)
+{
+    u16 benchId = VarGet(ScriptReadHalfword(ctx));
+
+    SetLastBenchWarp(benchId);
+    return FALSE;
+}
+
+bool8 ScrCmd_DebugPrintf(struct ScriptContext * ctx)
+{
+    const u8 *msg = (const u8 *)ScriptReadWord(ctx);
+
+    if (msg == NULL)
+        msg = (const u8 *)ctx->data[0];
+    DebugPrintf("Script Debug: %S", msg);
     return FALSE;
 }

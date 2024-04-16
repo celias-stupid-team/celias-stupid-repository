@@ -55,6 +55,13 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_SPECIAL_WILD_BATTLE);
     FlagClear(FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER);
+    ClearTempData_CSR();
+}
+
+void ClearTempData_CSR(void)
+{
+    VarSet(VAR_TEMP_START_EVENT_BATTLE, 0); //reset var every time a map loads
+    FlagClear(FLAG_TEMP_MID_BATTLE_EVENT); //clear flag every time a map loads
 }
 
 // Unused

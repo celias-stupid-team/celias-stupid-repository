@@ -214,6 +214,9 @@ gScriptCmdTable::
 	.4byte ScrCmd_setmonmetlocation              @ 0xd2
 	.4byte ScrCmd_getbraillestringwidth          @ 0xd3
 	.4byte ScrCmd_bufferitemnameplural           @ 0xd4
+	.4byte ScrCmd_setbench						 @ 0xd5
+	.4byte ScrCmd_noyesbox                       @ 0xd6
+	.4byte ScrCmd_DebugPrintf           		 @ 0xd7
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

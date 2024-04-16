@@ -90,5 +90,6 @@ void SortAndCompactBagPocket(struct BagPocket * pocket);
 u8 CountItemsInPC(void);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
 bool8 HasAtLeastOneBerry(void);
+void ItemId_GetHoldEffectParam_Script(void);
 
 #endif // GUARD_ITEM_H

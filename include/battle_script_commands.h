@@ -1,5 +1,13 @@
 #ifndef GUARD_BATTLE_SCRIPT_COMMANDS_H
 #define GUARD_BATTLE_SCRIPT_COMMANDS_H
+#define BATTLE_ARGS_COUNT 8
+
+//mid battle events
+#define EVENT_LARRY_ZAPDOS          1
+#define EVENT_BROCK                 2
+#define EVENT_MIGUEL                3
+#define EVENT_LT_SURGE              4
+#define EVENT_GIOVANNI_WONDERGUARD  5
 
 #include "global.h"
 
@@ -7,6 +15,7 @@
 #define WINDOW_CLEAR (1 << 0)
 #define WINDOW_BG1   (1 << 7)
 
+void ClearBattleScriptVars(void);
 void AI_CalcDmg(u8 attacker, u8 defender);
 u8 TypeCalc(u16 move, u8 attacker, u8 defender);
 u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility);
@@ -19,6 +28,8 @@ void BufferMoveToLearnIntoBattleTextBuff2(void);
 void HandleBattleWindow(u8 xStart, u8 yStart, u8 xEnd, u8 yEnd, u8 flags);
 bool8 UproarWakeUpCheck(u8 battlerId);
 
+extern s16 gBattleScriptArgs[BATTLE_ARGS_COUNT];
 extern void (* const gBattleScriptingCommandsTable[])(void);
+
 
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H

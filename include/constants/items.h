@@ -453,9 +453,10 @@
 #define ITEM_SAPPHIRE 374
 
 //CSR items
-#define ITEM_MATH_CLUB 375
+#define ITEM_FOCUS_SASH 375
+#define ITEM_MATH_CLUB 376
 
-#define ITEMS_COUNT 376
+#define ITEMS_COUNT 377
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

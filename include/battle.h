@@ -243,7 +243,8 @@ struct SpecialStatus
     s32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
-    u8 field12;
+    u8 focusSashed:1;
+    u8 field12:7;
     u8 field13;
 };
 
