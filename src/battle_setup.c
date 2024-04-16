@@ -963,18 +963,12 @@ static void CB2_EndTrainerBattle(void)
         }
         else
         {
-            // WIP
-            DebugPrintf("if (!gBattleOutcome == B_OUTCOME_RAN)");
-            if (!gBattleOutcome == B_OUTCOME_RAN){
-                DebugPrintf("BATTLE WON");
+            if (gBattleOutcome != B_OUTCOME_RAN){
                 SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
                 SetBattledTrainerFlag();
             }
             else
-            {
-                DebugPrintf("BATTLE RAN");
                 SetMainCallback2(CB2_WhiteOut);
-            }
         }
     }
 }

@@ -3151,8 +3151,6 @@ static void HandleTurnActionSelectionState(void)
                              && gChosenActionByBattler[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)] == B_ACTION_RUN
                              && gChosenActionByBattler[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)] != B_ACTION_NOTHING_FAINTED)
                     {
-                        // WIP
-                        DebugPrintf("2nd mon auto run");
                         gChosenActionByBattler[gActiveBattler] = B_ACTION_USE_MOVE;
                         gBattleCommunication[gActiveBattler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
                     }
@@ -3273,14 +3271,11 @@ static void HandleTurnActionSelectionState(void)
                  && !(gBattleTypeFlags & BATTLE_TYPE_LINK)
                  && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
-                    // WIP - Run from trainer battle
                     gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
                     gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT_MAY_RUN;
                     *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
                     *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                     return;
-                    //BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
-                    //gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
                 }
                 else if (IsRunningFromBattleImpossible() != BATTLE_RUN_SUCCESS
                       && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
@@ -3434,19 +3429,14 @@ static void HandleTurnActionSelectionState(void)
                     gBattleCommunication[gActiveBattler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
                 }
                 else
-                {
-                    //RecordedBattle_ClearBattlerAction(gActiveBattler, 1); WIP
                     gBattleCommunication[gActiveBattler] = *(gBattleStruct->stateIdAfterSelScript + gActiveBattler);
-                }
             }
             else
             {
                 gBattlerAttacker = gActiveBattler;
                 gBattlescriptCurrInstr = gSelectionBattleScripts[gActiveBattler];
                 if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
-                {
                     gBattleScriptingCommandsTable[gBattlescriptCurrInstr[0]]();
-                }
                 gSelectionBattleScripts[gActiveBattler] = gBattlescriptCurrInstr;
             }
             break;
