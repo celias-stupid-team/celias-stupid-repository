@@ -89,6 +89,7 @@
 #define VARIOUS_RETURN_OPPONENT_MON2            10
 #define VARIOUS_CHECK_POKEFLUTE                 11
 #define VARIOUS_WAIT_FANFARE                    12
+#define VARIOUS_JUMP_IF_NO_HOLD_EFFECT          13
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

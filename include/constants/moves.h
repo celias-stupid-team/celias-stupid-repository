@@ -359,8 +359,9 @@
 //@@@@@ new moves for CSR below @@@@@
 #define MOVE_HEART_SWAP 355
 #define MOVE_RETREAT 356
+#define MOVE_SUBSTITUTE_TEACHER 357
 
-#define MOVES_COUNT 357
+#define MOVES_COUNT 358
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

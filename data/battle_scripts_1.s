@@ -6,6 +6,7 @@
 #include "constants/battle_anim.h"
 #include "constants/items.h"
 #include "constants/abilities.h"
+#include "constants/hold_effects.h"
 #include "constants/species.h"
 #include "constants/pokemon.h"
 #include "constants/songs.h"
@@ -237,6 +238,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
 	.4byte BattleScript_EffectOHKO_Flash             @ EFFECT_OHKO_FLASH
+	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -250,7 +252,9 @@ BattleScript_HitFromAccCheck::
 BattleScript_HitFromAtkString::
 	attackstring
 	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
 BattleScript_HitFromCritCalc::
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubSingleHit
 	critcalc
 	damagecalc
 	typecalc
@@ -272,6 +276,19 @@ BattleScript_HitFromAtkAnimation::
 BattleScript_MoveEnd::
 	moveendall
 	end
+
+BattleScript_MathClubSingleHit::
+	setmultihitcounter 2
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_MultiHitLoop
+
+BattleScript_MathClubDoubleHit::
+	setmultihitcounter 4
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_MultiHitLoop
+
 
 //test effect based on regular damaging move
 BattleScript_EffectHeartSwap::
@@ -660,6 +677,7 @@ BattleScript_DoMultiHit::
 	datahpupdate BS_TARGET
 	critmessage
 	waitmessage B_WAIT_TIME_LONG
+	multihitresultmessage
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 1
 	addbyte sMULTIHIT_STRING + 4, 1
@@ -879,6 +897,7 @@ BattleScript_EffectDoubleHit::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubDoubleHit
 	setmultihitcounter 2
 	initmultihitstring
 	setbyte sMULTIHIT_EFFECT, 0
@@ -3669,6 +3688,12 @@ BattleScript_EnduredMsg::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_SturdiedMsg::
+	playanimation BS_TARGET, B_ANIM_FOCUS_BAND
+	printstring STRINGID_ENDUREDSTURDY
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_OneHitKOMsg::
 	printstring STRINGID_ONEHITKO
 	waitmessage B_WAIT_TIME_LONG
@@ -4352,7 +4377,7 @@ BattleScript_WhiteHerbRet::
 	removeitem BS_SCRIPTING
 	return
 
-BattleScript_ItemHealHP_RemoveItem::
+BattleScript_ItemHealHP_RemoveItemEnd2::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
 	waitmessage B_WAIT_TIME_LONG
@@ -4361,6 +4386,16 @@ BattleScript_ItemHealHP_RemoveItem::
 	datahpupdate BS_ATTACKER
 	removeitem BS_ATTACKER
 	end2
+
+BattleScript_ItemHealHP_RemoveItemRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+	removeitem BS_SCRIPTING
+	return
 
 BattleScript_BerryPPHealEnd2::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
@@ -4428,4 +4463,44 @@ BattleScript_ActionSelectionItemsCantBeUsed::
 
 BattleScript_FlushMessageBox::
 	printstring STRINGID_EMPTYSTRING3
+	return
+
+BattleScript_EffectSubstituteTeacher::
+	attackcanceler
+	ppreduce
+	attackstring
+	waitstate
+	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstituteTeacher
+	setsubstituteteacher
+BattleScript_SubstituteTeacherAnim::
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_REGAINED_HEALTH, BattleScript_SubTeacherRecycle
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SubstituteTeacherString::
+	printstring STRINGID_PKMNMADESUBSTITUTE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_SubTeacherRecycle
+BattleScript_AlreadyHasSubstituteTeacher::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNHASSUBSTITUTE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SubTeacherRecycle::
+	tryrecycleitem BattleScript_MoveEnd
+	attackanimation
+	waitanimation
+	printstring STRINGID_XFOUNDONEY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_HangedOnMsg::
+	playanimation BS_TARGET, B_ANIM_HANGED_ON
+	printstring STRINGID_PKMNHUNGONWITHX
+	waitmessage B_WAIT_TIME_LONG
+	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_FOCUS_SASH, BattleScript_HangedOnMsgRet
+	removeitem BS_TARGET
+BattleScript_HangedOnMsgRet:
 	return

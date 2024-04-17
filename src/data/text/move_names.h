@@ -355,5 +355,6 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_DOOM_DESIRE]   = _("DOOM DESIRE"),
     [MOVE_PSYCHO_BOOST]  = _("PSYCHO BOOST"),
     [MOVE_HEART_SWAP]    = _("HEART SWAP"),
-    [MOVE_RETREAT]       = _("RETREAT")
+    [MOVE_RETREAT]       = _("RETREAT"),
+    [MOVE_SUBSTITUTE_TEACHER]    = _("SUBSTITUTE")
 };
