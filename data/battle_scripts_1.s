@@ -236,7 +236,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
-	.4byte BattleScript_CeliaTest 					 @ EFFECT_CELIATEST
+	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -273,7 +273,6 @@ BattleScript_MoveEnd::
 	moveendall
 	end
 
-//test effect based on regular damaging move
 BattleScript_EffectHeartSwap::
 	attackcanceler
 	attackstring
@@ -2826,7 +2825,7 @@ BattleScript_EffectCamouflage::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_CeliaTest::
+BattleScript_EffectTailSlap::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
