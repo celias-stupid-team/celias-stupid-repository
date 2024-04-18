@@ -3288,6 +3288,8 @@ extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
+extern const u32 gItemIcon_FocusSash[];
+extern const u32 gItemIconPalette_FocusSash[];
 
 // battle_anim_utility_funcs
 extern const u32 gFile_graphics_battle_anims_masks_curse_sheet[];
@@ -3945,6 +3947,9 @@ extern const u32 gGhostPalette[];
 extern const u32 gSubstituteDollGfx[];
 extern const u32 gSubstituteDollTilemap[];
 extern const u32 gSubstituteDollPal[];
+extern const u32 gSubstituteKangaGfx[];
+extern const u32 gSubstituteKangaBackGfx[];
+extern const u32 gSubstituteKangaPal[];
 
 // ice
 extern const u8 gWeatherFogHorizontalTiles[];

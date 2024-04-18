@@ -6,12 +6,12 @@ CeruleanCity_PokemonCenter_1F_Text_BillDoesWhateverForRareMons::
     .string "of things, I've heard.$"
 
 CeruleanCity_PokemonCenter_1F_Text_EveryoneCallsBillPokemaniac::
-    .string "Have you heard about BILL?\p"
-    .string "Everyone calls him a POKéMANIAC!\p"
-    .string "I think people are just jealous of\n"
-    .string "BILL, though.\p"
-    .string "Who wouldn't want to boast about\n"
-    .string "their POKéMON?$"
+    .string "Evolutions have seemed a tad\n"
+    .string "strange as of late.\p"
+    .string "My EKANS evolved right away, but\n"
+    .string "my ABRA won't no matter what!\p"
+    .string "It seems most POKéMON are hitting\n"
+    .string "their final form by Level 20.$"
 
 CeruleanCity_PokemonCenter_1F_Text_BillCollectsRareMons::
     .string "BILL has lots of POKéMON!\n"
