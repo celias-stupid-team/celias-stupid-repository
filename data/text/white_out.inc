@@ -18,7 +18,7 @@ Text_MonsHealed::
 	.string "We hope you excel!$"
 
 Text_HadQuiteAnExperienceTakeRest::
-	.string "MOM: {PLAYER}!\n"
+	.string "DAD: {PLAYER}!\n"
 	.string "Welcome home.\p"
 	.string "It sounds like you had quite\n"
 	.string "an experience.\p"
@@ -26,7 +26,7 @@ Text_HadQuiteAnExperienceTakeRest::
 	.string "rest.$"
 
 Text_MomExplainHPGetPotions::
-	.string "MOM: Oh, good! You and your\n"
+	.string "DAD: Oh, good! You and your\n"
 	.string "POKéMON are looking great.\p"
 	.string "I just heard from PROF. OAK.\p"
 	.string "He said that POKéMON's energy is\n"

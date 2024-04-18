@@ -39,8 +39,9 @@ Text_PokeMartShelf::
 	.string "empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
-	.string "Dishes and plates are neatly\n"
-	.string "lined up.$"
+	.string "This arrangement for mother is\n"
+	.string "quite adept!\l"
+	.string "Volcano Bakemeat!$"
 
 Text_Kitchen::
 	.string "It smells delicious!\n"
