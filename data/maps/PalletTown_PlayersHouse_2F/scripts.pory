@@ -52,3 +52,73 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	releaseall
 	end
 `
+
+script PalletTown_PlayersHouse_2F_EventScript_Bed {
+	lock
+	switch (var(VAR_FACING)) {
+		case DIR_WEST:
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedEast)
+			waitmovement(0)
+			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
+			waitmovement(0)
+		case DIR_NORTH:
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedSouth)
+			waitmovement(0)
+			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
+			waitmovement(0)
+		case DIR_EAST:
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedWest)
+			waitmovement(0)
+			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
+			waitmovement(0)
+		case DIR_SOUTH:
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedNorth)
+			waitmovement(0)
+			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
+			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
+			waitmovement(0)
+	}
+	release
+}
+
+
+//movements
+movement PTPH2F_layinbedEast {
+	face_up
+	walk_up
+	face_left
+	walk_left
+	face_down
+}
+
+movement PTPH2F_layinbedSouth {
+	face_right
+	walk_right
+	face_up
+	walk_up*2
+	face_left
+	walk_left
+	face_down
+}
+
+movement PTPH2F_layinbedWest {
+	face_up
+	walk_up
+	face_right
+	walk_right
+	face_down
+}
+
+movement PTPH2F_layinbedNorth {
+	face_down
+}
+
+movement PTPH2F_getoutofbed {
+	face_right
+	walk_right
+	face_down
+	walk_down
+}
