@@ -239,6 +239,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHeartSwap              @ EFFECT_HEART_SWAP
 	.4byte BattleScript_EffectOHKO_Flash             @ EFFECT_OHKO_FLASH
 	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
+	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -289,8 +290,6 @@ BattleScript_MathClubDoubleHit::
 	setbyte sMULTIHIT_EFFECT, 0
 	goto BattleScript_MultiHitLoop
 
-
-//test effect based on regular damaging move
 BattleScript_EffectHeartSwap::
 	attackcanceler
 	attackstring
@@ -2855,6 +2854,16 @@ BattleScript_EffectCamouflage::
 	printstring STRINGID_PKMNCHANGEDTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectTailSlap::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	setmultihitcounter 9
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_MultiHitLoop
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER

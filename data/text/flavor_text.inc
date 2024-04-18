@@ -1,8 +1,31 @@
 @ Flavor text for interacting with various background objects
 
 Text_Bookshelf::
-	.string "It's crammed full of POKéMON\n"
-	.string "books.$"
+	.string "My Secret Life, chapter three.\p"
+	.string "I was neither a murder suspect, nor\n"
+	.string "a target for an international spy\l"
+	.string "organization.\p"
+	.string "But I drove a car down the Jersey\n"
+	.string "Turnpike at 80 mph.\p"
+	.string "…A police officer pulled me over\n"
+	.string "and asked for my driver's license.\p"
+	.string "He said I was going 20 mph over the\n"
+	.string "speed limit. I instantly pointed to\l"
+	.string "my wife and said, “I'm in a hurry,\l"
+	.string "my wife is in labor.”\p"
+	.string "Fortunately, my wife actually had a\n"
+	.string "big stomach.\p"
+	.string "I hoped he'd let me go with this\n"
+	.string "excuse.\p"
+	.string "“Oh, since it's an emergency, I'll\n"
+	.string "lead you to the hospital with my\l"
+	.string "police car,” he said.\p"
+	.string "“No, it's not necessary.”\p"
+	.string "“Why not?” asked the officer.\n"
+	.string "“Uh… well…”\p"
+	.string "“Let's get going,” said the officer.\p"
+	.string "“No, no! We can't! This baby is a\n"
+	.string "demon child!”$"
 
 Text_NothingButPokemonBooks::
 	.string "ほんだなに　ならんでいるのは\n"

@@ -104,3 +104,7 @@ PewterCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, {PLAYER}$"
 
+PewterCity_Gym_Text_LightYears::
+    .string "58,786,253,730,000,000 miles\n"
+    .string "later…$"
+

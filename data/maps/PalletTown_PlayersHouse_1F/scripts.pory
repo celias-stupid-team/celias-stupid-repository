@@ -60,9 +60,7 @@ PalletTown_PlayersHouse_1F_EventScript_YayRightSide::
 	return
 
 PalletTown_PlayersHouse_1F_EventScript_TVScreen::
-	checkplayergender
-	call_if_eq VAR_RESULT, MALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenMale
-	call_if_eq VAR_RESULT, FEMALE, PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
 	releaseall
 	end
 
