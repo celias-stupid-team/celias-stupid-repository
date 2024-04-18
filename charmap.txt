@@ -912,3 +912,4 @@ EMOJI_BIGANGER = F9 FE
 '\l' = FA @ scroll up window text
 '\p' = FB @ new paragraph
 '\n' = FE @ new line
+'\.' = B0 @ ellipsis symbol
