@@ -206,6 +206,7 @@ struct DebugMonData
     bool8 isShiny:1;
     u8 nature:5;
     u8 abilityNum:2;
+    u8 lockedAbility;
     u8  mon_iv_hp;
     u8  mon_iv_atk;
     u8  mon_iv_def;
@@ -2478,6 +2479,7 @@ static void ResetMonDataStruct(struct DebugMonData *sDebugMonData)
     sDebugMonData->isShiny          = 0;
     sDebugMonData->nature           = 0;
     sDebugMonData->abilityNum       = 0;
+    sDebugMonData->lockedAbility    = 0;
     sDebugMonData->mon_iv_hp        = 0;
     sDebugMonData->mon_iv_atk       = 0;
     sDebugMonData->mon_iv_def       = 0;
@@ -2806,7 +2808,7 @@ static void DebugAction_Give_Pokemon_SelectNature(u8 taskId)
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
         StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
-        abilityId = GetAbilityBySpecies(sDebugMonData->species, 0);
+        abilityId = GetAbilityBySpecies(sDebugMonData->species, 0, 0);
         StringCopy(gStringVar1, gAbilityNames[abilityId]);
         StringExpandPlaceholders(gStringVar4, sDebugText_PokemonAbility);
         AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
@@ -2844,11 +2846,11 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
                 gTasks[taskId].tInput = 0;
         }
 
-        while (GetAbilityBySpecies(sDebugMonData->species, gTasks[taskId].tInput - i) == ABILITY_NONE && gTasks[taskId].tInput - i < NUM_ABILITY_SLOTS)
+        while (GetAbilityBySpecies(sDebugMonData->species, gTasks[taskId].tInput - i, 0) == ABILITY_NONE && gTasks[taskId].tInput - i < NUM_ABILITY_SLOTS)
         {
             i++;
         }
-        abilityId = GetAbilityBySpecies(sDebugMonData->species, gTasks[taskId].tInput - i);
+        abilityId = GetAbilityBySpecies(sDebugMonData->species, gTasks[taskId].tInput - i, 0);
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, 2);
         StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
@@ -3149,11 +3151,13 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     u16 moves[4];
     u8 IVs[6];
     u8 iv_val;
-    u16 species     = sDebugMonData->species;
-    u8 level        = sDebugMonData->level;
-    u8 isShiny      = sDebugMonData->isShiny; //Shiny: no 0, yes 1
-    u8 nature       = sDebugMonData->nature;
-    u8 abilityNum   = sDebugMonData->abilityNum;
+    u16 species      = sDebugMonData->species;
+    u8 level         = sDebugMonData->level;
+    u8 isShiny       = sDebugMonData->isShiny; //Shiny: no 0, yes 1
+    u8 nature        = sDebugMonData->nature;
+    u8 abilityNum    = sDebugMonData->abilityNum;
+    u8 lockedAbility = sDebugMonData->lockedAbility;
+
     moves[0]        = sDebugMonData->mon_move_0;
     moves[1]        = sDebugMonData->mon_move_1;
     moves[2]        = sDebugMonData->mon_move_2;
@@ -3208,11 +3212,11 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     }
 
     //Ability
-    if (abilityNum == 0xFF || GetAbilityBySpecies(species, abilityNum) == 0)
+    if (abilityNum == 0xFF || GetAbilityBySpecies(species, abilityNum, lockedAbility) == 0)
     {
         do {
             abilityNum = Random() % 3;  // includes hidden abilities
-        } while (GetAbilityBySpecies(species, abilityNum) == 0);
+        } while (GetAbilityBySpecies(species, abilityNum, 0) == 0);
     }
 
     SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
@@ -3979,7 +3983,6 @@ static void DebugAction_PartyBoxes_AccessPC(u8 taskId)
 {
     gIsDebugPC = TRUE;
     Debug_DestroyMenu_Full_Script(taskId, EventScript_PC);
-    //gIsDebugPC = FALSE;
 }
 
 static void DebugAction_PartyBoxes_MoveReminder(u8 taskId)

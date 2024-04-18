@@ -8,23 +8,24 @@ MtMoon_B2F_Text_MiguelDefeat::
     .string "I'll share!$"
 
 MtMoon_B2F_Text_WellEachTakeAFossil::
-    .string "We'll each take a fossil!\n"
-    .string "No being greedy!$"
+    .string "What?! I thought my KOFFING was\n"
+    .string "invincible!$"
 
 MtMoon_B2F_Text_ThenThisFossilIsMine::
     .string "All right.\n"
-    .string "Then this fossil is mine!$"
+    .string "Phew!\p"
+    .string "This is the one I wanted anyway.$"
 
 MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
-    .string "Far away, on CINNABAR ISLAND,\n"
-    .string "there's a POKéMON LAB.\p"
-    .string "They do research on regenerating\n"
-    .string "fossils.$"
+    .string "I expected to be able to stop\n"
+    .string "you with my invincible KOFFING…\p"
+    .string "Surely this will be the only time\n"
+    .string "you fight someone with WONDER GUARD.$"
 
 MtMoon_B2F_Text_Grunt1Intro::
-    .string "We, TEAM ROCKET, shall find the\n"
+    .string "We, the DMCA, shall find the\n"
     .string "fossils!\p"
-    .string "Reviving POKéMON from them will\n"
+    .string "Copyright claiming them will\n"
     .string "earn us huge riches!$"
 
 MtMoon_B2F_Text_Grunt1Defeat::
@@ -32,53 +33,62 @@ MtMoon_B2F_Text_Grunt1Defeat::
     .string "Now I'm mad!$"
 
 MtMoon_B2F_Text_Grunt1PostBattle::
-    .string "You made me mad!\n"
-    .string "TEAM ROCKET will blacklist you!$"
+    .string "Fossils are illegal copies of\n"
+    .string "living things!$"
 
 MtMoon_B2F_Text_Grunt2Intro::
-    .string "We, TEAM ROCKET, are POKéMON\n"
+    .string "We, the DMCA, are copyright\n"
     .string "gangsters!\l"
-    .string "We strike fear with our strength!$"
+    .string "We strike fear with our takedown!$"
 
 MtMoon_B2F_Text_Grunt2Defeat::
     .string "I blew it!$"
 
 MtMoon_B2F_Text_Grunt2PostBattle::
-    .string "Darn it all!\n"
-    .string "My associates won't stand for this!$"
+    .string "Copyright law is the foundation\n"
+    .string "of society!$"
 
 MtMoon_B2F_Text_Grunt3Intro::
-    .string "We're pulling a big job here!\n"
-    .string "Get lost, kid!$"
+    .string "There's lots of content to claim\n"
+    .string "here, kid!\p"
+    .string "We're the DMCA, and we don't"
+    .string "take kindly to being messed with!\p"
 
 MtMoon_B2F_Text_Grunt3Defeat::
     .string "So, you are good…$"
 
 MtMoon_B2F_Text_Grunt3PostBattle::
-    .string "If you find a fossil, give it to me\n"
-    .string "and scram!$"
+    .string "You made me mad!\n"
+    .string "The DMCA will blacklist you!$"
 
 MtMoon_B2F_Text_Grunt4Intro::
-    .string "Little kids shouldn't be messing\n"
-    .string "around with grown-ups!\p"
+    .string "Hey, kid!\p"
+    .string "You better not be hosting any\n"
+    .string "copyrighted content!\p"
     .string "It could be bad news!$"
 
 MtMoon_B2F_Text_Grunt4Defeat::
-    .string "I'm steamed!$"
+    .string "Blast it!\n"
+    .string "My rat was bigger than yours!$"
 
 MtMoon_B2F_Text_Grunt4PostBattle::
-    .string "POKéMON lived here long before\n"
-    .string "people came.$"
+    .string "Grr!\p"
+    .string "I won't let your rat evolve -\n"
+    .string "then it'd be the same as mine!\l"
+    .string "That's illegal!$"
 
 MtMoon_B2F_Text_YouWantDomeFossil::
-    .string "Do you want the DOME FOSSIL?$"
+    .string "Do you want the SAIL FOSSIL?$"
 
 MtMoon_B2F_Text_YouWantHelixFossil::
-    .string "Do you want the HELIX FOSSIL?$"
+    .string "Do you want the JAW FOSSIL?$"
 
 MtMoon_B2F_Text_ObtainedHelixFossil::
-    .string "Obtained the HELIX FOSSIL!$"
+    .string "Hey wait!\p"
+    .string "That one's my favorite!\n"
+    .string "You can't have it!\p"
+    .string "Take the other one!$"
 
 MtMoon_B2F_Text_ObtainedDomeFossil::
-    .string "Obtained the DOME FOSSIL!$"
+    .string "Obtained the JAW FOSSIL!$"
 

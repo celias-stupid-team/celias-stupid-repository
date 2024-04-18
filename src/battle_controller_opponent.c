@@ -111,6 +111,7 @@ static void (*const sOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = OpponentHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = OpponentHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = OpponentHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = OpponentBufferExecCompleted,
     [CONTROLLER_UNKNOWNYESNOBOX]          = OpponentHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = OpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = OpponentHandleChooseItem,
@@ -492,6 +493,7 @@ static u32 GetOpponentMonData(u8 monId, u8 *dst)
         battleMon.spDefense = GetMonData(&gEnemyParty[monId], MON_DATA_SPDEF);
         battleMon.isEgg = GetMonData(&gEnemyParty[monId], MON_DATA_IS_EGG);
         battleMon.abilityNum = GetMonData(&gEnemyParty[monId], MON_DATA_ABILITY_NUM);
+        battleMon.lockedAbility = GetMonData(&gEnemyParty[monId], MON_DATA_LOCKED_ABILITY);
         battleMon.otId = GetMonData(&gEnemyParty[monId], MON_DATA_OT_ID);
         GetMonData(&gEnemyParty[monId], MON_DATA_NICKNAME, nickname);
         StringCopy_Nickname(battleMon.nickname, nickname);

@@ -2464,7 +2464,7 @@ enum
         if (GetFlavorRelationByPersonality(gBattleMons[battlerId].personality, flavor) < 0) \
             BattleScriptExecute(BattleScript_BerryConfuseHealEnd2);                         \
         else                                                                                \
-            BattleScriptExecute(BattleScript_ItemHealHP_RemoveItem);                        \
+            BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);                        \
         effect = ITEM_HP_CHANGE;                                                            \
     }
 
@@ -2566,7 +2566,16 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     if (gBattleMons[battlerId].hp + battlerHoldEffectParam > gBattleMons[battlerId].maxHP)
                         gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;
                     gBattleMoveDamage *= -1;
-                    BattleScriptExecute(BattleScript_ItemHealHP_RemoveItem);
+                    BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
+                    effect = ITEM_HP_CHANGE;
+                }
+                break;
+            case HOLD_EFFECT_RESTORE_PCT_HP:
+                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                {
+                    gBattleMoveDamage = gBattleMons[battlerId].maxHP * battlerHoldEffectParam / 100;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
                     effect = ITEM_HP_CHANGE;
                 }
                 break;
@@ -2848,7 +2857,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
         break;
     case ITEMEFFECT_DUMMY:
         break;
-    case ITEMEFFECT_MOVE_END:
+    case ITEMEFFECT_MOVE_END: //called after every hit of a multi hit move
         for (battlerId = 0; battlerId < gBattlersCount; battlerId++)
         {
             gLastUsedItem = gBattleMons[battlerId].item;
@@ -2862,6 +2871,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 battlerHoldEffect = ItemId_GetHoldEffect(gLastUsedItem);
                 battlerHoldEffectParam = ItemId_GetHoldEffectParam(gLastUsedItem);
             }
+
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_CURE_PAR:
@@ -2978,6 +2988,32 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_WhiteHerbRet;
                     return effect;
+                }
+                break;
+            case HOLD_EFFECT_RESTORE_HP:
+                //proc healing items
+                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                {
+                    gBattleMoveDamage = battlerHoldEffectParam;
+                    if (gBattleMons[battlerId].hp + battlerHoldEffectParam > gBattleMons[battlerId].maxHP)
+                        gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
+                    effect = ITEM_HP_CHANGE;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_RESTORE_PCT_HP:
+                //proc healing items
+                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                {
+                    gBattleMoveDamage = gBattleMons[battlerId].maxHP * battlerHoldEffectParam / 100;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
+                    effect = ITEM_HP_CHANGE;
+                    RecordItemEffectBattle(battlerId, battlerHoldEffect);
                 }
                 break;
             }

@@ -36,19 +36,45 @@ PalletTown_PlayersHouse_1F_EventScript_MomHeal::
 @ Displays special text if interacted with from side or back (which are normally inaccessible)
 PalletTown_PlayersHouse_1F_EventScript_TV::
 	lockall
-	goto_if_eq VAR_FACING, DIR_NORTH, PalletTown_PlayersHouse_1F_EventScript_TVScreen
-	goto_if_eq VAR_FACING, DIR_EAST, PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide
-	msgbox PalletTown_PlayersHouse_1F_Text_YayRightSide
+	call_if_eq VAR_FACING, DIR_SOUTH, PalletTown_PlayersHouse_1F_EventScript_WTFBackSide
+	call_if_eq VAR_FACING, DIR_WEST, PalletTown_PlayersHouse_1F_EventScript_YayRightSide
+	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_PlayersHouse_1F_EventScript_OopsWrongSide
+	call_if_eq VAR_FACING, DIR_EAST, PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide
 	releaseall
 	end
+
+PalletTown_PlayersHouse_1F_EventScript_OopsWrongSide::
+	msgbox PalletTown_PlayersHouse_1F_Text_OopsWrongSide
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide::
+	msgbox PalletTown_PlayersHouse_1F_Text_OopsLeftSide
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_WTFBackSide::
+	msgbox PalletTown_PlayersHouse_1F_Text_WTFBackSide
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_YayRightSide::
+	msgbox PalletTown_PlayersHouse_1F_Text_YayRightSide
+	return
 
 PalletTown_PlayersHouse_1F_EventScript_TVScreen::
 	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
 	releaseall
 	end
 
-PalletTown_PlayersHouse_1F_EventScript_OopsLeftSide::
-	msgbox PalletTown_PlayersHouse_1F_Text_OopsLeftSide
-	releaseall
-	end
+PalletTown_PlayersHouse_1F_EventScript_TVScreenMale::
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
+	return
+
+PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
+	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad
+	return
 `
+
+script PalletTown_PlayersHouse_1F_EventScript_Plant {
+	lock
+	msgbox(format("That's not OAK, silly!"), MSGBOX_AUTOCLOSE)
+	release
+}

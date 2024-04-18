@@ -13,18 +13,22 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
+  "connections": 0,
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 10,
       "y": 2,
       "elevation": 3,
       "dest_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
-      "dest_warp_id": "2"
+      "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -49,6 +53,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PalletTown_PlayersHouse_2F_EventScript_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_PlayersHouse_2F_EventScript_Bed"
     }
   ]
 }

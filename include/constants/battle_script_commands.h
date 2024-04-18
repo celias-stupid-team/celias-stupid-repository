@@ -74,8 +74,7 @@
 #define CMP_COMMON_BITS         0x4
 #define CMP_NO_COMMON_BITS      0x5
 
-// TODO: documentation
-// atk76, various
+// Cmd_various
 #define VARIOUS_CANCEL_MULTI_TURN_MOVES         0
 #define VARIOUS_SET_MAGIC_COAT_TARGET           1
 #define VARIOUS_IS_RUNNING_IMPOSSIBLE           2
@@ -89,6 +88,8 @@
 #define VARIOUS_RETURN_OPPONENT_MON2            10
 #define VARIOUS_CHECK_POKEFLUTE                 11
 #define VARIOUS_WAIT_FANFARE                    12
+#define VARIOUS_JUMP_IF_NO_HOLD_EFFECT          13
+#define VARIOUS_EMIT_YESNOBOX                   14
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

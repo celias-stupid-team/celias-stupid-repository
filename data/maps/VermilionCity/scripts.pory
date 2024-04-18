@@ -235,14 +235,7 @@ VermilionCity_EventScript_OldMan2::
 	end
 
 VermilionCity_EventScript_Machop::
-	lock
-	faceplayer
-	waitse
-	playmoncry SPECIES_MACHOP, CRY_MODE_NORMAL
-	msgbox VermilionCity_Text_Machop
-	waitmoncry
-	msgbox VermilionCity_Text_MachopStompingLandFlat
-	release
+	msgbox VermilionCity_Text_Machop, MSGBOX_NPC
 	end
 
 VermilionCity_EventScript_CitySign::

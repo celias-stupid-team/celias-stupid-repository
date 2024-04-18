@@ -141,6 +141,7 @@ static void (*const sPokedudeBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = PokedudeHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = PokedudeHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = PokedudeHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = PokedudeBufferExecCompleted,
     [CONTROLLER_UNKNOWNYESNOBOX]          = PokedudeHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = PokedudeHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = PokedudeHandleChooseItem,

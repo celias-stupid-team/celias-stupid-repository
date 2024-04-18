@@ -1,6 +1,6 @@
 PalletTown_PlayersHouse_1F_Text_AllBoysLeaveOakLookingForYou::
     .string "DAD: …Right.\n"
-    .string "All boys leave home someday.\l"
+    .string "All boys dream of traveling.\l"
     .string "It said so on TV.\p"
     .string "Oh, yes. PROF. OAK, next door, was\n"
     .string "looking for you.$"
@@ -22,14 +22,26 @@ PalletTown_PlayersHouse_1F_Text_LookingGreatTakeCare::
     .string "Take care now!$"
 
 PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad::
-    .string "Oops, wrong side!$"
+    .string "There's a movie on TV.\n"
+    .string "Four boys are walking on railroad\l"
+    .string "tracks.\p"
+    .string "…I better go, too.$"
 
 PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad::
-    .string "Oops, wrong side!$"
+    .string "There's a movie on TV.\n"
+    .string "A girl with her hair in pigtails is\l"
+    .string "walking up a brick road.\p"
+    .string "…I better go, too.$"
+
+PalletTown_PlayersHouse_1F_Text_OopsWrongSide::
+    .string "Oops, wrong side…$"
+
+PalletTown_PlayersHouse_1F_Text_YayRightSide::
+    .string "Yay, right side!$"
 
 PalletTown_PlayersHouse_1F_Text_OopsLeftSide::
     .string "Oops, left side!$"
 
-PalletTown_PlayersHouse_1F_Text_YayRightSide::
-    .string "Yay, right side!$"
+PalletTown_PlayersHouse_1F_Text_WTFBackSide::
+    .string "WTF is wrong with you?$"
 

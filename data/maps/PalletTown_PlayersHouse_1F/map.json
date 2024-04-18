@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 8,
-      "y": 4,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -32,31 +32,17 @@
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 8,
-      "elevation": 3,
-      "dest_map": "MAP_PALLET_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 4,
-      "y": 8,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_PALLET_TOWN",
       "dest_warp_id": "0"
     },
     {
       "x": 10,
-      "y": 2,
+      "y": 3,
       "elevation": 3,
       "dest_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_PALLET_TOWN",
       "dest_warp_id": "0"
     }
   ],
@@ -67,10 +53,26 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PalletTown_PlayersHouse_1F_EventScript_TV"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_PlayersHouse_1F_EventScript_Plant"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_PlayersHouse_1F_EventScript_Plant"
     }
   ]
 }

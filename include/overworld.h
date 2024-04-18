@@ -73,6 +73,7 @@ void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
 void Overworld_SetHealLocationWarp(u8);
 void SetWarpDestinationToEscapeWarp(void);
 void SetWarpDestinationToLastHealLocation(void);
+bool8 SetWarpDestinationToBench(void);
 u8 IsMapTypeOutdoors(u8 mapType);
 void Overworld_ClearSavedMusic(void);
 bool32 Overworld_MusicCanOverrideMapMusic(u16 song);
@@ -121,6 +122,7 @@ extern u8 gGlobalFieldTintMode;
 extern bool8 (* gFieldCallback2)(void);
 
 void SetLastHealLocationWarp(u8 healLocaionId);
+void SetLastBenchWarp(u8 benchLocationId);
 void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum);
 void CB2_ReturnToFieldFromDiploma(void);
 void CB2_OverworldBasic(void);

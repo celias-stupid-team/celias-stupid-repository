@@ -5,6 +5,8 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/moves.h"
+#include "constants/flags.h"
+#include "constants/vars.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
 	.include "constants/constants.inc"
@@ -377,6 +379,8 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHO_BOOST
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
 	.4byte Move_HEART_SWAP
+	.4byte Move_RETREAT
+	.4byte Move_SUBSTITUTE_TEACHER
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -422,6 +426,7 @@ gBattleAnims_General::
 	.4byte General_SafariRockThrow          @ B_ANIM_ROCK_THROW
 	.4byte General_SafariReaction           @ B_ANIM_SAFARI_REACTION
 	.4byte General_AlomomolaEvolve          @ B_ANIM_ALOMOMOLA_EVOLVE
+	.4byte General_HangedOn                 @ B_ANIM_HANGED_ON
 
 	.align 2
 gBattleAnims_Special::
@@ -2831,6 +2836,15 @@ Move_TELEPORT:
 	delay 15
 	call UnsetPsychicBackground
 	waitforvisualfinish
+	end
+
+Move_RETREAT:
+	loadspritegfx ANIM_TAG_POKEBALL
+	playsewithpan SE_M_BATON_PASS, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 2, 0, 11, RGB(31, 22, 30)
+	createsprite gBatonPassPokeballSpriteTemplate, ANIM_ATTACKER, 2
+	blendoff
+	delay 1
 	end
 
 Move_DOUBLE_TEAM:
@@ -10964,6 +10978,17 @@ General_AlomomolaEvolve:
 	clearmonbg ANIM_ATTACKER
 	end
 
+General_HangedOn:
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_ATTACKER, 7, 0, 9, RGB_RED
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SlideMonForFocusBand, 5, 30, 128, 0, 1, 2, 0, 1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_ATTACKER, 4, 9, 0, RGB_RED
+	waitforvisualfinish
+	delay 6
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 0, 0, 0, 15
+	end
+
 General_SafariRockThrow:
 	createvisualtask AnimTask_SafariOrGhost_DecideAnimSides, 2, 0
 	waitforvisualfinish
@@ -11112,4 +11137,9 @@ Special_SubstituteToMon:
 
 Special_MonToSubstitute:
 	createvisualtask AnimTask_SwapMonSpriteToFromSubstitute, 2, FALSE
+	end
+
+Move_SUBSTITUTE_TEACHER:
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MonToSubstitute, 2
 	end

@@ -387,8 +387,11 @@
 #define STRINGID_ALOMOMOLAEVO 386
 #define STRINGID_ALOMOMOLAEVOLVED 387
 #define STRINGID_PKMNSWITCHEDSTATCHANGES 388
+#define STRINGID_ENDUREDSTURDY 389
+#define STRINGID_FORFEITEDMATCH 390
+#define STRINGID_QUESTIONFORFEITMATCH 391
 
-#define BATTLESTRINGS_COUNT     389
+#define BATTLESTRINGS_COUNT     392
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -516,6 +519,10 @@
 // gSubstituteUsedStringIds
 #define B_MSG_SET_SUBSTITUTE    0
 #define B_MSG_SUBSTITUTE_FAILED 1
+
+//gSubstituteTeacherStringIds
+#define B_MSG_ALREADY_FULL_HEALTH 0
+#define B_MSG_REGAINED_HEALTH     1
 
 // gPartyStatusHealStringIds
 #define B_MSG_BELL                     0

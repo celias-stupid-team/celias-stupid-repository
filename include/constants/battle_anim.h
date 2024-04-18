@@ -376,6 +376,7 @@
 #define B_ANIM_ROCK_THROW               26
 #define B_ANIM_SAFARI_REACTION          27
 #define B_ANIM_ALOMOMOLA_EVOLVE         28
+#define B_ANIM_HANGED_ON                29
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -190,13 +190,21 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
-
-#define VAR_0x408C                 0x408C
+/*VAR_TEMP_START_EVENT_BATTLE:
+It is reset after every battle.
+0 = no event battle (default)
+1 = Larry with Zapdos
+2 = Brock
+3 = Scientist Miguel
+4 = Surge
+5 = Giovanni 1
+*/
+#define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F
 #define VAR_0x4090                 0x4090
-#define VAR_0x4091                 0x4091
+#define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
 #define VAR_0x4092                 0x4092
 #define VAR_0x4093                 0x4093
 #define VAR_0x4094                 0x4094

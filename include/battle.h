@@ -46,6 +46,7 @@
 #define B_ACTION_FINISHED                  12
 #define B_ACTION_CANCEL_PARTNER            12 // when choosing an action
 #define B_ACTION_NOTHING_FAINTED           13 // when choosing an action
+#define B_ACTION_DEBUG                     20
 #define B_ACTION_NONE                      0xFF
 
 #define MAX_TRAINER_ITEMS 4
@@ -100,10 +101,21 @@ struct TrainerMonItemCustomMoves
     u16 moves[MAX_MON_MOVES];
 };
 
+struct TrainerMonItemAbilityCustomMoves
+{
+    u16 iv;
+    u8 lvl;
+    u16 species;
+    u16 heldItem;
+    u16 moves[MAX_MON_MOVES];
+    u16 ability;
+};
+
 #define NO_ITEM_DEFAULT_MOVES(party) { .NoItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = 0
 #define NO_ITEM_CUSTOM_MOVES(party) { .NoItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET
 #define ITEM_DEFAULT_MOVES(party) { .ItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_HELD_ITEM
 #define ITEM_CUSTOM_MOVES(party) { .ItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM
+#define ITEM_ABILITY_CUSTOM_MOVES(party) { .ItemAbilityCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_ABILITY
 
 union TrainerMonPtr
 {
@@ -111,6 +123,7 @@ union TrainerMonPtr
     const struct TrainerMonNoItemCustomMoves *NoItemCustomMoves;
     const struct TrainerMonItemDefaultMoves *ItemDefaultMoves;
     const struct TrainerMonItemCustomMoves *ItemCustomMoves;
+    const struct TrainerMonItemAbilityCustomMoves *ItemAbilityCustomMoves;
 };
 
 struct Trainer
@@ -214,11 +227,11 @@ extern struct ProtectStruct gProtectStructs[MAX_BATTLERS_COUNT];
 
 struct SpecialStatus
 {
-    u8 statLowered:1;             // 0x1
-    u8 lightningRodRedirected:1;  // 0x2
-    u8 restoredBattlerSprite:1;   // 0x4
-    u8 intimidatedMon:1;          // 0x8
-    u8 traced:1;                  // 0x10
+    u8 statLowered:1;
+    u8 lightningRodRedirected:1;
+    u8 restoredBattlerSprite:1;
+    u8 intimidatedMon:1;
+    u8 traced:1;
     u8 ppNotAffectedByPressure:1;
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
@@ -228,7 +241,9 @@ struct SpecialStatus
     s32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
-    u8 field12;
+    u8 focusSashed:1;
+    u8 sturdied:1;
+    u8 filler:6;
     u8 field13;
 };
 
@@ -374,12 +389,12 @@ struct BattleStruct
 {
     u8 turnEffectsTracker;
     u8 turnEffectsBattlerId;
-    u8 filler2; // unused
+    u8 debugBattler;
     u8 turnCountersTracker;
     u8 wrappedMove[MAX_BATTLERS_COUNT * 2]; // Leftover from Ruby's ewram access.
     u8 moveTarget[MAX_BATTLERS_COUNT];
     u8 expGetterMonId;
-    u8 field_11; // unused
+    bool8 debugAISet;
     u8 wildVictorySong;
     u8 dynamicMoveType;
     u8 wrappedBy[MAX_BATTLERS_COUNT];
@@ -694,7 +709,7 @@ extern u8 gBattleCommunication[BATTLE_COMMUNICATION_ENTRIES_COUNT];
 extern u16 gSideStatuses[2];
 extern u32 gHitMarker;
 extern u16 gChosenMoveByBattler[MAX_BATTLERS_COUNT];
-extern u8 gMoveResultFlags;
+extern u16 gMoveResultFlags;
 extern s32 gTakenDmg[MAX_BATTLERS_COUNT];
 extern u8 gTakenDmgByBattler[MAX_BATTLERS_COUNT];
 extern u8 gCurrentActionFuncId;
@@ -724,3 +739,5 @@ extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
 
 #endif // GUARD_BATTLE_H
+
+#define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)

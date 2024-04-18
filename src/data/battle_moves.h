@@ -1926,14 +1926,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLASH] =
     {
-        .effect = EFFECT_ACCURACY_DOWN,
-        .power = 0,
+        .effect = EFFECT_OHKO_FLASH,
+        .power = 1,
         .type = TYPE_NORMAL,
-        .accuracy = 70,
-        .pp = 20,
+        .accuracy = 0,
+        .pp = 40,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 5,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -4626,5 +4626,31 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+
+    [MOVE_RETREAT] =
+    {
+        .effect = EFFECT_BATON_PASS,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = 0,
+    },
+
+    [MOVE_SUBSTITUTE_TEACHER] =
+    {
+        .effect = EFFECT_SUBSTITUTE_TEACHER,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 1,
+        .flags = FLAG_SNATCH_AFFECTED,
     },
 };

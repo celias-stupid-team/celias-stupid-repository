@@ -844,6 +844,10 @@ const u32 gSubstituteDollPal[] = INCBIN_U32("graphics/battle_anims/sprites/subst
 const u32 gSubstituteDollGfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute.4bpp.lz");
 const u32 gSubstituteDollTilemap[] = INCBIN_U32("graphics/battle_anims/sprites/substitute.bin.lz");
 
+const u32 gSubstituteKangaPal[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.gbapal.lz");
+const u32 gSubstituteKangaGfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.4bpp.lz");
+const u32 gSubstituteKangaBackGfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_back.4bpp.lz");
+
 const u32 gBattleAnimSpriteGfx_GreenStar[] = INCBIN_U32("graphics/battle_anims/sprites/green_star.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenStar[] = INCBIN_U32("graphics/battle_anims/sprites/green_star.gbapal.lz");
 

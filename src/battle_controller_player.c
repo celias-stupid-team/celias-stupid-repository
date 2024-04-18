@@ -14,6 +14,7 @@
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
+#include "battle_debug.h"
 #include "battle_interface.h"
 #include "battle_message.h"
 #include "battle_script_commands.h"
@@ -42,6 +43,9 @@ static void PlayerHandleMoveAnimation(void);
 static void PlayerHandlePrintString(void);
 static void PlayerHandlePrintSelectionString(void);
 static void PlayerHandleChooseAction(void);
+static void PlayerHandleYesNoBox(void);
+static void PlayerHandleYesNoInput(void);
+static void PlayerBufferExecCompleted(void);
 static void PlayerHandleUnknownYesNoBox(void);
 static void PlayerHandleChooseMove(void);
 static void PlayerHandleChooseItem(void);
@@ -79,6 +83,7 @@ static void PlayerHandleBattleAnimation(void);
 static void PlayerHandleLinkStandbyMsg(void);
 static void PlayerHandleResetActionMoveSelection(void);
 static void PlayerHandleCmd55(void);
+static void PlayerHandleBattleDebug(void);
 static void PlayerCmdEnd(void);
 
 static void PlayerBufferRunCommand(void);
@@ -128,6 +133,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = PlayerHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = PlayerHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = PlayerHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = PlayerHandleYesNoBox,
     [CONTROLLER_UNKNOWNYESNOBOX]          = PlayerHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = PlayerHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = PlayerHandleChooseItem,
@@ -165,6 +171,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_LINKSTANDBYMSG]           = PlayerHandleLinkStandbyMsg,
     [CONTROLLER_RESETACTIONMOVESELECTION] = PlayerHandleResetActionMoveSelection,
     [CONTROLLER_ENDLINKBATTLE]            = PlayerHandleCmd55,
+    [CONTROLLER_DEBUGMENU]                = PlayerHandleBattleDebug,
     [CONTROLLER_TERMINATOR_NOP]           = PlayerCmdEnd,
 };
 
@@ -307,6 +314,13 @@ static void HandleInputChooseAction(void)
     {
         SwapHpBarsWithHpText();
     }
+#if DEBUG_BATTLE_MENU == TRUE
+    else if (JOY_NEW(SELECT_BUTTON))
+    {
+        BtlController_EmitTwoReturnValues(1, B_ACTION_DEBUG, 0);
+        PlayerBufferExecCompleted();
+    }
+#endif
 }
 
 // Unused
@@ -1551,6 +1565,7 @@ static u32 CopyPlayerMonData(u8 monId, u8 *dst)
         battleMon.spDefense = GetMonData(&gPlayerParty[monId], MON_DATA_SPDEF);
         battleMon.isEgg = GetMonData(&gPlayerParty[monId], MON_DATA_IS_EGG);
         battleMon.abilityNum = GetMonData(&gPlayerParty[monId], MON_DATA_ABILITY_NUM);
+        battleMon.lockedAbility = GetMonData(&gPlayerParty[monId], MON_DATA_LOCKED_ABILITY);
         battleMon.otId = GetMonData(&gPlayerParty[monId], MON_DATA_OT_ID);
         GetMonData(&gPlayerParty[monId], MON_DATA_NICKNAME, nickname);
         StringCopy_Nickname(battleMon.nickname, nickname);
@@ -2417,8 +2432,60 @@ static void PlayerHandleChooseAction(void)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
+static void PlayerHandleYesNoBox(void)
+{
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    {
+        HandleBattleWindow(23, 8, 29, 13, 0);
+        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+        gMultiUsePlayerCursor = 1;
+        BattleCreateYesNoCursorAt(1);
+        gBattlerControllerFuncs[gActiveBattler] = PlayerHandleYesNoInput;
+    }
+    else
+    {
+        PlayerBufferExecCompleted();
+    }
+}
+
 static void PlayerHandleUnknownYesNoBox(void)
 {
+}
+
+static void PlayerHandleYesNoInput(void)
+{
+    if (JOY_NEW(DPAD_UP) && gMultiUsePlayerCursor != 0)
+    {
+        PlaySE(SE_SELECT);
+        BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
+        gMultiUsePlayerCursor = 0;
+        BattleCreateYesNoCursorAt(0);
+    }
+    if (JOY_NEW(DPAD_DOWN) && gMultiUsePlayerCursor == 0)
+    {
+        PlaySE(SE_SELECT);
+        BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
+        gMultiUsePlayerCursor = 1;
+        BattleCreateYesNoCursorAt(1);
+    }
+    if (JOY_NEW(A_BUTTON))
+    {
+        HandleBattleWindow(23, 8, 29, 13, WINDOW_CLEAR);
+        PlaySE(SE_SELECT);
+
+        if (gMultiUsePlayerCursor != 0)
+            BtlController_EmitTwoReturnValues(BUFFER_B, 0xE, 0);
+        else
+            BtlController_EmitTwoReturnValues(BUFFER_B, 0xD, 0);
+
+        PlayerBufferExecCompleted();
+    }
+    if (JOY_NEW(B_BUTTON))
+    {
+        HandleBattleWindow(23, 8, 29, 13, WINDOW_CLEAR);
+        PlaySE(SE_SELECT);
+        PlayerBufferExecCompleted();
+    }
 }
 
 static void HandleChooseMoveAfterDma3(void)
@@ -2957,4 +3024,21 @@ static void PreviewDeterminativeMoveTargets(void)
         }
         BeginNormalPaletteFade(bitMask, 8, startY, 0, RGB_WHITE);
     }
+}
+
+static void WaitForDebug(void)
+{
+    if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
+    {
+        PlayerBufferExecCompleted();
+    }
+}
+
+static void PlayerHandleBattleDebug(void)
+{
+#if DEBUG_BATTLE_MENU == TRUE
+    BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
+    SetMainCallback2(CB2_BattleDebugMenu);
+    gBattlerControllerFuncs[gActiveBattler] = WaitForDebug;
+#endif
 }

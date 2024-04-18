@@ -68,5 +68,7 @@
 #define HOLD_EFFECT_METAL_POWDER   64
 #define HOLD_EFFECT_THICK_CLUB     65
 #define HOLD_EFFECT_STICK          66
+#define HOLD_EFFECT_FOCUS_SASH     67
+#define HOLD_EFFECT_RESTORE_PCT_HP 68 //define healed HP in params as percent value
 
 #endif // GUARD_HOLD_EFFECTS_H

@@ -12,7 +12,8 @@ struct PokemonSubstruct0
     u32 experience;
     u8 ppBonuses;
     u8 friendship;
-    u16 filler;
+    u8 lockedAbility;
+    u8 filler0_B;
 };
 
 struct PokemonSubstruct1
@@ -54,7 +55,7 @@ struct PokemonSubstruct3
  /* 0x05 */ u32 spAttackIV:5;
  /* 0x06 */ u32 spDefenseIV:5;
  /* 0x07 */ u32 isEgg:1;
- /* 0x07 */ u32 abilityNum:1;
+ /* 0x07 */ u32 unk7:1;
 
  /* 0x08 */ u32 coolRibbon:3;               // Stores the highest contest rank achieved in the Cool category.
  /* 0x08 */ u32 beautyRibbon:3;             // Stores the highest contest rank achieved in the Beauty category.
@@ -73,7 +74,8 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 nationalRibbon:1;           // Given to purified Shadow Pokémon in Colosseum/XD.
  /* 0x0B */ u32 earthRibbon:1;              // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
  /* 0x0B */ u32 worldRibbon:1;              // Distributed during Pokémon Festa '04 and '05 to tournament winners.
- /* 0x0B */ u32 unusedRibbons:4;            // Discarded in Gen 4.
+ /* 0x0B */ u32 abilityNum:2;
+ /* 0x0B */ u32 unusedRibbons:2;            // Discarded in Gen 4.
 
  // The functionality of this bit changed in FRLG:
  // In RS, this bit does nothing, is never set, & is accidentally unset when hatching Eggs.
@@ -183,7 +185,7 @@ struct BattlePokemon
     /*0x16*/ u32 spAttackIV:5;
     /*0x17*/ u32 spDefenseIV:5;
     /*0x17*/ u32 isEgg:1;
-    /*0x17*/ u32 abilityNum:1;
+    /*0x17*/ u32 abilityNum:2;
     /*0x18*/ s8 statStages[NUM_BATTLE_STATS];
     /*0x20*/ u8 ability;
     /*0x21*/ u8 type1;
@@ -203,6 +205,7 @@ struct BattlePokemon
     /*0x4C*/ u32 status1;
     /*0x50*/ u32 status2;
     /*0x54*/ u32 otId;
+    /*0x58*/ u8 lockedAbility;
 };
 
 struct SpeciesInfo
@@ -356,7 +359,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon);
 u8 CalculatePlayerPartyCount(void);
 u8 CalculateEnemyPartyCount(void);
 u8 GetMonsStateToDoubles(void);
-u8 GetAbilityBySpecies(u16 species, bool8 abilityNum);
+u8 GetAbilityBySpecies(u16 species, bool8 abilityNum, u8 lockedAbility);
 u8 GetMonAbility(struct Pokemon *mon);
 u8 GetSecretBaseTrainerPicIndex(void);
 u8 GetSecretBaseTrainerNameIndex(void);
@@ -429,5 +432,6 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 bufferId);
 u8 GetNatureFromPersonality(u32 personality);
 u8 SendMonToPC(struct Pokemon* mon);
 void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon);
+void SetMonLockedAbility(struct Pokemon *mon, u8 ability);
 
 #endif // GUARD_POKEMON_H
