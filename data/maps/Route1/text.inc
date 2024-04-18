@@ -33,3 +33,9 @@ Route1_Text_RouteSign::
     .string "ROUTE 1\n"
     .string "NEW WILD POKéMON: 1$"
 
+Route1_Text_ThePitIntro::
+    .string "TRAINER TIPS!\p"
+    .string "Press START to save the game!$"
+
+Route1_Text_ThePitDumbass::
+    .string "…Dumbass.$"

@@ -49,13 +49,145 @@ ViridianCity_EventScript_GymDoorLocked::
 	delay 20
 	msgbox ViridianCity_Text_GymDoorsAreLocked
 	closemessage
+	playse SE_LEDGE
 	applymovement OBJ_EVENT_ID_PLAYER, ViridianCity_Movement_JumpDownLedge
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement OBJ_EVENT_ID_PLAYER, ViridianCity_Movement_GymDoor2
+	waitmovement 0
+	playse SE_LEDGE
+	applymovement OBJ_EVENT_ID_PLAYER, ViridianCity_Movement_GymDoor3
+	playse SE_LEDGE
 	waitmovement 0
 	releaseall
 	end
 
 ViridianCity_Movement_JumpDownLedge::
 	jump_2_down
+	walk_down
+	delay_16
+	delay_16
+	delay_8
+	face_left
+	delay_16
+	delay_8
+	delay_4
+	face_right
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	delay_4
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+ViridianCity_Movement_GymDoor2::
+	jump_2_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	face_down
+	delay_16
+	delay_8
+	delay_1
+	walk_down
+	walk_down
+	delay_16
+	delay_16
+	delay_8
+	face_left
+	delay_16
+	delay_8
+	delay_4
+	face_right
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	delay_4
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	face_left
+	delay_16
+	delay_8
+	delay_4
+	face_down
+	delay_16
+	delay_8
+	delay_4
+	walk_slower_down
+	walk_slower_down
+	walk_in_place_down
+	walk_in_place_down
+	delay_16
+	delay_16
+	delay_8
+	face_left
+	delay_16
+	delay_8
+	delay_4
+	face_right
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	delay_4
+	walk_slower_up
+	walk_slower_up
+	delay_16
+	delay_8
+	delay_4
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_8
+	delay_4
+	player_run_down
+	player_run_down
+	step_end
+
+ViridianCity_Movement_GymDoor3::
+	jump_in_place_down
 	step_end
 
 ViridianCity_EventScript_CitySign::

@@ -64,6 +64,9 @@ PewterCity_EventScript_WalkToGymNorth::
 	walk_left
 	walk_left
 	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_up
 	walk_left
 	walk_left
