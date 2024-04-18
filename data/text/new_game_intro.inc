@@ -129,30 +129,27 @@ gControlsGuide_Text_Intro::
     .string "the order of their importance.$"
 
 gControlsGuide_Text_DPad::
-    .string "Moves the main character.\n"
-    .string "Also used to choose various data\n"
-    .string "headings.$"
+    .string "Speeds up teh game.\n"
+    .string "Will be very useful for grinding.$"
 
 gControlsGuide_Text_AButton::
-    .string "Used to confirm a choice, check\n"
-    .string "things, chat, and scroll text.$"
+    .string "Creates a savestate which\n"
+    .string "you can later load.$"
 
 gControlsGuide_Text_BButton::
-    .string "Used to exit, cancel a choice,\n"
-    .string "and cancel a mode.$"
+    .string "Loads a savestate,\n"
+    .string "Or was it the other way around?$"
 
 gControlsGuide_Text_StartButton::
-    .string "Press this button to open the\n"
-    .string "MENU.$"
+    .string "This key combination will enter\n"
+    .string "developer mode.$"
 
 gControlsGuide_Text_SelectButton::
-    .string "Used to shift items and to use\n"
-    .string "a registered item.$"
+    .string "Enables Sticky Keys on Windows$"
 
 gControlsGuide_Text_LRButtons::
-    .string "If you need help playing the\n"
-    .string "game, or on how to do things,\n"
-    .string "press the L or R Button.$"
+    .string "Performing this input will throw\n"
+    .string "a Hadoken.$"
 
 gOakSpeech_Text_AskPlayerGender::
     .string "Now tell me. Are you a boy?\n"
