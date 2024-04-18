@@ -95,7 +95,7 @@ PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose::
     .string "Inside those three POKé BALLS are\n"
     .string "POKéMON.\p"
     .string "…What?\n"
-    .string "Why are you looking at me that way??$"
+    .string "Why are you looking at me that way?$"
 
 PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
     .string "OAK: Hey!\n"
@@ -108,7 +108,7 @@ PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
     .string "game to old fans somehow!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
-    .string "you'd like CHARMANDER then?\n"
+    .string "You'd like CHARMANDER, then?\n"
     .string "I hear he's very popular.\p"
     .string "So, {PLAYER}, you're going with\n"
     .string "the FIRE POKéMON CHARMANDER, yes?$"
