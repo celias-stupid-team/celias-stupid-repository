@@ -1219,3 +1219,14 @@ void BtlController_EmitDebugMenu(u8 bufferId)
     sBattleBuffersTransferData[0] = CONTROLLER_DEBUGMENU;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 1);
 }
+
+// Only used by the forfeit prompt in trainer battles (originally from Emerald Battle Frontier)
+// For other Yes/No boxes in battle, see Cmd_yesnobox
+void BtlController_EmitYesNoBox(u8 bufferId)
+{
+    sBattleBuffersTransferData[0] = CONTROLLER_YESNOBOX;
+    sBattleBuffersTransferData[1] = CONTROLLER_YESNOBOX;
+    sBattleBuffersTransferData[2] = CONTROLLER_YESNOBOX;
+    sBattleBuffersTransferData[3] = CONTROLLER_YESNOBOX;
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
+}

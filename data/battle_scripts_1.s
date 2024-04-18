@@ -4513,3 +4513,20 @@ BattleScript_HangedOnMsg::
 	removeitem BS_TARGET
 BattleScript_HangedOnMsgRet:
 	return
+
+BattleScript_AskIfWantsToForfeitMatch::
+	printselectionstring STRINGID_QUESTIONFORFEITMATCH
+	forfeityesnobox BS_ATTACKER
+	endselectionscript
+
+BattleScript_PrintPlayerForfeited::
+	printstring STRINGID_FORFEITEDMATCH
+	waitmessage B_WAIT_TIME_SHORT
+	end2
+
+BattleScript_PrintPlayerForfeitedLinkBattle::
+	printstring STRINGID_FORFEITEDMATCH
+	waitmessage B_WAIT_TIME_SHORT
+	endlinkbattle
+	waitmessage B_WAIT_TIME_LONG
+	end2

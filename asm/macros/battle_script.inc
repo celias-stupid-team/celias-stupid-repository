@@ -1406,6 +1406,10 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro forfeityesnobox battler:req
+	various \battler, VARIOUS_EMIT_YESNOBOX
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

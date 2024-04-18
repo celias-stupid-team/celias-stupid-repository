@@ -117,6 +117,7 @@ static void (*const sOakOldManBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = OakOldManHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = OakOldManHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = OakOldManHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = OakOldManBufferExecCompleted,
     [CONTROLLER_UNKNOWNYESNOBOX]          = OakOldManHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = OakOldManHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = OakOldManHandleChooseItem,

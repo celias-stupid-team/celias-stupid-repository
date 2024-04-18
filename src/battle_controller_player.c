@@ -43,6 +43,9 @@ static void PlayerHandleMoveAnimation(void);
 static void PlayerHandlePrintString(void);
 static void PlayerHandlePrintSelectionString(void);
 static void PlayerHandleChooseAction(void);
+static void PlayerHandleYesNoBox(void);
+static void PlayerHandleYesNoInput(void);
+static void PlayerBufferExecCompleted(void);
 static void PlayerHandleUnknownYesNoBox(void);
 static void PlayerHandleChooseMove(void);
 static void PlayerHandleChooseItem(void);
@@ -130,6 +133,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = PlayerHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = PlayerHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = PlayerHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = PlayerHandleYesNoBox,
     [CONTROLLER_UNKNOWNYESNOBOX]          = PlayerHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = PlayerHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = PlayerHandleChooseItem,
@@ -2428,8 +2432,60 @@ static void PlayerHandleChooseAction(void)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
 }
 
+static void PlayerHandleYesNoBox(void)
+{
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    {
+        HandleBattleWindow(23, 8, 29, 13, 0);
+        BattlePutTextOnWindow(gText_BattleYesNoChoice, B_WIN_YESNO);
+        gMultiUsePlayerCursor = 1;
+        BattleCreateYesNoCursorAt(1);
+        gBattlerControllerFuncs[gActiveBattler] = PlayerHandleYesNoInput;
+    }
+    else
+    {
+        PlayerBufferExecCompleted();
+    }
+}
+
 static void PlayerHandleUnknownYesNoBox(void)
 {
+}
+
+static void PlayerHandleYesNoInput(void)
+{
+    if (JOY_NEW(DPAD_UP) && gMultiUsePlayerCursor != 0)
+    {
+        PlaySE(SE_SELECT);
+        BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
+        gMultiUsePlayerCursor = 0;
+        BattleCreateYesNoCursorAt(0);
+    }
+    if (JOY_NEW(DPAD_DOWN) && gMultiUsePlayerCursor == 0)
+    {
+        PlaySE(SE_SELECT);
+        BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
+        gMultiUsePlayerCursor = 1;
+        BattleCreateYesNoCursorAt(1);
+    }
+    if (JOY_NEW(A_BUTTON))
+    {
+        HandleBattleWindow(23, 8, 29, 13, WINDOW_CLEAR);
+        PlaySE(SE_SELECT);
+
+        if (gMultiUsePlayerCursor != 0)
+            BtlController_EmitTwoReturnValues(BUFFER_B, 0xE, 0);
+        else
+            BtlController_EmitTwoReturnValues(BUFFER_B, 0xD, 0);
+
+        PlayerBufferExecCompleted();
+    }
+    if (JOY_NEW(B_BUTTON))
+    {
+        HandleBattleWindow(23, 8, 29, 13, WINDOW_CLEAR);
+        PlaySE(SE_SELECT);
+        PlayerBufferExecCompleted();
+    }
 }
 
 static void HandleChooseMoveAfterDma3(void)

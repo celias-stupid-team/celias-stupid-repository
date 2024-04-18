@@ -3109,6 +3109,7 @@ enum
     STATE_WAIT_ACTION_CONFIRMED,
     STATE_SELECTION_SCRIPT,
     STATE_WAIT_SET_BEFORE_ACTION,
+    STATE_SELECTION_SCRIPT_MAY_RUN
 };
 
 static void HandleTurnActionSelectionState(void)
@@ -3141,6 +3142,14 @@ static void HandleTurnActionSelectionState(void)
                 {
                     if (gBattleMons[gActiveBattler].status2 & STATUS2_MULTIPLETURNS
                      || gBattleMons[gActiveBattler].status2 & STATUS2_RECHARGE)
+                    {
+                        gChosenActionByBattler[gActiveBattler] = B_ACTION_USE_MOVE;
+                        gBattleCommunication[gActiveBattler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
+                    }
+                    else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
+                             && position == B_POSITION_PLAYER_RIGHT
+                             && gChosenActionByBattler[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)] == B_ACTION_RUN
+                             && gChosenActionByBattler[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)] != B_ACTION_NOTHING_FAINTED)
                     {
                         gChosenActionByBattler[gActiveBattler] = B_ACTION_USE_MOVE;
                         gBattleCommunication[gActiveBattler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
@@ -3257,12 +3266,16 @@ static void HandleTurnActionSelectionState(void)
                     MarkBattlerForControllerExec(gActiveBattler);
                     break;
                 }
+
                 if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
                  && !(gBattleTypeFlags & BATTLE_TYPE_LINK)
                  && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
-                    BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
-                    gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
+                    gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
+                    gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT_MAY_RUN;
+                    *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
+                    *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
+                    return;
                 }
                 else if (IsRunningFromBattleImpossible() != BATTLE_RUN_SUCCESS
                       && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
@@ -3405,6 +3418,27 @@ static void HandleTurnActionSelectionState(void)
         case STATE_WAIT_SET_BEFORE_ACTION:
             if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
                 gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
+            break;
+        case STATE_SELECTION_SCRIPT_MAY_RUN:
+            if (*(gBattleStruct->selectionScriptFinished + gActiveBattler))
+            {
+                if (gBattleBufferB[gActiveBattler][1] == B_ACTION_NOTHING_FAINTED)
+                {
+                    gHitMarker |= HITMARKER_RUN;
+                    gChosenActionByBattler[gActiveBattler] = B_ACTION_RUN;
+                    gBattleCommunication[gActiveBattler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
+                }
+                else
+                    gBattleCommunication[gActiveBattler] = *(gBattleStruct->stateIdAfterSelScript + gActiveBattler);
+            }
+            else
+            {
+                gBattlerAttacker = gActiveBattler;
+                gBattlescriptCurrInstr = gSelectionBattleScripts[gActiveBattler];
+                if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
+                    gBattleScriptingCommandsTable[gBattlescriptCurrInstr[0]]();
+                gSelectionBattleScripts[gActiveBattler] = gBattlescriptCurrInstr;
+            }
             break;
         }
     }
@@ -3822,17 +3856,25 @@ static void HandleEndTurn_BattleLost(void)
 static void HandleEndTurn_RanFromBattle(void)
 {
     gCurrentActionFuncId = 0;
-    switch (gProtectStructs[gBattlerAttacker].fleeType)
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-    default:
-        gBattlescriptCurrInstr = BattleScript_GotAwaySafely;
-        break;
-    case 1:
-        gBattlescriptCurrInstr = BattleScript_SmokeBallEscape;
-        break;
-    case 2:
-        gBattlescriptCurrInstr = BattleScript_RanAwayUsingMonAbility;
-        break;
+        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+    }
+    else
+    {
+        switch (gProtectStructs[gBattlerAttacker].fleeType)
+        {
+        default:
+            gBattlescriptCurrInstr = BattleScript_GotAwaySafely;
+            break;
+        case 1:
+            gBattlescriptCurrInstr = BattleScript_SmokeBallEscape;
+            break;
+        case 2:
+            gBattlescriptCurrInstr = BattleScript_RanAwayUsingMonAbility;
+            break;
+        }
     }
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }

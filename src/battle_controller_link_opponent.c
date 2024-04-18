@@ -107,6 +107,7 @@ static void (*const sLinkOpponentBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_PRINTSTRING]              = LinkOpponentHandlePrintString,
     [CONTROLLER_PRINTSTRINGPLAYERONLY]    = LinkOpponentHandlePrintSelectionString,
     [CONTROLLER_CHOOSEACTION]             = LinkOpponentHandleChooseAction,
+    [CONTROLLER_YESNOBOX]                 = LinkOpponentBufferExecCompleted,
     [CONTROLLER_UNKNOWNYESNOBOX]          = LinkOpponentHandleUnknownYesNoBox,
     [CONTROLLER_CHOOSEMOVE]               = LinkOpponentHandleChooseMove,
     [CONTROLLER_OPENBAG]                  = LinkOpponentHandleChooseItem,
