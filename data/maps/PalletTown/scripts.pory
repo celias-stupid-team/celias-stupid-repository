@@ -413,13 +413,6 @@ PalletTown_EventScript_TownSign::
 	msgbox PalletTown_Text_TownSign, MSGBOX_SIGN
 	end
 
-PalletTown_EventScript_TrainerTips::
-	lockall
-	msgbox PalletTown_Text_PressStartToOpenMenu
-	setvar VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1
-	releaseall
-	end
-
 PalletTown_EventScript_SignLadyTrigger::
 	lockall
 	applymovement LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight
@@ -452,3 +445,32 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	release
 	end
 `
+script PalletTown_EventScript_SignLady_CSR {
+	lock
+	faceplayer
+	msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
+	applymovement(1, PT_exclmark)
+	waitmovement(0)
+	msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
+	applymovement(1, PT_walkback)
+	waitmovement(0)
+	release
+}
+
+script PalletTown_EventScript_TrainerTips {
+	lockall
+	msgbox(format("Talk to her again!"), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+
+//movements
+movement PT_exclmark {
+	emote_exclamation_mark
+}
+
+movement PT_walkback {
+	face_left
+	walk_left
+	face_right
+}
