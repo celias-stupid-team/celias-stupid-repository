@@ -643,7 +643,7 @@ $(NAMINGGFXDIR)/cursor_filled.4bpp: %.4bpp: %.png
 
 
 $(WALLPAPERGFXDIR)/beach/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 60 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 217 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/cave/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 61 -Wnum_tiles
