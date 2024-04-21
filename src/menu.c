@@ -343,8 +343,11 @@ s8 Menu_ProcessInput(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
+        if (sMenu.cursorPos > 0)
+            PlaySE(SE_BOO);
+        else
+            if (!sMenu.APressMuted)
+                PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
     if (JOY_NEW(B_BUTTON))
