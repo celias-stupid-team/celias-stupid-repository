@@ -1231,13 +1231,39 @@ PalletTown_ProfessorOaksLab_EventScript_SquirtleBall::
 	release
 	end
 
-PalletTown_ProfessorOaksLab_EventScript_CharmanderBall::
+PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1::
+	lock
+	faceplayer
+	setvar PLAYER_STARTER_NUM, 0
+	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
+	setvar RIVAL_STARTER_ID, 5
+	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
+	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
+	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
+	release
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2::
+	lock
+	faceplayer
+	setvar PLAYER_STARTER_NUM, 1
+	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
+	setvar RIVAL_STARTER_ID, 7
+	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
+	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
+	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
+	release
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3::
 	lock
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 2
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
+	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
+	setvar RIVAL_STARTER_ID, 6
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
 	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
@@ -1309,3 +1335,15 @@ PalletTown_ProfessorOaksLab_EventScript_RightSignAlt::
 	releaseall
 	end
 `
+
+script PalletTown_ProfessorOaksLab_EventScript_Psyduck {
+	lock
+	msgbox(format("I study AIDS as PROF. OAK's POKéMON."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script PalletTown_ProfessorOaksLab_EventScript_Window {
+	lock
+	msgbox(format("Found OAK's ????"), MSGBOX_AUTOCLOSE)
+	release
+}

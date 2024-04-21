@@ -3720,24 +3720,24 @@ static const struct TrainerMonItemDefaultMoves sParty_BlackBeltDaisuke[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabSquirtle[] = {
     {
         .iv = 0,
-        .lvl = 5,
-        .species = SPECIES_SQUIRTLE,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabBulbasaur[] = {
     {
         .iv = 0,
-        .lvl = 5,
-        .species = SPECIES_BULBASAUR,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabCharmander[] = {
     {
         .iv = 0,
-        .lvl = 5,
-        .species = SPECIES_CHARMANDER,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
