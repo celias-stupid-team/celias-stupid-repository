@@ -42,3 +42,25 @@ Route1_EventScript_ThePit::
 	msgbox Route1_Text_ThePitDumbass, MSGBOX_SIGN
 	end
 `
+
+script Route1_EventScript_Rat1 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT1 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT1, 1)
+	dowildbattle
+	release
+}
+
+script Route1_EventScript_Rat2 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT2 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT2, 2)
+	dowildbattle
+	release
+}

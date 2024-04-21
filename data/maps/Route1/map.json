@@ -115,54 +115,54 @@
       "x": 16,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 17,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 18,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 19,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 20,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 21,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
@@ -646,18 +646,18 @@
       "x": 12,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_ROUTE01_SHINY_RAT2",
+      "var_value": "1",
+      "script": "Route1_EventScript_Rat2"
     },
     {
       "type": "trigger",
       "x": 13,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_ROUTE01_SHINY_RAT2",
+      "var_value": "1",
+      "script": "Route1_EventScript_Rat2"
     }
   ],
   "bg_events": [
