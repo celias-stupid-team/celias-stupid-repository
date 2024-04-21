@@ -452,14 +452,26 @@ script PalletTown_EventScript_SignLady_CSR {
 	applymovement(1, PT_exclmark)
 	waitmovement(0)
 	msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
-	applymovement(1, PT_walkback)
-	waitmovement(0)
+	switch(var(VAR_FACING)) {
+		case DIR_EAST:
+			applymovement(1, PT_walkbackRight)
+			waitmovement(0)
+		case DIR_WEST:
+			applymovement(1, PT_walkbackLeft)
+			waitmovement(0)
+	}
 	release
 }
 
 script PalletTown_EventScript_TrainerTips {
 	lockall
-	msgbox(format("Talk to her again!"), MSGBOX_AUTOCLOSE)
+	msgbox(format("TRAINER TIPS\pTalk to her again!"), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script PalletTown_EventScript_LabMissed {
+	lockall
+	msgbox(format("Oops...you missed!"), MSGBOX_AUTOCLOSE)
 	releaseall
 }
 
@@ -469,8 +481,14 @@ movement PT_exclmark {
 	emote_exclamation_mark
 }
 
-movement PT_walkback {
+movement PT_walkbackLeft {
 	face_left
 	walk_left
 	face_right
+}
+
+movement PT_walkbackRight {
+	face_right
+	walk_right
+	face_left
 }
