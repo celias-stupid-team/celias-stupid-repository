@@ -136,6 +136,7 @@ void NewGameInitData(void)
     ResetPokemonStorageSystem();
     ClearRoamerData();
     gSaveBlock1Ptr->registeredItem = 0;
+    InitCSRData();
     ClearBag();
     NewGameInitPCItems();
     ClearEnigmaBerries();
@@ -149,6 +150,12 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+}
+
+static void InitCSRData(void)
+{
+    FlagSet(FLAG_ROUTE1_NPC_LITTLE_BOY);
+    FlagSet(FLAG_ROUTE1_NPC_DAD);
 }
 
 static void ResetMiniGamesResults(void)

@@ -194,10 +194,10 @@
 //resets after every battle
 #define FLAG_TEMP_MID_BATTLE_EVENT      0x0B0
 #define FLAG_SHINY_CREATION             0x0B1
-#define FLAG_0x0B2                      0x0B2
-#define FLAG_0x0B3               0x0B3
-#define FLAG_0x0B4               0x0B4
-#define FLAG_0x0B5               0x0B5
+#define FLAG_ROUTE1_ENTERED_PIT         0x0B2
+#define FLAG_WALKTHROUGHWALLS           0x0B3
+#define FLAG_ROUTE1_NPC_DAD             0x0B4
+#define FLAG_ROUTE1_NPC_LITTLE_BOY      0x0B5
 #define FLAG_0x0B6               0x0B6
 #define FLAG_0x0B7               0x0B7
 #define FLAG_0x0B8               0x0B8

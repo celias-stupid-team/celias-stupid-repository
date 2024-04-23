@@ -64,3 +64,83 @@ script Route1_EventScript_Rat2 {
 	dowildbattle
 	release
 }
+
+script Route1_EventScript_EnterPit {
+	lock
+	setflag(FLAG_ROUTE1_ENTERED_PIT)
+	release
+}
+
+script Route1_EventScript_PitBorderTop {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackDown)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderRight {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackLeft)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderDown {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackUp)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderLeft {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackRight)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_LittleBoy {
+	lock
+	msgbox(format("My daddy was playing POKéMON GO and didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_Dad {
+	lock
+	msgbox(format("I thought this sign was a POKéSTOP..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+
+//movements
+movement R1_walkbackDown {
+	face_down
+	walk_down
+}
+
+movement R1_walkbackLeft {
+	face_left
+	walk_left
+}
+
+movement R1_walkbackRight {
+	face_right
+	walk_right
+}
+
+movement R1_walkbackUp {
+	face_up
+	walk_up
+}

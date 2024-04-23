@@ -103,13 +103,13 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
     .string "You're getting CHARMANDER.\n"
-    .string "whether you like it or not.\p"
+    .string "Whether you like it or not.\p"
     .string "After all, we need to sell this\n"
     .string "game to old fans somehow!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle::
-    .string "you'd like CHARMANDER then?\n"
-    .string "I hear he's very popular.\p"
+    .string "You'd like CHARMANDER then?\n"
+    .string "I hear it's very popular.\p"
     .string "So, {PLAYER}, you're going with\n"
     .string "the FIRE POKéMON CHARMANDER, yes?$"
 
