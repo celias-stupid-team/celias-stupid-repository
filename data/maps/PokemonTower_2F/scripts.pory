@@ -105,6 +105,12 @@ PokemonTower_2F_Movement_RivalExitDown::
 `
 
 
+script PokemonTower_2F_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox("Oh no!\pGrandpa's dead!",MSGBOX_AUTOCLOSE)
+	release
+}
 
 script PokemonTower_2F_EventScript_JoyousLitwick {
 	lock

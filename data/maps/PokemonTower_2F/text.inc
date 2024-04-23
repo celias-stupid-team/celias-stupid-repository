@@ -37,7 +37,7 @@ PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts::
     .string "unmask them.$"
 
 PokemonTower_2F_Text_Litwick_J_Start::
-    .string "Joyous LITWICK: Well! Here we are!\n"
+    .string "Joyous LITWICK: Well, here we are!\n"
     .string "Burning!$"
 
 PokemonTower_2F_Text_Litwick_F_Start::
@@ -149,6 +149,7 @@ PokemonTower_2F_Text_Litwick_FJJ::
 	    .string "team the world has ever seen!$"
 	
 PokemonTower_2F_Text_Litwick_FJF::	
+
 	
 	    .string "Fierce LITWICK: And what will you\n"
 	    .string "do when the TRAINER demands that\l"
