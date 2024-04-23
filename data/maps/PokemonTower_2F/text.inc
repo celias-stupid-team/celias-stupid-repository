@@ -64,9 +64,9 @@ PokemonTower_2F_Text_Litwick_JJJ::
 
 PokemonTower_2F_Text_Litwick_JJF::	
 	
-	.string "Fierce LITWICK: When a TRAINER comes,\n"
-	.string "those FIRE BLASTS will be aimed\l"
-	.string "your friends and loved ones.$"
+	.string "Fierce LITWICK: And when a\n"
+	.string "TRAINER comes, your FIRE BLASTS\l"
+	.string "will be aimed at your loved ones.$"
 
 PokemonTower_2F_Text_Litwick_JJS::	
 	
