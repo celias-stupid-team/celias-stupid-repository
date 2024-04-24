@@ -655,7 +655,7 @@ $(WALLPAPERGFXDIR)/crag/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 199 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/desert/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 52 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 214 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/forest/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
