@@ -32,6 +32,7 @@
 
 // this file's functions
 static void ResetMiniGamesResults(void);
+static void InitCSRData(void);
 
 // EWRAM vars
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
@@ -154,8 +155,8 @@ void NewGameInitData(void)
 
 static void InitCSRData(void)
 {
-    FlagSet(FLAG_ROUTE1_NPC_LITTLE_BOY);
-    FlagSet(FLAG_ROUTE1_NPC_DAD);
+    FlagSet(FLAG_ROUTE1_OBJECTS_RETREAT);
+    FlagSet(FLAG_PT_NPC_LOOKLOOK);
 }
 
 static void ResetMiniGamesResults(void)

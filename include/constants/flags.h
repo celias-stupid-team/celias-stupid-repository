@@ -196,10 +196,10 @@
 #define FLAG_SHINY_CREATION             0x0B1
 #define FLAG_ROUTE1_ENTERED_PIT         0x0B2
 #define FLAG_WALKTHROUGHWALLS           0x0B3
-#define FLAG_ROUTE1_NPC_DAD             0x0B4
-#define FLAG_ROUTE1_NPC_LITTLE_BOY      0x0B5
-#define FLAG_0x0B6               0x0B6
-#define FLAG_0x0B7               0x0B7
+#define FLAG_ROUTE1_OBJECTS_RETREAT     0x0B4
+#define FLAG_PT_NPC_LOOKLOOK_LEAVE      0x0B5
+#define FLAG_PT_NPC_SIGN_LADY           0x0B6
+#define FLAG_PT_NPC_LOOKLOOK            0x0B7
 #define FLAG_0x0B8               0x0B8
 #define FLAG_0x0B9               0x0B9
 #define FLAG_0x0BA               0x0BA

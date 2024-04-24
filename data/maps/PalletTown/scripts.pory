@@ -413,15 +413,6 @@ PalletTown_EventScript_TownSign::
 	msgbox PalletTown_Text_TownSign, MSGBOX_SIGN
 	end
 
-PalletTown_EventScript_SignLadyTrigger::
-	lockall
-	applymovement LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	call PalletTown_EventScript_SignLadyShowSign
-	releaseall
-	end
-
 PalletTown_EventScript_SignLadyShowSign::
 	textcolor NPC_TEXT_COLOR_FEMALE
 	msgbox PalletTown_Text_LookCopiedTrainerTipsSign
@@ -454,11 +445,11 @@ script PalletTown_EventScript_SignLady_CSR {
 	msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
 	switch(var(VAR_FACING)) {
 		case DIR_EAST:
-			applymovement(1, PT_walkbackRight)
-			waitmovement(0)
-		case DIR_WEST:
-			applymovement(1, PT_walkbackLeft)
-			waitmovement(0)
+				applymovement(1, PT_walkbackRight)
+				waitmovement(0)
+			default:
+				applymovement(1, PT_walkbackLeft)
+				waitmovement(0)
 	}
 	release
 }
@@ -472,6 +463,42 @@ script PalletTown_EventScript_TrainerTips {
 script PalletTown_EventScript_LabMissed {
 	lockall
 	msgbox(format("Oops...you missed!"), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script PalletTown_EventScript_LookLook {
+	lock
+	faceplayer
+	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
+		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
+		call(PalletTown_EventScript_SignLadyShowSign)
+	}
+	else {
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
+		applymovement(4, PT_exclmark)
+		waitmovement(0)
+		msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+				applymovement(4, PT_walkbackRight)
+				waitmovement(0)
+			default:
+				applymovement(4, PT_walkbackLeft)
+				waitmovement(0)
+		}
+	}
+	release
+}
+
+script PalletTown_EventScript_SignLadyTrigger {
+	lockall
+	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
+		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
+		applymovement(LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+		waitmovement(0)
+		call(PalletTown_EventScript_SignLadyShowSign)
+	}
 	releaseall
 }
 
