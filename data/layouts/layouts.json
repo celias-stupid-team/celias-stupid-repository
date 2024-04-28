@@ -5,7 +5,7 @@
       "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_1F",
       "name": "PalletTown_PlayersHouse_1F_Layout",
       "width": 13,
-      "height": 10,
+      "height": 11,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
