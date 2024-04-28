@@ -233,3 +233,4 @@ const u16 gFieldEffectObjectPic_Bird[] = INCBIN_U16("graphics/field_effects/pics
 
 //New stuff
 const u32 gObjectEventPic_Litwick[] = INCBIN_U32("graphics/object_events/pics/pokemon/litwick.4bpp");
+const u16 gObjectEventPic_OddCandy[] = INCBIN_U16("graphics/object_events/pics/misc/oddCandy.4bpp");

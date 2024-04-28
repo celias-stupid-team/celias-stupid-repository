@@ -155,7 +155,8 @@
 #define OBJ_EVENT_GFX_SS_ANNE 151
 
 #define OBJ_EVENT_GFX_LITWICK 152 //New overworld sprites start here!
-#define NUM_OBJ_EVENT_GFX     153
+#define OBJ_EVENT_GFX_ODD_CANDY 153
+#define NUM_OBJ_EVENT_GFX     154
 
 
 // These are dynamic object gfx ids.
