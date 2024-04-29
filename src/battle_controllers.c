@@ -368,8 +368,11 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
         switch (bufferId)
         {
         case BUFFER_A:
-            for (i = 0; i < size; data++, i++)
+            for (i = 0; i < size; data++, i++) {
                 gBattleBufferA[gActiveBattler][i] = *data;
+                if (i == 1)
+                    DebugPrintf("PrepareBufferDataTransfer - data[1] = %d", data[1]);
+            }
             break;
         case BUFFER_B:
             for (i = 0; i < size; data++, i++)
@@ -652,6 +655,7 @@ void BtlController_EmitLoadMonSprite(u8 bufferId)
 
 void BtlController_EmitSwitchInAnim(u8 bufferId, u8 partyId, bool8 dontClearSubstituteBit)
 {
+    DebugPrintf("BtlController_EmitSwitchInAnim");
     sBattleBuffersTransferData[0] = CONTROLLER_SWITCHINANIM;
     sBattleBuffersTransferData[1] = partyId;
     sBattleBuffersTransferData[2] = dontClearSubstituteBit;
@@ -835,6 +839,7 @@ void BtlController_EmitPrintSelectionString(u8 bufferId, u16 stringID)
 // itemId only relevant for B_ACTION_USE_ITEM
 void BtlController_EmitChooseAction(u8 bufferId, u8 action, u16 itemId)
 {
+    DebugPrintf("BtlController_EmitChooseAction");
     sBattleBuffersTransferData[0] = CONTROLLER_CHOOSEACTION;
     sBattleBuffersTransferData[1] = action;
     sBattleBuffersTransferData[2] = itemId;
@@ -1019,10 +1024,18 @@ void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battleP
 {
     s32 i;
 
+    DebugPrintf("BtlController_EmitChosenMonReturnValue");
+    DebugPrintf("gBattlePartyCurrentOrder = %d", (int)ARRAY_COUNT(gBattlePartyCurrentOrder));
     sBattleBuffersTransferData[0] = CONTROLLER_CHOSENMONRETURNVALUE;
     sBattleBuffersTransferData[1] = partyId;
-    for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
+    for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++) {
+        DebugPrintf("i = %d", i);
+        DebugPrintf("battlePartyOrder = %d", battlePartyOrder[i]);
+        DebugPrintf("gBattlePartyCurrentOrder = %d", gBattlePartyCurrentOrder[i]);
         sBattleBuffersTransferData[2 + i] = battlePartyOrder[i];
+    }
+        
+        
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 5);
 }
 

@@ -16,20 +16,29 @@ u16 AddWindow8Bit(const struct WindowTemplate *template)
     u8 *memAddress;
     u8 bgLayer;
 
+    DebugPrintf("AddWindow8Bit");
+
     for (windowId = 0; windowId < WINDOWS_MAX; windowId++)
     {
+        DebugPrintf("windowId = %d", windowId);
+        if (gWindows[windowId].window.bg == 0xFF)
+            DebugPrintf("break");
         if (gWindows[windowId].window.bg == 0xFF)
             break;
     }
     if (windowId == WINDOWS_MAX)
         return 0xFF;
+    DebugPrintf("set bgLayer");
     bgLayer = template->bg;
+    DebugPrintf("bgLayer = %d", bgLayer);
     if (gWindowBgTilemapBuffers[bgLayer] == NULL)
     {
         u16 attribute = GetBgAttribute(bgLayer, BG_ATTR_MAPSIZE);
+        DebugPrintf("AddWindow8Bit2");
         if (attribute != 0xFFFF)
         {
             s32 i;
+            DebugPrintf("AddWindow8Bit3");
             memAddress = Alloc(attribute);
             if (memAddress == NULL)
                 return 0xFF;
@@ -39,9 +48,11 @@ u16 AddWindow8Bit(const struct WindowTemplate *template)
             SetBgTilemapBuffer(bgLayer, memAddress);
         }
     }
+    DebugPrintf("set memAddress %d, %d", template->width, template->height);
     memAddress = Alloc((u16)(0x40 * (template->width * template->height)));
     if (memAddress == NULL)
     {
+        DebugPrintf("AddWindow8Bit4");
         if (GetNumActiveWindowsOnBg8Bit(bgLayer) == 0 && gWindowBgTilemapBuffers[bgLayer] != nullsub_9)
         {
             Free(gWindowBgTilemapBuffers[bgLayer]);
@@ -51,6 +62,7 @@ u16 AddWindow8Bit(const struct WindowTemplate *template)
     }
     else
     {
+        DebugPrintf("AddWindow8Bit5");
         gWindows[windowId].tileData = memAddress;
         gWindows[windowId].window = *template;
         return windowId;

@@ -3220,6 +3220,7 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SWITCH:
+                    DebugPrintf("HandleTurnAction - B_ACTION_SWITCH");
                     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
                     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                     {
@@ -4201,6 +4202,7 @@ static void HandleAction_UseMove(void)
 
 static void HandleAction_Switch(void)
 {
+    DebugPrintf("HandleAction_Switch");
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;

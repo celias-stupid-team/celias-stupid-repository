@@ -4721,6 +4721,7 @@ static void Cmd_switchindataupdate(void)
 
 static void Cmd_switchinanim(void)
 {
+    DebugPrintf("Cmd_switchinanim");
     if (gBattleControllerExecFlags)
         return;
 

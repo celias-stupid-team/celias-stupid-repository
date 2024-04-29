@@ -3703,6 +3703,7 @@ u8 SendMonToPC(struct Pokemon* mon)
 {
     s32 boxNo, boxPos;
 
+    DebugPrintf("SendMonToPC");
     SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
 
     boxNo = StorageGetCurrentBox();
@@ -3714,6 +3715,7 @@ u8 SendMonToPC(struct Pokemon* mon)
             struct BoxPokemon* checkingMon = GetBoxedMonPtr(boxNo, boxPos);
             if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_NONE)
             {
+                DebugPrintf("DoSending - %d, %d", boxNo, boxPos);
                 MonRestorePP(mon);
                 CopyMon(checkingMon, &mon->box, sizeof(mon->box));
                 gSpecialVar_MonBoxId = boxNo;

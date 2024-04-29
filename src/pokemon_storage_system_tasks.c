@@ -14,6 +14,7 @@
 #include "new_menu_helpers.h"
 #include "pc_screen_effect.h"
 #include "pokemon_icon.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
 #include "quest_log.h"
@@ -44,7 +45,7 @@ static void Task_OnSelectedMon(u8 taskId);
 static void Task_MoveMon(u8 taskId);
 static void Task_PlaceMon(u8 taskId);
 static void Task_ShiftMon(u8 taskId);
-static void Task_WithdrawMon(u8 taskId);
+//static void Task_WithdrawMon(u8 taskId);
 static void Task_DepositMenu(u8 taskId);
 static void Task_ReleaseMon(u8 taskId);
 static void Task_ShowMarkMenu(u8 taskId);
@@ -400,6 +401,7 @@ static void VBlankCB_PokeStorage(void)
 
 static void CB2_PokeStorage(void)
 {
+    DebugPrintf("CB2_PokeStorage");
     RunTasks();
     DoScheduledBgTilemapCopiesToVram();
     ScrollBackground();
@@ -499,6 +501,7 @@ static void SetPokeStorageTask(TaskFunc newFunc)
 
 static void Task_InitPokeStorage(u8 taskId)
 {
+    DebugPrintf("Task_InitPokeStorage, gStorage->state = %d", gStorage->state);
     switch (gStorage->state)
     {
     case 0:
@@ -551,11 +554,13 @@ static void Task_InitPokeStorage(u8 taskId)
     case 5:
         if (!MultiMove_Init())
         {
+            DebugPrintf("SetPokeStorageTask(Task_ChangeScreen)");
             SetPokeStorageTask(Task_ChangeScreen);
             return;
         }
         else
         {
+            DebugPrintf("InitPokeStorageBg0()");
             SetScrollingBackground();
             InitPokeStorageBg0();
         }
@@ -1133,7 +1138,7 @@ static void Task_ShiftMon(u8 taskId)
     }
 }
 
-static void Task_WithdrawMon(u8 taskId)
+void Task_WithdrawMon(u8 taskId)
 {
     switch (gStorage->state)
     {
@@ -2050,6 +2055,7 @@ static void Task_ChangeScreen(u8 taskId)
     u8 mode, cursorPos, lastIndex;
     u8 screenChangeType = gStorage->screenChangeType;
 
+    DebugPrintf("Task_ChangeScreen");
     if (gStorage->boxOption == OPTION_MOVE_ITEMS && IsActiveItemMoving() == TRUE)
         sMovingItemId = GetMovingItem();
     else
@@ -2766,5 +2772,27 @@ static void UpdateBoxToSendMons(void)
     {
         FlagClear(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
         VarSet(VAR_PC_BOX_TO_SEND_MON, StorageGetCurrentBox());
+    }
+}
+
+void ExternalLoadPC(void)
+{
+    DebugPrintf("ExternalLoadPC");
+    ResetTasks();
+    //sCurrentBoxOption = boxOption;
+    gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
+    if (gStorage == NULL)
+        SetMainCallback2(CB2_ExitPokeStorage);
+    else
+    {
+        DebugPrintf("ExternalLoadPC - Init");
+        gStorage->boxOption = 0;
+        gStorage->isReopening = FALSE;
+        sMovingItemId = 0;
+        gStorage->state = 0;
+        gStorage->taskId = CreateTask(Task_InitPokeStorage, 3);
+        SetHelpContext(HELPCONTEXT_BILLS_PC);
+        sLastUsedBox = StorageGetCurrentBox();
+        SetMainCallback2(CB2_PokeStorage);
     }
 }

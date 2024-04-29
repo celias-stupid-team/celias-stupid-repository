@@ -65,6 +65,7 @@ static const struct WindowTemplate sWindowTemplate_MultiMove = {
 
 bool8 MultiMove_Init(void)
 {
+    DebugPrintf("MultiMove_Init");
     sMultiMove = Alloc(sizeof(*sMultiMove));
     if (sMultiMove != NULL)
     {

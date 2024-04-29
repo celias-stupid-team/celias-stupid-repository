@@ -5862,6 +5862,7 @@ static u8 GetPartyLayoutFromBattleType(void)
 
 void OpenPartyMenuInTutorialBattle(u8 partyAction)
 {
+    DebugPrintf("OpenPartyMenuInTutorialBattle");
     if (!BtlCtrl_OakOldMan_TestState2Flag(FIRST_BATTLE_MSG_FLAG_PARTY_MENU) && (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE))
     {
         InitPartyMenu(PARTY_MENU_TYPE_IN_BATTLE,

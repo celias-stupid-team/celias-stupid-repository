@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "data.h"
+#include "event_data.h"
 #include "item.h"
 #include "item_menu.h"
 #include "link.h"
@@ -9,6 +10,8 @@
 #include "pokeball.h"
 #include "strings.h"
 #include "pokemon_special_anim.h"
+#include "pokemon_storage_system.h"
+#include "pokemon_storage_system_internal.h"
 #include "task.h"
 #include "util.h"
 #include "battle.h"
@@ -231,6 +234,7 @@ static void HandleInputChooseAction(void)
     DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
     if (JOY_NEW(A_BUTTON))
     {
+        DebugPrintf("JOY_NEW(A_BUTTON)");
         PlaySE(SE_SELECT);
 
         switch (gActionSelectionCursor[gActiveBattler])
@@ -242,6 +246,7 @@ static void HandleInputChooseAction(void)
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             break;
         case 2:
+            DebugPrintf("HandleInputChooseAction - case 2");
             BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
             break;
         case 3:
@@ -252,6 +257,7 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_LEFT))
     {
+        DebugPrintf("JOY_NEW(DPAD_LEFT)");
         if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
         {
             PlaySE(SE_SELECT);
@@ -262,8 +268,10 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_RIGHT))
     {
+        DebugPrintf("JOY_NEW(DPAD_RIGHT)");
         if (!(gActionSelectionCursor[gActiveBattler] & 1)) // if is B_ACTION_USE_MOVE or B_ACTION_SWITCH
         {
+            DebugPrintf("HandleInputChooseAction2");
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
             gActionSelectionCursor[gActiveBattler] ^= 1;
@@ -272,8 +280,10 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_UP))
     {
+        DebugPrintf("JOY_NEW(DPAD_UP)");
         if (gActionSelectionCursor[gActiveBattler] & 2) // if is B_ACTION_SWITCH or B_ACTION_RUN
         {
+            DebugPrintf("HandleInputChooseAction3");
             PlaySE(SE_SELECT);
             ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
             gActionSelectionCursor[gActiveBattler] ^= 2;
@@ -282,6 +292,7 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
+        DebugPrintf("JOY_NEW(DPAD_DOWN)");
         if (!(gActionSelectionCursor[gActiveBattler] & 2)) // if is B_ACTION_USE_MOVE or B_ACTION_USE_ITEM
         {
             PlaySE(SE_SELECT);
@@ -292,6 +303,7 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(B_BUTTON))
     {
+        DebugPrintf("JOY_NEW(B_BUTTON)");
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
          && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT
          && !(gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)])
@@ -312,6 +324,7 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(START_BUTTON))
     {
+        DebugPrintf("JOY_NEW(START_BUTTON)");
         SwapHpBarsWithHpText();
     }
 #if DEBUG_BATTLE_MENU == TRUE
@@ -1307,7 +1320,7 @@ static void OpenPartyMenuToChooseMon(void)
     if (!gPaletteFade.active)
     {
         u8 caseId;
-
+        DebugPrintf("OpenPartyMenuToChooseMon");
         gBattlerControllerFuncs[gActiveBattler] = WaitForMonSelection;
         caseId = gTasks[gBattleControllerData[gActiveBattler]].data[0];
         DestroyTask(gBattleControllerData[gActiveBattler]);
@@ -1316,11 +1329,30 @@ static void OpenPartyMenuToChooseMon(void)
     }
 }
 
+static void OpenPCToWithdrawMon(void)
+{
+    if (!gPaletteFade.active && !FlagGet(FLAG_0x0B1))
+    {
+        //u8 caseId;
+        DebugPrintf("OpenPCToWithdrawMon");
+        FlagSet(FLAG_0x0B1);
+        // WIP
+        //gBattlerControllerFuncs[gActiveBattler] = WaitForMonSelection;
+        //caseId = gTasks[gBattleControllerData[gActiveBattler]].data[0];
+        DestroyTask(gBattleControllerData[gActiveBattler]);
+        FreeAllWindowBuffers();
+        ExternalLoadPC(); //sets the new CB2 and task
+        //OpenPartyMenuInTutorialBattle(caseId);
+    }
+}
+
 static void WaitForMonSelection(void)
 {
+    //DebugPrintf("WaitForMonSelection");
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        if (gPartyMenuUseExitCallback == TRUE)
+        DebugPrintf("WaitForMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
+        if (gPartyMenuUseExitCallback == TRUE)//BtlController_EmitChosenMonReturnValue(1, gSelectedMonPartyId, gBattlePartyCurrentOrder);
             BtlController_EmitChosenMonReturnValue(1, gSelectedMonPartyId, gBattlePartyCurrentOrder);
         else
             BtlController_EmitChosenMonReturnValue(1, 6, NULL);
@@ -2102,7 +2134,9 @@ static void PlayerHandleLoadMonSprite(void)
 
 static void PlayerHandleSwitchInAnim(void)
 {
+    DebugPrintf("PlayerHandleSwitchInAnim"); //WIP
     ClearTemporarySpeciesSpriteData(gActiveBattler, gBattleBufferA[gActiveBattler][2]);
+    DebugPrintf("gBattleBufferA[gActiveBattler][1] = %d", gBattleBufferA[gActiveBattler][1]);
     gBattlerPartyIndexes[gActiveBattler] = gBattleBufferA[gActiveBattler][1];
     BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
     gActionSelectionCursor[gActiveBattler] = 0;
@@ -2410,8 +2444,10 @@ static void PlayerHandlePrintSelectionString(void)
 
 static void HandleChooseActionAfterDma3(void)
 {
+    DebugPrintf("HandleChooseActionAfterDma3");
     if (!IsDma3ManagerBusyWithBgCopy())
     {
+        DebugPrintf("!IsDma3ManagerBusyWithBgCopy");
         gBattle_BG0_X = 0;
         gBattle_BG0_Y = 160;
         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseAction;
@@ -2422,6 +2458,7 @@ static void PlayerHandleChooseAction(void)
 {
     s32 i;
 
+    DebugPrintf("PlayerHandleChooseAction");
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
     BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
     BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
@@ -2528,7 +2565,10 @@ static void PlayerHandleChooseItem(void)
 static void PlayerHandleChoosePokemon(void)
 {
     s32 i;
+    int sentToPc;
+    u8 taskId;
 
+    DebugPrintf("PlayerHandleChoosePokemon");
     gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
     gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
     *(&gBattleStruct->battlerPreventingSwitchout) = gBattleBufferA[gActiveBattler][1] >> 4;
@@ -2537,8 +2577,39 @@ static void PlayerHandleChoosePokemon(void)
     for (i = 0; i < 3; ++i)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
-    gBattlerInMenuId = gActiveBattler;
+
+    //WIP - send all mons except the first to the PC
+    //ToDo: handle double battles
+    for (i = 1; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            break;
+        else {
+            DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+            sentToPc = SendMonToPC(&gPlayerParty[i]);
+            if (sentToPc == 1) {
+                ZeroMonData(&gPlayerParty[i]);
+                gPlayerPartyCount = gPlayerPartyCount - 1;
+            }
+        }
+    }
+
+    //load PC to withdraw mon
+    //ExternalLoadPC();
+    //gTasks[gStorage->taskId].func = Task_WithdrawMon;
+    //gStorage->state = 0;
+
+    if (!FlagGet(FLAG_0x0B1))
+    {
+        gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;
+        gBattlerInMenuId = gActiveBattler;
+    }/*
+    else
+    {
+        gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
+        gBattlerInMenuId = gActiveBattler;
+        DebugPrintf("gBattlerInMenuId: %d", gBattlerInMenuId);
+    }*/
 }
 
 static void PlayerHandleCmd23(void)
