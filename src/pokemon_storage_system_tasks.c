@@ -4,6 +4,8 @@
 #include "decompress.h"
 #include "dynamic_placeholder_text_util.h"
 #include "event_data.h"
+#include "field_fadetransition.h"
+#include "field_weather.h"
 #include "graphics.h"
 #include "help_system.h"
 #include "item.h"
@@ -12,6 +14,7 @@
 #include "menu.h"
 #include "naming_screen.h"
 #include "new_menu_helpers.h"
+#include "overworld.h"
 #include "pc_screen_effect.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -23,6 +26,8 @@
 #include "text_window.h"
 #include "tilemap_util.h"
 #include "trig.h"
+#include "battle.h"
+#include "reshow_battle_screen.h"
 #include "constants/items.h"
 #include "constants/help_system.h"
 #include "constants/songs.h"
@@ -104,6 +109,7 @@ static void AddWallpapersMenu(u8 wallpaperSet);
 static void InitCursorItemIcon(void);
 static void SetPokeStorageQuestLogEvent(u8 species);
 static void UpdateBoxToSendMons(void);
+static void Task_PCMenuFadeOut(u8 taskId);
 
 enum {
     TILEMAP_PKMN_DATA, // The "Pkmn Data" text at the top of the display
@@ -681,7 +687,15 @@ static void Task_PokeStorageMain(u8 taskId)
             SetPokeStorageTask(Task_OnCloseBoxPressed);
             break;
         case INPUT_PRESSED_B:
-            SetPokeStorageTask(Task_OnBPressed);
+            // WIP
+            if (TRUE)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+                //BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
+                gTasks[taskId].func = Task_PCMenuFadeOut;
+            }
+            else
+                SetPokeStorageTask(Task_OnBPressed);
             break;
         case INPUT_BOX_OPTIONS:
             PlaySE(SE_SELECT);
@@ -2023,7 +2037,19 @@ static void Task_OnBPressed(u8 taskId)
         {
         case 0:
             ClearBottomWindow();
-            SetPokeStorageTask(Task_PokeStorageMain);
+            // WIP
+            if (TRUE) {
+                FreePokeStorageData();
+                FreeAllWindowBuffers();
+                TilemapUtil_Free();
+                MultiMove_Free();
+                DestroyTask(taskId);
+                gMain.callback1 = BattleMainCB1;
+                SetMainCallback2(ReshowBattleScreenAfterMenu);
+                FlagClear(FLAG_0x0B1);
+            }
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
             break;
         case 1:
         case MENU_B_PRESSED:
@@ -2108,6 +2134,7 @@ static void GiveChosenBagItem(void)
 
 static void FreePokeStorageData(void)
 {
+    DebugPrintf("FreePokeStorageData");
     TilemapUtil_Free();
     MultiMove_Free();
     FREE_AND_SET_NULL(gStorage);
@@ -2779,6 +2806,10 @@ void ExternalLoadPC(void)
 {
     DebugPrintf("ExternalLoadPC");
     ResetTasks();
+    //CleanupOverworldWindowsAndTilemaps();
+    TilemapUtil_Free();
+    MultiMove_Free();
+    //FreeAllWindowBuffers();
     //sCurrentBoxOption = boxOption;
     gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
     if (gStorage == NULL)
@@ -2795,4 +2826,24 @@ void ExternalLoadPC(void)
         sLastUsedBox = StorageGetCurrentBox();
         SetMainCallback2(CB2_PokeStorage);
     }
+}
+
+static void Task_PCMenuFadeOut(u8 taskId)
+{
+    DebugPrintf("Task_PCMenuFadeOut");
+    //if (!gPaletteFade.active)
+    //{
+        DebugPrintf("PaletteFade done");
+        ClearStdWindowAndFrame(0, TRUE);
+        //UnlockPlayerFieldControls();
+        //ScriptContext_Enable();
+        FreeAllWindowBuffers();
+        TilemapUtil_Free();
+        MultiMove_Free();
+        //UpdateMonData(data);
+        //gBattleStruct->debugBattler = data->battlerId;
+        //Free(data);
+        DestroyTask(taskId);
+        SetMainCallback2(ReshowBattleScreenAfterMenu);
+    //}
 }

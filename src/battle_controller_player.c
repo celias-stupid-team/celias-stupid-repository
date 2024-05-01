@@ -1331,6 +1331,7 @@ static void OpenPartyMenuToChooseMon(void)
 
 static void OpenPCToWithdrawMon(void)
 {
+    //gBattlerControllerFuncs[gActiveBattler]() runs everytime in BattleMainCB1
     if (!gPaletteFade.active && !FlagGet(FLAG_0x0B1))
     {
         //u8 caseId;
@@ -2578,7 +2579,8 @@ static void PlayerHandleChoosePokemon(void)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
-    //WIP - send all mons except the first to the PC
+    // WIP
+    //send all mons except the first to the PC
     //ToDo: handle double battles
     for (i = 1; i < PARTY_SIZE; i++)
     {
@@ -2594,11 +2596,7 @@ static void PlayerHandleChoosePokemon(void)
         }
     }
 
-    //load PC to withdraw mon
-    //ExternalLoadPC();
-    //gTasks[gStorage->taskId].func = Task_WithdrawMon;
-    //gStorage->state = 0;
-
+    //load PC to withdraw mon WIP
     if (!FlagGet(FLAG_0x0B1))
     {
         gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;

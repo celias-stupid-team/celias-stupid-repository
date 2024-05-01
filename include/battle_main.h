@@ -64,6 +64,7 @@ extern const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
 
 void CB2_InitBattle(void);
 void BattleMainCB2(void);
+void BattleMainCB1(void);
 void FreeRestoreBattleData(void);
 void VBlankCB_Battle(void);
 void SpriteCB_VsLetterDummy(struct Sprite *sprite);

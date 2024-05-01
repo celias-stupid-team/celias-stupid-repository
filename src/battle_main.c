@@ -69,7 +69,7 @@ static void CB2_HandleStartMultiBattle(void);
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum);
 static void CB2_HandleStartBattle(void);
 static void TryCorrectShedinjaLanguage(struct Pokemon *mon);
-static void BattleMainCB1(void);
+//static void BattleMainCB1(void);
 static void CB2_QuitPokedudeBattle(void);
 static void SpriteCB_UnusedDebugSprite_Step(struct Sprite *sprite);
 static void CB2_EndLinkBattle(void);
@@ -2216,7 +2216,7 @@ void BeginBattleIntro(void)
     gBattleMainFunc = BattleIntroGetMonsData;
 }
 
-static void BattleMainCB1(void)
+void BattleMainCB1(void)
 {
     gBattleMainFunc();
 
