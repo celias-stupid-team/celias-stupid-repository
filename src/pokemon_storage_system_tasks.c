@@ -15,6 +15,7 @@
 #include "naming_screen.h"
 #include "new_menu_helpers.h"
 #include "overworld.h"
+#include "party_menu.h"
 #include "pc_screen_effect.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
@@ -27,6 +28,7 @@
 #include "tilemap_util.h"
 #include "trig.h"
 #include "battle.h"
+#include "battle_controllers.h"
 #include "reshow_battle_screen.h"
 #include "constants/items.h"
 #include "constants/help_system.h"
@@ -109,7 +111,6 @@ static void AddWallpapersMenu(u8 wallpaperSet);
 static void InitCursorItemIcon(void);
 static void SetPokeStorageQuestLogEvent(u8 species);
 static void UpdateBoxToSendMons(void);
-static void Task_PCMenuFadeOut(u8 taskId);
 
 enum {
     TILEMAP_PKMN_DATA, // The "Pkmn Data" text at the top of the display
@@ -407,7 +408,7 @@ static void VBlankCB_PokeStorage(void)
 
 static void CB2_PokeStorage(void)
 {
-    DebugPrintf("CB2_PokeStorage");
+    //DebugPrintf("CB2_PokeStorage");
     RunTasks();
     DoScheduledBgTilemapCopiesToVram();
     ScrollBackground();
@@ -687,15 +688,7 @@ static void Task_PokeStorageMain(u8 taskId)
             SetPokeStorageTask(Task_OnCloseBoxPressed);
             break;
         case INPUT_PRESSED_B:
-            // WIP
-            if (TRUE)
-            {
-                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-                //BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
-                gTasks[taskId].func = Task_PCMenuFadeOut;
-            }
-            else
-                SetPokeStorageTask(Task_OnBPressed);
+            SetPokeStorageTask(Task_OnBPressed);
             break;
         case INPUT_BOX_OPTIONS:
             PlaySE(SE_SELECT);
@@ -2038,15 +2031,12 @@ static void Task_OnBPressed(u8 taskId)
         case 0:
             ClearBottomWindow();
             // WIP
-            if (TRUE) {
+            if (gMain.inBattle) {
                 FreePokeStorageData();
-                FreeAllWindowBuffers();
-                TilemapUtil_Free();
-                MultiMove_Free();
-                DestroyTask(taskId);
-                gMain.callback1 = BattleMainCB1;
-                SetMainCallback2(ReshowBattleScreenAfterMenu);
                 FlagClear(FLAG_0x0B1);
+                DestroyTask(taskId);
+                gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
+                SetPokeStorageTask(Task_ChangeScreen);
             }
             else
                 SetPokeStorageTask(Task_PokeStorageMain);
@@ -2081,12 +2071,12 @@ static void Task_ChangeScreen(u8 taskId)
     u8 mode, cursorPos, lastIndex;
     u8 screenChangeType = gStorage->screenChangeType;
 
-    DebugPrintf("Task_ChangeScreen");
     if (gStorage->boxOption == OPTION_MOVE_ITEMS && IsActiveItemMoving() == TRUE)
         sMovingItemId = GetMovingItem();
     else
         sMovingItemId = ITEM_NONE;
 
+    DebugPrintf("Task_ChangeScreen - screenChangeType = %d", screenChangeType);
     switch (screenChangeType)
     {
     case SCREEN_CHANGE_EXIT_BOX:
@@ -2805,14 +2795,17 @@ static void UpdateBoxToSendMons(void)
 void ExternalLoadPC(void)
 {
     DebugPrintf("ExternalLoadPC");
-    ResetTasks();
-    //CleanupOverworldWindowsAndTilemaps();
+    ResetTasks(); //required
+    DebugPrintf("TilemapUtil_Free");
     TilemapUtil_Free();
-    MultiMove_Free();
-    //FreeAllWindowBuffers();
-    //sCurrentBoxOption = boxOption;
+    DebugPrintf("ResetSpriteData");
+    ResetSpriteData();
+    DebugPrintf("FreeAllSpritePalettes");
+    FreeAllSpritePalettes();
+
+    DebugPrintf("alloc gStorage");
     gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
-    if (gStorage == NULL)
+    if (gStorage == NULL) // WIP Handle this error case
         SetMainCallback2(CB2_ExitPokeStorage);
     else
     {
@@ -2825,25 +2818,10 @@ void ExternalLoadPC(void)
         SetHelpContext(HELPCONTEXT_BILLS_PC);
         sLastUsedBox = StorageGetCurrentBox();
         SetMainCallback2(CB2_PokeStorage);
+        //ResetBattlerControllerFuncsAfterPSS();
     }
-}
 
-static void Task_PCMenuFadeOut(u8 taskId)
-{
-    DebugPrintf("Task_PCMenuFadeOut");
-    //if (!gPaletteFade.active)
-    //{
-        DebugPrintf("PaletteFade done");
-        ClearStdWindowAndFrame(0, TRUE);
-        //UnlockPlayerFieldControls();
-        //ScriptContext_Enable();
-        FreeAllWindowBuffers();
-        TilemapUtil_Free();
-        MultiMove_Free();
-        //UpdateMonData(data);
-        //gBattleStruct->debugBattler = data->battlerId;
-        //Free(data);
-        DestroyTask(taskId);
-        SetMainCallback2(ReshowBattleScreenAfterMenu);
-    //}
+    //Test
+    ReshowBattleScreenDummy();
+    UpdatePartyToBattleOrder();
 }

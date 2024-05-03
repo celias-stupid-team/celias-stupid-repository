@@ -25,7 +25,6 @@ bool16 InitWindows(const struct WindowTemplate *templates)
     u8 *allocatedTilemapBuffer;
     int allocatedBaseBlock;
 
-    DebugPrintf("InitWindows");
     for (i = 0; i < 4; ++i)
     {
         bgTilemapBuffer = GetBgTilemapBuffer(i);

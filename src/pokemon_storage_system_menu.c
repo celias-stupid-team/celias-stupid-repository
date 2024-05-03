@@ -14,6 +14,9 @@
 #include "constants/songs.h"
 #include "constants/field_weather.h"
 #include "constants/help_system.h"
+#include "battle.h"
+#include "battle_controllers.h"
+#include "reshow_battle_screen.h"
 
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
@@ -395,9 +398,19 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void)
 {
+    // WIP
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
-    SetMainCallback2(CB2_ReturnToField);
+    if (gMain.inBattle)
+    {
+        gMain.callback1 = BattleMainCB1;
+        SetMainCallback2(ReshowBattleScreenAfterMenu);
+        //ResetBattlerControllerFuncsAfterPSS(); //not required?
+    }
+    else
+    {
+        gFieldCallback = FieldTask_ReturnToPcMenu;
+        SetMainCallback2(CB2_ReturnToField);
+    }
 }
 
 void ResetPokemonStorageSystem(void)

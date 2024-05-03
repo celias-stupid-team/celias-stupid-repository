@@ -197,6 +197,7 @@ enum
     /*new controllers should go here*/
     CONTROLLER_TERMINATOR_NOP,
     CONTROLLER_YESNOBOX,
+    CONTROLLER_POKESTORAGE,
     CONTROLLER_CMDS_COUNT
 };
 
@@ -269,6 +270,7 @@ void SetBattleEndCallbacks(void);
 void MoveSelectionCreateCursorAt(u8 cursorPos, u8 arg1);
 void MoveSelectionDestroyCursorAt(u8 cursorPos);
 void HandleInputChooseMove(void);
+void ResetBattlerControllerFuncsAfterPSS(void);
 
 // opponent controller
 void SetControllerToOpponent(void);

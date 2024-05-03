@@ -84,5 +84,6 @@ void ShowPartyMenuToShowcaseMultiBattleParty(void);
 void ChooseMonForDaycare(void);
 void ChoosePartyMonByMenuType(u8 menuType);
 void LoadPartyMenuAilmentGfx(void);
+void UpdatePartyToBattleOrder(void);
 
 #endif // GUARD_PARTY_MENU_H

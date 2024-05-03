@@ -1442,11 +1442,13 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
+    //DebugPrintf("BattleMainCB2");
     AnimateSprites();
     BuildOamBuffer();
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
+    //DebugPrintf("Tasks CB2: %d", GetTaskCount());
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
     {
@@ -2218,6 +2220,8 @@ void BeginBattleIntro(void)
 
 void BattleMainCB1(void)
 {
+    //DebugPrintf("BattleMainCB1");
+    //DebugPrintf("Tasks CB1: %d", GetTaskCount());
     gBattleMainFunc();
 
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
@@ -2875,6 +2879,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     s32 i, j;
     u8 effect = 0;
 
+    //DebugPrintf("TryDoEventsBeforeFirstTurn");
     if (gBattleControllerExecFlags)
         return;
 
@@ -3116,11 +3121,13 @@ static void HandleTurnActionSelectionState(void)
 {
     s32 i;
 
+    //DebugPrintf("HandleTurnActionSelectionState");
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
         u8 position = GetBattlerPosition(gActiveBattler);
 
+        //DebugPrintf("STATE: %d", gBattleCommunication[gActiveBattler]);
         switch (gBattleCommunication[gActiveBattler])
         {
         case STATE_BEFORE_ACTION_CHOSEN: // Choose an action.
@@ -3219,7 +3226,7 @@ static void HandleTurnActionSelectionState(void)
                         MarkBattlerForControllerExec(gActiveBattler);
                     }
                     break;
-                case B_ACTION_SWITCH:
+                case B_ACTION_SWITCH: //WIP improve handling here!
                     DebugPrintf("HandleTurnAction - B_ACTION_SWITCH");
                     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
                     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
@@ -3296,6 +3303,7 @@ static void HandleTurnActionSelectionState(void)
         case STATE_WAIT_ACTION_CASE_CHOSEN:
             if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
             {
+                DebugPrintf("ChosenAction: %d", gChosenActionByBattler[gActiveBattler]);
                 switch (gChosenActionByBattler[gActiveBattler])
                 {
                 case B_ACTION_USE_MOVE:
@@ -3339,8 +3347,10 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SWITCH:
+                    DebugPrintf("B_ACTION_SWITCH");
                     if (gBattleBufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
+                        DebugPrintf("reset gBattleCommunication after cancel");
                         gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
                     }
                     else
@@ -3593,6 +3603,7 @@ static void SetActionsAndBattlersTurnOrder(void)
     s32 turnOrderId = 0;
     s32 i, j;
 
+    DebugPrintf("SetActionsAndBattlersTurnOrder");
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
     {
         for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)

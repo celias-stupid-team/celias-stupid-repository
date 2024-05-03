@@ -371,12 +371,14 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
             for (i = 0; i < size; data++, i++) {
                 gBattleBufferA[gActiveBattler][i] = *data;
                 if (i == 1)
-                    DebugPrintf("PrepareBufferDataTransfer - data[1] = %d", data[1]);
+                    DebugPrintf("PrepareBuffer_A_DataTransfer - data[1] = %d", data[1]);
             }
             break;
         case BUFFER_B:
-            for (i = 0; i < size; data++, i++)
+            for (i = 0; i < size; data++, i++) {
                 gBattleBufferB[gActiveBattler][i] = *data;
+                DebugPrintf("PrepareBuffer_B_DataTransfer - data[%d] = %d", i, data[i]);
+            }
             break;
         }
     }
@@ -588,6 +590,7 @@ static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId)
             }
             break;
         case 1:
+            DebugPrintf("Set gBattleBufferB for LinkBattle?");
             memcpy(gBattleBufferB[battlerId], &gLinkBattleRecvBuffer[gTasks[taskId].data[15] + LINK_BUFF_DATA], blockSize);
             break;
         case 2:
@@ -1024,7 +1027,7 @@ void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battleP
 {
     s32 i;
 
-    DebugPrintf("BtlController_EmitChosenMonReturnValue");
+    DebugPrintf("BtlController_EmitChosenMonReturnValue, buffer=%d, partyID=%d", bufferId, partyId);
     DebugPrintf("gBattlePartyCurrentOrder = %d", (int)ARRAY_COUNT(gBattlePartyCurrentOrder));
     sBattleBuffersTransferData[0] = CONTROLLER_CHOSENMONRETURNVALUE;
     sBattleBuffersTransferData[1] = partyId;
@@ -1230,6 +1233,12 @@ void BtlController_EmitEndLinkBattle(u8 bufferId, u8 battleOutcome)
 void BtlController_EmitDebugMenu(u8 bufferId)
 {
     sBattleBuffersTransferData[0] = CONTROLLER_DEBUGMENU;
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 1);
+}
+
+void BtlController_EmitPokeStorageMenu(u8 bufferId) //not used rn
+{
+    sBattleBuffersTransferData[0] = CONTROLLER_POKESTORAGE;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 1);
 }
 

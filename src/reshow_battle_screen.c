@@ -62,19 +62,14 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
     case 1:
         SetVBlankCallback(NULL);
         ScanlineEffect_Clear();
-        DebugPrintf("1");
         BattleInitBgsAndWindows();
-        DebugPrintf("2");
         SetBgAttribute(1, BG_ATTR_CHARBASEINDEX, 0);
         SetBgAttribute(2, BG_ATTR_CHARBASEINDEX, 0);
-        DebugPrintf("3");
         ShowBg(0);
         ShowBg(1);
         ShowBg(2);
         ShowBg(3);
-        DebugPrintf("4");
         ResetPaletteFade();
-        DebugPrintf("5");
         gBattle_BG0_X = 0;
         gBattle_BG0_Y = 0;
         gBattle_BG1_X = 0;
