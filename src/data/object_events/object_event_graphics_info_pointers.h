@@ -231,12 +231,13 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skuntank;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Miltank;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Victini;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Absol;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machoke;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gyarados;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Trubbish;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Az;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Riley;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DmcaDad;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_N;
+
 
 
 
@@ -453,7 +454,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SWIMLASS] =         &gObjectEventGraphicsInfo_SwimLass,
     [OBJ_EVENT_GFX_SWIMNERD] =         &gObjectEventGraphicsInfo_SwimNerd,
     [OBJ_EVENT_GFX_SWIMBIKER] =         &gObjectEventGraphicsInfo_SwimBiker,
-    [OBJ_EVENT_GFX_PIDGEY] =         &gObjectEventGraphicsInfo_Pidgey,
     [OBJ_EVENT_GFX_FURRET] =         &gObjectEventGraphicsInfo_Furret,
     [OBJ_EVENT_GFX_GROWLITHESIGN] =         &gObjectEventGraphicsInfo_GrowlitheSign,
     [OBJ_EVENT_GFX_DRIFLOON] =         &gObjectEventGraphicsInfo_Drifloon,

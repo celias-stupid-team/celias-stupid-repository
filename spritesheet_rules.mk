@@ -408,7 +408,7 @@ $(OBJEVENTGFXDIR)/stupid/NES.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 $(OBJEVENTGFXDIR)/stupid/Bench.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 2
+	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Shit_Pickle.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
@@ -432,16 +432,16 @@ $(OBJEVENTGFXDIR)/stupid/Articuno_Egg.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Trash_Dad.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 2
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Snake.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 2
+	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Nebby.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 $(OBJEVENTGFXDIR)/stupid/Alola_Oak.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 8
+	$(GFX) $< $@ -mwidth 8 -mheight 8
 
 $(OBJEVENTGFXDIR)/stupid/Brick_Wall.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
@@ -480,7 +480,7 @@ $(OBJEVENTGFXDIR)/stupid/Kimono_Yellow.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Yellow_Guy.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 4
+	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Sinnoh_Lass.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
@@ -646,7 +646,7 @@ $(OBJEVENTGFXDIR)/stupid/Trubbish.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 $(OBJEVENTGFXDIR)/stupid/AZ.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 4 -mheight 8
+	$(GFX) $< $@ -mwidth 8 -mheight 8
 
 $(OBJEVENTGFXDIR)/stupid/Riley.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
