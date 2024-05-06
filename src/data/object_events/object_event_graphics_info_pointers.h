@@ -237,6 +237,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Az;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Riley;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DmcaDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_N;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hippopotas;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KangaBaby;
 
 
 
@@ -454,6 +456,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SWIMLASS] =         &gObjectEventGraphicsInfo_SwimLass,
     [OBJ_EVENT_GFX_SWIMNERD] =         &gObjectEventGraphicsInfo_SwimNerd,
     [OBJ_EVENT_GFX_SWIMBIKER] =         &gObjectEventGraphicsInfo_SwimBiker,
+    [OBJ_EVENT_GFX_HIPPOPOTAS] =         &gObjectEventGraphicsInfo_Hippopotas,
     [OBJ_EVENT_GFX_FURRET] =         &gObjectEventGraphicsInfo_Furret,
     [OBJ_EVENT_GFX_GROWLITHESIGN] =         &gObjectEventGraphicsInfo_GrowlitheSign,
     [OBJ_EVENT_GFX_DRIFLOON] =         &gObjectEventGraphicsInfo_Drifloon,
@@ -475,6 +478,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MILTANK] =         &gObjectEventGraphicsInfo_Miltank,
     [OBJ_EVENT_GFX_VICTINI] =         &gObjectEventGraphicsInfo_Victini,
     [OBJ_EVENT_GFX_ABSOL] =         &gObjectEventGraphicsInfo_Absol,
+    [OBJ_EVENT_GFX_KANGABABY] =         &gObjectEventGraphicsInfo_KangaBaby,
     [OBJ_EVENT_GFX_GYARADOS] =         &gObjectEventGraphicsInfo_Gyarados,
     [OBJ_EVENT_GFX_TRUBBISH] =         &gObjectEventGraphicsInfo_Trubbish,
     [OBJ_EVENT_GFX_AZ] =         &gObjectEventGraphicsInfo_Az,

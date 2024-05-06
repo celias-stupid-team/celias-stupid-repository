@@ -213,6 +213,7 @@
 #define OBJ_EVENT_GFX_SWIMLASS                        208
 #define OBJ_EVENT_GFX_SWIMNERD                        209
 #define OBJ_EVENT_GFX_SWIMBIKER                        210
+#define OBJ_EVENT_GFX_HIPPOPOTAS                        211
 #define OBJ_EVENT_GFX_FURRET                        212
 #define OBJ_EVENT_GFX_GROWLITHESIGN                        213
 #define OBJ_EVENT_GFX_DRIFLOON                        214
@@ -234,6 +235,7 @@
 #define OBJ_EVENT_GFX_MILTANK                        230
 #define OBJ_EVENT_GFX_VICTINI                        231
 #define OBJ_EVENT_GFX_ABSOL                        232
+#define OBJ_EVENT_GFX_KANGABABY                        233
 #define OBJ_EVENT_GFX_GYARADOS                        234
 #define OBJ_EVENT_GFX_TRUBBISH                        235
 #define OBJ_EVENT_GFX_AZ                        236
