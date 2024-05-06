@@ -6382,7 +6382,7 @@ static void Task_PartyMenuWaitForFade(u8 taskId)
 
 bool8 TrySwitchInPokemonFromPSS(void)
 {
-    //always use slot 1 for withdrewn mons and slot 0 for the active mon
+    // WIP: always use slot 1 for withdrewn mons and slot 0 for the active mon
     u8 slot = 1;
     u8 newSlot = 0;
     u8 i;

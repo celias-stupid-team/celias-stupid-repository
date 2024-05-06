@@ -1337,16 +1337,13 @@ static void OpenPartyMenuToChooseMon(void)
 static void OpenPCToWithdrawMon(void)
 {
     //gBattlerControllerFuncs[gActiveBattler]() runs everytime in BattleMainCB1
-    if (!gPaletteFade.active)// && !FlagGet(FLAG_0x0B1)) //WIP try to work around the flag!
+    if (!gPaletteFade.active)
     {
         DebugPrintf("OpenPCToWithdrawMon");
-        //FlagSet(FLAG_0x0B1); //WIP try to work around the flag!
         // WIP
         gBattlerControllerFuncs[gActiveBattler] = WaitForPSSMonSelection;
         DestroyTask(gBattleControllerData[gActiveBattler]);
-        FreeAllWindowBuffers();
-        ExternalLoadPC(); //sets the new CB2 and task
-        //ResetBattlerControllerFuncsAfterPSS(); //sets the gBattlerControllerFuncs
+        ExternalLoadPC(); //sets the new CB2 and and resets memory
     }
 }
 
@@ -3163,14 +3160,4 @@ static void PlayerHandleLoadPokemonStorage(void) //not used rn
     ExternalLoadPC();
     //SetMainCallback2(CB2_PokeStorage);
     //gBattlerControllerFuncs[gActiveBattler] = WaitForLoadPokemonStorage;
-}
-
-void ResetBattlerControllerFuncsAfterPSS(void) //probably not required
-{
-    DebugPrintf("ResetBattlerControllerFuncsAfterPSS");
-    //gBattlerControllerFuncs[gActiveBattler] = WaitForMonSelection;
-    //BtlController_EmitChosenMonReturnValue(1, 6, NULL);
-
-    gBattlerControllerFuncs[gActiveBattler] = WaitForDebug;
-    //gBattlerInMenuId = gActiveBattler;
 }

@@ -2858,7 +2858,11 @@ void ExternalLoadPC(void)
 {
 
     DebugPrintf("ExternalLoadPC");
-    ResetTasks(); //required
+    //ResetTasks(); //handled in EnterPokeStorage
+
+    //Free memory
+    DebugPrintf("FreeAllWindowBuffers");
+    FreeAllWindowBuffers();
     DebugPrintf("TilemapUtil_Free");
     //TilemapUtil_Free();
     DebugPrintf("ResetSpriteData");
@@ -2871,8 +2875,9 @@ void ExternalLoadPC(void)
     FreeMonSpritesGfx();
     SetVBlankCallback(NULL);
 
-    DebugPrintf("alloc gStorage");
-    gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
+    DebugPrintf("EnterPokeStorage");
+    EnterPokeStorage(OPTION_SWITCHIN);
+    /*gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
     if (gStorage == NULL) // WIP Handle this error case
         SetMainCallback2(CB2_ExitPokeStorage);
     else
@@ -2886,8 +2891,7 @@ void ExternalLoadPC(void)
         SetHelpContext(HELPCONTEXT_BILLS_PC);
         sLastUsedBox = StorageGetCurrentBox();
         SetMainCallback2(CB2_PokeStorage);
-        //ResetBattlerControllerFuncsAfterPSS();
-    }
+    }*/
 
     //Test WIP
     ReshowBattleScreenDummy();
