@@ -2080,7 +2080,7 @@ static void Task_OnBPressed(u8 taskId)
 
 static void Task_ShutDownImmediately(u8 taskId)
 {
-    DebugPrintf("Task_ShutDownImmediately - case: %d", gStorage->state);
+    //DebugPrintf("Task_ShutDownImmediately - case: %d", gStorage->state);
     switch (gStorage->state)
     {
     case 0:
@@ -2863,35 +2863,22 @@ void ExternalLoadPC(void)
     //Free memory
     DebugPrintf("FreeAllWindowBuffers");
     FreeAllWindowBuffers();
-    DebugPrintf("TilemapUtil_Free");
+    //DebugPrintf("TilemapUtil_Free");
     //TilemapUtil_Free();
     DebugPrintf("ResetSpriteData");
     ResetSpriteData();
     DebugPrintf("FreeAllSpritePalettes");
     FreeAllSpritePalettes();
-    DebugPrintf("FreeBattleSpritesData");
-    FreeBattleSpritesData();
     DebugPrintf("FreeMonSpritesGfx");
     FreeMonSpritesGfx();
-    SetVBlankCallback(NULL);
+    DebugPrintf("FreeBattleSpritesData");
+    FreeBattleSpritesData();
+    DebugPrintf("FreeBattleResources");
+    FreeBattleResources();
+    //SetVBlankCallback(NULL);
 
     DebugPrintf("EnterPokeStorage");
     EnterPokeStorage(OPTION_SWITCHIN);
-    /*gStorage = Alloc(sizeof(struct PokemonStorageSystemData));
-    if (gStorage == NULL) // WIP Handle this error case
-        SetMainCallback2(CB2_ExitPokeStorage);
-    else
-    {
-        DebugPrintf("ExternalLoadPC - Init");
-        gStorage->boxOption = OPTION_SWITCHIN; //set up text box behavior
-        gStorage->isReopening = FALSE;
-        sMovingItemId = 0;
-        gStorage->state = 0;
-        gStorage->taskId = CreateTask(Task_InitPokeStorage, 3);
-        SetHelpContext(HELPCONTEXT_BILLS_PC);
-        sLastUsedBox = StorageGetCurrentBox();
-        SetMainCallback2(CB2_PokeStorage);
-    }*/
 
     //Test WIP
     ReshowBattleScreenDummy();

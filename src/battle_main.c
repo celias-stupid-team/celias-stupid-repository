@@ -2221,7 +2221,6 @@ void BeginBattleIntro(void)
 void BattleMainCB1(void)
 {
     //DebugPrintf("BattleMainCB1");
-    //DebugPrintf("Tasks CB1: %d", GetTaskCount());
     gBattleMainFunc();
 
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)

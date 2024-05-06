@@ -192,8 +192,11 @@ void AgbMain()
             }
         }
 
+        //DebugPrintf("PlayTimeCounter_Update");
         PlayTimeCounter_Update();
+        //DebugPrintf("MapMusicMain");
         MapMusicMain();
+        //DebugPrintf("WaitForVBlank");
         WaitForVBlank();
     }
 }
@@ -225,6 +228,7 @@ static void CallCallbacks(void)
 
         if (gMain.callback2)
             gMain.callback2();
+        //DebugPrintf("CallCallbacks finished");
     }
 }
 

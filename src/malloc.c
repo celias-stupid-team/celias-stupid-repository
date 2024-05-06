@@ -2,6 +2,7 @@
 
 static void *sHeapStart;
 static u32 sHeapSize;
+static u32 sAllocatedHeap;
 
 static EWRAM_DATA struct MemBlock *head = NULL;
 static EWRAM_DATA struct MemBlock *pos = NULL;
@@ -67,6 +68,9 @@ void *AllocInternal(void *heapStart, u32 size)
                     // The block isn't much bigger than the requested size,
                     // so just use it.
                     pos->flag = TRUE;
+                    DebugPrintf("AllocInternal - mem = %d", pos->data);
+                    sAllocatedHeap = sAllocatedHeap + pos->size;    
+                    DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
                     return pos->data;
                 } else {
                     // The block is significantly bigger than the requested
@@ -86,6 +90,9 @@ void *AllocInternal(void *heapStart, u32 size)
 
                     if (splitBlock->next != head)
                         splitBlock->next->prev = splitBlock;
+                    DebugPrintf("AllocInternal - mem = %d", pos->data);
+                    sAllocatedHeap = sAllocatedHeap + pos->size;    
+                    DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
                     return pos->data;
                 }
             }
@@ -93,7 +100,8 @@ void *AllocInternal(void *heapStart, u32 size)
 
         if (pos->next == head)
         {
-            AGB_ASSERT_EX(0, ABSPATH("gflib/malloc.c"), 174);
+            DebugPrintf("sAllocatedHeap overflow = %d", sAllocatedHeap + pos->size);
+            AGB_ASSERT_EX(0, ABSPATH("gflib/malloc.c"), 174);   
             return NULL;
         }
 
@@ -108,6 +116,9 @@ void FreeInternal(void *heapStart, void *p)
     if (p) {
         struct MemBlock *head = (struct MemBlock *)heapStart;
         struct MemBlock *pos = (struct MemBlock *)((u8 *)p - sizeof(struct MemBlock));
+        DebugPrintf("Free - mem = %d", pos->data);
+        sAllocatedHeap = sAllocatedHeap - pos->size;    
+        DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
         AGB_ASSERT_EX(pos->magic_number == MALLOC_SYSTEM_ID, ABSPATH("gflib/malloc.c"), 204);
         AGB_ASSERT_EX(pos->flag == TRUE, ABSPATH("gflib/malloc.c"), 205);
         pos->flag = FALSE;
@@ -153,7 +164,7 @@ void *AllocZeroedInternal(void *heapStart, u32 size)
 
         CpuFill32(0, mem, size);
     }
-
+    
     return mem;
 }
 
@@ -187,6 +198,9 @@ void InitHeap(void *heapStart, u32 heapSize)
 {
     sHeapStart = heapStart;
     sHeapSize = heapSize;
+    DebugPrintf("sHeapSize = %d", sHeapSize);
+    DebugPrintf("sHeapStart = %d", sHeapStart);
+    sAllocatedHeap = 0;
     PutFirstMemBlockHeader(heapStart, heapSize);
 }
 

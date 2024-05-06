@@ -1349,8 +1349,8 @@ static void OpenPCToWithdrawMon(void)
 
 static void WaitForMonSelection(void)
 {
-    DebugPrintf("WaitForMonSelection");
-    DebugPrintf("gPartyMenuUseExitCallback = %d", gPartyMenuUseExitCallback);
+    //DebugPrintf("WaitForMonSelection");
+    //DebugPrintf("gPartyMenuUseExitCallback = %d", gPartyMenuUseExitCallback);
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
         DebugPrintf("WaitForMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
@@ -1366,11 +1366,11 @@ static void WaitForMonSelection(void)
 
 static void WaitForPSSMonSelection(void)
 {
-    DebugPrintf("WaitForPSSMonSelection");
+    //DebugPrintf("WaitForPSSMonSelection");
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        DebugPrintf("WaitForPSSMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
-        DebugPrintf("gPartyMenuUseExitCallback = %d", gPartyMenuUseExitCallback);
+        //DebugPrintf("WaitForPSSMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
+        //DebugPrintf("gPartyMenuUseExitCallback = %d", gPartyMenuUseExitCallback);
         if (gPartyMenuUseExitCallback == TRUE) //TRUE = Mon has been chosen
             BtlController_EmitChosenMonReturnValue(1, gSelectedMonPartyId, gBattlePartyCurrentOrder);
         else

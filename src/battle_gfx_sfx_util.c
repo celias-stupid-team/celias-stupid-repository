@@ -1026,6 +1026,8 @@ void AllocateMonSpritesGfx(void)
 {
     u8 i = 0, j;
 
+    DebugPrintf("AllocateMonSpritesGfx");
+
     gMonSpritesGfxPtr = NULL;
     gMonSpritesGfxPtr = AllocZeroed(sizeof(*gMonSpritesGfxPtr));
     gMonSpritesGfxPtr->firstDecompressed = AllocZeroed(0x8000);
@@ -1047,6 +1049,7 @@ void AllocateMonSpritesGfx(void)
 
 void FreeMonSpritesGfx(void)
 {
+    DebugPrintf("FreeMonSpritesGfx");
     if (gMonSpritesGfxPtr == NULL)
         return;
     if (gMonSpritesGfxPtr->multiUseBuffer != NULL)
