@@ -3122,6 +3122,7 @@ static void HandleTurnActionSelectionState(void)
     s32 i;
 
     //DebugPrintf("HandleTurnActionSelectionState");
+    //DebugPrintf("gBattleBufferB[gActiveBattler][1] = %d", gBattleBufferB[gActiveBattler][1]);
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     for (gActiveBattler = 0; gActiveBattler < gBattlersCount; gActiveBattler++)
     {
@@ -3304,6 +3305,7 @@ static void HandleTurnActionSelectionState(void)
             if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
             {
                 DebugPrintf("ChosenAction: %d", gChosenActionByBattler[gActiveBattler]);
+                DebugPrintf("gBattleBufferB[gActiveBattler][1] = %d", gBattleBufferB[gActiveBattler][1]);
                 switch (gChosenActionByBattler[gActiveBattler])
                 {
                 case B_ACTION_USE_MOVE:

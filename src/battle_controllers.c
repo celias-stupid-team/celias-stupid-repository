@@ -292,6 +292,7 @@ static void SetBattlePartyIds(void)
 {
     s32 i, j;
 
+    DebugPrintf("SetBattlePartyIds");
     if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
         for (i = 0; i < gBattlersCount; i++)
@@ -308,6 +309,7 @@ static void SetBattlePartyIds(void)
                          && !GetMonData(&gPlayerParty[j], MON_DATA_IS_EGG))
                         {
                             gBattlerPartyIndexes[i] = j;
+                            DebugPrintf("j = %d, species: %S", j, gSpeciesNames[GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL)]);
                             break;
                         }
                     }
@@ -319,6 +321,7 @@ static void SetBattlePartyIds(void)
                          && !GetMonData(&gEnemyParty[j], MON_DATA_IS_EGG))
                         {
                             gBattlerPartyIndexes[i] = j;
+                            DebugPrintf("j = %d, species: %S", j, gSpeciesNames[GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL)]);
                             break;
                         }
                     }
@@ -334,6 +337,7 @@ static void SetBattlePartyIds(void)
                          && gBattlerPartyIndexes[i - 2] != j)
                         {
                             gBattlerPartyIndexes[i] = j;
+                            DebugPrintf("j = %d, species: %S", j, gSpeciesNames[GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL)]);
                             break;
                         }
                     }
@@ -346,6 +350,7 @@ static void SetBattlePartyIds(void)
                          && gBattlerPartyIndexes[i - 2] != j)
                         {
                             gBattlerPartyIndexes[i] = j;
+                            DebugPrintf("j = %d, species: %S", j, gSpeciesNames[GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL)]);
                             break;
                         }
                     }
@@ -377,7 +382,7 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
         case BUFFER_B:
             for (i = 0; i < size; data++, i++) {
                 gBattleBufferB[gActiveBattler][i] = *data;
-                DebugPrintf("PrepareBuffer_B_DataTransfer - data[%d] = %d", i, data[i]);
+                //DebugPrintf("PrepareBuffer_B_DataTransfer - data[%d] = %d", i, data[i]);
             }
             break;
         }
@@ -885,6 +890,7 @@ void BtlController_EmitChoosePokemon(u8 bufferId, u8 caseId, u8 slotId, u8 abili
 {
     s32 i;
 
+    DebugPrintf("BtlController_EmitChoosePokemon");
     sBattleBuffersTransferData[0] = CONTROLLER_CHOOSEPOKEMON;
     sBattleBuffersTransferData[1] = caseId;
     sBattleBuffersTransferData[2] = slotId;

@@ -2173,6 +2173,9 @@ void BoxMonToMon(struct BoxPokemon *src, struct Pokemon *dest)
 {
     u32 value = 0;
     dest->box = *src;
+
+    DebugPrintf("BoxMonToMon");
+
     SetMonData(dest, MON_DATA_STATUS, &value);
     SetMonData(dest, MON_DATA_HP, &value);
     SetMonData(dest, MON_DATA_MAX_HP, &value);
@@ -3743,6 +3746,7 @@ u8 CalculatePlayerPartyCount(void)
         && GetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_SPECIES, NULL) != SPECIES_NONE)
     {
         gPlayerPartyCount++;
+        DebugPrintf("CalculatePlayerPartyCount: %d", gPlayerPartyCount);
     }
 
     return gPlayerPartyCount;

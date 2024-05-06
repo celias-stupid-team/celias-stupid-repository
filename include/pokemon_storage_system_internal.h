@@ -21,6 +21,7 @@ enum
     OPTION_MOVE_MONS,
     OPTION_MOVE_ITEMS,
     OPTION_EXIT,
+    OPTION_SWITCHIN,
     OPTIONS_COUNT
 };
 
@@ -64,6 +65,7 @@ enum
     MENU_TEXT_POKECENTER,
     MENU_TEXT_MACHINE,
     MENU_TEXT_SIMPLE,
+    MENU_TEXT_SWITCHIN,
 };
 
 // Return IDs for input handlers
@@ -95,6 +97,7 @@ enum {
     INPUT_MULTIMOVE_UNABLE,
     INPUT_MULTIMOVE_MOVE_MONS,
     INPUT_MULTIMOVE_PLACE_MONS,
+    INPUT_SWITCHIN,
 };
 
 enum
@@ -126,6 +129,8 @@ enum
     CHANGE_GRAB,
     CHANGE_PLACE,
     CHANGE_SHIFT,
+    CHANGE_SWITCHIN_TAKE,
+    CHANGE_SWITCHIN_PLACE,
 };
 
 // IDs for the main functions for moving multiple Pokémon.

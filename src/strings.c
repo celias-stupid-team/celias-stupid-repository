@@ -671,6 +671,7 @@ const u8 gPCText_PolkaDot[] = _("STARS");
 const u8 gPCText_Pokecenter[] = _("POKéCENTER");
 const u8 gPCText_Machine[] = _("TILES");
 const u8 gPCText_Simple[] = _("SIMPLE");
+const u8 gPCText_SwitchIn[] = _("SWITCH IN");
 const u8 gText_PC_WhatWouldYouLikeToDo[] = _("なにを しますか?");
 const u8 gText_WithdrawPokemon[] = _("WITHDRAW POKéMON");
 const u8 gText_DepositPokemon[] = _("DEPOSIT POKéMON");

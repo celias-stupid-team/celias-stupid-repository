@@ -1474,6 +1474,7 @@ extern const u8 gPCText_PolkaDot[];
 extern const u8 gPCText_Pokecenter[];
 extern const u8 gPCText_Machine[];
 extern const u8 gPCText_Simple[];
+extern const u8 gPCText_SwitchIn[];
 
 // pokemon_special_anim
 extern const u8 gText_Counting_1[];

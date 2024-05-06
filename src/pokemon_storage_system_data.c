@@ -25,12 +25,15 @@ static void DoCursorNewPosUpdate(void);
 static bool8 MonPlaceChange_Grab(void);
 static bool8 MonPlaceChange_Place(void);
 static bool8 MonPlaceChange_Shift(void);
+static bool8 MonPlaceChange_SwitchInTake(void);
+static bool8 MonPlaceChange_SwitchInPlace(void);
 static bool8 MonPlaceChange_DoMoveCursorDown(void);
 static bool8 MonPlaceChange_DoMoveCursorUp(void);
 static bool8 MonPlaceChange_MoveCursorDown(void);
 static bool8 MonPlaceChange_MoveCursorUp(void);
 static void MoveMon(void);
 static void PlaceMon(void);
+static void SwitchMon(void);
 static void SetMovedMonData(u8 boxId, u8 cursorPos);
 static void SetPlacedMonData(u8 boxId, u8 cursorPos);
 static void PurgeMonOrBoxMon(u8 boxId, u8 cursorPos);
@@ -409,6 +412,8 @@ void InitMonPlaceChange(u8 type)
         [CHANGE_GRAB]  = MonPlaceChange_Grab,
         [CHANGE_PLACE] = MonPlaceChange_Place,
         [CHANGE_SHIFT] = MonPlaceChange_Shift,
+        [CHANGE_SWITCHIN_TAKE] = MonPlaceChange_SwitchInTake,
+        [CHANGE_SWITCHIN_PLACE] = MonPlaceChange_SwitchInPlace,
     };
 
     gStorage->monPlaceChangeFunc = placeChangeFuncs[type];
@@ -516,9 +521,106 @@ static bool8 MonPlaceChange_Shift(void)
     case 2:
         return FALSE;
     }
+    
+    return TRUE;
+}
+
+/*static bool8 MonPlaceChange_SwitchInTake(void)
+{
+    //gStorage->monPlaceChangeState = 1;
+
+    DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
+    /*switch (gStorage->monPlaceChangeState)
+    {
+    case 0:
+        if (sIsMonBeingMoved)
+            return FALSE;
+        //StartSpriteAnim(gStorage->cursorSprite, 2);
+        gStorage->monPlaceChangeState++;
+        break;
+    case 1:
+        if (!MonPlaceChange_MoveCursorDown())
+        {
+            //StartSpriteAnim(gStorage->cursorSprite, 3);
+            MoveMon();
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 2:
+        if (!MonPlaceChange_MoveCursorUp())
+            gStorage->monPlaceChangeState++;
+        break;
+    case 3:
+        return FALSE;
+    }*/
+    /*
+    SwitchMon();
+    return TRUE;
+}*/
+
+static bool8 MonPlaceChange_SwitchInTake(void)
+{
+    DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
+    switch (gStorage->monPlaceChangeState)
+    {
+    case 0:
+        if (sIsMonBeingMoved)
+            return FALSE;
+        StartSpriteAnim(gStorage->cursorSprite, 2);
+        gStorage->monPlaceChangeState++;
+        break;
+    case 1:
+        if (!MonPlaceChange_MoveCursorDown())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 3);
+            MoveMon();
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 2:
+        if (!MonPlaceChange_MoveCursorUp())
+            gStorage->monPlaceChangeState++;
+        break;
+    case 3:
+        return FALSE;
+    }
 
     return TRUE;
 }
+
+static bool8 MonPlaceChange_SwitchInPlace(void)
+{
+    int i;
+    DebugPrintf("MonPlaceChange_SwitchInPlace - case = %d", gStorage->monPlaceChangeState);
+    switch (gStorage->monPlaceChangeState)
+    {
+    case 0:
+        if (!MonPlaceChange_MoveCursorDown())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 2);
+            PlaceMon();
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 1:
+        if (!MonPlaceChange_MoveCursorUp())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 0);
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 2:
+        //gPartyMenu.slotId = gStorage->;
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("gPlayerParty[i] - i = %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        CalculatePlayerPartyCount();
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+
 
 static bool8 MonPlaceChange_DoMoveCursorDown(void)
 {
@@ -563,6 +665,7 @@ static bool8 MonPlaceChange_MoveCursorUp(void)
 
 static void MoveMon(void)
 {
+    DebugPrintf("MoveMon - sCursorArea: %d", sCursorArea);
     switch (sCursorArea)
     {
     case CURSOR_AREA_IN_PARTY:
@@ -572,6 +675,7 @@ static void MoveMon(void)
     case CURSOR_AREA_IN_BOX:
         if (gStorage->inBoxMovingMode == MOVE_MODE_NORMAL)
         {
+            DebugPrintf("MOVE_MODE_NORMAL, sCursorPosition = %d", sCursorPosition);
             SetMovedMonData(StorageGetCurrentBox(), sCursorPosition);
             SetMovingMonSprite(MODE_BOX, sCursorPosition);
         }
@@ -590,10 +694,12 @@ static void PlaceMon(void)
     switch (sCursorArea)
     {
     case CURSOR_AREA_IN_PARTY:
+        DebugPrintf("CURSOR_AREA_IN_PARTY - CursorPos = %d", sCursorPosition);
         SetPlacedMonData(TOTAL_BOXES_COUNT, sCursorPosition);
         SetPlacedMonSprite(TOTAL_BOXES_COUNT, sCursorPosition);
         break;
     case CURSOR_AREA_IN_BOX:
+        DebugPrintf("CURSOR_AREA_IN_BOX - CursorPos = %d", sCursorPosition);
         boxId = StorageGetCurrentBox();
         SetPlacedMonData(boxId, sCursorPosition);
         SetPlacedMonSprite(boxId, sCursorPosition);
@@ -605,6 +711,35 @@ static void PlaceMon(void)
     sIsMonBeingMoved = FALSE;
 }
 
+static void SwitchMon(void)
+{
+    DebugPrintf("SwitchMon - sCursorArea: %d", sCursorArea);
+    //take mon from box
+    switch (sCursorArea)
+    {
+    case CURSOR_AREA_IN_PARTY:
+        SetMovedMonData(TOTAL_BOXES_COUNT, sCursorPosition);
+        //SetMovingMonSprite(MODE_PARTY, sCursorPosition);
+        break;
+    case CURSOR_AREA_IN_BOX:
+        if (gStorage->inBoxMovingMode == MOVE_MODE_NORMAL)
+        {
+            DebugPrintf("MOVE_MODE_NORMAL, sCursorPosition = %d", sCursorPosition);
+            SetMovedMonData(StorageGetCurrentBox(), sCursorPosition);
+            //SetMovingMonSprite(MODE_BOX, sCursorPosition);
+        }
+        break;
+    default:
+        return;
+    }
+    sIsMonBeingMoved = TRUE;
+
+    //place mon into party into second slot
+    // WIP: check if second slot is free (which should always be the case)
+    SetPlacedMonData(TOTAL_BOXES_COUNT, 1);
+    sIsMonBeingMoved = FALSE;
+}
+
 void DoTrySetDisplayMonData(void)
 {
     TrySetDisplayMonData();
@@ -612,6 +747,7 @@ void DoTrySetDisplayMonData(void)
 
 static void SetMovedMonData(u8 boxId, u8 position)
 {
+    DebugPrintf("SetMovedMonData - boxId: %d", boxId);
     if (boxId == TOTAL_BOXES_COUNT)
         gStorage->movingMon = gPlayerParty[sCursorPosition];
     else
@@ -624,6 +760,7 @@ static void SetMovedMonData(u8 boxId, u8 position)
 
 static void SetPlacedMonData(u8 boxId, u8 position)
 {
+    DebugPrintf("SetPlacedMonData");
     if (boxId == TOTAL_BOXES_COUNT)
         gPlayerParty[position] = gStorage->movingMon;
     else
@@ -635,6 +772,7 @@ static void SetPlacedMonData(u8 boxId, u8 position)
 
 static void PurgeMonOrBoxMon(u8 boxId, u8 position)
 {
+    DebugPrintf("PurgeMonOrBoxMon - boxId: %d", boxId);
     if (boxId == TOTAL_BOXES_COUNT)
         ZeroMonData(&gPlayerParty[position]);
     else
@@ -906,11 +1044,13 @@ s16 CompactPartySlots(void)
     s16 retVal = -1;
     u16 i, last;
 
+    DebugPrintf("CompactPartySlots");
     for (i = 0, last = 0; i < PARTY_SIZE; i++)
     {
         u16 species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
         if (species != SPECIES_NONE)
         {
+            DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
             if (i != last)
                 gPlayerParty[last] = gPlayerParty[i];
             last++;
@@ -1274,6 +1414,8 @@ static u8 HandleInput_InBox_Normal(void)
                     return INPUT_GIVE_ITEM;
                 case MENU_TEXT_SWITCH:
                     return INPUT_SWITCH_ITEMS;
+                case MENU_TEXT_SWITCHIN:
+                    return INPUT_SWITCHIN;
                 }
             }
             else
@@ -1786,6 +1928,12 @@ static bool8 SetMenuTextsForMon(void)
                 return FALSE;
         }
         break;
+    case OPTION_SWITCHIN:
+        if (species != SPECIES_NONE)
+            SetMenuText(MENU_TEXT_SWITCHIN);
+        else
+            return FALSE;
+        break;
     case OPTION_MOVE_ITEMS:
     default:
         return FALSE;
@@ -1800,8 +1948,11 @@ static bool8 SetMenuTextsForMon(void)
             SetMenuText(MENU_TEXT_STORE);
     }
 
-    SetMenuText(MENU_TEXT_MARK);
-    SetMenuText(MENU_TEXT_RELEASE);
+    if(gStorage->boxOption != OPTION_SWITCHIN)
+    {
+        SetMenuText(MENU_TEXT_MARK);
+        SetMenuText(MENU_TEXT_RELEASE);
+    }
     SetMenuText(MENU_TEXT_CANCEL);
     return TRUE;
 }
@@ -2063,6 +2214,7 @@ static const u8 *const sMenuTexts[] = {
     [MENU_TEXT_POKECENTER] = gPCText_Pokecenter,
     [MENU_TEXT_MACHINE]    = gPCText_Machine,
     [MENU_TEXT_SIMPLE]     = gPCText_Simple,
+    [MENU_TEXT_SWITCHIN]   = gPCText_SwitchIn,
 };
 
 void InitMenu(void)

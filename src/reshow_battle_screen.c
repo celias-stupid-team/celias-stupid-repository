@@ -102,6 +102,11 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
             ++gBattleScripting.reshowHelperState;
             --gBattleScripting.reshowMainState;
         }
+        // WIP reallocate battle sprite data before returning
+        DebugPrintf("AllocateBattleSpritesData");
+        AllocateBattleSpritesData();
+        DebugPrintf("AllocateMonSpritesGfx");
+        AllocateMonSpritesGfx(); // --> gives a malloc 174
         break;
     case 7:
         if (!LoadBattlerSpriteGfx(0))

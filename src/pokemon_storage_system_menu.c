@@ -403,8 +403,10 @@ void CB2_ExitPokeStorage(void)
     if (gMain.inBattle)
     {
         gMain.callback1 = BattleMainCB1;
+        //reallocate battle sprite data before returning
+        //AllocateBattleSpritesData();
+        //AllocateMonSpritesGfx();
         SetMainCallback2(ReshowBattleScreenAfterMenu);
-        //ResetBattlerControllerFuncsAfterPSS(); //not required?
     }
     else
     {
