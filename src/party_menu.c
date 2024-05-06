@@ -6388,7 +6388,7 @@ bool8 TrySwitchInPokemonFromPSS(void)
     u8 i;
     bool8 switchSuccessful = TRUE;
 
-    CompactPartySlotsForBattleSwitches();
+    CompactPartySlots();
     CalculatePlayerPartyCount();
     DebugPrintf("TrySwitchInPokemonFromPSS");
     DebugPrintf("species slot: %d, %S", slot, gSpeciesNames[GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES, NULL)]);
