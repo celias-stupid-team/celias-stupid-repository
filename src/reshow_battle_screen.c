@@ -53,7 +53,7 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
     u8 opponentBattler;
     u16 species;
 
-    DebugPrintf("CB2_ReshowBattleScreenAfterMenu - case = %d", gBattleScripting.reshowMainState);
+    //DebugPrintf("CB2_ReshowBattleScreenAfterMenu - case = %d", gBattleScripting.reshowMainState);
     switch (gBattleScripting.reshowMainState)
     {
     case 0:

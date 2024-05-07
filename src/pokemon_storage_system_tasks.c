@@ -947,8 +947,10 @@ static void Task_HidePartyPokemon(u8 taskId)
         {
             if (gStorage->setMosaic)
                 StartDisplayMonMosaic();
-            //SetPokeStorageTask(Task_PokeStorageMain); WIP: uncomment for original!
-            SetPokeStorageTask(Task_ShutDownImmediately);
+            if (gMain.inBattle) // WIP --> working correctly?
+                SetPokeStorageTask(Task_ShutDownImmediately);
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }
@@ -2858,13 +2860,10 @@ void ExternalLoadPC(void)
 {
 
     DebugPrintf("ExternalLoadPC");
-    //ResetTasks(); //handled in EnterPokeStorage
 
     //Free memory
     DebugPrintf("FreeAllWindowBuffers");
     FreeAllWindowBuffers();
-    //DebugPrintf("TilemapUtil_Free");
-    //TilemapUtil_Free();
     DebugPrintf("ResetSpriteData");
     ResetSpriteData();
     DebugPrintf("FreeAllSpritePalettes");
@@ -2875,19 +2874,19 @@ void ExternalLoadPC(void)
     FreeBattleSpritesData();
     DebugPrintf("FreeBattleResources");
     FreeBattleResources();
-    //SetVBlankCallback(NULL);
 
     DebugPrintf("EnterPokeStorage");
     EnterPokeStorage(OPTION_SWITCHIN);
 
-    //Test WIP
+    // WIP - below is based on legacy code
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
 }
 
 static void Task_WithdrawMonInBackground(u8 taskId)
 {
-    DebugPrintf("Task_WithdrawMonInBackground - case: %d", gStorage->state);
+    int i; //Test WIP
+    //DebugPrintf("Task_WithdrawMonInBackground - case: %d", gStorage->state);
     switch (gStorage->state)
     {
     case 0:
@@ -2936,12 +2935,12 @@ static void Task_WithdrawMonInBackground(u8 taskId)
     case 5:
         // WIP
         TrySwitchInPokemonFromPSS();
+        //log current party order
+        DebugPrintf("After TrySwitchInPokemonFromPSS()");
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        UpdatePartyToFieldOrder();
         SetPokeStorageTask(Task_HidePartyPokemon);
-        /*else
-        {   
-            gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
-            SetPokeStorageTask(Task_ChangeScreen);
-        }*/
         break;
     }
 }

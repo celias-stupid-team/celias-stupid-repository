@@ -4726,6 +4726,7 @@ static void Cmd_switchinanim(void)
         return;
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
+    DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[gActiveBattler], MON_DATA_SPECIES, NULL)]);
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT
         && !(gBattleTypeFlags & (BATTLE_TYPE_LINK

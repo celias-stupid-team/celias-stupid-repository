@@ -5,6 +5,7 @@
 #include "mail_data.h"
 #include "menu.h"
 #include "new_menu_helpers.h"
+#include "party_menu.h" //only for debugprint reasons
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
 #include "strings.h"
@@ -560,7 +561,7 @@ static bool8 MonPlaceChange_Shift(void)
 
 static bool8 MonPlaceChange_SwitchInTake(void)
 {
-    DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
+    //DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
     switch (gStorage->monPlaceChangeState)
     {
     case 0:
@@ -612,8 +613,11 @@ static bool8 MonPlaceChange_SwitchInPlace(void)
     case 2:
         //gPartyMenu.slotId = gStorage->;
         for (i = 0; i < PARTY_SIZE; i++)
-            DebugPrintf("gPlayerParty[i] - i = %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-        CalculatePlayerPartyCount();
+        {
+            DebugPrintf("gPlayerParty[%d], species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+            DebugPrintf("corresponding gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[i]);
+        }
+        //CalculatePlayerPartyCount();
         return FALSE;
     }
 

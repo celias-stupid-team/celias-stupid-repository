@@ -1034,12 +1034,10 @@ void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battleP
     s32 i;
 
     DebugPrintf("BtlController_EmitChosenMonReturnValue, buffer=%d, partyID=%d", bufferId, partyId);
-    DebugPrintf("gBattlePartyCurrentOrder = %d", (int)ARRAY_COUNT(gBattlePartyCurrentOrder));
     sBattleBuffersTransferData[0] = CONTROLLER_CHOSENMONRETURNVALUE;
     sBattleBuffersTransferData[1] = partyId;
     for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++) {
         DebugPrintf("i = %d", i);
-        DebugPrintf("battlePartyOrder = %d", battlePartyOrder[i]);
         DebugPrintf("gBattlePartyCurrentOrder = %d", gBattlePartyCurrentOrder[i]);
         sBattleBuffersTransferData[2 + i] = battlePartyOrder[i];
     }

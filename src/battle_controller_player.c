@@ -1369,7 +1369,7 @@ static void WaitForPSSMonSelection(void)
     //DebugPrintf("WaitForPSSMonSelection");
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        //DebugPrintf("WaitForPSSMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
+        DebugPrintf("WaitForPSSMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
         //DebugPrintf("gPartyMenuUseExitCallback = %d", gPartyMenuUseExitCallback);
         if (gPartyMenuUseExitCallback == TRUE) //TRUE = Mon has been chosen
             BtlController_EmitChosenMonReturnValue(1, gSelectedMonPartyId, gBattlePartyCurrentOrder);
@@ -2604,21 +2604,24 @@ static void PlayerHandleChoosePokemon(void)
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
     // WIP
-    if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && TRUE) //TRUE = PSS, FALSE = party
+    if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH) //TRUE = PSS, FALSE = party
     {
         //send all mons except the first to the PC
         //ToDo: handle double battles
 
+        DebugPrintf("gActiveBattler ID = %d", gBattlerPartyIndexes[gActiveBattler]);
         for (i = 0; i < PARTY_SIZE; i++)
-        {
-            DebugPrintf("gActiveBattler ID = %d", gBattlerPartyIndexes[gActiveBattler]);
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+        for (i = 0; i < PARTY_SIZE; i++)
+        {            
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
                 break;
             else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send activeBattler to PC
             {
                 DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
                 sentToPc = SendMonToPC(&gPlayerParty[i]);
-                if (sentToPc == 1) {
+                if (sentToPc == TRUE) {
                     ZeroMonData(&gPlayerParty[i]);
                     gPlayerPartyCount = gPlayerPartyCount - 1;
                 }

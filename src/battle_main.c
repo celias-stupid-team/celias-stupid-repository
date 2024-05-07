@@ -3212,7 +3212,7 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
+                    /*if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER))
                     {
                         gSelectionBattleScripts[gActiveBattler] = BattleScript_ActionSelectionItemsCantBeUsed;
                         gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
@@ -3225,7 +3225,7 @@ static void HandleTurnActionSelectionState(void)
                         BtlController_EmitChooseItem(0, gBattleStruct->battlerPartyOrders[gActiveBattler]);
                         MarkBattlerForControllerExec(gActiveBattler);
                     }
-                    break;
+                    break;*/
                 case B_ACTION_SWITCH: //WIP improve handling here!
                     DebugPrintf("HandleTurnAction - B_ACTION_SWITCH");
                     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
@@ -3304,7 +3304,7 @@ static void HandleTurnActionSelectionState(void)
             if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
             {
                 DebugPrintf("ChosenAction: %d", gChosenActionByBattler[gActiveBattler]);
-                DebugPrintf("gBattleBufferB[gActiveBattler][1] = %d", gBattleBufferB[gActiveBattler][1]);
+                //DebugPrintf("gBattleBufferB[gActiveBattler][1] = %d", gBattleBufferB[gActiveBattler][1]);
                 switch (gChosenActionByBattler[gActiveBattler])
                 {
                 case B_ACTION_USE_MOVE:
@@ -3337,7 +3337,7 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if ((gBattleBufferB[gActiveBattler][1] | (gBattleBufferB[gActiveBattler][2] << 8)) == 0)
+                    /*if ((gBattleBufferB[gActiveBattler][1] | (gBattleBufferB[gActiveBattler][2] << 8)) == 0)
                     {
                         gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
                     }
@@ -3346,9 +3346,10 @@ static void HandleTurnActionSelectionState(void)
                         gLastUsedItem = (gBattleBufferB[gActiveBattler][1] | (gBattleBufferB[gActiveBattler][2] << 8));
                         gBattleCommunication[gActiveBattler]++;
                     }
-                    break;
+                    break;*/
                 case B_ACTION_SWITCH:
                     DebugPrintf("B_ACTION_SWITCH");
+                    gChosenActionByBattler[gActiveBattler] = B_ACTION_SWITCH; // WIP - only for testing purposes
                     if (gBattleBufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
                         DebugPrintf("reset gBattleCommunication after cancel");
@@ -3356,7 +3357,12 @@ static void HandleTurnActionSelectionState(void)
                     }
                     else
                     {
+                        //log current party order
+                        for (i = 0; i < PARTY_SIZE; i++)
+                            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
                         *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = gBattleBufferB[gActiveBattler][1];
+                        DebugPrintf("Mon to switch into: %d", gBattleBufferB[gActiveBattler][1]);
+                        DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[gBattleBufferB[gActiveBattler][1]], MON_DATA_SPECIES, NULL)]);
                         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
                         {
                             *(gActiveBattler * 3 + (u8 *)(gBattleStruct->battlerPartyOrders) + 0) &= 0xF;
@@ -4222,6 +4228,7 @@ static void HandleAction_Switch(void)
     gMoveSelectionCursor[gBattlerAttacker] = 0;
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, *(gBattleStruct->battlerPartyIndexes + gBattlerAttacker));
     gBattleScripting.battler = gBattlerAttacker;
+    DebugPrintf("call BattleScript_ActionSwitch");
     gBattlescriptCurrInstr = BattleScript_ActionSwitch;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
     if (gBattleResults.playerSwitchesCounter < 255)
