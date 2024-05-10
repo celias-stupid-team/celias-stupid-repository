@@ -2159,7 +2159,7 @@ static void PlayerHandleSwitchInAnim(void)
 {
     DebugPrintf("PlayerHandleSwitchInAnim"); //WIP
     ClearTemporarySpeciesSpriteData(gActiveBattler, gBattleBufferA[gActiveBattler][2]);
-    DebugPrintf("gBattleBufferA[gActiveBattler][1] = %d", gBattleBufferA[gActiveBattler][1]);
+    DebugPrintf("Position gActiveBattler= %d", gBattleBufferA[gActiveBattler][1]);
     gBattlerPartyIndexes[gActiveBattler] = gBattleBufferA[gActiveBattler][1];
     BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
     gActionSelectionCursor[gActiveBattler] = 0;
@@ -2593,7 +2593,7 @@ static void PlayerHandleChoosePokemon(void)
     int sentToPc;
     u8 taskId;
 
-    DebugPrintf("PlayerHandleChoosePokemon");
+    DebugPrintf("\n\n--------PlayerHandleChoosePokemon--------");
     gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
     gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
     *(&gBattleStruct->battlerPreventingSwitchout) = gBattleBufferA[gActiveBattler][1] >> 4;
@@ -2603,13 +2603,15 @@ static void PlayerHandleChoosePokemon(void)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
+    DebugPrintf("gActiveBattler = %d", gActiveBattler);
+
     // WIP
-    if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH) //TRUE = PSS, FALSE = party
+    if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH) // WIP !!! TRUE = PSS, FALSE = party
     {
         //send all mons except the first to the PC
         //ToDo: handle double battles
 
-        DebugPrintf("gActiveBattler ID = %d", gBattlerPartyIndexes[gActiveBattler]);
+        DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
         for (i = 0; i < PARTY_SIZE; i++)
             DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
 
@@ -2627,6 +2629,17 @@ static void PlayerHandleChoosePokemon(void)
                 }
             }
         }
+        //reset party data
+        CompactPartySlots();
+        CalculatePlayerPartyCount();
+        gActiveBattler = 0;
+        gBattlerPartyIndexes[0] = 0;
+        //set inital BattleSlots
+        ResetBattleSlots();
+
+        DebugPrintf("After SendMonToPC - gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
 
         //load PC to withdraw mon WIP
         gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;
@@ -2634,6 +2647,9 @@ static void PlayerHandleChoosePokemon(void)
     }
     else
     {
+        DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
         gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
         gBattlerInMenuId = gActiveBattler;
         DebugPrintf("gBattlerInMenuId: %d", gBattlerInMenuId);
@@ -3152,7 +3168,7 @@ static void WaitForLoadPokemonStorage(void)
     }
 }
 
-static void PlayerHandleLoadPokemonStorage(void) //not used rn
+static void PlayerHandleLoadPokemonStorage(void) //not used rn - WIP
 {
     DebugPrintf("PlayerHandleLoadPokemonStorage");
     //TilemapUtil_Free();

@@ -8,6 +8,7 @@
 #include "strings.h"
 #include "task.h"
 #include "trig.h"
+#include "data.h" //only for DebugPrintf
 
 static void SpriteCB_BoxMonIconScrollOut(struct Sprite *sprite);
 static void SetBoxSpeciesAndPersonalities(u8 boxId);
@@ -600,10 +601,14 @@ void CreatePartyMonsSprites(bool8 visible)
     u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG);
     u32 personality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
 
+    DebugPrintf("CreatePartyMonsSprites");
+    for (i=0; i<PARTY_SIZE; i++)
+        DebugPrintf("gPlayerParty[%d] = %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
     gStorage->partySprites[0] = CreateMonIconSprite(species, personality, 104, 64, 1, 12);
     count = 1;
     for (i = 1; i < PARTY_SIZE; i++)
     {
+        DebugPrintf("&gPlayerParty[%d] = %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
         if (species != SPECIES_NONE)
         {

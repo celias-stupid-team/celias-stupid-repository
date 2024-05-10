@@ -1448,7 +1448,6 @@ void BattleMainCB2(void)
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
-    //DebugPrintf("Tasks CB2: %d", GetTaskCount());
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
     {

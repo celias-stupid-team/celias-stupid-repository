@@ -1723,6 +1723,7 @@ void ZeroBoxMonData(struct BoxPokemon *boxMon)
 void ZeroMonData(struct Pokemon *mon)
 {
     u32 arg;
+    DebugPrintf("ZeroMonData");
     ZeroBoxMonData(&mon->box);
     arg = 0;
     SetMonData(mon, MON_DATA_STATUS, &arg);

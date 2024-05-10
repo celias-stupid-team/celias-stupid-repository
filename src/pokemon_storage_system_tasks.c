@@ -820,7 +820,6 @@ static void Task_PokeStorageMain(u8 taskId)
             break;
         case INPUT_SWITCHIN: // WIP
             PlaySE(SE_SELECT);
-            //SetPokeStorageTask(Task_WithdrawMon);
             SetPokeStorageTask(Task_WithdrawMonInBackground);
             break;
         }
@@ -1213,8 +1212,6 @@ static void Task_WithdrawMon(u8 taskId)
         }
         break;
     case 5:
-        // WIP
-        //TrySwitchInPokemonFromPSS();
         SetPokeStorageTask(Task_HidePartyPokemon);
         break;
     }
@@ -2451,6 +2448,7 @@ static void InitSupplementalTilemaps(void)
 
 static void SetUpShowPartyMenu(void)
 {
+    DebugPrintf("SetUpShowPartyMenu");
     gStorage->partyMenuUnused1 = 20;
     gStorage->partyMenuY = 2;
     gStorage->partyMenuMoveTimer = 0;
@@ -2858,7 +2856,7 @@ static void UpdateBoxToSendMons(void)
 
 void ExternalLoadPC(void)
 {
-
+    int i;
     DebugPrintf("ExternalLoadPC");
 
     //Free memory
@@ -2881,6 +2879,10 @@ void ExternalLoadPC(void)
     // WIP - below is based on legacy code
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
+    //Test
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
 }
 
 static void Task_WithdrawMonInBackground(u8 taskId)

@@ -526,39 +526,6 @@ static bool8 MonPlaceChange_Shift(void)
     return TRUE;
 }
 
-/*static bool8 MonPlaceChange_SwitchInTake(void)
-{
-    //gStorage->monPlaceChangeState = 1;
-
-    DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
-    /*switch (gStorage->monPlaceChangeState)
-    {
-    case 0:
-        if (sIsMonBeingMoved)
-            return FALSE;
-        //StartSpriteAnim(gStorage->cursorSprite, 2);
-        gStorage->monPlaceChangeState++;
-        break;
-    case 1:
-        if (!MonPlaceChange_MoveCursorDown())
-        {
-            //StartSpriteAnim(gStorage->cursorSprite, 3);
-            MoveMon();
-            gStorage->monPlaceChangeState++;
-        }
-        break;
-    case 2:
-        if (!MonPlaceChange_MoveCursorUp())
-            gStorage->monPlaceChangeState++;
-        break;
-    case 3:
-        return FALSE;
-    }*/
-    /*
-    SwitchMon();
-    return TRUE;
-}*/
-
 static bool8 MonPlaceChange_SwitchInTake(void)
 {
     //DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
@@ -574,6 +541,7 @@ static bool8 MonPlaceChange_SwitchInTake(void)
         if (!MonPlaceChange_MoveCursorDown())
         {
             StartSpriteAnim(gStorage->cursorSprite, 3);
+            //sCursorPosition = 0; // WIP
             MoveMon();
             gStorage->monPlaceChangeState++;
         }
@@ -599,6 +567,8 @@ static bool8 MonPlaceChange_SwitchInPlace(void)
         if (!MonPlaceChange_MoveCursorDown())
         {
             StartSpriteAnim(gStorage->cursorSprite, 2);
+            //sCursorPosition = 1; // WIP
+            DebugPrintf("sCursorPosition = %d", sCursorPosition);
             PlaceMon();
             gStorage->monPlaceChangeState++;
         }
@@ -679,7 +649,7 @@ static void MoveMon(void)
     case CURSOR_AREA_IN_BOX:
         if (gStorage->inBoxMovingMode == MOVE_MODE_NORMAL)
         {
-            DebugPrintf("MOVE_MODE_NORMAL, sCursorPosition = %d", sCursorPosition);
+            DebugPrintf("CURSOR_AREA_IN_BOX, sCursorPosition = %d", sCursorPosition);
             SetMovedMonData(StorageGetCurrentBox(), sCursorPosition);
             SetMovingMonSprite(MODE_BOX, sCursorPosition);
         }
@@ -715,7 +685,7 @@ static void PlaceMon(void)
     sIsMonBeingMoved = FALSE;
 }
 
-static void SwitchMon(void)
+static void SwitchMon(void) // WIP - not used?
 {
     DebugPrintf("SwitchMon - sCursorArea: %d", sCursorArea);
     //take mon from box
@@ -728,7 +698,7 @@ static void SwitchMon(void)
     case CURSOR_AREA_IN_BOX:
         if (gStorage->inBoxMovingMode == MOVE_MODE_NORMAL)
         {
-            DebugPrintf("MOVE_MODE_NORMAL, sCursorPosition = %d", sCursorPosition);
+            DebugPrintf("CURSOR_AREA_IN_BOX, sCursorPosition = %d", sCursorPosition);
             SetMovedMonData(StorageGetCurrentBox(), sCursorPosition);
             //SetMovingMonSprite(MODE_BOX, sCursorPosition);
         }
