@@ -29,8 +29,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 48,
-      "y": 15,
+      "x": 8,
+      "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 4,
@@ -43,8 +43,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 38,
-      "y": 14,
+      "x": 14,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -56,9 +56,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_POLIWRATH",
-      "x": 36,
-      "y": 14,
+      "graphics_id": "OBJ_EVENT_GFX_SLOWBRO",
+      "x": 12,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -71,8 +71,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 11,
-      "y": 18,
+      "x": 45,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 4,
@@ -85,8 +85,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 18,
-      "y": 22,
+      "x": 27,
+      "y": 30,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -98,9 +98,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 30,
-      "y": 24,
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 53,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -112,7 +112,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_MAN",
       "x": 26,
       "y": 19,
       "elevation": 3,
@@ -127,8 +127,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 38,
-      "y": 31,
+      "x": 43,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 5,
@@ -140,9 +140,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 9,
-      "y": 30,
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 8,
+      "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -234,7 +234,7 @@
   "warp_events": [
     {
       "x": 34,
-      "y": 21,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_GAME_CORNER",
       "dest_warp_id": "0"
@@ -243,25 +243,25 @@
       "x": 11,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
+      "dest_warp_id": "4"
     },
     {
       "x": 15,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_ROUTE16_NORTH_ENTRANCE_1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 30,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "dest_warp_id": "3"
     },
     {
-      "x": 48,
+      "x": 35,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_POKEMON_CENTER_1F",
@@ -271,29 +271,29 @@
       "x": 39,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_GAME_CORNER_PRIZE_ROOM",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "dest_warp_id": "2"
     },
     {
       "x": 11,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_GYM",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_3F",
+      "dest_warp_id": "2"
     },
     {
       "x": 37,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_RESTAURANT",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "15"
     },
     {
       "x": 41,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_HOUSE1",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_ROUTE16_NORTH_ENTRANCE_1F",
+      "dest_warp_id": "4"
     },
     {
       "x": 49,
@@ -322,9 +322,32 @@
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 43,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "14"
+    },
+    {
+      "x": 48,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "7"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -352,8 +375,8 @@
     },
     {
       "type": "sign",
-      "x": 22,
-      "y": 18,
+      "x": 34,
+      "y": 21,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CeladonCity_EventScript_CitySign"
