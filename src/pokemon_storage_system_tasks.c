@@ -2141,7 +2141,6 @@ static void Task_ChangeScreen(u8 taskId)
     {
     case SCREEN_CHANGE_EXIT_BOX:
     default:
-        DebugPrintf("FreePokeStorageData");
         FreePokeStorageData();
         SetMainCallback2(CB2_ExitPokeStorage);
         break;
@@ -2939,9 +2938,9 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         TrySwitchInPokemonFromPSS();
         //log current party order
         DebugPrintf("After TrySwitchInPokemonFromPSS()");
+        UpdatePartyToFieldOrder();
         for (i = 0; i < PARTY_SIZE; i++)
             DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-        UpdatePartyToFieldOrder();
         SetPokeStorageTask(Task_HidePartyPokemon);
         break;
     }

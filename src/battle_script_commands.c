@@ -5140,6 +5140,7 @@ static void Cmd_switchhandleorder(void)
         }
         break;
     case 1:
+        DebugPrintf("Cmd_switchhandleorder - gActiveBattler = %d, %S", gActiveBattler, gSpeciesNames[GetMonData(&gPlayerParty[gActiveBattler], MON_DATA_SPECIES, NULL)]);
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
             UpdatePartyOwnerOnSwitch_NonMulti(gActiveBattler);
         break;

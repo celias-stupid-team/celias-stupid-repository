@@ -3083,10 +3083,16 @@ void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler)
     s32 i;
     u8 r4, r1;
 
+    DebugPrintf("\n\n<<<UpdatePartyOwnerOnSwitch_NonMulti, battler: %d", battler);
+    r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]); //to be deleted
+    r1 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler)); //to be deleted
+    DebugPrintf("\n\n<<<UpdatePartyOwnerOnSwitch_NonMulti, values: %d, %d", r4, r1);
+
     for (i = 0; i < 3; i++)
         gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
     r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
     r1 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler));
+    DebugPrintf("\n\n<<<UpdatePartyOwnerOnSwitch_NonMulti, values: %d, %d", r4, r1);
     SwitchPartyMonSlots(r4, r1);
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {

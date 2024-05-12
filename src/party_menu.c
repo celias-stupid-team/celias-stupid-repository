@@ -280,7 +280,6 @@ static u8 GetPartySlotEntryStatus(s8 slot);
 static void Task_HandleSelectionMenuInput(u8 taskId);
 static void CB2_ShowPokemonSummaryScreen(void);
 static void CB2_ReturnToPartyMenuFromSummaryScreen(void);
-//static void UpdatePartyToBattleOrder(void);
 static void SlidePartyMenuBoxOneStep(u8 taskId);
 static void Task_SlideSelectedSlotsOffscreen(u8 taskId);
 static void SwitchPartyMon(void);
@@ -484,9 +483,7 @@ static void CB2_InitPartyMenu(void)
     int i;
     while (TRUE)
     {
-        DebugPrintf("CB2:InitPartyMenu");
-        for (i = 0; i < PARTY_SIZE; i++)
-            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        //DebugPrintf("CB2:InitPartyMenu");
         if (MenuHelpers_ShouldWaitForLinkRecv() == TRUE || ShowPartyMenu() == TRUE || MenuHelpers_IsLinkActive() == TRUE)
             break;
     }
@@ -6281,10 +6278,18 @@ void UpdatePartyToBattleOrder(void)
     struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
     u8 i;
 
+    DebugPrintf("UpdatePartyToBattleOrder Start");
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, BPI: %d, species: %S", i, GetPartyIdFromBattlePartyId(i), gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+    
     memcpy(partyBuffer, gPlayerParty, sizeof(gPlayerParty));
     for (i = 0; i < PARTY_SIZE; ++i)
         memcpy(&gPlayerParty[GetPartyIdFromBattlePartyId(i)], &partyBuffer[i], sizeof(struct Pokemon));
     Free(partyBuffer);
+    
+    DebugPrintf("UpdatePartyToBattleOrder End");
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
 }
 
 void UpdatePartyToFieldOrder(void)
@@ -6517,6 +6522,9 @@ bool8 TrySwitchInPokemonFromPSS(void)
         DebugPrintf("After SwapPartyPokemon()");
         for (i = 0; i < PARTY_SIZE; i++)
             DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        //check BattleSlots
+        for (i = 0; i < PARTY_SIZE; ++i)
+            GetPartyIdFromBattleSlot(i);
         DebugPrintf("--------RETURN TRUE--------\n");
         return TRUE;
     }
