@@ -23,3 +23,21 @@ CeruleanCity_House2_EventScript_WallHole::
 	msgbox CeruleanCity_House2_Text_TeamRocketLeftWayOut, MSGBOX_SIGN
 	end
 `
+
+script CeruleanCity_House2_EventScript_SecretLife {
+	msgbox("Many books lie scattered and\ndisheveled across the floor.\pLooking at the titles, they all\nread “My Secret Life, Chapter 3.”")
+	release
+	end
+}
+
+script CeruleanCity_House2_EventScript_FavoriteShirt {
+	msgbox("Only one identical copy of the\nfavorite shirt remains.")
+	release
+	end
+}
+
+script CeruleanCity_House2_EventScript_VolcanoBakemeat {
+	msgbox("This arranging for mother is no\nlonger adept.\lVolcano Bakemeat?")
+	release
+	end
+}
