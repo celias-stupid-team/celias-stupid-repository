@@ -48,13 +48,12 @@ script Route3_EventScript_Lass {
 	msgbox(Route3_Text_JaniceIntro)
 	fadedefaultbgm
 	trainerbattle_no_intro(TRAINER_LASS_JANICE,Route3_Text_JaniceDefeat)
-	//single.battle.continue.silent JANICE???????
 	release
 	end
 }
 
 movement Lass_Player_Start {
-	//emote question mark????
+	
 	delay_16 * 5
 	face_left
 	delay_16 * 2
@@ -76,6 +75,6 @@ movement Lass_Attack_South {
 
 
 movement Lass_Player_End {
-	//emote exclamation mark????
+	
 	face_right
 }
