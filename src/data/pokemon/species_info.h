@@ -1598,7 +1598,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = {EGG_GROUP_WATER_1, EGG_GROUP_FIELD},
         .abilities = {ABILITY_DAMP, ABILITY_CLOUD_NINE},
         .safariZoneFleeRate = 50,
-        .bodyColor = BODY_COLOR_YELLOW,
+        .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
     [SPECIES_GOLDUCK] =
@@ -1627,7 +1627,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = {EGG_GROUP_WATER_1, EGG_GROUP_FIELD},
         .abilities = {ABILITY_DAMP, ABILITY_CLOUD_NINE},
         .safariZoneFleeRate = 0,
-        .bodyColor = BODY_COLOR_BLUE,
+        .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
     },
     [SPECIES_MANKEY] =
