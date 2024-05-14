@@ -285,7 +285,15 @@
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 
-#define EVOS_PER_MON 5
+#define EVO_PARTY            16 // Pokemon levels up with specific pokemon in party
+#define EVO_MOVE             17 // Pokemon levels up while knowing a specific move
+#define EVO_HAIRCUT          18 // Pokemon gets a haircut
+#define EVO_MIRROR           19 // Pokemon uses Reveal Glass
+#define EVO_ALONE            20 // Pokemon is alone :(
+
+
+
+#define EVOS_PER_MON 6          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
 
 #define EVO_MODE_NORMAL     0
 #define EVO_MODE_TRADE      1
