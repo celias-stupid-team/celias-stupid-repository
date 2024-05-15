@@ -496,12 +496,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassJanice[] = {
     {
         .iv = 0,
         .lvl = 9,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_NIDORAN_F,
     },
     {
         .iv = 0,
         .lvl = 9,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_RATTATA,
     },
 };
 
@@ -582,7 +582,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassAli[] = {
     {
         .iv = 0,
         .lvl = 12,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -618,7 +618,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassHaley[] = {
     {
         .iv = 0,
         .lvl = 13,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -631,7 +631,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassAnn[] = {
     {
         .iv = 0,
         .lvl = 18,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -688,7 +688,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassMegan[] = {
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -975,17 +975,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerIsabelle[] = {
     {
         .iv = 0,
         .lvl = 16,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
         .lvl = 16,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
         .lvl = 16,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
 };
 
@@ -1050,7 +1050,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerCarol[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -1068,7 +1068,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerSofia[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -1107,7 +1107,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerHannah[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3278,7 +3278,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperSebastian[] = 
     {
         .iv = 0,
         .lvl = 29,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3296,12 +3296,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperPerry[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3319,7 +3319,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperRobert[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3378,7 +3378,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperEdwin[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
 };
 
@@ -3476,7 +3476,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperReed[] = {
     {
         .iv = 0,
         .lvl = 39,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3502,7 +3502,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperCarter[] = {
     {
         .iv = 0,
         .lvl = 28,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3520,7 +3520,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperMitch[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3530,7 +3530,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperMitch[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -3744,14 +3744,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalOaksLabCharmander[]
 static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlySquirtle[] = {
     {
         .iv = 50,
-        .lvl = 9,
-        .species = SPECIES_PIDGEY,
-        .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_NONE, MOVE_NONE},
+        .lvl = 50,
+        .species = SPECIES_ZAPDOS,
+        .moves = {MOVE_DRILL_PECK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 50,
         .lvl = 9,
-        .species = SPECIES_SQUIRTLE,
+        .species = SPECIES_WARTORTLE,
         .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE},
     },
 };
@@ -3759,30 +3759,30 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlySquirtle
 static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlyBulbasaur[] = {
     {
         .iv = 50,
-        .lvl = 9,
-        .species = SPECIES_PIDGEY,
-        .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_NONE, MOVE_NONE},
+        .lvl = 50,
+        .species = SPECIES_ZAPDOS,
+        .moves = {MOVE_DRILL_PECK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 50,
         .lvl = 9,
-        .species = SPECIES_BULBASAUR,
-        .moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_NONE, MOVE_NONE},
+        .species = SPECIES_WARTORTLE,
+        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE},
     },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlyCharmander[] = {
     {
         .iv = 50,
-        .lvl = 9,
-        .species = SPECIES_PIDGEY,
-        .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_NONE, MOVE_NONE},
+        .lvl = 50,
+        .species = SPECIES_ZAPDOS,
+        .moves = {MOVE_DRILL_PECK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 50,
         .lvl = 9,
-        .species = SPECIES_CHARMANDER,
-        .moves = {MOVE_SCRATCH, MOVE_GROWL, MOVE_NONE, MOVE_NONE},
+        .species = SPECIES_WARTORTLE,
+        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -6565,7 +6565,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerSusie[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -6606,7 +6606,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerGwen[] = {
     {
         .iv = 0,
         .lvl = 27,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -6616,7 +6616,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerGwen[] = {
     {
         .iv = 0,
         .lvl = 27,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -6704,7 +6704,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerDana[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
 };
 
@@ -6712,7 +6712,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerAriana[] = {
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -6993,7 +6993,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassReli2[] = {
     {
         .iv = 20,
         .lvl = 20,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 20,
@@ -8009,7 +8009,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperMilo[] = {
     {
         .iv = 0,
         .lvl = 47,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 0,
@@ -8888,7 +8888,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerIsabelle2[] = {
     {
         .iv = 20,
         .lvl = 18,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_PIDGEOTTO,
     },
 };
 
