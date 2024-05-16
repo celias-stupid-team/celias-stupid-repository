@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_Scientist1",
+      "script": "PewterCity_Museum_1F_EventScript_Receptionist",
       "flag": "0"
     },
     {
@@ -54,8 +54,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_OldAmberScientist",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Amber_Tree",
+      "flag": "FLAG_CSR_TREE_FLAG_1"
     },
     {
       "type": "object",
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_OldAmber",
+      "script": "PewterCity_Museum_1F_EventScript_OldAmberScientist",
       "flag": "FLAG_HIDE_OLD_AMBER"
     },
     {
@@ -82,8 +82,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_Scientist2",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Rowan",
+      "flag": "FLAG_CSR_TREE_FLAG_2"
     },
     {
       "type": "object",
@@ -96,8 +96,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_SeismicTossTutor",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Birch",
+      "flag": "FLAG_CSR_TREE_FLAG_3"
     },
     {
       "type": "object",
