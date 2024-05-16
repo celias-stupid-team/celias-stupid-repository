@@ -98,8 +98,8 @@
       "x": 11,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_2F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
