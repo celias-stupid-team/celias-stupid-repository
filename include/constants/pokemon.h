@@ -99,12 +99,12 @@
 #define TYPE_FIGHTING       1
 #define TYPE_FLYING         2
 #define TYPE_POISON         3
-#define TYPE_GROUND         4
+#define TYPE_STEEL         4
 #define TYPE_ROCK           5
 #define TYPE_BUG            6
 #define TYPE_GHOST          7
-#define TYPE_STEEL          8
-#define TYPE_MYSTERY        9
+#define TYPE_MYSTERY          8
+#define TYPE_GROUND        9
 #define TYPE_FIRE           10
 #define TYPE_WATER          11
 #define TYPE_GRASS          12
@@ -117,7 +117,8 @@
 #define TYPE_BROCK          19
 #define TYPE_WEIRD          20
 #define TYPE_DAD            21
-#define NUMBER_OF_MON_TYPES 22
+#define TYPE_CHOCOLATE      22
+#define NUMBER_OF_MON_TYPES 23
 
 // Pokemon egg groups
 #define EGG_GROUP_NONE         0
