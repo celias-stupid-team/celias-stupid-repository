@@ -119,7 +119,10 @@
 #define TYPE_DAD            21
 #define TYPE_CHOCOLATE      22
 #define TYPE_SHADOW         23
-#define NUMBER_OF_MON_TYPES 24
+#define TYPE_LARGE          24
+#define TYPE_BIRD           25
+#define TYPE_SHIT           26
+#define NUMBER_OF_MON_TYPES 27
 
 // Pokemon egg groups
 #define EGG_GROUP_NONE         0

@@ -473,6 +473,10 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_WEIRD] = _("WEIRD"),
     [TYPE_DAD] = _("DAD"),
     [TYPE_CHOCOLATE] = _("CHOCO"),
+    [TYPE_LARGE] = _("LARGE"),
+    [TYPE_BIRD] = _("BIRD"),
+    [TYPE_SHIT] = _("SHIT"),
+
 };
 
 // This is a factor in how much money you get for beating a trainer.

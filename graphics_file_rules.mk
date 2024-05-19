@@ -33,14 +33,14 @@ NAMINGGFXDIR := graphics/naming_screen
 WALLPAPERGFXDIR := graphics/pokemon_storage/wallpapers
 JPCONTESTGFXDIR := graphics/contest/japanese
 
-types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark
+types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy dad shadow chocolate brock weird large bird shit
 contest_types := cool beauty cute smart tough
 
 CASTFORMGFXDIR := graphics/pokemon/castform
 $(CASTFORMGFXDIR)/front.4bpp: $(CASTFORMGFXDIR)/normal/front.4bpp \
 											$(CASTFORMGFXDIR)/sunny/front.4bpp \
 											$(CASTFORMGFXDIR)/rainy/front.4bpp \
-											$(CASTFORMGFXDIR)/snowy/front.4bpp
+											$(CASTFORMGFXDIR)/snowy/front.4bpps
 	@cat $^ >$@
 
 $(CASTFORMGFXDIR)/back.4bpp: $(CASTFORMGFXDIR)/normal/back.4bpp \
