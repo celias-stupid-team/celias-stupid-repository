@@ -308,6 +308,7 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
+        src/mugshot.o(.text);
     } =0
 
     script_data :
@@ -389,6 +390,7 @@ SECTIONS {
         *libc.a:libcfunc.o(.text);
         *libc.a:lseekr.o(.text);
         *libc.a:readr.o(.text);
+        
     } =0
 
     .rodata :
@@ -604,6 +606,7 @@ SECTIONS {
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
+        src/mugshot.o(.rodata);
 
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
