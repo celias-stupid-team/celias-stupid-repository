@@ -259,3 +259,10 @@ script PewterCity_Museum_1F_EventScript_Birch_Scam {
 	release
 	end
 }
+
+script PewterCity_Museum_1F_EventScript_Trees {
+	lock
+	msgbox("Hmm…\nThere's no response from this one!")
+	release
+	end
+}
