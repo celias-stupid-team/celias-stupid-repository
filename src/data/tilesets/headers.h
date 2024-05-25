@@ -746,3 +746,14 @@ const struct Tileset gTileset_HallOfFame =
     .callback = NULL,
 };
 
+
+const struct Tileset gTileset_NewFuchsiaGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewFuchsiaGym,
+    .palettes = gTilesetPalettes_NewFuchsiaGym,
+    .metatiles = gMetatiles_NewFuchsiaGym,
+    .metatileAttributes = gMetatileAttributes_NewFuchsiaGym,
+    .callback = NULL,
+};

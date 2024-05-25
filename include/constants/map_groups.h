@@ -354,6 +354,7 @@
 #define MAP_FUCHSIA_CITY_WARDENS_HOUSE        (7 | (11 << 8))
 #define MAP_FUCHSIA_CITY_HOUSE2               (8 | (11 << 8))
 #define MAP_FUCHSIA_CITY_HOUSE3               (9 | (11 << 8))
+#define MAP_NEW_FUCHSIA_GYM                   (10 | (11 << 8))
 
 // gMapGroup_IndoorCinnabar
 #define MAP_CINNABAR_ISLAND_GYM                         (0 | (12 << 8))

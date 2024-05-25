@@ -1364,3 +1364,6 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/New_Fuchsia_Gym/scripts.inc"
+	.include "data/maps/New_Fuchsia_Gym/text.inc"
