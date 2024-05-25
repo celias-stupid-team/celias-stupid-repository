@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 3,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -98,18 +98,20 @@
       "x": 9,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_2F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "6"
     },
     {
       "x": 3,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
+      "dest_map": "MAP_CELADON_CITY_GAME_CORNER_PRIZE_ROOM",
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
