@@ -63,6 +63,21 @@ static void DoNothing(void);
 static void ApplyFogBlend(u8 blendCoeff, u16 blendColor);
 static bool8 LightenSpritePaletteInFog(u8 paletteIndex);
 
+
+
+static const u16 sDroughtWeatherColors[][0x1000] = {
+    INCBIN_U16("graphics/weather/drought/colors_0.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_1.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_2.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_3.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_4.bin"),
+    INCBIN_U16("graphics/weather/drought/colors_5.bin"),
+};
+
+
+
+
+
 struct Weather *const gWeatherPtr = &sWeather;
 
 static const struct WeatherCallbacks sWeatherFuncs[] = {
@@ -489,6 +504,31 @@ static void ApplyGammaShift(u8 startPalIndex, u8 numPalettes, s8 gammaIndex)
     {
         // A negative gammIndex value means that the blending will come from the special Drought weather's palette tables.
         // Dummied out in FRLG
+
+        gammaIndex = -gammaIndex - 1;
+        palOffset = PLTT_ID(startPalIndex);
+        numPalettes += startPalIndex;
+        curPalIndex = startPalIndex;
+
+        while (curPalIndex < numPalettes)
+        {
+            if (sPaletteGammaTypes[curPalIndex] == GAMMA_NONE)
+            {
+                // No palette change.
+                CpuFastCopy(&gPlttBufferUnfaded[palOffset], &gPlttBufferFaded[palOffset], PLTT_SIZE_4BPP);
+                palOffset += 16;
+            }
+            else
+            {
+                for (i = 0; i < 16; i++)
+                {
+                    gPlttBufferFaded[palOffset] = sDroughtWeatherColors[gammaIndex][DROUGHT_COLOR_INDEX(gPlttBufferUnfaded[palOffset])];
+                    palOffset++;
+                }
+            }
+
+            curPalIndex++;
+        }
     }
     else
     {
@@ -890,8 +930,8 @@ void LoadCustomWeatherSpritePalette(const u16 *palette)
 static void LoadDroughtWeatherPalette(u8 *gammaIndexPtr, u8 *a1)
 {
     // Dummied out in FRLG
-    // *gammaIndexPtr = 0x20;
-    // *a1 = 0x20;
+    *gammaIndexPtr = 0x20;
+    *a1 = 0x20;
 }
 
 void ResetDroughtWeatherPaletteLoading(void)
