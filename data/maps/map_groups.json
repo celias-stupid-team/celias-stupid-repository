@@ -393,7 +393,8 @@
     "FuchsiaCity_WardensHouse",
     "FuchsiaCity_House2",
     "FuchsiaCity_House3",
-    "New_Fuchsia_Gym"
+    "New_Fuchsia_Gym",
+    "New_Fuchsia_Gym_Status_Rooms"
   ],
   "gMapGroup_IndoorCinnabar": [
     "CinnabarIsland_Gym",

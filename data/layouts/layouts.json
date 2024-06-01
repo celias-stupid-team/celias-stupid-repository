@@ -4392,6 +4392,18 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/New_Fuchsia_Gym/border.bin",
       "blockdata_filepath": "data/layouts/New_Fuchsia_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_FUCHSIA_GYM_STATUS_ROOMS",
+      "name": "New_Fuchsia_Gym_Status_Rooms_Layout",
+      "width": 40,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NewFuchsiaGym",
+      "border_filepath": "data/layouts/New_Fuchsia_Gym_Status_Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/New_Fuchsia_Gym_Status_Rooms/map.bin"
     }
   ]
 }
