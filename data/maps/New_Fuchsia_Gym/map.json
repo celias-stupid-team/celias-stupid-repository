@@ -140,6 +140,76 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "New_Fuchsia_Gym_EventScript_Soviet",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 40,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "New_Fuchsia_Gym_EventScript_SignLady",
+      "flag": "FLAG_TEMP_10"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BLACKBELT",
+      "x": 32,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 36,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "New_Fuchsia_Gym_EventScript_SignLadyWestMoveBack",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 44,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "New_Fuchsia_Gym_EventScript_SignLadyEastMoveBack",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BLACKBELT",
+      "x": 35,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_14"
     }
   ],
   "warp_events": [
@@ -181,6 +251,55 @@
     {
       "x": 20,
       "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 40,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 45,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 45,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_NEW_FUCHSIA_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 51,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_NEW_FUCHSIA_GYM",
       "dest_warp_id": "0"

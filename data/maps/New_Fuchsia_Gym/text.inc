@@ -3,3 +3,9 @@ New_Fuchsia_Gym_Text_Soviet::
 
 New_Fuchsia_Gym_Text_LoveTheIronCurtain::
     .string "sure do love the iron curtain$"
+
+New_Fuchsia_Gym_Text_IShouldGoBackToSign::
+    .string "hmm maybe ill just go back$"
+
+New_Fuchsia_Gym_Text_ImpossibleTrainerIntro::
+    .string "AHA !!$"

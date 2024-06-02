@@ -288,8 +288,8 @@
 #define FLAG_0x10C               0x10C
 #define FLAG_0x10D               0x10D
 #define FLAG_0x10E               0x10E
-#define FLAG_0x10F               0x10F
-#define FLAG_0x110               0x110
+#define FLAG_FUCHSIA_SIGN_LADY_EAST               0x10F
+#define FLAG_FUCHSIA_SIGN_LADY_WEST               0x110
 #define FLAG_0x111               0x111
 #define FLAG_0x112               0x112
 #define FLAG_0x113               0x113
