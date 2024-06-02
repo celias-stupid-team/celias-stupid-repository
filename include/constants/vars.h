@@ -215,7 +215,7 @@ It is reset after every battle.
 #define VAR_0x4099                 0x4099
 #define VAR_0x409A                 0x409A
 #define VAR_0x409B                 0x409B
-#define VAR_0x409C                 0x409C
+#define VAR_FUCHSIA_TYPE_TRIO_PROGRESS                 0x409C //Used for managing the type icon curtains in Fuchsia Gym
 #define VAR_0x409D                 0x409D
 #define VAR_0x409E                 0x409E
 #define VAR_0x409F                 0x409F

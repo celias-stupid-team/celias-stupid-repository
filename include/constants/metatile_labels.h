@@ -91,6 +91,38 @@
 // gTileset_MtEmber
 #define METATILE_MtEmber_CaveEntrance  0x346
 
+// gTileset_NewFuchsiaGym
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain1    0x2D5
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain10   0x2E7
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain2    0x2D6
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain3    0x2DC
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain4    0x2DD
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain5    0x2DE
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain6    0x2DF
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain7    0x2E4
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain8    0x2E5
+#define METATILE_NewFuchsiaGym_GreenOpenCurtain9    0x2E6
+#define METATILE_NewFuchsiaGym_IronCurtainClosed1   0x30A
+#define METATILE_NewFuchsiaGym_IronCurtainClosed10  0x320
+#define METATILE_NewFuchsiaGym_IronCurtainClosed11  0x321
+#define METATILE_NewFuchsiaGym_IronCurtainClosed12  0x322
+#define METATILE_NewFuchsiaGym_IronCurtainClosed13  0x323
+#define METATILE_NewFuchsiaGym_IronCurtainClosed14  0x324
+#define METATILE_NewFuchsiaGym_IronCurtainClosed2   0x311
+#define METATILE_NewFuchsiaGym_IronCurtainClosed3   0x312
+#define METATILE_NewFuchsiaGym_IronCurtainClosed4   0x313
+#define METATILE_NewFuchsiaGym_IronCurtainClosed5   0x318
+#define METATILE_NewFuchsiaGym_IronCurtainClosed6   0x319
+#define METATILE_NewFuchsiaGym_IronCurtainClosed7   0x31A
+#define METATILE_NewFuchsiaGym_IronCurtainClosed8   0x31B
+#define METATILE_NewFuchsiaGym_IronCurtainClosed9   0x31C
+#define METATILE_NewFuchsiaGym_IronCurtainOpen11    0x315
+#define METATILE_NewFuchsiaGym_IronCurtainOpen12    0x316
+#define METATILE_NewFuchsiaGym_IronCurtainOpen13    0x317
+#define METATILE_NewFuchsiaGym_IronCurtainOpen6     0x30D
+#define METATILE_NewFuchsiaGym_IronCurtainOpen7     0x30E
+#define METATILE_NewFuchsiaGym_IronCurtainOpen8     0x30F
+
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_SkyPillar_CrackedFloor_Hole  0x237
 
