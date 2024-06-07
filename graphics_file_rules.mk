@@ -40,7 +40,7 @@ CASTFORMGFXDIR := graphics/pokemon/castform
 $(CASTFORMGFXDIR)/front.4bpp: $(CASTFORMGFXDIR)/normal/front.4bpp \
 											$(CASTFORMGFXDIR)/sunny/front.4bpp \
 											$(CASTFORMGFXDIR)/rainy/front.4bpp \
-											$(CASTFORMGFXDIR)/snowy/front.4bpps
+											$(CASTFORMGFXDIR)/snowy/front.4bpp
 	@cat $^ >$@
 
 $(CASTFORMGFXDIR)/back.4bpp: $(CASTFORMGFXDIR)/normal/back.4bpp \
