@@ -10,3 +10,71 @@ Route3_EventScript_RouteSign::
 	msgbox Route3_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route3_EventScript_Lass_North {
+	lock
+	setvar(VAR_TEMP_1,5)
+	goto(Route3_EventScript_Lass)
+}
+
+script Route3_EventScript_Lass_South {
+	lock
+	setvar(VAR_TEMP_1,4)
+	goto(Route3_EventScript_Lass)
+}
+
+script Route3_EventScript_Lass {
+	playbgm(MUS_ENCOUNTER_GIRL, 1)
+	delay(90)
+	 //set Rumor Log variables 4,3
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Lass_Player_Start)
+	waitmovement(0)
+	switch(var(VAR_TEMP_1)) {
+		case 5:
+			applymovement(5,Lass_Attack_North)
+		case 4:
+			applymovement(5,Lass_Attack_South)
+	}
+	waitmovement(0)
+	delay(10)
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Lass_Player_End)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(Route3_Text_JaniceIntro)
+	fadedefaultbgm
+	trainerbattle_no_intro(TRAINER_LASS_JANICE,Route3_Text_JaniceDefeat)
+	release
+	end
+}
+
+movement Lass_Player_Start {
+	
+	delay_16 * 5
+	face_left
+	delay_16 * 2
+	delay_8
+	face_right
+	delay_1 * 30
+	face_left
+}
+movement Lass_Attack_North {
+	walk_left * 4
+	walk_up * 5
+	walk_left * 5
+}
+movement Lass_Attack_South {
+	walk_left * 4
+	walk_up * 4
+	walk_left * 5
+}
+
+
+movement Lass_Player_End {
+	
+	face_right
+}

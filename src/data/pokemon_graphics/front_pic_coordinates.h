@@ -23,7 +23,7 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_CHARMANDER] =
     {
         .size = MON_COORDS_SIZE(40, 40),
-        .y_offset = 13,
+        .y_offset = 16,
     },
     [SPECIES_CHARMELEON] =
     {

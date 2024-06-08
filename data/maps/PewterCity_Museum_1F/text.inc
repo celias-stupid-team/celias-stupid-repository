@@ -46,22 +46,12 @@ PewterCity_Museum_1F_Text_ShouldBeGratefulForLongLife::
     .string "mechanical POKéMON just like it.$"
 
 PewterCity_Museum_1F_Text_WantYouToGetAmberExamined::
-    .string "Ssh! Listen, I need to share a\n"
-    .string "secret with someone.\p"
-    .string "I think that this chunk of AMBER\n"
-    .string "contains POKéMON DNA!\p"
-    .string "It would be a shattering scientific\n"
-    .string "breakthrough if POKéMON could be\l"
-    .string "resurrected from it.\p"
-    .string "But, my colleagues just ignore\n"
-    .string "what I have to say.\p"
-    .string "So, I have a favor to ask!\p"
-    .string "I want you to get this examined at\n"
-    .string "a POKéMON LAB somewhere.$"
+    .string "A lovely piece of AMBER!\n"
+    .string "I'm sure they won't mind...$"
 
 PewterCity_Museum_1F_Text_ReceivedOldAmberFromMan::
-    .string "{PLAYER} received the OLD AMBER\n"
-    .string "from the man.$"
+    .string "{PLAYER}  stole the OLD AMBER\n"
+    .string "from the display!$"
 
 PewterCity_Museum_1F_Text_GetOldAmberChecked::
     .string "Ssh!\n"
