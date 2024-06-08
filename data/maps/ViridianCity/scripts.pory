@@ -373,3 +373,10 @@ ViridianCity_EventScript_DoTutorialBattle::
 	msgbox ViridianCity_Text_WatchThatToLearnBasics
 	return
 `
+
+script ViridianCity_EventScript_Gambler {
+	lock
+	faceplayer 
+	msgbox(format("Oh no...\pI left my keys someplace, and I\nhave no idea where.\lI'm sure they're not here in town.\pGuess I'm stuck out here."), MSGBOX_AUTOCLOSE)
+	release
+}
