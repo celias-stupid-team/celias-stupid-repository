@@ -91,7 +91,6 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	giveegg SPECIES_TORCHIC
 	end
 
 Debug_EventScript_Script_2::
