@@ -1660,6 +1660,19 @@
 	.4byte \text
 	.endm
 
+	@ Sets the obtainable flags for one or more species
+	.macro _setobtainable specieslist:vararg
+	.byte 0xd8
+	.byte (.Lsetobtainable_\@_2 - .Lsetobtainable_\@_1) / 2
+.Lsetobtainable_\@_1:
+	.2byte \specieslist
+.Lsetobtainable_\@_2:
+	.endm
+
+	.macro setobtainable specieslist:vararg
+	_setobtainable \specieslist
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
