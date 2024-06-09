@@ -210,18 +210,18 @@
 #define FLAG_CSR_BROKE_INTO_HOUSE               0x0B8
 #define FLAG_CSR_RETURNED_KEY               0x0B9
 #define FLAG_CSR_WENT_TO_PIT               0x0BA
-#define FLAG_CSR_VIRIDIAN_HIDDEN_ETHER               0x0BB
+#define FLAG_CSR_UNUSED_1               0x0BB
 #define FLAG_CSR_KENYA_OBTAINED             0x0BC
 
 
 //Route 2
-#define FLAG_CSR_ROUTE_2_POKEBALL               0x0BD
+#define FLAG_CSR_UNUSED_2            0x0BD
 
 //Viridian Forest
 #define FLAG_0x0BE               0x0BE
 
 //Pewter City
-#define FLAG_CSR_PEWTER_POKEBALL               0x0BF
+#define FLAG_CSR_UNUSED_3              0x0BF
 #define FLAG_CSR_MUSEUM_GUIDE_MISSED               0x0C0
 #define FLAG_CSR_BROCK_RAINING               0x0C1
 #define FLAG_CSR_TREE_FLAG_1               0x0C2
@@ -232,23 +232,23 @@
 //Route 3
 #define FLAG_CSR_LASS_ATTACK_1               0x0C6
 #define FLAG_CSR_LASS_ATTACK_2               0x0C7
-#define FLAG_CSR_ROUTE_3_POKEBALL               0x0C8
+#define FLAG_CSR_UNUSED_4               0x0C8
 
 //Route 4
 #define FLAG_CSR_2_SITRUS_BERRIES               0x0C9
 #define FLAG_CSR_NEGATIVE_BERRIES               0x0CA
-#define FLAG_CSR_ROUTE_4_POKEBALL               0x0CB
+#define FLAG_CSR_UNUSED_5               0x0CB
 
 //Mt Moon
 #define FLAG_CSR_FIRST_TENTACOOL               0x0CC
 #define FLAG_CSR_SECOND_TENTACOOL               0x0CD
-#define FLAG_CSR_MT_MOON_SUPER_REPEL               0x0CE
-#define FLAG_CSR_MT_MOON_MIN_REPEL               0x0CF
-#define FLAG_CSR_MT_MOON_MAX_REPEL               0x0D0
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_1               0x0D1
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2               0x0D2
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3               0x0D3
-#define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY              0x0D4
+#define FLAG_CSR_UNUSED_6               0x0CE
+#define FLAG_CSR_UNUSED_7               0x0CF
+#define FLAG_CSR_UNUSED_8               0x0D0
+#define FLAG_CSR_UNUSED_9               0x0D1
+#define FLAG_CSR_UNUSED_10               0x0D2
+#define FLAG_CSR_UNUSED_11               0x0D3
+#define FLAG_CSR_UNUSED_12              0x0D4
 
 //Cerulean City
 #define FLAG_CSR_BERRY_POWDER_MAN               0x0D5
@@ -556,17 +556,17 @@
 
 // Unused?
 // Let's use these for item pickups
-#define FLAG_0x1FF               0x1FF
-#define FLAG_0x200               0x200
-#define FLAG_0x201               0x201
-#define FLAG_0x202               0x202
-#define FLAG_0x203               0x203
-#define FLAG_0x204               0x204
-#define FLAG_0x205               0x205
-#define FLAG_0x206               0x206
-#define FLAG_0x207               0x207
-#define FLAG_0x208               0x208
-#define FLAG_0x209               0x209
+#define FLAG_CSR_ROUTE_2_POKEBALL               0x1FF
+#define FLAG_CSR_PEWTER_POKEBALL               0x200
+#define FLAG_CSR_ROUTE_3_POKEBALL               0x201
+#define FLAG_CSR_ROUTE_4_POKEBALL               0x202
+#define FLAG_CSR_MT_MOON_SUPER_REPEL               0x203
+#define FLAG_CSR_MT_MOON_MIN_REPEL               0x204
+#define FLAG_CSR_MT_MOON_MAX_REPEL               0x205
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_1               0x206
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2               0x207
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3               0x208
+#define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY               0x209
 #define FLAG_0x20A               0x20A
 #define FLAG_0x20B               0x20B
 #define FLAG_0x20C               0x20C
@@ -985,13 +985,13 @@
 
 //Odd Candy Quest
 #define FLAG_PALLET_CANDY                0x39F
-#define FLAG_VIRIDIAN_CANDY              0x3A0
+#define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
 #define FLAG_PEWTER_CANDY                0x3A1
 #define FLAG_CERULEAN_CANDY              0x3A2
 #define FLAG_VERMILLION_CANDY            0x3A3
 #define FLAG_LAVENDER_CANDY              0x3A4
 #define FLAG_CELADON_CANDY               0x3A5
-#define FLAG_FUSCHIA_CANDY               0x3A6
+#define FLAG_FUCHSIA_CANDY               0x3A6
 #define FLAG_SAFFRON_CITY_CANDY          0x3A7
 #define FLAG_CINNABAR_ISLAND_CANDY       0x3A8
 #define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9
@@ -1018,7 +1018,7 @@
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_MINNESOTA_CANDY             0x3BF
 #define FLAG_ROUTE_1_CANDY               0x3C0
-#define FLAG_ROUTE_2_CANDY               0x3C1
+#define FLAG_ROUTE_2_CANDY               0x3C1 //placed
 #define FLAG_ROUTE_3_CANDY               0x3C2
 #define FLAG_ROUTE_4_CANDY               0x3C3
 #define FLAG_ROUTE_5_CANDY               0x3C4
@@ -1036,12 +1036,12 @@
 #define FLAG_ROUTE_17_CANDY              0x3D0
 #define FLAG_ROUTE_18_CANDY              0x3D1
 #define FLAG_ROUTE_21_CANDY              0x3D2
-#define FLAG_ROUTE_22_CANDY              0x3D3
+#define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4
 #define FLAG_ROUTE_25_CANDY              0x3D5
 
 //Unused
-#define FLAG_0x3D6               0x3D6
+#define FLAG_VIRIDIAN_FOREST_CANDY               0x3D6 //placed
 #define FLAG_0x3D7               0x3D7
 
 
