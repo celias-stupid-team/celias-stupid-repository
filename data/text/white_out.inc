@@ -19,26 +19,17 @@ Text_MonsHealed::
 
 Text_HadQuiteAnExperienceTakeRest::
 	.string "DAD: {PLAYER}!\n"
-	.string "Welcome home.\p"
-	.string "It sounds like you had quite\n"
-	.string "an experience.\p"
-	.string "Maybe you should take a quick\n"
-	.string "rest.$"
+	.string "Uh, wow!\p"
+	.string "Did you really just die on the\n"
+	.string "first ROUTE of the game?\p"
+	.string "Good job.$"
 
 Text_MomExplainHPGetPotions::
-	.string "DAD: Oh, good! You and your\n"
-	.string "POKéMON are looking great.\p"
-	.string "I just heard from PROF. OAK.\p"
-	.string "He said that POKéMON's energy is\n"
-	.string "measured in HP.\p"
-	.string "If your POKéMON lose their HP,\n"
-	.string "you can restore them at any\l"
-	.string "POKéMON CENTER.\p"
-	.string "If you're going to travel far away,\n"
-	.string "the smart TRAINER stocks up on\l"
-	.string "POTIONS at the POKéMON MART.\p"
-	.string "Make me proud, honey!\p"
-	.string "Take care!$"
+	.string "DAD: Hmm, so you're saying it\n"
+	.string "wasn't your fault?\p"
+	.string "The RATTATAS are just OP?\n"
+	.string "SCRATCH was being inconsistent?\p"
+	.string "Sounds like a skill issue to me.$"
 
 Text_WhitedOutLostMoney::
 	.string "{PLAYER} is out of usable\n"
