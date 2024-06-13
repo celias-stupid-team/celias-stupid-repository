@@ -136,8 +136,8 @@
     {
       "id": "LAYOUT_CERULEAN_CITY_GYM",
       "name": "CeruleanCity_Gym_Layout",
-      "width": 17,
-      "height": 20,
+      "width": 24,
+      "height": 27,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -4392,6 +4392,18 @@
       "secondary_tileset": "gTileset_DiglettsCave",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CLUB",
+      "name": "CeruleanClub_Layout",
+      "width": 24,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CeruleanCity",
+      "border_filepath": "data/layouts/CeruleanClub/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanClub/map.bin"
     }
   ]
 }
