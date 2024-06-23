@@ -287,6 +287,12 @@ DirectSoundWaveData_sc88pro_xylophone::
 	.incbin "sound/direct_sound_samples/sc88pro_xylophone.bin"
 
 	.align 2
+
+DirectSoundWaveData_orchestral_hits::
+	.incbin "sound/direct_sound_samples/orchestral_hits.bin"
+
+	.align 2
+
 DirectSoundWaveData_wave_72::
 	.incbin "sound/direct_sound_samples/wave_72.bin"
 

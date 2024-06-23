@@ -962,6 +962,7 @@ SECTIONS {
         sound/songs/midi/mus_trainer_tower.o(.rodata);
         sound/songs/midi/mus_slow_pallet.o(.rodata);
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
+        sound/songs/midi/mus_csr_drill_dozer.o(.rodata);
     }
 
     lib_rodata :
