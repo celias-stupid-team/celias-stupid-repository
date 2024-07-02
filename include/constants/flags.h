@@ -255,8 +255,8 @@
 #define FLAG_CSR_GOT_SCYTHER               0x0D6
 
 
-#define FLAG_0x0D7               0x0D7
-#define FLAG_0x0D8               0x0D8
+#define FLAG_PYTHON_TEST               0x0D7
+#define FLAG_CSR_PYTHON_SUCCESS               0x0D8
 #define FLAG_0x0D9               0x0D9
 #define FLAG_0x0DA               0x0DA
 #define FLAG_0x0DB               0x0DB
