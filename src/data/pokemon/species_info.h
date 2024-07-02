@@ -3628,7 +3628,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = {EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE},
         .abilities = {ABILITY_COLOR_CHANGE, ABILITY_COLOR_CHANGE},
         .safariZoneFleeRate = 0,
-        .bodyColor = BODY_COLOR_RED,
+        .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
     [SPECIES_ELECTABUZZ] =
@@ -11604,7 +11604,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_BIDOOF] =
+    [SPECIES_BIDOOF] = // Dex Mon
     {
         .baseHP = 59,
         .baseAttack = 45,
@@ -12068,7 +12068,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
     },
-    [SPECIES_COMBEE] =
+    [SPECIES_COMBEE] = //Dex Mon
     {
         .baseHP = 30,
         .baseAttack = 30,
@@ -12213,7 +12213,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_CHERUBI] =
+    [SPECIES_CHERUBI] = //Dex Mon
     {
         .baseHP = 45,
         .baseAttack = 35,
@@ -13286,7 +13286,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
-    [SPECIES_LUMINEON] =
+    [SPECIES_LUMINEON] = //Dex Mon
     {
         .baseHP = 69,
         .baseAttack = 69,
@@ -13634,7 +13634,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_YANMEGA] =
+    [SPECIES_YANMEGA] = //Dex Mon
     {
         .baseHP = 86,
         .baseAttack = 76,
@@ -13642,7 +13642,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 95,
         .baseSpAttack = 116,
         .baseSpDefense = 56,
-        .types = {TYPE_BUG, TYPE_FLYING},
+        .types = {TYPE_ROCK, TYPE_BUG},
         .catchRate = 255,
         .expYield = 150,
         .evYield_HP = 1,
@@ -13779,7 +13779,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_PORYGON_Z] =
+    [SPECIES_PORYGON_Z] = //Dex Mon
     {
         .baseHP = 85,
         .baseAttack = 80,
@@ -14359,7 +14359,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_VICTINI] =
+    [SPECIES_VICTINI] = //Dex Mon
     {
         .baseHP = 100,
         .baseAttack = 100,
@@ -17172,7 +17172,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_AMOONGUSS] =
+    [SPECIES_AMOONGUSS] = //Dex mon
     {
         .baseHP = 114,
         .baseAttack = 85,
@@ -17259,7 +17259,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_ALOMOMOLA] =
+    [SPECIES_ALOMOMOLA] = //Dex Mon
     {
         .baseHP = 165,
         .baseAttack = 75,
@@ -18100,7 +18100,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
-    [SPECIES_GOLURK] =
+    [SPECIES_GOLURK] = //Dex Mon
     {
         .baseHP = 89,
         .baseAttack = 124,
@@ -20333,7 +20333,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
-    [SPECIES_SYLVEON] =
+    [SPECIES_SYLVEON] = //Dex Mon
     {
         .baseHP = 95,
         .baseAttack = 65,
@@ -25234,7 +25234,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_ALCREMIE] =
+    [SPECIES_ALCREMIE] = //Dex Mon
     {
         .baseHP = 65,
         .baseAttack = 60,
@@ -25242,7 +25242,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 64,
         .baseSpAttack = 110,
         .baseSpDefense = 121,
-        .types = {TYPE_FAIRY, TYPE_FAIRY},
+        .types = {TYPE_DARK, TYPE_CHOCOLATE},
         .catchRate = 255,
         .expYield = 150,
         .evYield_HP = 1,
@@ -27525,7 +27525,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_TOEDSCOOL] =
+    [SPECIES_TOEDSCOOL] = //Dex Mon
     {
         .baseHP = 40,
         .baseAttack = 40,
@@ -29004,7 +29004,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
-    [SPECIES_GIMMIGHOUL] =
+    [SPECIES_GIMMIGHOUL] = //Dex mon
     {
         .baseHP = 45,
         .baseAttack = 30,
@@ -29033,7 +29033,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_GHOLDENGO] =
+    [SPECIES_GHOLDENGO] = //Dex Mon
     {
         .baseHP = 87,
         .baseAttack = 60,
