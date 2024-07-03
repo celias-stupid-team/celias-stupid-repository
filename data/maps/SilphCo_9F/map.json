@@ -116,7 +116,7 @@
       "x": 11,
       "y": 14,
       "elevation": 3,
-      "item": "ITEM_MAX_POTION",
+      "item": "ITEM_MAX_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_9F_MAX_POTION",
       "quantity": 1,
       "underfoot": false

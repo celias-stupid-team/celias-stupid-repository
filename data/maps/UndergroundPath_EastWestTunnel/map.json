@@ -38,7 +38,7 @@
       "x": 7,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_POTION",
+      "item": "ITEM_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_POTION",
       "quantity": 1,
       "underfoot": false
