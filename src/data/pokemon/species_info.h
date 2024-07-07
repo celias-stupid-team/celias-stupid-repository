@@ -14214,7 +14214,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
     },
-    [SPECIES_PHIONE] =
+    [SPECIES_PHIONE] = //Dex Mon
     {
         .baseHP = 80,
         .baseAttack = 80,
@@ -18854,7 +18854,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_GENESECT] =
+    [SPECIES_GENESECT] = //Dex mon
     {
         .baseHP = 71,
         .baseAttack = 120,
@@ -19434,7 +19434,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },
-    [SPECIES_FLAB_B_] =
+    [SPECIES_FLABEBE] =
     {
         .baseHP = 44,
         .baseAttack = 38,
@@ -20855,7 +20855,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
-    [SPECIES_ZYGARDE] =
+    [SPECIES_ZYGARDE] = //Dex Mon
     {
         .baseHP = 108,
         .baseAttack = 100,
@@ -25147,7 +25147,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
-    [SPECIES_MR__RIME] =
+    [SPECIES_MR_RIME] =
     {
         .baseHP = 80,
         .baseAttack = 85,
@@ -25843,7 +25843,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
-    [SPECIES_ETERNATUS] =
+    [SPECIES_ETERNATUS] = //Dex Mon
     {
         .baseHP = 140,
         .baseAttack = 85,
@@ -28105,7 +28105,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
-    [SPECIES_ORTHWORM] =
+    [SPECIES_ORTHWORM] = //Dex mon
     {
         .baseHP = 70,
         .baseAttack = 85,
