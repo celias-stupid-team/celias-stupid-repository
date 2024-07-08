@@ -130,7 +130,7 @@ def excel_to_outputs(input_file):
         # Output 10
         output_files["sound_direct_sound_data.txt"].append(f"Cry_{sanitized_name}::\n")
         output_files["sound_direct_sound_data.txt"].append(f"\t.incbin \"sound/direct_sound_samples/cries/{folder_name}.bin\"\n\n")
-        output_files["sound_direct_sound_data.txt"].append(f"\t.align2\n")
+        output_files["sound_direct_sound_data.txt"].append(f"\t.align 2\n")
 
         # Output 11
         output_files["src_data_pokemon_cry_ids.txt"].append(f"\t[{species_number} - HOENN_MON_SPECIES_START] = CRY_{uppercase_name},\n")
