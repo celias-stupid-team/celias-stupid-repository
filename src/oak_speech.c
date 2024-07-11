@@ -1425,12 +1425,7 @@ static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
     case 2: //
     case 3: //
     case 4: //
-        PlaySE(SE_SELECT);
-        ClearStdWindowAndFrameToTransparent(tMenuWindowId, TRUE);
-        RemoveWindow(tMenuWindowId);
-        GetDefaultName(sOakSpeechResources->hasPlayerBeenNamed, input - 1);
-        tNameNotConfirmed = TRUE;
-        gTasks[taskId].func = Task_OakSpeech_ConfirmName;
+        PlaySE(SE_BOO);
         break;
     case MENU_B_PRESSED:
         break;
