@@ -1425,7 +1425,6 @@ static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
     case 2: //
     case 3: //
     case 4: //
-        PlaySE(SE_BOO);
         break;
     case MENU_B_PRESSED:
         break;
