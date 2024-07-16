@@ -19,8 +19,8 @@ struct Menu
     u8 optionHeight;
     u8 columns;
     u8 rows;
-    bool8 APressMuted;
-    bool8 checkforGary; // play the boo sound if you select the name gary at the beginning
+    bool8 APressMuted:7;
+    bool8 checkforGary:1; // play the boo sound if you select the name gary at the beginning
 };
 
 static EWRAM_DATA struct Menu sMenu = {0};
