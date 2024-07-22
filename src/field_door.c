@@ -67,7 +67,7 @@ static const u8 sDoorAnimTiles_PokemonFanClub[] = INCBIN_U8("graphics/door_anims
 static const u16 sDoorNullPalette13[16] = {};
 static const u8 sDoorAnimTiles_DeptStore[] = INCBIN_U8("graphics/door_anims/dept_store.4bpp");
 static const u16 sDoorNullPalette14[16] = {};
-static const u8 sDoorAnimTiles_Fuchsia[] = INCBIN_U8("graphics/door_anims/fuchsia.4bpp");
+static const u8 sDoorAnimTiles_Fushcia[] = INCBIN_U8("graphics/door_anims/fuchsia.4bpp");
 static const u16 sDoorNullPalette15[16] = {};
 static const u8 sDoorAnimTiles_SafariZone[] = INCBIN_U8("graphics/door_anims/safari_zone.4bpp");
 static const u16 sDoorNullPalette16[16] = {};
@@ -228,7 +228,7 @@ static const u8 sDoorAnimPalettes_Lavender[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_Vermilion[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_PokemonFanClub[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_DeptStore[] = {3, 3, 3, 3, 3, 3, 3, 3};
-static const u8 sDoorAnimPalettes_Fuchsia[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_Fushcia[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_SafariZone[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_CinnabarLab[] = {3, 3, 3, 3, 3, 3, 3, 3};
 static const u8 sDoorAnimPalettes_DeptStoreElevator[] = {8, 8, 8, 8, 8, 8, 8, 8};
@@ -266,8 +266,8 @@ static const struct DoorGraphics sDoorGraphics[] = {
     The metatile below was subsequently re-used for the warp to enter the SS Anne from the harbor, which has no door. */
     {METATILE_VermilionCity_SSAnneWarp,                    DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_PokemonFanClub, sDoorAnimPalettes_PokemonFanClub},
     {METATILE_CeladonCity_DeptStoreDoor,                   DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_DeptStore, sDoorAnimPalettes_DeptStore},
-    {METATILE_FuchsiaCity_Door,                            DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_Fuchsia, sDoorAnimPalettes_Fuchsia},
-    {METATILE_FuchsiaCity_SafariZoneDoor,                  DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_SafariZone, sDoorAnimPalettes_SafariZone},
+    {METATILE_FushciaCity_Door,                            DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_Fushcia, sDoorAnimPalettes_Fushcia},
+    {METATILE_FushciaCity_SafariZoneDoor,                  DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_SafariZone, sDoorAnimPalettes_SafariZone},
     {METATILE_CinnabarIsland_LabDoor,                      DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_CinnabarLab, sDoorAnimPalettes_CinnabarLab},
     {METATILE_SeviiIslands123_Door,                        DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_Sevii123, sDoorAnimPalettes_Sevii123},
     {METATILE_SeviiIslands123_GameCornerDoor,              DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_JoyfulGameCorner, sDoorAnimPalettes_JoyfulGameCorner},

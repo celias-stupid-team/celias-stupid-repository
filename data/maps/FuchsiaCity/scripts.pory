@@ -1,140 +1,140 @@
 raw `
-FuchsiaCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, FuchsiaCity_OnTransition
+FushciaCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, FushciaCity_OnTransition
 	.byte 0
 
-FuchsiaCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FUCHSIA_CITY
-	call_if_set FLAG_GOT_DOME_FOSSIL, FuchsiaCity_EventScript_SetOmanyteGfx
-	call_if_unset FLAG_GOT_DOME_FOSSIL, FuchsiaCity_EventScript_SetKabutoGfx
+FushciaCity_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_FUSHCIA_CITY
+	call_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx
+	call_if_unset FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetKabutoGfx
 	end
 
-FuchsiaCity_EventScript_SetOmanyteGfx::
+FushciaCity_EventScript_SetOmanyteGfx::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_OMANYTE
 	return
 
-FuchsiaCity_EventScript_SetKabutoGfx::
+FushciaCity_EventScript_SetKabutoGfx::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_KABUTO
 	return
 
-FuchsiaCity_EventScript_LittleBoy::
-	msgbox FuchsiaCity_Text_DidYouTrySafariGame, MSGBOX_NPC
+FushciaCity_EventScript_LittleBoy::
+	msgbox FushciaCity_Text_DidYouTrySafariGame, MSGBOX_NPC
 	end
 
-FuchsiaCity_EventScript_OldMan::
-	msgbox FuchsiaCity_Text_SafariZoneZooInFront, MSGBOX_NPC
+FushciaCity_EventScript_OldMan::
+	msgbox FushciaCity_Text_SafariZoneZooInFront, MSGBOX_NPC
 	end
 
-FuchsiaCity_EventScript_Erik::
-	msgbox FuchsiaCity_Text_WheresSara, MSGBOX_NPC
+FushciaCity_EventScript_Erik::
+	msgbox FushciaCity_Text_WheresSara, MSGBOX_NPC
 	end
 
-FuchsiaCity_EventScript_Youngster::
-	msgbox FuchsiaCity_Text_ItemBallInThere, MSGBOX_NPC
+FushciaCity_EventScript_Youngster::
+	msgbox FushciaCity_Text_ItemBallInThere, MSGBOX_NPC
 	end
 
-FuchsiaCity_EventScript_Lass::
+FushciaCity_EventScript_Lass::
 	lock
 	faceplayer
 	famechecker FAMECHECKER_KOGA, 3
-	msgbox FuchsiaCity_Text_MyFatherIsGymLeader
+	msgbox FushciaCity_Text_MyFatherIsGymLeader
 	release
 	end
 
-FuchsiaCity_EventScript_CitySign::
-	msgbox FuchsiaCity_Text_CitySign, MSGBOX_SIGN
+FushciaCity_EventScript_CitySign::
+	msgbox FushciaCity_Text_CitySign, MSGBOX_SIGN
 	end
 
-FuchsiaCity_EventScript_SafariZoneSign::
-	msgbox FuchsiaCity_Text_SafariZoneSign, MSGBOX_SIGN
+FushciaCity_EventScript_SafariZoneSign::
+	msgbox FushciaCity_Text_SafariZoneSign, MSGBOX_SIGN
 	end
 
-FuchsiaCity_EventScript_SafariGameSign::
-	msgbox FuchsiaCity_Text_SafariGameSign, MSGBOX_SIGN
+FushciaCity_EventScript_SafariGameSign::
+	msgbox FushciaCity_Text_SafariGameSign, MSGBOX_SIGN
 	end
 
-FuchsiaCity_EventScript_WardensHomeSign::
-	msgbox FuchsiaCity_Text_WardensHomeSign, MSGBOX_SIGN
+FushciaCity_EventScript_WardensHomeSign::
+	msgbox FushciaCity_Text_WardensHomeSign, MSGBOX_SIGN
 	end
 
 @ Unused
-FuchsiaCity_EventScript_SafariZoneOfficeSign::
-	msgbox FuchsiaCity_Text_SafariZoneOfficeSign, MSGBOX_SIGN
+FushciaCity_EventScript_SafariZoneOfficeSign::
+	msgbox FushciaCity_Text_SafariZoneOfficeSign, MSGBOX_SIGN
 	end
 
-FuchsiaCity_EventScript_GymSign::
+FushciaCity_EventScript_GymSign::
 	lockall
 	famechecker FAMECHECKER_KOGA, 0
-	msgbox FuchsiaCity_Text_GymSign
+	msgbox FushciaCity_Text_GymSign
 	releaseall
 	end
 
-FuchsiaCity_EventScript_ChanseySign::
+FushciaCity_EventScript_ChanseySign::
 	lockall
 	setvar VAR_0x8004, SPECIES_CHANSEY
 	special SetSeenMon
 	showmonpic SPECIES_CHANSEY, 10, 3
-	msgbox FuchsiaCity_Text_ChanseySign
+	msgbox FushciaCity_Text_ChanseySign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_VoltorbSign::
+FushciaCity_EventScript_VoltorbSign::
 	lockall
 	setvar VAR_0x8004, SPECIES_VOLTORB
 	special SetSeenMon
 	showmonpic SPECIES_VOLTORB, 10, 3
-	msgbox FuchsiaCity_Text_VoltorbSign
+	msgbox FushciaCity_Text_VoltorbSign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_KangaskhanSign::
+FushciaCity_EventScript_KangaskhanSign::
 	lockall
 	setvar VAR_0x8004, SPECIES_KANGASKHAN
 	special SetSeenMon
 	showmonpic SPECIES_KANGASKHAN, 10, 3
-	msgbox FuchsiaCity_Text_KangaskhanSign
+	msgbox FushciaCity_Text_KangaskhanSign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_SlowpokeSign::
+FushciaCity_EventScript_SlowpokeSign::
 	lockall
 	setvar VAR_0x8004, SPECIES_SLOWPOKE
 	special SetSeenMon
 	showmonpic SPECIES_SLOWPOKE, 10, 3
-	msgbox FuchsiaCity_Text_SlowpokeSign
+	msgbox FushciaCity_Text_SlowpokeSign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_LaprasSign::
+FushciaCity_EventScript_LaprasSign::
 	lockall
 	setvar VAR_0x8004, SPECIES_LAPRAS
 	special SetSeenMon
 	showmonpic SPECIES_LAPRAS, 10, 3
-	msgbox FuchsiaCity_Text_LaprasSign
+	msgbox FushciaCity_Text_LaprasSign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_FossilMonSign::
+FushciaCity_EventScript_FossilMonSign::
 	lockall
-	goto_if_set FLAG_GOT_DOME_FOSSIL, FuchsiaCity_EventScript_OmanyteSign
+	goto_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_OmanyteSign
 	setvar VAR_0x8004, SPECIES_KABUTO
 	special SetSeenMon
 	showmonpic SPECIES_KABUTO, 10, 3
-	msgbox FuchsiaCity_Text_KabutoSign
+	msgbox FushciaCity_Text_KabutoSign
 	hidemonpic
 	releaseall
 	end
 
-FuchsiaCity_EventScript_OmanyteSign::
+FushciaCity_EventScript_OmanyteSign::
 	setvar VAR_0x8004, SPECIES_OMANYTE
 	special SetSeenMon
 	showmonpic SPECIES_OMANYTE, 10, 3
-	msgbox FuchsiaCity_Text_OmanyteSign
+	msgbox FushciaCity_Text_OmanyteSign
 	hidemonpic
 	releaseall
 	end

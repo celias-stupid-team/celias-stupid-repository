@@ -86,14 +86,14 @@ const struct Tileset gTileset_CeladonCity =
     .callback = InitTilesetAnim_CeladonCity,
 };
 
-const struct Tileset gTileset_FuchsiaCity =
+const struct Tileset gTileset_FushciaCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_FuchsiaCity,
-    .palettes = gTilesetPalettes_FuchsiaCity,
-    .metatiles = gMetatiles_FuchsiaCity,
-    .metatileAttributes = gMetatileAttributes_FuchsiaCity,
+    .tiles = gTilesetTiles_FushciaCity,
+    .palettes = gTilesetPalettes_FushciaCity,
+    .metatiles = gMetatiles_FushciaCity,
+    .metatileAttributes = gMetatileAttributes_FushciaCity,
     .callback = NULL,
 };
 
@@ -240,14 +240,14 @@ const struct Tileset gTileset_Lab =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_FuchsiaGym =
+const struct Tileset gTileset_FushciaGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_FuchsiaGym,
-    .palettes = gTilesetPalettes_FuchsiaGym,
-    .metatiles = gMetatiles_FuchsiaGym,
-    .metatileAttributes = gMetatileAttributes_FuchsiaGym,
+    .tiles = gTilesetTiles_FushciaGym,
+    .palettes = gTilesetPalettes_FushciaGym,
+    .metatiles = gMetatiles_FushciaGym,
+    .metatileAttributes = gMetatileAttributes_FushciaGym,
     .callback = NULL,
 };
 
