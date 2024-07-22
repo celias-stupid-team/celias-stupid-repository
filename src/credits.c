@@ -128,7 +128,7 @@ enum CreditsMap
     CREDITS_MAP_CELADON_CITY,
     CREDITS_MAP_SAFFRON_CITY,
     CREDITS_MAP_ROUTE17,
-    CREDITS_MAP_FUSHCIA_CITY,
+    CREDITS_MAP_FUCHSIA_CITY,
     CREDITS_MAP_CINNABAR_ISLAND,
     CREDITS_MAP_ROUTE21_NORTH
 };
@@ -426,7 +426,7 @@ static const struct CreditsScrcmd sCreditsScript[] = {
     CREDITS_PRINT(EXECUTIVE_DIRECTOR, 331),
     CREDITS_PRINT(EXECUTIVE_PRODUCER, 331),
     CREDITS_PRINT(EXECUTIVE_PRODUCER_2, 331),
-    CREDITS_MAPNEXT(FUSHCIA_CITY, 16),
+    CREDITS_MAPNEXT(FUCHSIA_CITY, 16),
     CREDITS_PRINT(ENGLISH_VERSION_COORDINATORS, 221),
     CREDITS_PRINT(TRANSLATOR_TEXT_EDITOR, 221),
     CREDITS_PRINT(PROGRAMMERS_2, 221),
@@ -627,8 +627,8 @@ static const struct CreditsOverworldCmd sOverworldCmd_Route17[] = {
     CREDITSOVWLDEND
 };
 
-static const struct CreditsOverworldCmd sOverworldCmd_FushciaCity[] = {
-    CREDITSOVWLDLOADMAP(FUSHCIA_CITY, 28, 5, 1),
+static const struct CreditsOverworldCmd sOverworldCmd_FuchsiaCity[] = {
+    CREDITSOVWLDLOADMAP(FUCHSIA_CITY, 28, 5, 1),
     CREDITSOVWLDSCROLL(0, 1, 0x0500), // Scroll down
     CREDITSOVWLDEND
 };
@@ -656,7 +656,7 @@ static const struct CreditsOverworldCmd *const sOverworldMapScenes[] = {
     sOverworldCmd_CeladonCity,
     sOverworldCmd_SaffronCity,
     sOverworldCmd_Route17,
-    sOverworldCmd_FushciaCity,
+    sOverworldCmd_FuchsiaCity,
     sOverworldCmd_CinnabarIsland,
     sOverworldCmd_Route21
 };

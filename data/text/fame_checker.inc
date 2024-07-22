@@ -225,7 +225,7 @@ gFameCheckerFlavorText_Erika5:: @ 0x81AE247
 
 gFameCheckerFlavorText_Koga0:: @ 0x81AE2B6
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}FUSHCIA CITY POKéMON GYM\n"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}FUCHSIA CITY POKéMON GYM\n"
 	.string "LEADER: KOGA\l"
 	.string "The Poisonous Ninja Master$"
 
@@ -258,7 +258,7 @@ gFameCheckerFlavorText_Koga5:: @ 0x81AE51B
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
 	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The SAFARI ZONE's huge, wouldn't\n"
 	.string "you say?\p"
-	.string "FUSHCIA's GYM LEADER, KOGA, \n"
+	.string "FUCHSIA's GYM LEADER, KOGA, \n"
 	.string "patrols the grounds every so often.\p"
 	.string "Thanks to him, we can play here\n"
 	.string "knowing that we're safe.$"
@@ -907,19 +907,19 @@ gFameCheckerFlavorTextOriginLocation_Erika5::
 	.string "CELADON MANSION$"
 
 gFameCheckerFlavorTextOriginLocation_Koga0::
-	.string "FUSHCIA CITY$"
+	.string "FUCHSIA CITY$"
 
 gFameCheckerFlavorTextOriginLocation_Koga1::
-	.string "FUSHCIA GYM$"
+	.string "FUCHSIA GYM$"
 
 gFameCheckerFlavorTextOriginLocation_Koga2::
-	.string "FUSHCIA GYM$"
+	.string "FUCHSIA GYM$"
 
 gFameCheckerFlavorTextOriginLocation_Koga3::
-	.string "FUSHCIA CITY$"
+	.string "FUCHSIA CITY$"
 
 gFameCheckerFlavorTextOriginLocation_Koga4::
-	.string "FUSHCIA CITY$"
+	.string "FUCHSIA CITY$"
 
 gFameCheckerFlavorTextOriginLocation_Koga5::
 	.string "SAFARI ZONE$"
@@ -1039,7 +1039,7 @@ gFameCheckerFlavorTextOriginLocation_Bill1::
 	.string "CERULEAN CITY$"
 
 gFameCheckerFlavorTextOriginLocation_Bill2::
-	.string "FUSHCIA CITY$"
+	.string "FUCHSIA CITY$"
 
 gFameCheckerFlavorTextOriginLocation_Bill3::
 	.string "ONE ISLAND$"
@@ -1407,7 +1407,7 @@ PokemonJournal_Text_SpecialFeatureErika::
 
 PokemonJournal_Text_SpecialFeatureKoga::
 	.string "POKéMON JOURNAL\p"
-	.string "Special Feature: FUSHCIA GYM\n"
+	.string "Special Feature: FUCHSIA GYM\n"
 	.string "LEADER KOGA!\p"
 	.string "KOGA is said to have a thorough\n"
 	.string "knowledge of medicine.\p"

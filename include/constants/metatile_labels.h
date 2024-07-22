@@ -35,15 +35,15 @@
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
-// gTileset_FushciaCity
-#define METATILE_FushciaCity_Door                           0x2BF
-#define METATILE_FushciaCity_SafariZoneDoor                 0x2D2
-#define METATILE_FushciaCity_SafariZoneTreeTopLeft_Grass    0x300
-#define METATILE_FushciaCity_SafariZoneTreeTopLeft_Mowed    0x310
-#define METATILE_FushciaCity_SafariZoneTreeTopMiddle_Grass  0x301
-#define METATILE_FushciaCity_SafariZoneTreeTopMiddle_Mowed  0x311
-#define METATILE_FushciaCity_SafariZoneTreeTopRight_Grass   0x302
-#define METATILE_FushciaCity_SafariZoneTreeTopRight_Mowed   0x312
+// gTileset_FuchsiaCity
+#define METATILE_FuchsiaCity_Door                           0x2BF
+#define METATILE_FuchsiaCity_SafariZoneDoor                 0x2D2
+#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Grass    0x300
+#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Mowed    0x310
+#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Grass  0x301
+#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Mowed  0x311
+#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Grass   0x302
+#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Mowed   0x312
 
 // gTileset_GameCorner
 #define METATILE_GameCorner_CheckeredFloor_ShadeLeft  0x2E1

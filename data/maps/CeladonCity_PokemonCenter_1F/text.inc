@@ -4,8 +4,8 @@ CeladonCity_PokemonCenter_1F_Text_PokeFluteAwakensSleepingMons::
     .string "It does so with a sound that only\n"
     .string "they can hear.$"
 
-CeladonCity_PokemonCenter_1F_Text_RodeHereFromFushcia::
-    .string "I rode here from FUSHCIA.\p"
+CeladonCity_PokemonCenter_1F_Text_RodeHereFromFuchsia::
+    .string "I rode here from FUCHSIA.\p"
     .string "It's an uphill ride on CYCLING\n"
     .string "ROAD, so I'm exhausted.$"
 

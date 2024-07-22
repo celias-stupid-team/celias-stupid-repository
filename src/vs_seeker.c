@@ -979,7 +979,7 @@ static void TryGetRematchTrainerIdGivenGameState(const u16 * trainerIdxs, u8 * r
              *rematchIdx_p = GetRematchTrainerIdGivenGameState(trainerIdxs, *rematchIdx_p);
          break;
      case 3:
-         if (!FlagGet(FLAG_WORLD_MAP_FUSHCIA_CITY))
+         if (!FlagGet(FLAG_WORLD_MAP_FUCHSIA_CITY))
              *rematchIdx_p = GetRematchTrainerIdGivenGameState(trainerIdxs, *rematchIdx_p);
          break;
      case 4:

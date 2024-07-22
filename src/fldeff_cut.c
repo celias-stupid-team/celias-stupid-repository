@@ -50,14 +50,14 @@ static const u16 sCutGrassMetatileMapping[][2] = {
         METATILE_ID(CeladonCity, CyclingRoad_Grass),
         METATILE_ID(CeladonCity, CyclingRoad_Mowed)
     }, {
-        METATILE_ID(FushciaCity, SafariZoneTreeTopLeft_Grass),
-        METATILE_ID(FushciaCity, SafariZoneTreeTopLeft_Mowed)
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopLeft_Grass),
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopLeft_Mowed)
     }, {
-        METATILE_ID(FushciaCity, SafariZoneTreeTopMiddle_Grass),
-        METATILE_ID(FushciaCity, SafariZoneTreeTopMiddle_Mowed)
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopMiddle_Grass),
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopMiddle_Mowed)
     }, {
-        METATILE_ID(FushciaCity, SafariZoneTreeTopRight_Grass),
-        METATILE_ID(FushciaCity, SafariZoneTreeTopRight_Mowed)
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopRight_Grass),
+        METATILE_ID(FuchsiaCity, SafariZoneTreeTopRight_Mowed)
     }, {
         METATILE_ID(ViridianForest, HugeTreeTopMiddle_Grass),
         METATILE_ID(ViridianForest, HugeTreeTopMiddle_Mowed)

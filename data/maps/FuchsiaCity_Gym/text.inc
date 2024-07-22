@@ -1,4 +1,4 @@
-FushciaCity_Gym_Text_KogaIntro::
+FuchsiaCity_Gym_Text_KogaIntro::
     .string "KOGA: Fwahahaha!\p"
     .string "A mere child like you dares to\n"
     .string "challenge me?\p"
@@ -11,20 +11,20 @@ FushciaCity_Gym_Text_KogaIntro::
     .string "Despair to the creeping horror of\n"
     .string "POISON-type POKéMON!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
-FushciaCity_Gym_Text_KogaDefeat::
+FuchsiaCity_Gym_Text_KogaDefeat::
     .string "Humph!\n"
     .string "You have proven your worth!\p"
     .string "Here!\n"
     .string "Take the SOULBADGE!$"
 
-FushciaCity_Gym_Text_KogaPostBattle::
+FuchsiaCity_Gym_Text_KogaPostBattle::
     .string "When afflicted by TOXIC, a POKéMON\n"
     .string "suffers more and more.\p"
     .string "It suffers worsening damage as the\n"
     .string "battle wears on!\p"
     .string "It will surely terrorize foes!$"
 
-FushciaCity_Gym_Text_KogaExplainSoulBadge::
+FuchsiaCity_Gym_Text_KogaExplainSoulBadge::
     .string "Now that you have the SOULBADGE,\n"
     .string "the DEFENSE of your POKéMON rises.\p"
     .string "It also lets you SURF outside of\n"
@@ -32,124 +32,124 @@ FushciaCity_Gym_Text_KogaExplainSoulBadge::
     .string "Ah!\n"
     .string "Take this, too!$"
 
-FushciaCity_Gym_Text_ReceivedTM06FromKoga::
+FuchsiaCity_Gym_Text_ReceivedTM06FromKoga::
     .string "{PLAYER} received TM06\n"
     .string "from KOGA.$"
 
-FushciaCity_Gym_Text_KogaExplainTM06::
+FuchsiaCity_Gym_Text_KogaExplainTM06::
     .string "Sealed within that TM06 lies\n"
     .string "TOXIC!\p"
     .string "It is a secret technique dating\n"
     .string "back some four hundred years.$"
 
-FushciaCity_Gym_Text_MakeSpaceForThis::
+FuchsiaCity_Gym_Text_MakeSpaceForThis::
     .string "Make space for this, child!$"
 
-FushciaCity_Gym_Text_KaydenIntro::
+FuchsiaCity_Gym_Text_KaydenIntro::
     .string "Strength isn't the key for POKéMON.\n"
     .string "Do you understand this?\p"
     .string "POKéMON is about strategy!\p"
     .string "I'll show you how strategy can\n"
     .string "beat brute strength.$"
 
-FushciaCity_Gym_Text_KaydenDefeat::
+FuchsiaCity_Gym_Text_KaydenDefeat::
     .string "What?\n"
     .string "Extraordinary!$"
 
-FushciaCity_Gym_Text_KaydenPostBattle::
+FuchsiaCity_Gym_Text_KaydenPostBattle::
     .string "So, you mix brawn with brains?\n"
     .string "Good strategy!\p"
     .string "That's remarkable for a child\n"
     .string "TRAINER.$"
 
-FushciaCity_Gym_Text_KirkIntro::
+FuchsiaCity_Gym_Text_KirkIntro::
     .string "I was a magician once upon a time.\p"
     .string "But I dreamt of becoming a ninja,\n"
     .string "so I joined this GYM.$"
 
-FushciaCity_Gym_Text_KirkDefeat::
+FuchsiaCity_Gym_Text_KirkDefeat::
     .string "I'm done for!$"
 
-FushciaCity_Gym_Text_KirkPostBattle::
+FuchsiaCity_Gym_Text_KirkPostBattle::
     .string "Even though I've lost, I will keep\n"
     .string "training according to the teachings\l"
     .string "of KOGA, my ninja master.$"
 
-FushciaCity_Gym_Text_NateIntro::
+FuchsiaCity_Gym_Text_NateIntro::
     .string "Let's see you beat my special\n"
     .string "techniques!$"
 
-FushciaCity_Gym_Text_NateDefeat::
+FuchsiaCity_Gym_Text_NateDefeat::
     .string "You had me fooled!$"
 
-FushciaCity_Gym_Text_NatePostBattle::
+FuchsiaCity_Gym_Text_NatePostBattle::
     .string "I like poison and sleep techniques,\n"
     .string "as they linger after battle!$"
 
-FushciaCity_Gym_Text_PhilIntro::
+FuchsiaCity_Gym_Text_PhilIntro::
     .string "Stop right there!\p"
     .string "The famed invisible walls of\n"
-    .string "FUSHCIA GYM have you frustrated?$"
+    .string "FUCHSIA GYM have you frustrated?$"
 
-FushciaCity_Gym_Text_PhilDefeat::
+FuchsiaCity_Gym_Text_PhilDefeat::
     .string "Whoa!\n"
     .string "You've got it!$"
 
-FushciaCity_Gym_Text_PhilPostBattle::
+FuchsiaCity_Gym_Text_PhilPostBattle::
     .string "You impressed me!\n"
     .string "Here's a hint!\p"
     .string "Look very closely for gaps in the\n"
     .string "invisible walls!$"
 
-FushciaCity_Gym_Text_EdgarIntro::
+FuchsiaCity_Gym_Text_EdgarIntro::
     .string "I also study the way of the ninja\n"
     .string "with Master KOGA!\p"
     .string "Ninja have a long history of using\n"
     .string "animals!$"
 
-FushciaCity_Gym_Text_EdgarDefeat::
+FuchsiaCity_Gym_Text_EdgarDefeat::
     .string "Awoo!$"
 
-FushciaCity_Gym_Text_EdgarPostBattle::
+FuchsiaCity_Gym_Text_EdgarPostBattle::
     .string "I still have much to learn.$"
 
-FushciaCity_Gym_Text_ShawnIntro::
+FuchsiaCity_Gym_Text_ShawnIntro::
     .string "Master KOGA comes from a long line\n"
     .string "of ninjas.\p"
     .string "What did you descend from?$"
 
-FushciaCity_Gym_Text_ShawnDefeat::
+FuchsiaCity_Gym_Text_ShawnDefeat::
     .string "You're more skilled than I'd\n"
     .string "thought!$"
 
-FushciaCity_Gym_Text_ShawnPostBattle::
+FuchsiaCity_Gym_Text_ShawnPostBattle::
     .string "Where there is light, there is\n"
     .string "shadow!\p"
     .string "Light and shadow!\n"
     .string "Which do you choose?$"
 
-FushciaCity_Gym_Text_GymGuyAdvice::
+FuchsiaCity_Gym_Text_GymGuyAdvice::
     .string "Yo!\n"
     .string "Champ in the making!\p"
-    .string "FUSHCIA GYM is a tricked-up place.\n"
+    .string "FUCHSIA GYM is a tricked-up place.\n"
     .string "It's riddled with invisible walls!\p"
     .string "KOGA might appear close, but he's\n"
     .string "blocked off.\p"
     .string "You have to find gaps in the walls\n"
     .string "to reach him.$"
 
-FushciaCity_Gym_Text_GymGuyPostVictory::
+FuchsiaCity_Gym_Text_GymGuyPostVictory::
     .string "It's amazing how ninja can terrify,\n"
     .string "even now!$"
 
-FushciaCity_Gym_Text_GymStatue::
-    .string "FUSHCIA POKéMON GYM\n"
+FuchsiaCity_Gym_Text_GymStatue::
+    .string "FUCHSIA POKéMON GYM\n"
     .string "LEADER: KOGA\p"
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}$"
 
-FushciaCity_Gym_Text_GymStatuePlayerWon::
-    .string "FUSHCIA POKéMON GYM\n"
+FuchsiaCity_Gym_Text_GymStatuePlayerWon::
+    .string "FUCHSIA POKéMON GYM\n"
     .string "LEADER: KOGA\p"
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"

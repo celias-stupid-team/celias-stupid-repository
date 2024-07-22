@@ -1,20 +1,20 @@
 raw `
-FushciaCity_SafariZone_Office_MapScripts::
+FuchsiaCity_SafariZone_Office_MapScripts::
 	.byte 0
 
-FushciaCity_SafariZone_Office_EventScript_Worker1::
-	msgbox FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke, MSGBOX_NPC
+FuchsiaCity_SafariZone_Office_EventScript_Worker1::
+	msgbox FuchsiaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke, MSGBOX_NPC
 	end
 
-FushciaCity_SafariZone_Office_EventScript_Worker2::
-	msgbox FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable, MSGBOX_NPC
+FuchsiaCity_SafariZone_Office_EventScript_Worker2::
+	msgbox FuchsiaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable, MSGBOX_NPC
 	end
 
-FushciaCity_SafariZone_Office_EventScript_Worker3::
-	msgbox FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden, MSGBOX_NPC
+FuchsiaCity_SafariZone_Office_EventScript_Worker3::
+	msgbox FuchsiaCity_SafariZone_Office_Text_CouldntUnderstandWarden, MSGBOX_NPC
 	end
 
-FushciaCity_SafariZone_Office_EventScript_Worker4::
-	msgbox FushciaCity_SafariZone_Office_Text_PrizeInSafariZone, MSGBOX_NPC
+FuchsiaCity_SafariZone_Office_EventScript_Worker4::
+	msgbox FuchsiaCity_SafariZone_Office_Text_PrizeInSafariZone, MSGBOX_NPC
 	end
 `

@@ -1,9 +1,9 @@
 {
-  "id": "MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
-  "name": "FushciaCity_SafariZone_Entrance",
-  "layout": "LAYOUT_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
-  "music": "MUS_FUSHCIA",
-  "region_map_section": "MAPSEC_FUSHCIA_CITY",
+  "id": "MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
+  "name": "FuchsiaCity_SafariZone_Entrance",
+  "layout": "LAYOUT_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE",
+  "music": "MUS_FUCHSIA",
+  "region_map_section": "MAPSEC_FUCHSIA_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_SafariZone_Entrance_EventScript_InfoAttendant",
+      "script": "FuchsiaCity_SafariZone_Entrance_EventScript_InfoAttendant",
       "flag": "0"
     }
   ],
@@ -56,21 +56,21 @@
       "x": 5,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "0"
     },
     {
       "x": 3,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "0"
     }
   ],
@@ -82,7 +82,7 @@
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "FushciaCity_SafariZone_Entrance_EventScript_EntryTriggerMid"
+      "script": "FuchsiaCity_SafariZone_Entrance_EventScript_EntryTriggerMid"
     },
     {
       "type": "trigger",
@@ -91,7 +91,7 @@
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "FushciaCity_SafariZone_Entrance_EventScript_EntryTriggerRight"
+      "script": "FuchsiaCity_SafariZone_Entrance_EventScript_EntryTriggerRight"
     },
     {
       "type": "trigger",
@@ -100,7 +100,7 @@
       "elevation": 3,
       "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "FushciaCity_SafariZone_Entrance_EventScript_EntryTriggerLeft"
+      "script": "FuchsiaCity_SafariZone_Entrance_EventScript_EntryTriggerLeft"
     }
   ],
   "bg_events": []

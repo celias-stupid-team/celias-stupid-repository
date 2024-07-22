@@ -1,9 +1,9 @@
 {
-  "id": "MAP_FUSHCIA_CITY_GYM",
-  "name": "FushciaCity_Gym",
-  "layout": "LAYOUT_FUSHCIA_CITY_GYM",
+  "id": "MAP_FUCHSIA_CITY_GYM",
+  "name": "FuchsiaCity_Gym",
+  "layout": "LAYOUT_FUCHSIA_CITY_GYM",
   "music": "MUS_GYM",
-  "region_map_section": "MAPSEC_FUSHCIA_CITY",
+  "region_map_section": "MAPSEC_FUCHSIA_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "FushciaCity_Gym_EventScript_Kayden",
+      "script": "FuchsiaCity_Gym_EventScript_Kayden",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "FushciaCity_Gym_EventScript_Shawn",
+      "script": "FuchsiaCity_Gym_EventScript_Shawn",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "FushciaCity_Gym_EventScript_Kirk",
+      "script": "FuchsiaCity_Gym_EventScript_Kirk",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "FushciaCity_Gym_EventScript_Edgar",
+      "script": "FuchsiaCity_Gym_EventScript_Edgar",
       "flag": "0"
     },
     {
@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "FushciaCity_Gym_EventScript_Phil",
+      "script": "FuchsiaCity_Gym_EventScript_Phil",
       "flag": "0"
     },
     {
@@ -96,7 +96,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "FushciaCity_Gym_EventScript_Nate",
+      "script": "FuchsiaCity_Gym_EventScript_Nate",
       "flag": "0"
     },
     {
@@ -110,7 +110,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_Gym_EventScript_Koga",
+      "script": "FuchsiaCity_Gym_EventScript_Koga",
       "flag": "0"
     },
     {
@@ -124,7 +124,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_Gym_EventScript_GymGuy",
+      "script": "FuchsiaCity_Gym_EventScript_GymGuy",
       "flag": "0"
     }
   ],
@@ -133,21 +133,21 @@
       "x": 6,
       "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "4"
     },
     {
       "x": 7,
       "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "4"
     },
     {
       "x": 8,
       "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_map": "MAP_FUCHSIA_CITY",
       "dest_warp_id": "4"
     }
   ],
@@ -159,7 +159,7 @@
       "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FushciaCity_Gym_EventScript_GymStatue"
+      "script": "FuchsiaCity_Gym_EventScript_GymStatue"
     },
     {
       "type": "sign",
@@ -167,7 +167,7 @@
       "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FushciaCity_Gym_EventScript_GymStatue"
+      "script": "FuchsiaCity_Gym_EventScript_GymStatue"
     }
   ]
 }

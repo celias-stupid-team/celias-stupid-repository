@@ -1,28 +1,28 @@
 raw `
-FushciaCity_Mart_MapScripts::
+FuchsiaCity_Mart_MapScripts::
 	.byte 0
 
-FushciaCity_Mart_EventScript_CooltrainerF::
-	msgbox FushciaCity_Mart_Text_DidYouTryXSpeed, MSGBOX_NPC
+FuchsiaCity_Mart_EventScript_CooltrainerF::
+	msgbox FuchsiaCity_Mart_Text_DidYouTryXSpeed, MSGBOX_NPC
 	end
 
-FushciaCity_Mart_EventScript_Gentleman::
-	msgbox FushciaCity_Mart_Text_DontTheyHaveSafariZonePennants, MSGBOX_NPC
+FuchsiaCity_Mart_EventScript_Gentleman::
+	msgbox FuchsiaCity_Mart_Text_DontTheyHaveSafariZonePennants, MSGBOX_NPC
 	end
 
-FushciaCity_Mart_EventScript_Clerk::
+FuchsiaCity_Mart_EventScript_Clerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
 	message Text_MayIHelpYou
 	waitmessage
-	pokemart FushciaCity_Mart_Items
+	pokemart FuchsiaCity_Mart_Items
 	msgbox Text_PleaseComeAgain
 	release
 	end
 
 	.align 2
-FushciaCity_Mart_Items::
+FuchsiaCity_Mart_Items::
 	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_SUPER_POTION

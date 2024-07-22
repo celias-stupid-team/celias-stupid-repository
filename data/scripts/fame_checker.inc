@@ -101,7 +101,7 @@ CeladonCity_Condominiums_2F_EventScript_PokemonJournalErika::
 	release
 	end
 
-FushciaCity_WardensHouse_EventScript_PokemonJournalKoga::
+FuchsiaCity_WardensHouse_EventScript_PokemonJournalKoga::
 	lock
 	faceplayer
 	famechecker FAMECHECKER_KOGA, 4

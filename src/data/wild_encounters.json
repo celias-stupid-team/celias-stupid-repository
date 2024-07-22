@@ -22861,8 +22861,8 @@
           }
         },
         {
-          "map": "MAP_FUSHCIA_CITY",
-          "base_label": "sFushciaCity_FireRed",
+          "map": "MAP_FUCHSIA_CITY",
+          "base_label": "sFuchsiaCity_FireRed",
           "water_mons": {
             "encounter_rate": 0,
             "mons": [
@@ -22950,8 +22950,8 @@
           }
         },
         {
-          "map": "MAP_FUSHCIA_CITY",
-          "base_label": "sFushciaCity_LeafGreen",
+          "map": "MAP_FUCHSIA_CITY",
+          "base_label": "sFuchsiaCity_LeafGreen",
           "water_mons": {
             "encounter_rate": 0,
             "mons": [
