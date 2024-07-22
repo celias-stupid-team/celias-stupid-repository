@@ -152,9 +152,9 @@ const u16 gTilesetPalettes_CeladonCity[][16] =
 	INCBIN_U16("data/tilesets/secondary/celadon_city/palettes/15.gbapal"),
 };
 
-const u32 gTilesetTiles_FuchsiaCity[] = INCBIN_U32("data/tilesets/secondary/fuchsia_city/tiles.4bpp.lz");
+const u32 gTilesetTiles_FushciaCity[] = INCBIN_U32("data/tilesets/secondary/fuchsia_city/tiles.4bpp.lz");
 
-const u16 gTilesetPalettes_FuchsiaCity[][16] =
+const u16 gTilesetPalettes_FushciaCity[][16] =
 {
 	INCBIN_U16("data/tilesets/secondary/fuchsia_city/palettes/00.gbapal"),
 	INCBIN_U16("data/tilesets/secondary/fuchsia_city/palettes/01.gbapal"),
@@ -570,9 +570,9 @@ const u16 gTilesetPalettes_CeladonGym[][16] =
 	INCBIN_U16("data/tilesets/secondary/celadon_gym/palettes/15.gbapal"),
 };
 
-const u32 gTilesetTiles_FuchsiaGym[] = INCBIN_U32("data/tilesets/secondary/fuchsia_gym/tiles.4bpp.lz");
+const u32 gTilesetTiles_FushciaGym[] = INCBIN_U32("data/tilesets/secondary/fuchsia_gym/tiles.4bpp.lz");
 
-const u16 gTilesetPalettes_FuchsiaGym[][16] =
+const u16 gTilesetPalettes_FushciaGym[][16] =
 {
 	INCBIN_U16("data/tilesets/secondary/fuchsia_gym/palettes/00.gbapal"),
 	INCBIN_U16("data/tilesets/secondary/fuchsia_gym/palettes/01.gbapal"),

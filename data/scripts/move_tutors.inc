@@ -206,7 +206,7 @@ EventScript_SoftboiledTaught::
 	release
 	end
 
-FuchsiaCity_EventScript_SubstituteTutor::
+FushciaCity_EventScript_SubstituteTutor::
 	lock
 	faceplayer
 	goto_if_set FLAG_TUTOR_SUBSTITUTE, EventScript_SubstituteTaught

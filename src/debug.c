@@ -959,7 +959,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_WORLD_MAP_LAVENDER_TOWN) &&
                 FlagGet(FLAG_WORLD_MAP_VERMILION_CITY) &&
                 FlagGet(FLAG_WORLD_MAP_CELADON_CITY) &&
-                FlagGet(FLAG_WORLD_MAP_FUCHSIA_CITY) &&
+                FlagGet(FLAG_WORLD_MAP_FUSHCIA_CITY) &&
                 FlagGet(FLAG_WORLD_MAP_CINNABAR_ISLAND) &&
                 FlagGet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) &&
                 FlagGet(FLAG_WORLD_MAP_SAFFRON_CITY) &&
@@ -2161,7 +2161,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_WORLD_MAP_LAVENDER_TOWN);
         FlagClear(FLAG_WORLD_MAP_VERMILION_CITY);
         FlagClear(FLAG_WORLD_MAP_CELADON_CITY);
-        FlagClear(FLAG_WORLD_MAP_FUCHSIA_CITY);
+        FlagClear(FLAG_WORLD_MAP_FUSHCIA_CITY);
         FlagClear(FLAG_WORLD_MAP_CINNABAR_ISLAND);
         FlagClear(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR);
         FlagClear(FLAG_WORLD_MAP_SAFFRON_CITY);
@@ -2185,7 +2185,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_WORLD_MAP_LAVENDER_TOWN);
         FlagSet(FLAG_WORLD_MAP_VERMILION_CITY);
         FlagSet(FLAG_WORLD_MAP_CELADON_CITY);
-        FlagSet(FLAG_WORLD_MAP_FUCHSIA_CITY);
+        FlagSet(FLAG_WORLD_MAP_FUSHCIA_CITY);
         FlagSet(FLAG_WORLD_MAP_CINNABAR_ISLAND);
         FlagSet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR);
         FlagSet(FLAG_WORLD_MAP_SAFFRON_CITY);
@@ -3655,7 +3655,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SURF) \
     X(MUS_POKE_TOWER) \
     X(MUS_SILPH) \
-    X(MUS_FUCHSIA) \
+    X(MUS_FUSHCIA) \
     X(MUS_CELADON) \
     X(MUS_VICTORY_TRAINER) \
     X(MUS_VICTORY_WILD) \
