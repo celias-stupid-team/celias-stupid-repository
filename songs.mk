@@ -66,7 +66,7 @@ $(MID_SUBDIR)/mus_cinnabar.s: %.s: %.mid
 $(MID_SUBDIR)/mus_gym.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G134 -V090
 
-$(MID_SUBDIR)/mus_fuchsia.s: %.s: %.mid
+$(MID_SUBDIR)/mus_fushcia.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G167 -V090
 
 $(MID_SUBDIR)/mus_poke_jump.s: %.s: %.mid
