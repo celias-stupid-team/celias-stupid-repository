@@ -74,4 +74,10 @@ LavenderTown_Text_MathFail::
     .string "Originally, POKéMON TOWER was\n"
     .string "supposed to be built horizontally.\p"
     .string "However, the engineers who made it\n"
-    .string "failed math, so we got this instead.$"
+    .string "all failed math.\p"
+    .string "This is what we got instead.$"
+
+LavenderTown_Text_UndergroundPathSign::
+    .string "UNDERGROUND PATH\n"
+    .string "CELADON CITY - LAVENDER TOWN$"
+

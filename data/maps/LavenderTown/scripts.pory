@@ -52,6 +52,10 @@ LavenderTown_EventScript_PokemonTowerSign::
 	end
 
 LavenderTown_EventScript_FailedMath::
-	msgbox LavenderTown_Text_MathFail, MASBOX_NPC
+	msgbox LavenderTown_Text_MathFail, MSGBOX_NPC
+	end
+
+LavenderTown_EventScript_UndergroundPathSign::
+	msgbox LavenderTown_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `

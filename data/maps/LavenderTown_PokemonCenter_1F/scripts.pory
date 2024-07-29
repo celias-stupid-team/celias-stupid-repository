@@ -24,6 +24,18 @@ LavenderTown_PokemonCenter_1F_EventScript_Lass::
 	end
 
 LavenderTown_PokemonCenter_1F_EventScript_Youngster::
-	msgbox LavenderTown_PokemonCenter_1F_Text_PeoplePayForCuboneSkulls, MSGBOX_NPC
+	msgbox LavenderTown_PokemonCenter_1F_Text_Alphabet, MSGBOX_NPC
+	end
+
+LavenderTown_PokemonCenter_1F_EventScript_Riddler::
+	lock
+	msgbox LavenderTown_PokemonCenter_1F_Text_Riddle, MSGBOX_DEFAULT
+	release
+	end
+
+LavenderTown_PokemonCenter_1F_EventScript_Plasto::
+	lock
+	msgbox LavenderTown_PokemonCenter_1F_Text_Plasto, MSGBOX_DEFAULT
+	release
 	end
 `

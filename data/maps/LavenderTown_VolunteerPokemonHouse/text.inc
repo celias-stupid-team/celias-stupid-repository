@@ -71,9 +71,10 @@ LavenderTown_VolunteerPokemonHouse_Text_GrandPrizeDrawingClipped::
     .string "The pages are turned to Chapter 3.$"
 
 LavenderTown_VolunteerPokemonHouse_Text_PokemonMagazinesLineShelf::
-    .string "POKéMON magazines line the shelf.\p"
-    .string "POKéMON INSIDER…\p"
-    .string "POKéMON FAN…$"
+    .string "Magazines for kids line the\n"
+    .string "shelves.\p"
+    .string "My Secret Life, Issue 1…\n"
+    .string "My Secret Life, Issue 2…$"
 
 LavenderTown_VolunteerPokemonHouse_Text_OlderGirlBefore::
     .string "Everyone here in school loves\n"
