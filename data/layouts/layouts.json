@@ -1024,7 +1024,7 @@
     {
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
-      "width": 72,
+      "width": 60,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -1060,7 +1060,7 @@
     {
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
-      "width": 60,
+      "width": 72,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -1084,7 +1084,7 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 120,
+      "width": 132,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -2548,7 +2548,7 @@
     {
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
-      "width": 48,
+      "width": 42,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
