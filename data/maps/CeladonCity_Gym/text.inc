@@ -1,11 +1,11 @@
 CeladonCity_Gym_Text_ErikaIntro::
 .string "Hello. I'm the president of\n"
 .string "the CELADON CITY LGBT CLUB.\p"
-.string "In here, all are welcome regardless\l"
+.string "In here, all are welcome regardless\n"
 .string "of orientation or gender identity.\p"
-.string "In addition, I am also the LEADER\l"
+.string "In addition, I am also the LEADER\n"
 .string "of CELADON GYM.\p"
-.string "I'll show you the strength of a\l"
+.string "I'll show you the strength of a\n"
 .string "proud and united community!{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}$"
 
 CeladonCity_Gym_Text_ErikaDefeat::
@@ -18,7 +18,7 @@ CeladonCity_Gym_Text_ErikaDefeat::
 CeladonCity_Gym_Text_ErikaPostBattle::
     .string "{PLAYER}...\n"
     .string "Thank you so much, again.\p"
-    .string "You truly showed what it means\l"
+    .string "You truly showed what it means\n"
     .string "to be an ally to our community.$"
 
 CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis::
@@ -36,9 +36,9 @@ CeladonCity_Gym_Text_ExplainTM19::
     .string "TM19 contains MAGICAL LEAF.\p"
     .string "It's a move that I absolutely\l"
     .string "love to use!\p"
-    .string "There aren't many POKéMON that\l"
+    .string "There aren't many POKéMON that\n"
     .string "can use it, but keep it in mind!\p"
-    .string "I'm sure you'll find it very\l"
+    .string "I'm sure you'll find it very\n"
     .string "useful in the near future!$"
 
 CeladonCity_Gym_Text_ShouldMakeRoomForThis::
@@ -55,7 +55,7 @@ CeladonCity_Gym_Text_KayDefeat::
 CeladonCity_Gym_Text_KayPostBattle::
     .string "The community in this GYM makes me\n"
     .string "feel safe and secure!\p"
-    .string "I don't even care that everyone\l"
+    .string "I don't even care that everyone\n"
     .string "can look at me!$"
 
 CeladonCity_Gym_Text_BridgetIntro::
@@ -117,7 +117,7 @@ CeladonCity_Gym_Text_LoriDefeat::
 CeladonCity_Gym_Text_LoriPostBattle::
     .string "Come, comrade! The liberation of\n"
     .string "the working class is upon us!\p"
-    .string "All marginalized persons must\l"
+    .string "All marginalized persons must\n"
     .string "find solidarity in the revolution!$"
 
 CeladonCity_Gym_Text_MaryIntro::
@@ -130,7 +130,7 @@ CeladonCity_Gym_Text_MaryDefeat::
 CeladonCity_Gym_Text_MaryPostBattle::
     .string "You should come out to our show!\n"
     .string "We have it every week!\p"
-    .string "Our gorgeous queens put on a\l"
+    .string "Our gorgeous queens put on a\n"
     .string "lovely performance!$"
 
 CeladonCity_Gym_Text_GymStatue::
@@ -144,4 +144,11 @@ CeladonCity_Gym_Text_GymStatuePlayerWon::
     .string "LEADER: ERIKA\p"
     .string "WINNING TRAINERS:\n"
     .string "{RIVAL}, {PLAYER}$"
+
+CeladonCity_Gym_Text_GiovanniIntro::
+    .string "I'd love to see you try.$"
+
+CeladonCity_Gym_Text_GiovanniDefeat::
+    .string "Wh-what!?\p"
+    .string "How could you...?$"
 
