@@ -2,15 +2,6 @@ raw `
 CeladonCity_Gym_MapScripts::
 	.byte 0
 
-CeladonCity_Gym_EventScript_Erika::
-	famechecker FAMECHECKER_ERIKA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	trainerbattle_single TRAINER_LEADER_ERIKA, CeladonCity_Gym_Text_ErikaIntro, CeladonCity_Gym_Text_ErikaDefeat, CeladonCity_Gym_EventScript_DefeatedErika, NO_MUSIC
-	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
-	famechecker FAMECHECKER_ERIKA, 4
-	msgbox CeladonCity_Gym_Text_ErikaPostBattle
-	release
-	end
-
 CeladonCity_Gym_EventScript_DefeatedErika::
 	famechecker FAMECHECKER_ERIKA, 1
 	clearflag FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS
@@ -84,3 +75,15 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script CeladonCity_Gym_EventScript_DMCAGrunt {
+	msgbox(format("I don't understand this.\pIf you're a man, and your\lpartner is also a man, wouldn't\lhe be violating your copyright?\l"), MSGBOX_NPC)
+    end
+}
+
+script CeladonCity_Gym_EventScript_Erika {
+	lock
+	faceplayer
+	msgbox(CeladonCity_Gym_Text_ErikaIntro, MSGBOX_DEFAULT)
+	release
+	end
+}
