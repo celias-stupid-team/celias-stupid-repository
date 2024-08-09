@@ -90,11 +90,11 @@ CeladonCity_Gym_Text_TamiaDefeat::
     .string "No!$"
 
 CeladonCity_Gym_Text_TamiaPostBattle::
-.string "Since becoming true to myself,\n"
-.string "living life has felt so free!\l"
-.string "I think I'm going to celebrate!\p"
-.string "Maybe I could buy my NIDOs\n"
-.string "a present from the DEPT STORE…$"
+    .string "Since becoming true to myself,\n"
+    .string "living life has felt so free!\l"
+    .string "I think I'm going to celebrate!\p"
+    .string "Ooh, maybe I'll buy my NIDOs\n"
+    .string "a present from the DEPT STORE!$"
 
 CeladonCity_Gym_Text_LisaIntro::
     .string "Grumble grumble…\p"
@@ -125,7 +125,7 @@ CeladonCity_Gym_Text_MaryIntro::
     .string "a star!$"
 
 CeladonCity_Gym_Text_MaryDefeat::
-.string "My makeup!$"
+    .string "My makeup!$"
 
 CeladonCity_Gym_Text_MaryPostBattle::
     .string "You should come out to our show!\n"
