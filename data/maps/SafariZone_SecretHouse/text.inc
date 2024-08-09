@@ -29,7 +29,7 @@ SafariZone_SecretHouse_Text_ExplainSurf::
 	.string "Thus!\n"
 	.string "Congratulations.\l"
 	.string "You get our pity prize instead!\p"
-	.string "Hope you have fun with it!\n$"
+	.string "Hope you have fun with it!$"
 
 SafariZone_SecretHouse_Text_DontHaveRoomForPrize::
     .string "You don't have room for this\n"
