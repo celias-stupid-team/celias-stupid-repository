@@ -126,3 +126,13 @@ script CeruleanCity_Gym_EventScript_Dad {
 	release
 	end
 }
+
+script CeruleanCity_Gym_EventScript_BackSign {
+	msgbox(format("Nope!\nSadly, this isn't the answer.\lGood guess, though!\pHere's a hint:\nTalk to everyone in the CLUB!\pAfter you do that, be sure to check\nyour POKéMON carefully!\pGood luck!\nI believe in you!"), MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Gym_EventScript_CeliaSecretSign {
+	msgbox(format("Nope!\nThis isn't the right back room!\lGood guess, though!\pThe other one is right above us!\nIt's not too hard to get into.\lI'm waiting for you there!\pBest of luck!\n-CELIA"), MSGBOX_NPC)
+	end
+}
