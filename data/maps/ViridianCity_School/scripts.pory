@@ -114,3 +114,8 @@ script ViridianCity_School_EventScript_CeliaBooks {
 	msgbox(format("Right here is the one bookshelf\nin the game that ISN'T just\lMy Secret Life, Chapter 3.\pI probably should put more in.\n"), MSGBOX_NPC)
 	end
 }
+
+script ViridianCity_School_EventScript_StudyGrades {
+	msgbox(format("I study GRADES as PROF. OAK's\nPOKéMON."), MSGBOX_NPC)
+	end
+}

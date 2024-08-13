@@ -10,3 +10,7 @@ Route2_ViridianForest_SouthEntrance_EventScript_Woman2::
 	msgbox Route2_ViridianForest_SouthEntrance_Text_RattataHasWickedBite, MSGBOX_NPC
 	end
 `
+script Route2_ViridianForest_SouthEntrance_EventScript_CeliaCatch {
+	msgbox(format("This is me doing my damndest\nto get people to catch stuff.\pIt's surprisingly hard.\n"), MSGBOX_NPC)
+	end
+}

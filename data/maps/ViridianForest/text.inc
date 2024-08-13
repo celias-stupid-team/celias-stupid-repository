@@ -78,14 +78,16 @@ ViridianForest_Text_RanOutOfPokeBalls::
     .string "(...mostly.)$"
 
 ViridianForest_Text_AvoidGrassyAreasWhenWeak::
-    .string "TRAINER TIPS\p"
-    .string "If your POKéMON are weak and you\n"
-    .string "want to avoid battles, stay away\l"
-    .string "from grassy areas!$"
+	.string "TRAINER TIPS\p"
+	.string "No, there is no sign here.\p"
+	.string "Thank you for remembering that\n"
+	.string "there should be one, though!$"
 
 ViridianForest_Text_UseAntidoteForPoison::
-    .string "For poison, use ANTIDOTE!\n"
-    .string "Get it at POKéMON MARTS!$"
+	.string "TRAINER TIPS\p"
+	.string "Use RARE CANDYS!\p"
+	.string "They're plentiful and will save\n"
+	.string "you time.$"
 
 ViridianForest_Text_ContactOakViaPCToRatePokedex::
     .string "For bugs, use POISON\p"
