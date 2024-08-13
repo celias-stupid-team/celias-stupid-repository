@@ -346,6 +346,7 @@ gSongTable::
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
+	song mus_csr_drill_dozer, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -303,8 +303,8 @@
 #define FLAG_0x103               0x103
 #define FLAG_0x104               0x104
 #define FLAG_0x105               0x105
-#define FLAG_0x106               0x106
-#define FLAG_0x107               0x107
+#define FLAG_CSR_TM_CASE               0x106
+#define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
 #define FLAG_0x108               0x108
 #define FLAG_0x109               0x109
 #define FLAG_0x10A               0x10A
