@@ -27,3 +27,7 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons, MSGBOX_NPC
 	end
 `
+script ViridianCity_PokemonCenter_1F_EventScript_CeliaHealthcare {
+	msgbox(format("This guy's line was one I stole\ndirectly from an old quote by\lChuggaaconroy in his FRLG LP!\pSadly, 15 years later it's still\ntrue."), MSGBOX_NPC)
+	end
+}

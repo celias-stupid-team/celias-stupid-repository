@@ -236,3 +236,35 @@ Route22_EventScript_LeagueGateSign::
 	msgbox Route22_Text_LeagueGateSign, MSGBOX_SIGN
 	end
 `
+script Route22_EventScript_CeliaLarry {
+	msgbox(format("I think the LARRY fight might be\nthe most important scene in this\lwhole hack.\pAt first, the battle seems totally\nunfair.\lYou expect it to just be a troll.\pBut then you realize that actually,\nyou HAVE the tools you need.\pAnd to beat him, you need to use the\nsame unfair shit that has been\lkicking your ass across Route 1.\pAnd finally, in turning the game's\nstupid bullshit against itself,\lyou finally get your first Win.\pI think there's a certain beauty\nto that."), MSGBOX_NPC)
+	end
+}
+
+script Route22_EventScript_OddCandyMan {
+	lock
+	faceplayer
+	msgbox(("Hello, there!\nCould I ask for a bit of your time?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == 1) {
+		msgbox(("Splendid!\pI'm a traveler, you see, but I think\nI'm in a bit of trouble.\pSee, I play POKéMON GO, and I was\npreparing to evolve my MELTAN.\pSadly, just as I was ready to do so,\nI tripped because I wasn't careful!\pAnd thus, my MELTAN CANDY got\nscattered across all of KANTO!\pI'm trying to find it all, but I'm\nstill missing 45 PIECES.\lCould you help me find the rest?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == 1) {
+			msgbox(("Wonderful news!\nThank you so much!\pI'll even make this easier for\nyou!\pCome back to me again once\nyou've collected all your BADGES.\lI'll help you narrow your search.\pUntil then, happy hunting!\n"), MSGBOX_DEFAULT)
+			release
+		}
+		else {
+			goto(OddCandyMan_Rejected)
+		}
+	}
+	else {
+		goto(OddCandyMan_Rejected)
+	}
+
+	OddCandyMan_Rejected:
+		msgbox(("What a shame...\pWell, if you ever find time, I'm\nsure to make it worth your while."), MSGBOX_DEFAULT)
+		release
+}
+
+script Route22_EventScript_RouteSign {
+	msgbox(("ROUTE 22\nNEW WILD POKéMON: 3"), MSGBOX_SIGN)
+	release
+}

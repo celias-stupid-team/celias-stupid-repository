@@ -42,3 +42,17 @@ Route1_EventScript_ThePit::
 	msgbox Route1_Text_ThePitDumbass, MSGBOX_SIGN
 	end
 `
+script Route1_EventScript_CeliaPotion {
+	msgbox(format("The Potion gag was entirely made\nas an improvised joke.\lI didn't expect to actually commit.\pHowever, the idea of just casually\nhaving the last potion in the whole\lgoddamn universe is really funny."), MSGBOX_NPC)
+	end
+}
+
+script Route1_EventScript_CeliaPit {
+	msgbox(format("Ah, The Pit.\nThe most infamous part of the hack.\pHonestly I'm kinda surprised that\npeople are so enamored by it.\pI guess it serves as a reality check\nthat this is not a game to take\lvery seriously."), MSGBOX_NPC)
+	end
+}
+
+script Route1_EventScript_CeliaShiny {
+	msgbox(format("Every week on my Discord I see\na new person asking if I raised\lthe shiny odds.\pNope!\nThey're completely vanilla, haha!"), MSGBOX_NPC)
+	end
+}

@@ -134,7 +134,7 @@ script PalletTown_PlayersHouse_2F_EventScript_CeliaChapter3 {
 }
 
 script PalletTown_PlayersHouse_2F_EventScript_CeliaKicked {
-	msgbox(format("I can't be the only one who thought\n"Booted Up" meant kicked, right?"), MSGBOX_NPC)
+	msgbox(format("I can't be the only one who thought\n“Booted Up” meant kicked, right?"), MSGBOX_NPC)
 	end
 }
 
