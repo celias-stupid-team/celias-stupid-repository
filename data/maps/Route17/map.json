@@ -142,7 +142,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
       "x": 16,
-      "y": 134,
+      "y": 118,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
       "movement_range_x": 8,
@@ -155,8 +155,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 4,
-      "y": 116,
+      "x": 8,
+      "y": 106,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -217,7 +217,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 157,
+      "y": 129,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route17_EventScript_CyclingRoadSign"
@@ -254,8 +254,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 4,
-      "y": 125,
+      "x": 12,
+      "y": 112,
       "elevation": 3,
       "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE17_MAX_REVIVE",
@@ -265,7 +265,7 @@
     {
       "type": "hidden_item",
       "x": 14,
-      "y": 157,
+      "y": 129,
       "elevation": 3,
       "item": "ITEM_MAX_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE17_MAX_ELIXIR",

@@ -136,8 +136,8 @@
     {
       "id": "LAYOUT_CERULEAN_CITY_GYM",
       "name": "CeruleanCity_Gym_Layout",
-      "width": 17,
-      "height": 20,
+      "width": 24,
+      "height": 27,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -977,7 +977,7 @@
       "id": "LAYOUT_ROUTE11",
       "name": "Route11_Layout",
       "width": 72,
-      "height": 20,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -989,7 +989,7 @@
       "id": "LAYOUT_ROUTE12",
       "name": "Route12_Layout",
       "width": 24,
-      "height": 120,
+      "height": 92,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1024,7 +1024,7 @@
     {
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
-      "width": 72,
+      "width": 60,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -1049,7 +1049,7 @@
       "id": "LAYOUT_ROUTE17",
       "name": "Route17_Layout",
       "width": 24,
-      "height": 160,
+      "height": 132,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1060,7 +1060,7 @@
     {
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
-      "width": 60,
+      "width": 72,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -1073,7 +1073,7 @@
       "id": "LAYOUT_ROUTE19",
       "name": "Route19_Layout",
       "width": 24,
-      "height": 60,
+      "height": 88,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1084,7 +1084,7 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 120,
+      "width": 132,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -2548,7 +2548,7 @@
     {
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
-      "width": 48,
+      "width": 42,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4392,6 +4392,18 @@
       "secondary_tileset": "gTileset_DiglettsCave",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CLUB",
+      "name": "CeruleanClub_Layout",
+      "width": 24,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CeruleanCity",
+      "border_filepath": "data/layouts/CeruleanClub/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanClub/map.bin"
     }
   ]
 }
