@@ -15,7 +15,7 @@ ViridianForest_EventScript_ItemAntidote::
 	end
 
 ViridianForest_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 MtMoon_1F_EventScript_ItemParalyzeHeal::
@@ -27,7 +27,7 @@ MtMoon_1F_EventScript_ItemTM09::
 	end
 
 MtMoon_1F_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 MtMoon_1F_EventScript_ItemRareCandy::
@@ -83,7 +83,7 @@ SSAnne_B1F_Room3_EventScript_ItemEther::
 	end
 
 SSAnne_B1F_Room5_EventScript_ItemSuperPotion::
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_MAX_ETHER
 	end
 
 SSAnne_Kitchen_EventScript_ItemGreatBall::
@@ -99,7 +99,7 @@ RocketHideout_B1F_EventScript_ItemEscapeRope::
 	end
 
 RocketHideout_B1F_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_ELIXIR
 	end
 
 RocketHideout_B2F_EventScript_ItemXSpeed::
@@ -115,7 +115,7 @@ RocketHideout_B2F_EventScript_ItemTM12::
 	end
 
 RocketHideout_B2F_EventScript_ItemSuperPotion::
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_MAX_ETHER
 	end
 
 RocketHideout_B3F_EventScript_ItemRareCandy::
@@ -183,7 +183,7 @@ SafariZone_Center_EventScript_ItemNugget::
 	end
 
 SafariZone_East_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 SafariZone_East_EventScript_ItemFullRestore::
@@ -215,7 +215,7 @@ SafariZone_West_EventScript_ItemGoldTeeth::
 	end
 
 SafariZone_West_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 SafariZone_West_EventScript_ItemMaxRevive::
@@ -223,7 +223,7 @@ SafariZone_West_EventScript_ItemMaxRevive::
 	end
 
 SilphCo_3F_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_ELIXIR
 	end
 
 SilphCo_4F_EventScript_ItemMaxRevive::
@@ -279,7 +279,7 @@ SilphCo_10F_EventScript_ItemRareCandy::
 	end
 
 PowerPlant_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 PowerPlant_EventScript_ItemTM17::
@@ -311,7 +311,7 @@ PokemonMansion_2F_EventScript_ItemCalcium::
 	end
 
 PokemonMansion_3F_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 PokemonMansion_3F_EventScript_ItemIron::
@@ -411,7 +411,7 @@ ThreeIsland_EventScript_ItemZinc::
 	end
 
 ViridianForest_EventScript_ItemPotion2::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 MtMoon_B2F_EventScript_ItemRevive::
@@ -471,7 +471,7 @@ PokemonMansion_2F_EventScript_ItemHPUp::
 	end
 
 ViridianCity_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 Route11_EventScript_ItemGreatBall::
@@ -539,7 +539,7 @@ OneIsland_KindleRoad_EventScript_ItemCarbos::
 	end
 
 FiveIsland_Meadow_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 FiveIsland_Meadow_EventScript_ItemPPUp::
