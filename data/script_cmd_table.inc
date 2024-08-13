@@ -217,6 +217,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_setbench						 @ 0xd5
 	.4byte ScrCmd_noyesbox                       @ 0xd6
 	.4byte ScrCmd_DebugPrintf           		 @ 0xd7
+	.4byte ScrCmd_dynmultichoice                 @ 0xd8
+	.4byte ScrCmd_dynmultipush                   @ 0xd9
 	.4byte ScrCmd_setobtainable           		 @ 0xd8
 
 gScriptCmdTableEnd::
