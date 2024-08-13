@@ -29,7 +29,7 @@ Route22_Text_RivalShouldCatchSomeMons::
 	.string "つかまえれば　いい　じゃん！$"
 
 Route22_Text_LateRivalIntro::
-	.string "{RIVAL}: What? {PLAYER}!\n"
+	.string "MARY: What? {PLAYER}!\n"
 	.string "What a surprise to see you here!\p"
 	.string "So you're going to the POKéMON\n"
 	.string "LEAGUE?\p"

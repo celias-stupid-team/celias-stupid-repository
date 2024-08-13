@@ -2,15 +2,6 @@ raw `
 CeladonCity_Gym_MapScripts::
 	.byte 0
 
-CeladonCity_Gym_EventScript_Erika::
-	famechecker FAMECHECKER_ERIKA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	trainerbattle_single TRAINER_LEADER_ERIKA, CeladonCity_Gym_Text_ErikaIntro, CeladonCity_Gym_Text_ErikaDefeat, CeladonCity_Gym_EventScript_DefeatedErika, NO_MUSIC
-	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
-	famechecker FAMECHECKER_ERIKA, 4
-	msgbox CeladonCity_Gym_Text_ErikaPostBattle
-	release
-	end
-
 CeladonCity_Gym_EventScript_DefeatedErika::
 	famechecker FAMECHECKER_ERIKA, 1
 	clearflag FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS
@@ -84,3 +75,256 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script CeladonCity_Gym_EventScript_DMCAGrunt {
+	msgbox(format("I don't understand this.\pIf you're a man, and your\npartner is also a man, wouldn't\lhe be violating your copyright?"), MSGBOX_NPC)
+    end
+}
+
+script CeladonCity_Gym_EventScript_Erika {
+	lock
+	faceplayer
+	if(!flag(FLAG_DEFEATED_ERIKA)) {
+		famechecker(FAMECHECKER_MISTY, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
+		msgbox(CeladonCity_Gym_Text_ErikaIntro, MSGBOX_DEFAULT)
+		if(flag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)) {
+
+		}
+		else {
+			applymovement(2, Common_Movement_FaceLeft)
+			applymovement(1, Common_Movement_FaceRight)
+			setobjectxy(2, 9, 10)
+			setobjectxy(1, 3, 10)
+			closemessage
+			lockall
+			fadeoutbgm(2)
+
+			//Lights Flicker
+			playse(SE_SWITCH)
+			setweather(WEATHER_NONE)
+			doweather
+			delay(10)
+			setweather(WEATHER_SHADE)
+			doweather
+			delay(10)
+			playse(SE_M_THUNDERBOLT2)
+			setweather(WEATHER_NONE)
+			doweather
+			delay(15)
+			playse(SE_M_THUNDERBOLT2)
+			setweather(WEATHER_SHADE)
+			doweather
+			delay(20)
+			setweather(WEATHER_NONE)
+			doweather
+			delay(20)
+			setweather(WEATHER_SHADE)
+			doweather
+			delay(20)
+			setweather(WEATHER_NONE)
+			doweather
+			delay(20)
+
+			//Everyone looks down
+			playse(SE_PIN)
+			applymovement(7, Common_Movement_ExclamationMark)
+			delay(15)
+			playse(SE_PIN)
+			applymovement(OBJ_EVENT_ID_PLAYER, Player_Looks_Down)
+			delay(20)
+			special(SpawnCameraObject)
+			applymovement(OBJ_EVENT_ID_CAMERA, CameraGoesDown)
+			waitmovement(0)
+			setobjectxy(10, 6, 18)
+			playse(SE_EXIT)
+			applymovement(10, GiovanniEnters)
+			waitmovement(0)
+			textcolor(0)
+			msgbox(("...Ha!\nFinally!\pSo THIS is where that copyrighted\nmusic was coming from!"), MSGBOX_DEFAULT)
+			closemessage
+			delay(20)
+
+			//Player and Erika walk down
+			addobject(7)
+			setobjectxy(7, 2, 9)	
+			setobjectxy(OBJ_EVENT_ID_PLAYER, 10,9)
+			applymovement(7, ErikaDown)
+			applymovement(OBJ_EVENT_ID_PLAYER, PlayerDown)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_CAMERA, CameraUp)
+			waitmovement(0)
+			applymovement(8, Common_Movement_FaceDown)
+			applymovement(4, Common_Movement_FaceDown)
+			setobjectxy(8, 4, 6)
+			setobjectxy(4, 8, 6)
+			delay(20)
+
+			//Giovanni approaches
+			applymovement(10, GiovanniApproaches)
+			waitmovement(0)
+			msgbox(("I am GIOVANNI.\nLeader of the DMCA!\pI am the scourge of copyright\ninfringers across all of KANTO!"), MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_PIN)
+			applymovement(7, ErikaShocked)
+			waitmovement(0)
+			textcolor(1)
+			msgbox(("Wait!\nThe DMCA?\pThat means-!\n"), MSGBOX_DEFAULT)
+			closemessage
+			delay(15)
+			playse(SE_PIN)
+			applymovement(1, Player_Looks_Down)
+			waitmovement(0)
+			delay(15)
+			playse(SE_PIN)
+			applymovement(2, Player_Looks_Down)
+			waitmovement(0)
+			delay(48)
+			applymovement(2, Talking)
+			waitmovement(0)
+			textcolor(0)
+			msgbox(("Oh, no!\nMS. ERIKA!\pAre they gonna send their\nlawyers after our GYM?"), MSGBOX_DEFAULT)
+			closemessage
+			delay(32)
+			applymovement(1, Talking)
+			waitmovement(0)
+			textcolor(1)
+			msgbox(("If they file a lawsuit against us,\nhow are we gonna afford it?\lWe need the cash for our shelter..."), MSGBOX_DEFAULT)
+			closemessage
+			applymovement(7, Common_Movement_FaceUp)
+			delay(10)
+			msgbox(("Don't worry, everyone!\pWe'll figure out how to keep\neverybody safe. I'm sure of it.\lSomehow..."), MSGBOX_DEFAULT)
+			closemessage
+
+			//Player walks up
+			delay(30)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			delay(48)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+			delay(64)
+			applymovement(OBJ_EVENT_ID_PLAYER, PlayerStepsUp)
+			delay(16)
+			applymovement(7, Common_Movement_FaceRight)
+			playse(SE_PIN)
+			applymovement(7, Common_Movement_ExclamationMark)
+			waitmovement(OBJ_EVENT_ID_PLAYER)
+			delay(32)
+			applymovement(7, ErikaLooksAtYou)
+			msgbox(("Oh! You...\n"), MSGBOX_DEFAULT)
+			closemessage
+			applymovement(OBJ_EVENT_ID_CAMERA, CameraCenters)
+			waitmovement(0)
+			delay(20)
+
+			//Giovanni gets ready
+			textcolor(0)
+			applymovement(10, GiovanniTalksBack)
+			waitmovement(0)
+			msgbox(("Oh?\nYou want to stand up for them?\lAgainst ME?"), MSGBOX_DEFAULT)
+			closemessage
+			delay(16)
+			applymovement(10, CameraCenters)
+			waitmovement(0)
+			applymovement(10, Common_Movement_FaceUp)
+			delay(20)
+			msgbox(("Ha!\nFine, then."), MSGBOX_DEFAULT)
+			setflag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)
+
+
+
+		}
+	}
+	else {
+		//todo
+	}
+	
+	release
+	end
+}
+movement Player_Looks_Down {
+	face_down
+	emote_exclamation_mark
+}
+movement CameraGoesDown {
+	walk_fast_down
+	walk_faster_down * 5
+	walk_fast_down * 2
+	walk_fast_down
+	walk_slow_down
+}
+movement GiovanniEnters {
+	face_up
+	set_visible
+	delay_16
+	delay_16
+	delay_16
+	delay_2
+	walk_slow_up * 3
+	face_up
+}
+
+movement ErikaDown {
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	face_down
+}
+
+movement PlayerDown {
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	face_down
+}
+
+movement CameraUp {
+	walk_slow_up
+	walk_slow_up
+}
+
+movement GiovanniApproaches {
+	walk_slow_up
+	face_up
+}
+
+movement ErikaShocked {
+	emote_exclamation_mark
+	delay_16
+	delay_4
+	walk_in_place_down
+	walk_in_place_down
+	face_down
+	delay_16
+	delay_4
+}
+
+movement Talking {
+	walk_in_place_down
+	walk_in_place_down
+	face_down
+}
+
+movement PlayerStepsUp {
+	walk_slower_left //slowest?
+	delay_16
+	walk_slower_down
+	face_down
+}
+
+movement ErikaLooksAtYou {
+	walk_in_place_right
+	walk_in_place_right
+	face_right
+}
+
+movement CameraCenters {
+	walk_slower_up //slowest?
+}
+
+movement GiovanniTalksBack {
+	walk_in_place_up
+	walk_in_place_up
+	face_up
+}
