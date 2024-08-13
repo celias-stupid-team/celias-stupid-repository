@@ -161,11 +161,16 @@ ViridianCity_Gym_Text_GymStatue::
     .string "VIRIDIAN POKéMON GYM\n"
     .string "LEADER: ?\p"
     .string "WINNING TRAINERS:\n"
-    .string "{RIVAL}$"
+    .string "GARY, LARRY, JERRY\l"
+    .string "HARRY, LARRY, BARRY$"
 
 ViridianCity_Gym_Text_GymStatuePlayerWon::
     .string "VIRIDIAN POKéMON GYM\n"
     .string "LEADER: GIOVANNI\p"
     .string "WINNING TRAINERS:\n"
-    .string "{RIVAL}, {PLAYER}$"
+    .string "GARY, LARRY, JERRY\l"
+    .string "HARRY, LARRY, BARRY\l"
+    .string "… … … …\p"
+    .string "…Honestly, {PLAYER} doesn't deserve"
+    .string "a mention on this one.$"
 

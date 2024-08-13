@@ -1,11 +1,11 @@
 PalletTown_RivalsHouse_Text_HiBrothersAtLab::
     .string "DAISY: Hi, {PLAYER}!\p"
-    .string "My brother, {RIVAL}, is out at\n"
+    .string "My brother, GARY, is out at\n"
     .string "Grandpa's LAB.$"
 
 PalletTown_RivalsHouse_Text_HeardYouBattledRival::
     .string "DAISY: {PLAYER}, I heard you had\n"
-    .string "a battle against {RIVAL}.\p"
+    .string "a battle against GARY.\p"
     .string "I wish I'd seen that!$"
 
 PalletTown_RivalsHouse_Text_ErrandForGrandpaThisWillHelp::
@@ -93,7 +93,7 @@ PalletTown_RivalsHouse_Text_CouldntLoveYouMore::
 
 PalletTown_RivalsHouse_Text_ItLooksVeryHappy::
     .string "It looks very happy.\p"
-    .string "I wish {RIVAL} could see this and\n"
+    .string "I wish GARY could see this and\n"
     .string "learn something from it.$"
 
 PalletTown_RivalsHouse_Text_ItsQuiteFriendly::

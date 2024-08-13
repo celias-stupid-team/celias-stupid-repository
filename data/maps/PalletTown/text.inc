@@ -27,7 +27,7 @@ PalletTown_Text_PlayersHouse::
     .string "{PLAYER}'s house$"
 
 PalletTown_Text_RivalsHouse::
-    .string "{RIVAL}'s house$"
+    .string "GARY's house$"
 
 PalletTown_Text_TownSign::
     .string "PALLET TOWN\n"
