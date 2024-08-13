@@ -902,4 +902,3 @@ Route_25_EventScript_CSR_ItemOddCandy::
 ViridianForest_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_POKE_BALL
 	end
-	

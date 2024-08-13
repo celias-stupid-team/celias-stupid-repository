@@ -27,23 +27,19 @@ const u8 gVenusaurPokedexText[] = _(
 const u8 gVenusaurPokedexTextUnused[] = _("");
 
 const u8 gCharmanderPokedexText[] = _(
-    "From the time it is born, a flame burns\n"
-    "at the tip of its tail. Its life would end\n"
-    "if the flame were to go out.");
+    "It's a fire starter.\n"
+    "Idk what type you thought it'd be.");
 
 const u8 gCharmanderPokedexTextUnused[] = _("");
 
 const u8 gCharmeleonPokedexText[] = _(
-    "It lashes about with its tail to knock\n"
-    "down its foe. It then tears up the fallen\n"
-    "opponent with sharp claws.");
+    "After 25 years, Charmander finally\n"
+    "evolves into a dragon type");
 
 const u8 gCharmeleonPokedexTextUnused[] = _("");
 
 const u8 gCharizardPokedexText[] = _(
-    "Its wings can carry this POKéMON close to\n"
-    "an altitude of 4,600 feet. It blows out\n"
-    "fire at very high temperatures.");
+    "jk");
 
 const u8 gCharizardPokedexTextUnused[] = _("");
 
