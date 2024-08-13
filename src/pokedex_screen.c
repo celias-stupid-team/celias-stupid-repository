@@ -321,14 +321,14 @@ static const struct ListMenuItem sListMenuItems_KantoDexModeSelect[] = {
     {gText_PokemonList,                  LIST_HEADER},
     {gText_NumericalMode,                DEX_MODE(NUMERICAL_KANTO)},
     {gText_PokemonHabitats,              LIST_HEADER},
-    {gText_DexCategory_GrasslandPkmn,    DEX_CATEGORY_GRASSLAND},
-    {gText_DexCategory_ForestPkmn,       DEX_CATEGORY_FOREST},
-    {gText_DexCategory_WatersEdgePkmn,   DEX_CATEGORY_WATERS_EDGE},
-    {gText_DexCategory_SeaPkmn,          DEX_CATEGORY_SEA},
-    {gText_DexCategory_CavePkmn,         DEX_CATEGORY_CAVE},
-    {gText_DexCategory_MountainPkmn,     DEX_CATEGORY_MOUNTAIN},
-    {gText_DexCategory_RoughTerrainPkmn, DEX_CATEGORY_ROUGH_TERRAIN},
-    {gText_DexCategory_UrbanPkmn,        DEX_CATEGORY_URBAN},
+    {gText_DexCategory_FirstBadgePkmn,    DEX_CATEGORY_FIRST_BADGE},
+    {gText_DexCategory_SecondBadgePkmn,       DEX_CATEGORY_SECOND_BADGE},
+    {gText_DexCategory_ThirdBadgePkmn,   DEX_CATEGORY_THIRD_BADGE},
+    {gText_DexCategory_FourthBadgePkmn,          DEX_CATEGORY_FOURTH_BADGE},
+    {gText_DexCategory_FifthBadgePkmn,         DEX_CATEGORY_FIFTH_BADGE},
+    {gText_DexCategory_SixthBadgePkmn,     DEX_CATEGORY_SIXTH_BADGE},
+    {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
+    {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
@@ -365,14 +365,14 @@ static const struct ListMenuItem sListMenuItems_NatDexModeSelect[] = {
     {gText_NumericalModeKanto,           DEX_MODE(NUMERICAL_KANTO)},
     {gText_NumericalModeNational,        DEX_MODE(NUMERICAL_NATIONAL)},
     {gText_PokemonHabitats,              LIST_HEADER},
-    {gText_DexCategory_GrasslandPkmn,    DEX_CATEGORY_GRASSLAND},
-    {gText_DexCategory_ForestPkmn,       DEX_CATEGORY_FOREST},
-    {gText_DexCategory_WatersEdgePkmn,   DEX_CATEGORY_WATERS_EDGE},
-    {gText_DexCategory_SeaPkmn,          DEX_CATEGORY_SEA},
-    {gText_DexCategory_CavePkmn,         DEX_CATEGORY_CAVE},
-    {gText_DexCategory_MountainPkmn,     DEX_CATEGORY_MOUNTAIN},
-    {gText_DexCategory_RoughTerrainPkmn, DEX_CATEGORY_ROUGH_TERRAIN},
-    {gText_DexCategory_UrbanPkmn,        DEX_CATEGORY_URBAN},
+    {gText_DexCategory_FirstBadgePkmn,    DEX_CATEGORY_FIRST_BADGE},
+    {gText_DexCategory_SecondBadgePkmn,       DEX_CATEGORY_SECOND_BADGE},
+    {gText_DexCategory_ThirdBadgePkmn,   DEX_CATEGORY_THIRD_BADGE},
+    {gText_DexCategory_FourthBadgePkmn,          DEX_CATEGORY_FOURTH_BADGE},
+    {gText_DexCategory_FifthBadgePkmn,         DEX_CATEGORY_FIFTH_BADGE},
+    {gText_DexCategory_SixthBadgePkmn,     DEX_CATEGORY_SIXTH_BADGE},
+    {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
+    {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
@@ -434,41 +434,41 @@ static const struct ScrollArrowsTemplate sScrollArrowsTemplate_NatDex = {
 
 
 static const struct PokedexScreenWindowGfx sTopMenuSelectionIconGfxPtrs[] = {
-    [DEX_CATEGORY_GRASSLAND] = {
-        .tiles = sTopMenuIconTiles_Grassland,
-        .pal   = sTopMenuIconPals_Grassland
-    },
-    [DEX_CATEGORY_FOREST] = {
+    [DEX_CATEGORY_FIRST_BADGE] = {
         .tiles = sTopMenuIconTiles_Forest,
         .pal   = sTopMenuIconPals_Forest
     },
-    [DEX_CATEGORY_WATERS_EDGE] = {
-        .tiles = sTopMenuIconTiles_WatersEdge,
-        .pal   = sTopMenuIconPals_WatersEdge
-    },
-    [DEX_CATEGORY_SEA] = {
-        .tiles = sTopMenuIconTiles_Sea,
-        .pal   = sTopMenuIconPals_Sea
-    },
-    [DEX_CATEGORY_CAVE] = {
+    [DEX_CATEGORY_SECOND_BADGE] = {
         .tiles = sTopMenuIconTiles_Cave,
         .pal   = sTopMenuIconPals_Cave
     },
-    [DEX_CATEGORY_MOUNTAIN] = {
-        .tiles = sTopMenuIconTiles_Mountain,
-        .pal   = sTopMenuIconPals_Mountain
+    [DEX_CATEGORY_THIRD_BADGE] = {
+        .tiles = sTopMenuIconTiles_WatersEdge,
+        .pal   = sTopMenuIconPals_WatersEdge
     },
-    [DEX_CATEGORY_ROUGH_TERRAIN] = {
-        .tiles = sTopMenuIconTiles_RoughTerrain,
-        .pal   = sTopMenuIconPals_RoughTerrain
-    },
-    [DEX_CATEGORY_URBAN] = {
+    [DEX_CATEGORY_FOURTH_BADGE] = {
         .tiles = sTopMenuIconTiles_Urban,
         .pal   = sTopMenuIconPals_Urban
     },
-    [DEX_CATEGORY_RARE] = {
+    [DEX_CATEGORY_FIFTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_Grassland,
+        .pal   = sTopMenuIconPals_Grassland
+    },
+    [DEX_CATEGORY_SIXTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_RoughTerrain,
+        .pal   = sTopMenuIconPals_RoughTerrain
+    },
+    [DEX_CATEGORY_SEVENTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_Sea,
+        .pal   = sTopMenuIconPals_Sea
+    },
+    [DEX_CATEGORY_FINAL_BADGE] = {
         .tiles = sTopMenuIconTiles_Rare,
         .pal   = sTopMenuIconPals_Rare
+    },
+    [DEX_CATEGORY_RARE] = {
+        .tiles = sTopMenuIconTiles_Mountain,
+        .pal   = sTopMenuIconPals_Mountain
     },
     [DEX_MODE(NUMERICAL_KANTO)] = {
         .tiles = sTopMenuIconTiles_Numerical,
@@ -801,14 +801,14 @@ const u8 (*const sCategoryPageIconCoords[])[4] = {
 };
 
 static const u8 *const sDexCategoryNamePtrs[] = {
-    gText_DexCategory_GrasslandPkmn,
-    gText_DexCategory_ForestPkmn,
-    gText_DexCategory_WatersEdgePkmn,
-    gText_DexCategory_SeaPkmn,
-    gText_DexCategory_CavePkmn,
-    gText_DexCategory_MountainPkmn,
-    gText_DexCategory_RoughTerrainPkmn,
-    gText_DexCategory_UrbanPkmn,
+    gText_DexCategory_FirstBadgePkmn,
+    gText_DexCategory_SecondBadgePkmn,
+    gText_DexCategory_ThirdBadgePkmn,
+    gText_DexCategory_FourthBadgePkmn,
+    gText_DexCategory_FifthBadgePkmn,
+    gText_DexCategory_SixthBadgePkmn,
+    gText_DexCategory_SeventhBadgePkmn,
+    gText_DexCategory_FinalBadgePkmn,
     gText_DexCategory_RarePkmn,
 };
 
@@ -1046,14 +1046,14 @@ static void Task_PokedexScreen(u8 taskId)
             case LIST_CANCEL:
                 sPokedexScreenData->state = 1;
                 break;
-            case DEX_CATEGORY_GRASSLAND:
-            case DEX_CATEGORY_FOREST:
-            case DEX_CATEGORY_WATERS_EDGE:
-            case DEX_CATEGORY_SEA:
-            case DEX_CATEGORY_CAVE:
-            case DEX_CATEGORY_MOUNTAIN:
-            case DEX_CATEGORY_ROUGH_TERRAIN:
-            case DEX_CATEGORY_URBAN:
+            case DEX_CATEGORY_FIRST_BADGE:
+            case DEX_CATEGORY_SECOND_BADGE:
+            case DEX_CATEGORY_THIRD_BADGE:
+            case DEX_CATEGORY_FOURTH_BADGE:
+            case DEX_CATEGORY_FIFTH_BADGE:
+            case DEX_CATEGORY_SIXTH_BADGE:
+            case DEX_CATEGORY_SEVENTH_BADGE:
+            case DEX_CATEGORY_FINAL_BADGE:
             case DEX_CATEGORY_RARE:
                 if (DexScreen_IsCategoryUnlocked(sPokedexScreenData->modeSelectInput))
                 {

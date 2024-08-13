@@ -925,7 +925,7 @@ SECTIONS {
         sound/songs/midi/mus_surf.o(.rodata);
         sound/songs/midi/mus_poke_tower.o(.rodata);
         sound/songs/midi/mus_silph.o(.rodata);
-        sound/songs/midi/mus_fuchsia.o(.rodata);
+        sound/songs/midi/mus_fushcia.o(.rodata);
         sound/songs/midi/mus_celadon.o(.rodata);
         sound/songs/midi/mus_victory_trainer.o(.rodata);
         sound/songs/midi/mus_victory_wild.o(.rodata);

@@ -398,7 +398,7 @@ CeruleanCave_B1F_EventScript_ItemUltraBall::
 	finditem ITEM_ULTRA_BALL
 	end
 
-FuchsiaCity_WardensHouse_EventScript_ItemRareCandy::
+FushciaCity_WardensHouse_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
 	end
 
@@ -707,7 +707,7 @@ CeladonCity_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_POKE_BALL
 	end
 
-FuchsiaCity_EventScript_CSR_ItemOddCandy::
+FushciaCity_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_POKE_BALL
 	end
 
