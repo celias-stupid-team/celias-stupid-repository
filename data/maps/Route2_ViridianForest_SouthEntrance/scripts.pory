@@ -11,6 +11,6 @@ Route2_ViridianForest_SouthEntrance_EventScript_Woman2::
 	end
 `
 script Route2_ViridianForest_SouthEntrance_EventScript_CeliaCatch {
-	msgbox(format("This is me doing my damndest\nto get people to catch stuff.\pIt's surprisingly hard.\n"), MSGBOX_NPC)
+	msgbox("This is me doing my damndest\nto get people to catch stuff.\pIt's surprisingly hard.\n", MSGBOX_NPC)
 	end
 }

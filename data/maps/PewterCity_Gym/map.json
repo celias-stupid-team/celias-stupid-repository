@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -56,6 +56,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PewterCity_Gym_EventScript_GymGuy",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PewterCity_EventScript_CeliaDad",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PewterCity_EventScript_CeliaLightYears",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -81,7 +109,9 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

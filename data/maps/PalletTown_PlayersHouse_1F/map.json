@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 10,
       "y": 5,
       "elevation": 0,
@@ -45,7 +45,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 4,
       "y": 3,
       "elevation": 0,
@@ -59,7 +59,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 1,
       "y": 4,
       "elevation": 0,

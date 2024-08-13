@@ -292,7 +292,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SWIMMER_M_LAND]           = &gObjectEventGraphicsInfo_SwimmerMLand,
     [OBJ_EVENT_GFX_SWIMMER_F_LAND]           = &gObjectEventGraphicsInfo_SwimmerFLand,
     [OBJ_EVENT_GFX_WORKER_M]                 = &gObjectEventGraphicsInfo_WorkerM,
-    [OBJ_EVENT_GFX_WORKER_F]                 = &gObjectEventGraphicsInfo_WorkerF,
+    [OBJ_EVENT_GFX_CELIA]                 = &gObjectEventGraphicsInfo_WorkerF,
     [OBJ_EVENT_GFX_ROCKET_M]                 = &gObjectEventGraphicsInfo_RocketM,
     [OBJ_EVENT_GFX_ROCKET_F]                 = &gObjectEventGraphicsInfo_RocketF,
     [OBJ_EVENT_GFX_GBA_KID]                  = &gObjectEventGraphicsInfo_GBAKid,

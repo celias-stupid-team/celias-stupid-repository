@@ -137,7 +137,7 @@ Route23_EventScript_VictoryRoadGateSign::
 	end
 `
 script Route23_EventScript_CeliaZapdos {
-	msgbox(format("The idea of just casually dropping\nZAPDOS to anyone who decides to\lactually come back here is so good.\pI don't have much to say - I just\nthink it's extremely funny."), MSGBOX_NPC)
+	msgbox("The idea of just casually dropping\nZAPDOS to anyone who decides to\lactually come back here is so good.\pI don't have much to say - I just\nthink it's extremely funny.", MSGBOX_NPC)
 	end
 }
 
