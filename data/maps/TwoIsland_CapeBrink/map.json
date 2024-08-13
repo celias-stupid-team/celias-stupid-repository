@@ -16,11 +16,13 @@
   "connections": [
     {
       "map": "MAP_TWO_ISLAND",
-      "offset": -24,
+      "offset": -18,
       "direction": "down"
     }
   ],
-  "object_events": [],
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 12,
@@ -30,7 +32,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

@@ -196,67 +196,67 @@
 // unused
 
 //Pallet
-#define FLAG_CSR_NOT_OAK_SILLY               0x0B1
-#define FLAG_CSR_CUT_OAK               0x0B2
-#define FLAG_CSR_GS_BALL_DELIVERED               0x0B3
-#define FLAG_CSR_GS_BALL_GOT               0x0B4
-#define FLAG_CSR_COLLECTED_STAR               0x0B5
+#define FLAG_CSR_NOT_OAK_SILLY          0x0B1
+#define FLAG_CSR_CUT_OAK                0x0B2
+#define FLAG_CSR_GS_BALL_DELIVERED      0x0B3
+#define FLAG_CSR_GS_BALL_GOT            0x0B4
+#define FLAG_CSR_COLLECTED_STAR         0x0B5
 
 //Route 1
-#define FLAG_CSR_SHINY_RAT_1               0x0B6
-#define FLAG_CSR_SHINY_RAT_2               0x0B7
+#define FLAG_CSR_SHINY_RAT_1            0x0B6
+#define FLAG_CSR_SHINY_RAT_2            0x0B7
 
 //Viridian
-#define FLAG_CSR_BROKE_INTO_HOUSE               0x0B8
-#define FLAG_CSR_RETURNED_KEY               0x0B9
-#define FLAG_CSR_WENT_TO_PIT               0x0BA
+#define FLAG_CSR_BROKE_INTO_HOUSE       0x0B8
+#define FLAG_CSR_RETURNED_KEY           0x0B9
+#define FLAG_CSR_WENT_TO_PIT            0x0BA
 #define FLAG_CSR_UNUSED_1               0x0BB
-#define FLAG_CSR_KENYA_OBTAINED             0x0BC
+#define FLAG_CSR_KENYA_OBTAINED         0x0BC
 
 
 //Route 2
-#define FLAG_CSR_UNUSED_2            0x0BD
+#define FLAG_CSR_UNUSED_2               0x0BD
 
 //Viridian Forest
-#define FLAG_0x0BE               0x0BE
+#define FLAG_0x0BE                      0x0BE
 
 //Pewter City
-#define FLAG_CSR_UNUSED_3              0x0BF
-#define FLAG_CSR_MUSEUM_GUIDE_MISSED               0x0C0
-#define FLAG_CSR_BROCK_RAINING               0x0C1
-#define FLAG_CSR_TREE_FLAG_1               0x0C2
-#define FLAG_CSR_TREE_FLAG_2               0x0C3
-#define FLAG_CSR_TREE_FLAG_3               0x0C4
-#define FLAG_CSR_WATERED_TREE               0x0C5
+#define FLAG_CSR_UNUSED_3               0x0BF
+#define FLAG_CSR_MUSEUM_GUIDE_MISSED    0x0C0
+#define FLAG_CSR_BROCK_RAINING          0x0C1
+#define FLAG_CSR_TREE_FLAG_1            0x0C2
+#define FLAG_CSR_TREE_FLAG_2            0x0C3
+#define FLAG_CSR_TREE_FLAG_3            0x0C4
+#define FLAG_CSR_WATERED_TREE           0x0C5
 
 //Route 3
-#define FLAG_CSR_LASS_ATTACK_1               0x0C6
-#define FLAG_CSR_LASS_ATTACK_2               0x0C7
+#define FLAG_CSR_LASS_ATTACK_1          0x0C6
+#define FLAG_CSR_LASS_ATTACK_2          0x0C7
 #define FLAG_CSR_UNUSED_4               0x0C8
 
 //Route 4
-#define FLAG_CSR_2_SITRUS_BERRIES               0x0C9
-#define FLAG_CSR_NEGATIVE_BERRIES               0x0CA
+#define FLAG_CSR_2_SITRUS_BERRIES       0x0C9
+#define FLAG_CSR_NEGATIVE_BERRIES       0x0CA
 #define FLAG_CSR_UNUSED_5               0x0CB
 
 //Mt Moon
-#define FLAG_CSR_FIRST_TENTACOOL               0x0CC
-#define FLAG_CSR_SECOND_TENTACOOL               0x0CD
+#define FLAG_CSR_FIRST_TENTACOOL        0x0CC
+#define FLAG_CSR_SECOND_TENTACOOL       0x0CD
 #define FLAG_CSR_UNUSED_6               0x0CE
 #define FLAG_CSR_UNUSED_7               0x0CF
 #define FLAG_CSR_UNUSED_8               0x0D0
 #define FLAG_CSR_UNUSED_9               0x0D1
-#define FLAG_CSR_UNUSED_10               0x0D2
-#define FLAG_CSR_UNUSED_11               0x0D3
+#define FLAG_CSR_UNUSED_10              0x0D2
+#define FLAG_CSR_UNUSED_11              0x0D3
 #define FLAG_CSR_UNUSED_12              0x0D4
 
 //Cerulean City
-#define FLAG_CSR_BERRY_POWDER_MAN               0x0D5
-#define FLAG_CSR_GOT_SCYTHER               0x0D6
+#define FLAG_CSR_BERRY_POWDER_MAN       0x0D5
+#define FLAG_CSR_GOT_SCYTHER            0x0D6
 
 
-#define FLAG_0x0D7               0x0D7
-#define FLAG_0x0D8               0x0D8
+#define FLAG_PYTHON_TEST         0x0D7
+#define FLAG_CSR_PYTHON_SUCCESS  0x0D8
 #define FLAG_0x0D9               0x0D9
 #define FLAG_0x0DA               0x0DA
 #define FLAG_0x0DB               0x0DB
@@ -280,7 +280,8 @@
 #define FLAG_0x0ED               0x0ED
 #define FLAG_0x0EE               0x0EE
 #define FLAG_0x0EF               0x0EF
-#define FLAG_0x0F0               0x0F0
+//Celadon City
+#define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
 #define FLAG_0x0F1               0x0F1
 #define FLAG_0x0F2               0x0F2
 #define FLAG_0x0F3               0x0F3
@@ -302,8 +303,8 @@
 #define FLAG_0x103               0x103
 #define FLAG_0x104               0x104
 #define FLAG_0x105               0x105
-#define FLAG_0x106               0x106
-#define FLAG_0x107               0x107
+#define FLAG_CSR_TM_CASE               0x106
+#define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
 #define FLAG_0x108               0x108
 #define FLAG_0x109               0x109
 #define FLAG_0x10A               0x10A
@@ -556,16 +557,16 @@
 
 // Unused?
 // Let's use these for item pickups
-#define FLAG_CSR_ROUTE_2_POKEBALL               0x1FF
-#define FLAG_CSR_PEWTER_POKEBALL               0x200
-#define FLAG_CSR_ROUTE_3_POKEBALL               0x201
-#define FLAG_CSR_ROUTE_4_POKEBALL               0x202
-#define FLAG_CSR_MT_MOON_SUPER_REPEL               0x203
-#define FLAG_CSR_MT_MOON_MIN_REPEL               0x204
-#define FLAG_CSR_MT_MOON_MAX_REPEL               0x205
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_1               0x206
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2               0x207
-#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3               0x208
+#define FLAG_CSR_ROUTE_2_POKEBALL                          0x1FF
+#define FLAG_CSR_PEWTER_POKEBALL                           0x200
+#define FLAG_CSR_ROUTE_3_POKEBALL                          0x201
+#define FLAG_CSR_ROUTE_4_POKEBALL                          0x202
+#define FLAG_CSR_MT_MOON_SUPER_REPEL                       0x203
+#define FLAG_CSR_MT_MOON_MIN_REPEL                         0x204
+#define FLAG_CSR_MT_MOON_MAX_REPEL                         0x205
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_1                  0x206
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2                  0x207
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3                  0x208
 #define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY               0x209
 #define FLAG_0x20A               0x20A
 #define FLAG_0x20B               0x20B
