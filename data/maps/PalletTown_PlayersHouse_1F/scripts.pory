@@ -78,3 +78,18 @@ script PalletTown_PlayersHouse_1F_EventScript_Plant {
 	msgbox(format("That's not OAK, silly!"), MSGBOX_AUTOCLOSE)
 	release
 }
+
+script PalletTown_PlayersHouse_1F_EventScript_CeliaBakemeat {
+	msgbox(format("Volcano Bakemeat is a line from\nPokemon Vietnamese Crystal, a\lbootleg English translation.\pDon't worry, VC fans!\nI'm not gonna forget “I AM A MONSTER\lCOACH.”"), MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_1F_EventScript_CeliaWrongSide {
+	msgbox(format("Fun fact!\pIn FRLG, if you use a cheat to check\nthe TV from the left or right, it'll\lsay “Oops! Wrong side!”\pThat's where the idea for this\njoke came from!\pPS: Have you found your way to the\nback side yet?"), MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
+	msgbox(format("Dad is by far my favorite character\nto write for this hack.\pEveryone expects it to be some gross\nsexual joke or whatever, but no.\lIt's just Dad.\pAll he needs to do is show up and\nsay something kinda silly.\pHe's already conceptually so funny,\nthat almost anything I write works."), MSGBOX_NPC)
+	end
+}

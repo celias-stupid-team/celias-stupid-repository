@@ -1309,3 +1309,7 @@ PalletTown_ProfessorOaksLab_EventScript_RightSignAlt::
 	releaseall
 	end
 `
+script PalletTown_EventScript_CeliaBackToLab {
+	msgbox(format("Originally, I wanted to have the\nmusic here be Back To The Lab,\lbut playing over the Oak theme.\pSadly, the joke didn't come through\nvery well, so I kept it vanilla."), MSGBOX_NPC)
+	end
+}

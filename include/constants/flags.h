@@ -831,7 +831,7 @@
 #define FLAG_0x307               0x307
 #define FLAG_0x308               0x308
 #define FLAG_0x309               0x309
-#define FLAG_0x30A               0x30A
+#define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_0x30B               0x30B
 #define FLAG_0x30C               0x30C
 #define FLAG_0x30D               0x30D
