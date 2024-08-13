@@ -94,7 +94,7 @@ script ViridianForest_EventScript_Dad {
 }
 
 script ViridianForest_EventScript_CeliaHack {
-	msgbox("In RBY, this guy says “CATERPIE\ncan't cut it!”\pIn FRLG, this guy says “CATERPIE\ncan't hack it!”\pI simply continued the trend.\n"), MSGBOX_NPC)
+	msgbox("In RBY, this guy says “CATERPIE\ncan't cut it!”\pIn FRLG, this guy says “CATERPIE\ncan't hack it!”\pI simply continued the trend.\n", MSGBOX_NPC)
 	end
 }
 
