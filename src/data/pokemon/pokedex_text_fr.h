@@ -735,7 +735,7 @@ const u8 gMrmimePokedexTextUnused[] = _("");
 const u8 gScytherPokedexText[] = _(
 	"With ninja-like agility, it can create\n"
 	"the illusion that there's more than one.\n"
-	"LV. 25        No. 123         17/130 *");
+	"LV. 25        No. 123         17/130");
 
 const u8 gScytherPokedexTextUnused[] = _("");
 
