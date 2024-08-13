@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_ROUTE6",
-      "offset": 12,
+      "offset": 0,
       "direction": "down"
     },
     {
@@ -35,8 +35,16 @@
       "direction": "right"
     }
   ],
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

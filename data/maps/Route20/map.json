@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_ROUTE19",
-      "offset": -40,
+      "offset": -68,
       "direction": "right"
     }
   ],
@@ -197,7 +197,9 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
