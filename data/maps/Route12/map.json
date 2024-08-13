@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_ROUTE11",
-      "offset": 60,
+      "offset": 58,
       "direction": "left"
     }
   ],
@@ -258,7 +258,9 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -281,7 +283,7 @@
       "x": 18,
       "y": 57,
       "elevation": 3,
-      "item": "ITEM_HYPER_POTION",
+      "item": "ITEM_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_HYPER_POTION",
       "quantity": 1,
       "underfoot": false

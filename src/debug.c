@@ -959,7 +959,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_WORLD_MAP_LAVENDER_TOWN) &&
                 FlagGet(FLAG_WORLD_MAP_VERMILION_CITY) &&
                 FlagGet(FLAG_WORLD_MAP_CELADON_CITY) &&
-                FlagGet(FLAG_WORLD_MAP_FUCHSIA_CITY) &&
+                FlagGet(FLAG_WORLD_MAP_FUSHCIA_CITY) &&
                 FlagGet(FLAG_WORLD_MAP_CINNABAR_ISLAND) &&
                 FlagGet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) &&
                 FlagGet(FLAG_WORLD_MAP_SAFFRON_CITY) &&
@@ -2161,7 +2161,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_WORLD_MAP_LAVENDER_TOWN);
         FlagClear(FLAG_WORLD_MAP_VERMILION_CITY);
         FlagClear(FLAG_WORLD_MAP_CELADON_CITY);
-        FlagClear(FLAG_WORLD_MAP_FUCHSIA_CITY);
+        FlagClear(FLAG_WORLD_MAP_FUSHCIA_CITY);
         FlagClear(FLAG_WORLD_MAP_CINNABAR_ISLAND);
         FlagClear(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR);
         FlagClear(FLAG_WORLD_MAP_SAFFRON_CITY);
@@ -2185,7 +2185,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_WORLD_MAP_LAVENDER_TOWN);
         FlagSet(FLAG_WORLD_MAP_VERMILION_CITY);
         FlagSet(FLAG_WORLD_MAP_CELADON_CITY);
-        FlagSet(FLAG_WORLD_MAP_FUCHSIA_CITY);
+        FlagSet(FLAG_WORLD_MAP_FUSHCIA_CITY);
         FlagSet(FLAG_WORLD_MAP_CINNABAR_ISLAND);
         FlagSet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR);
         FlagSet(FLAG_WORLD_MAP_SAFFRON_CITY);
@@ -3447,7 +3447,7 @@ static void DebugAction_Sound_SE(u8 taskId)
     // Display initial sound effect
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
     ConvertIntToDecimalStringN(gStringVar3, 1, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
-    StringCopyPadded(gStringVar1, sSENames[0], CHAR_SPACE, 35);
+    StringCopyPadded(gStringVar1, sSENames[0], CHAR_SPACE, 25);
     StringExpandPlaceholders(gStringVar4, sDebugText_Sound_SFX_ID);
     AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
 
@@ -3488,7 +3488,7 @@ static void DebugAction_Sound_SE_SelectId(u8 taskId)
         }
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
-        StringCopyPadded(gStringVar1, sSENames[gTasks[taskId].tInput-1], CHAR_SPACE, 35);
+        StringCopyPadded(gStringVar1, sSENames[gTasks[taskId].tInput-1], CHAR_SPACE, 25);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
         StringExpandPlaceholders(gStringVar4, sDebugText_Sound_SFX_ID);
         AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
@@ -3529,7 +3529,7 @@ static void DebugAction_Sound_MUS(u8 taskId)
     // Display initial song
     StringCopy(gStringVar2, gText_DigitIndicator[0]);
     ConvertIntToDecimalStringN(gStringVar3, START_MUS, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
-    StringCopyPadded(gStringVar1, sBGMNames[0], CHAR_SPACE, 35);
+    StringCopyPadded(gStringVar1, sBGMNames[0], CHAR_SPACE, 25);
     StringExpandPlaceholders(gStringVar4, sDebugText_Sound_Music_ID);
     AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
 
@@ -3570,7 +3570,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
         }
 
         StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].tDigit]);
-        StringCopyPadded(gStringVar1, sBGMNames[gTasks[taskId].tInput-START_MUS], CHAR_SPACE, 35);
+        StringCopyPadded(gStringVar1, sBGMNames[gTasks[taskId].tInput-START_MUS], CHAR_SPACE, 25);
         ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].tInput, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
         StringExpandPlaceholders(gStringVar4, sDebugText_Sound_Music_ID);
         AddTextPrinterParameterized(gTasks[taskId].tSubWindowId, DEBUG_MENU_FONT, gStringVar4, 1, 1, 0, NULL);
@@ -3655,7 +3655,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SURF) \
     X(MUS_POKE_TOWER) \
     X(MUS_SILPH) \
-    X(MUS_FUCHSIA) \
+    X(MUS_FUSHCIA) \
     X(MUS_CELADON) \
     X(MUS_VICTORY_TRAINER) \
     X(MUS_VICTORY_WILD) \
@@ -3694,6 +3694,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_TRAINER_TOWER) \
     X(MUS_SLOW_PALLET) \
     X(MUS_TEACHY_TV_MENU) \
+    X(MUS_CSR_DRILL_DOZER) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

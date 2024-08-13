@@ -11,6 +11,7 @@
 #define MAP_RECORD_CORNER       (2 | (0 << 8))
 #define MAP_BATTLE_COLOSSEUM_4P (3 | (0 << 8))
 #define MAP_UNION_ROOM          (4 | (0 << 8))
+#define MAP_CERULEAN_CLUB       (5 | (0 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_VIRIDIAN_FOREST                      (0 | (1 << 8))
@@ -207,7 +208,7 @@
 #define MAP_LAVENDER_TOWN                        (4 | (3 << 8))
 #define MAP_VERMILION_CITY                       (5 | (3 << 8))
 #define MAP_CELADON_CITY                         (6 | (3 << 8))
-#define MAP_FUCHSIA_CITY                         (7 | (3 << 8))
+#define MAP_FUSHCIA_CITY                         (7 | (3 << 8))
 #define MAP_CINNABAR_ISLAND                      (8 | (3 << 8))
 #define MAP_INDIGO_PLATEAU_EXTERIOR              (9 | (3 << 8))
 #define MAP_SAFFRON_CITY                         (10 | (3 << 8))
@@ -343,17 +344,17 @@
 #define MAP_CELADON_CITY_HOUSE1                    (18 | (10 << 8))
 #define MAP_CELADON_CITY_HOTEL                     (19 | (10 << 8))
 
-// gMapGroup_IndoorFuchsia
-#define MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE (0 | (11 << 8))
-#define MAP_FUCHSIA_CITY_MART                 (1 | (11 << 8))
-#define MAP_FUCHSIA_CITY_SAFARI_ZONE_OFFICE   (2 | (11 << 8))
-#define MAP_FUCHSIA_CITY_GYM                  (3 | (11 << 8))
-#define MAP_FUCHSIA_CITY_HOUSE1               (4 | (11 << 8))
-#define MAP_FUCHSIA_CITY_POKEMON_CENTER_1F    (5 | (11 << 8))
-#define MAP_FUCHSIA_CITY_POKEMON_CENTER_2F    (6 | (11 << 8))
-#define MAP_FUCHSIA_CITY_WARDENS_HOUSE        (7 | (11 << 8))
-#define MAP_FUCHSIA_CITY_HOUSE2               (8 | (11 << 8))
-#define MAP_FUCHSIA_CITY_HOUSE3               (9 | (11 << 8))
+// gMapGroup_IndoorFushcia
+#define MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE (0 | (11 << 8))
+#define MAP_FUSHCIA_CITY_MART                 (1 | (11 << 8))
+#define MAP_FUSHCIA_CITY_SAFARI_ZONE_OFFICE   (2 | (11 << 8))
+#define MAP_FUSHCIA_CITY_GYM                  (3 | (11 << 8))
+#define MAP_FUSHCIA_CITY_HOUSE1               (4 | (11 << 8))
+#define MAP_FUSHCIA_CITY_POKEMON_CENTER_1F    (5 | (11 << 8))
+#define MAP_FUSHCIA_CITY_POKEMON_CENTER_2F    (6 | (11 << 8))
+#define MAP_FUSHCIA_CITY_WARDENS_HOUSE        (7 | (11 << 8))
+#define MAP_FUSHCIA_CITY_HOUSE2               (8 | (11 << 8))
+#define MAP_FUSHCIA_CITY_HOUSE3               (9 | (11 << 8))
 
 // gMapGroup_IndoorCinnabar
 #define MAP_CINNABAR_ISLAND_GYM                         (0 | (12 << 8))

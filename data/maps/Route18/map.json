@@ -20,7 +20,7 @@
       "direction": "up"
     },
     {
-      "map": "MAP_FUCHSIA_CITY",
+      "map": "MAP_FUSHCIA_CITY",
       "offset": -10,
       "direction": "right"
     }
@@ -85,7 +85,9 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -97,7 +99,7 @@
     },
     {
       "type": "sign",
-      "x": 52,
+      "x": 64,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

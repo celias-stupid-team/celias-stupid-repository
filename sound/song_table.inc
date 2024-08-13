@@ -307,7 +307,7 @@ gSongTable::
 	song mus_surf, 0, 0
 	song mus_poke_tower, 0, 0
 	song mus_silph, 0, 0
-	song mus_fuchsia, 0, 0
+	song mus_fushcia, 0, 0
 	song mus_celadon, 0, 0
 	song mus_victory_trainer, 0, 0
 	song mus_victory_wild, 0, 0
@@ -346,6 +346,7 @@ gSongTable::
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
+	song mus_csr_drill_dozer, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

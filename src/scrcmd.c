@@ -37,6 +37,7 @@
 #include "list_menu.h"
 #include "script_menu.h"
 #include "malloc.h"
+#include "pokedex_screen.h"
 #include "constants/event_objects.h"
 #include "constants/maps.h"
 #include "constants/sound.h"
@@ -2381,4 +2382,20 @@ bool8 ScrCmd_DebugPrintf(struct ScriptContext * ctx)
         msg = (const u8 *)ctx->data[0];
     DebugPrintf("Script Debug: %S", msg);
     return FALSE;
+}
+
+void ScrCmd_setobtainable(struct ScriptContext * ctx)
+{
+    u32 i;
+    u16 species;
+    u32 argCount = ScriptReadByte(ctx);
+
+    if (argCount == 0)
+        return;
+
+    for (i = 0; i < argCount; ++i)
+    {
+        species = (u16) ScriptReadHalfword(ctx);
+        DexScreen_GetSetPokedexFlag(species, FLAG_SET_OBTAINABLE, TRUE);
+    }
 }

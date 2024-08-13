@@ -472,6 +472,7 @@ DYNAMIC_COLOR4 = 0D @ aquamarine
 DYNAMIC_COLOR5 = 0E @ blue-green
 DYNAMIC_COLOR6 = 0F @ cerulean
 
+
 @ sound
 
 MUS_DUMMY                 = 00 00
@@ -782,7 +783,7 @@ MUS_SS_ANNE               = 30 01
 MUS_SURF                  = 31 01
 MUS_POKE_TOWER            = 32 01
 MUS_SILPH                 = 33 01
-MUS_FUCHSIA               = 34 01
+MUS_FUSHCIA               = 34 01
 MUS_CELADON               = 35 01
 MUS_VICTORY_TRAINER       = 36 01
 MUS_VICTORY_WILD          = 37 01
@@ -821,6 +822,7 @@ MUS_ENCOUNTER_DEOXYS      = 57 01
 MUS_TRAINER_TOWER         = 58 01
 MUS_SLOW_PALLET           = 59 01
 MUS_TEACHY_TV_MENU        = 5A 01
+MUS_CSR_DRILL_DOZER       = 5B 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01
@@ -912,3 +914,4 @@ EMOJI_BIGANGER = F9 FE
 '\l' = FA @ scroll up window text
 '\p' = FB @ new paragraph
 '\n' = FE @ new line
+'\.' = B0 @ ellipsis symbol

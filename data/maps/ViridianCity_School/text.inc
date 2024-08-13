@@ -35,7 +35,7 @@ ViridianCity_School_Text_NotebookThirdPage::
     .string "He was late!\p"
     .string "Sonic ran outside and ran to the\n"
     .string "bus stop where people were getting\l"
-    .string "on the bus$"
+    .string "on the bus.$"
 
 ViridianCity_School_Text_NotebookFourthPage::
     .string "Fourth page…\p"
@@ -46,7 +46,7 @@ ViridianCity_School_Text_NotebookFourthPage::
     .string "“He is late!” said Knuckles to Tails\n"
     .string "before getting on the bus.\p"
     .string "Sonic ran so fast to the bus and he\n"
-    .string "got on the bus after Tails$"
+    .string "got on the bus after Tails.$"
 
 ViridianCity_School_Text_TurnThePage::
     .string "Turn the page?$"

@@ -171,17 +171,17 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
       "x": 43,
       "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_VIRIDIAN_FOREST_CANDY"
     },
     {
       "type": "object",
@@ -366,7 +366,7 @@
       "x": 3,
       "y": 22,
       "elevation": 3,
-      "item": "ITEM_POTION",
+      "item": "ITEM_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_VIRIDIAN_FOREST_POTION",
       "quantity": 1,
       "underfoot": false

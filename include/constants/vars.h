@@ -159,7 +159,7 @@
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
 #define VAR_0x406D                                                             0x406D
-#define VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
+#define VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070
 #define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071
@@ -349,6 +349,8 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_FEMALE    1 // Red, for female NPCs
 #define NPC_TEXT_COLOR_MON       2 // Black, for Pokémon
 #define NPC_TEXT_COLOR_NEUTRAL   3 // Black, for inanimate objects and messages from the game
+
+#define NPC_TEXT_COLOR_TREE       4 // Tree, for Oak and oak-adjactent things
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
 #endif // GUARD_CONSTANTS_VARS_H

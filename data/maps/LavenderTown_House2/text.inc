@@ -1,47 +1,55 @@
 LavenderTown_House2_Text_WantMeToRateNicknames::
-    .string "Hello, hello!\n"
-    .string "I am the official NAME RATER!\p"
-    .string "Want me to rate the nicknames of\n"
-    .string "your POKéMON?$"
+    .string "Wahaha!\n"
+    .string "I'm the DMCA's official NAME RATER!\p"
+    .string "Want me to tell you if your\n"
+    .string "nicknames are legal?$"
 
 LavenderTown_House2_Text_CritiqueWhichMonsNickname::
-    .string "Which POKéMON's nickname should\n"
-    .string "I critique?$"
+    .string "Which POKéMON might be violating\n"
+    .string "copyright?$"
+
 
 LavenderTown_House2_Text_GiveItANicerName::
-    .string "{STR_VAR_1}, is it?\n"
-    .string "That is a decent nickname!\p"
-    .string "But, would you like me to give it\n"
-    .string "a nicer name?\p"
-    .string "How about it?$"
+    .string "{STR_VAR_1}?\p"
+    .string "I'm pretty sure that's the name\n"
+    .string "of a small corporation in RUSSIA.\p"
+    .string "I'm sorry, but you need a new one.$"
 
 LavenderTown_House2_Text_WhatShallNewNicknameBe::
-    .string "Ah, good. Then, what shall the new\n"
-    .string "nickname be?$"
+    .string "Phew, that's good news.\p"
+    .string "What will you name it instead?$"
+
 
 LavenderTown_House2_Text_FromNowOnShallBeKnownAsName::
     .string "Done! From now on, this POKéMON\n"
     .string "shall be known as {STR_VAR_1}!\p"
-    .string "It is a better name than before!\n"
-    .string "How fortunate for you!$"
+    .string "It's a good thing you changed it\n"
+    .string "before we sued you!$"
+
 
 LavenderTown_House2_Text_ISeeComeVisitAgain::
-    .string "I see.\n"
-    .string "Do come visit again.$"
+    .string "Oh?\n"
+    .string "You think you're all clear?\p"
+    .string "You'd better hope you are!$"
+
 
 LavenderTown_House2_Text_FromNowOnShallBeKnownAsSameName::
-    .string "Done! From now on, this POKéMON\n"
-    .string "shall be known as {STR_VAR_1}!\p"
-    .string "It looks no different from before,\n"
-    .string "and yet, this is vastly superior!\p"
-    .string "How fortunate for you!$"
+    .string "…Really?\p"
+    .string "I just threatened to sue you, yet you\n"
+    .string "decide to give it the same name?\p"
+    .string "You've got guts, kid.$"
+
 
 LavenderTown_House2_Text_TrulyImpeccableName::
-    .string "{STR_VAR_1}, is it?\n"
-    .string "That is a truly impeccable name!\p"
-    .string "Take good care of {STR_VAR_1}!$"
+    .string "{STR_VAR_1}, is it?\p"
+    .string "I think POKéMON might actually be the\n"
+    .string "original copyright holder!\p"
+    .string "That means {STR_VAR_1}'s name can't\n"
+    .string "be changed to maintain the Trademark!\p"
+    .string "Don't want it going generic, after all.$"
 
 LavenderTown_House2_Text_ThatIsMerelyAnEgg::
-    .string "Now, now.\n"
-    .string "That is merely an EGG!$"
+    .string "EGGs are actually public domain\n"
+    .string "as of 2021!\p"
+    .string "No need to worry until it hatches.$"
 

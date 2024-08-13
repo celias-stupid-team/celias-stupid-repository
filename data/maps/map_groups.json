@@ -11,7 +11,7 @@
     "gMapGroup_IndoorLavender",
     "gMapGroup_IndoorVermilion",
     "gMapGroup_IndoorCeladon",
-    "gMapGroup_IndoorFuchsia",
+    "gMapGroup_IndoorFushcia",
     "gMapGroup_IndoorCinnabar",
     "gMapGroup_IndoorIndigoPlateau",
     "gMapGroup_IndoorSaffron",
@@ -49,7 +49,8 @@
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom"
+    "UnionRoom",
+    "CeruleanClub"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -246,7 +247,7 @@
     "LavenderTown",
     "VermilionCity",
     "CeladonCity",
-    "FuchsiaCity",
+    "FushciaCity",
     "CinnabarIsland",
     "IndigoPlateau_Exterior",
     "SaffronCity",
@@ -382,17 +383,17 @@
     "CeladonCity_House1",
     "CeladonCity_Hotel"
   ],
-  "gMapGroup_IndoorFuchsia": [
-    "FuchsiaCity_SafariZone_Entrance",
-    "FuchsiaCity_Mart",
-    "FuchsiaCity_SafariZone_Office",
-    "FuchsiaCity_Gym",
-    "FuchsiaCity_House1",
-    "FuchsiaCity_PokemonCenter_1F",
-    "FuchsiaCity_PokemonCenter_2F",
-    "FuchsiaCity_WardensHouse",
-    "FuchsiaCity_House2",
-    "FuchsiaCity_House3"
+  "gMapGroup_IndoorFushcia": [
+    "FushciaCity_SafariZone_Entrance",
+    "FushciaCity_Mart",
+    "FushciaCity_SafariZone_Office",
+    "FushciaCity_Gym",
+    "FushciaCity_House1",
+    "FushciaCity_PokemonCenter_1F",
+    "FushciaCity_PokemonCenter_2F",
+    "FushciaCity_WardensHouse",
+    "FushciaCity_House2",
+    "FushciaCity_House3"
   ],
   "gMapGroup_IndoorCinnabar": [
     "CinnabarIsland_Gym",

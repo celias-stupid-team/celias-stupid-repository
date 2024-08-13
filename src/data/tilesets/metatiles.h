@@ -22,8 +22,8 @@ const u32 gMetatileAttributes_VermilionCity[] = INCBIN_U32("data/tilesets/second
 const u16 gMetatiles_CeladonCity[] = INCBIN_U16("data/tilesets/secondary/celadon_city/metatiles.bin");
 const u32 gMetatileAttributes_CeladonCity[] = INCBIN_U32("data/tilesets/secondary/celadon_city/metatile_attributes.bin");
 
-const u16 gMetatiles_FuchsiaCity[] = INCBIN_U16("data/tilesets/secondary/fuchsia_city/metatiles.bin");
-const u32 gMetatileAttributes_FuchsiaCity[] = INCBIN_U32("data/tilesets/secondary/fuchsia_city/metatile_attributes.bin");
+const u16 gMetatiles_FushciaCity[] = INCBIN_U16("data/tilesets/secondary/fushcia_city/metatiles.bin");
+const u32 gMetatileAttributes_FushciaCity[] = INCBIN_U32("data/tilesets/secondary/fushcia_city/metatile_attributes.bin");
 
 const u16 gMetatiles_CinnabarIsland[] = INCBIN_U16("data/tilesets/secondary/cinnabar_island/metatiles.bin");
 const u32 gMetatileAttributes_CinnabarIsland[] = INCBIN_U32("data/tilesets/secondary/cinnabar_island/metatile_attributes.bin");
@@ -46,8 +46,8 @@ const u32 gMetatileAttributes_VermilionGym[] = INCBIN_U32("data/tilesets/seconda
 const u16 gMetatiles_CeladonGym[] = INCBIN_U16("data/tilesets/secondary/celadon_gym/metatiles.bin");
 const u32 gMetatileAttributes_CeladonGym[] = INCBIN_U32("data/tilesets/secondary/celadon_gym/metatile_attributes.bin");
 
-const u16 gMetatiles_FuchsiaGym[] = INCBIN_U16("data/tilesets/secondary/fuchsia_gym/metatiles.bin");
-const u32 gMetatileAttributes_FuchsiaGym[] = INCBIN_U32("data/tilesets/secondary/fuchsia_gym/metatile_attributes.bin");
+const u16 gMetatiles_FushciaGym[] = INCBIN_U16("data/tilesets/secondary/fushcia_gym/metatiles.bin");
+const u32 gMetatileAttributes_FushciaGym[] = INCBIN_U32("data/tilesets/secondary/fushcia_gym/metatile_attributes.bin");
 
 const u16 gMetatiles_SaffronGym[] = INCBIN_U16("data/tilesets/secondary/saffron_gym/metatiles.bin");
 const u32 gMetatileAttributes_SaffronGym[] = INCBIN_U32("data/tilesets/secondary/saffron_gym/metatile_attributes.bin");

@@ -2,7 +2,7 @@
   "id": "MAP_CERULEAN_CITY",
   "name": "CeruleanCity",
   "layout": "LAYOUT_CERULEAN_CITY",
-  "music": "MUS_FUCHSIA",
+  "music": "MUS_FUSHCIA",
   "region_map_section": "MAPSEC_CERULEAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -84,7 +84,7 @@
       "x": 37,
       "y": 31,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -323,8 +323,8 @@
       "x": 31,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_CERULEAN_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_CERULEAN_CITY_GYM",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [
