@@ -314,7 +314,7 @@
 #define MUS_SURF                  305 // MUS_RG_NAMINORI
 #define MUS_POKE_TOWER            306 // MUS_RG_P_TOWER
 #define MUS_SILPH                 307 // MUS_RG_SHIRUHU
-#define MUS_FUCHSIA               308 // MUS_RG_HANADA
+#define MUS_FUSHCIA               308 // MUS_RG_HANADA
 #define MUS_CELADON               309 // MUS_RG_TAMAMUSI
 #define MUS_VICTORY_TRAINER       310 // MUS_RG_WIN_TRE
 #define MUS_VICTORY_WILD          311 // MUS_RG_WIN_YASEI
