@@ -3287,6 +3287,7 @@ static void HandleTurnActionSelectionState(void)
                     *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                     return;
                 }
+                /* stupid ass shit condition below. No idea why I added this tbh //wiz1989
                 else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
                 {
                     gSelectionBattleScripts[gActiveBattler] = BattleScript_AskIfWantsToForfeitMatch;
@@ -3294,7 +3295,7 @@ static void HandleTurnActionSelectionState(void)
                     *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
                     *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                     return;
-                }
+                }*/
                 else
                 {
                     gBattleCommunication[gActiveBattler]++;
