@@ -108,3 +108,10 @@ PewterCity_Gym_Text_LightYears::
     .string "58,786,253,730,000,000 miles\n"
     .string "later…$"
 
+PewterCity_Gym_Text_Sprinklers::
+	.string "Oh shoot.\p"
+	.string "There go the sprinklers again.\n$"
+
+PewterCity_Gym_Text_DryingPan::
+	.string "Whelp.\n"
+	.string "Time to grab my frying pan.$"

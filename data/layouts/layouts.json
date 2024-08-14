@@ -305,7 +305,7 @@
       "id": "LAYOUT_PEWTER_CITY_GYM",
       "name": "PewterCity_Gym_Layout",
       "width": 13,
-      "height": 16,
+      "height": 36,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
