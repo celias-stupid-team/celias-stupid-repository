@@ -1049,10 +1049,11 @@ static s8 GetWarpEventAtPosition(struct MapHeader *mapHeader, u16 x, u16 y, u8 e
 
 static const u8 *TryRunCoordEventScript(const struct CoordEvent *coordEvent)
 {
-    //Like, right here?
-    gSpecialVar_Facing = GetPlayerFacingDirection();
+    
     if (coordEvent != NULL)
     {
+        //Like, right here?
+        gSpecialVar_Facing = GetPlayerFacingDirection(); 
         if (coordEvent->script == NULL)
         {
             DoCoordEventWeather(coordEvent->trigger);
