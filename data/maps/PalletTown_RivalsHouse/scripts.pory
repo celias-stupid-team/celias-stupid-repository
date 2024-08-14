@@ -172,6 +172,6 @@ PalletTown_RivalsHouse_EventScript_Picture::
 	end
 `
 script PalletTown_RivalsHouse_EventScript_CeliaBoB {
-	msgbox(format("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise."), MSGBOX_NPC)
+	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
 	end
 }

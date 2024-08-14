@@ -19,6 +19,6 @@ Route22_NorthEntrance_EventScript_BoulderBadgeGuardTrigger::
 	end
 `
 script Route22_NorthEntrance_EventScript_CeliaMusic {
-	msgbox(format("Yup, the music in here is vanilla!\pIdk why this place uses the Forest\nmusic, but people keep thinking that\lI was the one who put it here."), MSGBOX_NPC)
+	msgbox("Yup, the music in here is vanilla!\pIdk why this place uses the Forest\nmusic, but people keep thinking that\lI was the one who put it here.", MSGBOX_NPC)
 	end
 }
