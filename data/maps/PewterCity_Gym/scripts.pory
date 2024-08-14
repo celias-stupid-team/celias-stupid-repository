@@ -1,5 +1,6 @@
 raw `
 PewterCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_Gym_MapScripts_StartRain
 	.byte 0
 
 PewterCity_Gym_EventScript_Brock::
@@ -96,7 +97,7 @@ script PewterCity_EventScript_Dad {
 	faceplayer
 	textcolor(0)
 	// switch statement about the weather
-	if (flag(FLAG_GOT_TM39_FROM_BROCK)) {
+	if (!flag(FLAG_DEFEATED_BROCK)) {
 		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pNo, seriously.\nWe're REALLY far from home.\lHow'd you manage the hike?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	} else {
 			msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHmm, the sprinklers in here are\nreally bothersome.\lI should've brought an umbrella!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
@@ -166,10 +167,18 @@ script PewterCity_Gym_EventScript_NoSneaky {
 		msgbox(PewterCity_Gym_Text_LiamIntro, MSGBOX_DEFAULT)
 		trainerbattle_no_intro(TRAINER_CAMPER_LIAM, PewterCity_Gym_Text_LiamDefeat)
 	}
+	release
 }
 
 movement BoyWalksUp {
 	walk_right * 3
 	walk_up * 2
 	walk_left * 3
+}
+
+script PewterCity_Gym_MapScripts_StartRain {
+	if(flag(FLAG_DEFEATED_BROCK)) {
+		setweather(WEATHER_RAIN)
+		doweather
+	}
 }

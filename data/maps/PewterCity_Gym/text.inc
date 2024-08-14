@@ -3,8 +3,6 @@ PewterCity_Gym_Text_BrockIntro::
     .string "I'm PEWTER's GYM LEADER.\p"
     .string "My POKéMON is rock-hard, and\n"
     .string "has true-grit determination.\p"
-    .string "My POKéMON are all rock hard, and\n"
-    .string "have true-grit determination.\p"
     .string "That's right - my POKéMON is\n"
     .string "immune to physical attacks!\p"
     .string "Fuhaha! Do you have what it'll\n"
@@ -16,16 +14,16 @@ PewterCity_Gym_Text_BrockIntro::
 @ buffer that it's put into, and it stomps all over the gBattleTextBuffs after, as well as the otherwise
 @ unused array after that, sFlickerArray. Perhaps that's the reason why said array exists.
 PewterCity_Gym_Text_BrockDefeat::
-    .string "I took you for granted, and so\n"
+    .string "I took you for granite, and so\n"
     .string "I lost.\p"
-    .string "As proof of your victory, I confer\n"
-    .string "on you this…the official POKéMON\l"
-    .string "LEAGUE BOULDERBADGE.\p"
+    .string "As proof of your victory, behold!\n"
+    .string "I confer on you this… the official\l"
+    .string "POKéMON LEAGUE BOULDERBADGE.\p"
     .string "{FONT_NORMAL}{PLAYER} received the BOULDERBADGE\n"
     .string "from BROCK!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}$"
 
 PewterCity_Gym_Text_TakeThisWithYou::
-    .string "Wait!\n"
+    .string "Oh!\n"
     .string "Take this with you.$"
 
 PewterCity_Gym_Text_ReceivedTM39FromBrock::
@@ -52,17 +50,18 @@ PewterCity_Gym_Text_DontHaveRoomForThis::
     .string "You don't have room for this.$"
 
 PewterCity_Gym_Text_LiamIntro::
-    .string "Stop right there, kid!\p"
-    .string "You need to be at least ten feet \n"
-    .string "older before facing BROCK!$"
+	.string "Stop right there, kid!\p"
+	.string "You're ten thousand light-years\n"
+	.string "from facing BROCK!$"
 
 PewterCity_Gym_Text_LiamDefeat::
-    .string "Shit!\p"
-    .string "I got them mixed up again!$"
+	.string "Shit!\p"
+	.string "You're more than ten feet older\n"
+	.string "than me!$"
 
 PewterCity_Gym_Text_LiamPostBattle::
     .string "You're pretty hot.\n"
-    .string "…But not as hot as BROCK!$"
+    .string "…Wanna go out for dinner?$"
 
 PewterCity_Gym_Text_LetMeTakeYouToTheTop::
     .string "Hiya!\n"
