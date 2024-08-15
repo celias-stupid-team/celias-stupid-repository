@@ -526,7 +526,7 @@ script CeruleanCity_SummonThePit {
 	setmetatile(30, 11, 0x01F, FALSE)
 	setmetatile(30, 12, 0x027, FALSE)
 
-	//Cut here to keep the trees?
+	
 	setmetatile(31, 0, 0x0DB, FALSE)
 	setmetatile(31, 1, 0x0DB, FALSE)
 	setmetatile(31, 2, 0x0DB, FALSE)
@@ -540,6 +540,26 @@ script CeruleanCity_SummonThePit {
 	setmetatile(31, 10, 0x00D, FALSE)
 	setmetatile(31, 11, 0x00D, FALSE)
 	setmetatile(31, 12, 0x00D, FALSE)
+
+	
+
+	//If you keep the trees:
+	//setmetatile(31, 0, 0x12A, FALSE)
+	//setmetatile(31, 1, 0x12A, FALSE)
+	//setmetatile(31, 2, 0x12A, FALSE)
+	//setmetatile(31, 3, 0x12A, FALSE)
+	//setmetatile(31, 4, 0x12A, FALSE)
+	//setmetatile(31, 5, 0x12A, FALSE)
+	//setmetatile(31, 6, 0x12A, FALSE)
+	//setmetatile(31, 7, 0x12A, FALSE)
+	//setmetatile(31, 8, 0x12A, FALSE)
+	//setmetatile(31, 9, 0x12A, FALSE)
+	//setmetatile(31, 10, 0x12A, FALSE)
+	//setmetatile(31, 11, 0x12A, FALSE)
+	//setmetatile(31, 12, 0x12A, FALSE)
+
+	//Cut here to keep the trees?
+
 	setmetatile(32, 0, 0x0DC, FALSE)
 	setmetatile(32, 1, 0x0DC, FALSE)
 	setmetatile(32, 2, 0x0DC, FALSE)

@@ -136,20 +136,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
-      "x": 22,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_CERULEAN_RIVAL"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
       "x": 26,
       "y": 37,
@@ -213,12 +199,18 @@
       "flag": "0"
     },
     {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 24,
-      "y": -4,
-      "target_local_id": 6,
-      "target_map": "MAP_ROUTE24"
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "x": 22,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_CERULEAN_RIVAL"
     }
   ],
   "warp_events": [
@@ -376,62 +368,8 @@
     },
     {
       "type": "trigger",
-      "x": 22,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayRoute24Music"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayRoute24Music"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayRoute24Music"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayCeruleanMusic"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayCeruleanMusic"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "CeruleanCity_PlayCeruleanMusic"
-    },
-    {
-      "type": "trigger",
       "x": 26,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -440,7 +378,7 @@
     {
       "type": "trigger",
       "x": 27,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -449,7 +387,7 @@
     {
       "type": "trigger",
       "x": 28,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -485,7 +423,7 @@
     {
       "type": "trigger",
       "x": 29,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -494,7 +432,7 @@
     {
       "type": "trigger",
       "x": 25,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -503,7 +441,7 @@
     {
       "type": "trigger",
       "x": 28,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -512,7 +450,7 @@
     {
       "type": "trigger",
       "x": 27,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -521,7 +459,7 @@
     {
       "type": "trigger",
       "x": 26,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
