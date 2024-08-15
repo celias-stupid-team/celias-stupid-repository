@@ -16,9 +16,9 @@ CeruleanCity_OnTransition::
 	end
 
 CeruleanCity_EventScript_BlockExits::
-	setobjectxyperm LOCALID_POLICEMAN, 30, 12
-	setobjectxyperm LOCALID_SLOWBRO, 26, 31
-	setobjectxyperm LOCALID_LASS, 27, 31
+	setobjectxyperm LOCALID_POLICEMAN, 30, 17
+	setobjectxyperm LOCALID_SLOWBRO, 26, 36
+	setobjectxyperm LOCALID_LASS, 27, 36
 	return
 
 CeruleanCity_EventScript_RivalTriggerLeft::
@@ -30,14 +30,14 @@ CeruleanCity_EventScript_RivalTriggerLeft::
 CeruleanCity_EventScript_RivalTriggerMid::
 	lockall
 	setvar VAR_TEMP_1, 1
-	setobjectxyperm LOCALID_RIVAL, 23, 0
+	setobjectxyperm LOCALID_RIVAL, 23, 5
 	goto CeruleanCity_EventScript_Rival
 	end
 
 CeruleanCity_EventScript_RivalTriggerRight::
 	lockall
 	setvar VAR_TEMP_1, 2
-	setobjectxyperm LOCALID_RIVAL, 24, 0
+	setobjectxyperm LOCALID_RIVAL, 24, 5
 	goto CeruleanCity_EventScript_Rival
 	end
 
@@ -354,3 +354,24 @@ CeruleanCity_EventScript_GymSign::
 	releaseall
 	end
 `
+script CeruleanCity_PlayRoute24Music {
+	playbgm(MUS_ROUTE24, TRUE)
+	release
+}
+
+script CeruleanCity_PlayCeruleanMusic {
+	playbgm(MUS_FUSHCIA, TRUE)
+	release
+}
+
+script CeruleanCity_SummonThePit {
+	// draw the pit
+	special(DrawWholeMapView)
+	release
+}
+
+script CeruleanCity_EscapeThePit {
+	//draw cerulean
+	special(DrawWholeMapView)
+	release
+}
