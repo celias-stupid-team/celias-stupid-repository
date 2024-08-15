@@ -29,7 +29,7 @@
       "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
       "name": "PalletTown_RivalsHouse_Layout",
       "width": 32,
-      "height": 36,
+      "height": 58,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

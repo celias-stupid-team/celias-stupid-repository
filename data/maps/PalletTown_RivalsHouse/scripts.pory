@@ -223,9 +223,9 @@ script BobOmbBattlefield_EventScript_Cannon {
 	end
 }
 
-script PalletTown_RivalsHouse_EventScript_Picture {
+script SaffronCity_CopycatHouse_EventScript_Picture {
 	lock
-	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		closemessage
 		delay(20)
@@ -245,12 +245,44 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 	release
 }
 
+script PalletTown_RivalsHouse_EventScript_Picture {
+		lock
+	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		waitmovement(0)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpSplat)
+		waitmovement(0)
+		playse(SE_WALL_HIT)
+		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+		waitmovement(0)
+		delay(40)
+		
+	}
+	release
+}
+
 movement BackUp {
 	walk_slow_down * 2
 	face_up
 	delay_16 * 3
 	player_run_up * 2
 }
+
+movement JumpSplat {
+	jump_up
+}
+
+movement Faceplant {
+	lock_facing_direction
+	slide_down
+	enable_jump_landing_ground_effect
+	unlock_facing_direction
+}
+
 movement JumpUp {
 	jump_up
 	set_invisible
