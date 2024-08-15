@@ -167,7 +167,50 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 	msgbox PalletTown_RivalsHouse_Text_ShelvesCrammedFullOfBooks, MSGBOX_SIGN
 	end
 
-PalletTown_RivalsHouse_EventScript_Picture::
-	msgbox PalletTown_RivalsHouse_Text_LovelyAndSweetClefairy, MSGBOX_SIGN
-	end
+
 `
+script BobOmbBattlefield_EventScript_CannonBuddy {
+	msgbox("I'm a BOB-OMB BUDDY!\pThis is placeholder text!\nYay!", MSGBOX_NPC)
+	end
+}
+script BobOmbBattlefield_EventScript_IntroBuddy {
+	msgbox("I'm a BOB-OMB BUDDY!\pThis is placeholder text!\nYay!", MSGBOX_NPC)
+	end
+}
+
+script BobOmbBattlefield_EventScript_Sign {
+	msgbox("I'm a sign!\pThis is placeholder text!\nYay!", MSGBOX_SIGN)
+	end
+}
+
+script PalletTown_RivalsHouse_EventScript_Picture {
+	lock
+	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		waitmovement
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+		waitmovement
+		fadescreen(FADE_TO_WHITE)
+		delay(30)
+		setobjectxy(OBJ_EVENT_ID_PLAYER, 31, 35)
+		warphole(MAP_PALLET_TOWN_BOB_OMB_BATTLEFIELD)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	} else {
+		msgbox("{PLAYER} decided against a\nlikely concussion.", MSGBOX_DEFAULT)
+	}
+}
+
+movement BackUp {
+	walk_slow_down * 2
+	face_up
+	delay_16 * 3
+	player_run_up * 2
+}
+movement Faceplant {
+	jump_up
+	set_invisible
+}
