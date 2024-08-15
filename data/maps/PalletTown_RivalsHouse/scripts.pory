@@ -183,6 +183,46 @@ script BobOmbBattlefield_EventScript_Sign {
 	end
 }
 
+script BobOmbBattlefield_EventScript_Cannon {
+	lock
+	msgbox("Placeholder text!\pLaunch yourself out of a cannon?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(15)
+		playse(SE_LEDGE)
+		switch(var(VAR_FACING)) {
+			case DIR_NORTH:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+			case DIR_SOUTH:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpDown)
+			case DIR_EAST:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpRight)
+			case DIR_WEST:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpLeft)
+		}
+		waitmovement(0)
+		setmetatile(31,32,0x075,0)
+		applymovement(OBJ_EVENT_ID_PLAYER, FallIntoHole)
+		waitmovement(0)
+		delay(30)
+		msgbox("It is implied that a cannon is\nlaunching you.", MSGBOX_DEFAULT)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+
+		//player faces down
+		//spawn camera
+		//camera locks in place
+		//cannon comes up out of the ground
+		//player locks facing direction
+		//player slides up very quickly until off screen
+		
+		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 9, 1)
+
+	}
+	release
+	end
+}
+
 script PalletTown_RivalsHouse_EventScript_Picture {
 	lock
 	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
@@ -190,10 +230,10 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 		closemessage
 		delay(20)
 		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
-		waitmovement
+		waitmovement(0)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
-		waitmovement
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+		waitmovement(0)
 		fadescreen(FADE_TO_WHITE)
 		delay(30)
 		setobjectxy(OBJ_EVENT_ID_PLAYER, 31, 35)
@@ -202,6 +242,7 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 	} else {
 		msgbox("{PLAYER} decided against a\nlikely concussion.", MSGBOX_DEFAULT)
 	}
+	release
 }
 
 movement BackUp {
@@ -210,7 +251,28 @@ movement BackUp {
 	delay_16 * 3
 	player_run_up * 2
 }
-movement Faceplant {
+movement JumpUp {
 	jump_up
 	set_invisible
+}
+movement JumpDown {
+	jump_down
+	set_invisible
+}
+movement JumpLeft {
+	jump_left
+	set_invisible
+}
+movement JumpRight {
+	jump_right
+	set_invisible
+}
+movement ExitPainting {
+	jump_2_down
+}
+
+movement FallIntoHole {
+	lock_facing_direction
+	slide_down
+	unlock_facing_direction
 }
