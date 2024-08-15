@@ -497,6 +497,8 @@ script CeruleanCity_SummonThePit {
 	setmetatile(28, 10, 0x00F, FALSE)
 	setmetatile(28, 11, 0x01F, FALSE)
 	setmetatile(28, 12, 0x027, FALSE)
+
+	//Cut here for just left side
 	setmetatile(29, 0, 0x014, FALSE)
 	setmetatile(29, 1, 0x01C, FALSE)
 	setmetatile(29, 2, 0x024, FALSE)
@@ -523,6 +525,8 @@ script CeruleanCity_SummonThePit {
 	setmetatile(30, 10, 0x017, FALSE)
 	setmetatile(30, 11, 0x01F, FALSE)
 	setmetatile(30, 12, 0x027, FALSE)
+
+	//Cut here to keep the trees?
 	setmetatile(31, 0, 0x0DB, FALSE)
 	setmetatile(31, 1, 0x0DB, FALSE)
 	setmetatile(31, 2, 0x0DB, FALSE)
@@ -680,7 +684,7 @@ script CeruleanCity_EscapeThePit {
 	setmetatile(25, 5, 0x2EF, FALSE)
 	setmetatile(25, 6, 0x2DF, FALSE)
 	setmetatile(25, 7, 0x2EF, FALSE)
-	setmetatile(25, 8, 0x2EF, FALSE)
+	setmetatile(25, 8, 0x2CF, FALSE)
 	setmetatile(25, 9, 0x2D7, FALSE)
 	setmetatile(25, 10, 0x005, FALSE)
 	setmetatile(25, 11, 0x005, FALSE)
