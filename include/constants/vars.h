@@ -158,7 +158,7 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
-#define VAR_0x406D                                                             0x406D
+#define VAR_MAP_SCENE_CSR_LASS_2                                               0x406D
 #define VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070

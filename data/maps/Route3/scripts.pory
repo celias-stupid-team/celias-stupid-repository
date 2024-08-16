@@ -52,6 +52,27 @@ script Route3_EventScript_Lass {
 	end
 }
 
+script Route4_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pDid you get the RUNNING SHOES\nI sent to you?\lYou'd better be wearing them!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Route4_Trigger_Lass2 {
+	lock
+	setvar(VAR_MAP_SCENE_CSR_LASS_2, 1)
+	getplayerxy(VAR_TEMP_4, VAR_TEMP_5) //Find the spot 8 over from the player; place the Lass there
+	addvar(VAR_TEMP_4, 8) 
+	addobject(3)
+	setobjectxy(3, VAR_TEMP_4, 8)
+	//setobjectxyperm(3, VAR_TEMP_4, 8)
+	release
+}
+
 movement Lass_Player_Start {
 	
 	delay_16 * 5
@@ -78,3 +99,4 @@ movement Lass_Player_End {
 	
 	face_right
 }
+
