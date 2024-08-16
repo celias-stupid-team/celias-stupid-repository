@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 33,
+      "x": 35,
       "y": 33,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MtMoon_1F_EventScript_Robby",
       "flag": "0"
     },
     {
@@ -40,21 +40,35 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MtMoon_EventScript_DadWeather",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 10,
-      "y": 11,
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 40,
+      "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MtMoon_EventScript_CSR_ItemOddCandy",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 39,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "10",
+      "script": "MtMoon_B1F_EventScript_ExitLass",
       "flag": "0"
     }
   ],
@@ -74,7 +88,7 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 43,
+      "x": 45,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_MT_MOON_1F",
@@ -95,22 +109,22 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 26,
+      "x": 28,
       "y": 33,
       "elevation": 3,
       "dest_map": "MAP_MT_MOON_B2F",
       "dest_warp_id": "2"
     },
     {
-      "x": 39,
-      "y": 1,
+      "x": 37,
+      "y": 11,
       "elevation": 3,
       "dest_map": "MAP_MT_MOON_B2F",
       "dest_warp_id": "3"
     },
     {
-      "x": 45,
-      "y": 1,
+      "x": 43,
+      "y": 11,
       "elevation": 3,
       "dest_map": "MAP_ROUTE4",
       "dest_warp_id": "1"
@@ -122,11 +136,11 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 43,
+      "x": 45,
       "y": 25,
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM",
+      "flag": "MtMoon_EventScript_BasementSign",
       "quantity": 1,
       "underfoot": false
     },
@@ -136,7 +150,7 @@
       "y": 2,
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_TINY_MUSHROOM_2",
+      "flag": "MtMoon_EventScript_BasementSign",
       "quantity": 1,
       "underfoot": false
     },
@@ -152,31 +166,11 @@
     },
     {
       "type": "hidden_item",
-      "x": 24,
-      "y": 35,
-      "elevation": 0,
-      "item": "ITEM_BIG_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
       "x": 5,
       "y": 3,
       "elevation": 0,
       "item": "ITEM_BIG_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_2",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 25,
-      "y": 34,
-      "elevation": 0,
-      "item": "ITEM_BIG_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B1F_BIG_MUSHROOM_3",
+      "flag": "MtMoon_EventScript_BasementSign",
       "quantity": 1,
       "underfoot": false
     }

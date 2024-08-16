@@ -1,15 +1,18 @@
 MtMoon_1F_Text_MarcosIntro::
-    .string "WHOA!\n"
-    .string "You shocked me!\l"
-    .string "…Oh, you're just a kid!$"
+	.string "WHOA!\n"
+	.string "Check out these rare POKéMON!\p"
+	.string "You won't find these around here!\n$"
 
 MtMoon_1F_Text_MarcosDefeat::
     .string "Wow!\n"
     .string "Shocked again!$"
 
 MtMoon_1F_Text_MarcosPostBattle::
-    .string "Kids like you shouldn't be\n"
-    .string "wandering around here in the dark.$"
+	.string "Oh, your POKéDEX is showing a\n"
+	.string "location for GEODUDE?\l"
+	.string "And it's PEWTER CITY?\p"
+	.string "That doesn't make sense.\n"
+	.string "They weren't in the grass!$"
 
 MtMoon_1F_Text_JoshIntro::
     .string "TENTACOOL stops you from running,\n"
@@ -25,16 +28,18 @@ MtMoon_1F_Text_JoshPostBattle::
     .string "run too…$"
 
 MtMoon_1F_Text_MiriamIntro::
-    .string "Wow! It's way bigger in here than\n"
-    .string "I thought!$"
+	.string "Where did all these TENTACOOL\n"
+	.string "come from, anyway?$"
 
 MtMoon_1F_Text_MiriamDefeat::
     .string "Oh!\n"
     .string "I lost it!$"
 
 MtMoon_1F_Text_MiriamPostBattle::
-    .string "How do you get out of here?\n"
-    .string "It's so big, I may get lost.$"
+	.string "So, wait. If all the TENTACOOL are\n"
+	.string "in this cave…\p"
+	.string "What does that mean for all the\n"
+	.string "WATER routes?$"
 
 MtMoon_1F_Text_JovanIntro::
     .string "What!?\n"
@@ -59,7 +64,7 @@ MtMoon_1F_Text_IrisPostBattle::
     .string "Now everyone can look at me!$"
 
 MtMoon_1F_Text_KentIntro::
-    .string "Suspicious layers are in the cave.\n"
+    .string "Suspicious lawyers are in the cave.\n"
     .string "What about you?$"
 
 MtMoon_1F_Text_KentDefeat::
@@ -93,3 +98,20 @@ MtMoon_1F_Text_BrockHelpsExcavateFossils::
     .string "with an invincible POKéMON.\p"
     .string "It's only vulnerable to moves that\n"
     .string "are SUPER-EFFECTIVE against it.$"
+
+MtMoon_Text_ExitLassIntro::
+	.string "Look, I know that you're almost out\n"
+	.string "of this cave.\p"
+	.string "But did you really need to look at\n"
+	.string "me on your way out?$"
+
+MtMoon_Text_ExitLassDefeat::
+	.string "Hey!\n"
+	.string "No fair!$"
+
+MtMoon_Text_ExitLassPostBattle::
+	.string "The walls of this cave are\n"
+	.string "so thin and flimsy!\l"
+	.string "Looking through them is no problem!\p"
+	.string "I should go to a different cave\n"
+	.string "where no one can look at me.$"

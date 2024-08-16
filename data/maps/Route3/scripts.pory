@@ -73,6 +73,10 @@ script Route4_Trigger_Lass2 {
 	release
 }
 
+script Route3_Item_Pokeball {
+	finditem(ITEM_POKE_BALL)
+}
+
 movement Lass_Player_Start {
 	
 	delay_16 * 5

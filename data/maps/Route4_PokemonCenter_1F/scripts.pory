@@ -46,8 +46,8 @@ Route4_PokemonCenter_1F_EventScript_TryBuyMagikarp::
 	checkmoney MAGIKARP_PRICE
 	goto_if_eq VAR_RESULT, FALSE, Route4_PokemonCenter_1F_EventScript_NotEnoughMoney
 	textcolor NPC_TEXT_COLOR_NEUTRAL
-	setvar VAR_TEMP_1, SPECIES_MAGIKARP
-	givemon SPECIES_MAGIKARP, 5
+	setvar VAR_TEMP_1, SPECIES_GYARADOS
+	givemon SPECIES_GYARADOS, 14
 	goto_if_eq VAR_RESULT, 0, Route4_PokemonCenter_1F_EventScript_BuyMagikarpParty
 	goto_if_eq VAR_RESULT, 1, Route4_PokemonCenter_1F_EventScript_BuyMagikarpPC
 	goto_if_eq VAR_RESULT, 2, Route4_PokemonCenter_1F_EventScript_NoRoomForMagikarp
@@ -149,3 +149,10 @@ Route4_PokemonCenter_1F_EventScript_Newspaper::
 	release
 	end
 `
+script Route4_EventScript_Slowpoke {
+	lock
+	faceplayer
+	playmoncry(SPECIES_SLOWPOKE)
+	msgbox("SLOWPOKE: Duuuuurr!\pIt's wearing a spiffy pair\nof shoes!", MSGBOX_DEFAULT)
+	release
+}

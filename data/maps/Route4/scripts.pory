@@ -17,3 +17,6 @@ Route4_EventScript_RouteSign::
 	msgbox Route4_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route4_Item_PokeBall {
+	finditem(ITEM_POKE_BALL)
+}

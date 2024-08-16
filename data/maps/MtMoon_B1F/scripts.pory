@@ -2,3 +2,23 @@ raw `
 MtMoon_B1F_MapScripts::
 	.byte 0
 `
+script MtMoon_EventScript_DadWeather {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pGee, it's such a lovely day\nwe're having down here!\lIt's so bright and sunny!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script MtMoon_EventScript_BasementSign {
+	lock
+	if(flag(FLAG_CSR_MT_MOON_BASEMENT_SIGN)) {
+		msgbox("MT MOON BASEMENT\nNEW WILD POKMON: 1\p(yes, it's the same as the others)\n", MSGBOX_SIGN)
+	} else {
+		msgbox("MT MOON BASEMENT\nNEW WILD POKMON: 1", MSGBOX_SIGN)
+		setflag(FLAG_CSR_MT_MOON_BASEMENT_SIGN)
+		end
+	}
+}

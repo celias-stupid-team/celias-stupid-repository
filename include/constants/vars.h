@@ -163,7 +163,7 @@
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070
 #define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071
-#define VAR_0x4072                                                             0x4072
+#define VAR_MAP_SCENE_MT_MOON_TENTACOOL                                                             0x4072
 #define VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB                    0x4073
 #define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x4074
 #define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075

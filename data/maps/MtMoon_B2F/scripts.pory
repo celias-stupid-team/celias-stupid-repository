@@ -140,3 +140,39 @@ MtMoon_B2F_EventScript_Grunt4::
 	msgbox MtMoon_B2F_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+script MtMoon_EventScript_SolutionsSign {
+	msgbox("TRAINER TIPS\pThere's actually five different\nsolutions to that fight!\pWhich one did you find?\n", MSGBOX_SIGN)
+	end
+}
+
+script MtMoon_EventScript_SavestateSign {
+	msgbox("WARNING!\nBe sure to savestate frequently!", MSGBOX_SIGN)
+	end
+}
+
+script MtMoon_B2F_Item_SuperRepel1 {
+	finditem(ITEM_SUPER_REPEL)
+}
+
+script MtMoon_B2F_Item_SuperRepel2 {
+	finditem(ITEM_SUPER_REPEL)
+}
+
+script MtMoon_B2F_Item_SuperRepel3 {
+	finditem(ITEM_SUPER_REPEL)
+}
+
+script MtMoon_B2F_Item_EscapeKey {
+	finditem(ITEM_ESCAPE_ROPE)
+}
+
+script MtMoon_B2F_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pThat guy up there has a really\nscary POKéMON!\lNone of my moves worked on it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

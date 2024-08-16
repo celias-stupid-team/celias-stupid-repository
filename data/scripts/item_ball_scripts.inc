@@ -43,7 +43,7 @@ MtMoon_1F_EventScript_ItemMoonStone::
 	end
 
 MtMoon_B2F_EventScript_ItemStarPiece::
-	finditem ITEM_STAR_PIECE
+	finditem ITEM_NUGGET
 	end
 
 MtMoon_B2F_EventScript_ItemTM46::
