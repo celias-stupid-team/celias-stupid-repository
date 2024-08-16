@@ -343,7 +343,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROCK_SMASH_ROCK]          = &gObjectEventGraphicsInfo_RockSmashRock,
     [OBJ_EVENT_GFX_PUSHABLE_BOULDER]         = &gObjectEventGraphicsInfo_StrengthBoulder,
     [OBJ_EVENT_GFX_FOSSIL]                   = &gObjectEventGraphicsInfo_Fossil,
-    [OBJ_EVENT_GFX_RUBY]                     = &gObjectEventGraphicsInfo_Ruby,
+    [OBJ_EVENT_GFX_GS_BALL]                     = &gObjectEventGraphicsInfo_Ruby,
     [OBJ_EVENT_GFX_SAPPHIRE]                 = &gObjectEventGraphicsInfo_Sapphire,
     [OBJ_EVENT_GFX_OLD_AMBER]                = &gObjectEventGraphicsInfo_OldAmber,
     [OBJ_EVENT_GFX_GYM_SIGN]                 = &gObjectEventGraphicsInfo_GymSign,

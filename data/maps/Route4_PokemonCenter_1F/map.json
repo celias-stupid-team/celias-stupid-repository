@@ -87,7 +87,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "graphics_id": "OBJ_EVENT_GFX_NES",
       "x": 11,
       "y": 6,
       "elevation": 0,
