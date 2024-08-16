@@ -56,7 +56,7 @@ Help_Text_PlayingForFirstTime::
 	.string "I'm playing for the first time. Help!$"
 
 Help_Text_WhatShouldIBeDoing::
-	.string "What should I be doing?$"
+	.string "Genesis 1:11$"
 
 Help_Text_CantGetOutOfRoom::
 	.string "I can't get out of a room!$"
@@ -193,13 +193,12 @@ Help_Text_AnswerPlayingForFirstTime::
 	.string "wonderful POKéMON.$"
 
 Help_Text_AnswerWhatShouldIBeDoing::
-	.string "When you come across another person,\n"
-	.string "go up to them and press the A Button.\l"
-	.string "That will get them to talk and interact\l"
-	.string "with your character. You may also\l"
-	.string "examine various items and objects in\l"
-	.string "the same way. Talk to people and check\l"
-	.string "things often to obtain information.$"
+    .string "And God said, Let the earth bring\n"
+    .string "forth grass, the herb yielding seed,\l"
+    .string "and the fruit tree yielding fruit\l"
+    .string "after his kind, whose seed is in\l"
+    .string "itself, upon the earth: and it was\l"
+    .string "so.$"
 
 Help_Text_AnswerCantGetOutOfRoom::
 	.string "On the stairs or the exits of a\n"
