@@ -169,6 +169,10 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 
 `
+script PalletTown_RivalsHouse_EventScript_CeliaBoB {
+	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
+	end
+}
 script BobOmbBattlefield_EventScript_CannonBuddy {
 	msgbox("I'm a BOB-OMB BUDDY!\pThis is placeholder text!\nYay!", MSGBOX_NPC)
 	end
