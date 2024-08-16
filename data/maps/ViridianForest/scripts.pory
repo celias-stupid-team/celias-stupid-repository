@@ -66,6 +66,7 @@ ViridianForest_EventScript_Charlie::
 `
 script EventScript_DadHeal {
 	fadescreen(FADE_TO_BLACK)
+	closemessage
 	playfanfare(MUS_HEAL)
 	waitfanfare
 	special(HealPlayerParty)

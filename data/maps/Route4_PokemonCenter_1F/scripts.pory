@@ -152,7 +152,7 @@ Route4_PokemonCenter_1F_EventScript_Newspaper::
 script Route4_EventScript_Slowpoke {
 	lock
 	faceplayer
-	playmoncry(SPECIES_SLOWPOKE)
+	playmoncry(SPECIES_SLOWPOKE, CRY_MODE_NORMAL)
 	msgbox("SLOWPOKE: Duuuuurr!\pIt's wearing a spiffy pair\nof shoes!", MSGBOX_DEFAULT)
 	release
 }

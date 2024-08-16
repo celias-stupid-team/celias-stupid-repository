@@ -20,3 +20,42 @@ Route4_EventScript_RouteSign::
 script Route4_Item_PokeBall {
 	finditem(ITEM_POKE_BALL)
 }
+
+script Route4_EventScript_Punch {
+	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("A man is lying dead on the ground.\pHe appears to have been kicked\nvery hard…", MSGBOX_DEFAULT)
+	release
+}
+
+script Route4_EventScript_Kick {
+	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("The body of a man is lying here.\pIt appears he was punched to\ndeath…", MSGBOX_DEFAULT)
+	release
+}
+
+script Route4_EventScript_CandyGirl {
+	msgbox("Have you found any pieces of\nCANDY laying on the ground?\pI think there's one in every\nmajor area.\lI wonder where they came from!", MSGBOX_NPC)
+	end
+}
+
+script Route4_EventScript_MinusSitrusBerries {
+	lock
+	if(flag(FLAG_CSR_ROUTE_4_BERRIES)) {
+		msgbox("After placing two SITRUS BERRIES\nhere, there is nothing left.", MSGBOX_DEFAULT)
+	} else {
+		checkitem(ITEM_SITRUS_BERRY, 2)
+		if(var(VAR_RESULT)) {
+			playfanfare(MUS_TOO_BAD)
+			msgbox("{PLAYER} found -2 SITRUS BERRIES!\n", MSGBOX_AUTOCLOSE)
+			waitfanfare
+			msgbox("{PLAYER} took the SITRUS BERRIES\nout of the BERRY POUCH.", MSGBOX_DEFAULT)
+			removeitem(ITEM_SITRUS_BERRY, 2)
+			setflag(FLAG_CSR_ROUTE_4_BERRIES)
+		} else {
+			msgbox("There's nothing here.\pOr wait, maybe there's even\nless than that...", MSGBOX_DEFAULT)
+		}
+	}
+	release
+}

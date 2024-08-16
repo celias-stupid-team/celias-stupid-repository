@@ -569,7 +569,7 @@
 #define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3                  0x208
 #define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY               0x209
 #define FLAG_CSR_MT_MOON_BASEMENT_SIGN               0x20A
-#define FLAG_0x20B               0x20B
+#define FLAG_CSR_ROUTE_4_BERRIES              0x20B
 #define FLAG_0x20C               0x20C
 #define FLAG_0x20D               0x20D
 #define FLAG_0x20E               0x20E
