@@ -1367,3 +1367,6 @@ Text_TestMsg::
 
 	.include "data/maps/CeruleanClub/scripts.inc"
 	.include "data/maps/CeruleanClub/text.inc"
+
+	.include "data/maps/PalletTown_BobOmb_Battlefield/scripts.inc"
+	.include "data/maps/PalletTown_BobOmb_Battlefield/text.inc"
