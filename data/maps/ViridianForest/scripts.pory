@@ -64,3 +64,133 @@ ViridianForest_EventScript_Charlie::
 	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script EventScript_DadHeal {
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox(("DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+	return
+}
+
+script ViridianForest_EventScript_Dad2 {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\p...Wait, didn't I see you\nearlier in this forest?\lGood job making it over!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+}
+
+script ViridianForest_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script ViridianForest_EventScript_CeliaHack {
+	msgbox("In RBY, this guy says “CATERPIE\ncan't cut it!”\pIn FRLG, this guy says “CATERPIE\ncan't hack it!”\pI simply continued the trend.\n", MSGBOX_NPC)
+	end
+}
+
+script ViridianForest_EventScript_Celia10U {
+	msgbox("For those who don't know, 10U is\na competitive Pokemon format.\p10U is the lowest tier of RBY, where\nonly 6 Pokemon are left to be legal.\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	end
+}
+
+script ViridianForest_EventScript_CeliaCandy {
+	msgbox("I had so much trouble getting folks\nto believe me about candies.\pThe only reason I put them in is\nto save you time!!!\lNot everything I do is evil!!\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	end
+}
+
+script ViridianForest_EventScript_CeliaDad2 {
+	msgbox("I have a second DAD here for a very\nspecific purpose:\pIn the upcoming AJ fight, I need\nthe player to try WATER GUN on\lthe Sandshrew.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	end
+}
+
+script ViridianForest_EventScript_Flowers1 {
+	setvar(VAR_TEMP_1, 1)
+}
+
+script ViridianForest_EventScript_Flowers2 {
+	setvar(VAR_TEMP_1, 2)
+}
+
+script ViridianForest_EventScript_Flowers3 {
+	setvar(VAR_TEMP_1, 3)
+}
+
+script ViridianForest_EventScript_Flowers4 {
+	lock
+	setvar(VAR_TEMP_1, 0)
+	setwildbattle(SPECIES_METAPOD, 6, ITEM_REPEL)
+	dowildbattle
+	release
+}
+
+script ViridianForest_EventScript_CeliaAJ {
+	msgbox("This guy's a reference to AJ from\nthe anime.\pHe chucked his SANDSHREW in the\nriver until it wasn't weak to WATER.\pKinda fucked up, ngl.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	end
+}
+
+
+
+script ViridianForest_EventScript_CeliaChecksDex {
+	specialvar(VAR_RESULT, GetPokedexCount)
+	if(var(VAR_RESULT) < 6) {
+		lock
+
+		//TODO check which tile the player interacted from
+		setobjectxy(20,4,18)
+		applymovement(20, CeliaApproaches)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerSeesHer)
+		waitmovement(0)
+		delay(15)
+		textcolor(1)
+		msgbox("Hi, there!\nI'm CELIA, this hack's creator.\pSorry to inturrupt, but I noticed\nsomething and had to pop in.", MSGBOX_DEFAULT)
+		
+		//TODO Logic for which Pokemon you're missing
+
+		msgbox("Anyway, sorry for stopping you!\nThat's just some friendly advice.\lHave fun, and good luck vs BROCK!", MSGBOX_DEFAULT)
+		closemessage
+		delay(15)
+
+		applymovement(20, CeliaAbsconds)
+		waitmovement(0)
+		release
+	}
+}
+
+script ViridianForest_EventScript_CeliaGotCaught {
+	lock
+	faceplayer
+	msgbox("Oh, hey there!\pI was planning on leaving, but\nI got tired.\pThanks for catching back up with\nme, though!\lHere's a gift!", MSGBOX_DEFAULT)
+	release
+}
+
+movement CeliaApproaches {
+	set_visible
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_up
+}
+
+movement PlayerSeesHer {
+	face_down
+	emote_exclamation_mark
+}
+
+movement CeliaAbsconds {
+	walk_right * 8
+}

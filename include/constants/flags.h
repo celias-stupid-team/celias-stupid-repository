@@ -255,7 +255,7 @@
 #define FLAG_CSR_GOT_SCYTHER            0x0D6
 
 
-#define FLAG_PYTHON_TEST         0x0D7
+#define FLAG_CSR_ABSCONDED_BROCK        0x0D7
 #define FLAG_CSR_PYTHON_SUCCESS  0x0D8
 #define FLAG_0x0D9               0x0D9
 #define FLAG_0x0DA               0x0DA
@@ -568,8 +568,8 @@
 #define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2                  0x207
 #define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3                  0x208
 #define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY               0x209
-#define FLAG_0x20A               0x20A
-#define FLAG_0x20B               0x20B
+#define FLAG_CSR_MT_MOON_BASEMENT_SIGN               0x20A
+#define FLAG_CSR_ROUTE_4_BERRIES              0x20B
 #define FLAG_0x20C               0x20C
 #define FLAG_0x20D               0x20D
 #define FLAG_0x20E               0x20E
@@ -831,7 +831,7 @@
 #define FLAG_0x307               0x307
 #define FLAG_0x308               0x308
 #define FLAG_0x309               0x309
-#define FLAG_0x30A               0x30A
+#define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_0x30B               0x30B
 #define FLAG_0x30C               0x30C
 #define FLAG_0x30D               0x30D

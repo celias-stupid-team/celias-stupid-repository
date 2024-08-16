@@ -76,7 +76,7 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 	end
 `
 script CeladonCity_Gym_EventScript_DMCAGrunt {
-	msgbox(format("I don't understand this.\pIf you're a man, and your\npartner is also a man, wouldn't\lhe be violating your copyright?"), MSGBOX_NPC)
+	msgbox("I don't understand this.\pIf you're a man, and your\npartner is also a man, wouldn't\lhe be violating your copyright?", MSGBOX_NPC)
     end
 }
 

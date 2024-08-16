@@ -850,3 +850,67 @@ PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
 `
+script PewterCity_EventScript_CeliaPuzzle {
+	msgbox("And here we get to the first part\nof the game with REAL puzzles!\pThis is the point where you either\nthink outside the box or give up.\pEither way, you're not brute forcing\nyou way through any of this.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaTrees {
+	msgbox("Hey, notice the tiling error on\nthat tree?\lThe sides aren't shaded properly.\pI wonder why.\nEither way, you're not brute forcing\lyou way through any of this.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaBee {
+	msgbox("Fun fact!\pCombee being the answer to this\npuzzle? Total coincidence.\pI had the Combee idea way after\nputting this in, and it was\la total fluke that it learns\lSweet Scent normally.\pHonestly I just wanted to give the\nplayer a useless Pokemon for a joke.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaUseless {
+	msgbox("This is the most pointless house\nin the game.\pIt's a clue to Butterfree, but it's\nnot even delivered with a joke.\pI really need to rewrite this at\nsome point.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaPuff {
+	msgbox("I wrote that line in 2021, when\nhating Puff gameplay was cool.\pI now rescind my statement because\nPuff is (sometimes) kinda sick.", MSGBOX_NPC)
+	end
+}
+
+script Script_PewterCity_EventScript_CeliaCaterpie {
+	msgbox("This guy here had the first line\nof dialogue I ever wrote.\pIn the VERY first draft of the hack,\nhe was the ONLY indication that\lsomething was up with Caterpie.\pThis was before there were jokes,\nso people just skipped over him.\pBasically, the only reason this hack\nhas any comedy at all is because I\lneeded to get people to talk to this\lone NPC.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaFurret {
+	msgbox("Ah yes, the Furret House.\pAs far as I'm concerned it's just\nfiller, but hey.\lIt IS very fun to walk with them.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaLightYears {
+	msgbox("Pokemon Clover did the 10,000\nLight Year thing better and I'm\lso mad about it.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaDad {
+	msgbox("Dad here actually has new dialogue\nif you talk to him after BROCK!", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaCut {
+	msgbox("This guy has different dialogue\nbased on how many trees you cut.\pEvery time you cut one he has\nsomething new to say!", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaMuseum {
+	msgbox("Originally, you actually DID need\nto pay the full ¥10,000.\pThe price was to make sure the\nplayer wouldn't waste their money\lhere and be unable to buy Gyara.\pThis solution works much better.\n", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_CeliaMoon {
+	msgbox("Moon Stones have been entirely\nremoved from this hack.\pHowever, for a long time there were\nplans to have a place to get them.\pI'm not fully sure what my design\nrationale was back then, but either\lway I think they're staying gone.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_EventScript_HeMissed {
+	msgbox("He missed.\n", MSGBOX_SIGN)
+	end
+}
