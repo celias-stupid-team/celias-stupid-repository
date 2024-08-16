@@ -28,8 +28,8 @@
     {
       "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
       "name": "PalletTown_RivalsHouse_Layout",
-      "width": 13,
-      "height": 10,
+      "width": 32,
+      "height": 58,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -4404,6 +4404,18 @@
       "secondary_tileset": "gTileset_CeruleanCity",
       "border_filepath": "data/layouts/CeruleanClub/border.bin",
       "blockdata_filepath": "data/layouts/CeruleanClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_PALLET_TOWN_BOB_OMB_BATTLEFIELD",
+      "name": "PalletTown_BobOmb_Battlefield_Layout",
+      "width": 40,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BobOmbBattlefield",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/PalletTown_BobOmb_Battlefield/border.bin",
+      "blockdata_filepath": "data/layouts/PalletTown_BobOmb_Battlefield/map.bin"
     }
   ]
 }

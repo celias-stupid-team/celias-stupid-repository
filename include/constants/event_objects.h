@@ -162,7 +162,7 @@
 #define OBJ_EVENT_GFX_ROTOMDEX                        157          //Placeholder
 #define OBJ_EVENT_GFX_MARIOSTAR                        158          //Placeholder
 #define OBJ_EVENT_GFX_CHAINCHOMP                        159          //Placeholder
-#define OBJ_EVENT_GFX_BOBOMBBUDDY                        160          //Placeholder
+#define OBJ_EVENT_GFX_BOBOMBBUDDY                        160
 #define OBJ_EVENT_GFX_MOLTRESEGG                        161          //Placeholder
 #define OBJ_EVENT_GFX_ARTICUNOEGG                        162          //Placeholder
 #define OBJ_EVENT_GFX_TRASHDAD                        163          //Placeholder
