@@ -100,7 +100,7 @@ MtMoon_1F_Text_BrockHelpsExcavateFossils::
     .string "are SUPER-EFFECTIVE against it.$"
 
 MtMoon_Text_ExitLassIntro::
-	.string "Look, I know that you're almost out\n"
+	.string "Hey, I know that you're almost out\n"
 	.string "of this cave.\p"
 	.string "But did you really need to look at\n"
 	.string "me on your way out?$"
@@ -111,7 +111,7 @@ MtMoon_Text_ExitLassDefeat::
 
 MtMoon_Text_ExitLassPostBattle::
 	.string "The walls of this cave are\n"
-	.string "so thin and flimsy!\l"
-	.string "Looking through them is no problem!\p"
+	.string "so thin and flimsy.\l"
+	.string "Anyone can look through them!\p"
 	.string "I should go to a different cave\n"
 	.string "where no one can look at me.$"

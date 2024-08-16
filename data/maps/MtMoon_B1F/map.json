@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtMoon_EventScript_CSR_ItemOddCandy",
-      "flag": "0"
+      "flag": "FLAG_MT_MOON_CANDY"
     },
     {
       "type": "object",
