@@ -19,5 +19,6 @@ CeladonCity_DepartmentStore_5F_Text_HereForStatEnhancers::
     .string "stat.$"
 
 CeladonCity_DepartmentStore_5F_Text_Drugstore::
-    .string "5F: DRUGSTORE$"
+	.string "5F: DRUGSTORE\p"
+	.string "We sell drugs.\n$"
 

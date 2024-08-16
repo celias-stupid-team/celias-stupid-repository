@@ -1407,3 +1407,22 @@ const u16 gTilesetPalettes_HallOfFame[][16] =
 	INCBIN_U16("data/tilesets/secondary/hall_of_fame/palettes/14.gbapal"),
 	INCBIN_U16("data/tilesets/secondary/hall_of_fame/palettes/15.gbapal"),
 };
+
+const u16 gTilesetPalettes_BobOmbBattlefield[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_BobOmbBattlefield[] = INCBIN_U32("data/tilesets/primary/bob_omb_battlefield/tiles.4bpp.lz");

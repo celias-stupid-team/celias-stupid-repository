@@ -48,11 +48,6 @@ ViridianCity_School_EventScript_StopReadingNotebook::
 	releaseall
 	end
 
-ViridianCity_School_EventScript_Blackboard::
-	lockall
-	msgbox ViridianCity_School_Text_BlackboardListsStatusProblems
-	goto ViridianCity_School_EventScript_ChooseBlackboardTopic
-	end
 
 ViridianCity_School_EventScript_ChooseBlackboardTopic::
 	message ViridianCity_School_Text_ReadWhichTopic
@@ -97,3 +92,30 @@ ViridianCity_School_EventScript_ExitBlackboard::
 	releaseall
 	end
 `
+
+script ViridianCity_School_EventScript_Blackboard {
+	lock
+	msgbox("{UP_ARROW} {LEFT_ARROW} {RIGHT_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW}\n{LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {RIGHT_ARROW}", MSGBOX_AUTOCLOSE)
+	release
+}
+
+script ViridianCity_School_EventScript_PokemonJournalNew {
+	lock
+	msgbox("POKéMON JOURNAL\pSpecial Feature: PROF. OAK,\nthe POKéMON tree!\pPROF. OAK is continuing to grow\nat a rate of one ring per year!", MSGBOX_DEFAULT)
+	release
+}
+
+script ViridianCity_School_EventScript_CeliaHighSchool {
+	msgbox("This fanfic here is known as\nSonic High School.\pIf you haven't read it, hooo boy.\nYou're in for a treat.\pI made sure to cut it off before\nit got REALLY spicy.", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_School_EventScript_CeliaBooks {
+	msgbox("Right here is the one bookshelf\nin the game that ISN'T just\lMy Secret Life, Chapter 3.\pI probably should put more in.\n", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_School_EventScript_StudyGrades {
+	msgbox("I study GRADES as PROF. OAK's\nPOKéMON.", MSGBOX_NPC)
+	end
+}

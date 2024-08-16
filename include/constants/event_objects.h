@@ -49,7 +49,7 @@
 #define OBJ_EVENT_GFX_SWIMMER_M_LAND 45
 #define OBJ_EVENT_GFX_SWIMMER_F_LAND 46
 #define OBJ_EVENT_GFX_WORKER_M 47
-#define OBJ_EVENT_GFX_WORKER_F 48
+#define OBJ_EVENT_GFX_CELIA 48
 #define OBJ_EVENT_GFX_ROCKET_M 49
 #define OBJ_EVENT_GFX_ROCKET_F 50
 #define OBJ_EVENT_GFX_GBA_KID 51
@@ -100,7 +100,7 @@
 #define OBJ_EVENT_GFX_ROCK_SMASH_ROCK 96
 #define OBJ_EVENT_GFX_PUSHABLE_BOULDER 97
 #define OBJ_EVENT_GFX_FOSSIL 98
-#define OBJ_EVENT_GFX_RUBY 99
+#define OBJ_EVENT_GFX_GS_BALL 99
 #define OBJ_EVENT_GFX_SAPPHIRE 100
 #define OBJ_EVENT_GFX_OLD_AMBER 101
 #define OBJ_EVENT_GFX_GYM_SIGN 102
@@ -162,7 +162,7 @@
 #define OBJ_EVENT_GFX_ROTOMDEX                        157          //Placeholder
 #define OBJ_EVENT_GFX_MARIOSTAR                        158          //Placeholder
 #define OBJ_EVENT_GFX_CHAINCHOMP                        159          //Placeholder
-#define OBJ_EVENT_GFX_BOBOMBBUDDY                        160          //Placeholder
+#define OBJ_EVENT_GFX_BOBOMBBUDDY                        160
 #define OBJ_EVENT_GFX_MOLTRESEGG                        161          //Placeholder
 #define OBJ_EVENT_GFX_ARTICUNOEGG                        162          //Placeholder
 #define OBJ_EVENT_GFX_TRASHDAD                        163          //Placeholder

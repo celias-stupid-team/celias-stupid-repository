@@ -20,8 +20,8 @@ Route4_Text_MtMoonEntrance::
     .string "NEW WILD POKéMON: 2$"
 
 Route4_Text_RouteSign::
-    .string "ROUTE 4\n"
-    .string "MT. MOON - CERULEAN CITY$"
+	.string "ROUTE 4\n"
+	.string "NEW WILD POKéMON: 2$"
 
 Text_MegaPunchTeach::
     .string "A punch of roaring ferocity!\p"

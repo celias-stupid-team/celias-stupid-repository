@@ -377,6 +377,37 @@ ViridianCity_EventScript_DoTutorialBattle::
 script ViridianCity_EventScript_Gambler {
 	lock
 	faceplayer 
-	msgbox(format("Oh no...\pI left my keys someplace, and I\nhave no idea where.\lI'm sure they're not here in town.\pGuess I'm stuck out here."), MSGBOX_AUTOCLOSE)
+	msgbox("Oh no...\pI left my keys someplace, and I\nhave no idea where.\lI'm sure they're not here in town.\pGuess I'm stuck out here.", MSGBOX_AUTOCLOSE)
 	release
 }
+
+script ViridianCity_EventScript_CeliaKenya {
+	msgbox("Why yes, that WAS the national\nanthem of Kenya.", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_EventScript_CeliaTrade {
+	msgbox("Yes, this guy has a purpose.\pJust not yet.\n", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_EventScript_CeliaDoor {
+	msgbox("Viridian Gym door is so good.\pI don't even have anything to say\nabout it.\lIt's just incredible.", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_EventScript_CeliaBee {
+	msgbox("There's a whole history behind the\nWEEDLE Evolves into Bee joke.\pOriginally I had this guy here, but\nweedle's pokedex entry had something\lelse entirely.\pHowever, one early playthrough I\nheard someone repeating the line.\lAnd they loved when Combee happened!\pIn other folks' playthroughs I'd try\nto make the line a bit again, but\lit never really caught on.\pSo, I put it directly into the game\na second time for the dex entry,\land the rest is history!", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_EventScript_CeliaHide {
+	msgbox("I hid this guy's house by making\nthe opening in the trees only be\lon screen if the player walks\lone step right of the Center door.\pSo many players can't even be\nbothered to do that much, so it's\lstraight up hidden in plain sight!\pIn other folks' playthroughs I'd try\nto make the line a bit again, but\lit never really caught on.\pSo, I put it directly into the game\na second time for the dex entry,\land the rest is history!", MSGBOX_NPC)
+	end
+}
+
+script ViridianCity_EventScript_CeliaEther {
+	msgbox("The Ether hidden in this bush\nis supposed to be a subtle\lFuck You.\pA running gag I originally wanted\nwas for Ethers to be everywhere.\lCuz, y'know, there's no potions.\pSadly, the average player didn't\nreally catch on, so I dropped it.\pThis Ether is still here to signal\n“No, the key isn't here.”\lI guess it still works.", MSGBOX_NPC)
+	end
+}
+

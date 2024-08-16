@@ -14,7 +14,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_METAPOD]    = {{EVO_LEVEL, 6, SPECIES_BUTTERFREE}},
 
     [SPECIES_WEEDLE]     = {{EVO_LEVEL,  7, SPECIES_KAKUNA}},
-    //[SPECIES_KAKUNA]     = {{EVO_LEVEL, 10, SPECIES_COMBEE}},                 //TODO
+    [SPECIES_KAKUNA]     = {{EVO_LEVEL, 10, SPECIES_COMBEE}},                 
 
     [SPECIES_PIDGEY]     = {{EVO_LEVEL, 18, SPECIES_PIDGEOTTO}},
     [SPECIES_PIDGEOTTO]  = {{EVO_LEVEL, 20, SPECIES_PIDGEOT}},
@@ -74,7 +74,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_MACHOKE]    = {{EVO_TRADE, 0, SPECIES_MACHAMP}}, //Only if traded for a Graveler
 
-    //[SPECIES_BELLSPROUT] = {{EVO_LEVEL, 20, SPECIES_CBERUBI}},                                //TODO
+    [SPECIES_BELLSPROUT] = {{EVO_LEVEL, 20, SPECIES_CHERUBI}},                                //TODO
 
     //[SPECIES_WEEPINBELL] = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_VICTREEBEL}},
 
@@ -137,7 +137,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     //[SPECIES_DRAGONITE]  = {{EVO_ITEM, ITEM_SUPER_SCOPE, SPECIES_YOSHI}},            //TODO
 
     //[SPECIES_MISSINGNO]  = {{EVO_LEVEL, 1, SPECIES_KANGASKAHN}},              //TODO
-    //[SPECIES_GIMMEGHOUL]  = {{EVO_LEVEL, 1, SPECIES_GHOLDENGO}},              //TODO
+    [SPECIES_GIMMIGHOUL]  = {{EVO_LEVEL, 1, SPECIES_GHOLDENGO}}, 
     
     //[SPECIES_TANGELA]  = {{EVO_LEVEL, 1, SPECIES_TRUBBISH_HAIRCUT}},              //TODO - Add Haircut evolution method
     //[SPECIES_AMPHAROS_MEGA]  = {{EVO_LEVEL, 1, SPECIES_AMPHAROS}},              //TODO - Add Haircut evolution method

@@ -7,15 +7,15 @@ Route2_EventScript_ItemPokeBall::
 	end
 
 ViridianForest_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_RARE_CANDY
 	end
 
 ViridianForest_EventScript_ItemAntidote::
-	finditem ITEM_ANTIDOTE
+	finditem ITEM_RARE_CANDY
 	end
 
 ViridianForest_EventScript_ItemPotion::
-	finditem ITEM_ETHER
+	finditem ITEM_RARE_CANDY
 	end
 
 MtMoon_1F_EventScript_ItemParalyzeHeal::
@@ -43,7 +43,7 @@ MtMoon_1F_EventScript_ItemMoonStone::
 	end
 
 MtMoon_B2F_EventScript_ItemStarPiece::
-	finditem ITEM_STAR_PIECE
+	finditem ITEM_NUGGET
 	end
 
 MtMoon_B2F_EventScript_ItemTM46::
@@ -411,7 +411,7 @@ ThreeIsland_EventScript_ItemZinc::
 	end
 
 ViridianForest_EventScript_ItemPotion2::
-	finditem ITEM_ETHER
+	finditem ITEM_RARE_CANDY
 	end
 
 MtMoon_B2F_EventScript_ItemRevive::
