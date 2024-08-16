@@ -89,3 +89,61 @@ CeruleanCity_Gym_Text_GymStatuePlayerWon::
     .string "WINNING TRAINERS:\n"
     .string "GARY, LARRY, JERRY, {PLAYER}$"
 
+CeruleanCity_Gym_Text_PsychicTrainerIntro::
+	.string "Hey there!\n"
+	.string "Welcome to the CLUB!\p"
+	.string "I use PSYCHIC-ENERGY POKéMON.\n"
+	.string "Wanna duel?$"
+
+CeruleanCity_Gym_Text_PsychicTrainerDefeat::
+	.string "Good job!\n$"
+
+CeruleanCity_Gym_Text_ElectricTrainerIntro::
+	.string "Hey!\n"
+	.string "One quick thing before we duel:\p"
+	.string "Do you have a legal copy of your\n"
+	.string "birth certificate?\p"
+	.string "We'll need it present while we\n"
+	.string "play.$"
+
+CeruleanCity_Gym_Text_ElectricTrainerDefeat::
+	.string "But...\n"
+	.string "It's my birthday...$"
+
+CeruleanCity_Gym_TextFightingTrainerIntro::
+	.string "Hyyyah!\p"
+	.string "I use FIGHTING-TYPES, just like\n"
+	.string "BRUNO!$"
+
+CeruleanCity_Gym_Text_FightingTrainerDefeat::
+	.string "That can't be!\n$"
+
+CeruleanCity_Gym_Text_PoisonTrainerIntro::
+	.string "Nyaha!\n"
+	.string "I'm a POISON-type trainer!$"
+
+CeruleanCity_Gym_Text_PoisonTrainerDefeat::
+	.string "You overwhelmed me!\n$"
+
+CeruleanCity_Gym_Text_ImakuniIntro::
+	.string "Huh?\n"
+	.string "W...Who are you?\p"
+	.string "Who? Me?\n"
+	.string "You don't know who I am?\p"
+	.string "I am the super musical star,\n"
+	.string "IMAKUNI!$"
+
+CeruleanCity_Gym_Text_ImakuniDefeat::
+	.string "In both cards and dance,\n"
+	.string "soul and rhythm are the secret.$"
+
+CeruleanCity_Gym_Text_GrassTrainerIntro::
+	.string "Managing your ENERGY is super\n"
+	.string "important!\p"
+	.string "That's why CARDS with free\n"
+	.string "RETREAT are so strong.\p"
+	.string "Here, let me show you!\n$"
+
+CeruleanCity_Gym_Text_GrassTrainerDefeat::
+	.string "Ouch!\n"
+	.string "Nice shot!$"
