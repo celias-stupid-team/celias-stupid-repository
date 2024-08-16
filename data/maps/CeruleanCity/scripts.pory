@@ -842,3 +842,25 @@ script CeruleanCity_EscapeThePit {
 	special(DrawWholeMapView)
 	release
 }
+
+script CeruleanCity_Celia_Helps {
+	lock
+	faceplayer
+	msgbox("Hi, there!\nI'm CELIA, the creator!\pI hope you've been enjoying\nyourself so far!\pBy the way, have you been\ncompleting your POKéDEX?\lI STRONGLY recommend it!\pMy reccomendation is to have 38\nPOKéMON caught right now.\lThe absolute highest is 42!", MSGBOX_DEFAULT)
+	closemessage
+	msgbox("Incidentally, I know you're\nblocked off from backtracking.\pWould you like to go back to\nPEWTER CITY?", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == 1) {
+		closemessage
+		msgbox("Okay!\nHere we go!", MSGBOX_DEFAULT)
+		closemessage
+		fadescreen(FADE_TO_WHITE)
+		fadeoutbgm(2)
+		playse(SE_WARP_OUT)
+		warp(3, 2, 6, 17, 25)
+		playbgm(MUS_PEWTER, TRUE)
+		fadescreen(FADE_FROM_WHITE)
+	} else {
+		msgbox("Okay!\nThat's fine too.\lGood luck!", MSGBOX_DEFAULT)
+	}
+	release
+}
