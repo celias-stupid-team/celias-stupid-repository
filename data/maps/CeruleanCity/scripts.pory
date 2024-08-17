@@ -856,7 +856,7 @@ script CeruleanCity_Celia_Helps {
 		fadescreen(FADE_TO_WHITE)
 		fadeoutbgm(2)
 		playse(SE_WARP_OUT)
-		warp(3, 2, 6, 17, 25)
+		//warp(3, 2, 6, 17, 25)
 		playbgm(MUS_PEWTER, TRUE)
 		fadescreen(FADE_FROM_WHITE)
 	} else {
