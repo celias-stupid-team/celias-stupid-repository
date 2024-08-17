@@ -1,5 +1,6 @@
 import os
-import stat
+import wave
+import aifc
 from pydub import AudioSegment
 
 def convert_wav_to_aiff(directory):
@@ -10,25 +11,31 @@ def convert_wav_to_aiff(directory):
         file_path = os.path.join(directory, file)
         
         print(f"Converting {file} to AIFF format with 8-bit sample size.")
-        convert_to_aiff_8bit(file_path)
-
-def convert_to_aiff_8bit(file_path):
-    # Read the WAV file
-    try:
+        temp_aifc_path = file_path.replace('.wav', '_temp.aif')
+        final_aif_path = file_path.replace('.wav', '.aif')
+        
+        # Step 1: Convert WAV to AIFC format first (temporary)
         audio = AudioSegment.from_file(file_path, format="wav")
-    except Exception as e:
-        print(f"Error reading file {file_path}: {e}")
-        return
-    
-    # Convert the file to AIFF format with 8-bit sample size using pydub
-    audio = audio.set_sample_width(1)  # set sample width to 1 byte (8 bits)
-    new_file_path = file_path.replace('.wav', '.aif')
-    audio.export(new_file_path, format="aiff")
-    
-    # Ensure the new file has the correct permissions
-    os.chmod(new_file_path, stat.S_IRWXU)
+        audio.export(temp_aifc_path, format="aiff")
+        
+        # Step 2: Re-process the temporary AIFC file to AIFF and set 8-bit sample size
+        rewrite_aiff_with_8bit(temp_aifc_path, final_aif_path)
+        
+        # Remove the temporary file
+        os.remove(temp_aifc_path)
 
-    print(f"Converted file saved as: {new_file_path}")
+def rewrite_aiff_with_8bit(temp_aifc_path, final_aif_path):
+    with aifc.open(temp_aifc_path, 'r') as aifc_file:
+        params = aifc_file.getparams()
+        frames = aifc_file.readframes(params.nframes)
+
+    with wave.open(final_aif_path, 'w') as aiff_file:
+        aiff_file.setnchannels(params.nchannels)
+        aiff_file.setsampwidth(1)  # Set sample width to 1 byte (8 bits)
+        aiff_file.setframerate(params.framerate)
+        aiff_file.writeframes(frames)
+    
+    print(f"Corrected and saved AIFF file with 8-bit sample size: {final_aif_path}")
 
 def delete_bin_files(directory):
     # List all .bin files in the directory

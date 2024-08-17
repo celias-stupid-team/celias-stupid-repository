@@ -1,23 +1,23 @@
 static const struct InGameTrade sInGameTrades[] = {
     [INGAME_TRADE_MR_MIME] = 
     {
-        .nickname = _("MIMIEN"),
-        .species = SPECIES_MR_MIME,
+        .nickname = _("GELLER"),
+        .species = SPECIES_ABRA,
         .ivs = {20, 15, 17, 24, 23, 22},
         .abilityNum = 0,
         .otId = 1985,
         .conditions = {5, 5, 5, 30, 5},
         .personality = 0x00009cae,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_NONE, //TODO make this ITEM_CASTELIACONE
         .mailNum = 255,
         .otName = _("REYLEY"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_ABRA
+        .requestedSpecies = SPECIES_MR_MIME
     }, 
     [INGAME_TRADE_JYNX] = 
     {
-        .nickname = _("ZYNX"),
+        .nickname = _("KAHYLEEIGH"),
         .species = SPECIES_JYNX,
         .ivs = {18, 17, 18, 22, 25, 21},
         .abilityNum = 0,
@@ -29,19 +29,19 @@ static const struct InGameTrade sInGameTrades[] = {
         .otName = _("DONTAE"),
         .otGender = MALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_POLIWHIRL
+        .requestedSpecies = SPECIES_POLIWAG
     }, 
     [INGAME_TRADE_NIDORAN] = 
     {
 #if defined(FIRERED)
-        .nickname = _("MS. NIDO"),
-        .species = SPECIES_NIDORAN_F,
+        .nickname = _("THATSRIGHT"),
+        .species = SPECIES_RAICHU,
         .ivs = {22, 18, 25, 19, 15, 22},
         .abilityNum = 0,
         .otId = 63184,
         .conditions = {5, 5, 5, 5, 30},
         .personality = 0x4c970b89,
-        .heldItem = ITEM_TINY_MUSHROOM,
+        .heldItem = ITEM_COIN_CASE,
         .mailNum = 255,
         .otName = _("SAIGE"),
         .otGender = FEMALE,
@@ -65,7 +65,7 @@ static const struct InGameTrade sInGameTrades[] = {
     }, 
     [INGAME_TRADE_FARFETCHD] = 
     {
-        .nickname = _("CH'DING"),
+        .nickname = _("CH'DUX"),
         .species = SPECIES_FARFETCHD,
         .ivs = {20, 25, 21, 24, 15, 20},
         .abilityNum = 0,
@@ -133,17 +133,17 @@ static const struct InGameTrade sInGameTrades[] = {
     }, 
     [INGAME_TRADE_ELECTRODE] = 
     {
-        .nickname = _("ESPHERE"),
-        .species = SPECIES_ELECTRODE,
+        .nickname = _("CASPER"),
+        .species = SPECIES_HAUNTER,
         .ivs = {19, 16, 18, 25, 25, 19},
         .abilityNum = 1,
         .otId = 50298,
         .conditions = {30, 5, 5, 5, 5},
         .personality = 0x06341016,
-        .heldItem = ITEM_NONE,
+        .heldItem = ITEM_EVERSTONE,
         .mailNum = 255,
-        .otName = _("CLIFTON"),
-        .otGender = MALE,
+        .otName = _("MINDY"),
+        .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_RAICHU
     }, 
