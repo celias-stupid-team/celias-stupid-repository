@@ -2384,18 +2384,30 @@ bool8 ScrCmd_DebugPrintf(struct ScriptContext * ctx)
     return FALSE;
 }
 
-void ScrCmd_setobtainable(struct ScriptContext * ctx)
+bool8 ScrCmd_setobtainable(struct ScriptContext * ctx)
 {
     u32 i;
     u16 species;
     u32 argCount = ScriptReadByte(ctx);
 
     if (argCount == 0)
-        return;
+        return FALSE;
 
     for (i = 0; i < argCount; ++i)
     {
         species = (u16) ScriptReadHalfword(ctx);
         DexScreen_GetSetPokedexFlag(species, FLAG_SET_OBTAINABLE, TRUE);
     }
+
+    return FALSE;
+}
+
+bool8 ScrCmd_checkmoncaught(struct ScriptContext * ctx)
+{
+    u16 species = ScriptReadHalfword(ctx);
+
+    if (species != SPECIES_NONE)
+        gSpecialVar_Result = DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE);
+
+    return FALSE;
 }

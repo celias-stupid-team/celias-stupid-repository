@@ -4394,18 +4394,6 @@
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     },
     {
-      "id": "LAYOUT_CERULEAN_CLUB",
-      "name": "CeruleanClub_Layout",
-      "width": 24,
-      "height": 27,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_CeruleanCity",
-      "border_filepath": "data/layouts/CeruleanClub/border.bin",
-      "blockdata_filepath": "data/layouts/CeruleanClub/map.bin"
-    },
-    {
       "id": "LAYOUT_PALLET_TOWN_BOB_OMB_BATTLEFIELD",
       "name": "PalletTown_BobOmb_Battlefield_Layout",
       "width": 40,
