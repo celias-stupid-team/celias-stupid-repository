@@ -1692,6 +1692,25 @@
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, 0
 	.endm
 
+	@ Sets the obtainable flags for one or more species
+	.macro _setobtainable specieslist:vararg
+	.byte 0xda
+	.byte (.Lsetobtainable_\@_2 - .Lsetobtainable_\@_1) / 2
+.Lsetobtainable_\@_1:
+	.2byte \specieslist
+.Lsetobtainable_\@_2:
+	.endm
+
+	.macro setobtainable specieslist:vararg
+	_setobtainable \specieslist
+	.endm
+
+	@ Stores whether the specified mon has been caught or not in VAR_RESULT
+	.macro checkmoncaught species:req
+	.byte 0xdb
+	.2byte \species
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

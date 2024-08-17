@@ -1365,8 +1365,5 @@ Text_TestMsg::
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
 
-	.include "data/maps/CeruleanClub/scripts.inc"
-	.include "data/maps/CeruleanClub/text.inc"
-
 	.include "data/maps/PalletTown_BobOmb_Battlefield/scripts.inc"
 	.include "data/maps/PalletTown_BobOmb_Battlefield/text.inc"
