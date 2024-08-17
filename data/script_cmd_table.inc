@@ -219,7 +219,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_DebugPrintf           		 @ 0xd7
 	.4byte ScrCmd_dynmultichoice                 @ 0xd8
 	.4byte ScrCmd_dynmultipush                   @ 0xd9
-	.4byte ScrCmd_setobtainable           		 @ 0xd8
+	.4byte ScrCmd_setobtainable           		 @ 0xda
+	.4byte ScrCmd_checkmoncaught           		 @ 0xdb
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
