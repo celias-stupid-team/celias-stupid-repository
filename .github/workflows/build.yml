@@ -2,37 +2,35 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - beta
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: devkitpro/devkitarm
     env:
       GAME_VERSION: FIRERED
       GAME_LANGUAGE: ENGLISH
       GAME_REVISION: 0
       MODERN: 0
-      COMPARE: 1
+      COMPARE: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Checkout agbcc
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
-          path: 'agbcc'
-          repository: 'pret/agbcc'
-
-      - name: Checkout symbols
-        if: ${{ github.event_name == 'push' }}
-        uses: actions/checkout@master
-        with:
-          path: 'symbols'
-          ref: 'symbols'
+          path: agbcc
+          repository: pret/agbcc
 
       - name: Install binutils
-        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential libpng-dev libelf-dev
         # build-essential, git, and libpng-dev are already installed
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
@@ -43,47 +41,20 @@ jobs:
           ./install.sh ../
         working-directory: ./agbcc
 
-      - name: Compare FireRed
-        run: |
-          make -j${nproc} all syms
-
-      - name: Compare FireRed rev1
-        env:
-          GAME_REVISION: 1
-        run: |
-          make -j${nproc} all syms
-
-      - name: Compare LeafGreen
-        env:
-          GAME_VERSION: LEAFGREEN
-        run: |
-          make -j${nproc} all syms
-
-      - name: Compare LeafGreen rev1
-        env:
-          GAME_VERSION: LEAFGREEN
-          GAME_REVISION: 1
-        run: |
-          make -j${nproc} all syms
-
-      - name: Build Modern
-        env:
-          MODERN: 1
-          COMPARE: 0
-        run: |
-          make -j${nproc} all
-
-      - name: Move symfiles
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          cp *.sym symbols/
-          echo "SYMBOLS_COMMIT_MSG=$( git log --format=%s ${GITHUB_SHA} )" >> $GITHUB_ENV
-
-      - name: Update symfiles
-        if: ${{ github.event_name == 'push' }}
-        uses: EndBug/add-and-commit@v7
+      - name: Poryscript download
+        uses: robinraju/release-downloader@v1
         with:
-          branch: symbols
-          cwd: "./symbols"
-          add: "*.sym"
-          message: ${{ env.SYMBOLS_COMMIT_MSG }}
+          repository: 'huderlem/poryscript'
+          latest: true
+          fileName: 'poryscript-linux.zip'
+          extract: true
+          out-file-path: 'tools'
+
+      - name: Poryscript install
+        run: |
+          sudo mv tools/poryscript-linux tools/poryscript
+          sudo chmod +x tools/poryscript/poryscript
+          sudo rm -f tools/poryscript-linux.zip
+
+      - name: Build with agbcc
+        run: make -j${nproc} -O all
