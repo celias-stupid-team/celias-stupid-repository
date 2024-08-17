@@ -54,6 +54,7 @@ jobs:
         run: |
           sudo mv tools/poryscript-linux tools/poryscript
           sudo chmod +x tools/poryscript/poryscript
+          sudo rm -f tools/poryscript-linux.zip
 
       - name: Build with agbcc
         run: make -j${nproc} -O all
