@@ -1266,7 +1266,7 @@ static void Task_DexScreen_NumericalOrder(u8 taskId)
     }
 }
 
-static void DexScreen_InitGfxForNumericalOrderList(void)
+static void DexScreen_InitGfxForNumericalOrderList(void) //TODO Figure out dex listing logic
 {
     struct ListMenuTemplate template;
     FillBgTilemapBufferRect(3, 0x00E, 0, 0, 30, 20, 0);

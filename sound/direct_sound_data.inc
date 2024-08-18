@@ -4351,6 +4351,75 @@ Cry_Miraidon::
 
 	.align 2
 
+Cry_Jigglypuff_Above::
+	.incbin "sound/direct_sound_samples/cries/jigglypuff_above.bin"
+
+	.align 2
+Cry_Tentaquil::
+	.incbin "sound/direct_sound_samples/cries/tentaquil.bin"
+
+	.align 2
+Cry_Missingno::
+	.incbin "sound/direct_sound_samples/cries/missingno.bin"
+
+	.align 2
+Cry_Kenya::
+	.incbin "sound/direct_sound_samples/cries/kenya.bin"
+
+	.align 2
+Cry_Hitmonchan_Shit::
+	.incbin "sound/direct_sound_samples/cries/hitmonchan_shit.bin"
+
+	.align 2
+Cry_Hitmonchin::
+	.incbin "sound/direct_sound_samples/cries/hitmonchin.bin"
+
+	.align 2
+Cry_Trubbish_Haircut::
+	.incbin "sound/direct_sound_samples/cries/trubbish_haircut.bin"
+
+	.align 2
+Cry_Ampharos_Mega::
+	.incbin "sound/direct_sound_samples/cries/ampharos_mega.bin"
+
+	.align 2
+Cry_Yoshi::
+	.incbin "sound/direct_sound_samples/cries/yoshi.bin"
+
+	.align 2
+Cry_Ditto_Mew::
+	.incbin "sound/direct_sound_samples/cries/ditto_mew.bin"
+
+	.align 2
+Cry_Unown_Loss::
+	.incbin "sound/direct_sound_samples/cries/unown_loss.bin"
+
+	.align 2
+Cry_Magnalone::
+	.incbin "sound/direct_sound_samples/cries/magnalone.bin"
+
+	.align 2
+Cry_Tyranastar::
+	.incbin "sound/direct_sound_samples/cries/tyranastar.bin"
+
+	.align 2
+Cry_Pokemon_Gun::
+	.incbin "sound/direct_sound_samples/cries/pokemon_gun.bin"
+
+	.align 2
+Cry_Plug_Oink::
+	.incbin "sound/direct_sound_samples/cries/plug_oink.bin"
+
+	.align 2
+
+Cry_Pikablu::
+	.incbin "sound/direct_sound_samples/cries/pikablu.bin"
+
+	.align 2
+Cry_Rattata_Shiny::
+	.incbin "sound/direct_sound_samples/cries/rattata_shiny.bin"
+
+	.align 2
 
 
 	.align 2

@@ -1010,6 +1010,25 @@ gCryTable::
 	cry Cry_Iron_Valiant
 	cry Cry_Koraidon
 	cry Cry_Miraidon
+	cry Cry_Jigglypuff_Above
+	cry Cry_Tentaquil
+	cry Cry_Missingno
+	cry Cry_Kenya
+	cry Cry_Hitmonchan_Shit
+	cry Cry_Hitmonchin
+	cry Cry_Trubbish_Haircut
+	cry Cry_Ampharos_Mega
+	cry Cry_Yoshi
+	cry Cry_Ditto_Mew
+	cry Cry_Unown_Loss
+	cry Cry_Magnalone
+	cry Cry_Tyranastar
+	cry Cry_Pokemon_Gun
+	cry Cry_Plug_Oink
+	cry Cry_Pikablu
+	cry Cry_Rattata_Shiny
+
+
 
 
 	.align 2
@@ -2024,4 +2043,22 @@ gCryTable_Reverse::
 	cry_reverse Cry_Iron_Valiant
 	cry_reverse Cry_Koraidon
 	cry_reverse Cry_Miraidon
+	cry_reverse Cry_Jigglypuff_Above
+	cry_reverse Cry_Tentaquil
+	cry_reverse Cry_Missingno
+	cry_reverse Cry_Kenya
+	cry_reverse Cry_Hitmonchan_Shit
+	cry_reverse Cry_Hitmonchin
+	cry_reverse Cry_Trubbish_Haircut
+	cry_reverse Cry_Ampharos_Mega
+	cry_reverse Cry_Yoshi
+	cry_reverse Cry_Ditto_Mew
+	cry_reverse Cry_Unown_Loss
+	cry_reverse Cry_Magnalone
+	cry_reverse Cry_Tyranastar
+	cry_reverse Cry_Pokemon_Gun
+	cry_reverse Cry_Plug_Oink
+	cry_reverse Cry_Pikablu
+	cry_reverse Cry_Rattata_Shiny
+
 

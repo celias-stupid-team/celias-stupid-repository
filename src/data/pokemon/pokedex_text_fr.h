@@ -279,9 +279,9 @@ const u8 gParasectPokedexText[] = _(
 const u8 gParasectPokedexTextUnused[] = _("");
 
 const u8 gVenonatPokedexText[] = _(
-    "Its eyes act as radar, enabling it to be\n"
-    "active in darkness. The eyes can also\n"
-    "shoot powerful beams.");
+	"Hey, did you hear?\n"
+	"GAME FREAK messed up my evolution.\n"
+	"It wasn't supposed to be VENOMOTH!");
 
 const u8 gVenonatPokedexTextUnused[] = _("");
 
@@ -313,13 +313,13 @@ const u8 gPersianPokedexText[] = _(
 
 const u8 gPersianPokedexTextUnused[] = _("");
 
-const u8 gPsyduckPokedexText[] = _(
+const u8 gPsyduckPokedexText[] = _( //The Yellow One
 	"Wait, if it's psyDUCK, why isn't\n"
 	"it WATER-Type?");
 
 const u8 gPsyduckPokedexTextUnused[] = _("");
 
-const u8 gGolduckPokedexText[] = _(
+const u8 gGolduckPokedexText[] = _( //The Blue One
 	"You better believe he's coming back\n"
 	"in Generation XII.\n"
 	"(this joke was written before SV oops)");
@@ -614,7 +614,7 @@ const u8 gExeggcutePokedexText[] = _(
 const u8 gExeggcutePokedexTextUnused[] = _("");
 
 const u8 gExeggutorPokedexText[] = _(
-	"Talk about a splitting headache.");
+	"It's time for your exeggcution.");
 
 const u8 gExeggutorPokedexTextUnused[] = _("");
 
@@ -2612,7 +2612,7 @@ const u8 gKenyaPokedexText[] = _(
 const u8 gGolurkPokedexText[] = _(
 	"Wait, what are you doing here?");
 
-const u8 gGimmeghoulPokedexText[] = _(
+const u8 gGimmighoulPokedexText[] = _(
 	"Oingo-Coingo");
 
 const u8 gGholdengoPokedexText[] = _(
@@ -2622,16 +2622,9 @@ const u8 gBidoofPokedexText[] = _(
 	"Extremely good at taking you from\n"
 	"point A to point B");
 
-const u8 gTrubbishPokedexText[] = _(
-	"Whoops, got them mixed up");
-
 const u8 gAmpharosMegaPokedexText[] = _(
 	"Its TAIL can GLOW so bright that it will\n"
 	"illuminate even the deepest darkness.");
-
-const u8 gOrthwormPokedexText[] = _(
-	"get it?\n"
-	"it's a worm hole");
 
 const u8 gHitmonchinPokedexText[] = _(
 	"HITMONLEE's  relative\n"
@@ -2666,5 +2659,16 @@ const u8 gTyranastarPokedexText[] = _(
 	"We can finally see ancient POKéMON\n"
 	"exactly how they were a million years ago!");
 
-const u8 gMelmanurePokedexText[] = _(
+const u8 gMelmetalPokedexText[] = _(
 	"Yahaha!");
+
+const u8 gTrubbishPokedexText[] = _(
+    "Maybe go for just a little\n"
+	"off the top next time.");
+
+const u8 gOrthwormPokedexText[] = _(
+    "get it?\n"
+	"cuz it's a wormhole?");
+
+const u8 gDittoMewPokedexText[] = _(
+	"haha gottem");

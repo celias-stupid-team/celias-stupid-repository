@@ -42,28 +42,29 @@ def excel_to_outputs(input_file):
     # Iterate over the rows of the DataFrame
     for index, row in df.iterrows():
         original_name = str(row[column_names[0]])
+        display_name = str(row[column_names[1]])
         sanitized_name = sanitize_string(original_name)
         uppercase_name = sanitized_name.upper()
         folder_name = sanitized_name.lower()
         species_number = f"SPECIES_{uppercase_name}"
-        truncated_name = original_name[:10].upper()
+        truncated_name = display_name[:10].upper()
 
         # Output 1
-        output_files["include_constants_species.txt"].append(f"#define {species_number} {412 + index}\n")
+        output_files["include_constants_species.txt"].append(f"#define {species_number} {1034 + index}\n")
 
         # Output 2
         output_files["src_data_text_species_names.txt"].append(f"    [{species_number}] = _(\"{truncated_name}\"),\n")
 
         # Output 3
-        base_hp = row[column_names[1]]
-        base_attack = row[column_names[2]]
-        base_defense = row[column_names[3]]
-        base_speed = row[column_names[4]]
-        base_sp_attack = row[column_names[5]]
-        base_sp_defense = row[column_names[6]]
-        type1 = f"TYPE_{str(row[column_names[7]]).upper()}"
-        type2 = f"TYPE_{str(row[column_names[8]]).upper()}" if pd.notna(row[column_names[8]]) else type1
-        body_color = str(row[column_names[10]]).upper()
+        base_hp = row[column_names[2]]
+        base_attack = row[column_names[3]]
+        base_defense = row[column_names[4]]
+        base_speed = row[column_names[5]]
+        base_sp_attack = row[column_names[6]]
+        base_sp_defense = row[column_names[7]]
+        type1 = f"TYPE_{str(row[column_names[8]]).upper()}"
+        type2 = f"TYPE_{str(row[column_names[9]]).upper()}" if pd.notna(row[column_names[9]]) else type1
+        body_color = str(row[column_names[11]]).upper()
 
         output_files["src_data_pokemon_species_info.txt"].append(f"[{species_number}] =\n")
         output_files["src_data_pokemon_species_info.txt"].append("{\n")
@@ -119,7 +120,7 @@ def excel_to_outputs(input_file):
         output_files["include_graphics_icons.txt"].append(f"extern const u8 gMonIcon_{sanitized_name}[];\n")
 
         # Output 7
-        output_files["include_constants_hoenn_cries.txt"].append(f"\tCRY_{uppercase_name} = {388 + index},\n")
+        output_files["include_constants_hoenn_cries.txt"].append(f"\tCRY_{uppercase_name} = {1034 + index},\n")
 
         # Output 8
         output_files["sound_cry_tables.txt"].append(f"\tcry Cry_{sanitized_name}\n")
