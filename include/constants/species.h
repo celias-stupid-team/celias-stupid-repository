@@ -55,8 +55,8 @@
 #define SPECIES_DUGTRIO 51
 #define SPECIES_MEOWTH 52
 #define SPECIES_PERSIAN 53
-#define SPECIES_PSYDUCK 54
-#define SPECIES_GOLDUCK 55
+#define SPECIES_PSYDUCK 54 //Yellow
+#define SPECIES_GOLDUCK 55 //BLUE
 #define SPECIES_MANKEY 56
 #define SPECIES_PRIMEAPE 57
 #define SPECIES_GROWLITHE 58
@@ -1080,7 +1080,7 @@ These used to be dex mons; now they're random mons that I've dexited
 #define SPECIES_YUNGOOS  1046
 #define SPECIES_GUMSHOOS  1047
 #define SPECIES_GRUBBIN  1048
-//#define SPECIES_PIKABLU 1049
+//#define SPECIES_PIKABLU 1049 Dexited mons to shove them into the dex
 //#define SPECIES_RATTATA_SHINY 1050
 
 #define SPECIES_BRAMBLIN 1049
