@@ -5164,7 +5164,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 1,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_AMOONGUS] =
+    [NATIONAL_DEX_AMOONGUSS] =
     {
         .categoryName = _("PLACEHOLDER"),
         .height = 1,
@@ -5344,7 +5344,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 1,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_TRUBBISH] =
+    [NATIONAL_DEX_TRUBBISH_HAIRCUT] =
     {
         .categoryName = _("BUZZCUT"),
         .height = 1,
@@ -5464,7 +5464,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 1,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_POKEMON_DITTO_MEW] =
+    [NATIONAL_DEX_DITTO_MEW] =
     {
         .categoryName = _("MEWN'T"),
         .height = 1,
