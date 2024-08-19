@@ -64,6 +64,10 @@ ViridianForest_EventScript_Charlie::
 	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script ViridianForest_MapScript_SetObtainable {
+	setobtainable(SPECIES_CATERPIE, SPECIES_METAPOD)
+}
+
 script EventScript_DadHeal {
 	fadescreen(FADE_TO_BLACK)
 	closemessage

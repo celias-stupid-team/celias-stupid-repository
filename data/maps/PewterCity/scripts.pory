@@ -850,6 +850,18 @@ PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
 `
+script PewterCity_MapScript_SetObtainable {
+	//if pokedex(SPECIES_KAKUNA) {
+		//setobtainable(SPECIES_COMBEE)
+	//}
+	//if pokedex(SPECIES_COMBEE) {
+		//setobtainable(SPECIES_GRIMER)
+	//}
+	//if pokedex(SPECIES_METAPOD) {
+		//setobtainable(BUTTERFREE)
+	//}
+}
+
 script PewterCity_EventScript_CeliaPuzzle {
 	msgbox("And here we get to the first part\nof the game with REAL puzzles!\pThis is the point where you either\nthink outside the box or give up.\pEither way, you're not brute forcing\nyou way through any of this.", MSGBOX_NPC)
 	end
