@@ -73,6 +73,39 @@ script Route4_Trigger_Lass2 {
 	release
 }
 
+script Route4_EventScript_Hbox {
+	lock
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	setflag(FLAG_CSR_HBOX_TEMP_DISAPPEARANCE)
+	setwildbattle(SPECIES_JIGGLYPUFF, 13, ITEM_SODA_POP)
+	dowildbattle
+	
+	fadescreenspeed(FADE_TO_BLACK, 1)
+	addobject(9)
+	setobjectxy(9, 35, 8)
+	setmetatile(35, 14, 0x2C7, FALSE)
+	setmetatile(35, 13, 0x2C7, FALSE)
+	setmetatile(35, 12, 0x2C7, FALSE)
+	setmetatile(35, 11, 0x2C7, FALSE)
+	fadescreenspeed(FADE_FROM_BLACK, 1)
+
+	delay(30)
+	playse(SE_FALL)
+	applymovement(9, Common_Movement_Descend)
+	waitmovement(0)
+	playse(SE_BANG)
+	setvar(VAR_0x8006, 5)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(20)
+	setmetatile(35, 14, 0x00D, FALSE)
+	setmetatile(35, 13, 0x00D, FALSE)
+	setmetatile(35, 12, 0x00D, FALSE)
+	setmetatile(35, 11, 0x00D, FALSE)
+	release
+}
+
 script Route3_Item_Pokeball {
 	finditem(ITEM_POKE_BALL)
 }
