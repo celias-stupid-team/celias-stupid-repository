@@ -613,8 +613,8 @@
 #define FLAG_GOT_TM34_FROM_SURGE                         0x231
 #define FLAG_GOT_FOSSIL_FROM_MT_MOON                     0x232
 #define FLAG_HELPED_BILL_IN_SEA_COTTAGE                  0x233
-#define FLAG_GOT_SS_TICKET                               0x234
-#define FLAG_GOT_SS_TICKET_DUP                           0x235
+#define FLAG_CSR_GOT_BILL                               0x234
+#define FLAG_CSR_GOT_BILL_DUP                           0x235
 #define FLAG_GOT_TM42_AT_MEMORIAL_PILLAR                 0x236
 #define FLAG_GOT_HM01                                    0x237
 #define FLAG_GOT_HM02                                    0x238
@@ -634,11 +634,11 @@
 #define FLAG_GOT_LAPRAS_FROM_SILPH                       0x246
 #define FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL       0x247
 #define FLAG_DID_MIMIEN_TRADE                            0x248
-#define FLAG_BOUGHT_MAGIKARP                             0x249
-#define FLAG_DID_ZYNX_TRADE                              0x24A
-#define FLAG_DID_MS_NIDO_TRADE                           0x24B
+#define FLAG_BOUGHT_GYARADOS                             0x249
+#define FLAG_DID_JYNX_TRADE                              0x24A
+#define FLAG_DID_RAICHU_TRADE                           0x24B
 #define FLAG_0x24C                                       0x24C
-#define FLAG_DID_CH_DING_TRADE                           0x24D
+#define FLAG_DID_FARFETCHD_TRADE                           0x24D
 #define FLAG_GOT_TM38_FROM_BLAINE                        0x24E
 #define FLAG_OAK_SKIP_22_RIVAL_CHECK                     0x24F
 #define FLAG_GOT_MASTER_BALL_FROM_SILPH                  0x250
@@ -1498,42 +1498,42 @@
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       (SYS_FLAGS + 0xC1)
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        (SYS_FLAGS + 0xC2)
 
-#define FLAG_0x8C3                                                  (SYS_FLAGS + 0xC3)
-#define FLAG_0x8C4                                                  (SYS_FLAGS + 0xC4)
-#define FLAG_0x8C5                                                  (SYS_FLAGS + 0xC5)
-#define FLAG_0x8C6                                                  (SYS_FLAGS + 0xC6)
-#define FLAG_0x8C7                                                  (SYS_FLAGS + 0xC7)
-#define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)
-#define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
-#define FLAG_0x8CA                                                  (SYS_FLAGS + 0xCA)
-#define FLAG_0x8CB                                                  (SYS_FLAGS + 0xCB)
-#define FLAG_0x8CC                                                  (SYS_FLAGS + 0xCC)
-#define FLAG_0x8CD                                                  (SYS_FLAGS + 0xCD)
-#define FLAG_0x8CE                                                  (SYS_FLAGS + 0xCE)
-#define FLAG_0x8CF                                                  (SYS_FLAGS + 0xCF)
-#define FLAG_0x8D0                                                  (SYS_FLAGS + 0xD0)
-#define FLAG_0x8D1                                                  (SYS_FLAGS + 0xD1)
-#define FLAG_0x8D2                                                  (SYS_FLAGS + 0xD2)
-#define FLAG_0x8D3                                                  (SYS_FLAGS + 0xD3)
-#define FLAG_0x8D4                                                  (SYS_FLAGS + 0xD4)
-#define FLAG_0x8D5                                                  (SYS_FLAGS + 0xD5)
-#define FLAG_0x8D6                                                  (SYS_FLAGS + 0xD6)
-#define FLAG_0x8D7                                                  (SYS_FLAGS + 0xD7)
-#define FLAG_0x8D8                                                  (SYS_FLAGS + 0xD8)
-#define FLAG_0x8D9                                                  (SYS_FLAGS + 0xD9)
-#define FLAG_0x8DA                                                  (SYS_FLAGS + 0xDA)
-#define FLAG_0x8DB                                                  (SYS_FLAGS + 0xDB)
-#define FLAG_0x8DC                                                  (SYS_FLAGS + 0xDC)
-#define FLAG_0x8DD                                                  (SYS_FLAGS + 0xDD)
-#define FLAG_0x8DE                                                  (SYS_FLAGS + 0xDE)
-#define FLAG_0x8DF                                                  (SYS_FLAGS + 0xDF)
-#define FLAG_0x8E0                                                  (SYS_FLAGS + 0xE0)
-#define FLAG_0x8E1                                                  (SYS_FLAGS + 0xE1)
-#define FLAG_0x8E2                                                  (SYS_FLAGS + 0xE2)
-#define FLAG_0x8E3                                                  (SYS_FLAGS + 0xE3)
-#define FLAG_0x8E4                                                  (SYS_FLAGS + 0xE4)
-#define FLAG_0x8E5                                                  (SYS_FLAGS + 0xE5)
-#define FLAG_0x8E6                                                  (SYS_FLAGS + 0xE6)
+#define FLAG_CSR_MAP_ROUTE_23                                                (SYS_FLAGS + 0xC3) //Only set after Dex
+#define FLAG_CSR_MAP_ROUTE_3_FAR                                                  (SYS_FLAGS + 0xC4)
+#define FLAG_CSR_MAP_ROUTE_4_FAR                                                  (SYS_FLAGS + 0xC5)
+#define FLAG_CSR_MAP_ROUTE_24_FAR                                                  (SYS_FLAGS + 0xC6)
+#define FLAG_CSR_MAP_CERULEAN_GYM                                                  (SYS_FLAGS + 0xC7)
+#define FLAG_CSR_MAP_ROUTE_5                                                  (SYS_FLAGS + 0xC8)
+#define FLAG_CSR_MAP_ROUTE_11                                                  (SYS_FLAGS + 0xC9)
+#define FLAG_CSR_MAP_ROUTE_9_FAR                                                  (SYS_FLAGS + 0xCA)
+#define FLAG_CSR_MAP_ROUTE_10                                                  (SYS_FLAGS + 0xCB)
+#define FLAG_CSR_MAP_ROUTE_7                                                 (SYS_FLAGS + 0xCC)
+#define FLAG_CSR_MAP_ROUTE_8_FAR                                                  (SYS_FLAGS + 0xCD)
+#define FLAG_CSR_MAP_SOOTOPOLIS                                                  (SYS_FLAGS + 0xCE)
+#define FLAG_CSR_MAP_ROUTE_4_CENTER                                                  (SYS_FLAGS + 0xCF)
+#define FLAG_CSR_MAP_MT_MOON_BASEMENT                                                (SYS_FLAGS + 0xD0)
+#define FLAG_CSR_SUN_STONE_FOUND                                                  (SYS_FLAGS + 0xD1)
+#define FLAG_CSR_MAP_STONE_EMPORIUM                                                  (SYS_FLAGS + 0xD2)
+#define FLAG_CSR_HINT_CLEFABLE_SHADOW                                                  (SYS_FLAGS + 0xD3)
+#define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
+#define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
+#define FLAG_CSR_HINT_EVO_LEVEL                                                  (SYS_FLAGS + 0xD6)
+#define FLAG_CSR_HINT_RUNNING_SHOES                                                  (SYS_FLAGS + 0xD7)
+#define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
+#define FLAG_CSR_HINT_MISSINGNO                                                  (SYS_FLAGS + 0xD9)
+#define FLAG_CSR_HINT_ABRA_TRADE                                                  (SYS_FLAGS + 0xDA)
+#define FLAG_CSR_HINT_KENYA                                                  (SYS_FLAGS + 0xDB)
+#define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
+#define FLAG_CSR_HINT_PHISHING                                                  (SYS_FLAGS + 0xDD)
+#define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
+#define FLAG_CSR_HINT_LICKITUNG                                                  (SYS_FLAGS + 0xDF)
+#define FLAG_CSR_HINT_MOVE_REMINDER                                                  (SYS_FLAGS + 0xE0)
+#define FLAG_CSR_MAP_EEVEE_ROOM                                                  (SYS_FLAGS + 0xE1)
+#define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                                                  (SYS_FLAGS + 0xE2)
+#define FLAG_CSR_HINT_MAGNALONE                                                  (SYS_FLAGS + 0xE3)
+#define FLAG_CSR_HINT_DRAGONITE                                                  (SYS_FLAGS + 0xE4)
+#define FLAG_CSR_HINT_SPEAROW                                                  (SYS_FLAGS + 0xE5)
+#define FLAG_CSR_HINT_PEWTER_GRASS                                                  (SYS_FLAGS + 0xE6)
 #define FLAG_0x8E7                                                  (SYS_FLAGS + 0xE7)
 #define FLAG_0x8E8                                                  (SYS_FLAGS + 0xE8)
 #define FLAG_0x8E9                                                  (SYS_FLAGS + 0xE9)
@@ -1558,9 +1558,9 @@
 #define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
 #define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)
-#define FLAG_0x8FF                                                  (SYS_FLAGS + 0xFF)
+#define FLAG_CSR_DEX_DUMMY                                                  (SYS_FLAGS + 0xFF)
 
-#define FLAGS_COUNT (FLAG_0x8FF + 1)
+#define FLAGS_COUNT (FLAG_CSR_DEX_DUMMY + 1)
 
 // Special Flags (Stored in EWRAM (sSpecialFlags, not in the SaveBlock)
 #define SPECIAL_FLAGS_START           0x4000

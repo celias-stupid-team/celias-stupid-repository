@@ -535,7 +535,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ZUBAT] =
     {
-        .categoryName = _("BLIND"),
+        .categoryName = _("ANNOYING"),
         .height = 8,
         .weight = 75,
         .description = gZubatPokedexText,

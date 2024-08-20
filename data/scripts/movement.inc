@@ -114,5 +114,6 @@ Common_Movement_Descend::
 	walk_faster_down
 	walk_faster_down
 	walk_faster_down
+	enable_jump_landing_ground_effect
 	walk_faster_down
 	step_end

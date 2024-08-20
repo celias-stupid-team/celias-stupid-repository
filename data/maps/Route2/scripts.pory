@@ -29,3 +29,8 @@ script Route2_EventScript_CeliaDad {
 	msgbox("Mr. Mimes being found in the grass\nhere SIGNIFICANTLY predates\lDAD being a thing.\pI kinda had to retroactively justify\nthem being out here.\pBy the way: No, you can't catch\nthem yet.\pWell, never mind that.\nHow about you take a rest?", MSGBOX_NPC)
 	end
 }
+
+script Route2_North_Sign {
+	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how\nmany POKéMON are available to you.\lIt even updates automatically!\pCheck it out before and after\nentering PEWTER CITY!", MSGBOX_SIGN)
+	end
+}

@@ -238,8 +238,9 @@ const u8 gWigglytuffPokedexText[] = _(
 const u8 gWigglytuffPokedexTextUnused[] = _("");
 
 const u8 gZubatPokedexText[] = _(
-	"Someone help!\n"
-	"I'm blind!");
+	"I hope you understand that now you're\n"
+	"gonna have to deal with them for the\n"
+	"rest of the game.");
 
 const u8 gZubatPokedexTextUnused[] = _("");
 
@@ -381,8 +382,8 @@ const u8 gKadabraPokedexText[] = _(
 const u8 gKadabraPokedexTextUnused[] = _("");
 
 const u8 gAlakazamPokedexText[] = _(
-	"Where's KADABRA?\n"
-	"Uh, look. I didn't wanna get sued.");
+	"Where's KADABRA? Uh, look.\n"
+	"I didn't wanna get sued.");
 
 const u8 gAlakazamPokedexTextUnused[] = _("");
 
@@ -423,8 +424,8 @@ const u8 gVictreebelPokedexText[] = _(
 const u8 gVictreebelPokedexTextUnused[] = _("");
 
 const u8 gTentacoolPokedexText[] = _(
-	"We've heard your complaints and are happy\n"
-	"to report that TENTACOOL no longer\n"
+	"We've heard your complaints and are\n"
+	"happy to report that TENTACOOL no longer\n"
 	"appears on WATER routes.");
 
 const u8 gTentacoolPokedexTextUnused[] = _("");
@@ -563,8 +564,7 @@ const u8 gGengarPokedexText[] = _(
 const u8 gGengarPokedexTextUnused[] = _("");
 
 const u8 gOnixPokedexText[] = _(
-	"He said it was on a faraway island.\n"
-	"He just never specified which one");
+	"The original early-game boss.");
 
 const u8 gOnixPokedexTextUnused[] = _("");
 
@@ -2590,7 +2590,7 @@ const u8 gCherubiPokedexText[] = _(
 	"Google “Cherubi pokedex number”");
 
 const u8 gToedscoolPokedexText[] = _(
-	"look at him go");
+	"Look at him go!");
 
 const u8 gUnownLossPokedexText[] = _(
 	"is this");
@@ -2615,7 +2615,7 @@ const u8 gGimmighoulPokedexText[] = _(
 	"Oingo-Coingo");
 
 const u8 gGholdengoPokedexText[] = _(
-	"Blingo-Stringo");
+	"Stringo-Blingo");
 
 const u8 gBidoofPokedexText[] = _(
 	"Extremely good at taking you from\n"
@@ -2669,6 +2669,5 @@ const u8 gDittoMewPokedexText[] = _(
 	"haha gottem");
 
 const u8 gAlcremiePokedexText[] = _(
-	"Ooh, this one's got a chocolate shell!\n"
-	"Must've been that fancy blue cream!");
+	"Ooh, this one's got a chocolate shell!");
     

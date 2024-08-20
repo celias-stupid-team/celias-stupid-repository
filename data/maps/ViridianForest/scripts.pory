@@ -65,7 +65,8 @@ ViridianForest_EventScript_Charlie::
 	end
 `
 script ViridianForest_MapScript_SetObtainable {
-	setobtainable(SPECIES_CATERPIE, SPECIES_METAPOD)
+	setobtainable(SPECIES_CATERPIE, SPECIES_METAPOD, SPECIES_KAKUNA)
+	
 }
 
 script EventScript_DadHeal {
