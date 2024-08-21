@@ -680,226 +680,226 @@ PewterCity_EventScript_CSR_ItemPokeBall::
 @ odd candy events 
 
 PalletTown_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 ViridianCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 PewterCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 CeruleanCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 VermillionCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 LavenderTown_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 CeladonCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 FushciaCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SaffronCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 CinnabarIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SootopolisCity_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 MtMoon_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 UndergroundPath_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 PokemonTower_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SafariZone_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 DiglettsCave_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SilphCo_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SecretGarden_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 PowerPlant_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SeafoamIslands_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 CinnabarMansion_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 SkyPillar_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 AetherParadise_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 KantoLighthouse_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 ZeroIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 OneIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 TwoIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 ThreeIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 FourIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 ThirtyEightIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 PokemonIsland_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Yes_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Minnesota_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_1_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	setflag FLAG_ROUTE_1_CANDY
 	end
 
 Route_2_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_3_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_4_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_5_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_6_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_7_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_8_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_9_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_10_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_11_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_12_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_13_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_14_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_15_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_16_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_17_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_18_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_21_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_22_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_24_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_25_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end
 
 ViridianForest_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_POKE_BALL
+	finditem ITEM_ODD_CANDY
 	end

@@ -412,7 +412,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_HONEY]     = {gItemIcon_Honey, gItemIconPalette_Honey},
     [ITEM_TORN_PAPER_GEODUDE]     = {gItemIcon_TornPaper, gItemIconPalette_TornPaper},
     [ITEM_CREAM_DROP]     = {gItemIcon_CreamDrop, gItemIconPalette_CreamDrop},
-    [ITEM_TRASH_MEDEAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
+    [ITEM_TRASH_MEDAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
     /*
     [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
     */   

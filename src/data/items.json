@@ -6097,7 +6097,7 @@
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A piece of CANDY resembling a\\ncertain POKéMON. You have a\\nstrange urge to collect them.",
-      "importance": 1,
+      "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
