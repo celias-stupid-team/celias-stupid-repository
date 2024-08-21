@@ -17,7 +17,7 @@ gNameChoice_Gar::
     .string " $"
 
 gNameChoice_Gary::
-    .string " $"
+    .string "GARY$"
 
 gNameChoice_Kaz::
     .string " $"

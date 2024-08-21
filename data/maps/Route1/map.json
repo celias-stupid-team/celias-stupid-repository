@@ -145,12 +145,12 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 3,
-      "y": 10,
+      "x": 2,
+      "y": 1,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
     },
     {
       "type": "trigger",
@@ -262,177 +262,6 @@
     },
     {
       "type": "trigger",
-      "x": 2,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderTop"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderRight"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderRight"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderRight"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderRight"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route1_EventScript_PitBorderDown"
-    },
-    {
-      "type": "trigger",
       "x": 12,
       "y": 39,
       "elevation": 0,
@@ -448,6 +277,429 @@
       "var": "VAR_ROUTE01_SHINY_RAT2",
       "var_value": "1",
       "script": "Route1_EventScript_Rat2"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "Route1_EventScript_PitEscaped"
     }
   ],
   "bg_events": [
