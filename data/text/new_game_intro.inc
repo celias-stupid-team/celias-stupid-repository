@@ -184,8 +184,8 @@ gPikachuIntro_Text_Page3::
     .string "\n"
     .string "The point of it isn't to provide\n"
     .string "a challenge, but to enjoy\n"
-    .string "the absurdity of it. Have fun!\n"
-    .string "-CELIA, the creator$"
+    .string "the absurdity of it.\n"
+    .string "Have fun!$"
 
 gOakSpeech_Text_WelcomeToTheWorld::
     .string "Hello, there!\n"

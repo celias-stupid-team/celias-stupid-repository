@@ -19,7 +19,7 @@ PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
     .string "GARY: I'll take this one, then!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
-    .string "GARY received the {STR_VAR_1}\n"
+    .string "GARY received the SQUIRTLE\n"
     .string "from PROF. OAK (somehow)!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalMyMonLooksTougher::

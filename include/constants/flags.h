@@ -210,7 +210,7 @@
 #define FLAG_CSR_BROKE_INTO_HOUSE       0x0B8
 #define FLAG_CSR_RETURNED_KEY           0x0B9
 #define FLAG_CSR_WENT_TO_PIT            0x0BA
-#define FLAG_CSR_UNUSED_1               0x0BB
+#define FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT               0x0BB
 #define FLAG_CSR_KENYA_OBTAINED         0x0BC
 
 
@@ -265,7 +265,7 @@
 #define FLAG_PT_NPC_LOOKLOOK_LEAVE                     0x0DC
 #define FLAG_PT_NPC_SIGN_LADY                          0x0DD
 #define FLAG_PT_NPC_LOOKLOOK                           0x0DE
-#define FLAG_0x0DF               0x0DF
+#define FLAG_CSR_PT_HIDE_GS_BALL               0x0DF
 #define FLAG_0x0E0               0x0E0
 #define FLAG_0x0E1               0x0E1
 #define FLAG_0x0E2               0x0E2
@@ -1020,7 +1020,7 @@
 #define FLAG_POKEMON_ISLAND_CANDY        0x3BD
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_MINNESOTA_CANDY             0x3BF
-#define FLAG_ROUTE_1_CANDY               0x3C0
+#define FLAG_ROUTE_1_CANDY               0x3C0 //placed
 #define FLAG_ROUTE_2_CANDY               0x3C1 //placed
 #define FLAG_ROUTE_3_CANDY               0x3C2
 #define FLAG_ROUTE_4_CANDY               0x3C3
