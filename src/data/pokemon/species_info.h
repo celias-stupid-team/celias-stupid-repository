@@ -240,11 +240,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_WARTORTLE] =
     {
-        .baseHP = 59,
-        .baseAttack = 63,
-        .baseDefense = 80,
-        .baseSpeed = 58,
-        .baseSpAttack = 65,
+        .baseHP = 43,
+        .baseAttack = 30,
+        .baseDefense = 55,
+        .baseSpeed = 40,
+        .baseSpAttack = 40,
         .baseSpDefense = 80,
         .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
