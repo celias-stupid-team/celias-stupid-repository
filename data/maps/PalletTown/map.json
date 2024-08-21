@@ -37,8 +37,8 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PalletTown_EventScript_SignLady",
-      "flag": "0"
+      "script": "PalletTown_EventScript_SignLady_CSR",
+      "flag": "FLAG_PT_NPC_SIGN_LADY"
     },
     {
       "type": "object",
@@ -152,8 +152,8 @@
       "x": 13,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "1",
+      "var": "VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB",
+      "var_value": "4",
       "script": "PalletTown_EventScript_SignLadyTrigger"
     }
   ],
@@ -168,7 +168,7 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 13,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -176,7 +176,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 4,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -204,7 +204,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PalletTown_EventScript_LabMissed"
     }
   ]
 }

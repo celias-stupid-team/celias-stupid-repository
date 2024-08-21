@@ -44,8 +44,9 @@ Text_DishesPlatesNeatlyLinedUp::
 	.string "Volcano Bakemeat!$"
 
 Text_Kitchen::
-	.string "It smells delicious!\n"
-	.string "Somebody's been cooking here.$"
+	.string "This arrangement for mother is\n"
+	.string "quite adept!\l"
+	.string "Volcano Bakemeat!$"
 
 Text_Dresser::
 	.string "Twelve identical copies of your\n"

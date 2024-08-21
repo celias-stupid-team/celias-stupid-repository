@@ -1,6 +1,11 @@
 raw `
 Route1_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route1_OnTransition
 	.byte 0
+
+Route1_OnTransition::
+	setbench BENCH_ROUTE1
+	end
 
 Route1_EventScript_MartClerk::
 	lock
@@ -50,6 +55,108 @@ script Route1_EventScript_CeliaPotion {
 script Route1_EventScript_CeliaPit {
 	msgbox("Ah, The Pit.\nThe most infamous part of the hack.\pHonestly I'm kinda surprised that\npeople are so enamored by it.\pI guess it serves as a reality check\nthat this is not a game to take\lvery seriously.", MSGBOX_NPC)
 	end
+}
+
+script Route1_EventScript_Rat1 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT1 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT1, 1)
+	dowildbattle
+	release
+}
+
+script Route1_EventScript_Rat2 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT2 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT2, 2)
+	dowildbattle
+	release
+}
+
+script Route1_EventScript_EnterPit {
+	lock
+	setflag(FLAG_ROUTE1_ENTERED_PIT)
+	release
+}
+
+script Route1_EventScript_PitBorderTop {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackDown)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderRight {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackLeft)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderDown {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackUp)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_PitBorderLeft {
+	lock
+	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
+		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackRight)
+		waitmovement(0)
+	}
+	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_LittleBoy {
+	lock
+	msgbox(format("My daddy was playing POKéMON GO and didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_Dad {
+	lock
+	msgbox(format("I thought this sign was a POKéSTOP..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+
+//movements
+movement R1_walkbackDown {
+	face_down
+	walk_down
+}
+
+movement R1_walkbackLeft {
+	face_left
+	walk_left
+}
+
+movement R1_walkbackRight {
+	face_right
+	walk_right
+}
+
+movement R1_walkbackUp {
+	face_up
+	walk_up
 }
 
 script Route1_EventScript_CeliaShiny {

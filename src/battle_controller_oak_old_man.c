@@ -387,7 +387,7 @@ static void CompleteWhenChoseItem(void)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        if (!BtlCtrl_OakOldMan_TestState2Flag(FIRST_BATTLE_MSG_FLAG_HP_RESTORE)
+        /*if (!BtlCtrl_OakOldMan_TestState2Flag(FIRST_BATTLE_MSG_FLAG_HP_RESTORE)
          && gSpecialVar_ItemId == ITEM_POTION
          && gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
         {
@@ -398,7 +398,9 @@ static void CompleteWhenChoseItem(void)
         {
             BtlController_EmitOneReturnValue(1, gSpecialVar_ItemId);
             OakOldManBufferExecCompleted();
-        }
+        }*/
+        BtlController_EmitOneReturnValue(1, gSpecialVar_ItemId);
+        OakOldManBufferExecCompleted();
     }
 }
 

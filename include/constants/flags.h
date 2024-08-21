@@ -189,9 +189,9 @@
 #define FLAG_HIDE_MISC_KANTO_ROCKETS                       0x0AD
 #define FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS 0x0AE
 
-// Unused?
+// CSR flags
 #define FLAG_FOUND_Y                    0x0AF
-//reset after every battle
+//resets after every battle
 #define FLAG_TEMP_MID_BATTLE_EVENT      0x0B0
 // unused
 
@@ -215,7 +215,7 @@
 
 
 //Route 2
-#define FLAG_CSR_UNUSED_2               0x0BD
+#define FLAG_ROUTE1_ENTERED_PIT                        0x0BD
 
 //Viridian Forest
 #define FLAG_0x0BE                      0x0BE
@@ -257,12 +257,14 @@
 
 #define FLAG_CSR_ABSCONDED_BROCK        0x0D7
 #define FLAG_CSR_PYTHON_SUCCESS  0x0D8
-#define FLAG_0x0D9               0x0D9
-#define FLAG_0x0DA               0x0DA
-#define FLAG_0x0DB               0x0DB
-#define FLAG_0x0DC               0x0DC
-#define FLAG_0x0DD               0x0DD
-#define FLAG_0x0DE               0x0DE
+
+//Wiz's game opening
+#define FLAG_SHINY_CREATION                            0x0D9
+#define FLAG_WALKTHROUGHWALLS                          0x0DA
+#define FLAG_ROUTE1_OBJECTS_RETREAT                    0x0DB
+#define FLAG_PT_NPC_LOOKLOOK_LEAVE                     0x0DC
+#define FLAG_PT_NPC_SIGN_LADY                          0x0DD
+#define FLAG_PT_NPC_LOOKLOOK                           0x0DE
 #define FLAG_0x0DF               0x0DF
 #define FLAG_0x0E0               0x0E0
 #define FLAG_0x0E1               0x0E1

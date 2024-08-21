@@ -103,7 +103,7 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
     .string "You're getting CHARMANDER.\n"
-    .string "whether you like it or not.\p"
+    .string "Whether you like it or not.\p"
     .string "After all, we need to sell this\n"
     .string "game to old fans somehow!$"
 
@@ -235,7 +235,8 @@ PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
 
 PalletTown_ProfessorOaksLab_Text_SaveOptionInMenu::
     .string "The SAVESTATE option is in your.\n"
-    .string "emulator.$"
+    .string "emulator.\p"
+    .string "Use it regularly!$"
 
 PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
     .string "All POKéMON types have strong and\n"
