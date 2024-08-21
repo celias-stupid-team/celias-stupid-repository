@@ -615,14 +615,6 @@ PewterCity_Movement_MuseumGuideExit::
 	walk_right
 	step_end
 
-PewterCity_EventScript_FatMan::
-	lock
-	faceplayer
-	famechecker FAMECHECKER_BROCK, 2
-	msgbox PewterCity_Text_BrockOnlySeriousTrainerHere
-	release
-	end
-
 PewterCity_EventScript_BugCatcher::
 	lock
 	faceplayer
@@ -927,5 +919,10 @@ script PewterCity_EventScript_CeliaMoon {
 
 script PewterCity_EventScript_HeMissed {
 	msgbox("He missed.\n", MSGBOX_SIGN)
+	end
+}
+
+script PewterCity_EventScript_FatMan {
+	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 	end
 }

@@ -29,7 +29,7 @@ PewterCity_Museum_1F_Text_WhatsSpecialAboutMoonStone::
 
 PewterCity_Museum_1F_Text_BoughtColorTVForMoonLanding::
     .string "I remember when they finally\n"
-    .string "launched a rocked from the\l"
+    .string "launched a rocket from the\l"
     .string "MOSSDEEP SPACE CENTER.\p"
     .string "It turns out the WHITE ROCK was the\n"
     .string "key all along!$"

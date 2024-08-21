@@ -74,5 +74,5 @@ PewterCity_Museum_1F_Text_AerodactylFossil::
 
 PewterCity_Museum_1F_Text_KabutopsFossil::
     .string "KABUTOPS Fossil\n"
-    .string "A threat to UU matches.$"
+    .string "A threat in UU matches.$"
 
