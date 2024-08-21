@@ -8260,8 +8260,29 @@ extern const u32 gItemIconPalette_Ruby[];
 extern const u32 gItemIconPalette_Sapphire[];
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
+
+//CSR Items
 extern const u32 gItemIcon_FocusSash[];
 extern const u32 gItemIconPalette_FocusSash[];
+extern const u32 gItemIcon_OddCandy[];
+extern const u32 gItemIconPalette_OddCandy[];
+extern const u32 gItemIcon_WaddedNote[];
+extern const u32 gItemIconPalette_WaddedNote[];
+extern const u32 gItemIcon_RunningShoes[];
+extern const u32 gItemIconPalette_RunningShoes[];
+extern const u32 gItemIcon_DawnStone[];
+extern const u32 gItemIconPalette_DawnStone[];
+extern const u32 gItemIcon_Honey[];
+extern const u32 gItemIconPalette_Honey[];
+extern const u32 gItemIcon_TornPaper[];
+extern const u32 gItemIconPalette_TornPaper[];
+extern const u32 gItemIcon_CreamDrop[];
+extern const u32 gItemIconPalette_CreamDrop[];
+extern const u32 gItemIcon_TrashMedal[];
+extern const u32 gItemIconPalette_TrashMedal[];
+extern const u32 gItemIconPalette_MinRepel[];
+
+
 
 // battle_anim_utility_funcs
 extern const u32 gFile_graphics_battle_anims_masks_curse_sheet[];

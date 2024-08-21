@@ -402,6 +402,20 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FOCUS_SASH]     = {gItemIcon_FocusSash, gItemIconPalette_FocusSash},
     //CSR items
     [ITEM_MATH_CLUB]     = {gItemIcon_ThickClub, gItemIconPalette_ThickClub},
+    [ITEM_ODD_CANDY]     = {gItemIcon_OddCandy, gItemIconPalette_OddCandy},
+    [ITEM_WADDED_NOTE_METAPOD]     = {gItemIcon_WaddedNote, gItemIconPalette_WaddedNote},
+    
+
+    [ITEM_RUNNING_SHOES]     = {gItemIcon_RunningShoes, gItemIconPalette_RunningShoes},
+    [ITEM_MIN_REPEL]     = {gItemIcon_Repel, gItemIconPalette_MinRepel},
+    [ITEM_DAWN_STONE]     = {gItemIcon_DawnStone, gItemIconPalette_DawnStone},
+    [ITEM_HONEY]     = {gItemIcon_Honey, gItemIconPalette_Honey},
+    [ITEM_TORN_PAPER_GEODUDE]     = {gItemIcon_TornPaper, gItemIconPalette_TornPaper},
+    [ITEM_CREAM_DROP]     = {gItemIcon_CreamDrop, gItemIconPalette_CreamDrop},
+    [ITEM_TRASH_MEDEAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
+    /*
+    [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
+    */   
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
