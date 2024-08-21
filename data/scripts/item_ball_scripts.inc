@@ -813,6 +813,7 @@ Minnesota_EventScript_CSR_ItemOddCandy::
 
 Route_1_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_POKE_BALL
+	setflag FLAG_ROUTE_1_CANDY
 	end
 
 Route_2_EventScript_CSR_ItemOddCandy::

@@ -156,7 +156,9 @@ void NewGameInitData(void)
 static void InitCSRData(void)
 {
     FlagSet(FLAG_ROUTE1_OBJECTS_RETREAT);
+    FlagSet(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT);
     FlagSet(FLAG_PT_NPC_LOOKLOOK);
+    FlagSet(FLAG_CSR_CELIA_BONUS);
 }
 
 static void ResetMiniGamesResults(void)
