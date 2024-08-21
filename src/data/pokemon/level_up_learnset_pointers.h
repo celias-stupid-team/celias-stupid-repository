@@ -1050,6 +1050,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_POKEMON_GUN] = sPokemon_GunLevelUpLearnset,
 	[SPECIES_PLUG_OINK] = sPlug_OinkLevelUpLearnset,
 	[SPECIES_PIKABLU] = sPikabluLevelUpLearnset,
-	[SPECIES_RATTATA_SHINY] = sRattata_ShinyLevelUpLearnset,
+	[SPECIES_RATTATA_SHINY] = sRattataLevelUpLearnset,
 
 };

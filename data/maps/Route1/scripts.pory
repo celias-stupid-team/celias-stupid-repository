@@ -81,18 +81,16 @@ script Route1_EventScript_Rat2 {
 
 script Route1_EventScript_EnterPit {
 	lock
-	setflag(FLAG_ROUTE1_ENTERED_PIT)
+	setvar(VAR_TEMP_5, 1)
 	release
 }
 
-script Route1_EventScript_PitBorderTop {
+script Route1_EventScript_PitEscaped {
 	lock
-	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
-		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackDown)
-		waitmovement(0)
-	}
-	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
-	release
+	msgbox("You hear a voice from the skies…\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hi there!\nThis is CELIA, the creator!\pI saw that you got yourself a\nlittle stuck there.\lThat's okay, I've done that too.\pI hope this teaches you a valuable\nlesson about being careful!\pAlso, I noticed that you turned on\na walk-through-walls code to escape?\pI'm not gonna judge you for that,\nbut I do think this hack is more\lfun if you turn that off.\pYou were probably heading back\nto PALLET TOWN, I'm guessing?\lMaybe after receiving the PARCEL?\pDo be aware that this isn't a vanilla\+\nROMhack - you're not gonna be able\lto turn your brain off and rush!\pAnyway, do have fun!\nGlad you got out safely!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_5, 0)
 }
 
 script Route1_EventScript_PitBorderRight {
