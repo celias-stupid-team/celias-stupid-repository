@@ -650,7 +650,8 @@ static const u8 *const sRivalNameChoices[] =
     gNameChoice_Gary,
     gNameChoice_Gary,
     gNameChoice_Gary,
-    gNameChoice_Gary
+    gNameChoice_Gary,
+    gNameChoice_Gar
 #elif defined(LEAFGREEN)
     gNameChoice_Red,
     gNameChoice_Ash,
@@ -2128,7 +2129,7 @@ static void PrintNameChoiceOptions(u8 taskId, u8 hasPlayerBeenNamed)
         textPtrs = gSaveBlock2Ptr->playerGender == MALE ? sMaleNameChoices : sFemaleNameChoices;
     else
         textPtrs = sRivalNameChoices;
-    for (i = 0; i < ARRAY_COUNT(sRivalNameChoices); i++)
+    for (i = 0; i < ARRAY_COUNT(sRivalNameChoices) - 1; i++)
         AddTextPrinterParameterized(tMenuWindowId, FONT_NORMAL, textPtrs[i], 8, 16 * (i + 1) + 1, 0, NULL);
     Menu_InitCursor(tMenuWindowId, FONT_NORMAL, 0, 1, 16, 5, 0);
     CopyWindowToVram(tMenuWindowId, COPYWIN_FULL);
@@ -2149,7 +2150,7 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 rivalNameChoice)
     }
     else
     {
-        src = sRivalNameChoices[rivalNameChoice];
+        src = sRivalNameChoices[4]; //force GAR as the default Rival name choice
         dest = gSaveBlock1Ptr->rivalName;
     }
     for (i = 0; i < PLAYER_NAME_LENGTH && src[i] != EOS; i++)

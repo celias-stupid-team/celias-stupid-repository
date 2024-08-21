@@ -190,6 +190,7 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
+//CSR VARs
 /*VAR_TEMP_START_EVENT_BATTLE:
 It is reset after every battle.
 0 = no event battle (default)
@@ -200,8 +201,8 @@ It is reset after every battle.
 5 = Giovanni 1
 */
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
-#define VAR_0x408D                 0x408D
-#define VAR_0x408E                 0x408E
+#define VAR_ROUTE01_SHINY_RAT1         0x408D
+#define VAR_ROUTE01_SHINY_RAT2         0x408E
 #define VAR_0x408F                 0x408F
 #define VAR_0x4090                 0x4090
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse

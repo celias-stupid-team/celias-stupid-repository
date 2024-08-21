@@ -32,7 +32,8 @@ PalletTown_Text_RivalsHouse::
 PalletTown_Text_TownSign::
     .string "PALLET TOWN\n"
     .string "We spelled the name wrong\l"
-    .string "on purpose!$"
+    .string "on purpose!\p"
+    .string "Recommended POKéDEX completion: 1$"
 
 PalletTown_Text_OakLetMeSeePokedex::
     .string "OAK: Ah, {PLAYER}!\n"

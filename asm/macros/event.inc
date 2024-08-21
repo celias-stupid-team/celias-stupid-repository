@@ -1,3 +1,4 @@
+@ Regular macros
 	@ Does nothing.
 	.macro nop
 	.byte 0x00
@@ -1659,6 +1660,9 @@
 	.byte 0xd7
 	.4byte \text
 	.endm
+
+@ CSR macros
+
 
 	.macro _dynmultichoice left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req argv:vararg
 	.byte 0xd8

@@ -414,22 +414,6 @@ PalletTown_EventScript_TownSign::
 	msgbox PalletTown_Text_TownSign, MSGBOX_SIGN
 	end
 
-PalletTown_EventScript_TrainerTips::
-	lockall
-	msgbox PalletTown_Text_PressStartToOpenMenu
-	setvar VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1
-	releaseall
-	end
-
-PalletTown_EventScript_SignLadyTrigger::
-	lockall
-	applymovement LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	call PalletTown_EventScript_SignLadyShowSign
-	releaseall
-	end
-
 PalletTown_EventScript_SignLadyShowSign::
 	textcolor NPC_TEXT_COLOR_FEMALE
 	msgbox PalletTown_Text_LookCopiedTrainerTipsSign
@@ -456,6 +440,89 @@ PalletTown_EventScript_SignLadyStartShowSign::
 script PalletTown_EventScript_CeliaLookLook {
 	msgbox("The girl throwing herself into\nthe woods was originally a bug!\pBut it was so funny that there was\nno way I was gonna remove it.\pThat said, even though it was funny,\npeople still kept reporting it.\pSo, I changed the sign to explicitly\ndirect the player to try it.", MSGBOX_NPC)
 	end
+}
+script PalletTown_EventScript_SignLady_CSR {
+	lock
+	faceplayer
+	msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
+	applymovement(1, PT_exclmark)
+	waitmovement(0)
+	msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
+	switch(var(VAR_FACING)) {
+		case DIR_EAST:
+				applymovement(1, PT_walkbackRight)
+				waitmovement(0)
+			default:
+				applymovement(1, PT_walkbackLeft)
+				waitmovement(0)
+	}
+	release
+}
+
+script PalletTown_EventScript_TrainerTips {
+	lockall
+	msgbox(format("TRAINER TIPS\pTalk to her again!"), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script PalletTown_EventScript_LabMissed {
+	lockall
+	msgbox(format("Oops...you missed!"), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script PalletTown_EventScript_LookLook {
+	lock
+	faceplayer
+	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
+		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
+		call(PalletTown_EventScript_SignLadyShowSign)
+	}
+	else {
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
+		applymovement(4, PT_exclmark)
+		waitmovement(0)
+		msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+				applymovement(4, PT_walkbackRight)
+				waitmovement(0)
+			default:
+				applymovement(4, PT_walkbackLeft)
+				waitmovement(0)
+		}
+	}
+	release
+}
+
+script PalletTown_EventScript_SignLadyTrigger {
+	lockall
+	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
+		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
+		applymovement(LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+		waitmovement(0)
+		call(PalletTown_EventScript_SignLadyShowSign)
+	}
+	releaseall
+}
+
+
+//movements
+movement PT_exclmark {
+	emote_exclamation_mark
+}
+
+movement PT_walkbackLeft {
+	face_left
+	walk_left
+	face_right
+}
+
+movement PT_walkbackRight {
+	face_right
+	walk_right
+	face_left
 }
 
 script PalletTown_EventScript_CeliaYouMissed {

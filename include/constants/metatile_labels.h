@@ -35,6 +35,14 @@
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
+// gTileset_Fallarbor
+#define METATILE_Fallarbor_AshGrass     0x20A
+#define METATILE_Fallarbor_NormalGrass  0x212
+
+// gTileset_Fallarbor
+#define METATILE_Fallarbor_AshGrass     0x20A
+#define METATILE_Fallarbor_NormalGrass  0x212
+
 // gTileset_FushciaCity
 #define METATILE_FushciaCity_Door                           0x2BF
 #define METATILE_FushciaCity_SafariZoneDoor                 0x2D2
@@ -74,6 +82,9 @@
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 
+// gTileset_Lavaridge
+#define METATILE_Lavaridge_NormalGrass  0x206
+
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2
 
@@ -83,6 +94,9 @@
 
 // gTileset_MtEmber
 #define METATILE_MtEmber_CaveEntrance  0x346
+
+// gTileset_Pacifidlog
+#define METATILE_Pacifidlog_SkyPillar_CrackedFloor_Hole  0x237
 
 // gTileset_PalletTown
 #define METATILE_PalletTown_Door         0x2A3
@@ -164,6 +178,10 @@
 #define METATILE_PokemonMansion_Wall_EndCap_Basement                     0x2B0
 #define METATILE_PokemonMansion_Wall_EndPost_Bottom                      0x2AD
 #define METATILE_PokemonMansion_Wall_EndPost_Mid                         0x2A5
+
+// gTileset_RSCave
+#define METATILE_RSCave_CrackedFloor       0x22F
+#define METATILE_RSCave_CrackedFloor_Hole  0x206
 
 // gTileset_SSAnne
 #define METATILE_SSAnne_Door  0x281
@@ -294,13 +312,5 @@
 // gTileset_ViridianForest
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Grass  0x284
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Mowed  0x281
-
-// Other
-#define METATILE_Fallarbor_AshGrass                      0x20A
-#define METATILE_Fallarbor_NormalGrass                   0x212
-#define METATILE_Lavaridge_NormalGrass                   0x206
-#define METATILE_Pacifidlog_SkyPillar_CrackedFloor_Hole  0x237
-#define METATILE_RSCave_CrackedFloor                     0x22F
-#define METATILE_RSCave_CrackedFloor_Hole                0x206
 
 #endif // GUARD_METATILE_LABELS_H

@@ -65,8 +65,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route1_EventScript_Dad",
+      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
     },
     {
       "type": "object",
@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
     },
     {
       "type": "object",
@@ -93,8 +93,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route1_EventScript_LittleBoy",
+      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
     },
     {
       "type": "object",
@@ -145,66 +145,66 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 15,
-      "y": 1,
+      "x": 3,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
       "x": 16,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 17,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 18,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 19,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 20,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
       "x": 21,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_ROUTE01_SHINY_RAT1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_Rat1"
     },
     {
       "type": "trigger",
@@ -213,7 +213,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
@@ -222,7 +222,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
@@ -231,7 +231,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
@@ -240,7 +240,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
@@ -249,7 +249,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
@@ -258,448 +258,196 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_EnterPit"
     },
     {
       "type": "trigger",
       "x": 2,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 3,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 4,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 5,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 6,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 7,
-      "y": 1,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderTop"
     },
     {
       "type": "trigger",
       "x": 8,
-      "y": 1,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 1,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderRight"
     },
     {
       "type": "trigger",
       "x": 8,
-      "y": 13,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderRight"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route1_EventScript_PitBorderRight"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route1_EventScript_PitBorderRight"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
       "x": 1,
-      "y": 13,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderLeft"
     },
     {
       "type": "trigger",
-      "x": 0,
-      "y": 13,
+      "x": 1,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderLeft"
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 13,
+      "x": 1,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderLeft"
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 13,
+      "x": 1,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderLeft"
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 13,
+      "x": 2,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 13,
+      "x": 4,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 13,
+      "x": 5,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
-      "x": 14,
-      "y": 13,
+      "x": 6,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 15,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "script": "Route1_EventScript_PitBorderDown"
     },
     {
       "type": "trigger",
       "x": 12,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_ROUTE01_SHINY_RAT2",
+      "var_value": "1",
+      "script": "Route1_EventScript_Rat2"
     },
     {
       "type": "trigger",
       "x": 13,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_ROUTE01_SHINY_RAT2",
+      "var_value": "1",
+      "script": "Route1_EventScript_Rat2"
     }
   ],
   "bg_events": [
