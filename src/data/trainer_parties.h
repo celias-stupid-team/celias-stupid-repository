@@ -496,12 +496,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassJanice[] = {
     {
         .iv = 0,
         .lvl = 9,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_NIDORAN_M,
     },
     {
         .iv = 0,
         .lvl = 9,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_RATTATA,
     },
 };
 
@@ -975,18 +975,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerIsabelle[] = {
     {
         .iv = 0,
         .lvl = 16,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_TRUBBISH,
     },
     {
         .iv = 0,
         .lvl = 16,
-        .species = SPECIES_PIDGEY,
+        .species = SPECIES_VANILLITE,
     },
-    {
-        .iv = 0,
-        .lvl = 16,
-        .species = SPECIES_PIDGEY,
-    },
+
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerKelsey[] = {
@@ -7085,13 +7081,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterChad3[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_LassJanice2[] = {
     {
         .iv = 20,
-        .lvl = 20,
+        .lvl = 11,
         .species = SPECIES_PIDGEOTTO,
     },
     {
         .iv = 20,
-        .lvl = 20,
-        .species = SPECIES_PIDGEOTTO,
+        .lvl = 12,
+        .species = SPECIES_CLEFAIRY,
     },
 };
 

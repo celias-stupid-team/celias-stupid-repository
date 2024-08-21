@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_Scientist1",
+      "script": "PewterCity_Museum_1F_EventScript_Receptionist",
       "flag": "0"
     },
     {
@@ -54,8 +54,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_OldAmberScientist",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Amber_Tree",
+      "flag": "FLAG_CSR_TREE_FLAG_1"
     },
     {
       "type": "object",
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_OldAmber",
+      "script": "PewterCity_Museum_1F_EventScript_OldAmberScientist",
       "flag": "FLAG_HIDE_OLD_AMBER"
     },
     {
@@ -82,8 +82,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_Scientist2",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Rowan",
+      "flag": "FLAG_CSR_TREE_FLAG_2"
     },
     {
       "type": "object",
@@ -96,8 +96,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_Museum_1F_EventScript_SeismicTossTutor",
-      "flag": "0"
+      "script": "PewterCity_Museum_1F_EventScript_Birch",
+      "flag": "FLAG_CSR_TREE_FLAG_3"
     },
     {
       "type": "object",
@@ -112,6 +112,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PewterCity_EventScript_CeliaMuseum",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PewterCity_EventScript_CeliaCut",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -235,6 +263,54 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Rowan_Scam"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Rowan_Scam"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Birch_Scam"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Birch_Scam"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_Museum_1F_EventScript_Trees"
     }
   ]
 }

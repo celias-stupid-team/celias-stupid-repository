@@ -13,11 +13,11 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_F",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 4,
       "y": 2,
       "elevation": 3,
@@ -175,7 +175,7 @@
       "x": 9,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_CELADON_CITY",
+      "dest_map": "MAP_ROUTE16_NORTH_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
@@ -196,11 +196,13 @@
       "x": 15,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_ROCKET_HIDEOUT_B1F",
+      "dest_map": "MAP_CELADON_CITY_GAME_CORNER",
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

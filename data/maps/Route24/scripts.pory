@@ -99,3 +99,79 @@ Route24_Movement_WalkDown::
 	walk_down
 	step_end
 `
+script Route24_EventScript_CheckParty {
+	getpartysize
+	if(var(VAR_RESULT) == 1) {
+		lock
+		getplayerxy(VAR_TEMP_4, VAR_TEMP_5)
+		playse(SE_PIN)
+		if(var(VAR_TEMP_4) == 12) {
+			applymovement(6, Common_Movement_FaceDown)
+		}
+		applymovement(6, Common_Movement_ExclamationMark)
+		waitmovement(0)
+		delay(60)
+		switch(var(VAR_TEMP_4)) {
+			case 10:
+				applymovement(6, LeftTwice)
+				waitmovement(0)
+			case 11:
+				applymovement(6, LeftOnce)
+				waitmovement(0)
+
+			case 12:
+				applymovement(6, Common_Movement_WalkDown)
+				waitmovement(0)
+				applymovement(6, Common_Movement_FaceDown)
+				waitmovement(0)	
+		}
+		textcolor(0)
+		msgbox("Um, hi!\nWelcome to NUGGETBRIDGE!\pEr, I noticed that you only have\none POKéMON with you right now.\pWe actually have a whole thing going\non, and you kinda need two.\lCould you go grab another?\pThanks for understanding!\n", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+		delay(20)
+		applymovement(6, Common_Movement_WalkUp)
+		waitmovement(0)
+		switch(var(VAR_TEMP_4)) { 
+			case 10:
+				applymovement(6, RightTwice)
+				waitmovement(0)
+			case 11:
+				applymovement(6, Common_Movement_WalkRight)
+				waitmovement(0)
+		}
+		applymovement(6, Common_Movement_FaceLeft)
+		waitmovement(0)
+		
+
+
+	}
+	release
+}
+
+movement LeftTwice {
+	walk_left *2
+	walk_down
+	face_down
+}
+
+movement LeftOnce {
+	walk_left
+	walk_down
+	face_down
+}
+
+movement RightTwice {
+	walk_right * 2
+}
+
+script Route24_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was just on my way to visit\nmy friend BILL.\lHe and I go way back!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	//call(EventScript_DadHeal) Oops I haven't added the dads yet in this branch lol
+	release
+	end
+}

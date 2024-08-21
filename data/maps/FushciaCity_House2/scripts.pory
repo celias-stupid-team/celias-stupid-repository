@@ -1,0 +1,34 @@
+raw `
+FushciaCity_House2_MapScripts::
+	.byte 0
+
+FushciaCity_House2_EventScript_FishingGurusBrother::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_GOOD_ROD, FushciaCity_House2_EventScript_AlreadyGotGoodRod
+	msgbox FushciaCity_House2_Text_DoYouLikeToFish, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FushciaCity_House2_EventScript_GiveGoodRod
+	msgbox FushciaCity_House2_Text_OhThatsDisappointing
+	release
+	end
+
+FushciaCity_House2_EventScript_AlreadyGotGoodRod::
+	msgbox FushciaCity_House2_Text_HowAreTheFishBiting
+	release
+	end
+
+FushciaCity_House2_EventScript_GiveGoodRod::
+	msgbox FushciaCity_House2_Text_LikeYourStyleTakeThis
+	checkitemspace ITEM_GOOD_ROD
+	goto_if_eq VAR_RESULT, FALSE, FushciaCity_House2_EventScript_NoRoomForGoodRod
+	giveitem_msg FushciaCity_House2_Text_ReceivedGoodRod, ITEM_GOOD_ROD
+	msgbox FushciaCity_House2_Text_GoodRodCanCatchBetterMons
+	setflag FLAG_GOT_GOOD_ROD
+	release
+	end
+
+FushciaCity_House2_EventScript_NoRoomForGoodRod::
+	msgbox FushciaCity_House2_Text_YouHaveNoRoomForGift
+	release
+	end
+`

@@ -223,7 +223,8 @@ gOakSpeech_Text_WhatWasHisName::
     .string "…Erm, what was his name now?$"
 
 gOakSpeech_Text_YourRivalsNameWhatWasIt::
-    .string "Your rival's name, what was it now?$"
+    .string "Was it LARRY? No…\n"
+    .string "Perhaps JERRY? Hmm, not quite…$"
 
 gOakSpeech_Text_ConfirmRivalName::
     .string "…Er, it's {RIVAL}?$"

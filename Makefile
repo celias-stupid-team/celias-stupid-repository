@@ -238,7 +238,7 @@ include songs.mk
 %.rl: % ; $(GFX) $< $@
 $(CRY_SUBDIR)/%.bin: $(CRY_SUBDIR)/%.aif ; $(AIF) $< $@ --compress
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
-data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fc tools/poryscript/font_config.json
+data/%.inc: data/%.pory; $(SCRIPT) -i $< -o $@ -fc tools/poryscript/font_config.json -cc tools/poryscript/command_config.json
 sound/songs/%.s: sound/songs/%.mid
 	$(MID) $< $@
 
@@ -340,7 +340,7 @@ LD_SCRIPT_DEPS :=
 endif
 
 $(ELF): $(LD_SCRIPT) $(LD_SCRIPT_DEPS) $(OBJS)
-	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$< -o ../../$@ $(OBJS_REL) $(LIB)
+	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ../../$< --print-memory-usage -o ../../$@ $(OBJS_REL) $(LIB) | cat
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(GAME_REVISION) --silent
 
 $(ROM): $(ELF)

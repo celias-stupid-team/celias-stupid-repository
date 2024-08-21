@@ -45,4 +45,66 @@ MtMoon_1F_EventScript_Robby::
 	trainerbattle_single TRAINER_BUG_CATCHER_ROBBY, MtMoon_1F_Text_RobbyIntro, MtMoon_1F_Text_RobbyDefeat
 	msgbox MtMoon_1F_Text_RobbyPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+MtMoon_B1F_EventScript_ExitLass::
+	trainerbattle_single TRAINER_LASS_JANICE_2, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
+	msgbox MtMoon_Text_ExitLassPostBattle, MSGBOX_AUTOCLOSE
+	end
 `
+script MtMoon_1F_Item_SuperRepel {
+	finditem(ITEM_SUPER_REPEL)
+}
+
+script MtMoon_1F_Item_Nugget {
+	finditem(ITEM_NUGGET)
+}
+
+script MtMoon_1F_Item_SunStone {
+	finditem(ITEM_SUN_STONE)
+}
+
+script MtMoon_1F_Item_MinRepel { //Make this a Min Repel when we get items
+	finditem(ITEM_SUPER_REPEL)
+}
+
+script MtMoon_1F_Item_MaxRepel {
+	finditem(ITEM_MAX_REPEL)
+}
+
+script MtMoon_1F_Trigger_FirstTentacool {
+	lock
+	setvar(VAR_MAP_SCENE_MT_MOON_TENTACOOL, 1)
+	setwildbattle(SPECIES_TENTACOOL, 8, ITEM_NONE)
+	dowildbattle
+	release
+}
+script MtMoon_1F_Trigger_SecondTentacool {
+	lock
+	setvar(VAR_MAP_SCENE_MT_MOON_TENTACOOL, 2)
+	setwildbattle(SPECIES_TENTACOOL, 6, ITEM_NONE)
+	dowildbattle
+	release
+}
+
+script MtMoon_EventScript_Leak {
+	msgbox("A leak in the wall.\nIt's where the TENTACOOL came from!", MSGBOX_SIGN)
+	end
+}
+
+script MtMoon_EventScript_DadStuck {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was heading home, but TENTACOOL\nhas other plans, it seems.\lI'm stuck here in place!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script MtMoon_EventScript_FancyLadder {
+	msgbox("It looks like a ladder, but it's\nactually a very fancy stepladder.", MSGBOX_SIGN)
+	end
+}
+
+
+

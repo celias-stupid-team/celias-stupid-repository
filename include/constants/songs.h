@@ -244,23 +244,22 @@
 #define SE_M_HAZE                 239 // SE_W114
 #define SE_M_HYPER_BEAM2          240 // SE_W063B
 // New FRLG SFX
-#define SE_DOOR                   241 // SE_RG_W_DOOR
-#define SE_CARD_FLIP              242 // SE_RG_CARD1
-#define SE_CARD_FLIPPING          243 // SE_RG_CARD2
-#define SE_CARD_OPEN              244 // SE_RG_CARD3
-#define SE_BAG_CURSOR             245 // SE_RG_BAG1
-#define SE_BAG_POCKET             246 // SE_RG_BAG2
-#define SE_BALL_CLICK             247 // SE_RG_GETTING
-#define SE_SHOP                   248 // SE_RG_SHOP
-#define SE_SS_ANNE_HORN           249 // SE_RG_KITEKI
-#define SE_HELP_OPEN              250 // SE_RG_HELP_OP
-#define SE_HELP_CLOSE             251 // SE_RG_HELP_CL
-#define SE_HELP_ERROR             252 // SE_RG_HELP_NG
-#define SE_DEOXYS_MOVE            253 // SE_RG_DEOMOV
-#define SE_POKE_JUMP_SUCCESS      254 // SE_RG_EXCELLENT
-#define SE_POKE_JUMP_FAILURE      255 // SE_RG_NAWAMISS
+#define SE_DOOR                   241 // SE_W_DOOR
+#define SE_CARD_FLIP              242 // SE_CARD1
+#define SE_CARD_FLIPPING          243 // SE_CARD2
+#define SE_CARD_OPEN              244 // SE_CARD3
+#define SE_BAG_CURSOR             245 // SE_BAG1
+#define SE_BAG_POCKET             246 // SE_BAG2
+#define SE_BALL_CLICK             247 // SE_GETTING
+#define SE_SHOP                   248 // SE_SHOP
+#define SE_SS_ANNE_HORN           249 // SE_KITEKI
+#define SE_HELP_OPEN              250 // SE_HELP_OP
+#define SE_HELP_CLOSE             251 // SE_HELP_CL
+#define SE_HELP_ERROR             252 // SE_HELP_NG
+#define SE_DEOXYS_MOVE            253 // SE_DEOMOV
+#define SE_POKE_JUMP_SUCCESS      254 // SE_EXCELLENT
+#define SE_POKE_JUMP_FAILURE      255 // SE_NAWAMISS
 #define END_SE                    SE_POKE_JUMP_FAILURE
-
 // Music kept from RS
 #define MUS_HEAL                  256 // MUS_ME_ASA
 #define MUS_LEVEL_UP              257 // MUS_FANFA1
@@ -315,7 +314,7 @@
 #define MUS_SURF                  305 // MUS_RG_NAMINORI
 #define MUS_POKE_TOWER            306 // MUS_RG_P_TOWER
 #define MUS_SILPH                 307 // MUS_RG_SHIRUHU
-#define MUS_FUCHSIA               308 // MUS_RG_HANADA
+#define MUS_FUSHCIA               308 // MUS_RG_HANADA
 #define MUS_CELADON               309 // MUS_RG_TAMAMUSI
 #define MUS_VICTORY_TRAINER       310 // MUS_RG_WIN_TRE
 #define MUS_VICTORY_WILD          311 // MUS_RG_WIN_YASEI
@@ -354,10 +353,11 @@
 #define MUS_TRAINER_TOWER         344 // MUS_RG_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_RG_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_RG_TVNOIZE
+#define MUS_CSR_DRILL_DOZER       347 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_TEACHY_TV_MENU
+#define END_MUS                     MUS_CSR_DRILL_DOZER
 
 #endif  // GUARD_CONSTANTS_SONGS_H

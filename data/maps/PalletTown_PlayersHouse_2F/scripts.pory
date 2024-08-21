@@ -122,3 +122,23 @@ movement PTPH2F_getoutofbed {
 	face_down
 	walk_down
 }
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaToaster {
+	msgbox("As far as I'm concerned, this is\nthe most important line in the game.\pIt doesn't really set anything up\nor anything, but if it wasn't\lnew, nobody would check ANYTHING.", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaChapter3 {
+	msgbox("My Secret Life, Chapter 3.\pI was neither a murder suspect, nor\na target for an international spy\l...Ha! Gotcha!\pThis is a story from Earthbound,\na game I stole many quotes from.\pI didn't realize at first how\nutterly obnoxious it was for it to\lbe in literally every bookshelf.\pBut! It was also funny, so I had\nto keep it.", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaKicked {
+	msgbox("I can't be the only one who thought\n“Booted Up” meant kicked, right?", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaSniff {
+	msgbox("“You can now sniff beds” was\nthe funniest patch note ever.", MSGBOX_NPC)
+	end
+}

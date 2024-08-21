@@ -167,7 +167,148 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 	msgbox PalletTown_RivalsHouse_Text_ShelvesCrammedFullOfBooks, MSGBOX_SIGN
 	end
 
-PalletTown_RivalsHouse_EventScript_Picture::
-	msgbox PalletTown_RivalsHouse_Text_LovelyAndSweetClefairy, MSGBOX_SIGN
-	end
+
 `
+script PalletTown_RivalsHouse_EventScript_CeliaBoB {
+	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
+	end
+}
+script BobOmbBattlefield_EventScript_CannonBuddy {
+	msgbox("I'm a BOB-OMB BUDDY!\pThis is placeholder text!\nYay!", MSGBOX_NPC)
+	end
+}
+script BobOmbBattlefield_EventScript_IntroBuddy {
+	msgbox("I'm a BOB-OMB BUDDY!\pThis is placeholder text!\nYay!", MSGBOX_NPC)
+	end
+}
+
+script BobOmbBattlefield_EventScript_Sign {
+	msgbox("I'm a sign!\pThis is placeholder text!\nYay!", MSGBOX_SIGN)
+	end
+}
+
+script BobOmbBattlefield_EventScript_Cannon {
+	lock
+	msgbox("Placeholder text!\pLaunch yourself out of a cannon?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(15)
+		playse(SE_LEDGE)
+		switch(var(VAR_FACING)) {
+			case DIR_NORTH:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+			case DIR_SOUTH:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpDown)
+			case DIR_EAST:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpRight)
+			case DIR_WEST:
+				applymovement(OBJ_EVENT_ID_PLAYER, JumpLeft)
+		}
+		waitmovement(0)
+		setmetatile(31,32,0x075,0)
+		applymovement(OBJ_EVENT_ID_PLAYER, FallIntoHole)
+		waitmovement(0)
+		delay(30)
+		msgbox("It is implied that a cannon is\nlaunching you.", MSGBOX_DEFAULT)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+
+		//player faces down
+		//spawn camera
+		//camera locks in place
+		//cannon comes up out of the ground
+		//player locks facing direction
+		//player slides up very quickly until off screen
+		
+		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 9, 1)
+
+	}
+	release
+	end
+}
+
+script SaffronCity_CopycatHouse_EventScript_Picture {
+	lock
+	msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		waitmovement(0)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+		waitmovement(0)
+		fadescreen(FADE_TO_WHITE)
+		delay(30)
+		setobjectxy(OBJ_EVENT_ID_PLAYER, 31, 35)
+		warphole(MAP_PALLET_TOWN_BOB_OMB_BATTLEFIELD)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	} else {
+		msgbox("{PLAYER} decided against a\nlikely concussion.", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script PalletTown_RivalsHouse_EventScript_Picture {
+		lock
+	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		waitmovement(0)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpSplat)
+		waitmovement(0)
+		playse(SE_WALL_HIT)
+		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+		waitmovement(0)
+		delay(40)
+		
+	}
+	release
+}
+
+movement BackUp {
+	walk_slow_down * 2
+	face_up
+	delay_16 * 3
+	player_run_up * 2
+}
+
+movement JumpSplat {
+	jump_up
+}
+
+movement Faceplant {
+	lock_facing_direction
+	slide_down
+	enable_jump_landing_ground_effect
+	unlock_facing_direction
+}
+
+movement JumpUp {
+	jump_up
+	set_invisible
+}
+movement JumpDown {
+	jump_down
+	set_invisible
+}
+movement JumpLeft {
+	jump_left
+	set_invisible
+}
+movement JumpRight {
+	jump_right
+	set_invisible
+}
+movement ExitPainting {
+	jump_2_down
+}
+
+movement FallIntoHole {
+	lock_facing_direction
+	slide_down
+	unlock_facing_direction
+}

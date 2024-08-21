@@ -192,3 +192,77 @@ PewterCity_Museum_1F_EventScript_KabutopsFossil::
 	releaseall
 	end
 `
+script PewterCity_Museum_1F_EventScript_Receptionist {
+	lock
+	faceplayer
+	if(var(VAR_FACING) == 0) {
+		msgbox(PewterCity_Museum_1F_Text_PleaseEnjoyYourself)
+	}
+	else {
+		setvar(VAR_TEMP_1, 0)
+		if(flag(FLAG_CSR_TREE_FLAG_1)) {
+			addvar(VAR_TEMP_1, 1)
+		}
+		if(flag(FLAG_CSR_TREE_FLAG_2)) {
+			addvar(VAR_TEMP_1, 1)
+		}
+		if(flag(FLAG_CSR_TREE_FLAG_3)) {
+			addvar(VAR_TEMP_1, 1)
+		}
+		switch(var(VAR_TEMP_1)) {
+			case 0: msgbox("Y'know, I only ever wanted\nto be a gardener.\pI guess this is just what that\nentails nowadays.")
+			case 1: msgbox("Hey, wait...\pWasn't there another researcher\nover there a second ago?\lWhere'd he go?")
+			case 2: msgbox("W-wait!\nHold on!\pWhat are you doing!?")
+			case 3: msgbox("...\p...\nHow could you...?")
+		}
+	}
+	release
+	end
+
+}
+
+script PewterCity_Museum_1F_EventScript_Amber_Tree {
+	lock
+	textcolor(0)
+	msgbox("Look at this beautiful piece of\nAMBER we found!\pIt's one of our finest specimens.\p...What?\nNo, of course you can't have it!\lWhy would you think you could?")
+	release
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Rowan {
+	lock
+	textcolor(0)
+	msgbox("Hello, there!\nIt's so very nice to meet you.\pMy name is ROWAN.\pBut everyone calls me the\nPOKéMON PROFESSOR!\l...Wait, what's that?\pThere are others with that title\nas well?\lHrrrm.")
+	release
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Birch {
+	lock
+	textcolor(0)
+	//Rumor Log 2,5
+	msgbox("Hi, there!\nMy name is BIRCH!\pBut everyone calls me the\nPOKéMON PROFESSOR!\pMy associate ELM was waiting\njust outside.\lDid you speak to him?")
+	release
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Rowan_Scam {
+	lock
+	msgbox("There's an e-mail message here.\p…\pGreetings, friend!\nIt is indeed my pleasure to write\lto you this letter.\pMy name is Mutassim Gaddafi, and I\nam a prince of Nigeria.\pRecently, my father has passed away\nand left me with a large sum.\pMR. ROWAN, please send us a\nsmall fee…", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Birch_Scam {
+	lock
+	msgbox("There's an e-mail message here.\p…\pGreetings, friend!\nIt is indeed my pleasure to write\lto you this letter.\pMy name is Mutassim Gaddafi, and I\nam a prince of Nigeria.\pRecently, my father has passed away\nand left me with a large sum.\pMR. BIRCH, please send us a\nsmall fee…", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Trees {
+	lock
+	msgbox("Hmm…\nThere's no response from this one!")
+	release
+	end
+}

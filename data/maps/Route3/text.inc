@@ -95,15 +95,19 @@ Route3_Text_JamesPostBattle::
     .string "the wild ones.$"
 
 Route3_Text_RobinIntro::
-    .string "You can avoid battles by not\n"
-    .string "letting TRAINERS see you.$"
+	.string "I caught my son a few random\n"
+	.string "birds in the grass here.\p"
+	.string "I hear they decided to give him the\n"
+	.string "keys to a GYM?$"
 
 Route3_Text_RobinDefeat::
-    .string "That's it?$"
+	.string "Clipped with a jolt of electricity!\n$"
 
 Route3_Text_RobinPostBattle::
-    .string "ROUTE 4 is at the foot of\n"
-    .string "MT. MOON.$"
+	.string "My son was playing in the cave up\n"
+	.string "ahead earlier.\p"
+	.string "I think he dropped his favorite\n"
+	.string "TM on the ground somewhere.$"
 
 Route3_Text_RouteSign::
     .string "ROUTE 3\n"

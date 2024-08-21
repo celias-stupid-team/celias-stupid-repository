@@ -2,20 +2,20 @@ Route2_EventScript_ItemEther::
 	finditem ITEM_ETHER
 	end
 
-Route2_EventScript_ItemParalyzeHeal::
-	finditem ITEM_PARALYZE_HEAL
-	end
-
-ViridianForest_EventScript_ItemPokeBall::
+Route2_EventScript_ItemPokeBall:: 
 	finditem ITEM_POKE_BALL
 	end
 
+ViridianForest_EventScript_ItemPokeBall::
+	finditem ITEM_RARE_CANDY
+	end
+
 ViridianForest_EventScript_ItemAntidote::
-	finditem ITEM_ANTIDOTE
+	finditem ITEM_RARE_CANDY
 	end
 
 ViridianForest_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_RARE_CANDY
 	end
 
 MtMoon_1F_EventScript_ItemParalyzeHeal::
@@ -27,7 +27,7 @@ MtMoon_1F_EventScript_ItemTM09::
 	end
 
 MtMoon_1F_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 MtMoon_1F_EventScript_ItemRareCandy::
@@ -43,7 +43,7 @@ MtMoon_1F_EventScript_ItemMoonStone::
 	end
 
 MtMoon_B2F_EventScript_ItemStarPiece::
-	finditem ITEM_STAR_PIECE
+	finditem ITEM_NUGGET
 	end
 
 MtMoon_B2F_EventScript_ItemTM46::
@@ -83,7 +83,7 @@ SSAnne_B1F_Room3_EventScript_ItemEther::
 	end
 
 SSAnne_B1F_Room5_EventScript_ItemSuperPotion::
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_MAX_ETHER
 	end
 
 SSAnne_Kitchen_EventScript_ItemGreatBall::
@@ -99,7 +99,7 @@ RocketHideout_B1F_EventScript_ItemEscapeRope::
 	end
 
 RocketHideout_B1F_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_ELIXIR
 	end
 
 RocketHideout_B2F_EventScript_ItemXSpeed::
@@ -115,7 +115,7 @@ RocketHideout_B2F_EventScript_ItemTM12::
 	end
 
 RocketHideout_B2F_EventScript_ItemSuperPotion::
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_MAX_ETHER
 	end
 
 RocketHideout_B3F_EventScript_ItemRareCandy::
@@ -183,7 +183,7 @@ SafariZone_Center_EventScript_ItemNugget::
 	end
 
 SafariZone_East_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 SafariZone_East_EventScript_ItemFullRestore::
@@ -215,7 +215,7 @@ SafariZone_West_EventScript_ItemGoldTeeth::
 	end
 
 SafariZone_West_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 SafariZone_West_EventScript_ItemMaxRevive::
@@ -223,7 +223,7 @@ SafariZone_West_EventScript_ItemMaxRevive::
 	end
 
 SilphCo_3F_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_ELIXIR
 	end
 
 SilphCo_4F_EventScript_ItemMaxRevive::
@@ -279,7 +279,7 @@ SilphCo_10F_EventScript_ItemRareCandy::
 	end
 
 PowerPlant_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 PowerPlant_EventScript_ItemTM17::
@@ -311,7 +311,7 @@ PokemonMansion_2F_EventScript_ItemCalcium::
 	end
 
 PokemonMansion_3F_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 PokemonMansion_3F_EventScript_ItemIron::
@@ -398,7 +398,7 @@ CeruleanCave_B1F_EventScript_ItemUltraBall::
 	finditem ITEM_ULTRA_BALL
 	end
 
-FuchsiaCity_WardensHouse_EventScript_ItemRareCandy::
+FushciaCity_WardensHouse_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
 	end
 
@@ -411,7 +411,7 @@ ThreeIsland_EventScript_ItemZinc::
 	end
 
 ViridianForest_EventScript_ItemPotion2::
-	finditem ITEM_POTION
+	finditem ITEM_RARE_CANDY
 	end
 
 MtMoon_B2F_EventScript_ItemRevive::
@@ -471,7 +471,7 @@ PokemonMansion_2F_EventScript_ItemHPUp::
 	end
 
 ViridianCity_EventScript_ItemPotion::
-	finditem ITEM_POTION
+	finditem ITEM_ETHER
 	end
 
 Route11_EventScript_ItemGreatBall::
@@ -539,7 +539,7 @@ OneIsland_KindleRoad_EventScript_ItemCarbos::
 	end
 
 FiveIsland_Meadow_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
+	finditem ITEM_MAX_ELIXIR
 	end
 
 FiveIsland_Meadow_EventScript_ItemPPUp::
@@ -668,4 +668,237 @@ SevenIsland_SevaultCanyon_House_EventScript_ItemLuckyPunch::
 
 SilphCo_4F_EventScript_ItemTM41::
 	finditem ITEM_TM41
+	end
+
+
+
+PewterCity_EventScript_CSR_ItemPokeBall::
+	finditem ITEM_POKE_BALL
+	end
+
+
+@ odd candy events 
+
+PalletTown_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+ViridianCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+PewterCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+CeruleanCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+VermillionCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+LavenderTown_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+CeladonCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+FushciaCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SaffronCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+CinnabarIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SootopolisCity_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+MtMoon_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+UndergroundPath_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+PokemonTower_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SafariZone_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+DiglettsCave_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SilphCo_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SecretGarden_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+PowerPlant_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SeafoamIslands_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+CinnabarMansion_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+SkyPillar_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+AetherParadise_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+KantoLighthouse_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+ZeroIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+OneIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+TwoIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+ThreeIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+FourIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+ThirtyEightIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+PokemonIsland_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Yes_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Minnesota_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_1_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_2_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_3_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_4_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_5_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_6_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_7_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_8_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_9_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_10_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_11_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_12_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_13_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_14_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_15_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_16_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_17_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_18_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_21_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_22_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_24_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+Route_25_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
+	end
+
+ViridianForest_EventScript_CSR_ItemOddCandy::
+	finditem ITEM_POKE_BALL
 	end

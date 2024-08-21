@@ -57,8 +57,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_FUCHSIA_CITY",
-      "name": "FUCHSIA CITY",
+      "map_section": "MAPSEC_FUSHCIA_CITY",
+      "name": "FUSHCIA CITY",
       "x": 12,
       "y": 12,
       "width": 1,
@@ -862,7 +862,7 @@
     },
     {
       "map_section": "MAPSEC_EMBER_SPA",
-      "name": "EMBER SPA",
+      "name": "BOB-OMB BATTLFIELD",
       "x": 0,
       "y": 0,
       "width": 1,

@@ -99,12 +99,12 @@
 #define TYPE_FIGHTING       1
 #define TYPE_FLYING         2
 #define TYPE_POISON         3
-#define TYPE_GROUND         4
+#define TYPE_STEEL          4
 #define TYPE_ROCK           5
 #define TYPE_BUG            6
 #define TYPE_GHOST          7
-#define TYPE_STEEL          8
-#define TYPE_MYSTERY        9
+#define TYPE_MYSTERY        8
+#define TYPE_GROUND         9
 #define TYPE_FIRE           10
 #define TYPE_WATER          11
 #define TYPE_GRASS          12
@@ -114,7 +114,15 @@
 #define TYPE_DRAGON         16
 #define TYPE_DARK           17
 #define TYPE_FAIRY          18
-#define NUMBER_OF_MON_TYPES 19
+#define TYPE_BROCK          19
+#define TYPE_WEIRD          20
+#define TYPE_DAD            21
+#define TYPE_CHOCOLATE      22
+#define TYPE_SHADOW         23
+#define TYPE_LARGE          24
+#define TYPE_BIRD           25
+#define TYPE_SHIT           26
+#define NUMBER_OF_MON_TYPES 27
 
 // Pokemon egg groups
 #define EGG_GROUP_NONE         0
@@ -282,7 +290,15 @@
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 
-#define EVOS_PER_MON 5
+#define EVO_PARTY            16 // Pokemon levels up with specific pokemon in party
+#define EVO_MOVE             17 // Pokemon levels up while knowing a specific move
+#define EVO_HAIRCUT          18 // Pokemon gets a haircut
+#define EVO_MIRROR           19 // Pokemon uses Reveal Glass
+#define EVO_ALONE            20 // Pokemon is alone :(
+
+
+
+#define EVOS_PER_MON 6          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
 
 #define EVO_MODE_NORMAL     0
 #define EVO_MODE_TRADE      1

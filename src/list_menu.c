@@ -43,7 +43,6 @@ struct ListMenuOverride gListMenuOverride;
 struct ListMenuTemplate gMultiuseListMenuTemplate;
 
 static u8 ListMenuInitInternal(const struct ListMenuTemplate *listMenuTemplate, u16 cursorPos, u16 itemsAbove);
-static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAndCallCallback, u8 count, bool8 movingDown);
 static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOffset, u16 count);
 static void ListMenuDrawCursor(struct ListMenu *list);
 static void ListMenuCallSelectionChangedCallback(struct ListMenu *list, u8 onInit);
@@ -70,6 +69,16 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_ICE + 1]      = { 32, 12, 0x4C },
     [TYPE_DRAGON + 1]   = { 32, 12, 0xA0 },
     [TYPE_DARK + 1]     = { 32, 12, 0x8C },
+    //New Stuff
+    [TYPE_FAIRY + 1]    = { 32, 12, 0x0C },
+    [TYPE_DAD + 1]      = { 32, 12, 0x100 },
+    [TYPE_SHADOW + 1]   = { 32, 12, 0x120 },
+    [TYPE_CHOCOLATE + 1] = { 32, 12, 0x104 },
+    [TYPE_BROCK + 1]    = { 32, 12, 0x108 },
+    [TYPE_WEIRD + 1]    = { 32, 12, 0x10C },
+    [TYPE_LARGE + 1]    = { 32, 12, 0x04 },
+    [TYPE_BIRD + 1]     = { 32, 12, 0x08 },
+    [TYPE_SHIT + 1]     = { 32, 12, 0x124 },
     [MENU_INFO_ICON_TYPE]      = { 40, 12, 0xA8 },
     [MENU_INFO_ICON_POWER]     = { 40, 12, 0xC0 },
     [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },
@@ -555,7 +564,7 @@ static void ListMenuScroll(struct ListMenu *list, u8 count, bool8 movingDown)
     }
 }
 
-static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAndCallCallback, u8 count, bool8 movingDown)
+bool8 ListMenuChangeSelectionFull(struct ListMenu *list, bool32 updateCursor, bool32 callCallback, u8 count, bool8 movingDown)
 {
     u16 oldSelectedRow;
     u8 selectionChange, i, cursorCount;
@@ -577,7 +586,7 @@ static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAn
         while (list->template.items[list->cursorPos + list->itemsAbove].index == LIST_HEADER);
     }
 
-    if (updateCursorAndCallCallback)
+    if (updateCursor)
     {
         switch (selectionChange)
         {
@@ -587,7 +596,8 @@ static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAn
         case 1:
             ListMenuErasePrintedCursor(list, oldSelectedRow);
             ListMenuDrawCursor(list);
-            ListMenuCallSelectionChangedCallback(list, FALSE);
+            if (callCallback)
+                ListMenuCallSelectionChangedCallback(list, FALSE);
             CopyWindowToVram(list->template.windowId, COPYWIN_GFX);
             break;
         case 2:
@@ -595,12 +605,18 @@ static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAn
             ListMenuErasePrintedCursor(list, oldSelectedRow);
             ListMenuScroll(list, cursorCount, movingDown);
             ListMenuDrawCursor(list);
-            ListMenuCallSelectionChangedCallback(list, FALSE);
+            if (callCallback)
+                ListMenuCallSelectionChangedCallback(list, FALSE);
             CopyWindowToVram(list->template.windowId, COPYWIN_GFX);
             break;
         }
     }
     return FALSE;
+}
+
+bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAndCallCallback, u8 count, bool8 movingDown)
+{
+    return ListMenuChangeSelectionFull(list, updateCursorAndCallCallback, updateCursorAndCallCallback, count, movingDown);
 }
 
 static void ListMenuCallSelectionChangedCallback(struct ListMenu *list, u8 onInit)

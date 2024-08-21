@@ -34,7 +34,7 @@ PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad::
     .string "…I better go, too.$"
 
 PalletTown_PlayersHouse_1F_Text_OopsWrongSide::
-    .string "Oops, wrong side…$"
+    .string "Oops, wrong side!$"
 
 PalletTown_PlayersHouse_1F_Text_YayRightSide::
     .string "Yay, right side!$"
@@ -43,5 +43,5 @@ PalletTown_PlayersHouse_1F_Text_OopsLeftSide::
     .string "Oops, left side!$"
 
 PalletTown_PlayersHouse_1F_Text_WTFBackSide::
-    .string "WTF is wrong with you?$"
+    .string "Oooh, top side!$"
 

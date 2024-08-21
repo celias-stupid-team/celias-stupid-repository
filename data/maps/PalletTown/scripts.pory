@@ -436,6 +436,10 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	release
 	end
 `
+script PalletTown_EventScript_CeliaLookLook {
+	msgbox("The girl throwing herself into\nthe woods was originally a bug!\pBut it was so funny that there was\nno way I was gonna remove it.\pThat said, even though it was funny,\npeople still kept reporting it.\pSo, I changed the sign to explicitly\ndirect the player to try it.", MSGBOX_NPC)
+	end
+}
 script PalletTown_EventScript_SignLady_CSR {
 	lock
 	faceplayer
@@ -518,4 +522,9 @@ movement PT_walkbackRight {
 	face_right
 	walk_right
 	face_left
+}
+
+script PalletTown_EventScript_CeliaYouMissed {
+	msgbox("There's an easter egg if you miss\nwhen going to Oak's Lab.\pIt's a small reference to an old\nRBY softlock.", MSGBOX_NPC)
+	end
 }

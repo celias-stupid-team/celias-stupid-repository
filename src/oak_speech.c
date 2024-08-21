@@ -17,7 +17,7 @@
 #include "data.h"
 #include "constants/songs.h"
 
-#define INTRO_SPECIES SPECIES_NIDORAN_F
+#define INTRO_SPECIES SPECIES_CHARMANDER
 
 enum
 {
@@ -1414,7 +1414,9 @@ static void Task_OakSpeech_RepeatNameQuestion(u8 taskId)
 static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    s8 input = Menu_ProcessInput();
+    s8 input;
+    Menu_SetCheckForGary();
+    input = Menu_ProcessInput();
     switch (input)
     {
     case 0: // NEW NAME
@@ -1426,6 +1428,7 @@ static void Task_OakSpeech_HandleRivalNameInput(u8 taskId)
     case 2: //
     case 3: //
     case 4: //
+        PlaySE(SE_BOO); // This doesn't actually work! I have no idea how to fix it though.
         break;
     case MENU_B_PRESSED:
         break;

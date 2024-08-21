@@ -10,3 +10,22 @@ Route2_EventScript_DiglettsCaveSign::
 	msgbox Route2_Text_DiglettsCave, MSGBOX_SIGN
 	end
 `
+script Route2_EventScript_CeliaGrass {
+	msgbox("I had to remove the grass here to\nlet Mr. Mime spawn over there.\pIt's not like there's anything of\nnote here in vanilla anyway.", MSGBOX_NPC)
+	end
+}
+
+script Route2_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm out here to visit my sisters.\nDon't try to catch them!\lIt won't work!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Route2_EventScript_CeliaDad {
+	msgbox("Mr. Mimes being found in the grass\nhere SIGNIFICANTLY predates\lDAD being a thing.\pI kinda had to retroactively justify\nthem being out here.\pBy the way: No, you can't catch\nthem yet.\pWell, never mind that.\nHow about you take a rest?", MSGBOX_NPC)
+	end
+}

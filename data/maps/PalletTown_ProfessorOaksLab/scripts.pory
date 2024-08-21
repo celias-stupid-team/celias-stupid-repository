@@ -1349,3 +1349,19 @@ script PalletTown_ProfessorOaksLab_EventScript_Window {
 	msgbox(format("Found OAK's ????"), MSGBOX_AUTOCLOSE)
 	release
 }
+script PalletTown_EventScript_CeliaBackToLab {
+	msgbox("Originally, I wanted to have the\nmusic here be Back To The Lab,\lbut playing over the Oak theme.\pSadly, the joke didn't come through\nvery well, so I kept it vanilla.", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_EventScript_GS_BALL {
+	lock
+	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB)) {
+		msgbox("take gs ball", MSGBOX_DEFAULT)
+		//TODO rest of GS Ball script
+	} else {
+		msgbox("can't take gs ball", MSGBOX_DEFAULT)
+		//TODO Oak says "Hey that's mine"
+	}
+	release
+}

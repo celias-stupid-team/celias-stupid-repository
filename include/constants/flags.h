@@ -193,52 +193,78 @@
 #define FLAG_FOUND_Y                    0x0AF
 //resets after every battle
 #define FLAG_TEMP_MID_BATTLE_EVENT      0x0B0
-#define FLAG_SHINY_CREATION             0x0B1
-#define FLAG_ROUTE1_ENTERED_PIT         0x0B2
-#define FLAG_WALKTHROUGHWALLS           0x0B3
-#define FLAG_ROUTE1_OBJECTS_RETREAT     0x0B4
-#define FLAG_PT_NPC_LOOKLOOK_LEAVE      0x0B5
-#define FLAG_PT_NPC_SIGN_LADY           0x0B6
-#define FLAG_PT_NPC_LOOKLOOK            0x0B7
-#define FLAG_0x0B8               0x0B8
-#define FLAG_0x0B9               0x0B9
-#define FLAG_0x0BA               0x0BA
-#define FLAG_0x0BB               0x0BB
-#define FLAG_0x0BC               0x0BC
-#define FLAG_0x0BD               0x0BD
-#define FLAG_0x0BE               0x0BE
-#define FLAG_0x0BF               0x0BF
-#define FLAG_0x0C0               0x0C0
-#define FLAG_0x0C1               0x0C1
-#define FLAG_0x0C2               0x0C2
-#define FLAG_0x0C3               0x0C3
-#define FLAG_0x0C4               0x0C4
-#define FLAG_0x0C5               0x0C5
-#define FLAG_0x0C6               0x0C6
-#define FLAG_0x0C7               0x0C7
-#define FLAG_0x0C8               0x0C8
-#define FLAG_0x0C9               0x0C9
-#define FLAG_0x0CA               0x0CA
-#define FLAG_0x0CB               0x0CB
-#define FLAG_0x0CC               0x0CC
-#define FLAG_0x0CD               0x0CD
-#define FLAG_0x0CE               0x0CE
-#define FLAG_0x0CF               0x0CF
-#define FLAG_0x0D0               0x0D0
-#define FLAG_0x0D1               0x0D1
-#define FLAG_0x0D2               0x0D2
-#define FLAG_0x0D3               0x0D3
-#define FLAG_0x0D4               0x0D4
-#define FLAG_0x0D5               0x0D5
-#define FLAG_0x0D6               0x0D6
-#define FLAG_0x0D7               0x0D7
-#define FLAG_0x0D8               0x0D8
-#define FLAG_0x0D9               0x0D9
-#define FLAG_0x0DA               0x0DA
-#define FLAG_0x0DB               0x0DB
-#define FLAG_0x0DC               0x0DC
-#define FLAG_0x0DD               0x0DD
-#define FLAG_0x0DE               0x0DE
+// unused
+
+//Pallet
+#define FLAG_CSR_NOT_OAK_SILLY          0x0B1
+#define FLAG_CSR_CUT_OAK                0x0B2
+#define FLAG_CSR_GS_BALL_DELIVERED      0x0B3
+#define FLAG_CSR_GS_BALL_GOT            0x0B4
+#define FLAG_CSR_COLLECTED_STAR         0x0B5
+
+//Route 1
+#define FLAG_CSR_SHINY_RAT_1            0x0B6
+#define FLAG_CSR_SHINY_RAT_2            0x0B7
+
+//Viridian
+#define FLAG_CSR_BROKE_INTO_HOUSE       0x0B8
+#define FLAG_CSR_RETURNED_KEY           0x0B9
+#define FLAG_CSR_WENT_TO_PIT            0x0BA
+#define FLAG_CSR_UNUSED_1               0x0BB
+#define FLAG_CSR_KENYA_OBTAINED         0x0BC
+
+
+//Route 2
+#define FLAG_ROUTE1_ENTERED_PIT                        0x0BD
+
+//Viridian Forest
+#define FLAG_0x0BE                      0x0BE
+
+//Pewter City
+#define FLAG_CSR_UNUSED_3               0x0BF
+#define FLAG_CSR_MUSEUM_GUIDE_MISSED    0x0C0
+#define FLAG_CSR_BROCK_RAINING          0x0C1
+#define FLAG_CSR_TREE_FLAG_1            0x0C2
+#define FLAG_CSR_TREE_FLAG_2            0x0C3
+#define FLAG_CSR_TREE_FLAG_3            0x0C4
+#define FLAG_CSR_WATERED_TREE           0x0C5
+
+//Route 3
+#define FLAG_CSR_LASS_ATTACK_1          0x0C6
+#define FLAG_CSR_LASS_ATTACK_2          0x0C7
+#define FLAG_CSR_UNUSED_4               0x0C8
+
+//Route 4
+#define FLAG_CSR_2_SITRUS_BERRIES       0x0C9
+#define FLAG_CSR_NEGATIVE_BERRIES       0x0CA
+#define FLAG_CSR_UNUSED_5               0x0CB
+
+//Mt Moon
+#define FLAG_CSR_FIRST_TENTACOOL        0x0CC
+#define FLAG_CSR_SECOND_TENTACOOL       0x0CD
+#define FLAG_CSR_UNUSED_6               0x0CE
+#define FLAG_CSR_UNUSED_7               0x0CF
+#define FLAG_CSR_UNUSED_8               0x0D0
+#define FLAG_CSR_UNUSED_9               0x0D1
+#define FLAG_CSR_UNUSED_10              0x0D2
+#define FLAG_CSR_UNUSED_11              0x0D3
+#define FLAG_CSR_UNUSED_12              0x0D4
+
+//Cerulean City
+#define FLAG_CSR_BERRY_POWDER_MAN       0x0D5
+#define FLAG_CSR_GOT_SCYTHER            0x0D6
+
+
+#define FLAG_CSR_ABSCONDED_BROCK        0x0D7
+#define FLAG_CSR_PYTHON_SUCCESS  0x0D8
+
+//Wiz's game opening
+#define FLAG_SHINY_CREATION                            0x0D9
+#define FLAG_WALKTHROUGHWALLS                          0x0DA
+#define FLAG_ROUTE1_OBJECTS_RETREAT                    0x0DB
+#define FLAG_PT_NPC_LOOKLOOK_LEAVE                     0x0DC
+#define FLAG_PT_NPC_SIGN_LADY                          0x0DD
+#define FLAG_PT_NPC_LOOKLOOK                           0x0DE
 #define FLAG_0x0DF               0x0DF
 #define FLAG_0x0E0               0x0E0
 #define FLAG_0x0E1               0x0E1
@@ -256,7 +282,8 @@
 #define FLAG_0x0ED               0x0ED
 #define FLAG_0x0EE               0x0EE
 #define FLAG_0x0EF               0x0EF
-#define FLAG_0x0F0               0x0F0
+//Celadon City
+#define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
 #define FLAG_0x0F1               0x0F1
 #define FLAG_0x0F2               0x0F2
 #define FLAG_0x0F3               0x0F3
@@ -278,8 +305,8 @@
 #define FLAG_0x103               0x103
 #define FLAG_0x104               0x104
 #define FLAG_0x105               0x105
-#define FLAG_0x106               0x106
-#define FLAG_0x107               0x107
+#define FLAG_CSR_TM_CASE               0x106
+#define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
 #define FLAG_0x108               0x108
 #define FLAG_0x109               0x109
 #define FLAG_0x10A               0x10A
@@ -459,7 +486,7 @@
 #define FLAG_HIDE_CERULEAN_CAVE_2F_ULTRA_BALL                   0x1B6
 #define FLAG_HIDE_CERULEAN_CAVE_B1F_MAX_REVIVE                  0x1B7
 #define FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL                  0x1B8
-#define FLAG_HIDE_FUCHSIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
+#define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
 #define FLAG_0x1BC                                              0x1BC
@@ -531,19 +558,20 @@
 #define FLAG_HIDE_SILPH_CO_4F_TM41                              0x1FE
 
 // Unused?
-#define FLAG_0x1FF               0x1FF
-#define FLAG_0x200               0x200
-#define FLAG_0x201               0x201
-#define FLAG_0x202               0x202
-#define FLAG_0x203               0x203
-#define FLAG_0x204               0x204
-#define FLAG_0x205               0x205
-#define FLAG_0x206               0x206
-#define FLAG_0x207               0x207
-#define FLAG_0x208               0x208
-#define FLAG_0x209               0x209
-#define FLAG_0x20A               0x20A
-#define FLAG_0x20B               0x20B
+// Let's use these for item pickups
+#define FLAG_CSR_ROUTE_2_POKEBALL                          0x1FF
+#define FLAG_CSR_PEWTER_POKEBALL                           0x200
+#define FLAG_CSR_ROUTE_3_POKEBALL                          0x201
+#define FLAG_CSR_ROUTE_4_POKEBALL                          0x202
+#define FLAG_CSR_MT_MOON_SUPER_REPEL                       0x203
+#define FLAG_CSR_MT_MOON_MIN_REPEL                         0x204
+#define FLAG_CSR_MT_MOON_MAX_REPEL                         0x205
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_1                  0x206
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_2                  0x207
+#define FLAG_CSR_MT_MOON_BASEMENT_REPEL_3                  0x208
+#define FLAG_CSR_MT_MOON_BASEMENT_ESCAPE_KEY               0x209
+#define FLAG_CSR_MT_MOON_BASEMENT_SIGN               0x20A
+#define FLAG_CSR_ROUTE_4_BERRIES              0x20B
 #define FLAG_0x20C               0x20C
 #define FLAG_0x20D               0x20D
 #define FLAG_0x20E               0x20E
@@ -795,17 +823,17 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
-#define FLAG_0x300               0x300
-#define FLAG_0x301               0x301
-#define FLAG_0x302               0x302
-#define FLAG_0x303               0x303
+#define FLAG_CSR_DEBUG_NO_ENCOUNTER               0x300
+#define FLAG_CSR_DEBUG_NO_TRAINER_SEE             0x301
+#define FLAG_CSR_DEBUG_NO_COLLISION               0x302
+#define FLAG_CSR_DEBUG_NO_QUEST_LOG               0x303
 #define FLAG_0x304               0x304
 #define FLAG_0x305               0x305
 #define FLAG_0x306               0x306
 #define FLAG_0x307               0x307
 #define FLAG_0x308               0x308
 #define FLAG_0x309               0x309
-#define FLAG_0x30A               0x30A
+#define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_0x30B               0x30B
 #define FLAG_0x30C               0x30C
 #define FLAG_0x30D               0x30D
@@ -960,13 +988,13 @@
 
 //Odd Candy Quest
 #define FLAG_PALLET_CANDY                0x39F
-#define FLAG_VIRIDIAN_CANDY              0x3A0
+#define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
 #define FLAG_PEWTER_CANDY                0x3A1
 #define FLAG_CERULEAN_CANDY              0x3A2
 #define FLAG_VERMILLION_CANDY            0x3A3
 #define FLAG_LAVENDER_CANDY              0x3A4
 #define FLAG_CELADON_CANDY               0x3A5
-#define FLAG_FUSCHIA_CANDY               0x3A6
+#define FLAG_FUSHCIA_CANDY               0x3A6
 #define FLAG_SAFFRON_CITY_CANDY          0x3A7
 #define FLAG_CINNABAR_ISLAND_CANDY       0x3A8
 #define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9
@@ -993,7 +1021,7 @@
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_MINNESOTA_CANDY             0x3BF
 #define FLAG_ROUTE_1_CANDY               0x3C0
-#define FLAG_ROUTE_2_CANDY               0x3C1
+#define FLAG_ROUTE_2_CANDY               0x3C1 //placed
 #define FLAG_ROUTE_3_CANDY               0x3C2
 #define FLAG_ROUTE_4_CANDY               0x3C3
 #define FLAG_ROUTE_5_CANDY               0x3C4
@@ -1011,12 +1039,12 @@
 #define FLAG_ROUTE_17_CANDY              0x3D0
 #define FLAG_ROUTE_18_CANDY              0x3D1
 #define FLAG_ROUTE_21_CANDY              0x3D2
-#define FLAG_ROUTE_22_CANDY              0x3D3
+#define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4
 #define FLAG_ROUTE_25_CANDY              0x3D5
 
 //Unused
-#define FLAG_0x3D6               0x3D6
+#define FLAG_VIRIDIAN_FOREST_CANDY               0x3D6 //placed
 #define FLAG_0x3D7               0x3D7
 
 
@@ -1173,7 +1201,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY                                (FLAG_HIDDEN_ITEMS_START + 130)
 #define FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS                                 (FLAG_HIDDEN_ITEMS_START + 131)
 #define FLAG_HIDDEN_ITEM_ROUTE16_LEFTOVERS                                 (FLAG_HIDDEN_ITEMS_START + 132)
-#define FLAG_HIDDEN_ITEM_FUCHSIA_CITY_MAX_REVIVE                           (FLAG_HIDDEN_ITEMS_START + 133)
+#define FLAG_HIDDEN_ITEM_FUSHCIA_CITY_MAX_REVIVE                           (FLAG_HIDDEN_ITEMS_START + 133)
 #define FLAG_HIDDEN_ITEM_ROCKET_HIDEOUT_B4F_NET_BALL                       (FLAG_HIDDEN_ITEMS_START + 134)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL                            (FLAG_HIDDEN_ITEMS_START + 135)
 #define FLAG_HIDDEN_ITEM_SILPH_CO_3F_PROTEIN                               (FLAG_HIDDEN_ITEMS_START + 136)
@@ -1427,7 +1455,7 @@
 #define FLAG_WORLD_MAP_LAVENDER_TOWN                                (SYS_FLAGS + 0x94)
 #define FLAG_WORLD_MAP_VERMILION_CITY                               (SYS_FLAGS + 0x95)
 #define FLAG_WORLD_MAP_CELADON_CITY                                 (SYS_FLAGS + 0x96)
-#define FLAG_WORLD_MAP_FUCHSIA_CITY                                 (SYS_FLAGS + 0x97)
+#define FLAG_WORLD_MAP_FUSHCIA_CITY                                 (SYS_FLAGS + 0x97)
 #define FLAG_WORLD_MAP_CINNABAR_ISLAND                              (SYS_FLAGS + 0x98)
 #define FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR                      (SYS_FLAGS + 0x99)
 #define FLAG_WORLD_MAP_SAFFRON_CITY                                 (SYS_FLAGS + 0x9A)

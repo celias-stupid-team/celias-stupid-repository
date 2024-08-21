@@ -1,11 +1,11 @@
 PalletTown_RivalsHouse_Text_HiBrothersAtLab::
     .string "DAISY: Hi, {PLAYER}!\p"
-    .string "My brother, {RIVAL}, is out at\n"
+    .string "My brother, GARY, is out at\n"
     .string "Grandpa's LAB.$"
 
 PalletTown_RivalsHouse_Text_HeardYouBattledRival::
     .string "DAISY: {PLAYER}, I heard you had\n"
-    .string "a battle against {RIVAL}.\p"
+    .string "a battle against GARY.\p"
     .string "I wish I'd seen that!$"
 
 PalletTown_RivalsHouse_Text_ErrandForGrandpaThisWillHelp::
@@ -64,8 +64,13 @@ PalletTown_RivalsHouse_Text_LookingNiceInNoTime::
     .string "nice in no time.$"
 
 PalletTown_RivalsHouse_Text_ThereYouGoAllDone::
+#ifdef BUGFIX @ The localizers missed what should be a textcolor change in the localizations.
+    .string "{COLOR DARK_GRAY}{STR_VAR_1} looks dreamily content…\p"
+    .string "{COLOR RED}DAISY: There you go! All done.\n"
+#else @ In the JP games, gender-based text used a different font instead of different colors.
     .string "{FONT_NORMAL}{STR_VAR_1} looks dreamily content…\p"
     .string "{FONT_FEMALE}DAISY: There you go! All done.\n"
+#endif
     .string "See? Doesn't it look nice?\p"
     .string "Giggle…\n"
     .string "It's such a cute POKéMON.$"
@@ -88,7 +93,7 @@ PalletTown_RivalsHouse_Text_CouldntLoveYouMore::
 
 PalletTown_RivalsHouse_Text_ItLooksVeryHappy::
     .string "It looks very happy.\p"
-    .string "I wish {RIVAL} could see this and\n"
+    .string "I wish GARY could see this and\n"
     .string "learn something from it.$"
 
 PalletTown_RivalsHouse_Text_ItsQuiteFriendly::

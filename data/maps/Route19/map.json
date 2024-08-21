@@ -15,13 +15,13 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FUCHSIA_CITY",
+      "map": "MAP_FUSHCIA_CITY",
       "offset": -12,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE20",
-      "offset": 40,
+      "offset": 66,
       "direction": "left"
     }
   ],
@@ -195,8 +195,12 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

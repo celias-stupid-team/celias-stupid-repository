@@ -48,12 +48,12 @@ static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
 static EWRAM_DATA u16 sElevatorCursorPos = 0;
 static EWRAM_DATA struct ListMenuItem * sListMenuItems = NULL;
-static EWRAM_DATA u16 sListMenuLastScrollPosition = 0;
 static EWRAM_DATA u8 sPCBoxToSendMon = 0;
 static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 
 struct ListMenuTemplate sFieldSpecialsListMenuTemplate;
 u16 sFieldSpecialsListMenuScrollBuffer;
+EWRAM_DATA u16 gScrollableMultichoice_ScrollOffset = 0;
 
 static void Task_AnimatePcTurnOn(u8 taskId);
 static void PcTurnOnUpdateMetatileId(bool16 flag);
@@ -1353,9 +1353,9 @@ static void Task_CreateScriptListMenu(u8 taskId)
     u8 windowId;
     LockPlayerFieldControls();
     if (gSpecialVar_0x8004 == LISTMENU_SILPHCO_FLOORS)
-        sListMenuLastScrollPosition = sElevatorScroll;
+        gScrollableMultichoice_ScrollOffset = sElevatorScroll;
     else
-        sListMenuLastScrollPosition = 0;
+        gScrollableMultichoice_ScrollOffset = 0;
     sListMenuItems = AllocZeroed(task->data[1] * sizeof(struct ListMenuItem));
     CreateScriptListMenu();
     mwidth = 0;
@@ -1415,7 +1415,7 @@ static void ScriptListMenuMoveCursorFunction(s32 nothing, bool8 is, struct ListM
     {
         task = &gTasks[taskId];
         ListMenuGetScrollAndRow(task->data[14], &sFieldSpecialsListMenuScrollBuffer, NULL);
-        sListMenuLastScrollPosition = sFieldSpecialsListMenuScrollBuffer;
+        gScrollableMultichoice_ScrollOffset = sFieldSpecialsListMenuScrollBuffer;
     }
 }
 
@@ -1514,7 +1514,7 @@ static void Task_CreateMenuRemoveScrollIndicatorArrowPair(u8 taskId)
         template.secondY = 8 * task->data[5] + 10;
         template.fullyUpThreshold = 0;
         template.fullyDownThreshold = task->data[1] - task->data[0];
-        task->data[12] = AddScrollIndicatorArrowPair(&template, &sListMenuLastScrollPosition);
+        task->data[12] = AddScrollIndicatorArrowPair(&template, &gScrollableMultichoice_ScrollOffset);
     }
 }
 
@@ -1797,7 +1797,7 @@ static const u8 sMartMaps[][3] = {
     {MAP(CERULEAN_CITY_MART),   1},
     {MAP(LAVENDER_TOWN_MART),   1},
     {MAP(VERMILION_CITY_MART),  1},
-    {MAP(FUCHSIA_CITY_MART),    1},
+    {MAP(FUSHCIA_CITY_MART),    1},
     {MAP(CINNABAR_ISLAND_MART), 1},
     {MAP(SAFFRON_CITY_MART),    1},
     {MAP(THREE_ISLAND_MART),    1},
@@ -1864,9 +1864,9 @@ static const struct {
     [QL_LOCATION_CELADON_GYM]        = {MAP(CELADON_CITY_GYM),                      MAP(CELADON_CITY)},
     [QL_LOCATION_CELADON_RESTAURANT] = {MAP(CELADON_CITY_RESTAURANT),               MAP(CELADON_CITY)},
     [QL_LOCATION_ROCKET_HIDEOUT]     = {MAP(ROCKET_HIDEOUT_B1F),                    MAP(CELADON_CITY_GAME_CORNER)},
-    [QL_LOCATION_SAFARI_ZONE]        = {MAP(SAFARI_ZONE_CENTER),                    MAP(FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE)},
-    [QL_LOCATION_FUCHSIA_GYM]        = {MAP(FUCHSIA_CITY_GYM),                      MAP(FUCHSIA_CITY)},
-    [QL_LOCATION_WARDENS_HOME]       = {MAP(FUCHSIA_CITY_WARDENS_HOUSE),            MAP(FUCHSIA_CITY)},
+    [QL_LOCATION_SAFARI_ZONE]        = {MAP(SAFARI_ZONE_CENTER),                    MAP(FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE)},
+    [QL_LOCATION_FUSHCIA_GYM]        = {MAP(FUSHCIA_CITY_GYM),                      MAP(FUSHCIA_CITY)},
+    [QL_LOCATION_WARDENS_HOME]       = {MAP(FUSHCIA_CITY_WARDENS_HOUSE),            MAP(FUSHCIA_CITY)},
     [QL_LOCATION_FIGHTING_DOJO]      = {MAP(SAFFRON_CITY_DOJO),                     MAP(SAFFRON_CITY)},
     [QL_LOCATION_SAFFRON_GYM]        = {MAP(SAFFRON_CITY_GYM),                      MAP(SAFFRON_CITY)},
     [QL_LOCATION_SILPH_CO]           = {MAP(SILPH_CO_1F),                           MAP(SAFFRON_CITY)},
@@ -2039,7 +2039,7 @@ const u16 sPokeCenter1FMaps[] = {
     MAP_LAVENDER_TOWN_POKEMON_CENTER_1F,
     MAP_VERMILION_CITY_POKEMON_CENTER_1F,
     MAP_CELADON_CITY_POKEMON_CENTER_1F,
-    MAP_FUCHSIA_CITY_POKEMON_CENTER_1F,
+    MAP_FUSHCIA_CITY_POKEMON_CENTER_1F,
     MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F,
     MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F,
     MAP_SAFFRON_CITY_POKEMON_CENTER_1F,
