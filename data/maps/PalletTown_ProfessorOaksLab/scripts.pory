@@ -1139,6 +1139,7 @@ PalletTown_ProfessorOaksLab_EventScript_ChoseStarter::
 	givemon PLAYER_STARTER_SPECIES, 4
 	copyvar VAR_STARTER_MON, PLAYER_STARTER_NUM
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
+	textcolor NPC_TEXT_COLOR_NEUTRAL
 	message PalletTown_ProfessorOaksLab_Text_ReceivedMonFromOak
 	waitmessage
 	playfanfare MUS_OBTAIN_KEY_ITEM

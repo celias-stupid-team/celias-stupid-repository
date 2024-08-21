@@ -116,6 +116,7 @@ script ViridianCity_School_EventScript_CeliaBooks {
 }
 
 script ViridianCity_School_EventScript_StudyGrades {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("I study GRADES as PROF. OAK's\nPOKéMON.", MSGBOX_NPC)
 	end
 }

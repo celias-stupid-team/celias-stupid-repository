@@ -134,18 +134,6 @@ PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest::
 
 PalletTown_RivalsHouse_EventScript_GiveTownMap::
 	msgbox PalletTown_RivalsHouse_Text_ErrandForGrandpaThisWillHelp
-	closemessage
-	checkitemspace ITEM_TOWN_MAP
-	goto_if_eq VAR_RESULT, FALSE, PalletTown_RivalsHouse_EventScript_NoRoomForTownMap
-	applymovement LOCALID_DAISY, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	removeobject LOCALID_TOWN_MAP
-	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2
-	delay 15
-	applymovement LOCALID_DAISY, Common_Movement_FacePlayer
-	waitmovement 0
-	delay 12
-	giveitem_msg PalletTown_RivalsHouse_Text_ReceivedTownMapFromDaisy, ITEM_TOWN_MAP, 1, MUS_OBTAIN_KEY_ITEM
 	release
 	end
 

@@ -413,3 +413,8 @@ script ViridianCity_EventScript_CeliaEther {
 	end
 }
 
+script ViridianCity_EventScript_LockedDoor {
+	lock
+	msgbox("The door is locked…\n", MSGBOX_DEFAULT)
+	release
+}

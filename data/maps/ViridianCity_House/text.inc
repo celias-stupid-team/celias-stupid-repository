@@ -6,7 +6,7 @@ ViridianCity_House_Text_MyDaddyLovesMonsToo::
     .string "SHIT, I: My daddy is weird about\n"
     .string "names.\p"
     .string "He insists that it's very clever,\n"
-    .string "but everyone makes fun of me…\p$"
+    .string "but everyone makes fun of me…$"
 
 ViridianCity_House_Text_Speary::
     .string "SPEAROWNOLACTONE: Tetweet!\p"

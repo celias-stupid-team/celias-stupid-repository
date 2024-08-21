@@ -87,7 +87,7 @@ PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
 
 PalletTown_ProfessorOaksLab_Text_OakBePatientRival::
     .string "OAK: Don't worry, GARY.\p"
-    .string "If you go second, you'll get the\l"
+    .string "If you go second, you'll get the\n"
     .string "one that's super-effective!$"
 
 PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose::
@@ -149,7 +149,7 @@ PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered::
     .string "Ah! \n"
     .string "It's the GS BALL!\p"
     .string "This will definitely be\n"
-    .string "Important and plot-relevant!$"
+    .string "important and plot-relevant!$"
 
 PalletTown_ProfessorOaksLab_Text_OakHaveRequestForYouTwo::
     .string "OAK: Oh, right!\n"

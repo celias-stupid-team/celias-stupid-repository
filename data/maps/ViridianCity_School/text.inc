@@ -3,27 +3,26 @@ ViridianCity_School_Text_TryingToMemorizeNotes::
     .string "Don't read my fanfic!$"
 
 ViridianCity_School_Text_ReadBlackboardCarefully::
-    .string "Okay!\p"
-    .string "Be sure to read what's on the\n"
-    .string "blackboard carefully!$"
+    .string "Listen up!\p"
+    .string "Remember this!$"
 
 ViridianCity_School_Text_NotebookFirstPage::
     .string "Let's check out the notebook.\p"
     .string "First page…\p"
     .string "Sonic woke up and looked at the\n"
     .string "clock.\p"
-    .string "“7:00,”  it said, and Sonic screamed.$"
+    .string "“7:00,” it said, and Sonic screamed.$"
 
 ViridianCity_School_Text_NotebookSecondPage::
     .string "Second page…\p"
     .string "“I am late for school! I have to get\n"
-    .string "to school now!” said Sonic, jumping.\l"
+    .string "to school now!” said Sonic, jumping\l"
     .string "out of bed.\p"
     .string "Sonic put his clothes on really fast\n"
     .string "and ran out of his room because he\l"
     .string "is fast.\p"
     .string "“No time for breakfast!” said Sonic\n"
-    .string "as he ran past Sonic's Mom.\l"
+    .string "as he ran past Sonic's Mom.$"
 
 ViridianCity_School_Text_NotebookThirdPage::
     .string "Third page…\p"
@@ -53,7 +52,7 @@ ViridianCity_School_Text_TurnThePage::
 
 ViridianCity_School_Text_HeyDontLookAtMyNotes::
     .string "GIRL: Hey!\n"
-    .string "Don't look at my fanfic!$"
+    .string "Don't read my fanfic!$"
 
 ViridianCity_School_Text_BlackboardListsStatusProblems::
     .string "The blackboard lists POKéMON\n"

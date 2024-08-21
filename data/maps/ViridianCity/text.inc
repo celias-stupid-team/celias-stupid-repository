@@ -94,7 +94,7 @@ ViridianCity_Text_MovesLimitedByPP::
     .string "TRAINER TIPS\p"
     .string "Remember to savestate frequently!\p"
     .string "You might accidentally do something\n"
-    .string "Very dumb and softlock yourself!$"
+    .string "very dumb and softlock yourself!$"
 
 ViridianCity_Text_GymSign::
     .string "VIRIDIAN CITY POKéMON GYM$"
