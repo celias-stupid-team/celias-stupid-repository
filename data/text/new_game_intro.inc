@@ -2,130 +2,130 @@ gOtherText_NewName::
     .string "NEW NAME$"
 
 gNameChoice_Green::
-    .string "GREEN$"
+    .string " $"
 
 gNameChoice_Red::
-    .string "RED$"
+    .string " $"
 
 gNameChoice_Leaf::
-    .string "LEAF$"
+    .string " $"
 
 gNameChoice_Fire::
-    .string "FIRE$"
+    .string " $"
 
 gNameChoice_Gar::
-    .string "GAR$"
+    .string " $"
 
 gNameChoice_Gary::
-    .string "GARY$"
+    .string " $"
 
 gNameChoice_Kaz::
-    .string "KAZ$"
+    .string " $"
 
 gNameChoice_Toru::
-    .string "TORU$"
+    .string " $"
 
 gNameChoice_Ash::
-    .string "ASH$"
+    .string " $"
 
 gNameChoice_Kene::
-    .string "KENE$"
+    .string " $"
 
 gNameChoice_Geki::
-    .string "GEKI$"
+    .string " $"
 
 gNameChoice_Jak::
-    .string "JAK$"
+    .string " $"
 
 gNameChoice_Janne::
-    .string "JANNE$"
+    .string " $"
 
 gNameChoice_Jonn::
-    .string "JONN$"
+    .string " $"
 
 gNameChoice_Kamon::
-    .string "KAMON$"
+    .string " $"
 
 gNameChoice_Karl::
-    .string "KARL$"
+    .string " $"
 
 gNameChoice_Taylor::
-    .string "TAYLOR$"
+    .string " $"
 
 gNameChoice_Oscar::
-    .string "OSCAR$"
+    .string " $"
 
 gNameChoice_Hiro::
-    .string "HIRO$"
+    .string " $"
 
 gNameChoice_Max::
-    .string "MAX$"
+    .string " $"
 
 gNameChoice_Jon::
-    .string "JON$"
+    .string " $"
 
 gNameChoice_Ralph::
-    .string "RALPH$"
+    .string " $"
 
 gNameChoice_Kay::
-    .string "KAY$"
+    .string " $"
 
 gNameChoice_Tosh::
-    .string "TOSH$"
+    .string " $"
 
 gNameChoice_Roak::
-    .string "ROAK$"
+    .string " $"
 
 gNameChoice_Omi::
-    .string "OMI$"
+    .string " $"
 
 gNameChoice_Jodi::
-    .string "JODI$"
+    .string " $"
 
 gNameChoice_Amanda::
-    .string "AMANDA$"
+    .string " $"
 
 gNameChoice_Hillary::
-    .string "HILLARY$"
+    .string " $"
 
 gNameChoice_Makey::
-    .string "MAKEY$"
+    .string " $"
 
 gNameChoice_Michi::
-    .string "MICHI$"
+    .string " $"
 
 gNameChoice_Paula::
-    .string "PAULA$"
+    .string " $"
 
 gNameChoice_June::
-    .string "JUNE$"
+    .string " $"
 
 gNameChoice_Cassie::
-    .string "CASSIE$"
+    .string " $"
 
 gNameChoice_Rey::
-    .string "REY$"
+    .string " $"
 
 gNameChoice_Seda::
-    .string "SEDA$"
+    .string " $"
 
 gNameChoice_Kiko::
-    .string "KIKO$"
+    .string " $"
 
 gNameChoice_Mina::
-    .string "MINA$"
+    .string " $"
 
 gNameChoice_Norie::
-    .string "NORIE$"
+    .string " $"
 
 gNameChoice_Sai::
-    .string "SAI$"
+    .string " $"
 
 gNameChoice_Momo::
-    .string "MOMO$"
+    .string " $"
 
 gNameChoice_Suzi::
-    .string "SUZI$"
+    .string " $"
 
 gControlsGuide_Text_Intro::
     .string "The various shortcuts will be explained in\n"

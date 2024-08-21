@@ -63,7 +63,7 @@ PalletTown_ProfessorOaksLab_OnFrame::
 PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene:: @ 8169002 
 	lockall
 	setvar VAR_FACING, DIR_NORTH
-	textcolor NPC_TEXT_COLOR_MALE
+	textcolor NPC_TEXT_COLOR_TREE
 	applymovement LOCALID_PROF_OAK, PalletTown_ProfessorOaksLab_Movement_OakEnter
 	waitmovement 0
 	removeobject LOCALID_PROF_OAK
@@ -224,12 +224,15 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
 	closemessage
 	delay 60
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
 	closemessage
 	delay 30
 	applymovement LOCALID_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
 	waitmovement 0
+	textcolor NPC_TEXT_COLOR_MALE
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalNoFairWhatAboutMe
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakBePatientRival
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2
 	releaseall
@@ -1101,18 +1104,21 @@ PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice::
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
@@ -1340,7 +1346,8 @@ PalletTown_ProfessorOaksLab_EventScript_RightSignAlt::
 
 script PalletTown_ProfessorOaksLab_EventScript_Psyduck {
 	lock
-	msgbox(format("I study AIDS as PROF. OAK's POKéMON."), MSGBOX_AUTOCLOSE)
+	faceplayer
+	msgbox(format("I study AIDS as PROF. OAK's\nPOKéMON."), MSGBOX_AUTOCLOSE)
 	release
 }
 
@@ -1372,5 +1379,6 @@ script PalletTown_EventScript_HobbyistReactor {
 	} else {
 		msgbox("It appears to be a hobbyist nuclear\nreactor.", MSGBOX_DEFAULT)
 	}
+	release
 	end
 }

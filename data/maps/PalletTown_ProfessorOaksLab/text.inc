@@ -86,9 +86,9 @@ PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
     .string "Go on, choose!$"
 
 PalletTown_ProfessorOaksLab_Text_OakBePatientRival::
-    .string "OAK: Don't worry, GARY.\n"
+    .string "OAK: Don't worry, GARY.\p"
     .string "If you go second, you'll get the\l"
-    .string "one thats's super-effective!$"
+    .string "one that's super-effective!$"
 
 PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose::
     .string "OAK: Now, {PLAYER}.\p"
@@ -102,8 +102,8 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
     .string "Don't go away yet!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
-    .string "You're getting CHARMANDER.\n"
-    .string "Whether you like it or not.\p"
+    .string "You're getting CHARMANDER\n"
+    .string "whether you like it or not.\p"
     .string "After all, we need to sell this\n"
     .string "game to old fans somehow!$"
 
@@ -220,7 +220,7 @@ PalletTown_ProfessorOaksLab_Text_OakComeSeeMeSometime::
 
 PalletTown_ProfessorOaksLab_Text_BlankEncyclopedia::
     .string "It's like an encyclopedia.\p"
-    .string "…What, you've never seen an.\n"
+    .string "…What, you've never seen an\n"
     .string "encyclopedia that looks like this?$"
 
 PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
@@ -234,9 +234,9 @@ PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"
 
 PalletTown_ProfessorOaksLab_Text_SaveOptionInMenu::
-    .string "The SAVESTATE option is in your.\n"
+    .string "The SAVESTATE option is in your\n"
     .string "emulator.\p"
-    .string "Use it regularly!$"
+    .string "Remember to use it regularly!$"
 
 PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
     .string "All POKéMON types have strong and\n"

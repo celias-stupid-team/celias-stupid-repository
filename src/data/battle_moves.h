@@ -509,7 +509,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAIL_WHIP] =
     {
-        .effect = EFFECT_DEFENSE_DOWN,
+        .effect = EFFECT_ATTACK_DOWN,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -587,7 +587,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GROWL] =
     {
-        .effect = EFFECT_ATTACK_DOWN,
+        .effect = EFFECT_DEFENSE_DOWN,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -822,10 +822,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_HYPER_BEAM] =
     {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 150,
         .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,

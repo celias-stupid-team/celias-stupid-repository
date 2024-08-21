@@ -75,7 +75,31 @@ PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
 
 script PalletTown_PlayersHouse_1F_EventScript_Plant {
 	lock
-	msgbox("That's not OAK, silly!", MSGBOX_AUTOCLOSE)
+	switch(var(VAR_NOT_OAK_SILLY)) {
+		case 0:
+			msgbox("That's not OAK, silly!", MSGBOX_AUTOCLOSE)
+		case 1:
+			msgbox("Nope!\nThat's not OAK either!", MSGBOX_AUTOCLOSE)
+		case 2:
+			msgbox("Nope, still not OAK!\n", MSGBOX_AUTOCLOSE)
+		case 3:
+			msgbox("Alas, OAK is not to be found here\neither.", MSGBOX_AUTOCLOSE)
+		case 4:
+			msgbox("Upon double-checking, you find that\nthe tree is, in fact, still not OAK.", MSGBOX_DEFAULT)
+		case 5:
+			msgbox("It's OAK!\p…Wait, maybe not.\n", MSGBOX_DEFAULT)
+		case 6:
+			msgbox("It looks kinda like a palm tree, if\nyou look at it from the right angle.\pBut it certainly doesn't look like\nOAK, does it…?", MSGBOX_DEFAULT)
+		case 7:
+			msgbox("Despite your continued insistance,\nthis remains to be not OAK.\pOh well.\n", MSGBOX_DEFAULT)
+		default:
+			msgbox("It's not OAK.\n", MSGBOX_DEFAULT)
+
+	}
+	addvar(VAR_NOT_OAK_SILLY, 1)
+	if(var(VAR_NOT_OAK_SILLY) > 8) {
+		setvar(VAR_NOT_OAK_SILLY, 8)
+	}
 	release
 }
 

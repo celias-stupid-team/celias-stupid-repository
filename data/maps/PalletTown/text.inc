@@ -17,7 +17,7 @@ PalletTown_Text_RaisingMonsToo::
 
 PalletTown_Text_CanStoreItemsAndMonsInPC::
     .string "Technology is incredible!\p"
-    .string "You can now shitpost via a\n"
+    .string "Now you can shitpost via a\n"
     .string "POKéMON ROMhack!$"
 
 PalletTown_Text_OakPokemonResearchLab::

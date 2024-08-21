@@ -509,12 +509,12 @@ static const u8 sText_PlayedThe[] = _("{B_PLAYER_NAME} played the\n{B_LAST_ITEM}
 static const u8 sText_PkmnHearingFluteAwoke[] = _("The POKéMON hearing the FLUTE\nawoke!");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
 const u8 gText_ForPetesSake[] = _("OAK: Oh shoot, the lights\nwent out!\pSorry, the power has been very\nspotty recently.\pLet me see if I can get them\nback on again...\p");
-const u8 gText_TheTrainerThat[] = _("Oh!\nWell there's one of the lights.\pLet my try... this?\p");
-const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat means I can turn them back\non with... this!\p");
+const u8 gText_TheTrainerThat[] = _("Oh!\nWell, there's one of the lights.\pLet my try… this?\p");
+const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat means I can turn them back\non with… this!\p");
 const u8 gText_InflictingDamageIsKey[] = _("OAK: Grr, there they go again.\pHold on, lemme get the switch.\p");
 const u8 gText_LoweringStats[] = _("OAK: Hey! Don't make too much\nnoise!\pThe vibrations are messing with\nthe circuitry!\p");
 const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\pIt will faint if the HP drops to\n“0.”\p");
-const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh shoot, there they go\nagain.\pCould you stay here until we\nget them back up again?\pThanks!\p");
+const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think RUNNING turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 

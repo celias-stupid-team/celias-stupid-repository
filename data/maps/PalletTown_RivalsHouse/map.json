@@ -54,8 +54,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "PalletTown_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_PALLET_CANDY"
     },
     {
       "type": "object",
@@ -122,6 +122,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PalletTown_RivalsHouse_EventScript_Picture"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_PlayersHouse_1F_EventScript_Plant"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_PlayersHouse_1F_EventScript_Plant"
     }
   ]
 }

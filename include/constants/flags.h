@@ -198,7 +198,7 @@
 //Pallet
 #define FLAG_CSR_NOT_OAK_SILLY          0x0B1
 #define FLAG_CSR_CUT_OAK                0x0B2
-#define FLAG_CSR_GS_BALL_DELIVERED      0x0B3
+#define FLAG_CSR_TALKED_TO_SIGN_GIRL      0x0B3
 #define FLAG_CSR_GS_BALL_GOT            0x0B4
 #define FLAG_CSR_COLLECTED_STAR         0x0B5
 

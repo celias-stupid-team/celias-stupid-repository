@@ -39,12 +39,12 @@ Text_PokeMartShelf::
 	.string "empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
-	.string "This arrangement for mother is\n"
+	.string "This arranging for mother is\n"
 	.string "quite adept!\l"
 	.string "Volcano Bakemeat!$"
 
 Text_Kitchen::
-	.string "This arrangement for mother is\n"
+	.string "This arranging for mother is\n"
 	.string "quite adept!\l"
 	.string "Volcano Bakemeat!$"
 
@@ -124,7 +124,7 @@ Text_BeautifulSkyWindow::
 
 Text_BlinkingLights::
 	.string "Oh no!\n"
-	.string "The patient appears to be flatlining!$"
+	.string "The patient is flatlining!$"
 
 Text_NeatlyLinedUpTools::
 	.string "The wall is painted over to give\n"
