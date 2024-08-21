@@ -23,6 +23,7 @@ script Route3_EventScript_Lass_South {
 }
 
 script Route3_EventScript_Lass {
+	setvar(VAR_MAP_SCENE_CSR_LASS_1, 1)
 	playbgm(MUS_ENCOUNTER_GIRL, 1)
 	delay(90)
 	 //set Rumor Log variables 4,3
@@ -108,6 +109,13 @@ script Route4_EventScript_Hbox {
 
 script Route3_Item_Pokeball {
 	finditem(ITEM_POKE_BALL)
+}
+
+script Route3_Far_SetDex {
+	setvar(VAR_TEMP_0, 1)
+	setflag(FLAG_CSR_MAP_ROUTE_3_FAR)
+	call(SetPlayerPokedexValues)
+	release
 }
 
 movement Lass_Player_Start {

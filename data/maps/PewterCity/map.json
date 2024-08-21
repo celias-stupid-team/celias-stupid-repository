@@ -193,6 +193,22 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 26,
+      "y": 44,
+      "target_local_id": 9,
+      "target_map": "MAP_ROUTE2"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 14,
+      "y": 42,
+      "target_local_id": 6,
+      "target_map": "MAP_ROUTE2"
     }
   ],
   "warp_events": [

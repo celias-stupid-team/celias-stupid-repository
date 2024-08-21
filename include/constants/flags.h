@@ -96,7 +96,7 @@
 #define FLAG_HIDE_PEWTER_MUSEUM_GUIDE                      0x050
 #define FLAG_HIDE_TOWER_RIVAL                              0x051
 #define FLAG_HIDE_MOLTRES                                  0x052
-#define FLAG_HIDE_SILPH_ROCKETS                            0x053
+#define FLAG_SILPH_DMCA_DEFEATED                            0x053
 #define FLAG_HIDE_ROUTE_12_SNORLAX                         0x054
 #define FLAG_HIDE_VIRIDIAN_GIOVANNI                        0x055
 #define FLAG_HIDE_OLD_AMBER                                0x056
@@ -618,7 +618,7 @@
 #define FLAG_GOT_TM42_AT_MEMORIAL_PILLAR                 0x236
 #define FLAG_GOT_HM01                                    0x237
 #define FLAG_GOT_HM02                                    0x238
-#define FLAG_GOT_HM03                                    0x239
+#define FLAG_CSR_GOT_PAY_DAY                                    0x239
 #define FLAG_GOT_HM04                                    0x23A
 #define FLAG_GOT_HM05                                    0x23B
 #define FLAG_RESCUED_MR_FUJI                             0x23C
@@ -646,7 +646,7 @@
 #define FLAG_GOT_ITEMFINDER                              0x252
 #define FLAG_WOKE_UP_ROUTE_12_SNORLAX                    0x253
 #define FLAG_GOT_TM39_FROM_BROCK                         0x254
-#define FLAG_GOT_SUPER_ROD                               0x255
+#define FLAG_CSR_GOT_GOLDEN_ROD                               0x255
 #define FLAG_GOT_EXP_SHARE_FROM_OAKS_AIDE                0x256
 #define FLAG_DID_MARC_TRADE                              0x257
 #define FLAG_BEAT_RIVAL_IN_OAKS_LAB                      0x258
@@ -1498,8 +1498,8 @@
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       (SYS_FLAGS + 0xC1)
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        (SYS_FLAGS + 0xC2)
 
-#define FLAG_CSR_MAP_ROUTE_23                                                (SYS_FLAGS + 0xC3) //Only set after Dex
-#define FLAG_CSR_MAP_ROUTE_3_FAR                                                  (SYS_FLAGS + 0xC4)
+#define FLAG_CSR_MAP_ROUTE_22     /*Set*/                                          (SYS_FLAGS + 0xC3) //Only set after Dex
+#define FLAG_CSR_MAP_ROUTE_3_FAR       /*Set*/                                            (SYS_FLAGS + 0xC4)
 #define FLAG_CSR_MAP_ROUTE_4_FAR                                                  (SYS_FLAGS + 0xC5)
 #define FLAG_CSR_MAP_ROUTE_24_FAR                                                  (SYS_FLAGS + 0xC6)
 #define FLAG_CSR_MAP_CERULEAN_GYM                                                  (SYS_FLAGS + 0xC7)
@@ -1533,16 +1533,16 @@
 #define FLAG_CSR_HINT_MAGNALONE                                                  (SYS_FLAGS + 0xE3)
 #define FLAG_CSR_HINT_DRAGONITE                                                  (SYS_FLAGS + 0xE4)
 #define FLAG_CSR_HINT_SPEAROW                                                  (SYS_FLAGS + 0xE5)
-#define FLAG_CSR_HINT_PEWTER_GRASS                                                  (SYS_FLAGS + 0xE6)
-#define FLAG_0x8E7                                                  (SYS_FLAGS + 0xE7)
-#define FLAG_0x8E8                                                  (SYS_FLAGS + 0xE8)
-#define FLAG_0x8E9                                                  (SYS_FLAGS + 0xE9)
-#define FLAG_0x8EA                                                  (SYS_FLAGS + 0xEA)
-#define FLAG_0x8EB                                                  (SYS_FLAGS + 0xEB)
-#define FLAG_0x8EC                                                  (SYS_FLAGS + 0xEC)
-#define FLAG_0x8ED                                                  (SYS_FLAGS + 0xED)
-#define FLAG_0x8EE                                                  (SYS_FLAGS + 0xEE)
-#define FLAG_0x8EF                                                  (SYS_FLAGS + 0xEF)
+#define FLAG_CSR_HINT_PEWTER_GRASS /*Set*/                                                   (SYS_FLAGS + 0xE6)
+#define FLAG_CSR_HINT_OCEAN_FISHING                                                  (SYS_FLAGS + 0xE7)
+#define FLAG_CSR_MAP_MINNESOTA                                                  (SYS_FLAGS + 0xE8)
+#define FLAG_CSR_MAP_ROUTE_16_FAR                                                  (SYS_FLAGS + 0xE9)
+#define FLAG_CSR_HINT_REVEAL_GLASS                                                  (SYS_FLAGS + 0xEA)
+#define FLAG_CSR_HINT_GYM_STATUES                                                  (SYS_FLAGS + 0xEB)
+#define FLAG_CSR_HINT_ARMS_TRADE                                                  (SYS_FLAGS + 0xEC)
+#define FLAG_CSR_HINT_TANGELA_HAIRCUT                                                  (SYS_FLAGS + 0xED)
+#define FLAG_CSR_HINT_FOREST_CANDIES  /*Set*/                                                (SYS_FLAGS + 0xEE)
+#define FLAG_CSR_HINT_SPAM                                                  (SYS_FLAGS + 0xEF)
 #define FLAG_0x8F0                                                  (SYS_FLAGS + 0xF0)
 #define FLAG_0x8F1                                                  (SYS_FLAGS + 0xF1)
 #define FLAG_0x8F2                                                  (SYS_FLAGS + 0xF2)

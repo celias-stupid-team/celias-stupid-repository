@@ -9,6 +9,7 @@ PewterCity_MapScripts::
 
 PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
+	call SetPlayerPokedexValues
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
 	end
 
@@ -625,6 +626,8 @@ PewterCity_EventScript_FatMan::
 PewterCity_EventScript_BugCatcher::
 	lock
 	faceplayer
+	setflag FLAG_CSR_HINT_PEWTER_GRASS
+	call SetPlayerPokedexValues
 	msgbox PewterCity_Text_DoYouKnowWhatImDoing, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PewterCity_EventScript_KnowWhatTheyreDoing
 	msgbox PewterCity_Text_SprayingRepelToKeepWildMonsOut

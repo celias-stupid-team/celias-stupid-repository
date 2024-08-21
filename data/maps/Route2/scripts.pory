@@ -2,10 +2,6 @@ raw `
 Route2_MapScripts::
 	.byte 0
 
-Route2_EventScript_RouteSign::
-	msgbox Route2_Text_RouteSign, MSGBOX_SIGN
-	end
-
 Route2_EventScript_DiglettsCaveSign::
 	msgbox Route2_Text_DiglettsCave, MSGBOX_SIGN
 	end
@@ -30,7 +26,17 @@ script Route2_EventScript_CeliaDad {
 	end
 }
 
+script Route2_EventScript_RouteSign {
+	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how\nmany POKéMON are available to you.\lIt even updates automatically!", MSGBOX_SIGN)
+	if(!flag(FLAG_CSR_MAP_ROUTE_22)) {
+		msgbox("Try stepping onto ROUTE 22 to the\nWEST and seeing it for yourself!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Try it out for yourself when you\nenter VIRIDIAN FOREST!", MSGBOX_DEFAULT)
+	}
+	release
+}
+
 script Route2_North_Sign {
-	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how\nmany POKéMON are available to you.\lIt even updates automatically!\pCheck it out before and after\nentering PEWTER CITY!", MSGBOX_SIGN)
+	msgbox("Another job well done.\nThanks for the continued patronage!\l-KANTO Lawn Maintenance Service", MSGBOX_SIGN)
 	end
 }

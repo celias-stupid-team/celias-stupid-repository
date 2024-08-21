@@ -5,6 +5,7 @@ ViridianForest_MapScripts::
 
 ViridianForest_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VIRIDIAN_FOREST
+	call SetPlayerPokedexValues
 	end
 
 ViridianForest_EventScript_Youngster::
@@ -20,6 +21,8 @@ ViridianForest_EventScript_TrainerTips1::
 	end
 
 ViridianForest_EventScript_TrainerTips2::
+	setflag FLAG_CSR_HINT_FOREST_CANDIES
+	call SetPlayerPokedexValues
 	msgbox ViridianForest_Text_UseAntidoteForPoison, MSGBOX_SIGN
 	end
 

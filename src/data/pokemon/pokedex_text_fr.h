@@ -2631,9 +2631,9 @@ const u8 gHitmonchinPokedexText[] = _(
 	"the fuckin' ugly reds");
 
 const u8 gPikabluPokedexText[] = _(
-	"Guys! I read in a magazine once that\n"
-	"once you get to BILL's SECRET GARDEN,\n"
-	"you can evolve your CHARIZARD!");
+	"Guys! I read in a magazine once that if\n"
+	"you go to BILL'S SECRET GARDEN, you can\n"
+	"find the evolution of CHARIZARD!");
 
 
 const u8 gSylveonPokedexText[] = _(
@@ -2658,8 +2658,8 @@ const u8 gMelmetalPokedexText[] = _(
 	"Yahaha!");
 
 const u8 gTrubbishPokedexText[] = _(
-	"On second thought, maybe we should've\n"
-	"skipped the barber.");
+	"Aww, poor thing...\n"
+	"Actually he's kinda cute, no?");
 
 const u8 gOrthwormPokedexText[] = _(
     "get it?\n"

@@ -171,7 +171,7 @@
 #define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_MAP_SCENE_TWO_ISLAND                                               0x4078
 #define VAR_MAP_SCENE_TWO_ISLAND_JOYFUL_GAME_CORNER                            0x4079
-#define VAR_0x407A                                                             0x407A
+#define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
 #define VAR_MAP_SCENE_THREE_ISLAND                                             0x407B
 #define VAR_MAP_SCENE_POKEMON_CENTER_TEALA                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D

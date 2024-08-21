@@ -272,6 +272,7 @@ script Route22_EventScript_RouteSign {
 
 script Route22_MapScripts_SetDexMons {
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
-		setobtainable(SPECIES_MANKEY, SPECIES_NIDORAN_M, SPECIES_NIDORAN_F)
+		setflag(FLAG_CSR_MAP_ROUTE_22)
+		call(SetPlayerPokedexValues)
 	}
 }
