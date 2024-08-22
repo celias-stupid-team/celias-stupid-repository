@@ -276,6 +276,24 @@ $(MID_SUBDIR)/mus_csr_drill_dozer.s: %.s: %.mid
 $(MID_SUBDIR)/mus_furret.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G172 -V090
 
+$(MID_SUBDIR)/mus_sootopolis.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G192 -V090
+
+$(MID_SUBDIR)/mus_cerulean_club.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G157 -V090
+
+$(MID_SUBDIR)/mus_celadon_gym.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G133 -V090
+
+$(MID_SUBDIR)/mus_avgn_gym.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G134 -V090
+
+$(MID_SUBDIR)/mus_stairs.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G008 -V090 -P5
+
+$(MID_SUBDIR)/mus_castle.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G168 -V090
+
 $(MID_SUBDIR)/se_door.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G129 -V100 -P5
 

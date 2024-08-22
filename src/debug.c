@@ -3696,6 +3696,12 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_TEACHY_TV_MENU) \
     X(MUS_CSR_DRILL_DOZER) \
     X(MUS_CSR_FURRET) \
+    X(MUS_CSR_SOOTOPOLIS) \
+    X(MUS_CSR_CERULEAN_CLUB) \
+    X(MUS_CSR_CELADON_GYM) \
+    X(MUS_CSR_AVGN_GYM) \
+    X(MUS_CSR_STAIRS) \
+    X(MUS_CSR_CASTLE) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \
