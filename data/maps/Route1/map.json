@@ -700,6 +700,24 @@
       "var": "VAR_TEMP_5",
       "var_value": "1",
       "script": "Route1_EventScript_PitEscaped"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_CSR_VIRIDIAN_DOOR_TWICE",
+      "var_value": "1",
+      "script": "Route1_EventScript_ReturnToPit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_CSR_VIRIDIAN_DOOR_TWICE",
+      "var_value": "1",
+      "script": "Route1_EventScript_ReturnToPit"
     }
   ],
   "bg_events": [

@@ -45,6 +45,12 @@ Trade_Text_DoYouHaveMonWantToTradeForMon::
 	.string "Want to trade it for my\n"
 	.string "{STR_VAR_2}?$"
 
+Trade_Text_RattataTrade::
+	.string "Hi!\n"
+	.string "Do you have a {STR_VAR_1}?\p"
+	.string "Want to trade it for my\n"
+	.string "RATTATA?$"
+
 Trade_Text_ThatsTooBad::
 	.string "That's too bad.$"
 

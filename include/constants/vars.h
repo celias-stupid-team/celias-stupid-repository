@@ -204,7 +204,7 @@ It is reset after every battle.
 #define VAR_ROUTE01_SHINY_RAT1         0x408D
 #define VAR_ROUTE01_SHINY_RAT2         0x408E
 #define VAR_NOT_OAK_SILLY                 0x408F
-#define VAR_0x4090                 0x4090
+#define VAR_CSR_VIRIDIAN_DOOR_TWICE                 0x4090
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
 #define VAR_0x4092                 0x4092
 #define VAR_0x4093                 0x4093

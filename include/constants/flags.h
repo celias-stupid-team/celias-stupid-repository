@@ -213,11 +213,7 @@
 #define FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT               0x0BB
 #define FLAG_CSR_KENYA_OBTAINED         0x0BC
 
-
-//Route 2
 #define FLAG_ROUTE1_ENTERED_PIT                        0x0BD
-
-//Viridian Forest
 #define FLAG_0x0BE                      0x0BE
 
 //Pewter City
@@ -266,7 +262,7 @@
 #define FLAG_PT_NPC_SIGN_LADY                          0x0DD
 #define FLAG_PT_NPC_LOOKLOOK                           0x0DE
 #define FLAG_CSR_PT_HIDE_GS_BALL               0x0DF
-#define FLAG_0x0E0               0x0E0
+#define FLAG_CSR_VIRIDIAN_DOOR_ONCE               0x0E0
 #define FLAG_0x0E1               0x0E1
 #define FLAG_0x0E2               0x0E2
 #define FLAG_0x0E3               0x0E3

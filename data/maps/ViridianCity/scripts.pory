@@ -60,6 +60,7 @@ ViridianCity_EventScript_GymDoorLocked::
 	applymovement OBJ_EVENT_ID_PLAYER, ViridianCity_Movement_GymDoor3
 	playse SE_LEDGE
 	waitmovement 0
+	call ViridianCity_Door_Logic
 	releaseall
 	end
 
@@ -417,4 +418,15 @@ script ViridianCity_EventScript_LockedDoor {
 	lock
 	msgbox("The door is locked…\n", MSGBOX_DEFAULT)
 	release
+}
+
+script ViridianCity_Door_Logic {
+	if(flag(FLAG_CSR_VIRIDIAN_DOOR_ONCE) && var(VAR_CSR_VIRIDIAN_DOOR_TWICE) == 0) {
+		setvar(VAR_CSR_VIRIDIAN_DOOR_TWICE, 1)
+		//msgbox("Setting var", MSGBOX_AUTOCLOSE)
+	} else {
+		setflag(FLAG_CSR_VIRIDIAN_DOOR_ONCE)
+		//msgbox("setting flag", MSGBOX_AUTOCLOSE)
+	}
+	return
 }

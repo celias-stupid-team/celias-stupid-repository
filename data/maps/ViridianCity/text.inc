@@ -48,12 +48,12 @@ ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "oh take this too$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
-    .string "All right, 0x59:mna!\n"
-    .string "Now quickly!\l"
-    .string "FLY over to CINNABAR ISLAND\p"
-    .string "…What's that?\n"
-    .string "You can't FLY yet?\p"
-    .string "Darn.$"
+	.string "All right, ♀:mna!\n"
+	.string "Now quickly!\l"
+	.string "FLY over to CINNABAR ISLAND!\p"
+	.string "…What's that?\n"
+	.string "You can't FLY yet?\p"
+	.string "Darn.\n$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
     .string "Be ready to FLY over to\n"

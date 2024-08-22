@@ -147,10 +147,10 @@ static const struct InGameTrade sInGameTrades[] = {
         .sheen = 10,
         .requestedSpecies = SPECIES_RAICHU
     }, 
-    [INGAME_TRADE_TANGELA] = 
+    [INGAME_TRADE_MEWTWO] = 
     {
         .nickname = _("TANGENY"),
-        .species = SPECIES_TANGELA,
+        .species = SPECIES_RATTATA,
         .ivs = {22, 17, 25, 16, 23, 20},
         .abilityNum = 0,
         .otId = 60042,
@@ -161,7 +161,7 @@ static const struct InGameTrade sInGameTrades[] = {
         .otName = _("NORMA"),
         .otGender = FEMALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_VENONAT
+        .requestedSpecies = SPECIES_MEWTWO
     },
     [INGAME_TRADE_SEEL] = 
     {
