@@ -1217,7 +1217,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_EXEGGCUTE]   = 0,
     [SPECIES_EXEGGUTOR]   = 1,
     [SPECIES_CUBONE]      = 1,
-    [SPECIES_MAROWAK]     = 1,
+    [SPECIES_MAROWAK]     = 2,
     [SPECIES_HITMONLEE]   = 2,
     [SPECIES_HITMONCHAN]  = 2,
     [SPECIES_LICKITUNG]   = 1,
@@ -1554,10 +1554,9 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_UNOWN_EMARK] = 0,
     [SPECIES_UNOWN_QMARK] = 0,
     [SPECIES_VICTINI] = 0,
-    [SPECIES_COMBEE] = 1,
+    [SPECIES_COMBEE] = 0,
     [SPECIES_JIGGLYPUFF_ABOVE]  = 0,
-    [SPECIES_TOEDSCOOL] = 2,
-    [SPECIES_AMOONGUSS] = 2,
+    [SPECIES_AMOONGUSS] = 1,
     [SPECIES_UNOWN_LOSS] = 0,
     [SPECIES_KENYA] = 0,
     [SPECIES_HITMONCHAN_SHIT] = 2,
@@ -1585,7 +1584,11 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_DITTO_MEW] = 2,
     [SPECIES_MAGNALONE] = 0,
     [SPECIES_RATTATA_SHINY] = 2,
-    [SPECIES_PLUG_OINK]   = 1
+    [SPECIES_PLUG_OINK]   = 1,
+    [SPECIES_PIKABLU]   = 2,
+    [SPECIES_TOEDSCOOL]   = 2,
+    [SPECIES_MELMETAL]   = 2,
+    [SPECIES_DACHSBUN]   = 0
 
 };
 

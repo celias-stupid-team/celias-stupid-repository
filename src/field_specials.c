@@ -2226,9 +2226,11 @@ void StopPokemonLeagueLightingEffectTask(void)
 }
 
 static const u8 sCapeBrinkCompatibleSpecies[] = {
-    SPECIES_VENUSAUR,
-    SPECIES_CHARIZARD,
-    SPECIES_BLASTOISE
+    SPECIES_BULBASAUR,
+    SPECIES_CHARMANDER,
+    SPECIES_SQUIRTLE,
+    SPECIES_CHARMELEON,
+    SPECIES_CHARIZARD
 };
 
 bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
