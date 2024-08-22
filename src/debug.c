@@ -3695,6 +3695,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SLOW_PALLET) \
     X(MUS_TEACHY_TV_MENU) \
     X(MUS_CSR_DRILL_DOZER) \
+    X(MUS_CSR_FURRET) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

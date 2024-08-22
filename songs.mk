@@ -273,6 +273,9 @@ $(MID_SUBDIR)/mus_vs_wild.s: %.s: %.mid
 $(MID_SUBDIR)/mus_csr_drill_dozer.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -V090
 
+$(MID_SUBDIR)/mus_furret.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G172 -V090
+
 $(MID_SUBDIR)/se_door.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G129 -V100 -P5
 

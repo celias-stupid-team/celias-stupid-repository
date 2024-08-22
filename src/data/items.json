@@ -5276,7 +5276,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Boulders are hurled at the foe.\\nIt also lowers the target's SPEED\\nstat if it hits.",
+      "description_english": "A move that definitely exists.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -5285,7 +5285,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "RockTomb"
+      "moveId": "Bide"
     },
     {
       "english": "TM40",
