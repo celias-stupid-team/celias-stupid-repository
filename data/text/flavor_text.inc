@@ -57,11 +57,13 @@ Text_Snacks::
 
 Text_PokemartSign::
 	.string "All your item needs fulfilled!\n"
-	.string "POKéMON MART$"
+	.string "POKéMON MART!\p"
+	.string "(POTION needs notwithstanding)\n$"
 
 Text_PokecenterSign::
 	.string "Heal Your POKéMON!\n"
-	.string "POKéMON CENTER$"
+	.string "POKéMON CENTER\p"
+	.string "(but only if you're really sure)\n$"
 
 Text_Indigo_UltimateGoal::
 	.string "INDIGO PLATEAU\p"
