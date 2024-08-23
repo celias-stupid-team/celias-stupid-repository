@@ -392,6 +392,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_EventScript_GymDoor"
+    },
+    {
+      "type": "hidden_item",
+      "x": 51,
+      "y": 13,
+      "elevation": 0,
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_CSR_VIRIDIAN_HIDDEN_ETHER",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }
