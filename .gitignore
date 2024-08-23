@@ -52,7 +52,8 @@ src/data/region_map/porymap_config.json
 tags
 tools/agbcc
 tools/binutils
-tools/poryscript
+tools/poryscript/*
+!tools/poryscript/command_config.json
 types_*.taghl
 !.github/calcrom/calcrom.pl
 !sound/programmable_wave_samples/*.pcm

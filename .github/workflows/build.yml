@@ -52,9 +52,11 @@ jobs:
 
       - name: Poryscript install
         run: |
-          sudo mv tools/poryscript-linux tools/poryscript
+          sudo mv tools/poryscript-linux/poryscript tools/poryscript/
+          sudo mv tools/poryscript-linux/font_config.json tools/poryscript/
           sudo chmod +x tools/poryscript/poryscript
-          sudo rm -f tools/poryscript-linux.zip
+          sudo rm -rf tools/poryscript-linux.zip
+          sudo rm -rf tools/poryscript-linux
 
       - name: Build with agbcc
         run: make -j${nproc} -O all
