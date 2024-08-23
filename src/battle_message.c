@@ -2111,8 +2111,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-
-                        toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
+                toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName; //removed the Rival name checks
                 }
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name
