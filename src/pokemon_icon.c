@@ -1588,7 +1588,7 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_PIKABLU]   = 2,
     [SPECIES_TOEDSCOOL]   = 2,
     [SPECIES_MELMETAL]   = 2,
-    [SPECIES_DACHSBUN]   = 0
+    [SPECIES_TENTAQUIL] = 0
 
 };
 
