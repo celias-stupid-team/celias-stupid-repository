@@ -48,12 +48,12 @@ ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "oh take this too$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
-    .string "All right, 0x59:mna!\n"
-    .string "Now quickly!\l"
-    .string "FLY over to CINNABAR ISLAND\p"
-    .string "…What's that?\n"
-    .string "You can't FLY yet?\p"
-    .string "Darn.$"
+	.string "All right, ♀:mna!\n"
+	.string "Now quickly!\l"
+	.string "FLY over to CINNABAR ISLAND!\p"
+	.string "…What's that?\n"
+	.string "You can't FLY yet?\p"
+	.string "Darn.\n$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
     .string "Be ready to FLY over to\n"
@@ -94,7 +94,7 @@ ViridianCity_Text_MovesLimitedByPP::
     .string "TRAINER TIPS\p"
     .string "Remember to savestate frequently!\p"
     .string "You might accidentally do something\n"
-    .string "Very dumb and softlock yourself!$"
+    .string "very dumb and softlock yourself!$"
 
 ViridianCity_Text_GymSign::
     .string "VIRIDIAN CITY POKéMON GYM$"

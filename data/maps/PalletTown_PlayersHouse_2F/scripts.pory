@@ -53,34 +53,9 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	end
 `
 
-script PalletTown_PlayersHouse_2F_EventScript_Bed {
+script PalletTown_PlayersHouse_2F_EventScript_Bed { //Removed walking out logic; I think it's better without it
 	lock
-	switch (var(VAR_FACING)) {
-		case DIR_WEST:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedEast)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_NORTH:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedSouth)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_EAST:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedWest)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_SOUTH:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedNorth)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-	}
+	msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
 	release
 }
 

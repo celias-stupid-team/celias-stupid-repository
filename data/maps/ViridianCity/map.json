@@ -182,7 +182,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CinnabarIsland_PokemonLab_Lounge_EventScript_Norma",
       "flag": "0"
     },
     {
@@ -395,21 +395,11 @@
     },
     {
       "type": "hidden_item",
-      "x": 37,
-      "y": 18,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
       "x": 51,
       "y": 13,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1",
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_CSR_VIRIDIAN_HIDDEN_ETHER",
       "quantity": 1,
       "underfoot": false
     }

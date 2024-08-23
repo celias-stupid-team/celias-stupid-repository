@@ -509,14 +509,14 @@ static const u8 sText_PlayedThe[] = _("{B_PLAYER_NAME} played the\n{B_LAST_ITEM}
 static const u8 sText_PkmnHearingFluteAwoke[] = _("The POKéMON hearing the FLUTE\nawoke!");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
 const u8 gText_ForPetesSake[] = _("OAK: Oh shoot, the lights\nwent out!\pSorry, the power has been very\nspotty recently.\pLet me see if I can get them\nback on again...\p");
-const u8 gText_TheTrainerThat[] = _("Oh!\nWell there's one of the lights.\pLet my try... this?\p");
-const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat means I can turn them back\non with... this!\p");
+const u8 gText_TheTrainerThat[] = _("Oh!\nWell, there's one of the lights.\pLet my try… this?\p");
+const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat means I can turn them back\non with… this!\p");
 const u8 gText_InflictingDamageIsKey[] = _("OAK: Grr, there they go again.\pHold on, lemme get the switch.\p");
 const u8 gText_LoweringStats[] = _("OAK: Hey! Don't make too much\nnoise!\pThe vibrations are messing with\nthe circuitry!\p");
 const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\pIt will faint if the HP drops to\n“0.”\p");
-const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh shoot, there they go\nagain.\pCould you stay here until we\nget them back up again?\pThanks!\p");
-const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
-const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
+const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think RUNNING turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
+const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
+const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
@@ -1289,7 +1289,7 @@ const u16 gTrappingMoves[NUM_TRAPPING_MOVES + 1] =
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");
 const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevolved into {STR_VAR_2}!{WAIT_SE}\p");
 const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
-const u8 gText_EllipsisQuestionMark[] = _("……?\pThat evolution isn't available yet!"); // Normal evolution locked by pokedex
+const u8 gText_EllipsisQuestionMark[] = _("……?\p"); // Normal evolution locked by pokedex
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
 const u8 gText_WhatWillPlayerThrow[] = _("What will {B_PLAYER_NAME}\nthrow?");
 const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");
@@ -2111,11 +2111,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-                    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_EARLY
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_LATE
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
-                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL);
-                    else
+
                         toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 }
                 break;

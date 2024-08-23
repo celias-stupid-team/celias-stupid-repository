@@ -5,16 +5,11 @@ raw `
 .equ SIGN_LADY_READY, VAR_TEMP_2
 
 PalletTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, PalletTown_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
 	.byte 0
 
-PalletTown_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_PALLET_TOWN
-	call_if_set FLAG_PALLET_LADY_NOT_BLOCKING_SIGN, PalletTown_EventScript_TryReadySignLady
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 0, PalletTown_EventScript_SetSignLadyPos
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1, PalletTown_EventScript_SetSignLadyDone
-	end
+
 
 PalletTown_EventScript_TryReadySignLady::
 	goto_if_unset FLAG_OPENED_START_MENU, EventScript_Return
@@ -184,7 +179,7 @@ PalletTown_EventScript_OakTriggerRight::
 
 PalletTown_EventScript_OakTrigger::
 	famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	textcolor NPC_TEXT_COLOR_MALE
+	textcolor NPC_TEXT_COLOR_TREE
 	delay 30
 	playbgm MUS_OAK, 0
 	message PalletTown_Text_OakDontGoOut
@@ -413,21 +408,6 @@ PalletTown_EventScript_TownSign::
 	msgbox PalletTown_Text_TownSign, MSGBOX_SIGN
 	end
 
-PalletTown_EventScript_SignLadyShowSign::
-	textcolor NPC_TEXT_COLOR_FEMALE
-	msgbox PalletTown_Text_LookCopiedTrainerTipsSign
-	closemessage
-	delay 20
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	setflag FLAG_OPENED_START_MENU
-	setvar VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1
-	setvar SIGN_LADY_READY, FALSE
-	special SetWalkingIntoSignVars
-	special DisableMsgBoxWalkaway
-	signmsg
-	msgbox PalletTown_Text_PressStartToOpenMenuCopy
-	normalmsg
-	return
 
 PalletTown_EventScript_SignLadyStartShowSign::
 	applymovement LOCALID_SIGN_LADY, Common_Movement_FacePlayer
@@ -436,74 +416,100 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	release
 	end
 `
+script PalletTown_OnTransition {
+	setworldmapflag (FLAG_WORLD_MAP_PALLET_TOWN)
+	call(SetPlayerPokedexValues)
+	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
+		setobjectxyperm(1, 12, 2)
+		setobjectmovementtype(1, MOVEMENT_TYPE_FACE_RIGHT)
+	} else {
+		setobjectxyperm(1, 5, 15)
+		setobjectmovementtype(1, MOVEMENT_TYPE_FACE_UP)
+	}
+}
+
 script PalletTown_EventScript_CeliaLookLook {
 	msgbox("The girl throwing herself into\nthe woods was originally a bug!\pBut it was so funny that there was\nno way I was gonna remove it.\pThat said, even though it was funny,\npeople still kept reporting it.\pSo, I changed the sign to explicitly\ndirect the player to try it.", MSGBOX_NPC)
 	end
 }
 script PalletTown_EventScript_SignLady_CSR {
 	lock
-	faceplayer
-	msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
-	applymovement(1, PT_exclmark)
-	waitmovement(0)
-	msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
-	switch(var(VAR_FACING)) {
-		case DIR_EAST:
-				applymovement(1, PT_walkbackRight)
-				waitmovement(0)
-			default:
-				applymovement(1, PT_walkbackLeft)
-				waitmovement(0)
+	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
+		faceplayer
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+		clearflag(FLAG_PT_NPC_SIGN_LADY)
+		call(PalletTown_EventScript_SignLadyShowSign)
+	} else {
+		setflag(FLAG_CSR_TALKED_TO_SIGN_GIRL)
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		applymovement(1, Common_Movement_FacePlayer)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(1, PT_exclmark)
+		waitmovement(0)
+		delay(48)
+		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+		closemessage
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+					applymovement(1, PT_walkbackRight)
+					waitmovement(0)
+				default:
+					applymovement(1, PT_walkbackLeft)
+					waitmovement(0)
+		}
 	}
 	release
 }
 
 script PalletTown_EventScript_TrainerTips {
 	lockall
-	msgbox(format("TRAINER TIPS\pTalk to her again!"), MSGBOX_AUTOCLOSE)
+	if(flag(FLAG_CSR_TALKED_TO_SIGN_GIRL)) {
+		msgbox(format("TRAINER TIPS\pTalk to her again!"), MSGBOX_SIGN)
+	} else {
+		msgbox(format("TRAINER TIPS\pTalk to her!"), MSGBOX_SIGN)
+	}
 	releaseall
 }
 
 script PalletTown_EventScript_LabMissed {
 	lockall
-	msgbox(format("Oops...you missed!"), MSGBOX_AUTOCLOSE)
+	msgbox(format("Oops, you missed!"), MSGBOX_AUTOCLOSE)
 	releaseall
 }
 
-script PalletTown_EventScript_LookLook {
-	lock
-	faceplayer
-	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
-		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
-		call(PalletTown_EventScript_SignLadyShowSign)
-	}
-	else {
-		msgbox(format("Hmm...\nIs that right..."), MSGBOX_AUTOCLOSE)
-		applymovement(4, PT_exclmark)
-		waitmovement(0)
-		msgbox(format("Oh\nLook, look!"), MSGBOX_AUTOCLOSE)
-		switch(var(VAR_FACING)) {
-			case DIR_EAST:
-				applymovement(4, PT_walkbackRight)
-				waitmovement(0)
-			default:
-				applymovement(4, PT_walkbackLeft)
-				waitmovement(0)
-		}
-	}
-	release
-}
+
 
 script PalletTown_EventScript_SignLadyTrigger {
 	lockall
-	if (!flag(FLAG_PT_NPC_LOOKLOOK_LEAVE)) {
-		setflag(FLAG_PT_NPC_LOOKLOOK_LEAVE)
-		applymovement(LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight)
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
-		waitmovement(0)
-		call(PalletTown_EventScript_SignLadyShowSign)
-	}
+	clearflag(FLAG_PT_NPC_SIGN_LADY)
+	applymovement(LOCALID_SIGN_LADY, Common_Movement_WalkInPlaceFasterRight)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement(0)
+	call(PalletTown_EventScript_SignLadyShowSign)
 	releaseall
+}
+
+script PalletTown_EventScript_SignLadyShowSign {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(PalletTown_Text_LookCopiedTrainerTipsSign, MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	setflag(FLAG_OPENED_START_MENU)
+	setvar(VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 1)
+	setvar(SIGN_LADY_READY, FALSE)
+	special(SetWalkingIntoSignVars)
+	special(DisableMsgBoxWalkaway)
+	signmsg
+	msgbox("TRAINER TIPS!\p…\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	normalmsg
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("…I forgot the rest.\n", MSGBOX_DEFAULT)
+	setvar(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 5)
+	return
 }
 
 

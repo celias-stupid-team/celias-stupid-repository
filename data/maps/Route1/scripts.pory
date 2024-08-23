@@ -60,7 +60,7 @@ script Route1_EventScript_CeliaPit {
 script Route1_EventScript_Rat1 {
 	lock
 	setflag(FLAG_SHINY_CREATION)
-	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_FOCUS_SASH)
 	clearflag(FLAG_SHINY_CREATION)
 	//increment VAR_ROUTE01_SHINY_RAT1 so it only triggers once
 	setvar(VAR_ROUTE01_SHINY_RAT1, 1)
@@ -71,7 +71,7 @@ script Route1_EventScript_Rat1 {
 script Route1_EventScript_Rat2 {
 	lock
 	setflag(FLAG_SHINY_CREATION)
-	setwildbattle(SPECIES_RATTATA, 3, ITEM_NONE)
+	setwildbattle(SPECIES_RATTATA_SHINY, 3, ITEM_FOCUS_SASH)
 	clearflag(FLAG_SHINY_CREATION)
 	//increment VAR_ROUTE01_SHINY_RAT2 so it only triggers once
 	setvar(VAR_ROUTE01_SHINY_RAT2, 2)
@@ -81,82 +81,55 @@ script Route1_EventScript_Rat2 {
 
 script Route1_EventScript_EnterPit {
 	lock
-	setflag(FLAG_ROUTE1_ENTERED_PIT)
+	setvar(VAR_TEMP_5, 1)
 	release
 }
 
-script Route1_EventScript_PitBorderTop {
+script Route1_EventScript_PitEscaped {
 	lock
-	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
-		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackDown)
-		waitmovement(0)
-	}
-	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
+	msgbox("You hear a voice from the skies…\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hi there!\nThis is CELIA, the creator!\pI saw that you got yourself a\nlittle stuck there.\lThat's okay, I've done that too.\pI hope this teaches you a valuable\nlesson about being careful!\pAlso, I noticed that you turned on\na walk-through-walls code to escape?\pI'm not gonna judge you for that,\nbut I do think this hack is more\lfun if you turn that off.\pYou were probably heading back\nto PALLET TOWN, I'm guessing?\lMaybe after receiving the PARCEL?\pDo be aware that this isn't a vanilla+\nROMhack - you're not gonna be able\lto turn your brain off and rush!\pAnyway, do have fun!\nGlad you got out safely!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_5, 0)
 	release
 }
 
-script Route1_EventScript_PitBorderRight {
-	lock
-	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
-		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackLeft)
-		waitmovement(0)
-	}
-	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
-	release
-}
-
-script Route1_EventScript_PitBorderDown {
-	lock
-	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
-		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackUp)
-		waitmovement(0)
-	}
-	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
-	release
-}
-
-script Route1_EventScript_PitBorderLeft {
-	lock
-	if (flag(FLAG_ROUTE1_ENTERED_PIT)) {
-		applymovement(OBJ_EVENT_ID_PLAYER, R1_walkbackRight)
-		waitmovement(0)
-	}
-	msgbox(format("You little cheater!"), MSGBOX_AUTOCLOSE)
-	release
-}
 
 script Route1_EventScript_LittleBoy {
 	lock
-	msgbox(format("My daddy was playing POKéMON GO and didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
+	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
 	release
 }
 
 script Route1_EventScript_Dad {
 	lock
-	msgbox(format("I thought this sign was a POKéSTOP..."), MSGBOX_AUTOCLOSE)
+	msgbox(format("I thought this sign was a\nPOKéSTOP..."), MSGBOX_AUTOCLOSE)
 	release
 }
 
-
-//movements
-movement R1_walkbackDown {
-	face_down
-	walk_down
+script Route1_EventScript_ReturnToPit {
+	lock
+	setvar(VAR_CSR_VIRIDIAN_DOOR_TWICE, 2)
+	applymovement(OBJ_EVENT_ID_PLAYER, ReturnToPit_Start)
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_2, VAR_RESULT)
+	if(var(VAR_RESULT) == 3) {
+		applymovement(OBJ_EVENT_ID_PLAYER, ExtraRunDown)
+		waitmovement(0)
+	}
+	
 }
 
-movement R1_walkbackLeft {
-	face_left
-	walk_left
+movement ReturnToPit_Start {
+	player_run_left
+	player_run_left
+	player_run_left
+	player_run_left
+	player_run_down
 }
 
-movement R1_walkbackRight {
-	face_right
-	walk_right
-}
-
-movement R1_walkbackUp {
-	face_up
-	walk_up
+movement ExtraRunDown {
+	player_run_down
 }
 
 script Route1_EventScript_CeliaShiny {

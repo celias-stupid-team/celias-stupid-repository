@@ -455,8 +455,22 @@
 //CSR items
 #define ITEM_FOCUS_SASH 375
 #define ITEM_MATH_CLUB 376
+#define ITEM_ODD_CANDY 377
+#define ITEM_RUNNING_SHOES 378
+#define ITEM_MIN_REPEL 379
+#define ITEM_DAWN_STONE 380
+#define ITEM_HONEY 381
+//#define ITEM_LIGMA Replacing Big Pearl
+#define ITEM_WADDED_NOTE_METAPOD 382
+#define ITEM_TORN_PAPER_GEODUDE 383
+#define ITEM_CREAM_DROP 384
+#define ITEM_TRASH_MEDAL 385
+#define ITEM_LETTER_Y 386
 
-#define ITEMS_COUNT 377
+
+
+
+#define ITEMS_COUNT 387
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

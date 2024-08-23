@@ -1925,13 +1925,7 @@ static const u16 *LoadEvent_DefeatedTrainer(const u16 *eventData)
     DynamicPlaceholderTextUtil_Reset();
     GetMapNameGeneric(gStringVar1, r6[0]);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
-
-    if (gTrainers[r5[2]].trainerClass == TRAINER_CLASS_RIVAL_EARLY
-     || gTrainers[r5[2]].trainerClass == TRAINER_CLASS_RIVAL_LATE
-     || gTrainers[r5[2]].trainerClass == TRAINER_CLASS_CHAMPION)
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL));
-    else
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gTrainers[r5[2]].trainerName);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gTrainers[r5[2]].trainerName);
 
     QuestLog_GetSpeciesName(r5[0], NULL, 2);
     QuestLog_GetSpeciesName(r5[1], NULL, 3);

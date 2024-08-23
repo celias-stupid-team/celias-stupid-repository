@@ -149,8 +149,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route4_EventScript_Hbox",
+      "flag": "FLAG_CSR_HBOX_TEMP_DISAPPEARANCE"
     },
     {
       "type": "object",
@@ -185,7 +185,7 @@
       "x": 10,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_MAP_SCENE_CSR_LASS_1",
       "var_value": "0",
       "script": "Route3_EventScript_Lass_South"
     },
@@ -194,7 +194,7 @@
       "x": 10,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_MAP_SCENE_CSR_LASS_1",
       "var_value": "0",
       "script": "Route3_EventScript_Lass_North"
     },
@@ -296,6 +296,60 @@
       "var": "VAR_MAP_SCENE_CSR_LASS_2",
       "var_value": "0",
       "script": "Route4_Trigger_Lass2"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
     }
   ],
   "bg_events": [

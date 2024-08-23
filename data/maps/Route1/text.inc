@@ -1,6 +1,6 @@
 Route1_Text_WorkAtPokeMartTakeSample::
     .string "Uh, hi!\p"
-    .string "I work at a POKé Mart, and I was\n"
+    .string "I work at a POKé MART, and I was\n"
     .string "supposed to be handing out free\l"
     .string "POTIONS.\p"
     .string "However, it appears that this is the\n"
@@ -16,10 +16,10 @@ Route1_Text_PutPotionAway::
     .string "the BAG's ITEMS POCKET.$"
 
 Route1_Text_CanJumpFromLedges::
-    .string "I've been looking around of a\n"
+    .string "I've been looking around for a\n"
     .string "PIDGEY, but I haven't had any luck.\p"
     .string "Something so strong probably\n"
-    .string "wouldn't be on this ROUTE$"
+    .string "wouldn't be on this ROUTE.$"
 
 Route1_Text_RouteSign::
     .string "ROUTE 1\n"

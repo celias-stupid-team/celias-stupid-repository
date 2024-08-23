@@ -5,13 +5,13 @@ SafariZone_SecretHouse_MapScripts::
 SafariZone_SecretHouse_EventScript_Attendant::
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_HM03, SafariZone_SecretHouse_EventScript_ExplainSurf
+	goto_if_set FLAG_CSR_GOT_PAY_DAY, SafariZone_SecretHouse_EventScript_ExplainSurf
 	msgbox SafariZone_SecretHouse_Text_CongratsYouveWon
 	checkitemspace ITEM_HM03
 	goto_if_eq VAR_RESULT, FALSE, SafariZone_SecretHouse_EventScript_NoRoomForHM03
 	giveitem_msg SafariZone_SecretHouse_Text_ReceivedHM03FromAttendant, ITEM_HM03
 	msgbox SafariZone_SecretHouse_Text_ExplainSurf
-	setflag FLAG_GOT_HM03
+	setflag FLAG_CSR_GOT_PAY_DAY
 	release
 	end
 
@@ -29,7 +29,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 	lock
 	faceplayer
 	textcolor(0)
-	if(!flag(FLAG_GOT_HM03)) {
+	if(!flag(FLAG_CSR_GOT_PAY_DAY)) {
 
 		if(!flag(FLAG_CSR_TALKED_TO_PRIZEGIVER)) {
 			msgbox(("Ah!\nShoot, another visitor?\pUh, I mean…\nHello! Er, congratulations!\pYou've made it to the SAFARI ZONE\nSECRET HOUSE!\pYes, yes. We know.\nIt's not much of a SECRET anymore.\lI'll, uh, explain in a second.\pUhhhhhh, anyway!\nCongrats!\pHere's your reward:\nA rare TM!"), MSGBOX_DEFAULT)
@@ -61,7 +61,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 	GivingPrize:
 		//Give the TM
 		//Handle Bag issues I guess?
-		setflag(FLAG_GOT_HM03)
+		setflag(FLAG_CSR_GOT_PAY_DAY)
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)
 		msgbox(SafariZone_SecretHouse_Text_ExplainSurf)
 }

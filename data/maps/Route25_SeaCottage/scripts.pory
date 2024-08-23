@@ -11,7 +11,7 @@ Route25_SeaCottage_MapScripts::
 
 Route25_SeaCottage_OnTransition::
 	call_if_unset FLAG_HELPED_BILL_IN_SEA_COTTAGE, Route25_SeaCottage_EventScript_HideClefairyBill
-	call_if_set FLAG_GOT_SS_TICKET, Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket
+	call_if_set FLAG_CSR_GOT_BILL, Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket
 	end
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
@@ -23,16 +23,7 @@ Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket::
 	setflag RETURN_AFTER_SS_TICKET
 	return
 
-Route25_SeaCottage_EventScript_Bill::
-	lock
-	faceplayer
-	goto_if_set RETURN_AFTER_SS_TICKET, Route25_SeaCottage_EventScript_BillGoLookAtPC
-	goto_if_set FLAG_GOT_SS_TICKET, Route25_SeaCottage_EventScript_BillGoToSSAnne
-	goto_if_set FLAG_HELPED_BILL_IN_SEA_COTTAGE, Route25_SeaCottage_EventScript_BillGiveSSTicket
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, Route25_SeaCottage_EventScript_BillAskForHelpMale
-	goto_if_eq VAR_RESULT, FEMALE, Route25_SeaCottage_EventScript_BillAskForHelpFemale
-	end
+
 
 Route25_SeaCottage_EventScript_BillAskForHelpMale::
 	msgbox Route25_SeaCottage_Text_ImBillHelpMeOutPal, MSGBOX_YESNO
@@ -103,9 +94,9 @@ Route25_SeaCottage_EventScript_BillGiveSSTicket::
 	checkitemspace ITEM_SS_TICKET
 	goto_if_eq VAR_RESULT, FALSE, Route25_SeaCottage_EventScript_NoRoomForSSTicket
 	giveitem_msg Route25_SeaCottage_Text_ReceivedSSTicketFromBill, ITEM_SS_TICKET, 1, MUS_OBTAIN_KEY_ITEM
-	setflag FLAG_GOT_SS_TICKET_DUP
+	setflag FLAG_CSR_GOT_BILL_DUP
 	setflag FLAG_HIDE_NUGGET_BRIDGE_ROCKET
-	setflag FLAG_GOT_SS_TICKET
+	setflag FLAG_CSR_GOT_BILL
 	setflag FLAG_SYS_NOT_SOMEONES_PC
 	goto Route25_SeaCottage_EventScript_BillGoToSSAnne
 	end
@@ -299,3 +290,15 @@ Route25_SeaCottage_Movement_BillExitTeleporter::
 	walk_down
 	step_end
 `
+script Route25_SeaCottage_EventScript_Bill {
+	finditem(ITEM_POKE_DOLL, 1)
+	setflag(FLAG_CSR_GOT_BILL)
+	addvar(VAR_CSR_BILLS_TAKEN, 1)
+	end
+}
+
+
+script Route25_MapScript_CeliaTellsYouAboutBill {
+	msgbox("Hi, there!\nI'm CELIA, the creator!\pYup, that's everything there is to\ndo here. No SS TICKET or anything!\pBut while you're here, feel free to\ncollect some more POKE DOLLS.\lThey sell for a lot!\pWhen you're done, you can head back\nto CERULEAN CITY to proceed.\pThanks a lot, and good luck!\n", MSGBOX_NPC)
+	end
+}

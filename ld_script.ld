@@ -965,6 +965,13 @@ SECTIONS {
         sound/songs/midi/mus_slow_pallet.o(.rodata);
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
         sound/songs/midi/mus_csr_drill_dozer.o(.rodata);
+        sound/songs/midi/mus_furret.o(.rodata);
+        sound/songs/midi/mus_sootopolis.o(.rodata);
+        sound/songs/midi/mus_cerulean_club.o(.rodata);
+        sound/songs/midi/mus_celadon_gym.o(.rodata);
+        sound/songs/midi/mus_avgn_gym.o(.rodata);
+        sound/songs/midi/mus_stairs.o(.rodata);
+        sound/songs/midi/mus_castle.o(.rodata);
     } > ROM =0
 
 

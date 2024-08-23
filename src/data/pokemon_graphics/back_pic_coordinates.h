@@ -5171,6 +5171,94 @@ const struct MonCoords gMonBackPicCoords[] =
 		.y_offset = 16,
 	},
 
+		[SPECIES_JIGGLYPUFF_ABOVE] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_TENTAQUIL] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_MISSINGNO] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_KENYA] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_HITMONCHAN_SHIT] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_HITMONCHIN] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_TRUBBISH_HAIRCUT] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_AMPHAROS_MEGA] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_YOSHI] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_DITTO_MEW] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_UNOWN_LOSS] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_MAGNALONE] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_TYRANASTAR] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_POKEMON_GUN] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_PLUG_OINK] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_PIKABLU] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	[SPECIES_RATTATA_SHINY] =
+	{
+		.size = MON_COORDS_SIZE(48, 32),
+		.y_offset = 16,
+	},
+	
+
+
     [SPECIES_EGG] =
     {
         .size = MON_COORDS_SIZE(24, 48),

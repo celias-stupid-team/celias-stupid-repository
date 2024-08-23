@@ -26,9 +26,10 @@ enum TitleScreenScene
     TITLESCREENSCENE_RESTART,
     TITLESCREENSCENE_CRY
 };
+//Venipede has the Polkamon cry
 
 #if   defined(FIRERED)
-#define TITLE_SPECIES SPECIES_CHARIZARD
+#define TITLE_SPECIES SPECIES_VENIPEDE
 #elif defined(LEAFGREEN)
 #define TITLE_SPECIES SPECIES_VENUSAUR
 #endif

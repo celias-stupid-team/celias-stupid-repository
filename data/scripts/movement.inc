@@ -106,3 +106,14 @@ Common_Movement_WalkRight::
 Common_Movement_WalkDown::
 	walk_down
 	step_end
+
+Common_Movement_Descend::
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	enable_jump_landing_ground_effect
+	walk_faster_down
+	step_end

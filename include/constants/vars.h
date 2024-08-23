@@ -168,10 +168,10 @@
 #define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x4074
 #define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075
 #define VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F                             0x4076
-#define VAR_0x4077                                                             0x4077
+#define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_MAP_SCENE_TWO_ISLAND                                               0x4078
 #define VAR_MAP_SCENE_TWO_ISLAND_JOYFUL_GAME_CORNER                            0x4079
-#define VAR_0x407A                                                             0x407A
+#define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
 #define VAR_MAP_SCENE_THREE_ISLAND                                             0x407B
 #define VAR_MAP_SCENE_POKEMON_CENTER_TEALA                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
@@ -203,8 +203,8 @@ It is reset after every battle.
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_ROUTE01_SHINY_RAT1         0x408D
 #define VAR_ROUTE01_SHINY_RAT2         0x408E
-#define VAR_0x408F                 0x408F
-#define VAR_0x4090                 0x4090
+#define VAR_NOT_OAK_SILLY                 0x408F
+#define VAR_CSR_VIRIDIAN_DOOR_TWICE                 0x4090
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
 #define VAR_0x4092                 0x4092
 #define VAR_0x4093                 0x4093

@@ -19,7 +19,7 @@ PalletTown_ProfessorOaksLab_Text_RivalIllTakeThisOneThen::
     .string "GARY: I'll take this one, then!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalReceivedMonFromOak::
-    .string "GARY received the {STR_VAR_1}\n"
+    .string "GARY received the SQUIRTLE\n"
     .string "from PROF. OAK (somehow)!$"
 
 PalletTown_ProfessorOaksLab_Text_RivalMyMonLooksTougher::
@@ -86,9 +86,9 @@ PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne::
     .string "Go on, choose!$"
 
 PalletTown_ProfessorOaksLab_Text_OakBePatientRival::
-    .string "OAK: Don't worry, GARY.\n"
-    .string "If you go second, you'll get the\l"
-    .string "one thats's super-effective!$"
+    .string "OAK: Don't worry, GARY.\p"
+    .string "If you go second, you'll get the\n"
+    .string "one that's super-effective!$"
 
 PalletTown_ProfessorOaksLab_Text_OakWhichOneWillYouChoose::
     .string "OAK: Now, {PLAYER}.\p"
@@ -102,8 +102,8 @@ PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet::
     .string "Don't go away yet!$"
 
 PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander::
-    .string "You're getting CHARMANDER.\n"
-    .string "Whether you like it or not.\p"
+    .string "You're getting CHARMANDER\n"
+    .string "whether you like it or not.\p"
     .string "After all, we need to sell this\n"
     .string "game to old fans somehow!$"
 
@@ -149,7 +149,7 @@ PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered::
     .string "Ah! \n"
     .string "It's the GS BALL!\p"
     .string "This will definitely be\n"
-    .string "Important and plot-relevant!$"
+    .string "important and plot-relevant!$"
 
 PalletTown_ProfessorOaksLab_Text_OakHaveRequestForYouTwo::
     .string "OAK: Oh, right!\n"
@@ -220,7 +220,7 @@ PalletTown_ProfessorOaksLab_Text_OakComeSeeMeSometime::
 
 PalletTown_ProfessorOaksLab_Text_BlankEncyclopedia::
     .string "It's like an encyclopedia.\p"
-    .string "…What, you've never seen an.\n"
+    .string "…What, you've never seen an\n"
     .string "encyclopedia that looks like this?$"
 
 PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
@@ -234,9 +234,9 @@ PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"
 
 PalletTown_ProfessorOaksLab_Text_SaveOptionInMenu::
-    .string "The SAVESTATE option is in your.\n"
+    .string "The SAVESTATE option is in your\n"
     .string "emulator.\p"
-    .string "Use it regularly!$"
+    .string "Remember to use it regularly!$"
 
 PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
     .string "All POKéMON types have strong and\n"

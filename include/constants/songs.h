@@ -353,11 +353,18 @@
 #define MUS_TRAINER_TOWER         344 // MUS_RG_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_RG_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_RG_TVNOIZE
-#define MUS_CSR_DRILL_DOZER       347 
+#define MUS_CSR_DRILL_DOZER       347
+#define MUS_CSR_FURRET            348
+#define MUS_CSR_SOOTOPOLIS            349 
+#define MUS_CSR_CERULEAN_CLUB            350
+#define MUS_CSR_CELADON_GYM            351
+#define MUS_CSR_AVGN_GYM            352
+#define MUS_CSR_STAIRS            353
+#define MUS_CSR_CASTLE            354
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_DRILL_DOZER
+#define END_MUS                     MUS_CSR_CASTLE
 
 #endif  // GUARD_CONSTANTS_SONGS_H

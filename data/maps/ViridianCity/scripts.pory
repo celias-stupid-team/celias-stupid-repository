@@ -13,6 +13,7 @@ ViridianCity_OnTransition::
 	call_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1, ViridianCity_EventScript_SetOldManStandingByRoad
 	call_if_ge VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_SetOldManNormal
 	call_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 0, ViridianCity_EventScript_TryUnlockGym
+	call SetPlayerPokedexValues
 	end
 
 ViridianCity_EventScript_SetOldManNormal::
@@ -59,6 +60,7 @@ ViridianCity_EventScript_GymDoorLocked::
 	applymovement OBJ_EVENT_ID_PLAYER, ViridianCity_Movement_GymDoor3
 	playse SE_LEDGE
 	waitmovement 0
+	call ViridianCity_Door_Logic
 	releaseall
 	end
 
@@ -369,6 +371,7 @@ ViridianCity_EventScript_DoTutorialBattle::
 	faceplayer
 	msgbox ViridianCity_Text_ThatWasEducationalTakeThis
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
+	call SetPlayerPokedexValues
 	giveitem ITEM_TEACHY_TV
 	msgbox ViridianCity_Text_WatchThatToLearnBasics
 	return
@@ -411,3 +414,24 @@ script ViridianCity_EventScript_CeliaEther {
 	end
 }
 
+script ViridianCity_EventScript_LockedDoor {
+	lock
+	msgbox("The door is locked…\n", MSGBOX_DEFAULT)
+	release
+}
+
+script ViridianCity_Door_Logic {
+	if(flag(FLAG_CSR_VIRIDIAN_DOOR_ONCE) && var(VAR_CSR_VIRIDIAN_DOOR_TWICE) == 0) {
+		setvar(VAR_CSR_VIRIDIAN_DOOR_TWICE, 1)
+		//msgbox("Setting var", MSGBOX_AUTOCLOSE)
+	} else {
+		setflag(FLAG_CSR_VIRIDIAN_DOOR_ONCE)
+		//msgbox("setting flag", MSGBOX_AUTOCLOSE)
+	}
+	return
+}
+
+script test_script {
+	msgbox("{RIVAL}\n", MSGBOX_SIGN)
+	end
+}

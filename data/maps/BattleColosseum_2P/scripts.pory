@@ -2,3 +2,459 @@ raw `
 BattleColosseum_2P_MapScripts::
 	.byte 0
 `
+script SetPlayerPokedexValues {
+	if(flag(FLAG_CSR_DEX_DUMMY)) {
+    setobtainable(SPECIES_VICTINI)
+	}
+	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
+		setobtainable(SPECIES_BULBASAUR) // 1
+	}
+	if(flag(FLAG_WORLD_MAP_PALLET_TOWN)) {
+		setobtainable(SPECIES_CHARMANDER)  // 2
+	}
+	if(flag(FLAG_WORLD_MAP_CERULEAN_CITY) || checkmoncaught(SPECIES_CHARMELEON)) {
+		setobtainable(SPECIES_CHARMELEON) // 3
+	}
+	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_CHARIZARD)) { 
+		setobtainable(SPECIES_CHARIZARD) // 4
+	}
+	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_SQUIRTLE)) { 
+		setobtainable(SPECIES_SQUIRTLE) // 5
+	}
+	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_IVYSAUR)) { 
+		setobtainable(SPECIES_IVYSAUR) // 6
+	}
+	if(flag(FLAG_WORLD_MAP_VIRIDIAN_FOREST)) {
+		setobtainable(SPECIES_CATERPIE) // 7
+	}
+	if(flag(FLAG_WORLD_MAP_VIRIDIAN_FOREST)) {
+		setobtainable(SPECIES_METAPOD) // 8
+	}
+	if(flag(FLAG_WORLD_MAP_PEWTER_CITY) && checkmoncaught(SPECIES_METAPOD)) { 
+		setobtainable(SPECIES_BUTTERFREE) // 9
+	}
+	if(var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 2) {
+		setobtainable(SPECIES_WEEDLE) // 10
+	}
+	if(flag(FLAG_CSR_HINT_FOREST_CANDIES) && checkmoncaught(SPECIES_WEEDLE)) {
+		setobtainable(SPECIES_KAKUNA) // 11
+	}
+	if((flag(FLAG_WORLD_MAP_PEWTER_CITY) && checkmoncaught(SPECIES_KAKUNA)) || checkmoncaught(SPECIES_COMBEE)) {
+		setobtainable(SPECIES_COMBEE) // 12
+	}
+	if(flag(FLAG_CSR_MAP_SKY_TOWER)) {
+		setobtainable(SPECIES_PIDGEY) // 13
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+		setobtainable(SPECIES_PIDGEOTTO) // 14
+	}
+	if(checkmoncaught(SPECIES_PIDGEOT) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_PIDGEOTTO)) {
+		setobtainable(SPECIES_PIDGEOT) // 15
+	}
+	if(flag(FLAG_WORLD_MAP_PALLET_TOWN)) {
+		setobtainable(SPECIES_RATTATA) // 16
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_MEWTWO)) { //add flag for talking to the kid
+		setobtainable(SPECIES_RATICATE) // 17
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+		setobtainable(SPECIES_MANKEY) //18 
+	}
+	if(checkmoncaught(SPECIES_PRIMEAPE) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_MANKEY)) { 
+		setobtainable(SPECIES_PRIMEAPE) // 19
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_4_FAR)) {
+		setobtainable(SPECIES_SANDSHREW) // 20
+	}
+	if(checkmoncaught(SPECIES_SANDSLASH) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_SANDSHREW)) { 
+		setobtainable(SPECIES_SANDSLASH) // 21
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_4_FAR)) {
+		setobtainable(SPECIES_EKANS) // 22
+	}
+	if(checkmoncaught(SPECIES_ARBOK) || (flag(FLAG_CSR_HINT_EVO_LEVEL)) && checkmoncaught(SPECIES_EKANS)) {
+		setobtainable(SPECIES_ARBOK) // 23
+	}
+	if(checkmoncaught(SPECIES_ARBOK)) {
+		setobtainable(SPECIES_SEVIPER) // 24
+	}
+	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
+		setobtainable(SPECIES_PIKABLU) // 25
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_10)) {
+		setobtainable(SPECIES_VOLTORB) // 26
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_10) && checkmoncaught(SPECIES_VOLTORB)) {
+		setobtainable(SPECIES_JIGGLYPUFF_ABOVE) // 27
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+		setobtainable(SPECIES_JIGGLYPUFF) // 28
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+		setobtainable(SPECIES_NIDORAN_M) // 29
+	}
+	if(checkmoncaught(SPECIES_NIDORINA) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_M))) {
+		setobtainable(SPECIES_NIDORINA) // 30
+	}
+	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_NIDORINA)) {
+		setobtainable(SPECIES_NIDOQUEEN) //31
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+		setobtainable(SPECIES_NIDORAN_F) // 32
+	}
+	if(checkmoncaught(SPECIES_NIDORINO) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_F))) {
+		setobtainable(SPECIES_NIDORINO) // 33
+	}
+	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_NIDORINO)) { 
+		setobtainable(SPECIES_NIDOKING) //34
+	}
+	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
+		setobtainable(SPECIES_CLEFAIRY) // 35
+	}
+	if(flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) { 
+		setobtainable(SPECIES_CLEFABLE) // 36
+	}
+	if(flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) { 
+		setobtainable(SPECIES_GENGAR) // 37
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
+		setobtainable(SPECIES_VULPIX) // 38
+	}
+	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_VULPIX)) { 
+		setobtainable(SPECIES_NINETALES) // 39 
+	}
+	if(flag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)) {
+		setobtainable(SPECIES_DIGLETT) // 40
+	}
+	if(flag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)) {
+		setobtainable(SPECIES_DUGTRIO) //Digletts 41
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out conditions
+		setobtainable(SPECIES_KRABBY) // 42
+	}
+	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
+		setobtainable(SPECIES_TENTACOOL) // 43
+	}
+	if(flag(FLAG_CSR_HINT_RUNNING_SHOES) && checkmoncaught(SPECIES_TENTACOOL)) {
+		setobtainable(SPECIES_TOEDSCOOL) // 44
+	}
+	if(flag(FLAG_CSR_MAP_MT_MOON_BASEMENT)) {
+		setobtainable(SPECIES_PARAS) // 45
+	}
+	if(flag(FLAG_CSR_SUN_STONE_FOUND) && checkmoncaught(SPECIES_PARAS)) {
+		setobtainable(SPECIES_PARASECT) // 46
+	}
+	if(flag(FLAG_CSR_MAP_BALL_SHOP)) {
+		setobtainable(SPECIES_AMOONGUSS) // 47
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_4_CENTER)) {
+		setobtainable(SPECIES_GYARADOS) // 48
+	}
+	if(flag(FLAG_BOUGHT_GYARADOS)) { 
+		setobtainable(SPECIES_MAGIKARP) // 49
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_11)) {
+		setobtainable(SPECIES_CUBONE) // 50 
+	}
+	if(checkmoncaught(SPECIES_CUBONE)) {
+		setobtainable(SPECIES_MAROWAK) // 51
+	}
+	if(flag(FLAG_GOT_OLD_ROD)) {
+		setobtainable(SPECIES_POLIWAG) // 52 
+	}
+	if(checkmoncaught(SPECIES_POLIWAG)) {
+		setobtainable(SPECIES_TENTAQUIL) // 53
+	}
+	if(flag(FLAG_CSR_MAP_SOOTOPOLIS)) {
+		setobtainable(SPECIES_GOLDUCK) //The blue one 54
+	}
+	if(checkmoncaught(SPECIES_GOLDUCK)) {
+		setobtainable(SPECIES_PSYDUCK) //The yellow one 55
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_24_FAR)) {
+		setobtainable(SPECIES_ABRA) // 56
+	}
+	if(flag(FLAG_CSR_HINT_MISSINGNO)) {
+		setobtainable(SPECIES_MISSINGNO) // 57
+	}
+	if(flag(FLAG_CSR_HINT_ABRA_TRADE) && checkmoncaught(SPECIES_MR_MIME)) {
+		setobtainable(SPECIES_ALAKAZAM) // 58
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //if got Brick Break
+		setobtainable(SPECIES_KANGASKHAN) // 59 
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_11) && flag(FLAG_DID_FARFETCHD_TRADE)) {
+		setobtainable(SPECIES_UNOWN_LOSS) // 60 
+	}
+	if(flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA)) { //farfetched and (return to viridian or talk to guard)
+		setobtainable(SPECIES_KENYA) // 61
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_7)) {
+		setobtainable(SPECIES_DODUO) // 62
+	}
+	if(checkmoncaught(SPECIES_DODUO)) { //and Has Doduo
+		setobtainable(SPECIES_HITMONCHAN_SHIT) // 63
+	}
+	if(flag(FLAG_CSR_MAP_PRIZE_EXCHANGE) && flag(FLAG_DID_RAICHU_TRADE)) {
+		setobtainable(SPECIES_PORYGON) // 64
+	}
+	if(flag(FLAG_CSR_HINT_PHISHING) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_PORYGON) && flag(FLAG_CSR_HINT_SPAM)) { //and if Porygon
+		setobtainable(SPECIES_PORYGON_Z) // 65 
+	}
+	if(flag(FLAG_CSR_MAP_CAVE_OF_ORIGIN)) {
+		setobtainable(SPECIES_ONIX) // 66
+	}
+	if(flag(FLAG_CSR_MAP_CAVE_OF_ORIGIN)) {
+		setobtainable(SPECIES_CLOYSTER) // 67
+	}
+	if(flag(FLAG_CSR_HINT_LICKITUNG) && checkmoncaught(SPECIES_ONIX) && checkmoncaught(SPECIES_CLOYSTER)) { //if talked to Licky Trade AND (Onix OR Cloyster)
+		setobtainable(SPECIES_LICKITUNG) // 68
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_24_FAR)) {
+		setobtainable(SPECIES_BELLSPROUT) // 69
+	}
+	if(checkmoncaught(SPECIES_CHERUBI) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_BELLSPROUT)) { //and got Bellsprout
+		setobtainable(SPECIES_CHERUBI) // 70
+	}
+	if(flag(FLAG_CSR_HINT_MOVE_REMINDER)) {
+		setobtainable(SPECIES_ODDISH) // 71
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) {
+		setobtainable(SPECIES_ZUBAT) // 72
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) {
+		setobtainable(SPECIES_GOLBAT) // 73
+	}
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) {
+		setobtainable(SPECIES_HORSEA) // 74
+	}
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) { 
+		setobtainable(SPECIES_DRAGONITE) // 75
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_YOSHI) // 76
+	}
+	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)) {
+		setobtainable(SPECIES_REMORAID) // 77
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) {
+		setobtainable(SPECIES_HAUNTER) // 78 
+	}
+	if(flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) {
+		setobtainable(SPECIES_MAGNEMITE)  // 79
+	}
+	if(flag(FLAG_CSR_HINT_MAGNALONE) && checkmoncaught(SPECIES_MAGNEMITE)) { //and if Magnemite
+		setobtainable(SPECIES_MAGNALONE) // 80
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_ALCREMIE) // 81
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_SLOWPOKE) // 82
+	}
+	if(flag(FLAG_CSR_HINT_OCEAN_FISHING) && flag(FLAG_GOT_OLD_ROD)) { //TODO figure out this logic
+		setobtainable(SPECIES_SHELLDER) // 83
+	}
+	if(flag(FLAG_CSR_HINT_OCEAN_FISHING) && checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
+		setobtainable(SPECIES_SLOWBRO) // 84
+	}
+	if(flag(FLAG_CSR_MAP_MINNESOTA)) {
+		setobtainable(SPECIES_SEEL) // 85
+	}
+	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
+		setobtainable(SPECIES_PLUG_OINK) // 86
+	}
+	if(flag(FLAG_CSR_MAP_EEVEE_ROOM)) {
+		setobtainable(SPECIES_EEVEE) // 87
+	}
+	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_EEVEE)) { // and Got Eevee
+		setobtainable(SPECIES_LUMINEON) // 88
+	}
+	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_EEVEE)) { // and if Eevee
+		setobtainable(SPECIES_SYLVEON) // 89
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_EEVEE)) {
+		setobtainable(SPECIES_LATIAS) // 90
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
+		setobtainable(SPECIES_EXEGGCUTE) // 91
+	}
+	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) { // and if Exeggcute
+		setobtainable(SPECIES_SPEAROW) // 92
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
+		setobtainable(SPECIES_EXEGGUTOR) // 93
+	}
+	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) { //and if Exeggcute
+		setobtainable(SPECIES_FARFETCHD) // 94
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_16_FAR)) {
+		setobtainable(SPECIES_GOLURK) // 95
+	}
+	if(flag(FLAG_HIDE_SILPH_RIVAL)) { // 
+		setobtainable(SPECIES_BIDOOF) // 96
+	}
+	if(flag(FLAG_CSR_HINT_PEWTER_GRASS) && checkmoncaught(SPECIES_COMBEE)) { //and if Combee
+		setobtainable(SPECIES_GRIMER) // 97
+	}
+	if(flag(FLAG_CSR_HINT_REVEAL_GLASS)) { //and if Grimer
+		setobtainable(SPECIES_MUK) // 98
+	}
+	if(flag(FLAG_CSR_GOT_PAY_DAY)) {
+		setobtainable(SPECIES_GIMMIGHOUL) // 99
+	}
+	if(flag(FLAG_CSR_GOT_PAY_DAY) && checkmoncaught(SPECIES_GIMMIGHOUL)) {
+		setobtainable(SPECIES_GHOLDENGO) // 100
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_AMPHAROS_MEGA) // 101
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_AMPHAROS) // 102
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_SMEARGLE) // 103
+	}
+	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) { 
+		setobtainable(SPECIES_GOLDEEN) // 104
+	}
+	if(checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
+		setobtainable(SPECIES_SEAKING) // 105
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+		setobtainable(SPECIES_MACHOKE) // 106
+	}
+	if(flag(FLAG_CSR_HINT_ARMS_TRADE) && checkmoncaught(SPECIES_MACHOKE)) { 
+		setobtainable(SPECIES_MACHAMP) // 107
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { 
+		setobtainable(SPECIES_GEODUDE) // 108
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_GEODUDE)) { 
+		setobtainable(SPECIES_GRAVELER) // 109
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && flag(FLAG_CSR_HINT_ARMS_TRADE) && checkmoncaught(SPECIES_GRAVELER) && checkmoncaught(SPECIES_MACHAMP)) { 
+		setobtainable(SPECIES_GOLEM) // 110
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
+		setobtainable(SPECIES_STARMIE) // 111
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_MEOWTH)) { //talk to the trade girl I guess
+		setobtainable(SPECIES_RAICHU) // 112
+	}
+	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
+		setobtainable(SPECIES_MEOWTH) // 113
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
+		setobtainable(SPECIES_TANGELA) // 114
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && flag(FLAG_CSR_HINT_TANGELA_HAIRCUT) && checkmoncaught(SPECIES_TANGELA)) { //and if Tangela
+		setobtainable(SPECIES_TRUBBISH_HAIRCUT) // 115
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
+		setobtainable(SPECIES_VENONAT) // 116
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
+		setobtainable(SPECIES_HITMONCHIN) // 117 
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { // and if Persian
+		setobtainable(SPECIES_RHYDON) // 118
+	}
+	if(flag(FLAG_CSR_HINT_GYM_STATUES)) {
+		setobtainable(SPECIES_PERSIAN) // 119
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_LUVDISC) // 120
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ALOMOMOLA) // 121
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_MR_MIME) // 122
+	}
+	if(flag(FLAG_CSR_MAP_CERULEAN_GYM)) {
+		setobtainable(SPECIES_SCYTHER) // 123
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_JYNX) // 124
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_PINSIR) // 125
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_TAUROS) // 126
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_CHANSEY) // 127
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_DACHSBUN) // 128
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ORTHWORM) // 129
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_OMANYTE) // 130
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_TYRANASTAR) // 131
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_YANMEGA) // 132
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_KABUTOPS) // 133
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_GENESECT) // 134
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_JIRACHI) // 135
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ARTICUNO) // 136
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_VAPOREON) // 137
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ZAPDOS) // 138
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_JOLTEON) // 139
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_MOLTRES) // 140 
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_FLAREON) // 141
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_PHIONE) // 142
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ETERNATUS) // 143
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT)) { //TODO figure out logic
+		setobtainable(SPECIES_ZYGARDE) // 144
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_MELMETAL) // 145
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_ARCANINE) // 146
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_POKEMON_GUN) // 147
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_DITTO_MEW) // 148
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_MEWTWO) // 150
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_CASTFORM) // 151
+	}
+return
+}

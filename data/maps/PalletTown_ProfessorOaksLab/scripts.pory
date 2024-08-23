@@ -63,7 +63,7 @@ PalletTown_ProfessorOaksLab_OnFrame::
 PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene:: @ 8169002 
 	lockall
 	setvar VAR_FACING, DIR_NORTH
-	textcolor NPC_TEXT_COLOR_MALE
+	textcolor NPC_TEXT_COLOR_TREE
 	applymovement LOCALID_PROF_OAK, PalletTown_ProfessorOaksLab_Movement_OakEnter
 	waitmovement 0
 	removeobject LOCALID_PROF_OAK
@@ -224,12 +224,15 @@ PalletTown_ProfessorOaksLab_ChooseStarterScene::
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalFedUpWithWaiting
 	closemessage
 	delay 60
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakThreeMonsChooseOne
 	closemessage
 	delay 30
 	applymovement LOCALID_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalReact
 	waitmovement 0
+	textcolor NPC_TEXT_COLOR_MALE
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalNoFairWhatAboutMe
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakBePatientRival
 	setvar VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2
 	releaseall
@@ -1101,18 +1104,21 @@ PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice::
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingBulbasaur, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingSquirtle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander::
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakChoosingCharmander, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter
 	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter
@@ -1130,9 +1136,10 @@ PalletTown_ProfessorOaksLab_EventScript_ChoseStarter::
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_PALLET_LADY_NOT_BLOCKING_SIGN
-	givemon PLAYER_STARTER_SPECIES, 5
+	givemon PLAYER_STARTER_SPECIES, 4
 	copyvar VAR_STARTER_MON, PLAYER_STARTER_NUM
 	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
+	textcolor NPC_TEXT_COLOR_NEUTRAL
 	message PalletTown_ProfessorOaksLab_Text_ReceivedMonFromOak
 	waitmessage
 	playfanfare MUS_OBTAIN_KEY_ITEM
@@ -1238,7 +1245,7 @@ PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1::
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 0
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
 	setvar RIVAL_STARTER_ID, 5
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
@@ -1251,8 +1258,8 @@ PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2::
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 1
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
-	setvar RIVAL_STARTER_ID, 7
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
 	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
@@ -1264,8 +1271,8 @@ PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3::
 	faceplayer
 	setvar PLAYER_STARTER_NUM, 2
 	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_WARTORTLE
-	setvar RIVAL_STARTER_ID, 6
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
 	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
 	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
 	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
@@ -1340,7 +1347,8 @@ PalletTown_ProfessorOaksLab_EventScript_RightSignAlt::
 
 script PalletTown_ProfessorOaksLab_EventScript_Psyduck {
 	lock
-	msgbox(format("I study AIDS as PROF. OAK's POKéMON."), MSGBOX_AUTOCLOSE)
+	faceplayer
+	msgbox(format("I study AIDS as PROF. OAK's\nPOKéMON."), MSGBOX_AUTOCLOSE)
 	release
 }
 
@@ -1364,4 +1372,14 @@ script PalletTown_EventScript_GS_BALL {
 		//TODO Oak says "Hey that's mine"
 	}
 	release
+}
+
+script PalletTown_EventScript_HobbyistReactor {
+	if(flag(FLAG_BEAT_RIVAL_IN_OAKS_LAB)) {
+		msgbox("It's a hobbyist nuclear reactor,\nbut it seems to be malfunctioning.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("It appears to be a hobbyist nuclear\nreactor.", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }

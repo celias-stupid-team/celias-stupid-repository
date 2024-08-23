@@ -9,6 +9,7 @@ PewterCity_MapScripts::
 
 PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
+	call SetPlayerPokedexValues
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
 	end
 
@@ -614,17 +615,11 @@ PewterCity_Movement_MuseumGuideExit::
 	walk_right
 	step_end
 
-PewterCity_EventScript_FatMan::
-	lock
-	faceplayer
-	famechecker FAMECHECKER_BROCK, 2
-	msgbox PewterCity_Text_BrockOnlySeriousTrainerHere
-	release
-	end
-
 PewterCity_EventScript_BugCatcher::
 	lock
 	faceplayer
+	setflag FLAG_CSR_HINT_PEWTER_GRASS
+	call SetPlayerPokedexValues
 	msgbox PewterCity_Text_DoYouKnowWhatImDoing, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PewterCity_EventScript_KnowWhatTheyreDoing
 	msgbox PewterCity_Text_SprayingRepelToKeepWildMonsOut
@@ -850,6 +845,18 @@ PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
 `
+script PewterCity_MapScript_SetObtainable {
+	//if pokedex(SPECIES_KAKUNA) {
+		//setobtainable(SPECIES_COMBEE)
+	//}
+	//if pokedex(SPECIES_COMBEE) {
+		//setobtainable(SPECIES_GRIMER)
+	//}
+	//if pokedex(SPECIES_METAPOD) {
+		//setobtainable(BUTTERFREE)
+	//}
+}
+
 script PewterCity_EventScript_CeliaPuzzle {
 	msgbox("And here we get to the first part\nof the game with REAL puzzles!\pThis is the point where you either\nthink outside the box or give up.\pEither way, you're not brute forcing\nyou way through any of this.", MSGBOX_NPC)
 	end
@@ -912,5 +919,10 @@ script PewterCity_EventScript_CeliaMoon {
 
 script PewterCity_EventScript_HeMissed {
 	msgbox("He missed.\n", MSGBOX_SIGN)
+	end
+}
+
+script PewterCity_EventScript_FatMan {
+	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 	end
 }

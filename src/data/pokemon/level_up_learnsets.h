@@ -52,12 +52,12 @@ static const u16 sVenusaurLevelUpLearnset[] = {
 };
 
 static const u16 sCharmanderLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_SCRATCH),
     LEVEL_UP_MOVE(1, MOVE_GROWL),
-    LEVEL_UP_MOVE(7, MOVE_EMBER),
-    LEVEL_UP_MOVE(13, MOVE_METAL_CLAW),
-    LEVEL_UP_MOVE(19, MOVE_SMOKESCREEN),
-    LEVEL_UP_MOVE(25, MOVE_SCARY_FACE),
+    LEVEL_UP_MOVE(1, MOVE_SCRATCH),
+    LEVEL_UP_MOVE(5, MOVE_WATER_GUN),
+    LEVEL_UP_MOVE(6, MOVE_EMBER),
+    LEVEL_UP_MOVE(13, MOVE_DOUBLE_KICK),
+    LEVEL_UP_MOVE(15, MOVE_SCARY_FACE),
     LEVEL_UP_MOVE(31, MOVE_FLAMETHROWER),
     LEVEL_UP_MOVE(37, MOVE_SLASH),
     LEVEL_UP_MOVE(43, MOVE_DRAGON_RAGE),
@@ -114,19 +114,7 @@ static const u16 sSquirtleLevelUpLearnset[] = {
 };
 
 static const u16 sWartortleLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_TACKLE),
-    LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
-    LEVEL_UP_MOVE(1, MOVE_BUBBLE),
-    LEVEL_UP_MOVE(4, MOVE_TAIL_WHIP),
-    LEVEL_UP_MOVE(7, MOVE_BUBBLE),
-    LEVEL_UP_MOVE(10, MOVE_WITHDRAW),
-    LEVEL_UP_MOVE(13, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE(19, MOVE_BITE),
-    LEVEL_UP_MOVE(25, MOVE_RAPID_SPIN),
-    LEVEL_UP_MOVE(31, MOVE_PROTECT),
-    LEVEL_UP_MOVE(37, MOVE_RAIN_DANCE),
-    LEVEL_UP_MOVE(45, MOVE_SKULL_BASH),
-    LEVEL_UP_MOVE(53, MOVE_HYDRO_PUMP),
+    LEVEL_UP_MOVE(1, MOVE_HYPER_BEAM),
     LEVEL_UP_END
 };
 
@@ -245,14 +233,8 @@ static const u16 sPidgeotLevelUpLearnset[] = {
 };
 
 static const u16 sRattataLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_TACKLE),
-    LEVEL_UP_MOVE(1, MOVE_TAIL_WHIP),
-    LEVEL_UP_MOVE(7, MOVE_QUICK_ATTACK),
-    LEVEL_UP_MOVE(13, MOVE_HYPER_FANG),
-    LEVEL_UP_MOVE(20, MOVE_FOCUS_ENERGY),
-    LEVEL_UP_MOVE(27, MOVE_PURSUIT),
-    LEVEL_UP_MOVE(34, MOVE_SUPER_FANG),
-    LEVEL_UP_MOVE(41, MOVE_ENDEAVOR),
+    LEVEL_UP_MOVE(1, MOVE_QUICK_ATTACK),
+    LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
     LEVEL_UP_END
 };
 
@@ -381,7 +363,7 @@ static const u16 sSandslashLevelUpLearnset[] = {
 
 static const u16 sNidoranFLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_GROWL),
-    LEVEL_UP_MOVE(1, MOVE_SCRATCH),
+    LEVEL_UP_MOVE(1, MOVE_POISON_STING),
     LEVEL_UP_MOVE(8, MOVE_TAIL_WHIP),
     LEVEL_UP_MOVE(12, MOVE_DOUBLE_KICK),
     LEVEL_UP_MOVE(17, MOVE_POISON_STING),
@@ -8815,5 +8797,90 @@ static const u16 sMiraidonLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };
+
+static const u16 sJigglypuff_AboveLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sTentaquilLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sMissingnoLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sKenyaLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sHitmonchan_ShitLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sHitmonchinLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sTrubbish_HaircutLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sAmpharos_MegaLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sYoshiLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sDitto_MewLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sUnown_LossLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sMagnaloneLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sTyranastarLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sPokemon_GunLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sPlug_OinkLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+static const u16 sPikabluLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const u16 sRattata_ShinyLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
 
 
