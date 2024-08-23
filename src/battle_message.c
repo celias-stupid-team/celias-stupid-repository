@@ -515,8 +515,8 @@ const u8 gText_InflictingDamageIsKey[] = _("OAK: Grr, there they go again.\pHold
 const u8 gText_LoweringStats[] = _("OAK: Hey! Don't make too much\nnoise!\pThe vibrations are messing with\nthe circuitry!\p");
 const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\pIt will faint if the HP drops to\n“0.”\p");
 const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think RUNNING turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
-const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
-const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {PLAYER}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
+const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
+const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
@@ -2111,11 +2111,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-                    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_EARLY
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_LATE
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
-                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL);
-                    else
+
                         toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
                 }
                 break;

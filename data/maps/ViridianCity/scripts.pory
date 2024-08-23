@@ -430,3 +430,8 @@ script ViridianCity_Door_Logic {
 	}
 	return
 }
+
+script test_script {
+	msgbox("{RIVAL}\n", MSGBOX_SIGN)
+	end
+}

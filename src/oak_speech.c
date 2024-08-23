@@ -1593,8 +1593,8 @@ static void Task_OakSpeech_LetsGo(u8 taskId)
 {
     if (gTasks[taskId].tTrainerPicFadeState != 0)
     {
-        // always set rival name to GARY
-        StringCopy(gSaveBlock1Ptr->rivalName, sRivalNameChoices[0]);
+        // DO NOT set rival name to Gary because that's gonna make debugging a nightmare :p
+        // Also cuz I wanna use the name the player inputs later in the game
         StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_LetsGo);
         OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
         gTasks[taskId].tTimer = 30;
