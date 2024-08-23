@@ -5281,7 +5281,17 @@ u16 SpeciesToCryId(u16 species)
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;
 
-    return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];
+    if (species < SPECIES_SNIVY - 1)
+        return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Unova
+    
+    if (species < SPECIES_VOLCANION - 1)
+        return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)]; //Alola
+    
+    if (species < SPECIES_SPRIGATITO - 1)
+        return sAlolaSpeciesIdToCryId[species - ((SPECIES_HOOPA + 1) - 1)]; //Paldea
+    
+    return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS + 1) - 1)]; //Paldea
+    
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3

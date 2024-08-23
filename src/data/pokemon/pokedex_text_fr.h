@@ -425,8 +425,8 @@ const u8 gVictreebelPokedexTextUnused[] = _("");
 
 const u8 gTentacoolPokedexText[] = _(
 	"We've heard your complaints and are\n"
-	"happy to report that TENTACOOL no longer\n"
-	"appears on WATER routes.");
+	"happy to report that TENTACOOL no\n"
+	"longer appears on WATER routes.");
 
 const u8 gTentacoolPokedexTextUnused[] = _("");
 
