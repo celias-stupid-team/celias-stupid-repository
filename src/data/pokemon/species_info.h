@@ -560,7 +560,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_RATTATA] =
     {
         .baseHP = 15,
-        .baseAttack = 56,
+        .baseAttack = 81,
         .baseDefense = 15,
         .baseSpeed = 72,
         .baseSpAttack = 25,
@@ -581,7 +581,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_RUN_AWAY, ABILITY_GUTS},
+        .abilities = {ABILITY_RUN_AWAY, ABILITY_RUN_AWAY},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,

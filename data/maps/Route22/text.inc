@@ -11,7 +11,7 @@ Route22_Text_EarlyRivalIntro::
 
 Route22_Text_EarlyRivalDefeat::
 	.string "Awww!\n"
-	.string "You just lucked with that FOCUS BAND!$"
+	.string "You just lucked with that FOCUS SASH!$"
 
 Route22_Text_EarlyRivalPostBattle::
 	.string "LARRY: I thought for sure that\n"
@@ -19,6 +19,10 @@ Route22_Text_EarlyRivalPostBattle::
 	.string "Stupid rat!\p"
 	.string "…Huh? GARY? Who's that?\p"
 	.string "My name is LARRY!$"
+
+Route22_Text_LarryVictory::
+	.string "LARRY: Yeah!\n"
+	.string "Am I great or what?$"
 
 @ Translated in RB as "{RIVAL}: What? Why do I have 2 POKéMON? You should catch some more too!"
 Route22_Text_RivalShouldCatchSomeMons::

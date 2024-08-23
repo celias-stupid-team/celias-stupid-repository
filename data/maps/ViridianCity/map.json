@@ -395,21 +395,11 @@
     },
     {
       "type": "hidden_item",
-      "x": 37,
-      "y": 18,
-      "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
       "x": 51,
       "y": 13,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1",
+      "item": "ITEM_ETHER",
+      "flag": "FLAG_CSR_VIRIDIAN_HIDDEN_ETHER",
       "quantity": 1,
       "underfoot": false
     }

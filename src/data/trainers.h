@@ -13,7 +13,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_RivalOaksLabSquirtle),
     },
     [TRAINER_RIVAL_LARRY] = {
-        .trainerClass = TRAINER_CLASS_RIVAL_EARLY,
+        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_RIVAL_EARLY,
         .trainerName = _("LARRY"),
