@@ -59,3 +59,23 @@ script Route4_EventScript_MinusSitrusBerries {
 	}
 	release
 }
+
+script Route4_Celia_TMGuy {
+	msgbox("For a while, this guy directly\nsaid “Use a TM!”\pI didn't like that cuz it made the\nsolution WAY too obvious.\lBut without him, people got stuck.", MSGBOX_NPC)
+	end
+}
+
+script Route4_Celia_MtMoon {
+	msgbox("Ah, MT. MOON.\pBy far the single hardest part of\nthis hack to get right for me.\pAnd also, the sole reason why I\nwill never try putting a dungeon in\lthis hack again!\pMaking the tentacools sufficiently\nannoying but not infuriating was\lone hell of a balancing act.\pPlus, the fight with the boss at the\nend was so hard to design!\pI'm pretty happy with how it landed\nin the end, but it took a lot of\lwork to get here.", MSGBOX_NPC)
+	end
+}
+
+script Route4_Celia_Berries {
+	msgbox("This bit is, like, the pure essence\nof this hack.\pIt /qohurts/qc you, but it's not\nlike you actually ever used the\lSitrus Berries anyway.\pSo it's only really mean if you\nlook at the principle of it.\lThe player isn't actually hurt.", MSGBOX_NPC)
+	end
+}
+
+script Route4_Celia_Picknicker {
+	msgbox("That trainer there is a LASS in\nvanilla.\pI needed to swap her out for a\nPICKNICKER so it wouldn't mess\lwith my Lass running gag.", MSGBOX_NPC)
+	end
+}

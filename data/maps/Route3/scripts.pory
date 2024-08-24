@@ -118,6 +118,21 @@ script Route3_Far_SetDex {
 	release
 }
 
+script Route3_EventScript_Celia_Wurmple {
+	msgbox("It took me WAY too long to give\nthis guy a Wurmple.\lIdk why.", MSGBOX_NPC)
+	end
+}
+
+script Route3_EventScript_Celia_Lass2 {
+	msgbox("In the Beta, the LASS that attacks\nyou here would randomly teleport.\pI could never figure out why or how,\nso I just ignored it in the demo.\lNow she works much better.\pBy the way! You can walk through\nthe wall here!\pI'm sure the Celia's Stupid Romhack\nspeedrunners will apprecaite that.", MSGBOX_NPC)
+	end
+}
+
+script Route3_EventScript_Celia_PuffSign {
+	msgbox("I couldn't decide if I should write\nthis Route as 1 or 2 new mons.\pWhichever way I chose, it would\nconfuse people cuz Puff was static.\pThus, I decided to make a joke\nout of it to make sure it was clear!", MSGBOX_NPC)
+	end
+}
+
 movement Lass_Player_Start {
 	
 	delay_16 * 5

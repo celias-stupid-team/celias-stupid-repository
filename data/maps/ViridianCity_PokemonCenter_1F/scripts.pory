@@ -48,7 +48,7 @@ script EventScript_PkmnCenterNurse {
 						call(EventScript_PkmnCenterNurse_HealPkmn)
 						
 					default:
-							msgbox("Okay, that's what I thought.\n", MSGBOX_DEFAULT)
+						msgbox("Okay, that's what I thought.\n", MSGBOX_DEFAULT)
 						call(EventScript_PkmnCenterNurse_Goodbye)
 				}
 			default:
