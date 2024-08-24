@@ -14,7 +14,7 @@ gNameChoice_Fire::
     .string " $"
 
 gNameChoice_Gar::
-    .string " $"
+    .string "ASSHAT$"
 
 gNameChoice_Gary::
     .string "GARY$"
@@ -126,6 +126,9 @@ gNameChoice_Momo::
 
 gNameChoice_Suzi::
     .string " $"
+
+gNameChoice_Asshat:
+    .string "ASSHAT$"
 
 gControlsGuide_Text_Intro::
     .string "The various shortcuts will be explained in\n"
