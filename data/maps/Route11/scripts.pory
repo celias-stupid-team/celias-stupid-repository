@@ -6,3 +6,44 @@ Route11_EventScript_DiglettsCaveSign::
 	msgbox Route11_Text_DiglettsCave, MSGBOX_SIGN
 	end
 `
+script Route11_Man1 {
+	trainerbattle_single(TRAINER_YOUNGSTER_EDDIE, Route11_Text_Man, Route11_Text_DirkDefeat)
+	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
+}
+
+script Route11_Man2 {
+	trainerbattle_single(TRAINER_GAMER_DARIAN, Route11_Text_Man, Route11_Text_EddieDefeat)
+	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
+}
+script Route11_Receptionist {
+	trainerbattle_single(TRAINER_YOUNGSTER_YASU, Route11_Text_Receptionist, Route11_Text_YasuDefeat)
+	msgbox(Route11_Text_Receptionist, MSGBOX_AUTOCLOSE)
+}
+
+script Route11_Man3 {
+	trainerbattle_single(TRAINER_YOUNGSTER_DAVE, Route11_Text_Man, Route11_Text_DarianDefeat)
+	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
+}
+script Route11_Doctor {
+	trainerbattle_single(TRAINER_YOUNGSTER_DILLON, Route11_Text_Doctor, Route11_Text_DillonDefeat)
+	msgbox(Route11_Text_Doctor, MSGBOX_AUTOCLOSE)
+}
+
+script Route11_Man4 {
+	trainerbattle_single(TRAINER_GAMER_JASPER, Route11_Text_Man, Route11_Text_JasperDefeat)
+	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
+}
+script Route11_Miscarriage {
+	trainerbattle_single(TRAINER_GAMER_DIRK, Route11_Text_Man, Route11_Text_DaveDefeat)
+	msgbox(Route11_Text_Miscarriage, MSGBOX_AUTOCLOSE)
+}
+
+script Route11_Celia_Loss {
+	msgbox("The Loss route will never not be\nfunny.", MSGBOX_NPC)
+	call(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script Route11_Celia_LossEnd {
+	msgbox("I don't wanna make a “Celia\nLaying Down” sprite.", MSGBOX_NPC)
+	call(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
