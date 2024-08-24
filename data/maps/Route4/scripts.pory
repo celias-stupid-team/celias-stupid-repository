@@ -1,6 +1,6 @@
 raw `
 Route4_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION Route4_MapScripts
+	map_script MAP_SCRIPT_ON_TRANSITION Route4_TransitionScripts
 	.byte 0
 
 Route4_EventScript_Unused::
@@ -18,7 +18,7 @@ Route4_EventScript_RouteSign::
 	msgbox Route4_Text_RouteSign, MSGBOX_SIGN
 	end
 `
-script Route4_MapScripts {
+script Route4_TransitionScripts {
 	setbench(BENCH_ROUTE4)
 	call(SetPlayerPokedexValues)
 }

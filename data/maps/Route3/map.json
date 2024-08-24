@@ -205,7 +205,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route_3_EventScript_CSR_OddCandy",
+      "script": "Route_3_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_ROUTE_3_CANDY"
     },
     {

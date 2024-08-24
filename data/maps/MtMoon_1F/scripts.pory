@@ -147,12 +147,12 @@ script MtMoon_Celia_Picknicker {
 }
 
 script MtMoon_Celia_Drought {
-	msgbox("The only reason this area has grass\nand water is because in vanilla,\lthere's no Drought sun weather.\pThus, if I wanted it to be sunny I\nhad to use the "Cloud reflecting in\lpond water" weather effect.\pNow that we're in decomp, I can add\nthe intense sunlight myself!\pHowever, it does make it slightly\nstrange that there's water now.\pOh well.\n", MSGBOX_NPC)
+	msgbox("The only reason this area has grass\nand water is because in vanilla,\lthere's no Drought sun weather.\pThus, if I wanted it to be sunny I\nhad to use the “Cloud reflecting in\lpond water” weather effect.\pNow that we're in decomp, I can add\nthe intense sunlight myself!\pHowever, it does make it slightly\nstrange that there's water now.\pOh well.\n", MSGBOX_NPC)
 	end
 }
 
 script MtMoon_Celia_Mushrooms {
-	msgbox("The number of fucking streamers who\nread this guy's initial "I'm\llooking for mushrooms, but…" and\lthen DON'T FUCKING READ THE SECOND\lHALF OF HIS DIALOGUE WHERE HE\lACTUALLY ELABORATES ON IT\land then proceed to get mad and\lcall him stupid?\pHoly shit it drives me crazy.\n", MSGBOX_NPC)
+	msgbox("The number of fucking streamers who\nread this guy's initial “I'm\llooking for mushrooms, but…” and\lthen DON'T FUCKING READ THE SECOND\lHALF OF HIS DIALOGUE WHERE HE\lACTUALLY ELABORATES ON IT\land then proceed to get mad and\lcall him stupid?\pHoly shit it drives me crazy.\n", MSGBOX_NPC)
 	end
 }
 

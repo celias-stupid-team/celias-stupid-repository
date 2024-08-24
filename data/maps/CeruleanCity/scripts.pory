@@ -359,6 +359,11 @@ script CeruleanCity_PlayRoute24Music {
 	release
 }
 
+script CeruleanCity_BerryPowderMan {
+	msgbox("Home of the BERRY POWDER MAN\pNotice!\pSadly, nobody cared about the\nBERRY POWDER MAN, so he died.", MSGBOX_SIGN)
+	end
+}
+
 script CeruleanCity_PlayCeruleanMusic {
 	playbgm(MUS_FUSHCIA, TRUE)
 	release

@@ -2,6 +2,7 @@ raw `
 .equ LOCALID_ROCKET, 1
 
 Route24_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION Route24_TransitionScripts
 	.byte 0
 
 Route24_EventScript_Rocket::
@@ -99,6 +100,11 @@ Route24_Movement_WalkDown::
 	walk_down
 	step_end
 `
+script Route24_TransitionScripts {
+	setbench(BENCH_ROUTE24)
+	call(SetPlayerPokedexValues)
+}
+
 script Route24_EventScript_CheckParty {
 	getpartysize
 	if(var(VAR_RESULT) == 1) {

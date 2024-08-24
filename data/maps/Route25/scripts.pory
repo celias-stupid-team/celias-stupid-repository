@@ -1,5 +1,6 @@
 raw `
 Route25_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION Route25_TransitionScripts
 	.byte 0
 
 Route25_EventScript_SeaCottageSign::
@@ -10,3 +11,7 @@ Route25_EventScript_Man::
 	msgbox Route25_Text_AreYouHereAlone, MSGBOX_NPC
 	end
 `
+script Route25_TransitionScripts {
+	setbench(BENCH_ROUTE25)
+	call(SetPlayerPokedexValues)
+}

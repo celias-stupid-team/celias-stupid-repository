@@ -1,6 +1,6 @@
 raw `
 Route3_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION Route3_MapScripts
+	map_script MAP_SCRIPT_ON_TRANSITION Route3_TransitionScripts
 	.byte 0
 
 Route3_EventScript_Youngster::
@@ -11,7 +11,7 @@ Route3_EventScript_RouteSign::
 	msgbox Route3_Text_RouteSign, MSGBOX_SIGN
 	end
 `
-script Route3_MapScripts {
+script Route3_TransitionScripts {
 	setbench(BENCH_PEWTER)
 	call(SetPlayerPokedexValues)
 }

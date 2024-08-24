@@ -298,12 +298,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_CATERPIE] =
     {
-        .baseHP = 45,
+        .baseHP = 20,
         .baseAttack = 30,
         .baseDefense = 35,
         .baseSpeed = 45,
         .baseSpAttack = 20,
-        .baseSpDefense = 20,
+        .baseSpDefense = 5,
         .types = {TYPE_BUG, TYPE_BUG},
         .catchRate = 255,
         .expYield = 53,
@@ -12074,7 +12074,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseAttack = 30,
         .baseDefense = 42,
         .baseSpeed = 70,
-        .baseSpAttack = 30,
+        .baseSpAttack = 255,
         .baseSpDefense = 42,
         .types = {TYPE_BUG, TYPE_FLYING},
         .catchRate = 255,
