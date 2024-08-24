@@ -271,6 +271,7 @@ script Route22_EventScript_RouteSign {
 }
 
 script Route22_MapScripts_SetDexMons {
+	setbench(BENCH_ROUTE1)
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setflag(FLAG_CSR_MAP_ROUTE_22)
 		call(SetPlayerPokedexValues)

@@ -1,5 +1,6 @@
 raw `
 CeruleanCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION CeruleanClub_MapScripts
 	.byte 0
 
 CeruleanCity_Gym_EventScript_Misty::
@@ -70,6 +71,18 @@ CeruleanCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script CeruleanClub_MapScripts {
+	setbench(BENCH_CERULEAN_CLUB)
+	setflag(FLAG_CSR_MAP_CERULEAN_GYM)
+	call(SetPlayerPokedexValues)
+}
+
+script CeruleanClub_UpdateBench {
+	setbench(BENCH_CERULEAN)
+}
+
+
+
 script CeruleanCity_Gym_EventScript_PsychicTrainer {
 	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_PsychicTrainerIntro, CeruleanCity_Gym_Text_PsychicTrainerDefeat)
 	msgbox(("Where's MISTY?\nShe's in the back room.\pThey say she was actually banned\nfrom TCG tournaments.\lI wonder why!"), MSGBOX_DEFAULT)

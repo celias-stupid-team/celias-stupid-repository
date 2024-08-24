@@ -215,7 +215,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanClub_UpdateBench"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanClub_UpdateBench"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanClub_UpdateBench"
+    }
   ],
   "bg_events": [
     {

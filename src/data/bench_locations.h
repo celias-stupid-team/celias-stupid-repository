@@ -1,6 +1,12 @@
 static const struct BenchLocation sBenchPoints[] =
 {
-    [BENCH_ROUTE1 - 1]       = {MAP_GROUP(ROUTE1), MAP_NUM(ROUTE1), 2, 3}, //Bench to retreat from the pit
-    [BENCH_CERULEAN - 1]     = {MAP_GROUP(CERULEAN_CITY), MAP_NUM(CERULEAN_CITY), 20, 24}, //test coords
-    [BENCH_CERULEAN_GYM - 1] = {MAP_GROUP(CERULEAN_CITY_GYM), MAP_NUM(CERULEAN_CITY_GYM), 8, 10}, //test coords
+    [BENCH_ROUTE1 - 1]       = {MAP_GROUP(VIRIDIAN_CITY), MAP_NUM(VIRIDIAN_CITY), 28, 12}, //Bench to retreat from the pit
+    [BENCH_CERULEAN - 1]     = {MAP_GROUP(CERULEAN_CITY), MAP_NUM(CERULEAN_CITY), 26, 26}, //test coords
+    [BENCH_CERULEAN_CLUB - 1] = {MAP_GROUP(CERULEAN_CITY_GYM), MAP_NUM(CERULEAN_CITY_GYM), 10, 10}, //test coords
+    [BENCH_PEWTER - 1 ]      = {MAP_GROUP(PEWTER_CITY), MAP_NUM(PEWTER_CITY), 31, 11},
+    [BENCH_ROUTE4 - 1 ]      = {MAP_GROUP(ROUTE4), MAP_NUM(ROUTE4), 9, 4},
+    [BENCH_ROUTE24 - 1 ]      = {MAP_GROUP(ROUTE24), MAP_NUM(ROUTE24), 9, 4},
+    [BENCH_ROUTE25 - 1 ]      = {MAP_GROUP(ROUTE25), MAP_NUM(ROUTE25), 8, 3},
+    [BENCH_ROUTE5 - 1 ]      = {MAP_GROUP(ROUTE5), MAP_NUM(ROUTE5), 25, 25},
+
 };

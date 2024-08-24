@@ -211,6 +211,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_CERULEAN_RIVAL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 12,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_CERULEAN_CANDY"
     }
   ],
   "warp_events": [
@@ -307,7 +321,7 @@
     },
     {
       "x": 17,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_CERULEAN_CITY_HOUSE5",
       "dest_warp_id": "0"
@@ -537,7 +551,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "CeruleanCity_BerryPowderMan"
     }
   ]
 }
