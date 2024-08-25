@@ -13,22 +13,8 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BILL",
-      "x": 7,
-      "y": 5,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route25_SeaCottage_EventScript_Bill",
-      "flag": "FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE"
-    },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
@@ -42,6 +28,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route25_SeaCottage_EventScript_Bill",
       "flag": "FLAG_HIDE_BILL_CLEFAIRY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route25_EventScript_CeliaTellsYouAboutBill",
+      "flag": "FLAG_CSR_HIDDEN_CELIA_BILL"
     }
   ],
   "warp_events": [
@@ -67,7 +67,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -75,7 +77,15 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Route25_SeaCottage_EventScript_Computer"
+      "script": "Route25_SeaCottage_Computer"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route25_Trapped_Bill"
     }
   ]
 }

@@ -361,10 +361,11 @@
 #define MUS_CSR_AVGN_GYM            352
 #define MUS_CSR_STAIRS            353
 #define MUS_CSR_CASTLE            354
+#define MUS_CSR_DRIFTVEIL            355
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_CASTLE
+#define END_MUS                     MUS_CSR_DRIFTVEIL
 
 #endif  // GUARD_CONSTANTS_SONGS_H

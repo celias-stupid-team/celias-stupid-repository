@@ -105,6 +105,21 @@ script Route24_TransitionScripts {
 	call(SetPlayerPokedexValues)
 }
 
+script Route24_Sign_Funnier {
+	msgbox("TRAINER TIPS!\pWanna know what's funnier than\nROUTE 24?", MSGBOX_SIGN)
+	end
+}
+
+script Route24_Celia_Sign {
+	msgbox("This is actually one of my\nfavorite jokes in the hack.\pOn its face, sure it's just a silly\nSPONGEBOB reference.\pHowever, the punchline is delivered\nby the game engine itself.\pI really enjoy using game mechanics\nin unintended ways to deliver fun.\lThat's what this hack is all about.\pEven when it's used for something\nas pointless as a shitpost!\pPS: I'm about to vanish as soon as\nyou walk over there.\pThere's a whole system of “Clone\nObjects” to keep maps consistent.\lI litearlly could not care less.", MSGBOX_NPC)
+	end
+}
+
+script Route24_Celia_Bench {
+	msgbox("I added new benches on various\nroutes as a way to skip long fights.\pNew players will probably still\nfight everyone, so they won't mind.\pHowever, it lets speedrunners and\nsuch skip annoying chunks.\lCall it Quality of Life!", MSGBOX_NPC)
+	end
+}
+
 script Route24_EventScript_CheckParty {
 	getpartysize
 	if(var(VAR_RESULT) == 1) {
@@ -113,6 +128,7 @@ script Route24_EventScript_CheckParty {
 		playse(SE_PIN)
 		if(var(VAR_TEMP_4) == 12) {
 			applymovement(6, Common_Movement_FaceDown)
+			waitmovement(0)
 		}
 		applymovement(6, Common_Movement_ExclamationMark)
 		waitmovement(0)

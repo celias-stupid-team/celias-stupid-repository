@@ -19,5 +19,6 @@ script Route5_ForSale {
 
 script Route5_TransitionScripts {
 	setbench(BENCH_ROUTE5)
+	setflag(FLAG_CSR_MAP_ROUTE_5)
 	call(SetPlayerPokedexValues)
 }

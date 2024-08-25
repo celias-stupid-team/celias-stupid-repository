@@ -3,9 +3,7 @@ Route25_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION Route25_TransitionScripts
 	.byte 0
 
-Route25_EventScript_SeaCottageSign::
-	msgbox Route25_Text_SeaCottageSign, MSGBOX_SIGN
-	end
+
 
 Route25_EventScript_Man::
 	msgbox Route25_Text_AreYouHereAlone, MSGBOX_NPC
@@ -14,4 +12,14 @@ Route25_EventScript_Man::
 script Route25_TransitionScripts {
 	setbench(BENCH_ROUTE25)
 	call(SetPlayerPokedexValues)
+}
+
+script Route25_EventScript_SeaCottageSign {
+	if(!flag(FLAG_CSR_GOT_BILL)) {
+		msgbox(Route25_Text_SeaCottageSign, MSGBOX_SIGN)
+	}
+	else {
+		msgbox("SEA COTTAGE\nBILL lived here!", MSGBOX_SIGN)
+	}
+	end
 }

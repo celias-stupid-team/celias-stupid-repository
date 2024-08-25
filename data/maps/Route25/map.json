@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE24",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SIX_ISLAND_PATTERN_BUSH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

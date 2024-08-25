@@ -972,6 +972,7 @@ SECTIONS {
         sound/songs/midi/mus_avgn_gym.o(.rodata);
         sound/songs/midi/mus_stairs.o(.rodata);
         sound/songs/midi/mus_castle.o(.rodata);
+        sound/songs/midi/mus_driftveil.o(.rodata);
     } > ROM =0
 
 
