@@ -355,7 +355,10 @@ CeruleanCity_EventScript_GymSign::
 	end
 `
 script CeruleanCity_PlayRoute24Music {
-	playbgm(MUS_ROUTE24, TRUE)
+	if(!flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
+		setflag(FLAG_CSR_CERULEAN_GOING_NORTH)
+		fadenewbgm(MUS_ROUTE24)
+	}
 	release
 }
 
@@ -365,8 +368,16 @@ script CeruleanCity_BerryPowderMan {
 }
 
 script CeruleanCity_PlayCeruleanMusic {
-	playbgm(MUS_FUSHCIA, TRUE)
+	if(flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
+		clearflag(FLAG_CSR_CERULEAN_GOING_NORTH)
+		fadenewbgm(MUS_FUSHCIA)
+	}
 	release
+}
+
+script CeruleanCity_StealCandy {
+	msgbox("You see a small note on the\nground…\p“Who are you thieves who keep\nstealing my RARE CANDIES?\lJust go buy some for yourself!”", MSGBOX_SIGN)
+	end
 }
 
 script CeruleanCity_SummonThePit {
