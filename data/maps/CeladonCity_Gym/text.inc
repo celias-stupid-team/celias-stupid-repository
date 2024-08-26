@@ -6,7 +6,7 @@ CeladonCity_Gym_Text_ErikaIntro::
 .string "In addition, I am also the LEADER\n"
 .string "of CELADON GYM.\p"
 .string "I'll show you the strength of a\n"
-.string "proud and united community!{PLAY_BGM MUS_ENCOUNTER_GYM_LEADER}$"
+.string "proud and united community!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 CeladonCity_Gym_Text_ErikaDefeat::
     .string "Oh!\n"

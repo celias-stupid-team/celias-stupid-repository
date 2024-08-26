@@ -12,6 +12,8 @@ CeruleanCity_MapScripts::
 
 CeruleanCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
+	setbench BENCH_CERULEAN
+	call(SetPlayerPokedexValues)
 	call_if_unset FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits
 	end
 
@@ -428,6 +430,16 @@ script CeruleanCity_NuggetSeller {
 	msgbox("Haha!\nSucker!", MSGBOX_DEFAULT)
 	hidemoneybox
 	release
+}
+
+script CeruleanCity_LittleKid {
+	msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Bike {
+	msgbox("So few people realize that you can\ncheck these bikes for dialogue.", MSGBOX_NPC)
+	end
 }
 
 script CeruleanCity_SummonThePit {
