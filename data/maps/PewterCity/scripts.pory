@@ -11,6 +11,7 @@ PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
 	call SetPlayerPokedexValues
 	setvar VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F, 0
+	setbench BENCH_PEWTER
 	end
 
 @ Impossible to speak to this NPC from a facing dir != DIR_EAST normally, so they arent checked

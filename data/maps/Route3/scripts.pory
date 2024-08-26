@@ -1,5 +1,6 @@
 raw `
 Route3_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION Route3_TransitionScripts
 	.byte 0
 
 Route3_EventScript_Youngster::
@@ -10,6 +11,10 @@ Route3_EventScript_RouteSign::
 	msgbox Route3_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route3_TransitionScripts {
+	setbench(BENCH_PEWTER)
+	call(SetPlayerPokedexValues)
+}
 script Route3_EventScript_Lass_North {
 	lock
 	setvar(VAR_TEMP_1,5)
@@ -116,6 +121,21 @@ script Route3_Far_SetDex {
 	setflag(FLAG_CSR_MAP_ROUTE_3_FAR)
 	call(SetPlayerPokedexValues)
 	release
+}
+
+script Route3_EventScript_Celia_Wurmple {
+	msgbox("It took me WAY too long to give\nthis guy a Wurmple.\lIdk why.", MSGBOX_NPC)
+	end
+}
+
+script Route3_EventScript_Celia_Lass2 {
+	msgbox("In the Beta, the LASS that attacks\nyou here would randomly teleport.\pI could never figure out why or how,\nso I just ignored it in the demo.\lNow she works much better.\pBy the way! You can walk through\nthe wall here!\pI'm sure the Celia's Stupid Romhack\nspeedrunners will appreciate that.", MSGBOX_NPC)
+	end
+}
+
+script Route3_EventScript_Celia_PuffSign {
+	msgbox("I couldn't decide if I should write\nthis Route as 1 or 2 new mons.\pWhichever way I chose, it would\nconfuse people cuz Puff was static.\pThus, I decided to make a joke\nout of it to make sure it was clear!", MSGBOX_NPC)
+	end
 }
 
 movement Lass_Player_Start {

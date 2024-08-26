@@ -769,7 +769,7 @@
 #define FLAG_TUTOR_MIMIC                                 0x2CD
 #define FLAG_TUTOR_BODY_SLAM                             0x2CE
 #define FLAG_VISITED_OAKS_LAB                            0x2CF
-#define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_1              0x2D0
+#define FLAG_FOUGHT_ROUTE25_HBOX              0x2D0
 #define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2              0x2D1
 #define FLAG_STOPPED_SEAFOAM_B3F_CURRENT                 0x2D2
 #define FLAG_STOPPED_SEAFOAM_B4F_CURRENT                 0x2D3
@@ -823,8 +823,8 @@
 #define FLAG_CSR_DEBUG_NO_TRAINER_SEE             0x301
 #define FLAG_CSR_DEBUG_NO_COLLISION               0x302
 #define FLAG_CSR_DEBUG_NO_QUEST_LOG               0x303
-#define FLAG_0x304               0x304
-#define FLAG_0x305               0x305
+#define FLAG_CSR_CERULEAN_GOING_NORTH               0x304
+#define FLAG_CSR_HIDDEN_CELIA_BILL               0x305
 #define FLAG_0x306               0x306
 #define FLAG_0x307               0x307
 #define FLAG_0x308               0x308
@@ -1177,7 +1177,7 @@
 #define FLAG_HIDDEN_ITEM_ONE_ISLAND_TREASURE_BEACH_BIG_PEARL               (FLAG_HIDDEN_ITEMS_START + 110)
 #define FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_RARE_CANDY                  (FLAG_HIDDEN_ITEMS_START + 111)
 #define FLAG_HIDDEN_ITEM_PEWTER_CITY_POKE_BALL                             (FLAG_HIDDEN_ITEMS_START + 112)
-#define FLAG_HIDDEN_ITEM_ROUTE3_ORAN_BERRY                                 (FLAG_HIDDEN_ITEMS_START + 113)
+#define FLAG_HIDDEN_ITEM_ROUTE3_SITRUS_BERRIES                                 (FLAG_HIDDEN_ITEMS_START + 113)
 #define FLAG_HIDDEN_ITEM_ROUTE4_PERSIM_BERRY                               (FLAG_HIDDEN_ITEMS_START + 114)
 #define FLAG_HIDDEN_ITEM_ROUTE24_PECHA_BERRY                               (FLAG_HIDDEN_ITEMS_START + 115)
 #define FLAG_HIDDEN_ITEM_ROUTE25_ORAN_BERRY                                (FLAG_HIDDEN_ITEMS_START + 116)
@@ -1259,7 +1259,7 @@
 // Unused hidden item flags
 #define FLAG_CSR_ROUTE_4_SIRTUS               0x4A7 // Unused Flag
 #define FLAG_CSR_VIRIDIAN_HIDDEN_ETHER               0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9               0x4A9 // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE3_BERRIES               0x4A9 // Unused Flag
 #define FLAG_UNUSED_0x4AA               0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB               0x4AB // Unused Flag
 #define FLAG_UNUSED_0x4AC               0x4AC // Unused Flag
@@ -1369,7 +1369,7 @@
 #define FLAG_SYS_SPECIAL_WILD_BATTLE                                (SYS_FLAGS + 0x7)
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
-#define FLAG_0x809                                                  (SYS_FLAGS + 0x9)
+#define FLAG_SYS_CSR_VICTORY                                                  (SYS_FLAGS + 0x9)
 #define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)

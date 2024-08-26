@@ -3702,6 +3702,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_AVGN_GYM) \
     X(MUS_CSR_STAIRS) \
     X(MUS_CSR_CASTLE) \
+    X(MUS_CSR_DRIFTVEIL) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

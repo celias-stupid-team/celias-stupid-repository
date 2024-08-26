@@ -26,6 +26,7 @@ Route22_EventScript_EarlyRivalTriggerBottom::
 	end
 
 Route22_EventScript_EarlyRival::
+	setvar VAR_TEMP_START_EVENT_BATTLE, 1
 	textcolor NPC_TEXT_COLOR_MALE
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	addobject LOCALID_RIVAL
@@ -271,6 +272,7 @@ script Route22_EventScript_RouteSign {
 }
 
 script Route22_MapScripts_SetDexMons {
+	setbench(BENCH_ROUTE1)
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setflag(FLAG_CSR_MAP_ROUTE_22)
 		call(SetPlayerPokedexValues)

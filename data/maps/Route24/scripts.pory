@@ -2,6 +2,7 @@ raw `
 .equ LOCALID_ROCKET, 1
 
 Route24_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION Route24_TransitionScripts
 	.byte 0
 
 Route24_EventScript_Rocket::
@@ -99,6 +100,26 @@ Route24_Movement_WalkDown::
 	walk_down
 	step_end
 `
+script Route24_TransitionScripts {
+	setbench(BENCH_ROUTE24)
+	call(SetPlayerPokedexValues)
+}
+
+script Route24_Sign_Funnier {
+	msgbox("TRAINER TIPS!\pWanna know what's funnier than\nROUTE 24?", MSGBOX_SIGN)
+	end
+}
+
+script Route24_Celia_Sign {
+	msgbox("This is actually one of my\nfavorite jokes in the hack.\pOn its face, sure it's just a silly\nSPONGEBOB reference.\pHowever, the punchline is delivered\nby the game engine itself.\pI really enjoy using game mechanics\nin unintended ways to deliver fun.\lThat's what this hack is all about.\pEven when it's used for something\nas pointless as a shitpost!\pPS: I'm about to vanish as soon as\nyou walk over there.\pThere's a whole system of “Clone\nObjects” to keep maps consistent.\lI litearlly could not care less.", MSGBOX_NPC)
+	end
+}
+
+script Route24_Celia_Bench {
+	msgbox("I added new benches on various\nroutes as a way to skip long fights.\pNew players will probably still\nfight everyone, so they won't mind.\pHowever, it lets speedrunners and\nsuch skip annoying chunks.\lCall it Quality of Life!", MSGBOX_NPC)
+	end
+}
+
 script Route24_EventScript_CheckParty {
 	getpartysize
 	if(var(VAR_RESULT) == 1) {
@@ -107,6 +128,7 @@ script Route24_EventScript_CheckParty {
 		playse(SE_PIN)
 		if(var(VAR_TEMP_4) == 12) {
 			applymovement(6, Common_Movement_FaceDown)
+			waitmovement(0)
 		}
 		applymovement(6, Common_Movement_ExclamationMark)
 		waitmovement(0)
@@ -148,6 +170,21 @@ script Route24_EventScript_CheckParty {
 
 	}
 	release
+}
+
+script Route24_Celia_Verlisify {
+	msgbox("This guy's original line is “I\nsaw your feat from the grass!”\pFor my entire life, I thought it was\na typo and this guy was just weird.", MSGBOX_NPC)
+	end
+}
+
+script Route24_Celia_Ending {
+	msgbox("I am deeply sorry that this hack\ndoesn't have a Yes/No option\lto join the DMCA right here.\pI know that's the one feature that\npeople look for in these things.\pMaybe I'll add a Copyright Law\nending to the game eventually...", MSGBOX_NPC)
+	end
+}
+
+script Route24_Celia_Bridge {
+	msgbox("If you do the Nugget Bridge battles\nwith only one Pokemon, it crashes.\pThus, there's a little script that\nstops you if you try!\pYou technically can still crash here\nif you really try, but eh.\lI'm not worried about it right now.", MSGBOX_NPC)
+	end
 }
 
 movement LeftTwice {

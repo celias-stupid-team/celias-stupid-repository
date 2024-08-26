@@ -44,3 +44,15 @@ script PewterCity_Furrets {
 	msgbox("FURRET is walking!\n", MSGBOX_DEFAULT)
 	release
 }
+
+script PewterCity_Furret_F {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("FURRET is walking!\n", MSGBOX_DEFAULT)
+	release
+}

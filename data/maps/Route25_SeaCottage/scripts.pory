@@ -1,6 +1,8 @@
 raw `
 .equ LOCALID_BILL_HUMAN,    1
-.equ LOCALID_BILL_CLEFAIRY, 2
+.equ LOCALID_CELIA, 2
+.equ LOCALID_BILL_CLEFAIRY, 3
+
 
 .equ BILL_IN_TELEPORTER,     FLAG_TEMP_2
 .equ RETURN_AFTER_SS_TICKET, FLAG_TEMP_3
@@ -8,11 +10,6 @@ raw `
 Route25_SeaCottage_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route25_SeaCottage_OnTransition
 	.byte 0
-
-Route25_SeaCottage_OnTransition::
-	call_if_unset FLAG_HELPED_BILL_IN_SEA_COTTAGE, Route25_SeaCottage_EventScript_HideClefairyBill
-	call_if_set FLAG_CSR_GOT_BILL, Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket
-	end
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
 	clearflag FLAG_HIDE_BILL_CLEFAIRY
@@ -294,11 +291,34 @@ script Route25_SeaCottage_EventScript_Bill {
 	finditem(ITEM_POKE_DOLL, 1)
 	setflag(FLAG_CSR_GOT_BILL)
 	addvar(VAR_CSR_BILLS_TAKEN, 1)
+	call(SetPlayerPokedexValues)
 	end
 }
 
+script Route25_SeaCottage_OnTransition {
+	clearflag(FLAG_HIDE_BILL_CLEFAIRY)
+	setflag(FLAG_CSR_HIDDEN_CELIA_BILL)
+	if(var(VAR_CSR_BILLS_TAKEN) > 2 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
+		addobject(LOCALID_CELIA)
+	}
 
-script Route25_MapScript_CeliaTellsYouAboutBill {
+	call(SetPlayerPokedexValues)
+}
+script Route25_EventScript_CeliaTellsYouAboutBill {
 	msgbox("Hi, there!\nI'm CELIA, the creator!\pYup, that's everything there is to\ndo here. No SS TICKET or anything!\pBut while you're here, feel free to\ncollect some more POKE DOLLS.\lThey sell for a lot!\pWhen you're done, you can head back\nto CERULEAN CITY to proceed.\pThanks a lot, and good luck!\n", MSGBOX_NPC)
 	end
+}
+
+script Route25_SeaCottage_Computer {
+	lock
+	call(Route25_SeaCottage_EventScript_BillsMonList)
+	release
+}
+
+script Route25_Trapped_Bill {
+	lock
+	msgbox("A man inside is wiggling his\nfinger.", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+	waitmoncry
+	release
 }

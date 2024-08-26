@@ -95,3 +95,27 @@ CeruleanCity_House4_EventScript_NoRoomForBerries::
 	release
 	end
 `
+const LASS = 1
+const GIRL = 2
+script Cerulean_House4_Typo {
+	lock
+	applymovement(LASS, right)
+	delay(10)
+	waitmovement(0)
+	msgbox("Hey! Check it out!\nMy VULPIX card has a typo!\pI bet it'll be worth hundreds\nsome day!", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	applymovement(GIRL, left)
+	waitmovement(0)
+	msgbox("Oh wow!\nMine does too!\pAnd also JOEY's next door, and\nRALPH down the road, and…", MSGBOX_DEFAULT)
+	release
+
+}
+
+movement right {
+	walk_in_place_right * 2
+}
+
+movement left {
+	walk_in_place_left * 2
+}

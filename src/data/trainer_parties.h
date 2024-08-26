@@ -115,20 +115,25 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterBen[] = {
     {
         .iv = 0,
         .lvl = 11,
-        .species = SPECIES_RATTATA,
+        .species = SPECIES_EKANS,
     },
     {
         .iv = 0,
         .lvl = 11,
-        .species = SPECIES_EKANS,
+        .species = SPECIES_COMFEY,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterCalvin[] = {
     {
         .iv = 0,
-        .lvl = 14,
-        .species = SPECIES_SPEAROW,
+        .lvl = 12,
+        .species = SPECIES_SCRAGGY,
+    },
+    {
+        .iv = 0,
+        .lvl = 11,
+        .species = SPECIES_COMFEY,
     },
 };
 
@@ -326,17 +331,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherColton[] = {
     {
         .iv = 0,
         .lvl = 10,
-        .species = SPECIES_CATERPIE,
+        .species = SPECIES_WURMPLE,
     },
     {
         .iv = 0,
         .lvl = 10,
-        .species = SPECIES_WEEDLE,
-    },
-    {
-        .iv = 0,
-        .lvl = 10,
-        .species = SPECIES_CATERPIE,
+        .species = SPECIES_SCATTERBUG,
     },
 };
 
@@ -531,11 +531,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassSally[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_LassRobin[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_GentlemanFalknerSr[] = {
     {
         .iv = 0,
-        .lvl = 14,
-        .species = SPECIES_JIGGLYPUFF,
+        .lvl = 9,
+        .species = SPECIES_PIDGEOTTO,
+        .moves = {MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE,MOVE_NONE},
     },
 };
 

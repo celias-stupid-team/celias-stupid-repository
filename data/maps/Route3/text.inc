@@ -1,10 +1,16 @@
 Route3_Text_TunnelFromCeruleanTiring::
-    .string "Whew… I better take a rest…\n"
-    .string "Groan…\p"
-    .string "That tunnel from VERMILLION over to\n"
-    .string "ROUTE 2 up through PEWTER and now\l"
-    .string "onto ROUTE 3 really takes it out of\l"
-    .string "you.$"
+	.string "Whew… I better take a rest…\n"
+	.string "Groan…\p"
+	.string "I took the trek through the\n"
+	.string "UNGERGROUND PATH to VERMILLION and\l"
+	.string "then into DIGLETTS' CAVE over to\l"
+	.string "ROUTE 2, up through PEWTER and now\l"
+	.string "onto ROUTE 3.\p"
+	.string "It was one heck of a journey, but\n"
+	.string "alas!\p"
+	.string "That's the only way to get back here\n"
+	.string "from CERULEAN.\l"
+	.string "Darn ledges…$"
 
 Route3_Text_ColtonIntro::
     .string "Hey!\n"

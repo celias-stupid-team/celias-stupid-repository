@@ -14,7 +14,7 @@ gNameChoice_Fire::
     .string " $"
 
 gNameChoice_Gar::
-    .string " $"
+    .string "ASSHAT$"
 
 gNameChoice_Gary::
     .string "GARY$"

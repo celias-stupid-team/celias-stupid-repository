@@ -67,15 +67,15 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 26,
-      "y": 29,
+      "x": 24,
+      "y": 34,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCity_EventScript_LittleBoy",
+      "script": "CeruleanCity_LittleKid",
       "flag": "0"
     },
     {
@@ -89,7 +89,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeruleanCity_EventScript_BaldingMan",
+      "script": "CeruleanCity_NuggetSeller",
       "flag": "0"
     },
     {
@@ -211,6 +211,76 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_CERULEAN_RIVAL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 12,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_CERULEAN_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 20,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_Celia_BerryPowder",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 33,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_Celia_Politics",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 36,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_Celia_Nugget",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 10,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCity_Celia_Bike",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -307,7 +377,7 @@
     },
     {
       "x": 17,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_CERULEAN_CITY_HOUSE5",
       "dest_warp_id": "0"
@@ -464,6 +534,60 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "CeruleanCity_EscapeThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayCeruleanMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayRoute24Music"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayCeruleanMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayCeruleanMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayRoute24Music"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "CeruleanCity_PlayRoute24Music"
     }
   ],
   "bg_events": [
@@ -529,7 +653,7 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "CeruleanCity_StealCandy"
     },
     {
       "type": "sign",
@@ -537,7 +661,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "CeruleanCity_BerryPowderMan"
     }
   ]
 }

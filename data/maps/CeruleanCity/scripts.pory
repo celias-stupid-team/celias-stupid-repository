@@ -12,6 +12,8 @@ CeruleanCity_MapScripts::
 
 CeruleanCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
+	setbench BENCH_CERULEAN
+	call(SetPlayerPokedexValues)
 	call_if_unset FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits
 	end
 
@@ -355,13 +357,89 @@ CeruleanCity_EventScript_GymSign::
 	end
 `
 script CeruleanCity_PlayRoute24Music {
-	playbgm(MUS_ROUTE24, TRUE)
+	if(!flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
+		setflag(FLAG_CSR_CERULEAN_GOING_NORTH)
+		fadenewbgm(MUS_ROUTE24)
+	}
 	release
 }
 
+script CeruleanCity_BerryPowderMan {
+	msgbox("Home of the BERRY POWDER MAN\pNotice!\pSadly, nobody cared about the\nBERRY POWDER MAN, so he died.", MSGBOX_SIGN)
+	setflag(FLAG_CSR_BERRY_POWDER_MAN)
+	end
+}
+
 script CeruleanCity_PlayCeruleanMusic {
-	playbgm(MUS_FUSHCIA, TRUE)
+	if(flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
+		clearflag(FLAG_CSR_CERULEAN_GOING_NORTH)
+		fadenewbgm(MUS_FUSHCIA)
+	}
 	release
+}
+
+script CeruleanCity_StealCandy {
+	msgbox("You see a small note on the\nground…\p“Who are you thieves who keep\nstealing my RARE CANDIES?\lJust go buy some for yourself!”", MSGBOX_SIGN)
+	end
+}
+
+script CeruleanCity_Celia_BerryPowder {
+	msgbox("There's a flag that gets set when\nyou check this sign here.\pWhat is the flag for?\nI wonder!\pYou'll just have to stay tuned\nand see for yourself!", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Politics {
+	msgbox("Behold, the only bit of overt\npolitical messaging in the hack.\pWhy people have a problem with the\ngay shit but not him is beyond me.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Nugget {
+	msgbox("This guy is incredible and I won't\nlet anyone tell me otherwise.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_NuggetSeller {
+	lock
+	faceplayer
+	showmoneybox(0,0,0)
+	msgbox("Hey kid - Do I have a deal\nfor you!\pI'm selling NUGGETs for the low\nprice of ¥4999!\lHow about it?", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox("What, can't you recognize\na good deal when you see it?", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	checkmoney(4999, 0)
+	if(!var(VAR_RESULT)) {
+		msgbox("What, you can't even afford it?\nThen get lost!", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	checkitemspace(ITEM_NUGGET, 1)
+	if(!var(VAR_RESULT)) {
+		msgbox("You're loaded with stuff!\nDrop some of it off first.", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	removemoney(4999, 0)
+	updatemoneybox
+	playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+	msgbox("Haha!\nSucker!", MSGBOX_DEFAULT)
+	hidemoneybox
+	release
+}
+
+script CeruleanCity_LittleKid {
+	msgbox("All travel from CERULEAN CITY is\nbottlenecked by one single tile.\pUnfortunately, someone decided to\nplant a tree there for Arbor Day.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Bike {
+	msgbox("So few people realize that you can\ncheck these bikes for dialogue.", MSGBOX_NPC)
+	end
 }
 
 script CeruleanCity_SummonThePit {

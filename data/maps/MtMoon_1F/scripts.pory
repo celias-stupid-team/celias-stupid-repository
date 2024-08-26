@@ -106,5 +106,87 @@ script MtMoon_EventScript_FancyLadder {
 	end
 }
 
+script MtMoon_Celia_Tentacool {
+	msgbox("The first two Tentacool encounters\nhere are actually scripted!\pMT MOON had the encounter rate\nMASSIVELY reduced, but I still\lwanted it to FEEL annoying.\pSo, I put two scripted Tentas right\nat the start to scare you.", MSGBOX_NPC)
+	end
+}
 
+script MtMoon_Celia_Water {
+	msgbox("I always wondered why you couldn't\nexamine that water in vanilla.", MSGBOX_NPC)
+	end
+}
 
+script MtMoon_Celia_Blueprint {
+	msgbox("So the whole idea of MT. MOON was\nsupposed to be the player using\ltheir BUTTERFREE.\pAnd then, at the end Miguel would\nsuddenly have a Dark Type Koffing,\land that'd ruin your day.\pIn retrospect, that blueprint isn't\nactually all that engaging.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_AVGN {
+	msgbox("Why is the Angry Video Game Nerd\nrandomly in this cave?\lNo clue!", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Repel {
+	msgbox("Did you figure out how to properly\nactivate the MAX REPEL?\pIt's available in this demo!\n", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Geodude {
+	msgbox("Ah, the infamous GEODUDE hint.\pArguably, it's very mean of me\nto include a hint towards something\lyou can't actually do.\pHowever, I prefer to think of it as\nforeshadowing!", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Shoes {
+	msgbox("Toedscool is one of the most\ninteresting puzzles in the hack.\pEverything from starting with the\nrunning shoes from the start, to\lthe aide giving them as a key item,\lto the NPC in the pokemon center.\pI needed to plant the idea in your\nhead that maybe - just maybe! -\lsomething so stupid could work.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Picknicker {
+	msgbox("This NPC was supposed to be a LASS\nwho walks through to wall at you.\pHowever, I couldn't find a way for\nthe joke to fully land.\lSo she got reskinned to Picknicker.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Drought {
+	msgbox("The only reason this area has grass\nand water is because in vanilla,\lthere's no Drought sun weather.\pThus, if I wanted it to be sunny I\nhad to use the “Cloud reflecting in\lpond water” weather effect.\pNow that we're in decomp, I can add\nthe intense sunlight myself!\pHowever, it does make it slightly\nstrange that there's water now.\pOh well.\n", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Mushrooms {
+	msgbox("The number of fucking streamers who\nread this guy's initial “I'm\llooking for mushrooms, but…” and\lthen DON'T FUCKING READ THE SECOND\lHALF OF HIS DIALOGUE WHERE HE\lACTUALLY ELABORATES ON IT\land then proceed to get mad and\lcall him stupid?\pHoly shit it drives me crazy.\n", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Candy {
+	msgbox("There was an Odd Candy on the other\nside of this pond in the last demo.\pDue to some structure changes with\nhow the end of the hack is planned\lto go, I decided to move it.\pNow you can actually get it in the\ndemo!", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Raticate {
+	msgbox("For those who don't know:\nIn RBY, this guy was a menace.\pHe had a Raticate at level 16 out\nof nowhere and he could easily\lwipe your whole team.\pMany nuzlockes were lost to this\nstupidly unfair fight.\lI just bumped his level up a bit.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_Raticate2 {
+	msgbox("I actually designed the level curve\nso that if you fought both LARRY's\lZAPDOS and this guy, your rat\lwould reach exactly level 20.\pIf all things go well, his dialogue\nafter the battle about the rat\lnot evolving should blow your mind.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_GiveUp {
+	msgbox("This sign is me giving up.\pI tried very hard to think of ways\nto tell the player that Koffing is\lPoison/Dark without spelling it out.\pSadly, players kept assuming that it\nwas Ghost/Dark and not trying their\lground moves on it.\pThus, I gave up and just wrote it\ndirectly on a sign.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_KoffingSign {
+	msgbox("TRAINER TIPS!\pSome POKéMON have had their types\naltered in this hack.\pKOFFING, for instance, is DARK/\nPOISON-TYPE.", MSGBOX_SIGN)
+	end
+}
+
+script MtMoon_Celia_Miguel {
+	msgbox("Ah, this guy.\nMy least favorite fight.\pSo, there's at least 5 distinct\nsolutions for him.\pYou probably did either Mud Slap or\nToedscool. There's others too!\pGetting him to be both easy to beat\nwith an answer but impossible to\lbeat without one was TOUGH.\lI needed constant revisions.\pAlso, I'm upset cuz he only\nSOMETIMES blows up like he's\lsupposed to.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_Celia_EndLass {
+	msgbox("The LASS attack here is brand\nnew to this version!\pMt Moon really needed a good\npunchline at the end of it.\pPlus, it helps set up the\nlasses coming up in the future.", MSGBOX_NPC)
+	end
+}

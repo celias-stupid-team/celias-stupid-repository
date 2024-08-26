@@ -121,7 +121,7 @@
 #define TRAINER_BUG_CATCHER_CONNER               115
 #define TRAINER_LASS_JANICE                      116
 #define TRAINER_LASS_SALLY                       117
-#define TRAINER_LASS_ROBIN                       118
+#define TRAINER_GENTLEMAN_FALKNERSR                       118
 #define TRAINER_LASS_CRISSY                      119
 #define TRAINER_LASS_MIRIAM                      120
 #define TRAINER_LASS_IRIS                        121

@@ -354,6 +354,7 @@ gSongTable::
 	song mus_avgn_gym, 0, 0
 	song mus_stairs, 0, 0
 	song mus_castle, 0, 0
+	song mus_driftveil, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

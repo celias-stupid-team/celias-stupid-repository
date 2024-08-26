@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE24",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SIX_ISLAND_PATTERN_BUSH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -116,8 +121,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route25_EventScript_ItemTM43",
-      "flag": "FLAG_HIDE_ROUTE25_TM43"
+      "script": "Route25_Hbox",
+      "flag": "FLAG_FOUGHT_ROUTE25_HBOX"
     },
     {
       "type": "object",
@@ -172,7 +177,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route25_Block",
       "flag": "0"
     },
     {
@@ -186,22 +191,64 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route25_Funbro",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 60,
-      "y": 12,
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 59,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_25_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_25_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 13,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route25_Celia_Nob",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 22,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route25_Celia_Shorts",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 27,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route25_Celia_Hbox",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -260,7 +307,7 @@
       "x": 40,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_BLUK_BERRY",
+      "item": "ITEM_SITRUS_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE25_BLUK_BERRY",
       "quantity": 1,
       "underfoot": false

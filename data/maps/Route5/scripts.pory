@@ -1,8 +1,24 @@
 raw `
 Route5_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION Route5_TransitionScripts
 	.byte 0
 
 Route5_EventScript_UndergroundPathSign::
 	msgbox Route5_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+script Route5_RouteSign {
+	msgbox("ROUTE 5\nNEW WILD POKéMON: 2", MSGBOX_SIGN)
+	end
+}
+
+script Route5_ForSale {
+	msgbox("House for sale...\nNobody lives here!", MSGBOX_SIGN)
+	end
+}
+
+script Route5_TransitionScripts {
+	setbench(BENCH_ROUTE5)
+	setflag(FLAG_CSR_MAP_ROUTE_5)
+	call(SetPlayerPokedexValues)
+}

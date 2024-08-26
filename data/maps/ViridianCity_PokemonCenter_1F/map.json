@@ -112,8 +112,8 @@
       "x": 1,
       "y": 6,
       "elevation": 4,
-      "dest_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_2F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

@@ -70,6 +70,62 @@
       "trainer_sight_or_berry_tree_id": "10",
       "script": "MtMoon_B1F_EventScript_ExitLass",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 6,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoon_Celia_Drought",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 37,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoon_Celia_Mushrooms",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 12,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoon_Celia_Candy",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 40,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoon_Celia_EndLass",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [

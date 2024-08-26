@@ -1046,7 +1046,7 @@
           "map": "MAP_VIRIDIAN_FOREST",
           "base_label": "sViridianForest_FireRed",
           "land_mons": {
-            "encounter_rate": 25,
+            "encounter_rate": 35,
             "mons": [
               {
                 "min_level": 6,
@@ -1515,12 +1515,12 @@
           "map": "MAP_MT_MOON_B2F",
           "base_label": "sMtMoonB2F_FireRed",
           "land_mons": {
-            "encounter_rate": 1,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CLEFAIRY"
               },
               {
                 "min_level": 9,
@@ -1530,7 +1530,7 @@
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CLEFAIRY"
               },
               {
                 "min_level": 10,
@@ -1540,7 +1540,7 @@
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CLEFAIRY"
               },
               {
                 "min_level": 10,
@@ -1550,7 +1550,7 @@
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_CLEFAIRY"
               },
               {
                 "min_level": 10,

@@ -20,6 +20,7 @@
 #include "constants/items.h"
 #include "constants/trainers.h"
 #include "constants/weather.h"
+#include "script.h"
 
 struct BattleWindowText
 {
@@ -1720,7 +1721,31 @@ void BufferStringBattle(u16 stringId)
             StringCopy(gBattleTextBuff2, gMoveNames[sBattleMsgDataPtr->currentMove]);
 
         ChooseTypeOfMoveUsedString(gBattleTextBuff2);
-        stringPtr = sText_AttackerUsedX;
+        stringPtr = sText_AttackerUsedX; //Start looking here
+
+
+        //Victory Music Logic - CSR Drill Dozer
+        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) > 0 && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+            switch(VarGet(VAR_TEMP_START_EVENT_BATTLE)) {
+                case 1:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_ENDEAVOR) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                        
+                case 2:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION)
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                case 3:
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP) //fill in with Toedscool Move
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                case 4:
+                default:
+                    break;
+            }
+            
+        };
         break;
     case STRINGID_BATTLEEND: // battle end
         if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
@@ -2111,8 +2136,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-
-                        toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
+                toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName; //removed the Rival name checks
                 }
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name

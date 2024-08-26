@@ -2,6 +2,11 @@ raw `
 BattleColosseum_2P_MapScripts::
 	.byte 0
 `
+script FadeSongAndPlayVictory {
+	fadenewbgm(MUS_CSR_DRILL_DOZER)
+	return
+}
+
 script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
     setobtainable(SPECIES_VICTINI)

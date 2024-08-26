@@ -818,7 +818,7 @@ Text_WouldYouLikeToMixRecords::
 
 @ Unused
 Text_WeHopeToSeeYouAgain2::
-	.string "We hope to see you again!$"
+	.string "I hope your POKéMON get hurt again!\n$"
 
 	.include "data/text/pc.inc"
 
@@ -895,11 +895,10 @@ Text_WelcomeWantToHealPkmn::
 	.string "POKéMON back to perfect health?$"
 
 Text_TakeYourPkmnForFewSeconds::
-	.string "Okay, I'll take your POKéMON for a\n"
-	.string "few seconds.$"
+	.string "If you insist…\n$"
 
 Text_WeHopeToSeeYouAgain::
-	.string "We hope to see you again!$"
+	.string "I hope your POKéMON get hurt again!\n$"
 
 Text_RestoredPkmnToFullHealth::
 	.string "Thank you for waiting.\n"
