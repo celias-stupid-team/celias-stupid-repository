@@ -364,6 +364,7 @@ script CeruleanCity_PlayRoute24Music {
 
 script CeruleanCity_BerryPowderMan {
 	msgbox("Home of the BERRY POWDER MAN\pNotice!\pSadly, nobody cared about the\nBERRY POWDER MAN, so he died.", MSGBOX_SIGN)
+	setflag(FLAG_CSR_BERRY_POWDER_MAN)
 	end
 }
 
@@ -378,6 +379,55 @@ script CeruleanCity_PlayCeruleanMusic {
 script CeruleanCity_StealCandy {
 	msgbox("You see a small note on the\nground…\p“Who are you thieves who keep\nstealing my RARE CANDIES?\lJust go buy some for yourself!”", MSGBOX_SIGN)
 	end
+}
+
+script CeruleanCity_Celia_BerryPowder {
+	msgbox("There's a flag that gets set when\nyou check this sign here.\pWhat is the flag for?\nI wonder!\pYou'll just have to stay tuned\nand see for yourself!", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Politics {
+	msgbox("Behold, the only bit of overt\npolitical messaging in the hack.\pWhy people have a problem with the\ngay shit but not him is beyond me.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_Celia_Nugget {
+	msgbox("This guy is incredible and I won't\nlet anyone tell me otherwise.", MSGBOX_NPC)
+	end
+}
+
+script CeruleanCity_NuggetSeller {
+	lock
+	faceplayer
+	showmoneybox(0,0,0)
+	msgbox("Hey kid - Do I have a deal\nfor you!\pI'm selling NUGGETs for the low\nprice of ¥4999!\lHow about it?", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox("What, can't you recognize\na good deal when you see it?", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	checkmoney(4999, 0)
+	if(!var(VAR_RESULT)) {
+		msgbox("What, you can't even afford it?\nThen get lost!", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	checkitemspace(ITEM_NUGGET, 1)
+	if(!var(VAR_RESULT)) {
+		msgbox("You're loaded with stuff!\nDrop some of it off first.", MSGBOX_DEFAULT)
+		hidemoneybox
+		release
+		end
+	}
+	removemoney(4999, 0)
+	updatemoneybox
+	playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+	msgbox("Haha!\nSucker!", MSGBOX_DEFAULT)
+	hidemoneybox
+	release
 }
 
 script CeruleanCity_SummonThePit {

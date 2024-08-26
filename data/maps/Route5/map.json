@@ -86,7 +86,7 @@
     {
       "type": "sign",
       "x": 27,
-      "y": 2,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route5_RouteSign"

@@ -23,3 +23,61 @@ script Route25_EventScript_SeaCottageSign {
 	}
 	end
 }
+
+script Route25_Celia_Nob {
+	msgbox("This guy is NOB OGASAWARA.\nHe's one of the translators.\pGame Freak used to put an NPC\nof him in every game, to his dismay.", MSGBOX_NPC)
+	end
+}
+
+script Route25_Celia_Shorts {
+	msgbox("In older versions, the tiles\nabove and below this guy were\lsolid walls that weren't walkable.\pIt was a reference to how talking\nto him from those tiles in RBY would\lcrash the game doing the Mew glitch.\pSadly, it was a joke that no one got\nand it kept being reported as a bug.\pSo I decided to just remove it.\n", MSGBOX_NPC)
+	end
+}
+
+script Route25_Celia_Hbox {
+	msgbox("This is the item that made me start\nputting Hboxes all over the place.\pI needed SOMETHING funny for going\nthrough all the effort to get this\litem early.\pAnd thus, most random items that\nare out-of-the way will now scream\lFUCK at you.", MSGBOX_NPC)
+	end
+}
+
+script Route25_Hbox {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_JIGGLYPUFF, 34)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	setflag(FLAG_FOUGHT_ROUTE25_HBOX)
+	release
+	end
+}
+
+script Route25_Block {
+	lock
+	msgbox("Heal Pulse…\pHeal Pulse…\pHeal Pulse…\pRecycle…\pHeal Pulse…\n", MSGBOX_DEFAULT)
+	faceplayer
+	msgbox("I'm stuck here!\nThis SLOWBRO BLOCKED me in!", MSGBOX_DEFAULT)
+	applymovement(11, Common_Movement_FaceLeft)
+	msgbox("Heal Pulse…\n", MSGBOX_DEFAULT)
+	release
+}
+
+script Route25_Funbro {
+	lock
+	faceplayer
+	playmoncry(SPECIES_SLOWBRO, CRY_MODE_NORMAL)
+	msgbox("SLOWBRO: Bruuuuuuh!", MSGBOX_DEFAULT)
+	waitmoncry
+	msgbox("It looks like it's been sitting here\nfor several weeks.", MSGBOX_DEFAULT)
+	applymovement(12, Common_Movement_FaceRight)
+	release
+}

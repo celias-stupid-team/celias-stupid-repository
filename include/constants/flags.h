@@ -769,7 +769,7 @@
 #define FLAG_TUTOR_MIMIC                                 0x2CD
 #define FLAG_TUTOR_BODY_SLAM                             0x2CE
 #define FLAG_VISITED_OAKS_LAB                            0x2CF
-#define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_1              0x2D0
+#define FLAG_FOUGHT_ROUTE25_HBOX              0x2D0
 #define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2              0x2D1
 #define FLAG_STOPPED_SEAFOAM_B3F_CURRENT                 0x2D2
 #define FLAG_STOPPED_SEAFOAM_B4F_CURRENT                 0x2D3
