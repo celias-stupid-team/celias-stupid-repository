@@ -129,7 +129,7 @@ script Route3_EventScript_Celia_Wurmple {
 }
 
 script Route3_EventScript_Celia_Lass2 {
-	msgbox("In the Beta, the LASS that attacks\nyou here would randomly teleport.\pI could never figure out why or how,\nso I just ignored it in the demo.\lNow she works much better.\pBy the way! You can walk through\nthe wall here!\pI'm sure the Celia's Stupid Romhack\nspeedrunners will apprecaite that.", MSGBOX_NPC)
+	msgbox("In the Beta, the LASS that attacks\nyou here would randomly teleport.\pI could never figure out why or how,\nso I just ignored it in the demo.\lNow she works much better.\pBy the way! You can walk through\nthe wall here!\pI'm sure the Celia's Stupid Romhack\nspeedrunners will appreciate that.", MSGBOX_NPC)
 	end
 }
 

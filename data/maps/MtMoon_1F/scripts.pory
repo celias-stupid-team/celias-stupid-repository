@@ -167,7 +167,7 @@ script MtMoon_Celia_Raticate {
 }
 
 script MtMoon_Celia_Raticate2 {
-	msgbox("I actually designed the level curve\nso that if you fought both LARRY's\lZAPDOS and this guy, your rattata\lwould reach exactly level 20.\pIf all things go well, his dialogue\nafter the battle about the rat\lnot evolving should blow your mind.", MSGBOX_NPC)
+	msgbox("I actually designed the level curve\nso that if you fought both LARRY's\lZAPDOS and this guy, your rat\lwould reach exactly level 20.\pIf all things go well, his dialogue\nafter the battle about the rat\lnot evolving should blow your mind.", MSGBOX_NPC)
 	end
 }
 

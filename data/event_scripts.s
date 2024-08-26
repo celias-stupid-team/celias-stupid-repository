@@ -898,7 +898,7 @@ Text_TakeYourPkmnForFewSeconds::
 	.string "If you insist…\n$"
 
 Text_WeHopeToSeeYouAgain::
-	.string "We hope to see you again!$"
+	.string "I hope your POKéMON get hurt again!\n$"
 
 Text_RestoredPkmnToFullHealth::
 	.string "Thank you for waiting.\n"

@@ -1,6 +1,8 @@
 raw `
 .equ LOCALID_BILL_HUMAN,    1
-.equ LOCALID_BILL_CLEFAIRY, 2
+.equ LOCALID_CELIA, 2
+.equ LOCALID_BILL_CLEFAIRY, 3
+
 
 .equ BILL_IN_TELEPORTER,     FLAG_TEMP_2
 .equ RETURN_AFTER_SS_TICKET, FLAG_TEMP_3
@@ -297,7 +299,7 @@ script Route25_SeaCottage_OnTransition {
 	clearflag(FLAG_HIDE_BILL_CLEFAIRY)
 	setflag(FLAG_CSR_HIDDEN_CELIA_BILL)
 	if(var(VAR_CSR_BILLS_TAKEN) > 2 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
-		addobject(2)
+		addobject(LOCALID_CELIA)
 	}
 
 	call(SetPlayerPokedexValues)

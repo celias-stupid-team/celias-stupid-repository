@@ -61,12 +61,13 @@ script Route25_Hbox {
 	end
 }
 
+const KID = 11
 script Route25_Block {
 	lock
 	msgbox("Heal Pulse…\pHeal Pulse…\pHeal Pulse…\pRecycle…\pHeal Pulse…\n", MSGBOX_DEFAULT)
 	faceplayer
 	msgbox("I'm stuck here!\nThis SLOWBRO BLOCKED me in!", MSGBOX_DEFAULT)
-	applymovement(11, Common_Movement_FaceLeft)
+	applymovement(KID, Common_Movement_FaceLeft)
 	msgbox("Heal Pulse…\n", MSGBOX_DEFAULT)
 	release
 }
