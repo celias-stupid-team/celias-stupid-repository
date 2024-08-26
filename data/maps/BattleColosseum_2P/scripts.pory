@@ -191,7 +191,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_11) && flag(FLAG_DID_FARFETCHD_TRADE)) {
 		setobtainable(SPECIES_UNOWN_LOSS) // 60 
 	}
-	if((flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA)) || checkmoncaught(SPECIES(KENYA))) { //farfetched and (return to viridian or talk to guard)
+	if(flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA) || checkmoncaught(SPECIES_KENYA)) { //farfetched and (return to viridian or talk to guard)
 		setobtainable(SPECIES_KENYA) // 61
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_7)) {
