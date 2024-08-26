@@ -71,6 +71,7 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_DARK + 1]     = { 32, 12, 0x8C },
     //New Stuff
     [TYPE_FAIRY + 1]    = { 32, 12, 0x0C },
+    [TYPE_FAIRY_TRANS + 1]    = { 32, 12, 0x124 },
     [TYPE_DAD + 1]      = { 32, 12, 0x100 },
     [TYPE_SHADOW + 1]   = { 32, 12, 0x120 },
     [TYPE_CHOCOLATE + 1] = { 32, 12, 0x104 },
@@ -79,6 +80,9 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_LARGE + 1]    = { 32, 12, 0x04 },
     [TYPE_BIRD + 1]     = { 32, 12, 0x08 },
     [TYPE_SHIT + 1]     = { 32, 12, 0x124 },
+    [TYPE_FIRE_PHYSICAL + 1]     = { 32, 12, 0x24 },
+    [TYPE_ELECTRIC_PHYSICAL + 1] = { 32, 12, 0x40 },
+    [TYPE_PSYCHIC_PHYSICAL + 1]  = { 32, 12, 0x84 },
     [MENU_INFO_ICON_TYPE]      = { 40, 12, 0xA8 },
     [MENU_INFO_ICON_POWER]     = { 40, 12, 0xC0 },
     [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },
