@@ -8128,8 +8128,8 @@ voicegroup191::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
 	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
+	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 25, 0, 255, 255
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
-	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
 	voice_keysplit voicegroup005, KeySplitTable3
 	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0

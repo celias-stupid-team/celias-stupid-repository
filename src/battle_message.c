@@ -1725,11 +1725,15 @@ void BufferStringBattle(u16 stringId)
 
 
         //Victory Music Logic - CSR Drill Dozer
-        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) > 0) {
+        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) > 0 && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
             switch(VarGet(VAR_TEMP_START_EVENT_BATTLE)) {
                 case 1:
-                    if(sBattleMsgDataPtr->currentMove == MOVE_ENDEAVOR)
+                    if(sBattleMsgDataPtr->currentMove == MOVE_ENDEAVOR) {
+                        BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                        
                 case 2:
                     if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION)
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER

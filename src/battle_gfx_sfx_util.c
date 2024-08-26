@@ -16,6 +16,9 @@
 #include "constants/battle_anim.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
+#include "event_data.h"
+#include "script.h"
+#include "event_scripts.h"
 
 static bool8 ShouldAnimBeDoneRegardlessOfSubsitute(u8 animId);
 static void Task_ClearBitWhenBattleTableAnimDone(u8 taskId);
@@ -832,7 +835,7 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
     u16 hp = GetMonData(mon, MON_DATA_HP);
     u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
-    if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED)
+    if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED && !FlagGet(FLAG_SYS_CSR_VICTORY))
     {
         if (!gBattleSpritesDataPtr->battlerData[battlerId].lowHpSong)
         {
