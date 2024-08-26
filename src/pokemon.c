@@ -5281,7 +5281,7 @@ u16 SpeciesToCryId(u16 species)
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;
 
-    if (species < SPECIES_SNIVY - 1)
+    if (species < SPECIES_WARTORTLE - 1)
         return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Unova
     
     if (species < SPECIES_VOLCANION - 1)
