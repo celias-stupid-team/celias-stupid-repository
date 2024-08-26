@@ -5288,7 +5288,7 @@ u16 SpeciesToCryId(u16 species)
         return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)]; //Alola
     
     if (species < SPECIES_SPRIGATITO - 1)
-        return sAlolaSpeciesIdToCryId[species - ((SPECIES_HOOPA + 1) - 1)]; //Paldea
+        return sAlolaSpeciesIdToCryId[species - ((SPECIES_VOLCANION + 1) - 1)]; //Paldea
     
     return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS + 1) - 1)]; //Paldea
     
