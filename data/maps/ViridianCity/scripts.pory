@@ -436,3 +436,49 @@ script test_script {
 	msgbox("{RIVAL}\n", MSGBOX_SIGN)
 	end
 }
+
+script ViridianCity_KenyaMan {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_KENYA_OBTAINED)) {
+			goto(KenyaMan_Done)
+	} else {
+		msgbox("Yawn…\nI'm always so sleepy.\pMy friend sent me some MAIL, but\nhe left his POKéMON with me.\pI'm not a trainer, so I'm not sure\nwhat to do with it.\pHere - why don't you take it?\n", MSGBOX_DEFAULT)
+		if(getpartysize == 6) {
+			msgbox("Oh, your party's full…\pThis guy isn't technically mine, so\nI can't send him to the PC for you.\pCome back after you've dropped\nsomeone off.", MSGBOX_DEFAULT)
+			release
+			end
+		} else {
+			switch(givemon(SPECIES_KENYA, 15, ITEM_NONE)) {
+				case MON_GIVEN_TO_PARTY:
+					textcolor(NPC_TEXT_COLOR_NEUTRAL)
+					playfanfare(MUS_LEVEL_UP)
+					msgbox("{PLAYER} received KENYA from the\nsleepy man!", MSGBOX_DEFAULT)
+					waitmessage
+					waitfanfare
+					closemessage
+					delay(30)
+					goto(KenyaMan_Done)
+				case MON_GIVEN_TO_PC:
+					call(EventScript_TransferredToPC)
+					goto(KenyaMan_Done)
+				case MON_CANT_GIVE:
+					call(EventScript_NoMoreRoomForPokemon)
+					release
+					end
+			}
+			
+		}
+	}
+	release
+	end
+
+	KenyaMan_Done:
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Y'know now that I think about it,\nPOKéMON MAIL isn't a particularly\lefficient delivery service.\pOh well, back to sleep.\pYawn…\n", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_KENYA_OBTAINED)
+		call(SetPlayerPokedexValues)
+		release
+		end
+
+}
