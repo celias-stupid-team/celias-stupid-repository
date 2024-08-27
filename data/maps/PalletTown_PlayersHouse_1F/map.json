@@ -17,7 +17,7 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MOM",
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
       "x": 8,
       "y": 5,
       "elevation": 3,

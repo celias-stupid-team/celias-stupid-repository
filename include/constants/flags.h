@@ -659,7 +659,7 @@
 #define FLAG_0x261                                       0x261
 #define FLAG_0x262                                       0x262
 #define FLAG_GOT_EEVEE                                   0x263
-#define FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES           0x264
+#define FLAG_VERMILLION_GYM_DOOR_OPENED           0x264
 #define FLAG_CINNABAR_GYM_QUIZ_1                         0x265
 #define FLAG_PENDING_DAYCARE_EGG                         0x266
 #define FLAG_CINNABAR_GYM_QUIZ_2                         0x267

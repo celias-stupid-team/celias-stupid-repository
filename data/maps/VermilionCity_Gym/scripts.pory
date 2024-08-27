@@ -11,7 +11,7 @@ VermilionCity_Gym_MapScripts::
 
 VermilionCity_Gym_OnLoad::
 	call_if_set FOUND_FIRST_SWITCH, VermilionCity_Gym_EventScript_SetOneBeamOff
-	call_if_set FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES, VermilionCity_Gym_EventScript_SetBeamsOff
+	call_if_set FLAG_VERMILLION_GYM_DOOR_OPENED, VermilionCity_Gym_EventScript_SetBeamsOff
 	end
 
 VermilionCity_Gym_EventScript_SetOneBeamOff::
@@ -45,7 +45,7 @@ VermilionCity_Gym_OnTransition::
 	end
 
 VermilionCity_Gym_EventScript_InitTrashCans::
-	goto_if_set FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES, EventScript_Return
+	goto_if_set FLAG_VERMILLION_GYM_DOOR_OPENED, EventScript_Return
 	special SetVermilionTrashCans
 	copyvar VAR_TEMP_0, SWITCH1_ID
 	copyvar VAR_TEMP_1, SWITCH2_ID
@@ -146,7 +146,7 @@ VermilionCity_Gym_EventScript_TrashCan::
 	special QuestLog_CutRecording
 	copyvar SWITCH1_ID, VAR_TEMP_0
 	copyvar SWITCH2_ID, VAR_TEMP_1
-	goto_if_set FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES, VermilionCity_Gym_EventScript_LocksAlreadyOpen
+	goto_if_set FLAG_VERMILLION_GYM_DOOR_OPENED, VermilionCity_Gym_EventScript_LocksAlreadyOpen
 	goto_if_set FOUND_FIRST_SWITCH, VermilionCity_Gym_EventScript_TrySwitchTwo
 	goto_if_eq SWITCH1_ID, TRASH_CAN_ID, VermilionCity_Gym_EventScript_FoundSwitchOne
 	msgbox VermilionCity_Gym_Text_NopeOnlyTrashHere
@@ -182,7 +182,7 @@ VermilionCity_Gym_EventScript_FoundSwitchTwo::
 	special DrawWholeMapView
 	playse SE_UNLOCK
 	waitse
-	setflag FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES
+	setflag FLAG_VERMILLION_GYM_DOOR_OPENED
 	releaseall
 	end
 
@@ -289,3 +289,121 @@ VermilionCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script VermillionGym_EmptyCan { //Add logic for if you interact in the middle of the trash celia quest
+	lock
+	if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+	} else {
+		if(var(VAR_VERMILLION_GYM_TRASH_COUNTER) < 3) {
+			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+			addvar(VAR_VERMILLION_GYM_TRASH_COUNTER, 1)
+		} else {
+			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			msgbox("…Suddenly there was a power\noutage!", MSGBOX_DEFAULT)
+			call(VermilionCity_Gym_EventScript_SetBeamsOff)
+			special(DrawWholeMapView)
+			fadescreen(FADE_FROM_BLACK)
+			msgbox("How convenient!\nThe electric lock opened!", MSGBOX_DEFAULT)
+			playse(SE_UNLOCK)
+			waitse
+			setflag(FLAG_VERMILLION_GYM_DOOR_OPENED)
+			release
+			end
+		}
+	}
+}
+
+script VermillionGym_BonusCan1 {
+	lock
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+		msgbox("Hey! There's a switch under the\ntrash! Turn it on!", MSGBOX_DEFAULT)
+		playse(SE_PIN)
+		waitse
+		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		release
+		end
+	} else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script VermillionGym_BonusCan2 {
+	lock
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 1) {
+		msgbox("Hey! There's a second switch\nunder the trash!\lLet's press it!", MSGBOX_DEFAULT)
+		playse(SE_PIN)
+		waitse
+		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		release
+		end
+	} else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script VermillionGym_BonusCan3 {
+	lock
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 2) {
+		msgbox("There's a third switch in the\ntrash!\pAre we really doing this?\n", MSGBOX_DEFAULT)
+		playse(SE_PIN)
+		waitse
+		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		release
+		end
+	} else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script VermillionGym_BonusCan4 {
+	lock
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+		msgbox("Yup, there's the fourth switch.\nThat means there's only one left!", MSGBOX_DEFAULT)
+		playse(SE_PIN)
+		waitse
+		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		release
+		end
+	} else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script VermillionGym_BonusCan5 {
+	lock
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+		msgbox("That's it!\nYou found the fifth switch!\pI wonder what'll happen now...\n", MSGBOX_DEFAULT)
+		playse(SE_PIN)
+		waitse
+		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		release
+		end
+	} else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script VermillionGym_SurgeCan {
+	if(flag(FLAG_DEFEATED_LT_SURGE)) {
+		msgbox("Woah!\nNow there's slightly less trash!", MSGBOX_SIGN)
+	} else {
+		msgbox("...Nope!\nNothing but trash!", MSGBOX_SIGN)
+	}
+}
