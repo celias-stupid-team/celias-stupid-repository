@@ -16,35 +16,10 @@
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
 #include "event_objects.h"
+#include "field_special_scene.h"
 
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
-
-static u32 FieldSpecialScene_Dummy0(void)
-{
-    return 0;
-}
-
-static void FieldSpecialScene_Dummy1(void)
-{
-}
-
-static void FieldSpecialScene_Dummy2(void)
-{
-}
-
-static void FieldSpecialScene_Dummy3(void)
-{
-}
-
-void FieldCB_ShowPortholeView(void)
-{
-}
-
-// From Hoenn's SS Tidal
-void LookThroughPorthole(void)
-{
-}
 
 // Most of the boxes in the moving truck are map tiles, with the
 // exception of three boxes that are map events that jostle around
@@ -282,4 +257,30 @@ void EndTruckSequence(u8 taskId)
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_BOTTOM_L, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX2_X_OFFSET, BOX2_Y_OFFSET);
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_BOTTOM_R, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX3_X_OFFSET, BOX3_Y_OFFSET);
     }
+}
+
+static u32 FieldSpecialScene_Dummy0(void)
+{
+    return 0;
+}
+
+static void FieldSpecialScene_Dummy1(void)
+{
+}
+
+static void FieldSpecialScene_Dummy2(void)
+{
+}
+
+static void FieldSpecialScene_Dummy3(void)
+{
+}
+
+void FieldCB_ShowPortholeView(void)
+{
+}
+
+// From Hoenn's SS Tidal
+void LookThroughPorthole(void)
+{
 }

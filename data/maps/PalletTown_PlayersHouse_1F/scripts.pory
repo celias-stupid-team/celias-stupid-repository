@@ -123,8 +123,3 @@ script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
 	msgbox("Dad is by far my favorite character\nto write for this hack.\pEveryone expects it to be some gross\nsexual joke or whatever, but no.\lIt's just Dad.\pAll he needs to do is show up and\nsay something kinda silly.\pHe's already conceptually so funny,\nthat almost anything I write works.", MSGBOX_NPC)
 	end
 }
-
-script InsideOfTruck_Logos {
-	msgbox("A logo is printed on the side of\nthe box.…\pKANTO Child Delivery Service!\p“No child left behind!”\n", MSGBOX_SIGN)
-	end
-}

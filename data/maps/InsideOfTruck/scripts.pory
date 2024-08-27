@@ -1,0 +1,13 @@
+// ############### Mapscripts ###############
+
+mapscripts InsideOfTruck_MapScripts {
+}
+
+// ############### regular scripts ###############
+
+script InsideOfTruck_Logos {
+    lock
+	msgbox("A logo is printed on the side of\nthe box.…\pKANTO Child Delivery Service!\p“No child left behind!”\n", MSGBOX_SIGN)
+    waitmessage
+	release
+}
