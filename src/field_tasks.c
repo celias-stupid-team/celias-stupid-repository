@@ -14,6 +14,7 @@
 #include "constants/field_tasks.h"
 #include "constants/metatile_labels.h"
 #include "constants/songs.h"
+#include "field_specials.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Triggers ambient cries. In RSE, this also periodically updates local time and RTC events.
@@ -42,7 +43,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_FORTREE_BRIDGE]    = DummyPerStepCallback,
     [STEP_CB_PACIFIDLOG_BRIDGE] = DummyPerStepCallback,
     [STEP_CB_ICE]               = IcefallCaveIcePerStepCallback,
-    [STEP_CB_TRUCK]             = DummyPerStepCallback,
+    [STEP_CB_TRUCK]             = EndTruckSequence,
     [STEP_CB_SECRET_BASE]       = DummyPerStepCallback,
     [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback
 };

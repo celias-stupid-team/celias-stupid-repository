@@ -30,4 +30,7 @@ bool8 UsedPokemonCenterWarp(void);
 void QuestLog_CheckDepartingIndoorsMap(void);
 void QuestLog_TryRecordDepartedLocation(void);
 
+void ExecuteTruckSequence(void);
+void EndTruckSequence(u8 taskId);
+void FieldCB_ShowPortholeView(void);
 #endif // GUARD_FIELD_SPECIALS_H
