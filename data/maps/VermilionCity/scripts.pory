@@ -230,9 +230,7 @@ VermilionCity_EventScript_OaksAide::
 	release
 	end
 
-VermilionCity_EventScript_OldMan2::
-	msgbox VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC
-	end
+
 
 VermilionCity_EventScript_Machop::
 	msgbox VermilionCity_Text_Machop, MSGBOX_NPC
@@ -261,3 +259,7 @@ VermilionCity_EventScript_HarborSign::
 	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
 	end
 `
+script VermilionCity_EventScript_OldMan2{
+	playmoncry(SPECIES_MACHOP, CRY_MODE_NORMAL)
+	msgbox(VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC)
+}

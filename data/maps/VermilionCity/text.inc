@@ -1,6 +1,6 @@
 VermilionCity_Text_GrimerMultipliesInSludge::
-    .string "Hey you! Have you seen any SPEAROW\n"
-    .string "on your journey?\p"
+    .string "Hey you! Have you seen any\n"
+    .string "SPEAROW on your journey?\p"
     .string "I really want one, but I can't seem\n"
     .string "to find any in the wild!$"
 
@@ -8,7 +8,7 @@ VermilionCity_Text_DidYouSeeSSAnneInHarbor::
     .string "The S.S. ANNE normally arrives\n"
     .string "in VERMILLION around this time.\p"
     .string "It doesn't seem to have made it\n"
-    .string "to the harbor, though…\p"
+    .string "to the harbor, though…$"
 
 VermilionCity_Text_SSAnneHasDepartedForYear::
     .string "So, the S.S. ANNE has departed?\p"
@@ -23,12 +23,12 @@ VermilionCity_Text_Machop::
     .string "When we got the takedown notice,\n"
     .string "BOSS told us to demolish the TOWER.\p"
     .string "I'm not sure he understands what\n"
-    .string "'takedown' means in this context.$"
+    .string "“takedown” means in this context.$"
 
 VermilionCity_Text_SSAnneVisitsOnceAYear::
     .string "The ship is gone, so the captain\n"
     .string "isn't around to teach CUT.\p"
-    .string "I wonder how else you could use\n"
+    .string "I wonder how else you could get\n"
     .string "it?$"
 
 VermilionCity_Text_CitySign::

@@ -12,7 +12,7 @@ VermilionCity_House3_Text_DearPippiLetter::
     .string "facing major paper shortages.\p"
     .string "Sadly, I had to write this letter\n"
     .string "on an NES.\p"
-    .string "I hope you are doing well!\p"
+    .string "I hope you are doing well!$"
 
 VermilionCity_House3_Text_SendMyPidgeyToUnionRoom::
     .string "You wanna know how I got a\n"

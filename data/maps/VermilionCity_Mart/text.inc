@@ -10,5 +10,5 @@ VermilionCity_Mart_Text_TeamRocketAreWickedPeople::
 VermilionCity_Mart_Text_MonsGoodOrBadDependingOnTrainer::
     .string "I must've parked my TRUCK somewhere\n"
     .string "in this city...\l"
-    .string "Do you have any idea where it is?"
+    .string "Do you have any idea where it is?$"
 

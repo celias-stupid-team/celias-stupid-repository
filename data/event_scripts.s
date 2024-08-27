@@ -1366,3 +1366,6 @@ Text_TestMsg::
 
 	.include "data/maps/PalletTown_BobOmb_Battlefield/scripts.inc"
 	.include "data/maps/PalletTown_BobOmb_Battlefield/text.inc"
+
+	.include "data/maps/InsideOfTruck/scripts.inc"
+	.include "data/maps/InsideOfTruck/text.inc"

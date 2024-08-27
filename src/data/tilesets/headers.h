@@ -757,3 +757,14 @@ const struct Tileset gTileset_BobOmbBattlefield =
     .metatileAttributes = gMetatileAttributes_BobOmbBattlefield,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_InsideOfTruck =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_InsideOfTruck,
+    .palettes = gTilesetPalettes_InsideOfTruck,
+    .metatiles = gMetatiles_InsideOfTruck,
+    .metatileAttributes = gMetatileAttributes_InsideOfTruck,
+    .callback = NULL,
+};

@@ -74,6 +74,14 @@
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 
+// gTileset_InsideOfTruck
+#define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x29D
+#define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x295
+#define METATILE_InsideOfTruck_DoorClosedFloor_Top     0x28D
+#define METATILE_InsideOfTruck_ExitLight_Bottom        0x298
+#define METATILE_InsideOfTruck_ExitLight_Mid           0x290
+#define METATILE_InsideOfTruck_ExitLight_Top           0x288
+
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2
 
