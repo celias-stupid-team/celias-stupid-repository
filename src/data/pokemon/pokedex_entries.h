@@ -873,7 +873,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MACHOKE] =
     {
-        .categoryName = _("SUPERPOWER"),
+        .categoryName = _("BOXING"),
         .height = 15,
         .weight = 705,
         .description = gMachokePokedexText,
@@ -886,7 +886,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MACHAMP] =
     {
-        .categoryName = _("SUPERPOWER"),
+        .categoryName = _("THIEF"),
         .height = 16,
         .weight = 1300,
         .description = gMachampPokedexText,
