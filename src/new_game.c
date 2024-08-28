@@ -82,7 +82,7 @@ static void ClearBattleTower(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F), -1, 6, 6);
+    SetWarpDestination(4, 5, -1, 2, 2); //InsideOfTruck, idk what the -1 means, (2,2)
     WarpIntoMap();
 }
 

@@ -71,6 +71,12 @@
 #define METATILE_General_WideTreeTopRight_Mowed  0x00F
 
 // gTileset_GenericBuilding1
+#define METATILE_GenericBuilding1_MT_Overbed1   0x28B
+#define METATILE_GenericBuilding1_MT_Overbed2   0x28C
+#define METATILE_GenericBuilding1_MT_Overbed3   0x28D
+#define METATILE_GenericBuilding1_MT_Underbed1  0x298
+#define METATILE_GenericBuilding1_MT_Underbed2  0x299
+#define METATILE_GenericBuilding1_MT_Underbed3  0x29A
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 

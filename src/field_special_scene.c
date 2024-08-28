@@ -17,6 +17,7 @@
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
 #include "field_special_scene.h"
+#include "field_fadetransition.h"
 
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
@@ -38,6 +39,19 @@
 static const s8 sTruckCamera_HorizontalTable[] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, -1, -1, -1, 0};
 
 static void Task_Truck3(u8);
+
+void SetObjectEventSpritePosByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, s16 x, s16 y)
+{
+    u8 objectEventId;
+    struct Sprite *sprite;
+
+    if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+    {
+        sprite = &gSprites[gObjectEvents[objectEventId].spriteId];
+        sprite->x2 = x;
+        sprite->y2 = y;
+    }
+}
 
 static s16 GetTruckCameraBobbingY(int time)
 {
