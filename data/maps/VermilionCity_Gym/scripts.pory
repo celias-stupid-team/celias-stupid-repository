@@ -227,15 +227,7 @@ VermilionCity_Gym_EventScript_ShowOaksAide::
 	clearflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
 	return
 
-VermilionCity_Gym_EventScript_GiveTM34::
-	msgbox VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis
-	checkitemspace ITEM_TM34
-	goto_if_eq VAR_RESULT, FALSE, VermilionCity_Gym_EventScript_NoRoomForTM34
-	giveitem_msg VermilionCity_Gym_Text_ReceivedTM34FromLtSurge, ITEM_TM34
-	setflag FLAG_GOT_TM34_FROM_SURGE
-	msgbox VermilionCity_Gym_Text_ExplainTM34
-	release
-	end
+
 
 VermilionCity_Gym_EventScript_NoRoomForTM34::
 	msgbox VermilionCity_Gym_Text_MakeRoomInYourBag
@@ -406,4 +398,139 @@ script VermillionGym_SurgeCan {
 	} else {
 		msgbox("...Nope!\nNothing but trash!", MSGBOX_SIGN)
 	}
+}
+
+script VermillionGym_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm looking through these trash\ncans to find the secret switches.\lMaybe it's in here…\p...Nope!\nNothing but trash!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script VermillionGym_Celia_Can {
+	msgbox("This trash can updates after SURGE\ndigs out the BIDE TM from it!", MSGBOX_NPC)
+	end
+}
+
+
+const CELIA = 8
+const SURGE = 1
+script VermilionCity_Gym_EventScript_GiveTM34 {
+	msgbox(VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} received HM05\nfrom LT. SURGE.", MSGBOX_DEFAULT)
+	waitfanfare
+	msgbox(VermilionCity_Gym_Text_ExplainTM34)
+	closemessage
+	addobject(CELIA)
+	setobjectxy(CELIA, 5, 9)
+	applymovement(CELIA, CeliaWalksUp)
+	waitmovement(0)
+	delay(10)
+	playse(SE_PIN)
+	if(var(VAR_FACING) == DIR_NORTH) {
+		setflag(FLAG_TEMP_2)
+	}
+	applymovement(SURGE, Common_Movement_FaceDown)
+	applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksCelia)
+	waitmovement(0)
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hi, there!\nI'm CELIA, the creator!\lGood job on beating SURGE!\pBut uh, actually...\nHey Mr. SURGE?\lCould we talk for a sec?", MSGBOX_DEFAULT)
+	closemessage
+	if(flag(FLAG_TEMP_2)) {
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerStepsAside)
+		waitmovement(0)
+		delay(20)
+	}
+	applymovement(CELIA, CeliaStepsUp)
+	waitmovement(0)
+	msgbox("Hey, uh...\nListen.\pI know you really like FLASH,\nbut that move's a bit too strong.\lI can't balance the hack around it.\pYou're gonna have to give something\nelse instead.\pIs there a backup option?", MSGBOX_DEFAULT)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_MALE)
+	delay(10)
+	playse(SE_PIN)
+	applymovement(SURGE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(20)
+	msgbox("Oh!\nUm, sorry about that.\pUhh... let me check.\n", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(SURGE, Common_Movement_FaceRight)
+	waitmovement(0)
+	delay(20)
+	msgbox("… … … … …\n… … … … …\l…Aha!", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	applymovement(SURGE, Common_Movement_FaceDown)
+	waitmovement(0)
+	delay(10)
+	msgbox("Here!\nI think I found one.", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	applymovement(CELIA, CeliaEmotes)
+	waitmovement(0)
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Ah!\nWonderful news!\pOkay, you're good to go!\nThanks so much!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(CELIA, CeliaLeavesSurge)
+	waitmovement(0)
+	if(flag(FLAG_TEMP_2)) {
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerMovesBack)
+		waitmovement(0)
+		delay(20)
+	}
+	removeobject(CELIA)
+	applymovement(SURGE, Common_Movement_FacePlayer)
+	delay(10)
+	playse(SE_SELECT)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Okay, er...\pHere, kid!\nTake, uh, this!", MSGBOX_DEFAULT)
+	//TODO give TM39 to player
+	giveitem_msg("{PLAYER} received TM39\nfrom LT. SURGE.", ITEM_TM39)
+
+	msgbox("TM39 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
+	release
+	end
+
+	release
+}
+
+movement CeliaWalksUp {
+	walk_up * 5
+	face_up
+}
+
+movement PlayerLooksCelia {
+	face_down
+	emote_exclamation_mark
+}
+movement PlayerStepsAside {
+	walk_left
+	face_right
+}
+
+movement PlayerMovesBack {
+	walk_right
+	face_up
+}
+
+movement CeliaStepsUp {
+	walk_up
+	face_up
+}
+
+movement CeliaEmotes {
+	walk_in_place_up * 2
+	face_up
+}
+
+movement CeliaLeavesSurge {
+	walk_down * 7
 }
