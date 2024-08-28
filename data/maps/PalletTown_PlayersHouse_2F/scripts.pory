@@ -78,22 +78,16 @@ script PalletTown_Truck_Opening {
 		playse(SE_M_EARTHQUAKE)
 		applymovement(TRUCK, TruckRevsUp)
 		waitmovement(0)
-		delay(60)
+		delay(50)
 		playse(SE_FALL)
 		applymovement(TRUCK, TruckFliesAway)
-		delay(20)
-		setmetatile(1, 5, METATILE_GenericBuilding1_MT_Underbed1, FALSE)
-		setmetatile(2, 5, METATILE_GenericBuilding1_MT_Underbed2, FALSE)
-		setmetatile(3, 5, METATILE_GenericBuilding1_MT_Underbed3, FALSE)
-		delay(10)
-		setmetatile(1, 5, METATILE_GenericBuilding1_MT_Overbed1, FALSE)
-		setmetatile(2, 5, METATILE_GenericBuilding1_MT_Overbed2, FALSE)
-		setmetatile(3, 5, METATILE_GenericBuilding1_MT_Overbed3, FALSE)
+		
 		waitmovement(0)
 		delay(60)
 		removeobject(TRUCK)
 		applymovement(OBJ_EVENT_ID_PLAYER, PlayerFaceUp)
 		waitmovement(0)
+		delay(5)
 		playbgm(MUS_PALLET, TRUE)
 		
 		releaseall
@@ -109,7 +103,7 @@ movement PlayerJumpsOutOfTruck {
 }
 
 movement TruckRevsUp {
-	walk_in_place_faster_down * 20
+	walk_in_place_faster_down * 25
 }
 movement TruckFliesAway {
 	walk_faster_left * 7
