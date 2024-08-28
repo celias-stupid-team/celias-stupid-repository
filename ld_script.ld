@@ -606,6 +606,7 @@ SECTIONS {
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
+        src/field_special_scene.o(.rodata);
 
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);

@@ -15,7 +15,7 @@
 #include "task.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
-#include "event_objects.h"
+#include "constants/event_objects.h"
 #include "field_special_scene.h"
 
 #include "constants/songs.h"
