@@ -831,6 +831,7 @@ MUS_CSR_AVGN_GYM          = 60 01
 MUS_CSR_STAIRS            = 61 01
 MUS_CSR_CASTLE            = 62 01
 MUS_CSR_DRIFTVEIL         = 63 01
+MUS_CSR_LOSS_WOODS        = 64 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

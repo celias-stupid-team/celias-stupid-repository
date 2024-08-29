@@ -195,6 +195,11 @@ script Route3_Celia_Glasses {
 	end
 }
 
+script Route3_ShortsBerry {
+	msgbox("Hey, is it just me or are POTIONS\nreally hard to find as of late?\pThat's okay, though.\nI know a secret!\pJust look for darker spots on the\nground.\lYou'll find BERRIES growing there!\pThankfully I'm SHORTS, so my\npockets can carry plenty!", MSGBOX_NPC)
+	end
+}
+
 const Nerd = 15
 script Route3_Blackglasses {
 	lock

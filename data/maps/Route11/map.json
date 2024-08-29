@@ -300,6 +300,20 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE11_EAST_ENTRANCE_1F",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 56,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_THREE_ISLAND_BERRY_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 57,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_THREE_ISLAND_BERRY_FOREST",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

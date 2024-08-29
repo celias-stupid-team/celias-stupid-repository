@@ -64,3 +64,8 @@ ThreeIsland_BerryForest_EventScript_BewareSign::
 	msgbox ThreeIsland_BerryForest_Text_BewareWildBerryLovingMons, MSGBOX_SIGN
 	end
 `
+
+script BerryForest_Sign {
+	msgbox("BERRY FOREST\nNew Wild POKéMON: 1", MSGBOX_SIGN)
+	end
+}
