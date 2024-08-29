@@ -269,3 +269,36 @@ script VermillionCity_Cop {
 	msgbox("I'm on the hunt for a SQUAD\nof rowdy POKéMON.\lI hear they were last seen here.\pOur fire department could really\nuse some help after the budget cuts!", MSGBOX_NPC)
 	end
 }
+
+
+const VermillionCelia = 7
+script VermillionCity_CeliaAfterGym {
+	lock
+	faceplayer
+	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)) {
+		msgbox("Hi, there!\nI'm CELIA, the creator.\pI hope you've been having fun\nso far!\pJust wanted to pop in to remind you\nto re-check old areas too!\lThere's more to see with CUT!", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)
+	}
+	msgbox("Anyway, take care!\nHave fun!", MSGBOX_DEFAULT)
+	closemessage
+	switch(var(VAR_FACING)) {
+		case DIR_EAST:
+			applymovement(VermillionCelia, CeliaWalksRight)
+			waitmovement(0)
+		default:
+			applymovement(VermillionCelia, CeliaWalksLeft)
+			waitmovement(0)
+
+	}
+	release
+}
+
+movement CeliaWalksLeft {
+	walk_left
+	face_right
+}
+
+movement CeliaWalksRight {
+	walk_right
+	face_left
+}

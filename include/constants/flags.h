@@ -239,7 +239,7 @@
 #define FLAG_CSR_FIRST_TENTACOOL        0x0CC
 #define FLAG_CSR_SECOND_TENTACOOL       0x0CD
 #define FLAG_CSR_EXITED_TRUCK               0x0CE
-#define FLAG_CSR_UNUSED_7               0x0CF
+#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
 #define FLAG_CSR_UNUSED_8               0x0D0
 #define FLAG_CSR_UNUSED_9               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
