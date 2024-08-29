@@ -233,7 +233,7 @@
 //Route 4
 #define FLAG_CSR_2_SITRUS_BERRIES       0x0C9
 #define FLAG_CSR_NEGATIVE_BERRIES       0x0CA
-#define FLAG_CSR_UNUSED_5               0x0CB
+#define FLAG_CSR_LOSSELLE_DAD               0x0CB
 
 //Mt Moon
 #define FLAG_CSR_FIRST_TENTACOOL        0x0CC

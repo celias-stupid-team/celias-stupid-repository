@@ -103,6 +103,8 @@
 	create_movement_action set_invisible, MOVEMENT_ACTION_SET_INVISIBLE
 	create_movement_action set_visible, MOVEMENT_ACTION_SET_VISIBLE
 	create_movement_action emote_exclamation_mark, MOVEMENT_ACTION_EMOTE_EXCLAMATION_MARK
+	create_movement_action emote_loss, MOVEMENT_ACTION_EMOTE_LOSS
+
 	create_movement_action emote_question_mark, MOVEMENT_ACTION_EMOTE_QUESTION_MARK
 	create_movement_action emote_x, MOVEMENT_ACTION_EMOTE_X
 	create_movement_action emote_double_exclamation_mark, MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK

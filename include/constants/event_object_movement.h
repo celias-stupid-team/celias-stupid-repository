@@ -196,6 +196,7 @@
 #define MOVEMENT_ACTION_INIT_AFFINE_ANIM                0x6C
 #define MOVEMENT_ACTION_CLEAR_AFFINE_ANIM               0x6D
 
+
 // These still exist in FRLG for some reason. They're not used by anything obvious.
 #define MOVEMENT_ACTION_WALK_DOWN_START_AFFINE          0x6E
 #define MOVEMENT_ACTION_WALK_DOWN_AFFINE                0x6F
@@ -258,6 +259,9 @@
 #define MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_UP     0xA7
 #define MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_LEFT   0xA8
 #define MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_RIGHT  0xA9
+
+//New
+#define MOVEMENT_ACTION_EMOTE_LOSS             0xAA
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

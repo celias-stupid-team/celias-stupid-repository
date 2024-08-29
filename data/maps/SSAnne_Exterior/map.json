@@ -75,14 +75,14 @@
   "warp_events": [
     {
       "x": 18,
-      "y": 3,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_VERMILION_CITY",
       "dest_warp_id": "0"
     },
     {
       "x": 19,
-      "y": 3,
+      "y": 5,
       "elevation": 3,
       "dest_map": "MAP_VERMILION_CITY",
       "dest_warp_id": "1"
