@@ -25,6 +25,7 @@ VermilionCity_Movement_ExitSSAnne::
 
 VermilionCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
+	setbench BENCH_VERMILION
 	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
 	end
 
@@ -262,4 +263,9 @@ VermilionCity_EventScript_HarborSign::
 script VermilionCity_EventScript_OldMan2{
 	playmoncry(SPECIES_MACHOP, CRY_MODE_NORMAL)
 	msgbox(VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC)
+}
+
+script VermillionCity_Cop {
+	msgbox("I'm on the hunt for a SQUAD\nof rowdy POKéMON.\lI hear they were last seen here.\pOur fire department could really\nuse some help after the budget cuts!", MSGBOX_NPC)
+	end
 }

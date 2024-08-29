@@ -6,7 +6,7 @@ VermilionCity_Text_GrimerMultipliesInSludge::
 
 VermilionCity_Text_DidYouSeeSSAnneInHarbor::
     .string "The S.S. ANNE normally arrives\n"
-    .string "in VERMILLION around this time.\p"
+    .string "in VERMILION around this time.\p"
     .string "It doesn't seem to have made it\n"
     .string "to the harbor, though…$"
 
@@ -32,20 +32,23 @@ VermilionCity_Text_SSAnneVisitsOnceAYear::
     .string "it?$"
 
 VermilionCity_Text_CitySign::
-    .string "VERMILION CITY\n"
-    .string "The Port of Exquisite Sunsets$"
+	.string "VERMILLION CITY\p"
+	.string "We're not totally sure what the\n"
+	.string "color VERMILLION is.\p"
+	.string "It's orange, right?\n"
+	.string "…Yeah, definitely orange.\p"
+	.string "RECOMMENDED POKéDEX COMPLETION: 48\n$"
 
 VermilionCity_Text_SnorlaxBlockingRoute12::
-    .string "NOTICE!\p"
-    .string "ROUTE 12 may be blocked off by a\n"
-    .string "sleeping POKéMON.\p"
-    .string "Detour through ROCK TUNNEL to\n"
-    .string "LAVENDER TOWN.\p"
-    .string "VERMILION POLICE$"
+	.string "NOTICE!\p"
+	.string "VERMILLION RADIO TOWER has been\n"
+	.string "shown to be in violation of\l"
+	.string "copyright law!\p"
+	.string "-DMCA\n$"
 
 VermilionCity_Text_PokemonFanClubSign::
     .string "POKéMON FAN CLUB\n"
-    .string "All POKéMON fans welcome!$"
+    .string "Most POKéMON fans welcome!$"
 
 VermilionCity_Text_GymSign::
     .string "VERMILION CITY POKéMON GYM\n"

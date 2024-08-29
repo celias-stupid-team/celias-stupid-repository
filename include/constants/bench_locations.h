@@ -9,5 +9,7 @@
 #define BENCH_ROUTE24               6
 #define BENCH_ROUTE25               7
 #define BENCH_ROUTE5                8
+#define BENCH_UNDERGROUNDPATH       9
+#define BENCH_VERMILION            10
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

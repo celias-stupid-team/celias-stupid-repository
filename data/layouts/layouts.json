@@ -1876,7 +1876,7 @@
     {
       "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL",
       "name": "UndergroundPath_NorthSouthTunnel_Layout",
-      "width": 8,
+      "width": 24,
       "height": 63,
       "border_width": 2,
       "border_height": 2,
