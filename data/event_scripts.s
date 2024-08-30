@@ -1365,10 +1365,7 @@ Text_TestMsg::
 	.include "data/text/pokedude.inc"
 
 	.include "data/maps/PalletTown_BobOmb_Battlefield/scripts.inc"
-	.include "data/maps/PalletTown_BobOmb_Battlefield/text.inc"
 
 	.include "data/maps/InsideOfTruck/scripts.inc"
-	.include "data/maps/InsideOfTruck/text.inc"
-
 	.include "data/maps/Route10_Again/scripts.inc"
 	.include "data/maps/Route10_Again/text.inc"
