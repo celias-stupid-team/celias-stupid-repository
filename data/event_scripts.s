@@ -1368,4 +1368,3 @@ Text_TestMsg::
 
 	.include "data/maps/InsideOfTruck/scripts.inc"
 	.include "data/maps/Route10_Again/scripts.inc"
-	.include "data/maps/Route10_Again/text.inc"
