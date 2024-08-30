@@ -965,7 +965,7 @@
       "id": "LAYOUT_ROUTE10",
       "name": "Route10_Layout",
       "width": 24,
-      "height": 80,
+      "height": 52,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4416,6 +4416,18 @@
       "secondary_tileset": "gTileset_InsideOfTruck",
       "border_filepath": "data/layouts/InsideOfTruck/border.bin",
       "blockdata_filepath": "data/layouts/InsideOfTruck/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE10_AGAIN",
+      "name": "Route10_Again_Layout",
+      "width": 23,
+      "height": 28,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavenderTown",
+      "border_filepath": "data/layouts/Route10_Again/border.bin",
+      "blockdata_filepath": "data/layouts/Route10_Again/map.bin"
     }
   ]
 }

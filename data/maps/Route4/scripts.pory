@@ -18,9 +18,15 @@ Route4_EventScript_RouteSign::
 	msgbox Route4_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+const CAMPER = 14
 script Route4_TransitionScripts {
 	setbench(BENCH_ROUTE4)
 	call(SetPlayerPokedexValues)
+	if(!flag(FLAG_DEFEATED_MISTY)) {
+		removeobject(CAMPER)
+	} else {
+		addobject(CAMPER)
+	}
 }
 
 script Route4_Item_PokeBall {
@@ -83,5 +89,10 @@ script Route4_Celia_Berries {
 
 script Route4_Celia_Picknicker {
 	msgbox("That trainer there is a LASS in\nvanilla.\pI needed to swap her out for a\nPICKNICKER so it wouldn't mess\lwith my Lass running gag.", MSGBOX_NPC)
+	end
+}
+
+script Route4_DejectedCamper {
+	msgbox("Oh, darn it!\pI just made it through MT. MOON, but\nI noticed I'd left my bag at home!\pGuess I gotta walk  all the way\naround KANTO if I wanna go back.\pIf only there was an easy way to\nquickly get back to the other side!", MSGBOX_NPC)
 	end
 }
