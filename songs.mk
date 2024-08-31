@@ -300,6 +300,9 @@ $(MID_SUBDIR)/mus_driftveil.s: %.s: %.mid
 $(MID_SUBDIR)/mus_loss_woods.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G149 -V090
 
+$(MID_SUBDIR)/mus_twoson.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G194 -V090
+
 $(MID_SUBDIR)/se_door.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G129 -V100 -P5
 
