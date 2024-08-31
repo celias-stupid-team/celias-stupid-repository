@@ -2812,25 +2812,58 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
         inches = 10000 * height / 254; // actually tenths of inches here
-        if (inches % 10 >= 5)
-            inches += 10;
-        feet = inches / 120;
-        inches = (inches - (feet * 120)) / 10;
-        if (feet / 10 == 0)
-        {
-            buffer[i++] = 0;
-            buffer[i++] = feet + CHAR_0;
+        switch(species) {
+            case SPECIES_KENYA:
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_5;
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = CHAR_3;
+                buffer[i++] = CHAR_8;
+                buffer[i++] = CHAR_SPACE;
+                buffer[i++] = CHAR_m;
+                buffer[i++] = CHAR_i;
+                buffer[i++] = CHAR_PERIOD;
+                break;
+
+            case SPECIES_UNOWN_LOSS:
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
+            case SPECIES_CHERUBI:
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = CHAR_9;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
+            default:
+                if (inches % 10 >= 5)
+                inches += 10;
+                feet = inches / 120;
+                inches = (inches - (feet * 120)) / 10;
+                if (feet / 10 == 0)
+                {
+                    buffer[i++] = 0;
+                    buffer[i++] = feet + CHAR_0;
+                }
+                else
+                {
+                    buffer[i++] = feet / 10 + CHAR_0;
+                    buffer[i++] = feet % 10 + CHAR_0;
+                }
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = inches / 10 + CHAR_0;
+                buffer[i++] = inches % 10 + CHAR_0;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
         }
-        else
-        {
-            buffer[i++] = feet / 10 + CHAR_0;
-            buffer[i++] = feet % 10 + CHAR_0;
-        }
-        buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
-        buffer[i++] = inches / 10 + CHAR_0;
-        buffer[i++] = inches % 10 + CHAR_0;
-        buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
-        buffer[i++] = EOS;
+        
     }
     else
     {
@@ -2873,49 +2906,81 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     {
         lbs = (weight * 100000) / 4536; // Convert to hundredths of lb
 
-        // Round up to the nearest 0.1 lb
-        if (lbs % 10 >= 5)
-            lbs += 10;
+        switch(species) {
+            case SPECIES_KENYA:
+                buffer[i++] = CHAR_9;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_2;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_3;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_SPACE;
+                buffer[i++] = CHAR_t;
+                buffer[i++] = CHAR_o;
+                buffer[i++] = CHAR_n;
+                buffer[i++] = CHAR_s;
+                break;
+            
+            case SPECIES_UNOWN_LOSS:
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_HYPHEN;
+                break;
+            
+            case SPECIES_CHERUBI:
+                buffer[i++] = CHAR_4;
+                buffer[i++] = CHAR_2;
+                buffer[i++] = CHAR_0;
+            default:
+                // Round up to the nearest 0.1 lb
+                if (lbs % 10 >= 5)
+                    lbs += 10;
 
-        output = FALSE;
+                output = FALSE;
 
-        if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
 
-        lbs %= 100000;
-        if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                lbs %= 100000;
+                if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
 
-        lbs %= 10000;
-        if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                lbs %= 10000;
+                if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
+            
 
-        lbs %= 1000;
-        buffer[i++] = (lbs / 100) + CHAR_0;
-        lbs %= 100;
-        buffer[i++] = CHAR_PERIOD;
-        buffer[i++] = (lbs / 10) + CHAR_0;
+                lbs %= 1000;
+                buffer[i++] = (lbs / 100) + CHAR_0;
+                lbs %= 100;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = (lbs / 10) + CHAR_0;
+                break;
+        }
     }
     else
     {
@@ -2931,9 +2996,10 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     buffer[i++] = EXT_CTRL_CODE_MIN_LETTER_SPACING;
     buffer[i++] = 0;
 
-    for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
-        buffer[i + j] = lbsText[j];
-
+    if (species != SPECIES_KENYA) {
+        for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
+            buffer[i + j] = lbsText[j];
+    }
     buffer[i + j] = EOS;
     DexScreen_AddTextPrinterParameterized(windowId, FONT_SMALL, labelText, x, y, 0);
     x += 30;

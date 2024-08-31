@@ -98,20 +98,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 24,
-      "y": 33,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermilionCity_EventScript_FerrySailor",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
       "x": 19,
       "y": 24,
@@ -126,17 +112,31 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 25,
-      "y": 7,
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 19,
+      "y": 25,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 4,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermilionCity_EventScript_OaksAide",
+      "script": "VermillionCity_CeliaAfterGym",
       "flag": "FLAG_HIDE_VERMILION_CITY_OAKS_AIDE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 10,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermillionCity_Cop",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -212,42 +212,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 33,
-      "elevation": 0,
-      "var": "VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER",
-      "var_value": "0",
-      "script": "VermilionCity_EventScript_CheckTicketLeft"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 33,
-      "elevation": 0,
-      "var": "VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER",
-      "var_value": "0",
-      "script": "VermilionCity_EventScript_CheckTicketRight"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 32,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "VermilionCity_EventScript_ExitedTicketCheck"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 32,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "VermilionCity_EventScript_ExitedTicketCheck"
-    }
+
   ],
   "bg_events": [
     {
@@ -284,8 +249,8 @@
     },
     {
       "type": "sign",
-      "x": 45,
-      "y": 17,
+      "x": 30,
+      "y": 11,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VermilionCity_EventScript_SnorlaxNotice"

@@ -2,13 +2,18 @@ raw `
 PalletTown_PlayersHouse_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_PlayersHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_PlayersHouse_2F_OnWarp
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_Truck_Opening_Call
 	.byte 0
 
-PalletTown_PlayersHouse_2F_OnTransition::
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn
-	end
+PalletTown_Truck_Opening_Call::
+	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_Truck_Opening
+	.2byte 0
+
+
+
 
 PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
+	playbgm MUS_NONE TRUE
 	setrespawn SPAWN_PALLET_TOWN
 	return
 
@@ -17,8 +22,7 @@ PalletTown_PlayersHouse_2F_OnWarp::
 	.2byte 0
 
 PalletTown_PlayersHouse_2F_FirstWarpIn::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES::
@@ -53,10 +57,60 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	end
 `
 
+script PalletTown_PlayersHouse_2F_OnTransition{
+	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn)
+}
+
 script PalletTown_PlayersHouse_2F_EventScript_Bed { //Removed walking out logic; I think it's better without it
 	lock
 	msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
 	release
+}
+
+const TRUCK = 5
+script PalletTown_Truck_Opening {
+	lockall
+	if(!flag(FLAG_CSR_EXITED_TRUCK)) {
+		setvar(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsOutOfTruck)
+		delay(50)
+		playse(SE_M_EARTHQUAKE)
+		applymovement(TRUCK, TruckRevsUp)
+		waitmovement(0)
+		delay(50)
+		playse(SE_FALL)
+		applymovement(TRUCK, TruckFliesAway)
+		
+		waitmovement(0)
+		delay(60)
+		removeobject(TRUCK)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerFaceUp)
+		waitmovement(0)
+		delay(5)
+		playbgm(MUS_PALLET, TRUE)
+		
+		releaseall
+	}
+	
+		
+}
+
+movement PlayerJumpsOutOfTruck {
+	jump_right
+	delay_16 * 5
+	face_left
+}
+
+movement TruckRevsUp {
+	walk_in_place_faster_down * 25
+}
+movement TruckFliesAway {
+	walk_faster_left * 7
+}
+
+movement PlayerFaceUp {
+	face_up
 }
 
 

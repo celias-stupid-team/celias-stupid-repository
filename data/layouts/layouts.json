@@ -881,7 +881,7 @@
       "id": "LAYOUT_ROUTE3",
       "name": "Route3_Layout",
       "width": 84,
-      "height": 20,
+      "height": 38,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -957,7 +957,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CeruleanCity",
+      "secondary_tileset": "gTileset_LavenderTown",
       "border_filepath": "data/layouts/Route9/border.bin",
       "blockdata_filepath": "data/layouts/Route9/map.bin"
     },
@@ -965,7 +965,7 @@
       "id": "LAYOUT_ROUTE10",
       "name": "Route10_Layout",
       "width": 24,
-      "height": 80,
+      "height": 52,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1876,7 +1876,7 @@
     {
       "id": "LAYOUT_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL",
       "name": "UndergroundPath_NorthSouthTunnel_Layout",
-      "width": 8,
+      "width": 24,
       "height": 63,
       "border_width": 2,
       "border_height": 2,
@@ -4404,6 +4404,30 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/PalletTown_BobOmb_Battlefield/border.bin",
       "blockdata_filepath": "data/layouts/PalletTown_BobOmb_Battlefield/map.bin"
+    },
+    {
+      "id": "LAYOUT_INSIDE_OF_TRUCK",
+      "name": "InsideOfTruck_Layout",
+      "width": 5,
+      "height": 5,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideOfTruck",
+      "border_filepath": "data/layouts/InsideOfTruck/border.bin",
+      "blockdata_filepath": "data/layouts/InsideOfTruck/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE10_AGAIN",
+      "name": "Route10_Again_Layout",
+      "width": 23,
+      "height": 28,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavenderTown",
+      "border_filepath": "data/layouts/Route10_Again/border.bin",
+      "blockdata_filepath": "data/layouts/Route10_Again/map.bin"
     }
   ]
 }

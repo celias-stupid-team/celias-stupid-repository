@@ -362,10 +362,13 @@
 #define MUS_CSR_STAIRS            353
 #define MUS_CSR_CASTLE            354
 #define MUS_CSR_DRIFTVEIL            355
+#define MUS_CSR_LOSS_WOODS            356
+#define MUS_CSR_ROUTE3_AGAIN            357
+#define MUS_CSR_TWOSON            358
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_DRIFTVEIL
+#define END_MUS                     MUS_CSR_TWOSON
 
 #endif  // GUARD_CONSTANTS_SONGS_H

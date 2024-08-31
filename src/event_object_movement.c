@@ -7103,6 +7103,14 @@ static bool8 MovementAction_EmoteDoubleExclamationMark_Step0(struct ObjectEvent 
     return TRUE;
 }
 
+static bool8 MovementAction_EmoteLoss_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ObjectEventGetLocalIdAndMap(objectEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);
+    FieldEffectStart(FLDEFF_LOSS);
+    sprite->data[2] = 1;
+    return TRUE;
+}
+
 static bool8 MovementAction_EmoteSmile_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     ObjectEventGetLocalIdAndMap(objectEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);

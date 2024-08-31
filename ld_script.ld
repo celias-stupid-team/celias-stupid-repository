@@ -606,6 +606,7 @@ SECTIONS {
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
+        src/field_special_scene.o(.rodata);
 
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
@@ -973,6 +974,8 @@ SECTIONS {
         sound/songs/midi/mus_stairs.o(.rodata);
         sound/songs/midi/mus_castle.o(.rodata);
         sound/songs/midi/mus_driftveil.o(.rodata);
+        sound/songs/midi/mus_loss_woods.o(.rodata);
+        sound/songs/midi/mus_twoson.o(.rodata);
     } > ROM =0
 
 

@@ -550,7 +550,7 @@
       "price": 1200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 10,
-      "description_english": "Restores a selected move's PP by\\n10 points for one POKéMON.",
+      "description_english": "What, no POTION?",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

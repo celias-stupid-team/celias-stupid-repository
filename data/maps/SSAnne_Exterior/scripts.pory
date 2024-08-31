@@ -67,3 +67,37 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	step_end
 `
+script VermillionHarbor_PaintedMew {
+	msgbox("A POKéMON is painted onto the side\nof this truck!\lNeat!", MSGBOX_SIGN)
+}
+
+script VermillionHarbor_DollMew {
+	msgbox("It's a life-sized doll shaped\nlike a POKéMON!\lHow cool!", MSGBOX_SIGN)
+	end
+}
+
+
+script VermillionHarbor_RealFakeMew {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_DITTO_MEW, 34)
+	msgbox("And wow!\nOver in this truck, it's…!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	waitse
+	playmoncry(SPECIES_DITTO_MEW, CRY_MODE_ENCOUNTER)
+	msgbox("Mew?\n", MSGBOX_DEFAULT)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	release
+	end
+}

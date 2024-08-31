@@ -304,14 +304,16 @@
     "SevenIsland_TrainerTower",
     "SevenIsland_SevaultCanyon_Entrance",
     "SevenIsland_SevaultCanyon",
-    "SevenIsland_TanobyRuins"
+    "SevenIsland_TanobyRuins",
+    "Route10_Again"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
     "PalletTown_PlayersHouse_2F",
     "PalletTown_RivalsHouse",
     "PalletTown_ProfessorOaksLab",
-    "PalletTown_BobOmb_Battlefield"
+    "PalletTown_BobOmb_Battlefield",
+    "InsideOfTruck"
   ],
   "gMapGroup_IndoorViridian": [
     "ViridianCity_House",

@@ -1,19 +1,24 @@
 #include "global.h"
-#include "gflib.h"
 #include "bike.h"
 #include "event_data.h"
 #include "field_camera.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
+#include "field_special_scene.h"
+#include "field_tasks.h"
 #include "fieldmap.h"
+#include "item.h"
+#include "main.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "quest_log.h"
 #include "script.h"
+#include "sound.h"
 #include "task.h"
 #include "constants/field_tasks.h"
-#include "constants/metatile_labels.h"
+#include "constants/items.h"
 #include "constants/songs.h"
+#include "constants/metatile_labels.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Triggers ambient cries. In RSE, this also periodically updates local time and RTC events.
@@ -21,6 +26,7 @@
  *      . DummyPerStepCallback: Default, does nothing. Includes functionality from RS that was removed.
  *      . AshGrassPerStepCallback: Leftover from RS. Removes the ash from ash-covered grass that the player steps on.
  *      . IcefallCaveIcePerStepCallback: Cracks/breaks ice in Icefall Cave that the player steps on.
+ *      . EndTruckSequence: Sets the moving truck boxes to their final position when the truck sequence ends.
  *      . CrackedFloorPerStepCallback: Leftover from RS. Breaks cracked floors that the player steps on.
  *
  *  NOTE: "PerStep" is perhaps misleading. One function in sPerStepCallbacks is called
@@ -34,6 +40,7 @@ static void DummyPerStepCallback(u8 taskId);
 static void AshGrassPerStepCallback(u8 taskId);
 static void IcefallCaveIcePerStepCallback(u8 taskId);
 static void CrackedFloorPerStepCallback(u8 taskId);
+static void CallEndTruckSequence(u8 taskId);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -42,7 +49,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_FORTREE_BRIDGE]    = DummyPerStepCallback,
     [STEP_CB_PACIFIDLOG_BRIDGE] = DummyPerStepCallback,
     [STEP_CB_ICE]               = IcefallCaveIcePerStepCallback,
-    [STEP_CB_TRUCK]             = DummyPerStepCallback,
+    [STEP_CB_TRUCK]             = CallEndTruckSequence,
     [STEP_CB_SECRET_BASE]       = DummyPerStepCallback,
     [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback
 };
@@ -134,6 +141,11 @@ void ResetFieldTasksArgs(void)
 
 static void DummyPerStepCallback(u8 taskId)
 {
+}
+
+static void CallEndTruckSequence(u8 taskId)
+{
+    EndTruckSequence(taskId);
 }
 
 static void MarkIcePuzzleCoordVisited(s16 x, s16 y)

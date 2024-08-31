@@ -1501,16 +1501,16 @@ static const struct SpriteFrameImage sPicTable_Articuno[] = {
     overworld_frame(gObjectEventPic_Articuno, 4, 4, 0),
 };
 
-static const struct SpriteFrameImage sPicTable_DeoxysD[] = {
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 1),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 1),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 0),
-    overworld_frame(gObjectEventPic_DeoxysD, 4, 4, 1),
+static const struct SpriteFrameImage sPicTable_Truck[] = {
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Truck, 6, 6, 1),
 };
 
 static const struct SpriteFrameImage sPicTable_DeoxysA[] = {

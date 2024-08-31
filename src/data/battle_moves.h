@@ -95,7 +95,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_BURN_HIT,
         .power = 75,
-        .type = TYPE_FIRE,
+        .type = TYPE_FIRE_PHYSICAL,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 10,
@@ -121,7 +121,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_PARALYZE_HIT,
         .power = 75,
-        .type = TYPE_ELECTRIC,
+        .type = TYPE_ELECTRIC_PHYSICAL,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 10,
@@ -186,7 +186,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ATTACK_UP_2,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_GRASS,
         .accuracy = 0,
         .pp = 30,
         .secondaryEffectChance = 0,
@@ -2123,7 +2123,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIGH_CRITICAL,
         .power = 70,
-        .type = TYPE_NORMAL,
+        .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,

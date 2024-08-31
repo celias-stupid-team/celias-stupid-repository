@@ -8870,62 +8870,62 @@
               {
                 "min_level": 37,
                 "max_level": 37,
-                "species": "SPECIES_PIDGEOTTO"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 35,
                 "max_level": 35,
-                "species": "SPECIES_GLOOM"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_PIDGEY"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ODDISH"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_VENONAT"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_DROWZEE"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 35,
                 "max_level": 35,
-                "species": "SPECIES_EXEGGCUTE"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 31,
                 "max_level": 31,
-                "species": "SPECIES_PSYDUCK"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 37,
                 "max_level": 37,
-                "species": "SPECIES_VENOMOTH"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 37,
                 "max_level": 37,
-                "species": "SPECIES_HYPNO"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_VENOMOTH"
+                "species": "SPECIES_UNOWN_LOSS"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_HYPNO"
+                "species": "SPECIES_UNOWN_LOSS"
               }
             ]
           },

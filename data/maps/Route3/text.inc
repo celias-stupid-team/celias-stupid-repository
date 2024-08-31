@@ -1,15 +1,15 @@
 Route3_Text_TunnelFromCeruleanTiring::
 	.string "Whew… I better take a rest…\n"
 	.string "Groan…\p"
-	.string "I took the trek through the\n"
-	.string "UNGERGROUND PATH to VERMILLION and\l"
-	.string "then into DIGLETTS' CAVE over to\l"
-	.string "ROUTE 2, up through PEWTER and now\l"
-	.string "onto ROUTE 3.\p"
+	.string "I took the trek all the way through\n"
+	.string "the UNDERGROUND PATH to VERMILLION\l"
+	.string "and then into DIGLETTS' CAVE over\l"
+	.string "to ROUTE 2, up through PEWTER and\l"
+	.string "now onto ROUTE 3.\p"
 	.string "It was one heck of a journey, but\n"
-	.string "alas!\p"
-	.string "That's the only way to get back here\n"
-	.string "from CERULEAN.\l"
+	.string "alas!\l"
+	.string "I had to get back from CERULEAN.\p"
+	.string "Too bad there's no other way here!\n"
 	.string "Darn ledges…$"
 
 Route3_Text_ColtonIntro::
@@ -25,9 +25,7 @@ Route3_Text_ColtonPostBattle::
 
 Route3_Text_BenIntro::
     .string "I am SHORTS!\n"
-    .string "I'm comfy and easy to wear!\p"
-    .string "They're delightfully comfy and\n"
-    .string "easy to wear!$"
+    .string "I'm comfy and easy to wear!$"
 
 Route3_Text_BenDefeat::
     .string "I don't believe it!$"
@@ -119,4 +117,3 @@ Route3_Text_RouteSign::
     .string "ROUTE 3\n"
     .string "NEW WILD POKéMON: 1\l"
     .string "NEW SMASH BROS CHARACTERS: 1$"
-

@@ -146,7 +146,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Celebi;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kabuto;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysD;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Truck;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysA;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysN;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
@@ -332,7 +332,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SABRINA]                  = &gObjectEventGraphicsInfo_Sabrina,
     [OBJ_EVENT_GFX_BLAINE]                   = &gObjectEventGraphicsInfo_Blaine,
     [OBJ_EVENT_GFX_GIOVANNI]                 = &gObjectEventGraphicsInfo_Giovanni,
-    [OBJ_EVENT_GFX_MOM]                      = &gObjectEventGraphicsInfo_Mom,
+    [OBJ_EVENT_GFX_DAD]                      = &gObjectEventGraphicsInfo_Mom,
     [OBJ_EVENT_GFX_CELIO]                    = &gObjectEventGraphicsInfo_Celio,
     [OBJ_EVENT_GFX_TEACHY_TV_HOST]           = &gObjectEventGraphicsInfo_TeachyTVHost,
     [OBJ_EVENT_GFX_GYM_GUY]                  = &gObjectEventGraphicsInfo_GymGuy,
@@ -392,7 +392,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HO_OH]                    = &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_CELEBI]                   = &gObjectEventGraphicsInfo_Celebi,
     [OBJ_EVENT_GFX_KABUTO]                   = &gObjectEventGraphicsInfo_Kabuto,
-    [OBJ_EVENT_GFX_DEOXYS_D]                 = &gObjectEventGraphicsInfo_DeoxysD,
+    [OBJ_EVENT_GFX_TRUCK]                 = &gObjectEventGraphicsInfo_Truck,
     [OBJ_EVENT_GFX_DEOXYS_A]                 = &gObjectEventGraphicsInfo_DeoxysA,
     [OBJ_EVENT_GFX_DEOXYS_N]                 = &gObjectEventGraphicsInfo_DeoxysN,
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,

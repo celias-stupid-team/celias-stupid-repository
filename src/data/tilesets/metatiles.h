@@ -204,3 +204,6 @@ const u32 gMetatileAttributes_HallOfFame[] = INCBIN_U32("data/tilesets/secondary
 
 const u16 gMetatiles_BobOmbBattlefield[] = INCBIN_U16("data/tilesets/primary/bob_omb_battlefield/metatiles.bin");
 const u32 gMetatileAttributes_BobOmbBattlefield[] = INCBIN_U32("data/tilesets/primary/bob_omb_battlefield/metatile_attributes.bin");
+
+const u16 gMetatiles_InsideOfTruck[] = INCBIN_U16("data/tilesets/secondary/inside_of_truck/metatiles.bin");
+const u32 gMetatileAttributes_InsideOfTruck[] = INCBIN_U32("data/tilesets/secondary/inside_of_truck/metatile_attributes.bin");

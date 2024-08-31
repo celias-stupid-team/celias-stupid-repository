@@ -165,3 +165,183 @@ movement Lass_Player_End {
 	face_right
 }
 
+script Route3_DugrtioSign {
+	lock
+	msgbox("There's a mysterious carving in the\nmountainside.\lIt seems to resemble a POKéMON...", MSGBOX_DEFAULT)
+	if(!flag(FLAG_DUGTRIO_SIGN)) {
+		closemessage
+		delay(10)
+		playfanfare(MUS_SLOTS_WIN)
+		msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(10)
+		setflag(FLAG_DUGTRIO_SIGN)
+	}
+	release
+}
+
+script Route3_Nerd {
+	msgbox("I dropped my glasses...\nCan you help me find them?", MSGBOX_NPC)
+	end
+}
+
+script Route3_Celia_Signs {
+	msgbox("My favorite part of Pokemon Snap as\na kid was going back through the\lcourses and finding the signs.\pI really wanted to recreate that\nsense of discovery here.", MSGBOX_NPC)
+	end
+}
+
+script Route3_Celia_Glasses {
+	msgbox("This whole area was added to be a\nred herring for SURGE.\pI knew the player would obviously\njump to BLACKGLASSES as the answer,\lso I needed to address it somehow.\pThus, I made a stupid scene where I\ndangle them in front of you but make\lCLEAR that you can't get them.", MSGBOX_NPC)
+	end
+}
+
+script Route3_ShortsBerry {
+	msgbox("Hey, is it just me or are POTIONS\nreally hard to find as of late?\pThat's okay, though.\nI know a secret!\pJust look for darker spots on the\nground.\lYou'll find BERRIES growing there!\pThankfully I'm SHORTS, so my\npockets can carry plenty!", MSGBOX_NPC)
+	end
+}
+
+const Nerd = 15
+script Route3_Blackglasses {
+	lock
+	if(flag(FLAG_CSR_GLASSES_NERD)) {
+		msgbox("There is no longer a BLACKGLASSES\nhere.\pGuess you're out of luck...\n", MSGBOX_DEFAULT)
+		release
+	} else {
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox("{PLAYER} found one, singular\nBLACKGLASSES!", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox("{PLAYER} put the BLACKGLASSES in\nthe ITEMS pocket.", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		playse(SE_PIN)
+		applymovement(Nerd, NerdLooksOver)
+		waitmovement(0)
+		waitse 
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Hey!\n", MSGBOX_DEFAULT)
+		closemessage
+		delay(15)
+		copyvar(VAR_TEMP_1, VAR_FACING)
+		switch(var(VAR_TEMP_1)) {
+			case DIR_WEST: //3
+				applymovement(Nerd,NerdApproachesPlayerRight)
+				waitmovement(0)
+				delay(5)
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+				waitmovement(0)
+				break
+			case DIR_SOUTH:
+				applymovement(Nerd,NerdApproachesPlayerFar)
+				waitmovement(0)
+				delay(5)
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+				waitmovement(0)
+				break
+			case DIR_EAST:
+				applymovement(Nerd,NerdApproachesPlayerFar)
+				waitmovement(0)
+				delay(5)
+				break
+
+		}
+		playse(SE_SELECT)
+		msgbox("These are my GLASSES!\nThanks so much for finding them!\p... ... ...\pUh, why'd you put them in your\nBAG?\lAren't you gonna give them back?", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		switch(var(VAR_TEMP_1)) {// 1 
+			case DIR_SOUTH:
+				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShook)
+				waitmovement(0)
+				
+				applymovement(Nerd, NerdIsSadUp)
+				waitmovement(0)
+				applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_FaceDown)
+				delay(10)
+				break
+			case DIR_WEST:
+				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShook)
+				waitmovement(0)
+				applymovement(Nerd, NerdIsSad)
+				waitmovement(0)
+				delay(10)
+				break
+
+			case DIR_EAST:
+				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShookInverse)
+				waitmovement(0)
+				applymovement(Nerd, NerdIsSad)
+				waitmovement(0)
+				delay(10)
+				break
+		
+		}
+		
+		playse(SE_SELECT)
+		msgbox("C'mon, man...\nThat's not cool.", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playse(SE_SELECT)
+		msgbox("{PLAYER} reluctantly returned the\nBLACKGLASSES to the dumb NERD…", MSGBOX_DEFAULT)
+		closemessage
+		delay(45)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		playse(SE_SELECT)
+		msgbox("Uh, thanks.\p...\pGoodbye.\n", MSGBOX_DEFAULT)
+		closemessage
+		playse(SE_EXIT)
+		fadescreen(FADE_TO_BLACK)
+		removeobject(Nerd)
+		fadescreen(FADE_FROM_BLACK)
+		release
+	}
+}
+
+movement NerdLooksOver {
+	face_player
+	emote_exclamation_mark
+}
+
+movement PlayerIsShook {
+	face_left
+	delay_4 * 5
+	face_right
+	delay_4 * 5
+	face_left
+	delay_4 * 7
+	face_right
+	delay_4 * 5
+}
+
+movement PlayerIsShookInverse {
+	
+	face_right
+	delay_4 * 5
+	face_left
+	delay_4 * 7
+	face_right
+	delay_4 * 5
+	face_left
+	delay_4 * 5
+	face_right
+	delay_4 * 5
+}
+
+movement NerdIsSad {
+	walk_in_place_left * 3
+}
+
+movement NerdIsSadUp {
+	walk_in_place_Up * 3
+}
+
+movement NerdApproachesPlayerRight {
+	walk_left *2
+	face_player
+}
+
+movement NerdApproachesPlayerFar {
+	walk_left *4
+	face_player
+}

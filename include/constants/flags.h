@@ -228,19 +228,19 @@
 //Route 3
 #define FLAG_CSR_LASS_ATTACK_1          0x0C6
 #define FLAG_CSR_LASS_ATTACK_2          0x0C7
-#define FLAG_CSR_UNUSED_4               0x0C8
+#define FLAG_CSR_GLASSES_NERD               0x0C8
 
 //Route 4
 #define FLAG_CSR_2_SITRUS_BERRIES       0x0C9
 #define FLAG_CSR_NEGATIVE_BERRIES       0x0CA
-#define FLAG_CSR_UNUSED_5               0x0CB
+#define FLAG_CSR_LOSSELLE_DAD               0x0CB
 
 //Mt Moon
 #define FLAG_CSR_FIRST_TENTACOOL        0x0CC
 #define FLAG_CSR_SECOND_TENTACOOL       0x0CD
-#define FLAG_CSR_UNUSED_6               0x0CE
-#define FLAG_CSR_UNUSED_7               0x0CF
-#define FLAG_CSR_UNUSED_8               0x0D0
+#define FLAG_CSR_EXITED_TRUCK               0x0CE
+#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
+#define FLAG_CSR_RETREAT_CAMPER               0x0D0
 #define FLAG_CSR_UNUSED_9               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
 #define FLAG_CSR_UNUSED_11              0x0D3
@@ -659,7 +659,7 @@
 #define FLAG_0x261                                       0x261
 #define FLAG_0x262                                       0x262
 #define FLAG_GOT_EEVEE                                   0x263
-#define FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES           0x264
+#define FLAG_VERMILLION_GYM_DOOR_OPENED           0x264
 #define FLAG_CINNABAR_GYM_QUIZ_1                         0x265
 #define FLAG_PENDING_DAYCARE_EGG                         0x266
 #define FLAG_CINNABAR_GYM_QUIZ_2                         0x267
@@ -972,9 +972,10 @@
 #define FLAG_0x396               0x396
 #define FLAG_0x397               0x397
 #define FLAG_0x398               0x398
-#define FLAG_0x399               0x399
-#define FLAG_0x39A               0x39A
-#define FLAG_0x39B               0x39B
+
+#define FLAG_DUGTRIO_SIGN               0x399
+#define FLAG_GROWLITHE_SIGN               0x39A
+#define FLAG_ELECTIVIRE_SIGN               0x39B
 #define FLAG_0x39C               0x39C
 #define FLAG_0x39D               0x39D
 #define FLAG_0x39E               0x39E
@@ -983,10 +984,10 @@
 
 
 //Odd Candy Quest
-#define FLAG_PALLET_CANDY                0x39F
+#define FLAG_PALLET_CANDY                0x39F //placed
 #define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
-#define FLAG_PEWTER_CANDY                0x3A1
-#define FLAG_CERULEAN_CANDY              0x3A2
+#define FLAG_PEWTER_CANDY                0x3A1 
+#define FLAG_CERULEAN_CANDY              0x3A2 //placed
 #define FLAG_VERMILLION_CANDY            0x3A3
 #define FLAG_LAVENDER_CANDY              0x3A4
 #define FLAG_CELADON_CANDY               0x3A5
@@ -998,7 +999,7 @@
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD
-#define FLAG_DIGLETTS_CAVE_CANDY         0x3AE
+#define FLAG_DIGLETTS_CAVE_CANDY         0x3AE // placed
 #define FLAG_SILPH_CO_CANDY              0x3AF
 #define FLAG_SECRET_GARDEN_CANDY         0x3B0
 #define FLAG_POWER_PLANT_CANDY           0x3B1

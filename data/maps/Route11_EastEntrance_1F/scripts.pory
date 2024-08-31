@@ -6,7 +6,33 @@ Route11_EastEntrance_1F_EventScript_TopGuard::
 	msgbox Route11_EastEntrance_1F_Text_ManInLavenderRatesNames, MSGBOX_NPC
 	end
 
-Route11_EastEntrance_1F_EventScript_BottomGuard::
-	msgbox Route11_EastEntrance_1F_Text_RockTunnelToReachLavender, MSGBOX_NPC
-	end
+
 `
+script Route11_LosselleDad {
+	lock
+	faceplayer
+	if(!flag(FLAG_CSR_LOSSELLE_DAD) || !flag(FLAG_RESCUED_LOSTELLE)) {
+		msgbox("Oh, please!\nHelp me!\pMy daughter wandered into the\nforest, and she hasn't come out!\pCould you please make sure she's\nsafe?", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_LOSSELLE_DAD)
+	}
+	if(flag(FLAG_RESCUED_LOSTELLE)) {
+		msgbox("You found LOSSELLE? And she's\nsafe?\pI'm so relieved…\nThank you so much!\pIn retrospect, perhaps naming her\nLOSSELLE was a poor decision.", MSGBOX_DEFAULT)
+	}
+
+
+	release
+	end
+}
+
+
+script Route11_EastEntrance_1F_EventScript_BottomGuard { //Rumor Log
+	lock
+	faceplayer
+	msgbox(Route11_EastEntrance_1F_Text_RockTunnelToReachLavender, MSGBOX_DEFAULT)
+	setflag(FLAG_CSR_HINT_KENYA)
+	call(SetPlayerPokedexValues)
+	if(flag(FLAG_CSR_KENYA_OBTAINED)) {
+		msgbox(Route11_EastEntrance_1F_Text_GotKenya, MSGBOX_DEFAULT)
+	}
+	release
+}

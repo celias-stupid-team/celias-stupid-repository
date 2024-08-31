@@ -43,10 +43,10 @@ static const struct InGameTrade sInGameTrades[] = {
         .personality = 0x4c970b89,
         .heldItem = ITEM_COIN_CASE,
         .mailNum = 255,
-        .otName = _("SAIGE"),
+        .otName = _("MADDIE"),
         .otGender = FEMALE,
         .sheen = 10,
-        .requestedSpecies = SPECIES_NIDORAN_M
+        .requestedSpecies = SPECIES_MEOWTH
 #elif defined(LEAFGREEN)
         .nickname = _("MR. NIDO"),
         .species = SPECIES_NIDORAN_M,

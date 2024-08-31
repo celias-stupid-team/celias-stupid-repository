@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -32,8 +32,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 2,
-      "y": 11,
+      "x": 1,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -46,10 +46,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 8,
-      "y": 13,
+      "x": 7,
+      "y": 18,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -84,6 +84,34 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "VermilionCity_Gym_EventScript_Tucker",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 1,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermillionGym_Dad",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VermillionGym_Celia_Can",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
@@ -109,7 +137,9 @@
       "dest_warp_id": "9"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -133,15 +163,7 @@
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan1"
-    },
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan2"
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
@@ -149,23 +171,119 @@
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan3"
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
-      "x": 7,
+      "x": 4,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan4"
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 3,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan5"
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
@@ -173,23 +291,31 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan6"
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
-      "x": 3,
-      "y": 12,
+      "x": 6,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan7"
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
-      "x": 5,
-      "y": 12,
+      "x": 7,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan8"
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
@@ -197,7 +323,71 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan9"
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
     },
     {
       "type": "sign",
@@ -205,47 +395,103 @@
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan10"
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_EmptyCan"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_BonusCan5"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_BonusCan4"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_BonusCan2"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionGym_BonusCan1"
     },
     {
       "type": "sign",
       "x": 1,
-      "y": 14,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan11"
+      "script": "VermillionGym_BonusCan3"
     },
     {
       "type": "sign",
-      "x": 3,
-      "y": 14,
+      "x": 6,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan12"
-    },
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan13"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan14"
-    },
-    {
-      "type": "sign",
-      "x": 9,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermilionCity_Gym_EventScript_TrashCan15"
+      "script": "VermillionGym_SurgeCan"
     }
   ]
 }

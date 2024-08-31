@@ -206,8 +206,8 @@ It is reset after every battle.
 #define VAR_NOT_OAK_SILLY                 0x408F
 #define VAR_CSR_VIRIDIAN_DOOR_TWICE                 0x4090
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
-#define VAR_0x4092                 0x4092
-#define VAR_0x4093                 0x4093
+#define VAR_VERMILLION_GYM_TRASH_COUNTER                 0x4092
+#define VAR_VERMILLION_GYM_BONUS_TRASH                 0x4093
 #define VAR_0x4094                 0x4094
 #define VAR_0x4095                 0x4095
 #define VAR_0x4096                 0x4096
