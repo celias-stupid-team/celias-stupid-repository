@@ -1,7 +1,7 @@
 Route3_Text_TunnelFromCeruleanTiring::
 	.string "Whew… I better take a rest…\n"
 	.string "Groan…\p"
-	.string "I took the treck all the way through\n"
+	.string "I took the trek all the way through\n"
 	.string "the UNDERGROUND PATH to VERMILLION\l"
 	.string "and then into DIGLETTS' CAVE over\l"
 	.string "to ROUTE 2, up through PEWTER and\l"

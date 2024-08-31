@@ -2468,7 +2468,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Articuno = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysD = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Truck = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
@@ -2483,7 +2483,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysD = {
     .oam = &gObjectEventBaseOam_48x48,
     .subspriteTables = gObjectEventSpriteOamTables_48x48,
     .anims = sAnimTable_Standard,
-    .images = sPicTable_DeoxysD,
+    .images = sPicTable_Truck,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
