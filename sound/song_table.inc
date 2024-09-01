@@ -358,6 +358,7 @@ gSongTable::
 	song mus_loss_woods, 0, 0
 	song mus_route3, 0, 0
 	song mus_twoson, 0, 0
+	song mus_cynthia, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

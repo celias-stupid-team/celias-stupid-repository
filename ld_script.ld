@@ -976,6 +976,7 @@ SECTIONS {
         sound/songs/midi/mus_driftveil.o(.rodata);
         sound/songs/midi/mus_loss_woods.o(.rodata);
         sound/songs/midi/mus_twoson.o(.rodata);
+        sound/songs/midi/mus_cynthia.o(.rodata);
     } > ROM =0
 
 
