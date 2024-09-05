@@ -301,10 +301,16 @@ $(MID_SUBDIR)/mus_loss_woods.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G149 -V090
 
 $(MID_SUBDIR)/mus_twoson.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G194 -V090
+	$(MID) $< $@ -E -R$(STD_REVERB) -G196 -V090
 
 $(MID_SUBDIR)/mus_cynthia.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G141 -V090
+
+$(MID_SUBDIR)/mus_chapter_1.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G137 -V090
+
+$(MID_SUBDIR)/mus_chapter_2.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
 
 $(MID_SUBDIR)/se_door.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G129 -V100 -P5

@@ -13,11 +13,11 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
       "x": 18,
       "y": 13,
       "elevation": 3,
@@ -32,22 +32,22 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
-      "x": 18,
-      "y": 7,
+      "x": 7,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonTower_1F_EventScript_Channeler",
+      "script": "PokemonTower_BlackMarket",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 15,
-      "y": 6,
+      "x": 16,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -60,7 +60,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 7,
+      "x": 11,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 8,
-      "y": 12,
+      "x": 6,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -116,6 +116,10 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

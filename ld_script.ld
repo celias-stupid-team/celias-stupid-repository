@@ -977,6 +977,8 @@ SECTIONS {
         sound/songs/midi/mus_loss_woods.o(.rodata);
         sound/songs/midi/mus_twoson.o(.rodata);
         sound/songs/midi/mus_cynthia.o(.rodata);
+        sound/songs/midi/mus_chapter_1.o(.rodata);
+        sound/songs/midi/mus_chapter_2.o(.rodata);
     } > ROM =0
 
 
