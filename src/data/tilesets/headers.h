@@ -768,3 +768,14 @@ const struct Tileset gTileset_InsideOfTruck =
     .metatileAttributes = gMetatileAttributes_InsideOfTruck,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_NewLavender =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewLavender,
+    .palettes = gTilesetPalettes_NewLavender,
+    .metatiles = gMetatiles_NewLavender,
+    .metatileAttributes = gMetatileAttributes_NewLavender,
+    .callback = NULL,
+};

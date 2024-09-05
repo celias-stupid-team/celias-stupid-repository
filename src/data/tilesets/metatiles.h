@@ -207,3 +207,6 @@ const u32 gMetatileAttributes_BobOmbBattlefield[] = INCBIN_U32("data/tilesets/pr
 
 const u16 gMetatiles_InsideOfTruck[] = INCBIN_U16("data/tilesets/secondary/inside_of_truck/metatiles.bin");
 const u32 gMetatileAttributes_InsideOfTruck[] = INCBIN_U32("data/tilesets/secondary/inside_of_truck/metatile_attributes.bin");
+
+const u16 gMetatiles_NewLavender[] = INCBIN_U16("data/tilesets/secondary/new_lavender/metatiles.bin");
+const u32 gMetatileAttributes_NewLavender[] = INCBIN_U32("data/tilesets/secondary/new_lavender/metatile_attributes.bin");
