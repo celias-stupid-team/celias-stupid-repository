@@ -941,7 +941,7 @@
       "id": "LAYOUT_ROUTE8",
       "name": "Route8_Layout",
       "width": 72,
-      "height": 20,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_PorytilesPrimary",
