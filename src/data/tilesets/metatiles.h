@@ -210,3 +210,6 @@ const u32 gMetatileAttributes_InsideOfTruck[] = INCBIN_U32("data/tilesets/second
 
 const u16 gMetatiles_NewLavender[] = INCBIN_U16("data/tilesets/secondary/new_lavender/metatiles.bin");
 const u32 gMetatileAttributes_NewLavender[] = INCBIN_U32("data/tilesets/secondary/new_lavender/metatile_attributes.bin");
+
+const u16 gMetatiles_PorytilesPrimary[] = INCBIN_U16("data/tilesets/primary/porytiles_primary/metatiles.bin");
+const u32 gMetatileAttributes_PorytilesPrimary[] = INCBIN_U32("data/tilesets/primary/porytiles_primary/metatile_attributes.bin");

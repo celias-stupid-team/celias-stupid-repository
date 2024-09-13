@@ -779,3 +779,14 @@ const struct Tileset gTileset_NewLavender =
     .metatileAttributes = gMetatileAttributes_NewLavender,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PorytilesPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesPrimary,
+    .palettes = gTilesetPalettes_PorytilesPrimary,
+    .metatiles = gMetatiles_PorytilesPrimary,
+    .metatileAttributes = gMetatileAttributes_PorytilesPrimary,
+    .callback = NULL,
+};

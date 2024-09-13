@@ -776,7 +776,7 @@
       "height": 21,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_PorytilesPrimary",
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/LavenderTown/border.bin",
       "blockdata_filepath": "data/layouts/LavenderTown/map.bin"
@@ -4424,7 +4424,7 @@
       "height": 28,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_PorytilesPrimary",
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/Route10_Again/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Again/map.bin"
