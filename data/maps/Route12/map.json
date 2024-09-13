@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_LAVENDER_TOWN",
-      "offset": 0,
+      "offset": 7,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE13",
-      "offset": -48,
+      "offset": -41,
       "direction": "down"
     },
     {
@@ -34,7 +34,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 17,
+      "x": 22,
       "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
@@ -48,8 +48,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 9,
-      "y": 40,
+      "x": 18,
+      "y": 42,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -62,7 +62,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 16,
+      "x": 20,
       "y": 47,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
@@ -76,8 +76,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 13,
-      "y": 59,
+      "x": 25,
+      "y": 58,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -90,8 +90,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
-      "x": 14,
-      "y": 70,
+      "x": 21,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -104,7 +104,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 13,
+      "x": 22,
       "y": 92,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_DOWN_RIGHT",
@@ -187,11 +187,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 19,
-      "y": 64,
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 11,
+      "y": 67,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -201,9 +201,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 19,
-      "y": 63,
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 10,
+      "y": 67,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -226,35 +226,70 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_13"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 6,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route12_Celia_Path",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 12,
+      "y": 67,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route12_Celia_Twins",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
+      "x": 19,
       "y": 86,
       "elevation": 0,
       "dest_map": "MAP_ROUTE12_FISHING_HOUSE",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
+      "x": 21,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 22,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
+      "x": 21,
       "y": 21,
       "elevation": 3,
       "dest_map": "MAP_ROUTE12_NORTH_ENTRANCE_1F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 3,
+      "y": 70,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE11_EAST_ENTRANCE_1F",
       "dest_warp_id": "2"
     }
   ],
@@ -264,7 +299,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 17,
+      "x": 24,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -273,14 +308,14 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 69,
+      "y": 67,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route12_EventScript_FishingSign"
     },
     {
       "type": "hidden_item",
-      "x": 18,
+      "x": 19,
       "y": 57,
       "elevation": 3,
       "item": "ITEM_ELIXIR",
@@ -290,7 +325,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 14,
+      "x": 17,
       "y": 70,
       "elevation": 3,
       "item": "ITEM_LEFTOVERS",

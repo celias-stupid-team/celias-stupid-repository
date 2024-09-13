@@ -59,3 +59,13 @@ Route12_EventScript_FishingSign::
 	msgbox Route12_Text_SportfishingArea, MSGBOX_SIGN
 	end
 `
+script Route12_Celia_Path {
+	msgbox("For reasons that are so dumb and\nconvoluted that I couldn't even\lbegin to describe them here,\lthis path is 2 tiles shorter now.\pPlease don't ask why.\n", MSGBOX_NPC)
+	end
+}
+
+script Route12_Celia_Twins {
+	msgbox("For those who don't know:\nThe twins are trying a credits warp.\pSadly, they have the items on their\nPokemon wrong, so it doesn't work.", MSGBOX_NPC)
+	end
+}
+
