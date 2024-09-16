@@ -47,3 +47,16 @@ script Route11_Celia_LossEnd {
 	msgbox("I don't wanna make a “Celia\nLaying Down” sprite.", MSGBOX_NPC)
 	call(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
 }
+
+script Route11_Route1 {
+	msgbox("ROUTE 1", MSGBOX_SIGN)
+}
+
+script Route11_Route11 {
+	msgbox("ROUTE 11", MSGBOX_SIGN)
+}
+
+
+script Route11_RouteLoss {
+	msgbox("ROUTE 1-\pNEW WILD POKéMON: 1", MSGBOX_SIGN)
+}
