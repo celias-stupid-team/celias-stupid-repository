@@ -143,6 +143,7 @@ const u8 gText_Slash[] = _("/");
 const u8 gText_PokeSum_OneHyphen[] = _("-");
 const u8 gText_PokeSum_TwoHyphens[] = _("--");
 const u8 gText_ThreeHyphens[] = _("---");
+const u8 gText_750[] = _("750");
 const u8 gText_SevenHyphens[] = _("-------");
 const u8 gText_MaleSymbol[] = _("♂");
 const u8 gText_FemaleSymbol[] = _("♀");
