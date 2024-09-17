@@ -20,13 +20,23 @@ Route4_EventScript_RouteSign::
 `
 const CAMPER = 14
 script Route4_TransitionScripts {
-	setbench(BENCH_ROUTE4)
+	setbench(BENCH_ROUTE4_EAST)
 	call(SetPlayerPokedexValues)
 	if(!flag(FLAG_DEFEATED_MISTY)) {
 		removeobject(CAMPER)
 	} else {
 		addobject(CAMPER)
 	}
+}
+
+script Route4_SetFarBench {
+	setbench(BENCH_ROUTE4)
+	release
+}
+
+script Route4_SetCeruleanBench {
+	setbench(BENCH_CERULEAN)
+	release
 }
 
 script Route4_Item_PokeBall {
@@ -93,6 +103,6 @@ script Route4_Celia_Picknicker {
 }
 
 script Route4_DejectedCamper {
-	msgbox("Oh, darn it!\pI just made it through MT. MOON, but\nI noticed I'd left my bag at home!\pGuess I gotta walk  all the way\naround KANTO if I wanna go back.\pIf only there was an easy way to\nquickly get back to the other side!", MSGBOX_NPC)
+	msgbox("Oh, darn it!\pI just made it through MT. MOON,\nbut I left my bag at home!\pGuess it's time to walk all the way\nback around KANTO…", MSGBOX_NPC)
 	end
 }

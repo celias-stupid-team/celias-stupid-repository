@@ -12,4 +12,5 @@ static const struct BenchLocation sBenchPoints[] =
     [BENCH_VERMILION - 1] = {MAP_GROUP(VERMILION_CITY), MAP_NUM(VERMILION_CITY), 18, 6},
     [BENCH_ROUTE8_BEFORE - 1 ]      = {MAP_GROUP(ROUTE8), MAP_NUM(ROUTE8), 36, 7},
     [BENCH_ROUTE8_AFTER - 1 ]      = {MAP_GROUP(ROUTE8), MAP_NUM(ROUTE8), 36, 2},
+    [BENCH_ROUTE4_EAST - 1 ]      = {MAP_GROUP(ROUTE4), MAP_NUM(ROUTE4), 36, 5},
 };

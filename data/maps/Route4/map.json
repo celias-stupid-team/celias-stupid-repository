@@ -205,7 +205,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 32,
+      "x": 33,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -226,7 +226,7 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_MT_MOON_B1F",
@@ -241,7 +241,384 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 95,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 94,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 93,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 90,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 87,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 89,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 92,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 88,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 85,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 86,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 84,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 82,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 81,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 80,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 79,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 77,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 76,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 75,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 73,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 72,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    }
   ],
   "bg_events": [
     {
