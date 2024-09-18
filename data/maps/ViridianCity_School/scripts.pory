@@ -105,13 +105,22 @@ script ViridianCity_School_EventScript_PokemonJournalNew {
 	release
 }
 
+script ViridianCity_School_EventScript_Bookshelf {
+	lock
+	msgbox("My Secret Life, chapter 3", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox("Not this again…\n", MSGBOX_DEFAULT)
+	release
+}
+
 script ViridianCity_School_EventScript_CeliaHighSchool {
 	msgbox("This fanfic here is known as\nSonic High School.\pIf you haven't read it, hooo boy.\nYou're in for a treat.\pI made sure to cut it off before\nit got REALLY spicy.", MSGBOX_NPC)
 	end
 }
 
 script ViridianCity_School_EventScript_CeliaBooks {
-	msgbox("Right here is the one bookshelf\nin the game that ISN'T just\lMy Secret Life, Chapter 3.\pI probably should put more in.\n", MSGBOX_NPC)
+	msgbox("Even after learning not to read\nbookshelves, I've found that folks\lstill try to check this one.\pThus, I decided to be polite and\nsave them some time.",, MSGBOX_NPC)
 	end
 }
 
@@ -120,3 +129,5 @@ script ViridianCity_School_EventScript_StudyGrades {
 	msgbox("I study GRADES as PROF. OAK's\nPOKéMON.", MSGBOX_NPC)
 	end
 }
+
+

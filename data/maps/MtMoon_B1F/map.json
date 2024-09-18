@@ -21,7 +21,7 @@
       "x": 45,
       "y": 35,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -151,7 +151,7 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 22,
+      "x": 23,
       "y": 14,
       "elevation": 3,
       "dest_map": "MAP_MT_MOON_B2F",

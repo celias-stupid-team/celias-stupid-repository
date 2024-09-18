@@ -27,6 +27,12 @@ ViridianCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons, MSGBOX_NPC
 	end
 `
+
+script ViridianCity_PokemonCenter_CeliaNewspaper {
+	msgbox("This newspaper text was originally\nin the school bookshelf.\pHowever, I didn't feel right with\na bookshelf not having Chapter 3,\lso I moved it over here!", MSGBOX_NPC)
+	end
+}
+
 script ViridianCity_PokemonCenter_1F_EventScript_CeliaHealthcare {
 	msgbox("This guy's line was one I stole\ndirectly from an old quote by\lChuggaaconroy in his FRLG LP!\pSadly, 15 years later it's still\ntrue.", MSGBOX_NPC)
 	end

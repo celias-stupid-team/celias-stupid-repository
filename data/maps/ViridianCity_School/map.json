@@ -47,7 +47,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 9,
-      "y": 3,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -143,7 +143,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "ViridianCity_School_EventScript_PokemonJournalNew"
+      "script": "ViridianCity_School_EventScript_Bookshelf"
     },
     {
       "type": "sign",
@@ -151,7 +151,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "ViridianCity_School_EventScript_PokemonJournalNew"
+      "script": "ViridianCity_School_EventScript_Bookshelf"
     }
   ]
 }
