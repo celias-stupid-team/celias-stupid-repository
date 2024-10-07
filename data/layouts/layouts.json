@@ -4428,6 +4428,18 @@
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/Route10_Again/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Again/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_TOWN_DANCE_THEATER",
+      "name": "LavenderTown_DanceTheater_Layout",
+      "width": 11,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/LavenderTown_DanceTheater/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderTown_DanceTheater/map.bin"
     }
   ]
 }

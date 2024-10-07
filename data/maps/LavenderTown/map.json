@@ -165,6 +165,13 @@
       "elevation": 0,
       "dest_map": "MAP_UNDERGROUND_PATH_EAST_ENTRANCE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LAVENDER_TOWN_DANCE_THEATER",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

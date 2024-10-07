@@ -6,3 +6,12 @@ Route7_EventScript_UndergroundPathSign::
 	msgbox Route7_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+script Route7_EventScript_Ann { //needs the actual trainer
+	trainerbattle_single(TRAINER_LASS_JULIA, Route7_Text_AtNightBefore, Route7_Text_AtNightDefeat)
+	msgbox(Route7_Text_AtNightAfter, MSGBOX_AUTOCLOSE)
+}
+
+script Route7_RouteSign {
+	msgbox("ROUTE 7\nNEW WILD POKéMON: 1\lNEW WILD POKéMON at night: 2", MSGBOX_SIGN)
+	end
+}

@@ -313,6 +313,7 @@
 #define MAP_LAVENDER_TOWN_HOUSE1                  (3 | (8 << 8))
 #define MAP_LAVENDER_TOWN_HOUSE2                  (4 | (8 << 8))
 #define MAP_LAVENDER_TOWN_MART                    (5 | (8 << 8))
+#define MAP_LAVENDER_TOWN_DANCE_THEATER           (6 | (8 << 8))
 
 // gMapGroup_IndoorVermilion
 #define MAP_VERMILION_CITY_HOUSE1            (0 | (9 << 8))

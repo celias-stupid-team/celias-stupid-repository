@@ -120,7 +120,7 @@ script ViridianCity_School_EventScript_CeliaHighSchool {
 }
 
 script ViridianCity_School_EventScript_CeliaBooks {
-	msgbox("Even after learning not to read\nbookshelves, I've found that folks\lstill try to check this one.\pThus, I decided to be polite and\nsave them some time.",, MSGBOX_NPC)
+	msgbox("Even after learning not to read\nbookshelves, I've found that folks\lstill try to check this one.\pThus, I decided to be polite and\nsave them some time.", MSGBOX_NPC)
 	end
 }
 

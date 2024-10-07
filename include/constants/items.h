@@ -466,11 +466,13 @@
 #define ITEM_CREAM_DROP 384
 #define ITEM_TRASH_MEDAL 385
 #define ITEM_LETTER_Y 386
+#define ITEM_MYSTIC_SEAL 387
+#define ITEM_INSTINCT_SEAL 388
+#define ITEM_VALOR_SEAL 389
 
 
 
-
-#define ITEMS_COUNT 387
+#define ITEMS_COUNT 390
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
