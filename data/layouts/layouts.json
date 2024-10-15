@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
       "width": 60,
-      "height": 20,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
