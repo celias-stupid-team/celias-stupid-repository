@@ -19,3 +19,7 @@ SafariZone_Center_EventScript_AreaSign::
 	msgbox SafariZone_Center_Text_CenterArea, MSGBOX_SIGN
 	end
 `
+script SafariZone_Center_DMCA_Take_Case {
+	msgbox("Hold it right there!\nThis place is under DMCA control!", MSGBOX_NPC)
+	end
+}
