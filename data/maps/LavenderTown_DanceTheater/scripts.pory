@@ -5,12 +5,62 @@ mapscripts LavenderTown_DanceTheater_MapScripts {
 
 // ############### regular scripts ###############
 
+
+const RED = 4
+const BLUE = 1
+const YELLOW = 2
+const GREEN = 3
+
 script DanceTheater_Trailer {
     lock
     special(SpawnCameraObject)
-
+    applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
+    waitmovement(0)
+    delay(45)
+    applymovement(RED, RedDance)
+    applymovement(BLUE, BlueDance)
+    applymovement(YELLOW, YellowDance)
+    applymovement(GREEN, GreenDance)
+    waitmovement(0)
+    release
 }
 
-movement CameraGoesUp {
+movement Theater_CameraGoesUp {
     walk_up * 7
+}
+
+movement BlueDance {
+    walk_slower_right
+    face_right
+    delay_16
+    delay_16
+    walk_slower_up
+    face_up
+}
+
+movement YellowDance {
+    walk_slower_up
+    face_up
+    delay_16
+    delay_16
+    walk_slower_left
+    face_left
+}
+
+movement GreenDance {
+    walk_slower_left
+    face_left
+    delay_16
+    delay_16
+    walk_slower_down
+    face_down
+}
+
+movement RedDance {
+    walk_slower_down
+    face_down
+    delay_16
+    delay_16
+    walk_slower_right
+    face_right
 }

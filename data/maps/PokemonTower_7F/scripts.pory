@@ -239,7 +239,7 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 
 script PokemonTower_Trailer {
 	lock
-	textcolor(NPC_TEXT_COLOR_RED)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("ARIANA: It's no use trying to save\nher now.\pCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
 	release
 }
