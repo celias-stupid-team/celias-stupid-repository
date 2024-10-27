@@ -235,3 +235,11 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	walk_down
 	step_end
 `
+
+
+script PokemonTower_Trailer {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox("ARIANA: It's no use trying to save\nher now.\pCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
+	release
+}

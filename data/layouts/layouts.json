@@ -776,7 +776,7 @@
       "height": 21,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesPrimary",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/LavenderTown/border.bin",
       "blockdata_filepath": "data/layouts/LavenderTown/map.bin"
@@ -992,8 +992,8 @@
       "height": 92,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesPrimary",
-      "secondary_tileset": "gTileset_NewLavender",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavenderTown",
       "border_filepath": "data/layouts/Route12/border.bin",
       "blockdata_filepath": "data/layouts/Route12/map.bin"
     },
@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
       "width": 60,
-      "height": 28,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4424,7 +4424,7 @@
       "height": 28,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesPrimary",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/Route10_Again/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Again/map.bin"

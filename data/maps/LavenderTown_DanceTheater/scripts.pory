@@ -1,0 +1,16 @@
+// ############### Mapscripts ###############
+
+mapscripts LavenderTown_DanceTheater_MapScripts {
+}
+
+// ############### regular scripts ###############
+
+script DanceTheater_Trailer {
+    lock
+    special(SpawnCameraObject)
+
+}
+
+movement CameraGoesUp {
+    walk_up * 7
+}

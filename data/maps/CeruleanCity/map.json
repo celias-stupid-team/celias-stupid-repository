@@ -281,6 +281,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCity_Celia_Bike",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "x": 14,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -588,6 +602,24 @@
       "var": "VAR_TEMP_3",
       "var_value": "0",
       "script": "CeruleanCity_PlayRoute24Music"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_PHOTO_CERULEAN",
+      "var_value": "0",
+      "script": "CeruleanCity_PhotoMan"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_PHOTO_CERULEAN",
+      "var_value": "0",
+      "script": "CeruleanCity_PhotoMan"
     }
   ],
   "bg_events": [
