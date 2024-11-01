@@ -46,7 +46,7 @@ CeladonCity_EventScript_Poliwrath::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_POLIWRATH, CRY_MODE_NORMAL
+	playmoncry SPECIES_SLOWBRO, CRY_MODE_NORMAL
 	msgbox CeladonCity_Text_Poliwrath
 	closemessage
 	waitmoncry
@@ -106,3 +106,12 @@ CeladonCity_EventScript_GameCornerSign::
 	msgbox CeladonCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 `
+script CeradonCity_EventScript_LittleGirl {
+	msgbox("Uh hum.\pI sure am glad that was\na warp and not a freefall!", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_EventScript_Shorts {
+	msgbox("Oh no!\nSomething terrible has happened!\pSomeone shoved all of CELADON CITY\ninto a RANDOMIZER!", MSGBOX_NPC)
+	end
+}
