@@ -122,3 +122,13 @@ CeladonCity_Text_SomeoneStoleSilphScope::
 	.string "into what on Earth must have\l"
 	.string "happened to this city!$"
 
+CeladonCity_Text_WhereDoIGo::
+	.string "So, uh…\n"
+	.string "Where do I go now?$"
+
+CeladonCity_Text_ThanksEgg::
+	.string "Thank you for taking that.\p"
+	.string "I'm not sure why, but this shipment\n"
+	.string "of EGGs felt… strange somehow.\p"
+	.string "Well, one way or another I suppose\n"
+	.string "I should be on my way.$"
