@@ -183,3 +183,17 @@ CeruleanCity_Text_GymSign::
     .string "MASTER: MISTY\l"
     .string "The TCG Expert!$"
 
+PhotoMan_Enters::
+	.string "Pictures taken instantaneously!\p"
+	.string "I'm a photographic genius, if I do\n"
+	.string "say so myself.\p"
+	.string "Okay, get ready for an instant\n"
+	.string "memory!\p"
+	.string "Look at the camera…\n"
+	.string "Ready…\l"
+	.string "Say, “Fuzzy Pickles!”$"
+
+PhotoMan_Leaves::
+	.string "Wow, what a great photograph!\p"
+	.string "It will always bring back the\n"
+	.string "fondest of memories…$"

@@ -434,7 +434,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_PHIONE_EGG)) {
 		setobtainable(SPECIES_PHIONE) // 142
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic

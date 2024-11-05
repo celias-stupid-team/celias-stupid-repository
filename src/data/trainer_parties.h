@@ -5886,55 +5886,36 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalPokemonTowerSquirtl
     {
         .iv = 100,
         .lvl = 25,
-        .species = SPECIES_PIDGEOTTO,
+        .species = SPECIES_RATICATE,
     },
     {
         .iv = 100,
         .lvl = 23,
-        .species = SPECIES_GROWLITHE,
+        .species = SPECIES_HO_OH,
     },
     {
         .iv = 100,
         .lvl = 22,
         .species = SPECIES_EXEGGCUTE,
     },
-    {
-        .iv = 100,
-        .lvl = 20,
-        .species = SPECIES_KADABRA,
-    },
-    {
-        .iv = 100,
-        .lvl = 25,
-        .species = SPECIES_WARTORTLE,
-    },
+    
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalPokemonTowerBulbasaur[] = {
     {
         .iv = 100,
         .lvl = 25,
-        .species = SPECIES_PIDGEOTTO,
+        .species = SPECIES_RATICATE,
     },
     {
         .iv = 100,
         .lvl = 23,
-        .species = SPECIES_GYARADOS,
+        .species = SPECIES_HO_OH,
     },
     {
         .iv = 100,
         .lvl = 22,
-        .species = SPECIES_GROWLITHE,
-    },
-    {
-        .iv = 100,
-        .lvl = 20,
-        .species = SPECIES_KADABRA,
-    },
-    {
-        .iv = 100,
-        .lvl = 25,
-        .species = SPECIES_IVYSAUR,
+        .species = SPECIES_EXEGGCUTE,
     },
 };
 
@@ -5942,27 +5923,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalPokemonTowerCharman
     {
         .iv = 100,
         .lvl = 25,
-        .species = SPECIES_PIDGEOTTO,
+        .species = SPECIES_RATICATE,
     },
     {
         .iv = 100,
         .lvl = 23,
-        .species = SPECIES_EXEGGCUTE,
+        .species = SPECIES_HO_OH,
     },
     {
         .iv = 100,
         .lvl = 22,
-        .species = SPECIES_GYARADOS,
-    },
-    {
-        .iv = 100,
-        .lvl = 20,
-        .species = SPECIES_KADABRA,
-    },
-    {
-        .iv = 100,
-        .lvl = 25,
-        .species = SPECIES_CHARMELEON,
+        .species = SPECIES_EXEGGCUTE,
     },
 };
 

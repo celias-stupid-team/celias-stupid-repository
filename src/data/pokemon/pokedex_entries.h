@@ -392,7 +392,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NIDORINA] =
     {
-        .categoryName = _("TRANSFEMME"),
+        .categoryName = _("SNEET"),
         .height = 8,
         .weight = 200,
         .description = gNidorinaPokedexText,
@@ -405,7 +405,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NIDOQUEEN] =
     {
-        .categoryName = _("PROUD"),
+        .categoryName = _("TRANSFEMME"),
         .height = 13,
         .weight = 600,
         .description = gNidoqueenPokedexText,
@@ -431,7 +431,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NIDORINO] =
     {
-        .categoryName = _("TRANSMASC"),
+        .categoryName = _("SNART"),
         .height = 9,
         .weight = 195,
         .description = gNidorinoPokedexText,
@@ -444,7 +444,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NIDOKING] =
     {
-        .categoryName = _("PROUD"),
+        .categoryName = _("TRANSMASC"),
         .height = 14,
         .weight = 620,
         .description = gNidokingPokedexText,

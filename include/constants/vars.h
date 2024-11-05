@@ -267,7 +267,9 @@ It is reset after every battle.
 #define VAR_0x40CD                 0x40CD
 #define VAR_0x40CE                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF
-#define VAR_0x40D0                 0x40D0
+//Photo Man Vars
+
+#define VAR_PHOTO_CERULEAN                 0x40D0
 #define VAR_0x40D1                 0x40D1
 #define VAR_0x40D2                 0x40D2
 #define VAR_0x40D3                 0x40D3

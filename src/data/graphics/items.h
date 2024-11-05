@@ -51,6 +51,7 @@ const u32 gItemIconPalette_Antidote[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIconPalette_BurnHeal[] = INCBIN_U32("graphics/items/icon_palettes/burn_heal.gbapal.lz");
 const u32 gItemIconPalette_IceHeal[] = INCBIN_U32("graphics/items/icon_palettes/ice_heal.gbapal.lz");
 const u32 gItemIcon_StatusHeal[] = INCBIN_U32("graphics/items/icons/status_heal.4bpp.lz");
+const u32 gItemIcon_Awakening[] = INCBIN_U32("graphics/items/icons/awakening.4bpp.lz");
 const u32 gItemIconPalette_Awakening[] = INCBIN_U32("graphics/items/icon_palettes/awakening.gbapal.lz");
 const u32 gItemIconPalette_ParalyzeHeal[] = INCBIN_U32("graphics/items/icon_palettes/paralyze_heal.gbapal.lz");
 
@@ -738,5 +739,13 @@ const u32 gItemIconPalette_CreamDrop[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_TrashMedal[] = INCBIN_U32("graphics/items/icons/trash_medal.4bpp.lz");
 const u32 gItemIconPalette_TrashMedal[] = INCBIN_U32("graphics/items/icon_palettes/trash_medal.gbapal.lz");
+
 const u32 gItemIconPalette_MinRepel[] = INCBIN_U32("graphics/items/icon_palettes/min_repel.gbapal.lz");
+
+const u32 gItemIcon_MysticSeal[] = INCBIN_U32("graphics/items/icons/mystic_seal.4bpp.lz");
+const u32 gItemIconPalette_MysticSeal[] = INCBIN_U32("graphics/items/icon_palettes/mystic_seal.gbapal.lz");
+const u32 gItemIcon_InstinctSeal[] = INCBIN_U32("graphics/items/icons/instinct_seal.4bpp.lz");
+const u32 gItemIconPalette_InstinctSeal[] = INCBIN_U32("graphics/items/icon_palettes/instinct_seal.gbapal.lz");
+const u32 gItemIcon_ValorSeal[] = INCBIN_U32("graphics/items/icons/valor_seal.4bpp.lz");
+const u32 gItemIconPalette_ValorSeal[] = INCBIN_U32("graphics/items/icon_palettes/valor_seal.gbapal.lz");
 

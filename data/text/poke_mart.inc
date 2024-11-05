@@ -10,20 +10,21 @@ Text_FillOutQuestionnaire::
 Text_QuestionnaireThankYou::
 	.string "Thank you for taking the time to\n"
 	.string "fill out our questionnaire.\p"
-	.string "Your feedback will be used for\n"
-	.string "future reference.$"
+	.string "This questionnaire loves you.$"
 
 Text_YouKnowThoseWords::
-	.string "Oh, hello!\n"
-	.string "You know those words?\p"
-	.string "That means you must know about\n"
-	.string "the MYSTERY GIFT.\p"
-	.string "From now on, you should be\n"
-	.string "receiving MYSTERY GIFTS!$"
+	.string "Oh, uh...\n"
+	.string "Hi!\l"
+	.string "Why'd you do that?\p"
+	.string "I literally just told you that\n"
+	.string "MYSTERY GIFT isn't in this hack.\p"
+	.string "Sigh...\n"
+	.string "Fine.\l"
+	.string "Here's the your menu option.$"
 
 Text_YouCanAccessMysteryGift::
 	.string "Once you save your game, you can\n"
-	.string "access the MYSTERY GIFT.$"
+	.string "see a reflection of your true self.$"
 
 Text_ThankYouForAccessingMysteryGift::
 	.string "Thank you for accessing the\n"

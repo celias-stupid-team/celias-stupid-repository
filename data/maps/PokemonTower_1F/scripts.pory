@@ -37,3 +37,18 @@ PokemonTower_1F_EventScript_WorkerF::
 	msgbox PokemonTower_1F_Text_ErectedInMemoryOfDeadMons, MSGBOX_NPC
 	end
 `
+script PokemonTower_BlackMarket { //Clean up this dialogue; it's a little weak
+	lock
+	faceplayer
+	msgbox("Welcome, young traveler.\nI see you have an eye for rarities.\pI offer many wares that those in\npower may find… objectionable.", MSGBOX_DEFAULT)
+	message("Come, browse my collection…")
+	waitmessage
+	pokemart(PokemonTower_Market)
+	msgbox("I hope our paths cross again.")
+	release
+}
+
+mart PokemonTower_Market {
+	ITEM_AWAKENING
+	ITEM_TM28
+}

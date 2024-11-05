@@ -82,3 +82,18 @@ script Route25_Funbro {
 	applymovement(12, Common_Movement_FaceRight)
 	release
 }
+
+script Route25_Dad_Bench {
+	lock
+	faceplayer
+	textcolor(0)
+	if(flag(FLAG_CSR_GOT_BILL)) {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, do you know where my good\nfriend BILL went?\lMaybe we should check on him again…\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	} else {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI just arrived at my friend BILL'S\nhouse.\lHe doesn't seem to be home, though…\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	}
+	call(EventScript_DadHeal)
+	release
+	end
+}
+

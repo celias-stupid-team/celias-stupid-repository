@@ -2308,6 +2308,13 @@ static void BufferMonMoveI(u8 i)
 
     if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 0)
         StringCopy(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gText_ThreeHyphens);
+    else if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 238) // Ideally this would be gBattleMoves[sMonSummaryScreen->moveIds[i]].SOMETHING == MOVE_STUN_SPORE, but idk how to get that.
+    // It works cuz I have Stun Spore's accuracy set to 238 - Obviously not an ideal solution LOL
+    // If anyone knows how to get the move ID number out of that expression; feel free to let me know ^^; 
+    // "gBattleMoves[sMonSummaryScreen->moveIds[i]] == MOVE_STUN_SPORE did not work.
+        StringCopy(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gText_750);
+    
+
     else
         ConvertIntToDecimalStringN(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
 }

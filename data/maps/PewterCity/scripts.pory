@@ -924,6 +924,8 @@ script PewterCity_EventScript_HeMissed {
 }
 
 script PewterCity_EventScript_FatMan {
+	setflag(FLAG_CSR_HINT_PEWTER_GRASS)
+	call(SetPlayerPokedexValues)
 	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 	end
 }

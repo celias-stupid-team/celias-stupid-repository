@@ -19,7 +19,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_ANTIDOTE]       = {gItemIcon_Antidote, gItemIconPalette_Antidote},
     [ITEM_BURN_HEAL]      = {gItemIcon_StatusHeal, gItemIconPalette_BurnHeal},
     [ITEM_ICE_HEAL]       = {gItemIcon_StatusHeal, gItemIconPalette_IceHeal},
-    [ITEM_AWAKENING]      = {gItemIcon_StatusHeal, gItemIconPalette_Awakening},
+    [ITEM_AWAKENING]      = {gItemIcon_Awakening, gItemIconPalette_Awakening},
     [ITEM_PARALYZE_HEAL]  = {gItemIcon_StatusHeal, gItemIconPalette_ParalyzeHeal},
     [ITEM_FULL_RESTORE]   = {gItemIcon_LargePotion, gItemIconPalette_FullRestore},
     [ITEM_MAX_POTION]     = {gItemIcon_LargePotion, gItemIconPalette_MaxPotion},
@@ -417,5 +417,10 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
     */   
     // Return to field arrow
+    [ITEM_MYSTIC_SEAL]     = {gItemIcon_MysticSeal, gItemIconPalette_MysticSeal},
+    [ITEM_INSTINCT_SEAL]   = {gItemIcon_InstinctSeal, gItemIconPalette_InstinctSeal},
+    [ITEM_VALOR_SEAL]   = {gItemIcon_ValorSeal, gItemIconPalette_ValorSeal},
+
+
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

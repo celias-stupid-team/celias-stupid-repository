@@ -365,10 +365,14 @@
 #define MUS_CSR_LOSS_WOODS            356
 #define MUS_CSR_ROUTE3_AGAIN            357
 #define MUS_CSR_TWOSON            358
+#define MUS_CSR_CYNTHIA            359
+#define MUS_CSR_CHAPTER_1            360
+#define MUS_CSR_CHAPTER_2          361
+#define MUS_CSR_SKY_TOWER          362
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_TWOSON
+#define END_MUS                     MUS_CSR_SKY_TOWER
 
 #endif  // GUARD_CONSTANTS_SONGS_H

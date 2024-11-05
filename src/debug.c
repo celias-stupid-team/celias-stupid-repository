@@ -3706,6 +3706,10 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_LOSS_WOODS) \
     X(MUS_CSR_ROUTE3_AGAIN) \
     X(MUS_CSR_TWOSON) \
+    X(MUS_CSR_CYNTHIA) \
+    X(MUS_CSR_CHAPTER_1) \
+    X(MUS_CSR_CHAPTER_2) \
+    X(MUS_CSR_SKY_TOWER) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

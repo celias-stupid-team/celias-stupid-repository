@@ -941,11 +941,11 @@
       "id": "LAYOUT_ROUTE8",
       "name": "Route8_Layout",
       "width": 72,
-      "height": 20,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_LavenderTown",
+      "primary_tileset": "gTileset_PorytilesPrimary",
+      "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/Route8/border.bin",
       "blockdata_filepath": "data/layouts/Route8/map.bin"
     },
@@ -988,7 +988,7 @@
     {
       "id": "LAYOUT_ROUTE12",
       "name": "Route12_Layout",
-      "width": 24,
+      "width": 31,
       "height": 92,
       "border_width": 2,
       "border_height": 2,
@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
       "width": 60,
-      "height": 20,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4420,7 +4420,7 @@
     {
       "id": "LAYOUT_ROUTE10_AGAIN",
       "name": "Route10_Again_Layout",
-      "width": 23,
+      "width": 24,
       "height": 28,
       "border_width": 2,
       "border_height": 2,
@@ -4428,6 +4428,18 @@
       "secondary_tileset": "gTileset_LavenderTown",
       "border_filepath": "data/layouts/Route10_Again/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Again/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_TOWN_DANCE_THEATER",
+      "name": "LavenderTown_DanceTheater_Layout",
+      "width": 11,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/LavenderTown_DanceTheater/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderTown_DanceTheater/map.bin"
     }
   ]
 }

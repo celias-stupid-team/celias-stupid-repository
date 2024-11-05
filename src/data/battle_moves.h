@@ -4123,8 +4123,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ROCK_TOMB] =
     {
-        .effect = EFFECT_SPEED_DOWN_HIT,
-        .power = 50,
+        .effect = EFFECT_SPIKES,
+        .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 80,
         .pp = 10,

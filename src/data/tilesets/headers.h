@@ -768,3 +768,25 @@ const struct Tileset gTileset_InsideOfTruck =
     .metatileAttributes = gMetatileAttributes_InsideOfTruck,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_NewLavender =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewLavender,
+    .palettes = gTilesetPalettes_NewLavender,
+    .metatiles = gMetatiles_NewLavender,
+    .metatileAttributes = gMetatileAttributes_NewLavender,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PorytilesPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesPrimary,
+    .palettes = gTilesetPalettes_PorytilesPrimary,
+    .metatiles = gMetatiles_PorytilesPrimary,
+    .metatileAttributes = gMetatileAttributes_PorytilesPrimary,
+    .callback = NULL,
+};
