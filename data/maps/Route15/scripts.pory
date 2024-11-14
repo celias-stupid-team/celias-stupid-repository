@@ -6,3 +6,11 @@ Route15_EventScript_RouteSign::
 	msgbox Route15_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route15_BakerySign {
+	msgbox("Traditional American Bakery!\n", MSGBOX_SIGN)
+}
+
+script Route15_Brock {
+	msgbox("BROCK: Hey there, {PLAYER}!\nHow've you been?\pI'm just stocking up on some JELLY\nDONUTS before hitting the road.\pSay, you haven't seen my friend ASH\naround, have you?\pHe went off to LAVENDER to see a\ndance, but I haven't seen him since…", MSGBOX_NPC)
+	end
+}
