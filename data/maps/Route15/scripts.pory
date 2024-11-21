@@ -21,6 +21,7 @@ const FATGUY = 3
 
 script Route15_PowerOutTrigger {
 	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
 	playse(SE_PIN)
 	applymovement(GUARD, Common_Movement_ExclamationMark)
 	waitmovement(0)
@@ -69,6 +70,7 @@ script Route15_PowerOutTrigger {
 }
 
 script Route15_NoPower {
+	
 	msgbox("I'm sorry, but there's a blackout\nat the LIGHTHOUSE right now.", MSGBOX_DEFAULT)
 	closemessage
 	//camera goes up
@@ -82,6 +84,7 @@ script Route15_NoPower {
 	//camera goes down
 	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesDown)
 	//NPC enters lighthouse
+	delay(8) //delay to make it line up with the camera
 
 	switch(var(VAR_TEMP_1)) { //Man walks up - This decides where he starts
 		case 51:
@@ -113,6 +116,8 @@ script Route15_NoPower {
 script Route15_Guard_NPC {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+
 	call(Route15_NoPower)
 	applymovement(GUARD, Common_Movement_FaceLeft)
 	waitmovement(0)
@@ -122,7 +127,7 @@ script Route15_Guard_NPC {
 
 
 
-movement Route15_Lighthouse_WalkOneLeft
+movement Route15_Lighthouse_WalkOneLeft // I kinda forgot aboout the * notation for multiple walks oops
 {
 	walk_left
 	face_left
@@ -163,36 +168,23 @@ movement Route15_Lighthouse_WalkThreeRight
 }
 
 movement Route15_Lighthouse_CameraGoesUp {
-	walk_up
-	walk_up
-	walk_up
+	walk_up * 4
 }
 
 movement Route15_Lighthouse_CameraGoesDown {
-	walk_down
-	walk_down
-	walk_down
+	walk_down * 4
 }
 
 movement Route15_Lighthouse_FatGuy1 {
 	set_visible
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	face_up
+	walk_up * 7
 	delay_8
 	set_invisible
 }
 
 movement Route15_Lighthouse_FatGuy2 {
 	set_visible
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_up * 4
 	walk_right
 	walk_up
 	walk_up
@@ -203,10 +195,7 @@ movement Route15_Lighthouse_FatGuy2 {
 
 movement Route15_Lighthouse_FatGuy3 {
 	set_visible
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_up * 4
 	walk_left
 	walk_up
 	walk_up
