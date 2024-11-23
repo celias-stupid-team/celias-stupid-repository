@@ -799,5 +799,5 @@ const struct Tileset gTileset_Route15 =
     .palettes = gTilesetPalettes_Route15,
     .metatiles = gMetatiles_Route15,
     .metatileAttributes = gMetatileAttributes_Route15,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Route15,
 };

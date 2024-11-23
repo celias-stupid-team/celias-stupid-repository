@@ -134,6 +134,27 @@ static const u16 *const sTilesetAnims_CeladonGym_Flowers[] = {
     sTilesetAnims_CeladonGym_Flowers_Frame1
 };
 
+static const u16 sTilesetAnims_Route15_Lighthouse_Frame0[] =  INCBIN_U16("data/tilesets/secondary/route_15/anim/Lighthouse/0.4bpp");
+static const u16 sTilesetAnims_Route15_Lighthouse_Frame1[] =  INCBIN_U16("data/tilesets/secondary/route_15/anim/Lighthouse/1.4bpp");
+static const u16 sTilesetAnims_Route15_Lighthouse_Frame2[] =  INCBIN_U16("data/tilesets/secondary/route_15/anim/Lighthouse/2.4bpp");
+
+static const u16 *const sTilesetAnims_Route15_Lighthouse[] = {
+    sTilesetAnims_Route15_Lighthouse_Frame0,
+    sTilesetAnims_Route15_Lighthouse_Frame1,
+    sTilesetAnims_Route15_Lighthouse_Frame2
+};
+
+static const u16 sTilesetAnims_Route15_Sign_Frame0[] =  INCBIN_U16("data/tilesets/secondary/route_15/anim/Sign/0.4bpp");
+static const u16 sTilesetAnims_Route15_Sign_Frame1[] =  INCBIN_U16("data/tilesets/secondary/route_15/anim/Sign/1.4bpp");
+
+static const u16 *const sTilesetAnims_Route15_Sign[] = {
+    sTilesetAnims_Route15_Sign_Frame0,
+    sTilesetAnims_Route15_Sign_Frame1,
+    sTilesetAnims_Route15_Sign_Frame1,
+    sTilesetAnims_Route15_Sign_Frame1,
+    sTilesetAnims_Route15_Sign_Frame0
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -329,4 +350,33 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = 256;
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
+}
+
+static void QueueAnimTiles_Route15_Lighthouse(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(sTilesetAnims_Route15_Lighthouse);
+    
+    AppendTilesetAnimToBuffer(sTilesetAnims_Route15_Lighthouse[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(864)), 21 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Route15_Sign(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(sTilesetAnims_Route15_Sign);
+    
+    AppendTilesetAnimToBuffer(sTilesetAnims_Route15_Sign[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(836)), 12 * TILE_SIZE_4BPP);
+}
+
+static void TilesetAnim_Route15(u16 timer)
+{
+    if (timer % 32 == 0)
+        QueueAnimTiles_Route15_Lighthouse(timer / 32);
+    if (timer % 32 == 0)
+        QueueAnimTiles_Route15_Sign(timer / 32);
+}
+
+void InitTilesetAnim_Route15(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 480;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Route15;
 }

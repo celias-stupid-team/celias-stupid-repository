@@ -2670,4 +2670,8 @@ const u8 gDittoMewPokedexText[] = _(
 
 const u8 gAlcremiePokedexText[] = _(
 	"Ooh, this one's got a chocolate shell!");
-    
+
+const u8 gYoshiPokedexText[] = _(
+    "Yoshi!\n"
+	"It that really you?");
+
