@@ -8920,12 +8920,12 @@
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_UNOWN_LOSS"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_UNOWN_LOSS"
+                "species": "SPECIES_NIDORINO"
               }
             ]
           },
