@@ -219,7 +219,8 @@ gOakSpeech_Text_SoYourNameIsPlayer::
 
 gOakSpeech_Text_WhatWasHisName::
     .string "This is my grandson.\p"
-    .string "He's been your rival since 1996!\p"
+    .string "He's been your rival since before\n"
+	.string "you were born!\p"
     .string "…Erm, what was his name now?$"
 
 gOakSpeech_Text_YourRivalsNameWhatWasIt::
