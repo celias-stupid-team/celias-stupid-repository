@@ -11,43 +11,59 @@ RocketHideout_B1F_Text_Grunt1PostBattle::
     .string "ROCKET, aren't you?$"
 
 RocketHideout_B1F_Text_Grunt2Intro::
-    .string "You broke into TEAM ROCKET's\n"
-    .string "operation? What nerve!$"
+	.string "JESSIE: Blast it all!\p"
+	.string "How could the nefarious TEAM\n"
+	.string "ROCKET be captured like this?$"
 
 RocketHideout_B1F_Text_Grunt2Defeat::
-    .string "Boom!$"
+	.string "No!\n"
+	.string "We're blasting off again!$"
 
 RocketHideout_B1F_Text_Grunt2PostBattle::
-    .string "You're not going to get away with\n"
-    .string "this, brat!$"
+	.string "JESSIE: Oh JAMES…\n"
+	.string "What are we to do?\p"
+	.string "I've scoured this whole hack top\n"
+	.string "to bottom and I haven't seen\l"
+	.string "PIKACHU anywhere!$"
 
 RocketHideout_B1F_Text_Grunt3Intro::
-    .string "Intruder alert!$"
+	.string "Are you lost, you offbrand\n"
+	.string "mouse?$"
 
 RocketHideout_B1F_Text_Grunt3Defeat::
-    .string "I can't do it!$"
+	.string "No!\n"
+	.string "They've entered Public Domain!$"
 
 RocketHideout_B1F_Text_Grunt3PostBattle::
-    .string "SILPH SCOPE? Humph!\n"
-    .string "I don't know where it is.$"
+	.string "My rats are in public domain…\n"
+	.string "There's nothing I can do!$"
 
 RocketHideout_B1F_Text_Grunt4Intro::
-    .string "Why did you come here?$"
+	.string "Grrah!\n"
+	.string "Another one?\p"
+	.string "So many civilians have been breaking\n"
+	.string "into our LAW OFFICES recently!$"
 
 RocketHideout_B1F_Text_Grunt4Defeat::
     .string "This won't do!$"
 
 RocketHideout_B1F_Text_Grunt4PostBattle::
-    .string "Okay, I'll talk…\n"
-    .string "Take the elevator to see my BOSS.$"
+	.string "I'm going to find out where all of\n"
+	.string "you are coming from, and then I'll\l"
+	.string "sue harder than you could believe!$"
 
 RocketHideout_B1F_Text_Grunt5Intro::
-    .string "Are you lost, you little mouse?$"
+	.string "We caught some troublemakers\n"
+	.string "sneaking around.\p"
+	.string "Their disguises were a clear\n"
+	.string "violation of copyright!$"
 
 RocketHideout_B1F_Text_Grunt5Defeat::
     .string "Why…?$"
 
 RocketHideout_B1F_Text_Grunt5PostBattle::
-    .string "Uh-oh, that ruckus somehow opened\n"
-    .string "the door!$"
+	.string "Uh-oh, that ruckus somehow opened\n"
+	.string "the door!\p"
+	.string "This is extraordinarily convenient\n"
+	.string "for you!$"
 

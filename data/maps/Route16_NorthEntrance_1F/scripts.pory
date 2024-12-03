@@ -114,3 +114,12 @@ Route16_NorthEntrance_1F_EventScript_OldMan::
 	msgbox Route16_NorthEntrance_1F_Text_HowdYouGetInGoodEffort, MSGBOX_NPC
 	end
 `
+script Route16_NorthEntrance_1F_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm working my side job as a\nsecurity guard.\lCan't let you pass without a BIKE!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
