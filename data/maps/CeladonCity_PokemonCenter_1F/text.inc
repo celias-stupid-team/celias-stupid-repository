@@ -1,15 +1,19 @@
 CeladonCity_PokemonCenter_1F_Text_PokeFluteAwakensSleepingMons::
-    .string "A POKé FLUTE awakens sleeping\n"
-    .string "POKéMON. You know that.\p"
-    .string "It does so with a sound that only\n"
-    .string "they can hear.$"
+	.string "Wha?\n"
+	.string "This isn't my house!\p"
+	.string "Where am I?\n$"
 
 CeladonCity_PokemonCenter_1F_Text_RodeHereFromFushcia::
-    .string "I rode here from FUSHCIA.\p"
-    .string "It's an uphill ride on CYCLING\n"
-    .string "ROAD, so I'm exhausted.$"
+	.string "The GYM here in CELADON also\n"
+	.string "doubles as our local LGBT Center.\p"
+	.string "It's always an affirming and\n"
+	.string "uplifting place to be!$"
 
 CeladonCity_PokemonCenter_1F_Text_GoToCyclingRoadIfIHadBike::
-    .string "If I had a BIKE, I would go to\n"
-    .string "CYCLING ROAD!$"
+	.string "I've been seeing some strong\n"
+	.string "trainers coming in and out of here.\p"
+	.string "I even saw that one guy.\n"
+	.string "What's his name?\p"
+	.string "Larry? Jerry?\n"
+	.string "Something like that.$"
 

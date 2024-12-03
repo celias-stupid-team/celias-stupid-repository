@@ -11,6 +11,7 @@ Route16_NorthEntrance_1F_Text_ExcuseMeWaitUp::
     .string "Wait up, please!$"
 
 Route16_NorthEntrance_1F_Text_HowdYouGetInGoodEffort::
-    .string "How'd you get in?\n"
-    .string "Good effort!$"
+	.string "Hmm?\n"
+	.string "What's this?\p"
+	.string "This isn't the grocery store!\n$"
 
