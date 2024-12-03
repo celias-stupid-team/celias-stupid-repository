@@ -1266,11 +1266,8 @@ static void Task_DexScreen_NumericalOrder(u8 taskId)
     }
 }
 
-static void DexScreen_InitGfxForNumericalOrderList(void) //TODO Figure out dex listing logic
-//I think this might be it
-//Add Victini Logic
+static void DexScreen_InitGfxForNumericalOrderList(void)
 {
-    bool8 VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
     struct ListMenuTemplate template;
     FillBgTilemapBufferRect(3, 0x00E, 0, 0, 30, 20, 0);
     FillBgTilemapBufferRect(1, 0x000, 0, 0, 32, 32, 17);
@@ -1388,38 +1385,11 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
     {
     default:
     case DEX_ORDER_NUMERICAL_KANTO:
-
-
         VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
 
         if(VictiniSeen) {
-            for (i = 0; i < KANTO_DEX_COUNT; i++) //starts at zero
-            {
-                ndex_num = i + 1;
-                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
-                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
-                if (seen)
-                {
-                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
-                    ret = ndex_num;
-                }
-                else
-                {
-                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
-                }
-                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
-            }
-        } else {
-
-            
-            for (i = 0; i < KANTO_DEX_COUNT; i++) // Starts at one; but this doesn't actually solve the issue
-/* 
-            It seems that all this does is prevent printing the name and number of the Pokemon in slot 000 - The slot still appears in the dex; it's just filled with
-            garbage data instead. We need to figure out how to make the dex populate the first slot with ndex_num 0 instead.
-
-
-*/
-
+            //start Pokedex list at 000
+            for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
                 ndex_num = i + 1;
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
@@ -1436,13 +1406,25 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
             }
         }
-
-        
-
-
-
-
-
+        else {
+            //start Pokedex list at 001
+            for (i = 0; i < KANTO_DEX_COUNT; i++)
+            {
+                ndex_num = i + 2;
+                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+                if (seen)
+                {
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
+                    ret = ndex_num;
+                }
+                else
+                {
+                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                }
+                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
+            }
+        }
         break;
     case DEX_ORDER_ATOZ:
         for (i = 0; i < NUM_SPECIES - 1; i++)
@@ -1597,7 +1579,6 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     bool8 seen = (itemId >> 16) & 1;  // not used but required to match
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
-    bool8 VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
 
     
     DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
@@ -3329,7 +3310,7 @@ static int DexScreen_CanShowMonInDex(u16 species)
     return FALSE;
 }
 
-static u8 DexScreen_IsPageUnlocked(u8 categoryNum, u8 pageNum) //Victini might be here maybe?
+static u8 DexScreen_IsPageUnlocked(u8 categoryNum, u8 pageNum)
 {
     int i, count;
     u16 species;

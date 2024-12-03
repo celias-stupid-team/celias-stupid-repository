@@ -643,19 +643,19 @@ $(NAMINGGFXDIR)/cursor_filled.4bpp: %.4bpp: %.png
 
 
 $(WALLPAPERGFXDIR)/beach/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 60 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 217 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/cave/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 61 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 158 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/city/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 40 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 50 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/crag/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 199 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/desert/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 52 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 214 -Wnum_tiles
 
 $(WALLPAPERGFXDIR)/forest/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 53 -Wnum_tiles
