@@ -1,5 +1,5 @@
 raw `
-.set LOCALID_GRUNT, 11
+.set LOCALID_GRUNT, 10
 
 CeladonCity_GameCorner_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_OnLoad
@@ -9,7 +9,10 @@ CeladonCity_GameCorner_OnLoad::
 	call_if_unset FLAG_OPENED_ROCKET_HIDEOUT, CeladonCity_GameCorner_EventScript_HideRocketHideout
 	end
 
+
 CeladonCity_GameCorner_EventScript_HideRocketHideout::
+	setobjectxy LOCALID_GRUNT 11 2
+	setobjectmovementtype LOCALID_GRUNT MOVEMENT_TYPE_FACE_UP
 	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 17, 2, METATILE_GameCorner_Floor_ShadeFull, 0
@@ -334,14 +337,6 @@ CeladonCity_GameCorner_EventScript_RocketGrunt::
 	msgbox CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-CeladonCity_GameCorner_Text_DefeatedGrunt::
-	msgbox CeladonCity_GameCorner_Text_GruntPostBattle
-	closemessage
-	call_if_eq VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest
-	call_if_ne VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit
-	removeobject LOCALID_GRUNT
-	release
-	end
 
 CeladonCity_GameCorner_Text_GruntExitWest::
 	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExitWest
@@ -436,5 +431,42 @@ script CeladonCity_GameCorner_EventScript_OldMan2 {
 
 script CeladonCity_GameCorner_EventScript_CoinsClerk {
 	msgbox("Welcome to the DMCA GAME CORNER!\pUnfortunately, all of our machines\nmysteriously malfunctioned,\land we had to remove them all.\pThankfully it appears that the\nreplacements we've put out are\lconvincing enough for our regulars!", MSGBOX_NPC)
+	end
+}
+
+
+script CeladonCity_GameCorner_Text_DefeatedGrunt{
+	msgbox(CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_DEFAULT)
+	closemessage
+	call_if_eq(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest)
+	call_if_ne(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit)
+	setobjectxy(LOCALID_GRUNT, 9, 9)
+	delay(90)
+	applymovement(LOCALID_GRUNT, DMCA_Confused)
+	waitmovement(0)
+	delay(50)
+	msgbox("Um.\pThat didn't quite work as\nplanned.", MSGBOX_DEFAULT)
+	release
+}
+
+movement DMCA_Confused {
+	walk_up
+	walk_up
+	walk_up
+	walk_slower_up
+	walk_slower_up
+	face_up
+	delay_16
+	delay_16
+	face_right
+}
+
+script CeladonCity_GameCorner_FancyToaster {
+	msgbox("This looks like a SLOT MACHINE, but\nit's actually a very fancy toaster.", MSGBOX_SIGN)
+	end
+}
+
+script CeladonCity_GameCorner_CeliaMachine {
+	msgbox("CELIA: Welcome!\pI'd just like to draw your\nattention to this machine, which\lI have literally never seen\lanybody use in my life.", MSGBOX_NPC)
 	end
 }
