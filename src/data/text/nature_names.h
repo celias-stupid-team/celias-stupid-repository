@@ -1,7 +1,7 @@
 static const u8 sHardyNatureName[] = _("LIBRA");
 static const u8 sLonelyNatureName[] = _("SOLITAIRE");
 static const u8 sBraveNatureName[] = _("TOY STORY");
-static const u8 sAdamantNatureName[] = _("ABSURDIST");
+static const u8 sAdamantNatureName[] = _("DIALGA");
 static const u8 sNaughtyNatureName[] = _("NAUGHTY");
 static const u8 sBoldNatureName[] = _("BRASH");
 static const u8 sDocileNatureName[] = _("VIRGO");
@@ -18,7 +18,7 @@ static const u8 sMildNatureName[] = _("SPICY");
 static const u8 sQuietNatureName[] = _("QUITE");
 static const u8 sBashfulNatureName[] = _("PISCES");
 static const u8 sRashNatureName[] = _("PIMPLED");
-static const u8 sCalmNatureName[] = _("STORM");
+static const u8 sCalmNatureName[] = _("CLAM");
 static const u8 sGentleNatureName[] = _("CUDDLY");
 static const u8 sSassyNatureName[] = _("SASSAFRAS");
 static const u8 sCarefulNatureName[] = _("BUBBLEWRAP");
