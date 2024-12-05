@@ -4384,12 +4384,12 @@
     {
       "id": "LAYOUT_NEW_MAP1",
       "name": "NewMap1_Layout",
-      "width": 49,
-      "height": 40,
+      "width": 60,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_BerryForest",
-      "secondary_tileset": "gTileset_DiglettsCave",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     },

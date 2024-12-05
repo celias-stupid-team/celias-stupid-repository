@@ -1371,3 +1371,6 @@ Text_TestMsg::
 
 	.include "data/maps/LavenderTown_DanceTheater/scripts.inc"
 	.include "data/maps/LavenderTown_DanceTheater/text.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+	.include "data/maps/NewMap1/text.inc"
