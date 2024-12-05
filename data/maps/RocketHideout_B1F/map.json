@@ -201,7 +201,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_STOLE_AN_EEVEE",
+      "var_value": "1",
+      "script": "DMCAHideout_EeveeManScreams"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_STOLE_AN_EEVEE",
+      "var_value": "1",
+      "script": "DMCAHideout_EeveeManScreams"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_STOLE_AN_EEVEE",
+      "var_value": "1",
+      "script": "DMCAHideout_EeveeManScreams"
+    }
   ],
   "bg_events": [
     {

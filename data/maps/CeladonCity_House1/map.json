@@ -17,9 +17,9 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
-      "x": 5,
-      "y": 2,
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "x": 3,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -31,8 +31,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 2,
+      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_M",
+      "x": 7,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -40,21 +40,21 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_House1_EventScript_Rocket1",
+      "script": "CeladonCity_House1_EventScript_NidotranF",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 8,
-      "y": 4,
+      "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
+      "x": 5,
+      "y": 3,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_House1_EventScript_Rocket2",
+      "script": "CeladonCity_House1_EventScript_NidotranM",
       "flag": "0"
     }
   ],

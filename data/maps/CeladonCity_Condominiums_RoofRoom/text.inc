@@ -50,3 +50,44 @@ CeladonCity_Condominiums_RoofRoom_Text_PamphletOnTMs::
     .string "can be used repeatedly.\p"
     .string "SILPH CO.$"
 
+CeladonCity_EeveeGag_Page1::
+	.string "Dear Diary,\p"
+	.string "I love my EEVEE.\n"
+	.string "I think about it every day.\p"
+	.string "Lately, I've been having nightmares\n"
+	.string "that someone might steal it…\p"
+	.string "I'm sure it can't possibly come\n"
+	.string "true, right?$"
+
+CeladonCity_EeveeGag_Page2::
+	.string "Dear Diary,\p"
+	.string "My worst fears came to pass.\p"
+	.string "While I was asleep, a cruel soul\n"
+	.string "broke in and stole my EEVEE.\p"
+	.string "That's all right. I've been\n"
+	.string "preparing for this day to come.\p"
+	.string "Thankfully, they were only able to\n"
+	.string "steal my backup EEVEE.\l"
+	.string "My real EEVEE is still safe.\p"
+	.string "Still, I need to be more careful\n"
+	.string "going forward...$"
+
+CeladonCity_EeveeGag_Page3::
+	.string "Dear Diary,\p"
+	.string "The EEVEE-stealing monster struck\n"
+	.string "again!\p"
+	.string "My true EEVEE is still safe and\n"
+	.string "sound, but I need to be careful.\p"
+	.string "I've set a trap for them.\n"
+	.string "I'm sure this time, we'll be safe.$"
+
+CeladonCity_EeveeGag_KeepReading::
+	.string "Keep reading?$"
+
+CeladonCity_EeveeGag_Bribe::
+	.string "{PLAYER} accepted the bribe and\n"
+	.string "obtained the legally-dubious EEVEE!$"
+
+CeladonCity_EeveeGag_CeliaGives::
+	.string "{PLAYER} obtained the EEVEE from\n"
+	.string "CELIA!$"

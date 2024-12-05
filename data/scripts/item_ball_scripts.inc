@@ -487,7 +487,7 @@ PokemonTower_5F_EventScript_ItemCleanseTag::
 	end
 
 CeladonCity_EventScript_ItemEther::
-	finditem ITEM_ETHER
+	finditem ITEM_REVIVE
 	end
 
 RocketHideout_B3F_EventScript_ItemBlackGlasses::

@@ -14,3 +14,7 @@ CeladonCity_DepartmentStore_1F_EventScript_FloorSign::
 	msgbox CeladonCity_DepartmentStore_1F_Text_ServiceCounter, MSGBOX_SIGN
 	end
 `
+script CeladonCity_DepartmentStore_1F_EventScript_Girl {
+	msgbox("Waaah!\pI wanna go home!\n", MSGBOX_NPC)
+	end
+}
