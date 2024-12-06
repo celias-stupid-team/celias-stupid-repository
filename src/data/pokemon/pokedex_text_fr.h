@@ -820,7 +820,8 @@ const u8 gFlareonPokedexText[] = _(
 const u8 gFlareonPokedexTextUnused[] = _("");
 
 const u8 gPorygonPokedexText[] = _(
-	"don't look directly at it");
+	"Cool POKéMON!\n"
+	"I hope no one installs a virus on it!");
 
 const u8 gPorygonPokedexTextUnused[] = _("");
 
