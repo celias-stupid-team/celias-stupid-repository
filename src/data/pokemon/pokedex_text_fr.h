@@ -509,7 +509,13 @@ const u8 gDodrioPokedexText[] = _(
 const u8 gDodrioPokedexTextUnused[] = _("");
 
 const u8 gSeelPokedexText[] = _(
-	"I think this is just a wild animal");
+	"What the fuck did you just fucking say\n"
+	"about me, you little bitch? I'll have you\n"
+	"know I graduated top of my class in the\n"
+	"Navy Seals, and I've been involved in\n"
+	"numerous secret raids on Al-Quaeda, and\n"
+	"I have over 300 confirmed kills. I am\n"
+	"trained in gorilla warfare");
 
 const u8 gSeelPokedexTextUnused[] = _("");
 
