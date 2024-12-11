@@ -10,12 +10,10 @@ PokemonLeague_HallOfFame_OnWarp::
 	map_script_2 VAR_TEMP_1, 0, PokemonLeague_HallOfFame_EventScript_TurnPlayerNorth
 	.2byte 0
 
-PokemonLeague_HallOfFame_EventScript_TurnPlayerNorth::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
+
 
 PokemonLeague_HallOfFame_OnFrame::
-	map_script_2 VAR_TEMP_1, 0, PokemonLeague_HallOfFame_EventScript_EnterRoom
+	map_script_2 VAR_TEMP_1, 2, PokemonLeague_HallOfFame_EventScript_EnterRoom
 	.2byte 0
 
 PokemonLeague_HallOfFame_EventScript_EnterRoom::
@@ -56,3 +54,18 @@ PokemonLeague_HallOfFame_Movement_EnterRoom::
 	walk_up
 	step_end
 `
+script HallOfFame_Toaster {
+	msgbox("It looks like the HALL OF FAME, but\nit's actually a very fancy toaster.", MSGBOX_SIGN)
+	end
+}
+
+script HallOfFame_NotReady {
+	msgbox("Oh!\nHello there, {PLAYER}!\pLooks like you're here a little\nearly.\pUhh, we actually aren't quite ready\nfor you yet.\pI don't suppose you could go and\nfinish the rest of the game while\lwe get everything set up?", MSGBOX_NPC)
+	end
+}
+script PokemonLeague_HallOfFame_EventScript_TurnPlayerNorth {
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	if(flag(FLAG_DEFEATED_CHAMP)) { //At some point make this a better flag, but it'll do for now
+		setvar(VAR_TEMP_1, 2)
+	}
+}

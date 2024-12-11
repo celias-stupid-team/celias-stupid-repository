@@ -93,7 +93,8 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
      || metatileBehavior == MB_PUDDLE
      || metatileBehavior == MB_UNUSED_WATER
      || metatileBehavior == MB_CYCLING_ROAD_WATER
-     || metatileBehavior == MB_ICE)
+     || metatileBehavior == MB_ICE
+     || metatileBehavior == MB_REFLECTIVE_FLOOR)
         return TRUE;
     else
         return FALSE;
