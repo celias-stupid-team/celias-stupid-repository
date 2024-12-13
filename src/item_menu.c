@@ -2110,19 +2110,20 @@ static void Task_Bag_OldManTutorial(u8 taskId)
     {
         switch (data[8])
         {
-        case 102:
-        case 204:
+        case 45: //I think these are frames??? 
+        //stupidest fucking way to handle this. Whoever programmed this was a dumbass.
+        case 70:
             PlaySE(SE_BAG_POCKET);
             SwitchPockets(taskId, 1, FALSE);
             break;
-        case 306:
+        case 110:
             PlaySE(SE_SELECT);
             bag_menu_print_cursor_(data[0], 2);
             Bag_FillMessageBoxWithPalette(1);
             gSpecialVar_ItemId = ITEM_POKE_BALL;
             OpenContextMenu(taskId);
             break;
-        case 408:
+        case 150:
             PlaySE(SE_SELECT);
             HideBagWindow(10);
             HideBagWindow(6);

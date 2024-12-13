@@ -456,6 +456,8 @@ BattleScript_ExplosionLoop:
 	end
 BattleScript_ExplosionMissed:
 	effectivenesssound
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
 	moveendto MOVEEND_NEXT_TARGET
 	jumpifnexttargetvalid BattleScript_ExplosionLoop
 	tryfaintmon BS_ATTACKER
@@ -4540,6 +4542,36 @@ BattleScript_EffectExplosionUseless::
 	tryexplosion
 	setatkhptozero
 	waitstate
-	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionDoAnimStartLoop
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionUselessDoAnimStartLoop
 	call BattleScript_PreserveMissedBitDoMoveAnim
-	goto BattleScript_ExplosionLoop
+	goto BattleScript_ExplosionUselessLoop
+BattleScript_ExplosionUselessDoAnimStartLoop:
+	attackanimation
+	waitanimation
+BattleScript_ExplosionUselessLoop:
+	movevaluescleanup
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	accuracycheck BattleScript_ExplosionUselessMissed, ACC_CURR_MOVE
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_ExplosionUselessLoop
+	tryfaintmon BS_ATTACKER
+	end
+BattleScript_ExplosionUselessMissed:
+	effectivenesssound
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_ExplosionUselessLoop
+	tryfaintmon BS_ATTACKER
+	end

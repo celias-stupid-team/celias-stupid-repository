@@ -4655,7 +4655,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_EXPLOSION_USELESS] =
     {
-        .effect = EFFECT_EXPLOSION,
+        .effect = EFFECT_EXPLOSION_USELESS,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
