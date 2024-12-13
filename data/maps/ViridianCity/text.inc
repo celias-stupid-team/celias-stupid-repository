@@ -58,11 +58,8 @@ ViridianCity_Text_WatchThatToLearnBasics::
 	.string "Darn.$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
-    .string "Be ready to FLY over to\n"
-    .string "CINNABAR ISLAND!\p"
-    .string "By the way, I'm sorry that the\n"
-    .string "TEACHY TV isn't changed yet.\l"
-    .string "It's coming next update.$"
+	.string "I am 30 years old.$"
+
 
 ViridianCity_Text_HowsTeachyTVHelping::
 	.string "I am 30 years old.$"
