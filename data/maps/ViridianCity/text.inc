@@ -43,7 +43,7 @@ ViridianCity_Text_ShowYouHowToCatchMons::
     .string "ok tutorial time$"
 
 ViridianCity_Text_ThatWasEducationalTakeThis::
-    .string "Ah, I'm sure taht was helpful\n"
+    .string "Ah, I'm sure that was helpful\n"
     .string "and informative!\p"
     .string "oh take this too$"
 

@@ -3058,7 +3058,9 @@ static void Cmd_tryfaintmon(void)
         {
             gActiveBattler = gBattlerAttacker;
             battlerId = gBattlerTarget;
+            
             BS_ptr = BattleScript_FaintAttacker;
+            
         }
         else
         {
@@ -3125,7 +3127,13 @@ static void Cmd_dofaintanimation(void)
         gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
         BtlController_EmitFaintAnimation(BUFFER_A);
         MarkBattlerForControllerExec(gActiveBattler);
+        //try this
+        if (gBattleTypeFlags & (BATTLE_TYPE_OLD_MAN_TUTORIAL)) {
+            gBattlescriptCurrInstr = BattleScript_OldMan_EndBattle;
+        } else {
+
         gBattlescriptCurrInstr += 2;
+        }
     }
 }
 
@@ -9816,9 +9824,9 @@ static void Cmd_handleballthrow(void)
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_OLD_MAN_TUTORIAL))
     {
-        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
+        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_NO_SHAKES);
         MarkBattlerForControllerExec(gActiveBattler);
-        gBattlescriptCurrInstr = BattleScript_OldMan_Pokedude_CaughtMessage;
+        gBattlescriptCurrInstr = BattleScript_OldMan_Pokedude_CaughtMessage; // TODO Change this part of the script to the rat exploding
     }
     else
     {

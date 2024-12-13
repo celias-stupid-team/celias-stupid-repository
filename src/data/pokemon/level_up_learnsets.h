@@ -8870,7 +8870,7 @@ static const u16 sPikabluLevelUpLearnset[] = {
 };
 
 static const u16 sRattata_ShinyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_EXPLOSION_USELESS),
 	LEVEL_UP_END
 };
 

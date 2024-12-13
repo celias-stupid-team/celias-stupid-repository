@@ -240,6 +240,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectOHKO_Flash             @ EFFECT_OHKO_FLASH
 	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
+	.4byte BattleScript_EffectExplosionUseless              @ EFFECT_EXPLOSION_USELESS
+
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -454,8 +456,6 @@ BattleScript_ExplosionLoop:
 	end
 BattleScript_ExplosionMissed:
 	effectivenesssound
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
 	moveendto MOVEEND_NEXT_TARGET
 	jumpifnexttargetvalid BattleScript_ExplosionLoop
 	tryfaintmon BS_ATTACKER
@@ -4530,3 +4530,16 @@ BattleScript_PrintPlayerForfeitedLinkBattle::
 	endlinkbattle
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+
+BattleScript_EffectExplosionUseless::
+	attackcanceler
+	attackstring
+	ppreduce
+@ Below jumps to BattleScript_DampStopsExplosion if it fails (only way it can)
+	tryexplosion
+	setatkhptozero
+	waitstate
+	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionDoAnimStartLoop
+	call BattleScript_PreserveMissedBitDoMoveAnim
+	goto BattleScript_ExplosionLoop

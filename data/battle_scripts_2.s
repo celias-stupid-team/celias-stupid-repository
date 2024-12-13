@@ -97,10 +97,18 @@ BattleScript_CaughtPokemonDone::
 	finishturn
 
 BattleScript_OldMan_Pokedude_CaughtMessage::
-	printstring STRINGID_GOTCHAPKMNCAUGHT2
-	setbyte gBattleOutcome, B_OUTCOME_CAUGHT
-	endlinkbattle
+	printstring STRINGID_PKMNBROKEFREE
+	waitmessage B_WAIT_TIME_LONG
+
+	finishaction
+
+BattleScript_OldMan_EndBattle::
+	waitmessage B_WAIT_TIME_LONG
+	setbyte gBattleOutcome, B_OUTCOME_CAUGHT 
+    endlinkbattle
 	finishturn
+
+
 
 BattleScript_ShakeBallThrow::
 	printfromtable gBallEscapeStringIds
