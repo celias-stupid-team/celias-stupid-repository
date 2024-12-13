@@ -1721,7 +1721,7 @@ void BufferStringBattle(u16 stringId)
             StringCopy(gBattleTextBuff2, gMoveNames[sBattleMsgDataPtr->currentMove]);
 
         ChooseTypeOfMoveUsedString(gBattleTextBuff2);
-        stringPtr = sText_AttackerUsedX; //Start looking here
+        stringPtr = sText_AttackerUsedX;
 
 
         //Victory Music Logic - CSR Drill Dozer

@@ -279,6 +279,7 @@ static void HandleInputChooseAction(void)
 static void SimulateInputChooseAction(void)
 {
     // Old Man
+    //TODO make these go faster
     switch (gBattleStruct->simulatedInputState[0])
     {
     case 0:

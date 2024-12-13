@@ -70,7 +70,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A BALL thrown to catch a wild\\nPOKéMON. It is designed in a\\ncapsule style.",
+      "description_english": "A BALL thrown to catch a wild\\nPOKéMON. It will always succeed,\\nunless it doesn't.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_POKE_BALLS",

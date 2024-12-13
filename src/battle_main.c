@@ -4110,7 +4110,18 @@ static void HandleAction_UseMove(void)
     gBattleCommunication[MISS_TYPE] = 0;
     gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerAttacker);
     // choose move
-    if (gProtectStructs[gBattlerAttacker].noValidMoves)
+
+    // old man battle always uses EXPLOSION_USELESS
+    if (gBattleTypeFlags & (BATTLE_TYPE_OLD_MAN_TUTORIAL))
+    {
+        gCurrentMove = gChosenMove = MOVE_EXPLOSION_USELESS;
+        gHitMarker |= HITMARKER_NO_PPDEDUCT;
+        *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_EXPLOSION_USELESS, NO_TARGET_OVERRIDE);
+
+
+    }
+    
+    else if (gProtectStructs[gBattlerAttacker].noValidMoves)
     {
         gProtectStructs[gBattlerAttacker].noValidMoves = 0;
         gCurrentMove = gChosenMove = MOVE_STRUGGLE;

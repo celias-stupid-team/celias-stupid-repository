@@ -103,6 +103,7 @@ BattleScript_OldMan_Pokedude_CaughtMessage::
 	finishaction
 
 BattleScript_OldMan_EndBattle::
+	printstring STRINGID_ATTACKERFAINTED
 	waitmessage B_WAIT_TIME_LONG
 	setbyte gBattleOutcome, B_OUTCOME_CAUGHT 
     endlinkbattle

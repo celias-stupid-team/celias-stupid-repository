@@ -48,12 +48,14 @@ ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "oh take this too$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
+    .string "Ah, I'm sure that was helpful\n"
+    .string "and informative!\p"
 	.string "All right, ♀:mna!\n"
 	.string "Now quickly!\l"
 	.string "FLY over to CINNABAR ISLAND!\p"
 	.string "…What's that?\n"
 	.string "You can't FLY yet?\p"
-	.string "Darn.\n$"
+	.string "Darn.$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
     .string "Be ready to FLY over to\n"
@@ -63,11 +65,7 @@ ViridianCity_Text_WeakenMonsFirstToCatch::
     .string "It's coming next update.$"
 
 ViridianCity_Text_HowsTeachyTVHelping::
-    .string "Be ready to FLY over to\n"
-    .string "CINNABAR ISLAND!\p"
-    .string "By the way, I'm sorry that the\n"
-    .string "TEACHY TV isn't changed yet.\l"
-    .string "It's coming next update.$"
+	.string "I am 30 years old.$"
 
 ViridianCity_Text_MyGrandsonOnTheShow::
     .string "Wahaha!\n"
@@ -76,10 +74,7 @@ ViridianCity_Text_MyGrandsonOnTheShow::
     .string "teaching, you're bound to learn.$"
 
 ViridianCity_Text_TooBusyForTeachyTV::
-    .string "Hm… You're too busy to not even\n"
-    .string "have the time for TEACHY TV…\p"
-    .string "Time is money, and neither should\n"
-    .string "be ill spent…$"
+	.string "I am 30 years old.$"
 
 ViridianCity_Text_CitySign::
     .string "VIRIDIAN CITY \n"
