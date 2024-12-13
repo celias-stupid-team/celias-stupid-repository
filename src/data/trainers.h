@@ -1440,7 +1440,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_CamperEthan),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_CamperEthan),
     },
     [TRAINER_CAMPER_RICKY] = {
         .trainerClass = TRAINER_CLASS_CAMPER,
