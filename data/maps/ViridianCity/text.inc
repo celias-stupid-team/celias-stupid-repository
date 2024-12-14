@@ -19,7 +19,7 @@ ViridianCity_Text_OhOkayThen::
     .string "Oh, okay then!$"
 
 ViridianCity_Text_ExplainCaterpieWeedle::
-    .string "CATERPIE evlolves into a butterfly,\n"
+    .string "CATERPIE evolves into a butterfly,\n"
     .string "and WEEDLE evolves into a bee!$"
 
 ViridianCity_Text_GrandpaHasntHadCoffeeYet::

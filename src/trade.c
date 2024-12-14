@@ -24,6 +24,7 @@
 #include "constants/songs.h"
 #include "constants/moves.h"
 #include "constants/trade.h"
+#include "items.h"
 
 // IDs for CallTradeMenuFunc
 enum {
@@ -2952,3 +2953,9 @@ int CanRegisterMonForTradingBoard(struct RfuGameCompatibilityData player, u16 sp
 
     return CAN_REGISTER_MON;
 }
+
+
+
+
+
+

@@ -350,6 +350,13 @@
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE16",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

@@ -24,7 +24,7 @@ PalletTown_Text_OakPokemonResearchLab::
     .string "OAK POKéMON RESEARCH LAB$"
 
 PalletTown_Text_PlayersHouse::
-    .string "{PLAYER}'s house$"
+    .string "DAD's house$"
 
 PalletTown_Text_RivalsHouse::
     .string "GARY's house$"

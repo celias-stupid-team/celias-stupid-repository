@@ -29,6 +29,7 @@
 #include "berry_powder.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
+#include "items.h"
 
 // this file's functions
 static void ResetMiniGamesResults(void);
@@ -153,6 +154,10 @@ void NewGameInitData(void)
     ResetTrainerTowerResults();
 }
 
+
+
+
+
 static void InitCSRData(void)
 {
     FlagSet(FLAG_ROUTE1_OBJECTS_RETREAT);
@@ -161,6 +166,7 @@ static void InitCSRData(void)
     FlagSet(FLAG_CSR_CELIA_BONUS);
     FlagSet(FLAG_CSR_PT_HIDE_GS_BALL);
     FlagSet(FLAG_SYS_B_DASH);
+    
 }
 
 static void ResetMiniGamesResults(void)

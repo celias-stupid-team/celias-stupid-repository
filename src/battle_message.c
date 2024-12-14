@@ -515,7 +515,7 @@ const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat 
 const u8 gText_InflictingDamageIsKey[] = _("OAK: Grr, there they go again.\pHold on, lemme get the switch.\p");
 const u8 gText_LoweringStats[] = _("OAK: Hey! Don't make too much\nnoise!\pThe vibrations are messing with\nthe circuitry!\p");
 const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\pIt will faint if the HP drops to\n“0.”\p");
-const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think RUNNING turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
+const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think running turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
 const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
 const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 

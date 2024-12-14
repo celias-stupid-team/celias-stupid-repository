@@ -185,3 +185,42 @@ bool8 ItemIsMail(u16 itemId)
         return FALSE;
     }
 }
+
+void CreateMail(void) //I'm trying my hardest here, Wiz <3 
+{
+    s32 i;
+    u32 otId;
+    u8 otName[11] = _("KCDS.  ");
+    const u16 sMail[][MAIL_WORDS_COUNT + 1] =
+    {
+        {
+            EC_WORD_A_LOT,
+            EC_WORD_GIVES,
+            EC_WORD_TIME,
+            EC_WORD_TO,
+            EC_WORD_ATTACK,
+            EC_WORD_EXCL,
+            EC_WORD_THINK,
+            EC_WORD_ABOUT,
+            EC_WORD_WHY,
+            EC_WORD_EXCL
+        }
+    };
+    //save mail in saveblock1 -> index 6 is the first slot the mailbox reads from
+    struct Mail *mail = &gSaveBlock1Ptr->mail[6];
+
+    otId = 1989;
+
+    for (i = 0; i < MAIL_WORDS_COUNT; i++)
+        mail->words[i] = sMail[0][i];
+
+    StringCopy(mail->playerName, otName);
+    //PadNameString(mail->playerName, CHAR_SPACE);
+
+    mail->trainerId[0] = otId >> 24;
+    mail->trainerId[1] = otId >> 16;
+    mail->trainerId[2] = otId >> 8;
+    mail->trainerId[3] = otId;
+    mail->species = SPECIES_KABUTOPS;
+    mail->itemId = ITEM_WAVE_MAIL;
+}
