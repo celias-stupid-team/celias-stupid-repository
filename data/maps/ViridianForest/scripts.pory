@@ -134,6 +134,10 @@ script ViridianForest_EventScript_Flowers3 {
 	setvar(VAR_TEMP_1, 3)
 }
 
+script ViridianForest_EventScript_FlowersClear {
+	setvar(VAR_TEMP_1, 0)
+}
+
 script ViridianForest_EventScript_Flowers4 {
 	lock
 	setvar(VAR_TEMP_1, 0)

@@ -7,7 +7,7 @@ ViridianCity_PokemonCenter_1F_Text_FeelFreeToUsePC::
 ViridianCity_PokemonCenter_1F_Text_PokeCenterInEveryTown::
     .string "There's a POKéMON CENTER in every\n"
     .string "town ahead.\p"
-    .string "…Well, most of the, anyway.$"
+    .string "…Well, most of them, anyway.$"
 
 ViridianCity_PokemonCenter_1F_Text_PokeCentersHealMons::
     .string "The POKéMON world has universal\n"

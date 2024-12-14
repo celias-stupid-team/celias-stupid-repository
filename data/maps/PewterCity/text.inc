@@ -101,7 +101,7 @@ PewterCity_Text_GymSign::
 PewterCity_Text_CitySign::
     .string "PEWTER CITY\n"
     .string "NEW WILD POKéMON: 1\p"
-    .string "RECOMMENDED POKéDEX COMPLETION: 12\p"
+    .string "RECOMMENDED POKéDEX COMPLETION: 12$"
 
 @ The below 3 JP texts are unused. Possibly a cut NPC meant to give the player the Berry Pouch
 PewterCity_Text_DefeatedBrockYouCanHaveTreasure::

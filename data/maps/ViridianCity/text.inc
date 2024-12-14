@@ -29,7 +29,7 @@ ViridianCity_Text_GrandpaHasntHadCoffeeYet::
 ViridianCity_Text_GoShoppingInPewterOccasionally::
     .string "We just finished holding the funeral\n"
     .string "for grandpa.\p"
-    .string "Thankfully, I g ot a new one!$"
+    .string "Thankfully, I got a new one!$"
 
 ViridianCity_Text_ThisIsPrivateProperty::
     .string "There's a dead man in the road.\p"

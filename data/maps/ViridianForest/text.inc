@@ -90,7 +90,7 @@ ViridianForest_Text_UseAntidoteForPoison::
 	.string "you time.$"
 
 ViridianForest_Text_ContactOakViaPCToRatePokedex::
-    .string "For bugs, use POISON\p"
+    .string "For bugs, use POISON!\p"
     .string "This message brought to you by\n"
     .string "the RBY type chart!$"
 
