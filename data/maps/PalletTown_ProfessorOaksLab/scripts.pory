@@ -618,8 +618,10 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	waitfanfare
 	call EventScript_RestorePrevTextColor
 	removeitem ITEM_OAKS_PARCEL
+	clearflag FLAG_CSR_PT_HIDE_GS_BALL
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered
 	playbgm MUS_ENCOUNTER_RIVAL, 0
+	textcolor NPC_TEXT_COLOR_MALE
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalGramps
 	closemessage
 	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneRivalEnterNorth
@@ -639,6 +641,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	call_if_eq VAR_FACING, DIR_EAST, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakFacePlayerAndRivalEast
 	call_if_eq VAR_FACING, DIR_WEST, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakFacePlayerAndRivalWest
 	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakFacePlayerAndRivalNorth
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakHaveRequestForYouTwo
 	closemessage
 	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneOakWalkToDeskNorth
@@ -670,6 +673,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
+	textcolor NPC_TEXT_COLOR_TREE
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
 	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedSevenPokeBalls, ITEM_POKE_BALL, 7
 	msgbox PalletTown_ProfessorOaksLab_Text_OakExplainCatching
@@ -1369,8 +1373,41 @@ script PalletTown_EventScript_GS_BALL {
 		msgbox("take gs ball", MSGBOX_DEFAULT)
 		//TODO rest of GS Ball script
 	} else {
-		msgbox("can't take gs ball", MSGBOX_DEFAULT)
-		//TODO Oak says "Hey that's mine"
+		msgbox("It's OAK's specially-ordered\nGS BALL!\pTake it?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			closemessage
+			waitse
+			playse(SE_PIN)
+			applymovement(LOCALID_PROF_OAK, Common_Movement_ExclamationMark)
+			waitmovement(0)
+			delay(30)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			msgbox("OAK: Hey!\n", MSGBOX_DEFAULT)
+			closemessage
+			delay(10)
+			
+			
+
+			applymovement(LOCALID_PROF_OAK, Common_Movement_WalkUp)
+			waitmovement(0)
+			switch(var(VAR_FACING)) {
+				case DIR_WEST:
+					applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+					break
+				default:
+					applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+					break
+			}
+			waitmovement(0)
+			msgbox("That's my GS BALL!\nNo, you can't have it.\pIt's very important to the plot.\nI need to keep it safe!", MSGBOX_DEFAULT)
+			closemessage
+			delay(10)
+			applymovement(LOCALID_PROF_OAK, Common_Movement_WalkDown)
+			delay(10)
+		} else {
+			msgbox("{PLAYER} decided to completely ignore the\nGS BALL.\lWow! It's just like the anime!", MSGBOX_DEFAULT)
+		}
+
 	}
 	release
 }
