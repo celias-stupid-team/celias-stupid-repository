@@ -4534,8 +4534,7 @@ Cry_Kecleon_Sans::
 	.incbin "sound/direct_sound_samples/cries/kecleon_sans.bin"
 
 	.align 2
-Cry_Rattata_Shiny::
-	.incbin "sound/direct_sound_samples/cries/rattata_shiny.bin"
+
 
 	.align 2
 Cry_Porygon_16::

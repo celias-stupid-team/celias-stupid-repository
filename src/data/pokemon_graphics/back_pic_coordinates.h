@@ -5474,11 +5474,7 @@ const struct MonCoords gMonBackPicCoords[] =
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 16,
 	},
-	[SPECIES_RATTATA_SHINY] =
-	{
-		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
-	},
+	
 	[SPECIES_PORYGON_16] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),

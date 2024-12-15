@@ -1452,7 +1452,7 @@ static void CheckWonderGuardAndLevitate(void)
     s32 i = 0;
     u8 moveType;
 
-    if (gCurrentMove == MOVE_STRUGGLE || !gBattleMoves[gCurrentMove].power)
+    if (!gBattleMoves[gCurrentMove].power) //Struggle no longer bypasses Wonder Guard
         return;
 
     GET_MOVE_TYPE(gCurrentMove, moveType);

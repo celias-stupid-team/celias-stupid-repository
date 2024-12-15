@@ -10097,7 +10097,7 @@ extern const u8 gMonIcon_Butterfree_Female[];
 extern const u8 gMonIcon_Pikachu_Fat_Gay[];
 extern const u8 gMonIcon_Trapinch_Pikachu[];
 extern const u8 gMonIcon_Kecleon_Sans[];
-extern const u8 gMonIcon_Rattata_Shiny[];
+//extern const u8 gMonIcon_Rattata_Shiny[];
 extern const u8 gMonIcon_Porygon_16[];
 extern const u8 gMonIcon_Porygon_8[];
 extern const u8 gMonIcon_Porygon_4[];
@@ -10526,13 +10526,6 @@ extern const u32 gMonShinyPalette_Kecleon_Sans[];
 extern const u8 gMonIcon_Kecleon_Sans[];
 extern const u8 gMonFootprint_Kecleon_Sans[];
 
-// Rattata Shiny
-extern const u32 gMonFrontPic_Rattata_Shiny[];
-extern const u32 gMonPalette_Rattata_Shiny[];
-extern const u32 gMonBackPic_Rattata_Shiny[];
-extern const u32 gMonShinyPalette_Rattata_Shiny[];
-extern const u8 gMonIcon_Rattata_Shiny[];
-extern const u8 gMonFootprint_Rattata_Shiny[];
 
 // Porygon_16
 extern const u32 gMonFrontPic_Porygon_16[];

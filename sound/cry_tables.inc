@@ -1042,7 +1042,6 @@ gCryTable::
 	cry Cry_Pikachu_Fat_Gay
 	cry Cry_Trapinch_Pikachu
 	cry Cry_Kecleon_Sans
-	cry Cry_Rattata_Shiny
 	cry Cry_Porygon_16
 	cry Cry_Porygon_8
 	cry Cry_Porygon_4
@@ -2262,7 +2261,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Pikachu_Fat_Gay
 	cry_reverse Cry_Trapinch_Pikachu
 	cry_reverse Cry_Kecleon_Sans
-	cry_reverse Cry_Rattata_Shiny
 	cry_reverse Cry_Porygon_16
 	cry_reverse Cry_Porygon_8
 	cry_reverse Cry_Porygon_4

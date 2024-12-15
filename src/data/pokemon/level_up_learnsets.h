@@ -8950,10 +8950,7 @@ static const u16 sKecleon_SansLevelUpLearnset[] = {
 	LEVEL_UP_END
 };
 
-static const u16 sRattata_ShinyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
-	LEVEL_UP_END
-};
+
 
 static const u16 sPorygon_16LevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),

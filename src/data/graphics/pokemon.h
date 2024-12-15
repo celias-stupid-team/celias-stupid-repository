@@ -8066,13 +8066,7 @@ const u32 gMonShinyPalette_Kecleon_Sans[] = INCBIN_U32("graphics/pokemon/kecleon
 const u8 gMonIcon_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/icon.4bpp");
 const u8 gMonFootprint_Kecleon_Sans[] = INCBIN_U8("graphics/pokemon/kecleon_sans/footprint.1bpp");
 
-// Rattata Shiny
-const u32 gMonFrontPic_Rattata_Shiny[] = INCBIN_U32("graphics/pokemon/rattata_shiny/front.4bpp.lz");
-const u32 gMonPalette_Rattata_Shiny[] = INCBIN_U32("graphics/pokemon/rattata_shiny/normal.gbapal.lz");
-const u32 gMonBackPic_Rattata_Shiny[] = INCBIN_U32("graphics/pokemon/rattata_shiny/back.4bpp.lz");
-const u32 gMonShinyPalette_Rattata_Shiny[] = INCBIN_U32("graphics/pokemon/rattata_shiny/shiny.gbapal.lz");
-const u8 gMonIcon_Rattata_Shiny[] = INCBIN_U8("graphics/pokemon/rattata_shiny/icon.4bpp");
-const u8 gMonFootprint_Rattata_Shiny[] = INCBIN_U8("graphics/pokemon/rattata_shiny/footprint.1bpp");
+
 
 // Porygon_16
 const u32 gMonFrontPic_Porygon_16[] = INCBIN_U32("graphics/pokemon/porygon_16/front.4bpp.lz");
