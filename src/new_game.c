@@ -29,7 +29,7 @@
 #include "berry_powder.h"
 #include "pokemon_jump.h"
 #include "event_scripts.h"
-#include "items.h"
+#include "constants/items.h"
 
 // this file's functions
 static void ResetMiniGamesResults(void);

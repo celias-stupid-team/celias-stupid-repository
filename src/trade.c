@@ -24,7 +24,7 @@
 #include "constants/songs.h"
 #include "constants/moves.h"
 #include "constants/trade.h"
-#include "items.h"
+#include "constants/items.h"
 
 // IDs for CallTradeMenuFunc
 enum {
