@@ -311,7 +311,7 @@ SECTIONS {
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
         src/mugshot.o(.text);
-    } =0
+
     } > ROM =0
 
     script_data :
