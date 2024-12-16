@@ -6,3 +6,7 @@ Route8_EventScript_UndergroundPathSign::
 	msgbox Route8_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+script Route8_RouteSign {
+	msgbox("ROUTE 8\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	end
+}

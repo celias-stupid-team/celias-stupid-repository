@@ -1,5 +1,6 @@
 raw `
 PewterCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_Gym_MapScripts_StartRain
 	.byte 0
 
 PewterCity_Gym_EventScript_Brock::
@@ -29,6 +30,14 @@ PewterCity_Gym_EventScript_GiveTM39::
 	giveitem_msg PewterCity_Gym_Text_ReceivedTM39FromBrock, ITEM_TM39
 	setflag FLAG_GOT_TM39_FROM_BROCK
 	msgbox PewterCity_Gym_Text_ExplainTM39
+	closemessage
+	setweather WEATHER_RAIN
+	doweather
+	delay 130
+	msgbox PewterCity_Gym_Text_Sprinklers
+	closemessage
+	delay 50
+	msgbox PewterCity_Gym_Text_DryingPan
 	release
 	end
 
@@ -83,3 +92,93 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script PewterCity_EventScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	// switch statement about the weather
+	if (!flag(FLAG_DEFEATED_BROCK)) {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pNo, seriously.\nWe're REALLY far from home.\lHow'd you manage the hike?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	} else {
+			msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHmm, the sprinklers in here are\nreally bothersome.\lI should've brought an umbrella!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	}
+
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script PewterCity_EventScript_LightYearsSet {
+	setvar(VAR_TEMP_0, 0)
+	// setvar(VAR_CSR_WentToBrock, 1)
+	//For the Celia check if you leave
+	release
+}
+
+script PewterCity_EventScript_LightYearsGo {
+	specialvar(VAR_FACING, GetPlayerFacingDirection)
+	if(var(VAR_FACING) == DIR_NORTH) {
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp2)
+	} elif(var(VAR_FACING) == DIR_SOUTH) {
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2)
+	}
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(0)
+	lock
+	msgbox("58,786,253,730,000,000 miles\nlater…", MSGBOX_DEFAULT)
+	closemessage
+		if(var(VAR_FACING) == DIR_NORTH) {
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp2)
+	} elif(var(VAR_FACING) == DIR_SOUTH) {
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2)
+	}
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(0)
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+			setvar(VAR_TEMP_0, 1)
+		case 1:
+			setvar(VAR_TEMP_0, 0)
+	}
+	if(flag(FLAG_DEFEATED_BROCK)) {
+		clearflag(FLAG_CSR_ABSCONDED_BROCK)
+	} else {
+		setflag(FLAG_CSR_ABSCONDED_BROCK)
+	}
+	release
+}
+
+script PewterCity_EventScript_CeliaDebug {
+	msgbox("In the decomp update, I improved\nthe LightYears cutscene slightly.\pI now have the player continue to\nwalk while the screen fades.\lBefore, they'd just abruptly stop.\pDebugging that stupid code took me\nmore than three hours.\lI hate this.", MSGBOX_NPC)
+	end
+}
+
+script PewterCity_Gym_EventScript_NoSneaky {
+	checktrainerflag(TRAINER_CAMPER_LIAM)
+	if(var(VAR_RESULT) == FALSE) {
+		lock
+		playbgm(MUS_ENCOUNTER_BOY, FALSE)
+		applymovement(2, Common_Movement_ExclamationMark)
+		waitmovement(0)
+		delay(75)
+		applymovement(2, BoyWalksUp)
+		waitmovement(0)
+		textcolor(0)
+		msgbox(PewterCity_Gym_Text_LiamIntro, MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_CAMPER_LIAM, PewterCity_Gym_Text_LiamDefeat)
+	}
+	release
+}
+
+movement BoyWalksUp {
+	walk_right * 3
+	walk_up * 2
+	walk_left * 3
+}
+
+script PewterCity_Gym_MapScripts_StartRain {
+	if(flag(FLAG_DEFEATED_BROCK)) {
+		setweather(WEATHER_RAIN)
+		doweather
+	}
+}

@@ -1,7 +1,7 @@
 SafariZone_West_Text_KogaPatrolsSafariEverySoOften::
     .string "The SAFARI ZONE's huge, wouldn't\n"
     .string "you say?\p"
-    .string "FUCHSIA's GYM LEADER, KOGA, \n"
+    .string "FUSHCIA's GYM LEADER, KOGA, \n"
     .string "patrols the grounds every so often.\p"
     .string "Thanks to him, we can play here\n"
     .string "knowing that we're safe.$"

@@ -878,7 +878,7 @@ BattleScript_EffectDragonRage::
 	ppreduce
 	typecalc
 	bicbyte gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	setword gBattleMoveDamage, 40
+	setword gBattleMoveDamage, 4
 	adjustsetdamage
 	goto BattleScript_HitFromAtkAnimation
 

@@ -3,12 +3,13 @@
 
 #include "global.h"
 
+extern u16 gScrollableMultichoice_ScrollOffset;
+
 u8 GetLeadMonIndex(void);
 s32 CountDigits(s32 number);
 void TV_PrintIntToStringVar(u8 varidx, s32 number);
 u16 GetStarterSpecies(void);
 void StopPokemonLeagueLightingEffectTask(void);
-void FieldCB_ShowPortholeView(void);
 u8 ContextNpcGetTextColor(void);
 void SetPCBoxToSendMon(u8);
 u16 GetPCBoxToSendMon(void);

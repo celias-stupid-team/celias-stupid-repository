@@ -20,7 +20,7 @@ CeladonCity_PokemonCenter_1F_EventScript_Gentleman::
 	end
 
 CeladonCity_PokemonCenter_1F_EventScript_CooltrainerF::
-	msgbox CeladonCity_PokemonCenter_1F_Text_RodeHereFromFuchsia, MSGBOX_NPC
+	msgbox CeladonCity_PokemonCenter_1F_Text_RodeHereFromFushcia, MSGBOX_NPC
 	end
 
 CeladonCity_PokemonCenter_1F_EventScript_Youngster::

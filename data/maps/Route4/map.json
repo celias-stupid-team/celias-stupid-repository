@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_CERULEAN_CITY",
-      "offset": -10,
+      "offset": -15,
       "direction": "right"
     }
   ],
@@ -29,8 +29,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 9,
-      "y": 8,
+      "x": 7,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -79,7 +79,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route4_EventScript_MegaPunchTutor",
+      "script": "Route4_EventScript_Punch",
       "flag": "0"
     },
     {
@@ -93,7 +93,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route4_EventScript_MegaKickTutor",
+      "script": "Route4_EventScript_Kick",
       "flag": "0"
     },
     {
@@ -101,7 +101,7 @@
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 110,
       "y": 3,
-      "target_local_id": 12,
+      "target_local_id": 11,
       "target_map": "MAP_CERULEAN_CITY"
     },
     {
@@ -110,12 +110,12 @@
       "x": 60,
       "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route4_EventScript_CandyGirl",
       "flag": "0"
     },
     {
@@ -129,8 +129,92 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route4_Item_PokeBall",
+      "flag": "FLAG_CSR_ROUTE_4_POKEBALL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 16,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route4_Celia_TMGuy",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route4_Celia_MtMoon",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 67,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route4_Celia_Berries",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 72,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route4_Celia_Picknicker",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route3_EventScript_Youngster",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 33,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route4_DejectedCamper",
+      "flag": "FLAG_CSR_RETREAT_CAMPER"
     }
   ],
   "warp_events": [
@@ -142,7 +226,7 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_MT_MOON_B1F",
@@ -157,7 +241,384 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 95,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 94,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 93,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 97,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 90,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 87,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 89,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 92,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 88,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 85,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 86,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 84,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 82,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 81,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 80,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 79,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 77,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 76,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 75,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 73,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 72,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 107,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetCeruleanBench"
+    }
   ],
   "bg_events": [
     {
@@ -191,30 +652,18 @@
       "x": 5,
       "y": 4,
       "elevation": 3,
-      "item": "ITEM_PERSIM_BERRY",
+      "item": "ITEM_SITRUS_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE4_PERSIM_BERRY",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 67,
-      "y": 17,
-      "elevation": 3,
-      "item": "ITEM_RAZZ_BERRY",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE4_RAZZ_BERRY",
       "quantity": 2,
       "underfoot": false
     },
     {
-      "type": "hidden_item",
-      "x": 52,
-      "y": 13,
+      "type": "sign",
+      "x": 67,
+      "y": 17,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
-      "underfoot": false
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route4_EventScript_MinusSitrusBerries"
     },
     {
       "type": "hidden_item",
@@ -222,8 +671,8 @@
       "y": 3,
       "elevation": 0,
       "item": "ITEM_SITRUS_BERRY",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
+      "flag": "FLAG_CSR_ROUTE_4_SIRTUS",
+      "quantity": 2,
       "underfoot": false
     }
   ]

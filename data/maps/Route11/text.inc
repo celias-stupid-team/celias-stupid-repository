@@ -112,3 +112,14 @@ Route11_Text_DiglettsCave::
     .string "DIGLETTS' CAVE\n"
     .string "NEW WILD POKéMON: 2$"
 
+Route11_Text_Man::
+	.string "Man.\n$"
+
+Route11_Text_Receptionist::
+	.string "Receptionist.\n$"
+
+Route11_Text_Doctor::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Doctor.\n$"
+
+Route11_Text_Miscarriage::
+	.string "Miscarriage.\n$"

@@ -1,5 +1,5 @@
 CeruleanCity_Text_RivalIntro::
-    .string "{RIVAL}: Yo! {PLAYER}!\p"
+    .string "JERRY: Yo! {PLAYER}!\p"
     .string "You're still struggling along back\n"
     .string "here?\p"
     .string "I'm doing great! I caught a bunch\n"
@@ -16,7 +16,7 @@ CeruleanCity_Text_RivalPostBattle::
     .string "JERRY: Huh?\p"
     .string "GARY? LARRY?\n"
     .string "Who's that?\p"
-    .string "My name is Jerry!\n"
+    .string "My name is JERRY!\n"
     .string "What are you talking about?\p"
     .string "Well, I better get rolling!\n"
     .string "Touch ya later!$"
@@ -180,6 +180,20 @@ CeruleanCity_Text_BikeShopSign::
 
 CeruleanCity_Text_GymSign::
     .string "CERULEAN CITY POKéMON CLUB\n"
-    .string "LEADER: MISTY\l"
+    .string "MASTER: MISTY\l"
     .string "The TCG Expert!$"
 
+PhotoMan_Enters::
+	.string "Pictures taken instantaneously!\p"
+	.string "I'm a photographic genius, if I do\n"
+	.string "say so myself.\p"
+	.string "Okay, get ready for an instant\n"
+	.string "memory!\p"
+	.string "Look at the camera…\n"
+	.string "Ready…\l"
+	.string "Say, “Fuzzy Pickles!”$"
+
+PhotoMan_Leaves::
+	.string "Wow, what a great photograph!\p"
+	.string "It will always bring back the\n"
+	.string "fondest of memories…$"

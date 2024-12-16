@@ -1,6 +1,11 @@
 raw `
 Route1_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route1_OnTransition
 	.byte 0
+
+Route1_OnTransition::
+	setbench BENCH_ROUTE1
+	end
 
 Route1_EventScript_MartClerk::
 	lock
@@ -42,3 +47,92 @@ Route1_EventScript_ThePit::
 	msgbox Route1_Text_ThePitDumbass, MSGBOX_SIGN
 	end
 `
+script Route1_EventScript_CeliaPotion {
+	msgbox("The Potion gag was entirely made\nas an improvised joke.\lI didn't expect to actually commit.\pHowever, the idea of just casually\nhaving the last potion in the whole\lgoddamn universe is really funny.", MSGBOX_NPC)
+	end
+}
+
+script Route1_EventScript_CeliaPit {
+	msgbox("Ah, The Pit.\nThe most infamous part of the hack.\pHonestly I'm kinda surprised that\npeople are so enamored by it.\pI guess it serves as a reality check\nthat this is not a game to take\lvery seriously.", MSGBOX_NPC)
+	end
+}
+
+script Route1_EventScript_Rat1 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA, 3, ITEM_FOCUS_SASH)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT1 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT1, 1)
+	dowildbattle
+	release
+}
+
+script Route1_EventScript_Rat2 {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setwildbattle(SPECIES_RATTATA_SHINY, 3, ITEM_FOCUS_SASH)
+	clearflag(FLAG_SHINY_CREATION)
+	//increment VAR_ROUTE01_SHINY_RAT2 so it only triggers once
+	setvar(VAR_ROUTE01_SHINY_RAT2, 2)
+	dowildbattle
+	release
+}
+
+script Route1_EventScript_EnterPit {
+	lock
+	setvar(VAR_TEMP_5, 1)
+	release
+}
+
+script Route1_EventScript_PitEscaped {
+	lock
+	msgbox("You hear a voice from the skies…\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hi there!\nThis is CELIA, the creator!\pI saw that you got yourself a\nlittle stuck there.\lThat's okay, I've done that too.\pI hope this teaches you a valuable\nlesson about being careful!\pAlso, I noticed that you turned on\na walk-through-walls code to escape?\pI'm not gonna judge you for that,\nbut I do think this hack is more\lfun if you turn that off.\pYou were probably heading back\nto PALLET TOWN, I'm guessing?\lMaybe after receiving the PARCEL?\pDo be aware that this isn't a vanilla+\nROMhack - you're not gonna be able\lto turn your brain off and rush!\pAnyway, do have fun!\nGlad you got out safely!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_5, 0)
+	release
+}
+
+
+script Route1_EventScript_LittleBoy {
+	lock
+	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_Dad {
+	lock
+	msgbox(format("I thought this sign was a\nPOKéSTOP..."), MSGBOX_AUTOCLOSE)
+	release
+}
+
+script Route1_EventScript_ReturnToPit {
+	lock
+	setvar(VAR_CSR_VIRIDIAN_DOOR_TWICE, 2)
+	applymovement(OBJ_EVENT_ID_PLAYER, ReturnToPit_Start)
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_2, VAR_RESULT)
+	if(var(VAR_RESULT) == 3) {
+		applymovement(OBJ_EVENT_ID_PLAYER, ExtraRunDown)
+		waitmovement(0)
+	}
+	
+}
+
+movement ReturnToPit_Start {
+	player_run_left
+	player_run_left
+	player_run_left
+	player_run_left
+	player_run_down
+}
+
+movement ExtraRunDown {
+	player_run_down
+}
+
+script Route1_EventScript_CeliaShiny {
+	msgbox("Every week on my Discord I see\na new person asking if I raised\lthe shiny odds.\pNope!\nThey're completely vanilla, haha!", MSGBOX_NPC)
+	end
+}

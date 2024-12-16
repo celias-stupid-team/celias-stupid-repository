@@ -307,7 +307,7 @@ gSongTable::
 	song mus_surf, 0, 0
 	song mus_poke_tower, 0, 0
 	song mus_silph, 0, 0
-	song mus_fuchsia, 0, 0
+	song mus_fushcia, 0, 0
 	song mus_celadon, 0, 0
 	song mus_victory_trainer, 0, 0
 	song mus_victory_wild, 0, 0
@@ -346,6 +346,22 @@ gSongTable::
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
+	song mus_csr_drill_dozer, 0, 0
+	song mus_furret, 0, 0
+	song mus_sootopolis, 0, 0
+	song mus_cerulean_club, 0, 0
+	song mus_celadon_gym, 0, 0
+	song mus_avgn_gym, 0, 0
+	song mus_stairs, 0, 0
+	song mus_castle, 0, 0
+	song mus_driftveil, 0, 0
+	song mus_loss_woods, 0, 0
+	song mus_route3, 0, 0
+	song mus_twoson, 0, 0
+	song mus_cynthia, 0, 0
+	song mus_chapter_1, 0, 0
+	song mus_chapter_2, 0, 0
+	song mus_sky_tower, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

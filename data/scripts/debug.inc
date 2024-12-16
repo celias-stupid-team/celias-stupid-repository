@@ -49,7 +49,7 @@ Debug_CheatStart::
 	setflag FLAG_WORLD_MAP_LAVENDER_TOWN
 	setflag FLAG_WORLD_MAP_VERMILION_CITY
 	setflag FLAG_WORLD_MAP_CELADON_CITY
-	setflag FLAG_WORLD_MAP_FUCHSIA_CITY
+	setflag FLAG_WORLD_MAP_FUSHCIA_CITY
 	setflag FLAG_WORLD_MAP_CINNABAR_ISLAND
 	setflag FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR
 	setflag FLAG_WORLD_MAP_SAFFRON_CITY
@@ -91,7 +91,6 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	giveegg SPECIES_TORCHIC
 	end
 
 Debug_EventScript_Script_2::

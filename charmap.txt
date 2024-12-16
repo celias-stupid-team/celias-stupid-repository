@@ -472,6 +472,7 @@ DYNAMIC_COLOR4 = 0D @ aquamarine
 DYNAMIC_COLOR5 = 0E @ blue-green
 DYNAMIC_COLOR6 = 0F @ cerulean
 
+
 @ sound
 
 MUS_DUMMY                 = 00 00
@@ -782,7 +783,7 @@ MUS_SS_ANNE               = 30 01
 MUS_SURF                  = 31 01
 MUS_POKE_TOWER            = 32 01
 MUS_SILPH                 = 33 01
-MUS_FUCHSIA               = 34 01
+MUS_FUSHCIA               = 34 01
 MUS_CELADON               = 35 01
 MUS_VICTORY_TRAINER       = 36 01
 MUS_VICTORY_WILD          = 37 01
@@ -821,6 +822,21 @@ MUS_ENCOUNTER_DEOXYS      = 57 01
 MUS_TRAINER_TOWER         = 58 01
 MUS_SLOW_PALLET           = 59 01
 MUS_TEACHY_TV_MENU        = 5A 01
+MUS_CSR_DRILL_DOZER       = 5B 01
+MUS_CSR_FURRET            = 5C 01
+MUS_CSR_SOOTOPOLIS        = 5D 01
+MUS_CSR_CERULEAN_CLUB     = 5E 01
+MUS_CSR_CELADON_GYM       = 5F 01
+MUS_CSR_AVGN_GYM          = 60 01
+MUS_CSR_STAIRS            = 61 01
+MUS_CSR_CASTLE            = 62 01
+MUS_CSR_DRIFTVEIL         = 63 01
+MUS_CSR_LOSS_WOODS        = 64 01
+MUS_CSR_ROUTE3_AGAIN        = 65 01
+MUS_CSR_TWOSON        = 66 01
+MUS_CSR_CYNTHIA        = 67 01
+MUS_CSR_CHAPTER_1       = 68 01
+MUS_CSR_CHAPTER_2       = 69 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

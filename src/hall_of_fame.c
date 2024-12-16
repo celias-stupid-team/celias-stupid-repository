@@ -33,8 +33,8 @@ struct HallofFameMon
 {
     u32 tid;
     u32 personality;
-    u16 species:9;
-    u16 lvl:7;
+    u16 species;
+    u8 lvl;
     u8 nick[POKEMON_NAME_LENGTH];
 };
 

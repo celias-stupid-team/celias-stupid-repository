@@ -8573,17 +8573,17 @@ static void Cmd_presentdamagecalculation(void)
         gDynamicBasePower = 80;
     else if (rand < 204)
         gDynamicBasePower = 120;
-    else
+    else //Heal target
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 4;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
     }
-    if (rand < 204)
+    if (rand < 204) //if it didn't heal, check for critical hit
         gBattlescriptCurrInstr = BattleScript_HitFromCritCalc;
     else if (gBattleMons[gBattlerTarget].maxHP == gBattleMons[gBattlerTarget].hp)
-        gBattlescriptCurrInstr = BattleScript_AlreadyAtFullHp;
+        gBattleMoveDamage *= -1; //If target is max HP, deal 1/4 HP instead
     else
     {
         gMoveResultFlags &= ~MOVE_RESULT_DOESNT_AFFECT_FOE;

@@ -18,6 +18,7 @@
 #include "field_effect.h"
 #include "field_screen_effect.h"
 #include "field_specials.h"
+#include "field_special_scene.h"
 #include "event_object_lock.h"
 #include "start_menu.h"
 #include "constants/songs.h"

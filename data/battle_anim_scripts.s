@@ -122,13 +122,13 @@ gBattleAnims_Moves::
 	.4byte Move_AGILITY
 	.4byte Move_QUICK_ATTACK
 	.4byte Move_RAGE
-	.4byte Move_TELEPORT
+	.4byte Move_FLASH
 	.4byte Move_NIGHT_SHADE
 	.4byte Move_MIMIC
 	.4byte Move_SCREECH
 	.4byte Move_DOUBLE_TEAM
 	.4byte Move_RECOVER
-	.4byte Move_HARDEN
+	.4byte Move_BULK_UP
 	.4byte Move_MINIMIZE
 	.4byte Move_SMOKESCREEN
 	.4byte Move_CONFUSE_RAY
@@ -235,7 +235,7 @@ gBattleAnims_Moves::
 	.4byte Move_FURY_CUTTER
 	.4byte Move_STEEL_WING
 	.4byte Move_MEAN_LOOK
-	.4byte Move_ATTRACT
+	.4byte Move_HARDEN
 	.4byte Move_SLEEP_TALK
 	.4byte Move_HEAL_BELL
 	.4byte Move_RETURN
@@ -941,7 +941,7 @@ Move_LEECH_SEED:
 	waitforvisualfinish
 	end
 
-Move_EMBER:
+Move_RAZOR_LEAF:
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	loopsewithpan SE_M_EMBER, SOUND_PAN_ATTACKER, 5, 2
 	createsprite gEmberSpriteTemplate, ANIM_TARGET, 2, 20, 0, -16, 24, 20, 1
@@ -6364,7 +6364,7 @@ AeroblastBeam:
 	delay 3
 	return
 
-Move_WATER_GUN:
+Move_EMBER:
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	monbg ANIM_DEF_PARTNER
@@ -6956,7 +6956,7 @@ Move_PETAL_DANCE:
 	blendoff
 	end
 
-Move_RAZOR_LEAF:
+Move_WATER_GUN:
 	loadspritegfx ANIM_TAG_LEAF
 	loadspritegfx ANIM_TAG_RAZOR_LEAF
 	loadspritegfx ANIM_TAG_IMPACT

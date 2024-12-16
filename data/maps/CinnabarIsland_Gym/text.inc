@@ -141,13 +141,16 @@ CinnabarIsland_Gym_Text_GymStatue::
     .string "CINNABAR POKéMON GYM\n"
     .string "LEADER: BLAINE\p"
     .string "WINNING TRAINERS:\n"
-    .string "{RIVAL}$"
+    .string "GARY, LARRY, JERRY\l"
+    .string "HARRY, LARRY, BARRY$"
 
 CinnabarIsland_Gym_Text_GymStatuePlayerWon::
     .string "CINNABAR POKéMON GYM\n"
     .string "LEADER: BLAINE\p"
     .string "WINNING TRAINERS:\n"
-    .string "{RIVAL}, {PLAYER}$"
+    .string "GARY, LARRY, JERRY\l"
+    .string "HARRY, LARRY, BARRY\l"
+    .string "{PLAYER}$"
 
 CinnabarIsland_Gym_Text_PokemonQuizRules::
     .string "POKéMON Quiz!\p"

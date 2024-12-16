@@ -14,3 +14,7 @@ Route2_ViridianForest_NorthEntrance_EventScript_CooltrainerF::
 	msgbox Route2_ViridianForest_NorthEntrance_Text_CanCancelEvolution, MSGBOX_NPC
 	end
 `
+script Route2_EventScript_NorthGirl {
+	msgbox("TRAINER TIPS!\pAfter you've beaten a TRAINER,\ndon't forget to talk to them again.\pOftentimes, they'll have something\nuseful or interesting to say!", MSGBOX_SIGN)
+	end
+}

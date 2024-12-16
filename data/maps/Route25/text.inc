@@ -16,7 +16,8 @@ Route25_Text_DanIntro::
     .string "the S.S. ANNE at VERMILION CITY.$"
 
 Route25_Text_DanDefeat::
-    .string "I'm not mad!$"
+	.string "On the S.S. ANNE, I was worn by\n"
+	.string "TRAINERS from around the world!$"
 
 Route25_Text_DanPostBattle::
     .string "On the S.S. ANNE, I was worn by\n"
@@ -36,38 +37,65 @@ Route25_Text_FlintPostBattle::
     .string "are talking about!\p"
 
 Route25_Text_KelseyIntro::
-    .string "Hi!\n"
-    .string "My boyfriend is cool!$"
+	.string "Hi!\n"
+	.string "Welcome to SMOGON.COM!\p"
+	.string "We're the premier source for\n"
+	.string "competitive Singles POKéMON!$"
 
 Route25_Text_KelseyDefeat::
     .string "My conditioning isn't the best…$"
 
 Route25_Text_KelseyPostBattle::
-    .string "I wish my boyfriend was as good\n"
-    .string "as you.$"
+	.string "Now, let me tell you about my\n"
+	.string "favorite films this year…$"
 
 Route25_Text_ChadIntro::
-    .string "I had this feeling…\n"
-    .string "I knew I had to battle you!$"
+    .string "…$"
 
 Route25_Text_ChadDefeat::
-    .string "I knew I'd lose, too!$"
+	.string "Unfortunate doesn't begin to\n"
+	.string "describe my series.\p"
+	.string "This game rewards blind luck and\n"
+	.string "nothing else, I am beyond convinced\l"
+	.string "at this point.\p"
+	.string "My preparation was superior, my play\n"
+	.string "was superior, and I lost, so I don't\l"
+	.string "see a reason to continue engaging in\l"
+	.string "an activity where what is within my\l"
+	.string "control is overwhelmingly outweighed\l"
+	.string "by what is not.\p"
+	.string "I am done with competitive POKéMON,\n"
+	.string "and you won't get a fond farewell.$"
 
 Route25_Text_ChadPostBattle::
-    .string "If your POKéMON gets confused,\n"
-    .string "switch it out.\p"
-    .string "That's a good tactic.$"
+	.string "From this moment on, nothing you say\n"
+	.string "matters to me.\p"
+	.string "The foulest insults you hurl with\n"
+	.string "intent to wound will calmly settle\l"
+	.string "at the earth before my feet, and the\l"
+	.string "venom you spit will bring all the\l"
+	.string "pain of a warm summer breeze.\p"
+	.string "You are less than anything you can\n"
+	.string "conceive, while I carry on, brimming\l"
+	.string "with joy distilled from detachment.$"
 
 Route25_Text_HaleyIntro::
-    .string "My friend has many cute POKéMON.\n"
-    .string "I'm so jealous!$"
+	.string "I don't understand those people\n"
+	.string "over there.\p"
+	.string "Why don't they just win with their\n"
+	.string "favorites like I do?$"
 
 Route25_Text_HaleyDefeat::
-    .string "I'm not so jealous!$"
+	.string "Hey, no fair!\n"
+	.string "Stop cheating!$"
 
 Route25_Text_HaleyPostBattle::
-    .string "You came from MT. MOON?\n"
-    .string "May I have a CLEFAIRY?$"
+	.string "Good POKéMON…\n"
+	.string "Bad POKéMON…\p"
+	.string "Clearly there is no difference\n"
+	.string "between the two!\p"
+	.string "I'm sure I know better than people\n"
+	.string "who actually go to tournaments!$"
 
 Route25_Text_FranklinIntro::
     .string "Hi.\p"
@@ -81,18 +109,15 @@ Route25_Text_FranklinPostBattle::
     .string "See ya around!$"
 
 Route25_Text_NobIntro::
-    .string "I'm off to see a POKéMANIAC's\n"
-    .string "collection at the cape.$"
+    .string "Hi.\p"
+    .string "I am NOB.$"
 
 Route25_Text_NobDefeat::
     .string "You done got me, and real good,\n"
     .string "too!$"
 
 Route25_Text_NobPostBattle::
-    .string "The POKéMANIAC sure lives up to\n"
-    .string "his name.\p"
-    .string "His collection includes many rare\n"
-    .string "species of POKéMON.$"
+	.string "See ya next gen!\n$"
 
 Route25_Text_WayneIntro::
     .string "You're going to see BILL?\n"

@@ -46,7 +46,7 @@ CeladonCity_EventScript_Poliwrath::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_POLIWRATH, CRY_MODE_NORMAL
+	playmoncry SPECIES_SLOWBRO, CRY_MODE_NORMAL
 	msgbox CeladonCity_Text_Poliwrath
 	closemessage
 	waitmoncry
@@ -106,3 +106,43 @@ CeladonCity_EventScript_GameCornerSign::
 	msgbox CeladonCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 `
+script CeradonCity_EventScript_LittleGirl {
+	msgbox("Uh hum.\pI sure am glad that was\na warp and not a freefall!", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_EventScript_Shorts {
+	msgbox("Oh no!\nSomething terrible has happened!\pSomeone shoved all of CELADON CITY\ninto a RANDOMIZER!", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_EventScript_EggMan {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_PHIONE_EGG)) {
+		msgbox(CeladonCity_Text_ThanksEgg, MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		msgbox(CeladonCity_Text_WhereDoIGo, MSGBOX_DEFAULT)
+		release
+	} else {
+		msgbox("Uh, hello there!\pI'm a deliveryman for the CELADON\nCafé.\pThey ordered a shipment of EGGs to\nserve SOFT BOILED, but when I went\lto deliver them, I wound up here.\pHere, why don't you take one?\n", MSGBOX_DEFAULT)
+		giveegg(SPECIES_PHIONE)
+		closemessage
+		delay(10)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} received the ODD EGG\nfrom the stranded deliveryman!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(20)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(CeladonCity_Text_ThanksEgg, MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		msgbox(CeladonCity_Text_WhereDoIGo, MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_PHIONE_EGG)
+		call(SetPlayerPokedexValues)
+		release
+		
+	}
+}

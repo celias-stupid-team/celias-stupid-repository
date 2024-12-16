@@ -54,6 +54,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "field_special_scene.h"
 
 #define PLAYER_LINK_STATE_IDLE 0x80
 #define PLAYER_LINK_STATE_BUSY 0x81
@@ -289,7 +290,7 @@ void Overworld_ResetStateAfterFly(void)
     VarSet(VAR_MAP_SCENE_ROUTE16, 0);
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
@@ -303,7 +304,7 @@ void Overworld_ResetStateAfterTeleport(void)
     VarSet(VAR_MAP_SCENE_ROUTE16, 0);
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
@@ -317,7 +318,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     VarSet(VAR_MAP_SCENE_ROUTE16, 0);
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
@@ -331,7 +332,7 @@ static void Overworld_ResetStateAfterWhitingOut(void)
     VarSet(VAR_MAP_SCENE_ROUTE16, 0);
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
@@ -341,7 +342,7 @@ static void Overworld_ResetStateAfterWhitingOut(void)
 static void Overworld_ResetStateOnContinue(void)
 {
     FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     ChooseAmbientCrySpecies();
     UpdateLocationHistoryForRoamer();
     RoamerMoveToOtherLocationSet();
@@ -1546,7 +1547,7 @@ void CB2_NewGame(void)
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+    gFieldCallback = ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();

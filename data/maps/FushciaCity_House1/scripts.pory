@@ -1,0 +1,20 @@
+raw `
+FushciaCity_House1_MapScripts::
+	.byte 0
+
+FushciaCity_House1_EventScript_Woman::
+	msgbox FushciaCity_House1_Text_WardenIsOldHasFalseTeeth, MSGBOX_NPC
+	end
+
+FushciaCity_House1_EventScript_OldMan::
+	lock
+	faceplayer
+	famechecker FAMECHECKER_BILL, 2
+	msgbox FushciaCity_House1_Text_BillIsMyGrandson
+	release
+	end
+
+FushciaCity_House1_EventScript_LittleBoy::
+	msgbox FushciaCity_House1_Text_BillFilesHisOwnMonData, MSGBOX_NPC
+	end
+`

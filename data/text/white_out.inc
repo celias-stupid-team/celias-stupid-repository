@@ -3,14 +3,16 @@ Text_FirstShouldRestoreMonsHealth::
 	.string "POKéMON to full health.$"
 
 Text_MonsHealedShouldBuyPotions::
-	.string "Your POKéMON have been healed\n"
-	.string "to perfect health.\p"
-	.string "If your POKéMON's energy, HP,\n"
-	.string "is down, please come see us.\p"
-	.string "If you're planning to go far in the\n"
-	.string "field, you should buy some POTIONS\l"
-	.string "at the POKéMON MART.\p"
-	.string "We hope you excel!$"
+	.string "All right, all right.\n"
+	.string "There you go.\l"
+	.string "Your POKéMON are all healed.\p"
+	.string "Sheesh, you didn't need to ask\n"
+	.string "so many times.\l"
+	.string "I would've done it eventually...\p"
+	.string "This POTION shortage is really\n"
+	.string "making our job much harder...\p"
+	.string "Anyway, good luck!\n"
+	.string "I wanna see your POKéMON in pain!$"
 
 Text_MonsHealed::
 	.string "Your POKéMON have been healed\n"
@@ -19,35 +21,26 @@ Text_MonsHealed::
 
 Text_HadQuiteAnExperienceTakeRest::
 	.string "DAD: {PLAYER}!\n"
-	.string "Welcome home.\p"
-	.string "It sounds like you had quite\n"
-	.string "an experience.\p"
-	.string "Maybe you should take a quick\n"
-	.string "rest.$"
+	.string "Uh, wow!\p"
+	.string "Did you really just die on the\n"
+	.string "first ROUTE of the game?\p"
+	.string "Good job.$"
 
 Text_MomExplainHPGetPotions::
-	.string "DAD: Oh, good! You and your\n"
-	.string "POKéMON are looking great.\p"
-	.string "I just heard from PROF. OAK.\p"
-	.string "He said that POKéMON's energy is\n"
-	.string "measured in HP.\p"
-	.string "If your POKéMON lose their HP,\n"
-	.string "you can restore them at any\l"
-	.string "POKéMON CENTER.\p"
-	.string "If you're going to travel far away,\n"
-	.string "the smart TRAINER stocks up on\l"
-	.string "POTIONS at the POKéMON MART.\p"
-	.string "Make me proud, honey!\p"
-	.string "Take care!$"
+	.string "DAD: Hmm, so you're saying it\n"
+	.string "wasn't your fault?\p"
+	.string "The RATTATAS are just OP?\n"
+	.string "SCRATCH was being inconsistent?\p"
+	.string "Sounds like a skill issue to me.$"
 
 Text_WhitedOutLostMoney::
 	.string "{PLAYER} is out of usable\n"
 	.string "POKéMON!\p"
 	.string "{PLAYER} panicked and lost ¥{STR_VAR_1}…\p"
 	.string "… … … …\p"
-	.string "{PLAYER} whited out!$"
+	.string "{PLAYER} fucking died!$"
 
 Text_WhitedOut::
 	.string "{PLAYER} is out of usable\n"
 	.string "POKéMON!\p"
-	.string "{PLAYER} whited out!$"
+	.string "{PLAYER} fucking died!$"

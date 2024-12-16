@@ -5,7 +5,7 @@ SSAnne_2F_Corridor_Text_ThisShipIsLuxuryLiner::
     .string "invited TRAINERS.$"
 
 SSAnne_2F_Corridor_Text_RivalIntro::
-    .string "{RIVAL}: Bonjour!\n"
+    .string "BARRY: Bonjour!\n"
     .string "{PLAYER}!\p"
     .string "Imagine seeing you here!\n"
     .string "{PLAYER}, were you really invited?\p"
@@ -27,7 +27,7 @@ SSAnne_2F_Corridor_Text_RivalVictory::
     .string "きたえた　ほうが　いいぜ！$"
 
 SSAnne_2F_Corridor_Text_RivalPostBattle::
-    .string "{RIVAL}: I heard there was a CUT\n"
+    .string "BARRY: I heard there was a CUT\n"
     .string "master on board.\p"
     .string "But he was just a seasick old man!\p"
     .string "CUT itself is really useful.\n"

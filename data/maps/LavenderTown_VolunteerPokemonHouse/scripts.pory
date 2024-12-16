@@ -80,4 +80,12 @@ LavenderTown_VolunteerPokemonHouse_EventScript_PokemonFanMagazine::
 LavenderTown_VolunteerPokemonHouse_EventScript_Bookshelf::
 	msgbox LavenderTown_VolunteerPokemonHouse_Text_PokemonMagazinesLineShelf, MSGBOX_SIGN
 	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_OlderGirl::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_OlderGirlBefore, MSGBOX_NPC
+	end
+
+LavenderTown_VolunteerPokemonHouse_EventScript_Blackboard::
+	msgbox LavenderTown_VolunteerPokemonHouse_Text_Blackboard, MSGBOX_SIGN
+	end
 `

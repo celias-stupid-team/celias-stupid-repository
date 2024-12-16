@@ -1,14 +1,14 @@
 #ifndef GUARD_POKEDEX_SCREEN_H
 #define GUARD_POKEDEX_SCREEN_H
 
-#define DEX_CATEGORY_GRASSLAND      0
-#define DEX_CATEGORY_FOREST         1
-#define DEX_CATEGORY_WATERS_EDGE    2
-#define DEX_CATEGORY_SEA            3
-#define DEX_CATEGORY_CAVE           4
-#define DEX_CATEGORY_MOUNTAIN       5
-#define DEX_CATEGORY_ROUGH_TERRAIN  6
-#define DEX_CATEGORY_URBAN          7
+#define DEX_CATEGORY_FIRST_BADGE      0
+#define DEX_CATEGORY_SECOND_BADGE         1
+#define DEX_CATEGORY_THIRD_BADGE    2
+#define DEX_CATEGORY_FOURTH_BADGE            3
+#define DEX_CATEGORY_FIFTH_BADGE           4
+#define DEX_CATEGORY_SIXTH_BADGE       5
+#define DEX_CATEGORY_SEVENTH_BADGE  6
+#define DEX_CATEGORY_FINAL_BADGE          7
 #define DEX_CATEGORY_RARE           8
 #define DEX_CATEGORY_COUNT          9
 

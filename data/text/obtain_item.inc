@@ -29,7 +29,7 @@ Text_CoinCaseIsFull::
 
 Text_NothingToPutThemIn::
 	.string "Too bad!\n"
-	.string "There's nothing to put them in…$"
+	.string "You need a COIN CASE…\n$"
 
 Text_FoundXItems::
 	.string "{PLAYER} found\n"

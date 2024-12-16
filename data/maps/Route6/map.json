@@ -84,9 +84,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 13,
-      "y": 32,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -98,17 +98,31 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 13,
-      "y": 33,
+      "graphics_id": "OBJ_EVENT_GFX_MAN",
+      "x": 9,
+      "y": 32,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route6_EventScript_Jeff",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 5,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_6_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_6_CANDY"
     }
   ],
   "warp_events": [
@@ -134,7 +148,9 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -146,7 +162,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 5,
+      "x": 4,
       "y": 5,
       "elevation": 3,
       "item": "ITEM_SITRUS_BERRY",
@@ -156,7 +172,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 19,
+      "x": 5,
       "y": 5,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",

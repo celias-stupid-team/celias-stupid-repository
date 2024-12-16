@@ -4,14 +4,15 @@ CeladonCity_Text_GotMyKoffingInCinnabar::
     .string "poison when it's angry.$"
 
 CeladonCity_Text_GymIsGreatFullOfWomen::
-    .string "Heheh! This GYM is great!\n"
-    .string "It's full of women!$"
+	.string "There was a creepy old man out here\n"
+	.string "until recently.\p"
+	.string "Be careful walking around!\n$"
 
 CeladonCity_Text_GameCornerIsBadForCitysImage::
-    .string "CELADON takes pride in its efforts\n"
-    .string "to keep the city beautiful.\p"
-    .string "That's why the new GAME CORNER is\n"
-    .string "bad for our city's image.$"
+	.string "The randomization really has made\n"
+	.string "it more annoying to get around.\p"
+	.string "That said, it's not like CELADON was\n"
+	.string "ever very easy to navigate before…$"
 
 CeladonCity_Text_BlewItAllAtSlots::
     .string "Moan…\n"
@@ -20,19 +21,23 @@ CeladonCity_Text_BlewItAllAtSlots::
     .string "COINS for prizes!$"
 
 CeladonCity_Text_MyTrustedPalPoliwrath::
-    .string "This is my trusted pal, POLIWRATH.\p"
-    .string "It evolved from a POLIWHIRL when\n"
-    .string "I used a WATER STONE.$"
+	.string "This is my trusted pal, SLOWBRO.\p"
+	.string "It evolved when I used a WATER\n"
+	.string "STONE on… something.$"
 
 CeladonCity_Text_Poliwrath::
-    .string "POLIWRATH: Ribi ribit!$"
+    .string "SLOWBRO: Durrrr!$"
 
 CeladonCity_Text_GetLostOrIllPunchYou::
-    .string "What are you staring at?\n"
-    .string "Get lost, or I'll punch you.$"
+	.string "What are you staring at?\n"
+	.string "Get lost, or I'll sue you!$"
 
 CeladonCity_Text_KeepOutOfTeamRocketsWay::
-    .string "Keep out of TEAM ROCKET's way!$"
+	.string "There were reports of copyrighted\n"
+	.string "music being played around here.\l"
+	.string "I'd bet anything they meant the GYM.\p"
+	.string "I just can't seem to find my way\n"
+	.string "over to it like I'm supposed to.$"
 
 CeladonCity_Text_ExplainXAccuracyDireHit::
     .string "TRAINER TIPS\p"
@@ -44,20 +49,25 @@ CeladonCity_Text_ExplainXAccuracyDireHit::
     .string "DEPT. STORE!$"
 
 CeladonCity_Text_CitySign::
-    .string "CELADON CITY\n"
-    .string "The City of Rainbow Dreams$"
+	.string "CELADON CITY\p"
+	.string "(Currently undergoing technical\n"
+	.string "difficulties)\p"
+	.string "RECOMMENDED POKéDEX COMPLETION:\n"
+	.string "69 (nice)$"
 
 CeladonCity_Text_GymSign::
-    .string "CELADON CITY POKéMON GYM\n"
-    .string "LEADER: ERIKA\l"
-    .string "The Nature-Loving Princess!$"
+	.string "CELADON CITY POKéMON GYM\n"
+	.string "LEADER: ERIKA\l"
+	.string "Inclusive and Affirming!\p"
+	.string "RECOMMENDED LEVEL: 25\n$"
 
 CeladonCity_Text_MansionSign::
     .string "CELADON MANSION$"
 
 CeladonCity_Text_DeptStoreSign::
-    .string "Find what you need at the\n"
-    .string "CELADON DEPT. STORE!$"
+	.string "Find what you need at the\n"
+	.string "CELADON DEPT. STORE!\l"
+	.string "(if you can find it)$"
 
 CeladonCity_Text_GuardSpecProtectsFromStatus::
     .string "TRAINER TIPS\p"
@@ -72,16 +82,16 @@ CeladonCity_Text_PrizeExchangeSign::
     .string "PRIZE EXCHANGE$"
 
 CeladonCity_Text_GameCornerSign::
-    .string "ROCKET GAME CORNER\n"
-    .string "The playground for grown-ups!$"
+	.string "DMCA GAME CORNER\n"
+	.string "The public domain casino!$"
 
 CeladonCity_Text_ScaldedTongueOnTea::
-    .string "Aaaagh, ow…\n"
-    .string "I scalded my tongue!\p"
-    .string "This nice old lady in the MANSION\n"
-    .string "gave me some TEA.\p"
-    .string "But it was boiling hot!\n"
-    .string "Gotta cool it to drink it.$"
+	.string "Aaaagh, ow…\n"
+	.string "I melted my tongue!\p"
+	.string "This nice old lady in the MANSION\n"
+	.string "gave me some TOXIC SLUDGE.\p"
+	.string "Maybe I shouldn't have tried\n"
+	.string "drinking it…$"
 
 Text_SoftboiledTeach::
     .string "Hello, there!\p"
@@ -105,10 +115,20 @@ Text_SoftboiledTaught::
     .string "I wish you the best of luck!$"
 
 CeladonCity_Text_SomeoneStoleSilphScope::
-    .string "Oh, what am I to do…\p"
-    .string "Someone stole our SILPH SCOPE.\p"
-    .string "The thief came running this way,\n"
-    .string "I'm sure of it.\p"
-    .string "But I lost sight of him!\n"
-    .string "Where'd he go?$"
+	.string "Greetings!\p"
+	.string "I'm a scientist working for\n"
+	.string "SILPH CO.\p"
+	.string "Right now, I'm performing research\n"
+	.string "into what on Earth must have\l"
+	.string "happened to this city!$"
 
+CeladonCity_Text_WhereDoIGo::
+	.string "So, uh…\n"
+	.string "Where do I go now?$"
+
+CeladonCity_Text_ThanksEgg::
+	.string "Thank you for taking that.\p"
+	.string "I'm not sure why, but this shipment\n"
+	.string "of EGGs felt… strange somehow.\p"
+	.string "Well, one way or another I suppose\n"
+	.string "I should be on my way.$"

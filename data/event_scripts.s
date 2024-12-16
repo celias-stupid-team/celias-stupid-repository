@@ -286,7 +286,7 @@ gStdScriptsEnd::
 	.include "data/maps/LavenderTown/scripts.inc"
 	.include "data/maps/VermilionCity/scripts.inc"
 	.include "data/maps/CeladonCity/scripts.inc"
-	.include "data/maps/FuchsiaCity/scripts.inc"
+	.include "data/maps/FushciaCity/scripts.inc"
 	.include "data/maps/CinnabarIsland/scripts.inc"
 	.include "data/maps/IndigoPlateau_Exterior/scripts.inc"
 	.include "data/maps/SaffronCity/scripts.inc"
@@ -407,16 +407,16 @@ gStdScriptsEnd::
 	.include "data/maps/CeladonCity_Restaurant/scripts.inc"
 	.include "data/maps/CeladonCity_House1/scripts.inc"
 	.include "data/maps/CeladonCity_Hotel/scripts.inc"
-	.include "data/maps/FuchsiaCity_SafariZone_Entrance/scripts.inc"
-	.include "data/maps/FuchsiaCity_Mart/scripts.inc"
-	.include "data/maps/FuchsiaCity_SafariZone_Office/scripts.inc"
-	.include "data/maps/FuchsiaCity_Gym/scripts.inc"
-	.include "data/maps/FuchsiaCity_House1/scripts.inc"
-	.include "data/maps/FuchsiaCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/FuchsiaCity_PokemonCenter_2F/scripts.inc"
-	.include "data/maps/FuchsiaCity_WardensHouse/scripts.inc"
-	.include "data/maps/FuchsiaCity_House2/scripts.inc"
-	.include "data/maps/FuchsiaCity_House3/scripts.inc"
+	.include "data/maps/FushciaCity_SafariZone_Entrance/scripts.inc"
+	.include "data/maps/FushciaCity_Mart/scripts.inc"
+	.include "data/maps/FushciaCity_SafariZone_Office/scripts.inc"
+	.include "data/maps/FushciaCity_Gym/scripts.inc"
+	.include "data/maps/FushciaCity_House1/scripts.inc"
+	.include "data/maps/FushciaCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/FushciaCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/FushciaCity_WardensHouse/scripts.inc"
+	.include "data/maps/FushciaCity_House2/scripts.inc"
+	.include "data/maps/FushciaCity_House3/scripts.inc"
 	.include "data/maps/CinnabarIsland_Gym/scripts.inc"
 	.include "data/maps/CinnabarIsland_PokemonLab_Entrance/scripts.inc"
 	.include "data/maps/CinnabarIsland_PokemonLab_Lounge/scripts.inc"
@@ -619,7 +619,7 @@ gStdScriptsEnd::
 	.include "data/maps/LavenderTown/text.inc"
 	.include "data/maps/VermilionCity/text.inc"
 	.include "data/maps/CeladonCity/text.inc"
-	.include "data/maps/FuchsiaCity/text.inc"
+	.include "data/maps/FushciaCity/text.inc"
 	.include "data/maps/CinnabarIsland/text.inc"
 	.include "data/maps/SaffronCity/text.inc"
 	.include "data/maps/OneIsland/text.inc"
@@ -726,15 +726,15 @@ gStdScriptsEnd::
 	.include "data/maps/CeladonCity_Restaurant/text.inc"
 	.include "data/maps/CeladonCity_House1/text.inc"
 	.include "data/maps/CeladonCity_Hotel/text.inc"
-	.include "data/maps/FuchsiaCity_SafariZone_Entrance/text.inc"
-	.include "data/maps/FuchsiaCity_Mart/text.inc"
-	.include "data/maps/FuchsiaCity_SafariZone_Office/text.inc"
-	.include "data/maps/FuchsiaCity_Gym/text.inc"
-	.include "data/maps/FuchsiaCity_House1/text.inc"
-	.include "data/maps/FuchsiaCity_PokemonCenter_1F/text.inc"
-	.include "data/maps/FuchsiaCity_WardensHouse/text.inc"
-	.include "data/maps/FuchsiaCity_House2/text.inc"
-	.include "data/maps/FuchsiaCity_House3/text.inc"
+	.include "data/maps/FushciaCity_SafariZone_Entrance/text.inc"
+	.include "data/maps/FushciaCity_Mart/text.inc"
+	.include "data/maps/FushciaCity_SafariZone_Office/text.inc"
+	.include "data/maps/FushciaCity_Gym/text.inc"
+	.include "data/maps/FushciaCity_House1/text.inc"
+	.include "data/maps/FushciaCity_PokemonCenter_1F/text.inc"
+	.include "data/maps/FushciaCity_WardensHouse/text.inc"
+	.include "data/maps/FushciaCity_House2/text.inc"
+	.include "data/maps/FushciaCity_House3/text.inc"
 	.include "data/maps/CinnabarIsland_Gym/text.inc"
 	.include "data/maps/CinnabarIsland_PokemonLab_Entrance/text.inc"
 	.include "data/maps/CinnabarIsland_PokemonLab_Lounge/text.inc"
@@ -819,7 +819,7 @@ Text_WouldYouLikeToMixRecords::
 
 @ Unused
 Text_WeHopeToSeeYouAgain2::
-	.string "We hope to see you again!$"
+	.string "I hope your POKéMON get hurt again!\n$"
 
 	.include "data/text/pc.inc"
 
@@ -896,11 +896,10 @@ Text_WelcomeWantToHealPkmn::
 	.string "POKéMON back to perfect health?$"
 
 Text_TakeYourPkmnForFewSeconds::
-	.string "Okay, I'll take your POKéMON for a\n"
-	.string "few seconds.$"
+	.string "If you insist…\n$"
 
 Text_WeHopeToSeeYouAgain::
-	.string "We hope to see you again!$"
+	.string "I hope your POKéMON get hurt again!\n$"
 
 Text_RestoredPkmnToFullHealth::
 	.string "Thank you for waiting.\n"
@@ -1365,3 +1364,11 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/PalletTown_BobOmb_Battlefield/scripts.inc"
+
+	.include "data/maps/InsideOfTruck/scripts.inc"
+	.include "data/maps/Route10_Again/scripts.inc"
+
+	.include "data/maps/LavenderTown_DanceTheater/scripts.inc"
+	.include "data/maps/LavenderTown_DanceTheater/text.inc"

@@ -103,3 +103,272 @@ PokemonTower_2F_Movement_RivalExitDown::
 	walk_in_place_faster_right
 	step_end
 `
+
+
+script PokemonTower_2F_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox("Oh no!\pGrandpa's dead!",MSGBOX_AUTOCLOSE)
+	release
+}
+
+script PokemonTower_2F_EventScript_JoyousLitwick {
+	lock
+	faceplayer
+	// VAR_TEMP_1 tracks Litwick was most recently talked to
+	setvar(VAR_TEMP_1, 1)
+	call(PokemonTower_2F_LitwickConversation)
+	release
+}
+
+script PokemonTower_2F_EventScript_FierceLitwick {
+	lock
+	faceplayer
+	setvar(VAR_TEMP_1, 2)
+	call(PokemonTower_2F_LitwickConversation)
+	release
+}
+
+script PokemonTower_2F_EventScript_ScaredLitwick {
+	lock
+	faceplayer
+	// VAR_TEMP_1 tracks Litwick was most recently talked to
+	setvar(VAR_TEMP_1, 3)
+	call(PokemonTower_2F_LitwickConversation)
+	release
+}
+
+script PokemonTower_2F_LitwickConversation {
+	// VAR_TEMP_2 counts what stage in the conversation you're at (0, 1, 2, or 3)
+	// VAR_TEMP_3 counts which Litwick you talked to first
+	// VAR_TEMP_4 counts which Litwick you talked to second
+	switch (var(VAR_TEMP_2)) {
+		case 0: //"Well here we are, burning" stage
+			switch(var(VAR_TEMP_1)) {
+				case 1:
+					msgbox(PokemonTower_2F_Text_Litwick_J_Start, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_2, 1)
+				case 2:
+					msgbox(PokemonTower_2F_Text_Litwick_F_Start, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_2, 1)
+				case 3:
+					msgbox(PokemonTower_2F_Text_Litwick_S_Start, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_2, 1) //I fixed it I think The make worked - I moved the Return down a line
+			}
+
+
+		case 1: //First unique dialouge
+			setvar(VAR_TEMP_2,1)
+			switch(var(VAR_TEMP_1)) {
+				case 1:
+					msgbox(PokemonTower_2F_Text_Litwick_J, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_3,1)
+					setvar(VAR_TEMP_2, 2)
+				case 2:
+					msgbox(PokemonTower_2F_Text_Litwick_F, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_3,2)
+					setvar(VAR_TEMP_2, 2)
+				case 3:
+					msgbox(PokemonTower_2F_Text_Litwick_S, MSGBOX_AUTOCLOSE)
+					setvar(VAR_TEMP_3,3)
+					setvar(VAR_TEMP_2, 2)
+			}
+
+
+		case 2: //second stage
+			switch(var(VAR_TEMP_3)) { //first checks to see which Litwick you talked to first
+				case 1: //Joyous first
+					switch(var(VAR_TEMP_1)) {
+						case 1:
+							msgbox(PokemonTower_2F_Text_Litwick_JJ, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,1)
+							setvar(VAR_TEMP_2, 3)
+						case 2:
+							msgbox(PokemonTower_2F_Text_Litwick_JF, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,2)
+							setvar(VAR_TEMP_2, 3)
+						case 3:
+							msgbox(PokemonTower_2F_Text_Litwick_JS, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,3)
+							setvar(VAR_TEMP_2, 3)
+					}
+				case 2: //Fierce first
+					switch(var(VAR_TEMP_1)) {
+						case 1:
+							msgbox(PokemonTower_2F_Text_Litwick_FJ, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,1)
+							setvar(VAR_TEMP_2, 3)
+						case 2:
+							msgbox(PokemonTower_2F_Text_Litwick_FF, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,2)
+							setvar(VAR_TEMP_2, 3)
+						case 3:
+							msgbox(PokemonTower_2F_Text_Litwick_FS, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,3)
+							setvar(VAR_TEMP_2, 3)
+					}
+				case 3: //Scared first
+					switch(var(VAR_TEMP_1)) {
+						case 1:
+							msgbox(PokemonTower_2F_Text_Litwick_SJ, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,1)
+							setvar(VAR_TEMP_2, 3)
+						case 2:
+							msgbox(PokemonTower_2F_Text_Litwick_SF, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,2)
+							setvar(VAR_TEMP_2, 3)
+						case 3:
+							msgbox(PokemonTower_2F_Text_Litwick_SS, MSGBOX_AUTOCLOSE)
+							setvar(VAR_TEMP_4,3)
+							setvar(VAR_TEMP_2, 3)
+					}
+			}
+
+
+		case 3: //Third stage
+			switch(var(VAR_TEMP_3)) { //first checks to see which Litwick you talked to first
+
+					case 1: //Joyous 
+
+
+						switch(var(VAR_TEMP_4)) { //Second checks to see which Litwick you talked to second
+
+							case 1: //Joyous
+								switch(var(VAR_TEMP_1)) { //Third checks to see which Litwick you just talked to
+									case 1: //J
+										msgbox(PokemonTower_2F_Text_Litwick_JJJ, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 2: //F
+										msgbox(PokemonTower_2F_Text_Litwick_JJF, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 3: //S
+										msgbox(PokemonTower_2F_Text_Litwick_JJS, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+								}
+
+							case 2: //Fierce
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_JFJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_JFF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_JFS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								}
+
+							case 3: //Scared
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_JSJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_JSF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_JSS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								}
+							
+						}
+
+
+
+					case 2: //Fierce
+						switch(var(VAR_TEMP_4)) { //Second checks to see which Litwick you talked to second
+
+							case 1: //Joyous
+								switch(var(VAR_TEMP_1)) { //Third checks to see which Litwick you just talked to
+									case 1: //J
+										msgbox(PokemonTower_2F_Text_Litwick_FJJ, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 2: //F
+										msgbox(PokemonTower_2F_Text_Litwick_FJF, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 3: //S
+										msgbox(PokemonTower_2F_Text_Litwick_FJS, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+								}
+
+							case 2: //Fierce
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_FFJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_FFF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_FFS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								}
+
+							case 3: //Scared
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_FSJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_FSF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_FSS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								}
+							
+						}
+
+
+					case 3: //Scared
+
+						switch(var(VAR_TEMP_4)) { //Second checks to see which Litwick you talked to second
+
+							case 1: //Joyous
+								switch(var(VAR_TEMP_1)) { //Third checks to see which Litwick you just talked to
+									case 1: //J
+										msgbox(PokemonTower_2F_Text_Litwick_SJJ, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 2: //F
+										msgbox(PokemonTower_2F_Text_Litwick_SJF, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+									case 3: //S
+										msgbox(PokemonTower_2F_Text_Litwick_SJS, MSGBOX_AUTOCLOSE)
+										setvar(VAR_TEMP_2,0)
+								}
+
+							case 2: //Fierce
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_SFJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_SFF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_SFS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								}
+
+							case 3: //Scared
+								switch(var(VAR_TEMP_1)) { 
+										case 1: //J
+											msgbox(PokemonTower_2F_Text_Litwick_SSJ, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 2: //F
+											msgbox(PokemonTower_2F_Text_Litwick_SSF, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+										case 3: //S
+											msgbox(PokemonTower_2F_Text_Litwick_SSS, MSGBOX_AUTOCLOSE)
+											setvar(VAR_TEMP_2,0)
+								} //final litwick check
+
+						} //second litwick check
+			} //first litwick check
+	
+	
+	}//switch statement
+	return	
+}//script
+

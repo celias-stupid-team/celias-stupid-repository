@@ -39,13 +39,14 @@ Text_PokeMartShelf::
 	.string "empty.$"
 
 Text_DishesPlatesNeatlyLinedUp::
-	.string "This arrangement for mother is\n"
+	.string "This arranging for mother is\n"
 	.string "quite adept!\l"
 	.string "Volcano Bakemeat!$"
 
 Text_Kitchen::
-	.string "It smells delicious!\n"
-	.string "Somebody's been cooking here.$"
+	.string "This arranging for mother is\n"
+	.string "quite adept!\l"
+	.string "Volcano Bakemeat!$"
 
 Text_Dresser::
 	.string "Twelve identical copies of your\n"
@@ -56,11 +57,13 @@ Text_Snacks::
 
 Text_PokemartSign::
 	.string "All your item needs fulfilled!\n"
-	.string "POKéMON MART$"
+	.string "POKéMON MART!\p"
+	.string "(POTION needs notwithstanding)\n$"
 
 Text_PokecenterSign::
 	.string "Heal Your POKéMON!\n"
-	.string "POKéMON CENTER$"
+	.string "POKéMON CENTER\p"
+	.string "(but only if you're really sure)\n$"
 
 Text_Indigo_UltimateGoal::
 	.string "INDIGO PLATEAU\p"
@@ -123,7 +126,7 @@ Text_BeautifulSkyWindow::
 
 Text_BlinkingLights::
 	.string "Oh no!\n"
-	.string "The patient appears to be flatlining!$"
+	.string "The patient is flatlining!$"
 
 Text_NeatlyLinedUpTools::
 	.string "The wall is painted over to give\n"

@@ -20,6 +20,7 @@
 #include "constants/items.h"
 #include "constants/trainers.h"
 #include "constants/weather.h"
+#include "script.h"
 
 struct BattleWindowText
 {
@@ -508,15 +509,15 @@ static const u8 sText_PlayedFluteCatchyTune[] = _("{B_PLAYER_NAME} played the {B
 static const u8 sText_PlayedThe[] = _("{B_PLAYER_NAME} played the\n{B_LAST_ITEM}.");
 static const u8 sText_PkmnHearingFluteAwoke[] = _("The POKéMON hearing the FLUTE\nawoke!");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
-const u8 gText_ForPetesSake[] = _("OAK: Oh, for Pete's sake…\nSo pushy, as always.\p{B_PLAYER_NAME}.\pYou've never had a POKéMON battle\nbefore, have you?\pA POKéMON battle is when TRAINERS\npit their POKéMON against each\lother.\p");
-const u8 gText_TheTrainerThat[] = _("The TRAINER that makes the other\nTRAINER's POKéMON faint by lowering\ltheir HP to “0,” wins.\p");
-const u8 gText_TryBattling[] = _("But rather than talking about it,\nyou'll learn more from experience.\pTry battling and see for yourself.\p");
-const u8 gText_InflictingDamageIsKey[] = _("OAK: Inflicting damage on the foe\nis the key to any battle.\p");
-const u8 gText_LoweringStats[] = _("OAK: Lowering the foe's stats\nwill put you at an advantage.\p");
+const u8 gText_ForPetesSake[] = _("OAK: Oh shoot, the lights\nwent out!\pSorry, the power has been very\nspotty recently.\pLet me see if I can get them\nback on again...\p");
+const u8 gText_TheTrainerThat[] = _("Oh!\nWell, there's one of the lights.\pLet my try… this?\p");
+const u8 gText_TryBattling[] = _("Oh wait, that just shut them back\noff.\pThat means I can turn them back\non with… this!\p");
+const u8 gText_InflictingDamageIsKey[] = _("OAK: Grr, there they go again.\pHold on, lemme get the switch.\p");
+const u8 gText_LoweringStats[] = _("OAK: Hey! Don't make too much\nnoise!\pThe vibrations are messing with\nthe circuitry!\p");
 const u8 gText_KeepAnEyeOnHP[] = _("OAK: Keep your eyes on your\nPOKéMON's HP.\pIt will faint if the HP drops to\n“0.”\p");
-const u8 gText_OakNoRunningFromATrainer[] = _("OAK: No! There's no running away\nfrom a TRAINER POKéMON battle!\p");
-const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm! Excellent!\pIf you win, you earn prize money,\nand your POKéMON will grow!\pBattle other TRAINERS and make\nyour POKéMON strong!\p");
-const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pIf you win, you earn prize money,\nand your POKéMON grow.\pBut if you lose, {B_PLAYER_NAME}, you end\nup paying prize money…\pHowever, since you had no warning\nthis time, I'll pay for you.\pBut things won't be this way once\nyou step outside these doors.\pThat's why you must strengthen your\nPOKéMON by battling wild POKéMON.\p");
+const u8 gText_OakNoRunningFromATrainer[] = _("OAK: Oh, there they go again.\nI think RUNNING turned them off.\pCould you stay here until we\nget them back up again?\pThanks!\p");
+const u8 gText_WinEarnsPrizeMoney[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nGood job!\pI don't know how many savestates\nthat took, but I'm impressed!\pYou sure are dedicated to getting\nthe extra level-up from this fight!\p");
+const u8 gText_HowDissapointing[] = _("OAK: Hm…\nHow disappointing…\pEven with all that effort, the\nlights are still a bit spotty.\pOh, and {B_PLAYER_NAME}?\nToo bad, so sad!\pOf course I'd give my grandson\nthe advantage in your first battle!\p");
 
 // New battle strings.
 static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\nthe hit using {B_DEF_ABILITY}!");
@@ -1289,7 +1290,7 @@ const u16 gTrappingMoves[NUM_TRAPPING_MOVES + 1] =
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");
 const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevolved into {STR_VAR_2}!{WAIT_SE}\p");
 const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
-const u8 gText_EllipsisQuestionMark[] = _("……?\p");
+const u8 gText_EllipsisQuestionMark[] = _("……?\p"); // Normal evolution locked by pokedex
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_ACTIVE_NAME_WITH_PREFIX} do?");
 const u8 gText_WhatWillPlayerThrow[] = _("What will {B_PLAYER_NAME}\nthrow?");
 const u8 gText_WhatWillOldManDo[] = _("What will the\nold man do?");
@@ -1364,6 +1365,14 @@ const u8 gText_APsychicMove[] = _("a PSYCHIC move");
 const u8 gText_AnIceMove[] = _("an ICE move");
 const u8 gText_ADragonMove[] = _("a DRAGON move");
 const u8 gText_ADarkMove[] = _("a DARK move");
+const u8 gText_AFairyMove[] = _("a FAIRY move");
+const u8 gText_ABrockMove[] = _("a BROCK move");
+const u8 gText_AWeirdMove[] = _("a WEIRD move");
+const u8 gText_ADadMove[] = _("a DAD move");
+const u8 gText_AChocolateMove[] = _("a CHOCO move");
+const u8 gText_ALargeMove[] = _("a LARGE move");
+const u8 gText_ABirdMove[] = _("a BIRD move");
+const u8 gText_AShitMove[] = _("a SHIT move");
 const u8 gText_TimeBoard[] = _("TIME BOARD");
 const u8 gText_ClearTime[] = _("CLEAR TIME"); // Unused
 const u8 gText_XMinYZSec[] = _("{STR_VAR_1}MIN. {STR_VAR_2}.{STR_VAR_3}SEC.");
@@ -1407,7 +1416,12 @@ static const u8 *const sATypeMove_Table[NUMBER_OF_MON_TYPES] =
     [TYPE_PSYCHIC]  = gText_APsychicMove,
     [TYPE_ICE]      = gText_AnIceMove,
     [TYPE_DRAGON]   = gText_ADragonMove,
-    [TYPE_DARK]     = gText_ADarkMove
+    [TYPE_DARK]     = gText_ADarkMove,
+    [TYPE_FAIRY]     = gText_AFairyMove,
+    [TYPE_BROCK]     = gText_ABrockMove,
+    [TYPE_WEIRD]     = gText_AWeirdMove,
+    [TYPE_DAD]     = gText_ADadMove,
+    [TYPE_CHOCOLATE]     = gText_AChocolateMove
 };
 
 static const u16 sGrammarMoveUsedTable[] =
@@ -1707,7 +1721,31 @@ void BufferStringBattle(u16 stringId)
             StringCopy(gBattleTextBuff2, gMoveNames[sBattleMsgDataPtr->currentMove]);
 
         ChooseTypeOfMoveUsedString(gBattleTextBuff2);
-        stringPtr = sText_AttackerUsedX;
+        stringPtr = sText_AttackerUsedX; //Start looking here
+
+
+        //Victory Music Logic - CSR Drill Dozer
+        if(VarGet(VAR_TEMP_START_EVENT_BATTLE) > 0 && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+            switch(VarGet(VAR_TEMP_START_EVENT_BATTLE)) {
+                case 1:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_ENDEAVOR) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                        
+                case 2:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION)
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                case 3:
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP) //fill in with Toedscool Move
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                case 4:
+                default:
+                    break;
+            }
+            
+        };
         break;
     case STRINGID_BATTLEEND: // battle end
         if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
@@ -2098,12 +2136,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 }
                 else
                 {
-                    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_EARLY
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL_LATE
-                     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
-                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_RIVAL);
-                    else
-                        toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName;
+                toCpy = gTrainers[gTrainerBattleOpponent_A].trainerName; //removed the Rival name checks
                 }
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name

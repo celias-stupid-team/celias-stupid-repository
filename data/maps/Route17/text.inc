@@ -23,7 +23,7 @@ Route17_Text_IsaiahPostBattle::
     .string "here!$"
 
 Route17_Text_VirgilIntro::
-    .string "You heading to FUCHSIA?$"
+    .string "You heading to FUSHCIA?$"
 
 Route17_Text_VirgilDefeat::
     .string "Crash and burn!$"
@@ -118,7 +118,7 @@ Route17_Text_PressBToStayInPlace::
 
 Route17_Text_RouteSign::
     .string "ROUTE 17\n"
-    .string "CELADON CITY - FUCHSIA CITY$"
+    .string "CELADON CITY - FUSHCIA CITY$"
 
 Route17_Text_DontThrowGameThrowBalls::
     .string "It's a notice!\p"

@@ -4,7 +4,7 @@ EventScript_SetGymTrainers::
 	case 2, EventScript_SetCeruleanGymTrainers
 	case 3, EventScript_SetVermilionGymTrainers
 	case 4, EventScript_SetCeladonGymTrainers
-	case 5, EventScript_SetFuchsiaGymTrainers
+	case 5, EventScript_SetFushciaGymTrainers
 	case 6, EventScript_SetSaffronGymTrainers
 	case 7, EventScript_SetCinnabarGymTrainers
 	case 8, EventScript_SetViridianGymTrainers
@@ -35,7 +35,7 @@ EventScript_SetCeladonGymTrainers::
 	settrainerflag TRAINER_COOLTRAINER_MARY
 	return
 
-EventScript_SetFuchsiaGymTrainers::
+EventScript_SetFushciaGymTrainers::
 	settrainerflag TRAINER_TAMER_PHIL
 	settrainerflag TRAINER_TAMER_EDGAR
 	settrainerflag TRAINER_JUGGLER_KIRK

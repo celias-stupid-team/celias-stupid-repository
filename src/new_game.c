@@ -32,6 +32,7 @@
 
 // this file's functions
 static void ResetMiniGamesResults(void);
+static void InitCSRData(void);
 
 // EWRAM vars
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
@@ -81,7 +82,7 @@ static void ClearBattleTower(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F), -1, 6, 6);
+    SetWarpDestination(4, 5, -1, 2, 2); //InsideOfTruck, idk what the -1 means, (2,2)
     WarpIntoMap();
 }
 
@@ -136,6 +137,7 @@ void NewGameInitData(void)
     ResetPokemonStorageSystem();
     ClearRoamerData();
     gSaveBlock1Ptr->registeredItem = 0;
+    InitCSRData();
     ClearBag();
     NewGameInitPCItems();
     ClearEnigmaBerries();
@@ -149,6 +151,16 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+}
+
+static void InitCSRData(void)
+{
+    FlagSet(FLAG_ROUTE1_OBJECTS_RETREAT);
+    FlagSet(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT);
+    FlagSet(FLAG_PT_NPC_LOOKLOOK);
+    FlagSet(FLAG_CSR_CELIA_BONUS);
+    FlagSet(FLAG_CSR_PT_HIDE_GS_BALL);
+    FlagSet(FLAG_SYS_B_DASH);
 }
 
 static void ResetMiniGamesResults(void)

@@ -35,15 +35,15 @@
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
-// gTileset_FuchsiaCity
-#define METATILE_FuchsiaCity_Door                           0x2BF
-#define METATILE_FuchsiaCity_SafariZoneDoor                 0x2D2
-#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Grass    0x300
-#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Mowed    0x310
-#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Grass  0x301
-#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Mowed  0x311
-#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Grass   0x302
-#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Mowed   0x312
+// gTileset_FushciaCity
+#define METATILE_FushciaCity_Door                           0x2BF
+#define METATILE_FushciaCity_SafariZoneDoor                 0x2D2
+#define METATILE_FushciaCity_SafariZoneTreeTopLeft_Grass    0x300
+#define METATILE_FushciaCity_SafariZoneTreeTopLeft_Mowed    0x310
+#define METATILE_FushciaCity_SafariZoneTreeTopMiddle_Grass  0x301
+#define METATILE_FushciaCity_SafariZoneTreeTopMiddle_Mowed  0x311
+#define METATILE_FushciaCity_SafariZoneTreeTopRight_Grass   0x302
+#define METATILE_FushciaCity_SafariZoneTreeTopRight_Mowed   0x312
 
 // gTileset_GameCorner
 #define METATILE_GameCorner_CheckeredFloor_ShadeLeft  0x2E1
@@ -71,8 +71,22 @@
 #define METATILE_General_WideTreeTopRight_Mowed  0x00F
 
 // gTileset_GenericBuilding1
+#define METATILE_GenericBuilding1_MT_Overbed1   0x28B
+#define METATILE_GenericBuilding1_MT_Overbed2   0x28C
+#define METATILE_GenericBuilding1_MT_Overbed3   0x28D
+#define METATILE_GenericBuilding1_MT_Underbed1  0x298
+#define METATILE_GenericBuilding1_MT_Underbed2  0x299
+#define METATILE_GenericBuilding1_MT_Underbed3  0x29A
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
+
+// gTileset_InsideOfTruck
+#define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x29D
+#define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x295
+#define METATILE_InsideOfTruck_DoorClosedFloor_Top     0x28D
+#define METATILE_InsideOfTruck_ExitLight_Bottom        0x298
+#define METATILE_InsideOfTruck_ExitLight_Mid           0x290
+#define METATILE_InsideOfTruck_ExitLight_Top           0x288
 
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2

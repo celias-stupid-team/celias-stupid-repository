@@ -158,20 +158,20 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
-#define VAR_0x406D                                                             0x406D
-#define VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
+#define VAR_MAP_SCENE_CSR_LASS_2                                               0x406D
+#define VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE                        0x406E
 #define VAR_CABLE_CLUB_STATE                                                   0x406F
 #define VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY                                    0x4070
 #define VAR_MAP_SCENE_CINNABAR_ISLAND                                          0x4071
-#define VAR_0x4072                                                             0x4072
+#define VAR_MAP_SCENE_MT_MOON_TENTACOOL                                                             0x4072
 #define VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB                    0x4073
 #define VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 0x4074
 #define VAR_MAP_SCENE_ONE_ISLAND_HARBOR                                        0x4075
 #define VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F                             0x4076
-#define VAR_0x4077                                                             0x4077
+#define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_MAP_SCENE_TWO_ISLAND                                               0x4078
 #define VAR_MAP_SCENE_TWO_ISLAND_JOYFUL_GAME_CORNER                            0x4079
-#define VAR_0x407A                                                             0x407A
+#define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
 #define VAR_MAP_SCENE_THREE_ISLAND                                             0x407B
 #define VAR_MAP_SCENE_POKEMON_CENTER_TEALA                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
@@ -190,6 +190,7 @@
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
+//CSR VARs
 /*VAR_TEMP_START_EVENT_BATTLE:
 It is reset after every battle.
 0 = no event battle (default)
@@ -200,13 +201,13 @@ It is reset after every battle.
 5 = Giovanni 1
 */
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
-#define VAR_0x408D                 0x408D
-#define VAR_0x408E                 0x408E
-#define VAR_0x408F                 0x408F
-#define VAR_0x4090                 0x4090
+#define VAR_ROUTE01_SHINY_RAT1         0x408D
+#define VAR_ROUTE01_SHINY_RAT2         0x408E
+#define VAR_NOT_OAK_SILLY                 0x408F
+#define VAR_CSR_VIRIDIAN_DOOR_TWICE                 0x4090
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
-#define VAR_0x4092                 0x4092
-#define VAR_0x4093                 0x4093
+#define VAR_VERMILLION_GYM_TRASH_COUNTER                 0x4092
+#define VAR_VERMILLION_GYM_BONUS_TRASH                 0x4093
 #define VAR_0x4094                 0x4094
 #define VAR_0x4095                 0x4095
 #define VAR_0x4096                 0x4096
@@ -266,7 +267,9 @@ It is reset after every battle.
 #define VAR_0x40CD                 0x40CD
 #define VAR_0x40CE                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF
-#define VAR_0x40D0                 0x40D0
+//Photo Man Vars
+
+#define VAR_PHOTO_CERULEAN                 0x40D0
 #define VAR_0x40D1                 0x40D1
 #define VAR_0x40D2                 0x40D2
 #define VAR_0x40D3                 0x40D3
@@ -349,6 +352,8 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_FEMALE    1 // Red, for female NPCs
 #define NPC_TEXT_COLOR_MON       2 // Black, for Pokémon
 #define NPC_TEXT_COLOR_NEUTRAL   3 // Black, for inanimate objects and messages from the game
+
+#define NPC_TEXT_COLOR_TREE       4 // Tree, for Oak and oak-adjactent things
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
 #endif // GUARD_CONSTANTS_VARS_H

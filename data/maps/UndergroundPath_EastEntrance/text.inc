@@ -1,5 +1,6 @@
 UndergroundPath_EastEntrance_Text_DoYouGoToCeladonDeptStore::
-    .string "The DEPARTMENT STORE in CELADON\n"
-    .string "has a great selection.\p"
-    .string "Do you go there very often?$"
+.string "I'm getting ready to make the\n"
+.string "trek through the UNDERGROUND PATH.\p"
+.string "That last one was a real doozy!$"
+
 

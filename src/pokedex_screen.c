@@ -77,6 +77,7 @@ struct PokedexScreenData
     u16 numOwnedKanto;
     u16 numSeenNational;
     u16 numOwnedNational;
+    u16 numObtainable;
 };
 
 struct PokedexScreenWindowGfx
@@ -111,6 +112,7 @@ static bool32 DexScreen_TryScrollMonsVertical(u8 direction);
 static void DexScreen_RemoveWindow(u8 *windowId_p);
 static void DexScreen_AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintNum3RightAlign(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx);
+static void DexScreen_PrintObtainable(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u8 y);
 static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex);
 static void DexScreen_PrintControlInfo(const u8 *src);
@@ -319,14 +321,14 @@ static const struct ListMenuItem sListMenuItems_KantoDexModeSelect[] = {
     {gText_PokemonList,                  LIST_HEADER},
     {gText_NumericalMode,                DEX_MODE(NUMERICAL_KANTO)},
     {gText_PokemonHabitats,              LIST_HEADER},
-    {gText_DexCategory_GrasslandPkmn,    DEX_CATEGORY_GRASSLAND},
-    {gText_DexCategory_ForestPkmn,       DEX_CATEGORY_FOREST},
-    {gText_DexCategory_WatersEdgePkmn,   DEX_CATEGORY_WATERS_EDGE},
-    {gText_DexCategory_SeaPkmn,          DEX_CATEGORY_SEA},
-    {gText_DexCategory_CavePkmn,         DEX_CATEGORY_CAVE},
-    {gText_DexCategory_MountainPkmn,     DEX_CATEGORY_MOUNTAIN},
-    {gText_DexCategory_RoughTerrainPkmn, DEX_CATEGORY_ROUGH_TERRAIN},
-    {gText_DexCategory_UrbanPkmn,        DEX_CATEGORY_URBAN},
+    {gText_DexCategory_FirstBadgePkmn,    DEX_CATEGORY_FIRST_BADGE},
+    {gText_DexCategory_SecondBadgePkmn,       DEX_CATEGORY_SECOND_BADGE},
+    {gText_DexCategory_ThirdBadgePkmn,   DEX_CATEGORY_THIRD_BADGE},
+    {gText_DexCategory_FourthBadgePkmn,          DEX_CATEGORY_FOURTH_BADGE},
+    {gText_DexCategory_FifthBadgePkmn,         DEX_CATEGORY_FIFTH_BADGE},
+    {gText_DexCategory_SixthBadgePkmn,     DEX_CATEGORY_SIXTH_BADGE},
+    {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
+    {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
@@ -363,14 +365,14 @@ static const struct ListMenuItem sListMenuItems_NatDexModeSelect[] = {
     {gText_NumericalModeKanto,           DEX_MODE(NUMERICAL_KANTO)},
     {gText_NumericalModeNational,        DEX_MODE(NUMERICAL_NATIONAL)},
     {gText_PokemonHabitats,              LIST_HEADER},
-    {gText_DexCategory_GrasslandPkmn,    DEX_CATEGORY_GRASSLAND},
-    {gText_DexCategory_ForestPkmn,       DEX_CATEGORY_FOREST},
-    {gText_DexCategory_WatersEdgePkmn,   DEX_CATEGORY_WATERS_EDGE},
-    {gText_DexCategory_SeaPkmn,          DEX_CATEGORY_SEA},
-    {gText_DexCategory_CavePkmn,         DEX_CATEGORY_CAVE},
-    {gText_DexCategory_MountainPkmn,     DEX_CATEGORY_MOUNTAIN},
-    {gText_DexCategory_RoughTerrainPkmn, DEX_CATEGORY_ROUGH_TERRAIN},
-    {gText_DexCategory_UrbanPkmn,        DEX_CATEGORY_URBAN},
+    {gText_DexCategory_FirstBadgePkmn,    DEX_CATEGORY_FIRST_BADGE},
+    {gText_DexCategory_SecondBadgePkmn,       DEX_CATEGORY_SECOND_BADGE},
+    {gText_DexCategory_ThirdBadgePkmn,   DEX_CATEGORY_THIRD_BADGE},
+    {gText_DexCategory_FourthBadgePkmn,          DEX_CATEGORY_FOURTH_BADGE},
+    {gText_DexCategory_FifthBadgePkmn,         DEX_CATEGORY_FIFTH_BADGE},
+    {gText_DexCategory_SixthBadgePkmn,     DEX_CATEGORY_SIXTH_BADGE},
+    {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
+    {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
@@ -432,41 +434,41 @@ static const struct ScrollArrowsTemplate sScrollArrowsTemplate_NatDex = {
 
 
 static const struct PokedexScreenWindowGfx sTopMenuSelectionIconGfxPtrs[] = {
-    [DEX_CATEGORY_GRASSLAND] = {
-        .tiles = sTopMenuIconTiles_Grassland,
-        .pal   = sTopMenuIconPals_Grassland
-    },
-    [DEX_CATEGORY_FOREST] = {
+    [DEX_CATEGORY_FIRST_BADGE] = {
         .tiles = sTopMenuIconTiles_Forest,
         .pal   = sTopMenuIconPals_Forest
     },
-    [DEX_CATEGORY_WATERS_EDGE] = {
-        .tiles = sTopMenuIconTiles_WatersEdge,
-        .pal   = sTopMenuIconPals_WatersEdge
-    },
-    [DEX_CATEGORY_SEA] = {
-        .tiles = sTopMenuIconTiles_Sea,
-        .pal   = sTopMenuIconPals_Sea
-    },
-    [DEX_CATEGORY_CAVE] = {
+    [DEX_CATEGORY_SECOND_BADGE] = {
         .tiles = sTopMenuIconTiles_Cave,
         .pal   = sTopMenuIconPals_Cave
     },
-    [DEX_CATEGORY_MOUNTAIN] = {
-        .tiles = sTopMenuIconTiles_Mountain,
-        .pal   = sTopMenuIconPals_Mountain
+    [DEX_CATEGORY_THIRD_BADGE] = {
+        .tiles = sTopMenuIconTiles_WatersEdge,
+        .pal   = sTopMenuIconPals_WatersEdge
     },
-    [DEX_CATEGORY_ROUGH_TERRAIN] = {
-        .tiles = sTopMenuIconTiles_RoughTerrain,
-        .pal   = sTopMenuIconPals_RoughTerrain
-    },
-    [DEX_CATEGORY_URBAN] = {
+    [DEX_CATEGORY_FOURTH_BADGE] = {
         .tiles = sTopMenuIconTiles_Urban,
         .pal   = sTopMenuIconPals_Urban
     },
-    [DEX_CATEGORY_RARE] = {
+    [DEX_CATEGORY_FIFTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_Grassland,
+        .pal   = sTopMenuIconPals_Grassland
+    },
+    [DEX_CATEGORY_SIXTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_RoughTerrain,
+        .pal   = sTopMenuIconPals_RoughTerrain
+    },
+    [DEX_CATEGORY_SEVENTH_BADGE] = {
+        .tiles = sTopMenuIconTiles_Sea,
+        .pal   = sTopMenuIconPals_Sea
+    },
+    [DEX_CATEGORY_FINAL_BADGE] = {
         .tiles = sTopMenuIconTiles_Rare,
         .pal   = sTopMenuIconPals_Rare
+    },
+    [DEX_CATEGORY_RARE] = {
+        .tiles = sTopMenuIconTiles_Mountain,
+        .pal   = sTopMenuIconPals_Mountain
     },
     [DEX_MODE(NUMERICAL_KANTO)] = {
         .tiles = sTopMenuIconTiles_Numerical,
@@ -507,7 +509,7 @@ static const struct WindowTemplate sWindowTemplate_OrderedListMenu = {
 static const struct ListMenuTemplate sListMenuTemplate_OrderedListMenu = {
     .items = sListMenuItems_KantoDexModeSelect,
     .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
-    .itemPrintFunc = ItemPrintFunc_OrderedListMenu,
+    .itemPrintFunc = ItemPrintFunc_OrderedListMenu, //The function that fills the strings
     .totalItems = 0,
     .maxShowed = 9,
     .windowId = 0,
@@ -799,14 +801,14 @@ const u8 (*const sCategoryPageIconCoords[])[4] = {
 };
 
 static const u8 *const sDexCategoryNamePtrs[] = {
-    gText_DexCategory_GrasslandPkmn,
-    gText_DexCategory_ForestPkmn,
-    gText_DexCategory_WatersEdgePkmn,
-    gText_DexCategory_SeaPkmn,
-    gText_DexCategory_CavePkmn,
-    gText_DexCategory_MountainPkmn,
-    gText_DexCategory_RoughTerrainPkmn,
-    gText_DexCategory_UrbanPkmn,
+    gText_DexCategory_FirstBadgePkmn,
+    gText_DexCategory_SecondBadgePkmn,
+    gText_DexCategory_ThirdBadgePkmn,
+    gText_DexCategory_FourthBadgePkmn,
+    gText_DexCategory_FifthBadgePkmn,
+    gText_DexCategory_SixthBadgePkmn,
+    gText_DexCategory_SeventhBadgePkmn,
+    gText_DexCategory_FinalBadgePkmn,
     gText_DexCategory_RarePkmn,
 };
 
@@ -909,6 +911,7 @@ void DexScreen_LoadResources(void)
     sPokedexScreenData->numOwnedNational = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 1);
     sPokedexScreenData->numSeenKanto = DexScreen_GetDexCount(FLAG_GET_SEEN, 0);
     sPokedexScreenData->numOwnedKanto = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
+    sPokedexScreenData->numObtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
     SetBGMVolume_SuppressHelpSystemReduction(0x80);
     ChangeBgX(0, 0, 0);
     ChangeBgY(0, 0, 0);
@@ -1043,14 +1046,14 @@ static void Task_PokedexScreen(u8 taskId)
             case LIST_CANCEL:
                 sPokedexScreenData->state = 1;
                 break;
-            case DEX_CATEGORY_GRASSLAND:
-            case DEX_CATEGORY_FOREST:
-            case DEX_CATEGORY_WATERS_EDGE:
-            case DEX_CATEGORY_SEA:
-            case DEX_CATEGORY_CAVE:
-            case DEX_CATEGORY_MOUNTAIN:
-            case DEX_CATEGORY_ROUGH_TERRAIN:
-            case DEX_CATEGORY_URBAN:
+            case DEX_CATEGORY_FIRST_BADGE:
+            case DEX_CATEGORY_SECOND_BADGE:
+            case DEX_CATEGORY_THIRD_BADGE:
+            case DEX_CATEGORY_FOURTH_BADGE:
+            case DEX_CATEGORY_FIFTH_BADGE:
+            case DEX_CATEGORY_SIXTH_BADGE:
+            case DEX_CATEGORY_SEVENTH_BADGE:
+            case DEX_CATEGORY_FINAL_BADGE:
             case DEX_CATEGORY_RARE:
                 if (DexScreen_IsCategoryUnlocked(sPokedexScreenData->modeSelectInput))
                 {
@@ -1152,9 +1155,11 @@ static void DexScreen_InitGfxForTopMenu(void)
         sPokedexScreenData->modeSelectListMenuId = ListMenuInit(&listMenuTemplate, sPokedexScreenData->modeSelectCursorPos, sPokedexScreenData->modeSelectItemsAbove);
         FillWindowPixelBuffer(sPokedexScreenData->dexCountsWindowId, PIXEL_FILL(0));
         DexScreen_AddTextPrinterParameterized(sPokedexScreenData->dexCountsWindowId, FONT_NORMAL_COPY_1, gText_Seen, 0, 9, 0);
-        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numSeenKanto, 32, 21, 2);
+        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numSeenKanto, 0, 21, 2);
         DexScreen_AddTextPrinterParameterized(sPokedexScreenData->dexCountsWindowId, FONT_NORMAL_COPY_1, gText_Owned, 0, 37, 0);
-        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numOwnedKanto, 32, 49, 2);
+        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numOwnedKanto, 0, 49, 2);
+        DexScreen_AddTextPrinterParameterized(sPokedexScreenData->dexCountsWindowId, FONT_SMALL, gText_Slash, 20, 49, 2);
+        DexScreen_PrintObtainable(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numObtainable, 27, 49, 2);
     }
     FillWindowPixelBuffer(0, PIXEL_FILL(15));
     DexScreen_PrintStringWithAlignment(gText_PokedexTableOfContents, TEXT_CENTER);
@@ -1374,26 +1379,51 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
     s32 i;
     bool8 caught;
     bool8 seen;
+    bool8 VictiniSeen;
 
     switch (orderIdx)
     {
     default:
     case DEX_ORDER_NUMERICAL_KANTO:
-        for (i = 0; i < KANTO_DEX_COUNT; i++)
-        {
-            ndex_num = i + 1;
-            seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
-            caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
-            if (seen)
+        VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
+
+        if(VictiniSeen) {
+            //start Pokedex list at 000
+            for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
-                sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)];
-                ret = ndex_num;
+                ndex_num = i + 1;
+                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+                if (seen)
+                {
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
+                    ret = ndex_num;
+                }
+                else
+                {
+                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                }
+                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
             }
-            else
+        }
+        else {
+            //start Pokedex list at 001
+            for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
-                sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                ndex_num = i + 2;
+                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+                if (seen)
+                {
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
+                    ret = ndex_num;
+                }
+                else
+                {
+                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                }
+                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
             }
-            sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
         }
         break;
     case DEX_ORDER_ATOZ:
@@ -1549,8 +1579,10 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     bool8 seen = (itemId >> 16) & 1;  // not used but required to match
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
+
+    
     DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
-    if (caught)
+    if (caught) // Print ball and types if it's caught; otherwise nothing
     {
         BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28, y);
         type1 = gSpeciesInfo[species].types[0];
@@ -2192,6 +2224,38 @@ static void DexScreen_PrintNum3RightAlign(u8 windowId, u8 fontId, u16 num, u8 x,
     DexScreen_AddTextPrinterParameterized(windowId, fontId, buff, x, y, colorIdx);
 }
 
+static u8 DexScreen_CountDigits(u16 num)
+{
+    u8 digits = 0;
+    u16 tmpNum = num;
+    do
+    {
+        digits++;
+        tmpNum /= 10;
+    } while (tmpNum > 0);
+    return digits;
+}
+
+static void DexScreen_PrintObtainable(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx)
+{
+    u8 overflow;
+    u8 overflowDigits;
+    u8 digits = DexScreen_CountDigits(num);
+
+    ConvertIntToDecimalStringN(gStringVar1, num, STR_CONV_MODE_LEFT_ALIGN, digits);
+
+    if (sPokedexScreenData->numOwnedKanto > sPokedexScreenData->numObtainable)
+    {
+        StringAppend(gStringVar1, gText_Plus);
+        overflow = sPokedexScreenData->numOwnedKanto - sPokedexScreenData->numObtainable;
+        overflowDigits = DexScreen_CountDigits(overflow);
+        ConvertIntToDecimalStringN(gStringVar2, overflow, STR_CONV_MODE_LEFT_ALIGN, overflowDigits);
+        StringAppend(gStringVar1, gStringVar2);
+    }
+
+    DexScreen_AddTextPrinterParameterized(windowId, fontId, gStringVar1, x, y, colorIdx);
+}
+
 static u32 DexScreen_GetDefaultPersonality(int species)
 {
     switch (species)
@@ -2212,7 +2276,7 @@ static void DexScreen_LoadMonPicInWindow(u8 windowId, u16 species, u16 paletteOf
 
 static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u8 y)
 {
-    u16 dexNum = SpeciesToNationalPokedexNum(species);
+    u16 dexNum = SpeciesToNationalPokedexNum(species) - 1; // Off by One minus
     DexScreen_AddTextPrinterParameterized(windowId, fontId, gText_PokedexNo, x, y, 0);
     DexScreen_PrintNum3LeadingZeroes(windowId, fontId, dexNum, x + 9, y, 0);
 }
@@ -2253,6 +2317,10 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
                 retVal = 1;
         }
         break;
+    case FLAG_GET_OBTAINABLE:
+        if (gSaveBlock2Ptr->pokedex.obtainable[index] & mask)
+            retVal = 1;
+        break;
     case FLAG_SET_SEEN:
         gSaveBlock2Ptr->pokedex.seen[index] |= mask;
         // Anticheat
@@ -2261,6 +2329,9 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
         break;
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;
+        break;
+    case FLAG_SET_OBTAINABLE:
+        gSaveBlock2Ptr->pokedex.obtainable[index] |= mask;
         break;
     }
     return retVal;
@@ -2722,25 +2793,58 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
         inches = 10000 * height / 254; // actually tenths of inches here
-        if (inches % 10 >= 5)
-            inches += 10;
-        feet = inches / 120;
-        inches = (inches - (feet * 120)) / 10;
-        if (feet / 10 == 0)
-        {
-            buffer[i++] = 0;
-            buffer[i++] = feet + CHAR_0;
+        switch(species) {
+            case SPECIES_KENYA:
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_5;
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = CHAR_3;
+                buffer[i++] = CHAR_8;
+                buffer[i++] = CHAR_SPACE;
+                buffer[i++] = CHAR_m;
+                buffer[i++] = CHAR_i;
+                buffer[i++] = CHAR_PERIOD;
+                break;
+
+            case SPECIES_UNOWN_LOSS:
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
+            case SPECIES_CHERUBI:
+                buffer[i++] = CHAR_6;
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = CHAR_9;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
+            default:
+                if (inches % 10 >= 5)
+                inches += 10;
+                feet = inches / 120;
+                inches = (inches - (feet * 120)) / 10;
+                if (feet / 10 == 0)
+                {
+                    buffer[i++] = 0;
+                    buffer[i++] = feet + CHAR_0;
+                }
+                else
+                {
+                    buffer[i++] = feet / 10 + CHAR_0;
+                    buffer[i++] = feet % 10 + CHAR_0;
+                }
+                buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+                buffer[i++] = inches / 10 + CHAR_0;
+                buffer[i++] = inches % 10 + CHAR_0;
+                buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+                buffer[i++] = EOS;
+                break;
         }
-        else
-        {
-            buffer[i++] = feet / 10 + CHAR_0;
-            buffer[i++] = feet % 10 + CHAR_0;
-        }
-        buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
-        buffer[i++] = inches / 10 + CHAR_0;
-        buffer[i++] = inches % 10 + CHAR_0;
-        buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
-        buffer[i++] = EOS;
+        
     }
     else
     {
@@ -2783,49 +2887,81 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     {
         lbs = (weight * 100000) / 4536; // Convert to hundredths of lb
 
-        // Round up to the nearest 0.1 lb
-        if (lbs % 10 >= 5)
-            lbs += 10;
+        switch(species) {
+            case SPECIES_KENYA:
+                buffer[i++] = CHAR_9;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_2;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_3;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_7;
+                buffer[i++] = CHAR_SPACE;
+                buffer[i++] = CHAR_t;
+                buffer[i++] = CHAR_o;
+                buffer[i++] = CHAR_n;
+                buffer[i++] = CHAR_s;
+                break;
+            
+            case SPECIES_UNOWN_LOSS:
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = CHAR_1;
+                buffer[i++] = CHAR_HYPHEN;
+                break;
+            
+            case SPECIES_CHERUBI:
+                buffer[i++] = CHAR_4;
+                buffer[i++] = CHAR_2;
+                buffer[i++] = CHAR_0;
+            default:
+                // Round up to the nearest 0.1 lb
+                if (lbs % 10 >= 5)
+                    lbs += 10;
 
-        output = FALSE;
+                output = FALSE;
 
-        if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
 
-        lbs %= 100000;
-        if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                lbs %= 100000;
+                if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
 
-        lbs %= 10000;
-        if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
+                lbs %= 10000;
+                if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
+                {
+                    buffer[i++] = CHAR_SPACE;
+                }
+                else
+                {
+                    output = TRUE;
+                    i++;
+                }
+            
 
-        lbs %= 1000;
-        buffer[i++] = (lbs / 100) + CHAR_0;
-        lbs %= 100;
-        buffer[i++] = CHAR_PERIOD;
-        buffer[i++] = (lbs / 10) + CHAR_0;
+                lbs %= 1000;
+                buffer[i++] = (lbs / 100) + CHAR_0;
+                lbs %= 100;
+                buffer[i++] = CHAR_PERIOD;
+                buffer[i++] = (lbs / 10) + CHAR_0;
+                break;
+        }
     }
     else
     {
@@ -2841,9 +2977,10 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     buffer[i++] = EXT_CTRL_CODE_MIN_LETTER_SPACING;
     buffer[i++] = 0;
 
-    for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
-        buffer[i + j] = lbsText[j];
-
+    if (species != SPECIES_KENYA) {
+        for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
+            buffer[i + j] = lbsText[j];
+    }
     buffer[i + j] = EOS;
     DexScreen_AddTextPrinterParameterized(windowId, FONT_SMALL, labelText, x, y, 0);
     x += 30;
@@ -3166,6 +3303,8 @@ static int DexScreen_CanShowMonInDex(u16 species)
 {
     if (IsNationalPokedexEnabled() == TRUE)
         return TRUE;
+    if (!DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE) && species == 1)
+        return FALSE;
     if (SpeciesToNationalPokedexNum(species) <= KANTO_DEX_COUNT)
         return TRUE;
     return FALSE;

@@ -237,14 +237,14 @@
 #define TRAINER_CLASS_RS_SIS_AND_BRO      54
 #define TRAINER_CLASS_AQUA_ADMIN          55
 #define TRAINER_CLASS_MAGMA_ADMIN         56
-#define TRAINER_CLASS_YOUNGSTER           57
+#define TRAINER_CLASS_SHORTS           57
 #define TRAINER_CLASS_BUG_CATCHER         58
 #define TRAINER_CLASS_LASS                59
 #define TRAINER_CLASS_SAILOR              60
 #define TRAINER_CLASS_CAMPER              61
 #define TRAINER_CLASS_PICNICKER           62
 #define TRAINER_CLASS_POKEMANIAC          63
-#define TRAINER_CLASS_SUPER_NERD          64
+#define TRAINER_CLASS_ANGRY_NERD          64
 #define TRAINER_CLASS_HIKER               65
 #define TRAINER_CLASS_BIKER               66
 #define TRAINER_CLASS_BURGLAR             67

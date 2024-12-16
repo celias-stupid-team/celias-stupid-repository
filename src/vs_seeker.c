@@ -130,7 +130,7 @@ static const struct RematchData sRematches[] = {
       MAP(ROUTE3) },
    { {TRAINER_LASS_SALLY, TRAINER_LASS_SALLY},
       MAP(ROUTE3) },
-   { {TRAINER_LASS_ROBIN, TRAINER_LASS_ROBIN},
+   { {TRAINER_GENTLEMAN_FALKNERSR, TRAINER_GENTLEMAN_FALKNERSR},
       MAP(ROUTE3) },
    { {TRAINER_LASS_CRISSY, TRAINER_LASS_CRISSY},
       MAP(ROUTE4) },
@@ -979,7 +979,7 @@ static void TryGetRematchTrainerIdGivenGameState(const u16 * trainerIdxs, u8 * r
              *rematchIdx_p = GetRematchTrainerIdGivenGameState(trainerIdxs, *rematchIdx_p);
          break;
      case 3:
-         if (!FlagGet(FLAG_WORLD_MAP_FUCHSIA_CITY))
+         if (!FlagGet(FLAG_WORLD_MAP_FUSHCIA_CITY))
              *rematchIdx_p = GetRematchTrainerIdGivenGameState(trainerIdxs, *rematchIdx_p);
          break;
      case 4:

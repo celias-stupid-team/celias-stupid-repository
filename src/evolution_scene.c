@@ -5,6 +5,7 @@
 #include "data.h"
 #include "decompress.h"
 #include "help_system.h"
+#include "event_scripts.h"
 #include "evolution_scene.h"
 #include "evolution_graphics.h"
 #include "link.h"
@@ -18,6 +19,7 @@
 #include "pokedex.h"
 #include "pokemon_summary_screen.h"
 #include "scanline_effect.h"
+#include "script.h"
 #include "strings.h"
 #include "task.h"
 #include "text_window.h"
@@ -782,6 +784,8 @@ static void Task_EvolutionScene(u8 taskId)
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SEEN);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_CAUGHT);
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            //call the SetPlayerPokedexValues script?
+            RunScriptImmediately(SetPlayerPokedexValues);
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:

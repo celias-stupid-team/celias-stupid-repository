@@ -21,7 +21,7 @@ $(TILESETGFXDIR)/secondary/pokemon_center/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/cable_club/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 632 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/fuchsia_gym/tiles.4bpp: %.4bpp: %.png
+$(TILESETGFXDIR)/secondary/fushcia_gym/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 92 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/pewter_gym/tiles.4bpp: %.4bpp: %.png
@@ -159,7 +159,7 @@ $(TILESETGFXDIR)/secondary/trainer_tower/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/cerulean_city/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 158 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/fuchsia_city/tiles.4bpp: %.4bpp: %.png
+$(TILESETGFXDIR)/secondary/fushcia_city/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 191 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/mart/tiles.4bpp: %.4bpp: %.png

@@ -17,7 +17,7 @@ PalletTown_Text_RaisingMonsToo::
 
 PalletTown_Text_CanStoreItemsAndMonsInPC::
     .string "Technology is incredible!\p"
-    .string "You can now shitpost via a\n"
+    .string "Now you can shitpost via a\n"
     .string "POKéMON ROMhack!$"
 
 PalletTown_Text_OakPokemonResearchLab::
@@ -27,12 +27,13 @@ PalletTown_Text_PlayersHouse::
     .string "{PLAYER}'s house$"
 
 PalletTown_Text_RivalsHouse::
-    .string "{RIVAL}'s house$"
+    .string "GARY's house$"
 
 PalletTown_Text_TownSign::
     .string "PALLET TOWN\n"
     .string "We spelled the name wrong\l"
-    .string "on purpose!$"
+    .string "on purpose!\p"
+    .string "Recommended POKéDEX completion: 1$"
 
 PalletTown_Text_OakLetMeSeePokedex::
     .string "OAK: Ah, {PLAYER}!\n"

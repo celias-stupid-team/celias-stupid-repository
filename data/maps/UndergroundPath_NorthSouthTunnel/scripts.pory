@@ -5,5 +5,6 @@ UndergroundPath_NorthSouthTunnel_MapScripts::
 
 UndergroundPath_NorthSouthTunnel_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL
+	setbench BENCH_UNDERGROUNDPATH
 	end
 `

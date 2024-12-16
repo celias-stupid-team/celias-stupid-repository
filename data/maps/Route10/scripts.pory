@@ -1,5 +1,6 @@
 raw `
 Route10_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE Route10_Warp_Script
 	.byte 0
 
 Route10_EventScript_Unused::
@@ -17,3 +18,18 @@ Route10_EventScript_PowerPlantSign::
 	msgbox Route10_Text_PowerPlant, MSGBOX_SIGN
 	end
 `
+script Route10_Warp_Script {
+	map_script_2(VAR_TEMP_1, 0, Route10_Play_Music)
+}
+
+script Route10_Play_Music {
+	//playbgm(MUS_ROUTE3, TRUE)
+	//fadedefaultbgm
+	//fadenewbgm(MUS_ROUTE3)
+	
+	//fadeoutbgm
+	//playbgm(MUS_ROUTE3, TRUE)
+
+	//Literally none of these worked the way I wanted them to, so fuck it.
+	//I'm going with the stupid option.
+}

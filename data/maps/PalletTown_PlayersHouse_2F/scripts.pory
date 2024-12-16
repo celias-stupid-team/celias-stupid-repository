@@ -2,13 +2,18 @@ raw `
 PalletTown_PlayersHouse_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_PlayersHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_PlayersHouse_2F_OnWarp
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_Truck_Opening_Call
 	.byte 0
 
-PalletTown_PlayersHouse_2F_OnTransition::
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn
-	end
+PalletTown_Truck_Opening_Call::
+	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_Truck_Opening
+	.2byte 0
+
+
+
 
 PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
+	playbgm MUS_NONE TRUE
 	setrespawn SPAWN_PALLET_TOWN
 	return
 
@@ -17,8 +22,7 @@ PalletTown_PlayersHouse_2F_OnWarp::
 	.2byte 0
 
 PalletTown_PlayersHouse_2F_FirstWarpIn::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	setvar VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES::
@@ -53,35 +57,60 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	end
 `
 
-script PalletTown_PlayersHouse_2F_EventScript_Bed {
+script PalletTown_PlayersHouse_2F_OnTransition{
+	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn)
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_Bed { //Removed walking out logic; I think it's better without it
 	lock
-	switch (var(VAR_FACING)) {
-		case DIR_WEST:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedEast)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_NORTH:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedSouth)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_EAST:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedWest)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-		case DIR_SOUTH:
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_layinbedNorth)
-			waitmovement(0)
-			msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
-			applymovement(OBJ_EVENT_ID_PLAYER, PTPH2F_getoutofbed)
-			waitmovement(0)
-	}
+	msgbox(format("{PLAYER} laid in the bed...\pMmmm...\nSmells like you!"), MSGBOX_AUTOCLOSE)
 	release
+}
+
+const TRUCK = 5
+script PalletTown_Truck_Opening {
+	lockall
+	if(!flag(FLAG_CSR_EXITED_TRUCK)) {
+		setvar(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsOutOfTruck)
+		delay(50)
+		playse(SE_M_EARTHQUAKE)
+		applymovement(TRUCK, TruckRevsUp)
+		waitmovement(0)
+		delay(50)
+		playse(SE_FALL)
+		applymovement(TRUCK, TruckFliesAway)
+		
+		waitmovement(0)
+		delay(60)
+		removeobject(TRUCK)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerFaceUp)
+		waitmovement(0)
+		delay(5)
+		playbgm(MUS_PALLET, TRUE)
+		
+		releaseall
+	}
+	
+		
+}
+
+movement PlayerJumpsOutOfTruck {
+	jump_right
+	delay_16 * 5
+	face_left
+}
+
+movement TruckRevsUp {
+	walk_in_place_faster_down * 25
+}
+movement TruckFliesAway {
+	walk_faster_left * 7
+}
+
+movement PlayerFaceUp {
+	face_up
 }
 
 
@@ -121,4 +150,24 @@ movement PTPH2F_getoutofbed {
 	walk_right
 	face_down
 	walk_down
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaToaster {
+	msgbox("As far as I'm concerned, this is\nthe most important line in the game.\pIt doesn't really set anything up\nor anything, but if it wasn't\lnew, nobody would check ANYTHING.", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaChapter3 {
+	msgbox("My Secret Life, Chapter 3.\pI was neither a murder suspect, nor\na target for an international spy\l...Ha! Gotcha!\pThis is a story from Earthbound,\na game I stole many quotes from.\pI didn't realize at first how\nutterly obnoxious it was for it to\lbe in literally every bookshelf.\pBut! It was also funny, so I had\nto keep it.", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaKicked {
+	msgbox("I can't be the only one who thought\n“Booted Up” meant kicked, right?", MSGBOX_NPC)
+	end
+}
+
+script PalletTown_PlayersHouse_2F_EventScript_CeliaSniff {
+	msgbox("“You can now sniff beds” was\nthe funniest patch note ever.", MSGBOX_NPC)
+	end
 }

@@ -24,7 +24,7 @@ Text_DreamEaterTaught::
 
 PewterCity_Text_ClefairyCameFromMoon::
     .string "A bunch of trees grew in front\n"
-    .string "of BORKC's GYM!\p"
+    .string "of BROCK's GYM!\p"
     .string "You'd need to be able to Walk\n"
     .string "Through Walls to challenge him!$"
 

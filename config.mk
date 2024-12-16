@@ -11,7 +11,7 @@ MAKER_CODE  := 01
 
 # Version
 ifeq ($(GAME_VERSION),FIRERED)
-TITLE       := POKEMON FIRE
+TITLE       := dumb hack
 GAME_CODE   := BPR
 BUILD_NAME  := firered
 else

@@ -1,10 +1,16 @@
 Route3_Text_TunnelFromCeruleanTiring::
-    .string "Whew… I better take a rest…\n"
-    .string "Groan…\p"
-    .string "That tunnel from VERMILLION over to\n"
-    .string "ROUTE 2 up through PEWTER and now\l"
-    .string "onto ROUTE 3 really takes it out of\l"
-    .string "you.$"
+	.string "Whew… I better take a rest…\n"
+	.string "Groan…\p"
+	.string "I took the trek all the way through\n"
+	.string "the UNDERGROUND PATH to VERMILLION\l"
+	.string "and then into DIGLETTS' CAVE over\l"
+	.string "to ROUTE 2, up through PEWTER and\l"
+	.string "now onto ROUTE 3.\p"
+	.string "It was one heck of a journey, but\n"
+	.string "alas!\l"
+	.string "I had to get back from CERULEAN.\p"
+	.string "Too bad there's no other way here!\n"
+	.string "Darn ledges…$"
 
 Route3_Text_ColtonIntro::
     .string "Hey!\n"
@@ -19,9 +25,7 @@ Route3_Text_ColtonPostBattle::
 
 Route3_Text_BenIntro::
     .string "I am SHORTS!\n"
-    .string "I'm comfy and easy to wear!\p"
-    .string "They're delightfully comfy and\n"
-    .string "easy to wear!$"
+    .string "I'm comfy and easy to wear!$"
 
 Route3_Text_BenDefeat::
     .string "I don't believe it!$"
@@ -95,18 +99,21 @@ Route3_Text_JamesPostBattle::
     .string "the wild ones.$"
 
 Route3_Text_RobinIntro::
-    .string "You can avoid battles by not\n"
-    .string "letting TRAINERS see you.$"
+	.string "I caught my son a few random\n"
+	.string "birds in the grass here.\p"
+	.string "I hear they decided to give him the\n"
+	.string "keys to a GYM?$"
 
 Route3_Text_RobinDefeat::
-    .string "That's it?$"
+	.string "Clipped with a jolt of electricity!\n$"
 
 Route3_Text_RobinPostBattle::
-    .string "ROUTE 4 is at the foot of\n"
-    .string "MT. MOON.$"
+	.string "My son was playing in the cave up\n"
+	.string "ahead earlier.\p"
+	.string "I think he dropped his favorite\n"
+	.string "TM on the ground somewhere.$"
 
 Route3_Text_RouteSign::
     .string "ROUTE 3\n"
     .string "NEW WILD POKéMON: 1\l"
     .string "NEW SMASH BROS CHARACTERS: 1$"
-

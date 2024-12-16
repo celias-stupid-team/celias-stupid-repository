@@ -15,7 +15,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FUCHSIA_CITY",
+      "map": "MAP_FUSHCIA_CITY",
       "offset": -10,
       "direction": "left"
     },
@@ -71,8 +71,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 44,
-      "y": 13,
+      "x": 55,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -84,11 +84,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 50,
-      "y": 12,
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 52,
+      "y": 26,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -99,8 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 59,
-      "y": 12,
+      "x": 40,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 1,
@@ -113,8 +113,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 63,
-      "y": 13,
+      "x": 56,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -127,8 +127,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 52,
-      "y": 8,
+      "x": 54,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -141,8 +141,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 54,
-      "y": 12,
+      "x": 57,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -211,7 +211,7 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 73,
+      "x": 61,
       "y": 7,
       "target_local_id": 13,
       "target_map": "MAP_ROUTE14"
@@ -233,7 +233,9 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

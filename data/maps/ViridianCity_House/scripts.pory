@@ -20,3 +20,7 @@ ViridianCity_House_EventScript_Speary::
 	release
 	end
 `
+script ViridianCity_House_EventScript_CeliaSpiro {
+	msgbox("There are three kinds of people who\nsee SPEARONOLACTONE:\p1. LGBT folks, who INSTANTLY know\nwhat it means.\p2. Non-queer folks, who will get\nEXTREMELY confused.\p3. People who aren't queer but can\ngoogle spironolactone.\lThese are the funniest.\pThe first google result talks about\nhow it's a water pill.\lThus, they assume it's about peeing!\pAs any trans person could tell you,\nhowever, that's not QUITE it!", MSGBOX_NPC)
+	end
+}

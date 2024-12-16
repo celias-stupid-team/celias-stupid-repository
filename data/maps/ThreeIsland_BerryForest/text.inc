@@ -1,12 +1,12 @@
 ThreeIsland_BerryForest_Text_HelpScaryPokemon::
-    .string "LOSTELLE: Whimper… Sniff…\n"
-    .string "Oh! Please, help!\p"
-    .string "A scary POKéMON appeared there\n"
-    .string "a little while ago.\p"
-    .string "It kept scaring.\n"
-    .string "It made LOSTELLE scared.\p"
-    .string "I'm too scared to move!\n"
-    .string "But I want to go home…$"
+	.string "LOSSELLE: Whimper… Sniff…\n"
+	.string "Oh! Please, help!\p"
+	.string "A scary POKéMON appeared there\n"
+	.string "a little while ago.\p"
+	.string "I keep seeing it everywhere.\n"
+	.string "It makes LOSSELLE scared.\p"
+	.string "I'm too scared to move!\n"
+	.string "But I want to go home…$"
 
 ThreeIsland_BerryForest_Text_HereItComesAgain::
     .string "Oh! Here it comes again!\n"
@@ -15,18 +15,18 @@ ThreeIsland_BerryForest_Text_HereItComesAgain::
     .string "I want my daddy!$"
 
 ThreeIsland_BerryForest_Text_ThankYouHaveThis::
-    .string "Ohh! That was so scary!\n"
-    .string "Thank you!\p"
-    .string "LOSTELLE came to pick some\n"
-    .string "BERRIES.\p"
-    .string "You can have this!$"
+	.string "Ohh! That was so scary!\n"
+	.string "Thank you!\p"
+	.string "Everywhere I go, LOSSELLE sees\n"
+	.string "the same patterns…\p"
+	.string "They're following me everywhere!\n$"
 
 ThreeIsland_BerryForest_Text_LetsGoHome::
-    .string "What's your name?\p"
-    .string "LOSTELLE's scared, so can I go\n"
-    .string "with you to my daddy's house?\p"
-    .string "Okay!\n"
-    .string "Let's go home!$"
+	.string "Okay, LOSSELLE isn't scared\n"
+	.string "anymore.\p"
+	.string "I'm gonna stay here and play\n"
+	.string "some more.\l"
+	.string "You can tell my daddy I'm safe.$"
 
 ThreeIsland_BerryForest_Text_BerryPouchIsFull::
     .string "Your BERRY POUCH is full.\n"

@@ -431,6 +431,8 @@ void AddTextPrinterDiffStyle(bool8 allowSkippingDelayWithButtonPress)
         AddTextPrinterParameterized2(0, FONT_MALE, gStringVar4, GetTextSpeedSetting(), nptr, TEXT_COLOR_BLUE, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     else if (color == NPC_TEXT_COLOR_FEMALE)
         AddTextPrinterParameterized2(0, FONT_FEMALE, gStringVar4, GetTextSpeedSetting(), nptr, TEXT_COLOR_RED, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+    else if (color == NPC_TEXT_COLOR_TREE) // Oak!
+        AddTextPrinterParameterized2(0, FONT_MALE, gStringVar4, GetTextSpeedSetting(), nptr, TEXT_COLOR_GREEN, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     else // NPC_TEXT_COLOR_MON / NPC_TEXT_COLOR_NEUTRAL
         AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, GetTextSpeedSetting(), nptr, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
 }

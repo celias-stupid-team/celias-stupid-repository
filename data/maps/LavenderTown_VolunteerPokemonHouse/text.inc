@@ -4,22 +4,34 @@ LavenderTown_PokemonCenter_1F_Text_HearMrFujiNotFromAroundHere::
     .string "these parts originally, either.$"
 
 LavenderTown_VolunteerPokemonHouse_Text_WhereDidMrFujiGo::
-    .string "That's odd, MR. FUJI isn't here.\n"
-    .string "Where'd he go?$"
+    .string "Hi!\n"
+    .string "I'm SHORTS!\p"
+    .string "You should wear me before going\n"
+    .string "out for recess!$"
+
 
 LavenderTown_VolunteerPokemonHouse_Text_MrFujiWasPrayingForCubonesMother::
     .string "MR. FUJI had been praying alone\n"
     .string "for CUBONE's mother.$"
 
 LavenderTown_VolunteerPokemonHouse_Text_MrFujiLooksAfterOrphanedMons::
-    .string "This is really MR. FUJI's house.\p"
-    .string "He's really kind.\p"
-    .string "He looks after abandoned and\n"
-    .string "orphaned POKéMON.$"
+.string "I love going to school!\n"
+.string "My favorite class is writing.\p"
+.string "But! But!\n"
+.string "Those DMCA people are meanies!\p"
+.string "They took away the story I wrote!\n"
+.string "They said it had, um, Copy Rights?\p"
+.string "I was gonna read it to the class!\n"
+.string "Waaah!$"
+
 
 LavenderTown_VolunteerPokemonHouse_Text_MonsNiceToHug::
-    .string "It's so warm!\n"
-    .string "POKéMON are so nice to hug.$"
+.string "Hi, mister!\n"
+.string "Can you tell me what 5+7 is?\p"
+.string "Our teacher has been gone for a\n"
+.string "while, so homework has been hard.\p"
+.string "Usually CUBONE'S mother comes in,\n"
+.string "but she's missing too...$"
 
 LavenderTown_VolunteerPokemonHouse_Text_Nidorino::
     .string "NIDORINO: Gaoo!$"
@@ -54,14 +66,28 @@ LavenderTown_VolunteerPokemonHouse_Text_HasPokeFluteHelpedYou::
     .string "helped you?$"
 
 LavenderTown_VolunteerPokemonHouse_Text_GrandPrizeDrawingClipped::
-    .string "POKéMON FAN MAGAZINE\n"
-    .string "Monthly Grand Prize Drawing!\p"
-    .string "The application form is…\p"
-    .string "Gone! It's been clipped out.\n"
-    .string "Someone must have applied already.$"
+    .string "The book “My Secret Life”\n"
+    .string "lies open on the table.\p"
+    .string "The pages are turned to Chapter 3.$"
 
 LavenderTown_VolunteerPokemonHouse_Text_PokemonMagazinesLineShelf::
-    .string "POKéMON magazines line the shelf.\p"
-    .string "POKéMON INSIDER…\p"
-    .string "POKéMON FAN…$"
+    .string "Magazines for kids line the\n"
+    .string "shelves.\p"
+    .string "My Secret Life, Issue 1…\n"
+    .string "My Secret Life, Issue 2…$"
 
+LavenderTown_VolunteerPokemonHouse_Text_OlderGirlBefore::
+    .string "Everyone here in school loves\n"
+    .string "CUBONE'S mother.\p"
+    .string "She comes in sometimes when our\n"
+    .string "TEACHER is sick.$"
+
+
+
+LavenderTown_VolunteerPokemonHouse_Text_Blackboard::
+    .string "The teacher has written out the\n"
+    .string "homework for the class.\p"
+    .string "“Read pages 15-18 of the book\n"
+    .string "My Secret Life.”\p"
+    .string "“There will be a quiz on\n"
+    .string "Chapter 3 this Friday!”$"

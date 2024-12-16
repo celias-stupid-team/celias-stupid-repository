@@ -13,7 +13,13 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE25",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
   "object_events": [
     {
       "type": "object",
@@ -228,6 +234,10 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

@@ -4,26 +4,30 @@ PokemonTower_1F_Text_ErectedInMemoryOfDeadMons::
 
 PokemonTower_1F_Text_ComeToPayRespectsSon::
     .string "Did you come to pay respects?\p"
-    .string "Bless your POKéMON-loving heart,\n"
-    .string "son.$"
+    .string "F$"
 
 PokemonTower_1F_Text_ComeToPayRespectsGirl::
     .string "Did you come to pay respects?\p"
-    .string "Bless your POKéMON-loving heart,\n"
-    .string "girl.$"
+    .string "F\n"
+
 
 PokemonTower_1F_Text_CameToPrayForDepartedClefairy::
-    .string "I came to pray for my dearly\n"
-    .string "departed CLEFAIRY.\p"
     .string "Sniff!\n"
-    .string "I'm awash in tears…$"
+    .string "I miss my CLEFAIRY…\p"
+    .string "She's not dead or anything - she\n"
+    .string "just moved to VIRIDIAN CITY to\l"
+    .string "be a schoolteacher there!$"
 
 PokemonTower_1F_Text_GrowlitheWhyDidYouDie::
-    .string "My GROWLITHE…\n"
-    .string "Why did you die?$"
+    .string "I'm burying my beloved GEODUDE.\p"
+    .string "I took him to the beach, only to\n"
+    .string "realize that he couldn't swim!\p"
+    .string "Oh, poor BEN...\n"
+    .string "Sniff…$"
 
 PokemonTower_1F_Text_SenseSpiritsUpToMischief::
-    .string "I am a CHANNELER.\p"
-    .string "There are spirits up to mischief.\n"
-    .string "I sense them high in the TOWER.$"
+    .string "I am a MERCHANT.\p"
+    .string "Would you like to purchase this\n"
+    .string "strange black cartridge?$"
+
 

@@ -40,27 +40,33 @@ Route6_Text_KeigoPostBattle::
     .string "Which do you think?\l"
 
 Route6_Text_JeffIntro::
-    .string "Huh?\n"
-    .string "You want to talk to me?$"
+    .string "POKéMON just hasn't been the same\n"
+    .string "since Generation 1.\p"
+    .string "As far as I'm concerned, the\n"
+    .string "original 151 are the only real ones.$"
 
 Route6_Text_JeffDefeat::
-    .string "This stinks…\n"
-    .string "I couldn't beat your challenge…$"
+    .string "This stinks…$"
 
 Route6_Text_JeffPostBattle::
-    .string "I should bring more POKéMON with\n"
-    .string "me. I'll feel safer that way.$"
+    .string "I'm a very proud member of the\n"
+    .string "POKéMON FAN CLUB!\p"
+    .string "You should visit them in VERMILLION!$"
 
 Route6_Text_IsabelleIntro::
-    .string "Me?\n"
-    .string "Well, okay. I'll play!$"
+    .string "I don't like that guy over there…\p"
+    .string "I think there were lots of good\n"
+    .string "POKéMON after Gen 1!$"
+
 
 Route6_Text_IsabelleDefeat::
     .string "Things just didn't work…$"
 
 Route6_Text_IsabellePostBattle::
-    .string "I want to get stronger.\n"
-    .string "What's your secret?$"
+    .string "I grew up with Gen 5, so those are\n"
+    .string "my favorites!\p"
+    .string "But I don't like anything after the\n"
+    .string "original 649!$"
 
 Route6_Text_ElijahIntro::
     .string "Have you heard of specially-colored\n"
