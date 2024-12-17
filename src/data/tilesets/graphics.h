@@ -1502,3 +1502,22 @@ const u16 gTilesetPalettes_Route15[][16] =
 };
 
 const u32 gTilesetTiles_Route15[] = INCBIN_U32("data/tilesets/secondary/route_15/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_gTileset_Chapter1Logo[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chapter_1logo/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_gTileset_Chapter1Logo[] = INCBIN_U32("data/tilesets/secondary/chapter_1logo/tiles.4bpp.lz");

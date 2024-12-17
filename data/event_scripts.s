@@ -1378,3 +1378,6 @@ Text_TestMsg::
 
 	.include "data/maps/MtMoon_Square/scripts.inc"
 	.include "data/maps/MtMoon_Square/text.inc"
+
+	.include "data/maps/Chapter1_TitleDrop/scripts.inc"
+	.include "data/maps/Chapter1_TitleDrop/text.inc"

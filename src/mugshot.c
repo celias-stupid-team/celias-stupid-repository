@@ -23,9 +23,13 @@ void DrawMugshot(void); //VAR_0x8000 = mugshot id
 void DrawMugshotAtPos(void); //VAR_0x8000 = mugshot id, VAR_0x8001 = x, VAR_0x8002 = y
 void ClearMugshot(void);
 
+// Mugshot list 
+static const u32 sMugshotImg_Chapter1[] = INCBIN_U32("graphics/mugshots/chapter1_frame1.4bpp.lz");
+static const u16 sMugshotPal_Chapter1[] = INCBIN_U16("graphics/mugshots/chapter1_frame1.gbapal");
 
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
+    [MUGSHOT_CHAPTER1] = {.x = 16, .y = 5, .width = 80, .height = 72, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1}
 };
 
 

@@ -1,0 +1,35 @@
+mapscripts Chapter1_TitleDrop_MapScripts{
+
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0: Chapter1_TitleDrop
+    ]
+}
+
+
+
+script Chapter1_TitleDrop {
+    lock
+    setvar(VAR_CURRENT_CHAPTER, 1)
+    delay(90)
+	playbgm(MUS_CSR_CHAPTER_1, FALSE)
+	delay(20)
+    
+    // "Chapter" displayed
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER1)
+    callnative(DrawMugshot)
+	delay(45)
+	
+	// "One"
+    //movesprite
+	delay(45)
+	
+	// "Stupidity"
+	delay(22)
+	
+	// "and"
+	delay(22)
+	
+	// "Nonsense"
+	delay(120) //Let the screen sink in
+	warpsilent(MAP_PALLET_TOWN, 2) //screen fade
+}

@@ -4452,6 +4452,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/MtMoon_Square/border.bin",
       "blockdata_filepath": "data/layouts/MtMoon_Square/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER1_TITLE_DROP",
+      "name": "Chapter1_TitleDrop_Layout",
+      "width": 15,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_gTileset_Chapter1Logo",
+      "border_filepath": "data/layouts/Chapter1_TitleDrop/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter1_TitleDrop/map.bin"
     }
   ]
 }

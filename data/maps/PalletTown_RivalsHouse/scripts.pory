@@ -301,26 +301,4 @@ movement FallIntoHole {
 	unlock_facing_direction
 }
 
-script Chapter1_Logo {
-	lock
-	fadeoutbgm(1)
-	delay(45)
-	playbgm(MUS_CSR_CHAPTER_1, FALSE)
-	delay(20)
-	
-	// "Chapter" displayed
-	delay(45)
-	
-	// "One"
-	delay(45)
-	
-	// "Stupidity"
-	delay(22)
-	
-	// "and"
-	delay(22)
-	
-	// "Nonsense"
-	delay(120) //Let the screen sink in
-	warpsilent(MAP_PALLET_TOWN, 2) //screen fade
-}
+

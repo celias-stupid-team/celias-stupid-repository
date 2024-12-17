@@ -801,3 +801,14 @@ const struct Tileset gTileset_Route15 =
     .metatileAttributes = gMetatileAttributes_Route15,
     .callback = InitTilesetAnim_Route15,
 };
+
+const struct Tileset gTileset_gTileset_Chapter1Logo =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_gTileset_Chapter1Logo,
+    .palettes = gTilesetPalettes_gTileset_Chapter1Logo,
+    .metatiles = gMetatiles_gTileset_Chapter1Logo,
+    .metatileAttributes = gMetatileAttributes_gTileset_Chapter1Logo,
+    .callback = NULL,
+};
