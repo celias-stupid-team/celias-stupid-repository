@@ -63,8 +63,8 @@ ViridianForest_Text_CharlieIntro::
     .string "me play it!$"
 
 ViridianForest_Text_CharlieDefeat::
-    .string "Oh!\n"
-    .string "I lost!$"
+    .string "Oops.\n"
+    .string "I misclicked.$"
 
 ViridianForest_Text_CharliePostBattle::
     .string "BUG POKéMON evolve quickly.\p"
