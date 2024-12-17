@@ -16,17 +16,16 @@ CeruleanCity_BikeShop_Text_OhBikeVoucherHereYouGo::
 
 CeruleanCity_BikeShop_Text_ExchangedVoucherForBicycle::
     .string "{PLAYER} exchanged the\n"
-    .string "BIKE VOUCHER for a BICYCLE.$"
+    .string "BIKE VOUCHER for a BIKE.$"
 
 CeruleanCity_BikeShop_Text_ThankYouComeAgain::
     .string "Thank you!\n"
     .string "Come back again sometime!$"
 
 CeruleanCity_BikeShop_Text_HowDoYouLikeNewBicycle::
-    .string "How do you like your new BICYCLE?\n"
-    .string "Do you like how it rides?\p"
-    .string "You can take it out on CYCLING\n"
-    .string "ROAD and even into caves!$"
+	.string "Y'know, given that our BIKES sell\n"
+	.string "for quadruple the average salary,\l"
+	.string "how do we even stay in business?$"
 
 CeruleanCity_BikeShop_Text_MakeRoomForBicycle::
     .string "You better make room for your\n"
