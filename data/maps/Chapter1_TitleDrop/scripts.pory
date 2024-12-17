@@ -7,12 +7,13 @@ mapscripts Chapter1_TitleDrop_MapScripts{
 
 
 
-script Chapter1_TitleDrop {
+script Chapter1_TitleDrop { //gonna be more work than I thought
     lock
     setvar(VAR_CURRENT_CHAPTER, 1)
-    delay(90)
+    delay(60)
 	playbgm(MUS_CSR_CHAPTER_1, FALSE)
 	delay(20)
+    special(SpawnCameraObject)
     
     // "Chapter" displayed
 	setvar(VAR_0x8000, MUGSHOT_CHAPTER1)
@@ -20,16 +21,27 @@ script Chapter1_TitleDrop {
 	delay(45)
 	
 	// "One"
-    //movesprite
+    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 19)
 	delay(45)
 	
+    
 	// "Stupidity"
+    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 30)
 	delay(22)
 	
+
+    
 	// "and"
+    setmetatile(6, 32, 0x010, TRUE)
+    setmetatile(7, 32, 0x011, TRUE)
+    setmetatile(6, 33, 0x018, TRUE)
+    setmetatile(7, 33, 0x019, TRUE)
+    special(DrawWholeMapView)
 	delay(22)
 	
 	// "Nonsense"
+    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 42)
 	delay(120) //Let the screen sink in
+    special(RemoveCameraObject)
 	warpsilent(MAP_PALLET_TOWN, 2) //screen fade
 }

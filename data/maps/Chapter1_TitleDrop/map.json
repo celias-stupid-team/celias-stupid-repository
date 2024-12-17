@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -20,7 +20,7 @@
   "warp_events": [
     {
       "x": 7,
-      "y": 6,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_CHAPTER1_TITLE_DROP",
       "dest_warp_id": "0"
