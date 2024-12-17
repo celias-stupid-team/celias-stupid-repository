@@ -35,6 +35,10 @@ void DrawDoorMetatileAt(int x, int y, const u16 *data);
 void move_tilemap_camera_to_upper_left_corner(void);
 void CameraUpdate(void);
 void FieldUpdateBgTilemapScroll(void);
+
+void MoveCameraAndRedrawMap(int deltaX, int deltaY);
+void UpdateSavedPos(void);
+
 void ResetCameraUpdateInfo(void);
 u32 InitCameraUpdateCallback(u8 trackedSpriteId);
 void CameraUpdateNoObjectRefresh(void);

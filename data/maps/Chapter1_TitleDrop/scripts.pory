@@ -7,10 +7,10 @@ mapscripts Chapter1_TitleDrop_MapScripts{
 
 
 
-script Chapter1_TitleDrop { //gonna be more work than I thought
+script Chapter1_TitleDrop { //Holy shit never make me do this again. I do not understand the TeleportCamera special
     lock
     setvar(VAR_CURRENT_CHAPTER, 1)
-    delay(60)
+    delay(20)
 	playbgm(MUS_CSR_CHAPTER_1, FALSE)
 	delay(20)
     special(SpawnCameraObject)
@@ -21,27 +21,30 @@ script Chapter1_TitleDrop { //gonna be more work than I thought
 	delay(45)
 	
 	// "One"
-    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 19)
-	delay(45)
+    setvar(VAR_0x8004, 0) // 7 19
+    setvar(VAR_0x8005, 12)
+    special(TeleportCamera)
+	delay(50)
 	
     
 	// "Stupidity"
-    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 30)
-	delay(22)
+    special(TeleportCamera)
+	delay(23)
 	
 
     
 	// "and"
-    setmetatile(6, 32, 0x010, TRUE)
-    setmetatile(7, 32, 0x011, TRUE)
-    setmetatile(6, 33, 0x018, TRUE)
-    setmetatile(7, 33, 0x019, TRUE)
+    setmetatile(2, 34, 0x2B5, TRUE)
+    setmetatile(3, 34, 0x2B6, TRUE)
+    setmetatile(2, 35, 0x2BD, TRUE)
+    setmetatile(3, 35, 0x2BE, TRUE)
     special(DrawWholeMapView)
-	delay(22)
+	delay(23)
 	
 	// "Nonsense"
-    setobjectxy(OBJ_EVENT_ID_CAMERA, 7, 42)
-	delay(120) //Let the screen sink in
+    special(TeleportCamera)
+	delay(118) //Let the screen sink in
     special(RemoveCameraObject)
-	warpsilent(MAP_PALLET_TOWN, 2) //screen fade
+	
+    warpsilent(MAP_PALLET_TOWN, 2) //screen fade
 }

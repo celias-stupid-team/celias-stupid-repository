@@ -29,7 +29,7 @@ static const u16 sMugshotPal_Chapter1[] = INCBIN_U16("graphics/mugshots/chapter1
 
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
-    [MUGSHOT_CHAPTER1] = {.x = 0, .y = 12, .width = 22, .height = 12, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1}
+    [MUGSHOT_CHAPTER1] = {.x = 0, .y = 0, .width = 176, .height = 96, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1}
 };
 
 
