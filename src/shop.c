@@ -1003,10 +1003,16 @@ static void BuyMenuSubtractMoney(u8 taskId)
 
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 {
+    s16 *data = gTasks[taskId].data;
+
     if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
     {
-        PlaySE(SE_SELECT);
+        if (tItemId == ITEM_POKE_BALL && tItemCount >= 10) { //Makes fun of you if you try to buy premier balls
+            BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
+        } else 
+        {
         BuyMenuReturnToItemList(taskId);
+        }
     }
 }
 
