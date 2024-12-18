@@ -208,8 +208,8 @@ It is reset after every battle.
 #define VAR_REPEL_LAST_USED        0x4091 //save last used kind of repel for quick reuse
 #define VAR_VERMILLION_GYM_TRASH_COUNTER                 0x4092
 #define VAR_VERMILLION_GYM_BONUS_TRASH                 0x4093
-#define VAR_0x4094                 0x4094
-#define VAR_0x4095                 0x4095
+#define VAR_EEVEE_COUNT                 0x4094
+#define VAR_STOLE_AN_EEVEE                 0x4095
 #define VAR_0x4096                 0x4096
 #define VAR_0x4097                 0x4097
 #define VAR_0x4098                 0x4098
@@ -265,7 +265,7 @@ It is reset after every battle.
 #define VAR_0x40CB                 0x40CB
 #define VAR_0x40CC                 0x40CC
 #define VAR_0x40CD                 0x40CD
-#define VAR_0x40CE                 0x40CE
+#define VAR_CURRENT_CHAPTER                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF
 //Photo Man Vars
 

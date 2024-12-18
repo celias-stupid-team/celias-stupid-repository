@@ -213,3 +213,12 @@ const u32 gMetatileAttributes_NewLavender[] = INCBIN_U32("data/tilesets/secondar
 
 const u16 gMetatiles_PorytilesPrimary[] = INCBIN_U16("data/tilesets/primary/porytiles_primary/metatiles.bin");
 const u32 gMetatileAttributes_PorytilesPrimary[] = INCBIN_U32("data/tilesets/primary/porytiles_primary/metatile_attributes.bin");
+
+const u16 gMetatiles_Route15[] = INCBIN_U16("data/tilesets/secondary/route_15/metatiles.bin");
+const u32 gMetatileAttributes_Route15[] = INCBIN_U32("data/tilesets/secondary/route_15/metatile_attributes.bin");
+
+const u16 gMetatiles_gTileset_Chapter1Logo[] = INCBIN_U16("data/tilesets/secondary/chapter_1logo/metatiles.bin");
+const u32 gMetatileAttributes_gTileset_Chapter1Logo[] = INCBIN_U32("data/tilesets/secondary/chapter_1logo/metatile_attributes.bin");
+
+const u16 gMetatiles_Chapter2[] = INCBIN_U16("data/tilesets/primary/chapter_2/metatiles.bin");
+const u32 gMetatileAttributes_Chapter2[] = INCBIN_U32("data/tilesets/primary/chapter_2/metatile_attributes.bin");

@@ -84,17 +84,17 @@ static const u16 sWallpaperPalettes_City[][16] = INCBIN_U16("graphics/pokemon_st
 static const u32 sWallpaperTiles_City[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/city/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_City[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/city/tilemap.bin.lz");
 
-static const u16 sWallpaperPalettes_Desert[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/tiles.gbapal");
-static const u32 sWallpaperTiles_Desert[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tiles.4bpp.lz");
-static const u32 sWallpaperTilemap_Desert[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tilemap.bin.lz");
+static const u16 sWallpaperPalettes_Bookshelf[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/tiles.gbapal");
+static const u32 sWallpaperTiles_Bookshelf[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tiles.4bpp.lz");
+static const u32 sWallpaperTilemap_Bookshelf[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tilemap.bin.lz");
+
+static const u16 sWallpaperPalettes_Rickroll[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/cave/tiles.gbapal");
+static const u32 sWallpaperTiles_Rickroll[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/cave/tiles.4bpp.lz");
+static const u32 sWallpaperTilemap_Rickroll[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/cave/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Savanna[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/savanna/tiles.gbapal");
 static const u32 sWallpaperTiles_Savanna[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/savanna/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Savanna[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/savanna/tilemap.bin.lz");
-
-static const u16 sWallpaperPalettes_Crag[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/crag/tiles.gbapal");
-static const u32 sWallpaperTiles_Crag[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/crag/tiles.4bpp.lz");
-static const u32 sWallpaperTilemap_Crag[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/crag/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Volcano[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/volcano/tiles.gbapal");
 static const u32 sWallpaperTiles_Volcano[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/volcano/tiles.4bpp.lz");
@@ -105,13 +105,13 @@ static const u16 sWallpaperPalettes_Snow[][16] = INCBIN_U16("graphics/pokemon_st
 static const u32 sWallpaperTiles_Snow[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/snow/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Snow[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/snow/tilemap.bin.lz");
 
-static const u16 sWallpaperPalettes_Cave[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/cave/tiles.gbapal");
-static const u32 sWallpaperTiles_Cave[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/cave/tiles.4bpp.lz");
-static const u32 sWallpaperTilemap_Cave[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/cave/tilemap.bin.lz");
+static const u16 sWallpaperPalettes_Cave[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/crag/tiles.gbapal");
+static const u32 sWallpaperTiles_Cave[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/crag/tiles.4bpp.lz");
+static const u32 sWallpaperTilemap_Cave[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/crag/tilemap.bin.lz");
 
-static const u16 sWallpaperPalettes_Beach[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/beach/tiles.gbapal");
-static const u32 sWallpaperTiles_Beach[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tiles.4bpp.lz");
-static const u32 sWallpaperTilemap_Beach[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/beach/tilemap.bin.lz");
+static const u16 sWallpaperPalettes_Dad[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/desert/tiles.gbapal");
+static const u32 sWallpaperTiles_Dad[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tiles.4bpp.lz");
+static const u32 sWallpaperTilemap_Dad[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/desert/tilemap.bin.lz");
 
 static const u16 sWallpaperPalettes_Seafloor[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/seafloor/tiles.gbapal");
 static const u32 sWallpaperTiles_Seafloor[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/seafloor/tiles.4bpp.lz");
@@ -124,6 +124,8 @@ static const u32 sWallpaperTilemap_River[] = INCBIN_U32("graphics/pokemon_storag
 static const u16 sWallpaperPalettes_Sky[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/sky/tiles.gbapal");
 static const u32 sWallpaperTiles_Sky[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/sky/tiles.4bpp.lz");
 static const u32 sWallpaperTilemap_Sky[] = INCBIN_U32("graphics/pokemon_storage/wallpapers/sky/tilemap.bin.lz");
+
+//Special
 
 static const u16 sWallpaperPalettes_Stars[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/stars/tiles.gbapal");
 static const u8 sUnusedSpace2[32] = {};
@@ -168,13 +170,13 @@ static const u16 sBoxTitleColors[][2] = {
 static const struct Wallpaper sWallpapers[] = {
     {sWallpaperTiles_Forest,     sWallpaperTilemap_Forest,     *sWallpaperPalettes_Forest    },
     {sWallpaperTiles_City,       sWallpaperTilemap_City,       *sWallpaperPalettes_City      },
-    {sWallpaperTiles_Desert,     sWallpaperTilemap_Desert,     *sWallpaperPalettes_Desert    },
+    {sWallpaperTiles_Bookshelf,     sWallpaperTilemap_Bookshelf,     *sWallpaperPalettes_Bookshelf    },
+    {sWallpaperTiles_Rickroll,       sWallpaperTilemap_Rickroll,       *sWallpaperPalettes_Rickroll      },
     {sWallpaperTiles_Savanna,    sWallpaperTilemap_Savanna,    *sWallpaperPalettes_Savanna   },
-    {sWallpaperTiles_Crag,       sWallpaperTilemap_Crag,       *sWallpaperPalettes_Crag      },
     {sWallpaperTiles_Volcano,    sWallpaperTilemap_Volcano,    *sWallpaperPalettes_Volcano   },
     {sWallpaperTiles_Snow,       sWallpaperTilemap_Snow,       *sWallpaperPalettes_Snow      },
     {sWallpaperTiles_Cave,       sWallpaperTilemap_Cave,       *sWallpaperPalettes_Cave      },
-    {sWallpaperTiles_Beach,      sWallpaperTilemap_Beach,      *sWallpaperPalettes_Beach     },
+    {sWallpaperTiles_Dad,      sWallpaperTilemap_Dad,      *sWallpaperPalettes_Dad     },
     {sWallpaperTiles_Seafloor,   sWallpaperTilemap_Seafloor,   *sWallpaperPalettes_Seafloor  },
     {sWallpaperTiles_River,      sWallpaperTilemap_River,      *sWallpaperPalettes_River     },
     {sWallpaperTiles_Sky,        sWallpaperTilemap_Sky,        *sWallpaperPalettes_Sky       },

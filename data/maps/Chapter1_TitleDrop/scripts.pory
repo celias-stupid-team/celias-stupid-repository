@@ -1,0 +1,53 @@
+mapscripts Chapter1_TitleDrop_MapScripts{
+
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0: Chapter1_TitleDrop
+    ]
+}
+
+
+
+script Chapter1_TitleDrop { //Holy shit never make me do this again. I do not understand the TeleportCamera special
+    lock
+    setvar(VAR_CURRENT_CHAPTER, 1)
+    setvar(VAR_TEMP_0, 1)
+    delay(10)
+	playbgm(MUS_CSR_CHAPTER_1, FALSE)
+	delay(20)
+    special(SpawnCameraObject)
+    
+    // "Chapter" displayed
+	setvar(VAR_0x8000, MUGSHOT_CHAPTER1)
+    callnative(DrawMugshot)
+	delay(45)
+	
+	// "One"
+    setvar(VAR_0x8004, 0) // 7 19
+    setvar(VAR_0x8005, 12)
+    special(TeleportCamera)
+	delay(50)
+	
+    
+	// "Stupidity"
+    special(TeleportCamera)
+	delay(23)
+	
+
+    
+	// "and"
+    setmetatile(2, 34, 0x2B5, TRUE)
+    setmetatile(3, 34, 0x2B6, TRUE)
+    setmetatile(2, 35, 0x2BD, TRUE)
+    setmetatile(3, 35, 0x2BE, TRUE)
+    special(DrawWholeMapView)
+	delay(23)
+	
+	// "Nonsense"
+    special(TeleportCamera)
+
+	delay(128) //Let the screen sink in
+    
+    special(RemoveCameraObject)
+	
+    warpsilent(MAP_PALLET_TOWN, 2) //screen fade
+}

@@ -22,6 +22,13 @@ const CAMPER = 14
 script Route4_TransitionScripts {
 	setbench(BENCH_ROUTE4_EAST)
 	call(SetPlayerPokedexValues)
+
+	if(var(VAR_CURRENT_CHAPTER) == 1) {
+		setdynamicwarp(MAP_CHAPTER2, 0)
+	} else {
+		setdynamicwarp(MAP_MT_MOON_1F, 3)
+	}
+
 	if(!flag(FLAG_DEFEATED_MISTY)) {
 		removeobject(CAMPER)
 	} else {

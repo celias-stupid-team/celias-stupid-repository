@@ -49,7 +49,9 @@
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom"
+    "UnionRoom",
+    "Chapter1_TitleDrop",
+    "Chapter2"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -174,7 +176,8 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "MtMoon_Square"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -384,7 +387,8 @@
     "CeladonCity_Gym",
     "CeladonCity_Restaurant",
     "CeladonCity_House1",
-    "CeladonCity_Hotel"
+    "CeladonCity_Hotel",
+    "NewMap1"
   ],
   "gMapGroup_IndoorFushcia": [
     "FushciaCity_SafariZone_Entrance",

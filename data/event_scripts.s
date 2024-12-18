@@ -40,6 +40,7 @@
 #include "constants/trainer_fan_club.h"
 #include "constants/mystery_gift.h"
 #include "config/debug.h"
+#include "constants/mugshots.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.set FALSE, 0
@@ -1371,3 +1372,15 @@ Text_TestMsg::
 
 	.include "data/maps/LavenderTown_DanceTheater/scripts.inc"
 	.include "data/maps/LavenderTown_DanceTheater/text.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+	.include "data/maps/NewMap1/text.inc"
+
+	.include "data/maps/MtMoon_Square/scripts.inc"
+	.include "data/maps/MtMoon_Square/text.inc"
+
+	.include "data/maps/Chapter1_TitleDrop/scripts.inc"
+	.include "data/maps/Chapter1_TitleDrop/text.inc"
+
+	.include "data/maps/Chapter2/scripts.inc"
+	.include "data/maps/Chapter2/text.inc"

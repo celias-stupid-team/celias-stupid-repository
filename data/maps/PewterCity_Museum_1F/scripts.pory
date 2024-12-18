@@ -221,6 +221,16 @@ script PewterCity_Museum_1F_EventScript_Receptionist {
 
 }
 
+script PewterCity_Museum_1F_EventScript_WeirdSigns {
+	msgbox("I have no idea what these are\nsupposed to be.", MSGBOX_SIGN)
+	end
+}
+
+script PewterCity_Museum_1F_EventScript_Bones {
+	msgbox("Do you know whose bones are on\ndisplay here?\pThe answer is…\nYour bones.\pMy bones.\pBone's bones.\pBone bone bone.\n", MSGBOX_NPC)
+	end
+}
+
 script PewterCity_Museum_1F_EventScript_Amber_Tree {
 	lock
 	textcolor(0)

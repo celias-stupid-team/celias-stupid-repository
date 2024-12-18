@@ -6,11 +6,24 @@ CeladonCity_House1_EventScript_RocketChief::
 	msgbox CeladonCity_House1_Text_SlotsReelInTheDough, MSGBOX_NPC
 	end
 
-CeladonCity_House1_EventScript_Rocket1::
-	msgbox CeladonCity_House1_Text_ShippedMonsAsSlotPrizes, MSGBOX_NPC
-	end
 
-CeladonCity_House1_EventScript_Rocket2::
-	msgbox CeladonCity_House1_Text_DontTouchGameCornerPoster, MSGBOX_NPC
-	end
 `
+script CeladonCity_House1_EventScript_NidotranM {
+	lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_NIDORAN_F, CRY_MODE_NORMAL)
+	msgbox("NIDOTRAN♀: Dyooo!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
+
+script CeladonCity_House1_EventScript_NidotranF {
+	lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_NIDORAN_M, CRY_MODE_NORMAL)
+	msgbox("NIDOTRAN♂: Gwaaa!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}

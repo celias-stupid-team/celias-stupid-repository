@@ -96,6 +96,10 @@ script PalletTown_Truck_Opening {
 		
 }
 
+script PlayerRoom_TruckShapedHole {
+	msgbox("The wall is empty except for a\nlarge, truck-shaped hole.", MSGBOX_SIGN)
+}
+
 movement PlayerJumpsOutOfTruck {
 	jump_right
 	delay_16 * 5

@@ -39,6 +39,8 @@ def excel_to_outputs(input_file):
         "src_data_pokemon_graphics_shiny_palette_table.txt": [],
     }
 
+    starting_index = 1051
+
     # Iterate over the rows of the DataFrame
     for index, row in df.iterrows():
         original_name = str(row[column_names[0]])
@@ -50,7 +52,7 @@ def excel_to_outputs(input_file):
         truncated_name = display_name[:10].upper()
 
         # Output 1
-        output_files["include_constants_species.txt"].append(f"#define {species_number} {1034 + index}\n")
+        output_files["include_constants_species.txt"].append(f"#define {species_number} {starting_index + index}\n")
 
         # Output 2
         output_files["src_data_text_species_names.txt"].append(f"    [{species_number}] = _(\"{truncated_name}\"),\n")
@@ -64,7 +66,7 @@ def excel_to_outputs(input_file):
         base_sp_defense = row[column_names[7]]
         type1 = f"TYPE_{str(row[column_names[8]]).upper()}"
         type2 = f"TYPE_{str(row[column_names[9]]).upper()}" if pd.notna(row[column_names[9]]) else type1
-        body_color = str(row[column_names[11]]).upper()
+        body_color = "RED"
 
         output_files["src_data_pokemon_species_info.txt"].append(f"[{species_number}] =\n")
         output_files["src_data_pokemon_species_info.txt"].append("{\n")

@@ -436,7 +436,8 @@ script PalletTown_EventScript_SignLady_CSR {
 	lock
 	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
 		faceplayer
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+		
+		//applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 		clearflag(FLAG_PT_NPC_SIGN_LADY)
 		call(PalletTown_EventScript_SignLadyShowSign)
 	} else {

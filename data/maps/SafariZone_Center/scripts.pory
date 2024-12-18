@@ -19,7 +19,73 @@ SafariZone_Center_EventScript_AreaSign::
 	msgbox SafariZone_Center_Text_CenterArea, MSGBOX_SIGN
 	end
 `
+
+const DMCA_Lead = 4
+const DMCA_Left = 2
+const DMCA_Right = 3
 script SafariZone_Center_DMCA_Take_Case {
-	msgbox("Hold it right there!\nThis place is under DMCA control!", MSGBOX_NPC)
-	end
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playse(SE_PIN)
+	applymovement(DMCA_Lead, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(45)
+	msgbox("Hold it!", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	applymovement(DMCA_Lead, Common_Movement_WalkDown)
+	waitmovement(0)
+	applymovement(DMCA_Lead, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox("This area's under DMCA control!\nNo copyrighted content allowed.\lGet 'em!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(DMCA_Left, DMCALeft) //Henchmen rough you up
+	applymovement(DMCA_Right, DMCARight)
+	waitmovement(0)
+	delay(8)
+	playse(SE_M_DOUBLE_SLAP)
+	applymovement(OBJ_EVENT_ID_PLAYER, PlayerRoughedUp)
+	waitse
+	playse(SE_M_DOUBLE_SLAP)
+	waitse
+	playse(SE_M_DOUBLE_SLAP)
+	waitse
+	playse(SE_M_DOUBLE_SLAP)
+	waitmovement(0)
+	setvar(VAR_TEMP_0, 1)
+	release
+}
+
+movement DMCALeft { 
+	walk_fast_down * 3
+	walk_fast_right
+	face_right
+}
+
+movement DMCARight {
+	walk_fast_down * 3
+	walk_fast_left
+	face_left
+}
+
+movement PlayerRoughedUp {
+	face_left
+	delay_16
+	face_right
+	delay_16
+	face_left
+	delay_16
+	face_right
+	delay_16
+}
+
+movement DMCA_Sides_Return {
+	walk_up * 3
+	face_up
+}
+movement DMCA_Lead_Returns {
+	face_up
+	delay_16 * 2
+	walk_right * 5
+	walk_up * 2
 }

@@ -944,7 +944,7 @@
       "height": 22,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesPrimary",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_NewLavender",
       "border_filepath": "data/layouts/Route8/border.bin",
       "blockdata_filepath": "data/layouts/Route8/map.bin"
@@ -1029,7 +1029,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_FushciaCity",
+      "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/Route15/border.bin",
       "blockdata_filepath": "data/layouts/Route15/map.bin"
     },
@@ -2009,7 +2009,7 @@
       "id": "LAYOUT_CELADON_CITY_CONDOMINIUMS_3F",
       "name": "CeladonCity_Condominiums_3F_Layout",
       "width": 15,
-      "height": 20,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -4384,12 +4384,12 @@
     {
       "id": "LAYOUT_NEW_MAP1",
       "name": "NewMap1_Layout",
-      "width": 49,
-      "height": 40,
+      "width": 60,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_BerryForest",
-      "secondary_tileset": "gTileset_DiglettsCave",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     },
@@ -4440,6 +4440,42 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/LavenderTown_DanceTheater/border.bin",
       "blockdata_filepath": "data/layouts/LavenderTown_DanceTheater/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_MOON_SQUARE",
+      "name": "MtMoon_Square_Layout",
+      "width": 30,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/MtMoon_Square/border.bin",
+      "blockdata_filepath": "data/layouts/MtMoon_Square/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER1_TITLE_DROP",
+      "name": "Chapter1_TitleDrop_Layout",
+      "width": 17,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_gTileset_Chapter1Logo",
+      "border_filepath": "data/layouts/Chapter1_TitleDrop/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter1_TitleDrop/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER2",
+      "name": "Chapter2_Layout",
+      "width": 16,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter2",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter2/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter2/map.bin"
     }
   ]
 }

@@ -236,10 +236,85 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	step_end
 `
 
-
+const ARIANA = 4
+const KANGA = 1
 script PokemonTower_Trailer {
 	lock
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("ARIANA: It's no use trying to save\nher now.\pCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
-	release
+	msgbox("ARIANA: It's no use trying to save\nher now.\lCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
+	closemessage
+	//applymovement(ARIANA, Common_Movement_FaceRight)
+	//waitmovement(0)
+	//delay(10)
+	//msgbox("Isn't that right?\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_MON)
+	//setvar(VAR_0x8004, 4)
+	//setvar(VAR_0x8005, 8)
+	//setvar(VAR_0x8006, 5)
+	//setvar(VAR_0x8007, 2)
+	//special(ShakeScreen)
+	//delay(30)
+	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+	msgbox("KANGASKHAN: Gaaah!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	applymovement(KANGA, KangaApproaches)
+	delay(16)
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 4)
+	setvar(VAR_0x8006, 3)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(48)
+	
+	special(ShakeScreen)
+	
+	applymovement(ARIANA, Common_Movement_FaceDown)
+	delay(48)
+	setvar(VAR_0x8006, 5)
+	special(ShakeScreen)
+	waitmovement(0)
+	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+	delay(45)
+	msgbox("KANGASKHAN: Gah! Gah!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox("The KANGASKHAN's heart has a\nSHADOW AURA!", MSGBOX_DEFAULT)
+	closemessage
+	
+	setvar(VAR_0x8006, 10)
+	special(ShakeScreen)
+	delay(60)
+	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+	msgbox("KANGASKHAN: Graaaah!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(15)
+	applymovement(KANGA, KangAttacks)
+	waitmovement(0)
+	setwildbattle(SPECIES_KANGASKHAN, 30)
+	special(StartMarowakBattle)
+	waitstate
+	special(QuestLog_CutRecording)
+	goto_if_eq(VAR_RESULT, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost  @ VAR_RESULT set by CB2_EndMarowakBattle)
+	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTower_6F_Movement_ForcePlayerUp)
+	waitmovement(0)
+	releaseall
+	end
+}
+
+movement KangaApproaches {
+	walk_slow_down
+	delay_16
+	delay_16
+	walk_slow_left
+	delay_16
+	delay_16
+	face_down
+}
+
+movement KangAttacks {
+	walk_fast_down
 }

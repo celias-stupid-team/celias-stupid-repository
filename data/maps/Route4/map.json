@@ -222,8 +222,8 @@
       "x": 19,
       "y": 5,
       "elevation": 3,
-      "dest_map": "MAP_MT_MOON_1F",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
       "x": 33,

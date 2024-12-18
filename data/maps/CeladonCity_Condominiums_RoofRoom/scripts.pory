@@ -2,22 +2,12 @@ raw `
 .set LOCALID_EEVEE_POKEBALL, 2
 
 CeladonCity_Condominiums_RoofRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION CeladonCity_Condominiums_RoofRoom_MapScript
 	.byte 0
 
-CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt::
-	msgbox CeladonCity_Condominiums_RoofRoom_Text_TheresNothingIDontKnow, MSGBOX_NPC
-	end
 
-CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall::
-	lock
-	faceplayer
-	setvar VAR_TEMP_1, SPECIES_EEVEE
-	givemon SPECIES_EEVEE, 25
-	goto_if_eq VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty
-	goto_if_eq VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePC
-	goto_if_eq VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon
-	release
-	end
+
+
 
 CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty::
 	removeobject LOCALID_EEVEE_POKEBALL
@@ -60,20 +50,8 @@ CeladonCity_Condominiums_RoofRoom_EventScript_TMsPamphlet::
 	msgbox CeladonCity_Condominiums_RoofRoom_Text_PamphletOnTMs, MSGBOX_SIGN
 	end
 
-CeladonCity_Condominiums_RoofRoom_EventScript_Blackboard::
-	lockall
-	msgbox CeladonCity_Condominiums_RoofRoom_Text_WirelessAdapterLecture
-	message CeladonCity_Condominiums_RoofRoom_Text_ReadWhichHeading
-	waitmessage
-	setvar VAR_0x8004, 4
-	multichoice 0, 0, MULTICHOICE_LINKED_DIRECT_UNION, FALSE
-	switch VAR_RESULT
-	case 0, CeladonCity_Condominiums_RoofRoom_EventScript_WirelessClub
-	case 1, CeladonCity_Condominiums_RoofRoom_EventScript_DirectCorner
-	case 2, CeladonCity_Condominiums_RoofRoom_EventScript_UnionRoom
-	case 3, CeladonCity_Condominiums_RoofRoom_EventScript_ExitBlackboard
-	case 127, CeladonCity_Condominiums_RoofRoom_EventScript_ExitBlackboard
-	end
+
+
 
 CeladonCity_Condominiums_RoofRoom_EventScript_ReadAnotherHeading::
 	message CeladonCity_Condominiums_RoofRoom_Text_ReadWhichHeading
@@ -105,4 +83,276 @@ CeladonCity_Condominiums_RoofRoom_EventScript_UnionRoom::
 CeladonCity_Condominiums_RoofRoom_EventScript_ExitBlackboard::
 	releaseall
 	end
+
+
+CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyDMCA::
+	playfanfare MUS_LEVEL_UP
+	message CeladonCity_EeveeGag_Bribe
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Condominiums_RoofRoom_EventScript_SetGotEevee
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto CeladonCity_Condominiums_RoofRoom_EventScript_SetGotEevee
+	end
+
+CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCDMCA::
+	playfanfare MUS_LEVEL_UP
+	message CeladonCity_EeveeGag_Bribe
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Condominiums_RoofRoom_EventScript_TransferEeveeToPC
+	call EventScript_NameReceivedBoxMon
+	goto CeladonCity_Condominiums_RoofRoom_EventScript_TransferEeveeToPC
+	end
+
+CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyCelia::
+	playfanfare MUS_LEVEL_UP
+	message CeladonCity_EeveeGag_CeliaGives
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Condominiums_RoofRoom_EventScript_SetGotEevee
+	call EventScript_GetGiftMonPartySlot
+	call EventScript_ChangePokemonNickname
+	goto CeladonCity_Condominiums_RoofRoom_EventScript_SetGotEevee
+	end
+
+CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCCelia::
+	playfanfare MUS_LEVEL_UP
+	message CeladonCity_EeveeGag_CeliaGives
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_EEVEE
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CeladonCity_Condominiums_RoofRoom_EventScript_TransferEeveeToPC
+	call EventScript_NameReceivedBoxMon
+	goto CeladonCity_Condominiums_RoofRoom_EventScript_TransferEeveeToPC
+	end
+
 `
+
+const CELIA = 4
+const DMCA = 3
+const GUY = 1
+const EEVEE = 2
+
+script CeladonCity_Condominiums_RoofRoom_MapScript {
+	
+	switch(var(VAR_EEVEE_COUNT)) {
+		// set up the room
+		// but need to fix the logic so it only changes after the guy wakes up
+
+		//  var(VAR_STOLE_AN_EEVEE) is 0 when there is no change from the previous room and 1 when there is
+		// so VAR_STOLE_AN_EEVEE = 1 means you took an eevee but didn't hear the guy explode
+		case 0:
+		case 1:
+		case 2:
+			removeobject(CELIA)
+			removeobject(DMCA)
+			addobject(EEVEE)
+			break
+		case 3:
+			removeobject(CELIA)
+			removeobject(GUY)
+			removeobject(EEVEE)
+			break
+		default:
+			removeobject(GUY)
+			removeobject(DMCA)
+			removeobject(EEVEE)
+			break
+
+	}
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_Blackboard {
+	msgbox("POKéMON Lecture\pPlaying with the Wireless Adapter\pGo to the CABLE CLUB in any POKéMON\nCENTER for Wireless play!\pNOTICE!\pTrading in CELADON is currently\nnon-functional, as no one in the\lCITY can find the darn CABLE CLUB.", MSGBOX_SIGN)
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeDiary {
+	lock
+	switch(var(VAR_EEVEE_COUNT)) {
+		case 0:
+			msgbox(CeladonCity_EeveeGag_Page1, MSGBOX_SIGN)
+			break
+		case 1:
+			msgbox(CeladonCity_EeveeGag_Page2, MSGBOX_SIGN)
+			break
+		case 2:
+			msgbox(CeladonCity_EeveeGag_Page3, MSGBOX_SIGN)
+			break
+		default:
+			msgbox("The diary has been left open to a\nblank page.\pRead it from the beginning?\n", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				msgbox(CeladonCity_EeveeGag_Page1, MSGBOX_DEFAULT)
+				closemessage
+				msgbox(CeladonCity_EeveeGag_KeepReading, MSGBOX_YESNO)
+				if(var(VAR_RESULT)) {
+					msgbox(CeladonCity_EeveeGag_Page2, MSGBOX_DEFAULT)
+					closemessage
+					msgbox(CeladonCity_EeveeGag_KeepReading, MSGBOX_YESNO)
+					if(var(VAR_RESULT)) {
+						msgbox(CeladonCity_EeveeGag_Page3, MSGBOX_DEFAULT)
+						closemessage
+						msgbox("The rest of the pages are blank.\n", MSGBOX_DEFAULT)
+					}
+				}
+			}
+			break
+	}
+	release
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall {
+	lock
+	faceplayer
+	switch(var(VAR_EEVEE_COUNT)) {
+		case 0:
+		case 1:
+			setvar(VAR_TEMP_1, SPECIES_EEVEE)
+			givemon(SPECIES_EEVEE, 25)
+			goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty)
+			goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePC)
+			goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
+			setvar(VAR_STOLE_AN_EEVEE, 1)
+			break
+
+		case 2:
+			setvar(VAR_STOLE_AN_EEVEE, 1)
+			playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+			waitmoncry
+			setflag(FLAG_HIDE_EEVEE_BALL)
+			setwildbattle(SPECIES_JIGGLYPUFF, 13, ITEM_SODA_POP)
+			dowildbattle
+			release
+	}
+	
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt {
+	lock
+	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	switch(var(VAR_EEVEE_COUNT)) {
+		case 0: 
+			switch(var(VAR_STOLE_AN_EEVEE)) { // Before and after first eevee stolen
+			case 0:
+				msgbox("He appears to be asleep…\pNow's your chance!", MSGBOX_DEFAULT)
+				break
+			case 1: 
+				msgbox("It seems he's still asleep.\p", MSGBOX_DEFAULT)
+				break
+			}
+			break
+
+		case 1:
+			switch(var(VAR_STOLE_AN_EEVEE)) { // Before and after second eevee stolen
+			case 0:
+				msgbox("Looks like he went back to\nsleep.\pMaybe just one more…\n", MSGBOX_DEFAULT)
+				break
+			case 1: 
+				msgbox("Another EEVEE in tow, and he's none\nthe wiser.\pLet's leave before he's awake!\n", MSGBOX_DEFAULT)
+				break
+			}
+			break
+		
+		case 2:
+			switch(var(VAR_STOLE_AN_EEVEE)) { // Before and after Hbox jumpscare
+			case 0:
+				msgbox("He's sleeping again…\nTime to grab another!", MSGBOX_DEFAULT)
+				break
+			case 1: 
+				msgbox("Okay, honestly you deserved that.\n", MSGBOX_DEFAULT)
+				break
+			}
+			break
+	}
+	release
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_DMCA {
+	lock
+	faceplayer
+	if(var(VAR_EEVEE_COUNT) == 3) {
+		msgbox("The man in here tried to pass off\nanother POKéMON as an EEVEE!\lThat's against the law!\pIt's okay - we've seized all of\nhis possessions.\pHere, he was trying to keep this\nPOKéMON secret.\lWe don't need it, so take it!", MSGBOX_DEFAULT)
+		setvar(VAR_TEMP_1, SPECIES_EEVEE)
+		givemon(SPECIES_EEVEE, 25)
+		goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyDMCA)
+		goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCDMCA)
+		goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
+		setvar(VAR_EEVEE_COUNT, 4)
+
+	} else {
+		msgbox("Look, you gotta understand.\pIf we suspect you of a crime,\neverything you own belongs to us.", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+
+
+script DMCAHideout_EeveeManScreams { //placing this here for my own convenience cross-referencing the variables
+	lock
+	playse(SE_BANG)
+	setvar(VAR_TEMP_6, 5)
+	special(ShakeScreen)
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	setvar(VAR_STOLE_AN_EEVEE, 0)
+	switch(var(VAR_EEVEE_COUNT)) {
+		case 0:
+			setvar(VAR_EEVEE_COUNT, 1)
+			msgbox("Nooooo!\pMy EEVEE!\n", MSGBOX_DEFAULT)
+			break
+		case 1:
+			setvar(VAR_EEVEE_COUNT, 2)
+			msgbox("Nooooo!\pNot again!\n", MSGBOX_DEFAULT)
+			break
+		case 2:
+			setvar(VAR_EEVEE_COUNT, 3)
+			msgbox("Nooooo!\n", MSGBOX_DEFAULT)
+			break
+	}
+	release
+}
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
+	lock
+	faceplayer
+	if(!flag(FLAG_TEMP_3)) {
+
+		switch(var(VAR_EEVEE_COUNT)) {
+			case 4:
+				msgbox("Hi!\nI'm CELIA, the creator.\pYou really want another\nEEVEE?\pUh...\nSure, I guess.", MSGBOX_DEFAULT)
+				addvar(VAR_EEVEE_COUNT, 1)
+				break
+			case 10:
+				msgbox("Okay I know I said I wouldn't write\nany more dialogue, but geez.\pYou REALLY like EEVEE, huh?\pWell.\nI guess you can have another.", MSGBOX_DEFAULT)
+				addvar(VAR_EEVEE_COUNT, 1)
+				break
+			case 11:
+				msgbox("Here, take your EEVEE.\n", MSGBOX_DEFAULT)
+				break
+			default:
+				msgbox("Here, take your EEVEE.\n", MSGBOX_DEFAULT)
+				addvar(VAR_EEVEE_COUNT, 1)
+				break
+
+		}
+		// gives you an eevee
+		setvar(VAR_TEMP_1, SPECIES_EEVEE)
+			givemon(SPECIES_EEVEE, 25)
+			goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyCelia)
+			goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCCelia)
+			goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
+
+		setflag(FLAG_TEMP_3)
+	} else {
+		msgbox("You can keep coming back in\nif you really want to.\pJust don't expect me to keep\nwriting new dialogue for you.", MSGBOX_DEFAULT)
+	}
+	release
+}

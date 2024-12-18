@@ -310,6 +310,8 @@ SECTIONS {
         src/minigame_countdown.o(.text);
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
+        src/mugshot.o(.text);
+
     } > ROM =0
 
     script_data :
@@ -606,6 +608,7 @@ SECTIONS {
         src/trainer_tower_sets.o(.rodata);
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
+        src/mugshot.o(.rodata);
         src/field_special_scene.o(.rodata);
 
         /* These should not be moved to C files */
@@ -980,6 +983,7 @@ SECTIONS {
         sound/songs/midi/mus_chapter_1.o(.rodata);
         sound/songs/midi/mus_chapter_2.o(.rodata);
         sound/songs/midi/mus_sky_tower.o(.rodata);
+        sound/songs/midi/mus_dmca_battle.o(.rodata);
     } > ROM =0
 
 

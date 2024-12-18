@@ -72,6 +72,13 @@
       "elevation": 3,
       "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_LEAGUE_HALL_OF_FAME",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

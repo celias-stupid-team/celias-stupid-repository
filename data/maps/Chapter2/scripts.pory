@@ -1,0 +1,99 @@
+mapscripts Chapter2_MapScripts{
+
+	MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0: Chapter2_TitleDrop
+    ]
+}
+
+
+
+script Chapter2_TitleDrop { //Holy shit never make me do this again. I do not understand the TeleportCamera special
+    lock
+    setvar(VAR_TEMP_0, 1)
+    setvar(VAR_CURRENT_CHAPTER, 2)
+    delay(10)
+	playbgm(MUS_CSR_CHAPTER_2, FALSE)
+	delay(10)
+
+    //chapter
+    setmetatile(4, 3, 0x01C, FALSE)
+    setmetatile(5, 3, 0x01D, FALSE)
+    setmetatile(6, 3, 0x01E, FALSE)
+    setmetatile(7, 3, 0x070, FALSE)
+    setmetatile(8, 3, 0x071, FALSE)
+    setmetatile(9, 3, 0x0B0, FALSE)
+
+    setmetatile(4, 4, 0x024, FALSE)
+    setmetatile(5, 4, 0x025, FALSE)
+    setmetatile(6, 4, 0x026, FALSE)
+    setmetatile(7, 4, 0x078, FALSE)
+    setmetatile(8, 4, 0x079, FALSE)
+    setmetatile(9, 4, 0x0B8, FALSE)
+    special(DrawWholeMapView)
+    delay(40)
+
+
+
+    // 2
+    setmetatile(9, 3, 0x072, FALSE)
+    setmetatile(10, 3, 0x073, FALSE)
+    setmetatile(9, 4, 0x07A, FALSE)
+    setmetatile(10, 4, 0x07B, FALSE)
+    special(DrawWholeMapView)
+    delay(207)
+
+    // Defeat
+    setmetatile(2, 5, 0x2A, FALSE)
+    setmetatile(3, 5, 0x2B, FALSE)
+    setmetatile(4, 5, 0x2C, FALSE)
+    setmetatile(5, 5, 0x2D, FALSE)
+    setmetatile(6, 5, 0xB2, FALSE)
+    
+    setmetatile(2, 6, 0x32, FALSE)
+    setmetatile(3, 6, 0x33, FALSE)
+    setmetatile(4, 6, 0x34, FALSE)
+    setmetatile(5, 6, 0x35, FALSE)
+    setmetatile(6, 6, 0xBA, FALSE)
+    special(DrawWholeMapView)
+    delay(23)
+
+    //The
+    setmetatile(6, 5, 0x02E, FALSE)
+    setmetatile(7, 5, 0x02F, FALSE)
+    setmetatile(8, 5, 0x081, FALSE)
+
+    setmetatile(6, 6, 0x036, FALSE)
+    setmetatile(7, 6, 0x037, FALSE)
+    setmetatile(8, 6, 0x089, FALSE)
+    special(DrawWholeMapView)
+    delay(11)
+
+
+
+    //DM
+    setmetatile(9, 5, 0x082, FALSE)
+    setmetatile(10, 5, 0x083, FALSE)
+    setmetatile(9, 6, 0x08A, FALSE)
+    setmetatile(10, 6, 0x08B, FALSE)
+    special(DrawWholeMapView)
+    delay(20)
+
+    // C
+    setmetatile(11, 5, 0x0B4, FALSE)
+    setmetatile(11, 6, 0x0BC, FALSE)
+    special(DrawWholeMapView)
+    delay(9)
+
+    // A!
+    setmetatile(11, 5, 0x084, FALSE)
+    setmetatile(12, 5, 0x085, FALSE)
+    setmetatile(11, 6, 0x08C, FALSE)
+    setmetatile(12, 6, 0x08D, FALSE)
+    special(DrawWholeMapView)
+
+
+	delay(60) //Let the screen sink in
+    
+    delay(60)
+    warpsilent(MAP_MT_MOON_1F, 3) //screen fade
+}
