@@ -929,3 +929,8 @@ script PewterCity_EventScript_FatMan {
 	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 	end
 }
+
+script PewterCity_Sign {
+	msgbox("TRAINER TIPS\pGYM signs will tell you what level\nyou should want for a fight.\pYou won't need to grind anything\nhigher than that!", MSGBOX_SIGN)
+	end
+}

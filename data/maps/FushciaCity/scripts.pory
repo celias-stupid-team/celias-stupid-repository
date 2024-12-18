@@ -139,3 +139,9 @@ FushciaCity_EventScript_OmanyteSign::
 	releaseall
 	end
 `
+
+script FuschiaCity_BrickBreak {
+	lock
+	msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
+	release
+}

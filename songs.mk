@@ -315,6 +315,9 @@ $(MID_SUBDIR)/mus_chapter_2.s: %.s: %.mid
 $(MID_SUBDIR)/mus_sky_tower.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G197 -V090
 
+$(MID_SUBDIR)/mus_dmca_battle.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G198 -V090
+
 $(MID_SUBDIR)/se_door.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G129 -V100 -P5
 

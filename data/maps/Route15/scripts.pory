@@ -6,3 +6,207 @@ Route15_EventScript_RouteSign::
 	msgbox Route15_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route15_BakerySign {
+	msgbox("Traditional American Bakery!\n", MSGBOX_SIGN)
+}
+
+script Route15_Brock {
+	msgbox("BROCK: Hey there, {PLAYER}!\nHow've you been?\pI'm just stocking up on some JELLY\nDONUTS before hitting the road.\pSay, you haven't seen my friend ASH\naround, have you?\pHe went off to LAVENDER to see a\ndance, but I haven't seen him since…", MSGBOX_NPC)
+	end
+}
+
+const GUARD = 2
+const FATGUY = 3
+
+
+script Route15_PowerOutTrigger {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playse(SE_PIN)
+	applymovement(GUARD, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(30)
+	msgbox("Hey, wait!", MSGBOX_DEFAULT)
+	closemessage
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) { //Guard approaches
+		case 51:
+			break
+		case 50:
+			applymovement(GUARD, Route15_Lighthouse_WalkOneLeft)
+			waitmovement(0)
+			break
+		case 49:
+			applymovement(GUARD, Route15_Lighthouse_WalkTwoLeft)
+			waitmovement(0)
+			break
+		case 48:
+			applymovement(GUARD, Route15_Lighthouse_WalkThreeLeft)
+			waitmovement(0)
+			break
+	}
+	call(Route15_NoPower)
+	delay(20)
+	switch(var(VAR_TEMP_1)) { //Guard Leaves
+		case 51:
+			break
+		case 50:
+			applymovement(GUARD, Route15_Lighthouse_WalkOneRight)
+			waitmovement(0)
+			break
+		case 49:
+			applymovement(GUARD, Route15_Lighthouse_WalkTwoRight)
+			waitmovement(0)
+			break
+		case 48:
+			applymovement(GUARD, Route15_Lighthouse_WalkThreeRight)
+			waitmovement(0)
+			break
+	}
+	delay(10)
+	applymovement(OBJ_EVENT_ID_PLAYER, Route15_Lighthouse_WalkDown)
+	waitmovement(0)
+	release
+}
+
+script Route15_NoPower {
+	
+	msgbox("I'm sorry, but there's a blackout\nat the LIGHTHOUSE right now.", MSGBOX_DEFAULT)
+	closemessage
+	//camera goes up
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesUp)
+	waitmovement(0)
+
+
+	delay(120) //waiting on lighthouse sign
+
+	msgbox("Yup.\nMassive blackout.", MSGBOX_DEFAULT)
+	closemessage
+	delay(15)
+	//camera goes down
+	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesDown)
+	//NPC enters lighthouse
+	delay(8) //delay to make it line up with the camera
+
+	switch(var(VAR_TEMP_1)) { //Man walks up - This decides where he starts
+		case 51:
+		case 48: //Yeah yeah I should've just used default case 
+		case 52:
+			setobjectxy(FATGUY, 50, 29)
+			applymovement(FATGUY, Route15_Lighthouse_FatGuy1)
+			break
+		case 50:
+			setobjectxy(FATGUY, 49, 29)
+			applymovement(FATGUY, Route15_Lighthouse_FatGuy2)
+			break
+		case 49:
+			setobjectxy(FATGUY, 51, 29)
+			applymovement(FATGUY, Route15_Lighthouse_FatGuy3)
+			break
+		
+	}
+	
+	delay(60)
+	msgbox("I'm sorry, but rules are rules.\nNobody's allowed to go inside.", MSGBOX_DEFAULT)
+	waitmovement(0)
+	closemessage
+	setobjectxy(FATGUY, 55, 26)
+	special(RemoveCameraObject)
+	return
+}
+
+script Route15_Guard_NPC {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+
+	call(Route15_NoPower)
+	applymovement(GUARD, Common_Movement_FaceLeft)
+	waitmovement(0)
+	release
+}
+
+
+
+
+movement Route15_Lighthouse_WalkOneLeft // I kinda forgot aboout the * notation for multiple walks oops
+{
+	walk_left
+	face_left
+}
+
+movement Route15_Lighthouse_WalkTwoLeft
+{
+	walk_left
+	walk_left
+	face_left
+}
+movement Route15_Lighthouse_WalkThreeLeft
+{
+	walk_left
+	walk_left
+	walk_left
+	face_left
+}
+
+movement Route15_Lighthouse_WalkOneRight
+{
+	walk_right
+	face_left
+}
+
+movement Route15_Lighthouse_WalkTwoRight
+{
+	walk_right
+	walk_right
+	face_left
+}
+movement Route15_Lighthouse_WalkThreeRight
+{
+	walk_right
+	walk_right
+	walk_right
+	face_left
+}
+
+movement Route15_Lighthouse_CameraGoesUp {
+	walk_up * 4
+}
+
+movement Route15_Lighthouse_CameraGoesDown {
+	walk_down * 4
+}
+
+movement Route15_Lighthouse_FatGuy1 {
+	set_visible
+	walk_up * 6
+	delay_8
+	set_invisible
+}
+
+movement Route15_Lighthouse_FatGuy2 {
+	set_visible
+	walk_up * 4
+	walk_right
+	walk_up
+	walk_up
+	face_up
+	delay_8
+	set_invisible
+}
+
+movement Route15_Lighthouse_FatGuy3 {
+	set_visible
+	walk_up * 4
+	walk_left
+	walk_up
+	walk_up
+	face_up
+	delay_8
+	set_invisible
+}
+
+movement Route15_Lighthouse_WalkDown {
+	walk_down
+}

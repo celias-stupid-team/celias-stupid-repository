@@ -299,7 +299,8 @@ static void DoTrainerBattle(void)
 
 void StartOldManTutorialBattle(void)
 {
-    CreateMaleMon(&gEnemyParty[0], SPECIES_RATTATA, 5);
+    FlagSet(FLAG_SHINY_CREATION); //Doesn't actually help
+    CreateScriptedWildMon(SPECIES_RATTATA, 5, ITEM_NONE);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_OLD_MAN_TUTORIAL;

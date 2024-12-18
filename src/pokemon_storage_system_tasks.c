@@ -2622,22 +2622,24 @@ static void AddWallpapersMenu(u8 wallpaperSet)
     case 0: // SCENERY_1
         SetMenuText(MENU_TEXT_FOREST);
         SetMenuText(MENU_TEXT_CITY);
-        SetMenuText(MENU_TEXT_DESERT);
-        SetMenuText(MENU_TEXT_SAVANNA);
+        SetMenuText(MENU_TEXT_BOOKSHELF);
+        SetMenuText(MENU_TEXT_RICKROLL);
         break;
     case 1: // SCENERY_2
-        SetMenuText(MENU_TEXT_CRAG);
+        SetMenuText(MENU_TEXT_SAVANNA);
         SetMenuText(MENU_TEXT_VOLCANO);
         SetMenuText(MENU_TEXT_SNOW);
         SetMenuText(MENU_TEXT_CAVE);
         break;
     case 2: // SCENERY_3
-        SetMenuText(MENU_TEXT_BEACH);
+        SetMenuText(MENU_TEXT_DAD);
         SetMenuText(MENU_TEXT_SEAFLOOR);
         SetMenuText(MENU_TEXT_RIVER);
         SetMenuText(MENU_TEXT_SKY);
         break;
     case 3: // ETCETERA
+
+        // Needs to not exist unless Trainer ID has been given away
         SetMenuText(MENU_TEXT_POLKADOT);
         SetMenuText(MENU_TEXT_POKECENTER);
         SetMenuText(MENU_TEXT_MACHINE);

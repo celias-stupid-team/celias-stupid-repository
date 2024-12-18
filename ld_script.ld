@@ -980,6 +980,7 @@ SECTIONS {
         sound/songs/midi/mus_chapter_1.o(.rodata);
         sound/songs/midi/mus_chapter_2.o(.rodata);
         sound/songs/midi/mus_sky_tower.o(.rodata);
+        sound/songs/midi/mus_dmca_battle.o(.rodata);
     } > ROM =0
 
 

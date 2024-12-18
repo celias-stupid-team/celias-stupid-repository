@@ -136,6 +136,7 @@
 #define MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM (120 | (1 << 8))
 #define MAP_SIX_ISLAND_PATTERN_BUSH              (121 | (1 << 8))
 #define MAP_SIX_ISLAND_ALTERING_CAVE             (122 | (1 << 8))
+#define MAP_MT_MOON_SQUARE                       (123 | (1 << 8))
 
 // gMapGroup_SpecialArea
 #define MAP_NAVEL_ROCK_EXTERIOR                       (0 | (2 << 8))
@@ -346,6 +347,7 @@
 #define MAP_CELADON_CITY_RESTAURANT                (17 | (10 << 8))
 #define MAP_CELADON_CITY_HOUSE1                    (18 | (10 << 8))
 #define MAP_CELADON_CITY_HOTEL                     (19 | (10 << 8))
+#define MAP_NEW_MAP1                               (20 | (10 << 8))
 
 // gMapGroup_IndoorFushcia
 #define MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE (0 | (11 << 8))

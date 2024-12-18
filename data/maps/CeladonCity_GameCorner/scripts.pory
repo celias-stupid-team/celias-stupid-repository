@@ -1,5 +1,5 @@
 raw `
-.set LOCALID_GRUNT, 11
+.set LOCALID_GRUNT, 10
 
 CeladonCity_GameCorner_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_OnLoad
@@ -9,7 +9,10 @@ CeladonCity_GameCorner_OnLoad::
 	call_if_unset FLAG_OPENED_ROCKET_HIDEOUT, CeladonCity_GameCorner_EventScript_HideRocketHideout
 	end
 
+
 CeladonCity_GameCorner_EventScript_HideRocketHideout::
+	setobjectxy LOCALID_GRUNT 11 2
+	setobjectmovementtype LOCALID_GRUNT MOVEMENT_TYPE_FACE_UP
 	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 17, 2, METATILE_GameCorner_Floor_ShadeFull, 0
@@ -21,22 +24,7 @@ CeladonCity_GameCorner_EventScript_InfoClerk::
 	msgbox CeladonCity_GameCorner_Text_CanExchangeCoinsNextDoor, MSGBOX_NPC
 	end
 
-CeladonCity_GameCorner_EventScript_CoinsClerk::
-	goto_if_questlog EventScript_ReleaseEnd
-	lock
-	faceplayer
-	showmoneybox 0, 0
-	showcoinsbox 0, 5
-	message CeladonCity_GameCorner_Text_WelcomeBuySomeCoins
-	waitmessage
-	multichoice 13, 0, MULTICHOICE_GAME_CORNER_COIN_PURCHASE_COUNTER, FALSE
-	copyvar VAR_0x8009, VAR_RESULT
-	switch VAR_RESULT
-	case 0, CeladonCity_GameCorner_EventScript_BuyCoins
-	case 1, CeladonCity_GameCorner_EventScript_BuyCoins
-	case 2, CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
-	case 127, CeladonCity_GameCorner_EventScript_ClerkDeclineBuy
-	end
+
 
 CeladonCity_GameCorner_EventScript_BuyCoins::
 	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_ClerkNoCoinCase
@@ -98,12 +86,6 @@ CeladonCity_GameCorner_EventScript_ClerkNotEnoughMoney::
 	goto CeladonCity_GameCorner_EventScript_ClerkEnd
 	end
 
-CeladonCity_GameCorner_EventScript_BaldingMan::
-	lock
-	faceplayer
-	msgbox CeladonCity_GameCorner_Text_RumoredTeamRocketRunsThisPlace
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
 
 CeladonCity_GameCorner_EventScript_FaceSlotMachine::
 	closemessage
@@ -112,29 +94,9 @@ CeladonCity_GameCorner_EventScript_FaceSlotMachine::
 	release
 	end
 
-CeladonCity_GameCorner_EventScript_Woman1::
-	lock
-	faceplayer
-	msgbox CeladonCity_GameCorner_Text_ThinkMachinesHaveDifferentOdds
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
 
-CeladonCity_GameCorner_EventScript_Fisher::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_10_COINS_FROM_GAMBLER, CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins
-	msgbox CeladonCity_GameCorner_Text_DoYouWantToPlay
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-	checkcoins VAR_TEMP_1
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 10, CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins
-	addcoins 10
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	msgbox CeladonCity_GameCorner_Text_Received10CoinsFromMan
-	playse SE_SHOP
-	waitse
-	setflag FLAG_GOT_10_COINS_FROM_GAMBLER
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
+
+
 
 CeladonCity_GameCorner_EventScript_FisherNoRoomForCoins::
 	msgbox CeladonCity_GameCorner_Text_DontNeedMyCoins
@@ -152,13 +114,6 @@ CeladonCity_GameCorner_EventScript_FisherAlreadyGotCoins::
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
 	end
 
-CeladonCity_GameCorner_EventScript_GymGuy::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_ERIKA, CeladonCity_GameCorner_EventScript_GymGuyPostVictory
-	msgbox CeladonCity_GameCorner_Text_GymGuyAdvice
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
 
 CeladonCity_GameCorner_EventScript_GymGuyPostVictory::
 	msgbox CeladonCity_GameCorner_Text_RareMonsForCoins
@@ -172,29 +127,9 @@ CeladonCity_GameCorner_EventScript_Woman2::
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
 	end
 
-CeladonCity_GameCorner_EventScript_OldMan::
-	lock
-	faceplayer
-	msgbox CeladonCity_GameCorner_Text_SoEasyToGetHooked
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
 
-CeladonCity_GameCorner_EventScript_Scientist::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_20_COINS_FROM_GAMBLER, CeladonCity_GameCorner_EventScript_ScientistAlreadyGotCoins
-	msgbox CeladonCity_GameCorner_Text_WantSomeCoins
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-	checkcoins VAR_TEMP_1
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 20, CeladonCity_GameCorner_EventScript_ScientistNoRoomForCoins
-	addcoins 20
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	msgbox CeladonCity_GameCorner_Text_Received20CoinsFromNiceGuy
-	playse SE_SHOP
-	waitse
-	setflag FLAG_GOT_20_COINS_FROM_GAMBLER
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
+
+
 
 CeladonCity_GameCorner_EventScript_ScientistNoRoomForCoins::
 	msgbox CeladonCity_GameCorner_Text_YouHaveLotsOfCoins
@@ -206,22 +141,7 @@ CeladonCity_GameCorner_EventScript_ScientistAlreadyGotCoins::
 	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
 	end
 
-CeladonCity_GameCorner_EventScript_Gentleman::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_20_COINS_FROM_GAMBLER_2, CeladonCity_GameCorner_EventScript_GentlemanAlreadyGotCoins
-	msgbox CeladonCity_GameCorner_Text_HereAreSomeCoinsShoo
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_GamblerNoCoinCase
-	checkcoins VAR_TEMP_1
-	goto_if_ge VAR_TEMP_1, (MAX_COINS + 1) - 20, CeladonCity_GameCorner_EventScript_GentlemanNoRoomForCoins
-	addcoins 20
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	msgbox CeladonCity_GameCorner_Text_Received20CoinsFromMan
-	playse SE_SHOP
-	waitse
-	setflag FLAG_GOT_20_COINS_FROM_GAMBLER_2
-	goto CeladonCity_GameCorner_EventScript_FaceSlotMachine
-	end
+
 
 CeladonCity_GameCorner_EventScript_GentlemanNoRoomForCoins::
 	msgbox CeladonCity_GameCorner_Text_YouveGotPlentyCoins
@@ -417,14 +337,6 @@ CeladonCity_GameCorner_EventScript_RocketGrunt::
 	msgbox CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-CeladonCity_GameCorner_Text_DefeatedGrunt::
-	msgbox CeladonCity_GameCorner_Text_GruntPostBattle
-	closemessage
-	call_if_eq VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest
-	call_if_ne VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit
-	removeobject LOCALID_GRUNT
-	release
-	end
 
 CeladonCity_GameCorner_Text_GruntExitWest::
 	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExitWest
@@ -468,3 +380,93 @@ CeladonCity_GameCorner_EventScript_UnusableSlotMachine3::
 	msgbox CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_SIGN
 	end
 `
+script CeladonCity_GameCorner_EventScript_Gentleman {
+	lock
+	faceplayer
+	msgbox("Want me to let you in on\na secret?\pI don't think any of these\nslot machines actually work.\pI'm pretty sure they're just\npainted over with pretty colors.", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_Scientist {
+	lock
+	faceplayer
+	msgbox("The guy at the desk isn't selling\nCOINS anymore…\pGuess you'll just have to scrounge\naround 'til you find some!", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_OldMan {
+	lock
+	faceplayer
+	msgbox("Huh?\nWhat's going on outside?\pI've been playing slots for\na week straight - I don't\lhave time to go outside!", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_GymGuy {
+	lock
+	faceplayer
+	msgbox("Huh? The GYM?\pSorry, I'm a little busy right now.\pGo do something else.\nTrade your POKéMON or whatever.", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_Fisher {
+	lock
+	faceplayer
+	msgbox("If you think about it, fishing is\njust gambling with extra steps.", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_BaldingMan {
+	lock
+	faceplayer
+	msgbox("I'm gonna be honest:\nI don't actually have a COIN CASE.\pI'm just hanging out here because\nI like the music.", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_OldMan2 {
+	lock
+	faceplayer
+	msgbox("Fact: 90% of gambling addicts\nquit right before they hit big.\pI've been at this for 80 years\nand I'm not giving up yet!", MSGBOX_DEFAULT)
+	goto(CeladonCity_GameCorner_EventScript_FaceSlotMachine)
+}
+
+script CeladonCity_GameCorner_EventScript_CoinsClerk {
+	msgbox("Welcome to the DMCA GAME CORNER!\pUnfortunately, all of our machines\nmysteriously malfunctioned,\land we had to remove them all.\pThankfully it appears that the\nreplacements we've put out are\lconvincing enough for our regulars!", MSGBOX_NPC)
+	end
+}
+
+
+script CeladonCity_GameCorner_Text_DefeatedGrunt{
+	msgbox(CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_DEFAULT)
+	closemessage
+	call_if_eq(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest)
+	call_if_ne(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit)
+	setobjectxy(LOCALID_GRUNT, 9, 9)
+	delay(90)
+	applymovement(LOCALID_GRUNT, DMCA_Confused)
+	waitmovement(0)
+	delay(50)
+	msgbox("Um.\pThat didn't quite work as\nplanned.", MSGBOX_DEFAULT)
+	release
+}
+
+movement DMCA_Confused {
+	walk_up
+	walk_up
+	walk_up
+	walk_slower_up
+	walk_slower_up
+	face_up
+	delay_16
+	delay_16
+	face_right
+}
+
+script CeladonCity_GameCorner_FancyToaster {
+	msgbox("This looks like a SLOT MACHINE, but\nit's actually a very fancy toaster.", MSGBOX_SIGN)
+	end
+}
+
+script CeladonCity_GameCorner_CeliaMachine {
+	msgbox("CELIA: Welcome!\pI'd just like to draw your\nattention to this machine, which\lI have literally never seen\lanybody use in my life.", MSGBOX_NPC)
+	end
+}

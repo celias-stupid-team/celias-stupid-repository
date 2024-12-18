@@ -19,7 +19,7 @@ ViridianCity_Text_OhOkayThen::
     .string "Oh, okay then!$"
 
 ViridianCity_Text_ExplainCaterpieWeedle::
-    .string "CATERPIE evlolves into a butterfly,\n"
+    .string "CATERPIE evolves into a butterfly,\n"
     .string "and WEEDLE evolves into a bee!$"
 
 ViridianCity_Text_GrandpaHasntHadCoffeeYet::
@@ -29,7 +29,7 @@ ViridianCity_Text_GrandpaHasntHadCoffeeYet::
 ViridianCity_Text_GoShoppingInPewterOccasionally::
     .string "We just finished holding the funeral\n"
     .string "for grandpa.\p"
-    .string "Thankfully, I g ot a new one!$"
+    .string "Thankfully, I got a new one!$"
 
 ViridianCity_Text_ThisIsPrivateProperty::
     .string "There's a dead man in the road.\p"
@@ -43,31 +43,26 @@ ViridianCity_Text_ShowYouHowToCatchMons::
     .string "ok tutorial time$"
 
 ViridianCity_Text_ThatWasEducationalTakeThis::
-    .string "Ah, I'm sure taht was helpful\n"
+    .string "Ah, I'm sure that was helpful\n"
     .string "and informative!\p"
     .string "oh take this too$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
+    .string "Ah, I'm sure that was helpful\n"
+    .string "and informative!\p"
 	.string "All right, ♀:mna!\n"
 	.string "Now quickly!\l"
 	.string "FLY over to CINNABAR ISLAND!\p"
 	.string "…What's that?\n"
 	.string "You can't FLY yet?\p"
-	.string "Darn.\n$"
+	.string "Darn.$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
-    .string "Be ready to FLY over to\n"
-    .string "CINNABAR ISLAND!\p"
-    .string "By the way, I'm sorry that the\n"
-    .string "TEACHY TV isn't changed yet.\l"
-    .string "It's coming next update.$"
+	.string "I am 30 years old.$"
+
 
 ViridianCity_Text_HowsTeachyTVHelping::
-    .string "Be ready to FLY over to\n"
-    .string "CINNABAR ISLAND!\p"
-    .string "By the way, I'm sorry that the\n"
-    .string "TEACHY TV isn't changed yet.\l"
-    .string "It's coming next update.$"
+	.string "I am 30 years old.$"
 
 ViridianCity_Text_MyGrandsonOnTheShow::
     .string "Wahaha!\n"
@@ -76,10 +71,7 @@ ViridianCity_Text_MyGrandsonOnTheShow::
     .string "teaching, you're bound to learn.$"
 
 ViridianCity_Text_TooBusyForTeachyTV::
-    .string "Hm… You're too busy to not even\n"
-    .string "have the time for TEACHY TV…\p"
-    .string "Time is money, and neither should\n"
-    .string "be ill spent…$"
+	.string "I am 30 years old.$"
 
 ViridianCity_Text_CitySign::
     .string "VIRIDIAN CITY \n"

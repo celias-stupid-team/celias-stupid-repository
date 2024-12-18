@@ -4473,3 +4473,747 @@ DirectSoundWaveData_sd90_classical_detuned_ep1_high::
 	.align 2
 DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.incbin "sound/direct_sound_samples/sd90_enhanced_delay_shaku.bin"
+
+Cry_Pikachu_Birthday::
+	.incbin "sound/direct_sound_samples/cries/pikachu_birthday.bin"
+
+	.align 2
+Cry_Mew_Ancient::
+	.incbin "sound/direct_sound_samples/cries/mew_ancient.bin"
+
+	.align 2
+Cry_Pikachu_Old::
+	.incbin "sound/direct_sound_samples/cries/pikachu_old.bin"
+
+	.align 2
+Cry_Genesect_Shiny::
+	.incbin "sound/direct_sound_samples/cries/genesect_shiny.bin"
+
+	.align 2
+Cry_Iron_Cleft::
+	.incbin "sound/direct_sound_samples/cries/iron_cleft.bin"
+
+	.align 2
+Cry_Vulpix_Alola::
+	.incbin "sound/direct_sound_samples/cries/vulpix_alola.bin"
+
+	.align 2
+Cry_Weezing_Alola::
+	.incbin "sound/direct_sound_samples/cries/weezing_alola.bin"
+
+	.align 2
+Cry_This_Guy::
+	.incbin "sound/direct_sound_samples/cries/this_guy.bin"
+
+	.align 2
+Cry_Steamboat_Willie::
+	.incbin "sound/direct_sound_samples/cries/steamboat_willie.bin"
+
+	.align 2
+Cry_Pidgeot_Old::
+	.incbin "sound/direct_sound_samples/cries/pidgeot_old.bin"
+
+	.align 2
+Cry_Stryke::
+	.incbin "sound/direct_sound_samples/cries/stryke.bin"
+
+	.align 2
+Cry_Butterfree_Female::
+	.incbin "sound/direct_sound_samples/cries/butterfree_female.bin"
+
+	.align 2
+Cry_Pikachu_Fat_Gay::
+	.incbin "sound/direct_sound_samples/cries/pikachu_fat_gay.bin"
+
+	.align 2
+Cry_Trapinch_Pikachu::
+	.incbin "sound/direct_sound_samples/cries/trapinch_pikachu.bin"
+
+	.align 2
+Cry_Kecleon_Sans::
+	.incbin "sound/direct_sound_samples/cries/kecleon_sans.bin"
+
+	.align 2
+
+
+	.align 2
+Cry_Porygon_16::
+	.incbin "sound/direct_sound_samples/cries/porygon_16.bin"
+
+	.align 2
+Cry_Porygon_8::
+	.incbin "sound/direct_sound_samples/cries/porygon_8.bin"
+
+	.align 2
+Cry_Porygon_4::
+	.incbin "sound/direct_sound_samples/cries/porygon_4.bin"
+
+	.align 2
+Cry_Porist_Games::
+	.incbin "sound/direct_sound_samples/cries/porist_games.bin"
+
+	.align 2
+Cry_Miscarriage_Kanga::
+	.incbin "sound/direct_sound_samples/cries/miscarriage_kanga.bin"
+
+	.align 2
+Cry_Ghost::
+	.incbin "sound/direct_sound_samples/cries/ghost.bin"
+
+	.align 2
+Cry_Venomoth_ATV::
+	.incbin "sound/direct_sound_samples/cries/venomoth_atv.bin"
+
+	.align 2
+Cry_Raticate_Alola::
+	.incbin "sound/direct_sound_samples/cries/raticate_alola.bin"
+
+	.align 2
+Cry_Multipal::
+	.incbin "sound/direct_sound_samples/cries/multipal.bin"
+
+	.align 2
+Cry_Dividum::
+	.incbin "sound/direct_sound_samples/cries/dividum.bin"
+
+	.align 2
+Cry_Exponelle::
+	.incbin "sound/direct_sound_samples/cries/exponelle.bin"
+
+	.align 2
+Cry_Pikachu_Snap_Surf::
+	.incbin "sound/direct_sound_samples/cries/pikachu_snap_surf.bin"
+
+	.align 2
+Cry_Pikachu_Snap_Ball::
+	.incbin "sound/direct_sound_samples/cries/pikachu_snap_ball.bin"
+
+	.align 2
+Cry_Pikachu_Snap_Flying::
+	.incbin "sound/direct_sound_samples/cries/pikachu_snap_flying.bin"
+
+	.align 2
+Cry_Pikachu_Snap_Close::
+	.incbin "sound/direct_sound_samples/cries/pikachu_snap_close.bin"
+
+	.align 2
+Cry_Raticate_Dead::
+	.incbin "sound/direct_sound_samples/cries/raticate_dead.bin"
+
+	.align 2
+Cry_Shedinja_Electric::
+	.incbin "sound/direct_sound_samples/cries/shedinja_electric.bin"
+
+	.align 2
+Cry_Digimon::
+	.incbin "sound/direct_sound_samples/cries/digimon.bin"
+
+	.align 2
+Cry_Unown_Nudes::
+	.incbin "sound/direct_sound_samples/cries/unown_nudes.bin"
+
+	.align 2
+Cry_Porygon22::
+	.incbin "sound/direct_sound_samples/cries/porygon22.bin"
+
+	.align 2
+Cry_Ho_OwO::
+	.incbin "sound/direct_sound_samples/cries/ho_owo.bin"
+
+	.align 2
+Cry_Ratatatta::
+	.incbin "sound/direct_sound_samples/cries/ratatatta.bin"
+
+	.align 2
+Cry_Bulbasaur_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur_pokerap.bin"
+
+	.align 2
+Cry_Ivysaur_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/ivysaur_pokerap.bin"
+
+	.align 2
+Cry_Venusaur_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/venusaur_pokerap.bin"
+
+	.align 2
+Cry_Charmander_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/charmander_pokerap.bin"
+
+	.align 2
+Cry_Charmeleon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/charmeleon_pokerap.bin"
+
+	.align 2
+Cry_Charizard_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/charizard_pokerap.bin"
+
+	.align 2
+Cry_Squirtle_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/squirtle_pokerap.bin"
+
+	.align 2
+Cry_Wartortle_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/wartortle_pokerap.bin"
+
+	.align 2
+Cry_Blastoise_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/blastoise_pokerap.bin"
+
+	.align 2
+Cry_Caterpie_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/caterpie_pokerap.bin"
+
+	.align 2
+Cry_Metapod_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/metapod_pokerap.bin"
+
+	.align 2
+Cry_Butterfree_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/butterfree_pokerap.bin"
+
+	.align 2
+Cry_Weedle_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/weedle_pokerap.bin"
+
+	.align 2
+Cry_Kakuna_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kakuna_pokerap.bin"
+
+	.align 2
+Cry_Beedrill_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/beedrill_pokerap.bin"
+
+	.align 2
+Cry_Pidgey_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/pidgey_pokerap.bin"
+
+	.align 2
+Cry_Pidgeotto_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/pidgeotto_pokerap.bin"
+
+	.align 2
+Cry_Pidgeot_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/pidgeot_pokerap.bin"
+
+	.align 2
+Cry_Rattata_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/rattata_pokerap.bin"
+
+	.align 2
+Cry_Raticate_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/raticate_pokerap.bin"
+
+	.align 2
+Cry_Spearow_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/spearow_pokerap.bin"
+
+	.align 2
+Cry_Fearow_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/fearow_pokerap.bin"
+
+	.align 2
+Cry_Ekans_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/ekans_pokerap.bin"
+
+	.align 2
+Cry_Arbok_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/arbok_pokerap.bin"
+
+	.align 2
+Cry_Pikachu_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/pikachu_pokerap.bin"
+
+	.align 2
+Cry_Raichu_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/raichu_pokerap.bin"
+
+	.align 2
+Cry_Sandshrew_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/sandshrew_pokerap.bin"
+
+	.align 2
+Cry_Sandslash_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/sandslash_pokerap.bin"
+
+	.align 2
+Cry_Nidorina_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidorina_pokerap.bin"
+
+	.align 2
+Cry_Nidoqueen_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidoqueen_pokerap.bin"
+
+	.align 2
+Cry_Nidorino_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidorino_pokerap.bin"
+
+	.align 2
+Cry_Nidoking_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidoking_pokerap.bin"
+
+	.align 2
+Cry_Clefairy_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/clefairy_pokerap.bin"
+
+	.align 2
+Cry_Clefable_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/clefable_pokerap.bin"
+
+	.align 2
+Cry_Vulpix_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/vulpix_pokerap.bin"
+
+	.align 2
+Cry_Ninetales_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/ninetales_pokerap.bin"
+
+	.align 2
+Cry_Jigglypuff_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/jigglypuff_pokerap.bin"
+
+	.align 2
+Cry_Wigglytuff_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/wigglytuff_pokerap.bin"
+
+	.align 2
+Cry_Zubat_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/zubat_pokerap.bin"
+
+	.align 2
+Cry_Golbat_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/golbat_pokerap.bin"
+
+	.align 2
+Cry_Oddish_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/oddish_pokerap.bin"
+
+	.align 2
+Cry_Gloom_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/gloom_pokerap.bin"
+
+	.align 2
+Cry_Vileplume_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/vileplume_pokerap.bin"
+
+	.align 2
+Cry_Paras_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/paras_pokerap.bin"
+
+	.align 2
+Cry_Parasect_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/parasect_pokerap.bin"
+
+	.align 2
+Cry_Venonat_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/venonat_pokerap.bin"
+
+	.align 2
+Cry_Venomoth_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/venomoth_pokerap.bin"
+
+	.align 2
+Cry_Diglett_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/diglett_pokerap.bin"
+
+	.align 2
+Cry_Dugtrio_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dugtrio_pokerap.bin"
+
+	.align 2
+Cry_Meowth_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/meowth_pokerap.bin"
+
+	.align 2
+Cry_Persian_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/persian_pokerap.bin"
+
+	.align 2
+Cry_Psyduck_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/psyduck_pokerap.bin"
+
+	.align 2
+Cry_Golduck_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/golduck_pokerap.bin"
+
+	.align 2
+Cry_Mankey_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/mankey_pokerap.bin"
+
+	.align 2
+Cry_Primeape_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/primeape_pokerap.bin"
+
+	.align 2
+Cry_Growlithe_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/growlithe_pokerap.bin"
+
+	.align 2
+Cry_Arcanine_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/arcanine_pokerap.bin"
+
+	.align 2
+Cry_Poliwag_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/poliwag_pokerap.bin"
+
+	.align 2
+Cry_Poliwhirl_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/poliwhirl_pokerap.bin"
+
+	.align 2
+Cry_Poliwrath_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/poliwrath_pokerap.bin"
+
+	.align 2
+Cry_Abra_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/abra_pokerap.bin"
+
+	.align 2
+Cry_Kadabra_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kadabra_pokerap.bin"
+
+	.align 2
+Cry_Alakazam_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/alakazam_pokerap.bin"
+
+	.align 2
+Cry_Machop_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/machop_pokerap.bin"
+
+	.align 2
+Cry_Machoke_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/machoke_pokerap.bin"
+
+	.align 2
+Cry_Machamp_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/machamp_pokerap.bin"
+
+	.align 2
+Cry_Bellsprout_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/bellsprout_pokerap.bin"
+
+	.align 2
+Cry_Weepinbell_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/weepinbell_pokerap.bin"
+
+	.align 2
+Cry_Victreebel_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/victreebel_pokerap.bin"
+
+	.align 2
+Cry_Tentacool_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/tentacool_pokerap.bin"
+
+	.align 2
+Cry_Tentacruel_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/tentacruel_pokerap.bin"
+
+	.align 2
+Cry_Geodude_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/geodude_pokerap.bin"
+
+	.align 2
+Cry_Graveler_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/graveler_pokerap.bin"
+
+	.align 2
+Cry_Golem_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/golem_pokerap.bin"
+
+	.align 2
+Cry_Ponyta_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/ponyta_pokerap.bin"
+
+	.align 2
+Cry_Rapidash_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/rapidash_pokerap.bin"
+
+	.align 2
+Cry_Slowpoke_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/slowpoke_pokerap.bin"
+
+	.align 2
+Cry_Slowbro_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/slowbro_pokerap.bin"
+
+	.align 2
+Cry_Magnemite_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/magnemite_pokerap.bin"
+
+	.align 2
+Cry_Magneton_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/magneton_pokerap.bin"
+
+	.align 2
+Cry_Farfetchd_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/farfetchd_pokerap.bin"
+
+	.align 2
+Cry_Doduo_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/doduo_pokerap.bin"
+
+	.align 2
+Cry_Dodrio_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dodrio_pokerap.bin"
+
+	.align 2
+Cry_Seel_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/seel_pokerap.bin"
+
+	.align 2
+Cry_Dewgong_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dewgong_pokerap.bin"
+
+	.align 2
+Cry_Grimer_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/grimer_pokerap.bin"
+
+	.align 2
+Cry_Muk_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/muk_pokerap.bin"
+
+	.align 2
+Cry_Shellder_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/shellder_pokerap.bin"
+
+	.align 2
+Cry_Cloyster_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/cloyster_pokerap.bin"
+
+	.align 2
+Cry_Gastly_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/gastly_pokerap.bin"
+
+	.align 2
+Cry_Haunter_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/haunter_pokerap.bin"
+
+	.align 2
+Cry_Gengar_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/gengar_pokerap.bin"
+
+	.align 2
+Cry_Onix_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/onix_pokerap.bin"
+
+	.align 2
+Cry_Drowzee_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/drowzee_pokerap.bin"
+
+	.align 2
+Cry_Hypno_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/hypno_pokerap.bin"
+
+	.align 2
+Cry_Krabby_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/krabby_pokerap.bin"
+
+	.align 2
+Cry_Kingler_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kingler_pokerap.bin"
+
+	.align 2
+Cry_Voltorb_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/voltorb_pokerap.bin"
+
+	.align 2
+Cry_Electrode_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/electrode_pokerap.bin"
+
+	.align 2
+Cry_Exeggcute_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/exeggcute_pokerap.bin"
+
+	.align 2
+Cry_Exeggutor_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/exeggutor_pokerap.bin"
+
+	.align 2
+Cry_Cubone_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/cubone_pokerap.bin"
+
+	.align 2
+Cry_Marowak_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/marowak_pokerap.bin"
+
+	.align 2
+Cry_Hitmonlee_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/hitmonlee_pokerap.bin"
+
+	.align 2
+Cry_Hitmonchan_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/hitmonchan_pokerap.bin"
+
+	.align 2
+Cry_Lickitung_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/lickitung_pokerap.bin"
+
+	.align 2
+Cry_Koffing_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/koffing_pokerap.bin"
+
+	.align 2
+Cry_Weezing_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/weezing_pokerap.bin"
+
+	.align 2
+Cry_Rhyhorn_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/rhyhorn_pokerap.bin"
+
+	.align 2
+Cry_Rhydon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/rhydon_pokerap.bin"
+
+	.align 2
+Cry_Chansey_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/chansey_pokerap.bin"
+
+	.align 2
+Cry_Tangela_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/tangela_pokerap.bin"
+
+	.align 2
+Cry_Kangaskhan_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kangaskhan_pokerap.bin"
+
+	.align 2
+Cry_Horsea_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/horsea_pokerap.bin"
+
+	.align 2
+Cry_Seadra_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/seadra_pokerap.bin"
+
+	.align 2
+Cry_Goldeen_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/goldeen_pokerap.bin"
+
+	.align 2
+Cry_Seaking_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/seaking_pokerap.bin"
+
+	.align 2
+Cry_Staryu_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/staryu_pokerap.bin"
+
+	.align 2
+Cry_Starmie_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/starmie_pokerap.bin"
+
+	.align 2
+Cry_MrMime_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/mrmime_pokerap.bin"
+
+	.align 2
+Cry_Scyther_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/scyther_pokerap.bin"
+
+	.align 2
+Cry_Jynx_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/jynx_pokerap.bin"
+
+	.align 2
+Cry_Electabuzz_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/electabuzz_pokerap.bin"
+
+	.align 2
+Cry_Magmar_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/magmar_pokerap.bin"
+
+	.align 2
+Cry_Pinsir_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/pinsir_pokerap.bin"
+
+	.align 2
+Cry_Tauros_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/tauros_pokerap.bin"
+
+	.align 2
+Cry_Magikarp_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/magikarp_pokerap.bin"
+
+	.align 2
+Cry_Gyarados_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/gyarados_pokerap.bin"
+
+	.align 2
+Cry_Lapras_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/lapras_pokerap.bin"
+
+	.align 2
+Cry_Ditto_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/ditto_pokerap.bin"
+
+	.align 2
+Cry_Eevee_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/eevee_pokerap.bin"
+
+	.align 2
+Cry_Vaporeon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/vaporeon_pokerap.bin"
+
+	.align 2
+Cry_Jolteon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/jolteon_pokerap.bin"
+
+	.align 2
+Cry_Flareon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/flareon_pokerap.bin"
+
+	.align 2
+Cry_Porygon_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/porygon_pokerap.bin"
+
+	.align 2
+Cry_Omanyte_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/omanyte_pokerap.bin"
+
+	.align 2
+Cry_Omastar_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/omastar_pokerap.bin"
+
+	.align 2
+Cry_Kabuto_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kabuto_pokerap.bin"
+
+	.align 2
+Cry_Kabutops_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/kabutops_pokerap.bin"
+
+	.align 2
+Cry_Aerodactyl_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/aerodactyl_pokerap.bin"
+
+	.align 2
+Cry_Snorlax_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/snorlax_pokerap.bin"
+
+	.align 2
+Cry_Articuno_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/articuno_pokerap.bin"
+
+	.align 2
+Cry_Zapdos_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/zapdos_pokerap.bin"
+
+	.align 2
+Cry_Moltres_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/moltres_pokerap.bin"
+
+	.align 2
+Cry_Dratini_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dratini_pokerap.bin"
+
+	.align 2
+Cry_Dragonair_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dragonair_pokerap.bin"
+
+	.align 2
+Cry_Dragonite_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/dragonite_pokerap.bin"
+
+	.align 2
+Cry_Mewtwo_POKERAP::
+	.incbin "sound/direct_sound_samples/cries/mewtwo_pokerap.bin"
+
+	.align 2

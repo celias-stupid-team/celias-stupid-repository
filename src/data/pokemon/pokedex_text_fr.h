@@ -509,7 +509,13 @@ const u8 gDodrioPokedexText[] = _(
 const u8 gDodrioPokedexTextUnused[] = _("");
 
 const u8 gSeelPokedexText[] = _(
-	"I think this is just a wild animal");
+	"What the fuck did you just fucking say\n"
+	"about me, you little bitch? I'll have you\n"
+	"know I graduated top of my class in the\n"
+	"Navy Seals, and I've been involved in\n"
+	"numerous secret raids on Al-Quaeda, and\n"
+	"I have over 300 confirmed kills. I am\n"
+	"trained in gorilla warfare");
 
 const u8 gSeelPokedexTextUnused[] = _("");
 
@@ -820,7 +826,8 @@ const u8 gFlareonPokedexText[] = _(
 const u8 gFlareonPokedexTextUnused[] = _("");
 
 const u8 gPorygonPokedexText[] = _(
-	"don't look directly at it");
+	"Cool POKéMON!\n"
+	"I hope no one installs a virus on it!");
 
 const u8 gPorygonPokedexTextUnused[] = _("");
 
@@ -2670,4 +2677,8 @@ const u8 gDittoMewPokedexText[] = _(
 
 const u8 gAlcremiePokedexText[] = _(
 	"Ooh, this one's got a chocolate shell!");
-    
+
+const u8 gYoshiPokedexText[] = _(
+    "Yoshi!\n"
+	"It that really you?");
+

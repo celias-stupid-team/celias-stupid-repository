@@ -110,13 +110,64 @@ EventScript_DontSmashRock::
 	releaseall
 	end
 
+
+
+
+EventScript_BrickBreak::
+	goto_if_questlog EventScript_ReleaseEnd
+	lockall
+	checkpartymove MOVE_BRICK_BREAK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantBreakBrick
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	msgbox Text_UseBrickBreak, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_DontSmashRock
+	msgbox Text_MonUsedMove
+	closemessage
+	dofieldeffect FLDEFF_USE_ROCK_SMASH
+	waitstate
+	goto EventScript_UseBrickBreak
+	end
+
+EventScript_FldEffBrickBreak::
+	lockall
+	dofieldeffect FLDEFF_USE_ROCK_SMASH
+	waitstate
+	goto EventScript_UseBrickBreak
+	end
+
+EventScript_UseBrickBreak::
+	applymovement VAR_LAST_TALKED, Movement_BreakRock
+	waitmovement 0
+	removeobject VAR_LAST_TALKED
+	releaseall
+	end
+
+
+EventScript_CantBreakBrick::
+	msgbox Text_MonMayBreakBrick, MSGBOX_SIGN
+	end
+
+
 Text_UseRockSmash::
 	.string "This rock appears to be breakable.\n"
 	.string "Would you like to use ROCK SMASH?$"
 
+
+
 Text_MonMaySmashRock::
 	.string "It's a rugged rock, but a POKéMON\n"
 	.string "may be able to smash it.$"
+
+
+Text_UseBrickBreak::
+	.string "This wall appears to be breakable.\n"
+	.string "Would you like to use BRICK BREAK?$"
+
+Text_MonMayBreakBrick::
+	.string "It's a BRICK wall, but a POKéMON\n"
+	.string "may be able to BREAK it.$"
 
 EventScript_StrengthBoulder::
 	goto_if_questlog EventScript_ReleaseEnd

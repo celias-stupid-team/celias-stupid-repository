@@ -63,3 +63,12 @@ RocketHideout_B1F_EventScript_RemoveBarrier::
 	setmetatile 21, 21, METATILE_SilphCo_HideoutFloor, 0
 	return
 `
+script RocketHideout_B1F_EventScript_James {
+	msgbox("JAMES: Oh, JESSIE…\pI think this time, our disguises may\nhave been a bit too on-the-nose…\pStill, I didn't expect to be\nthrown in jail like this!\pThese DMCA fiends are more\ndastardly than us!", MSGBOX_NPC)
+	end
+}
+
+script RocketHideout_B1F_EventScript_OldMan {
+	msgbox("Oh, hello there!\nI'm not in the DMCA!\pI'm actually just really lost, and\nI'm trying to find my way back home.\pDo you know how to get to CELADON\nMANSION from here?\p…Er, well, the second floor of\nthe MANSION, at least?", MSGBOX_NPC)
+	end
+}

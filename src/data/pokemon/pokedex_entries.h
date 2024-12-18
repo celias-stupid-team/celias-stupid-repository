@@ -483,7 +483,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_VULPIX] =
     {
-        .categoryName = _("SIXTALES"),
+        .categoryName = _("RAINY"),
         .height = 6,
         .weight = 99,
         .description = gVulpixPokedexText,
@@ -496,7 +496,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NINETALES] =
     {
-        .categoryName = _("RAINY"),
+        .categoryName = _("STORMY"),
         .height = 11,
         .weight = 199,
         .description = gNinetalesPokedexText,
@@ -5218,7 +5218,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .categoryName = _("SAFARI"),
         .height = 17,
         .weight = 81,
-        .description = gDummyPokedexTextUnused,
+        .description = gYoshiPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 271,  
         .pokemonOffset = 0,

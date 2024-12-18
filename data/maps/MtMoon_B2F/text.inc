@@ -38,7 +38,7 @@ MtMoon_B2F_Text_Grunt1PostBattle::
 
 MtMoon_B2F_Text_Grunt2Intro::
     .string "We, the DMCA, are copyright\n"
-    .string "gangsters!\l"
+    .string "gangsters!\p"
     .string "We strike fear with our takedown!$"
 
 MtMoon_B2F_Text_Grunt2Defeat::
@@ -51,8 +51,8 @@ MtMoon_B2F_Text_Grunt2PostBattle::
 MtMoon_B2F_Text_Grunt3Intro::
     .string "There's lots of content to claim\n"
     .string "here, kid!\p"
-    .string "We're the DMCA, and we don't"
-    .string "take kindly to being messed with!\p"
+    .string "We're the DMCA, and we don't\n"
+    .string "take kindly to being messed with!$"
 
 MtMoon_B2F_Text_Grunt3Defeat::
     .string "So, you are good…$"

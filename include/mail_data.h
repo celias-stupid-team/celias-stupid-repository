@@ -4,6 +4,7 @@
 #include "global.h"
 
 void ClearMailData(void);
+void CreateMail(void);
 void ClearMailStruct(struct Mail *mail);
 bool8 MonHasMail(struct Pokemon *mon);
 u8 GiveMailToMon(struct Pokemon *mon, u16 itemId);

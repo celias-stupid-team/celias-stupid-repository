@@ -469,10 +469,13 @@
 #define ITEM_MYSTIC_SEAL 387
 #define ITEM_INSTINCT_SEAL 388
 #define ITEM_VALOR_SEAL 389
+#define ITEM_W_EMBLEM 390
+#define ITEM_L_EMBLEM 391
+#define ITEM_P_EMBLEM 392
 
 
 
-#define ITEMS_COUNT 390
+#define ITEMS_COUNT 393
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

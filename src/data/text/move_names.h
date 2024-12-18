@@ -153,6 +153,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_ACID_ARMOR]    = _("ACID ARMOR"),
     [MOVE_CRABHAMMER]    = _("CRABHAMMER"),
     [MOVE_EXPLOSION]     = _("EXPLOSION"),
+    [MOVE_EXPLOSION_USELESS]     = _("EXPLOSION"),
+
     [MOVE_FURY_SWIPES]   = _("FURY SWIPES"),
     [MOVE_BONEMERANG]    = _("BONEMERANG"),
     [MOVE_REST]          = _("REST"),

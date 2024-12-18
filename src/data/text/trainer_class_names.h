@@ -84,7 +84,7 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_SCIENTIST]           = _("SCIENTIST"),
     [TRAINER_CLASS_BOSS]                = _("BOSS"),
     [TRAINER_CLASS_LEADER]              = _("LEADER"),
-    [TRAINER_CLASS_TEAM_ROCKET]         = _("TEAM ROCKET"),
+    [TRAINER_CLASS_TEAM_ROCKET]         = _("DMCA"),
     [TRAINER_CLASS_COOLTRAINER]         = _("COOLTRAINER"),
     [TRAINER_CLASS_ELITE_FOUR]          = _("ELITE FOUR"),
     [TRAINER_CLASS_GENTLEMAN]           = _("GENTLEMAN"),
@@ -106,4 +106,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_RUIN_MANIAC]         = _("RUIN MANIAC"),
     [TRAINER_CLASS_LADY]                = _("LADY"),
     [TRAINER_CLASS_PAINTER]             = _("PAINTER"),
+    [TRAINER_CLASS_OFFICER]             = _("OFFICER"),
 };

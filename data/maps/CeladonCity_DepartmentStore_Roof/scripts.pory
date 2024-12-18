@@ -283,3 +283,9 @@ CeladonCity_DepartmentStore_Roof_EventScript_ExitVendingMachine::
 	releaseall
 	end
 `
+script CeladonCity_DepartmentStore_Roof_EventScript_Machine {
+	msgbox("It's a vending machine!\pIt's been broken into, and all\nthe contents have been removed.", MSGBOX_SIGN)
+	end
+}
+
+//Add Soda Pop == dad script here

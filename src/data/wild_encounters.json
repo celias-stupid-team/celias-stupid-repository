@@ -6177,42 +6177,42 @@
           "map": "MAP_POKEMON_TOWER_3F",
           "base_label": "sPokemonTower3F_FireRed",
           "land_mons": {
-            "encounter_rate": 2,
+            "encounter_rate": 1,
             "mons": [
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 16,
                 "max_level": 16,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 13,
                 "max_level": 13,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 14,
                 "max_level": 14,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 18,
                 "max_level": 18,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 15,
@@ -6222,7 +6222,7 @@
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 17,
@@ -6232,12 +6232,12 @@
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_HAUNTER"
+                "species": "SPECIES_CUBONE"
               }
             ]
           }
@@ -8920,12 +8920,12 @@
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_UNOWN_LOSS"
+                "species": "SPECIES_JIGGLYPUFF"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_UNOWN_LOSS"
+                "species": "SPECIES_NIDORINO"
               }
             ]
           },

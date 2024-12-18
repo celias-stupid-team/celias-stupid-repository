@@ -20,8 +20,10 @@ Route3_Text_ColtonDefeat::
     .string "Wait, was that you?$"
 
 Route3_Text_ColtonPostBattle::
-    .string "Oh, maybe it was SANTALUNE FOREST\n"
-    .string "I saw you in?$"
+	.string "I'm evolving my WURMPLE to fight\n"
+	.string "ROXANNE!\p"
+	.string "I'm already level 19, but I still\n"
+	.string "have a long way to go!$"
 
 Route3_Text_BenIntro::
     .string "I am SHORTS!\n"

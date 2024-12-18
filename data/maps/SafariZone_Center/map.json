@@ -74,14 +74,14 @@
   ],
   "warp_events": [
     {
-      "x": 25,
+      "x": 26,
       "y": 30,
       "elevation": 3,
       "dest_map": "MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
+      "x": 25,
       "y": 30,
       "elevation": 3,
       "dest_map": "MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
@@ -166,7 +166,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SafariZone_Center_DMCA_Take_Case"
+    }
   ],
   "bg_events": [
     {

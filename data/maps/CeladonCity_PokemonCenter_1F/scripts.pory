@@ -27,3 +27,7 @@ CeladonCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox CeladonCity_PokemonCenter_1F_Text_GoToCyclingRoadIfIHadBike, MSGBOX_NPC
 	end
 `
+script CeladonCity_PokemonCenter_TownMapGirl {
+	msgbox("This whole ordeal has everone in\ntown so lost and confused.\pIf only there were some sort of MAP\nthat showed the layout of the TOWN.", MSGBOX_NPC)
+	end
+}

@@ -116,6 +116,11 @@ script CeladonCity_EventScript_Shorts {
 	end
 }
 
+script CeladonCity_EventScript_GameCornerEntrance {
+	msgbox("Thank you for your support over\nthe years!\pUnfortunately, we want to release\nthis game in Europe, so we closed.", MSGBOX_SIGN)
+	end
+}
+
 script CeladonCity_EventScript_EggMan {
 	lock
 	faceplayer

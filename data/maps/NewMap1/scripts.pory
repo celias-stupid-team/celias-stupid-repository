@@ -1,0 +1,14 @@
+raw `
+NewMap1_MapScripts::
+	.byte 0
+`
+
+script Sootopolis_EvenScript_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI really want to challenge that\nGYM over there, but I can't!\lI don't know how to swim!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

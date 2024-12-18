@@ -173,14 +173,14 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
       "x": 43,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ViridianForest_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_VIRIDIAN_FOREST_CANDY"
     },
     {
@@ -375,7 +375,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "1",
-      "script": "NULL"
+      "script": "ViridianForest_EventScript_Flowers2"
     },
     {
       "type": "trigger",
@@ -394,6 +394,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "ViridianForest_EventScript_FlowersClear"
     }
   ],
   "bg_events": [

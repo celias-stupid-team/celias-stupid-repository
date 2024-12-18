@@ -107,21 +107,26 @@ CeladonCity_GameCorner_Text_WatchReelsClosely::
     .string "closely.$"
 
 CeladonCity_GameCorner_Text_GruntIntro::
-    .string "I'm guarding this poster!\n"
-    .string "Go away, or else!$"
+	.string "This poster violates copyright law!\p"
+	.string "Were you the one who put it up?\n$"
 
 CeladonCity_GameCorner_Text_GruntDefeat::
-    .string "Dang!$"
+	.string "Dang!\n"
+	.string "Our revenue stream-!$"
 
 CeladonCity_GameCorner_Text_GruntPostBattle::
-    .string "The TEAM ROCKET HIDEOUT might\n"
-    .string "be discovered!\p"
-    .string "I better tell BOSS!$"
+	.string "This poster can't be allowed to\n"
+	.string "stay up!\p"
+	.string "I gotta tell the BOSS to get rid of\n"
+	.string "it!$"
 
 CeladonCity_GameCorner_Text_SwitchBehindPosterPushIt::
-    .string "Hey!\p"
-    .string "A switch behind the poster!?\n"
-    .string "Let's push it!$"
+	.string "This poster contains an image of\n"
+	.string "a copyrighted character.\p"
+	.string "There's no way this should be\n"
+	.string "allowed to stand!\p"
+	.string "…Oh, and you press the button\n"
+	.string "behind it.$"
 
 CeladonCity_GameCorner_Text_CoinCaseIsRequired::
     .string "A COIN CASE is required…$"

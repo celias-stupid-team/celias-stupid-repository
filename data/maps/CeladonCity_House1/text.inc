@@ -1,7 +1,10 @@
 CeladonCity_House1_Text_SlotsReelInTheDough::
-    .string "Hehehe!\p"
-    .string "The slots just reel in the dough,\n"
-    .string "big-time!$"
+	.string "Grr…\p"
+	.string "They're trying to pass these two off\n"
+	.string "as completely different POKéMON,\l"
+	.string "but I know the truth!\p"
+	.string "Whoever designed them is in\n"
+	.string "big trouble!$"
 
 CeladonCity_House1_Text_ShippedMonsAsSlotPrizes::
     .string "CHIEF!\p"

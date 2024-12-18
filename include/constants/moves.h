@@ -360,8 +360,10 @@
 #define MOVE_HEART_SWAP 355
 #define MOVE_RETREAT 356
 #define MOVE_SUBSTITUTE_TEACHER 357
+#define MOVE_EXPLOSION_USELESS 358
 
-#define MOVES_COUNT 358
+
+#define MOVES_COUNT 359
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

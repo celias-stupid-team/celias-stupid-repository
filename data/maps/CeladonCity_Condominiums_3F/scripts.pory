@@ -53,3 +53,58 @@ CeladonCity_Condominiums_3F_EventScript_Computer3::
 	msgbox CeladonCity_Condominiums_3F_Text_ItsScriptBetterNotLookAtEnding, MSGBOX_SIGN
 	end
 `
+
+script CeladonCity_CeliaOffice_DMCA {
+	msgbox("Making a ROMhack!?\pI can't believe such illegal\nactivities were going on, and\lright under our noses!\pThe BOSS will be sure to shut this\nstudio down!\p…Uh, right as soon as I figure out\nhow to get to him.", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_CeliaOffice_Girl {
+	msgbox("Y'know, this randomness was\nreally fun for a minute, but\lnow I just wanna go outside…\pWho even did this, anyway?\n", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_CeliaOffice_Boxes {
+	msgbox("Boxes and boxes of unused ideas!\n", MSGBOX_SIGN)
+	end
+}
+
+script CeladonCity_CeliaOffice_Bookshelf {
+	msgbox("Shelf after shelf filled with\nvarious copies of My Secret Life.", MSGBOX_SIGN)
+	end
+}
+
+
+const CELIABOSS = 2
+script CeladonCity_CeliaOffice_Staircase {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	playse(SE_PIN)
+	applymovement(CELIABOSS, CeliaNotices)
+	waitmovement(0)
+	delay(30)
+	msgbox("That's the basement.\pIt's where we keep everyone else\nwho's helped us out!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	msgbox("Trust me, it's best if you don't\ngo down there.", MSGBOX_DEFAULT)
+	closemessage
+	delay(15)
+	applymovement(OBJ_EVENT_ID_PLAYER, PlayerLeaves)
+	waitmovement(0)
+	applymovement(CELIABOSS, CeliaReturns)
+	waitmovement(0)
+	release
+}
+
+movement CeliaNotices {
+	face_left
+	emote_exclamation_mark
+}
+
+movement PlayerLeaves {
+	walk_right
+}
+
+movement CeliaReturns {
+	face_down
+}

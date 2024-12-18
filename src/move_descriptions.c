@@ -513,6 +513,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_ACID_ARMOR    - 1] = gMoveDescription_AcidArmor,
     [MOVE_CRABHAMMER    - 1] = gMoveDescription_Crabhammer,
     [MOVE_EXPLOSION     - 1] = gMoveDescription_Explosion,
+    [MOVE_EXPLOSION_USELESS     - 1] = gMoveDescription_Explosion,
+
     [MOVE_FURY_SWIPES   - 1] = gMoveDescription_FurySwipes,
     [MOVE_BONEMERANG    - 1] = gMoveDescription_Bonemerang,
     [MOVE_REST          - 1] = gMoveDescription_Rest,

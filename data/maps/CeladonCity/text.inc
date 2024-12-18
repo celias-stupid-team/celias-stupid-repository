@@ -40,13 +40,12 @@ CeladonCity_Text_KeepOutOfTeamRocketsWay::
 	.string "over to it like I'm supposed to.$"
 
 CeladonCity_Text_ExplainXAccuracyDireHit::
-    .string "TRAINER TIPS\p"
-    .string "X ACCURACY boosts the accuracy of\n"
-    .string "techniques.\p"
-    .string "DIRE HIT jacks up the likelihood\n"
-    .string "of critical hits.\p"
-    .string "Get your items at the CELADON\n"
-    .string "DEPT. STORE!$"
+	.string "TRAINER TIPS\p"
+	.string "GUARD SPEC. protects POKéMON\n"
+	.string "from being statused during battle!\p"
+	.string "…That's not actually true, but the\n"
+	.string "fact that you didn't even notice\l"
+	.string "shows just how useless it is.$"
 
 CeladonCity_Text_CitySign::
 	.string "CELADON CITY\p"
@@ -70,12 +69,12 @@ CeladonCity_Text_DeptStoreSign::
 	.string "(if you can find it)$"
 
 CeladonCity_Text_GuardSpecProtectsFromStatus::
-    .string "TRAINER TIPS\p"
-    .string "GUARD SPEC. protects POKéMON\n"
-    .string "from status-reduction moves during\l"
-    .string "battle.\p"
-    .string "Get your items at the\n"
-    .string "CELADON DEPT. STORE!$"
+	.string "TRAINER TIPS\p"
+	.string "GUARD SPEC. protects POKéMON\n"
+	.string "from being statused during battle!\p"
+	.string "…That's not actually true, but the\n"
+	.string "fact that you didn't even notice\l"
+	.string "shows just how useless it is.$"
 
 CeladonCity_Text_PrizeExchangeSign::
     .string "COINS exchanged for prizes!\n"
