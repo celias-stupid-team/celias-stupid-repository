@@ -219,3 +219,6 @@ const u32 gMetatileAttributes_Route15[] = INCBIN_U32("data/tilesets/secondary/ro
 
 const u16 gMetatiles_gTileset_Chapter1Logo[] = INCBIN_U16("data/tilesets/secondary/chapter_1logo/metatiles.bin");
 const u32 gMetatileAttributes_gTileset_Chapter1Logo[] = INCBIN_U32("data/tilesets/secondary/chapter_1logo/metatile_attributes.bin");
+
+const u16 gMetatiles_Chapter2[] = INCBIN_U16("data/tilesets/primary/chapter_2/metatiles.bin");
+const u32 gMetatileAttributes_Chapter2[] = INCBIN_U32("data/tilesets/primary/chapter_2/metatile_attributes.bin");

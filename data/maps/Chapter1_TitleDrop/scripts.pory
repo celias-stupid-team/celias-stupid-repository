@@ -10,7 +10,8 @@ mapscripts Chapter1_TitleDrop_MapScripts{
 script Chapter1_TitleDrop { //Holy shit never make me do this again. I do not understand the TeleportCamera special
     lock
     setvar(VAR_CURRENT_CHAPTER, 1)
-    delay(20)
+    setvar(VAR_TEMP_0, 1)
+    delay(10)
 	playbgm(MUS_CSR_CHAPTER_1, FALSE)
 	delay(20)
     special(SpawnCameraObject)
@@ -43,7 +44,9 @@ script Chapter1_TitleDrop { //Holy shit never make me do this again. I do not un
 	
 	// "Nonsense"
     special(TeleportCamera)
-	delay(118) //Let the screen sink in
+
+	delay(128) //Let the screen sink in
+    
     special(RemoveCameraObject)
 	
     warpsilent(MAP_PALLET_TOWN, 2) //screen fade

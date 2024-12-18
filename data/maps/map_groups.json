@@ -50,7 +50,8 @@
     "RecordCorner",
     "BattleColosseum_4P",
     "UnionRoom",
-    "Chapter1_TitleDrop"
+    "Chapter1_TitleDrop",
+    "Chapter2"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

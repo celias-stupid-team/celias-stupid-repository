@@ -1381,3 +1381,6 @@ Text_TestMsg::
 
 	.include "data/maps/Chapter1_TitleDrop/scripts.inc"
 	.include "data/maps/Chapter1_TitleDrop/text.inc"
+
+	.include "data/maps/Chapter2/scripts.inc"
+	.include "data/maps/Chapter2/text.inc"

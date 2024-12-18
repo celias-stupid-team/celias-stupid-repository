@@ -812,3 +812,14 @@ const struct Tileset gTileset_gTileset_Chapter1Logo =
     .metatileAttributes = gMetatileAttributes_gTileset_Chapter1Logo,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Chapter2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Chapter2,
+    .palettes = gTilesetPalettes_Chapter2,
+    .metatiles = gMetatiles_Chapter2,
+    .metatileAttributes = gMetatileAttributes_Chapter2,
+    .callback = NULL,
+};

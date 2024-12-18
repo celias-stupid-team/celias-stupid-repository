@@ -12,6 +12,7 @@
 #define MAP_BATTLE_COLOSSEUM_4P (3 | (0 << 8))
 #define MAP_UNION_ROOM          (4 | (0 << 8))
 #define MAP_CHAPTER1_TITLE_DROP (5 | (0 << 8))
+#define MAP_CHAPTER2            (6 | (0 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_VIRIDIAN_FOREST                      (0 | (1 << 8))
