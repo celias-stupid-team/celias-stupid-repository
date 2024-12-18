@@ -1693,9 +1693,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_SuperNerdJovan),
     },
     [TRAINER_SUPER_NERD_MIGUEL] = {
-        .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M, //Change to be Proton
+        .trainerPic = TRAINER_PIC_PROTON, //Change to be Proton
         .trainerName = _("PROTON"),
         .items = {},
         .doubleBattle = FALSE,
