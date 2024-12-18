@@ -455,4 +455,5 @@ gSpecials::
 	def_special StartAlomomolaBattle
 	def_special ScriptGetPartyMonSpecies
 	def_special ClearBenchWarp
+	def_special TeleportCamera
 gSpecialsEnd::

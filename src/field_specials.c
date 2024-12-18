@@ -343,6 +343,13 @@ void RemoveCameraObject(void)
     RemoveObjectEventByLocalIdAndMap(OBJ_EVENT_ID_CAMERA, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
 }
 
+void TeleportCamera(void)
+{
+    //UpdateSavedPos();
+    MoveCameraAndRedrawMap(gSpecialVar_0x8004,
+                           gSpecialVar_0x8005);
+}
+
 void BufferEReaderTrainerName(void)
 {
     CopyEReaderTrainerName5(gStringVar1);

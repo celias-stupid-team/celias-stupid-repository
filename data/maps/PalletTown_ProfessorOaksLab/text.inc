@@ -228,7 +228,8 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
     .string "They contain POKéMON!$"
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
-    .string "That's PROF. OAK's last POKéMON.$"
+	.string "Do you really want ANOTHER\n"
+	.string "CHARMANDER?$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"

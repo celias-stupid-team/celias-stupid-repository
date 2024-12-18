@@ -49,7 +49,9 @@
     "TradeCenter",
     "RecordCorner",
     "BattleColosseum_4P",
-    "UnionRoom"
+    "UnionRoom",
+    "Chapter1_TitleDrop",
+    "Chapter2"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
