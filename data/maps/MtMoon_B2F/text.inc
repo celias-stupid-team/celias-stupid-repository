@@ -1,5 +1,5 @@
 MtMoon_B2F_Text_MiguelIntro::
-	.string "PROTON: Stop right there!\n"
+	.string "PROTON: Stop right there!\p"
 	.string "These fossils are facing serious\n"
 	.string "charges.\l"
 	.string "They're staying right here!$"
