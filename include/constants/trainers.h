@@ -267,7 +267,7 @@
 #define TRAINER_CLASS_SCIENTIST           82
 #define TRAINER_CLASS_BOSS                83
 #define TRAINER_CLASS_LEADER              84
-#define TRAINER_CLASS_TEAM_ROCKET         85
+#define TRAINER_CLASS_DMCA         85
 #define TRAINER_CLASS_COOLTRAINER         86
 #define TRAINER_CLASS_ELITE_FOUR          87
 #define TRAINER_CLASS_GENTLEMAN           88

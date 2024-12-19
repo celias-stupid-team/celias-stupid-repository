@@ -1,24 +1,21 @@
 MtMoon_B2F_Text_MiguelIntro::
-	.string "PROTON: Stop right there!\p"
-	.string "I am PROTON, a corporate executive\n"
-	.string "of the DMCA!\p"
+	.string "PROTON: Stop right there!\n"
 	.string "These fossils are facing serious\n"
 	.string "charges.\l"
 	.string "They're staying right here!$"
 
 MtMoon_B2F_Text_MiguelDefeat::
-	.string "PROTON: Fossils are illegal copies\n"
-	.string "of living things!$"
-
-MtMoon_B2F_Text_WellEachTakeAFossil::
 	.string "What!?\p"
 	.string "I thought my KOFFING was\n"
 	.string "invincible!$"
 
+MtMoon_B2F_Text_WellEachTakeAFossil::
+	.string "PROTON: Grr… Fossils are illegal\n"
+	.string "copies of living things!$"
+
 MtMoon_B2F_Text_ThenThisFossilIsMine::
-    .string "All right.\n"
-    .string "Phew!\p"
-    .string "This is the one I wanted anyway.$"
+	.string "PROTON: Hmph.\n"
+	.string "This one stays with me.$"
 
 MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
     .string "I expected to be able to stop\n"
