@@ -80,9 +80,9 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_GUN
 	.4byte Move_HYDRO_PUMP
 	.4byte Move_SURF
-	.4byte Move_ICE_BEAM
-	.4byte Move_BLIZZARD
-	.4byte Move_PSYBEAM
+	.4byte MOVE_ICEBEAM
+	.4byte MOVE_ICE
+	.4byte MOVE_PSY_WIND
 	.4byte Move_BUBBLE_BEAM
 	.4byte Move_AURORA_BEAM
 	.4byte Move_HYPER_BEAM
@@ -116,7 +116,7 @@ gBattleAnims_Moves::
 	.4byte Move_DIG
 	.4byte Move_TOXIC
 	.4byte Move_CONFUSION
-	.4byte Move_PSYCHIC
+	.4byte MOVE_PSY_BEAM
 	.4byte Move_HYPNOSIS
 	.4byte Move_MEDITATE
 	.4byte Move_AGILITY
@@ -176,7 +176,7 @@ gBattleAnims_Moves::
 	.4byte Move_ACID_ARMOR
 	.4byte Move_CRABHAMMER
 	.4byte Move_EXPLOSION
-	.4byte Move_FURY_SWIPES
+	.4byte MOVE_FURRY_SWIPES
 	.4byte Move_BONEMERANG
 	.4byte Move_REST
 	.4byte Move_ROCK_SLIDE
@@ -203,7 +203,7 @@ gBattleAnims_Moves::
 	.4byte Move_COTTON_SPORE
 	.4byte Move_REVERSAL
 	.4byte Move_SPITE
-	.4byte Move_POWDER_SNOW
+	.4byte MOVE_FREEZE
 	.4byte Move_PROTECT
 	.4byte Move_MACH_PUNCH
 	.4byte Move_SCARY_FACE
@@ -376,7 +376,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHOCK_WAVE
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
-	.4byte Move_PSYCHO_BOOST
+	.4byte MOVE_SLUSH_RUSH
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
 	.4byte Move_HEART_SWAP
 	.4byte Move_RETREAT
@@ -4834,7 +4834,7 @@ Move_CONFUSION:
 	call UnsetPsychicBackground
 	end
 
-Move_PSYCHIC:
+MOVE_PSY_BEAM:
 	monbg ANIM_DEF_PARTNER
 	call SetPsychicBackground
 	setalpha 8, 8
@@ -5474,7 +5474,7 @@ Move_CLAMP:
 	waitforvisualfinish
 	end
 
-Move_ICE_BEAM:
+MOVE_ICEBEAM:
 	monbg ANIM_TARGET
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
@@ -5656,7 +5656,7 @@ SolarBeamUnleash1:
 	delay 4
 	return
 
-Move_BLIZZARD:
+MOVE_ICE:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_GetAttackerSide, 2
@@ -5710,7 +5710,7 @@ BlizzardAgainstPlayer:
 	fadetobg BG_HIGHSPEED_PLAYER
 	goto BlizzardContinue
 
-Move_POWDER_SNOW:
+MOVE_FREEZE:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 3, RGB_BLACK
@@ -7278,7 +7278,7 @@ Move_WRAP:
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 6, 4, 2, 4
 	goto BindWrap
 
-Move_PSYBEAM:
+MOVE_PSY_WIND:
 	loadspritegfx ANIM_TAG_GOLD_RING
 	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
@@ -7974,7 +7974,7 @@ Move_LOVELY_KISS:
 	createsprite gPinkHeartSpriteTemplate, ANIM_TARGET, 3, -128, -22
 	end
 
-Move_FURY_SWIPES:
+MOVE_FURRY_SWIPES:
 	loadspritegfx ANIM_TAG_SWIPE
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 5, 5
 	delay 4
@@ -9726,7 +9726,7 @@ Move_WATER_PULSE:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
-Move_PSYCHO_BOOST:
+MOVE_SLUSH_RUSH:
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	monbg ANIM_ATK_PARTNER
 	fadetobg BG_PSYCHIC
