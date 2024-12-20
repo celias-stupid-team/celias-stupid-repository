@@ -361,6 +361,7 @@
 #define MOVE_RETREAT 356
 #define MOVE_SUBSTITUTE_TEACHER 357
 #define MOVE_EXPLOSION_USELESS 358
+#define MOVE_GROWL_CHARMANDER 359 //An HM Move so Charmander can't be released, and the move can't be deleted
 
 
 #define MOVES_COUNT 359

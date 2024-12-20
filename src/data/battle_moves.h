@@ -95,7 +95,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_BURN_HIT,
         .power = 75,
-        .type = TYPE_FIRE_PHYSICAL,
+        .type = TYPE_WATER_PHYSICAL,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 10,
@@ -680,7 +680,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_BURN_HIT,
         .power = 60,
-        .type = TYPE_FIRE,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 25,
         .secondaryEffectChance = 10,
@@ -693,7 +693,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_BURN_HIT,
         .power = 95,
-        .type = TYPE_FIRE,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 10,
@@ -2019,7 +2019,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_DOUBLE_HIT,
         .power = 50,
-        .type = TYPE_GROUND,
+        .type = TYPE_GHOST,
         .accuracy = 90,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -2680,10 +2680,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FALSE_SWIPE] =
     {
-        .effect = EFFECT_FALSE_SWIPE,
-        .power = 40,
+        .effect = EFFECT_OHKO,
+        .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 30,
         .pp = 40,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

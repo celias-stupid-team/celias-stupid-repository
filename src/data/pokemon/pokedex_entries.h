@@ -1588,7 +1588,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MR_MIME] =
     {
-        .categoryName = _("MISTER"),
+        .categoryName = _("MOTHERFCKER"),
         .height = 13,
         .weight = 545,
         .description = gMrmimePokedexText,

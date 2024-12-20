@@ -1718,7 +1718,7 @@ void BufferStringBattle(u16 stringId)
         if (sBattleMsgDataPtr->currentMove >= MOVES_COUNT)
             StringCopy(gBattleTextBuff2, sATypeMove_Table[*(&gBattleStruct->stringMoveType)]);
         else
-            StringCopy(gBattleTextBuff2, gMoveNames[sBattleMsgDataPtr->currentMove]);
+            StringCopy(gBattleTextBuff2, gLongMoveNames[sBattleMsgDataPtr->currentMove]);
 
         ChooseTypeOfMoveUsedString(gBattleTextBuff2);
         stringPtr = sText_AttackerUsedX;
@@ -2028,13 +2028,13 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 if (sBattleMsgDataPtr->currentMove >= MOVES_COUNT)
                     toCpy = (const u8 *)&sATypeMove_Table[gBattleStruct->stringMoveType];
                 else
-                    toCpy = gMoveNames[sBattleMsgDataPtr->currentMove];
+                    toCpy = gLongMoveNames[sBattleMsgDataPtr->currentMove];
                 break;
             case B_TXT_LAST_MOVE: // originally used move name
                 if (sBattleMsgDataPtr->originallyUsedMove >= MOVES_COUNT)
                     toCpy = (const u8 *)&sATypeMove_Table[gBattleStruct->stringMoveType];
                 else
-                    toCpy = gMoveNames[sBattleMsgDataPtr->originallyUsedMove];
+                    toCpy = gLongMoveNames[sBattleMsgDataPtr->originallyUsedMove];
                 break;
             case B_TXT_LAST_ITEM: // last used item
                 if (gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -2294,7 +2294,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             srcId += src[srcId + 1] + 3;
             break;
         case B_BUFF_MOVE: // move name
-            StringAppend(dst, gMoveNames[T1_READ_16(&src[srcId + 1])]);
+            StringAppend(dst, gLongMoveNames[T1_READ_16(&src[srcId + 1])]);
             srcId += 3;
             break;
         case B_BUFF_TYPE: // type name
