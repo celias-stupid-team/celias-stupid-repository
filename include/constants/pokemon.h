@@ -103,7 +103,7 @@
 #define TYPE_ROCK           5
 #define TYPE_BUG            6
 #define TYPE_GHOST          7
-#define TYPE_FIRE_PHYSICAL  8
+#define TYPE_WATER_PHYSICAL  8
 #define TYPE_ELECTRIC_PHYSICAL 9
 #define TYPE_PSYCHIC_PHYSICAL 10
 #define TYPE_MYSTERY        11

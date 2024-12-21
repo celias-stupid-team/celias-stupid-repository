@@ -157,7 +157,7 @@ static const u8 *GetEasyChatWord(u8 groupId, u16 index)
         return gSpeciesNames[index];
     case EC_GROUP_MOVE_1:
     case EC_GROUP_MOVE_2:
-        return gMoveNames[index];
+        return gLongMoveNames[index];
     default:
         return sEasyChatGroups[groupId].wordData.words[index].text;
     }
