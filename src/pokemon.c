@@ -5316,15 +5316,27 @@ u16 SpeciesToCryId(u16 species)
         return SPECIES_UNOWN - 1;
 
     if (species < SPECIES_WARTORTLE - 1)
-        return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Unova
+        return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)]; //Hoenn
     
-    if (species < SPECIES_VOLCANION - 1)
-        return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)]; //Alola
+    if (species < ALOLA_MON_SPECIES_START - 1)
+        return sUnovaSpeciesIdToCryId[species - ((SPECIES_WARTORTLE + 1) - 1)]; //Unova
     
-    if (species < SPECIES_SPRIGATITO - 1)
-        return sAlolaSpeciesIdToCryId[species - ((SPECIES_VOLCANION + 1) - 1)]; //Paldea
+    if (species < PALDEA_MON_SPECIES_START - 1)
+        return sAlolaSpeciesIdToCryId[species - ((SPECIES_HOOPA + 1) - 1)]; //Alola This one might just be wrong?? It might have to be chagned to Dodrio maybe
     
-    return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS + 1) - 1)]; //Paldea
+    if  (species < SPECIES_PIKACHU_BIRTHDAY - 1)
+        return sPaldeaSpeciesIdToCryId[species - ((SPECIES_ENAMORUS + 1) - 1)]; //Paldea
+
+    if  (species < SPECIES_ARCANINE_POKERAP - 1)
+        return sPokerapSpeciesIdToCryId[species - ((SPECIES_BRAMBLEGHAST + 1) - 1)]; //Pokerap
+    
+    return sStupidSpeciesIdToCryId[species - ((SPECIES_DIGLETT_POKERAP + 1) - 1)]; //Stupid Romhack // [species - ((1136 + 1) - 1)] 
+
+    //species - 1136
+    //arcanine: 1145 - 1136 = 9
+    // in the other file: Arcanine is 1145 - 1129 = 16 = cry_arcanine
+
+
     
 }
 
