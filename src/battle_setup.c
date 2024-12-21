@@ -662,6 +662,12 @@ static u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_LANCE;
         return B_TRANSITION_BLUE;
     }
+
+    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_DMCA_ADMIN)
+    {
+        return B_TRANSITION_DMCA;
+    }
+
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
         return B_TRANSITION_BLUE;
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)

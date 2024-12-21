@@ -1,20 +1,21 @@
 MtMoon_B2F_Text_MiguelIntro::
-    .string "Hey, stop!\p"
-    .string "I found these fossils!\n"
-    .string "They're both mine!$"
+	.string "PROTON: Stop right there!\p"
+	.string "These fossils are facing serious\n"
+	.string "charges.\l"
+	.string "They're staying right here!$"
 
 MtMoon_B2F_Text_MiguelDefeat::
-    .string "Okay!\n"
-    .string "I'll share!$"
+	.string "What!?\p"
+	.string "I thought my KOFFING was\n"
+	.string "invincible!$"
 
 MtMoon_B2F_Text_WellEachTakeAFossil::
-    .string "What?! I thought my KOFFING was\n"
-    .string "invincible!$"
+	.string "PROTON: Grr… Fossils are illegal\n"
+	.string "copies of living things!$"
 
 MtMoon_B2F_Text_ThenThisFossilIsMine::
-    .string "All right.\n"
-    .string "Phew!\p"
-    .string "This is the one I wanted anyway.$"
+	.string "PROTON: Hmph.\n"
+	.string "This one stays with me.$"
 
 MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
     .string "I expected to be able to stop\n"
@@ -33,13 +34,14 @@ MtMoon_B2F_Text_Grunt1Defeat::
     .string "Now I'm mad!$"
 
 MtMoon_B2F_Text_Grunt1PostBattle::
-    .string "Fossils are illegal copies of\n"
-    .string "living things!$"
+	.string "A huge lawsuit is coming your\n"
+	.string "way, kid!\l"
+	.string "Grr!$"
 
 MtMoon_B2F_Text_Grunt2Intro::
     .string "We, the DMCA, are copyright\n"
     .string "gangsters!\p"
-    .string "We strike fear with our takedown!$"
+    .string "We strike fear with our takedowns!$"
 
 MtMoon_B2F_Text_Grunt2Defeat::
     .string "I blew it!$"
