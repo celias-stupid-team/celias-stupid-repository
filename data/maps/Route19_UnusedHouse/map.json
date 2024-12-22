@@ -3,7 +3,7 @@
   "name": "Route19_UnusedHouse",
   "layout": "LAYOUT_HOUSE2",
   "music": "MUS_ROUTE3",
-  "region_map_section": "MAPSEC_ROUTE_19",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

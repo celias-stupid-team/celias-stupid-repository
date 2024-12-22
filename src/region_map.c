@@ -554,7 +554,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_FIVE_ISLE_MEADOW,
         MAPSEC_MEMORIAL_PILLAR,
         MAPSEC_NAVEL_ROCK,
-        MAPSEC_ICEFALL_CAVE,
+        MAPSEC_SKY_TOWER,
         MAPSEC_ROCKET_WAREHOUSE,
         MAPSEC_LOST_CAVE,
         MAPSEC_NONE
@@ -576,18 +576,18 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_SEVII_ISLE_24,
         MAPSEC_TRAINER_TOWER_2,
         MAPSEC_DOTTED_HOLE,
-        MAPSEC_PATTERN_BUSH,
-        MAPSEC_ALTERING_CAVE,
-        MAPSEC_TANOBY_CHAMBERS,
-        MAPSEC_TANOBY_KEY,
+        MAPSEC_ZERO_ISLAND,
+        MAPSEC_YES,
+        MAPSEC_SECRET_TUNNEL,
+        MAPSEC_ALTAR_OF_MOONE,
         MAPSEC_BIRTH_ISLAND,
-        MAPSEC_MONEAN_CHAMBER,
-        MAPSEC_LIPTOO_CHAMBER,
-        MAPSEC_WEEPTH_CHAMBER,
-        MAPSEC_DILFORD_CHAMBER,
-        MAPSEC_SCUFIB_CHAMBER,
-        MAPSEC_RIXY_CHAMBER,
-        MAPSEC_VIAPOIS_CHAMBER,
+        MAPSEC_THIRTY_EIGHT_ISLAND,
+        MAPSEC_SECRET_GARDEN,
+        MAPSEC_AMITY_SQUARE,
+        MAPSEC_POKEMON_ISLAND,
+        MAPSEC_AETHER_PARADISE,
+        MAPSEC_KANTO_LIGHTHOUSE,
+        MAPSEC_MINNESOTA,
         MAPSEC_NONE
     }
 };
@@ -691,24 +691,24 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_BERRY_FOREST,
         .desc = gText_RegionMap_AreaDesc_BerryForest
     }, {
-        .id = MAPSEC_ICEFALL_CAVE,
-        .name = sMapsecName_ICEFALL_CAVE,
+        .id = MAPSEC_SKY_TOWER,
+        .name = sMapsecName_SKY_TOWER,
         .desc = gText_RegionMap_AreaDesc_IcefallCave
     }, {
         .id = MAPSEC_LOST_CAVE,
         .name = sMapsecName_LOST_CAVE,
         .desc = gText_RegionMap_AreaDesc_LostCave
     }, {
-        .id = MAPSEC_TANOBY_CHAMBERS,
-        .name = sMapsecName_TANOBY_CHAMBERS,
+        .id = MAPSEC_SECRET_TUNNEL,
+        .name = sMapsecName_SECRET_TUNNEL_,
         .desc = gText_RegionMap_AreaDesc_TanobyRuins
     }, {
-        .id = MAPSEC_ALTERING_CAVE,
-        .name = sMapsecName_ALTERING_CAVE,
+        .id = MAPSEC_YES,
+        .name = sMapsecName_YES,
         .desc = gText_RegionMap_AreaDesc_AlteringCave
     }, {
-        .id = MAPSEC_PATTERN_BUSH,
-        .name = sMapsecName_PATTERN_BUSH,
+        .id = MAPSEC_ZERO_ISLAND,
+        .name = sMapsecName_ZERO_ISLAND,
         .desc = gText_RegionMap_AreaDesc_PatternBush
     }, {
         .id = MAPSEC_DOTTED_HOLE,
@@ -857,7 +857,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_16            - MAPSECS_KANTO] = {MAP(ROUTE16),                               0},
     [MAPSEC_ROUTE_17            - MAPSECS_KANTO] = {MAP(ROUTE17),                               0},
     [MAPSEC_ROUTE_18            - MAPSECS_KANTO] = {MAP(ROUTE18),                               0},
-    [MAPSEC_ROUTE_19            - MAPSECS_KANTO] = {MAP(ROUTE19),                               0},
+    [MAPSEC_GREAT_SEA            - MAPSECS_KANTO] = {MAP(ROUTE19),                               0},
     [MAPSEC_ROUTE_20            - MAPSECS_KANTO] = {MAP(ROUTE20),                               0},
     [MAPSEC_ROUTE_21            - MAPSECS_KANTO] = {MAP(ROUTE21_NORTH),                         0},
     [MAPSEC_ROUTE_22            - MAPSECS_KANTO] = {MAP(ROUTE22),                               0},
@@ -915,24 +915,24 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_NAVEL_ROCK          - MAPSECS_KANTO] = {MAP(NAVEL_ROCK_EXTERIOR),                   0},
     [MAPSEC_MT_EMBER            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BERRY_FOREST        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_ICEFALL_CAVE        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_SKY_TOWER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_ROCKET_WAREHOUSE    - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_TRAINER_TOWER_2     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_DOTTED_HOLE         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_LOST_CAVE           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_PATTERN_BUSH        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_ALTERING_CAVE       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_TANOBY_CHAMBERS     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_ZERO_ISLAND        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_YES       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_SECRET_TUNNEL     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_THREE_ISLE_PATH     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_TANOBY_KEY          - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_ALTAR_OF_MOONE          - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BIRTH_ISLAND        - MAPSECS_KANTO] = {MAP(BIRTH_ISLAND_EXTERIOR),                 0},
-    [MAPSEC_MONEAN_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_LIPTOO_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_WEEPTH_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_DILFORD_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_THIRTY_EIGHT_ISLAND      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_SECRET_GARDEN      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_AMITY_SQUARE      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_POKEMON_ISLAND     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_AETHER_PARADISE      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_KANTO_LIGHTHOUSE        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_MINNESOTA     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 
@@ -1943,8 +1943,8 @@ static void InitDungeonMapPreview(u8 unused, u8 taskId, TaskFunc taskFunc)
     u8 mapsec;
     sDungeonMapPreview = AllocZeroed(sizeof(struct DungeonMapPreview));
     mapsec = GetDungeonMapsecUnderCursor();
-    if (mapsec == MAPSEC_TANOBY_CHAMBERS)
-        mapsec = MAPSEC_MONEAN_CHAMBER;
+    if (mapsec == MAPSEC_SECRET_TUNNEL)
+        mapsec = MAPSEC_THIRTY_EIGHT_ISLAND;
     sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(mapsec);
     if (sDungeonMapPreview->mapPreviewInfo == NULL)
         sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_ROCK_TUNNEL);
@@ -3048,8 +3048,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_MT_EMBER_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BERRY_FOREST:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ICEFALL_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_SKY_TOWER:
+        return FlagGet(FLAG_CSR_MAP_SKY_TOWER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROCKET_WAREHOUSE:
         return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TRAINER_TOWER_2:
@@ -3058,18 +3058,44 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_LOST_CAVE:
         return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_PATTERN_BUSH:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ALTERING_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_TANOBY_CHAMBERS:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ZERO_ISLAND:
+        return FlagGet(FLAG_CSR_MAP_ZERO_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_THREE_ISLE_PATH:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_TANOBY_KEY:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BIRTH_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+
+        //CSR Mapsecs!
+    case MAPSEC_ONE_ISLAND:
+        return FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_TWO_ISLAND:
+        return FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_FOUR_ISLAND:
+        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+
+    case MAPSEC_THIRTY_EIGHT_ISLAND:
+        return FlagGet(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_SECRET_GARDEN:
+        return FlagGet(FLAG_CSR_MAP_SECRET_GARDEN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_AMITY_SQUARE:
+        return FlagGet(FLAG_CSR_MAP_AMITY_SQUARE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_POKEMON_ISLAND:
+        return FlagGet(FLAG_CSR_MAP_POKEMON_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_AETHER_PARADISE:
+        return FlagGet(FLAG_CSR_MAP_AETHER_PARADISE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_KANTO_LIGHTHOUSE:
+        return FlagGet(FLAG_CSR_MAP_KANTO_LIGHTHOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+
+    case MAPSEC_MINNESOTA:
+        return FlagGet(FLAG_CSR_MAP_MINNESOTA) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ALTAR_OF_MOONE:
+        return FlagGet(FLAG_CSR_MAP_ALTAR_OF_MOONE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_SECRET_TUNNEL:
+        return FlagGet(FLAG_CSR_MAP_SECRET_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_YES:
+        return FlagGet(FLAG_CSR_MAP_YES) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+
+
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3176,52 +3202,52 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     switch (GetPlayerCurrentMapSectionId())
     {
     case MAPSEC_KANTO_SAFARI_ZONE:
-        sMapCursor->x = 12;
-        sMapCursor->y = 12;
+        sMapCursor->x = 14;
+        sMapCursor->y = 11;
         break;
     case MAPSEC_SILPH_CO:
-        sMapCursor->x = 14;
-        sMapCursor->y = 6;
+        sMapCursor->x = 16;
+        sMapCursor->y = 8;
         break;
     case MAPSEC_POKEMON_MANSION:
-        sMapCursor->x = 4;
+        sMapCursor->x = 3;
         sMapCursor->y = 14;
         break;
     case MAPSEC_POKEMON_TOWER:
-        sMapCursor->x = 18;
-        sMapCursor->y = 6;
+        sMapCursor->x = 19;
+        sMapCursor->y = 7;
         break;
     case MAPSEC_POWER_PLANT:
-        sMapCursor->x = 18;
+        sMapCursor->x = 19;
         sMapCursor->y = 4;
         break;
     case MAPSEC_S_S_ANNE:
-        sMapCursor->x = 14;
+        sMapCursor->x = 16;
         sMapCursor->y = 9;
         break;
     case MAPSEC_POKEMON_LEAGUE:
-        sMapCursor->x = 2;
-        sMapCursor->y = 3;
+        sMapCursor->x = 1;
+        sMapCursor->y = 4;
         break;
     case MAPSEC_ROCKET_HIDEOUT:
-        sMapCursor->x = 11;
+        sMapCursor->x = 13;
         sMapCursor->y = 6;
         break;
     case MAPSEC_UNDERGROUND_PATH:
-        sMapCursor->x = 14;
+        sMapCursor->x = 16;
         sMapCursor->y = 7;
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNDERGROUND_PATH_NORTH_ENTRANCE))
         {
-            sMapCursor->x = 14; // optimized out but required to match
+            sMapCursor->x = 16; // optimized out but required to match
             sMapCursor->y = 5;
         }
         break;
     case MAPSEC_UNDERGROUND_PATH_2:
-        sMapCursor->x = 12;
+        sMapCursor->x = 15;
         sMapCursor->y = 6;
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNDERGROUND_PATH_EAST_ENTRANCE))
         {
-            sMapCursor->x = 15;
+            sMapCursor->x = 19;
             sMapCursor->y = 6; // optimized out but required to match
         }
         break;
@@ -3245,7 +3271,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 14;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_PATTERN_BUSH:
+    case MAPSEC_ZERO_ISLAND:
         sMapCursor->x = 17;
         sMapCursor->y = 3;
         break;
@@ -3253,14 +3279,14 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 17;
         sMapCursor->y = 11;
         break;
-    case MAPSEC_DILFORD_CHAMBER:
-    case MAPSEC_LIPTOO_CHAMBER:
-    case MAPSEC_MONEAN_CHAMBER:
-    case MAPSEC_RIXY_CHAMBER:
-    case MAPSEC_SCUFIB_CHAMBER:
-    case MAPSEC_TANOBY_CHAMBERS:
-    case MAPSEC_VIAPOIS_CHAMBER:
-    case MAPSEC_WEEPTH_CHAMBER:
+    case MAPSEC_POKEMON_ISLAND:
+    case MAPSEC_SECRET_GARDEN:
+    case MAPSEC_THIRTY_EIGHT_ISLAND:
+    case MAPSEC_KANTO_LIGHTHOUSE:
+    case MAPSEC_AETHER_PARADISE:
+    case MAPSEC_SECRET_TUNNEL:
+    case MAPSEC_MINNESOTA:
+    case MAPSEC_AMITY_SQUARE:
         sMapCursor->x = 9;
         sMapCursor->y = 12;
         break;
@@ -3269,26 +3295,26 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->y = 8;
         break;
     case MAPSEC_VIRIDIAN_FOREST:
-        sMapCursor->x = 4;
+        sMapCursor->x = 3;
         sMapCursor->y = 6;
         break;
     case MAPSEC_ROUTE_2:
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN))
         {
-            sMapCursor->x = 4;
-            sMapCursor->y = 7;
+            sMapCursor->x = 3;
+            sMapCursor->y = 6;
         }
         else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(CERULEAN_CITY))
         {
-            sMapCursor->x = 4;
-            sMapCursor->y = 5;
+            sMapCursor->x = 3;
+            sMapCursor->y = 6;
         }
         else
         {
             GetPlayerPositionOnRegionMap();
         }
         break;
-    case MAPSEC_ROUTE_21:
+    case MAPSEC_ROUTE_21: //These will need updated eventually -Celia
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE21_NORTH))
         {
             sMapCursor->x = 4;
