@@ -516,7 +516,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_PICNICKER, 5},
     {TRAINER_CLASS_ANGRY_NERD, 6},
     {TRAINER_CLASS_FISHERMAN, 9},
-    {TRAINER_CLASS_TEAM_ROCKET, 8},
+    {TRAINER_CLASS_DMCA, 8},
     {TRAINER_CLASS_LASS, 4},
     {TRAINER_CLASS_BEAUTY, 18},
     {TRAINER_CLASS_BLACK_BELT, 6},
@@ -524,6 +524,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_CHANNELER, 8},
     {TRAINER_CLASS_ROCKER, 6},
     {TRAINER_CLASS_GENTLEMAN, 18},
+    {TRAINER_CLASS_DMCA_ADMIN, 18},
     {TRAINER_CLASS_BURGLAR, 22},
     {TRAINER_CLASS_SWIMMER_M, 1},
     {TRAINER_CLASS_ENGINEER, 12},
@@ -3872,7 +3873,7 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         case TRAINER_CLASS_BOSS:
-        case TRAINER_CLASS_TEAM_ROCKET:
+        case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_ELITE_FOUR:
         case TRAINER_CLASS_GENTLEMAN:

@@ -32,6 +32,9 @@ enum {
     B_TRANSITION_LANCE,
     B_TRANSITION_BLUE,
     B_TRANSITION_SPIRAL,
+
+    //CSR Transitions!
+    B_TRANSITION_DMCA,
     B_TRANSITION_COUNT
 };
 

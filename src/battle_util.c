@@ -1729,6 +1729,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+                /*    Overworld drought does not set weather in battle, so Paras can activate it himself.
                 case WEATHER_DROUGHT:
                     if (!(gBattleWeather & B_WEATHER_SUN))
                     {
@@ -1738,6 +1739,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+                    */
                 }
                 if (effect != 0)
                 {

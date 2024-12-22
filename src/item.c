@@ -577,7 +577,7 @@ void TrySetObtainedItemQuestLogEvent(u16 itemId)
      || itemId == ITEM_CARD_KEY
      || itemId == ITEM_LIFT_KEY
      || itemId == ITEM_HELIX_FOSSIL
-     || itemId == ITEM_DOME_FOSSIL
+     || itemId == ITEM_JAW_FOSSIL
      || itemId == ITEM_SILPH_SCOPE
      || itemId == ITEM_BICYCLE
      || itemId == ITEM_TOWN_MAP

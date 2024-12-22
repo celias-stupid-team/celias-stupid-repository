@@ -3711,6 +3711,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_CHAPTER_2) \
     X(MUS_CSR_SKY_TOWER) \
     X(MUS_CSR_DMCA_BATTLE) \
+    X(MUS_CSR_DMCA_ADMIN) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

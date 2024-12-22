@@ -1,5 +1,5 @@
 Help_Text_WhatShouldIDo::
-	.string "What should I do in this situation?$"
+	.string "GENESIS?$"
 
 Help_Text_HowDoIDoThis::
 	.string "How do I do this?$"
@@ -8,7 +8,7 @@ Help_Text_WhatDoesThisTermMean::
 	.string "What does this term mean?$"
 
 Help_Text_AboutThisGame::
-	.string "About this game$"
+	.string "This isn't implemented yet. Sorry! -CELIA$"
 
 Help_Text_TypeMatchupList::
 	.string "Type Matchup List$"
@@ -56,7 +56,7 @@ Help_Text_PlayingForFirstTime::
 	.string "I'm playing for the first time. Help!$"
 
 Help_Text_WhatShouldIBeDoing::
-	.string "Genesis 1:11$"
+	.string "This isn't implemented yet. Sorry! -CELIA$"
 
 Help_Text_CantGetOutOfRoom::
 	.string "I can't get out of a room!$"

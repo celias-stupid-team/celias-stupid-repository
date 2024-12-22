@@ -120,6 +120,11 @@ static bool8 PokeballsTrail_Main(struct Task *task);
 static bool8 PokeballsTrail_End(struct Task *task);
 static bool8 BigPokeball_Init(struct Task *task);
 static bool8 BigPokeball_SetGfx(struct Task *task);
+
+static bool8 DMCA_Init(struct Task *task);
+static bool8 DMCA_SetGfx(struct Task *task);
+
+
 static bool8 PatternWeave_Blend1(struct Task *task);
 static bool8 PatternWeave_Blend2(struct Task *task);
 static bool8 PatternWeave_FinishAppear(struct Task *task);
@@ -154,6 +159,8 @@ static void Task_Agatha(u8 taskId);
 static void Task_Lance(u8 taskId);
 static void Task_Blue(u8 taskId);
 static void Task_Spiral(u8 taskId);
+
+static void Task_DMCA(u8 taskId);
 static void Task_Intro(u8 taskId);
 static void DoMugshotTransition(u8 taskId);
 static void Task_BattleTransition_Intro(u8 taskId);
@@ -208,6 +215,8 @@ static s16 IsTrainerPicSlideDone(s16 spriteId);
 static void Mugshots_CreateTrainerPics(struct Task *task);
 
 static const u32 sBigPokeball_Gfx[] = INCBIN_U32("graphics/battle_transitions/big_pokeball.4bpp");
+static const u32 sDMCA_Transition_Gfx[] = INCBIN_U32("graphics/battle_transitions/big_d.4bpp");
+
 static const u32 sSlidingPokeball_Tilemap[] = INCBIN_U32("graphics/battle_transitions/sliding_pokeball.bin");
 static const u8 sSlidingPokeball_Gfx[] = INCBIN_U8("graphics/battle_transitions/sliding_pokeball.4bpp");
 static const u32 sMugshotBanner_Gfx[] = INCBIN_U32("graphics/battle_transitions/mugshot_banner.4bpp");
@@ -243,6 +252,7 @@ static const TaskFunc sTasks_Main[] =
     [B_TRANSITION_LANCE]           = Task_Lance,
     [B_TRANSITION_BLUE]            = Task_Blue,
     [B_TRANSITION_SPIRAL]          = Task_Spiral,
+    [B_TRANSITION_DMCA]            = Task_DMCA,
 };
 
 static const TransitionStateFunc sTaskHandlers[] =
@@ -276,6 +286,16 @@ static const TransitionStateFunc sBigPokeball_Funcs[] =
 {
     BigPokeball_Init,
     BigPokeball_SetGfx,
+    PatternWeave_Blend1,
+    PatternWeave_Blend2,
+    PatternWeave_FinishAppear,
+    PatternWeave_CircularMask,
+};
+
+static const TransitionStateFunc sDMCA_Funcs[] =
+{
+    DMCA_Init,
+    DMCA_SetGfx,
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
@@ -568,6 +588,8 @@ static const struct SpriteTemplate sSpriteTemplate_UnusedBrendanLass[] =
 
 // this palette is shared by big pokeball and sliding pokeball
 static const u16 sFieldEffectPal_Pokeball[] = INCBIN_U16("graphics/battle_transitions/sliding_pokeball.gbapal");
+static const u16 sFieldEffectPal_DMCA[] = INCBIN_U16("graphics/battle_transitions/big_d.gbapal");
+
 
 const struct SpritePalette gSpritePalette_Pokeball =
 {
@@ -607,6 +629,8 @@ static const struct SpritePalette sSpritePalette_UnusedTrainer =
 };
 
 static const u16 sBigPokeball_Tilemap[] = INCBIN_U16("graphics/battle_transitions/big_pokeball_tilemap.bin");
+static const u16 sDMCA_Transition_Tilemap[] = INCBIN_U16("graphics/battle_transitions/big_d.bin");
+
 static const u16 sMugshotsTilemap[] = INCBIN_U16("graphics/battle_transitions/vsbar_tilemap.bin");
 
 void BattleTransition_StartOnField(u8 transitionId)
@@ -756,7 +780,7 @@ static bool8 Blur_Main(struct Task *task)
 static bool8 Blur_End(struct Task *task)
 {
     if (!gPaletteFade.active)
-        DestroyTask(FindTaskIdByFunc(Task_Blur));
+        DestroyTask(FindTaskIdByFunc(task->func));
     return FALSE;
 }
 
@@ -1044,7 +1068,7 @@ static bool8 PatternWeave_CircularMask(struct Task *task)
     {
         DmaStop(0);
         FadeScreenBlack();
-        DestroyTask(FindTaskIdByFunc(Task_BigPokeball)); // FindTaskIdByFunc(task->func) in Emerald to accomdate other functions
+        DestroyTask(FindTaskIdByFunc(task->func)); // FindTaskIdByFunc(task->func) in Emerald to accomdate other functions
     }
     if (!task->tVBlankSet)
     {
@@ -1078,6 +1102,70 @@ static void VBlankCB_CircularMask(void)
 {
     VBlankCB_SetWinAndBlend();
     DmaSet(0, gScanlineEffectRegBuffers[1], &REG_WIN0H, B_TRANS_DMA_FLAGS);
+}
+
+#undef tAmplitude
+#undef tSinIndex
+#undef tBlendTarget1
+#undef tBlendTarget2
+#undef tRadius
+#undef tRadiusDelta
+#undef tVBlankSet
+
+//------------------------------
+// B_TRANSITION_DMCA                Gonna be stealing a lot of the Big Pokeball transition
+//------------------------------
+
+#define tBlendTarget1 data[1]
+#define tBlendTarget2 data[2]
+#define tBlendDelay   data[3]
+
+// These need to be re-defined here
+#define tRadius      data[1]
+#define tRadiusDelta data[2]
+#define tVBlankSet   data[3]
+
+#define tSinIndex     data[4]
+#define tAmplitude    data[5]
+#define tEndDelay     data[8]
+
+
+
+
+
+
+static void Task_DMCA(u8 taskId)
+{
+    while (sDMCA_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static bool8 DMCA_Init(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    InitPatternWeaveTransition(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, BG_SCREEN_SIZE);
+    CpuCopy16(sDMCA_Transition_Gfx, tileset, sizeof(sDMCA_Transition_Gfx));
+    LoadPalette(sFieldEffectPal_DMCA, BG_PLTT_ID(15), sizeof(sFieldEffectPal_DMCA));
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 DMCA_SetGfx(struct Task *task)
+{
+    s16 i, j;
+    u16 *tilemap, *tileset;
+    const u16 *bigDMCA = sDMCA_Transition_Tilemap;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    for (i = 0; i < 20; i++)
+        for (j = 0; j < 30; j++, bigDMCA++)
+            SET_TILE(tilemap, i, j, *bigDMCA);
+
+    SetSinWave(gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
+    task->tState++;
+    return TRUE;
 }
 
 #undef tAmplitude
