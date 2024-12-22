@@ -426,6 +426,11 @@ static const u32 sFlyIcon[] = INCBIN_U32("graphics/region_map/fly_icon.4bpp.lz")
 static const u32 sBackground_Gfx[] = INCBIN_U32("graphics/region_map/background.4bpp.lz");
 static const u32 sBackground_Tilemap[] = INCBIN_U32("graphics/region_map/background.bin.lz");
 
+//For Celadon
+static const u32 sCeladonMap_Gfx[] = INCBIN_U32("graphics/region_map/celadon_tiles.4bpp.lz");
+static const u16 sCeladonMap_Pal[] = INCBIN_U16("graphics/region_map/celadon_map.gbapal");
+
+
 static const struct BgTemplate sRegionMapBgTemplates[] = {
     {
         .bg = 0,
@@ -1108,24 +1113,57 @@ static bool8 LoadRegionMapGfx(void)
         LoadPalette(sTopBar_Pal, BG_PLTT_ID(12), sizeof(sTopBar_Pal));
         break;
     case 1:
-        LoadPalette(sRegionMap_Pal, 0, sizeof(sRegionMap_Pal));
-        TintMapEdgesPalette();
-        if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
-        {
-            LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(0), sizeof(sTopBar_Pal[15]));
-            LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(1), sizeof(sTopBar_Pal[15]));
-            LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(2), sizeof(sTopBar_Pal[15]));
-            LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(3), sizeof(sTopBar_Pal[15]));
-            LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(4), sizeof(sTopBar_Pal[15]));
+        switch (sRegionMap->selectedRegion) {
+
+            case REGIONMAP_KANTO:
+                LoadPalette(sRegionMap_Pal, 0, sizeof(sRegionMap_Pal));
+                TintMapEdgesPalette();
+                if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+                {
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(0), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(1), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(2), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(3), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(4), sizeof(sTopBar_Pal[15]));
+                }
+                break;
+            
+            case REGIONMAP_SEVII123:
+                LoadPalette(sCeladonMap_Pal, 0, sizeof(sCeladonMap_Pal));
+                TintMapEdgesPalette();
+                if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+                {
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(0), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(1), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(2), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(3), sizeof(sTopBar_Pal[15]));
+                    LoadPalette(&sTopBar_Pal[15], BG_PLTT_ID(4), sizeof(sTopBar_Pal[15]));
+                }
+                break;
         }
+        
         break;
     case 2:
         ResetTempTileDataBuffers();
         break;
     case 3:
-        DecompressAndCopyTileDataToVram(0, sRegionMap_Gfx, 0, 0, 0);
-        if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
-            DecompressAndCopyTileDataToVram(1, sBackground_Gfx, 0, 0, 0);
+
+        //I think we need to have a switch statement here for the different areas??
+        switch (sRegionMap->selectedRegion) //Figure out how to check if you're on sevii
+        {
+            case REGIONMAP_SEVII123:
+                DecompressAndCopyTileDataToVram(0, sCeladonMap_Gfx, 0, 0, 0);
+                if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+                    DecompressAndCopyTileDataToVram(1, sBackground_Gfx, 0, 0, 0);
+                break;
+
+            case REGIONMAP_KANTO:
+                DecompressAndCopyTileDataToVram(0, sRegionMap_Gfx, 0, 0, 0);
+                if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
+                    DecompressAndCopyTileDataToVram(1, sBackground_Gfx, 0, 0, 0);
+                break;
+                
+        }
         break;
     case 4:
         if (FreeTempTileDataBuffersIfPossible() == TRUE)
