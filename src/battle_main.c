@@ -516,6 +516,8 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_ELECTRIC_PHYSICAL] = _("ELECTR"),
     [TYPE_PSYCHIC_PHYSICAL]  = _("PSYCHC"),
     [TYPE_FAIRY_TRANS] = _("FAIRY"),
+    [TYPE_SOUND] = _("SOUND"),
+
 };
 
 // This is a factor in how much money you get for beating a trainer.

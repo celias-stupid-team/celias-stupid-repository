@@ -94,6 +94,9 @@ extern const u8 gOtherText_Give[];
 extern const u8 gOtherText_Exit[];
 extern const u8 gText_ThreeHyphens[];
 extern const u8 gText_750[];
+extern const u8 gText_360[];
+extern const u8 gText_270[];
+
 extern const u8 gText_SevenHyphens[];
 extern const u8 gText_NumberClear01[];
 extern const u8 gText_TimesStrVar1[];

@@ -320,7 +320,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 			MOVE_THIEF,
 			MOVE_LICK,
 			MOVE_BIND,
-			MOVE_FURRY_SWIPES
+			MOVE_FURY_SWIPES
 		},
 		.evSpread = F_EV_SPREAD_DEFENSE,
 		.nature = NATURE_JOLLY,
@@ -473,7 +473,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel100Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_QUICK_CLAW,
 		.teamFlags = 0x05,
 		.moves = {
-			MOVE_FURRY_SWIPES,
+			MOVE_FURY_SWIPES,
 			MOVE_TAIL_WHIP,
 			MOVE_DISABLE,
 			MOVE_PSYCH_UP
