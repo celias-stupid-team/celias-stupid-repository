@@ -76,6 +76,7 @@ static void Task_ListMenuRemoveScrollIndicatorArrowPair(u8 taskId);
 static u16 GetStarterSpeciesById(u16 starterIdx);
 static void ChangeBoxPokemonNickname_CB(void);
 static void ChangePokemonNickname_CB(void);
+static void SocialSecurity_CB(void);
 static void Task_RunPokemonLeagueLightingEffect(u8 taskId);
 static void Task_CancelPokemonLeagueLightingEffect(u8 taskId);
 static void Task_DoDeoxysTriangleInteraction(u8 taskId);
@@ -1682,6 +1683,18 @@ void ChangePokemonNickname(void)
     gender = GetMonGender(&gPlayerParty[gSpecialVar_0x8004]);
     personality = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, NULL);
     DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, species, gender, personality, ChangePokemonNickname_CB);
+}
+
+bool8 SocialSecurityCheck(void) {
+    
+    DoNamingScreen(NAMING_SCREEN_SOCIAL, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, SocialSecurity_CB);
+    return FALSE;
+}
+
+static void SocialSecurity_CB(void) {
+    ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEFT_ALIGN, 6);
+    VarSet(VAR_RESULT, !StringCompare(gStringVar2, gStringVar1));
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
 static void ChangePokemonNickname_CB(void)
