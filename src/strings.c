@@ -772,6 +772,7 @@ const u8 gText_Ferry[] = _("れんらくせん");
 const u8 gText_SecretBase[] = _("ひみつきち");
 const u8 gText_Hideout[] = _("アジト");
 const u8 gText_YourName[] = _("YOUR NAME?");
+const u8 gText_YourSSN[] = _("YOUR SSN?");
 const u8 gText_BoxName[] = _("BOX NAME?");
 const u8 gText_PkmnsNickname[] = _("'s nickname?");
 const u8 gText_RivalsName[] = _("RIVAL's NAME?");
