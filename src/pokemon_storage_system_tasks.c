@@ -25,6 +25,7 @@
 #include "constants/items.h"
 #include "constants/help_system.h"
 #include "constants/songs.h"
+#include "event_data.h"
 
 EWRAM_DATA struct PokemonStorageSystemData *gStorage = NULL;
 static EWRAM_DATA bool8 sInPartyMenu = 0;
@@ -2607,10 +2608,14 @@ static void ClearBottomWindow(void)
 static void AddWallpaperSetsMenu(void)
 {
     InitMenu();
+    
+    
     SetMenuText(MENU_TEXT_SCENERY_1);
     SetMenuText(MENU_TEXT_SCENERY_2);
     SetMenuText(MENU_TEXT_SCENERY_3);
-    SetMenuText(MENU_TEXT_ETCETERA);
+    if(FlagGet(FLAG_CSR_PHISHING_GURU_MENUS)) {
+        SetMenuText(MENU_TEXT_ETCETERA);
+        } //Just to make you mad, Rave :P
     AddMenu();
 }
 
@@ -2640,10 +2645,10 @@ static void AddWallpapersMenu(u8 wallpaperSet)
     case 3: // ETCETERA
 
         // Needs to not exist unless Trainer ID has been given away
-        SetMenuText(MENU_TEXT_POLKADOT);
-        SetMenuText(MENU_TEXT_POKECENTER);
-        SetMenuText(MENU_TEXT_MACHINE);
-        SetMenuText(MENU_TEXT_SIMPLE);
+        SetMenuText(MENU_TEXT_POPUP_SCAM);
+        SetMenuText(MENU_TEXT_PORN_AD);
+        SetMenuText(MENU_TEXT_BLUESCREEN);
+        SetMenuText(MENU_TEXT_THE_PIT);
         break;
     }
     AddMenu();

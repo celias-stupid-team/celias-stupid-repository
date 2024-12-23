@@ -1,35 +1,78 @@
 raw `
 VermilionCity_House1_MapScripts::
 	.byte 0
+	
+`
 
-VermilionCity_House1_EventScript_FishingGuru::
+script VermilionCity_House1_EventScript_FishingGuru { //Converting to Poryscript for my sanity
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_OLD_ROD, VermilionCity_House1_EventScript_AlreadyGotOldRod
-	msgbox VermilionCity_House1_Text_ImFishingGuruDoYouLikeToFish, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, VermilionCity_House1_EventScript_GiveOldRod
-	msgbox VermilionCity_House1_Text_OhThatsSoDisappointing
-	release
-	end
+	if(flag(FLAG_GOT_OLD_ROD)) {
+		if(flag(FLAG_CSR_PHISHING_GURU_MENUS)) {
+			msgbox("Wahaha!\nThanks, kid!\pHope it was worth it!\n", MSGBOX_DEFAULT)
+			release
+			end
+		}
+		 // Asks the player for their social security info
+		msgbox("Hey, hey!\nHave you thought about my offer?\pAll I need is your date of birth,\nsocial security, and credit card info!\lHow about it?", MSGBOX_DEFAULT)
+		call(VermilionCity_House1_EventScript_SocialSecurityCheck)
+		// call Social Security script
+		release
+		end
+	} else {
 
-VermilionCity_House1_EventScript_AlreadyGotOldRod::
-	msgbox VermilionCity_House1_Text_HowAreTheFishBiting
-	release
-	end
 
-VermilionCity_House1_EventScript_GiveOldRod::
-	checkitemspace ITEM_OLD_ROD
-	goto_if_eq VAR_RESULT, FALSE, VermilionCity_House1_EventScript_NoRoomForOldRod
-	additem ITEM_OLD_ROD
-	msgbox VermilionCity_House1_Text_TakeThisAndFish
-	msgreceiveditem VermilionCity_House1_Text_ReceivedOldRodFromFishingGuru, ITEM_OLD_ROD
-	setflag FLAG_GOT_OLD_ROD
-	msgbox VermilionCity_House1_Text_FishingIsAWayOfLife
-	release
-	end
+		msgbox(VermilionCity_House1_Text_ImFishingGuruDoYouLikeToFish, MSGBOX_YESNO) // Gives the player the "Good" Rod
+		if(var(VAR_RESULT)) {
+				if(!checkitemspace(ITEM_OLD_ROD)) {
+					msgbox(VermilionCity_House1_Text_NoRoomForNiceGift, MSGBOX_DEFAULT) //I have no clue why these key item No Room checks are in the game
+					release
+					end
 
-VermilionCity_House1_EventScript_NoRoomForOldRod::
-	msgbox VermilionCity_House1_Text_NoRoomForNiceGift
+				} else {
+					additem(ITEM_OLD_ROD)
+					msgbox(VermilionCity_House1_Text_TakeThisAndFish, MSGBOX_DEFAULT)
+					msgreceiveditem(VermilionCity_House1_Text_ReceivedOldRodFromFishingGuru, ITEM_OLD_ROD)
+					setflag(FLAG_GOT_OLD_ROD)
+					msgbox(VermilionCity_House1_Text_FishingIsAWayOfLife) //Asks player for their social security info
+					// Call Social Security script.
+					call(VermilionCity_House1_EventScript_SocialSecurityCheck)
+					release
+					end
+				}
+				
+				
+		} else {
+			msgbox(VermilionCity_House1_Text_OhThatsSoDisappointing, MSGBOX_DEFAULT)
+		}
+	}
+	release
+}
+
+// I want a script down here to handle the Social Security check.
+//Why the fuck doesn't Poryscript support big comments
+
+script VermilionCity_House1_EventScript_SocialSecurityCheck {
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	specialvar(VAR_RESULT, SocialSecurityCheck)
+	waitstate
+	//msgbox("DEBUG\p{STR_VAR_1}\n{STR_VAR_2}", MSGBOX_DEFAULT)
+	if(var(VAR_RESULT)) {
+		msgbox("Oh, that's it!\nYes!\lHaha, sucker!\p…Er, I mean…\nYes, very good!\pI, uh, don't have a SUPER ROD for\nyou, but here!\pThis is what you get!\nTake it or leave it!", MSGBOX_DEFAULT)
+		closemessage
+		textcolor(NPC_TEXT_COLOR_MON) //I can't remember if it's Default or Neutral and I can't be assed to check
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("Your PC now has new WALLPAPERS!\nNeat!", MSGBOX_DEFAULT)
+		waitmessage
+		waitfanfare
+		setflag(FLAG_CSR_PHISHING_GURU_MENUS)
+	} else {
+		msgbox("Aww, no deal?\pC'mon, kid!\nYou can trust me!", MSGBOX_DEFAULT)
+	}
 	release
 	end
-`
+	//} else [don't]
+
+// Pulls up a name entry. Checks if the result is equal to the string of your trainer ID. If so, FLAG_CSR_PHISHING_GURU_MENUS gets set. If not, he has dialogue and ends.
+}
