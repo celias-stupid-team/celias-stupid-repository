@@ -57,7 +57,6 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	fadescreen(FADE_TO_BLACK)
 	specialvar(VAR_RESULT, SocialSecurityCheck)
 	waitstate
-	specialvar(VAR_RESULT, SocialSecurityDoubleCheck) //This special got dummied out
 	//msgbox("DEBUG\p{STR_VAR_1}\n{STR_VAR_2}", MSGBOX_DEFAULT)
 	if(var(VAR_RESULT)) {
 		msgbox("Oh, that's it!\nYes!\lHaha, sucker!\p…Er, I mean…\nYes, very good!\pI, uh, don't have a SUPER ROD for\nyou, but here!\pThis is what you get!\nTake it or leave it!", MSGBOX_DEFAULT)

@@ -1391,6 +1391,7 @@ extern const u8 gText_DelAllCancelOk[];
 extern const u8 gText_MoveOkBack[];
 extern const u8 gText_AlphabetUpperLower[];
 extern const u8 gText_YourName[];
+extern const u8 gText_YourSSN[];
 extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_RivalsName[];
