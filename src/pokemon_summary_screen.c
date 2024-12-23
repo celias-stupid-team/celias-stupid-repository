@@ -2303,6 +2303,14 @@ static void BufferMonMoveI(u8 i)
 
     if (gBattleMoves[sMonSummaryScreen->moveIds[i]].power <= 1)
         StringCopy(sMonSummaryScreen->summary.movePowerStrBufs[i], gText_ThreeHyphens);
+    else if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 235)
+        StringCopy(sMonSummaryScreen->summary.movePowerStrBufs[i], gText_360); // Once again this is the HACKIEST of hacks, but hey.
+    
+    else if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 234)
+        StringCopy(sMonSummaryScreen->summary.movePowerStrBufs[i], gText_270);
+        //You didn't work on this project for reasonable coding decisions.
+        //See below for explanation and justification
+    
     else
         ConvertIntToDecimalStringN(sMonSummaryScreen->summary.movePowerStrBufs[i], gBattleMoves[sMonSummaryScreen->moveIds[i]].power, STR_CONV_MODE_RIGHT_ALIGN, 3);
 
@@ -2315,12 +2323,7 @@ static void BufferMonMoveI(u8 i)
     // If anyone knows how to get the move ID number out of that expression; feel free to let me know ^^; 
     // "gBattleMoves[sMonSummaryScreen->moveIds[i]] == MOVE_STUN_SPORE did not work.
         
-    else if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 235)
-        StringCopy(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gText_360); // Once again this is the HACKIEST of hacks, but hey.
     
-    else if (gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy == 234)
-        StringCopy(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gText_270);
-        //You didn't work on this project for reasonable coding decisions.
 
     else
         ConvertIntToDecimalStringN(sMonSummaryScreen->summary.moveAccuracyStrBufs[i], gBattleMoves[sMonSummaryScreen->moveIds[i]].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
