@@ -833,7 +833,7 @@
 #define FLAG_0x308               0x308
 #define FLAG_0x309               0x309
 #define FLAG_CSR_CELIA_BONUS     0x30A
-#define FLAG_0x30B               0x30B
+#define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
 #define FLAG_0x30C               0x30C
 #define FLAG_0x30D               0x30D
 #define FLAG_0x30E               0x30E
