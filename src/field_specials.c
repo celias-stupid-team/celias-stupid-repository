@@ -76,12 +76,17 @@ static void Task_ListMenuRemoveScrollIndicatorArrowPair(u8 taskId);
 static u16 GetStarterSpeciesById(u16 starterIdx);
 static void ChangeBoxPokemonNickname_CB(void);
 static void ChangePokemonNickname_CB(void);
+static void SocialSecurity_CB(void);
 static void Task_RunPokemonLeagueLightingEffect(u8 taskId);
 static void Task_CancelPokemonLeagueLightingEffect(u8 taskId);
 static void Task_DoDeoxysTriangleInteraction(u8 taskId);
 static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
+
+bool8 SocialSecurityCheck(void);
+bool8 SocialSecurityDoubleCheck(void);
+
 
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
@@ -1684,9 +1689,29 @@ void ChangePokemonNickname(void)
     DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, species, gender, personality, ChangePokemonNickname_CB);
 }
 
+bool8 SocialSecurityCheck(void) {
+    
+    DoNamingScreen(NAMING_SCREEN_PLAYER, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, SocialSecurity_CB);
+    return FALSE;
+}
+
+bool8 SocialSecurityDoubleCheck(void) {
+    ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEFT_ALIGN, 6);
+
+    if (StringCompare(gStringVar2, gStringVar1))
+        return FALSE;
+    else
+        return TRUE;
+}
+
 static void ChangePokemonNickname_CB(void)
 {
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+static void SocialSecurity_CB(void) {
+    //This is a dummy for now
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
