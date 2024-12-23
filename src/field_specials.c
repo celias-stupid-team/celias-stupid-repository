@@ -84,7 +84,6 @@ static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
 
-
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
     gStringVar2,

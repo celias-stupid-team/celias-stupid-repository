@@ -55,7 +55,7 @@ script VermilionCity_House1_EventScript_FishingGuru { //Converting to Poryscript
 script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	closemessage
 	fadescreen(FADE_TO_BLACK)
-	specialvar(VAR_RESULT, SocialSecurityCheck)
+	special(SocialSecurityCheck)
 	waitstate
 	//msgbox("DEBUG\p{STR_VAR_1}\n{STR_VAR_2}", MSGBOX_DEFAULT)
 	if(var(VAR_RESULT)) {
