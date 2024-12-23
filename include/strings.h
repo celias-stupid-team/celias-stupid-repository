@@ -1473,10 +1473,10 @@ extern const u8 gPCText_Dad[];
 extern const u8 gPCText_Seafloor[];
 extern const u8 gPCText_River[];
 extern const u8 gPCText_Sky[];
-extern const u8 gPCText_PolkaDot[];
-extern const u8 gPCText_Pokecenter[];
-extern const u8 gPCText_Machine[];
-extern const u8 gPCText_Simple[];
+extern const u8 gPCText_PopupScam[];
+extern const u8 gPCText_PornAd[];
+extern const u8 gPCText_BlueScreen[];
+extern const u8 gPCText_ThePit[];
 
 // pokemon_special_anim
 extern const u8 gText_Counting_1[];
