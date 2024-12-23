@@ -59,9 +59,9 @@
 #define MOVE_WATER_GUN 55
 #define MOVE_HYDRO_PUMP 56
 #define MOVE_SURF 57
-#define MOVE_ICE_BEAM 58
-#define MOVE_BLIZZARD 59
-#define MOVE_PSYBEAM 60
+#define MOVE_ICEBEAM 58
+#define MOVE_ICE 59
+#define MOVE_PSY_WIND 60
 #define MOVE_BUBBLE_BEAM 61
 #define MOVE_AURORA_BEAM 62
 #define MOVE_HYPER_BEAM 63
@@ -95,7 +95,7 @@
 #define MOVE_DIG 91
 #define MOVE_TOXIC 92
 #define MOVE_CONFUSION 93
-#define MOVE_PSYCHIC 94
+#define MOVE_PSY_BEAM 94
 #define MOVE_HYPNOSIS 95
 #define MOVE_MEDITATE 96
 #define MOVE_AGILITY 97
@@ -155,7 +155,7 @@
 #define MOVE_ACID_ARMOR 151
 #define MOVE_CRABHAMMER 152
 #define MOVE_EXPLOSION 153
-#define MOVE_FURY_SWIPES 154
+#define MOVE_FURRY_SWIPES 154
 #define MOVE_BONEMERANG 155
 #define MOVE_REST 156
 #define MOVE_ROCK_SLIDE 157
@@ -182,7 +182,7 @@
 #define MOVE_COTTON_SPORE 178
 #define MOVE_REVERSAL 179
 #define MOVE_SPITE 180
-#define MOVE_POWDER_SNOW 181
+#define MOVE_FREEZE 181
 #define MOVE_PROTECT 182
 #define MOVE_MACH_PUNCH 183
 #define MOVE_SCARY_FACE 184
@@ -355,12 +355,13 @@
 #define MOVE_SHOCK_WAVE 351
 #define MOVE_WATER_PULSE 352
 #define MOVE_DOOM_DESIRE 353
-#define MOVE_PSYCHO_BOOST 354
+#define MOVE_SLUSH_RUSH 354
 //@@@@@ new moves for CSR below @@@@@
 #define MOVE_HEART_SWAP 355
 #define MOVE_RETREAT 356
 #define MOVE_SUBSTITUTE_TEACHER 357
 #define MOVE_EXPLOSION_USELESS 358
+#define MOVE_GROWL_CHARMANDER 359 //An HM Move so Charmander can't be released, and the move can't be deleted
 
 
 #define MOVES_COUNT 359

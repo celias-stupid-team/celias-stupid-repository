@@ -44,7 +44,7 @@ void StartUseItemAnim_ForgetMoveAndLearnTMorHM(u8 slotId, u16 itemId, u16 moveId
         SetMainCallback2(callback);
     else
     {
-        StringCopy(ptr->nameOfMoveForgotten, gMoveNames[moveId]);
+        StringCopy(ptr->nameOfMoveForgotten, gLongMoveNames[moveId]);
         SetUpUseItemAnim_ForgetMoveAndLearnTMorHM(ptr);
     }
 }
@@ -89,7 +89,7 @@ static struct PokemonSpecialAnim * AllocPSA(u8 slotId, u16 itemId, MainCallback 
     if (ptr->animType == 4)
     {
         moveId = ItemIdToBattleMoveId(itemId);
-        StringCopy(ptr->nameOfMoveToTeach, gMoveNames[moveId]);
+        StringCopy(ptr->nameOfMoveToTeach, gLongMoveNames[moveId]);
     }
     return ptr;
 }

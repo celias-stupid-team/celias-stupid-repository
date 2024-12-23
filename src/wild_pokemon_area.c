@@ -54,7 +54,7 @@ static const u16 sDexAreas_Kanto[][2] = {
     { MAPSEC_ROUTE_16,            DEX_AREA_ROUTE_16 },
     { MAPSEC_ROUTE_17,            DEX_AREA_ROUTE_17 },
     { MAPSEC_ROUTE_18,            DEX_AREA_ROUTE_18 },
-    { MAPSEC_ROUTE_19,            DEX_AREA_ROUTE_19 },
+    { MAPSEC_GREAT_SEA,            DEX_AREA_ROUTE_19 },
     { MAPSEC_ROUTE_20,            DEX_AREA_ROUTE_20 },
     { MAPSEC_ROUTE_21,            DEX_AREA_ROUTE_21 },
     { MAPSEC_ROUTE_22,            DEX_AREA_ROUTE_22 },
@@ -102,7 +102,7 @@ static const u16 sDexAreas_Sevii3[][2] = {
 
 static const u16 sDexAreas_Sevii4[][2] = {
 	{ MAPSEC_FOUR_ISLAND,  DEX_AREA_FOUR_ISLAND },
-	{ MAPSEC_ICEFALL_CAVE, DEX_AREA_ICEFALL_CAVE }    
+	{ MAPSEC_SKY_TOWER, DEX_AREA_ICEFALL_CAVE }    
 };
 
 static const u16 sDexAreas_Sevii5[][2] = {
@@ -121,8 +121,8 @@ static const u16 sDexAreas_Sevii6[][2] = {
 	{ MAPSEC_WATER_PATH,     DEX_AREA_WATER_PATH },
 	{ MAPSEC_RUIN_VALLEY,    DEX_AREA_RUIN_VALLEY },
 	{ MAPSEC_DOTTED_HOLE,    DEX_AREA_DOTTED_HOLE },
-	{ MAPSEC_PATTERN_BUSH,   DEX_AREA_PATTERN_BUSH },
-	{ MAPSEC_ALTERING_CAVE,  DEX_AREA_ALTERING_CAVE }    
+	{ MAPSEC_ZERO_ISLAND,   DEX_AREA_PATTERN_BUSH },
+	{ MAPSEC_YES,  DEX_AREA_ALTERING_CAVE }    
 };
 
 static const u16 sDexAreas_Sevii7[][2] = {
@@ -130,13 +130,13 @@ static const u16 sDexAreas_Sevii7[][2] = {
 	{ MAPSEC_CANYON_ENTRANCE, DEX_AREA_CANYON_ENTRANCE },
 	{ MAPSEC_SEVAULT_CANYON,  DEX_AREA_SEVAULT_CANYON },
 	{ MAPSEC_TANOBY_RUINS,    DEX_AREA_TANOBY_RUINS },
-	{ MAPSEC_MONEAN_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_LIPTOO_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_WEEPTH_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_DILFORD_CHAMBER, DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_SCUFIB_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_RIXY_CHAMBER,    DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_VIAPOIS_CHAMBER, DEX_AREA_TANOBY_CHAMBER }    
+	{ MAPSEC_THIRTY_EIGHT_ISLAND,  DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_SECRET_GARDEN,  DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_AMITY_SQUARE,  DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_POKEMON_ISLAND, DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_AETHER_PARADISE,  DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_KANTO_LIGHTHOUSE,    DEX_AREA_TANOBY_CHAMBER },
+	{ MAPSEC_MINNESOTA, DEX_AREA_TANOBY_CHAMBER }    
 };
 
 static const struct
@@ -184,7 +184,7 @@ s32 GetSpeciesPokedexAreaMarkers(u16 species, struct Subsprite * subsprites)
     for (i = 0, areaCount = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED); i++)
     {
         mapSecId = GetMapSecIdFromWildMonHeader(&gWildMonHeaders[i]);
-        if (mapSecId == MAPSEC_ALTERING_CAVE)
+        if (mapSecId == MAPSEC_YES)
         {
             alteringCaveCount++;
             if (alteringCaveNum != alteringCaveCount - 1)

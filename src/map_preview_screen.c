@@ -203,7 +203,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sRocketWarehouseMapPreviewPalette
     },
     [MPS_MONEAN_CHAMBER] = {
-        .mapsec = MAPSEC_MONEAN_CHAMBER,
+        .mapsec = MAPSEC_THIRTY_EIGHT_ISLAND,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -227,7 +227,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sBerryForestMapPreviewPalette
     },
     [MPS_ICEFALL_CAVE] = {
-        .mapsec = MAPSEC_ICEFALL_CAVE,
+        .mapsec = MAPSEC_SKY_TOWER,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE,
         .tilesptr = sIcefallCaveMapPreviewTiles,
@@ -243,7 +243,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sLostCaveMapPreviewPalette
     },
     [MPS_ALTERING_CAVE] = {
-        .mapsec = MAPSEC_ALTERING_CAVE,
+        .mapsec = MAPSEC_YES,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE,
         .tilesptr = sAlteringCaveMapPreviewTiles,
@@ -251,7 +251,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sAlteringCaveMapPreviewPalette
     },
     [MPS_PATTERN_BUSH] = {
-        .mapsec = MAPSEC_PATTERN_BUSH,
+        .mapsec = MAPSEC_ZERO_ISLAND,
         .type = MPS_TYPE_FOREST,
         .flagId = FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH,
         .tilesptr = sViridianForestMapPreviewTiles,
@@ -259,7 +259,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sViridianForestMapPreviewPalette
     },
     [MPS_LIPTOO_CHAMBER] = {
-        .mapsec = MAPSEC_LIPTOO_CHAMBER,
+        .mapsec = MAPSEC_SECRET_GARDEN,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -267,7 +267,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_WEEPTH_CHAMBER] = {
-        .mapsec = MAPSEC_WEEPTH_CHAMBER,
+        .mapsec = MAPSEC_AMITY_SQUARE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -275,7 +275,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_TDILFORD_CHAMBER] = {
-        .mapsec = MAPSEC_DILFORD_CHAMBER,
+        .mapsec = MAPSEC_POKEMON_ISLAND,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -283,7 +283,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_SCUFIB_CHAMBER] = {
-        .mapsec = MAPSEC_SCUFIB_CHAMBER,
+        .mapsec = MAPSEC_AETHER_PARADISE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -291,7 +291,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_RIXY_CHAMBER] = {
-        .mapsec = MAPSEC_RIXY_CHAMBER,
+        .mapsec = MAPSEC_KANTO_LIGHTHOUSE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
@@ -299,7 +299,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_VIAPOIS_CHAMBER] = {
-        .mapsec = MAPSEC_VIAPOIS_CHAMBER,
+        .mapsec = MAPSEC_MINNESOTA,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
