@@ -3,7 +3,7 @@
   "name": "SevenIsland_TanobyRuins_RixyChamber",
   "layout": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
   "music": "MUS_SEVII_DUNGEON",
-  "region_map_section": "MAPSEC_RIXY_CHAMBER",
+  "region_map_section": "MAPSEC_KANTO_LIGHTHOUSE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

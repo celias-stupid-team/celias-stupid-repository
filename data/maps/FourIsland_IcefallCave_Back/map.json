@@ -3,7 +3,7 @@
   "name": "FourIsland_IcefallCave_Back",
   "layout": "LAYOUT_FOUR_ISLAND_ICEFALL_CAVE_BACK",
   "music": "MUS_SEVII_CAVE",
-  "region_map_section": "MAPSEC_ICEFALL_CAVE",
+  "region_map_section": "MAPSEC_SKY_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",

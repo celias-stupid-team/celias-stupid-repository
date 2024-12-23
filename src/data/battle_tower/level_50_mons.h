@@ -448,7 +448,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x03,
 		.moves = {
 			MOVE_STRENGTH,
-			MOVE_PSYBEAM,
+			MOVE_PSY_WIND,
 			MOVE_AGILITY,
 			MOVE_EARTHQUAKE
 		},
@@ -488,7 +488,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_COSMIC_POWER,
 			MOVE_SANDSTORM,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_ROCK_THROW
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE,
@@ -515,7 +515,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_ODOR_SLEUTH,
 			MOVE_CONFUSE_RAY,
 			MOVE_MAGIC_COAT,
-			MOVE_PSYCHIC
+			MOVE_PSY_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE,
 		.nature = NATURE_HARDY,
@@ -761,7 +761,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_CONFUSION,
 			MOVE_SILVER_WIND,
-			MOVE_PSYBEAM,
+			MOVE_PSY_WIND,
 			MOVE_WHIRLWIND
 		},
 		.evSpread = F_EV_SPREAD_SPEED,
@@ -838,7 +838,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x41,
 		.moves = {
 			MOVE_REFLECT,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_IMPRISON,
 			MOVE_TOXIC
 		},
@@ -1045,7 +1045,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_TWISTED_SPOON,
 		.teamFlags = 0x0B,
 		.moves = {
-			MOVE_PSYBEAM,
+			MOVE_PSY_WIND,
 			MOVE_SNATCH,
 			MOVE_REFLECT,
 			MOVE_HYPER_BEAM
@@ -1138,7 +1138,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_AGILITY,
 			MOVE_DIVE,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_PROTECT
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
@@ -1215,7 +1215,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x41,
 		.moves = {
 			MOVE_PROTECT,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_HYPER_BEAM,
 			MOVE_SURF
 		},
@@ -1308,7 +1308,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_IRON_TAIL,
 			MOVE_HEADBUTT,
 			MOVE_ATTRACT,
-			MOVE_ICE_BEAM
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK,
 		.nature = NATURE_HARDY,
@@ -1424,7 +1424,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_EARTHQUAKE,
 			MOVE_SHADOW_BALL,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_METEOR_MASH
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK,
@@ -1451,7 +1451,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_TOXIC,
 			MOVE_SILVER_WIND,
 			MOVE_ATTRACT,
-			MOVE_ICE_BEAM
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK,
 		.nature = NATURE_QUIET,
@@ -1476,7 +1476,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_ENCORE,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_HYPER_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
@@ -1502,7 +1502,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_DOUBLE_TEAM,
 			MOVE_CRUNCH,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_EARTHQUAKE
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK,
@@ -1516,7 +1516,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_CALM_MIND,
 			MOVE_REVERSAL,
 			MOVE_ROCK_TOMB,
-			MOVE_PSYCHIC
+			MOVE_PSY_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_RELAXED,
@@ -1645,7 +1645,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_THUNDER,
 			MOVE_SURF,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_RAIN_DANCE
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_DEFENSE,
@@ -1736,7 +1736,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_GUILLOTINE,
 			MOVE_CRABHAMMER,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_SLUDGE_BOMB
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_ATTACK | F_EV_SPREAD_HP,
@@ -1748,7 +1748,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x8B,
 		.moves = {
 			MOVE_MAGIC_COAT,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_REFLECT,
 			MOVE_CONFUSE_RAY
 		},
@@ -1773,7 +1773,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_PETAYA_BERRY,
 		.teamFlags = 0x8B,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_REFLECT,
 			MOVE_RECOVER,
 			MOVE_SKILL_SWAP
@@ -1788,8 +1788,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SHADOW_BALL,
 			MOVE_WILL_O_WISP,
-			MOVE_BLIZZARD,
-			MOVE_PSYCHIC
+			MOVE_ICE,
+			MOVE_PSY_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
 		.nature = NATURE_CAREFUL,
@@ -1890,7 +1890,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_CHOICE_BAND,
 		.teamFlags = 0x05,
 		.moves = {
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_FLAMETHROWER,
 			MOVE_EARTHQUAKE,
 			MOVE_RETURN
@@ -1903,7 +1903,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_WHITE_HERB,
 		.teamFlags = 0x43,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_REST,
 			MOVE_CONFUSE_RAY,
 			MOVE_TOXIC
@@ -1932,7 +1932,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_SURF,
 			MOVE_ATTRACT,
 			MOVE_CALM_MIND,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED | F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_HASTY,
@@ -2072,7 +2072,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_NEVER_MELT_ICE,
 		.teamFlags = 0x81,
 		.moves = {
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_CRUNCH,
 			MOVE_ICY_WIND,
 			MOVE_DOUBLE_TEAM
@@ -2088,7 +2088,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_RAIN_DANCE,
 			MOVE_HYDRO_PUMP,
 			MOVE_CRUNCH,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_QUIET,
@@ -2111,9 +2111,9 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_PECHA_BERRY,
 		.teamFlags = 0x83,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_SURF,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_SHADOW_BALL
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
@@ -2140,7 +2140,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_EARTHQUAKE,
 			MOVE_SURF,
 			MOVE_MUD_SHOT,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_NAIVE,
@@ -2153,7 +2153,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_DOUBLE_EDGE,
 			MOVE_FLAMETHROWER,
 			MOVE_IRON_TAIL,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_HP,
 		.nature = NATURE_BOLD,
@@ -2243,7 +2243,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_TRICK,
 			MOVE_SKILL_SWAP,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_REST
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
@@ -2319,7 +2319,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_NEVER_MELT_ICE,
 		.teamFlags = 0x83,
 		.moves = {
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_EARTHQUAKE,
 			MOVE_SURF,
 			MOVE_ROCK_SLIDE
@@ -2332,7 +2332,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_SITRUS_BERRY,
 		.teamFlags = 0x13,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_RECOVER,
 			MOVE_ENCORE,
 			MOVE_SNATCH
@@ -2346,7 +2346,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x93,
 		.moves = {
 			MOVE_SURF,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_RECOVER,
 			MOVE_DOUBLE_TEAM
 		},
@@ -2360,7 +2360,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_REST,
 			MOVE_CURSE,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_EARTHQUAKE
 		},
 		.evSpread = F_EV_SPREAD_DEFENSE | F_EV_SPREAD_HP,
@@ -2399,7 +2399,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SHADOW_BALL,
 			MOVE_EARTHQUAKE,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_DESTINY_BOND
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
@@ -2439,7 +2439,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_THUNDERBOLT,
 			MOVE_SURF,
 			MOVE_THUNDER_WAVE,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
 		.nature = NATURE_BRAVE,
@@ -2593,7 +2593,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x21,
 		.moves = {
 			MOVE_CRUNCH,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_HAIL,
 			MOVE_EARTHQUAKE
 		},
@@ -2634,7 +2634,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_SURF,
 			MOVE_EARTHQUAKE,
 			MOVE_MUD_SHOT,
-			MOVE_BLIZZARD
+			MOVE_ICE
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
 		.nature = NATURE_SERIOUS,
@@ -2644,7 +2644,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_SALAC_BERRY,
 		.teamFlags = 0x19,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_THUNDERBOLT,
 			MOVE_DESTINY_BOND,
 			MOVE_WILL_O_WISP
@@ -2670,7 +2670,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_GANLON_BERRY,
 		.teamFlags = 0x1B,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_THUNDER_PUNCH,
 			MOVE_REFLECT,
 			MOVE_RECOVER
@@ -2828,7 +2828,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_CROSS_CHOP,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_HYPER_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SPEED | F_EV_SPREAD_ATTACK,
@@ -2853,7 +2853,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x06,
 		.moves = {
 			MOVE_SURF,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_EARTHQUAKE,
 			MOVE_REST
 		},
@@ -2892,7 +2892,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x15,
 		.moves = {
 			MOVE_METEOR_MASH,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_EARTHQUAKE,
 			MOVE_LIGHT_SCREEN
 		},
@@ -2917,7 +2917,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_CHESTO_BERRY,
 		.teamFlags = 0x96,
 		.moves = {
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_THUNDERBOLT,
 			MOVE_DOUBLE_TEAM,
 			MOVE_REST
@@ -3024,7 +3024,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_MUDDY_WATER,
 			MOVE_MUD_SHOT,
 			MOVE_MIRROR_COAT,
-			MOVE_ICE_BEAM
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_HP,
 		.nature = NATURE_HARDY,
@@ -3034,7 +3034,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_SALAC_BERRY,
 		.teamFlags = 0x7B,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_SHADOW_BALL,
 			MOVE_DESTINY_BOND,
 			MOVE_SNATCH
@@ -3060,7 +3060,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_BRIGHT_POWDER,
 		.teamFlags = 0x0A,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_THUNDER_PUNCH,
 			MOVE_FIRE_PUNCH,
 			MOVE_RECOVER
@@ -3089,7 +3089,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_HYPER_BEAM,
 			MOVE_THUNDERBOLT,
 			MOVE_EARTHQUAKE,
-			MOVE_ICE_BEAM
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_DEFENSE | F_EV_SPREAD_ATTACK,
 		.nature = NATURE_BOLD,
@@ -3218,7 +3218,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_HYDRO_PUMP,
 			MOVE_CROSS_CHOP,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_PSYCH_UP
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_ATTACK,
@@ -3243,7 +3243,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x36,
 		.moves = {
 			MOVE_SURF,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_ROCK_SLIDE,
 			MOVE_SHEER_COLD
 		},
@@ -3282,7 +3282,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x15,
 		.moves = {
 			MOVE_METEOR_MASH,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_EARTHQUAKE,
 			MOVE_HYPER_BEAM
 		},
@@ -3307,7 +3307,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_SHELL_BELL,
 		.teamFlags = 0x96,
 		.moves = {
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_THUNDERBOLT,
 			MOVE_HAIL,
 			MOVE_EXPLOSION
@@ -3347,7 +3347,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x95,
 		.moves = {
 			MOVE_LUSTER_PURGE,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_RECOVER,
 			MOVE_DRAGON_CLAW
 		},
@@ -3360,7 +3360,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0xD6,
 		.moves = {
 			MOVE_SURF,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_RECOVER,
 			MOVE_DOUBLE_TEAM
 		},
@@ -3425,7 +3425,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x3B,
 		.moves = {
 			MOVE_SHADOW_BALL,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_REST,
 			MOVE_IMPRISON
 		},
@@ -3450,7 +3450,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_CHOICE_BAND,
 		.teamFlags = 0x1A,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_TRICK,
 			MOVE_RECOVER,
 			MOVE_SNATCH
@@ -3569,8 +3569,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_THUNDERBOLT,
-			MOVE_BLIZZARD,
-			MOVE_PSYCHIC
+			MOVE_ICE,
+			MOVE_PSY_BEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
 		.nature = NATURE_BRAVE,
@@ -3607,8 +3607,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x0A,
 		.moves = {
 			MOVE_SURF,
-			MOVE_PSYCHIC,
-			MOVE_ICE_BEAM,
+			MOVE_PSY_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_IRON_TAIL
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
@@ -3633,7 +3633,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x26,
 		.moves = {
 			MOVE_SURF,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_FISSURE,
 			MOVE_SHEER_COLD
 		},
@@ -3646,7 +3646,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x4D,
 		.moves = {
 			MOVE_HYDRO_PUMP,
-			MOVE_BLIZZARD,
+			MOVE_ICE,
 			MOVE_HYPER_BEAM,
 			MOVE_DISABLE
 		},
@@ -3672,7 +3672,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0xB5,
 		.moves = {
 			MOVE_METEOR_MASH,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_PURSUIT,
 			MOVE_ROCK_TOMB
 		},
@@ -3697,7 +3697,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_LAX_INCENSE,
 		.teamFlags = 0x96,
 		.moves = {
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_THUNDERBOLT,
 			MOVE_ANCIENT_POWER,
 			MOVE_EXPLOSION
@@ -3726,7 +3726,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 			MOVE_MIST_BALL,
 			MOVE_THUNDERBOLT,
 			MOVE_EARTHQUAKE,
-			MOVE_ICE_BEAM
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
 		.nature = NATURE_QUIET,
@@ -3750,7 +3750,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0xB2,
 		.moves = {
 			MOVE_SURF,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_RECOVER,
 			MOVE_ATTRACT
 		},
@@ -3803,7 +3803,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_EARTHQUAKE,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_ROCK_TOMB
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED | F_EV_SPREAD_HP,
@@ -3828,7 +3828,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.teamFlags = 0x94,
 		.moves = {
 			MOVE_METEOR_MASH,
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_SHADOW_BALL,
 			MOVE_EARTHQUAKE
 		},
@@ -3840,7 +3840,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.heldItem = BATTLE_TOWER_ITEM_MACHO_BRACE,
 		.teamFlags = 0x4B,
 		.moves = {
-			MOVE_PSYCHIC,
+			MOVE_PSY_BEAM,
 			MOVE_CONFUSE_RAY,
 			MOVE_TRICK,
 			MOVE_REFLECT
@@ -3868,7 +3868,7 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_LUSTER_PURGE,
 			MOVE_THUNDERBOLT,
-			MOVE_ICE_BEAM,
+			MOVE_ICEBEAM,
 			MOVE_DRAGON_CLAW
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
@@ -3881,8 +3881,8 @@ const struct BattleTowerPokemonTemplate gBattleTowerLevel50Mons[] =
 		.moves = {
 			MOVE_SURF,
 			MOVE_THUNDERBOLT,
-			MOVE_PSYCHIC,
-			MOVE_ICE_BEAM
+			MOVE_PSY_BEAM,
+			MOVE_ICEBEAM
 		},
 		.evSpread = F_EV_SPREAD_SP_ATTACK | F_EV_SPREAD_SPEED,
 		.nature = NATURE_QUIET,
