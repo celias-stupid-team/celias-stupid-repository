@@ -1540,3 +1540,22 @@ const u16 gTilesetPalettes_Chapter2[][16] =
 };
 
 const u32 gTilesetTiles_Chapter2[] = INCBIN_U32("data/tilesets/primary/chapter_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_MoonAltar[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/moon_altar/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_MoonAltar[] = INCBIN_U32("data/tilesets/secondary/moon_altar/tiles.4bpp.lz");

@@ -4481,11 +4481,11 @@
       "id": "LAYOUT_MT_MOON_OUTSIDE",
       "name": "MtMoon_Outside_Layout",
       "width": 32,
-      "height": 20,
+      "height": 35,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/MtMoon_Outside/border.bin",
       "blockdata_filepath": "data/layouts/MtMoon_Outside/map.bin"
     }

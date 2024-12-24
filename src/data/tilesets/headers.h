@@ -823,3 +823,14 @@ const struct Tileset gTileset_Chapter2 =
     .metatileAttributes = gMetatileAttributes_Chapter2,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_MoonAltar =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MoonAltar,
+    .palettes = gTilesetPalettes_MoonAltar,
+    .metatiles = gMetatiles_MoonAltar,
+    .metatileAttributes = gMetatileAttributes_MoonAltar,
+    .callback = NULL,
+};
