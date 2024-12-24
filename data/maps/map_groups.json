@@ -177,7 +177,8 @@
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
     "SixIsland_AlteringCave",
-    "MtMoon_Square"
+    "MtMoon_Square",
+    "MtMoon_Outside"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
