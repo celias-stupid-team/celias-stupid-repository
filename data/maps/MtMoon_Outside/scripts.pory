@@ -1,0 +1,13 @@
+
+mapscripts MtMoon_Outside_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_CSR_MAP_ALTAR_OF_MOONE)
+    }
+}
+
+
+
+script MoonAltar_TentacoolWater {
+	msgbox("Examining the water, you find it\nrefreshingly TENTACOOL-free.", MSGBOX_SIGN)
+	end
+}

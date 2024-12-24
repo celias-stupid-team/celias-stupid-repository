@@ -18,7 +18,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 26,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_SECRET_TUNNEL",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 
