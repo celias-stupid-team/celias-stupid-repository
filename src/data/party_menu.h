@@ -1161,7 +1161,9 @@ static const u8 sPartyMenuActionCounts[] =
 static const u16 sFieldMoves[] =
 {
     MOVE_FLASH, MOVE_CUT, MOVE_FLY, MOVE_STRENGTH, MOVE_SURF, MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_TELEPORT,
-    MOVE_DIG, MOVE_MILK_DRINK, MOVE_SOFT_BOILED, MOVE_SWEET_SCENT, MOVE_RETREAT, FIELD_MOVE_END // this may be misuse of enum. same in emerald
+    MOVE_DIG, MOVE_MILK_DRINK, MOVE_SOFT_BOILED, MOVE_SWEET_SCENT, MOVE_RETREAT, 
+    //MOVE_GUILLOTINE, MOVE_RAZOR_WIND, MOVE_ROCK_CLIMB, MOVE_ODOR_SLEUTH, MOVE_TAIL_GLOW, MOVE_GROUND_POUND, //For some reason it doesn't like these
+    FIELD_MOVE_END // this may be misuse of enum. same in emerald
 };
 
 static struct

@@ -11,3 +11,31 @@ script MoonAltar_TentacoolWater {
 	msgbox("Examining the water, you find it\nrefreshingly TENTACOOL-free.", MSGBOX_SIGN)
 	end
 }
+
+script MoonAltar_CameraPan {
+    lock
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, MtMoon_CameraGoesUp)
+    waitmovement(0)
+    delay(60)
+    applymovement(OBJ_EVENT_ID_CAMERA, MtMoon_CameraGoesDown)
+    waitmovement(0)
+    delay(30)
+    special(RemoveCameraObject)
+    setvar(VAR_TEMP_1, 1)
+    release
+    
+}
+
+script MoonAltar_ClearVar {
+    setvar(VAR_TEMP_1, 0)
+    release
+}
+
+movement MtMoon_CameraGoesUp {
+    walk_slow_up * 9
+}
+
+movement MtMoon_CameraGoesDown {
+    walk_slow_down * 9
+}

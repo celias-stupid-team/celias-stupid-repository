@@ -45,17 +45,17 @@
 #define FIELD_MOVE_SWEET_SCENT  11
 #define FIELD_MOVE_RETREAT      12
 // CSR
-#define FIELD_MOVE_GUILLOTINE   13
+
+#define FIELD_MOVE_END          13
+
+/*
+#For CSR we're also going to need:
+define FIELD_MOVE_GUILLOTINE   13
 #define FIELD_MOVE_RAZOR_WIND   14
 #define FIELD_MOVE_ROCK_CLIMB   15
 #define FIELD_MOVE_ODOR_SLEUTH  16
 #define FIELD_MOVE_TAIL_GLOW    17
 #define FIELD_MOVE_GROUND_POUND 18
-#define FIELD_MOVE_END          19
-
-/*
-For CSR we're also going to need:
-
 
 */
 

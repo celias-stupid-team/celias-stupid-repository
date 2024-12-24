@@ -176,7 +176,7 @@ gBattleAnims_Moves::
 	.4byte Move_ACID_ARMOR
 	.4byte Move_CRABHAMMER
 	.4byte Move_EXPLOSION
-	.4byte MOVE_FURY_SWIPES
+	.4byte Move_FURY_SWIPES
 	.4byte Move_BONEMERANG
 	.4byte Move_REST
 	.4byte Move_ROCK_SLIDE
@@ -8172,7 +8172,7 @@ Move_LOVELY_KISS:
 	createsprite gPinkHeartSpriteTemplate, ANIM_TARGET, 3, -128, -22
 	end
 
-MOVE_FURY_SWIPES:
+Move_FURY_SWIPES:
 	loadspritegfx ANIM_TAG_SWIPE
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 5, 5
 	delay 4

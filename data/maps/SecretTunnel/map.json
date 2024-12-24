@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -23,7 +23,7 @@
       "y": 41,
       "elevation": 0,
       "dest_map": "MAP_MT_MOON_OUTSIDE",
-      "dest_warp_id": "3"
+      "dest_warp_id": "1"
     },
     {
       "x": 3,

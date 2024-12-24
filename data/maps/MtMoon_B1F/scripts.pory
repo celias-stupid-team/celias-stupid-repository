@@ -1,7 +1,15 @@
 raw `
-MtMoon_B1F_MapScripts::
-	.byte 0
+
 `
+mapscripts MtMoon_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_MT_MOON_BASEMENT)
+	}
+}
+	
+
+
+
 script MtMoon_EventScript_DadWeather {
 	lock
 	faceplayer
