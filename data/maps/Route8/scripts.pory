@@ -1,12 +1,205 @@
 raw `
-Route8_MapScripts::
-	.byte 0
+
 
 Route8_EventScript_UndergroundPathSign::
 	msgbox Route8_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+mapscripts Route8_MapScripts {
+
+}
+
 script Route8_RouteSign {
 	msgbox("ROUTE 8\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
 	end
+}
+
+script Route8_StartSnowing {
+	setweather(WEATHER_SNOW)
+	doweather
+	release
+}
+
+script Route8_StartSunning {
+	setweather(WEATHER_SUNNY_CLOUDS)
+	doweather
+	release
+}
+
+script Route8_StartSandstorm {
+	setweather(WEATHER_SANDSTORM)
+	doweather
+	release
+}
+
+script Route8_StartRaining {
+	setweather(WEATHER_RAIN_THUNDERSTORM)
+	doweather
+	release
+}
+
+script Route8_GrowlitheSign {
+	lock
+	if(flag(FLAG_GROWLITHE_SIGN)) {
+		goto(Route8_NoMoreGrowlithe)
+	}
+
+	switch(var(VAR_TEMP_4)) {
+		case 0:
+			msgbox("There's a familiar-looking tuft\nburied in the snow.\lPet it?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				//set map
+				special(DrawWholeMapView)
+				release
+				end
+			}
+			release
+			end
+			break
+
+		case 1:
+			msgbox("A friendly face is rising from\nthe ground to meet you.\lPet it again?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				//set map
+				special(DrawWholeMapView)
+				release
+				end
+			}
+			release
+			end
+			break
+
+		case 2:
+			msgbox("He's almost free!\nJust a little more!\pGive him one last pet?\n", MSGBOX_DEFAULT)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+
+				delay(5)
+				//set map
+				special(DrawWholeMapView)
+				closemessage
+
+				//move the Growlithe to be on top
+
+				if(var(VAR_FACING) == DIR_SOUTH) { //Player jumps out of the way if they're above it 
+					getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+					if(var(VAR_TEMP_2) == 22) {
+						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsLeft)
+					} else {
+						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsRight)
+					}
+					waitmovement(OBJ_EVENT_ID_PLAYER)
+					
+				}
+				playse(SE_LEDGE)
+				//applymovement(GROWLITHE, GrowlitheEmerges)
+				//waitmovement(0)
+
+				//Draw close-eyed growlithe
+				special(DrawWholeMapView)
+				addvar(VAR_TEMP_4, 1)
+				delay(60)
+				//applymovement(GROWLITHE, GrowlitheBlinks)
+				//waitmovement(0)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				delay(20)
+				msgbox("Amazing!\nIt's the fabled ALOLAN GROWLITHE!", MSGBOX_DEFAULT)
+				playfanfare(MUS_SLOTS_WIN)
+				msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
+				waitfanfare
+				closemessage
+				delay(10)
+
+				//set tiles to be snow
+				special(DrawWholeMapView)
+				delay(30)
+				playse(SE_LEDGE)
+
+				//applymovement(GROWLITHE, GrowlitheIsHappy)
+				waitmovement(0)
+				delay(20)
+				//applymovement(GROWLITHE, GrowlitheIsHappy)
+				waitmovement(0)
+
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				waitmoncry
+				
+				//growlithe looks both ways. I'll do this later.
+				//applymovement(GROWLITHE, CommonMovement_FaceRight)
+				waitmovement(0)
+				delay(32)
+				//applymovement(GROWLITHE, CommonMovement_FaceLeft)
+				waitmovement(0)
+				delay(32)
+				//applymovement(GROWLITHE, CommonMovement_FaceRight)
+				waitmovement(0)
+				delay(64)
+
+				playse(SE_FLEE)
+				//applymovement(GROWLITHE, GrowlitheAbsconds)
+				waitmovement(0)
+				setflag(FLAG_GROWLITHE_SIGN)
+				release
+				end
+			}
+			release
+			end
+			break
+		default:
+			goto(Route8_NoMoreGrowlithe)
+	}
+	release
+}
+
+script Route8_NoMoreGrowlithe {
+	lock
+	msgbox("This patch of snow is empty now,\nbut the memories you made live on.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+movement PlayerJumpsLeft {
+	delay_8
+	face_right
+	lock_facing_direction
+	jump_left
+	unlock_facing_direction
+}
+
+movement PlayerJumpsRight {
+	delay_8
+	face_left
+	lock_facing_direction
+	jump_right
+	unlock_facing_direction
+}
+
+movement GrowlitheEmerges {
+	set_visible
+	jump_in_place_left
+}
+
+movement GrowlitheBlinks { //Yes I'm still doing it this way. Fight me.
+	set_visible
+	delay_16 * 3
+	set_invisible
+	delay_8
+	set_visible
+	delay_16
+	set_invisible
+	delay_8
+	set_visible
+	delay_16 * 3
+}
+
+movement GrowlitheIsHappy {
+	jump_in_place_left
+}
+
+movement GrowlitheAbsconds {
+	walk_fast_left * 9
 }
