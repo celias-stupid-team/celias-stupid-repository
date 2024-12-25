@@ -38,7 +38,7 @@ OneIsland_Harbor_EventScript_Sailor::
 	faceplayer
 	message Text_WhereDoYouWantToSail
 	waitmessage
-	setvar VAR_0x8004, SEAGALLOP_ONE_ISLAND
+	setvar VAR_0x8004, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_ChooseDestFromOneIsland
 	end
 `

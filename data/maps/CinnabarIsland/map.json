@@ -70,7 +70,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SEAGALLOP",
+      "graphics_id": "OBJ_EVENT_GFX_ALOLAN_GROWLITHE",
       "x": 23,
       "y": 7,
       "elevation": 1,
@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_CINNABAR_SEAGALLOP"
+      "flag": "FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE"
     }
   ],
   "warp_events": [

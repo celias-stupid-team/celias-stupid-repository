@@ -4,4 +4,4 @@ Text_WhereDoYouWantToGo::
 
 Text_AllAboardSeagallopNum::
 	.string "All right!\n"
-	.string "All aboard SEAGALLOP HI-SPEED {STR_VAR_1}!$"
+	.string "All aboard ALOLAN_GROWLITHE HI-SPEED {STR_VAR_1}!$"

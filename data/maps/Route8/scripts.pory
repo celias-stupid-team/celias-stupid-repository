@@ -38,6 +38,8 @@ script Route8_StartRaining {
 	release
 }
 
+
+const GROWLITHE = 19
 script Route8_GrowlitheSign {
 	lock
 	if(flag(FLAG_GROWLITHE_SIGN)) {
@@ -51,7 +53,13 @@ script Route8_GrowlitheSign {
 				addvar(VAR_TEMP_4, 1)
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
 				//set map
+				setmetatile(22, 18, 0x3B2, FALSE)
+				setmetatile(23, 18, 0x3B3, FALSE)
+				setmetatile(22, 19, 0x3BA, FALSE)
+				setmetatile(23, 19, 0x3BB, FALSE)
 				special(DrawWholeMapView)
+				closemessage
+				waitmoncry
 				release
 				end
 			}
@@ -64,8 +72,13 @@ script Route8_GrowlitheSign {
 			if(var(VAR_RESULT)) {
 				addvar(VAR_TEMP_4, 1)
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
-				//set map
+				setmetatile(22, 18, 0x3B4, FALSE)
+				setmetatile(23, 18, 0x3B5, FALSE)
+				setmetatile(22, 19, 0x3BC, FALSE)
+				setmetatile(23, 19, 0x3BD, FALSE)
 				special(DrawWholeMapView)
+				closemessage
+				waitmoncry
 				release
 				end
 			}
@@ -74,16 +87,20 @@ script Route8_GrowlitheSign {
 			break
 
 		case 2:
-			msgbox("He's almost free!\nJust a little more!\pGive him one last pet?\n", MSGBOX_DEFAULT)
+			msgbox("He's almost free!\nJust a little more!\pGive him one last pet?\n", MSGBOX_YESNO)
 			if(var(VAR_RESULT)) {
 				addvar(VAR_TEMP_4, 1)
 
 				delay(5)
-				//set map
+				setmetatile(22, 18, 0x39C, FALSE) //raw snow underneath while Growlithe jumps
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)
 				special(DrawWholeMapView)
 				closemessage
 
 				//move the Growlithe to be on top
+				setobjectxy(GROWLITHE, 22, 19)
 
 				if(var(VAR_FACING) == DIR_SOUTH) { //Player jumps out of the way if they're above it 
 					getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
@@ -96,15 +113,19 @@ script Route8_GrowlitheSign {
 					
 				}
 				playse(SE_LEDGE)
-				//applymovement(GROWLITHE, GrowlitheEmerges)
-				//waitmovement(0)
+				applymovement(GROWLITHE, GrowlitheEmerges)
+				waitmovement(0)
 
-				//Draw close-eyed growlithe
+				setmetatile(22, 18, 0x3B6, FALSE) //draw close-eyed Growlithe underneath
+				setmetatile(23, 18, 0x3B7, FALSE)
+				setmetatile(22, 19, 0x3BE, FALSE)
+				setmetatile(23, 19, 0x3BF, FALSE)
+
 				special(DrawWholeMapView)
 				addvar(VAR_TEMP_4, 1)
 				delay(60)
-				//applymovement(GROWLITHE, GrowlitheBlinks)
-				//waitmovement(0)
+				applymovement(GROWLITHE, GrowlitheBlinks) //Done by making Growlithe appear and disappear
+				waitmovement(0)
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
 				delay(20)
 				msgbox("Amazing!\nIt's the fabled ALOLAN GROWLITHE!", MSGBOX_DEFAULT)
@@ -115,32 +136,38 @@ script Route8_GrowlitheSign {
 				delay(10)
 
 				//set tiles to be snow
+				setmetatile(22, 18, 0x39C, FALSE)
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)
 				special(DrawWholeMapView)
 				delay(30)
 				playse(SE_LEDGE)
 
-				//applymovement(GROWLITHE, GrowlitheIsHappy)
+				applymovement(GROWLITHE, GrowlitheIsHappy)
+				waitmovement(0)
+				playse(SE_LEDGE)
+
+				
+				applymovement(GROWLITHE, GrowlitheIsHappy)
 				waitmovement(0)
 				delay(20)
-				//applymovement(GROWLITHE, GrowlitheIsHappy)
-				waitmovement(0)
-
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
 				waitmoncry
 				
 				//growlithe looks both ways. I'll do this later.
-				//applymovement(GROWLITHE, CommonMovement_FaceRight)
+				applymovement(GROWLITHE, Common_Movement_FaceUp)
 				waitmovement(0)
 				delay(32)
-				//applymovement(GROWLITHE, CommonMovement_FaceLeft)
+				applymovement(GROWLITHE, Common_Movement_FaceLeft)
 				waitmovement(0)
 				delay(32)
-				//applymovement(GROWLITHE, CommonMovement_FaceRight)
+				applymovement(GROWLITHE, Common_Movement_FaceUp)
 				waitmovement(0)
 				delay(64)
 
 				playse(SE_FLEE)
-				//applymovement(GROWLITHE, GrowlitheAbsconds)
+				applymovement(GROWLITHE, GrowlitheAbsconds)
 				waitmovement(0)
 				setflag(FLAG_GROWLITHE_SIGN)
 				release
@@ -178,21 +205,28 @@ movement PlayerJumpsRight {
 	unlock_facing_direction
 }
 
+
+// Facing left = Facing Left
+// Facing right = Facing Up
+// Blinking = Facing Down
 movement GrowlitheEmerges {
+	face_left
 	set_visible
 	jump_in_place_left
 }
 
 movement GrowlitheBlinks { //Yes I'm still doing it this way. Fight me.
+							// Actually I changed my mind I'm not doing it that way anymore LOL
+	unlock_facing_direction
 	set_visible
 	delay_16 * 3
-	set_invisible
+	face_down
 	delay_8
-	set_visible
+	face_left
 	delay_16
-	set_invisible
+	face_down
 	delay_8
-	set_visible
+	face_left
 	delay_16 * 3
 }
 
@@ -201,5 +235,6 @@ movement GrowlitheIsHappy {
 }
 
 movement GrowlitheAbsconds {
+	lock_facing_direction
 	walk_fast_left * 9
 }

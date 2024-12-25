@@ -120,7 +120,7 @@
 #define FLAG_HIDE_UNION_ROOM_PLAYER_6                      0x068
 #define FLAG_HIDE_UNION_ROOM_PLAYER_7                      0x069
 #define FLAG_HIDE_UNION_ROOM_PLAYER_8                      0x06A
-#define FLAG_HIDE_CINNABAR_SEAGALLOP                       0x06B
+#define FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE                       0x06B
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT               0x06C
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER                  0x06D
 #define FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN                   0x06E

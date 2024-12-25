@@ -1,6 +1,6 @@
 raw `
 .equ LOCALID_BILL, 3
-.equ LOCALID_SEAGALLOP, 4
+.equ LOCALID_ALOLAN_GROWLITHE, 4
 
 CinnabarIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CinnabarIsland_OnTransition
@@ -20,7 +20,7 @@ CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter::
 	setflag FLAG_TEMP_2
 	setobjectxyperm LOCALID_BILL, 15, 12
 	setobjectmovementtype LOCALID_BILL, MOVEMENT_TYPE_FACE_LEFT
-	setobjectxyperm LOCALID_SEAGALLOP, 30, 12
+	setobjectxyperm LOCALID_ALOLAN_GROWLITHE, 30, 12
 	return
 
 CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland::
@@ -29,11 +29,11 @@ CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland::
 	setflag FLAG_TEMP_2
 	setobjectxyperm LOCALID_BILL, 18, 12
 	setobjectmovementtype LOCALID_BILL, MOVEMENT_TYPE_FACE_UP
-	setobjectxyperm LOCALID_SEAGALLOP, 30, 12
+	setobjectxyperm LOCALID_ALOLAN_GROWLITHE, 30, 12
 	return
 
 CinnabarIsland_EventScript_MoveSeagallopDown::
-	setobjectxyperm LOCALID_SEAGALLOP, 30, 8
+	setobjectxyperm LOCALID_ALOLAN_GROWLITHE, 30, 8
 	return
 
 CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands::
@@ -194,7 +194,7 @@ CinnabarIsland_Movement_BillReEnterPokeCenter::
 @ Can be triggered outside, or after talking to Bill in the poke center
 CinnabarIsland_EventScript_SailToOneIsland::
 	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_ApproachShore
-	addobject LOCALID_SEAGALLOP
+	addobject LOCALID_ALOLAN_GROWLITHE
 	call_if_unset FLAG_TEMP_2, CinnabarIsland_EventScript_BoatArrive
 	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_BoatArriveExitedPokeCenter
 	msgbox CinnabarIsland_Text_MyPalsBoatArrived
@@ -204,10 +204,10 @@ CinnabarIsland_EventScript_SailToOneIsland::
 	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 2
 	removeobject LOCALID_BILL
 	delay 40
-	setflag FLAG_HIDE_CINNABAR_SEAGALLOP
+	setflag FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE
 	setvar VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 1
-	setvar VAR_0x8004, SEAGALLOP_CINNABAR_ISLAND
-	setvar VAR_0x8006, SEAGALLOP_ONE_ISLAND
+	setvar VAR_0x8004, ALOLAN_GROWLITHE_CINNABAR_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_SetSail
 	end
 
@@ -219,12 +219,12 @@ CinnabarIsland_EventScript_ApproachShore::
 
 CinnabarIsland_EventScript_BoatArrive::
 	applymovement LOCALID_BILL, CinnabarIsland_Movement_BillFaceBoat
-	applymovement LOCALID_SEAGALLOP, CinnabarIsland_Movement_BoatArrive
+	applymovement LOCALID_ALOLAN_GROWLITHE, CinnabarIsland_Movement_BoatArrive
 	waitmovement 0
 	return
 
 CinnabarIsland_EventScript_BoatArriveExitedPokeCenter::
-	applymovement LOCALID_SEAGALLOP, CinnabarIsland_Movement_BoatArrive
+	applymovement LOCALID_ALOLAN_GROWLITHE, CinnabarIsland_Movement_BoatArrive
 	waitmovement 0
 	return
 

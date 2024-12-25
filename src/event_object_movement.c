@@ -462,7 +462,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION     0x1111
 #define OBJ_EVENT_PAL_TAG_RS_MOVING_BOX               0x1112
 #define OBJ_EVENT_PAL_TAG_METEORITE                   0x1113
-#define OBJ_EVENT_PAL_TAG_SEAGALLOP                   0x1114
+#define OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE                   0x1114
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                     0x1115
 #define OBJ_EVENT_PAL_TAG_RS_PLAYER_UNDERWATER        0x1116
 #define OBJ_EVENT_PAL_TAG_RS_KYOGRE                   0x1117
@@ -498,7 +498,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_PlayerReflection,        OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
-    {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_SEAGALLOP},
+    {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE},
     {},
 };
 
@@ -566,10 +566,10 @@ static const u16 sMeteoriteReflectionPaletteTags[] = {
 };
 
 static const u16 sSeagallopReflectionPaletteTags[] = {
-    OBJ_EVENT_PAL_TAG_SEAGALLOP,
-    OBJ_EVENT_PAL_TAG_SEAGALLOP,
-    OBJ_EVENT_PAL_TAG_SEAGALLOP,
-    OBJ_EVENT_PAL_TAG_SEAGALLOP,
+    OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,
+    OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,
+    OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,
+    OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,
 };
 
 static const u16 sRSSubmarineShadowReflectionPaletteTags[] = {
@@ -608,7 +608,7 @@ static const struct PairedPalettes gSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_RS_MACHOKE,          sRSMachokeReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_MOVING_BOX,       sRSMovingBoxReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_METEORITE,           sMeteoriteReflectionPaletteTags},
-    {OBJ_EVENT_PAL_TAG_SEAGALLOP,           sSeagallopReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,           sSeagallopReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_KYOGRE,           sRSKyogreReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_GROUDON,          sRSGroudonReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_NPC_GREEN,           sGreenNPCReflectionPaletteTags},

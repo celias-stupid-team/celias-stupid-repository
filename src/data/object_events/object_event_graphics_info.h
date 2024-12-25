@@ -2888,7 +2888,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mom = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Seagallop = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_SEAGALLOP,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 2048,
     .width = 64,
