@@ -221,6 +221,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_dynmultipush                   @ 0xd9
 	.4byte ScrCmd_setobtainable           		 @ 0xda
 	.4byte ScrCmd_checkmoncaught           		 @ 0xdb
+	.4byte ScrCmd_fadescreenswapbuffers    		 @ 0xdc
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
