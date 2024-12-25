@@ -2312,22 +2312,13 @@ static void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     s32 level = GetLevelFromBoxMonExp(boxMon);
     s32 i;
 
-    for (i = 0; gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
+    for (i = 0; gLevelUpLearnsets[species][i].move != LEVEL_UP_MOVE_END; i++)
     {
-        u16 moveLevel;
-        u16 move;
-
-        moveLevel = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV);
-        
-        if (moveLevel == 0)
-            continue;    
-        if (moveLevel > (level << 9))
+        if (gLevelUpLearnsets[species][i].level > level)
             break;
 
-        move = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID);
-
-        if (GiveMoveToBoxMon(boxMon, move) == MON_HAS_MAX_MOVES)
-            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, move);
+        if (GiveMoveToBoxMon(boxMon, gLevelUpLearnsets[species][i].move) == MON_HAS_MAX_MOVES)
+            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, gLevelUpLearnsets[species][i].move);
     }
 }
 
@@ -2343,13 +2334,12 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
     }
-    while(gLevelUpLearnsets[species][sLearningMoveTableID] != LEVEL_UP_END)
+    while (gLevelUpLearnsets[species][sLearningMoveTableID].move != LEVEL_UP_MOVE_END)
     {
-        u16 moveLevel;
-        moveLevel = (gLevelUpLearnsets[species][sLearningMoveTableID] & 0xFE00);
-        while (moveLevel == 0 || moveLevel == (level << 9))
+        while (gLevelUpLearnsets[species][sLearningMoveTableID].level == 0 
+               || gLevelUpLearnsets[species][sLearningMoveTableID].level  == level)
         {
-            gMoveToLearn = (gLevelUpLearnsets[species][sLearningMoveTableID] & 0x01FF);
+            gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
             sLearningMoveTableID++;
             return GiveMoveToMon(mon, gMoveToLearn);
         }
@@ -2372,17 +2362,17 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
 
-        while ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 9))
+        while (gLevelUpLearnsets[species][sLearningMoveTableID].level != level)
         {
             sLearningMoveTableID++;
-            if (gLevelUpLearnsets[species][sLearningMoveTableID] == LEVEL_UP_END)
+            if (gLevelUpLearnsets[species][sLearningMoveTableID].move == LEVEL_UP_MOVE_END)
                 return MOVE_NONE;
         }
     }
 
-    if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
+    if (gLevelUpLearnsets[species][sLearningMoveTableID].level == level)
     {
-        gMoveToLearn = (gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_ID);
+        gMoveToLearn = gLevelUpLearnsets[species][sLearningMoveTableID].move;
         sLearningMoveTableID++;
         retVal = GiveMoveToMon(mon, gMoveToLearn);
     }
@@ -5837,25 +5827,21 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
 
     for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
     {
-        u16 moveLevel;
-
-        if (gLevelUpLearnsets[species][i] == LEVEL_UP_END)
+        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_MOVE_END)
             break;
 
-        moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
-
-        if (moveLevel <= (level << 9))
+        if (gLevelUpLearnsets[species][i].level <= level)
         {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
+            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
                 ;
 
             if (j == MAX_MON_MOVES)
             {
-                for (k = 0; k < numMoves && moves[k] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); k++)
+                for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
                     ;
 
                 if (k == numMoves)
-                    moves[numMoves++] = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID;
+                    moves[numMoves++] = gLevelUpLearnsets[species][i].move;
             }
         }
     }
@@ -5868,8 +5854,8 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
     u8 numMoves = 0;
     int i;
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES && gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
-         moves[numMoves++] = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID;
+    for (i = 0; i < MAX_LEVEL_UP_MOVES && gLevelUpLearnsets[species][i].move != LEVEL_UP_MOVE_END; i++)
+         moves[numMoves++] = gLevelUpLearnsets[species][i].move;
 
      return numMoves;
 }
@@ -5893,23 +5879,21 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     {
         u16 moveLevel;
 
-        if (gLevelUpLearnsets[species][i] == LEVEL_UP_END)
+        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_MOVE_END)
             break;
 
-        moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
-
-        if (moveLevel <= (level << 9))
+        if (gLevelUpLearnsets[species][i].level <= level)
         {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
+            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
                 ;
 
             if (j == MAX_MON_MOVES)
             {
-                for (k = 0; k < numMoves && moves[k] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); k++)
+                for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
                     ;
 
                 if (k == numMoves)
-                    moves[numMoves++] = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID;
+                    moves[numMoves++] = gLevelUpLearnsets[species][i].move;
             }
         }
     }
@@ -6554,21 +6538,21 @@ void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) //Credit: Asparagu
     u16 levelMoveCount = 0;
     u16 moves[MAX_MON_MOVES] = {0};
     u8 addedMoves = 0;
-    const u16 *learnset = GetSpeciesLevelUpLearnset(species);
+    const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
 
-    for (i = 0; learnset[i] != LEVEL_UP_END; i++)
+    for (i = 0; learnset[i].move != LEVEL_UP_MOVE_END; i++)
         levelMoveCount++;
         
     for (i = levelMoveCount; (i >= 0 && addedMoves < MAX_MON_MOVES); i--)
     {
-        if ((learnset[i] & LEVEL_UP_MOVE_LV) > (level << 9))
+        if (learnset[i].level > level)
             continue;
             
-        if ((learnset[i] & LEVEL_UP_MOVE_LV) == 0)
+        if (learnset[i].level == 0)
             continue;
 
-        if (moves[addedMoves] != (learnset[i] & LEVEL_UP_MOVE_ID))
-            moves[addedMoves++] = (learnset[i] & LEVEL_UP_MOVE_ID);
+        if (moves[addedMoves] != learnset[i].move)
+            moves[addedMoves++] = learnset[i].move;
     }
     for (i = MAX_MON_MOVES - 1; i >= 0; i--)
     {
@@ -6577,9 +6561,9 @@ void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon) //Credit: Asparagu
     }
 }
 
-const u16 *GetSpeciesLevelUpLearnset(u16 species)
+const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
 {
-    const u16 *learnset = gLevelUpLearnsets[species];
+    const struct LevelUpMove *learnset = gLevelUpLearnsets[species];
     if (learnset == NULL)
         return gLevelUpLearnsets[SPECIES_NONE];
     return learnset;
