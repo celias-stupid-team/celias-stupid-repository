@@ -175,8 +175,8 @@
 #define OBJ_EVENT_GFX_LOOKER                        170          //Placeholder
 #define OBJ_EVENT_GFX_CYNTHIA                        171          //Placeholder
 #define OBJ_EVENT_GFX_DAZZLE                        172          //Placeholder
-#define OBJ_EVENT_GFX_DIETDANCE                        173          //Placeholder
-#define OBJ_EVENT_GFX_UMBRELLADAD                        174          //Placeholder
+#define OBJ_EVENT_GFX_DIETDANCE                        173          
+#define OBJ_EVENT_GFX_UMBRELLADAD                        174         
 #define OBJ_EVENT_GFX_KIMONORED                        175          //Placeholder
 #define OBJ_EVENT_GFX_KIMONOGREEN                        176          //Placeholder
 #define OBJ_EVENT_GFX_KIMONOBLUE                        177          //Placeholder
