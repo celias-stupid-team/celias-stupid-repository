@@ -43,7 +43,7 @@ const u16 gEggMoves[] = {
     egg_moves(RATTATA,
               MOVE_SCREECH,
               MOVE_FLAME_WHEEL,
-              MOVE_FURRY_SWIPES,
+              MOVE_FURY_SWIPES,
               MOVE_BITE,
               MOVE_COUNTER,
               MOVE_REVERSAL,
@@ -507,7 +507,7 @@ const u16 gEggMoves[] = {
               MOVE_GRASS_WHISTLE),
 
     egg_moves(CYNDAQUIL,
-              MOVE_FURRY_SWIPES,
+              MOVE_FURY_SWIPES,
               MOVE_QUICK_ATTACK,
               MOVE_REVERSAL,
               MOVE_THRASH,

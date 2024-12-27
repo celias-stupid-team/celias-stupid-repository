@@ -66,7 +66,7 @@ static const u16 sEasyChatGroup_Move2[] = {
     MOVE_FRUSTRATION,
     MOVE_FURY_ATTACK,
     MOVE_FURY_CUTTER,
-    MOVE_FURRY_SWIPES,
+    MOVE_FURY_SWIPES,
     MOVE_FUTURE_SIGHT,
     MOVE_GLARE,
     MOVE_GROWL,
