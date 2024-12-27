@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Blizzard"
+      "moveId": "Ice"
     },
     {
       "english": "TM15",
@@ -5115,7 +5115,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Psychic"
+      "moveId": "PsyBeam"
     },
     {
       "english": "TM30",

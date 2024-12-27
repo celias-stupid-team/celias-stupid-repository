@@ -20,6 +20,8 @@ struct MonCoords
 
 extern const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1];
 extern const u8 gMoveNames[][MOVE_NAME_LENGTH + 1];
+extern const u8 gLongMoveNames[][LONG_MOVE_NAME_LENGTH + 1];
+
 
 extern const u8 gTrainerClassNames[][13];
 

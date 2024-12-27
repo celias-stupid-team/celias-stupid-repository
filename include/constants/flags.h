@@ -381,6 +381,9 @@
 #define FLAG_0x153               0x153
 
 // Item ball hide/show
+
+//Since the vast majority of vanilla items won't be relevant here, I'm going to clean this all up and repurpose them
+
 #define FLAG_HIDE_ROUTE2_ETHER                                  0x154
 #define FLAG_HIDE_ROUTE2_PARALYZE_HEAL                          0x155
 #define FLAG_HIDE_VIRIDIAN_FOREST_POKE_BALL                     0x156
@@ -1542,15 +1545,15 @@
 #define FLAG_CSR_HINT_TANGELA_HAIRCUT                                                  (SYS_FLAGS + 0xED)
 #define FLAG_CSR_HINT_FOREST_CANDIES  /*Set*/                                                (SYS_FLAGS + 0xEE)
 #define FLAG_CSR_HINT_SPAM                                                  (SYS_FLAGS + 0xEF)
-#define FLAG_0x8F0                                                  (SYS_FLAGS + 0xF0)
-#define FLAG_0x8F1                                                  (SYS_FLAGS + 0xF1)
-#define FLAG_0x8F2                                                  (SYS_FLAGS + 0xF2)
-#define FLAG_0x8F3                                                  (SYS_FLAGS + 0xF3)
-#define FLAG_0x8F4                                                  (SYS_FLAGS + 0xF4)
-#define FLAG_0x8F5                                                  (SYS_FLAGS + 0xF5)
-#define FLAG_0x8F6                                                  (SYS_FLAGS + 0xF6)
-#define FLAG_0x8F7                                                  (SYS_FLAGS + 0xF7)
-#define FLAG_0x8F8                                                  (SYS_FLAGS + 0xF8)
+#define FLAG_CSR_MAP_MT_MOON_SQUARE                                                  (SYS_FLAGS + 0xF0)
+#define FLAG_CSR_MAP_YES                                                  (SYS_FLAGS + 0xF1)
+#define FLAG_CSR_MAP_AMITY_SQUARE                                                  (SYS_FLAGS + 0xF2)
+#define FLAG_CSR_MAP_POKEMON_ISLAND                                                  (SYS_FLAGS + 0xF3)
+#define FLAG_CSR_MAP_AETHER_PARADISE                                                  (SYS_FLAGS + 0xF4)
+#define FLAG_CSR_MAP_KANTO_LIGHTHOUSE                                                  (SYS_FLAGS + 0xF5)
+#define FLAG_CSR_MAP_ALTAR_OF_MOONE                                                  (SYS_FLAGS + 0xF6)
+#define FLAG_CSR_MAP_SECRET_TUNNEL                                                (SYS_FLAGS + 0xF7)
+#define FLAG_CSR_MAP_ZERO_ISLAND                                                  (SYS_FLAGS + 0xF8)
 #define FLAG_0x8F9                                                  (SYS_FLAGS + 0xF9)
 #define FLAG_0x8FA                                                  (SYS_FLAGS + 0xFA)
 #define FLAG_0x8FB                                                  (SYS_FLAGS + 0xFB)

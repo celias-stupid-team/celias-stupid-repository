@@ -179,7 +179,6 @@ static const u16 sEasyChatWordsByLetter_B[] = {
     EC_POKEMON2(BLAZIKEN),
     EC_WORD_BLEND,
     EC_POKEMON(BLISSEY),
-    EC_MOVE2(BLIZZARD),
     EC_MOVE2(BLOCK),
     EC_WORD_BOARD,
     EC_MOVE2(BODY_SLAM),
@@ -557,9 +556,9 @@ static const u16 sEasyChatWordsByLetter_F[] = {
     EC_WORD_FULL,
     EC_WORD_FUNNY,
     EC_POKEMON(FURRET),
+    EC_MOVE2(FURRY_SWIPES),
     EC_MOVE2(FURY_ATTACK),
     EC_MOVE2(FURY_CUTTER),
-    EC_MOVE2(FURY_SWIPES),
     EC_MOVE2(FUTURE_SIGHT),
 };
 
@@ -765,7 +764,6 @@ static const u16 sEasyChatWordsByLetter_I[] = {
     EC_WORD_I_VE_ARRIVED,
     EC_WORD_ICE,
     EC_MOVE(ICE_BALL),
-    EC_MOVE2(ICE_BEAM),
     EC_MOVE2(ICE_PUNCH),
     EC_MOVE2(ICICLE_SPEAR),
     EC_MOVE(ICY_WIND),
@@ -1246,7 +1244,6 @@ static const u16 sEasyChatWordsByLetter_P[] = {
     EC_POKEMON(PORYGON),
     EC_POKEMON(PORYGON2),
     EC_MOVE2(POUND),
-    EC_MOVE(POWDER_SNOW),
     EC_WORD_POWER,
     EC_WORD_PRAISE,
     EC_WORD_PREPOSTEROUS,
@@ -1258,12 +1255,10 @@ static const u16 sEasyChatWordsByLetter_P[] = {
     EC_WORD_PROBABLY,
     EC_WORD_PROMISE,
     EC_MOVE2(PROTECT),
-    EC_MOVE(PSYBEAM),
     EC_MOVE(PSYCH_UP),
     -1, 2, // Doubled pokemon species name
     EC_WORD_PSYCHIC,
-    EC_MOVE(PSYCHIC),
-    EC_MOVE(PSYCHO_BOOST),
+    EC_MOVE(SLUSH_RUSH),
     -1, 2, // Doubled pokemon species name
     EC_POKEMON2(PSYDUCK),
     EC_POKEMON(PSYDUCK),
@@ -1974,7 +1969,7 @@ static const struct EasyChatWordsByLetter sEasyChatWordsByLetterPointers[] = {
     },
     {
         .words = sEasyChatWordsByLetter_B,
-        .numWords = 86,
+        .numWords = 85,
     },
     {
         .words = sEasyChatWordsByLetter_C,
@@ -2002,7 +1997,7 @@ static const struct EasyChatWordsByLetter sEasyChatWordsByLetterPointers[] = {
     },
     {
         .words = sEasyChatWordsByLetter_I,
-        .numWords = 48,
+        .numWords = 47,
     },
     {
         .words = sEasyChatWordsByLetter_J,
@@ -2030,7 +2025,7 @@ static const struct EasyChatWordsByLetter sEasyChatWordsByLetterPointers[] = {
     },
     {
         .words = sEasyChatWordsByLetter_P,
-        .numWords = 102,
+        .numWords = 99,
     },
     {
         .words = sEasyChatWordsByLetter_Q,

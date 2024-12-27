@@ -3,15 +3,15 @@
     {
       "map_section": "MAPSEC_PALLET_TOWN",
       "name": "PALLET TOWN",
-      "x": 4,
-      "y": 11,
+      "x": 3,
+      "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_VIRIDIAN_CITY",
       "name": "VIRIDIAN CITY",
-      "x": 4,
+      "x": 3,
       "y": 8,
       "width": 1,
       "height": 1
@@ -19,7 +19,7 @@
     {
       "map_section": "MAPSEC_PEWTER_CITY",
       "name": "PEWTER CITY",
-      "x": 4,
+      "x": 3,
       "y": 4,
       "width": 1,
       "height": 1
@@ -27,7 +27,7 @@
     {
       "map_section": "MAPSEC_CERULEAN_CITY",
       "name": "CERULEAN CITY",
-      "x": 14,
+      "x": 16,
       "y": 3,
       "width": 1,
       "height": 1
@@ -35,7 +35,7 @@
     {
       "map_section": "MAPSEC_LAVENDER_TOWN",
       "name": "LAVENDER TOWN",
-      "x": 18,
+      "x": 19,
       "y": 6,
       "width": 1,
       "height": 1
@@ -43,7 +43,7 @@
     {
       "map_section": "MAPSEC_VERMILION_CITY",
       "name": "VERMILION CITY",
-      "x": 14,
+      "x": 16,
       "y": 9,
       "width": 1,
       "height": 1
@@ -51,7 +51,7 @@
     {
       "map_section": "MAPSEC_CELADON_CITY",
       "name": "CELADON CITY",
-      "x": 11,
+      "x": 13,
       "y": 6,
       "width": 1,
       "height": 1
@@ -59,15 +59,15 @@
     {
       "map_section": "MAPSEC_FUSHCIA_CITY",
       "name": "FUSHCIA CITY",
-      "x": 12,
-      "y": 12,
+      "x": 14,
+      "y": 11,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_CINNABAR_ISLAND",
       "name": "CINNABAR ISLAND",
-      "x": 4,
+      "x": 2,
       "y": 14,
       "width": 1,
       "height": 1
@@ -75,7 +75,7 @@
     {
       "map_section": "MAPSEC_INDIGO_PLATEAU",
       "name": "INDIGO PLATEAU",
-      "x": 2,
+      "x": 1,
       "y": 3,
       "width": 1,
       "height": 1
@@ -83,7 +83,7 @@
     {
       "map_section": "MAPSEC_SAFFRON_CITY",
       "name": "SAFFRON CITY",
-      "x": 14,
+      "x": 16,
       "y": 6,
       "width": 1,
       "height": 1
@@ -101,7 +101,7 @@
       "map_section": "MAPSEC_ROUTE_10_POKECENTER",
       "name": "ROUTE 10",
       "name_clone": true,
-      "x": 18,
+      "x": 19,
       "y": 3,
       "width": 1,
       "height": 1
@@ -109,15 +109,15 @@
     {
       "map_section": "MAPSEC_ROUTE_1",
       "name": "ROUTE 1",
-      "x": 4,
+      "x": 3,
       "y": 9,
       "width": 1,
-      "height": 2
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_2",
       "name": "ROUTE 2",
-      "x": 4,
+      "x": 3,
       "y": 5,
       "width": 1,
       "height": 3
@@ -125,9 +125,9 @@
     {
       "map_section": "MAPSEC_ROUTE_3",
       "name": "ROUTE 3",
-      "x": 5,
+      "x": 4,
       "y": 4,
-      "width": 4,
+      "width": 5,
       "height": 1
     },
     {
@@ -135,13 +135,13 @@
       "name": "ROUTE 4",
       "x": 8,
       "y": 3,
-      "width": 6,
+      "width": 8,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_5",
       "name": "ROUTE 5",
-      "x": 14,
+      "x": 16,
       "y": 4,
       "width": 1,
       "height": 2
@@ -149,7 +149,7 @@
     {
       "map_section": "MAPSEC_ROUTE_6",
       "name": "ROUTE 6",
-      "x": 14,
+      "x": 16,
       "y": 7,
       "width": 1,
       "height": 2
@@ -157,7 +157,7 @@
     {
       "map_section": "MAPSEC_ROUTE_7",
       "name": "ROUTE 7",
-      "x": 12,
+      "x": 14,
       "y": 6,
       "width": 2,
       "height": 1
@@ -165,7 +165,7 @@
     {
       "map_section": "MAPSEC_ROUTE_8",
       "name": "ROUTE 8",
-      "x": 15,
+      "x": 17,
       "y": 6,
       "width": 3,
       "height": 1
@@ -173,15 +173,15 @@
     {
       "map_section": "MAPSEC_ROUTE_9",
       "name": "ROUTE 9",
-      "x": 15,
+      "x": 13,
       "y": 3,
-      "width": 3,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_10",
       "name": "ROUTE 10",
-      "x": 18,
+      "x": 19,
       "y": 3,
       "width": 1,
       "height": 3
@@ -189,55 +189,55 @@
     {
       "map_section": "MAPSEC_ROUTE_11",
       "name": "ROUTE 11",
-      "x": 15,
+      "x": 17,
       "y": 9,
-      "width": 3,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_12",
       "name": "ROUTE 12",
-      "x": 18,
+      "x": 19,
       "y": 7,
       "width": 1,
-      "height": 5
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_13",
       "name": "ROUTE 13",
-      "x": 16,
-      "y": 11,
+      "x": 18,
+      "y": 10,
       "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_14",
       "name": "ROUTE 14",
-      "x": 15,
-      "y": 11,
+      "x": 18,
+      "y": 10,
       "width": 1,
       "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_15",
       "name": "ROUTE 15",
-      "x": 13,
-      "y": 12,
-      "width": 2,
+      "x": 15,
+      "y": 11,
+      "width": 4,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_16",
       "name": "ROUTE 16",
-      "x": 7,
+      "x": 11,
       "y": 6,
-      "width": 4,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_17",
       "name": "ROUTE 17",
-      "x": 7,
+      "x": 11,
       "y": 7,
       "width": 1,
       "height": 5
@@ -245,39 +245,39 @@
     {
       "map_section": "MAPSEC_ROUTE_18",
       "name": "ROUTE 18",
-      "x": 7,
-      "y": 12,
-      "width": 5,
+      "x": 12,
+      "y": 11,
+      "width": 2,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_19",
-      "name": "ROUTE 19",
-      "x": 12,
-      "y": 13,
-      "width": 1,
-      "height": 2
+      "map_section": "MAPSEC_GREAT_SEA",
+      "name": "GREAT SEA",
+      "x": 0,
+      "y": 12,
+      "width": 20,
+      "height": 4
     },
     {
       "map_section": "MAPSEC_ROUTE_20",
-      "name": "ROUTE 20",
+      "name": "GREAT_SEA_NORTH",
       "x": 5,
-      "y": 14,
-      "width": 7,
-      "height": 1
+      "y": 8,
+      "width": 6,
+      "height": 4
     },
     {
       "map_section": "MAPSEC_ROUTE_21",
-      "name": "ROUTE 21",
-      "x": 4,
-      "y": 12,
-      "width": 1,
+      "name": "GREAT BAY",
+      "x": 12,
+      "y": 8,
+      "width": 4,
       "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_22",
       "name": "ROUTE 22",
-      "x": 2,
+      "x": 1,
       "y": 8,
       "width": 2,
       "height": 1
@@ -285,7 +285,7 @@
     {
       "map_section": "MAPSEC_ROUTE_23",
       "name": "ROUTE 23",
-      "x": 2,
+      "x": 1,
       "y": 4,
       "width": 1,
       "height": 4
@@ -293,7 +293,7 @@
     {
       "map_section": "MAPSEC_ROUTE_24",
       "name": "ROUTE 24",
-      "x": 14,
+      "x": 16,
       "y": 1,
       "width": 1,
       "height": 2
@@ -301,7 +301,7 @@
     {
       "map_section": "MAPSEC_ROUTE_25",
       "name": "ROUTE 25",
-      "x": 15,
+      "x": 18,
       "y": 1,
       "width": 2,
       "height": 1
@@ -445,7 +445,7 @@
     },
     {
       "map_section": "MAPSEC_ONE_ISLAND",
-      "name": "ONE ISLAND",
+      "name": "ONE ISLANDS",
       "x": 1,
       "y": 8,
       "width": 1,
@@ -501,7 +501,7 @@
     },
     {
       "map_section": "MAPSEC_KINDLE_ROAD",
-      "name": "KINDLE ROAD",
+      "name": "MT MOON",
       "x": 2,
       "y": 3,
       "width": 1,
@@ -716,8 +716,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ICEFALL_CAVE",
-      "name": "ICEFALL CAVE",
+      "map_section": "MAPSEC_SKY_TOWER",
+      "name": "SKY TOWER",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -757,24 +757,24 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_PATTERN_BUSH",
-      "name": "PATTERN BUSH",
+      "map_section": "MAPSEC_ZERO_ISLAND",
+      "name": "ZERO ISLAND",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ALTERING_CAVE",
-      "name": "ALTERING CAVE",
+      "map_section": "MAPSEC_YES",
+      "name": "YES",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_TANOBY_CHAMBERS",
-      "name": "TANOBY CHAMBERS",
+      "map_section": "MAPSEC_SECRET_TUNNEL",
+      "name": "SECRET TUNNEL!",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -789,8 +789,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_TANOBY_KEY",
-      "name": "TANOBY KEY",
+      "map_section": "MAPSEC_ALTAR_OF_MOONE",
+      "name": "ALTAR OF THE MOON",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -805,56 +805,56 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_MONEAN_CHAMBER",
-      "name": "MONEAN CHAMBER",
+      "map_section": "MAPSEC_THIRTY_EIGHT_ISLAND",
+      "name": "THIRTYEIGHT ISLAND",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_LIPTOO_CHAMBER",
-      "name": "LIPTOO CHAMBER",
+      "map_section": "MAPSEC_SECRET_GARDEN",
+      "name": "SECRET GARDEN",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_WEEPTH_CHAMBER",
-      "name": "WEEPTH CHAMBER",
+      "map_section": "MAPSEC_AMITY_SQUARE",
+      "name": "AMITY SQUARE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_DILFORD_CHAMBER",
-      "name": "DILFORD CHAMBER",
+      "map_section": "MAPSEC_POKEMON_ISLAND",
+      "name": "POKéMON ISLAND",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SCUFIB_CHAMBER",
-      "name": "SCUFIB CHAMBER",
+      "map_section": "MAPSEC_AETHER_PARADISE",
+      "name": "AETHER PARADISE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_RIXY_CHAMBER",
-      "name": "RIXY CHAMBER",
+      "map_section": "MAPSEC_KANTO_LIGHTHOUSE",
+      "name": "KANTO LIGHTHOUSE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_VIAPOIS_CHAMBER",
-      "name": "VIAPOIS CHAMBER",
+      "map_section": "MAPSEC_MINNESOTA",
+      "name": "MINNESOTA",
       "x": 0,
       "y": 0,
       "width": 1,

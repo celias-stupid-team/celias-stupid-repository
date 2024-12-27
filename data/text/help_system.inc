@@ -23,8 +23,8 @@ Help_Text_TryDoingItOnYourOwn::
 	.string "じぶんの ちからで やってみよう！$"
 
 Help_Text_DescWhatShouldIDo::
-	.string "Select to obtain hints for getting\n"
-	.string "over challenging situations.$"
+	.string "This isn't implemented yet.\n"
+	.string "Sorry!! -Celia$"
 
 Help_Text_DescHowDoIDoThis::
 	.string "Detailed instructions are given for\n"
