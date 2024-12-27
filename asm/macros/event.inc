@@ -1715,6 +1715,14 @@
 	.2byte \species
 	.endm
 
+	@ Equivalent to fadescreen but copies gPlttBufferUnfaded to gPaletteDecompressionBuffer on the fade out
+	@ and the reverse on the fade in, in effect saving gPlttBufferUnfaded to restore it.
+	@ (ported from pokeemerald)
+	.macro fadescreenswapbuffers mode:req
+	.byte 0xdc
+	.byte \mode
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
