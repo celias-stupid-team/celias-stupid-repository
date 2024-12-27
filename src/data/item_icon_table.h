@@ -413,10 +413,10 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TORN_PAPER_GEODUDE]     = {gItemIcon_TornPaper, gItemIconPalette_TornPaper},
     [ITEM_CREAM_DROP]     = {gItemIcon_CreamDrop, gItemIconPalette_CreamDrop},
     [ITEM_TRASH_MEDAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
-    /*
+    
     [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
-    */   
-    // Return to field arrow
+    
+    
     [ITEM_MYSTIC_SEAL]     = {gItemIcon_MysticSeal, gItemIconPalette_MysticSeal},
     [ITEM_INSTINCT_SEAL]   = {gItemIcon_InstinctSeal, gItemIconPalette_InstinctSeal},
     [ITEM_VALOR_SEAL]   = {gItemIcon_ValorSeal, gItemIconPalette_ValorSeal},

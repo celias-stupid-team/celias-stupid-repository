@@ -728,6 +728,9 @@ const u32 gItemIconPalette_RunningShoes[] = INCBIN_U32("graphics/items/icon_pale
 const u32 gItemIcon_DawnStone[] = INCBIN_U32("graphics/items/icons/dawn_stone.4bpp.lz");
 const u32 gItemIconPalette_DawnStone[] = INCBIN_U32("graphics/items/icon_palettes/dawn_stone.gbapal.lz");
 
+const u32 gItemIcon_LetterY[] = INCBIN_U32("graphics/items/icons/letter_y.4bpp.lz");
+const u32 gItemIconPalette_LetterY[] = INCBIN_U32("graphics/items/icon_palettes/letter_y.gbapal.lz");
+
 const u32 gItemIcon_Honey[] = INCBIN_U32("graphics/items/icons/honey.4bpp.lz");
 const u32 gItemIconPalette_Honey[] = INCBIN_U32("graphics/items/icon_palettes/honey.gbapal.lz");
 
