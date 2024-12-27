@@ -454,6 +454,7 @@
 
 //CSR items
 #define ITEM_FOCUS_SASH 375
+#define ITEM_CSR_START  ITEM_FOCUS_SASH
 #define ITEM_MATH_CLUB 376
 #define ITEM_ODD_CANDY 377
 #define ITEM_RUNNING_SHOES 378
@@ -495,6 +496,7 @@
 #define SUPER_ROD 2
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) ((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)     \
+                                || (item >= ITEM_CSR_START && item < ITEMS_COUNT))
 
 #endif  // GUARD_CONSTANTS_ITEMS_H
