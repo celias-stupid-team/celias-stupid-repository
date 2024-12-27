@@ -541,7 +541,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
 };
 
 
-const u8 gLongMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 6] = {
+const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_NONE]          = _("-$$$$$$"),
     [MOVE_POUND]         = _("POUND"),
     [MOVE_KARATE_CHOP]   = _("KARATE CHOP"),
