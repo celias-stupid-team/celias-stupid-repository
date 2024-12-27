@@ -284,6 +284,22 @@ static const u8 sItemEffect_ThunderStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+static const u8 sItemEffect_DawnStone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_RunningShoes[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_SuperScope[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+static const u8 sItemEffect_SoulDew[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 static const u8 sItemEffect_WaterStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
@@ -406,8 +422,10 @@ const u8 *const gItemEffectTable[] =
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
     [ITEM_LIBERRY - ITEM_POTION]       = sItemEffect_Liberry,
-    [ITEM_DAWN_STONE - ITEM_POTION] = sItemEffect_ThunderStone,
-    [ITEM_RUNNING_SHOES - ITEM_POTION] = sItemEffect_ThunderStone,
+    [ITEM_DAWN_STONE - ITEM_POTION] = sItemEffect_DawnStone,
+    [ITEM_RUNNING_SHOES - ITEM_POTION] = sItemEffect_RunningShoes,
+    [ITEM_SUPER_SCOPE - ITEM_POTION] = sItemEffect_SuperScope,
+    [ITEM_SOUL_DEW - ITEM_POTION] = sItemEffect_SoulDew,
     //LAST_BERRY_INDEX commented becaus it is equal to ITEM_LIBERRY
     //[LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

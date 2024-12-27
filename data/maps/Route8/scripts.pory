@@ -121,7 +121,7 @@ movement PlayerPushesBench {
 
 movement Bench1 {
 	walk_slower_up
-	delay_
+	delay_4
 	walk_slower_up * 2
 	delay_8
 	walk_slower_up * 2

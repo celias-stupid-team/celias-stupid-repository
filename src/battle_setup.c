@@ -227,7 +227,7 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
       || mapNum == MAP_NUM(POKEMON_TOWER_5F)
       || mapNum == MAP_NUM(POKEMON_TOWER_6F)
       || mapNum == MAP_NUM(POKEMON_TOWER_7F))
-     && !(CheckBagHasItem(ITEM_SILPH_SCOPE, 1)))
+     && !(CheckBagHasItem(ITEM_SUPER_SCOPE, 1)))
         return TRUE;
     else
         return FALSE;
@@ -321,7 +321,7 @@ void StartMarowakBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndMarowakBattle;
-    if (CheckBagHasItem(ITEM_SILPH_SCOPE, 1))
+    if (CheckBagHasItem(ITEM_SUPER_SCOPE, 1))
     {
         gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED;
         CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_MAROWAK, 30, 31, MON_FEMALE, NATURE_SERIOUS, 0);

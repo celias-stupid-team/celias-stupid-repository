@@ -5803,8 +5803,8 @@
       "secondaryId": 0
     },
     {
-      "english": "SILPH SCOPE",
-      "itemId": "ITEM_SILPH_SCOPE",
+      "english": "SUPER SCOPE",
+      "itemId": "ITEM_SUPER_SCOPE",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,

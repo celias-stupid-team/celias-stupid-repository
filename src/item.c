@@ -578,7 +578,7 @@ void TrySetObtainedItemQuestLogEvent(u16 itemId)
      || itemId == ITEM_LIFT_KEY
      || itemId == ITEM_HELIX_FOSSIL
      || itemId == ITEM_JAW_FOSSIL
-     || itemId == ITEM_SILPH_SCOPE
+     || itemId == ITEM_SUPER_SCOPE
      || itemId == ITEM_BICYCLE
      || itemId == ITEM_TOWN_MAP
      || itemId == ITEM_VS_SEEKER

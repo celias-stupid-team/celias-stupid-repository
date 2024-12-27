@@ -222,7 +222,7 @@ static const u8 sContextMenuItems_Field[][4] = {
         ITEMMENUACTION_TOSS,
         ITEMMENUACTION_CANCEL,
         ITEMMENUACTION_DUMMY
-    }
+    },
 };
 
 static const u8 sContextMenuItems_CheckGiveTossCancel[] = {
@@ -1406,6 +1406,14 @@ static void OpenContextMenu(u8 taskId)
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN;
                 else if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE))
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_WALK;
+                
+                else if (gSpecialVar_ItemId == ITEM_RUNNING_SHOES || gSpecialVar_ItemId == ITEM_SUPER_SCOPE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
+                    sContextMenuNumItems = 2;
+                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
+                    sContextMenuItemsBuffer[1] == ITEMMENUACTION_CANCEL;
+                }
+                
+                
                 else
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
                 break;
