@@ -120,6 +120,7 @@ script Route16_NorthEntrance_1F_EventScript_Dad {
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm working my side job as a\nsecurity guard.\lCan't let you pass without a BIKE!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_CELADON_GATE)
 	release
 	end
 }

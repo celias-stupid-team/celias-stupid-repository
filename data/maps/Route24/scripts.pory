@@ -58,7 +58,7 @@ Route24_EventScript_BattleRocket::
 	playbgm MUS_ENCOUNTER_ROCKET, 0
 	waitbuttonpress
 	setvar VAR_LAST_TALKED, LOCALID_ROCKET
-	trainerbattle_no_intro TRAINER_TEAM_ROCKET_GRUNT_6, Route24_Text_RocketDefeat
+	trainerbattle_no_intro TRAINER_DMCA_GRUNT_6, Route24_Text_RocketDefeat
 	msgbox Route24_Text_YoudBecomeTopRocketLeader
 	setvar VAR_MAP_SCENE_ROUTE24, 1
 	return
@@ -208,7 +208,8 @@ script Route24_EventScript_Dad {
 	faceplayer
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was just on my way to visit\nmy friend BILL.\lHe and I go way back!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
-	//call(EventScript_DadHeal) Oops I haven't added the dads yet in this branch lol
+	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_ROUTE24)
 	release
 	end
 }

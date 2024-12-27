@@ -93,6 +93,7 @@ script Route25_Dad_Bench {
 		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI just arrived at my friend BILL'S\nhouse.\lHe doesn't seem to be home, though…\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	}
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_ROUTE25)
 	release
 	end
 }

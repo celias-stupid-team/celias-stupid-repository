@@ -18,6 +18,7 @@ script Route2_EventScript_Dad {
 	textcolor(0)
 	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm out here to visit my sisters.\nDon't try to catch them!\lIt won't work!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_SISTERS)
 	release
 	end
 }
