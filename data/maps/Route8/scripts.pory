@@ -89,9 +89,9 @@ script Route8_PushBench {
 		waitmovement(0)
 		playse(SE_M_WATERFALL)
 		applymovement(BENCH, Bench1)
-		delay(16)
+		delay(32)
 		playse(SE_M_SURF)
-		delay(48)
+		delay(60)
 		playse(SE_M_SURF)
 		waitmovement(0)
 		playse(SE_WALL_HIT)
@@ -121,10 +121,10 @@ movement PlayerPushesBench {
 
 movement Bench1 {
 	walk_slower_up
-	delay_4
-	walk_slower_up * 3
-	delay_4
-	walk_slower_up
+	delay_
+	walk_slower_up * 2
+	delay_8
+	walk_slower_up * 2
 	delay_4
 }
 
@@ -266,6 +266,7 @@ script Route8_GrowlitheSign {
 				playse(SE_FLEE)
 				applymovement(GROWLITHE, GrowlitheAbsconds)
 				waitmovement(0)
+				removeobject(GROWLITHE)
 				setflag(FLAG_GROWLITHE_SIGN)
 				release
 				end
