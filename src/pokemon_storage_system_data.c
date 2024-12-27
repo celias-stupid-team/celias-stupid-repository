@@ -11,6 +11,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
+#include "event_data.h"
 
 static EWRAM_DATA struct Pokemon sMonBeingCarried = {};
 static EWRAM_DATA s8 sCursorArea = 0;
@@ -2059,10 +2060,10 @@ static const u8 *const sMenuTexts[] = {
     [MENU_TEXT_SEAFLOOR]   = gPCText_Seafloor,
     [MENU_TEXT_RIVER]      = gPCText_River,
     [MENU_TEXT_SKY]        = gPCText_Sky,
-    [MENU_TEXT_POLKADOT]   = gPCText_PolkaDot,
-    [MENU_TEXT_POKECENTER] = gPCText_Pokecenter,
-    [MENU_TEXT_MACHINE]    = gPCText_Machine,
-    [MENU_TEXT_SIMPLE]     = gPCText_Simple,
+    [MENU_TEXT_POPUP_SCAM]   = gPCText_PopupScam,
+    [MENU_TEXT_PORN_AD] = gPCText_PornAd,
+    [MENU_TEXT_BLUESCREEN]    = gPCText_BlueScreen,
+    [MENU_TEXT_THE_PIT]     = gPCText_ThePit,
 };
 
 void InitMenu(void)

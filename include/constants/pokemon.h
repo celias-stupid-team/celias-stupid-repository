@@ -218,9 +218,7 @@
 #define MON_ALREADY_KNOWS_MOVE 0xFFFE
 #define MON_HAS_MAX_MOVES      0xFFFF
 
-#define LEVEL_UP_MOVE_ID   0x01FF
-#define LEVEL_UP_MOVE_LV   0xFE00
-#define LEVEL_UP_END       0xFFFF
+#define LEVEL_UP_MOVE_END 0xFFFF
 
 #define MAX_LEVEL_UP_MOVES       20
 
