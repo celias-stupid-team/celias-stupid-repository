@@ -4476,6 +4476,30 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Chapter2/border.bin",
       "blockdata_filepath": "data/layouts/Chapter2/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_MOON_OUTSIDE",
+      "name": "MtMoon_Outside_Layout",
+      "width": 32,
+      "height": 45,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/MtMoon_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/MtMoon_Outside/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_TUNNEL",
+      "name": "SecretTunnel_Layout",
+      "width": 50,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SecretTunnel/border.bin",
+      "blockdata_filepath": "data/layouts/SecretTunnel/map.bin"
     }
   ]
 }

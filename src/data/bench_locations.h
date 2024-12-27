@@ -13,4 +13,6 @@ static const struct BenchLocation sBenchPoints[] =
     [BENCH_ROUTE8_BEFORE - 1 ]      = {MAP_GROUP(ROUTE8), MAP_NUM(ROUTE8), 36, 7},
     [BENCH_ROUTE8_AFTER - 1 ]      = {MAP_GROUP(ROUTE8), MAP_NUM(ROUTE8), 36, 2},
     [BENCH_ROUTE4_EAST - 1 ]      = {MAP_GROUP(ROUTE4), MAP_NUM(ROUTE4), 36, 5},
+    [BENCH_MT_MOON_BASEMENT - 1]  =  {MAP_GROUP(MT_MOON_B1F), MAP_NUM(MT_MOON_B1F), 18, 10},
+    
 };

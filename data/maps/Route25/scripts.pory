@@ -43,7 +43,7 @@ script Route25_Hbox {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	lock
 	faceplayer
-	setwildbattle(SPECIES_JIGGLYPUFF, 34)
+	setwildbattle(SPECIES_JIGGLYPUFF, 15)
 	waitse
 	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
 	delay(40)

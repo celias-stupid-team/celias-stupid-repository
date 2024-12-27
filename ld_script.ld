@@ -986,6 +986,8 @@ SECTIONS {
         sound/songs/midi/mus_sky_tower.o(.rodata);
         sound/songs/midi/mus_dmca_battle.o(.rodata);
         sound/songs/midi/mus_dmca_admin.o(.rodata);
+        sound/songs/midi/mus_secret_tunnel.o(.rodata);
+
     } > ROM =0
 
 
