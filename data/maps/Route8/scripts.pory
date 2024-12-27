@@ -287,6 +287,63 @@ script Route8_NoMoreGrowlithe {
 	end
 }
 
+const LASS = 1
+script Route8_LassAttack {
+	lock
+	setvar(VAR_ROUTE8_LASS, 1)
+	setweather(WEATHER_RAIN_THUNDERSTORM)
+	doweather
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	applymovement(LASS, LassSeesYou)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LASS, LassJumps)
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 49:
+			applymovement(LASS, LassWalks3)
+		case 50:
+			applymovement(LASS, LassWalks2)
+		case 51:
+			applymovement(LASS, LassWalks1)
+	}
+	waitmovement(0)
+	applymovement(LASS, Common_Movement_FaceUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("There were a bunch of people\nwaiting over there in a line.\pHalf of them were looking towards\nSAFFRON CITY which was fine,\lbut some were looking right at me.\pSo, I decided to scare them off!\n", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_LASS_JULIA, Route8_Text_JuliaDefeat)
+	release
+	end
+}
+
+movement LassSeesYou {
+	face_left
+	emote_exclamation_mark
+	delay_16 * 6
+	walk_left
+}
+
+movement LassJumps {
+	jump_2_left
+	delay_16
+	walk_left * 2
+}
+
+movement LassWalks1 {
+	walk_left
+}
+
+movement LassWalks2 {
+	walk_left * 2
+}
+
+movement LassWalks3 {
+	walk_left * 3
+}
+
+
 movement PlayerJumpsLeft {
 	delay_8
 	face_right

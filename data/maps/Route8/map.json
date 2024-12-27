@@ -546,6 +546,150 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 48,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 48,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 48,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_ROUTE8_LASS",
+      "var_value": "0",
+      "script": "NULL"
     }
   ],
   "bg_events": [

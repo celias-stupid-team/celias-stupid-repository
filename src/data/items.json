@@ -6099,7 +6099,7 @@
       "description_english": "A piece of CANDY resembling a\\ncertain POKéMON. You have a\\nstrange urge to collect them.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "KEY_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
