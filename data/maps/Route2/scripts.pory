@@ -31,7 +31,7 @@ script Route2_EventScript_RouteSign {
 	lock
 	msgbox(Route2_Text_RouteSign, MSGBOX_DEFAULT)
 	if(!flag(FLAG_CSR_MAP_ROUTE_22)) {
-		msgbox("TRAINER TIPS\pDon't forget to head EAST from\nVIRIDIAN CITY and explore ROUTE 22!", MSGBOX_SIGN)
+		msgbox("TRAINER TIPS\pDon't forget to head EAST from\nVIRIDIAN CITY and explore ROUTE 22!", MSGBOX_DEFAULT)
 	}
 	release
 }
