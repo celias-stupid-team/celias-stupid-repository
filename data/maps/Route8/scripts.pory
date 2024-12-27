@@ -1,12 +1,392 @@
 raw `
-Route8_MapScripts::
-	.byte 0
+
 
 Route8_EventScript_UndergroundPathSign::
 	msgbox Route8_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+
+
+const GROWLITHE = 19
+mapscripts Route8_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_CSR_ROUTE8_PUSHED_BENCH)) {
+			setbench(BENCH_ROUTE8_AFTER)
+			setmetatile(35, 2, 0x3C0, FALSE)
+			setmetatile(36, 2, 0x3C1, FALSE)
+			setmetatile(37, 2, 0x3C2, FALSE)
+		} else {
+			setbench(BENCH_ROUTE8_BEFORE)
+		}
+	}
+}
+
+
+
 script Route8_RouteSign {
 	msgbox("ROUTE 8\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
 	end
+}
+
+script Route8_StartSnowing {
+	setweather(WEATHER_SNOW)
+	doweather
+	release
+}
+
+script Route8_StartSunning {
+	setweather(WEATHER_SUNNY_CLOUDS)
+	doweather
+	release
+}
+
+script Route8_StartSandstorm {
+	setweather(WEATHER_SANDSTORM)
+	doweather
+	release
+}
+
+script Route8_StartRaining {
+	setweather(WEATHER_RAIN_THUNDERSTORM)
+	doweather
+	release
+}
+
+script Route8_DrySoil {
+	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nsere land would be a waste.", MSGBOX_DEFAULT)
+	end
+}
+
+script Route8_DrowningFriends {
+	if(flag(FLAG_CSR_GOT_PAY_DAY)) {
+		msgbox("…\pAll my friends are dead.\n", MSGBOX_NPC)
+	} else {
+		msgbox("Help!\pAll my friends are drowning!\n", MSGBOX_NPC)
+	}
+	
+}
+
+const BENCH = 16
+
+script Route8_PushBench {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	msgbox("A lone bench is floating adrift\nin the waters.\pWould you like to push it?\n", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox("{PLAYER} left the bench to its\nown devices.\pThe bench appears content.\n", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox("{PLAYER} pushed the bench!\n", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		special(SpawnCameraObject)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route8_CameraGoesUp)
+		waitmovement(0)
+		playse(SE_WALL_HIT)
+		applymovement(OBJ_EVENT_ID_PLAYER, PlayerPushesBench)
+		waitmovement(0)
+		playse(SE_M_WATERFALL)
+		applymovement(BENCH, Bench1)
+		delay(32)
+		playse(SE_M_SURF)
+		delay(60)
+		playse(SE_M_SURF)
+		waitmovement(0)
+		playse(SE_WALL_HIT)
+		//set tiles and bench location
+		setbench(BENCH_ROUTE8_AFTER)
+		setmetatile(35, 2, 0x3C0, FALSE)
+		setmetatile(36, 2, 0x3C1, FALSE)
+		setmetatile(37, 2, 0x3C2, FALSE)
+		special(DrawWholeMapView)
+		delay(30)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route8_CameraGoesDown)
+		waitmovement(0)
+		special(RemoveCameraObject)
+		removeobject(BENCH)
+		setflag(FLAG_CSR_ROUTE8_PUSHED_BENCH)
+		release
+	}
+}
+
+movement Route8_CameraGoesUp {
+	walk_slow_up * 3
+}
+
+movement PlayerPushesBench {
+	walk_in_place_up * 2
+}
+
+movement Bench1 {
+	walk_slower_up
+	delay_4
+	walk_slower_up * 2
+	delay_8
+	walk_slower_up * 2
+	delay_4
+}
+
+movement Route8_CameraGoesDown {
+	walk_slow_down * 3
+}
+
+script Route8_GrowlitheSign {
+	lock
+	if(flag(FLAG_GROWLITHE_SIGN)) {
+		goto(Route8_NoMoreGrowlithe)
+	}
+
+	switch(var(VAR_TEMP_4)) {
+		case 0:
+			msgbox("There's a familiar-looking tuft\nburied in the snow.\lPet it?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				//set map
+				setmetatile(22, 18, 0x3B2, FALSE)
+				setmetatile(23, 18, 0x3B3, FALSE)
+				setmetatile(22, 19, 0x3BA, FALSE)
+				setmetatile(23, 19, 0x3BB, FALSE)
+				special(DrawWholeMapView)
+				closemessage
+				waitmoncry
+				release
+				end
+			}
+			release
+			end
+			break
+
+		case 1:
+			msgbox("A friendly face is rising from\nthe ground to meet you.\lPet it again?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				setmetatile(22, 18, 0x3B4, FALSE)
+				setmetatile(23, 18, 0x3B5, FALSE)
+				setmetatile(22, 19, 0x3BC, FALSE)
+				setmetatile(23, 19, 0x3BD, FALSE)
+				special(DrawWholeMapView)
+				closemessage
+				waitmoncry
+				release
+				end
+			}
+			release
+			end
+			break
+
+		case 2:
+			msgbox("He's almost free!\nJust a little more!\pGive him one last pet?\n", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				addvar(VAR_TEMP_4, 1)
+
+				delay(5)
+				setmetatile(22, 18, 0x39C, FALSE) //raw snow underneath while Growlithe jumps
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)
+				special(DrawWholeMapView)
+				closemessage
+				addobject(GROWLITHE)
+				//move the Growlithe to be on top
+				setobjectxy(GROWLITHE, 22, 19)
+
+				if(var(VAR_FACING) == DIR_SOUTH) { //Player jumps out of the way if they're above it 
+					getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+					if(var(VAR_TEMP_2) == 22) {
+						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsLeft)
+					} else {
+						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsRight)
+					}
+					waitmovement(OBJ_EVENT_ID_PLAYER)
+					
+				}
+				
+				playse(SE_LEDGE)
+				applymovement(GROWLITHE, GrowlitheEmerges)
+				waitmovement(0)	
+				setmetatile(22, 18, 0x3B6, FALSE) //draw close-eyed Growlithe underneath
+				setmetatile(23, 18, 0x3B7, FALSE)
+				setmetatile(22, 19, 0x3BE, FALSE)
+				setmetatile(23, 19, 0x3BF, FALSE)
+				special(DrawWholeMapView)
+				addvar(VAR_TEMP_4, 1)
+				delay(60)
+				applymovement(GROWLITHE, GrowlitheBlinks) //Done by making Growlithe appear and disappear
+				waitmovement(0)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				delay(20)
+				msgbox("Amazing!\nIt's the fabled ALOLAN GROWLITHE!", MSGBOX_DEFAULT)
+				playfanfare(MUS_SLOTS_WIN)
+				msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
+				waitfanfare
+				closemessage
+				delay(10)
+
+				//set tiles to be snow
+				setmetatile(22, 18, 0x39C, FALSE)
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)
+				setobjectxy(GROWLITHE, 22, 19) //Draw him again????
+				special(DrawWholeMapView)
+				delay(30)
+				playse(SE_LEDGE)
+
+				applymovement(GROWLITHE, GrowlitheIsHappy)
+				waitmovement(0)
+				playse(SE_LEDGE)
+
+				
+				applymovement(GROWLITHE, GrowlitheIsHappy)
+				waitmovement(0)
+				delay(20)
+				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
+				waitmoncry
+				
+				//growlithe looks both ways.
+				//He changes position cuz the sprite isn't centered, so he needs to warp around to appear in the same place
+				setobjectxy(GROWLITHE, 23, 19)
+				applymovement(GROWLITHE, Common_Movement_FaceRight)
+				waitmovement(0)
+				delay(32)
+				setobjectxy(GROWLITHE, 22, 19)
+				applymovement(GROWLITHE, Common_Movement_FaceLeft)
+				waitmovement(0)
+				delay(32)
+				setobjectxy(GROWLITHE, 23, 19)
+				applymovement(GROWLITHE, Common_Movement_FaceRight)
+				waitmovement(0)
+				delay(64)
+				setobjectxy(GROWLITHE, 22, 19)
+
+				playse(SE_FLEE)
+				applymovement(GROWLITHE, GrowlitheAbsconds)
+				waitmovement(0)
+				removeobject(GROWLITHE)
+				setflag(FLAG_GROWLITHE_SIGN)
+				release
+				end
+			}
+			release
+			end
+			break
+		default:
+			goto(Route8_NoMoreGrowlithe)
+	}
+	release
+}
+
+script Route8_NoMoreGrowlithe {
+	lock
+	msgbox("This patch of snow is empty now,\nbut the memories you made live on.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+const LASS = 1
+script Route8_LassAttack {
+	lock
+	setvar(VAR_ROUTE8_LASS, 1)
+	setweather(WEATHER_RAIN_THUNDERSTORM)
+	doweather
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	applymovement(LASS, LassSeesYou)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LASS, LassJumps)
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 49:
+			applymovement(LASS, LassWalks3)
+		case 50:
+			applymovement(LASS, LassWalks2)
+		case 51:
+			applymovement(LASS, LassWalks1)
+	}
+	waitmovement(0)
+	applymovement(LASS, Common_Movement_FaceUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("There were a bunch of people\nwaiting over there in a line.\pHalf of them were looking towards\nSAFFRON CITY which was fine,\lbut some were looking right at me.\pSo, I decided to scare them off!\n", MSGBOX_DEFAULT)
+	trainerbattle_no_intro(TRAINER_LASS_JULIA, Route8_Text_JuliaDefeat)
+	release
+	end
+}
+
+movement LassSeesYou {
+	face_left
+	emote_exclamation_mark
+	delay_16 * 6
+	walk_left
+}
+
+movement LassJumps {
+	jump_2_left
+	delay_16
+	walk_left * 2
+}
+
+movement LassWalks1 {
+	walk_left
+}
+
+movement LassWalks2 {
+	walk_left * 2
+}
+
+movement LassWalks3 {
+	walk_left * 3
+}
+
+
+movement PlayerJumpsLeft {
+	delay_8
+	face_right
+	lock_facing_direction
+	jump_left
+	unlock_facing_direction
+}
+
+movement PlayerJumpsRight {
+	delay_8
+	face_left
+	lock_facing_direction
+	jump_right
+	unlock_facing_direction
+}
+
+
+
+movement GrowlitheEmerges {
+	jump_in_place_left
+	set_visible
+}
+
+movement GrowlitheBlinks { //Yes I'm still doing it this way. Fight me.
+							// Actually I changed my mind I'm not doing it that way anymore LOL
+							//nvm tried doing it the normal way and it SUCKED so we're doing it the dumb way 
+	
+	delay_16 * 3
+	set_invisible
+	delay_8
+	set_visible
+	delay_16
+	set_invisible
+	delay_8
+	set_visible
+	delay_16 * 3
+}
+
+movement GrowlitheIsHappy {
+	jump_in_place_left
+}
+
+movement GrowlitheAbsconds {
+	
+	walk_fast_left * 9
 }

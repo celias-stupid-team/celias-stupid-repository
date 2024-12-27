@@ -408,7 +408,7 @@ static const u32 sRegionMap_Gfx[] = INCBIN_U32("graphics/region_map/region_map.4
 static const u32 sMapEdge_Gfx[] = INCBIN_U32("graphics/region_map/map_edge.4bpp.lz");
 static const u32 sSwitchMapMenu_Gfx[] = INCBIN_U32("graphics/region_map/switch_map_menu.4bpp.lz");
 static const u32 sKanto_Tilemap[] = INCBIN_U32("graphics/region_map/kanto.bin.lz");
-static const u32 sSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_123.bin.lz");
+static const u32 sCeladon_Tilemap[] = INCBIN_U32("graphics/region_map/celadon_tiles.bin.lz");
 static const u32 sSevii45_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_45.bin.lz");
 static const u32 sSevii67_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_67.bin.lz");
 static const u32 sMapEdge_Tilemap[] = INCBIN_U32("graphics/region_map/map_edge.bin.lz");
@@ -428,7 +428,7 @@ static const u32 sBackground_Tilemap[] = INCBIN_U32("graphics/region_map/backgro
 
 //For Celadon
 static const u32 sCeladonMap_Gfx[] = INCBIN_U32("graphics/region_map/celadon_tiles.4bpp.lz");
-static const u16 sCeladonMap_Pal[] = INCBIN_U16("graphics/region_map/celadon_map.gbapal");
+static const u16 sCeladonMap_Pal[] = INCBIN_U16("graphics/region_map/celadon_tiles.gbapal");
 
 
 static const struct BgTemplate sRegionMapBgTemplates[] = {
@@ -1173,7 +1173,7 @@ static bool8 LoadRegionMapGfx(void)
         LZ77UnCompWram(sKanto_Tilemap, sRegionMap->layouts[REGIONMAP_KANTO]);
         break;
     case 6:
-        LZ77UnCompWram(sSevii123_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
+        LZ77UnCompWram(sCeladon_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII123]);
         break;
     case 7:
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);

@@ -11,7 +11,7 @@ EventScript_ChooseDestFromOneIsland::
 	end
 
 EventScript_ChooseDestFromOneIslandVermilionAllowed::
-	multichoice 19, 5, MULTICHOICE_SEAGALLOP_V23, FALSE
+	multichoice 19, 5, MULTICHOICE_ALOLAN_GROWLITHE_V23, FALSE
 	switch VAR_RESULT
 	case 0, EventScript_SailToVermilion2
 	case 1, EventScript_SailToTwoIsland2
@@ -32,7 +32,7 @@ EventScript_ChooseDestFromTwoIsland::
 	end
 
 EventScript_ChooseDestFromTwoIslandVermilionAllowed::
-	multichoice 19, 5, MULTICHOICE_SEAGALLOP_V13, FALSE
+	multichoice 19, 5, MULTICHOICE_ALOLAN_GROWLITHE_V13, FALSE
 	switch VAR_RESULT
 	case 0, EventScript_SailToVermilion2
 	case 1, EventScript_SailToOneIsland2
@@ -42,22 +42,22 @@ EventScript_ChooseDestFromTwoIslandVermilionAllowed::
 	end
 
 EventScript_SailToVermilion2::
-	setvar VAR_0x8006, SEAGALLOP_VERMILION_CITY
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_VERMILION_CITY
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToOneIsland2::
-	setvar VAR_0x8006, SEAGALLOP_ONE_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToTwoIsland2::
-	setvar VAR_0x8006, SEAGALLOP_TWO_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_TWO_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToThreeIsland2::
-	setvar VAR_0x8006, SEAGALLOP_THREE_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_THREE_ISLAND
 	goto EventScript_SailToDest
 	end
 
@@ -73,7 +73,7 @@ EventScript_ChooseDestFromIsland::
 	end
 
 EventScript_ChooseDestFromIslandVermilionAllowed::
-	multichoice 19, 5, MULTICHOICE_SEAGALLOP_V12, FALSE
+	multichoice 19, 5, MULTICHOICE_ALOLAN_GROWLITHE_V12, FALSE
 	switch VAR_RESULT
 	case 0, EventScript_SailToVermilion2
 	case 1, EventScript_SailToOneIsland2
@@ -85,8 +85,8 @@ EventScript_ChooseDestFromIslandVermilionAllowed::
 EventScript_SailToDest::
 	specialvar VAR_RESULT, GetSeagallopNumber
 	buffernumberstring STR_VAR_1, VAR_RESULT
-	goto_if_eq VAR_0x8004, SEAGALLOP_VERMILION_CITY, EventScript_DepartingVermilion
-	goto_if_ne VAR_0x8004, SEAGALLOP_VERMILION_CITY, EventScript_DepartingNotVermilion
+	goto_if_eq VAR_0x8004, ALOLAN_GROWLITHE_VERMILION_CITY, EventScript_DepartingVermilion
+	goto_if_ne VAR_0x8004, ALOLAN_GROWLITHE_VERMILION_CITY, EventScript_DepartingNotVermilion
 	end
 
 EventScript_DepartingVermilion::
@@ -133,12 +133,12 @@ EventScript_SeviiDestinationsPage1::
 	waitstate
 	specialvar VAR_0x8006, GetSelectedSeagallopDestination
 	switch VAR_0x8006
-	case SEAGALLOP_VERMILION_CITY, EventScript_SailToVermilionCity
-	case SEAGALLOP_ONE_ISLAND,	 EventScript_SailToOneIsland
-	case SEAGALLOP_TWO_ISLAND,	 EventScript_SailToTwoIsland
-	case SEAGALLOP_THREE_ISLAND,   EventScript_SailToThreeIsland
-	case SEAGALLOP_FOUR_ISLAND,	EventScript_SailToFourIsland
-	case SEAGALLOP_MORE,		   EventScript_SeviiDestinationsPage2
+	case ALOLAN_GROWLITHE_VERMILION_CITY, EventScript_SailToVermilionCity
+	case ALOLAN_GROWLITHE_ONE_ISLAND,	 EventScript_SailToOneIsland
+	case ALOLAN_GROWLITHE_TWO_ISLAND,	 EventScript_SailToTwoIsland
+	case ALOLAN_GROWLITHE_THREE_ISLAND,   EventScript_SailToThreeIsland
+	case ALOLAN_GROWLITHE_FOUR_ISLAND,	EventScript_SailToFourIsland
+	case ALOLAN_GROWLITHE_MORE,		   EventScript_SeviiDestinationsPage2
 	case SCR_MENU_CANCEL,		  EventScript_CancelSail
 	end
 
@@ -148,50 +148,50 @@ EventScript_SeviiDestinationsPage2::
 	waitstate
 	specialvar VAR_0x8006, GetSelectedSeagallopDestination
 	switch VAR_0x8006
-	case SEAGALLOP_FOUR_ISLAND,  EventScript_SailToFourIsland
-	case SEAGALLOP_FIVE_ISLAND,  EventScript_SailToFiveIsland
-	case SEAGALLOP_SIX_ISLAND,   EventScript_SailToSixIsland
-	case SEAGALLOP_SEVEN_ISLAND, EventScript_SailToSevenIsland
-	case SEAGALLOP_MORE,		 EventScript_SeviiDestinationsPage1
+	case ALOLAN_GROWLITHE_FOUR_ISLAND,  EventScript_SailToFourIsland
+	case ALOLAN_GROWLITHE_FIVE_ISLAND,  EventScript_SailToFiveIsland
+	case ALOLAN_GROWLITHE_SIX_ISLAND,   EventScript_SailToSixIsland
+	case ALOLAN_GROWLITHE_SEVEN_ISLAND, EventScript_SailToSevenIsland
+	case ALOLAN_GROWLITHE_MORE,		 EventScript_SeviiDestinationsPage1
 	case SCR_MENU_CANCEL,		EventScript_CancelSail
 	end
 
 EventScript_SailToVermilionCity::
-	setvar VAR_0x8006, SEAGALLOP_VERMILION_CITY
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_VERMILION_CITY
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToOneIsland::
-	setvar VAR_0x8006, SEAGALLOP_ONE_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToTwoIsland::
-	setvar VAR_0x8006, SEAGALLOP_TWO_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_TWO_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToThreeIsland::
-	setvar VAR_0x8006, SEAGALLOP_THREE_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_THREE_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToFourIsland::
-	setvar VAR_0x8006, SEAGALLOP_FOUR_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_FOUR_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToFiveIsland::
-	setvar VAR_0x8006, SEAGALLOP_FIVE_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_FIVE_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToSixIsland::
-	setvar VAR_0x8006, SEAGALLOP_SIX_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_SIX_ISLAND
 	goto EventScript_SailToDest
 	end
 
 EventScript_SailToSevenIsland::
-	setvar VAR_0x8006, SEAGALLOP_SEVEN_ISLAND
+	setvar VAR_0x8006, ALOLAN_GROWLITHE_SEVEN_ISLAND
 	goto EventScript_SailToDest
 	end

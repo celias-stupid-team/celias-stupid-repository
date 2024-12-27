@@ -382,7 +382,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LIFT_KEY]       = {gItemIcon_LiftKey, gItemIconPalette_Key},
     [ITEM_HELIX_FOSSIL]   = {gItemIcon_HelixFossil, gItemIconPalette_KantoFossil},
     [ITEM_JAW_FOSSIL]    = {gItemIcon_DomeFossil, gItemIconPalette_KantoFossil},
-    [ITEM_SILPH_SCOPE]    = {gItemIcon_SilphScope, gItemIconPalette_SilphScope},
+    [ITEM_SUPER_SCOPE]    = {gItemIcon_SilphScope, gItemIconPalette_SilphScope},
     [ITEM_BICYCLE]        = {gItemIcon_Bicycle, gItemIconPalette_Bicycle},
     [ITEM_TOWN_MAP]       = {gItemIcon_TownMap, gItemIconPalette_TownMap},
     [ITEM_VS_SEEKER]      = {gItemIcon_VSSeeker, gItemIconPalette_VSSeeker},
@@ -413,10 +413,10 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TORN_PAPER_GEODUDE]     = {gItemIcon_TornPaper, gItemIconPalette_TornPaper},
     [ITEM_CREAM_DROP]     = {gItemIcon_CreamDrop, gItemIconPalette_CreamDrop},
     [ITEM_TRASH_MEDAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
-    /*
+    
     [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
-    */   
-    // Return to field arrow
+    
+    
     [ITEM_MYSTIC_SEAL]     = {gItemIcon_MysticSeal, gItemIconPalette_MysticSeal},
     [ITEM_INSTINCT_SEAL]   = {gItemIcon_InstinctSeal, gItemIconPalette_InstinctSeal},
     [ITEM_VALOR_SEAL]   = {gItemIcon_ValorSeal, gItemIconPalette_ValorSeal},

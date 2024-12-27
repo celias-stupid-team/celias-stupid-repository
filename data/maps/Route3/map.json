@@ -99,7 +99,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 20,
+      "x": 21,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -403,46 +403,10 @@
     },
     {
       "type": "trigger",
-      "x": 35,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route3_Far_SetDex"
-    },
-    {
-      "type": "trigger",
       "x": 34,
-      "y": 10,
+      "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route3_Far_SetDex"
-    },
-    {
-      "type": "trigger",
-      "x": 36,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route3_Far_SetDex"
-    },
-    {
-      "type": "trigger",
-      "x": 37,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route3_Far_SetDex"
-    },
-    {
-      "type": "trigger",
-      "x": 33,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "Route3_Far_SetDex"
     },
@@ -452,6 +416,123 @@
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route3_Far_SetDex"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "Route3_Far_SetDex"
     }
@@ -524,6 +605,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route3_DugrtioSign"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route3_PokedexSign"
     }
   ]
 }

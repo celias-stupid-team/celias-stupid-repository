@@ -95,8 +95,7 @@ Route8_Text_JuliaIntro::
     .string "POKéMON?$"
 
 Route8_Text_JuliaDefeat::
-    .string "Stop!\p"
-    .string "Don't be so mean to my CLEFAIRY!$"
+    .string "Owie!$"
 
 Route8_Text_JuliaPostBattle::
     .string "I read that CLEFAIRY evolves when\n"

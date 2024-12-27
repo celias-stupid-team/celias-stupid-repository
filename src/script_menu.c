@@ -631,11 +631,11 @@ static const struct MultichoiceListStruct sMultichoiceLists[] = {
     [MULTICHOICE_SEVII_NAVEL]                                = MULTICHOICE(sMultichoiceList_SeviiNavel),
     [MULTICHOICE_SEVII_BIRTH]                                = MULTICHOICE(sMultichoiceList_SeviiBirth),
     [MULTICHOICE_SEVII_NAVEL_BIRTH]                          = MULTICHOICE(sMultichoiceList_SeviiNavelBirth),
-    [MULTICHOICE_SEAGALLOP_123]                              = MULTICHOICE(sMultichoiceList_Seagallop123),
-    [MULTICHOICE_SEAGALLOP_V23]                              = MULTICHOICE(sMultichoiceList_SeagallopV23),
-    [MULTICHOICE_SEAGALLOP_V13]                              = MULTICHOICE(sMultichoiceList_SeagallopV13),
-    [MULTICHOICE_SEAGALLOP_V12]                              = MULTICHOICE(sMultichoiceList_SeagallopV12),
-    [MULTICHOICE_SEAGALLOP_VERMILION]                        = MULTICHOICE(sMultichoiceList_SeagallopVermilion),
+    [MULTICHOICE_ALOLAN_GROWLITHE_123]                              = MULTICHOICE(sMultichoiceList_Seagallop123),
+    [MULTICHOICE_ALOLAN_GROWLITHE_V23]                              = MULTICHOICE(sMultichoiceList_SeagallopV23),
+    [MULTICHOICE_ALOLAN_GROWLITHE_V13]                              = MULTICHOICE(sMultichoiceList_SeagallopV13),
+    [MULTICHOICE_ALOLAN_GROWLITHE_V12]                              = MULTICHOICE(sMultichoiceList_SeagallopV12),
+    [MULTICHOICE_ALOLAN_GROWLITHE_VERMILION]                        = MULTICHOICE(sMultichoiceList_SeagallopVermilion),
     [MULTICHOICE_62]                                         = MULTICHOICE(sMultichoiceList_62),
     [MULTICHOICE_JOIN_OR_LEAD]                               = MULTICHOICE(sMultichoiceList_JoinOrLead),
     [MULTICHOICE_TRAINER_TOWER_MODE]                         = MULTICHOICE(sMultichoiceList_TrainerTowerMode),
@@ -733,14 +733,14 @@ static const struct SpriteSheet sMuseumAerodactylSprSheets[] = {
 
 
 static const u8 *const sSeagallopDestStrings[] = {
-    [SEAGALLOP_VERMILION_CITY] = gText_Vermilion,
-    [SEAGALLOP_ONE_ISLAND]     = gText_OneIsland,
-    [SEAGALLOP_TWO_ISLAND]     = gText_TwoIsland,
-    [SEAGALLOP_THREE_ISLAND]   = gText_ThreeIsland,
-    [SEAGALLOP_FOUR_ISLAND]    = gText_FourIsland,
-    [SEAGALLOP_FIVE_ISLAND]    = gText_FiveIsland,
-    [SEAGALLOP_SIX_ISLAND]     = gText_SixIsland,
-    [SEAGALLOP_SEVEN_ISLAND]   = gText_SevenIsland,
+    [ALOLAN_GROWLITHE_VERMILION_CITY] = gText_Vermilion,
+    [ALOLAN_GROWLITHE_ONE_ISLAND]     = gText_OneIsland,
+    [ALOLAN_GROWLITHE_TWO_ISLAND]     = gText_TwoIsland,
+    [ALOLAN_GROWLITHE_THREE_ISLAND]   = gText_ThreeIsland,
+    [ALOLAN_GROWLITHE_FOUR_ISLAND]    = gText_FourIsland,
+    [ALOLAN_GROWLITHE_FIVE_ISLAND]    = gText_FiveIsland,
+    [ALOLAN_GROWLITHE_SIX_ISLAND]     = gText_SixIsland,
+    [ALOLAN_GROWLITHE_SEVEN_ISLAND]   = gText_SevenIsland,
 };
 
 static u16 GetStringTilesWide(const u8 *str)
@@ -1681,16 +1681,16 @@ void DrawSeagallopDestinationMenu(void)
 
     if (gSpecialVar_0x8005 == 1)
     {
-        if (gSpecialVar_0x8004 < SEAGALLOP_FIVE_ISLAND)
-            destinationId = SEAGALLOP_FIVE_ISLAND;
+        if (gSpecialVar_0x8004 < ALOLAN_GROWLITHE_FIVE_ISLAND)
+            destinationId = ALOLAN_GROWLITHE_FIVE_ISLAND;
         else
-            destinationId = SEAGALLOP_FOUR_ISLAND;
+            destinationId = ALOLAN_GROWLITHE_FOUR_ISLAND;
         numItems = 5;
         top = 2;
     }
     else
     {
-        destinationId = SEAGALLOP_VERMILION_CITY;
+        destinationId = ALOLAN_GROWLITHE_VERMILION_CITY;
         numItems = 6;
         top = 0;
     }
@@ -1709,8 +1709,8 @@ void DrawSeagallopDestinationMenu(void)
         destinationId++;
 
         // Wrap around
-        if (destinationId == SEAGALLOP_SEVEN_ISLAND + 1)
-            destinationId = SEAGALLOP_VERMILION_CITY;
+        if (destinationId == ALOLAN_GROWLITHE_SEVEN_ISLAND + 1)
+            destinationId = ALOLAN_GROWLITHE_VERMILION_CITY;
     }
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Other, cursorWidth, i * 16 + 2, TEXT_SKIP_DRAW, NULL);
     i++;
@@ -1730,7 +1730,7 @@ u16 GetSelectedSeagallopDestination(void)
     {
         if (gSpecialVar_Result == 3)
         {
-            return SEAGALLOP_MORE;
+            return ALOLAN_GROWLITHE_MORE;
         }
         else if (gSpecialVar_Result == 4)
         {
@@ -1738,30 +1738,30 @@ u16 GetSelectedSeagallopDestination(void)
         }
         else if (gSpecialVar_Result == 0)
         {
-            if (gSpecialVar_0x8004 > SEAGALLOP_FOUR_ISLAND)
-                return SEAGALLOP_FOUR_ISLAND;
+            if (gSpecialVar_0x8004 > ALOLAN_GROWLITHE_FOUR_ISLAND)
+                return ALOLAN_GROWLITHE_FOUR_ISLAND;
             else
-                return SEAGALLOP_FIVE_ISLAND;
+                return ALOLAN_GROWLITHE_FIVE_ISLAND;
         }
         else if (gSpecialVar_Result == 1)
         {
-            if (gSpecialVar_0x8004 > SEAGALLOP_FIVE_ISLAND)
-                return SEAGALLOP_FIVE_ISLAND;
+            if (gSpecialVar_0x8004 > ALOLAN_GROWLITHE_FIVE_ISLAND)
+                return ALOLAN_GROWLITHE_FIVE_ISLAND;
             else
-                return SEAGALLOP_SIX_ISLAND;
+                return ALOLAN_GROWLITHE_SIX_ISLAND;
         }
         else if (gSpecialVar_Result == 2)
         {
-            if (gSpecialVar_0x8004 > SEAGALLOP_SIX_ISLAND)
-                return SEAGALLOP_SIX_ISLAND;
+            if (gSpecialVar_0x8004 > ALOLAN_GROWLITHE_SIX_ISLAND)
+                return ALOLAN_GROWLITHE_SIX_ISLAND;
             else
-                return SEAGALLOP_SEVEN_ISLAND;
+                return ALOLAN_GROWLITHE_SEVEN_ISLAND;
         }
     }
     else
     {
         if (gSpecialVar_Result == 4)
-            return SEAGALLOP_MORE;
+            return ALOLAN_GROWLITHE_MORE;
         else if (gSpecialVar_Result == 5)
             return SCR_MENU_CANCEL;
         else if (gSpecialVar_Result >= gSpecialVar_0x8004)
@@ -1769,5 +1769,5 @@ u16 GetSelectedSeagallopDestination(void)
         else
             return gSpecialVar_Result;
     }
-    return SEAGALLOP_VERMILION_CITY;
+    return ALOLAN_GROWLITHE_VERMILION_CITY;
 }
