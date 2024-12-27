@@ -2138,8 +2138,66 @@ void FreeAndReserveObjectSpritePalettes(void)
     gReservedSpritePaletteCount = OBJ_PALSLOT_COUNT;
 }
 
+#define OUTFIT_NONE (0 << 0)
+#define OUTFIT_L    (1 << 0)
+#define OUTFIT_W    (1 << 1)
+#define OUTFIT_P    (1 << 2)
+#define OUTFIT_LW   (OUTFIT_L | OUTFIT_W)
+#define OUTFIT_LP   (OUTFIT_L | OUTFIT_P)
+#define OUTFIT_WP   (OUTFIT_W | OUTFIT_P)
+#define OUTFIT_LWP  (OUTFIT_L | OUTFIT_W | OUTFIT_P)
+
+#define OUTFIT_COUNT 8
+
+static const struct SpritePalette sOutfitToPaletteRed[OUTFIT_COUNT] = {
+    [OUTFIT_NONE] = {gObjectEventPal_Player,  OBJ_EVENT_PAL_TAG_PLAYER_RED}, 
+    [OUTFIT_L]    = {gObjectEventPal_Red_L,   OBJ_EVENT_PAL_TAG_PLAYER_RED},    
+    [OUTFIT_W]    = {gObjectEventPal_Red_W,   OBJ_EVENT_PAL_TAG_PLAYER_RED},    
+    [OUTFIT_P]    = {gObjectEventPal_Red_P,   OBJ_EVENT_PAL_TAG_PLAYER_RED},    
+    [OUTFIT_LW]   = {gObjectEventPal_Red_LW,  OBJ_EVENT_PAL_TAG_PLAYER_RED},   
+    [OUTFIT_LP]   = {gObjectEventPal_Red_LP,  OBJ_EVENT_PAL_TAG_PLAYER_RED},   
+    [OUTFIT_WP]   = {gObjectEventPal_Red_WP,  OBJ_EVENT_PAL_TAG_PLAYER_RED},   
+    [OUTFIT_LWP]  = {gObjectEventPal_Red_LWP, OBJ_EVENT_PAL_TAG_PLAYER_RED},  
+};
+
+static const struct SpritePalette sOutfitToPaletteGreen[OUTFIT_COUNT] = {
+    [OUTFIT_NONE] = {gObjectEventPal_Player,    OBJ_EVENT_PAL_TAG_PLAYER_GREEN}, 
+    [OUTFIT_L]    = {gObjectEventPal_Green_L,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN},    
+    [OUTFIT_W]    = {gObjectEventPal_Green_W,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN},    
+    [OUTFIT_P]    = {gObjectEventPal_Green_P,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN},    
+    [OUTFIT_LW]   = {gObjectEventPal_Green_LW,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN},   
+    [OUTFIT_LP]   = {gObjectEventPal_Green_LP,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN},   
+    [OUTFIT_WP]   = {gObjectEventPal_Green_WP,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN},   
+    [OUTFIT_LWP]  = {gObjectEventPal_Green_LWP, OBJ_EVENT_PAL_TAG_PLAYER_GREEN},  
+};
+
+void SetPlayerOutfit(u8 outfit)
+{
+    gSaveBlock1Ptr->currentOutfit |= outfit;
+}
+
+void ClearPlayerOutfit(u8 outfit)
+{
+    gSaveBlock1Ptr->currentOutfit &= ~outfit;
+}
+
+void TogglePlayerOutfit(u8 outfit)
+{
+    gSaveBlock1Ptr->currentOutfit ^= outfit;
+}
+
+static const struct SpritePalette *HandleOutfitPalette(u16 paletteTag)
+{
+    if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED)
+        return &sOutfitToPaletteRed[gSaveBlock1Ptr->currentOutfit];
+    else
+        return &sOutfitToPaletteGreen[gSaveBlock1Ptr->currentOutfit];
+}
+
+// ravetodo: not sure these changes are needed, needs more testing
 static void LoadObjectEventPalette(u16 paletteTag)
 {
+    const struct SpritePalette *pal;
     u16 i = FindObjectEventPaletteIndexByTag(paletteTag);
 
 #ifdef BUGFIX
@@ -2148,7 +2206,17 @@ static void LoadObjectEventPalette(u16 paletteTag)
     if (i != OBJ_EVENT_PAL_TAG_NONE) // always true
 #endif
     {
-        TryLoadObjectPalette(&sObjectEventSpritePalettes[i]);
+        if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
+        {
+            pal = HandleOutfitPalette(paletteTag);
+            FreeSpritePaletteByTag(paletteTag);
+        }
+        else
+        {
+            pal = &sObjectEventSpritePalettes[i];
+        }
+        
+        TryLoadObjectPalette(pal);
     }
 }
 
@@ -2175,9 +2243,18 @@ static u8 TryLoadObjectPalette(const struct SpritePalette *spritePalette)
 
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
+    const struct SpritePalette *pal;
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
+    if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
+    {
+        pal = HandleOutfitPalette(paletteTag);
+        LoadPalette(pal->data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    }
 
-    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
     ApplyGlobalFieldPaletteTint(paletteSlot);
 }
 
