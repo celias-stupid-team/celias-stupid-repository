@@ -556,6 +556,7 @@ static const u16 sEasyChatWordsByLetter_F[] = {
     EC_WORD_FULL,
     EC_WORD_FUNNY,
     EC_POKEMON(FURRET),
+    EC_MOVE2(FURRY_SWIPES),
     EC_MOVE2(FURY_ATTACK),
     EC_MOVE2(FURY_CUTTER),
     EC_MOVE2(FUTURE_SIGHT),
