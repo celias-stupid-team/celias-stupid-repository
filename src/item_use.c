@@ -32,6 +32,7 @@
 #include "tm_case.h"
 #include "vs_seeker.h"
 #include "constants/sound.h"
+#include "constants/event_object_movement.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/maps.h"
@@ -909,6 +910,31 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
     }
     else
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+}
+
+void FieldUseFunc_LWPEmblem(u8 taskId)
+{
+    u8 outfit = OUTFIT_NONE;
+    switch(gSpecialVar_ItemId)
+    {
+    case ITEM_L_EMBLEM:
+        outfit = OUTFIT_L;
+        break;
+    case ITEM_W_EMBLEM:
+        outfit = OUTFIT_W;
+        break;
+    case ITEM_P_EMBLEM:
+        outfit = OUTFIT_P;
+        break;
+    }
+
+    TogglePlayerOutfit(outfit);
+
+    PlaySE(SE_SELECT);
+    CopyItemName(gSpecialVar_ItemId, gStringVar1);
+
+    StringExpandPlaceholders(gStringVar4, gText_LWPEmblem);
+    DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
 }
 
 void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u16 param)

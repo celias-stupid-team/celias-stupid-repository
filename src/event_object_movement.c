@@ -2138,17 +2138,6 @@ void FreeAndReserveObjectSpritePalettes(void)
     gReservedSpritePaletteCount = OBJ_PALSLOT_COUNT;
 }
 
-#define OUTFIT_NONE (0 << 0)
-#define OUTFIT_L    (1 << 0)
-#define OUTFIT_W    (1 << 1)
-#define OUTFIT_P    (1 << 2)
-#define OUTFIT_LW   (OUTFIT_L | OUTFIT_W)
-#define OUTFIT_LP   (OUTFIT_L | OUTFIT_P)
-#define OUTFIT_WP   (OUTFIT_W | OUTFIT_P)
-#define OUTFIT_LWP  (OUTFIT_L | OUTFIT_W | OUTFIT_P)
-
-#define OUTFIT_COUNT 8
-
 static const struct SpritePalette sOutfitToPaletteRed[OUTFIT_COUNT] = {
     [OUTFIT_NONE] = {gObjectEventPal_Player,  OBJ_EVENT_PAL_TAG_PLAYER_RED}, 
     [OUTFIT_L]    = {gObjectEventPal_Red_L,   OBJ_EVENT_PAL_TAG_PLAYER_RED},    

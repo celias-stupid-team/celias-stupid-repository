@@ -351,4 +351,16 @@
 #define ANIM_HOOKED_POKEMON_WEST  10
 #define ANIM_HOOKED_POKEMON_EAST  11
 
+// CSR outfits
+#define OUTFIT_NONE (0 << 0)
+#define OUTFIT_L    (1 << 0)
+#define OUTFIT_W    (1 << 1)
+#define OUTFIT_P    (1 << 2)
+#define OUTFIT_LW   (OUTFIT_L | OUTFIT_W)
+#define OUTFIT_LP   (OUTFIT_L | OUTFIT_P)
+#define OUTFIT_WP   (OUTFIT_W | OUTFIT_P)
+#define OUTFIT_LWP  (OUTFIT_L | OUTFIT_W | OUTFIT_P)
+
+#define OUTFIT_COUNT 8
+
 #endif // GUARD_CONSTANTS_EVENT_OBJECT_MOVEMENT_H
