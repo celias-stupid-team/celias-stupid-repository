@@ -96,6 +96,7 @@ script MtMoon_EventScript_DadStuck {
 	faceplayer
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was heading home, but TENTACOOL\nhas other plans, it seems.\lI'm stuck here in place!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	setflag(FLAG_DAD_MTMOON_1F)
 	call(EventScript_DadHeal)
 	release
 	end

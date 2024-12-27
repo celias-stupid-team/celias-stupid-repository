@@ -117,7 +117,7 @@
       "y": 14,
       "elevation": 3,
       "item": "ITEM_MAX_ELIXIR",
-      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_9F_MAX_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_18",
       "quantity": 1,
       "underfoot": false
     },

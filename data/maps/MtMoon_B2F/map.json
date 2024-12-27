@@ -350,14 +350,14 @@
       "x": 20,
       "y": 16,
       "elevation": 3,
-      "item": "ITEM_MOON_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE",
+      "item": "ITEM_SUN_STONE",
+      "flag": "FLAG_CSR_HIDDEN_ITEM_MT_MOON_B2F_SUN_STONE",
       "quantity": 1,
       "underfoot": false
     },
     {
       "type": "hidden_item",
-      "x": 39,
+      "x": 40,
       "y": 11,
       "elevation": 3,
       "item": "ITEM_ETHER",

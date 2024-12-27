@@ -104,6 +104,7 @@ script PewterCity_EventScript_Dad {
 	}
 
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_PEWTER_GYM)
 	release
 	end
 }

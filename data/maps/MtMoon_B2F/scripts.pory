@@ -129,6 +129,7 @@ script MtMoon_B2F_EventScript_Dad {
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pThat guy up there has a really\nscary POKéMON!\lNone of my moves worked on it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_MTMOON_B2F)
 	release
 	end
 }

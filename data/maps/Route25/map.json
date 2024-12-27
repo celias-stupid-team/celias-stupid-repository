@@ -301,8 +301,8 @@
       "x": 58,
       "y": 6,
       "elevation": 3,
-      "item": "ITEM_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ETHER",
+      "item": "ITEM_CHOICE_BAND",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_CHOICE_BAND",
       "quantity": 1,
       "underfoot": false
     },
@@ -312,7 +312,7 @@
       "y": 8,
       "elevation": 3,
       "item": "ITEM_LEPPA_BERRY",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_ORAN_BERRY",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE25_LEPPA_BERRY",
       "quantity": 1,
       "underfoot": false
     },
