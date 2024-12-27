@@ -42,20 +42,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 55,
-      "y": 15,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route8_EventScript_Rich",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 48,
       "y": 3,
@@ -79,7 +65,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route8_EventScript_Paige",
+      "script": "Route8_DrowningFriends",
       "flag": "0"
     },
     {
@@ -127,7 +113,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 21,
+      "x": 23,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -247,8 +233,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route8_PushBench",
+      "flag": "FLAG_CSR_ROUTE8_PUSHED_BENCH"
     },
     {
       "type": "object",
@@ -281,52 +267,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ALOLAN_GROWLITHE",
-      "x": 19,
-      "y": 11,
+      "x": 0,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ALOLAN_GROWLITHE",
-      "x": 21,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ALOLAN_GROWLITHE",
-      "x": 23,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ALOLAN_GROWLITHE",
-      "x": 25,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -361,16 +305,23 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 60,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_8_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_8_CANDY"
     }
   ],
   "warp_events": [
-    {
-      "x": 13,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_UNDERGROUND_PATH_EAST_ENTRANCE",
-      "dest_warp_id": "1"
-    },
     {
       "x": 7,
       "y": 10,
@@ -496,6 +447,105 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
     }
   ],
   "bg_events": [
@@ -560,6 +610,30 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_GrowlitheSign"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_DrySoil"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_DrySoil"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_DrySoil"
     }
   ]
 }

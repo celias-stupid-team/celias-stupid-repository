@@ -406,6 +406,8 @@ const u8 *const gItemEffectTable[] =
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
     [ITEM_LIBERRY - ITEM_POTION]       = sItemEffect_Liberry,
+    [ITEM_DAWN_STONE - ITEM_POTION] = sItemEffect_ThunderStone,
+    [ITEM_RUNNING_SHOES - ITEM_POTION] = sItemEffect_ThunderStone,
     //LAST_BERRY_INDEX commented becaus it is equal to ITEM_LIBERRY
     //[LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };
