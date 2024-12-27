@@ -47,7 +47,7 @@ MtMoon_1F_EventScript_Robby::
 	end
 
 MtMoon_B1F_EventScript_ExitLass::
-	trainerbattle_single TRAINER_LASS_JANICE_2, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
+	trainerbattle_single TRAINER_CSR_MT_MOON_END_LASS, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
 	msgbox MtMoon_Text_ExitLassPostBattle, MSGBOX_AUTOCLOSE
 	end
 `

@@ -475,6 +475,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassJanice[] = {
     },
 };
 
+static const struct TrainerMonNoItemDefaultMoves sParty_MtMoonEndLass[] = {
+    {
+        .iv = 0,
+        .lvl = 12,
+        .species = SPECIES_CLEFAIRY,
+    },
+};
+
 static const struct TrainerMonItemDefaultMoves sParty_LassSally[] = {
     {
         .iv = 0,
@@ -6267,61 +6275,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerJennifer[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Channeler1[] = {
-    {
-        .iv = 0,
-        .lvl = 23,
-        .species = SPECIES_HAUNTER,
-    },
-};
-
-
-
-
-
-
-
-static const struct TrainerMonNoItemDefaultMoves sParty_Channeler5[] = {
-    {
-        .iv = 0,
-        .lvl = 22,
-        .species = SPECIES_HAUNTER,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_Channeler6[] = {
-    {
-        .iv = 0,
-        .lvl = 22,
-        .species = SPECIES_GASTLY,
-    },
-    {
-        .iv = 0,
-        .lvl = 22,
-        .species = SPECIES_GASTLY,
-    },
-    {
-        .iv = 0,
-        .lvl = 22,
-        .species = SPECIES_GASTLY,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_Channeler7[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_GASTLY,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_Channeler8[] = {
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_GASTLY,
-    },
-};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerAmanda[] = {
     {
