@@ -69,6 +69,7 @@ script Route4_EventScript_Dad {
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pDid you get the RUNNING SHOES\nI sent to you?\lYou'd better be wearing them!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_ROUTE3)
 	release
 	end
 }

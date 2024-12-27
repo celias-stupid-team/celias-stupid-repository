@@ -167,7 +167,7 @@
       "y": 19,
       "elevation": 0,
       "item": "ITEM_MAX_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_SUPER_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_2",
       "quantity": 1,
       "underfoot": false
     },
@@ -177,7 +177,7 @@
       "y": 40,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_MAX_ETHER",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_3",
       "quantity": 1,
       "underfoot": false
     },

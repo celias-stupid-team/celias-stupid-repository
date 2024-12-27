@@ -47,7 +47,7 @@ MtMoon_1F_EventScript_Robby::
 	end
 
 MtMoon_B1F_EventScript_ExitLass::
-	trainerbattle_single TRAINER_LASS_JANICE_2, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
+	trainerbattle_single TRAINER_CSR_MT_MOON_END_LASS, MtMoon_Text_ExitLassIntro, MtMoon_Text_ExitLassDefeat
 	msgbox MtMoon_Text_ExitLassPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
@@ -96,6 +96,7 @@ script MtMoon_EventScript_DadStuck {
 	faceplayer
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was heading home, but TENTACOOL\nhas other plans, it seems.\lI'm stuck here in place!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	setflag(FLAG_DAD_MTMOON_1F)
 	call(EventScript_DadHeal)
 	release
 	end

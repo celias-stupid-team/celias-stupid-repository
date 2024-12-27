@@ -361,7 +361,7 @@
       "y": 57,
       "elevation": 3,
       "item": "ITEM_ELIXIR",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE12_HYPER_POTION",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_32",
       "quantity": 1,
       "underfoot": false
     },

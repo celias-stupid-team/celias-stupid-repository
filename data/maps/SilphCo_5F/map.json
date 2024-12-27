@@ -201,7 +201,7 @@
       "y": 16,
       "elevation": 0,
       "item": "ITEM_ELIXIR",
-      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_5F_ELIXIR",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_17",
       "quantity": 1,
       "underfoot": false
     },
