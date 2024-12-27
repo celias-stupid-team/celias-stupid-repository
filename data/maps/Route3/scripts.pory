@@ -58,6 +58,11 @@ script Route3_EventScript_Lass {
 	end
 }
 
+script Route3_PokedexSign {
+	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how many\nPOKéMON are available to you.\lIt even updates automatically!\pTry it before and after entering the\ngrass on this ROUTE!", MSGBOX_SIGN)
+	end
+}
+
 script Route4_EventScript_Dad {
 	lock
 	faceplayer
@@ -118,7 +123,7 @@ script Route3_Item_Pokeball {
 }
 
 script Route3_Far_SetDex {
-	setvar(VAR_TEMP_0, 1)
+	setvar(VAR_TEMP_5, 1)
 	setflag(FLAG_CSR_MAP_ROUTE_3_FAR)
 	call(SetPlayerPokedexValues)
 	release

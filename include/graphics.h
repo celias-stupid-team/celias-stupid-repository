@@ -8277,6 +8277,9 @@ extern const u32 gItemIcon_RunningShoes[];
 extern const u32 gItemIconPalette_RunningShoes[];
 extern const u32 gItemIcon_DawnStone[];
 extern const u32 gItemIconPalette_DawnStone[];
+
+extern const u32 gItemIcon_LetterY[];
+extern const u32 gItemIconPalette_LetterY[];
 extern const u32 gItemIcon_Honey[];
 extern const u32 gItemIconPalette_Honey[];
 extern const u32 gItemIcon_TornPaper[];

@@ -4,8 +4,11 @@
 #define MB_NORMAL 0x00
 #define MB_UNUSED_01 0x01
 #define MB_TALL_GRASS 0x02
+#define MB_LONG_GRASS 0x03 // ported from Emerald Expansion
+
 //
 #define MB_CAVE 0x08
+#define MB_LONG_GRASS_SOUTH_EDGE 0x09
 //
 #define MB_RUNNING_DISALLOWED 0x0A
 #define MB_INDOOR_ENCOUNTER 0x0B

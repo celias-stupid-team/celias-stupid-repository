@@ -29,11 +29,10 @@ script Route2_EventScript_CeliaDad {
 }
 
 script Route2_EventScript_RouteSign {
-	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how\nmany POKéMON are available to you.\lIt even updates automatically!", MSGBOX_DEFAULT)
+	lock
+	msgbox(Route2_Text_RouteSign, MSGBOX_DEFAULT)
 	if(!flag(FLAG_CSR_MAP_ROUTE_22)) {
-		msgbox("Try stepping onto ROUTE 22 to the\nWEST and seeing it for yourself!", MSGBOX_SIGN)
-	} else {
-		msgbox("Try it out for yourself when you\nenter VIRIDIAN FOREST!", MSGBOX_SIGN)
+		msgbox("TRAINER TIPS\pDon't forget to head EAST from\nVIRIDIAN CITY and explore ROUTE 22!", MSGBOX_DEFAULT)
 	}
 	release
 }

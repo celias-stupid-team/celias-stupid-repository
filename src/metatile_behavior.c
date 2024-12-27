@@ -63,7 +63,19 @@ bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsPokeGrass(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS)
+    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS || metatileBehavior == MB_LONG_GRASS || metatileBehavior || MB_LONG_GRASS_SOUTH_EDGE)
+        //I'm sure there's a more efficient way to do that conditional, but I don't know C :(
+        return TRUE;
+    else
+        return FALSE;
+}
+
+//Added this function so that long grass can be cut too
+bool8 MetatileBehavior_IsCuttableGrass(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_TALL_GRASS
+     || metatileBehavior == MB_LONG_GRASS
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE)
         return TRUE;
     else
         return FALSE;
@@ -438,7 +450,22 @@ bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsLongGrass(u8 metatileBehavior) { return FALSE; }
+bool8 MetatileBehavior_IsLongGrass(u8 metatileBehavior) // un-dummy this one 
+{
+    if (metatileBehavior == MB_LONG_GRASS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsLongGrassSouthEdge(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsAshGrass(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsFootprints(u8 metatileBehavior) { return FALSE; }
 bool8 MetatileBehavior_IsBridge(u8 metatileBehavior) { return FALSE; }
@@ -452,13 +479,7 @@ bool8 MetatileBehavior_IsUnused01(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_UnusedIsTallGrass(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_TALL_GRASS)
-        return TRUE;
-    else
-        return FALSE;
-}
+
 
 bool8 MetatileBehavior_IsIndoorEncounter(u8 metatileBehavior)
 {
@@ -695,7 +716,7 @@ bool8 MetatileBehavior_IsSeaweed(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_RUNNING_DISALLOWED)
+    if (metatileBehavior == MB_RUNNING_DISALLOWED || metatileBehavior == MB_LONG_GRASS) //No running
         return TRUE;
     else
         return FALSE;

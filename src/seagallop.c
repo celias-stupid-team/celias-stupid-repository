@@ -61,17 +61,17 @@ static const struct BgTemplate sBGTemplates[] = {
 
 static const s8 sSeag[][4] = {
                                    // Map                     X     Y
-    [SEAGALLOP_VERMILION_CITY]  = {MAP(VERMILION_CITY),      0x17, 0x20},
-    [SEAGALLOP_ONE_ISLAND]      = {MAP(ONE_ISLAND_HARBOR),   0x08, 0x05},
-    [SEAGALLOP_TWO_ISLAND]      = {MAP(TWO_ISLAND_HARBOR),   0x08, 0x05},
-    [SEAGALLOP_THREE_ISLAND]    = {MAP(THREE_ISLAND_HARBOR), 0x08, 0x05},
-    [SEAGALLOP_FOUR_ISLAND]     = {MAP(FOUR_ISLAND_HARBOR),  0x08, 0x05},
-    [SEAGALLOP_FIVE_ISLAND]     = {MAP(FIVE_ISLAND_HARBOR),  0x08, 0x05},
-    [SEAGALLOP_SIX_ISLAND]      = {MAP(SIX_ISLAND_HARBOR),   0x08, 0x05},
-    [SEAGALLOP_SEVEN_ISLAND]    = {MAP(SEVEN_ISLAND_HARBOR), 0x08, 0x05},
-    [SEAGALLOP_CINNABAR_ISLAND] = {MAP(CINNABAR_ISLAND),     0x15, 0x07},
-    [SEAGALLOP_NAVEL_ROCK]      = {MAP(NAVEL_ROCK_HARBOR),   0x08, 0x05},
-    [SEAGALLOP_BIRTH_ISLAND]    = {MAP(BIRTH_ISLAND_HARBOR), 0x08, 0x05}
+    [ALOLAN_GROWLITHE_VERMILION_CITY]  = {MAP(VERMILION_CITY),      0x17, 0x20},
+    [ALOLAN_GROWLITHE_ONE_ISLAND]      = {MAP(ONE_ISLAND_HARBOR),   0x08, 0x05},
+    [ALOLAN_GROWLITHE_TWO_ISLAND]      = {MAP(TWO_ISLAND_HARBOR),   0x08, 0x05},
+    [ALOLAN_GROWLITHE_THREE_ISLAND]    = {MAP(THREE_ISLAND_HARBOR), 0x08, 0x05},
+    [ALOLAN_GROWLITHE_FOUR_ISLAND]     = {MAP(FOUR_ISLAND_HARBOR),  0x08, 0x05},
+    [ALOLAN_GROWLITHE_FIVE_ISLAND]     = {MAP(FIVE_ISLAND_HARBOR),  0x08, 0x05},
+    [ALOLAN_GROWLITHE_SIX_ISLAND]      = {MAP(SIX_ISLAND_HARBOR),   0x08, 0x05},
+    [ALOLAN_GROWLITHE_SEVEN_ISLAND]    = {MAP(SEVEN_ISLAND_HARBOR), 0x08, 0x05},
+    [ALOLAN_GROWLITHE_CINNABAR_ISLAND] = {MAP(CINNABAR_ISLAND),     0x15, 0x07},
+    [ALOLAN_GROWLITHE_NAVEL_ROCK]      = {MAP(NAVEL_ROCK_HARBOR),   0x08, 0x05},
+    [ALOLAN_GROWLITHE_BIRTH_ISLAND]    = {MAP(BIRTH_ISLAND_HARBOR), 0x08, 0x05}
 };
 
 // Bitpacked array.  In the commented section, right-most bit is the
@@ -85,17 +85,17 @@ enum TravelDirections
 };
 
 static const u16 sTravelDirectionMatrix[] = {
-    [SEAGALLOP_VERMILION_CITY]  = 0x6fe, // 11011111110
-    [SEAGALLOP_ONE_ISLAND]      = 0x6fc, // 11011111100
-    [SEAGALLOP_TWO_ISLAND]      = 0x6f8, // 11011111000
-    [SEAGALLOP_THREE_ISLAND]    = 0x6f0, // 11011110000
-    [SEAGALLOP_FOUR_ISLAND]     = 0x6e0, // 11011100000
-    [SEAGALLOP_FIVE_ISLAND]     = 0x4c0, // 10011000000
-    [SEAGALLOP_SIX_ISLAND]      = 0x400, // 10000000000
-    [SEAGALLOP_SEVEN_ISLAND]    = 0x440, // 10001000000
-    [SEAGALLOP_CINNABAR_ISLAND] = 0x7ff, // 11111111111
-    [SEAGALLOP_NAVEL_ROCK]      = 0x6e0, // 11011100000
-    [SEAGALLOP_BIRTH_ISLAND]    = 0x000  // 00000000000
+    [ALOLAN_GROWLITHE_VERMILION_CITY]  = 0x6fe, // 11011111110
+    [ALOLAN_GROWLITHE_ONE_ISLAND]      = 0x6fc, // 11011111100
+    [ALOLAN_GROWLITHE_TWO_ISLAND]      = 0x6f8, // 11011111000
+    [ALOLAN_GROWLITHE_THREE_ISLAND]    = 0x6f0, // 11011110000
+    [ALOLAN_GROWLITHE_FOUR_ISLAND]     = 0x6e0, // 11011100000
+    [ALOLAN_GROWLITHE_FIVE_ISLAND]     = 0x4c0, // 10011000000
+    [ALOLAN_GROWLITHE_SIX_ISLAND]      = 0x400, // 10000000000
+    [ALOLAN_GROWLITHE_SEVEN_ISLAND]    = 0x440, // 10001000000
+    [ALOLAN_GROWLITHE_CINNABAR_ISLAND] = 0x7ff, // 11111111111
+    [ALOLAN_GROWLITHE_NAVEL_ROCK]      = 0x6e0, // 11011100000
+    [ALOLAN_GROWLITHE_BIRTH_ISLAND]    = 0x000  // 00000000000
 };
 
 static const union AnimCmd sSpriteAnims_Ferry_WB[] = {
@@ -450,7 +450,7 @@ static bool8 GetDirectionOfTravel(void)
     return (sTravelDirectionMatrix[gSpecialVar_0x8004] >> gSpecialVar_0x8006) & 1;
 }
 
-// For "All aboard SEAGALLOP HI-SPEED ##" text
+// For "All aboard ALOLAN_GROWLITHE HI-SPEED ##" text
 u8 GetSeagallopNumber(void)
 {
     u16 originId, destId;
@@ -458,36 +458,36 @@ u8 GetSeagallopNumber(void)
     originId = gSpecialVar_0x8004;
     destId = gSpecialVar_0x8006;
 
-    if (originId == SEAGALLOP_CINNABAR_ISLAND || destId == SEAGALLOP_CINNABAR_ISLAND)
+    if (originId == ALOLAN_GROWLITHE_CINNABAR_ISLAND || destId == ALOLAN_GROWLITHE_CINNABAR_ISLAND)
         return 1;
 
-    if (originId == SEAGALLOP_VERMILION_CITY || destId == SEAGALLOP_VERMILION_CITY)
+    if (originId == ALOLAN_GROWLITHE_VERMILION_CITY || destId == ALOLAN_GROWLITHE_VERMILION_CITY)
         return 7;
 
-    if (originId == SEAGALLOP_NAVEL_ROCK || destId == SEAGALLOP_NAVEL_ROCK)
+    if (originId == ALOLAN_GROWLITHE_NAVEL_ROCK || destId == ALOLAN_GROWLITHE_NAVEL_ROCK)
         return 10;
 
-    if (originId == SEAGALLOP_BIRTH_ISLAND || destId == SEAGALLOP_BIRTH_ISLAND)
+    if (originId == ALOLAN_GROWLITHE_BIRTH_ISLAND || destId == ALOLAN_GROWLITHE_BIRTH_ISLAND)
         return 12;
 
-    if ((originId == SEAGALLOP_ONE_ISLAND 
-      || originId == SEAGALLOP_TWO_ISLAND 
-      || originId == SEAGALLOP_THREE_ISLAND) 
-      && (destId == SEAGALLOP_ONE_ISLAND 
-       || destId == SEAGALLOP_TWO_ISLAND 
-       || destId == SEAGALLOP_THREE_ISLAND))
+    if ((originId == ALOLAN_GROWLITHE_ONE_ISLAND 
+      || originId == ALOLAN_GROWLITHE_TWO_ISLAND 
+      || originId == ALOLAN_GROWLITHE_THREE_ISLAND) 
+      && (destId == ALOLAN_GROWLITHE_ONE_ISLAND 
+       || destId == ALOLAN_GROWLITHE_TWO_ISLAND 
+       || destId == ALOLAN_GROWLITHE_THREE_ISLAND))
         return 2;
 
-    if ((originId == SEAGALLOP_FOUR_ISLAND 
-      || originId == SEAGALLOP_FIVE_ISLAND) 
-      && (destId == SEAGALLOP_FOUR_ISLAND 
-       || destId == SEAGALLOP_FIVE_ISLAND))
+    if ((originId == ALOLAN_GROWLITHE_FOUR_ISLAND 
+      || originId == ALOLAN_GROWLITHE_FIVE_ISLAND) 
+      && (destId == ALOLAN_GROWLITHE_FOUR_ISLAND 
+       || destId == ALOLAN_GROWLITHE_FIVE_ISLAND))
         return 3;
 
-    if ((originId == SEAGALLOP_SIX_ISLAND 
-      || originId == SEAGALLOP_SEVEN_ISLAND) 
-      && (destId == SEAGALLOP_SIX_ISLAND 
-       || destId == SEAGALLOP_SEVEN_ISLAND))
+    if ((originId == ALOLAN_GROWLITHE_SIX_ISLAND 
+      || originId == ALOLAN_GROWLITHE_SEVEN_ISLAND) 
+      && (destId == ALOLAN_GROWLITHE_SIX_ISLAND 
+       || destId == ALOLAN_GROWLITHE_SEVEN_ISLAND))
         return 5;
 
     return 6;

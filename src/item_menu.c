@@ -222,7 +222,7 @@ static const u8 sContextMenuItems_Field[][4] = {
         ITEMMENUACTION_TOSS,
         ITEMMENUACTION_CANCEL,
         ITEMMENUACTION_DUMMY
-    }
+    },
 };
 
 static const u8 sContextMenuItems_CheckGiveTossCancel[] = {
@@ -709,7 +709,7 @@ static void BagListMenuItemPrintFunc(u8 windowId, u32 itemId, u8 y)
     {
         bagItemId = BagGetItemIdByPocketPosition(gBagMenuState.pocket + 1, itemId);
         bagItemQuantity = BagGetQuantityByPocketPosition(gBagMenuState.pocket + 1, itemId);
-        if (gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 && ItemId_GetImportance(bagItemId) == 0)
+        if ((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 || bagItemId == ITEM_ODD_CANDY) && ItemId_GetImportance(bagItemId) == 0)
         {
             ConvertIntToDecimalStringN(gStringVar1, bagItemQuantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
             StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
@@ -1406,6 +1406,14 @@ static void OpenContextMenu(u8 taskId)
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_OPEN;
                 else if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_MACH_BIKE))
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_WALK;
+                
+                else if (gSpecialVar_ItemId == ITEM_RUNNING_SHOES || gSpecialVar_ItemId == ITEM_SUPER_SCOPE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
+                    sContextMenuNumItems = 2;
+                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
+                    sContextMenuItemsBuffer[1] == ITEMMENUACTION_CANCEL;
+                }
+                
+                
                 else
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
                 break;

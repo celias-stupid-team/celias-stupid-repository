@@ -435,7 +435,7 @@
 #define ITEM_LIFT_KEY 356
 #define ITEM_HELIX_FOSSIL 357
 #define ITEM_JAW_FOSSIL 358
-#define ITEM_SILPH_SCOPE 359
+#define ITEM_SUPER_SCOPE 359
 #define ITEM_BICYCLE 360
 #define ITEM_TOWN_MAP 361
 #define ITEM_VS_SEEKER 362
@@ -454,6 +454,7 @@
 
 //CSR items
 #define ITEM_FOCUS_SASH 375
+#define ITEM_CSR_START  ITEM_FOCUS_SASH
 #define ITEM_MATH_CLUB 376
 #define ITEM_ODD_CANDY 377
 #define ITEM_RUNNING_SHOES 378
@@ -495,6 +496,7 @@
 #define SUPER_ROD 2
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) ((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)     \
+                                || (item >= ITEM_CSR_START && item < ITEMS_COUNT))
 
 #endif  // GUARD_CONSTANTS_ITEMS_H
