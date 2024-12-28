@@ -302,3 +302,28 @@ movement CeliaWalksRight {
 	walk_right
 	face_left
 }
+
+script Vermillion_ChildMemorial {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Memorial BENCH for the small child\nrepeatedly punched on this shore.\pMay he forever live in our hearts.\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Punch the memorial?\n", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		closemessage
+		delay(10)
+		playse(SE_EFFECTIVE)
+		setvar(VAR_0x8006, 8) // Number
+		setvar(VAR_0x8005, 2) // Y 
+		setvar(VAR_0x8004, 5) //X
+		setvar(VAR_0x8007, 5) //Duration
+		special(ShakeScreen)
+		waitse
+		delay(45)
+		msgbox("Ah.\n", MSGBOX_DEFAULT)
+	}
+	release
+
+}

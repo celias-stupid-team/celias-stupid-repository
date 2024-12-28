@@ -27,3 +27,12 @@ VermilionCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox VermilionCity_PokemonCenter_1F_Text_AllMonWeakToSpecificTypes, MSGBOX_NPC
 	end
 `
+script VermillionPokemonCenter_DMCA {
+	msgbox("The RADIO TOWER here was\nbroadcasting illegal material!\pI say good riddance!\n", MSGBOX_NPC)
+}
+
+script VermillionPokemonCenter_Kid {
+	msgbox("I gave the guy next door my\nTRAINER ID.\lHe said he'd give me a cool prize.\pI don't think that was a very good\nidea…", MSGBOX_NPC)
+	end
+}
+
