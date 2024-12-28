@@ -536,7 +536,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_U_TURN]     = _("U TURN"),
     [MOVE_FIRST_IMPRESSION]     = _("F.IMPRESSION"),
     [MOVE_SAVAGE_SPIN_OUT]     = _("SAVAGE SPIN"),
-    [MOVE_SINGLE_WINGBEAT]     = _("S. WINGBEAT")
+    [MOVE_SINGLE_WINGBEAT]     = _("S. WINGBEAT"),
+    [MOVE_CONFUSION_PSYDUCK]     = _("CONFUSION")
 
 };
 
@@ -1077,10 +1078,11 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_AQUA_CUTTER]     = _("AQUA CUTTER"),
 [MOVE_BUG_BITE]     = _("BUG BITE"),
 [MOVE_QUIVER_DANCE]     = _("QUIVER DANCE"),
-[MOVE_U_TURN]     = _("U TURN"),
+[MOVE_U_TURN]     = _("U-TURN"),
 [MOVE_FIRST_IMPRESSION]     = _("FIRST IMPRESSION"),
 [MOVE_SAVAGE_SPIN_OUT]     = _("SAVAGE SPIN OUT"),
 [MOVE_SINGLE_WINGBEAT]     = _("SINGLE WINGBEAT"),
+[MOVE_CONFUSION_PSYDUCK]     = _("CONFUSION")
 
 }; //For any move which needs its name lengthened, these will display in battle.
 

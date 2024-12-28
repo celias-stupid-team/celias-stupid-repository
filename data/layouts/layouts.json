@@ -4500,18 +4500,6 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SecretTunnel/border.bin",
       "blockdata_filepath": "data/layouts/SecretTunnel/map.bin"
-    },
-    {
-      "id": "LAYOUT_NEW_MAP2",
-      "name": "NewMap2_Layout",
-      "width": 40,
-      "height": 23,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_BerryForest",
-      "secondary_tileset": "gTileset_NavelRock",
-      "border_filepath": "data/layouts/NewMap2/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap2/map.bin"
     }
   ]
 }

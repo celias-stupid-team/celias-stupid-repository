@@ -562,6 +562,7 @@ gBattleAnims_Moves::
 	.4byte Move_FIRST_IMPRESSION
 	.4byte Move_SAVAGE_SPIN_OUT
 	.4byte Move_SINGLE_WINGBEAT
+	.4byte Move_CONFUSION_PSYDUCK
 
 
 	.4byte Move_COUNT @ cannot be reached
@@ -5031,6 +5032,8 @@ Move_CONFUSION:
 	delay 1
 	call UnsetPsychicBackground
 	end
+
+
 
 MOVE_PSY_BEAM:
 	monbg ANIM_DEF_PARTNER
@@ -13831,3 +13834,19 @@ Move_SINGLE_WINGBEAT:
 	blendoff
 	end
 
+Move_CONFUSION_PSYDUCK:
+	monbg ANIM_DEF_PARTNER
+	call SetPsychicBackground
+	setalpha 8, 8
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB_WHITE
+	waitforvisualfinish
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 15, 1
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -4, -4, 15, ANIM_TARGET, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	delay 1
+	call UnsetPsychicBackground
+	end

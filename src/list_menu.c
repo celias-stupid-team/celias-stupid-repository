@@ -81,6 +81,7 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_BIRD + 1]     = { 32, 12, 0x08 },
     [TYPE_SHIT + 1]     = { 32, 12, 0x124 },
     [TYPE_SOUND + 1]     = { 32, 12, 0x140 },
+    [TYPE_GRASS_TCG + 1]    = { 32, 12, 0x144 },
     [TYPE_WATER_PHYSICAL + 1]     = { 32, 12, 0x28 },
     [TYPE_ELECTRIC_PHYSICAL + 1] = { 32, 12, 0x40 },
     [TYPE_PSYCHIC_PHYSICAL + 1]  = { 32, 12, 0x84 },

@@ -116,9 +116,37 @@ end
 }
 
 script CeruleanCity_Gym_EventScript_GrassTrainer {
-	trainerbattle_single(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerIntro, CeruleanCity_Gym_Text_GrassTrainerDefeat)
-	msgbox(("That CARD is really powerful!\pPack it with HITMONCHAN and\nELECTABUZZ and you'll be set!\pAnd hey, come back to me any time\nyou want another one!\pSCYTHER actually completely fell\nout of the meta, so I don't need it."), MSGBOX_DEFAULT)
-end
+	lock
+	faceplayer
+	if(!flag(FLAG_CSR_GOT_SCYTHER)) {
+		msgbox("Managing your ENERGY is super\nimportant!\pThat's why CARDS with free\nRETREAT are so strong.\pHere, let me show you!\n", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerDefeat)
+		msgbox("Hey, that was a good game!", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_GOT_SCYTHER)
+	} else {
+		call(CeruleanCity_Gym_EventScript_GivesScyther)
+	}
+	
+	release
+}
+
+script CeruleanCity_Gym_EventScript_GivesScyther {
+	msgbox("Here, how about you learn the\npower of RETREAT for yourself?", MSGBOX_DEFAULT)
+	if(getpartysize <= 5) {
+		givemon(SPECIES_SCYTHER, 18, ITEM_NONE)
+		goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon) //literally copying this from vanilla code don't be mad at me for magic numbers pls <3
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} received SCYTHER from the\nTCG player!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(("That CARD is really powerful!\pPack it with HITMONCHAN and\nELECTABUZZ and you'll be set!\pAnd hey, come back to me any time\nyou want another one!\pSCYTHER actually completely fell\nout of the meta, so I don't need it."), MSGBOX_DEFAULT)
+	} else {
+		msgbox("Oh wait, your deck's full…\pMake some room and then come back!\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
 }
 
 script CeruleanCity_Gym_EventScript_DragonTrainer {
