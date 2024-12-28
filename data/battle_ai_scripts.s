@@ -2914,7 +2914,8 @@ AI_PreferBatonPass_GoForBatonPass::
 @	if_move MOVE_DRAGON_DANCE, AI_PreferBatonPass2
 @	if_move MOVE_CALM_MIND, AI_PreferBatonPass2
 @	if_effect EFFECT_PROTECT, AI_PreferBatonPass3
-@	if_move MOVE_BATON_PASS, AI_PreferBatonPass_EncourageIfHighStats
+	if_move MOVE_BATON_PASS, AI_PreferBatonPass_EncourageIfHighStats
+	if_move MOVE_RETREAT, AI_PreferBatonPass_EncourageIfHighStats
 	if_random_less_than 20, AI_Risky_End
 	score +3
 
@@ -2935,16 +2936,16 @@ AI_PreferBatonPass_GoForBatonPass::
 @   .2byte MOVE_DETECT
 @   .2byte -1
 @
-@AI_PreferBatonPass_EncourageIfHighStats:
-@	get_turn_count
-@	if_equal 0, Score_Minus2
-@	if_stat_level_more_than AI_USER, STAT_ATK, 8, Score_Plus3
-@	if_stat_level_more_than AI_USER, STAT_ATK, 7, Score_Plus2
-@	if_stat_level_more_than AI_USER, STAT_ATK, 6, Score_Plus1
-@	if_stat_level_more_than AI_USER, STAT_SPATK, 8, Score_Plus3
-@	if_stat_level_more_than AI_USER, STAT_SPATK, 7, Score_Plus2
-@	if_stat_level_more_than AI_USER, STAT_SPATK, 6, Score_Plus1
-@	end
+AI_PreferBatonPass_EncourageIfHighStats:
+	get_turn_count
+	if_equal 0, Score_Minus2
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_ATK, 7, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_ATK, 6, Score_Plus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 8, Score_Plus3
+	if_stat_level_more_than AI_USER, STAT_SPATK, 7, Score_Plus2
+	if_stat_level_more_than AI_USER, STAT_SPATK, 6, Score_Plus1
+	end
 
 AI_PreferBatonPass_End::
 	end

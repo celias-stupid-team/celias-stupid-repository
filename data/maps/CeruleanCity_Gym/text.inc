@@ -110,7 +110,7 @@ CeruleanCity_Gym_Text_ElectricTrainerDefeat::
 	.string "But...\n"
 	.string "It's my birthday...$"
 
-CeruleanCity_Gym_TextFightingTrainerIntro::
+CeruleanCity_Gym_Text_FightingTrainerIntro::
 	.string "Hyyyah!\p"
 	.string "I use FIGHTING-TYPES, just like\n"
 	.string "BRUNO!$"

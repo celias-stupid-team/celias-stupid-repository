@@ -1095,7 +1095,7 @@
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_19                            (FLAG_HIDDEN_ITEMS_START +  27)
+#define FLAG_HIDDEN_ITEM_CSR_DUMMY_33                            (FLAG_HIDDEN_ITEMS_START +  27) //smh Rave I can't believe you missed this
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_20                         (FLAG_HIDDEN_ITEMS_START +  28)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_21                        (FLAG_HIDDEN_ITEMS_START +  29)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_22                   (FLAG_HIDDEN_ITEMS_START +  30)
@@ -1110,7 +1110,7 @@
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_31                       (FLAG_HIDDEN_ITEMS_START +  39)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x28                                       (FLAG_HIDDEN_ITEMS_START +  40)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_32                               (FLAG_HIDDEN_ITEMS_START +  41)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_32                              (FLAG_HIDDEN_ITEMS_START +  42)
+#define FLAG_HIDDEN_ITEM_CSR_DUMMY_34                              (FLAG_HIDDEN_ITEMS_START +  42)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2B                                       (FLAG_HIDDEN_ITEMS_START +  43)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2C                                       (FLAG_HIDDEN_ITEMS_START +  44)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2D                                       (FLAG_HIDDEN_ITEMS_START +  45)
@@ -1300,7 +1300,7 @@
 #define FLAG_DAD_UNDERGROUNDPATH               0x4C6
 #define FLAG_DAD_HAIRCUT               0x4C7
 #define FLAG_DAD_PEWTER_GYM               0x4C8
-#define FLAG_DAD_CERULEAN_GYM               0x4C9
+#define FLAG_DAD_CERULEAN_CLUB               0x4C9
 #define FLAG_DAD_CELADON_GAMESTORE               0x4CA
 #define FLAG_SAFFRON_HIDDEN               0x4CB
 #define FLAG_DAD_VERMILLION_GYM               0x4CC
