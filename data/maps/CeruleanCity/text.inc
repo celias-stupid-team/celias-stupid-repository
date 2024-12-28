@@ -151,16 +151,14 @@ CeruleanCity_Text_WantBrightRedBicycle::
     .string "I wonder who he bought it from…$"
 
 CeruleanCity_Text_ThisIsCeruleanCave::
-    .string "This is CERULEAN CAVE.\p"
-    .string "Horribly strong POKéMON live inside\n"
-    .string "there.\p"
-    .string "It takes a very special TRAINER to\n"
-    .string "be allowed inside there.\p"
-    .string "You'd have to be strong enough to\n"
-    .string "become the POKéMON LEAGUE\l"
-    .string "CHAMPION for starters.\p"
-    .string "And, you would have to have\n"
-    .string "made a great achievement.$"
+	.string "This is CERULEAN CAVE.\p"
+	.string "Horribly strong POKéMON live inside\n"
+	.string "there.\p"
+	.string "However, I'm not gonna stop you\n"
+	.string "from trying to explore it,\l"
+	.string "if that's what your heart desires.\p"
+	.string "If you make the trek in, I'll be\n"
+	.string "sure to ship your remains back home.$"
 
 CeruleanCity_Text_CitySign::
     .string "CERULEAN CITY\n"
