@@ -227,7 +227,7 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
       || mapNum == MAP_NUM(POKEMON_TOWER_5F)
       || mapNum == MAP_NUM(POKEMON_TOWER_6F)
       || mapNum == MAP_NUM(POKEMON_TOWER_7F))
-     && !(CheckBagHasItem(ITEM_SILPH_SCOPE, 1)))
+     && !(CheckBagHasItem(ITEM_SUPER_SCOPE, 1)))
         return TRUE;
     else
         return FALSE;
@@ -321,7 +321,7 @@ void StartMarowakBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndMarowakBattle;
-    if (CheckBagHasItem(ITEM_SILPH_SCOPE, 1))
+    if (CheckBagHasItem(ITEM_SUPER_SCOPE, 1))
     {
         gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED;
         CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_MAROWAK, 30, 31, MON_FEMALE, NATURE_SERIOUS, 0);
@@ -652,13 +652,13 @@ static u8 GetTrainerBattleTransition(void)
         return B_TRANSITION_BLUE;
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LORELEI || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LORELEI_2)
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LORELEI)
             return B_TRANSITION_LORELEI;
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_BRUNO || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_BRUNO_2)
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_BRUNO)
             return B_TRANSITION_BRUNO;
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_AGATHA || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_AGATHA_2)
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_AGATHA)
             return B_TRANSITION_AGATHA;
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE || gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE_2)
+        if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE)
             return B_TRANSITION_LANCE;
         return B_TRANSITION_BLUE;
     }

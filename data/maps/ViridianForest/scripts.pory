@@ -89,6 +89,7 @@ script ViridianForest_EventScript_Dad2 {
 	textcolor(0)
 	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\p...Wait, didn't I see you\nearlier in this forest?\lGood job making it over!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_VIRIDIAN_EXIT)
 	release
 }
 
@@ -98,6 +99,7 @@ script ViridianForest_EventScript_Dad {
 	textcolor(0)
 	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_VIRIDIAN_ENTRANCE)
 	release
 	end
 }

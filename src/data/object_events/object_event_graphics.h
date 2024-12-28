@@ -196,6 +196,10 @@ const u16 gObjectEventPal_Seagallop[] = INCBIN_U16("graphics/object_events/palet
 const u16 gObjectEventPic_Seagallop[] = INCBIN_U16("graphics/object_events/pics/misc/seagallop.4bpp");
 const u16 gObjectEventPal_SSAnne[] = INCBIN_U16("graphics/object_events/palettes/ss_anne.gbapal");
 const u16 gObjectEventPic_SSAnne[] = INCBIN_U16("graphics/object_events/pics/misc/ss_anne.4bpp");
+
+
+const u16 gObjectEventPal_Bench[] = INCBIN_U16("graphics/object_events/palettes/bench.gbapal");
+
 const u16 gObjectEventPic_SurfBlob[] = INCBIN_U16("graphics/object_events/pics/misc/surf_blob.4bpp");
 const u16 gObjectEventPic_Policeman[] = INCBIN_U16("graphics/object_events/pics/people/policeman.4bpp");
 const u16 gObjectEventPal_RSQuintyPlump[] = INCBIN_U16("graphics/object_events/palettes/rs_quinty_plump.gbapal");

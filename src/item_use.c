@@ -136,6 +136,8 @@ static void (*const sExitCallbackByItemType[])(void) = {
     [ITEM_TYPE_BAG_MENU   - 1] = NULL,
 };
 
+#define tUsingRegisteredKeyItem data[3]
+
 static void SetUpItemUseCallback(u8 taskId)
 {
     u8 itemType;
@@ -433,8 +435,15 @@ void FieldUseFunc_RareCandy(u8 taskId)
 
 void FieldUseFunc_EvoItem(u8 taskId)
 {
-    gItemUseCB = ItemUseCB_EvolutionStone;
-    DoSetUpItemUseCallback(taskId);
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        gItemUseCB = ItemUseCB_EvolutionStone;
+        DoSetUpItemUseCallback(taskId);
+    }
+    else
+    {
+        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
 void FieldUseFunc_SacredAsh(u8 taskId)

@@ -6,7 +6,7 @@ SevenIsland_PokemonCenter_1F_Text_EventsDependingOnConnections::
     .string "your own.$"
 
 SevenIsland_PokemonCenter_1F_Text_DidYouRideSeagallopHere::
-    .string "Did you ride a SEAGALLOP ferry\n"
+    .string "Did you ride a ALOLAN_GROWLITHE ferry\n"
     .string "to get here?\p"
     .string "There are at least ten of those\n"
     .string "high-speed ships.\p"

@@ -584,7 +584,7 @@
       "y": 42,
       "elevation": 0,
       "item": "ITEM_FULL_RESTORE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_FULL_RESTORE",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_26",
       "quantity": 1,
       "underfoot": false
     },
@@ -594,7 +594,7 @@
       "y": 72,
       "elevation": 0,
       "item": "ITEM_ULTRA_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ULTRA_BALL",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_27",
       "quantity": 1,
       "underfoot": false
     },
@@ -604,7 +604,7 @@
       "y": 101,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ETHER",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_28",
       "quantity": 1,
       "underfoot": false
     },

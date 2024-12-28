@@ -406,6 +406,7 @@ script VermillionGym_Dad {
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm looking through these trash\ncans to find the secret switches.\lMaybe it's in here…\p...Nope!\nNothing but trash!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_VERMILLION_GYM)
 	release
 	end
 }

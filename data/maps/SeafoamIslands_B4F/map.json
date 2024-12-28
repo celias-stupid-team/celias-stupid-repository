@@ -138,7 +138,7 @@
       "y": 8,
       "elevation": 0,
       "item": "ITEM_WATER_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE",
+      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_22",
       "quantity": 1,
       "underfoot": false
     },
