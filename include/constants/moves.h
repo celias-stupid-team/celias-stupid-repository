@@ -538,8 +538,9 @@
 #define MOVE_FIRST_IMPRESSION 533
 #define MOVE_SAVAGE_SPIN_OUT 534
 #define MOVE_SINGLE_WINGBEAT 535
+#define MOVE_CONFUSION_PSYDUCK 536
 
-#define MOVES_COUNT 536
+#define MOVES_COUNT 537
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

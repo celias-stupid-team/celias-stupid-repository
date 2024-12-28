@@ -313,6 +313,125 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherSammy[] = {
     },
 };
 
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPsychic[] = {
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_ABRA,
+        .moves = {MOVE_TELEPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ALAKAZAM,
+        .moves = {MOVE_CONFUSE_RAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 2,
+        .species = SPECIES_GASTLY,
+        .moves = {MOVE_SLEEP_POWDER, MOVE_DESTINY_BOND, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 12,
+        .species = SPECIES_MEW_ANCIENT,
+        .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubElectric[] = {
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_PIKACHU_BIRTHDAY,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubGrass[] = {
+    {
+        .iv = 0,
+        .lvl = 23,
+        .species = SPECIES_SCYTHER,
+        .moves = {MOVE_SWORDS_DANCE, MOVE_RETREAT, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_ELECTABUZZ,
+        .moves = {MOVE_THUNDER_PUNCH, MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 17,
+        .species = SPECIES_HITMONCHAN,
+        .moves = {MOVE_JAB, MOVE_SPECIALPUNCH, MOVE_NONE, MOVE_NONE},
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubImakuni[] = {
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_DODUO,
+        .moves = {MOVE_PECK, MOVE_FURY_ATTACK, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 14,
+        .species = SPECIES_LOUDRED,
+        .moves = {MOVE_ASTONISH, MOVE_UPROAR, MOVE_NONE, MOVE_NONE},
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubFighting[] = {
+    {
+        .iv = 0,
+        .lvl = 11,
+        .species = SPECIES_ONIX,
+        .moves = {MOVE_TACKLE, MOVE_SCREECH, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 13,
+        .species = SPECIES_HITMONCHAN,
+        .moves = {MOVE_JAB, MOVE_SPECIALPUNCH, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 11,
+        .species = SPECIES_ONIX,
+        .moves = {MOVE_TACKLE, MOVE_SCREECH, MOVE_NONE, MOVE_NONE},
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPoison[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_TANGELA,
+        .moves = {MOVE_SLUDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DROWZEE,
+        .moves = {MOVE_POUND, MOVE_POISON_GAS, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SABLEYE,
+        .moves = {MOVE_FAKE_OUT, MOVE_KNOCK_OFF, MOVE_NONE, MOVE_NONE},
+    },
+
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherColton[] = {
     {
         .iv = 0,
@@ -5506,15 +5625,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderMisty[] = {
     {
         .iv = 0,
-        .lvl = 18,
-        .species = SPECIES_STARYU,
-        .moves = {MOVE_TACKLE, MOVE_HARDEN, MOVE_RECOVER, MOVE_WATER_PULSE},
+        .lvl = 25,
+        .species = SPECIES_KYOGRE,
+        .moves = {MOVE_WATER_SPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
-        .lvl = 21,
-        .species = SPECIES_STARMIE,
-        .moves = {MOVE_SWIFT, MOVE_RECOVER, MOVE_RAPID_SPIN, MOVE_WATER_PULSE},
+        .lvl = 27,
+        .species = SPECIES_WOOPER,
+        .moves = {MOVE_ICE_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 26,
+        .species = SPECIES_PSYDUCK,
+        .moves = {MOVE_CONFUSION_PSYDUCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

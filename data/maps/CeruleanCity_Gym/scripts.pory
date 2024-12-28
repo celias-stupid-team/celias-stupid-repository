@@ -79,44 +79,74 @@ script CeruleanClub_MapScripts {
 
 script CeruleanClub_UpdateBench {
 	setbench(BENCH_CERULEAN)
+	setvar(VAR_TEMP_1, 1)
+	release
 }
 
 
 
 script CeruleanCity_Gym_EventScript_PsychicTrainer {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_PsychicTrainerIntro, CeruleanCity_Gym_Text_PsychicTrainerDefeat)
+	trainerbattle_single(TRAINER_CERULEAN_CLUB_PSYCHIC, CeruleanCity_Gym_Text_PsychicTrainerIntro, CeruleanCity_Gym_Text_PsychicTrainerDefeat)
 	msgbox(("Where's MISTY?\nShe's in the back room.\pThey say she was actually banned\nfrom TCG tournaments.\lI wonder why!"), MSGBOX_DEFAULT)
 end
 }
 
 script CeruleanCity_Gym_EventScript_ElectricTrainer {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_ElectricTrainerIntro, CeruleanCity_Gym_Text_ElectricTrainerDefeat)
+	trainerbattle_single(TRAINER_CERULEAN_CLUB_ELECTRIC, CeruleanCity_Gym_Text_ElectricTrainerIntro, CeruleanCity_Gym_Text_ElectricTrainerDefeat)
 	msgbox(("I only have the budget to enter one\ntournament per year, so...\pMay as well make it count.\n"), MSGBOX_DEFAULT)
 end
 }
 
 script CeruleanCity_Gym_EventScript_FightingTrainer {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_FightingTrainerIntro, CeruleanCity_Gym_Text_FightingTrainerDefeat)
+	trainerbattle_single(TRAINER_CERULEAN_CLUB_FIGHTING, CeruleanCity_Gym_Text_FightingTrainerIntro, CeruleanCity_Gym_Text_FightingTrainerDefeat)
 	msgbox(("I heard that BRUNO got demoted\nfrom the ELITE FOUR.\pHow could they do something like\nthat?"), MSGBOX_DEFAULT)
 end
 }
 
 script CeruleanCity_Gym_EventScript_PoisonTrainer {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_PoisonTrainerIntro, CeruleanCity_Gym_Text_PoisonTrainerDefeat)
+	trainerbattle_single(TRAINER_CERULEAN_CLUB_POISON, CeruleanCity_Gym_Text_PoisonTrainerIntro, CeruleanCity_Gym_Text_PoisonTrainerDefeat)
 	msgbox(("Look, I never played the games.\pHow am I supposed to know which\nones are actually POISON?"), MSGBOX_DEFAULT)
 end
 }
 
 script CeruleanCity_Gym_EventScript_Imakuni {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_ImakuniIntro, CeruleanCity_Gym_Text_ImakuniDefeat)
+	trainerbattle_single(TRAINER_CERULEAN_CLUB_IMAKUNI, CeruleanCity_Gym_Text_ImakuniIntro, CeruleanCity_Gym_Text_ImakuniDefeat)
 	msgbox(("In both cards and dance,\nsoul and rhythm are the secret.\pHey, that sounds pretty cool!\nMaybe I'll become a poet!"), MSGBOX_DEFAULT)
 end
 }
 
 script CeruleanCity_Gym_EventScript_GrassTrainer {
-	//trainerbattle_single(TRAINER_(placeholder), CeruleanCity_Gym_Text_GrassTrainerIntro, CeruleanCity_Gym_Text_GrassTrainerDefeat)
-	msgbox(("That CARD is really powerful!\pPack it with HITMONCHAN and\nELECTABUZZ and you'll be set!\pAnd hey, come back to me any time\nyou want another one!\pSCYTHER actually completely fell\nout of the meta, so I don't need it."), MSGBOX_DEFAULT)
-end
+	lock
+	faceplayer
+	if(!flag(FLAG_CSR_GOT_SCYTHER)) {
+		msgbox("Managing your ENERGY is super\nimportant!\pThat's why CARDS with free\nRETREAT are so strong.\pHere, let me show you!\n", MSGBOX_DEFAULT)
+		trainerbattle_no_intro(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerDefeat)
+		msgbox("Hey, that was a good game!", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_GOT_SCYTHER)
+	} else {
+		call(CeruleanCity_Gym_EventScript_GivesScyther)
+	}
+	
+	release
+}
+
+script CeruleanCity_Gym_EventScript_GivesScyther {
+	msgbox("Here, how about you learn the\npower of RETREAT for yourself?", MSGBOX_DEFAULT)
+	if(getpartysize <= 5) {
+		givemon(SPECIES_SCYTHER, 18, ITEM_NONE)
+		goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon) //literally copying this from vanilla code don't be mad at me for magic numbers pls <3
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} received SCYTHER from the\nTCG player!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox(("That CARD is really powerful!\pPack it with HITMONCHAN and\nELECTABUZZ and you'll be set!\pAnd hey, come back to me any time\nyou want another one!\pSCYTHER actually completely fell\nout of the meta, so I don't need it."), MSGBOX_DEFAULT)
+	} else {
+		msgbox("Oh wait, your deck's full…\pMake some room and then come back!\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
 }
 
 script CeruleanCity_Gym_EventScript_DragonTrainer {
@@ -134,7 +164,8 @@ script CeruleanCity_Gym_EventScript_Dad {
 	faceplayer
 	textcolor(0)
 	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pDidn't you know I'm actually\na star in the TCG?\lInvisible Wall is strong!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
-	//call the healing script
+	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_CERULEAN_CLUB)
 	msgbox(("DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
 	release
 	end

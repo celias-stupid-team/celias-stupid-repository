@@ -359,6 +359,8 @@ const u8 gMoveDescription_SlushRush[] = _("An intense attack\nthat also sharply\
 const u8 gMoveDescription_HeartSwap[] = _("Swaps any stat changes\nwith the foe.");
 const u8 gMoveDescription_Retreat[] = _("Switch your active\nPOKéMON with one\nof your benched\nPOKéMON.");
 const u8 gMoveDescription_SubstituteTeacher[] = _("The user creates a\ndecoy using one-\nquarter of its full\nHP.");
+const u8 gMoveDescription_ConfusionPsyduck[] = _("The user is\nslightly confused\nas to who they're\nsupposed to hit.");
+
 
 //dummies out for now
 const u8 gMoveDescription_Water_Shuriken[] = _("Dummy");
@@ -1078,4 +1080,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FIRST_IMPRESSION     -1 ] = gMoveDescription_First_Impression,
     [MOVE_SAVAGE_SPIN_OUT     -1 ] = gMoveDescription_Savage_Spin_Out,
     [MOVE_SINGLE_WINGBEAT     -1 ] = gMoveDescription_Single_Wingbeat,
+    [MOVE_CONFUSION_PSYDUCK     -1 ] = gMoveDescription_ConfusionPsyduck,
 };

@@ -106,7 +106,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ICE_PUNCH] =
     {
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -1231,6 +1231,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 25,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+
+    [MOVE_CONFUSION_PSYDUCK] =
+    {
+        .effect = EFFECT_RECOIL,
+        .power = 250,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 25,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },

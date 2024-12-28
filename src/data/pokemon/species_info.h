@@ -1572,7 +1572,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
     },
-    [SPECIES_PSYDUCK] =
+    [SPECIES_PSYDUCK] = //YELLOW
     {
         .baseHP = 80,
         .baseAttack = 82,
@@ -1601,7 +1601,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
     },
-    [SPECIES_GOLDUCK] =
+    [SPECIES_GOLDUCK] = //BLUE
     {
         .baseHP = 50,
         .baseAttack = 52,
@@ -3581,7 +3581,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 105,
         .baseSpAttack = 90,
         .baseSpDefense = 80,
-        .types = {TYPE_GRASS, TYPE_GRASS},
+        .types = {TYPE_GRASS_TCG, TYPE_GRASS_TCG},
         .catchRate = 255,
         .expYield = 187,
         .evYield_HP = 0,
@@ -5637,8 +5637,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP = 55,
         .baseAttack = 45,
         .baseDefense = 45,
-        .baseSpeed = 15,
-        .baseSpAttack = 25,
+        .baseSpeed = 150,
+        .baseSpAttack = 90,
         .baseSpDefense = 25,
         .types = {TYPE_WATER, TYPE_GROUND},
         .catchRate = 255,
@@ -5656,7 +5656,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = {EGG_GROUP_WATER_1, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_DAMP, ABILITY_WATER_ABSORB},
+        .abilities = {ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,

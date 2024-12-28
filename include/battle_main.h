@@ -36,6 +36,7 @@ struct MultiBattlePokemonTx
 #define TYPE_MUL_NOT_EFFECTIVE      5
 #define TYPE_MUL_NORMAL             10
 #define TYPE_MUL_SUPER_EFFECTIVE    20
+#define TYPE_TCG_NOT_EFFECTIVE      2
 
 // special type table Ids
 #define TYPE_FORESIGHT  0xFE
@@ -57,7 +58,7 @@ extern const u8 gStatusConditionString_IceJpn[8];
 extern const u8 gStatusConditionString_ConfusionJpn[8];
 extern const u8 gStatusConditionString_LoveJpn[8];
 extern const u8 *const gStatusConditionStringsTable[7][2];
-extern const u8 gTypeEffectiveness[492];
+extern const u8 gTypeEffectiveness[516];
 extern const struct TrainerMoney gTrainerMoneyTable[];
 extern const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT];
 extern const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
