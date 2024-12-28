@@ -15,5 +15,6 @@
 #define BENCH_ROUTE8_AFTER         12
 #define BENCH_ROUTE4_EAST               13
 #define BENCH_MT_MOON_BASEMENT      14
+#define BENCH_LOSS_WOODS            15
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

@@ -7,6 +7,10 @@ script FadeSongAndPlayVictory {
 	return
 }
 
+script CloseMessageboxScript {
+	waitfanfare
+} //Yes I know this is a stupid way of doing it but I DON'T KNOW HOW TO DO IT NORMALLY OKAY.
+
 script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
     setobtainable(SPECIES_VICTINI)

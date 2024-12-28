@@ -8,6 +8,7 @@ ThreeIsland_BerryForest_MapScripts::
 ThreeIsland_BerryForest_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST
 	call SetPlayerPokedexValues
+	setbench BENCH_LOSS_WOODS
 	setescapewarp MAP_THREE_ISLAND_BOND_BRIDGE, 12, 6
 	end
 
@@ -33,6 +34,43 @@ ThreeIsland_BerryForest_EventScript_BewareSign::
 	msgbox ThreeIsland_BerryForest_Text_BewareWildBerryLovingMons, MSGBOX_SIGN
 	end
 `
+
+script BerryForest_Hbox {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_JIGGLYPUFF, 15)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	setflag(FLAG_CSR_BERRY_FOREST_HBOX)
+	release
+	end
+}
+
+script BerryForest_LEmblem {
+	finditem(ITEM_L_EMBLEM)
+	release
+}
+
+script BerryForest_Nidorino {
+	lock
+	waitse
+	playmoncry(SPECIES_NIDORINO, CRY_MODE_DEFAULT)
+	msgbox("NIDORINO: Rrroaah!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
 
 script ThreeIsland_BerryForest_EventScript_Lostelle{
 	lock

@@ -33,3 +33,50 @@ script Route10_Play_Music {
 	//Literally none of these worked the way I wanted them to, so fuck it.
 	//I'm going with the stupid option.
 }
+
+script Route10_Imprint {
+	msgbox("There's a suspiciously POKéMON\nCENTER-shaped imprint in the ground.", MSGBOX_SIGN)
+	end
+}
+
+
+script Route10_Youngster {
+	msgbox("Wait, wasn't there a POKéMON\nCENTER here a minute ago?\pDarn, that's inconvenient.\pI guess I'm gonna have to run back\nto town after every fight.\lROCK TUNNEL's gonna be a pain...", MSGBOX_NPC)
+	end
+}
+
+
+const DAD = 8
+script Route10_TrappedDad {
+	lock
+	applymovement(DAD, Common_Movement_FaceUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was just on my way to ROCK\nTUNNEL, but I got stuck.\lI can't get out!\pI'd love to let you rest up, but\nsadly you're on your own for this.\lSorry!", MSGBOX_DEFAULT)
+	setflag(FLAG_DAD_ROCKTUNNEL)
+	release
+}
+
+script Route10_SecretDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pActually, yeah.\nWhat are you doing?\lYou're not supposed to get here!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+const LASS = 9
+
+script Route10_LassAttack {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	delay(90)
+	playse(SE_EXIT)
+	addobject(LASS)
+	setobjextxy(LASS, 8, 19)
+	applymovement(LASS, LassFindsYou)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+}

@@ -110,35 +110,43 @@ Route12_Text_SportfishingArea::
     .string "SPORTFISHING AREA$"
 
 Route12_Text_JesIntro::
-    .string "JES: If I win, I'm going to\n"
-    .string "propose to GIA.$"
+	.string "JAN: KIRI, here we go!\n"
+	.string "I think we got it set up right!\p"
+	.string "KIRI: I dunno, JAN...\n"
+	.string "I think the ITEMS are wrong.$"
 
 Route12_Text_JesDefeat::
-    .string "JES: Oh, please, why couldn't you\n"
-    .string "let us win?$"
+	.string "JAN: Eeeeh!\n"
+	.string "No fair!$"
 
 Route12_Text_JesPostBattle::
-    .string "JES: Oh, GIA, forgive me,\n"
-    .string "my love!$"
+	.string "JAN: KIRI, don't cry.\n"
+	.string "We'll get it next time!$"
 
 Route12_Text_JesNotEnoughMons::
-    .string "JES: GIA and I, we'll be\n"
-    .string "together forever.\p"
-    .string "We won't battle unless you have\n"
-    .string "two POKéMON of your own.$"
+	.string "JAN: Okay, KIRI!\n"
+	.string "We got this!\p"
+	.string "Next time we're in a DOUBLE BATTLE,\n"
+	.string "let's pull it off!$"
 
 Route12_Text_GiaIntro::
-    .string "GIA: Hey, JES…\p"
-    .string "If we win, I'll marry you!$"
+	.string "JAN: KIRI, here we go!\n"
+	.string "I think we got it set up right!\p"
+	.string "KIRI: I dunno, JAN...\n"
+	.string "I think the ITEMS are wrong.$"
 
 Route12_Text_GiaDefeat::
-    .string "GIA: Oh, but why?$"
+	.string "JAN: Eeeeh!\n"
+	.string "No fair!$"
 
 Route12_Text_GiaPostBattle::
-    .string "GIA: JES, you silly!\n"
-    .string "You ruined this!$"
+	.string "KIRI: Hey JAN, I think we need to\n"
+	.string "look it up again.\p"
+	.string "I don't think we did it right…\n$"
 
 Route12_Text_GiaNotEnoughMons::
-    .string "GIA: I can't bear to battle\n"
-    .string "without my JES!\p"
-    .string "Don't you have one more POKéMON?$"
+	.string "KIRI: Me and JAN have something\n"
+	.string "really cool to try!\l"
+	.string "But…\p"
+	.string "I think we need to be in a DOUBLE\n"
+	.string "BATTLE to do it…$"

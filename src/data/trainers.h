@@ -4686,14 +4686,14 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_CoolCoupleRayTyra),
     },
     [TRAINER_YOUNG_COUPLE_GIA_JES] = {
-        .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
+        .trainerClass = TRAINER_CLASS_TWINS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_YOUNG_COUPLE,
-        .trainerName = _("GIA & JES"),
+        .trainerPic = TRAINER_PIC_TWINS,
+        .trainerName = _("JAN & KIRI"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungCoupleGiaJes),
+        .party = ITEM_CUSTOM_MOVES(sParty_YoungCoupleGiaJes),
     },
     [TRAINER_TWINS_KIRI_JAN] = {
         .trainerClass = TRAINER_CLASS_TWINS,
