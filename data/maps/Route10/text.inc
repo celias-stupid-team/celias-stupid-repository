@@ -84,3 +84,6 @@ Route10_Text_RockTunnel::
 Route10_Text_PowerPlant::
     .string "POWER PLANT$"
 
+Route10_Text_LassDefeat::
+	.string "Hey!\n"
+	.string "Stop looking!$"
