@@ -232,5 +232,9 @@ u8 GetJumpSpecialWithEffectMovementAction(u32 direction);
 u8 GetFishingBiteDirectionAnimNum(u8 direction);
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY);
 void ResetObjectEvents(void);
+// CSR
+void SetPlayerOutfit(u8 outfit);
+void ClearPlayerOutfit(u8 outfit);
+void TogglePlayerOutfit(u8 outfit);
 
 #endif // GUARD_EVENT_OBJECT_MOVEMENT_H

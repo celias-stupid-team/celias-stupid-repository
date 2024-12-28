@@ -403,24 +403,22 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     //CSR items
     [ITEM_MATH_CLUB]     = {gItemIcon_ThickClub, gItemIconPalette_ThickClub},
     [ITEM_ODD_CANDY]     = {gItemIcon_OddCandy, gItemIconPalette_OddCandy},
-    [ITEM_WADDED_NOTE_METAPOD]     = {gItemIcon_WaddedNote, gItemIconPalette_WaddedNote},
-    
-
     [ITEM_RUNNING_SHOES]     = {gItemIcon_RunningShoes, gItemIconPalette_RunningShoes},
     [ITEM_MIN_REPEL]     = {gItemIcon_Repel, gItemIconPalette_MinRepel},
     [ITEM_DAWN_STONE]     = {gItemIcon_DawnStone, gItemIconPalette_DawnStone},
     [ITEM_HONEY]     = {gItemIcon_Honey, gItemIconPalette_Honey},
+    [ITEM_WADDED_NOTE_METAPOD]     = {gItemIcon_WaddedNote, gItemIconPalette_WaddedNote},
     [ITEM_TORN_PAPER_GEODUDE]     = {gItemIcon_TornPaper, gItemIconPalette_TornPaper},
     [ITEM_CREAM_DROP]     = {gItemIcon_CreamDrop, gItemIconPalette_CreamDrop},
     [ITEM_TRASH_MEDAL]     = {gItemIcon_TrashMedal, gItemIconPalette_TrashMedal},
-    
     [ITEM_LETTER_Y]     = {gItemIcon_LetterY, gItemIconPalette_LetterY},
-    
-    
     [ITEM_MYSTIC_SEAL]     = {gItemIcon_MysticSeal, gItemIconPalette_MysticSeal},
     [ITEM_INSTINCT_SEAL]   = {gItemIcon_InstinctSeal, gItemIconPalette_InstinctSeal},
     [ITEM_VALOR_SEAL]   = {gItemIcon_ValorSeal, gItemIconPalette_ValorSeal},
+    [ITEM_W_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_L_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_P_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
 
-
+    // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
