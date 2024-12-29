@@ -39,8 +39,10 @@ script Route3_EventScript_Lass {
 	switch(var(VAR_TEMP_1)) {
 		case 5:
 			applymovement(5,Lass_Attack_North)
+			break
 		case 4:
 			applymovement(5,Lass_Attack_South)
+			break
 	}
 	waitmovement(0)
 	delay(10)

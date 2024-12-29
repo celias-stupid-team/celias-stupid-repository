@@ -138,8 +138,10 @@ script PewterCity_EventScript_LightYearsGo {
 	switch(var(VAR_TEMP_0)) {
 		case 0:
 			setvar(VAR_TEMP_0, 1)
+			break
 		case 1:
 			setvar(VAR_TEMP_0, 0)
+			break
 	}
 	if(flag(FLAG_DEFEATED_BROCK)) {
 		clearflag(FLAG_CSR_ABSCONDED_BROCK)

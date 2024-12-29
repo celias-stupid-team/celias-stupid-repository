@@ -298,9 +298,11 @@ script VermillionCity_CeliaAfterGym {
 		case DIR_EAST:
 			applymovement(VermillionCelia, CeliaWalksRight)
 			waitmovement(0)
+			break
 		default:
 			applymovement(VermillionCelia, CeliaWalksLeft)
 			waitmovement(0)
+			break
 
 	}
 	release

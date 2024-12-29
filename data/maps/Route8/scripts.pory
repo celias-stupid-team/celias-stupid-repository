@@ -278,6 +278,7 @@ script Route8_GrowlitheSign {
 			break
 		default:
 			goto(Route8_NoMoreGrowlithe)
+			break
 	}
 	release
 }
@@ -305,10 +306,13 @@ script Route8_LassAttack {
 	switch(var(VAR_TEMP_1)) {
 		case 49:
 			applymovement(LASS, LassWalks3)
+			break
 		case 50:
 			applymovement(LASS, LassWalks2)
+			break
 		case 51:
 			applymovement(LASS, LassWalks1)
+			break
 	}
 	waitmovement(0)
 	applymovement(LASS, Common_Movement_FaceUp)

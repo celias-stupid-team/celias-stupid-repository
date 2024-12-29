@@ -51,7 +51,7 @@ script Route6_LassAttack {
 	}
 	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox("Hey!\nDon't act innocent!\pDown in the UNDERGROUND PATH, you\nwouldn't stop looking at me!\lWhat was that about?", MSGBOX_DEFAULT)
-	playsong(MUS_ROUTE3, TRUE)
+	playbgm(MUS_ROUTE3, TRUE)
 	trainerbattle_no_intro(TRAINER_LASS_UNDERGROUND_PATH, Route6_Text_LassDefeat)
 	msgbox("Hey!\pEven after our battle, you're\nstill looking at me!\lCut it out!", MSGBOX_DEFAULT)
 	closemessage
@@ -75,7 +75,7 @@ script Route6_LassAttack {
 }
 
 movement LassApproaches {
-	setvisible
+	set_visible
 	delay_4 * 5
 	walk_slow_down
 	face_down

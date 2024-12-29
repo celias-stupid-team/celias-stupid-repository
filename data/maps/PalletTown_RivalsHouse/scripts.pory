@@ -192,12 +192,16 @@ script BobOmbBattlefield_EventScript_Cannon {
 		switch(var(VAR_FACING)) {
 			case DIR_NORTH:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+				break
 			case DIR_SOUTH:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpDown)
+				break
 			case DIR_EAST:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpRight)
+				break
 			case DIR_WEST:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpLeft)
+				break
 		}
 		waitmovement(0)
 		setmetatile(31,32,0x075,0)

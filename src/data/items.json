@@ -4843,7 +4843,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "IceBeam"
+      "moveId": "PsyBeam"
     },
     {
       "english": "TM14",
@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Ice"
+      "moveId": "Psystorm"
     },
     {
       "english": "TM15",
@@ -4945,7 +4945,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "MagicalLeaf"
+      "moveId": "Wrap"
     },
     {
       "english": "TM20",
@@ -5132,7 +5132,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "ShadowBall"
+      "moveId": "MagicalLeaf"
     },
     {
       "english": "TM31",
@@ -5234,7 +5234,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SludgeBomb"
+      "moveId": "RazorWind"
     },
     {
       "english": "TM37",
@@ -5336,7 +5336,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Facade"
+      "moveId": "Crabhammer"
     },
     {
       "english": "TM43",

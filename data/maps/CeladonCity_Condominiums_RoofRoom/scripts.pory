@@ -232,6 +232,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall {
 			setwildbattle(SPECIES_JIGGLYPUFF, 13, ITEM_SODA_POP)
 			dowildbattle
 			release
+			break
 	}
 	
 }

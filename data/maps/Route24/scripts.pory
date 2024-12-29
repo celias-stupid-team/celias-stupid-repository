@@ -144,15 +144,18 @@ script Route24_EventScript_CheckParty {
 			case 10:
 				applymovement(6, LeftTwice)
 				waitmovement(0)
+				break
 			case 11:
 				applymovement(6, LeftOnce)
 				waitmovement(0)
+				break
 
 			case 12:
 				applymovement(6, Common_Movement_WalkDown)
 				waitmovement(0)
 				applymovement(6, Common_Movement_FaceDown)
 				waitmovement(0)	
+				break
 		}
 		textcolor(0)
 		msgbox("Um, hi!\nWelcome to NUGGETBRIDGE!\pEr, I noticed that you only have\none POKéMON with you right now.\pWe actually have a whole thing going\non, and you kinda need two.\lCould you go grab another?\pThanks for understanding!\n", MSGBOX_DEFAULT)
@@ -166,9 +169,11 @@ script Route24_EventScript_CheckParty {
 			case 10:
 				applymovement(6, RightTwice)
 				waitmovement(0)
+				break
 			case 11:
 				applymovement(6, Common_Movement_WalkRight)
 				waitmovement(0)
+				break
 		}
 		applymovement(6, Common_Movement_FaceLeft)
 		waitmovement(0)

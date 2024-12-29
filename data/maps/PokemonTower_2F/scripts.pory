@@ -148,12 +148,15 @@ script PokemonTower_2F_LitwickConversation {
 				case 1:
 					msgbox(PokemonTower_2F_Text_Litwick_J_Start, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_2, 1)
+					break
 				case 2:
 					msgbox(PokemonTower_2F_Text_Litwick_F_Start, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_2, 1)
+					break
 				case 3:
 					msgbox(PokemonTower_2F_Text_Litwick_S_Start, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_2, 1) //I fixed it I think The make worked - I moved the Return down a line
+					break
 			}
 
 
@@ -164,14 +167,17 @@ script PokemonTower_2F_LitwickConversation {
 					msgbox(PokemonTower_2F_Text_Litwick_J, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_3,1)
 					setvar(VAR_TEMP_2, 2)
+					break
 				case 2:
 					msgbox(PokemonTower_2F_Text_Litwick_F, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_3,2)
 					setvar(VAR_TEMP_2, 2)
+					break
 				case 3:
 					msgbox(PokemonTower_2F_Text_Litwick_S, MSGBOX_AUTOCLOSE)
 					setvar(VAR_TEMP_3,3)
 					setvar(VAR_TEMP_2, 2)
+					break
 			}
 
 
@@ -183,14 +189,17 @@ script PokemonTower_2F_LitwickConversation {
 							msgbox(PokemonTower_2F_Text_Litwick_JJ, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,1)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 2:
 							msgbox(PokemonTower_2F_Text_Litwick_JF, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,2)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 3:
 							msgbox(PokemonTower_2F_Text_Litwick_JS, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,3)
 							setvar(VAR_TEMP_2, 3)
+							break
 					}
 				case 2: //Fierce first
 					switch(var(VAR_TEMP_1)) {
@@ -198,14 +207,17 @@ script PokemonTower_2F_LitwickConversation {
 							msgbox(PokemonTower_2F_Text_Litwick_FJ, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,1)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 2:
 							msgbox(PokemonTower_2F_Text_Litwick_FF, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,2)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 3:
 							msgbox(PokemonTower_2F_Text_Litwick_FS, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,3)
 							setvar(VAR_TEMP_2, 3)
+							break
 					}
 				case 3: //Scared first
 					switch(var(VAR_TEMP_1)) {
@@ -213,14 +225,17 @@ script PokemonTower_2F_LitwickConversation {
 							msgbox(PokemonTower_2F_Text_Litwick_SJ, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,1)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 2:
 							msgbox(PokemonTower_2F_Text_Litwick_SF, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,2)
 							setvar(VAR_TEMP_2, 3)
+							break
 						case 3:
 							msgbox(PokemonTower_2F_Text_Litwick_SS, MSGBOX_AUTOCLOSE)
 							setvar(VAR_TEMP_4,3)
 							setvar(VAR_TEMP_2, 3)
+							break
 					}
 			}
 
@@ -238,12 +253,15 @@ script PokemonTower_2F_LitwickConversation {
 									case 1: //J
 										msgbox(PokemonTower_2F_Text_Litwick_JJJ, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 2: //F
 										msgbox(PokemonTower_2F_Text_Litwick_JJF, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 3: //S
 										msgbox(PokemonTower_2F_Text_Litwick_JJS, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 								}
 
 							case 2: //Fierce
@@ -251,12 +269,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_JFJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_JFF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_JFS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								}
 
 							case 3: //Scared
@@ -264,12 +285,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_JSJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_JSF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_JSS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								}
 							
 						}
@@ -284,12 +308,15 @@ script PokemonTower_2F_LitwickConversation {
 									case 1: //J
 										msgbox(PokemonTower_2F_Text_Litwick_FJJ, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 2: //F
 										msgbox(PokemonTower_2F_Text_Litwick_FJF, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 3: //S
 										msgbox(PokemonTower_2F_Text_Litwick_FJS, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 								}
 
 							case 2: //Fierce
@@ -297,12 +324,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_FFJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_FFF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_FFS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								}
 
 							case 3: //Scared
@@ -310,12 +340,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_FSJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_FSF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_FSS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								}
 							
 						}
@@ -330,12 +363,15 @@ script PokemonTower_2F_LitwickConversation {
 									case 1: //J
 										msgbox(PokemonTower_2F_Text_Litwick_SJJ, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 2: //F
 										msgbox(PokemonTower_2F_Text_Litwick_SJF, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 									case 3: //S
 										msgbox(PokemonTower_2F_Text_Litwick_SJS, MSGBOX_AUTOCLOSE)
 										setvar(VAR_TEMP_2,0)
+										break
 								}
 
 							case 2: //Fierce
@@ -343,12 +379,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_SFJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_SFF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_SFS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								}
 
 							case 3: //Scared
@@ -356,12 +395,15 @@ script PokemonTower_2F_LitwickConversation {
 										case 1: //J
 											msgbox(PokemonTower_2F_Text_Litwick_SSJ, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 2: //F
 											msgbox(PokemonTower_2F_Text_Litwick_SSF, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 										case 3: //S
 											msgbox(PokemonTower_2F_Text_Litwick_SSS, MSGBOX_AUTOCLOSE)
 											setvar(VAR_TEMP_2,0)
+											break
 								} //final litwick check
 
 						} //second litwick check

@@ -12,7 +12,6 @@ CinnabarIsland_OnTransition::
 	call CinnabarIsland_EventScript_CheckUnlockGym
 	call_if_eq VAR_CSR_DUMMY_11, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland
 	call_if_eq VAR_CSR_DUMMY_11, 3, CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands
-	call_if_eq VAR_CSR_DUMMY_28, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter
 	end
 
 CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter::
@@ -50,9 +49,6 @@ CinnabarIsland_EventScript_UnlockGym::
 	return
 
 CinnabarIsland_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_28, 1, CinnabarIsland_EventScript_ExitPokeCenterForOneIsland
-	map_script_2 VAR_CSR_DUMMY_11, 1, CinnabarIsland_EventScript_BillScene
-	map_script_2 VAR_CSR_DUMMY_11, 3, CinnabarIsland_EventScript_ReturnFromSeviiIslands
 	.2byte 0
 
 CinnabarIsland_EventScript_ExitPokeCenterForOneIsland::
@@ -60,7 +56,6 @@ CinnabarIsland_EventScript_ExitPokeCenterForOneIsland::
 	clearflag FLAG_DONT_TRANSITION_MUSIC
 	savebgm MUS_DUMMY
 	textcolor NPC_TEXT_COLOR_MALE
-	setvar VAR_CSR_DUMMY_28, 2
 	delay 20
 	call CinnabarIsland_EventScript_SailToOneIsland
 	releaseall
