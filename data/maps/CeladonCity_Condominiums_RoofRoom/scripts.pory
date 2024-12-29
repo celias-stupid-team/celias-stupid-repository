@@ -143,7 +143,8 @@ const GUY = 1
 const EEVEE = 2
 
 script CeladonCity_Condominiums_RoofRoom_MapScript {
-	
+	setflag(FLAG_CSR_MAP_EEVEE_ROOM)
+	call(SetPlayerPokedexValues)
 	switch(var(VAR_EEVEE_COUNT)) {
 		// set up the room
 		// but need to fix the logic so it only changes after the guy wakes up

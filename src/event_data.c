@@ -2,6 +2,8 @@
 #include "event_data.h"
 #include "item_menu.h"
 #include "quest_log.h"
+#include "event_scripts.h"
+#include "script.h"
 
 static bool8 IsFlagOrVarStoredInQuestLog(u16 idx, u8 a1);
 
@@ -63,6 +65,7 @@ void ClearTempData_CSR(void)
     VarSet(VAR_TEMP_START_EVENT_BATTLE, 0); //reset var every time a map loads
     FlagClear(FLAG_TEMP_MID_BATTLE_EVENT); //clear flag every time a map loads
     FlagClear(FLAG_SHINY_CREATION); //Clear shiny flag on load
+    RunScriptImmediately(SetPlayerPokedexValues);
 }
 
 // Unused

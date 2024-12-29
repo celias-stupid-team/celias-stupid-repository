@@ -3,7 +3,10 @@ Route2_House_MapScripts::
 	.byte 0
 
 Route2_House_EventScript_Scientist::
-	msgbox Route2_House_Text_FaintedMonsCanUseFieldMoves, MSGBOX_NPC
+	lock
+	setflag FLAG_CSR_HINT_ABRA_TRADE
+	call SetPlayerPokedexValues
+	msgbox Route2_House_Text_FaintedMonsCanUseFieldMoves, MSGBOX_DEFAULT
 	end
 
 Route2_House_EventScript_Reyley::

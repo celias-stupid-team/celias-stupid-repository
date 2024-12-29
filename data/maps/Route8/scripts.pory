@@ -37,6 +37,8 @@ script Route8_StartSnowing {
 script Route8_StartSunning {
 	setweather(WEATHER_SUNNY_CLOUDS)
 	doweather
+	setflag(FLAG_CSR_MAP_ROUTE_8_FAR)
+	call(SetPlayerPokedexValues)
 	release
 }
 

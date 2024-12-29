@@ -1,6 +1,7 @@
 raw `
 Route10_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE Route10_Warp_Script
+	map_script MAP_SCRIPT_ON_TRANSITION Route10_OnTransition
 	.byte 0
 
 Route10_EventScript_Unused::
@@ -18,6 +19,11 @@ Route10_EventScript_PowerPlantSign::
 	msgbox Route10_Text_PowerPlant, MSGBOX_SIGN
 	end
 `
+script Route10_OnTransition {
+	setflag(FLAG_CSR_MAP_ROUTE_10)
+	call(SetPlayerPokedexValues)
+}
+
 script Route10_Warp_Script {
 	map_script_2(VAR_TEMP_1, 0, Route10_Play_Music)
 }

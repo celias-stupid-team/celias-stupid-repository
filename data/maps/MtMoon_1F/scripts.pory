@@ -18,6 +18,8 @@ MtMoon_1F_EventScript_Marcos::
 
 MtMoon_1F_EventScript_Josh::
 	trainerbattle_single TRAINER_YOUNGSTER_JOSH, MtMoon_1F_Text_JoshIntro, MtMoon_1F_Text_JoshDefeat
+	setflag FLAG_CSR_HINT_RUNNING_SHOES
+	call SetPlayerPokedexValues
 	msgbox MtMoon_1F_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -60,6 +62,8 @@ script MtMoon_1F_Item_Nugget {
 }
 
 script MtMoon_1F_Item_SunStone {
+	setflag(FLAG_CSR_SUN_STONE_FOUND)
+	call(SetPlayerPokedexValues)
 	finditem(ITEM_SUN_STONE)
 }
 

@@ -61,6 +61,8 @@ Route24_EventScript_BattleRocket::
 	trainerbattle_no_intro TRAINER_DMCA_GRUNT_6, Route24_Text_RocketDefeat
 	msgbox Route24_Text_YoudBecomeTopRocketLeader
 	setvar VAR_MAP_SCENE_ROUTE24, 1
+	setflag FLAG_CSR_MAP_ROUTE_24_FAR
+	call SetPlayerPokedexValues
 	return
 
 Route24_EventScript_RocketApproachPlayer::
@@ -107,6 +109,11 @@ script Route24_TransitionScripts {
 
 script Route24_Sign_Funnier {
 	msgbox("TRAINER TIPS!\pWanna know what's funnier than\nROUTE 24?", MSGBOX_SIGN)
+	end
+}
+
+script Route24_RouteSign {
+	msgbox("ROUTE 24\nNEW WILD POKéMON: 2", MSGBOX_SIGN)
 	end
 }
 

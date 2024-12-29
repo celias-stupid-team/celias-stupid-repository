@@ -937,28 +937,28 @@
 #define FLAG_0x370               0x370
 #define FLAG_0x371               0x371
 #define FLAG_0x372               0x372
-#define FLAG_0x373               0x373
-#define FLAG_0x374               0x374
-#define FLAG_0x375               0x375
-#define FLAG_0x376               0x376
-#define FLAG_0x377               0x377
-#define FLAG_0x378               0x378
-#define FLAG_0x379               0x379
-#define FLAG_0x37A               0x37A
-#define FLAG_0x37B               0x37B
-#define FLAG_0x37C               0x37C
-#define FLAG_0x37D               0x37D
-#define FLAG_0x37E               0x37E
-#define FLAG_0x37F               0x37F
-#define FLAG_0x380               0x380
-#define FLAG_0x381               0x381
-#define FLAG_0x382               0x382
-#define FLAG_0x383               0x383
-#define FLAG_0x384               0x384
-#define FLAG_0x385               0x385
-#define FLAG_0x386               0x386
-#define FLAG_0x387               0x387
-#define FLAG_0x388               0x388
+#define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373
+#define FLAG_CSR_HINT_EVO_LEVEL               0x374
+#define FLAG_CSR_HINT_RUNNING_SHOES               0x375
+#define FLAG_CSR_HINT_MISSINGNO               0x376
+#define FLAG_CSR_HINT_ABRA_TRADE               0x377
+#define FLAG_CSR_HINT_KENYA               0x378
+#define FLAG_CSR_HINT_PHISHING               0x379
+#define FLAG_CSR_HINT_LICKITUNG               0x37A
+#define FLAG_CSR_HINT_MOVE_REMINDER               0x37B
+#define FLAG_CSR_HINT_MAGNALONE               0x37C
+#define FLAG_CSR_HINT_DRAGONITE               0x37D
+#define FLAG_CSR_HINT_SPEAROW               0x37E
+#define FLAG_CSR_HINT_PEWTER_GRASS               0x37F
+#define FLAG_CSR_HINT_OCEAN_FISHING               0x380
+#define FLAG_CSR_HINT_REVEAL_GLASS               0x381
+#define FLAG_CSR_HINT_GYM_STATUES               0x382
+#define FLAG_CSR_HINT_ARMS_TRADE               0x383
+#define FLAG_CSR_HINT_TANGELA_HAIRCUT               0x384
+#define FLAG_CSR_HINT_FOREST_CANDIES               0x385
+#define FLAG_CSR_HINT_SPAM               0x386
+#define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
+#define FLAG_CSR_TALKED_TO_JYNX_GUY               0x388
 #define FLAG_0x389               0x389
 #define FLAG_0x38A               0x38A
 #define FLAG_0x38B               0x38B
@@ -1517,35 +1517,35 @@
 #define FLAG_CSR_MAP_MT_MOON_BASEMENT                                                (SYS_FLAGS + 0xD0)
 #define FLAG_CSR_SUN_STONE_FOUND                                                  (SYS_FLAGS + 0xD1)
 #define FLAG_CSR_MAP_STONE_EMPORIUM                                                  (SYS_FLAGS + 0xD2)
-#define FLAG_CSR_HINT_CLEFABLE_SHADOW                                                  (SYS_FLAGS + 0xD3)
+#define FLAG_CSR_MAP_DUMMY_1                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
-#define FLAG_CSR_HINT_EVO_LEVEL                                                  (SYS_FLAGS + 0xD6)
-#define FLAG_CSR_HINT_RUNNING_SHOES                                                  (SYS_FLAGS + 0xD7)
+#define FLAG_CSR_MAP_DUMMY_2                                                  (SYS_FLAGS + 0xD6)
+#define FLAG_CSR_MAP_DUMMY_3                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
-#define FLAG_CSR_HINT_MISSINGNO                                                  (SYS_FLAGS + 0xD9)
-#define FLAG_CSR_HINT_ABRA_TRADE                                                  (SYS_FLAGS + 0xDA)
-#define FLAG_CSR_HINT_KENYA                                                  (SYS_FLAGS + 0xDB)
+#define FLAG_CSR_MAP_DUMMY_4                                                  (SYS_FLAGS + 0xD9)
+#define FLAG_CSR_MAP_DUMMY_5                                                  (SYS_FLAGS + 0xDA)
+#define FLAG_CSR_MAP_DUMMY_6                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
-#define FLAG_CSR_HINT_PHISHING                                                  (SYS_FLAGS + 0xDD)
+#define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)
 #define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
-#define FLAG_CSR_HINT_LICKITUNG                                                  (SYS_FLAGS + 0xDF)
-#define FLAG_CSR_HINT_MOVE_REMINDER                                                  (SYS_FLAGS + 0xE0)
+#define FLAG_CSR_MAP_DUMMY_8                                                  (SYS_FLAGS + 0xDF)
+#define FLAG_CSR_MAP_DUMMY_9                                                  (SYS_FLAGS + 0xE0)
 #define FLAG_CSR_MAP_EEVEE_ROOM                                                  (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                                                  (SYS_FLAGS + 0xE2)
-#define FLAG_CSR_HINT_MAGNALONE                                                  (SYS_FLAGS + 0xE3)
-#define FLAG_CSR_HINT_DRAGONITE                                                  (SYS_FLAGS + 0xE4)
-#define FLAG_CSR_HINT_SPEAROW                                                  (SYS_FLAGS + 0xE5)
-#define FLAG_CSR_HINT_PEWTER_GRASS /*Set*/                                                   (SYS_FLAGS + 0xE6)
-#define FLAG_CSR_HINT_OCEAN_FISHING                                                  (SYS_FLAGS + 0xE7)
+#define FLAG_CSR_MAP_DUMMY_10                                                  (SYS_FLAGS + 0xE3)
+#define FLAG_CSR_MAP_DUMMY_11                                                (SYS_FLAGS + 0xE4)
+#define FLAG_CSR_MAP_DUMMY_12                                                  (SYS_FLAGS + 0xE5)
+#define FLAG_CSR_MAP_DUMMY_13                                                   (SYS_FLAGS + 0xE6)
+#define FLAG_CSR_MAP_DUMMY_14                                                  (SYS_FLAGS + 0xE7)
 #define FLAG_CSR_MAP_MINNESOTA                                                  (SYS_FLAGS + 0xE8)
 #define FLAG_CSR_MAP_ROUTE_16_FAR                                                  (SYS_FLAGS + 0xE9)
-#define FLAG_CSR_HINT_REVEAL_GLASS                                                  (SYS_FLAGS + 0xEA)
-#define FLAG_CSR_HINT_GYM_STATUES                                                  (SYS_FLAGS + 0xEB)
-#define FLAG_CSR_HINT_ARMS_TRADE                                                  (SYS_FLAGS + 0xEC)
-#define FLAG_CSR_HINT_TANGELA_HAIRCUT                                                  (SYS_FLAGS + 0xED)
-#define FLAG_CSR_HINT_FOREST_CANDIES  /*Set*/                                                (SYS_FLAGS + 0xEE)
-#define FLAG_CSR_HINT_SPAM                                                  (SYS_FLAGS + 0xEF)
+#define FLAG_CSR_MAP_DUMMY_15                                                  (SYS_FLAGS + 0xEA)
+#define FLAG_CSR_MAP_DUMMY_16                                                  (SYS_FLAGS + 0xEB)
+#define FLAG_CSR_MAP_DUMMY_17                                                  (SYS_FLAGS + 0xEC)
+#define FLAG_CSR_MAP_DUMMY_18                                                  (SYS_FLAGS + 0xED)
+#define FLAG_CSR_MAP_DUMMY_19  /*Set*/                                                (SYS_FLAGS + 0xEE)
+#define FLAG_CSR_MAP_DUMMY_20                                                  (SYS_FLAGS + 0xEF)
 #define FLAG_CSR_MAP_MT_MOON_SQUARE                                                  (SYS_FLAGS + 0xF0)
 #define FLAG_CSR_MAP_YES                                                  (SYS_FLAGS + 0xF1)
 #define FLAG_CSR_MAP_AMITY_SQUARE                                                  (SYS_FLAGS + 0xF2)
@@ -1555,9 +1555,9 @@
 #define FLAG_CSR_MAP_ALTAR_OF_MOONE                                                  (SYS_FLAGS + 0xF6)
 #define FLAG_CSR_MAP_SECRET_TUNNEL                                                (SYS_FLAGS + 0xF7)
 #define FLAG_CSR_MAP_ZERO_ISLAND                                                  (SYS_FLAGS + 0xF8)
-#define FLAG_0x8F9                                                  (SYS_FLAGS + 0xF9)
-#define FLAG_0x8FA                                                  (SYS_FLAGS + 0xFA)
-#define FLAG_0x8FB                                                  (SYS_FLAGS + 0xFB)
+#define FLAG_CSR_MAP_DUMMY_21                                                  (SYS_FLAGS + 0xF9)
+#define FLAG_CSR_MAP_DUMMY_22                                                (SYS_FLAGS + 0xFA)
+#define FLAG_CSR_MAP_ROUTE_9                                                  (SYS_FLAGS + 0xFB)
 #define FLAG_0x8FC                                                  (SYS_FLAGS + 0xFC)
 #define FLAG_0x8FD                                                  (SYS_FLAGS + 0xFD)
 #define FLAG_0x8FE                                                  (SYS_FLAGS + 0xFE)

@@ -1,6 +1,5 @@
 raw `
-CeladonCity_GameCorner_PrizeRoom_MapScripts::
-	.byte 0
+
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_BaldingMan::
 	msgbox CeladonCity_GameCorner_PrizeRoom_Text_FancyThatPorygon, MSGBOX_NPC
@@ -25,10 +24,10 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon::
 	waitmessage
 	multichoice 11, 0, MULTICHOICE_GAME_CORNER_POKEMON_PRIZES, FALSE
 	switch VAR_RESULT
-	case 0, CeladonCity_GameCorner_PrizeRoom_EventScript_Abra
-	case 1, CeladonCity_GameCorner_PrizeRoom_EventScript_Clefairy
-	case 2, CeladonCity_GameCorner_PrizeRoom_EventScript_DratiniPinsir
-	case 3, CeladonCity_GameCorner_PrizeRoom_EventScript_ScytherDratini
+	case 0, CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon
+	case 1, CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon
+	case 2, CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon
+	case 3, CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon
 	case 4, CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon
 	case 5, CeladonCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
 	case 127, CeladonCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange
@@ -383,3 +382,14 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_YellowFlute::
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeItem
 	end
 `
+mapscripts CeladonCity_GameCorner_PrizeRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_PRIZE_EXCHANGE)
+		call(SetPlayerPokedexValues)
+	}
+}
+
+script CeladonPrizeRoom_DMCA {
+	msgbox("Rats!\nThere's no DRATINI here!\pThe DMCA has been hunting for one.\nThere's rumors of copyright trouble!\pI guess our crew in the SAFARI ZONE\nwill be on their own...", MSGBOX_NPC)
+	end
+}

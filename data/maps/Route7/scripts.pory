@@ -1,11 +1,15 @@
 raw `
-Route7_MapScripts::
-	.byte 0
-
 Route7_EventScript_UndergroundPathSign::
 	msgbox Route7_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+mapscripts Route7_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_ROUTE_7)
+		call(SetPlayerPokedexValues)
+	}
+}
+
 script Route7_EventScript_Ann { //needs the actual trainer
 	trainerbattle_single(TRAINER_LASS_JULIA, Route7_Text_AtNightBefore, Route7_Text_AtNightDefeat)
 	msgbox(Route7_Text_AtNightAfter, MSGBOX_AUTOCLOSE)

@@ -1,5 +1,6 @@
 raw `
 CeladonCity_DepartmentStore_4F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION CeladonDeptStoneEmporium_OnTransition
 	.byte 0
 
 CeladonCity_DepartmentStore_4F_EventScript_Man::
@@ -37,6 +38,10 @@ CeladonCity_DepartmentStore_4F_Items::
 	release
 	end
 `
+script CeladonDeptStoneEmporium_OnTransition {
+	setflag(FLAG_CSR_MAP_STONE_EMPORIUM)
+	call(SetPlayerPokedexValues)
+}
 script CeladonCity_DepartmentStore_4F_EventScript_GoldMom {
 	msgbox("Hello, GOLD?\nYes, this is MOM.\pI got caught up in another\nshopping spree…\pI know I promised I wouldn't.\pWhat's that?\nYou're-\pSettle down! I promise that\nthis time I didn't buy that much!\p…Huh?\nWhat did I buy?\pUh, if you check your room,\nyou'll-\pOh, you see the DOLLSs there?\nI thought you'd like them-\p…What's that? How much did\nI spend?\pFunny thing about that, son…\n", MSGBOX_DEFAULT)
 	closemessage

@@ -4,6 +4,8 @@ raw `
 mapscripts MtMoon_B1F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setbench(BENCH_MT_MOON_BASEMENT)
+		setflag(FLAG_CSR_MAP_MT_MOON_BASEMENT)
+		call(SetPlayerPokedexValues)
 	}
 }
 	
