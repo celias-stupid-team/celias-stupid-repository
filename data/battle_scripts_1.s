@@ -4074,6 +4074,8 @@ BattleScript_IntimidateActivationAnimLoop::
 	trygetintimidatetarget BattleScript_IntimidateEnd
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_IntimidateFail
 	jumpifability BS_TARGET, ABILITY_CLEAR_BODY, BattleScript_IntimidateAbilityFail
+	jumpifability BS_TARGET, ABILITY_FREE_SHINY, BattleScript_IntimidateAbilityFail
+
 	jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_IntimidateAbilityFail
 	jumpifability BS_TARGET, ABILITY_WHITE_SMOKE, BattleScript_IntimidateAbilityFail
 	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_IntimidateFail

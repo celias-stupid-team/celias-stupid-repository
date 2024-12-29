@@ -15,9 +15,10 @@ VermilionCity_PokemonFanClub_Text_AdoreMySeel::
     .string "POKéMON, though.$"
 
 VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive::
-    .string "Oh, dear!\p"
-    .string "My SEEL is far more attractive.\n"
-    .string "By double, I would say.$"
+    .string "I found this strange POKéMON out\n"
+    .string "in the wild!\p"
+    .string "It seems oddly different from other\n"
+    .string "POKéMON, though.$"
 
 VermilionCity_PokemonFanClub_Text_Pikachu::
     .string "MEOWTH: Chu! Pikachu!\p"
