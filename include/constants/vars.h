@@ -213,9 +213,9 @@ It is reset after every battle.
 #define VAR_ROUTE8_LASS                 0x4096
 #define VAR_ROUTE10_LASS                 0x4097
 #define VAR_VERMILLION_MEMORIAL                 0x4098
-#define VAR_0x4099                 0x4099
-#define VAR_0x409A                 0x409A
-#define VAR_0x409B                 0x409B
+#define VAR_ROUTE22_MANKEY                 0x4099
+#define VAR_ROUTE22_NIDOM                 0x409A
+#define VAR_ROUTE22_NIDOF                 0x409B
 #define VAR_0x409C                 0x409C
 #define VAR_0x409D                 0x409D
 #define VAR_0x409E                 0x409E
