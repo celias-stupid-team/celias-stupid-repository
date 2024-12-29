@@ -157,6 +157,13 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 
 `
+
+script EventScript_DaisyTile {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox("DAISY: Hi, {PLAYER}!\nHow are you?", MSGBOX_DEFAULT)
+	release
+}
 script PalletTown_RivalsHouse_EventScript_CeliaBoB {
 	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
 	end

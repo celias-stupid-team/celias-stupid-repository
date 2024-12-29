@@ -149,7 +149,7 @@ script Route23_EventScript_Child {
 	release
 }
 
-PowerPlant_EventScript_Zapdos {
+script PowerPlant_EventScript_Zapdos {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	special(QuestLog_CutRecording)
 	lock

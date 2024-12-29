@@ -523,7 +523,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_POISON_STING] =
     {
         .effect = EFFECT_POISON_HIT,
-        .power = 45,
+        .power = 30,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 35,
@@ -691,7 +691,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_EMBER] =
     {
-        .effect = EFFECT_BURN_HIT,
+        .effect = EFFECT_PRESENT,
         .power = 60,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -731,7 +731,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WATER_GUN] =
     {
         .effect = EFFECT_HIT,
-        .power = 60,
+        .power = 40,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 25,

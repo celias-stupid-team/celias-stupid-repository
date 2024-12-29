@@ -261,7 +261,7 @@
 #define FLAG_PT_NPC_LOOKLOOK_LEAVE                     0x0DC
 #define FLAG_PT_NPC_SIGN_LADY                          0x0DD
 #define FLAG_PT_NPC_LOOKLOOK                           0x0DE
-#define FLAG_CSR_PT_HIDE_GS_BALL               0x0DF
+#define FLAG_CSR_HIDE_GS_BALL               0x0DF
 #define FLAG_CSR_VIRIDIAN_DOOR_ONCE               0x0E0
 #define FLAG_CSR_ROUTE8_PUSHED_BENCH               0x0E1
 #define FLAG_CSR_BERRY_FOREST_HBOX               0x0E2

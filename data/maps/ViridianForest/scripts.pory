@@ -126,18 +126,22 @@ script ViridianForest_EventScript_CeliaDad2 {
 
 script ViridianForest_EventScript_Flowers1 {
 	setvar(VAR_TEMP_1, 1)
+	release
 }
 
 script ViridianForest_EventScript_Flowers2 {
 	setvar(VAR_TEMP_1, 2)
+	release
 }
 
 script ViridianForest_EventScript_Flowers3 {
 	setvar(VAR_TEMP_1, 3)
+	release
 }
 
 script ViridianForest_EventScript_FlowersClear {
 	setvar(VAR_TEMP_1, 0)
+	release
 }
 
 script ViridianForest_EventScript_Flowers4 {
@@ -154,14 +158,14 @@ script ViridianForest_EventScript_CeliaAJ {
 }
 
 
-
+const CELIA_FOREST = 20
 script ViridianForest_EventScript_CeliaChecksDex {
 	specialvar(VAR_RESULT, GetPokedexCount)
 	if(var(VAR_RESULT) < 6) {
 		lock
 
 		//TODO check which tile the player interacted from
-		setobjectxy(20,4,18)
+		setobjectxy(CELIA_FOREST,4,18)
 		applymovement(20, CeliaApproaches)
 		waitmovement(0)
 		playse(SE_PIN)

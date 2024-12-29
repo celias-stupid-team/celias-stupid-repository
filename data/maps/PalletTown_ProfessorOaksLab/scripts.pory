@@ -20,14 +20,7 @@ PalletTown_ProfessorOaksLab_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_ProfessorOaksLab_OnFrame
 	.byte 0
 
-PalletTown_ProfessorOaksLab_OnTransition::
-	setflag FLAG_VISITED_OAKS_LAB
-	setdynamicwarp MAP_PALLET_TOWN, 2
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_ProfessorOaksLab_EventScript_ReadyOakForStarterScene
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 7, PalletTown_ProfessorOaksLab_EventScript_ReadyOakForNationalDexScene
-	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 8, PalletTown_ProfessorOaksLab_EventScript_SetNationalDexSceneFinished
-	call_if_set FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL, PalletTown_ProfessorOaksLab_EventScript_SetSkipPokeBallCheck
-	end
+
 
 PalletTown_ProfessorOaksLab_EventScript_SetSkipPokeBallCheck::
 	setflag FLAG_OAK_SKIP_22_RIVAL_CHECK
@@ -620,7 +613,6 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	waitfanfare
 	call EventScript_RestorePrevTextColor
 	removeitem ITEM_OAKS_PARCEL
-	clearflag FLAG_CSR_PT_HIDE_GS_BALL
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	textcolor NPC_TEXT_COLOR_MALE
@@ -1422,4 +1414,21 @@ script PalletTown_EventScript_HobbyistReactor {
 	}
 	release
 	end
+}
+
+const GS_BALL = 12
+script PalletTown_ProfessorOaksLab_OnTransition {
+	setflag(FLAG_VISITED_OAKS_LAB)
+	setdynamicwarp(MAP_PALLET_TOWN, 2)
+	
+	if(flag(FLAG_SYS_POKEDEX_GET) && !flag(FLAG_CSR_GS_BALL_GOT)) {
+		addobject(GS_BALL)
+	} else {
+		removeobject(GS_BALL)
+	} //GS Ball only appears after you've reloaded the room after giving OAK The parcel
+
+	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_ProfessorOaksLab_EventScript_ReadyOakForStarterScene)
+	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 7, PalletTown_ProfessorOaksLab_EventScript_ReadyOakForNationalDexScene)
+	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 8, PalletTown_ProfessorOaksLab_EventScript_SetNationalDexSceneFinished)
+	call_if_set(FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL, PalletTown_ProfessorOaksLab_EventScript_SetSkipPokeBallCheck)
 }

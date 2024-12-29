@@ -358,6 +358,10 @@ It is reset after every battle.
 
 // don't make fun of me :(
 #define NPC_TEXT_COLOR_NORMAL   3
+#define NPC_TEXT_COLOR_BLUE      0 // Blue, for male NPCs
+#define NPC_TEXT_COLOR_RED    1 // Red, for female NPCs
+#define NPC_TEXT_COLOR_GREEN       4 // Tree, for Oak and oak-adjactent things
+
 
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 

@@ -21,8 +21,7 @@ PewterCity_PokemonCenter_1F_Text_TradingMyClefairyForPikachu::
     .string "trading my CLEFAIRY for one.$"
 
 PewterCity_PokemonCenter_1F_Text_TradingPikachuWithKid::
-    .string "I'm trading POKéMON with that kid\n"
-    .string "there.\p"
-    .string "I had two PIKACHU, so I figured\n"
-    .string "I might as well trade one.$"
-
+	.string "I'm evolving my CATERPIE to fight\n"
+	.string "BROCK!\p"
+	.string "I'm already LEVEL 70, but I still\n"
+	.string "have a long way to go!$"

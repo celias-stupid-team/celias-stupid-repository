@@ -154,6 +154,8 @@ script PewterCity_EventScript_CeliaDebug {
 	end
 }
 
+
+const BOY = 2
 script PewterCity_Gym_EventScript_NoSneaky {
 	checktrainerflag(TRAINER_CAMPER_LIAM)
 	if(var(VAR_RESULT) == FALSE) {
@@ -162,7 +164,16 @@ script PewterCity_Gym_EventScript_NoSneaky {
 		applymovement(2, Common_Movement_ExclamationMark)
 		waitmovement(0)
 		delay(75)
-		applymovement(2, BoyWalksUp)
+		getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+		switch(var(VAR_TEMP_2)) {
+			case 2:
+				applymovement(BOY, BoyWalksUp)
+				break
+			case 3:
+				applymovement(BOY, BoyWalksUp_2)
+				break
+		}
+		
 		waitmovement(0)
 		textcolor(0)
 		msgbox(PewterCity_Gym_Text_LiamIntro, MSGBOX_DEFAULT)
@@ -175,6 +186,12 @@ movement BoyWalksUp {
 	walk_right * 3
 	walk_up * 2
 	walk_left * 3
+}
+
+movement BoyWalksUp_2 {
+	walk_right * 3
+	walk_up * 2
+	walk_left * 2
 }
 
 script PewterCity_Gym_MapScripts_StartRain {
