@@ -400,6 +400,7 @@ static void ItemUseCB_ReplaceMoveWithTMHM(u8 taskId, TaskFunc func);
 static void Task_ReplaceMoveWithTMHM(u8 taskId);
 static void CB2_UseEvolutionStone(void);
 static bool8 MonCanEvolve(void);
+static void Task_WaitRareCandyMessage(u8 taskId);
 
 static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
 EWRAM_DATA struct PartyMenu gPartyMenu = {0};
@@ -5081,19 +5082,16 @@ static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
     ScheduleBgCopyTilemapToVram(2);
     StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
     DisplayPartyMenuMessage(gStringVar4, TRUE);
-    if (WaitFanfare(FALSE) && (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON)))
+    gTasks[taskId].func = Task_WaitRareCandyMessage; 
+}
+
+static void Task_WaitRareCandyMessage(u8 taskId)
+{
+    if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE && (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON)))
     {
         PlaySE(SE_SELECT);
-        ClearDialogWindowAndFrame(0, 1); //This doesn't do what I want; I'm not fully sure how to.
-        //I'd like it so after the "X grew to level Y" message, you press A to clear the textbox and then you can go back to applying candies
-        //As it stands now, you just keep applying candies while the textbox is still open.
-
-        //I think I'll leave it to someone smarter than me to fix.
-
+        gTasks[taskId].func = Task_TryLearnNewMoves;
     }
-    //RunScriptImmediately(CloseMessageboxScript);
-    
-    Task_TryLearnNewMoves(taskId);
 }
 
 static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
@@ -5152,28 +5150,23 @@ static void Task_TryLearnNewMoves(u8 taskId)
 {
     u16 learnMove;
 
-    //RemoveLevelUpStatsWindow();
-    if (WaitFanfare(FALSE) && (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))) {
-        learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
-        gPartyMenu.learnMoveMethod = LEARN_VIA_LEVEL_UP;
-        switch (learnMove)
-        {
-        case MOVE_NONE: // No moves to learn
-            PartyMenuTryEvolution(taskId);
-            break;
-        case MON_HAS_MAX_MOVES: // Replace a move
-            DisplayMonNeedsToReplaceMove(taskId);
-            break;
-        case MON_ALREADY_KNOWS_MOVE:
-            gTasks[taskId].func = Task_TryLearningNextMove;
-            break;
-        default: //free slot
-            DisplayMonLearnedMove(taskId, learnMove);
-            break;
+    learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
+    gPartyMenu.learnMoveMethod = LEARN_VIA_LEVEL_UP;
+    switch (learnMove)
+    {
+    case MOVE_NONE: // No moves to learn
+        PartyMenuTryEvolution(taskId);
+        break;
+    case MON_HAS_MAX_MOVES: // Replace a move
+        DisplayMonNeedsToReplaceMove(taskId);
+        break;
+    case MON_ALREADY_KNOWS_MOVE:
+        gTasks[taskId].func = Task_TryLearningNextMove;
+        break;
+    default: //free slot
+        DisplayMonLearnedMove(taskId, learnMove);
+        break;
     }
-
-    }
-    
 }
 
 static void Task_TryLearningNextMove(u8 taskId)
