@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_CounterTutor",
+      "script": "DepartmentStore_GameShop_CounterGuy",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_GBAKid1",
+      "script": "DepartmentStore_GameShop_GaybleClub",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_GBAKid3",
+      "script": "DepartmentStore_GameShop_TradeRight",
       "flag": "0"
     },
     {
@@ -68,21 +68,77 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_GBAKid2",
+      "script": "DepartmentStore_GameShop_TradeLeft",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 9,
-      "y": 14,
+      "graphics_id": "OBJ_EVENT_GFX_GBA_KID",
+      "x": 12,
+      "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_LittleGirl",
+      "script": "DepartmentStore_GameShop_JirachiHunter",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DepartmentStore_GameShop_Gym",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NES",
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DepartmentStore_GameShop_NES",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 5,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "x": 1,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DepartmentStore_GameShop_AVGN",
       "flag": "0"
     }
   ],
@@ -124,26 +180,18 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_TV1"
+      "script": "DepartmentStore_GameShop_TV1"
     },
     {
       "type": "sign",
       "x": 5,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_TV2"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_TV3"
+      "script": "DepartmentStore_GameShop_TVDad"
     },
     {
       "type": "sign",
@@ -151,31 +199,23 @@
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_TV4"
+      "script": "DepartmentStore_GameShop_TV2"
     },
     {
       "type": "sign",
       "x": 1,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_SuperNES"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_SuperNES"
+      "script": "DepartmentStore_GameShop_FancyGamecube"
     },
     {
       "type": "sign",
       "x": 4,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_SuperNES"
+      "script": "DepartmentStore_GameShop_FancyGamecube"
     },
     {
       "type": "sign",
@@ -183,7 +223,7 @@
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeladonCity_DepartmentStore_3F_EventScript_SuperNES"
+      "script": "DepartmentStore_GameShop_FancyGamecube"
     },
     {
       "type": "sign",
@@ -200,6 +240,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CeladonCity_DepartmentStore_3F_EventScript_Poster"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DepartmentStore_GameShop_Colosseum"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DepartmentStore_GameShop_DifferentGamecube"
     }
   ]
 }
