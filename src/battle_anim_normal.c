@@ -995,3 +995,4 @@ static void AnimFlashingHitSplat_Step(struct Sprite *sprite)
     if (sprite->data[0]++ > 12)
         DestroyAnimSprite(sprite);
 }
+

@@ -30,6 +30,10 @@
 #define CRY_MODE_WEAK         11 // Used when a Pokémon is unhealthy
 #define CRY_MODE_WEAK_DOUBLES 12 // Equivalent to CRY_MODE_DOUBLES for CRY_MODE_WEAK
 
+//I'm adding this cuz I can never remember which is which. Don't make fun of me!
+#define CRY_MODE_DEFAULT        0
+#define CRY_MODE_NEUTRAL        0
+
 // Given to SoundTask_PlayDoubleCry to determine which cry mode to use. Values are arbitrary
 #define DOUBLE_CRY_ROAR  2
 #define DOUBLE_CRY_GROWL 255
