@@ -14,7 +14,7 @@ PokemonLeague_LancesRoom_OnResume::
 	end
 
 PokemonLeague_LancesRoom_OnLoad::
-	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 4, PokemonLeague_LancesRoom_EventScript_CloseEntry
+	call_if_eq VAR_CSR_DUMMY_9, 4, PokemonLeague_LancesRoom_EventScript_CloseEntry
 	call_if_set FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_SetDoorOpen
 	end
 
@@ -35,7 +35,7 @@ PokemonLeague_LancesRoom_EventScript_TurnPlayerNorth::
 	end
 
 PokemonLeague_LancesRoom_OnFrame::
-	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 3, PokemonLeague_LancesRoom_EventScript_EnterRoom
+	map_script_2 VAR_CSR_DUMMY_9, 3, PokemonLeague_LancesRoom_EventScript_EnterRoom
 	.2byte 0
 
 PokemonLeague_LancesRoom_EventScript_EnterRoom::
@@ -47,7 +47,7 @@ PokemonLeague_LancesRoom_EventScript_EnterRoom::
 	playse SE_UNLOCK
 	special DrawWholeMapView
 	waitse
-	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 4
+	setvar VAR_CSR_DUMMY_9, 4
 	releaseall
 	end
 

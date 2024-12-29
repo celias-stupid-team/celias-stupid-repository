@@ -33,5 +33,5 @@ EventScript_ResetEliteFour::
 	cleartrainerflag TRAINER_CHAMPION_REMATCH_SQUIRTLE
 	cleartrainerflag TRAINER_CHAMPION_REMATCH_BULBASAUR
 	cleartrainerflag TRAINER_CHAMPION_REMATCH_CHARMANDER
-	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 0
+	setvar VAR_CSR_DUMMY_9, 0
 	return

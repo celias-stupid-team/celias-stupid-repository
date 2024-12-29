@@ -136,7 +136,7 @@
       "x": 20,
       "y": 16,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_VICTORY_ROAD_1F",
+      "var": "VAR_CSR_DUMMY_5",
       "var_value": "99",
       "script": "VictoryRoad_1F_EventScript_FloorSwitch"
     }

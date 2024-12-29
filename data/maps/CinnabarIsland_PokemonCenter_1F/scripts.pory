@@ -45,7 +45,7 @@ CinnabarIsland_PokemonCenter_1F_EventScript_Bill::
 	call_if_eq VAR_FACING, DIR_EAST, CinnabarIsland_PokemonCenter_1F_EventScript_ExitWithBillEast
 	call_if_eq VAR_FACING, DIR_WEST, CinnabarIsland_PokemonCenter_1F_EventScript_ExitWithBillWest
 	removeobject LOCALID_BILL
-	setvar VAR_MAP_SCENE_CINNABAR_ISLAND_2, 1
+	setvar VAR_CSR_DUMMY_28, 1
 	clearflag FLAG_HIDE_CINNABAR_BILL
 	warp MAP_CINNABAR_ISLAND, 14, 11
 	waitstate

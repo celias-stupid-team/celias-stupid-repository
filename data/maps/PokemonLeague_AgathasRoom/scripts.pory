@@ -13,7 +13,7 @@ PokemonLeague_AgathasRoom_OnResume::
 
 PokemonLeague_AgathasRoom_OnLoad::
 	call_if_set FLAG_DEFEATED_AGATHA, PokemonLeague_AgathasRoom_EventScript_SetDoorOpen
-	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 3, PokemonLeague_AgathasRoom_EventScript_CloseEntry
+	call_if_eq VAR_CSR_DUMMY_9, 3, PokemonLeague_AgathasRoom_EventScript_CloseEntry
 	end
 
 PokemonLeague_AgathasRoom_EventScript_CloseEntry::
@@ -33,13 +33,13 @@ PokemonLeague_AgathasRoom_EventScript_TurnPlayerNorth::
 	end
 
 PokemonLeague_AgathasRoom_OnFrame::
-	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 2, PokemonLeague_AgathasRoom_EventScript_EnterRoom
+	map_script_2 VAR_CSR_DUMMY_9, 2, PokemonLeague_AgathasRoom_EventScript_EnterRoom
 	.2byte 0
 
 PokemonLeague_AgathasRoom_EventScript_EnterRoom::
 	lockall
 	call PokemonLeague_EventScript_EnterRoom
-	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 3
+	setvar VAR_CSR_DUMMY_9, 3
 	releaseall
 	end
 

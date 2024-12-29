@@ -108,7 +108,7 @@
       "x": 11,
       "y": 15,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_POKEMON_TOWER_6F",
+      "var": "VAR_CSR_DUMMY_1",
       "var_value": "0",
       "script": "PokemonTower_6F_EventScript_MarowakGhost"
     },
@@ -117,7 +117,7 @@
       "x": 12,
       "y": 16,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_POKEMON_TOWER_6F",
+      "var": "VAR_CSR_DUMMY_1",
       "var_value": "0",
       "script": "PokemonTower_6F_EventScript_MarowakGhost"
     }

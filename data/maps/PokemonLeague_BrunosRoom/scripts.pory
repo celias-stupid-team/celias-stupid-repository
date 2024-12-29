@@ -15,7 +15,7 @@ PokemonLeague_BrunosRoom_OnResume::
 
 PokemonLeague_BrunosRoom_OnLoad::
 	call_if_set FLAG_DEFEATED_BRUNO, PokemonLeague_BrunosRoom_EventScript_SetDoorOpen
-	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 2, PokemonLeague_BrunosRoom_EventScript_CloseEntry
+	call_if_eq VAR_CSR_DUMMY_9, 2, PokemonLeague_BrunosRoom_EventScript_CloseEntry
 	end
 
 PokemonLeague_BrunosRoom_EventScript_CloseEntry::
@@ -35,13 +35,13 @@ PokemonLeague_BrunosRoom_EventScript_TurnPlayerNorth::
 	end
 
 PokemonLeague_BrunosRoom_OnFrame::
-	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 1, PokemonLeague_BrunosRoom_EventScript_EnterRoom
+	map_script_2 VAR_CSR_DUMMY_9, 1, PokemonLeague_BrunosRoom_EventScript_EnterRoom
 	.2byte 0
 
 PokemonLeague_BrunosRoom_EventScript_EnterRoom::
 	lockall
 	call PokemonLeague_EventScript_EnterRoom
-	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 2
+	setvar VAR_CSR_DUMMY_9, 2
 	releaseall
 	end
 
