@@ -77,6 +77,7 @@ static const u8 sShellArmorDescription[] = _("Blocks critical hits.");
 static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
 static const u8 sSickShadesDescription[] = _("Immunity to FLASHING lights.");
+static const u8 sFreeShinyDescription[] = _("Congrats! Good job catching me!");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
@@ -159,6 +160,8 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_CACOPHONY] = sCacophonyDescription,
     [ABILITY_AIR_LOCK] = sAirLockDescription,
     [ABILITY_SICK_SHADES] = sSickShadesDescription,
+    [ABILITY_FREE_SHINY] = sFreeShinyDescription,
+
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -193,6 +196,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_EFFECT_SPORE] = _("EFFECT SPORE"),
     [ABILITY_SYNCHRONIZE] = _("SYNCHRONIZE"),
     [ABILITY_CLEAR_BODY] = _("CLEAR BODY"),
+    
+    [ABILITY_FREE_SHINY] = _("FREE SHINY!"),
     [ABILITY_NATURAL_CURE] = _("NATURAL CURE"),
     [ABILITY_LIGHTNING_ROD] = _("LIGHTNINGROD"),
     [ABILITY_SERENE_GRACE] = _("SERENE GRACE"),

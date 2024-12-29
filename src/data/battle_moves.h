@@ -6769,6 +6769,55 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
+
+    [MOVE_DYNAMIC_CRUNCH] =    {
+        .effect = EFFECT_DEFENSE_DOWN_HIT, // Placeholder Effect
+        .power = 100,
+        .type = TYPE_DARK,
+        .accuracy = 50,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
+[MOVE_MUD_SPOUT] =    {
+        .effect = EFFECT_ERUPTION, // Placeholder Effect
+        .power = 150,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
+[MOVE_FOURSIGHT] =    {
+        .effect = EFFECT_HIT, // Placeholder Effect
+        .power = 120,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
+[MOVE_STEEL_WANG] =    {
+        .effect = EFFECT_HIT, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_STEEL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
     
 };
 

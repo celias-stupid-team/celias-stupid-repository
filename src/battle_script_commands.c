@@ -4223,6 +4223,8 @@ static void Cmd_playstatchangeanimation(void)
                 else if (!gSideTimers[GET_BATTLER_SIDE(gActiveBattler)].mistTimer
                         && gBattleMons[gActiveBattler].ability != ABILITY_CLEAR_BODY
                         && gBattleMons[gActiveBattler].ability != ABILITY_WHITE_SMOKE
+                        && gBattleMons[gActiveBattler].ability != ABILITY_FREE_SHINY
+
                         && !(gBattleMons[gActiveBattler].ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
                         && !(gBattleMons[gActiveBattler].ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK))
                 {
@@ -7002,7 +7004,7 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             return STAT_CHANGE_DIDNT_WORK;
         }
         else if ((gBattleMons[gActiveBattler].ability == ABILITY_CLEAR_BODY
-                  || gBattleMons[gActiveBattler].ability == ABILITY_WHITE_SMOKE)
+                  || gBattleMons[gActiveBattler].ability == ABILITY_WHITE_SMOKE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
                  && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)

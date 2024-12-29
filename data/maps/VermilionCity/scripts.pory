@@ -4,6 +4,7 @@ raw `
 VermilionCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VermilionCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, VermilionCity_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, VermilionCity_OnLoad
 	.byte 0
 
 VermilionCity_OnFrame::
@@ -23,11 +24,7 @@ VermilionCity_Movement_ExitSSAnne::
 	walk_up
 	step_end
 
-VermilionCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_VERMILION_CITY
-	setbench BENCH_VERMILION
-	call_if_set FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide
-	end
+
 
 VermilionCity_EventScript_HideOaksAide::
 	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
@@ -260,6 +257,22 @@ VermilionCity_EventScript_HarborSign::
 	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
 	end
 `
+script VermilionCity_OnTransition{
+	setworldmapflag(FLAG_WORLD_MAP_VERMILION_CITY)
+	setbench(BENCH_VERMILION)
+	
+	call_if_set(FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION, VermilionCity_EventScript_HideOaksAide)
+}
+
+script VermilionCity_OnLoad {
+	if(var(VAR_VERMILLION_MEMORIAL) >= 5) {
+		setmetatile(40, 17, METATILE_General_Plain_Mowed, FALSE) //I tried putting metatile labels here, but I couldn't figure it out.
+		//Sorry for the magic numbers. It's regular grass.
+		special(DrawWholeMapView)
+	}
+
+}
+
 script VermilionCity_EventScript_OldMan2{
 	playmoncry(SPECIES_MACHOP, CRY_MODE_NORMAL)
 	msgbox(VermilionCity_Text_BuildingOnThisLand, MSGBOX_NPC)
@@ -305,24 +318,65 @@ movement CeliaWalksRight {
 
 script Vermillion_ChildMemorial {
 	lock
-	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("Memorial BENCH for the small child\nrepeatedly punched on this shore.\pMay he forever live in our hearts.\n", MSGBOX_DEFAULT)
-	closemessage
-	delay(30)
-	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox("Punch the memorial?\n", MSGBOX_YESNO)
-	if(var(VAR_RESULT)) {
+	if(var(VAR_VERMILLION_MEMORIAL) < 5) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Memorial BENCH for the small child\nrepeatedly punched on this shore.\pMay he forever live in our hearts.\n", MSGBOX_DEFAULT)
 		closemessage
-		delay(10)
-		playse(SE_EFFECTIVE)
-		setvar(VAR_0x8006, 8) // Number
-		setvar(VAR_0x8005, 2) // Y 
-		setvar(VAR_0x8004, 5) //X
-		setvar(VAR_0x8007, 5) //Duration
-		special(ShakeScreen)
-		waitse
-		delay(45)
-		msgbox("Ah.\n", MSGBOX_DEFAULT)
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Punch the memorial?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			closemessage
+			delay(10)
+
+			addvar(VAR_VERMILLION_MEMORIAL, 1)
+
+			if(var(VAR_VERMILLION_MEMORIAL) >= 5) { //Break the sign
+				playse(SE_SUPER_EFFECTIVE)
+				setmetatile(40, 17, METATILE_General_Plain_Mowed, FALSE)
+				special(DrawWholeMapView)
+				setvar(VAR_0x8006, 8) // Number
+				setvar(VAR_0x8005, 2) // Y 
+				setvar(VAR_0x8004, 5) //X
+				setvar(VAR_0x8007, 5) //Duration
+				special(ShakeScreen)
+				waitse
+				addvar(VAR_VERMILLION_MEMORIAL, 1)
+				delay(45)
+				msgbox("The memorial broke.\n", MSGBOX_DEFAULT)
+				
+
+
+			} else {
+				playse(SE_EFFECTIVE)
+				setvar(VAR_0x8006, 8) // Number
+				setvar(VAR_0x8005, 2) // Y 
+				setvar(VAR_0x8004, 5) //X
+				setvar(VAR_0x8007, 5) //Duration
+				special(ShakeScreen)
+				waitse
+				delay(45)
+				msgbox("Ah.\n", MSGBOX_DEFAULT)
+			}
+			
+		}
+	} else {
+		msgbox("The memorial broke.\n", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		msgbox("Punch the ground?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			closemessage
+			playse(SE_NOT_EFFECTIVE)
+				setvar(VAR_0x8006, 8) // Number
+				setvar(VAR_0x8005, 2) // Y 
+				setvar(VAR_0x8004, 5) //X
+				setvar(VAR_0x8007, 5) //Duration
+				special(ShakeScreen)
+				waitse
+				delay(60)
+				msgbox("Ouch.\n", MSGBOX_DEFAULT)
+		}
 	}
 	release
 
