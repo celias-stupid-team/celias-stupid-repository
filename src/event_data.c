@@ -62,7 +62,7 @@ void ClearTempData_CSR(void)
 {
     VarSet(VAR_TEMP_START_EVENT_BATTLE, 0); //reset var every time a map loads
     FlagClear(FLAG_TEMP_MID_BATTLE_EVENT); //clear flag every time a map loads
-    FlagClear(FLAG_SHINY_CREATION) //Clear shiny flag on load
+    FlagClear(FLAG_SHINY_CREATION); //Clear shiny flag on load
 }
 
 // Unused

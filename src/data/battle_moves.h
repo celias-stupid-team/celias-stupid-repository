@@ -6818,6 +6818,30 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 
+[MOVE_WONDER_SEED] =    {
+        .effect = EFFECT_HIT, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_STEEL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+[MOVE_COPYCAT] =    {
+        .effect = EFFECT_HIT, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_STEEL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
     
 };
 

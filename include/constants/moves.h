@@ -543,8 +543,10 @@
 #define MOVE_MUD_SPOUT 538
 #define MOVE_FOURSIGHT 539
 #define MOVE_STEEL_WANG 540
+#define MOVE_WONDER_SEED 541
+#define MOVE_COPYCAT 542
 
-#define MOVES_COUNT 541
+#define MOVES_COUNT 543
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
