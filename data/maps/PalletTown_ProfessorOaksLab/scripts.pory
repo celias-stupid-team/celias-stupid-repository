@@ -1399,7 +1399,7 @@ script PalletTown_EventScript_GS_BALL {
 			applymovement(LOCALID_PROF_OAK, Common_Movement_WalkDown)
 			delay(10)
 		} else {
-			msgbox("{PLAYER} decided to completely ignore the\nGS BALL.\lWow! It's just like the anime!", MSGBOX_DEFAULT)
+			msgbox("{PLAYER} decided to completely ignore\nthe GS BALL.\lWow! It's just like the anime!", MSGBOX_DEFAULT)
 		}
 
 	}
