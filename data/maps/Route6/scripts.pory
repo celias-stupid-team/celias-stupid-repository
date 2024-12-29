@@ -6,3 +6,134 @@ Route6_EventScript_UndergroundPathSign::
 	msgbox Route6_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+
+const LASS = 8
+script Route6_LassAttack {
+	lock
+	setvar(VAR_CSR_ROUTE6_LASS, 1)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	delay(80)
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	setobjectxy(LASS, 19, 13)
+	delay(50)
+	playse(SE_EXIT)
+	delay(20)
+	applymovement(LASS, LassApproaches)
+	waitmovement(0)
+	switch(var(VAR_TEMP_1)) {
+		case 17:
+			applymovement(LASS, Lass_PlayerX_17)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			waitmovement(0)
+			break
+		case 18:
+			applymovement(LASS, Lass_PlayerX_18)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			waitmovement(0)
+			break
+		case 19:
+			applymovement(LASS, Lass_PlayerX_19)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			waitmovement(0)
+			break
+		case 20:
+			applymovement(LASS, Lass_PlayerX_20)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+			waitmovement(0)
+			break
+	}
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox("Hey!\nDon't act innocent!\pDown in the UNDERGROUND PATH, you\nwouldn't stop looking at me!\lWhat was that about?", MSGBOX_DEFAULT)
+	playsong(MUS_ROUTE3, TRUE)
+	trainerbattle_no_intro(TRAINER_LASS_UNDERGROUND_PATH, Route6_Text_LassDefeat)
+	msgbox("Hey!\pEven after our battle, you're\nstill looking at me!\lCut it out!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	switch(var(VAR_TEMP_1)) {
+		case 17:
+			applymovement(LASS, LassLeaves_PlayerX_17)
+			break
+		case 20:
+			applymovement(LASS, LassLeaves_PlayerX_20)
+			break
+		default:
+			applymovement(LASS, LassLeaves_PlayerX_18_19)
+	}
+	waitmovement(0)
+	delay(10)
+	playse(SE_EXIT)
+	removeobject(LASS)
+	delay(10)
+	release
+}
+
+movement LassApproaches {
+	setvisible
+	delay_4 * 5
+	walk_slow_down
+	face_down
+	delay_4 * 5
+	face_right
+	delay_8 * 5
+	face_left
+	delay_8 * 5
+	delay_8 * 5
+}
+
+movement Lass_PlayerX_17 {
+	walk_left
+	face_left
+}
+
+movement Lass_PlayerX_18 {
+	walk_down
+	face_left
+}
+
+movement Lass_PlayerX_19 {
+	walk_down
+	walk_down
+	face_down
+}
+
+movement Lass_PlayerX_20 {
+	walk_down
+	face_right
+}
+
+
+movement LassLeaves_PlayerX_17 {
+	face_right
+	delay_8 * 5
+	face_left
+	delay_8 * 5
+	walk_slow_left
+	walk_slow_up
+	face_up
+}
+
+movement LassLeaves_PlayerX_18_19 {
+	face_right
+	delay_8 * 5
+	face_left
+	delay_8 * 5
+	walk_slow_up * 2
+	face_up
+}
+
+movement LassLeaves_PlayerX_20 {
+	face_left
+	delay_8 * 5
+	face_right
+	delay_8 * 5
+	delay_8 * 5
+	walk_slow_up * 2
+	face_up
+}

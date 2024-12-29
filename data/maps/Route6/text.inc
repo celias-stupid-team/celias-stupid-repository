@@ -87,3 +87,6 @@ Route6_Text_UndergroundPathSign::
     .string "NEW WILD POKéMON:\n"
     .string "Same as ROUTE 5, idk$"
 
+Route6_Text_LassDefeat::
+	.string "No!\n"
+	.string "That's not fair!$"

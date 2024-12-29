@@ -189,7 +189,7 @@
 #define VAR_0x4087                                                             0x4087
 #define VAR_CSR_DUMMY_26                                         0x4088
 #define VAR_CSR_DUMMY_27                             0x4089
-#define VAR_CSR_DUMMY_28                                        0x408A
+#define VAR_CSR_ROUTE6_LASS                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 //CSR VARs
