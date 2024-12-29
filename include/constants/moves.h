@@ -539,8 +539,12 @@
 #define MOVE_SAVAGE_SPIN_OUT 534
 #define MOVE_SINGLE_WINGBEAT 535
 #define MOVE_CONFUSION_PSYDUCK 536
+#define MOVE_DYNAMIC_CRUNCH 537
+#define MOVE_MUD_SPOUT 538
+#define MOVE_FOURSIGHT 539
+#define MOVE_STEEL_WANG 540
 
-#define MOVES_COUNT 537
+#define MOVES_COUNT 541
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

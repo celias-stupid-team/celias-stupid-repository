@@ -313,6 +313,7 @@ CheckIfAbilityBlocksStatChange::
 	get_ability AI_TARGET
 	if_equal ABILITY_CLEAR_BODY, Score_Minus10
 	if_equal ABILITY_WHITE_SMOKE, Score_Minus10
+	if_equal ABILITY_FREE_SHINY, Score_Minus10
 	end
 
 AI_CBM_Haze::

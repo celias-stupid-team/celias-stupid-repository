@@ -211,11 +211,11 @@ It is reset after every battle.
 #define VAR_EEVEE_COUNT                 0x4094
 #define VAR_STOLE_AN_EEVEE                 0x4095
 #define VAR_ROUTE8_LASS                 0x4096
-#define VAR_0x4097                 0x4097
-#define VAR_0x4098                 0x4098
-#define VAR_0x4099                 0x4099
-#define VAR_0x409A                 0x409A
-#define VAR_0x409B                 0x409B
+#define VAR_ROUTE10_LASS                 0x4097
+#define VAR_VERMILLION_MEMORIAL                 0x4098
+#define VAR_ROUTE22_MANKEY                 0x4099
+#define VAR_ROUTE22_NIDOM                 0x409A
+#define VAR_ROUTE22_NIDOF                 0x409B
 #define VAR_0x409C                 0x409C
 #define VAR_0x409D                 0x409D
 #define VAR_0x409E                 0x409E
@@ -354,6 +354,11 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_NEUTRAL   3 // Black, for inanimate objects and messages from the game
 
 #define NPC_TEXT_COLOR_TREE       4 // Tree, for Oak and oak-adjactent things
+
+
+// don't make fun of me :(
+#define NPC_TEXT_COLOR_NORMAL   3
+
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
 #endif // GUARD_CONSTANTS_VARS_H

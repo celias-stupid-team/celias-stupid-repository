@@ -42,8 +42,7 @@ VermilionCity_Text_CitySign::
 VermilionCity_Text_SnorlaxBlockingRoute12::
 	.string "NOTICE!\p"
 	.string "VERMILLION RADIO TOWER has been\n"
-	.string "shown to be in violation of\l"
-	.string "copyright law!\p"
+	.string "shown to be in violation of copyright!\p"
 	.string "-DMCA\n$"
 
 VermilionCity_Text_PokemonFanClubSign::

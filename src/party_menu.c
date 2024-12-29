@@ -12,6 +12,7 @@
 #include "easy_chat.h"
 #include "event_data.h"
 #include "evolution_scene.h"
+#include "event_scripts.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
 #include "field_fadetransition.h"
@@ -399,6 +400,7 @@ static void ItemUseCB_ReplaceMoveWithTMHM(u8 taskId, TaskFunc func);
 static void Task_ReplaceMoveWithTMHM(u8 taskId);
 static void CB2_UseEvolutionStone(void);
 static bool8 MonCanEvolve(void);
+static void Task_WaitRareCandyMessage(u8 taskId);
 
 static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
 EWRAM_DATA struct PartyMenu gPartyMenu = {0};
@@ -5071,14 +5073,25 @@ static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
     GetMonLevelUpWindowStats(mon, &ptr->data[NUM_STATS]);
     gPartyMenuUseExitCallback = TRUE;
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, mon, gSpecialVar_ItemId, 0xFFFF);
-    //PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+    PlayFanfare(MUS_LEVEL_UP);
     UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
     RemoveBagItem(gSpecialVar_ItemId, 1);
     GetMonNickname(mon, gStringVar1);
     level = GetMonData(mon, MON_DATA_LEVEL);
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
     ScheduleBgCopyTilemapToVram(2);
-    Task_TryLearnNewMoves(taskId);
+    StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
+    DisplayPartyMenuMessage(gStringVar4, TRUE);
+    gTasks[taskId].func = Task_WaitRareCandyMessage; 
+}
+
+static void Task_WaitRareCandyMessage(u8 taskId)
+{
+    if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE && (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON)))
+    {
+        PlaySE(SE_SELECT);
+        gTasks[taskId].func = Task_TryLearnNewMoves;
+    }
 }
 
 static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
@@ -5137,7 +5150,6 @@ static void Task_TryLearnNewMoves(u8 taskId)
 {
     u16 learnMove;
 
-    //RemoveLevelUpStatsWindow();
     learnMove = MonTryLearningNewMove(&gPlayerParty[gPartyMenu.slotId], TRUE);
     gPartyMenu.learnMoveMethod = LEARN_VIA_LEVEL_UP;
     switch (learnMove)

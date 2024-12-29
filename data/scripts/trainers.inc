@@ -39,7 +39,7 @@ Route3_EventScript_Robin::
 	end
 
 Route4_EventScript_Crissy::
-	trainerbattle_single TRAINER_LASS_CRISSY, Route4_Text_CrissyIntro, Route4_Text_CrissyDefeat
+	trainerbattle_single TRAINER_PICKNICKER_MEWTWO, Route4_Text_CrissyIntro, Route4_Text_CrissyDefeat
 	msgbox Route4_Text_CrissyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -54,12 +54,12 @@ Route24_EventScript_Cale::
 	end
 
 Route24_EventScript_Reli::
-	trainerbattle_single TRAINER_LASS_RELI, Route24_Text_ReliIntro, Route24_Text_ReliDefeat
+	trainerbattle_single TRAINER_CHAMPION_KOTONE, Route24_Text_ReliIntro, Route24_Text_ReliDefeat
 	msgbox Route24_Text_ReliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_Ali::
-	trainerbattle_single TRAINER_LASS_ALI, Route24_Text_AliIntro, Route24_Text_AliDefeat
+	trainerbattle_single TRAINER_CHAMPION_RAY_RIZZO, Route24_Text_AliIntro, Route24_Text_AliDefeat
 	msgbox Route24_Text_AliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -94,7 +94,7 @@ Route25_EventScript_Kelsey::
 	end
 
 Route25_EventScript_Haley::
-	trainerbattle_single TRAINER_LASS_HALEY, Route25_Text_HaleyIntro, Route25_Text_HaleyDefeat
+	trainerbattle_single TRAINER_ELITE_FOUR_KAREN, Route25_Text_HaleyIntro, Route25_Text_HaleyDefeat
 	msgbox Route25_Text_HaleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -274,7 +274,7 @@ Route10_EventScript_Trent::
 	end
 
 Route8_EventScript_Paige::
-	trainerbattle_single TRAINER_LASS_PAIGE, Route8_Text_PaigeIntro, Route8_Text_PaigeDefeat
+	trainerbattle_single TRAINER_LASS_ROUTE8, Route8_Text_PaigeIntro, Route8_Text_PaigeDefeat
 	msgbox Route8_Text_PaigePostBattle, MSGBOX_AUTOCLOSE
 	end
 

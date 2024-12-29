@@ -241,6 +241,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
 	.4byte BattleScript_EffectExplosionUseless              @ EFFECT_EXPLOSION_USELESS
+	.4byte BattleScript_EffectAttackAccuracyUp              @ EFFECT_ATTACK_ACCURACY_UP
+
 
 
 BattleScript_EffectHit::
@@ -523,6 +525,32 @@ BattleScript_EffectMirrorMove::
 BattleScript_EffectAttackUp::
 	setstatchanger STAT_ATK, 1, FALSE
 	goto BattleScript_EffectStatUp
+
+BattleScript_EffectAttackAccuracyUp::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_EffectAttackAccuracyUpDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_EffectAttackAccuracyUpDoMoveAnim::
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPEED, 0
+	setstatchanger STAT_ATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAttackAccuracyUpTryAccuracy
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAttackAccuracyUpTryAccuracy
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectAttackAccuracyUpTryAccuracy::
+	setstatchanger STAT_ACC, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAttackAccuracyUpEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAttackAccuracyUpEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectAttackAccuracyUpEnd::
+	goto BattleScript_MoveEnd
+
 
 BattleScript_EffectDefenseUp::
 	setstatchanger STAT_DEF, 1, FALSE
@@ -4074,6 +4102,8 @@ BattleScript_IntimidateActivationAnimLoop::
 	trygetintimidatetarget BattleScript_IntimidateEnd
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_IntimidateFail
 	jumpifability BS_TARGET, ABILITY_CLEAR_BODY, BattleScript_IntimidateAbilityFail
+	jumpifability BS_TARGET, ABILITY_FREE_SHINY, BattleScript_IntimidateAbilityFail
+
 	jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_IntimidateAbilityFail
 	jumpifability BS_TARGET, ABILITY_WHITE_SMOKE, BattleScript_IntimidateAbilityFail
 	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_IntimidateFail
