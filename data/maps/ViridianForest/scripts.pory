@@ -224,6 +224,7 @@ script ViridianForest_EventScript_CeliaGotCaught {
 	giveitem(ITEM_RARE_CANDY)
 	goto_if_eq(VAR_RESULT, FALSE, EventScript_BagIsFull)
 	release
+
 }
 
 movement CeliaApproaches {

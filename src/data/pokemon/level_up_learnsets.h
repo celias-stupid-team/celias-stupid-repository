@@ -734,8 +734,8 @@ static const struct LevelUpMove sPsyduckLevelUpLearnset[] = { // The Yellow One
 static const struct LevelUpMove sMankeyLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POUND),
     LEVEL_UP_MOVE(2, MOVE_LEER),
-    LEVEL_UP_MOVE(3, MOVE_ODOR_SLEUTH),
-    LEVEL_UP_MOVE(7, MOVE_KARATE_CHOP),
+    LEVEL_UP_MOVE(3, MOVE_KARATE_CHOP),
+    LEVEL_UP_MOVE(7, MOVE_ODOR_SLEUTH),
     LEVEL_UP_MOVE(11, MOVE_LOW_KICK),
     LEVEL_UP_MOVE(13, MOVE_FURRY_SWIPES),
     LEVEL_UP_MOVE(17, MOVE_RAGE),

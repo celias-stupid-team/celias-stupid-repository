@@ -2250,32 +2250,9 @@ Move_SPARK:
 	end
 
 Move_ATTRACT:
-	loadspritegfx ANIM_TAG_RED_HEART
-	loopsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER, 12, 3
-	createvisualtask AnimTask_SwayMon, 5, 0, 12, 4096, 4, ANIM_ATTACKER
-	delay 15
-	createsprite gRedHeartProjectileSpriteTemplate, ANIM_TARGET, 3, 20, -8
+	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 0, 0, 0
 	waitforvisualfinish
-	playsewithpan SE_M_ATTRACT, SOUND_PAN_TARGET
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
-	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
-	waitforvisualfinish
-	waitplaysewithpan SE_M_ATTRACT2, 0, 15
-	createvisualtask AnimTask_HeartsBackground, 5
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 16, 256, 0
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 224, 240, 15
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 126, 272, 30
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 80, 224, 45
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 170, 272, 60
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 40, 256, 75
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 112, 256, 90
-	createsprite gRedHeartRisingSpriteTemplate, ANIM_ATTACKER, 40, 200, 272, 90
-	delay 75
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 4, 4, 0, 10, RGB(31, 25, 27)
 	end
 
 Move_GROWTH:
@@ -4885,8 +4862,12 @@ Move_SHOCK_WAVE:
 	end
 
 Move_HARDEN:
-	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
-	createvisualtask AnimTask_MetallicShine, 5, 0, 0, 0
+	loadspritegfx ANIM_TAG_BREATH
+	createvisualtask AnimTask_GrowAndShrink, 2
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
 	waitforvisualfinish
 	end
 
@@ -7485,23 +7466,18 @@ Move_WRAP:
 	goto BindWrap
 
 MOVE_PSY_WIND:
-	loadspritegfx ANIM_TAG_GOLD_RING
+	loadspritegfx ANIM_TAG_BLUE_RING
 	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
-	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_PSYBEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 4, 0, 15
-	call PsybeamRings
-	call PsybeamRings
-	createvisualtask AnimTask_SwayMon, 5, 0, 6, 2048, 4, ANIM_TARGET
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(31, 18, 31)
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
-	call PsybeamRings
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_TELEPORT, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 2, 9, 0, 10
+	call PsywaveRings
+	call PsywaveRings
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 1, 4, 0, 12, RGB(31, 18, 31)
+	call PsywaveRings
+	call PsywaveRings
+	call PsywaveRings
+	call PsywaveRings
 	waitforvisualfinish
 	delay 1
 	call UnsetPsychicBackground
@@ -9933,31 +9909,23 @@ Move_WATER_PULSE:
 	end
 
 MOVE_SLUSH_RUSH:
-	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
-	monbg ANIM_ATK_PARTNER
-	fadetobg BG_PSYCHIC
+	fadetobg BG_ICE
 	waitbgfadeout
-	createvisualtask AnimTask_FadeScreenToWhite, 5
+	playsewithpan SE_M_ICY_WIND, 0
 	waitbgfadein
-	delay 6
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG, 2, 8, 0, 10, RGB_BLACK
-	delay 0
-	splitbgprio ANIM_ATTACKER
-	setalpha 8, 8
-	delay 10
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 3, 0, 240, 0
-	loopsewithpan SE_M_PSYBEAM2, SOUND_PAN_ATTACKER, 14, 10
-	createsprite gPsychoBoostOrbSpriteTemplate, ANIM_ATTACKER, 2
-	delay 110
-	loopsewithpan SE_M_PSYBEAM2, SOUND_PAN_ATTACKER, 7, 10
+	loadspritegfx ANIM_TAG_ICE_CUBE
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_FrozenIceCube, 2
+	waitplaysewithpan SE_M_HAIL, SOUND_PAN_TARGET, 17
 	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, -8, 1, 24, 1
-	playsewithpan SE_M_LEER, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_ATK_PARTNER
+	clearmonbg ANIM_DEF_PARTNER
 	blendoff
-	call UnsetPsychicBackground
+	restorebg
+	waitbgfadein
 	end
+
 
 Move_HEART_SWAP:
 	end
