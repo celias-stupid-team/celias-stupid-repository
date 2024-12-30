@@ -179,7 +179,8 @@
     "SixIsland_AlteringCave",
     "MtMoon_Square",
     "MtMoon_Outside",
-    "SecretTunnel"
+    "SecretTunnel",
+    "MtMoonSquare_Unbroken"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",

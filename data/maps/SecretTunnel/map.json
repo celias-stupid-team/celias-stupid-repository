@@ -29,7 +29,7 @@
       "x": 3,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_MT_MOON_SQUARE",
+      "dest_map": "MAP_MT_MOON_SQUARE_UNBROKEN",
       "dest_warp_id": "0"
     }
   ],

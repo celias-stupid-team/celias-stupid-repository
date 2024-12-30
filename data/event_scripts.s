@@ -1390,3 +1390,6 @@ Text_TestMsg::
 
 	.include "data/maps/SecretTunnel/scripts.inc"
 	.include "data/maps/SecretTunnel/text.inc"
+
+	.include "data/maps/MtMoonSquare_Unbroken/scripts.inc"
+	.include "data/maps/MtMoonSquare_Unbroken/text.inc"
