@@ -1,9 +1,9 @@
 PewterCity_House2_Text_MonsLearnTechniquesAsTheyGrow::
-    .string "You're completing the POKéDEX?\n"
-    .string "Good luck!\p"
-    .string "You can save yourself some grinding\n"
-    .string "by catching evolved POKéMON in the\l"
-    .string "wild$"
+	.string "You're completing the POKéDEX?\n"
+	.string "Good luck!\p"
+	.string "I hear if you log on to OAK's PC,\n"
+	.string "he'll give some hints on what to do.\l"
+	.string "You should try it!$"
 
 PewterCity_House2_Text_MonsEasierCatchIfStatused::
     .string "A POKéMON becomes easier to \n"

@@ -96,13 +96,12 @@
 
 #define VAR_ICE_STEP_COUNT                 0x4030
 #define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
-
 #define VAR_RESET_RTC_ENABLE               0x4032
-#define VAR_ENIGMA_BERRY_AVAILABLE         0x4033 //Enigma berry; unused
+#define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
 #define VAR_0x4034                         0x4034
-#define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035 //Resort Gorgeous; Unused
-#define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036// 
+#define VAR_RESORT_GOREGEOUS_STEP_COUNTER  0x4035
+#define VAR_RESORT_GORGEOUS_REQUESTED_MON  0x4036
 #define VAR_PC_BOX_TO_SEND_MON             0x4037
 #define VAR_FANCLUB_FAN_COUNTER            0x4038
 #define VAR_FANCLUB_LOSE_FAN_TIMER         0x4039
@@ -183,7 +182,7 @@
 #define VAR_CSR_DUMMY_21                                        0x4080
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_CSR_DUMMY_22                                            0x4082
-#define VAR_CSR_DUMMY_23                             0x4083
+#define VAR_CSR_CELIA_IN_FOREST                             0x4083
 #define VAR_CSR_DUMMY_24                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_CSR_DUMMY_25                                              0x4086
@@ -304,24 +303,22 @@ It is reset after every battle.
 #define VAR_0x40ED                 0x40ED
 #define VAR_0x40EE                 0x40EE
 #define VAR_0x40EF                 0x40EF
-
-#define VAR_LAST_MON_USED_SURF                 0x40F0 //Saves last used Pokemon that used HMs for use in the rotom dex
-#define VAR_LAST_MON_USED_CUT               0x40F1 //Faily BP in vanilla - not used
-#define VAR_LAST_MON_USED_STRENGTH                 0x40F2
-#define VAR_LAST_MON_USED_ROCK_SMASH                 0x40F3
-#define VAR_LAST_MON_USED_WHIRLPOOL                 0x40F4
-#define VAR_LAST_MON_USED_ROCK_CLIMB                 0x40F5
-#define VAR_LAST_MON_USED_WATERFALL                 0x40F6
-#define VAR_LAST_MON_USED_FLY                 0x40F7
-
-#define VAR_LAST_MON_USED_RAZOR_WIND                 0x40F8
-#define VAR_LAST_MON_USED_TAIL_GLOW                 0x40F9
-#define VAR_LAST_MON_USED_BRICK_BREAK                 0x40FA
-#define VAR_LAST_MON_USED_SWEET_SCENT                 0x40FB
-#define VAR_LAST_MON_USED_GUILLOTINE                 0x40FC
-#define VAR_LAST_MON_USED_ODOR_SLEUTH                 0x40FD
-#define VAR_LAST_MON_USED_RETREAT                 0x40FE
-#define VAR_LAST_MON_USED_REST                 0x40FF
+#define VAR_0x40F0                 0x40F0
+#define VAR_DAILY_BP               0x40F1
+#define VAR_0x40F2                 0x40F2
+#define VAR_0x40F3                 0x40F3
+#define VAR_0x40F4                 0x40F4
+#define VAR_0x40F5                 0x40F5
+#define VAR_0x40F6                 0x40F6
+#define VAR_0x40F7                 0x40F7
+#define VAR_0x40F8                 0x40F8
+#define VAR_0x40F9                 0x40F9
+#define VAR_0x40FA                 0x40FA
+#define VAR_0x40FB                 0x40FB
+#define VAR_0x40FC                 0x40FC
+#define VAR_0x40FD                 0x40FD
+#define VAR_0x40FE                 0x40FE
+#define VAR_0x40FF                 0x40FF
 
 #define VARS_END                   0x40FF
 #define VARS_COUNT                 (VARS_END - VARS_START + 1)
