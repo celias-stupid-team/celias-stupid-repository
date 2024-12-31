@@ -15,6 +15,7 @@
 #include "data.h"
 #include "daycare.h"
 #include "debug.h"
+#include "doom_desire.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -166,6 +167,7 @@ enum SoundMenu
 {
     DEBUG_SOUND_MENU_ITEM_SE,
     DEBUG_SOUND_MENU_ITEM_MUS,
+    DEBUG_SOUND_MENU_ITEM_DOOM,
 };
 
 // *******************************
@@ -338,6 +340,7 @@ static void DebugAction_Sound_SE(u8 taskId);
 static void DebugAction_Sound_SE_SelectId(u8 taskId);
 static void DebugAction_Sound_MUS(u8 taskId);
 static void DebugAction_Sound_MUS_SelectId(u8 taskId);
+static void DebugAction_Sound_Doom(u8 taskId);
 
 
 extern const u8 Debug_FlagsNotSetOverworldConfigMessage[];
@@ -482,6 +485,7 @@ static const u8 sDebugText_Sound_SFX[] =                _("SFX…{CLEAR_TEXT_TO 
 static const u8 sDebugText_Sound_SFX_ID[] =   	        _("SFX Id: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
 static const u8 sDebugText_Sound_Music[] =              _("Music…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Sound_Music_ID[] =           _("Music Id: {STR_VAR_3}   {START_BUTTON} Stop\n{STR_VAR_1}    \n{STR_VAR_2}");
+static const u8 sDebugText_Sound_Doom[] =               _("Play E1M1 At Doom's Gate");
 
 static const u8 sDebugText_Digit_1[] =        _("{LEFT_ARROW}+1{RIGHT_ARROW}        ");
 static const u8 sDebugText_Digit_10[] =       _("{LEFT_ARROW}+10{RIGHT_ARROW}       ");
@@ -611,6 +615,7 @@ static const struct ListMenuItem sDebugMenu_Items_Sound[] =
 {
     [DEBUG_SOUND_MENU_ITEM_SE]  = {sDebugText_Sound_SFX,  DEBUG_SOUND_MENU_ITEM_SE},
     [DEBUG_SOUND_MENU_ITEM_MUS] = {sDebugText_Sound_Music, DEBUG_SOUND_MENU_ITEM_MUS},
+    [DEBUG_SOUND_MENU_ITEM_DOOM] = {sDebugText_Sound_Doom, DEBUG_SOUND_MENU_ITEM_DOOM},
 };
 
 // *******************************
@@ -706,6 +711,7 @@ static void (*const sDebugMenu_Actions_Sound[])(u8) =
 {
     [DEBUG_SOUND_MENU_ITEM_SE]  = DebugAction_Sound_SE,
     [DEBUG_SOUND_MENU_ITEM_MUS] = DebugAction_Sound_MUS,
+    [DEBUG_SOUND_MENU_ITEM_DOOM] = DebugAction_Sound_Doom,
 };
 
 // *******************************
@@ -3592,6 +3598,12 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     {
         m4aSongNumStop(gTasks[taskId].tCurrentSong);
     }
+}
+
+static void DebugAction_Sound_Doom(u8 taskId)
+{
+    (void)taskId;
+    indicate_desire();
 }
 
 #undef tCurrentSong

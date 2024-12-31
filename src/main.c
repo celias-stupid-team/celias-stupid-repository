@@ -15,6 +15,7 @@
 #include "scanline_effect.h"
 #include "save_failed_screen.h"
 #include "quest_log.h"
+#include "doom_desire.h"
 
 extern u32 intr_main[];
 
@@ -88,6 +89,9 @@ void EnableVCountIntrAtLine150(void);
 
 void AgbMain()
 {
+    // Check if DOOM was desired
+    grant_desire();
+
 #if MODERN
     // Modern compilers are liberal with the stack on entry to this function,
     // so RegisterRamReset may crash if it resets IWRAM.
