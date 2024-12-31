@@ -62,6 +62,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8);
 static bool8 HasGottenAtLeastOneHM(void);
 
 static void PrintWelcomeMessageOnPanel1(void);
+static void PrintSecondWelcomeMessageOnPanel1(void);
 static void PrintTextOnPanel2Row52RightAlign(const u8 *);
 static void ResetHelpSystemCursor(struct HelpSystemListMenu * a0);
 static void PrintHelpSystemTopicMouseoverDescription(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
@@ -1941,7 +1942,7 @@ static void BuildAndPrintMainTopicsListMenu(struct HelpSystemListMenu * helpList
     BuildMainTopicsListAndMoveToH00(helpListMenu, listMenuItemsBuffer);
     PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_PickOkEnd);
     HelpSystem_InitListMenuController(helpListMenu, 0, gHelpSystemState.scrollMain);
-    PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
+    //PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
     HS_ShowOrHideMainWindowText(1);
     HS_ShowOrHideControlsGuideInTopRight(1);
 }
@@ -2267,7 +2268,13 @@ bool8 RunHelpMenuSubroutine(struct HelpSystemListMenu * helpListMenu, struct Lis
     case  9:
         return HelpSystemSubroutine_WelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
     case 10:
+        return HelpSystemSubroutine_PrintSecondWelcomeMessage(helpListMenu, listMenuItemsBuffer);
+    
+    case 11:
+        return HelpSystemSubroutine_SecondWelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
+    case 12:
         return HelpSystemSubroutine_WelcomeEndGotoMenu(helpListMenu, listMenuItemsBuffer);
+
     case  0:
         return HelpSystemSubroutine_MenuInputHandlerMain(helpListMenu, listMenuItemsBuffer);
     case  1:
@@ -2296,12 +2303,32 @@ bool8 HelpSystemSubroutine_PrintWelcomeMessage(struct HelpSystemListMenu * helpL
     return TRUE;
 }
 
+bool8 HelpSystemSubroutine_PrintSecondWelcomeMessage(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_A_Next);
+    PrintSecondWelcomeMessageOnPanel1();
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+    helpListMenu->state = 11;
+    return TRUE;
+}
+
 bool8 HelpSystemSubroutine_WelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
 {
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         helpListMenu->state = 10;
+    }
+    return TRUE;
+}
+
+bool8 HelpSystemSubroutine_SecondWelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        helpListMenu->state = 12;
     }
     return TRUE;
 }
@@ -2325,7 +2352,7 @@ bool8 HelpSystemSubroutine_MenuInputHandlerMain(struct HelpSystemListMenu * help
         return FALSE;
     case -5:
     case -4:
-        PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
+        //PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
         break;
     case -3:
     case -1:
@@ -2451,6 +2478,13 @@ static void PrintWelcomeMessageOnPanel1(void)
     HelpSystem_FillPanel1();
     HelpSystem_PrintTextAt(Help_Text_Greetings, 0, 0);
 }
+
+static void PrintSecondWelcomeMessageOnPanel1(void)
+{
+    HelpSystem_FillPanel1();
+    HelpSystem_PrintTextAt(Help_Text_Continued, 0, 0);
+}
+
 
 static void PrintTextOnPanel2Row52RightAlign(const u8 * str)
 {

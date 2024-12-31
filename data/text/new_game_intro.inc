@@ -127,6 +127,9 @@ gNameChoice_Momo::
 gNameChoice_Suzi::
     .string " $"
 
+gNameChoice_Asshat:
+    .string "ASSHAT$"
+
 gControlsGuide_Text_Intro::
     .string "The various shortcuts will be explained in\n"
     .string "the order of their importance.$"
