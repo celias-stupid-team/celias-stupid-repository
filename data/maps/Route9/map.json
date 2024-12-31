@@ -42,7 +42,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GREEN_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_PLAYFIRE",
       "x": 58,
       "y": 11,
       "elevation": 3,
