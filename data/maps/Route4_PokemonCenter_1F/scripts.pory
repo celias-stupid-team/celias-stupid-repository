@@ -9,6 +9,8 @@ Route4_PokemonCenter_1F_MapScripts::
 Route4_PokemonCenter_1F_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F
 	setrespawn SPAWN_ROUTE4
+	setflag FLAG_CSR_MAP_ROUTE_4_CENTER
+	call SetPlayerPokedexValues
 	end
 
 Route4_PokemonCenter_1F_EventScript_Boy::
@@ -95,6 +97,7 @@ Route4_PokemonCenter_1F_EventScript_EndPurchaseMagikarp::
 
 Route4_PokemonCenter_1F_EventScript_BoughtMagikarp::
 	setflag FLAG_BOUGHT_GYARADOS
+	call SetPlayerPokedexValues
 	release
 	end
 

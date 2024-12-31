@@ -278,3 +278,35 @@ script Route22_MapScripts_SetDexMons {
 		call(SetPlayerPokedexValues)
 	}
 }
+
+script Route22_MankeySpot {
+	if(flag(FLAG_SYS_POKEDEX_GET)) {
+		setvar(VAR_ROUTE22_MANKEY, 1)
+		setwildbattle(SPECIES_MANKEY, 4, ITEM_NONE)
+		dowildbattle
+	} else {
+		release
+	}
+}
+
+script Route22_NidotranMSpot {
+	if(flag(FLAG_SYS_POKEDEX_GET)) {
+		setvar(VAR_ROUTE22_NIDOM, 1)
+		setwildbattle(SPECIES_NIDORAN_M, 4, ITEM_NONE)
+		dowildbattle
+	} else {
+		release
+	}
+
+}
+
+script Route22_NidotranFSpot {
+	if(flag(FLAG_SYS_POKEDEX_GET)) {
+		setvar(VAR_ROUTE22_NIDOF, 1)
+		setwildbattle(SPECIES_NIDORAN_F, 4, ITEM_NONE)
+		dowildbattle
+	} else {
+		release
+	}
+
+}

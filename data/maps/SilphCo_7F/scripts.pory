@@ -14,7 +14,7 @@ SilphCo_7F_OnLoad::
 	end
 
 SilphCo_7F_OnTransition::
-	call_if_ge VAR_MAP_SCENE_SILPH_CO_11F, 1, SilphCo_7F_EventScript_SetObjRocketsGone
+	call_if_ge VAR_CSR_DUMMY_3, 1, SilphCo_7F_EventScript_SetObjRocketsGone
 	end
 
 SilphCo_7F_EventScript_SetObjRocketsGone::
@@ -58,7 +58,7 @@ SilphCo_7F_EventScript_RivalScene::
 	fadedefaultbgm
 	removeobject LOCALID_RIVAL
 	waitse
-	setvar VAR_MAP_SCENE_SILPH_CO_7F, 1
+	setvar VAR_CSR_DUMMY_2, 1
 	releaseall
 	end
 
@@ -176,7 +176,7 @@ SilphCo_7F_EventScript_AlreadyGotLapras::
 SilphCo_7F_EventScript_WorkerM1::
 	lock
 	faceplayer
-	goto_if_ge VAR_MAP_SCENE_SILPH_CO_11F, 1, SilphCo_7F_EventScript_WorkerM1RocketsGone
+	goto_if_ge VAR_CSR_DUMMY_3, 1, SilphCo_7F_EventScript_WorkerM1RocketsGone
 	msgbox SilphCo_7F_Text_RocketsAfterMasterBall
 	release
 	end
@@ -189,7 +189,7 @@ SilphCo_7F_EventScript_WorkerM1RocketsGone::
 SilphCo_7F_EventScript_WorkerM2::
 	lock
 	faceplayer
-	goto_if_ge VAR_MAP_SCENE_SILPH_CO_11F, 1, SilphCo_7F_EventScript_WorkerM2RocketsGone
+	goto_if_ge VAR_CSR_DUMMY_3, 1, SilphCo_7F_EventScript_WorkerM2RocketsGone
 	msgbox SilphCo_7F_Text_BadIfTeamRocketTookOver
 	release
 	end
@@ -202,7 +202,7 @@ SilphCo_7F_EventScript_WorkerM2RocketsGone::
 SilphCo_7F_EventScript_WorkerF::
 	lock
 	faceplayer
-	goto_if_ge VAR_MAP_SCENE_SILPH_CO_11F, 1, SilphCo_7F_EventScript_WorkerFRocketsGone
+	goto_if_ge VAR_CSR_DUMMY_3, 1, SilphCo_7F_EventScript_WorkerFRocketsGone
 	msgbox SilphCo_7F_Text_ReallyDangerousHere
 	release
 	end

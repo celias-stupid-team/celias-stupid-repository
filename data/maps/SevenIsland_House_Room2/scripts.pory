@@ -38,19 +38,19 @@ SevenIsland_House_Room2_EventScript_BattleVisitingTrainer::
 	end
 
 SevenIsland_House_Room2_EventScript_BattleTie::
-	setvar VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 3
+	setvar VAR_CSR_DUMMY_13, 3
 	msgbox SevenIsland_House_Room2_Text_MatchEndedUpDraw
 	return
 
 SevenIsland_House_Room2_EventScript_BattleWon::
-	setvar VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 1
+	setvar VAR_CSR_DUMMY_13, 1
 	special ShowFieldMessageStringVar4
 	waitmessage
 	waitbuttonpress
 	return
 
 SevenIsland_House_Room2_EventScript_BattleLost::
-	setvar VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 2
+	setvar VAR_CSR_DUMMY_13, 2
 	special ShowFieldMessageStringVar4
 	waitmessage
 	waitbuttonpress

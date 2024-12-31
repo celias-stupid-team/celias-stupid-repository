@@ -61,3 +61,12 @@ CeladonCity_DepartmentStore_5F_Vitamins::
 	release
 	end
 `
+script CeladonDepartmentStore_Sailor {
+	msgbox("I was planning to hop aboard the\nS.S. ANNE when it arrived in\lVERMILLION.\pI wonder what happened to it…\n", MSGBOX_NPC)
+	end
+}
+
+script CeladonDepartmentStore_ElevatorGuy { //Rumor Log Variables
+	msgbox("This blasted elevator!\pI was hoping I'd be able to get\nback to the city through it,\lbut it's not working!", MSGBOX_NPC)
+	end
+}

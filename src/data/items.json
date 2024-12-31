@@ -4630,7 +4630,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "An extremely powerful attack.\\nHowever, if the user is hit before\\nusing the move, they will flinch.",
+      "description_english": "It's actually just supposed to be\\n“Blow It Away.!”",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -4639,7 +4639,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "FocusPunch"
+      "moveId": "Whirlwind"
     },
     {
       "english": "TM02",
@@ -4656,7 +4656,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "DragonClaw"
+      "moveId": "RazorWind"
     },
     {
       "english": "TM03",
@@ -4673,7 +4673,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "WaterPulse"
+      "moveId": "SecretPower"
     },
     {
       "english": "TM04",
@@ -4690,7 +4690,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "CalmMind"
+      "moveId": "Foursight"
     },
     {
       "english": "TM05",
@@ -4707,7 +4707,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Roar"
+      "moveId": "MeanLook"
     },
     {
       "english": "TM06",
@@ -4741,7 +4741,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Hail"
+      "moveId": "TM07"
     },
     {
       "english": "TM08",
@@ -4758,7 +4758,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "BulkUp"
+      "moveId": "ZapTap"
     },
     {
       "english": "TM09",
@@ -4809,7 +4809,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SunnyDay"
+      "moveId": "WaterGun"
     },
     {
       "english": "TM12",
@@ -4843,7 +4843,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "IceBeam"
+      "moveId": "PsyBeam"
     },
     {
       "english": "TM14",
@@ -4860,7 +4860,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Ice"
+      "moveId": "Psystorm"
     },
     {
       "english": "TM15",
@@ -4877,7 +4877,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "HyperBeam"
+      "moveId": "Splash"
     },
     {
       "english": "TM16",
@@ -4894,7 +4894,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "LightScreen"
+      "moveId": "PayDay"
     },
     {
       "english": "TM17",
@@ -4911,7 +4911,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Protect"
+      "moveId": "Submission"
     },
     {
       "english": "TM18",
@@ -4945,7 +4945,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "GigaDrain"
+      "moveId": "Wrap"
     },
     {
       "english": "TM20",
@@ -4962,7 +4962,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Safeguard"
+      "moveId": "Rage"
     },
     {
       "english": "TM21",
@@ -4979,7 +4979,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Frustration"
+      "moveId": "ThunderJolt"
     },
     {
       "english": "TM22",
@@ -5013,7 +5013,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "IronTail"
+      "moveId": "WonderSeed"
     },
     {
       "english": "TM24",
@@ -5047,7 +5047,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Thunder"
+      "moveId": "Lightning"
     },
     {
       "english": "TM26",
@@ -5064,7 +5064,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Earthquake"
+      "moveId": "WideSlash"
     },
     {
       "english": "TM27",
@@ -5081,7 +5081,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Return"
+      "moveId": "VacuumCut"
     },
     {
       "english": "TM28",
@@ -5098,7 +5098,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Dig"
+      "moveId": "Tombstoner"
     },
     {
       "english": "TM29",
@@ -5115,7 +5115,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "PsyBeam"
+      "moveId": "SteelWing"
     },
     {
       "english": "TM30",
@@ -5132,7 +5132,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "ShadowBall"
+      "moveId": "MagicalLeaf"
     },
     {
       "english": "TM31",
@@ -5149,7 +5149,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "BrickBreak"
+      "moveId": "MudSlap"
     },
     {
       "english": "TM32",
@@ -5166,7 +5166,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "DoubleTeam"
+      "moveId": "BrickBreak"
     },
     {
       "english": "TM33",
@@ -5200,7 +5200,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "ShockWave"
+      "moveId": "Bide"
     },
     {
       "english": "TM35",
@@ -5234,7 +5234,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SludgeBomb"
+      "moveId": "RazorWind"
     },
     {
       "english": "TM37",
@@ -5285,7 +5285,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Bide"
+      "moveId": "FaintAttack"
     },
     {
       "english": "TM40",
@@ -5302,7 +5302,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "AerialAce"
+      "moveId": "DragonRage"
     },
     {
       "english": "TM41",
@@ -5336,7 +5336,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Facade"
+      "moveId": "Crabhammer"
     },
     {
       "english": "TM43",
@@ -5353,7 +5353,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SecretPower"
+      "moveId": "FocusMiss"
     },
     {
       "english": "TM44",
@@ -5404,7 +5404,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Thief"
+      "moveId": "TakeDown"
     },
     {
       "english": "TM47",
@@ -5421,7 +5421,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SteelWing"
+      "moveId": "SteelWang"
     },
     {
       "english": "TM48",
@@ -5438,7 +5438,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SkillSwap"
+      "moveId": "TryAttack"
     },
     {
       "english": "TM49",
@@ -5455,7 +5455,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Snatch"
+      "moveId": "Copycat"
     },
     {
       "english": "TM50",
@@ -5472,7 +5472,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Overheat"
+      "moveId": "Counter"
     },
     {
       "english": "HM01",

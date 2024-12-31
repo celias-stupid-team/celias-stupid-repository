@@ -732,6 +732,14 @@ bool8 MetatileBehavior_IsBookshelf(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsDaisy(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_DAISY)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POKEMART_SHELF)

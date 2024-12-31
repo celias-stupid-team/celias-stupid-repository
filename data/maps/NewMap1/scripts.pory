@@ -1,8 +1,12 @@
 raw `
-NewMap1_MapScripts::
-	.byte 0
-`
 
+`
+mapscripts NewMap1_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_SOOTOPOLIS)
+		call(SetPlayerPokedexValues)
+	}
+}
 script Sootopolis_EvenScript_Dad {
 	lock
 	faceplayer

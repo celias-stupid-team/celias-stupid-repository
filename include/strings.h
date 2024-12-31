@@ -1031,6 +1031,7 @@ extern const u8 gText_Area[];
 extern const u8 gText_Size[];
 extern const u8 gText_AreaUnknown[];
 extern const u8 gText_Plus[];
+extern const u8 gText_BluePlus[];
 
 // daycare
 extern const u8 gText_Lv[];

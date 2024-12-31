@@ -14,7 +14,7 @@ PokemonLeague_LoreleisRoom_OnResume::
 
 PokemonLeague_LoreleisRoom_OnLoad::
 	call_if_set FLAG_DEFEATED_LORELEI, PokemonLeague_LoreleisRoom_EventScript_SetDoorOpen
-	call_if_eq VAR_MAP_SCENE_POKEMON_LEAGUE, 1, PokemonLeague_LoreleisRoom_EventScript_CloseEntry
+	call_if_eq VAR_CSR_DUMMY_9, 1, PokemonLeague_LoreleisRoom_EventScript_CloseEntry
 	end
 
 PokemonLeague_LoreleisRoom_EventScript_CloseEntry::
@@ -38,13 +38,13 @@ PokemonLeague_LoreleisRoom_EventScript_TurnPlayerNorth::
 	end
 
 PokemonLeague_LoreleisRoom_OnFrame::
-	map_script_2 VAR_MAP_SCENE_POKEMON_LEAGUE, 0, PokemonLeague_LoreleisRoom_EventScript_EnterRoom
+	map_script_2 VAR_CSR_DUMMY_9, 0, PokemonLeague_LoreleisRoom_EventScript_EnterRoom
 	.2byte 0
 
 PokemonLeague_LoreleisRoom_EventScript_EnterRoom::
 	lockall
 	call PokemonLeague_EventScript_EnterRoom
-	setvar VAR_MAP_SCENE_POKEMON_LEAGUE, 1
+	setvar VAR_CSR_DUMMY_9, 1
 	releaseall
 	end
 

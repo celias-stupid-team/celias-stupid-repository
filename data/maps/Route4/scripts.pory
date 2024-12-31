@@ -36,6 +36,12 @@ script Route4_TransitionScripts {
 	}
 }
 
+script Route4_SetFarFlag {
+	setflag(FLAG_CSR_MAP_ROUTE_4_FAR)
+	call(SetPlayerPokedexValues)
+	release
+}
+
 script Route4_SetFarBench {
 	setbench(BENCH_ROUTE4)
 	release

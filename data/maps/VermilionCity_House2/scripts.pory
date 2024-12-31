@@ -17,6 +17,7 @@ VermilionCity_House2_EventScript_Elyssa::
 	call EventScript_DoInGameTrade
 	msgbox VermilionCity_House2_Text_ThankYou
 	setflag FLAG_DID_FARFETCHD_TRADE
+	call SetPlayerPokedexValues
 	release
 	end
 

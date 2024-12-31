@@ -1200,6 +1200,7 @@ extern const u8 EventScript_HiddenItemScript[];
 extern const u8 EventScript_PC[];
 extern const u8 EventScript_WallTownMap[];
 extern const u8 EventScript_Bookshelf[];
+extern const u8 EventScript_DaisyTile[];
 extern const u8 EventScript_PokeMartShelf[];
 extern const u8 EventScript_Food[];
 extern const u8 EventScript_ImpressiveMachine[];

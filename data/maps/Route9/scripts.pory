@@ -1,8 +1,14 @@
 raw `
-Route9_MapScripts::
-	.byte 0
+
 
 Route9_EventScript_RouteSign::
 	msgbox Route9_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+mapscripts Route9_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_ROUTE9)
+		setflag(FLAG_CSR_MAP_ROUTE_9)
+		call(SetPlayerPokedexValues)
+	}
+}

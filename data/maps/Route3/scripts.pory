@@ -61,7 +61,7 @@ script Route3_EventScript_Lass {
 }
 
 script Route3_PokedexSign {
-	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how many\nPOKéMON are available to you.\lIt even updates automatically!\pTry it before and after entering the\ngrass on this ROUTE!", MSGBOX_SIGN)
+	msgbox("TRAINER TIPS\pYour POKéDEX will tell you how many\nPOKéMON are available to you.\lIt even updates automatically!\pTry it before and after entering the\ngrass!", MSGBOX_SIGN)
 	end
 }
 

@@ -14,10 +14,10 @@ Route23_MapScripts::
 Route23_OnTransition::
 	clearflag FLAG_HIDE_VICTORY_ROAD_3F_BOULDER
 	setflag FLAG_HIDE_VICTORY_ROAD_2F_BOULDER
-	setvar VAR_MAP_SCENE_VICTORY_ROAD_1F, 0
-	setvar VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER1, 0
-	setvar VAR_MAP_SCENE_VICTORY_ROAD_2F_BOULDER2, 0
-	setvar VAR_MAP_SCENE_VICTORY_ROAD_3F, 0
+	setvar VAR_CSR_DUMMY_5, 0
+	setvar VAR_CSR_DUMMY_6, 0
+	setvar VAR_CSR_DUMMY_7, 0
+	setvar VAR_CSR_DUMMY_8, 0
 	end
 
 Route23_EventScript_CascadeBadgeGuard::
@@ -147,4 +147,31 @@ script Route23_EventScript_Child {
 	faceplayer
 	msgbox(("Yup, ZAPDOS really is that easy\nto find.\pI'm surprised you didn't come\nback here sooner!"), MSGBOX_DEFAULT)
 	release
+}
+
+script PowerPlant_EventScript_Zapdos {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	special(QuestLog_CutRecording)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_ZAPDOS, 50)
+	waitse
+	playmoncry(SPECIES_ZAPDOS, CRY_MODE_ENCOUNTER)
+	message(Text_Gyaoo)
+	waitmessage
+	waitmoncry
+	delay(10)
+	playbgm(MUS_ENCOUNTER_GYM_LEADER, 0)
+	waitbuttonpress
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(StartLegendaryBattle)
+	waitstate
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_DefeatedZapdos)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_RanFromZapdos)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_RanFromZapdos)
+	setflag(FLAG_FOUGHT_ZAPDOS)
+	release
+	end
 }

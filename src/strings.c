@@ -153,6 +153,8 @@ const u8 gText_FemaleSymbol[] = _("♀");
 const u8 gText_Lv[] = _("{LV_2}");
 const u8 gText_NumberClear01[] = _("{NO}{CLEAR 0x01}");
 const u8 gText_Plus[] = _("{PLUS}");
+
+const u8 gText_BluePlus[] = _("{COLOR BLUE}{SHADOW LIGHT_BLUE}{PLUS}");
 const u8 gText_Escape3[] = _("{ESCAPE 0x03}"); // Unused, RIGHT_ARROW in pokeemerald
 const u8 gText_IDNumber2[] = _("{ID}{NO}");
 const u8 gText_PokeSum_PP[] = _("{PP}");

@@ -455,9 +455,11 @@ script PalletTown_EventScript_SignLady_CSR {
 			case DIR_EAST:
 					applymovement(1, PT_walkbackRight)
 					waitmovement(0)
+					break
 				default:
 					applymovement(1, PT_walkbackLeft)
 					waitmovement(0)
+					break
 		}
 	}
 	release

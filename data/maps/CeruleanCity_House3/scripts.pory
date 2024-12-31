@@ -10,6 +10,8 @@ CeruleanCity_House3_EventScript_Dontae::
 	lock
 	faceplayer
 	setvar VAR_0x8008, INGAME_TRADE_JYNX
+	setflag FLAG_CSR_TALKED_TO_JYNX_GUY
+	call SetPlayerPokedexValues
 	call EventScript_GetInGameTradeSpeciesInfo
 	goto_if_set FLAG_DID_JYNX_TRADE, CeruleanCity_House3_EventScript_AlreadyTraded
 	msgbox Trade_Text_DoYouHaveMonWouldYouTradeForMon, MSGBOX_YESNO

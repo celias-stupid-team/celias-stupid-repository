@@ -61,6 +61,8 @@ Route24_EventScript_BattleRocket::
 	trainerbattle_no_intro TRAINER_DMCA_GRUNT_6, Route24_Text_RocketDefeat
 	msgbox Route24_Text_YoudBecomeTopRocketLeader
 	setvar VAR_MAP_SCENE_ROUTE24, 1
+	setflag FLAG_CSR_MAP_ROUTE_24_FAR
+	call SetPlayerPokedexValues
 	return
 
 Route24_EventScript_RocketApproachPlayer::
@@ -110,6 +112,11 @@ script Route24_Sign_Funnier {
 	end
 }
 
+script Route24_RouteSign {
+	msgbox("ROUTE 24\nNEW WILD POKéMON: 2", MSGBOX_SIGN)
+	end
+}
+
 script Route24_Celia_Sign {
 	msgbox("This is actually one of my\nfavorite jokes in the hack.\pOn its face, sure it's just a silly\nSPONGEBOB reference.\pHowever, the punchline is delivered\nby the game engine itself.\pI really enjoy using game mechanics\nin unintended ways to deliver fun.\lThat's what this hack is all about.\pEven when it's used for something\nas pointless as a shitpost!\pPS: I'm about to vanish as soon as\nyou walk over there.\pThere's a whole system of “Clone\nObjects” to keep maps consistent.\lI litearlly could not care less.", MSGBOX_NPC)
 	end
@@ -137,15 +144,18 @@ script Route24_EventScript_CheckParty {
 			case 10:
 				applymovement(6, LeftTwice)
 				waitmovement(0)
+				break
 			case 11:
 				applymovement(6, LeftOnce)
 				waitmovement(0)
+				break
 
 			case 12:
 				applymovement(6, Common_Movement_WalkDown)
 				waitmovement(0)
 				applymovement(6, Common_Movement_FaceDown)
 				waitmovement(0)	
+				break
 		}
 		textcolor(0)
 		msgbox("Um, hi!\nWelcome to NUGGETBRIDGE!\pEr, I noticed that you only have\none POKéMON with you right now.\pWe actually have a whole thing going\non, and you kinda need two.\lCould you go grab another?\pThanks for understanding!\n", MSGBOX_DEFAULT)
@@ -159,9 +169,11 @@ script Route24_EventScript_CheckParty {
 			case 10:
 				applymovement(6, RightTwice)
 				waitmovement(0)
+				break
 			case 11:
 				applymovement(6, Common_Movement_WalkRight)
 				waitmovement(0)
+				break
 		}
 		applymovement(6, Common_Movement_FaceLeft)
 		waitmovement(0)

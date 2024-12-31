@@ -127,6 +127,7 @@
 #define MB_VIDEO_GAME 0xA1
 #define MB_BURGLARY 0xA2
 #define MB_TRAINER_TOWER_MONITOR 0xA3
+#define MB_DAISY                   0xA4
 //
 #define MB_CYCLING_ROAD_PULL_DOWN 0xD0
 #define MB_CYCLING_ROAD_PULL_DOWN_GRASS 0xD1

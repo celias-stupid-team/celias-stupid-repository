@@ -126,18 +126,22 @@ script ViridianForest_EventScript_CeliaDad2 {
 
 script ViridianForest_EventScript_Flowers1 {
 	setvar(VAR_TEMP_1, 1)
+	release
 }
 
 script ViridianForest_EventScript_Flowers2 {
 	setvar(VAR_TEMP_1, 2)
+	release
 }
 
 script ViridianForest_EventScript_Flowers3 {
 	setvar(VAR_TEMP_1, 3)
+	release
 }
 
 script ViridianForest_EventScript_FlowersClear {
 	setvar(VAR_TEMP_1, 0)
+	release
 }
 
 script ViridianForest_EventScript_Flowers4 {
@@ -154,14 +158,14 @@ script ViridianForest_EventScript_CeliaAJ {
 }
 
 
-
+const CELIA_FOREST = 20
 script ViridianForest_EventScript_CeliaChecksDex {
-	specialvar(VAR_RESULT, GetPokedexCount)
-	if(var(VAR_RESULT) < 6) {
+	setvar(VAR_CSR_CELIA_IN_FOREST, 1)
+	if(!checkmoncaught(SPECIES_RATTATA) || !checkmoncaught(SPECIES_MANKEY) || !checkmoncaught(SPECIES_WEEDLE) || !checkmoncaught(SPECIES_CATERPIE)) { // at least one major area not accounted for
 		lock
 
-		//TODO check which tile the player interacted from
-		setobjectxy(20,4,18)
+		getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+		setobjectxy(CELIA_FOREST,VAR_TEMP_3,18)
 		applymovement(20, CeliaApproaches)
 		waitmovement(0)
 		playse(SE_PIN)
@@ -171,8 +175,38 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		textcolor(1)
 		msgbox("Hi, there!\nI'm CELIA, this hack's creator.\pSorry to inturrupt, but I noticed\nsomething and had to pop in.", MSGBOX_DEFAULT)
 		
-		//TODO Logic for which Pokemon you're missing
+		specialvar(VAR_RESULT, GetPokedexCount)
+		if((var(VAR_RESULT) > 4) && checkmoncaught(SPECIES_RATTATA) && (checkmoncaught(SPECIES_CATERPIE) || checkmoncaught(SPECIES_METAPOD))) { // Rattata plus Caterpie is bare minimum for having an acceptable dex
+			msgbox("I see you've been making good\nprogress on your POKéDEX.\pThat's good to see!\nThat's what you should be doing!\pHowever, I think there's something\nyou missed.", MSGBOX_DEFAULT)
+			if(!(checkmoncaught(SPECIES_MANKEY) && checkmoncaught(SPECIES_NIDORAN_F) && checkmoncaught(SPECIES_NIDORAN_M))) {
+				if(!(checkmoncaught(SPECIES_MANKEY) || checkmoncaught(SPECIES_NIDORAN_F) || checkmoncaught(SPECIES_NIDORAN_M))) {
+					msgbox("Did you remember to check out\nROUTE 22?\lIt's west of VIRIDIAN.\pThere's some POKéMON there to\ncatch as well!", MSGBOX_DEFAULT)
+					setflag(FLAG_TEMP_3) //Flag temp 3 used to track if she's already said something in the dialogue.
+				} else {
+					//You missed something on Route 22
+					msgbox("When you went to ROUTE 22 earlier,\ndid you catch all 3 POKéMON there?\pI think there might be one that\nyou're missing!", MSGBOX_DEFAULT)
+					setflag(FLAG_TEMP_3)
+				}
+			}
+			if(!checkmoncaught(SPECIES_WEEDLE)) {
+				if(flag(FLAG_TEMP_3)) {
+					msgbox("Also, don't forget to check the\ngrass in VIRIDIAN CITY!\pThere's something to catch there\ntoo!", MSGBOX_DEFAULT)
+				} else {
+					msgbox("Do you remember the grass by the\nOLD MAN in VIRIDIAN CITY?\pThere's actually a POKéMON to\ncatch in there!", MSGBOX_DEFAULT)
+				}
+			
 
+			}
+		} else {
+			msgbox("It looks like you haven't really\nmade too much of an effort to\lfill in your POKéDEX.\pUh, I wasn't kidding earlier when I\nsaid you really should fill it out!", MSGBOX_DEFAULT)
+			specialvar(VAR_RESULT, GetPokedexCount)
+			if((var(VAR_RESULT) < 2)) { //If you haven't caught anything, she's PISSED
+				msgbox("I understand that you probably\njust wanna mash through text,\lespecially if you have speedup.\pBut this is not a normal vanilla-\nstyle romhack.\lYou really can't play it like one.", MSGBOX_DEFAULT)
+			} else { // General advice for players who clearly don't understand this game.
+				msgbox("I strongly recommend going around\nand catching as much as you can.\pPOKéBALLs have guaranteed catch\nrates in this hack, so it's easy!\pTrust me, you'll thank me later.\n", MSGBOX_DEFAULT)
+			}
+		}
+		call(SetPlayerPokedexValues)
 		msgbox("Anyway, sorry for stopping you!\nThat's just some friendly advice.\lHave fun, and good luck vs BROCK!", MSGBOX_DEFAULT)
 		closemessage
 		delay(15)
@@ -187,7 +221,10 @@ script ViridianForest_EventScript_CeliaGotCaught {
 	lock
 	faceplayer
 	msgbox("Oh, hey there!\pI was planning on leaving, but\nI got tired.\pThanks for catching back up with\nme, though!\lHere's a gift!", MSGBOX_DEFAULT)
+	giveitem(ITEM_RARE_CANDY)
+	goto_if_eq(VAR_RESULT, FALSE, EventScript_BagIsFull)
 	release
+
 }
 
 movement CeliaApproaches {

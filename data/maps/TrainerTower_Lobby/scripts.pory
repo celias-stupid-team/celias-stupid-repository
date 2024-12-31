@@ -95,7 +95,7 @@ TrainerTower_Lobby_EventScript_ExitChallenge::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, TrainerTower_Lobby_Movement_WalkDown
 	waitmovement 0
-	setvar VAR_MAP_SCENE_TRAINER_TOWER, 0
+	setvar VAR_CSR_DUMMY_22, 0
 	release
 TrainerTower_Lobby_EventScript_EnterEnd::
 	end
@@ -188,7 +188,7 @@ TrainerTower_Lobby_EventScript_ChooseChallenge::
 
 TrainerTower_Lobby_EventScript_BeginChallenge::
 	copyvar VAR_0x8005, VAR_RESULT
-	setvar VAR_MAP_SCENE_TRAINER_TOWER, 1
+	setvar VAR_CSR_DUMMY_22, 1
 	special HealPlayerParty
 	msgbox TrainerTower_Lobby_Text_StartClockGetSetGo
 	ttower_startchallenge

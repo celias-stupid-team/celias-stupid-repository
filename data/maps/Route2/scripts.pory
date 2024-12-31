@@ -16,7 +16,12 @@ script Route2_EventScript_Dad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm out here to visit my sisters.\nDon't try to catch them!\lIt won't work!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
+	if(var(VAR_ROUTE2_SHINY_MIME) == 1) {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, did you run into a shiny a\nminute ago?\lWow, you must be lucky!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+		setvar(VAR_ROUTE2_SHINY_MIME, 2)
+	} else {
+		msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm out here to visit my sisters.\nDon't try to catch them!\lIt won't work!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
+	}
 	call(EventScript_DadHeal)
 	setflag(FLAG_DAD_SISTERS)
 	release
@@ -45,3 +50,13 @@ script Route2_North_Sign {
 	msgbox("Another job well done.\nThanks for the continued patronage!\l-KANTO Lawn Maintenance Service", MSGBOX_SIGN)
 	end
 }
+ script Route2_DoShinyMime {
+	lock
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_ROUTE2_SHINY_MIME, 1)
+	setwildbattle(SPECIES_MR_MIME, 4, ITEM_NONE)
+	clearflag(FLAG_SHINY_CREATION)
+	dowildbattle
+	release
+ }
+

@@ -46,7 +46,7 @@ FiveIsland_RocketWarehouse_EventScript_Admin2Trigger::
 	lockall
 	applymovement LOCALID_ADMIN2, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	setvar VAR_MAP_SCENE_ROCKET_WAREHOUSE, 1
+	setvar VAR_CSR_DUMMY_26, 1
 	releaseall
 	end
 
@@ -95,7 +95,7 @@ FiveIsland_RocketWarehouse_EventScript_DefeatedAdmin2::
 	removeobject LOCALID_ADMIN1
 	setflag FLAG_HIDE_FIVE_ISLAND_ROCKETS
 	fadescreen FADE_FROM_BLACK
-	setvar VAR_MAP_SCENE_ROCKET_WAREHOUSE, 1
+	setvar VAR_CSR_DUMMY_26, 1
 	setflag FLAG_DEFEATED_ROCKETS_IN_WAREHOUSE
 	release
 	end

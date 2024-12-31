@@ -2,51 +2,145 @@ raw `
 CeladonCity_DepartmentStore_3F_MapScripts::
 	.byte 0
 
-CeladonCity_DepartmentStore_3F_EventScript_CounterTutor::
-	goto EventScript_CounterTutor
-	end
 
-CeladonCity_DepartmentStore_3F_EventScript_GBAKid1::
-	msgbox CeladonCity_DepartmentStore_3F_Text_OTStandsForOriginalTrainer, MSGBOX_NPC
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_GBAKid2::
-	msgbox CeladonCity_DepartmentStore_3F_Text_BuddyTradingKangaskhanForHaunter, MSGBOX_NPC
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_GBAKid3::
-	msgbox CeladonCity_DepartmentStore_3F_Text_HaunterEvolvedOnTrade, MSGBOX_NPC
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_LittleGirl::
-	msgbox CeladonCity_DepartmentStore_3F_Text_CanIdentifyTradeMonsByID, MSGBOX_NPC
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_SuperNES::
-	msgbox CeladonCity_DepartmentStore_3F_Text_ItsSuperNES, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_TV1::
-	msgbox CeladonCity_DepartmentStore_3F_Text_AnRPG, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_TV2::
-	msgbox CeladonCity_DepartmentStore_3F_Text_SportsGame, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_TV3::
-	msgbox CeladonCity_DepartmentStore_3F_Text_PuzzleGame, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_TV4::
-	msgbox CeladonCity_DepartmentStore_3F_Text_FightingGame, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_FloorSign::
-	msgbox CeladonCity_DepartmentStore_3F_Text_TVGameShop, MSGBOX_SIGN
-	end
-
-CeladonCity_DepartmentStore_3F_EventScript_Poster::
-	msgbox CeladonCity_DepartmentStore_3F_Text_RedGreenBothArePokemon, MSGBOX_SIGN
-	end
 `
+
+script DepartmentStore_GameShop_CounterGuy {
+	lock
+	msgbox("Hi, there! I just finished CELIA'S\nSTUPID ROMHACK!\lFun game - you should try it!\pBy the way...\pDo you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut...\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
+	release //Fill in later
+	end
+}
+
+script DepartmentStore_GameShop_JirachiHunter {
+	lock
+	msgbox("Reset number five-thousand,\ntwo hundred and forty-six...\pI swear on my life that I will be\nthe first person to find him...\lPlease, God...\p... ... ... ... ...\n... ... ... ... ...\p... ... ... ... ...\n... ... ... ... ...Sigh.\pReset number five-thousand,\ntwo hundred and forty-seven...\lWe put out a new demo for a game\lthat's launching soon.\lI think he really likes it!\pBut...\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
+	release //Fill in later
+}
+
+script DepartmentStore_GameShop_Colosseum {
+	lock
+	msgbox("It's POKéMON COLOSSEUM!\n...\l...Wait, no!\pIt's the POKéMON COLOSSEUM bonus\ndisc!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
+	release //Fill in later
+}
+
+script DepartmentStore_GameShop_DifferentGamecube {
+	lock
+	msgbox("It's a very fancy GAMECUBE!\pBut this one seems... different.\n", MSGBOX_DEFAULT)
+	release
+}
+
+
+script DepartmentStore_GameShop_GaybleClub {
+	msgbox("I really like trading, but you can't\nactually do it here in CELADON.\pRight now, the CABLE CLUB is\nreplaced by a, erm… GAY-BLE CLUB.", MSGBOX_NPC)
+	end
+}
+
+script DepartmentStore_GameShop_Gym {
+	msgbox("Wait, how did I end up here?\pI was trying to find the GYM to\nvisit my girlfriend…", MSGBOX_NPC)
+	end
+}
+
+
+script DepartmentStore_GameShop_FancyGamecube {
+	msgbox("It's a very fancy GAMECUBE!\n", MSGBOX_SIGN)
+	end
+}
+
+script DepartmentStore_GameShop_TradeRight {
+	msgbox("All right!\pMy buddy's going to trade me his\nGRAVELER for my MACHOKE!", MSGBOX_NPC)
+	end
+}
+
+
+script DepartmentStore_GameShop_TradeLeft {
+	msgbox("I'm completing the POKéDEX,\nso I need to trade my GRAVELER!\pLet's go!\p... ... ...\pWHAT.\pWHAT ON EARTH DID YOU DO?\n", MSGBOX_NPC)
+	end
+}
+
+script DepartmentStore_GameShop_NES {
+	msgbox("This looks like an NES, but it's\nactually a very fancy GAMECUBE!", MSGBOX_NPC)
+	end
+}
+
+script DepartmentStore_GameShop_AVGN {
+	msgbox("This game's a shitload of fuck!\n", MSGBOX_NPC)
+	end
+}
+
+script DepartmentStore_GameShop_TV1 {
+	msgbox("An action game!\pThey need to tighten up the\ngraphics on LEVEL 3.", MSGBOX_SIGN)
+	end
+}
+script DepartmentStore_GameShop_TV2 {
+	msgbox("An RPG!\pThis one is a clever subversion of\nclever subversions of the genre!", MSGBOX_SIGN)
+	end
+}
+
+script CeladonCity_DepartmentStore_3F_EventScript_Poster {
+	msgbox("Red and Green!\nCheck for colorblindness today!", MSGBOX_SIGN)
+}
+
+const DAD = 8
+script DepartmentStore_GameShop_TVDad {
+	lock
+	msgbox("A sports game!\nDad'll like that!", MSGBOX_DEFAULT)
+	closemessage
+	delay(25)
+	addobject(DAD)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_DepartmentStore_3F_CameraUp)
+	waitmovement(0)
+	delay(10)
+	setobjectxy(DAD, 9, 2)
+	playse(SE_EXIT)
+	delay(10)
+	applymovement(DAD, DadIn)
+	waitmovement(0)
+	delay(35)
+	applymovement(DAD, Common_Movement_FaceDown)
+	waitmovement(0)
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("DAD: You're right!\nI sure would!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(DAD, DadOut)
+	delay(10)
+	playse(SE_EXIT)
+	waitmovement(0)
+	setobjectxy(DAD, 5, 0)
+	removeobject(DAD)
+	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_DepartmentStore_3F_CameraDown)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	release
+	end
+
+}
+
+script CeladonCity_DepartmentStore_3F_EventScript_FloorSign {
+	msgbox("3F: TV GAME SHOP\n", MSGBOX_SIGN)
+	end
+}
+
+movement CeladonCity_DepartmentStore_3F_CameraUp {
+	walk_fast_up * 3
+}
+
+movement CeladonCity_DepartmentStore_3F_CameraDown {
+	walk_fast_up * 3
+}
+
+movement DadIn {
+	face_left
+	set_invisible
+}
+
+movement DadOut {
+	face_left
+	delay_4 * 2
+	delay_2
+	set_invisible
+}
+
