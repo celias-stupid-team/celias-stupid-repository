@@ -7750,6 +7750,7 @@ extern const u32 gFrontPicPalette_Red_LW[];
 extern const u32 gFrontPicPalette_Red_LP[];
 extern const u32 gFrontPicPalette_Red_WP[];
 extern const u32 gFrontPicPalette_Red_LWP[];
+
 extern const u32 gFrontPicPalette_Green_L[];
 extern const u32 gFrontPicPalette_Green_W[];
 extern const u32 gFrontPicPalette_Green_P[];
