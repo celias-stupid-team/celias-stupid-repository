@@ -14,9 +14,7 @@ ViridianForest_Text_RickDefeat::
     .string "behavior!$"
 
 ViridianForest_Text_RickPostBattle::
-    .string "CATERPIE is unable to modify the\l"
-    .string "existing ROM to create unintended\l"
-    .string "behavior!$"
+    .string "You heard what I said.$"
 
 ViridianForest_Text_DougIntro::
     .string "Yo!\n"
@@ -32,18 +30,21 @@ ViridianForest_Text_DougPostBattle::
     .string "300 times in a row once!$"
 
 ViridianForest_Text_SammyIntro::
-    .string "Hey, wait up!\n"
-    .string "What's the hurry? Why the rush?$"
+	.string "Hey, you!\n"
+	.string "One day, I'm gonna be just like\l"
+	.string "BROCK!\p"
+	.string "Check out the super strong\n"
+	.string "SANDSHREW I trained!$"
 
 ViridianForest_Text_SammyDefeat::
     .string "I give!\n"
     .string "You're good at this!$"
 
 ViridianForest_Text_SammyPostBattle::
-    .string "Sometimes, you can find stuff on\n"
-    .string "the ground.\p"
-    .string "I'm looking for the stuff I\n"
-    .string "dropped. Can you help me?$"
+	.string "I trained my SANDSHREW by chucking\n"
+	.string "him into that pond over there.\p"
+	.string "I hear that BROCK's ONIX is also\n"
+	.string "immune to WATER attacks!$"
 
 ViridianForest_Text_AnthonyIntro::
     .string "I might be little, but I'm the \n"

@@ -10,9 +10,8 @@ CinnabarIsland_MapScripts::
 CinnabarIsland_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CINNABAR_ISLAND
 	call CinnabarIsland_EventScript_CheckUnlockGym
-	call_if_eq VAR_MAP_SCENE_CINNABAR_ISLAND, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland
-	call_if_eq VAR_MAP_SCENE_CINNABAR_ISLAND, 3, CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands
-	call_if_eq VAR_MAP_SCENE_CINNABAR_ISLAND_2, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter
+	call_if_eq VAR_CSR_DUMMY_11, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland
+	call_if_eq VAR_CSR_DUMMY_11, 3, CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands
 	end
 
 CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter::
@@ -50,9 +49,6 @@ CinnabarIsland_EventScript_UnlockGym::
 	return
 
 CinnabarIsland_OnFrame::
-	map_script_2 VAR_MAP_SCENE_CINNABAR_ISLAND_2, 1, CinnabarIsland_EventScript_ExitPokeCenterForOneIsland
-	map_script_2 VAR_MAP_SCENE_CINNABAR_ISLAND, 1, CinnabarIsland_EventScript_BillScene
-	map_script_2 VAR_MAP_SCENE_CINNABAR_ISLAND, 3, CinnabarIsland_EventScript_ReturnFromSeviiIslands
 	.2byte 0
 
 CinnabarIsland_EventScript_ExitPokeCenterForOneIsland::
@@ -60,7 +56,6 @@ CinnabarIsland_EventScript_ExitPokeCenterForOneIsland::
 	clearflag FLAG_DONT_TRANSITION_MUSIC
 	savebgm MUS_DUMMY
 	textcolor NPC_TEXT_COLOR_MALE
-	setvar VAR_MAP_SCENE_CINNABAR_ISLAND_2, 2
 	delay 20
 	call CinnabarIsland_EventScript_SailToOneIsland
 	releaseall
@@ -74,7 +69,7 @@ CinnabarIsland_EventScript_ReturnFromSeviiIslands::
 	applymovement LOCALID_BILL, CinnabarIsland_Movement_BillExit
 	waitmovement 0
 	removeobject LOCALID_BILL
-	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 4
+	setvar VAR_CSR_DUMMY_11, 4
 	setflag FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE
 	clearflag FLAG_HIDE_LOSTELLE_IN_HER_HOME
 	releaseall
@@ -142,7 +137,7 @@ CinnabarIsland_EventScript_DeclineSailToOneIsland::
 	call_if_unset FLAG_TEMP_2, CinnabarIsland_EventScript_BillExitToPokeCenter
 	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_BillReturnToPokeCenter
 	removeobject LOCALID_BILL
-	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 2
+	setvar VAR_CSR_DUMMY_11, 2
 	clearflag FLAG_HIDE_CINNABAR_POKECENTER_BILL
 	releaseall
 	end
@@ -201,11 +196,11 @@ CinnabarIsland_EventScript_SailToOneIsland::
 	closemessage
 	call_if_unset FLAG_TEMP_2, CinnabarIsland_EventScript_BoardBoat
 	call_if_set FLAG_TEMP_2, CinnabarIsland_EventScript_BoardBoatExitedPokeCenter
-	setvar VAR_MAP_SCENE_CINNABAR_ISLAND, 2
+	setvar VAR_CSR_DUMMY_11, 2
 	removeobject LOCALID_BILL
 	delay 40
 	setflag FLAG_HIDE_CINNABAR_ALOLAN_GROWLITHE
-	setvar VAR_MAP_SCENE_ONE_ISLAND_HARBOR, 1
+	setvar VAR_CSR_DUMMY_14, 1
 	setvar VAR_0x8004, ALOLAN_GROWLITHE_CINNABAR_ISLAND
 	setvar VAR_0x8006, ALOLAN_GROWLITHE_ONE_ISLAND
 	goto EventScript_SetSail

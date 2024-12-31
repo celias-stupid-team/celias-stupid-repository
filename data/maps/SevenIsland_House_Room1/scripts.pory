@@ -11,7 +11,7 @@ SevenIsland_House_Room1_MapScripts::
 SevenIsland_House_Room1_OnTransition::
 	special ValidateEReaderTrainer
 	call_if_eq VAR_RESULT, 0, SevenIsland_House_Room1_EventScript_SetTrainerVisitingLayout
-	call_if_ne VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 0, SevenIsland_House_Room1_EventScript_MoveOldWomanToDoor
+	call_if_ne VAR_CSR_DUMMY_13, 0, SevenIsland_House_Room1_EventScript_MoveOldWomanToDoor
 	end
 
 SevenIsland_House_Room1_EventScript_SetTrainerVisitingLayout::
@@ -27,9 +27,9 @@ SevenIsland_House_Room1_EventScript_MoveOldWomanToDoor::
 	return
 
 SevenIsland_House_Room1_OnFrame::
-	map_script_2 VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 1, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
-	map_script_2 VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 2, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
-	map_script_2 VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 3, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
+	map_script_2 VAR_CSR_DUMMY_13, 1, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
+	map_script_2 VAR_CSR_DUMMY_13, 2, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
+	map_script_2 VAR_CSR_DUMMY_13, 3, SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle
 	.2byte 0
 
 SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle::
@@ -42,11 +42,11 @@ SevenIsland_House_Room1_EventScript_OldWomanCommentOnBattle::
 	copyobjectxytoperm LOCALID_OLD_WOMAN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	call_if_eq VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 1, SevenIsland_House_Room1_EventScript_BattleWonComment
-	call_if_eq VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 2, SevenIsland_House_Room1_EventScript_BattleLostComment
-	call_if_eq VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 3, SevenIsland_House_Room1_EventScript_BattleTiedComment
+	call_if_eq VAR_CSR_DUMMY_13, 1, SevenIsland_House_Room1_EventScript_BattleWonComment
+	call_if_eq VAR_CSR_DUMMY_13, 2, SevenIsland_House_Room1_EventScript_BattleLostComment
+	call_if_eq VAR_CSR_DUMMY_13, 3, SevenIsland_House_Room1_EventScript_BattleTiedComment
 	special LoadPlayerParty
-	setvar VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1, 0
+	setvar VAR_CSR_DUMMY_13, 0
 	releaseall
 	end
 

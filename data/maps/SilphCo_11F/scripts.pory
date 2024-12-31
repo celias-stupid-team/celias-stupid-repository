@@ -78,7 +78,7 @@ SilphCo_11F_EventScript_BattleGiovanni::
 	removeobject LOCALID_GRUNT1
 	removeobject LOCALID_GRUNT2
 	fadescreen FADE_FROM_BLACK
-	setvar VAR_MAP_SCENE_SILPH_CO_11F, 1
+	setvar VAR_CSR_DUMMY_3, 1
 	setflag FLAG_HIDE_SAFFRON_ROCKETS
 	clearflag FLAG_HIDE_SAFFRON_CIVILIANS
 	releaseall

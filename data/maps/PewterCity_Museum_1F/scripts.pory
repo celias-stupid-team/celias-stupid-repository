@@ -211,9 +211,13 @@ script PewterCity_Museum_1F_EventScript_Receptionist {
 		}
 		switch(var(VAR_TEMP_1)) {
 			case 0: msgbox("Y'know, I only ever wanted\nto be a gardener.\pI guess this is just what that\nentails nowadays.")
+					break
 			case 1: msgbox("Hey, wait...\pWasn't there another researcher\nover there a second ago?\lWhere'd he go?")
+					break
 			case 2: msgbox("W-wait!\nHold on!\pWhat are you doing!?")
+					break
 			case 3: msgbox("...\p...\nHow could you...?")
+					break
 		}
 	}
 	release

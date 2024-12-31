@@ -41,7 +41,7 @@ script SetPlayerPokedexValues {
 	if(var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 2) {
 		setobtainable(SPECIES_WEEDLE) // 10
 	}
-	if(flag(FLAG_CSR_HINT_FOREST_CANDIES) && checkmoncaught(SPECIES_WEEDLE)) {
+	if(flag(FLAG_CSR_HINT_FOREST_CANDIES) && checkmoncaught(SPECIES_WEEDLE) || checkmoncaught(SPECIES_KAKUNA)) {
 		setobtainable(SPECIES_KAKUNA) // 11
 	}
 	if((flag(FLAG_WORLD_MAP_PEWTER_CITY) && checkmoncaught(SPECIES_KAKUNA)) || checkmoncaught(SPECIES_COMBEE)) {
@@ -146,7 +146,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_MT_MOON_BASEMENT)) {
 		setobtainable(SPECIES_PARAS) // 45
 	}
-	if(flag(FLAG_CSR_SUN_STONE_FOUND) && checkmoncaught(SPECIES_PARAS)) {
+	if((flag(FLAG_CSR_SUN_STONE_FOUND) || flag(FLAG_CSR_MAP_STONE_EMPORIUM) || flag(FLAG_CSR_HIDDEN_ITEM_MT_MOON_B2F_SUN_STONE)) && checkmoncaught(SPECIES_PARAS)) {
 		setobtainable(SPECIES_PARASECT) // 46
 	}
 	if(flag(FLAG_CSR_MAP_BALL_SHOP)) {
@@ -191,19 +191,19 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_11) && flag(FLAG_DID_FARFETCHD_TRADE)) {
 		setobtainable(SPECIES_UNOWN_LOSS) // 60 
 	}
-	if(flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA) || checkmoncaught(SPECIES_KENYA)) { //farfetched and (return to viridian or talk to guard)
+	if(flag(FLAG_DID_FARFETCHD_TRADE) && flag(FLAG_CSR_HINT_KENYA) || checkmoncaught(SPECIES_KENYA)) {
 		setobtainable(SPECIES_KENYA) // 61
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_7)) {
 		setobtainable(SPECIES_DODUO) // 62
 	}
-	if(checkmoncaught(SPECIES_DODUO)) { //and Has Doduo
+	if(checkmoncaught(SPECIES_DODUO)) {
 		setobtainable(SPECIES_HITMONCHAN_SHIT) // 63
 	}
 	if(flag(FLAG_CSR_MAP_PRIZE_EXCHANGE) && flag(FLAG_DID_RAICHU_TRADE)) {
 		setobtainable(SPECIES_PORYGON) // 64
 	}
-	if(flag(FLAG_CSR_HINT_PHISHING) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_PORYGON) && flag(FLAG_CSR_HINT_SPAM)) { //and if Porygon
+	if(flag(FLAG_CSR_PHISHING_GURU_MENUS) && checkmoncaught(SPECIES_PORYGON) && flag(FLAG_CSR_HINT_SPAM)) { //and if Porygon
 		setobtainable(SPECIES_PORYGON_Z) // 65 
 	}
 	if(flag(FLAG_CSR_MAP_CAVE_OF_ORIGIN)) {
@@ -211,9 +211,6 @@ script SetPlayerPokedexValues {
 	}
 	if(flag(FLAG_CSR_MAP_CAVE_OF_ORIGIN)) {
 		setobtainable(SPECIES_CLOYSTER) // 67
-	}
-	if(flag(FLAG_CSR_HINT_LICKITUNG) && checkmoncaught(SPECIES_ONIX) && checkmoncaught(SPECIES_CLOYSTER)) { //if talked to Licky Trade AND (Onix OR Cloyster)
-		setobtainable(SPECIES_LICKITUNG) // 68
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_24_FAR)) {
 		setobtainable(SPECIES_BELLSPROUT) // 69
@@ -284,13 +281,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
 		setobtainable(SPECIES_EXEGGCUTE) // 91
 	}
-	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) { // and if Exeggcute
+	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE) || checkmoncaught(SPECIES_FARFETCHD)) { // and if Exeggcute
 		setobtainable(SPECIES_SPEAROW) // 92
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
 		setobtainable(SPECIES_EXEGGUTOR) // 93
 	}
-	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) { //and if Exeggcute
+	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE) || checkmoncaught(SPECIES_FARFETCHD)) { //and if Exeggcute
 		setobtainable(SPECIES_FARFETCHD) // 94
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_16_FAR)) {
@@ -380,7 +377,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_CERULEAN_GYM)) {
 		setobtainable(SPECIES_SCYTHER) // 123
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_TALKED_TO_JYNX_GUY) && checkmoncaught(SPECIES_POLIWAG)) { //TODO figure out logic
 		setobtainable(SPECIES_JYNX) // 124
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
@@ -398,7 +395,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_ORTHWORM) // 129
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_ROUTE_9)) { //TODO figure out logic
 		setobtainable(SPECIES_OMANYTE) // 130
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
@@ -459,7 +456,10 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_MEWTWO) // 150
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_CASTFORM) // 151
+		setobtainable(SPECIES_CASTFORM) // 152
+	}
+	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+		setobtainable(SPECIES_VENUSAUR) // 151
 	}
 return
 }

@@ -272,6 +272,15 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "PewterCity_Gym_EventScript_NoSneaky"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "PewterCity_Gym_EventScript_NoSneaky"
     }
   ],
   "bg_events": [

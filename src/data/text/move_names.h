@@ -541,7 +541,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_DYNAMIC_CRUNCH]     = _("DYNAMICRUNCH"),
     [MOVE_MUD_SPOUT]     = _("MUD SPOUT"),
     [MOVE_FOURSIGHT]     = _("FOURSIGHT"),
-    [MOVE_STEEL_WANG]     = _("STEEL WANG")
+    [MOVE_STEEL_WANG]     = _("STEEL WANG"),
+    [MOVE_WONDER_SEED]     = _("WONDER SEED"),
+[MOVE_COPYCAT]     = _("COPYCAT")
 
 };
 
@@ -1091,6 +1093,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_MUD_SPOUT]     = _("MUD SPOUT"),
 [MOVE_FOURSIGHT]     = _("FOURSIGHT"),
 [MOVE_STEEL_WANG]     = _("STEEL WANG"),
-
+[MOVE_WONDER_SEED]     = _("WONDER SEED"),
+[MOVE_COPYCAT]     = _("COPYCAT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

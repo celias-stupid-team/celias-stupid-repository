@@ -62,10 +62,10 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
 {
     u32 healLocationIdx;
 
-    if (VarGet(VAR_MAP_SCENE_TRAINER_TOWER) == 1)
+    if (VarGet(VAR_CSR_DUMMY_22) == 1)
     {
         if (!gSaveBlock1Ptr->trainerTower[gSaveBlock1Ptr->towerChallengeId].spokeToOwner)
-            VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
+            VarSet(VAR_CSR_DUMMY_22, 0);
         gSpecialVar_LastTalked = 1;
         warp->x = 4;
         warp->y = 11;
@@ -99,7 +99,7 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
         {
             warp->x = 4;
             warp->y = 11;
-            VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
+            VarSet(VAR_CSR_DUMMY_22, 0);
         }
         else
         {

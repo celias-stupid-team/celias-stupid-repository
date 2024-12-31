@@ -157,6 +157,13 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 
 `
+
+script EventScript_DaisyTile {
+	lock
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox("DAISY: Hi, {PLAYER}!\nHow are you?", MSGBOX_DEFAULT)
+	release
+}
 script PalletTown_RivalsHouse_EventScript_CeliaBoB {
 	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
 	end
@@ -185,12 +192,16 @@ script BobOmbBattlefield_EventScript_Cannon {
 		switch(var(VAR_FACING)) {
 			case DIR_NORTH:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+				break
 			case DIR_SOUTH:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpDown)
+				break
 			case DIR_EAST:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpRight)
+				break
 			case DIR_WEST:
 				applymovement(OBJ_EVENT_ID_PLAYER, JumpLeft)
+				break
 		}
 		waitmovement(0)
 		setmetatile(31,32,0x075,0)

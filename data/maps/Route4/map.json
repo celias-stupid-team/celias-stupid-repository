@@ -618,6 +618,24 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "Route4_SetCeruleanBench"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarFlag"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route4_SetFarFlag"
     }
   ],
   "bg_events": [

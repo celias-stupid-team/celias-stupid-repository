@@ -36,6 +36,7 @@ script VermilionCity_House1_EventScript_FishingGuru { //Converting to Poryscript
 					setflag(FLAG_GOT_OLD_ROD)
 					msgbox(VermilionCity_House1_Text_FishingIsAWayOfLife) //Asks player for their social security info
 					// Call Social Security script.
+					call(SetPlayerPokedexValues)
 					call(VermilionCity_House1_EventScript_SocialSecurityCheck)
 					release
 					end

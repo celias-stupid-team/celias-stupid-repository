@@ -220,7 +220,7 @@
       "x": 2,
       "y": 4,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_SILPH_CO_7F",
+      "var": "VAR_CSR_DUMMY_2",
       "var_value": "0",
       "script": "SilphCo_7F_EventScript_RivalTriggerTop"
     },
@@ -229,7 +229,7 @@
       "x": 2,
       "y": 5,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_SILPH_CO_7F",
+      "var": "VAR_CSR_DUMMY_2",
       "var_value": "0",
       "script": "SilphCo_7F_EventScript_RivalTriggerBottom"
     }

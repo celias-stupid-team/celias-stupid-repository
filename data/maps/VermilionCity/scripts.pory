@@ -71,8 +71,8 @@ VermilionCity_EventScript_CheckHasAuroraTicket::
 
 VermilionCity_EventScript_CheckSeagallopPresent::
 	setvar VAR_0x8004, ALOLAN_GROWLITHE_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
+	goto_if_ge VAR_CSR_DUMMY_15, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
+	goto_if_ge VAR_CSR_DUMMY_15, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
 	msgbox VermilionCity_Text_TheShipSetSail
 	release
 	end
@@ -209,8 +209,8 @@ VermilionCity_EventScript_DontHaveSSTicket::
 
 VermilionCity_EventScript_CheckSeagallopPresentTrigger::
 	setvar VAR_0x8004, ALOLAN_GROWLITHE_VERMILION_CITY
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
+	goto_if_ge VAR_CSR_DUMMY_15, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
+	goto_if_ge VAR_CSR_DUMMY_15, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
 	msgbox VermilionCity_Text_TheShipSetSail
 	closemessage
 	goto VermilionCity_EventScript_WalkUpPier
@@ -298,9 +298,11 @@ script VermillionCity_CeliaAfterGym {
 		case DIR_EAST:
 			applymovement(VermillionCelia, CeliaWalksRight)
 			waitmovement(0)
+			break
 		default:
 			applymovement(VermillionCelia, CeliaWalksLeft)
 			waitmovement(0)
+			break
 
 	}
 	release

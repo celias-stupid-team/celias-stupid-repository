@@ -6,6 +6,12 @@ Route11_EventScript_DiglettsCaveSign::
 	msgbox Route11_Text_DiglettsCave, MSGBOX_SIGN
 	end
 `
+
+script Route11_OnTransition {
+	setbench(BENCH_VERMILION)
+	setflag(FLAG_CSR_MAP_ROUTE_11)
+	call(SetPlayerPokedexValues)
+}
 script Route11_Man1 {
 	trainerbattle_single(TRAINER_YOUNGSTER_EDDIE, Route11_Text_Man, Route11_Text_DirkDefeat)
 	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)

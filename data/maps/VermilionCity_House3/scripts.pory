@@ -8,6 +8,8 @@ VermilionCity_House3_EventScript_Boy::
 
 VermilionCity_House3_EventScript_Lass::
 	msgbox VermilionCity_House3_Text_SendMyPidgeyToUnionRoom, MSGBOX_NPC
+	setflag FLAG_CSR_HINT_SPEAROW
+	call SetPlayerPokedexValues
 	end
 
 VermilionCity_House3_EventScript_Pidgey::

@@ -67,7 +67,7 @@ static void UpdateTrainerFanClubGameClear(struct TrainerFanClub *fanClub)
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER);
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN);
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_BEAUTY);
-        VarSet(VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB, 1);
+        VarSet(VAR_CSR_DUMMY_12, 1);
     }
 }
 
@@ -75,7 +75,7 @@ ALIGNED(4) const u8 sCounterIncrements[] = {2, 1, 2, 1};
 
 static u8 TryGainNewFanFromCounter(struct TrainerFanClub *fanClub, u8 a1)
 {
-    if (VarGet(VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB) == 2)
+    if (VarGet(VAR_CSR_DUMMY_12) == 2)
     {
         if (fanClub->timer + sCounterIncrements[a1] >= 20)
         {
@@ -316,7 +316,7 @@ void Special_UpdateTrainerFansAfterLinkBattle(void)
 
 static void UpdateTrainerFansAfterLinkBattle(struct TrainerFanClub *fanClub)
 {
-    if (VarGet(VAR_MAP_SCENE_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB) == 2)
+    if (VarGet(VAR_CSR_DUMMY_12) == 2)
     {
         TryLoseFansFromPlayTimeAfterLinkBattle(fanClub);
         if (gBattleOutcome == B_OUTCOME_WON)
