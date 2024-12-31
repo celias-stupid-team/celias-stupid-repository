@@ -137,35 +137,60 @@ static const u8 sTextColor_White[3]  = {0, 1, 2};
 static const u8 sTextColor_DkGrey[3] = {0, 2, 3};
 static const u8 sTextColor_Green[3]  = {0, 6, 7};
 
-#define FAME_CHECKER_PROF_OAK  (FC_NONTRAINER_START + 0)
-#define FAME_CHECKER_DAISY_OAK (FC_NONTRAINER_START + 1)
-#define FAME_CHECKER_BILL      (FC_NONTRAINER_START + 2)
-#define FAME_CHECKER_MR_FUJI   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_PALLET  (FC_NONTRAINER_START + 0)
+#define FAME_CHECKER_VIRIDIAN (FC_NONTRAINER_START + 1)
+#define FAME_CHECKER_PEWTER      (FC_NONTRAINER_START + 2)
+#define FAME_CHECKER_MT_MOON   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_CERULEAN   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_VERMILION   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_ROCK_TUNNEL   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_LAVENDER   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_CELADON   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_FUSHCIA   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_KANTO_SHORELINE   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_SAFFRON   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_GREAT_SEA   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_GREAT_SEA_NORTH   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_GREAT_SEA_WEST   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_CINNABAR_ISLAND   (FC_NONTRAINER_START + 3)
 
 static const u16 sTrainerIdxs[] = {
-    [FAMECHECKER_OAK]      = FAME_CHECKER_PROF_OAK,
-    [FAMECHECKER_DAISY]    = FAME_CHECKER_DAISY_OAK,
-    [FAMECHECKER_BROCK]    = TRAINER_LEADER_BROCK,
-    [FAMECHECKER_MISTY]    = TRAINER_LEADER_MISTY,
-    [FAMECHECKER_LTSURGE]  = TRAINER_LEADER_LT_SURGE,
-    [FAMECHECKER_ERIKA]    = TRAINER_LEADER_ERIKA,
-    [FAMECHECKER_KOGA]     = TRAINER_LEADER_KOGA,
-    [FAMECHECKER_SABRINA]  = TRAINER_LEADER_SABRINA,
-    [FAMECHECKER_BLAINE]   = TRAINER_LEADER_BLAINE,
-    [FAMECHECKER_LORELEI]  = TRAINER_ELITE_FOUR_LORELEI,
-    [FAMECHECKER_BRUNO]    = TRAINER_ELITE_FOUR_BRUNO,
-    [FAMECHECKER_AGATHA]   = TRAINER_ELITE_FOUR_AGATHA,
-    [FAMECHECKER_LANCE]    = TRAINER_ELITE_FOUR_LANCE,
-    [FAMECHECKER_BILL]     = FAME_CHECKER_BILL,
-    [FAMECHECKER_MRFUJI]   = FAME_CHECKER_MR_FUJI,
-    [FAMECHECKER_GIOVANNI] = TRAINER_BOSS_GIOVANNI
+    [FAMECHECKER_OAK]      = FAME_CHECKER_PALLET, // Pallet
+    [FAMECHECKER_DAISY]    = FAME_CHECKER_VIRIDIAN, // Viridian
+    [FAMECHECKER_BROCK]    = FAME_CHECKER_PEWTER, //Pewter
+    [FAMECHECKER_MISTY]    = FAME_CHECKER_MT_MOON, // Mt Moon
+    [FAMECHECKER_LTSURGE]  = FAME_CHECKER_CERULEAN, //Cerulean
+    [FAMECHECKER_ERIKA]    = FAME_CHECKER_VERMILION, // Vermilion
+    [FAMECHECKER_KOGA]     = FAME_CHECKER_ROCK_TUNNEL, // Rock Tunnel
+    [FAMECHECKER_SABRINA]  = FAME_CHECKER_LAVENDER, // Lavender
+    [FAMECHECKER_BLAINE]   = FAME_CHECKER_CELADON, //Celadon
+    [FAMECHECKER_LORELEI]  = FAME_CHECKER_FUSHCIA, // Fushcia
+    [FAMECHECKER_BRUNO]    = FAME_CHECKER_KANTO_SHORELINE, // Kanto Shoreline
+    [FAMECHECKER_AGATHA]   = FAME_CHECKER_SAFFRON, //Saffron
+    [FAMECHECKER_LANCE]    = FAME_CHECKER_GREAT_SEA, // Great Sea
+    [FAMECHECKER_BILL]     = FAME_CHECKER_GREAT_SEA_NORTH, // Great Sea North
+    [FAMECHECKER_MRFUJI]   = FAME_CHECKER_GREAT_SEA_WEST, // Great Sea West
+    [FAMECHECKER_GIOVANNI] = FAME_CHECKER_CINNABAR_ISLAND // Cinnabar Island
 };
 
 static const u8 *const sNonTrainerNamePointers[] = {
-    gFameCheckerOakName,
-    gFameCheckerDaisyName,
-    gFameCheckerBillName,
-    gFameCheckerMrFujiName
+    gFameCheckerPalletName,
+    gFameCheckerViridianName,
+    
+    gFameCheckerPewterName,
+    gFameCheckerMtMoonName,
+    gFameCheckerCeruleanName,
+    gFameCheckerVermilionName,
+    gFameCheckerRockTunnelName,
+    gFameCheckerLavenderName,
+    gFameCheckerCeladonName,
+    gFameCheckerFushciaName,
+    gFameCheckerKantoShorelineName,
+    gFameCheckerSaffronName,
+    gFameCheckerGreatSeaName,
+    gFameCheckerGreatSeaNorthName,
+    gFameCheckerGreatSeaWestName,
+    gFameCheckerCinnabarName,
 };
 
 static const u8 sFameCheckerTrainerPicIdxs[] = {
@@ -378,22 +403,22 @@ static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
 };
 
 static const u8 *const sFlavorTextOriginLocationTexts[] = {
-    gFameCheckerFlavorTextOriginLocation_ProfOak0, gFameCheckerFlavorTextOriginLocation_ProfOak1, gFameCheckerFlavorTextOriginLocation_ProfOak2, gFameCheckerFlavorTextOriginLocation_ProfOak3, gFameCheckerFlavorTextOriginLocation_ProfOak4, gFameCheckerFlavorTextOriginLocation_ProfOak5,
-    gFameCheckerFlavorTextOriginLocation_Daisy0, gFameCheckerFlavorTextOriginLocation_Daisy1, gFameCheckerFlavorTextOriginLocation_Daisy2, gFameCheckerFlavorTextOriginLocation_Daisy3, gFameCheckerFlavorTextOriginLocation_Daisy4, gFameCheckerFlavorTextOriginLocation_Daisy5,
-    gFameCheckerFlavorTextOriginLocation_Brock0, gFameCheckerFlavorTextOriginLocation_Brock1, gFameCheckerFlavorTextOriginLocation_Brock2, gFameCheckerFlavorTextOriginLocation_Brock3, gFameCheckerFlavorTextOriginLocation_Brock4, gFameCheckerFlavorTextOriginLocation_Brock5,
-    gFameCheckerFlavorTextOriginLocation_Misty0, gFameCheckerFlavorTextOriginLocation_Misty1, gFameCheckerFlavorTextOriginLocation_Misty2, gFameCheckerFlavorTextOriginLocation_Misty3, gFameCheckerFlavorTextOriginLocation_Misty4, gFameCheckerFlavorTextOriginLocation_Misty5,
-    gFameCheckerFlavorTextOriginLocation_LtSurge0, gFameCheckerFlavorTextOriginLocation_LtSurge1, gFameCheckerFlavorTextOriginLocation_LtSurge2, gFameCheckerFlavorTextOriginLocation_LtSurge3, gFameCheckerFlavorTextOriginLocation_LtSurge4, gFameCheckerFlavorTextOriginLocation_LtSurge5,
-    gFameCheckerFlavorTextOriginLocation_Erika0, gFameCheckerFlavorTextOriginLocation_Erika1, gFameCheckerFlavorTextOriginLocation_Erika2, gFameCheckerFlavorTextOriginLocation_Erika3, gFameCheckerFlavorTextOriginLocation_Erika4, gFameCheckerFlavorTextOriginLocation_Erika5,
-    gFameCheckerFlavorTextOriginLocation_Koga0, gFameCheckerFlavorTextOriginLocation_Koga1, gFameCheckerFlavorTextOriginLocation_Koga2, gFameCheckerFlavorTextOriginLocation_Koga3, gFameCheckerFlavorTextOriginLocation_Koga4, gFameCheckerFlavorTextOriginLocation_Koga5,
-    gFameCheckerFlavorTextOriginLocation_Sabrina0, gFameCheckerFlavorTextOriginLocation_Sabrina1, gFameCheckerFlavorTextOriginLocation_Sabrina2, gFameCheckerFlavorTextOriginLocation_Sabrina3, gFameCheckerFlavorTextOriginLocation_Sabrina4, gFameCheckerFlavorTextOriginLocation_Sabrina5,
-    gFameCheckerFlavorTextOriginLocation_Blaine0, gFameCheckerFlavorTextOriginLocation_Blaine1, gFameCheckerFlavorTextOriginLocation_Blaine2, gFameCheckerFlavorTextOriginLocation_Blaine3, gFameCheckerFlavorTextOriginLocation_Blaine4, gFameCheckerFlavorTextOriginLocation_Blaine5,
-    gFameCheckerFlavorTextOriginLocation_Lorelei0, gFameCheckerFlavorTextOriginLocation_Lorelei1, gFameCheckerFlavorTextOriginLocation_Lorelei2, gFameCheckerFlavorTextOriginLocation_Lorelei3, gFameCheckerFlavorTextOriginLocation_Lorelei4, gFameCheckerFlavorTextOriginLocation_Lorelei5,
-    gFameCheckerFlavorTextOriginLocation_Bruno0, gFameCheckerFlavorTextOriginLocation_Bruno1, gFameCheckerFlavorTextOriginLocation_Bruno2, gFameCheckerFlavorTextOriginLocation_Bruno3, gFameCheckerFlavorTextOriginLocation_Bruno4, gFameCheckerFlavorTextOriginLocation_Bruno5,
-    gFameCheckerFlavorTextOriginLocation_Agatha0, gFameCheckerFlavorTextOriginLocation_Agatha1, gFameCheckerFlavorTextOriginLocation_Agatha2, gFameCheckerFlavorTextOriginLocation_Agatha3, gFameCheckerFlavorTextOriginLocation_Agatha4, gFameCheckerFlavorTextOriginLocation_Agatha5,
-    gFameCheckerFlavorTextOriginLocation_Lance0, gFameCheckerFlavorTextOriginLocation_Lance1, gFameCheckerFlavorTextOriginLocation_Lance2, gFameCheckerFlavorTextOriginLocation_Lance3, gFameCheckerFlavorTextOriginLocation_Lance4, gFameCheckerFlavorTextOriginLocation_Lance5,
-    gFameCheckerFlavorTextOriginLocation_Bill0, gFameCheckerFlavorTextOriginLocation_Bill1, gFameCheckerFlavorTextOriginLocation_Bill2, gFameCheckerFlavorTextOriginLocation_Bill3, gFameCheckerFlavorTextOriginLocation_Bill4, gFameCheckerFlavorTextOriginLocation_Bill5,
-    gFameCheckerFlavorTextOriginLocation_MrFuji0, gFameCheckerFlavorTextOriginLocation_MrFuji1, gFameCheckerFlavorTextOriginLocation_MrFuji2, gFameCheckerFlavorTextOriginLocation_MrFuji3, gFameCheckerFlavorTextOriginLocation_MrFuji4, gFameCheckerFlavorTextOriginLocation_MrFuji5,
-    gFameCheckerFlavorTextOriginLocation_Giovanni0, gFameCheckerFlavorTextOriginLocation_Giovanni1, gFameCheckerFlavorTextOriginLocation_Giovanni2, gFameCheckerFlavorTextOriginLocation_Giovanni3, gFameCheckerFlavorTextOriginLocation_Giovanni4, gFameCheckerFlavorTextOriginLocation_Giovanni5
+    gRumorLogFlavorTextIntoLine1_Pallet0, gRumorLogFlavorTextIntoLine1_Pallet1, gRumorLogFlavorTextIntoLine1_Pallet2, gRumorLogFlavorTextIntoLine1_Pallet3, gRumorLogFlavorTextIntoLine1_Pallet4, gRumorLogFlavorTextIntoLine1_Pallet5,
+    gRumorLogFlavorTextIntoLine1_Viridian0, gRumorLogFlavorTextIntoLine1_Viridian1, gRumorLogFlavorTextIntoLine1_Viridian2, gRumorLogFlavorTextIntoLine1_Viridian3, gRumorLogFlavorTextIntoLine1_Viridian4, gRumorLogFlavorTextIntoLine1_Viridian5,
+    gRumorLogFlavorTextIntoLine1_Pewter0, gRumorLogFlavorTextIntoLine1_Pewter1, gRumorLogFlavorTextIntoLine1_Pewter2, gRumorLogFlavorTextIntoLine1_Pewter3, gRumorLogFlavorTextIntoLine1_Pewter4, gRumorLogFlavorTextIntoLine1_Pewter5,
+    gRumorLogFlavorTextIntoLine1_MtMoon0, gRumorLogFlavorTextIntoLine1_MtMoon1, gRumorLogFlavorTextIntoLine1_MtMoon2, gRumorLogFlavorTextIntoLine1_MtMoon3, gRumorLogFlavorTextIntoLine1_MtMoon4, gRumorLogFlavorTextIntoLine1_MtMoon5,
+    gRumorLogFlavorTextIntoLine1_Cerulean0, gRumorLogFlavorTextIntoLine1_Cerulean1, gRumorLogFlavorTextIntoLine1_Cerulean2, gRumorLogFlavorTextIntoLine1_Cerulean3, gRumorLogFlavorTextIntoLine1_Cerulean4, gRumorLogFlavorTextIntoLine1_Cerulean5,
+    gRumorLogFlavorTextIntoLine1_Vermilion0, gRumorLogFlavorTextIntoLine1_Vermilion1, gRumorLogFlavorTextIntoLine1_Vermilion2, gRumorLogFlavorTextIntoLine1_Vermilion3, gRumorLogFlavorTextIntoLine1_Vermilion4, gRumorLogFlavorTextIntoLine1_Vermilion5,
+    gRumorLogFlavorTextIntoLine1_RockTunnel0, gRumorLogFlavorTextIntoLine1_RockTunnel1, gRumorLogFlavorTextIntoLine1_RockTunnel2, gRumorLogFlavorTextIntoLine1_RockTunnel3, gRumorLogFlavorTextIntoLine1_RockTunnel4, gRumorLogFlavorTextIntoLine1_RockTunnel5,
+    gRumorLogFlavorTextIntoLine1_Lavender0, gRumorLogFlavorTextIntoLine1_Lavender1, gRumorLogFlavorTextIntoLine1_Lavender2, gRumorLogFlavorTextIntoLine1_Lavender3, gRumorLogFlavorTextIntoLine1_Lavender4, gRumorLogFlavorTextIntoLine1_Lavender5,
+    gRumorLogFlavorTextIntoLine1_Celadon0, gRumorLogFlavorTextIntoLine1_Celadon1, gRumorLogFlavorTextIntoLine1_Celadon2, gRumorLogFlavorTextIntoLine1_Celadon3, gRumorLogFlavorTextIntoLine1_Celadon4, gRumorLogFlavorTextIntoLine1_Celadon5,
+    gRumorLogFlavorTextIntoLine1_Fushcia0, gRumorLogFlavorTextIntoLine1_Fushcia1, gRumorLogFlavorTextIntoLine1_Fushcia2, gRumorLogFlavorTextIntoLine1_Fushcia3, gRumorLogFlavorTextIntoLine1_Fushcia4, gRumorLogFlavorTextIntoLine1_Fushcia5,
+    gRumorLogFlavorTextIntoLine1_KantoShoreline0, gRumorLogFlavorTextIntoLine1_KantoShoreline1, gRumorLogFlavorTextIntoLine1_KantoShoreline2, gRumorLogFlavorTextIntoLine1_KantoShoreline3, gRumorLogFlavorTextIntoLine1_KantoShoreline4, gRumorLogFlavorTextIntoLine1_KantoShoreline5,
+    gRumorLogFlavorTextIntoLine1_Agatha0, gRumorLogFlavorTextIntoLine1_Agatha1, gRumorLogFlavorTextIntoLine1_Agatha2, gRumorLogFlavorTextIntoLine1_Agatha3, gRumorLogFlavorTextIntoLine1_Agatha4, gRumorLogFlavorTextIntoLine1_Agatha5,
+    gRumorLogFlavorTextIntoLine1_Lance0, gRumorLogFlavorTextIntoLine1_Lance1, gRumorLogFlavorTextIntoLine1_Lance2, gRumorLogFlavorTextIntoLine1_Lance3, gRumorLogFlavorTextIntoLine1_Lance4, gRumorLogFlavorTextIntoLine1_Lance5,
+    gRumorLogFlavorTextIntoLine1_Bill0, gRumorLogFlavorTextIntoLine1_Bill1, gRumorLogFlavorTextIntoLine1_Bill2, gRumorLogFlavorTextIntoLine1_Bill3, gRumorLogFlavorTextIntoLine1_Bill4, gRumorLogFlavorTextIntoLine1_Bill5,
+    gRumorLogFlavorTextIntoLine1_MrFuji0, gRumorLogFlavorTextIntoLine1_MrFuji1, gRumorLogFlavorTextIntoLine1_MrFuji2, gRumorLogFlavorTextIntoLine1_MrFuji3, gRumorLogFlavorTextIntoLine1_MrFuji4, gRumorLogFlavorTextIntoLine1_MrFuji5,
+    gRumorLogFlavorTextIntoLine1_Giovanni0, gRumorLogFlavorTextIntoLine1_Giovanni1, gRumorLogFlavorTextIntoLine1_Giovanni2, gRumorLogFlavorTextIntoLine1_Giovanni3, gRumorLogFlavorTextIntoLine1_Giovanni4, gRumorLogFlavorTextIntoLine1_Giovanni5
 };
 
 static const u8 *const sFlavorTextOriginObjectNameTexts[] = {

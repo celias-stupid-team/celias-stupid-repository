@@ -2,7 +2,7 @@ const EMBLEM = 3
 mapscripts MtMoonSquare_Unbroken_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         setflag(FLAG_HIDE_P_EMBLEM)
-        if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 1) {
+        if(!checkitem(ITEM_P_EMBLEM, 1)) {
             clearflag(FLAG_HIDE_P_EMBLEM)
         }
     }
@@ -18,11 +18,11 @@ script MtMoonSquare_StartDance {
     playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
     //dance
     delay(60)
-    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraDown)
     delay(10)
     fadescreen(FADE_TO_BLACK)
     addobject(EMBLEM)
     setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraDown)
     waitmovement(0)
     fadescreen(FADE_FROM_BLACK)
     special(RemoveCameraObject)
@@ -39,9 +39,9 @@ script MtMoonSquare_Emblem {
 }
 
 movement MtMoonSquare_CameraUp {
-    walk_slow_up * 5
+    walk_slow_up * 6
 }
 
 movement MtMoonSquare_CameraDown {
-    walk_slow_down * 5
+    walk_slow_down * 6
 }

@@ -798,292 +798,292 @@ gFameCheckerPersonQuote_Giovanni:: @ 0x81B0BB5
 	.string "I will concentrate solely on\n"
 	.string "bettering myself, and none other.$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak0:: @ 0x81B0C45
+gRumorLogFlavorTextIntoLine1_Pallet0:: @ 0x81B0C45
 	.string "PALLET TOWN$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak1::
+gRumorLogFlavorTextIntoLine1_Pallet1::
 	.string "RESEARCH LAB$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak2::
+gRumorLogFlavorTextIntoLine1_Pallet2::
 	.string "RESEARCH LAB$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak3::
+gRumorLogFlavorTextIntoLine1_Pallet3::
 	.string "VIRIDIAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak4::
+gRumorLogFlavorTextIntoLine1_Pallet4::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_ProfOak5::
+gRumorLogFlavorTextIntoLine1_Pallet5::
 	.string "RESEARCH LAB$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy0::
+gRumorLogFlavorTextIntoLine1_Viridian0::
 	.string "RESEARCH LAB$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy1::
+gRumorLogFlavorTextIntoLine1_Viridian1::
 	.string "VERMILION CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy2::
+gRumorLogFlavorTextIntoLine1_Viridian2::
 	.string "WATER LABYRINTH$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy3::
+gRumorLogFlavorTextIntoLine1_Viridian3::
 	.string "VIRIDIAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy4::
+gRumorLogFlavorTextIntoLine1_Viridian4::
 	.string "CELADON MANSION$"
 
-gFameCheckerFlavorTextOriginLocation_Daisy5::
+gRumorLogFlavorTextIntoLine1_Viridian5::
 	.string "FOUR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Brock0::
+gRumorLogFlavorTextIntoLine1_Pewter0::
 	.string "PEWTER CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Brock1::
+gRumorLogFlavorTextIntoLine1_Pewter1::
 	.string "PEWTER GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Brock2::
+gRumorLogFlavorTextIntoLine1_Pewter2::
 	.string "PEWTER CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Brock3::
+gRumorLogFlavorTextIntoLine1_Pewter3::
 	.string "ROUTE 4$"
 
-gFameCheckerFlavorTextOriginLocation_Brock4::
+gRumorLogFlavorTextIntoLine1_Pewter4::
 	.string "MT. MOON$"
 
-gFameCheckerFlavorTextOriginLocation_Brock5::
+gRumorLogFlavorTextIntoLine1_Pewter5::
 	.string "PEWTER MUSEUM$"
 
-gFameCheckerFlavorTextOriginLocation_Misty0::
+gRumorLogFlavorTextIntoLine1_MtMoon0::
 	.string "CERULEAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Misty1::
+gRumorLogFlavorTextIntoLine1_MtMoon1::
 	.string "CERULEAN GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Misty2::
+gRumorLogFlavorTextIntoLine1_MtMoon2::
 	.string "CERULEAN GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Misty3::
+gRumorLogFlavorTextIntoLine1_MtMoon3::
 	.string "SEAFOAM ISLANDS$"
 
-gFameCheckerFlavorTextOriginLocation_Misty4::
+gRumorLogFlavorTextIntoLine1_MtMoon4::
 	.string "CERULEAN CAPE$"
 
-gFameCheckerFlavorTextOriginLocation_Misty5::
+gRumorLogFlavorTextIntoLine1_MtMoon5::
 	.string "CERULEAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge0::
+gRumorLogFlavorTextIntoLine1_Cerulean0::
 	.string "VERMILION CITY$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge1::
+gRumorLogFlavorTextIntoLine1_Cerulean1::
 	.string "VERMILION GYM$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge2::
+gRumorLogFlavorTextIntoLine1_Cerulean2::
 	.string "VERMILION GYM$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge3::
+gRumorLogFlavorTextIntoLine1_Cerulean3::
 	.string "VERMILION GYM$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge4::
+gRumorLogFlavorTextIntoLine1_Cerulean4::
 	.string "VERMILION GYM$"
 
-gFameCheckerFlavorTextOriginLocation_LtSurge5::
+gRumorLogFlavorTextIntoLine1_Cerulean5::
 	.string "VERMILION CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Erika0::
+gRumorLogFlavorTextIntoLine1_Vermilion0::
 	.string "CELADON CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Erika1::
+gRumorLogFlavorTextIntoLine1_Vermilion1::
 	.string "CELADON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Erika2::
+gRumorLogFlavorTextIntoLine1_Vermilion2::
 	.string "CELADON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Erika3::
+gRumorLogFlavorTextIntoLine1_Vermilion3::
 	.string "CELADON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Erika4::
+gRumorLogFlavorTextIntoLine1_Vermilion4::
 	.string "CELADON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Erika5::
+gRumorLogFlavorTextIntoLine1_Vermilion5::
 	.string "CELADON MANSION$"
 
-gFameCheckerFlavorTextOriginLocation_Koga0::
+gRumorLogFlavorTextIntoLine1_RockTunnel0::
 	.string "FUSHCIA CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Koga1::
+gRumorLogFlavorTextIntoLine1_RockTunnel1::
 	.string "FUSHCIA GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Koga2::
+gRumorLogFlavorTextIntoLine1_RockTunnel2::
 	.string "FUSHCIA GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Koga3::
+gRumorLogFlavorTextIntoLine1_RockTunnel3::
 	.string "FUSHCIA CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Koga4::
+gRumorLogFlavorTextIntoLine1_RockTunnel4::
 	.string "FUSHCIA CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Koga5::
+gRumorLogFlavorTextIntoLine1_RockTunnel5::
 	.string "SAFARI ZONE$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina0::
+gRumorLogFlavorTextIntoLine1_Lavender0::
 	.string "SAFFRON CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina1::
+gRumorLogFlavorTextIntoLine1_Lavender1::
 	.string "THREE ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina2::
+gRumorLogFlavorTextIntoLine1_Lavender2::
 	.string "SAFFRON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina3::
+gRumorLogFlavorTextIntoLine1_Lavender3::
 	.string "SAFFRON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina4::
+gRumorLogFlavorTextIntoLine1_Lavender4::
 	.string "SAFFRON CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Sabrina5::
+gRumorLogFlavorTextIntoLine1_Lavender5::
 	.string "SAFFRON GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine0::
+gRumorLogFlavorTextIntoLine1_Celadon0::
 	.string "CINNABAR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine1::
+gRumorLogFlavorTextIntoLine1_Celadon1::
 	.string "CINNABAR GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine2::
+gRumorLogFlavorTextIntoLine1_Celadon2::
 	.string "CINNABAR GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine3::
+gRumorLogFlavorTextIntoLine1_Celadon3::
 	.string "CINNABAR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine4::
+gRumorLogFlavorTextIntoLine1_Celadon4::
 	.string "CINNABAR GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Blaine5::
+gRumorLogFlavorTextIntoLine1_Celadon5::
 	.string "RESORT GORGEOUS$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei0::
+gRumorLogFlavorTextIntoLine1_Fushcia0::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei1::
+gRumorLogFlavorTextIntoLine1_Fushcia1::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei2::
+gRumorLogFlavorTextIntoLine1_Fushcia2::
 	.string "FOUR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei3::
+gRumorLogFlavorTextIntoLine1_Fushcia3::
 	.string "FIVE ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei4::
+gRumorLogFlavorTextIntoLine1_Fushcia4::
 	.string "FOUR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Lorelei5::
+gRumorLogFlavorTextIntoLine1_Fushcia5::
 	.string "FOUR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno0::
+gRumorLogFlavorTextIntoLine1_KantoShoreline0::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno1::
+gRumorLogFlavorTextIntoLine1_KantoShoreline1::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno2::
+gRumorLogFlavorTextIntoLine1_KantoShoreline2::
 	.string "SAFFRON CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno3::
+gRumorLogFlavorTextIntoLine1_KantoShoreline3::
 	.string "EMBER SPA$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno4::
+gRumorLogFlavorTextIntoLine1_KantoShoreline4::
 	.string "TWO ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Bruno5::
+gRumorLogFlavorTextIntoLine1_KantoShoreline5::
 	.string "SEVAULT CANYON$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha0::
+gRumorLogFlavorTextIntoLine1_Agatha0::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha1::
+gRumorLogFlavorTextIntoLine1_Agatha1::
 	.string "INDIGO PLATEAU$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha2::
+gRumorLogFlavorTextIntoLine1_Agatha2::
 	.string "INDIGO PLATEAU$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha3::
+gRumorLogFlavorTextIntoLine1_Agatha3::
 	.string "SEVEN ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha4::
+gRumorLogFlavorTextIntoLine1_Agatha4::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Agatha5::
+gRumorLogFlavorTextIntoLine1_Agatha5::
 	.string "SIX ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Lance0::
+gRumorLogFlavorTextIntoLine1_Lance0::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Lance1::
+gRumorLogFlavorTextIntoLine1_Lance1::
 	.string "POKéMON LEAGUE$"
 
-gFameCheckerFlavorTextOriginLocation_Lance2::
+gRumorLogFlavorTextIntoLine1_Lance2::
 	.string "SAFFRON CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Lance3::
+gRumorLogFlavorTextIntoLine1_Lance3::
 	.string "CELADON DEPT.$"
 
-gFameCheckerFlavorTextOriginLocation_Lance4::
+gRumorLogFlavorTextIntoLine1_Lance4::
 	.string "INDIGO PLATEAU$"
 
-gFameCheckerFlavorTextOriginLocation_Lance5::
+gRumorLogFlavorTextIntoLine1_Lance5::
 	.string "INDIGO PLATEAU$"
 
-gFameCheckerFlavorTextOriginLocation_Bill0::
+gRumorLogFlavorTextIntoLine1_Bill0::
 	.string "CERULEAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Bill1::
+gRumorLogFlavorTextIntoLine1_Bill1::
 	.string "CERULEAN CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Bill2::
+gRumorLogFlavorTextIntoLine1_Bill2::
 	.string "FUSHCIA CITY$"
 
-gFameCheckerFlavorTextOriginLocation_Bill3::
+gRumorLogFlavorTextIntoLine1_Bill3::
 	.string "ONE ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Bill4::
+gRumorLogFlavorTextIntoLine1_Bill4::
 	.string "ONE ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Bill5::
+gRumorLogFlavorTextIntoLine1_Bill5::
 	.string "ONE ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji0::
+gRumorLogFlavorTextIntoLine1_MrFuji0::
 	.string "LAVENDER TOWN$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji1::
+gRumorLogFlavorTextIntoLine1_MrFuji1::
 	.string "POKéMON TOWER$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji2::
+gRumorLogFlavorTextIntoLine1_MrFuji2::
 	.string "LAVENDER TOWN$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji3::
+gRumorLogFlavorTextIntoLine1_MrFuji3::
 	.string "LAVENDER TOWN$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji4::
+gRumorLogFlavorTextIntoLine1_MrFuji4::
 	.string "CINNABAR GYM$"
 
-gFameCheckerFlavorTextOriginLocation_MrFuji5::
+gRumorLogFlavorTextIntoLine1_MrFuji5::
 	.string "CINNABAR ISLAND$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni0::
+gRumorLogFlavorTextIntoLine1_Giovanni0::
 	.string "ROCKET HIDEOUT$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni1::
+gRumorLogFlavorTextIntoLine1_Giovanni1::
 	.string "SILPH CO.$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni2::
+gRumorLogFlavorTextIntoLine1_Giovanni2::
 	.string "SILPH CO.$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni3::
+gRumorLogFlavorTextIntoLine1_Giovanni3::
 	.string "VIRIDIAN GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni4::
+gRumorLogFlavorTextIntoLine1_Giovanni4::
 	.string "VIRIDIAN GYM$"
 
-gFameCheckerFlavorTextOriginLocation_Giovanni5::
+gRumorLogFlavorTextIntoLine1_Giovanni5::
 	.string "ROCKET WAREHOUSE$"
 
 gFameCheckerFlavorTextOriginObjectName_ProfOak0::
