@@ -3565,7 +3565,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt15),
     },
-    [TRAINER_DMCA_GRUNT_16] = {
+    [TRAINER_DMCA_PETREL_1] = {
         .trainerClass = TRAINER_CLASS_DMCA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,

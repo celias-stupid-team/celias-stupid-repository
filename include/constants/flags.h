@@ -266,7 +266,7 @@
 #define FLAG_CSR_ROUTE8_PUSHED_BENCH               0x0E1
 #define FLAG_CSR_BERRY_FOREST_HBOX               0x0E2
 #define FLAG_CSR_L_EMBLEM               0x0E3
-#define FLAG_0x0E4               0x0E4
+#define FLAG_CSR_SUPER_SCOPE               0x0E4
 #define FLAG_0x0E5               0x0E5
 #define FLAG_0x0E6               0x0E6
 #define FLAG_0x0E7               0x0E7

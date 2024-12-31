@@ -17,23 +17,9 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
-      "x": 19,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B4F_EventScript_Giovanni",
-      "flag": "FLAG_HIDE_HIDEOUT_GIOVANNI"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 20,
-      "y": 5,
+      "x": 19,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -41,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RocketHideout_B4F_EventScript_SilphScope",
-      "flag": "FLAG_HIDE_SILPH_SCOPE"
+      "flag": "FLAG_CSR_SUPER_SCOPE"
     },
     {
       "type": "object",
@@ -89,9 +75,9 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 16,
-      "y": 14,
+      "y": 9,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -140,6 +126,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RocketHideout_B4F_EventScript_ItemCalcium",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
+      "x": 11,
+      "y": 0,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RocketHideout_B4F_EventScript_Giovanni",
+      "flag": "FLAG_HIDE_HIDEOUT_GIOVANNI"
     }
   ],
   "warp_events": [

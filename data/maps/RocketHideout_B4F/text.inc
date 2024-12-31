@@ -44,13 +44,41 @@ RocketHideout_B4F_Text_Grunt3PostBattle::
     .string "I'm sorry I failed you!$"
 
 RocketHideout_B4F_Text_Grunt1Intro::
-    .string "The elevator doesn't work?\n"
-    .string "Who has the LIFT KEY?$"
+	.string "Who has the LIFT KEY?\n"
+	.string "It definitely isn't me!\p"
+	.string "No siree!\p"
+	.string "I, Mr. BUTTERFINGERS DMCA, am\n"
+	.string "definitely not holding the LIFT KEY.$"
 
 RocketHideout_B4F_Text_Grunt1Defeat::
     .string "No!$"
 
 RocketHideout_B4F_Text_Grunt1PostBattle::
-    .string "Oh, no!\n"
-    .string "I dropped the LIFT KEY!$"
+	.string "Oh, no!\n"
+	.string "“BUTTERFINGERS” is copyrighted!$"
 
+DMCA_LawOffices_PetrelIntro::
+	.string "What...?\n"
+	.string "Who are you?\p"
+	.string "My name is PETREL.\n"
+	.string "I'm an admin of the DMCA!\p"
+	.string "How dare you tresspass in our\n"
+	.string "LAW OFFICES!$"
+
+DMCA_LawOffices_PetrelDefeat::
+	.string "Ayaya!\n"
+	.string "My POKéMON were all copies!$"
+
+DMCA_LawOffices_PetrelAfter::
+	.string "Grr…\p"
+	.string "The SCOPE on the table there was a\n"
+	.string "clear copy of the NES ZAPPER.\l"
+	.string "How dare you take it!\p"
+	.string "The BOSS is off on important\n"
+	.string "business too...\p"
+	.string "No matter!\n"
+	.string "You won't be able to take him down!\p"
+	.string "His POKéMON is fully invincible!\n"
+	.string "It has no weakness you can exploit!\p"
+	.string "Well, it has no weaknesses in THIS\n"
+	.string "GENERATION, at least.$"
