@@ -126,3 +126,68 @@ SaffronCity_EventScript_TrainerFanClubSign::
 	msgbox SaffronCity_Text_TrainerFanClubSign, MSGBOX_SIGN
 	end
 `
+script SaffronCity_EventScript_EntryDMCA {
+	msgbox("Haha! Welcome to SAFFRON CITY!\nNow officially under DMCA control!\p...Huh?\nWhere's the music?\pThat song was infringing on both\nPEWTER and VIRIDIAN!\lIt had to go!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_ThinIceDMCA {
+	msgbox("Hrrrrm...\nThis guy's on thin ice!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_FloorTilesDMCA {
+	msgbox("These floor tiles are all illegal\ncopies of each other!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_MartDMCA {
+	msgbox("This MART was selling the same\nitems as all the others!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_RichFromPatentsDMCA {
+	msgbox("SILPH has been putting out so many\nfake patents!\pWith all the revenue from the\ncopyright claims, we're gonna be so\lrich!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_GymDMCA {
+	msgbox("This GYM is violating the copyright\nof the GYM next door!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_CopycatDMCA {
+	msgbox("The girl inside this house won't\nstop illegally copying materials!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_BootlickerDMCA {
+	msgbox("My life as a corporate bootlicker\nmakes me feel so alive!", MSGBOX_NPC)
+	end
+}
+
+script SaffronCity_EventScript_HiddenDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm hiding under this building\nfor now.\lThese DMCA people are scary!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	setflag(FLAG_SAFFRON_HIDDEN)
+	release
+	end
+}
+
+script SaffronCity_EventScript_CenterSign {
+	msgbox("NOTICE!\pThis POKéMON Center has been found\nto be an illegal copy of all other\lPOKéMON Centers.\pAs such, the DMCA has demanded the\nend of its operations.\pThank you for understanding.\n", MSGBOX_SIGN)
+	end
+}
+
+script SaffronCity_EventScript_CSR2Sign {
+	msgbox("Planning meeting for\nCelia's Stupid Romhack 2!\pOnly those who are related to this\nproject are allowed to enter.\l-Celia's Stupid Dev Company", MSGBOX_SIGN)
+	end
+}
+
+script SaffronCity_EventScript_SaffronSign {
+	msgbox("This sign's contents have been\ntaken down due to copyright.", MSGBOX_SIGN)
+	end
+}
