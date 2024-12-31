@@ -57,16 +57,16 @@ Help_Text_Continued::
     .string "Unfortunately because you decided\n"
 	.string "to subject yourself to this hack,\l"
 	.string "the HELP you need is far beyond\l"
-	.string "what I can provide.\l"
+	.string "what I can provide.\l\l"
 	.string "As such, here is the entirety of\n"
-	.string "the King James Bible (1638 edition).\l\l"
+	.string "the King James Bible (1638 edition).\l"
 	.string "Enjoy!$"
 
 Help_Text_PlayingForFirstTime::
 	.string "I'm playing for the first time. Help!$"
 
 Help_Text_WhatShouldIBeDoing::
-	.string "This isn't implemented yet. Sorry! -CELIA$"
+	.string "This isn't implemented yet. Sorry!$"
 
 Help_Text_CantGetOutOfRoom::
 	.string "I can't get out of a room!$"
