@@ -2767,6 +2767,11 @@ static void PlayerHandleIntroSlide(void)
     PlayerBufferExecCompleted();
 }
 
+const u32* GetBackPicPalette_HandleOutfit(u8 gender)
+{
+    return gOutfitToBackPicPalette[gSaveBlock1Ptr->currentOutfit][gender];
+}
+
 static void PlayerHandleIntroTrainerBallThrow(void)
 {
     u8 paletteNum;
@@ -2781,7 +2786,7 @@ static void PlayerHandleIntroTrainerBallThrow(void)
     StoreSpriteCallbackInData6(&gSprites[gBattlerSpriteIds[gActiveBattler]], SpriteCB_FreePlayerSpriteLoadMonSprite);
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], 1);
     paletteNum = AllocSpritePalette(0xD6F8);
-    LoadCompressedPalette(gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
+    LoadCompressedPalette(GetBackPicPalette_HandleOutfit(gSaveBlock2Ptr->playerGender), OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = paletteNum;
     taskId = CreateTask(Task_StartSendOutAnim, 5);
     gTasks[taskId].data[0] = gActiveBattler;
