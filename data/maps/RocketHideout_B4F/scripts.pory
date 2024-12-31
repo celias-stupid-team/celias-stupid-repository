@@ -133,7 +133,7 @@ script DMCAHideout_Petrel {
 
 script DMCAHideout_SuperScope {
 	lock
-	cry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
 	waitmoncry
 	setwildbattle(SPECIES_JIGGLYPUFF, 35, ITEM_NONE)
 	dowildbattle
