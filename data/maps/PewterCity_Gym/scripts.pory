@@ -4,7 +4,7 @@ PewterCity_Gym_MapScripts::
 	.byte 0
 
 PewterCity_Gym_EventScript_Brock::
-	famechecker FAMECHECKER_BROCK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	famechecker FAMECHECKER_PEWTER, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	setvar VAR_TEMP_START_EVENT_BATTLE, 2
 	trainerbattle_single TRAINER_LEADER_BROCK, PewterCity_Gym_Text_BrockIntro, PewterCity_Gym_Text_BrockDefeat, PewterCity_Gym_EventScript_DefeatedBrock, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM39_FROM_BROCK, PewterCity_Gym_EventScript_GiveTM39
@@ -13,7 +13,7 @@ PewterCity_Gym_EventScript_Brock::
 	end
 
 PewterCity_Gym_EventScript_DefeatedBrock::
-	famechecker FAMECHECKER_BROCK, 1
+	famechecker FAMECHECKER_PEWTER, 1
 	setflag FLAG_DEFEATED_BROCK
 	setflag FLAG_BADGE01_GET
 	setvar VAR_MAP_SCENE_PEWTER_CITY, 1

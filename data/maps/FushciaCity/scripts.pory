@@ -36,7 +36,7 @@ FushciaCity_EventScript_Youngster::
 FushciaCity_EventScript_Lass::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_KOGA, 3
+	famechecker FAMECHECKER_ROCK_TUNNEL, 3
 	msgbox FushciaCity_Text_MyFatherIsGymLeader
 	release
 	end
@@ -64,7 +64,7 @@ FushciaCity_EventScript_SafariZoneOfficeSign::
 
 FushciaCity_EventScript_GymSign::
 	lockall
-	famechecker FAMECHECKER_KOGA, 0
+	famechecker FAMECHECKER_ROCK_TUNNEL, 0
 	msgbox FushciaCity_Text_GymSign
 	releaseall
 	end
