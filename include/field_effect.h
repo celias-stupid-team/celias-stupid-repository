@@ -3,10 +3,12 @@
 
 #include "global.h"
 #include "constants/field_effects.h"
+#include "constants/event_object_movement.h"
 
 extern u32 gFieldEffectArguments[8];
 extern void (*gPostMenuFieldCallback)(void);
 extern bool8 (*gFieldCallback2)(void);
+extern const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT];
 
 u32 FieldEffectStart(u8);
 bool8 FieldEffectActiveListContains(u8 id);

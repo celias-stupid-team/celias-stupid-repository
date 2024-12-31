@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "decompress.h"
 #include "data.h"
+#include "field_effect.h"
 
 struct PicData
 {
@@ -104,12 +105,25 @@ void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8 palett
     }
 }
 
+const u32* GetFrontPicPalette_HandleOutfit(u16 trainer)
+{
+    u8 gender = trainer == TRAINER_PIC_RED ? MALE : FEMALE;
+    if (trainer == TRAINER_PIC_RED || trainer == TRAINER_PIC_LEAF)
+    {
+        return gOutfitToFrontPicPalette[gSaveBlock1Ptr->currentOutfit][gender];
+    }
+    else
+    {
+        return gTrainerFrontPicPaletteTable[trainer].data;
+    }
+}
+
 void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, bool8 isTrainer)
 {
     if (!isTrainer)
         LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
     else
-        LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+        LoadCompressedPalette(GetFrontPicPalette_HandleOutfit(species), BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
 }
 
 void AssignSpriteAnimsTable(bool8 isTrainer)

@@ -7743,6 +7743,21 @@ extern const u32 gBackPicPalette_Green_LP[];
 extern const u32 gBackPicPalette_Green_WP[];
 extern const u32 gBackPicPalette_Green_LWP[];
 
+extern const u32 gFrontPicPalette_Red_L[];
+extern const u32 gFrontPicPalette_Red_W[];
+extern const u32 gFrontPicPalette_Red_P[];
+extern const u32 gFrontPicPalette_Red_LW[];
+extern const u32 gFrontPicPalette_Red_LP[];
+extern const u32 gFrontPicPalette_Red_WP[];
+extern const u32 gFrontPicPalette_Red_LWP[];
+extern const u32 gFrontPicPalette_Green_L[];
+extern const u32 gFrontPicPalette_Green_W[];
+extern const u32 gFrontPicPalette_Green_P[];
+extern const u32 gFrontPicPalette_Green_LW[];
+extern const u32 gFrontPicPalette_Green_LP[];
+extern const u32 gFrontPicPalette_Green_WP[];
+extern const u32 gFrontPicPalette_Green_LWP[];
+
 extern const u8 gMenuInfoElements_Gfx[];
 extern const u16 gMenuInfoElements1_Pal[];
 extern const u16 gMenuInfoElements2_Pal[];

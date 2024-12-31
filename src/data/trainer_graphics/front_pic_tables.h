@@ -305,6 +305,17 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
 };
 
+const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
+    [OUTFIT_NONE] = {gTrainerPalette_Red,      gTrainerPalette_Leaf},
+    [OUTFIT_L]    = {gFrontPicPalette_Red_L,   gFrontPicPalette_Green_L},
+    [OUTFIT_W]    = {gFrontPicPalette_Red_W,   gFrontPicPalette_Green_W},
+    [OUTFIT_P]    = {gFrontPicPalette_Red_P,   gFrontPicPalette_Green_P},
+    [OUTFIT_LW]   = {gFrontPicPalette_Red_LW,  gFrontPicPalette_Green_LW},
+    [OUTFIT_LP]   = {gFrontPicPalette_Red_LP,  gFrontPicPalette_Green_LP},
+    [OUTFIT_WP]   = {gFrontPicPalette_Red_WP,  gFrontPicPalette_Green_WP},
+    [OUTFIT_LWP]  = {gFrontPicPalette_Red_LWP, gFrontPicPalette_Green_LWP},
+};
+
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 {
     TRAINER_PAL(AQUA_LEADER_ARCHIE, gTrainerPalette_AquaLeaderArchie),
