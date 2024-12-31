@@ -13,13 +13,13 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 24,
-      "y": 18,
+      "x": 26,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
-      "x": 4,
-      "y": 10,
+      "x": 5,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -88,8 +88,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
-      "x": 4,
-      "y": 18,
+      "x": 1,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -102,8 +102,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SABRINA",
-      "x": 14,
-      "y": 11,
+      "x": 15,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -117,7 +117,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 24,
-      "y": 10,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -130,8 +130,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
-      "x": 15,
-      "y": 20,
+      "x": 21,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -139,6 +139,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_Gym_EventScript_GymGuy",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SIGN",
+      "x": 14,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -165,8 +179,8 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 18,
-      "y": 20,
+      "x": 26,
+      "y": 13,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "32"
@@ -228,28 +242,28 @@
       "dest_warp_id": "7"
     },
     {
-      "x": 8,
+      "x": 6,
       "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "17"
     },
     {
-      "x": 8,
+      "x": 6,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "15"
     },
     {
-      "x": 8,
+      "x": 6,
       "y": 20,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "26"
     },
     {
-      "x": 8,
+      "x": 6,
       "y": 23,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
@@ -284,8 +298,8 @@
       "dest_warp_id": "9"
     },
     {
-      "x": 18,
-      "y": 15,
+      "x": 23,
+      "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "5"
@@ -312,15 +326,15 @@
       "dest_warp_id": "21"
     },
     {
-      "x": 20,
+      "x": 24,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "16"
     },
     {
-      "x": 20,
-      "y": 20,
+      "x": 28,
+      "y": 18,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "27"
@@ -375,7 +389,206 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SaffronGym_ClearShiny"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

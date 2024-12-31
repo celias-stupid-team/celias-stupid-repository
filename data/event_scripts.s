@@ -1393,3 +1393,6 @@ Text_TestMsg::
 
 	.include "data/maps/MtMoonSquare_Unbroken/scripts.inc"
 	.include "data/maps/MtMoonSquare_Unbroken/text.inc"
+
+	.include "data/maps/ViridianCity_GamblerHouse/scripts.inc"
+	.include "data/maps/ViridianCity_GamblerHouse/text.inc"

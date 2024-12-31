@@ -96,3 +96,17 @@ SaffronCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+script SaffronGym_ClosedSign {
+	msgbox("ATTENTION!\pIn light of last month's unfortunate\ndecapitation incident, this GYM\lis no longer in service.\pThank you for your patronage.\n", MSGBOX_SIGN)
+	end
+}
+
+script SaffronGym_SetShiny {
+	setflag(FLAG_SHINY_CREATION)
+	release
+}
+
+script SaffronGym_ClearShiny {
+	clearflag(FLAG_SHINY_CREATION)
+	release
+}

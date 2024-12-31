@@ -4512,6 +4512,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/MtMoonSquare_Unbroken/border.bin",
       "blockdata_filepath": "data/layouts/MtMoonSquare_Unbroken/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_GAMBLER_HOUSE",
+      "name": "ViridianCity_GamblerHouse_Layout",
+      "width": 11,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GameCorner",
+      "border_filepath": "data/layouts/ViridianCity_GamblerHouse/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_GamblerHouse/map.bin"
     }
   ]
 }
