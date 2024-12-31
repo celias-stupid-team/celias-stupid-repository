@@ -2184,7 +2184,7 @@ void TogglePlayerOutfit(u8 outfit)
     gSaveBlock1Ptr->currentOutfit ^= outfit;
 }
 
-static const struct SpritePalette *HandleOutfitPalette(u16 paletteTag)
+static const struct SpritePalette *GetObjectEventPal_HandleOutfit(u16 paletteTag)
 {
     if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED)
         return &sOutfitToPaletteRed[gSaveBlock1Ptr->currentOutfit];
@@ -2206,7 +2206,7 @@ static void LoadObjectEventPalette(u16 paletteTag)
     {
         if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
         {
-            pal = HandleOutfitPalette(paletteTag);
+            pal = GetObjectEventPal_HandleOutfit(paletteTag);
             FreeSpritePaletteByTag(paletteTag);
         }
         else
@@ -2245,7 +2245,7 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
     if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
     {
-        pal = HandleOutfitPalette(paletteTag);
+        pal = GetObjectEventPal_HandleOutfit(paletteTag);
         LoadPalette(pal->data, OBJ_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
     }
     else
