@@ -312,7 +312,7 @@ SECTIONS {
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
         src/mugshot.o(.text);
-
+        src/doom_desire.o(.text);
     } > ROM =0
 
     script_data :
@@ -610,6 +610,7 @@ SECTIONS {
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
         src/mugshot.o(.rodata);
+        src/doom_desire.o(.rodata);
         src/field_special_scene.o(.rodata);
 
         /* These should not be moved to C files */
