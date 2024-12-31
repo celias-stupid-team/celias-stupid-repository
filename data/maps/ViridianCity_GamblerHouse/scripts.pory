@@ -1,0 +1,59 @@
+mapscripts ViridianCity_GamblerHouse_MapScripts {
+
+}
+
+script GamblerHouse_SlotMachines {
+	msgbox("Darn, these ones are fancy toasters\ntoo...", MSGBOX_SIGN)
+	end
+}
+
+script GamblerHouse_Gambler {
+	msgbox("Hey!\nThanks for finding my keys!\pIf you have a minute, how about you\nsit down and play a game with me?\lI'm a big fan of VOLTORB FLIP!", MSGBOX_NPC)
+	end
+}
+
+script GamblerHouse_Duck {
+	msgbox("I'm studying SPADES as this guy's\nPOKéMON.", MSGBOX_NPC)
+	end
+}
+
+
+const VOLTORB = 3
+script GamblerHouse_Cards {
+    lock
+    msgbox("It's a table set up to play\nVOLTORB FLIP!\lPlay a round?", MSGBOX_YESNO)
+    if(!var(VAR_RESULT)) {
+        release
+        end
+    } else {
+        closemessage
+        msgbox("{PLAYER} flipped a card...\n", MSGBOX_DEFAULT)
+        closemessage
+        delay(10)
+        playse(SE_BOO)
+        waitse
+        delay(30)
+        playse(SE_FALL)
+        delay(20)
+        applymovement(VOLTORB, VoltorbFalls)
+        waitmovement(0)
+        playse(SE_BANG)
+        delay(45)
+        playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+        waitmoncry
+        setwildbattle(SPECIES_JIGGLYPUFF, 25, ITEM_NONE)
+        dowildbattle
+        fadescreen(FADE_TO_BLACK)
+        setobjectxy(VOLTORB, 2, 1)
+        delay(20)
+        fadescreen(FADE_FROM_BLACK)
+        release
+        end
+
+    }
+}
+
+movement VoltorbFalls {
+    set_visible
+    slide_down * 5
+}

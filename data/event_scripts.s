@@ -1021,7 +1021,6 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setflag FLAG_HIDE_POKEHOUSE_FUJI
 	setflag FLAG_HIDE_LIFT_KEY
-	setflag FLAG_HIDE_SILPH_SCOPE
 	setflag FLAG_HIDE_CERULEAN_RIVAL
 	setflag FLAG_HIDE_SS_ANNE_RIVAL
 	setflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
@@ -1390,3 +1389,9 @@ Text_TestMsg::
 
 	.include "data/maps/SecretTunnel/scripts.inc"
 	.include "data/maps/SecretTunnel/text.inc"
+
+	.include "data/maps/MtMoonSquare_Unbroken/scripts.inc"
+	.include "data/maps/MtMoonSquare_Unbroken/text.inc"
+
+	.include "data/maps/ViridianCity_GamblerHouse/scripts.inc"
+	.include "data/maps/ViridianCity_GamblerHouse/text.inc"

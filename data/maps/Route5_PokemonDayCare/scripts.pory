@@ -4,3 +4,24 @@ raw `
 Route5_PokemonDayCare_MapScripts::
 	.byte 0
 `
+script AbandonedHouse_Bed {
+	lock
+	msgbox("{PLAYER} smelled the bed.\pMmm…\nSmells like a bargain!", MSGBOX_DEFAULT)
+	release
+}
+
+script AbandonedHouse_WEmblem {
+	finditem(ITEM_W_EMBLEM)
+}
+
+script AbandonedHouse_Books {
+	lock
+	msgbox("The books are tattered.\nSome words can be made out…", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox("My --- Life, Ch--\pI w-- --her a mur-- sus--,\nnor a t--- -- - --nterna--…", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox("You decide to stop reading.\n", MSGBOX_DEFAULT)
+	release
+}

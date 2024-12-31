@@ -132,8 +132,8 @@
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
 #define FLAG_HIDE_LOSTELLE_IN_HER_HOME                     0x076
-#define FLAG_0x077                                         0x077
-#define FLAG_0x078                                         0x078
+#define FLAG_HIDE_P_EMBLEM                                         0x077
+#define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
 #define FLAG_HIDE_LOSTELLE_IN_BERRY_FOREST                 0x07A
 #define FLAG_HIDE_TWO_ISLAND_WOMAN                         0x07B
@@ -266,7 +266,7 @@
 #define FLAG_CSR_ROUTE8_PUSHED_BENCH               0x0E1
 #define FLAG_CSR_BERRY_FOREST_HBOX               0x0E2
 #define FLAG_CSR_L_EMBLEM               0x0E3
-#define FLAG_0x0E4               0x0E4
+#define FLAG_CSR_SUPER_SCOPE               0x0E4
 #define FLAG_0x0E5               0x0E5
 #define FLAG_0x0E6               0x0E6
 #define FLAG_0x0E7               0x0E7
@@ -1076,7 +1076,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE25_CHOICE_BAND                                     (FLAG_HIDDEN_ITEMS_START +   5)
 #define FLAG_HIDDEN_ITEM_ROUTE9_ETHER                                      (FLAG_HIDDEN_ITEMS_START +   6)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x07                                       (FLAG_HIDDEN_ITEMS_START +   7)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_1                  (FLAG_HIDDEN_ITEMS_START +   8)
+#define FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE                 (FLAG_HIDDEN_ITEMS_START +   8)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_2                              (FLAG_HIDDEN_ITEMS_START +   9)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_3                                 (FLAG_HIDDEN_ITEMS_START +  10)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_4                          (FLAG_HIDDEN_ITEMS_START +  11)

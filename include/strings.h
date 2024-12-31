@@ -121,10 +121,25 @@ extern const u8 gFameCheckerText_ClearTextbox[];
 extern const u8 gFameCheckerText_MainScreenUI[]; // "{DPAD_ANY}PICK {DPAD_UPDOWN}SELECT {A_BUTTON}OK$"
 extern const u8 gFameCheckerText_PickScreenUI[]; // "{DPAD_ANY}PICK {DPAD_UPDOWN}SELECT {B_BUTTON}CANCEL$"
 extern const u8 gFameCheckerText_FlavorTextUI[]; // "{START_BUTTON}PICK {A_BUTTON}READ {B_BUTTON}CANCEL$"
-extern const u8 gFameCheckerOakName[]; // "OAK$"
-extern const u8 gFameCheckerDaisyName[]; // "DAISY$"
-extern const u8 gFameCheckerBillName[]; // "BILL$"
-extern const u8 gFameCheckerMrFujiName[]; // "FUJI$"
+
+extern const u8 gFameCheckerPalletName[]; // "OAK$"
+extern const u8 gFameCheckerViridianName[]; // "DAISY$"
+extern const u8 gFameCheckerPewterName[];
+extern const u8 gFameCheckerMtMoonName[];
+extern const u8 gFameCheckerCeruleanName[];
+extern const u8 gFameCheckerVermilionName[];
+extern const u8 gFameCheckerRockTunnelName[];
+extern const u8 gFameCheckerLavenderName[];
+extern const u8 gFameCheckerCeladonName[];
+extern const u8 gFameCheckerFushciaName[];
+extern const u8 gFameCheckerKantoShorelineName[];
+extern const u8 gFameCheckerSaffronName[];
+extern const u8 gFameCheckerGreatSeaName[];
+extern const u8 gFameCheckerGreatSeaNorthName[]; // "BILL$"
+extern const u8 gFameCheckerGreatSeaWestName[]; // "FUJI$"
+extern const u8 gFameCheckerCinnabarName[];
+
+
 
 // teachy_tv
 extern const u8 gTeachyTvString_TeachBattle[];

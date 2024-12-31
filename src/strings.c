@@ -1280,10 +1280,29 @@ const u8 gText_RefusedBattle[] = _("Refused the battle.{PAUSE 0x3C}");
 const u8 gFameCheckerText_MainScreenUI[] = _("{START_BUTTON}PICK {DPAD_UPDOWN}SELECT {A_BUTTON}OK");
 const u8 gFameCheckerText_PickScreenUI[] = _("{START_BUTTON}PICK {DPAD_UPDOWN}SELECT {B_BUTTON}CANCEL");
 const u8 gFameCheckerText_FlavorTextUI[] = _("{DPAD_ANY}PICK {A_BUTTON}READ {B_BUTTON}CANCEL");
-const u8 gFameCheckerOakName[] = _("OAK");
-const u8 gFameCheckerDaisyName[] = _("DAISY");
-const u8 gFameCheckerBillName[] = _("BILL");
-const u8 gFameCheckerMrFujiName[] = _("FUJI");
+
+const u8 gFameCheckerPalletName[] = _("PALLET");
+const u8 gFameCheckerViridianName[] = _("VIRIDIAN");
+const u8 gFameCheckerPewterName[] = _("PEWTER");
+const u8 gFameCheckerMtMoonName[] = _("MT. MOON");
+const u8 gFameCheckerCeruleanName[] = _("CERULEAN");
+const u8 gFameCheckerVermilionName[] = _("VERMILION");
+const u8 gFameCheckerRockTunnelName[] = _("ROCK TUNNEL");
+const u8 gFameCheckerLavenderName[] = _("LAVENDER");
+const u8 gFameCheckerCeladonName[] = _("CELADON");
+const u8 gFameCheckerFushciaName[] = _("FUSHCIA");
+const u8 gFameCheckerKantoShorelineName[] = _("SHORE");
+const u8 gFameCheckerSaffronName[] = _("SAFFRON");
+const u8 gFameCheckerGreatSeaName[] = _("GREAT SEA");
+const u8 gFameCheckerGreatSeaNorthName[] = _("GREAT SEA N");
+const u8 gFameCheckerGreatSeaWestName[] = _("GREAT SEA W");
+const u8 gFameCheckerCinnabarName[] = _("CINNABAR");
+
+
+
+
+
+
 const u8 gText_VarietyOfEventsImportedWireless[] = _("A variety of events will be imported\nover Wireless Communication.");
 const u8 gText_WonderCardsInPossession[] = _("Read the WONDER CARDS in your\npossession.");
 const u8 gText_ReadNewsThatArrived[] = _("Read the NEWS that arrived.");

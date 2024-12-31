@@ -186,7 +186,7 @@
 #define VAR_CSR_DUMMY_24                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_CSR_DUMMY_25                                              0x4086
-#define VAR_0x4087                                                             0x4087
+#define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
 #define VAR_CSR_DUMMY_26                                         0x4088
 #define VAR_CSR_DUMMY_27                             0x4089
 #define VAR_CSR_ROUTE6_LASS                                        0x408A

@@ -11,7 +11,7 @@ RocketHideout_B4F_MapScripts::
 
 RocketHideout_B4F_OnLoad::
 	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_DMCA_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
+	call_if_defeated TRAINER_DMCA_PETREL_1, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_defeated TRAINER_DMCA_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_ne NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_SetBarrier
 	end
@@ -23,7 +23,7 @@ RocketHideout_B4F_EventScript_CountGruntDefeated::
 RocketHideout_B4F_EventScript_Giovanni::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_GIOVANNI, 0
+	famechecker FAMECHECKER_CINNABAR, 0
 	message RocketHideout_B4F_Text_GiovanniIntro
 	waitmessage
 	playbgm MUS_ENCOUNTER_ROCKET, 0
@@ -36,7 +36,7 @@ RocketHideout_B4F_EventScript_Giovanni::
 	addobject LOCALID_SILPH_SCOPE
 	clearflag FLAG_HIDE_SILPH_SCOPE
 	setflag FLAG_HIDE_CELADON_ROCKETS
-	famechecker FAMECHECKER_GIOVANNI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	famechecker FAMECHECKER_CINNABAR, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	fadescreen FADE_FROM_BLACK
 	release
 	end
@@ -74,13 +74,13 @@ RocketHideout_B4F_EventScript_LiftKey::
 	end
 
 RocketHideout_B4F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_DMCA_GRUNT_16, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
+	trainerbattle_single TRAINER_DMCA_PETREL_1, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
 	msgbox RocketHideout_B4F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 RocketHideout_B4F_EventScript_DefeatedGrunt2::
 	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_DMCA_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
+	call_if_defeated TRAINER_DMCA_PETREL_1, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_defeated TRAINER_DMCA_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_RemoveBarrier
 	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval
@@ -94,7 +94,7 @@ RocketHideout_B4F_EventScript_Grunt3::
 
 RocketHideout_B4F_EventScript_DefeatedGrunt3::
 	setvar NUM_DOOR_GRUNTS_DEFEATED, 0
-	call_if_defeated TRAINER_DMCA_GRUNT_16, RocketHideout_B4F_EventScript_CountGruntDefeated
+	call_if_defeated TRAINER_DMCA_PETREL_1, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_defeated TRAINER_DMCA_GRUNT_17, RocketHideout_B4F_EventScript_CountGruntDefeated
 	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_RemoveBarrier
 	call_if_eq NUM_DOOR_GRUNTS_DEFEATED, 2, RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval
@@ -125,3 +125,20 @@ RocketHideout_B4F_EventScript_RemoveBarrier::
 	setmetatile 18, 14, METATILE_SilphCo_HideoutFloor, 0
 	return
 `
+script DMCAHideout_Petrel {
+	trainerbattle_single(TRAINER_DMCA_PETREL_1, DMCA_LawOffices_PetrelIntro, DMCA_LawOffices_PetrelDefeat)
+	//Set rumor log
+	msgbox(DMCA_LawOffices_PetrelAfter, MSGBOX_AUTOCLOSE)
+}
+
+script DMCAHideout_SuperScope {
+	lock
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+	waitmoncry
+	setwildbattle(SPECIES_JIGGLYPUFF, 35, ITEM_NONE)
+	dowildbattle
+	special(QuestLog_CutRecording)
+	msgbox("The wild JIGGLYPUFF was using an\nITEM!\lI thought those were banned!", MSGBOX_DEFAULT)
+	closemessage
+	finditem(ITEM_SUPER_SCOPE)
+}

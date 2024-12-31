@@ -369,7 +369,7 @@
 #define TRAINER_DMCA_GRUNT_13             363
 #define TRAINER_DMCA_GRUNT_14             364
 #define TRAINER_DMCA_GRUNT_15             365
-#define TRAINER_DMCA_GRUNT_16             366
+#define TRAINER_DMCA_PETREL_1             366
 #define TRAINER_DMCA_GRUNT_17             367
 #define TRAINER_DMCA_GRUNT_18             368
 #define TRAINER_DMCA_GRUNT_19             369

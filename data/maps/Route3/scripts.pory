@@ -27,6 +27,8 @@ script Route3_EventScript_Lass_South {
 	goto(Route3_EventScript_Lass)
 }
 
+
+const LASS_1 = 4
 script Route3_EventScript_Lass {
 	setvar(VAR_MAP_SCENE_CSR_LASS_1, 1)
 	playbgm(MUS_ENCOUNTER_GIRL, 1)
@@ -38,11 +40,9 @@ script Route3_EventScript_Lass {
 	waitmovement(0)
 	switch(var(VAR_TEMP_1)) {
 		case 5:
-			applymovement(5,Lass_Attack_North)
-			break
+			applymovement(LASS_1, Lass_Attack_North)
 		case 4:
-			applymovement(5,Lass_Attack_South)
-			break
+			applymovement(LASS_1, Lass_Attack_South)
 	}
 	waitmovement(0)
 	delay(10)
@@ -76,13 +76,15 @@ script Route4_EventScript_Dad {
 	end
 }
 
+
+const LASS_2 = 2
 script Route4_Trigger_Lass2 {
 	lock
 	setvar(VAR_MAP_SCENE_CSR_LASS_2, 1)
 	getplayerxy(VAR_TEMP_4, VAR_TEMP_5) //Find the spot 8 over from the player; place the Lass there
 	addvar(VAR_TEMP_4, 8) 
-	addobject(3)
-	setobjectxy(3, VAR_TEMP_4, 8)
+	addobject(LASS_2)
+	setobjectxy(LASS_2, VAR_TEMP_4, 8)
 	//setobjectxyperm(3, VAR_TEMP_4, 8)
 	release
 }
@@ -208,7 +210,7 @@ script Route3_ShortsBerry {
 	end
 }
 
-const Nerd = 15
+const Nerd = 14
 script Route3_Blackglasses {
 	lock
 	if(flag(FLAG_CSR_GLASSES_NERD)) {

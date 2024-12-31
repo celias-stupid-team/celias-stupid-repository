@@ -9,7 +9,7 @@ FushciaCity_House1_EventScript_Woman::
 FushciaCity_House1_EventScript_OldMan::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_BILL, 2
+	famechecker FAMECHECKER_GREAT_SEA_NORTH, 2
 	msgbox FushciaCity_House1_Text_BillIsMyGrandson
 	release
 	end

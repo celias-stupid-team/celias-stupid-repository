@@ -137,73 +137,97 @@ static const u8 sTextColor_White[3]  = {0, 1, 2};
 static const u8 sTextColor_DkGrey[3] = {0, 2, 3};
 static const u8 sTextColor_Green[3]  = {0, 6, 7};
 
-#define FAME_CHECKER_PROF_OAK  (FC_NONTRAINER_START + 0)
-#define FAME_CHECKER_DAISY_OAK (FC_NONTRAINER_START + 1)
-#define FAME_CHECKER_BILL      (FC_NONTRAINER_START + 2)
-#define FAME_CHECKER_MR_FUJI   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_PALLET  (FC_NONTRAINER_START + 0)
+#define FAME_CHECKER_VIRIDIAN (FC_NONTRAINER_START + 1)
+#define FAME_CHECKER_PEWTER      (FC_NONTRAINER_START + 2)
+#define FAME_CHECKER_MT_MOON   (FC_NONTRAINER_START + 3)
+#define FAME_CHECKER_CERULEAN   (FC_NONTRAINER_START + 4)
+#define FAME_CHECKER_VERMILION   (FC_NONTRAINER_START + 5)
+#define FAME_CHECKER_ROCK_TUNNEL   (FC_NONTRAINER_START + 6)
+#define FAME_CHECKER_LAVENDER   (FC_NONTRAINER_START + 7)
+#define FAME_CHECKER_CELADON   (FC_NONTRAINER_START + 8)
+#define FAME_CHECKER_FUSHCIA   (FC_NONTRAINER_START + 9)
+#define FAME_CHECKER_KANTO_SHORELINE   (FC_NONTRAINER_START + 10)
+#define FAME_CHECKER_SAFFRON   (FC_NONTRAINER_START + 11)
+#define FAME_CHECKER_GREAT_SEA   (FC_NONTRAINER_START + 12)
+#define FAME_CHECKER_GREAT_SEA_NORTH   (FC_NONTRAINER_START + 13)
+#define FAME_CHECKER_GREAT_SEA_WEST   (FC_NONTRAINER_START + 14)
+#define FAME_CHECKER_CINNABAR_ISLAND   (FC_NONTRAINER_START + 15)
 
 static const u16 sTrainerIdxs[] = {
-    [FAMECHECKER_OAK]      = FAME_CHECKER_PROF_OAK,
-    [FAMECHECKER_DAISY]    = FAME_CHECKER_DAISY_OAK,
-    [FAMECHECKER_BROCK]    = TRAINER_LEADER_BROCK,
-    [FAMECHECKER_MISTY]    = TRAINER_LEADER_MISTY,
-    [FAMECHECKER_LTSURGE]  = TRAINER_LEADER_LT_SURGE,
-    [FAMECHECKER_ERIKA]    = TRAINER_LEADER_ERIKA,
-    [FAMECHECKER_KOGA]     = TRAINER_LEADER_KOGA,
-    [FAMECHECKER_SABRINA]  = TRAINER_LEADER_SABRINA,
-    [FAMECHECKER_BLAINE]   = TRAINER_LEADER_BLAINE,
-    [FAMECHECKER_LORELEI]  = TRAINER_ELITE_FOUR_LORELEI,
-    [FAMECHECKER_BRUNO]    = TRAINER_ELITE_FOUR_BRUNO,
-    [FAMECHECKER_AGATHA]   = TRAINER_ELITE_FOUR_AGATHA,
-    [FAMECHECKER_LANCE]    = TRAINER_ELITE_FOUR_LANCE,
-    [FAMECHECKER_BILL]     = FAME_CHECKER_BILL,
-    [FAMECHECKER_MRFUJI]   = FAME_CHECKER_MR_FUJI,
-    [FAMECHECKER_GIOVANNI] = TRAINER_BOSS_GIOVANNI
+    [FAMECHECKER_PALLET]      = FAME_CHECKER_PALLET, // Pallet
+    [FAMECHECKER_VIRIDIAN]    = FAME_CHECKER_VIRIDIAN, // Viridian
+    [FAMECHECKER_PEWTER]    = FAME_CHECKER_PEWTER, //Pewter
+    [FAMECHECKER_MT_MOON]    = FAME_CHECKER_MT_MOON, // Mt Moon
+    [FAMECHECKER_CERULEAN]  = FAME_CHECKER_CERULEAN, //Cerulean
+    [FAMECHECKER_VERMILION]    = FAME_CHECKER_VERMILION, // Vermilion
+    [FAMECHECKER_ROCK_TUNNEL]     = FAME_CHECKER_ROCK_TUNNEL, // Rock Tunnel
+    [FAMECHECKER_LAVENDER]  = FAME_CHECKER_LAVENDER, // Lavender
+    [FAMECHECKER_CELADON]   = FAME_CHECKER_CELADON, //Celadon
+    [FAMECHECKER_FUSHCIA]  = FAME_CHECKER_FUSHCIA, // Fushcia
+    [FAMECHECKER_KANTO_SHORELINE]    = FAME_CHECKER_KANTO_SHORELINE, // Kanto Shoreline
+    [FAMECHECKER_SAFFRON]   = FAME_CHECKER_SAFFRON, //Saffron
+    [FAMECHECKER_GREAT_SEA]    = FAME_CHECKER_GREAT_SEA, // Great Sea
+    [FAMECHECKER_GREAT_SEA_NORTH]     = FAME_CHECKER_GREAT_SEA_NORTH, // Great Sea North
+    [FAMECHECKER_GREAT_SEA_WEST]   = FAME_CHECKER_GREAT_SEA_WEST, // Great Sea West
+    [FAMECHECKER_CINNABAR] = FAME_CHECKER_CINNABAR_ISLAND // Cinnabar Island
 };
 
 static const u8 *const sNonTrainerNamePointers[] = {
-    gFameCheckerOakName,
-    gFameCheckerDaisyName,
-    gFameCheckerBillName,
-    gFameCheckerMrFujiName
+    gFameCheckerPalletName,
+    gFameCheckerViridianName,
+    gFameCheckerPewterName,
+    gFameCheckerMtMoonName,
+    gFameCheckerCeruleanName,
+    gFameCheckerVermilionName,
+    gFameCheckerRockTunnelName,
+    gFameCheckerLavenderName,
+    gFameCheckerCeladonName,
+    gFameCheckerFushciaName,
+    gFameCheckerKantoShorelineName,
+    gFameCheckerSaffronName,
+    gFameCheckerGreatSeaName,
+    gFameCheckerGreatSeaNorthName,
+    gFameCheckerGreatSeaWestName,
+    gFameCheckerCinnabarName,
 };
 
 static const u8 sFameCheckerTrainerPicIdxs[] = {
-    [FAMECHECKER_OAK]      = TRAINER_PIC_CAMPER,
-    [FAMECHECKER_DAISY]    = TRAINER_PIC_LASS,
-    [FAMECHECKER_BROCK]    = TRAINER_PIC_LEADER_BROCK,
-    [FAMECHECKER_MISTY]    = TRAINER_PIC_LEADER_MISTY,
-    [FAMECHECKER_LTSURGE]  = TRAINER_PIC_LEADER_LT_SURGE,
-    [FAMECHECKER_ERIKA]    = TRAINER_PIC_LEADER_ERIKA,
-    [FAMECHECKER_KOGA]     = TRAINER_PIC_LEADER_KOGA,
-    [FAMECHECKER_SABRINA]  = TRAINER_PIC_LEADER_SABRINA,
-    [FAMECHECKER_BLAINE]   = TRAINER_PIC_LEADER_BLAINE,
-    [FAMECHECKER_LORELEI]  = TRAINER_PIC_ELITE_FOUR_LORELEI,
-    [FAMECHECKER_BRUNO]    = TRAINER_PIC_ELITE_FOUR_BRUNO,
-    [FAMECHECKER_AGATHA]   = TRAINER_PIC_ELITE_FOUR_AGATHA,
-    [FAMECHECKER_LANCE]    = TRAINER_PIC_ELITE_FOUR_LANCE,
-    [FAMECHECKER_BILL]     = TRAINER_PIC_PSYCHIC_M,
-    [FAMECHECKER_MRFUJI]   = TRAINER_PIC_GENTLEMAN,
-    [FAMECHECKER_GIOVANNI] = TRAINER_PIC_LEADER_GIOVANNI,
+    [FAMECHECKER_PALLET]      = TRAINER_PIC_CAMPER,
+    [FAMECHECKER_VIRIDIAN]    = TRAINER_PIC_LASS,
+    [FAMECHECKER_PEWTER]    = TRAINER_PIC_LEADER_BROCK,
+    [FAMECHECKER_MT_MOON]    = TRAINER_PIC_LEADER_MISTY,
+    [FAMECHECKER_CERULEAN]  = TRAINER_PIC_LEADER_LT_SURGE,
+    [FAMECHECKER_VERMILION]    = TRAINER_PIC_LEADER_ERIKA,
+    [FAMECHECKER_ROCK_TUNNEL]     = TRAINER_PIC_LEADER_KOGA,
+    [FAMECHECKER_LAVENDER]  = TRAINER_PIC_LEADER_SABRINA,
+    [FAMECHECKER_CELADON]   = TRAINER_PIC_LEADER_BLAINE,
+    [FAMECHECKER_FUSHCIA]  = TRAINER_PIC_ELITE_FOUR_LORELEI,
+    [FAMECHECKER_KANTO_SHORELINE]    = TRAINER_PIC_ELITE_FOUR_BRUNO,
+    [FAMECHECKER_SAFFRON]   = TRAINER_PIC_ELITE_FOUR_AGATHA,
+    [FAMECHECKER_GREAT_SEA]    = TRAINER_PIC_ELITE_FOUR_LANCE,
+    [FAMECHECKER_GREAT_SEA_NORTH]     = TRAINER_PIC_PSYCHIC_M,
+    [FAMECHECKER_GREAT_SEA_WEST]   = TRAINER_PIC_GENTLEMAN,
+    [FAMECHECKER_CINNABAR] = TRAINER_PIC_LEADER_GIOVANNI,
 };
 
 static const u8 sFameCheckerTrainerGenders_Unused[] = {
-    [FAMECHECKER_OAK]      = MALE,
-    [FAMECHECKER_DAISY]    = FEMALE,
-    [FAMECHECKER_BROCK]    = MALE,
-    [FAMECHECKER_MISTY]    = FEMALE,
-    [FAMECHECKER_LTSURGE]  = MALE,
-    [FAMECHECKER_ERIKA]    = FEMALE,
-    [FAMECHECKER_KOGA]     = MALE,
-    [FAMECHECKER_SABRINA]  = FEMALE,
-    [FAMECHECKER_BLAINE]   = MALE,
-    [FAMECHECKER_LORELEI]  = FEMALE,
-    [FAMECHECKER_BRUNO]    = MALE,
-    [FAMECHECKER_AGATHA]   = FEMALE,
-    [FAMECHECKER_LANCE]    = MALE,
-    [FAMECHECKER_BILL]     = MALE,
-    [FAMECHECKER_MRFUJI]   = MALE,
-    [FAMECHECKER_GIOVANNI] = MALE,
+    [FAMECHECKER_PALLET]      = MALE,
+    [FAMECHECKER_VIRIDIAN]    = FEMALE,
+    [FAMECHECKER_PEWTER]    = MALE,
+    [FAMECHECKER_MT_MOON]    = FEMALE,
+    [FAMECHECKER_CERULEAN]  = MALE,
+    [FAMECHECKER_VERMILION]    = FEMALE,
+    [FAMECHECKER_ROCK_TUNNEL]     = MALE,
+    [FAMECHECKER_LAVENDER]  = FEMALE,
+    [FAMECHECKER_CELADON]   = MALE,
+    [FAMECHECKER_FUSHCIA]  = FEMALE,
+    [FAMECHECKER_KANTO_SHORELINE]    = MALE,
+    [FAMECHECKER_SAFFRON]   = FEMALE,
+    [FAMECHECKER_GREAT_SEA]    = MALE,
+    [FAMECHECKER_GREAT_SEA_NORTH]     = MALE,
+    [FAMECHECKER_GREAT_SEA_WEST]   = MALE,
+    [FAMECHECKER_CINNABAR] = MALE,
 };
 
 static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PERSONS] =
@@ -244,16 +268,16 @@ static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PER
 };
 
 static const u8 *const sFameCheckerFlavorTextPointers[] = {
-    gFameCheckerFlavorText_ProfOak0, gFameCheckerFlavorText_ProfOak1, gFameCheckerFlavorText_ProfOak2, gFameCheckerFlavorText_ProfOak3, gFameCheckerFlavorText_ProfOak4, gFameCheckerFlavorText_ProfOak5,
-    gFameCheckerFlavorText_Daisy0, gFameCheckerFlavorText_Daisy1, gFameCheckerFlavorText_Daisy2, gFameCheckerFlavorText_Daisy3, gFameCheckerFlavorText_Daisy4, gFameCheckerFlavorText_Daisy5,
-    gFameCheckerFlavorText_Brock0, gFameCheckerFlavorText_Brock1, gFameCheckerFlavorText_Brock2, gFameCheckerFlavorText_Brock3, gFameCheckerFlavorText_Brock4, gFameCheckerFlavorText_Brock5,
-    gFameCheckerFlavorText_Misty0, gFameCheckerFlavorText_Misty1, gFameCheckerFlavorText_Misty2, gFameCheckerFlavorText_Misty3, gFameCheckerFlavorText_Misty4, gFameCheckerFlavorText_Misty5,
-    gFameCheckerFlavorText_LtSurge0, gFameCheckerFlavorText_LtSurge1, gFameCheckerFlavorText_LtSurge2, gFameCheckerFlavorText_LtSurge3, gFameCheckerFlavorText_LtSurge4, gFameCheckerFlavorText_LtSurge5,
-    gFameCheckerFlavorText_Erika0, gFameCheckerFlavorText_Erika1, gFameCheckerFlavorText_Erika2, gFameCheckerFlavorText_Erika3, gFameCheckerFlavorText_Erika4, gFameCheckerFlavorText_Erika5,
-    gFameCheckerFlavorText_Koga0, gFameCheckerFlavorText_Koga1, gFameCheckerFlavorText_Koga2, gFameCheckerFlavorText_Koga3, gFameCheckerFlavorText_Koga4, gFameCheckerFlavorText_Koga5,
-    gFameCheckerFlavorText_Sabrina0, gFameCheckerFlavorText_Sabrina1, gFameCheckerFlavorText_Sabrina2, gFameCheckerFlavorText_Sabrina3, gFameCheckerFlavorText_Sabrina4, gFameCheckerFlavorText_Sabrina5,
-    gFameCheckerFlavorText_Blaine0, gFameCheckerFlavorText_Blaine1, gFameCheckerFlavorText_Blaine2, gFameCheckerFlavorText_Blaine3, gFameCheckerFlavorText_Blaine4, gFameCheckerFlavorText_Blaine5,
-    gFameCheckerFlavorText_Lorelei0, gFameCheckerFlavorText_Lorelei1, gFameCheckerFlavorText_Lorelei2, gFameCheckerFlavorText_Lorelei3, gFameCheckerFlavorText_Lorelei4, gFameCheckerFlavorText_Lorelei5,
+    gFameCheckerFlavorText_Pallet0, gFameCheckerFlavorText_Pallet1, gFameCheckerFlavorText_Pallet2, gFameCheckerFlavorText_Pallet3, gFameCheckerFlavorText_Pallet4, gFameCheckerFlavorText_Pallet5,
+    gFameCheckerFlavorText_Viridian0, gFameCheckerFlavorText_Viridian1, gFameCheckerFlavorText_Viridian2, gFameCheckerFlavorText_Viridian3, gFameCheckerFlavorText_Viridian4, gFameCheckerFlavorText_Viridian5,
+    gFameCheckerFlavorText_Pewter0, gFameCheckerFlavorText_Pewter1, gFameCheckerFlavorText_Pewter2, gFameCheckerFlavorText_Pewter3, gFameCheckerFlavorText_Pewter4, gFameCheckerFlavorText_Pewter5,
+    gFameCheckerFlavorText_MtMoon0, gFameCheckerFlavorText_MtMoon1, gFameCheckerFlavorText_MtMoon2, gFameCheckerFlavorText_MtMoon3, gFameCheckerFlavorText_MtMoon4, gFameCheckerFlavorText_MtMoon5,
+    gFameCheckerFlavorText_Cerulean0, gFameCheckerFlavorText_Cerulean1, gFameCheckerFlavorText_Cerulean2, gFameCheckerFlavorText_Cerulean3, gFameCheckerFlavorText_Cerulean4, gFameCheckerFlavorText_Cerulean5,
+    gFameCheckerFlavorText_Vermilion0, gFameCheckerFlavorText_Vermilion1, gFameCheckerFlavorText_Vermilion2, gFameCheckerFlavorText_Vermilion3, gFameCheckerFlavorText_Vermilion4, gFameCheckerFlavorText_Vermilion5,
+    gFameCheckerFlavorText_RockTunnel0, gFameCheckerFlavorText_RockTunnel1, gFameCheckerFlavorText_RockTunnel2, gFameCheckerFlavorText_RockTunnel3, gFameCheckerFlavorText_RockTunnel4, gFameCheckerFlavorText_RockTunnel5,
+    gFameCheckerFlavorText_Lavender0, gFameCheckerFlavorText_Lavender1, gFameCheckerFlavorText_Lavender2, gFameCheckerFlavorText_Lavender3, gFameCheckerFlavorText_Lavender4, gFameCheckerFlavorText_Lavender5,
+    gFameCheckerFlavorText_Celadon0, gFameCheckerFlavorText_Celadon1, gFameCheckerFlavorText_Celadon2, gFameCheckerFlavorText_Celadon3, gFameCheckerFlavorText_Celadon4, gFameCheckerFlavorText_Celadon5,
+    gFameCheckerFlavorText_Fuchsia0, gFameCheckerFlavorText_Fuchsia1, gFameCheckerFlavorText_Fuchsia2, gFameCheckerFlavorText_Fuchsia3, gFameCheckerFlavorText_Fuchsia4, gFameCheckerFlavorText_Fuchsia5,
     gFameCheckerFlavorText_Bruno0, gFameCheckerFlavorText_Bruno1, gFameCheckerFlavorText_Bruno2, gFameCheckerFlavorText_Bruno3, gFameCheckerFlavorText_Bruno4, gFameCheckerFlavorText_Bruno5,
     gFameCheckerFlavorText_Agatha0, gFameCheckerFlavorText_Agatha1, gFameCheckerFlavorText_Agatha2, gFameCheckerFlavorText_Agatha3, gFameCheckerFlavorText_Agatha4, gFameCheckerFlavorText_Agatha5,
     gFameCheckerFlavorText_Lance0, gFameCheckerFlavorText_Lance1, gFameCheckerFlavorText_Lance2, gFameCheckerFlavorText_Lance3, gFameCheckerFlavorText_Lance4, gFameCheckerFlavorText_Lance5,
@@ -263,63 +287,63 @@ static const u8 *const sFameCheckerFlavorTextPointers[] = {
 };
 
 static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
-    // OAK
-    OBJ_EVENT_GFX_SIGN,
+    // Pallet
+    OBJ_EVENT_GFX_CUT_TREE,
     OBJ_EVENT_GFX_PROF_OAK,
     OBJ_EVENT_GFX_CELIA,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_AGATHA,
     OBJ_EVENT_GFX_SCIENTIST,
-    // DAISY
+    // Viridian
     OBJ_EVENT_GFX_SCIENTIST,
     OBJ_EVENT_GFX_CELIA,
     OBJ_EVENT_GFX_GENTLEMAN,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_OLD_WOMAN,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // BROCK
+    // Pewter
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_BROCK,
     OBJ_EVENT_GFX_FAT_MAN,
     OBJ_EVENT_GFX_BOY,
     OBJ_EVENT_GFX_BALDING_MAN,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // MISTY
+    // Mt Moon
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_MISTY,
     OBJ_EVENT_GFX_SWIMMER_M_WATER,
     OBJ_EVENT_GFX_CAMPER,
     OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // LTSURGE
+    // Cerulean
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_LT_SURGE,
     OBJ_EVENT_GFX_GENTLEMAN,
     OBJ_EVENT_GFX_GENTLEMAN,
     OBJ_EVENT_GFX_SAILOR,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // ERIKA
+    // Vermilion
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_ERIKA,
     OBJ_EVENT_GFX_LASS,
     OBJ_EVENT_GFX_BEAUTY,
     OBJ_EVENT_GFX_ERIKA,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // KOGA
+    // Rock Tunnel
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_KOGA,
     OBJ_EVENT_GFX_ROCKER,
     OBJ_EVENT_GFX_LASS,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_BALDING_MAN,
-    // SABRINA
+    // Lavender
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_MAN,
     OBJ_EVENT_GFX_SABRINA,
     OBJ_EVENT_GFX_SABRINA,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_COOLTRAINER_M,
-    // BLAINE
+    // Celadon
     OBJ_EVENT_GFX_GYM_SIGN,
     OBJ_EVENT_GFX_BLAINE,
     OBJ_EVENT_GFX_SCIENTIST,
@@ -378,22 +402,22 @@ static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
 };
 
 static const u8 *const sFlavorTextOriginLocationTexts[] = {
-    gFameCheckerFlavorTextOriginLocation_ProfOak0, gFameCheckerFlavorTextOriginLocation_ProfOak1, gFameCheckerFlavorTextOriginLocation_ProfOak2, gFameCheckerFlavorTextOriginLocation_ProfOak3, gFameCheckerFlavorTextOriginLocation_ProfOak4, gFameCheckerFlavorTextOriginLocation_ProfOak5,
-    gFameCheckerFlavorTextOriginLocation_Daisy0, gFameCheckerFlavorTextOriginLocation_Daisy1, gFameCheckerFlavorTextOriginLocation_Daisy2, gFameCheckerFlavorTextOriginLocation_Daisy3, gFameCheckerFlavorTextOriginLocation_Daisy4, gFameCheckerFlavorTextOriginLocation_Daisy5,
-    gFameCheckerFlavorTextOriginLocation_Brock0, gFameCheckerFlavorTextOriginLocation_Brock1, gFameCheckerFlavorTextOriginLocation_Brock2, gFameCheckerFlavorTextOriginLocation_Brock3, gFameCheckerFlavorTextOriginLocation_Brock4, gFameCheckerFlavorTextOriginLocation_Brock5,
-    gFameCheckerFlavorTextOriginLocation_Misty0, gFameCheckerFlavorTextOriginLocation_Misty1, gFameCheckerFlavorTextOriginLocation_Misty2, gFameCheckerFlavorTextOriginLocation_Misty3, gFameCheckerFlavorTextOriginLocation_Misty4, gFameCheckerFlavorTextOriginLocation_Misty5,
-    gFameCheckerFlavorTextOriginLocation_LtSurge0, gFameCheckerFlavorTextOriginLocation_LtSurge1, gFameCheckerFlavorTextOriginLocation_LtSurge2, gFameCheckerFlavorTextOriginLocation_LtSurge3, gFameCheckerFlavorTextOriginLocation_LtSurge4, gFameCheckerFlavorTextOriginLocation_LtSurge5,
-    gFameCheckerFlavorTextOriginLocation_Erika0, gFameCheckerFlavorTextOriginLocation_Erika1, gFameCheckerFlavorTextOriginLocation_Erika2, gFameCheckerFlavorTextOriginLocation_Erika3, gFameCheckerFlavorTextOriginLocation_Erika4, gFameCheckerFlavorTextOriginLocation_Erika5,
-    gFameCheckerFlavorTextOriginLocation_Koga0, gFameCheckerFlavorTextOriginLocation_Koga1, gFameCheckerFlavorTextOriginLocation_Koga2, gFameCheckerFlavorTextOriginLocation_Koga3, gFameCheckerFlavorTextOriginLocation_Koga4, gFameCheckerFlavorTextOriginLocation_Koga5,
-    gFameCheckerFlavorTextOriginLocation_Sabrina0, gFameCheckerFlavorTextOriginLocation_Sabrina1, gFameCheckerFlavorTextOriginLocation_Sabrina2, gFameCheckerFlavorTextOriginLocation_Sabrina3, gFameCheckerFlavorTextOriginLocation_Sabrina4, gFameCheckerFlavorTextOriginLocation_Sabrina5,
-    gFameCheckerFlavorTextOriginLocation_Blaine0, gFameCheckerFlavorTextOriginLocation_Blaine1, gFameCheckerFlavorTextOriginLocation_Blaine2, gFameCheckerFlavorTextOriginLocation_Blaine3, gFameCheckerFlavorTextOriginLocation_Blaine4, gFameCheckerFlavorTextOriginLocation_Blaine5,
-    gFameCheckerFlavorTextOriginLocation_Lorelei0, gFameCheckerFlavorTextOriginLocation_Lorelei1, gFameCheckerFlavorTextOriginLocation_Lorelei2, gFameCheckerFlavorTextOriginLocation_Lorelei3, gFameCheckerFlavorTextOriginLocation_Lorelei4, gFameCheckerFlavorTextOriginLocation_Lorelei5,
-    gFameCheckerFlavorTextOriginLocation_Bruno0, gFameCheckerFlavorTextOriginLocation_Bruno1, gFameCheckerFlavorTextOriginLocation_Bruno2, gFameCheckerFlavorTextOriginLocation_Bruno3, gFameCheckerFlavorTextOriginLocation_Bruno4, gFameCheckerFlavorTextOriginLocation_Bruno5,
-    gFameCheckerFlavorTextOriginLocation_Agatha0, gFameCheckerFlavorTextOriginLocation_Agatha1, gFameCheckerFlavorTextOriginLocation_Agatha2, gFameCheckerFlavorTextOriginLocation_Agatha3, gFameCheckerFlavorTextOriginLocation_Agatha4, gFameCheckerFlavorTextOriginLocation_Agatha5,
-    gFameCheckerFlavorTextOriginLocation_Lance0, gFameCheckerFlavorTextOriginLocation_Lance1, gFameCheckerFlavorTextOriginLocation_Lance2, gFameCheckerFlavorTextOriginLocation_Lance3, gFameCheckerFlavorTextOriginLocation_Lance4, gFameCheckerFlavorTextOriginLocation_Lance5,
-    gFameCheckerFlavorTextOriginLocation_Bill0, gFameCheckerFlavorTextOriginLocation_Bill1, gFameCheckerFlavorTextOriginLocation_Bill2, gFameCheckerFlavorTextOriginLocation_Bill3, gFameCheckerFlavorTextOriginLocation_Bill4, gFameCheckerFlavorTextOriginLocation_Bill5,
-    gFameCheckerFlavorTextOriginLocation_MrFuji0, gFameCheckerFlavorTextOriginLocation_MrFuji1, gFameCheckerFlavorTextOriginLocation_MrFuji2, gFameCheckerFlavorTextOriginLocation_MrFuji3, gFameCheckerFlavorTextOriginLocation_MrFuji4, gFameCheckerFlavorTextOriginLocation_MrFuji5,
-    gFameCheckerFlavorTextOriginLocation_Giovanni0, gFameCheckerFlavorTextOriginLocation_Giovanni1, gFameCheckerFlavorTextOriginLocation_Giovanni2, gFameCheckerFlavorTextOriginLocation_Giovanni3, gFameCheckerFlavorTextOriginLocation_Giovanni4, gFameCheckerFlavorTextOriginLocation_Giovanni5
+    gRumorLogFlavorTextIntoLine1_Pallet0, gRumorLogFlavorTextIntoLine1_Pallet1, gRumorLogFlavorTextIntoLine1_Pallet2, gRumorLogFlavorTextIntoLine1_Pallet3, gRumorLogFlavorTextIntoLine1_Pallet4, gRumorLogFlavorTextIntoLine1_Pallet5,
+    gRumorLogFlavorTextIntoLine1_Viridian0, gRumorLogFlavorTextIntoLine1_Viridian1, gRumorLogFlavorTextIntoLine1_Viridian2, gRumorLogFlavorTextIntoLine1_Viridian3, gRumorLogFlavorTextIntoLine1_Viridian4, gRumorLogFlavorTextIntoLine1_Viridian5,
+    gRumorLogFlavorTextIntoLine1_Pewter0, gRumorLogFlavorTextIntoLine1_Pewter1, gRumorLogFlavorTextIntoLine1_Pewter2, gRumorLogFlavorTextIntoLine1_Pewter3, gRumorLogFlavorTextIntoLine1_Pewter4, gRumorLogFlavorTextIntoLine1_Pewter5,
+    gRumorLogFlavorTextIntoLine1_MtMoon0, gRumorLogFlavorTextIntoLine1_MtMoon1, gRumorLogFlavorTextIntoLine1_MtMoon2, gRumorLogFlavorTextIntoLine1_MtMoon3, gRumorLogFlavorTextIntoLine1_MtMoon4, gRumorLogFlavorTextIntoLine1_MtMoon5,
+    gRumorLogFlavorTextIntoLine1_Cerulean0, gRumorLogFlavorTextIntoLine1_Cerulean1, gRumorLogFlavorTextIntoLine1_Cerulean2, gRumorLogFlavorTextIntoLine1_Cerulean3, gRumorLogFlavorTextIntoLine1_Cerulean4, gRumorLogFlavorTextIntoLine1_Cerulean5,
+    gRumorLogFlavorTextIntoLine1_Vermilion0, gRumorLogFlavorTextIntoLine1_Vermilion1, gRumorLogFlavorTextIntoLine1_Vermilion2, gRumorLogFlavorTextIntoLine1_Vermilion3, gRumorLogFlavorTextIntoLine1_Vermilion4, gRumorLogFlavorTextIntoLine1_Vermilion5,
+    gRumorLogFlavorTextIntoLine1_RockTunnel0, gRumorLogFlavorTextIntoLine1_RockTunnel1, gRumorLogFlavorTextIntoLine1_RockTunnel2, gRumorLogFlavorTextIntoLine1_RockTunnel3, gRumorLogFlavorTextIntoLine1_RockTunnel4, gRumorLogFlavorTextIntoLine1_RockTunnel5,
+    gRumorLogFlavorTextIntoLine1_Lavender0, gRumorLogFlavorTextIntoLine1_Lavender1, gRumorLogFlavorTextIntoLine1_Lavender2, gRumorLogFlavorTextIntoLine1_Lavender3, gRumorLogFlavorTextIntoLine1_Lavender4, gRumorLogFlavorTextIntoLine1_Lavender5,
+    gRumorLogFlavorTextIntoLine1_Celadon0, gRumorLogFlavorTextIntoLine1_Celadon1, gRumorLogFlavorTextIntoLine1_Celadon2, gRumorLogFlavorTextIntoLine1_Celadon3, gRumorLogFlavorTextIntoLine1_Celadon4, gRumorLogFlavorTextIntoLine1_Celadon5,
+    gRumorLogFlavorTextIntoLine1_Fushcia0, gRumorLogFlavorTextIntoLine1_Fushcia1, gRumorLogFlavorTextIntoLine1_Fushcia2, gRumorLogFlavorTextIntoLine1_Fushcia3, gRumorLogFlavorTextIntoLine1_Fushcia4, gRumorLogFlavorTextIntoLine1_Fushcia5,
+    gRumorLogFlavorTextIntoLine1_KantoShoreline0, gRumorLogFlavorTextIntoLine1_KantoShoreline1, gRumorLogFlavorTextIntoLine1_KantoShoreline2, gRumorLogFlavorTextIntoLine1_KantoShoreline3, gRumorLogFlavorTextIntoLine1_KantoShoreline4, gRumorLogFlavorTextIntoLine1_KantoShoreline5,
+    gRumorLogFlavorTextIntoLine1_Agatha0, gRumorLogFlavorTextIntoLine1_Agatha1, gRumorLogFlavorTextIntoLine1_Agatha2, gRumorLogFlavorTextIntoLine1_Agatha3, gRumorLogFlavorTextIntoLine1_Agatha4, gRumorLogFlavorTextIntoLine1_Agatha5,
+    gRumorLogFlavorTextIntoLine1_Lance0, gRumorLogFlavorTextIntoLine1_Lance1, gRumorLogFlavorTextIntoLine1_Lance2, gRumorLogFlavorTextIntoLine1_Lance3, gRumorLogFlavorTextIntoLine1_Lance4, gRumorLogFlavorTextIntoLine1_Lance5,
+    gRumorLogFlavorTextIntoLine1_Bill0, gRumorLogFlavorTextIntoLine1_Bill1, gRumorLogFlavorTextIntoLine1_Bill2, gRumorLogFlavorTextIntoLine1_Bill3, gRumorLogFlavorTextIntoLine1_Bill4, gRumorLogFlavorTextIntoLine1_Bill5,
+    gRumorLogFlavorTextIntoLine1_MrFuji0, gRumorLogFlavorTextIntoLine1_MrFuji1, gRumorLogFlavorTextIntoLine1_MrFuji2, gRumorLogFlavorTextIntoLine1_MrFuji3, gRumorLogFlavorTextIntoLine1_MrFuji4, gRumorLogFlavorTextIntoLine1_MrFuji5,
+    gRumorLogFlavorTextIntoLine1_Giovanni0, gRumorLogFlavorTextIntoLine1_Giovanni1, gRumorLogFlavorTextIntoLine1_Giovanni2, gRumorLogFlavorTextIntoLine1_Giovanni3, gRumorLogFlavorTextIntoLine1_Giovanni4, gRumorLogFlavorTextIntoLine1_Giovanni5
 };
 
 static const u8 *const sFlavorTextOriginObjectNameTexts[] = {
@@ -693,7 +717,7 @@ static void MainCB2_LoadFameChecker(void)
             break;
         case 6:
             LoadUISpriteSheetsAndPalettes();
-            CreateAllFlavorTextIcons(FAMECHECKER_OAK);
+            CreateAllFlavorTextIcons(FAMECHECKER_PALLET);
             WipeMsgBoxAndTransfer();
             BeginNormalPaletteFade(PALETTES_ALL,0, 16, 0, 0);
             gMain.state++;
@@ -1064,7 +1088,7 @@ static u8 AdjustGiovanniIndexIfBeatenInGym(u8 a0)
     if (HasTrainerBeenFought(TRAINER_LEADER_GIOVANNI) == TRUE)
     {
         if (a0 == 9)
-            return FAMECHECKER_GIOVANNI;
+            return FAMECHECKER_CINNABAR;
         if (a0 > 9)
             return a0 - 1;
     }
@@ -1146,7 +1170,7 @@ void ResetFameChecker(void)
         gSaveBlock1Ptr->fameChecker[i].flavorTextFlags = 0;
         gSaveBlock1Ptr->fameChecker[i].unk_0_E = 0;
     }
-    gSaveBlock1Ptr->fameChecker[FAMECHECKER_OAK].pickState = FCPICKSTATE_COLORED;
+    gSaveBlock1Ptr->fameChecker[FAMECHECKER_PALLET].pickState = FCPICKSTATE_COLORED;
 }
 
 void FullyUnlockFameChecker(void)
@@ -1342,25 +1366,25 @@ static void SpriteCB_FCSpinningPokeball(struct Sprite *sprite)
 static u8 CreatePersonPicSprite(u8 fcPersonIdx)
 {
     u8 spriteId;
-    if (fcPersonIdx == FAMECHECKER_DAISY)
+    if (fcPersonIdx == FAMECHECKER_VIRIDIAN)
     {
         spriteId = CreateSprite(&sDaisySpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sDaisySpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sDaisySpritePalette));
         gSprites[spriteId].oam.paletteNum = PERSON_PAL_NUM;
     }
-    else if (fcPersonIdx == FAMECHECKER_MRFUJI)
+    else if (fcPersonIdx == FAMECHECKER_GREAT_SEA_WEST)
     {
         spriteId = CreateSprite(&sFujiSpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sFujiSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sFujiSpritePalette));
         gSprites[spriteId].oam.paletteNum = PERSON_PAL_NUM;
     }
-    else if (fcPersonIdx == FAMECHECKER_OAK)
+    else if (fcPersonIdx == FAMECHECKER_PALLET)
     {
         spriteId = CreateSprite(&sOakSpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sOakSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sOakSpritePalette));
         gSprites[spriteId].oam.paletteNum = PERSON_PAL_NUM;
     }
-    else if (fcPersonIdx == FAMECHECKER_BILL)
+    else if (fcPersonIdx == FAMECHECKER_GREAT_SEA_NORTH)
     {
         spriteId = CreateSprite(&sBillSpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sBillSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sBillSpritePalette));
@@ -1382,10 +1406,10 @@ static void DestroyPersonPicSprite(u8 taskId, u16 who)
     u16 who_copy = who;
     if (who == sFameCheckerData->numUnlockedPersons - 1)
         who_copy = who - 1;
-    if (   sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_DAISY
-        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_MRFUJI
-        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_OAK
-        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_BILL
+    if (   sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_VIRIDIAN
+        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_SEA_WEST
+        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_PALLET
+        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_SEA_NORTH
     )
         DestroySprite(&gSprites[data[2]]);
     else

@@ -67,12 +67,15 @@ SaffronCity_Text_CitySign::
     .string "Shining, Golden Land of Commerce$"
 
 SaffronCity_Text_FightingDojo::
-    .string "FIGHTING DOJO$"
+	.string "SAFFRON CITY POKéMON GYM\n"
+	.string "LEADER: JAMES\l"
+	.string "The biggest nerd of them all!$"
 
 SaffronCity_Text_GymSign::
-    .string "SAFFRON CITY POKéMON GYM\n"
-    .string "LEADER: SABRINA\l"
-    .string "The Master of PSYCHIC POKéMON!$"
+	.string "SAFFRON CITY POKéMON GYM\p"
+	.string "Notice!\p"
+	.string "We are currently out-of-service.\n"
+	.string "Thank you for understanding.$"
 
 SaffronCity_Text_FullHealCuresStatus::
     .string "TRAINER TIPS\p"
@@ -93,16 +96,15 @@ SaffronCity_Text_SilphCoSign::
     .string "SILPH CO. OFFICE BUILDING$"
 
 SaffronCity_Text_MrPsychicsHouse::
-    .string "MR. PSYCHIC'S HOUSE$"
+	.string "MR. ICE BEAM'S HOUSE\n$"
 
 SaffronCity_Text_SilphsLatestProduct::
     .string "SILPH's latest product!\n"
     .string "Release to be determined…$"
 
 SaffronCity_Text_TrainerFanClubSign::
-    .string "POKéMON TRAINER FAN CLUB\p"
-    .string "Many TRAINERS have scribbled their\n"
-    .string "names on this sign.$"
+	.string "POKéMON TRAINER\n"
+	.string "SUPPORT GROUP$"
 
 SaffronCity_Text_HowCanClubNotRecognizeLance::
     .string "This FAN CLUB…\n"

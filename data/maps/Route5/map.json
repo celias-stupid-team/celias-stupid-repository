@@ -51,7 +51,7 @@
     },
     {
       "x": 22,
-      "y": 22,
+      "y": 25,
       "elevation": 0,
       "dest_map": "MAP_ROUTE5_POKEMON_DAY_CARE",
       "dest_warp_id": "1"
@@ -69,6 +69,13 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE5_SOUTH_ENTRANCE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 22,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE5_POKEMON_DAY_CARE",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

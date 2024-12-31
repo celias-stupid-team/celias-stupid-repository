@@ -51,7 +51,8 @@
     "BattleColosseum_4P",
     "UnionRoom",
     "Chapter1_TitleDrop",
-    "Chapter2"
+    "Chapter2",
+    "ViridianCity_GamblerHouse"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -179,7 +180,8 @@
     "SixIsland_AlteringCave",
     "MtMoon_Square",
     "MtMoon_Outside",
-    "SecretTunnel"
+    "SecretTunnel",
+    "MtMoonSquare_Unbroken"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",

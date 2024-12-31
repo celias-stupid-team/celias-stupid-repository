@@ -372,11 +372,12 @@
 #define MUS_CSR_DMCA_BATTLE          363
 #define MUS_CSR_DMCA_ADMIN          364
 #define MUS_CSR_SECRET_TUNNEL          365
+#define MUS_CSR_MT_MOON_SQUARE          366
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_SECRET_TUNNEL
+#define END_MUS                     MUS_CSR_MT_MOON_SQUARE
 
 #endif  // GUARD_CONSTANTS_SONGS_H
