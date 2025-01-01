@@ -1437,14 +1437,17 @@ script PalletTown_ProfessorOaksLab_OnFrame {
 	
 	map_script_2(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_ProfessorOaksLab_ChooseStarterScene)
 	map_script_2(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 7, PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene)
+	
+}
+
+script PalletTown_DidYouCutOak {
 	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB) && flag(FLAG_DID_FARFETCHD_TRADE) && !flag(FLAG_CSR_CUT_OAK)){
 		setflag(FLAG_CSR_CUT_OAK)
 		setvar(VAR_TEMP_6, 1)
 		setobjectxy(LeftAide, 3, 10)
 	}
+	release
 }
-
-
 
 script OaksLab_AidesRunAway {
 	lock

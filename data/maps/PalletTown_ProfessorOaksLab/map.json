@@ -344,6 +344,42 @@
       "var": "VAR_TEMP_6",
       "var_value": "1",
       "script": "OaksLab_AidesRunAway"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "PalletTown_DidYouCutOak"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "PalletTown_DidYouCutOak"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "PalletTown_DidYouCutOak"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "PalletTown_DidYouCutOak"
     }
   ],
   "bg_events": [
