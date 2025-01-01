@@ -291,6 +291,9 @@
 #define TRAINER_CLASS_PAINTER             106
 #define TRAINER_CLASS_OFFICER             107
 #define TRAINER_CLASS_DMCA_ADMIN             108
+#define TRAINER_CLASS_DOCTOR             109
+#define TRAINER_CLASS_BUTTERFINGERS             110
+#define TRAINER_CLASS_ODD_LIFEFORM             111
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

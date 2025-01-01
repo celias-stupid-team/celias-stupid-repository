@@ -154,7 +154,7 @@ Route11_EventScript_Eddie::
 	end
 
 Route11_EventScript_Dillon::
-	trainerbattle_single TRAINER_YOUNGSTER_DILLON, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
+	trainerbattle_single TRAINER_DOCTOR_COOKIE, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
 	msgbox Route11_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
 	end
 

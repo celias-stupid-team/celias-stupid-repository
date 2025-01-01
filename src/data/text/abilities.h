@@ -78,6 +78,7 @@ static const u8 sCacophonyDescription[] = _("Avoids sound-based moves.");
 static const u8 sAirLockDescription[] = _("Negates weather effects.");
 static const u8 sSickShadesDescription[] = _("Immunity to FLASHING lights.");
 static const u8 sFreeShinyDescription[] = _("Congrats! Good job catching me!");
+static const u8 c[] = _("EARLY BIRD and SERENE GRACE.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
@@ -134,12 +135,12 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_RUN_AWAY] = sRunAwayDescription,
     [ABILITY_KEEN_EYE] = sKeenEyeDescription,
     [ABILITY_HYPER_CUTTER] = sHyperCutterDescription,
-    [ABILITY_PICKUP] = sPickupDescription,
+    [ABILITY_HONEY_GATHER] = sPickupDescription,
     [ABILITY_TRUANT] = sTruantDescription,
     [ABILITY_HUSTLE] = sHustleDescription,
     [ABILITY_CUTE_CHARM] = sCuteCharmDescription,
-    [ABILITY_PLUS] = sPlusDescription,
-    [ABILITY_MINUS] = sMinusDescription,
+    [ABILITY_OUTIE] = sPlusDescription,
+    [ABILITY_INNIE] = sMinusDescription,
     [ABILITY_FORECAST] = sForecastDescription,
     [ABILITY_STICKY_HOLD] = sStickyHoldDescription,
     [ABILITY_SHED_SKIN] = sShedSkinDescription,
@@ -161,6 +162,8 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AIR_LOCK] = sAirLockDescription,
     [ABILITY_SICK_SHADES] = sSickShadesDescription,
     [ABILITY_FREE_SHINY] = sFreeShinyDescription,
+    [ABILITY_AS_ONE_DODUO] =sAsOneDoduoDescription,
+    [ABILITY_LEAF_RIDE] =sRunAwayDescription,
 
 };
 
@@ -221,12 +224,12 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_RUN_AWAY] = _("RUN AWAY"),
     [ABILITY_KEEN_EYE] = _("KEEN EYE"),
     [ABILITY_HYPER_CUTTER] = _("HYPER CUTTER"),
-    [ABILITY_PICKUP] = _("PICKUP"),
+    [ABILITY_HONEY_GATHER] = _("HONEY GATHER"),
     [ABILITY_TRUANT] = _("TRUANT"),
     [ABILITY_HUSTLE] = _("HUSTLE"),
     [ABILITY_CUTE_CHARM] = _("CUTE CHARM"),
-    [ABILITY_PLUS] = _("PLUS"),
-    [ABILITY_MINUS] = _("MINUS"),
+    [ABILITY_OUTIE] = _("OUTIE"),
+    [ABILITY_INNIE] = _("INNIE"),
     [ABILITY_FORECAST] = _("FORECAST"),
     [ABILITY_STICKY_HOLD] = _("STICKY LOAD"),
     [ABILITY_SHED_SKIN] = _("SHED SKIN"),
@@ -247,4 +250,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_CACOPHONY] = _("CACOPHONY"),
     [ABILITY_AIR_LOCK] = _("AIR LOCK"),
     [ABILITY_SICK_SHADES] = _("SICK SHADES"),
+    [ABILITY_AS_ONE_DODUO] = _("AS ONE"),
+    [ABILITY_LEAF_RIDE] = _("LEAF RIDE"),
 };

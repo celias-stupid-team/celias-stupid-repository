@@ -866,22 +866,22 @@ struct PickupItem
 
 static const struct PickupItem sPickupItems[] =
 {
-    { ITEM_ORAN_BERRY, 15 },
-    { ITEM_CHERI_BERRY, 25 },
-    { ITEM_CHESTO_BERRY, 35 },
-    { ITEM_PECHA_BERRY, 45 },
-    { ITEM_RAWST_BERRY, 55 },
-    { ITEM_ASPEAR_BERRY, 65 },
-    { ITEM_PERSIM_BERRY, 75 },
-    { ITEM_TM10, 80 },
-    { ITEM_PP_UP, 85 },
-    { ITEM_RARE_CANDY, 90 },
-    { ITEM_NUGGET, 95 },
-    { ITEM_SPELON_BERRY, 96 },
-    { ITEM_PAMTRE_BERRY, 97 },
-    { ITEM_WATMEL_BERRY, 98 },
-    { ITEM_DURIN_BERRY, 99 },
-    { ITEM_BELUE_BERRY, 1 },
+    { ITEM_HONEY, 15 },
+    { ITEM_HONEY, 25 },
+    { ITEM_HONEY, 35 },
+    { ITEM_HONEY, 45 },
+    { ITEM_HONEY, 55 },
+    { ITEM_HONEY, 65 },
+    { ITEM_HONEY, 75 },
+    { ITEM_HONEY, 80 },
+    { ITEM_HONEY, 85 },
+    { ITEM_HONEY, 90 },
+    { ITEM_HONEY, 95 },
+    { ITEM_HONEY, 96 },
+    { ITEM_HONEY, 97 },
+    { ITEM_HONEY, 98 },
+    { ITEM_HONEY, 99 },
+    { ITEM_HONEY, 1 },
 
 };
 
@@ -2995,7 +2995,7 @@ static void Cmd_seteffectwithchance(void)
 {
     u32 percentChance;
 
-    if (gBattleMons[gBattlerAttacker].ability == ABILITY_SERENE_GRACE)
+    if (gBattleMons[gBattlerAttacker].ability == ABILITY_SERENE_GRACE || gBattleMons[gBattlerAttacker].ability == ABILITY_AS_ONE_DODUO)
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance * 2;
     else
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
@@ -9629,7 +9629,7 @@ static void Cmd_pickup(void)
             ability = gSpeciesInfo[species].abilities[1];
         else
             ability = gSpeciesInfo[species].abilities[0];
-        if (ability == ABILITY_PICKUP && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10))
+        if (ability == ABILITY_HONEY_GATHER && species != SPECIES_NONE && species != SPECIES_EGG && heldItem == ITEM_NONE && !(Random() % 10))
         {
             s32 random = Random() % 100;
 

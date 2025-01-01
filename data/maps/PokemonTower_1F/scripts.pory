@@ -49,6 +49,8 @@ script PokemonTower_BlackMarket { //Clean up this dialogue; it's a little weak
 }
 
 mart PokemonTower_Market {
-	ITEM_AWAKENING
+	ITEM_TM04
 	ITEM_TM28
+	ITEM_TM39
+	ITEM_TM46
 }

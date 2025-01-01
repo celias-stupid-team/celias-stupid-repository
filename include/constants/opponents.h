@@ -101,7 +101,7 @@
 #define TRAINER_YOUNGSTER_CHAD                    95
 #define TRAINER_YOUNGSTER_TYLER                   96
 #define TRAINER_YOUNGSTER_EDDIE                   97
-#define TRAINER_YOUNGSTER_DILLON                  98
+#define TRAINER_DOCTOR_COOKIE                  98
 #define TRAINER_YOUNGSTER_YASU                    99
 #define TRAINER_YOUNGSTER_DAVE                   100
 #define TRAINER_CSR_DUMMY_5 101

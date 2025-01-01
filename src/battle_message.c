@@ -1738,9 +1738,9 @@ void BufferStringBattle(u16 stringId)
                     if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION)
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                 case 3:
-                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP) //fill in with Toedscool Move
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_DRILL_RUN || sBattleMsgDataPtr->currentMove == MOVE_STRUGGLE_BUG) //fill in with Toedscool Move
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                case 4:
+                case 4: //Need to figure out Surge logic
                 default:
                     break;
             }
