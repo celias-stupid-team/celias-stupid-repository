@@ -3772,30 +3772,34 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlyCharmand
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_RivalCeruleanSquirtle[] = {
+static const struct TrainerMonItemCustomMoves sParty_RivalCeruleanSquirtle[] = {
     {
         .iv = 50,
-        .lvl = 17,
+        .lvl = 60,
+        .species = SPECIES_MOLTRES,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_SURF, MOVE_WATER_SHURIKEN, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 50,
+        .lvl = 2,
         .species = SPECIES_PIDGEOTTO,
-        .moves = {MOVE_TACKLE, MOVE_SAND_ATTACK, MOVE_GUST, MOVE_QUICK_ATTACK},
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 50,
         .lvl = 16,
         .species = SPECIES_ABRA,
+        .heldItem = ITEM_FOCUS_SASH,
         .moves = {MOVE_TELEPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
-        .iv = 50,
-        .lvl = 15,
-        .species = SPECIES_RATTATA,
-        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_QUICK_ATTACK, MOVE_NONE},
-    },
-    {
         .iv = 100,
-        .lvl = 18,
-        .species = SPECIES_SQUIRTLE,
-        .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_WITHDRAW, MOVE_WATER_GUN},
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
+        .heldItem = ITEM_NONE,
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

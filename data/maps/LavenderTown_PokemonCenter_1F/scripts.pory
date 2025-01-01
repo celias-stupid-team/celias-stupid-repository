@@ -20,7 +20,7 @@ LavenderTown_PokemonCenter_1F_EventScript_Gentleman::
 	end
 
 LavenderTown_PokemonCenter_1F_EventScript_Lass::
-	famechecker(FAMECHECKER_LAVENDER, 3)
+	famechecker FAMECHECKER_LAVENDER, 3
 	msgbox LavenderTown_PokemonCenter_1F_Text_CubonesMotherKilledByRockets, MSGBOX_NPC
 	end
 

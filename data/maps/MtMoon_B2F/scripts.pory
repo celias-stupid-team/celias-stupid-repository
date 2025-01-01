@@ -83,7 +83,7 @@ MtMoon_B2F_EventScript_Grunt1::
 	end
 
 MtMoon_B2F_EventScript_Grunt2::
-	trainerbattle_single mTRAINER_DMCA_GRUNT_2, MtMoon_B2F_Text_Grunt2Intro, MtMoon_B2F_Text_Grunt2Defeat
+	trainerbattle_single TRAINER_DMCA_GRUNT_2, MtMoon_B2F_Text_Grunt2Intro, MtMoon_B2F_Text_Grunt2Defeat
 	famechecker FAMECHECKER_MT_MOON, 0
 	msgbox MtMoon_B2F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
