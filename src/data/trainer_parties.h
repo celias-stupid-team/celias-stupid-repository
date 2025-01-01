@@ -541,7 +541,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherBrent[] = {
         .iv = 0,
         .lvl = 19,
         .species = SPECIES_DRAGONITE,
-        .move = {MOVE_BARRIER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_BARRIER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -554,7 +554,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherConner[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_FLAREOn,
+        .species = SPECIES_FLAREON,
     },
 };
 
