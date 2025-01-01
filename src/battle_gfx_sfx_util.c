@@ -19,6 +19,7 @@
 #include "event_data.h"
 #include "script.h"
 #include "event_scripts.h"
+#include "battle_controllers.h"
 
 static bool8 ShouldAnimBeDoneRegardlessOfSubsitute(u8 animId);
 static void Task_ClearBitWhenBattleTableAnimDone(u8 taskId);
@@ -452,7 +453,14 @@ void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 
 void DecompressTrainerBackPalette(u16 index, u8 palette)
 {
-    LoadCompressedPalette(gTrainerBackPicPaletteTable[index].data, OBJ_PLTT_ID2(palette), PLTT_SIZE_4BPP);
+    if (index == 0 || index == 1) // indexes for red and leaf
+    {
+        LoadCompressedPalette(GetBackPicPalette_HandleOutfit(index), OBJ_PLTT_ID2(palette), PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LoadCompressedPalette(gTrainerBackPicPaletteTable[index].data, OBJ_PLTT_ID2(palette), PLTT_SIZE_4BPP);
+    }
 }
 
 void BattleGfxSfxDummy3(u8 gender)

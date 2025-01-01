@@ -16,6 +16,17 @@ const struct CompressedSpriteSheet gTrainerBackPicTable[] = {
     { (const u32 *)gTrainerBackPic_OldMan, 0x2000, 5 }
 };
 
+const u32* const gOutfitToBackPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
+    [OUTFIT_NONE] = {gTrainerPalette_RedBackPic, gTrainerPalette_LeafBackPic},
+    [OUTFIT_L]    = {gBackPicPalette_Red_L,      gBackPicPalette_Green_L},
+    [OUTFIT_W]    = {gBackPicPalette_Red_W,      gBackPicPalette_Green_W},
+    [OUTFIT_P]    = {gBackPicPalette_Red_P,      gBackPicPalette_Green_P},
+    [OUTFIT_LW]   = {gBackPicPalette_Red_LW,     gBackPicPalette_Green_LW},
+    [OUTFIT_LP]   = {gBackPicPalette_Red_LP,     gBackPicPalette_Green_LP},
+    [OUTFIT_WP]   = {gBackPicPalette_Red_WP,     gBackPicPalette_Green_WP},
+    [OUTFIT_LWP]  = {gBackPicPalette_Red_LWP,    gBackPicPalette_Green_LWP},
+};
+
 const struct CompressedSpritePalette gTrainerBackPicPaletteTable[] = {
     { gTrainerPalette_RedBackPic, 0 },
     { gTrainerPalette_LeafBackPic, 1 },

@@ -39,6 +39,7 @@ extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
 extern const union AnimCmd *const *const gTrainerBackAnimsPtrTable[];
 extern const struct MonCoords gTrainerBackPicCoords[];
 extern const struct CompressedSpritePalette gTrainerBackPicPaletteTable[];
+extern const u32* const gOutfitToBackPicPalette[][GENDER_COUNT];
 
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
 extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;

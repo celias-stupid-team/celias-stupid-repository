@@ -269,6 +269,7 @@ void SetBattleEndCallbacks(void);
 void MoveSelectionCreateCursorAt(u8 cursorPos, u8 arg1);
 void MoveSelectionDestroyCursorAt(u8 cursorPos);
 void HandleInputChooseMove(void);
+const u32* GetBackPicPalette_HandleOutfit(u8 gender);
 
 // opponent controller
 void SetControllerToOpponent(void);
