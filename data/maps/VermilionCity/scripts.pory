@@ -35,6 +35,7 @@ VermilionCity_EventScript_Woman::
 	end
 
 VermilionCity_EventScript_OldMan1::
+	famechecker FAMECHECKER_VERMILION, 0
 	lock
 	faceplayer
 	goto_if_eq VAR_MAP_SCENE_VERMILION_CITY, 3, VermilionCity_EventScript_OldMan1SSAnneLeft

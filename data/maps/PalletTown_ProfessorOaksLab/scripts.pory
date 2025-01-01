@@ -1356,6 +1356,7 @@ script PalletTown_EventScript_CeliaBackToLab {
 
 script PalletTown_EventScript_GS_BALL {
 	lock
+	famechecker(FAMECHECKER_PALLET, 4)
 	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB)) {
 		msgbox("It's OAK's specially-ordered\nGS BALL!\pTake it?\n", MSGBOX_YESNO)
 		//TODO rest of GS Ball script

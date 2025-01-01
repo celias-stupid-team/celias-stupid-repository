@@ -140,12 +140,14 @@ PewterCity_Museum_1F_EventScript_Scientist2::
 	end
 
 PewterCity_Museum_1F_EventScript_OldMan::
+	famechecker FAMECHECKER_PEWTER, 4
 	msgbox PewterCity_Museum_1F_Text_ShouldBeGratefulForLongLife, MSGBOX_NPC
 	end
 
 PewterCity_Museum_1F_EventScript_OldAmberScientist::
 	lock
 	faceplayer
+	famechecker FAMECHECKER_PEWTER, 5
 	goto_if_set FLAG_GOT_OLD_AMBER, PewterCity_Museum_1F_EventScript_AlreadyGotOldAmber
 	msgbox PewterCity_Museum_1F_Text_WantYouToGetAmberExamined
 	checkitemspace ITEM_OLD_AMBER
@@ -237,6 +239,7 @@ script PewterCity_Museum_1F_EventScript_Bones {
 
 script PewterCity_Museum_1F_EventScript_Amber_Tree {
 	lock
+	famechecker(FAMECHECKER_PEWTER, 5)
 	textcolor(0)
 	msgbox("Look at this beautiful piece of\nAMBER we found!\pIt's one of our finest specimens.\p...What?\nNo, of course you can't have it!\lWhy would you think you could?")
 	release

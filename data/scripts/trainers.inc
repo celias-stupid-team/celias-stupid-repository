@@ -270,6 +270,7 @@ Route10_EventScript_Clark::
 
 Route10_EventScript_Trent::
 	trainerbattle_single TRAINER_HIKER_TRENT, Route10_Text_TrentIntro, Route10_Text_TrentDefeat
+	famechecker FAMECHECKER_ROCK_TUNNEL, 1
 	msgbox Route10_Text_TrentPostBattle, MSGBOX_AUTOCLOSE
 	end
 

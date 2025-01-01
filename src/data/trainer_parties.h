@@ -1127,12 +1127,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerCarol[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_PIDGEY,
-    },
-    {
-        .iv = 0,
-        .lvl = 21,
-        .species = SPECIES_PIDGEOTTO,
+        .species = SPECIES_MUNNA,
     },
 };
 

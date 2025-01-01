@@ -32,6 +32,7 @@ script VermillionPokemonCenter_DMCA {
 }
 
 script VermillionPokemonCenter_Kid {
+	famechecker(FAMECHECKER_VERMILION, 2)
 	msgbox("I gave the guy next door my\nTRAINER ID.\lHe said he'd give me a cool prize.\pI don't think that was a very good\nidea…", MSGBOX_NPC)
 	end
 }

@@ -24,6 +24,7 @@ LavenderTown_EventScript_LittleGirlBelieve::
 	end
 
 LavenderTown_EventScript_WorkerM::
+	famechecker FAMECHECKER_LAVENDER, 0
 	msgbox LavenderTown_Text_TownKnownAsMonGraveSite, MSGBOX_NPC
 	end
 

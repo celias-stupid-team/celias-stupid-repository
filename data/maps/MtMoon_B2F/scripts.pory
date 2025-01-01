@@ -27,6 +27,7 @@ MtMoon_B2F_EventScript_MiguelTrigger::
 MtMoon_B2F_EventScript_Miguel::
 	lock
 	faceplayer
+	famechecker FAMECHECKER_MT_MOON, 5
 	goto_if_set FLAG_GOT_FOSSIL_FROM_MT_MOON, MtMoon_B2F_EventScript_MiguelFossilPicked
 	goto_if_defeated TRAINER_SUPER_NERD_MIGUEL, MtMoon_B2F_EventScript_MiguelGoPickFossil
 	call MtMoon_B2F_EventScript_BattleMiguel
@@ -82,7 +83,8 @@ MtMoon_B2F_EventScript_Grunt1::
 	end
 
 MtMoon_B2F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_DMCA_GRUNT_2, MtMoon_B2F_Text_Grunt2Intro, MtMoon_B2F_Text_Grunt2Defeat
+	trainerbattle_single mTRAINER_DMCA_GRUNT_2, MtMoon_B2F_Text_Grunt2Intro, MtMoon_B2F_Text_Grunt2Defeat
+	famechecker FAMECHECKER_MT_MOON, 0
 	msgbox MtMoon_B2F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 

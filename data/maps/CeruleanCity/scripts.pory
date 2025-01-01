@@ -44,6 +44,7 @@ CeruleanCity_EventScript_RivalTriggerRight::
 	end
 
 CeruleanCity_EventScript_Rival::
+	famechecker FAMECHECKER_CERULEAN, 2
 	textcolor NPC_TEXT_COLOR_MALE
 	setvar VAR_MAP_SCENE_ROUTE22, 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
@@ -260,10 +261,12 @@ CeruleanCity_EventScript_BaldingMan::
 	end
 
 CeruleanCity_EventScript_Youngster::
+	famechecker FAMECHECKER_CERULEAN, 0
 	msgbox CeruleanCity_Text_TrainerLifeIsToughIsntIt, MSGBOX_NPC
 	end
 
 CeruleanCity_EventScript_CeruleanCaveGuard::
+	famechecker FAMECHECKER_CERULEAN, 3
 	msgbox CeruleanCity_Text_ThisIsCeruleanCave, MSGBOX_NPC
 	end
 

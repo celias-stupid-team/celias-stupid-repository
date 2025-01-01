@@ -11,6 +11,7 @@ CeladonCity_Gym_EventScript_DefeatedErika::
 	end
 
 CeladonCity_Gym_EventScript_GiveTM19::
+	famechecker FAMECHECKER_CELADON, 5
 	msgbox CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis
 	checkitemspace ITEM_TM30
 	goto_if_eq VAR_RESULT, FALSE, CeladonCity_Gym_EventScript_NoRoomForTM19

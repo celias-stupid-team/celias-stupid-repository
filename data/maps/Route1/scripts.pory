@@ -10,6 +10,7 @@ Route1_OnTransition::
 Route1_EventScript_MartClerk::
 	lock
 	faceplayer
+	famechecker FAMECHECKER_VIRIDIAN, 0
 	goto_if_set FLAG_GOT_POTION_ON_ROUTE_1, Route1_EventScript_AlreadyGotPotion
 	msgbox Route1_Text_WorkAtPokeMartTakeSample
 	textcolor NPC_TEXT_COLOR_NEUTRAL
@@ -33,6 +34,7 @@ Route1_EventScript_AlreadyGotPotion::
 	end
 
 Route1_EventScript_Boy::
+	famechecker FAMECHECKER_VIRIDIAN, 3
 	msgbox Route1_Text_CanJumpFromLedges, MSGBOX_NPC
 	end
 
@@ -41,6 +43,7 @@ Route1_EventScript_RouteSign::
 	end
 
 Route1_EventScript_ThePit::
+	famechecker FAMECHECKER_VIRIDIAN, 2	
 	msgbox Route1_Text_ThePitIntro
 	closemessage
 	delay 30

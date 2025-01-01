@@ -7,6 +7,7 @@ VermilionCity_House3_EventScript_Boy::
 	end
 
 VermilionCity_House3_EventScript_Lass::
+	famechecker FAMECHECKER_VERMILION, 1
 	msgbox VermilionCity_House3_Text_SendMyPidgeyToUnionRoom, MSGBOX_NPC
 	setflag FLAG_CSR_HINT_SPEAROW
 	call SetPlayerPokedexValues

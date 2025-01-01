@@ -5,6 +5,7 @@ LavenderTown_House1_MapScripts::
 LavenderTown_House1_EventScript_CooltrainerF::
 	lock
 	faceplayer
+	famechecker FAMECHECKER_LAVENDER, 1
 	goto_if_set FLAG_RESCUED_MR_FUJI, LavenderTown_House1_EventScript_CooltrainerFGhostGone
 	msgbox LavenderTown_House1_Text_RocketsKilledCubonesMother
 	release

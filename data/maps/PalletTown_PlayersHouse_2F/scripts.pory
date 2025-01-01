@@ -26,6 +26,7 @@ PalletTown_PlayersHouse_2F_FirstWarpIn::
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES::
+	famechecker FAMECHECKER_PALLET, 2
 	msgbox PalletTown_PlayersHouse_2F_Text_PlayedWithNES, MSGBOX_SIGN
 	end
 

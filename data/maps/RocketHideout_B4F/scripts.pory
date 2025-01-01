@@ -73,6 +73,7 @@ RocketHideout_B4F_EventScript_LiftKey::
 
 RocketHideout_B4F_EventScript_Grunt2::
 	trainerbattle_single TRAINER_DMCA_PETREL_1, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
+	famechecker FAMECHECKER_CELADON, 4
 	msgbox RocketHideout_B4F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 

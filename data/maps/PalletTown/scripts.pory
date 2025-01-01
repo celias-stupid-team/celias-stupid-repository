@@ -417,6 +417,10 @@ PalletTown_EventScript_SignLadyStartShowSign::
 script PalletTown_OnTransition {
 	setworldmapflag (FLAG_WORLD_MAP_PALLET_TOWN)
 	call(SetPlayerPokedexValues)
+	famechecker(FAMECHECKER_PALLET, 0)
+	famechecker(FAMECHECKER_PALLET, 1)
+	famechecker(FAMECHECKER_PALLET, 5)
+	
 	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
 		setobjectxyperm(1, 12, 2)
 		setobjectmovementtype(1, MOVEMENT_TYPE_FACE_RIGHT)

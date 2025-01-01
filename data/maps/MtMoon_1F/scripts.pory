@@ -20,11 +20,13 @@ MtMoon_1F_EventScript_Josh::
 	trainerbattle_single TRAINER_YOUNGSTER_JOSH, MtMoon_1F_Text_JoshIntro, MtMoon_1F_Text_JoshDefeat
 	setflag FLAG_CSR_HINT_RUNNING_SHOES
 	call SetPlayerPokedexValues
+	famechecker FAMECHECKER_MT_MOON, 4
 	msgbox MtMoon_1F_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtMoon_1F_EventScript_Miriam::
 	trainerbattle_single TRAINER_LASS_MIRIAM, MtMoon_1F_Text_MiriamIntro, MtMoon_1F_Text_MiriamDefeat
+	famechecker FAMECHECKER_MT_MOON, 2
 	msgbox MtMoon_1F_Text_MiriamPostBattle, MSGBOX_AUTOCLOSE
 	end
 
