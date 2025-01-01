@@ -362,7 +362,7 @@
 #define TRAINER_DMCA_GRUNT_6              356
 #define TRAINER_DMCA_GRUNT_7              357
 #define TRAINER_DMCA_GRUNT_8              358
-#define TRAINER_DMCA_GRUNT_9              359
+#define TRAINER_TEAM_ROCKET              359
 #define TRAINER_DMCA_GRUNT_10             360
 #define TRAINER_DMCA_GRUNT_11             361
 #define TRAINER_DMCA_GRUNT_12             362

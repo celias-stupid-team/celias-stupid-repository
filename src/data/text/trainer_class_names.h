@@ -111,4 +111,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_DOCTOR]             = _("DOCTOR"),
     [TRAINER_CLASS_BUTTERFINGERS]             = _("BUTTERFINGRS"),
     [TRAINER_CLASS_ODD_LIFEFORM]             = _("ODD LIFEFORM"),
+    [TRAINER_CLASS_TEAM]             = _("TEAM"),
 };

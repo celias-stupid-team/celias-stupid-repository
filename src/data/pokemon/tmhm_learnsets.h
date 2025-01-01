@@ -302,6 +302,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM18_RAIN_DANCE)
                                         | TMHM(TM21_THUNDERJOLT)
                                         | TMHM(TM27_VACUUM_CUT)
+                                        | TMHM(TM31_MUD_SLAP)
                                         | TMHM(TM32_BRICK_BREAK)
                                         | TMHM(TM40_DRAGON_RAGE)
                                         | TMHM(TM42_CRABHAMMER)
