@@ -48,10 +48,7 @@ PokemonLeague_BrunosRoom_EventScript_EnterRoom::
 PokemonLeague_BrunosRoom_EventScript_Bruno::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_KANTO_SHORELINE, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	goto_if_set FLAG_DEFEATED_BRUNO, PokemonLeague_BrunosRoom_EventScript_PostBattle
-	famechecker FAMECHECKER_KANTO_SHORELINE, 0
-	famechecker FAMECHECKER_KANTO_SHORELINE, 1
 	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_BrunosRoom_EventScript_Intro
 	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_BrunosRoom_EventScript_RematchIntro
 	setflag FLAG_TEMP_3

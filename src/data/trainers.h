@@ -3394,7 +3394,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ScientistIvan),
     },
     [TRAINER_BOSS_GIOVANNI] = {
-        .trainerClass = TRAINER_CLASS_BOSS,
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_LEADER_GIOVANNI,
         .trainerName = _("GIOVANNI"),
@@ -3573,7 +3573,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt16),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_DMCAGrunt16),
     },
     [TRAINER_DMCA_GRUNT_17] = {
         .trainerClass = TRAINER_CLASS_DMCA,

@@ -4090,21 +4090,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ScientistIvan[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BossGiovanni[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_BossGiovanni[] = {
     {
         .iv = 250,
-        .lvl = 25,
-        .species = SPECIES_ONIX,
-    },
-    {
-        .iv = 250,
-        .lvl = 24,
-        .species = SPECIES_RHYHORN,
-    },
-    {
-        .iv = 250,
-        .lvl = 29,
-        .species = SPECIES_KANGASKHAN,
+        .lvl = 30,
+        .species = SPECIES_WEEZING_ALOLA,
+        .moves = {MOVE_CRUNCH, MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -4255,12 +4246,22 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt9[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_EKANS,
     },
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_KOFFING,
+    },
+    {
+        .iv = 0,
+        .lvl = 21,
+        .species = SPECIES_MEOWTH,
+    },
+    {
+        .iv = 0,
+        .lvl = 21,
+        .species = SPECIES_WOBBUFFET,
     },
 };
 
@@ -4387,21 +4388,36 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt15[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt16[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt16[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_SANDSHREW,
+        .species = SPECIES_KOFFING,
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_EKANS,
+        .species = SPECIES_KOFFING,
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_SANDSLASH,
+        .species = SPECIES_KOFFING,
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 23,
+        .species = SPECIES_KOFFING,
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 23,
+        .species = SPECIES_KOFFING,
+        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

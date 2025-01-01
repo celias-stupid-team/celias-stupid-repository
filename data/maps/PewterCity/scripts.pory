@@ -646,7 +646,6 @@ PewterCity_EventScript_MuseumSign::
 
 PewterCity_EventScript_GymSign::
 	lockall
-	famechecker FAMECHECKER_PEWTER, 0
 	msgbox PewterCity_Text_GymSign
 	releaseall
 	end
