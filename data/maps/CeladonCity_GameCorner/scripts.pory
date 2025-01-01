@@ -380,6 +380,27 @@ CeladonCity_GameCorner_EventScript_UnusableSlotMachine3::
 	msgbox CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_SIGN
 	end
 `
+script GameCorner_FindCoins {
+	lock
+	checkcoins(VAR_RESULT)
+	if(var(VAR_RESULT) > 1) {
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} found\n9999 COINS!", MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		msgbox("Too bad!\nThe COIN CASE is full!", MSGBOX_DEFAULT)
+	} else {
+		addcoins(9999)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} found\n9999 COINS!", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox("{PLAYER} put the COINS away in\nthe COIN CASE.\lHow convenient!", MSGBOX_DEFAULT)
+		
+	}
+	release
+	end
+}
+
 script CeladonCity_GameCorner_EventScript_Gentleman {
 	lock
 	faceplayer
