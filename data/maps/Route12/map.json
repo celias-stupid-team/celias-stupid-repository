@@ -258,8 +258,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
-      "x": 21,
-      "y": 76,
+      "x": 19,
+      "y": 80,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
       "movement_range_x": 3,
@@ -272,8 +272,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 21,
-      "y": 77,
+      "x": 19,
+      "y": 82,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
       "movement_range_x": 3,

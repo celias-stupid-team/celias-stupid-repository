@@ -22,8 +22,8 @@ MtMoon_1F_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
 
-MtMoon_1F_EventScript_ItemTM09::
-	finditem ITEM_TM09
+MtMoon_1F_EventScript_ItemTM31::
+	finditem ITEM_TM31
 	end
 
 MtMoon_1F_EventScript_ItemPotion::
@@ -90,8 +90,8 @@ SSAnne_Kitchen_EventScript_ItemGreatBall::
 	finditem ITEM_GREAT_BALL
 	end
 
-Route9_EventScript_ItemTM40::
-	finditem ITEM_TM40
+Route9_EventScript_ItemTM20::
+	finditem ITEM_TM20
 	end
 
 RocketHideout_B1F_EventScript_ItemEscapeRope::
@@ -110,8 +110,8 @@ RocketHideout_B2F_EventScript_ItemMoonStone::
 	finditem ITEM_MOON_STONE
 	end
 
-RocketHideout_B2F_EventScript_ItemTM12::
-	finditem ITEM_TM12
+RocketHideout_B2F_EventScript_ItemTM49::
+	finditem ITEM_TM49
 	end
 
 RocketHideout_B2F_EventScript_ItemSuperPotion::

@@ -7802,6 +7802,7 @@ extern const u32 gItemIcon_GreatBall[];
 extern const u32 gItemIconPalette_GreatBall[];
 extern const u32 gItemIcon_PokeBall[];
 extern const u32 gItemIconPalette_PokeBall[];
+extern const u32 gItemIconPalette_GSBall[];
 extern const u32 gItemIcon_SafariBall[];
 extern const u32 gItemIconPalette_SafariBall[];
 extern const u32 gItemIcon_NetBall[];
