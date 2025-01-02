@@ -16,6 +16,7 @@
 #include "random.h"
 #include "data.h"
 #include "constants/songs.h"
+#include "constants/event_object_movement.h"
 
 #define INTRO_SPECIES SPECIES_SUDOWOODO
 
@@ -1442,6 +1443,9 @@ static void Task_OakSpeech_DoNamingScreen(u8 taskId)
         GetDefaultName(sOakSpeechResources->hasPlayerBeenNamed, 0);
         if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
         {
+            // we have to reset the outfit here, the rest of the new game data resets
+            // after the naming screen
+            gSaveBlock1Ptr->currentOutfit = OUTFIT_NONE;
             DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnFromNamingScreen);
         }
         else

@@ -2222,7 +2222,6 @@ static const struct SpritePalette *GetReflectionPal_HandleOutfit(u16 paletteTag)
         return &sOutfitToReflectionPalGreen[gSaveBlock1Ptr->currentOutfit];
 }
 
-// ravetodo: not sure these changes are needed, needs more testing
 static void LoadObjectEventPalette(u16 paletteTag)
 {
     const struct SpritePalette *pal;
