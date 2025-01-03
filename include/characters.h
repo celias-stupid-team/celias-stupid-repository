@@ -260,8 +260,8 @@
 #define TEXT_COLOR_LIGHT_BLUE   0x9
 #define TEXT_DYNAMIC_COLOR_1    0xA // Usually white
 #define TEXT_DYNAMIC_COLOR_2    0xB // Usually white w/ tinge of green
-#define TEXT_DYNAMIC_COLOR_3    0xC // Usually white
-#define TEXT_DYNAMIC_COLOR_4    0xD // Usually aquamarine
+#define TEXT_DYNAMIC_COLOR_3    0xC // Usually white //Yellow for summary screen?
+#define TEXT_DYNAMIC_COLOR_4    0xD // Usually aquamarine //Purple for Summary Screen?
 #define TEXT_DYNAMIC_COLOR_5    0xE // Usually blue-green
 #define TEXT_DYNAMIC_COLOR_6    0xF // Usually cerulean
 

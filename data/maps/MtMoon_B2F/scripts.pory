@@ -160,7 +160,7 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 		delay(60)
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 		waitmovement(ACTUAL_MIGUEL)
-		setobjectxy(ACTUAL_MIGUEL, 1, 18)
+		setobjectxy(ACTUAL_MIGUEL, 0, 18)
 		setobjectmovementtype(ACTUAL_MIGUEL, MOVEMENT_TYPE_INVISIBLE)		// Doesn't actually seem to do anything
 
 	} else {
