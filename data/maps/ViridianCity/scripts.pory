@@ -206,6 +206,7 @@ ViridianCity_EventScript_GymDoor::
 	end
 
 ViridianCity_EventScript_Boy::
+	famechecker FAMECHECKER_VIRIDIAN, 4
 	msgbox ViridianCity_Text_CanCarryMonsAnywhere, MSGBOX_NPC
 	end
 

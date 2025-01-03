@@ -4,6 +4,7 @@ Route2_House_MapScripts::
 
 Route2_House_EventScript_Scientist::
 	lock
+	famechecker FAMECHECKER_VIRIDIAN, 5
 	setflag FLAG_CSR_HINT_ABRA_TRADE
 	call SetPlayerPokedexValues
 	msgbox Route2_House_Text_FaintedMonsCanUseFieldMoves, MSGBOX_DEFAULT

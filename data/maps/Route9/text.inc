@@ -12,35 +12,41 @@ Route9_Text_AliciaPostBattle::
     .string "there.$"
 
 Route9_Text_ChrisIntro::
-    .string "Who's that walking there with those\n"
-    .string "good-looking POKéMON?$"
+	.string "Haha, yeah!\n"
+	.string "Let's go, LazorGator!$"
 
 Route9_Text_ChrisDefeat::
     .string "Out like a light!$"
 
 Route9_Text_ChrisPostBattle::
-    .string "Keep walking!$"
+	.string "What?\p"
+	.string "You're telling me you don't\n"
+	.string "remember LazorGator at all?$"
 
 Route9_Text_DrewIntro::
-    .string "I'm taking the ROCK TUNNEL to\n"
-    .string "go to LAVENDER…$"
+	.string "Check out this hole I dug!\n$"
 
 Route9_Text_DrewDefeat::
     .string "Can't measure up…$"
 
 Route9_Text_DrewPostBattle::
-    .string "Are you off to ROCK TUNNEL, too?$"
+	.string "My rat loves digging tunnels\n"
+	.string "like this!\p"
+	.string "They always take me where I need to\n"
+	.string "go!$"
 
 Route9_Text_CaitlinIntro::
-    .string "Don't you dare patronize me!$"
+	.string "Stop right there!\p"
+	.string "You don't get to go any further!\n$"
 
 Route9_Text_CaitlinDefeat::
-    .string "No!\n"
-    .string "You're too much.$"
+	.string "START9!\n$"
 
 Route9_Text_CaitlinPostBattle::
-    .string "You're obviously talented.\n"
-    .string "Good luck to you!$"
+	.string "START9!\p"
+	.string "START9!\p"
+	.string "Why are you still moving?\n"
+	.string "I said START9!$"
 
 Route9_Text_JeremyIntro::
     .string "Bwahaha!\n"
@@ -56,27 +62,29 @@ Route9_Text_JeremyPostBattle::
     .string "me there, eh?$"
 
 Route9_Text_BriceIntro::
-    .string "Hahaha!\n"
-    .string "Aren't you a little toughie!$"
+	.string "This terrain is nothing!\p"
+	.string "My bike can handle anything!\n$"
 
 Route9_Text_BriceDefeat::
-    .string "What's that?$"
+	.string "No!\n"
+	.string "My All-Terrain VENOMOTH!$"
 
 Route9_Text_BricePostBattle::
-    .string "Hahaha!\n"
-    .string "Kids should be tough!$"
+	.string "What a shame...\p"
+	.string "I wiped the floor with the guy on\n"
+	.string "the other side of the ROUTE.$"
 
 Route9_Text_BrentIntro::
-    .string "I got up early every day to raise\n"
-    .string "my POKéMON from cocoons!$"
+	.string "Hahaha!\p"
+	.string "Fear my DRAGONS!\n$"
 
 Route9_Text_BrentDefeat::
     .string "WHAT?\p"
     .string "What a total waste of time!$"
 
 Route9_Text_BrentPostBattle::
-    .string "I have to collect more than bugs\n"
-    .string "to get stronger…$"
+	.string "I don't understand!\n"
+	.string "My moves were SUPER-EFFECTIVE!$"
 
 Route9_Text_AlanIntro::
     .string "Hahahaha!\n"
@@ -91,14 +99,16 @@ Route9_Text_AlanPostBattle::
     .string "Us hearty guys always laugh!$"
 
 Route9_Text_ConnerIntro::
-    .string "Go, my super BUG POKéMON!$"
+	.string "Be careful!\p"
+	.string "I'm guarding a dangerous monster!\n$"
 
 Route9_Text_ConnerDefeat::
-    .string "My bugs…$"
+	.string "Oh, darn.\n"
+	.string "It's just like that SUNDAY.$"
 
 Route9_Text_ConnerPostBattle::
-    .string "If you don't like BUG POKéMON,\n"
-    .string "you bug me!$"
+	.string "It was a trick!\n"
+	.string "They deceived me!$"
 
 Route9_Text_RouteSign::
     .string "ROUTE 9\n"

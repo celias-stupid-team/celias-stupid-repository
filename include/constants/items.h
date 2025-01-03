@@ -473,10 +473,11 @@
 #define ITEM_W_EMBLEM 390
 #define ITEM_L_EMBLEM 391
 #define ITEM_P_EMBLEM 392
+#define ITEM_GS_BALL 393
 
 
 
-#define ITEMS_COUNT 393
+#define ITEMS_COUNT 394
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

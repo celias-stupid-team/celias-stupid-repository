@@ -1278,7 +1278,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 else
                 {
                     u8 toSub;
-                    if (gBattleMons[gBattlerAttacker].ability == ABILITY_EARLY_BIRD)
+                    if (gBattleMons[gBattlerAttacker].ability == ABILITY_EARLY_BIRD || gBattleMons[gBattlerAttacker].ability == ABILITY_AS_ONE_DODUO)
                         toSub = 2;
                     else
                         toSub = 1;

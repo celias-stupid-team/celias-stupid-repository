@@ -460,6 +460,14 @@ const u32 gTrainerPalette_OldManBackPic[] = INCBIN_U32("graphics/trainers/palett
 const u32 gTrainerFrontPic_Proton[] = INCBIN_U32("graphics/trainers/front_pics/proton_pic.4bpp.lz");
 const u32 gTrainerPalette_Proton[] = INCBIN_U32("graphics/trainers/palettes/proton.gbapal.lz");
 
+const u32 gTrainerFrontPic_Imakuni[] = INCBIN_U32("graphics/trainers/front_pics/imakuni_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Imakuni[] = INCBIN_U32("graphics/trainers/palettes/imakuni.gbapal.lz");
+
+const u32 gTrainerFrontPic_TeamRocket[] = INCBIN_U32("graphics/trainers/front_pics/team_rocket_front_pic.4bpp.lz");
+const u32 gTrainerPalette_TeamRocket[] = INCBIN_U32("graphics/trainers/palettes/team_rocket.gbapal.lz");
+
+const u32 gTrainerFrontPic_Petrel[] = INCBIN_U32("graphics/trainers/front_pics/petrel_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Petrel[] = INCBIN_U32("graphics/trainers/palettes/petrel.gbapal.lz");
 // CSR outfits
 const u32 gBackPicPalette_Red_L[] = INCBIN_U32("graphics/trainers/palettes/red_back_l.gbapal.lz");
 const u32 gBackPicPalette_Red_W[] = INCBIN_U32("graphics/trainers/palettes/red_back_w.gbapal.lz");

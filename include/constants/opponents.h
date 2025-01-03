@@ -101,7 +101,7 @@
 #define TRAINER_YOUNGSTER_CHAD                    95
 #define TRAINER_YOUNGSTER_TYLER                   96
 #define TRAINER_YOUNGSTER_EDDIE                   97
-#define TRAINER_YOUNGSTER_DILLON                  98
+#define TRAINER_DOCTOR_COOKIE                  98
 #define TRAINER_YOUNGSTER_YASU                    99
 #define TRAINER_YOUNGSTER_DAVE                   100
 #define TRAINER_CSR_DUMMY_5 101
@@ -362,7 +362,7 @@
 #define TRAINER_DMCA_GRUNT_6              356
 #define TRAINER_DMCA_GRUNT_7              357
 #define TRAINER_DMCA_GRUNT_8              358
-#define TRAINER_DMCA_GRUNT_9              359
+#define TRAINER_TEAM_ROCKET              359
 #define TRAINER_DMCA_GRUNT_10             360
 #define TRAINER_DMCA_GRUNT_11             361
 #define TRAINER_DMCA_GRUNT_12             362

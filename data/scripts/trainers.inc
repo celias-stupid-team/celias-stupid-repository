@@ -154,7 +154,7 @@ Route11_EventScript_Eddie::
 	end
 
 Route11_EventScript_Dillon::
-	trainerbattle_single TRAINER_YOUNGSTER_DILLON, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
+	trainerbattle_single TRAINER_DOCTOR_COOKIE, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
 	msgbox Route11_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -270,6 +270,7 @@ Route10_EventScript_Clark::
 
 Route10_EventScript_Trent::
 	trainerbattle_single TRAINER_HIKER_TRENT, Route10_Text_TrentIntro, Route10_Text_TrentDefeat
+	famechecker FAMECHECKER_ROCK_TUNNEL, 1
 	msgbox Route10_Text_TrentPostBattle, MSGBOX_AUTOCLOSE
 	end
 

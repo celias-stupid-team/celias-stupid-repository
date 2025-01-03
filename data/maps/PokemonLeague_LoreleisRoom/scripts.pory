@@ -51,10 +51,7 @@ PokemonLeague_LoreleisRoom_EventScript_EnterRoom::
 PokemonLeague_LoreleisRoom_EventScript_Lorelei::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_FUSHCIA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	goto_if_set FLAG_DEFEATED_LORELEI, PokemonLeague_LoreleisRoom_EventScript_PostBattle
-	famechecker FAMECHECKER_FUSHCIA, 0
-	famechecker FAMECHECKER_FUSHCIA, 1
 	call_if_unset FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LoreleisRoom_EventScript_Intro
 	call_if_set FLAG_SYS_CAN_LINK_WITH_RS, PokemonLeague_LoreleisRoom_EventScript_RematchIntro
 	setflag FLAG_TEMP_3

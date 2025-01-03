@@ -633,6 +633,7 @@ PewterCity_EventScript_KnowWhatTheyreDoing::
 	end
 
 PewterCity_EventScript_TrainerTips::
+	famechecker FAMECHECKER_PEWTER, 0
 	msgbox PewterCity_Text_TrainerTipsEarningEXP, MSGBOX_SIGN
 	end
 
@@ -646,7 +647,6 @@ PewterCity_EventScript_MuseumSign::
 
 PewterCity_EventScript_GymSign::
 	lockall
-	famechecker FAMECHECKER_PEWTER, 0
 	msgbox PewterCity_Text_GymSign
 	releaseall
 	end
@@ -686,6 +686,7 @@ PewterCity_EventScript_RunningShoesAideTriggerBottom::
 
 PewterCity_EventScript_AideGiveRunningShoes::
 	textcolor NPC_TEXT_COLOR_MALE
+	famechecker FAMECHECKER_PEWTER, 3
 	call_if_eq VAR_TEMP_1, 1, PewterCity_EventScript_AideNoticePlayer
 	call_if_eq VAR_TEMP_1, 2, PewterCity_EventScript_AideNoticePlayer
 	call_if_eq VAR_TEMP_1, 3, PewterCity_EventScript_AideNoticePlayer
@@ -925,6 +926,7 @@ script PewterCity_EventScript_HeMissed {
 
 script PewterCity_EventScript_FatMan {
 	setflag(FLAG_CSR_HINT_PEWTER_GRASS)
+	famechecker(FAMECHECKER_PEWTER, 2)
 	call(SetPlayerPokedexValues)
 	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 	end

@@ -71,6 +71,7 @@ script Route4_EventScript_Kick {
 }
 
 script Route4_EventScript_CandyGirl {
+	famechecker(FAMECHECKER_CERULEAN, 1)
 	msgbox("Have you found any pieces of\nCANDY laying on the ground?\pI think there's one in every\nmajor area.\lI wonder where they came from!", MSGBOX_NPC)
 	end
 }

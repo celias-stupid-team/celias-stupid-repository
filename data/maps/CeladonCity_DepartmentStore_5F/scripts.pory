@@ -67,6 +67,7 @@ script CeladonDepartmentStore_Sailor {
 }
 
 script CeladonDepartmentStore_ElevatorGuy { //Rumor Log Variables
+	famechecker(FAMECHECKER_CELADON, 3)
 	msgbox("This blasted elevator!\pI was hoping I'd be able to get\nback to the city through it,\lbut it's not working!", MSGBOX_NPC)
 	end
 }

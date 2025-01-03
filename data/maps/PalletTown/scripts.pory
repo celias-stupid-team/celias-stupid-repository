@@ -178,7 +178,6 @@ PalletTown_EventScript_OakTriggerRight::
 	end
 
 PalletTown_EventScript_OakTrigger::
-	famechecker FAMECHECKER_PALLET, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	textcolor NPC_TEXT_COLOR_TREE
 	delay 30
 	playbgm MUS_OAK, 0
@@ -391,7 +390,6 @@ PalletTown_EventScript_FatMan::
 
 PalletTown_EventScript_OaksLabSign::
 	lockall
-	famechecker FAMECHECKER_PALLET, 0
 	msgbox PalletTown_Text_OakPokemonResearchLab
 	releaseall
 	end
@@ -419,6 +417,10 @@ PalletTown_EventScript_SignLadyStartShowSign::
 script PalletTown_OnTransition {
 	setworldmapflag (FLAG_WORLD_MAP_PALLET_TOWN)
 	call(SetPlayerPokedexValues)
+	famechecker(FAMECHECKER_PALLET, 0)
+	famechecker(FAMECHECKER_PALLET, 1)
+	famechecker(FAMECHECKER_PALLET, 5)
+	
 	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
 		setobjectxyperm(1, 12, 2)
 		setobjectmovementtype(1, MOVEMENT_TYPE_FACE_RIGHT)

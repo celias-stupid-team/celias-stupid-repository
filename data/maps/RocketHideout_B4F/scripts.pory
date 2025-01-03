@@ -23,7 +23,6 @@ RocketHideout_B4F_EventScript_CountGruntDefeated::
 RocketHideout_B4F_EventScript_Giovanni::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_CINNABAR, 0
 	message RocketHideout_B4F_Text_GiovanniIntro
 	waitmessage
 	playbgm MUS_ENCOUNTER_ROCKET, 0
@@ -36,7 +35,6 @@ RocketHideout_B4F_EventScript_Giovanni::
 	addobject LOCALID_SILPH_SCOPE
 	clearflag FLAG_HIDE_SILPH_SCOPE
 	setflag FLAG_HIDE_CELADON_ROCKETS
-	famechecker FAMECHECKER_CINNABAR, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	fadescreen FADE_FROM_BLACK
 	release
 	end
@@ -75,6 +73,7 @@ RocketHideout_B4F_EventScript_LiftKey::
 
 RocketHideout_B4F_EventScript_Grunt2::
 	trainerbattle_single TRAINER_DMCA_PETREL_1, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
+	famechecker FAMECHECKER_CELADON, 4
 	msgbox RocketHideout_B4F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 

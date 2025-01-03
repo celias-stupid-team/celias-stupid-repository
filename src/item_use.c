@@ -559,7 +559,10 @@ static void Task_InitTeachyTvFromField(u8 taskId)
 
 void FieldUseFunc_Repel(u8 taskId)
 {
-    if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
+    if (gSpecialVar_ItemId == ITEM_MAX_REPEL) {
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
+
+    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
     {
         PlaySE(SE_REPEL);
         gTasks[taskId].func = Task_UseRepel;
