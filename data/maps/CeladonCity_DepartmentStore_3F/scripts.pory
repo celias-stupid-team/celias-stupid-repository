@@ -30,8 +30,12 @@ script DepartmentStore_GameShop_DifferentGamecube {
 	release
 }
 
+script DepartmentStore_GameShop_Celia {
+	msgbox("Hi!\nUnfortuantely I haven't put this quest in yet.\lSorry!", MSGBOX_NPC)
+}
 
 script DepartmentStore_GameShop_GaybleClub {
+	famechecker(FAMECHECKER_CELADON, 1)
 	msgbox("I really like trading, but you can't\nactually do it here in CELADON.\pRight now, the CABLE CLUB is\nreplaced by a, erm… GAY-BLE CLUB.", MSGBOX_NPC)
 	end
 }

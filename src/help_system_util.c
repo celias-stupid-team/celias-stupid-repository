@@ -86,15 +86,18 @@ u8 RunHelpSystemCallback(void)
         HelpSystem_FillPanel2();
         HelpSystem_PrintTextInTopLeftCorner(gString_Help);
         HS_ShowOrHideWordHELPinTopLeft(1);
-        if (HelpSystem_UpdateHasntSeenIntro() == TRUE)
-            HelpSystemSubroutine_PrintWelcomeMessage(&gHelpSystemListMenu, gHelpSystemListMenuItems);
+        HelpSystemSubroutine_PrintWelcomeMessage(&gHelpSystemListMenu, gHelpSystemListMenuItems);
+        /*
         else
             HelpSystemSubroutine_WelcomeEndGotoMenu(&gHelpSystemListMenu, gHelpSystemListMenuItems);
+        */
         HS_ShowOrHideHeaderAndFooterLines_Lighter(1);
         HS_ShowOrHideVerticalBlackBarsAlongSides(1);
         CommitTilemap();
         sVideoState.state = 4;
+        
         break;
+        
     case 4:
         SetGpuReg(REG_OFFSET_BLDCNT, 0);
         SetGpuReg(REG_OFFSET_BG0HOFS, 0);

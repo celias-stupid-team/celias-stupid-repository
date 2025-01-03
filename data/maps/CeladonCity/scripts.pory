@@ -81,7 +81,6 @@ CeladonCity_EventScript_CitySign::
 
 CeladonCity_EventScript_GymSign::
 	lockall
-	famechecker FAMECHECKER_VERMILION, 0
 	msgbox CeladonCity_Text_GymSign
 	releaseall
 	end
@@ -112,6 +111,7 @@ script CeradonCity_EventScript_LittleGirl {
 }
 
 script CeladonCity_EventScript_Shorts {
+	famechecker(FAMECHECKER_CELADON, 0)
 	msgbox("Oh no!\nSomething terrible has happened!\pSomeone shoved all of CELADON CITY\ninto a RANDOMIZER!", MSGBOX_NPC)
 	end
 }

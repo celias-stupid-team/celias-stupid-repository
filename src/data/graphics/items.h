@@ -18,6 +18,9 @@ const u32 gItemIconPalette_GreatBall[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_PokeBall[] = INCBIN_U32("graphics/items/icons/poke_ball.4bpp.lz");
 const u32 gItemIconPalette_PokeBall[] = INCBIN_U32("graphics/items/icon_palettes/poke_ball.gbapal.lz");
 
+
+const u32 gItemIconPalette_GSBall[] = INCBIN_U32("graphics/items/icon_palettes/gs_ball.gbapal.lz");
+
 const u32 gItemIcon_SafariBall[] = INCBIN_U32("graphics/items/icons/safari_ball.4bpp.lz");
 const u32 gItemIconPalette_SafariBall[] = INCBIN_U32("graphics/items/icon_palettes/safari_ball.gbapal.lz");
 

@@ -3,6 +3,7 @@ VermilionCity_Mart_MapScripts::
 	.byte 0
 
 VermilionCity_Mart_EventScript_CooltrainerF::
+	famechecker FAMECHECKER_VERMILION, 5
 	msgbox VermilionCity_Mart_Text_MonsGoodOrBadDependingOnTrainer, MSGBOX_NPC
 	end
 

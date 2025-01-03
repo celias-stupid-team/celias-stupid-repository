@@ -80,6 +80,8 @@ script Route4_EventScript_Dad {
 const LASS_2 = 2
 script Route4_Trigger_Lass2 {
 	lock
+	famechecker(FAMECHECKER_MT_MOON, 1)
+	famechecker(FAMECHECKER_MT_MOON, 3)
 	setvar(VAR_MAP_SCENE_CSR_LASS_2, 1)
 	getplayerxy(VAR_TEMP_4, VAR_TEMP_5) //Find the spot 8 over from the player; place the Lass there
 	addvar(VAR_TEMP_4, 8) 

@@ -31,7 +31,7 @@ script Route11_Man3 {
 	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
 }
 script Route11_Doctor {
-	trainerbattle_single(TRAINER_YOUNGSTER_DILLON, Route11_Text_Doctor, Route11_Text_DillonDefeat)
+	trainerbattle_single(TRAINER_DOCTOR_COOKIE, Route11_Text_Doctor, Route11_Text_DillonDefeat)
 	msgbox(Route11_Text_Doctor, MSGBOX_AUTOCLOSE)
 }
 

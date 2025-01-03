@@ -44,6 +44,7 @@ CeruleanCity_EventScript_RivalTriggerRight::
 	end
 
 CeruleanCity_EventScript_Rival::
+	famechecker FAMECHECKER_CERULEAN, 2
 	textcolor NPC_TEXT_COLOR_MALE
 	setvar VAR_MAP_SCENE_ROUTE22, 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
@@ -55,7 +56,6 @@ CeruleanCity_EventScript_Rival::
 	call_if_eq VAR_STARTER_MON, 2, CeruleanCity_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, CeruleanCity_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, CeruleanCity_EventScript_RivalCharmander
-	famechecker FAMECHECKER_GREAT_SEA_NORTH, 0
 	msgbox CeruleanCity_Text_RivalPostBattle
 	closemessage
 	playbgm MUS_RIVAL_EXIT, 0
@@ -261,10 +261,12 @@ CeruleanCity_EventScript_BaldingMan::
 	end
 
 CeruleanCity_EventScript_Youngster::
+	famechecker FAMECHECKER_CERULEAN, 0
 	msgbox CeruleanCity_Text_TrainerLifeIsToughIsntIt, MSGBOX_NPC
 	end
 
 CeruleanCity_EventScript_CeruleanCaveGuard::
+	famechecker FAMECHECKER_CERULEAN, 3
 	msgbox CeruleanCity_Text_ThisIsCeruleanCave, MSGBOX_NPC
 	end
 
@@ -351,7 +353,6 @@ CeruleanCity_EventScript_BikeShopSign::
 
 CeruleanCity_EventScript_GymSign::
 	lockall
-	famechecker FAMECHECKER_MT_MOON, 0
 	msgbox CeruleanCity_Text_GymSign
 	releaseall
 	end

@@ -28,6 +28,7 @@ script Route11_LosselleDad {
 script Route11_EastEntrance_1F_EventScript_BottomGuard { //Rumor Log
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_VERMILION, 3)
 	msgbox(Route11_EastEntrance_1F_Text_RockTunnelToReachLavender, MSGBOX_DEFAULT)
 	setflag(FLAG_CSR_HINT_KENYA)
 	call(SetPlayerPokedexValues)

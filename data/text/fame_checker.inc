@@ -799,58 +799,58 @@ gFameCheckerPersonQuote_Giovanni:: @ 0x81B0BB5
 	.string "bettering myself, and none other.$"
 
 gRumorLogFlavorTextIntoLine1_Pallet0:: @ 0x81B0C45
-	.string "PALLET TOWN$"
+    .string "Tenured$"
 
 gRumorLogFlavorTextIntoLine1_Pallet1::
-	.string "RESEARCH LAB$"
+    .string "Next-door$"
 
 gRumorLogFlavorTextIntoLine1_Pallet2::
-	.string "RESEARCH LAB$"
+    .string "Bedroom$"
 
 gRumorLogFlavorTextIntoLine1_Pallet3::
-	.string "VIRIDIAN CITY$"
+    .string "Loving$"
 
 gRumorLogFlavorTextIntoLine1_Pallet4::
-	.string "POKéMON LEAGUE$"
+    .string "Meaningful$"
 
 gRumorLogFlavorTextIntoLine1_Pallet5::
-	.string "RESEARCH LAB$"
+    .string "Strongly$"
 
 gRumorLogFlavorTextIntoLine1_Viridian0::
-	.string "RESEARCH LAB$"
+    .string "Forlorn$"
 
 gRumorLogFlavorTextIntoLine1_Viridian1::
-	.string "VERMILION CITY$"
+    .string "Mysterious$"
 
 gRumorLogFlavorTextIntoLine1_Viridian2::
-	.string "WATER LABYRINTH$"
+    .string "Staring into$"
 
 gRumorLogFlavorTextIntoLine1_Viridian3::
-	.string "VIRIDIAN CITY$"
+    .string "Curious$"
 
 gRumorLogFlavorTextIntoLine1_Viridian4::
-	.string "CELADON MANSION$"
+    .string "Anxious$"
 
 gRumorLogFlavorTextIntoLine1_Viridian5::
-	.string "FOUR ISLAND$"
+    .string "Family$"
 
 gRumorLogFlavorTextIntoLine1_Pewter0::
-	.string "PEWTER CITY$"
+    .string "Kind$"
 
 gRumorLogFlavorTextIntoLine1_Pewter1::
-	.string "PEWTER GYM$"
+    .string "Clever$"
 
 gRumorLogFlavorTextIntoLine1_Pewter2::
-	.string "PEWTER CITY$"
+    .string "Garishly$"
 
 gRumorLogFlavorTextIntoLine1_Pewter3::
 	.string "ROUTE 4$"
 
 gRumorLogFlavorTextIntoLine1_Pewter4::
-	.string "MT. MOON$"
+    .string "A Father's$"
 
 gRumorLogFlavorTextIntoLine1_Pewter5::
-	.string "PEWTER MUSEUM$"
+    .string "Technology is$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon0::
 	.string "CERULEAN CITY$"

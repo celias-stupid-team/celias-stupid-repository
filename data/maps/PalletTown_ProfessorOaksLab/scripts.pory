@@ -49,10 +49,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReadyPlayerForStarterScene::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
 
-PalletTown_ProfessorOaksLab_OnFrame::
-	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_ProfessorOaksLab_ChooseStarterScene
-	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 7, PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene
-	.2byte 0
+
 
 PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene:: @ 8169002 
 	lockall
@@ -671,7 +668,6 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
 	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedSevenPokeBalls, ITEM_POKE_BALL, 7
 	msgbox PalletTown_ProfessorOaksLab_Text_OakExplainCatching
-	famechecker FAMECHECKER_PALLET, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream
 	textcolor NPC_TEXT_COLOR_MALE
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalLeaveItToMeGramps
@@ -1292,7 +1288,6 @@ PalletTown_ProfessorOaksLab_EventScript_Aide1::
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Aide1GameClear::
-	famechecker FAMECHECKER_PALLET, 5
 	msgbox PalletTown_ProfessorOaksLab_Text_OakIsGoingToHaveRadioShow
 	release
 	end
@@ -1306,7 +1301,6 @@ PalletTown_ProfessorOaksLab_EventScript_Aide2::
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_Aide2GameClear::
-	famechecker FAMECHECKER_VIRIDIAN, 0
 	msgbox PalletTown_ProfessorOaksLab_Text_DaisyWillGroomMons
 	release
 	end
@@ -1314,7 +1308,6 @@ PalletTown_ProfessorOaksLab_EventScript_Aide2GameClear::
 PalletTown_ProfessorOaksLab_EventScript_Aide3::
 	lock
 	faceplayer
-	famechecker FAMECHECKER_PALLET, 2
 	msgbox PalletTown_ProfessorOaksLab_Text_OakIsAuthorityOnMons
 	release
 	end
@@ -1363,9 +1356,14 @@ script PalletTown_EventScript_CeliaBackToLab {
 
 script PalletTown_EventScript_GS_BALL {
 	lock
+	famechecker(FAMECHECKER_PALLET, 4)
 	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB)) {
-		msgbox("take gs ball", MSGBOX_DEFAULT)
+		msgbox("It's OAK's specially-ordered\nGS BALL!\pTake it?\n", MSGBOX_YESNO)
 		//TODO rest of GS Ball script
+		if(var(VAR_RESULT)) {
+			setflag(FLAG_CSR_GS_BALL_GOT)
+			finditem(ITEM_GS_BALL)
+		}
 	} else {
 		msgbox("It's OAK's specially-ordered\nGS BALL!\pTake it?\n", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
@@ -1432,3 +1430,88 @@ script PalletTown_ProfessorOaksLab_OnTransition {
 	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 8, PalletTown_ProfessorOaksLab_EventScript_SetNationalDexSceneFinished)
 	call_if_set(FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL, PalletTown_ProfessorOaksLab_EventScript_SetSkipPokeBallCheck)
 }
+
+const LeftAide = 1
+const RightAide = 3
+script PalletTown_ProfessorOaksLab_OnFrame {
+	
+	map_script_2(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_ProfessorOaksLab_ChooseStarterScene)
+	map_script_2(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 7, PalletTown_ProfessorOaksLab_EventScript_EnterForNationalDexScene)
+	
+}
+
+script PalletTown_DidYouCutOak {
+	if(flag(FLAG_HIDE_OAK_IN_HIS_LAB) && flag(FLAG_DID_FARFETCHD_TRADE) && !flag(FLAG_CSR_CUT_OAK)){
+		setflag(FLAG_CSR_CUT_OAK)
+		setvar(VAR_TEMP_6, 1)
+		setobjectxy(LeftAide, 3, 10)
+	}
+	release
+}
+
+script OaksLab_AidesRunAway {
+	lock
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, OakLab_CameraGoesDown)
+	waitmovement(0)
+	applymovement(LeftAide, OakLab_LeftAideRuns)
+	applymovement(RightAide, OakLab_RightAideRuns)
+	playse(SE_PIN)
+	delay(8)
+	playse(SE_PIN)
+	delay(70)
+	playse(SE_WALL_HIT)
+	waitmovement(RightAide)
+	playse(SE_EXIT)
+	waitmovement(LeftAide)
+	playse(SE_EXIT)
+	applymovement(OBJ_EVENT_ID_CAMERA, OakLab_CameraGoesUp)
+	waitmovement(0)
+	setflag(FLAG_AIDES_RAN_AWAY)
+	setvar(VAR_TEMP_6, 2)
+	special(RemoveCameraObject)
+	release
+}
+
+movement OakLab_CameraGoesDown {
+	walk_slow_down *3
+}
+
+movement OakLab_CameraGoesUp {
+	walk_slow_up *3
+}
+
+movement OakLab_RightAideRuns {
+	face_up
+	emote_exclamation_mark
+	delay_16 * 2
+	lock_facing_direction
+	walk_slower_down
+	delay_16 * 2
+	unlock_facing_direction
+	walk_fast_left * 3
+	walk_fast_down * 2
+	delay_8
+	set_invisible
+
+}
+
+movement OakLab_LeftAideRuns {
+	delay_8
+	face_up
+	emote_exclamation_mark
+	delay_16 * 2
+	lock_facing_direction
+	walk_slower_down
+	delay_16 * 2
+	unlock_facing_direction
+	walk_fast_right * 2
+	face_left
+	delay_16
+	walk_fast_right
+	walk_fast_down * 2
+	delay_8
+	set_invisible
+}
+
+

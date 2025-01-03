@@ -47,6 +47,7 @@ script Route10_Imprint {
 
 
 script Route10_Youngster {
+	famechecker(FAMECHECKER_ROCK_TUNNEL, 0)
 	msgbox("Wait, wasn't there a POKéMON\nCENTER here a minute ago?\pDarn, that's inconvenient.\pI guess I'm gonna have to run back\nto town after every fight.\lROCK TUNNEL's gonna be a pain...", MSGBOX_NPC)
 	end
 }

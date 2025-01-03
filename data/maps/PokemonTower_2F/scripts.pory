@@ -103,7 +103,10 @@ PokemonTower_2F_Movement_RivalExitDown::
 	walk_in_place_faster_right
 	step_end
 `
-
+script PokemonTower_CeliaSaysNo {
+	msgbox("Hi!\nThis fight is not available.\pStay tuned!\n-CELIA", MSGBOX_NPC)
+	end
+}
 
 script PokemonTower_2F_EventScript_Woman {
 	lock
