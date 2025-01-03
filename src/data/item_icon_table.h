@@ -420,6 +420,13 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_P_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_GS_BALL]      = {gItemIcon_PokeBall, gItemIconPalette_GSBall},
 
+    [ITEM_WATER_ENERGY]      = {gItemIcon_WaterEnergy, gItemIconPalette_WaterEnergy},
+    [ITEM_PSYCHIC_ENERGY]      = {gItemIcon_PsychicEnergy, gItemIconPalette_PsychicEnergy},
+    [ITEM_FIRE_ENERGY]      = {gItemIcon_FireEnergy, gItemIconPalette_FireEnergy},
+    [ITEM_LIGHTNING_ENERGY]      =  {gItemIcon_LightningEnergy, gItemIconPalette_LightningEnergy},
+    [ITEM_GRASS_ENERGY]      =  {gItemIcon_GrassEnergy, gItemIconPalette_GrassEnergy},
+    [ITEM_FIGHTING_ENERGY]      =  {gItemIcon_FightingEnergy, gItemIconPalette_FightingEnergy},
+
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

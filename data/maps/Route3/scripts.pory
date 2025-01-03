@@ -54,7 +54,7 @@ script Route3_EventScript_Lass {
 	delay(10)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(Route3_Text_JaniceIntro)
-	fadedefaultbgm
+	playbgm(MUS_ROUTE3, TRUE)
 	trainerbattle_no_intro(TRAINER_LASS_JANICE,Route3_Text_JaniceDefeat)
 	release
 	end

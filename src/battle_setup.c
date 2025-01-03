@@ -660,16 +660,17 @@ static u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_AGATHA;
         if (gTrainerBattleOpponent_A == TRAINER_ELITE_FOUR_LANCE)
             return B_TRANSITION_LANCE;
-        return B_TRANSITION_BLUE;
+        return B_TRANSITION_BIG_POKEBALL; // so Elite Four Karen doesn't get mssed up
     }
 
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_DMCA_ADMIN)
     {
         return B_TRANSITION_DMCA;
     }
-
+    /* No more champion transition for the other champions
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
         return B_TRANSITION_BLUE;
+    */
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)
         minPartyCount = 2; // double battles always at least have 2 pokemon.
     else

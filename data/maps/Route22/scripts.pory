@@ -253,6 +253,7 @@ script Route22_EventScript_OddCandyMan {
 		if(var(VAR_RESULT) == 1) {
 			msgbox("Wonderful news!\nThank you so much!\pI'll even make this easier for\nyou!\pCome back to me again once\nyou've collected all your BADGES.\lI'll help you narrow your search.\pUntil then, happy hunting!\n", MSGBOX_DEFAULT)
 			release
+			end
 		}
 		else {
 			goto(OddCandyMan_Rejected)
@@ -265,6 +266,7 @@ script Route22_EventScript_OddCandyMan {
 	OddCandyMan_Rejected:
 		msgbox("What a shame...\pWell, if you ever find time, I'm\nsure to make it worth your while.", MSGBOX_DEFAULT)
 		release
+		end
 }
 
 script Route22_EventScript_RouteSign {

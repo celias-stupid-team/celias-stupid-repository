@@ -7,7 +7,9 @@ EventScript_CutTree::
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
-	msgbox Text_CutTreeDown, MSGBOX_YESNO
+	msgbox Text_CutTreeDown, MSGBOX_DEFAULT
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox Text_TreeConfirm, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_DontCutTree
 	msgbox Text_MonUsedMove
 	closemessage
@@ -47,10 +49,13 @@ EventScript_DontCutTree::
 	end
 
 Text_CutTreeDown::
-	.string "This tree looks like it can be CUT\n"
-	.string "down!\p"
-	.string "Would you like to CUT it?$"
+	.string "OAK: Hi there, {PLAYER}! How's…\n"
+	.string "…Wait, what are you doing?\p"
+	.string "OAK: W-wait! No!\n"
+	.string "Stop, please!$"
 
+Text_TreeConfirm::
+	.string "…ignore him?\n$"
 Text_MonUsedMove::
 	.string "{STR_VAR_1} used {STR_VAR_2}!$"
 

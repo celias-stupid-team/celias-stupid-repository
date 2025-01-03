@@ -616,16 +616,7 @@ PewterCity_Movement_MuseumGuideExit::
 	walk_right
 	step_end
 
-PewterCity_EventScript_BugCatcher::
-	lock
-	faceplayer
-	setflag FLAG_CSR_HINT_PEWTER_GRASS
-	call SetPlayerPokedexValues
-	msgbox PewterCity_Text_DoYouKnowWhatImDoing, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PewterCity_EventScript_KnowWhatTheyreDoing
-	msgbox PewterCity_Text_SprayingRepelToKeepWildMonsOut
-	release
-	end
+
 
 PewterCity_EventScript_KnowWhatTheyreDoing::
 	msgbox PewterCity_Text_ThatsRightItsHardWork
@@ -859,6 +850,22 @@ script PewterCity_MapScript_SetObtainable {
 	//}
 }
 
+script PewterCity_EventScript_BugCatcher {
+	lock
+	faceplayer
+	setflag(FLAG_CSR_HINT_PEWTER_GRASS)
+	call(SetPlayerPokedexValues)
+	if(checkmoncaught(SPECIES_GRIMER)) {
+		msgbox("Hey!\nDon't make those POKéMON appear!", MSGBOX_DEFAULT)
+	} else {
+		msgbox(PewterCity_Text_DoYouKnowWhatImDoing, MSGBOX_YESNO)
+		goto_if_eq(VAR_RESULT, YES, PewterCity_EventScript_KnowWhatTheyreDoing)
+		msgbox(PewterCity_Text_SprayingRepelToKeepWildMonsOut)
+
+	}
+	
+	release
+}
 
 script EventScript_CutTreeElm {
 	goto_if_questlog(EventScript_ReleaseEnd)
@@ -949,7 +956,13 @@ script PewterCity_EventScript_FatMan {
 	setflag(FLAG_CSR_HINT_PEWTER_GRASS)
 	famechecker(FAMECHECKER_PEWTER, 2)
 	call(SetPlayerPokedexValues)
-	msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
+	if(checkmoncaught(SPECIES_GRIMER)) {
+		msgbox("Ah, you found a POKéMON in the\ngrass?\lNicely done!\pA GRIMER, eh?\nHmmm…\pI've heard there's someone out\nthere looking for one of those.\pKeep an eye out for her!\n", MSGBOX_NPC)
+	} else {
+		msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
+
+	}
+	release
 	end
 }
 

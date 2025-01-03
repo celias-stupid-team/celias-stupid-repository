@@ -6,8 +6,12 @@ Route8_EventScript_UndergroundPathSign::
 	end
 `
 
+script Route18_Scientist {
+	msgbox("Looks like this ROUTE is facing\na strange weather anomaly.\pI wonder what's causing it.\n", MSGBOX_NPC)
+	end
+}
 
-const GROWLITHE = 19
+const GROWLITHE = 18
 mapscripts Route8_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_CSR_ROUTE8_PUSHED_BENCH)) {
@@ -17,6 +21,12 @@ mapscripts Route8_MapScripts {
 			setmetatile(37, 2, 0x3C2, FALSE)
 		} else {
 			setbench(BENCH_ROUTE8_BEFORE)
+		}
+		if(flag(FLAG_GROWLITHE_SIGN)) {
+				setmetatile(22, 18, 0x39C, FALSE) //Replaces the growlithe tiles with snow
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)	
 		}
 	}
 }
@@ -68,7 +78,7 @@ script Route8_DrowningFriends {
 	
 }
 
-const BENCH = 16
+const BENCH = 15
 
 script Route8_PushBench {
 	lock
