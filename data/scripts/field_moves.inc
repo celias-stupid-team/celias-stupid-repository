@@ -16,6 +16,8 @@ EventScript_CutTree::
 	goto EventScript_CutTreeDown
 	end
 
+
+
 EventScript_FldEffCut::
 	lockall
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE

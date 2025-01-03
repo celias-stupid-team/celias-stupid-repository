@@ -859,6 +859,27 @@ script PewterCity_MapScript_SetObtainable {
 	//}
 }
 
+
+script EventScript_CutTreeElm {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lockall
+	if(!flag(FLAG_BADGE02_GET)) {
+		goto(EventScript_CantCutTree)
+	}
+	checkpartymove(MOVE_CUT)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_CUT)
+	msgbox("ELM: Hi there, {PLAYER}! My name\nis...\pELM: W-wait! No!\nStop, please!", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, EventScript_DontCutTree)
+	msgbox(Text_MonUsedMove)
+	closemessage
+	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
+	waitstate
+	goto(EventScript_CutTreeDown)
+}
+
 script PewterCity_EventScript_CeliaPuzzle {
 	msgbox("And here we get to the first part\nof the game with REAL puzzles!\pThis is the point where you either\nthink outside the box or give up.\pEither way, you're not brute forcing\nyou way through any of this.", MSGBOX_NPC)
 	end

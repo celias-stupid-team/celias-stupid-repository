@@ -204,22 +204,7 @@ VermilionCity_Gym_EventScript_SetBeamsOn::
 	setmetatile 7, 7, METATILE_VermilionGym_Beam_Node_BottomRight_On, 1
 	return
 
-VermilionCity_Gym_EventScript_LtSurge::
-	setvar VAR_TEMP_START_EVENT_BATTLE, 4
-	trainerbattle_single TRAINER_LEADER_LT_SURGE, VermilionCity_Gym_Text_LtSurgeIntro, VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge, NO_MUSIC
-	goto_if_unset FLAG_GOT_TM34_FROM_SURGE, VermilionCity_Gym_EventScript_GiveTM34
-	msgbox VermilionCity_Gym_Text_LtSurgePostBattle
-	release
-	end
 
-VermilionCity_Gym_EventScript_DefeatedLtSurge::
-	call_if_unset FLAG_GOT_HM05, VermilionCity_Gym_EventScript_ShowOaksAide
-	clearflag FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL
-	setflag FLAG_DEFEATED_LT_SURGE
-	setflag FLAG_BADGE03_GET
-	set_gym_trainers 3
-	goto VermilionCity_Gym_EventScript_GiveTM34
-	end
 
 VermilionCity_Gym_EventScript_ShowOaksAide::
 	clearflag FLAG_HIDE_VERMILION_CITY_OAKS_AIDE
@@ -413,8 +398,29 @@ script VermillionGym_Celia_Can {
 }
 
 
-const CELIA = 8
+const CELIA = 7
 const SURGE = 1
+
+script VermilionCity_Gym_EventScript_LtSurge {
+	setvar(VAR_TEMP_START_EVENT_BATTLE, 4)
+	trainerbattle_single(TRAINER_LEADER_LT_SURGE, VermilionCity_Gym_Text_LtSurgeIntro, VermilionCity_Gym_Text_LtSurgeDefeat, VermilionCity_Gym_EventScript_DefeatedLtSurge, NO_MUSIC)
+	if(!flag(FLAG_GOT_TM34_FROM_SURGE)) {
+		goto(VermilionCity_Gym_EventScript_DefeatedLtSurge)
+	}
+	msgbox(VermilionCity_Gym_Text_LtSurgePostBattle)
+	release
+}
+
+script VermilionCity_Gym_EventScript_DefeatedLtSurge {
+		setflag(FLAG_DEFEATED_LT_SURGE)
+		setflag(FLAG_BADGE03_GET)
+		set_gym_trainers(3)
+		goto(VermilionCity_Gym_EventScript_GiveTM34)
+}
+
+
+
+
 script VermilionCity_Gym_EventScript_GiveTM34 {
 	msgbox(VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis)
 	playfanfare(MUS_LEVEL_UP)
@@ -490,8 +496,8 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("Okay, er...\pHere, kid!\nTake, uh, this!", MSGBOX_DEFAULT)
 	//TODO give TM39 to player
-	giveitem_msg("{PLAYER} received TM39\nfrom LT. SURGE.", ITEM_TM39)
-
+	giveitem_msg("{PLAYER} received TM34\nfrom LT. SURGE.", ITEM_TM34)
+	setflag(FLAG_GOT_TM34_FROM_SURGE)
 	msgbox("TM39 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
 	release
 	end
@@ -500,6 +506,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 }
 
 movement CeliaWalksUp {
+	set_visible
 	walk_up * 5
 	face_up
 }
