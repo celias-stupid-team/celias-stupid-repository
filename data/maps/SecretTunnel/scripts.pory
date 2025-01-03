@@ -2,4 +2,96 @@ mapscripts SecretTunnel_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_CSR_MAP_ALTAR_OF_MOONE)
     }
+    MAP_SCRIPT_ON_FRAME_TABLE  [
+        VAR_TEMP_0, 0 {
+            setvar(VAR_TEMP_0, 1)
+            if(flag(FLAG_CSR_SPEEDRUN_CAVE)) {
+                applymovement(OBJ_EVENT_ID_PLAYER, PlayerZoomsOut)
+                
+                clearflag(FLAG_CSR_SPEEDRUN_CAVE)
+                waitmovement(0)
+                release
+            }
+        }
+    ]
+        
+}
+
+
+movement PlayerZoomsOut {
+    delay_16
+    walk_right * 4
+    walk_down * 2
+    walk_right * 4
+    walk_down * 3
+    walk_fastest_down * 5
+    walk_fastest_right 
+    walk_fastest_down * 2
+    walk_fastest_left 
+    walk_fastest_down * 3
+    walk_fastest_left 
+    walk_fastest_down 
+    walk_fastest_left 
+    walk_fastest_down * 2
+    walk_fastest_left
+    walk_fastest_down
+    walk_fastest_left
+    walk_fastest_down * 2
+    walk_fastest_left * 3
+    walk_fastest_down * 8
+    walk_fastest_right
+    walk_fastest_down
+    walk_fastest_right * 23
+    walk_fastest_up * 4
+    walk_fastest_left
+    walk_fastest_up
+    walk_fastest_left
+    walk_fastest_up
+    walk_fastest_left
+    walk_fastest_up
+    walk_fastest_left
+    walk_fastest_up * 2
+    walk_fastest_left * 2
+    walk_fastest_up * 5
+    walk_fastest_left * 2
+    walk_fastest_up * 13
+    walk_fastest_right * 4
+    walk_fastest_up
+    walk_fastest_right
+    walk_fastest_up
+    walk_fastest_right
+    walk_fastest_up * 2
+    walk_fastest_right
+    walk_fastest_up
+    walk_fastest_right * 2
+    walk_fastest_up
+    walk_fastest_right
+    walk_fastest_up
+    walk_fastest_right * 4
+    walk_fastest_up
+    walk_fastest_right * 7
+    walk_fastest_down
+    walk_fastest_right
+    walk_fastest_down * 7
+    walk_fastest_left * 11
+    walk_fastest_down
+    walk_fastest_left
+    walk_fastest_down
+    walk_fastest_left
+    walk_fastest_down * 9
+    walk_fastest_right * 3
+    walk_fastest_down 
+    walk_fastest_right * 3
+    walk_fastest_down * 2
+    walk_fastest_right * 2
+    walk_fastest_down * 8
+    walk_fastest_right 
+    walk_fastest_down
+    walk_fastest_right
+    walk_fastest_down * 3
+    walk_fastest_right * 5
+    delay_16
+    face_down
+    
+
 }

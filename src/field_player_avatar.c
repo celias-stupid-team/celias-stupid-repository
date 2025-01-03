@@ -865,6 +865,11 @@ void PlayerWalkFaster(u8 direction)
     PlayerSetAnimId(GetWalkFasterMovementAction(direction), 2);
 }
 
+void PlayerWalkFastest(u8 direction)
+{
+    PlayerSetAnimId(GetWalkFastestMovementAction(direction), 2);
+}
+
 void PlayerRun(u8 direction)
 {
     PlayerSetAnimId(GetPlayerRunMovementAction(direction), 2);

@@ -1003,6 +1003,14 @@ static const u8 sWalkFasterMovementActions[] = {
     [DIR_EAST]  = MOVEMENT_ACTION_WALK_FASTER_RIGHT,
 };
 
+static const u8 sWalkFastestMovementActions[] = {
+    [DIR_NONE]  = MOVEMENT_ACTION_WALK_FASTEST_DOWN,
+    [DIR_SOUTH] = MOVEMENT_ACTION_WALK_FASTEST_DOWN,
+    [DIR_NORTH] = MOVEMENT_ACTION_WALK_FASTEST_UP,
+    [DIR_WEST]  = MOVEMENT_ACTION_WALK_FASTEST_LEFT,
+    [DIR_EAST]  = MOVEMENT_ACTION_WALK_FASTEST_RIGHT,
+};
+
 static const u8 sSlideMovementActions[] = {
     [DIR_NONE]  = MOVEMENT_ACTION_SLIDE_DOWN,
     [DIR_SOUTH] = MOVEMENT_ACTION_SLIDE_DOWN,
@@ -4479,6 +4487,25 @@ static bool8 CopyablePlayerMovement_GoSpeed2(struct ObjectEvent *objectEvent, st
     return TRUE;
 }
 
+static bool8 CopyablePlayerMovement_GoSpeed3(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 playerDirection, bool8 tileCallback(u8))
+{
+    u32 direction;
+    s16 x;
+    s16 y;
+
+    direction = playerDirection;
+    direction = GetCopyDirection(gInitialMovementTypeFacingDirections[objectEvent->movementType], objectEvent->directionSequenceIndex, direction);
+    ObjectEventMoveDestCoords(objectEvent, direction, &x, &y);
+    ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkFastestMovementAction(direction));
+    if (GetCollisionAtCoords(objectEvent, x, y, direction) || (tileCallback != NULL && !tileCallback(MapGridGetMetatileBehaviorAt(x, y))))
+    {
+        ObjectEventSetSingleMovement(objectEvent, sprite, GetFaceDirectionMovementAction(direction));
+    }
+    objectEvent->singleMovementActive = TRUE;
+    sprite->data[1] = 2;
+    return TRUE;
+}
+
 static bool8 CopyablePlayerMovement_Slide(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 playerDirection, bool8 tileCallback(u8))
 {
     u32 direction;
@@ -5302,6 +5329,7 @@ dirn_to_anim(GetWalkFastMovementAction, sWalkFastMovementActions);
 dirn_to_anim(GetGlideMovementAction, sGlideMovementActions);
 dirn_to_anim(GetRideWaterCurrentMovementAction, sRideWaterCurrentMovementActions);
 dirn_to_anim(GetWalkFasterMovementAction, sWalkFasterMovementActions);
+dirn_to_anim(GetWalkFastestMovementAction, sWalkFastestMovementActions);
 dirn_to_anim(GetSlideMovementAction, sSlideMovementActions);
 dirn_to_anim(GetPlayerRunMovementAction, sPlayerRunMovementActions);
 dirn_to_anim(GetPlayerRunSlowMovementAction, sPlayerRunSlowMovementActions);
@@ -6508,6 +6536,73 @@ static bool8 MovementAction_WalkFasterRight_Step1(struct ObjectEvent *objectEven
     }
     return FALSE;
 }
+
+//fastest
+static bool8 MovementAction_WalkFastestDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_SOUTH, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestDown_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_NORTH, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestUp_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_WEST, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestLeft_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_EAST, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestRight_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestRight_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+//vanilla
 
 static bool8 MovementAction_SlideDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {

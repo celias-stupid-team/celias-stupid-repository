@@ -141,6 +141,7 @@ u8 ObjectEventCheckHeldMovementStatus(struct ObjectEvent *objectEvent);
 u8 GetWalkNormalMovementAction(u32);
 u8 GetWalkFastMovementAction(u32);
 u8 GetWalkFasterMovementAction(u32);
+u8 GetWalkFastestMovementAction(u32);
 u8 GetWalkSlowerMovementAction(u32 direction);
 u8 GetTrainerFacingDirectionMovementType(u8 direction);
 u8 GetFaceDirectionMovementAction(u32);

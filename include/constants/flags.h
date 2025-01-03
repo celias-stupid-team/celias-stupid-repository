@@ -936,7 +936,7 @@
 #define FLAG_0x36F               0x36F
 #define FLAG_0x370               0x370
 #define FLAG_0x371               0x371
-#define FLAG_0x372               0x372
+#define FLAG_CSR_SPEEDRUN_CAVE               0x372
 #define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373
 #define FLAG_CSR_HINT_EVO_LEVEL               0x374
 #define FLAG_CSR_HINT_RUNNING_SHOES               0x375
