@@ -1607,7 +1607,7 @@ void LoadSpritePalettes(const struct SpritePalette *palettes)
 
 static void DoLoadSpritePalette(const u16 *src, u16 paletteOffset)
 {
-    LoadPalette(src, paletteOffset + OBJ_PLTT_OFFSET, PLTT_SIZE_4BPP);
+    LoadPaletteFast(src, paletteOffset + OBJ_PLTT_OFFSET, PLTT_SIZE_4BPP);
 }
 
 u8 AllocSpritePalette(u16 tag)
