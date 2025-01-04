@@ -145,8 +145,8 @@ PewterCity_Text_ReceivedRunningShoesFromAide::
     .string "RUNNING SHOES from the AIDE.$"
 
 PewterCity_Text_SwitchedShoesWithRunningShoes::
-    .string "{PLAYER} switched shoes with the\n"
-    .string "RUNNING SHOES.$"
+	.string "{PLAYER} put the RUNNING SHOES in\n"
+	.string "the KEY ITEMS pocket.$"
 
 PewterCity_Text_ExplainRunningShoes::
     .string "Perfectly sized for both humans\n"

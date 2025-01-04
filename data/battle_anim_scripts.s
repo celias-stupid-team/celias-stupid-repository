@@ -80,9 +80,9 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_GUN
 	.4byte Move_HYDRO_PUMP
 	.4byte Move_SURF
-	.4byte MOVE_ICEBEAM
-	.4byte MOVE_ICE
-	.4byte MOVE_PSY_WIND
+	.4byte Move_ICEBEAM
+	.4byte Move_ICE
+	.4byte Move_PSY_WIND
 	.4byte Move_BUBBLE_BEAM
 	.4byte Move_AURORA_BEAM
 	.4byte Move_HYPER_BEAM
@@ -116,7 +116,7 @@ gBattleAnims_Moves::
 	.4byte Move_DIG
 	.4byte Move_TOXIC
 	.4byte Move_CONFUSION
-	.4byte MOVE_PSY_BEAM
+	.4byte Move_PSY_BEAM
 	.4byte Move_HYPNOSIS
 	.4byte Move_MEDITATE
 	.4byte Move_AGILITY
@@ -203,7 +203,7 @@ gBattleAnims_Moves::
 	.4byte Move_COTTON_SPORE
 	.4byte Move_REVERSAL
 	.4byte Move_SPITE
-	.4byte MOVE_FREEZE
+	.4byte Move_FREEZE
 	.4byte Move_PROTECT
 	.4byte Move_MACH_PUNCH
 	.4byte Move_SCARY_FACE
@@ -376,7 +376,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHOCK_WAVE
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
-	.4byte MOVE_SLUSH_RUSH
+	.4byte Move_SLUSH_RUSH
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
 	.4byte Move_HEART_SWAP
 	.4byte Move_RETREAT
@@ -415,7 +415,7 @@ gBattleAnims_Moves::
 	.4byte Move_WUMBOIZE
 	.4byte Move_TAILWIND
 	.4byte Move_ROOST
-	.4byte MOVE_CSR_DUMMY
+	.4byte Move_CSR_DUMMY
 	.4byte Move_PRIMAL_RAGE
 	.4byte Move_CLOSE_COMBAT
 	.4byte Move_RAGE_SNOUT
@@ -542,7 +542,7 @@ gBattleAnims_Moves::
 	.4byte Move_MEATEOR_BEAM
 	.4byte Move_BREAD_CHARGE
 	.4byte Move_MIND_BLOWN
-	.4byte MOVE_FURRY_SWIPES
+	.4byte Move_FURRY_SWIPES
 
 	.4byte Move_ICE_HAMMER
 	.4byte Move_FURRY_SWIPES
@@ -5021,7 +5021,7 @@ Move_CONFUSION:
 
 
 
-MOVE_PSY_BEAM:
+Move_PSY_BEAM:
 	monbg ANIM_DEF_PARTNER
 	call SetPsychicBackground
 	setalpha 8, 8
@@ -5661,42 +5661,30 @@ Move_CLAMP:
 	waitforvisualfinish
 	end
 
-MOVE_ICEBEAM:
-	monbg ANIM_TARGET
-	splitbgprio ANIM_TARGET
-	setalpha 12, 8
-	loadspritegfx ANIM_TAG_ICE_CRYSTALS
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 7, RGB_BLACK
+Move_ICEBEAM:
+	loadspritegfx ANIM_TAG_RAINBOW_RINGS
+	fadetobg BG_AURORA
+	waitbgfadein
+	playsewithpan SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER
+	setarg 7, 0
+	createvisualtask AnimTask_RotateAuroraRingColors, 10, 130
+	call AuroraBeamCreateRings
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 17, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	setarg 7, 0xFFFF
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 6, 0, 10
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 40, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
 	waitforvisualfinish
-	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 4, 4, 0, 10
-	createsprite gIceBeamOuterCrystalSpriteTemplate, ANIM_ATTACKER, 2, 20, 12, 0, 12, 20
-	createsprite gIceBeamOuterCrystalSpriteTemplate, ANIM_ATTACKER, 2, 20, -12, 0, -12, 20
-	delay 1
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_TARGET, -31, 0, 7, RGB(0, 20, 31)
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 25, 1
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	call IceBeamCreateCrystals
-	createsprite gIceBeamInnerCrystalSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 11
-	delay 1
-	createsprite gIceBeamInnerCrystalSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 11
-	waitforvisualfinish
-	delay 20
-	call IceCrystalEffectShort
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_TARGET, 5, 7, 0, RGB(0, 20, 31)
-	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 7, 0, RGB_BLACK
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	restorebg
+	waitbgfadein
 	end
 
 IceBeamCreateCrystals:
@@ -5843,7 +5831,7 @@ SolarBeamUnleash1:
 	delay 4
 	return
 
-MOVE_ICE:
+Move_ICE:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_GetAttackerSide, 2
@@ -5897,7 +5885,7 @@ BlizzardAgainstPlayer:
 	fadetobg BG_HIGHSPEED_PLAYER
 	goto BlizzardContinue
 
-MOVE_FREEZE:
+Move_FREEZE:
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	monbg ANIM_DEF_PARTNER
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 3, RGB_BLACK
@@ -7465,7 +7453,7 @@ Move_WRAP:
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 6, 4, 2, 4
 	goto BindWrap
 
-MOVE_PSY_WIND:
+Move_PSY_WIND:
 	loadspritegfx ANIM_TAG_BLUE_RING
 	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
@@ -9908,7 +9896,7 @@ Move_WATER_PULSE:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
-MOVE_SLUSH_RUSH:
+Move_SLUSH_RUSH:
 	fadetobg BG_ICE
 	waitbgfadeout
 	playsewithpan SE_M_ICY_WIND, 0
@@ -11782,7 +11770,7 @@ Move_ROOST:
 	blendoff
 	end
 	
-MOVE_CSR_DUMMY:
+Move_CSR_DUMMY:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

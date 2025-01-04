@@ -698,6 +698,7 @@ PewterCity_EventScript_AideGiveRunningShoes::
 	message PewterCity_Text_ReceivedRunningShoesFromAide
 	waitmessage
 	waitfanfare
+	giveitem ITEM_RUNNING_SHOES
 	msgbox PewterCity_Text_SwitchedShoesWithRunningShoes
 	special DisableMsgBoxWalkaway
 	signmsg
@@ -784,53 +785,53 @@ PewterCity_Movement_AideApproachPlayerBottom::
 	step_end
 
 PewterCity_Movement_AideExit0::
+	walk_left
+	walk_left
 	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PewterCity_Movement_AideExit1::
 	walk_left
 	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PewterCity_Movement_AideExit2::
 	walk_left
+	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PewterCity_Movement_AideExit3::
 	walk_left
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 @ Unused

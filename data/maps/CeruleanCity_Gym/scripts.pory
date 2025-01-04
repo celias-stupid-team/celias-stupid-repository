@@ -85,30 +85,35 @@ script CeruleanClub_UpdateBench {
 script CeruleanCity_Gym_EventScript_PsychicTrainer {
 	trainerbattle_single(TRAINER_CERULEAN_CLUB_PSYCHIC, CeruleanCity_Gym_Text_PsychicTrainerIntro, CeruleanCity_Gym_Text_PsychicTrainerDefeat)
 	msgbox(("Where's MISTY?\nShe's in the back room.\pThey say she was actually banned\nfrom TCG tournaments.\lI wonder why!"), MSGBOX_DEFAULT)
+	release
 end
 }
 
 script CeruleanCity_Gym_EventScript_ElectricTrainer {
 	trainerbattle_single(TRAINER_CERULEAN_CLUB_ELECTRIC, CeruleanCity_Gym_Text_ElectricTrainerIntro, CeruleanCity_Gym_Text_ElectricTrainerDefeat)
 	msgbox(("I only have the budget to enter one\ntournament per year, so...\pMay as well make it count.\n"), MSGBOX_DEFAULT)
+	release
 end
 }
 
 script CeruleanCity_Gym_EventScript_FightingTrainer {
 	trainerbattle_single(TRAINER_CERULEAN_CLUB_FIGHTING, CeruleanCity_Gym_Text_FightingTrainerIntro, CeruleanCity_Gym_Text_FightingTrainerDefeat)
 	msgbox(("I heard that BRUNO got demoted\nfrom the ELITE FOUR.\pHow could they do something like\nthat?"), MSGBOX_DEFAULT)
+	release
 end
 }
 
 script CeruleanCity_Gym_EventScript_PoisonTrainer {
 	trainerbattle_single(TRAINER_CERULEAN_CLUB_POISON, CeruleanCity_Gym_Text_PoisonTrainerIntro, CeruleanCity_Gym_Text_PoisonTrainerDefeat)
 	msgbox(("Look, I never played the games.\pHow am I supposed to know which\nones are actually POISON?"), MSGBOX_DEFAULT)
+	release
 end
 }
 
 script CeruleanCity_Gym_EventScript_Imakuni {
 	trainerbattle_single(TRAINER_CERULEAN_CLUB_IMAKUNI, CeruleanCity_Gym_Text_ImakuniIntro, CeruleanCity_Gym_Text_ImakuniDefeat)
 	msgbox(("In both cards and dance,\nsoul and rhythm are the secret.\pHey, that sounds pretty cool!\nMaybe I'll become a poet!"), MSGBOX_DEFAULT)
+	release
 end
 }
 
@@ -147,13 +152,11 @@ script CeruleanCity_Gym_EventScript_GivesScyther {
 }
 
 script CeruleanCity_Gym_EventScript_DragonTrainer {
-	msgbox(format("Haha!\nI'm the DRAGON-type trainer!\p...Or at least, I would be if\nDRAGON cards existed in Gen 3."), MSGBOX_NPC)
-	end
+	msgbox("Haha!\nI'm the DRAGON-type trainer!\p...Or at least, I would be if\nDRAGON cards existed in Gen 3.", MSGBOX_NPC)
 }
 
 script CeruleanCity_Gym_EventScript_FairyTrainer {
-	msgbox(format("FAIRY-type?\nWhat's a FAIRY-type?\pNope, there's never been a type\nlike that before!\lYou must be misremembering!"), MSGBOX_NPC)
-	end
+	msgbox("FAIRY-type?\nWhat's a FAIRY-type?\pNope, there's never been a type\nlike that before!\lYou must be misremembering!", MSGBOX_NPC)
 }
 
 script CeruleanCity_Gym_EventScript_Dad {
@@ -163,7 +166,6 @@ script CeruleanCity_Gym_EventScript_Dad {
 	msgbox(("DAD: {PLAYER}!\nWhat are you doing out here?\pDidn't you know I'm actually\na star in the TCG?\lInvisible Wall is strong!\pWell, never mind that.\nHow about you take a rest?"), MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	setflag(FLAG_DAD_CERULEAN_CLUB)
-	msgbox(("DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
 	release
 	end
 }

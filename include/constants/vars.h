@@ -143,7 +143,7 @@
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
-#define VAR_CSR_DUMMY_2                                              0x405C
+#define VAR_CSR_LARRY_2_FIGHT                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
 #define VAR_MAP_SCENE_ROUTE16                                                  0x405E
 #define VAR_MAP_SCENE_ROUTE23                                                  0x405F
@@ -174,7 +174,7 @@
 #define VAR_CSR_DUMMY_16                                               0x4078
 #define VAR_CSR_DUMMY_17                            0x4079
 #define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
-#define VAR_CSR_DUMMY_18                                             0x407B
+#define VAR_CSR_JIRACHI_STATUS                                             0x407B
 #define VAR_CSR_DUMMY_19                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
 #define VAR_MAP_SCENE_VERMILION_CITY                                           0x407E

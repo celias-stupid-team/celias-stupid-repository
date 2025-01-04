@@ -1060,7 +1060,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_PicnickerIsabelle[] = {
         .iv = 0,
         .lvl = 19,
         .species = SPECIES_VANILLITE,
-        .moves = {MOVE_ICEBEAM, MOVE_NONE, MOVE_EMBER, MOVE_NONE}
+        .moves = {MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

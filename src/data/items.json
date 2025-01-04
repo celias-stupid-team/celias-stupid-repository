@@ -1361,12 +1361,12 @@
       "secondaryId": 0
     },
     {
-      "english": "ESCAPE ROPE",
+      "english": "ESCAPE KEY",
       "itemId": "ITEM_ESCAPE_ROPE",
       "price": 550,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A long, durable rope.\\nUse it to escape instantly from a\\ncave or a dungeon.",
+      "description_english": "The key on the top left.\\nUse it to escape instantly from a\\ncave or a dungeon.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
