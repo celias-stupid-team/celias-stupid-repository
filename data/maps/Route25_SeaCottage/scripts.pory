@@ -260,14 +260,7 @@ Route25_SeaCottage_EventScript_ViewJolteon::
 	goto Route25_SeaCottage_EventScript_BillsMonList
 	end
 
-Route25_SeaCottage_EventScript_ViewVaporeon::
-	showmonpic SPECIES_VAPOREON, 10, 3
-	waitbuttonpress
-	hidemonpic
-	setvar VAR_0x8004, SPECIES_VAPOREON
-	special SetSeenMon
-	goto Route25_SeaCottage_EventScript_BillsMonList
-	end
+
 
 Route25_SeaCottage_EventScript_ExitBillsMonList::
 	releaseall
@@ -286,12 +279,25 @@ Route25_SeaCottage_Movement_BillExitTeleporter::
 	walk_down
 	step_end
 `
+script Route25_SeaCottage_EventScript_Computer {
+	lockall
+	msgbox(Route25_SeaCottage_Text_BillsFavoriteMonList)
+	goto(Route25_SeaCottage_EventScript_BillsMonList)
+	releaseall
+}
+
+
 script Route25_SeaCottage_EventScript_Bill {
 	finditem(ITEM_POKE_DOLL, 1)
 	setflag(FLAG_CSR_GOT_BILL)
 	addvar(VAR_CSR_BILLS_TAKEN, 1)
 	call(SetPlayerPokedexValues)
 	end
+}
+
+script Route25_SeaCottage_EventScript_ViewVaporeon {
+	msgbox("Yuck!\nShouldn't have looked!", MSGBOX_DEFAULT)
+	goto(Route25_SeaCottage_EventScript_BillsMonList)
 }
 
 script Route25_SeaCottage_OnTransition {
