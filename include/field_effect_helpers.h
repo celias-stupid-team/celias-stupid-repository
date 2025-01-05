@@ -40,5 +40,6 @@ void UpdateLongGrassFieldEffect(struct Sprite *sprite);
 void UpdateSandPileFieldEffect(struct Sprite *sprite);
 void UpdateDisguiseFieldEffect(struct Sprite *sprite);
 void UpdateHotSpringsWaterFieldEffect(struct Sprite *sprite);
+u32 FldEff_Shadow(void);
 
 #endif //GUARD_FIELD_EFFECT_HELPERS_H

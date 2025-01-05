@@ -54,7 +54,6 @@ static void FieldEffectScript_LoadFadedPal(const u8 **script);
 static void FieldEffectScript_LoadPal(const u8 **script);
 static void FieldEffectScript_CallNative(const u8 **script, u32 *result);
 static void FieldEffectFreeTilesIfUnused(u16 tilesTag);
-static void FieldEffectFreePaletteIfUnused(u8 paletteNum);
 static void Task_PokecenterHeal(u8 taskId);
 static void SpriteCB_PokeballGlow(struct Sprite *sprite);
 static void SpriteCB_PokecenterMonitor(struct Sprite *sprite);
@@ -485,7 +484,7 @@ static void FieldEffectScript_CallNative(const u8 **script, u32 *result)
     *script += sizeof(u32);
 }
 
-static void FieldEffectFreeGraphicsResources(struct Sprite *sprite)
+void FieldEffectFreeGraphicsResources(struct Sprite *sprite)
 {
     u16 tileStart = sprite->sheetTileStart;
     u8 paletteNum = sprite->oam.paletteNum;
@@ -514,7 +513,7 @@ static void FieldEffectFreeTilesIfUnused(u16 tileStart)
     FreeSpriteTilesByTag(tileTag);
 }
 
-static void FieldEffectFreePaletteIfUnused(u8 paletteNum)
+void FieldEffectFreePaletteIfUnused(u8 paletteNum)
 {
     u8 i;
     u16 paletteTag = GetSpritePaletteTagByPaletteNum(paletteNum);
@@ -3368,10 +3367,10 @@ u8 FldEff_NpcFlyOut(void)
     u8 spriteId = CreateSprite(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_BIRD], 0x78, 0, 1);
     struct Sprite *sprite = &gSprites[spriteId];
 
-    sprite->oam.paletteNum = 0;
     sprite->oam.priority = 1;
     sprite->callback = SpriteCB_NPCFlyOut;
     sprite->data[1] = gFieldEffectArguments[0];
+    sprite->oam.paletteNum = LoadObjectEventPalette(gSaveBlock2Ptr->playerGender ? FLDEFF_PAL_TAG_PLAYER_GREEN : FLDEFF_PAL_TAG_PLAYER_RED);
     PlaySE(SE_M_FLY);
     return spriteId;
 }
@@ -3566,9 +3565,9 @@ static u8 CreateFlyBirdSprite(void)
     struct Sprite *sprite;
     spriteId = CreateSprite(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_BIRD], 255, 180, 1);
     sprite = &gSprites[spriteId];
-    sprite->oam.paletteNum = 0;
     sprite->oam.priority = 1;
     sprite->callback = SpriteCB_FlyBirdLeaveBall;
+    sprite->oam.paletteNum = LoadObjectEventPalette(gSaveBlock2Ptr->playerGender ? FLDEFF_PAL_TAG_PLAYER_GREEN : FLDEFF_PAL_TAG_PLAYER_RED);
     return spriteId;
 }
 

@@ -127,15 +127,15 @@ static const u8 sBasePaletteGammaTypes[32] = {
     // sprite palettes
     GAMMA_ALT,
     GAMMA_NORMAL,
-    GAMMA_ALT,
-    GAMMA_ALT,
-    GAMMA_ALT,
-    GAMMA_ALT,
     GAMMA_NORMAL,
     GAMMA_NORMAL,
     GAMMA_NORMAL,
     GAMMA_NORMAL,
-    GAMMA_ALT,
+    GAMMA_NORMAL,
+    GAMMA_NORMAL,
+    GAMMA_NORMAL,
+    GAMMA_NORMAL,
+    GAMMA_NORMAL,
     GAMMA_NORMAL,
     GAMMA_NORMAL,
     GAMMA_NORMAL,
@@ -907,6 +907,14 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex)
             BlendPalette(paletteIndex, 16, 12, RGB(28, 31, 28));
         }
         break;
+
+        // if faded out, i.e. due to fadescreenswapbuffers,
+        // copy unfaded palette to pal decomp buffer
+        // so it will be restored on fade-in
+        if (gPaletteFade.y == 16)
+        {
+            CpuFastCopy(gPlttBufferUnfaded + OBJ_PLTT_ID(spritePaletteIndex), gPaletteDecompressionBuffer + 2 * OBJ_PLTT_ID(spritePaletteIndex), PLTT_SIZE_4BPP);
+        }
     }
 }
 
