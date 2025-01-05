@@ -2040,6 +2040,7 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     
     palIndex = TryLoadObjectPalette(pal);
     ApplyGlobalFieldPaletteTint(palIndex);
+    UpdateSpritePaletteWithWeather(palIndex);
     return palIndex;
 }
 
