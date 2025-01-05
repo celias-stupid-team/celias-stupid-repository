@@ -664,11 +664,11 @@ static const union AnimCmd *const sSpriteAnimTable_Emoticons[] = {
     sAnimCmd_Loss,
 };
 
-#define OBJ_EVENT_PAL_TAG_PLAYER_GREEN 0x1110
+#define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC 0x111C
 
 static const struct SpriteTemplate sSpriteTemplate_Emoticons = {
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC,
     .oam = &sOamData_Emoticons,
     .anims = sSpriteAnimTable_Emoticons,
     .images = sSpriteImages_Emoticons,

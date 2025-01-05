@@ -447,7 +447,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION     0x1111
 #define OBJ_EVENT_PAL_TAG_RS_MOVING_BOX               0x1112
 #define OBJ_EVENT_PAL_TAG_METEORITE                   0x1113
-#define OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE                   0x1114
+#define OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE            0x1114
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                     0x1115
 #define OBJ_EVENT_PAL_TAG_RS_PLAYER_UNDERWATER        0x1116
 #define OBJ_EVENT_PAL_TAG_RS_KYOGRE                   0x1117
@@ -455,8 +455,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON                  0x1119
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON_REFLECTION       0x111A
 #define OBJ_EVENT_PAL_TAG_RS_SUBMARINE_SHADOW         0x111B
-#define OBJ_EVENT_PAL_TAG_BENCH                      0x111B
-#define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC                  0x111C
+#define OBJ_EVENT_PAL_TAG_BENCH                       0x111B
+#define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC              0x111C
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -487,7 +487,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
     {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE},
-    {gObjectEventPal_Bench,                  OBJ_EVENT_PAL_TAG_BENCH},
+    {gObjectEventPal_Bench,                   OBJ_EVENT_PAL_TAG_BENCH},
     {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
@@ -2056,10 +2056,14 @@ void LoadObjectEventPaletteSet(u16 *paletteTags)
 
 static u8 TryLoadObjectPalette(const struct SpritePalette *spritePalette)
 {
-    if (IndexOfSpritePaletteTag(spritePalette->tag) != 0xFF)
+    u8 palIndex = IndexOfSpritePaletteTag(spritePalette->tag);
+    if (palIndex != 0xFF)
     {
         // Already loaded
-        return 0xFF;
+        if (QL_IS_PLAYBACK_STATE) //ravetodo: this is kind of a band-aid fix, but it's good enough for now
+            return 0xFF;
+        else
+            return palIndex;
     }
     return LoadSpritePalette(spritePalette);
 }

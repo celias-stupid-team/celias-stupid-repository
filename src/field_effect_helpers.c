@@ -243,7 +243,7 @@ u8 CreateWarpArrowSprite(void)
     if (spriteId != MAX_SPRITES)
     {
         sprite = &gSprites[spriteId];
-        sprite->oam.paletteNum = LoadObjectEventPalette(gSaveBlock2Ptr->playerGender ? FLDEFF_PAL_TAG_PLAYER_GREEN : FLDEFF_PAL_TAG_PLAYER_RED);
+        sprite->oam.paletteNum = LoadObjectEventPalette(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_ARROW]->paletteTag);
         sprite->oam.priority = 1;
         sprite->coordOffsetEnabled = TRUE;
         sprite->invisible = TRUE;
@@ -1039,7 +1039,7 @@ u32 FldEff_SurfBlob(void)
         sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->sPlayerObjectId = gFieldEffectArguments[2];
-        sprite->oam.paletteNum = LoadObjectEventPalette(gSaveBlock2Ptr->playerGender ? FLDEFF_PAL_TAG_PLAYER_GREEN : FLDEFF_PAL_TAG_PLAYER_RED);
+        sprite->oam.paletteNum = LoadObjectEventPalette(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SURF_BLOB]->paletteTag);
         sprite->sBobDirection = 0;
         sprite->data[6] = -1;
         sprite->data[7] = -1;
