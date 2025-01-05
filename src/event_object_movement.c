@@ -158,6 +158,7 @@ static void MovementType_RaiseHandAndSwim(struct Sprite *);
 static void MovementType_WanderAroundSlower(struct Sprite *);
 static u8 UpdateSpritePalette(const struct SpritePalette *spritePalette, struct Sprite *sprite);
 static void ObjectEventSetGraphics(struct ObjectEvent *, const struct ObjectEventGraphicsInfo *);
+static const struct SpritePalette *GetObjectEventPal_HandleOutfit(u16 paletteTag);
 
 enum {
     MOVE_SPEED_NORMAL, // walking
@@ -1520,10 +1521,18 @@ static void MakeObjectTemplateFromObjectEventTemplate(const struct ObjectEventTe
 
 static u8 UpdateSpritePalette(const struct SpritePalette *spritePalette, struct Sprite *sprite)
 {
+    u8 palIndex;
     sprite->inUse = FALSE;
     FieldEffectFreePaletteIfUnused(sprite->oam.paletteNum);
     sprite->inUse = TRUE;
-    return sprite->oam.paletteNum = LoadSpritePalette(spritePalette);
+
+    if (spritePalette->tag == OBJ_EVENT_PAL_TAG_PLAYER_RED || spritePalette->tag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
+        spritePalette = GetObjectEventPal_HandleOutfit(spritePalette->tag);
+
+    palIndex = LoadSpritePalette(spritePalette);
+    sprite->oam.paletteNum = palIndex;
+    ApplyGlobalFieldPaletteTint(palIndex);
+    return palIndex;
 }
 
 u8 UpdateSpritePaletteByTemplate(const struct SpriteTemplate *template, struct Sprite *sprite)
@@ -2042,6 +2051,7 @@ static const struct SpritePalette *GetReflectionPal_HandleOutfit(u16 paletteTag)
 
 u8 LoadObjectEventPalette(u16 paletteTag)
 {
+    u8 palIndex;
     const struct SpritePalette *pal;
     u16 i = FindObjectEventPaletteIndexByTag(paletteTag);
     
@@ -2064,7 +2074,9 @@ u8 LoadObjectEventPalette(u16 paletteTag)
         pal = &sObjectEventSpritePalettes[i];
     }
     
-    TryLoadObjectPalette(pal);
+    palIndex = TryLoadObjectPalette(pal);
+    ApplyGlobalFieldPaletteTint(palIndex);
+    return palIndex;
 }
 
 // Unused
