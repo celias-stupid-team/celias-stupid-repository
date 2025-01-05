@@ -1996,28 +1996,6 @@ static const struct SpritePalette sOutfitToObjectEventPalGreen[OUTFIT_COUNT] = {
     [OUTFIT_LWP]  = {gObjectEventPal_Green_LWP, OBJ_EVENT_PAL_TAG_PLAYER_GREEN},  
 };
 
-static const struct SpritePalette sOutfitToReflectionPalRed[OUTFIT_COUNT] = {
-    [OUTFIT_NONE] = {gObjectEventPal_Player,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION}, 
-    [OUTFIT_L]    = {gObjectEventPal_Red_L,   OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},    
-    [OUTFIT_W]    = {gObjectEventPal_Red_W,   OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},    
-    [OUTFIT_P]    = {gObjectEventPal_Red_P,   OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},    
-    [OUTFIT_LW]   = {gObjectEventPal_Red_LW,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},   
-    [OUTFIT_LP]   = {gObjectEventPal_Red_LP,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},   
-    [OUTFIT_WP]   = {gObjectEventPal_Red_WP,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},   
-    [OUTFIT_LWP]  = {gObjectEventPal_Red_LWP, OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},  
-};
-
-static const struct SpritePalette sOutfitToReflectionPalGreen[OUTFIT_COUNT] = {
-    [OUTFIT_NONE] = {gObjectEventPal_Player,    OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION}, 
-    [OUTFIT_L]    = {gObjectEventPal_Green_L,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},    
-    [OUTFIT_W]    = {gObjectEventPal_Green_W,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},    
-    [OUTFIT_P]    = {gObjectEventPal_Green_P,   OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},    
-    [OUTFIT_LW]   = {gObjectEventPal_Green_LW,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},   
-    [OUTFIT_LP]   = {gObjectEventPal_Green_LP,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},   
-    [OUTFIT_WP]   = {gObjectEventPal_Green_WP,  OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},   
-    [OUTFIT_LWP]  = {gObjectEventPal_Green_LWP, OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},  
-};
-
 void SetPlayerOutfit(u8 outfit)
 {
     gSaveBlock1Ptr->currentOutfit |= outfit;
@@ -2041,14 +2019,6 @@ static const struct SpritePalette *GetObjectEventPal_HandleOutfit(u16 paletteTag
         return &sOutfitToObjectEventPalGreen[gSaveBlock1Ptr->currentOutfit];
 }
 
-static const struct SpritePalette *GetReflectionPal_HandleOutfit(u16 paletteTag)
-{
-    if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION)
-        return &sOutfitToReflectionPalRed[gSaveBlock1Ptr->currentOutfit];
-    else
-        return &sOutfitToReflectionPalGreen[gSaveBlock1Ptr->currentOutfit];
-}
-
 u8 LoadObjectEventPalette(u16 paletteTag)
 {
     u8 palIndex;
@@ -2061,12 +2031,6 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN)
     {
         pal = GetObjectEventPal_HandleOutfit(paletteTag);
-        FreeSpritePaletteByTag(paletteTag);
-    }
-    else if (paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION 
-            || paletteTag == OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION)
-    {
-        pal = GetReflectionPal_HandleOutfit(paletteTag);
         FreeSpritePaletteByTag(paletteTag);
     }
     else
