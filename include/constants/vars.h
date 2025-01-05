@@ -270,8 +270,8 @@ It is reset after every battle.
 #define VAR_CURRENT_CHAPTER                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF
 //Photo Man Vars
-
-#define VAR_PHOTO_CERULEAN                 0x40D0
+// Photos have been cancelled!
+#define VAR_UNUSED                 0x40D0
 #define VAR_0x40D1                 0x40D1
 #define VAR_0x40D2                 0x40D2
 #define VAR_0x40D3                 0x40D3
