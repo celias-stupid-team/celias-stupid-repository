@@ -405,10 +405,12 @@ script CeladonGym_GiovanniDefeat {
 	setobjectxy(ERIKA, 6, 4)
 	addobject(TopRightTrainer)
 	addobject(TopLeftTrainer)
-	setobjectmovementtype(BottomRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
-	setobjectmovementtype(BottomLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+	addobject(BottomLeftTrainer)
+	addobject(BottomRightTrainer)
+
 	setobjectmovementtype(TopRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
 	setobjectmovementtype(TopLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+
 	releaseall
 	end
 }

@@ -14,7 +14,6 @@ Route16_EventScript_RemoveSnorlax::
 	return
 
 Route16_OnTransition::
-	call_if_eq VAR_MAP_SCENE_ROUTE16, 1, Route16_OnTransitionCyclingRoad
 	end
 
 Route16_OnTransitionCyclingRoad::
