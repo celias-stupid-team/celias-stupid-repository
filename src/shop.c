@@ -826,6 +826,10 @@ static void BuyMenuDrawObjectEvents(void)
 {
     u8 i, spriteId;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u8 weatherTemp = gWeatherPtr->palProcessingState;
+
+    if (weatherTemp == WEATHER_PAL_STATE_SCREEN_FADING_OUT)
+        gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_IDLE;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
@@ -841,6 +845,9 @@ static void BuyMenuDrawObjectEvents(void)
             2);
         StartSpriteAnim(&gSprites[spriteId], sViewportObjectEvents[i][ANIM_NUM]);
     }
+    
+    gWeatherPtr->palProcessingState = weatherTemp;
+    CpuFastCopy(gPlttBufferFaded + PLTT_ID(16), gPlttBufferUnfaded + PLTT_ID(16), PLTT_BUFFER_SIZE);
 }
 
 static void BuyMenuCopyTilemapData(void)
