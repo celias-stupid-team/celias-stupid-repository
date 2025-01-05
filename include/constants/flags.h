@@ -831,7 +831,7 @@
 #define FLAG_CSR_PHIONE_EGG               0x306
 #define FLAG_CSR_JIRACHI_SET               0x307
 #define FLAG_CSR_JIRACHI_GOT               0x308
-#define FLAG_0x309               0x309
+#define FLAG_CSR_MELTED_GUARDS               0x309
 #define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
 #define FLAG_0x30C               0x30C

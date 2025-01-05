@@ -846,7 +846,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_EliteFourDrake),
     },
-    [TRAINER_YOUNGSTER_BEN] = {
+    [TRAINER_YOUNGSTER_LEE] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_YOUNGSTER,
@@ -866,7 +866,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterCalvin),
     },
-    [TRAINER_YOUNGSTER_JOSH] = {
+    [TRAINER_YOUNGSTER_LEVI] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_YOUNGSTER,
@@ -896,25 +896,25 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterJoey),
     },
-    [TRAINER_YOUNGSTER_DAN] = {
+    [TRAINER_YOUNGSTER_CHINO] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("DAN"),
+        .trainerName = _("CHINO"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterDan),
     },
-    [TRAINER_YOUNGSTER_CHAD] = {
-        .trainerClass = TRAINER_CLASS_SHORTS,
+    [TRAINER_ANGRY_NERD_LAVOS] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("CHAD"),
+        .trainerPic = TRAINER_PIC_RS_BIRD_KEEPER,
+        .trainerName = _("LAVOS"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_YoungsterChad),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_AngryNerdLavos),
     },
     [TRAINER_YOUNGSTER_TYLER] = {
         .trainerClass = TRAINER_CLASS_SHORTS,
@@ -1525,15 +1525,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PicnickerIsabelle),
     },
-    [TRAINER_PICNICKER_KELSEY] = {
-        .trainerClass = TRAINER_CLASS_PICNICKER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_PICNICKER,
-        .trainerName = _("KELSEY"),
+    [TRAINER_COOLTRAINER_BKC] = {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("BKC"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerKelsey),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_CooltrainerBKC),
     },
     [TRAINER_PICNICKER_ALICIA] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,

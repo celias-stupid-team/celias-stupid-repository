@@ -1,5 +1,5 @@
 Route3_EventScript_Ben::
-	trainerbattle_single TRAINER_YOUNGSTER_BEN, Route3_Text_BenIntro, Route3_Text_BenDefeat
+	trainerbattle_single TRAINER_YOUNGSTER_LEE, Route3_Text_BenIntro, Route3_Text_BenDefeat
 	msgbox Route3_Text_BenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -79,17 +79,17 @@ Route25_EventScript_Joey::
 	end
 
 Route25_EventScript_Dan::
-	trainerbattle_single TRAINER_YOUNGSTER_DAN, Route25_Text_DanIntro, Route25_Text_DanDefeat
+	trainerbattle_single TRAINER_YOUNGSTER_CHINO, Route25_Text_DanIntro, Route25_Text_DanDefeat
 	msgbox Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route25_EventScript_Chad::
-	trainerbattle_single TRAINER_YOUNGSTER_CHAD, Route25_Text_ChadIntro, Route25_Text_ChadDefeat
+	trainerbattle_single TRAINER_ANGRY_NERD_LAVOS, Route25_Text_ChadIntro, Route25_Text_ChadDefeat
 	msgbox Route25_Text_ChadPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route25_EventScript_Kelsey::
-	trainerbattle_single TRAINER_PICNICKER_KELSEY, Route25_Text_KelseyIntro, Route25_Text_KelseyDefeat
+	trainerbattle_single TRAINER_COOLTRAINER_BKC, Route25_Text_KelseyIntro, Route25_Text_KelseyDefeat
 	msgbox Route25_Text_KelseyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
