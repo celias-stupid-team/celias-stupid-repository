@@ -103,10 +103,10 @@ script SaffronEntrance_GuardPuddle {
 
 const GUARD = 1
 script SaffronEntrance_GuardsGetMelted {
-	msgbox(msgbox Route8_WestEntrance_Text_ThanksIllShareTeaWithGuards)
+	msgbox(Route8_WestEntrance_Text_ThanksIllShareTeaWithGuards)
 	closemessage
-	playse(SE_M_ACID_ARMOR)
 	fadescreen(FADE_TO_BLACK)
+	playse(SE_M_ACID_ARMOR)
 	removeobject(GUARD)
 	waitse 
 	fadescreen(FADE_FROM_BLACK)
