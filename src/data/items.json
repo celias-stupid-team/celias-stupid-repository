@@ -2017,12 +2017,12 @@
       "secondaryId": 4
     },
     {
-      "english": "WAVE MAIL",
+      "english": "SHIPPING MAIL",
       "itemId": "ITEM_WAVE_MAIL",
       "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A piece of MAIL featuring a cute\\nWAILMER print.\\nIt is to be held by a POKéMON.",
+      "description_english": "A piece of MAIL featuring a\\nstamp of quality assurance.\\nIt is to be held by a POKéMON.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
