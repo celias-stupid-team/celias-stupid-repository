@@ -120,6 +120,7 @@ script CeruleanCity_Gym_EventScript_GrassTrainer {
 		trainerbattle_no_intro(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerDefeat)
 		msgbox("Hey, that was a good game!", MSGBOX_DEFAULT)
 		setflag(FLAG_CSR_GOT_SCYTHER)
+		call(CeruleanCity_Gym_EventScript_GivesScyther)
 	} else {
 		call(CeruleanCity_Gym_EventScript_GivesScyther)
 	}

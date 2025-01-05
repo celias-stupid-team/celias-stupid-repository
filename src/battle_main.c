@@ -3904,6 +3904,7 @@ static void HandleEndTurn_BattleWon(void)
         {
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_CHAMPION:
+        case TRAINER_CLASS_DMCA_ADMIN:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         case TRAINER_CLASS_BOSS:

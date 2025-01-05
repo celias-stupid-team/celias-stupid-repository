@@ -79,6 +79,7 @@ static const u8 sAirLockDescription[] = _("Negates weather effects.");
 static const u8 sSickShadesDescription[] = _("Immunity to FLASHING lights.");
 static const u8 sFreeShinyDescription[] = _("Congrats! Good job catching me!");
 static const u8 sAsOneDoduoDescription[] = _("EARLY BIRD and SERENE GRACE.");
+static const u8 sLeafRideDescription[] = _("This POKéMON's RETREAT cost is 0.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {

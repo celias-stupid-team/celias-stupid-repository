@@ -5063,7 +5063,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_FLUTTER_MANE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 11,
 	},
 	[SPECIES_SLITHER_WING] =
 	{
@@ -5432,7 +5432,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_WEEZING_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 13,
 	},
 	[SPECIES_THIS_GUY] =
 	{

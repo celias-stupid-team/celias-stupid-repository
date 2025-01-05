@@ -29964,12 +29964,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 },
 [SPECIES_WEEZING_ALOLA] =
 {
-    .baseHP = 80,
+    .baseHP = 30,
     .baseAttack = 80,
-    .baseDefense = 80,
-    .baseSpeed = 80,
+    .baseDefense = 30,
+    .baseSpeed = 1,
     .baseSpAttack = 80,
-    .baseSpDefense = 80,
+    .baseSpDefense = 30,
     .types = {TYPE_DARK, TYPE_GHOST},
     .catchRate = 255,
     .expYield = 150,
