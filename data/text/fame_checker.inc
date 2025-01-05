@@ -1,244 +1,269 @@
 gFameCheckerFlavorText_Pallet0:: @ 0x81AD106
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}OAK POKéMON RESEARCH LAB$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Hello, there!\n"
+	.string "I am an OAK!$"
 
 gFameCheckerFlavorText_Pallet1:: @ 0x81AD145
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}To make a complete guide on all\n"
-	.string "the POKéMON in the world…\p"
-	.string "That was my dream!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}His name is GARY, not {RIVAL}!\n"
+	.string "Haven't you seen the TV show?$"
 
 gFameCheckerFlavorText_Pallet2:: @ 0x81AD1BB
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PROF. OAK may not look like much,\n"
-	.string "but he's the authority on POKéMON.\p"
-	.string "Many POKéMON TRAINERS hold him in\n"
-	.string "high regard.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This looks like an NES, but it's\n"
+	.string "actually a very fancy toaster.$"
+
 
 gFameCheckerFlavorText_Pallet3:: @ 0x81AD258
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PROF. OAK reportedly lives with his\n"
-	.string "grandchildren, DAISY and {RIVAL}.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}DAD: {PLAYER}!\n"
+	.string "You should take a quick rest.$"
 
 gFameCheckerFlavorText_Pallet4:: @ 0x81AD2B9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I hear OAK's taken a lot of\n"
-	.string "interest in you, child.\p"
-	.string "That old duff was once tough and\n"
-	.string "handsome.\p"
-	.string "But that was decades ago.\n"
-	.string "He's a shadow of his former self.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}That's my GS BALL!\n"
+	.string "No, you can't have it.\p"
+	.string "It's very important to the plot.\n"
+	.string "I need to keep it safe!$"
 
 gFameCheckerFlavorText_Pallet5:: @ 0x81AD377
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PROF. OAK is going to have his own\n"
-	.string "radio show soon.\p"
-	.string "The program will be called PROF.\n"
-	.string "OAK'S POKéMON SEMINAR.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}It is VERY strongly recommended that\n"
+	.string "you complete the POKéDEX!\p"
+	.string "Otherwise you'll miss out on\n"
+	.string "a lot of the fun!$"
 
 gFameCheckerFlavorText_Viridian0:: @ 0x81AD40C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}If you show DAISY your POKéMON,\n"
-	.string "she can tell how much it likes you.\p"
-	.string "Occasionally, she will even groom\n"
-	.string "a POKéMON for you.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}It appears that this is the\n"
+	.string "last POTION in the known universe.\p"
+	.string "Uh, I guess you can have it.\n$"
 
 gFameCheckerFlavorText_Viridian1:: @ 0x81AD4AE
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}But the person who is most liked by\n"
-	.string "POKéMON is DAISY, I think.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}…Huh? GARY? Who's that?\p"
+	.string "My name is LARRY!\n$"
 
 gFameCheckerFlavorText_Viridian2:: @ 0x81AD516
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}She was gently grooming POKéMON…\n"
-	.string "She was a little angel.\p"
-	.string "That little girl's name…\n"
-	.string "I think it was DAISY.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}TRAINER TIPS!\p"
+	.string "Press START to save the game!\n$"
 
 gFameCheckerFlavorText_Viridian3:: @ 0x81AD5A7
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PROF. OAK reportedly lives with his\n"
-	.string "grandchildren, DAISY and {RIVAL}.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I've been looking around for a\n"
+	.string "PIDGEY, but I haven't had any luck.\p"
+	.string "Something so strong probably\n"
+	.string "wouldn't be on this ROUTE.$"
 
 gFameCheckerFlavorText_Viridian4:: @ 0x81AD608
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}A girl from PALLET TOWN, DAISY,\n"
-	.string "she enjoys TEA every day.\p"
-	.string "She visits the CELADON DEPT. STORE\n"
-	.string "to buy some TEA.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Running into a wild RATATTA is\n"
+	.string "always scary.\p"
+	.string "Even me and my Level 96 DRAGONITE\n"
+	.string "still FEAR them.$"
 
 gFameCheckerFlavorText_Viridian5:: @ 0x81AD69F
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The Spring POKéMON CONTEST's\n"
-	.string "Grand Champion is DAISY OAK of\l"
-	.string "PALLET TOWN!$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The MR. MIME outside are almost\n"
+	.string "impossible to catch!\p"
+	.string "Maybe if I had a special POKé Ball\n"
+	.string "I could do it…$"
 
 gFameCheckerFlavorText_Pewter0:: @ 0x81AD705
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}PEWTER CITY POKéMON GYM\n"
-	.string "LEADER: BROCK\l"
-	.string "The longest GYM in KANTO!\p"
-    .string "RECOMMENDED LEVEL: 10$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Helpful advice…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Think outside the box!\p"
+	.string "Sometimes, an absurd solution\n"
+	.string "might just be what you need.$"
+
 
 gFameCheckerFlavorText_Pewter1:: @ 0x81AD771
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}My rock-hard willpower is evident\n"
-	.string "in even my POKéMON.\p"
-	.string "My POKéMON are all rock hard and\n"
-	.string "have true-grit determination.\p"
-	.string "That's right - my POKéMON are all\n"
-	.string "the ROCK type!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Everyone here's struggling to get a\n"
+	.string "BUTTERFREE.\p"
+	.string "Not me, though!\n"
+	.string "I found a shortcut!$"
 
 gFameCheckerFlavorText_Pewter2:: @ 0x81AD840
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}There aren't many serious POKéMON\n"
-	.string "TRAINERS here.\p"
-	.string "They're all like BUG CATCHERS,\n"
-	.string "you know, just hobbyists.\p"
-	.string "But PEWTER GYM's BROCK isn't like\n"
-	.string "that, not one bit.$"
-
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}There's supposed to be an extremely\n"
+	.string "rare POKéMON in that grass.\p"
+	.string "I'd really love to find it, but that\n"
+	.string "guy keeps spraying REPEL everywhere!$"
+	
 gFameCheckerFlavorText_Pewter3:: @ 0x81AD908
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}BROCK is cool. He's not just tough.\n"
-	.string "People like and respect him.\p"
-	.string "I want to become a GYM LEADER\n"
-	.string "like him.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}You'd better not be running in\n"
+	.string "your normal shoes.\p"
+	.string "If you are, I'll have to\n"
+	.string "report you to the police!$"
 
 gFameCheckerFlavorText_Pewter4:: @ 0x81AD99A
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Hi, I'm excavating for fossils here\n"
-	.string "under MT. MOON.\p"
-	.string "Sometimes, BROCK of PEWTER GYM\n"
-	.string "lends me a hand.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}KABUTOPS, eh?\p"
+	.string "I hear scientists are working on a\n"
+	.string "mechanical POKéMON just like it.$"
 
 gFameCheckerFlavorText_Pewter5:: @ 0x81ADA27
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}BROCK rarely laughs, but is said to\n"
-	.string "be unable to stop if he starts.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Something to try…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Look at this beautiful piece of\n"
+	.string "AMBER we found!\p"
+	.string "It's one of our finest specimens.\p"
+	.string "…What?\n"
+	.string "No, of course you can't have it!\l"
+	.string "Why would you think you could?$"
 
 gFameCheckerFlavorText_MtMoon0:: @ 0x81ADA91
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}CERULEAN CITY POKéMON GYM\n"
-	.string "LEADER: MISTY\l"
-	.string "The TCG Expert!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}We, the DMCA, are copyright\n"
+	.string "gangsters!\p"
+	.string "We strike fear with our takedown!\n$"
+
 
 gFameCheckerFlavorText_MtMoon1:: @ 0x81ADAF6
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}My policy is an all-out offensive\n"
-	.string "with WATER-type POKéMON!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I am SHORTS!\n"
+	.string "I'm comfy and easy to wear!$"
+
 
 gFameCheckerFlavorText_MtMoon2:: @ 0x81ADB5A
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}MISTY is a TRAINER who's going to\n"
-	.string "keep improving.\p"
-	.string "She won't lose to someone like you!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}So, wait. If all the TENTACOOL are\n"
+	.string "in this cave…\p"
+	.string "What does that mean for all the\n"
+	.string "WATER routes?$"
 
 gFameCheckerFlavorText_MtMoon3:: @ 0x81ADBD9
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Strong TRAINERS and WATER POKéMON\n"
-	.string "are common sights in these parts.\p"
-	.string "They say that MISTY of the\n"
-	.string "CERULEAN GYM trains here.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Excuse me!\n"
+	.string "You looked at me, didn't you?\p"
+	.string "Yup, you definitely looked\n"
+	.string "at me.$"
 
 gFameCheckerFlavorText_MtMoon4:: @ 0x81ADC72
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This cape is a famous date spot.\p"
-	.string "MISTY, the GYM LEADER, has high\n"
-	.string "hopes about this place.$"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}TENTACOOL stops you from running.\p"
+	.string "I think maybe he just wants to\n"
+	.string "run too…$"
 
 gFameCheckerFlavorText_MtMoon5:: @ 0x81ADCEB
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}MISTY is said to worship LORELEI\n"
-	.string "of the ELITE FOUR.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I expected to be able to stop\n"
+	.string "you with my invincible KOFFING…\p"
+	.string "Surely this will be the only time\n"
+	.string "you fight someone with WONDER GUARD.$"
 
 gFameCheckerFlavorText_Cerulean0:: @ 0x81ADD3C
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}VERMILION CITY POKéMON GYM\n"
-	.string "LEADER: LT. SURGE\l"
-	.string "The Lightning American!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}CERULEAN is known for its competitive\n"
+	.string "scene!\p"
+	.string "Whether it's battling to the north\n"
+	.string "or playing the TCG here in town!$"
 
 gFameCheckerFlavorText_Cerulean1:: @ 0x81ADDA7
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I tell you, kid, electric POKéMON\n"
-	.string "saved me during the war!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Have you found any pieces of\n"
+	.string "CANDY laying on the ground?\p"
+	.string "I think there's one in every\n"
+	.string "major area.$"
 
 gFameCheckerFlavorText_Cerulean2:: @ 0x81ADE0B
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}When I was in the Army, LT. SURGE\n"
-	.string "was my strict CO.\p"
-	.string "He was a hard taskmaster.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}GARY? LARRY?\n"
+	.string "Who's that?\p"
+	.string "My name is JERRY!\n"
+	.string "What are you talking about?$"
 
 gFameCheckerFlavorText_Cerulean3:: @ 0x81ADE82
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}LT. SURGE was always famous for\n"
-	.string "his cautious nature in the Army.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This is CERULEAN CAVE.\p"
+	.string "Horribly strong POKéMON live inside\n"
+	.string "there.\p"
+	.string "However, I'm not gonna stop you\n"
+	.string "from trying to explore it,\l"
+	.string "if that's what your heart desires.$"
+
 
 gFameCheckerFlavorText_Cerulean4:: @ 0x81ADEEC
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}LT. SURGE installed the traps in\n"
-	.string "the GYM himself.\p"
-	.string "He set up double locks everywhere.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I wanna buy some RARE CANDY to\n"
+	.string "help evolve my POKéMON, but I\l"
+	.string "need more money!\p"
+	.string "Maybe if I visited BILL again…\n$"
+
 
 gFameCheckerFlavorText_Cerulean5:: @ 0x81ADF6A
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}LT. SURGE is rumored to have been\n"
-	.string "a pilot while home in America.\p"
-	.string "He used the electricity generated\n"
-	.string "by POKéMON to power his plane.$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}If you look behind that cottage,\n"
+	.string "you can see a path going north!\p"
+	.string "I bet that's where you can catch\n"
+	.string "the starters!$"
 
 gFameCheckerFlavorText_Vermilion0:: @ 0x81AE009
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}CELADON CITY POKéMON GYM\n"
-	.string "LEADER: ERIKA\l"
-	.string "The Nature-Loving Princess!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The S.S. ANNE normally arrives\n"
+	.string "in VERMILLION around this time.\p"
+	.string "It doesn't seem to have made it\n"
+	.string "to the harbor, though…$"
+
 
 gFameCheckerFlavorText_Vermilion1:: @ 0x81AE072
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I am a student of the art of\n"
-	.string "flower arranging.\p"
-	.string "My POKéMON are solely of the\n"
-	.string "GRASS type.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}You wanna know how I got a\n"
+	.string "SPEAROW?\p"
+	.string "I hatched it myself from an egg!\n$"
 
 gFameCheckerFlavorText_Vermilion2:: @ 0x81AE0F3
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Our LEADER ERIKA might be quiet,\n"
-	.string "but she's famous around here.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I gave the guy next door my\n"
+	.string "TRAINER ID.\l"
+	.string "He said he'd give me a cool prize.\p"
+	.string "I think that might've been a bad\n"
+	.string "idea…$"
+
 
 gFameCheckerFlavorText_Vermilion3:: @ 0x81AE15B
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}We only use GRASS-type POKéMON at\n"
-	.string "our GYM.\p"
-	.string "Why? We also use them for making\n"
-	.string "flower arrangements!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I had someone deliver a letter to\n"
+	.string "my one friend a while back.\l"
+	.string "I think he's in VIRIDIAN still?\p"
+	.string "Someone should check on him to see\n"
+	.string "if he received it.$"
+
 
 gFameCheckerFlavorText_Vermilion4:: @ 0x81AE1E5
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I would never collect POKéMON if\n"
-	.string "they were unattractive.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}SURGE's POKéMON will destroy you\n"
+	.string "if you're not prepared.\p"
+	.string "If you want to keep yourself safe,\n"
+	.string "you'll need proper eyewear.$"
+
 
 gFameCheckerFlavorText_Vermilion5:: @ 0x81AE247
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Rumor has it that if you peek into\n"
-	.string "CELADON GYM, you can often\l"
-	.string "see ERIKA snoozing.$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I must've parked my TRUCK somewhere\n"
+	.string "in this city...\l"
+	.string "Do you have any idea where it is?$"
 
 gFameCheckerFlavorText_RockTunnel0:: @ 0x81AE2B6
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}FUSHCIA CITY POKéMON GYM\n"
-	.string "LEADER: KOGA\l"
-	.string "The Poisonous Ninja Master$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Wait, wasn't there a POKéMON\n"
+	.string "CENTER here a minute ago?\p"
+	.string "Darn, that's inconvenient.\n$"
+
 
 gFameCheckerFlavorText_RockTunnel1:: @ 0x81AE31D
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Despair to the creeping horror of\n"
-	.string "POISON-type POKéMON!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I found my ONIX in a cave, hidden\n"
+	.string "on an island far, far away.$"
 
 gFameCheckerFlavorText_RockTunnel2:: @ 0x81AE37D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Even though I've lost, I will keep\n"
-	.string "training according to the teachings\l"
-	.string "of KOGA, my ninja master.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}My father is the GYM LEADER of\n"
+	.string "this town.\p"
+	.string "I'm training to use POISON POKéMON\n"
+	.string "as well as my father.$"
+
 
 gFameCheckerFlavorText_RockTunnel3:: @ 0x81AE407
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
@@ -264,85 +289,97 @@ gFameCheckerFlavorText_RockTunnel5:: @ 0x81AE51B
 	.string "knowing that we're safe.$"
 
 gFameCheckerFlavorText_Lavender0:: @ 0x81AE5E8
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}SAFFRON CITY POKéMON GYM\n"
-	.string "LEADER: SABRINA\l"
-	.string "The Master of PSYCHIC POKéMON!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This town is known as the players'\n"
+	.string "grave site.\p"
+	.string "Be careful listening to the music!\n$"
+
 
 gFameCheckerFlavorText_Lavender1:: @ 0x81AE656
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}You know about a girl GYM LEADER\n"
-	.string "in SAFFRON CITY?\p"
-	.string "She uses PSYCHIC-type POKéMON,\n"
-	.string "right?$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I recently moved to this town.\p"
+	.string "When I got here, the DMCA forced me\n"
+	.string "to take down my fanfic…$"
+
 
 gFameCheckerFlavorText_Lavender2:: @ 0x81AE6D7
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I have had psychic powers since\n"
-	.string "I was a child.\p"
-	.string "It started when a spoon I\n"
-	.string "carelessly tossed, bent.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}HARRY: Yup, my RATICATE sure is\n"
+	.string "alive!\p"
+	.string "Boy, am I glad that I never went\n"
+	.string "on any boats or anything.$"
+
 
 gFameCheckerFlavorText_Lavender3:: @ 0x81AE762
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I dislike battling, but if you wish,\n"
-	.string "I will show you my powers!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Everyone here in school loves\n"
+	.string "CUBONE'S mother.\p"
+	.string "She comes in sometimes when our\n"
+	.string "TEACHER is sick.$"
 
 gFameCheckerFlavorText_Lavender4:: @ 0x81AE7CB
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}People say that SABRINA can\n"
-	.string "communicate with her POKéMON\l"
-	.string "during battle without speaking.$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}LAVENDER TOWN\n"
+	.string "DANCE THEATER$"
 
 gFameCheckerFlavorText_Lavender5:: @ 0x81AE841
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}SABRINA just wiped out the KARATE\n"
-	.string "MASTER next door.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Beware, fair traveller, as you\n"
+	.string "ascend.\p"
+	.string "Climbing this tower will face you\n"
+	.string "against the greatest fear of any\l"
+	.string "fanfiction author.$"
 
 gFameCheckerFlavorText_Celadon0:: @ 0x81AE89E
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}CINNABAR ISLAND POKéMON GYM\n"
-	.string "LEADER: BLAINE\l"
-	.string "The Hotheaded Quiz Master!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Oh no!\n"
+	.string "Something terrible has happened!\p"
+	.string "Someone shoved all of CELADON CITY\n"
+	.string "into a RANDOMIZER!$"
 
 gFameCheckerFlavorText_Celadon1:: @ 0x81AE90A
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}My fiery POKéMON are all rough\n"
-	.string "and ready with intense heat!\p"
-	.string "They incinerate all challengers!$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I really like trading, but you can't\n"
+	.string "actually do it here in CELADON.\p"
+	.string "Right now, the CABLE CLUB is\n"
+	.string "replaced by a, erm… GAY-BLE CLUB.$"
+
 
 gFameCheckerFlavorText_Celadon2:: @ 0x81AE990
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Our LEADER, BLAINE, became lost\n"
-	.string "in the mountains but good.\p"
-	.string "Night fell when a fiery bird\n"
-	.string "POKéMON appeared.\p"
-	.string "Its light allowed BLAINE to find\n"
-	.string "his way down safely.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This whole ordeal has everone in\n"
+	.string "town so lost and confused.\p"
+	.string "If only there were some sort of MAP\n"
+	.string "that showed the layout of the TOWN.$"
+
 
 gFameCheckerFlavorText_Celadon3:: @ 0x81AEA59
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What is this person like?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}CINNABAR GYM's BLAINE is quite the\n"
-	.string "odd fellow.\p"
-	.string "He's lived on the island since way\n"
-	.string "before the LAB was built.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Looking closer…\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This blasted elevator!\p"
+	.string "I was hoping I'd be able to get\n"
+	.string "back to the city through it,\l"
+	.string "but it's not working!$"
+
 
 gFameCheckerFlavorText_Celadon4:: @ 0x81AEAEE
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Family and friends?\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}It's a photo of BLAINE and\n"
-	.string "MR. FUJI.\p"
-	.string "They're standing shoulder to\n"
-	.string "shoulder with big grins.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The BOSS is off on important\n"
+	.string "business.\p"
+	.string "His POKéMON is fully invincible!\n"
+	.string "It has no weakness you can exploit!\p"
+	.string "Well, it has no weaknesses in THIS\n"
+	.string "GENERATION, at least.$"
 
 gFameCheckerFlavorText_Celadon5:: @ 0x81AEB69
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}BLAINE is said to remove his dark\n"
-	.string "shades only when he is thinking up\l"
-	.string "new quiz questions.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}TM19 contains MAGICAL LEAF.\p"
+	.string "I'm sure you'll find it very\n"
+	.string "useful in the near future!$"
 
 gFameCheckerFlavorText_Fuchsia0:: @ 0x81AEBDF
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}What does this person do?\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I am LORELEI of the ELITE FOUR.$"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}No one can best me when it comes\n"
+	.string "to icy POKéMON.$"
 
 gFameCheckerFlavorText_Fuchsia1:: @ 0x81AEC28
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Favorite kind of POKéMON?\p"
