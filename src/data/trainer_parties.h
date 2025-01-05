@@ -3775,7 +3775,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlyCharmand
 static const struct TrainerMonItemCustomMoves sParty_RivalCeruleanSquirtle[] = {
     {
         .iv = 50,
-        .lvl = 60,
+        .lvl = 90,
         .species = SPECIES_MOLTRES,
         .heldItem = ITEM_LEFTOVERS,
         .moves = {MOVE_SURF, MOVE_WATER_SHURIKEN, MOVE_NONE, MOVE_NONE},
