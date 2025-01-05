@@ -834,8 +834,8 @@
 #define FLAG_CSR_MELTED_GUARDS               0x309
 #define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
-#define FLAG_0x30C               0x30C
-#define FLAG_0x30D               0x30D
+#define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
+#define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
 #define FLAG_0x30E               0x30E
 #define FLAG_0x30F               0x30F
 #define FLAG_0x310               0x310

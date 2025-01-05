@@ -687,14 +687,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_LassHaley[] = {
     {
         .iv = 0,
         .lvl = 17,
-        .species = SPECIES_PIKACHU,
+        .species = SPECIES_EMOLGA,
         .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 13,
-        .species = SPECIES_ZACIAN,
-        .moves = {MOVE_BITE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_FLUTTER_MANE,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 

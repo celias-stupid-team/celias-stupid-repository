@@ -168,9 +168,36 @@
       "x": 17,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_ROUTE6_LASS",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
     }
   ],
   "bg_events": [

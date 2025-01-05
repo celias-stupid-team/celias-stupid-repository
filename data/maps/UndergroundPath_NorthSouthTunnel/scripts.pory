@@ -8,3 +8,38 @@ UndergroundPath_NorthSouthTunnel_OnTransition::
 	setbench BENCH_UNDERGROUNDPATH
 	end
 `
+
+script UndergroundPath_YoungerBrother {
+	lock
+	if(!flag(FLAG_CSR_TALKED_TO_YOUNGER_BROTHER)) {		
+		msgbox("Oh! Um, hello!\nWe're the HAIRCUT Brothers!\pSorry, we haven't had any visitors\nin quite a while.\lI'm not really sure why…", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_TALKED_TO_YOUNGER_BROTHER)
+	}
+	//if already got haircut, give different dialogue
+
+	msgbox("I'm the younger HAIRCUT brother.\pIf you'd like, I could try to give\none of your POKéMON a small trim?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox("Oh, lovely!\nWhich POKéMON can I try on?", MSGBOX_DEFAULT)
+		// call party menu, check if species is Ampharos-M, Tangela, or none.
+	} else {
+		//if !checkmoncaught Ampharos regular
+		msgbox("Oh…\nThat's okay, I understand.\pI've heard there's a DRAGON-TYPE\nPOKéMON with luscious hair.\lI'd really love to meet it someday…", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script UndergroundPath_OlderBrother {
+	lock
+	if(!flag(FLAG_CSR_TALKED_TO_OLDER_BROTHER)) {
+		msgbox("Aha! Finally, a guest!\nWe are the HAIRCUT Brothers.\pWord of my expertise must have\nfinally reached across KANTO!\lYes, I'm truly humbled.", MSGBOX_DEFAULT)
+		setflag(FLAG_CSR_TALKED_TO_OLDER_BROTHER)
+	}
+	msgbox("I am the older HAIRCUT brother.\nMy technique speaks for itself!\pIf you please, I'd love to show my\nskill on one of your POKéMON.", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox("Ah, excellent!\nOn whom should I practice my craft?", MSGBOX_DEFAULT)
+		// party menu
+		// if not tangela:
+		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly TANGLED beyond repair!", MSGBOX_DEFAULT)
+	}
+	release
+}
