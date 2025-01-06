@@ -1395,3 +1395,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianCity_GamblerHouse/scripts.inc"
 	.include "data/maps/ViridianCity_GamblerHouse/text.inc"
+
+	.include "data/maps/LavenderTown_FlowerShop/scripts.inc"
+	.include "data/maps/LavenderTown_FlowerShop/text.inc"

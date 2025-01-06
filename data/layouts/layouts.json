@@ -4524,6 +4524,18 @@
       "secondary_tileset": "gTileset_GameCorner",
       "border_filepath": "data/layouts/ViridianCity_GamblerHouse/border.bin",
       "blockdata_filepath": "data/layouts/ViridianCity_GamblerHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_TOWN_FLOWER_SHOP",
+      "name": "LavenderTown_FlowerShop_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FlowerShop",
+      "border_filepath": "data/layouts/LavenderTown_FlowerShop/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderTown_FlowerShop/map.bin"
     }
   ]
 }

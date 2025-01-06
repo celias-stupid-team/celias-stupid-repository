@@ -1,0 +1,8 @@
+mapscripts LavenderTown_FlowerShop_MapScripts {
+
+}
+
+script Flowershop_Window {
+	msgbox("The window looks directly into the\nside of a mountain.\pPerhaps this building wasn't very\nwell thought-out.", MSGBOX_SIGN)
+	end
+}

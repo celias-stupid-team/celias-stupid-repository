@@ -225,3 +225,6 @@ const u32 gMetatileAttributes_Chapter2[] = INCBIN_U32("data/tilesets/primary/cha
 
 const u16 gMetatiles_MoonAltar[] = INCBIN_U16("data/tilesets/secondary/moon_altar/metatiles.bin");
 const u32 gMetatileAttributes_MoonAltar[] = INCBIN_U32("data/tilesets/secondary/moon_altar/metatile_attributes.bin");
+
+const u16 gMetatiles_FlowerShop[] = INCBIN_U16("data/tilesets/secondary/flower_shop/metatiles.bin");
+const u32 gMetatileAttributes_FlowerShop[] = INCBIN_U32("data/tilesets/secondary/flower_shop/metatile_attributes.bin");
