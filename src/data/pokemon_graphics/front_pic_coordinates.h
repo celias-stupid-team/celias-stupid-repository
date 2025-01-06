@@ -5427,7 +5427,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_VULPIX_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 10,
 	},
 	[SPECIES_WEEZING_ALOLA] =
 	{
@@ -5442,17 +5442,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_STEAMBOAT_WILLIE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 4,
 	},
 	[SPECIES_PIDGEOT_OLD] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 6,
 	},
 	[SPECIES_STRYKE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 0,
 	},
 	[SPECIES_BUTTERFREE_FEMALE] =
 	{
