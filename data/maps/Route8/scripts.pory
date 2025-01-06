@@ -334,6 +334,20 @@ script Route8_LassAttack {
 	end
 }
 
+script Route8_SetBenchLavender {
+	setbench(BENCH_LAVENDER)
+	release
+}
+
+script Route8_PickUpPsyduck {
+	finditem(ITEM_WAILMER_PAIL)
+}
+
+script Route8_BerryLady {
+	msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR!\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
+	end
+}
+
 movement LassSeesYou {
 	face_left
 	emote_exclamation_mark

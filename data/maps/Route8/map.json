@@ -281,10 +281,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 63,
-      "y": 7,
+      "x": 62,
+      "y": 13,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -294,22 +294,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 61,
-      "y": 2,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 60,
+      "x": 58,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -319,6 +305,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route_8_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_ROUTE_8_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 63,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route8_BerryLady",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
+      "x": 61,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route8_PickUpPsyduck",
+      "flag": "FLAG_CSR_GOT_DUCK_PAIL"
     }
   ],
   "warp_events": [
@@ -690,13 +704,229 @@
       "var": "VAR_ROUTE8_LASS",
       "var_value": "0",
       "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSandstorm"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 63,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSnowing"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 63,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartRaining"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_SetBenchLavender"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_SetBenchLavender"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_SetBenchLavender"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 16,
-      "y": 5,
+      "x": 11,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_EventScript_UndergroundPathSign"
@@ -757,24 +987,32 @@
     },
     {
       "type": "sign",
-      "x": 13,
-      "y": 2,
+      "x": 62,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_DrySoil"
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 2,
+      "x": 63,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_DrySoil"
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 2,
+      "x": 61,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route8_DrySoil"
+    },
+    {
+      "type": "sign",
+      "x": 64,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route8_DrySoil"

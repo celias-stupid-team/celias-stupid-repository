@@ -66,10 +66,23 @@ script LavenderTown_ImposterOak {
 	if(checkitem(ITEM_WAILMER_PAIL)) {
 
 	} else {
-		msgbox("A strange tree is in the way.\pIt doesn't appear that you can\nCUT it down.", MSGBOX_DEFAULT)
+		applymovement(IMPOSTER_OAK, OakDances)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		waitmovement(0)
+		
 	}
 	
 	release
+}
+
+movement OakDances {
+	walk_in_place_down * 3
+	face_down
 }
 
 script LavenderTown_DanceDMCA {

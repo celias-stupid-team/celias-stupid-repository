@@ -837,7 +837,7 @@
 #define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
 #define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
 #define FLAG_CSR_GOT_DUCK_PAIL               0x30E
-#define FLAG_0x30F               0x30F
+#define FLAG_CSR_DUCK_PAIL_EMPTIED               0x30F
 #define FLAG_0x310               0x310
 #define FLAG_0x311               0x311
 #define FLAG_0x312               0x312
