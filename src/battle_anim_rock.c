@@ -438,14 +438,14 @@ static void AnimTask_LoadSandstormBackground_Step(u8 taskId)
         }
         break;
     case 1:
-        if (++gTasks[taskId].data[11] == 101)
+        if (++gTasks[taskId].data[11] == 70) //Amount of time the sandstorm bg lasts
         {
             gTasks[taskId].data[11] = 7;
             ++gTasks[taskId].data[12];
         }
         break;
     case 2:
-        if (++gTasks[taskId].data[10] == 4)
+        if (++gTasks[taskId].data[10] == 4) //speed of sandstorm to regular
         {
             gTasks[taskId].data[10] = 0;
             --gTasks[taskId].data[11];
@@ -458,7 +458,7 @@ static void AnimTask_LoadSandstormBackground_Step(u8 taskId)
         }
         break;
     case 3:
-        GetBattleAnimBg1Data(&animBg);
+        GetBattleAnimBg1Data(&animBg); //This is prolly the part I wanna speed up?
         InitBattleAnimBg(animBg.bgId);
         ++gTasks[taskId].data[12];
         break;

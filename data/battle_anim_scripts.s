@@ -18,6 +18,7 @@ gMovesWithQuietBGM::
 	.2byte MOVE_SING
 	.2byte MOVE_PERISH_SONG
 	.2byte MOVE_GRASS_WHISTLE
+	.2byte MOVE_SANDSTORM
 	.2byte 0xFFFF
 
 	.align 2
@@ -6673,7 +6674,7 @@ FlamethrowerCreateFlames:
 @ Also used by Sandstorm weather
 Move_SANDSTORM:
 	loadspritegfx ANIM_TAG_FLYING_DIRT
-	playsewithpan SE_M_SANDSTORM, 0
+	panse SE_NOTE_G, SOUND_PAN_ATTACKER, SOUND_PAN_ATTACKER, +2, 0
 	createvisualtask AnimTask_LoadSandstormBackground, 5, FALSE
 	delay 16
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 0

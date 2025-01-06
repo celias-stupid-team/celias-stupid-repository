@@ -308,6 +308,9 @@ DirectSoundWaveData_sc88pro_accordion::
 DirectSoundWaveData_unused_sc55_tom::
 	.incbin "sound/direct_sound_samples/unused_sc55_tom.bin"
 
+DirectSoundWaveData_Sandstorm::
+	.incbin "sound/direct_sound_samples/sandstorm.bin"
+
 
 	.align 2
 Cry_Bulbasaur::
