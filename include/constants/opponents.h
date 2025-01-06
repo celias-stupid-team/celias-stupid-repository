@@ -568,7 +568,7 @@
 #define TRAINER_PAINTER_CELINA                   562
 #define TRAINER_PAINTER_RAYNA                    563
 #define TRAINER_LADY_GILLIAN                     564
-#define TRAINER_YOUNGSTER_DESTIN                 565
+#define TRAINER_SHORTS_MARRMOT                 565
 #define TRAINER_SWIMMER_MALE_TOBY                566
 #define TRAINER_DMCA_GRUNT_49             567
 #define TRAINER_DMCA_GRUNT_50             568

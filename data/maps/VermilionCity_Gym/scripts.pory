@@ -378,6 +378,7 @@ script VermillionGym_BonusCan5 {
 		playse(SE_PIN)
 		waitse
 		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+		//Bonus Can 5
 		release
 		end
 	} else {
