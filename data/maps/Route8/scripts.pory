@@ -65,7 +65,7 @@ script Route8_StartRaining {
 }
 
 script Route8_DrySoil {
-	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nsere land would be a waste.", MSGBOX_DEFAULT)
+	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nsere land would be a waste.", MSGBOX_SIGN)
 	end
 }
 
