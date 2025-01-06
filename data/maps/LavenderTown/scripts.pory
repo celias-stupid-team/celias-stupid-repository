@@ -60,3 +60,14 @@ LavenderTown_EventScript_UndergroundPathSign::
 	msgbox LavenderTown_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+const IMPOSTER_OAK = 7
+script LavenderTown_ImposterOak {
+	lock
+	if(checkitem(ITEM_WAILMER_PAIL)) {
+
+	} else {
+		msgbox("A strange tree is in the way.\pIt doesn't appear that you can\nCUT it down.", MSGBOX_DEFAULT)
+	}
+	
+	release
+}
