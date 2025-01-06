@@ -14,20 +14,90 @@ script DepartmentStore_GameShop_CounterGuy {
 
 script DepartmentStore_GameShop_JirachiHunter {
 	lock
-	msgbox("Reset number five-thousand,\ntwo hundred and forty-six...\pI swear on my life that I will be\nthe first person to find him...\lPlease, God...\p... ... ... ... ...\n... ... ... ... ...\p... ... ... ... ...\n... ... ... ... ...Sigh.\pReset number five-thousand,\ntwo hundred and forty-seven...\lWe put out a new demo for a game\lthat's launching soon.\lI think he really likes it!\pBut...\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
-	release //Fill in later
+	if(var(VAR_CSR_JIRACHI_STATUS) == 2) {
+		msgbox("Reset number five-thousand,\ntwo hundred and forty-eight...\pThat stupid kid just grabbed one too,\nbut that's fine...\lPlease, God...\p... ... ... ... ...\n... ... ... ... ...\p... ... ... ... ...\n... ... ... ... ...Sigh.\pReset number five-thousand,\ntwo hundred and forty-nine...", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		msgbox("You probably shouldn't tell\nhim…", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Reset number five-thousand,\ntwo hundred and forty-six...\pI swear on my life that I will be\nthe first person to find him...\lPlease, God...\p... ... ... ... ...\n... ... ... ... ...\p... ... ... ... ...\n... ... ... ... ...Sigh.\pReset number five-thousand,\ntwo hundred and forty-seven...", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("He seems very focused.\nYou shouldn't bother him.", MSGBOX_DEFAULT)
+	}
+	release
 }
 
 script DepartmentStore_GameShop_Colosseum {
 	lock
-	msgbox("It's POKéMON COLOSSEUM!\n...\l...Wait, no!\pIt's the POKéMON COLOSSEUM bonus\ndisc!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
-	release //Fill in later
+	if(var(VAR_CSR_JIRACHI_STATUS) <= 1) {
+		msgbox("It's POKéMON COLOSSEUM!\n...\l...Wait, no!\pIt's the POKéMON COLOSSEUM bonus\ndisc!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_JIRACHI_STATUS, 1)
+	} else {
+		msgbox("It's the POKéMON COLOSSEUM bonus\ndisc!\pThis save file already recieved\nthe JIRACHI.\lToo bad!", MSGBOX_DEFAULT)
+	}
+	release
 }
 
-script DepartmentStore_GameShop_DifferentGamecube {
+script DepartmentStore_GameShop_DifferentGamecube { //simplify this script so I can copypaste it for later gift Pokemon
 	lock
-	msgbox("It's a very fancy GAMECUBE!\pBut this one seems... different.\n", MSGBOX_DEFAULT)
+	switch(var(VAR_CSR_JIRACHI_STATUS)) {
+		case 0:
+			msgbox("It's a very fancy GAMECUBE!\pBut this one seems... different.\n", MSGBOX_DEFAULT)
+			break
+		case 1:
+			msgbox("The COLOSSEUM Bonus Disc is loaded\nup!\p{PLAYER} plugged the GBA into the\nGAMECUBE!\pConnecting...\nConnecting...\lConnected!\pPlease don't touch the Memory Card\nor the POWER button!\pTransferring...\p... ... ... ...\n... ... ... ...", MSGBOX_DEFAULT)
+			playfanfare(MUS_OBTAIN_KEY_ITEM)
+			msgbox("Congratulations!\nWISHMAKER JIRACHI was sent!", MSGBOX_DEFAULT)
+			waitmessage
+			waitfanfare
+			setflag(FLAG_SHINY_CREATION)
+			setvar(VAR_TEMP_1, SPECIES_JIRACHI)
+			givemon(SPECIES_JIRACHI, 25)
+			clearflag(FLAG_SHINY_CREATION)
+			switch(var(VAR_RESULT)) {
+				case 0: //Mon goes to party
+					bufferspeciesname(STR_VAR_1, SPECIES_JIRACHI)
+					msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+					goto_if_eq(VAR_RESULT, NO, CeladonDept_JirachiRecievedEnd)
+					call(EventScript_GetGiftMonPartySlot)
+					call(EventScript_ChangePokemonNickname)
+					goto(CeladonDept_JirachiRecievedEnd)
+					setvar(VAR_CSR_JIRACHI_STATUS, 2)
+					end
+				case 1: //Mon goes to PC
+						bufferspeciesname(STR_VAR_1, SPECIES_JIRACHI)
+						msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+						if(var(VAR_RESULT) == 0) {
+							call(EventScript_TransferredToPC)
+							goto(CeladonDept_JirachiRecievedEnd)
+						} else {
+							call(EventScript_NameReceivedBoxMon)
+							call(EventScript_TransferredToPC)
+							goto(CeladonDept_JirachiRecievedEnd) //This can be simplified; I'll deal with it later
+						}
+						setvar(VAR_CSR_JIRACHI_STATUS, 2)
+						end
+				case 2:
+					goto(EventScript_NoMoreRoomForPokemon)
+					break
+			}
+		case 2:
+			msgbox("Sorry!\nEach save file only gets one!\pReplay the hack up to this point\nif you want another one!", MSGBOX_DEFAULT)
+			break
 	release
+	end
+	}
+	release
+	end
+
+	CeladonDept_JirachiRecievedEnd:
+		msgbox("Thank you for playing the DEMO\nof POKéMON COLOSSEUM!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_JIRACHI_STATUS, 2)
+		release
+		end
+
 }
 
 script DepartmentStore_GameShop_Celia {

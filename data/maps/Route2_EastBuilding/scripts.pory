@@ -39,3 +39,12 @@ Route2_EastBuilding_EventScript_Rocker::
 	msgbox Route2_EastBuilding_Text_CanGetThroughRockTunnel, MSGBOX_NPC
 	end
 `
+script Route2_Policeman {
+	msgbox("There was a scientist-type here\nearlier.\pHe was saying something about\nFLASHING and how he was waiting on\la trainer to pass through.\pI have no clue what he meant, so\nI arrested him just in case.", MSGBOX_NPC)
+	end
+}
+
+script Route2_FlashHintGuy {
+	msgbox("Hey, have you gotten the FLASH\nHM yet?\l...Oh, you haven't?\pI hear it's actually a very\npowerful move now.\pIf you wanna keep yourself safe from\nit, you'll need protective glasses!", MSGBOX_NPC)
+	end
+}

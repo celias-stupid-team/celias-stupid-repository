@@ -92,13 +92,13 @@
 #define TRAINER_ELITE_FOUR_GLACIA                 87
 #define TRAINER_ELITE_FOUR_DRAKE                  88
 // Actual FRLG trainers start here
-#define TRAINER_YOUNGSTER_BEN                     89
+#define TRAINER_YOUNGSTER_LEE                     89
 #define TRAINER_YOUNGSTER_CALVIN                  90
-#define TRAINER_YOUNGSTER_JOSH                    91
+#define TRAINER_YOUNGSTER_LEVI                    91
 #define TRAINER_YOUNGSTER_TIMMY                   92
 #define TRAINER_YOUNGSTER_JOEY                    93
-#define TRAINER_YOUNGSTER_DAN                     94
-#define TRAINER_YOUNGSTER_CHAD                    95
+#define TRAINER_YOUNGSTER_CHINO                     94
+#define TRAINER_ANGRY_NERD_LAVOS                    95
 #define TRAINER_YOUNGSTER_TYLER                   96
 #define TRAINER_YOUNGSTER_EDDIE                   97
 #define TRAINER_DOCTOR_COOKIE                  98
@@ -156,7 +156,7 @@
 #define TRAINER_PICNICKER_DIANA                  150
 #define TRAINER_PICNICKER_NANCY                  151
 #define TRAINER_PICNICKER_ISABELLE               152
-#define TRAINER_PICNICKER_KELSEY                 153
+#define TRAINER_COOLTRAINER_BKC                 153
 #define TRAINER_PICNICKER_ALICIA                 154
 #define TRAINER_PICNICKER_CAITLIN                155
 #define TRAINER_PICNICKER_HEIDI                  156

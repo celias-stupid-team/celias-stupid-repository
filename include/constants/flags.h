@@ -829,13 +829,13 @@
 #define FLAG_CSR_CERULEAN_GOING_NORTH               0x304
 #define FLAG_CSR_HIDDEN_CELIA_BILL               0x305
 #define FLAG_CSR_PHIONE_EGG               0x306
-#define FLAG_0x307               0x307
-#define FLAG_0x308               0x308
-#define FLAG_0x309               0x309
+#define FLAG_CSR_JIRACHI_SET               0x307
+#define FLAG_CSR_JIRACHI_GOT               0x308
+#define FLAG_CSR_MELTED_GUARDS               0x309
 #define FLAG_CSR_CELIA_BONUS     0x30A
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
-#define FLAG_0x30C               0x30C
-#define FLAG_0x30D               0x30D
+#define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
+#define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
 #define FLAG_0x30E               0x30E
 #define FLAG_0x30F               0x30F
 #define FLAG_0x310               0x310
@@ -936,7 +936,7 @@
 #define FLAG_0x36F               0x36F
 #define FLAG_0x370               0x370
 #define FLAG_0x371               0x371
-#define FLAG_0x372               0x372
+#define FLAG_CSR_SPEEDRUN_CAVE               0x372
 #define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373
 #define FLAG_CSR_HINT_EVO_LEVEL               0x374
 #define FLAG_CSR_HINT_RUNNING_SHOES               0x375
@@ -1264,9 +1264,9 @@
 #define FLAG_CSR_ROUTE_4_SIRTUS               0x4A7 // Unused Flag
 #define FLAG_CSR_VIRIDIAN_HIDDEN_ETHER               0x4A8 // Unused Flag
 #define FLAG_HIDDEN_ITEM_ROUTE3_BERRIES               0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA               0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB               0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC               0x4AC // Unused Flag
+#define FLAG_CSR_UNUSED_13               0x4AA
+#define FLAG_CSR_UNUSED_14               0x4AB
+#define FLAG_CSR_CRYSTAL_BERRY               0x4AC
 #define FLAG_UNUSED_0x4AD               0x4AD // Unused Flag
 #define FLAG_UNUSED_0x4AE               0x4AE // Unused Flag
 #define FLAG_UNUSED_0x4AF               0x4AF // Unused Flag
@@ -1409,7 +1409,7 @@
 #define FLAG_BADGE06_GET                                            (SYS_FLAGS + 0x25)
 #define FLAG_BADGE07_GET                                            (SYS_FLAGS + 0x26)
 #define FLAG_BADGE08_GET                                            (SYS_FLAGS + 0x27)
-#define NUM_BADGES                                                  (1 + FLAG_BADGE08_GET - FLAG_BADGE01_GET)
+#define NUM_BADGES                                                  10 //The badges are seperated in the flags, so I'm just setting it to a raw number
 
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)

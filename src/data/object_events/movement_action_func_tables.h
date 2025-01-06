@@ -87,6 +87,14 @@ static bool8 MovementAction_WalkFasterLeft_Step0(struct ObjectEvent *, struct Sp
 static bool8 MovementAction_WalkFasterLeft_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WalkFasterRight_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WalkFasterRight_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestDown_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestDown_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestUp_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestUp_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestLeft_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestLeft_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestRight_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkFastestRight_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_SlideDown_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_SlideDown_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_SlideUp_Step0(struct ObjectEvent *, struct Sprite *);
@@ -345,6 +353,10 @@ static bool8 (*const sMovementActionFuncs_WalkFasterDown[])(struct ObjectEvent *
 static bool8 (*const sMovementActionFuncs_WalkFasterUp[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_WalkFasterLeft[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_WalkFasterRight[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_WalkFastestDown[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_WalkFastestUp[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_WalkFastestLeft[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_WalkFastestRight[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_SlideDown[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_SlideUp[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_SlideLeft[])(struct ObjectEvent *, struct Sprite *);
@@ -524,6 +536,10 @@ static bool8 (*const *const sMovementActionFuncs[])(struct ObjectEvent *, struct
     [MOVEMENT_ACTION_WALK_FASTER_UP]                     = sMovementActionFuncs_WalkFasterUp,
     [MOVEMENT_ACTION_WALK_FASTER_LEFT]                   = sMovementActionFuncs_WalkFasterLeft,
     [MOVEMENT_ACTION_WALK_FASTER_RIGHT]                  = sMovementActionFuncs_WalkFasterRight,
+    [MOVEMENT_ACTION_WALK_FASTEST_DOWN]                   = sMovementActionFuncs_WalkFastestDown,
+    [MOVEMENT_ACTION_WALK_FASTEST_UP]                     = sMovementActionFuncs_WalkFastestUp,
+    [MOVEMENT_ACTION_WALK_FASTEST_LEFT]                   = sMovementActionFuncs_WalkFastestLeft,
+    [MOVEMENT_ACTION_WALK_FASTEST_RIGHT]                  = sMovementActionFuncs_WalkFastestRight,
     [MOVEMENT_ACTION_SLIDE_DOWN]                         = sMovementActionFuncs_SlideDown,
     [MOVEMENT_ACTION_SLIDE_UP]                           = sMovementActionFuncs_SlideUp,
     [MOVEMENT_ACTION_SLIDE_LEFT]                         = sMovementActionFuncs_SlideLeft,
@@ -1042,6 +1058,30 @@ static bool8 (*const sMovementActionFuncs_WalkFasterLeft[])(struct ObjectEvent *
 static bool8 (*const sMovementActionFuncs_WalkFasterRight[])(struct ObjectEvent *, struct Sprite *) = {
     MovementAction_WalkFasterRight_Step0,
     MovementAction_WalkFasterRight_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+static bool8 (*const sMovementActionFuncs_WalkFastestDown[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkFastestDown_Step0,
+    MovementAction_WalkFastestDown_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+static bool8 (*const sMovementActionFuncs_WalkFastestUp[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkFastestUp_Step0,
+    MovementAction_WalkFastestUp_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+static bool8 (*const sMovementActionFuncs_WalkFastestLeft[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkFastestLeft_Step0,
+    MovementAction_WalkFastestLeft_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+static bool8 (*const sMovementActionFuncs_WalkFastestRight[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkFastestRight_Step0,
+    MovementAction_WalkFastestRight_Step1,
     MovementAction_PauseSpriteAnim,
 };
 

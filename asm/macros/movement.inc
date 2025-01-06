@@ -106,6 +106,10 @@
 	create_movement_action emote_loss, MOVEMENT_ACTION_EMOTE_LOSS
 	create_movement_action teleport_down, MOVEMENT_ACTION_TELEPORT_DOWN
 	create_movement_action teleport_up, MOVEMENT_ACTION_TELEPORT_UP
+	create_movement_action walk_fastest_down, MOVEMENT_ACTION_WALK_FASTEST_DOWN
+	create_movement_action walk_fastest_up, MOVEMENT_ACTION_WALK_FASTEST_UP
+	create_movement_action walk_fastest_left, MOVEMENT_ACTION_WALK_FASTEST_LEFT
+	create_movement_action walk_fastest_right, MOVEMENT_ACTION_WALK_FASTEST_RIGHT
 
 	create_movement_action emote_question_mark, MOVEMENT_ACTION_EMOTE_QUESTION_MARK
 	create_movement_action emote_x, MOVEMENT_ACTION_EMOTE_X

@@ -114,7 +114,7 @@ movement LassLeaves_PlayerX_17 {
 	delay_8 * 5
 	face_left
 	delay_8 * 5
-	walk_slow_left
+	walk_slow_right
 	walk_slow_up
 	face_up
 }

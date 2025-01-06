@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 6,
       "y": 4,
       "elevation": 4,
@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermilionCity_PokemonFanClub_EventScript_Woman",
+      "script": "VermilionCity_FanClub_SealGirl",
       "flag": "0"
     },
     {
@@ -96,7 +96,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermilionCity_PokemonFanClub_EventScript_FatMan",
+      "script": "VermilionCity_FanClub_RaichuGuy",
       "flag": "0"
     }
   ],

@@ -47,7 +47,7 @@ Route6_NorthEntrance_EventScript_GuardDrinkTea::
 	call_if_eq VAR_TEMP_1, 0, Route6_NorthEntrance_EventScript_WalkToGuardLeft
 	call_if_eq VAR_TEMP_1, 1, Route6_NorthEntrance_EventScript_WalkToGuardMid
 	call_if_eq VAR_TEMP_1, 2, Route6_NorthEntrance_EventScript_WalkToGuardRight
-	msgbox Route6_NorthEntrance_Text_ThanksIllShareTeaWithGuards
+	call SaffronEntrance_GuardsGetMelted
 	setvar VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES, 1
 	releaseall
 	end

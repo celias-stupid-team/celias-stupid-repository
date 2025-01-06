@@ -155,6 +155,21 @@ const u32 gItemIconPalette_Zinc[] = INCBIN_U32("graphics/items/icon_palettes/zin
 const u32 gItemIcon_PPMax[] = INCBIN_U32("graphics/items/icons/pp_max.4bpp.lz");
 const u32 gItemIconPalette_PPMax[] = INCBIN_U32("graphics/items/icon_palettes/pp_max.gbapal.lz");
 
+// CSR Energy
+
+const u32 gItemIcon_WaterEnergy[] = INCBIN_U32("graphics/items/icons/water_energy.4bpp.lz");
+const u32 gItemIconPalette_WaterEnergy[] = INCBIN_U32("graphics/items/icon_palettes/water_energy.gbapal.lz");
+const u32 gItemIcon_GrassEnergy[] = INCBIN_U32("graphics/items/icons/grass_energy.4bpp.lz");
+const u32 gItemIconPalette_GrassEnergy[] = INCBIN_U32("graphics/items/icon_palettes/grass_energy.gbapal.lz");
+const u32 gItemIcon_FightingEnergy[] = INCBIN_U32("graphics/items/icons/fighting_energy.4bpp.lz");
+const u32 gItemIconPalette_FightingEnergy[] = INCBIN_U32("graphics/items/icon_palettes/fighting_energy.gbapal.lz");
+const u32 gItemIcon_LightningEnergy[] = INCBIN_U32("graphics/items/icons/lightning_energy.4bpp.lz");
+const u32 gItemIconPalette_LightningEnergy[] = INCBIN_U32("graphics/items/icon_palettes/lightning_energy.gbapal.lz");
+const u32 gItemIcon_PsychicEnergy[] = INCBIN_U32("graphics/items/icons/psychic_energy.4bpp.lz");
+const u32 gItemIconPalette_PsychicEnergy[] = INCBIN_U32("graphics/items/icon_palettes/psychic_energy.gbapal.lz");
+const u32 gItemIcon_FireEnergy[] = INCBIN_U32("graphics/items/icons/fire_energy.4bpp.lz");
+const u32 gItemIconPalette_FireEnergy[] = INCBIN_U32("graphics/items/icon_palettes/fire_energy.gbapal.lz");
+
 // Battle items
 
 const u32 gItemIconPalette_GuardSpec[] = INCBIN_U32("graphics/items/icon_palettes/guard_spec.gbapal.lz");

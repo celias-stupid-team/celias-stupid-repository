@@ -61,7 +61,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 19,
-      "y": 14,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -152,10 +152,10 @@
     },
     {
       "x": 20,
-      "y": 23,
+      "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "14"
     },
     {
       "x": 21,

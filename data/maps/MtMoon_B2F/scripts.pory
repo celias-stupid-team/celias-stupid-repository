@@ -162,7 +162,7 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 		delay(60)
 		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 		waitmovement(ACTUAL_MIGUEL)
-		setobjectxy(ACTUAL_MIGUEL, 1, 18)
+		setobjectxy(ACTUAL_MIGUEL, 0, 18)
 		setobjectmovementtype(ACTUAL_MIGUEL, MOVEMENT_TYPE_INVISIBLE)		// Doesn't actually seem to do anything
 
 	} else {
@@ -171,7 +171,7 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 		copyobjectxytoperm(LOCALID_MIGUEL)
 		textcolor(NPC_TEXT_COLOR_MALE)
 		playfanfare(MUS_OBTAIN_KEY_ITEM)
-		msgbox("WARREN: Then this fossil shall\nremain in custody!", MSGBOX_DEFAULT)
+		msgbox("WOLFF: Then this fossil shall\nremain in custody!", MSGBOX_DEFAULT)
 		waitmessage
 		waitfanfare
 		removeobject(LOCALID_DOME_FOSSIL)

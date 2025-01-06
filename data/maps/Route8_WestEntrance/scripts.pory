@@ -59,7 +59,7 @@ Route8_WestEntrance_EventScript_GuardDrinkTea::
 	call_if_eq VAR_TEMP_1, 0, Route8_WestEntrance_EventScript_WalkToGuardTop
 	call_if_eq VAR_TEMP_1, 1, Route8_WestEntrance_EventScript_WalkToGuardMid
 	call_if_eq VAR_TEMP_1, 2, Route8_WestEntrance_EventScript_WalkToGuardBottom
-	msgbox Route8_WestEntrance_Text_ThanksIllShareTeaWithGuards
+	call SaffronEntrance_GuardsGetMelted
 	setvar VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES, 1
 	releaseall
 	end
@@ -96,3 +96,20 @@ Route8_WestEntrance_Movement_BlockPlayerEntry::
 	walk_right
 	step_end
 `
+script SaffronEntrance_GuardPuddle {
+	msgbox("There's a puddle of guard behind\nthe counter.", MSGBOX_SIGN)
+}
+
+
+const GUARD = 1
+script SaffronEntrance_GuardsGetMelted {
+	msgbox(Route8_WestEntrance_Text_ThanksIllShareTeaWithGuards)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playse(SE_M_ACID_ARMOR)
+	removeobject(GUARD)
+	waitse 
+	fadescreen(FADE_FROM_BLACK)
+	return
+
+}

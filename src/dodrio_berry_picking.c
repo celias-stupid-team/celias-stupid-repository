@@ -670,8 +670,8 @@ static const u8 sPrizeBerryIds[][10] =
         ITEM_TO_BERRY(ITEM_GREPA_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_TAMATO_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_CORNN_BERRY) - 1,
-        ITEM_TO_BERRY(ITEM_MAGOST_BERRY) - 1,
-        ITEM_TO_BERRY(ITEM_RABUTA_BERRY) - 1,
+        ITEM_TO_BERRY(ITEM_BASCI_BERRY_RED) - 1,
+        ITEM_TO_BERRY(ITEM_BASCI_BERRY_BLUE) - 1,
         ITEM_TO_BERRY(ITEM_NOMEL_BERRY) - 1
     },
     { // Possible prizes with 5 players

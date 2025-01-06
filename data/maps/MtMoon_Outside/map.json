@@ -2,7 +2,7 @@
   "id": "MAP_MT_MOON_OUTSIDE",
   "name": "MtMoon_Outside",
   "layout": "LAYOUT_MT_MOON_OUTSIDE",
-  "music": "MUS_DUMMY",
+  "music": "MUS_CSR_MT_MOON_SQUARE",
   "region_map_section": "MAPSEC_ALTAR_OF_MOONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

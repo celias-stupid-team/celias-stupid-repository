@@ -1,13 +1,17 @@
 Route8_Text_AidanIntro::
-    .string "You look good at POKéMON, but how\n"
-    .string "is your chemistry grade?$"
+	.string "Walk in front of the trainer at the\n"
+	.string "EXACT time they come on screen?\l"
+	.string "What were they thinking!?$"
 
 Route8_Text_AidanDefeat::
-    .string "Ow!\n"
-    .string "Meltdown!$"
+	.string "What a shitload of fuck!\n$"
 
 Route8_Text_AidanPostBattle::
-    .string "I am better at school than this!$"
+	.string "And get this:\n"
+	.string "That's the ONLY way to get MEW.\p"
+	.string "How the fuck are kids supposed to\n"
+	.string "figure that out?\l"
+	.string "Especially before the INTERNET!$"
 
 Route8_Text_StanIntro::
     .string "All right!\n"
@@ -139,15 +143,15 @@ Route8_Text_AnneNotEnoughMons::
     .string "But bring two POKéMON.$"
 
 Route8_Text_RicardoIntro::
-    .string "My bike's acting up, man.$"
+	.string "UGH.\p"
+	.string "NO ONE UNDERSTANDS ME.\n$"
 
 Route8_Text_RicardoDefeat::
-    .string "Aww, man.\n"
-    .string "I'm not into this.$"
+	.string "I HATE EVERYTHING.\n$"
 
 Route8_Text_RicardoPostBattle::
-    .string "I got grass caught up in my\n"
-    .string "spokes, man.$"
+	.string "This infinite storm represents my\n"
+	.string "unending pain and suffering.$"
 
 Route8_Text_JarenIntro::
     .string "Clear the way, or I'll run you\n"

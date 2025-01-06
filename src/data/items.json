@@ -1361,12 +1361,12 @@
       "secondaryId": 0
     },
     {
-      "english": "ESCAPE ROPE",
+      "english": "ESCAPE KEY",
       "itemId": "ITEM_ESCAPE_ROPE",
       "price": 550,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A long, durable rope.\\nUse it to escape instantly from a\\ncave or a dungeon.",
+      "description_english": "The key on the top left.\\nUse it to escape instantly from a\\ncave or a dungeon.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -2017,12 +2017,12 @@
       "secondaryId": 4
     },
     {
-      "english": "WAVE MAIL",
+      "english": "SHIPPING MAIL",
       "itemId": "ITEM_WAVE_MAIL",
       "price": 50,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A piece of MAIL featuring a cute\\nWAILMER print.\\nIt is to be held by a POKéMON.",
+      "description_english": "A piece of MAIL featuring a\\nstamp of quality assurance.\\nIt is to be held by a POKéMON.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -2145,7 +2145,7 @@
       "secondaryId": 0
     },
     {
-      "english": "CHESTO BERRY",
+      "english": "FAIRI BERRY",
       "itemId": "ITEM_CHESTO_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_SLP",
@@ -2161,7 +2161,7 @@
       "secondaryId": 0
     },
     {
-      "english": "PECHA BERRY",
+      "english": "SCARI BERRY",
       "itemId": "ITEM_PECHA_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_PSN",
@@ -2177,7 +2177,7 @@
       "secondaryId": 0
     },
     {
-      "english": "RAWST BERRY",
+      "english": "HAIRY BERRY",
       "itemId": "ITEM_RAWST_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_BRN",
@@ -2193,7 +2193,7 @@
       "secondaryId": 0
     },
     {
-      "english": "ASPEAR BERRY",
+      "english": "VERY BERRY",
       "itemId": "ITEM_ASPEAR_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_FRZ",
@@ -2209,7 +2209,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LEPPA BERRY",
+      "english": "GARY BERRY",
       "itemId": "ITEM_LEPPA_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_RESTORE_PP",
@@ -2225,7 +2225,7 @@
       "secondaryId": 0
     },
     {
-      "english": "ORAN BERRY",
+      "english": "OREN BERRY",
       "itemId": "ITEM_ORAN_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_RESTORE_HP",
@@ -2241,7 +2241,7 @@
       "secondaryId": 0
     },
     {
-      "english": "PERSIM BERRY",
+      "english": "LIE BRERRY",
       "itemId": "ITEM_PERSIM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_CONFUSION",
@@ -2305,7 +2305,7 @@
       "secondaryId": 0
     },
     {
-      "english": "WIKI BERRY",
+      "english": "WIKIPEDIA",
       "itemId": "ITEM_WIKI_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CONFUSE_DRY",
@@ -2321,44 +2321,44 @@
       "secondaryId": 0
     },
     {
-      "english": "MAGO BERRY",
-      "itemId": "ITEM_MAGO_BERRY",
+      "english": "GOLD BERRY",
+      "itemId": "ITEM_GOLD_BERRY",
       "price": 20,
-      "holdEffect": "HOLD_EFFECT_CONFUSE_SWEET",
-      "holdEffectParam": 8,
-      "description_english": "A hold item that restores HP but\\nmay cause confusion when used.",
+      "holdEffect": "HOLD_EFFECT_RESTORE_HP",
+      "holdEffectParam": 10,
+      "description_english": "When held by a POKéMON, it will be\\nused in battle to restore 30 HP.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 0,
-      "battleUseFunc": "NULL",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_Medicine",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Medicine",
       "secondaryId": 0
     },
     {
-      "english": "AGUAV BERRY",
-      "itemId": "ITEM_AGUAV_BERRY",
+      "english": "SILVER BERRY",
+      "itemId": "ITEM_SILVER_BERRY",
       "price": 20,
-      "holdEffect": "HOLD_EFFECT_CONFUSE_BITTER",
-      "holdEffectParam": 8,
-      "description_english": "A hold item that restores HP but\\nmay cause confusion when used.",
+      "holdEffect": "HOLD_EFFECT_RESTORE_PP",
+      "holdEffectParam": 10,
+      "description_english": "When held by a POKéMON, it will be\\nused in battle to restore 30 PP.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 0,
-      "battleUseFunc": "NULL",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_Ether",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Ether",
       "secondaryId": 0
     },
     {
-      "english": "IAPAPA BERRY",
-      "itemId": "ITEM_IAPAPA_BERRY",
+      "english": "CRYSTL BERRY",
+      "itemId": "ITEM_CRYSTAL_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CONFUSE_SOUR",
       "holdEffectParam": 8,
-      "description_english": "A hold item that restores HP but\\nmay cause confusion when used.",
+      "description_english": "A glittering berry made of\\ncrystal.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2561,12 +2561,12 @@
       "secondaryId": 0
     },
     {
-      "english": "MAGOST BERRY",
-      "itemId": "ITEM_MAGOST_BERRY",
+      "english": "BASCI BERRY",
+      "itemId": "ITEM_BASCI_BERRY_RED",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A red-striped BASCI BERRY.\\nIt intensely hates the BLUE ones.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2577,12 +2577,12 @@
       "secondaryId": 0
     },
     {
-      "english": "RABUTA BERRY",
-      "itemId": "ITEM_RABUTA_BERRY",
+      "english": "BASCI BERRY",
+      "itemId": "ITEM_BASCI_BERRY_BLUE",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A blue-striped BASCI BERRY.\\nIt is remarkably tasty.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2593,7 +2593,7 @@
       "secondaryId": 0
     },
     {
-      "english": "NOMEL BERRY",
+      "english": "NUMEL BERRY",
       "itemId": "ITEM_NOMEL_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6360,6 +6360,102 @@
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "WATER ENERGY",
+      "itemId": "ITEM_WATER_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "GRASS ENERGY",
+      "itemId": "ITEM_GRASS_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "FIGHT ENERGY",
+      "itemId": "ITEM_FIGHTING_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "LIGHTN ENRG.",
+      "itemId": "ITEM_LIGHTNING_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "ICE ENERGY",
+      "itemId": "ITEM_PSYCHIC_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "FIRE ENERGY",
+      "itemId": "ITEM_FIRE_ENERGY",
+      "price": 500,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Raises the ATTACK stat of POKéMON\\nin battle. Wears off if the POKéMON\\nis withdrawn.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 2,
+      "battleUseFunc": "BattleUseFunc_StatBooster",
       "secondaryId": 0
     }
   ]

@@ -58,7 +58,7 @@ SilphCo_7F_EventScript_RivalScene::
 	fadedefaultbgm
 	removeobject LOCALID_RIVAL
 	waitse
-	setvar VAR_CSR_DUMMY_2, 1
+	setvar VAR_CSR_LARRY_2_FIGHT, 1
 	releaseall
 	end
 

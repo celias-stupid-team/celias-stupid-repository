@@ -13,34 +13,34 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 4,
-      "y": 6,
+      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "x": 13,
+      "y": 8,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 2,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route2_EastBuilding_EventScript_Aide",
+      "script": "Route2_FlashHintGuy",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 10,
-      "y": 3,
-      "elevation": 3,
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 2,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route2_EastBuilding_EventScript_Rocker",
+      "script": "Route2_Policeman",
       "flag": "0"
     }
   ],
@@ -74,6 +74,10 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

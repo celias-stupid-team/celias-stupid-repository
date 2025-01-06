@@ -60,3 +60,7 @@ LavenderTown_EventScript_UndergroundPathSign::
 	msgbox LavenderTown_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+script LavenderTown_DanceDMCA {
+	msgbox("Stop right there!\pThis building right here is the\nLAVENDER TOWN DANCE THEATER.\pThey've been putting on shows that\nviolate copyright!\lIt's shut down until further notice.", MSGBOX_NPC)
+	end
+}

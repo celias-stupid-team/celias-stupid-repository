@@ -168,9 +168,36 @@
       "x": 17,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_ROUTE6_LASS",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_ROUTE6_LASS",
+      "var_value": "0",
+      "script": "Route6_LassAttack"
     }
   ],
   "bg_events": [
@@ -187,7 +214,7 @@
       "x": 4,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_SITRUS_BERRY",
+      "item": "ITEM_GOLD_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE6_SITRUS_BERRY",
       "quantity": 1,
       "underfoot": false
@@ -197,8 +224,18 @@
       "x": 5,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
+      "item": "ITEM_SILVER_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE6_RARE_CANDY",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_CRYSTAL_BERRY",
+      "flag": "FLAG_CSR_CRYSTAL_BERRY",
       "quantity": 1,
       "underfoot": false
     }
