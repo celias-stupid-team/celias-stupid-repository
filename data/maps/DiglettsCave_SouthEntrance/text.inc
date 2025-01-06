@@ -1,6 +1,6 @@
 DiglettsCave_SouthEntrance_Text_DiglettDugThisTunnel::
-    .string "This is DIGGLETS' CAVE.\p"
-    .string "Do note how that's DIGGLETS', and\n"
-    .string "not DIGGLET'S\p"
-    .string "This is a very important\n"
-    .string "distinction.$"
+	.string "This is DIGLETS' CAVE.\p"
+	.string "Please note how that's “DIGLETS',”\n"
+	.string "and not “DIGLET'S.”\p"
+	.string "This is a very important\n"
+	.string "distinction.$"
