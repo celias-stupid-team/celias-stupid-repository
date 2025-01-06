@@ -416,6 +416,8 @@ script VermillionGym_Celia_Can {
 const CELIA = 8
 const SURGE = 1
 script VermilionCity_Gym_EventScript_GiveTM34 {
+	
+	famechecker(FAMECHECKER_VERMILION, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	msgbox(VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis)
 	playfanfare(MUS_LEVEL_UP)
 	msgbox("{PLAYER} received HM05\nfrom LT. SURGE.", MSGBOX_DEFAULT)

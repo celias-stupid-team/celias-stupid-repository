@@ -247,6 +247,7 @@ script Route22_EventScript_CeliaLarry {
 script Route22_EventScript_OddCandyMan {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_VIRIDIAN, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	msgbox("Hello, there!\nCould I ask for a bit of your time?", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == 1) {
 		msgbox("Splendid!\pI'm a traveler, you see, but I think\nI'm in a bit of trouble.\pSee, I play POKéMON GO, and I was\npreparing to evolve my MELTAN.\pSadly, just as I was ready to do so,\nI tripped because I wasn't careful!\pAnd thus, my MELTAN CANDY got\nscattered across all of KANTO!\pI'm trying to find it all, but I'm\nstill missing 45 PIECES.\lCould you help me find the rest?", MSGBOX_YESNO)

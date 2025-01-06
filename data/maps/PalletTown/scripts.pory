@@ -420,6 +420,7 @@ script PalletTown_OnTransition {
 	famechecker(FAMECHECKER_PALLET, 0)
 	famechecker(FAMECHECKER_PALLET, 1)
 	famechecker(FAMECHECKER_PALLET, 5)
+	famechecker(FAMECHECKER_PALLET, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	
 	if(flag(FLAG_PT_NPC_SIGN_LADY)) {
 		setobjectxyperm(1, 12, 2)

@@ -91,6 +91,8 @@ const BottomLeftTrainer = 2 // I don't know my left from my right and I got thes
 script CeladonCity_Gym_EventScript_Erika {
 	lockall
 	faceplayer
+	
+	famechecker(FAMECHECKER_CELADON, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	if(!flag(FLAG_DEFEATED_ERIKA)) {
 		msgbox(CeladonCity_Gym_Text_ErikaIntro, MSGBOX_DEFAULT)
 		if(flag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)) {
