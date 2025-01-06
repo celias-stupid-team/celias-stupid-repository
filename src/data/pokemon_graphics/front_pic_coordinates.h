@@ -5498,22 +5498,22 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MISCARRIAGE_KANGA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 2,
 	},
 	[SPECIES_GHOST] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 6,
 	},
 	[SPECIES_VENOMOTH_ATV] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 3,
 	},
 	[SPECIES_RATICATE_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 7,
 	},
 	[SPECIES_MULTIPAL] =
 	{

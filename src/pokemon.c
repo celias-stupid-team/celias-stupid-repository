@@ -5329,12 +5329,12 @@ u16 SpeciesToCryId(u16 species)
     if (species < SPECIES_RATATATTA - 1)
         return sStupidSpeciesIdToCryId[species - ((SPECIES_BRAMBLEGHAST + 1) - 1)];
 
-    if (species < SPECIES_GASTLY_POKERAP - 1)
+    if (species < SPECIES_HAUNTER_POKERAP - 1)
         return sPokerapSpeciesIdToCryId[species - ((SPECIES_RATATATTA + 1) - 1)];
     
     
     
-    return sPokerap2SpeciesIdToCryId[species - ((SPECIES_GASTLY_POKERAP + 1) - 1)]; //replace this with whatever comes after the Pokerap table
+    return sPokerap2SpeciesIdToCryId[species - ((SPECIES_HAUNTER_POKERAP + 1) - 1)]; //replace this with whatever comes after the Pokerap table
 
     
 }
