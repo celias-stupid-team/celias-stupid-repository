@@ -28,10 +28,10 @@
   "object_events": [
     {
       "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": -8,
-      "y": 12,
-      "target_local_id": 10,
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": -7,
+      "y": 2,
+      "target_local_id": 6,
       "target_map": "MAP_CELADON_CITY"
     },
     {

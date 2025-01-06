@@ -4,6 +4,8 @@ mapscripts MtMoonSquare_Unbroken_MapScripts {
         setflag(FLAG_HIDE_P_EMBLEM)
         if(!checkitem(ITEM_P_EMBLEM, 1)) {
             clearflag(FLAG_HIDE_P_EMBLEM)
+        } else {
+            setflag(FLAG_CSR_SPEEDRUN_CAVE)
         }
     }
 
@@ -12,6 +14,7 @@ mapscripts MtMoonSquare_Unbroken_MapScripts {
 script MtMoonSquare_StartDance {
     lock
     special(SpawnCameraObject)
+    setflag(FLAG_CSR_SPEEDRUN_CAVE)
     applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraUp)
     fadeoutbgm(3)
     waitmovement(0)

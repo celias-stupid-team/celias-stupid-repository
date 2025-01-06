@@ -3340,14 +3340,32 @@ static bool8 DexScreen_IsCategoryUnlocked(u8 categoryNum)
 {
     int i;
     u8 count;
+    static const u32 sBadgeFlags[] =
+    {
+        FLAG_BADGE01_GET,
+        FLAG_BADGE02_GET,
+        FLAG_BADGE03_GET,
+        FLAG_BADGE04_GET,
+        FLAG_BADGE05_GET,
+        FLAG_BADGE06_GET,
+        FLAG_BADGE07_GET,
+        FLAG_BADGE08_GET,
+        FLAG_SYS_NATIONAL_DEX,
+    };
 
-    count = gDexCategories[categoryNum].count;
+    if(!FlagGet(sBadgeFlags[categoryNum])) { //If the badge associated with the Pokedex category has not been obtained, then the category is locked
+        return 0;
+    } else {
+        count = gDexCategories[categoryNum].count;
 
-    for (i = 0; i < count; i++)
-        if (DexScreen_IsPageUnlocked(categoryNum, i))
-            return 1;
+        for (i = 0; i < count; i++)
+            if (DexScreen_IsPageUnlocked(categoryNum, i))
+                return 1;
 
+        return 0;
+    }
     return 0;
+    
 }
 
 void DexScreen_CreateCategoryPageSpeciesList(u8 categoryNum, u8 pageNum)

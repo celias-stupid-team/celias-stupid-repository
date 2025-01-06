@@ -110,7 +110,7 @@
 #define VAR_0x403C                         0x403C // Set to 0x0302, never read
 #define VAR_HERACROSS_SIZE_RECORD          0x403D
 #define VAR_DEOXYS_INTERACTION_NUM         0x403E
-#define VAR_CUT_OAK                         0x403F
+#define VAR_0x403F                         0x403F
 #define VAR_MAGIKARP_SIZE_RECORD           0x4040
 #define VAR_0x4041                         0x4041
 #define VAR_TRAINER_CARD_MON_ICON_TINT_IDX 0x4042
@@ -143,7 +143,7 @@
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
-#define VAR_CSR_DUMMY_2                                              0x405C
+#define VAR_CSR_LARRY_2_FIGHT                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
 #define VAR_MAP_SCENE_ROUTE16                                                  0x405E
 #define VAR_MAP_SCENE_ROUTE23                                                  0x405F
@@ -174,7 +174,7 @@
 #define VAR_CSR_DUMMY_16                                               0x4078
 #define VAR_CSR_DUMMY_17                            0x4079
 #define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
-#define VAR_CSR_DUMMY_18                                             0x407B
+#define VAR_CSR_JIRACHI_STATUS                                             0x407B
 #define VAR_CSR_DUMMY_19                                     0x407C
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
 #define VAR_MAP_SCENE_VERMILION_CITY                                           0x407E

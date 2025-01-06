@@ -77,7 +77,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Route25_SeaCottage_Computer"
+      "script": "Route25_SeaCottage_EventScript_Computer"
     },
     {
       "type": "sign",

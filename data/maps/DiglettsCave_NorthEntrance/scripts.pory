@@ -6,3 +6,15 @@ DiglettsCave_NorthEntrance_EventScript_Hiker::
 	msgbox DiglettsCave_NorthEntrance_RockTunnelPitchBlack, MSGBOX_NPC
 	end
 `
+
+script DiglettsCave_North_ThisGuyGuy {
+	lock
+	faceplayer
+	message("Long ago, I found a strange\nPOKéMON near here.\pIt escaped from my POKé BALL and\nit was never seen again.\pThis guy haunts my dreams.")
+	waitmessage
+	showmonpic(SPECIES_THIS_GUY, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	release
+	end
+}

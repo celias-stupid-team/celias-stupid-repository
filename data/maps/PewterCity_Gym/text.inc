@@ -27,7 +27,7 @@ PewterCity_Gym_Text_TakeThisWithYou::
     .string "Take this with you.$"
 
 PewterCity_Gym_Text_ReceivedTM39FromBrock::
-    .string "{PLAYER} received TM39\n"
+    .string "{PLAYER} received TM34\n"
     .string "from BROCK.$"
 
 PewterCity_Gym_Text_ExplainTM39::
@@ -39,7 +39,7 @@ PewterCity_Gym_Text_ExplainTM39::
     .string "only use it once!\p"
     .string "Otherwise you might get a strike.\p"
     .string "Anyways…\n"
-    .string "TM39 contains BIDE.\p"
+    .string "TM34 contains BIDE.\p"
     .string "It is a move that definitely\n"
     .string "exists.$"
 

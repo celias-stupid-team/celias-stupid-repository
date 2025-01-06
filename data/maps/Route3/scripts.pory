@@ -54,7 +54,7 @@ script Route3_EventScript_Lass {
 	delay(10)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(Route3_Text_JaniceIntro)
-	fadedefaultbgm
+	playbgm(MUS_ROUTE3, TRUE)
 	trainerbattle_no_intro(TRAINER_LASS_JANICE,Route3_Text_JaniceDefeat)
 	release
 	end
@@ -91,6 +91,8 @@ script Route4_Trigger_Lass2 {
 	release
 }
 
+
+const HBOX = 8
 script Route4_EventScript_Hbox {
 	lock
 	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
@@ -100,8 +102,8 @@ script Route4_EventScript_Hbox {
 	dowildbattle
 	
 	fadescreenspeed(FADE_TO_BLACK, 1)
-	addobject(9)
-	setobjectxy(9, 35, 8)
+	addobject(HBOX)
+	setobjectxy(HBOX, 35, 8)
 	setmetatile(35, 14, 0x2C7, FALSE)
 	setmetatile(35, 13, 0x2C7, FALSE)
 	setmetatile(35, 12, 0x2C7, FALSE)
@@ -110,11 +112,11 @@ script Route4_EventScript_Hbox {
 
 	delay(30)
 	playse(SE_FALL)
-	applymovement(9, Common_Movement_Descend)
+	applymovement(HBOX, Common_Movement_Descend)
 	waitmovement(0)
 	playse(SE_BANG)
-	setvar(VAR_0x8006, 5)
-	setvar(VAR_0x8007, 3)
+	setvar(VAR_0x8006, 2)
+	setvar(VAR_0x8007, 2)
 	special(ShakeScreen)
 	delay(20)
 	setmetatile(35, 14, 0x00D, FALSE)

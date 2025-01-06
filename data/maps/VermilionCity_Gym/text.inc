@@ -46,7 +46,7 @@ VermilionCity_Gym_Text_LtSurgeDefeat::
     .string "Those shades really kept you\n"
     .string "safe!\p"
     .string "Fine, then, take the\n"
-    .string "PHOTOSENSITIVEBADGE!"
+    .string "PHOTOSENSITIVEBADGE!$"
 
 VermilionCity_Gym_Text_TuckerIntro::
     .string "Be careful of SURGE's POKéMON!\p"
@@ -75,7 +75,7 @@ VermilionCity_Gym_Text_BailyPostBattle::
     .string "A while ago, a SQUAD of POKéMON\n"
     .string "came in to harass us.\p"
     .string "Even SURGE's POKéMON couldn't stand\n"
-    .string "up to them!\p"
+    .string "up to them!$"
 
 VermilionCity_Gym_Text_DwayneIntro::
     .string "Haha!\n"

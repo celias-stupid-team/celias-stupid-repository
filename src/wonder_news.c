@@ -33,7 +33,7 @@ void WonderNews_SetReward(u32 newsType)
         data->berry = (Random() % 15) + ITEM_TO_BERRY(ITEM_RAZZ_BERRY);
         break;
     case WONDER_NEWS_SENT:
-        // Random berry between ITEM_CHERI_BERRY and ITEM_IAPAPA_BERRY
+        // Random berry between ITEM_CHERI_BERRY and ITEM_CRYSTAL_BERRY
         data->berry = (Random() % 15) + ITEM_TO_BERRY(ITEM_CHERI_BERRY);
         break;
     }

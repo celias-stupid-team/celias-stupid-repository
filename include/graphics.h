@@ -7930,6 +7930,21 @@ extern const u32 gItemIconPalette_PPUp[];
 extern const u32 gItemIconPalette_Zinc[];
 extern const u32 gItemIcon_PPMax[];
 extern const u32 gItemIconPalette_PPMax[];
+extern const u32 gItemIcon_WaterEnergy[];
+extern const u32 gItemIconPalette_WaterEnergy[];
+extern const u32 gItemIcon_GrassEnergy[];
+extern const u32 gItemIconPalette_GrassEnergy[];
+extern const u32 gItemIcon_FightingEnergy[];
+extern const u32 gItemIconPalette_FightingEnergy[];
+extern const u32 gItemIcon_LightningEnergy[];
+extern const u32 gItemIconPalette_LightningEnergy[];
+extern const u32 gItemIcon_PsychicEnergy[];
+extern const u32 gItemIconPalette_PsychicEnergy[];
+extern const u32 gItemIcon_FireEnergy[];
+extern const u32 gItemIconPalette_FireEnergy[];
+
+
+
 extern const u32 gItemIcon_BattleStatItem[];
 extern const u32 gItemIconPalette_GuardSpec[];
 extern const u32 gItemIconPalette_DireHit[];

@@ -298,6 +298,7 @@
 #define TRAINER_CLASS_BUTTERFINGERS             110
 #define TRAINER_CLASS_ODD_LIFEFORM             111
 #define TRAINER_CLASS_TEAM             112
+#define TRAINER_CLASS_CHAMPION_2             113
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

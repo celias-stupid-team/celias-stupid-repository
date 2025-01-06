@@ -71,3 +71,8 @@ script LavenderTown_ImposterOak {
 	
 	release
 }
+
+script LavenderTown_DanceDMCA {
+	msgbox("Stop right there!\pThis building right here is the\nLAVENDER TOWN DANCE THEATER.\pThey've been putting on shows that\nviolate copyright!\lIt's shut down until further notice.", MSGBOX_NPC)
+	end
+}

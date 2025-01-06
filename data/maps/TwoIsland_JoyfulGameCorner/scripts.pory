@@ -92,7 +92,6 @@ TwoIsland_JoyfulGameCorner_EventScript_HelpFindLostelleScene::
 	delay 60
 	msgbox TwoIsland_JoyfulGameCorner_Text_PunkScuffedUpMyFloor
 	clearflag FLAG_HIDE_THREE_ISLAND_LONE_BIKER
-	setvar VAR_CSR_DUMMY_18, 2
 	setvar VAR_CSR_DUMMY_17, 1
 	releaseall
 	end

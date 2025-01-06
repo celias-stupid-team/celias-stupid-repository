@@ -447,7 +447,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION     0x1111
 #define OBJ_EVENT_PAL_TAG_RS_MOVING_BOX               0x1112
 #define OBJ_EVENT_PAL_TAG_METEORITE                   0x1113
-#define OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE                   0x1114
+#define OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE            0x1114
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                     0x1115
 #define OBJ_EVENT_PAL_TAG_RS_PLAYER_UNDERWATER        0x1116
 #define OBJ_EVENT_PAL_TAG_RS_KYOGRE                   0x1117
@@ -455,8 +455,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON                  0x1119
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON_REFLECTION       0x111A
 #define OBJ_EVENT_PAL_TAG_RS_SUBMARINE_SHADOW         0x111B
-#define OBJ_EVENT_PAL_TAG_BENCH                      0x111B
-#define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC                  0x111C
+#define OBJ_EVENT_PAL_TAG_BENCH                       0x111B
+#define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC              0x111C
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -487,7 +487,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
     {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE},
-    {gObjectEventPal_Bench,                  OBJ_EVENT_PAL_TAG_BENCH},
+    {gObjectEventPal_Bench,                   OBJ_EVENT_PAL_TAG_BENCH},
     {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
@@ -809,6 +809,14 @@ static const u8 sWalkFasterMovementActions[] = {
     [DIR_NORTH] = MOVEMENT_ACTION_WALK_FASTER_UP,
     [DIR_WEST]  = MOVEMENT_ACTION_WALK_FASTER_LEFT,
     [DIR_EAST]  = MOVEMENT_ACTION_WALK_FASTER_RIGHT,
+};
+
+static const u8 sWalkFastestMovementActions[] = {
+    [DIR_NONE]  = MOVEMENT_ACTION_WALK_FASTEST_DOWN,
+    [DIR_SOUTH] = MOVEMENT_ACTION_WALK_FASTEST_DOWN,
+    [DIR_NORTH] = MOVEMENT_ACTION_WALK_FASTEST_UP,
+    [DIR_WEST]  = MOVEMENT_ACTION_WALK_FASTEST_LEFT,
+    [DIR_EAST]  = MOVEMENT_ACTION_WALK_FASTEST_RIGHT,
 };
 
 static const u8 sSlideMovementActions[] = {
@@ -2040,6 +2048,7 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     
     palIndex = TryLoadObjectPalette(pal);
     ApplyGlobalFieldPaletteTint(palIndex);
+    UpdateSpritePaletteWithWeather(palIndex);
     return palIndex;
 }
 
@@ -2056,10 +2065,14 @@ void LoadObjectEventPaletteSet(u16 *paletteTags)
 
 static u8 TryLoadObjectPalette(const struct SpritePalette *spritePalette)
 {
-    if (IndexOfSpritePaletteTag(spritePalette->tag) != 0xFF)
+    u8 palIndex = IndexOfSpritePaletteTag(spritePalette->tag);
+    if (palIndex != 0xFF)
     {
         // Already loaded
-        return 0xFF;
+        if (QL_IS_PLAYBACK_STATE) //ravetodo: this is kind of a band-aid fix, but it's good enough for now
+            return 0xFF;
+        else
+            return palIndex;
     }
     return LoadSpritePalette(spritePalette);
 }
@@ -4165,6 +4178,25 @@ static bool8 CopyablePlayerMovement_GoSpeed2(struct ObjectEvent *objectEvent, st
     return TRUE;
 }
 
+static bool8 CopyablePlayerMovement_GoSpeed3(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 playerDirection, bool8 tileCallback(u8))
+{
+    u32 direction;
+    s16 x;
+    s16 y;
+
+    direction = playerDirection;
+    direction = GetCopyDirection(gInitialMovementTypeFacingDirections[objectEvent->movementType], objectEvent->directionSequenceIndex, direction);
+    ObjectEventMoveDestCoords(objectEvent, direction, &x, &y);
+    ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkFastestMovementAction(direction));
+    if (GetCollisionAtCoords(objectEvent, x, y, direction) || (tileCallback != NULL && !tileCallback(MapGridGetMetatileBehaviorAt(x, y))))
+    {
+        ObjectEventSetSingleMovement(objectEvent, sprite, GetFaceDirectionMovementAction(direction));
+    }
+    objectEvent->singleMovementActive = TRUE;
+    sprite->data[1] = 2;
+    return TRUE;
+}
+
 static bool8 CopyablePlayerMovement_Slide(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 playerDirection, bool8 tileCallback(u8))
 {
     u32 direction;
@@ -4988,6 +5020,7 @@ dirn_to_anim(GetWalkFastMovementAction, sWalkFastMovementActions);
 dirn_to_anim(GetGlideMovementAction, sGlideMovementActions);
 dirn_to_anim(GetRideWaterCurrentMovementAction, sRideWaterCurrentMovementActions);
 dirn_to_anim(GetWalkFasterMovementAction, sWalkFasterMovementActions);
+dirn_to_anim(GetWalkFastestMovementAction, sWalkFastestMovementActions);
 dirn_to_anim(GetSlideMovementAction, sSlideMovementActions);
 dirn_to_anim(GetPlayerRunMovementAction, sPlayerRunMovementActions);
 dirn_to_anim(GetPlayerRunSlowMovementAction, sPlayerRunSlowMovementActions);
@@ -6194,6 +6227,73 @@ static bool8 MovementAction_WalkFasterRight_Step1(struct ObjectEvent *objectEven
     }
     return FALSE;
 }
+
+//fastest
+static bool8 MovementAction_WalkFastestDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_SOUTH, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestDown_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_NORTH, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestUp_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_WEST, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestLeft_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 MovementAction_WalkFastestRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitMovementNormal(objectEvent, sprite, DIR_EAST, MOVE_SPEED_FASTEST);
+    return MovementAction_WalkFastestRight_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_WalkFastestRight_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+//vanilla
 
 static bool8 MovementAction_SlideDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {

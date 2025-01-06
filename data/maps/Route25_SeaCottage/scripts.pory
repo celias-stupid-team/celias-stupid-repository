@@ -132,13 +132,7 @@ Route25_SeaCottage_Movement_BillEnterTeleporter::
 	walk_up
 	step_end
 
-Route25_SeaCottage_EventScript_Computer::
-	lockall
-	goto_if_set RETURN_AFTER_SS_TICKET, Route25_SeaCottage_EventScript_OpenBillsMonList
-	goto_if_set BILL_IN_TELEPORTER, Route25_SeaCottage_EventScript_RunCellSeparator
-	msgbox Route25_SeaCottage_Text_TeleporterIsDisplayed
-	releaseall
-	end
+
 
 Route25_SeaCottage_EventScript_RunCellSeparator::
 	fadeoutbgm 0
@@ -260,14 +254,7 @@ Route25_SeaCottage_EventScript_ViewJolteon::
 	goto Route25_SeaCottage_EventScript_BillsMonList
 	end
 
-Route25_SeaCottage_EventScript_ViewVaporeon::
-	showmonpic SPECIES_VAPOREON, 10, 3
-	waitbuttonpress
-	hidemonpic
-	setvar VAR_0x8004, SPECIES_VAPOREON
-	special SetSeenMon
-	goto Route25_SeaCottage_EventScript_BillsMonList
-	end
+
 
 Route25_SeaCottage_EventScript_ExitBillsMonList::
 	releaseall
@@ -286,12 +273,25 @@ Route25_SeaCottage_Movement_BillExitTeleporter::
 	walk_down
 	step_end
 `
+script Route25_SeaCottage_EventScript_Computer {
+	lockall
+	msgbox(Route25_SeaCottage_Text_BillsFavoriteMonList)
+	goto(Route25_SeaCottage_EventScript_BillsMonList)
+	releaseall
+}
+
+
 script Route25_SeaCottage_EventScript_Bill {
 	finditem(ITEM_POKE_DOLL, 1)
 	setflag(FLAG_CSR_GOT_BILL)
 	addvar(VAR_CSR_BILLS_TAKEN, 1)
 	call(SetPlayerPokedexValues)
 	end
+}
+
+script Route25_SeaCottage_EventScript_ViewVaporeon {
+	msgbox("Yuck!\nShouldn't have looked!", MSGBOX_DEFAULT)
+	goto(Route25_SeaCottage_EventScript_BillsMonList)
 }
 
 script Route25_SeaCottage_OnTransition {
@@ -304,15 +304,10 @@ script Route25_SeaCottage_OnTransition {
 	call(SetPlayerPokedexValues)
 }
 script Route25_EventScript_CeliaTellsYouAboutBill {
-	msgbox("Hi, there!\nI'm CELIA, the creator!\pYup, that's everything there is to\ndo here. No SS TICKET or anything!\pBut while you're here, feel free to\ncollect some more POKE DOLLS.\lThey sell for a lot!\pWhen you're done, you can head back\nto CERULEAN CITY to proceed.\pThanks a lot, and good luck!\n", MSGBOX_NPC)
+	msgbox("Yup, that's everything to do here.\nNo SS TICKET or anything!\pFeel free to collect as many DOLLS\nas you want!", MSGBOX_NPC)
 	end
 }
 
-script Route25_SeaCottage_Computer {
-	lock
-	call(Route25_SeaCottage_EventScript_BillsMonList)
-	release
-}
 
 script Route25_Trapped_Bill {
 	lock

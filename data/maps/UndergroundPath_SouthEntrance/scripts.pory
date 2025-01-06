@@ -6,3 +6,13 @@ UndergroundPath_SouthEntrance_EventScript_Woman::
 	msgbox UndergroundPath_SouthEntrance_Text_PeopleLoseThingsInTheDarkness, MSGBOX_NPC
 	end
 `
+script UndergroundPath_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pThat UNDERGROUND PATH was a real\ndoozy!\pI could've been looking right at\nsomeone and I'd never know!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	setflag(FLAG_DAD_UNDERGROUNDPATH)
+	release
+	end
+}

@@ -121,3 +121,11 @@ VermilionCity_PokemonFanClub_EventScript_RulesSign2::
 	msgbox VermilionCity_PokemonFanClub_Text_SomeoneBragsBragBack, MSGBOX_SIGN
 	end
 `
+
+script VermilionCity_FanClub_SealGirl {
+	msgbox(VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive, MSGBOX_NPC)
+}
+
+script VermilionCity_FanClub_RaichuGuy {
+	msgbox(VermilionCity_PokemonFanClub_Text_PikachuTwiceAsCute, MSGBOX_NPC)
+}

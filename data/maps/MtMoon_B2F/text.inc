@@ -1,5 +1,5 @@
 MtMoon_B2F_Text_MiguelIntro::
-	.string "WARREN: Stop right there!\p"
+	.string "WOLFF: Stop right there!\p"
 	.string "These fossils are facing serious\n"
 	.string "charges.\l"
 	.string "They're staying right here!$"
@@ -10,11 +10,11 @@ MtMoon_B2F_Text_MiguelDefeat::
 	.string "invincible!$"
 
 MtMoon_B2F_Text_WellEachTakeAFossil::
-	.string "WARREN: Grr… Fossils are illegal\n"
+	.string "WOLFF: Grr… Fossils are illegal\n"
 	.string "copies of living things!$"
 
 MtMoon_B2F_Text_ThenThisFossilIsMine::
-	.string "WARREN: Hmph.\n"
+	.string "WOLFF: Hmph.\n"
 	.string "This one stays with me.$"
 
 MtMoon_B2F_Text_LabOnCinnabarRegeneratesFossils::
