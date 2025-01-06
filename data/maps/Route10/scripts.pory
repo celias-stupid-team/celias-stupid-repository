@@ -103,6 +103,7 @@ script Route10_LassAttack {
 }
 
 movement LassFindsYou{
+	set_visible
 	face_down
 	delay_4 * 3
 	walk_down

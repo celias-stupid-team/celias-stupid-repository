@@ -1,6 +1,7 @@
 PokemonTower_1F_Text_ErectedInMemoryOfDeadMons::
-    .string "POKéMON TOWER was erected in the\n"
-    .string "memory of POKéMON that died.$"
+	.string "I am a merchant.\p"
+	.string "Would you like to purchase\n"
+	.string "this strange black cartridge?$"
 
 PokemonTower_1F_Text_ComeToPayRespectsSon::
     .string "Did you come to pay respects?\p"
@@ -8,7 +9,7 @@ PokemonTower_1F_Text_ComeToPayRespectsSon::
 
 PokemonTower_1F_Text_ComeToPayRespectsGirl::
     .string "Did you come to pay respects?\p"
-    .string "F\n"
+    .string "F$"
 
 
 PokemonTower_1F_Text_CameToPrayForDepartedClefairy::
@@ -16,7 +17,7 @@ PokemonTower_1F_Text_CameToPrayForDepartedClefairy::
     .string "I miss my CLEFAIRY…\p"
     .string "She's not dead or anything - she\n"
     .string "just moved to VIRIDIAN CITY to\l"
-    .string "be a schoolteacher there!$"
+    .string "be a schoolteacher there.$"
 
 PokemonTower_1F_Text_GrowlitheWhyDidYouDie::
     .string "I'm burying my beloved GEODUDE.\p"

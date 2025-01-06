@@ -4289,12 +4289,12 @@
       "secondaryId": 0
     },
     {
-      "english": "WAILMER PAIL",
+      "english": "PSYDUCK PAIL",
       "itemId": "ITEM_WAILMER_PAIL",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A nifty watering pail.\\nUse it to promote strong growth in\\nBERRIES planted in soft soil.",
+      "description_english": "A nifty watering can that fills up\\nautomatically in the RAIN.\\nUse it to dump WATER on things.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6227,7 +6227,7 @@
       "description_english": "An award for someone who likes\\nTRASH just a liiittle too much.",
       "importance": 1,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,

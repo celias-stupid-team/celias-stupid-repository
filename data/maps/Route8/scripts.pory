@@ -65,7 +65,7 @@ script Route8_StartRaining {
 }
 
 script Route8_DrySoil {
-	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nsere land would be a waste.", MSGBOX_DEFAULT)
+	msgbox("The soil is intensely dry and arid.\nIt hasn't been moistened in ages.\pAttempting to plant a berry in such\nsere land would be a waste.", MSGBOX_SIGN)
 	end
 }
 
@@ -331,6 +331,20 @@ script Route8_LassAttack {
 	msgbox("There were a bunch of people\nwaiting over there in a line.\pHalf of them were looking towards\nSAFFRON CITY which was fine,\lbut some were looking right at me.\pSo, I decided to scare them off!\n", MSGBOX_DEFAULT)
 	trainerbattle_no_intro(TRAINER_LASS_JULIA, Route8_Text_JuliaDefeat)
 	release
+	end
+}
+
+script Route8_SetBenchLavender {
+	setbench(BENCH_LAVENDER)
+	release
+}
+
+script Route8_PickUpPsyduck {
+	finditem(ITEM_WAILMER_PAIL)
+}
+
+script Route8_BerryLady {
+	msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR!\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
 	end
 }
 

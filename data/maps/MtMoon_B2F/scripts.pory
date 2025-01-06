@@ -140,6 +140,8 @@ const ACTUAL_MIGUEL = 20
 script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 	lock
 	faceplayer
+	
+	famechecker(FAMECHECKER_MT_MOON, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	msgbox(MtMoon_B2F_Text_YouWantHelixFossil, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, MtMoon_B2F_EventScript_DontTakeFossil)
 	removeobject(LOCALID_HELIX_FOSSIL)

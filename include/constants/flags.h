@@ -793,13 +793,13 @@
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
 #define FLAG_FOUGHT_DEOXYS                               0x2E4
-#define FLAG_CELIA_SECRET_VIRIDIAN                                       0x2E5
-#define FLAG_CELIA_SECRET_PEWTER                                       0x2E6
-#define FLAG_CELIA_SECRET_CERULEAN                                       0x2E7
-#define FLAG_CELIA_SECRET_VERMILION                                       0x2E8
-#define FLAG_CELIA_SECRET_LAVENDER                                       0x2E9
-#define FLAG_CELIA_SECRET_CELADON                                       0x2EA
-#define FLAG_CELIA_SECRET_FUCHSIA                                       0x2EB
+#define FLAG_CELIA_SECRET_VIRIDIAN                                       0x2E5 //0
+#define FLAG_CELIA_SECRET_PEWTER                                       0x2E6 //1
+#define FLAG_CELIA_SECRET_CERULEAN                                       0x2E7 //2
+#define FLAG_CELIA_SECRET_VERMILION                                       0x2E8 //3
+#define FLAG_CELIA_SECRET_LAVENDER                                       0x2E9 //4
+#define FLAG_CELIA_SECRET_CELADON                                       0x2EA //5
+#define FLAG_CELIA_SECRET_FUCHSIA                                       0x2EB //6
 #define FLAG_REVIVED_DOME                                0x2EC
 #define FLAG_REVIVED_HELIX                               0x2ED
 #define FLAG_REVIVED_AMBER                               0x2EE
@@ -836,8 +836,8 @@
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
 #define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
 #define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
-#define FLAG_0x30E               0x30E
-#define FLAG_0x30F               0x30F
+#define FLAG_CSR_GOT_DUCK_PAIL               0x30E
+#define FLAG_CSR_DUCK_PAIL_EMPTIED               0x30F
 #define FLAG_0x310               0x310
 #define FLAG_0x311               0x311
 #define FLAG_0x312               0x312

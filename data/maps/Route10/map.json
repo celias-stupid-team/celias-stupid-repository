@@ -141,8 +141,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": -4,
-      "y": 34,
+      "x": -1,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,

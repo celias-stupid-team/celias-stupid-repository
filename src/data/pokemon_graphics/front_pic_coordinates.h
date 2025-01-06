@@ -5063,7 +5063,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_FLUTTER_MANE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 11,
 	},
 	[SPECIES_SLITHER_WING] =
 	{
@@ -5402,7 +5402,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 		[SPECIES_PIKACHU_BIRTHDAY] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 10,
 	},
 	[SPECIES_MEW_ANCIENT] =
 	{
@@ -5427,12 +5427,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_VULPIX_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 10,
 	},
 	[SPECIES_WEEZING_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 13,
 	},
 	[SPECIES_THIS_GUY] =
 	{
@@ -5442,17 +5442,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_STEAMBOAT_WILLIE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 4,
 	},
 	[SPECIES_PIDGEOT_OLD] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 6,
 	},
 	[SPECIES_STRYKE] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 0,
 	},
 	[SPECIES_BUTTERFREE_FEMALE] =
 	{
@@ -5498,22 +5498,22 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MISCARRIAGE_KANGA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 2,
 	},
 	[SPECIES_GHOST] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 6,
 	},
 	[SPECIES_VENOMOTH_ATV] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 3,
 	},
 	[SPECIES_RATICATE_ALOLA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 7,
 	},
 	[SPECIES_MULTIPAL] =
 	{

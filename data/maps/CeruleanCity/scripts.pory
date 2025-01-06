@@ -956,7 +956,7 @@ script CeruleanCity_PhotoMan {
 	waitmovement(0)
 	setobjectxy(PHOTOMAN, 14, 31)
 	fadedefaultbgm
-	setvar(VAR_PHOTO_CERULEAN, 1)
+	setvar(VAR_CSR_UNUSED, 1)
 	release
 }
 

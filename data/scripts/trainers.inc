@@ -950,7 +950,7 @@ FiveIsland_ResortGorgeous_EventScript_Gillian::
 	end
 
 FiveIsland_ResortGorgeous_EventScript_Destin::
-	trainerbattle_single TRAINER_YOUNGSTER_DESTIN, FiveIsland_ResortGorgeous_Text_DestinIntro, FiveIsland_ResortGorgeous_Text_DestinDefeat
+	trainerbattle_single TRAINER_SHORTS_MARRMOT, FiveIsland_ResortGorgeous_Text_DestinIntro, FiveIsland_ResortGorgeous_Text_DestinDefeat
 	msgbox FiveIsland_ResortGorgeous_Text_DestinPostBattle, MSGBOX_AUTOCLOSE
 	end
 

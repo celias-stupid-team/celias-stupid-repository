@@ -60,6 +60,31 @@ LavenderTown_EventScript_UndergroundPathSign::
 	msgbox LavenderTown_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+const IMPOSTER_OAK = 7
+script LavenderTown_ImposterOak {
+	lock
+	if(checkitem(ITEM_WAILMER_PAIL)) {
+
+	} else {
+		applymovement(IMPOSTER_OAK, OakDances)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		waitmovement(0)
+		
+	}
+	
+	release
+}
+
+movement OakDances {
+	walk_in_place_down * 3
+	face_down
+}
+
 script LavenderTown_DanceDMCA {
 	msgbox("Stop right there!\pThis building right here is the\nLAVENDER TOWN DANCE THEATER.\pThey've been putting on shows that\nviolate copyright!\lIt's shut down until further notice.", MSGBOX_NPC)
 	end

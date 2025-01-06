@@ -78,19 +78,68 @@ script CeladonCity_Gym_EventScript_DMCAGrunt {
     end
 }
 
+
+const GIOVANNI = 10
+const ERIKA = 7
+const TopRightTrainer = 8
+const TopLeftTrainer = 4
+const BottomRightTrainer = 1 // Fuck.
+const BottomLeftTrainer = 2 // I don't know my left from my right and I got these two mixed up.
+
+
+
 script CeladonCity_Gym_EventScript_Erika {
-	lock
+	lockall
 	faceplayer
+	
+	famechecker(FAMECHECKER_CELADON, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	if(!flag(FLAG_DEFEATED_ERIKA)) {
 		msgbox(CeladonCity_Gym_Text_ErikaIntro, MSGBOX_DEFAULT)
 		if(flag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)) {
+			closemessage
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			msgbox("Hey! You've already seen this\ncutscene.\lWould you like to skip it?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
 
+				//Cutscene Skip
+				setweather(WEATHER_NONE)
+				doweather
+				fadescreen(FADE_TO_BLACK)
+				fadeoutbgm(1)
+				applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsInPosition)
+				addobject(TopLeftTrainer)
+				addobject(TopRightTrainer)
+				applymovement(TopLeftTrainer, Common_Movement_FaceDown)
+				applymovement(TopRightTrainer, Common_Movement_FaceDown)
+				addobject(BottomRightTrainer)
+				addobject(BottomLeftTrainer)
+				applymovement(BottomLeftTrainer, Common_Movement_FaceDown)
+				applymovement(BottomRightTrainer, Common_Movement_FaceDown)
+				setobjectxy(BottomRightTrainer, 3, 10)
+				setobjectxy(BottomLeftTrainer, 9, 10)
+				setobjectxy(TopRightTrainer, 4, 7)
+				setobjectxy(TopLeftTrainer, 8, 7)
+				addobject(ERIKA)
+				setobjectxy(ERIKA, 5, 11)
+				addobject(GIOVANNI)
+				setobjectxy(GIOVANNI, 6, 13)
+				applymovement(GIOVANNI, GiovanniVisible)
+				applymovement(ERIKA, Common_Movement_FaceRight)
+				
+				textcolor(NPC_TEXT_COLOR_MALE)
+				
+				waitmovement(OBJ_EVENT_ID_PLAYER)
+				waitmovement(0)
+				delay(10)
+				special(SpawnCameraObject)
+				fadescreen(FADE_FROM_BLACK)
+				goto(CeladonGym_GiovanniBattles)
+			} 
 		}
-		else {
-			applymovement(2, Common_Movement_FaceLeft)
-			applymovement(1, Common_Movement_FaceRight)
-			setobjectxy(2, 9, 10)
-			setobjectxy(1, 3, 10)
+			applymovement(BottomLeftTrainer, Common_Movement_FaceLeft)
+			applymovement(BottomRightTrainer, Common_Movement_FaceRight)
+			setobjectxy(BottomLeftTrainer, 9, 10)
+			setobjectxy(BottomRightTrainer, 3, 10)
 			closemessage
 			lockall
 			fadeoutbgm(2)
@@ -123,7 +172,7 @@ script CeladonCity_Gym_EventScript_Erika {
 
 			//Everyone looks down
 			playse(SE_PIN)
-			applymovement(7, Common_Movement_ExclamationMark)
+			applymovement(ERIKA, Common_Movement_ExclamationMark)
 			delay(15)
 			playse(SE_PIN)
 			applymovement(OBJ_EVENT_ID_PLAYER, Player_Looks_Down)
@@ -131,9 +180,10 @@ script CeladonCity_Gym_EventScript_Erika {
 			special(SpawnCameraObject)
 			applymovement(OBJ_EVENT_ID_CAMERA, CameraGoesDown)
 			waitmovement(0)
-			setobjectxy(10, 6, 18)
+			delay(20)
+			setobjectxy(GIOVANNI, 6, 18)
 			playse(SE_EXIT)
-			applymovement(10, GiovanniEnters)
+			applymovement(GIOVANNI, GiovanniEnters)
 			waitmovement(0)
 			textcolor(0)
 			msgbox(("...Ha!\nFinally!\pSo THIS is where that copyrighted\nmusic was coming from!"), MSGBOX_DEFAULT)
@@ -141,52 +191,52 @@ script CeladonCity_Gym_EventScript_Erika {
 			delay(20)
 
 			//Player and Erika walk down
-			addobject(7)
-			setobjectxy(7, 2, 9)	
+			addobject(ERIKA)
+			setobjectxy(ERIKA, 2, 9)	
 			setobjectxy(OBJ_EVENT_ID_PLAYER, 10,9)
-			applymovement(7, ErikaDown)
+			applymovement(ERIKA, ErikaDown)
 			applymovement(OBJ_EVENT_ID_PLAYER, PlayerDown)
 			waitmovement(0)
 			applymovement(OBJ_EVENT_ID_CAMERA, CameraUp)
 			waitmovement(0)
-			applymovement(8, Common_Movement_FaceDown)
-			applymovement(4, Common_Movement_FaceDown)
-			setobjectxy(8, 4, 6)
-			setobjectxy(4, 8, 6)
+			applymovement(TopRightTrainer, Common_Movement_FaceDown)
+			applymovement(TopLeftTrainer, Common_Movement_FaceDown)
+			setobjectxy(TopRightTrainer, 4, 6)
+			setobjectxy(TopLeftTrainer, 8, 6)
 			delay(20)
 
 			//Giovanni approaches
-			applymovement(10, GiovanniApproaches)
+			applymovement(GIOVANNI, GiovanniApproaches)
 			waitmovement(0)
 			msgbox(("I am GIOVANNI.\nLeader of the DMCA!\pI am the scourge of copyright\ninfringers across all of KANTO!"), MSGBOX_DEFAULT)
 			closemessage
 			playse(SE_PIN)
-			applymovement(7, ErikaShocked)
+			applymovement(ERIKA, ErikaShocked)
 			waitmovement(0)
 			textcolor(1)
 			msgbox(("Wait!\nThe DMCA?\pThat means-!\n"), MSGBOX_DEFAULT)
 			closemessage
 			delay(15)
 			playse(SE_PIN)
-			applymovement(1, Player_Looks_Down)
+			applymovement(BottomLeftTrainer, Player_Looks_Down)
 			waitmovement(0)
 			delay(15)
 			playse(SE_PIN)
-			applymovement(2, Player_Looks_Down)
+			applymovement(BottomRightTrainer, Player_Looks_Down)
 			waitmovement(0)
 			delay(48)
-			applymovement(2, Talking)
+			applymovement(BottomRightTrainer, Talking)
 			waitmovement(0)
 			textcolor(0)
 			msgbox(("Oh, no!\nMS. ERIKA!\pAre they gonna send their\nlawyers after our GYM?"), MSGBOX_DEFAULT)
 			closemessage
 			delay(32)
-			applymovement(1, Talking)
+			applymovement(BottomLeftTrainer, Talking)
 			waitmovement(0)
 			textcolor(1)
 			msgbox(("If they file a lawsuit against us,\nhow are we gonna afford it?\lWe need the cash for our shelter..."), MSGBOX_DEFAULT)
 			closemessage
-			applymovement(7, Common_Movement_FaceUp)
+			applymovement(ERIKA, Common_Movement_FaceUp)
 			delay(10)
 			msgbox(("Don't worry, everyone!\pWe'll figure out how to keep\neverybody safe. I'm sure of it.\lSomehow..."), MSGBOX_DEFAULT)
 			closemessage
@@ -199,12 +249,14 @@ script CeladonCity_Gym_EventScript_Erika {
 			delay(64)
 			applymovement(OBJ_EVENT_ID_PLAYER, PlayerStepsUp)
 			delay(16)
-			applymovement(7, Common_Movement_FaceRight)
+			applymovement(ERIKA, Common_Movement_FaceRight)
+			waitmovement(ERIKA)
 			playse(SE_PIN)
-			applymovement(7, Common_Movement_ExclamationMark)
+			applymovement(ERIKA, Common_Movement_ExclamationMark)
 			waitmovement(OBJ_EVENT_ID_PLAYER)
 			delay(32)
-			applymovement(7, ErikaLooksAtYou)
+			applymovement(ERIKA, ErikaLooksAtYou)
+			waitmovement(0)
 			msgbox(("Oh! You...\n"), MSGBOX_DEFAULT)
 			closemessage
 			applymovement(OBJ_EVENT_ID_CAMERA, CameraCenters)
@@ -213,29 +265,229 @@ script CeladonCity_Gym_EventScript_Erika {
 
 			//Giovanni gets ready
 			textcolor(0)
-			applymovement(10, GiovanniTalksBack)
+			applymovement(GIOVANNI, GiovanniTalksBack)
 			waitmovement(0)
 			msgbox(("Oh?\nYou want to stand up for them?\lAgainst ME?"), MSGBOX_DEFAULT)
 			closemessage
 			delay(16)
-			applymovement(10, CameraCenters)
+			applymovement(GIOVANNI, CameraCenters)
 			waitmovement(0)
-			applymovement(10, Common_Movement_FaceUp)
+			applymovement(GIOVANNI, Common_Movement_FaceUp)
 			delay(20)
-			msgbox(("Ha!\nFine, then."), MSGBOX_DEFAULT)
 			setflag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)
+			goto(CeladonGym_GiovanniBattles)
 
 
-
-		}
+		
 	}
 	else {
-		//todo
+		//todo after battle
+		msgbox("{PLAYER}...\nThank you so much, again.\pYou truly showed what it means\nto be an ally to our community.", MSGBOX_DEFAULT)
 	}
 	
-	release
+	releaseall
 	end
 }
+
+movement GiovanniVisible {
+	face_up
+	set_visible
+}
+
+movement PlayerGetsInPosition {
+	walk_faster_down * 7
+}
+
+script CeladonGym_GiovanniBattles {
+	msgbox(("Ha!\nFine, then."), MSGBOX_DEFAULT)
+	trainerbattle_single(TRAINER_BOSS_GIOVANNI, CeladonCity_Gym_Text_GiovanniIntro, CeladonCity_Gym_Text_GiovanniDefeat, CeladonGym_GiovanniDefeat)
+	releaseall
+	end
+}
+
+script CeladonGym_GiovanniDefeat {
+	delay(30)
+	applymovement(GIOVANNI, GiovanniHit)
+	waitmovement(0)
+	delay(40)
+
+	playse(SE_PIN)
+	applymovement(ERIKA, Player_Looks_Down)
+	waitmovement(0)
+	delay(20)
+	playse(SE_PIN)
+	applymovement(BottomRightTrainer, Player_Looks_Down)
+	waitmovement(0)
+	applymovement(BottomLeftTrainer, Player_Looks_Down)
+	waitmovement(0)
+	delay(20)
+	applymovement(GIOVANNI, GiovanniShocked)
+	waitmovement(0)
+
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Wha-!?\pBut my POKéMON was invincible!\nHow did you-?", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(ERIKA, ErikaApproaches)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Invincible?\nNo, GIOVANNI, leader of the DMCA.\pThere was one thing that you'd\nfailed to account for.\lSo listen up!\pWe aren't just a POKéMON GYM!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+
+	applymovement(BottomRightTrainer, ErikaApproaches)
+	waitmovement(0)
+	msgbox("We are a community!\nOne full of passion and love!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(BottomLeftTrainer, TrainerApproaches)
+	waitmovement(0)
+	delay(40)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("And we will always have each\nothers' backs!\lNo matter what!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(GIOVANNI, GiovanniCornered)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Grr...\nD-darn you!", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	applymovement(GIOVANNI, GiovanniAbsconds)
+	waitmovement(0)
+	removeobject(GIOVANNI)
+	playse(SE_EXIT)
+	special(RemoveCameraObject)
+	delay(30)
+	set_gym_trainers(4)
+	delay(30)
+	applymovement(ERIKA, Common_Movement_FaceRight)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	waitmovement(0)
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Thank you.\nWhat was your name, again?\p{PLAYER}?\n...\l...{PLAYER}, okay!\pWell, {PLAYER}, thank you.\pYou've stood with us in solidarity,\nand you're helping us thrive.\pYou truly understand what it means\nto be an ALLY of our community.\pAs thanks for this, I'd be honored\nto present you with this:\lThe RAINBOWBADGE!", MSGBOX_DEFAULT)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	playfanfare(MUS_OBTAIN_BADGE)
+	message("{PLAYER} recieved the RAINBOWBADGE\nfrom ERIKA!")
+	waitmessage
+	waitfanfare
+	setflag(FLAG_DEFEATED_ERIKA)
+	setflag(FLAG_BADGE04_GET)
+	//todo Give badge
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis)
+	if(!checkitemspace(ITEM_TM30)) {
+
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgreceiveditem("{PLAYER} received TM30\nfrom ERIKA.", ITEM_TM30, 1)
+		setflag(FLAG_GOT_TM19_FROM_ERIKA)
+		famechecker(FAMECHECKER_CELADON, 5)
+		
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("TM19 contains MAGICAL LEAF.\pIt's a move that I absolutely\nlove to use!\pThere aren't many POKéMON that\ncan use it, but keep it in mind!\pI'm sure you'll find it very\nuseful in the near future!", MSGBOX_DEFAULT)
+	}
+	closemessage
+	applymovement(ERIKA, Common_Movement_FaceUp)
+	msgbox("All right, everyone!\nLet's get back to it!", MSGBOX_DEFAULT)
+	closemessage
+	delay(15)
+	applymovement(BottomLeftTrainer, DancersAgree)
+	applymovement(BottomRightTrainer, DancersAgree)
+	waitmovement(0)
+	delay(4)
+	msgbox("Hooray!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(ERIKA, ErikaReturns)
+	waitmovement(0)
+	setobjectxy(ERIKA, 6, 4)
+	addobject(TopRightTrainer)
+	addobject(TopLeftTrainer)
+	addobject(BottomLeftTrainer)
+	addobject(BottomRightTrainer)
+
+	setobjectmovementtype(TopRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
+	setobjectmovementtype(TopLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+
+	releaseall
+	end
+}
+
+
+// ported these movement scripts directly from binary; not gonna go back through and consolidate them :(
+movement ErikaReturns {
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_down
+}
+
+movement DancersAgree {
+	walk_in_place_down
+	walk_in_place_down
+}
+
+movement GiovanniAbsconds {
+	lock_facing_direction
+	walk_slower_down
+	delay_16 * 3
+	unlock_facing_direction
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	set_invisible
+}
+
+movement GiovanniCornered {
+	face_left
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+}
+
+movement TrainerApproaches {
+	walk_slow_left
+	walk_slow_down
+	face_down
+}
+
+movement GiovanniHit {
+	lock_facing_direction
+	slide_down
+	face_up
+	unlock_facing_direction
+}
+
+movement ErikaApproaches {
+	walk_slow_down
+	face_down
+}
+
+movement GiovanniShocked {
+	face_left
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	face_up
+	delay_16
+	delay_16
+}
+
 movement Player_Looks_Down {
 	face_down
 	emote_exclamation_mark
@@ -305,7 +557,6 @@ movement Talking {
 
 movement PlayerStepsUp {
 	walk_slower_left //slowest?
-	delay_16
 	walk_slower_down
 	face_down
 }
