@@ -277,6 +277,9 @@ VermilionCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+
+const CELIA = 8
+const SURGE = 1
 script VermillionGym_EmptyCan { //Add logic for if you interact in the middle of the trash celia quest
 	lock
 	if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
@@ -356,7 +359,7 @@ script VermillionGym_BonusCan3 {
 
 script VermillionGym_BonusCan4 {
 	lock
-	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 3) {
 		msgbox("Yup, there's the fourth switch.\nThat means there's only one left!", MSGBOX_DEFAULT)
 		playse(SE_PIN)
 		waitse
@@ -373,11 +376,43 @@ script VermillionGym_BonusCan4 {
 
 script VermillionGym_BonusCan5 {
 	lock
-	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 4) {
 		msgbox("That's it!\nYou found the fifth switch!\pI wonder what'll happen now...\n", MSGBOX_DEFAULT)
 		playse(SE_PIN)
 		waitse
+		fadeoutbgm(1)
+		call(VermilionCity_Gym_EventScript_SetBeamsOff)
+		playse(SE_UNLOCK)
+		waitse
+		setflag(FLAG_CELIA_SECRET_VERMILION)
+		addobject(CELIA)
+		setobjectxy(CELIA, 5, 19)
+		delay(60)
+		playse(SE_EXIT)
+		applymovement(CELIA, CeliaSecretApproach)
+		waitmovement(0)
+		delay(20)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+		waitmovement(0)
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Uh, hi!\nI'm CELIA, the creator.\pWow, you sure did go through\nall those trash cans, huh?\lThe door was already open!\pWell, for going through all the\ntrouble, here's a reward for you!\lIt's the TRASH MASTER MEDAL!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgreceiveditem("{PLAYER} recieved the\nTRASH MEDAL!", ITEM_TM39, 1) //make into Trash Medal
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("By the way...\pSince you like digging around so\nmuch, here's somewhere else to try.", MSGBOX_DEFAULT)
+		//Call Secrets!
+		
+		delay(30)
+		applymovement(CELIA, CeliaSecretLeave)
+		waitmovement(0)
+		removeobject(CELIA)
+		playse(SE_EXIT)
+		delay(30)
+		playbgm(MUS_GYM, TRUE)
+		
 		addvar(VAR_VERMILLION_GYM_BONUS_TRASH, 1)
+
+
 		//Bonus Can 5
 		release
 		end
@@ -387,6 +422,44 @@ script VermillionGym_BonusCan5 {
 		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
 		release
 	}
+}
+
+//movement ported from binary
+movement CeliaSecretApproach {
+	face_up
+	set_visible
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	face_right
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	walk_slow_up
+	walk_slow_right
+	walk_slow_up
+	walk_slow_up
+	walk_slow_right
+	walk_slow_right
+	walk_slow_down
+	walk_slow_down
+	face_down
+}
+
+script CeliaSecretLeave {
+	walk_slow_left
+	walk_slow_down
+	walk_slow_left
+	walk_slow_left
+	walk_slow_down
+	face_down
+	delay_16
+	set_invisible
 }
 
 script VermillionGym_SurgeCan {
@@ -414,8 +487,7 @@ script VermillionGym_Celia_Can {
 }
 
 
-const CELIA = 8
-const SURGE = 1
+
 script VermilionCity_Gym_EventScript_GiveTM34 {
 	
 	famechecker(FAMECHECKER_VERMILION, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
@@ -503,6 +575,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 }
 
 movement CeliaWalksUp {
+	set_visible
 	walk_up * 5
 	face_up
 }
