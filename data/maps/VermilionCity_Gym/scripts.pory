@@ -401,7 +401,7 @@ script VermillionGym_BonusCan5 {
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("By the way...\pSince you like digging around so\nmuch, here's somewhere else to try.", MSGBOX_DEFAULT)
 		//Call Secrets!
-		
+		setvar(VAR_CSR_CURRENT_CELIA_SECRET, 3)
 		delay(30)
 		applymovement(CELIA, CeliaSecretLeave)
 		waitmovement(0)
