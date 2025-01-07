@@ -114,3 +114,20 @@ script LavenderTown_DanceDMCA {
 	msgbox("Stop right there!\pThis building right here is the\nLAVENDER TOWN DANCE THEATER.\pThey've been putting on shows that\nviolate copyright!\lIt's shut down until further notice.", MSGBOX_NPC)
 	end
 }
+
+script LavenderTown_MusicGoesAway {
+	fadenewbgm(MUS_DUMMY)
+	setvar(VAR_TEMP_3, 1)
+	release
+}
+
+script LavenderTown_MusicComesBack {
+	fadedefaultbgm
+	setvar(VAR_TEMP_3, 0)
+	release
+}
+
+script LavenderTown_MusicDoesntFade {
+	setvar(VAR_TEMP_3, 1)
+	release
+}

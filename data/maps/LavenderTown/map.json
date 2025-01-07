@@ -118,8 +118,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HUMANOAK",
-      "x": 54,
-      "y": 13,
+      "x": 46,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -174,7 +174,7 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 54,
+      "x": 68,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_UNDERGROUND_PATH_EAST_ENTRANCE",
@@ -218,7 +218,16 @@
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 28,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
       "y": 16,
       "elevation": 0,
       "var": "VAR_TEMP_9",
@@ -227,16 +236,7 @@
     },
     {
       "type": "trigger",
-      "x": 34,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 34,
+      "x": 27,
       "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_9",
@@ -245,7 +245,7 @@
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 28,
       "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_9",
@@ -254,7 +254,7 @@
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 28,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_9",
@@ -263,7 +263,7 @@
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 28,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_9",
@@ -272,8 +272,8 @@
     },
     {
       "type": "trigger",
-      "x": 39,
-      "y": 10,
+      "x": 28,
+      "y": 18,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -281,8 +281,8 @@
     },
     {
       "type": "trigger",
-      "x": 39,
-      "y": 9,
+      "x": 28,
+      "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -290,75 +290,102 @@
     },
     {
       "type": "trigger",
-      "x": 39,
+      "x": 28,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
-      "x": 39,
+      "x": 51,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
-      "x": 39,
+      "x": 41,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "1",
+      "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "1",
+      "script": "LavenderTown_MusicComesBack"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicDoesntFade"
     },
     {
       "type": "trigger",
-      "x": 39,
+      "x": 66,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicDoesntFade"
     },
     {
       "type": "trigger",
-      "x": 39,
+      "x": 67,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicDoesntFade"
     },
     {
       "type": "trigger",
-      "x": 39,
-      "y": 16,
+      "x": 51,
+      "y": 13,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 50,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 48,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     }
   ],
   "bg_events": [
@@ -396,8 +423,8 @@
     },
     {
       "type": "sign",
-      "x": 56,
-      "y": 13,
+      "x": 66,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavenderTown_EventScript_UndergroundPathSign"

@@ -2,7 +2,7 @@
   "id": "MAP_LAVENDER_TOWN_FLOWER_SHOP",
   "name": "LavenderTown_FlowerShop",
   "layout": "LAYOUT_LAVENDER_TOWN_FLOWER_SHOP",
-  "music": "MUS_PEWTER",
+  "music": "MUS_CELADON",
   "region_map_section": "MAPSEC_ROUTE_8",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -401,6 +401,18 @@ script GameCorner_FindCoins {
 	end
 }
 
+script GameCorner_MissingKeys {
+	lock
+	if(!flag(FLAG_GOT_HOUSE_KEY)) {
+		msgbox(CeladonCity_GameCorner_Text_SomeonesKeys, MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} snagged the HOUSE KEY\nwhile no one was looking!", ITEM_HOUSE_KEY, 1)
+		setflag(FLAG_GOT_HOUSE_KEY)
+	} else {
+		msgbox("Finders keepers…\n", MSGBOX_DEFAULT)
+	}
+	release
+}
+
 script CeladonCity_GameCorner_EventScript_Gentleman {
 	lock
 	faceplayer
