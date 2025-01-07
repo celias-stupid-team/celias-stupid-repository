@@ -8,10 +8,163 @@ CeladonCity_Condominiums_2F_EventScript_MeetingRoomSign::
 `
 
 
-script CeladonCondominiums_JumpUpStairs {
+script CeladonCondominiums_JumpUpLeftStairs {
 	specialvar(VAR_RESULT, GetPlayerAvatarBike)
 	if(var(VAR_RESULT)) {
-
+		lock
+		delay(20)
+		getplayerxy(VAR_RESULT, VAR_TEMP_2)
+		switch(var(VAR_RESULT)) {
+			case 2:
+				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsLeft_1)
+				waitmovement(0)
+			case 3:
+				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsLeft_2)
+				waitmovement(0)
+			default:
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+				waitmovement(0)
+				delay(16)
+		}
+		fadeoutbgm(1)
+		delay(10)
+		//Blj sound, cry?
+		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		waitmovement(0)
+		waitmoncry
+		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		waitmovement(0)
+		waitmoncry
+		playmoncry(SPECIES_MIRAIDON, CRY_MODE_NORMAL)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsLeft)
+		waitmovement(0)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_JumpLeftEnd)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+		fadeoutbgm(2)
+		delay(60)
+		playse(SE_WARP_OUT)
+		warp(MAP_CELADON_CITY_CONDOMINIUMS_ROOF, 0)
+		playbgm(MUS_DUMMY, TRUE)
+		delay(120)
+		fadescreen(FADE_FROM_BLACK)
+		release
+		end
 	}
 	release
+}
+
+movement CeladonMansion_JumpLeftEnd {
+	jump_left
+	jump_up
+
+}
+
+movement CeladonMansion_PlayerJumpsLeft {
+	jump_in_place_right
+	jump_left * 3
+}
+
+movement CeladonMansion_PlayerJumpsInPlace {
+	lock_facing_direction
+	jump_in_place_right
+}
+
+movement CeladonMansion_PlayerRepositionsLeft_1 {
+	face_right
+	delay_16
+	walk_slower_right
+	walk_slower_right
+	face_right
+}
+
+movement CeladonMansion_PlayerRepositionsLeft_2 {
+	face_right
+	delay_16
+	walk_slower_right
+	face_right
+}
+
+
+
+script CeladonCondominiums_JumpUpRightStairs {
+	
+	specialvar(VAR_RESULT, GetPlayerAvatarBike)
+	if(var(VAR_RESULT)) {
+		lock
+		delay(20)
+		getplayerxy(VAR_RESULT, VAR_TEMP_2)
+		switch(var(VAR_RESULT)) {
+			case 4:
+				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsRight_1)
+				waitmovement(0)
+			case 3:
+				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsRight_2)
+				waitmovement(0)
+			default:
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+				waitmovement(0)
+				delay(16)
+		}
+		fadeoutbgm(1)
+		delay(10)
+		//Blj sound, cry?
+		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		waitmovement(0)
+		waitmoncry
+		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		waitmovement(0)
+		waitmoncry
+		playmoncry(SPECIES_MIRAIDON, CRY_MODE_NORMAL)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsRight)
+		waitmovement(0)
+		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_JumpRightEnd)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+		fadeoutbgm(2)
+		delay(60)
+		playse(SE_WARP_OUT)
+		warp(MAP_CELADON_CITY_CONDOMINIUMS_ROOF, 0)
+		playbgm(MUS_DUMMY, TRUE)
+		delay(120)
+		fadescreen(FADE_FROM_BLACK)
+		release
+		end
+	}
+	release
+}
+
+
+movement CeladonMansion_JumpRightEnd {
+	jump_right
+	jump_up
+
+}
+
+movement CeladonMansion_PlayerJumpsRight {
+	jump_in_place_left
+	jump_right * 3
+}
+
+movement CeladonMansion_PlayerRepositionsRight_1 {
+	face_left
+	delay_16
+	walk_slower_left
+	walk_slower_left
+	face_left
+}
+
+movement CeladonMansion_PlayerRepositionsRight_2 {
+	face_left
+	delay_16
+	walk_slower_left
+	face_left
 }
