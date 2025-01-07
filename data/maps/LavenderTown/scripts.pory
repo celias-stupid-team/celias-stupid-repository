@@ -6,6 +6,7 @@ LavenderTown_MapScripts::
 LavenderTown_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_LAVENDER_TOWN
 	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1
+	setbench BENCH_LAVENDER
 	setflag FLAG_HIDE_SS_ANNE_RIVAL
 	end
 
@@ -64,7 +65,23 @@ const IMPOSTER_OAK = 7
 script LavenderTown_ImposterOak {
 	lock
 	if(checkitem(ITEM_WAILMER_PAIL)) {
-
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("There is an odd tree in the way.\nWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			setvar(VAR_CSR_PSYDUCK_PAIL_STATUS, 1)
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_PIN)
+			applymovement(IMPOSTER_OAK, Common_Movement_ExclamationMark)
+			waitmovement(0)
+			delay(60)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			msgbox("{FONT_SMALL}OAK?: Wha-?\nHey!", MSGBOX_DEFAULT)
+			
+			trainerbattle_single(TRAINER_IMPOSTER_OAK_1, "{FONT_SMALL}What gives?", "{FONT_SMALL}Grr-\nFine!\pI'll go somewhere else!\n", LavenderTown_RemoveTree)
+		}
 	} else {
 		applymovement(IMPOSTER_OAK, OakDances)
 		playse(SE_M_SCRATCH)
@@ -77,6 +94,14 @@ script LavenderTown_ImposterOak {
 		
 	}
 	
+	release
+}
+
+script LavenderTown_RemoveTree {
+	fadescreen(FADE_TO_BLACK)
+	removeobject(IMPOSTER_OAK)
+	setflag(FLAG_CSR_IMPOSTEROAK1)
+	fadescreen(FADE_FROM_BLACK)
 	release
 }
 

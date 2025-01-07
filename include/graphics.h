@@ -7574,6 +7574,9 @@ extern const u32 gTrainerFrontPic_Proton[];
 extern const u32 gTrainerFrontPic_Imakuni[];
 extern const u32 gTrainerFrontPic_TeamRocket[];
 extern const u32 gTrainerFrontPic_Petrel[];
+extern const u32 gTrainerFrontPic_Imposter[];
+extern const u32 gTrainerPalette_Imposter[];
+
 
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];

@@ -127,7 +127,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LavenderTown_ImposterOak",
-      "flag": "0"
+      "flag": "FLAG_CSR_IMPOSTEROAK1"
     }
   ],
   "warp_events": [
@@ -189,7 +189,177 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    }
   ],
   "bg_events": [
     {

@@ -273,7 +273,7 @@ It is reset after every battle.
 // Photos have been cancelled!
 #define VAR_CSR_UNUSED                 0x40D0
 #define VAR_CSR_CURRENT_CELIA_SECRET                 0x40D1
-#define VAR_0x40D2                 0x40D2
+#define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
 #define VAR_0x40D3                 0x40D3
 #define VAR_0x40D4                 0x40D4
 #define VAR_0x40D5                 0x40D5

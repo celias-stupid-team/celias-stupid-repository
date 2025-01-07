@@ -29,6 +29,18 @@ mapscripts Route8_MapScripts {
 				setmetatile(23, 19, 0x39C, FALSE)	
 		}
 	}
+
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_CSR_PSYDUCK_PAIL_STATUS, 2 {
+			if(checkitem(ITEM_EMPTY_PAIL)) {
+				removeitem(ITEM_EMPTY_PAIL)
+				additem(ITEM_WAILMER_PAIL)
+				setvar(VAR_CSR_PSYDUCK_PAIL_STATUS, 1)
+			}
+
+			release	
+		}
+	]
 }
 
 
@@ -349,7 +361,7 @@ script Route8_BerryLady {
 }
 
 script Route8_FlowerShopSign {
-	msgbox("PRETTY PETALS FLOWER SHOP\n", MSGBOX_SIGN)
+	msgbox("PRETTY PETALS Flower Shop\p- - - - Free! - - - -\nWAILMER PAIL Giveaway!", MSGBOX_SIGN)
 	end
 }
 

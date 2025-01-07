@@ -336,7 +336,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    }
   ],
   "bg_events": [
     {

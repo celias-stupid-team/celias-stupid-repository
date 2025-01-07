@@ -6457,6 +6457,22 @@
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_StatBooster",
       "secondaryId": 0
+    },
+    {
+      "english": "PSYDUCK PAIL",
+      "itemId": "ITEM_EMPTY_PAIL",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "It appears there's a hole in the\\nbottom of this pail.\\nEnter the RAIN to fill it back up!",
+      "importance": 1,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

@@ -4819,7 +4819,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PsychicJaclyn),
     },
     [TRAINER_CRUSH_GIRL_SHARON] = {
-        .trainerClass = TRAINER_CLASS_CRUSH_GIRL,
+        .trainerClass = TRAINER_CLASS_IMPOSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_CRUSH_GIRL,
         .trainerName = _("SHARON"),
@@ -5504,15 +5504,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_JugglerMason),
     },
-    [TRAINER_CRUSH_GIRL_CYNDY] = {
-        .trainerClass = TRAINER_CLASS_CRUSH_GIRL,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_CRUSH_GIRL,
-        .trainerName = _("CYNDY"),
+    [TRAINER_IMPOSTER_OAK_1] = {
+        .trainerClass = TRAINER_CLASS_IMPOSTER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE,
+        .trainerName = _("OAK"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = ITEM_DEFAULT_MOVES(sParty_CrushGirlCyndy),
+        .party = ITEM_DEFAULT_MOVES(sParty_ImposterOak1),
     },
     [TRAINER_CRUSH_GIRL_JOCELYN] = {
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL,

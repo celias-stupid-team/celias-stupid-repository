@@ -8807,27 +8807,14 @@ static const struct TrainerMonItemDefaultMoves sParty_CrushKinMikKia3[] = {
 
 
 
-static const struct TrainerMonItemDefaultMoves sParty_CrushGirlCyndy2[] = {
+static const struct TrainerMonItemDefaultMoves sParty_ImposterOak1[] = {
     {
         .iv = 170,
-        .lvl = 54,
-        .species = SPECIES_PRIMEAPE,
-        .heldItem = ITEM_BLACK_BELT,
-    },
-    {
-        .iv = 170,
-        .lvl = 54,
-        .species = SPECIES_HITMONTOP,
-        .heldItem = ITEM_BLACK_BELT,
-    },
-    {
-        .iv = 170,
-        .lvl = 54,
-        .species = SPECIES_MACHAMP,
+        .lvl = 21,
+        .species = SPECIES_SUDOWOODO,
         .heldItem = ITEM_BLACK_BELT,
     },
 };
-
 
 
 

@@ -757,6 +757,10 @@ static const union AnimCmd *const sAnims_Petrel[] =
 {
     sAnim_GeneralFrame0,
 };
+static const union AnimCmd *const sAnims_Imposter[] =
+{
+    sAnim_GeneralFrame0,
+};
 
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
@@ -914,4 +918,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_TEAM_ROCKET]             = sAnims_TeamRocket,
     
     [TRAINER_PIC_PETREL]             = sAnims_Petrel,
+    [TRAINER_PIC_IMPOSTER]             = sAnims_Imposter,
 };
