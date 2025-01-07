@@ -4548,6 +4548,18 @@
       "secondary_tileset": "gTileset_Condominiums",
       "border_filepath": "data/layouts/CeladonCity_InfiniteStaircase/border.bin",
       "blockdata_filepath": "data/layouts/CeladonCity_InfiniteStaircase/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_ROOM",
+      "name": "SecretRoom_Layout",
+      "width": 9,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RestaurantHotel",
+      "border_filepath": "data/layouts/SecretRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SecretRoom/map.bin"
     }
   ]
 }

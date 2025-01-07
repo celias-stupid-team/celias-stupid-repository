@@ -1401,3 +1401,6 @@ Text_TestMsg::
 
 	.include "data/maps/CeladonCity_InfiniteStaircase/scripts.inc"
 	.include "data/maps/CeladonCity_InfiniteStaircase/text.inc"
+
+	.include "data/maps/SecretRoom/scripts.inc"
+	.include "data/maps/SecretRoom/text.inc"

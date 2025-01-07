@@ -918,5 +918,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_TEAM_ROCKET]             = sAnims_TeamRocket,
     
     [TRAINER_PIC_PETREL]             = sAnims_Petrel,
-    [TRAINER_PIC_IMPOSTER]             = sAnims_Imposter,
+    [TRAINER_PIC_IMPOSTER]             = sAnims_Imposter
 };
