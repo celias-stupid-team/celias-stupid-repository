@@ -4536,6 +4536,18 @@
       "secondary_tileset": "gTileset_FlowerShop",
       "border_filepath": "data/layouts/LavenderTown_FlowerShop/border.bin",
       "blockdata_filepath": "data/layouts/LavenderTown_FlowerShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_CITY_INFINITE_STAIRCASE",
+      "name": "CeladonCity_InfiniteStaircase_Layout",
+      "width": 15,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/CeladonCity_InfiniteStaircase/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonCity_InfiniteStaircase/map.bin"
     }
   ]
 }

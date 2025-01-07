@@ -112,8 +112,8 @@
       "x": 4,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_ROOF",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_CELADON_CITY_INFINITE_STAIRCASE",
+      "dest_warp_id": "1"
     },
     {
       "x": 12,

@@ -379,7 +379,7 @@ script ViridianCity_EventScript_Gambler {
 	if(!checkitem(ITEM_HOUSE_KEY)) {
 		msgbox("Oh no...\pI left my keys someplace, and I\nhave no idea where.\lI'm sure they're not here in town.\pGuess I'm stuck out here.", MSGBOX_AUTOCLOSE)
 	} else {
-		if(FLAG_CSR_BROKE_INTO_HOUSE) {
+		if(flag(FLAG_CSR_BROKE_INTO_HOUSE)) {
 			msgbox("So, uh...\nAre you gonna give me my HOUSE KEY?", MSGBOX_YESNO)
 			if(!var(VAR_RESULT)) {
 				goto(ViridianCity_Gambler_CmonMan)
@@ -424,11 +424,30 @@ script ViridianCity_Gambler_GoesHome {
 	addobject(CELIA)
 	setobjectxy(CELIA, 53, 15)
 	applymovement(CELIA, CeliaComesDown)
-	switch(var(VAR_FACING)) {
+	waitmovement(0)
+	special(GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
 		case DIR_SOUTH:
+			applymovement(CELIA, CeliaApproach_South)
+			waitmovement(0)
+			delay(16)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+
 		case DIR_NORTH:
+			applymovement(CELIA, CeliaApproach_North)
+			waitmovement(0)
+			delay(16)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 		case DIR_EAST:
+			applymovement(CELIA, CeliaApproach_East)
+			waitmovement(0)
+			delay(16)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 		case DIR_WEST:
+			applymovement(CELIA, CeliaApproach_West)
+			waitmovement(0)
+			delay(16)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 	}
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_MALE)
@@ -439,22 +458,47 @@ script ViridianCity_Gambler_GoesHome {
 	}
 	msgbox("Anyway...\pYou seem to be the sort who enjoys\ndoing sidequests.\lHow about I show you another?", MSGBOX_DEFAULT)
 	setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
-
+	setflag(flag(FLAG_CELIA_SECRET_VIRIDIAN))
 	//Celia Sidequests called
 	msgbox("Anyway, I have to head out now.\pGood luck, and see ya later!\n", MSGBOX_DEFAULT)
-	switch(var(VAR_FACING)) {
-		case DIR_SOUTH:
-		case DIR_NORTH:
-		case DIR_EAST:
-		case DIR_WEST:
-
-	}
+	applymovement(CELIA, ViridianCity_CeliaAbsconds)
 	waitmovement(0)
 	removeobject(CELIA)
 	release
 	end
 
 }
+
+movement CeliaApproach_South {
+	face_right
+}
+
+movement CeliaApproach_North {
+		walk_down
+	walk_down
+	face_right
+}
+
+movement CeliaApproach_West {
+	walk_down
+	walk_right
+	face_right
+}
+
+movement CeliaApproach_East {
+	face_down
+}
+
+movement ViridianCity_CeliaAbsconds {
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+}
+
 
 movement CeliaComesDown {
 	set_visible

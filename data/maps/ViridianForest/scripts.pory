@@ -166,7 +166,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 
 		getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
 		setobjectxy(CELIA_FOREST,VAR_TEMP_3,18)
-		applymovement(20, CeliaApproaches)
+		applymovement(CELIA_FOREST, CeliaApproaches)
 		waitmovement(0)
 		playse(SE_PIN)
 		applymovement(OBJ_EVENT_ID_PLAYER, PlayerSeesHer)
@@ -211,7 +211,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		closemessage
 		delay(15)
 
-		applymovement(20, CeliaAbsconds)
+		applymovement(CELIA_FOREST, CeliaAbsconds)
 		waitmovement(0)
 		release
 	}

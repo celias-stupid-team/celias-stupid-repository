@@ -393,7 +393,8 @@
     "CeladonCity_Restaurant",
     "CeladonCity_House1",
     "CeladonCity_Hotel",
-    "NewMap1"
+    "NewMap1",
+    "CeladonCity_InfiniteStaircase"
   ],
   "gMapGroup_IndoorFushcia": [
     "FushciaCity_SafariZone_Entrance",
