@@ -4730,13 +4730,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TOMBSTONER] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_STEALTH_ROCK,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,
         .pp = 35,
-        .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_USER,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_OPPONENTS_FIELD,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED
     },

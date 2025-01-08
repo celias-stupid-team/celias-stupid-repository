@@ -4133,6 +4133,8 @@ static void HandleAction_UseMove(void)
     u8 side;
     u8 var = 4;
 
+    DebugPrintf("HandleAction_UseMove");
+
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (*(&gBattleStruct->absentBattlerFlags) & gBitTable[gBattlerAttacker])
     {
@@ -4307,6 +4309,8 @@ static void HandleAction_UseMove(void)
             }
         }
     }
+    DebugPrintf("Move = %d", gCurrentMove);
+    DebugPrintf("Effect = %d", gBattleMoves[gCurrentMove].effect);
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }

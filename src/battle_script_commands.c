@@ -1839,6 +1839,8 @@ static void Cmd_adjustnormaldamage2(void)
 
 static void Cmd_attackanimation(void)
 {
+    DebugPrintf("Cmd_attackanimation");
+
     if (gBattleControllerExecFlags)
         return;
 
@@ -10561,6 +10563,8 @@ void BS_SetStealthRock(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
     u8 targetSide = GetBattlerSide(gBattlerTarget);
+
+    DebugPrintf("BS_SetStealthRock");
 
     if (gSideStatuses[targetSide] & SIDE_STATUS_STEALTH_ROCK)
     {

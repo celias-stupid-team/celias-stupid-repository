@@ -11366,17 +11366,20 @@ Move_REVIVAL_BLESSING:
 	end
 
 Move_TOMBSTONER:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_STEALTH_ROCK
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 24, 24, 30
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_DEF_PARTNER
 	end
 	
 Move_FOLLOW_HIM:
