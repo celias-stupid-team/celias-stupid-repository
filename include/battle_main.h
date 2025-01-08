@@ -2,6 +2,7 @@
 #define GUARD_BATTLE_MAIN_H
 
 #include "constants/abilities.h"
+#include "fpmath.h"
 
 struct TrainerMoney
 {

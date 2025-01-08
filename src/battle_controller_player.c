@@ -2529,16 +2529,28 @@ static void PlayerHandleChoosePokemon(void)
 {
     s32 i;
 
-    gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
-    gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
-    *(&gBattleStruct->battlerPreventingSwitchout) = gBattleBufferA[gActiveBattler][1] >> 4;
-    *(&gBattleStruct->playerPartyIdx) = gBattleBufferA[gActiveBattler][2];
-    *(&gBattleStruct->abilityPreventingSwitchout) = gBattleBufferA[gActiveBattler][3];
-    for (i = 0; i < 3; ++i)
+    for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
-    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
-    gBattlerInMenuId = gActiveBattler;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_ARENA && gPartyMenu.action != PARTY_ACTION_CANT_SWITCH
+        && gPartyMenu.action != PARTY_ACTION_CHOOSE_FAINTED_MON)
+    {
+        BtlController_EmitChosenMonReturnValue(BUFFER_B, gBattlerPartyIndexes[gActiveBattler] + 1, gBattlePartyCurrentOrder);
+        PlayerBufferExecCompleted();
+    }
+    else
+    {
+        gBattleControllerData[gActiveBattler] = CreateTask(TaskDummy, 0xFF);
+        gTasks[gBattleControllerData[gActiveBattler]].data[0] = gBattleBufferA[gActiveBattler][1] & 0xF;
+        *(&gBattleStruct->battlerPreventingSwitchout) = gBattleBufferA[gActiveBattler][1] >> 4;
+        *(&gBattleStruct->playerPartyIdx) = gBattleBufferA[gActiveBattler][2];
+        *(&gBattleStruct->abilityPreventingSwitchout) = gBattleBufferA[gActiveBattler][3];
+        for (i = 0; i < 3; ++i)
+            gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
+        gBattlerInMenuId = gActiveBattler;
+    }
 }
 
 static void PlayerHandleCmd23(void)

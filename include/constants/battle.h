@@ -66,6 +66,9 @@
 #define BATTLE_TYPE_LEGENDARY_FRLG     (1 << 18) // Used in pokeemerald as BATTLE_TYPE_ARENA.
 #define BATTLE_TYPE_TRAINER_TOWER      (1 << 19) // Used in pokeemerald as BATTLE_TYPE_FACTORY.
 #define BATTLE_TYPE_ALOMOMOLA          (1 << 20) // Used for Alomomola special fight
+#define BATTLE_TYPE_INGAME_PARTNER     (1 << 21)
+#define BATTLE_TYPE_TWO_OPPONENTS      (1 << 22)
+#define BATTLE_TYPE_ARENA              (1 << 23)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
@@ -191,6 +194,8 @@
 #define SIDE_STATUS_FUTUREATTACK     (1 << 6)
 #define SIDE_STATUS_MIST             (1 << 8)
 #define SIDE_STATUS_SPIKES_DAMAGED   (1 << 9)
+#define SIDE_STATUS_STEALTH_ROCK     (1 << 10)
+#define SIDE_STATUS_STEALTH_ROCK_DAMAGED (1 << 11)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED             (1 << 0)

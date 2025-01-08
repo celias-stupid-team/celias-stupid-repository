@@ -51,13 +51,13 @@
 #define Q_8_8(n) ((s16)((n) * 256))
 
 // Converts a number from Q8.8 fixed-point format
-#define Q_8_8_TO_INT(n) ((s16)((n) >> 8))
+ #define Q_8_8_TO_INT(n) ((s16)((n) >> 8))
 
 // Converts a number to Q4.12 fixed-point format
 #define Q_4_12(n)  ((s16)((n) * 4096))
 
 // Converts a number from Q4.12 fixed-point format
-#define Q_4_12_TO_INT(n) ((s16)((n) >> 12))
+// #define Q_4_12_TO_INT(n) ((s16)((n) >> 12))
 
 // Converts a number to QN.S fixed-point format (16-bits)
 #define Q_N_S(s, n) ((s16)((n) * (1 << (s))))

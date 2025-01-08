@@ -163,6 +163,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_MINIMIZE, AI_CBM_EvasionUp
 	if_effect EFFECT_CURSE, AI_CBM_Curse
 	if_effect EFFECT_SPIKES, AI_CBM_Spikes
+	if_effect EFFECT_STEALTH_ROCK, AI_CBM_StealthRock
 	if_effect EFFECT_FORESIGHT, AI_CBM_Foresight
 	if_effect EFFECT_PERISH_SONG, AI_CBM_PerishSong
 	if_effect EFFECT_SANDSTORM, AI_CBM_Sandstorm
@@ -444,6 +445,10 @@ AI_CBM_Curse::
 
 AI_CBM_Spikes::
 	if_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, Score_Minus10
+	end
+
+AI_CBM_StealthRock::
+	if_side_affecting AI_TARGET, SIDE_STATUS_STEALTH_ROCK, Score_Minus10
 	end
 
 AI_CBM_Foresight::
