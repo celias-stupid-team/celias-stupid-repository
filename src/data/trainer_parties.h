@@ -4178,7 +4178,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt4[] = {
     {
         .iv = 0,
         .lvl = 100,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
         .moves = {MOVE_TAKE_DOWN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
 
     },
@@ -4188,12 +4188,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt5[] = {
     {
         .iv = 0,
         .lvl = 17,
-        .species = SPECIES_MACHOP,
+        .species = SPECIES_DROWZEE,
     },
     {
         .iv = 0,
         .lvl = 17,
-        .species = SPECIES_DROWZEE,
+        .species = SPECIES_SPEAROW,
     },
 };
 

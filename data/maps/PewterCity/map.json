@@ -283,7 +283,7 @@
     },
     {
       "type": "trigger",
-      "x": 46,
+      "x": 45,
       "y": 23,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PEWTER_CITY",
@@ -292,7 +292,7 @@
     },
     {
       "type": "trigger",
-      "x": 45,
+      "x": 46,
       "y": 23,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_PEWTER_CITY",

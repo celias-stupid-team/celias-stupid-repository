@@ -2187,7 +2187,7 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA)
+    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE)
     {
         if (currentHP != 0 || oldMaxHP == 0)
             currentHP = 1;
