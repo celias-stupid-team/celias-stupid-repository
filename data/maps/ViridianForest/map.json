@@ -384,7 +384,7 @@
       "elevation": 0,
       "var": "VAR_CSR_CELIA_IN_FOREST",
       "var_value": "0",
-      "script": "NULL"
+      "script": "ViridianForest_EventScript_CeliaChecksDex"
     },
     {
       "type": "trigger",
@@ -393,7 +393,7 @@
       "elevation": 0,
       "var": "VAR_CSR_CELIA_IN_FOREST",
       "var_value": "0",
-      "script": "NULL"
+      "script": "ViridianForest_EventScript_CeliaChecksDex"
     },
     {
       "type": "trigger",

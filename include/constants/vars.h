@@ -271,7 +271,7 @@ It is reset after every battle.
 #define VAR_FRONTIER_FACILITY      0x40CF
 //Photo Man Vars
 // Photos have been cancelled!
-#define VAR_CSR_UNUSED                 0x40D0
+#define VAR_CSR_CELIA_SECRET_NEXT_HINT                 0x40D0
 #define VAR_CSR_CURRENT_CELIA_SECRET                 0x40D1
 #define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
 #define VAR_0x40D3                 0x40D3

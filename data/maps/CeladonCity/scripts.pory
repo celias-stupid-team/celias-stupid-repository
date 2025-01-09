@@ -2,9 +2,7 @@ raw `
 .set LOCALID_FAT_MAN,   2
 .set LOCALID_POLIWRATH, 3
 
-CeladonCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, CeladonCity_OnTransition
-	.byte 0
+
 
 CeladonCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CELADON_CITY
@@ -105,6 +103,113 @@ CeladonCity_EventScript_GameCornerSign::
 	msgbox CeladonCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 `
+
+const CELIA = 15
+mapscripts CeladonCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CeladonCity_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_CSR_CURRENT_CELIA_SECRET, 5: {
+			lock
+			delay(90)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			delay(40)
+			playse(SE_EXIT)
+			setobjectxy(CELIA, 30, 11)
+			applymovement(CELIA, Celadon_CeliaComesOut)
+			waitmovement(0)
+			delay(10)
+			playse(SE_SELECT)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("Uh, hi!\nI'm CELIA, the creator.\pHey, good job getting to the top\nof those stairs!\pI did it the old fashioned way by\njust collecting 70 Power Stars.\lIt took me forever!", MSGBOX_DEFAULT)
+			msgbox("Anyway...\pYou seem to be someone who likes to\ntry stuff to see what happens.\lI have another idea for you...", MSGBOX_DEFAULT)
+			setflag(FLAG_CELIA_SECRET_CELADON)
+			call(CeliaSecrets_CeliaTellsYouNextHint)
+			applymovement(CELIA, Celadon_CeliaLeaves)
+			waitmovement(0)
+			removeobject(CELIA)
+			setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
+			release
+			end
+		}
+	]
+}
+
+
+const CELIA_SECRET_VIRIDIAN = 0
+const CELIA_SECRET_PEWTER = 1
+const CELIA_SECRET_CERULEAN = 2
+const CELIA_SECRET_VERMILION = 3
+const CELIA_SECRET_LAVENDER = 4
+const CELIA_SECRET_CELADON = 5
+const CELIA_SECRET_FUCHSIA = 6
+
+script CeliaSecrets_CeliaTellsYouNextHint {
+	call(CeliaSecrets_GetNextHint)
+	switch(var(VAR_CSR_CELIA_SECRET_NEXT_HINT)) {
+		case CELIA_SECRET_VIRIDIAN: //implemented!
+			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)
+		case CELIA_SECRET_PEWTER:
+
+		case CELIA_SECRET_CERULEAN:
+			msgbox("There's a hidden back room in\nCERULEAN GYM.\pNow that you've found all my secrets\nhidden across KANTO, meet me there.\lI have something to show you.", MSGBOX_DEFAULT)
+		case CELIA_SECRET_VERMILION: //implemented!!
+			msgbox("The trash can puzzle in VERMILLION\nGYM looked incredibly complicated.\lThank goodness for the power outage!", MSGBOX_DEFAULT)
+		case CELIA_SECRET_LAVENDER:
+			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the TRAINER SCHOOL?", MSGBOX_DEFAULT)
+		case CELIA_SECRET_CELADON: //implemented!!
+			msgbox("Man, that staircase in the back of\nthe CELADON MANSION went on forever!\pCan't you skip staircases like\nthat with a speedrunning technique?\lI wonder how you could do that here.", MSGBOX_DEFAULT)
+		case CELIA_SECRET_FUCHSIA:
+
+	}
+	return
+}
+
+script CeliaSecrets_GetNextHint {
+	switch(var(VAR_CSR_CURRENT_CELIA_SECRET)) {
+		case CELIA_SECRET_VIRIDIAN:
+			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+				setvar(var(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON))
+				return
+			}
+		case CELIA_SECRET_PEWTER:
+		case CELIA_SECRET_CERULEAN:
+		case CELIA_SECRET_VERMILION:
+		case CELIA_SECRET_LAVENDER:
+		case CELIA_SECRET_CELADON:
+		case CELIA_SECRET_FUCHSIA:
+	}
+	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+	return
+}
+
+
+
+
+movement Celadon_CeliaComesOut {
+	set_visible
+	delay_8
+	walk_down
+	face_down
+	delay_16 * 5
+	walk_slow_down
+	face_down
+}
+
+movement Celadon_CeliaLeaves {
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_left
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+}
+
+
 script CeradonCity_EventScript_LittleGirl {
 	msgbox("Uh hum.\pI sure am glad that was\na warp and not a freefall!", MSGBOX_NPC)
 	end

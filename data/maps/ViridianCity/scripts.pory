@@ -459,7 +459,7 @@ script ViridianCity_Gambler_GoesHome {
 	msgbox("Anyway...\pYou seem to be the sort who enjoys\ndoing sidequests.\lHow about I show you another?", MSGBOX_DEFAULT)
 	setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
 	setflag(FLAG_CELIA_SECRET_VIRIDIAN)
-	//Celia Sidequests called
+	call(CeliaSecrets_CeliaTellsYouNextHint)
 	msgbox("Anyway, I have to head out now.\pGood luck, and see ya later!\n", MSGBOX_DEFAULT)
 	applymovement(CELIA, ViridianCity_CeliaAbsconds)
 	waitmovement(0)

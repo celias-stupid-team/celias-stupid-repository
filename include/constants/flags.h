@@ -800,6 +800,10 @@
 #define FLAG_CELIA_SECRET_LAVENDER                                       0x2E9 //4
 #define FLAG_CELIA_SECRET_CELADON                                       0x2EA //5
 #define FLAG_CELIA_SECRET_FUCHSIA                                       0x2EB //6
+
+
+
+
 #define FLAG_REVIVED_DOME                                0x2EC
 #define FLAG_REVIVED_HELIX                               0x2ED
 #define FLAG_REVIVED_AMBER                               0x2EE

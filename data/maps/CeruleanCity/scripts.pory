@@ -956,7 +956,7 @@ script CeruleanCity_PhotoMan {
 	waitmovement(0)
 	setobjectxy(PHOTOMAN, 14, 31)
 	fadedefaultbgm
-	setvar(VAR_CSR_UNUSED, 1)
+	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, 1)
 	release
 }
 

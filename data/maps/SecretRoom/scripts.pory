@@ -52,22 +52,20 @@ script PeachSecretRoom_FallDown {
     setmetatile(5, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
     setmetatile(6, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
     setmetatile(7, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
-
-    //Something here breaks idk
     special(DrawWholeMapView)
     special(SpawnCameraObject)
     delay(130)
     playse(SE_FALL)
-    //applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomDescent)
-    //setvar(VAR_CSR_CURRENT_CELIA_SECRET, 5)
-    //delay(60)
-    //setobjectxy(OBJ_EVENT_ID_PLAYER, 30, 14)
-    //special(RemoveCameraObject)
-    //warphole(MAP_FOUR_ISLAND_ICEFALL_CAVE_B1F)
+    applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomDescent)
+    setvar(VAR_CSR_CURRENT_CELIA_SECRET, 5)
+    delay(60)
+    setobjectxy(OBJ_EVENT_ID_PLAYER, 30, 14)
+    special(RemoveCameraObject)
+    warphole(MAP_CELADON_CITY)
     release
 }
 
-script PeachRoomFallDownHole {
+movement PeachRoomFallDownHole {
     walk_in_place_up
     walk_in_place_up
     walk_in_place_slow_up
@@ -76,7 +74,7 @@ script PeachRoomFallDownHole {
     face_up
 }
 
-script PeachRoomDescent { //copied from binary; not gonna bother counting
+movement PeachRoomDescent { //copied from binary; not gonna bother counting
     face_up
     lock_facing_direction
     slide_down
