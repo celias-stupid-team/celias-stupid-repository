@@ -108,7 +108,7 @@ const CELIA = 15
 mapscripts CeladonCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: CeladonCity_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_CSR_CURRENT_CELIA_SECRET, 5: {
+		VAR_CSR_CURRENT_CELIA_SECRET, 5 {
 			lock
 			delay(90)
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
