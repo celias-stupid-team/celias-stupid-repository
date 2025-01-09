@@ -415,9 +415,9 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MYSTIC_SEAL]     = {gItemIcon_MysticSeal, gItemIconPalette_MysticSeal},
     [ITEM_INSTINCT_SEAL]   = {gItemIcon_InstinctSeal, gItemIconPalette_InstinctSeal},
     [ITEM_VALOR_SEAL]   = {gItemIcon_ValorSeal, gItemIconPalette_ValorSeal},
-    [ITEM_W_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_L_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_P_EMBLEM]   = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_W_EMBLEM]   = {gItemIcon_WEmblem, gItemIconPalette_WEmblem},
+    [ITEM_L_EMBLEM]   = {gItemIcon_LEmblem, gItemIconPalette_LEmblem},
+    [ITEM_P_EMBLEM]   = {gItemIcon_PEmblem, gItemIconPalette_PEmblem},
     [ITEM_GS_BALL]      = {gItemIcon_PokeBall, gItemIconPalette_GSBall},
 
     [ITEM_WATER_ENERGY]      = {gItemIcon_WaterEnergy, gItemIconPalette_WaterEnergy},

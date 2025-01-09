@@ -1,5 +1,5 @@
 Route6_Text_RickyIntro::
-    .string "Whipster…\p"
+    .string "Whisper…\p"
     .string "This POKéMON leaked early!\n"
     .string "It's gonna be in the new game!\p"
     .string "…Huh? Hey, stop eavesdropping!$"
@@ -12,7 +12,7 @@ Route6_Text_RickyPostBattle::
     .string "Whisper…$"
 
 Route6_Text_NancyIntro::
-    .string "Whipster…\p"
+    .string "Whisper…\p"
     .string "Did you hear? LUVDISC is gonna\n"
     .string "be able to evolve!$"
 
@@ -21,10 +21,10 @@ Route6_Text_NancyDefeat::
     .string "I hate losing.$"
 
 Route6_Text_NancyPostBattle::
-    .string "Whipster…\p"
+    .string "Whisper…\p"
     .string "…Oh? ALOMOMOLA is showing up in\n"
     .string "your POKéDEX?\l"
-    .string "I wonder why.$"
+    .string "Neat!$"
 
 Route6_Text_KeigoIntro::
     .string "I'm supposed to have a BUTTERFREE,\n"

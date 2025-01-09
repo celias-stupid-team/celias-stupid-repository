@@ -56,7 +56,7 @@ static const u16 sDexAreas_Kanto[][2] = {
     { MAPSEC_ROUTE_18,            DEX_AREA_ROUTE_18 },
     { MAPSEC_GREAT_SEA,            DEX_AREA_ROUTE_19 },
     { MAPSEC_ROUTE_20,            DEX_AREA_ROUTE_20 },
-    { MAPSEC_ROUTE_21,            DEX_AREA_ROUTE_21 },
+    { MAPSEC_GREAT_BAY,            DEX_AREA_ROUTE_21 },
     { MAPSEC_ROUTE_22,            DEX_AREA_ROUTE_22 },
     { MAPSEC_ROUTE_23,            DEX_AREA_ROUTE_23 },
     { MAPSEC_ROUTE_24,            DEX_AREA_ROUTE_24 },

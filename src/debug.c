@@ -3714,6 +3714,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_DMCA_ADMIN) \
     X(MUS_CSR_SECRET_TUNNEL) \
     X(MUS_CSR_MT_MOON_SQUARE) \
+    X(MUS_CSR_CLEFAIRY_DANCE) \
 
 
 #define SOUND_LIST_SE \

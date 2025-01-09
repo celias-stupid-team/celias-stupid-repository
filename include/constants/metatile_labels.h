@@ -80,6 +80,12 @@
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 
+// gTileset_GenericBuilding2
+#define METATILE_GenericBuilding2_MeltedGuardCounter        0x356
+#define METATILE_GenericBuilding2_MeltedGuardCounterCorner  0x357
+#define METATILE_GenericBuilding2_MeltedGuardFloor          0x35E
+#define METATILE_GenericBuilding2_MeltedGuardFloor_Shade    0x35F
+
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x29D
 #define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x295

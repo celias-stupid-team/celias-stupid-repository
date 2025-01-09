@@ -10,8 +10,9 @@ mapscripts SecretTunnel_MapScripts {
                 
                 clearflag(FLAG_CSR_SPEEDRUN_CAVE)
                 waitmovement(0)
-                release
+                
             }
+            release
         }
     ]
         

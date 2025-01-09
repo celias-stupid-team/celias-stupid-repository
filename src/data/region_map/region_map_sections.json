@@ -267,7 +267,7 @@
       "height": 4
     },
     {
-      "map_section": "MAPSEC_ROUTE_21",
+      "map_section": "MAPSEC_GREAT_BAY",
       "name": "GREAT BAY",
       "x": 12,
       "y": 8,
@@ -540,8 +540,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SEVII_ISLE_6",
-      "name": "SEVII ISLE 6",
+      "map_section": "MAPSEC_DECAMARK",
+      "name": "???",
       "x": 4,
       "y": 3,
       "width": 1,
