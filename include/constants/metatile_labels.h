@@ -185,6 +185,13 @@
 #define METATILE_PokemonMansion_Wall_EndPost_Bottom                      0x2AD
 #define METATILE_PokemonMansion_Wall_EndPost_Mid                         0x2A5
 
+// gTileset_RestaurantHotel
+#define METATILE_RestaurantHotel_BottomEdge           0x2E9
+#define METATILE_RestaurantHotel_BottomEdgeShaded     0x2EA
+#define METATILE_RestaurantHotel_CoveringFloor        0x2EB
+#define METATILE_RestaurantHotel_CoveringFloorShaded  0x2EC
+#define METATILE_RestaurantHotel_TopEdge              0x2E8
+
 // gTileset_SSAnne
 #define METATILE_SSAnne_Door  0x281
 

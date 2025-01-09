@@ -4552,8 +4552,8 @@
     {
       "id": "LAYOUT_SECRET_ROOM",
       "name": "SecretRoom_Layout",
-      "width": 9,
-      "height": 13,
+      "width": 31,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

@@ -2,7 +2,7 @@
   "id": "MAP_SECRET_ROOM",
   "name": "SecretRoom",
   "layout": "LAYOUT_SECRET_ROOM",
-  "music": "MUS_DUMMY",
+  "music": "MUS_CSR_CASTLE",
   "region_map_section": "MAPSEC_CELADON_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -30,11 +30,65 @@
     {
       "type": "trigger",
       "x": 1,
-      "y": 5,
+      "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PeachSecretRoom_FallDown"
     }
   ],
   "bg_events": [
