@@ -269,9 +269,9 @@
 	.byte \battler
 	.endm
 
-	@ unused
-	.macro get_considered_move
+	.macro get_fainted_mons battler:req
 	.byte 0x2d
+	.byte \battler
 	.endm
 
 	.macro get_considered_move_effect

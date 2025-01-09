@@ -87,7 +87,7 @@ static void Cmd_if_would_not_go_first(void);
 static void Cmd_nullsub_2A(void);
 static void Cmd_nullsub_2B(void);
 static void Cmd_count_alive_pokemon(void);
-static void Cmd_get_considered_move(void);
+static void Cmd_get_fainted_mons(void);
 static void Cmd_get_considered_move_effect(void);
 static void Cmd_get_ability(void);
 static void Cmd_get_highest_type_effectiveness(void);
@@ -191,7 +191,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_nullsub_2A,                       // 0x2A
     Cmd_nullsub_2B,                       // 0x2B
     Cmd_count_alive_pokemon,              // 0x2C
-    Cmd_get_considered_move,              // 0x2D
+    Cmd_get_fainted_mons,                 // 0x2D
     Cmd_get_considered_move_effect,       // 0x2E
     Cmd_get_ability,                      // 0x2F
     Cmd_get_highest_type_effectiveness,   // 0x30
@@ -1135,10 +1135,18 @@ static void Cmd_count_alive_pokemon(void)
     sAIScriptPtr += 2;
 }
 
-static void Cmd_get_considered_move(void)
+static void Cmd_get_fainted_mons(void)
 {
-    AI_THINKING_STRUCT->funcResult = AI_THINKING_STRUCT->moveConsidered;
-    sAIScriptPtr += 1;
+    u8 battlerId;
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+
+    AI_THINKING_STRUCT->funcResult = GetFirstFaintedPartyIndex(battlerId);
+    
+    sAIScriptPtr += 2;
 }
 
 static void Cmd_get_considered_move_effect(void)

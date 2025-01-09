@@ -6,6 +6,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/hold_effects.h"
 #include "constants/pokemon.h"
+#include "constants/global.h"
 	.include "asm/macros/battle_ai_script.inc"
 
 	.section script_data, "aw", %progbits
@@ -213,6 +214,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CBM_Substitute
+	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	end
 
 AI_CBM_Sleep::
@@ -608,6 +610,11 @@ AI_CBM_DragonDance::
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
 	end
 
+AI_CBM_RevivalBlessing::
+	get_fainted_mons AI_USER
+	if_equal PARTY_SIZE, Score_Minus10
+	end
+
 Score_Minus1::
 	score -1
 	end
@@ -781,6 +788,7 @@ AI_CheckViability::
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
+	if_Effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	end
 
 AI_CV_Sleep::
@@ -2770,6 +2778,11 @@ AI_CV_DragonDance2::
 	score +1
 
 AI_CV_DragonDance_End::
+	end
+
+AI_CV_RevivalBlessing::
+	get_fainted_mons AI_USER
+	if_not_equal PARTY_SIZE, Score_Plus3
 	end
 
 AI_TryToFaint::
