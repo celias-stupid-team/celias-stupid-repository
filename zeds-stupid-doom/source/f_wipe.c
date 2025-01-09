@@ -51,10 +51,6 @@
 extern short* wipe_y_lookup;
 
 
-#ifdef GBA
-    #include <gba.h>
-#endif
-
 //
 // SCREEN WIPE PACKAGE
 //

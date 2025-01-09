@@ -21,19 +21,17 @@ extern "C"
     #include "global_data.h"
 
     #include "tables.h"
+
+    #include "gba/gba.h"
+    #include "constants/rgb.h"
 }
 
 #include "i_system_e32.h"
 
 #include "lprintf.h"
 
-#include <gba.h>
-#include <gba_input.h>
-#include <gba_timers.h>
-
-#include <maxmod.h>
-
-#define DCNT_PAGE 0x0010
+#define DISPCNT_PAGE 0x0010
+#define DISPCNT_UNLOCK_HBLANK 0x0020
 
 #define VID_PAGE1 VRAM
 #define VID_PAGE2 0x600A000
@@ -44,35 +42,15 @@ extern "C"
 #define TM_FREQ_1024 0x0003
 #define TM_FREQ_256 0x0002
 
-#define REG_WAITCNT	*((vu16 *)(0x4000204))
-
 
 //**************************************************************************************
 
-
-//*******************************************************************************
-//VBlank handler.
-//*******************************************************************************
-
-void VBlankCallback()
-{
-    mmVBlank();
-    mmFrame();
-}
-
-
 void I_InitScreen_e32()
 {
-    irqInit();
-
-    irqSet( IRQ_VBLANK, VBlankCallback );
-    irqEnable(IRQ_VBLANK);
-
+    // TODO: Add back VBlank interrupt handler
 
     //Set gamepak wait states and prefetch.
     REG_WAITCNT = 0x46DA;
-
-    consoleDemoInit();
 
     REG_TM2CNT_L= 65535-1872;     // 1872 ticks = 1/35 secs
     REG_TM2CNT_H = TM_FREQ_256 | TM_ENABLE;       // we're using the 256 cycle timer
@@ -99,139 +77,139 @@ void I_StartWServEvents_e32()
 
 void I_PollWServEvents_e32()
 {
-    scanKeys();
-
-    u16 key_down = keysDown();
+    u16 down = REG_KEYINPUT ^ KEYS_MASK;
+    u16 pressed = down & (_g->gbakeys ^ KEYS_MASK);
+    u16 released = (down ^ KEYS_MASK) & _g->gbakeys;
 
     event_t ev;
 
-    if(key_down)
+    if(pressed)
     {
         ev.type = ev_keydown;
 
-        if(key_down & KEY_UP)
+        if(pressed & DPAD_UP)
         {
             ev.data1 = KEYD_UP;
             D_PostEvent(&ev);
         }
-        else if(key_down & KEY_DOWN)
+        else if(pressed & DPAD_DOWN)
         {
             ev.data1 = KEYD_DOWN;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_LEFT)
+        if(pressed & DPAD_LEFT)
         {
             ev.data1 = KEYD_LEFT;
             D_PostEvent(&ev);
         }
-        else if(key_down & KEY_RIGHT)
+        else if(pressed & DPAD_RIGHT)
         {
             ev.data1 = KEYD_RIGHT;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_SELECT)
+        if(pressed & SELECT_BUTTON)
         {
             ev.data1 = KEYD_SELECT;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_START)
+        if(pressed & START_BUTTON)
         {
             ev.data1 = KEYD_START;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_A)
+        if(pressed & A_BUTTON)
         {
             ev.data1 = KEYD_A;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_B)
+        if(pressed & B_BUTTON)
         {
             ev.data1 = KEYD_B;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_L)
+        if(pressed & L_BUTTON)
         {
             ev.data1 = KEYD_L;
             D_PostEvent(&ev);
         }
 
-        if(key_down & KEY_R)
+        if(pressed & R_BUTTON)
         {
             ev.data1 = KEYD_R;
             D_PostEvent(&ev);
         }
     }
 
-    u16 key_up = keysUp();
-
-    if(key_up)
+    if(released)
     {
         ev.type = ev_keyup;
 
-        if(key_up & KEY_UP)
+        if(released & DPAD_UP)
         {
             ev.data1 = KEYD_UP;
             D_PostEvent(&ev);
         }
-        else if(key_up & KEY_DOWN)
+        else if(released & DPAD_DOWN)
         {
             ev.data1 = KEYD_DOWN;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_LEFT)
+        if(released & DPAD_LEFT)
         {
             ev.data1 = KEYD_LEFT;
             D_PostEvent(&ev);
         }
-        else if(key_up & KEY_RIGHT)
+        else if(released & DPAD_RIGHT)
         {
             ev.data1 = KEYD_RIGHT;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_SELECT)
+        if(released & SELECT_BUTTON)
         {
             ev.data1 = KEYD_SELECT;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_START)
+        if(released & START_BUTTON)
         {
             ev.data1 = KEYD_START;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_A)
+        if(released & A_BUTTON)
         {
             ev.data1 = KEYD_A;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_B)
+        if(released & B_BUTTON)
         {
             ev.data1 = KEYD_B;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_L)
+        if(released & L_BUTTON)
         {
             ev.data1 = KEYD_L;
             D_PostEvent(&ev);
         }
 
-        if(key_up & KEY_R)
+        if(released & R_BUTTON)
         {
             ev.data1 = KEYD_R;
             D_PostEvent(&ev);
         }
     }
+
+    _g->gbakeys = down;
 }
 
 //**************************************************************************************
@@ -245,7 +223,7 @@ void I_ClearWindow_e32()
 
 unsigned short* I_GetBackBuffer()
 {
-    if(REG_DISPCNT & DCNT_PAGE)
+    if(REG_DISPCNT & DISPCNT_PAGE)
         return (unsigned short*)VID_PAGE1;
 
     return (unsigned short*)VID_PAGE2;
@@ -255,7 +233,7 @@ unsigned short* I_GetBackBuffer()
 
 unsigned short* I_GetFrontBuffer()
 {
-    if(REG_DISPCNT & DCNT_PAGE)
+    if(REG_DISPCNT & DISPCNT_PAGE)
         return (unsigned short*)VID_PAGE2;
 
     return (unsigned short*)VID_PAGE1;
@@ -265,9 +243,8 @@ unsigned short* I_GetFrontBuffer()
 
 void I_CreateWindow_e32()
 {
-
     //Bit5 = unlocked vram at h-blank.
-    SetMode(MODE_4 | BG2_ENABLE | BIT(5));
+    REG_DISPCNT = DISPCNT_MODE_4 | DISPCNT_BG2_ON | DISPCNT_UNLOCK_HBLANK;
 
     unsigned short* bb = I_GetBackBuffer();
 
@@ -294,7 +271,7 @@ void I_CreateBackBuffer_e32()
 
 void I_FinishUpdate_e32(const byte* srcBuffer, const byte* pallete, const unsigned int width, const unsigned int height)
 {
-    REG_DISPCNT ^= DCNT_PAGE;
+    REG_DISPCNT ^= DISPCNT_PAGE;
 }
 
 //**************************************************************************************
@@ -309,7 +286,7 @@ void I_SetPallete_e32(const byte* pallete)
         unsigned int g = *pallete++;
         unsigned int b = *pallete++;
 
-        pal_ram[i] = RGB5(r >> 3, g >> 3, b >> 3);
+        pal_ram[i] = RGB(r >> 3, g >> 3, b >> 3);
     }
 }
 
@@ -342,8 +319,6 @@ void I_ProcessKeyEvents()
 
 void I_Error (const char *error, ...)
 {
-    consoleDemoInit();
-
     char msg[MAX_MESSAGE_SIZE];
 
     va_list v;
@@ -353,7 +328,11 @@ void I_Error (const char *error, ...)
 
     va_end(v);
 
+#ifdef GBA
+	DebugPrintf("%s", msg);
+#else
     printf("%s", msg);
+#endif
 
     while(true)
     {

@@ -185,6 +185,8 @@ int             longtics;
 boolean gamekeydown[NUMKEYS];
 int     turnheld;       // for accelerative turning
 
+short gbakeys;
+
 gamestate_t prevgamestate;
 
 skill_t d_skill;

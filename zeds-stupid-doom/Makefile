@@ -23,7 +23,7 @@ include $(DEVKITARM)/gba_rules
 TARGET		:= $(notdir $(CURDIR))
 BUILD		:= build
 SOURCES		:= source
-INCLUDES	:= include
+INCLUDES	:= include ../include ..
 DATA		:= data
 MUSIC		:= music
 
@@ -48,26 +48,25 @@ CFLAGS	:=	-g -Wall -O3 -fgcse-after-reload -gdwarf-4\
                 -mcpu=arm7tdmi -mtune=arm7tdmi -flto=8\
                 -fallow-store-data-races -fpermissive\
                 -DGBA\
-		$(ARCH)
-
-CFLAGS	+=	$(INCLUDE)
+				$(ARCH)\
+				$(INCLUDE)
 
 CXXFLAGS	:=	$(CFLAGS) -fno-rtti -fno-exceptions
 
-ASFLAGS	:=	-g $(ARCH)
+ASFLAGS	:=	-g $(ARCH) $(subst -iquote,-I,$(INCLUDE))
+
 LDFLAGS	=	-g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lmm -lgba
-
+LIBS	:=
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=	$(LIBGBA)
+LIBDIRS	:=
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -90,6 +89,12 @@ CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
 BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
+
+# Add source files from Celia's Stupid Romhack
+# FIXME: We shouldn't need to build these ourselves once we integrate this fully.
+VPATH += $(CURDIR)/../src
+CFILES += isagbprn.c
+SFILES += libagbsyscall.s
 
 ifneq ($(strip $(MUSIC)),)
 	export AUDIOFILES	:=	$(foreach dir,$(notdir $(wildcard $(MUSIC)/*.*)),$(CURDIR)/$(MUSIC)/$(dir))

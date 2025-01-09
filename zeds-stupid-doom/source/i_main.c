@@ -61,6 +61,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef GBA
+    #include "gba/gba.h"
+#endif
+
 /* Most of the following has been rewritten by Lee Killough
  *
  * I_GetTime
@@ -70,6 +74,9 @@
 
 void I_Init(void)
 {
+#ifdef GBA
+    DebugInit();
+#endif
     if (!(nomusicparm && nosfxparm))
         I_InitSound();
 }

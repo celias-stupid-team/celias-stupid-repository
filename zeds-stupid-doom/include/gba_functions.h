@@ -6,8 +6,7 @@
 #include "m_fixed.h"
 
 #ifdef GBA
-    #include <gba_systemcalls.h>
-    #include <gba_dma.h>
+    #include "gba/gba.h"
 #endif
 
 
@@ -25,9 +24,7 @@ inline static CONSTFUNC int IDiv32 (int a, int b)
 inline static void BlockCopy(void* dest, const void* src, const unsigned int len)
 {
 #ifdef GBA
-    const int words = len >> 2;
-
-    DMA3COPY(src, dest, DMA_DST_INC | DMA_SRC_INC | DMA32 | DMA_IMMEDIATE | words)
+    DMA_COPY(3, src, dest, len, 32);
 #else
     memcpy(dest, src, len & 0xfffffffc);
 #endif
@@ -37,7 +34,6 @@ inline static void CpuBlockCopy(void* dest, const void* src, const unsigned int 
 {
 #ifdef GBA
     const unsigned int words = len >> 2;
-
     CpuFastSet(src, dest, words);
 #else
     BlockCopy(dest, src, len);
@@ -47,9 +43,7 @@ inline static void CpuBlockCopy(void* dest, const void* src, const unsigned int 
 inline static void BlockSet(void* dest, volatile unsigned int val, const unsigned int len)
 {
 #ifdef GBA
-    const int words = len >> 2;
-
-    DMA3COPY(&val, dest, DMA_SRC_FIXED | DMA_DST_INC | DMA32 | DMA_IMMEDIATE | words)
+    DMA_FILL(3, val, dest, len, 32);
 #else
     memset(dest, val, len & 0xfffffffc);
 #endif

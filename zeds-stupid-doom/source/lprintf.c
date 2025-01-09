@@ -46,6 +46,10 @@
 #include "lprintf.h"
 #include "i_main.h"
 
+#ifdef GBA
+    #include "gba/gba.h"
+#endif
+
 /* cphipps - enlarged message buffer and made non-static
  * We still have to be careful here, this function can be called after exit
  */
@@ -62,9 +66,11 @@ int lprintf(OutputLevels pri, const char *s, ...)
 	
 	va_end(v);
 
-    int len = strlen(msg);
-
+#ifdef GBA
+	DebugPrintf("%s\n", msg);
+#else
     printf("%s\n", msg);
+#endif
 
     return 0;
 }
