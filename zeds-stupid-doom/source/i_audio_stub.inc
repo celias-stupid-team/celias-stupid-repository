@@ -32,8 +32,44 @@
  *-----------------------------------------------------------------------------
  */
 
-#ifdef GBA
-    #include "i_audio_gba.inc"
-#else
-    #include "i_audio_stub.inc"
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
 #endif
+
+#include "i_sound.h"
+#include "lprintf.h"
+
+
+int I_StartSound(int id, int channel, int vol, int sep)
+{
+	if ((channel < 0) || (channel >= MAX_CHANNELS))
+		return -1;
+
+	return channel;
+}
+
+void I_InitSound(void)
+{
+    lprintf(LO_INFO,"I_InitSound: sound unavailable");
+}
+
+void I_PlaySong(int handle, int looping)
+{
+}
+
+void I_PauseSong (int handle)
+{
+}
+
+void I_ResumeSong (int handle)
+{
+}
+
+void I_StopSong(int handle)
+{
+}
+
+void I_SetMusicVolume(int volume)
+{
+}
