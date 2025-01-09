@@ -4738,7 +4738,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_OPPONENTS_FIELD,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_MAGIC_COAT_AFFECTED
     },
 
     [MOVE_FOLLOW_HIM] =    {
