@@ -386,6 +386,105 @@
       "var": "VAR_TEMP_3",
       "var_value": "0",
       "script": "LavenderTown_MusicGoesAway"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "CommonScript_EmptyPail"
     }
   ],
   "bg_events": [

@@ -149,7 +149,7 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 		case CELIA_SECRET_VIRIDIAN: //implemented!
 			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)
 		case CELIA_SECRET_PEWTER:
-
+			
 		case CELIA_SECRET_CERULEAN:
 			msgbox("There's a hidden back room in\nCERULEAN GYM.\pNow that you've found all my secrets\nhidden across KANTO, meet me there.\lI have something to show you.", MSGBOX_DEFAULT)
 		case CELIA_SECRET_VERMILION: //implemented!!
@@ -168,27 +168,167 @@ script CeliaSecrets_GetNextHint {
 	switch(var(VAR_CSR_CURRENT_CELIA_SECRET)) {
 
 
-		case CELIA_SECRET_VIRIDIAN: //Celadon, Vermilion, Pewter, Lavender, Fuchsia, Cerulean
+		case CELIA_SECRET_VIRIDIAN: //Celadon, Vermilion, Pewter, Fuchsia, Lavender, Cerulean
 			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
 				return
 			}
-		case CELIA_SECRET_PEWTER: //Viridian, Celadon, Vermilion, Lavender, Fuchsia, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
+		case CELIA_SECRET_PEWTER: //Viridian, Celadon, Vermilion, Fuchsia, Lavender, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
 
 
 		case CELIA_SECRET_CERULEAN:
 
 
-		case CELIA_SECRET_VERMILION:
+		case CELIA_SECRET_VERMILION: //Viridian, Celadon, Pewter, Fuchsia, Lavender, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
 
 
-		case CELIA_SECRET_LAVENDER:
+		case CELIA_SECRET_LAVENDER: //Viridian, Celadon, Vermilion, Pewter, Fuchsia, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
 
 
-		case CELIA_SECRET_CELADON:
+		case CELIA_SECRET_CELADON: //Viridian, Vermilion, Pewter, Fuchsia, Lavender, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
 
 
-		case CELIA_SECRET_FUCHSIA:
+		case CELIA_SECRET_FUCHSIA: //Viridian, Celadon, Vermilion, Pewter, Lavender, Cerulean
+			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				return
+			}
+			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+				return
+			}
 	}
 	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
 	return
