@@ -457,6 +457,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_SUBMARINE_SHADOW         0x111B
 #define OBJ_EVENT_PAL_TAG_BENCH                       0x111B
 #define OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC              0x111C
+#define OBJ_EVENT_PAL_TAG_CELIA              0x111D
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -489,6 +490,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_ALOLAN_GROWLITHE},
     {gObjectEventPal_Bench,                   OBJ_EVENT_PAL_TAG_BENCH},
     {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_RED_NPC},
+    {gObjectEventPal_Celia,                  OBJ_EVENT_PAL_TAG_CELIA},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
