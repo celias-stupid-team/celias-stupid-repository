@@ -686,8 +686,6 @@ void CB2_BattleDebugMenu(void)
     u8 taskId;
     struct BattleDebugMenu *data;
 
-    DebugPrintfLevel(MGBA_LOG_WARN, "CB2_BattleDebugMenu");
-
     switch (gMain.state)
     {
     default:

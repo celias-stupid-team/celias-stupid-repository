@@ -1839,8 +1839,6 @@ static void Cmd_adjustnormaldamage2(void)
 
 static void Cmd_attackanimation(void)
 {
-    DebugPrintf("Cmd_attackanimation");
-
     if (gBattleControllerExecFlags)
         return;
 
@@ -10481,7 +10479,8 @@ void BS_TryRevivalBlessing(void)
     u32 side = GetBattlerSide(gBattlerAttacker);
     u8 index = GetFirstFaintedPartyIndex(gBattlerAttacker);
 
-    DebugPrintf("first fainted index: %d", index);
+    //wiz1989 REMINDER: Important for any battleController ports from expansion!!!
+    gActiveBattler = gBattlerAttacker;
 
     // Move fails if there are no battlers to revive.
     if (index == PARTY_SIZE)
@@ -10491,13 +10490,13 @@ void BS_TryRevivalBlessing(void)
     }
 
     // Battler selected! Revive and go to next instruction.
-    DebugPrintf("selected mon = %d", gSelectedMonPartyId);
+    //DebugPrintf("selected mon = %d", gSelectedMonPartyId);
     if (gSelectedMonPartyId != PARTY_SIZE)
     {
         struct Pokemon *party = GetSideParty(side);
 
         u16 hp = GetMonData(&party[gSelectedMonPartyId], MON_DATA_MAX_HP) / 2;
-        DebugPrintf("dest HP: %d", hp);
+        //DebugPrintf("dest HP: %d", hp);
         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HP_BATTLE, 1u << gSelectedMonPartyId, sizeof(hp), &hp);
         MarkBattlerForControllerExec(gBattlerAttacker);
         PREPARE_SPECIES_BUFFER(gBattleTextBuff1, GetMonData(&party[gSelectedMonPartyId], MON_DATA_SPECIES));
@@ -10519,10 +10518,7 @@ void BS_TryRevivalBlessing(void)
     else
     {
         // Open party menu, wait to go to next instruction.
-        DebugPrintf("Open party menu");
-        //gPartyMenu.action = PARTY_ACTION_CHOOSE_FAINTED_MON;
-        //BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_FAINTED_MON, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gBattlerAttacker]);
-        BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_MON, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gBattlerAttacker]);
+        BtlController_EmitChoosePokemon(BUFFER_A, PARTY_ACTION_CHOOSE_FAINTED_MON, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gBattlerAttacker]);
         MarkBattlerForControllerExec(gBattlerAttacker);
     }
 }
@@ -10569,8 +10565,6 @@ void BS_SetStealthRock(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
     u8 targetSide = GetBattlerSide(gBattlerTarget);
-
-    DebugPrintf("BS_SetStealthRock");
 
     if (gSideStatuses[targetSide] & SIDE_STATUS_STEALTH_ROCK)
     {

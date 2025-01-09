@@ -1415,10 +1415,8 @@ static void OpponentHandleChoosePokemon(void)
     s32 chosenMonId;
 
     // Choosing Revival Blessing target
-    if (gPartyMenu.action == PARTY_ACTION_CHOOSE_FAINTED_MON)
-    {
+    if ((gBattleBufferA[gActiveBattler][1] & 0xF) == PARTY_ACTION_CHOOSE_FAINTED_MON)
         chosenMonId = gSelectedMonPartyId = GetFirstFaintedPartyIndex(gActiveBattler);
-    }
     // Switching out
     else if (*(gBattleStruct->AI_monToSwitchIntoId + (GetBattlerPosition(gActiveBattler) >> 1)) == PARTY_SIZE)
     {

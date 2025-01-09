@@ -386,7 +386,7 @@ gBattleAnims_Moves::
 	.4byte Move_GROWL_CHARMANDER
 
 	.4byte Move_WATER_SHURIKEN
-	.4byte Move_REVIVAL_BLESSING
+	.4byte Move_TOMBSTONER//Move_REVIVAL_BLESSING
 	.4byte Move_TOMBSTONER
 	.4byte Move_FOLLOW_HIM
 	.4byte Move_SPIKY_SHIELD

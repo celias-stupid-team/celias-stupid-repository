@@ -2533,7 +2533,7 @@ static void PlayerHandleChoosePokemon(void)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA && gPartyMenu.action != PARTY_ACTION_CANT_SWITCH
-        && gPartyMenu.action != PARTY_ACTION_CHOOSE_FAINTED_MON)
+        && (gBattleBufferA[gActiveBattler][1] & 0xF) == PARTY_ACTION_CHOOSE_FAINTED_MON)
     {
         BtlController_EmitChosenMonReturnValue(BUFFER_B, gBattlerPartyIndexes[gActiveBattler] + 1, gBattlePartyCurrentOrder);
         PlayerBufferExecCompleted();

@@ -3265,7 +3265,6 @@ static void HandleTurnActionSelectionState(void)
                 switch (gBattleBufferB[gActiveBattler][1])
                 {
                 case B_ACTION_USE_MOVE:
-                    DebugPrintf("B_ACTION_USE_MOVE");
                     if (AreAllMovesUnusable())
                     {
                         gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
@@ -4138,8 +4137,6 @@ static void HandleAction_UseMove(void)
 {
     u8 side;
     u8 var = 4;
-
-    DebugPrintf("HandleAction_UseMove");
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     if (*(&gBattleStruct->absentBattlerFlags) & gBitTable[gBattlerAttacker])
