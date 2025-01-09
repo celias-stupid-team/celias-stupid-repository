@@ -3,8 +3,8 @@ raw `
 .set LOCALID_GRUNT,     2
 .set LOCALID_SLOWBRO,   5
 .set LOCALID_LASS,      6
-.set LOCALID_RIVAL,     13
-.set LOCALID_WOMAN,     11
+.set LOCALID_RIVAL,     12
+.set LOCALID_WOMAN,     9
 
 CeruleanCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCity_OnTransition

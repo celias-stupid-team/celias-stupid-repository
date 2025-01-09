@@ -8,7 +8,7 @@ raw `
 .equ RETURN_AFTER_SS_TICKET, FLAG_TEMP_3
 
 Route25_SeaCottage_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route25_SeaCottage_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, Route25_SeaCottage_OnLoad
 	.byte 0
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
@@ -294,10 +294,11 @@ script Route25_SeaCottage_EventScript_ViewVaporeon {
 	goto(Route25_SeaCottage_EventScript_BillsMonList)
 }
 
-script Route25_SeaCottage_OnTransition {
+script Route25_SeaCottage_OnLoad {
 	clearflag(FLAG_HIDE_BILL_CLEFAIRY)
 	setflag(FLAG_CSR_HIDDEN_CELIA_BILL)
 	if(var(VAR_CSR_BILLS_TAKEN) > 2 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
+		clearflag(FLAG_CSR_HIDDEN_CELIA_BILL)
 		addobject(LOCALID_CELIA)
 	}
 

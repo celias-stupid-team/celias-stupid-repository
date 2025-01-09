@@ -166,16 +166,28 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 
 script CeliaSecrets_GetNextHint {
 	switch(var(VAR_CSR_CURRENT_CELIA_SECRET)) {
-		case CELIA_SECRET_VIRIDIAN:
+
+
+		case CELIA_SECRET_VIRIDIAN: //Celadon, Vermilion, Pewter, Lavender, Fuchsia, Cerulean
 			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(var(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON))
+				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
 				return
 			}
-		case CELIA_SECRET_PEWTER:
+		case CELIA_SECRET_PEWTER: //Viridian, Celadon, Vermilion, Lavender, Fuchsia, Cerulean
+
+
 		case CELIA_SECRET_CERULEAN:
+
+
 		case CELIA_SECRET_VERMILION:
+
+
 		case CELIA_SECRET_LAVENDER:
+
+
 		case CELIA_SECRET_CELADON:
+
+
 		case CELIA_SECRET_FUCHSIA:
 	}
 	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
