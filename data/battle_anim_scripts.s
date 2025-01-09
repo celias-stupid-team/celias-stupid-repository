@@ -384,7 +384,6 @@ gBattleAnims_Moves::
 	.4byte Move_SUBSTITUTE_TEACHER
 	.4byte Move_EXPLOSION_USELESS
 	.4byte Move_GROWL_CHARMANDER
-
 	.4byte Move_WATER_SHURIKEN
 	.4byte Move_REVIVAL_BLESSING
 	.4byte Move_TOMBSTONER
@@ -495,7 +494,6 @@ gBattleAnims_Moves::
 	.4byte Move_ROUNDEN
 	.4byte Move_THROAT_CHOP
 	.4byte Move_DRAGON_HAMMER
-	.4byte Move_WOOD_HAMMER
 	.4byte Move_PICKLE_SPEAR
 	.4byte Move_DRUM_BEATING
 	.4byte Move_BESTOW
@@ -534,6 +532,7 @@ gBattleAnims_Moves::
 	.4byte Move_BARRAGE_2
 	.4byte Move_BARRAGE_3
 	.4byte Move_BARRAGE_4
+	.4byte Move_WOOD_HAMMER
 	.4byte Move_BREADBUTT
 	.4byte Move_BUTTER_BLADE
 	.4byte Move_PICKLE_BEAM
@@ -544,7 +543,6 @@ gBattleAnims_Moves::
 	.4byte Move_BREAD_CHARGE
 	.4byte Move_MIND_BLOWN
 	.4byte Move_FURRY_SWIPES
-
 	.4byte Move_ICE_HAMMER
 	.4byte Move_FURRY_SWIPES
 	.4byte Move_FURY_SWIPE_6

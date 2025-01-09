@@ -10,17 +10,13 @@ CeruleanCity_Gym_Text_ExplainTM03::
     .string "TM18 teaches RAIN DANCE.\p"
     .string "Use it to attach ENERGY faster!\p"
     .string "Anyway, if you wanna get out,\n"
-    .string "just use RETREAT again!\p"
+    .string "just use RETREAT again!$"
 
 CeruleanCity_Gym_Text_ExplainCascadeBadge::
     .string "The WATER MEDAL makes all\n"
     .string "POKéMON up to Lv. 30 obey.\p"
     .string "That includes even outsiders you\n"
     .string "got in trades.\p"
-    .string "There's more. You can now use CUT\n"
-    .string "anytime, even out of battle.\p"
-    .string "You can CUT down small trees to\n"
-    .string "open new pathways.\p"
     .string "You can also have my favorite TM.$"
 
 CeruleanCity_Gym_Text_ReceivedTM03FromMisty::
