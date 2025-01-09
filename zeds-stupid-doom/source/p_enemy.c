@@ -50,6 +50,7 @@
 #include "lprintf.h"
 
 #include "global_data.h"
+#include "gba_functions.h"
 
 const int distfriend = 128;
 
@@ -1207,12 +1208,12 @@ void A_Tracer(mobj_t *actor)
   // change slope
   dist = P_AproxDistance(dest->x - actor->x, dest->y - actor->y);
 
-  dist = dist / mobjinfo[actor->type].speed;
+  dist = IDiv32(dist, mobjinfo[actor->type].speed);
 
   if (dist < 1)
     dist = 1;
 
-  slope = (dest->z+40*FRACUNIT - actor->z) / dist;
+  slope = IDiv32((dest->z+40*FRACUNIT - actor->z), dist);
 
   if (slope < actor->momz)
     actor->momz -= FRACUNIT/8;
@@ -2179,4 +2180,3 @@ void A_RandomJump(mobj_t *mo)
   if (P_Random() < mo->state->misc2)
     P_SetMobjState(mo, mo->state->misc1);
 }
-

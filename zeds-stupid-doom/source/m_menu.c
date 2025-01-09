@@ -59,6 +59,7 @@
 #include "i_sound.h"
 
 #include "global_data.h"
+#include "gba_functions.h"
 
 static void (*messageRoutine)(int response);
 
@@ -1172,7 +1173,7 @@ void M_DrawThermo(int x,int y,int thermWidth,int thermDot )
    */
     int horizScaler; //Used to allow more thermo range for mouse sensitivity.
     thermWidth = (thermWidth > 200) ? 200 : thermWidth; //Clamp to 200 max
-    horizScaler = (thermWidth > 23) ? (200 / thermWidth) : 8; //Dynamic range
+    horizScaler = (thermWidth > 23) ? IDiv32(200, thermWidth) : 8; //Dynamic range
     xx = x;
 
     int thermm_lump = W_GetNumForName("M_THERMM");

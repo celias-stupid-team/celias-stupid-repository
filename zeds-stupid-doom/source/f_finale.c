@@ -42,6 +42,7 @@
 #include "dstrings.h"
 
 #include "global_data.h"
+#include "gba_functions.h"
 
 
 
@@ -600,7 +601,7 @@ static void F_BunnyScroll (void)
         return;
     }
 
-    stage = (_g->finalecount-1180) / 5;
+    stage = IDiv32(_g->finalecount-1180, 5);
     if (stage > 6)
         stage = 6;
     if (stage > _g->laststage)
