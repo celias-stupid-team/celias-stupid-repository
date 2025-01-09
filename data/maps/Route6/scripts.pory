@@ -1,11 +1,24 @@
 raw `
-Route6_MapScripts::
-	.byte 0
 
 Route6_EventScript_UndergroundPathSign::
 	msgbox Route6_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+
+const CELIA = 9
+mapscripts Route6_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_ROUTE5)
+		setflag(FLAG_CSR_HIDE_ROUTE6_CELIA)
+		if(flag(FLAG_WORLD_MAP_VERMILION_CITY) && !flag(FLAG_DID_FARFETCHD_TRADE)) {
+			clearflag(FLAG_CSR_HIDE_ROUTE6_CELIA)
+		}
+	}
+}
+
+script Route6_CeliaAdvice {
+	msgbox("Hi, there!\nAre you looking for CUT?\pDon't worry, you don't need to go\nback through the UNDERGROUND PATH.\lEverything you need is on this side!\pTalk to everyone and think carefully!\nGood luck!", MSGBOX_NPC)
+}
 
 const LASS = 8
 script Route6_LassAttack {
@@ -98,7 +111,6 @@ movement Lass_PlayerX_18 {
 }
 
 movement Lass_PlayerX_19 {
-	walk_down
 	walk_down
 	face_down
 }
