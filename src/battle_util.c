@@ -31,9 +31,9 @@
 #define ______ X(1.0) // Regular effectiveness.
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
-{//                   Defender -->
+{//                                           Defender -->
  //  Attacker                         NORMAL 	FIGHTING 	FLYING 	    POISON  	STEEL    	ROCK    	BUG 	    GHOST 	    WATER_P 	ELECTRIC_P	PSYCHIC_P 	MYSTERY 	GROUND  	FIRE 	    WATER 	    GRASS 	    ELECTRIC 	PSYCHIC 	ICE 	    DRAGON  	DARK 	    FAIRY 	    BROCK 	    WEIRD 	    DAD 	    CHOCOLATE 	SHADOW  	LARGE 	    BIRD 	    SHIT 	    FAIRY_TRANS SOUND   	GRASS_TCG 
-    [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
+    [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
     [TYPE_FIGHTING]          = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	X(0.2)  	},
     [TYPE_FLYING]            = {	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	},
     [TYPE_POISON]            = {	______, 	______, 	______, 	X(0.5), 	X(0.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	},
@@ -3358,21 +3358,10 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
     s32 dmg = 0;
     uq4_12_t modifier = UQ_4_12(1.0);
 
-    DebugPrintf("hazards type = %d", hazardType);
-    DebugPrintf("type 1 = %d", type1);
-    DebugPrintf("type 2 = %d", type2);
-    DebugPrintf("a = %d", modifier/4096);
-    DebugPrintf("b = %d", GetTypeModifier(hazardType, type1)/4096);
     modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type1));
     
     if (type2 != type1)
-    {
-        DebugPrintf("a = %d", modifier/4096);
-        DebugPrintf("b = %d", GetTypeModifier(hazardType, type2)/4096);
         modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type2));
-    }
-
-    DebugPrintf("modifier = %d", modifier/4096);
 
     switch (modifier)
     {
@@ -3411,5 +3400,10 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
 {
+    // DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
+    // DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
+    // DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
+    // DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+
     return sTypeEffectivenessTable[atkType][defType];
 }
