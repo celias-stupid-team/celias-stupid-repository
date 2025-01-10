@@ -106,8 +106,8 @@
 #define TYPE_WATER_PHYSICAL  8
 #define TYPE_ELECTRIC_PHYSICAL 9
 #define TYPE_PSYCHIC_PHYSICAL 10
-#define TYPE_MYSTERY        11
-#define TYPE_GROUND         12
+#define TYPE_MYSTERY        11 //Special types below!
+#define TYPE_GROUND         12 //Yes Ground is special in this game :)
 #define TYPE_FIRE           13
 #define TYPE_WATER          14
 #define TYPE_GRASS          15
@@ -130,7 +130,6 @@
 #define TYPE_GRASS_TCG          32
 
 #define NUMBER_OF_MON_TYPES 33
-
 // Pokemon egg groups
 #define EGG_GROUP_NONE         0
 #define EGG_GROUP_MONSTER      1

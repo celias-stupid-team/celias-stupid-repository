@@ -6,6 +6,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/hold_effects.h"
 #include "constants/pokemon.h"
+#include "constants/global.h"
 	.include "asm/macros/battle_ai_script.inc"
 
 	.section script_data, "aw", %progbits
@@ -163,6 +164,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_MINIMIZE, AI_CBM_EvasionUp
 	if_effect EFFECT_CURSE, AI_CBM_Curse
 	if_effect EFFECT_SPIKES, AI_CBM_Spikes
+	if_effect EFFECT_STEALTH_ROCK, AI_CBM_StealthRock
 	if_effect EFFECT_FORESIGHT, AI_CBM_Foresight
 	if_effect EFFECT_PERISH_SONG, AI_CBM_PerishSong
 	if_effect EFFECT_SANDSTORM, AI_CBM_Sandstorm
@@ -212,6 +214,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CBM_Substitute
+	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	end
 
 AI_CBM_Sleep::
@@ -446,6 +449,10 @@ AI_CBM_Spikes::
 	if_side_affecting AI_TARGET, SIDE_STATUS_SPIKES, Score_Minus10
 	end
 
+AI_CBM_StealthRock::
+	if_side_affecting AI_TARGET, SIDE_STATUS_STEALTH_ROCK, Score_Minus10
+	end
+
 AI_CBM_Foresight::
 	if_status2 AI_TARGET, STATUS2_FORESIGHT, Score_Minus10
 	end
@@ -601,6 +608,11 @@ AI_CBM_CalmMind::
 AI_CBM_DragonDance::
 	if_stat_level_equal AI_USER, STAT_ATK, 12, Score_Minus10
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus8
+	end
+
+AI_CBM_RevivalBlessing::
+	get_fainted_mons AI_USER
+	if_equal PARTY_SIZE, Score_Minus10
 	end
 
 Score_Minus1::
@@ -776,6 +788,7 @@ AI_CheckViability::
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
+	if_Effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	end
 
 AI_CV_Sleep::
@@ -2765,6 +2778,11 @@ AI_CV_DragonDance2::
 	score +1
 
 AI_CV_DragonDance_End::
+	end
+
+AI_CV_RevivalBlessing::
+	get_fainted_mons AI_USER
+	if_not_equal PARTY_SIZE, Score_Plus3
 	end
 
 AI_TryToFaint::

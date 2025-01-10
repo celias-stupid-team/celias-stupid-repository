@@ -386,8 +386,8 @@ gBattleAnims_Moves::
 	.4byte Move_GROWL_CHARMANDER
 
 	.4byte Move_WATER_SHURIKEN
-	.4byte Move_REVIVAL_BLESSING
-	.4byte Move_TOMBSTONER
+	.4byte Move_REVIVAL_BLESSING //done
+	.4byte Move_TOMBSTONER //done
 	.4byte Move_FOLLOW_HIM
 	.4byte Move_SPIKY_SHIELD
 	.4byte Move_SEARING_SHOT
@@ -11351,32 +11351,55 @@ Move_WATER_SHURIKEN:
 	blendoff
 	end
 
+@Credits to Skeli
 Move_REVIVAL_BLESSING:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_MOON
+	loadspritegfx ANIM_TAG_SPARKLE_2
+	loadspritegfx ANIM_TAG_GUARD_RING
+	loadspritegfx ANIM_TAG_SMALL_EMBER @Yellow colour for ring
+	monbg ANIM_ATK_PARTNER
+	setalpha 16, 0
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x10, 0x0
+	createvisualtask AnimTask_BlendNonAttackerPalettes, 0x2, 0x1, 0x0, 0x10, 0x0
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
+	createsprite gMoonSpriteTemplate, ANIM_ATTACKER, 2, 0x78, 0x38
+	createvisualtask AnimTask_AlphaFadeIn, 0x3, 0x0, 0x10, 0x10, 0x0, 0x1
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x7, 0x0, 0x10, 0x0
+	loopsewithpan SE_M_HEAL_BELL, SOUND_PAN_ATTACKER, 0x10, 0x3
+	call HealingEffect2
+	createsprite gSpriteTemplate_LunarDanceRing, ANIM_ATTACKER, 2,
+	delay 0x4
+	createsprite gSpriteTemplate_LunarDanceRing, ANIM_ATTACKER, 2,
+	delay 0x4
+	createsprite gSpriteTemplate_LunarDanceRing, ANIM_ATTACKER, 2,
+	delay 0x24
+	clearmonbg ANIM_ATK_PARTNER
+	call HealingEffect
+	delay 0x28
+	createvisualtask AnimTask_AllBattlersInvisible, 0xA,
+	createvisualtask AnimTask_MoonlightEndFade, 0x2,
+	delay 0x10
+	createvisualtask AnimTask_AllBattlersVisible, 0xA,
+	waitforvisualfinish
 	blendoff
 	end
 
 Move_TOMBSTONER:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_STEALTH_ROCK
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 0, 24, 30
+	delay 10
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, -24, 24, 30
+	delay 10
+	waitplaysewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 28
+	createsprite gStealthRockSpriteTemplate, ANIM_TARGET, 2, 20, 0, 24, 24, 30
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_DEF_PARTNER
 	end
 	
 Move_FOLLOW_HIM:
