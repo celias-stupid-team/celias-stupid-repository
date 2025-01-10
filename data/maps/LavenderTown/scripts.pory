@@ -75,12 +75,15 @@ script LavenderTown_ImposterOak {
 			closemessage
 			playse(SE_PIN)
 			applymovement(IMPOSTER_OAK, Common_Movement_ExclamationMark)
-			waitmovement(0)
-			delay(60)
-			textcolor(NPC_TEXT_COLOR_TREE)
-			msgbox("{FONT_SMALL}OAK?: Wha-?\nHey!", MSGBOX_DEFAULT)
 			
-			trainerbattle_single(TRAINER_IMPOSTER_OAK_1, "{FONT_SMALL}What gives?", "{FONT_SMALL}Grr-\nFine!\pI'll go somewhere else!\n", LavenderTown_RemoveTree)
+			fadeoutbgm(1)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			msgbox("{FONT_SMALL}OAK?: Wha-?\nHey!\p{FONT_SMALL}What gives?", MSGBOX_DEFAULT)
+			
+			trainerbattle_no_intro(TRAINER_IMPOSTER_OAK_1, "{FONT_SMALL}Grr-\nFine!\pI'll go somewhere else!\n")
+			goto(LavenderTown_RemoveTree)
 		}
 	} else {
 		applymovement(IMPOSTER_OAK, OakDances)
@@ -98,8 +101,13 @@ script LavenderTown_ImposterOak {
 }
 
 script LavenderTown_RemoveTree {
+	msgbox("{FONT_SMALL}Geez, what a lousy neighborhood.\nI'm outta here!\pStay dry, ya jerk!\n", MSGBOX_DEFAULT)
+	closemessage
 	fadescreen(FADE_TO_BLACK)
+	playse(SE_EXIT)
+	fadedefaultbgm
 	removeobject(IMPOSTER_OAK)
+	waitse
 	setflag(FLAG_CSR_IMPOSTEROAK1)
 	fadescreen(FADE_FROM_BLACK)
 	release

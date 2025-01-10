@@ -374,11 +374,12 @@
 #define MUS_CSR_SECRET_TUNNEL          365
 #define MUS_CSR_MT_MOON_SQUARE          366
 #define MUS_CSR_CLEFAIRY_DANCE          367
+#define MUS_CSR_IMPOSTER_OAK          368
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_CLEFAIRY_DANCE
+#define END_MUS                     MUS_CSR_IMPOSTER_OAK
 
 #endif  // GUARD_CONSTANTS_SONGS_H
