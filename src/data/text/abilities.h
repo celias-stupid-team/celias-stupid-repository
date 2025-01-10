@@ -80,7 +80,7 @@ static const u8 sSickShadesDescription[] = _("Immunity to FLASHING lights.");
 static const u8 sFreeShinyDescription[] = _("Congrats! Good job catching me!");
 static const u8 sAsOneDoduoDescription[] = _("EARLY BIRD and SERENE GRACE.");
 static const u8 sLeafRideDescription[] = _("This POKéMON's RETREAT cost is 0.");
-static const u8 sBeastBoostDescription[] = _("This POKéMON is in its prime.");
+static const u8 sBeastBoostDescription[] = _("I thought you said WEAST BOOST.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
