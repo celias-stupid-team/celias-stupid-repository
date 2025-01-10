@@ -1745,20 +1745,59 @@ void BufferStringBattle(u16 stringId)
         //Victory Music Logic - CSR Drill Dozer
         if(VarGet(VAR_TEMP_START_EVENT_BATTLE) > 0 && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
             switch(VarGet(VAR_TEMP_START_EVENT_BATTLE)) {
-                case 1:
+                case 1://Zapdos
                     if(sBattleMsgDataPtr->currentMove == MOVE_ENDEAVOR) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
+                    break;
                         
-                case 2:
-                    if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION)
+                case 2: //Onix
+                    if(sBattleMsgDataPtr->currentMove == MOVE_CONFUSION) {
+                        BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                case 3:
-                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_DRILL_RUN || sBattleMsgDataPtr->currentMove == MOVE_STRUGGLE_BUG) //fill in with Toedscool Move
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case 3: //Koffing
+                        if(sBattleMsgDataPtr->currentMove == MOVE_MUD_SLAP || sBattleMsgDataPtr->currentMove == MOVE_DRILL_RUN || sBattleMsgDataPtr->currentMove == MOVE_STRUGGLE_BUG)  {
+                        BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                case 4: //Need to figure out Surge logic
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case 4: //Moltres
+                    
+                     if (gBattleMons[gBattlerTarget].ability == ABILITY_WATER_ABSORB) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+
+                case 6: //Flash
+                    
+                     if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case 7: //Ho oh
+                    if(sBattleMsgDataPtr->currentMove == MOVE_TOMBSTONER) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case 8: //Giovanni
+                    if(sBattleMsgDataPtr->currentMove == MOVE_FAIRY_FANG) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
                 default:
                     break;
             }

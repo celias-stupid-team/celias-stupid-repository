@@ -199,8 +199,11 @@ It is reset after every battle.
 1 = Larry with Zapdos
 2 = Brock
 3 = Scientist Miguel
-4 = Surge
-5 = Giovanni 1
+4 = Jerry with Moltres
+5 = Misty
+6 = Surge
+7 = Harry with Ho-oh
+8 = Giovanni 1
 */
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_ROUTE01_SHINY_RAT1         0x408D

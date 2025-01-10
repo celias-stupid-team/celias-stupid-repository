@@ -4,8 +4,9 @@ CeruleanCity_Gym_MapScripts::
 	.byte 0
 
 CeruleanCity_Gym_EventScript_Misty::
-
+	lock
 	famechecker FAMECHECKER_CERULEAN, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
+	setvar VAR_TEMP_START_EVENT_BATTLE, 5
 	trainerbattle_single TRAINER_LEADER_MISTY, CeruleanCity_Gym_Text_MistyIntro, CeruleanCity_Gym_Text_MistyDefeat, CeruleanCity_Gym_EventScript_MistyDefeated, NO_MUSIC
 	msgbox CeruleanCity_Gym_Text_ExplainTM03
 	release
