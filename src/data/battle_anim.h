@@ -209,6 +209,7 @@ const struct OamData gOamData_AffineNormal_ObjNormal_32x32 =
     .paletteNum = 0,
 };
 
+
 const struct OamData gOamData_AffineNormal_ObjNormal_64x64 =
 {
     .y = 0,
@@ -1298,6 +1299,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Slash, 0x0800, ANIM_TAG_SLASH_2},
     {gBattleAnimSpriteGfx_SlamHit, 0x1000, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpriteGfx_GoldRing, 0x0100, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpriteGfx_Crab, 0x0800, ANIM_TAG_CSR_CRAB},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1591,6 +1593,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Slash2, ANIM_TAG_SLASH_2},
     {gBattleAnimSpritePal_WhipHit, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpritePal_BlueRing2, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpritePal_Crab, ANIM_TAG_CSR_CRAB},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -12134,17 +12134,13 @@ Move_REST_HBOX:
 	end
 	
 Move_POP_OFF:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	createvisualtask AnimTask_DeepInhale, 2, 0
+	delay 12
+	call RoarEffect
+	createvisualtask SoundTask_PlayCryHighPitch, 2, ANIM_ATTACKER, 3
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	delay 30
 	end
 	
 Move_UP_THROW:
@@ -12176,16 +12172,20 @@ Move_UP_DOG:
 	end
 	
 Move_CRAB_THROW:
+	loadspritegfx ANIM_TAG_CSR_CRAB
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_M_BONEMERANG, SOUND_PAN_TARGET
+	createsprite gSpinningCrabSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 15
+	delay 12
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_ATTACKER | F_PAL_TARGET, 5, 1, RGB_BLACK, 10, RGB_BLACK, 0
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
+	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
 	

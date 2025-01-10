@@ -70,6 +70,17 @@ const struct SpriteTemplate gSpinningBoneSpriteTemplate =
     .callback = AnimBoneHitProjectile,
 };
 
+const struct SpriteTemplate gSpinningCrabSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CSR_CRAB,
+    .paletteTag = ANIM_TAG_CSR_CRAB,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SpinningBone,
+    .callback = AnimBoneHitProjectile,
+};
+
 const struct SpriteTemplate gSandAttackDirtSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUD_SAND,
