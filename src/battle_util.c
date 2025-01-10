@@ -1912,6 +1912,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+                case ABILITY_BEAST_BOOST:
+                    if (gBattleMons[battler].statStages[STAT_ATK] < MAX_STAT_STAGE && gDisableStructs[battler].isFirstTurn != 2)
+                    {
+                        gBattleMons[battler].statStages[STAT_ATK]++;
+                        gBattleScripting.animArg1 = 14 + STAT_ATK;
+                        gBattleScripting.animArg2 = 0;
+                        BattleScriptPushCursorAndCallback(BattleScript_SpeedBoostActivates);
+                        gBattleScripting.battler = battler;
+                        effect++;
+                    }
+                    break;
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                     break;
