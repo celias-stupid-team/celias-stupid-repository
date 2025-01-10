@@ -1333,7 +1333,6 @@ static const struct LevelUpMove sKinglerLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sVoltorbLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_SELF_DESTRUCT),
     LEVEL_UP_MOVE(15, MOVE_ROLE_PLAY),
     LEVEL_UP_MOVE(20, MOVE_EXPLOSION),
     LEVEL_UP_END

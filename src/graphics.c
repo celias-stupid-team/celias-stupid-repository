@@ -538,6 +538,12 @@ const u32 gBattleAnimSpritePal_GoldRing[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_Crab[] = INCBIN_U32("graphics/battle_anims/sprites/crab.4bpp.lz");
 const u32 gBattleAnimSpritePal_Crab[] = INCBIN_U32("graphics/battle_anims/sprites/crab.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Bee[] = INCBIN_U32("graphics/battle_anims/sprites/bee.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bee[] = INCBIN_U32("graphics/battle_anims/sprites/bee.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_WaterShuriken[] = INCBIN_U32("graphics/battle_anims/sprites/water_shuriken.4bpp.lz");
+const u32 gBattleAnimSpritePal_WaterShuriken[] = INCBIN_U32("graphics/battle_anims/sprites/water_shuriken.gbapal.lz");
+
 const u32 gBattleAnimSpritePal_BlueRing2[] = INCBIN_U32("graphics/battle_anims/sprites/blue_ring_2.gbapal.lz");
 const u32 gBattleAnimSpritePal_PurpleRing[] = INCBIN_U32("graphics/battle_anims/sprites/purple_ring.gbapal.lz");
 const u32 gBattleAnimSpritePal_BlueRing[] = INCBIN_U32("graphics/battle_anims/sprites/blue_ring.gbapal.lz");

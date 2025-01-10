@@ -104,6 +104,7 @@ static const union AnimCmd sAnim_WaterBubbleProjectile[] =
     ANIMCMD_END,
 };
 
+
 static const union AnimCmd *const sAnims_WaterBubbleProjectile[] =
 {
     sAnim_WaterBubbleProjectile,
@@ -114,6 +115,17 @@ const struct SpriteTemplate gWaterBubbleProjectileSpriteTemplate =
     .tileTag = ANIM_TAG_BUBBLE,
     .paletteTag = ANIM_TAG_BUBBLE,
     .oam = &gOamData_AffineNormal_ObjBlend_16x16,
+    .anims = sAnims_WaterBubbleProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_WaterBubbleProjectile,
+    .callback = AnimWaterBubbleProjectile,
+};
+
+const struct SpriteTemplate gBeeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BEE,
+    .paletteTag = ANIM_TAG_BEE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
     .anims = sAnims_WaterBubbleProjectile,
     .images = NULL,
     .affineAnims = sAffineAnims_WaterBubbleProjectile,

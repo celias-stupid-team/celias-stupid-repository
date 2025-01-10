@@ -574,6 +574,17 @@ const struct SpriteTemplate gSwiftStarSpriteTemplate =
     .callback = AnimTranslateLinearSingleSineWave,
 };
 
+const struct SpriteTemplate gWaterShurikenSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_SHURIKEN,
+    .paletteTag = ANIM_TAG_WATER_SHURIKEN,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sSwiftStarAffineAnimTable,
+    .callback = AnimTranslateLinearSingleSineWave,
+};
+
 static const union AnimCmd sAnim_ConstrictBinding[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -1698,9 +1709,33 @@ static const union AnimCmd sSharpenSphereAnimCmds[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sRoundSphereAnimCmds[] =
+{
+    ANIMCMD_FRAME(64, 18),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(64, 18),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(32, 18),
+    ANIMCMD_FRAME(48, 6),
+    ANIMCMD_FRAME(32, 6),
+    ANIMCMD_FRAME(16, 18),
+    ANIMCMD_FRAME(16, 6),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(16, 18),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(0, 54),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sSharpenSphereAnimTable[] =
 {
     sSharpenSphereAnimCmds,
+};
+
+static const union AnimCmd *const sRoundSphereAnimTable[] =
+{
+    sRoundSphereAnimCmds,
 };
 
 const struct SpriteTemplate gSharpenSphereSpriteTemplate =
@@ -1709,6 +1744,17 @@ const struct SpriteTemplate gSharpenSphereSpriteTemplate =
     .paletteTag = ANIM_TAG_SPHERE_TO_CUBE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sSharpenSphereAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSharpenSphere,
+};
+
+const struct SpriteTemplate gRoundSphereSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPHERE_TO_CUBE,
+    .paletteTag = ANIM_TAG_SPHERE_TO_CUBE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sRoundSphereAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSharpenSphere,

@@ -8543,7 +8543,6 @@ extern const u32 gBattleAnimSpriteGfx_RazorLeaf[];
 extern const u32 gBattleAnimSpriteGfx_Needle[];
 extern const u32 gBattleAnimSpriteGfx_WhirlwindLines[];
 extern const u32 gBattleAnimSpriteGfx_GoldRing[];
-extern const u32 gBattleAnimSpriteGfx_Crab[];
 extern const u32 gBattleAnimSpriteGfx_GreenLightWall[];
 extern const u32 gBattleAnimSpriteGfx_BlackBall2[];
 extern const u32 gBattleAnimSpriteGfx_SparkH[];
@@ -8908,7 +8907,16 @@ extern const u32 gBattleAnimSpritePal_CrossImpact[];
 extern const u32 gBattleAnimSpritePal_Slash2[];
 extern const u32 gBattleAnimSpritePal_WhipHit[];
 extern const u32 gBattleAnimSpritePal_BlueRing2[];
+
+//CSR Moves
+
+extern const u32 gBattleAnimSpriteGfx_Crab[];
 extern const u32 gBattleAnimSpritePal_Crab[];
+
+extern const u32 gBattleAnimSpritePal_Bee[];
+extern const u32 gBattleAnimSpriteGfx_Bee[];
+extern const u32 gBattleAnimSpritePal_WaterShuriken[];
+extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
 
 // battle anim task
 extern const u32 gUnusedLevelupAnimationGfx[];
