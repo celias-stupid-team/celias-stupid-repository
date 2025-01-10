@@ -1661,12 +1661,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_PRIMEAPE] =
     {
-        .baseHP = 65,
-        .baseAttack = 105,
-        .baseDefense = 60,
-        .baseSpeed = 95,
-        .baseSpAttack = 60,
-        .baseSpDefense = 70,
+        .baseHP = 71,
+        .baseAttack = 107,
+        .baseDefense = 61,
+        .baseSpeed = 97,
+        .baseSpAttack = 2,
+        .baseSpDefense = 59, //All of his base stats are a prime number, and the BST is a prime number
         .types = {TYPE_FIGHTING, TYPE_FIGHTING},
         .catchRate = 255,
         .expYield = 149,
@@ -1683,7 +1683,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_NONE},
+        .abilities = {ABILITY_BEAST_BOOST, ABILITY_NONE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
