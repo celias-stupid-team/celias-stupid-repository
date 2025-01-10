@@ -138,7 +138,7 @@
 #define VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F                             0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
 #define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x4058
-#define VAR_CSR_DUMMY_1                                         0x4059
+#define VAR_CSR_GHOST_FIGHT                                         0x4059
 //When I need these later, I'll just manually re-set them.
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A

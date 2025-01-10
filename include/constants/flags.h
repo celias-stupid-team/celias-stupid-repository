@@ -276,7 +276,7 @@
 #define FLAG_CSR_CLEFAIRY_BOTTOMLEFT               0x0EB
 #define FLAG_CSR_CLEFAIRY_BOTTOMRIGHT               0x0EC
 #define FLAG_CSR_HIDE_ROUTE6_CELIA               0x0ED
-#define FLAG_0x0EE               0x0EE
+#define FLAG_CSR_HIDE_POKEMONTOWER_CELIA               0x0EE
 #define FLAG_0x0EF               0x0EF
 //Celadon City
 #define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
