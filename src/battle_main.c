@@ -4312,8 +4312,8 @@ static void HandleAction_UseMove(void)
             }
         }
     }
-    DebugPrintf("Move = %d", gCurrentMove);
-    DebugPrintf("Effect = %d", gBattleMoves[gCurrentMove].effect);
+    //DebugPrintf("Move = %d", gCurrentMove);
+    //DebugPrintf("Move effect = %d", gBattleMoves[gCurrentMove].effect);
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }

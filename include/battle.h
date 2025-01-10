@@ -740,15 +740,8 @@ extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
 
 
-extern struct Pokemon *GetSideParty(u8 side);
-// {
-//     return (side == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
-// }
-
-extern struct Pokemon *GetBattlerParty(u8 battler);
-// {
-//     return GetSideParty(GetBattlerSide(battler));
-// }
+struct Pokemon *GetSideParty(u8 side);
+struct Pokemon *GetBattlerParty(u8 battler);
 
 #endif // GUARD_BATTLE_H
 

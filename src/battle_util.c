@@ -30,7 +30,7 @@
 #define X UQ_4_12
 #define ______ X(1.0) // Regular effectiveness.
 
-static const uq4_12_t gTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
+static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                   Defender -->
  //  Attacker                         NORMAL 	FIGHTING 	FLYING 	    POISON  	STEEL    	ROCK    	BUG 	    GHOST 	    WATER_P 	ELECTRIC_P	PSYCHIC_P 	MYSTERY 	GROUND  	FIRE 	    WATER 	    GRASS 	    ELECTRIC 	PSYCHIC 	ICE 	    DRAGON  	DARK 	    FAIRY 	    BROCK 	    WEIRD 	    DAD 	    CHOCOLATE 	SHADOW  	LARGE 	    BIRD 	    SHIT 	    FAIRY_TRANS SOUND   	GRASS_TCG 
     [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
@@ -3334,12 +3334,12 @@ u8 IsMonDisobedient(void)
     }
 }
 
-extern struct Pokemon *GetSideParty(u8 side)
+struct Pokemon *GetSideParty(u8 side)
 {
     return (side == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
 }
 
-extern struct Pokemon *GetBattlerParty(u8 battler)
+struct Pokemon *GetBattlerParty(u8 battler)
 {
     return GetSideParty(GetBattlerSide(battler));
 }
@@ -3411,5 +3411,5 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
 {
-    return gTypeEffectivenessTable[atkType][defType];
+    return sTypeEffectivenessTable[atkType][defType];
 }
