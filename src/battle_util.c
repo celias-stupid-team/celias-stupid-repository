@@ -33,7 +33,7 @@
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                                           Defender -->
  //  Attacker                         NORMAL 	FIGHTING 	FLYING 	    POISON  	STEEL    	ROCK    	BUG 	    GHOST 	    WATER_P 	ELECTRIC_P	PSYCHIC_P 	MYSTERY 	GROUND  	FIRE 	    WATER 	    GRASS 	    ELECTRIC 	PSYCHIC 	ICE 	    DRAGON  	DARK 	    FAIRY 	    BROCK 	    WEIRD 	    DAD 	    CHOCOLATE 	SHADOW  	LARGE 	    BIRD 	    SHIT 	    FAIRY_TRANS SOUND   	GRASS_TCG 
-    [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
+    [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
     [TYPE_FIGHTING]          = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	X(0.2)  	},
     [TYPE_FLYING]            = {	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	},
     [TYPE_POISON]            = {	______, 	______, 	______, 	X(0.5), 	X(0.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	},
@@ -3402,6 +3402,8 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
 {
     // DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
     // DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
-    // DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[defType]);
+    // DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
+    // DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+
     return sTypeEffectivenessTable[atkType][defType];
 }
