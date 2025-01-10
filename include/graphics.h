@@ -8532,6 +8532,7 @@ extern const u32 gBattleAnimSpriteGfx_WaterOrb[];
 extern const u32 gBattleAnimSpriteGfx_PoisonBubble[];
 extern const u32 gBattleAnimSpriteGfx_ToxicBubble[];
 extern const u32 gBattleAnimSpriteGfx_Spikes[];
+extern const u32 gBattleAnimSpriteGfx_StealthRock[];
 extern const u32 gBattleAnimSpriteGfx_HornHit2[];
 extern const u32 gBattleAnimSpriteGfx_AirWave2[];
 extern const u32 gBattleAnimSpriteGfx_SmallBubbles[];
@@ -8907,6 +8908,7 @@ extern const u32 gBattleAnimSpritePal_CrossImpact[];
 extern const u32 gBattleAnimSpritePal_Slash2[];
 extern const u32 gBattleAnimSpritePal_WhipHit[];
 extern const u32 gBattleAnimSpritePal_BlueRing2[];
+extern const u32 gBattleAnimSpritePal_StealthRock[];
 
 //CSR Moves
 

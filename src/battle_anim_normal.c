@@ -33,7 +33,7 @@ static void AnimShakeMonOrBattleTerrain_UpdateCoordOffsetEnabled(void);
 static void AnimShakeMonOrBattleTerrain_Step(struct Sprite *sprite);
 static void AnimTask_ShakeBattleTerrain_Step(u8 taskId);
 static void AnimFlashingHitSplat_Step(struct Sprite *sprite);
-
+static void SpriteCB_SurroundingRing(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_ConfusionDuck_0[] =
 {
@@ -165,6 +165,24 @@ static const union AffineAnimCmd *const sAffineAnims_HitSplat[] =
     sAffineAnim_HitSplat_3,
 };
 
+const union AffineAnimCmd gGuardRingAffineAnimCmds1[] =
+{
+    AFFINEANIMCMD_FRAME(0x100, 0x100, 0, 0),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gGuardRingAffineAnimCmds2[] =
+{
+    AFFINEANIMCMD_FRAME(0x200, 0x100, 0, 0),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd *const gGuardRingAffineAnimTable[] =
+{
+    gGuardRingAffineAnimCmds1,
+    gGuardRingAffineAnimCmds2,
+};
+
 const struct SpriteTemplate gBasicHitSplatSpriteTemplate =
 {
     .tileTag = ANIM_TAG_IMPACT,
@@ -251,6 +269,17 @@ const struct SpriteTemplate gPersistHitSplatSpriteTemplate =
     .images = NULL,
     .affineAnims = sAffineAnims_HitSplat,
     .callback = AnimHitSplatPersistent,
+};
+
+// lunar blessing/dance / Revival Blessing
+const struct SpriteTemplate gSpriteTemplate_LunarDanceRing = {
+    .tileTag = ANIM_TAG_GUARD_RING,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gGuardRingAffineAnimTable,
+    .callback = SpriteCB_SurroundingRing
 };
 
 // Moves a spinning duck around the mon's head.
@@ -994,5 +1023,43 @@ static void AnimFlashingHitSplat_Step(struct Sprite *sprite)
     sprite->invisible ^= 1;
     if (sprite->data[0]++ > 12)
         DestroyAnimSprite(sprite);
+}
+
+static void SpriteCB_SurroundingRing(struct Sprite *sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, 0);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, 1) + 40;
+
+    sprite->data[0] = 13;
+    sprite->data[2] = sprite->x;
+    sprite->data[4] = sprite->y - 72;
+
+    sprite->callback = StartAnimLinearTranslation;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+}
+
+void AnimTask_AllBattlersInvisible(u8 taskId)
+{
+    u32 i, spriteId;
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        spriteId = gBattlerSpriteIds[i];
+        if (spriteId != 0xFF)
+            gSprites[spriteId].invisible = TRUE;
+    }
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_AllBattlersVisible(u8 taskId)
+{
+    u32 i, spriteId;
+    for (i = 0; i < gBattlersCount; ++i)
+    {
+        spriteId = gBattlerSpriteIds[i];
+        if (IsBattlerSpriteVisible(i) && spriteId != 0xFF)
+            gSprites[spriteId].invisible = FALSE;
+    }
+
+    DestroyAnimVisualTask(taskId);
 }
 

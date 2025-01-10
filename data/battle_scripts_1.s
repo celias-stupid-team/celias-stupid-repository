@@ -242,6 +242,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
 	.4byte BattleScript_EffectExplosionUseless              @ EFFECT_EXPLOSION_USELESS
 	.4byte BattleScript_EffectAttackAccuracyUp              @ EFFECT_ATTACK_ACCURACY_UP
+	.4byte BattleScript_EffectStealthRock	         @ EFFECT_STEALTH_ROCK
+	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 
 
@@ -3436,53 +3438,53 @@ BattleScript_DestinyBondTakesLife::
 	tryfaintmon BS_ATTACKER
 	return
 
-BattleScript_SpikesOnAttacker::
+BattleScript_DmgHazardsOnAttacker::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
-	call BattleScript_PrintHurtBySpikes
+	call BattleScript_PrintHurtByDmgHazards
 	tryfaintmon BS_ATTACKER
-	tryfaintmon_spikes BS_ATTACKER, BattleScript_SpikesOnAttackerFainted
+	tryfaintmon_spikes BS_ATTACKER, BattleScript_DmgHazardsOnAttackerFainted
 	return
 
-BattleScript_SpikesOnAttackerFainted::
+BattleScript_DmgHazardsOnAttackerFainted::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_ATTACKER
 	moveendall
 	goto BattleScript_HandleFaintedMon
 
-BattleScript_SpikesOnTarget::
+BattleScript_DmgHazardsOnTarget::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-	call BattleScript_PrintHurtBySpikes
+	call BattleScript_PrintHurtByDmgHazards
 	tryfaintmon BS_TARGET
-	tryfaintmon_spikes BS_TARGET, BattleScript_SpikesOnTargetFainted
+	tryfaintmon_spikes BS_TARGET, BattleScript_DmgHazardsOnTargetFainted
 	return
 
-BattleScript_SpikesOnTargetFainted::
+BattleScript_DmgHazardsOnTargetFainted::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_TARGET
 	moveendall
 	goto BattleScript_HandleFaintedMon
 
-BattleScript_SpikesOnFaintedBattler::
+BattleScript_DmgHazardsOnFaintedBattler::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_FAINTED
 	datahpupdate BS_FAINTED
-	call BattleScript_PrintHurtBySpikes
+	call BattleScript_PrintHurtByDmgHazards
 	tryfaintmon BS_FAINTED
-	tryfaintmon_spikes BS_FAINTED, BattleScript_SpikesOnFaintedBattlerFainted
+	tryfaintmon_spikes BS_FAINTED, BattleScript_DmgHazardsOnFaintedBattlerFainted
 	return
 
-BattleScript_SpikesOnFaintedBattlerFainted::
+BattleScript_DmgHazardsOnFaintedBattlerFainted::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_FAINTED
 	moveendall
 	goto BattleScript_HandleFaintedMon
 
-BattleScript_PrintHurtBySpikes::
-	printstring STRINGID_PKMNHURTBYSPIKES
+BattleScript_PrintHurtByDmgHazards::
+	printfromtable gDmgHazardsStringIds
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -4667,3 +4669,44 @@ BattleScript_DoubleKickHeal::
 	waitmessage B_WAIT_TIME_LONG
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+BattleScript_EffectRevivalBlessing::
+	attackcanceler
+	attackstring
+	tryrevivalblessing BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNREVIVEDREADYTOFIGHT
+	waitmessage B_WAIT_TIME_LONG
+	jumpifbyte CMP_EQUAL, gBattleCommunication, TRUE, BattleScript_EffectRevivalBlessingSendOut
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRevivalBlessingSendOut:
+	getswitchedmondata BS_SCRIPTING
+	switchindataupdate BS_SCRIPTING
+	hpthresholds BS_SCRIPTING
+	switchinanim BS_SCRIPTING, FALSE
+	waitstate
+	switchineffects BS_SCRIPTING
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectStealthRock::
+	attackcanceler
+	attackstring
+	ppreduce
+	setstealthrock BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_POINTEDSTONESFLOAT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_StealthRockActivates::
+	setstealthrock BattleScript_MoveEnd
+	printfromtable gDmgHazardsStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_StealthRockFree::
+	printstring STRINGID_PKMNBLEWAWAYSTEALTHROCK
+	waitmessage B_WAIT_TIME_LONG
+	return

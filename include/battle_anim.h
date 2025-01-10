@@ -176,6 +176,7 @@ extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;
 extern const union AffineAnimCmd *const gAffineAnims_Bite[];
 extern const union AffineAnimCmd *const gAffineAnims_Droplet[];
 extern const union AffineAnimCmd *const gGrowingRingAffineAnimTable[];
+extern const union AffineAnimCmd *const gGuardRingAffineAnimTable[];
 extern const union AnimCmd *const gAnims_SmallBubblePair[];
 extern const union AnimCmd *const gAnims_BasicFire[];
 extern const union AnimCmd *const gAnims_WaterMudOrb[];

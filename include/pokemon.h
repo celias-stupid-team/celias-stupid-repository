@@ -4,6 +4,7 @@
 #include "global.h"
 #include "sprite.h"
 #include "constants/pokemon.h"
+#include "fpmath.h"
 
 struct PokemonSubstruct0
 {

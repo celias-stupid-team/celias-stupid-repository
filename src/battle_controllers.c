@@ -377,6 +377,7 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
             break;
         }
     }
+    //DebugPrintf("current BattleController = %d", gBattleBufferA[gActiveBattler][0]);
 }
 
 static void CreateTasksForSendRecvLinkBuffers(void)

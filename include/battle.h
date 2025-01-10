@@ -12,6 +12,7 @@
 #include "battle_gfx_sfx_util.h"
 #include "battle_util2.h"
 #include "battle_bg.h"
+#include "battle_anim.h"
 
 /*
     Banks are a name given to what could be called a 'battlerId' or 'monControllerId'.
@@ -262,7 +263,7 @@ struct SideTimer
     /*0x08*/ u8 followmeTimer;
     /*0x09*/ u8 followmeTarget;
     /*0x0A*/ u8 spikesAmount;
-    /*0x0B*/ u8 fieldB;
+    /*0x0B*/ u8 stealthRockAmount;
 };
 
 extern struct SideTimer gSideTimers[];
@@ -737,6 +738,10 @@ extern u8 gChosenActionByBattler[MAX_BATTLERS_COUNT];
 extern u8 gBattleTerrain;
 extern struct MultiBattlePokemonTx gMultiPartnerParty[3];
 extern u16 gRandomTurnNumber;
+
+
+struct Pokemon *GetSideParty(u8 side);
+struct Pokemon *GetBattlerParty(u8 battler);
 
 #endif // GUARD_BATTLE_H
 

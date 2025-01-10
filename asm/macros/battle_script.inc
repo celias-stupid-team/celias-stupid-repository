@@ -1518,3 +1518,13 @@
 	.macro multihitresultmessage
 	callnative BS_MultihitResultMessage
 	.endm
+
+	.macro tryrevivalblessing, failInstr:req
+	callnative BS_TryRevivalBlessing
+	.4byte \failInstr
+	.endm
+
+	.macro setstealthrock failInstr:req
+	callnative BS_SetStealthRock
+	.4byte \failInstr
+	.endm

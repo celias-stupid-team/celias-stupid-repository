@@ -2432,6 +2432,8 @@ static void BattleStartClearSetData(void)
         gBattleResults.playerMon2Name[i] = 0;
         gBattleResults.caughtMonNick[i] = 0;
     }
+
+    gSelectedMonPartyId = PARTY_SIZE; // Revival Blessing
 }
 
 void SwitchInClearSetData(void)
@@ -2536,6 +2538,9 @@ void SwitchInClearSetData(void)
 
     gBattleResources->flags->flags[gActiveBattler] = 0;
     gCurrentMove = MOVE_NONE;
+
+    // Clear selected party ID so Revival Blessing doesn't get confused.
+    gSelectedMonPartyId = PARTY_SIZE;
 }
 
 void FaintClearSetData(void)
@@ -4308,6 +4313,8 @@ static void HandleAction_UseMove(void)
             }
         }
     }
+    //DebugPrintf("Move = %d", gCurrentMove);
+    //DebugPrintf("Move effect = %d", gBattleMoves[gCurrentMove].effect);
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
