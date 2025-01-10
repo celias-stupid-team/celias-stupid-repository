@@ -5854,7 +5854,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalPokemonTowerSquirtle
     },
     {
         .iv = 100,
-        .lvl = 30,
+        .lvl = 50,
         .species = SPECIES_HO_OH,
         .moves = {MOVE_REVIVAL_BLESSING, MOVE_SACRED_FIRE, MOVE_NONE, MOVE_NONE}
     },

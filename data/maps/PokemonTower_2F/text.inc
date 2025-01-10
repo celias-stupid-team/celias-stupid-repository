@@ -27,8 +27,7 @@ PokemonTower_2F_Text_RivalPostBattle::
 	.string "Boy, am I glad that I never went\n"
 	.string "on any boats or anything.\p"
 	.string "Well, I better get going.\n"
-	.string "I've got a lot to accomplish,\l"
-	.string "unlike you.\p"
+	.string "I've got a lot to accomplish.\p"
 	.string "Extra-sensorally perceive ya later!\n$"
 
 PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts::

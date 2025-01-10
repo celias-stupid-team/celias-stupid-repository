@@ -202,8 +202,8 @@ static const u8 sText_PkmnLaidCurse[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own 
 static const u8 sText_PkmnAfflictedByCurse[] = _("{B_ATK_NAME_WITH_PREFIX} is afflicted\nby the CURSE!");
 static const u8 sText_SpikesScattered[] = _("SPIKES were scattered all around\nthe opponent's side!");
 static const u8 sText_PkmnHurtBySpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby SPIKES!");
-static const u8 sText_PointedStonesDugInto[] = _("Pointed stones dug into {B_DEF_NAME_WITH_PREFIX}!");
-static const u8 sText_PointedStonesFloat[] = _("Pointed stones dug into {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_PointedStonesDugInto[] = _("Stoned tombs dig into {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_PointedStonesFloat[] = _("Stoned tombs float around\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIdentified[] = _("{B_ATK_NAME_WITH_PREFIX} identified\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnPerishCountFell[] = _("{B_ATK_NAME_WITH_PREFIX}'s PERISH count\nfell to {B_BUFF1}!");
 static const u8 sText_PkmnBracedItself[] = _("{B_ATK_NAME_WITH_PREFIX} braced\nitself!");
@@ -1779,13 +1779,6 @@ void BufferStringBattle(u16 stringId)
                 case 6: //Flash
                     
                      if (gBattleMons[gBattlerTarget].ability == ABILITY_SICK_SHADES) {
-                        BattleStopLowHpSound();
-                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
-                        FlagSet(FLAG_SYS_CSR_VICTORY);
-                    }
-                    break;
-                case 7: //Ho oh
-                    if(sBattleMsgDataPtr->currentMove == MOVE_TOMBSTONER) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);
