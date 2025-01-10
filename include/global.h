@@ -641,7 +641,6 @@ struct FameCheckerSaveData
 {
     /*3a54*/ u16 pickState:2;
     u16 flavorTextFlags:12;
-    u16 flavorTextCompletion_Flags:12;
     u16 unk_0_E:2;
 };
 

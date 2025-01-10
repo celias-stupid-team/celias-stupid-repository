@@ -8919,6 +8919,8 @@ extern const u32 gBattleAnimSpritePal_Bee[];
 extern const u32 gBattleAnimSpriteGfx_Bee[];
 extern const u32 gBattleAnimSpritePal_WaterShuriken[];
 extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
+extern const u32 gBattleAnimSpritePal_Weed[];
+extern const u32 gBattleAnimSpriteGfx_Weed[];
 
 // battle anim task
 extern const u32 gUnusedLevelupAnimationGfx[];

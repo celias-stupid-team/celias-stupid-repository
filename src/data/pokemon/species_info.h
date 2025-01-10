@@ -821,10 +821,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SANDSLASH] =
     {
         .baseHP = 75,
-        .baseAttack = 100,
+        .baseAttack = 110,
         .baseDefense = 110,
         .baseSpeed = 65,
-        .baseSpAttack = 45,
+        .baseSpAttack = 85,
         .baseSpDefense = 55,
         .types = {TYPE_GROUND, TYPE_GROUND},
         .catchRate = 255,
@@ -4242,9 +4242,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MOLTRES] =
     {
-        .baseHP = 90,
+        .baseHP = 15, //Low defense and HP for the Jerry fight in Cerulean
         .baseAttack = 100,
-        .baseDefense = 90,
+        .baseDefense = 15,
         .baseSpeed = 90,
         .baseSpAttack = 125,
         .baseSpDefense = 85,

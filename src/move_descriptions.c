@@ -365,7 +365,7 @@ const u8 gMoveDescription_ConfusionPsyduck[] = _("The user is\nslightly confused
 //dummies out for now
 const u8 gMoveDescription_Water_Shuriken[] = _("Dummy");
 const u8 gMoveDescription_Revival_Blessing[] = _("Revives a fainted\nparty {PKMN} and\nrestores half of\nits HP.");
-const u8 gMoveDescription_Tombstoner[] = _("Contained within\nTM28. Lays stones\nthat hurt the foe\nupon switching in");
+const u8 gMoveDescription_Tombstoner[] = _("Contained within\nTM28. Lays stones\nthat hurt the foe\nupon switching in.");
 const u8 gMoveDescription_Follow_Him[] = _("Dummy");
 const u8 gMoveDescription_Spiky_Shield[] = _("Protects the user\nfrom attacks and\ndamages foes who\nmake contact.");
 const u8 gMoveDescription_Searing_Shot[] = _("Dummy");

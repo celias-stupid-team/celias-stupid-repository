@@ -3769,10 +3769,10 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlyCharmand
 
 static const struct TrainerMonItemCustomMoves sParty_RivalCeruleanSquirtle[] = {
     {
-        .iv = 50,
-        .lvl = 90,
+        .iv = 0,
+        .lvl = 80,
         .species = SPECIES_MOLTRES,
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_NONE,
         .moves = {MOVE_SURF, MOVE_WATER_SHURIKEN, MOVE_NONE, MOVE_NONE},
     },
     {
@@ -3784,9 +3784,9 @@ static const struct TrainerMonItemCustomMoves sParty_RivalCeruleanSquirtle[] = {
     },
     {
         .iv = 50,
-        .lvl = 16,
+        .lvl = 20,
         .species = SPECIES_ABRA,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_NONE,
         .moves = {MOVE_TELEPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
@@ -5845,21 +5845,24 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalSsAnneCharmander[] 
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_RivalPokemonTowerSquirtle[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_RivalPokemonTowerSquirtle[] = {
     {
         .iv = 100,
         .lvl = 25,
         .species = SPECIES_RATICATE,
+        .moves = {MOVE_QUICK_ATTACK, MOVE_REVIVAL_BLESSING, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 100,
-        .lvl = 23,
+        .lvl = 40,
         .species = SPECIES_HO_OH,
+        .moves = {MOVE_REVIVAL_BLESSING, MOVE_SACRED_FIRE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 100,
-        .lvl = 22,
-        .species = SPECIES_EXEGGCUTE,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     
 };

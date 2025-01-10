@@ -31,7 +31,7 @@
 #define ______ X(1.0) // Regular effectiveness.
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
-{//                   Defender -->
+{//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
  //  Attacker                         NORMAL 	FIGHTING 	FLYING 	    POISON  	STEEL    	ROCK    	BUG 	    GHOST 	    WATER_P 	ELECTRIC_P	PSYCHIC_P 	MYSTERY 	GROUND  	FIRE 	    WATER 	    GRASS 	    ELECTRIC 	PSYCHIC 	ICE 	    DRAGON  	DARK 	    FAIRY 	    BROCK 	    WEIRD 	    DAD 	    CHOCOLATE 	SHADOW  	LARGE 	    BIRD 	    SHIT 	    FAIRY_TRANS SOUND   	GRASS_TCG 
     [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
     [TYPE_FIGHTING]          = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	X(0.2)  	},

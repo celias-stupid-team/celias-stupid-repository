@@ -19,7 +19,7 @@ CeruleanCity_Text_RivalPostBattle::
     .string "My name is JERRY!\n"
     .string "What are you talking about?\p"
     .string "Well, I better get rolling!\n"
-    .string "Touch ya later!$"
+    .string "Listen to ya later!$"
 
 CeruleanCity_Text_OhRightLittlePresentAsFavor::
     .string "Oh, yeah, right.\p"
@@ -37,7 +37,7 @@ CeruleanCity_Text_ExplainFameCheckerSmellYa::
     .string "Yes, you are absolutely known\n"
     .string "for being chatty and gossipy.\p"
     .string "All right, this time I really am\n"
-    .string "gone. Feel ya!$"
+    .string "gone. Hear ya!$"
 
 @ RB translation: "Heh! You're no match for my genius!"
 CeruleanCity_Text_RivalVictory::

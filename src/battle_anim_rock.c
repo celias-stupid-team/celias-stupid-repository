@@ -131,17 +131,6 @@ const struct SpriteTemplate gFlyingSandCrescentSpriteTemplate =
     .callback = AnimFlyingSandCrescent,
 };
 
-const struct SpriteTemplate gStealthRockSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_STEALTH_ROCK,
-    .paletteTag = ANIM_TAG_STEALTH_ROCK,
-    .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimStealthRock,
-};
-
 static const struct Subsprite sFlyingSandSubsprites[] =
 {
     {
@@ -250,6 +239,18 @@ const struct SpriteTemplate gRockTombRockSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
     .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_BasicRock,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockTomb,
+};
+
+
+const struct SpriteTemplate gStealthRockSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_STEALTH_ROCK,
+    .paletteTag = ANIM_TAG_STEALTH_ROCK,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_BasicRock,
     .images = NULL,
