@@ -245,6 +245,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStealthRock	         @ EFFECT_STEALTH_ROCK
 	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
+	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
 
 
 
@@ -4710,3 +4711,15 @@ BattleScript_StealthRockFree::
 	printstring STRINGID_PKMNBLEWAWAYSTEALTHROCK
 	waitmessage B_WAIT_TIME_LONG
 	return
+
+BattleScript_EffectDoNothing::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	setbattlestringid
+	waitstate
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
