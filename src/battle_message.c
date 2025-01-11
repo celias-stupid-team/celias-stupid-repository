@@ -432,6 +432,12 @@ static const u8 sText_ExclamationMark2[] = _("!");
 static const u8 sText_ExclamationMark3[] = _("!");
 static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
+static const u8 sText_DoNothing01[] = _("Nothing happens.");
+static const u8 sText_DoNothing02[] = _("Nothing happens.");
+static const u8 sText_DoNothing03[] = _("Nothing happens.");
+static const u8 sText_DoNothing04[] = _("Nothing happens.");
+static const u8 sText_DoNothing05[] = _("Nothing happens.");
+static const u8 sText_None[] = _("TEXT ID ERROR\nNo .stringId maintained!");
 
 static const u8 sText_HP2[] = _("HP");
 static const u8 sText_Attack2[] = _("ATTACK");
@@ -912,7 +918,13 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNREVIVEDREADYTOFIGHT - BATTLESTRINGS_TABLE_START]       = sText_PkmnRevived,
     [STRINGID_STEALTHROCKDMG - BATTLESTRINGS_TABLE_START]                = sText_PointedStonesDugInto,
     [STRINGID_PKMNBLEWAWAYSTEALTHROCK - BATTLESTRINGS_TABLE_START]       = sText_PkmnBlewAwayStealthRock,
-    [STRINGID_POINTEDSTONESFLOAT - BATTLESTRINGS_TABLE_START]            = sText_PointedStonesFloat
+    [STRINGID_POINTEDSTONESFLOAT - BATTLESTRINGS_TABLE_START]            = sText_PointedStonesFloat,
+    [STRINGID_DONOTHING01 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing01,
+    [STRINGID_DONOTHING02 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing02,
+    [STRINGID_DONOTHING03 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing03,
+    [STRINGID_DONOTHING04 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing04,
+    [STRINGID_DONOTHING05 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing05,
+    [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
 const u16 gMissStringIds[] =
@@ -1303,6 +1315,16 @@ const u16 gDmgHazardsStringIds[] =
     [B_MSG_POINTEDSTONESFLOAT] = STRINGID_POINTEDSTONESFLOAT,
     [B_MSG_SPIKESSCATTERED]    = STRINGID_SPIKESSCATTERED,
     [B_MSG_SHARPSTEELFLOATS]   = STRINGID_PKMNHURTBYSPIKES, //not implemented
+};
+
+const u16 gDoNothingStringIds[] =
+{
+    [B_MSG_NONE]          = STRINGID_NONE,
+    [B_MSG_DO_NOTHING_01] = STRINGID_DONOTHING01,
+    [B_MSG_DO_NOTHING_02] = STRINGID_DONOTHING02,
+    [B_MSG_DO_NOTHING_03] = STRINGID_DONOTHING03,
+    [B_MSG_DO_NOTHING_04] = STRINGID_DONOTHING04,
+    [B_MSG_DO_NOTHING_05] = STRINGID_DONOTHING05,
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");

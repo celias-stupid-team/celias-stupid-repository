@@ -1528,3 +1528,7 @@
 	callnative BS_SetStealthRock
 	.4byte \failInstr
 	.endm
+
+	.macro setbattlestringid
+	callnative BS_SetBattleStringId
+	.endm

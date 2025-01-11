@@ -394,8 +394,14 @@
 #define STRINGID_STEALTHROCKDMG 393
 #define STRINGID_PKMNBLEWAWAYSTEALTHROCK 394
 #define STRINGID_POINTEDSTONESFLOAT 395
+#define STRINGID_DONOTHING01 396
+#define STRINGID_DONOTHING02 397
+#define STRINGID_DONOTHING03 398
+#define STRINGID_DONOTHING04 399
+#define STRINGID_DONOTHING05 400
+#define STRINGID_NONE 401
 
-#define BATTLESTRINGS_COUNT     396
+#define BATTLESTRINGS_COUNT     402
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -609,5 +615,13 @@
 #define B_MSG_POINTEDSTONESFLOAT 3
 #define B_MSG_SPIKESSCATTERED    4
 #define B_MSG_SHARPSTEELFLOATS   5
+
+// gDoNothingStringIds
+#define B_MSG_NONE                 0
+#define B_MSG_DO_NOTHING_01        1
+#define B_MSG_DO_NOTHING_02        2
+#define B_MSG_DO_NOTHING_03        3
+#define B_MSG_DO_NOTHING_04        4
+#define B_MSG_DO_NOTHING_05        5
 
 #endif // GUARD_BATTLE_STRING_IDS_H
