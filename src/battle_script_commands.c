@@ -1341,22 +1341,22 @@ void AI_CalcDmg(u8 attacker, u8 defender)
         gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
 }
 
-static void ModulateDmgByType(u8 multiplier)
+static void ModulateDmgByType(u32 multiplier)
 {
-    gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
+    gBattleMoveDamage = gBattleMoveDamage * multiplier / TYPE_MUL_NORMAL;
     if (gBattleMoveDamage == 0 && multiplier != 0)
         gBattleMoveDamage = 1;
 
     //DebugPrintf("ModulateDmgByType Dmg = %d", gBattleMoveDamage);
 
-    switch (multiplier)
+    if (multiplier == TYPE_MUL_NO_EFFECT)
     {
-    case TYPE_MUL_NO_EFFECT:
         gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         gMoveResultFlags &= ~MOVE_RESULT_NOT_VERY_EFFECTIVE;
         gMoveResultFlags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
-        break;
-    case TYPE_MUL_NOT_EFFECTIVE:
+    }
+    else if (multiplier == TYPE_TCG_NOT_EFFECTIVE)
+    {
         if (gBattleMoves[gCurrentMove].power && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE)
@@ -1364,8 +1364,9 @@ static void ModulateDmgByType(u8 multiplier)
             else
                 gMoveResultFlags |= MOVE_RESULT_NOT_VERY_EFFECTIVE;
         }
-        break;
-    case TYPE_TCG_NOT_EFFECTIVE:
+    }
+    else if (multiplier <= TYPE_MUL_NOT_EFFECTIVE)
+    {
         if (gBattleMoves[gCurrentMove].power && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE)
@@ -1373,8 +1374,9 @@ static void ModulateDmgByType(u8 multiplier)
             else
                 gMoveResultFlags |= MOVE_RESULT_NOT_VERY_EFFECTIVE;
         }
-        break;
-    case TYPE_MUL_SUPER_EFFECTIVE:
+    }
+    else if (multiplier >= TYPE_MUL_SUPER_EFFECTIVE) 
+    {
         if (gBattleMoves[gCurrentMove].power && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             if (gMoveResultFlags & MOVE_RESULT_NOT_VERY_EFFECTIVE)
@@ -1382,7 +1384,6 @@ static void ModulateDmgByType(u8 multiplier)
             else
                 gMoveResultFlags |= MOVE_RESULT_SUPER_EFFECTIVE;
         }
-        break;
     }
 }
 
@@ -1392,7 +1393,7 @@ static void Cmd_typecalc(void)
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
     u32 defType1, defType2;
-    u8 mult;
+    u32 mult;
 
     if (gCurrentMove == MOVE_STRUGGLE)
     {
@@ -1436,8 +1437,10 @@ static void Cmd_typecalc(void)
             modifier = UQ_4_12(1.0);
         }
 
-        mult = modifier / 4096;
-        ModulateDmgByType(mult * TYPE_MUL_NORMAL);
+        // DebugPrintf("Cmd_typecalc modifier = %d", modifier);
+
+        mult = (TYPE_MUL_NORMAL * modifier) / 4096;
+        ModulateDmgByType(mult);
         // DebugPrintf("Cmd_typecalc mult = %d", mult);
     }
 
@@ -1465,7 +1468,7 @@ static void CheckWonderGuardAndLevitate(void)
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
     u32 defType1, defType2;
-    u8 mult;
+    u32 mult;
 
     if (!gBattleMoves[gCurrentMove].power) //Struggle no longer bypasses Wonder Guard
         return;
@@ -1496,7 +1499,7 @@ static void CheckWonderGuardAndLevitate(void)
         modifier = UQ_4_12(1.0);
     }
 
-	mult = (modifier / 4096) * TYPE_MUL_NORMAL;
+	mult = (modifier * TYPE_MUL_NORMAL) / 4096;
 
     //check immunity
     if (mult == TYPE_MUL_NO_EFFECT)
@@ -1524,22 +1527,22 @@ static void CheckWonderGuardAndLevitate(void)
 }
 
 // Same as ModulateDmgByType except different arguments
-static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
+static void ModulateDmgByType2(u32 multiplier, u16 move, u8 *flags)
 {
-    gBattleMoveDamage = gBattleMoveDamage * multiplier / 10;
+    gBattleMoveDamage = gBattleMoveDamage * multiplier / TYPE_MUL_NORMAL;
     if (gBattleMoveDamage == 0 && multiplier != 0)
         gBattleMoveDamage = 1;
 
     // DebugPrintf("ModulateDmgByType2 Dmg = %d", gBattleMoveDamage);
 
-    switch (multiplier)
+    if (multiplier == TYPE_MUL_NO_EFFECT)
     {
-    case TYPE_MUL_NO_EFFECT:
         *flags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
         *flags &= ~MOVE_RESULT_NOT_VERY_EFFECTIVE;
         *flags &= ~MOVE_RESULT_SUPER_EFFECTIVE;
-        break;
-    case TYPE_MUL_NOT_EFFECTIVE:
+    }
+    else if (multiplier == TYPE_TCG_NOT_EFFECTIVE)
+    {
         if (gBattleMoves[move].power && !(*flags & MOVE_RESULT_NO_EFFECT))
         {
             if (*flags & MOVE_RESULT_SUPER_EFFECTIVE)
@@ -1547,8 +1550,9 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
             else
                 *flags |= MOVE_RESULT_NOT_VERY_EFFECTIVE;
         }
-        break;
-    case TYPE_TCG_NOT_EFFECTIVE:
+    }
+    else if (multiplier <= TYPE_MUL_NOT_EFFECTIVE)
+    {
         if (gBattleMoves[move].power && !(*flags & MOVE_RESULT_NO_EFFECT))
         {
             if (*flags & MOVE_RESULT_SUPER_EFFECTIVE)
@@ -1556,8 +1560,9 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
             else
                 *flags |= MOVE_RESULT_NOT_VERY_EFFECTIVE;
         }
-        break;
-    case TYPE_MUL_SUPER_EFFECTIVE:
+    }
+    else if (multiplier >= TYPE_MUL_SUPER_EFFECTIVE) 
+    {
         if (gBattleMoves[move].power && !(*flags & MOVE_RESULT_NO_EFFECT))
         {
             if (*flags & MOVE_RESULT_NOT_VERY_EFFECTIVE)
@@ -1565,7 +1570,6 @@ static void ModulateDmgByType2(u8 multiplier, u16 move, u8 *flags)
             else
                 *flags |= MOVE_RESULT_SUPER_EFFECTIVE;
         }
-        break;
     }
 }
 
@@ -1576,7 +1580,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
     u32 defType1, defType2;
-    u8 mult;
+    u32 mult;
 
     if (move == MOVE_STRUGGLE)
         return 0;
@@ -1612,8 +1616,8 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
             modifier = UQ_4_12(1.0);
         }
 
-        mult = modifier / 4096;
-        ModulateDmgByType2(mult * TYPE_MUL_NORMAL, move, &flags);
+        mult = (modifier * TYPE_MUL_NORMAL) / 4096;
+        ModulateDmgByType2(mult, move, &flags);
         // DebugPrintf("TypeCalc mult = %d", mult);
     }
 
@@ -1634,7 +1638,7 @@ u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
     u8 type1 = gSpeciesInfo[targetSpecies].types[0], type2 = gSpeciesInfo[targetSpecies].types[1];
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
-    u8 mult;
+    u32 mult;
 
     if (move == MOVE_STRUGGLE)
         return 0;
@@ -1652,8 +1656,8 @@ u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
         if (type2 != type1)
             modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, type2));
 
-        mult = modifier / 4096;
-        ModulateDmgByType2(mult * TYPE_MUL_NORMAL, move, &flags);
+        mult = (modifier * TYPE_MUL_NORMAL) / 4096;
+        ModulateDmgByType2(mult, move, &flags);
         // DebugPrintf("AI_TypeCalc mult = %d", mult);
     }
 
@@ -4579,7 +4583,7 @@ static void Cmd_typecalc2(void)
     u8 moveType = gBattleMoves[gCurrentMove].type;
     uq4_12_t modifier = UQ_4_12(1.0);
     u32 defType1, defType2;
-    u8 mult;
+    u32 mult;
 
     if (gBattleMons[gBattlerTarget].ability == ABILITY_LEVITATE && moveType == TYPE_GROUND)
     {
@@ -4607,7 +4611,7 @@ static void Cmd_typecalc2(void)
             modifier = UQ_4_12(1.0);
         }
 
-        mult = (modifier / 4096) * TYPE_MUL_NORMAL;
+        mult = (modifier * TYPE_MUL_NORMAL) / 4096;
         // DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
 
         if (mult == TYPE_MUL_NO_EFFECT)

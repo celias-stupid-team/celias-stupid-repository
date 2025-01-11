@@ -29,10 +29,10 @@ struct MultiBattlePokemonTx
 
 // defines for the Type Effectiveness multipliers
 #define TYPE_MUL_NO_EFFECT          0
-#define TYPE_MUL_NOT_EFFECTIVE      5
-#define TYPE_MUL_NORMAL             10
-#define TYPE_MUL_SUPER_EFFECTIVE    20
-#define TYPE_TCG_NOT_EFFECTIVE      2
+#define TYPE_MUL_NOT_EFFECTIVE      50
+#define TYPE_MUL_NORMAL             100
+#define TYPE_MUL_SUPER_EFFECTIVE    200
+#define TYPE_TCG_NOT_EFFECTIVE      20
 
 // defines for the 'DoBounceEffect' function
 #define BOUNCE_MON          0x0
