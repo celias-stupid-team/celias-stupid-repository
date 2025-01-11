@@ -394,14 +394,17 @@
 #define STRINGID_STEALTHROCKDMG 393
 #define STRINGID_PKMNBLEWAWAYSTEALTHROCK 394
 #define STRINGID_POINTEDSTONESFLOAT 395
-#define STRINGID_DONOTHING01 396
-#define STRINGID_DONOTHING02 397
-#define STRINGID_DONOTHING03 398
-#define STRINGID_DONOTHING04 399
-#define STRINGID_DONOTHING05 400
-#define STRINGID_NONE 401
+#define STRINGID_CELEBRATE 396
+#define STRINGID_1DERROOM 397
+#define STRINGID_SECRETPOWER 398
+#define STRINGID_UPDOG 399
+#define STRINGID_TRYATTACK 400
+#define STRINGID_GMAX_MOVE 401
+#define STRINGID_EXTREME_EVOBOOST 402
+#define STRINGID_VEEVEE_VOLLEY 403
+#define STRINGID_NONE 404
 
-#define BATTLESTRINGS_COUNT     402
+#define BATTLESTRINGS_COUNT     405
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -618,10 +621,13 @@
 
 // gDoNothingStringIds
 #define B_MSG_NONE                 0
-#define B_MSG_DO_NOTHING_01        1
-#define B_MSG_DO_NOTHING_02        2
-#define B_MSG_DO_NOTHING_03        3
-#define B_MSG_DO_NOTHING_04        4
-#define B_MSG_DO_NOTHING_05        5
+#define B_MSG_CELEBRATE        1
+#define B_MSG_1DER_ROOM        2
+#define B_MSG_SECRETPOWER        3
+#define B_MSG_UPDOG        4
+#define B_MSG_TRYATTACK        5
+#define B_MSG_GMAX_MOVE        6
+#define B_MSG_EXTREME_EVOBOOST        7
+#define B_MSG_VEEVEE_VOLLEY        8
 
 #endif // GUARD_BATTLE_STRING_IDS_H

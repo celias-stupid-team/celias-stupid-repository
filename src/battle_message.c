@@ -432,11 +432,14 @@ static const u8 sText_ExclamationMark2[] = _("!");
 static const u8 sText_ExclamationMark3[] = _("!");
 static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
-static const u8 sText_DoNothing01[] = _("Nothing happens.");
-static const u8 sText_DoNothing02[] = _("Nothing happens.");
-static const u8 sText_DoNothing03[] = _("Nothing happens.");
-static const u8 sText_DoNothing04[] = _("Nothing happens.");
-static const u8 sText_DoNothing05[] = _("Nothing happens.");
+static const u8 sText_Celebrate[] = _("Yay!");
+static const u8 sText_1derRoom[] = _("The 1DER ROOM multiplies the stats\nof all POKéMON by 1!");
+static const u8 sText_MySecretLife_Battle[] = _("My Secret Life, chapter three\n\nI was neither a murder suspect, nor\na target for an international spy\norganization.\n\nBut I drove a car down the Jersey\nTurnpike at 80 mph.\n\n…A police officer pulled me over\nand asked for my driver's license.\n\nHe said I was going 20 mph over the\nspeed limit. I instantly pointed to\nmy wife and said, “I'm in a hurry,\nmy wife is in labor.”\n\nFortunately, my wife actually had a\nbig stomach.\n\nI hoped he'd let me go with this\nexcuse.\n\n“Oh, since it's an emergency, I'll\nlead you to the hospital with my\npolice car,” he said.\n\n“No, it's not necessary.”\n\n“WHy not?” asked the officer.\n“Uh… well…”\n\n“Let's get going,” said the officer.\n\n“No, no! We can't! This baby is a\ndemon child!”");
+static const u8 sText_UpDog[] = _("{B_OPPONENT_MON1_NAME} asked\n“What's UP DOG?”");
+static const u8 sText_TryAttack[] = _("{B_PLAYER_MON1_NAME} tried to\nattack! {PAUSE 60}\pBut it failed!\n");
+static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in the area!");
+static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
+static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_None[] = _("TEXT ID ERROR\nNo .stringId maintained!");
 
 static const u8 sText_HP2[] = _("HP");
@@ -919,11 +922,14 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_STEALTHROCKDMG - BATTLESTRINGS_TABLE_START]                = sText_PointedStonesDugInto,
     [STRINGID_PKMNBLEWAWAYSTEALTHROCK - BATTLESTRINGS_TABLE_START]       = sText_PkmnBlewAwayStealthRock,
     [STRINGID_POINTEDSTONESFLOAT - BATTLESTRINGS_TABLE_START]            = sText_PointedStonesFloat,
-    [STRINGID_DONOTHING01 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing01,
-    [STRINGID_DONOTHING02 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing02,
-    [STRINGID_DONOTHING03 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing03,
-    [STRINGID_DONOTHING04 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing04,
-    [STRINGID_DONOTHING05 - BATTLESTRINGS_TABLE_START]                   = sText_DoNothing05,
+    [STRINGID_CELEBRATE - BATTLESTRINGS_TABLE_START]                   = sText_Celebrate,
+    [STRINGID_1DERROOM - BATTLESTRINGS_TABLE_START]                   = sText_1derRoom,
+    [STRINGID_SECRETPOWER - BATTLESTRINGS_TABLE_START]                   = sText_MySecretLife_Battle,
+    [STRINGID_UPDOG - BATTLESTRINGS_TABLE_START]                   = sText_UpDog,
+    [STRINGID_TRYATTACK - BATTLESTRINGS_TABLE_START]                   = sText_TryAttack,
+    [STRINGID_GMAX_MOVE - BATTLESTRINGS_TABLE_START]                   = sText_GmaxMove,
+    [STRINGID_EXTREME_EVOBOOST - BATTLESTRINGS_TABLE_START]                   = sText_ExtremeEvoboost,
+    [STRINGID_VEEVEE_VOLLEY - BATTLESTRINGS_TABLE_START]                   = sText_VeeveeVolley,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1320,11 +1326,15 @@ const u16 gDmgHazardsStringIds[] =
 const u16 gDoNothingStringIds[] =
 {
     [B_MSG_NONE]          = STRINGID_NONE,
-    [B_MSG_DO_NOTHING_01] = STRINGID_DONOTHING01,
-    [B_MSG_DO_NOTHING_02] = STRINGID_DONOTHING02,
-    [B_MSG_DO_NOTHING_03] = STRINGID_DONOTHING03,
-    [B_MSG_DO_NOTHING_04] = STRINGID_DONOTHING04,
-    [B_MSG_DO_NOTHING_05] = STRINGID_DONOTHING05,
+    [B_MSG_CELEBRATE] = STRINGID_CELEBRATE,
+    [B_MSG_1DER_ROOM] = STRINGID_1DERROOM,
+    [B_MSG_SECRETPOWER] = STRINGID_SECRETPOWER,
+    [B_MSG_UPDOG] = STRINGID_UPDOG,
+    [B_MSG_TRYATTACK] = STRINGID_TRYATTACK,
+    [B_MSG_GMAX_MOVE] = STRINGID_GMAX_MOVE,
+    [B_MSG_EXTREME_EVOBOOST] = STRINGID_EXTREME_EVOBOOST,
+    [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
+    
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");

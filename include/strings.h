@@ -1488,7 +1488,7 @@ extern const u8 gPCText_Forest[];
 extern const u8 gPCText_City[];
 extern const u8 gPCText_Bookshelf[];
 extern const u8 gPCText_Rickroll[];
-extern const u8 gPCText_Savanna[];
+extern const u8 gPCText_PokemonBox[];
 extern const u8 gPCText_Volcano[];
 extern const u8 gPCText_Snow[];
 extern const u8 gPCText_Cave[];

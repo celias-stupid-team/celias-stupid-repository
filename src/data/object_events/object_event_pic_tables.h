@@ -1215,8 +1215,8 @@ static const struct SpriteFrameImage sPicTable_LaprasDoll[] = {
 
 static const struct SpriteFrameImage sPicTable_Seagallop[] = {
     overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 1),
+    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 2),
     overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
     overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
     overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
@@ -1946,15 +1946,15 @@ overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 8),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Karen[] = {
-overworld_frame(gObjectEventPic_Karen, 2, 4, 0),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 1),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 2),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 3),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 4),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 5),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 6),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 7),
-overworld_frame(gObjectEventPic_Karen, 2, 4, 8),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 1),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 2),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Karen, 16, 16, 0),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Imakuni[] = {
