@@ -868,6 +868,11 @@ script PewterCity_EventScript_BugCatcher {
 	release
 }
 
+script EventScript_PewterCity_AlolanOak {
+	msgbox("grr\n", MSGBOX_NPC)
+	end
+}
+
 script EventScript_CutTreeElm {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	lockall
