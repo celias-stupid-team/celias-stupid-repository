@@ -153,6 +153,33 @@
       "var": "VAR_MAP_SCENE_ROUTE22",
       "var_value": "3",
       "script": "Route22_EventScript_LateRivalTriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_ROUTE22_MANKEY",
+      "var_value": "0",
+      "script": "Route22_MankeySpot"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ROUTE22_NIDOF",
+      "var_value": "0",
+      "script": "Route22_NidotranFSpot"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_ROUTE22_NIDOM",
+      "var_value": "0",
+      "script": "Route22_NidotranMSpot"
     }
   ],
   "bg_events": [

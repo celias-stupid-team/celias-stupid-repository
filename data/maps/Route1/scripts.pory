@@ -63,7 +63,7 @@ script Route1_EventScript_CeliaPit {
 script Route1_EventScript_Rat1 {
 	lock
 	setflag(FLAG_SHINY_CREATION)
-	setwildbattle(SPECIES_RATTATA, 3, ITEM_FOCUS_SASH)
+	setwildbattle(SPECIES_RATTATA_SHINY, 3, ITEM_FOCUS_SASH)
 	clearflag(FLAG_SHINY_CREATION)
 	//increment VAR_ROUTE01_SHINY_RAT1 so it only triggers once
 	setvar(VAR_ROUTE01_SHINY_RAT1, 1)

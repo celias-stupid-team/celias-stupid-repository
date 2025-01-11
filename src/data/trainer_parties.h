@@ -7099,7 +7099,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherCharlie[] = {
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 60,
         .species = SPECIES_METAGROSS,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },

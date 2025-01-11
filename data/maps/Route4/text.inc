@@ -72,7 +72,10 @@ Text_MegaKickTaught::
     .string "only simple punching over there.$"
 
 Route4_Text_PeopleLikeAndRespectBrock::
-    .string "Some POKéMON have abilities that\n"
-    .string "make them immune to what you have.\p"
-    .string "If that happens, you'll need to.\n"
-    .string "change your approach!$"
+	.string "Some POKéMON have abilities that\n"
+	.string "make them immune to what you have.\p"
+	.string "If find yourself in a fight that you\n"
+	.string "know you can't win, just RUN away.\l"
+	.string "It'll even work in TRAINER battles!\p"
+	.string "Remember: It isn't cowardice if\n"
+	.string "you're changing your approach!$"

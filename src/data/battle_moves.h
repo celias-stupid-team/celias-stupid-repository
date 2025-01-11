@@ -212,7 +212,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_GUST,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FLYING, //Combee's joke is funnier with Flying than Normal
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -5116,7 +5116,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BULLDOZE] =    {
         .effect = EFFECT_SPEED_DOWN_HIT,
         .power = 60,
-        .type = TYPE_GROUND,
+        .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

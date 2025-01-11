@@ -373,7 +373,7 @@
       "y": 1,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route2_EventScript_RouteSign"
+      "script": "ViridianCity_ObtainableSign"
     },
     {
       "type": "sign",

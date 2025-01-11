@@ -529,7 +529,10 @@ script ViridianCity_Gambler_CmonMan {
 }
 
 
-
+script ViridianCity_ObtainableSign {
+	msgbox("VIRIDIAN CITY\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	end
+}
 
 
 

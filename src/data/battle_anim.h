@@ -1110,7 +1110,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_BentSpoon, 0x0C00, ANIM_TAG_BENT_SPOON},
     {gBattleAnimSpriteGfx_Web, 0x0200, ANIM_TAG_WEB},
     {gBattleAnimSpriteGfx_MilkBottle, 0x0200, ANIM_TAG_MILK_BOTTLE},
-    {gBattleAnimSpriteGfx_Coin, 0x0200, ANIM_TAG_COIN},
+    {gBattleAnimSpriteGfx_Coin, 0x0300, ANIM_TAG_COIN},
     {gBattleAnimSpriteGfx_CrackedEgg, 0x0200, ANIM_TAG_CRACKED_EGG},
     {gBattleAnimSpriteGfx_HatchedEgg, 0x0400, ANIM_TAG_HATCHED_EGG},
     {gBattleAnimSpriteGfx_FreshEgg, 0x0080, ANIM_TAG_FRESH_EGG},
