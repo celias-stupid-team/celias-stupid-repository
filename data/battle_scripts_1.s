@@ -4715,11 +4715,10 @@ BattleScript_StealthRockFree::
 BattleScript_EffectDoNothing::
 	attackcanceler
 	attackstring
+	setbattlestringid
 	ppreduce
 	attackanimation
 	waitanimation
-	setbattlestringid
-	waitstate
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
