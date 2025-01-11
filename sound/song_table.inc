@@ -366,6 +366,8 @@ gSongTable::
 	song mus_dmca_admin, 0, 0
 	song mus_secret_tunnel, 0, 0
 	song mus_mt_moon_square, 0, 0
+	song mus_clefairy_dance, 2, 2
+	song mus_imposter_oak, 0, 0
 
 
 dummy_song_header:

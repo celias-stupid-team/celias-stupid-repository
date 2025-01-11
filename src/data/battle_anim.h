@@ -209,6 +209,7 @@ const struct OamData gOamData_AffineNormal_ObjNormal_32x32 =
     .paletteNum = 0,
 };
 
+
 const struct OamData gOamData_AffineNormal_ObjNormal_64x64 =
 {
     .y = 0,
@@ -1109,7 +1110,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_BentSpoon, 0x0C00, ANIM_TAG_BENT_SPOON},
     {gBattleAnimSpriteGfx_Web, 0x0200, ANIM_TAG_WEB},
     {gBattleAnimSpriteGfx_MilkBottle, 0x0200, ANIM_TAG_MILK_BOTTLE},
-    {gBattleAnimSpriteGfx_Coin, 0x0200, ANIM_TAG_COIN},
+    {gBattleAnimSpriteGfx_Coin, 0x0300, ANIM_TAG_COIN},
     {gBattleAnimSpriteGfx_CrackedEgg, 0x0200, ANIM_TAG_CRACKED_EGG},
     {gBattleAnimSpriteGfx_HatchedEgg, 0x0400, ANIM_TAG_HATCHED_EGG},
     {gBattleAnimSpriteGfx_FreshEgg, 0x0080, ANIM_TAG_FRESH_EGG},
@@ -1298,7 +1299,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Slash, 0x0800, ANIM_TAG_SLASH_2},
     {gBattleAnimSpriteGfx_SlamHit, 0x1000, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpriteGfx_GoldRing, 0x0100, ANIM_TAG_BLUE_RING_2},
-    {gBattleAnimSpriteGfx_StealthRock, 0x0080, ANIM_TAG_STEALTH_ROCK},
+    {gBattleAnimSpriteGfx_Crab, 0x0800, ANIM_TAG_CSR_CRAB},
+    {gBattleAnimSpriteGfx_Bee, 0x0200, ANIM_TAG_BEE},
+    {gBattleAnimSpriteGfx_WaterShuriken, 0x0200, ANIM_TAG_WATER_SHURIKEN},
+    {gBattleAnimSpriteGfx_StealthRock, 0x0C00, ANIM_TAG_STEALTH_ROCK},
+    {gBattleAnimSpriteGfx_Weed, 0x0800, ANIM_TAG_WEED},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1592,7 +1597,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Slash2, ANIM_TAG_SLASH_2},
     {gBattleAnimSpritePal_WhipHit, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpritePal_BlueRing2, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpritePal_Crab, ANIM_TAG_CSR_CRAB},
+    {gBattleAnimSpritePal_Bee, ANIM_TAG_BEE},
+    {gBattleAnimSpritePal_WaterShuriken, ANIM_TAG_WATER_SHURIKEN},
     {gBattleAnimSpritePal_StealthRock, ANIM_TAG_STEALTH_ROCK},
+    {gBattleAnimSpritePal_Weed, ANIM_TAG_WEED},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

@@ -29,6 +29,18 @@ mapscripts Route8_MapScripts {
 				setmetatile(23, 19, 0x39C, FALSE)	
 		}
 	}
+
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_CSR_PSYDUCK_PAIL_STATUS, 2 {
+			if(checkitem(ITEM_EMPTY_PAIL)) {
+				removeitem(ITEM_EMPTY_PAIL)
+				additem(ITEM_WAILMER_PAIL)
+				setvar(VAR_CSR_PSYDUCK_PAIL_STATUS, 1)
+			}
+
+			release	
+		}
+	]
 }
 
 
@@ -344,7 +356,12 @@ script Route8_PickUpPsyduck {
 }
 
 script Route8_BerryLady {
-	msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous.\lI can't trust a stranger with one!\pI know! Come back after you've\ndefeated the ELITE FOUR!\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
+	msgbox("BERRIES need water to grow.\nWithout it, they'll shrivel and die.\pI have a SPRAYBOTTLE that you could\nuse to water plants that need it.\lBut…\pSPRAYBOTTLES are actually extremely\ndangerous!\lI can't trust a stranger with one.\pI know! Come back after you've\ndefeated the ELITE FOUR.\pThat should prove that you can\nsafely handle a water bottle!", MSGBOX_NPC)
+	end
+}
+
+script Route8_FlowerShopSign {
+	msgbox("PRETTY PETALS Flower Shop\p- - - - Free! - - - -\nWAILMER PAIL Giveaway!", MSGBOX_SIGN)
 	end
 }
 

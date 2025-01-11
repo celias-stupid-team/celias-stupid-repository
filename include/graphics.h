@@ -7574,6 +7574,8 @@ extern const u32 gTrainerFrontPic_Proton[];
 extern const u32 gTrainerFrontPic_Imakuni[];
 extern const u32 gTrainerFrontPic_TeamRocket[];
 extern const u32 gTrainerFrontPic_Petrel[];
+extern const u32 gTrainerFrontPic_Imposter[];
+
 
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];
@@ -7732,6 +7734,7 @@ extern const u32 gTrainerPalette_Proton[];
 extern const u32 gTrainerPalette_Imakuni[];
 extern const u32 gTrainerPalette_TeamRocket[];
 extern const u32 gTrainerPalette_Petrel[];
+extern const u32 gTrainerPalette_Imposter[];
 
 // CSR outfits
 extern const u32 gBackPicPalette_Red_L[];
@@ -8250,6 +8253,12 @@ extern const u32 gItemIconPalette_HoennFossil[];
 extern const u32 gItemIcon_ClawFossil[];
 extern const u32 gItemIcon_DevonScope[];
 extern const u32 gItemIconPalette_DevonScope[];
+extern const u32 gItemIcon_WEmblem[];
+extern const u32 gItemIconPalette_WEmblem[];
+extern const u32 gItemIcon_LEmblem[];
+extern const u32 gItemIconPalette_LEmblem[];
+extern const u32 gItemIcon_PEmblem[];
+extern const u32 gItemIconPalette_PEmblem[];
 extern const u32 gItemIcon_TMHM[];
 extern const u32 gItemIconPalette_FightingTMHM[];
 extern const u32 gItemIconPalette_DragonTMHM[];
@@ -8900,6 +8909,18 @@ extern const u32 gBattleAnimSpritePal_Slash2[];
 extern const u32 gBattleAnimSpritePal_WhipHit[];
 extern const u32 gBattleAnimSpritePal_BlueRing2[];
 extern const u32 gBattleAnimSpritePal_StealthRock[];
+
+//CSR Moves
+
+extern const u32 gBattleAnimSpriteGfx_Crab[];
+extern const u32 gBattleAnimSpritePal_Crab[];
+
+extern const u32 gBattleAnimSpritePal_Bee[];
+extern const u32 gBattleAnimSpriteGfx_Bee[];
+extern const u32 gBattleAnimSpritePal_WaterShuriken[];
+extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
+extern const u32 gBattleAnimSpritePal_Weed[];
+extern const u32 gBattleAnimSpriteGfx_Weed[];
 
 // battle anim task
 extern const u32 gUnusedLevelupAnimationGfx[];

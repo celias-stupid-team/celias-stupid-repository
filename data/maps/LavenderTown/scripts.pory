@@ -6,6 +6,7 @@ LavenderTown_MapScripts::
 LavenderTown_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_LAVENDER_TOWN
 	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1
+	setbench BENCH_LAVENDER
 	setflag FLAG_HIDE_SS_ANNE_RIVAL
 	end
 
@@ -64,7 +65,26 @@ const IMPOSTER_OAK = 7
 script LavenderTown_ImposterOak {
 	lock
 	if(checkitem(ITEM_WAILMER_PAIL)) {
-
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("There is an odd tree in the way.\nWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			setvar(VAR_CSR_PSYDUCK_PAIL_STATUS, 1)
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_PIN)
+			applymovement(IMPOSTER_OAK, Common_Movement_ExclamationMark)
+			
+			fadeoutbgm(1)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			msgbox("{FONT_SMALL}OAK?: Wha-?\nHey!\p{FONT_SMALL}What gives?", MSGBOX_DEFAULT)
+			
+			trainerbattle_no_intro(TRAINER_IMPOSTER_OAK_1, "{FONT_SMALL}Grr-\nFine!\pI'll go somewhere else!\n")
+			goto(LavenderTown_RemoveTree)
+		}
 	} else {
 		applymovement(IMPOSTER_OAK, OakDances)
 		playse(SE_M_SCRATCH)
@@ -80,6 +100,19 @@ script LavenderTown_ImposterOak {
 	release
 }
 
+script LavenderTown_RemoveTree {
+	msgbox("{FONT_SMALL}Geez, what a lousy neighborhood.\nI'm outta here!\pStay dry, ya jerk!\n", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playse(SE_EXIT)
+	fadedefaultbgm
+	removeobject(IMPOSTER_OAK)
+	waitse
+	setflag(FLAG_CSR_IMPOSTEROAK1)
+	fadescreen(FADE_FROM_BLACK)
+	release
+}
+
 movement OakDances {
 	walk_in_place_down * 3
 	face_down
@@ -88,4 +121,21 @@ movement OakDances {
 script LavenderTown_DanceDMCA {
 	msgbox("Stop right there!\pThis building right here is the\nLAVENDER TOWN DANCE THEATER.\pThey've been putting on shows that\nviolate copyright!\lIt's shut down until further notice.", MSGBOX_NPC)
 	end
+}
+
+script LavenderTown_MusicGoesAway {
+	fadenewbgm(MUS_DUMMY)
+	setvar(VAR_TEMP_3, 1)
+	release
+}
+
+script LavenderTown_MusicComesBack {
+	fadedefaultbgm
+	setvar(VAR_TEMP_3, 0)
+	release
+}
+
+script LavenderTown_MusicDoesntFade {
+	setvar(VAR_TEMP_3, 1)
+	release
 }

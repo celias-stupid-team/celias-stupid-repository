@@ -359,7 +359,8 @@
     "LavenderTown_House1",
     "LavenderTown_House2",
     "LavenderTown_Mart",
-    "LavenderTown_DanceTheater"
+    "LavenderTown_DanceTheater",
+    "LavenderTown_FlowerShop"
   ],
   "gMapGroup_IndoorVermilion": [
     "VermilionCity_House1",
@@ -392,7 +393,9 @@
     "CeladonCity_Restaurant",
     "CeladonCity_House1",
     "CeladonCity_Hotel",
-    "NewMap1"
+    "NewMap1",
+    "CeladonCity_InfiniteStaircase",
+    "SecretRoom"
   ],
   "gMapGroup_IndoorFushcia": [
     "FushciaCity_SafariZone_Entrance",

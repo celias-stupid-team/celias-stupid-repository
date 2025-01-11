@@ -12,6 +12,11 @@ script Route2_EventScript_CeliaGrass {
 	end
 }
 
+script Route2_MowedGrass {
+	msgbox("The grass is newly-trimmed and\ntidy.", MSGBOX_SIGN)
+	end
+}
+
 script Route2_EventScript_Dad {
 	lock
 	faceplayer

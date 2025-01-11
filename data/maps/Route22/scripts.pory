@@ -286,31 +286,32 @@ script Route22_MapScripts_SetDexMons {
 script Route22_MankeySpot {
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setvar(VAR_ROUTE22_MANKEY, 1)
-		setwildbattle(SPECIES_MANKEY, 4, ITEM_NONE)
-		dowildbattle
-	} else {
-		release
+		if(!checkmoncaught(SPECIES_MANKEY)) {
+			setwildbattle(SPECIES_MANKEY, 2, ITEM_NONE)
+			dowildbattle
+		}
 	}
+	release
 }
 
 script Route22_NidotranMSpot {
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setvar(VAR_ROUTE22_NIDOM, 1)
-		setwildbattle(SPECIES_NIDORAN_M, 4, ITEM_NONE)
-		dowildbattle
-	} else {
-		release
+		if(!checkmoncaught(SPECIES_NIDORAN_M)) {
+			setwildbattle(SPECIES_NIDORAN_M, 4, ITEM_NONE)
+			dowildbattle
+		}
 	}
-
+	release
 }
 
 script Route22_NidotranFSpot {
 	if(flag(FLAG_SYS_POKEDEX_GET)) {
 		setvar(VAR_ROUTE22_NIDOF, 1)
-		setwildbattle(SPECIES_NIDORAN_F, 4, ITEM_NONE)
-		dowildbattle
-	} else {
-		release
+		if(!checkmoncaught(SPECIES_NIDORAN_F)) {
+			setwildbattle(SPECIES_NIDORAN_F, 4, ITEM_NONE)
+			dowildbattle
+		}
 	}
-
+	release
 }

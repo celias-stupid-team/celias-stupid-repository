@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -108,7 +108,7 @@
       "x": 11,
       "y": 15,
       "elevation": 3,
-      "var": "VAR_CSR_DUMMY_1",
+      "var": "VAR_CSR_GHOST_FIGHT",
       "var_value": "0",
       "script": "PokemonTower_6F_EventScript_MarowakGhost"
     },
@@ -117,10 +117,12 @@
       "x": 12,
       "y": 16,
       "elevation": 3,
-      "var": "VAR_CSR_DUMMY_1",
+      "var": "VAR_CSR_GHOST_FIGHT",
       "var_value": "0",
       "script": "PokemonTower_6F_EventScript_MarowakGhost"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+
+  ]
 }

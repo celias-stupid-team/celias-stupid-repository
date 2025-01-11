@@ -1,33 +1,195 @@
 const EMBLEM = 3
+
+
+const Clefairy1 = 1
+const Clefairy2 = 2
+const Clefairy3 = 4
+const Clefairy4 = 5
+
+const TopLeftClefairy = 6
+const BottomLeftClefairy = 7
+const TopRightClefairy = 8
+const BottomRightClefairy = 9
+
 mapscripts MtMoonSquare_Unbroken_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         setflag(FLAG_HIDE_P_EMBLEM)
-        if(!checkitem(ITEM_P_EMBLEM, 1)) {
+        if(!checkitem(ITEM_P_EMBLEM, 1) && var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 2) {
             clearflag(FLAG_HIDE_P_EMBLEM)
-        } else {
+        }
+        if(checkitem(ITEM_P_EMBLEM)) {
             setflag(FLAG_CSR_SPEEDRUN_CAVE)
         }
+        if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 0) {
+            setflag(FLAG_CSR_CLEFAIRY_TOPLEFT)
+            setflag(FLAG_CSR_CLEFAIRY_TOPRIGHT)
+            setflag(FLAG_CSR_CLEFAIRY_BOTTOMLEFT)
+            setflag(FLAG_CSR_CLEFAIRY_BOTTOMRIGHT)
+        } else {
+            clearflag(FLAG_CSR_CLEFAIRY_TOPLEFT)
+            clearflag(FLAG_CSR_CLEFAIRY_TOPRIGHT)
+            clearflag(FLAG_CSR_CLEFAIRY_BOTTOMLEFT)
+            clearflag(FLAG_CSR_CLEFAIRY_BOTTOMRIGHT)
+
+        }
     }
+        
+    
 
 }
 
-script MtMoonSquare_StartDance {
+
+
+script MtMoonSquare_Clefairy1 {
     lock
+    if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 2) {
+        finditem(ITEM_POKE_DOLL)
+        end
+    }
+    playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+    waitmoncry
+    if(!flag(FLAG_TEMP_1)) {
+        setflag(FLAG_TEMP_1)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(Clefairy1)
+        clearflag(FLAG_CSR_CLEFAIRY_TOPLEFT)
+        addobject(TopLeftClefairy)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2) && flag(FLAG_TEMP_3) && flag(FLAG_TEMP_4)) {
+            setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+        }
+    }
+    release
+    end
+}
+
+script MtMoonSquare_Clefairy2 {
+    lock
+    if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 2) {
+        finditem(ITEM_POKE_DOLL)
+        end
+    }
+    playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+    waitmoncry
+    if(!flag(FLAG_TEMP_2)) {
+        setflag(FLAG_TEMP_2)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(Clefairy2)
+        clearflag(FLAG_CSR_CLEFAIRY_TOPRIGHT)
+        addobject(TopRightClefairy)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2) && flag(FLAG_TEMP_3) && flag(FLAG_TEMP_4)) {
+            setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+        }
+    }
+    release
+    end
+}
+
+script MtMoonSquare_Clefairy3 {
+    lock
+    if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 2) {
+        finditem(ITEM_POKE_DOLL)
+        end
+    }
+    playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+    waitmoncry
+    if(!flag(FLAG_TEMP_3)) {
+        setflag(FLAG_TEMP_3)
+        removeobject(Clefairy3)
+        clearflag(FLAG_CSR_CLEFAIRY_BOTTOMRIGHT)
+        addobject(BottomRightClefairy)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2) && flag(FLAG_TEMP_3) && flag(FLAG_TEMP_4)) {
+            setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+        }
+    }
+    release
+    end
+}
+
+script MtMoonSquare_Clefairy4 {
+    lock
+    if(var(VAR_MAP_SCENE_CLEFAIRY_DANCE) == 2) {
+        finditem(ITEM_POKE_DOLL)
+        end
+    }
+    playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+    waitmoncry
+    if(!flag(FLAG_TEMP_4)) {
+        setflag(FLAG_TEMP_4)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(Clefairy4)
+        clearflag(FLAG_CSR_CLEFAIRY_BOTTOMLEFT)
+        addobject(BottomLeftClefairy)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2) && flag(FLAG_TEMP_3) && flag(FLAG_TEMP_4)) {
+            setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+        }
+    }
+    release
+    end
+}
+
+
+
+script MtMoonSquare_StartDance {
+    lockall
     special(SpawnCameraObject)
     setflag(FLAG_CSR_SPEEDRUN_CAVE)
     applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraUp)
     fadeoutbgm(3)
     waitmovement(0)
+    
+    applymovement(TopLeftClefairy, Common_Movement_FaceDown)
+    applymovement(BottomRightClefairy, Common_Movement_FaceDown)
+    applymovement(BottomLeftClefairy, Common_Movement_FaceDown)
+    applymovement(TopRightClefairy, Common_Movement_FaceDown)
+    waitmovement(0)
     playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
     //dance
-    delay(60)
+    delay(50)
+    playfanfare(MUS_CSR_CLEFAIRY_DANCE)
     delay(10)
+    applymovement(TopLeftClefairy, MtMoonSquare_ClefairyDance_TopLeft)
+    applymovement(BottomRightClefairy, MtMoonSquare_ClefairyDance_BottomRight)
+    applymovement(BottomLeftClefairy, MtMoonSquare_ClefairyDance_BottomLeft)
+    applymovement(TopRightClefairy, MtMoonSquare_ClefairyDance_TopRight)
+    playse(SE_LEDGE)
+    delay(60)
+    playse(SE_LEDGE)
+    delay(38)
+    playse(SE_LEDGE)
+    delay(48)
+    playse(SE_LEDGE)
+    delay(40)
+    playse(SE_LEDGE)
+    delay(23)
+    playse(SE_LEDGE)
+    delay(60)
+    playse(SE_LEDGE)
+
+    delay(90)
+    playse(SE_LEDGE)
+    delay(20)
+    playse(SE_LEDGE)
+    delay(20)
+    playse(SE_LEDGE)
+    waitmovement(0)
+    waitse
+    delay(30)
+    playmoncry(SPECIES_CLEFAIRY, CRY_MODE_NORMAL)
+    waitmoncry
+    delay(30)
     fadescreen(FADE_TO_BLACK)
     addobject(EMBLEM)
-    setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 1)
+    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraRepositions)
+    waitmovement(0)
+    setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 2)
+    fadescreen(FADE_FROM_BLACK)
+    delay(30)
     applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraDown)
     waitmovement(0)
-    fadescreen(FADE_FROM_BLACK)
     special(RemoveCameraObject)
     release
     end
@@ -39,12 +201,147 @@ script MtMoonSquare_Clefairy {
 
 script MtMoonSquare_Emblem {
     finditem(ITEM_P_EMBLEM)
+    fadenewbgm(MUS_CSR_MT_MOON_SQUARE)
 }
 
 movement MtMoonSquare_CameraUp {
-    walk_slow_up * 6
+    walk_up * 3
+    walk_slow_up * 3
+}
+
+movement MtMoonSquare_CameraRepositions {
+    walk_fast_down * 3
 }
 
 movement MtMoonSquare_CameraDown {
-    walk_slow_down * 6
+    walk_down * 3
+}
+
+movement MtMoonSquare_ClefairyDance_TopLeft {
+    jump_2_down //Top Left
+    delay_16 * 2
+    jump_2_down
+    walk_slow_right // Bottom Left
+    delay_8
+    walk_slow_down
+    delay_8
+    jump_2_right
+    delay_16
+    jump_2_right
+    delay_16
+    walk_slow_up
+    delay_8
+    walk_slow_right
+    delay_8
+
+    face_left
+    delay_16
+    face_down
+    delay_16
+    face_right
+    delay_16
+
+    
+    
+    jump_up
+    jump_up
+    jump_2_down
+    face_down
+
+}
+
+
+
+movement MtMoonSquare_ClefairyDance_BottomLeft {
+    walk_slow_right // Bottom Left
+    delay_8
+    walk_slow_down
+    delay_8
+    jump_2_right
+    delay_16
+    jump_2_right
+    delay_16
+    walk_slow_up
+    delay_8
+    walk_slow_right
+    delay_8
+    jump_2_up // Bottom Right
+    delay_16 * 2
+    jump_2_up
+
+    face_left
+    delay_16
+    face_up
+    delay_16
+    face_right
+    delay_16
+    
+
+    jump_down
+    jump_down
+    jump_2_up
+    face_down
+}
+
+movement MtMoonSquare_ClefairyDance_BottomRight {
+    jump_2_up // Bottom Right
+    delay_16 * 2
+    jump_2_up
+    walk_slow_left //Top Right
+    delay_8
+    walk_slow_up
+    delay_8
+    jump_2_left
+    delay_8
+    jump_2_left
+    delay_16
+    walk_slow_down
+    delay_8
+    walk_slow_left
+    delay_16
+
+    face_right
+    delay_16
+    face_up
+    delay_16
+    face_left
+    delay_16
+
+    jump_down
+    jump_down
+    jump_2_up
+    face_down
+
+}
+
+movement MtMoonSquare_ClefairyDance_TopRight {
+    walk_slow_left //Top Right
+    delay_8
+    walk_slow_up
+    delay_8
+    jump_2_left
+    delay_8
+    jump_2_left
+    delay_16
+    walk_slow_down
+    delay_8
+    walk_slow_left
+    delay_8
+    jump_2_down //Top Left
+    delay_16 * 2
+    jump_2_down
+    delay_8
+
+    face_right
+    delay_16
+    face_up
+    delay_16
+    face_left
+    delay_16
+    
+    jump_up
+    jump_up
+    jump_2_down
+    face_down
+
 }

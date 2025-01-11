@@ -212,7 +212,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_GUST,
         .power = 40,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FLYING, //Combee's joke is funnier with Flying than Normal
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 0,
@@ -314,8 +314,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DOUBLE_KICK] =
     {
-        .effect = EFFECT_DOUBLE_HIT,
-        .power = 30,
+        .effect = EFFECT_DOUBLE_KICK,
+        .power = 60,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 30,
@@ -473,7 +473,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_RECOIL,
         .power = 90,
         .type = TYPE_NORMAL,
-        .accuracy = 85,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -1331,7 +1331,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_EXPLOSION,
         .power = 255,
         .type = TYPE_PSYCHIC,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -1978,7 +1978,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPLASH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -1987,6 +1987,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = 0,
+        .stringId = B_MSG_TRYATTACK,
     },
 
     [MOVE_ACID_ARMOR] =
@@ -4910,7 +4911,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_1DER_ROOM] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_DO_NOTHING, 
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
@@ -4918,7 +4919,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_1DER_ROOM
     },
 
     [MOVE_FINAL_GAMBIT] =    {
@@ -4994,7 +4996,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_CELEBRATE] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -5002,7 +5004,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_CELEBRATE
     },
 
     [MOVE_HURRICANE] =    {
@@ -5116,7 +5119,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BULLDOZE] =    {
         .effect = EFFECT_SPEED_DOWN_HIT,
         .power = 60,
-        .type = TYPE_GROUND,
+        .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -5402,7 +5405,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_UP_DOG] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -5410,7 +5413,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_UPDOG
     },
 
     [MOVE_CRAB_THROW] =    {
@@ -6158,7 +6162,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_G_MAX_CUDDLE] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect Text
+        .effect = EFFECT_DO_NOTHING,
         .power = 120,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -6166,11 +6170,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT,
+        .stringId = B_MSG_GMAX_MOVE
     },
 
     [MOVE_EXTREME_EVOBOOST] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect Text
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -6178,11 +6183,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_EXTREME_EVOBOOST
     },
 
     [MOVE_VEEVEE_VOLLEY] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect Text
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -6190,7 +6196,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_VEEVEE_VOLLEY
     },
 
     [MOVE_NORMALLY_NORMAL] =    {
@@ -6374,15 +6381,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TRY_ATTACK] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect Text
+        .effect = EFFECT_DO_NOTHING,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = 0,
+        .stringId = B_MSG_TRYATTACK,
     },
 
     [MOVE_TAX_FRAUD] =    {

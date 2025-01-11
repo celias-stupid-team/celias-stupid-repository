@@ -301,6 +301,17 @@ const struct SpriteTemplate gRedXSpriteTemplate =
     .callback = AnimRedX,
 };
 
+const struct SpriteTemplate gWeedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WEED,
+    .paletteTag = ANIM_TAG_WEED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRedX,
+};
+
 static const union AffineAnimCmd sAffineAnim_SkillSwapOrb_0[] =
 {
     AFFINEANIMCMD_FRAME(-0x8, -0x8, 0, 8),

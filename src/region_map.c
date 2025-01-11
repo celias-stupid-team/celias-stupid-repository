@@ -550,7 +550,7 @@ static const u8 sSeviiMapsecs[3][30] = {
     {
         MAPSEC_FOUR_ISLAND,
         MAPSEC_FIVE_ISLAND,
-        MAPSEC_SEVII_ISLE_6,
+        MAPSEC_DECAMARK,
         MAPSEC_SEVII_ISLE_7,
         MAPSEC_SEVII_ISLE_8,
         MAPSEC_SEVII_ISLE_9,
@@ -864,7 +864,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_18            - MAPSECS_KANTO] = {MAP(ROUTE18),                               0},
     [MAPSEC_GREAT_SEA            - MAPSECS_KANTO] = {MAP(ROUTE19),                               0},
     [MAPSEC_ROUTE_20            - MAPSECS_KANTO] = {MAP(ROUTE20),                               0},
-    [MAPSEC_ROUTE_21            - MAPSECS_KANTO] = {MAP(ROUTE21_NORTH),                         0},
+    [MAPSEC_GREAT_BAY            - MAPSECS_KANTO] = {MAP(ROUTE21_NORTH),                         0},
     [MAPSEC_ROUTE_22            - MAPSECS_KANTO] = {MAP(ROUTE22),                               0},
     [MAPSEC_ROUTE_23            - MAPSECS_KANTO] = {MAP(ROUTE23),                               0},
     [MAPSEC_ROUTE_24            - MAPSECS_KANTO] = {MAP(ROUTE24),                               0},
@@ -898,7 +898,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_CAPE_BRINK          - MAPSECS_KANTO] = {MAP(TWO_ISLAND_CAPE_BRINK),                 0},
     [MAPSEC_BOND_BRIDGE         - MAPSECS_KANTO] = {MAP(THREE_ISLAND_BOND_BRIDGE),              0},
     [MAPSEC_THREE_ISLE_PORT     - MAPSECS_KANTO] = {MAP(THREE_ISLAND_PORT),                     0},
-    [MAPSEC_SEVII_ISLE_6        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_6),                0},
+    [MAPSEC_DECAMARK        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_6),                0},
     [MAPSEC_SEVII_ISLE_7        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_7),                0},
     [MAPSEC_SEVII_ISLE_8        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_8),                0},
     [MAPSEC_SEVII_ISLE_9        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_9),                0},
@@ -3352,7 +3352,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             GetPlayerPositionOnRegionMap();
         }
         break;
-    case MAPSEC_ROUTE_21: //These will need updated eventually -Celia
+    case MAPSEC_GREAT_BAY: //These will need updated eventually -Celia
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE21_NORTH))
         {
             sMapCursor->x = 4;

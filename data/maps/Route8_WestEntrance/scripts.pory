@@ -113,3 +113,29 @@ script SaffronEntrance_GuardsGetMelted {
 	return
 
 }
+
+script SaffronEntrance_MeltedGuard {
+	lock
+	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	playse(SE_M_TOXIC)
+	msgbox("{PLAYER} stepped in the melted\nguard!\lYuck!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_2, 1)
+	setmetatile(3, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE) // Counter back
+	setmetatile(4, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE)
+	setmetatile(5, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE)
+	setmetatile(6, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE)
+	setmetatile(7, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE)
+	setmetatile(8, 2, METATILE_GenericBuilding2_MeltedGuardCounter, FALSE)
+	setmetatile(9, 2, METATILE_GenericBuilding2_MeltedGuardCounterCorner, FALSE) //Counter corner
+
+	
+	setmetatile(10, 2, METATILE_GenericBuilding2_MeltedGuardFloor_Shade, FALSE) //shaded floor
+	setmetatile(10, 3, METATILE_GenericBuilding2_MeltedGuardFloor, FALSE) //floor
+	setmetatile(10, 4, METATILE_GenericBuilding2_MeltedGuardFloor, FALSE)
+	setmetatile(10, 5, METATILE_GenericBuilding2_MeltedGuardFloor, FALSE)
+	setmetatile(11, 3, METATILE_GenericBuilding2_MeltedGuardFloor, FALSE)
+	special(DrawWholeMapView)
+
+	release
+	end
+}

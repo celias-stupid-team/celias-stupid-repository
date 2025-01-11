@@ -3,8 +3,8 @@ raw `
 .set LOCALID_GRUNT,     2
 .set LOCALID_SLOWBRO,   5
 .set LOCALID_LASS,      6
-.set LOCALID_RIVAL,     13
-.set LOCALID_WOMAN,     11
+.set LOCALID_RIVAL,     12
+.set LOCALID_WOMAN,     9
 
 CeruleanCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCity_OnTransition
@@ -53,6 +53,7 @@ CeruleanCity_EventScript_Rival::
 	waitmovement 0
 	msgbox CeruleanCity_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_RIVAL
+	setvar VAR_TEMP_START_EVENT_BATTLE, 4
 	call_if_eq VAR_STARTER_MON, 2, CeruleanCity_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, CeruleanCity_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, CeruleanCity_EventScript_RivalCharmander
@@ -925,7 +926,7 @@ script CeruleanCity_EscapeThePit {
 script CeruleanCity_Celia_Helps {
 	lock
 	faceplayer
-	msgbox("Hi, there!\nI'm CELIA, the creator!\pI hope you've been enjoying\nyourself so far!\pBy the way, have you been\ncompleting your POKéDEX?\lI STRONGLY recommend it!\pMy reccomendation is to have 38\nPOKéMON caught right now.\lThe absolute highest is 42!", MSGBOX_DEFAULT)
+	msgbox("Hi, there!\nI'm CELIA, the creator!\pI hope you've been enjoying\nyourself so far!\pBy the way, have you been\ncompleting your POKéDEX?\lI STRONGLY recommend it!\pMy reccomendation is to have 38\nPOKéMON caught right now.\lThe absolute highest is 43!", MSGBOX_DEFAULT)
 	closemessage
 	msgbox("Incidentally, I know it might seem\nlike you can't backtrack.\lMT. MOON had a one-way ledge!\pBut! I'm sure you'll find a way.\nYou have all the tools you need.\pAnyway, best of luck!\nI believe in you!", MSGBOX_DEFAULT)
 	release
@@ -956,7 +957,7 @@ script CeruleanCity_PhotoMan {
 	waitmovement(0)
 	setobjectxy(PHOTOMAN, 14, 31)
 	fadedefaultbgm
-	setvar(VAR_CSR_UNUSED, 1)
+	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, 1)
 	release
 }
 

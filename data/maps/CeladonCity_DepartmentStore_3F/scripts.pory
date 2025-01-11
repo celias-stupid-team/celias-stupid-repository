@@ -7,7 +7,7 @@ CeladonCity_DepartmentStore_3F_MapScripts::
 
 script DepartmentStore_GameShop_CounterGuy {
 	lock
-	msgbox("Hi, there! I just finished CELIA'S\nSTUPID ROMHACK!\lFun game - you should try it!\pBy the way...\pDo you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut...\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
+	msgbox("Hi, there! I just finished CELIA'S\nSTUPID ROMHACK!\lFun game - you should try it!\pBy the way…\pDo you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut…\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
 	release //Fill in later
 	end
 }

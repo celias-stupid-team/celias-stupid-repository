@@ -11,7 +11,7 @@ PewterCity_PokemonCenter_1F_Text_Jigglypuff::
 
 PewterCity_PokemonCenter_1F_Text_WhenJiggylypuffSingsMonsGetDrowsy::
     .string "Yawn!\p"
-    .string "When JIGGLYPUFF plays,spectators\n"
+    .string "When JIGGLYPUFF plays, spectators\n"
     .string "get bored…\p"
     .string "…Me, too…\n"
     .string "Snore…$"

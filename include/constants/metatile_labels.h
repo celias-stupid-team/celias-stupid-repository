@@ -80,6 +80,12 @@
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
 
+// gTileset_GenericBuilding2
+#define METATILE_GenericBuilding2_MeltedGuardCounter        0x356
+#define METATILE_GenericBuilding2_MeltedGuardCounterCorner  0x357
+#define METATILE_GenericBuilding2_MeltedGuardFloor          0x35E
+#define METATILE_GenericBuilding2_MeltedGuardFloor_Shade    0x35F
+
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x29D
 #define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x295
@@ -178,6 +184,13 @@
 #define METATILE_PokemonMansion_Wall_EndCap_Basement                     0x2B0
 #define METATILE_PokemonMansion_Wall_EndPost_Bottom                      0x2AD
 #define METATILE_PokemonMansion_Wall_EndPost_Mid                         0x2A5
+
+// gTileset_RestaurantHotel
+#define METATILE_RestaurantHotel_BottomEdge           0x2E9
+#define METATILE_RestaurantHotel_BottomEdgeShaded     0x2EA
+#define METATILE_RestaurantHotel_CoveringFloor        0x2EB
+#define METATILE_RestaurantHotel_CoveringFloorShaded  0x2EC
+#define METATILE_RestaurantHotel_TopEdge              0x2E8
 
 // gTileset_SSAnne
 #define METATILE_SSAnne_Door  0x281

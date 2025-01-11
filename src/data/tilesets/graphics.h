@@ -1559,3 +1559,22 @@ const u16 gTilesetPalettes_MoonAltar[][16] =
 };
 
 const u32 gTilesetTiles_MoonAltar[] = INCBIN_U32("data/tilesets/secondary/moon_altar/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FlowerShop[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_shop/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_FlowerShop[] = INCBIN_U32("data/tilesets/secondary/flower_shop/tiles.4bpp.lz");

@@ -834,3 +834,14 @@ const struct Tileset gTileset_MoonAltar =
     .metatileAttributes = gMetatileAttributes_MoonAltar,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FlowerShop =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FlowerShop,
+    .palettes = gTilesetPalettes_FlowerShop,
+    .metatiles = gMetatiles_FlowerShop,
+    .metatileAttributes = gMetatileAttributes_FlowerShop,
+    .callback = NULL,
+};

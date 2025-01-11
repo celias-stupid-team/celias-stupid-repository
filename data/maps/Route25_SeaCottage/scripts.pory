@@ -8,7 +8,7 @@ raw `
 .equ RETURN_AFTER_SS_TICKET, FLAG_TEMP_3
 
 Route25_SeaCottage_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route25_SeaCottage_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, Route25_SeaCottage_OnLoad
 	.byte 0
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
@@ -284,7 +284,9 @@ script Route25_SeaCottage_EventScript_Computer {
 script Route25_SeaCottage_EventScript_Bill {
 	finditem(ITEM_POKE_DOLL, 1)
 	setflag(FLAG_CSR_GOT_BILL)
-	addvar(VAR_CSR_BILLS_TAKEN, 1)
+	if(var(VAR_CSR_BILLS_TAKEN) < 999) {
+		addvar(VAR_CSR_BILLS_TAKEN, 1)
+	}
 	call(SetPlayerPokedexValues)
 	end
 }
@@ -294,11 +296,11 @@ script Route25_SeaCottage_EventScript_ViewVaporeon {
 	goto(Route25_SeaCottage_EventScript_BillsMonList)
 }
 
-script Route25_SeaCottage_OnTransition {
+script Route25_SeaCottage_OnLoad {
 	clearflag(FLAG_HIDE_BILL_CLEFAIRY)
-	setflag(FLAG_CSR_HIDDEN_CELIA_BILL)
-	if(var(VAR_CSR_BILLS_TAKEN) > 2 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
-		addobject(LOCALID_CELIA)
+	setflag(FLAG_TEMP_5)
+	if(var(VAR_CSR_BILLS_TAKEN) > 1 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
+		clearflag(FLAG_TEMP_5)
 	}
 
 	call(SetPlayerPokedexValues)

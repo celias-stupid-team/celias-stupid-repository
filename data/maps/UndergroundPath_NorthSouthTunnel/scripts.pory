@@ -43,3 +43,7 @@ script UndergroundPath_OlderBrother {
 	}
 	release
 }
+
+script UndergroundPath_Celia {
+	msgbox("Hiya!\nGreat job finding this place!\pUnfortunately, the scripts here\ndon't actually work yet.\lSorry!\pStay tuned for the next update!\n", MSGBOX_NPC)
+}

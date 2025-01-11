@@ -15,6 +15,7 @@
 #define FANFARE_POKE_FLUTE          11
 #define FANFARE_KEY_ITEM            12
 #define FANFARE_DEX_EVAL            13
+#define FANFARE_CLEFAIRY_DANCE            14
 
 #define CRY_MODE_NORMAL        0 // Default
 #define CRY_MODE_DOUBLES       1 // Shortened cry for double battles

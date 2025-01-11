@@ -240,10 +240,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectOHKO_Flash             @ EFFECT_OHKO_FLASH
 	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
-	.4byte BattleScript_EffectExplosionUseless       @ EFFECT_EXPLOSION_USELESS
-	.4byte BattleScript_EffectAttackAccuracyUp       @ EFFECT_ATTACK_ACCURACY_UP
+	.4byte BattleScript_EffectExplosionUseless              @ EFFECT_EXPLOSION_USELESS
+	.4byte BattleScript_EffectAttackAccuracyUp              @ EFFECT_ATTACK_ACCURACY_UP
 	.4byte BattleScript_EffectStealthRock	         @ EFFECT_STEALTH_ROCK
 	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
+	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
 
 
@@ -4609,6 +4610,66 @@ BattleScript_ExplosionUselessMissed:
 	tryfaintmon BS_ATTACKER
 	end
 
+
+BattleScript_EffectDoubleKick::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifhelditem BS_ATTACKER, ITEM_MATH_CLUB, BattleScript_MathClubDoubleHit
+	setmultihitcounter 2
+	initmultihitstring
+	setbyte sMULTIHIT_EFFECT, 0
+	goto BattleScript_DoubleKickLoop
+
+
+	BattleScript_DoubleKickLoop::
+	jumpifhasnohp BS_ATTACKER, BattleScript_MultiHitEnd
+	jumpifhasnohp BS_TARGET, BattleScript_MultiHitPrintStrings
+	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SLEEP_TALK, BattleScript_DoDoubleKick
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_MultiHitPrintStrings
+
+BattleScript_DoDoubleKick::
+	movevaluescleanup
+	copybyte cEFFECT_CHOOSER, sMULTIHIT_EFFECT
+	critcalc
+	damagecalc
+	typecalc
+	jumpifmovehadnoeffect BattleScript_MultiHitNoMoreHits
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	multihitresultmessage
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	addbyte sMULTIHIT_STRING + 4, 1
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
+	goto BattleScript_DoubleKickHeal
+
+BattleScript_DoubleKickHeal::
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+		resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	addbyte sMULTIHIT_STRING + 4, 1
+	jumpifmovehadnoeffect BattleScript_MultiHitEnd
+	copyarray gBattleTextBuff1, sMULTIHIT_STRING, 6
+	printstring STRINGID_HITXTIMES
+	waitmessage B_WAIT_TIME_LONG
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 BattleScript_EffectRevivalBlessing::
 	attackcanceler
 	attackstring
@@ -4654,11 +4715,10 @@ BattleScript_StealthRockFree::
 BattleScript_EffectDoNothing::
 	attackcanceler
 	attackstring
+	setbattlestringid
 	ppreduce
 	attackanimation
 	waitanimation
-	setbattlestringid
-	waitstate
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

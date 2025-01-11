@@ -1,8 +1,7 @@
 raw `
 .set LOCALID_RIVAL, 1
 
-PokemonTower_2F_MapScripts::
-	.byte 0
+
 
 PokemonTower_2F_EventScript_Channeler::
 	msgbox PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts, MSGBOX_NPC
@@ -31,6 +30,7 @@ PokemonTower_2F_EventScript_Rival::
 	waitmovement 0
 	msgbox PokemonTower_2F_Text_RivalIntro
 	setvar VAR_LAST_TALKED, LOCALID_RIVAL
+	setvar VAR_TEMP_START_EVENT_BATTLE, 7
 	call_if_eq VAR_STARTER_MON, 2, PokemonTower_2F_EventScript_RivalSquirtle
 	call_if_eq VAR_STARTER_MON, 1, PokemonTower_2F_EventScript_RivalBulbasaur
 	call_if_eq VAR_STARTER_MON, 0, PokemonTower_2F_EventScript_RivalCharmander
@@ -83,29 +83,52 @@ PokemonTower_2F_EventScript_RivalExitDown::
 
 PokemonTower_2F_Movement_RivalExitRight::
 	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_down
-	walk_down
-	walk_down
-	walk_down
+	walk_right
+	walk_right
 	walk_in_place_faster_right
 	step_end
 
 PokemonTower_2F_Movement_RivalExitDown::
 	walk_right
+	walk_down
+	walk_down
+	walk_down
 	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
+	walk_right
+	walk_right
 	walk_in_place_faster_right
 	step_end
 `
-script PokemonTower_CeliaSaysNo {
-	msgbox("Hi!\nThis fight is not available.\pStay tuned!\n-CELIA", MSGBOX_NPC)
+
+mapscripts PokemonTower_2F_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(checkitem(ITEM_SUPER_SCOPE)) {
+			clearflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)
+		} else {
+			setflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)
+		}
+	}
+}
+script PokemonTower_2F_EndOfDemo {
+	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 82, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 22 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
 	end
+}
+
+script PokemonTower2F_Gravestone {
+	lock
+	msgbox("In loving memory of grandpa.\nMay we always recall his last words.", MSGBOX_DEFAULT)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("“Please for the love of God do not\nbuy me the fancy gold tombstone.”", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("He will always be in our hearts.\n", MSGBOX_DEFAULT)
+	release
 }
 
 script PokemonTower_2F_EventScript_Woman {

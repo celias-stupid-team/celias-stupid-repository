@@ -249,7 +249,7 @@
       "description_english": "A spray-type medicine.\\nIt heals one POKéMON of a burn.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_Medicine",
       "battleUsage": 1,
@@ -1265,7 +1265,7 @@
       "secondaryId": 0
     },
     {
-      "english": "X SPECIAL",
+      "english": "WATER ENERGY",
       "itemId": "ITEM_X_SPECIAL",
       "price": 350,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -4497,12 +4497,12 @@
       "secondaryId": 0
     },
     {
-      "english": "RM. 1 KEY",
-      "itemId": "ITEM_ROOM_1_KEY",
+      "english": "HOUSE KEY",
+      "itemId": "ITEM_HOUSE_KEY",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A key that opens the door to Room\\n1 inside the ABANDONED SHIP.\\nIt is old and looks easily broken.",
+      "description_english": "A key that opens the door to\\na house in VIRIDIAN CITY.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -5819,7 +5819,7 @@
       "secondaryId": 0
     },
     {
-      "english": "BICYCLE",
+      "english": "BIKE",
       "itemId": "ITEM_BICYCLE",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6304,7 +6304,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "PLACEHOLDER",
+      "description_english": "An insignia infused with avarice.\\nEquip to change the color of your\\nclothes.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6320,7 +6320,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "PLACEHOLDER",
+      "description_english": "An insignia of brotherly love.\\nEquip to change the color of your\\nclothes.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6336,7 +6336,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "PLACEHOLDER",
+      "description_english": "An insignia eminating royal blood.\\nEquip to change the color of your\\nclothes.",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
@@ -6352,7 +6352,7 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "PLACEHOLDER",
+      "description_english": "A special POKéBALL delivered to\\nPROF. OAK.\\nI wonder what's inside!",
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6456,6 +6456,22 @@
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_StatBooster",
+      "secondaryId": 0
+    },
+    {
+      "english": "PSYDUCK PAIL",
+      "itemId": "ITEM_EMPTY_PAIL",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "It appears there's a hole in the\\nbottom of this pail.\\nEnter the RAIN to fill it back up!",
+      "importance": 1,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     }
   ]

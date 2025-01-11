@@ -772,7 +772,7 @@
     {
       "id": "LAYOUT_LAVENDER_TOWN",
       "name": "LavenderTown_Layout",
-      "width": 60,
+      "width": 74,
       "height": 21,
       "border_width": 2,
       "border_height": 2,
@@ -4504,8 +4504,8 @@
     {
       "id": "LAYOUT_MT_MOON_SQUARE_UNBROKEN",
       "name": "MtMoonSquare_Unbroken_Layout",
-      "width": 30,
-      "height": 20,
+      "width": 33,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4524,6 +4524,42 @@
       "secondary_tileset": "gTileset_GameCorner",
       "border_filepath": "data/layouts/ViridianCity_GamblerHouse/border.bin",
       "blockdata_filepath": "data/layouts/ViridianCity_GamblerHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_TOWN_FLOWER_SHOP",
+      "name": "LavenderTown_FlowerShop_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FlowerShop",
+      "border_filepath": "data/layouts/LavenderTown_FlowerShop/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderTown_FlowerShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_CITY_INFINITE_STAIRCASE",
+      "name": "CeladonCity_InfiniteStaircase_Layout",
+      "width": 15,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Condominiums",
+      "border_filepath": "data/layouts/CeladonCity_InfiniteStaircase/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonCity_InfiniteStaircase/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_ROOM",
+      "name": "SecretRoom_Layout",
+      "width": 31,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RestaurantHotel",
+      "border_filepath": "data/layouts/SecretRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SecretRoom/map.bin"
     }
   ]
 }

@@ -300,6 +300,7 @@ movement PlayerGetsInPosition {
 
 script CeladonGym_GiovanniBattles {
 	msgbox(("Ha!\nFine, then."), MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_START_EVENT_BATTLE, 8)
 	trainerbattle_single(TRAINER_BOSS_GIOVANNI, CeladonCity_Gym_Text_GiovanniIntro, CeladonCity_Gym_Text_GiovanniDefeat, CeladonGym_GiovanniDefeat)
 	releaseall
 	end

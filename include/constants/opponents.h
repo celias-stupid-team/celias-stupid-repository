@@ -594,7 +594,7 @@
 #define TRAINER_AROMA_LADY_MIAH                  588
 #define TRAINER_YOUNG_COUPLE_EVE_JON             589
 #define TRAINER_JUGGLER_MASON                    590
-#define TRAINER_CRUSH_GIRL_CYNDY                 591
+#define TRAINER_IMPOSTER_OAK_1                 591
 #define TRAINER_CRUSH_GIRL_JOCELYN               592
 #define TRAINER_TAMER_EVAN                       593
 #define TRAINER_CSR_DUMMY_51 594

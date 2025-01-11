@@ -1,15 +1,17 @@
 PokemonTower_2F_Text_RivalIntro::
-    .string "HARRY: Hey, {PLAYER}!\n"
-    .string "What brings you here?\l"
-    .string "Is your POKéMON dead?\p"
-    .string "Hey! It's alive!\p"
-    .string "I can at least make them faint!\n"
-    .string "Let's go!$"
+	.string "HARRY: Hey, {PLAYER}!\n"
+	.string "What brings you here?\l"
+	.string "Is your POKéMON dead?\p"
+	.string "Thankfully, my POKéMON are not\n"
+	.string "dead!\p"
+	.string "I can kill yours, though!\n"
+	.string "Let's fight!$"
 
 PokemonTower_2F_Text_RivalDefeat::
-    .string "What?\n"
-    .string "You stinker!\p"
-    .string "I took it easy on you, too!$"
+	.string "Hey!\p"
+	.string "I thought for sure my stupid rat\n"
+	.string "could beat you!\l"
+	.string "That's no fair!$"
 
 @ Unused. Translated below
 @ Aw, man! They really kicked the bucket! Weak! Do them a favor and raise them more properly.
@@ -20,15 +22,13 @@ PokemonTower_2F_Text_RivalVictory::
     .string "もっと　ちゃんと　そだてて　やれよ$"
 
 PokemonTower_2F_Text_RivalPostBattle::
-    .string "How's your POKéDEX coming?\n"
-    .string "I just caught a CUBONE!\p"
-    .string "I can't find the bigger MAROWAK.\n"
-    .string "Where could they be?\p"
-    .string "I bet there aren't any left!\p"
-    .string "Well, I better get going.\n"
-    .string "I've got a lot to accomplish,\l"
-    .string "unlike you.\p"
-    .string "Smell ya later!$"
+	.string "HARRY: Yup, my RATICATE sure is\n"
+	.string "alive!\p"
+	.string "Boy, am I glad that I never went\n"
+	.string "on any boats or anything.\p"
+	.string "Well, I better get going.\n"
+	.string "I've got a lot to accomplish.\p"
+	.string "Extra-sensorally perceive ya later!\n$"
 
 PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts::
     .string "Even we could not identify the\n"

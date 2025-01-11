@@ -1,0 +1,86 @@
+mapscripts SecretRoom_MapScripts {
+
+}
+
+script PeachSecretRoom_FallDown {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomFallDownHole)
+    playbgm(MUS_DUMMY, TRUE)
+    playse(SE_DOOR)
+
+    setmetatile(1, 4, METATILE_RestaurantHotel_TopEdge, FALSE) //Top
+    setmetatile(2, 4, METATILE_RestaurantHotel_TopEdge, FALSE) 
+    setmetatile(3, 4, METATILE_RestaurantHotel_TopEdge, FALSE) 
+    setmetatile(4, 4, METATILE_RestaurantHotel_TopEdge, FALSE) 
+    setmetatile(5, 4, METATILE_RestaurantHotel_TopEdge, FALSE) 
+    setmetatile(6, 4, METATILE_RestaurantHotel_TopEdge, FALSE) 
+    setmetatile(7, 4, METATILE_RestaurantHotel_TopEdge, FALSE)
+
+    setmetatile(1, 5, METATILE_RestaurantHotel_BottomEdgeShaded, FALSE) //Lid
+    setmetatile(2, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+    setmetatile(3, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+    setmetatile(4, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+    setmetatile(5, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+    setmetatile(6, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+    setmetatile(7, 5, METATILE_RestaurantHotel_BottomEdge, FALSE) 
+
+    setmetatile(1, 6, METATILE_RestaurantHotel_CoveringFloorShaded, FALSE) //Floor
+    setmetatile(2, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(3, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(4, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(5, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(6, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(7, 6, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(1, 7, METATILE_RestaurantHotel_CoveringFloorShaded, FALSE) //shadow
+    setmetatile(2, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(3, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(4, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(5, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(6, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(7, 7, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(1, 8, METATILE_RestaurantHotel_CoveringFloorShaded, FALSE) //shadow
+    setmetatile(2, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(3, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(4, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(5, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(6, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(7, 8, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(1, 9, METATILE_RestaurantHotel_CoveringFloorShaded, FALSE) //shadow
+    setmetatile(2, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(3, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(4, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(5, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(6, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    setmetatile(7, 9, METATILE_RestaurantHotel_CoveringFloor, FALSE) 
+    special(DrawWholeMapView)
+    special(SpawnCameraObject)
+    delay(130)
+    playse(SE_FALL)
+    applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomDescent)
+    setvar(VAR_CSR_CURRENT_CELIA_SECRET, 5)
+    delay(60)
+    setobjectxy(OBJ_EVENT_ID_PLAYER, 30, 14)
+    special(RemoveCameraObject)
+    warphole(MAP_CELADON_CITY)
+    release
+}
+
+movement PeachRoomFallDownHole {
+    walk_in_place_up
+    walk_in_place_up
+    walk_in_place_slow_up
+    walk_in_place_slow_up
+    delay_8
+    face_up
+}
+
+movement PeachRoomDescent { //copied from binary; not gonna bother counting
+    face_up
+    lock_facing_direction
+    slide_down
+    slide_down
+    slide_down
+    slide_down
+    slide_down
+    slide_down
+}

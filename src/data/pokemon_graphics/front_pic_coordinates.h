@@ -5552,8 +5552,8 @@ const struct MonCoords gMonFrontPicCoords[] =
 	},
 	[SPECIES_RATICATE_DEAD] =
 	{
-		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+        .size = MON_COORDS_SIZE(56, 48),
+        .y_offset = 11,
 	},
 	[SPECIES_SHEDINJA_ELECTRIC] =
 	{

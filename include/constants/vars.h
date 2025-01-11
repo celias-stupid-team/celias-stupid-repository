@@ -138,7 +138,7 @@
 #define VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F                             0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
 #define VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE                                 0x4058
-#define VAR_CSR_DUMMY_1                                         0x4059
+#define VAR_CSR_GHOST_FIGHT                                         0x4059
 //When I need these later, I'll just manually re-set them.
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
@@ -199,8 +199,11 @@ It is reset after every battle.
 1 = Larry with Zapdos
 2 = Brock
 3 = Scientist Miguel
-4 = Surge
-5 = Giovanni 1
+4 = Jerry with Moltres
+5 = Misty
+6 = Surge
+7 = Harry with Ho-oh
+8 = Giovanni 1
 */
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_ROUTE01_SHINY_RAT1         0x408D
@@ -271,9 +274,9 @@ It is reset after every battle.
 #define VAR_FRONTIER_FACILITY      0x40CF
 //Photo Man Vars
 // Photos have been cancelled!
-#define VAR_CSR_UNUSED                 0x40D0
+#define VAR_CSR_CELIA_SECRET_NEXT_HINT                 0x40D0
 #define VAR_CSR_CURRENT_CELIA_SECRET                 0x40D1
-#define VAR_0x40D2                 0x40D2
+#define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
 #define VAR_0x40D3                 0x40D3
 #define VAR_0x40D4                 0x40D4
 #define VAR_0x40D5                 0x40D5

@@ -1110,7 +1110,7 @@ SevenIsland_SevaultCanyon_Entrance_EventScript_Madeline::
 	end
 
 SevenIsland_SevaultCanyon_EventScript_Cyndy::
-	trainerbattle_single TRAINER_CRUSH_GIRL_CYNDY, SevenIsland_SevaultCanyon_Text_CyndyIntro, SevenIsland_SevaultCanyon_Text_CyndyDefeat
+	trainerbattle_single TRAINER_IMPOSTER_OAK_1, SevenIsland_SevaultCanyon_Text_CyndyIntro, SevenIsland_SevaultCanyon_Text_CyndyDefeat
 	msgbox SevenIsland_SevaultCanyon_Text_CyndyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

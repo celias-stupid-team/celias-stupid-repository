@@ -58,6 +58,8 @@
 #include "constants/trainers.h"
 #include "battle_util.h"
 #include "constants/pokemon.h"
+#include "event_scripts.h"
+#include "script.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -5212,6 +5214,13 @@ static void Cmd_switchineffects(void)
 
         if (gBattleMoveDamage != 0)
         {
+            //Adding the Harry victory jingle here
+            if(VarGet(VAR_TEMP_START_EVENT_BATTLE) == 7 && !FlagGet(FLAG_SYS_CSR_VICTORY)) {
+                
+                BattleStopLowHpSound();
+                RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                FlagSet(FLAG_SYS_CSR_VICTORY);
+            }
             if (gBattlescriptCurrInstr[1] == BS_TARGET)
                 gBattlescriptCurrInstr = BattleScript_DmgHazardsOnTarget;
             else if (gBattlescriptCurrInstr[1] == BS_ATTACKER)
@@ -10444,8 +10453,13 @@ void BS_TryRevivalBlessing(void)
     if (gSelectedMonPartyId != PARTY_SIZE)
     {
         struct Pokemon *party = GetSideParty(side);
-
-        u16 hp = GetMonData(&party[gSelectedMonPartyId], MON_DATA_MAX_HP) / 2;
+        u16 hp;
+ 
+        if (GetMonData(&party[gSelectedMonPartyId], MON_DATA_SPECIES) == SPECIES_RATICATE_DEAD ) { 
+            hp = 1;
+        } else {
+            hp = GetMonData(&party[gSelectedMonPartyId], MON_DATA_MAX_HP) / 2;
+        }
         //DebugPrintf("dest HP: %d", hp);
         BtlController_EmitSetMonData(BUFFER_A, REQUEST_HP_BATTLE, 1u << gSelectedMonPartyId, sizeof(hp), &hp);
         MarkBattlerForControllerExec(gBattlerAttacker);

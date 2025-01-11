@@ -347,8 +347,8 @@
     },
     {
       "type": "trigger",
-      "x": 6,
-      "y": 4,
+      "x": 8,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_6",
       "var_value": "0",
@@ -357,7 +357,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 3,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_6",
       "var_value": "0",
@@ -366,7 +366,16 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 2,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "PalletTown_DidYouCutOak"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_6",
       "var_value": "0",
@@ -375,11 +384,38 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 3,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_6",
       "var_value": "0",
       "script": "PalletTown_DidYouCutOak"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "OaksLab_RevealGSBall"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "OaksLab_RevealGSBall"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "OaksLab_RevealGSBall"
     }
   ],
   "bg_events": [

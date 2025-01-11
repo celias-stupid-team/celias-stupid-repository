@@ -112,8 +112,8 @@ Route8_Text_UndergroundPathSign::
     .string "CELADON CITY - LAVENDER TOWN$"
 
 Route8_Text_EliIntro::
-    .string "ELI: Twin power is fantastic.\n"
-    .string "Did you know?$"
+	.string "ELI: I wish that man over there\n"
+	.string "would leave us alone…$"
 
 Route8_Text_EliDefeat::
     .string "ELI: But…\n"
@@ -128,8 +128,8 @@ Route8_Text_EliNotEnoughMons::
     .string "have two POKéMON.$"
 
 Route8_Text_AnneIntro::
-    .string "ANNE: We'll shock you with our twin\n"
-    .string "power!$"
+	.string "ELI: I wish that man over there\n"
+	.string "would leave us alone…$"
 
 Route8_Text_AnneDefeat::
     .string "ANNE: Our twin power…$"

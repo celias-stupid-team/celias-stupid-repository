@@ -31,7 +31,7 @@
 #define ______ X(1.0) // Regular effectiveness.
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
-{//                                           Defender -->
+{//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
  //  Attacker                         NORMAL 	FIGHTING 	FLYING 	    POISON  	STEEL    	ROCK    	BUG 	    GHOST 	    WATER_P 	ELECTRIC_P	PSYCHIC_P 	MYSTERY 	GROUND  	FIRE 	    WATER 	    GRASS 	    ELECTRIC 	PSYCHIC 	ICE 	    DRAGON  	DARK 	    FAIRY 	    BROCK 	    WEIRD 	    DAD 	    CHOCOLATE 	SHADOW  	LARGE 	    BIRD 	    SHIT 	    FAIRY_TRANS SOUND   	GRASS_TCG 
     [TYPE_NORMAL]            = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	    },
     [TYPE_FIGHTING]          = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	X(0.2)  	},
@@ -1912,6 +1912,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+                case ABILITY_BEAST_BOOST:
+                    if (gBattleMons[battler].statStages[STAT_ATK] < MAX_STAT_STAGE && gDisableStructs[battler].isFirstTurn != 2)
+                    {
+                        gBattleMons[battler].statStages[STAT_ATK]++;
+                        gBattleScripting.animArg1 = 14 + STAT_ATK;
+                        gBattleScripting.animArg2 = 0;
+                        BattleScriptPushCursorAndCallback(BattleScript_SpeedBoostActivates);
+                        gBattleScripting.battler = battler;
+                        effect++;
+                    }
+                    break;
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                     break;
@@ -3400,10 +3411,10 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
 {
-    // DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
-    // DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
-    // DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
-    // DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+     DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
+     DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
+     DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
+     DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
 
     return sTypeEffectivenessTable[atkType][defType];
 }

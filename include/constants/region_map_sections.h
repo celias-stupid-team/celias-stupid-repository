@@ -125,7 +125,7 @@
 #define MAPSEC_ROUTE_18                     0x76
 #define MAPSEC_GREAT_SEA                     0x77
 #define MAPSEC_ROUTE_20                     0x78
-#define MAPSEC_ROUTE_21                     0x79
+#define MAPSEC_GREAT_BAY                     0x79
 #define MAPSEC_ROUTE_22                     0x7A
 #define MAPSEC_ROUTE_23                     0x7B
 #define MAPSEC_ROUTE_24                     0x7C
@@ -162,7 +162,7 @@
 #define MAPSEC_CAPE_BRINK                   0x98
 #define MAPSEC_BOND_BRIDGE                  0x99
 #define MAPSEC_THREE_ISLE_PORT              0x9A
-#define MAPSEC_SEVII_ISLE_6                 0x9B
+#define MAPSEC_DECAMARK                 0x9B
 #define MAPSEC_SEVII_ISLE_7                 0x9C
 #define MAPSEC_SEVII_ISLE_8                 0x9D
 #define MAPSEC_SEVII_ISLE_9                 0x9E

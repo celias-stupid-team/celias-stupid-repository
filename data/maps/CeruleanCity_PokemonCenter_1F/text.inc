@@ -18,10 +18,7 @@ CeruleanCity_PokemonCenter_1F_Text_BillCollectsRareMons::
     .string "He collects rare ones, too!$"
 
 CeruleanCity_PokemonCenter_1F_Text_TryTradingUpstairs::
-    .string "Why don't you go upstairs and try\n"
-    .string "trading POKéMON with your friends?\p"
-    .string "You could get a lot more variety\n"
-    .string "by trading.\p"
-    .string "The POKéMON you get in trades grow\n"
-    .string "quickly, too.$"
+	.string "Have you gone to see BILL yet?\p"
+	.string "Getting to draw 2 cards is so\n"
+	.string "strong!$"
 

@@ -167,7 +167,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrickWall;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Karen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ImposterOakBig;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Imakuni;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Looker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cynthia;
@@ -413,7 +413,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_NEBBY] =         &gObjectEventGraphicsInfo_Nebby,
     [OBJ_EVENT_GFX_ALOLAOAK] =         &gObjectEventGraphicsInfo_AlolaOak,
     [OBJ_EVENT_GFX_BRICKWALL] =         &gObjectEventGraphicsInfo_BrickWall,
-    [OBJ_EVENT_GFX_KAREN] =         &gObjectEventGraphicsInfo_Karen,
+    [OBJ_EVENT_GFX_IMPOSTER_OAK_BIG] =         &gObjectEventGraphicsInfo_ImposterOakBig,
     [OBJ_EVENT_GFX_IMAKUNI] =         &gObjectEventGraphicsInfo_Imakuni,
     [OBJ_EVENT_GFX_LOOKER] =         &gObjectEventGraphicsInfo_Looker,
     [OBJ_EVENT_GFX_CYNTHIA] =         &gObjectEventGraphicsInfo_Cynthia,

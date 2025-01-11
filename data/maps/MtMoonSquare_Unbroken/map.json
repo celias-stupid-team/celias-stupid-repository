@@ -19,35 +19,35 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
       "x": 3,
-      "y": 5,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoonSquare_Clefairy",
-      "flag": "0"
+      "script": "MtMoonSquare_Clefairy1",
+      "flag": "FLAG_CSR_CLEFAIRY1"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
-      "x": 12,
-      "y": 2,
+      "x": 16,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoonSquare_Clefairy",
-      "flag": "0"
+      "script": "MtMoonSquare_Clefairy2",
+      "flag": "FLAG_CSR_CLEFAIRY2"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 8,
-      "y": 11,
+      "x": 10,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -60,7 +60,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
-      "x": 3,
+      "x": 4,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
@@ -68,28 +68,84 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtMoonSquare_Clefairy",
-      "flag": "0"
+      "script": "MtMoonSquare_Clefairy3",
+      "flag": "FLAG_CSR_CLEFAIRY3"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
-      "x": 24,
-      "y": 11,
+      "x": 26,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoonSquare_Clefairy4",
+      "flag": "FLAG_CSR_CLEFAIRY4"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "MtMoonSquare_Clefairy",
-      "flag": "0"
+      "flag": "FLAG_CSR_CLEFAIRY_TOPLEFT"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoonSquare_Clefairy",
+      "flag": "FLAG_CSR_CLEFAIRY_BOTTOMLEFT"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoonSquare_Clefairy",
+      "flag": "FLAG_CSR_CLEFAIRY_TOPRIGHT"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+      "x": 13,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MtMoonSquare_Clefairy",
+      "flag": "FLAG_CSR_CLEFAIRY_BOTTOMRIGHT"
     }
   ],
   "warp_events": [
     {
-      "x": 20,
-      "y": 8,
+      "x": 23,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SECRET_TUNNEL",
       "dest_warp_id": "1"
@@ -98,29 +154,29 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 8,
-      "y": 14,
+      "x": 10,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_CLEFAIRY_DANCE",
-      "var_value": "0",
+      "var_value": "1",
+      "script": "MtMoonSquare_StartDance"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CLEFAIRY_DANCE",
+      "var_value": "1",
       "script": "MtMoonSquare_StartDance"
     },
     {
       "type": "trigger",
       "x": 9,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_CLEFAIRY_DANCE",
-      "var_value": "0",
-      "script": "MtMoonSquare_StartDance"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_MAP_SCENE_CLEFAIRY_DANCE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "MtMoonSquare_StartDance"
     }
   ],

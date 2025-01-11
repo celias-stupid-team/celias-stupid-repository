@@ -988,6 +988,8 @@ SECTIONS {
         sound/songs/midi/mus_dmca_admin.o(.rodata);
         sound/songs/midi/mus_secret_tunnel.o(.rodata);
         sound/songs/midi/mus_mt_moon_square.o(.rodata);
+        sound/songs/midi/mus_clefairy_dance.o(.rodata);
+        sound/songs/midi/mus_imposter_oak.o(.rodata);
 
     } > ROM =0
 

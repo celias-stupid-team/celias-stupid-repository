@@ -267,16 +267,16 @@
 #define FLAG_CSR_BERRY_FOREST_HBOX               0x0E2
 #define FLAG_CSR_L_EMBLEM               0x0E3
 #define FLAG_CSR_SUPER_SCOPE               0x0E4
-#define FLAG_0x0E5               0x0E5
-#define FLAG_0x0E6               0x0E6
-#define FLAG_0x0E7               0x0E7
-#define FLAG_0x0E8               0x0E8
-#define FLAG_0x0E9               0x0E9
-#define FLAG_0x0EA               0x0EA
-#define FLAG_0x0EB               0x0EB
-#define FLAG_0x0EC               0x0EC
-#define FLAG_0x0ED               0x0ED
-#define FLAG_0x0EE               0x0EE
+#define FLAG_CSR_CLEFAIRY1               0x0E5
+#define FLAG_CSR_CLEFAIRY2               0x0E6
+#define FLAG_CSR_CLEFAIRY3               0x0E7
+#define FLAG_CSR_CLEFAIRY4               0x0E8
+#define FLAG_CSR_CLEFAIRY_TOPLEFT               0x0E9
+#define FLAG_CSR_CLEFAIRY_TOPRIGHT               0x0EA
+#define FLAG_CSR_CLEFAIRY_BOTTOMLEFT               0x0EB
+#define FLAG_CSR_CLEFAIRY_BOTTOMRIGHT               0x0EC
+#define FLAG_CSR_HIDE_ROUTE6_CELIA               0x0ED
+#define FLAG_CSR_HIDE_POKEMONTOWER_CELIA               0x0EE
 #define FLAG_0x0EF               0x0EF
 //Celadon City
 #define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
@@ -654,7 +654,7 @@
 #define FLAG_GOT_TM06_FROM_KOGA                          0x259
 #define FLAG_AIDES_RAN_AWAY                                       0x25A
 #define FLAG_GOT_TM27                                    0x25B
-#define FLAG_0x25C                                       0x25C
+#define FLAG_GOT_HOUSE_KEY                                       0x25C
 #define FLAG_0x25D                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
 #define FLAG_0x25F                                       0x25F
@@ -800,6 +800,10 @@
 #define FLAG_CELIA_SECRET_LAVENDER                                       0x2E9 //4
 #define FLAG_CELIA_SECRET_CELADON                                       0x2EA //5
 #define FLAG_CELIA_SECRET_FUCHSIA                                       0x2EB //6
+
+
+
+
 #define FLAG_REVIVED_DOME                                0x2EC
 #define FLAG_REVIVED_HELIX                               0x2ED
 #define FLAG_REVIVED_AMBER                               0x2EE
@@ -838,7 +842,7 @@
 #define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
 #define FLAG_CSR_GOT_DUCK_PAIL               0x30E
 #define FLAG_CSR_DUCK_PAIL_EMPTIED               0x30F
-#define FLAG_0x310               0x310
+#define FLAG_CSR_IMPOSTEROAK1               0x310
 #define FLAG_0x311               0x311
 #define FLAG_0x312               0x312
 #define FLAG_0x313               0x313
