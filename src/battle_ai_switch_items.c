@@ -401,7 +401,7 @@ void AI_TrySwitchOrUseItem(void)
     BtlController_EmitTwoReturnValues(1, B_ACTION_USE_MOVE, (gActiveBattler ^ BIT_SIDE) << 8);
 }
 
-static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8 *var)
+static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u32 *var)
 {
     uq4_12_t modifier = UQ_4_12(1.0);
 
@@ -410,14 +410,13 @@ static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8
     if (defType2 != defType1)
         modifier = uq4_12_multiply(modifier, GetTypeModifier(atkType, defType2));
 
-    *var = modifier / 4096;
-    // DebugPrintf("ModulateByTypeEffectiveness var = %d", *var);
+    *var = *var * modifier / 4096;
 }
 
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u8 opposingBattler;
-    u8 bestDmg; // Note : should be changed to u32 for obvious reasons.
+    u32 bestDmg; // Note : should be changed to u32 for obvious reasons.
     u8 bestMonId;
     u8 battlerIn1, battlerIn2;
     s32 i, j;
@@ -463,9 +462,10 @@ u8 GetMostSuitableMonToSwitchInto(void)
             {
                 u8 type1 = gSpeciesInfo[species].types[0];
                 u8 type2 = gSpeciesInfo[species].types[1];
-                u8 typeDmg = 10;
-                ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type1, type1, type2, &typeDmg);
-                ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type2, type1, type2, &typeDmg);
+                u32 typeDmg = TYPE_MUL_NORMAL;
+                ModulateByTypeEffectiveness(type1, gBattleMons[opposingBattler].type1, gBattleMons[opposingBattler].type2, &typeDmg);
+                if (type2 != type1)
+                    ModulateByTypeEffectiveness(type2, gBattleMons[opposingBattler].type1, gBattleMons[opposingBattler].type2, &typeDmg);
                 if (bestDmg < typeDmg)
                 {
                     bestDmg = typeDmg;
