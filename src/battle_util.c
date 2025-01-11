@@ -3411,10 +3411,10 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
 {
-    // DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
-    // DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
-    // DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
-    // DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
+     DebugPrintf("GetTypeModifier gCurrentMove = %S", gMoveNames[gCurrentMove]);
+     DebugPrintf("GetTypeModifier atkType = %S", gTypeNames[atkType]);
+     DebugPrintf("GetTypeModifier defType = %S", gTypeNames[defType]);
+     DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
 
     return sTypeEffectivenessTable[atkType][defType];
 }

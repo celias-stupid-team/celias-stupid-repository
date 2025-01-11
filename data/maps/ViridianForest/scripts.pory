@@ -165,6 +165,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		lock
 
 		getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+		addobject(CELIA_FOREST)
 		setobjectxy(CELIA_FOREST,VAR_TEMP_3,18)
 		applymovement(CELIA_FOREST, CeliaApproaches)
 		waitmovement(0)

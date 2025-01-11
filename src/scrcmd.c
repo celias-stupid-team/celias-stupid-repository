@@ -2420,7 +2420,10 @@ bool8 ScrCmd_setobtainable(struct ScriptContext * ctx)
     {
         species = (u16) ScriptReadHalfword(ctx);
         DexScreen_GetSetPokedexFlag(species, FLAG_SET_OBTAINABLE, TRUE);
+        //DebugPrintf("%S set obtainable", gSpeciesNames[species] - 1);
+        //DebugPrintf("Species number %u", species);
     }
+    
 
     return FALSE;
 }
