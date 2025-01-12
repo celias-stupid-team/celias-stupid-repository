@@ -77,16 +77,17 @@ MtMoon_1F_Text_KentPostBattle::
     .string "copyrighted material on you!$"
 
 MtMoon_1F_Text_RobbyIntro::
-    .string "You need to go through this cave\n"
-    .string "to get to CERULEAN CITY.$"
+	.string "I came here looking for mushroom\n"
+	.string "POKéMON, but...$"
 
 MtMoon_1F_Text_RobbyDefeat::
-    .string "I lost.$"
+	.string "These aren't the mushroom POKéMON\n"
+	.string "I want!$"
 
 MtMoon_1F_Text_RobbyPostBattle::
-    .string "ZUBAT is tough!\n"
-    .string "But if you can catch one, you'll\l"
-    .string "be able to count on it.$"
+	.string "There's supposed to be another\n"
+	.string "mushroom POKéMON here in MT. MOON.\l"
+	.string "But I can't find it anywhere!$"
 
 MtMoon_1F_Text_ZubatIsABloodsucker::
     .string "Beware!\n"

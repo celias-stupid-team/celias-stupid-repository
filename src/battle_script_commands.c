@@ -10547,5 +10547,5 @@ void BS_SetBattleStringId(void)
     CMD_ARGS();
 
     gBattleCommunication[MULTISTRING_CHOOSER] = gBattleMoves[gCurrentMove].stringId;
-    gBattlescriptCurrInstr = cmd->nextInstr;
+    gBattlescriptCurrInstr +=4;;
 }

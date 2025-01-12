@@ -3218,8 +3218,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrickWall = {
     .images = gObjectEventPicTable_BrickWall,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ImposterOakBig = { 
-    .tileTag = 0xFFFF,
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ImposterOakBig = {
+    .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_IMPOSTER_OAK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 2048,
