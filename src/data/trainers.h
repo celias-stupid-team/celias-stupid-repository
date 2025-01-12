@@ -1702,7 +1702,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("WOLFF"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_HP_AWARE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_STRONGEST_MOVE,
+        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_STRONGEST_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_SuperNerdMiguel),
     },
     [TRAINER_SUPER_NERD_AIDAN] = {

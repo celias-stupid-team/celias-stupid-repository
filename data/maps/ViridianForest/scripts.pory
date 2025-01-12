@@ -177,6 +177,11 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		msgbox("Hi, there!\nI'm CELIA, this hack's creator.\pSorry to inturrupt, but I noticed\nsomething and had to pop in.", MSGBOX_DEFAULT)
 		
 		specialvar(VAR_RESULT, GetPokedexCount)
+		copyvar(VAR_0x8008, VAR_0x8005)
+		copyvar(VAR_0x8009, VAR_0x8006)
+		buffernumberstring(STR_VAR_1, VAR_0x8008)
+		buffernumberstring(STR_VAR_2, VAR_0x8009)
+		msgbox(PalletTown_Text_CaughtXImpressiveFollowMe)
 		if((var(VAR_RESULT) > 4) && checkmoncaught(SPECIES_RATTATA) && (checkmoncaught(SPECIES_CATERPIE) || checkmoncaught(SPECIES_METAPOD))) { // Rattata plus Caterpie is bare minimum for having an acceptable dex
 			msgbox("I see you've been making good\nprogress on your POKéDEX.\pThat's good to see!\nThat's what you should be doing!\pHowever, I think there's something\nyou missed.", MSGBOX_DEFAULT)
 			if(!(checkmoncaught(SPECIES_MANKEY) && checkmoncaught(SPECIES_NIDORAN_F) && checkmoncaught(SPECIES_NIDORAN_M))) {
