@@ -200,7 +200,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 			}
 		} else {
 			msgbox("It looks like you haven't really\nmade too much of an effort to\lfill in your POKéDEX.\pUh, I wasn't kidding earlier when I\nsaid you really should fill it out!", MSGBOX_DEFAULT)
-			specialvar(VAR_RESULT, GetPokedexCount)
+			specialvar(GetPokedexCount)
 			if((var(VAR_RESULT) < 2)) { //If you haven't caught anything, she's PISSED
 				msgbox("I understand that you probably\njust wanna mash through text,\lespecially if you have speedup.\pBut this is not a normal vanilla-\nstyle romhack.\lYou really can't play it like one.", MSGBOX_DEFAULT)
 			} else { // General advice for players who clearly don't understand this game.

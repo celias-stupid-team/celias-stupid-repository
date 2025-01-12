@@ -1979,57 +1979,57 @@
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 43,
                 "max_level": 43,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_ARBOK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_GOLBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               }
             ]
           }
@@ -2117,57 +2117,57 @@
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 42,
                 "max_level": 42,
-                "species": "SPECIES_PRIMEAPE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 45,
                 "max_level": 45,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 48,
                 "max_level": 48,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_ARBOK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_GOLBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 48,
                 "max_level": 48,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 48,
                 "max_level": 48,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               }
             ]
           }
@@ -2255,57 +2255,57 @@
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 43,
                 "max_level": 43,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 32,
                 "max_level": 32,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_ARBOK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_GOLBAT"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MACHOKE"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 46,
                 "max_level": 46,
-                "species": "SPECIES_MAROWAK"
+                "species": "SPECIES_MACHOP"
               }
             ]
           }
