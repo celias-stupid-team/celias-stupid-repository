@@ -146,7 +146,7 @@
 #define TRAINER_SAILOR_PHILLIP                   140
 #define TRAINER_SAILOR_DWAYNE                    141
 #define TRAINER_CAMPER_LIAM                      142
-#define TRAINER_CAMPER_SHANE                     143
+#define TRAINER_OFFICER_VERLISIFY                     143
 #define TRAINER_CAMPER_ETHAN                     144
 #define TRAINER_CAMPER_RICKY                     145
 #define TRAINER_CAMPER_JEFF                      146

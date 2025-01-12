@@ -698,7 +698,7 @@ PewterCity_EventScript_AideGiveRunningShoes::
 	message PewterCity_Text_ReceivedRunningShoesFromAide
 	waitmessage
 	waitfanfare
-	giveitem ITEM_RUNNING_SHOES
+	additem ITEM_RUNNING_SHOES
 	msgbox PewterCity_Text_SwitchedShoesWithRunningShoes
 	special DisableMsgBoxWalkaway
 	signmsg

@@ -64,7 +64,7 @@ Route24_EventScript_Ali::
 	end
 
 Route24_EventScript_Shane::
-	trainerbattle_single TRAINER_CAMPER_SHANE, Route24_Text_ShaneIntro, Route24_Text_ShaneDefeat
+	trainerbattle_single TRAINER_OFFICER_VERLISIFY, Route24_Text_ShaneIntro, Route24_Text_ShaneDefeat
 	msgbox Route24_Text_ShanePostBattle, MSGBOX_AUTOCLOSE
 	end
 

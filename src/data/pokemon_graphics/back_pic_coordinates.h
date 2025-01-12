@@ -5560,7 +5560,7 @@ const struct MonCoords gMonBackPicCoords[] =
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 16,
 	},
-	[SPECIES_DIGIMON] =
+	[SPECIES_VENUSAUR_MEGA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
 		.y_offset = 16,

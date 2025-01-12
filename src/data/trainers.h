@@ -1434,7 +1434,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_CamperLiam),
     },
-    [TRAINER_CAMPER_SHANE] = {
+    [TRAINER_OFFICER_VERLISIFY] = {
         .trainerClass = TRAINER_CLASS_OFFICER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMANIAC,
@@ -1442,7 +1442,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_CamperShane),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_OfficerVerlisify),
     },
     [TRAINER_CAMPER_ETHAN] = {
         .trainerClass = TRAINER_CLASS_CHAMPION_2,

@@ -30717,7 +30717,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     .bodyColor = BODY_COLOR_RED,
     .noFlip = FALSE,
 },
-[SPECIES_DIGIMON] =
+[SPECIES_VENUSAUR_MEGA] =
 {
     .baseHP = 80,
     .baseAttack = 80,
@@ -30725,7 +30725,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     .baseSpeed = 80,
     .baseSpAttack = 80,
     .baseSpDefense = 80,
-    .types = {TYPE_NORMAL, TYPE_NORMAL},
+    .types = {TYPE_GRASS, TYPE_POISON},
     .catchRate = 255,
     .expYield = 150,
     .evYield_HP = 1,

@@ -181,8 +181,8 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		copyvar(VAR_0x8009, VAR_0x8006)
 		buffernumberstring(STR_VAR_1, VAR_0x8008)
 		buffernumberstring(STR_VAR_2, VAR_0x8009)
-		msgbox(PalletTown_Text_CaughtXImpressiveFollowMe)
-		if((var(VAR_RESULT) > 4) && checkmoncaught(SPECIES_RATTATA) && (checkmoncaught(SPECIES_CATERPIE) || checkmoncaught(SPECIES_METAPOD))) { // Rattata plus Caterpie is bare minimum for having an acceptable dex
+
+		if((var(VAR_0x8009) > 4) && checkmoncaught(SPECIES_RATTATA) && (checkmoncaught(SPECIES_CATERPIE) || checkmoncaught(SPECIES_METAPOD))) { // Rattata plus Caterpie is bare minimum for having an acceptable dex
 			msgbox("I see you've been making good\nprogress on your POKéDEX.\pThat's good to see!\nThat's what you should be doing!\pHowever, I think there's something\nyou missed.", MSGBOX_DEFAULT)
 			if(!(checkmoncaught(SPECIES_MANKEY) && checkmoncaught(SPECIES_NIDORAN_F) && checkmoncaught(SPECIES_NIDORAN_M))) {
 				if(!(checkmoncaught(SPECIES_MANKEY) || checkmoncaught(SPECIES_NIDORAN_F) || checkmoncaught(SPECIES_NIDORAN_M))) {
@@ -205,11 +205,12 @@ script ViridianForest_EventScript_CeliaChecksDex {
 			}
 		} else {
 			msgbox("It looks like you haven't really\nmade too much of an effort to\lfill in your POKéDEX.\pUh, I wasn't kidding earlier when I\nsaid you really should fill it out!", MSGBOX_DEFAULT)
-			specialvar(GetPokedexCount)
-			if((var(VAR_RESULT) < 2)) { //If you haven't caught anything, she's PISSED
+			
+			specialvar(VAR_RESULT, GetPokedexCount)
+			if((var(VAR_0x8009) < 2)) { //If you haven't caught anything, she's PISSED
 				msgbox("I understand that you probably\njust wanna mash through text,\lespecially if you have speedup.\pBut this is not a normal vanilla-\nstyle romhack.\lYou really can't play it like one.", MSGBOX_DEFAULT)
 			} else { // General advice for players who clearly don't understand this game.
-				msgbox("I strongly recommend going around\nand catching as much as you can.\pPOKéBALLs have guaranteed catch\nrates in this hack, so it's easy!\pTrust me, you'll thank me later.\n", MSGBOX_DEFAULT)
+				msgbox("I strongly recommend going around\nand catching as much as you can.\pPOKéBALLS have guaranteed catch\nrates in this hack, so it's easy!\pTrust me, you'll thank me later.\n", MSGBOX_DEFAULT)
 			}
 		}
 		call(SetPlayerPokedexValues)
@@ -226,8 +227,13 @@ script ViridianForest_EventScript_CeliaChecksDex {
 script ViridianForest_EventScript_CeliaGotCaught {
 	lock
 	faceplayer
-	msgbox("Oh, hey there!\pI was planning on leaving, but\nI got tired.\pThanks for catching back up with\nme, though!\lHere's a gift!", MSGBOX_DEFAULT)
+	if(flag(FLAG_TEMP_7)) {
+		msgbox("You want another one?\nSure!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Oh, hey there!\pI was planning on leaving, but\nI got tired.\pThanks for catching back up with\nme, though!\lHere's a gift!", MSGBOX_DEFAULT)
+	}
 	giveitem(ITEM_RARE_CANDY)
+	setflag(FLAG_TEMP_7)
 	goto_if_eq(VAR_RESULT, FALSE, EventScript_BagIsFull)
 	release
 

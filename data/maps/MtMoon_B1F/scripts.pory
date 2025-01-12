@@ -39,7 +39,7 @@ const LASS = 4
 script MtMoon_EventScript_MoveLass {
 	if(!defeated(TRAINER_CSR_MT_MOON_END_LASS)) {
 		addobject(LASS)
-		setobjectxy(LASS, 39, 18)
+		setobjectxy(LASS, 39, 19)
 	}
 	setvar(VAR_TEMP_1, 1)
 }

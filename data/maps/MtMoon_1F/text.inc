@@ -100,10 +100,10 @@ MtMoon_1F_Text_BrockHelpsExcavateFossils::
     .string "are SUPER-EFFECTIVE against it.$"
 
 MtMoon_Text_ExitLassIntro::
-	.string "Hey, I know that you're almost out\n"
-	.string "of this cave.\p"
-	.string "But did you really need to look at\n"
-	.string "me on your way out?$"
+	.string "Hey, I know that you're almost at\n"
+	.string "the end of this cave.\p"
+	.string "But right on your way out, did you\n"
+	.string "really have to look at me?$"
 
 MtMoon_Text_ExitLassDefeat::
 	.string "Hey!\n"

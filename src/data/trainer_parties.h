@@ -941,11 +941,11 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperLiam[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_CamperShane[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_OfficerVerlisify[] = {
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_VENUSAUR, //Make into Mega Venusaur at some point
+        .species = SPECIES_VENUSAUR_MEGA, //Make into Mega Venusaur at some point
         .moves = {MOVE_FURY_CUTTER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
