@@ -78,4 +78,4 @@ Route4_Text_PeopleLikeAndRespectBrock::
 	.string "know you can't win, just RUN away.\l"
 	.string "It'll even work in TRAINER battles!\p"
 	.string "Remember: It isn't cowardice if\n"
-	.string "you're changing your approach!$"
+	.string "you're trying something new!$"

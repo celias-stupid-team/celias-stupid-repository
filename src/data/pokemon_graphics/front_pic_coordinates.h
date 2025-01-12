@@ -2923,7 +2923,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SCRAGGY] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 16,
+		.y_offset = 5,
 	},
 	[SPECIES_SCRAFTY] =
 	{

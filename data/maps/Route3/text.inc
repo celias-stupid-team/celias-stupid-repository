@@ -33,7 +33,7 @@ Route3_Text_BenDefeat::
     .string "I don't believe it!$"
 
 Route3_Text_BenPostBattle::
-    .string "I am SHORTS\p"
+    .string "I am SHORTS!\p"
     .string "Put me on please!$"
 
 Route3_Text_JaniceIntro::
@@ -50,7 +50,7 @@ Route3_Text_JaniceDefeat::
 
 Route3_Text_JanicePostBattle::
     .string "Excuse me!\n"
-    .string "don'How DARE you have eyes!$"
+    .string "How DARE you have eyes!$"
 
 Route3_Text_GregIntro::
     .string "Are you a TRAINER?\n"
@@ -86,7 +86,7 @@ Route3_Text_CalvinDefeat::
     .string "Lost! Lost!$"
 
 Route3_Text_CalvinPostBattle::
-    .string "I always wear shorts, even in\n"
+    .string "I always am shorts, even in\n"
     .string "winter. That's my policy.$"
 
 Route3_Text_JamesIntro::

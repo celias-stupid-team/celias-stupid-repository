@@ -16522,7 +16522,7 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_MANKEY"
+                "species": "SPECIES_PIDGEOTTO"
               },
               {
                 "min_level": 5,
@@ -16537,7 +16537,7 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_MANKEY"
+                "species": "SPECIES_PIDGEOTTO"
               }
             ]
           }

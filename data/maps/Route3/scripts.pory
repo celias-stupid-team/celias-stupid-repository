@@ -104,6 +104,7 @@ script Route4_EventScript_Hbox {
 	fadescreenspeed(FADE_TO_BLACK, 1)
 	addobject(HBOX)
 	setobjectxy(HBOX, 35, 8)
+	clearflag(FLAG_CSR_HBOX_TEMP_DISAPPEARANCE)
 	setmetatile(35, 14, 0x2C7, FALSE)
 	setmetatile(35, 13, 0x2C7, FALSE)
 	setmetatile(35, 12, 0x2C7, FALSE)
