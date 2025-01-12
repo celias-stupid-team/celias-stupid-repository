@@ -868,8 +868,35 @@ script PewterCity_EventScript_BugCatcher {
 	release
 }
 
+const IMPOSTER_OAK = 15
 script EventScript_PewterCity_AlolanOak {
-	msgbox("grr\n", MSGBOX_NPC)
+	if(!checkitem(ITEM_WAILMER_PAIL)) {
+		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
+		msgbox("Something about this tree in\nparticular feels... off.", MSGBOX_DEFAULT)
+		waitmoncry
+	} else {
+		msgbox("Something about this tree in\nparticular feels... off.\lWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			closemessage
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp) // open eyes
+			waitmovement(0)
+			delay(60)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(40)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(60)
+			msgbox("{FONT_SMALL}OAK?: Hey!\nWhat's the big idea?", MSGBOX_DEFAULT)
+
+
+		}
+	}
+	release
 	end
 }
 
