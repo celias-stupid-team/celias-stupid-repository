@@ -6862,8 +6862,371 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
+
+[MOVE_BLOOD_MOON] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
     
+
+[MOVE_EVIL_METRONOME] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
     
+
+[MOVE_SHADOW_FORCE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_DARK_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_AURA_SPHERE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_DRAGON_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_HEAL_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_ORIGIN_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_WICKED_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_NOXIOUS_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAGICAL_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_COMBAT_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SPARKLY_SWIRL] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SYRUP_BOMB] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAKE_IT_RAIN] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_FLASH_CANNON] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_TOMB] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_BLAST] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_WRECKER] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_UPPER_HAND] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_FOCUS_PUNCH] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_HORN_LEECH] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_FISHIOUS_REND] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BRAVE_BIRD] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAX_AIRSTREAM] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_STEAMROLLER] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SLASH_TCG] =    {
+        .effect = EFFECT_HIGH_CRITICAL, // Placeholder Effect
+        .power = 70,
+        .type = TYPE_GRASS_TCG,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SWORDSDANCE_TCG] =    {
+        .effect = EFFECT_ATTACK_UP_2, // Placeholder Effect
+        .power = 0,
+        .type = TYPE_GRASS_TCG,
+        .accuracy = 0,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
 };
 
 

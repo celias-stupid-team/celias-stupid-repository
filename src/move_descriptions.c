@@ -362,6 +362,7 @@ const u8 gMoveDescription_SubstituteTeacher[] = _("The user creates a\ndecoy usi
 const u8 gMoveDescription_ConfusionPsyduck[] = _("The user is\nslightly confused\nas to who they're\nsupposed to hit.");
 
 
+
 //dummies out for now
 const u8 gMoveDescription_Water_Shuriken[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Revival_Blessing[] = _("Revives a fainted\nparty {PKMN} and\nrestores half of\nits HP.");
@@ -545,6 +546,35 @@ const u8 gMoveDescription_Foursight[] = _("Using the fource,\nthe user foursees\
 const u8 gMoveDescription_SteelWang[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_WonderSeed[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Copycat[] = _("The user copies\nthe signature move\nof cats.");
+const u8 gMoveDescription_BloodMoon[] = _("Dummy");
+const u8 gMoveDescription_EvilMetronome[] = _("Dummy");
+const u8 gMoveDescription_ShadowForce[] = _("Dummy");
+const u8 gMoveDescription_dark_pulse[] = _("Dummy");
+const u8 gMoveDescription_aura_sphere[] = _("Dummy");
+const u8 gMoveDescription_dragon_pulse[] = _("Dummy");
+const u8 gMoveDescription_heal_pulse[] = _("Dummy");
+const u8 gMoveDescription_origin_pulse[] = _("Dummy");
+const u8 gMoveDescription_WickedTorque[] = _("Dummy");
+const u8 gMoveDescription_NoxiousTorque[] = _("Dummy");
+const u8 gMoveDescription_MagicalTorque[] = _("Dummy");
+const u8 gMoveDescription_CombatTorque[] = _("Dummy");
+const u8 gMoveDescription_SparklySwirl[] = _("Dummy");
+const u8 gMoveDescription_SyrupBomb[] = _("Dummy");
+const u8 gMoveDescription_MakeItRain[] = _("Dummy");
+const u8 gMoveDescription_FlashCannon[] = _("Dummy");
+const u8 gMoveDescription_BrockTomb[] = _("Dummy");
+const u8 gMoveDescription_BrockBlast[] = _("Dummy");
+const u8 gMoveDescription_BrockWrecker[] = _("Dummy");
+const u8 gMoveDescription_upper_hand[] = _("Dummy");
+const u8 gMoveDescription_focuspunch[] = _("Dummy");
+const u8 gMoveDescription_hornleech[] = _("Dummy");
+const u8 gMoveDescription_fishiousrend[] = _("Dummy");
+const u8 gMoveDescription_bravebird[] = _("Dummy");
+const u8 gMoveDescription_maxairstream[] = _("Dummy");
+const u8 gMoveDescription_Steamroller[] = _("Dummy");
+const u8 gMoveDescription_Slash_TCG[] = _("The foe is slashed\nwith claws, etc.\nIt has a high\ncritical-hit ratio.");
+const u8 gMoveDescription_SwordsDance_TCG[] = _("A frenetic dance of\nfighting. It sharply\nraises the ATTACK\nstat.");
+
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -1091,4 +1121,32 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_STEEL_WANG     -1 ] = gMoveDescription_SteelWang,
     [MOVE_WONDER_SEED     -1 ] = gMoveDescription_WonderSeed,
     [MOVE_COPYCAT     -1 ] = gMoveDescription_Copycat,
+    [MOVE_BLOOD_MOON     -1 ] = gMoveDescription_BloodMoon,
+    [MOVE_EVIL_METRONOME     -1 ] = gMoveDescription_EvilMetronome,
+    [MOVE_SHADOW_FORCE     -1 ] = gMoveDescription_ShadowForce,
+    [MOVE_DARK_PULSE     -1 ] = gMoveDescription_dark_pulse,
+    [MOVE_AURA_SPHERE     -1 ] = gMoveDescription_aura_sphere,
+    [MOVE_DRAGON_PULSE     -1 ] = gMoveDescription_dragon_pulse,
+    [MOVE_HEAL_PULSE     -1 ] = gMoveDescription_heal_pulse,
+    [MOVE_ORIGIN_PULSE     -1 ] = gMoveDescription_origin_pulse,
+    [MOVE_WICKED_TORQUE     -1 ] = gMoveDescription_WickedTorque
+    [MOVE_NOXIOUS_TORQUE     -1 ] = gMoveDescription_NoxiousTorque,
+    [MOVE_MAGICAL_TORQUE     -1 ] = gMoveDescription_MagicalTorque,
+    [MOVE_COMBAT_TORQUE     -1 ] = gMoveDescription_CombatTorque,
+    [MOVE_SPARKLY_SWIRL     -1 ] = gMoveDescription_SparklySwirl,
+    [MOVE_SYRUP_BOMB     -1 ] = gMoveDescription_SyrupBomb,
+    [MOVE_MAKE_IT_RAIN     -1 ] = gMoveDescription_MakeItRain,
+    [MOVE_FLASH_CANNON     -1 ] = gMoveDescription_FlashCannon,
+    [MOVE_BROCK_TOMB     -1 ] = gMoveDescription_BrockTomb,
+    [MOVE_BROCK_BLAST     -1 ] = gMoveDescription_BrockBlast,
+    [MOVE_BROCK_WRECKER     -1 ] = gMoveDescription_BrockWrecker,
+    [MOVE_UPPER_HAND     -1 ] = gMoveDescription_upper_hand,
+    [MOVE_FOCUS_PUNCH     -1 ] = gMoveDescription_focuspunch,
+    [MOVE_HORN_LEECH     -1 ] = gMoveDescription_hornleech,
+    [MOVE_FISHIOUS_REND     -1 ] = gMoveDescription_fishiousrend,
+    [MOVE_BRAVE_BIRD     -1 ] = gMoveDescription_bravebird,
+    [MOVE_MAX_AIRSTREAM     -1 ] = gMoveDescription_maxairstream,
+    [MOVE_STEAMROLLER     -1 ] = gMoveDescription_Steamroller,
+    [MOVE_SLASH_TCG     -1 ] = gMoveDescription_Slash_TCG,
+    [MOVE_SWORDSDANCE_TCG     -1 ] = gMoveDescription_SwordsDance_TCG,
 };
