@@ -1121,166 +1121,166 @@ gRumorLogFlavorTextIntoLine1_Giovanni5::
 	.string "ROCKET WAREHOUSE$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet0::
-	.string "SIGN$"
+	.string "Timber$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet1::
-	.string "PROF. OAK$"
+	.string "Neighbor$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet2::
-	.string "AIDE$"
+	.string "Breadmaker$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet3::
-	.string "POKéMON JOURNAL$"
+	.string "Guardian$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet4::
-	.string "AGATHA$"
+	.string "Macguffin$"
 
 gFameCheckerFlavorTextOriginObjectName_Pallet5::
-	.string "AIDE$"
+	.string "Recommended$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian0::
-	.string "AIDE$"
+	.string "Franchiser$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian1::
-	.string "WOMAN$"
+	.string "Stranger$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian2::
-	.string "MAN$"
+	.string "The Abyss$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian3::
-	.string "POKéMON JOURNAL$"
+	.string "Traveler$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian4::
-	.string "OLD LADY$"
+	.string "Barterer$"
 
 gFameCheckerFlavorTextOriginObjectName_Viridian5::
-	.string "POKéMON JOURNAL$"
+	.string "Reuinion$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter0::
-	.string "SIGN$"
+	.string "Encouragement$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter1::
-	.string "BROCK$"
+	.string "Rascal$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter2::
-	.string "YOUNG MAN$"
+	.string "Gardening$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter3::
-	.string "BOY$"
+	.string "Warning$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter4::
-	.string "MAN$"
+	.string "Incredible!$"
 
 gFameCheckerFlavorTextOriginObjectName_Pewter5::
-	.string "POKéMON JOURNAL$"
+	.string "Arbor$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon0::
+	.string "Consortium$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty1::
-	.string "MISTY$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon1::
+	.string "and Breathable$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty2::
-	.string "LUIS$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon2::
+	.string "Explorer$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty3::
-	.string "YOUNG MAN$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon3::
+	.string "Scopophobia$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty4::
-	.string "DAME$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon4::
+	.string "Legwear$"
 
-gFameCheckerFlavorTextOriginObjectName_Misty5::
-	.string "POKéMON JOURNAL$"
+gFameCheckerFlavorTextOriginObjectName_MtMoon5::
+	.string "Wonders$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean0::
+	.string "to be the Best$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge1::
-	.string "LT. SURGE$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean1::
+	.string "Collector$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge2::
-	.string "TUCKER$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean2::
+	.string "Face$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge3::
-	.string "TUCKER$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean3::
+	.string "Spelunker$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge4::
-	.string "DWAYNE$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean4::
+	.string "Entrepreneur$"
 
-gFameCheckerFlavorTextOriginObjectName_LtSurge5::
-	.string "POKéMON JOURNAL$"
+gFameCheckerFlavorTextOriginObjectName_Cerulean5::
+	.string "Dreamer$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion0::
+	.string "Historian$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika1::
-	.string "ERIKA$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion1::
+	.string "Aviarist$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika2::
-	.string "LOLA$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion2::
+	.string "Sweatwear$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika3::
-	.string "TAMIA$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion3::
+	.string "Envoy$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika4::
-	.string "ERIKA$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion4::
+	.string "Sentinel$"
 
-gFameCheckerFlavorTextOriginObjectName_Erika5::
-	.string "POKéMON JOURNAL$"
+gFameCheckerFlavorTextOriginObjectName_Vermilion5::
+	.string "Driver$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_RockTunnel0::
+	.string "Denims$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga1::
-	.string "KOGA$"
+gFameCheckerFlavorTextOriginObjectName_RockTunnel1::
+	.string "Caver$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga2::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel2::
 	.string "KIRK$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga3::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel3::
 	.string "CHARINE$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga4::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel4::
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_Koga5::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel5::
 	.string "MAN$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_Lavender0::
+	.string "Guide$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina1::
-	.string "YOUNG MAN$"
+gFameCheckerFlavorTextOriginObjectName_Lavender1::
+	.string "Creative$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina2::
-	.string "SABRINA$"
+gFameCheckerFlavorTextOriginObjectName_Lavender2::
+	.string "Ratkeeper$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina3::
-	.string "SABRINA$"
+gFameCheckerFlavorTextOriginObjectName_Lavender3::
+	.string "Pupil$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina4::
+gFameCheckerFlavorTextOriginObjectName_Lavender4::
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_Sabrina5::
-	.string "TYRON$"
+gFameCheckerFlavorTextOriginObjectName_Lavender5::
+	.string "Guide$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine0::
-	.string "SIGN$"
+gFameCheckerFlavorTextOriginObjectName_Celadon0::
+	.string "Courier$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine1::
-	.string "BLAINE$"
+gFameCheckerFlavorTextOriginObjectName_Celadon1::
+	.string "Trader$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine2::
-	.string "DEREK$"
+gFameCheckerFlavorTextOriginObjectName_Celadon2::
+	.string "Cartographer$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine3::
-	.string "WOMAN$"
+gFameCheckerFlavorTextOriginObjectName_Celadon3::
+	.string "Vexation$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine4::
-	.string "PHOTO$"
+gFameCheckerFlavorTextOriginObjectName_Celadon4::
+	.string "Inquisitor$"
 
-gFameCheckerFlavorTextOriginObjectName_Blaine5::
-	.string "POKéMON JOURNAL$"
+gFameCheckerFlavorTextOriginObjectName_Celadon5::
+	.string "Inclusivity!$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei0::
 	.string "LORELEI$"
