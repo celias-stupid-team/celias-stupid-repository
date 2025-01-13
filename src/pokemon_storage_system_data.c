@@ -7,6 +7,7 @@
 #include "new_menu_helpers.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
+#include "pokedex.h"
 #include "strings.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -623,14 +624,33 @@ static void SetMovedMonData(u8 boxId, u8 position)
     sMovingMonOrigBoxPos = position;
 }
 
+static void CheckPorygonEvolve(u8 boxId){
+    u8 current_wallpaper_id = GetBoxWallpaper(boxId);
+    u16 target_species = SPECIES_PORYGON_Z;
+
+    //if wallpaper_id == WALLPAPER_STARS || wallpaper_id == WALLPAPER_POKECENTER || wallpaper_id ==WALLPAPER_TILES
+
+        if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON){
+            PlaySE(SE_BANG);
+            
+            SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
+        }
+        else{
+        PlaySE(SE_FLEE);
+        }
+}
+
 static void SetPlacedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
         gPlayerParty[position] = gStorage->movingMon;
     else
     {
+        CheckPorygonEvolve(boxId);
         BoxMonRestorePP(&gStorage->movingMon.box);
-        SetBoxMonAt(boxId, position, &gStorage->movingMon.box);
+        SetBoxMonAt(boxId, position, &gStorage->movingMon.box);        
     }
 }
 
