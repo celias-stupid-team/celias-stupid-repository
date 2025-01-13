@@ -542,7 +542,7 @@ gBattleAnims_Moves::
 	.4byte Move_MEATEOR_BEAM
 	.4byte Move_BREAD_CHARGE
 	.4byte Move_MIND_BLOWN
-	.4byte Move_ICE_HAMMER
+	.4byte Move_ICE_O_CUT
 	.4byte Move_FURRY_SWIPES
 	.4byte Move_FURY_SWIPE_6
 	.4byte Move_FOLLOW_MIE
@@ -13698,19 +13698,24 @@ Move_MIND_BLOWN:
 	end
 
 
-Move_ICE_HAMMER:
-	loadspritegfx ANIM_TAG_IMPACT
+Move_ICE_O_CUT:
+	loadspritegfx ANIM_TAG_CUT
+	fadetobg BG_AURORA
+	waitbgfadein
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 0
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
 	end
+
 
 
 

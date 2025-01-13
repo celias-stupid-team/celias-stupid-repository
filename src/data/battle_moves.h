@@ -117,6 +117,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
+    [MOVE_ICE_O_CUT] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+
     [MOVE_THUNDER_PUNCH] =
     {
         .effect = EFFECT_PARALYZE_HIT,
@@ -6817,7 +6830,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_STEEL_WANG] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_STEEL,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -6839,9 +6852,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 [MOVE_COPYCAT] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_ASSIST, // Placeholder Effect
         .power = 90,
-        .type = TYPE_STEEL,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,

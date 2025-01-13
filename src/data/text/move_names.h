@@ -520,7 +520,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_BREAD_CHARGE]     = _("BREAD CHARGE"),
     [MOVE_MIND_BLOWN]       = _("MIND BLOWN"),
     [MOVE_GROWL_CHARMANDER]       = _("GROWL"),
-    [MOVE_ICE_HAMMER]     = _("ICE HAMMER"),
+    [MOVE_ICE_O_CUT]     = _("ICE-O CUT"),
     [MOVE_FURY_SWIPE_6]     = _("FURY SWIPE"),
     [MOVE_FOLLOW_MIE]     = _("FOLLOW_MIE"),
     [MOVE_MIE_FIRST]     = _("MIE_FIRST"),
@@ -1071,7 +1071,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_MIND_BLOWN]       = _("MIND BLOWN"),
 
 [MOVE_GROWL_CHARMANDER]       = _("GROWL"),
-[MOVE_ICE_HAMMER]     = _("ICE HAMMER"),
+[MOVE_ICE_O_CUT]     = _("ICE-O CUT"),
 [MOVE_FURY_SWIPE_6]     = _("FURY SWIPE"),
 [MOVE_FOLLOW_MIE]     = _("FOLLOW_MIE"),
 [MOVE_MIE_FIRST]     = _("MIE_FIRST"),
