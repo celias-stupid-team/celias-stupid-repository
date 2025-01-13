@@ -13,7 +13,7 @@ CeruleanCity_MapScripts::
 CeruleanCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
 	setbench BENCH_CERULEAN
-	call(SetPlayerPokedexValues)
+	call SetPlayerPokedexValues
 	call_if_unset FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits
 	end
 

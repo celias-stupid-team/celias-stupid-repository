@@ -75,9 +75,10 @@ CeruleanCity_Text_MakeRoomForThisCantRun::
     .string "I can't run until I give it to you!$"
 
 CeruleanCity_Text_TrainerLifeIsToughIsntIt::
-    .string "You're a TRAINER, too?\p"
-    .string "Collecting, battling…\n"
-    .string "It's a tough life, isn't it?$"
+	.string "CERULEAN is known for its competitive\n"
+	.string "scene!\p"
+	.string "Whether it's battling to the north\n"
+	.string "or playing the TCG here in town!$"
 
 CeruleanCity_Text_YouCanCutDownSmallTrees::
     .string "Did you know that you can CUT down\n"
