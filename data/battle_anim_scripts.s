@@ -7989,10 +7989,14 @@ CurseGhostShakeFromNail:
 	return
 
 CurseStats:
-	createvisualtask AnimTask_SwayMon, 5, 0, 10, 1536, 3, ANIM_ATTACKER
-	waitforvisualfinish
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_GROWL
+	call RoarEffect
 	delay 10
-	call CurseStats1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 9, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 9, 1
+	waitforvisualfinish
+	createvisualtask SoundTask_WaitForCry, 5
 	waitforvisualfinish
 	end
 

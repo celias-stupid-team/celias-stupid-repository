@@ -153,6 +153,7 @@ enum
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_PORYGON_VIRUS,
 };
 
 enum
@@ -305,6 +306,7 @@ static const struct StorageMessage sMessages[] = {
     [MSG_ITEM_IS_HELD]         = {gText_ItemIsNowHeld,           MSG_FMT_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {gText_ChangedToNewItem,        MSG_FMT_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {gText_MailCantBeStored,        MSG_FMT_NONE},
+    [MSG_PORYGON_VIRUS]      = {gText_PkmnGotVirus,        MSG_FMT_MON_NAME_1},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {

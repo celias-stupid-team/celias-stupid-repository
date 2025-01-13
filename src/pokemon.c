@@ -6620,9 +6620,6 @@ u32 GetCurrentLevelCap(u16 species)
         SPECIES_ZAPDOS, // For the Jolteon puzzle
         SPECIES_JOLTEON, // Jolteon skips to level 54 upon evolving, leading players to Krabby
         SPECIES_KRABBY,
-
-        SPECIES_RATTATA_SHINY, // For Larry's zapdos
-        SPECIES_RATTATA, 
     };
 
     u32 i;

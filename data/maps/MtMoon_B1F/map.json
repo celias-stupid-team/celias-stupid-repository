@@ -196,25 +196,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 37,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "MtMoon_EventScript_MoveLass"
-    },
-    {
-      "type": "trigger",
-      "x": 35,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "MtMoon_EventScript_MoveLass"
-    },
-    {
-      "type": "trigger",
-      "x": 36,
+      "x": 38,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_1",

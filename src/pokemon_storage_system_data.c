@@ -627,19 +627,19 @@ static void SetMovedMonData(u8 boxId, u8 position)
 static void CheckPorygonEvolve(u8 boxId){
     u8 current_wallpaper_id = GetBoxWallpaper(boxId);
     u16 target_species = SPECIES_PORYGON_Z;
+    u8 wallpaperCheck;
 
-    //if wallpaper_id == WALLPAPER_STARS || wallpaper_id == WALLPAPER_POKECENTER || wallpaper_id ==WALLPAPER_TILES
+    
 
-        if (GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON){
-            PlaySE(SE_BANG);
-            
-            SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
-            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
-            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
-        }
-        else{
-        PlaySE(SE_FLEE);
-        }
+    if ((GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON) && (current_wallpaper_id == WALLPAPER_STARS || current_wallpaper_id == WALLPAPER_POKECENTER || current_wallpaper_id ==WALLPAPER_TILES)){
+        PlaySE(SE_BANG);
+        //ClearBottomWindow();
+        DoReleaseMonComeBackAnim();
+        // PrintStorageMessage(MSG_PORYGON_VIRUS); worry about this later?
+        SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
+        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
+        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
+     }
 }
 
 static void SetPlacedMonData(u8 boxId, u8 position)

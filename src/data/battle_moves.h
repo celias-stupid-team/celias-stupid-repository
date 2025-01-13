@@ -2163,7 +2163,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIGH_CRITICAL,
         .power = 70,
-        .type = TYPE_GRASS,
+        .type = TYPE_GRASS_TCG,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
