@@ -6744,7 +6744,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_QUIVER_DANCE] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_CALM_MIND, // Placeholder Effect
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,

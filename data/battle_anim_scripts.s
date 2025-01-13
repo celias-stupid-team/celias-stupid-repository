@@ -13126,6 +13126,7 @@ Move_MOONGEIST_BEAM:
 	createvisualtask AnimTask_AlphaFadeIn, 3, 0, 16, 16, 0, 1
 	playsewithpan SE_M_MOONLIGHT, 0
 	delay 30
+
 	
 	loadspritegfx ANIM_TAG_GLOWY_RED_ORB
 	loadspritegfx ANIM_TAG_GLOWY_GREEN_ORB
@@ -13159,6 +13160,11 @@ Move_MOONGEIST_BEAM:
 	call SignalBeamOrbs
 	call SignalBeamOrbs
 	call SignalBeamOrbs
+	createsprite gMoonlightSparkleSpriteTemplate, ANIM_ATTACKER, 40, -12, 0
+	delay 30
+	createsprite gMoonlightSparkleSpriteTemplate, ANIM_ATTACKER, 40, -24, 0
+	delay 30
+	createvisualtask AnimTask_MoonlightEndFade, 2
 	waitforvisualfinish
 	end
 	
@@ -13305,27 +13311,27 @@ Move_DRUM_BEATING:
 	createvisualtask AnimTask_MusicNotesRainbowBlend, 2
 	waitforvisualfinish
 	call DrumBeatingRight
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 0, 0, 0, 0
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	delay 15
 	call DrumBeatingLeft
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 1, 1, 1, 0
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 1, 1, 1, 0
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	delay 15
 	call DrumBeatingRight
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 0, 3, 3, 128
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 0, 3, 3, 128
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	delay 7
 	call DrumBeatingLeft
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 1, 2, 0, 128
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 1, 2, 0, 128
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	delay 7
 	call DrumBeatingRight
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 0, 1, 1, 0
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 0, 1, 1, 0
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	delay 7
 	call DrumBeatingLeft
-	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_TARGET, 2, 1, 0, 3, 0
+	createsprite gSlowFlyingMusicNotesSpriteTemplate, ANIM_USER, 2, 1, 0, 3, 0
 	playsewithpan SE_M_BELLY_DRUM, SOUND_PAN_TARGET
 	waitforvisualfinish
 	createvisualtask AnimTask_MusicNotesClearRainbowBlend, 2
@@ -13333,12 +13339,12 @@ Move_DRUM_BEATING:
 	end
 
 DrumBeatingLeft:
-	createsprite gBellyDrumHandSpriteTemplate, ANIM_TARGET, 3, 0
+	createsprite gBellyDrumHandSpriteTemplate, ANIM_USER, 5, 0
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 8, 2, 1
 	return
 	
 DrumBeatingRight:
-	createsprite gBellyDrumHandSpriteTemplate, ANIM_TARGET, 3, 1
+	createsprite gBellyDrumHandSpriteTemplate, ANIM_USER, 5, 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 8, 2, 1
 	return
 	
@@ -14276,17 +14282,27 @@ Move_BUG_BITE:
 	end
 
 Move_QUIVER_DANCE:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_HOLLOW_ORB
+	monbg ANIM_ATTACKER
+	splitbgprio ANIM_ATTACKER
+	delay 1
+	createvisualtask AnimTask_DragonDanceWaver, 5
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	delay 8
+	createvisualtask AnimTask_BlendPalInAndOutByTag, 5, ANIM_TAG_HOLLOW_ORB, RGB(0, 0, 19), 14, 0, 3
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 43
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 85
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 128
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 170
+	createsprite gDragonDanceOrbSpriteTemplate, ANIM_ATTACKER, 2, 213
+	delay 30
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	delay 30
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_ATTACKER
+	delay 1
 	end
 
 Move_U_TURN:

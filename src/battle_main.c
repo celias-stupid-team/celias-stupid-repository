@@ -4275,7 +4275,7 @@ bool8 TryRunFromBattle(u8 battler)
 
         ++gBattleStruct->runTries;
     }
-    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)) {
+    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)) { //Running away vs trainer always works
         effect++;
     }
     if (effect != 0)

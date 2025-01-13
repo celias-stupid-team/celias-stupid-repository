@@ -60,7 +60,7 @@ CeruleanCity_Text_GruntDefeat::
 CeruleanCity_Text_OkayIllReturnStolenTM::
     .string "…Okay.\n"
     .string "Just look at this!\l"
-    .string "It's an obvious ripoff!"
+    .string "It's an obvious ripoff!$"
 
 CeruleanCity_Text_RecoveredTM28FromGrunt::
     .string "{PLAYER} recovered TM28 from\n"

@@ -2063,6 +2063,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
+	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
 

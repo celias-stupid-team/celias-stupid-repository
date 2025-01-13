@@ -47,6 +47,12 @@ script DepartmentStore_GameShop_DifferentGamecube { //simplify this script so I 
 			msgbox("It's a very fancy GAMECUBE!\pBut this one seems... different.\n", MSGBOX_DEFAULT)
 			break
 		case 1:
+			specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+			if(var(VAR_RESULT) > 5) {
+				msgbox("The COLOSSEUM Bonus Disc is loaded\nup!\p{PLAYER} plugged the GBA into the\nGAMECUBE!\p...\nToo bad!\lYour PARTY is full!\pPlease try again later!\n", MSGBOX_DEFAULT)
+				release
+				end
+			}
 			msgbox("The COLOSSEUM Bonus Disc is loaded\nup!\p{PLAYER} plugged the GBA into the\nGAMECUBE!\pConnecting...\nConnecting...\lConnected!\pPlease don't touch the Memory Card\nor the POWER button!\pTransferring...\p... ... ... ...\n... ... ... ...", MSGBOX_DEFAULT)
 			playfanfare(MUS_OBTAIN_KEY_ITEM)
 			msgbox("Congratulations!\nWISHMAKER JIRACHI was sent!", MSGBOX_DEFAULT)

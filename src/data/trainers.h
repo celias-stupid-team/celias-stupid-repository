@@ -4540,11 +4540,11 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_CAMPER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_CAMPER,
-        .trainerName = _("FLINT"),
+        .trainerName = _("FINCH"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_CamperFlint),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_CamperFlint),
     },
     [TRAINER_PICNICKER_MISSY] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,

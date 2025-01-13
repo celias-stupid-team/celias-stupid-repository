@@ -58,10 +58,9 @@ gFameCheckerFlavorText_Viridian3:: @ 0x81AD5A7
 
 gFameCheckerFlavorText_Viridian4:: @ 0x81AD608
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Running into a wild RATATTA is\n"
-	.string "always scary.\p"
-	.string "Even me and my Level 96 DRAGONITE\n"
-	.string "still FEAR them.$"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Hi!\n"
+	.string "Do you have MEWTWO?\p"
+	.string "Wanna trade it for my RATTATA?\n$"
 
 gFameCheckerFlavorText_Viridian5:: @ 0x81AD69F
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
@@ -176,12 +175,10 @@ gFameCheckerFlavorText_Cerulean2:: @ 0x81ADE0B
 
 gFameCheckerFlavorText_Cerulean3:: @ 0x81ADE82
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where are we?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This is CERULEAN CAVE.\p"
-	.string "Horribly strong POKéMON live inside\n"
-	.string "there.\p"
-	.string "However, I'm not gonna stop you\n"
-	.string "from trying to explore it,\l"
-	.string "if that's what your heart desires.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}In order to get through that\n"
+	.string "cave, I had to climb a waterfall!\p"
+	.string "Maybe it would've been easier if\n"
+	.string "I had a POKéMON to help…$"
 
 
 gFameCheckerFlavorText_Cerulean4:: @ 0x81ADEEC
@@ -881,73 +878,73 @@ gRumorLogFlavorTextIntoLine1_Pewter2::
     .string "Garishly$"
 
 gRumorLogFlavorTextIntoLine1_Pewter3::
-	.string "ROUTE 4$"
+	.string "A Father's$"
 
 gRumorLogFlavorTextIntoLine1_Pewter4::
-    .string "A Father's$"
-
-gRumorLogFlavorTextIntoLine1_Pewter5::
     .string "Technology is$"
 
+gRumorLogFlavorTextIntoLine1_Pewter5::
+    .string "Austere$"
+
 gRumorLogFlavorTextIntoLine1_MtMoon0::
-	.string "CERULEAN CITY$"
+	.string "Corporate$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon1::
-	.string "CERULEAN GYM$"
+	.string "Loose-Fitting$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon2::
-	.string "CERULEAN GYM$"
+	.string "Concerned$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon3::
-	.string "SEAFOAM ISLANDS$"
+	.string "Severe$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon4::
-	.string "CERULEAN CAPE$"
+	.string "Empathetic$"
 
 gRumorLogFlavorTextIntoLine1_MtMoon5::
-	.string "CERULEAN CITY$"
+	.string "Guarded$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean0::
-	.string "VERMILION CITY$"
+	.string "Always Vying$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean1::
-	.string "VERMILION GYM$"
+	.string "Candy$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean2::
-	.string "VERMILION GYM$"
+	.string "Familiar$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean3::
-	.string "VERMILION GYM$"
+	.string "Spry$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean4::
-	.string "VERMILION GYM$"
+	.string "Burgeoning$"
 
 gRumorLogFlavorTextIntoLine1_Cerulean5::
-	.string "VERMILION CITY$"
+	.string "Wistful$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion0::
-	.string "CELADON CITY$"
+	.string "Harbor$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion1::
-	.string "CELADON GYM$"
+	.string "Amicable$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion2::
-	.string "CELADON GYM$"
+	.string "Swindled$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion3::
-	.string "CELADON GYM$"
+	.string "Emigrated$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion4::
-	.string "CELADON GYM$"
+	.string "Seizure$"
 
 gRumorLogFlavorTextIntoLine1_Vermilion5::
-	.string "CELADON MANSION$"
+	.string "Disorganized$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel0::
-	.string "FUSHCIA CITY$"
+	.string "Disheartened$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel1::
-	.string "FUSHCIA GYM$"
+	.string "Crystaline$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel2::
 	.string "FUSHCIA GYM$"
@@ -962,40 +959,40 @@ gRumorLogFlavorTextIntoLine1_RockTunnel5::
 	.string "SAFARI ZONE$"
 
 gRumorLogFlavorTextIntoLine1_Lavender0::
-	.string "SAFFRON CITY$"
+	.string "Graveyard$"
 
 gRumorLogFlavorTextIntoLine1_Lavender1::
-	.string "THREE ISLAND$"
+	.string "Copywritten$"
 
 gRumorLogFlavorTextIntoLine1_Lavender2::
-	.string "SAFFRON GYM$"
+	.string "Relieved$"
 
 gRumorLogFlavorTextIntoLine1_Lavender3::
-	.string "SAFFRON GYM$"
+	.string "Preschool$"
 
 gRumorLogFlavorTextIntoLine1_Lavender4::
 	.string "SAFFRON CITY$"
 
 gRumorLogFlavorTextIntoLine1_Lavender5::
-	.string "SAFFRON GYM$"
+	.string "Ghostly$"
 
 gRumorLogFlavorTextIntoLine1_Celadon0::
-	.string "CINNABAR ISLAND$"
+	.string "Chaos$"
 
 gRumorLogFlavorTextIntoLine1_Celadon1::
-	.string "CINNABAR GYM$"
+	.string "Troubled$"
 
 gRumorLogFlavorTextIntoLine1_Celadon2::
-	.string "CINNABAR GYM$"
+	.string "Confused$"
 
 gRumorLogFlavorTextIntoLine1_Celadon3::
-	.string "CINNABAR ISLAND$"
+	.string "Vertical$"
 
 gRumorLogFlavorTextIntoLine1_Celadon4::
-	.string "CINNABAR GYM$"
+	.string "IP$"
 
 gRumorLogFlavorTextIntoLine1_Celadon5::
-	.string "RESORT GORGEOUS$"
+	.string "Inspiring$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia0::
 	.string "POKéMON LEAGUE$"
@@ -1123,58 +1120,58 @@ gRumorLogFlavorTextIntoLine1_Giovanni4::
 gRumorLogFlavorTextIntoLine1_Giovanni5::
 	.string "ROCKET WAREHOUSE$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak0::
+gFameCheckerFlavorTextOriginObjectName_Pallet0::
 	.string "SIGN$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak1::
+gFameCheckerFlavorTextOriginObjectName_Pallet1::
 	.string "PROF. OAK$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak2::
+gFameCheckerFlavorTextOriginObjectName_Pallet2::
 	.string "AIDE$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak3::
+gFameCheckerFlavorTextOriginObjectName_Pallet3::
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak4::
+gFameCheckerFlavorTextOriginObjectName_Pallet4::
 	.string "AGATHA$"
 
-gFameCheckerFlavorTextOriginObjectName_ProfOak5::
+gFameCheckerFlavorTextOriginObjectName_Pallet5::
 	.string "AIDE$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy0::
+gFameCheckerFlavorTextOriginObjectName_Viridian0::
 	.string "AIDE$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy1::
+gFameCheckerFlavorTextOriginObjectName_Viridian1::
 	.string "WOMAN$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy2::
+gFameCheckerFlavorTextOriginObjectName_Viridian2::
 	.string "MAN$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy3::
+gFameCheckerFlavorTextOriginObjectName_Viridian3::
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy4::
+gFameCheckerFlavorTextOriginObjectName_Viridian4::
 	.string "OLD LADY$"
 
-gFameCheckerFlavorTextOriginObjectName_Daisy5::
+gFameCheckerFlavorTextOriginObjectName_Viridian5::
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock0::
+gFameCheckerFlavorTextOriginObjectName_Pewter0::
 	.string "SIGN$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock1::
+gFameCheckerFlavorTextOriginObjectName_Pewter1::
 	.string "BROCK$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock2::
+gFameCheckerFlavorTextOriginObjectName_Pewter2::
 	.string "YOUNG MAN$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock3::
+gFameCheckerFlavorTextOriginObjectName_Pewter3::
 	.string "BOY$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock4::
+gFameCheckerFlavorTextOriginObjectName_Pewter4::
 	.string "MAN$"
 
-gFameCheckerFlavorTextOriginObjectName_Brock5::
+gFameCheckerFlavorTextOriginObjectName_Pewter5::
 	.string "POKéMON JOURNAL$"
 
 gFameCheckerFlavorTextOriginObjectName_Misty0::
