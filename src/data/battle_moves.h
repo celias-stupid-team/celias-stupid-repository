@@ -4997,7 +4997,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TRIPLE_FINISH] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_PRESENT,
         .power = 100,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -5070,7 +5070,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TAILWIND] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_SPEED_UP_2, // Placeholder Effect
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -5081,8 +5081,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED
     },
 
-    [MOVE_ROOST] =    {
-        .effect = EFFECT_HIT,
+    [MOVE_ROOST] =    {        
+        .effect = EFFECT_RESTORE_HP,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -5143,7 +5143,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ELECTRO_BALL] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 0,
+        .power = 70,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 35,
@@ -5196,7 +5196,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED
     },
@@ -5794,7 +5794,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_DEFENSE_DOWN_2,
         .power = 0,
         .type = TYPE_DARK,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -5998,7 +5998,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ATTACK_DOWN,
         .power = 0,
         .type = TYPE_WEIRD,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
@@ -6165,7 +6165,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SHADOW_IMAGES] =    {
         .effect = EFFECT_EVASION_UP,
         .power = 0,
-        .type = TYPE_GRASS,
+        .type = TYPE_GRASS_TCG,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -6797,7 +6797,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_DARK,
         .accuracy = 50,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
