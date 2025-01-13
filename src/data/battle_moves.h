@@ -1409,7 +1409,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ATTRACT,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -1978,7 +1978,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPLASH] =
     {
-        .effect = EFFECT_DO_NOTHING,
+        .effect = EFFECT_SPLASH,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

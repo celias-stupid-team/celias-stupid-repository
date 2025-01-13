@@ -68,8 +68,7 @@ const u8 gCaterpiePokedexText[] = _(
 const u8 gCaterpiePokedexTextUnused[] = _("");
 
 const u8 gMetapodPokedexText[] = _(
-	"Catching a wild METAPOD?\n"
-	"Why not just evolve a CATERPIE?");
+	"You didn't evolve this.");
 
 const u8 gMetapodPokedexTextUnused[] = _("");
 

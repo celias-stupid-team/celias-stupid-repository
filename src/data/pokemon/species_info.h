@@ -12070,8 +12070,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_COMBEE] = //Dex Mon
     {
-        .baseHP = 30,
-        .baseAttack = 30,
+        .baseHP = 50,
+        .baseAttack = 50,
         .baseDefense = 42,
         .baseSpeed = 70,
         .baseSpAttack = 255,
