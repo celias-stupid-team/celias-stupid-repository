@@ -245,7 +245,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterYasu[] = {
     {
         .iv = 0,
         .lvl = 17,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATTATA,
     },
 };
 
@@ -4208,7 +4208,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt7[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4283,12 +4283,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt11[] = {
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4340,7 +4340,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt13[] = {
     {
         .iv = 0,
         .lvl = 17,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
         .moves = {MOVE_HYPER_FANG, MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP, MOVE_TACKLE},
     },
 };
@@ -4354,7 +4354,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt14[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4485,7 +4485,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt21[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4539,7 +4539,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt24[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4552,7 +4552,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt25[] = {
     {
         .iv = 0,
         .lvl = 28,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4562,7 +4562,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt25[] = {
     {
         .iv = 0,
         .lvl = 28,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
 };
 
@@ -4648,7 +4648,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt32[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
         .moves = {MOVE_SCARY_FACE, MOVE_HYPER_FANG, MOVE_QUICK_ATTACK, MOVE_TAIL_WHIP},
     },
     {
@@ -4701,7 +4701,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt35[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -4964,7 +4964,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerRolando[] = {
     {
         .iv = 100,
         .lvl = 42,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATTATA,
         .moves = {MOVE_SUPER_FANG, MOVE_PURSUIT, MOVE_SCARY_FACE, MOVE_QUICK_ATTACK},
     },
     {
@@ -5042,7 +5042,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerOwen[] = {
     {
         .iv = 100,
         .lvl = 42,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATTATA,
         .moves = {MOVE_SUPER_FANG, MOVE_PURSUIT, MOVE_SCARY_FACE, MOVE_QUICK_ATTACK},
     },
     {
@@ -7129,7 +7129,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterJohnson[] = {
     {
         .iv = 0,
         .lvl = 34,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATTATA,
     },
 };
 
@@ -7172,7 +7172,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt44[] = {
     {
         .iv = 0,
         .lvl = 35,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
     {
         .iv = 0,
@@ -7218,7 +7218,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt46[] = {
     {
         .iv = 0,
         .lvl = 48,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATICATE_ALOLA,
     },
 };
 
@@ -7466,7 +7466,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_CamperBryce[] = {
     {
         .iv = 0,
         .lvl = 36,
-        .species = SPECIES_RATICATE,
+        .species = SPECIES_RATTATA,
     },
     {
         .iv = 0,

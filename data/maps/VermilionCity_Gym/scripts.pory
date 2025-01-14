@@ -267,28 +267,38 @@ const CELIA = 8
 const SURGE = 1
 script VermillionGym_EmptyCan { //Add logic for if you interact in the middle of the trash celia quest
 	lock
-	if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
-		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-	} else {
-		if(var(VAR_VERMILLION_GYM_TRASH_COUNTER) < 3) {
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+		if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
 			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-			addvar(VAR_VERMILLION_GYM_TRASH_COUNTER, 1)
 		} else {
-			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-			closemessage
-			fadescreen(FADE_TO_BLACK)
-			msgbox("…Suddenly there was a power\noutage!", MSGBOX_DEFAULT)
-			call(VermilionCity_Gym_EventScript_SetBeamsOff)
-			special(DrawWholeMapView)
-			fadescreen(FADE_FROM_BLACK)
-			msgbox("How convenient!\nThe electric lock opened!", MSGBOX_DEFAULT)
-			playse(SE_UNLOCK)
-			waitse
-			setflag(FLAG_VERMILLION_GYM_DOOR_OPENED)
-			release
-			end
+			if(var(VAR_VERMILLION_GYM_TRASH_COUNTER) < 3) {
+				msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+				addvar(VAR_VERMILLION_GYM_TRASH_COUNTER, 1)
+			} else {
+				msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+				closemessage
+				fadescreen(FADE_TO_BLACK)
+				msgbox("…Suddenly there was a power\noutage!", MSGBOX_DEFAULT)
+				call(VermilionCity_Gym_EventScript_SetBeamsOff)
+				special(DrawWholeMapView)
+				fadescreen(FADE_FROM_BLACK)
+				msgbox("How convenient!\nThe electric lock opened!", MSGBOX_DEFAULT)
+				playse(SE_UNLOCK)
+				waitse
+				setflag(FLAG_VERMILLION_GYM_DOOR_OPENED)
+				
+			}
 		}
+	} else {else {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		
 	}
+
+	}
+	release
+	end
 }
 
 script VermillionGym_BonusCan1 {

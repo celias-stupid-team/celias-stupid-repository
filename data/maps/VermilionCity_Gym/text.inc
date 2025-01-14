@@ -14,10 +14,8 @@ VermilionCity_Gym_Text_LtSurgeIntro::
     .string "Electric Soldier!$"
 
 VermilionCity_Gym_Text_LtSurgePostBattle::
-    .string "A little word of advice, kid!\p"
-    .string "Electricity is sure powerful!\p"
-    .string "But, it's useless against GROUND-\n"
-    .string "type POKéMON!$"
+	.string "I don't know who that was, but I\n"
+	.string "think I need to go rethink my life.$"
 
 VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis::
     .string "The PHOTOSENSITIVEBADGE cranks up\n"
@@ -32,11 +30,11 @@ VermilionCity_Gym_Text_ReceivedTM34FromLtSurge::
     .string "from LT. SURGE.$"
 
 VermilionCity_Gym_Text_ExplainTM34::
-    .string "HM05 is FLASH!\n"
-    .string "It's a scary strong move!\p"
-    .string "It once sent hundreds of kids to\n"
-    .string "the hospital!\l"
-    .string "You'll be unstoppable!"
+	.string "HM05 is FLASH!\n"
+	.string "It's a scary strong move!\p"
+	.string "It once sent hundreds of kids to\n"
+	.string "the hospital!\l"
+	.string "You'll be unstoppable!$"
 
 VermilionCity_Gym_Text_MakeRoomInYourBag::
     .string "Yo, kid, make room in your BAG!$"
