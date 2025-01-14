@@ -145,7 +145,12 @@ script Route23_EventScript_CeliaZapdos {
 script Route23_EventScript_Child {
 	lock
 	faceplayer
-	msgbox(("Yup, ZAPDOS really is that easy\nto find.\pI'm surprised you didn't come\nback here sooner!"), MSGBOX_DEFAULT)
+	if(flag(FLAG_BADGE04_GET)) {
+		
+		msgbox(("Yup, ZAPDOS really is that easy\nto find.\pI'm surprised you didn't come\nback here sooner!"), MSGBOX_DEFAULT)
+	} else {
+		msgbox("Yup, ZAPDOS really is that easy\nto find.\pGood job remembering to come back\nto check!", MSGBOX_DEFAULT)
+	}
 	release
 }
 
