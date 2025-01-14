@@ -161,6 +161,10 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 		case CELIA_SECRET_FUCHSIA:
 
 	}
+	closemessage
+	delay(10)
+	msgbox("Anyway, I have to head out now.\pGood luck, and see ya later!\n", MSGBOX_DEFAULT)
+	closemessage
 	return
 }
 
