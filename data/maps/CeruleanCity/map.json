@@ -287,6 +287,14 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "x": 50,
+      "y": 23,
+      "target_local_id": 9,
+      "target_map": "MAP_ROUTE9"
     }
   ],
   "warp_events": [

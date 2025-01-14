@@ -571,7 +571,7 @@ gBattleAnims_Moves::
 	.4byte Move_EVIL_METRONOME
 	.4byte Move_SHADOW_FORCE
 	.4byte Move_DARK_PULSE
-	.4byte Move_AURA_SPHERE
+	.4byte Move_CSR_DUMMY_2
 	.4byte Move_DRAGON_PULSE
 	.4byte Move_HEAL_PULSE
 	.4byte Move_ORIGIN_PULSE
@@ -587,7 +587,6 @@ gBattleAnims_Moves::
 	.4byte Move_BROCK_BLAST
 	.4byte Move_BROCK_WRECKER
 	.4byte Move_UPPER_HAND
-	.4byte Move_FOCUS_PUNCH
 	.4byte Move_HORN_LEECH
 	.4byte Move_FISHIOUS_REND
 	.4byte Move_BRAVE_BIRD
@@ -13262,17 +13261,26 @@ Move_ROUNDEN:
 	end
 	
 Move_THROAT_CHOP:
+	loadspritegfx ANIM_TAG_HANDS_AND_FEET
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	
+	delay 1
+	fadetobg BG_DARK
+	waitbgfadein
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_TARGET
+	createsprite gKarateChopSpriteTemplate, ANIM_ATTACKER, 2, -16, 0, 0, 0, 10, 1, 3, 0
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	blendoff
+	restorebg
+	waitbgfadein
 	end
 	
 Move_DRAGON_HAMMER:
@@ -14631,7 +14639,7 @@ Move_DARK_PULSE:
 	end
 
 
-Move_AURA_SPHERE:
+Move_CSR_DUMMY_2:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8
@@ -14871,19 +14879,7 @@ Move_UPPER_HAND:
 	end
 
 
-Move_FOCUS_PUNCH:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
+
 
 
 Move_HORN_LEECH:

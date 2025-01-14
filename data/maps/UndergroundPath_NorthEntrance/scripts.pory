@@ -19,6 +19,7 @@ UndergroundPath_NorthEntrance_EventScript_Saige::
 	call EventScript_DoInGameTrade
 	msgbox Trade_Text_ThanksYoureAPal
 	setflag FLAG_DID_RAICHU_TRADE
+	setflag FLAG_GOT_COIN_CASE
 	release
 	end
 

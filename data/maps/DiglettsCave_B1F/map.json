@@ -19,8 +19,8 @@
   ],
   "warp_events": [
     {
-      "x": 3,
-      "y": 3,
+      "x": 64,
+      "y": 48,
       "elevation": 3,
       "dest_map": "MAP_DIGLETTS_CAVE_NORTH_ENTRANCE",
       "dest_warp_id": "0"

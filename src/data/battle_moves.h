@@ -1250,8 +1250,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CONFUSION_PSYDUCK] =
     {
-        .effect = EFFECT_RECOIL,
-        .power = 250,
+        .effect = MOVE_EFFECT_RECOIL_33,
+        .power = 245,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 25,
@@ -5097,7 +5097,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT, // Placeholder Effect
         .power = 29,
         .type = TYPE_FIGHTING,
-        .accuracy = 100,
+        .accuracy = 97,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -6915,17 +6915,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 
-[MOVE_AURA_SPHERE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
-        .pp = 35,
-        .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
-    },
     
 
 [MOVE_DRAGON_PULSE] =    {
@@ -7123,17 +7112,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 
-[MOVE_FOCUS_PUNCH] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
-        .pp = 35,
-        .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
-    },
     
 
 [MOVE_HORN_LEECH] =    {
