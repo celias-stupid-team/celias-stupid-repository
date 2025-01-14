@@ -447,7 +447,7 @@ $(OBJEVENTGFXDIR)/stupid/Brick_Wall.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Karen.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 8 -mheight 8
+	$(GFX) $< $@ -mwidth 6 -mheight 6
 
 $(OBJEVENTGFXDIR)/stupid/Imakuni.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4

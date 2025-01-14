@@ -169,22 +169,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 7,
-      "y": 18,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_EventScript_CeliaTrees",
-      "flag": "FLAG_CSR_CELIA_BONUS"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 20,
-      "y": 16,
+      "x": 14,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -222,7 +208,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_PewterCity_AlolanOak",
-      "flag": "0"
+      "flag": "FLAG_CELIA_SECRET_PEWTER"
     }
   ],
   "warp_events": [
@@ -361,7 +347,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 23,
+      "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -379,7 +365,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 23,
+      "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -424,7 +410,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 23,
+      "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -433,7 +419,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 23,
+      "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -564,22 +550,6 @@
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
-    },
-    {
-      "type": "sign",
       "x": 5,
       "y": 1,
       "elevation": 0,
@@ -601,6 +571,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PewterCity_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_PewterCity_AlolanOak"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_PewterCity_AlolanOak"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PewterCity_NotOak"
     }
   ]
 }

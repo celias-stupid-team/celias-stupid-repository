@@ -1946,15 +1946,15 @@ overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 8),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Karen[] = {
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 1),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 2),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Karen, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Karen, 6, 6, 0),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Imakuni[] = {

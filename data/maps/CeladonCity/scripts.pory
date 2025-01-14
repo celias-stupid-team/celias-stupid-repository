@@ -149,7 +149,7 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 		case CELIA_SECRET_VIRIDIAN: //implemented!
 			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)
 		case CELIA_SECRET_PEWTER:
-			
+			msgbox("Oh, no! The PSYDUCK PAIL you picked\nup has a hole in it?\lAnd you can only fill it up in RAIN?\pIsn't there somewhere else that you\ncaused to start raining?\lOr maybe something to that effect?", MSGBOX_DEFAULT)
 		case CELIA_SECRET_CERULEAN:
 			msgbox("There's a hidden back room in\nCERULEAN GYM.\pNow that you've found all my secrets\nhidden across KANTO, meet me there.\lI have something to show you.", MSGBOX_DEFAULT)
 		case CELIA_SECRET_VERMILION: //implemented!!
@@ -185,13 +185,13 @@ script CeliaSecrets_GetNextHint {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
 				return
 			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				return
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				//return
 			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				return
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				//return
 			}
 			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
@@ -210,13 +210,13 @@ script CeliaSecrets_GetNextHint {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
 				return
 			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				return
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				//return
 			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				return
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				//return
 			}
 			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
@@ -240,13 +240,13 @@ script CeliaSecrets_GetNextHint {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
 				return
 			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				return
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				//return
 			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				return
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				//return
 			}
 			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
@@ -294,13 +294,13 @@ script CeliaSecrets_GetNextHint {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
 				return
 			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				return
+			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+				//return
 			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				return
+			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
+				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+				//return
 			}
 			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
 				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
