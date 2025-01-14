@@ -634,11 +634,12 @@ static void CheckPorygonEvolve(u8 boxId){
     if ((GetMonData(&gStorage->movingMon, MON_DATA_SPECIES, NULL) == SPECIES_PORYGON) && (current_wallpaper_id == WALLPAPER_STARS || current_wallpaper_id == WALLPAPER_POKECENTER || current_wallpaper_id ==WALLPAPER_TILES)){
         PlaySE(SE_BANG);
         //ClearBottomWindow();
-        DoReleaseMonComeBackAnim();
         // PrintStorageMessage(MSG_PORYGON_VIRUS); worry about this later?
         SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
+
+        Task_EvolvePorygon();
      }
 }
 

@@ -890,12 +890,13 @@ script EventScript_PewterCity_AlolanOak {
 		msgbox("Something about this tree in\nparticular feels... off.\pWould you like to WATER it?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			fadeoutbgm(1)
 			removeitem(ITEM_WAILMER_PAIL)
 			additem(ITEM_EMPTY_PAIL)
 			closemessage
 			delay(10)
 			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
-			delay(10)
+			delay(20)
 			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp) // open eyes
 			waitmovement(0)
 			delay(60)
@@ -919,7 +920,7 @@ script EventScript_PewterCity_AlolanOak {
 			fadescreen(FADE_FROM_BLACK)
 			delay(90)
 			addobject(CELIA)
-			setobjectxy(CELIA, 8, 24)
+			setobjectxy(CELIA, 9, 24)
 			applymovement(CELIA, Pewter_CeliaComesUp_1)
 			waitmovement(0)
 			playse(SE_LEDGE)
@@ -944,7 +945,9 @@ script EventScript_PewterCity_AlolanOak {
 
 movement Pewter_CeliaComesUp_1 {
 	set_visible
-	walk_up * 3
+	walk_up * 2
+	walk_left
+	walk_up
 	step_end
 }
 movement Pewter_CeliaComesUp_2 {

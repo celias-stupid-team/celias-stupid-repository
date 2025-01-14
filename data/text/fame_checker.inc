@@ -646,8 +646,8 @@ gFameCheckerFlavorText_Giovanni5:: @ 0x81B0106
 	.string "GIOVANNI's kid has red hair.$"
 
 
-gFameCheckerPersonName_ProfOak:: @ 0x81B0188
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}PROF. OAK$"
+gFameCheckerPersonName_Pallet:: @ 0x81B0188
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Where it all began$"
 
 gFameCheckerPersonQuote_ProfOak:: @ 0x81B0198
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: PROF. OAK\n"
@@ -659,8 +659,8 @@ gFameCheckerPersonQuote_ProfOak:: @ 0x81B0198
 	.string "towards POKéMON.\p"
 	.string "Never forget that.$"
 
-gFameCheckerPersonName_Daisy:: @ 0x81B0251
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}DAISY$"
+gFameCheckerPersonName_Viridian:: @ 0x81B0251
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Hey, what's with that legde?$"
 
 gFameCheckerPersonQuote_Daisy:: @ 0x81B025D
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: DAISY\n"
@@ -671,8 +671,8 @@ gFameCheckerPersonQuote_Daisy:: @ 0x81B025D
 	.string "I hope you'll remain a good rival\n"
 	.string "to my little brother.$"
 
-gFameCheckerPersonName_Brock:: @ 0x81B030F
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}BROCK$"
+gFameCheckerPersonName_Pewter:: @ 0x81B030F
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}How do you evolve CATERPIE?$"
 
 gFameCheckerPersonQuote_Brock:: @ 0x81B031B
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: BROCK\n"
@@ -682,8 +682,8 @@ gFameCheckerPersonQuote_Brock:: @ 0x81B031B
 	.string "Let's both keep training and\n"
 	.string "making ourselves stronger!$"
 
-gFameCheckerPersonName_Misty:: @ 0x81B03B3
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}MISTY$"
+gFameCheckerPersonName_MtMoon:: @ 0x81B03B3
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Oh no! You can't run!$"
 
 gFameCheckerPersonQuote_Misty:: @ 0x81B03BF
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: MISTY\n"
@@ -693,8 +693,8 @@ gFameCheckerPersonQuote_Misty:: @ 0x81B03BF
 	.string "When I get better, I'd love to hit\n"
 	.string "the road and travel.$"
 
-gFameCheckerPersonName_LtSurge:: @ 0x81B0446
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}LT. SURGE$"
+gFameCheckerPersonName_Cerulean:: @ 0x81B0446
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}The TCG Capital$"
 
 gFameCheckerPersonQuote_LtSurge:: @ 0x81B0456
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: LT. SURGE\n"
@@ -706,8 +706,8 @@ gFameCheckerPersonQuote_LtSurge:: @ 0x81B0456
 	.string "It made me change my mind about\n"
 	.string "you!$"
 
-gFameCheckerPersonName_Erika:: @ 0x81B0504
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}ERIKA$"
+gFameCheckerPersonName_Vermilion:: @ 0x81B0504
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}How do you get CUT?$"
 
 gFameCheckerPersonQuote_Erika:: @ 0x81B0510
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: ERIKA\n"
@@ -719,8 +719,8 @@ gFameCheckerPersonQuote_Erika:: @ 0x81B0510
 	.string "Please visit me again.\n"
 	.string "Zzz…$"
 
-gFameCheckerPersonName_Koga:: @ 0x81B05C2
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}KOGA$"
+gFameCheckerPersonName_RockTunnel:: @ 0x81B05C2
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Gotta turn on the power...$"
 
 gFameCheckerPersonQuote_Koga:: @ 0x81B05CD
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: KOGA\n"
@@ -730,8 +730,8 @@ gFameCheckerPersonQuote_Koga:: @ 0x81B05CD
 	.string "meeting our challenges.\p"
 	.string "Now, I must go train my daughter.$"
 
-gFameCheckerPersonName_Sabrina:: @ 0x81B0667
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}SABRINA$"
+gFameCheckerPersonName_Lavender:: @ 0x81B0667
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Copyright Trouble at the school!$"
 
 gFameCheckerPersonQuote_Sabrina:: @ 0x81B0675
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: SABRINA\n"
@@ -741,8 +741,8 @@ gFameCheckerPersonQuote_Sabrina:: @ 0x81B0675
 	.string "It was a power that was never\n"
 	.string "bested by my psychic power.$"
 
-gFameCheckerPersonName_Blaine:: @ 0x81B06FB
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}BLAINE$"
+gFameCheckerPersonName_Celadon:: @ 0x81B06FB
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}I can't find my house...$"
 
 gFameCheckerPersonQuote_Blaine:: @ 0x81B0708
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: BLAINE\n"

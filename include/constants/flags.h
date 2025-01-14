@@ -804,9 +804,9 @@
 
 
 
-#define FLAG_REVIVED_DOME                                0x2EC
-#define FLAG_REVIVED_HELIX                               0x2ED
-#define FLAG_REVIVED_AMBER                               0x2EE
+#define FLAG_CELIA_SECRET_CINNABAR                                0x2EC
+#define FLAG_CELIA_SECRETS_FINISHED                               0x2ED
+#define FLAG_CELIA_SECRETS_DUMMY                               0x2EE
 #define FLAG_GOT_HM06                                    0x2EF
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
@@ -843,9 +843,9 @@
 #define FLAG_CSR_GOT_DUCK_PAIL               0x30E
 #define FLAG_CSR_DUCK_PAIL_EMPTIED               0x30F
 #define FLAG_CSR_IMPOSTEROAK1               0x310
-#define FLAG_0x311               0x311
-#define FLAG_0x312               0x312
-#define FLAG_0x313               0x313
+#define FLAG_REVIVED_DOME               0x311
+#define FLAG_REVIVED_HELIX               0x312
+#define FLAG_REVIVED_AMBER               0x313
 #define FLAG_0x314               0x314
 #define FLAG_0x315               0x315
 #define FLAG_0x316               0x316

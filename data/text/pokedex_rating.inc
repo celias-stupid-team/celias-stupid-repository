@@ -600,10 +600,10 @@ PokedexRating_Text_HintSmeargle::
 PokedexRating_Text_HintTangela::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintTrubbish::
+PokedexRating_Text_HintTrubbish_Trash::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintAmpharosM::
+PokedexRating_Text_HintAmpharos_Mega::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintAmpharos::

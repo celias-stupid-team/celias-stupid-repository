@@ -100,10 +100,10 @@
 #define TRAINER_YOUNGSTER_CHINO                     94
 #define TRAINER_ANGRY_NERD_LAVOS                    95
 #define TRAINER_YOUNGSTER_TYLER                   96
-#define TRAINER_YOUNGSTER_EDDIE                   97
+#define TRAINER_LOSS_MAN_1                   97
 #define TRAINER_DOCTOR_COOKIE                  98
-#define TRAINER_YOUNGSTER_YASU                    99
-#define TRAINER_YOUNGSTER_DAVE                   100
+#define TRAINER_LOSS_RECEPTIONIST                    99
+#define TRAINER_LOSS_MAN_3                   100
 #define TRAINER_CSR_DUMMY_5 101
 #define TRAINER_BUG_CATCHER_RICK                 102
 #define TRAINER_BUG_CATCHER_DOUG                 103
@@ -262,9 +262,9 @@
 #define TRAINER_CUE_BALL_COREY                   256
 #define TRAINER_CUE_BALL_CHASE                   257
 #define TRAINER_GAMER_HUGO                       258
-#define TRAINER_GAMER_JASPER                     259
-#define TRAINER_GAMER_DIRK                       260
-#define TRAINER_GAMER_DARIAN                     261
+#define TRAINER_LOSS_MAN_4                     259
+#define TRAINER_LOSS_MISCARRIAGE                       260
+#define TRAINER_LOSS_MAN_2                     261
 #define TRAINER_GAMER_STAN                       262
 #define TRAINER_CSR_DUMMY_17 263
 #define TRAINER_GAMER_RICH                       264

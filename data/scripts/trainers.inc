@@ -149,7 +149,7 @@ Route6_EventScript_Isabelle::
 	end
 
 Route11_EventScript_Eddie::
-	trainerbattle_single TRAINER_YOUNGSTER_EDDIE, Route11_Text_EddieIntro, Route11_Text_EddieDefeat
+	trainerbattle_single TRAINER_LOSS_MAN_1, Route11_Text_EddieIntro, Route11_Text_EddieDefeat
 	msgbox Route11_Text_EddiePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -159,12 +159,12 @@ Route11_EventScript_Dillon::
 	end
 
 Route11_EventScript_Yasu::
-	trainerbattle_single TRAINER_YOUNGSTER_YASU, Route11_Text_YasuIntro, Route11_Text_YasuDefeat
+	trainerbattle_single TRAINER_LOSS_RECEPTIONIST, Route11_Text_YasuIntro, Route11_Text_YasuDefeat
 	msgbox Route11_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Dave::
-	trainerbattle_single TRAINER_YOUNGSTER_DAVE, Route11_Text_DaveIntro, Route11_Text_DaveDefeat
+	trainerbattle_single TRAINER_LOSS_MAN_3, Route11_Text_DaveIntro, Route11_Text_DaveDefeat
 	msgbox Route11_Text_DavePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -184,17 +184,17 @@ Route11_EventScript_Hugo::
 	end
 
 Route11_EventScript_Jasper::
-	trainerbattle_single TRAINER_GAMER_JASPER, Route11_Text_JasperIntro, Route11_Text_JasperDefeat
+	trainerbattle_single TRAINER_LOSS_MAN_4, Route11_Text_JasperIntro, Route11_Text_JasperDefeat
 	msgbox Route11_Text_JasperPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Dirk::
-	trainerbattle_single TRAINER_GAMER_DIRK, Route11_Text_DirkIntro, Route11_Text_DirkDefeat
+	trainerbattle_single TRAINER_LOSS_MISCARRIAGE, Route11_Text_DirkIntro, Route11_Text_DirkDefeat
 	msgbox Route11_Text_DirkPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Darian::
-	trainerbattle_single TRAINER_GAMER_DARIAN, Route11_Text_DarianIntro, Route11_Text_DarianDefeat
+	trainerbattle_single TRAINER_LOSS_MAN_2, Route11_Text_DarianIntro, Route11_Text_DarianDefeat
 	msgbox Route11_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
