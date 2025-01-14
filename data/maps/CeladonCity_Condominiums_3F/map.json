@@ -128,6 +128,13 @@
       "elevation": 3,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE1",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

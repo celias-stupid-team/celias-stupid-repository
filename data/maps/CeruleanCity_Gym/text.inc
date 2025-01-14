@@ -143,3 +143,51 @@ CeruleanCity_Gym_Text_GrassTrainerIntro::
 CeruleanCity_Gym_Text_GrassTrainerDefeat::
 	.string "Ouch!\n"
 	.string "Nice shot!$"
+
+
+
+CeruleanCity_Gym_Celia::
+	.string "Hello, there!\n"
+	.string "It's me, CELIA the creator!\l"
+	.string "Congrats on finding me here!\p"
+	.string "It must've taken a lot of creative\n"
+	.string "thinking and problem solving.\l"
+	.string "Those puzzles were tricky!\p"
+	.string "I'ma be completely real though:\n"
+	.string "I'm very happy you're here.\p"
+	.string "It makes me so glad that folks like\n"
+	.string "you are willing to play along.\p"
+	.string "I'm proud I could craft an experience\n"
+	.string "you and others have enjoyed so much.\p"
+	.string "But!\n"
+	.string "Such dedication deserves reward!\l"
+	.string "And I know just the thing...$"
+
+CeruleanCity_Gym_UnlockedCommentary::
+	.string "{PLAYER} unlocked Developer Commentary!\n"
+	.string "Congratulations!$"
+
+CeruleanCity_Gym_CeliaUnlocksCommentary::
+	.string "There!\n"
+	.string "Now you've unlocked Dev Commentary!\p"
+	.string "Look around to find be in various\n"
+	.string "places across KANTO!\l"
+	.string "I'll have fun tidbits about the hack!\p"
+	.string "Heads up, though:\n"
+	.string "Enjoy it while you can!\l"
+	.string "Next update, this will be disabled.\p"
+	.string "Also, if you're a streamer or\n"
+	.string "content creator, I have a request:\l"
+	.string "Please don't show everything off!\p"
+	.string "I'd like this to be a reward for\n"
+	.string "those who've put in the work.\l"
+	.string "People like you!\p"
+	.string "Anyway, thank you so much for\n"
+	.string "playing! Have fun!$"
+
+CeruleanCity_Gym_AfterUnlock::
+	.string "Hiya!\n"
+	.string "I hope you've been having fun!\p"
+	.string "Stay tuned for the next update of\n"
+	.string "Celia's Stupid Romhack!\l"
+	.string "I'm excited to share more!$"

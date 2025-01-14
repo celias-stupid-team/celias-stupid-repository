@@ -62,16 +62,46 @@ CeruleanCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+
+
 script CeruleanClub_MapScripts {
 	setbench(BENCH_CERULEAN_CLUB)
 	setflag(FLAG_CSR_MAP_CERULEAN_GYM)
 	call(SetPlayerPokedexValues)
+	if(!flag(FLAG_CELIA_SECRETS_FINISHED)) {
+		setflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+	} else {
+		clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+	}
 }
 
 script CeruleanClub_UpdateBench {
 	setbench(BENCH_CERULEAN)
 	setvar(VAR_TEMP_1, 1)
 	release
+}
+
+script CeruleanClub_CeliaReward {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_CELIA_BONUS)) {
+
+		msgbox(CeruleanCity_Gym_Celia)
+		closemessage
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(CeruleanCity_Gym_UnlockedCommentary)
+		waitmessage
+		waitfanfare
+		clearflag(FLAG_CSR_CELIA_BONUS) //FLAG_CELIA_SECRETS_NEXT_UPDATE
+		delay(30)
+		closemessage
+		msgbox(CeruleanCity_Gym_CeliaUnlocksCommentary)
+
+	} else {
+		msgbox(CeruleanCity_Gym_AfterUnlock)
+	}
+	release
+	end
 }
 
 

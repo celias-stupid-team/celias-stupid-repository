@@ -1584,23 +1584,33 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
 {
     u16 species = itemId;
     bool8 seen = (itemId >> 16) & 1;  // not used but required to match
-    //bool8 obtainable = ()
+
+    u16 ArrayIndex = (species - 1) / 8;
+    u16 BitIndex = (species - 1) % 8;
+    bool8 obtainable = gSaveBlock2Ptr->pokedex.obtainable[ArrayIndex] & (1 << BitIndex);
+
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
 
     
     DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
-    //if not obtainable and caught
-    //if obtainable and not caught
-    // else 
+
     
     if (caught) // Print ball and types if it's caught; otherwise nothing
     {
-        BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28, y); // Icon Caught
+        if (obtainable) {
+            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28, y); // Icon Caught
+        } else {
+            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_BONUS, 0x28, y); // Icon Bonus
+        }
         type1 = gSpeciesInfo[species].types[0];
         BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, type1 + 1, 0x78, y);
         if (type1 != gSpeciesInfo[species].types[1])
             BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, gSpeciesInfo[species].types[1] + 1, 0x98, y);
+    } else {
+        if (obtainable) {
+            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_OBTAINABLE, 0x28, y); // Icon Obtainable
+        }
     }
 }
 

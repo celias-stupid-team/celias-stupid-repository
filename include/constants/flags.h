@@ -606,7 +606,7 @@
 #define FLAG_0x22C               0x22C
 #define FLAG_0x22D               0x22D
 #define FLAG_0x22E               0x22E
-#define FLAG_0x22F               0x22F
+#define FLAG_CSR_CELIA_DEV_CREW               0x22F
 
 // Story flags
 #define STORY_FLAGS_START 0x230
@@ -806,8 +806,8 @@
 
 #define FLAG_CELIA_SECRET_CINNABAR                                0x2EC
 #define FLAG_CELIA_SECRETS_FINISHED                               0x2ED
-#define FLAG_CELIA_SECRETS_DUMMY                               0x2EE
-#define FLAG_GOT_HM06                                    0x2EF
+#define FLAG_HIDE_CELIA_IN_CERULEAN_BACK                               0x2EE
+#define FLAG_CELIA_SECRETS_NEXT_UPDATE                                    0x2EF
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
 #define FLAG_FOUGHT_LUGIA                                0x2F2
@@ -846,7 +846,7 @@
 #define FLAG_REVIVED_DOME               0x311
 #define FLAG_REVIVED_HELIX               0x312
 #define FLAG_REVIVED_AMBER               0x313
-#define FLAG_0x314               0x314
+#define FLAG_GOT_HM06               0x314
 #define FLAG_0x315               0x315
 #define FLAG_0x316               0x316
 #define FLAG_0x317               0x317

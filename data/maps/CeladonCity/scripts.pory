@@ -153,6 +153,7 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 		case CELIA_SECRET_CERULEAN:
 			msgbox("There's a hidden back room in\nCERULEAN GYM.\pNow that you've found all my secrets\nhidden across KANTO, meet me there.\lI have something to show you.", MSGBOX_DEFAULT)
 			setflag(FLAG_CELIA_SECRETS_FINISHED)
+			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 		case CELIA_SECRET_VERMILION: //implemented!!
 			msgbox("The trash can puzzle in VERMILLION\nGYM looked incredibly complicated.\lThank goodness for the power outage!", MSGBOX_DEFAULT)
 		case CELIA_SECRET_LAVENDER:
