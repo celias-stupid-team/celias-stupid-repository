@@ -94,11 +94,11 @@ script ThreeIsland_BerryForest_EventScript_Lostelle{
 	waitmovement(0)
 
 	playse(SE_PIN)
-	applymovement(17, EmoteDouble)
+	applymovement(13, EmoteDouble)
 	waitmovement(0)
 
 	playse(SE_PIN)
-	applymovement(18, EmoteLoss) //sorry rave for not going out of my way to add constants for this throwaway gag
+	applymovement(14, EmoteLoss) //sorry rave for not going out of my way to add constants for this throwaway gag
 	waitmovement(0)
 
 	playmoncry(SPECIES_UNOWN_LOSS, CRY_MODE_ENCOUNTER)

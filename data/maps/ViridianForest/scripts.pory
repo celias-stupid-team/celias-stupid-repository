@@ -220,6 +220,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 
 		applymovement(CELIA_FOREST, CeliaAbsconds)
 		waitmovement(0)
+		setobjectxyperm(CELIA_FOREST, 23, 14)
 		release
 	}
 }

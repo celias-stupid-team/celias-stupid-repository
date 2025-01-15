@@ -89,9 +89,10 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
 
     [SPECIES_VOLTORB]    = {{EVO_LEVEL, 20, SPECIES_JIGGLYPUFF_ABOVE}},
+
     [SPECIES_EXEGGCUTE]  = {{EVO_STONE_EXEGGUTOR, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
-                            {EVO_STONE_SHEDINJA, SPECIES_EXEGGUTOR},
-                            {EVO_LEVEL, 1, SPECIES_SPEAROW}},
+                            {EVO_LEVEL_SHEDINJA, 20, SPECIES_EXEGGCUTE},
+                            EVO_LEVEL, 1, SPECIES_SPEAROW},
 
     [SPECIES_CUBONE]     = {{EVO_LEVEL, 20, SPECIES_MAROWAK}},
     

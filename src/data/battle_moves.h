@@ -6439,7 +6439,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_FICKLE_BEAM,
     },
 
     [MOVE_LEAF_STORM] =    {

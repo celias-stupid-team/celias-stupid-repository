@@ -4731,7 +4731,13 @@ BattleScript_EffectFickleBeam::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	jumpifnotspecies BS_ATTACKER, SPECIES_EXEGGCUTE, BattleScript_MoveEnd
+	jumpifspecies BS_ATTACKER, SPECIES_EXEGGUTOR, BattleScript_FickleBeamDoNothing
 	typecalc
 	presentdamagecalculation
 
+BattleScript_FickleBeamDoNothing::
+	setbattlestringid
+	pause B_WAIT_TIME_SHORT
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

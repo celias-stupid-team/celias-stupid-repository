@@ -24,3 +24,396 @@ script ViridianCity_House_EventScript_CeliaSpiro {
 	msgbox("There are three kinds of people who\nsee SPEARONOLACTONE:\p1. LGBT folks, who INSTANTLY know\nwhat it means.\p2. Non-queer folks, who will get\nEXTREMELY confused.\p3. People who aren't queer but can\ngoogle spironolactone.\lThese are the funniest.\pThe first google result talks about\nhow it's a water pill.\lThus, they assume it's about peeing!\pAs any trans person could tell you,\nhowever, that's not QUITE it!", MSGBOX_NPC)
 	end
 }
+
+script ViridianCity_House_EventScript_Window {
+	msgbox("Nope! This window, along with\nall others, has no flavor text!", MSGBOX_SIGN)
+	end
+}
+
+//For my own sanity, I'm going to put all Celia Secret Reward Scripts in here.
+
+script CeliaSecrets_Bonus_ShinyRatExplode {
+	msgbox("I really like the new scene where\nthe shiny rat explodes the old man.\pAdmittedly, it kinda breaks the\njoke with Weedle being wild here.\lAlas!\pI'm not compromising on only 2\nPOKéMON in Viridian Forest, so\lthis discrepancy will have to stay.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_ViridianLedge {
+	msgbox("Putting a ledge here to block the\nexpected item pickup was so clever.\pIt's one of the myriad ways this\nhack subtly fucks with you.\lI feel it isn't appreciated enough!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_UselessLedge {
+	msgbox("No, there's nothing up here.\nThis ledge is completely pointless.\pIt's that way in vanilla too.\pI have no clue why.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CandyGuy {
+	msgbox("I feel concerned that I scared the\naverage player into thinking that\lthis guy would talk for ages.\pCome on, guys!\nI'm not THAT mean!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Gambler {
+	msgbox("The quest to get into this house is\nactually so convenient for me.\pMany of the Celia Secrets are tied\nto specific locations, but I didn't\lwant people to get spoiled if they\lfound one early.\pBut this one requires you to get to\nCeladon to finish, so it acts as a\lgatekeeper for the others.\pThat way, you'll never learn about\nan area you haven't been to yet!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PoisoningEveryone {
+	msgbox("Y'know, I don't actually have a\npunchline prepared for the “They're\lpoisoning everyone” line.\pUsually I try to follow up on every\njoke/plot thread I set up.\lOh well.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Survey {
+	msgbox("Have you tried filling in the survey\nyet?\lIt's one of my favorite bits!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Route2 {
+	msgbox("It could be argued that this is the\nworst part of the hack.\lCertainly it has the least going on.\pHowever, I think some relative calm\nis important after the clusterfuck\lthat is the opening thru the Parcel.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FlowersInViridian {
+	msgbox("One of the most obscure references\nin this hack!\pIn RBY, certain patches of grass\ncouldn't spawn wild encounters\lif they had a small flower on them.\pSpeedrunners use this to optimize\ntheir route through Viridian Forest.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DadFadeIn {
+	msgbox("There was a bug here in beta where\nthe screen wouldn't fully fade in.\lIt's a problem with FRLG's engine.\pI've fixed it now, but before that I\njust had Dad talk about how it's\lgetting dark out.\pPeople seemed to like it :)\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_BugCatcherDoug {
+	msgbox("This is a reference to Beating Fire\nRed While Blind And Deaf!\pTo beat Brock, he had to grind vs\nthis guy's first Pokemon and then\limmediately faint.\lHe repeated this for weeks.\pI'm guessing the experience gave\nthis kid a bit of an ego.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_LookGirl2 {
+	msgbox("I wanted to make this girl a\nrecurring character for later.\pI decided she needed to come back\nearly so the player keeps her in mind", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_ThisGuy {
+	msgbox("THIS GUY is a manga-exclusive\nPokemon!\pRed finds him early in the journey,\nbut he runs away, never to be seen\lagain!\pThe voice clip is from the youtuber\nReverend, who made a video about\lvarious Pokemon Cryptids!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Signposts {
+	msgbox("Every time I put a signpost in a\nfield like this, I am reminded of\lhow much I hate using Porymap.\pHMA is sooooooooo much better for\nmap design!!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_MimeTrade {
+	msgbox("When the time eventually comes and\nyou're able to catch Mr Mime, I\lhope people remember the trade here\pI get the feeling that everyone is\ngonna forget and get stuck.\lOh well.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FlashOfficer {
+	msgbox("First draft of this line said he's\nwaiting on a “Kid” to pass through.\pYea that one's prolly a little too\niffy for my tastes.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_StuckAtBrock {
+	msgbox("I do not understand how people get\nstuck at Brock.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Route3Dad {
+	msgbox("Originally, dad here talked about\nyou getting chased by the Lasses.\pUnfortunately, the plural tipped\npeople off that she'd attack again\lbefore getting a chance to see it.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_HboxRespawn {
+	msgbox("I really like the respawn animation\nhere.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Route4Benches {
+	msgbox("You can retreat back and forth from\nthe other side of Mt Moon.\lI have no clue if this is made clear\pHopefully people are able to figure\nit out, cuz I haven't playtested\lthat puzzle!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_GardenerPuzzle {
+	msgbox("Fun fact: I never playtested this\npuzzle to see how hard it was.\pThankfully most people seem to be\nable to figure it out, but I was\lterrified that it would be too hard!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_RalphJoey {
+	msgbox("Yes, this is a reference to the old\nVulpix card that had a misprint\lon every single copy.\pI was surprised to see so many folks\ngetting confused on where Joey and\lRalph live!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_BikeKid {
+	msgbox("This kid actually has two different\nlines of dialogue!\lFor before and after having a Bike.\pHowever, most people were only\ntalking to him once, missing it.\pSo, I merged the first dialouge\nonto the second when you talk to\lhim afterwards.\pThat way, at least some players will\nsee the updated dialogue.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Level1Gastly {
+	msgbox("This guy has a LEVEL 1 GASTLY in\nhis team.\pIt's supposed to be a reference to\nthe infamously awful Base Set card.\lArguably the worst card ever made.\pHowever, because the card itself is\ntechnically Level 8, people get\lconfused on what it's referencing.\pSadly, when I set the mon to just\nbe level 8, players don't notice\lthat there's a joke there at all!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PoisonKid {
+	msgbox("This guy is a joke that sadly\ndoesn't actually land very well.\pHe's supposed to be trying to be\na POISON-type trainer, but he only\lplays the TCG.\pBecause of that, he's very confused\non which mons are ACTUALLY poison.\pIn Gen 1, Poison types were shown as\nGRASS cards, so he has a Grass mon.\pThen in gen 4, Poison was shown as\nPsychic, so he has one of those.\pFinally, in gen 8 onwards, they're\nDark, so he has one of those too.\pI wanted a way to make fun of\nPoison's history, so I'm kinda\lsad this joke isn't very clear.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DragonFairyKids {
+	msgbox("These two NPCS at this table are\nsupposed to compliment each other:\lOne sets up a joke, the other ends.\pFor that to work, players would need\nto read the DRAGON guy first,\land then read the FAIRY girl.\pThe whole table used to be placed\non the left side of the GYM.\pHowever, players were consistently\nreading the two in the wrong order!\lEven after I would swap them around!\pSo, I decided to simply move them\nall to the right side.\pNow, it seems like players are\ntalking to the DRAGON guy first.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_NakedMisty {
+	msgbox("The joke with Misty is the ONLY\nreason Cerulean is card-themed.\pAlso, I was utterly terrified that\nthe joke would be going too far,\land that I'd get my hack banned.\pThankfully, people seem to get that\nit's just an uncomfortable joke.\pLet it be known that all I did to\nthe sprite was add a Staryu to it.\lI did not remove ANYTHING.\pI was extremely strict about that,\nand you can tell cuz the sprite is\lkinda wonky in one of the arms.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Level20Guy {
+	msgbox("The example Pokemon that this guy\ngives for one that doesn't evolve\lhas changed a lot in development.\pOriginally it was Paras, then\nSandshrew (before Sonic was a thing)\pI settled on Abra, but honestly I\nthink Rattata might be better?\lIdk!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DaisyFlowers {
+	msgbox("Any time there's a section where\nyou're searching for a hidden item,\lthe flowers aren't DAISY.\pI made a seperate non-Daisy tile\njust so she won't annoy you.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CeliaSecretOne {
+	msgbox("I made all of the Celia Secrets\nwithout realizing that this one is\lthe first one you see stepping out\lof the gym.\pProbably not the kindest first\nimpression for the special bonus.\lOops!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DMCAHouse {
+	msgbox("This room is full of interactables\nthat reference the player's house.\pWriting the dialogue here was\nreally fun!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PitJumpscare {
+	msgbox("Pit jumpscare!\pI had to manually set each and\nevery one of these tiles one-by-one\pPlease never make me do that again.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SecretGarden {
+	msgbox("It was surprisingly obnoxious to get\nthe secret garden bit working.\pWhen you enter Bill's house, you can\nBARELY see the grass for a second.\pIn vanilla FRLG, there's actually\nno path north at all.\lI guess they removed it since RBY.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CandyGirl {
+	msgbox("The number of people who would just\nflat out ignore the candies in the\lmart, I swear to god.\pI needed to add this NPC just to\nmaybe get people to realize that\lthey were there.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_BooFuckingHoo {
+	msgbox("I'd like to give a personal fuck you\nto the redditor who told me, quote,\l“Boo fucking hoo” when I said\lI don't like when people cheat rare\lcandies into my puzzle game.\pHe's clearly not smart enough to\nget this far, so I'm not worried.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_NewRetreatBench {
+	msgbox("New Demo 2.5 puzzle!\pI wanted to emphasize the benches\na lot more going forward, so I\ladded this here.\pHopefully players will now remember\nthat Retreat exists!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_EarthboundHouse {
+	msgbox("This map is a recreation of the\nsea cottage from Earthbound!\pThat map is notable for being the\norigin of My Secret Life, Chapter 3", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_LeafStone {
+	msgbox("I wonder why there's a LEAF STONE\nhere!\lHow bizarre!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_WEmblem {
+	msgbox("If you think finding the W Emblem is\na bit odd, that's okay.\lThis is just a secret method!\pLater in the game there'll be a\nmore comprehensive quest to get in.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_MtMoonBench {
+	msgbox("Hiding this area behind the world's\nmost hidden bench is so cool.\pYou need to dig DEEP if you wanna\nfind it.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_AltarOfTheMoone {
+	msgbox("What is this area for, I wonder?\pAnd why is there a PC here, of all\nthings?\pExcellent questions!\nStay tuned!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_WhatsUpcave {
+	msgbox("Did you know that FRLG doesn't\nnatively have an upwards-facing\lcave entrance?\pI had to make this one!\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_TreePath {
+	msgbox("The sneaky path through the woods\nis sooooo cool.\pYou can actually see the path by the\ntrees that don't have shadows.\lIt's very subtle.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SecretTunnel {
+	msgbox("I made this cave exactly long enough\nthat the song would reach the part\lwhere they yell “SECRET TUNNEL!”", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_MoonSquare {
+	msgbox("This is like a three-layer secret\narea, and I love it!\pThe intended way of finding it is\nwith the TOWN MAP.\lYou can see a secret area called ???.\pYou can see it's to the left of the\nALTAR, but the ALTAR is hidden too!\pYou need to put a whole bunch of\nproblem solving skills to the test.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PEmblem {
+	msgbox("Adding a P Emblem to the W and L\ngives you 8 costumes in total!\pWhich one is your favorite?\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CaveSwap {
+	msgbox("I swapped the entrance and exit of\nthis part of the cave.\pI didn't like how it felt with the\nLass Island there when you enter.\pSuch is the minutia of detail that\ngoes into pacing a map well!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CrystalBerry {
+	msgbox("The sprite and description of the\nCRYSTAL BERRY are from Paper Mario!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_UndergroundPath {
+	msgbox("I hate this map too.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_UndergroundBench {
+	msgbox("Putting a bench at the end is very,\nvery, funny.", MSGBOX_NPC)
+	end
+}
+
+script Celia_UngergroundHaircutUnderConstruction {
+	msgbox("Hi! I'm CELIA, the creator.\nCongrats on finding this place!\pUnfortunately it's still under\nconstruction.\lNone of the scripts are done yet!\pStill, good job getting here!\nKeep it in mind for later!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Gen5Girl {
+	msgbox("This girl is all of us.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_AshButterfree {
+	msgbox("Yes, the other Butterfree was\nAsh's.\lPeople somehow miss that.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SpearowPuzzle {
+	msgbox("The Spearow puzzle to get Cut was\nactually the first one I designed!\pIt turned into the framework for\nbasically every other puzzle:\pBreak the rules of Pokemon, but\nin a logical and interesting way.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PhishingGuru {
+	msgbox("Of all the dumb nonsense that decomp\nmade available to me, I'm so glad\lI could do this stupid bit.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_UnchangedMap {
+	msgbox("This is one of very, very few\ncompletely unchanged maps!\pThere's literally nothing new in\nhere, but there doesn't have to be.\lIt does what it needs to do.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_UnchangedMap2 {
+	msgbox("Actually.\pI think the existence of Celia\nCommentary in this map means that\ltechnically it HAS been changed.\pHum.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FanClubRant {
+	msgbox("I'm sure I will update this guy's\nrant every time a new game releases.\pPokemon fans are sadly impossible to\nplease.\psidenote: Gen IX is the best\nfuck you fight me.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FanClubFloor {
+	msgbox("The floor here is a different color\nthan usual!\pSomething with the palettes broke,\nso rather than fixed it I just\lswapped it out for a new one.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_NESChanging {
+	msgbox("At one point in development, I\naccidentally replaced all newspapers\lwith NES's.\pI could've changed them back, but\nwhere's the fun in that?", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_MemorialBench {
+	msgbox("This is an homage to POKéMON MY ASS\nversion.\pI haven't actually played it, and I\ncan't say I really care to, but I\lwill still pay my respects to those\lwho came before me.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Losselle {
+	msgbox("Losselle actually marked a turning\npoint for my production:\pIt was the first “Big” cutscene\nI ever worked on.\pIt gave me the confidence and skill\nto go back and add stuff like the\lLASS on Route 3.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_LEmblem {
+	msgbox("Hiding a secret behind a detail that\nyou can only make out in the intro?\pFucking genius, if I do say so\nmyself.\pWhich Emblem is your favorite?\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_KantoLawnMaintenance {
+	msgbox("And here is the perfect example\nof how I write:\pI make a silly one off gag, like\nthe Kanto Lawn Service back in\lViridian.\pThen, I quote it again, turning it\ninto a running joke.\pAnd then?\nWell...\lYou'll need to stay tuned to see!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SnorlaxMoved {
+	msgbox("The only reason Snorlax is moved\nso close to the city is because\lthere's a guardhouse here normally.\pI was too lazy to think of anything\ninteresting to put there, so I\lkilled it.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_ElementarySchool {
+	msgbox("Lavender Town elementary school?\nNow that's odd!\pI wonder why I'd do that!\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_NameRater {
+	msgbox("This guy has a unique line if you\nbring him the PHIONE Egg!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_HarryRat {
+	msgbox("Fun fact: Harry's Raticate starting\nat 1 HP is actually a bug!\pBut! It's a bug I liked, so now it's\na feature.\pI'm very good at programming.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_TMShop {
+	msgbox("This guy is here in case you forget\nabout the Tombstoner TM.\pSeeing it in the shop might make you\nread it if you hadn't yet.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FlowerShop {
+	msgbox("In the beta, players kept going down\nthe underground path before looking\lhere to see all the rain and such.\pThus, I added a silly roadblock in\nLavender and a dumb puzzle to boot!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FlowerWindows {
+	msgbox("I definitely think through my map\ndesign.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Route8 {
+	msgbox("This was the last route I made for\nthe demo, and it shows.\pI wanted to show off all the dumb\nthings I learned how to do:\pFrom the weather tiles to the\nGrowlithe sign to pushing the bench,\lthere's plenty of fun stuff here!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_OopsVulpix {
+	msgbox("I made a fatal error on this route\nin the beta.\pI accidentally put Vulpix in the\ngrass, even though it's supposed to\lonly be Doduo.\pThat's a legit problem for people\nreading the signs to find new mons!", MSGBOX_NPC)
+	end
+}
+
+
+script CeliaSecrets_Bonus_AtNight {
+	msgbox("No, you cannot change it to night.\pThis should be obvious if you check\nyour Pokedex and see that Houndour\land Murkrow don't show up.\pAlas.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_GirthyOak {
+	msgbox("Jokes that'll get me banned from\nPOKECOMMUNITY:", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CeladonRandom {
+	msgbox("Celadon was the absolute bottleneck\nfor development for so long.\pI couldn't think of any good ideas\nfor it, and the map was so big\lI just felt overwhelmed.\pThen one day, the idea for the rando\nhit me, and everything just clicked.\lNow it's one of my favorite parts!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DiglettsCave {
+	msgbox("Digletts' Cave is WAY shorter than\nin vanilla.\pI absolutely hate running through\nthis place, so I needed to make\lit better.", MSGBOX_NPC)
+	end
+}
