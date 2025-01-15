@@ -90,7 +90,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_VOLTORB]    = {{EVO_LEVEL, 20, SPECIES_JIGGLYPUFF_ABOVE}},
     [SPECIES_EXEGGCUTE]  = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
-                            {EVO_LEVEL, 20, SPECIES_SPEAROW}},
+                            {EVO_LEVEL, 1, SPECIES_SPEAROW}},
 
     [SPECIES_CUBONE]     = {{EVO_LEVEL, 20, SPECIES_MAROWAK}},
     
@@ -106,6 +106,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
+                            {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
+                            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
                             //{EVO_ITEM, ITEM_SHINY_STONE, SPECIES_LUMINEON},
                             {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS}},

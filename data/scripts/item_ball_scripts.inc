@@ -475,7 +475,7 @@ ViridianCity_EventScript_ItemPotion::
 	end
 
 Route11_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_ESCAPE_ROPE
 	end
 
 Route11_EventScript_ItemAwakening::

@@ -241,7 +241,7 @@
 #define FLAG_CSR_EXITED_TRUCK               0x0CE
 #define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
 #define FLAG_CSR_RETREAT_CAMPER               0x0D0
-#define FLAG_CSR_UNUSED_9               0x0D1
+#define FLAG_CSR_KIRI_PSYDUCK               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
 #define FLAG_CSR_UNUSED_11              0x0D3
 #define FLAG_CSR_UNUSED_12              0x0D4

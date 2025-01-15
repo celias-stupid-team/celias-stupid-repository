@@ -587,7 +587,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 	//TODO give TM39 to player
 	giveitem_msg("{PLAYER} received TM34\nfrom LT. SURGE.", ITEM_TM34)
 	setflag(FLAG_GOT_TM34_FROM_SURGE)
-	msgbox("TM39 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
+	msgbox("TM34 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
 	release
 	end
 

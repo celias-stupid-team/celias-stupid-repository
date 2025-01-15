@@ -809,12 +809,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassLisa[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_ODDISH,
-    },
-    {
-        .iv = 0,
-        .lvl = 23,
-        .species = SPECIES_GLOOM,
+        .species = SPECIES_FERROTHORN,
     },
 };
 
@@ -4259,20 +4254,26 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt10[] = {
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_GRIMER,
-        .moves = {MOVE_MINIMIZE, MOVE_SLUDGE, MOVE_DISABLE, MOVE_HARDEN},
+        .species = SPECIES_PLUSLE,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_KOFFING,
-        .moves = {MOVE_SMOG, MOVE_TACKLE, MOVE_POISON_GAS, MOVE_NONE},
+        .species = SPECIES_DEDENNE,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 20,
-        .species = SPECIES_KOFFING,
-        .moves = {MOVE_SMOG, MOVE_TACKLE, MOVE_POISON_GAS, MOVE_NONE},
+        .species = SPECIES_TOGEDEMARU,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_STEAMBOAT_WILLIE,
+        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -4429,16 +4430,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt17[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt18[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt18[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_KOFFING,
+        .species = SPECIES_GRIMER,
+        .moves = {MOVE_CRUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_GRIMER,
+        .moves = {MOVE_PAY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

@@ -22,16 +22,30 @@ RocketHideout_B4F_Text_GiovanniPostBattle::
     .string "I hope we meet again…$"
 
 RocketHideout_B4F_Text_Grunt2Intro::
-    .string "I know you!\n"
-    .string "You ruined our plans at MT. MOON!$"
+	.string "What...?\n"
+	.string "Who are you?\p"
+	.string "My name is PETREL.\n"
+	.string "I'm an admin of the DMCA!\p"
+	.string "How dare you tresspass in our\n"
+	.string "LAW OFFICES!$"
 
 RocketHideout_B4F_Text_Grunt2Defeat::
-    .string "Burned again!$"
+	.string "Ayaya!\n"
+	.string "My POKéMON were all copies!$"
 
 RocketHideout_B4F_Text_Grunt2PostBattle::
-    .string "Do you have something against TEAM\n"
-    .string "ROCKET?$"
-
+	.string "Grr…\p"
+	.string "The SCOPE on the table there was a\n"
+	.string "clear copy of the NES ZAPPER.\l"
+	.string "How dare you take it!\p"
+	.string "The BOSS is off on important\n"
+	.string "business too...\p"
+	.string "No matter!\n"
+	.string "You won't be able to take him down!\p"
+	.string "His POKéMON is fully invincible!\n"
+	.string "It has no weakness you can exploit!\p"
+	.string "Well, it has no weaknesses in THIS\n"
+	.string "GENERATION, at least.$"
 RocketHideout_B4F_Text_Grunt3Intro::
     .string "How can you not see the beauty of\n"
     .string "our evil?$"

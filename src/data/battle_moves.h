@@ -798,9 +798,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN,
         .power = 90,
         .type = TYPE_ICE,
-        .accuracy = 70,
+        .accuracy = 100,
         .pp = 5,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -5321,10 +5321,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 
-    [MOVE_ZEN_HEADBUTT] =    {
+    [MOVE_CHILL_HEADBUTT] =    {
         .effect = EFFECT_FLINCH_HIT,
         .power = 80,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_ICE,
         .accuracy = 90,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5854,7 +5854,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_ROCK,
-        .accuracy = 0,
+        .accuracy = 2,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -6431,7 +6431,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FICKLE_BEAM] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_FICKLE_BEAM, // Placeholder Effect
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,

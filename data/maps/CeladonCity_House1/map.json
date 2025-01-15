@@ -40,7 +40,7 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_House1_EventScript_NidotranF",
+      "script": "CeladonCity_House1_EventScript_NidotranM",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_House1_EventScript_NidotranM",
+      "script": "CeladonCity_House1_EventScript_NidotranF",
       "flag": "0"
     }
   ],

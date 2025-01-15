@@ -106,7 +106,7 @@ PokemonTower_2F_Movement_RivalExitDown::
 
 mapscripts PokemonTower_2F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(checkitem(ITEM_SUPER_SCOPE)) {
+		if(flag(FLAG_CSR_SUPER_SCOPE)) {
 			clearflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)
 		} else {
 			setflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)

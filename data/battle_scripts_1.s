@@ -246,6 +246,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
+	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
 
 
 
@@ -4723,3 +4724,14 @@ BattleScript_EffectDoNothing::
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectFickleBeam::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifnotspecies BS_ATTACKER, SPECIES_EXEGGCUTE, BattleScript_MoveEnd
+	typecalc
+	presentdamagecalculation
+
