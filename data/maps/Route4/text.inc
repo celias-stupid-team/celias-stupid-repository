@@ -1,7 +1,7 @@
 Route4_Text_TrippedOverGeodude::
     .string "That cave is scary!\p"
     .string "You can't run from the wild\n"
-    .string "POKéMON there!\p"
+    .string "POKéMON there!$"
 
 Route4_Text_CrissyIntro::
 	.string "Look at this cool POKéMON I found\n"
