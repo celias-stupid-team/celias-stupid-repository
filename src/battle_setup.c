@@ -32,6 +32,7 @@
 #include "constants/songs.h"
 #include "constants/pokemon.h"
 #include "constants/trainers.h"
+#include "script.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -321,7 +322,7 @@ void StartMarowakBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndMarowakBattle;
-    if (GetFlag(FLAG_CSR_SUPER_SCOPE))
+    if (FlagGet(FLAG_CSR_SUPER_SCOPE))
     {
         gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED;
         CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_MAROWAK, 30, 31, MON_FEMALE, NATURE_SERIOUS, 0);

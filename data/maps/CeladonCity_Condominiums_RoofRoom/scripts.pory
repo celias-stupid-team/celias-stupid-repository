@@ -154,19 +154,19 @@ script CeladonCity_Condominiums_RoofRoom_MapScript {
 		case 0:
 		case 1:
 		case 2:
-			removeobject(CELIA)
-			removeobject(DMCA)
-			addobject(EEVEE)
+			setflag(FLAG_TEMP_3) //celia
+			setflag(FLAG_TEMP_4) //dmca
+			clearflag(FLAG_HIDE_EEVEE_BALL)
 			break
 		case 3:
-			removeobject(CELIA)
-			removeobject(GUY)
-			removeobject(EEVEE)
+			setflag(FLAG_TEMP_3) //celia
+			setflag(FLAG_TEMP_5) // blackbelt
+			setflag(FLAG_HIDE_EEVEE_BALL)
 			break
 		default:
-			removeobject(GUY)
-			removeobject(DMCA)
-			removeobject(EEVEE)
+			setflag(FLAG_TEMP_5) //blackbelt
+			setflag(FLAG_TEMP_4) //dmca
+			setflag(FLAG_HIDE_EEVEE_BALL)
 			break
 
 	}

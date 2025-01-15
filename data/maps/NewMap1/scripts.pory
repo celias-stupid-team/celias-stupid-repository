@@ -27,7 +27,7 @@ script Sootopolis_EvenScript_Guy {
 script Sootopolis_EventScript_Kiri {
 	lock
 	faceplayer
-	if(FLAG_CSR_KIRI_PSYDUCK) {
+	if(flag(FLAG_CSR_KIRI_PSYDUCK)) {
 		msgbox("My daddy hasn't come home from work\nin a while.\pI see people from the city walking in\nand out of those buildings, though.", MSGBOX_DEFAULT)
 		release
 		end

@@ -186,9 +186,9 @@ script DepartmentStore_GameShop_TVDad {
 	closemessage
 	delay(20)
 	applymovement(DAD, DadOut)
+	waitmovement(0)
 	delay(10)
 	playse(SE_EXIT)
-	waitmovement(0)
 	setobjectxy(DAD, 5, 0)
 	removeobject(DAD)
 	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_DepartmentStore_3F_CameraDown)
@@ -214,7 +214,7 @@ movement CeladonCity_DepartmentStore_3F_CameraDown {
 
 movement DadIn {
 	face_left
-	set_invisible
+	set_visible
 }
 
 movement DadOut {

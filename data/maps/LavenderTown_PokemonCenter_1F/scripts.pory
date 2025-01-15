@@ -40,3 +40,8 @@ LavenderTown_PokemonCenter_1F_EventScript_Plasto::
 	release
 	end
 `
+
+script LavenderTown_PokemonCenter_Picnicker {
+	msgbox("I recently moved to this town.\pWhen I got here, the DMCA forced me\nto take down my fanfic…", MSGBOX_NPC)
+	end
+}

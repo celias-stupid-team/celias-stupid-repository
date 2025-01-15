@@ -103,9 +103,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     
     [SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!
     [SPECIES_GYARADOS]   = {{EVO_LEVEL, 15, SPECIES_MAGIKARP}},
-    [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
+    [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},

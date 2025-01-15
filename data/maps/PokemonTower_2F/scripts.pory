@@ -114,7 +114,7 @@ mapscripts PokemonTower_2F_MapScripts {
 	}
 }
 script PokemonTower_2F_EndOfDemo {
-	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 82, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 22 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
+	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 84, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 22 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
 	end
 }
 
