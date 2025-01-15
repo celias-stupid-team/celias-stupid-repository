@@ -5527,7 +5527,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_THUNDURUS_KICK] =    {
-        .effect = EFFECT_DEFENSE_DOWN,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 90,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,

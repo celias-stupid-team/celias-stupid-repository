@@ -299,6 +299,8 @@
 #define EVO_HAIRCUT          18 // Pokemon gets a haircut
 #define EVO_MIRROR           19 // Pokemon uses Reveal Glass
 #define EVO_ALONE            20 // Pokemon is alone :(
+#define EVO_STONE_EXEGGUTOR  21
+#define EVO_STONE_SHEDINJA   22
 
 
 

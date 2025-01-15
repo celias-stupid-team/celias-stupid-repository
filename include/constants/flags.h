@@ -983,9 +983,9 @@
 #define FLAG_DUGTRIO_SIGN               0x399
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
-#define FLAG_0x39C               0x39C
-#define FLAG_0x39D               0x39D
-#define FLAG_0x39E               0x39E
+#define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
+#define FLAG_CSR_SIGN               0x39D
+#define FLAG_CSR_SIGN_2               0x39E
 
 
 

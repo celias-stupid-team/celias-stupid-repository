@@ -126,7 +126,7 @@ static u8 DexScreen_DrawMonDexPage(bool8 justRegistered);
 u8 RemoveDexPageWindows(void);
 u8 DexScreen_DrawMonAreaPage(void);
 static bool8 DexScreen_IsPageUnlocked(u8 category, u8 pageNum);
-static bool8 DexScreen_IsCategoryUnlocked(u8 category);
+static bool8 DexScreen_IsCategoryUnlocked(u8 category, bool8 justRegistered);
 static u8 DexScreen_GetPageLimitsForCategory(u8 category);
 static bool8 DexScreen_LookUpCategoryBySpecies(u16 species);
 u8 DexScreen_DestroyAreaScreenResources(void);
@@ -992,7 +992,7 @@ static void Task_PokedexScreen(u8 taskId)
     case 0:
         sPokedexScreenData->unlockedCategories = 0;
         for (i = 0; i < 9; i++)
-            sPokedexScreenData->unlockedCategories |= (DexScreen_IsCategoryUnlocked(i) << i);
+            sPokedexScreenData->unlockedCategories |= (DexScreen_IsCategoryUnlocked(i, FALSE) << i);
         sPokedexScreenData->state = 2;
         break;
     case 1:
@@ -1055,7 +1055,7 @@ static void Task_PokedexScreen(u8 taskId)
             case DEX_CATEGORY_SEVENTH_BADGE:
             case DEX_CATEGORY_FINAL_BADGE:
             case DEX_CATEGORY_RARE:
-                if (DexScreen_IsCategoryUnlocked(sPokedexScreenData->modeSelectInput))
+                if (DexScreen_IsCategoryUnlocked(sPokedexScreenData->modeSelectInput, FALSE))
                 {
                     RemoveScrollIndicatorArrowPair(sPokedexScreenData->scrollArrowsTaskId);
                     sPokedexScreenData->category = sPokedexScreenData->modeSelectInput;
@@ -3351,7 +3351,7 @@ static u8 DexScreen_IsPageUnlocked(u8 categoryNum, u8 pageNum)
     return FALSE;
 }
 
-static bool8 DexScreen_IsCategoryUnlocked(u8 categoryNum)
+static bool8 DexScreen_IsCategoryUnlocked(u8 categoryNum, bool8 justRegistered) 
 {
     int i;
     u8 count;
@@ -3367,7 +3367,9 @@ static bool8 DexScreen_IsCategoryUnlocked(u8 categoryNum)
         FLAG_BADGE08_GET,
         FLAG_SYS_NATIONAL_DEX,
     };
-
+    if(justRegistered) {
+        return 1;
+    }
     if(!FlagGet(sBadgeFlags[categoryNum])) { //If the badge associated with the Pokedex category has not been obtained, then the category is locked
         return 0;
     } else {

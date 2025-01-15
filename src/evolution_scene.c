@@ -586,6 +586,44 @@ static void CreateShedinja(u16 preEvoSpecies, struct Pokemon* mon)
     }
 }
 
+
+static void CreateExeggcute(u16 preEvoSpecies, struct Pokemon* mon)
+{
+    u32 data = 0;
+    if (gEvolutionTable[preEvoSpecies][0].method == EVO_STONE_EXEGGUTOR && gPlayerPartyCount < PARTY_SIZE)
+    {
+        s32 i;
+        struct Pokemon* shedinja = &gPlayerParty[gPlayerPartyCount];
+
+        CopyMon(&gPlayerParty[gPlayerPartyCount], mon, sizeof(struct Pokemon));
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_SPECIES, &gEvolutionTable[preEvoSpecies][1].targetSpecies);
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_NICKNAME, gSpeciesNames[gEvolutionTable[preEvoSpecies][1].targetSpecies]);
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_HELD_ITEM, &data);
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_MARKINGS, &data);
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_ENCRYPT_SEPARATOR, &data);
+
+        for (i = MON_DATA_COOL_RIBBON; i < MON_DATA_COOL_RIBBON + CONTEST_CATEGORIES_COUNT; i++)
+            SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);
+        for (i = MON_DATA_CHAMPION_RIBBON; i <= MON_DATA_UNUSED_RIBBONS; i++)
+            SetMonData(&gPlayerParty[gPlayerPartyCount], i, &data);
+
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_STATUS, &data);
+        data = MAIL_NONE;
+        SetMonData(&gPlayerParty[gPlayerPartyCount], MON_DATA_MAIL, &data);
+
+        CalculateMonStats(&gPlayerParty[gPlayerPartyCount]);
+        CalculatePlayerPartyCount();
+
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(gEvolutionTable[preEvoSpecies][1].targetSpecies), FLAG_SET_SEEN);
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(gEvolutionTable[preEvoSpecies][1].targetSpecies), FLAG_SET_CAUGHT);
+
+        if (GetMonData(shedinja, MON_DATA_SPECIES) == SPECIES_EXEGGCUTE
+            && GetMonData(shedinja, MON_DATA_LANGUAGE) == LANGUAGE_JAPANESE
+            && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_EXEGGCUTE)
+                SetMonData(shedinja, MON_DATA_NICKNAME, sText_ShedinjaJapaneseName);
+    }
+}
+
 // States for the main switch in Task_EvolutionScene
 enum {
     EVOSTATE_FADE_IN,
@@ -829,6 +867,7 @@ static void Task_EvolutionScene(u8 taskId)
             }
             if (!gTasks[taskId].tEvoWasStopped)
                 CreateShedinja(gTasks[taskId].tPreEvoSpecies, mon);
+                CreateExeggcute(gTasks[taskId].tPreEvoSpecies, mon);
 
             DestroyTask(taskId);
             FreeMonSpritesGfx();

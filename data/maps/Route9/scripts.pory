@@ -14,3 +14,7 @@ mapscripts Route9_MapScripts {
 }
 
 
+script Route9_SetMap {
+	setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
+	release
+}
