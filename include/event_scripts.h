@@ -1268,6 +1268,7 @@ extern const u8 TradeCenter_ConfirmLeaveRoom[];
 extern const u8 TradeCenter_TerminateLink[];
 extern const u8 SetPlayerPokedexValues[];
 extern const u8 FadeSongAndPlayVictory[];
+extern const u8 GetOakPCPokedexMessage[];
 
 #endif //GUARD_EVENT_SCRIPTS_H
 
