@@ -6777,11 +6777,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungCoupleLeaJed[] = {
         .lvl = 29,
         .species = SPECIES_RAPIDASH,
     },
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_NINETALES,
-    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_SisAndBroLiaLuc[] = {

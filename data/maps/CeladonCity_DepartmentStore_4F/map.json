@@ -85,14 +85,14 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY",
-      "dest_warp_id": "5"
+      "dest_warp_id": "3"
     },
     {
       "x": 9,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY",
-      "dest_warp_id": "3"
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

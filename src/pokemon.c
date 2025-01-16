@@ -5962,6 +5962,7 @@ static u16 GetBattleBGM(void)
 
             
         case TRAINER_CLASS_DMCA:
+        case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;
 
         case TRAINER_CLASS_DMCA_ADMIN:

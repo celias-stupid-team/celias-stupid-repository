@@ -79,12 +79,12 @@ Route16_Text_RouteSign::
     .string "CELADON CITY - FUSHCIA CITY$"
 
 Route16_Text_JedIntro::
-    .string "JED: Our love knows no bounds.\n"
-    .string "We're in love and we show it!$"
+	.string "...\n"
+	.string "My wife left me for a tree.$"
 
 Route16_Text_JedDefeat::
-    .string "JED: Oh, no!\n"
-    .string "My love has seen me as a loser!$"
+	.string "I don't understand how this\n"
+	.string "could happen...$"
 
 Route16_Text_JedPostBattle::
     .string "JED: Listen, LEA.\n"

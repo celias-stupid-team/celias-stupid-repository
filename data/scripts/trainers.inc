@@ -584,10 +584,7 @@ Route16_EventScript_Camron::
 	msgbox Route16_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route16_EventScript_Jed::
-	trainerbattle_double TRAINER_YOUNG_COUPLE_LEA_JED, Route16_Text_JedIntro, Route16_Text_JedDefeat, Route16_Text_JedNotEnoughMons
-	msgbox Route16_Text_JedPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 Route16_EventScript_Lea::
 	trainerbattle_double TRAINER_YOUNG_COUPLE_LEA_JED, Route16_Text_LeaIntro, Route16_Text_LeaDefeat, Route16_Text_LeaNotEnoughMons

@@ -87,16 +87,13 @@ Route9_Text_BrentPostBattle::
 	.string "My moves were SUPER-EFFECTIVE!$"
 
 Route9_Text_AlanIntro::
-    .string "Hahahaha!\n"
-    .string "Bring it on!$"
+	.string "...\n$"
 
 Route9_Text_AlanDefeat::
-    .string "Hahahaha!\n"
-    .string "You beat me fair!$"
+	.string "...\n$"
 
 Route9_Text_AlanPostBattle::
-    .string "Hahahaha!\n"
-    .string "Us hearty guys always laugh!$"
+	.string "... ... ...\n$"
 
 Route9_Text_ConnerIntro::
 	.string "Be careful!\p"
@@ -111,6 +108,6 @@ Route9_Text_ConnerPostBattle::
 	.string "They deceived me!$"
 
 Route9_Text_RouteSign::
-    .string "ROUTE 9\n"
-    .string "CERULEAN CITY - ROCK TUNNEL$"
+	.string "ROUTE 9\n"
+	.string "NEW WILD POKéMON: 1$"
 

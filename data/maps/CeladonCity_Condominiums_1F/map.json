@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeladonCity_Condominiums_1F_EventScript_Clefairy",
-      "flag": "0"
+      "flag": "FLAG_TEMP_11"
     },
     {
       "type": "object",
@@ -84,8 +84,8 @@
       "x": 12,
       "y": 18,
       "elevation": 3,
-      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
+      "dest_warp_id": "1"
     },
     {
       "x": 13,

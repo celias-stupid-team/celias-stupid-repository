@@ -466,7 +466,7 @@
 #define FLAG_HIDE_POKEMON_MANSION_3F_IRON                       0x1A3
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM14                      0x1A4
 #define FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE              0x1A5
-#define FLAG_0x1A6                                              0x1A6
+#define FLAG_HIDE_LIGMA                                              0x1A6
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM22                      0x1A7
 #define FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY                0x1A8
 #define FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY                    0x1A9
@@ -847,7 +847,7 @@
 #define FLAG_REVIVED_HELIX               0x312
 #define FLAG_REVIVED_AMBER               0x313
 #define FLAG_GOT_HM06               0x314
-#define FLAG_0x315               0x315
+#define FLAG_CSR_CONFUSED_GRUNT               0x315
 #define FLAG_0x316               0x316
 #define FLAG_0x317               0x317
 #define FLAG_0x318               0x318

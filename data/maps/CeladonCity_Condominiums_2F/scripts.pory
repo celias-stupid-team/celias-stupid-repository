@@ -6,7 +6,10 @@ CeladonCity_Condominiums_2F_EventScript_MeetingRoomSign::
 	msgbox CeladonCity_Condominiums_2F_Text_GameFreakMeetingRoom, MSGBOX_SIGN
 	end
 `
-
+script CeladonCondominiums_OldLady {
+	msgbox("Oh dearie me…\pWhat is all that racket\ncoming from upstairs?", MSGBOX_NPC)
+	end
+}
 
 script CeladonCondominiums_JumpUpLeftStairs {
 	specialvar(VAR_RESULT, GetPlayerAvatarBike)
