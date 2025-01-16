@@ -23,6 +23,11 @@
       "map": "MAP_SAFFRON_CITY_CONNECTION",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_SAFFRON_CITY",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [
