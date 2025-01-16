@@ -647,7 +647,7 @@
 #define FLAG_GOT_ITEMFINDER                              0x252
 #define FLAG_WOKE_UP_ROUTE_12_SNORLAX                    0x253
 #define FLAG_GOT_TM39_FROM_BROCK                         0x254
-#define FLAG_CSR_GOT_GOLDEN_ROD                               0x255
+#define FLAG_CSR_VIDEO_GAME_NUMBER                               0x255
 #define FLAG_GOT_EXP_SHARE_FROM_OAKS_AIDE                0x256
 #define FLAG_DID_MARC_TRADE                              0x257
 #define FLAG_BEAT_RIVAL_IN_OAKS_LAB                      0x258
@@ -963,7 +963,7 @@
 #define FLAG_CSR_HINT_SPAM               0x386
 #define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
 #define FLAG_CSR_TALKED_TO_JYNX_GUY               0x388
-#define FLAG_0x389               0x389
+#define FLAG_CSR_GOT_GOLDEN_ROD               0x389
 #define FLAG_0x38A               0x38A
 #define FLAG_0x38B               0x38B
 #define FLAG_0x38C               0x38C

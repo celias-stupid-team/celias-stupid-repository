@@ -50,7 +50,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_SKY_TOWER)) {
 		setobtainable(SPECIES_PIDGEY) // 13
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_PIDGEOTTO)) {
 		setobtainable(SPECIES_PIDGEOTTO) // 14
 	}
 	if(checkmoncaught(SPECIES_PIDGEOT) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_PIDGEOTTO)) {
@@ -92,7 +92,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_10) && checkmoncaught(SPECIES_VOLTORB)) {
 		setobtainable(SPECIES_JIGGLYPUFF_ABOVE) // 27
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_JIGGLYPUFF)) {
 		setobtainable(SPECIES_JIGGLYPUFF) // 28
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
@@ -317,10 +317,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
-	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) { 
+	if(flag(FLAG_CSR_GOT_GOLDEN_ROD) && flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) { 
 		setobtainable(SPECIES_GOLDEEN) // 104
 	}
-	if(checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
+	if(checkmoncaught(SPECIES_GOLDEEN) && checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
 		setobtainable(SPECIES_SEAKING) // 105
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
