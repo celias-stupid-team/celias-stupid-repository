@@ -426,8 +426,8 @@ Route11_EventScript_ItemXDefend::
 	finditem ITEM_X_DEFEND
 	end
 
-Route9_EventScript_ItemBurnHeal::
-	finditem ITEM_BURN_HEAL
+Route9_EventScript_ItemHelixFossil::
+	finditem ITEM_HELIX_FOSSIL
 	end
 
 RockTunnel_1F_EventScript_ItemRepel::
