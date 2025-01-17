@@ -656,3 +656,6 @@ $(OBJEVENTGFXDIR)/stupid/DMCA_Dad.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/stupid/N.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/rs_gentleman.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
