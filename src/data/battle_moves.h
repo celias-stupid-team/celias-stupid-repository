@@ -1250,7 +1250,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CONFUSION_PSYDUCK] =
     {
-        .effect = MOVE_EFFECT_RECOIL_33,
+        .effect = EFFECT_RECOIL,
         .power = 245,
         .type = TYPE_ICE,
         .accuracy = 100,
