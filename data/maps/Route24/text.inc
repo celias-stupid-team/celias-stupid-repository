@@ -29,7 +29,7 @@ Route24_Text_RocketDefeat::
     .string "You are good!$"
 
 Route24_Text_YoudBecomeTopRocketLeader::
-    .string "With your ability, syou'd become\n"
+    .string "With your ability, you'd become\n"
     .string "a top leader in DMCA.\p"
     .string "Come on, think of the opportunity!\n"
     .string "Don't let this chance go to waste.$"

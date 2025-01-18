@@ -1713,12 +1713,12 @@
       "secondaryId": 0
     },
     {
-      "english": "BIG PEARL",
+      "english": "LIGMA",
       "itemId": "ITEM_BIG_PEARL",
       "price": 7500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A quite-large pearl that sparkles\\nin a pretty silver color.\\nIt can be sold at a high price.",
+      "description_english": "Wait, who's STEVE JOBS?",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

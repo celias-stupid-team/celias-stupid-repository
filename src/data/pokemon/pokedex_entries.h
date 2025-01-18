@@ -366,7 +366,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_SANDSLASH] =
     {
-        .categoryName = _("MOUSE"),
+        .categoryName = _("FAST"),
         .height = 10,
         .weight = 295,
         .description = gSandslashPokedexText,
@@ -379,7 +379,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_NIDORAN_F] =
     {
-        .categoryName = _("POISON PIN"),
+        .categoryName = _("EGG"),
         .height = 4,
         .weight = 70,
         .description = gNidoranFPokedexText,

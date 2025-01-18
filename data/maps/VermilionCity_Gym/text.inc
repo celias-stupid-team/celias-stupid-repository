@@ -130,7 +130,7 @@ VermilionCity_Gym_Text_GymGuyAdvice::
     .string "LT. SURGE has a nickname.\p"
     .string "People refer to him as the\n"
     .string "Lightning American!\p"
-    .string "That means that america is, in fact,\n"
+    .string "That means that America is, in fact,\n"
     .string "canonically part of this world.\p"
     .string "Despite this, his POKéMON has never\n"
     .string "ever been seen in America!\l"

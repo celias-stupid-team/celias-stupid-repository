@@ -22,13 +22,13 @@ script MoonAltar_CameraPan {
     waitmovement(0)
     delay(30)
     special(RemoveCameraObject)
-    setvar(VAR_TEMP_1, 1)
+    setvar(VAR_TEMP_0, 1)
     release
     
 }
 
 script MoonAltar_ClearVar {
-    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_0, 0)
     release
 }
 

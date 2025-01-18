@@ -10,7 +10,7 @@ PewterCity_Museum_1F_Text_Right50YThankYou::
     .string "Oh, whoops.\p"
     .string "I think I added a few 0's to\n"
     .string "that price tag by accident.\l"
-    .string "Com on in!$"
+    .string "Come on in!$"
 
 PewterCity_Museum_1F_Text_DontHaveEnoughMoney::
     .string "You don't have enough money.$"

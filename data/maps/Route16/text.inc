@@ -87,8 +87,8 @@ Route16_Text_JedDefeat::
 	.string "could happen...$"
 
 Route16_Text_JedPostBattle::
-    .string "JED: Listen, LEA.\n"
-    .string "You need to focus less on me.$"
+	.string "I don't understand how this\n"
+	.string "could happen...$"
 
 Route16_Text_JedNotEnoughMons::
     .string "JED: You have just one POKéMON?\n"

@@ -90,6 +90,16 @@ script Route8_DrowningFriends {
 	
 }
 
+script Route8_UmbrellaDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pYuck!\nThis weather is awful!\lGood thing I brought my umbrella!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
 const BENCH = 15
 
 script Route8_PushBench {

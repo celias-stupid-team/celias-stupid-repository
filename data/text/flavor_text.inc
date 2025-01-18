@@ -92,8 +92,7 @@ Text_PowerPlantMachine::
 	.string "nuclear reactor.$"
 
 Text_Telephone::
-	.string "It's a telephone.\n"
-	.string "Better not use it.$"
+	.string "It's a wall-mounted smartphone.\n$"
 
 Text_Computer::
 	.string "It's all complicated words and\n"

@@ -106,28 +106,29 @@
 #define TYPE_WATER_PHYSICAL  8
 #define TYPE_ELECTRIC_PHYSICAL 9
 #define TYPE_PSYCHIC_PHYSICAL 10
-#define TYPE_MYSTERY        11 //Special types below!
-#define TYPE_GROUND         12 //Yes Ground is special in this game :)
-#define TYPE_FIRE           13
-#define TYPE_WATER          14
-#define TYPE_GRASS          15
-#define TYPE_ELECTRIC       16
-#define TYPE_PSYCHIC        17
-#define TYPE_ICE            18
-#define TYPE_DRAGON         19
-#define TYPE_DARK           20
-#define TYPE_FAIRY          21
-#define TYPE_BROCK          22
-#define TYPE_WEIRD          23
-#define TYPE_DAD            24
-#define TYPE_CHOCOLATE      25
-#define TYPE_SHADOW         26
-#define TYPE_LARGE          27
-#define TYPE_BIRD           28
-#define TYPE_SHIT           29
-#define TYPE_FAIRY_TRANS    30
-#define TYPE_SOUND          31
-#define TYPE_GRASS_TCG          32
+#define TYPE_GRASS_TCG          11
+
+#define TYPE_MYSTERY        12 //Special types below!
+#define TYPE_GROUND         13 //Yes Ground is special in this game :)
+#define TYPE_FIRE           14
+#define TYPE_WATER          15
+#define TYPE_GRASS          16
+#define TYPE_ELECTRIC       17
+#define TYPE_PSYCHIC        18
+#define TYPE_ICE            19
+#define TYPE_DRAGON         20
+#define TYPE_DARK           21
+#define TYPE_FAIRY          22
+#define TYPE_BROCK          23
+#define TYPE_WEIRD          24
+#define TYPE_DAD            25
+#define TYPE_CHOCOLATE      26
+#define TYPE_SHADOW         27
+#define TYPE_LARGE          28
+#define TYPE_BIRD           29
+#define TYPE_SHIT           30
+#define TYPE_FAIRY_TRANS    31
+#define TYPE_SOUND          32
 
 #define NUMBER_OF_MON_TYPES 33
 // Pokemon egg groups

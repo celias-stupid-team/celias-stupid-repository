@@ -209,7 +209,7 @@ movement CeladonCity_DepartmentStore_3F_CameraUp {
 }
 
 movement CeladonCity_DepartmentStore_3F_CameraDown {
-	walk_fast_up * 3
+	walk_fast_down * 3
 }
 
 movement DadIn {
@@ -218,7 +218,7 @@ movement DadIn {
 }
 
 movement DadOut {
-	face_left
+	face_right
 	delay_4 * 2
 	delay_2
 	set_invisible

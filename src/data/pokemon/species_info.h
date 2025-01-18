@@ -3923,12 +3923,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_JOLTEON] =
     {
-        .baseHP = 65,
+        .baseHP = 40,
         .baseAttack = 65,
         .baseDefense = 60,
         .baseSpeed = 130,
         .baseSpAttack = 110,
-        .baseSpDefense = 95,
+        .baseSpDefense = 30,
         .types = {TYPE_ELECTRIC, TYPE_ELECTRIC},
         .catchRate = 255,
         .expYield = 197,
@@ -4213,12 +4213,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_ZAPDOS] =
     {
-        .baseHP = 90,
+        .baseHP = 40,
         .baseAttack = 90,
         .baseDefense = 85,
         .baseSpeed = 100,
         .baseSpAttack = 125,
-        .baseSpDefense = 90,
+        .baseSpDefense = 30,
         .types = {TYPE_ELECTRIC, TYPE_FLYING},
         .catchRate = 255,
         .expYield = 255,
@@ -4246,7 +4246,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseAttack = 100,
         .baseDefense = 15,
         .baseSpeed = 90,
-        .baseSpAttack = 125,
+        .baseSpAttack = 180,
         .baseSpDefense = 85,
         .types = {TYPE_FIRE, TYPE_FLYING},
         .catchRate = 255,

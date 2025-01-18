@@ -82,7 +82,7 @@ script Route16_StrandedBiker {
 }
 
 script Route16_OakLover {
-	if(flag(FLAG_TEMP_12)) {
+	if(!flag(FLAG_TEMP_12)) {
 		lock
 		msgbox("Oh, OAK!\nYour branches are so... girthy.", MSGBOX_DEFAULT)
 		release

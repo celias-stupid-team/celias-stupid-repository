@@ -107,9 +107,7 @@ VermilionCity_PokemonFanClub_EventScript_Seel::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SEEL, CRY_MODE_NORMAL
 	msgbox VermilionCity_PokemonFanClub_Text_Seel
-	waitmoncry
 	release
 	end
 

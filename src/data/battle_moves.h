@@ -199,7 +199,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ATTACK_UP_2,
         .power = 0,
-        .type = TYPE_GRASS,
+        .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 30,
         .secondaryEffectChance = 0,
@@ -380,7 +380,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SAND_ATTACK] =
     {
         .effect = EFFECT_ACCURACY_DOWN_HIT,
-        .power = 20,
+        .power = 60,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 15,
@@ -1189,7 +1189,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 100,
         .type = TYPE_GROUND,
         .accuracy = 100,
-        .pp = 10,
+        .pp = 40,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
@@ -2787,7 +2787,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_FURY_CUTTER,
         .power = 10,
-        .type = TYPE_BUG,
+        .type = TYPE_GRASS_TCG,
         .accuracy = 95,
         .pp = 20,
         .secondaryEffectChance = 0,
