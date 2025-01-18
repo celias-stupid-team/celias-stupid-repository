@@ -13,6 +13,9 @@ $(OBJEVENTGFXDIR)/misc/surf_blob.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/misc/ss_anne.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 4
 
+$(OBJEVENTGFXDIR)/misc/seagallop.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+
 $(OBJEVENTGFXDIR)/misc/town_map.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
