@@ -7,7 +7,7 @@ mapscripts NewMap1_MapScripts {
 		call(SetPlayerPokedexValues)
 	}
 }
-script Sootopolis_EvenScript_Dad {
+script Sootopolis_EventScript_Dad {
 	lock
 	faceplayer
 	textcolor(0)
@@ -18,7 +18,7 @@ script Sootopolis_EvenScript_Dad {
 	end
 }
 
-script Sootopolis_EvenScript_Guy {
+script Sootopolis_EventScript_Guy {
 	msgbox("Hmm, so going left at the GAME FREAK\noffice leads to the DEPT. STORE,\land going up the stairs leads…\p…Okay yeah, I have no idea where\nI am.", MSGBOX_NPC)
 	end
 }

@@ -1234,16 +1234,16 @@ gFameCheckerFlavorTextOriginObjectName_RockTunnel0::
 gFameCheckerFlavorTextOriginObjectName_RockTunnel1::
 	.string "Caver$"
 
-gFameCheckerFlavorTextOriginObjectName_RockTunnel2::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel2:: @ Unfinished
 	.string "KIRK$"
 
-gFameCheckerFlavorTextOriginObjectName_RockTunnel3::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel3:: @ Unfinished
 	.string "CHARINE$"
 
-gFameCheckerFlavorTextOriginObjectName_RockTunnel4::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel4:: @ Unfinished
 	.string "POKéMON JOURNAL$"
 
-gFameCheckerFlavorTextOriginObjectName_RockTunnel5::
+gFameCheckerFlavorTextOriginObjectName_RockTunnel5:: @ Unfinished
 	.string "MAN$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender0::
@@ -1258,7 +1258,7 @@ gFameCheckerFlavorTextOriginObjectName_Lavender2::
 gFameCheckerFlavorTextOriginObjectName_Lavender3::
 	.string "Pupil$"
 
-gFameCheckerFlavorTextOriginObjectName_Lavender4::
+gFameCheckerFlavorTextOriginObjectName_Lavender4:: @ Unfinished
 	.string "POKéMON JOURNAL$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender5::

@@ -143,7 +143,7 @@ script CeliaSecrets_Bonus_RalphJoey {
 }
 
 script CeliaSecrets_Bonus_BikeKid {
-	msgbox("This kid actually has two different\nlines of dialogue!\lFor before and after having a Bike.\pHowever, most people were only\ntalking to him once, missing it.\pSo, I merged the first dialouge\nonto the second when you talk to\lhim afterwards.\pThat way, at least some players will\nsee the updated dialogue.", MSGBOX_NPC)
+	msgbox("This kid actually has two different\nlines of dialogue!\lFor before and after having a Bike.\pHowever, most people were only\ntalking to him once, missing it.\pSo, I merged the first dialogue\nonto the second when you talk to\lhim afterwards.\pThat way, at least some players will\nsee the updated dialogue.", MSGBOX_NPC)
 	end
 }
 

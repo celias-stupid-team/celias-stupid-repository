@@ -284,7 +284,7 @@ script VermillionCity_Cop {
 }
 
 
-const VermillionCelia = 7 //Now it's a psyduck
+const VermillionPsyduck = 7 //Now it's a psyduck
 script VermillionCity_CeliaAfterGym {
 	lock
 	faceplayer
@@ -297,11 +297,11 @@ script VermillionCity_CeliaAfterGym {
 	closemessage
 	switch(var(VAR_FACING)) {
 		case DIR_EAST:
-			applymovement(VermillionCelia, CeliaWalksRight)
+			applymovement(VermillionPsyduck, CeliaWalksRight)
 			waitmovement(0)
 			break
 		default:
-			applymovement(VermillionCelia, CeliaWalksLeft)
+			applymovement(VermillionPsyduck, CeliaWalksLeft)
 			waitmovement(0)
 			break
 
