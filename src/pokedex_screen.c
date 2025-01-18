@@ -20,6 +20,7 @@
 #include "constants/sound.h"
 #include "pokedex_area_markers.h"
 #include "field_specials.h"
+#include "random.h"
 
 #define TAG_AREA_MARKERS 2001
 
@@ -913,6 +914,7 @@ void DexScreen_LoadResources(void)
     sPokedexScreenData->numOwnedNational = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 1);
     sPokedexScreenData->numSeenKanto = DexScreen_GetDexCount(FLAG_GET_SEEN, 0);
     sPokedexScreenData->numOwnedKanto = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
+    sPokedexScreenData->numOwnedKanto -= OwnedUnobtainableMonCount(); // these are added on in the overflow count later
     sPokedexScreenData->numObtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
     SetBGMVolume_SuppressHelpSystemReduction(0x80);
     ChangeBgX(0, 0, 0);
@@ -2305,6 +2307,32 @@ static u32 OwnedUnobtainableMonCount(void)
             count++;
     }
     return count;
+}
+
+// gets a random mon that is marked obtainable, but not caught
+u16 GetRandomUnobtainedSpecies(void)
+{
+    u32 i;
+    // yeah I know this is sus but according to Egg theoretically the stack should be able to handle less than 1000 bytes
+    // if we need to we can trim the size a bit since in practice we should never get remotely close to KANTO_DEX_COUNT
+    u16 unobtained[KANTO_DEX_COUNT]; 
+    u16 *currSpecies = unobtained;
+    u32 maxSpecies = 0;
+
+    for (i = 0; i < KANTO_DEX_COUNT; i++)
+    {
+        if (DexScreen_GetSetPokedexFlag(i, FLAG_GET_OBTAINABLE, TRUE) && !DexScreen_GetSetPokedexFlag(i, FLAG_GET_CAUGHT, TRUE))
+        {
+            *currSpecies = i;
+            currSpecies++;   
+            maxSpecies++;   
+        }
+    }    
+    
+    if (maxSpecies == 0)
+        return SPECIES_NONE;
+    else
+        return unobtained[Random() % maxSpecies];
 }
 
 static u32 DexScreen_GetDefaultPersonality(int species)
