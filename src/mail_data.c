@@ -194,16 +194,20 @@ void CreateMail(void) //I'm trying my hardest here, Wiz <3
     const u16 sMail[][MAIL_WORDS_COUNT + 1] =
     {
         {
-            EC_WORD_A_LOT,
-            EC_WORD_GIVES,
-            EC_WORD_TIME,
-            EC_WORD_TO,
-            EC_WORD_ATTACK,
+            EC_WORD_A_LOT, // ANOTHER
+            EC_WORD_A_LITTLE, // CHILD
+            EC_WORD_GIVES, //SAFELY
+            EC_WORD_TIME, //DELIVERED
+            EC_WORD_DASH_DASH_DASH, // blanks
+            EC_WORD_DASH_DASH_DASH, // blanks
+            EC_WORD_THANK_YOU,
             EC_WORD_EXCL,
-            EC_WORD_THINK,
-            EC_WORD_ABOUT,
-            EC_WORD_WHY,
-            EC_WORD_EXCL
+            // EC_WORD_SHALLOW, //blanks
+            EC_WORD_WHY, // KANTO CHILD
+            // EC_WORD_CONFUSED, // DELIVERY SERVICE
+            // EC_WORD_OPPOSITE, // SERVICE
+            // EC_WORD_I_VE_ARRIVED,
+            // EC_WORD_I_VE_ARRIVED
         }
     };
     //save mail in saveblock1 -> index 6 is the first slot the mailbox reads from

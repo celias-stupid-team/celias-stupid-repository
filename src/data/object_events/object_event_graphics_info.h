@@ -1216,7 +1216,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MGDeliveryman = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrainerTowerDude = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RS_GENTLEMAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

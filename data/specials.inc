@@ -457,4 +457,5 @@ gSpecials::
 	def_special ClearBenchWarp
 	def_special TeleportCamera
 	def_special SocialSecurityCheck
+	def_special CreateMail
 gSpecialsEnd::
