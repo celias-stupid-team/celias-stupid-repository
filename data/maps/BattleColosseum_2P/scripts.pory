@@ -50,7 +50,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_SKY_TOWER)) {
 		setobtainable(SPECIES_PIDGEY) // 13
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_PIDGEOTTO)) {
 		setobtainable(SPECIES_PIDGEOTTO) // 14
 	}
 	if(checkmoncaught(SPECIES_PIDGEOT) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_PIDGEOTTO)) {
@@ -92,7 +92,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_10) && checkmoncaught(SPECIES_VOLTORB)) {
 		setobtainable(SPECIES_JIGGLYPUFF_ABOVE) // 27
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_JIGGLYPUFF)) {
 		setobtainable(SPECIES_JIGGLYPUFF) // 28
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
@@ -317,10 +317,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
-	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) { 
+	if(flag(FLAG_CSR_GOT_GOLDEN_ROD) && flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) { 
 		setobtainable(SPECIES_GOLDEEN) // 104
 	}
-	if(checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
+	if(checkmoncaught(SPECIES_GOLDEEN) && checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
 		setobtainable(SPECIES_SEAKING) // 105
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
@@ -462,4 +462,316 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_VENUSAUR) // 151
 	}
 return
+}
+
+script GetOakPCPokedexMessage {
+	//get random obtainable mon
+	switch(var(VAR_RESULT)) {
+		case SPECIES_VICTINI: 
+			 msgbox(PokedexRating_Text_HintVictini)
+		case SPECIES_BULBASAUR: 
+			 msgbox(PokedexRating_Text_HintBulbasaur)
+		case SPECIES_CHARMANDER: 
+			 msgbox(PokedexRating_Text_HintCharmander)
+		case SPECIES_CHARMELEON: 
+			 msgbox(PokedexRating_Text_HintCharmeleon)
+		case SPECIES_CHARIZARD: 
+			 msgbox(PokedexRating_Text_HintCharizard)
+		case SPECIES_SQUIRTLE: 
+			 msgbox(PokedexRating_Text_HintSquirtle)
+		case SPECIES_IVYSAUR: 
+			 msgbox(PokedexRating_Text_HintIvysaur)
+		case SPECIES_CATERPIE: 
+			 msgbox(PokedexRating_Text_HintCaterpie)
+		case SPECIES_METAPOD: 
+			 msgbox(PokedexRating_Text_HintMetapod)
+		case SPECIES_BUTTERFREE: 
+			 msgbox(PokedexRating_Text_HintButterfree)
+		case SPECIES_WEEDLE: 
+			 msgbox(PokedexRating_Text_HintWeedle)
+		case SPECIES_KAKUNA: 
+			 msgbox(PokedexRating_Text_HintKakuna)
+		case SPECIES_COMBEE: 
+			 msgbox(PokedexRating_Text_HintCombee)
+		case SPECIES_PIDGEY: 
+			 msgbox(PokedexRating_Text_HintPidgey)
+		case SPECIES_PIDGEOTTO: 
+			 msgbox(PokedexRating_Text_HintPidgeotto)
+		case SPECIES_PIDGEOT: 
+			 msgbox(PokedexRating_Text_HintPidgeot)
+		case SPECIES_RATTATA: 
+			 msgbox(PokedexRating_Text_HintRattata)
+		case SPECIES_RATICATE: 
+			 msgbox(PokedexRating_Text_HintRaticate)
+		case SPECIES_MANKEY: 
+			 msgbox(PokedexRating_Text_HintMankey)
+		case SPECIES_PRIMEAPE: 
+			 msgbox(PokedexRating_Text_HintPrimeape)
+		case SPECIES_SANDSHREW: 
+			 msgbox(PokedexRating_Text_HintSandshrew)
+		case SPECIES_SANDSLASH: 
+			 msgbox(PokedexRating_Text_HintSandslash)
+		case SPECIES_EKANS: 
+			 msgbox(PokedexRating_Text_HintEkans)
+		case SPECIES_ARBOK: 
+			 msgbox(PokedexRating_Text_HintArbok)
+		case SPECIES_SEVIPER: 
+			 msgbox(PokedexRating_Text_HintSeviper)
+		case SPECIES_PIKABLU: 
+			 msgbox(PokedexRating_Text_HintPikablu)
+		case SPECIES_VOLTORB: 
+			 msgbox(PokedexRating_Text_HintVoltorb)
+		case SPECIES_JIGGLYPUFF_ABOVE: 
+			 msgbox(PokedexRating_Text_HintJiglypuffAbove)
+		case SPECIES_JIGGLYPUFF: 
+			 msgbox(PokedexRating_Text_HintJigglypuff)
+		case SPECIES_NIDORAN_F 
+			: msgbox(PokedexRating_Text_HintNidoranf)
+		case SPECIES_NIDORINA: 
+			 msgbox(PokedexRating_Text_HintNidorina)
+		case SPECIES_NIDOQUEEN: 
+			 msgbox(PokedexRating_Text_HintNidoqueen)
+		case SPECIES_NIDORAN_M: 
+			 msgbox(PokedexRating_Text_HintNidoranm)
+		case SPECIES_NIDORINO: 
+			 msgbox(PokedexRating_Text_HintNidorino)
+		case SPECIES_NIDOKING: 
+			 msgbox(PokedexRating_Text_HintNidoking)
+		case SPECIES_CLEFAIRY: 
+			 msgbox(PokedexRating_Text_HintClefairy)
+		case SPECIES_CLEFABLE: 
+			 msgbox(PokedexRating_Text_HintClefable)
+		case SPECIES_GENGAR: 
+			 msgbox(PokedexRating_Text_HintGengar)
+		case SPECIES_VULPIX: 
+			 msgbox(PokedexRating_Text_HintVulpix)
+		case SPECIES_NINETALES: 
+			 msgbox(PokedexRating_Text_HintNinetales)
+		case SPECIES_DIGLETT: 
+			 msgbox(PokedexRating_Text_HintDiglett)
+		case SPECIES_DUGTRIO: 
+			 msgbox(PokedexRating_Text_HintDigletts)
+		case SPECIES_KRABBY: 
+			 msgbox(PokedexRating_Text_HintKrabby)
+		case SPECIES_TENTACOOL: 
+			 msgbox(PokedexRating_Text_HintTentacool)
+		case SPECIES_TOEDSCOOL: 
+			 msgbox(PokedexRating_Text_HintToedscool)
+		case SPECIES_PARAS: 
+			 msgbox(PokedexRating_Text_HintParas)
+		case SPECIES_PARASECT: 
+			 msgbox(PokedexRating_Text_HintParasect)
+		case SPECIES_AMOONGUSS: 
+			 msgbox(PokedexRating_Text_HintAmoongus)
+		case SPECIES_GYARADOS: 
+			 msgbox(PokedexRating_Text_HintGyarados)
+		case SPECIES_MAGIKARP: 
+			 msgbox(PokedexRating_Text_HintMagikarp)
+		case SPECIES_CUBONE: 
+			 msgbox(PokedexRating_Text_HintCubone)
+		case SPECIES_MAROWAK: 
+			 msgbox(PokedexRating_Text_HintMarowak)
+		case SPECIES_POLIWAG: 
+			 msgbox(PokedexRating_Text_HintPoliwag)
+		case SPECIES_TENTAQUIL: 
+			 msgbox(PokedexRating_Text_HintTentaquil)
+		case SPECIES_PSYDUCK: 
+			 msgbox(PokedexRating_Text_HintPsyduck)
+		case SPECIES_GOLDUCK: 
+			 msgbox(PokedexRating_Text_HintGolduck)
+		case SPECIES_ABRA: 
+			 msgbox(PokedexRating_Text_HintAbra)
+		case SPECIES_MISSINGNO: 
+			 msgbox(PokedexRating_Text_HintMissingno)
+		case SPECIES_ALAKAZAM: 
+			 msgbox(PokedexRating_Text_HintAlakazam)
+		case SPECIES_KANGASKHAN: 
+			 msgbox(PokedexRating_Text_HintKangaskhan)
+		case SPECIES_UNOWN_LOSS: 
+			 msgbox(PokedexRating_Text_HintUnown)
+		case SPECIES_KENYA: 
+			 msgbox(PokedexRating_Text_HintKenya)
+		case SPECIES_DODUO: 
+			 msgbox(PokedexRating_Text_HintDoduo)
+		case SPECIES_HITMONCHAN_SHIT: 
+			 msgbox(PokedexRating_Text_HintHitmonchan)
+		case SPECIES_PORYGON: 
+			 msgbox(PokedexRating_Text_HintPorygon)
+		case SPECIES_PORYGON_Z: 
+			 msgbox(PokedexRating_Text_HintPorygonZ)
+		case SPECIES_CLOYSTER: 
+			 msgbox(PokedexRating_Text_HintCloyster)
+		case SPECIES_ONIX: 
+			 msgbox(PokedexRating_Text_HintOnix)
+		case SPECIES_PLUG_OINK: 
+			 msgbox(PokedexRating_Text_HintPlugOink)
+		case SPECIES_BELLSPROUT: 
+			 msgbox(PokedexRating_Text_HintBellsprout)
+		case SPECIES_CHERUBI: 
+			 msgbox(PokedexRating_Text_HintCherubi)
+		case SPECIES_ODDISH: 
+			 msgbox(PokedexRating_Text_HintOddish)
+		case SPECIES_ZUBAT: 
+			 msgbox(PokedexRating_Text_HintZubat)
+		case SPECIES_GOLBAT: 
+			 msgbox(PokedexRating_Text_HintGolbat)
+		case SPECIES_HORSEA: 
+			 msgbox(PokedexRating_Text_HintHorsea)
+		case SPECIES_DRAGONITE: 
+			 msgbox(PokedexRating_Text_HintDragonite)
+		case SPECIES_YOSHI: 
+			 msgbox(PokedexRating_Text_HintYoshi)
+		case SPECIES_REMORAID: 
+			 msgbox(PokedexRating_Text_HintGun)
+		case SPECIES_HAUNTER: 
+			 msgbox(PokedexRating_Text_HintHaunter)
+		case SPECIES_MAGNEMITE: 
+			 msgbox(PokedexRating_Text_HintMagnemite)
+		case SPECIES_MAGNALONE: 
+			 msgbox(PokedexRating_Text_HintMagnalone)
+		case SPECIES_ALCREMIE: 
+			 msgbox(PokedexRating_Text_HintAlcreamie)
+		case SPECIES_DACHSBUN: 
+			 msgbox(PokedexRating_Text_HintDachsbun)
+		case SPECIES_SLOWPOKE: 
+			 msgbox(PokedexRating_Text_HintSlowpoke)
+		case SPECIES_SHELLDER: 
+			 msgbox(PokedexRating_Text_HintShellder)
+		case SPECIES_SLOWBRO: 
+			 msgbox(PokedexRating_Text_HintSlowbro)
+		case SPECIES_SEEL: 
+			 msgbox(PokedexRating_Text_HintSeal)
+		case SPECIES_EEVEE: 
+			 msgbox(PokedexRating_Text_HintEevee)
+		case SPECIES_LUMINEON: 
+			 msgbox(PokedexRating_Text_HintLumineon)
+		case SPECIES_SYLVEON: 
+			 msgbox(PokedexRating_Text_HintSylveon)
+		case SPECIES_LATIAS: 
+			 msgbox(PokedexRating_Text_HintLatias)
+		case SPECIES_EXEGGCUTE: 
+			 msgbox(PokedexRating_Text_HintExeggcute)
+		case SPECIES_SPEAROW: 
+			 msgbox(PokedexRating_Text_HintSpearow)
+		case SPECIES_EXEGGUTOR: 
+			 msgbox(PokedexRating_Text_HintExeggutor)
+		case SPECIES_FARFETCHD: 
+			 msgbox(PokedexRating_Text_HintFarfetchd)
+		case SPECIES_GOLURK: 
+			 msgbox(PokedexRating_Text_HintGolurk)
+		case SPECIES_BIDOOF: 
+			 msgbox(PokedexRating_Text_HintBidoof)
+		case SPECIES_GRIMER: 
+			 msgbox(PokedexRating_Text_HintGrimer)
+		case SPECIES_MUK: 
+			 msgbox(PokedexRating_Text_HintMuk)
+		case SPECIES_GIMMIGHOUL: 
+			 msgbox(PokedexRating_Text_HintGimmighoul)
+		case SPECIES_GHOLDENGO: 
+			 msgbox(PokedexRating_Text_HintGholdengo)
+		case SPECIES_AMPHAROS_MEGA: 
+			 msgbox(PokedexRating_Text_HintAmpharos_Mega)
+		case SPECIES_AMPHAROS: 
+			 msgbox(PokedexRating_Text_HintAmpharos)
+		case SPECIES_SMEARGLE: 
+			 msgbox(PokedexRating_Text_HintSmeargle)
+		case SPECIES_GOLDEEN: 
+			 msgbox(PokedexRating_Text_HintGoldeen)
+		case SPECIES_SEAKING: 
+			 msgbox(PokedexRating_Text_HintSeaking)
+		case SPECIES_MACHOKE: 
+			 msgbox(PokedexRating_Text_HintMachoke)
+		case SPECIES_MACHAMP: 
+			 msgbox(PokedexRating_Text_HintMachamp)
+		case SPECIES_GEODUDE: 
+			 msgbox(PokedexRating_Text_HintGeodude)
+		case SPECIES_GRAVELER: 
+			 msgbox(PokedexRating_Text_HintGraveler)
+		case SPECIES_GOLEM: 
+			 msgbox(PokedexRating_Text_HintGolem)
+		case SPECIES_STARMIE: 
+			 msgbox(PokedexRating_Text_HintStarmie)
+		case SPECIES_RAICHU: 
+			 msgbox(PokedexRating_Text_HintRaichu)
+		case SPECIES_MEOWTH: 
+			 msgbox(PokedexRating_Text_HintMeowth)
+		case SPECIES_TANGELA: 
+			 msgbox(PokedexRating_Text_HintTangela)
+		case SPECIES_TRUBBISH_HAIRCUT: 
+			 msgbox(PokedexRating_Text_HintTrubbish_Trash)
+		case SPECIES_VENONAT: 
+			 msgbox(PokedexRating_Text_HintVenonat)
+		case SPECIES_HITMONCHIN: 
+			 msgbox(PokedexRating_Text_HintHitmonchin)
+		case SPECIES_RHYDON: 
+			 msgbox(PokedexRating_Text_HintRhydon)
+		case SPECIES_PERSIAN: 
+			 msgbox(PokedexRating_Text_HintPersian)
+		case SPECIES_CHANSEY: 
+			 msgbox(PokedexRating_Text_HintChansey)
+		case SPECIES_MR_MIME: 
+			 msgbox(PokedexRating_Text_HintMrMime)
+		case SPECIES_SCYTHER: 
+			 msgbox(PokedexRating_Text_HintScyther)
+		case SPECIES_JYNX: 
+			 msgbox(PokedexRating_Text_HintJynx)
+		case SPECIES_PINSIR: 
+			 msgbox(PokedexRating_Text_HintPinsir)
+		case SPECIES_TAUROS: 
+			 msgbox(PokedexRating_Text_HintTauros)
+		case SPECIES_OMANYTE: 
+			 msgbox(PokedexRating_Text_HintOmanyte)
+		case SPECIES_TYRANASTAR: 
+			 msgbox(PokedexRating_Text_HintTyranastar)
+		case SPECIES_YANMEGA: 
+			 msgbox(PokedexRating_Text_HintYanmega)
+		case SPECIES_LUVDISC: 
+			 msgbox(PokedexRating_Text_HintLuvdisc)
+		case SPECIES_ALOMOMOLA: 
+			 msgbox(PokedexRating_Text_HintAlomomola)
+		case SPECIES_DITTO: 
+			 msgbox(PokedexRating_Text_HintDitto)
+		case SPECIES_ORTHWORM: 
+			 msgbox(PokedexRating_Text_HintOrthworm)
+		case SPECIES_KABUTOPS: 
+			 msgbox(PokedexRating_Text_HintKabutops)
+		case SPECIES_GENESECT: 
+			 msgbox(PokedexRating_Text_HintGenesect)
+		case SPECIES_JIRACHI: 
+			 msgbox(PokedexRating_Text_HintJirachi)
+		case SPECIES_ARTICUNO: 
+			 msgbox(PokedexRating_Text_HintArticuno)
+		case SPECIES_VAPOREON: 
+			 msgbox(PokedexRating_Text_HintVaporeon)
+		case SPECIES_ZAPDOS: 
+			 msgbox(PokedexRating_Text_HintZapdos)
+		case SPECIES_JOLTEON: 
+			 msgbox(PokedexRating_Text_HintJolteon)
+		case SPECIES_MOLTRES: 
+			 msgbox(PokedexRating_Text_HintMoltres)
+		case SPECIES_FLAREON: 
+			 msgbox(PokedexRating_Text_HintFlareon)
+		case SPECIES_PHIONE: 
+			 msgbox(PokedexRating_Text_HintPhione)
+		case SPECIES_ETERNATUS: 
+			 msgbox(PokedexRating_Text_HintEternatus)
+		case SPECIES_ZYGARDE: 
+			 msgbox(PokedexRating_Text_HintZygarde)
+		case SPECIES_MELMETAL: 
+			 msgbox(PokedexRating_Text_HintMelmanure)
+		case SPECIES_ARCANINE: 
+			 msgbox(PokedexRating_Text_HintArcanine)
+		case SPECIES_POKEMON_GUN: 
+			 msgbox(PokedexRating_Text_HintPokemonGun)
+		case SPECIES_MEWTWO: 
+			 msgbox(PokedexRating_Text_HintMewtwo)
+		case SPECIES_VENUSAUR: 
+			 msgbox(PokedexRating_Text_HintVenusaur)
+		case SPECIES_CASTFORM: 
+			msgbox(PokedexRating_Text_HintCastform)
+		default:
+			msgbox("It looks like you're all caught up!\nNicely done!")
+	}
+
+	return
 }

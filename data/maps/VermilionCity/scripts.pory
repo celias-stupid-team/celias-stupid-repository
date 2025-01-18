@@ -284,23 +284,24 @@ script VermillionCity_Cop {
 }
 
 
-const VermillionCelia = 7
+const VermillionPsyduck = 7 //Now it's a psyduck
 script VermillionCity_CeliaAfterGym {
 	lock
 	faceplayer
 	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)) {
-		msgbox("Hi, there!\nI'm CELIA, the creator.\pI hope you've been having fun\nso far!\pJust wanted to pop in to remind you\nto re-check old areas too!\lThere's more to see with CUT!", MSGBOX_DEFAULT)
+		msgbox("I'm wearing SHADES as PROF. OAK's\nPOKéMON.", MSGBOX_DEFAULT)
 		setflag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)
+	} else {
+		msgbox("I'm wearing SHADES as PROF. OAK's\nPOKéMON.", MSGBOX_DEFAULT)
 	}
-	msgbox("Anyway, take care!\nHave fun!", MSGBOX_DEFAULT)
 	closemessage
 	switch(var(VAR_FACING)) {
 		case DIR_EAST:
-			applymovement(VermillionCelia, CeliaWalksRight)
+			applymovement(VermillionPsyduck, CeliaWalksRight)
 			waitmovement(0)
 			break
 		default:
-			applymovement(VermillionCelia, CeliaWalksLeft)
+			applymovement(VermillionPsyduck, CeliaWalksLeft)
 			waitmovement(0)
 			break
 
@@ -320,7 +321,7 @@ movement CeliaWalksRight {
 
 script Vermillion_ChildMemorial {
 	lock
-	if(var(VAR_VERMILLION_MEMORIAL) < 5) {
+	if(var(VAR_VERMILLION_MEMORIAL) < 4) {
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("Memorial BENCH for the small child\nrepeatedly punched on this shore.\pMay he forever live in our hearts.\n", MSGBOX_DEFAULT)
 		closemessage
@@ -333,7 +334,7 @@ script Vermillion_ChildMemorial {
 
 			addvar(VAR_VERMILLION_MEMORIAL, 1)
 
-			if(var(VAR_VERMILLION_MEMORIAL) >= 5) { //Break the sign
+			if(var(VAR_VERMILLION_MEMORIAL) >= 4) { //Break the sign
 				playse(SE_SUPER_EFFECTIVE)
 				setmetatile(40, 17, METATILE_General_Plain_Mowed, FALSE)
 				special(DrawWholeMapView)

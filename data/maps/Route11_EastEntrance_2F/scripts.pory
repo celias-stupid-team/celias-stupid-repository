@@ -85,3 +85,8 @@ Route11_EastEntrance_2F_EventScript_GetAideRequestInfo::
 	bufferitemname STR_VAR_2, ITEM_ITEMFINDER
 	return
 `
+
+script Route11_LawnmowerGirl {
+	msgbox("The KANTO Lawn Maintenance service\nhas been going above and beyond!\pHonestly, after seeing their recent\nwork I'm at a loss for words.", MSGBOX_NPC)
+	end
+}

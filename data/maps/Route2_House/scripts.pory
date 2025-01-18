@@ -8,6 +8,7 @@ Route2_House_EventScript_Scientist::
 	setflag FLAG_CSR_HINT_ABRA_TRADE
 	call SetPlayerPokedexValues
 	msgbox Route2_House_Text_FaintedMonsCanUseFieldMoves, MSGBOX_DEFAULT
+	release
 	end
 
 Route2_House_EventScript_Reyley::

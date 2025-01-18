@@ -7575,6 +7575,7 @@ extern const u32 gTrainerFrontPic_Imakuni[];
 extern const u32 gTrainerFrontPic_TeamRocket[];
 extern const u32 gTrainerFrontPic_Petrel[];
 extern const u32 gTrainerFrontPic_Imposter[];
+extern const u32 gTrainerFrontPic_RedNormal[];
 
 
 
@@ -7735,6 +7736,7 @@ extern const u32 gTrainerPalette_Imakuni[];
 extern const u32 gTrainerPalette_TeamRocket[];
 extern const u32 gTrainerPalette_Petrel[];
 extern const u32 gTrainerPalette_Imposter[];
+extern const u32 gTrainerPalette_RedNormal[];
 
 // CSR outfits
 extern const u32 gBackPicPalette_Red_L[];

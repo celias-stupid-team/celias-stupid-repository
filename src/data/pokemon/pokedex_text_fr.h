@@ -315,15 +315,14 @@ const u8 gPersianPokedexText[] = _(
 const u8 gPersianPokedexTextUnused[] = _("");
 
 const u8 gPsyduckPokedexText[] = _( //The Yellow One
-	"Wait, if it's psyDUCK, why isn't\n"
-	"it WATER-Type?");
+	"Performing escapades as PROF. OAK's\n"
+	"POKéMON.");
 
 const u8 gPsyduckPokedexTextUnused[] = _("");
 
 const u8 gGolduckPokedexText[] = _( //The Blue One
-	"You better believe he's coming back\n"
-	"in Generation XII.\n"
-	"(this joke was written before SV oops)");
+	"Wait, if it's psyDUCK, why isn't\n"
+	"it WATER-Type?");
 
 const u8 gGolduckPokedexTextUnused[] = _("");
 
@@ -2682,3 +2681,6 @@ const u8 gYoshiPokedexText[] = _(
     "Yoshi!\n"
 	"It that really you?");
 
+const u8 gPorygonZPokedexText[] = _(
+	"Oh no!\n"
+	"Someone installed a virus on it!");

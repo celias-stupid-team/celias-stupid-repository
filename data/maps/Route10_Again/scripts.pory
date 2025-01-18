@@ -10,6 +10,7 @@ script CommonScript_EmptyPail {
 		additem(ITEM_EMPTY_PAIL)
 		if(!flag(FLAG_CSR_DUCK_PAIL_EMPTIED)) {
 			msgbox("Oh no!\nThe PSYDUCK PAIL is totally empty!\pLooks like it's got a hole in the\nbottom…", MSGBOX_DEFAULT)
+			setflag(FLAG_CSR_DUCK_PAIL_EMPTIED)
 		} else {
 			msgbox("Your PSYDUCK PAIL is out of water…\n", MSGBOX_DEFAULT)
 		}

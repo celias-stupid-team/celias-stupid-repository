@@ -564,5 +564,6 @@ void InitMultiMonPlaceChange(bool8 moveCursorUp);
 void DestroyBoxMonIconAtPosition(u8 boxPosition);
 void SetBoxMonIconObjMode(u8 cursorPos, u8 objMode);
 void SetPartyMonIconObjMode(u8 cursorPos, u8 objMode);
+void Task_EvolvePorygon(void);
 
 #endif //GUARD_POKEMON_STORAGE_SYSTEM_INTERNAL_H

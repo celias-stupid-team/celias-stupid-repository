@@ -187,7 +187,7 @@
     {
       "type": "trigger",
       "x": 2,
-      "y": 20,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_ROUTE10_LASS",
       "var_value": "0",
@@ -196,7 +196,7 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 21,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_ROUTE10_LASS",
       "var_value": "0",
@@ -417,6 +417,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_TrappedDad"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route10_RouteSign"
     }
   ]
 }

@@ -75,8 +75,8 @@ static const u8 sText_PlayerGotMoney[] = _("{B_PLAYER_NAME} got ¥{B_BUFF1}\nfor
 static const u8 sText_PlayerWhiteout[] = _("{B_PLAYER_NAME} is out of\nusable POKéMON!\p");
 static const u8 sText_PlayerPanicked[] = _("{B_PLAYER_NAME} panicked and lost ¥{B_BUFF1}…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayerWhiteoutAgainstTrainer[] = _("{B_PLAYER_NAME} is out of\nusable POKéMON!\pPlayer lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_PlayerPaidAsPrizeMoney[] = _("{B_PLAYER_NAME} paid ¥{B_BUFF1} as the prize\nmoney…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerPaidAsPrizeMoney[] = _("{B_PLAYER_NAME} paid ¥{B_BUFF1} as the prize\nmoney…\p… … … …\p{B_PLAYER_NAME} fucking died!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} fucking died!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PreventsEscape[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevents\nescape with {B_SCR_ACTIVE_ABILITY}!\p");
 static const u8 sText_CantEscape2[] = _("Can't escape!\p");
 static const u8 sText_AttackerCantEscape[] = _("{B_ATK_NAME_WITH_PREFIX} can't escape!");
@@ -440,6 +440,7 @@ static const u8 sText_TryAttack[] = _("{B_PLAYER_MON1_NAME} tried to attack!\p{P
 static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in the area!");
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
 static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
+static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
 static const u8 sText_None[] = _("TEXT ID ERROR\nNo .stringId maintained!");
 
 static const u8 sText_HP2[] = _("HP");
@@ -930,6 +931,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_GMAX_MOVE - BATTLESTRINGS_TABLE_START]                   = sText_GmaxMove,
     [STRINGID_EXTREME_EVOBOOST - BATTLESTRINGS_TABLE_START]                   = sText_ExtremeEvoboost,
     [STRINGID_VEEVEE_VOLLEY - BATTLESTRINGS_TABLE_START]                   = sText_VeeveeVolley,
+    [STRINGID_FICKLE_BEAM - BATTLESTRINGS_TABLE_START]    = sText_FickleBeam,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1334,6 +1336,7 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_GMAX_MOVE] = STRINGID_GMAX_MOVE,
     [B_MSG_EXTREME_EVOBOOST] = STRINGID_EXTREME_EVOBOOST,
     [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
+    [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     
 };
 

@@ -32,12 +32,12 @@ Route6_Text_KeigoIntro::
     .string "I think I'm doing something wrong.$"
 
 Route6_Text_KeigoDefeat::
-    .string "You're too good!\n"
+    .string "You're too good!$"
 
 Route6_Text_KeigoPostBattle::
     .string "Are my POKéMON WEAK?\n"
     .string "Or, am I just bad?\l"
-    .string "Which do you think?\l"
+    .string "Which do you think?$"
 
 Route6_Text_JeffIntro::
     .string "POKéMON just hasn't been the same\n"

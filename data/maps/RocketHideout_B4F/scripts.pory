@@ -1,7 +1,7 @@
 raw `
 .equ LOCALID_GIOVANNI,    1
 .equ LOCALID_SILPH_SCOPE, 2
-.equ LOCALID_LIFT_KEY,    4
+.equ LOCALID_LIFT_KEY,    3
 
 .equ NUM_DOOR_GRUNTS_DEFEATED, VAR_TEMP_1
 
@@ -72,7 +72,7 @@ RocketHideout_B4F_EventScript_LiftKey::
 	end
 
 RocketHideout_B4F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_DMCA_PETREL_1, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt2
+	trainerbattle_single TRAINER_DMCA_PETREL_1, RocketHideout_B4F_Text_Grunt2Intro, RocketHideout_B4F_Text_Grunt2Defeat
 	famechecker FAMECHECKER_CELADON, 4
 	msgbox RocketHideout_B4F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -107,21 +107,9 @@ RocketHideout_B4F_EventScript_DrawMapForBarrierRemoval::
 	return
 
 RocketHideout_B4F_EventScript_SetBarrier::
-	setmetatile 17, 12, METATILE_SilphCo_HideoutBarrier_TopLeft_Floor, 1
-	setmetatile 18, 12, METATILE_SilphCo_HideoutBarrier_TopRight_Floor, 1
-	setmetatile 17, 13, METATILE_SilphCo_HideoutBarrier_BottomLeft, 1
-	setmetatile 18, 13, METATILE_SilphCo_HideoutBarrier_BottomRight, 1
-	setmetatile 17, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
 	return
 
 RocketHideout_B4F_EventScript_RemoveBarrier::
-	setmetatile 17, 12, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 12, METATILE_SilphCo_HideoutFloor, 0
-	setmetatile 17, 13, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 13, METATILE_SilphCo_HideoutFloor, 0
-	setmetatile 17, 14, METATILE_SilphCo_HideoutFloor_ShadeFull, 0
-	setmetatile 18, 14, METATILE_SilphCo_HideoutFloor, 0
 	return
 `
 script DMCAHideout_Petrel {

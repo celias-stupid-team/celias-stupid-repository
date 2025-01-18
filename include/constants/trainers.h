@@ -171,6 +171,7 @@
 #define TRAINER_PIC_TEAM_ROCKET               150
 #define TRAINER_PIC_PETREL               151
 #define TRAINER_PIC_IMPOSTER               152
+#define TRAINER_PIC_RED_NORMAL               153
 
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -301,6 +302,7 @@
 #define TRAINER_CLASS_TEAM             112
 #define TRAINER_CLASS_CHAMPION_2             113
 #define TRAINER_CLASS_IMPOSTER             114
+#define TRAINER_CLASS_MASTER             115
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

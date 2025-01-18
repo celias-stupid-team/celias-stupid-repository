@@ -745,8 +745,8 @@ const u32 gItemIconPalette_FocusSash[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_OddCandy[] = INCBIN_U32("graphics/items/icons/odd_candy.4bpp.lz");
 const u32 gItemIconPalette_OddCandy[] = INCBIN_U32("graphics/items/icon_palettes/odd_candy.gbapal.lz");
 
-const u32 gItemIcon_WaddedNote[] = INCBIN_U32("graphics/items/icons/focus_sash.4bpp.lz");
-const u32 gItemIconPalette_WaddedNote[] = INCBIN_U32("graphics/items/icon_palettes/focus_sash.gbapal.lz");
+const u32 gItemIcon_WaddedNote[] = INCBIN_U32("graphics/items/icons/wadded_note.4bpp.lz");
+const u32 gItemIconPalette_WaddedNote[] = INCBIN_U32("graphics/items/icon_palettes/wadded_note.gbapal.lz");
 
 const u32 gItemIcon_RunningShoes[] = INCBIN_U32("graphics/items/icons/running_shoes.4bpp.lz");
 const u32 gItemIconPalette_RunningShoes[] = INCBIN_U32("graphics/items/icon_palettes/running_shoes.gbapal.lz");

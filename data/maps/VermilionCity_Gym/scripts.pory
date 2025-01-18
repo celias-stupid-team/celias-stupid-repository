@@ -267,28 +267,38 @@ const CELIA = 8
 const SURGE = 1
 script VermillionGym_EmptyCan { //Add logic for if you interact in the middle of the trash celia quest
 	lock
-	if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
-		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-	} else {
-		if(var(VAR_VERMILLION_GYM_TRASH_COUNTER) < 3) {
+	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 0) {
+		if(flag(FLAG_VERMILLION_GYM_DOOR_OPENED)) {
 			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-			addvar(VAR_VERMILLION_GYM_TRASH_COUNTER, 1)
 		} else {
-			msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
-			closemessage
-			fadescreen(FADE_TO_BLACK)
-			msgbox("…Suddenly there was a power\noutage!", MSGBOX_DEFAULT)
-			call(VermilionCity_Gym_EventScript_SetBeamsOff)
-			special(DrawWholeMapView)
-			fadescreen(FADE_FROM_BLACK)
-			msgbox("How convenient!\nThe electric lock opened!", MSGBOX_DEFAULT)
-			playse(SE_UNLOCK)
-			waitse
-			setflag(FLAG_VERMILLION_GYM_DOOR_OPENED)
-			release
-			end
+			if(var(VAR_VERMILLION_GYM_TRASH_COUNTER) < 3) {
+				msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+				addvar(VAR_VERMILLION_GYM_TRASH_COUNTER, 1)
+			} else {
+				msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+				closemessage
+				fadescreen(FADE_TO_BLACK)
+				msgbox("…Suddenly there was a power\noutage!", MSGBOX_DEFAULT)
+				call(VermilionCity_Gym_EventScript_SetBeamsOff)
+				special(DrawWholeMapView)
+				fadescreen(FADE_FROM_BLACK)
+				msgbox("How convenient!\nThe electric lock opened!", MSGBOX_DEFAULT)
+				playse(SE_UNLOCK)
+				waitse
+				setflag(FLAG_VERMILLION_GYM_DOOR_OPENED)
+				
+			}
 		}
+	} else  {
+		msgbox("Nope!\nThere's only trash here.", MSGBOX_DEFAULT)
+		setvar(VAR_VERMILLION_GYM_BONUS_TRASH, 0)
+		msgbox("Hey!\nThe electric locks were reset!", MSGBOX_DEFAULT)
+		
+	
+
 	}
+	release
+	end
 }
 
 script VermillionGym_BonusCan1 {
@@ -363,6 +373,7 @@ script VermillionGym_BonusCan5 {
 	lock
 	if(var(VAR_VERMILLION_GYM_BONUS_TRASH) == 4) {
 		msgbox("That's it!\nYou found the fifth switch!\pI wonder what'll happen now...\n", MSGBOX_DEFAULT)
+		closemessage
 		playse(SE_PIN)
 		waitse
 		fadeoutbgm(1)
@@ -384,13 +395,14 @@ script VermillionGym_BonusCan5 {
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgreceiveditem("{PLAYER} recieved the\nTRASH MEDAL!", ITEM_TRASH_MEDAL, 1) //make into Trash Medal
 		textcolor(NPC_TEXT_COLOR_FEMALE)
-		msgbox("By the way…\pSince you like dcigging around so\nmuch, here's somewhere else to try.", MSGBOX_DEFAULT)
+		msgbox("By the way…\pSince you like digging around so\nmuch, here's somewhere else to try.", MSGBOX_DEFAULT)
 		//Call Secrets!
 		setvar(VAR_CSR_CURRENT_CELIA_SECRET, 3)
 		call(CeliaSecrets_CeliaTellsYouNextHint)
+		closemessage
 		delay(30)
 		applymovement(CELIA, CeliaSecretLeave)
-		waitmovement(0)
+		waitmovement(CELIA)
 		removeobject(CELIA)
 		playse(SE_EXIT)
 		delay(30)
@@ -435,6 +447,7 @@ movement CeliaSecretApproach {
 	walk_slow_down
 	walk_slow_down
 	face_down
+	step_end
 }
 
 script CeliaSecretLeave {
@@ -445,7 +458,7 @@ script CeliaSecretLeave {
 	walk_slow_down
 	face_down
 	delay_16
-	set_invisible
+	step_end
 }
 
 script VermillionGym_SurgeCan {
@@ -574,7 +587,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 	//TODO give TM39 to player
 	giveitem_msg("{PLAYER} received TM34\nfrom LT. SURGE.", ITEM_TM34)
 	setflag(FLAG_GOT_TM34_FROM_SURGE)
-	msgbox("TM39 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
+	msgbox("TM34 contains, uh… BIDE.\pEr, it is a move that…\ndefinitely exists.", MSGBOX_DEFAULT)
 	release
 	end
 
@@ -585,6 +598,7 @@ movement CeliaWalksUp {
 	set_visible
 	walk_up * 5
 	face_up
+	step_end
 }
 
 movement PlayerLooksCelia {
@@ -594,23 +608,28 @@ movement PlayerLooksCelia {
 movement PlayerStepsAside {
 	walk_left
 	face_right
+	step_end
 }
 
 movement PlayerMovesBack {
 	walk_right
 	face_up
+	step_end
 }
 
 movement CeliaStepsUp {
 	walk_up
 	face_up
+	step_end
 }
 
 movement CeliaEmotes {
 	walk_in_place_up * 2
 	face_up
+	step_end
 }
 
 movement CeliaLeavesSurge {
 	walk_down * 7
+	step_end
 }

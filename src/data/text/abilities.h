@@ -81,6 +81,7 @@ static const u8 sFreeShinyDescription[] = _("Congrats! Good job catching me!");
 static const u8 sAsOneDoduoDescription[] = _("EARLY BIRD and SERENE GRACE.");
 static const u8 sLeafRideDescription[] = _("This POKéMON's RETREAT cost is 0.");
 static const u8 sBeastBoostDescription[] = _("I thought you said WEAST BOOST.");
+static const u8 sNormalizeDescription[] = _("User's moves become NORMAL.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
@@ -167,6 +168,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_AS_ONE_DODUO] = sAsOneDoduoDescription,
     [ABILITY_LEAF_RIDE] = sLeafRideDescription,
     [ABILITY_BEAST_BOOST] = sBeastBoostDescription,
+    [ABILITY_NORMALIZE] = sNormalizeDescription,
 
 };
 
@@ -256,4 +258,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_AS_ONE_DODUO] = _("AS ONE"),
     [ABILITY_LEAF_RIDE] = _("LEAF RIDE"),
     [ABILITY_BEAST_BOOST] = _("BEAST BOOST"),
+    [ABILITY_NORMALIZE] = _("NORMALIZE"),
 };

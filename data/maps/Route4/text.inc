@@ -1,19 +1,20 @@
 Route4_Text_TrippedOverGeodude::
     .string "That cave is scary!\p"
     .string "You can't run from the wild\n"
-    .string "POKéMON there!\p"
+    .string "POKéMON there!$"
 
 Route4_Text_CrissyIntro::
-    .string "I came to MT. MOON in search of\n"
-    .string "mushroom POKéMON.$"
+	.string "Look at this cool POKéMON I found\n"
+	.string "in that cave over there!$"
 
 Route4_Text_CrissyDefeat::
-    .string "After all I did to catch them!$"
+    .string "After all I did to catch it!$"
 
 Route4_Text_CrissyPostBattle::
-    .string "There might not be any more\n"
-    .string "mushrooms here.\p"
-    .string "I think I got them all.$"
+	.string "In order to get through that\n"
+	.string "cave, I had to climb a waterfall!\p"
+	.string "Maybe it would've been easier if\n"
+	.string "I had a POKéMON to help…$"
 
 Route4_Text_MtMoonEntrance::
     .string "MT. MOON\n"
@@ -78,4 +79,4 @@ Route4_Text_PeopleLikeAndRespectBrock::
 	.string "know you can't win, just RUN away.\l"
 	.string "It'll even work in TRAINER battles!\p"
 	.string "Remember: It isn't cowardice if\n"
-	.string "you're changing your approach!$"
+	.string "you're trying something new!$"

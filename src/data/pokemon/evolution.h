@@ -89,8 +89,10 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
 
     [SPECIES_VOLTORB]    = {{EVO_LEVEL, 20, SPECIES_JIGGLYPUFF_ABOVE}},
-    [SPECIES_EXEGGCUTE]  = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
-                            {EVO_LEVEL, 20, SPECIES_SPEAROW}},
+
+    [SPECIES_EXEGGCUTE]  = {{EVO_STONE_EXEGGUTOR, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
+                            {EVO_LEVEL_SHEDINJA, 20, SPECIES_EXEGGCUTE},
+                            EVO_LEVEL, 1, SPECIES_SPEAROW},
 
     [SPECIES_CUBONE]     = {{EVO_LEVEL, 20, SPECIES_MAROWAK}},
     
@@ -103,9 +105,9 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     
     [SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!
     [SPECIES_GYARADOS]   = {{EVO_LEVEL, 15, SPECIES_MAGIKARP}},
-    [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
-                            {EVO_ITEM, ITEM_FIRE_STONE, SPECIES_EEVEE},
+    [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
+                            {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
+                            {EVO_ITEM, ITEM_SUN_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_SYLVEON},
                             //{EVO_ITEM, ITEM_SHINY_STONE, SPECIES_LUMINEON},
                             {EVO_ITEM, ITEM_SOUL_DEW, SPECIES_LATIAS}},

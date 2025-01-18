@@ -5206,7 +5206,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
     case EVO_MODE_ITEM_CHECK:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
-            if (gEvolutionTable[species][i].method == EVO_ITEM
+            if ((gEvolutionTable[species][i].method == EVO_ITEM || gEvolutionTable[species][i].method == EVO_STONE_EXEGGUTOR)
              && gEvolutionTable[species][i].param == evolutionItem)
             {
                 targetSpecies = gEvolutionTable[species][i].targetSpecies;
@@ -5579,6 +5579,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
                 return;
             if (!(gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER
                 || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR
+                || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_MASTER
                 || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))
                 return;
         }
@@ -5954,12 +5955,14 @@ static u16 GetBattleBGM(void)
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
+        case TRAINER_CLASS_MASTER:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_BOSS:
             return MUS_CSR_DMCA_BATTLE;
 
             
         case TRAINER_CLASS_DMCA:
+        case TRAINER_CLASS_BUTTERFINGERS:
             return MUS_CSR_DMCA_BATTLE;
 
         case TRAINER_CLASS_DMCA_ADMIN:
@@ -6620,9 +6623,6 @@ u32 GetCurrentLevelCap(u16 species)
         SPECIES_ZAPDOS, // For the Jolteon puzzle
         SPECIES_JOLTEON, // Jolteon skips to level 54 upon evolving, leading players to Krabby
         SPECIES_KRABBY,
-
-        SPECIES_RATTATA_SHINY, // For Larry's zapdos
-        SPECIES_RATTATA, 
     };
 
     u32 i;

@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B4F_EventScript_SilphScope",
+      "script": "DMCAHideout_SuperScope",
       "flag": "FLAG_CSR_SUPER_SCOPE"
     },
     {
@@ -158,11 +158,11 @@
       "dest_warp_id": "14"
     },
     {
-      "x": 21,
-      "y": 23,
+      "x": 20,
+      "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CELADON_CITY",
+      "dest_warp_id": "14"
     }
   ],
   "coord_events": [

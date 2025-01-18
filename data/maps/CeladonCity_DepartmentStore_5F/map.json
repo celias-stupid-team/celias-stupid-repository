@@ -2,7 +2,7 @@
   "id": "MAP_CELADON_CITY_DEPARTMENT_STORE_5F",
   "name": "CeladonCity_DepartmentStore_5F",
   "layout": "LAYOUT_CELADON_CITY_DEPARTMENT_STORE_5F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_CSR_MART",
   "region_map_section": "MAPSEC_CELADON_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -84,14 +84,14 @@
       "x": 9,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_4F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 3,
       "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF",
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
       "dest_warp_id": "0"
     }
   ],

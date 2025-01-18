@@ -165,8 +165,10 @@ static void InitCSRData(void)
     FlagSet(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT);
     FlagSet(FLAG_PT_NPC_LOOKLOOK);
     FlagSet(FLAG_CSR_CELIA_BONUS);
+    FlagSet(FLAG_CELIA_SECRETS_NEXT_UPDATE);
     FlagSet(FLAG_CSR_HIDE_GS_BALL);
     FlagSet(FLAG_SYS_B_DASH);
+    FlagSet(FLAG_CSR_CELIA_DEV_CREW);
     
 }
 

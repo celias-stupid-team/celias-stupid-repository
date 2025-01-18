@@ -82,11 +82,36 @@ script CeladonCity_CeliaOffice_Staircase {
 	playse(SE_PIN)
 	applymovement(CELIABOSS, CeliaNotices)
 	waitmovement(0)
-	delay(30)
-	msgbox("That's the basement.\pIt's where we keep everyone else\nwho's helped us out!", MSGBOX_DEFAULT)
-	closemessage
-	delay(30)
-	msgbox("Trust me, it's best if you don't\ngo down there.", MSGBOX_DEFAULT)
+	waitse
+	delay(10)
+	switch(var(VAR_TEMP_2)) {
+		case 0: 
+			msgbox("That's the basement.\pIt's where we keep everyone else\nwho's helped us out!", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			msgbox("Trust me, it's best if you don't\ngo down there.", MSGBOX_DEFAULT)
+		case 1:
+			msgbox("That's the basement.\nTrust me, you don't wanna go down.", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			msgbox("...But you're gonna try anyway,\naren't you?", MSGBOX_DEFAULT)
+		case 2:
+			msgbox("Believe me, going into the basement\nis a mistake.\pThere's a reason I keep everyone\ndown there!", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			msgbox("...\pStep away now, please.\n", MSGBOX_DEFAULT)
+		case 3:
+			msgbox("Uh, wow!\nYou really wanna go down there.\pAll right, if you insist!\pJust remember to savestate\nfrequently!", MSGBOX_DEFAULT)
+			setvar(VAR_TEMP_0, 1)
+			addvar(VAR_TEMP_2, 1)
+			setflag(FLAG_ROUTE1_OBJECTS_RETREAT)
+			clearflag(FLAG_CSR_CELIA_DEV_CREW)
+			release
+			end
+
+		
+	}
+	addvar(VAR_TEMP_2, 1)
 	closemessage
 	delay(15)
 	applymovement(OBJ_EVENT_ID_PLAYER, PlayerLeaves)

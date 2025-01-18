@@ -1,7 +1,9 @@
 CeladonCity_Text_GotMyKoffingInCinnabar::
-    .string "I got my KOFFING in CINNABAR.\p"
-    .string "It's usually nice, but it breathes\n"
-    .string "poison when it's angry.$"
+	.string "La la la!\n"
+	.string "Round and round I go!\p"
+	.string "Running around the city is so fun!\p"
+	.string "Every time I open a door, I have no\n"
+	.string "clue where I'll wind up!$"
 
 CeladonCity_Text_GymIsGreatFullOfWomen::
 	.string "There was a creepy old man out here\n"

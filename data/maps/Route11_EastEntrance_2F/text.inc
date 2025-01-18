@@ -33,11 +33,12 @@ Route11_EastEntrance_2F_Text_ExplainItemfinder::
     .string "search the suspect area by hand.$"
 
 Route11_EastEntrance_2F_Text_BigMonAsleepOnRoad::
-    .string "Let's see what the binoculars have\n"
-    .string "to show…\p"
-    .string "I'm sure that after it's taken care\p"
-    .string "of, people will come back to this\l"
-    .string "dialogue box to see if it's changed!$"
+	.string "Let's see what the binoculars have\n"
+	.string "to show…\p"
+	.string "A big POKéMON is asleep on a road!\p"
+	.string "I'm sure that after it's taken care\n"
+	.string "of, people will come back to this\l"
+	.string "dialogue box to see if it's changed!$"
 
 Route11_EastEntrance_2F_Text_WhatABreathtakingView::
     .string "Let's see what the binoculars have\n"

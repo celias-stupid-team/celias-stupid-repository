@@ -263,6 +263,28 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route25_Dad_Bench",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": -5,
+      "y": 4,
+      "target_local_id": 10,
+      "target_map": "MAP_ROUTE24"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 50,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecrets_Bonus_SecretGarden",
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [

@@ -15,9 +15,16 @@ Text_MonsHealedShouldBuyPotions::
 	.string "I wanna see your POKéMON in pain!$"
 
 Text_MonsHealed::
-	.string "Your POKéMON have been healed\n"
-	.string "to perfect health.\p"
-	.string "We hope you excel!$"
+	.string "All right, all right.\n"
+	.string "There you go.\l"
+	.string "Your POKéMON are all healed.\p"
+	.string "Sheesh, you didn't need to ask\n"
+	.string "so many times.\l"
+	.string "I would've done it eventually...\p"
+	.string "This POTION shortage is really\n"
+	.string "making our job much harder...\p"
+	.string "Anyway, good luck!\n"
+	.string "I wanna see your POKéMON in pain!$"
 
 Text_HadQuiteAnExperienceTakeRest::
 	.string "DAD: {PLAYER}!\n"

@@ -9,15 +9,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_OldMan::
 	msgbox CeladonCity_GameCorner_PrizeRoom_Text_RakedItInToday, MSGBOX_NPC
 	end
 
-CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons::
-	lock
-	faceplayer
-	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_PrizeRoom_EventScript_NeedCoinCase
-	goto_if_questlog EventScript_ReleaseEnd
-	showcoinsbox 0, 0
-	msgbox CeladonCity_GameCorner_PrizeRoom_Text_WeExchangeCoinsForPrizes
-	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon
-	end
+
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon::
 	message CeladonCity_GameCorner_PrizeRoom_Text_WhichPrize
@@ -392,4 +384,16 @@ mapscripts CeladonCity_GameCorner_PrizeRoom_MapScripts {
 script CeladonPrizeRoom_DMCA {
 	msgbox("Rats!\nThere's no DRATINI here!\pThe DMCA has been hunting for one.\nThere's rumors of copyright trouble!\pI guess our crew in the SAFARI ZONE\nwill be on their own...", MSGBOX_NPC)
 	end
+}
+
+script CeladonCity_GameCorner_PrizeRoom_EventScript_PrizeClerkMons {
+	lock
+	faceplayer
+	if(!checkitem(ITEM_COIN_CASE)) {
+		goto(CeladonCity_GameCorner_PrizeRoom_EventScript_NeedCoinCase)
+	}
+	goto_if_questlog(EventScript_ReleaseEnd)
+	showcoinsbox(0, 0)
+	msgbox(CeladonCity_GameCorner_PrizeRoom_Text_WeExchangeCoinsForPrizes)
+	goto(CeladonCity_GameCorner_PrizeRoom_EventScript_ChoosePrizeMon)
 }

@@ -470,6 +470,10 @@ const u32 gTrainerFrontPic_Petrel[] = INCBIN_U32("graphics/trainers/front_pics/p
 const u32 gTrainerPalette_Petrel[] = INCBIN_U32("graphics/trainers/palettes/petrel.gbapal.lz");
 const u32 gTrainerFrontPic_Imposter[] = INCBIN_U32("graphics/trainers/front_pics/imposter_oak_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Imposter[] = INCBIN_U32("graphics/trainers/palettes/imposter_oak.gbapal.lz");
+
+const u32 gTrainerFrontPic_RedNormal[] = INCBIN_U32("graphics/trainers/front_pics/red_normal_front_pic.4bpp.lz");
+const u32 gTrainerPalette_RedNormal[] = INCBIN_U32("graphics/trainers/palettes/red_normal.gbapal.lz");
+
 // CSR outfits
 const u32 gBackPicPalette_Red_L[] = INCBIN_U32("graphics/trainers/palettes/red_back_l.gbapal.lz");
 const u32 gBackPicPalette_Red_W[] = INCBIN_U32("graphics/trainers/palettes/red_back_w.gbapal.lz");

@@ -76,3 +76,31 @@ Route16_EventScript_RouteSign::
 	msgbox Route16_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route16_StrandedBiker {
+	msgbox("Aww man…\pRight when I got ready to go for\na ride, this tiny little lake\lspontaneously appeared here.\pTo make things worse, I can't\neven go back through the gate!\p…Huh? Why can't I just turn\naround and go back home?\pBecause I'm not allowed inside\nnormal buildings!\lI don't have a walking sprite!", MSGBOX_NPC)
+	end
+}
+
+script Route16_OakLover {
+	if(flag(FLAG_TEMP_12)) {
+		lock
+		msgbox("Oh, OAK!\nYour branches are so... girthy.", MSGBOX_DEFAULT)
+		release
+	} else
+	{
+		msgbox("No...\pH-How could you?\nSob...", MSGBOX_NPC)
+	}
+}
+
+script Route16_EventScript_Jed {
+	trainerbattle_double(TRAINER_YOUNG_COUPLE_LEA_JED, Route16_Text_JedIntro, Route16_Text_JedDefeat, Route16_Text_JedNotEnoughMons)
+	if(flag(FLAG_TEMP_12)) {
+	msgbox("Woah, there!\nNot cool!\pI didn't ask for that!\n", MSGBOX_AUTOCLOSE)
+	} else {
+		msgbox(Route16_Text_JedPostBattle, MSGBOX_AUTOCLOSE)
+	}
+}
+
+script Route16_Ligma {
+	finditem(ITEM_BIG_PEARL)
+}

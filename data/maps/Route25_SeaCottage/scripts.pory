@@ -318,3 +318,8 @@ script Route25_Trapped_Bill {
 	waitmoncry
 	release
 }
+
+script Route25_NotBill {
+	msgbox("That's not BILL, silly!\n", MSGBOX_SIGN)
+	end
+}

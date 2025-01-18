@@ -15,7 +15,7 @@
 #define MAPSEC_FORTREE_CITY                 0x0B
 #define MAPSEC_LILYCOVE_CITY                0x0C
 #define MAPSEC_MOSSDEEP_CITY                0x0D
-#define MAPSEC_SOOTOPOLIS_CITY              0x0E
+#define MAPSEC_CSR_DUMMY              0x0E
 #define MAPSEC_EVER_GRANDE_CITY             0x0F
 #define MAPSEC_ROUTE_101                    0x10
 #define MAPSEC_ROUTE_102                    0x11
@@ -204,8 +204,9 @@
 #define MAPSEC_MINNESOTA              0xC2
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
-#define MAPSEC_NONE                         0xC5
-#define MAPSEC_COUNT                        0xC6
+#define MAPSEC_SOOTOPOLIS_CITY                 0xC5
+#define MAPSEC_NONE                         0xC6
+#define MAPSEC_COUNT                        0xC7
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

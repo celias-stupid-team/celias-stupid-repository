@@ -29,11 +29,11 @@ CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis::
     .string "Please also take this with you.$"
 
 CeladonCity_Gym_Text_ReceivedTM19FromErika::
-    .string "{PLAYER} received TM19\n"
+    .string "{PLAYER} received TM30\n"
     .string "from ERIKA.$"
 
 CeladonCity_Gym_Text_ExplainTM19::
-    .string "TM19 contains MAGICAL LEAF.\p"
+    .string "TM30 contains MAGICAL LEAF.\p"
     .string "It's a move that I absolutely\l"
     .string "love to use!\p"
     .string "There aren't many POKéMON that\n"

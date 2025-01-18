@@ -611,7 +611,7 @@ const u8 gString_BattleRecords_TotalRecord[] = _("TOTAL RECORD W:{STR_VAR_1} L:{
 const u8 gString_BattleRecords_ColumnHeaders[] = _("WIN{CLEAR_TO 0x30}LOSE{CLEAR_TO 0x60}DRAW");
 const u8 gString_BattleRecords_7Dashes[] = _("-------");
 const u8 gString_BattleRecords_4Dashes[] = _("----");
-const u8 gFameCheckerText_FameCheckerWillBeClosed[] = _("The FAME CHECKER will be closed.");
+const u8 gFameCheckerText_FameCheckerWillBeClosed[] = _("The RUMOR LOG will be closed.");
 const u8 gFameCheckerText_ClearTextbox[] = _("\n                              ");
 const u8 gText_ExitUnused[] = _("やめる");
 const u8 gText_ExitFromBox[] = _("Exit from the BOX.");
@@ -633,8 +633,11 @@ const u8 gText_YoureHoldingAPkmn[] = _("You're holding a POKéMON!");
 const u8 gText_WhichOneWillYouTake[] = _("Which one will you take?");
 const u8 gText_YouCantReleaseAnEgg[] = _("You can't release an EGG.");
 const u8 gText_ContinueBoxOperations[] = _("Continue BOX operations?");
-const u8 gText_PkmnCameBack[] = _("{DYNAMIC 0x00} came back!");
-const u8 gText_WasItWorriedAboutYou[] = _("Was it worried about you?");
+const u8 gText_PkmnCameBack[] = _("Wow, another {DYNAMIC 0x00}!");
+const u8 gText_WasItWorriedAboutYou[] = _("It's just like the old one!");
+
+const u8 gText_PkmnGotVirus[] = _("{DYNAMIC 0x00} got a virus!");
+
 const u8 gText_FourEllipsesExclamation[] = _("‥ ‥ ‥ ‥ ‥!");
 const u8 gText_PleaseRemoveTheMail[] = _("Please remove the MAIL.");
 const u8 gText_GiveToAPkmn[] = _("GIVE to a POKéMON?");

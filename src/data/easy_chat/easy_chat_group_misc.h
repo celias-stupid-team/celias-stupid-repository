@@ -35,10 +35,10 @@ static const u8 sEasyChatWord_Where[] = _("WHERE");
 static const u8 sEasyChatWord_When[] = _("WHEN");
 static const u8 sEasyChatWord_What[] = _("WHAT");
 static const u8 sEasyChatWord_Deep[] = _("DEEP");
-static const u8 sEasyChatWord_Shallow[] = _("SHALLOW");
-static const u8 sEasyChatWord_Why[] = _("WHY");
-static const u8 sEasyChatWord_Confused[] = _("CONFUSED");
-static const u8 sEasyChatWord_Opposite[] = _("OPPOSITE");
+static const u8 sEasyChatWord_Shallow[] = _("        "); //changed
+static const u8 sEasyChatWord_Why[] = _("KANTO CHILD DELIVERY SERVICE"); // changed
+static const u8 sEasyChatWord_Confused[] = _("DELIVERY SERVICE"); //changed
+static const u8 sEasyChatWord_Opposite[] = _("SERVICE"); //changed
 static const u8 sEasyChatWord_Left[] = _("LEFT");
 static const u8 sEasyChatWord_Right[] = _("RIGHT");
 
