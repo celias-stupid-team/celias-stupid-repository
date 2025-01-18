@@ -1546,6 +1546,7 @@ static u8 UpdateSpritePalette(const struct SpritePalette *spritePalette, struct 
     palIndex = LoadSpritePalette(spritePalette);
     sprite->oam.paletteNum = palIndex;
     ApplyGlobalFieldPaletteTint(palIndex);
+    UpdateSpritePaletteWithWeather(palIndex);
     return palIndex;
 }
 
