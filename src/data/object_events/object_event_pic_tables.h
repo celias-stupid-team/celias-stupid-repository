@@ -1214,15 +1214,15 @@ static const struct SpriteFrameImage sPicTable_LaprasDoll[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_Seagallop[] = {
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 1),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 2),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
-    overworld_frame(gObjectEventPic_Seagallop, 16, 16, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Seagallop, 8, 8, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_SSAnne[] = {

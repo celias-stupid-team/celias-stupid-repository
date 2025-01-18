@@ -2242,6 +2242,24 @@ bool8 ScrCmd_setmetatile(struct ScriptContext * ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_settilecollision(struct ScriptContext * ctx)
+{
+    u16 metatileId;
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+    bool8 impassable = VarGet(ScriptReadByte(ctx));
+
+    x += MAP_OFFSET;
+    y += MAP_OFFSET;
+    metatileId = MapGridGetMetatileIdAt(x, y);
+
+    if (!impassable)
+        MapGridSetMetatileIdAt(x, y, metatileId &= ~MAPGRID_COLLISION_MASK);
+    else
+        MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
+    return FALSE;
+}
+
 bool8 ScrCmd_opendoor(struct ScriptContext * ctx)
 {
     u16 x = VarGet(ScriptReadHalfword(ctx));

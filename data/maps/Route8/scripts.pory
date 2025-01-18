@@ -23,10 +23,14 @@ mapscripts Route8_MapScripts {
 			setbench(BENCH_ROUTE8_BEFORE)
 		}
 		if(flag(FLAG_GROWLITHE_SIGN)) {
-				setmetatile(22, 18, 0x39C, FALSE) //Replaces the growlithe tiles with snow
-				setmetatile(23, 18, 0x39C, FALSE)
-				setmetatile(22, 19, 0x39C, FALSE)
-				setmetatile(23, 19, 0x39C, FALSE)	
+			setmetatile(22, 18, 0x39C, FALSE) //Replaces the growlithe tiles with snow
+			setmetatile(23, 18, 0x39C, FALSE)
+			setmetatile(22, 19, 0x39C, FALSE)
+			setmetatile(23, 19, 0x39C, FALSE)	
+		}
+		else {
+			settilecollision(22, 19, TRUE)
+			settilecollision(23, 19, TRUE)
 		}
 	}
 
@@ -232,14 +236,14 @@ script Route8_GrowlitheSign {
 				playse(SE_LEDGE)
 				applymovement(GROWLITHE, GrowlitheEmerges)
 				waitmovement(0)	
-				setmetatile(22, 18, 0x3B6, FALSE) //draw close-eyed Growlithe underneath
-				setmetatile(23, 18, 0x3B7, FALSE)
-				setmetatile(22, 19, 0x3BE, FALSE)
-				setmetatile(23, 19, 0x3BF, FALSE)
+				setmetatile(22, 18, 0x39C, FALSE) // draw snow underneath
+				setmetatile(23, 18, 0x39C, FALSE)
+				setmetatile(22, 19, 0x39C, FALSE)
+				setmetatile(23, 19, 0x39C, FALSE)
 				special(DrawWholeMapView)
 				addvar(VAR_TEMP_4, 1)
 				delay(60)
-				applymovement(GROWLITHE, GrowlitheBlinks) //Done by making Growlithe appear and disappear
+				applymovement(GROWLITHE, GrowlitheBlinks)
 				waitmovement(0)
 				playmoncry(SPECIES_GROWLITHE, CRY_MODE_NORMAL)
 				delay(20)
@@ -250,11 +254,6 @@ script Route8_GrowlitheSign {
 				closemessage
 				delay(10)
 
-				//set tiles to be snow
-				setmetatile(22, 18, 0x39C, FALSE)
-				setmetatile(23, 18, 0x39C, FALSE)
-				setmetatile(22, 19, 0x39C, FALSE)
-				setmetatile(23, 19, 0x39C, FALSE)
 				setobjectxy(GROWLITHE, 22, 19) //Draw him again????
 				special(DrawWholeMapView)
 				delay(30)
@@ -414,19 +413,11 @@ movement GrowlitheEmerges {
 	set_visible
 }
 
-movement GrowlitheBlinks { //Yes I'm still doing it this way. Fight me.
-							// Actually I changed my mind I'm not doing it that way anymore LOL
-							//nvm tried doing it the normal way and it SUCKED so we're doing it the dumb way 
-	
-	delay_16 * 3
-	set_invisible
-	delay_8
-	set_visible
+movement GrowlitheBlinks { //begone, accursed binary hackery
+	growlithe_blink	
 	delay_16
-	set_invisible
-	delay_8
-	set_visible
-	delay_16 * 3
+	growlithe_blink	
+	delay_16 * 2
 }
 
 movement GrowlitheIsHappy {
@@ -434,6 +425,5 @@ movement GrowlitheIsHappy {
 }
 
 movement GrowlitheAbsconds {
-	
-	walk_fast_left * 9
+	walk_fast_left * 10
 }

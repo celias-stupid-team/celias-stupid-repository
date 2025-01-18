@@ -7873,6 +7873,20 @@ u8 MovementAction_FlyUp_Step2(struct ObjectEvent *objectEvent, struct Sprite *sp
     return TRUE;
 }
 
+u8 MovementAction_GrowlitheBlink_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    StartSpriteAnim(sprite, ANIM_GROWLITHE_BLINK);
+    sprite->animPaused = FALSE;
+    objectEvent->disableAnim = FALSE;
+    sprite->data[2] = 1;
+    return FALSE;
+}
+
+u8 MovementAction_GrowlitheBlink_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    return sprite->animEnded;
+}
+
 static void UpdateObjectEventSpriteAnimPause(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (objectEvent->disableAnim)
