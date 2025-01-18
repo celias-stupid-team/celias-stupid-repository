@@ -180,7 +180,7 @@
 #define MAPSEC_TANOBY_RUINS                 0xAA
 #define MAPSEC_SEVII_ISLE_22                0xAB
 #define MAPSEC_SEVII_ISLE_23                0xAC
-#define MAPSEC_SEVII_ISLE_24                0xAD
+#define MAPSEC_SOOTOPOLIS_CITY                0xAD
 #define MAPSEC_NAVEL_ROCK                   0xAE
 #define MAPSEC_MT_EMBER                     0xAF
 #define MAPSEC_BERRY_FOREST                 0xB0
@@ -204,7 +204,7 @@
 #define MAPSEC_MINNESOTA              0xC2
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
-#define MAPSEC_SOOTOPOLIS_CITY                 0xC5
+#define MAPSEC_CSR_DUMMY_02                 0xC5
 #define MAPSEC_NONE                         0xC6
 #define MAPSEC_COUNT                        0xC7
 

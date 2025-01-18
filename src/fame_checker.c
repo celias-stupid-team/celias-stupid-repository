@@ -346,7 +346,7 @@ static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
     // Celadon
     OBJ_EVENT_GFX_YOUNGSTER,
     OBJ_EVENT_GFX_GBA_KID,
-    OBJ_EVENT_GFX_BATTLE_GIRL,
+    OBJ_EVENT_GFX_CLERK,
     OBJ_EVENT_GFX_GENTLEMAN,
     OBJ_EVENT_GFX_PETREL,
     OBJ_EVENT_GFX_ERIKA,

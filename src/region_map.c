@@ -544,6 +544,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_BERRY_FOREST,
         MAPSEC_THREE_ISLE_PATH,
         MAPSEC_EMBER_SPA,
+        MAPSEC_CSR_DUMMY_02,
         MAPSEC_NONE
     }, 
     [REGIONMAP_SEVII45 - 1] =
@@ -578,7 +579,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_TANOBY_RUINS,
         MAPSEC_SEVII_ISLE_22,
         MAPSEC_SEVII_ISLE_23,
-        MAPSEC_SEVII_ISLE_24,
+        MAPSEC_SOOTOPOLIS_CITY,
         MAPSEC_TRAINER_TOWER_2,
         MAPSEC_DOTTED_HOLE,
         MAPSEC_ZERO_ISLAND,
@@ -593,6 +594,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_AETHER_PARADISE,
         MAPSEC_KANTO_LIGHTHOUSE,
         MAPSEC_MINNESOTA,
+        MAPSEC_CSR_DUMMY_02,
         MAPSEC_NONE
     }
 };
@@ -916,7 +918,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_TANOBY_RUINS        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TANOBY_RUINS),             0},
     [MAPSEC_SEVII_ISLE_22       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_23       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SEVII_ISLE_24       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_SOOTOPOLIS_CITY       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_NAVEL_ROCK          - MAPSECS_KANTO] = {MAP(NAVEL_ROCK_EXTERIOR),                   0},
     [MAPSEC_MT_EMBER            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BERRY_FOREST        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
@@ -939,6 +941,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_KANTO_LIGHTHOUSE        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_MINNESOTA     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_CSR_DUMMY_02           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)

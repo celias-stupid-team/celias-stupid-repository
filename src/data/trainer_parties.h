@@ -553,6 +553,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherBrent[] = {
         .species = SPECIES_DRAGONITE,
         .moves = {MOVE_BARRIER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+    {
+        .iv = 0,
+        .lvl = 19,
+        .species = SPECIES_DRAGONITE,
+        .moves = {MOVE_BARRIER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherConner[] = {
@@ -1291,10 +1297,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_SuperNerdJovan[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_SuperNerdMiguel[] = {
+static const struct TrainerMonItemCustomMoves sParty_SuperNerdMiguel[] = {
     {
         .iv = 0,
         .lvl = 14,
+        .heldItem = ITEM_NONE,
         .species = SPECIES_KOFFING,
         .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_BITE, MOVE_SMOG}
 
@@ -1302,6 +1309,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_SuperNerdMiguel[] = {
     {
         .iv = 0,
         .lvl = 25,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_VOLTORB,
         .moves = {MOVE_SELF_DESTRUCT, MOVE_ROLE_PLAY, MOVE_NONE, MOVE_NONE}
     },

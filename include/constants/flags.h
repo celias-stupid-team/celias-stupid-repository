@@ -476,7 +476,7 @@
 #define FLAG_HIDE_VICTORY_ROAD_2F_FULL_HEAL                     0x1AD
 #define FLAG_HIDE_VICTORY_ROAD_2F_TM37                          0x1AE
 #define FLAG_HIDE_VICTORY_ROAD_3F_MAX_REVIVE                    0x1AF
-#define FLAG_HIDE_VICTORY_ROAD_3F_TM50                          0x1B0
+#define FLAG_GOT_TM50                          0x1B0
 #define FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR                   0x1B1
 #define FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET                       0x1B2
 #define FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE                 0x1B3

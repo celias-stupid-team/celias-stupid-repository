@@ -684,8 +684,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SEVII_ISLE_24",
-      "name": "SEVII ISLE 24",
+      "map_section": "MAPSEC_SOOTOPOLIS_CITY",
+      "name": "SOOTOPOLIS CITY",
       "x": 2,
       "y": 12,
       "width": 1,
@@ -869,7 +869,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SOOTOPOLIS_CITY",
+      "map_section": "MAPSEC_CSR_DUMMY_02",
       "name": "SOOTOPOLIS CITY",
       "x": 0,
       "y": 0,
