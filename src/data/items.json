@@ -6473,6 +6473,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "METRONOME",
+      "itemId": "ITEM_METRONOME",
+      "price": 100,
+      "holdEffect": "HOLD_EFFECT_DRAGON_POWER",
+      "holdEffectParam": 10,
+      "description_english": "An item which will make METRONOME\\nalways call the most useful move\\n(trust me, it'll work this time).",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

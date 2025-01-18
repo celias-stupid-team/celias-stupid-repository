@@ -8222,6 +8222,8 @@ extern const u32 gItemIcon_ContestPass[];
 extern const u32 gItemIconPalette_ContestPass[];
 extern const u32 gItemIcon_WailmerPail[];
 extern const u32 gItemIconPalette_WailmerPail[];
+extern const u32 gItemIcon_Metronome[];
+extern const u32 gItemIconPalette_Metronome[];
 extern const u32 gItemIcon_DevonGoods[];
 extern const u32 gItemIconPalette_DevonGoods[];
 extern const u32 gItemIcon_SootSack[];

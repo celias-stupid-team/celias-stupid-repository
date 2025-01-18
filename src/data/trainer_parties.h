@@ -5696,7 +5696,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GentlemanTucker[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_MAGNEMITE,
+        .species = SPECIES_JOLTEON,
     },
 };
 

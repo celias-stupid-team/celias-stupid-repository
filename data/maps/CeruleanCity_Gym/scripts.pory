@@ -155,6 +155,8 @@ script CeruleanCity_Gym_EventScript_GrassTrainer {
 	lock
 	faceplayer
 	if(!flag(FLAG_CSR_GOT_SCYTHER)) {
+		clearflag(FLAG_ROUTE1_OBJECTS_RETREAT)
+		clearflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
 		msgbox("Managing your ENERGY is super\nimportant!\pThat's why CARDS with free\nRETREAT are so strong.\pHere, let me show you!\n", MSGBOX_DEFAULT)
 		trainerbattle_no_intro(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerDefeat)
 		msgbox("Hey, that was a good game!", MSGBOX_DEFAULT)

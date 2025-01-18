@@ -481,10 +481,11 @@
 #define ITEM_PSYCHIC_ENERGY 398
 #define ITEM_FIRE_ENERGY 399
 #define ITEM_EMPTY_PAIL 400
+#define ITEM_METRONOME 401
 
 
 
-#define ITEMS_COUNT 401
+#define ITEMS_COUNT 402
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
