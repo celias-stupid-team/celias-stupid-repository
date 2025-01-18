@@ -18,5 +18,7 @@ static const struct BenchLocation sBenchPoints[] =
     
     [BENCH_ROUTE9 - 1 ]      = {MAP_GROUP(ROUTE9), MAP_NUM(ROUTE9), 14, 7},
     [BENCH_LAVENDER - 1 ]      = {MAP_GROUP(LAVENDER_TOWN), MAP_NUM(LAVENDER_TOWN), 41, 10},
+    [BENCH_CELADON - 1 ]      = {MAP_GROUP(CELADON_CITY), MAP_NUM(CELADON_CITY), 53, 20},
+    [BENCH_ROUTE16 - 1 ]      = {MAP_GROUP(ROUTE16), MAP_NUM(ROUTE16), 31, 4},
     
 };

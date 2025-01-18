@@ -141,14 +141,14 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 31,
-      "y": 5,
+      "x": 32,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "Route16_EventScript_Jed",
       "flag": "0"
     },

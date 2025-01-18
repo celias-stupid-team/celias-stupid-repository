@@ -6,6 +6,7 @@ raw `
 
 CeladonCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CELADON_CITY
+	setbench BENCH_CELADON
 	end
 
 CeladonCity_EventScript_LittleGirl::

@@ -1307,8 +1307,6 @@ static const u8 *const sListMenuLabels[][12] = {
     }, 
     [LISTMENU_ROCKET_HIDEOUT_FLOORS] = // Unncessary, MULTICHOICE_ROCKET_HIDEOUT_ELEVATOR is used instead
     {
-        gText_B1F,
-        gText_B2F,
         gText_B4F,
         gOtherText_Exit,
     }, 
