@@ -999,26 +999,18 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperChris[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_CamperDrew[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_CamperDrew[] = {
     {
         .iv = 0,
         .lvl = 19,
         .species = SPECIES_RATTATA,
+        .moves = {MOVE_DIG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_SANDSHREW,
-    },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_EKANS,
-    },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_SANDSHREW,
+        .species = SPECIES_RATTATA,
+        .moves = {MOVE_DIG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -1207,12 +1199,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacHerman[] = {
     {
         .iv = 30,
         .lvl = 20,
-        .species = SPECIES_CUBONE,
+        .species = SPECIES_PONYTA,
     },
     {
         .iv = 30,
         .lvl = 20,
-        .species = SPECIES_SLOWPOKE,
+        .species = SPECIES_RAPIDASH,
     },
 };
 

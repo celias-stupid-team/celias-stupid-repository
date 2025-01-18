@@ -239,7 +239,7 @@
 #define FLAG_CSR_FIRST_TENTACOOL        0x0CC
 #define FLAG_CSR_SECOND_TENTACOOL       0x0CD
 #define FLAG_CSR_EXITED_TRUCK               0x0CE
-#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
+#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK               0x0CF
 #define FLAG_CSR_RETREAT_CAMPER               0x0D0
 #define FLAG_CSR_KIRI_PSYDUCK               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
@@ -1534,7 +1534,7 @@
 #define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)
 #define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
 #define FLAG_CSR_MAP_DUMMY_8                                                  (SYS_FLAGS + 0xDF)
-#define FLAG_CSR_MAP_DUMMY_9                                                  (SYS_FLAGS + 0xE0)
+#define FLAG_CSR_MAP_GAME_SHOP                                                  (SYS_FLAGS + 0xE0)
 #define FLAG_CSR_MAP_EEVEE_ROOM                                                  (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                                                  (SYS_FLAGS + 0xE2)
 #define FLAG_CSR_MAP_DUMMY_10                                                  (SYS_FLAGS + 0xE3)

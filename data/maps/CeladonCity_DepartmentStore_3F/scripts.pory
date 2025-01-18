@@ -1,9 +1,15 @@
 raw `
-CeladonCity_DepartmentStore_3F_MapScripts::
-	.byte 0
+
 
 
 `
+
+mapscripts CeladonCity_DepartmentStore_3F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_GAME_SHOP)
+		call(SetPlayerPokedexValues)
+	}
+}
 
 script DepartmentStore_GameShop_CounterGuy {
 	lock

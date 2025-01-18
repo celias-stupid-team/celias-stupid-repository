@@ -100,11 +100,14 @@ Route10_Text_CarolPostBattle::
 	.string "Yeah, that'd be cool.\n$"
 
 Route10_Text_RockTunnelDetourToLavender::
-    .string "ROCK TUNNEL\n"
-    .string "Detour to LAVENDER TOWN$"
+	.string "ROCK TUNNEL\p"
+	.string "The sign has been scribbled over…\p"
+	.string "KANTO POKéMANIAC CONVENTION,\n"
+	.string "this way!$"
 
 Route10_Text_RockTunnel::
-    .string "ROCK TUNNEL$"
+	.string "ROCK TUNNEL\n"
+	.string "Vital part of the KANTO experience.$"
 
 Route10_Text_PowerPlant::
     .string "POWER PLANT$"

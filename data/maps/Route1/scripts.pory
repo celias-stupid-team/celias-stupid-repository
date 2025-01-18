@@ -142,5 +142,37 @@ script Route1_EventScript_CeliaShiny {
 
 script Route1_Bonus_Chris {
 	textcolor(NPC_TEXT_COLOR_MALE)
-	msgbox("CHRIS: I'm STEVEN!\n", MSGBOX_NPC)
+	msgbox("FoF: I'm STEVEN!\n", MSGBOX_NPC)
+}
+
+
+
+script Route1_CeliaCrew_Lichen {
+	msgbox("LICHEN: No! Not into the pit!\nIt buuuuuuuurns!", MSGBOX_NPC)
+	end
+}
+
+script Route1_CeliaCrew_Swi {
+	msgbox("SWI: I'm sure the music insertion\ncouldn't possibly fail this time…\l… … … … … … … … … … … right?", MSGBOX_NPC)
+	end
+}
+
+script Route1_CeliaCrew_Wiz {
+	msgbox("wiz1989: I've been studying Pitism\nfor years.\lPits are simply my passion!\pAnd this splendid specimen is one\nof my favorites!\lYou can easily get lost in it!", MSGBOX_NPC)
+	end
+}
+
+script Route1_CeliaCrew_RavePossum {
+	msgbox("RavePossum: I keep asking CELIA for\nwater, but all she ever brings me is\lmore code to review…", MSGBOX_NPC)
+	end
+}
+
+script Route1_CeliaCrew_Plasto {
+	msgbox("PLASTO: I'm supposed to be a slugma,\nbut Celia said she's too lazy.", MSGBOX_NPC)
+	end
+}
+
+script Route1_CeliaCrew_Sphyralg {
+	msgbox("SPHYRALG: はい\n", MSGBOX_NPC)
+	end
 }

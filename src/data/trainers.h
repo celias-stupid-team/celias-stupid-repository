@@ -1493,7 +1493,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_CamperDrew),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_CamperDrew),
     },
     [TRAINER_PICNICKER_DIANA] = {
         .trainerClass = TRAINER_CLASS_PICNICKER,
