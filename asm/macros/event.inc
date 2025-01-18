@@ -1723,6 +1723,13 @@
 	.byte \mode
 	.endm
 
+	.macro settilecollision x:req, y:req, impassable:req
+	.byte 0xdd
+	.2byte \x
+	.2byte \y
+	.byte \impassable
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

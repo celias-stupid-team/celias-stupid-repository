@@ -295,6 +295,8 @@ static bool8 MovementAction_JumpSpecialWithEffectRight_Step0(struct ObjectEvent 
 static bool8 MovementAction_JumpSpecialWithEffectRight_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WaitSpriteAnim(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_Finish(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_GrowlitheBlink_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_GrowlitheBlink_Step1(struct ObjectEvent *, struct Sprite *);
 
 static bool8 (*const sMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_FaceUp[])(struct ObjectEvent *, struct Sprite *);
@@ -473,6 +475,7 @@ static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectLeft[])(struct Ob
 static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectRight[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_TeleportUp[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_TeleportDown[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_GrowlitheBlink[])(struct ObjectEvent *, struct Sprite *);
 
 static u8 GetMoveDirectionFastAnimNum(u8 direction);
 static u8 GetMoveDirectionFasterAnimNum(u8 direction);
@@ -657,6 +660,7 @@ static bool8 (*const *const sMovementActionFuncs[])(struct ObjectEvent *, struct
 
     [MOVEMENT_ACTION_TELEPORT_DOWN]                      = sMovementActionFuncs_TeleportDown,
     [MOVEMENT_ACTION_TELEPORT_UP]                        = sMovementActionFuncs_TeleportUp,
+    [MOVEMENT_ACTION_GROWLITHE_BLINK]                    = sMovementActionFuncs_GrowlitheBlink,
 };
 
 static bool8 (*const sMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *) = {
@@ -1732,4 +1736,9 @@ static bool8 (*const sMovementActionFuncs_TeleportUp[])(struct ObjectEvent *, st
     MovementAction_SpinUp_Step0,
     MovementAction_SpinUp_Step1,
     MovementAction_PauseSpriteAnim,
+};
+
+static bool8 (*const sMovementActionFuncs_GrowlitheBlink[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_GrowlitheBlink_Step0,
+    MovementAction_GrowlitheBlink_Step1,
 };

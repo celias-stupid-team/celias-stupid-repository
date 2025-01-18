@@ -2900,7 +2900,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Seagallop = {
     .tracks = TRACKS_NONE,
     .oam = &gObjectEventBaseOam_64x64,
     .subspriteTables = gObjectEventSpriteOamTables_64x64,
-    .anims = sAnimTable_Standard,
+    .anims = sAnimTable_Seagallop,
     .images = sPicTable_Seagallop,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
