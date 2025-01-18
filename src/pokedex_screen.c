@@ -2335,6 +2335,11 @@ u16 GetRandomUnobtainedSpecies(void)
         return unobtained[Random() % maxSpecies];
 }
 
+void GetRandomUnobtainedSpecies_ToResult(void)
+{
+    VarSet(VAR_RESULT, GetRandomUnobtainedSpecies());
+}
+
 static u32 DexScreen_GetDefaultPersonality(int species)
 {
     switch (species)
