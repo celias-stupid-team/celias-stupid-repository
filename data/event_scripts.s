@@ -953,9 +953,10 @@ Text_AccessedProfOaksPC::
 	.string "Accessed the POKéDEX Rating\n"
 	.string "System…$"
 
+@ todo for Celia write non placeholder text here 
 Text_HavePokedexRated::
-	.string "Would you like to have your\n"
-	.string "POKéDEX rated?$"
+	.string "Oak: Does your dumb ass need\n"
+	.string "a hint?$"
 
 Text_ClosedLinkToProfOaksPC::
 	.string "Closed link to PROF. OAK's PC.$"

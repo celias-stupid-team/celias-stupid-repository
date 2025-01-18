@@ -465,7 +465,7 @@ return
 }
 
 script GetOakPCPokedexMessage {
-	//get random obtainable mon
+	callnative(GetRandomUnobtainedSpecies_ToResult)
 	switch(var(VAR_RESULT)) {
 		case SPECIES_VICTINI: 
 			 msgbox(PokedexRating_Text_HintVictini)
