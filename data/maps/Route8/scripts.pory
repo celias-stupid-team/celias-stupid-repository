@@ -239,7 +239,7 @@ script Route8_GrowlitheSign {
 					} else {
 						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsRight)
 					}
-					waitmovement(OBJ_EVENT_ID_PLAYER)
+					
 					
 				}
 				

@@ -173,6 +173,6 @@ script Route1_CeliaCrew_Plasto {
 }
 
 script Route1_CeliaCrew_Sphyralg {
-	msgbox("SPHYRALG: はい\n", MSGBOX_NPC)
+	msgbox("SPHYRALG: I should've known better\nthan to help create this hack.\pNow I'm stick in the pit with no way\nout…", MSGBOX_NPC)
 	end
 }

@@ -425,7 +425,7 @@ script ViridianCity_Gambler_GoesHome {
 	setobjectxy(CELIA, 53, 15)
 	applymovement(CELIA, CeliaComesDown)
 	waitmovement(0)
-	special(GetPlayerFacingDirection)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	switch(var(VAR_RESULT)) {
 		case DIR_SOUTH:
 			applymovement(CELIA, CeliaApproach_South)
@@ -460,7 +460,6 @@ script ViridianCity_Gambler_GoesHome {
 	setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
 	setflag(FLAG_CELIA_SECRET_VIRIDIAN)
 	call(CeliaSecrets_CeliaTellsYouNextHint)
-	msgbox("Anyway, I have to head out now.\pGood luck, and see ya later!\n", MSGBOX_DEFAULT)
 	applymovement(CELIA, ViridianCity_CeliaAbsconds)
 	waitmovement(0)
 	removeobject(CELIA)

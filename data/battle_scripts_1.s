@@ -247,6 +247,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
 	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
+	.4byte BattleScript_EffectFoursight              @ EFFECT_FOURSIGHT
+	.4byte BattleScript_EffectCounterStupid              @ EFFECT_COUNTER_STUPID
 
 
 
@@ -4741,3 +4743,26 @@ BattleScript_FickleBeamDoNothing::
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+
+	BattleScript_EffectFoursight::
+	attackcanceler
+	attackstring
+	ppreduce
+	trysetfutureattack BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printfromtable gFutureMoveUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+	BattleScript_EffectCounterStupid::
+		attackcanceler
+		attackstring
+		ppreduce
+		attackanimation
+		waitanimation
+		incrementgamestat GAME_STAT_USED_SPLASH
+		printstring STRINGID_BUTNOTHINGHAPPENED
+		waitmessage B_WAIT_TIME_LONG
+		goto BattleScript_MoveEnd
