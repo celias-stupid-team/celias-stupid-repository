@@ -332,10 +332,7 @@ CeladonCity_GameCorner_EventScript_OpenRocketHideout::
 	setflag FLAG_OPENED_ROCKET_HIDEOUT
 	return
 
-CeladonCity_GameCorner_EventScript_RocketGrunt::
-	trainerbattle_single TRAINER_DMCA_GRUNT_7, CeladonCity_GameCorner_Text_GruntIntro, CeladonCity_GameCorner_Text_GruntDefeat, CeladonCity_GameCorner_Text_DefeatedGrunt
-	msgbox CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 
 CeladonCity_GameCorner_Text_GruntExitWest::
@@ -468,6 +465,20 @@ script CeladonCity_GameCorner_EventScript_CoinsClerk {
 }
 
 
+script CeladonCity_GameCorner_EventScript_RocketGrunt{
+	if(!flag(FLAG_CSR_CONFUSED_GRUNT)) {
+		trainerbattle_single(TRAINER_DMCA_GRUNT_7, CeladonCity_GameCorner_Text_GruntIntro, CeladonCity_GameCorner_Text_GruntDefeat, CeladonCity_GameCorner_Text_DefeatedGrunt)
+		msgbox(CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_AUTOCLOSE)
+	} else {
+		lock
+		faceplayer
+		msgbox("Um.\pThat didn't quite work as\nplanned.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	
+}
+
 script CeladonCity_GameCorner_Text_DefeatedGrunt{
 	msgbox(CeladonCity_GameCorner_Text_GruntPostBattle, MSGBOX_DEFAULT)
 	closemessage
@@ -479,6 +490,7 @@ script CeladonCity_GameCorner_Text_DefeatedGrunt{
 	waitmovement(0)
 	delay(50)
 	msgbox("Um.\pThat didn't quite work as\nplanned.", MSGBOX_DEFAULT)
+	setflag(FLAG_CSR_CONFUSED_GRUNT)
 	release
 }
 

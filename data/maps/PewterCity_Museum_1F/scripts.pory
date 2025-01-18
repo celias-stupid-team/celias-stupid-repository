@@ -197,7 +197,7 @@ PewterCity_Museum_1F_EventScript_KabutopsFossil::
 script PewterCity_Museum_1F_EventScript_Receptionist {
 	lock
 	faceplayer
-	if(var(VAR_FACING) == 0) {
+	if(var(VAR_FACING) == DIR_EAST) {
 		msgbox(PewterCity_Museum_1F_Text_PleaseEnjoyYourself)
 	}
 	else {

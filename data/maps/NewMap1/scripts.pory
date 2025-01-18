@@ -7,7 +7,7 @@ mapscripts NewMap1_MapScripts {
 		call(SetPlayerPokedexValues)
 	}
 }
-script Sootopolis_EvenScript_Dad {
+script Sootopolis_EventScript_Dad {
 	lock
 	faceplayer
 	textcolor(0)
@@ -16,4 +16,59 @@ script Sootopolis_EvenScript_Dad {
 	setflag(FLAG_DAD_SOOTOPOLIS)
 	release
 	end
+}
+
+script Sootopolis_EventScript_Guy {
+	msgbox("Hmm, so going left at the GAME FREAK\noffice leads to the DEPT. STORE,\land going up the stairs leads…\p…Okay yeah, I have no idea where\nI am.", MSGBOX_NPC)
+	end
+}
+
+
+script Sootopolis_EventScript_Kiri {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_KIRI_PSYDUCK)) {
+		msgbox("My daddy hasn't come home from work\nin a while.\pI see people from the city walking in\nand out of those buildings, though.", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox("Hi, what's your name?\p... ... ...  ... ... ...  ... ... ...\nOkay. That's nice!\pMy name is KIRI.\pMy mommy and daddy named me that so\nI would grow healthy and happy.\lThat's what they wished.\pMy daddy really loves this POKéMON.\nYou can have it as a gift!", MSGBOX_DEFAULT)
+
+
+		setvar(VAR_TEMP_1, SPECIES_GOLDUCK)
+			givemon(SPECIES_GOLDUCK, 25)
+			switch(var(VAR_RESULT)) {
+				case 0: //Mon goes to party
+					bufferspeciesname(STR_VAR_1, SPECIES_GOLDUCK)
+					msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+					goto_if_eq(VAR_RESULT, NO, Sootopolis_KiriEnd)
+					call(EventScript_GetGiftMonPartySlot)
+					call(EventScript_ChangePokemonNickname)
+					goto(Sootopolis_KiriEnd)
+					end
+				case 1: //Mon goes to PC
+						bufferspeciesname(STR_VAR_1, SPECIES_GOLDUCK)
+						msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+						if(var(VAR_RESULT) == 0) {
+							call(EventScript_TransferredToPC)
+							goto(Sootopolis_KiriEnd)
+						} else {
+							call(EventScript_NameReceivedBoxMon)
+							call(EventScript_TransferredToPC)
+							goto(Sootopolis_KiriEnd) //This can be simplified; I'll deal with it later
+						}
+						end
+				case 2:
+					goto(EventScript_NoMoreRoomForPokemon)
+					break
+			}
+	}
+	release
+	end
+
+	Sootopolis_KiriEnd:
+		setflag(FLAG_CSR_KIRI_PSYDUCK)
+		msgbox("My daddy loves that POKéMON!\pHe says he makes sure to always\nlet people catch it in every game!\pBut…\pThis one seems a little…\ndifferent.", MSGBOX_DEFAULT)
+		release
+		end
 }

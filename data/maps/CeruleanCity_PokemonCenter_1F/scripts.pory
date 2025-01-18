@@ -16,6 +16,8 @@ CeruleanCity_PokemonCenter_1F_EventScript_Nurse::
 	end
 
 CeruleanCity_PokemonCenter_1F_EventScript_Gentleman::
+	setflag FLAG_CSR_HINT_EVO_LEVEL
+	call SetPlayerPokedexValues
 	msgbox CeruleanCity_PokemonCenter_1F_Text_EveryoneCallsBillPokemaniac, MSGBOX_NPC
 	end
 

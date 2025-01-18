@@ -246,6 +246,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
+	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
 
 
 
@@ -2063,6 +2064,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
+	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
 	goto BattleScript_FirstTurnSemiInvulnerable
 
@@ -4715,10 +4717,27 @@ BattleScript_StealthRockFree::
 BattleScript_EffectDoNothing::
 	attackcanceler
 	attackstring
-	setbattlestringid
 	ppreduce
 	attackanimation
 	waitanimation
+	setbattlestringid
+	printfromtable gDoNothingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectFickleBeam::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifspecies BS_ATTACKER, SPECIES_EXEGGUTOR, BattleScript_FickleBeamDoNothing
+	typecalc
+	presentdamagecalculation
+
+BattleScript_FickleBeamDoNothing::
+	setbattlestringid
+	pause B_WAIT_TIME_SHORT
 	printfromtable gDoNothingStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

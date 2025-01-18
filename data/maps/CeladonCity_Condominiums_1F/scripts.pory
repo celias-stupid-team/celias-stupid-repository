@@ -37,15 +37,7 @@ CeladonCity_Condominiums_1F_EventScript_Meowth::
 	release
 	end
 
-CeladonCity_Condominiums_1F_EventScript_Clefairy::
-	lock
-	faceplayer
-	waitse
-	playmoncry SPECIES_CLEFAIRY, CRY_MODE_NORMAL
-	msgbox CeladonCity_Condominiums_1F_Text_Clefairy
-	waitmoncry
-	release
-	end
+
 
 CeladonCity_Condominiums_1F_EventScript_Nidoran::
 	lock
@@ -61,3 +53,6 @@ CeladonCity_Condominiums_1F_EventScript_SuiteSign::
 	msgbox CeladonCity_Condominiums_1F_Text_ManagersSuite, MSGBOX_SIGN
 	end
 `
+script CeladonCity_Condominiums_1F_EventScript_Clefairy {
+	finditem(ITEM_POKE_DOLL)
+}

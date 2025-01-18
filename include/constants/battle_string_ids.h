@@ -402,9 +402,10 @@
 #define STRINGID_GMAX_MOVE 401
 #define STRINGID_EXTREME_EVOBOOST 402
 #define STRINGID_VEEVEE_VOLLEY 403
-#define STRINGID_NONE 404
+#define STRINGID_FICKLE_BEAM 404
+#define STRINGID_NONE 405
 
-#define BATTLESTRINGS_COUNT     405
+#define BATTLESTRINGS_COUNT     406
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -629,5 +630,6 @@
 #define B_MSG_GMAX_MOVE        6
 #define B_MSG_EXTREME_EVOBOOST        7
 #define B_MSG_VEEVEE_VOLLEY        8
+#define B_MSG_FICKLE_BEAM        9
 
 #endif // GUARD_BATTLE_STRING_IDS_H

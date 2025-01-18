@@ -69,8 +69,8 @@ script MtMoon_1F_Item_SunStone {
 	finditem(ITEM_SUN_STONE)
 }
 
-script MtMoon_1F_Item_MinRepel { //Make this a Min Repel when we get items
-	finditem(ITEM_SUPER_REPEL)
+script MtMoon_1F_Item_MinRepel {
+	finditem(ITEM_MIN_REPEL)
 }
 
 script MtMoon_1F_Item_MaxRepel {

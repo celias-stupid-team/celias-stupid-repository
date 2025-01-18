@@ -1,5 +1,5 @@
 Route2_EventScript_ItemEther::
-	finditem ITEM_ETHER
+	finditem ITEM_TM11
 	end
 
 Route2_EventScript_ItemPokeBall:: 
@@ -426,8 +426,8 @@ Route11_EventScript_ItemXDefend::
 	finditem ITEM_X_DEFEND
 	end
 
-Route9_EventScript_ItemBurnHeal::
-	finditem ITEM_BURN_HEAL
+Route9_EventScript_ItemHelixFossil::
+	finditem ITEM_HELIX_FOSSIL
 	end
 
 RockTunnel_1F_EventScript_ItemRepel::
@@ -475,7 +475,7 @@ ViridianCity_EventScript_ItemPotion::
 	end
 
 Route11_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_ESCAPE_ROPE
 	end
 
 Route11_EventScript_ItemAwakening::

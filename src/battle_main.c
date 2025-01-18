@@ -455,6 +455,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TEAM, 25},
     {TRAINER_CLASS_CHAMPION_2, 50},
     {TRAINER_CLASS_IMPOSTER, 50},
+    {TRAINER_CLASS_MASTER, 25},
     { 0xFF, 5},
 };
 
@@ -3720,6 +3721,7 @@ static void HandleEndTurn_BattleWon(void)
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_MASTER:
         case TRAINER_CLASS_CHAMPION:
         case TRAINER_CLASS_DMCA_ADMIN:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
@@ -4274,6 +4276,9 @@ bool8 TryRunFromBattle(u8 battler)
         }
 
         ++gBattleStruct->runTries;
+    }
+    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)) { //Running away vs trainer always works
+        effect++;
     }
     if (effect != 0)
     {

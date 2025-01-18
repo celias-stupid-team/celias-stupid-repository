@@ -698,7 +698,7 @@ PewterCity_EventScript_AideGiveRunningShoes::
 	message PewterCity_Text_ReceivedRunningShoesFromAide
 	waitmessage
 	waitfanfare
-	giveitem ITEM_RUNNING_SHOES
+	additem ITEM_RUNNING_SHOES
 	msgbox PewterCity_Text_SwitchedShoesWithRunningShoes
 	special DisableMsgBoxWalkaway
 	signmsg
@@ -868,9 +868,102 @@ script PewterCity_EventScript_BugCatcher {
 	release
 }
 
-script EventScript_PewterCity_AlolanOak {
-	msgbox("grr\n", MSGBOX_NPC)
+script PewterCity_NotOak {
+	msgbox("That's not OAK, silly!\n", MSGBOX_SIGN)
 	end
+}
+
+const IMPOSTER_OAK = 14
+const CELIA = 11
+script EventScript_PewterCity_AlolanOak {
+	if(flag(FLAG_CELIA_SECRET_PEWTER)) {
+		msgbox("The grove is now noticably less\ndense.", MSGBOX_SIGN)
+		end
+	}
+	if(!checkitem(ITEM_WAILMER_PAIL)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
+		waitmoncry
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.\pWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			fadeoutbgm(1)
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			closemessage
+			delay(10)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp) // open eyes
+			waitmovement(0)
+			delay(60)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(60)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			msgbox("{FONT_SMALL}OAK?: Hey!\nWhat's the big idea?\pOne minute I'm sitting here,\nsoaking up the sun.\pThe next, some brat decides to dump\nsome water on me!\pAh, to heck with it.\nI'm outta here!", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			setflag(FLAG_CELIA_SECRET_PEWTER)
+			removeobject(IMPOSTER_OAK)
+			playse(SE_EXIT)
+			fadeoutbgm(1)
+			waitse
+			fadescreen(FADE_FROM_BLACK)
+			delay(90)
+			addobject(CELIA)
+			setobjectxy(CELIA, 9, 24)
+			applymovement(CELIA, Pewter_CeliaComesUp_1)
+			waitmovement(0)
+			playse(SE_LEDGE)
+			applymovement(CELIA, Pewter_CeliaComesUp_2)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			delay(30)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			waitmovement(0)
+			msgbox("Hi, there!\nI'm CELIA, the creator!\pHey now, that was a little rude of\nyou.\lThe poor guy just wanted to relax…\pI get the feeling you're gonna be a\nleading cause of deforestation.\lOh well!\pAnyway, you seem to be the type who\nloves to find secrets everywhere.\lLet me point you to another one…", MSGBOX_DEFAULT)
+			setvar(VAR_CSR_CURRENT_CELIA_SECRET, 1)
+			call(CeliaSecrets_CeliaTellsYouNextHint)
+			applymovement(CELIA, Pewter_CeliaLeaves)
+			waitmovement(0)
+			playbgm(MUS_PEWTER, TRUE)
+			
+		}
+	}
+	release
+	end
+}
+
+movement Pewter_CeliaComesUp_1 {
+	set_visible
+	walk_up * 2
+	walk_left
+	walk_up
+	step_end
+}
+movement Pewter_CeliaComesUp_2 {
+	jump_2_up
+	delay_16
+	walk_slow_up * 2
+	face_left
+	step_end
+}
+
+movement Pewter_CeliaLeaves {
+	walk_slow_right
+	walk_slow_up * 4
+	walk_slow_right * 6
+	set_invisible
+	step_end
 }
 
 script EventScript_CutTreeElm {
@@ -895,11 +988,6 @@ script EventScript_CutTreeElm {
 
 script PewterCity_EventScript_CeliaPuzzle {
 	msgbox("And here we get to the first part\nof the game with REAL puzzles!\pThis is the point where you either\nthink outside the box or give up.\pEither way, you're not brute forcing\nyou way through any of this.", MSGBOX_NPC)
-	end
-}
-
-script PewterCity_EventScript_CeliaTrees {
-	msgbox("Hey, notice the tiling error on\nthat tree?\lThe sides aren't shaded properly.\pI wonder why.\nEither way, you're not brute forcing\lyou way through any of this.", MSGBOX_NPC)
 	end
 }
 

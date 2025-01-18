@@ -117,6 +117,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
+    [MOVE_ICE_O_CUT] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+
     [MOVE_THUNDER_PUNCH] =
     {
         .effect = EFFECT_PARALYZE_HIT,
@@ -785,9 +798,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SPECIAL_DEFENSE_DOWN,
         .power = 90,
         .type = TYPE_ICE,
-        .accuracy = 70,
+        .accuracy = 100,
         .pp = 5,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -1238,7 +1251,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CONFUSION_PSYDUCK] =
     {
         .effect = EFFECT_RECOIL,
-        .power = 250,
+        .power = 245,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 25,
@@ -1409,7 +1422,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ATTRACT,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -1978,7 +1991,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPLASH] =
     {
-        .effect = EFFECT_DO_NOTHING,
+        .effect = EFFECT_SPLASH,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -2163,7 +2176,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIGH_CRITICAL,
         .power = 70,
-        .type = TYPE_GRASS,
+        .type = TYPE_GRASS_TCG,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
@@ -3728,7 +3741,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = -1,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
@@ -4714,7 +4727,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 2,
         .flags = FLAG_PROTECT_AFFECTED
     },
 
@@ -4984,7 +4997,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TRIPLE_FINISH] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_PRESENT,
         .power = 100,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -5057,7 +5070,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_TAILWIND] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_SPEED_UP_2, // Placeholder Effect
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -5068,8 +5081,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED
     },
 
-    [MOVE_ROOST] =    {
-        .effect = EFFECT_HIT,
+    [MOVE_ROOST] =    {        
+        .effect = EFFECT_RESTORE_HP,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -5084,7 +5097,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT, // Placeholder Effect
         .power = 29,
         .type = TYPE_FIGHTING,
-        .accuracy = 100,
+        .accuracy = 97,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -5130,7 +5143,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ELECTRO_BALL] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 0,
+        .power = 70,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 35,
@@ -5183,7 +5196,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED
     },
@@ -5308,10 +5321,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 
-    [MOVE_ZEN_HEADBUTT] =    {
+    [MOVE_CHILL_HEADBUTT] =    {
         .effect = EFFECT_FLINCH_HIT,
         .power = 80,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_ICE,
         .accuracy = 90,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5514,7 +5527,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_THUNDURUS_KICK] =    {
-        .effect = EFFECT_DEFENSE_DOWN,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 90,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -5781,7 +5794,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_DEFENSE_DOWN_2,
         .power = 0,
         .type = TYPE_DARK,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -5841,7 +5854,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_ROCK,
-        .accuracy = 0,
+        .accuracy = 2,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -5985,7 +5998,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ATTACK_DOWN,
         .power = 0,
         .type = TYPE_WEIRD,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
@@ -6152,7 +6165,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SHADOW_IMAGES] =    {
         .effect = EFFECT_EVASION_UP,
         .power = 0,
-        .type = TYPE_GRASS,
+        .type = TYPE_GRASS_TCG,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -6418,7 +6431,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FICKLE_BEAM] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_FICKLE_BEAM, // Placeholder Effect
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -6426,7 +6439,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_FICKLE_BEAM,
     },
 
     [MOVE_LEAF_STORM] =    {
@@ -6731,7 +6745,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_QUIVER_DANCE] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_CALM_MIND, // Placeholder Effect
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
@@ -6784,7 +6798,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_DARK,
         .accuracy = 50,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
@@ -6817,7 +6831,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 [MOVE_STEEL_WANG] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_STEEL,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -6839,9 +6853,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     
 [MOVE_COPYCAT] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_ASSIST, // Placeholder Effect
         .power = 90,
-        .type = TYPE_STEEL,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+
+[MOVE_BLOOD_MOON] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -6850,7 +6876,336 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
     
+
+[MOVE_EVIL_METRONOME] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
     
+
+[MOVE_SHADOW_FORCE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_DARK_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+    
+
+[MOVE_DRAGON_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_HEAL_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_ORIGIN_PULSE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_WICKED_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_NOXIOUS_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAGICAL_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_COMBAT_TORQUE] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SPARKLY_SWIRL] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SYRUP_BOMB] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAKE_IT_RAIN] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_FLASH_CANNON] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_TOMB] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_BLAST] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BROCK_WRECKER] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_UPPER_HAND] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+    
+
+[MOVE_HORN_LEECH] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_FISHIOUS_REND] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_BRAVE_BIRD] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_MAX_AIRSTREAM] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_STEAMROLLER] =    {
+        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .power = 90,
+        .type = TYPE_NORMAL,
+        .accuracy = 80,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SLASH_TCG] =    {
+        .effect = EFFECT_HIGH_CRITICAL, // Placeholder Effect
+        .power = 70,
+        .type = TYPE_GRASS_TCG,
+        .accuracy = 100,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
+[MOVE_SWORDSDANCE_TCG] =    {
+        .effect = EFFECT_ATTACK_UP_2, // Placeholder Effect
+        .power = 0,
+        .type = TYPE_GRASS_TCG,
+        .accuracy = 0,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+    },
+    
+
 };
 
 

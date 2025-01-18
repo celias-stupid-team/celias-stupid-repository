@@ -71,3 +71,7 @@ CeruleanCity_BikeShop_EventScript_Bicycle::
 	msgbox CeruleanCity_BikeShop_Text_ShinyNewBicycle, MSGBOX_SIGN
 	end
 `
+script Cerulean_BikeShop_OldLady {
+	msgbox("I stopped buying BIKES when they\nadded the newfangled gear shifting.\pBack in my day we had to have two\ndifferent bikes, and we liked it!", MSGBOX_NPC)
+	end
+}

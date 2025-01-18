@@ -227,17 +227,18 @@ script CeladonCity_Gym_EventScript_Erika {
 			delay(48)
 			applymovement(BottomRightTrainer, Talking)
 			waitmovement(0)
-			textcolor(0)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
 			msgbox(("Oh, no!\nMS. ERIKA!\pAre they gonna send their\nlawyers after our GYM?"), MSGBOX_DEFAULT)
 			closemessage
 			delay(32)
 			applymovement(BottomLeftTrainer, Talking)
 			waitmovement(0)
-			textcolor(1)
+			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox(("If they file a lawsuit against us,\nhow are we gonna afford it?\lWe need the cash for our shelter..."), MSGBOX_DEFAULT)
 			closemessage
 			applymovement(ERIKA, Common_Movement_FaceUp)
 			delay(10)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
 			msgbox(("Don't worry, everyone!\pWe'll figure out how to keep\neverybody safe. I'm sure of it.\lSomehow..."), MSGBOX_DEFAULT)
 			closemessage
 

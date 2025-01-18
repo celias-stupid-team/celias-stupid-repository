@@ -201,4 +201,8 @@ script PewterCity_Gym_MapScripts_StartRain {
 		setweather(WEATHER_RAIN)
 		doweather
 	}
+	if(checkitem(ITEM_EMPTY_PAIL)) {
+		removeitem(ITEM_EMPTY_PAIL)
+		additem(ITEM_WAILMER_PAIL)
+	}
 }

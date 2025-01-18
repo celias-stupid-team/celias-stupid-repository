@@ -1472,6 +1472,8 @@ script OaksLab_AidesRunAway {
 	waitmovement(LeftAide)
 	playse(SE_EXIT)
 	delay(20)
+	removeobject(LeftAide)
+	removeobject(RightAide)
 	applymovement(OBJ_EVENT_ID_CAMERA, OakLab_CameraGoesUp)
 	waitmovement(0)
 	setflag(FLAG_AIDES_RAN_AWAY)
@@ -1501,6 +1503,7 @@ movement OakLab_RightAideRuns {
 	walk_fast_down * 2
 	delay_8
 	set_invisible
+	
 
 }
 

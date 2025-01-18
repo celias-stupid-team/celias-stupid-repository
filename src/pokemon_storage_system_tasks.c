@@ -153,6 +153,7 @@ enum
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_PORYGON_VIRUS,
 };
 
 enum
@@ -305,6 +306,7 @@ static const struct StorageMessage sMessages[] = {
     [MSG_ITEM_IS_HELD]         = {gText_ItemIsNowHeld,           MSG_FMT_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {gText_ChangedToNewItem,        MSG_FMT_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {gText_MailCantBeStored,        MSG_FMT_NONE},
+    [MSG_PORYGON_VIRUS]      = {gText_PkmnGotVirus,        MSG_FMT_MON_NAME_1},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {
@@ -1109,6 +1111,7 @@ static void Task_PlaceMon(u8 taskId)
             if (sInPartyMenu)
                 SetPokeStorageTask(Task_HandleMovingMonFromParty);
             else
+                
                 SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
@@ -1374,6 +1377,56 @@ static void Task_ReleaseMon(u8 taskId)
         }
         break;
     case 13:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
+            SetPokeStorageTask(Task_PokeStorageMain);
+        }
+        break;
+    }
+}
+
+
+void Task_EvolvePorygon()
+{
+    switch (gStorage->state)
+    {
+    case 0:
+        // Start "can't release" sequence
+        PrintStorageMessage(MSG_WAS_RELEASED);
+        gStorage->state++;
+        break;
+    case 1:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            PrintStorageMessage(MSG_SURPRISE);
+            gStorage->state++;
+        }
+        break;
+    case 2:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
+            DoReleaseMonComeBackAnim();
+            gStorage->state++;
+        }
+        break;
+    case 3:
+        if (!ResetReleaseMonSpritePtr())
+        {
+            TrySetCursorFistAnim();
+            PrintStorageMessage(MSG_CAME_BACK);
+            gStorage->state++;
+        }
+        break;
+    case 4:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            PrintStorageMessage(MSG_WORRIED);
+            gStorage->state++;
+        }
+        break;
+    case 5:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();

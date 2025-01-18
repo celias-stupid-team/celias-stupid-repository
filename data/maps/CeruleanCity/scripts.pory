@@ -13,7 +13,7 @@ CeruleanCity_MapScripts::
 CeruleanCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
 	setbench BENCH_CERULEAN
-	call(SetPlayerPokedexValues)
+	call SetPlayerPokedexValues
 	call_if_unset FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits
 	end
 
@@ -446,7 +446,6 @@ script CeruleanCity_Celia_Bike {
 
 script CeruleanCity_SummonThePit {
 	// draw the pit
-	lock
 	setmetatile(19, 0, 0x014, FALSE)
 	setmetatile(19, 1, 0x01C, FALSE)
 	setmetatile(19, 2, 0x014, FALSE)

@@ -28,8 +28,19 @@ script MtMoon_EventScript_BasementSign {
 	if(flag(FLAG_CSR_MT_MOON_BASEMENT_SIGN)) {
 		msgbox("MT MOON BASEMENT\nNEW WILD POKéMON: 1\p(yes, it's the same as the others)\n", MSGBOX_SIGN)
 	} else {
-		msgbox("MT MOON BASEMENT\nNEW WILD POKMON: 1", MSGBOX_SIGN)
+		msgbox("MT MOON BASEMENT\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
 		setflag(FLAG_CSR_MT_MOON_BASEMENT_SIGN)
 		end
 	}
 }
+
+
+const LASS = 4
+script MtMoon_EventScript_MoveLass {
+	if(!defeated(TRAINER_CSR_MT_MOON_END_LASS)) {
+		addobject(LASS)
+		setobjectxy(LASS, 39, 19)
+	}
+	setvar(VAR_TEMP_1, 1)
+}
+

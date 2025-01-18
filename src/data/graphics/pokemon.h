@@ -8205,12 +8205,12 @@ const u8 gMonIcon_Shedinja_Electric[] = INCBIN_U8("graphics/pokemon/shedinja_ele
 const u8 gMonFootprint_Shedinja_Electric[] = INCBIN_U8("graphics/pokemon/shedinja_electric/footprint.1bpp");
 
 // Digimon
-const u32 gMonFrontPic_Digimon[] = INCBIN_U32("graphics/pokemon/digimon/front.4bpp.lz");
-const u32 gMonPalette_Digimon[] = INCBIN_U32("graphics/pokemon/digimon/normal.gbapal.lz");
-const u32 gMonBackPic_Digimon[] = INCBIN_U32("graphics/pokemon/digimon/back.4bpp.lz");
-const u32 gMonShinyPalette_Digimon[] = INCBIN_U32("graphics/pokemon/digimon/shiny.gbapal.lz");
-const u8 gMonIcon_Digimon[] = INCBIN_U8("graphics/pokemon/digimon/icon.4bpp");
-const u8 gMonFootprint_Digimon[] = INCBIN_U8("graphics/pokemon/digimon/footprint.1bpp");
+const u32 gMonFrontPic_Digimon[] = INCBIN_U32("graphics/pokemon/venusaur_mega/front.4bpp.lz");
+const u32 gMonPalette_Digimon[] = INCBIN_U32("graphics/pokemon/venusaur_mega/normal.gbapal.lz");
+const u32 gMonBackPic_Digimon[] = INCBIN_U32("graphics/pokemon/venusaur_mega/back.4bpp.lz");
+const u32 gMonShinyPalette_Digimon[] = INCBIN_U32("graphics/pokemon/venusaur_mega/shiny.gbapal.lz");
+const u8 gMonIcon_Digimon[] = INCBIN_U8("graphics/pokemon/venusaur_mega/icon.4bpp");
+const u8 gMonFootprint_Digimon[] = INCBIN_U8("graphics/pokemon/venusaur_mega/footprint.1bpp");
 
 // Unown Nudes
 const u32 gMonFrontPic_Unown_Nudes[] = INCBIN_U32("graphics/pokemon/unown_nudes/front.4bpp.lz");

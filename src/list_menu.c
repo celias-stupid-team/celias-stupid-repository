@@ -50,7 +50,7 @@ static u8 ListMenuAddCursorObject(struct ListMenu *list, u32 cursorKind);
 
 static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
 {   // { width, height, offset }
-    [MENU_INFO_ICON_CAUGHT] = { 12, 12, 0x00 },
+    [MENU_INFO_ICON_CAUGHT] = { 12, 12, 0x00 }, //Add another two here for Obtainable and Bonus
     [TYPE_NORMAL + 1]   = { 32, 12, 0x20 },
     [TYPE_FIGHTING + 1] = { 32, 12, 0x64 },
     [TYPE_FLYING + 1]   = { 32, 12, 0x60 },
@@ -90,6 +90,8 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },
     [MENU_INFO_ICON_PP]        = { 40, 12, 0xE0 },
     [MENU_INFO_ICON_EFFECT]    = { 40, 12, 0xE8 },
+    [MENU_INFO_ICON_OBTAINABLE] = { 12, 12, 0x148 }, //Add another two here for Obtainable and Bonus
+    [MENU_INFO_ICON_BONUS] = { 12, 12, 0x14C }, //Add another two here for Obtainable and Bonus
 };
 
 static void ListMenuDummyTask(u8 taskId)

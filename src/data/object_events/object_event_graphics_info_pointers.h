@@ -360,7 +360,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CLEFAIRY]                 = &gObjectEventGraphicsInfo_Clefairy,
     [OBJ_EVENT_GFX_PIDGEOT]                  = &gObjectEventGraphicsInfo_Pidgeot,
     [OBJ_EVENT_GFX_JIGGLYPUFF]               = &gObjectEventGraphicsInfo_Jigglypuff,
-    [OBJ_EVENT_GFX_PIDGEY]                   = &gObjectEventGraphicsInfo_Pidgey,
+    [OBJ_EVENT_GFX_PSYDUCK_SHADES]                   = &gObjectEventGraphicsInfo_Pidgey,
     [OBJ_EVENT_GFX_CHANSEY]                  = &gObjectEventGraphicsInfo_Chansey,
     [OBJ_EVENT_GFX_OMANYTE]                  = &gObjectEventGraphicsInfo_Omanyte,
     [OBJ_EVENT_GFX_KANGASKHAN]               = &gObjectEventGraphicsInfo_Kangaskhan,

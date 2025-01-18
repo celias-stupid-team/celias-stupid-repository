@@ -79,10 +79,10 @@
     },
     {
       "type": "hidden_item",
-      "x": 70,
-      "y": 3,
+      "x": 74,
+      "y": 2,
       "elevation": 3,
-      "item": "ITEM_ICE_HEAL",
+      "item": "ITEM_GOLD_TEETH",
       "flag": "FLAG_HIDDEN_ITEM_UNDERGROUND_PATH_EAST_WEST_TUNNEL_ICE_HEAL",
       "quantity": 1,
       "underfoot": false

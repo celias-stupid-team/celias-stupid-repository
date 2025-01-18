@@ -1,7 +1,13 @@
 // ############### Mapscripts ###############
 
 mapscripts InsideOfTruck_MapScripts {
+	MAP_SCRIPT_ON_RESUME: InsideOfTruck_OnResume
 }
+
+script InsideOfTruck_OnResume {
+    special(CreateMail)
+}
+
 
 // ############### regular scripts ###############
 

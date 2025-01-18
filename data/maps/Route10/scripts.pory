@@ -52,6 +52,10 @@ script Route10_Youngster {
 	end
 }
 
+script Route10_RouteSign {
+	msgbox("ROUTE 10\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	end
+}
 
 const DAD = 8
 script Route10_TrappedDad {

@@ -33,6 +33,8 @@ script VermillionPokemonCenter_DMCA {
 
 script VermillionPokemonCenter_Kid {
 	famechecker(FAMECHECKER_VERMILION, 2)
+	setflag(FLAG_CSR_HINT_PHISHING)
+	call(SetPlayerPokedexValues)
 	msgbox("I gave the guy next door my\nTRAINER ID.\lHe said he'd give me a cool prize.\pI think that might've been a bad\nidea…", MSGBOX_NPC)
 	end
 }

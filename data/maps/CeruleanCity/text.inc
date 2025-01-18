@@ -60,7 +60,7 @@ CeruleanCity_Text_GruntDefeat::
 CeruleanCity_Text_OkayIllReturnStolenTM::
     .string "…Okay.\n"
     .string "Just look at this!\l"
-    .string "It's an obvious ripoff!"
+    .string "It's an obvious ripoff!$"
 
 CeruleanCity_Text_RecoveredTM28FromGrunt::
     .string "{PLAYER} recovered TM28 from\n"
@@ -75,9 +75,10 @@ CeruleanCity_Text_MakeRoomForThisCantRun::
     .string "I can't run until I give it to you!$"
 
 CeruleanCity_Text_TrainerLifeIsToughIsntIt::
-    .string "You're a TRAINER, too?\p"
-    .string "Collecting, battling…\n"
-    .string "It's a tough life, isn't it?$"
+	.string "CERULEAN is known for its competitive\n"
+	.string "scene!\p"
+	.string "Whether it's battling to the north\n"
+	.string "or playing the TCG here in town!$"
 
 CeruleanCity_Text_YouCanCutDownSmallTrees::
     .string "Did you know that you can CUT down\n"

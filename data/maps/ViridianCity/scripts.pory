@@ -469,6 +469,11 @@ script ViridianCity_Gambler_GoesHome {
 
 }
 
+script HideCeliaDevCrew {
+	setflag(FLAG_CSR_CELIA_DEV_CREW)
+	release
+}
+
 movement CeliaApproach_South {
 	face_right
 }

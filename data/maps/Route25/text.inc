@@ -24,17 +24,18 @@ Route25_Text_DanPostBattle::
     .string "TRAINERS from around the world!$"
 
 Route25_Text_FlintIntro::
-    .string "GSC is NOT all stall!\p"
-    .string "Here, I'll prove it!$"
+	.string "Here at SMOGON, we ban overpowered\n"
+	.string "POKéMON so the meta stays balanced!$"
 
 Route25_Text_FlintDefeat::
     .string "Aww, darn…$"
 
 Route25_Text_FlintPostBattle::
-    .string "Battles only last 57 turns on\n"
-    .string "average!\p"
-    .string "I don't know what new gen players\n"
-    .string "are talking about!\p"
+	.string "If something's too strong, every\n"
+	.string "team needs to run the same counters.\l"
+	.string "The meta becomes stale and boring!\p"
+	.string "Even when our bans seem silly, it's\n"
+	.string "always for the health of the game!$"
 
 Route25_Text_KelseyIntro::
 	.string "Hi!\n"

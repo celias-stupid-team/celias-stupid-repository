@@ -138,7 +138,7 @@ PewterCity_Text_AskedToDeliverThis::
     .string "needing a specific kind of shoe?\p"
     .string "…Well that's awkward.\p"
     .string "I guess you can take these\n"
-    .string "anyway. Here!\p"
+    .string "anyway. Here!$"
 
 PewterCity_Text_ReceivedRunningShoesFromAide::
     .string "{PLAYER} received the\n"

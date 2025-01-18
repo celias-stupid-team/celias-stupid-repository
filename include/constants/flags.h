@@ -241,7 +241,7 @@
 #define FLAG_CSR_EXITED_TRUCK               0x0CE
 #define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
 #define FLAG_CSR_RETREAT_CAMPER               0x0D0
-#define FLAG_CSR_UNUSED_9               0x0D1
+#define FLAG_CSR_KIRI_PSYDUCK               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
 #define FLAG_CSR_UNUSED_11              0x0D3
 #define FLAG_CSR_UNUSED_12              0x0D4
@@ -466,7 +466,7 @@
 #define FLAG_HIDE_POKEMON_MANSION_3F_IRON                       0x1A3
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM14                      0x1A4
 #define FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE              0x1A5
-#define FLAG_0x1A6                                              0x1A6
+#define FLAG_HIDE_LIGMA                                              0x1A6
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM22                      0x1A7
 #define FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY                0x1A8
 #define FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY                    0x1A9
@@ -606,7 +606,7 @@
 #define FLAG_0x22C               0x22C
 #define FLAG_0x22D               0x22D
 #define FLAG_0x22E               0x22E
-#define FLAG_0x22F               0x22F
+#define FLAG_CSR_CELIA_DEV_CREW               0x22F
 
 // Story flags
 #define STORY_FLAGS_START 0x230
@@ -647,7 +647,7 @@
 #define FLAG_GOT_ITEMFINDER                              0x252
 #define FLAG_WOKE_UP_ROUTE_12_SNORLAX                    0x253
 #define FLAG_GOT_TM39_FROM_BROCK                         0x254
-#define FLAG_CSR_GOT_GOLDEN_ROD                               0x255
+#define FLAG_CSR_VIDEO_GAME_NUMBER                               0x255
 #define FLAG_GOT_EXP_SHARE_FROM_OAKS_AIDE                0x256
 #define FLAG_DID_MARC_TRADE                              0x257
 #define FLAG_BEAT_RIVAL_IN_OAKS_LAB                      0x258
@@ -804,10 +804,10 @@
 
 
 
-#define FLAG_REVIVED_DOME                                0x2EC
-#define FLAG_REVIVED_HELIX                               0x2ED
-#define FLAG_REVIVED_AMBER                               0x2EE
-#define FLAG_GOT_HM06                                    0x2EF
+#define FLAG_CELIA_SECRET_CINNABAR                                0x2EC
+#define FLAG_CELIA_SECRETS_FINISHED                               0x2ED
+#define FLAG_HIDE_CELIA_IN_CERULEAN_BACK                               0x2EE
+#define FLAG_CELIA_SECRETS_NEXT_UPDATE                                    0x2EF
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
 #define FLAG_FOUGHT_LUGIA                                0x2F2
@@ -843,11 +843,11 @@
 #define FLAG_CSR_GOT_DUCK_PAIL               0x30E
 #define FLAG_CSR_DUCK_PAIL_EMPTIED               0x30F
 #define FLAG_CSR_IMPOSTEROAK1               0x310
-#define FLAG_0x311               0x311
-#define FLAG_0x312               0x312
-#define FLAG_0x313               0x313
-#define FLAG_0x314               0x314
-#define FLAG_0x315               0x315
+#define FLAG_REVIVED_DOME               0x311
+#define FLAG_REVIVED_HELIX               0x312
+#define FLAG_REVIVED_AMBER               0x313
+#define FLAG_GOT_HM06               0x314
+#define FLAG_CSR_CONFUSED_GRUNT               0x315
 #define FLAG_0x316               0x316
 #define FLAG_0x317               0x317
 #define FLAG_0x318               0x318
@@ -963,7 +963,7 @@
 #define FLAG_CSR_HINT_SPAM               0x386
 #define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
 #define FLAG_CSR_TALKED_TO_JYNX_GUY               0x388
-#define FLAG_0x389               0x389
+#define FLAG_CSR_GOT_GOLDEN_ROD               0x389
 #define FLAG_0x38A               0x38A
 #define FLAG_0x38B               0x38B
 #define FLAG_0x38C               0x38C
@@ -983,9 +983,9 @@
 #define FLAG_DUGTRIO_SIGN               0x399
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
-#define FLAG_0x39C               0x39C
-#define FLAG_0x39D               0x39D
-#define FLAG_0x39E               0x39E
+#define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
+#define FLAG_CSR_SIGN               0x39D
+#define FLAG_CSR_SIGN_2               0x39E
 
 
 
@@ -1379,7 +1379,7 @@
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
 #define FLAG_SYS_CSR_VICTORY                                                  (SYS_FLAGS + 0x9)
-#define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
+#define FLAG_SYS_EXEGGUTOR                                                  (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
 #define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)

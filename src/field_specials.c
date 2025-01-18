@@ -1692,7 +1692,7 @@ bool8 SocialSecurityCheck(void) {
 }
 
 static void SocialSecurity_CB(void) {
-    ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEFT_ALIGN, 6);
+    ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEADING_ZEROS, 5);
     VarSet(VAR_RESULT, !StringCompare(gStringVar2, gStringVar1));
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
