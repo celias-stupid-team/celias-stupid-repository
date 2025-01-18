@@ -966,8 +966,14 @@ static void TintMapEdgesPalette(void)
     u16 mapEdgesPal[16];
     CpuCopy16(&sRegionMap_Pal[0x20], mapEdgesPal, sizeof(mapEdgesPal));
     RegionMap_DarkenPalette(mapEdgesPal, NELEMS(mapEdgesPal), 95);
-    LoadPalette(mapEdgesPal, BG_PLTT_ID(2), sizeof(mapEdgesPal));
-    LoadPalette(&sRegionMap_Pal[0x2F], BG_PLTT_ID(2) + 15, PLTT_SIZEOF(1));
+    switch (sRegionMap->selectedRegion) {
+
+            case REGIONMAP_KANTO:
+                LoadPalette(mapEdgesPal, BG_PLTT_ID(2), sizeof(mapEdgesPal));
+                LoadPalette(&sRegionMap_Pal[0x2F], BG_PLTT_ID(2) + 15, PLTT_SIZEOF(1));
+                break;
+            
+    }
 }
 
 static void InitRegionMap(u8 type)

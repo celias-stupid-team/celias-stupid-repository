@@ -322,6 +322,11 @@ script Route8_NoMoreGrowlithe {
 	end
 }
 
+script Route8_DMCAGrunt {
+	msgbox("These two kids are clearly\nillegal copies of each other.\pEven their POKéMON are the\nsame!", MSGBOX_NPC)
+	end
+}
+
 const LASS = 1
 script Route8_LassAttack {
 	lock
