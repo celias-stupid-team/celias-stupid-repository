@@ -1,3 +1,6 @@
+// CSR note:
+// this code has been massacred for save space
+// it will definitely not work
 #include "global.h"
 #include "gflib.h"
 #include "dynamic_placeholder_text_util.h"
@@ -66,7 +69,6 @@ struct UnionRoomChat
     u8 messageEntryBuffer[2 * MESSAGE_BUFFER_NCHAR + 1];
     u8 receivedMessage[0x40];
     u8 hostName[0x40];
-    u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
     u8 filler18B[0x5];
     u8 sendMessageBuffer[0x28];
 };
@@ -342,8 +344,6 @@ static void InitChatWork(struct UnionRoomChat * unionRoomChat)
     unionRoomChat->exitType = 0;
     unionRoomChat->changedRegisteredTexts = FALSE;
     PrepareSendBuffer_Null(unionRoomChat->sendMessageBuffer);
-    for (i = 0; i < UNION_ROOM_KB_ROW_COUNT; i++)
-        StringCopy(unionRoomChat->registeredTexts[i], gSaveBlock1Ptr->registeredTexts[i]);
 }
 
 static void FreeChatWork(void)
@@ -1093,9 +1093,6 @@ static void AppendCharacterToChatMessageBuffer(void)
     }
     else
     {
-        u8 *tempStr = StringCopy(buffer, sWork->registeredTexts[sWork->currentRow]);
-        tempStr[0] = CHAR_SPACE;
-        tempStr[1] = EOS;
         charsStr = buffer;
         strLength = StringLength_Multibyte(buffer);
     }
@@ -1161,7 +1158,6 @@ static bool32 ChatMsgHasAtLeastOneCharcter(void)
 static void RegisterTextAtRow(void)
 {
     u8 *src = UnionRoomChat_GetEndOfMessageEntryBuffer();
-    StringCopy(sWork->registeredTexts[sWork->currentRow], src);
     sWork->changedRegisteredTexts = TRUE;
 }
 
@@ -1175,13 +1171,11 @@ static void ResetMessageEntryBuffer(void)
 static void SaveRegisteredTextsToSB1(void)
 {
     int i;
-    for (i = 0; i < UNION_ROOM_KB_ROW_COUNT; i++)
-        StringCopy(gSaveBlock1Ptr->registeredTexts[i], sWork->registeredTexts[i]);
 }
 
 u8 *UnionRoomChat_GetWorkRegisteredText(int arg0)
 {
-    return sWork->registeredTexts[arg0];
+    return 0;
 }
 
 static u8 *GetEndOfUnk1A(void)
@@ -1422,16 +1416,6 @@ u8 *UnionRoomChat_GetNameOfPlayerWhoDisbandedChat(void)
 
 void UnionRoomChat_InitializeRegisteredTexts(void)
 {
-    StringCopy(gSaveBlock1Ptr->registeredTexts[0], gText_Hello);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[1], gText_Pokemon2);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[2], gText_Trade);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[3], gText_Battle);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[4], gText_Lets);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[5], gText_Ok);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[6], gText_Sorry);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[7], gText_YaySmileEmoji);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[8], gText_ThankYou);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[9], gText_ByeBye);
 }
 
 #define tState               data[0]
