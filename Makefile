@@ -48,6 +48,11 @@ endif
 ROM := poke$(BUILD_NAME).gba
 OBJ_DIR := $(BUILD_DIR)/$(BUILD_NAME)
 
+ifeq ($(RELEASE), 1)
+ROM := poke$(BUILD_NAME)_release.gba
+OBJ_DIR := $(BUILD_DIR)/$(BUILD_NAME)_release
+endif
+
 ELF := $(ROM:.gba=.elf)
 MAP := $(ROM:.gba=.map)
 SYM := $(ROM:.gba=.sym)
@@ -103,6 +108,11 @@ ifeq ($(DINFO),1)
   override CFLAGS += -g
 endif
 
+ifeq ($(RELEASE),1)
+  override CPPFLAGS += -DRELEASE=$(RELEASE)
+  override ASFLAGS += --defsym RELEASE=$(RELEASE)
+endif
+
 # Variable filled out in other make files
 AUTO_GEN_TARGETS :=
 include make_tools.mk
@@ -130,11 +140,11 @@ MAKEFLAGS += --no-print-directory
 # Delete files that weren't built properly
 .DELETE_ON_ERROR:
 
-ALL_BUILDS := firered firered_rev1 leafgreen leafgreen_rev1
+ALL_BUILDS := firered firered_rev1 leafgreen leafgreen_rev1 firered_release
 ALL_BUILDS += $(ALL_BUILDS:%=%_modern)
 
 RULES_NO_SCAN += clean clean-assets tidy generated clean-generated
-.PHONY: all rom modern compare $(ALL_BUILDS) $(ALL_BUILDS:%=compare_%)
+.PHONY: all rom modern compare release $(ALL_BUILDS) $(ALL_BUILDS:%=compare_%)
 .PHONY: $(RULES_NO_SCAN)
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
@@ -199,6 +209,7 @@ $(shell mkdir -p $(SUBDIRS))
 # Pretend rules that are actually flags defer to `make all`
 modern: all
 compare: all
+release: all
 
 # Other rules
 rom: $(ROM)
