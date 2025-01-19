@@ -142,7 +142,7 @@ script Route1_EventScript_CeliaShiny {
 
 script Route1_Bonus_Chris {
 	textcolor(NPC_TEXT_COLOR_MALE)
-	msgbox("FoF: I'm STEVEN!\n", MSGBOX_NPC)
+	msgbox("FoF: What do you call a shiny\nHOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_NPC)
 }
 
 
