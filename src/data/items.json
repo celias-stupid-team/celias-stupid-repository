@@ -2225,7 +2225,7 @@
       "secondaryId": 0
     },
     {
-      "english": "OREN BERRY",
+      "english": "ORAN BERRY",
       "itemId": "ITEM_ORAN_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_RESTORE_HP",
