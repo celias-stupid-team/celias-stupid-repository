@@ -899,7 +899,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LOW_KICK] =
     {
-        .effect = EFFECT_LOW_KICK,
+        .effect = EFFECT_FLINCH_HIT, //Gen 1 effect
         .power = 1,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
