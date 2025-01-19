@@ -42,19 +42,19 @@ Route10_Text_HermanPostBattle::
 	.string "show what they're doing in there.$"
 
 Route10_Text_HeidiIntro::
-    .string "I've been out at a POKéMON GYM\n"
-    .string "a few times.\p"
-    .string "…But I always lose.$"
+	.string "Oh boy, ROCK TUNNEL!\n"
+	.string "I can't wait!\p"
+	.string "That's everyone's favorite part\n"
+	.string "of any KANTO game!$"
 
 Route10_Text_HeidiDefeat::
-    .string "Ohh!\n"
-    .string "After all my training!$"
+    .string "Ohh!$"
 
 Route10_Text_HeidiPostBattle::
-    .string "I noticed some POKéMANIACS\n"
-    .string "prowling around.\p"
-    .string "Can you imagine? Them?\n"
-    .string "Up here in the mountains?$"
+	.string "What's that? You don't even have\n"
+	.string "FLASH yet?\p"
+	.string "I feel like the creator was a bit\n"
+	.string "too obvious about that one.$"
 
 Route10_Text_TrentIntro::
 	.string "Ah!\n"
@@ -70,11 +70,10 @@ Route10_Text_TrentPostBattle::
 	.string "on an island far, far away.$"
 
 Route10_Text_CarolIntro::
-    .string "I'm feeling a bit faint.\n"
-    .string "I haven't hiked in some time.$"
+	.string "The POKéMON here in the mountains\n"
+	.string "are so chunky…$"
 
 Route10_Text_CarolDefeat::
-    .string "I'm too tired.\n"
     .string "I wasn't up for it.$"
 
 Route10_Text_CarolPostBattle::

@@ -761,17 +761,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassMegan[] = {
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_RATTATA,
+        .species = SPECIES_GROUDON,
     },
     {
         .iv = 0,
         .lvl = 19,
-        .species = SPECIES_NIDORAN_M,
-    },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_MEOWTH,
+        .species = SPECIES_KYOGRE,
     },
 };
 

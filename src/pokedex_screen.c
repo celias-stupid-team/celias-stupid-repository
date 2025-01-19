@@ -1589,9 +1589,7 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     u16 species = itemId;
     bool8 seen = (itemId >> 16) & 1;  // not used but required to match
 
-    u16 ArrayIndex = (species - 1) / 8;
-    u16 BitIndex = (species - 1) % 8;
-    bool8 obtainable = gSaveBlock2Ptr->pokedex.obtainable[ArrayIndex] & (1 << BitIndex);
+    bool8 obtainable = DexScreen_GetSetPokedexFlag(species, FLAG_GET_OBTAINABLE, TRUE);
 
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;

@@ -49,7 +49,7 @@ script CeladonCity_Condominiums_1F_EventScript_Clefairy {
 script CeladonCity_Condominiums_1F_EventScript_TeaWoman {
 	lock
 	faceplayer
-	if(flag(FLAG_GOT_TEA) && var(VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES) != 0 && !checkitem(ITEM_TEA)) {
+	if(flag(FLAG_GOT_TEA) && var(VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES) == 0 && !checkitem(ITEM_TEA)) {
 		msgbox("Hello dearie, have you already\ndrinken all of your TOXIC SLUDGE?\pOh, but you're still breathing.\nThat's no good.\pHere, have some more.\n", MSGBOX_DEFAULT)
 		setflag(FLAG_GOT_TEA)
 		giveitem(ITEM_TEA)

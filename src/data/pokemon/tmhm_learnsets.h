@@ -53,7 +53,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -146,7 +146,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -173,7 +173,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -257,7 +257,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -304,7 +304,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -327,7 +327,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -350,7 +350,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -427,7 +427,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_EKANS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -590,7 +590,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -619,7 +619,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -677,7 +677,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -707,7 +707,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -740,7 +740,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -893,7 +893,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM39_FAINT_ATTACK) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK)),
 
     [SPECIES_GOLBAT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -912,7 +912,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -1220,7 +1220,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM43_FOCUS_MISS) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM50_COUNTER)),
 
@@ -1247,7 +1247,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM43_FOCUS_MISS) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM50_COUNTER)),
 
@@ -1834,7 +1834,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM39_FAINT_ATTACK) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -1854,7 +1854,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_SEEL]   = TMHM_LEARNSET(TMHM(TM05_MEAN_LOOK) |
@@ -2055,7 +2055,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -2899,7 +2899,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -2922,7 +2922,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM43_FOCUS_MISS) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -2943,7 +2943,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -3083,7 +3083,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -3137,7 +3137,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM39_FAINT_ATTACK) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -3158,7 +3158,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM43_FOCUS_MISS) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),
@@ -3177,7 +3177,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM39_FAINT_ATTACK) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -3253,7 +3253,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
 
@@ -3327,7 +3327,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(TM49_COPYCAT)
                                         | TMHM(TM50_COUNTER)
@@ -3635,7 +3635,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM05_FLASH)),
 
@@ -3657,7 +3657,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM05_FLASH)),
 
@@ -3767,7 +3767,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM49_COPYCAT)
                                         | TMHM(HM02_FLY)),
 
@@ -3938,7 +3938,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -3964,7 +3964,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(HM05_FLASH)),
 
@@ -3990,7 +3990,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM05_FLASH)),
@@ -4320,7 +4320,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_WOOPER]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
@@ -4445,7 +4445,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM49_COPYCAT)
                                         | TMHM(HM02_FLY)),
 
@@ -4636,7 +4636,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -4774,7 +4774,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -5139,7 +5139,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -5678,7 +5678,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM42_CRABHAMMER)
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM48_TRY_ATTACK)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM03_SURF)
@@ -5716,7 +5716,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM42_CRABHAMMER)
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM50_COUNTER)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
@@ -6412,7 +6412,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_SWELLOW]     = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -6430,7 +6430,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_SHROOMISH]   = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -6526,7 +6526,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_PELIPPER]    = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
@@ -6548,7 +6548,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM03_SURF)),
 
@@ -7108,7 +7108,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -7135,7 +7135,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -7684,7 +7684,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_ALTARIA]     = TMHM_LEARNSET(TMHM(TM02_CSR_DUMMY)
@@ -7711,7 +7711,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM06_ROCK_SMASH)),
 
@@ -7955,7 +7955,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
@@ -8673,7 +8673,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM04_STRENGTH)
@@ -8964,7 +8964,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM47_STEEL_WANG)
+                                        | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM03_SURF)
@@ -10206,7 +10206,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT)),
     [SPECIES_HITMONCHAN_SHIT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -10230,7 +10230,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM43_FOCUS_MISS) |
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
-                                        TMHM(TM47_STEEL_WANG) |
+                                        TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
                                         TMHM(TM50_COUNTER)),

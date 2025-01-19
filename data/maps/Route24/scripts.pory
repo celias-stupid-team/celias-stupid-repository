@@ -122,6 +122,11 @@ script Route24_Celia_Sign {
 	end
 }
 
+script Route24_SetMapFlag {
+	setflag(FLAG_CSR_MAP_ROUTE_24_FAR)
+	release
+}
+
 script Route24_Celia_Bench {
 	msgbox("I added new benches on various\nroutes as a way to skip long fights.\pNew players will probably still\nfight everyone, so they won't mind.\pHowever, it lets speedrunners and\nsuch skip annoying chunks.\lCall it Quality of Life!", MSGBOX_NPC)
 	end

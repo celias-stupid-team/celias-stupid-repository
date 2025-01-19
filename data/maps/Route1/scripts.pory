@@ -100,13 +100,13 @@ script Route1_EventScript_PitEscaped {
 
 script Route1_EventScript_LittleBoy {
 	lock
-	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_AUTOCLOSE)
+	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_NPC)
 	release
 }
 
 script Route1_EventScript_Dad {
 	lock
-	msgbox(format("I thought this sign was a\nPOKéSTOP..."), MSGBOX_AUTOCLOSE)
+	msgbox(format("I thought this sign was a\nPOKéSTOP..."), MSGBOX_NPC)
 	release
 }
 

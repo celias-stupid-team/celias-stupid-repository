@@ -7,3 +7,14 @@ UndergroundPath_EastWestTunnel_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_UNDERGROUND_PATH_EAST_WEST_TUNNEL
 	end
 `
+
+script UndergroundPath_GoldTeeth {
+	if(!flag(FLAG_GOT_GOLD_TEETH)) {
+		setflag(FLAG_GOT_GOLD_TEETH)
+		finditem(ITEM_GOLD_TEETH)
+	} else {
+		lock
+		msgbox("Who manages to drop their teeth\nanyway?", MSGBOX_DEFAULT)
+		release
+	}
+}

@@ -437,7 +437,7 @@
 #define FLAG_HIDE_SAFARI_ZONE_NORTH_PROTEIN                     0x186
 #define FLAG_HIDE_SAFARI_ZONE_NORTH_TM47                        0x187
 #define FLAG_HIDE_SAFARI_ZONE_WEST_TM32                         0x188
-#define FLAG_HIDE_SAFARI_ZONE_WEST_GOLD_TEETH                   0x189
+#define FLAG_GOT_GOLD_TEETH                   0x189
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_POTION                   0x18A
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE                   0x18B
 #define FLAG_HIDE_SILPH_CO_3F_HYPER_POTION                      0x18C
@@ -1497,7 +1497,7 @@
 #define FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE                 (SYS_FLAGS + 0xB9)
 #define FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY                          (SYS_FLAGS + 0xBA)
 #define FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F                    (SYS_FLAGS + 0xBB)
-#define FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE               (SYS_FLAGS + 0xBC)
+#define FLAG_WORLD_MAP_CELADON_POKEMON_CENTER               (SYS_FLAGS + 0xBC)
 #define FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH                      (SYS_FLAGS + 0xBD)
 #define FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE                     (SYS_FLAGS + 0xBE)
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER     (SYS_FLAGS + 0xBF)

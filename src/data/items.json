@@ -5412,7 +5412,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The foe is struck with steel-hard\\nwings. It may also raise the user's\\nDEFENSE stat.",
+      "description_english": "Oops. I hate when you\\nmisspell the move and get the\\nwrong one…",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -5421,7 +5421,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SteelWang"
+      "moveId": "MudSpout"
     },
     {
       "english": "TM48",
