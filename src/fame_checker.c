@@ -28,6 +28,7 @@
 #define SPRITETAG_FUJI 1007
 #define SPRITETAG_OAK 1008
 #define SPRITETAG_BILL 1009
+#define PALTAG_QUESTION_MARK 1010
 
 #define FC_NONTRAINER_START 0xFE00
 
@@ -132,6 +133,7 @@ static const u8 sOakSpriteGfx[] = INCBIN_U8("graphics/fame_checker/prof_oak.4bpp
 static const u16 sOakSpritePalette[] = INCBIN_U16("graphics/fame_checker/prof_oak.gbapal");
 static const u16 sUnkPalette[] = INCBIN_U16("graphics/fame_checker/unk.gbapal"); // unused?
 static const u16 sSilhouettePalette[] = INCBIN_U16("graphics/fame_checker/silhouette.gbapal");
+static const u16 sQuestionMarkSpritePalette[] = INCBIN_U16("graphics/object_events/palettes/npc_blue.gbapal");
 
 static const u8 sTextColor_White[3]  = {0, 1, 2};
 static const u8 sTextColor_DkGrey[3] = {0, 2, 3};
@@ -453,6 +455,7 @@ static const struct SpriteSheet sUISpriteSheets[] = {
 static const struct SpritePalette sUISpritePalettes[] = {
     {sSelectorCursorSpritePalette, SPRITETAG_SELECTOR_CURSOR},
     {sSpinningPokeballSpritePalette, SPRITETAG_SPINNING_POKEBALL},
+    {sQuestionMarkSpritePalette, PALTAG_QUESTION_MARK},
     {}
 };
 
@@ -572,7 +575,7 @@ static const union AnimCmd *const sQuestionMarkTileAnims[] = {
 };
 
 static const struct SpriteTemplate sQuestionMarkTileSpriteTemplate = {
-    SPRITETAG_QUESTION_MARK, 0xffff, &sQuestionMarkTileOamData, sQuestionMarkTileAnims, NULL, gDummySpriteAffineAnimTable, SpriteCallbackDummy
+    SPRITETAG_QUESTION_MARK, PALTAG_QUESTION_MARK, &sQuestionMarkTileOamData, sQuestionMarkTileAnims, NULL, gDummySpriteAffineAnimTable, SpriteCallbackDummy
 };
 
 static const union AnimCmd sSpinningPokeballAnim0[] = {
@@ -1300,13 +1303,13 @@ static void SpriteCB_DestroyFlavorTextIconSelectorCursor(struct Sprite *sprite)
 static void FreeQuestionMarkSpriteResources(void)
 {
     FreeSpriteTilesByTag(SPRITETAG_QUESTION_MARK);
+    FreeSpritePaletteByTag(PALTAG_QUESTION_MARK);
 }
 
 static u8 PlaceQuestionMarkTile(u8 x, u8 y)
 {
     u8 spriteId = CreateSprite(&sQuestionMarkTileSpriteTemplate, x, y, 8);
     gSprites[spriteId].oam.priority = 2;
-    gSprites[spriteId].oam.paletteNum = 2;
     return spriteId;
 }
 
