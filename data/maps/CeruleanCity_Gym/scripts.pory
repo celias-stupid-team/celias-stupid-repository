@@ -72,7 +72,9 @@ script CeruleanClub_MapScripts {
 		setflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 	} else {
 		clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
-		if(!flag(FLAG_CSR_CELIA_BONUS)){
+		if(flag(FLAG_CSR_CELIA_BONUS)){
+			clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
+		} else {
 			setflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 		}
 	}
