@@ -691,7 +691,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .desc = gText_RegionMap_AreaDesc_PowerPlant
     }, {
         .id = MAPSEC_GAME_CORNER,
-        .name = sMapsecName_MT__EMBER,
+        .name = sMapsecName_GAME_CORNER,
         .desc = gText_RegionMap_AreaDesc_MtEmber
     }, {
         .id = MAPSEC_BERRY_FOREST,
@@ -703,7 +703,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .desc = gText_RegionMap_AreaDesc_IcefallCave
     }, {
         .id = MAPSEC_POKEMON_CENTER,
-        .name = sMapsecName_LOST_CAVE,
+        .name = sMapsecName_POK__MON_CENTER,
         .desc = gText_RegionMap_AreaDesc_LostCave
     }, {
         .id = MAPSEC_SECRET_TUNNEL,
@@ -719,7 +719,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .desc = gText_RegionMap_AreaDesc_PatternBush
     }, {
         .id = MAPSEC_PRIZE_EXCHANGE,
-        .name = sMapsecName_DOTTED_HOLE,
+        .name = sMapsecName_PRIZE_EXCHANGE,
         .desc = gText_RegionMap_AreaDesc_DottedHole
     }
 };
@@ -892,7 +892,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_TWO_ISLAND          - MAPSECS_KANTO] = {MAP(TWO_ISLAND),                            SPAWN_TWO_ISLAND},
     [MAPSEC_THREE_ISLAND        - MAPSECS_KANTO] = {MAP(THREE_ISLAND),                          SPAWN_THREE_ISLAND},
     [MAPSEC_FOUR_ISLAND         - MAPSECS_KANTO] = {MAP(FOUR_ISLAND),                           SPAWN_FOUR_ISLAND},
-    [MAPSEC_FIVE_ISLAND         - MAPSECS_KANTO] = {MAP(FIVE_ISLAND),                           SPAWN_FIVE_ISLAND},
+    [MAPSEC_CELADON_MANSION         - MAPSECS_KANTO] = {MAP(FIVE_ISLAND),                           SPAWN_FIVE_ISLAND},
     [MAPSEC_SEVEN_ISLAND        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND),                          SPAWN_SEVEN_ISLAND},
     [MAPSEC_SIX_ISLAND          - MAPSECS_KANTO] = {MAP(SIX_ISLAND),                            SPAWN_SIX_ISLAND},
     [MAPSEC_KINDLE_ROAD         - MAPSECS_KANTO] = {MAP(ONE_ISLAND_KINDLE_ROAD),                0},

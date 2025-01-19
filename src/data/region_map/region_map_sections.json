@@ -477,7 +477,7 @@
     },
     {
       "map_section": "MAPSEC_CELADON_MANSION",
-      "name": "FIVE ISLAND",
+      "name": "CELADON MANSION",
       "x": 16,
       "y": 11,
       "width": 1,
@@ -660,8 +660,8 @@
       "height": 3
     },
     {
-      "map_section": "MAPSEC_TANOBY_RUINS",
-      "name": "TANOBY RUINS",
+      "map_section": "MAPSEC_BIKE_GATE",
+      "name": "BIKE GATE",
       "x": 3,
       "y": 12,
       "width": 7,
