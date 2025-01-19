@@ -3051,7 +3051,10 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 break;
             case HOLD_EFFECT_RESTORE_HP:
                 //proc healing items
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                DebugPrintf("HOLD_EFFECT_RESTORE_HP 2");
+                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 
+                  && gBattleMons[battlerId].hp > 0
+                  && !moveTurn)
                 {
                     gBattleMoveDamage = battlerHoldEffectParam;
                     if (gBattleMons[battlerId].hp + battlerHoldEffectParam > gBattleMons[battlerId].maxHP)
@@ -3065,7 +3068,9 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 break;
             case HOLD_EFFECT_RESTORE_PCT_HP:
                 //proc healing items
-                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 && !moveTurn)
+                if (gBattleMons[battlerId].hp <= gBattleMons[battlerId].maxHP / 2 
+                  && gBattleMons[battlerId].hp > 0
+                  && !moveTurn)
                 {
                     gBattleMoveDamage = gBattleMons[battlerId].maxHP * battlerHoldEffectParam / 100;
                     gBattleMoveDamage *= -1;
