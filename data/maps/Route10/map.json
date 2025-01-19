@@ -235,7 +235,7 @@
       "x": 6,
       "y": 26,
       "elevation": 3,
-      "item": "ITEM_CHERI_BERRY",
+      "item": "ITEM_BASCI_BERRY_RED",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_CHERI_BERRY",
       "quantity": 1,
       "underfoot": false
@@ -245,7 +245,7 @@
       "x": 17,
       "y": 29,
       "elevation": 3,
-      "item": "ITEM_PERSIM_BERRY",
+      "item": "ITEM_BASCI_BERRY_BLUE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
       "quantity": 1,
       "underfoot": false
