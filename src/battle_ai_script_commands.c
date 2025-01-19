@@ -90,7 +90,7 @@ static void Cmd_count_alive_pokemon(void);
 static void Cmd_get_fainted_mons(void);
 static void Cmd_get_considered_move_effect(void);
 static void Cmd_get_ability(void);
-static void Cmd_get_highest_type_effectiveness(void);
+static void Cmd_has_target_prio_move(void);
 static void Cmd_if_type_effectiveness(void);
 static void Cmd_nullsub_32(void);
 static void Cmd_nullsub_33(void);
@@ -194,7 +194,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_get_fainted_mons,                 // 0x2D
     Cmd_get_considered_move_effect,       // 0x2E
     Cmd_get_ability,                      // 0x2F
-    Cmd_get_highest_type_effectiveness,   // 0x30
+    Cmd_has_target_prio_move,             // 0x30
     Cmd_if_type_effectiveness,            // 0x31
     Cmd_nullsub_32,                       // 0x32
     Cmd_nullsub_33,                       // 0x33
@@ -1215,46 +1215,29 @@ static void Cmd_get_ability(void)
     sAIScriptPtr += 2;
 }
 
-static void Cmd_get_highest_type_effectiveness(void)
+static void Cmd_has_target_prio_move(void)
 {
     s32 i;
-    u8 *dynamicMoveType;
+    u8 battlerId;
 
-    gDynamicBasePower = 0;
-    dynamicMoveType = &gBattleStruct->dynamicMoveType;
-    *dynamicMoveType = 0;
-    gBattleScripting.dmgMultiplier = 1;
-    gMoveResultFlags = 0;
-    gCritMultiplier = 1;
-    AI_THINKING_STRUCT->funcResult = 0;
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+    
+    AI_THINKING_STRUCT->funcResult = FALSE;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        gBattleMoveDamage = 40;
-        gCurrentMove = gBattleMons[gBattlerAttacker].moves[i];
-
-        if (gCurrentMove != MOVE_NONE)
+        //check if battler has a damaging prio move
+        if (gBattleMoves[gBattleMons[battlerId].moves[i]].priority >= 1
+          && gBattleMoves[gBattleMons[battlerId].moves[i]].power > 0)
         {
-            TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
-
-            if (gBattleMoveDamage == 120) // Super effective STAB.
-                gBattleMoveDamage = AI_EFFECTIVENESS_x2;
-            if (gBattleMoveDamage == 240)
-                gBattleMoveDamage = AI_EFFECTIVENESS_x4;
-            if (gBattleMoveDamage == 30) // Not very effective STAB.
-                gBattleMoveDamage = AI_EFFECTIVENESS_x0_5;
-            if (gBattleMoveDamage == 15)
-                gBattleMoveDamage = AI_EFFECTIVENESS_x0_25;
-
-            if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
-                gBattleMoveDamage = AI_EFFECTIVENESS_x0;
-
-            if (AI_THINKING_STRUCT->funcResult < gBattleMoveDamage)
-                AI_THINKING_STRUCT->funcResult = gBattleMoveDamage;
+            AI_THINKING_STRUCT->funcResult = TRUE;
         }
     }
-
-    sAIScriptPtr += 1;
+    
+    sAIScriptPtr += 2;
 }
 
 static void Cmd_if_type_effectiveness(void)

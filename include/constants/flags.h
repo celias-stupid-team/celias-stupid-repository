@@ -280,7 +280,7 @@
 #define FLAG_0x0EF               0x0EF
 //Celadon City
 #define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
-#define FLAG_0x0F1               0x0F1
+#define FLAG_FORCE_AI_SWITCH_IN_ORDER    0x0F1 //resets after each battle
 #define FLAG_0x0F2               0x0F2
 #define FLAG_0x0F3               0x0F3
 #define FLAG_0x0F4               0x0F4
