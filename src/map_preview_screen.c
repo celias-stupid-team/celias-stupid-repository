@@ -187,7 +187,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sPowerPlantMapPreviewPalette
     },
     [MPS_MT_EMBER] = {
-        .mapsec = MAPSEC_MT_EMBER,
+        .mapsec = MAPSEC_GAME_CORNER,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_MT_EMBER_EXTERIOR,
         .tilesptr = sMtEmberMapPreviewTiles,
@@ -211,7 +211,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_DOTTED_HOLE] = {
-        .mapsec = MAPSEC_DOTTED_HOLE,
+        .mapsec = MAPSEC_PRIZE_EXCHANGE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F,
         .tilesptr = sDottedHoleMapPreviewTiles,
@@ -235,7 +235,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sIcefallCaveMapPreviewPalette
     },
     [MPS_LOST_CAVE] = {
-        .mapsec = MAPSEC_LOST_CAVE,
+        .mapsec = MAPSEC_POKEMON_CENTER,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE,
         .tilesptr = sLostCaveMapPreviewTiles,

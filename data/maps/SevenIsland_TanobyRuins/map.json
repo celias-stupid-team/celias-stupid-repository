@@ -3,7 +3,7 @@
   "name": "SevenIsland_TanobyRuins",
   "layout": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_TANOBY_RUINS",
+  "region_map_section": "MAPSEC_BIKE_GATE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

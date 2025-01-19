@@ -476,7 +476,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_FIVE_ISLAND",
+      "map_section": "MAPSEC_CELADON_MANSION",
       "name": "FIVE ISLAND",
       "x": 16,
       "y": 11,
@@ -700,8 +700,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_MT_EMBER",
-      "name": "MT. EMBER",
+      "map_section": "MAPSEC_GAME_CORNER",
+      "name": "GAME CORNER",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -741,16 +741,16 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_DOTTED_HOLE",
-      "name": "DOTTED HOLE",
+      "map_section": "MAPSEC_PRIZE_EXCHANGE",
+      "name": "PRIZE EXCHANGE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_LOST_CAVE",
-      "name": "LOST CAVE",
+      "map_section": "MAPSEC_POKEMON_CENTER",
+      "name": "POKéMON CENTER",
       "x": 0,
       "y": 0,
       "width": 1,

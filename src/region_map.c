@@ -540,7 +540,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_CAPE_BRINK,
         MAPSEC_BOND_BRIDGE,
         MAPSEC_THREE_ISLE_PORT,
-        MAPSEC_MT_EMBER,
+        MAPSEC_GAME_CORNER,
         MAPSEC_BERRY_FOREST,
         MAPSEC_THREE_ISLE_PATH,
         MAPSEC_EMBER_SPA,
@@ -550,7 +550,7 @@ static const u8 sSeviiMapsecs[3][30] = {
     [REGIONMAP_SEVII45 - 1] =
     {
         MAPSEC_FOUR_ISLAND,
-        MAPSEC_FIVE_ISLAND,
+        MAPSEC_CELADON_MANSION,
         MAPSEC_DECAMARK,
         MAPSEC_SEVII_ISLE_7,
         MAPSEC_SEVII_ISLE_8,
@@ -562,7 +562,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_NAVEL_ROCK,
         MAPSEC_SKY_TOWER,
         MAPSEC_ROCKET_WAREHOUSE,
-        MAPSEC_LOST_CAVE,
+        MAPSEC_POKEMON_CENTER,
         MAPSEC_NONE
     }, 
     [REGIONMAP_SEVII67 - 1] = 
@@ -576,12 +576,12 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_TRAINER_TOWER,
         MAPSEC_CANYON_ENTRANCE,
         MAPSEC_SEVAULT_CANYON,
-        MAPSEC_TANOBY_RUINS,
+        MAPSEC_BIKE_GATE,
         MAPSEC_SEVII_ISLE_22,
         MAPSEC_SEVII_ISLE_23,
         MAPSEC_SOOTOPOLIS_CITY,
         MAPSEC_TRAINER_TOWER_2,
-        MAPSEC_DOTTED_HOLE,
+        MAPSEC_PRIZE_EXCHANGE,
         MAPSEC_ZERO_ISLAND,
         MAPSEC_YES,
         MAPSEC_SECRET_TUNNEL,
@@ -690,7 +690,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_POWER_PLANT,
         .desc = gText_RegionMap_AreaDesc_PowerPlant
     }, {
-        .id = MAPSEC_MT_EMBER,
+        .id = MAPSEC_GAME_CORNER,
         .name = sMapsecName_MT__EMBER,
         .desc = gText_RegionMap_AreaDesc_MtEmber
     }, {
@@ -702,7 +702,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_SKY_TOWER,
         .desc = gText_RegionMap_AreaDesc_IcefallCave
     }, {
-        .id = MAPSEC_LOST_CAVE,
+        .id = MAPSEC_POKEMON_CENTER,
         .name = sMapsecName_LOST_CAVE,
         .desc = gText_RegionMap_AreaDesc_LostCave
     }, {
@@ -718,7 +718,7 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_ZERO_ISLAND,
         .desc = gText_RegionMap_AreaDesc_PatternBush
     }, {
-        .id = MAPSEC_DOTTED_HOLE,
+        .id = MAPSEC_PRIZE_EXCHANGE,
         .name = sMapsecName_DOTTED_HOLE,
         .desc = gText_RegionMap_AreaDesc_DottedHole
     }
@@ -915,18 +915,18 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_TRAINER_TOWER       - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TRAINER_TOWER),            0},
     [MAPSEC_CANYON_ENTRANCE     - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  0},
     [MAPSEC_SEVAULT_CANYON      - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON),           0},
-    [MAPSEC_TANOBY_RUINS        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TANOBY_RUINS),             0},
+    [MAPSEC_BIKE_GATE        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TANOBY_RUINS),             0},
     [MAPSEC_SEVII_ISLE_22       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_23       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SOOTOPOLIS_CITY       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_NAVEL_ROCK          - MAPSECS_KANTO] = {MAP(NAVEL_ROCK_EXTERIOR),                   0},
-    [MAPSEC_MT_EMBER            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_GAME_CORNER            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BERRY_FOREST        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SKY_TOWER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_ROCKET_WAREHOUSE    - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_TRAINER_TOWER_2     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_DOTTED_HOLE         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_LOST_CAVE           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_PRIZE_EXCHANGE         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_POKEMON_CENTER           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_ZERO_ISLAND        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_YES       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SECRET_TUNNEL     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
@@ -3030,7 +3030,7 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_FOUR_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_FIVE_ISLAND:
+    case MAPSEC_CELADON_MANSION:
         return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SEVEN_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -3091,7 +3091,7 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_POWER_PLANT) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NAVEL_ROCK:
         return FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_MT_EMBER:
+    case MAPSEC_GAME_CORNER:
         return FlagGet(FLAG_WORLD_MAP_MT_EMBER_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BERRY_FOREST:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -3101,9 +3101,9 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TRAINER_TOWER_2:
         return FlagGet(FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_DOTTED_HOLE:
+    case MAPSEC_PRIZE_EXCHANGE:
         return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_LOST_CAVE:
+    case MAPSEC_POKEMON_CENTER:
         return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ZERO_ISLAND:
         return FlagGet(FLAG_CSR_MAP_ZERO_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -3310,7 +3310,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 5;
         sMapCursor->y = 6;
         break;
-    case MAPSEC_MT_EMBER:
+    case MAPSEC_GAME_CORNER:
         sMapCursor->x = 2;
         sMapCursor->y = 3;
         break;
@@ -3337,7 +3337,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 9;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_DOTTED_HOLE:
+    case MAPSEC_PRIZE_EXCHANGE:
         sMapCursor->x = 16;
         sMapCursor->y = 8;
         break;
