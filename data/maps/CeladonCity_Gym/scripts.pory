@@ -419,6 +419,14 @@ script CeladonGym_GiovanniDefeat {
 	end
 }
 
+script CeladonGym_Receptionist {
+	if(flag(FLAG_BADGE04_GET)) {
+		msgbox("Hey!\nYou did it!\pYou really saved us from\nGIOVANNI!\lNice going!", MSGBOX_NPC)
+	} else { 
+		msgbox("Hey there, Champ in the making!\nI'm glad you found our club!\pWelcome to the LGBT Community\nCenter, otherwise known as\lCELADON GYM!\pOur president and chairwoman is\nERIKA.\pShe's been keeping our community\naffirming and inclusive while\lalso being an expert at POKéMON!\pShe's not one to be taken\nlightly!", MSGBOX_NPC)
+	}
+}
+
 
 // ported these movement scripts directly from binary; not gonna go back through and consolidate them :(
 movement ErikaReturns {

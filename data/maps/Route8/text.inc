@@ -14,15 +14,15 @@ Route8_Text_AidanPostBattle::
 	.string "Especially before the INTERNET!$"
 
 Route8_Text_StanIntro::
-    .string "All right!\n"
-    .string "Let's play a game!$"
+	.string "Yahaha!\p"
+	.string "I'm Rich!\n$"
 
 Route8_Text_StanDefeat::
     .string "Drat!\n"
     .string "Came up short!$"
 
 Route8_Text_StanPostBattle::
-    .string "Things didn't work today.$"
+	.string "I love being Rich.\n$"
 
 Route8_Text_GlennIntro::
 	.string "Brr...!\n"
@@ -104,10 +104,10 @@ Route8_Text_JuliaDefeat::
     .string "Owie!$"
 
 Route8_Text_JuliaPostBattle::
-    .string "I read that CLEFAIRY evolves when\n"
-    .string "it's exposed to a MOON STONE.\p"
-    .string "I read that in a POKéMON JOURNAL.\n"
-    .string "I wonder if it's true?$"
+	.string "The way I see it, KYOGRE is\n"
+	.string "surrounded.\p"
+	.string "What's under the OCEAN?\n"
+	.string "That's right: More land.$"
 
 Route8_Text_UndergroundPathSign::
     .string "UNDERGROUND PATH\n"

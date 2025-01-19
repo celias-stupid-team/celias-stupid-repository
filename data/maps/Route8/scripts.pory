@@ -355,6 +355,7 @@ script Route8_LassAttack {
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("There were a bunch of people\nwaiting over there in a line.\pHalf of them were looking towards\nSAFFRON CITY which was fine,\lbut some were looking right at me.\pSo, I decided to scare them off!\n", MSGBOX_DEFAULT)
+	playbgm(MUS_ROUTE3, TRUE)
 	trainerbattle_no_intro(TRAINER_LASS_MEGAN, Route8_Text_JuliaDefeat)
 	release
 	end
