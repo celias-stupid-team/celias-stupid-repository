@@ -41,6 +41,10 @@
 #define MAP_BATTLE_SCENE_CHAMPION     10
 
 // enable debug menu
+#ifdef RELEASE
 #define DEBUG_POKEMON_MENU            FALSE
+#else
+#define DEBUG_POKEMON_MENU            TRUE
+#endif
 
 #endif // GUARD_CONSTANTS_POKEMON_DEBUG_H

@@ -810,7 +810,9 @@ gStdScriptsEnd::
 
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
+.ifndef RELEASE
 	.include "data/scripts/debug.inc"
+.endif
 
 @ Unused
 Text_WouldYouLikeToMixRecords::

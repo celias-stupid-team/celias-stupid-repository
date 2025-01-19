@@ -11,11 +11,17 @@ COMPARE       ?= 0
 
 KEEP_TEMPS    ?= 0
 
+# Release build - turn off debugging
+RELEASE       ?= 0
+
 ifeq (modern,$(MAKECMDGOALS))
   MODERN := 1
 endif
 ifeq (compare,$(MAKECMDGOALS))
   COMPARE := 1
+endif
+ifeq (release,$(MAKECMDGOALS))
+  RELEASE := 1
 endif
 
 # For gbafix
