@@ -53,9 +53,7 @@ LavenderTown_EventScript_PokemonTowerSign::
 	msgbox LavenderTown_Text_PokemonTowerSign, MSGBOX_SIGN
 	end
 
-LavenderTown_EventScript_FailedMath::
-	msgbox LavenderTown_Text_MathFail, MSGBOX_NPC
-	end
+
 
 LavenderTown_EventScript_UndergroundPathSign::
 	msgbox LavenderTown_Text_UndergroundPathSign, MSGBOX_SIGN
@@ -98,6 +96,36 @@ script LavenderTown_ImposterOak {
 	}
 	
 	release
+}
+
+script LavenderTown_EventScript_FailedMath {
+	lock
+	faceplayer
+	msgbox("Originally, POKéMON TOWER was\nsupposed to be build horizontally.", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, LavenderCameraUp)
+	waitmovement(0)
+	delay(60)
+	msgbox("However, the engineers who build\nit all failed math.", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	msgbox("This is what we got instead.\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(OBJ_EVENT_ID_CAMERA, LavenderCameraDown)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	release
+}
+
+movement LavenderCameraUp {
+	walk_fast_up * 8
+}
+
+movement LavenderCameraDown {
+	walk_faster_down * 8
 }
 
 script LavenderTown_RemoveTree {
