@@ -706,7 +706,7 @@ script ViridianCity_OnTransition {
 	call(SetPlayerPokedexValues)
 	if(flag(FLAG_CSR_RETURNED_KEY)) {
 		setmetatile(53, 15, 0x299, TRUE) //Unlocks the door if you've returned the key
-		special(DrawWholeMapView)
+		//special(DrawWholeMapView)
 
 	}
 }
