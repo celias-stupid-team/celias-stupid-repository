@@ -113,6 +113,10 @@ mapscripts CeladonCity_MapScripts {
 			lock
 			delay(90)
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			if(flag(FLAG_CELIA_SECRET_CELADON)) {
+				release
+				end
+			}
 			delay(40)
 			playse(SE_EXIT)
 			setobjectxy(CELIA, 30, 11)

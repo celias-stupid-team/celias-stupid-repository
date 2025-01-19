@@ -863,11 +863,13 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
             DoWarp();
             return TRUE;
         }
+        
         else if (IsDirectionalStairWarpMetatileBehavior(metatileBehavior, direction) == TRUE)
         {
             
             delay = 0;
-            if(MetatileBehavior_IsBikeStairWarp(metatileBehavior)) {
+            /*
+            if(MetatileBehavior_IsBikeStairWarp(metatileBehavior)) { //Added this to try to preserve Bike, but it didn't work
                 if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
                 {
                     SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_MACH_BIKE);
@@ -881,6 +883,7 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
                     delay = 12;
                 }
             }
+            */
             StoreInitialPlayerAvatarState();
             SetupWarp(&gMapHeader, warpEventId, position);
             DoStairWarp(metatileBehavior, delay);

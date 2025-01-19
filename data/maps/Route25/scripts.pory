@@ -24,6 +24,11 @@ script Route25_EventScript_SeaCottageSign {
 	end
 }
 
+script Route25_CeliaSecret_GSC {
+	msgbox("In the beta, this guy was a GSC\nplayer with five SNORLAXES.\pHis dialogue was making fun of GSC\nplayers who get mad at non-GSC\lplayers for thinking their tier is\lstall.\pWhile I do broadly agree with my\njoke before, I switched it out.\pAs a matter of principle, I don't\nwanna make fun of people for being\lpassionate about what they love.", MSGBOX_NPC)
+	end
+}
+
 script Route25_Celia_Nob {
 	msgbox("This guy is NOB OGASAWARA.\nHe's one of the translators.\pGame Freak used to put an NPC\nof him in every game, to his dismay.", MSGBOX_NPC)
 	end
