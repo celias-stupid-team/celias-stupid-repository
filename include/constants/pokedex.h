@@ -479,7 +479,8 @@ enum {
 
 #define KANTO_DEX_COUNT     NATIONAL_DEX_CASTFORM
 #define JOHTO_DEX_COUNT     NATIONAL_DEX_SCIZOR
-#define NATIONAL_DEX_COUNT  NATIONAL_DEX_RATTATA_SHINY
+// #define NATIONAL_DEX_COUNT  NATIONAL_DEX_RATTATA_SHINY
+#define NATIONAL_DEX_COUNT  386 // placeholder to reserve space for the future
 
 // Hoenn Pokedex order
 enum {

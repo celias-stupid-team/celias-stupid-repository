@@ -475,7 +475,6 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
 
     script = GetObjectEventScriptPointerByObjectEventId(objectEventId);
 
-    script = GetRamScript(gSpecialVar_LastTalked, script);
     return script;
 }
 
