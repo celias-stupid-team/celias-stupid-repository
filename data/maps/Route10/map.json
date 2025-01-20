@@ -57,10 +57,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 20,
+      "x": 2,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -71,10 +71,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 22,
+      "x": 3,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -85,10 +85,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 24,
+      "x": 4,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -99,10 +99,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 10,
-      "y": 26,
+      "x": 4,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -113,8 +113,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 16,
-      "y": 19,
+      "x": 15,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -235,7 +235,7 @@
       "x": 6,
       "y": 26,
       "elevation": 3,
-      "item": "ITEM_CHERI_BERRY",
+      "item": "ITEM_BASCI_BERRY_RED",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_CHERI_BERRY",
       "quantity": 1,
       "underfoot": false
@@ -245,7 +245,7 @@
       "x": 17,
       "y": 29,
       "elevation": 3,
-      "item": "ITEM_PERSIM_BERRY",
+      "item": "ITEM_BASCI_BERRY_BLUE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
       "quantity": 1,
       "underfoot": false
@@ -253,7 +253,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 16,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -261,7 +261,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 16,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -269,7 +269,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 16,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -277,7 +277,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 16,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -285,7 +285,7 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 16,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -293,7 +293,7 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 17,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -301,7 +301,7 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 18,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -309,7 +309,7 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 19,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -317,7 +317,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 19,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -325,7 +325,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 19,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -333,7 +333,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 19,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -341,7 +341,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 19,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -349,7 +349,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 18,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -357,7 +357,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 17,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -365,7 +365,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 17,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -373,7 +373,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 17,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -381,7 +381,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 17,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -389,7 +389,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 18,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -397,7 +397,7 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 18,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"
@@ -405,7 +405,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 18,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_Imprint"

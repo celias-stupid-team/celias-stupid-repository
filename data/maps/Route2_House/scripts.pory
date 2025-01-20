@@ -4,6 +4,7 @@ Route2_House_MapScripts::
 
 Route2_House_EventScript_Scientist::
 	lock
+	faceplayer
 	famechecker FAMECHECKER_VIRIDIAN, 5
 	setflag FLAG_CSR_HINT_ABRA_TRADE
 	call SetPlayerPokedexValues

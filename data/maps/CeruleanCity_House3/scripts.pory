@@ -42,3 +42,10 @@ CeruleanCity_House3_EventScript_AlreadyTraded::
 	release
 	end
 `
+script CeliaSecrets_Jynx {
+	lock
+	faceplayer
+	msgbox("I have a whole lecture about this.\nBe ready:\pThere's many theories as to Jynx's\noriginal inspiration.\pSome cite the Ganguro fashion, some\nsay it's a Yama-uba or Yuki-onna.\lPersonally, I'm skeptical of those.\pGanguro wasn't big until after RBY\nso the timeline doesn't work out.\pThe yokai are more plausible, but I\nhave a more likely explanation.\pBased on its usage in the anime as\nSanta's servant, I think it's bad\lfaith to act like Game Freak had NO\lidea of Jynx's racial similatities.\pHowever, I believe that there's an\norigin that explains everything:\lI think Jynx is based on theater.")
+	msgbox("Minstrel shows existed in Japan\nafter being introduced by the US\lin post-WW2 reconstruction.\pThey remained popular up until the\n90's, where globalization actually\lmade some Japanese folks confused\lat why their shows were offensive.\pFrom Jynx's dancing and costume, to\nits penchant for opera singing, and\lyes, even its blackface appearance,\lTheater explains this Pokemon more\lthan anything else.\pThis, ofc, does not excuse it.\nJynx's first design was a mistake.\lChanging color was the right call.\pSadly any commentary on this tends\nto be drowned out by folks who don't\lknow shit and just wanna defend their\lchildhood Pokemon.\pOh well.\n", MSGBOX_DEFAULT)
+	release
+}

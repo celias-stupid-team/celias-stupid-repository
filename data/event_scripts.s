@@ -957,8 +957,11 @@ Text_AccessedProfOaksPC::
 
 @ todo for Celia write non placeholder text here 
 Text_HavePokedexRated::
-	.string "Oak: Does your dumb ass need\n"
-	.string "a hint?$"
+	.string "OAK: Ah, {PLAYER}!\n"
+	.string "I hope you're doing well!\p"
+	.string "I see you're making good work on\n"
+	.string "your POKéDEX.\l"
+	.string "Would you like to have a hint?$"
 
 Text_ClosedLinkToProfOaksPC::
 	.string "Closed link to PROF. OAK's PC.$"

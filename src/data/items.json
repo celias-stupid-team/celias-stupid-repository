@@ -1105,7 +1105,7 @@
       "secondaryId": 0
     },
     {
-      "english": "PP UP",
+      "english": "VIAGRA",
       "itemId": "ITEM_PP_UP",
       "price": 9800,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -1713,12 +1713,12 @@
       "secondaryId": 0
     },
     {
-      "english": "BIG PEARL",
+      "english": "LIGMA",
       "itemId": "ITEM_BIG_PEARL",
       "price": 7500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A quite-large pearl that sparkles\\nin a pretty silver color.\\nIt can be sold at a high price.",
+      "description_english": "Wait, who's STEVE JOBS?",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -2225,7 +2225,7 @@
       "secondaryId": 0
     },
     {
-      "english": "OREN BERRY",
+      "english": "ORAN BERRY",
       "itemId": "ITEM_ORAN_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_RESTORE_HP",
@@ -5412,7 +5412,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The foe is struck with steel-hard\\nwings. It may also raise the user's\\nDEFENSE stat.",
+      "description_english": "Oops. I hate when you\\nmisspell the move and get the\\nwrong one…",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -5421,7 +5421,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "SteelWang"
+      "moveId": "MudSpout"
     },
     {
       "english": "TM48",
@@ -6468,6 +6468,22 @@
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "METRONOME",
+      "itemId": "ITEM_METRONOME",
+      "price": 100,
+      "holdEffect": "HOLD_EFFECT_DRAGON_POWER",
+      "holdEffectParam": 10,
+      "description_english": "An item which will make METRONOME\\nalways call the most useful move\\n(trust me, it'll work this time).",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,

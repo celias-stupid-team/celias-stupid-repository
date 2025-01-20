@@ -1,13 +1,33 @@
 raw `
-CeladonCity_DepartmentStore_3F_MapScripts::
-	.byte 0
+
 
 
 `
 
+mapscripts CeladonCity_DepartmentStore_3F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_GAME_SHOP)
+		call(SetPlayerPokedexValues)
+	}
+}
+
 script DepartmentStore_GameShop_CounterGuy {
 	lock
-	msgbox("Hi, there! I just finished CELIA'S\nSTUPID ROMHACK!\lFun game - you should try it!\pBy the way…\pDo you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut…\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_DEFAULT)
+	famechecker(FAMECHECKER_CELADON, 2)
+	if(flag(FLAG_GOT_TM50)) {
+		msgbox("Do you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut…\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox("Hi, there! I just finished CELIA'S\nSTUPID ROMHACK!\lFun game - you should try it!\pBy the way…\pDo you see that guy sitting in\nthe corner behind me?\lHe's been there for a few months.\pWe put out a new demo for a game\nthat's launching soon.\lI think he really likes it!\pBut…\pIt sounds like he might be counting\nsomething, I think?\lEvery 20 minutes it goes up by one.\pOh!\nThat gives me an idea!\lWanna learn the move COUNTER?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_GOT_TM50)
+		msgbox("Here you go!\n", MSGBOX_DEFAULT)
+		giveitem(ITEM_TM50)
+
+	} else {
+		msgbox("Oh, okay then.\n", MSGBOX_DEFAULT)
+	}
 	release //Fill in later
 	end
 }
@@ -209,7 +229,7 @@ movement CeladonCity_DepartmentStore_3F_CameraUp {
 }
 
 movement CeladonCity_DepartmentStore_3F_CameraDown {
-	walk_fast_up * 3
+	walk_fast_down * 3
 }
 
 movement DadIn {
@@ -218,7 +238,7 @@ movement DadIn {
 }
 
 movement DadOut {
-	face_left
+	face_right
 	delay_4 * 2
 	delay_2
 	set_invisible

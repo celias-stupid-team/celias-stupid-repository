@@ -8902,7 +8902,10 @@ static void Cmd_trysetfutureattack(void)
     {
         gWishFutureKnock.futureSightMove[gBattlerTarget] = gCurrentMove;
         gWishFutureKnock.futureSightAttacker[gBattlerTarget] = gBattlerAttacker;
-        gWishFutureKnock.futureSightCounter[gBattlerTarget] = 3;
+        if (gCurrentMove == MOVE_FOURSIGHT)
+            gWishFutureKnock.futureSightCounter[gBattlerTarget] = 5; // Foursight is four turns
+        else
+            gWishFutureKnock.futureSightCounter[gBattlerTarget] = 3;
         gWishFutureKnock.futureSightDmg[gBattlerTarget] = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
                                                     gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)], 0,
                                                     0, gBattlerAttacker, gBattlerTarget);
@@ -8912,6 +8915,8 @@ static void Cmd_trysetfutureattack(void)
 
         if (gCurrentMove == MOVE_DOOM_DESIRE)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
+        else if (gCurrentMove == MOVE_FOURSIGHT)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FOURSIGHT;
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
 

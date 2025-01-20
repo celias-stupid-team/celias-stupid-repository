@@ -270,6 +270,11 @@ script VermilionCity_OnLoad {
 		//Sorry for the magic numbers. It's regular grass.
 		special(DrawWholeMapView)
 	}
+	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK) && flag(FLAG_BADGE03_GET)) {
+		clearflag(FLAG_HIDE_VERMILION_CITY_OAKS_AIDE)
+	} else {
+		setflag(FLAG_HIDE_VERMILION_CITY_OAKS_AIDE)
+	}
 
 }
 
@@ -288,9 +293,9 @@ const VermillionPsyduck = 7 //Now it's a psyduck
 script VermillionCity_CeliaAfterGym {
 	lock
 	faceplayer
-	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)) {
+	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK)) {
 		msgbox("I'm wearing SHADES as PROF. OAK's\nPOKéMON.", MSGBOX_DEFAULT)
-		setflag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA)
+		setflag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK)
 	} else {
 		msgbox("I'm wearing SHADES as PROF. OAK's\nPOKéMON.", MSGBOX_DEFAULT)
 	}

@@ -427,6 +427,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_GRASS_ENERGY]      =  {gItemIcon_GrassEnergy, gItemIconPalette_GrassEnergy},
     [ITEM_FIGHTING_ENERGY]      =  {gItemIcon_FightingEnergy, gItemIconPalette_FightingEnergy},
     [ITEM_EMPTY_PAIL]      =  {gItemIcon_WailmerPail, gItemIconPalette_WailmerPail},
+    [ITEM_METRONOME]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
 
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},

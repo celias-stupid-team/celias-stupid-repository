@@ -403,9 +403,11 @@
 #define STRINGID_EXTREME_EVOBOOST 402
 #define STRINGID_VEEVEE_VOLLEY 403
 #define STRINGID_FICKLE_BEAM 404
-#define STRINGID_NONE 405
+#define STRINGID_FOURSIGHT 405
+#define STRINGID_FOURSIGHT_APPLY 406
+#define STRINGID_NONE 407
 
-#define BATTLESTRINGS_COUNT     406
+#define BATTLESTRINGS_COUNT     408
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -548,6 +550,7 @@
 // gFutureMoveUsedStringIds
 #define B_MSG_FUTURE_SIGHT 0
 #define B_MSG_DOOM_DESIRE  1
+#define B_MSG_FOURSIGHT  2
 
 // gItemSwapStringIds
 #define B_MSG_ITEM_SWAP_TAKEN 0

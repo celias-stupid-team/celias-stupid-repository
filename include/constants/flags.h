@@ -239,7 +239,7 @@
 #define FLAG_CSR_FIRST_TENTACOOL        0x0CC
 #define FLAG_CSR_SECOND_TENTACOOL       0x0CD
 #define FLAG_CSR_EXITED_TRUCK               0x0CE
-#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_CELIA               0x0CF
+#define FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK               0x0CF
 #define FLAG_CSR_RETREAT_CAMPER               0x0D0
 #define FLAG_CSR_KIRI_PSYDUCK               0x0D1
 #define FLAG_CSR_UNUSED_10              0x0D2
@@ -437,7 +437,7 @@
 #define FLAG_HIDE_SAFARI_ZONE_NORTH_PROTEIN                     0x186
 #define FLAG_HIDE_SAFARI_ZONE_NORTH_TM47                        0x187
 #define FLAG_HIDE_SAFARI_ZONE_WEST_TM32                         0x188
-#define FLAG_HIDE_SAFARI_ZONE_WEST_GOLD_TEETH                   0x189
+#define FLAG_GOT_GOLD_TEETH                   0x189
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_POTION                   0x18A
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE                   0x18B
 #define FLAG_HIDE_SILPH_CO_3F_HYPER_POTION                      0x18C
@@ -476,7 +476,7 @@
 #define FLAG_HIDE_VICTORY_ROAD_2F_FULL_HEAL                     0x1AD
 #define FLAG_HIDE_VICTORY_ROAD_2F_TM37                          0x1AE
 #define FLAG_HIDE_VICTORY_ROAD_3F_MAX_REVIVE                    0x1AF
-#define FLAG_HIDE_VICTORY_ROAD_3F_TM50                          0x1B0
+#define FLAG_GOT_TM50                          0x1B0
 #define FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR                   0x1B1
 #define FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET                       0x1B2
 #define FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE                 0x1B3
@@ -715,7 +715,7 @@
 #define FLAG_GOT_TM16_FROM_THIRSTY_GIRL                  0x296
 #define FLAG_GOT_TM03_FROM_MISTY                         0x297
 #define FLAG_GOT_TM26_FROM_GIOVANNI                      0x298
-#define FLAG_0x299                                       0x299
+#define FLAG_HIDE_MISTY_IN_CERULEAN                                       0x299
 #define FLAG_GOT_TM04_FROM_SABRINA                       0x29A
 #define FLAG_GOT_FAME_CHECKER                            0x29B
 #define FLAG_GOT_RECORD_SETTING_MAGIKARP                 0x29C
@@ -1497,7 +1497,7 @@
 #define FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE                 (SYS_FLAGS + 0xB9)
 #define FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY                          (SYS_FLAGS + 0xBA)
 #define FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F                    (SYS_FLAGS + 0xBB)
-#define FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE               (SYS_FLAGS + 0xBC)
+#define FLAG_WORLD_MAP_CELADON_POKEMON_CENTER               (SYS_FLAGS + 0xBC)
 #define FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH                      (SYS_FLAGS + 0xBD)
 #define FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE                     (SYS_FLAGS + 0xBE)
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER     (SYS_FLAGS + 0xBF)
@@ -1534,7 +1534,7 @@
 #define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)
 #define FLAG_CSR_MAP_CAVE_OF_ORIGIN                                                 (SYS_FLAGS + 0xDE)
 #define FLAG_CSR_MAP_DUMMY_8                                                  (SYS_FLAGS + 0xDF)
-#define FLAG_CSR_MAP_DUMMY_9                                                  (SYS_FLAGS + 0xE0)
+#define FLAG_CSR_MAP_GAME_SHOP                                                  (SYS_FLAGS + 0xE0)
 #define FLAG_CSR_MAP_EEVEE_ROOM                                                  (SYS_FLAGS + 0xE1)
 #define FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND                                                  (SYS_FLAGS + 0xE2)
 #define FLAG_CSR_MAP_DUMMY_10                                                  (SYS_FLAGS + 0xE3)

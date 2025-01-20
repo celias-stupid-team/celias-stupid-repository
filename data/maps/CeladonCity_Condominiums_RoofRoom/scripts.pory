@@ -10,6 +10,8 @@ CeladonCity_Condominiums_RoofRoom_MapScripts::
 
 
 CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty::
+
+	setvar VAR_STOLE_AN_EEVEE, 1
 	removeobject LOCALID_EEVEE_POKEBALL
 	playfanfare MUS_LEVEL_UP
 	message CeladonCity_Condominiums_RoofRoom_Text_ObtainedAnEevee
@@ -24,6 +26,7 @@ CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty::
 	end
 
 CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePC::
+	setvar VAR_STOLE_AN_EEVEE, 1
 	removeobject LOCALID_EEVEE_POKEBALL
 	playfanfare MUS_LEVEL_UP
 	message CeladonCity_Condominiums_RoofRoom_Text_ObtainedAnEevee
@@ -163,6 +166,17 @@ script CeladonCity_Condominiums_RoofRoom_MapScript {
 			setflag(FLAG_TEMP_5) // blackbelt
 			setflag(FLAG_HIDE_EEVEE_BALL)
 			break
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+		case 12:
+		case 13:
+		case 14:
 		default:
 			setflag(FLAG_TEMP_5) //blackbelt
 			setflag(FLAG_TEMP_4) //dmca
@@ -221,7 +235,6 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall {
 			goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveeParty)
 			goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePC)
 			goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
-			setvar(VAR_STOLE_AN_EEVEE, 1)
 			break
 
 		case 2:
@@ -284,10 +297,11 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_DMCA {
 		msgbox("The man in here tried to pass off\nanother POKéMON as an EEVEE!\lThat's against the law!\pIt's okay - we've seized all of\nhis possessions.\pHere, he was trying to keep this\nPOKéMON secret.\lWe don't need it, so take it!", MSGBOX_DEFAULT)
 		setvar(VAR_TEMP_1, SPECIES_EEVEE)
 		givemon(SPECIES_EEVEE, 25)
+		setvar(VAR_EEVEE_COUNT, 4)
 		goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyDMCA)
 		goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCDMCA)
 		goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
-		setvar(VAR_EEVEE_COUNT, 4)
+		
 
 	} else {
 		msgbox("Look, you gotta understand.\pIf we suspect you of a crime,\neverything you own belongs to us.", MSGBOX_DEFAULT)
@@ -300,7 +314,8 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_DMCA {
 script DMCAHideout_EeveeManScreams { //placing this here for my own convenience cross-referencing the variables
 	lock
 	playse(SE_BANG)
-	setvar(VAR_TEMP_6, 5)
+	setvar(VAR_0x8006, 2)
+	setvar(VAR_0x8007, 2)
 	special(ShakeScreen)
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_MALE)

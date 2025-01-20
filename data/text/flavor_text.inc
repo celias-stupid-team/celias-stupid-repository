@@ -76,28 +76,28 @@ Text_Indigo_HighestAuthority::
 	.string "POKéMON LEAGUE HQ$"
 
 Text_Food::
-	.string "It should be packed with all kinds\n"
-	.string "of delicious things to eat.$"
+	.string "It's a refrigerator.\p"
+	.string "Two and a half dead bodies are\n"
+	.string "stored inside.\p"
+	.string "There is no cheese.\n$"
 
 Text_Blueprints::
-	.string "It's a blueprint of some sort.\n"
-	.string "It's filled with diagrams and text.$"
+	.string "It's a list of generic patents.\n$"
 
 Text_Painting::
-	.string "It's a pretty picture of a POKéMON.\n"
-	.string "It looks like it's feeling good.$"
+	.string "It looks like a painting, but it's\n"
+	.string "actually a picture of a painting.$"
 
 Text_PowerPlantMachine::
 	.string "It appears to be a hobbyist\n"
 	.string "nuclear reactor.$"
 
 Text_Telephone::
-	.string "It's a telephone.\n"
-	.string "Better not use it.$"
+	.string "It's a wall-mounted smartphone.\n$"
 
 Text_Computer::
-	.string "It's all complicated words and\n"
-	.string "numbers that make no sense…$"
+	.string "It's all YouTube analytics and\n"
+	.string "deals with big corporations.$"
 
 Text_AdvertisingPoster::
 	.string "It's an advertising poster about\n"

@@ -18,5 +18,8 @@
 #define BENCH_LOSS_WOODS            15
 #define BENCH_ROUTE9                16
 #define BENCH_LAVENDER                17
+#define BENCH_CELADON                18
+#define BENCH_ROUTE16                19
+#define BENCH_VIRIDIAN_FOREST                20
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

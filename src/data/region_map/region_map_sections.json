@@ -476,8 +476,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_FIVE_ISLAND",
-      "name": "FIVE ISLAND",
+      "map_section": "MAPSEC_CELADON_MANSION",
+      "name": "CELADON MANSION",
       "x": 16,
       "y": 11,
       "width": 1,
@@ -660,8 +660,8 @@
       "height": 3
     },
     {
-      "map_section": "MAPSEC_TANOBY_RUINS",
-      "name": "TANOBY RUINS",
+      "map_section": "MAPSEC_BIKE_GATE",
+      "name": "BIKE GATE",
       "x": 3,
       "y": 12,
       "width": 7,
@@ -684,8 +684,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SEVII_ISLE_24",
-      "name": "SEVII ISLE 24",
+      "map_section": "MAPSEC_SOOTOPOLIS_CITY",
+      "name": "SOOTOPOLIS CITY",
       "x": 2,
       "y": 12,
       "width": 1,
@@ -700,8 +700,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_MT_EMBER",
-      "name": "MT. EMBER",
+      "map_section": "MAPSEC_GAME_CORNER",
+      "name": "GAME CORNER",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -741,16 +741,16 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_DOTTED_HOLE",
-      "name": "DOTTED HOLE",
+      "map_section": "MAPSEC_PRIZE_EXCHANGE",
+      "name": "PRIZE EXCHANGE",
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_LOST_CAVE",
-      "name": "LOST CAVE",
+      "map_section": "MAPSEC_POKEMON_CENTER",
+      "name": "POKéMON CENTER",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -869,7 +869,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SOOTOPOLIS_CITY",
+      "map_section": "MAPSEC_CSR_DUMMY_02",
       "name": "SOOTOPOLIS CITY",
       "x": 0,
       "y": 0,

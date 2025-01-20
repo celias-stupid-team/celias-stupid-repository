@@ -778,3 +778,6 @@ const u32 gItemIconPalette_InstinctSeal[] = INCBIN_U32("graphics/items/icon_pale
 const u32 gItemIcon_ValorSeal[] = INCBIN_U32("graphics/items/icons/valor_seal.4bpp.lz");
 const u32 gItemIconPalette_ValorSeal[] = INCBIN_U32("graphics/items/icon_palettes/valor_seal.gbapal.lz");
 
+
+const u32 gItemIcon_Metronome[] = INCBIN_U32("graphics/items/icons/metronome.4bpp.lz");
+const u32 gItemIconPalette_Metronome[] = INCBIN_U32("graphics/items/icon_palettes/metronome.gbapal.lz");

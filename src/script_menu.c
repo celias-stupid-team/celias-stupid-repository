@@ -421,8 +421,6 @@ static const struct MenuAction sMultichoiceList_Link_Wireless[] = {
 };
 
 static const struct MenuAction sMultichoiceList_RocketHideoutElevator[] = {
-    { gText_B1F },
-    { gText_B2F },
     { gText_B4F },
     { gOtherText_Exit }
 };

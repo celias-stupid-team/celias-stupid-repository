@@ -1,19 +1,20 @@
 raw `
-Route11_MapScripts::
-	.byte 0
+
 
 Route11_EventScript_DiglettsCaveSign::
 	msgbox Route11_Text_DiglettsCave, MSGBOX_SIGN
 	end
 `
-
+mapscripts Route11_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route11_OnTransition
+}
 script Route11_OnTransition {
 	setbench(BENCH_VERMILION)
 	setflag(FLAG_CSR_MAP_ROUTE_11)
 	call(SetPlayerPokedexValues)
 }
 script Route11_Man1 {
-	trainerbattle_single(TRAINER_LOSS_MAN_1, Route11_Text_Man, Route11_Text_DirkDefeat)
+	trainerbattle_single(TRAINER_LOSS_MAN_1, Route11_Text_Man, Route11_Text_JasperDefeat)
 	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
 }
 
@@ -36,11 +37,11 @@ script Route11_Doctor {
 }
 
 script Route11_Man4 {
-	trainerbattle_single(TRAINER_LOSS_MAN_4, Route11_Text_Man, Route11_Text_JasperDefeat)
+	trainerbattle_single(TRAINER_LOSS_MAN_4, Route11_Text_Man, Route11_Text_DirkDefeat)
 	msgbox(Route11_Text_Man, MSGBOX_AUTOCLOSE)
 }
 script Route11_Miscarriage {
-	trainerbattle_single(TRAINER_LOSS_MISCARRIAGE, Route11_Text_Man, Route11_Text_DaveDefeat)
+	trainerbattle_single(TRAINER_LOSS_MISCARRIAGE, Route11_Text_Miscarriage, Route11_Text_DaveDefeat)
 	msgbox(Route11_Text_Miscarriage, MSGBOX_AUTOCLOSE)
 }
 

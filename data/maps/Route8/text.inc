@@ -14,26 +14,28 @@ Route8_Text_AidanPostBattle::
 	.string "Especially before the INTERNET!$"
 
 Route8_Text_StanIntro::
-    .string "All right!\n"
-    .string "Let's play a game!$"
+	.string "Yahaha!\p"
+	.string "I'm Rich!\n$"
 
 Route8_Text_StanDefeat::
     .string "Drat!\n"
     .string "Came up short!$"
 
 Route8_Text_StanPostBattle::
-    .string "Things didn't work today.$"
+	.string "I love being Rich.\n$"
 
 Route8_Text_GlennIntro::
-    .string "You should be informed.\n"
-    .string "You need strategy to win at this!$"
+	.string "Brr...!\n"
+	.string "It's cold!\p"
+	.string "I sure am glad that I'm pants!\n$"
 
 Route8_Text_GlennDefeat::
-    .string "It's not logical!$"
+	.string "Aah!\n"
+	.string "I've been ripped!$"
 
 Route8_Text_GlennPostBattle::
-    .string "Go with GRIMER first…and…\n"
-    .string "…and…then…$"
+	.string "I'm warm and fuzzy, perfect for\n"
+	.string "keeping out that winter chill!$"
 
 Route8_Text_PaigeIntro::
     .string "I like NIDORAN, so I collect them!$"
@@ -102,10 +104,10 @@ Route8_Text_JuliaDefeat::
     .string "Owie!$"
 
 Route8_Text_JuliaPostBattle::
-    .string "I read that CLEFAIRY evolves when\n"
-    .string "it's exposed to a MOON STONE.\p"
-    .string "I read that in a POKéMON JOURNAL.\n"
-    .string "I wonder if it's true?$"
+	.string "The way I see it, KYOGRE is\n"
+	.string "surrounded.\p"
+	.string "What's under the OCEAN?\n"
+	.string "That's right: More land.$"
 
 Route8_Text_UndergroundPathSign::
     .string "UNDERGROUND PATH\n"
@@ -154,12 +156,14 @@ Route8_Text_RicardoPostBattle::
 	.string "unending pain and suffering.$"
 
 Route8_Text_JarenIntro::
-    .string "Clear the way, or I'll run you\n"
-    .string "down!$"
+	.string "Yo wait, you found CUT?\p"
+	.string "Could you help get me out of here?\n$"
 
 Route8_Text_JarenDefeat::
-    .string "You for real, kid?$"
+	.string "Aww, man…\n$"
 
 Route8_Text_JarenPostBattle::
-    .string "Don't think you're all special and\n"
-    .string "all just because of this.$"
+	.string "I've been stuck in here for weeks.\p"
+	.string "I can't figure out how to get CUT\n"
+	.string "in this hack.\l"
+	.string "Maybe I evolved my EXEGGCUTE wrong?$"

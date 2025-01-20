@@ -22,13 +22,57 @@ script MoonAltar_CameraPan {
     waitmovement(0)
     delay(30)
     special(RemoveCameraObject)
-    setvar(VAR_TEMP_1, 1)
+    if(checkitem(ITEM_TEA)) {
+            playfanfare(MUS_LEVEL_UP)
+            msgbox("The TOXIC SLUDGE in your BAG\ntransformed into GRIMER!", MSGBOX_DEFAULT)
+            waitfanfare
+            waitmessage
+            setflag(FLAG_SHINY_CREATION)
+            setvar(VAR_TEMP_1, SPECIES_GRIMER)
+			givemon(SPECIES_GRIMER, 25)
+			clearflag(FLAG_SHINY_CREATION)
+			switch(var(VAR_RESULT)) {
+				case 0: //Mon goes to party
+					bufferspeciesname(STR_VAR_1, SPECIES_GRIMER)
+					msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+					goto_if_eq(VAR_RESULT, NO, MtMoon_GiveGrimerEnd)
+					call(EventScript_GetGiftMonPartySlot)
+					call(EventScript_ChangePokemonNickname)
+					goto(MtMoon_GiveGrimerEnd)
+					setvar(VAR_CSR_JIRACHI_STATUS, 2)
+					end
+				case 1: //Mon goes to PC
+						bufferspeciesname(STR_VAR_1, SPECIES_GRIMER)
+						msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+						if(var(VAR_RESULT) == 0) {
+							call(EventScript_TransferredToPC)
+							goto(MtMoon_GiveGrimerEnd)
+						} else {
+							call(EventScript_NameReceivedBoxMon)
+							call(EventScript_TransferredToPC)
+							goto(MtMoon_GiveGrimerEnd) //This can be simplified; I'll deal with it later
+						}
+						setvar(VAR_CSR_JIRACHI_STATUS, 2)
+						end
+				case 2:
+					goto(EventScript_NoMoreRoomForPokemon)
+					break
+			}
+    }
+
+    setvar(VAR_TEMP_0, 1)
     release
     
 }
 
+script MtMoon_GiveGrimerEnd {
+    removeitem(ITEM_TEA)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+
 script MoonAltar_ClearVar {
-    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_0, 0)
     release
 }
 

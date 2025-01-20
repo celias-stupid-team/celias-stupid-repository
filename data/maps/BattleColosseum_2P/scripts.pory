@@ -50,7 +50,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_SKY_TOWER)) {
 		setobtainable(SPECIES_PIDGEY) // 13
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_PIDGEOTTO)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_PIDGEOTTO)|| flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_PIDGEOTTO) // 14
 	}
 	if(checkmoncaught(SPECIES_PIDGEOT) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_PIDGEOTTO)) {
@@ -62,7 +62,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_MEWTWO)) { //add flag for talking to the kid
 		setobtainable(SPECIES_RATICATE) // 17
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)|| flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
 		setobtainable(SPECIES_MANKEY) //18 
 	}
 	if(checkmoncaught(SPECIES_PRIMEAPE) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_MANKEY)) { 
@@ -92,10 +92,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_10) && checkmoncaught(SPECIES_VOLTORB)) {
 		setobtainable(SPECIES_JIGGLYPUFF_ABOVE) // 27
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_JIGGLYPUFF)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_3_FAR) || checkmoncaught(SPECIES_JIGGLYPUFF) || flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_JIGGLYPUFF) // 28
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)) {
+	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET) || flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
 		setobtainable(SPECIES_NIDORAN_M) // 29
 	}
 	if(checkmoncaught(SPECIES_NIDORINA) || (flag(FLAG_WORLD_MAP_CERULEAN_CITY) && checkmoncaught(SPECIES_NIDORAN_M))) {
@@ -140,7 +140,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_TENTACOOL) // 43
 	}
-	if(flag(FLAG_CSR_HINT_RUNNING_SHOES) && checkmoncaught(SPECIES_TENTACOOL)) {
+	if((flag(FLAG_CSR_HINT_RUNNING_SHOES) || flag(FLAG_WORLD_MAP_CERULEAN_CITY)) && checkmoncaught(SPECIES_TENTACOOL)) {
 		setobtainable(SPECIES_TOEDSCOOL) // 44
 	}
 	if(flag(FLAG_CSR_MAP_MT_MOON_BASEMENT)) {
@@ -155,7 +155,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_4_CENTER)) {
 		setobtainable(SPECIES_GYARADOS) // 48
 	}
-	if(flag(FLAG_BOUGHT_GYARADOS)) { 
+	if(checkmoncaught(SPECIES_MAGIKARP) || (checkmoncaught(SPECIES_GYARADOS) && flag(FLAG_WORLD_MAP_CERULEAN_CITY))) { 
 		setobtainable(SPECIES_MAGIKARP) // 49
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_11)) {
@@ -281,13 +281,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
 		setobtainable(SPECIES_EXEGGCUTE) // 91
 	}
-	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE) || checkmoncaught(SPECIES_FARFETCHD)) { // and if Exeggcute
+	if((flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) || checkmoncaught(SPECIES_FARFETCHD)) { // and if Exeggcute
 		setobtainable(SPECIES_SPEAROW) // 92
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
 		setobtainable(SPECIES_EXEGGUTOR) // 93
 	}
-	if(flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE) || checkmoncaught(SPECIES_FARFETCHD)) { //and if Exeggcute
+	if((flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) || checkmoncaught(SPECIES_FARFETCHD)) { //and if Exeggcute
 		setobtainable(SPECIES_FARFETCHD) // 94
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_16_FAR)) {
@@ -341,7 +341,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
 		setobtainable(SPECIES_STARMIE) // 111
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_MEOWTH)) { //talk to the trade girl I guess
+	if(flag(FLAG_CSR_TALKED_TO_RAICHU_GIRL) && checkmoncaught(SPECIES_MEOWTH)) { //talk to the trade girl I guess
 		setobtainable(SPECIES_RAICHU) // 112
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
@@ -395,7 +395,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_ORTHWORM) // 129
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_9)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_ROUTE_9_FAR)) { //TODO figure out logic
 		setobtainable(SPECIES_OMANYTE) // 130
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
@@ -410,7 +410,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_GENESECT) // 134
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_GAME_SHOP)) { //TODO figure out logic
 		setobtainable(SPECIES_JIRACHI) // 135
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic

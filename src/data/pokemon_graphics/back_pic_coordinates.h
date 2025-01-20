@@ -283,7 +283,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_MANKEY] =
     {
         .size = MON_COORDS_SIZE(56, 48),
-        .y_offset = 5,
+        .y_offset = 15,
     },
     [SPECIES_PRIMEAPE] =
     {

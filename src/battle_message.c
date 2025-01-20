@@ -219,6 +219,8 @@ static const u8 sText_PkmnFledFromBattle[] = _("{B_ATK_NAME_WITH_PREFIX} fled fr
 static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\nan attack!");
 static const u8 sText_PkmnTookAttack[] = _("{B_DEF_NAME_WITH_PREFIX} took the\n{B_BUFF1} attack!");
 static const u8 sText_PkmnChoseXAsDestiny[] = _("{B_ATK_NAME_WITH_PREFIX} chose\n{B_CURRENT_MOVE} as its destiny!");
+static const u8 sText_Foursight[] = _("{B_ATK_NAME_WITH_PREFIX} foursaw the future!");
+static const u8 sText_FoursightApply[] = _("4");
 static const u8 sText_PkmnAttack[] = _("{B_BUFF1}'s attack!");
 static const u8 sText_PkmnCenterAttention[] = _("{B_ATK_NAME_WITH_PREFIX} became the\ncenter of attention!");
 static const u8 sText_PkmnChargingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\ncharging power!");
@@ -932,6 +934,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_EXTREME_EVOBOOST - BATTLESTRINGS_TABLE_START]                   = sText_ExtremeEvoboost,
     [STRINGID_VEEVEE_VOLLEY - BATTLESTRINGS_TABLE_START]                   = sText_VeeveeVolley,
     [STRINGID_FICKLE_BEAM - BATTLESTRINGS_TABLE_START]    = sText_FickleBeam,
+    [STRINGID_FOURSIGHT - BATTLESTRINGS_TABLE_START]    = sText_Foursight,
+    [STRINGID_FOURSIGHT_APPLY - BATTLESTRINGS_TABLE_START]    = sText_FoursightApply,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1189,7 +1193,8 @@ const u16 gPartyStatusHealStringIds[] =
 const u16 gFutureMoveUsedStringIds[] =
 {
     [B_MSG_FUTURE_SIGHT] = STRINGID_PKMNFORESAWATTACK,
-    [B_MSG_DOOM_DESIRE]  = STRINGID_PKMNCHOSEXASDESTINY
+    [B_MSG_DOOM_DESIRE]  = STRINGID_PKMNCHOSEXASDESTINY,
+    [B_MSG_FOURSIGHT]  = STRINGID_FOURSIGHT
 };
 
 const u16 gBallEscapeStringIds[] =

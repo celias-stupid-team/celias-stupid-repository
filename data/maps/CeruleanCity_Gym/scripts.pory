@@ -72,6 +72,11 @@ script CeruleanClub_MapScripts {
 		setflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 	} else {
 		clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
+		if(flag(FLAG_CSR_CELIA_BONUS)){
+			clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
+		} else {
+			setflag(FLAG_HIDE_MISTY_IN_CERULEAN)
+		}
 	}
 }
 
@@ -88,6 +93,7 @@ script CeruleanClub_CeliaReward {
 
 		msgbox(CeruleanCity_Gym_Celia)
 		closemessage
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		playfanfare(MUS_LEVEL_UP)
 		msgbox(CeruleanCity_Gym_UnlockedCommentary)
 		waitmessage
@@ -95,7 +101,9 @@ script CeruleanClub_CeliaReward {
 		clearflag(FLAG_CSR_CELIA_BONUS) //FLAG_CELIA_SECRETS_NEXT_UPDATE
 		delay(30)
 		closemessage
+		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox(CeruleanCity_Gym_CeliaUnlocksCommentary)
+		clearflag(FLAG_HIDE_MISTY_IN_CERULEAN)
 
 	} else {
 		msgbox(CeruleanCity_Gym_AfterUnlock)
@@ -103,6 +111,7 @@ script CeruleanClub_CeliaReward {
 	release
 	end
 }
+
 
 
 script CeruleanCity_Gym_EventScript_GiveTM03 {
@@ -155,6 +164,8 @@ script CeruleanCity_Gym_EventScript_GrassTrainer {
 	lock
 	faceplayer
 	if(!flag(FLAG_CSR_GOT_SCYTHER)) {
+		clearflag(FLAG_ROUTE1_OBJECTS_RETREAT)
+		clearflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
 		msgbox("Managing your ENERGY is super\nimportant!\pThat's why CARDS with free\nRETREAT are so strong.\pHere, let me show you!\n", MSGBOX_DEFAULT)
 		trainerbattle_no_intro(TRAINER_CERULEAN_CLUB_GRASS, CeruleanCity_Gym_Text_GrassTrainerDefeat)
 		msgbox("Hey, that was a good game!", MSGBOX_DEFAULT)

@@ -154,8 +154,8 @@
 #define MAPSEC_TWO_ISLAND                   0x90
 #define MAPSEC_THREE_ISLAND                 0x91
 #define MAPSEC_FOUR_ISLAND                  0x92
-#define MAPSEC_FIVE_ISLAND                  0x93
 #define MAPSEC_SEVEN_ISLAND                 0x94
+#define MAPSEC_CELADON_MANSION                  0x93
 #define MAPSEC_SIX_ISLAND                   0x95
 #define MAPSEC_KINDLE_ROAD                  0x96
 #define MAPSEC_TREASURE_BEACH               0x97
@@ -177,18 +177,18 @@
 #define MAPSEC_TRAINER_TOWER                0xA7
 #define MAPSEC_CANYON_ENTRANCE              0xA8
 #define MAPSEC_SEVAULT_CANYON               0xA9
-#define MAPSEC_TANOBY_RUINS                 0xAA
+#define MAPSEC_BIKE_GATE                 0xAA
 #define MAPSEC_SEVII_ISLE_22                0xAB
 #define MAPSEC_SEVII_ISLE_23                0xAC
-#define MAPSEC_SEVII_ISLE_24                0xAD
+#define MAPSEC_SOOTOPOLIS_CITY                0xAD
 #define MAPSEC_NAVEL_ROCK                   0xAE
-#define MAPSEC_MT_EMBER                     0xAF
+#define MAPSEC_GAME_CORNER                     0xAF
 #define MAPSEC_BERRY_FOREST                 0xB0
 #define MAPSEC_SKY_TOWER                 0xB1
 #define MAPSEC_ROCKET_WAREHOUSE             0xB2
 #define MAPSEC_TRAINER_TOWER_2              0xB3
-#define MAPSEC_DOTTED_HOLE                  0xB4
-#define MAPSEC_LOST_CAVE                    0xB5
+#define MAPSEC_PRIZE_EXCHANGE                  0xB4
+#define MAPSEC_POKEMON_CENTER                    0xB5
 #define MAPSEC_ZERO_ISLAND                 0xB6
 #define MAPSEC_YES                0xB7
 #define MAPSEC_SECRET_TUNNEL              0xB8
@@ -204,7 +204,7 @@
 #define MAPSEC_MINNESOTA              0xC2
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
-#define MAPSEC_SOOTOPOLIS_CITY                 0xC5
+#define MAPSEC_CSR_DUMMY_02                 0xC5
 #define MAPSEC_NONE                         0xC6
 #define MAPSEC_COUNT                        0xC7
 

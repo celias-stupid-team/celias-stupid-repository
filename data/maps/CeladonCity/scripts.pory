@@ -6,6 +6,7 @@ raw `
 
 CeladonCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_CELADON_CITY
+	setbench BENCH_CELADON
 	end
 
 CeladonCity_EventScript_LittleGirl::
@@ -112,6 +113,10 @@ mapscripts CeladonCity_MapScripts {
 			lock
 			delay(90)
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			if(flag(FLAG_CELIA_SECRET_CELADON)) {
+				release
+				end
+			}
 			delay(40)
 			playse(SE_EXIT)
 			setobjectxy(CELIA, 30, 11)
@@ -413,4 +418,158 @@ script CeladonCity_EventScript_EggMan {
 		release
 		
 	}
+}
+
+script CeliaSecrets_CeladonStart {
+	msgbox("The first three houses are designed\nto show you the randomization.\pThe first two lead directly to each\nother, and then the third goes to\lthe CENTER.\pThis sets the tone for the area\nwithout being too confusing!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonMap {
+	msgbox("Getting this map of Celadon to work\nwas a nightmare!\pThere's too many colors for the GBA\nto have an easy time rendering it.\lThe design had to be very crafty!\pUnfortunately, as far as I can tell\nit's not actually very helpful.\pOh well.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonGay {
+	msgbox("Personally, the sugary-sweet hyper\npositivity you see here tends to\lmake me roll my eyes.\pHowever, I know that it's the kind\nof encouragement that a lot of the\lqueer folk in the community need.\pI don't mind putting aside my own\ncynicism to help others.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonEscalator {
+	msgbox("I love the puzzle of putting the gym\nin the escalator here.\pMy design mantra in this hack is that\nall rules are just guidelines.\lAlmost everything has an exception.\pIn this case, the player assumes\nthat all Centers send you back down.\pIt's an expectation I build for you\njust so I can later break it.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonDMCAGay {
+	msgbox("I think this is the funniest single\nline of dialogue in the hack.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonAngryNerd {
+	msgbox("I once had someone write a whole\nfan story about a “conservator”\lstorming in and destroying everyone\lhere with “facts and logic.”\pThey even included a bit about ANGRY\nNERD MIKE getting out of here.\pWhat a loser LOL\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonLGBTQIA {
+	msgbox("I included one trainer in this gym\nfor every letter of LGBTQAP, but\lI couldn't think of something for I\pSorry, Intersex community!\nY'all are still awesome!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonYMCA {
+	msgbox("This song is such a bop\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonItem {
+	msgbox("You can't actually get up here, no.\pIt's just here to fuck with you\n", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_BerryFind {
+	finditem(ITEM_WEPEAR_BERRY)
+}
+
+script CeliaSecrets_CeladonNoItem {
+	msgbox("Fun fact there isn't actually an\nitem here in vanilla.\pI just made you think there is\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonBerry {
+	msgbox("You pick up an HP UP here in this\nberry patch.\pThe idea is that this item gets\nshuffled with the rest of the\lrandomizer.\pThen later in town, you find a BERRY\nin a regular item spot.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonEgg {
+	msgbox("This guy gives you an “ODD EGG.”\nThat's a special egg you get in GSC.\pThe Pokemon inside will know DIZZY\nPUNCH as an egg move.\lThus, I gave it to PHIONE.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonStoneSign {
+	msgbox("This sign is annoying because the\nnumbers are for the full game.\pBut because this is just the demo,\npeople get confused.\pAh well.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonTragic {
+	msgbox("You can talk to this guy across the\ncounter.\pIn vanilla, he has a very sad story.\nYou should look it up!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonBikeGate {
+	msgbox("This gate ensures that the player\ngets the bike before finishing\lCeladon.\pI wonder why!\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonWillie {
+	msgbox("Fun fact, this guy's been here\nsince before Steamboat Willy was\lpublic domain!\pOriginally he was just a guy with\nthe Pikachu clones, but when that\lfiasco happened, I capitalized on it", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonFriends {
+	msgbox("Originally this was a solo project,\nbut when I switched to decomp I\laccrued a bit of a team.\pI'm very grateful to everyone for\nall the help I've gotten!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonNPCs {
+	msgbox("I love the slow descent into insanity\nas the randomizer goes deeper.\pThe fact that the NPCs in this\nworld are just regular people just\ltrying to get by is so funny to me.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonSootopolis {
+	msgbox("haha\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonButterfingers {
+	msgbox("This guy's moves are CRUNCH and\nPAY DAY.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonHbox {
+	msgbox("I have no clue if anyone finds the\nHBOX jumpscares funny or not.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonForgetful {
+	msgbox("This map is so forgettable that\nwhen rebuilding Celadon I totally\lforgot to include it.\pWhoopsies!\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonMath {
+	msgbox("These tiles are laid out in what's\ncalled a Hilbert Curve.\lIt's a space-filling fractal curve.\pI hope you appreciate that I had to\ndo math for this.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonKeys {
+	msgbox("In vanilla, someone really did\nleave their keys here!\lThat's what inspired the quest.\pI guess you're just a little bit\nsneakier in this hack.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonJirachi {
+	msgbox("I don't really know why people\nhave so much trouble with this.\lJust talk to the gamecube.\pOh well.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonDad {
+	msgbox("This DAD is the reason I put him on\nevery route.\pThe line about the player's dad is\nin vanilla, so I wanted to have dad\lpop up when you read it.\pBut to justify that, I had to make\nsure the player remembers he exists\pThus, the best character in the game\nwas born!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonMonolinguals {
+	msgbox("Fun fact one of my ex co-devs\npretended to be a colorblind dutch\ltrans girl for over a year so they\lcould call me slurs behind my back.\pYou run into all sorts of weirdos\nonline.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonSafariZone {
+	msgbox("Foreshadowing is a literary device\nin which", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonDadSaffron {
+	msgbox("There's a secret dad behind the\nbuilding!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_CeladonShinies {
+	msgbox("Yeah, the shinies are guaranteed.\n", MSGBOX_NPC)
+	end
 }

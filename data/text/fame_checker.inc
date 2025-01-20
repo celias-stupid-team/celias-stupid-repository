@@ -344,10 +344,11 @@ gFameCheckerFlavorText_Celadon1:: @ 0x81AE90A
 
 gFameCheckerFlavorText_Celadon2:: @ 0x81AE990
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}This whole ordeal has everone in\n"
-	.string "town so lost and confused.\p"
-	.string "If only there were some sort of MAP\n"
-	.string "that showed the layout of the TOWN.$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Do you see that guy sitting in\n"
+	.string "the corner behind me?\l"
+	.string "He's been there for a few months.\p"
+	.string "It sounds like he might be counting\n"
+	.string "something, I think?$"
 
 
 gFameCheckerFlavorText_Celadon3:: @ 0x81AEA59
@@ -983,7 +984,7 @@ gRumorLogFlavorTextIntoLine1_Celadon1::
 	.string "Troubled$"
 
 gRumorLogFlavorTextIntoLine1_Celadon2::
-	.string "Confused$"
+	.string "Counting$"
 
 gRumorLogFlavorTextIntoLine1_Celadon3::
 	.string "Vertical$"
@@ -1271,7 +1272,7 @@ gFameCheckerFlavorTextOriginObjectName_Celadon1::
 	.string "Trader$"
 
 gFameCheckerFlavorTextOriginObjectName_Celadon2::
-	.string "Cartographer$"
+	.string "Continuously$"
 
 gFameCheckerFlavorTextOriginObjectName_Celadon3::
 	.string "Vexation$"

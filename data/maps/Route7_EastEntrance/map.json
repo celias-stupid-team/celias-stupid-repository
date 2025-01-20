@@ -87,6 +87,15 @@
       "var": "VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES",
       "var_value": "0",
       "script": "Route7_EastEntrance_EventScript_GuardTriggerBottom"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "SaffronEntrance_MeltedGuard"
     }
   ],
   "bg_events": [
@@ -94,6 +103,14 @@
       "type": "sign",
       "x": 6,
       "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SaffronEntrance_GuardPuddle"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SaffronEntrance_GuardPuddle"

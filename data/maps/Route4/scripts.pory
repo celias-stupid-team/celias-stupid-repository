@@ -30,9 +30,9 @@ script Route4_TransitionScripts {
 	}
 
 	if(!flag(FLAG_DEFEATED_MISTY)) {
-		removeobject(CAMPER)
+		setflag(FLAG_CSR_RETREAT_CAMPER)
 	} else {
-		addobject(CAMPER)
+		clearflag(FLAG_CSR_RETREAT_CAMPER)
 	}
 }
 

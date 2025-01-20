@@ -425,7 +425,7 @@ script ViridianCity_Gambler_GoesHome {
 	setobjectxy(CELIA, 53, 15)
 	applymovement(CELIA, CeliaComesDown)
 	waitmovement(0)
-	special(GetPlayerFacingDirection)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	switch(var(VAR_RESULT)) {
 		case DIR_SOUTH:
 			applymovement(CELIA, CeliaApproach_South)
@@ -460,7 +460,6 @@ script ViridianCity_Gambler_GoesHome {
 	setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
 	setflag(FLAG_CELIA_SECRET_VIRIDIAN)
 	call(CeliaSecrets_CeliaTellsYouNextHint)
-	msgbox("Anyway, I have to head out now.\pGood luck, and see ya later!\n", MSGBOX_DEFAULT)
 	applymovement(CELIA, ViridianCity_CeliaAbsconds)
 	waitmovement(0)
 	removeobject(CELIA)
@@ -705,9 +704,9 @@ script ViridianCity_OnTransition {
 	call_if_ge(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_SetOldManNormal)
 	call_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 0, ViridianCity_EventScript_TryUnlockGym)
 	call(SetPlayerPokedexValues)
-	if(flag(FLAG_CSR_RETURNED_KEY)) {
-		setmetatile(53, 15, 0x299, TRUE) //Unlocks the door if you've returned the key
-		special(DrawWholeMapView)
+	if(!flag(FLAG_CSR_RETURNED_KEY)) {
+		setmetatile(53, 15, 0x2D7, TRUE) //Unlocks the door if you've returned the key
+		//special(DrawWholeMapView)
 
 	}
 }

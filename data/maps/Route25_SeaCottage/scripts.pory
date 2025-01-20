@@ -323,3 +323,14 @@ script Route25_NotBill {
 	msgbox("That's not BILL, silly!\n", MSGBOX_SIGN)
 	end
 }
+
+script Route25_CeliaSecrets_Teleporter {
+	msgbox("Inside this teleporter is supposed\nto be a Clefairy inside Bill's body\lY'know, the one he swapped with.\pAlas, that seems to go over the\naverage person's head.", MSGBOX_NPC)
+	end
+}
+
+script Route25_CeliaSecrets_Bill {
+	msgbox("Bill respawning was actually a\nglitch!\pBuuuuuuut, it was a funny glitch.\nThus, it stayed.\pNow he's the source of this game's\neconomy!", MSGBOX_NPC)
+	end
+}
+

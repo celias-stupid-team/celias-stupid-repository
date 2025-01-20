@@ -18,3 +18,25 @@ script Route9_SetMap {
 	setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
 	release
 }
+
+
+
+script CeliaSecrets_Route9_Ledge {
+	msgbox("I had to put a second ledge blocking\nthe way here cuz people kept trying\lto explore the bottom first.\pThe joke doesn't land right when\nyou don't take the top path.\lThus, I had to block it.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Route9_TPP {
+	msgbox("This whole route is, of course,\nTwitch Plays Pokemon and its\linfamous ledge.\pYou can't run here to ensure that\nthere's plenty of setup to the joke", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Route9_Helix {
+	msgbox("Hmm, I wonder why I give you a\nHelix Fossil right here, even\lthough wild OMANYTE are right there.\pVery curious!\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Route9_Digrat {
+	msgbox("This guy uses Digrat from TPP!\pThe poor thing was taught Dig and\nkept digging Red out of dungeons.", MSGBOX_NPC)
+	end
+}

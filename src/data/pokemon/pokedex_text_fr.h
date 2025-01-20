@@ -314,15 +314,15 @@ const u8 gPersianPokedexText[] = _(
 
 const u8 gPersianPokedexTextUnused[] = _("");
 
-const u8 gPsyduckPokedexText[] = _( //The Yellow One
-	"Performing escapades as PROF. OAK's\n"
-	"POKéMON.");
+const u8 gPsyduckPokedexText[] = _( //The Blue One
+	"Wait, if it's psyDUCK, why isn't\n"
+	"it WATER-Type?");
 
 const u8 gPsyduckPokedexTextUnused[] = _("");
 
-const u8 gGolduckPokedexText[] = _( //The Blue One
-	"Wait, if it's psyDUCK, why isn't\n"
-	"it WATER-Type?");
+const u8 gGolduckPokedexText[] = _( //The Yellow One
+	"Performing escapades as PROF. OAK's\n"
+	"POKéMON.");
 
 const u8 gGolduckPokedexTextUnused[] = _("");
 

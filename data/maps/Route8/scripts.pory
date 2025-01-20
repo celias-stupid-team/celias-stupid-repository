@@ -94,6 +94,16 @@ script Route8_DrowningFriends {
 	
 }
 
+script Route8_UmbrellaDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pYuck!\nThis weather is awful!\lGood thing I brought my umbrella!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
 const BENCH = 15
 
 script Route8_PushBench {
@@ -229,7 +239,7 @@ script Route8_GrowlitheSign {
 					} else {
 						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsRight)
 					}
-					waitmovement(OBJ_EVENT_ID_PLAYER)
+					
 					
 				}
 				
@@ -311,6 +321,11 @@ script Route8_NoMoreGrowlithe {
 	end
 }
 
+script Route8_DMCAGrunt {
+	msgbox("These two kids are clearly\nillegal copies of each other.\pEven their POKéMON are the\nsame!", MSGBOX_NPC)
+	end
+}
+
 const LASS = 1
 script Route8_LassAttack {
 	lock
@@ -340,7 +355,8 @@ script Route8_LassAttack {
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("There were a bunch of people\nwaiting over there in a line.\pHalf of them were looking towards\nSAFFRON CITY which was fine,\lbut some were looking right at me.\pSo, I decided to scare them off!\n", MSGBOX_DEFAULT)
-	trainerbattle_no_intro(TRAINER_LASS_JULIA, Route8_Text_JuliaDefeat)
+	playbgm(MUS_ROUTE3, TRUE)
+	trainerbattle_no_intro(TRAINER_LASS_MEGAN, Route8_Text_JuliaDefeat)
 	release
 	end
 }

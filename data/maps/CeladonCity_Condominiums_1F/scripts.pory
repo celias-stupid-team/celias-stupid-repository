@@ -2,19 +2,7 @@ raw `
 CeladonCity_Condominiums_1F_MapScripts::
 	.byte 0
 
-CeladonCity_Condominiums_1F_EventScript_TeaWoman::
-	lock
-	faceplayer
-	goto_if_set FLAG_TALKED_TO_TEA_LADY_AFTER_HOF, CeladonCity_Condominiums_1F_EventScript_TeaWomanAfterTea
-	goto_if_set FLAG_SYS_GAME_CLEAR, CeladonCity_Condominiums_1F_EventScript_TeaWomanMentionDaisy
-	goto_if_set FLAG_GOT_TEA, CeladonCity_Condominiums_1F_EventScript_TeaWomanAfterTea
-	msgbox CeladonCity_Condominiums_1F_Text_TryThisDrinkInstead
-	setflag FLAG_GOT_TEA
-	giveitem ITEM_TEA
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
-	msgbox CeladonCity_Condominiums_1F_Text_NothingBeatsThirstLikeTea
-	release
-	end
+
 
 CeladonCity_Condominiums_1F_EventScript_TeaWomanAfterTea::
 	msgbox CeladonCity_Condominiums_1F_Text_MyDearMonsKeepMeCompany
@@ -55,4 +43,28 @@ CeladonCity_Condominiums_1F_EventScript_SuiteSign::
 `
 script CeladonCity_Condominiums_1F_EventScript_Clefairy {
 	finditem(ITEM_POKE_DOLL)
+}
+
+
+script CeladonCity_Condominiums_1F_EventScript_TeaWoman {
+	lock
+	faceplayer
+	if(flag(FLAG_GOT_TEA) && var(VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES) == 0 && !checkitem(ITEM_TEA)) {
+		msgbox("Hello dearie, have you already\ndrinken all of your TOXIC SLUDGE?\pOh, but you're still breathing.\nThat's no good.\pHere, have some more.\n", MSGBOX_DEFAULT)
+		setflag(FLAG_GOT_TEA)
+		giveitem(ITEM_TEA)
+		goto_if_eq(VAR_RESULT, FALSE, EventScript_BagIsFull)
+		msgbox(CeladonCity_Condominiums_1F_Text_NothingBeatsThirstLikeTea)
+		release
+		end
+	}
+	goto_if_set(FLAG_TALKED_TO_TEA_LADY_AFTER_HOF, CeladonCity_Condominiums_1F_EventScript_TeaWomanAfterTea)
+	goto_if_set(FLAG_SYS_GAME_CLEAR, CeladonCity_Condominiums_1F_EventScript_TeaWomanMentionDaisy)
+	goto_if_set(FLAG_GOT_TEA, CeladonCity_Condominiums_1F_EventScript_TeaWomanAfterTea)
+	msgbox(CeladonCity_Condominiums_1F_Text_TryThisDrinkInstead)
+	setflag(FLAG_GOT_TEA)
+	giveitem(ITEM_TEA)
+	goto_if_eq(VAR_RESULT, FALSE, EventScript_BagIsFull)
+	msgbox(CeladonCity_Condominiums_1F_Text_NothingBeatsThirstLikeTea)
+	release
 }

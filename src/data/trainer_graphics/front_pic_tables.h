@@ -153,6 +153,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Team Rocket
     {.size = 8, .y_offset = 1}, // Petrel
     {.size = 8, .y_offset = 1}, // Imposter Oak
+    {.size = 8, .y_offset = 1}, // RED NORMAL
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
