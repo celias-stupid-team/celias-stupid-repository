@@ -572,8 +572,8 @@
 #define FLAG_CSR_MT_MOON_BASEMENT_SIGN               0x20A
 #define FLAG_CSR_ROUTE_4_BERRIES              0x20B
 #define FLAG_CSR_HBOX_TEMP_DISAPPEARANCE               0x20C
-#define FLAG_0x20D               0x20D
-#define FLAG_0x20E               0x20E
+#define FLAG_GOT_BULLDOZE               0x20D
+#define FLAG_GOT_STEAMROLLER               0x20E
 #define FLAG_0x20F               0x20F
 #define FLAG_0x210               0x210
 #define FLAG_0x211               0x211
@@ -732,8 +732,8 @@
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
 #define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
 #define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
-#define FLAG_CSR_GOT_BULLDOZE                        0x2AA
-#define FLAG_CSR_GOT_STEAMROLLER                        0x2AB
+#define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
+#define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
 #define FLAG_WONDER_CARD_UNUSED_3                        0x2AC
 #define FLAG_WONDER_CARD_UNUSED_4                        0x2AD
 #define FLAG_WONDER_CARD_UNUSED_5                        0x2AE
