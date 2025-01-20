@@ -65,3 +65,14 @@ script Route2_North_Sign {
 	release
  }
 
+script Route2_SetShiny {
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_ROUTE2_SHINY_MIME, 1)
+	release
+}
+
+script Route2_ClearShiny {
+	clearflag(FLAG_SHINY_CREATION)
+	release
+
+}

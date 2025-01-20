@@ -276,7 +276,114 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route2_ClearShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_ROUTE2_SHINY_MIME",
+      "var_value": "0",
+      "script": "Route2_SetShiny"
+    }
   ],
   "bg_events": [
     {
