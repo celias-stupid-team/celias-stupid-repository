@@ -9,6 +9,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/pokemon.h"
+#include "event_data.h"
 
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent);
@@ -416,7 +417,7 @@ static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u3
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u8 opposingBattler;
-    u32 bestDmg; // Note : should be changed to u32 for obvious reasons.
+    u32 bestDmg;
     u8 bestMonId;
     u8 battlerIn1, battlerIn2;
     s32 i, j;
@@ -529,6 +530,22 @@ u8 GetMostSuitableMonToSwitchInto(void)
             }
         }
     }
+
+    // for special battles use party order
+    if (FlagGet(FLAG_FORCE_AI_SWITCH_IN_ORDER))
+    {
+        for (i = 0; i < PARTY_SIZE; ++i)
+        {
+            if (((GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_NONE)
+              && (GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0)
+              && (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_EGG)
+            {
+                bestMonId = i;
+                break;
+            }
+        }
+    }
+
     return bestMonId;
 }
 
