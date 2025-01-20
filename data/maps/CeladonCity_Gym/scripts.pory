@@ -390,7 +390,7 @@ script CeladonGym_GiovanniDefeat {
 		famechecker(FAMECHECKER_CELADON, 5)
 		
 		textcolor(NPC_TEXT_COLOR_FEMALE)
-		msgbox("TM19 contains MAGICAL LEAF.\pIt's a move that I absolutely\nlove to use!\pThere aren't many POKéMON that\ncan use it, but keep it in mind!\pI'm sure you'll find it very\nuseful in the near future!", MSGBOX_DEFAULT)
+		msgbox("TM30 contains MAGICAL LEAF.\pIt's a move that I absolutely\nlove to use!\pThere aren't many POKéMON that\ncan use it, but keep it in mind!\pI'm sure you'll find it very\nuseful in the near future!", MSGBOX_DEFAULT)
 	}
 	closemessage
 	applymovement(ERIKA, Common_Movement_FaceUp)
