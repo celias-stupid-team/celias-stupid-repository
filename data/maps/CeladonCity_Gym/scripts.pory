@@ -407,10 +407,8 @@ script CeladonGym_GiovanniDefeat {
 	applymovement(ERIKA, ErikaReturns)
 	waitmovement(0)
 	setobjectxy(ERIKA, 6, 4)
-	addobject(TopRightTrainer)
-	addobject(TopLeftTrainer)
-	addobject(BottomLeftTrainer)
-	addobject(BottomRightTrainer)
+	applymovement(BottomRightTrainer, Common_Movement_WalkRight)
+	waitmovement(0)
 
 	setobjectmovementtype(TopRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
 	setobjectmovementtype(TopLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
@@ -432,6 +430,7 @@ script CeladonGym_Receptionist {
 movement ErikaReturns {
 	walk_up
 	walk_right
+	walk_up
 	walk_up
 	walk_up
 	walk_up
