@@ -77,6 +77,7 @@ CeruleanCity_EventScript_Rival::
 	end
 
 CeruleanCity_EventScript_RivalSquirtle::
+	setflag FLAG_FORCE_AI_SWITCH_IN_ORDER
 	trainerbattle_no_intro TRAINER_RIVAL_CERULEAN_SQUIRTLE, CeruleanCity_Text_RivalDefeat
 	return
 

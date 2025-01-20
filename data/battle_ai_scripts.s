@@ -789,6 +789,7 @@ AI_CheckViability::
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
+	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
 	end
 
 AI_CV_Sleep::
@@ -2784,6 +2785,12 @@ AI_CV_RevivalBlessing::
 	get_fainted_mons AI_USER
 	if_not_equal PARTY_SIZE, Score_Plus3
 	end
+
+AI_CV_WaterShuriken:: @ special AI behavior for Nugget Bridge Rival
+	has_target_prio_move AI_TARGET
+	if_equal 1, Score_Plus5 @ 1 = TRUE
+	has_target_prio_move AI_TARGET
+	if_equal 0, Score_Minus12 @ 0 = FALSE
 
 AI_TryToFaint::
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack

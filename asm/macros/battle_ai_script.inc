@@ -283,9 +283,9 @@
 	.byte \battler
 	.endm
 
-	@ unused
-	.macro get_highest_type_effectiveness
+	.macro has_target_prio_move battler:req
 	.byte 0x30
+	.byte \battler
 	.endm
 
 	.macro if_type_effectiveness effectiveness:req, ptr:req
