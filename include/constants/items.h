@@ -506,6 +506,9 @@
 
 // Check if the item is one that can be used on a Pokemon.
 #define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)     \
-                                || (item >= ITEM_CSR_START && item < ITEMS_COUNT))
+                                || (item >= ITEM_CSR_START && item < ITEMS_COUNT)       \
+                                || (item == ITEM_SUPER_SCOPE)                           \
+                                || (item == ITEM_SOUL_DEW))
+// rave - yeah this shit's hacky but we can come up with a more robust solution later
 
 #endif  // GUARD_CONSTANTS_ITEMS_H

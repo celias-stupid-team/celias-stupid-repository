@@ -32,5 +32,6 @@ void SpriteCB_AshLaunch(struct Sprite *sprite);
 void FieldEffectActiveListClear(void);
 void FieldEffectFreePaletteIfUnused(u8 paletteNum);
 void FieldEffectFreeGraphicsResources(struct Sprite *sprite);
+u8 SpinObjectEvent(struct ObjectEvent *playerObj, s16 *timer, s16 *numTurns);
 
 #endif //GUARD_FIELD_EFFECTS_H
