@@ -393,7 +393,8 @@ script VermillionGym_BonusCan5 {
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("Uh, hi!\nI'm CELIA, the creator.\pWow, you sure did go through\nall those trash cans, huh?\lThe door was already open!\pWell, for going through all the\ntrouble, here's a reward for you!\lIt's the TRASH MASTER MEDAL!", MSGBOX_DEFAULT)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		msgreceiveditem("{PLAYER} recieved the\nTRASH MEDAL!", ITEM_TRASH_MEDAL, 1) //make into Trash Medal
+		msgreceiveditem("{PLAYER} recieved the\nTRASH MEDAL!", ITEM_TRASH_MEDAL, 1, MUS_OBTAINED_KEY_ITEM) //make into Trash Medal
+		additem(ITEM_TRASH_MEDAL)
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("By the way…\pSince you like digging around so\nmuch, here's somewhere else to try.", MSGBOX_DEFAULT)
 		//Call Secrets!

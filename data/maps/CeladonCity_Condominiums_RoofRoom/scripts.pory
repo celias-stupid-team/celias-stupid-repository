@@ -159,12 +159,18 @@ script CeladonCity_Condominiums_RoofRoom_MapScript {
 		case 2:
 			setflag(FLAG_TEMP_3) //celia
 			setflag(FLAG_TEMP_4) //dmca
+			if(var(VAR_STOLE_AN_EEVEE) == 0) {
 			clearflag(FLAG_HIDE_EEVEE_BALL)
+
+			}
 			break
 		case 3:
 			setflag(FLAG_TEMP_3) //celia
 			setflag(FLAG_TEMP_5) // blackbelt
-			setflag(FLAG_HIDE_EEVEE_BALL)
+			if(var(VAR_STOLE_AN_EEVEE) == 0) {
+			clearflag(FLAG_HIDE_EEVEE_BALL)
+
+			}
 			break
 		case 4:
 		case 5:
