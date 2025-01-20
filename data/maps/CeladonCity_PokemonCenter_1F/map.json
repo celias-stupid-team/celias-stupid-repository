@@ -3,7 +3,7 @@
   "name": "CeladonCity_PokemonCenter_1F",
   "layout": "LAYOUT_POKEMON_CENTER_1F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_CELADON_CITY",
+  "region_map_section": "MAPSEC_ONE_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 10,
+      "x": 9,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -70,48 +70,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeladonCity_PokemonCenter_1F_EventScript_Youngster",
       "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 13,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeladonCity_PokemonCenter_TownMapGirl",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 12,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeliaSecrets_CeladonMap",
-      "flag": "FLAG_CSR_CELIA_BONUS"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 2,
-      "y": 7,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "CeliaSecrets_CeladonEscalator",
-      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [
