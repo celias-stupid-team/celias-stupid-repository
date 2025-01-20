@@ -5,6 +5,7 @@ raw `
 
 ViridianCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ViridianCity_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD ViridianCity_OnLoad
 	.byte 0
 
 
@@ -704,9 +705,11 @@ script ViridianCity_OnTransition {
 	call_if_ge(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_SetOldManNormal)
 	call_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 0, ViridianCity_EventScript_TryUnlockGym)
 	call(SetPlayerPokedexValues)
-	if(!flag(FLAG_CSR_RETURNED_KEY)) {
-		setmetatile(53, 15, 0x2D7, TRUE) //Unlocks the door if you've returned the key
-		//special(DrawWholeMapView)
+	
+}
 
+script ViridianCity_OnLoad {
+	if(flag(FLAG_CSR_RETURNED_KEY)) {
+		setmetatile(53, 15, METATILE_ViridianCity_Door, FALSE) //Unlocks the door if you've returned the key
 	}
 }

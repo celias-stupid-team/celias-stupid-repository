@@ -1213,9 +1213,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_LassCrissy),
     },
     [TRAINER_LASS_MIRIAM] = {
-        .trainerClass = TRAINER_CLASS_LASS,
+        .trainerClass = TRAINER_CLASS_PICNICKER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_LASS,
+        .trainerPic = TRAINER_PIC_PICNICKER,
         .trainerName = _("MIRIAM"),
         .items = {},
         .doubleBattle = FALSE,
