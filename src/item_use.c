@@ -70,6 +70,13 @@ static void UseFameCheckerFromBag(void);
 static void Task_UseFameCheckerFromField(u8 taskId);
 static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
+static void LWPEmblem_EquipOutfit(void);
+static void ItemUseOnFieldCB_LWPEmblem(u8 taskId);
+static void Task_UseLWPEmblemOnField(u8 taskId);
+static void StartLWPEmblemFieldEffect(void);
+static void Task_LWPEmblemWarpOut(u8 taskId);
+static void LWPEmblemWarpOutEffect_Init(struct Task *task);
+static void LWPEmblemWarpOutEffect_Spin(struct Task *task);
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -924,7 +931,7 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
 }
 
-void FieldUseFunc_LWPEmblem(u8 taskId)
+static void LWPEmblem_EquipOutfit(void)
 {
     u8 outfit = OUTFIT_NONE;
     switch(gSpecialVar_ItemId)
@@ -941,13 +948,98 @@ void FieldUseFunc_LWPEmblem(u8 taskId)
     }
 
     TogglePlayerOutfit(outfit);
+}
 
+void FieldUseFunc_LWPEmblem(u8 taskId)
+{
     PlaySE(SE_SELECT);
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
-
     StringExpandPlaceholders(gStringVar4, gText_LWPEmblem);
-    DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
+
+    sItemUseOnFieldCB = ItemUseOnFieldCB_LWPEmblem;
+    SetUpItemUseOnFieldCallback(taskId);
 }
+
+static void ItemUseOnFieldCB_LWPEmblem(u8 taskId)
+{
+    LWPEmblem_EquipOutfit();
+    DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseLWPEmblemOnField);
+}
+
+static void Task_UseLWPEmblemOnField(u8 taskId)
+{
+    ResetInitialPlayerAvatarState();
+    StartLWPEmblemFieldEffect();
+    DestroyTask(taskId);
+}
+
+static void StartLWPEmblemFieldEffect(void)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    CreateTask(Task_LWPEmblemWarpOut, 80);
+}
+
+static void (*const sLWPEmblemWarpOutEffectFuncs[])(struct Task *task) =
+{
+    LWPEmblemWarpOutEffect_Init,
+    LWPEmblemWarpOutEffect_Spin
+};
+
+#define tState       data[0]
+#define tSpinDelay   data[1]
+#define tNumTurns    data[2]
+#define tTimer       data[3]
+#define tSpinEnded   data[4]
+#define tCurrentDir  data[5]
+#define tDirection   data[15]
+
+static void Task_LWPEmblemWarpOut(u8 taskId)
+{
+    sLWPEmblemWarpOutEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
+}
+
+static void LWPEmblemWarpOutEffect_Init(struct Task *task)
+{
+    task->tState++;
+    task->tDirection = DIR_NONE;
+}
+
+#define OBJ_EVENT_PAL_TAG_PLAYER_RED   0x1100
+#define OBJ_EVENT_PAL_TAG_PLAYER_GREEN 0x1110
+#define LWP_SPIN_LENGTH                60 
+
+static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
+{
+    struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+    s16 *data = task->data;
+    tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
+    if (tTimer < LWP_SPIN_LENGTH)
+    {
+        tTimer++;
+        if (tTimer == 5)
+            PlaySE(SE_M_REVERSAL);
+    }
+    else if (tTimer >= LWP_SPIN_LENGTH && tCurrentDir == DIR_EAST)
+    {
+        tSpinEnded = TRUE;
+    }
+    else if (tSpinEnded)
+    {
+        PlaySE(SE_EXP_MAX);
+        LoadObjectEventPalette(gSaveBlock2Ptr->playerGender == MALE ? OBJ_EVENT_PAL_TAG_PLAYER_RED : OBJ_EVENT_PAL_TAG_PLAYER_GREEN);
+        StringExpandPlaceholders(gStringVar4, gText_LWPEmblemEnd);
+        DisplayItemMessageOnField(FindTaskIdByFunc(Task_LWPEmblemWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+    }
+}
+
+#undef tState       
+#undef tSpinDelay   
+#undef tNumTurns    
+#undef tTimer       
+#undef tSpinEnded   
+#undef tCurrentDir 
+#undef tDirection   
 
 void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u16 param)
 {
