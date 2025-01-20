@@ -1579,5 +1579,6 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
 // csr outfits
 extern const u8 gText_LWPEmblem[];
+extern const u8 gText_LWPEmblemEnd[];
 
 #endif //GUARD_STRINGS_H

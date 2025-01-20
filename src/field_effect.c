@@ -2069,7 +2069,6 @@ void SpriteCB_PopOutOfAsh(struct Sprite *sprite)
 static void Task_EscapeRopeWarpOut(u8 taskId);
 static void EscapeRopeWarpOutEffect_Init(struct Task *task);
 static void EscapeRopeWarpOutEffect_Spin(struct Task *task);
-static u8 SpinObjectEvent(struct ObjectEvent *playerObj, s16 *timer, s16 *numTurns);
 static bool32 WarpOutObjectEventUpwards(struct ObjectEvent *playerObj, s16 *movingState, s16 *offsetY);
 static void FieldCallback_EscapeRopeExit(void);
 static void Task_EscapeRopeWarpIn(u8 taskId);
@@ -2139,7 +2138,7 @@ static const u8 sSpinDirections[] =
     [DIR_EAST]  = DIR_SOUTH,
 };
 
-static u8 SpinObjectEvent(struct ObjectEvent *playerObj, s16 *spinDelay, s16 *numTurns)
+u8 SpinObjectEvent(struct ObjectEvent *playerObj, s16 *spinDelay, s16 *numTurns)
 {
     if (!ObjectEventIsMovementOverridden(playerObj) || ObjectEventClearHeldMovementIfFinished(playerObj))
     {
