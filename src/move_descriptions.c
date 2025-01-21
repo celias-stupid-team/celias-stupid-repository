@@ -1,7 +1,7 @@
 #include "global.h"
 #include "constants/moves.h"
 
-const u8 gMoveDescription_Pound[] = _("A physical attack\ndelivered with a\nlong tail or a\nforeleg, etc.");
+const u8 gMoveDescription_Pound[] = _("Some call it\nan Octothorpe.");
 const u8 gMoveDescription_KarateChop[] = _("The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.");
 const u8 gMoveDescription_DoubleSlap[] = _("The foe is slapped\nrepeatedly, back\nand forth, two to\nfive times.");
 const u8 gMoveDescription_CometPunch[] = _("The foe is hit with\na flurry of punches\nthat strike two to\nfive times.");
@@ -121,7 +121,7 @@ const u8 gMoveDescription_Bide[] = _("The user endures\nattacks for two\nturns, 
 const u8 gMoveDescription_Metronome[] = _("Waggles a finger\nand stimulates the\nbrain into using any\nmove at random.");
 const u8 gMoveDescription_MirrorMove[] = _("The user counters\nthe move last used\nby the foe with the\nsame move.");
 const u8 gMoveDescription_SelfDestruct[] = _("The user blows up\nto inflict severe\ndamage, even\nmaking itself faint.");
-const u8 gMoveDescription_EggBomb[] = _	"description_english": "fucking worthless",
+const u8 gMoveDescription_EggBomb[] = _("fucking worthless");
 const u8 gMoveDescription_Lick[] = _("The foe is licked\nand hit with a long\ntongue. It may\nalso paralyze.");
 const u8 gMoveDescription_Smog[] = _("The foe is attacked\nwith exhaust gases.\nIt may also poison\nthe foe.");
 const u8 gMoveDescription_Sludge[] = _("Toxic sludge is\nhurled at the foe.\nIt may poison the\ntarget.");
@@ -533,7 +533,7 @@ const u8 gMoveDescription_draco_mieteor[] = _("The user summons\nmieteors from t
 const u8 gMoveDescription_mieling_wish[] = _("Unfinished.\nSorry!");
 const u8 gMoveDescription_mief[] = _("An attack that may\ntake the foe's held\nitem if the user\nisn't holding one.");
 const u8 gMoveDescription_Psycho_Cut[] = _("Dummy"); 
-const u8 gMoveDescription_Aqua_Cutter[] = _("Dummy");
+const u8 gMoveDescription_Aqua_Cutter[] = _("Filet-o-Fish");
 const u8 gMoveDescription_Bug_Bite[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Quiver_Dance[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_U_Turn[] = _("Dummy"); //not used by player, or not accessible until demo 3+
