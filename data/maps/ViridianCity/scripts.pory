@@ -620,7 +620,7 @@ script ViridianCity_EventScript_CeliaBee {
 }
 
 script ViridianCity_EventScript_CeliaHide {
-	msgbox("I hid this guy's house by making\nthe opening in the trees only be\lon screen if the player walks\lone step right of the Center door.\pSo many players can't even be\nbothered to do that much, so it's\lstraight up hidden in plain sight!\pIn other folks' playthroughs I'd try\nto make the line a bit again, but\lit never really caught on.\pSo, I put it directly into the game\na second time for the dex entry,\land the rest is history!", MSGBOX_NPC)
+	msgbox("I hid this guy's house by making\nthe opening in the trees only be\lon screen if the player walks\lone step right of the Center door.\pSo many players can't even be\nbothered to do that much, so it's\lstraight up hidden in plain sight!", MSGBOX_NPC)
 	end
 }
 

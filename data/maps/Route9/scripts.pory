@@ -40,3 +40,13 @@ script CeliaSecrets_Route9_Digrat {
 	msgbox("This guy uses Digrat from TPP!\pThe poor thing was taught Dig and\nkept digging Red out of dungeons.", MSGBOX_NPC)
 	end
 }
+
+script Route9_SetBenchCerulean {
+	setbench(BENCH_CERULEAN)
+	release
+}
+
+script Route9_SetBenchRoute9 {
+	setbench(BENCH_ROUTE9)
+	release
+}

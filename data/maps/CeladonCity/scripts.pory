@@ -115,6 +115,7 @@ mapscripts CeladonCity_MapScripts {
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 			if(flag(FLAG_CELIA_SECRET_CELADON)) {
 				waitmovement(0)
+				setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)
 				release
 				end
 			}
