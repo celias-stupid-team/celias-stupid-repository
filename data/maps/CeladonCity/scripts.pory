@@ -453,7 +453,7 @@ script CeliaSecrets_CeladonAngryNerd {
 }
 
 script CeliaSecrets_CeladonLGBTQIA {
-	msgbox("I included one trainer in this gym\nfor every letter of LGBTQAP, but\lI couldn't think of something for I\pSorry, Intersex community!\nY'all are still awesome!", MSGBOX_NPC)
+	msgbox("I included one trainer in this gym\nfor every letter of LGBTQAP, but\lI couldn't think of something for I.\pSorry, Intersex community!\nY'all are still awesome!", MSGBOX_NPC)
 	end
 }
 
