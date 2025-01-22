@@ -20,7 +20,7 @@ Text_YouKnowThoseWords::
 	.string "MYSTERY GIFT isn't in this hack.\p"
 	.string "Sigh...\n"
 	.string "Fine.\l"
-	.string "Here's the your menu option.$"
+	.string "Here's your menu option.$"
 
 Text_YouCanAccessMysteryGift::
 	.string "Once you save your game, you can\n"

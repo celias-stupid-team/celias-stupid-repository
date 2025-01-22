@@ -65,6 +65,11 @@ script MoonAltar_CameraPan {
     
 }
 
+script MtMoon_ShitComputerSign {
+	msgbox("WARNING!\nThis computer sucks.\pI'm working on it.\n-Celia, the creator", MSGBOX_SIGN)
+	end
+}
+
 script MtMoon_GiveGrimerEnd {
     removeitem(ITEM_TEA)
     setvar(VAR_TEMP_0, 1)

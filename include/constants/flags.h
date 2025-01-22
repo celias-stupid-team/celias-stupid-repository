@@ -572,8 +572,8 @@
 #define FLAG_CSR_MT_MOON_BASEMENT_SIGN               0x20A
 #define FLAG_CSR_ROUTE_4_BERRIES              0x20B
 #define FLAG_CSR_HBOX_TEMP_DISAPPEARANCE               0x20C
-#define FLAG_0x20D               0x20D
-#define FLAG_0x20E               0x20E
+#define FLAG_CSR_GOT_BULLDOZE               0x20D
+#define FLAG_CSR_GOT_STEAMROLLER               0x20E
 #define FLAG_0x20F               0x20F
 #define FLAG_0x210               0x210
 #define FLAG_0x211               0x211

@@ -50,11 +50,10 @@ script PokemonTower_BlackMarket { //Clean up this dialogue; it's a little weak
 
 mart PokemonTower_Market {
 	ITEM_TM04
+	ITEM_TM08
 	ITEM_TM21
 	ITEM_TM28
-	ITEM_TM31
 	ITEM_TM39
-	ITEM_TM46
 	ITEM_TM47
 	ITEM_TM48
 }

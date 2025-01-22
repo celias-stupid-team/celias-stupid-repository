@@ -116,12 +116,12 @@ script ViridianForest_EventScript_Celia10U {
 }
 
 script ViridianForest_EventScript_CeliaCandy {
-	msgbox("I had so much trouble getting folks\nto believe me about candies.\pThe only reason I put them in is\nto save you time!!!\lNot everything I do is evil!!\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	msgbox("I had so much trouble getting folks\nto believe me about candies.\pThe only reason I put them in is\nto save you time!!!\lNot everything I do is evil!!", MSGBOX_NPC)
 	end
 }
 
 script ViridianForest_EventScript_CeliaDad2 {
-	msgbox("I have a second DAD here for a very\nspecific purpose:\pIn the upcoming AJ fight, I need\nthe player to try WATER GUN on\lthe Sandshrew.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	msgbox("I have a second DAD here for a very\nspecific purpose:\pIn the upcoming AJ fight, I need\nthe player to try WATER GUN on\lthe Sandshrew.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.", MSGBOX_NPC)
 	end
 }
 
@@ -154,7 +154,7 @@ script ViridianForest_EventScript_Flowers4 {
 }
 
 script ViridianForest_EventScript_CeliaAJ {
-	msgbox("This guy's a reference to AJ from\nthe anime.\pHe chucked his SANDSHREW in the\nriver until it wasn't weak to WATER.\pKinda fucked up, ngl.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.\pEvery single team is the same, and\nit's extremely unfun.\lCheck out Big Yellow's video on it!\lI simply continued the trend.", MSGBOX_NPC)
+	msgbox("This guy's a reference to AJ from\nthe anime.\pHe chucked his SANDSHREW in the\nriver until it wasn't weak to WATER.\pKinda fucked up, ngl.\pHowever, many players will have a\nfainted Charmander by now.\pThus, DAD is here to make sure you\ncan get annoyed by Water Absorb.", MSGBOX_NPC)
 	end
 }
 

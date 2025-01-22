@@ -20,7 +20,11 @@ mapscripts Route8_MapScripts {
 			setmetatile(36, 2, 0x3C1, FALSE)
 			setmetatile(37, 2, 0x3C2, FALSE)
 		} else {
-			setbench(BENCH_ROUTE8_BEFORE)
+			if(var(VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES) == 0) {
+				setbench(BENCH_LAVENDER)
+			} else {
+				setbench(BENCH_ROUTE8_BEFORE)
+			}
 		}
 		if(flag(FLAG_GROWLITHE_SIGN)) {
 			setmetatile(22, 18, 0x39C, FALSE) //Replaces the growlithe tiles with snow

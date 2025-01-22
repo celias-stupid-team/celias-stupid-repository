@@ -4749,7 +4749,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The user tightens all its muscles\\nand bulks up, boosting both its\\nATTACK and DEFENSE stats.",
+      "description_english": "A fierce bite that always\\nlowers DEFENSE by two stages.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -4758,7 +4758,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "ZapTap"
+      "moveId": "DynamicCrunch"
     },
     {
       "english": "TM09",
@@ -4766,7 +4766,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The user shoots seeds at the foe\\nin rapid succession. Two to five\\nseeds are shot at once.",
+      "description_english": "The user increases property value\\nby destroying peoples' homes.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -4775,7 +4775,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "BulletSeed"
+      "moveId": "Bulldoze"
     },
     {
       "english": "TM10",
@@ -4783,7 +4783,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A variable move that changes type\\nand power depending on the POKéMON\\nusing it.",
+      "description_english": "Yeah, why would something like this\\nbe BUG-TYPE?",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
@@ -4792,7 +4792,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "HiddenPower"
+      "moveId": "Steamroller"
     },
     {
       "english": "TM11",

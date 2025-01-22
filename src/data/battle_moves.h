@@ -1425,7 +1425,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
     },
@@ -5374,7 +5374,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 0,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
-        .pp = 35,
+        .pp = 5,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
         .priority = 6,
@@ -7168,10 +7168,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_STEAMROLLER] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .effect = EFFECT_FLINCH_MINIMIZE_HIT, // Placeholder Effect
+        .power = 60,
+        .type = TYPE_BUG,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,

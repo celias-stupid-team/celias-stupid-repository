@@ -389,3 +389,16 @@ script Vermillion_ChildMemorial {
 	release
 
 }
+
+script VermilionCity_Psyduck {
+	msgbox("It looks like he's having fun.\n", MSGBOX_SIGN)
+	end
+}
+
+script VermilionCity_Steamroller {
+	finditem(ITEM_TM09)
+}
+
+script VermilionCity_Bulldoze {
+	finditem(ITEM_TM10)
+}

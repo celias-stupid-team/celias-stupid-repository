@@ -1,7 +1,7 @@
 #include "global.h"
 #include "constants/moves.h"
 
-const u8 gMoveDescription_Pound[] = _("A physical attack\ndelivered with a\nlong tail or a\nforeleg, etc.");
+const u8 gMoveDescription_Pound[] = _("Some call it\nan Octothorpe.");
 const u8 gMoveDescription_KarateChop[] = _("The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.");
 const u8 gMoveDescription_DoubleSlap[] = _("The foe is slapped\nrepeatedly, back\nand forth, two to\nfive times.");
 const u8 gMoveDescription_CometPunch[] = _("The foe is hit with\na flurry of punches\nthat strike two to\nfive times.");
@@ -121,7 +121,7 @@ const u8 gMoveDescription_Bide[] = _("The user endures\nattacks for two\nturns, 
 const u8 gMoveDescription_Metronome[] = _("Waggles a finger\nand stimulates the\nbrain into using any\nmove at random.");
 const u8 gMoveDescription_MirrorMove[] = _("The user counters\nthe move last used\nby the foe with the\nsame move.");
 const u8 gMoveDescription_SelfDestruct[] = _("The user blows up\nto inflict severe\ndamage, even\nmaking itself faint.");
-const u8 gMoveDescription_EggBomb[] = _("A large egg is\nhurled with great\nforce at the foe to\ninflict damage.");
+const u8 gMoveDescription_EggBomb[] = _("fucking worthless");
 const u8 gMoveDescription_Lick[] = _("The foe is licked\nand hit with a long\ntongue. It may\nalso paralyze.");
 const u8 gMoveDescription_Smog[] = _("The foe is attacked\nwith exhaust gases.\nIt may also poison\nthe foe.");
 const u8 gMoveDescription_Sludge[] = _("Toxic sludge is\nhurled at the foe.\nIt may poison the\ntarget.");
@@ -533,14 +533,14 @@ const u8 gMoveDescription_draco_mieteor[] = _("The user summons\nmieteors from t
 const u8 gMoveDescription_mieling_wish[] = _("Unfinished.\nSorry!");
 const u8 gMoveDescription_mief[] = _("An attack that may\ntake the foe's held\nitem if the user\nisn't holding one.");
 const u8 gMoveDescription_Psycho_Cut[] = _("Dummy"); 
-const u8 gMoveDescription_Aqua_Cutter[] = _("Dummy");
+const u8 gMoveDescription_Aqua_Cutter[] = _("Filet-o-Fish");
 const u8 gMoveDescription_Bug_Bite[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Quiver_Dance[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_U_Turn[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_First_Impression[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Savage_Spin_Out[] = _("Dummy"); //not used by player, or not accessible until demo 3+
 const u8 gMoveDescription_Single_Wingbeat[] = _("Dummy"); //not used by player, or not accessible until demo 3+
-const u8 gMoveDescription_Dynamic_Crunch[] = _("A fierce bite\nthat always\nlowers DEFENSE\nby two stages.");
+const u8 gMoveDescription_DynamicCrunch[] = _("A fierce bite\nthat always\nlowers DEFENSE\nby two stages.");
 const u8 gMoveDescription_MudSpout[] = _("Oops. I hate\nwhen you misspell\nthe move and get\nthe wrong one…");
 const u8 gMoveDescription_Foursight[] = _("Using the fource,\nthe user foursees\nthat in four\nturns, 4.");
 const u8 gMoveDescription_SteelWang[] = _("Dummy"); //not used by player, or not accessible until demo 3+
@@ -570,7 +570,7 @@ const u8 gMoveDescription_hornleech[] = _("Dummy");
 const u8 gMoveDescription_fishiousrend[] = _("Dummy");
 const u8 gMoveDescription_bravebird[] = _("Dummy");
 const u8 gMoveDescription_maxairstream[] = _("Dummy");
-const u8 gMoveDescription_Steamroller[] = _("Dummy");
+const u8 gMoveDescription_Steamroller[] = _("Yeah, why would\nsomething like\nthis be BUG type?");
 const u8 gMoveDescription_Slash_TCG[] = _("The foe is slashed\nwith claws, etc.\nIt has a high\ncritical-hit ratio.");
 const u8 gMoveDescription_SwordsDance_TCG[] = _("A frenetic dance of\nfighting. It sharply\nraises the ATTACK\nstat.");
 
@@ -1114,7 +1114,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_SAVAGE_SPIN_OUT     -1 ] = gMoveDescription_Savage_Spin_Out,
     [MOVE_SINGLE_WINGBEAT     -1 ] = gMoveDescription_Single_Wingbeat,
     [MOVE_CONFUSION_PSYDUCK     -1 ] = gMoveDescription_ConfusionPsyduck,
-    [MOVE_DYNAMIC_CRUNCH     -1 ] = gMoveDescription_Dynamic_Crunch,
+    [MOVE_DYNAMIC_CRUNCH     -1 ] = gMoveDescription_DynamicCrunch,
     [MOVE_MUD_SPOUT     -1 ] = gMoveDescription_MudSpout,
     [MOVE_FOURSIGHT     -1 ] = gMoveDescription_Foursight,
     [MOVE_STEEL_WANG     -1 ] = gMoveDescription_SteelWang,
