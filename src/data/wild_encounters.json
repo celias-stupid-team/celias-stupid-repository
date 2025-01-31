@@ -16552,13 +16552,13 @@
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -16572,8 +16572,8 @@
                 "species": "SPECIES_NIDORAN_F"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -16682,36 +16682,36 @@
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_PARAS"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_PARAS"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 19,
-                "max_level": 19,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 4,
+                "max_level": 4,
+                "species": "SPECIES_EXEGGCUTE"
+              },
+              {
+                "min_level": 4,
+                "max_level": 4,
+                "species": "SPECIES_EXEGGCUTE"
+              },
+              {
+                "min_level": 4,
+                "max_level": 4,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
