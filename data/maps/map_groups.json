@@ -52,7 +52,8 @@
     "UnionRoom",
     "Chapter1_TitleDrop",
     "Chapter2",
-    "ViridianCity_GamblerHouse"
+    "ViridianCity_GamblerHouse",
+    "GreatBay_SkyPillarOutside"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -329,7 +330,8 @@
     "PalletTown_RivalsHouse",
     "PalletTown_ProfessorOaksLab",
     "PalletTown_BobOmb_Battlefield",
-    "InsideOfTruck"
+    "InsideOfTruck",
+    "PalletTown_WestField"
   ],
   "gMapGroup_IndoorViridian": [
     "ViridianCity_House",

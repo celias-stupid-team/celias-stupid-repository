@@ -228,3 +228,6 @@ const u32 gMetatileAttributes_MoonAltar[] = INCBIN_U32("data/tilesets/secondary/
 
 const u16 gMetatiles_FlowerShop[] = INCBIN_U16("data/tilesets/secondary/flower_shop/metatiles.bin");
 const u32 gMetatileAttributes_FlowerShop[] = INCBIN_U32("data/tilesets/secondary/flower_shop/metatile_attributes.bin");
+
+const u16 gMetatiles_Route18_SkyPillar[] = INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/metatiles.bin");
+const u32 gMetatileAttributes_Route18_SkyPillar[] = INCBIN_U32("data/tilesets/secondary/route_18_sky_pillar/metatile_attributes.bin");

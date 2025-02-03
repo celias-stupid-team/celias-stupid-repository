@@ -1065,7 +1065,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CeladonCity",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },
@@ -4692,6 +4692,30 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/KantoLighthouse_3F/border.bin",
       "blockdata_filepath": "data/layouts/KantoLighthouse_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+      "name": "GreatBay_SkyPillarOutside_Layout",
+      "width": 30,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/GreatBay_SkyPillarOutside/border.bin",
+      "blockdata_filepath": "data/layouts/GreatBay_SkyPillarOutside/map.bin"
+    },
+    {
+      "id": "LAYOUT_PALLET_TOWN_WEST_FIELD",
+      "name": "PalletTown_WestField_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/PalletTown_WestField/border.bin",
+      "blockdata_filepath": "data/layouts/PalletTown_WestField/map.bin"
     }
   ]
 }

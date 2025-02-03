@@ -1,0 +1,35 @@
+{
+  "id": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+  "name": "GreatBay_SkyPillarOutside",
+  "layout": "LAYOUT_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+  "music": "MUS_ROUTE11",
+  "region_map_section": "MAPSEC_GREAT_BAY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -33,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

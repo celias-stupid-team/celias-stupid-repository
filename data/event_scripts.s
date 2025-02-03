@@ -1443,3 +1443,9 @@ Text_TestMsg::
 
 	.include "data/maps/KantoLighthouse_3F/scripts.inc"
 	.include "data/maps/KantoLighthouse_3F/text.inc"
+
+	.include "data/maps/GreatBay_SkyPillarOutside/scripts.inc"
+	.include "data/maps/GreatBay_SkyPillarOutside/text.inc"
+
+	.include "data/maps/PalletTown_WestField/scripts.inc"
+	.include "data/maps/PalletTown_WestField/text.inc"

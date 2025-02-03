@@ -18,7 +18,7 @@ PokemonTower_4F_EventScript_Jody::
 `
 mapscripts PokemonTower_4F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(FLAG_CSR_POKEMON_TOWER_MUSIC) {
+		if(flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
 			playbgm(MUS_GYM, TRUE)
 		} else {
 			playbgm(MUS_DUMMY, TRUE)
