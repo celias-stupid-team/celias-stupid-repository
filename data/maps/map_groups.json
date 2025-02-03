@@ -418,7 +418,9 @@
     "FushciaCity_PokemonCenter_2F",
     "FushciaCity_WardensHouse",
     "FushciaCity_House2",
-    "FushciaCity_House3"
+    "FushciaCity_House3",
+    "FushciaCity_BrendanMay_1F",
+    "FushciaCity_BrendanMay_2F"
   ],
   "gMapGroup_IndoorCinnabar": [
     "CinnabarIsland_Gym",

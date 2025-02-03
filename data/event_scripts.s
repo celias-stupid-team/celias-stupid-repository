@@ -1449,3 +1449,9 @@ Text_TestMsg::
 
 	.include "data/maps/PalletTown_WestField/scripts.inc"
 	.include "data/maps/PalletTown_WestField/text.inc"
+
+	.include "data/maps/FushciaCity_BrendanMay_1F/scripts.inc"
+	.include "data/maps/FushciaCity_BrendanMay_1F/text.inc"
+
+	.include "data/maps/FushciaCity_BrendanMay_2F/scripts.inc"
+	.include "data/maps/FushciaCity_BrendanMay_2F/text.inc"
