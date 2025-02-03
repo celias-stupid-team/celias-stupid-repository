@@ -26,7 +26,7 @@ mapscripts PokemonTower_4F_MapScripts {
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_POKEMONTOWER_ANSWER, 1 { //Correct
-			playse(SE_DING)
+			playse(SE_SUCCESS)
 			waitse
 			setvar(VAR_POKEMONTOWER_ANSWER, 0)
 			release
