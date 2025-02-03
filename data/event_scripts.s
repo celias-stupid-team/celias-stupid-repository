@@ -1410,3 +1410,36 @@ Text_TestMsg::
 
 	.include "data/maps/SecretRoom/scripts.inc"
 	.include "data/maps/SecretRoom/text.inc"
+
+	.include "data/maps/PokemonTower_Math_3/scripts.inc"
+	.include "data/maps/PokemonTower_Math_3/text.inc"
+
+	.include "data/maps/PokemonTower_Math_4/scripts.inc"
+	.include "data/maps/PokemonTower_Math_4/text.inc"
+
+	.include "data/maps/PokemonTower_Math_5/scripts.inc"
+	.include "data/maps/PokemonTower_Math_5/text.inc"
+
+	.include "data/maps/PokemonTower_Math_6/scripts.inc"
+	.include "data/maps/PokemonTower_Math_6/text.inc"
+
+	.include "data/maps/PokemonTower_Math_CandyRoom/scripts.inc"
+	.include "data/maps/PokemonTower_Math_CandyRoom/text.inc"
+
+	.include "data/maps/PokemonTower_Math_CeliaRoom/scripts.inc"
+	.include "data/maps/PokemonTower_Math_CeliaRoom/text.inc"
+
+	.include "data/maps/Route18_SandwichShop/scripts.inc"
+	.include "data/maps/Route18_SandwichShop/text.inc"
+
+	.include "data/maps/Route15_SodaShop/scripts.inc"
+	.include "data/maps/Route15_SodaShop/text.inc"
+
+	.include "data/maps/KantoLighthouse_1F/scripts.inc"
+	.include "data/maps/KantoLighthouse_1F/text.inc"
+
+	.include "data/maps/KantoLighthouse_2F/scripts.inc"
+	.include "data/maps/KantoLighthouse_2F/text.inc"
+
+	.include "data/maps/KantoLighthouse_3F/scripts.inc"
+	.include "data/maps/KantoLighthouse_3F/text.inc"

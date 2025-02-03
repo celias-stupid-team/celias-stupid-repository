@@ -181,7 +181,16 @@
     "MtMoon_Square",
     "MtMoon_Outside",
     "SecretTunnel",
-    "MtMoonSquare_Unbroken"
+    "MtMoonSquare_Unbroken",
+    "PokemonTower_Math_3",
+    "PokemonTower_Math_4",
+    "PokemonTower_Math_5",
+    "PokemonTower_Math_6",
+    "PokemonTower_Math_CandyRoom",
+    "PokemonTower_Math_CeliaRoom",
+    "KantoLighthouse_1F",
+    "KantoLighthouse_2F",
+    "KantoLighthouse_3F"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -474,7 +483,8 @@
   ],
   "gMapGroup_IndoorRoute15": [
     "Route15_WestEntrance_1F",
-    "Route15_WestEntrance_2F"
+    "Route15_WestEntrance_2F",
+    "Route15_SodaShop"
   ],
   "gMapGroup_IndoorRoute16": [
     "Route16_House",
@@ -483,7 +493,8 @@
   ],
   "gMapGroup_IndoorRoute18": [
     "Route18_EastEntrance_1F",
-    "Route18_EastEntrance_2F"
+    "Route18_EastEntrance_2F",
+    "Route18_SandwichShop"
   ],
   "gMapGroup_IndoorRoute19": [
     "Route19_UnusedHouse"
