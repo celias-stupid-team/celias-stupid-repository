@@ -856,3 +856,14 @@ const struct Tileset gTileset_Route18_SkyPillar =
     .metatileAttributes = gMetatileAttributes_Route18_SkyPillar,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Route12 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route12,
+    .palettes = gTilesetPalettes_Route12,
+    .metatiles = gMetatiles_Route12,
+    .metatileAttributes = gMetatileAttributes_Route12,
+    .callback = NULL,
+};
