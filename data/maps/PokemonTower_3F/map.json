@@ -5,7 +5,7 @@
   "music": "MUS_POKE_TOWER",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
-  "weather": "WEATHER_FOG_HORIZONTAL",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": true,
@@ -61,15 +61,15 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
       "x": 5,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PokemonTower_3F_EventScript_ItemEscapeRope",
-      "flag": "FLAG_HIDE_POKEMON_TOWER_3F_ESCAPE_ROPE"
+      "script": "PokemonTower_ClefairyDoll",
+      "flag": "FLAG_TEMP_4"
     },
     {
       "type": "object",
@@ -117,15 +117,15 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 4,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "PokemonTower_3F_ClefairyDollGirl",
+      "flag": "FLAG_HIDE_CLEFAIRY_DOLL_GIRL"
     },
     {
       "type": "object",

@@ -324,8 +324,12 @@ void StartMarowakBattle(void)
     gMain.savedCallback = CB2_EndMarowakBattle;
     if (FlagGet(FLAG_CSR_SUPER_SCOPE))
     {
-        gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED;
-        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_MAROWAK, 30, 31, MON_FEMALE, NATURE_SERIOUS, 0);
+        gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED; //make GHOST_UNVEILED the same as regular ghost, except Poke Dolls work
+        
+        FlagClear(FLAG_HIDE_CLEFAIRY_DOLL_GIRL);
+        FlagClear(FLAG_TEMP_4);
+        
+        CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS, 0);
     }
     else
     {
