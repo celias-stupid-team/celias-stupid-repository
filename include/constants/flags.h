@@ -287,7 +287,7 @@
 #define FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE               0x0F3
 #define FLAG_USED_CLEFAIRY_DOLL               0x0F4
 #define FLAG_SAW_GHOST_UNVEIL               0x0F5
-#define FLAG_0x0F6               0x0F6
+#define FLAG_GOT_TAUROSES               0x0F6
 #define FLAG_0x0F7               0x0F7
 #define FLAG_0x0F8               0x0F8
 #define FLAG_0x0F9               0x0F9

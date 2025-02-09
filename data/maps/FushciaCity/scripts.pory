@@ -143,3 +143,40 @@ script FuschiaCity_BrickBreak {
 	msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
 	release
 }
+
+script FushciaCity_TaurosGuy {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_GOT_TAUROSES)) {
+
+	} else {
+		msgbox("I caught some cool POKéMON in the\nSAFARI ZONE!\pHere, I have a few extra.\nWhy don't you take some?", MSGBOX_DEFAULT)
+		closemessage
+		
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} recieved 29 TAUROS!", MSGBOX_DEFAULT)
+		waitmessage
+		waitfanfare
+		setvar(VAR_TEMP_F, 0)
+		random(29)
+		copyvar(VAR_TEMP_E, VAR_RESULT)
+		setvar(VAR_RESULT, 0)
+		while(var(VAR_RESULT) != 2 && var(VAR_TEMP_F) < 29) {
+			clearflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_GOT_TAUROSES)
+			if (var(VAR_TEMP_F) == VAR_TEMP_E) {
+				setflag(FLAG_SHINY_CREATION)
+			}
+			givemon(SPECIES_TAUROS, 30)
+			addvar(VAR_TEMP_F, 1)
+		}
+		clearflag(FLAG_SHINY_CREATION)
+		if(var(VAR_RESULT) == 2) {
+			goto(EventScript_NoMoreRoomForPokemon)
+		}
+	}
+	release
+	end
+}
