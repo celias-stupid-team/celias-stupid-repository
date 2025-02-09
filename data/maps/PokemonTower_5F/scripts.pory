@@ -32,13 +32,30 @@ PokemonTower_5F_EventScript_Ruth::
 	msgbox PokemonTower_5F_Text_RuthPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-PokemonTower_5F_EventScript_Karina::
-	trainerbattle_single TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat
-	msgbox PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 PokemonTower_5F_EventScript_Janae::
 	trainerbattle_single TRAINER_CHANNELER_JANAE, PokemonTower_5F_Text_JanaeIntro, PokemonTower_5F_Text_JanaeDefeat
 	msgbox PokemonTower_5F_Text_JanaePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonTower_5F_EventScript_Twin1 {
+	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
+	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script PokemonTower_5F_EventScript_Twin2 {
+	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
+	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script PokemonTower_MathQuestion_Two {
+	lock
+	msgbox("Three plus Five plus Seven equals?\n/al 2    /au    16 /ar15", MSGBOX_DEFAULT)
+	playbgm(MUS_GYM, TRUE)
+	setflag(FLAG_CSR_POKEMON_TOWER_MUSIC)
+	closemessage
+	release
+}

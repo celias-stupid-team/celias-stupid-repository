@@ -45,7 +45,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TOWER_5F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
