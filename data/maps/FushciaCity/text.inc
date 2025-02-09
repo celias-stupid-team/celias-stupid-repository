@@ -20,8 +20,9 @@ FushciaCity_Text_ItemBallInThere::
     .string "…Huh? That's a POKéMON?$"
 
 FushciaCity_Text_CitySign::
-    .string "FUSHCIA CITY\n"
-    .string "Behold! It's Passion Pink!$"
+	.string "FUSHCIA CITY\n"
+	.string "We spelled the name wrong\l"
+	.string "on accident!$"
 
 FushciaCity_Text_SafariZoneSign::
     .string "POKéMON PARADISE\n"

@@ -281,10 +281,12 @@
 //Celadon City
 #define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
 #define FLAG_FORCE_AI_SWITCH_IN_ORDER    0x0F1 //resets after each battle
-#define FLAG_0x0F2               0x0F2
-#define FLAG_0x0F3               0x0F3
-#define FLAG_0x0F4               0x0F4
-#define FLAG_0x0F5               0x0F5
+
+// Pokemon Tower
+#define FLAG_HIDE_CLEFAIRY_DOLL_GIRL               0x0F2
+#define FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE               0x0F3
+#define FLAG_USED_CLEFAIRY_DOLL               0x0F4
+#define FLAG_SAW_GHOST_UNVEIL               0x0F5
 #define FLAG_0x0F6               0x0F6
 #define FLAG_0x0F7               0x0F7
 #define FLAG_0x0F8               0x0F8
@@ -574,7 +576,7 @@
 #define FLAG_CSR_HBOX_TEMP_DISAPPEARANCE               0x20C
 #define FLAG_CSR_GOT_BULLDOZE               0x20D
 #define FLAG_CSR_GOT_STEAMROLLER               0x20E
-#define FLAG_0x20F               0x20F
+#define FLAG_CSR_POKEMON_TOWER_MUSIC               0x20F
 #define FLAG_0x210               0x210
 #define FLAG_0x211               0x211
 #define FLAG_0x212               0x212

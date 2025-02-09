@@ -2684,3 +2684,8 @@ const u8 gYoshiPokedexText[] = _(
 const u8 gPorygonZPokedexText[] = _(
 	"Oh no!\n"
 	"Someone installed a virus on it!");
+    
+const u8 gDachsbunPokedexText[] = _(
+	"The results are in!\n"
+	"It turns out that a Hot Dog\n"
+	"IS a sandwich!");

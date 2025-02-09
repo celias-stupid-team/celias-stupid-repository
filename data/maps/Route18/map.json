@@ -15,21 +15,26 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
+      "map": "MAP_FUSHCIA_CITY",
+      "offset": -10,
+      "direction": "right"
+    },
+    {
       "map": "MAP_ROUTE17",
       "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": -10,
-      "direction": "right"
+      "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+      "offset": 33,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 46,
+      "x": 35,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -43,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 41,
+      "x": 32,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -57,7 +62,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 39,
+      "x": 30,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -67,18 +72,32 @@
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route18_EventScript_Wilton",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BROCK",
+      "x": 54,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 41,
+      "x": 31,
       "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE18_EAST_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 48,
+      "x": 38,
       "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE18_EAST_ENTRANCE_1F",
@@ -91,7 +110,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 37,
+      "x": 27,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -99,11 +118,11 @@
     },
     {
       "type": "sign",
-      "x": 64,
-      "y": 7,
+      "x": 56,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route18_EventScript_RouteSign"
+      "script": "Route15_BakerySign"
     }
   ]
 }

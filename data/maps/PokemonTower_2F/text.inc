@@ -75,23 +75,23 @@ PokemonTower_2F_Text_Litwick_JJS::
 	
 PokemonTower_2F_Text_Litwick_JF::	
 	
-	    .string "Fierce LITWICK: It's fun until a\n"
-	    .string "trainer comes and takes you away.\p"
-	    .string "Your agency will be gone, and you'll\n"
-	    .string "be made into a slave.$"
+	.string "Fierce LITWICK: It's fun until a\n"
+	.string "trainer comes and takes you away.\p"
+	.string "Your agency will be gone, and\n"
+	.string "you'll be made into a slave.$"
 	
 PokemonTower_2F_Text_Litwick_JFJ::	
 	
-	    .string "Joyous LITWICK: I can't wait to be\n"
-	    .string "caught by a TRAINER!\p"
-	    .string "I'll be loved and cared for, and\n"
-	    .string "together we'll do so much!$"
+	.string "Joyous LITWICK: I can't wait to be\n"
+	.string "caught by a TRAINER!\p"
+	.string "I'll be loved and cared for, and\n"
+	.string "we'll be able to do so much together!$"
 	
 PokemonTower_2F_Text_Litwick_JFF::	
 	
-	    .string "Fierce LITWICK: Make no mistake.\p"
-	    .string "TRAINERS see us as tools, not as\n"
-	    .string "beings with out own free will.$"
+	.string "Fierce LITWICK: Make no mistake.\p"
+	.string "TRAINERS see us as tools, not as\n"
+	.string "beings with our own free will.$"
 	
 PokemonTower_2F_Text_Litwick_JFS::	
 	
@@ -135,11 +135,11 @@ PokemonTower_2F_Text_Litwick_F::
 	
 PokemonTower_2F_Text_Litwick_FJ::	
 	
-	    .string "Joyous LITWICK: I can't wait for\n"
-	    .string "the day I meet a TRAINER!\p"
-	    .string "Side-by-side, we'll build a deep\n"
-	    .string "bond of friendship and trust!\l"
-	    .string "There's so much we'll be able to do!$"
+	.string "Joyous LITWICK: I can't wait for\n"
+	.string "the day I meet a TRAINER!\p"
+	.string "Side-by-side, we'll build a deep\n"
+	.string "bond of trust and friendship!\l"
+	.string "There's so much we'll be able to do!$"
 	
 PokemonTower_2F_Text_Litwick_FJJ::	
 	
@@ -166,11 +166,11 @@ PokemonTower_2F_Text_Litwick_FJS::
 	
 PokemonTower_2F_Text_Litwick_FF::	
 	
-	    .string "Fierce LITWICK: I, for one, will not\n"
-	    .string "have my agency stolen from me!\p"
-	    .string "I will fight against the institution\n"
-	    .string "of POKéMON capturing and training!\l"
-	    .string "For the freedom of all POKéMON!$"
+	    	.string "Fierce LITWICK: I, for one, will not\n"
+	.string "have my agency stolen from me!\p"
+	.string "I will combat the institution of\n"
+	.string "POKéMON capturing and training!\l"
+	.string "For the freedom of all POKéMON!$"
 	
 PokemonTower_2F_Text_Litwick_FFJ::	
 	
@@ -211,10 +211,10 @@ PokemonTower_2F_Text_Litwick_FSJ::
 	
 PokemonTower_2F_Text_Litwick_FSF::	
 	
-	    .string "Fierce LITWICK: When you're captured\n"
-	    .string "you'll lose all self-determination.\p"
-	    .string "Even if your mind remains, you'll\n"
-	    .string "never be able to be who you are.$"
+	    	.string "Fierce LITWICK: When you're caught,\n"
+		.string "you'll lose all self-determination.\p"
+		.string "Even if your mind remains, you'll\n"
+		.string "never truly be who you are.$"
 	
 PokemonTower_2F_Text_Litwick_FSS::	
 	

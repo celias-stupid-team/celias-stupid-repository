@@ -3313,7 +3313,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_VOLCARONA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 5,
 	},
 	[SPECIES_COBALION] =
 	{

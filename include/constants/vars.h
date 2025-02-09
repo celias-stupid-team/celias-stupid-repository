@@ -222,7 +222,7 @@ It is reset after every battle.
 #define VAR_ROUTE22_NIDOM                 0x409A
 #define VAR_ROUTE22_NIDOF                 0x409B
 #define VAR_ROUTE2_SHINY_MIME                 0x409C
-#define VAR_0x409D                 0x409D
+#define VAR_POKEMONTOWER_ANSWER                 0x409D
 #define VAR_0x409E                 0x409E
 #define VAR_0x409F                 0x409F
 #define VAR_0x40A0                 0x40A0

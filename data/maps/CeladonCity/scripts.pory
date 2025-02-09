@@ -155,16 +155,16 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 	switch(var(VAR_CSR_CELIA_SECRET_NEXT_HINT)) {
 		case CELIA_SECRET_VIRIDIAN: //implemented!
 			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)
-		case CELIA_SECRET_PEWTER:
-			msgbox("Oh, no! The PSYDUCK PAIL you picked\nup has a hole in it?\lAnd you can only fill it up in RAIN?\pIsn't there somewhere else that you\ncaused to start raining?\lOr maybe something to that effect?", MSGBOX_DEFAULT)
-		case CELIA_SECRET_CERULEAN:
+		case CELIA_SECRET_PEWTER: //implemented
+			msgbox("Those trees that grew in front of\nBROCK's GYM were really annoying.\pI wonder if there's a way to begin\nclearing that area out…", MSGBOX_DEFAULT)
+		case CELIA_SECRET_CERULEAN: //implemented
 			msgbox("There's a hidden back room in\nCERULEAN GYM.\pNow that you've found all my secrets\nhidden across KANTO, meet me there.\lI have something to show you.", MSGBOX_DEFAULT)
 			setflag(FLAG_CELIA_SECRETS_FINISHED)
 			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 		case CELIA_SECRET_VERMILION: //implemented!!
 			msgbox("The trash can puzzle in VERMILLION\nGYM looked incredibly complicated.\lThank goodness for the power outage!", MSGBOX_DEFAULT)
 		case CELIA_SECRET_LAVENDER:
-			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the TRAINER SCHOOL?", MSGBOX_DEFAULT)
+			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the other TRAINER SCHOOL?", MSGBOX_DEFAULT)
 		case CELIA_SECRET_CELADON: //implemented!!
 			msgbox("Man, that staircase in the back of\nthe CELADON MANSION went on forever!\pCan't you skip staircases like\nthat with a speedrunning technique?\lI wonder how you could do that here.", MSGBOX_DEFAULT)
 		case CELIA_SECRET_FUCHSIA:

@@ -1,6 +1,5 @@
 raw `
-PokemonTower_4F_MapScripts::
-	.byte 0
+::
 
 PokemonTower_4F_EventScript_Paula::
 	trainerbattle_single TRAINER_CHANNELER_PAULA, PokemonTower_4F_Text_PaulaIntro, PokemonTower_4F_Text_PaulaDefeat
@@ -17,3 +16,52 @@ PokemonTower_4F_EventScript_Jody::
 	msgbox PokemonTower_4F_Text_JodyPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+mapscripts PokemonTower_4F_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
+			playbgm(MUS_GYM, TRUE)
+		} else {
+			playbgm(MUS_DUMMY, TRUE)
+		}
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_POKEMONTOWER_ANSWER, 1 { //Correct
+			playse(SE_SUCCESS)
+			waitse
+			setvar(VAR_POKEMONTOWER_ANSWER, 0)
+			release
+		}
+		VAR_POKEMONTOWER_ANSWER, 2 { //Incorrect
+			playse(SE_BOO)
+			waitse
+			setvar(VAR_POKEMONTOWER_ANSWER, 0)
+			release
+
+		}
+
+	]
+}
+
+script PokemonTower_CorrectAnswer {
+	setvar(VAR_POKEMONTOWER_ANSWER, 1)
+	release
+}
+
+script PokemonTower_IncorrectAnswer {
+	setvar(VAR_POKEMONTOWER_ANSWER, 2)
+	release
+}
+
+script PokemonTower_NeutralAnswer {
+	setvar(VAR_POKEMONTOWER_ANSWER, 0)
+	release
+}
+
+script PokemonTower_MathQuestion_One {
+	lock
+	msgbox("Three plus Five plus Seven equals?\n/al 2    /au    16 /ar15", MSGBOX_DEFAULT)
+	playbgm(MUS_GYM, TRUE)
+	setflag(FLAG_CSR_POKEMON_TOWER_MUSIC)
+	closemessage
+	release
+}

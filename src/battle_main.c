@@ -2656,10 +2656,12 @@ static void BattleIntroPrintWildMonAttacked(void)
     {
         gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
         PrepareStringBattle(STRINGID_INTROMSG, 0);
-        if (IS_BATTLE_TYPE_GHOST_WITH_SCOPE(gBattleTypeFlags))
+        if (IS_BATTLE_TYPE_GHOST_WITH_SCOPE(gBattleTypeFlags) && !FlagGet(FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE))
         {
             gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
             BattleScriptExecute(BattleScript_SilphScopeUnveiled);
+            FlagSet(FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE); //Only shows the reveal scene once
+            FlagClear(FLAG_TEMP_4); //Putting this here so it doesn't reveal the Poke Doll after the battle 
         }
     }
 }
@@ -4159,6 +4161,7 @@ static void HandleAction_UseItem(void)
     }
     else if (gLastUsedItem == ITEM_POKE_DOLL || gLastUsedItem == ITEM_FLUFFY_TAIL)
     {
+        FlagSet(FLAG_USED_CLEFAIRY_DOLL);
         gBattlescriptCurrInstr = gBattlescriptsForRunningByItem[0];
     }
     else if (gLastUsedItem == ITEM_POKE_FLUTE)

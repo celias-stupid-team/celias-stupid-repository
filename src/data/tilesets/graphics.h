@@ -1578,3 +1578,41 @@ const u16 gTilesetPalettes_FlowerShop[][16] =
 };
 
 const u32 gTilesetTiles_FlowerShop[] = INCBIN_U32("data/tilesets/secondary/flower_shop/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Route18_SkyPillar[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_18_sky_pillar/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Route18_SkyPillar[] = INCBIN_U32("data/tilesets/secondary/route_18_sky_pillar/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Route12[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_12/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Route12[] = INCBIN_U32("data/tilesets/secondary/route_12/tiles.4bpp.lz");
