@@ -89,6 +89,6 @@ movement PokemonTower_6F_Movement_ForcePlayerUp {
 
 
 script PokemonTower_GreatestFear {
-	msgbox("Beware, fair traveller, as you\nascend.\pClimbing this tower will face you\nagainst the greatest fear of any\lfanfiction author.", MSGBOX_NPC)
+	msgbox("Beware, fair traveler, as you\nascend.\pClimbing this tower will face you\nagainst the greatest fear of any\lfanfiction author.", MSGBOX_NPC)
 	end
 }

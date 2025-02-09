@@ -91,7 +91,7 @@ PokemonTower_2F_Text_Litwick_JFF::
 	
 	.string "Fierce LITWICK: Make no mistake.\p"
 	.string "TRAINERS see us as tools, not as\n"
-	.string "being with our own free will.$"
+	.string "beings with our own free will.$"
 	
 PokemonTower_2F_Text_Litwick_JFS::	
 	

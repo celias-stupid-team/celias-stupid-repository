@@ -54,6 +54,7 @@ script PokemonTower_IncorrectAnswer {
 
 script PokemonTower_NeutralAnswer {
 	setvar(VAR_POKEMONTOWER_ANSWER, 0)
+	release
 }
 
 script PokemonTower_MathQuestion_One {
