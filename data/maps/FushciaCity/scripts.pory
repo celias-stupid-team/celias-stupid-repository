@@ -156,7 +156,7 @@ script FushciaCity_TaurosGuy {
 		
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		playfanfare(MUS_LEVEL_UP)
-		msgbox("{PLAYER} recieved 29 TAUROS!", MSGBOX_DEFAULT)
+		msgbox("{PLAYER} received 29 TAUROS!", MSGBOX_DEFAULT)
 		waitmessage
 		waitfanfare
 		setvar(VAR_TEMP_F, 0)
