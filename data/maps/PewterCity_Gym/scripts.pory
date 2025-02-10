@@ -197,6 +197,7 @@ movement BoyWalksUp_2 {
 }
 
 script PewterCity_Gym_MapScripts_StartRain {
+	setflag(FLAG_CSR_MAP_BROCK_GYM)
 	if(flag(FLAG_DEFEATED_BROCK)) {
 		setweather(WEATHER_RAIN)
 		doweather

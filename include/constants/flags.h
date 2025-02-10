@@ -1523,7 +1523,7 @@
 #define FLAG_CSR_MAP_MT_MOON_BASEMENT                                                (SYS_FLAGS + 0xD0)
 #define FLAG_CSR_SUN_STONE_FOUND                                                  (SYS_FLAGS + 0xD1)
 #define FLAG_CSR_MAP_STONE_EMPORIUM                                                  (SYS_FLAGS + 0xD2)
-#define FLAG_CSR_MAP_DUMMY_1                                                  (SYS_FLAGS + 0xD3)
+#define FLAG_CSR_MAP_BROCK_GYM                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
 #define FLAG_CSR_MAP_DUMMY_2                                                  (SYS_FLAGS + 0xD6)
