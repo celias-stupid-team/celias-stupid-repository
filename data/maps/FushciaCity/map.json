@@ -257,7 +257,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GREEN_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_ASH",
       "x": 20,
       "y": 6,
       "elevation": 0,
