@@ -483,7 +483,8 @@
   "gMapGroup_IndoorRoute12": [
     "Route12_NorthEntrance_1F",
     "Route12_NorthEntrance_2F",
-    "Route12_FishingHouse"
+    "Route12_FishingHouse",
+    "Route12_HallofOrigin"
   ],
   "gMapGroup_IndoorRoute15": [
     "Route15_WestEntrance_1F",

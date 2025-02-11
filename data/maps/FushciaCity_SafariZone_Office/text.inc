@@ -5,10 +5,12 @@ FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke::
     .string "like a SLOWPOKE.$"
 
 FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable::
-    .string "WARDEN SLOWPOKE is very\n"
-    .string "knowledgeable about POKéMON.\p"
-    .string "He even has some fossils of rare,\n"
-    .string "extinct POKéMON.$"
+	.string "Yo, dude!\n"
+	.string "Have you heard of SLOWPOKETAIL?\p"
+	.string "It's the hottest new thing!\n"
+	.string "Everyone's inveting into it.\p"
+	.string "Next thing you know, the value's\n"
+	.string "gonna spike and we'll all be rich!$"
 
 FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden::
     .string "WARDEN SLOWPOKE came in, but\n"

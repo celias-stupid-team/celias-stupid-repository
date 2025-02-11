@@ -4740,6 +4740,18 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/FushciaCity_BrendanMay_2F/border.bin",
       "blockdata_filepath": "data/layouts/FushciaCity_BrendanMay_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE12_HALLOF_ORIGIN",
+      "name": "Route12_HallofOrigin_Layout",
+      "width": 31,
+      "height": 87,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route12",
+      "border_filepath": "data/layouts/Route12_HallofOrigin/border.bin",
+      "blockdata_filepath": "data/layouts/Route12_HallofOrigin/map.bin"
     }
   ]
 }
