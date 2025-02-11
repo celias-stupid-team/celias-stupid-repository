@@ -1,8 +1,11 @@
 FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke::
-    .string "We nicknamed the WARDEN\n"
-    .string "“SLOWPOKE.”\p"
-    .string "You know, he has that vacant look\n"
-    .string "like a SLOWPOKE.$"
+	.string "What, you don't believe that\n"
+	.string "SLOWPOKETAIL price is gonna spike?\p"
+	.string "C'mon, man! We don't need that kind\n"
+	.string "of talk here.\l"
+	.string "We need to put our full faith in it!\p"
+	.string "Otherwise, how will we convince\n"
+	.string "other people to buy it?$"
 
 FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable::
 	.string "Yo, dude!\n"
@@ -13,9 +16,12 @@ FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable::
 	.string "gonna spike and we'll all be rich!$"
 
 FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden::
-    .string "WARDEN SLOWPOKE came in, but\n"
-    .string "I couldn't understand him.\p"
-    .string "I think he's got a speech problem!$"
+	.string "How do you actually make money off\n"
+	.string "SLOWPOKETAIL?\l"
+	.string "Easy!\p"
+	.string "All you do is buy a bunch now and\n"
+	.string "hope that later, others believe\l"
+	.string "they're actually worth something!$"
 
 FushciaCity_SafariZone_Office_Text_PrizeInSafariZone::
     .string "WARDEN SLOWPOKE is running a\n"
