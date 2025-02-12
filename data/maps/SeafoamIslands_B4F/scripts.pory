@@ -57,7 +57,6 @@ SeafoamIslands_B4F_EventScript_SetCalmWaterNearStairs::
 	end
 
 SeafoamIslands_B4F_OnWarp::
-	map_script_2 VAR_CSR_DUMMY_4, 1, SeafoamIslands_B4F_EventScript_WarpInOnCurrent
 	.2byte 0
 
 SeafoamIslands_B4F_EventScript_WarpInOnCurrent::
@@ -66,7 +65,6 @@ SeafoamIslands_B4F_EventScript_WarpInOnCurrent::
 	end
 
 SeafoamIslands_B4F_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_4, 1, SeafoamIslands_B4F_EventScript_EnterOnCurrent
 	map_script_2 VAR_TEMP_1, 1, SeafoamIslands_B4F_EventScript_EnterByFalling
 	.2byte 0
 
@@ -75,7 +73,6 @@ SeafoamIslands_B4F_EventScript_EnterOnCurrent::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, SeafoamIslands_B4F_Movement_EnterOnCurrent
 	waitmovement 0
-	setvar VAR_CSR_DUMMY_4, 0
 	releaseall
 	end
 

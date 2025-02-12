@@ -150,7 +150,7 @@
 #define VAR_CSR_DUMMY_3                                             0x4060
 #define VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F                                    0x4061
 #define VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES                        0x4062
-#define VAR_CSR_DUMMY_4                                      0x4063
+#define VAR_ROUTE13_LASS_ATTACK                                      0x4063
 #define VAR_CSR_DUMMY_5                                          0x4064
 #define VAR_CSR_DUMMY_6                                 0x4065
 #define VAR_CSR_DUMMY_7                                 0x4066

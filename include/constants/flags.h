@@ -288,13 +288,15 @@
 #define FLAG_USED_CLEFAIRY_DOLL               0x0F4
 #define FLAG_SAW_GHOST_UNVEIL               0x0F5
 #define FLAG_GOT_TAUROSES               0x0F6
+
 #define FLAG_0x0F7               0x0F7
 #define FLAG_0x0F8               0x0F8
 #define FLAG_0x0F9               0x0F9
 #define FLAG_0x0FA               0x0FA
 #define FLAG_0x0FB               0x0FB
 #define FLAG_0x0FC               0x0FC
-#define FLAG_0x0FD               0x0FD
+
+#define FLAG_ROUTE13_LASSATTACK               0x0FD
 #define FLAG_0x0FE               0x0FE
 #define FLAG_0x0FF               0x0FF
 #define FLAG_0x100               0x100
