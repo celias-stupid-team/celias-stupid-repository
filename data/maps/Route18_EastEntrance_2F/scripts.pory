@@ -44,3 +44,150 @@ Route18_EastEntrance_2F_EventScript_AlreadyTraded::
 	release
 	end
 `
+
+const LASS = 2
+
+script Route18_LassBinoculars {
+	lockall
+	if(!flag(FLAG_ROUTE18_LASSATTACK)) {
+		msgbox("Let's see what the binoculars have\nto show…", MSGBOX_DEFAULT)
+		closemessage
+		delay(10)
+		msgbox("... ... ... ... ...\n... ... ... ... ...", MSGBOX_DEFAULT)
+		closemessage
+		fadeoutbgm(2)
+		msgbox("... ... ...\n... ... ...Oh no.", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		special(SpawnCameraObject)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route18_CameraGoesDown)
+		waitmovement(0)
+		delay(20)
+		playse(SE_PIN)
+		applymovement(OBJ_EVENT_ID_PLAYER, Route18_PlayerSurprised)
+		waitmovement(0)
+		delay(60)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route18_CameraDown2)
+		waitmovement(0)
+		delay(20)
+		playse(SE_EXIT)
+		delay(20)
+		addobject(LASS)
+		setobjectxy(LASS, 10, 9)
+		applymovement(LASS, Route18_LassComesIn)
+		waitmovement(0)
+		applymovement(LASS, Route18_LassAndCameraUp)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route18_LassAndCameraUp)
+		waitmovement(0)
+		delay(50)
+		applymovement(LASS, Route18_LassLooksAround)
+		waitmovement(0)
+		applymovement(LASS, Route18_LassAndCameraOver)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route18_LassAndCameraOver)
+		waitmovement(0)
+		applymovement(LASS, Route18_LassContinuesOver)
+		waitmovement(0)
+		applymovement(OBJ_EVENT_ID_CAMERA, Route18_CameraSlowUp)
+		waitmovement(0)
+		applymovement(LASS, Route18_LassUpBeforeMusic)
+		waitmovement(0)
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("...\p...\nYou.", MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+		delay(30)
+		applymovement(LASS, Route18_LassFinalApproach)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+		waitmovement(0)
+		setflag(FLAG_ROUTE18_LASSATTACK)
+		msgbox("You just HAD to look at me,\ndidn't you?\p...\nWhatever.\pYou know what happens next.\n", MSGBOX_DEFAULT)
+		playbgm(MUS_PEWTER, TRUE)
+		//battle
+		special(RemoveCameraObject)
+		releaseall
+		end
+
+	} else {
+		msgbox("Thank you for taking the time to\ncheck these binoculars.\p...\pThese binoculars love you.\n", MSGBOX_DEFAULT)
+	releaseall
+	end
+	}
+}
+
+movement Route18_CameraGoesDown {
+	walk_slow_right
+	walk_right * 4
+	walk_down * 2
+	walk_slow_down
+}
+
+movement Route18_PlayerSurprised {
+	face_down
+	emote_exclamation_mark
+}
+
+movement Route18_CameraDown2 {
+	walk_slower_down * 3
+}
+
+movement Route18_LassComesIn {
+	face_right
+	set_visible
+	delay_16 * 6
+}
+
+movement Route18_LassAndCameraUp {
+	walk_slow_up * 2
+	face_up
+}
+
+movement Route18_LassLooksAround {
+	face_left
+	delay_16 * 3
+	face_right
+	delay_16 * 2
+	face_left
+	delay_16 * 2
+	face_up 
+	delay_16 * 3
+	face_left
+	delay_16
+	delay_4
+}
+
+movement Route18_LassAndCameraOver {
+	walk_slow_left * 3
+}
+
+movement Route18_LassContinuesOver {
+	walk_slow_left * 2
+	face_left
+	delay_16
+	delay_4
+	face_up
+}
+
+movement Route18_CameraSlowUp {
+	walk_slower_up * 3
+	delay_16 * 3
+}
+
+movement Route18_LassUpBeforeMusic {
+	walk_slow_up * 2
+	walk_slower_up
+	face_up
+	delay_16 * 2
+}
+
+movement Route18_LassFinalApproach {
+	walk_slower_left
+	face_left
+	face_up
+	delay_16 * 2
+	delay_8
+	walk_slower_up
+	delay_16 * 3
+}

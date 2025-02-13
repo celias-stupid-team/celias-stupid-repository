@@ -297,7 +297,7 @@
 #define FLAG_0x0FC               0x0FC
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
-#define FLAG_0x0FE               0x0FE
+#define FLAG_ROUTE18_LASSATTACK               0x0FE
 #define FLAG_0x0FF               0x0FF
 #define FLAG_0x100               0x100
 #define FLAG_0x101               0x101
