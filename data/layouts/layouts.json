@@ -808,8 +808,8 @@
     {
       "id": "LAYOUT_FUSHCIA_CITY",
       "name": "FushciaCity_Layout",
-      "width": 48,
-      "height": 40,
+      "width": 56,
+      "height": 42,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1013,7 +1013,7 @@
       "id": "LAYOUT_ROUTE14",
       "name": "Route14_Layout",
       "width": 24,
-      "height": 60,
+      "height": 46,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1024,7 +1024,7 @@
     {
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
-      "width": 60,
+      "width": 52,
       "height": 32,
       "border_width": 2,
       "border_height": 2,
