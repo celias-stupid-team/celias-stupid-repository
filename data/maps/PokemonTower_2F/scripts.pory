@@ -143,6 +143,7 @@ script PokemonTower_2F_EventScript_JoyousLitwick {
 	faceplayer
 	// VAR_TEMP_1 tracks Litwick was most recently talked to
 	setvar(VAR_TEMP_1, 1)
+	playmoncry(SPECIES_LITWICK, CRY_MODE_HIGH_PITCH)
 	call(PokemonTower_2F_LitwickConversation)
 	release
 }
@@ -151,6 +152,7 @@ script PokemonTower_2F_EventScript_FierceLitwick {
 	lock
 	faceplayer
 	setvar(VAR_TEMP_1, 2)
+	playmoncry(SPECIES_LITWICK, CRY_MODE_ENCOUNTER)
 	call(PokemonTower_2F_LitwickConversation)
 	release
 }
@@ -160,6 +162,7 @@ script PokemonTower_2F_EventScript_ScaredLitwick {
 	faceplayer
 	// VAR_TEMP_1 tracks Litwick was most recently talked to
 	setvar(VAR_TEMP_1, 3)
+	playmoncry(SPECIES_LITWICK, CRY_MODE_FAINT)
 	call(PokemonTower_2F_LitwickConversation)
 	release
 }
