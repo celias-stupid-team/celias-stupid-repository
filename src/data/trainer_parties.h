@@ -327,12 +327,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPsychic[] = {
     },
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_ALAKAZAM,
-        .moves = {MOVE_CONFUSE_RAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-    },
-    {
-        .iv = 0,
         .lvl = 2,
         .species = SPECIES_GASTLY,
         .moves = {MOVE_SLEEP_POWDER, MOVE_DESTINY_BOND, MOVE_NONE, MOVE_NONE},
@@ -5642,12 +5636,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderSabrina[] = {
         .lvl = 38,
         .species = SPECIES_VENOMOTH,
         .moves = {MOVE_PSY_WIND, MOVE_GUST, MOVE_LEECH_LIFE, MOVE_SUPERSONIC},
-    },
-    {
-        .iv = 0,
-        .lvl = 43,
-        .species = SPECIES_ALAKAZAM,
-        .moves = {MOVE_PSY_BEAM, MOVE_RECOVER, MOVE_FUTURE_SIGHT, MOVE_CALM_MIND},
     },
 };
 
