@@ -59,29 +59,34 @@ script Route17_BikeFliesUp {
 
 	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_1)
 	callnative(DrawMugshot)
+	messageautoscroll(" ")
 	delay(60)
 
 	
 	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_2)
 	callnative(DrawMugshot)
+	
+	messageautoscroll(" ")
 	playse(SE_M_EARTHQUAKE)
-	setvar(VAR_0x8004, 2) //I'm gonna fuckin define shakescreen variables this is too hard
-	setvar(VAR_0x8005, 4)
-	setvar(VAR_0x8006, 10)
-	setvar(VAR_0x8007, 3)
+	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2) //I'm gonna fuckin define shakescreen variables this is too hard
+	setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+	setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
+	setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
 	special(ShakeScreen)
 	delay(90)
 	
 	
 	playmoncry(SPECIES_KORAIDON, CRY_MODE_NORMAL)
 	fadescreenspeed(FADE_TO_WHITE, 1)
-	
 	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_3)
 	callnative(DrawMugshot)
+	
+	messageautoscroll(" ")
 	fadescreenspeed(FADE_FROM_WHITE, 1)
 	delay(90)
 	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_4)
 	callnative(DrawMugshot)
+	messageautoscroll(" ")
 	delay(120)
 	callnative(ClearMugshot)
 	closemessage
@@ -113,8 +118,8 @@ movement Route17_BikeCatchesUpToCamera {
 }
 
 movement Route17_BikeZoomsUp {
-	walk_faster_up * 8
-	walk_fastest_up * 90
+	walk_faster_up * 18
+	walk_fastest_up * 80
 	walk_faster_up * 9
 	walk_fast_up * 5
 	walk_up * 2
