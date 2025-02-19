@@ -27,9 +27,19 @@ void ClearMugshot(void);
 static const u32 sMugshotImg_Chapter1[] = INCBIN_U32("graphics/mugshots/chapter1_frame0.4bpp.lz");
 static const u16 sMugshotPal_Chapter1[] = INCBIN_U16("graphics/mugshots/chapter1_frame0.gbapal");
 
+static const u32 sMugshotImg_BikeFrame1[] = INCBIN_U32("graphics/mugshots/bike_frame1.4bpp.lz");
+static const u16 sMugshotPal_BikeFrame1[] = INCBIN_U16("graphics/mugshots/bike_frame1.gbapal");
+static const u32 sMugshotImg_BikeFrame2[] = INCBIN_U32("graphics/mugshots/bike_frame2.4bpp.lz");
+static const u32 sMugshotImg_BikeFrame3[] = INCBIN_U32("graphics/mugshots/bike_frame3.4bpp.lz");
+static const u32 sMugshotImg_BikeFrame4[] = INCBIN_U32("graphics/mugshots/bike_frame4.4bpp.lz");
+
 static const struct Mugshot sMugshots[] = {
     //ADD YOUR MUGSHOTS HERE
-    [MUGSHOT_CHAPTER1] = {.x = 0, .y = 0, .width = 176, .height = 96, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1}
+    [MUGSHOT_CHAPTER1] = {.x = 0, .y = 0, .width = 176, .height = 96, .image = sMugshotImg_Chapter1, .palette = sMugshotPal_Chapter1},
+    [MUGSHOT_BIKE_FRAME_1] = {.x = 2, .y = 3, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame1, .palette = sMugshotPal_BikeFrame1},
+    [MUGSHOT_BIKE_FRAME_2] = {.x = 2, .y = 3, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame2, .palette = sMugshotPal_BikeFrame1},
+    [MUGSHOT_BIKE_FRAME_3] = {.x = 2, .y = 3, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame3, .palette = sMugshotPal_BikeFrame1},
+    [MUGSHOT_BIKE_FRAME_4] = {.x = 2, .y = 3, .width = 96, .height = 96, .image = sMugshotImg_BikeFrame4, .palette = sMugshotPal_BikeFrame1},
 };
 
 
