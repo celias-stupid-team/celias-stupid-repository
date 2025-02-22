@@ -1,3 +1,25 @@
+const MEAN_GIRL = 2
 mapscripts PokemonTower_Math_4_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_LIMIT_NOT_EXIST)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+
+script PokemonTower_MathQuestion_Four {
+	lock
+	msgbox("lim(x{RIGHT_ARROW}0) (ln(1-x) - sin2(x)) /\n         (1 + cos2(x)) = ?\l{LEFT_ARROW} 1  {UP_ARROW} 0  {RIGHT_ARROW} Limit does not exist", MSGBOX_SIGN)
+	release
+}
+
+script PokemonTower_MeanGirlsGirl {
+	msgbox("Aww, man!\pI thought watching MEAN GIRLS would\nmake me an expert at calculus.\pGuess it takes a little more than\nthat…", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_MathQuestions_LimitDoesntExist {
+    setflag(FLAG_LIMIT_NOT_EXIST)
+    release
 }

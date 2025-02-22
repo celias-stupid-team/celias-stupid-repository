@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TOWER_MATH_4",
   "name": "PokemonTower_Math_4",
   "layout": "LAYOUT_POKEMON_TOWER_MATH_4",
-  "music": "MUS_DUMMY",
+  "music": "MUS_GYM",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -17,20 +17,6 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "PokemonTower_MathQuestion_Two",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 11,
       "y": 16,
@@ -40,50 +26,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "PokemonTower_MathQuestion_Two",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "PokemonTower_MathQuestion_Two",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "PokemonTower_MathQuestion_Two",
-      "flag": "0"
+      "script": "PokemonTower_MeanGirlsGirl",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -232,7 +176,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PokemonTower_MathQuestions_LimitDoesntExist"
     },
     {
       "type": "trigger",
@@ -241,7 +185,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PokemonTower_MathQuestions_LimitDoesntExist"
     },
     {
       "type": "trigger",
@@ -250,7 +194,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PokemonTower_MathQuestions_LimitDoesntExist"
     }
   ],
   "bg_events": [
@@ -263,6 +207,14 @@
       "flag": "FLAG_TEMP_1",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_MathQuestion_Four"
     }
   ]
 }

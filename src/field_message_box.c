@@ -5,6 +5,7 @@
 #include "quest_log.h"
 #include "script.h"
 #include "text_window.h"
+#include "event_data.h"
 
 static EWRAM_DATA u8 sMessageBoxType = 0;
 
@@ -33,7 +34,12 @@ static void Task_DrawFieldMessageBox(u8 taskId)
         else if (!IsMsgSignpost())
             LoadStdWindowFrameGfx();
         else
-            LoadSignpostWindowFrameGfx();
+            if(FlagGet(FLAG_EATEN_SIGNPOST)) {
+                FlagClear(FLAG_EATEN_SIGNPOST);
+                LoadEatenSignpostWindowFrameGfx();
+            } else {
+                LoadSignpostWindowFrameGfx();
+            }
         task->data[0]++;
         break;
     case 1:

@@ -17,7 +17,7 @@ PokemonTower_4F_EventScript_Jody::
 	end
 `
 mapscripts PokemonTower_4F_MapScripts {
-	MAP_SCRIPT_ON_LOAD {
+	MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
 			playbgm(MUS_GYM, TRUE)
 		} else {
@@ -59,8 +59,10 @@ script PokemonTower_NeutralAnswer {
 
 script PokemonTower_MathQuestion_One {
 	lock
-	msgbox("Three plus Five plus Seven equals?\n/al 2    /au    16 /ar15", MSGBOX_DEFAULT)
-	playbgm(MUS_GYM, TRUE)
+	msgbox("Three plus Five plus Seven equals?\n{LEFT_ARROW} 2    {UP_ARROW} 16    {RIGHT_ARROW}15", MSGBOX_DEFAULT)
+	if(!flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
+		playbgm(MUS_GYM, TRUE)
+	}
 	setflag(FLAG_CSR_POKEMON_TOWER_MUSIC)
 	closemessage
 	release

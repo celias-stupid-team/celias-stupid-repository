@@ -289,8 +289,8 @@
 #define FLAG_SAW_GHOST_UNVEIL               0x0F5
 #define FLAG_GOT_TAUROSES               0x0F6
 
-#define FLAG_0x0F7               0x0F7
-#define FLAG_0x0F8               0x0F8
+#define FLAG_EATEN_SIGNPOST               0x0F7
+#define FLAG_LIMIT_NOT_EXIST               0x0F8
 #define FLAG_0x0F9               0x0F9
 #define FLAG_0x0FA               0x0FA
 #define FLAG_0x0FB               0x0FB

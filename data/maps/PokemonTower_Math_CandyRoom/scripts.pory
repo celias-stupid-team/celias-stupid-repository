@@ -1,3 +1,8 @@
 mapscripts PokemonTower_Math_CandyRoom_MapScripts {
     
 }
+
+script PokemonTower_Math_AngryNerd {
+	msgbox("No!\nYou can't do that!\pThe square root operator will only\nresolve to the principal definition!\lThat answer is technically wrong!", MSGBOX_NPC)
+	end
+}

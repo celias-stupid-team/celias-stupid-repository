@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TOWER_MATH_CELIA_ROOM",
   "name": "PokemonTower_Math_CeliaRoom",
   "layout": "LAYOUT_POKEMON_TOWER_MATH_CELIA_ROOM",
-  "music": "MUS_DUMMY",
+  "music": "MUS_GYM",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -31,7 +31,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TOWER_MATH_CELIA_ROOM",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
