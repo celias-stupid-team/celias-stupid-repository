@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
       "width": 52,
-      "height": 32,
+      "height": 37,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4665,7 +4665,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_UnusedGatehouse1",
       "border_filepath": "data/layouts/KantoLighthouse_1F/border.bin",
       "blockdata_filepath": "data/layouts/KantoLighthouse_1F/map.bin"
     },

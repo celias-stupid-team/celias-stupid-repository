@@ -5,6 +5,6 @@ mapscripts PokemonTower_Math_3_MapScripts {
 
 script PokemonTower_MathQuestion_Three {
 	lock
-	msgbox("6 / 2(1 + 2) = ?\n{LEFT_ARROW} 9    {UP_ARROW} 1    {RIGHT_ARROW} Shitty Notation", MSGBOX_SIGN)
+	msgbox("6 {DIVIDE} 2(1 + 2) = ?\n{LEFT_ARROW} 9    {UP_ARROW} 1    {RIGHT_ARROW} Shitty Notation", MSGBOX_SIGN)
 	release
 }

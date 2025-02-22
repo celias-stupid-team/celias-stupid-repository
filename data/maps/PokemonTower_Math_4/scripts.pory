@@ -10,7 +10,7 @@ mapscripts PokemonTower_Math_4_MapScripts {
 
 script PokemonTower_MathQuestion_Four {
 	lock
-	msgbox("lim(x{RIGHT_ARROW}0) (ln(1-x) - sin2(x)) /\n         (1 + cos2(x)) = ?\l{LEFT_ARROW} 1  {UP_ARROW} 0  {RIGHT_ARROW} Limit does not exist", MSGBOX_SIGN)
+	msgbox("lim(x{RIGHT_ARROW}0) (ln(1-x) - sin{SQUARED}(x)) /\n         (1 + cos{SQUARED}(x)) = ?\l{LEFT_ARROW} 1  {UP_ARROW} 0  {RIGHT_ARROW} Limit does not exist", MSGBOX_SIGN)
 	release
 }
 

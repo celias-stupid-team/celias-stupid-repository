@@ -18,7 +18,27 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE15",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

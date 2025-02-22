@@ -15,8 +15,8 @@ script Route15_Brock {
 	end
 }
 
-const GUARD = 2
-const FATGUY = 3
+const GUARD = 1
+const FATGUY = 2
 
 
 script Route15_PowerOutTrigger {
