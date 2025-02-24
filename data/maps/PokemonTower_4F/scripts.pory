@@ -18,25 +18,30 @@ PokemonTower_4F_EventScript_Jody::
 `
 mapscripts PokemonTower_4F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
-			playbgm(MUS_GYM, TRUE)
-		} else {
-			playbgm(MUS_DUMMY, TRUE)
-		}
+		if(!flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
+			playbgm(MUS_NONE, TRUE)
+		} 
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_POKEMONTOWER_ANSWER, 1 { //Correct
-			playse(SE_SUCCESS)
-			waitse
-			setvar(VAR_POKEMONTOWER_ANSWER, 0)
+		VAR_TEMP_5, 0 { //Correct
+			switch(var(VAR_POKEMONTOWER_ANSWER)) {
+				case 0:
+					break
+				case 1:
+					playse(SE_SUCCESS)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+				case 2:
+					playse(SE_BOO)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+			}
+			
+			setvar(VAR_TEMP_5, 1)
 			release
-		}
-		VAR_POKEMONTOWER_ANSWER, 2 { //Incorrect
-			playse(SE_BOO)
-			waitse
-			setvar(VAR_POKEMONTOWER_ANSWER, 0)
-			release
-
+			end
 		}
 
 	]

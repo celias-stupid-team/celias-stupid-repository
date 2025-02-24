@@ -5362,7 +5362,7 @@
           "map": "MAP_POKEMON_TOWER_3F",
           "base_label": "sPokemonTower3F_FireRed",
           "land_mons": {
-            "encounter_rate": 1,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 15,

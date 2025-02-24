@@ -74,6 +74,7 @@ script Route15_NoPower {
 	msgbox("I'm sorry, but there's a blackout\nat the LIGHTHOUSE right now.", MSGBOX_DEFAULT)
 	closemessage
 	//camera goes up
+	delay(30)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesUp)
 	waitmovement(0)

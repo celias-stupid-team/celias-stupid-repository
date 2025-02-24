@@ -152,7 +152,7 @@ script PokemonTower_2F_EventScript_FierceLitwick {
 	lock
 	faceplayer
 	setvar(VAR_TEMP_1, 2)
-	playmoncry(SPECIES_LITWICK, CRY_MODE_ENCOUNTER)
+	playmoncry(SPECIES_LITWICK, CRY_MODE_DEFAULT)
 	call(PokemonTower_2F_LitwickConversation)
 	release
 }

@@ -1,6 +1,5 @@
 raw `
-PokemonTower_5F_MapScripts::
-	.byte 0
+
 
 PokemonTower_5F_EventScript_Channeler::
 	msgbox PokemonTower_5F_Text_RestHereInPurifiedSpace, MSGBOX_NPC
@@ -39,6 +38,31 @@ PokemonTower_5F_EventScript_Janae::
 	msgbox PokemonTower_5F_Text_JanaePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+mapscripts PokemonTower_5F_MapScripts {
+		MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_5, 0 { //Correct
+			switch(var(VAR_POKEMONTOWER_ANSWER)) {
+				case 0:
+					break
+				case 1:
+					playse(SE_SUCCESS)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+				case 2:
+					playse(SE_BOO)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+			}
+			
+			setvar(VAR_TEMP_5, 1)
+			release
+			end
+		}
+
+	]
+}
 
 
 script PokemonTower_5F_EventScript_Twin1 {
