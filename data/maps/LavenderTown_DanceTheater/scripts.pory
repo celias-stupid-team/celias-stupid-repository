@@ -5,11 +5,17 @@ mapscripts LavenderTown_DanceTheater_MapScripts {
 
 // ############### regular scripts ###############
 
+script CeliaSecrets_DanceTheaterDance {
+	msgbox("Y'know there isn't exactly a script\nthat says “Walk to the beat.”\pI had to calculate how many frames\neach beat of the song was and how\llong each walk cycle is.\pThen I had to painstakingly time it\nexactly along with the music.\pIt was a very tedious process.\n", MSGBOX_NPC)
+	end
+}
 
 const RED = 4
 const BLUE = 1
 const YELLOW = 2
 const GREEN = 3
+
+const GUY = 13
 
 script DanceTheater_Trailer {
     lock
@@ -17,11 +23,31 @@ script DanceTheater_Trailer {
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
     delay(45)
+
+
+    playbgm(MUS_CSR_DRIFTVEIL, FALSE)
+    delay(80)
+    addobject(GUY)
+    delay(12)
+    playse(SE_FALL)
+    applymovement(GUY, GuyDance)
+    delay(14) //Intro
+    playse(SE_M_STRENGTH)
+
     applymovement(RED, RedDance)
     applymovement(BLUE, BlueDance)
     applymovement(YELLOW, YellowDance)
     applymovement(GREEN, GreenDance)
+    waitmovement(GUY)
+    playse(SE_LEDGE)
+    applymovement(GUY, GuyJump)
+    waitmovement(GUY)
+    playse(SE_M_STRENGTH)
+
+    waitmovement(GREEN)
+    applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraComesDown)
     waitmovement(0)
+    special(RemoveCameraObject)
     release
 }
 
@@ -29,38 +55,687 @@ movement Theater_CameraGoesUp {
     walk_up * 7
 }
 
-movement BlueDance {
-    walk_slower_right
+movement Theater_CameraComesDown {
+    walk_down * 7
+}
+
+movement GuyDance {
+    slide_down * 8
+    delay_16 * 6
+    lock_facing_direction
+    walk_slow_right
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_left
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_left
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_right
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_up
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_down
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_down
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_up
+    delay_1
+    delay_4
+    delay_8
+
+    // B section
+    
+    delay_16
+    delay_4
+    delay_2
+    unlock_facing_direction
     face_right
+    lock_facing_direction
+    walk_slow_left
+    delay_4
+    delay_8
     delay_16
+    
+    unlock_facing_direction
+    face_left
+    lock_facing_direction
+    walk_slow_right
+    delay_4
+    delay_8
     delay_16
-    walk_slower_up
+    
+    unlock_facing_direction
+    face_left
+    lock_facing_direction
+    walk_slow_right
+    delay_4
+    delay_8
+    delay_16
+
+    unlock_facing_direction
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    delay_4
+    delay_8
+    delay_16 * 2
+
+    unlock_facing_direction
     face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    lock_facing_direction
+    walk_slow_up // 24
+    face_down // 25
+    delay_16 * 2 // 57
+    delay_8
+    walk_slow_up // 24
+    face_down // 25
+    delay_16 * 2 // 114
+    delay_4
+    
+
+}
+
+movement GuyJump {
+    jump_2_down
+}
+
+movement BlueDance {
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_right //32
+    face_right //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_down
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_right
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_left * 2 //64 frames
+    face_down
+    walk_slow_down
+    walk_slow_down // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
 }
 
 movement YellowDance {
-    walk_slower_up
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+    //Dance Starts
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //24
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //32
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_left //32
+    face_left //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+
+    //Move inward
+    
+    walk_slow_down //16
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_right
+	face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
     face_up
     delay_16
+    delay_8
+    delay_2
+    face_down
     delay_16
-    walk_slower_left
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_right * 2 //64 frames
+    face_down
+    walk_slow_down
+    walk_slow_down // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
     face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
 }
 
 movement GreenDance {
-    walk_slower_left
     face_left
-    delay_16
-    delay_16
-    walk_slower_down
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //24
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_down //24
+    face_left //1 beat = 26
+    face_down //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
     face_down
-}
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_right //32
+    face_right //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_right
+	face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_left * 2 //64 frames
+    face_left
+    walk_slow_up
+    walk_slow_up // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+    }
 
 movement RedDance {
-    walk_slower_down
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_right //24
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_down //16
+    face_down //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
     face_down
     delay_16
-    delay_16
-    walk_slower_right
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //32
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_left //32
+    face_left //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
     face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_up //16
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_right //16
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up //16
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_right * 2 //64 frames
+    face_right
+    walk_slow_up
+    walk_slow_up // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
 }
