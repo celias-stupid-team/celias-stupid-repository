@@ -39,6 +39,7 @@ script DanceTheater_LookLookGirl {
 					waitmovement(0)
 					break
         }
+    copyobjectxytoperm(LOOK_GIRL)
 	release
 }
 
