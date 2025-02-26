@@ -14,15 +14,15 @@ script CeliaSecrets_DanceTheaterDance {
 }
 
 
-
+const LOOK_GIRL = 9
 script DanceTheater_LookLookGirl {
 	    lock
 	
 		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
-		applymovement(1, Common_Movement_FacePlayer)
+		applymovement(LOOK_GIRL, Common_Movement_FacePlayer)
 		waitmovement(0)
 		playse(SE_PIN)
-		applymovement(1, PT_exclmark)
+		applymovement(LOOK_GIRL, DT_exclmark)
 		waitmovement(0)
 		delay(48)
 		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
@@ -30,12 +30,12 @@ script DanceTheater_LookLookGirl {
 		switch(var(VAR_FACING)) {
 			case DIR_EAST:
                     addvar(VAR_TEMP_5, 1)
-					applymovement(1, PT_walkbackRight)
+					applymovement(LOOK_GIRL, DT_walkbackRight)
 					waitmovement(0)
 					break
 				default:
                     subvar(VAR_TEMP_5, 1)
-					applymovement(1, PT_walkbackLeft)
+					applymovement(LOOK_GIRL, DT_walkbackLeft)
 					waitmovement(0)
 					break
         }
@@ -157,8 +157,29 @@ const GUY = 13
 
 script DanceTheater_Trailer {
     lock
+    setvar(VAR_CSR_DANCE_SHOW, 1)
     setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
+    fadeoutbgm(1)
+    playse(SE_CLICK)
+    setweather(WEATHER_SHADE)
+    doweather
+    waitse
+    delay(90)
     special(SpawnCameraObject)
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    while(var(VAR_TEMP_3) != 5) {
+        if(var(VAR_TEMP_3) < 5) {
+            applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkRight)
+            waitmovement(0)
+            addvar(VAR_TEMP_3, 1)
+        } else {
+            if(var(VAR_TEMP_3) > 5) {
+                applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft)
+                waitmovement(0)
+                subvar(VAR_TEMP_3, 1)
+            }
+        }
+    }
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
     delay(45)
@@ -193,11 +214,11 @@ script DanceTheater_Trailer {
 }
 
 movement Theater_CameraGoesUp {
-    walk_up * 7
+    walk_up * 8
 }
 
 movement Theater_CameraComesDown {
-    walk_down * 7
+    walk_down * 8
 }
 
 movement GuyDance {
@@ -882,3 +903,18 @@ movement RedDance {
 }
 
 
+movement DT_exclmark {
+	emote_exclamation_mark
+}
+
+movement DT_walkbackLeft {
+	walk_left
+	walk_in_place_faster_right
+	step_end
+}
+
+movement DT_walkbackRight {
+	walk_right
+	walk_in_place_faster_left
+	step_end
+}
