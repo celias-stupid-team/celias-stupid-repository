@@ -234,7 +234,7 @@ script DanceTheater_Trailer {
     applymovement(GUY, GuyJump)
     waitmovement(GUY)
     playse(SE_M_STRENGTH)
-
+    applymovement(GUY, GuyDelayAndRaiseArm)
     waitmovement(GREEN)
     setweather(WEATHER_NONE)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraComesDown)
@@ -367,8 +367,20 @@ movement GuyDance {
 
 }
 
-movement GuyJump {
+movement GuyJump { //I know this looks ugly but bear with me
     jump_2_down
+    
+
+}
+
+movement GuyDelayAndRaiseArm {
+    delay_8 //half beat:
+    delay_4
+    delay_1 * 2
+    delay_8 //half beat:
+    delay_4
+    delay_1 * 2
+    raise_hand_and_stop //4.5 beats = 480 frames =
 }
 
 movement BlueDance {
