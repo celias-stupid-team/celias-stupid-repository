@@ -1,6 +1,9 @@
 // ############### Mapscripts ###############
 
 mapscripts LavenderTown_DanceTheater_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_TEMP_5, 8) // Sign Lady's X
+    }
 }
 
 // ############### regular scripts ###############
@@ -9,6 +12,141 @@ script CeliaSecrets_DanceTheaterDance {
 	msgbox("Y'know there isn't exactly a script\nthat says “Walk to the beat.”\pI had to calculate how many frames\neach beat of the song was and how\llong each walk cycle is.\pThen I had to painstakingly time it\nexactly along with the music.\pIt was a very tedious process.\n", MSGBOX_NPC)
 	end
 }
+
+
+
+script DanceTheater_LookLookGirl {
+	    lock
+	
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		applymovement(1, Common_Movement_FacePlayer)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(1, PT_exclmark)
+		waitmovement(0)
+		delay(48)
+		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+		closemessage
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+                    addvar(VAR_TEMP_5, 1)
+					applymovement(1, PT_walkbackRight)
+					waitmovement(0)
+					break
+				default:
+                    subvar(VAR_TEMP_5, 1)
+					applymovement(1, PT_walkbackLeft)
+					waitmovement(0)
+					break
+        }
+	release
+}
+
+script DanceTheater_ShortKid {
+    lock
+    if(!flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+        if(var(VAR_TEMP_5) == 8) {
+            if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
+                msgbox("hey move her again message\n", MSGBOX_DEFAULT)
+                clearflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                release
+                end
+            } else {
+                msgbox("Hey! Get out of the way!\nI can't see the show!", MSGBOX_DEFAULT)
+                release
+                end
+
+            }
+        } else {
+            getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+            if(var(VAR_TEMP_4) == 17 && var(VAR_TEMP_3) == 8) {
+                msgbox("Hey!\nGet out of the way!\pThanks for moving that girl in front\nof me, but I still can't see!", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                msgbox("Oh, wow! I can see!\nThanks so much, mister!\pLet's chat again after the show.\nThere's something I wanna show you!", MSGBOX_DEFAULT)
+                setflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                release
+                end
+            }
+        }
+    } else {
+        if(flag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)) {
+            msgbox("thank you message\n", MSGBOX_DEFAULT)
+        } else {
+            if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
+                msgbox("fuck you message\n", MSGBOX_DEFAULT)
+            }   else {
+                msgbox("disappointed\n", MSGBOX_DEFAULT)
+            }
+        } 
+        release
+        end
+    }
+    
+}
+
+script DanceTheater_Ash {
+    if(checkitem(ITEM_SOOT_SACK)) {
+        setflag(FLAG_PUT_ASH_IN_SACK) 
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox("{PLAYER} put some ASH in the\nSOOT SACK!", MSGBOX_DEFAULT)
+    } else {
+        if(flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+            msgbox("ASH: Wow, PIKACHU!\nThat was such a good show!", MSGBOX_DEFAULT)
+        } else {
+            msgbox("ASH: All right, PIKACHU!\nI can't wait to watch the dance!", MSGBOX_DEFAULT)
+        }
+    }
+    release
+    end
+}
+
+script DanceTheater_Pikachu {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_MALE)
+    if(flag(FLAG_PUT_ASH_IN_SACK)) {
+        msgbox("POKéKID: Huh?\nWhere'd that guy go?", MSGBOX_DEFAULT)
+    } else {
+        msgbox("POKéKID: This guy picked me up off\nthe street the other day.\pI think he actually believes I'm a\nPOKéMON…", MSGBOX_DEFAULT)
+    }
+    release
+    end
+}
+
+script DanceTheater_FluteMan {
+    lock
+    faceplayer
+    if(!checkitem(ITEM_SOOT_SACK)) {
+        msgbox("Why hello, there!\nWhat an excellent show, huff-puff!\pBack in my home region, I was an\nesteemed glassworker, huff-puff.\pSeeing such a beautiful performance\ninspired my inner craftsman.\lI wish to create again, huff-puff.\pHere!\nTake this, huff-puff!", MSGBOX_DEFAULT)
+        giveitem(ITEM_SOOT_SACK)
+        msgbox("Fill that SOOT SACK with ash and\nbring it back to me.\lI'll craft you a present, huff-puff!", MSGBOX_DEFAULT)
+    } else {
+        if(flag(FLAG_CRAFTED_BLUE_FLUTE)) {
+            msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
+        } else {
+            if(flag(FLAG_PUT_ASH_IN_SACK)) {
+                setflag(FLAG_CRAFTED_BLUE_FLUTE)
+                msgbox("Ah, lovely!\nSome fresh ASH, huff-puff!\pI'll craft you a lovely glass item\nwith this, huff-puff.", MSGBOX_DEFAULT)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                fadescreen(FADE_FROM_BLACK)
+                msgbox("Here you are!\nA beautiful glass FLUTE, huff-puff!", MSGBOX_DEFAULT)
+                giveitem(ITEM_POKE_FLUTE)
+                msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
+            } else {
+                msgbox("Fill that SOOT SACK with ash and\nbring it back to me.\lI'll craft you a present, huff-puff!", MSGBOX_DEFAULT)
+            }
+        }
+
+    }
+    release
+    end
+}
+
+
+// Dance Scripts 
 
 const RED = 4
 const BLUE = 1
@@ -19,11 +157,14 @@ const GUY = 13
 
 script DanceTheater_Trailer {
     lock
+    setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
     delay(45)
-
+    if(var(VAR_TEMP_5) != 8) {
+        setflag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)
+    }
 
     playbgm(MUS_CSR_DRIFTVEIL, FALSE)
     delay(80)
@@ -739,3 +880,5 @@ movement RedDance {
     delay_16 * 5
 
 }
+
+
