@@ -42,6 +42,8 @@ script DanceTheater_LookLookGirl {
 	release
 }
 
+
+const SHORT_KID = 10
 script DanceTheater_ShortKid {
     lock
     if(!flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
@@ -64,8 +66,13 @@ script DanceTheater_ShortKid {
                 release
                 end
             } else {
+                faceplayer
                 msgbox("Oh, wow! I can see!\nThanks so much, mister!\pLet's chat again after the show.\nThere's something I wanna show you!", MSGBOX_DEFAULT)
                 setflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                closemessage
+                applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+                waitmovement(0)
+
                 release
                 end
             }
@@ -90,12 +97,23 @@ script DanceTheater_Ash {
     if(checkitem(ITEM_SOOT_SACK)) {
         setflag(FLAG_PUT_ASH_IN_SACK) 
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        removeobject(VAR_LAST_TALKED)
+        playfanfare(MUS_LEVEL_UP)
         msgbox("{PLAYER} put some ASH in the\nSOOT SACK!", MSGBOX_DEFAULT)
+        waitfanfare
     } else {
         if(flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
             msgbox("ASH: Wow, PIKACHU!\nThat was such a good show!", MSGBOX_DEFAULT)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+            closemessage
+            waitmovement(0)
         } else {
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
             msgbox("ASH: All right, PIKACHU!\nI can't wait to watch the dance!", MSGBOX_DEFAULT)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+            closemessage
+            waitmovement(0)
         }
     }
     release
@@ -109,7 +127,11 @@ script DanceTheater_Pikachu {
     if(flag(FLAG_PUT_ASH_IN_SACK)) {
         msgbox("POKéKID: Huh?\nWhere'd that guy go?", MSGBOX_DEFAULT)
     } else {
-        msgbox("POKéKID: This guy picked me up off\nthe street the other day.\pI think he actually believes I'm a\nPOKéMON…", MSGBOX_DEFAULT)
+        msgbox("POKéKID: Uh, hey.\pThis guy picked me up off the street\nthe other day.\pI think he actually believes I'm a\nPOKéMON.\nChu Pika!!", MSGBOX_DEFAULT)
+        
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+        closemessage
+        waitmovement(0)
     }
     release
     end
@@ -130,8 +152,11 @@ script DanceTheater_FluteMan {
                 setflag(FLAG_CRAFTED_BLUE_FLUTE)
                 msgbox("Ah, lovely!\nSome fresh ASH, huff-puff!\pI'll craft you a lovely glass item\nwith this, huff-puff.", MSGBOX_DEFAULT)
                 closemessage
+                delay(15)
                 fadescreen(FADE_TO_BLACK)
+                delay(30)
                 fadescreen(FADE_FROM_BLACK)
+                delay(15)
                 msgbox("Here you are!\nA beautiful glass FLUTE, huff-puff!", MSGBOX_DEFAULT)
                 giveitem(ITEM_POKE_FLUTE)
                 msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
@@ -158,13 +183,13 @@ const GUY = 13
 script DanceTheater_Trailer {
     lock
     setvar(VAR_CSR_DANCE_SHOW, 1)
-    setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
     fadeoutbgm(1)
     playse(SE_CLICK)
     setweather(WEATHER_SHADE)
     doweather
     waitse
-    delay(90)
+    delay(60)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
     special(SpawnCameraObject)
     getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
     while(var(VAR_TEMP_3) != 5) {
@@ -180,6 +205,10 @@ script DanceTheater_Trailer {
             }
         }
     }
+    delay(30)
+    msgbox("All right, ladies and gentlemen!\nIt's time for tonight's show!\pComing in from JOHTO, put your\nhands together for the KIMONO GIRLS!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
     delay(45)
@@ -207,8 +236,14 @@ script DanceTheater_Trailer {
     playse(SE_M_STRENGTH)
 
     waitmovement(GREEN)
+    setweather(WEATHER_NONE)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraComesDown)
+    doweather
+    delay(60)
+    fadedefaultbgm
     waitmovement(0)
+    
+    setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
     special(RemoveCameraObject)
     release
 }

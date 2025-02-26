@@ -2,7 +2,7 @@
   "id": "MAP_LAVENDER_TOWN_DANCE_THEATER",
   "name": "LavenderTown_DanceTheater",
   "layout": "LAYOUT_LAVENDER_TOWN_DANCE_THEATER",
-  "music": "MUS_DUMMY",
+  "music": "MUS_CSR_DANCE_THEATER",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
@@ -69,7 +69,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
@@ -158,12 +158,12 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 3,
-      "y": 21,
+      "x": 4,
+      "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
@@ -195,7 +195,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     }
   ],
   "warp_events": [
@@ -292,15 +292,6 @@
     {
       "type": "trigger",
       "x": 1,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_CSR_DANCE_SHOW",
-      "var_value": "0",
-      "script": "DanceTheater_Trailer"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
       "y": 15,
       "elevation": 0,
       "var": "VAR_CSR_DANCE_SHOW",
