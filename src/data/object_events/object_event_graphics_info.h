@@ -3292,7 +3292,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cynthia = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dazzle = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_DAZZLE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -4030,7 +4030,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrowlitheSign = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drifloon = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_DRIFLOON,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -4156,7 +4156,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Orthworm = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Eternatus = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ETERNATUS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 4096,
     .width = 64,
