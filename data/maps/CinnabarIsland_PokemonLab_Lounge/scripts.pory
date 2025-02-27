@@ -9,7 +9,7 @@ CinnabarIsland_PokemonLab_Lounge_EventScript_Scientist::
 CinnabarIsland_PokemonLab_Lounge_EventScript_Clifton::
 	lock
 	faceplayer
-	setvar VAR_0x8008, INGAME_TRADE_ELECTRODE
+	setvar VAR_0x8008, INGAME_TRADE_HAUNTER
 	call EventScript_GetInGameTradeSpeciesInfo
 	goto_if_set FLAG_DID_ESPHERE_TRADE, CinnabarIsland_PokemonLab_Lounge_EventScript_CliftonAlreadyTraded
 	msgbox Trade_Text_DoYouHaveMonWouldYouTradeForMon, MSGBOX_YESNO

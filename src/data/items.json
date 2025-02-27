@@ -3121,12 +3121,12 @@
       "secondaryId": 0
     },
     {
-      "english": "EVERSTONE",
+      "english": "B BUTTON",
       "itemId": "ITEM_EVERSTONE",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_PREVENT_EVOLVE",
       "holdEffectParam": 0,
-      "description_english": "An item to be held by a POKéMON.\\nThe holding POKéMON is prevented\\nfrom evolving.",
+      "description_english": "The B button for a game console.\\nI wonder if there's somewhere\\nthat needs one…",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

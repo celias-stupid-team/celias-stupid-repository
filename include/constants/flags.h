@@ -305,10 +305,10 @@
 #define FLAG_0x105               0x105
 #define FLAG_CSR_TM_CASE               0x106
 #define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
-#define FLAG_0x108               0x108
-#define FLAG_0x109               0x109
-#define FLAG_0x10A               0x10A
-#define FLAG_0x10B               0x10B
+#define FLAG_CSR_HIDE_DRIFLOON               0x108
+#define FLAG_CSR_FOUGHT_DRIFLOON               0x109
+#define FLAG_CSR_TALKED_TO_MINDY               0x10A
+#define FLAG_CSR_DID_MINDY_TRADE               0x10B
 #define FLAG_0x10C               0x10C
 #define FLAG_0x10D               0x10D
 #define FLAG_0x10E               0x10E

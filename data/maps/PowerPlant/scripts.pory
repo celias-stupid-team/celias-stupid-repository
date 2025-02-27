@@ -111,5 +111,13 @@ script PowerPlant_Max {
 }
 
 script PowerPlant_StarmieHint {
+
+}
+
+script PowerPlant_PowerPlantIsBroken {
+
+}
+
+script PowerPlant_RockTunnelIsDark {
 	
 }

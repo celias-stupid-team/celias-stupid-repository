@@ -131,7 +131,7 @@ static const struct InGameTrade sInGameTrades[] = {
         .requestedSpecies = SPECIES_SLOWBRO
 #endif
     }, 
-    [INGAME_TRADE_ELECTRODE] = 
+    [INGAME_TRADE_HAUNTER] = 
     {
         .nickname = _("CASPER"),
         .species = SPECIES_HAUNTER,
