@@ -672,10 +672,10 @@ static const u8 sPrizeBerryIds[][10] =
         ITEM_TO_BERRY(ITEM_CORNN_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_BASCI_BERRY_RED) - 1,
         ITEM_TO_BERRY(ITEM_BASCI_BERRY_BLUE) - 1,
-        ITEM_TO_BERRY(ITEM_NOMEL_BERRY) - 1
+        ITEM_TO_BERRY(ITEM_BASCI_BERRY_WHITE) - 1
     },
     { // Possible prizes with 5 players
-        ITEM_TO_BERRY(ITEM_SPELON_BERRY) - 1,
+        ITEM_TO_BERRY(ITEM_BERRYLEGION) - 1,
         ITEM_TO_BERRY(ITEM_PAMTRE_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_WATMEL_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_DURIN_BERRY) - 1,
@@ -684,7 +684,7 @@ static const u8 sPrizeBerryIds[][10] =
         ITEM_TO_BERRY(ITEM_DURIN_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_WATMEL_BERRY) - 1,
         ITEM_TO_BERRY(ITEM_PAMTRE_BERRY) - 1,
-        ITEM_TO_BERRY(ITEM_SPELON_BERRY) - 1
+        ITEM_TO_BERRY(ITEM_BERRYLEGION) - 1
     },
 };
 
