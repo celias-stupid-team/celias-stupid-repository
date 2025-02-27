@@ -97,3 +97,19 @@ PowerPlant_EventScript_FoughtElectrode2::
 	goto EventScript_RemoveStaticMon
 	end
 `
+
+script PowerPlant_MagnemiteMan {
+
+}
+
+script PowerPlant_Dazzle {
+
+}
+
+script PowerPlant_Max {
+
+}
+
+script PowerPlant_StarmieHint {
+	
+}
