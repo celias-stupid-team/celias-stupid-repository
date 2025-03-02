@@ -4,14 +4,14 @@ FushciaCity_SafariZone_Office_Text_NicknamedWardenSlowpoke::
 	.string "C'mon, man! We don't need that kind\n"
 	.string "of talk here.\l"
 	.string "We need to put our full faith in it!\p"
-	.string "Otherwise, how will we convince\n"
+	.string "How else are we supposed to convince\n"
 	.string "other people to buy it?$"
 
 FushciaCity_SafariZone_Office_Text_WardenIsVeryKnowledgeable::
 	.string "Yo, dude!\n"
 	.string "Have you heard of SLOWPOKETAIL?\p"
 	.string "It's the hottest new thing!\n"
-	.string "Everyone's inveting into it.\p"
+	.string "Everyone's investing into it.\p"
 	.string "Next thing you know, the value's\n"
 	.string "gonna spike and we'll all be rich!$"
 
