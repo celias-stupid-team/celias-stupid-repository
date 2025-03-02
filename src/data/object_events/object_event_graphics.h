@@ -30,6 +30,7 @@ const u16 gReflectionPal_Green_WP[] = INCBIN_U16("graphics/object_events/palette
 const u16 gReflectionPal_Green_LWP[] = INCBIN_U16("graphics/object_events/palettes/outfits/green_reflection_lwp.gbapal");
 const u16 gObjectEventPal_Celia[] = INCBIN_U16("graphics/object_events/palettes/npc_celia.gbapal");
 const u16 gObjectEventPal_ImposterOak[] = INCBIN_U16("graphics/object_events/palettes/imposter_oak.gbapal");
+const u16 gObjectEventPal_Ash[] = INCBIN_U16("graphics/object_events/palettes/ash.gbapal");
 const u16 gObjectEventPal_YellowGuy[] = INCBIN_U16("graphics/object_events/palettes/yellow_guy.gbapal");
 const u16 gObjectEventPaletteNull1[16] = {};
 const u16 gObjectEventPaletteNull2[16] = {};

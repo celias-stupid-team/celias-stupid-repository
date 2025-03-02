@@ -2,6 +2,7 @@
 #include "text_window_graphics.h"
 
 const u16 gSignpostWindow_Gfx[] = INCBIN_U16("graphics/text_window/signpost.4bpp");
+const u16 gEatenSignpostWindow_Gfx[] = INCBIN_U16("graphics/text_window/eaten_signpost.4bpp");
 
 static const u16 sUserFrame_Type1_Gfx[] = INCBIN_U16("graphics/text_window/type1.4bpp");
 static const u16 sUserFrame_Type2_Gfx[] = INCBIN_U16("graphics/text_window/type2.4bpp");

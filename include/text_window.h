@@ -21,6 +21,7 @@ void DrawTextBorderOuter(u8 windowId, u16 tileStart, u8 palette);
 void DrawTextBorderInner(u8 windowId, u16 tileNum, u8 palNum);
 void LoadHelpMessageWindowGfx(u8 windowId, u16 destOffset, u8 palIdx);
 void LoadSignpostWindowGfx(u8 windowId, u16 destOffset, u8 palIdx);
+void LoadEatenSignpostWindowGfx(u8 windowId, u16 destOffset, u8 palIdx);
 void LoadStdWindowTiles(u8 windowId, u16 destOffset);
 void LoadQuestLogWindowTiles(u8 windowId, u16 destOffset);
 

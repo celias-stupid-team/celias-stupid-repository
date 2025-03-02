@@ -376,7 +376,9 @@
 #define MUS_CSR_CLEFAIRY_DANCE          367
 #define MUS_CSR_IMPOSTER_OAK          368
 #define MUS_CSR_MART          369
-#define MUS_CSR_DANCE_THEATER          370
+#define MUS_CSR_POKERAP          370
+#define MUS_CSR_DANCE_THEATER          371
+
 
 
 #define MUS_NONE                    0xFFFF

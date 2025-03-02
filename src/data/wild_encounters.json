@@ -5362,7 +5362,7 @@
           "map": "MAP_POKEMON_TOWER_3F",
           "base_label": "sPokemonTower3F_FireRed",
           "land_mons": {
-            "encounter_rate": 1,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 15,
@@ -5497,321 +5497,45 @@
           }
         },
         {
-          "map": "MAP_POKEMON_TOWER_4F",
-          "base_label": "sPokemonTower4F_FireRed",
-          "land_mons": {
-            "encounter_rate": 4,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_HAUNTER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_GASTLY"
-              }
-            ]
-          }
-        },
-        {
-          "map": "MAP_POKEMON_TOWER_4F",
-          "base_label": "sPokemonTower4F_LeafGreen",
-          "land_mons": {
-            "encounter_rate": 4,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_HAUNTER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_GASTLY"
-              }
-            ]
-          }
-        },
-        {
-          "map": "MAP_POKEMON_TOWER_5F",
-          "base_label": "sPokemonTower5F_FireRed",
-          "land_mons": {
-            "encounter_rate": 6,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_HAUNTER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_GASTLY"
-              }
-            ]
-          }
-        },
-        {
-          "map": "MAP_POKEMON_TOWER_5F",
-          "base_label": "sPokemonTower5F_LeafGreen",
-          "land_mons": {
-            "encounter_rate": 6,
-            "mons": [
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 16,
-                "max_level": 16,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 20,
-                "max_level": 20,
-                "species": "SPECIES_HAUNTER"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_GASTLY"
-              },
-              {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_GASTLY"
-              }
-            ]
-          }
-        },
-        {
           "map": "MAP_POKEMON_TOWER_6F",
           "base_label": "sPokemonTower6F_FireRed",
           "land_mons": {
-            "encounter_rate": 8,
+            "encounter_rate": 4,
             "mons": [
               {
                 "min_level": 16,
                 "max_level": 16,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 18,
                 "max_level": 18,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 14,
                 "max_level": 14,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 19,
                 "max_level": 19,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 21,
                 "max_level": 21,
-                "species": "SPECIES_HAUNTER"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 17,
@@ -5821,7 +5545,7 @@
               {
                 "min_level": 18,
                 "max_level": 18,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 19,
@@ -5831,12 +5555,12 @@
               {
                 "min_level": 18,
                 "max_level": 18,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_CUBONE"
               },
               {
                 "min_level": 23,
                 "max_level": 23,
-                "species": "SPECIES_HAUNTER"
+                "species": "SPECIES_CUBONE"
               }
             ]
           }

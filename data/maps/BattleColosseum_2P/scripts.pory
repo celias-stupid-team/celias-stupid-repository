@@ -35,7 +35,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_VIRIDIAN_FOREST)) {
 		setobtainable(SPECIES_METAPOD) // 8
 	}
-	if(flag(FLAG_WORLD_MAP_PEWTER_CITY) && checkmoncaught(SPECIES_METAPOD)) { 
+	if((flag(FLAG_CSR_MAP_BROCK_GYM) && checkmoncaught(SPECIES_METAPOD)) || checkmoncaught(SPECIES_BUTTERFREE)) { 
 		setobtainable(SPECIES_BUTTERFREE) // 9
 	}
 	if(var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 2) {

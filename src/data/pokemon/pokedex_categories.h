@@ -749,7 +749,7 @@ SPECIES_SMEARGLE,
 
 static const u16 sDexCategory_FinalBadgePkmn_Page8[] = {
     SPECIES_TANGELA,
-    SPECIES_TRUBBISH,
+    SPECIES_TRUBBISH_HAIRCUT,
     SPECIES_ZYGARDE,
 };
 

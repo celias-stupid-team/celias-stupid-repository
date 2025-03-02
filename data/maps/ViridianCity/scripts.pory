@@ -451,7 +451,7 @@ script ViridianCity_Gambler_GoesHome {
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
 	}
 	waitmovement(0)
-	textcolor(NPC_TEXT_COLOR_MALE)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	playse(SE_SELECT)
 	msgbox("Hi, there!\nI'm CELIA, the creator.\pHey, that was a good deed you\njust did!\lI'm proud of you!", MSGBOX_DEFAULT)
 	if(flag(FLAG_CSR_BROKE_INTO_HOUSE)) {

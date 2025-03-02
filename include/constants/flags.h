@@ -287,21 +287,23 @@
 #define FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE               0x0F3
 #define FLAG_USED_CLEFAIRY_DOLL               0x0F4
 #define FLAG_SAW_GHOST_UNVEIL               0x0F5
-#define FLAG_0x0F6               0x0F6
-#define FLAG_0x0F7               0x0F7
-#define FLAG_0x0F8               0x0F8
+#define FLAG_GOT_TAUROSES               0x0F6
+
+#define FLAG_EATEN_SIGNPOST               0x0F7
+#define FLAG_LIMIT_NOT_EXIST               0x0F8
 #define FLAG_0x0F9               0x0F9
 #define FLAG_0x0FA               0x0FA
 #define FLAG_0x0FB               0x0FB
-#define FLAG_DANCE_THEATER_WATCHED_SHOW               0x0FC
-#define FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW               0x0FD
-#define FLAG_DANCE_THEATER_KID_READY_TO_GIVE               0x0FE
-#define FLAG_GOT_SOOT_SACK               0x0FF
-#define FLAG_PUT_ASH_IN_SACK               0x100
-#define FLAG_CRAFTED_BLUE_FLUTE               0x101
-#define FLAG_0x102               0x102
-#define FLAG_0x103               0x103
-#define FLAG_0x104               0x104
+#define FLAG_0x0FC               0x0FC
+
+#define FLAG_ROUTE13_LASSATTACK               0x0FD
+#define FLAG_ROUTE18_LASSATTACK               0x0FE
+#define FLAG_DANCE_THEATER_WATCHED_SHOW                              0x0FF
+#define FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW                              0x100
+#define FLAG_DANCE_THEATER_KID_READY_TO_GIVE                              0x101
+#define FLAG_GOT_SOOT_SACK                              0x102
+#define FLAG_PUT_ASH_IN_SACK                              0x103
+#define FLAG_CRAFTED_BLUE_FLUTE                              0x104
 #define FLAG_0x105               0x105
 #define FLAG_CSR_TM_CASE               0x106
 #define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
@@ -1523,7 +1525,7 @@
 #define FLAG_CSR_MAP_MT_MOON_BASEMENT                                                (SYS_FLAGS + 0xD0)
 #define FLAG_CSR_SUN_STONE_FOUND                                                  (SYS_FLAGS + 0xD1)
 #define FLAG_CSR_MAP_STONE_EMPORIUM                                                  (SYS_FLAGS + 0xD2)
-#define FLAG_CSR_MAP_DUMMY_1                                                  (SYS_FLAGS + 0xD3)
+#define FLAG_CSR_MAP_BROCK_GYM                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
 #define FLAG_CSR_MAP_DUMMY_2                                                  (SYS_FLAGS + 0xD6)
