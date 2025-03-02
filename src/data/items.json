@@ -2593,12 +2593,12 @@
       "secondaryId": 0
     },
     {
-      "english": "NUMEL BERRY",
-      "itemId": "ITEM_NOMEL_BERRY",
+      "english": "BASCI BERRY",
+      "itemId": "ITEM_BASCI_BERRY_WHITE",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A white-striped BASCI BERRY.\\nIts flavor is more gentle than the others.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2609,8 +2609,8 @@
       "secondaryId": 0
     },
     {
-      "english": "SPELON BERRY",
-      "itemId": "ITEM_SPELON_BERRY",
+      "english": "BERRYLEGION",
+      "itemId": "ITEM_BERRYLEGION",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
@@ -3121,12 +3121,12 @@
       "secondaryId": 0
     },
     {
-      "english": "EVERSTONE",
+      "english": "B BUTTON",
       "itemId": "ITEM_EVERSTONE",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_PREVENT_EVOLVE",
       "holdEffectParam": 0,
-      "description_english": "An item to be held by a POKéMON.\\nThe holding POKéMON is prevented\\nfrom evolving.",
+      "description_english": "The B button for a game console.\\nI wonder if there's somewhere\\nthat needs one…",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

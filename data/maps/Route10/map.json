@@ -28,20 +28,6 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 13,
-      "y": 44,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
-      "script": "Route10_EventScript_Mark",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 9,
       "y": 27,
@@ -151,6 +137,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFLOON",
+      "x": 23,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route10_DrifloonHbox",
+      "flag": "FLAG_TEMP_7"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 23,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_10_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_10_CANDY"
     }
   ],
   "warp_events": [
@@ -162,25 +176,32 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
+      "x": 11,
       "y": 40,
       "elevation": 3,
       "dest_map": "MAP_POWER_PLANT",
       "dest_warp_id": "1"
     },
     {
-      "x": 19,
+      "x": 23,
       "y": 42,
       "elevation": 0,
       "dest_map": "MAP_ROUTE10_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 2,
+      "x": 6,
       "y": 37,
       "elevation": 3,
       "dest_map": "MAP_POWER_PLANT",
-      "dest_warp_id": "3"
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 3,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_ROCK_TUNNEL_1F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [
@@ -206,7 +227,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 6,
+      "x": 9,
       "y": 42,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -222,8 +243,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 40,
+      "x": 15,
+      "y": 38,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_3",
@@ -242,8 +263,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 29,
+      "x": 2,
+      "y": 38,
       "elevation": 3,
       "item": "ITEM_BASCI_BERRY_BLUE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",

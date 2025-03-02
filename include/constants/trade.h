@@ -16,7 +16,7 @@
 #define INGAME_TRADE_FARFETCHD 3
 #define INGAME_TRADE_NIDORINOA 4  // Nidorino or Nidorina depending on version
 #define INGAME_TRADE_LICKITUNG 5
-#define INGAME_TRADE_ELECTRODE 6
+#define INGAME_TRADE_HAUNTER 6
 #define INGAME_TRADE_MEWTWO   7
 #define INGAME_TRADE_SEEL      8
 

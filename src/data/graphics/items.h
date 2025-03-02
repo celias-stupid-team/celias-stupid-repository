@@ -369,6 +369,8 @@ const u32 gItemIconPalette_RabutaBerry[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_NomelBerry[] = INCBIN_U32("graphics/items/icons/nomel_berry.4bpp.lz");
 const u32 gItemIconPalette_NomelBerry[] = INCBIN_U32("graphics/items/icon_palettes/nomel_berry.gbapal.lz");
 
+const u32 gItemIconPalette_BasciBerryWhite[] = INCBIN_U32("graphics/items/icon_palettes/basci_berry_white.gbapal.lz");
+
 const u32 gItemIcon_SpelonBerry[] = INCBIN_U32("graphics/items/icons/spelon_berry.4bpp.lz");
 const u32 gItemIconPalette_SpelonBerry[] = INCBIN_U32("graphics/items/icon_palettes/spelon_berry.gbapal.lz");
 

@@ -74,9 +74,9 @@ ViridianForest_Text_CharliePostBattle::
 ViridianForest_Text_RanOutOfPokeBalls::
     .string "I was throwing POKé BALLS to\n"
     .string "catch POKéMON, and I ran out.\p"
-    .string "Thankfully, catch rates are all\n"
-    .string "set to the maximum!\l"
-    .string "(...mostly.)$"
+	.string "Thankfully, POKéBALLs are always\n"
+	.string "guaranteed to work!\l"
+	.string "(…mostly.)$"
 
 ViridianForest_Text_AvoidGrassyAreasWhenWeak::
 	.string "TRAINER TIPS\p"

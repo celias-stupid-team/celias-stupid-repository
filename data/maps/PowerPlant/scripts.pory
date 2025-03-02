@@ -97,3 +97,114 @@ PowerPlant_EventScript_FoughtElectrode2::
 	goto EventScript_RemoveStaticMon
 	end
 `
+
+script PowerPlant_MagnemiteMan {
+	lock
+	faceplayer
+	if(checkmoncaught(SPECIES_MAGNEMITE)) {
+		//check player party. If No magnemite, then do his original speeches, but slightly different. 
+		//If yes, then if you already talked to him he'll say "Too bad!"
+		//If you hadn't talked to him, he'll introduce the problem but still evolve your magnemite. 
+
+	} else {
+		if(flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)) {
+			msgbox("Hey again!\nDo you have a MAGNEMITE yet?\pMe and my two MAGNEMITES are gonna\nwait here for you so we can evolve.\pBe sure to come back when you find\none!", MSGBOX_DEFAULT)
+		} else {
+			setflag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)
+			msgbox("Hey, there!\nDo you happen to have a MAGNEMITE?\pI actually have two MAGNEMITES here\nwith me right now.\lWe're just one away from evolving!\pBut, it looks like there aren't any\nwild ones here anymore.\pIf you ever catch a MAGNEMITE, do\nyou think you could bring it here?\lThat way, we can evolve together!\pI'll be waiting for you!\n", MSGBOX_DEFAULT)
+		}
+	}
+	release
+}
+
+script PowerPlant_Dazzle {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_TRADED_WITH_DAZZLE)) {
+		msgbox("DAZZLE: Thank you for trading with\nme, guy!", MSGBOX_DEFAULT)
+	} else {
+		if(flag(FLAG_CSR_TALKED_TO_DAZZLE)) {
+			msgbox("DAZZLE: Hey, guy!\nDo you have a STAR PIECE?\lI'd love to trade one for a BADGE!\p… … …\n", MSGBOX_DEFAULT)
+		} else {
+			msgbox("DAZZLE: My name is DAZZLE!\nAnd I collect STAR PIECES!\lThe more I collect, the happier I am!\pSo, guy, if you have any STAR PIECES\nI'll trade you a BADGE for them!\lYay!", MSGBOX_DEFAULT)
+		}
+		if(checkitem(ITEM_STAR_PIECE)) {
+				msgbox("DAZZLE: Ooh!\nYou have a STAR PIECE!\pWould you like to trade it for a\nBADGE?", MSGBOX_YESNO)
+				setflag(FLAG_CSR_TALKED_TO_DAZZLE)
+				if(var(VAR_RESULT)) {
+					msgbox("DAZZLE: Yes!\nLet's trade!", MSGBOX_DEFAULT)
+					closemessage
+					textcolor(NPC_TEXT_COLOR_NEUTRAL)
+					//You got the badge!
+					msgbox("{PLAYER} obtained the POWER BOUNCE BADGE!\n", MSGBOX_DEFAULT)
+					call(EventScript_GymBadgeFanfare)
+					closemessage
+					textcolor(NPC_TEXT_COLOR_MALE)
+					setflag(FLAG_CSR_TRADED_WITH_DAZZLE)
+					msgbox("DAZZLE: YESSS!\pThanks to you, buy, my STAR PIECE\ncollection is even bigger now!\lYESSS!", MSGBOX_DEFAULT)
+					if(checkplayergender) {
+						msgbox("DAZZLE: …Wait.\nYou're not a guy, guy?\lOops!", MSGBOX_DEFAULT)
+					}
+				} else {
+					msgbox("DAZZLE: What?\nYou changed your mind?\lSo… … … LAME!!!", MSGBOX_DEFAULT)
+				}
+			} else {
+				if(flag(FLAG_CSR_TALKED_TO_DAZZLE)) {
+					msgbox("DAZZLE: Hey!\nYou don't have any STAR PIECES!\pAre you trying to swindle me?\nGo away!", MSGBOX_DEFAULT)
+				} else {
+					setflag(FLAG_CSR_TALKED_TO_DAZZLE)
+				}
+			}
+	}
+	release
+}
+
+
+script PowerPlant_Max {
+	lock
+	faceplayer
+	msgbox("MAX: Hello!\nMy name is MAX.\pBehind me is a very important LOCK.\nNo one is allowed to touch it.", MSGBOX_DEFAULT)
+	release
+}
+
+script PowerPlant_StarmieHint {
+
+}
+
+script PowerPlant_PowerPlantIsBroken {
+
+}
+
+script PowerPlant_RockTunnelIsDark {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_POWER_IS_ON)) {
+		//reacts to power being back on
+	} else {
+		msgbox("The POWER PLANT is supposed to\nsupply lighting to ROCK TUNNEL.\pNow that it's down, the whole cave\nis pitch black.\lThis is awful!\pWho knows what they're doing in\nthere?", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script PowerPlant_DMCA {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_POWER_IS_ON)) {
+		msgbox("Hey!\nYou can't just turn the power on!\pThat's a violation of POKéMON\nSWORD and SHIELD!\lWe can't have that!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Gwahaha!\nThis PLANT got what was coming!\pThe main reactor used to run on\nURANIUM, but not anymore!\lThe DMCA made sure to take it down!\pI love providing a public service.\nWe do so much good in the world!", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script PowerPlant_NuclearReactor {
+	msgbox("It's an extraordinarily expensive\nhobbyist nuclear reactor.", MSGBOX_SIGN)
+}
+
+script PowerPlant_Computer {
+	lock
+	msgbox("It's opened to a search engine…", MSGBOX_DEFAULT)
+	closemessage
+	msgbox("“Operating Nuclear Power Plants\nfor Dummies\lfree download”", MSGBOX_SIGN)
+	end
+}

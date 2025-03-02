@@ -8076,6 +8076,7 @@ extern const u32 gItemIcon_MagostBerry[];
 extern const u32 gItemIconPalette_MagostBerry[];
 extern const u32 gItemIcon_RabutaBerry[];
 extern const u32 gItemIconPalette_RabutaBerry[];
+extern const u32 gItemIconPalette_BasciBerryWhite[];
 extern const u32 gItemIcon_NomelBerry[];
 extern const u32 gItemIconPalette_NomelBerry[];
 extern const u32 gItemIcon_SpelonBerry[];

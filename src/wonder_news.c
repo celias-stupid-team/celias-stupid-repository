@@ -29,7 +29,7 @@ void WonderNews_SetReward(u32 newsType)
         break;
     case WONDER_NEWS_RECV_FRIEND:
     case WONDER_NEWS_RECV_WIRELESS:
-        // Random berry between ITEM_RAZZ_BERRY and ITEM_NOMEL_BERRY
+        // Random berry between ITEM_RAZZ_BERRY and ITEM_BASCI_BERRY_WHITE
         data->berry = (Random() % 15) + ITEM_TO_BERRY(ITEM_RAZZ_BERRY);
         break;
     case WONDER_NEWS_SENT:

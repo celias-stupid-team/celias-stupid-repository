@@ -22,6 +22,10 @@ Route10_EventScript_PowerPlantSign::
 script Route10_OnTransition {
 	setflag(FLAG_CSR_MAP_ROUTE_10)
 	call(SetPlayerPokedexValues)
+	setflag(FLAG_TEMP_7)
+	if(flag(FLAG_CSR_DRIFLOON_APPEARS)) {
+		clearflag(FLAG_TEMP_7)
+	}
 }
 
 script Route10_Warp_Script {
@@ -53,7 +57,16 @@ script Route10_Youngster {
 }
 
 script Route10_RouteSign {
-	msgbox("ROUTE 10\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	lock
+	special(GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_SOUTH) {
+		msgbox("There's graffiti on the back of the\nsign…", MSGBOX_DEFAULT)
+		closemessage
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Thank you for taking the time to\nread this sign.\p… … …\n… … …\pThis sign loves you.\n", MSGBOX_SIGN)
+	} else {
+		msgbox("ROUTE 10\nNEW WILD POKéMON: 1", MSGBOX_SIGN)
+	}
 	end
 }
 
@@ -133,4 +146,28 @@ movement LassAbsconds{
 	walk_right * 3
 	walk_slow_right * 2
 	walk_slow_up
+}
+
+
+script Route10_DrifloonHbox {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_JIGGLYPUFF, 25)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	setflag(FLAG_TEMP_7)
+	setflag(FLAG_CSR_DRIFLOON_APPEARS)
+	release
+	end
 }
