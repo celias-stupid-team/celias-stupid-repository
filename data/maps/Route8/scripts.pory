@@ -371,6 +371,7 @@ script Route8_SetBenchLavender {
 }
 
 script Route8_PickUpPsyduck {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	finditem(ITEM_WAILMER_PAIL)
 }
 

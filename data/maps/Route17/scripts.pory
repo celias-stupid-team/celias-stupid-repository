@@ -26,3 +26,101 @@ Route17_EventScript_CyclingRoadSign::
 	msgbox Route17_Text_CyclingRoadSign, MSGBOX_SIGN
 	end
 `
+
+script Route17_KoraidonNeedsSandwich {
+	lock
+	if(checkitem(ITEM_MASTER_BALL)) {
+		msgbox("The slope is too steep for your\nBIKE to handle.\pWould you like to feed your BIKE\na SANDWICH?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			goto(Route17_BikeFliesUp)
+		} else {
+			goto(Route17_TurnAroundAndLeave)
+		}
+	} else {
+		msgbox("The steep slope is too much for\nyour BIKE to handle…", MSGBOX_DEFAULT)
+		goto(Route17_TurnAroundAndLeave)
+	}
+}
+
+script Route17_TurnAroundAndLeave {
+	closemessage
+	delay(30)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+	waitmovement(0)
+	release
+}
+
+script Route17_BikeFliesUp {
+	closemessage
+	msgbox("{PLAYER}'s BIKE ate the SANDWICH!\n", MSGBOX_DEFAULT)
+	fadeoutbgm(1)
+	playbgm(MUS_CSR_DRILL_DOZER, TRUE) //Bike Music
+	//mugshot appears
+
+	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_1)
+	callnative(DrawMugshot)
+	messageautoscroll(" ")
+	delay(60)
+
+	
+	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_2)
+	callnative(DrawMugshot)
+	
+	messageautoscroll(" ")
+	playse(SE_M_EARTHQUAKE)
+	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2) //I'm gonna fuckin define shakescreen variables this is too hard
+	setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+	setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
+	setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+	special(ShakeScreen)
+	delay(90)
+	
+	
+	playmoncry(SPECIES_KORAIDON, CRY_MODE_NORMAL)
+	fadescreenspeed(FADE_TO_WHITE, 1)
+	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_3)
+	callnative(DrawMugshot)
+	
+	messageautoscroll(" ")
+	fadescreenspeed(FADE_FROM_WHITE, 1)
+	delay(90)
+	setvar(VAR_0x8000, MUGSHOT_BIKE_FRAME_4)
+	callnative(DrawMugshot)
+	messageautoscroll(" ")
+	delay(120)
+	callnative(ClearMugshot)
+	closemessage
+	delay(30)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_PLAYER, Route17_BikeWindsUp)
+	waitmovement(0)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER, Route17_BikeCatchesUpToCamera)
+	waitmovement(0)
+	special(RemoveCameraObject)
+	applymovement(OBJ_EVENT_ID_PLAYER, Route17_BikeZoomsUp)
+	waitmovement(0)
+	playbgm(MUS_CYCLING, TRUE)
+	release
+}
+
+movement Route17_BikeWindsUp {
+	lock_facing_direction
+	walk_slow_down
+	delay_16
+	walk_slow_down
+	delay_16
+	walk_slow_down
+}
+
+movement Route17_BikeCatchesUpToCamera {
+	walk_faster_up * 3
+}
+
+movement Route17_BikeZoomsUp {
+	walk_faster_up * 18
+	walk_fastest_up * 80
+	walk_faster_up * 9
+	walk_fast_up * 5
+	walk_up * 2
+}

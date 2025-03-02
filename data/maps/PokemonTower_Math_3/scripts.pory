@@ -1,3 +1,32 @@
 mapscripts PokemonTower_Math_3_MapScripts {
-    
+    		MAP_SCRIPT_ON_FRAME_TABLE [
+				VAR_TEMP_5, 0 { //Correct
+					switch(var(VAR_POKEMONTOWER_ANSWER)) {
+						case 0:
+							break
+						case 1:
+							playse(SE_SUCCESS)
+							waitse
+							setvar(VAR_POKEMONTOWER_ANSWER, 0)
+							
+						case 2:
+							playse(SE_BOO)
+							waitse
+							setvar(VAR_POKEMONTOWER_ANSWER, 0)
+							
+					}
+					
+					setvar(VAR_TEMP_5, 1)
+					release
+					end
+				}
+
+			]
+}
+
+
+script PokemonTower_MathQuestion_Three {
+	lock
+	msgbox("6 {DIVIDE} 2(1 + 2) = ?\n{LEFT_ARROW} 9    {UP_ARROW} 1    {RIGHT_ARROW} Shitty Notation", MSGBOX_SIGN)
+	release
 }

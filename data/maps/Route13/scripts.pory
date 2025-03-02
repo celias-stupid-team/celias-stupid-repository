@@ -14,3 +14,103 @@ Route13_EventScript_RouteSign::
 	msgbox Route13_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+const LASS = 2
+
+script Route13_LassAttack {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	delay(60)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route13_CameraPansLeft)
+	delay(100)
+	addobject(LASS)
+	applymovement(LASS, Route13_LassComesUp)
+	delay(60)
+	waitmovement(0)
+	applymovement(LASS, Route13_MazeMovement)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route13_MazeMovement)
+	delay(60)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LASS, Route13_LassOops)
+	delay(300)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route13_BackOnTrack)
+	waitmovement(LASS)
+	applymovement(LASS, Route13_LastSteps)
+	applymovement(OBJ_EVENT_ID_CAMERA, Route13_LastSteps)
+	waitmovement(0)
+	delay(30)
+	special(RemoveCameraObject)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hey!\nDon't look at me!", MSGBOX_DEFAULT)
+	playbgm(MUS_ROUTE11, TRUE)
+	setvar(VAR_ROUTE13_LASS_ATTACK, 1)
+	setflag(FLAG_ROUTE13_LASSATTACK)
+	release
+	end
+}
+
+movement Route13_CameraPansLeft {
+	walk_left
+	walk_fast_left
+	walk_faster_left
+	walk_fastest_left * 46
+	walk_faster_left
+	walk_fast_left
+	walk_left
+}
+
+movement Route13_LassComesUp {
+	walk_up * 5
+	face_up
+	delay_16 * 2
+	face_right
+	lock_facing_direction
+	walk_slow_left
+	face_right
+	unlock_facing_direction
+	delay_16 * 2
+	walk_fast_right
+}
+
+movement Route13_MazeMovement {
+	walk_fast_right * 16
+	walk_fast_up * 2
+	walk_fast_right * 7
+	walk_fast_up * 2
+	walk_fast_right * 6
+	walk_fast_up * 2	
+	walk_fast_right * 12
+	walk_fast_down * 2
+	walk_fast_left * 8
+	walk_fast_down * 2
+	walk_fast_right * 10
+	walk_fast_down * 2
+	walk_fast_left * 2
+	walk_fast_down * 2
+	walk_fast_right * 6
+	walk_right * 2
+	face_right
+}
+
+movement Route13_LassOops {
+	emote_exclamation_mark
+	delay_16 * 4
+	lock_facing_direction
+	walk_slow_left
+	face_right
+	unlock_facing_direction
+	delay_16 * 4
+	walk_left * 7
+	walk_up * 2
+	walk_right * 7
+}
+
+movement Route13_BackOnTrack {
+	walk_slow_up * 2
+}
+
+movement Route13_LastSteps {
+	walk_right * 3
+}

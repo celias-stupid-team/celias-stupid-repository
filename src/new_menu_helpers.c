@@ -718,6 +718,13 @@ void LoadSignpostWindowFrameGfx(void)
     LoadUserWindowGfx(0, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
 }
 
+void LoadEatenSignpostWindowFrameGfx(void)
+{
+    Menu_LoadStdPal();
+    LoadEatenSignpostWindowGfx(0, DLG_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(DLG_WINDOW_PALETTE_NUM));
+    LoadUserWindowGfx(0, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
+}
+
 void SetDefaultFontsPointer(void)
 {
     SetFontsPointer(&gFontInfos[0]);
