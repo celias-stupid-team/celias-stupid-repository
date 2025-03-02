@@ -14,7 +14,6 @@ Route23_MapScripts::
 Route23_OnTransition::
 	clearflag FLAG_HIDE_VICTORY_ROAD_3F_BOULDER
 	setflag FLAG_HIDE_VICTORY_ROAD_2F_BOULDER
-	setvar VAR_CSR_DUMMY_5, 0
 	setvar VAR_CSR_DUMMY_6, 0
 	setvar VAR_CSR_DUMMY_7, 0
 	setvar VAR_CSR_DUMMY_8, 0
