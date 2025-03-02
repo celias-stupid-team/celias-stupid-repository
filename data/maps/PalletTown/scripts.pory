@@ -525,15 +525,15 @@ movement PT_exclmark {
 }
 
 movement PT_walkbackLeft {
-	face_left
 	walk_left
-	face_right
+	walk_in_place_faster_right
+	step_end
 }
 
 movement PT_walkbackRight {
-	face_right
 	walk_right
-	face_left
+	walk_in_place_faster_left
+	step_end
 }
 
 script PalletTown_EventScript_CeliaYouMissed {
