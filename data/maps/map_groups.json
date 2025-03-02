@@ -42,7 +42,9 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_PokemonTowerMath",
+    "gMapGroup_KantoLighthouse"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -182,16 +184,7 @@
     "MtMoon_Square",
     "MtMoon_Outside",
     "SecretTunnel",
-    "MtMoonSquare_Unbroken",
-    "PokemonTower_Math_3",
-    "PokemonTower_Math_4",
-    "PokemonTower_Math_5",
-    "PokemonTower_Math_6",
-    "PokemonTower_Math_CandyRoom",
-    "PokemonTower_Math_CeliaRoom",
-    "KantoLighthouse_1F",
-    "KantoLighthouse_2F",
-    "KantoLighthouse_3F"
+    "MtMoonSquare_Unbroken"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -483,7 +476,8 @@
   "gMapGroup_IndoorRoute12": [
     "Route12_NorthEntrance_1F",
     "Route12_NorthEntrance_2F",
-    "Route12_FishingHouse"
+    "Route12_FishingHouse",
+    "Route12_HallofOrigin"
   ],
   "gMapGroup_IndoorRoute15": [
     "Route15_WestEntrance_1F",
@@ -584,5 +578,18 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute": [
     "SevenIsland_SevaultCanyon_House"
+  ],
+  "gMapGroup_PokemonTowerMath": [
+    "PokemonTower_Math_3",
+    "PokemonTower_Math_4",
+    "PokemonTower_Math_5",
+    "PokemonTower_Math_6",
+    "PokemonTower_Math_CandyRoom",
+    "PokemonTower_Math_CeliaRoom"
+  ],
+  "gMapGroup_KantoLighthouse": [
+    "KantoLighthouse_1F",
+    "KantoLighthouse_2F",
+    "KantoLighthouse_3F"
   ]
 }

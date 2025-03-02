@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_ROUTE14",
-      "offset": -40,
+      "offset": -23,
       "direction": "right"
     }
   ],
@@ -29,7 +29,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 52,
+      "x": 44,
       "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -43,7 +43,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 55,
+      "x": 47,
       "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -57,7 +57,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 26,
+      "x": 18,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -71,7 +71,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 36,
+      "x": 28,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -85,7 +85,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLACKBELT",
-      "x": 39,
+      "x": 31,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -97,34 +97,47 @@
       "flag": "0"
     },
     {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 61,
-      "y": 7,
-      "target_local_id": 13,
-      "target_map": "MAP_ROUTE14"
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 31,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 9,
+      "x": 1,
       "y": 11,
       "elevation": 3,
       "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
+      "x": 8,
       "y": 11,
       "elevation": 3,
       "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 42,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 51,
+      "x": 43,
       "y": 26,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -133,7 +146,7 @@
     },
     {
       "type": "trigger",
-      "x": 50,
+      "x": 42,
       "y": 26,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -142,7 +155,7 @@
     },
     {
       "type": "trigger",
-      "x": 49,
+      "x": 41,
       "y": 26,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -151,7 +164,7 @@
     },
     {
       "type": "trigger",
-      "x": 48,
+      "x": 40,
       "y": 26,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -162,7 +175,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 41,
+      "x": 33,
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

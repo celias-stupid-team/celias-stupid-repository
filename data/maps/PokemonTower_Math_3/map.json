@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TOWER_MATH_3",
   "name": "PokemonTower_Math_3",
   "layout": "LAYOUT_POKEMON_TOWER_MATH_3",
-  "music": "MUS_DUMMY",
+  "music": "MUS_GYM",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,15 +15,193 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 11,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PokemonTower_5F_EventScript_Twin2",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 11,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "PokemonTower_5F_EventScript_Twin1",
+      "flag": "0"
+    }
   ],
   "warp_events": [
-
+    {
+      "x": 12,
+      "y": 2,
+      "elevation": 3,
+      "dest_map": "MAP_POKEMON_TOWER_MATH_3",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 3,
+      "dest_map": "MAP_POKEMON_TOWER_MATH_3",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "elevation": 3,
+      "dest_map": "MAP_POKEMON_TOWER_5F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "elevation": 3,
+      "dest_map": "MAP_POKEMON_TOWER_MATH_4",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_CorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_CorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_CorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_IncorrectAnswer"
+    }
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_MathQuestion_Three"
+    }
   ]
 }

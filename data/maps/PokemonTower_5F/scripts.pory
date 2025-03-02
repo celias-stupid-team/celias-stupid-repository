@@ -1,6 +1,5 @@
 raw `
-PokemonTower_5F_MapScripts::
-	.byte 0
+
 
 PokemonTower_5F_EventScript_Channeler::
 	msgbox PokemonTower_5F_Text_RestHereInPurifiedSpace, MSGBOX_NPC
@@ -32,13 +31,52 @@ PokemonTower_5F_EventScript_Ruth::
 	msgbox PokemonTower_5F_Text_RuthPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-PokemonTower_5F_EventScript_Karina::
-	trainerbattle_single TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat
-	msgbox PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE
-	end
+
 
 PokemonTower_5F_EventScript_Janae::
 	trainerbattle_single TRAINER_CHANNELER_JANAE, PokemonTower_5F_Text_JanaeIntro, PokemonTower_5F_Text_JanaeDefeat
 	msgbox PokemonTower_5F_Text_JanaePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+mapscripts PokemonTower_5F_MapScripts {
+		MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_5, 0 { //Correct
+			switch(var(VAR_POKEMONTOWER_ANSWER)) {
+				case 0:
+					break
+				case 1:
+					playse(SE_SUCCESS)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+				case 2:
+					playse(SE_BOO)
+					waitse
+					setvar(VAR_POKEMONTOWER_ANSWER, 0)
+					
+			}
+			
+			setvar(VAR_TEMP_5, 1)
+			release
+			end
+		}
+
+	]
+}
+
+
+script PokemonTower_5F_EventScript_Twin1 {
+	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
+	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script PokemonTower_5F_EventScript_Twin2 {
+	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
+	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script PokemonTower_MathQuestion_Two {
+	lock
+	msgbox("SQRT(121) = ?\n{LEFT_ARROW} 11     {UP_ARROW} 12     {RIGHT_ARROW} -11", MSGBOX_SIGN) //sqrt 121
+	release
+}

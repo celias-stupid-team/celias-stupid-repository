@@ -150,8 +150,8 @@
 #define VAR_CSR_DUMMY_3                                             0x4060
 #define VAR_MAP_SCENE_PEWTER_CITY_MUSEUM_1F                                    0x4061
 #define VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES                        0x4062
-#define VAR_CSR_DUMMY_4                                      0x4063
-#define VAR_CSR_DUMMY_5                                          0x4064
+#define VAR_ROUTE13_LASS_ATTACK                                      0x4063
+#define VAR_CSR_DANCE_SHOW                                          0x4064
 #define VAR_CSR_DUMMY_6                                 0x4065
 #define VAR_CSR_DUMMY_7                                 0x4066
 #define VAR_CSR_DUMMY_8                                          0x4067
@@ -336,6 +336,13 @@ It is reset after every battle.
 #define VAR_0x8005                 0x8005
 #define VAR_0x8006                 0x8006
 #define VAR_0x8007                 0x8007
+
+#define VAR_SHAKESCREEN_VERTICAL_PAN VAR_0x8004
+#define VAR_SHAKESCREEN_HORIZONTAL_PAN VAR_0x8005
+#define VAR_SHAKESCREEN_NUM_SHAKES VAR_0x8006
+#define VAR_SHAKESCREEN_SHAKE_DELAY VAR_0x8007
+
+
 #define VAR_0x8008                 0x8008
 #define VAR_0x8009                 0x8009
 #define VAR_0x800A                 0x800A

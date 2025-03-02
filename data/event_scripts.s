@@ -1455,3 +1455,6 @@ Text_TestMsg::
 
 	.include "data/maps/FushciaCity_BrendanMay_2F/scripts.inc"
 	.include "data/maps/FushciaCity_BrendanMay_2F/text.inc"
+
+	.include "data/maps/Route12_HallofOrigin/scripts.inc"
+	.include "data/maps/Route12_HallofOrigin/text.inc"

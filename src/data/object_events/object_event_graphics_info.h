@@ -3418,7 +3418,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KimonoYellow = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_YellowGuy = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_YELLOW_GUY,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -3562,7 +3562,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skiier = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ash = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ASH,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,

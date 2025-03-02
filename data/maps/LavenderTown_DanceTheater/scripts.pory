@@ -1,66 +1,955 @@
 // ############### Mapscripts ###############
 
 mapscripts LavenderTown_DanceTheater_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_TEMP_5, 8) // Sign Lady's X
+    }
 }
 
 // ############### regular scripts ###############
 
+script CeliaSecrets_DanceTheaterDance {
+	msgbox("Y'know there isn't exactly a script\nthat says “Walk to the beat.”\pI had to calculate how many frames\neach beat of the song was and how\llong each walk cycle is.\pThen I had to painstakingly time it\nexactly along with the music.\pIt was a very tedious process.\n", MSGBOX_NPC)
+	end
+}
+
+
+const LOOK_GIRL = 9
+script DanceTheater_LookLookGirl {
+	    lock
+	
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		applymovement(LOOK_GIRL, Common_Movement_FacePlayer)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(LOOK_GIRL, DT_exclmark)
+		waitmovement(0)
+		delay(48)
+		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+		closemessage
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+                    addvar(VAR_TEMP_5, 1)
+					applymovement(LOOK_GIRL, DT_walkbackRight)
+					waitmovement(0)
+					break
+				default:
+                    subvar(VAR_TEMP_5, 1)
+					applymovement(LOOK_GIRL, DT_walkbackLeft)
+					waitmovement(0)
+					break
+        }
+	release
+}
+
+
+const SHORT_KID = 10
+script DanceTheater_ShortKid {
+    lock
+    if(!flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+        if(var(VAR_TEMP_5) == 8) {
+            if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
+                msgbox("hey move her again message\n", MSGBOX_DEFAULT)
+                clearflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                release
+                end
+            } else {
+                msgbox("Hey! Get out of the way!\nI can't see the show!", MSGBOX_DEFAULT)
+                release
+                end
+
+            }
+        } else {
+            getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+            if(var(VAR_TEMP_4) == 17 && var(VAR_TEMP_3) == 8) {
+                msgbox("Hey!\nGet out of the way!\pThanks for moving that girl in front\nof me, but I still can't see!", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                faceplayer
+                msgbox("Oh, wow! I can see!\nThanks so much, mister!\pLet's chat again after the show.\nThere's something I wanna show you!", MSGBOX_DEFAULT)
+                setflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                closemessage
+                applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+                waitmovement(0)
+
+                release
+                end
+            }
+        }
+    } else {
+        if(flag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)) {
+            msgbox("thank you message\n", MSGBOX_DEFAULT)
+        } else {
+            if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
+                msgbox("fuck you message\n", MSGBOX_DEFAULT)
+            }   else {
+                msgbox("disappointed\n", MSGBOX_DEFAULT)
+            }
+        } 
+        release
+        end
+    }
+    
+}
+
+script DanceTheater_Ash {
+    if(checkitem(ITEM_SOOT_SACK)) {
+        setflag(FLAG_PUT_ASH_IN_SACK) 
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        removeobject(VAR_LAST_TALKED)
+        playfanfare(MUS_LEVEL_UP)
+        msgbox("{PLAYER} put some ASH in the\nSOOT SACK!", MSGBOX_DEFAULT)
+        waitfanfare
+    } else {
+        if(flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+            msgbox("ASH: Wow, PIKACHU!\nThat was such a good show!", MSGBOX_DEFAULT)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+            closemessage
+            waitmovement(0)
+        } else {
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+            msgbox("ASH: All right, PIKACHU!\nI can't wait to watch the dance!", MSGBOX_DEFAULT)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+            closemessage
+            waitmovement(0)
+        }
+    }
+    release
+    end
+}
+
+script DanceTheater_Pikachu {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_MALE)
+    if(flag(FLAG_PUT_ASH_IN_SACK)) {
+        msgbox("POKéKID: Huh?\nWhere'd that guy go?", MSGBOX_DEFAULT)
+    } else {
+        msgbox("POKéKID: Uh, hey.\pThis guy picked me up off the street\nthe other day.\pI think he actually believes I'm a\nPOKéMON.\nChu Pika!!", MSGBOX_DEFAULT)
+        
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+        closemessage
+        waitmovement(0)
+    }
+    release
+    end
+}
+
+script DanceTheater_FluteMan {
+    lock
+    faceplayer
+    if(!checkitem(ITEM_SOOT_SACK)) {
+        msgbox("Why hello, there!\nWhat an excellent show, huff-puff!\pBack in my home region, I was an\nesteemed glassworker, huff-puff.\pSeeing such a beautiful performance\ninspired my inner craftsman.\lI wish to create again, huff-puff.\pHere!\nTake this, huff-puff!", MSGBOX_DEFAULT)
+        giveitem(ITEM_SOOT_SACK)
+        msgbox("Fill that SOOT SACK with ash and\nbring it back to me.\lI'll craft you a present, huff-puff!", MSGBOX_DEFAULT)
+    } else {
+        if(flag(FLAG_CRAFTED_BLUE_FLUTE)) {
+            msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
+        } else {
+            if(flag(FLAG_PUT_ASH_IN_SACK)) {
+                setflag(FLAG_CRAFTED_BLUE_FLUTE)
+                msgbox("Ah, lovely!\nSome fresh ASH, huff-puff!\pI'll craft you a lovely glass item\nwith this, huff-puff.", MSGBOX_DEFAULT)
+                closemessage
+                delay(15)
+                fadescreen(FADE_TO_BLACK)
+                delay(30)
+                fadescreen(FADE_FROM_BLACK)
+                delay(15)
+                msgbox("Here you are!\nA beautiful glass FLUTE, huff-puff!", MSGBOX_DEFAULT)
+                giveitem(ITEM_POKE_FLUTE)
+                msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
+            } else {
+                msgbox("Fill that SOOT SACK with ash and\nbring it back to me.\lI'll craft you a present, huff-puff!", MSGBOX_DEFAULT)
+            }
+        }
+
+    }
+    release
+    end
+}
+
+
+// Dance Scripts 
 
 const RED = 4
 const BLUE = 1
 const YELLOW = 2
 const GREEN = 3
 
+const GUY = 13
+
 script DanceTheater_Trailer {
     lock
+    setvar(VAR_CSR_DANCE_SHOW, 1)
+    fadeoutbgm(1)
+    playse(SE_CLICK)
+    setweather(WEATHER_SHADE)
+    doweather
+    waitse
+    delay(60)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
     special(SpawnCameraObject)
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    while(var(VAR_TEMP_3) != 5) {
+        if(var(VAR_TEMP_3) < 5) {
+            applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkRight)
+            waitmovement(0)
+            addvar(VAR_TEMP_3, 1)
+        } else {
+            if(var(VAR_TEMP_3) > 5) {
+                applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft)
+                waitmovement(0)
+                subvar(VAR_TEMP_3, 1)
+            }
+        }
+    }
+    delay(30)
+    msgbox("All right, ladies and gentlemen!\nIt's time for tonight's show!\pComing in from JOHTO, put your\nhands together for the KIMONO GIRLS!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
     delay(45)
+    if(var(VAR_TEMP_5) != 8) {
+        setflag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)
+    }
+
+    playbgm(MUS_CSR_DRIFTVEIL, FALSE)
+    delay(80)
+    addobject(GUY)
+    delay(12)
+    playse(SE_FALL)
+    applymovement(GUY, GuyDance)
+    delay(14) //Intro
+    playse(SE_M_STRENGTH)
+
     applymovement(RED, RedDance)
     applymovement(BLUE, BlueDance)
     applymovement(YELLOW, YellowDance)
     applymovement(GREEN, GreenDance)
+    waitmovement(GUY)
+    playse(SE_LEDGE)
+    applymovement(GUY, GuyJump)
+    waitmovement(GUY)
+    playse(SE_M_STRENGTH)
+
+    waitmovement(GREEN)
+    setweather(WEATHER_NONE)
+    applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraComesDown)
+    doweather
+    delay(60)
+    fadedefaultbgm
     waitmovement(0)
+    
+    setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
+    special(RemoveCameraObject)
     release
 }
 
 movement Theater_CameraGoesUp {
-    walk_up * 7
+    walk_up * 8
+}
+
+movement Theater_CameraComesDown {
+    walk_down * 8
+}
+
+movement GuyDance {
+    slide_down * 8
+    delay_16 * 6
+    lock_facing_direction
+    walk_slow_right
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_left
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_left
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+
+    walk_slow_right
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_up
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_down
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_down
+    delay_1
+    delay_4
+    delay_8
+    delay_16
+    
+    walk_slow_up
+    delay_1
+    delay_4
+    delay_8
+
+    // B section
+    
+    delay_16
+    delay_4
+    delay_2
+    unlock_facing_direction
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    delay_4
+    delay_8
+    delay_16
+    
+    unlock_facing_direction
+    face_left
+    lock_facing_direction
+    walk_slow_right
+    delay_4
+    delay_8
+    delay_16
+    
+    unlock_facing_direction
+    face_left
+    lock_facing_direction
+    walk_slow_right
+    delay_4
+    delay_8
+    delay_16
+
+    unlock_facing_direction
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    delay_4
+    delay_8
+    delay_16 * 2
+
+    unlock_facing_direction
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    lock_facing_direction
+    walk_slow_up // 24
+    face_down // 25
+    delay_16 * 2 // 57
+    delay_8
+    walk_slow_up // 24
+    face_down // 25
+    delay_16 * 2 // 114
+    delay_4
+    
+
+}
+
+movement GuyJump {
+    jump_2_down
 }
 
 movement BlueDance {
-    walk_slower_right
     face_right
-    delay_16
-    delay_16
-    walk_slower_up
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
     face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_right //32
+    face_right //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_down
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_right
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_left * 2 //64 frames
+    face_down
+    walk_slow_down
+    walk_slow_down // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
 }
 
 movement YellowDance {
-    walk_slower_up
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+    //Dance Starts
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //24
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_up //24
+    face_up //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //32
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_up //32
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_left //32
+    face_left //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+
+    //Move inward
+    
+    walk_slow_down //16
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_right
+	face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
     face_up
     delay_16
+    delay_8
+    delay_2
+    face_down
     delay_16
-    walk_slower_left
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_right * 2 //64 frames
+    face_down
+    walk_slow_down
+    walk_slow_down // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
     face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
 }
 
 movement GreenDance {
-    walk_slower_left
     face_left
-    delay_16
-    delay_16
-    walk_slower_down
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //24
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //24
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_down //24
+    face_left //1 beat = 26
+    face_down //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
     face_down
-}
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_right //32
+    face_right //1 beat = 26
+    face_right //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_left
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up
+	face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_right
+	face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_left * 2 //64 frames
+    face_left
+    walk_slow_up
+    walk_slow_up // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+    }
 
 movement RedDance {
-    walk_slower_down
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_2
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+
+    //Dance Starts
+    walk_slow_right //24
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_right //32
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_down //16
+    face_down //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
+    face_right
+    delay_4
     face_down
     delay_16
-    delay_16
-    walk_slower_right
+    delay_4
+    delay_2
+    delay_1
+
+    //Repeat first phase of dance
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_left //32
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    
+    walk_slow_down //32
+    face_down //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+
+    walk_slow_left //32
+    face_left //1 beat = 26
+    face_left //Triplet turnaround; Sixteenth triplet = 4 frames each
+    delay_4
+    face_up
+    delay_4
     face_right
+    delay_4
+    face_down
+    delay_16
+    delay_4
+    delay_2
+    delay_1
+
+    //Move inward
+    
+    walk_slow_up //16
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_right //16
+    face_right //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    walk_slow_up //16
+    face_up //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+    
+    walk_slow_left //16
+    face_left //1 beat = 26
+    delay_4
+    delay_8
+    delay_16 //1 beat = 26
+
+    face_up
+    delay_16
+    delay_8
+    delay_2
+    face_down
+    delay_16
+    delay_8
+    delay_2
+
+    delay_16 * 2
+    walk_slow_right * 2 //64 frames
+    face_right
+    walk_slow_up
+    walk_slow_up // 32
+    face_up
+    delay_16 * 2
+    
+    //6 beats before this = 160 frames
+    face_left
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_right
+    delay_8 //half beat:
+    delay_4
+    delay_1
+    face_down //4.5 beats = 480 frames =
+    delay_16 * 5
+
+}
+
+
+movement DT_exclmark {
+	emote_exclamation_mark
+}
+
+movement DT_walkbackLeft {
+	walk_left
+	walk_in_place_faster_right
+	step_end
+}
+
+movement DT_walkbackRight {
+	walk_right
+	walk_in_place_faster_left
+	step_end
 }

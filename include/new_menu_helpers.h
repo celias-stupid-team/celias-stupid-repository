@@ -50,6 +50,7 @@ u16 GetStdWindowBaseTileNum(void);
 void DrawHelpMessageWindowWithText(const u8 * text);
 void DestroyHelpMessageWindow_(void);
 void LoadSignpostWindowFrameGfx(void);
+void LoadEatenSignpostWindowFrameGfx(void);
 void SetDefaultFontsPointer(void);
 void LoadMessageBoxAndBorderGfx(void);
 

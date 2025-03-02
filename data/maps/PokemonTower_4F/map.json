@@ -15,28 +15,15 @@
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
   "connections": 0,
   "object_events": [
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "PokemonTower_4F_EventScript_Paula",
-      "flag": "0"
-    }
+
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 2,
+      "x": 18,
+      "y": 8,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_5F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "3"
     },
     {
       "x": 13,
@@ -46,8 +33,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 18,
-      "y": 8,
+      "x": 11,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_4F",
       "dest_warp_id": "1"
@@ -99,8 +86,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 6,
+      "x": 14,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -126,8 +113,17 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 6,
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_CorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -136,16 +132,7 @@
     {
       "type": "trigger",
       "x": 12,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_CorrectAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 15,
-      "y": 7,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -153,8 +140,8 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 8,
+      "x": 11,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -162,8 +149,8 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 9,
+      "x": 10,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
@@ -171,6 +158,23 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_MathQuestion_One"
+    }
   ]
 }

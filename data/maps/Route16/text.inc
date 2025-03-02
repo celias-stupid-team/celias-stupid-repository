@@ -76,7 +76,7 @@ Route16_Text_CyclingRoadSign::
 
 Route16_Text_RouteSign::
     .string "ROUTE 16\n"
-    .string "CELADON CITY - FUSHCIA CITY$"
+    .string "NEW WILD POKéMON: 1$"
 
 Route16_Text_JedIntro::
 	.string "...\n"
