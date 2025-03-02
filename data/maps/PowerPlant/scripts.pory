@@ -110,7 +110,7 @@ script PowerPlant_MagnemiteMan {
 		if(flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)) {
 			msgbox("Hey again!\nDo you have a MAGNEMITE yet?\pMe and my two MAGNEMITES are gonna\nwait here for you so we can evolve.\pBe sure to come back when you find\none!", MSGBOX_DEFAULT)
 		} else {
-			setflag(flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY))
+			setflag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)
 			msgbox("Hey, there!\nDo you happen to have a MAGNEMITE?\pI actually have two MAGNEMITES here\nwith me right now.\lWe're just one away from evolving!\pBut, it looks like there aren't any\nwild ones here anymore.\pIf you ever catch a MAGNEMITE, do\nyou think you could bring it here?\lThat way, we can evolve together!\pI'll be waiting for you!\n", MSGBOX_DEFAULT)
 		}
 	}
