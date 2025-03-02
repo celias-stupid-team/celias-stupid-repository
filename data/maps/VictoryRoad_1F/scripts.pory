@@ -7,7 +7,6 @@ VictoryRoad_1F_MapScripts::
 	.byte 0
 
 VictoryRoad_1F_OnLoad::
-	call_if_ne VAR_CSR_DUMMY_5, 100, VictoryRoad_1F_EventScript_SetRockBarrier
 	end
 
 VictoryRoad_1F_EventScript_SetRockBarrier::
@@ -21,14 +20,12 @@ VictoryRoad_1F_OnTransition::
 
 VictoryRoad_1F_EventScript_FloorSwitch::
 	lockall
-	goto_if_eq VAR_CSR_DUMMY_5, 100, VictoryRoad_1F_EventScript_FloorSwitchAlreadyPressed
 	setmetatile 12, 14, METATILE_Cave_Floor_Ledge_Top, 0
 	setmetatile 12, 15, METATILE_Cave_Floor_Ledge_Bottom, 0
 	playse SE_ICE_BREAK
 	special DrawWholeMapView
 	waitse
 	copyobjectxytoperm LOCALID_BOULDER
-	setvar VAR_CSR_DUMMY_5, 100
 	releaseall
 	end
 

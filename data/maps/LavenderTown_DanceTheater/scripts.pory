@@ -206,7 +206,7 @@ script DanceTheater_Trailer {
         }
     }
     delay(30)
-    msgbox("All right, ladies and gentlemen!\nIt's time for tonight's show!\pComing in from JOHTO, put your\nhands together for the KIMONO GIRLS!", MSGBOX_DEFAULT)
+    msgbox("All right, ladies and gentlemen!\nIt's time for tonight's show!\pComing in from JOHTO, put your hands\ntogether for our main event:\lBIG YELLOW and the KIMONO GIRLS!", MSGBOX_DEFAULT)
     closemessage
     delay(30)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)

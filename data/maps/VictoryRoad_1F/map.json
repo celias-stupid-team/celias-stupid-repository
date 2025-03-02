@@ -131,15 +131,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 16,
-      "elevation": 3,
-      "var": "VAR_CSR_DUMMY_5",
-      "var_value": "99",
-      "script": "VictoryRoad_1F_EventScript_FloorSwitch"
-    }
+
   ],
   "bg_events": [
     {
