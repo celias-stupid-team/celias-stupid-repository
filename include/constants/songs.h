@@ -377,11 +377,13 @@
 #define MUS_CSR_IMPOSTER_OAK          368
 #define MUS_CSR_MART          369
 #define MUS_CSR_POKERAP          370
+#define MUS_CSR_DANCE_THEATER          371
+
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_POKERAP
+#define END_MUS                     MUS_CSR_DANCE_THEATER
 
 #endif  // GUARD_CONSTANTS_SONGS_H

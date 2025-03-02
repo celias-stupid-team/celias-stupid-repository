@@ -2,7 +2,7 @@
   "id": "MAP_LAVENDER_TOWN_DANCE_THEATER",
   "name": "LavenderTown_DanceTheater",
   "layout": "LAYOUT_LAVENDER_TOWN_DANCE_THEATER",
-  "music": "MUS_DUMMY",
+  "music": "MUS_CSR_DANCE_THEATER",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -21,13 +21,13 @@
       "x": 2,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 6,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
@@ -35,45 +35,45 @@
       "x": 8,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 6,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_KIMONOGREEN",
-      "x": 8,
+      "x": 9,
       "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 6,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_KIMONORED",
-      "x": 2,
+      "x": 1,
       "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 6,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
       "x": 7,
       "y": 14,
       "elevation": 0,
@@ -82,7 +82,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "DanceTheater_FluteMan",
       "flag": "0"
     },
     {
@@ -96,8 +96,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "DanceTheater_Ash",
+      "flag": "FLAG_PUT_ASH_IN_SACK"
     },
     {
       "type": "object",
@@ -110,7 +110,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "DanceTheater_Pikachu",
       "flag": "0"
     },
     {
@@ -138,7 +138,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "DanceTheater_LookLookGirl",
       "flag": "0"
     },
     {
@@ -152,22 +152,50 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "DanceTheater_ShortKid",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 3,
-      "y": 21,
+      "x": 4,
+      "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecrets_DanceTheaterDance",
+      "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YELLOWGUY",
+      "x": 5,
+      "y": -1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_DANCE_THEATER_WATCHED_SHOW"
     }
   ],
   "warp_events": [
@@ -180,13 +208,102 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_DANCE_SHOW",
+      "var_value": "0",
+      "script": "DanceTheater_Trailer"
+    }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 5,
-      "y": 13,
+      "x": 11,
+      "y": -1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "DanceTheater_Trailer"

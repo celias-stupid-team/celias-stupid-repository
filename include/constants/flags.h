@@ -298,12 +298,12 @@
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
 #define FLAG_ROUTE18_LASSATTACK               0x0FE
-#define FLAG_0x0FF               0x0FF
-#define FLAG_0x100               0x100
-#define FLAG_0x101               0x101
-#define FLAG_0x102               0x102
-#define FLAG_0x103               0x103
-#define FLAG_0x104               0x104
+#define FLAG_DANCE_THEATER_WATCHED_SHOW                              0x0FF
+#define FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW                              0x100
+#define FLAG_DANCE_THEATER_KID_READY_TO_GIVE                              0x101
+#define FLAG_GOT_SOOT_SACK                              0x102
+#define FLAG_PUT_ASH_IN_SACK                              0x103
+#define FLAG_CRAFTED_BLUE_FLUTE                              0x104
 #define FLAG_0x105               0x105
 #define FLAG_CSR_TM_CASE               0x106
 #define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107

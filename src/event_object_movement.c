@@ -461,6 +461,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_IMPOSTER_OAK                0x111E
 #define OBJ_EVENT_PAL_TAG_RS_GENTLEMAN                0x111F
 #define OBJ_EVENT_PAL_TAG_ASH                0x1120
+#define OBJ_EVENT_PAL_TAG_YELLOW_GUY                0x1121
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -497,6 +498,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_ImposterOak,             OBJ_EVENT_PAL_TAG_IMPOSTER_OAK},
     {gObjectEventPal_RSGentleman,             OBJ_EVENT_PAL_TAG_RS_GENTLEMAN},
     {gObjectEventPal_Ash,             OBJ_EVENT_PAL_TAG_ASH},
+    {gObjectEventPal_YellowGuy,             OBJ_EVENT_PAL_TAG_YELLOW_GUY},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -1470,7 +1472,7 @@ u8 SpawnSpecialObjectEvent(struct ObjectEventTemplate *objectEventTemplate)
     return TrySpawnObjectEventTemplate(objectEventTemplate, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
 }
 
-int SpawnSpecialObjectEventParameterized(u8 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation)
+int SpawnSpecialObjectEventParameterized(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 elevation)
 {
     struct ObjectEventTemplate objectEventTemplate;
 
@@ -1583,7 +1585,7 @@ u8 CreateObjectGraphicsSprite(u16 graphicsId, SpriteCallback callback, s16 x, s1
 #define sVirtualObjId   data[0]
 #define sVirtualObjElev data[1]
 
-u8 CreateVirtualObject(u8 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevation, u8 direction)
+u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevation, u8 direction)
 {
     u8 spriteId;
     struct Sprite *sprite;
@@ -1622,7 +1624,7 @@ u8 CreateVirtualObject(u8 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevatio
     return spriteId;
 }
 
-u8 CreateFameCheckerObject(u8 graphicsId, u8 localId, s16 x, s16 y)
+u8 CreateFameCheckerObject(u16 graphicsId, u8 localId, s16 x, s16 y)
 {
     u8 spriteId;
     struct Sprite *sprite;
@@ -1853,14 +1855,14 @@ static void ObjectEventSetGraphics(struct ObjectEvent *objectEvent, const struct
     }
 }
 
-void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u8 graphicsId)
+void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u16 graphicsId)
 {
     objectEvent->graphicsId = graphicsId;
     ObjectEventSetGraphics(objectEvent, GetObjectEventGraphicsInfo(graphicsId));
     objectEvent->graphicsId = graphicsId;
 }
 
-void ObjectEventSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, u8 graphicsId)
+void ObjectEventSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, u16 graphicsId)
 {
     u8 objectEventId;
 
@@ -1895,7 +1897,7 @@ void PlayerObjectTurn(struct PlayerAvatar *playerAvatar, u8 direction)
     ObjectEventTurn(&gObjectEvents[playerAvatar->objectEventId], direction);
 }
 
-const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u8 graphicsId)
+const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
 {
     if (graphicsId >= OBJ_EVENT_GFX_VARS)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VARS);
@@ -9200,13 +9202,13 @@ void TurnVirtualObject(u8 virtualObjId, u8 direction)
     }
 }
 
-void SetVirtualObjectGraphics(u8 virtualObjId, u8 direction)
+void SetVirtualObjectGraphics(u8 virtualObjId, u16 graphicsId)
 {
     int spriteId = GetVirtualObjectSpriteId(virtualObjId);
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];
-        const struct ObjectEventGraphicsInfo *info = GetObjectEventGraphicsInfo(direction);
+        const struct ObjectEventGraphicsInfo *info = GetObjectEventGraphicsInfo(graphicsId);
         u16 baseBlock = sprite->oam.tileNum;
         u8 i = FindObjectEventPaletteIndexByTag(info->paletteTag);
         if (i != 0xFF)
