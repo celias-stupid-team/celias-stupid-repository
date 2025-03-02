@@ -336,6 +336,13 @@ It is reset after every battle.
 #define VAR_0x8005                 0x8005
 #define VAR_0x8006                 0x8006
 #define VAR_0x8007                 0x8007
+
+#define VAR_SHAKESCREEN_VERTICAL_PAN VAR_0x8004
+#define VAR_SHAKESCREEN_HORIZONTAL_PAN VAR_0x8005
+#define VAR_SHAKESCREEN_NUM_SHAKES VAR_0x8006
+#define VAR_SHAKESCREEN_SHAKE_DELAY VAR_0x8007
+
+
 #define VAR_0x8008                 0x8008
 #define VAR_0x8009                 0x8009
 #define VAR_0x800A                 0x800A

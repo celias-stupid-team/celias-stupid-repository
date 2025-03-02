@@ -4,5 +4,10 @@
 //Add your mugshot constants here
 
 #define MUGSHOT_CHAPTER1 0
+#define MUGSHOT_BIKE_FRAME_1 1
+#define MUGSHOT_BIKE_FRAME_2 2
+#define MUGSHOT_BIKE_FRAME_3 3
+#define MUGSHOT_BIKE_FRAME_4 4
+
 
 #endif
