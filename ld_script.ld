@@ -991,6 +991,7 @@ SECTIONS {
         sound/songs/midi/mus_clefairy_dance.o(.rodata);
         sound/songs/midi/mus_imposter_oak.o(.rodata);
         sound/songs/midi/mus_mart.o(.rodata);
+        sound/songs/midi/mus_dance_theater.o(.rodata);
 
     } > ROM =0
 
