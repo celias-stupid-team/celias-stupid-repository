@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE16",
-      "offset": 0,
+      "offset": 4,
       "direction": "up"
     },
     {
@@ -29,8 +29,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 4,
-      "y": 18,
+      "x": 15,
+      "y": 47,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -43,8 +43,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 11,
-      "y": 15,
+      "x": 16,
+      "y": 67,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -57,8 +57,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 15,
-      "y": 24,
+      "x": 8,
+      "y": 42,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 4,
@@ -71,8 +71,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 18,
-      "y": 41,
+      "x": 8,
+      "y": 70,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -85,8 +85,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 7,
-      "y": 38,
+      "x": 9,
+      "y": 58,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -99,22 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 2,
-      "y": 61,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route17_EventScript_Jamal",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 21,
-      "y": 61,
+      "x": 16,
+      "y": 78,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -123,55 +109,21 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route17_EventScript_Zeek",
       "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 18,
-      "y": 94,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 5,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route17_EventScript_Corey",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 16,
-      "y": 118,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
-      "movement_range_x": 8,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route17_EventScript_William",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 8,
-      "y": 106,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
-      "movement_range_x": 1,
-      "movement_range_y": 5,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route17_EventScript_Jaxon",
-      "flag": "0"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 112,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route17_KoraidonNeedsSandwich"
+    }
   ],
   "bg_events": [
     {
@@ -254,8 +206,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 112,
+      "x": 17,
+      "y": 111,
       "elevation": 3,
       "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_13",
