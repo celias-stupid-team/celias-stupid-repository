@@ -62,7 +62,7 @@ Route10_PokemonCenter_1F_EventScript_GetAideRequestInfo::
 	return
 `
 script Route10_PokemonCenter_LittleGirl {
-	clearflag(FLAG_CSR_HIDE_DRIFLOON)
+	setflag(FLAG_CSR_DRIFLOON_APPEARS)
 	msgbox("The BALLOON POKéMON will sometimes\ncome to visit us.\pI wonder if he'll be there today!\n", MSGBOX_NPC)
 	end
 }
