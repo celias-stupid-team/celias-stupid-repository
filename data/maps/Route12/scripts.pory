@@ -104,6 +104,8 @@ script Route12_TrappedFisherLooksOver {
 	setobjectmovementtype(TRAPPED_FISHER, MOVEMENT_TYPE_FACE_RIGHT)
 	applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
 	waitmovement(0)
+	applymovement(TRAPPED_FISHER, Common_Movement_ExclamationMark)
+	waitmovement(0)
 	release
 }
 
@@ -116,7 +118,33 @@ script Route12_TrappedFisherTalks {
 		case DIR_WEST:
 			applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
 	}
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitmovement(0)
 	msgbox("Ahoy, there!\nUh, how's it going?\pSay, is there any chance you could\ncall for some help?\lI've been trapped here for weeks!", MSGBOX_DEFAULT)
+	release
+}
+
+script Route12_GoingNorth {
+	setflag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)
+	release
+}
+
+script Route12_GoingSouth {
+	clearflag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)
+	release
+}
+
+script Route12_ConcernedSister {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)) {
+		msgbox("Oh no!\nThat poor GYARADOS!\lSomeone help it!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Oh no!\nMy poor brother!\lSomeone help him!", MSGBOX_DEFAULT)
+	}
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
 	release
 }
 

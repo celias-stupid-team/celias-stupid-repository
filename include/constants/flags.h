@@ -317,7 +317,7 @@
 #define FLAG_CSR_POWER_IS_ON               0x10F
 #define FLAG_CSR_DEFEATED_SNORLAX               0x110
 #define FLAG_CSR_HIDE_OMANYTE               0x111
-#define FLAG_0x112               0x112
+#define FLAG_CSR_ROUTE12_BROTHER_IS_CHASING               0x112
 #define FLAG_0x113               0x113
 #define FLAG_0x114               0x114
 #define FLAG_0x115               0x115

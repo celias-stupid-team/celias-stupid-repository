@@ -34,41 +34,41 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 20,
-      "y": 24,
+      "x": 21,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route12_EventScript_Ned",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 29,
-      "y": 70,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
-      "movement_range_x": 1,
+      "graphics_id": "OBJ_EVENT_GFX_PIDGEOT",
+      "x": 27,
+      "y": 53,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 3,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route12_EventScript_Chip",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 29,
-      "y": 67,
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 28,
+      "y": 57,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route12_EventScript_Hank",
       "flag": "0"
@@ -76,8 +76,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HO_OH",
-      "x": 25,
-      "y": 45,
+      "x": 27,
+      "y": 47,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -243,9 +243,23 @@
     },
     {
       "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+      "x": 24,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
+      "movement_range_x": 4,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
       "x": 24,
-      "y": 38,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
       "movement_range_x": 4,
@@ -257,30 +271,16 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 28,
-      "y": 38,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
-      "movement_range_x": 4,
-      "movement_range_y": 2,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
       "x": 26,
-      "y": 40,
-      "elevation": 0,
+      "y": 38,
+      "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route12_Trailer_Camera",
+      "script": "Route12_ConcernedSister",
       "flag": "0"
     },
     {
@@ -366,7 +366,7 @@
     {
       "type": "trigger",
       "x": 23,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_CSR_TRAPPED_FISHER",
       "var_value": "0",
@@ -375,7 +375,7 @@
     {
       "type": "trigger",
       "x": 24,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_CSR_TRAPPED_FISHER",
       "var_value": "0",
@@ -384,11 +384,65 @@
     {
       "type": "trigger",
       "x": 25,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_CSR_TRAPPED_FISHER",
       "var_value": "0",
       "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
     }
   ],
   "bg_events": [
@@ -410,8 +464,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 19,
-      "y": 52,
+      "x": 30,
+      "y": 51,
       "elevation": 3,
       "item": "ITEM_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_32",
@@ -441,18 +495,18 @@
     {
       "type": "sign",
       "x": 22,
-      "y": 24,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route12_TrappedFisherLooksOver"
+      "script": "Route12_TrappedFisherTalks"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 25,
+      "x": 21,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route12_TrappedFisherLooksOver"
+      "script": "Route12_TrappedFisherTalks"
     }
   ]
 }

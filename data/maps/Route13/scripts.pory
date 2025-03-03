@@ -34,6 +34,21 @@ script Route13_Snorlax {
 	end
 }
 
+script Route13_Artist {
+	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic fences\nall along the grass on this route!\lMy artistic genius knows no limits!", MSGBOX_NPC)
+	end
+}
+
+script Route13_Fence {
+	msgbox("This patch of grass has been\nintricately painted to resemble\la fence.", MSGBOX_SIGN)
+	end
+}
+
+script Route13_WrongTurnSign {
+	msgbox("TRAINER TIPS!\pDon't make a wrong turn!\n", MSGBOX_SIGN)
+	end
+}
+
 const LASS = 2
 
 script Route13_LassAttack {
