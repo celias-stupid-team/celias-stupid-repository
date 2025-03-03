@@ -19,6 +19,12 @@ const GUARD = 1
 const FATGUY = 2
 
 
+const FAR_LEFT = 40
+const MID_LEFT = 41
+const MID_RIGHT = 42
+const FAR_RIGHT = 43
+
+
 script Route15_PowerOutTrigger {
 	lock
 	textcolor(NPC_TEXT_COLOR_MALE)
@@ -30,17 +36,17 @@ script Route15_PowerOutTrigger {
 	closemessage
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	switch(var(VAR_TEMP_1)) { //Guard approaches
-		case 51:
+		case FAR_RIGHT:
 			break
-		case 50:
+		case MID_RIGHT:
 			applymovement(GUARD, Route15_Lighthouse_WalkOneLeft)
 			waitmovement(0)
 			break
-		case 49:
+		case MID_LEFT:
 			applymovement(GUARD, Route15_Lighthouse_WalkTwoLeft)
 			waitmovement(0)
 			break
-		case 48:
+		case FAR_LEFT:
 			applymovement(GUARD, Route15_Lighthouse_WalkThreeLeft)
 			waitmovement(0)
 			break
@@ -48,17 +54,17 @@ script Route15_PowerOutTrigger {
 	call(Route15_NoPower)
 	delay(20)
 	switch(var(VAR_TEMP_1)) { //Guard Leaves
-		case 51:
+		case FAR_RIGHT:
 			break
-		case 50:
+		case MID_RIGHT:
 			applymovement(GUARD, Route15_Lighthouse_WalkOneRight)
 			waitmovement(0)
 			break
-		case 49:
+		case MID_LEFT:
 			applymovement(GUARD, Route15_Lighthouse_WalkTwoRight)
 			waitmovement(0)
 			break
-		case 48:
+		case FAR_LEFT:
 			applymovement(GUARD, Route15_Lighthouse_WalkThreeRight)
 			waitmovement(0)
 			break
@@ -91,18 +97,17 @@ script Route15_NoPower {
 	delay(8) //delay to make it line up with the camera
 
 	switch(var(VAR_TEMP_1)) { //Man walks up - This decides where he starts
-		case 51:
-		case 48: //Yeah yeah I should've just used default case 
-		case 52:
-			setobjectxy(FATGUY, 50, 29)
+		case FAR_LEFT: //Yeah yeah I should've just used default case 
+		case FAR_RIGHT:
+			setobjectxy(FATGUY, MID_RIGHT, 29)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy1)
 			break
-		case 50:
-			setobjectxy(FATGUY, 49, 29)
+		case MID_RIGHT:
+			setobjectxy(FATGUY, MID_LEFT, 29)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy2)
 			break
-		case 49:
-			setobjectxy(FATGUY, 51, 29)
+		case MID_LEFT:
+			setobjectxy(FATGUY, FAR_RIGHT, 29)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy3)
 			break
 		
@@ -112,7 +117,7 @@ script Route15_NoPower {
 	msgbox("I'm sorry, but rules are rules.\nNobody's allowed to go inside.", MSGBOX_DEFAULT)
 	waitmovement(0)
 	closemessage
-	setobjectxy(FATGUY, 55, 26)
+	setobjectxy(FATGUY, 47, 26)
 	special(RemoveCameraObject)
 	return
 }

@@ -15,6 +15,25 @@ Route13_EventScript_RouteSign::
 	end
 `
 
+script Route13_TheMountains {
+	msgbox("The Mountains\n", MSGBOX_SIGN)
+	end
+}
+
+const SNORLAX = 3
+script Route13_Snorlax {
+	lock
+	msgbox("The SNORLAX ran off to the\nmountains…", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playmoncry(SPECIES_SNORLAX, CRY_MODE_NORMAL)
+	waitmoncry
+	removeobject(SNORLAX)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
+
 const LASS = 2
 
 script Route13_LassAttack {

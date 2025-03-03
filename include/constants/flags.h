@@ -315,7 +315,7 @@
 #define FLAG_CSR_TALKED_TO_DAZZLE               0x10D
 #define FLAG_CSR_TRADED_WITH_DAZZLE               0x10E
 #define FLAG_CSR_POWER_IS_ON               0x10F
-#define FLAG_0x110               0x110
+#define FLAG_CSR_DEFEATED_SNORLAX               0x110
 #define FLAG_0x111               0x111
 #define FLAG_0x112               0x112
 #define FLAG_0x113               0x113
