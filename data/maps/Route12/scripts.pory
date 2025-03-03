@@ -59,6 +59,37 @@ Route12_EventScript_FishingSign::
 	msgbox Route12_Text_SportfishingArea, MSGBOX_SIGN
 	end
 `
+
+script Route12_Snorlax {
+	lock
+	if(!checkitem(ITEM_POKE_FLUTE)) {
+		msgbox(Route12_Text_MonSprawledOutInSlumber)
+	} else {
+		goto_if_questlog(EventScript_ReleaseEnd)
+		special(QuestLog_CutRecording)
+		msgbox(Text_WantToUsePokeFlute, MSGBOX_YESNO)
+		if(!var(VAR_RESULT)) {
+			release
+			end
+		} else {
+			call(EventScript_AwakenSnorlax)
+			closemessage
+			delay(60)
+			playse(SE_CLICK)
+			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+			setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+			setmaplayoutindex(LAYOUT_ROUTE12_HALLOF_ORIGIN)
+			special(DrawWholeMapView)
+			special(ShakeScreen)
+			delay(60)
+			release
+			end
+
+		}
+	}
+}
 script Route12_Celia_Path {
 	msgbox("For reasons that are so dumb and\nconvoluted that I couldn't even\lbegin to describe them here,\lthis path is 2 tiles shorter now.\pPlease don't ask why.\n", MSGBOX_NPC)
 	end
