@@ -29,7 +29,7 @@ Route17_EventScript_CyclingRoadSign::
 
 script Route17_KoraidonNeedsSandwich {
 	lock
-	if(checkitem(ITEM_MASTER_BALL)) {
+	if(checkitem(ITEM_SANDWICH)) {
 		msgbox("The slope is too steep for your\nBIKE to handle.\pWould you like to feed your BIKE\na SANDWICH?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			goto(Route17_BikeFliesUp)
@@ -52,6 +52,7 @@ script Route17_TurnAroundAndLeave {
 
 script Route17_BikeFliesUp {
 	closemessage
+	removeitem(ITEM_SANDWICH, 1)
 	msgbox("{PLAYER}'s BIKE ate the SANDWICH!\n", MSGBOX_DEFAULT)
 	fadeoutbgm(1)
 	playbgm(MUS_CSR_DRILL_DOZER, TRUE) //Bike Music

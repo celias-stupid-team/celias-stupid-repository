@@ -428,6 +428,10 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FIGHTING_ENERGY]      =  {gItemIcon_FightingEnergy, gItemIconPalette_FightingEnergy},
     [ITEM_EMPTY_PAIL]      =  {gItemIcon_WailmerPail, gItemIconPalette_WailmerPail},
     [ITEM_METRONOME]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_SANDWICH_CASE]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_SANDWICH]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_JELLY_DONUT]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_AWAKENING_FIRE_EMBLEM]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome}, //Placeholders
 
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
