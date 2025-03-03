@@ -37,7 +37,7 @@
       "x": 20,
       "y": 24,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route12_EventScript_ItemTM48",
-      "flag": "FLAG_HIDE_ROUTE12_TM48"
+      "flag": "FLAG_CSR_HIDE_OMANYTE"
     },
     {
       "type": "object",
@@ -244,11 +244,11 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
-      "x": 24,
+      "x": 25,
       "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
-      "movement_range_x": 1,
+      "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -262,7 +262,7 @@
       "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
-      "movement_range_x": 1,
+      "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -287,7 +287,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 23,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -362,13 +362,40 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
       "x": 24,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route12_EventScript_RouteSign"
@@ -410,6 +437,22 @@
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

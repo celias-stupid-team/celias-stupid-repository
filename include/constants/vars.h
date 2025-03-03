@@ -277,7 +277,7 @@ It is reset after every battle.
 #define VAR_CSR_CELIA_SECRET_NEXT_HINT                 0x40D0
 #define VAR_CSR_CURRENT_CELIA_SECRET                 0x40D1
 #define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
-#define VAR_0x40D3                 0x40D3
+#define VAR_CSR_TRAPPED_FISHER                 0x40D3
 #define VAR_0x40D4                 0x40D4
 #define VAR_0x40D5                 0x40D5
 #define VAR_0x40D6                 0x40D6

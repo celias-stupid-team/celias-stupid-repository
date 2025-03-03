@@ -72,7 +72,11 @@ script Route12_Snorlax {
 			release
 			end
 		} else {
-			call(EventScript_AwakenSnorlax)
+			setflag(FLAG_CSR_HIDE_OMANYTE)
+			message(Text_PlayedPokeFlute)
+			waitmessage
+			playfanfare(MUS_POKE_FLUTE)
+			waitfanfare
 			closemessage
 			delay(60)
 			playse(SE_CLICK)
@@ -90,6 +94,32 @@ script Route12_Snorlax {
 		}
 	}
 }
+
+
+const TRAPPED_FISHER = 1
+script Route12_TrappedFisherLooksOver {
+	lock
+	playse(SE_PIN)
+	setvar(VAR_CSR_TRAPPED_FISHER, 1)
+	setobjectmovementtype(TRAPPED_FISHER, MOVEMENT_TYPE_FACE_RIGHT)
+	applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
+	waitmovement(0)
+	release
+}
+
+script Route12_TrappedFisherTalks {
+	lock
+	special(GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH :
+			applymovement(TRAPPED_FISHER, Common_Movement_FaceDown)
+		case DIR_WEST:
+			applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
+	}
+	msgbox("Ahoy, there!\nUh, how's it going?\pSay, is there any chance you could\ncall for some help?\lI've been trapped here for weeks!", MSGBOX_DEFAULT)
+	release
+}
+
 script Route12_Celia_Path {
 	msgbox("For reasons that are so dumb and\nconvoluted that I couldn't even\lbegin to describe them here,\lthis path is 2 tiles shorter now.\pPlease don't ask why.\n", MSGBOX_NPC)
 	end
