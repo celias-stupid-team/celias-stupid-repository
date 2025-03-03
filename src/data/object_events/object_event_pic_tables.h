@@ -2087,6 +2087,7 @@ overworld_frame(gObjectEventPic_Yellow_guy, 4, 4, 5),
 overworld_frame(gObjectEventPic_Yellow_guy, 4, 4, 6),
 overworld_frame(gObjectEventPic_Yellow_guy, 4, 4, 7),
 overworld_frame(gObjectEventPic_Yellow_guy, 4, 4, 8),
+overworld_frame(gObjectEventPic_Yellow_guy, 4, 4, 9),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_SinnohLass[] = {
