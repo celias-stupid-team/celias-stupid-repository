@@ -20,7 +20,7 @@ script Route13_TheMountains {
 	end
 }
 
-const SNORLAX = 3
+const SNORLAX = 2
 script Route13_Snorlax {
 	lock
 	msgbox("The SNORLAX ran off to the\nmountains…", MSGBOX_DEFAULT)
@@ -49,7 +49,7 @@ script Route13_WrongTurnSign {
 	end
 }
 
-const LASS = 2
+const LASS = 1
 
 script Route13_LassAttack {
 	lock

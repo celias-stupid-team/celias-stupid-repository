@@ -1,3 +1,27 @@
 mapscripts Route18_SandwichShop_MapScripts {
     
 }
+
+script Route18_SandwichChef {
+
+}
+
+script SandwichShop_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm making some delicious AMERICAN\nsandwiches.\lNothing beats the classics!\pAnyway, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script SandwichShop_GamblerMan {
+	msgbox("Go ahead! Laugh!\nI'm flat-out busted!\pI gambled for years and finally\nstruck the jackpot!\lI was so excited to be rich!\pBut just as I was walking over to\nthe PRIZE EXCHANGE, the entire\lcity went and shuffled itself!\pHere I am to drown my sorrow in some\ntraditional AMERICAN apple juice.\pCome to me if you ever need COINS.\nI have more than enough to spare.\lSob…", MSGBOX_NPC)
+	end
+}
+
+script SandwichShop_DonutGirl {
+	msgbox("The traditional AMERICAN cuisine\nhere is amazing!\pI think the DONUTS are extra good if\nyou put them in the toaster first.\lThen they get nice and crispy!", MSGBOX_NPC)
+	end
+}
