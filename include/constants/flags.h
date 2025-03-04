@@ -319,7 +319,7 @@
 #define FLAG_CSR_HIDE_OMANYTE               0x111
 #define FLAG_CSR_ROUTE12_BROTHER_IS_CHASING               0x112
 #define FLAG_CSR_SOUL_DEW_FOUND               0x113
-#define FLAG_0x114               0x114
+#define FLAG_CSR_CAUGHT_AMPHAROS               0x114
 #define FLAG_0x115               0x115
 #define FLAG_0x116               0x116
 #define FLAG_0x117               0x117

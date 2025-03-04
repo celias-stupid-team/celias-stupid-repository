@@ -432,6 +432,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SANDWICH]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
     [ITEM_JELLY_DONUT]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
     [ITEM_AWAKENING_FIRE_EMBLEM]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome}, //Placeholders
+    [ITEM_SECRETETHER]      =  {gItemIcon_Ether, gItemIconPalette_Metronome},
 
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
