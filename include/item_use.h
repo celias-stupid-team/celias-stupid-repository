@@ -43,4 +43,7 @@ u8 CanUseEscapeRopeOnCurrMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void FieldUseFunc_LWPEmblem(u8 taskId);
 
+
+void FieldUseFunc_PayDayTM(u8 taskId);
+
 #endif //GUARD_ITEM_USE_H

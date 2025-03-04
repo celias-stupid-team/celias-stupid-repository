@@ -931,6 +931,12 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
 }
 
+void FieldUseFunc_PayDayTM(u8 taskId) {
+    
+
+
+}
+
 static void LWPEmblem_EquipOutfit(void)
 {
     u8 outfit = OUTFIT_NONE;

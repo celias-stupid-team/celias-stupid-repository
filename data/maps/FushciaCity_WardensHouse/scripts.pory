@@ -5,7 +5,7 @@ FushciaCity_WardensHouse_MapScripts::
 FushciaCity_WardensHouse_EventScript_Warden::
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_HM04, FushciaCity_WardensHouse_EventScript_ExplainStrength
+	goto_if_set FLAG_WARDENS_TEETH, FushciaCity_WardensHouse_EventScript_ExplainStrength
 	goto_if_set FLAG_GOT_GOLD_TEETH, FushciaCity_WardensHouse_EventScript_GiveGoldTeeth
 	msgbox FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, FushciaCity_WardensHouse_EventScript_WardenYes
@@ -25,7 +25,7 @@ FushciaCity_WardensHouse_EventScript_GiveGoldTeeth::
 	call_if_eq VAR_RESULT, MALE, FushciaCity_WardensHouse_EventScript_WardenThanksMale
 	call_if_eq VAR_RESULT, FEMALE, FushciaCity_WardensHouse_EventScript_WardenThanksFemale
 	giveitem_msg FushciaCity_WardensHouse_Text_ReceivedHM04FromWarden, ITEM_HM04
-	setflag FLAG_GOT_HM04
+	setflag FLAG_WARDENS_TEETH
 	removeitem ITEM_GOLD_TEETH
 	release
 	end
@@ -59,3 +59,22 @@ FushciaCity_WardensHouse_EventScript_DisplaySign2::
 	msgbox FushciaCity_WardensHouse_Text_OldMonMerchandiseOnDisplay, MSGBOX_SIGN
 	end
 `
+script WardensHouse_Warden {
+	if(flag(FLAG_WARDENS_TEETH)) {
+		msgbox("teeth\n", MSGBOX_DEFAULT)
+	} else {
+		if(checkitem(ITEM_GOLD_TEETH)) {
+			msgbox("return teeth\n", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_WARDENS_TEETH)
+				removeitem(ITEM_GOLD_TEETH)
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+			} else {
+				msgbox("die\n", MSGBOX_DEFAULT)
+			}
+		} else {
+			msgbox("no teeth\n", MSGBOX_DEFAULT)
+		}
+	}
+}
+

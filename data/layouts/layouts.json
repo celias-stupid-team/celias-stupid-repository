@@ -4752,6 +4752,18 @@
       "secondary_tileset": "gTileset_Route12",
       "border_filepath": "data/layouts/Route12_HallofOrigin/border.bin",
       "blockdata_filepath": "data/layouts/Route12_HallofOrigin/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAFARI_ZONE_DMCASHOWDOWN",
+      "name": "SafariZone_DMCAShowdown_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SafariZoneBuilding",
+      "border_filepath": "data/layouts/SafariZone_DMCAShowdown/border.bin",
+      "blockdata_filepath": "data/layouts/SafariZone_DMCAShowdown/map.bin"
     }
   ]
 }

@@ -2248,8 +2248,7 @@ static bool8 HasGottenAtLeastOneHM(void)
         return TRUE;
     if (FlagGet(FLAG_CSR_GOT_PAY_DAY) == TRUE)
         return TRUE;
-    if (FlagGet(FLAG_GOT_HM04) == TRUE)
-        return TRUE;
+
     if (FlagGet(FLAG_GOT_HM05) == TRUE)
         return TRUE;
     if (FlagGet(FLAG_GOT_HM06) == TRUE)

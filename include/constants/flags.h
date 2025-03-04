@@ -624,7 +624,7 @@
 #define FLAG_GOT_HM01                                    0x237
 #define FLAG_GOT_HM02                                    0x238
 #define FLAG_CSR_GOT_PAY_DAY                                    0x239
-#define FLAG_GOT_HM04                                    0x23A
+#define FLAG_WARDENS_TEETH                                    0x23A
 #define FLAG_GOT_HM05                                    0x23B
 #define FLAG_RESCUED_MR_FUJI                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
