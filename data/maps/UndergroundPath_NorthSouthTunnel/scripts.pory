@@ -1,13 +1,38 @@
 raw `
-UndergroundPath_NorthSouthTunnel_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, UndergroundPath_NorthSouthTunnel_OnTransition
-	.byte 0
+
 
 UndergroundPath_NorthSouthTunnel_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL
 	setbench BENCH_UNDERGROUNDPATH
 	end
 `
+
+//VAR_TEMP_1 will be the
+
+const AMPHAROS_EVOLUTION = 1
+const TRUBBISH_EVOLUTION = 2
+
+mapscripts UndergroundPath_NorthSouthTunnel_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: UndergroundPath_NorthSouthTunnel_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, AMPHAROS_EVOLUTION {
+			applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+			waitmovement(0)
+			msgbox("Ah!\nU-um…\pIt's, uh…\nIt's not… ALL bad?\pYeah!\nActually, it's very lovely!\pThere's such a neat, uhh… f-fade!\nThere's a neat fade to it!\pYes, I'm sure you'll be very happy\nwith it.\pPlease, uh, don't come again!\n", MSGBOX_DEFAULT)
+			setvar(VAR_TEMP_1, 0)
+			release
+			end
+		}
+		VAR_TEMP_1, TRUBBISH_EVOLUTION {
+			applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+			waitmovement(0)
+			msgbox("Wahaha!\nThat beast was no match for me!\pAhem… Yes.\nI'm sure your POKéMON is pleased.\pThank you for the opportunity to\ntest my mettle.\lI'll forever cherish the memory.", MSGBOX_DEFAULT)
+			setvar(VAR_TEMP_1, 0)
+			release
+			end
+		}
+	]
+}
 
 script UndergroundPath_YoungerBrother {
 	lock
@@ -52,12 +77,12 @@ script UndergroundPath_YoungerBrother {
 				copyvar(VAR_0x8000, VAR_0x8004)
 				setvar(VAR_0x8001, 0)
 				setvar(VAR_0x8002, FALSE)
+				setvar(VAR_TEMP_1, AMPHAROS_EVOLUTION)
 				callnative(EvolvePartyMon)
 				if(!var(VAR_RESULT)) {
 					msgbox("Oops something broked\n", MSGBOX_DEFAULT)
 				}
 				waitstate
-				msgbox("Ah!\nU-um…\pIt's, uh…\nIt's not… ALL bad?\pYeah!\nActually, it's very lovely!\pThere's such a neat, uhh… f-fade!\nThere's a neat fade to it!\pYes, I'm sure you'll be very happy\nwith it.\pPlease, uh, don't come again!\n", MSGBOX_DEFAULT)
 				release
 				end
 			default:
@@ -105,8 +130,9 @@ script UndergroundPath_OlderBrother {
 				copyvar(VAR_0x8000, VAR_0x8004)
 				setvar(VAR_0x8001, 0)
 				setvar(VAR_0x8002, FALSE)
+				setvar(VAR_TEMP_1, TRUBBISH_EVOLUTION)
 				callnative(EvolvePartyMon)
-				msgbox("Wahaha!\nThat beast was no match for me!\pAhem… Yes.\nI'm sure your POKéMON is pleased.\pThank you for the opportunity to\ntest my mettle.\lI'll forever cherish the memory.", MSGBOX_DEFAULT)
+				waitstate
 				release
 				end
 			case SPECIES_TRUBBISH_HAIRCUT:
