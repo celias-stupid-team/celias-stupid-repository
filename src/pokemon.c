@@ -1664,7 +1664,7 @@ static const s8 sFriendshipEventDeltas[][3] =
 
 static const u16 sHMMoves[] = // The HM moves that prevent you from releasing a Pokemon
 {
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
+    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_TAIL_GLOW,
     MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, MOVE_GROWL_CHARMANDER, MOVE_ODOR_SLEUTH, MOVE_GUILLOTINE, MOVE_ROCK_PUNCH, HM_MOVES_END
 };
 

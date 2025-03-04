@@ -15,6 +15,11 @@ script Route15_Brock {
 	end
 }
 
+script Route15_LighthouseGirl {
+	msgbox("You see that LIGHTHOUSE over there?\pI hear that at night, a giant DRAGON\ncan be seen at the top!\pI hope I get to meet him someday…\n", MSGBOX_NPC)
+	end
+}
+
 const GUARD = 1
 const FATGUY = 2
 

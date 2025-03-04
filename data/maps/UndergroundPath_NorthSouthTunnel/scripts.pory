@@ -11,6 +11,7 @@ UndergroundPath_NorthSouthTunnel_OnTransition::
 
 script UndergroundPath_YoungerBrother {
 	lock
+	faceplayer
 	if(!flag(FLAG_CSR_TALKED_TO_YOUNGER_BROTHER)) {		
 		msgbox("Oh! Um, hello!\nWe're the HAIRCUT Brothers!\pSorry, we haven't had any visitors\nin quite a while.\lI'm not really sure why…", MSGBOX_DEFAULT)
 		setflag(FLAG_CSR_TALKED_TO_YOUNGER_BROTHER)
@@ -21,29 +22,47 @@ script UndergroundPath_YoungerBrother {
 	if(var(VAR_RESULT)) {
 		msgbox("Ah, lovely!\nWhich POKéMON can I try on?", MSGBOX_DEFAULT)
 		// call party menu, check if species is Ampharos-M, Tangela, or none.
-		specialvar(ChoosePartyMon)
+		special(ChoosePartyMon)
 		waitstate
-
+		if(var(VAR_0x8004) >= PARTY_SIZE) {
+			msgbox("Oh…\nThat's okay, I understand.")
+			goto(UndergroudnPath_YoungerBrotherEnd)
+		}
+		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 		switch(var(VAR_RESULT)) {
 			case SPECIES_TANGELA:
 				msgbox("O-oh-!\nOh, my!\pThis POKéMON's hair is, um…\nI-it's certainly something!\pI…\nI don't think I'm up to the task.\pMaybe ask my BROTHER?\nHe's always up for a challenge.", MSGBOX_DEFAULT)
 				goto(UndergroudnPath_YoungerBrotherEnd)
 			case SPECIES_AMPHAROS:
-				msgbox("Oh, you'd like it to have another\nhaircut?\pBut it already has such a lovely\ntrim!\lI couldn't possibly.\pY-yeah…\n", MSGBOX_DEFAULT)
-			case SPECIES_TRUBBISH_TRASH:
+				msgbox("Oh, you'd like it to have another\nhaircut?\pB-but it already has such a lovely,\num, t-trim!\lI couldn't possibly.\pY-yeah…\n", MSGBOX_DEFAULT)
+			case SPECIES_TRUBBISH_HAIRCUT:
 				msgbox("Oh, wow!\nHow lovely!\pMy brother did such a wonderful job\nwith this HAIRCUT.\lI couldn't improve on it.\pBut thank you for showing me this!\nWow…", MSGBOX_DEFAULT)
 				goto(UndergroudnPath_YoungerBrotherEnd)
 			case SPECIES_KENYA:
 				msgbox("Oh!\nKENYA would like a haircut?\lL-like, all of it?\pUm, I don't think I'm up to the\ntask.\lSorry…", MSGBOX_DEFAULT)
 				goto(UndergroudnPath_YoungerBrotherEnd)
+			case SPECIES_DIGLETT:
+			case SPECIES_DUGTRIO:
+				msgbox("Oh, wow!\nLook at you!\pI've heard there's POKéMON out\nthere like you, but with utterly\lbeautiful, luscious hair.\pNot you, though.\nYou, uh, don't need a haircut.", MSGBOX_DEFAULT)
+				goto(UndergroudnPath_YoungerBrotherEnd)
 			case SPECIES_AMPHAROS_MEGA:
 				msgbox("Oh!\nThis POKéMON has such lovely hair…\pBut, do I have it in me to cut it?\nThis is more than I've ever done…\pYes. Yes!\nI can do it!\lI believe in myself!\pNow!\nLet's give you a little trim…", MSGBOX_DEFAULT)
 				closemessage
 				//Evolution here
+				copyvar(VAR_0x8000, VAR_0x8004)
+				setvar(VAR_0x8001, 0)
+				setvar(VAR_0x8002, FALSE)
+				callnative(EvolvePartyMon)
+				if(!var(VAR_RESULT)) {
+					msgbox("Oops something broked\n", MSGBOX_DEFAULT)
+				}
+				waitstate
 				msgbox("Ah!\nU-um…\pIt's, uh…\nIt's not… ALL bad?\pYeah!\nActually, it's very lovely!\pThere's such a neat, uhh… f-fade!\nThere's a neat fade to it!\pYes, I'm sure you'll be very happy\nwith it.\pPlease, uh, don't come again!\n", MSGBOX_DEFAULT)
-				
-			default case:
-
+				release
+				end
+			default:
+				msgbox("Oh, that POKéMON doesn't look\nlike it needs a haircut…", MSGBOX_DEFAULT)
+				goto(UndergroudnPath_YoungerBrotherEnd)
 		}
 	} else {
 		//if !checkmoncaught Ampharos regular
@@ -53,7 +72,7 @@ script UndergroundPath_YoungerBrother {
 	release
 }
 
-script UndergroudnPath_YoungerBrotherEnd {
+script UndergroudnPath_YoungerBrotherEnd { //I just realized that I typo'd this but I don't have it in me to fix it everywhere :(
 	if(!checkmoncaught(SPECIES_AMPHAROS)) {
 		msgbox("I've heard there's a DRAGON-TYPE\nPOKéMON with luscious hair.\lI'd really love to meet it someday…", MSGBOX_DEFAULT)
 	}
@@ -63,6 +82,7 @@ script UndergroudnPath_YoungerBrotherEnd {
 
 script UndergroundPath_OlderBrother {
 	lock
+	faceplayer
 	if(!flag(FLAG_CSR_TALKED_TO_OLDER_BROTHER)) {
 		msgbox("Aha! Finally, a guest!\nWe are the HAIRCUT Brothers.\pWord of my expertise must have\nfinally reached across KANTO!\lYes, I'm truly humbled.", MSGBOX_DEFAULT)
 		setflag(FLAG_CSR_TALKED_TO_OLDER_BROTHER)
@@ -71,6 +91,28 @@ script UndergroundPath_OlderBrother {
 	if(var(VAR_RESULT)) {
 		msgbox("Ah, excellent!\nOn whom should I practice my craft?", MSGBOX_DEFAULT)
 		// party menu
+		special(ChoosePartyMon)
+		waitstate
+		if(var(VAR_0x8004) >= PARTY_SIZE) {
+			msgbox("Oh…\nThat's okay, I understand.")
+			goto(UndergroudnPath_YoungerBrotherEnd)
+		}
+		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+		switch(var(VAR_RESULT)) {
+			case SPECIES_TANGELA:
+				msgbox("Ahaha!\nExcellent!\lA true test of my abilities!\pNow come here, you.\nPrepare to feel my shears!", MSGBOX_DEFAULT)
+				closemessage
+				copyvar(VAR_0x8000, VAR_0x8004)
+				setvar(VAR_0x8001, 0)
+				setvar(VAR_0x8002, FALSE)
+				callnative(EvolvePartyMon)
+				msgbox("Wahaha!\nThat beast was no match for me!\pAhem… Yes.\nI'm sure your POKéMON is pleased.\pThank you for the opportunity to\ntest my mettle.\lI'll forever cherish the memory.", MSGBOX_DEFAULT)
+				release
+				end
+			case SPECIES_TRUBBISH_HAIRCUT:
+			case SPECIES_AMPHAROS:
+			case SPECIES_AMPHAROS_MEGA:
+		}
 		// if not tangela:
 		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly TANGLED beyond repair!", MSGBOX_DEFAULT)
 	}
