@@ -19,13 +19,46 @@ script UndergroundPath_YoungerBrother {
 
 	msgbox("I'm the younger HAIRCUT brother.\pIf you'd like, I could try to give\none of your POKéMON a small trim?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
-		msgbox("Oh, lovely!\nWhich POKéMON can I try on?", MSGBOX_DEFAULT)
+		msgbox("Ah, lovely!\nWhich POKéMON can I try on?", MSGBOX_DEFAULT)
 		// call party menu, check if species is Ampharos-M, Tangela, or none.
+		specialvar(ChoosePartyMon)
+		waitstate
+
+		switch(var(VAR_RESULT)) {
+			case SPECIES_TANGELA:
+				msgbox("O-oh-!\nOh, my!\pThis POKéMON's hair is, um…\nI-it's certainly something!\pI…\nI don't think I'm up to the task.\pMaybe ask my BROTHER?\nHe's always up for a challenge.", MSGBOX_DEFAULT)
+				goto(UndergroudnPath_YoungerBrotherEnd)
+			case SPECIES_AMPHAROS:
+				msgbox("Oh, you'd like it to have another\nhaircut?\pBut it already has such a lovely\ntrim!\lI couldn't possibly.\pY-yeah…\n", MSGBOX_DEFAULT)
+			case SPECIES_TRUBBISH_TRASH:
+				msgbox("Oh, wow!\nHow lovely!\pMy brother did such a wonderful job\nwith this HAIRCUT.\lI couldn't improve on it.\pBut thank you for showing me this!\nWow…", MSGBOX_DEFAULT)
+				goto(UndergroudnPath_YoungerBrotherEnd)
+			case SPECIES_KENYA:
+				msgbox("Oh!\nKENYA would like a haircut?\lL-like, all of it?\pUm, I don't think I'm up to the\ntask.\lSorry…", MSGBOX_DEFAULT)
+				goto(UndergroudnPath_YoungerBrotherEnd)
+			case SPECIES_AMPHAROS_MEGA:
+				msgbox("Oh!\nThis POKéMON has such lovely hair…\pBut, do I have it in me to cut it?\nThis is more than I've ever done…\pYes. Yes!\nI can do it!\lI believe in myself!\pNow!\nLet's give you a little trim…", MSGBOX_DEFAULT)
+				closemessage
+				//Evolution here
+				msgbox("Ah!\nU-um…\pIt's, uh…\nIt's not… ALL bad?\pYeah!\nActually, it's very lovely!\pThere's such a neat, uhh… f-fade!\nThere's a neat fade to it!\pYes, I'm sure you'll be very happy\nwith it.\pPlease, uh, don't come again!\n", MSGBOX_DEFAULT)
+				
+			default case:
+
+		}
 	} else {
 		//if !checkmoncaught Ampharos regular
-		msgbox("Oh…\nThat's okay, I understand.\pI've heard there's a DRAGON-TYPE\nPOKéMON with luscious hair.\lI'd really love to meet it someday…", MSGBOX_DEFAULT)
+		msgbox("Oh…\nThat's okay, I understand.")
+		goto(UndergroudnPath_YoungerBrotherEnd)
 	}
 	release
+}
+
+script UndergroudnPath_YoungerBrotherEnd {
+	if(!checkmoncaught(SPECIES_AMPHAROS)) {
+		msgbox("I've heard there's a DRAGON-TYPE\nPOKéMON with luscious hair.\lI'd really love to meet it someday…", MSGBOX_DEFAULT)
+	}
+	release
+	end
 }
 
 script UndergroundPath_OlderBrother {
