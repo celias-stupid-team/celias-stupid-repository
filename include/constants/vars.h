@@ -225,7 +225,7 @@ It is reset after every battle.
 #define VAR_POKEMONTOWER_ANSWER                 0x409D
 #define VAR_CSR_TOASTER_COUNTER                 0x409E
 #define VAR_CSR_GIFT_POKEMON                 0x409F
-#define VAR_0x40A0                 0x40A0
+#define VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE                 0x40A0
 #define VAR_0x40A1                 0x40A1
 #define VAR_0x40A2                 0x40A2
 #define VAR_0x40A3                 0x40A3

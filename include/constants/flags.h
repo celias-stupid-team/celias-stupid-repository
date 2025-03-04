@@ -322,7 +322,7 @@
 #define FLAG_CSR_CAUGHT_AMPHAROS               0x114
 #define FLAG_CUT_AMPHAROS_HAIR               0x115
 #define FLAG_CUT_TANGELA_HAIR               0x116
-#define FLAG_0x117               0x117
+#define FLAG_NO_TM_CASE               0x117
 #define FLAG_0x118               0x118
 #define FLAG_0x119               0x119
 #define FLAG_0x11A               0x11A
@@ -433,7 +433,7 @@
 #define FLAG_HIDE_ROUTE12_TM48                                  0x17E
 #define FLAG_HIDE_ROUTE12_IRON                                  0x17F
 #define FLAG_HIDE_ROUTE15_TM18                                  0x180
-#define FLAG_HIDE_SAFARI_ZONE_CENTER_NUGGET                     0x181
+#define FLAG_HIDE_SAFARI_ZONE_CENTER_TM32                     0x181
 #define FLAG_HIDE_SAFARI_ZONE_EAST_MAX_POTION                   0x182
 #define FLAG_HIDE_SAFARI_ZONE_EAST_FULL_RESTORE                 0x183
 #define FLAG_HIDE_SAFARI_ZONE_EAST_TM11                         0x184

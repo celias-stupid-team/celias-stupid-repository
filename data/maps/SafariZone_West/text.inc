@@ -5,7 +5,7 @@ SafariZone_West_Text_PleaseFindWardensLostTeeth::
     .string "REQUEST NOTICE\p"
     .string "Please find the SAFARI WARDEN's\n"
     .string "lost GOLD TEETH.\l"
-    .string "They're around here somewhere.\p"
+    .string "Last seen near CELADON.\p"
     .string "Reward offered!\n"
     .string "Contact: WARDEN$"
 
