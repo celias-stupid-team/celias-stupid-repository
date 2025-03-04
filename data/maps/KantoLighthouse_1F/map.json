@@ -38,6 +38,13 @@
       "elevation": 0,
       "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_KANTO_LIGHTHOUSE_2F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

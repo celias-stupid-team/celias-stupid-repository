@@ -3057,12 +3057,12 @@
       "secondaryId": 0
     },
     {
-      "english": "SOUL DEW",
+      "english": "FLOAT STONE",
       "itemId": "ITEM_SOUL_DEW",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_SOUL_DEW",
       "holdEffectParam": 0,
-      "description_english": "An orb to be held by a LATIOS or\\nLATIAS. It raises the SP. ATK\\nand SP. DEF stats.",
+      "description_english": "A strangely-familiar stone with\\nthe power to float. Can make a\\ncertain POKéMON evolve.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6491,12 +6491,12 @@
       "secondaryId": 0
     },
     {
-      "english": "METRONOME",
+      "english": "SANDWICH CASE",
       "itemId": "ITEM_SANDWICH_CASE",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_DRAGON_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item which will make METRONOME\\nalways call the most useful move\\n(trust me, it'll work this time).",
+      "description_english": "A case to store ingredients for\\nsandwiches.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6507,12 +6507,12 @@
       "secondaryId": 0
     },
     {
-      "english": "METRONOME",
+      "english": "SANDWICH",
       "itemId": "ITEM_SANDWICH",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_DRAGON_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item which will make METRONOME\\nalways call the most useful move\\n(trust me, it'll work this time).",
+      "description_english": "A fully-formed sandwich.\\nThe perfect snack for any long\\nbiking trip!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6523,12 +6523,12 @@
       "secondaryId": 0
     },
     {
-      "english": "METRONOME",
+      "english": "JELLY DONUT",
       "itemId": "ITEM_JELLY_DONUT",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_DRAGON_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item which will make METRONOME\\nalways call the most useful move\\n(trust me, it'll work this time).",
+      "description_english": "It looks like a rice ball, but\\nit's actually a very fancy donut.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

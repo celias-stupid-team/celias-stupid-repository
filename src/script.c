@@ -528,3 +528,8 @@ u8 *GetSavedRamScriptIfValid(void)
 void InitRamScript_NoObjectEvent(u8 *script, u16 scriptSize)
 {
 }
+
+void GetObjectEventTrainerRangeFromTemplate(void)
+{
+    gSpecialVar_Result = gMapHeader.events->objectEvents[gSpecialVar_LastTalked - 1].trainerRange_berryTreeId;
+}

@@ -903,3 +903,9 @@ Route_25_EventScript_CSR_ItemOddCandy::
 ViridianForest_EventScript_CSR_ItemOddCandy::
 	finditem ITEM_ODD_CANDY
 	end
+
+
+EventScript_FindItem::
+	callnative GetObjectEventTrainerRangeFromTemplate
+	finditem VAR_RESULT
+	end

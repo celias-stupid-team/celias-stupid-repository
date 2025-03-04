@@ -1,3 +1,20 @@
 mapscripts KantoLighthouse_3F_MapScripts {
     
 }
+
+script KantoLighthouse_3F_FallDownHole {
+    lock
+    warphole(MAP_KANTO_LIGHTHOUSE_2F)
+    release
+    end
+}
+
+script KantoLighthouse_3F_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, you'd better watch out for\nthe holes in the floor!\lI wouldn't want you to get hurt!\pAnyway, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
