@@ -7,7 +7,30 @@ UndergroundPath_NorthSouthTunnel_OnTransition::
 	end
 `
 
-//VAR_TEMP_1 will be the
+//VAR_TEMP_1 will be the one that tracks what just evolved
+
+script UndergroundPath_SproutTower {
+	lock
+	msgbox("The door is too small to enter…", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script UndergroundPath_SproutTowerSign {
+	msgbox("SPROUT TOWER\pNotice!\nThis TOWER has not yet sprouted.", MSGBOX_SIGN)
+	end
+}
+
+script UndergroundPath_BikeShop {
+	lock
+	faceplayer
+	//oh a customer
+	//Do bikes come in more than one color?
+	//Sorry, the answer is actually No.
+	//
+	release
+	end
+}
 
 const AMPHAROS_EVOLUTION = 1
 const TRUBBISH_EVOLUTION = 2

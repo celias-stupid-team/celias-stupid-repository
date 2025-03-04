@@ -22,6 +22,6 @@ script SandwichShop_GamblerMan {
 }
 
 script SandwichShop_DonutGirl {
-	msgbox("The traditional AMERICAN cuisine\nhere is amazing!\pI think the DONUTS are extra good if\nyou put them in the toaster first.\lIt gets 'em nice and crispy!", MSGBOX_NPC)
+	msgbox("The traditional AMERICAN cuisine\nhere is amazing!\pI think the DONUTS are extra good \nif you put them in the toaster first.\lIt gets 'em nice and crispy!", MSGBOX_NPC)
 	end
 }

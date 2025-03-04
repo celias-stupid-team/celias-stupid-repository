@@ -26,8 +26,11 @@ PalletTown_PlayersHouse_2F_FirstWarpIn::
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES::
+	lock
 	famechecker FAMECHECKER_PALLET, 2
-	msgbox PalletTown_PlayersHouse_2F_Text_PlayedWithNES, MSGBOX_SIGN
+	msgbox PalletTown_PlayersHouse_2F_Text_PlayedWithNES, MSGBOX_DEFAULT
+	call Common_ToastYourDonut
+	release
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_Sign::
@@ -175,4 +178,70 @@ script PalletTown_PlayersHouse_2F_EventScript_CeliaKicked {
 script PalletTown_PlayersHouse_2F_EventScript_CeliaSniff {
 	msgbox("“You can now sniff beds” was\nthe funniest patch note ever.", MSGBOX_NPC)
 	end
+}
+
+
+script Common_ToastYourDonut {
+	if(checkitem(ITEM_JELLY_DONUT)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Would you like to toast your JELLY\nDONUT?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} put the JELLY DONUT in the\ntoaster…", MSGBOX_DEFAULT)
+			closemessage
+			delay(20)
+			setvar(VAR_CSR_TOASTER_COUNTER, 0)
+			while(var(VAR_CSR_TOASTER_COUNTER) < 6) {
+				playse(SE_CLICK)
+				delay(30)
+				addvar(VAR_CSR_TOASTER_COUNTER, 1)
+			}
+			playse(SE_DING_DONG)
+			msgbox("Ding Dong!{PAUSE 60}\nThe toaster is finished!", MSGBOX_DEFAULT)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} obtained the freshly-baked\nDACHSBUN!", MSGBOX_DEFAULT)
+			waitmessage
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_DACHSBUN)
+			call(Common_Script_ObtainedPokemon)
+			return
+			
+		} else {
+			return
+		}
+	} else {
+		return
+	}
+}
+
+script Common_Script_ObtainedPokemon {
+	copyvar(VAR_TEMP_1, VAR_CSR_GIFT_POKEMON)
+	givemon(VAR_CSR_GIFT_POKEMON, 25)
+	clearflag(FLAG_SHINY_CREATION)
+	switch(var(VAR_RESULT)) {
+		case 0: //Mon goes to party
+			bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+			if(!var(VAR_RESULT)) {
+				return
+			}
+			call(EventScript_GetGiftMonPartySlot)
+			call(EventScript_ChangePokemonNickname)
+			return
+		case 1: //Mon goes to PC
+				bufferspeciesname(STR_VAR_1, VAR_CSR_GIFT_POKEMON)
+				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+				if(var(VAR_RESULT) == 0) {
+					call(EventScript_TransferredToPC)
+					return
+				} else {
+					call(EventScript_NameReceivedBoxMon)
+					call(EventScript_TransferredToPC)
+					return //This can be simplified; I'll deal with it later
+				}
+				
+				return
+		case 2:
+			goto(EventScript_NoMoreRoomForPokemon)
+			break
+	}
 }

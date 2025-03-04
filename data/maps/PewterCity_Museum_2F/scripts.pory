@@ -23,7 +23,10 @@ PewterCity_Museum_2F_EventScript_BaldingMan::
 	end
 
 PewterCity_Museum_2F_EventScript_SpaceShuttle::
-	msgbox PewterCity_Museum_1F_Text_SpaceShuttle, MSGBOX_SIGN
+	lock
+	msgbox PewterCity_Museum_1F_Text_SpaceShuttle, MSGBOX_DEFAULT
+	call Common_ToastYourDonut
+	release
 	end
 
 PewterCity_Museum_2F_EventScript_MoonStone::

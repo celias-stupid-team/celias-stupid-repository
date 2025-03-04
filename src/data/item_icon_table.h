@@ -429,8 +429,8 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_EMPTY_PAIL]      =  {gItemIcon_WailmerPail, gItemIconPalette_WailmerPail},
     [ITEM_METRONOME]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
     [ITEM_SANDWICH_CASE]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
-    [ITEM_SANDWICH]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
-    [ITEM_JELLY_DONUT]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_SANDWICH]      =  {gItemIcon_Sandwich, gItemIconPalette_Sandwich},
+    [ITEM_JELLY_DONUT]      =  {gItemIcon_JellyDonut, gItemIconPalette_JellyDonut},
     [ITEM_AWAKENING_FIRE_EMBLEM]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome}, //Placeholders
     [ITEM_SECRETETHER]      =  {gItemIcon_Ether, gItemIconPalette_Metronome},
 

@@ -507,7 +507,10 @@ movement DMCA_Confused {
 }
 
 script CeladonCity_GameCorner_FancyToaster {
-	msgbox("This looks like a SLOT MACHINE, but\nit's actually a very fancy toaster.", MSGBOX_SIGN)
+	lock
+	msgbox("This looks like a SLOT MACHINE, but\nit's actually a very fancy toaster.", MSGBOX_DEFAULT)
+	call(Common_ToastYourDonut)
+	release
 	end
 }
 

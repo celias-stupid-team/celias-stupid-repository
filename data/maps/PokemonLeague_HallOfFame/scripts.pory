@@ -55,7 +55,10 @@ PokemonLeague_HallOfFame_Movement_EnterRoom::
 	step_end
 `
 script HallOfFame_Toaster {
-	msgbox("It looks like the HALL OF FAME, but\nit's actually a very fancy toaster.", MSGBOX_SIGN)
+	lock
+	msgbox("It looks like the HALL OF FAME, but\nit's actually a very fancy toaster.", MSGBOX_DEFAULT)
+	call(Common_ToastYourDonut)
+	release
 	end
 }
 
