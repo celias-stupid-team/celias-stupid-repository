@@ -218,6 +218,8 @@ script PowerPlant_MinigameStart {
 			if(checkitem(ITEM_EVERSTONE)) {
 				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 1)
+				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
+				dowildbattle
 			} else {
 				msgbox("cannot beat game\n", MSGBOX_DEFAULT)
 			}
