@@ -139,8 +139,29 @@ FushciaCity_EventScript_OmanyteSign::
 `
 
 script FuschiaCity_BrickBreak {
+	call(Common_Script_BrickBreak)
+	//wall breaks
+	release
+}
+
+script Common_Script_BrickBreak {
 	lock
-	msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
+	if(!(checkpartymove(MOVE_BRICK_BREAK) == PARTY_SIZE)) {
+		msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
+		if(!var(VAR_RESULT)) {
+			bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+			setfieldeffectargument(0, VAR_RESULT)
+			dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+			return
+			release
+			end
+		} else {
+			msgbox("{PLAYER} decided against property damage.\n", MSGBOX_DEFAULT)
+		}
+
+	} else {
+		msgbox("{PLAYER} decided against causing severe\nproperty damage.", MSGBOX_DEFAULT)
+	}
 	release
 }
 

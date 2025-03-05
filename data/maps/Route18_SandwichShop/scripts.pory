@@ -28,7 +28,7 @@ script Route18_SandwichChef {
 	msgbox("here you are\n", MSGBOX_DEFAULT)
 	giveitem(ITEM_SANDWICH_CASE)
 	giveitem(ITEM_JELLY_DONUT)
-	giveitem(ITEM_SANDICH)
+	giveitem(ITEM_SANDWICH)
 	waitfanfare
 	release
 }
