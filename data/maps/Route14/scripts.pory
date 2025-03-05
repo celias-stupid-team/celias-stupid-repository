@@ -1,6 +1,5 @@
 raw `
-Route14_MapScripts::
-	.byte 0
+
 
 Route14_EventScript_RouteSign::
 	msgbox Route14_Text_RouteSign, MSGBOX_SIGN
@@ -11,6 +10,12 @@ script Route15_PokeRap_Trainer1 {
     trainerbattle_single(TRAINER_POKERAP_1, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer1_Defeat)
     msgbox("Placeholder After")
     release
+}
+
+mapscripts Route14_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_ROUTE14)
+    }
 }
 
 script Route15_PokeRap_Trainer1_Defeat {
