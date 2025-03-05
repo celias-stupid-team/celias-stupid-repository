@@ -33,7 +33,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 
 		if(!flag(FLAG_CSR_TALKED_TO_PRIZEGIVER)) {
 			msgbox(("Ah!\nShoot, another visitor?\pUh, I mean…\nHello! Er, congratulations!\pYou've made it to the SAFARI ZONE\nSECRET HOUSE!\pYes, yes. We know.\nIt's not much of a SECRET anymore.\lI'll, uh, explain in a second.\pUhhhhhh, anyway!\nCongrats!\pHere's your reward:\nA rare TM!"), MSGBOX_DEFAULT)
-			if(!flag(FLAG_CSR_TM_CASE)) {
+			if(flag(FLAG_NO_TM_CASE)) {
 				msgbox(("…Hey, wait!\nWhere's your TM CASE?\pWithout a TM CASE, you don't have\nanywhere to put this…\pHm.\nThat's a bit of a buzzkill.\lOh, well.\pCome back later if you manage to\nget yours back!\pI'll, uh, wait right here.\n"), MSGBOX_DEFAULT)
 				setflag(FLAG_CSR_TALKED_TO_PRIZEGIVER)
 			}
@@ -42,7 +42,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 			}
 		}
 		else {
-			if(!flag(FLAG_CSR_TM_CASE)) {
+			if(flag(FLAG_NO_TM_CASE)) {
 				msgbox(("placeholder dialogue\nTalked before, didn't get case"), MSGBOX_DEFAULT) //Needs Replaced
 			}
 			else {

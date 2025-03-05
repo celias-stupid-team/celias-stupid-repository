@@ -27,6 +27,16 @@ mapscripts SafariZone_Center_MapScripts {
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
 			goto(SafariZone_Center_DMCA_Take_Case)
 		}
+		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 2 {
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+			waitmovement(0)
+			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
+			msgbox("no case for you\n", MSGBOX_DEFAULT)
+			removeitem(ITEM_TM_CASE)
+			setflag(FLAG_NO_TM_CASE)
+			release
+			end
+		}
 	]
 }
 
