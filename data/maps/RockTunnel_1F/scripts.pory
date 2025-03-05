@@ -50,3 +50,4 @@ script RockTunnel_ClefableHint {
 	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
 	end
 }
+
