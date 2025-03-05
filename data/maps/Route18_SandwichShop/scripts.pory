@@ -2,9 +2,6 @@ mapscripts Route18_SandwichShop_MapScripts {
     
 }
 
-script Route18_SandwichChef {
-
-}
 
 script SandwichShop_Dad {
 	lock
@@ -24,4 +21,14 @@ script SandwichShop_GamblerMan {
 script SandwichShop_DonutGirl {
 	msgbox("The traditional AMERICAN cuisine\nhere is amazing!\pI think the DONUTS are extra good \nif you put them in the toaster first.\lIt gets 'em nice and crispy!", MSGBOX_NPC)
 	end
+}
+
+script Route18_SandwichChef {
+	lock
+	msgbox("here you are\n", MSGBOX_DEFAULT)
+	giveitem(ITEM_SANDWICH_CASE)
+	giveitem(ITEM_JELLY_DONUT)
+	giveitem(ITEM_SANDICH)
+	waitfanfare
+	release
 }

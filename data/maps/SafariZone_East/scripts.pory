@@ -24,3 +24,8 @@ script SafariZone_TauntTM {
 		release
 	}
 }
+
+script SafariZone_UndergroundPathHint {
+	msgbox("People often lose things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
+	end
+}

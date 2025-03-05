@@ -251,11 +251,11 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
+      "x": 19,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_FUSHCIA_CITY_BRENDAN_MAY_1F",
+      "dest_warp_id": "0"
     },
     {
       "x": 25,
@@ -286,8 +286,8 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 19,
-      "y": 31,
+      "x": 15,
+      "y": 28,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE3",
       "dest_warp_id": "0"
