@@ -262,7 +262,7 @@ script Route15_PokeRap_Trainer18 {
 }
 
 script Route15_PokeRap_Trainer18_Defeat {
-    setvar(VAR_0x8004, SPECIES_KANGASKAHN)
+    setvar(VAR_0x8004, SPECIES_KANGASKHAN)
     special(SetSeenMon)
     release
 }
@@ -334,13 +334,13 @@ script Route15_PokeRap_Trainer23 {
 }
 
 script Route15_PokeRap_Trainer23_Defeat {
-    setvar(VAR_0x8004, SPECIES_LIKITUNG)
+    setvar(VAR_0x8004, SPECIES_LICKITUNG)
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_TAUROS)
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_WEEDLE)
     special(SetSeenMon)
-    setvar(VAR_0x8004, SPECIES_NIDORAN)
+    setvar(VAR_0x8004, SPECIES_NIDORAN_F)
     special(SetSeenMon)
     release
 }
