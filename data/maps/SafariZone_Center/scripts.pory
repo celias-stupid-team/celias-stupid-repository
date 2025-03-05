@@ -41,6 +41,25 @@ script SafariZone_BrickBreakTM {
 	}
 }
 
+script SafariZone_KangaskahnCage {
+	lock
+	msgbox("Big kanga trapped :(\n", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_TM32)) {
+		msgbox("Give brick break?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_KANGASKHAN)
+			call(Common_Script_ObtainedPokemon)
+		}
+	}
+	release
+}
+
+script SafariZone_KangaBabyCage {
+	lock
+	msgbox("Baby kanga trapped :(\n", MSGBOX_DEFAULT)
+	release
+}
+
 const DMCA_Lead = 4
 const DMCA_Left = 2
 const DMCA_Right = 3

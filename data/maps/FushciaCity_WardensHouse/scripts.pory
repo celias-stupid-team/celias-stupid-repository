@@ -69,6 +69,7 @@ script WardensHouse_Warden {
 				setflag(FLAG_WARDENS_TEETH)
 				removeitem(ITEM_GOLD_TEETH)
 				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+				call(Common_Script_ObtainedPokemon)
 			} else {
 				msgbox("die\n", MSGBOX_DEFAULT)
 			}
