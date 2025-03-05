@@ -91,7 +91,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 29,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -99,7 +99,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "LavenderTown_DanceDMCA",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DMCA_IN_LAVENDER"
     },
     {
       "type": "object",

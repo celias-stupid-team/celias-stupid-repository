@@ -82,7 +82,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PokemonTower_Trailer"
+    }
   ],
   "bg_events": [
     {
@@ -97,8 +105,8 @@
     },
     {
       "type": "sign",
-      "x": 11,
-      "y": 9,
+      "x": 15,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonTower_Trailer"
