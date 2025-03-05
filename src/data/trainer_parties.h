@@ -9043,3 +9043,1026 @@ static const struct TrainerMonNoItemDefaultMoves sParty_CueBallPaxton[] = {
         .species = SPECIES_MUK,
     },
 };
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer1[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ELECTRODE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DIGLETT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORINO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MANKEY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer2[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VENUSAUR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RATTATA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_FEAROW_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PIDGEY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer3[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SEAKING_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_JOLTEON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DRAGONITE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GASTLY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer4[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PONYTA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VAPOREON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_POLIWRATH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_BUTTERFREE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer5[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VENOMOTH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_POLIWAG_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORINO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GOLDUCK_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer6[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_IVYSAUR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GRIMER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VICTREEBEL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MOLTRES_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer7[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDOKING_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_FARFETCHD_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ABRA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_JIGGLYPUFF_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer8[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KINGLER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RHYHORN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CLEFABLE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_WIGGLYTUFF_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer9[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ZUBAT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PRIMEAPE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MEOWTH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ONIX_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer10[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GEODUDE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RAPIDASH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MAGNETON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SNORLAX_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer11[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GENGAR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_TANGELA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GOLDEEN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SPEAROW_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer12[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_WEEZING_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SEEL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GYARADOS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SLOWBRO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer13[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KABUTO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PERSIAN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PARAS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_HORSEA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer14[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RATICATE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MAGNEMITE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KADABRA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_WEEPINBELL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer15[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DITTO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CLOYSTER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CATERPIE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SANDSHREW_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer16[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_BULBASAUR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CHARMANDER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GOLEM_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PIKACHU_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer17[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ALAKAZAM_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DODUO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VENONAT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHOKE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer18[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KANGASKHAN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_HYPNO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ELECTABUZZ_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_FLAREON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer19[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_BLASTOISE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_POLIWHIRL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ODDISH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DROWZEE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer20[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RAICHU_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDOQUEEN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_BELLSPROUT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_STARMIE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer21[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_METAPOD_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MAROWAK_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KAKUNA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CLEFAIRY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer22[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DODRIO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SEADRA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VILEPLUME_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KRABBY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer23[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_LICKITUNG_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_TAUROS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_WEEDLE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer24[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHOP_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SHELLDER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PORYGON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_HITMONCHAN_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer25[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ARTICUNO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_JYNX_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORINA_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_BEEDRILL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer26[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_HAUNTER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SQUIRTLE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CHANSEY_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    /*
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_POKEMON,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    */
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer27[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PARASECT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_EXEGGCUTE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MUK_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DEWGONG_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer28[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PIDGEOTTO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_LAPRAS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VULPIX_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_RHYDON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer29[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CHARIZARD_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHAMP_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PINSIR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KOFFING_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer30[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DUGTRIO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GOLBAT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_STARYU_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MAGIKARP_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer31[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NINETALES_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_EKANS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_OMASTAR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer32[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SCYTHER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_TENTACOOL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DRAGONAIR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MAGMAR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer33[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SANDSLASH_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_HITMONLEE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PSYDUCK_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ARCANINE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer34[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_EEVEE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_EXEGGUTOR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_KABUTOPS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ZAPDOS_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer35[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_DRATINI_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GROWLITHE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer36[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CUBONE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GRAVELER_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_VOLTORB_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_GLOOM_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer37[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_CHARMELEON_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_WARTORTLE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer38[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MEWTWO_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_TENTACRUEL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_AERODACTYL_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer39[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_OMANYTE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SLOWPOKE_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer40[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PIDGEOT_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ARBOK_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+

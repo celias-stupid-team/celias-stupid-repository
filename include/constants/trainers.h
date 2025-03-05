@@ -303,6 +303,7 @@
 #define TRAINER_CLASS_CHAMPION_2             113
 #define TRAINER_CLASS_IMPOSTER             114
 #define TRAINER_CLASS_MASTER             115
+#define TRAINER_CLASS_RAPPER             116
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

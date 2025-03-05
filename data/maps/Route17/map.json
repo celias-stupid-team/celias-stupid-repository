@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE18",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+      "offset": 102,
+      "direction": "right"
     }
   ],
   "object_events": [

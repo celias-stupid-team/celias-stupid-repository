@@ -36,7 +36,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route14_EventScript_Gerald",
       "flag": "0"
     },
@@ -50,8 +50,8 @@
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route14_EventScript_Donald",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer6",
       "flag": "0"
     },
     {
@@ -64,8 +64,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route14_EventScript_Beck",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer26",
       "flag": "0"
     },
     {
@@ -79,7 +79,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route14_EventScript_Marlon",
+      "script": "Route15_PokeRap_Trainer27",
       "flag": "0"
     },
     {
@@ -92,8 +92,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route14_EventScript_Isaac",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer2",
       "flag": "0"
     },
     {
@@ -106,8 +106,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route14_EventScript_Malik",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer3",
       "flag": "0"
     },
     {
@@ -120,8 +120,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route14_EventScript_Mitch",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer25",
       "flag": "0"
     },
     {
@@ -134,8 +134,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route14_EventScript_Carter",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer1",
       "flag": "0"
     },
     {
@@ -148,8 +148,8 @@
       "movement_range_x": 1,
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route14_EventScript_Lukas",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer4",
       "flag": "0"
     },
     {
@@ -162,8 +162,8 @@
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route14_EventScript_Benny",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer7",
       "flag": "0"
     },
     {
@@ -176,7 +176,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_12"
     },
@@ -191,7 +191,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route13_EventScript_Robert",
+      "script": "Route15_PokeRap_Trainer10",
       "flag": "0"
     },
     {
@@ -204,8 +204,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Jared",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer18",
       "flag": "0"
     },
     {
@@ -219,7 +219,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route13_EventScript_Perry",
+      "script": "Route15_PokeRap_Trainer17",
       "flag": "0"
     },
     {
@@ -233,7 +233,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route13_EventScript_Gwen",
+      "script": "Route15_PokeRap_Trainer8",
       "flag": "0"
     },
     {
@@ -246,8 +246,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Valerie",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer12",
       "flag": "0"
     },
     {
@@ -261,7 +261,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route13_EventScript_Sheila",
+      "script": "Route15_PokeRap_Trainer16",
       "flag": "0"
     },
     {
@@ -275,7 +275,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route13_EventScript_Lola",
+      "script": "Route15_PokeRap_Trainer9",
       "flag": "0"
     },
     {
@@ -288,8 +288,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Susie",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer15",
       "flag": "0"
     },
     {
@@ -302,7 +302,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route14_EventScript_Gerald",
       "flag": "0"
     },
@@ -316,7 +316,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route14_EventScript_Gerald",
       "flag": "0"
     },
@@ -330,8 +330,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route14_EventScript_Gerald",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer5",
       "flag": "0"
     },
     {
@@ -344,8 +344,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Susie",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer13",
       "flag": "0"
     },
     {
@@ -358,8 +358,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Sebastian",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer20",
       "flag": "0"
     },
     {
@@ -372,8 +372,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route13_EventScript_Alma",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer11",
       "flag": "0"
     },
     {
@@ -386,8 +386,8 @@
       "movement_range_x": 4,
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route12_EventScript_Luca",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer19",
       "flag": "0"
     },
     {
@@ -400,8 +400,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route15_EventScript_Ernest",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer22",
       "flag": "0"
     },
     {
@@ -414,8 +414,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route15_EventScript_Kindra",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer23",
       "flag": "0"
     },
     {
@@ -428,8 +428,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route15_EventScript_Kindra",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer21",
       "flag": "0"
     },
     {
@@ -442,8 +442,8 @@
       "movement_range_x": 2,
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route15_EventScript_Becky",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer24",
       "flag": "0"
     },
     {
@@ -456,8 +456,8 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route15_EventScript_Mya",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route15_PokeRap_Trainer14",
       "flag": "0"
     }
   ],

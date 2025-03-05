@@ -6,3 +6,571 @@ Route14_EventScript_RouteSign::
 	msgbox Route14_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+script Route15_PokeRap_Trainer1 {
+    trainerbattle_single(TRAINER_POKERAP_1, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer1_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer1_Defeat {
+    setvar(VAR_0x8004, SPECIES_DIGLETT)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_NIDORAN_M)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MANKEY)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer2 {
+    trainerbattle_single(TRAINER_POKERAP_2, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer2_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer2_Defeat {
+    setvar(VAR_0x8004, SPECIES_RATTATA)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer3 {
+    trainerbattle_single(TRAINER_POKERAP_3, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer3_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer3_Defeat {
+    setvar(VAR_0x8004, SPECIES_SEAKING)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_JOLTEON)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_DRAGONITE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer4 {
+    trainerbattle_single(TRAINER_POKERAP_4, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer4_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer4_Defeat {
+    setvar(VAR_0x8004, SPECIES_BUTTERFREE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer5 {
+    trainerbattle_single(TRAINER_POKERAP_5, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer5_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer5_Defeat {
+    setvar(VAR_0x8004, SPECIES_POLIWAG)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_NIDORINO)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_GOLDUCK)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer6 {
+    trainerbattle_single(TRAINER_POKERAP_6, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer6_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer6_Defeat {
+    setvar(VAR_0x8004, SPECIES_IVYSAUR)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_GRIMER)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer7 {
+    trainerbattle_single(TRAINER_POKERAP_7, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer7_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer7_Defeat {
+    setvar(VAR_0x8004, SPECIES_NIDOKING)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_FARFETCHD)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_ABRA)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_JIGGLYPUFF)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer8 {
+    trainerbattle_single(TRAINER_POKERAP_8, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer8_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer8_Defeat {
+    setvar(VAR_0x8004, SPECIES_CLEFABLE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer9 {
+    trainerbattle_single(TRAINER_POKERAP_9, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer9_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer9_Defeat {
+    setvar(VAR_0x8004, SPECIES_ZUBAT)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MEOWTH)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_ONIX)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer10 {
+    trainerbattle_single(TRAINER_POKERAP_10, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer10_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer10_Defeat {
+    setvar(VAR_0x8004, SPECIES_GEODUDE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer11 {
+    trainerbattle_single(TRAINER_POKERAP_11, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer11_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer11_Defeat {
+    setvar(VAR_0x8004, SPECIES_GENGAR)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_TANGELA)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_GOLDEEN)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_SPEAROW)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer12 {
+    trainerbattle_single(TRAINER_POKERAP_12, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer12_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer12_Defeat {
+    setvar(VAR_0x8004, SPECIES_GYARADOS)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer13 {
+    trainerbattle_single(TRAINER_POKERAP_13, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer13_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer13_Defeat {
+    setvar(VAR_0x8004, SPECIES_PARAS)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_HORSEA)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer14 {
+    trainerbattle_single(TRAINER_POKERAP_14, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer14_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer14_Defeat {
+    setvar(VAR_0x8004, SPECIES_RATICATE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MAGNEMITE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MISSINGNO)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer15 {
+    trainerbattle_single(TRAINER_POKERAP_15, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer15_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer15_Defeat {
+    setvar(VAR_0x8004, SPECIES_CATERPIE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_SANDSHREW)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer16 {
+    trainerbattle_single(TRAINER_POKERAP_16, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer16_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer16_Defeat {
+    setvar(VAR_0x8004, SPECIES_CHARMANDER)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer17 {
+    trainerbattle_single(TRAINER_POKERAP_17, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer17_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer17_Defeat {
+    setvar(VAR_0x8004, SPECIES_ALAKAZAM)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_DODUO)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_VENONAT)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MACHOKE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer18 {
+    trainerbattle_single(TRAINER_POKERAP_18, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer18_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer18_Defeat {
+    setvar(VAR_0x8004, SPECIES_KANGASKAHN)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer19 {
+    trainerbattle_single(TRAINER_POKERAP_19, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer19_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer19_Defeat {
+    setvar(VAR_0x8004, SPECIES_ODDISH)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer20 {
+    trainerbattle_single(TRAINER_POKERAP_20, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer20_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer20_Defeat {
+    setvar(VAR_0x8004, SPECIES_RAICHU)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_NIDOQUEEN)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_BELLSPROUT)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_STARMIE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer21 {
+    trainerbattle_single(TRAINER_POKERAP_21, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer21_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer21_Defeat {
+    setvar(VAR_0x8004, SPECIES_METAPOD)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_MAROWAK)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_KAKUNA)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_CLEFAIRY)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer22 {
+    trainerbattle_single(TRAINER_POKERAP_22, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer22_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer22_Defeat {
+    setvar(VAR_0x8004, SPECIES_KRABBY)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer23 {
+    trainerbattle_single(TRAINER_POKERAP_23, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer23_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer23_Defeat {
+    setvar(VAR_0x8004, SPECIES_LIKITUNG)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_TAUROS)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_WEEDLE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_NIDORAN)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer24 {
+    trainerbattle_single(TRAINER_POKERAP_24, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer24_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer24_Defeat {
+    setvar(VAR_0x8004, SPECIES_SHELLDER)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_PORYGON)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer25 {
+    trainerbattle_single(TRAINER_POKERAP_25, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer25_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer25_Defeat {
+    setvar(VAR_0x8004, SPECIES_NIDORINA)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_BEEDRILL)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer26 {
+    trainerbattle_single(TRAINER_POKERAP_26, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer26_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer26_Defeat {
+    setvar(VAR_0x8004, SPECIES_HAUNTER)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_SQUIRTLE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_CHANSEY)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer27 {
+    trainerbattle_single(TRAINER_POKERAP_27, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer27_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer27_Defeat {
+    setvar(VAR_0x8004, SPECIES_EXEGGCUTE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer28 {
+    trainerbattle_single(TRAINER_POKERAP_28, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer28_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer28_Defeat {
+    setvar(VAR_0x8004, SPECIES_PIDGEOTTO)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_VULPIX)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer29 {
+    trainerbattle_single(TRAINER_POKERAP_29, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer29_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer29_Defeat {
+    setvar(VAR_0x8004, SPECIES_CHARIZARD)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_PINSIR)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer30 {
+    trainerbattle_single(TRAINER_POKERAP_30, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer30_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer30_Defeat {
+    setvar(VAR_0x8004, SPECIES_MAGIKARP)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer31 {
+    trainerbattle_single(TRAINER_POKERAP_31, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer31_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer31_Defeat {
+    setvar(VAR_0x8004, SPECIES_EKANS)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer32 {
+    trainerbattle_single(TRAINER_POKERAP_32, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer32_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer32_Defeat {
+    setvar(VAR_0x8004, SPECIES_SCYTHER)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_TENTACOOL)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer33 {
+    trainerbattle_single(TRAINER_POKERAP_33, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer33_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer33_Defeat {
+    setvar(VAR_0x8004, SPECIES_PSYDUCK)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_ARCANINE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer34 {
+    trainerbattle_single(TRAINER_POKERAP_34, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer34_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer34_Defeat {
+    setvar(VAR_0x8004, SPECIES_EEVEE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_EXEGGUTOR)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_KABUTOPS)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_ZAPDOS)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer35 {
+    trainerbattle_single(TRAINER_POKERAP_35, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer35_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer35_Defeat {
+	release
+}
+
+script Route15_PokeRap_Trainer36 {
+    trainerbattle_single(TRAINER_POKERAP_36, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer36_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer36_Defeat {
+    setvar(VAR_0x8004, SPECIES_CUBONE)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_GRAVELER)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_VOLTORB)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer37 {
+    trainerbattle_single(TRAINER_POKERAP_37, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer37_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer37_Defeat {
+    setvar(VAR_0x8004, SPECIES_CHARMELEON)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer38 {
+    trainerbattle_single(TRAINER_POKERAP_38, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer38_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer38_Defeat {
+    setvar(VAR_0x8004, SPECIES_MEWTWO)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer39 {
+    trainerbattle_single(TRAINER_POKERAP_39, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer39_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer39_Defeat {
+    setvar(VAR_0x8004, SPECIES_OMANYTE)
+    special(SetSeenMon)
+    release
+}
+
+script Route15_PokeRap_Trainer40 {
+    trainerbattle_single(TRAINER_POKERAP_40, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer40_Defeat)
+    msgbox("Placeholder After")
+    release
+}
+
+script Route15_PokeRap_Trainer40_Defeat {
+    setvar(VAR_0x8004, SPECIES_PIDGEOT)
+    special(SetSeenMon)
+    setvar(VAR_0x8004, SPECIES_ARBOK)
+    special(SetSeenMon)
+    release
+}
