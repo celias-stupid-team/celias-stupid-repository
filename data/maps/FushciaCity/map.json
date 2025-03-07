@@ -223,10 +223,10 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 28,
-      "y": 16,
+      "x": 33,
+      "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_CITY_WARDENS_HOUSE",
+      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
       "dest_warp_id": "1"
     },
     {
@@ -237,8 +237,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 33,
-      "y": 31,
+      "x": 28,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_SAFARI_ZONE_OFFICE",
       "dest_warp_id": "1"

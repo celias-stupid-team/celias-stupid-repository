@@ -9,7 +9,7 @@ script SafariZone_IronCleftBattle {
     msgbox("Copyright\n", MSGBOX_DEFAULT)
     //battle
 
-    msgbox("And don't try that plastic toy\nof yours!\pYou'll need something with some\nREAL firepower if you wanna stop us!", MSGBOX_DEFAULT)
+    msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me either.\pYou'll need something with REAL\nfirepower if you wanna beat us!", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {

@@ -32,3 +32,7 @@ FushciaCity_House2_EventScript_NoRoomForGoodRod::
 	release
 	end
 `
+script FushciaCity_FishingGuruDMCA {
+	msgbox("This FISHING GURU was a rip-off\nof all the other ones!", MSGBOX_NPC)
+	end
+}
