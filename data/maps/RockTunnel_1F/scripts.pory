@@ -46,3 +46,8 @@ RockTunnel_1F_EventScript_Dana::
 	msgbox RockTunnel_1F_Text_DanaPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script RockTunnel_ClefableHint {
+	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
+	end
+}
+

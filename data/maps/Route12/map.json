@@ -34,50 +34,50 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 20,
-      "y": 19,
+      "x": 21,
+      "y": 21,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route12_EventScript_Ned",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 18,
-      "y": 37,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
-      "movement_range_x": 1,
+      "graphics_id": "OBJ_EVENT_GFX_PIDGEOT",
+      "x": 27,
+      "y": 53,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 3,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route12_EventScript_Chip",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 20,
-      "y": 42,
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 28,
+      "y": 57,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route12_EventScript_Hank",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 25,
-      "y": 53,
+      "graphics_id": "OBJ_EVENT_GFX_HO_OH",
+      "x": 27,
+      "y": 47,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -98,7 +98,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route12_EventScript_Snorlax",
+      "script": "Route12_Snorlax",
       "flag": "FLAG_HIDE_ROUTE_12_SNORLAX"
     },
     {
@@ -145,9 +145,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 18,
-      "y": 31,
+      "graphics_id": "OBJ_EVENT_GFX_OMANYTE",
+      "x": 17,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route12_EventScript_ItemTM48",
-      "flag": "FLAG_HIDE_ROUTE12_TM48"
+      "flag": "FLAG_CSR_HIDE_OMANYTE"
     },
     {
       "type": "object",
@@ -243,13 +243,13 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
-      "x": 19,
-      "y": 75,
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
+      "x": 24,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
-      "movement_range_x": 3,
-      "movement_range_y": 1,
+      "movement_range_x": 4,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
@@ -257,13 +257,13 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 19,
-      "y": 77,
+      "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
+      "x": 24,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
-      "movement_range_x": 3,
-      "movement_range_y": 1,
+      "movement_range_x": 4,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
@@ -272,22 +272,22 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
-      "x": 22,
-      "y": 74,
-      "elevation": 0,
+      "x": 26,
+      "y": 38,
+      "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route12_Trailer_Camera",
+      "script": "Route12_ConcernedSister",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 23,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -300,7 +300,7 @@
   ],
   "warp_events": [
     {
-      "x": 19,
+      "x": 20,
       "y": 81,
       "elevation": 0,
       "dest_map": "MAP_ROUTE12_FISHING_HOUSE",
@@ -362,13 +362,94 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "CommonScript_EmptyPail"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_CSR_TRAPPED_FISHER",
+      "var_value": "0",
+      "script": "Route12_TrappedFisherLooksOver"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "0",
+      "script": "Route12_GoingNorth"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
       "x": 24,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route12_EventScript_RouteSign"
@@ -383,8 +464,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 19,
-      "y": 52,
+      "x": 30,
+      "y": 51,
       "elevation": 3,
       "item": "ITEM_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_32",
@@ -410,6 +491,22 @@
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_RARE_CANDY",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route12_TrappedFisherTalks"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route12_TrappedFisherTalks"
     }
   ]
 }

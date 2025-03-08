@@ -1,3 +1,14 @@
 mapscripts FushciaCity_BrendanMay_1F_MapScripts {
     
 }
+
+script BrendanMay_Machoke {
+    lock
+    removeobject(VAR_LAST_TALKED)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MACHOKE)
+    call(Common_Script_ObtainedPokemon)
+    release
+    end
+}
+
+

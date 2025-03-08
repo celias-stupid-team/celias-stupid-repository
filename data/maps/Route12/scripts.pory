@@ -1,7 +1,5 @@
 raw `
-Route12_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route12_OnResume
-	.byte 0
+
 
 Route12_OnResume::
 	call_if_set FLAG_SYS_SPECIAL_WILD_BATTLE, Route12_EventScript_TryRemoveSnorlax
@@ -59,6 +57,265 @@ Route12_EventScript_FishingSign::
 	msgbox Route12_Text_SportfishingArea, MSGBOX_SIGN
 	end
 `
+mapscripts Route12_MapScripts{
+	 MAP_SCRIPT_ON_RESUME: Route12_OnResume
+	 MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_HALL_OF_ORIGIN_ACTIVE)) {
+			call(Route12_DrawHall)
+		}
+	 }
+}
+
+
+
+script Route12_DrawHall {
+
+	//No I am not labeling all of these
+	//Rave this is why I really didn't wanna do this by hand LOL
+	//Ah well, no sense in worrying abotu it anymore
+	setmetatile(24, 10, 0x2AB, FALSE)
+	setmetatile(25, 10, 0x2AC, FALSE)
+	setmetatile(26, 10, 0x2CB, FALSE)
+	setmetatile(27, 10, 0x2CB, FALSE)
+	setmetatile(28, 10, 0x2CB, FALSE)
+	setmetatile(29, 10, 0x2CC, FALSE)
+
+	setmetatile(24, 11, 0x2AC, FALSE)
+	setmetatile(25, 11, 0x2B4, FALSE)
+	setmetatile(26, 11, 0x2CB, FALSE)
+	setmetatile(27, 11, 0x2CB, FALSE)
+	setmetatile(28, 11, 0x2CB, FALSE)
+	setmetatile(29, 11, 0x2CC, FALSE)
+	
+
+	setmetatile(24, 12, 0x2B4, FALSE)
+	setmetatile(25, 12, 0x2BC, FALSE)
+	setmetatile(26, 12, 0x2C2, FALSE)
+	setmetatile(27, 12, 0x2CB, FALSE)
+	setmetatile(28, 12, 0x2CB, FALSE)
+	setmetatile(29, 12, 0x2CC, FALSE)
+	
+	setmetatile(24, 13, 0x2BC, FALSE)
+	setmetatile(25, 13, 0x2BD, FALSE)
+	setmetatile(26, 13, 0x2CA, FALSE)
+	setmetatile(27, 13, 0x2CB, FALSE)
+	setmetatile(28, 13, 0x2CB, FALSE)
+	setmetatile(29, 13, 0x2CC, FALSE)
+	
+	setmetatile(26, 14, 0x2CA, FALSE)
+	setmetatile(27, 14, 0x2CB, FALSE)
+	setmetatile(28, 14, 0x2CB, FALSE)
+	setmetatile(29, 14, 0x2CC, FALSE)
+	
+	setmetatile(26, 15, 0x2CA, FALSE)
+	setmetatile(27, 15, 0x2CB, FALSE)
+	setmetatile(28, 15, 0x2CB, FALSE)
+	setmetatile(29, 15, 0x2CC, FALSE)
+	
+	setmetatile(26, 16, 0x2CA, FALSE)
+	setmetatile(27, 16, 0x2CB, FALSE)
+	setmetatile(28, 16, 0x2CB, FALSE)
+	setmetatile(29, 16, 0x2CC, FALSE)
+
+	setmetatile(23, 17, 0x2CA, FALSE)
+	setmetatile(24, 17, 0x2CB, FALSE)
+	setmetatile(25, 17, 0x2CB, FALSE)
+	setmetatile(26, 17, 0x2CB, FALSE)
+	setmetatile(27, 17, 0x2CB, FALSE)
+	setmetatile(28, 17, 0x2CB, FALSE)
+	setmetatile(29, 17, 0x2CC, FALSE)
+
+	setmetatile(23, 18, 0x2CA, FALSE)
+	setmetatile(24, 18, 0x2CB, FALSE)
+	setmetatile(25, 18, 0x2CB, FALSE)
+	setmetatile(26, 18, 0x2CB, FALSE)
+	setmetatile(27, 18, 0x2CB, FALSE)
+	setmetatile(28, 18, 0x2CB, FALSE)
+	setmetatile(29, 18, 0x2CC, FALSE)
+
+	setmetatile(23, 19, 0x2CA, FALSE)
+	setmetatile(24, 19, 0x2CB, FALSE)
+	setmetatile(25, 19, 0x2CB, FALSE)
+	setmetatile(26, 19, 0x2CB, FALSE)
+	setmetatile(27, 19, 0x2CB, FALSE)
+	setmetatile(28, 19, 0x2CB, FALSE)
+	setmetatile(29, 19, 0x2CC, FALSE)
+
+	//Bottom half
+	setmetatile(22, 59, 0x2CA, FALSE)
+	setmetatile(23, 59, 0x2CB, FALSE)
+	setmetatile(24, 59, 0x2CC, FALSE)
+	
+	setmetatile(22, 60, 0x2CA, FALSE)
+	setmetatile(23, 60, 0x2CB, FALSE)
+	setmetatile(24, 60, 0x2CC, FALSE)
+	
+	setmetatile(22, 61, 0x2CA, FALSE)
+	setmetatile(23, 61, 0x2CB, FALSE)
+	setmetatile(24, 59, 0x2CC, FALSE)
+
+	setmetatile(21, 62, 0x2CA, FALSE)
+	setmetatile(22, 62, 0x2CB, FALSE)
+	setmetatile(23, 62, 0x2CB, FALSE)
+	setmetatile(24, 62, 0x2CB, FALSE)
+	setmetatile(25, 62, 0x2CC, FALSE)
+
+	setmetatile(18, 63, 0x2AB, FALSE)
+	setmetatile(18, 64, 0x2AC, FALSE)
+	setmetatile(18, 65, 0x2B4, FALSE)
+	setmetatile(18, 66, 0x2BC, FALSE)
+
+	setmetatile(19, 63, 0x2AC, FALSE)
+	setmetatile(19, 64, 0x2B4, FALSE)
+	setmetatile(19, 65, 0x2BC, FALSE)
+	setmetatile(19, 66, 0x2BD, FALSE)
+
+	setmetatile(20, 63, 0x2CB, FALSE)
+	setmetatile(20, 64, 0x2CB, FALSE)
+	setmetatile(20, 65, 0x2CB, FALSE)
+	setmetatile(20, 66, 0x2D2, FALSE)
+
+	setmetatile(21, 63, 0x2CB, FALSE)
+	setmetatile(21, 64, 0x2CB, FALSE)
+	setmetatile(21, 65, 0x2CB, FALSE)
+	setmetatile(21, 66, 0x2CA, FALSE)
+	setmetatile(21, 67, 0x2CA, FALSE)
+	setmetatile(21, 68, 0x2CA, FALSE)
+	setmetatile(21, 69, 0x2CA, FALSE)
+	setmetatile(21, 70, 0x2D2, FALSE)
+
+	setmetatile(22, 63, 0x2CB, FALSE)
+	setmetatile(22, 64, 0x2CB, FALSE)
+	setmetatile(22, 65, 0x2CB, FALSE)
+	setmetatile(22, 66, 0x2CB, FALSE)
+	setmetatile(22, 67, 0x2CB, FALSE)
+	setmetatile(22, 68, 0x2CB, FALSE)
+	setmetatile(22, 69, 0x2CB, FALSE)
+	setmetatile(22, 70, 0x2CA, FALSE)
+	setmetatile(22, 71, 0x091, FALSE)
+
+	setmetatile(23, 63, 0x2CB, FALSE)
+	setmetatile(23, 64, 0x2CB, FALSE)
+	setmetatile(23, 65, 0x2CB, FALSE)
+	setmetatile(23, 66, 0x2CB, FALSE)
+	setmetatile(23, 67, 0x2CB, FALSE)
+	setmetatile(23, 68, 0x2CB, FALSE)
+	setmetatile(23, 69, 0x2CB, FALSE)
+	setmetatile(23, 70, 0x2CB, FALSE)
+	setmetatile(23, 71, 0x089, FALSE)
+
+	setmetatile(24, 63, 0x2CB, FALSE)
+	setmetatile(24, 64, 0x2CB, FALSE)
+	setmetatile(24, 65, 0x2CB, FALSE)
+	setmetatile(24, 66, 0x2CB, FALSE)
+	setmetatile(24, 67, 0x2CB, FALSE)
+	setmetatile(24, 68, 0x2CB, FALSE)
+	setmetatile(24, 69, 0x2CB, FALSE)
+	setmetatile(24, 70, 0x2CC, FALSE)
+	setmetatile(24, 71, 0x089, FALSE)
+
+	setmetatile(25, 63, 0x2CC, FALSE)
+	setmetatile(25, 64, 0x2CC, FALSE)
+	setmetatile(25, 65, 0x2CC, FALSE)
+	setmetatile(25, 66, 0x2CC, FALSE)
+	setmetatile(25, 67, 0x2CC, FALSE)
+	setmetatile(25, 68, 0x2CC, FALSE)
+	setmetatile(25, 69, 0x2CC, FALSE)
+	setmetatile(25, 70, 0x2D2, FALSE)
+
+}
+
+script Route12_Snorlax {
+	lock
+	if(!checkitem(ITEM_POKE_FLUTE)) {
+		msgbox(Route12_Text_MonSprawledOutInSlumber)
+	} else {
+		goto_if_questlog(EventScript_ReleaseEnd)
+		special(QuestLog_CutRecording)
+		msgbox(Text_WantToUsePokeFlute, MSGBOX_YESNO)
+		if(!var(VAR_RESULT)) {
+			release
+			end
+		} else {
+			setflag(FLAG_CSR_HIDE_OMANYTE)
+			message(Text_PlayedPokeFlute)
+			waitmessage
+			playfanfare(MUS_POKE_FLUTE)
+			waitfanfare
+			closemessage
+			delay(60)
+			playse(SE_CLICK)
+			call(Route12_DrawHall)
+			special(DrawWholeMapView)
+			setflag(FLAG_HALL_OF_ORIGIN_ACTIVE)
+			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+			setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+			setmaplayoutindex(LAYOUT_ROUTE12_HALLOF_ORIGIN)
+			special(DrawWholeMapView)
+			special(ShakeScreen)
+			delay(60)
+			release
+			end
+
+		}
+	}
+}
+
+
+const TRAPPED_FISHER = 1
+script Route12_TrappedFisherLooksOver {
+	lock
+	playse(SE_PIN)
+	setvar(VAR_CSR_TRAPPED_FISHER, 1)
+	setobjectmovementtype(TRAPPED_FISHER, MOVEMENT_TYPE_FACE_RIGHT)
+	applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
+	waitmovement(0)
+	applymovement(TRAPPED_FISHER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	release
+}
+
+script Route12_TrappedFisherTalks {
+	lock
+	special(GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH :
+			applymovement(TRAPPED_FISHER, Common_Movement_FaceDown)
+		case DIR_WEST:
+			applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
+	}
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitmovement(0)
+	msgbox("Ahoy, there!\nUh, how's it going?\pSay, is there any chance you could\ncall for some help?\lI've been trapped here for weeks!", MSGBOX_DEFAULT)
+	release
+}
+
+script Route12_GoingNorth {
+	setflag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)
+	release
+}
+
+script Route12_GoingSouth {
+	clearflag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)
+	release
+}
+
+script Route12_ConcernedSister {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)) {
+		msgbox("Oh no!\nMy brother is attacking a GYARADOS!\lSomeone help it!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Oh no!\nA GYARADOS is attacking my brother!\lSomeone help him!", MSGBOX_DEFAULT)
+	}
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+}
+
 script Route12_Celia_Path {
 	msgbox("For reasons that are so dumb and\nconvoluted that I couldn't even\lbegin to describe them here,\lthis path is 2 tiles shorter now.\pPlease don't ask why.\n", MSGBOX_NPC)
 	end

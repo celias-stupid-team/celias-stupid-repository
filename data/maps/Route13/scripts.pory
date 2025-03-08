@@ -15,7 +15,41 @@ Route13_EventScript_RouteSign::
 	end
 `
 
-const LASS = 2
+script Route13_TheMountains {
+	msgbox("The Mountains\n", MSGBOX_SIGN)
+	end
+}
+
+const SNORLAX = 2
+script Route13_Snorlax {
+	lock
+	msgbox("The SNORLAX ran off to the\nmountains…", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	playmoncry(SPECIES_SNORLAX, CRY_MODE_NORMAL)
+	waitmoncry
+	removeobject(SNORLAX)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
+
+script Route13_Artist {
+	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic fences\nall along the grass on this route!\lMy artistic genius knows no limits!", MSGBOX_NPC)
+	end
+}
+
+script Route13_Fence {
+	msgbox("This patch of grass has been\nintricately painted to resemble\la fence.", MSGBOX_SIGN)
+	end
+}
+
+script Route13_WrongTurnSign {
+	msgbox("TRAINER TIPS!\pDon't make a wrong turn!\n", MSGBOX_SIGN)
+	end
+}
+
+const LASS = 1
 
 script Route13_LassAttack {
 	lock

@@ -1,3 +1,51 @@
 mapscripts KantoLighthouse_3F_MapScripts {
     
 }
+
+script KantoLighthouse_3F_FallDownHole {
+    lock
+    warphole(MAP_KANTO_LIGHTHOUSE_2F)
+    release
+    end
+}
+
+script KantoLighthouse_3F_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, you'd better watch out for\nthe holes in the floor!\lI wouldn't want you to get hurt!\pAnyway, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script KantoLighthouse_3F_Ampharos {
+    lock
+    setwildbattle(SPECIES_AMPHAROS_MEGA, 30, ITEM_SECRETETHER)
+    dowildbattle
+    release
+}
+
+//Gonna put the common encounter script here just to see if it works 
+
+script Common_EventScript_StaticEncounter {
+    goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+    callnative(GetObjectEventTrainerRangeFromTemplate)
+	setwildbattle(VAR_RESULT, 25)
+	waitse
+	playmoncry(VAR_RESULT, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}

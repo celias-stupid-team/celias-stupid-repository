@@ -223,9 +223,9 @@ It is reset after every battle.
 #define VAR_ROUTE22_NIDOF                 0x409B
 #define VAR_ROUTE2_SHINY_MIME                 0x409C
 #define VAR_POKEMONTOWER_ANSWER                 0x409D
-#define VAR_0x409E                 0x409E
-#define VAR_0x409F                 0x409F
-#define VAR_0x40A0                 0x40A0
+#define VAR_CSR_TOASTER_COUNTER                 0x409E
+#define VAR_CSR_GIFT_POKEMON                 0x409F
+#define VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE                 0x40A0
 #define VAR_0x40A1                 0x40A1
 #define VAR_0x40A2                 0x40A2
 #define VAR_0x40A3                 0x40A3
@@ -277,8 +277,8 @@ It is reset after every battle.
 #define VAR_CSR_CELIA_SECRET_NEXT_HINT                 0x40D0
 #define VAR_CSR_CURRENT_CELIA_SECRET                 0x40D1
 #define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
-#define VAR_0x40D3                 0x40D3
-#define VAR_0x40D4                 0x40D4
+#define VAR_CSR_TRAPPED_FISHER                 0x40D3
+#define VAR_CSR_TURNED_ON_POWER                 0x40D4
 #define VAR_0x40D5                 0x40D5
 #define VAR_0x40D6                 0x40D6
 #define VAR_0x40D7                 0x40D7
@@ -378,3 +378,6 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
 #endif // GUARD_CONSTANTS_VARS_H
+
+#define VAR_PARTY_SLOT VAR_0x8000
+#define VAR_EVOLUTION_SPECIES VAR_0x8001

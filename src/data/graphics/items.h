@@ -783,3 +783,7 @@ const u32 gItemIconPalette_ValorSeal[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_Metronome[] = INCBIN_U32("graphics/items/icons/metronome.4bpp.lz");
 const u32 gItemIconPalette_Metronome[] = INCBIN_U32("graphics/items/icon_palettes/metronome.gbapal.lz");
+const u32 gItemIcon_Sandwich[] = INCBIN_U32("graphics/items/icons/sandwich.4bpp.lz");
+const u32 gItemIconPalette_Sandwich[] = INCBIN_U32("graphics/items/icon_palettes/sandwich.gbapal.lz");
+const u32 gItemIcon_JellyDonut[] = INCBIN_U32("graphics/items/icons/jelly_donut.4bpp.lz");
+const u32 gItemIconPalette_JellyDonut[] = INCBIN_U32("graphics/items/icon_palettes/jelly_donut.gbapal.lz");

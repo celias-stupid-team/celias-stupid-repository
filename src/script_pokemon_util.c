@@ -10,6 +10,9 @@
 #include "script_pokemon_util.h"
 #include "constants/items.h"
 #include "constants/pokemon.h"
+#include "evolution_scene.h"
+
+
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleTowerParty(void);
@@ -213,3 +216,83 @@ void ReducePlayerPartyToThree(void)
     CalculatePlayerPartyCount();
     Free(party);
 }
+
+
+//Parameters: VAR_0x8000=party slot, VAR_0x8001=species, VAR_0x8002=allow cancel
+//Returns: VAR_RESULT=FALSE if species is invalid
+void EvolvePartyMonToSpecies(void){
+        u16 slotId = gSpecialVar_0x8000;
+        u16 targetSpecies = gSpecialVar_0x8001;
+        struct Pokemon *mon = &gPlayerParty[slotId];
+
+        if (targetSpecies == SPECIES_NONE || targetSpecies >= NUM_SPECIES){
+                gSpecialVar_Result = FALSE;
+                return;
+        }
+        gCB2_AfterEvolution = CB2_ReturnToField;
+        BeginEvolutionScene(mon, targetSpecies, gSpecialVar_0x8002, slotId);
+        gSpecialVar_Result = TRUE;
+}
+
+//Parameters: VAR_0x8000=party slot, VAR_0x8001=evolution number, VAR_0x8002=allow cancel
+//Returns: VAR_RESULT=FALSE if mon can't evolve
+void EvolvePartyMon(void){
+        extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+        u32 species = GetMonData(&gPlayerParty[gSpecialVar_0x8000], MON_DATA_SPECIES);
+        gSpecialVar_0x8001 = gEvolutionTable[species][gSpecialVar_0x8001].targetSpecies;
+        EvolvePartyMonToSpecies();
+}
+
+/* Example script:
+
+
+Example_MossRock::
+	msgbox TextExample_MossRock, MSGBOX_AUTOCLOSE	
+	setvar VAR_0x8004, 0	@You could check other slots too!
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EEVEE	
+	goto_if_ne Example_DontEvolve
+	
+	setvar VAR_0x8000, 0 @slot
+	setvar VAR_0x8001, SPECIES_LEAFEON	@species
+	setvar VAR_0x8002, TRUE		@allow cancel
+	callnative EvolvePartyMonToSpecies
+
+Example_DontEvolve:
+	end
+
+TextExample_MossRock:
+	.string "It's a moss-covered rock.\n(at least we can pretend that it is)$"
+
+
+Example 2 
+
+
+Example_EvolvePokemon::
+        msgbox TextExample_SelectMon, MSGBOX_NPC
+        special ChoosePartyMon
+        waitstate
+        compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+        goto_if_eq Example_DontEvolve
+
+        copyvar VAR_0x8000, VAR_0x8004    @party slot
+        setvar VAR_0x8001, 0    @evolution number
+        setvar VAR_0x8002, FALSE    @allow cancel
+        callnative EvolvePartyMon
+        compare VAR_RESULT, FALSE
+        goto_if_eq Example_CantEvolve		
+		
+Example_DontEvolve:
+        end
+
+Example_CantEvolve:
+	msgbox TextExample_CantEvolve, MSGBOX_NPC
+	end
+
+
+TextExample_SelectMon:
+	.string "Select a Pokémon to evolve.$"
+
+TextExample_CantEvolve:
+	.string "Couldn't evolve Pokémon.$"
+*/

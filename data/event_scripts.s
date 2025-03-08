@@ -1458,3 +1458,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route12_HallofOrigin/scripts.inc"
 	.include "data/maps/Route12_HallofOrigin/text.inc"
+
+	.include "data/maps/SafariZone_DMCAShowdown/scripts.inc"
+	.include "data/maps/SafariZone_DMCAShowdown/text.inc"

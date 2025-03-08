@@ -208,3 +208,26 @@ script PowerPlant_Computer {
 	msgbox("“Operating Nuclear Power Plants\nfor Dummies\lfree download”", MSGBOX_SIGN)
 	end
 }
+
+
+script PowerPlant_MinigameStart {
+	lock
+	if(!var(VAR_CSR_TURNED_ON_POWER)) {
+		msgbox("no power\nplay game?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			if(checkitem(ITEM_EVERSTONE)) {
+				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
+				setvar(VAR_CSR_TURNED_ON_POWER, 1)
+				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
+				dowildbattle
+			} else {
+				msgbox("cannot beat game\n", MSGBOX_DEFAULT)
+			}
+		}
+
+	} else {
+		msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+	}
+	release
+	end
+}

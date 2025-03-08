@@ -123,8 +123,8 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_MISSINGNO]  = {{EVO_LEVEL, 1, SPECIES_KANGASKHAN}},              //TODO
     [SPECIES_GIMMIGHOUL]  = {{EVO_LEVEL, 1, SPECIES_GHOLDENGO}}, 
     
-    //[SPECIES_TANGELA]  = {{EVO_LEVEL, 1, SPECIES_TRUBBISH_HAIRCUT}},              //TODO - Add Haircut evolution method
-    //[SPECIES_AMPHAROS_MEGA]  = {{EVO_LEVEL, 1, SPECIES_AMPHAROS}},              //TODO - Add Haircut evolution method
+    [SPECIES_TANGELA]  = {{EVO_HAIRCUT, 1, SPECIES_TRUBBISH_HAIRCUT}},              //TODO - Add Haircut evolution method
+    [SPECIES_AMPHAROS_MEGA]  = {{EVO_HAIRCUT, 1, SPECIES_AMPHAROS}},              //TODO - Add Haircut evolution method
 
     //[SPECIES_GENESECT]  = {{EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_KABUTOPS}},              //TODO - Add Ancientpower evolution
 

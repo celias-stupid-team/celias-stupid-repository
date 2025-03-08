@@ -14,3 +14,18 @@ SafariZone_East_EventScript_AreaSign::
 	msgbox SafariZone_East_Text_AreaSign, MSGBOX_SIGN
 	end
 `
+script SafariZone_TauntTM {
+	lock
+	if(!flag(FLAG_NO_TM_CASE)) {
+		finditem(ITEM_TM32)
+	} else {
+		msgbox("{PLAYER} found a TM12!\nIt contains TAUNT.", MSGBOX_DEFAULT)
+		msgbox("Too bad!\nThere's no TM CASE…", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script SafariZone_UndergroundPathHint {
+	msgbox("People often lose things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
+	end
+}

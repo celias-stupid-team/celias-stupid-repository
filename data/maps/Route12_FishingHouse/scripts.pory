@@ -101,3 +101,17 @@ Route12_FishingHouse_EventScript_MagikarpRecordSignRecordSet::
 	releaseall
 	end
 `
+
+
+
+script AwakeningShop_Storeperson {
+
+}
+
+script AwakeningShop_VitalSpiritDelibird {
+
+}
+
+script AwakeningShop_InsomniaDelibird {
+	
+}

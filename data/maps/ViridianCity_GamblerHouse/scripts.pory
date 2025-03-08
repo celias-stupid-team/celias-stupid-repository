@@ -3,7 +3,10 @@ mapscripts ViridianCity_GamblerHouse_MapScripts {
 }
 
 script GamblerHouse_SlotMachines {
-	msgbox("Darn, these ones are fancy toasters\ntoo...", MSGBOX_SIGN)
+    lock
+	msgbox("Darn, these ones are fancy toasters\ntoo...", MSGBOX_DEFAULT)
+    call(Common_ToastYourDonut)
+	release
 	end
 }
 

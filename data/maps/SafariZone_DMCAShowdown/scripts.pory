@@ -1,0 +1,31 @@
+mapscripts SafariZone_DMCAShowdown_MapScripts {
+
+}
+
+script SafariZone_IronCleftBattle {
+    lock
+    fadeoutbgm(0)
+    //cinematic camera stuff
+    msgbox("Copyright\n", MSGBOX_DEFAULT)
+    //battle
+
+    msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me either.\pYou'll need something with REAL\nfirepower if you wanna beat us!", MSGBOX_DEFAULT)
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox("Oh…\nThat's okay, I understand.")
+        goto(UndergroudnPath_YoungerBrotherEnd)
+    }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    if(var(VAR_RESULT) == SPECIES_REMORAID) {
+        //black screen
+        fadescreen(FADE_TO_BLACK)
+        waitstate
+        // Bang. Bang Bang.
+        fadescreen(FADE_FROM_BLACK)
+        msgbox("we die\n", MSGBOX_DEFAULT)
+        additem(ITEM_TM_CASE, 1)
+        clearflag(FLAG_NO_TM_CASE)
+    }
+
+}
