@@ -17,3 +17,11 @@ FushciaCity_House1_EventScript_LittleBoy::
 	msgbox FushciaCity_House1_Text_BillFilesHisOwnMonData, MSGBOX_NPC
 	end
 `
+script FushciaCity_House1_PorygonHint {
+	lock
+	faceplayer
+	msgbox("Ah, confound it!\nI clicked on one of those darn\lpop-up windows again.\pRats, I hope I didn't install a\nvirus on my POKéMON again…", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+}
