@@ -77,5 +77,6 @@ script WardensHouse_Warden {
 			msgbox("no teeth\n", MSGBOX_DEFAULT)
 		}
 	}
+	release
 }
 
