@@ -304,7 +304,7 @@
 #define FLAG_GOT_SOOT_SACK                              0x102
 #define FLAG_PUT_ASH_IN_SACK                              0x103
 #define FLAG_CRAFTED_BLUE_FLUTE                              0x104
-#define FLAG_0x105               0x105
+#define FLAG_HALL_OF_ORIGIN_ACTIVE               0x105
 #define FLAG_CSR_TM_CASE               0x106
 #define FLAG_CSR_TALKED_TO_PRIZEGIVER  0x107
 #define FLAG_CSR_DRIFLOON_APPEARS               0x108
