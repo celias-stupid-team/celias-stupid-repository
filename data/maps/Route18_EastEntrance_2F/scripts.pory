@@ -45,6 +45,8 @@ Route18_EastEntrance_2F_EventScript_AlreadyTraded::
 	end
 `
 
+// Other binoculars look at Sky Pillar
+
 const LASS = 2
 
 script Route18_LassBinoculars {

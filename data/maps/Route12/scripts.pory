@@ -152,7 +152,7 @@ script Route12_DrawHall {
 	
 	setmetatile(22, 61, 0x2CA, FALSE)
 	setmetatile(23, 61, 0x2CB, FALSE)
-	setmetatile(24, 59, 0x2CC, FALSE)
+	setmetatile(24, 61, 0x2CC, FALSE)
 
 	setmetatile(21, 62, 0x2CA, FALSE)
 	setmetatile(22, 62, 0x2CB, FALSE)

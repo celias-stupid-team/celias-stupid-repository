@@ -6078,7 +6078,7 @@
       "english": "MATH CLUB",
       "itemId": "ITEM_MATH_CLUB",
       "price": 0,
-      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffect": "HOLD_EFFECT_THICK_CLUB",
       "holdEffectParam": 0,
       "description_english": "An after-school activity that\\nteaches CUBONE or MAROWAK how to\\nmultiply, doubling its ATTACKs.",
       "importance": 1,
