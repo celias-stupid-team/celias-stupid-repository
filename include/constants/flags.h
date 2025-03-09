@@ -626,7 +626,7 @@
 #define FLAG_CSR_GOT_PAY_DAY                                    0x239
 #define FLAG_WARDENS_TEETH                                    0x23A
 #define FLAG_GOT_HM05                                    0x23B
-#define FLAG_RESCUED_MR_FUJI                             0x23C
+#define FLAG_RESCUED_CUBONES_MOM                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
 #define FLAG_0x23E                                       0x23E
 #define FLAG_GOT_TM28_FROM_ROCKET                        0x23F

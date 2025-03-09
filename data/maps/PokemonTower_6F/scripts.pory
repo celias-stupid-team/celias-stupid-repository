@@ -19,3 +19,23 @@ PokemonTower_6F_EventScript_Jennifer::
 	msgbox PokemonTower_6F_Text_JenniferPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonTower_6F_WorriedAboutCuboneMom {
+	lock
+	faceplayer
+	if(flag(FLAG_RESCUED_CUBONES_MOM)) {
+		msgbox("The DMCA have left.\n", MSGBOX_DEFAULT) //PLACEHOLDER
+	} else {
+	msgbox("The local schoolteacher MR. FUJI\nwas taken up here a while ago.\pHe allowed his students to use\ncopyrighted characters in class.\lThe DMCA goons were not happy.\pCUBONE's MOM came up to save him.\nI hope she's okay…", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script PokemonTower_6F_Placeholder {
+
+}
+
+script PokemonTower_6F_Placeholder2 {
+	
+}
