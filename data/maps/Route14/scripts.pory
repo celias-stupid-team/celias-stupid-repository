@@ -8,7 +8,7 @@ Route14_EventScript_RouteSign::
 
 script Route15_PokeRap_Trainer1 {
     trainerbattle_single(TRAINER_POKERAP_1, "Placeholder Intro", "Placeholder Defeat", Route15_PokeRap_Trainer1_Defeat)
-    msgbox("Placeholder After")
+    msgbox("Diglett done by Jogaklaa!\pMankey done by PKMNTRAINERSPRITERC")
     release
 }
 

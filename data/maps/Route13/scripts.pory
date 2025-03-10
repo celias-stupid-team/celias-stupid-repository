@@ -14,6 +14,10 @@ Route13_EventScript_RouteSign::
 	msgbox Route13_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+script Route13_SpeedupTip {
+	msgbox("TRAINER TIPS\pThe Speedup option is in your\nemulator.\pRemember to use it when needed!\n", MSGBOX_SIGN)
+	end
+}
 
 script Route13_TheMountains {
 	msgbox("The Mountains\n", MSGBOX_SIGN)

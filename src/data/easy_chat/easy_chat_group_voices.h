@@ -15,7 +15,7 @@ static const u8 sEasyChatWord_OhQues[] = _("OH?");
 static const u8 sEasyChatWord_Nope[] = _("NOPE");
 static const u8 sEasyChatWord_Urgh[] = _("URGH");
 static const u8 sEasyChatWord_Hmm[] = _("HMM");
-static const u8 sEasyChatWord_Whoah[] = _("WHOAH");
+static const u8 sEasyChatWord_WhoAre[] = _("WHO ARE");
 static const u8 sEasyChatWord_WroooaarExcl[] = _("WROOOAAR!");
 static const u8 sEasyChatWord_Wow[] = _("WOW");
 static const u8 sEasyChatWord_Giggle[] = _("GIGGLE");
@@ -30,7 +30,7 @@ static const u8 sEasyChatWord_OiOiOi[] = _("OI, OI, OI");
 static const u8 sEasyChatWord_OhYeah[] = _("OH, YEAH");
 static const u8 sEasyChatWord_Oh[] = _("OH");
 static const u8 sEasyChatWord_Oops[] = _("OOPS");
-static const u8 sEasyChatWord_Shocked[] = _("SHOCKED");
+static const u8 sEasyChatWord_Short[] = _("SHORT!");
 static const u8 sEasyChatWord_Eek[] = _("EEK");
 static const u8 sEasyChatWord_Graaah[] = _("GRAAAH");
 static const u8 sEasyChatWord_Gwahahaha[] = _("GWAHAHAHA");
@@ -145,7 +145,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Voices[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Whoah,
+        .text = sEasyChatWord_WhoAre,
         .alphabeticalOrder = 32,
         .enabled = TRUE
     },
@@ -220,7 +220,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Voices[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Shocked,
+        .text = sEasyChatWord_Short,
         .alphabeticalOrder = 49,
         .enabled = TRUE
     },

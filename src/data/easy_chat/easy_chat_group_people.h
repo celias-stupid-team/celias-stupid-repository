@@ -52,7 +52,7 @@ static const u8 sEasyChatWord_Its[] = _("IT'S");
 static const u8 sEasyChatWord_Lady[] = _("LADY");
 static const u8 sEasyChatWord_Friend[] = _("FRIEND");
 static const u8 sEasyChatWord_Ally[] = _("ALLY");
-static const u8 sEasyChatWord_Person[] = _("PERSON");
+static const u8 sEasyChatWord_People[] = _("PEOPLE");
 static const u8 sEasyChatWord_Dude[] = _("DUDE");
 static const u8 sEasyChatWord_They[] = _("THEY");
 static const u8 sEasyChatWord_TheyWere[] = _("THEY WERE");
@@ -342,7 +342,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_People[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Person,
+        .text = sEasyChatWord_People,
         .alphabeticalOrder = 56,
         .enabled = TRUE
     },

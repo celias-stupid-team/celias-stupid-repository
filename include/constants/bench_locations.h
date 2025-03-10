@@ -22,6 +22,6 @@
 #define BENCH_ROUTE16                19
 #define BENCH_VIRIDIAN_FOREST                20
 #define BENCH_ROUTE14                21
-#define BENCH_ROUTE15                21
+#define BENCH_ROUTE15                22
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

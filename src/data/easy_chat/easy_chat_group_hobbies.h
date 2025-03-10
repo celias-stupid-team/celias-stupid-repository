@@ -9,7 +9,7 @@ static const u8 sEasyChatWord_ChildsPlay[] = _("CHILD'S PLAY");
 static const u8 sEasyChatWord_Toys[] = _("TOYS");
 static const u8 sEasyChatWord_Music[] = _("MUSIC");
 static const u8 sEasyChatWord_Cards[] = _("CARDS");
-static const u8 sEasyChatWord_Shopping[] = _("SHOPPING");
+static const u8 sEasyChatWord_Shorts[] = _("SHORTS,");
 static const u8 sEasyChatWord_Camera[] = _("CAMERA");
 static const u8 sEasyChatWord_Viewing[] = _("VIEWING");
 static const u8 sEasyChatWord_Spectator[] = _("SPECTATOR");
@@ -106,7 +106,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Hobbies[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Shopping,
+        .text = sEasyChatWord_Shorts,
         .alphabeticalOrder = 6,
         .enabled = TRUE
     },

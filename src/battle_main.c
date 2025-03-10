@@ -3729,6 +3729,9 @@ static void HandleEndTurn_BattleWon(void)
         case TRAINER_CLASS_DMCA_ADMIN:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
+        
+        case TRAINER_CLASS_RAPPER:
+            break;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_DMCA:
         case TRAINER_CLASS_COOLTRAINER:
@@ -3836,7 +3839,9 @@ static void HandleEndTurn_FinishBattle(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             ClearRematchStateByTrainerId();
         BeginFastPaletteFade(3);
-        FadeOutMapMusic(5);
+        if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
+            FadeOutMapMusic(5);
+        }
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;
     }

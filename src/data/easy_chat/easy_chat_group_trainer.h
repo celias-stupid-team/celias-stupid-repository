@@ -9,7 +9,7 @@ static const u8 sEasyChatWord_Nature[] = _("NATURE");
 static const u8 sEasyChatWord_Center[] = _("CENTER");
 static const u8 sEasyChatWord_Egg[] = _("EGG");
 static const u8 sEasyChatWord_Link[] = _("LINK");
-static const u8 sEasyChatWord_SpAbility[] = _("SP. ABILITY");
+static const u8 sEasyChatWord_Sorry2[] = _("SORRY!");
 static const u8 sEasyChatWord_Trainer[] = _("TRAINER");
 static const u8 sEasyChatWord_Version[] = _("VERSION");
 static const u8 sEasyChatWord_Pokenav[] = _("POKéNAV");
@@ -78,7 +78,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Trainer[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_SpAbility,
+        .text = sEasyChatWord_Sorry2,
         .alphabeticalOrder = 0,
         .enabled = TRUE
     },

@@ -226,7 +226,7 @@ script DanceTheater_Trailer {
     delay(150)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
-    delay(470)
+    delay(390)
     if(var(VAR_TEMP_5) != 8) {
         setflag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)
     }
@@ -278,7 +278,7 @@ script DanceTheater_Trailer {
 }
 
 movement Theater_CameraGoesUp {
-    walk_slow_up * 8
+    walk_slower_up * 8
 }
 
 movement Theater_CameraComesDown {

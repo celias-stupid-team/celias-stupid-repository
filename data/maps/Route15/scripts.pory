@@ -165,15 +165,15 @@ script Route15_Tuber {
 script Route15_Sandcastle {
 	lock
 	if(flag(FLAG_CSR_TUBER_EATEN)) {
+		playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 		msgbox("The small child is nowhere to be\nseen.\pThe sandcastle appears well-fed.\n", MSGBOX_DEFAULT)
-			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 			waitmoncry
 	} else {
 		msgbox("The sandcastle is exceedingly\nwell-crafted.\pThere's an opening on the front.\nLook inside?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			setflag(FLAG_CSR_TALKED_TO_TUBER)
-			msgbox("Peering into the sandcastle, you\nsee dozens of small bodies.\pIt's too late for them now.\n", MSGBOX_DEFAULT)
 			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
+			msgbox("Peering into the sandcastle, you\nsee dozens of small bodies.\pIt's too late for them now.\n", MSGBOX_DEFAULT)
 			waitmoncry
 		} else {
 			msgbox("{PLAYER} decided against testing\nfate.", MSGBOX_DEFAULT)

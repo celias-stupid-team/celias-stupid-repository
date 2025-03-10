@@ -262,7 +262,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM12",
       "script": "EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_HIDE_CELADON_TAUNT"
     },
     {
       "type": "object",

@@ -5967,7 +5967,8 @@ static u16 GetBattleBGM(void)
 
         case TRAINER_CLASS_DMCA_ADMIN:
             return MUS_CSR_DMCA_ADMIN;
-
+        case TRAINER_CLASS_RAPPER:
+            return MUS_CSR_POKERAP;
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
