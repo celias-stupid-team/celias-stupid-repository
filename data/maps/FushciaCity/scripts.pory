@@ -5,6 +5,7 @@ FushciaCity_MapScripts::
 
 FushciaCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_FUSHCIA_CITY
+	setworldmapflag FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F
 	call_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx
 	call_if_unset FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetKabutoGfx
 	end

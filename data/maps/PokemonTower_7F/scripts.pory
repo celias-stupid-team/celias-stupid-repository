@@ -297,8 +297,7 @@ script PokemonTower_Trailer {
 	waitstate
 	setflag(FLAG_HIDE_DMCA_IN_LAVENDER)
 	special(QuestLog_CutRecording)
-	goto_if_eq(VAR_RESULT, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost  @ VAR_RESULT set by CB2_EndMarowakBattle)
-	releaseall
+	release
 	end
 }
 
