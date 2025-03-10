@@ -852,8 +852,8 @@
 #define FLAG_REVIVED_AMBER               0x313
 #define FLAG_GOT_HM06               0x314
 #define FLAG_CSR_CONFUSED_GRUNT               0x315
-#define FLAG_0x316               0x316
-#define FLAG_0x317               0x317
+#define FLAG_CSR_TUBER_EATEN               0x316
+#define FLAG_CSR_TALKED_TO_TUBER               0x317
 #define FLAG_0x318               0x318
 #define FLAG_0x319               0x319
 #define FLAG_0x31A               0x31A

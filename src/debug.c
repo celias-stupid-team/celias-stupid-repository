@@ -3719,6 +3719,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_MART) \
     X(MUS_POKERAP) \
     X(MUS_CSR_DANCE_THEATER) \
+    X(MUS_CSR_DANCE_PRELUDE) \
 
 
 #define SOUND_LIST_SE \

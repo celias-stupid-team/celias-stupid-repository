@@ -371,6 +371,7 @@ gSongTable::
 	song mus_mart, 0, 0
 	song mus_pokerap, 0, 0
 	song mus_dance_theater, 0, 0
+	song mus_dance_prelude, 0, 0
 
 
 dummy_song_header:

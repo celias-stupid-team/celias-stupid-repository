@@ -121,6 +121,8 @@ script DanceTheater_Ash {
     end
 }
 
+
+
 script DanceTheater_Pikachu {
     lock
     faceplayer
@@ -128,6 +130,15 @@ script DanceTheater_Pikachu {
     if(flag(FLAG_PUT_ASH_IN_SACK)) {
         msgbox("POKéKID: Huh?\nWhere'd that guy go?", MSGBOX_DEFAULT)
     } else {
+        special(GetPlayerFacingDirection)
+        //if(var(VAR_RESULT) == DIR_SOUTH) {
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+            delay(30)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+            delay(30)
+            applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+            delay(30)
+        //}
         msgbox("POKéKID: Uh, hey.\pThis guy picked me up off the street\nthe other day.\pI think he actually believes I'm a\nPOKéMON.\nChu Pika!!", MSGBOX_DEFAULT)
         
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
@@ -193,6 +204,7 @@ script DanceTheater_Trailer {
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     special(SpawnCameraObject)
     getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    copyvar(VAR_TEMP_6, VAR_TEMP_3)
     while(var(VAR_TEMP_3) != 5) {
         if(var(VAR_TEMP_3) < 5) {
             applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkRight)
@@ -210,13 +222,14 @@ script DanceTheater_Trailer {
     msgbox("All right, ladies and gentlemen!\nIt's time for tonight's show!\pComing in from JOHTO, put your hands\ntogether for our main event:\lBIG YELLOW and the KIMONO GIRLS!", MSGBOX_DEFAULT)
     closemessage
     delay(30)
+    playbgm(MUS_CSR_DANCE_PRELUDE, FALSE)
+    delay(150)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
-    delay(45)
+    delay(470)
     if(var(VAR_TEMP_5) != 8) {
         setflag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)
     }
-
     playbgm(MUS_CSR_DRIFTVEIL, FALSE)
     delay(80)
     addobject(GUY)
@@ -239,10 +252,25 @@ script DanceTheater_Trailer {
     waitmovement(GREEN)
     setweather(WEATHER_NONE)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraComesDown)
-    doweather
     delay(60)
     fadedefaultbgm
+    doweather
     waitmovement(0)
+    while(var(VAR_TEMP_3) != VAR_TEMP_6) {
+
+        if(var(VAR_TEMP_3) < VAR_TEMP_6) {
+            applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkRight)
+            waitmovement(0)
+            addvar(VAR_TEMP_3, 1)
+        } else {
+            if(var(VAR_TEMP_3) > VAR_TEMP_6) {
+                applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft)
+                waitmovement(0)
+                subvar(VAR_TEMP_3, 1)
+            }
+        }
+    }
+    delay(30)
     
     setflag(FLAG_DANCE_THEATER_WATCHED_SHOW)
     special(RemoveCameraObject)
@@ -250,11 +278,18 @@ script DanceTheater_Trailer {
 }
 
 movement Theater_CameraGoesUp {
-    walk_up * 8
+    walk_slow_up * 8
 }
 
 movement Theater_CameraComesDown {
     walk_down * 8
+}
+
+movement Theater_CameraLeft {
+    walk_left
+}
+movement Theater_CameraRight {
+
 }
 
 movement GuyDance {

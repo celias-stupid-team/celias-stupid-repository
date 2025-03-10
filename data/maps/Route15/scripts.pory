@@ -1,11 +1,22 @@
 raw `
-Route15_MapScripts::
-	.byte 0
+
 
 Route15_EventScript_RouteSign::
 	msgbox Route15_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+const TUBER = 7
+mapscripts Route15_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_CSR_TALKED_TO_TUBER)) {
+			setflag(FLAG_CSR_TUBER_EATEN)
+			removeobject(TUBER)
+		}
+		setbench(BENCH_ROUTE15)
+	}
+}
+
 script Route15_BakerySign {
 	msgbox("Traditional American Bakery!\n", MSGBOX_SIGN)
 }
@@ -138,8 +149,48 @@ script Route15_Guard_NPC {
 	release
 }
 
+script Route15_Tuber {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_TALKED_TO_TUBER)) {
+		msgbox("I'm gonna play pretend.\nI'll be the queen of this castle!\pDo you wanna play with me?\nMy mommy won't be back for a while.", MSGBOX_DEFAULT)	
+	} else {
+		msgbox("Oooh, wow!\nLook at this neat SANDCASTLE!\pOh? No, I didn't make it.\nSomeone else must have.", MSGBOX_DEFAULT)
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+}
 
+script Route15_Sandcastle {
+	lock
+	if(flag(FLAG_CSR_TUBER_EATEN)) {
+		msgbox("The small child is nowhere to be\nseen.\pThe sandcastle appears well-fed.\n", MSGBOX_DEFAULT)
+			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
+			waitmoncry
+	} else {
+		msgbox("The sandcastle is exceedingly\nwell-crafted.\pThere's an opening on the front.\nLook inside?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			setflag(FLAG_CSR_TALKED_TO_TUBER)
+			msgbox("Peering into the sandcastle, you\nsee dozens of small bodies.\pIt's too late for them now.\n", MSGBOX_DEFAULT)
+			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
+			waitmoncry
+		} else {
+			msgbox("{PLAYER} decided against testing\nfate.", MSGBOX_DEFAULT)
+		}
+	}
+	release
+}
 
+script Route15_Psyduck {
+	msgbox("I sell LEMONADE as PROF. OAK's\nPOKéMON.", MSGBOX_NPC)
+	end
+}
+
+script Route15_GluedToTree {
+	msgbox("He's glued to the tree.\n", MSGBOX_SIGN)
+	end
+}
 
 movement Route15_Lighthouse_WalkOneLeft // I kinda forgot aboout the * notation for multiple walks oops
 {
