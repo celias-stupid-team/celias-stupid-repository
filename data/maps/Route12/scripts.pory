@@ -229,9 +229,12 @@ script Route12_Snorlax {
 	lock
 	if(!checkitem(ITEM_POKE_FLUTE)) {
 		msgbox(Route12_Text_MonSprawledOutInSlumber)
+		release
+		end
 	} else {
 		goto_if_questlog(EventScript_ReleaseEnd)
 		special(QuestLog_CutRecording)
+		msgbox(Route12_Text_MonSprawledOutInSlumber)
 		msgbox(Text_WantToUsePokeFlute, MSGBOX_YESNO)
 		if(!var(VAR_RESULT)) {
 			release
@@ -277,19 +280,33 @@ script Route12_TrappedFisherLooksOver {
 	release
 }
 
-script Route12_TrappedFisherTalks {
+script Route12_TrappedFisherTalksDown {
 	lock
-	special(GetPlayerFacingDirection)
-	switch(var(VAR_RESULT)) {
-		case DIR_NORTH :
-			applymovement(TRAPPED_FISHER, Common_Movement_FaceDown)
-		case DIR_WEST:
-			applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
-	}
 	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement(TRAPPED_FISHER, Common_Movement_FaceDown)
 	waitmovement(0)
+	lock
 	msgbox("Ahoy, there!\nUh, how's it going?\pSay, is there any chance you could\ncall for some help?\lI've been trapped here for weeks!", MSGBOX_DEFAULT)
 	release
+}
+script Route12_TrappedFisherTalksRight {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement(TRAPPED_FISHER, Common_Movement_FaceRight)
+	waitmovement(0)
+	lock
+	msgbox("Ahoy, there!\nUh, how's it going?\pSay, is there any chance you could\ncall for some help?\lI've been trapped here for weeks!", MSGBOX_DEFAULT)
+	release
+}
+
+script Route12_BalloonDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was just enjoying a nice balloon\nride over the bay.\lThe air up here is lovely!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }
 
 script Route12_GoingNorth {
@@ -338,4 +355,9 @@ script Route12_Trailer_Camera {
 movement CameraGoesUp {
 	walk_up
 	walk_up
+}
+
+script Route12_AwakeningShopSign {
+	msgbox("ROUTE 12\nWAKE-UP SHOP\pFor all your Waking Up needs!\n", MSGBOX_SIGN)
+	end
 }

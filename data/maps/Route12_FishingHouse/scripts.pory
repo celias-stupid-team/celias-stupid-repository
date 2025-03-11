@@ -109,9 +109,24 @@ script AwakeningShop_Storeperson {
 }
 
 script AwakeningShop_VitalSpiritDelibird {
+	lock
+	faceplayer
+	playmoncry(SPECIES_DELIBIRD, CRY_MODE_NORMAL)
+	msgbox("DELIBIRD: Ca-craaaa!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	msgbox("The DELIBIRD stayed awake thanks to\nits VITAL SPIRIT!", MSGBOX_DEFAULT)
+	release
 
 }
 
 script AwakeningShop_InsomniaDelibird {
-	
+	lock
+	faceplayer
+	playmoncry(SPECIES_DELIBIRD, CRY_MODE_NORMAL)
+	msgbox("DELIBIRD: Ca-craaaa!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	msgbox("The DELIBIRD stayed awake thanks to\nits INSOMNIA!", MSGBOX_DEFAULT)
+	release
 }

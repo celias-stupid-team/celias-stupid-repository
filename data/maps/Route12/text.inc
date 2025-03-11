@@ -12,10 +12,10 @@ Text_SnorlaxReturnedToMountains::
     .string "And returned to the mountains.$"
 
 Text_WantToUsePokeFlute::
-    .string "Want to use the POKé FLUTE?$"
+    .string "Want to use the BLUE FLUTE?$"
 
 Text_PlayedPokeFlute::
-    .string "{PLAYER} played the POKé FLUTE.$"
+    .string "{PLAYER} played the BLUE FLUTE.$"
 
 Route12_Text_NedIntro::
     .string "Yeah!\n"

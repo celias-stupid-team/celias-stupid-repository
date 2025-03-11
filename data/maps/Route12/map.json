@@ -61,16 +61,16 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "graphics_id": "OBJ_EVENT_GFX_BALLOONDAD",
       "x": 28,
       "y": 57,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 1,
-      "movement_range_y": 1,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route12_EventScript_Hank",
+      "script": "Route12_BalloonDad",
       "flag": "0"
     },
     {
@@ -244,11 +244,11 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 24,
-      "y": 34,
+      "x": 28,
+      "y": 36,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
-      "movement_range_x": 4,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -258,11 +258,11 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYARADOS",
-      "x": 24,
+      "x": 25,
       "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
-      "movement_range_x": 4,
+      "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -272,7 +272,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
-      "x": 26,
+      "x": 27,
       "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -416,33 +416,6 @@
       "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "Route12_GoingSouth"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 44,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "0",
-      "script": "Route12_GoingNorth"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 44,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "0",
-      "script": "Route12_GoingNorth"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 44,
-      "elevation": 0,
-      "var": "VAR_TEMP_5",
-      "var_value": "0",
-      "script": "Route12_GoingNorth"
     }
   ],
   "bg_events": [
@@ -498,7 +471,7 @@
       "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route12_TrappedFisherTalks"
+      "script": "Route12_TrappedFisherTalksRight"
     },
     {
       "type": "sign",
@@ -506,7 +479,15 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route12_TrappedFisherTalks"
+      "script": "Route12_TrappedFisherTalksDown"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 81,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route12_AwakeningShopSign"
     }
   ]
 }

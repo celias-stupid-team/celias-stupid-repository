@@ -53,6 +53,16 @@ script Route13_WrongTurnSign {
 	end
 }
 
+script Route13_StuckDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI was making my way through the maze\nbut I think I took a wrong turn.\lDo you know the way out?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
 const LASS = 1
 
 script Route13_LassAttack {

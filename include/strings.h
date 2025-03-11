@@ -415,6 +415,8 @@ extern const u8 gText_EggCantBattle[];
 extern const u8 gText_PkmnAlreadySelected[];
 extern const u8 gText_PkmnCantSwitchOut[];
 extern const u8 gText_CantUseRetreat[];
+extern const u8 gText_NoRetreat[];
+extern const u8 gText_ButItFailed[];
 
 // credits
 extern const u8 gString_Dummy[];
