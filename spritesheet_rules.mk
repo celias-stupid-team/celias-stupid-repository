@@ -662,5 +662,11 @@ $(OBJEVENTGFXDIR)/stupid/N.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/people/rs_gentleman.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+	
 $(OBJEVENTGFXDIR)/stupid/Falinks.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+
+$(OBJEVENTGFXDIR)/stupid/Arceus.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+

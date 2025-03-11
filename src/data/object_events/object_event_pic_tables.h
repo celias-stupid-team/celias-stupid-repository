@@ -2821,9 +2821,17 @@ const struct SpriteFrameImage gObjectEventPicTable_Falinks[] = {
     overworld_frame(gObjectEventPic_Falinks, 4, 4, 1),
     overworld_frame(gObjectEventPic_Falinks, 4, 4, 2),
     overworld_frame(gObjectEventPic_Falinks, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Falinks, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Falinks, 4, 4, 4),
     overworld_frame(gObjectEventPic_Falinks, 4, 4, 4),
     overworld_frame(gObjectEventPic_Falinks, 4, 4, 5),
-    overworld_frame(gObjectEventPic_Falinks, 4, 4, 6),
-    overworld_frame(gObjectEventPic_Falinks, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Falinks, 4, 4, 5),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_Arceus[] = {
+
+    overworld_frame(gObjectEventPic_Arceus, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Arceus, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Arceus, 8, 8, 2),
 };
 

@@ -4519,37 +4519,40 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KangaBaby = {
 };
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Falinks = { 
-
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
-
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-
     .size = 1024,
-
     .width = 32,
-
     .height = 32,
-
     .paletteSlot = PALSLOT_NPC_2,
-
     .shadowSize = SHADOW_SIZE_M,
-
     .inanimate = FALSE,
-
     .disableReflectionPaletteLoad = FALSE,
-
     .tracks = TRACKS_FOOT,
-
     .oam = &gObjectEventBaseOam_32x32,
-
     .subspriteTables = gObjectEventSpriteOamTables_32x32,
-
     .anims = sAnimTable_Standard,
-
     .images = gObjectEventPicTable_Falinks,
-
     .affineAnims = gDummySpriteAffineAnimTable,
+};
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Arceus = { 
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ARCEUS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 4096,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = gObjectEventSpriteOamTables_64x64,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_Arceus,
+    .affineAnims = gDummySpriteAffineAnimTable,
 };
 

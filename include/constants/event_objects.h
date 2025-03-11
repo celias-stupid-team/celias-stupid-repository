@@ -243,7 +243,8 @@
 #define OBJ_EVENT_GFX_DMCADAD                        238          //Placeholder
 #define OBJ_EVENT_GFX_N                        239          //Placeholder
 #define OBJ_EVENT_GFX_FALINKS 240
-#define NUM_OBJ_EVENT_GFX 241
+#define OBJ_EVENT_GFX_ARCEUS 241
+#define NUM_OBJ_EVENT_GFX 242
 
 
 // These are dynamic object gfx ids.
