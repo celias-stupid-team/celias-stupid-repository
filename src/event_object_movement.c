@@ -462,11 +462,10 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_GENTLEMAN                0x111F
 #define OBJ_EVENT_PAL_TAG_ASH                0x1120
 #define OBJ_EVENT_PAL_TAG_YELLOW_GUY                0x1121
-#define OBJ_EVENT_PAL_TAG_ARCEUS                0x1121
-
 #define OBJ_EVENT_PAL_TAG_DRIFLOON                0x1122
 #define OBJ_EVENT_PAL_TAG_ETERNATUS                0x1123
 #define OBJ_EVENT_PAL_TAG_DAZZLE                0x1124
+#define OBJ_EVENT_PAL_TAG_ARCEUS                0x1125
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
