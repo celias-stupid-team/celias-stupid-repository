@@ -6,15 +6,11 @@ Route11_EastEntrance_2F_MapScripts::
 
 Route11_EastEntrance_2F_EventScript_LeftBinoculars::
 	lockall
-	goto_if_set FLAG_WOKE_UP_ROUTE_12_SNORLAX, Route11_EastEntrance_2F_EventScript_LeftBinocularsSnorlaxGone
+	goto_if_set FLAG_HALL_OF_ORIGIN_ACTIVE, Route11_EastEntrance_2F_EventScript_LeftBinocularsSnorlaxGone
 	msgbox Route11_EastEntrance_2F_Text_BigMonAsleepOnRoad
 	releaseall
 	end
 
-Route11_EastEntrance_2F_EventScript_LeftBinocularsSnorlaxGone::
-	msgbox Route11_EastEntrance_2F_Text_WhatABreathtakingView
-	releaseall
-	end
 
 Route11_EastEntrance_2F_EventScript_RightBinoculars::
 	msgbox Route11_EastEntrance_2F_Text_RockTunnelGoodRouteToLavender, MSGBOX_SIGN
@@ -89,4 +85,9 @@ Route11_EastEntrance_2F_EventScript_GetAideRequestInfo::
 script Route11_LawnmowerGirl {
 	msgbox("The KANTO Lawn Maintenance service\nhas been going above and beyond!\pHonestly, after seeing their recent\nwork I'm at a loss for words.", MSGBOX_NPC)
 	end
+}
+
+script Route11_EastEntrance_2F_EventScript_LeftBinocularsSnorlaxGone {
+	clearflag(FLAG_CSR_HIDE_OMANYTE)
+	msgbox("Let's see what the binoculars have\nto show…\pOh?\nWhat's that on the path?", MSGBOX_SIGN)
 }

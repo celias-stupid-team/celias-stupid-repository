@@ -225,6 +225,11 @@ script Route12_DrawHall {
 
 }
 
+script Route12_ShinyOmanyte {
+	setflag(FLAG_SHINY_CREATION)
+	call(Common_EventScript_StaticEncounter)
+}
+
 script Route12_Snorlax {
 	lock
 	if(!checkitem(ITEM_POKE_FLUTE)) {
