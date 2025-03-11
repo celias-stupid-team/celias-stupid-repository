@@ -157,11 +157,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 4,
-      "y": 22,
+      "graphics_id": "OBJ_EVENT_GFX_DIETDANCE",
+      "x": 3,
+      "y": 23,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -306,6 +306,15 @@
       "var": "VAR_CSR_DANCE_SHOW",
       "var_value": "0",
       "script": "DanceTheater_Trailer"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
     }
   ],
   "bg_events": [
