@@ -379,12 +379,13 @@
 #define MUS_CSR_POKERAP          370
 #define MUS_CSR_DANCE_THEATER          371
 #define MUS_CSR_DANCE_PRELUDE          372
+#define MUS_CSR_CHAPTER_3          373
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_DANCE_PRELUDE
+#define END_MUS                     MUS_CSR_CHAPTER_3
 
 #endif  // GUARD_CONSTANTS_SONGS_H
