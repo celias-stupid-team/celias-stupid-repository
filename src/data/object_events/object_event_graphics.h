@@ -359,4 +359,4 @@ const u32 gObjectEventPic_Trubbish[] = INCBIN_U32("graphics/object_events/pics/s
 const u32 gObjectEventPic_Az[] = INCBIN_U32("graphics/object_events/pics/stupid/AZ.4bpp");
 const u32 gObjectEventPic_Riley[] = INCBIN_U32("graphics/object_events/pics/stupid/Riley.4bpp");
 const u32 gObjectEventPic_Dmca_dad[] = INCBIN_U32("graphics/object_events/pics/stupid/DMCA_Dad.4bpp");
-const u32 gObjectEventPic_N[] = INCBIN_U32("graphics/object_events/pics/stupid/N.4bpp");
+const u32 gObjectEventPic_N[] = INCBIN_U32("graphics/object_events/pics/stupid/N.4bpp");const u32 gObjectEventPic_Falinks[] = INCBIN_U32("graphics/object_events/pics/stupid/Falinks.4bpp");
