@@ -338,7 +338,7 @@ $(OBJEVENTGFXDIR)/pokemon/kabuto.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 $(OBJEVENTGFXDIR)/pokemon/kangaskhan.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -mwidth 2 -mheight 2
+	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/pokemon/lapras.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
@@ -669,4 +669,8 @@ $(OBJEVENTGFXDIR)/stupid/Falinks.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/stupid/Arceus.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+
+$(OBJEVENTGFXDIR)/stupid/Shadowkanga.4bpp: %.4bpp: %.png
+
+	$(GFX) $< $@ -mwidth 4 -mheight 4
 

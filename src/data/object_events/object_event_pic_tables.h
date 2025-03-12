@@ -1286,15 +1286,15 @@ static const struct SpriteFrameImage sPicTable_Omanyte[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_Kangaskhan[] = {
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 0),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 1),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 2),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 0),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 0),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 1),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 1),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 2),
-    overworld_frame(gObjectEventPic_Kangaskhan, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
 };
 
 static const struct SpriteFrameImage sPicTable_Psyduck[] = {
@@ -2833,5 +2833,12 @@ const struct SpriteFrameImage gObjectEventPicTable_Arceus[] = {
     overworld_frame(gObjectEventPic_Arceus, 8, 8, 0),
     overworld_frame(gObjectEventPic_Arceus, 8, 8, 1),
     overworld_frame(gObjectEventPic_Arceus, 8, 8, 2),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_Shadowkanga[] = {
+
+    overworld_frame(gObjectEventPic_Shadowkanga, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Shadowkanga, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Shadowkanga, 4, 4, 2),
 };
 
