@@ -2862,3 +2862,5 @@ const struct SpriteFrameImage gObjectEventPicTable_Machokeboxes[] = {
     overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 8),
 };
 
+const struct SpriteFrameImage gObjectEventPicTable_Banette[] = {
+    overworld_frame(gObjectEventPic_Banette, 4, 4, 0),    overworld_frame(gObjectEventPic_Banette, 4, 4, 1),    overworld_frame(gObjectEventPic_Banette, 4, 4, 2),};
