@@ -47,11 +47,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SLOWPOKE",
-      "x": 37,
-      "y": 14,
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 15,
+      "y": 9,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND_SLOWER",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 4,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -62,8 +62,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
-      "x": 34,
-      "y": 9,
+      "x": 37,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -146,10 +146,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 8,
-      "y": 8,
+      "x": 1,
+      "y": 2,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -159,9 +159,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_KANGASKHAN",
-      "x": 16,
-      "y": 9,
+      "graphics_id": "OBJ_EVENT_GFX_JIGGLYPUFF",
+      "x": 34,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 4,
@@ -211,6 +211,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FushciaCity_TaurosGuy",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUFFALANT",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -401,8 +415,8 @@
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 16,
+      "x": 17,
+      "y": 10,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_SlowpokeSign"
@@ -417,8 +431,8 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 10,
+      "x": 40,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_KangaskhanSign"

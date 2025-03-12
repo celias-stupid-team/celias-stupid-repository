@@ -5,6 +5,9 @@ mapscripts FushciaCity_BrendanMay_1F_MapScripts {
 script BrendanMay_Machoke {
     lock
     removeobject(VAR_LAST_TALKED)
+    playfanfare(MUS_OBTAINED_ITEM)
+    msgbox("{PLAYER} obtained the MACHOKE!\n", MSGBOX_DEFAULT)
+    waitfanfare
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MACHOKE)
     call(Common_Script_ObtainedPokemon)
     release

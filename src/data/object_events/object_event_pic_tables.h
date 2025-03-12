@@ -2842,3 +2842,23 @@ const struct SpriteFrameImage gObjectEventPicTable_Shadowkanga[] = {
     overworld_frame(gObjectEventPic_Shadowkanga, 4, 4, 2),
 };
 
+const struct SpriteFrameImage gObjectEventPicTable_Bouffalant[] = {
+
+    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 2),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_Machokeboxes[] = {
+
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 8),
+};
+

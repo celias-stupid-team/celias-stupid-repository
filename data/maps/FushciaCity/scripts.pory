@@ -80,19 +80,21 @@ FushciaCity_EventScript_ChanseySign::
 
 FushciaCity_EventScript_VoltorbSign::
 	lockall
-	setvar VAR_0x8004, SPECIES_VOLTORB
+	setvar VAR_0x8004, SPECIES_JIGGLYPUFF
 	special SetSeenMon
-	showmonpic SPECIES_VOLTORB, 10, 3
+	showmonpic SPECIES_JIGGLYPUFF, 10, 3
 	msgbox FushciaCity_Text_VoltorbSign
+	waitmoncry
+	msgbox FushciaCity_Text_VolrorbContinued
 	hidemonpic
 	releaseall
 	end
 
 FushciaCity_EventScript_KangaskhanSign::
 	lockall
-	setvar VAR_0x8004, SPECIES_KANGASKHAN
+	setvar VAR_0x8004, SPECIES_SKITTY
 	special SetSeenMon
-	showmonpic SPECIES_KANGASKHAN, 10, 3
+	showmonpic SPECIES_SKITTY, 10, 3
 	msgbox FushciaCity_Text_KangaskhanSign
 	hidemonpic
 	releaseall
@@ -100,9 +102,9 @@ FushciaCity_EventScript_KangaskhanSign::
 
 FushciaCity_EventScript_SlowpokeSign::
 	lockall
-	setvar VAR_0x8004, SPECIES_SLOWPOKE
+	setvar VAR_0x8004, SPECIES_MR_MIME
 	special SetSeenMon
-	showmonpic SPECIES_SLOWPOKE, 10, 3
+	showmonpic SPECIES_MR_MIME, 10, 3
 	msgbox FushciaCity_Text_SlowpokeSign
 	hidemonpic
 	releaseall
@@ -110,9 +112,9 @@ FushciaCity_EventScript_SlowpokeSign::
 
 FushciaCity_EventScript_LaprasSign::
 	lockall
-	setvar VAR_0x8004, SPECIES_LAPRAS
+	setvar VAR_0x8004, SPECIES_WAILORD
 	special SetSeenMon
-	showmonpic SPECIES_LAPRAS, 10, 3
+	showmonpic SPECIES_WAILORD, 10, 3
 	msgbox FushciaCity_Text_LaprasSign
 	hidemonpic
 	releaseall
@@ -120,19 +122,18 @@ FushciaCity_EventScript_LaprasSign::
 
 FushciaCity_EventScript_FossilMonSign::
 	lockall
-	goto_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_OmanyteSign
-	setvar VAR_0x8004, SPECIES_KABUTO
+	setvar VAR_0x8004, SPECIES_BOUFFALANT
 	special SetSeenMon
-	showmonpic SPECIES_KABUTO, 10, 3
+	showmonpic SPECIES_BOUFFALANT, 10, 3
 	msgbox FushciaCity_Text_KabutoSign
 	hidemonpic
 	releaseall
 	end
 
 FushciaCity_EventScript_OmanyteSign::
-	setvar VAR_0x8004, SPECIES_OMANYTE
+	setvar VAR_0x8004, SPECIES_BOUFFALANT
 	special SetSeenMon
-	showmonpic SPECIES_OMANYTE, 10, 3
+	showmonpic SPECIES_BOUFFALANT, 10, 3
 	msgbox FushciaCity_Text_OmanyteSign
 	hidemonpic
 	releaseall

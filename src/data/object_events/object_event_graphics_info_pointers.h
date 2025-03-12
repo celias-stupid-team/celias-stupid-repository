@@ -248,6 +248,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Falinks;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Arceus;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Shadowkanga;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bouffalant;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machokeboxes;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -499,4 +503,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ARCEUS] = &gObjectEventGraphicsInfo_Arceus,
 
     [OBJ_EVENT_GFX_SHADOWKANGA] = &gObjectEventGraphicsInfo_Shadowkanga,
+
+    [OBJ_EVENT_GFX_BOUFFALANT] = &gObjectEventGraphicsInfo_Bouffalant,
+
+    [OBJ_EVENT_GFX_MACHOKEBOXES] = &gObjectEventGraphicsInfo_Machokeboxes,
 };

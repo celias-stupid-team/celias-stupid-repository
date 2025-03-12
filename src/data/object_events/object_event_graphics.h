@@ -35,6 +35,8 @@ const u16 gObjectEventPal_YellowGuy[] = INCBIN_U16("graphics/object_events/palet
 const u16 gObjectEventPal_Arceus[] = INCBIN_U16("graphics/object_events/palettes/arceus.gbapal");
 const u16 gObjectEventPal_Kanga[] = INCBIN_U16("graphics/object_events/palettes/kanga.gbapal");
 const u16 gObjectEventPal_ShadowKanga[] = INCBIN_U16("graphics/object_events/palettes/shadow_kanga.gbapal");
+const u16 gObjectEventPal_Bouffalant[] = INCBIN_U16("graphics/object_events/palettes/bouffalant.gbapal");
+const u16 gObjectEventPal_Machoke[] = INCBIN_U16("graphics/object_events/palettes/machoke_boxes.gbapal");
 const u16 gObjectEventPaletteNull1[16] = {};
 const u16 gObjectEventPaletteNull2[16] = {};
 const u16 gObjectEventPaletteNull3[16] = {};
@@ -366,4 +368,8 @@ const u32 gObjectEventPic_N[] = INCBIN_U32("graphics/object_events/pics/stupid/N
 const u32 gObjectEventPic_Arceus[] = INCBIN_U32("graphics/object_events/pics/stupid/Arceus.4bpp");
 
 const u32 gObjectEventPic_Shadowkanga[] = INCBIN_U32("graphics/object_events/pics/stupid/Shadowkanga.4bpp");
+
+const u32 gObjectEventPic_Bouffalant[] = INCBIN_U32("graphics/object_events/pics/stupid/Bouffalant.4bpp");
+
+const u32 gObjectEventPic_Machokeboxes[] = INCBIN_U32("graphics/object_events/pics/stupid/Machokeboxes.4bpp");
 
