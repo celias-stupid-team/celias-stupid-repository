@@ -855,7 +855,7 @@
 #define FLAG_CSR_TUBER_EATEN               0x316
 #define FLAG_CSR_TALKED_TO_TUBER               0x317
 #define FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET               0x318
-#define FLAG_0x319               0x319
+#define FLAG_CSR_HIDE_MUSIC_GIRL               0x319
 #define FLAG_0x31A               0x31A
 #define FLAG_0x31B               0x31B
 #define FLAG_0x31C               0x31C

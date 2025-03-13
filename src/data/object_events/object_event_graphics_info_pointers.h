@@ -260,6 +260,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Squirtle;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ivysaur;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Charizard;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Slugma;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Delibird;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -523,4 +527,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_IVYSAUR] = &gObjectEventGraphicsInfo_Ivysaur,
 
     [OBJ_EVENT_GFX_CHARIZARD] = &gObjectEventGraphicsInfo_Charizard,
+
+    [OBJ_EVENT_GFX_SLUGMA] = &gObjectEventGraphicsInfo_Slugma,
+
+    [OBJ_EVENT_GFX_DELIBIRD] = &gObjectEventGraphicsInfo_Delibird,
 };
