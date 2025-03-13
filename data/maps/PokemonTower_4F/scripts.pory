@@ -113,6 +113,7 @@ script PokemonTower_CheckCeliaSecretPath {
 				setvar(VAR_CSR_CURRENT_LAVENDER_SECRET, 0)
 			}
 	}
+	return
 }
 
 
@@ -121,35 +122,40 @@ mapscripts PokemonTower_4F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(!flag(FLAG_CSR_POKEMON_TOWER_MUSIC)) {
 			playbgm(MUS_NONE, TRUE)
-		} 
+		}
+		setdynamicwarp(MAP_POKEMON_TOWER_3F, 1) 
+		if(flag(FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET)) {
+			call(PokemonTower_CheckCeliaSecretPath)
+		}
+		goto(PokemonTower_SouthDoor)
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_5, 0 { //Correct
 			if(flag(FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET)) {
-				call(PokemonTower_CheckCeliaSecretPath)
-			}
-			if(flag(FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET)) {
+				setvar(VAR_TEMP_5, 1)
 				release
 				end
+			} else {
+				switch(var(VAR_POKEMONTOWER_ANSWER)) {
+					case 0:
+						break
+					case 1:
+						playse(SE_SUCCESS)
+						waitse
+						setvar(VAR_POKEMONTOWER_ANSWER, 0)
+						
+					case 2:
+						playse(SE_BOO)
+						waitse
+						setvar(VAR_POKEMONTOWER_ANSWER, 0)
+						
+				}
+				
+				setvar(VAR_TEMP_5, 1)
+				release
+				end
+
 			}
-			switch(var(VAR_POKEMONTOWER_ANSWER)) {
-				case 0:
-					break
-				case 1:
-					playse(SE_SUCCESS)
-					waitse
-					setvar(VAR_POKEMONTOWER_ANSWER, 0)
-					
-				case 2:
-					playse(SE_BOO)
-					waitse
-					setvar(VAR_POKEMONTOWER_ANSWER, 0)
-					
-			}
-			
-			setvar(VAR_TEMP_5, 1)
-			release
-			end
 		}
 
 	]
@@ -166,13 +172,13 @@ script PokemonTower_NorthDoor {
 
 script PokemonTower_EastDoor {
 	setvar(VAR_CSR_LAVENDER_LAST_DOOR, EAST)
-	if(var(VAR_CSR_LAVENDER_LAST_DOOR) == 2 || var(VAR_CSR_LAVENDER_LAST_DOOR) == 5 || var(VAR_CSR_LAVENDER_LAST_DOOR) == 10 || var(VAR_CSR_LAVENDER_LAST_DOOR) == 11)   {//Stuff for re-setting the warp
-		setdynamicwarp(MAP_POKEMON_TOWER_4F, 255, 13, 15)
+	if(var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 2 || var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 5 || var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 10) {//Stuff for re-setting the warp
+		setdynamicwarp(MAP_POKEMON_TOWER_4F,  1) 
 	} else {
-		if(var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 12) {
+		if(var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 11) {
 			setdynamicwarp(MAP_POKEMON_TOWER_MATH_CELIA_ROOM, 0)
 		} else {
-			setdynamicwarp(MAP_POKEMON_TOWER_5F, 255, 13, 15)
+			setdynamicwarp(MAP_POKEMON_TOWER_5F,  3) 
 		}
 	}
 	release
@@ -186,10 +192,10 @@ script PokemonTower_WestDoor {
 
 script PokemonTower_SouthDoor {
 	setvar(VAR_CSR_LAVENDER_LAST_DOOR, SOUTH)
-	if(var(VAR_CSR_LAVENDER_LAST_DOOR) == 8)   {//Stuff for re-setting the warp
-		setdynamicwarp(MAP_POKEMON_TOWER_4F, 255, 13, 15)
+	if(var(VAR_CSR_CURRENT_LAVENDER_SECRET) == 7)   {//Stuff for re-setting the warp
+		setdynamicwarp(MAP_POKEMON_TOWER_4F,  1) 
 	} else {
-		setdynamicwarp(MAP_POKEMON_TOWER_3F, 255, 18, 10)
+		setdynamicwarp(MAP_POKEMON_TOWER_3F,  1) 
 	}
 	release
 

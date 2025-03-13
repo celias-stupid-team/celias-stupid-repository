@@ -22,14 +22,14 @@
       "x": 18,
       "y": 8,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_TOWER_5F",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
       "x": 13,
       "y": 15,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_TOWER_3F",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
