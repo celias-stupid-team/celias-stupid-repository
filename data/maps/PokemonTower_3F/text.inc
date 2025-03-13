@@ -1,36 +1,36 @@
 PokemonTower_3F_Text_HopeIntro::
-    .string "Urrg… Awaa…\n"
-    .string "Huhu… Graa…$"
+	.string "Give… me…\n"
+	.string "your… blood…$"
 
 PokemonTower_3F_Text_HopeDefeat::
-    .string "Hwa!\n"
-    .string "I'm saved!$"
+	.string "Please!\n$"
 
 PokemonTower_3F_Text_HopePostBattle::
-    .string "The ghosts can be identified by\n"
-    .string "the SILPH SCOPE.$"
+	.string "Please give me your blood.\n"
+	.string "I need a transfusion.\l"
+	.string "It keeps leaking out of my eyes!$"
 
 PokemonTower_3F_Text_CarlyIntro::
-    .string "Kekeke…\n"
-    .string "Kwaaah!$"
+	.string "Turn back now!\n"
+	.string "This game is over for you!$"
 
 PokemonTower_3F_Text_CarlyDefeat::
-    .string "Hmm?\n"
-    .string "What am I doing?$"
+	.string "He died\n$"
 
 PokemonTower_3F_Text_CarlyPostBattle::
-    .string "Sorry!\n"
-    .string "I was possessed!$"
+	.string "The DMCA does not approve of our\n"
+	.string "fanfics…$"
 
 PokemonTower_3F_Text_PatriciaIntro::
-    .string "Be gone!\n"
-    .string "Malevolent spirit!$"
+	.string "… … …\n"
+	.string "My POKéMON are dead.\p"
+	.string "And it's all their fault.\n$"
 
 PokemonTower_3F_Text_PatriciaDefeat::
-    .string "Whew!\n"
-    .string "The spirit left!$"
+	.string "Damn it!\n"
+	.string "Why didn't you hold?$"
 
 PokemonTower_3F_Text_PatriciaPostBattle::
-    .string "The others above…\n"
-    .string "They must have been possessed.$"
+	.string "Another wipe…\n"
+	.string "Time to start a new attempt.$"
 

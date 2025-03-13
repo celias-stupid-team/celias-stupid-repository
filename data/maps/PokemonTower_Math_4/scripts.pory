@@ -46,3 +46,26 @@ script PokemonTower_MathQuestions_LimitDoesntExist {
     setflag(FLAG_LIMIT_NOT_EXIST)
     release
 }
+
+script PokemonTower_MathQuestions_ImposterTwin {
+    trainerbattle_double(TRAINER_CHANNELER_EMILIA, "KHAKI: Okay, JACKIE!\nYou sure you're ready for the quiz?\pJACKIE?: Um, hello yes!\nI am, uh, ready for a quiz! haha","INEZ: Oh, no!\nWe should've studied harder!", "You are insufficient.")
+    msgbox("JACKIE?: Ah, I'm such a sap.\n", MSGBOX_DEFAULT)
+
+}
+
+script PokemonTower_MathQuestions_TrickedTwin {
+    trainerbattle_double(TRAINER_CHANNELER_EMILIA, "KHAKI: Okay, JACKIE!\nYou sure you're ready for the quiz?\pJACKIE?: Um, hello yes!\nI am, uh, ready for a quiz! haha","KHAKI: Oh, no!\nWe were a digit off!", "You are insufficient.")
+    msgbox("KHAKI: Hey, JACKIE…\nAre you sure you're doing okay?", MSGBOX_DEFAULT)
+}
+
+
+script PokemonTower_MathQuestions_MultiplyTwin {
+    trainerbattle_double(TRAINER_CHANNELER_JANAE, "PLACEHOLDER","PLACEHOLDER", "You are insufficient.")
+    msgbox("BEANIE: Our mommy loved math too!\pWhen we were born, she did some\nmultiplication!", MSGBOX_DEFAULT)
+
+}
+
+script PokemonTower_MathQuestions_DivideTwin {
+    trainerbattle_double(TRAINER_CHANNELER_JANAE, "PLACEHOLDER","PLACEHOLDER", "You are insufficient.")
+    msgbox("PRA: Oh yeah, Math!\nI love that one.\pEspecially because there's no\nletters in it!", MSGBOX_DEFAULT)
+}

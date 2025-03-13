@@ -35,8 +35,8 @@
       "x": 13,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_TOWER_MATH_CELIA_ROOM",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_POKEMON_TOWER_1F",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

@@ -6161,7 +6161,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerPatricia[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_SWELLOW,
+    },
+    {
+        .iv = 0,
+        .lvl = 22,
+        .species = SPECIES_LUDICOLO,
     },
 };
 
@@ -6230,7 +6235,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerKarina[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_PLUSLE,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_MINUN,
     },
 };
 
@@ -6238,7 +6248,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerJanae[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_MULTIPAL,
+    },
+    {
+        .iv = 0,
+        .lvl = 22,
+        .species = SPECIES_DIVIDUM,
     },
 };
 
@@ -6246,25 +6261,25 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerAngelica[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_EXPONELLE,
     },
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_GASTLY,
-    },
-    {
-        .iv = 0,
-        .lvl = 22,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_SUDOWOODO,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerEmilia[] = {
     {
         .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_GASTLY,
+        .lvl = 22,
+        .species = SPECIES_EXPONELLE,
+    },
+    {
+        .iv = 0,
+        .lvl = 22,
+        .species = SPECIES_SUDOWOODO,
     },
 };
 

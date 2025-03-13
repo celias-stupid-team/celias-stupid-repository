@@ -92,3 +92,18 @@ script PokemonTower_GreatestFear {
 	msgbox("Beware, fair traveler, as you\nascend.\pClimbing this tower will face you\nagainst the greatest fear of any\lfanfiction author.", MSGBOX_NPC)
 	end
 }
+
+script PokemonTower_NuzlockeGrave {
+	msgbox("Here lies yet another run.\nCTRL + R to try again.", MSGBOX_SIGN)
+	end
+}
+
+script PokemonTower_ScaryDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pThe GHOSTS in here are scary!\nGood thing I'm immune to them!\lThank you, RBY Type Chart!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

@@ -279,8 +279,8 @@ It is reset after every battle.
 #define VAR_CSR_PSYDUCK_PAIL_STATUS                 0x40D2 // 1 empty; 2 full
 #define VAR_CSR_TRAPPED_FISHER                 0x40D3
 #define VAR_CSR_TURNED_ON_POWER                 0x40D4
-#define VAR_0x40D5                 0x40D5
-#define VAR_0x40D6                 0x40D6
+#define VAR_CSR_CURRENT_LAVENDER_SECRET           0x40D5
+#define VAR_CSR_LAVENDER_LAST_DOOR                 0x40D6
 #define VAR_0x40D7                 0x40D7
 #define VAR_0x40D8                 0x40D8
 #define VAR_0x40D9                 0x40D9

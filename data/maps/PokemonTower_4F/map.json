@@ -23,14 +23,14 @@
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_5F",
-      "dest_warp_id": "3"
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
       "x": 13,
       "y": 15,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_3F",
-      "dest_warp_id": "1"
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
       "x": 11,
@@ -155,6 +155,114 @@
       "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "PokemonTower_IncorrectAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_NorthDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_NorthDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_NorthDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_EastDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_EastDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_EastDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_WestDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_WestDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_WestDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_SouthDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_SouthDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "PokemonTower_SouthDoor"
     }
   ],
   "bg_events": [

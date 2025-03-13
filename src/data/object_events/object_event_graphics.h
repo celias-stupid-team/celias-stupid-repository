@@ -374,3 +374,6 @@ const u32 gObjectEventPic_Bouffalant[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_Machokeboxes[] = INCBIN_U32("graphics/object_events/pics/stupid/Machokeboxes.4bpp");
 
 const u32 gObjectEventPic_Banette[] = INCBIN_U32("graphics/object_events/pics/stupid/Banette.4bpp");
+const u32 gObjectEventPic_Squirtle[] = INCBIN_U32("graphics/object_events/pics/stupid/Squirtle.4bpp");
+const u32 gObjectEventPic_Ivysaur[] = INCBIN_U32("graphics/object_events/pics/stupid/Ivysaur.4bpp");
+const u32 gObjectEventPic_Charizard[] = INCBIN_U32("graphics/object_events/pics/stupid/Charizard.4bpp");

@@ -65,18 +65,23 @@ mapscripts PokemonTower_5F_MapScripts {
 }
 
 
-script PokemonTower_5F_EventScript_Twin1 {
-	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
-	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+script PokemonTower_5F_EventScript_Twin3 {
+	trainerbattle_double(TRAINER_CHANNELER_KARINA, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
+	msgbox("MAI: No, no, PRA.\nWe're doing Math!", MSGBOX_AUTOCLOSE)
 }
 
-script PokemonTower_5F_EventScript_Twin2 {
-	trainerbattle_single(TRAINER_CHANNELER_KARINA, PokemonTower_5F_Text_KarinaIntro, PokemonTower_5F_Text_KarinaDefeat)
-	msgbox(PokemonTower_5F_Text_KarinaPostBattle, MSGBOX_AUTOCLOSE)
+script PokemonTower_5F_EventScript_Twin4 {
+	trainerbattle_double(TRAINER_CHANNELER_KARINA, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
+	msgbox("PRA: Oh yeah, Math!\nI love that one.\pEspecially because there's no\nletters in it!", MSGBOX_DEFAULT)
 }
 
 script PokemonTower_MathQuestion_Two {
 	lock
 	msgbox("SQRT(121) = ?\n{LEFT_ARROW} 11     {UP_ARROW} 12     {RIGHT_ARROW} -11", MSGBOX_SIGN) //sqrt 121
 	release
+}
+
+script PokemonTower_5F_Twins {
+	trainerbattle_double(TRAINER_CHANNELER_KARINA, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
+	msgbox("MAI: No, no, PRA.\nWe're doing Math!", MSGBOX_AUTOCLOSE)
 }

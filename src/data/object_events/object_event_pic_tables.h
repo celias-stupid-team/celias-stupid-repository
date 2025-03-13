@@ -1289,12 +1289,12 @@ static const struct SpriteFrameImage sPicTable_Kangaskhan[] = {
     overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
     overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
     overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 0),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 1),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
-    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Kangaskhan, 4, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_Psyduck[] = {
@@ -2844,9 +2844,15 @@ const struct SpriteFrameImage gObjectEventPicTable_Shadowkanga[] = {
 
 const struct SpriteFrameImage gObjectEventPicTable_Bouffalant[] = {
 
-    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 0),
-    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 1),
-    overworld_frame(gObjectEventPic_Bouffalant, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Machokeboxes, 4, 4, 2),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Machokeboxes[] = {
@@ -2863,4 +2869,15 @@ const struct SpriteFrameImage gObjectEventPicTable_Machokeboxes[] = {
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Banette[] = {
-    overworld_frame(gObjectEventPic_Banette, 4, 4, 0),    overworld_frame(gObjectEventPic_Banette, 4, 4, 1),    overworld_frame(gObjectEventPic_Banette, 4, 4, 2),};
+
+    overworld_frame(gObjectEventPic_Banette, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Banette, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Banette, 4, 4, 2),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_Squirtle[] = {
+    overworld_frame(gObjectEventPic_Squirtle, 4, 4, 0),    overworld_frame(gObjectEventPic_Squirtle, 4, 4, 1),    overworld_frame(gObjectEventPic_Squirtle, 4, 4, 2),};
+const struct SpriteFrameImage gObjectEventPicTable_Ivysaur[] = {
+    overworld_frame(gObjectEventPic_Ivysaur, 4, 4, 0),    overworld_frame(gObjectEventPic_Ivysaur, 4, 4, 1),    overworld_frame(gObjectEventPic_Ivysaur, 4, 4, 2),};
+const struct SpriteFrameImage gObjectEventPicTable_Charizard[] = {
+    overworld_frame(gObjectEventPic_Charizard, 4, 4, 0),    overworld_frame(gObjectEventPic_Charizard, 4, 4, 1),    overworld_frame(gObjectEventPic_Charizard, 4, 4, 2),};
