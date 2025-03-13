@@ -99,8 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 23,
-      "y": 25,
+      "x": 28,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -145,6 +145,13 @@
       "y": 23,
       "elevation": 0,
       "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE15_SODA_SHOP",
       "dest_warp_id": "0"
     }
   ],

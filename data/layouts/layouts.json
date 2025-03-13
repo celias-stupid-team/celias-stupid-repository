@@ -4653,7 +4653,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/Route15_SodaShop/border.bin",
       "blockdata_filepath": "data/layouts/Route15_SodaShop/map.bin"
     },
