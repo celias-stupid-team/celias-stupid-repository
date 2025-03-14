@@ -234,3 +234,9 @@ const u32 gMetatileAttributes_Route18_SkyPillar[] = INCBIN_U32("data/tilesets/se
 
 const u16 gMetatiles_Route12[] = INCBIN_U16("data/tilesets/secondary/route_12/metatiles.bin");
 const u32 gMetatileAttributes_Route12[] = INCBIN_U32("data/tilesets/secondary/route_12/metatile_attributes.bin");
+
+const u16 gMetatiles_EmeraldBuilding[] = INCBIN_U16("data/tilesets/primary/emerald_building/metatiles.bin");
+const u32 gMetatileAttributes_EmeraldBuilding[] = INCBIN_U32("data/tilesets/primary/emerald_building/metatile_attributes.bin");
+
+const u16 gMetatiles_SodaShop[] = INCBIN_U16("data/tilesets/secondary/soda_shop/metatiles.bin");
+const u32 gMetatileAttributes_SodaShop[] = INCBIN_U32("data/tilesets/secondary/soda_shop/metatile_attributes.bin");

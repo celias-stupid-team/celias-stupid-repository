@@ -4648,12 +4648,12 @@
     {
       "id": "LAYOUT_ROUTE15_SODA_SHOP",
       "name": "Route15_SodaShop_Layout",
-      "width": 16,
-      "height": 16,
+      "width": 15,
+      "height": 11,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SSAnne",
+      "primary_tileset": "gTileset_EmeraldBuilding",
+      "secondary_tileset": "gTileset_SodaShop",
       "border_filepath": "data/layouts/Route15_SodaShop/border.bin",
       "blockdata_filepath": "data/layouts/Route15_SodaShop/map.bin"
     },
