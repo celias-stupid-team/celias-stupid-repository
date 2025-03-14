@@ -168,7 +168,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE19_SURF_HOUSE",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

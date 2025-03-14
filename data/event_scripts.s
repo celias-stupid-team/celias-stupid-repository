@@ -1461,3 +1461,6 @@ Text_TestMsg::
 
 	.include "data/maps/SafariZone_DMCAShowdown/scripts.inc"
 	.include "data/maps/SafariZone_DMCAShowdown/text.inc"
+
+	.include "data/maps/Route19_SurfHouse/scripts.inc"
+	.include "data/maps/Route19_SurfHouse/text.inc"

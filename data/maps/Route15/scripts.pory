@@ -192,6 +192,26 @@ script Route15_GluedToTree {
 	end
 }
 
+script Route15_TrappedMan {
+	msgbox("Each day the tide comes in, and\neach night the tide goes out.\pAs the sands of the beach pull\naway, so do the sands of time.\lSoon, we shall all return to dust.\p… … … …\n… … … …\pI can't swim.", MSGBOX_NPC)
+	end
+}
+
+script Route15_BeachDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm enjoying some time off on the\nbeach.\lIt's always nice to take a rest.\pBut never mind that.\nHow about you take one too?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Route15_BoatSaleSign {
+	msgbox("BOAT FOR SALE\nOnly ¥1,000,000!", MSGBOX_SIGN)
+	end
+}
+
 movement Route15_Lighthouse_WalkOneLeft // I kinda forgot aboout the * notation for multiple walks oops
 {
 	walk_left

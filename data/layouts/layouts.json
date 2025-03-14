@@ -4764,6 +4764,18 @@
       "secondary_tileset": "gTileset_SafariZoneBuilding",
       "border_filepath": "data/layouts/SafariZone_DMCAShowdown/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_DMCAShowdown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_SURF_HOUSE",
+      "name": "Route19_SurfHouse_Layout",
+      "width": 15,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/Route19_SurfHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_SurfHouse/map.bin"
     }
   ]
 }
