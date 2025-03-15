@@ -19,7 +19,7 @@ mapscripts Route14_MapScripts {
 }
 
 script Route14_ThankYouSign {
-	msgbox("Thank you to everyone who\ncontributed!\pMay we all remember to have fun!\n-Celia, the creator", MSGBOX_SIGN)
+	msgbox("Thank you to everyone who\ncontributed!\pNever forget your inner joy!\n-Celia, the creator", MSGBOX_SIGN)
 	end
 }
 

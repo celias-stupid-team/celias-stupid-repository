@@ -30,12 +30,12 @@ Route15_WestEntrance_2F_Text_ExplainExpShare::
 Route15_WestEntrance_2F_Text_LargeShiningBird::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "A large, shining bird is flying\n"
-    .string "toward the sea.$"
+	.string "A large DRAGON rests atop\n"
+	.string "the LIGHTHOUSE.$"
 
 Route15_WestEntrance_2F_Text_SmallIslandOnHorizon::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "It looks like a small island on\n"
-    .string "the horizon!$"
+	.string "A time-bending portal has opened\n"
+	.string "above the SAFARI ZONE!$"
 

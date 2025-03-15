@@ -373,6 +373,8 @@ gSongTable::
 	song mus_dance_theater, 0, 0
 	song mus_dance_prelude, 0, 0
 	song mus_chapter_3, 0, 0
+	song se_rollout, 1, 1
+	song se_make_it_rain, 1, 1
 
 
 dummy_song_header:
