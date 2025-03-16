@@ -446,21 +446,21 @@ script PalletTown_EventScript_SignLady_CSR {
 	} else {
 		setflag(FLAG_CSR_TALKED_TO_SIGN_GIRL)
 		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
-		applymovement(1, Common_Movement_FacePlayer)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 		waitmovement(0)
 		playse(SE_PIN)
-		applymovement(1, PT_exclmark)
+		applymovement(VAR_LAST_TALKED, PT_exclmark)
 		waitmovement(0)
 		delay(48)
 		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
 		closemessage
 		switch(var(VAR_FACING)) {
 			case DIR_EAST:
-					applymovement(1, PT_walkbackRight)
+					applymovement(VAR_LAST_TALKED, PT_walkbackRight)
 					waitmovement(0)
 					break
 				default:
-					applymovement(1, PT_walkbackLeft)
+					applymovement(VAR_LAST_TALKED, PT_walkbackLeft)
 					waitmovement(0)
 					break
 		}

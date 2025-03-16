@@ -117,6 +117,11 @@ script PowerPlant_MagnemiteMan {
 	release
 }
 
+script PowerPlant_Trees {
+	msgbox("It's a POWER Plant!\n", MSGBOX_SIGN)
+	end
+}
+
 script PowerPlant_Dazzle {
 	lock
 	faceplayer

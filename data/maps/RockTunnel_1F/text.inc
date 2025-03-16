@@ -78,6 +78,8 @@ RockTunnel_1F_Text_ArianaPostBattle::
     .string "I'm all sweaty now.$"
 
 RockTunnel_1F_Text_RouteSign::
-    .string "ROCK TUNNEL\n"
-    .string "CERULEAN CITY - LAVENDER TOWN$"
+	.string "Thank you for attending the\n"
+	.string "KANTO POKéMANIAC CONVENTION!\p"
+	.string "We hope to see you again next\n"
+	.string "year!$"
 
