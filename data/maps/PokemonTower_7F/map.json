@@ -85,11 +85,29 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_POKEMON_TOWER_SCENE",
       "var_value": "0",
-      "script": "PokemonTower_Trailer"
+      "script": "PokemonTower_CenterWalkUp"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_POKEMON_TOWER_SCENE",
+      "var_value": "0",
+      "script": "PokemonTower_LeftWalkUp"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_POKEMON_TOWER_SCENE",
+      "var_value": "0",
+      "script": "PokemonTower_RightWalkUp"
     }
   ],
   "bg_events": [

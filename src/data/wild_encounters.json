@@ -5500,7 +5500,7 @@
           "map": "MAP_POKEMON_TOWER_6F",
           "base_label": "sPokemonTower6F_FireRed",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 1,
             "mons": [
               {
                 "min_level": 16,

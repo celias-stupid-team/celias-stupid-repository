@@ -46,15 +46,15 @@
   ],
   "warp_events": [
     {
-      "x": 18,
-      "y": 8,
+      "x": 11,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_MATH_CANDY_ROOM",
       "dest_warp_id": "0"
     },
     {
-      "x": 11,
-      "y": 2,
+      "x": 18,
+      "y": 8,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_5F",
       "dest_warp_id": "3"
@@ -104,12 +104,66 @@
     },
     {
       "type": "trigger",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "0",
+      "script": "PokemonTower_NeutralAnswer"
+    },
+    {
+      "type": "trigger",
       "x": 14,
       "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
+      "script": "PokemonTower_IncorrectAnswer"
     },
     {
       "type": "trigger",
@@ -118,66 +172,12 @@
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
+      "script": "PokemonTower_IncorrectAnswer"
     },
     {
       "type": "trigger",
       "x": 14,
       "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_NeutralAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_IncorrectAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "PokemonTower_IncorrectAnswer"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_9",
       "var_value": "0",

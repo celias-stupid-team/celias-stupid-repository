@@ -16,8 +16,7 @@ Route25_Text_DanIntro::
     .string "the S.S. ANNE at VERMILION CITY.$"
 
 Route25_Text_DanDefeat::
-	.string "On the S.S. ANNE, I was worn by\n"
-	.string "TRAINERS from around the world!$"
+	.string "Aw, rats!\n$"
 
 Route25_Text_DanPostBattle::
     .string "On the S.S. ANNE, I was worn by\n"
@@ -32,8 +31,10 @@ Route25_Text_FlintDefeat::
 
 Route25_Text_FlintPostBattle::
 	.string "If something's too strong, every\n"
-	.string "team needs to run the same counters.\l"
-	.string "The meta becomes stale and boring!\p"
+	.string "team needs to run the same counters.\p"
+	.string "Eventually, the meta becomes stale\n"
+	.string "and boring as teams become similar.\l"
+	.string "That's when we take tiering action.\p"
 	.string "Even when our bans seem silly, it's\n"
 	.string "always for the health of the game!$"
 

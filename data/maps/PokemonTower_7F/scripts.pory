@@ -234,26 +234,90 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	step_end
 `
 
+script PokemonTower_LeftWalkUp {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUpLeft)
+	waitmovement(0)
+	call(PokemonTower_Trailer)
+}
+
+script PokemonTower_CenterWalkUp {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUp)
+	waitmovement(0)
+	call(PokemonTower_Trailer)
+
+}
+
+script PokemonTower_RightWalkUp {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUpRight)
+	waitmovement(0)
+	call(PokemonTower_Trailer)
+
+}
+
+movement PokemonTowerWalkUp {
+	walk_up * 2
+}
+movement PokemonTowerWalkUpLeft {
+	walk_up
+	walk_right
+	walk_up
+}
+movement PokemonTowerWalkUpRight {
+	walk_up
+	walk_left
+	walk_up
+}
+movement PokemonTower_CameraSlowUp {
+	walk_slow_up
+}
+
 const ARIANA = 4
 const KANGA = 1
+const LEFT_GRUNT = 2
+const RIGHT_GRUNT = 3
 script PokemonTower_Trailer {
-	lock
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, PokemonTower_CameraSlowUp)
+	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("ARIANA: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(ARIANA, Common_Movement_FaceRight)
+	delay(30)
+	waitmovement(0)
+	msgbox("ARIANA: …Or are you here for her?", MSGBOX_DEFAULT)
+	applymovement(ARIANA, Common_Movement_FaceDown)
+	delay(20)
+	applymovement(LEFT_GRUNT, WalkInPlaceDown)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("You wanna try to help this POKéMON?\nAfter all it's done?", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(RIGHT_GRUNT, WalkInPlaceDown)
+	waitmovement(0)
+	msgbox("It encouraged kids to write with\ncopyrighted characters.\lKids!", MSGBOX_DEFAULT)
+	applymovement(ARIANA, Common_Movement_WalkLeft)
+	waitmovement(0)
+	applymovement(ARIANA, Common_Movement_FaceDown)
 	msgbox("ARIANA: It's no use trying to save\nher now.\lCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
 	closemessage
-	//applymovement(ARIANA, Common_Movement_FaceRight)
-	//waitmovement(0)
-	//delay(10)
-	//msgbox("Isn't that right?\n", MSGBOX_DEFAULT)
+	applymovement(ARIANA, Common_Movement_FaceRight)
+	waitmovement(0)
+	delay(10)
+	msgbox("Isn't that right?\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_MON)
-	//setvar(VAR_0x8004, 4)
-	//setvar(VAR_0x8005, 8)
-	//setvar(VAR_0x8006, 5)
-	//setvar(VAR_0x8007, 2)
-	//special(ShakeScreen)
-	//delay(30)
+	setvar(VAR_0x8004, 4)
+	setvar(VAR_0x8005, 8)
+	setvar(VAR_0x8006, 5)
+	setvar(VAR_0x8007, 2)
+	special(ShakeScreen)
+	delay(30)
 	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
 	msgbox("KANGASKHAN: Gaaah!\n", MSGBOX_DEFAULT)
 	waitmoncry
@@ -264,6 +328,9 @@ script PokemonTower_Trailer {
 	setvar(VAR_0x8005, 4)
 	setvar(VAR_0x8006, 3)
 	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(48)
+	
 	special(ShakeScreen)
 	delay(48)
 	
@@ -291,17 +358,31 @@ script PokemonTower_Trailer {
 	closemessage
 	delay(15)
 	applymovement(KANGA, KangAttacks)
+	applymovement(OBJ_EVENT_ID_CAMERA, KangAttacks)
 	waitmovement(0)
+	special(RemoveCameraObject)
+
 	setwildbattle(SPECIES_KANGASKHAN, 30)
 	dowildbattle
-	waitstate
-	setflag(FLAG_HIDE_DMCA_IN_LAVENDER)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_WON:
+			setvar(VAR_POKEMON_TOWER_SCENE, 1)
+			setflag(FLAG_HIDE_DMCA_IN_LAVENDER)
+			msgbox("You win")
+
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_PLAYER_TELEPORTED:
+			break
+	}
 	special(QuestLog_CutRecording)
 	release
-	end
 }
 
 movement KangaApproaches {
+	walk_slow_down
+	delay_16
+	delay_16
 	walk_slow_down
 	delay_16
 	delay_16
@@ -313,4 +394,9 @@ movement KangaApproaches {
 
 movement KangAttacks {
 	walk_fast_down
+}
+
+movement WalkInPlaceDown {
+	walk_in_place_down * 2
+	face_down
 }

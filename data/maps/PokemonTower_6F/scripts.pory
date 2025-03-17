@@ -39,3 +39,8 @@ script PokemonTower_6F_Placeholder {
 script PokemonTower_6F_Placeholder2 {
 	
 }
+
+script PokemonTower_6F_Savestate {
+	msgbox("TRAINER TIPS!\pRemember to savestate frequently!\n", MSGBOX_SIGN)
+	end
+}
