@@ -128,12 +128,26 @@
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_2F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 31,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TOWER_6F",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_ShortcutSign"
+    }
   ]
 }

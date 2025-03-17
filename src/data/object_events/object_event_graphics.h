@@ -386,3 +386,4 @@ const u32 gObjectEventPic_Slugma[] = INCBIN_U32("graphics/object_events/pics/stu
 
 const u32 gObjectEventPic_Delibird[] = INCBIN_U32("graphics/object_events/pics/stupid/Delibird.4bpp");
 
+const u32 gObjectEventPic_Rsemom[] = INCBIN_U32("graphics/object_events/pics/stupid/Rsemom.4bpp");

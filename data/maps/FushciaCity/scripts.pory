@@ -214,3 +214,16 @@ script FushciaCity_ReturnTMCase {
 	}
 	release
 }
+
+script FushciaCity_HiddenHbox {
+	if(checkitem(ITEM_DEVON_SCOPE)) {
+		//messagebox about using the scope
+		//set visible, toggle on and off
+		delay(60)
+		goto(Common_EventScript_StaticEncounter)
+	} else {
+		lock
+		msgbox("There's an invisible object in\nthe way.", MSGBOX_DEFAULT)
+		release
+	}
+}

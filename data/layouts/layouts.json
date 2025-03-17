@@ -1720,7 +1720,7 @@
     {
       "id": "LAYOUT_POKEMON_TOWER_1F",
       "name": "PokemonTower_1F_Layout",
-      "width": 24,
+      "width": 34,
       "height": 20,
       "border_width": 2,
       "border_height": 2,

@@ -42,9 +42,8 @@ FushciaCity_Text_SafariZoneOfficeSign::
     .string "SAFARI ZONE OFFICE$"
 
 FushciaCity_Text_GymSign::
-    .string "FUSHCIA CITY POKéMON GYM\n"
-    .string "LEADER: KOGA\l"
-    .string "The Poisonous Ninja Master$"
+	.string "“Three steps {RIGHT_ARROW} and two steps {UP_ARROW}\n"
+	.string "to reach FUSHCIA GYM.”$"
 
 FushciaCity_Text_ChanseySign::
     .string "Name: CHANSEY\n"

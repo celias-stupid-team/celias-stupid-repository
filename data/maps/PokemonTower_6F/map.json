@@ -142,6 +142,13 @@
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_MATH_5",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 11,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TOWER_1F",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

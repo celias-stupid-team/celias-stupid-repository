@@ -57,3 +57,8 @@ mart PokemonTower_Market {
 	ITEM_TM47
 	ITEM_TM48
 }
+
+script PokemonTower_ShortcutSign {
+	msgbox("/al Top Floor\n/ar Exit", MSGBOX_SIGN)
+	end
+}
