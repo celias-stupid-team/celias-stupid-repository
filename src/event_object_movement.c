@@ -469,7 +469,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_KANGA                0x1126
 #define OBJ_EVENT_PAL_TAG_SHADOW_KANGA                0x1127
 #define OBJ_EVENT_PAL_TAG_BOUFFALANT                0x1128
-#define OBJ_EVENT_PAL_TAG_IVYSAUR                0x1128
+#define OBJ_EVENT_PAL_TAG_IVYSAUR                0x1129
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 

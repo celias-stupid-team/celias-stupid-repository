@@ -4653,7 +4653,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Squirtle = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ivysaur = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_IVYSAUR,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 1024,
     .width = 32,
