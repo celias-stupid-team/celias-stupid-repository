@@ -35,7 +35,7 @@ static const u8 sEasyChatWord_Strong[] = _("STRONG");
 static const u8 sEasyChatWord_TooStrong[] = _("TOO STRONG");
 static const u8 sEasyChatWord_GoEasy[] = _("GO EASY");
 static const u8 sEasyChatWord_Foe[] = _("FOE");
-static const u8 sEasyChatWord_Genius[] = _("GENIUS");
+static const u8 sEasyChatWord_Gang[] = _("GANG");
 static const u8 sEasyChatWord_Legend[] = _("LEGEND");
 static const u8 sEasyChatWord_Escape[] = _("ESCAPE");
 static const u8 sEasyChatWord_Aim[] = _("AIM");
@@ -53,7 +53,7 @@ static const u8 sEasyChatWord_Guard[] = _("GUARD");
 static const u8 sEasyChatWord_Partner[] = _("PARTNER");
 static const u8 sEasyChatWord_Reject[] = _("REJECT");
 static const u8 sEasyChatWord_Accept[] = _("ACCEPT");
-static const u8 sEasyChatWord_Invincible[] = _("INVINCIBLE");
+static const u8 sEasyChatWord_IsFor[] = _("IS FOR");
 static const u8 sEasyChatWord_Received[] = _("RECEIVED");
 static const u8 sEasyChatWord_Easy[] = _("EASY");
 static const u8 sEasyChatWord_Weak[] = _("WEAK");
@@ -245,7 +245,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Battle[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Genius,
+        .text = sEasyChatWord_Gang,
         .alphabeticalOrder = 51,
         .enabled = TRUE
     },
@@ -335,7 +335,7 @@ static const struct EasyChatWordInfo sEasyChatGroup_Battle[] = {
         .enabled = TRUE
     },
     {
-        .text = sEasyChatWord_Invincible,
+        .text = sEasyChatWord_IsFor,
         .alphabeticalOrder = 58,
         .enabled = TRUE
     },

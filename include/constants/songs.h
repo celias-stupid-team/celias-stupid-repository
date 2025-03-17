@@ -378,12 +378,16 @@
 #define MUS_CSR_MART          369
 #define MUS_CSR_POKERAP          370
 #define MUS_CSR_DANCE_THEATER          371
+#define MUS_CSR_DANCE_PRELUDE          372
+#define MUS_CSR_CHAPTER_3          373
+#define SE_ROLLOUT            374
+#define SE_MAKE_IT_RAIN            375
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_DANCE_THEATER
+#define END_MUS                     SE_MAKE_IT_RAIN
 
 #endif  // GUARD_CONSTANTS_SONGS_H

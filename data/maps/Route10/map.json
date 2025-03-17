@@ -165,6 +165,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route_10_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_ROUTE_10_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 20,
+      "y": 41,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PalletTown_EventScript_SignLady_CSR",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -243,8 +257,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 38,
+      "x": 16,
+      "y": 37,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_3",
@@ -266,7 +280,7 @@
       "x": 2,
       "y": 38,
       "elevation": 3,
-      "item": "ITEM_BASCI_BERRY_BLUE",
+      "item": "ITEM_BASCI_BERRY_WHITE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
       "quantity": 1,
       "underfoot": false
@@ -446,6 +460,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route10_RouteSign"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 40,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route10_NothingToLookAt"
     }
   ]
 }

@@ -496,7 +496,8 @@
     "Route18_SandwichShop"
   ],
   "gMapGroup_IndoorRoute19": [
-    "Route19_UnusedHouse"
+    "Route19_UnusedHouse",
+    "Route19_SurfHouse"
   ],
   "gMapGroup_IndoorRoute22": [
     "Route22_NorthEntrance"

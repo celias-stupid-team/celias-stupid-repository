@@ -1,6 +1,5 @@
 raw `
-SafariZone_West_MapScripts::
-	.byte 0
+
 
 SafariZone_West_EventScript_RestHouseSign::
 	msgbox SafariZone_West_Text_RestHouse, MSGBOX_SIGN
@@ -18,3 +17,27 @@ SafariZone_West_EventScript_AreaSign::
 	msgbox SafariZone_West_Text_AreaSign, MSGBOX_SIGN
 	end
 `
+mapscripts SafariZone_West_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		switch(var(VAR_CSR_SAFARI_ZONE_EVOLUTION)) {
+			case 0: //Charizard
+				setflag(FLAG_TEMP_2)
+				setflag(FLAG_TEMP_3)
+				setvar(VAR_CSR_SAFARI_ZONE_EVOLUTION, 1)
+			case 1:
+				setflag(FLAG_TEMP_1)
+				setflag(FLAG_TEMP_3)
+				setvar(VAR_CSR_SAFARI_ZONE_EVOLUTION, 2)
+			case 2:
+				setflag(FLAG_TEMP_1)
+				setflag(FLAG_TEMP_2)
+				clearflag(FLAG_CSR_HIDE_MUSIC_GIRL)
+				setvar(VAR_CSR_SAFARI_ZONE_EVOLUTION, 0)
+		}
+	}
+}
+
+script SafariZone_West_MusicGirl {
+	msgbox("Hey, where's that music coming\nfrom?", MSGBOX_NPC)
+	end
+}

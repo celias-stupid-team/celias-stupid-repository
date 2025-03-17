@@ -462,10 +462,14 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_GENTLEMAN                0x111F
 #define OBJ_EVENT_PAL_TAG_ASH                0x1120
 #define OBJ_EVENT_PAL_TAG_YELLOW_GUY                0x1121
-
 #define OBJ_EVENT_PAL_TAG_DRIFLOON                0x1122
 #define OBJ_EVENT_PAL_TAG_ETERNATUS                0x1123
 #define OBJ_EVENT_PAL_TAG_DAZZLE                0x1124
+#define OBJ_EVENT_PAL_TAG_ARCEUS                0x1125
+#define OBJ_EVENT_PAL_TAG_KANGA                0x1126
+#define OBJ_EVENT_PAL_TAG_SHADOW_KANGA                0x1127
+#define OBJ_EVENT_PAL_TAG_BOUFFALANT                0x1128
+#define OBJ_EVENT_PAL_TAG_IVYSAUR                0x1128
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -506,6 +510,12 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Dazzle,             OBJ_EVENT_PAL_TAG_DAZZLE},
     {gObjectEventPal_Ash,             OBJ_EVENT_PAL_TAG_ASH},
     {gObjectEventPal_YellowGuy,             OBJ_EVENT_PAL_TAG_YELLOW_GUY},
+    {gObjectEventPal_Arceus,             OBJ_EVENT_PAL_TAG_ARCEUS},
+    {gObjectEventPal_Kanga,             OBJ_EVENT_PAL_TAG_KANGA},
+    {gObjectEventPal_ShadowKanga,             OBJ_EVENT_PAL_TAG_SHADOW_KANGA},
+    {gObjectEventPal_Bouffalant,             OBJ_EVENT_PAL_TAG_BOUFFALANT},
+    {gObjectEventPal_Machoke,             OBJ_EVENT_PAL_TAG_RS_MACHOKE},
+    {gObjectEventPal_Ivysaur,             OBJ_EVENT_PAL_TAG_IVYSAUR},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

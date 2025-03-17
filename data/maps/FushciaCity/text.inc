@@ -48,34 +48,40 @@ FushciaCity_Text_GymSign::
 
 FushciaCity_Text_ChanseySign::
     .string "Name: CHANSEY\n"
-    .string "Catching one is all up to chance.$"
+    .string "Ours ran away.$"
 
 FushciaCity_Text_VoltorbSign::
-    .string "Name: VOLTORB\n"
-    .string "The very image of a POKé BALL.$"
+	.string "Name: FUCKING FUCK$"
+
+FushciaCity_Text_VolrorbContinued::
+	.string "…What?\n"
+	.string "POKéMON say their names, right?$"
 
 FushciaCity_Text_KangaskhanSign::
-    .string "Name: KANGASKHAN\p"
-    .string "A maternal POKéMON that raises its\n"
-    .string "young in a pouch on its belly.$"
+	.string "Name: SKITTY\n"
+	.string "She's currently single and looking!$"
 
 FushciaCity_Text_SlowpokeSign::
-    .string "Name: SLOWPOKE\n"
-    .string "Friendly and very slow moving.$"
+    .string "Name: MR. MIME\n"
+    .string "Friendly and very fast moving.$"
 
 FushciaCity_Text_LaprasSign::
-    .string "Name: LAPRAS\n"
-    .string "AKA the king of the seas.$"
+	.string "Name: WAILORD\n"
+	.string "Currently seeking a girlfriend!$"
 
 FushciaCity_Text_OmanyteSign::
-    .string "Name: OMANYTE\n"
-    .string "An extremely rare POKéMON that was\l"
-    .string "regenerated from a fossil.$"
+	.string "Name: BOUFFALANT\n"
+	.string "Did you know?\p"
+	.string "UNOVA BOUFFALANT whom UNOVA\n"
+	.string "BOUFFALANT bully themselves bully\l"
+	.string "UNOVA BOUFFALANT!$"
 
 FushciaCity_Text_KabutoSign::
-    .string "Name: KABUTO\n"
-    .string "An extremely rare POKéMON that was\l"
-    .string "regenerated from a fossil.$"
+	.string "Name: BOUFFALANT\n"
+	.string "Did you know?\p"
+	.string "UNOVA BOUFFALANT whom UNOVA\n"
+	.string "BOUFFALANT bully themselves bully\l"
+	.string "UNOVA BOUFFALANT!$"
 
 @ Unused. May have been meant to be the placeholder text for the zoo mons, similar to RB's "!" text
 FushciaCity_Text_Ellipsis::

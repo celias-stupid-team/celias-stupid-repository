@@ -49,6 +49,11 @@ script Route10_Imprint {
 	end
 }
 
+script Route10_NothingToLookAt {
+	msgbox("There is nothing to look at.\pYou feel scammed.\n", MSGBOX_SIGN)
+	end
+}
+
 
 script Route10_Youngster {
 	famechecker(FAMECHECKER_ROCK_TUNNEL, 0)

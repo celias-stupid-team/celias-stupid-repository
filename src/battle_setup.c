@@ -215,7 +215,8 @@ static void CreateBattleStartTask(u8 transition, u16 song) // song == 0 means de
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
     gTasks[taskId].tTransition = transition;
-    PlayMapChosenOrBattleBGM(song);
+    if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
+        PlayMapChosenOrBattleBGM(song);
 }
 
 static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
@@ -1046,7 +1047,8 @@ void PlayTrainerEncounterMusic(void)
 
     if (!QL_IS_PLAYBACK_STATE
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
-     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
+     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
+     && gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER)
     {
         switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))
         {

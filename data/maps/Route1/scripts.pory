@@ -168,7 +168,7 @@ script Route1_CeliaCrew_RavePossum {
 }
 
 script Route1_CeliaCrew_Plasto {
-	msgbox("PLASTO: I'm supposed to be a slugma,\nbut Celia said she's too lazy.", MSGBOX_NPC)
+	msgbox("PLASTO: damn", MSGBOX_NPC)
 	end
 }
 

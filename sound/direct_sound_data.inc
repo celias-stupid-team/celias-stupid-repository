@@ -313,6 +313,16 @@ DirectSoundWaveData_Sandstorm::
 
 
 	.align 2
+DirectSoundWaveData_Rollout::
+	.incbin "sound/direct_sound_samples/rollout.bin"
+
+
+	.align 2
+DirectSoundWaveData_MakeItRain::
+	.incbin "sound/direct_sound_samples/make_it_rain.bin"
+
+
+	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 

@@ -993,6 +993,10 @@ SECTIONS {
         sound/songs/midi/mus_mart.o(.rodata);
         sound/songs/midi/mus_pokerap.o(.rodata);
         sound/songs/midi/mus_dance_theater.o(.rodata);
+        sound/songs/midi/mus_dance_prelude.o(.rodata);
+        sound/songs/midi/mus_chapter_3.o(.rodata);
+        sound/songs/midi/se_rollout.o(.rodata);
+        sound/songs/midi/se_make_it_rain.o(.rodata);
 
     } > ROM =0
 

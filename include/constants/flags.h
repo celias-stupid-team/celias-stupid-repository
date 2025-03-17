@@ -323,8 +323,8 @@
 #define FLAG_CUT_AMPHAROS_HAIR               0x115
 #define FLAG_CUT_TANGELA_HAIR               0x116
 #define FLAG_NO_TM_CASE               0x117
-#define FLAG_0x118               0x118
-#define FLAG_0x119               0x119
+#define FLAG_POKEMONTOWER_POKEBALL               0x118
+#define FLAG_POKEMONTOWER_BANETTE               0x119
 #define FLAG_0x11A               0x11A
 #define FLAG_0x11B               0x11B
 #define FLAG_0x11C               0x11C
@@ -492,8 +492,8 @@
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
-#define FLAG_0x1BC                                              0x1BC
-#define FLAG_0x1BD                                              0x1BD
+#define FLAG_HIDE_CELADON_TAUNT                                              0x1BC
+#define FLAG_HIDE_WRAP_TM                                              0x1BD
 #define FLAG_HIDE_VIRIDIAN_FOREST_POTION_2                      0x1BE
 #define FLAG_HIDE_MT_MOON_B2F_REVIVE                            0x1BF
 #define FLAG_HIDE_MT_MOON_B2F_ANTIDOTE                          0x1C0
@@ -626,7 +626,7 @@
 #define FLAG_CSR_GOT_PAY_DAY                                    0x239
 #define FLAG_WARDENS_TEETH                                    0x23A
 #define FLAG_GOT_HM05                                    0x23B
-#define FLAG_RESCUED_MR_FUJI                             0x23C
+#define FLAG_RESCUED_CUBONES_MOM                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
 #define FLAG_0x23E                                       0x23E
 #define FLAG_GOT_TM28_FROM_ROCKET                        0x23F
@@ -852,10 +852,10 @@
 #define FLAG_REVIVED_AMBER               0x313
 #define FLAG_GOT_HM06               0x314
 #define FLAG_CSR_CONFUSED_GRUNT               0x315
-#define FLAG_0x316               0x316
-#define FLAG_0x317               0x317
-#define FLAG_0x318               0x318
-#define FLAG_0x319               0x319
+#define FLAG_CSR_TUBER_EATEN               0x316
+#define FLAG_CSR_TALKED_TO_TUBER               0x317
+#define FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET               0x318
+#define FLAG_CSR_HIDE_MUSIC_GIRL               0x319
 #define FLAG_0x31A               0x31A
 #define FLAG_0x31B               0x31B
 #define FLAG_0x31C               0x31C

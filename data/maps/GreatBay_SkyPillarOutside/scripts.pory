@@ -1,3 +1,31 @@
 mapscripts GreatBay_SkyPillarOutside_MapScripts {
     
 }
+
+script GreatBay_SkyPillarOutside_LookingOut {
+    lock
+    faceplayer
+    msgbox("Hello, traveller.\nSee that TOWER across the bay?", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+    delay(20)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, GreatBay_CameraGoesUp)
+    waitmovement(0)
+    delay(30)
+    msgbox("They say that atop the TOWER awaits\na powerful BIRD POKéMON.\lIt comes to roost once a lifetime.", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(OBJ_EVENT_ID_CAMERA, GreatBay_CameraComesDown)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    release
+}
+
+movement GreatBay_CameraGoesUp {
+    walk_up * 15
+}
+
+movement GreatBay_CameraComesDown {
+    walk_fast_down * 15
+}

@@ -304,6 +304,8 @@ static bool8 TrySwitchInPokemon(void);
 static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
 static void DisplayCantUseRetreatMessage(void);
+static void DisplayNoRetreatMessage(void);
+static void DisplayButItFailedMessage(void);
 static void Task_CancelAfterAorBPress(u8 taskId);
 static void DisplayFieldMoveExitAreaMessage(u8 taskId);
 static void Task_FieldMoveExitAreaYesNo(u8 taskId);
@@ -3988,8 +3990,15 @@ static void CursorCB_FieldMove(u8 taskId)
                 }
                 else
                 {
-                    //no bench around
-                    DisplayCantUseRetreatMessage();
+                    
+                    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE12)) { //Route12
+                        DisplayButItFailedMessage();
+                        DisplayNoRetreatMessage();
+
+                    } else {//no bench around
+                        
+                        DisplayCantUseRetreatMessage();
+                    }
                     gTasks[taskId].func = Task_CancelAfterAorBPress;
                     break;
                 }
@@ -4086,6 +4095,16 @@ static void Task_CancelAfterAorBPress(u8 taskId)
 static void DisplayCantUseRetreatMessage(void)
 {
     DisplayPartyMenuStdMessage(PARTY_MSG_CANT_USE_RETREAT);
+}
+
+static void DisplayNoRetreatMessage(void)
+{
+    DisplayPartyMenuStdMessage(PARTY_MSG_NO_RETREAT);
+}
+
+static void DisplayButItFailedMessage(void)
+{
+    DisplayPartyMenuStdMessage(PARTY_MSG_BUT_IT_FAILED);
 }
 
 static void DisplayCantUseFlashMessage(void)

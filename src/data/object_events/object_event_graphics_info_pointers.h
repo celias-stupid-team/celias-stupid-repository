@@ -243,6 +243,27 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KangaBaby;
 
 
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Falinks;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Arceus;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Shadowkanga;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bouffalant;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machokeboxes;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Banette;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Squirtle;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ivysaur;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Charizard;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Slugma;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Delibird;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -489,4 +510,25 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 
     
     
+    [OBJ_EVENT_GFX_FALINKS] = &gObjectEventGraphicsInfo_Falinks,
+
+    [OBJ_EVENT_GFX_ARCEUS] = &gObjectEventGraphicsInfo_Arceus,
+
+    [OBJ_EVENT_GFX_SHADOWKANGA] = &gObjectEventGraphicsInfo_Shadowkanga,
+
+    [OBJ_EVENT_GFX_BOUFFALANT] = &gObjectEventGraphicsInfo_Bouffalant,
+
+    [OBJ_EVENT_GFX_MACHOKEBOXES] = &gObjectEventGraphicsInfo_Machokeboxes,
+
+    [OBJ_EVENT_GFX_BANETTE] = &gObjectEventGraphicsInfo_Banette,
+
+    [OBJ_EVENT_GFX_SQUIRTLE] = &gObjectEventGraphicsInfo_Squirtle,
+
+    [OBJ_EVENT_GFX_IVYSAUR] = &gObjectEventGraphicsInfo_Ivysaur,
+
+    [OBJ_EVENT_GFX_CHARIZARD] = &gObjectEventGraphicsInfo_Charizard,
+
+    [OBJ_EVENT_GFX_SLUGMA] = &gObjectEventGraphicsInfo_Slugma,
+
+    [OBJ_EVENT_GFX_DELIBIRD] = &gObjectEventGraphicsInfo_Delibird,
 };

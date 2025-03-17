@@ -153,7 +153,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RestaurantHotel",
+      "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/House4/border.bin",
       "blockdata_filepath": "data/layouts/House4/map.bin"
     },
@@ -988,7 +988,7 @@
     {
       "id": "LAYOUT_ROUTE12",
       "name": "Route12_Layout",
-      "width": 31,
+      "width": 36,
       "height": 87,
       "border_width": 2,
       "border_height": 2,
@@ -1640,7 +1640,7 @@
       "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_RockTunnel",
       "border_filepath": "data/layouts/RockTunnel_1F/border.bin",
       "blockdata_filepath": "data/layouts/RockTunnel_1F/map.bin"
@@ -4648,12 +4648,12 @@
     {
       "id": "LAYOUT_ROUTE15_SODA_SHOP",
       "name": "Route15_SodaShop_Layout",
-      "width": 16,
-      "height": 16,
+      "width": 15,
+      "height": 11,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "primary_tileset": "gTileset_EmeraldBuilding",
+      "secondary_tileset": "gTileset_SodaShop",
       "border_filepath": "data/layouts/Route15_SodaShop/border.bin",
       "blockdata_filepath": "data/layouts/Route15_SodaShop/map.bin"
     },
@@ -4764,6 +4764,18 @@
       "secondary_tileset": "gTileset_SafariZoneBuilding",
       "border_filepath": "data/layouts/SafariZone_DMCAShowdown/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_DMCAShowdown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_SURF_HOUSE",
+      "name": "Route19_SurfHouse_Layout",
+      "width": 15,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/Route19_SurfHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_SurfHouse/map.bin"
     }
   ]
 }

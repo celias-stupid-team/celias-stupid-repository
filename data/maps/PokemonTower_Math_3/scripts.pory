@@ -24,9 +24,28 @@ mapscripts PokemonTower_Math_3_MapScripts {
 			]
 }
 
+script PokemonTower_5F_EventScript_Twin1 {
+	trainerbattle_double(TRAINER_CHANNELER_JANAE, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
+	msgbox("MAI: No, no, PRA.\nWe're doing Math!", MSGBOX_AUTOCLOSE)
+}
+
+script PokemonTower_5F_EventScript_Twin2 {
+	trainerbattle_double(TRAINER_CHANNELER_JANAE, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
+	msgbox("PRA: I eat glue.\n", MSGBOX_DEFAULT)
+}
 
 script PokemonTower_MathQuestion_Three {
 	lock
 	msgbox("6 {DIVIDE} 2(1 + 2) = ?\n{LEFT_ARROW} 9    {UP_ARROW} 1    {RIGHT_ARROW} Shitty Notation", MSGBOX_SIGN)
 	release
+}
+
+script PokemonTower_MathDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pWow, these math questions are\nreally tricky.\lI hope you've done your homework!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }

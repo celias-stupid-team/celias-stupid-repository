@@ -9500,7 +9500,8 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
                                         TMHM(TM49_COPYCAT) |
-                                        TMHM(TM50_COUNTER)),
+                                        TMHM(TM50_COUNTER) |
+                                        TMHM(HM02_FLY)),
 	[SPECIES_PAWNIARD]    = TMHM_LEARNSET(0),
 	[SPECIES_BISHARP]    = TMHM_LEARNSET(0),
 	[SPECIES_BOUFFALANT]    = TMHM_LEARNSET(0),

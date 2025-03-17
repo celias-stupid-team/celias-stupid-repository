@@ -1681,15 +1681,8 @@ CableClub_Text_EnjoyUnionRoom::
 	.string "the UNION ROOM.$"
 
 CableClub_Text_FirstTimeRightThisWay::
-	.string "Hello!\n"
-	.string "My name is TEALA.\p"
-	.string "This must be your first time\n"
-	.string "up here.\p"
-	.string "I'll show you how the Wireless\n"
-	.string "Communication System works.\p"
-	.string "First, I need to show you this\n"
-	.string "floor of our POKéMON CENTER.\p"
-	.string "Right this way, please.$"
+	.string "TEALA: Hi there, dumbass.\n"
+	.string "Don't go out of bounds.$"
 
 CableClub_Text_ExplainWirelessClubFirstTime::
 	.string "On the top floor, there are two\n"

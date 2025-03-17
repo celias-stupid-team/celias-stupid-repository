@@ -13,11 +13,12 @@ bool8 SetUpFieldMove_Retreat(void)
     /*
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
     {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_Retreat;
+        
         return TRUE;
     }
     */
+    gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+    gPostMenuFieldCallback = FieldCallback_Retreat;
     return TRUE; //Allow retreat in all types of maps
 }
 

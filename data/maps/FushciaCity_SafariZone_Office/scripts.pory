@@ -21,3 +21,8 @@ FushciaCity_SafariZone_Office_EventScript_Worker4::
 script FushciaCity_SlowpokeGuy {
 	
 }
+
+script FushciaCity_SlowpokeGuys_Bookshelf {
+	msgbox("No one believed me, but I put\nthousands into copies of this book.\pNow suddenly it's everywhere, and\nI made out with millions!\pI'm telling you, this is the way to\nget rich quick!", MSGBOX_NPC)
+	end
+}

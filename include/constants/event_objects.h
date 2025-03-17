@@ -242,7 +242,36 @@
 #define OBJ_EVENT_GFX_RILEY                        237          //Placeholder
 #define OBJ_EVENT_GFX_DMCADAD                        238          //Placeholder
 #define OBJ_EVENT_GFX_N                        239          //Placeholder
-#define NUM_OBJ_EVENT_GFX     240
+#define OBJ_EVENT_GFX_FALINKS 240
+#define OBJ_EVENT_GFX_ARCEUS 241
+
+#define OBJ_EVENT_GFX_SHADOWKANGA 242
+
+#define OBJ_EVENT_GFX_BOUFFALANT 243
+
+#define OBJ_EVENT_GFX_MACHOKEBOXES 244
+
+#define OBJ_EVENT_GFX_BANETTE 245
+
+#define OBJ_EVENT_GFX_SQUIRTLE 246
+
+#define OBJ_EVENT_GFX_IVYSAUR 247
+
+#define OBJ_EVENT_GFX_CHARIZARD 248
+
+#define OBJ_EVENT_GFX_SLUGMA 249
+
+#define OBJ_EVENT_GFX_DELIBIRD 250
+#define NUM_OBJ_EVENT_GFX 251
+
+
+
+
+
+
+
+
+
 
 
 // These are dynamic object gfx ids.
