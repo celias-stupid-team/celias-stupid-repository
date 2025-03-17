@@ -889,3 +889,14 @@ const struct Tileset gTileset_SodaShop =
     .metatileAttributes = gMetatileAttributes_SodaShop,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_RSE_Indoors =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_RSE_Indoors,
+    .palettes = gTilesetPalettes_RSE_Indoors,
+    .metatiles = gMetatiles_RSE_Indoors,
+    .metatileAttributes = gMetatileAttributes_RSE_Indoors,
+    .callback = NULL,
+};

@@ -4721,11 +4721,11 @@
       "id": "LAYOUT_FUSHCIA_CITY_BRENDAN_MAY_1F",
       "name": "FushciaCity_BrendanMay_1F_Layout",
       "width": 11,
-      "height": 9,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
+      "secondary_tileset": "gTileset_RSE_Indoors",
       "border_filepath": "data/layouts/FushciaCity_BrendanMay_1F/border.bin",
       "blockdata_filepath": "data/layouts/FushciaCity_BrendanMay_1F/map.bin"
     },

@@ -382,12 +382,13 @@
 #define MUS_CSR_CHAPTER_3          373
 #define SE_ROLLOUT            374
 #define SE_MAKE_IT_RAIN            375
+#define MUS_LITTLEROOT            376
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     SE_MAKE_IT_RAIN
+#define END_MUS                     MUS_LITTLEROOT
 
 #endif  // GUARD_CONSTANTS_SONGS_H

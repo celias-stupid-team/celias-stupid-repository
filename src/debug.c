@@ -3723,6 +3723,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CSR_CHAPTER_3) \
     X(SE_ROLLOUT) \
     X(SE_MAKE_IT_RAIN) \
+    X(MUS_LITTLEROOT) \
 
 
 #define SOUND_LIST_SE \

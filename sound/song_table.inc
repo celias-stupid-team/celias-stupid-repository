@@ -375,6 +375,7 @@ gSongTable::
 	song mus_chapter_3, 0, 0
 	song se_rollout, 1, 1
 	song se_make_it_rain, 1, 1
+	song mus_littleroot, 0, 0
 
 
 dummy_song_header:
