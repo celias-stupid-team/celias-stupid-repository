@@ -1,3 +1,46 @@
 mapscripts Route19_SurfHouse_MapScripts {
     
 }
+
+script Route19_SurfHouse_Rhydon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_RHYDON, CRY_MODE_NORMAL)
+    msgbox("RHYDON: Grraaah!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(30)
+    msgbox("Rhydon deez nuts\n", MSGBOX_DEFAULT)
+    release
+}
+
+script Route19_SurfHouse_Zigzagoon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+    msgbox("ZIGZAGOON: Guguu?\n", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+
+}
+
+script Route19_SurfHouse_Furret {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+    msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    msgbox("FURRET is surfing!\n", MSGBOX_DEFAULT)
+    release
+}
+
+script Route19_SurfHouse_Trees {
+	msgbox("OAK can't surf, silly!\n", MSGBOX_SIGN)
+	end
+}
+
+script Route19_SurfHouse_Fridge {
+	msgbox("Why do you need a second fridge?\n", MSGBOX_SIGN)
+	end
+}

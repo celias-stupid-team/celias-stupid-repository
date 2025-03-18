@@ -1061,7 +1061,7 @@
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
       "width": 72,
-      "height": 20,
+      "height": 33,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1077,7 +1077,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_FushciaCity",
+      "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/Route19/border.bin",
       "blockdata_filepath": "data/layouts/Route19/map.bin"
     },

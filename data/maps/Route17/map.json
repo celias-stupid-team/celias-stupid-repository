@@ -31,7 +31,7 @@
     },
     {
       "map": "MAP_GREAT_SEA_NORTH",
-      "offset": 0,
+      "offset": 1,
       "direction": "left"
     }
   ],

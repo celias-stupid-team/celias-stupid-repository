@@ -19,10 +19,25 @@ FushciaCity_SafariZone_Office_EventScript_Worker4::
 	end
 `
 script FushciaCity_SlowpokeGuy {
-	
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_GOT_SLOWPOKE)) {
+		msgbox("…Huh?\pOf course I wasn't gonna give you\none with a TAIL attached.\lThis ain't a charity!\pI just didn't need the rest of it.\nFigured I'd do a good deed.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Hey there, kid!\nAre you looking to get rich quick?\pLet me tell ya:\nSLOWPOKETAIL is the way to go.\pHere, let me start you out.\nI have a gift for you!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SLOWPOKE)
+		call(Common_Script_ObtainedPokemon)
+		setflag(FLAG_CSR_GOT_SLOWPOKE)
+		msgbox("Trust me - You'll thank me later!\n", MSGBOX_DEFAULT)
+	}
 }
 
 script FushciaCity_SlowpokeGuys_Bookshelf {
-	msgbox("No one believed me, but I put\nthousands into copies of this book.\pNow suddenly it's everywhere, and\nI made out with millions!\pI'm telling you, this is the way to\nget rich quick!", MSGBOX_NPC)
+	msgbox("I invested thousands of dollars\ninto copies of this book.\lNo one believed me, but I had faith.\pNow suddenly it's everywhere, and\nI made out with millions!\pI'm telling you, this is the way to\nget rich quick!", MSGBOX_NPC)
+	end
+}
+
+script FushciaCity_SlowpokeGuys_TrashCan {
+	msgbox("Lodged in the trash can are dozens\nand dozens of BICYCLES.", MSGBOX_SIGN)
 	end
 }
