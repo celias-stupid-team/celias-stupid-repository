@@ -325,8 +325,8 @@
 #define FLAG_NO_TM_CASE               0x117
 #define FLAG_POKEMONTOWER_POKEBALL               0x118
 #define FLAG_POKEMONTOWER_BANETTE               0x119
-#define FLAG_0x11A               0x11A
-#define FLAG_0x11B               0x11B
+#define FLAG_FUCHSIA_SIGN_LADY_EAST               0x11A
+#define FLAG_FUCHSIA_SIGN_LADY_WEST               0x11B
 #define FLAG_0x11C               0x11C
 #define FLAG_0x11D               0x11D
 #define FLAG_0x11E               0x11E
