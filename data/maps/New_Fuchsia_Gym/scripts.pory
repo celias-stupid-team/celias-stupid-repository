@@ -4,4 +4,6 @@ raw `
 
 
 `
-
+mapscripts New_Fuchsia_Gym_MapScripts {
+    //chairry you can reconfigure this later if you want
+}

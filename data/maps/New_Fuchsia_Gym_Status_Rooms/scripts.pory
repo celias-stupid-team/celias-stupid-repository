@@ -5,3 +5,6 @@ raw `
 
 
 `
+mapscripts New_Fuchsia_Gym_Status_Rooms_MapScripts {
+    //chairry you can reconfigure this later if you want
+}
