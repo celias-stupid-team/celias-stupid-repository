@@ -205,6 +205,22 @@ It is reset after every battle.
 7 = Harry with Ho-oh
 8 = Giovanni 1
 */
+
+#define EVENT_BATTLE_LARRY  1
+#define EVENT_BATTLE_BROCK  2
+#define EVENT_BATTLE_DMCA_WOLFF  3
+#define EVENT_BATTLE_JERRY  4
+#define EVENT_BATTLE_MISTY  5
+#define EVENT_BATTLE_SURGE  6
+#define EVENT_BATTLE_HARRY  7
+#define EVENT_BATTLE_GIOVANNI_1  8
+#define EVENT_BATTLE_ARIANA  9
+#define EVENT_BATTLE_ARCHER  10
+#define EVENT_BATTLE_DAD  11
+
+
+
+
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_ROUTE01_SHINY_RAT1         0x408D
 #define VAR_ROUTE01_SHINY_RAT2         0x408E
