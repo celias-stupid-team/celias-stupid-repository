@@ -1049,7 +1049,7 @@
       "id": "LAYOUT_ROUTE17",
       "name": "Route17_Layout",
       "width": 33,
-      "height": 132,
+      "height": 110,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4776,6 +4776,18 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/Route19_SurfHouse/border.bin",
       "blockdata_filepath": "data/layouts/Route19_SurfHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREAT_SEA_NORTH",
+      "name": "GreatSea_North_Layout",
+      "width": 48,
+      "height": 109,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/GreatSea_North/border.bin",
+      "blockdata_filepath": "data/layouts/GreatSea_North/map.bin"
     }
   ]
 }

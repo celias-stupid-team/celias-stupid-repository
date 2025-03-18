@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_SafariZone_Office_EventScript_Worker3",
+      "script": "FushciaCity_SafariZone_Office_EventScript_Worker1",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_SafariZone_Office_EventScript_Worker1",
+      "script": "FushciaCity_SafariZone_Office_EventScript_Worker3",
       "flag": "0"
     },
     {

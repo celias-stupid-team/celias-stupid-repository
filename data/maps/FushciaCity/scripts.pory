@@ -50,6 +50,7 @@ FushciaCity_EventScript_SafariZoneSign::
 	end
 
 FushciaCity_EventScript_SafariGameSign::
+	setflag FLAG_TEMP_1
 	msgbox FushciaCity_Text_SafariGameSign, MSGBOX_SIGN
 	end
 
@@ -226,4 +227,58 @@ script FushciaCity_HiddenHbox {
 		msgbox("There's an invisible object in\nthe way.", MSGBOX_DEFAULT)
 		release
 	}
+}
+
+script FushciaCity_SmallChild {
+	lock
+	faceplayer
+	msgbox("Help!\nI can't get up!\pIf only it were physically possible\nto scale waist-high cliffs…", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(0)
+	release
+}
+
+script FushciaCity_MartClosed {
+	msgbox("FUSHCIA CITY POKéMART\nTEMPORARILY CLOSED\pPending investigation of a link to\nthe mass POISONING scandal.\pAuthorities cite spike in sales of\nANTIDOTES as evidence.\lStay tuned for updates.", MSGBOX_SIGN)
+	end
+}
+
+script FushciaCity_MartEmployee {
+	msgbox("This is outrageous!\nWe're innocent, I tell you!", MSGBOX_NPC)
+	end
+}
+
+script FushciaCity_BlackSesameSeed {
+	lock
+	msgbox("ERIK: Oh?\nHello, there.\pI am but a humble black sesame seed.\nMy name is ERIK.", MSGBOX_DEFAULT)
+	release
+}
+
+script FushciaCity_SloganGuy {
+	lock
+	if(flag(FLAG_TEMP_1)) {
+		msgbox("…\pWhat the fuck kind of slogan is\nthat?", MSGBOX_DEFAULT)
+	} else {
+		msgbox("…\p…What?", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+const SIGN_GUY = 10
+script FushciaCity_SloganSign {
+	lock
+	msgbox(FushciaCity_Text_SafariGameSign)
+	closemessage
+	delay(20)
+	applymovement(SIGN_GUY, WalkInPlaceLeft)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("…\pWhat the fuck kind of slogan is\nthat?", MSGBOX_DEFAULT)
+	release
+}
+
+movement WalkInPlaceLeft {
+	walk_in_place_left * 2
+	face_left
 }

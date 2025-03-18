@@ -120,8 +120,8 @@ movement Route17_BikeCatchesUpToCamera {
 
 movement Route17_BikeZoomsUp {
 	walk_faster_up * 18
-	walk_fastest_up * 80
-	walk_faster_up * 9
-	walk_fast_up * 5
+	walk_fastest_up * 68
+	walk_faster_up * 8
+	walk_fast_up * 4
 	walk_up * 2
 }

@@ -1464,3 +1464,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route19_SurfHouse/scripts.inc"
 	.include "data/maps/Route19_SurfHouse/text.inc"
+
+	.include "data/maps/GreatSea_North/scripts.inc"
+	.include "data/maps/GreatSea_North/text.inc"

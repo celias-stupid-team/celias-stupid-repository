@@ -32,6 +32,11 @@ script PokemonTower_6F_WorriedAboutCuboneMom {
 	release
 }
 
+script PokemonTower_6F_SpellingKid {
+	trainerbattle_single(TRAINER_CHANNELER_JENNIFER, PokemonTower_6F_Text_JenniferIntro, PokemonTower_6F_Text_JenniferDefeat)
+	
+}
+
 script PokemonTower_6F_Placeholder {
 
 }
