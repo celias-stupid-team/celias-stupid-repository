@@ -3,7 +3,7 @@
   "name": "New_Fuchsia_Gym_Status_Rooms",
   "layout": "LAYOUT_NEW_FUCHSIA_GYM_STATUS_ROOMS",
   "music": "MUS_GYM",
-  "region_map_section": "MAPSEC_FUCHSIA_CITY",
+  "region_map_section": "MAPSEC_FUSHCIA_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
