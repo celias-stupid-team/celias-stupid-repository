@@ -1,32 +1,7 @@
 // Everything within the raw block is regular scripts
 //Feel free to write there :)
 raw `
-New_Fuchsia_Gym_EventScript_Soviet::
-    end
-
-
-New_Fuchsia_Gym_EventScript_SignLady::
-    end
-
-
-New_Fuchsia_Gym_EventScript_SignLadyWestMoveBack::
-    end
-
-
-New_Fuchsia_Gym_EventScript_SignLadyEastMoveBack::
-    end
-
-
-New_Fuchsia_Gym_EventScript_SignLady::
-    end
-
-
-New_Fuchsia_Gym_EventScript_OpenCurtain::
-    end
 
 
 `
 
-mapscripts New_Fuchsia_Gym_MapScripts {
-    //chairry you can reconfigure this later if you want
-}

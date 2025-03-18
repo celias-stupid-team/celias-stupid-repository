@@ -108,3 +108,13 @@ OneIsland_EventScript_PokemonNetCenterSign::
 	msgbox OneIsland_Text_PokemonNetCenterSign, MSGBOX_SIGN
 	end
 `
+//Putting this here for now until we get the linker script figured out
+//PLACEHOLDER Remember to remove later!!
+
+mapscripts New_Fuchsia_Gym_Status_Rooms_MapScripts {
+    //chairry you can reconfigure this later if you want
+}
+
+mapscripts New_Fuchsia_Gym_MapScripts {
+    //chairry you can reconfigure this later if you want
+}
