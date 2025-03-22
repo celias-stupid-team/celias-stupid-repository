@@ -44,19 +44,6 @@
 #define METATILE_FushciaCity_SafariZoneTreeTopMiddle_Mowed  0x311
 #define METATILE_FushciaCity_SafariZoneTreeTopRight_Grass   0x302
 #define METATILE_FushciaCity_SafariZoneTreeTopRight_Mowed   0x312
-// gTileset_Fallarbor
-#define METATILE_Fallarbor_AshGrass     0x20A
-#define METATILE_Fallarbor_NormalGrass  0x212
-
-// gTileset_FuchsiaCity
-#define METATILE_FuchsiaCity_Door                           0x2BF
-#define METATILE_FuchsiaCity_SafariZoneDoor                 0x2D2
-#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Grass    0x300
-#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Mowed    0x310
-#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Grass  0x301
-#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Mowed  0x311
-#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Grass   0x302
-#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Mowed   0x312
 
 // gTileset_GameCorner
 #define METATILE_GameCorner_CheckeredFloor_ShadeLeft  0x2E1
@@ -106,8 +93,6 @@
 #define METATILE_InsideOfTruck_ExitLight_Bottom        0x298
 #define METATILE_InsideOfTruck_ExitLight_Mid           0x290
 #define METATILE_InsideOfTruck_ExitLight_Top           0x288
-// gTileset_Lavaridge
-#define METATILE_Lavaridge_NormalGrass  0x206
 
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2
@@ -150,9 +135,6 @@
 #define METATILE_NewFuchsiaGym_IronCurtainOpen6     0x30D
 #define METATILE_NewFuchsiaGym_IronCurtainOpen7     0x30E
 #define METATILE_NewFuchsiaGym_IronCurtainOpen8     0x30F
-
-// gTileset_Pacifidlog
-#define METATILE_Pacifidlog_SkyPillar_CrackedFloor_Hole  0x237
 
 // gTileset_PalletTown
 #define METATILE_PalletTown_Door         0x2A3
@@ -241,9 +223,6 @@
 #define METATILE_RestaurantHotel_CoveringFloor        0x2EB
 #define METATILE_RestaurantHotel_CoveringFloorShaded  0x2EC
 #define METATILE_RestaurantHotel_TopEdge              0x2E8
-// gTileset_RSCave
-#define METATILE_RSCave_CrackedFloor       0x22F
-#define METATILE_RSCave_CrackedFloor_Hole  0x206
 
 // gTileset_SSAnne
 #define METATILE_SSAnne_Door  0x281
@@ -374,5 +353,21 @@
 // gTileset_ViridianForest
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Grass  0x284
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Mowed  0x281
+
+// Other
+#define METATILE_Fallarbor_AshGrass                         0x20A
+#define METATILE_Fallarbor_NormalGrass                      0x212
+#define METATILE_FuchsiaCity_Door                           0x2BF
+#define METATILE_FuchsiaCity_SafariZoneDoor                 0x2D2
+#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Grass    0x300
+#define METATILE_FuchsiaCity_SafariZoneTreeTopLeft_Mowed    0x310
+#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Grass  0x301
+#define METATILE_FuchsiaCity_SafariZoneTreeTopMiddle_Mowed  0x311
+#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Grass   0x302
+#define METATILE_FuchsiaCity_SafariZoneTreeTopRight_Mowed   0x312
+#define METATILE_Lavaridge_NormalGrass                      0x206
+#define METATILE_Pacifidlog_SkyPillar_CrackedFloor_Hole     0x237
+#define METATILE_RSCave_CrackedFloor                        0x22F
+#define METATILE_RSCave_CrackedFloor_Hole                   0x206
 
 #endif // GUARD_METATILE_LABELS_H
