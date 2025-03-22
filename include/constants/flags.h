@@ -327,7 +327,7 @@
 #define FLAG_POKEMONTOWER_BANETTE               0x119
 #define FLAG_FUCHSIA_SIGN_LADY_EAST               0x11A
 #define FLAG_FUCHSIA_SIGN_LADY_WEST               0x11B
-#define FLAG_0x11C               0x11C
+#define FLAG_HIDE_DMCA_IN_SAFARI_ZONE               0x11C
 #define FLAG_0x11D               0x11D
 #define FLAG_0x11E               0x11E
 #define FLAG_0x11F               0x11F

@@ -1,6 +1,14 @@
 mapscripts SafariZone_DMCAShowdown_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+            playbgm(MUS_ROCKET_HIDEOUT, TRUE)
+        }
+    }
 }
+
+const DMCA_LEAD = 1
+const DMCA_2 = 2
+const DMCA_3 = 3
 
 script SafariZone_IronCleftBattle {
     lock
@@ -13,19 +21,33 @@ script SafariZone_IronCleftBattle {
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
-        msgbox("Oh…\nThat's okay, I understand.")
-        goto(UndergroudnPath_YoungerBrotherEnd)
+        msgbox("no.")
+        release
+        end
     }
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
     if(var(VAR_RESULT) == SPECIES_REMORAID) {
         //black screen
+        delay(20)
         fadescreen(FADE_TO_BLACK)
-        waitstate
+        delay(20)
         // Bang. Bang Bang.
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(60)
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(30)
+        playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+        delay(120)
+        removeobject(DMCA_LEAD)
+        removeobject(DMCA_2)
+        removeobject(DMCA_3)
+        setflag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)
+        playbgm(MUS_FUSHCIA, TRUE)
         fadescreen(FADE_FROM_BLACK)
-        msgbox("we die\n", MSGBOX_DEFAULT)
         additem(ITEM_TM_CASE, 1)
         clearflag(FLAG_NO_TM_CASE)
+        release
+        end
     }
 
 }
