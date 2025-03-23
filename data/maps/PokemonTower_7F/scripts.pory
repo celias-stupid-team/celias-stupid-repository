@@ -271,17 +271,22 @@ movement PokemonTowerWalkUpRight {
 	walk_up
 }
 movement PokemonTower_CameraSlowUp {
-	walk_slow_up
+	walk_slow_up * 2
 }
 
 const ARIANA = 4
 const KANGA = 1
 const LEFT_GRUNT = 2
 const RIGHT_GRUNT = 3
+const PURE_KANGA = 5
+const FUJI = 6
 script PokemonTower_Trailer {
 	special(SpawnCameraObject)
+	setweather(WEATHER_NONE)
 	applymovement(OBJ_EVENT_ID_CAMERA, PokemonTower_CameraSlowUp)
+	doweather
 	waitmovement(0)
+	special(DrawWholeMapView)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("ARIANA: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
 	closemessage
@@ -289,6 +294,7 @@ script PokemonTower_Trailer {
 	delay(30)
 	waitmovement(0)
 	msgbox("ARIANA: …Or are you here for her?", MSGBOX_DEFAULT)
+	closemessage
 	applymovement(ARIANA, Common_Movement_FaceDown)
 	delay(20)
 	applymovement(LEFT_GRUNT, WalkInPlaceDown)
@@ -300,9 +306,12 @@ script PokemonTower_Trailer {
 	applymovement(RIGHT_GRUNT, WalkInPlaceDown)
 	waitmovement(0)
 	msgbox("It encouraged kids to write with\ncopyrighted characters.\lKids!", MSGBOX_DEFAULT)
+	closemessage
 	applymovement(ARIANA, Common_Movement_WalkLeft)
 	waitmovement(0)
 	applymovement(ARIANA, Common_Movement_FaceDown)
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("ARIANA: It's no use trying to save\nher now.\lCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceRight)
@@ -363,19 +372,114 @@ script PokemonTower_Trailer {
 	special(RemoveCameraObject)
 
 	setwildbattle(SPECIES_KANGASKHAN, 30)
+	playbgm(MUS_DUMMY, TRUE)
 	dowildbattle
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
+			playbgm(MUS_DUMMY, TRUE)
 			setvar(VAR_POKEMON_TOWER_SCENE, 1)
+			delay(30)
+			
+			setvar(VAR_0x8004, 2)
+			setvar(VAR_0x8005, 4)
+			setvar(VAR_0x8006, 3)
+			setvar(VAR_0x8007, 3)
+			special(ShakeScreen)
+			delay(20)
+			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+			msgbox("KANGASKHAN: K-khaaaa!")
+			special(ShakeScreen)
+			delay(20)
+			setvar(VAR_0x8004, 4)
+			setvar(VAR_0x8005, 8)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+			setvar(VAR_0x8007, 2)
+			special(ShakeScreen)
+			delay(20)
+			fadescreen(FADE_TO_WHITE)
+			delay(30)
+			applymovement(KANGA, Common_Movement_SetInvisible)
+			applymovement(PURE_KANGA, Common_Movement_SetVisible)
+			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
+			fadescreen(FADE_FROM_WHITE)
+			delay(10)
+			playbgm(MUS_SEVII_ROUTE, TRUE)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("KANGASKHAN: Kan-GAAAAA!")
+			closemessage
+			playse(SE_PIN)
+			applymovement(ARIANA, Common_Movement_ExclamationMark)
+			delay(30)
+			playse(SE_PIN)
+			applymovement(LEFT_GRUNT, GruntsScared)
+			delay(10)
+			playse(SE_PIN)
+			applymovement(RIGHT_GRUNT, GruntsScared)
+			delay(60)
+			applymovement(PURE_KANGA, Common_Movement_WalkSlowDown)
+			waitmovement(0)
+			applymovement(PURE_KANGA, Common_Movement_FaceUp)
+			waitmovement(0)
+			delay(30)
+			applymovement(ARIANA, WalkInPlaceDown)
+			waitmovement(0)
+			msgbox("ARIANA: What? No!\nHow is this possible?", MSGBOX_DEFAULT)
+			closemessage
+			special(SpawnCameraObject)
+			applymovement(PURE_KANGA, Common_Movement_WalkSlowUp)
+			applymovement(OBJ_EVENT_ID_PLAYER, PlayerGoesUp)
+			waitmovement(0)
+			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
+			msgbox("KANGASKHAN: Krraaaaa!")
+			waitmoncry
+			closemessage
+			applymovement(ARIANA, ArianaBackup)
+			delay(10)
+			applymovement(RIGHT_GRUNT, RightGruntConsiders)
+			applymovement(LEFT_GRUNT, LeftGruntConsiders)
+			waitmovement(0)
+			msgbox("ARIANA: Grr…\nEveryone!\pWe need to RETREAT!\nLet's get out of here!", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			fadedefaultbgm
+			playse(SE_WARP_OUT)
+			removeobject(ARIANA)
+			removeobject(LEFT_GRUNT)
+			removeobject(RIGHT_GRUNT)
+			applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft)
+			waitmovement(0)
+			applymovement(PURE_KANGA, Common_Movement_FaceDown)
+			fadescreen(FADE_FROM_BLACK)
+			delay(60)
+			addobject(FUJI)
+			setobjectxy(FUJI, 11, 14)
+			playse(SE_EXIT)
+			applymovement(FUJI, FujiEnters)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_MALE)
+			msgbox("MR. FUJI: Ah, my dear\nKANGASKHAN!\lYou're finally safe.", MSGBOX_DEFAULT)
+			msgbox("I understand.\pIt was the PARENTAL BOND between\nher and CUBONE that kept her safe.", MSGBOX_DEFAULT)
+			
+			special(QuestLog_CutRecording)
+			fadescreen(FADE_TO_BLACK)
+			removeobject(PURE_KANGA)
+			removeobject(FUJI)
+			special(RemoveCameraObject)
+			fadescreen(FADE_FROM_BLACK)
 			setflag(FLAG_HIDE_DMCA_IN_LAVENDER)
-			msgbox("You win")
+			
+			setflag(FLAG_RESCUED_CUBONES_MOM)
+			closemessage
+			warp(MAP_LAVENDER_TOWN_VOLUNTEER_POKEMON_HOUSE, 4, 7)
+			waitstate
+			release
+			end
 
 		case B_OUTCOME_RAN:
 		case B_OUTCOME_PLAYER_TELEPORTED:
 			break
 	}
-	special(QuestLog_CutRecording)
 	release
 }
 
@@ -394,9 +498,55 @@ movement KangaApproaches {
 
 movement KangAttacks {
 	walk_fast_down
+	face_down
 }
 
 movement WalkInPlaceDown {
 	walk_in_place_down * 2
 	face_down
+}
+
+movement ArianaScared {
+	face_left
+	delay_16 * 2
+	face_right
+	delay_16 * 2
+	face_down
+}
+movement PlayerGoesUp {
+	walk_left
+	walk_up
+	face_up
+}
+
+movement FujiEnters {
+	face_up
+	set_visible
+	walk_up * 4
+}
+
+movement GruntsScared {
+	emote_exclamation_mark
+	delay_16
+	lock_facing_direction
+	walk_slow_up
+	face_down
+	unlock_facing_direction
+}
+movement ArianaBackup {
+	lock_facing_direction
+	walk_up
+	face_down
+	unlock_facing_direction
+}
+
+movement RightGruntConsiders {
+	face_left
+	delay_16
+	face_up
+}
+movement LeftGruntConsiders {
+	face_right
+	delay_16
+	face_up
 }

@@ -77,8 +77,8 @@
       "x": 6,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE18",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_ROUTE15",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

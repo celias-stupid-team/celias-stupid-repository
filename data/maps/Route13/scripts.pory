@@ -24,6 +24,19 @@ script Route13_TheMountains {
 	end
 }
 
+script Route13_LookLookSign {
+	lock
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+	delay(60)
+	msgbox("TRAINER TIPS!\pLook, look!\nTo the right of this sign!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(VAR_LAST_TALKED, Common_Movement_WalkLeft)
+	waitmovement(0)
+	release
+}
+
 const SNORLAX = 2
 script Route13_Snorlax {
 	lock
@@ -68,6 +81,7 @@ const LASS = 1
 script Route13_LassAttack {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	setflag(FLAG_ROUTE13_HIDE_DAD)
 	delay(60)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, Route13_CameraPansLeft)
@@ -91,12 +105,49 @@ script Route13_LassAttack {
 	delay(30)
 	special(RemoveCameraObject)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
+	clearflag(FLAG_ROUTE13_HIDE_DAD)
 	msgbox("Hey!\nDon't look at me!", MSGBOX_DEFAULT)
 	playbgm(MUS_ROUTE11, TRUE)
+	//Battle
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Aww, man.\nAll these fences are see-through!\pOh well.\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	applymovement(LASS, Route13_LassLeaves)
+	waitmovement(0)
+	setobjectxyperm(LASS, 27, 9)
 	setvar(VAR_ROUTE13_LASS_ATTACK, 1)
 	setflag(FLAG_ROUTE13_LASSATTACK)
 	release
 	end
+}
+
+script Route13_LassPostAttack {
+	lock
+	msgbox("Oh, rats.\nI went the wrong way…", MSGBOX_DEFAULT)
+	closemessage
+	playse(SE_PIN)
+	faceplayer
+	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+	delay(60)
+	msgbox("Hey!\nStop it!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(VAR_LAST_TALKED, Route13_LassLeavesAgain)
+	waitmovement
+	setflag(FLAG_ROUTE13_LASS_2)
+	removeobject(LASS)
+	release
+}
+
+movement Route13_LassLeavesAgain {
+	walk_left
+	walk_up * 2
+	walk_left * 8
+}
+
+movement Route13_LassLeaves {
+	walk_left * 8
 }
 
 movement Route13_CameraPansLeft {

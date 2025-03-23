@@ -51,6 +51,13 @@
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY_BRENDAN_MAY_2F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

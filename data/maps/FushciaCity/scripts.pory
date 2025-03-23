@@ -265,6 +265,11 @@ script FushciaCity_SloganGuy {
 	release
 }
 
+script FushciaCity_MoveDeleterSign {
+	msgbox("Move Deleter's House\pNotice!\nThe Move Deleter's House\lhas been deleted.", MSGBOX_SIGN)
+	end
+}
+
 const SIGN_GUY = 10
 script FushciaCity_SloganSign {
 	lock

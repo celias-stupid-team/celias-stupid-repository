@@ -27,7 +27,7 @@ script Route15_Brock {
 }
 
 script Route15_LighthouseGirl {
-	msgbox("You see that LIGHTHOUSE over there?\pI hear that at night, a giant DRAGON\ncan be seen at the top!\pI hope I get to meet him someday…\n", MSGBOX_NPC)
+	msgbox("You know the LIGHTHOUSE on the shore\nof ROUTE 15?\pLegends say that at the top rests\na powerful DRAGON.\pI hope that someday I can meet him…\n", MSGBOX_NPC)
 	end
 }
 

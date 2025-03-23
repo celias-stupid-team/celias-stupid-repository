@@ -107,6 +107,15 @@ Common_Movement_WalkDown::
 	walk_down
 	step_end
 
+
+Common_Movement_WalkSlowDown::
+	walk_slow_down
+	step_end
+
+Common_Movement_WalkSlowUp::
+	walk_slow_up
+	step_end
+
 Common_Movement_Descend::
 	walk_faster_down
 	walk_faster_down
@@ -116,4 +125,12 @@ Common_Movement_Descend::
 	walk_faster_down
 	enable_jump_landing_ground_effect
 	walk_faster_down
+	step_end
+
+Common_Movement_SetVisible::
+	set_visible
+	step_end
+
+Common_Movement_SetInvisible::
+	set_invisible
 	step_end

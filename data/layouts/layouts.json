@@ -808,7 +808,7 @@
     {
       "id": "LAYOUT_FUSHCIA_CITY",
       "name": "FushciaCity_Layout",
-      "width": 56,
+      "width": 62,
       "height": 42,
       "border_width": 2,
       "border_height": 2,
@@ -2205,7 +2205,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Museum",
+      "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/FushciaCity_House2/border.bin",
       "blockdata_filepath": "data/layouts/FushciaCity_House2/map.bin"
     },
@@ -4737,7 +4737,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
+      "secondary_tileset": "gTileset_RSE_Indoors",
       "border_filepath": "data/layouts/FushciaCity_BrendanMay_2F/border.bin",
       "blockdata_filepath": "data/layouts/FushciaCity_BrendanMay_2F/map.bin"
     },

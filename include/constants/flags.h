@@ -328,8 +328,8 @@
 #define FLAG_FUCHSIA_SIGN_LADY_EAST               0x11A
 #define FLAG_FUCHSIA_SIGN_LADY_WEST               0x11B
 #define FLAG_HIDE_DMCA_IN_SAFARI_ZONE               0x11C
-#define FLAG_0x11D               0x11D
-#define FLAG_0x11E               0x11E
+#define FLAG_ROUTE13_HIDE_DAD               0x11D
+#define FLAG_ROUTE13_LASS_2               0x11E
 #define FLAG_0x11F               0x11F
 #define FLAG_0x120               0x120
 #define FLAG_0x121               0x121

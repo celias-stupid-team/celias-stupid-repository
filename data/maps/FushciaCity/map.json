@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE19",
-      "offset": 12,
+      "offset": 18,
       "direction": "down"
     },
     {
@@ -34,8 +34,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 15,
-      "y": 9,
+      "x": 43,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 4,
@@ -48,8 +48,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SKITTY",
-      "x": 37,
-      "y": 15,
+      "x": 21,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -62,7 +62,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 32,
+      "x": 38,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -76,7 +76,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 39,
+      "x": 45,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -90,7 +90,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 6,
+      "x": 8,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -118,7 +118,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 36,
+      "x": 42,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -132,7 +132,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 1,
+      "x": 7,
       "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -146,7 +146,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_JIGGLYPUFF",
-      "x": 34,
+      "x": 40,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -160,7 +160,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 23,
+      "x": 29,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -174,8 +174,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 40,
-      "y": 5,
+      "x": 47,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -184,20 +184,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FushciaCity_EventScript_Lass",
       "flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
-      "x": 20,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_TaurosGuy",
-      "flag": "0"
     },
     {
       "type": "object",
@@ -230,7 +216,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 29,
+      "x": 35,
       "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -244,28 +230,28 @@
   ],
   "warp_events": [
     {
-      "x": 24,
+      "x": 30,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "2"
     },
     {
-      "x": 33,
+      "x": 39,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
+      "dest_map": "MAP_FUSHCIA_CITY_WARDENS_HOUSE",
       "dest_warp_id": "1"
     },
     {
-      "x": 10,
-      "y": 13,
+      "x": 12,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_MART",
       "dest_warp_id": "1"
     },
     {
-      "x": 28,
+      "x": 34,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_SAFARI_ZONE_OFFICE",
@@ -279,35 +265,35 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 18,
-      "y": 31,
+      "x": 16,
+      "y": 32,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_BRENDAN_MAY_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 25,
+      "x": 31,
       "y": 31,
       "elevation": 3,
       "dest_map": "MAP_FUSHCIA_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 38,
+      "x": 44,
       "y": 31,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE2",
       "dest_warp_id": "1"
     },
     {
-      "x": 39,
+      "x": 45,
       "y": 28,
       "elevation": 3,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE2",
       "dest_warp_id": "3"
     },
     {
-      "x": 39,
+      "x": 45,
       "y": 29,
       "elevation": 3,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE2",
@@ -319,12 +305,26 @@
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE3",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 31,
+      "x": 37,
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -333,7 +333,7 @@
     },
     {
       "type": "trigger",
-      "x": 30,
+      "x": 36,
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -342,7 +342,7 @@
     },
     {
       "type": "trigger",
-      "x": 29,
+      "x": 35,
       "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -351,7 +351,7 @@
     },
     {
       "type": "trigger",
-      "x": 25,
+      "x": 31,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -360,7 +360,7 @@
     },
     {
       "type": "trigger",
-      "x": 24,
+      "x": 30,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -369,7 +369,7 @@
     },
     {
       "type": "trigger",
-      "x": 23,
+      "x": 29,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -378,7 +378,7 @@
     },
     {
       "type": "trigger",
-      "x": 20,
+      "x": 26,
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -389,7 +389,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 31,
+      "x": 37,
       "y": 18,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -397,7 +397,7 @@
     },
     {
       "type": "sign",
-      "x": 26,
+      "x": 32,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -413,7 +413,7 @@
     },
     {
       "type": "sign",
-      "x": 31,
+      "x": 37,
       "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -421,7 +421,7 @@
     },
     {
       "type": "sign",
-      "x": 35,
+      "x": 41,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -429,15 +429,15 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 10,
+      "x": 46,
+      "y": 16,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_SlowpokeSign"
     },
     {
       "type": "sign",
-      "x": 42,
+      "x": 48,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -445,8 +445,8 @@
     },
     {
       "type": "sign",
-      "x": 40,
-      "y": 16,
+      "x": 23,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_KangaskhanSign"
@@ -469,7 +469,7 @@
     },
     {
       "type": "sign",
-      "x": 22,
+      "x": 28,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -477,8 +477,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 33,
-      "y": 26,
+      "x": 46,
+      "y": 30,
       "elevation": 3,
       "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_FUSHCIA_CITY_MAX_REVIVE",
@@ -487,7 +487,7 @@
     },
     {
       "type": "sign",
-      "x": 39,
+      "x": 45,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -495,7 +495,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 12,
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -503,7 +503,7 @@
     },
     {
       "type": "sign",
-      "x": 39,
+      "x": 45,
       "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -511,11 +511,19 @@
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 10,
+      "x": 43,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaCity_MoveDeleterSign"
     }
   ]
 }
