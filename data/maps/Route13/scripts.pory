@@ -134,7 +134,7 @@ script Route13_LassPostAttack {
 	closemessage
 	delay(30)
 	applymovement(VAR_LAST_TALKED, Route13_LassLeavesAgain)
-	waitmovement
+	waitmovement(0)
 	setflag(FLAG_ROUTE13_LASS_2)
 	removeobject(LASS)
 	release
