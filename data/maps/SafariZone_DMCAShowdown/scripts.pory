@@ -14,10 +14,19 @@ script SafariZone_IronCleftBattle {
     lock
     fadeoutbgm(0)
     //cinematic camera stuff
-    msgbox("Copyright\n", MSGBOX_DEFAULT)
-    //battle
+    textcolor(NPC_TEXT_COLOR_MALE)
+    if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
+        msgbox("Copyright\n", MSGBOX_DEFAULT)
+        //battle
+        trainerbattle_no_intro(TRAINER_DMCA_ARCHER, "darn")
+        msgbox("oh no\n", MSGBOX_DEFAULT)
+        setflag(FLAG_BATTLED_IRON_CLEFTS)
 
-    msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me either.\pYou'll need something with REAL\nfirepower if you wanna beat us!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("ARCHER: Oh?\nYou're back for more?", MSGBOX_DEFAULT)
+    }
+
+    msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me.\pYou'll need something with REAL\nfirepower if you wanna take us down!", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -27,11 +36,9 @@ script SafariZone_IronCleftBattle {
     }
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
     if(var(VAR_RESULT) == SPECIES_REMORAID) {
-        //black screen
         delay(20)
         fadescreen(FADE_TO_BLACK)
         delay(20)
-        // Bang. Bang Bang.
         playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
         delay(60)
         playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)

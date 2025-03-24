@@ -94,6 +94,11 @@ script DanceTheater_ShortKid {
     
 }
 
+script DanceTheater_DietDance {
+	msgbox("placeholder\n", MSGBOX_NPC)
+	end
+}
+
 script DanceTheater_Ash {
     if(checkitem(ITEM_SOOT_SACK)) {
         setflag(FLAG_PUT_ASH_IN_SACK) 

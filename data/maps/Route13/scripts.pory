@@ -37,9 +37,19 @@ script Route13_LookLookSign {
 	release
 }
 
+
+
 const SNORLAX = 2
 script Route13_Snorlax {
 	lock
+	msgbox("A POKéMON is asleep on the road.\nThere's no way around it.\pLooks like it's time to get through\nby force!", MSGBOX_DEFAULT)
+	setwildbattle(SPECIES_SNORLAX, 30)
+	waitse
+	playmoncry(SPECIES_SNORLAX, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 	msgbox("The SNORLAX ran off to the\nmountains…", MSGBOX_DEFAULT)
 	closemessage
 	fadescreen(FADE_TO_BLACK)

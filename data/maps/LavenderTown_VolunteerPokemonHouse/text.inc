@@ -41,12 +41,13 @@ LavenderTown_VolunteerPokemonHouse_Text_Psyduck::
 
 LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis::
     .string "MR. FUJI: {PLAYER}…\p"
-    .string "Your POKéDEX quest is one that\n"
-    .string "requires strong dedication.\p"
-    .string "Without deep love for POKéMON,\n"
-    .string "your quest may fail.\p"
-    .string "I'm not sure if this will help you,\n"
-    .string "but I'd like you to have it.$"
+	.string "Thank you for saving CUBONE'S\n"
+	.string "MOTHER.\l"
+	.string "The children are deeply grateful.\p"
+	.string "Incidentally, have you gone to\n"
+	.string "visit the DANCE THEATER?\p"
+	.string "Now that the DMCA are gone, they're\n"
+	.string "free to perform again.$"
 
 LavenderTown_VolunteerPokemonHouse_Text_ReceivedPokeFluteFromMrFuji::
     .string "{PLAYER} received a POKé FLUTE\n"
@@ -62,8 +63,8 @@ LavenderTown_VolunteerPokemonHouse_Text_MustMakeRoomForThis::
     .string "You must make room for this!$"
 
 LavenderTown_VolunteerPokemonHouse_Text_HasPokeFluteHelpedYou::
-    .string "MR. FUJI: Has my POKé FLUTE\n"
-    .string "helped you?$"
+	.string "MR. FUJI: Have you gone to see the\n"
+	.string "DANCE HALL?$"
 
 LavenderTown_VolunteerPokemonHouse_Text_GrandPrizeDrawingClipped::
     .string "The book “My Secret Life”\n"

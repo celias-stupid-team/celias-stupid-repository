@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE21_NORTH",
       "offset": 59,
       "direction": "left"
+    },
+    {
+      "map": "MAP_GREAT_SEA_CENTER",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [

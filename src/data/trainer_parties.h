@@ -10081,3 +10081,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer40[] = {
 
 };
 
+
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_IRON_CLEFT,
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_IRON_CLEFT,
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
+    },
+
+};
