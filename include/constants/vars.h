@@ -152,7 +152,7 @@
 #define VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES                        0x4062
 #define VAR_ROUTE13_LASS_ATTACK                                      0x4063
 #define VAR_CSR_DANCE_SHOW                                          0x4064
-#define VAR_CSR_DUMMY_6                                 0x4065
+#define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_CSR_DUMMY_7                                 0x4066
 #define VAR_CSR_DUMMY_8                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
@@ -357,6 +357,15 @@ It is reset after every battle.
 #define VAR_SHAKESCREEN_HORIZONTAL_PAN VAR_0x8005
 #define VAR_SHAKESCREEN_NUM_SHAKES VAR_0x8006
 #define VAR_SHAKESCREEN_SHAKE_DELAY VAR_0x8007
+
+/*
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+
+
+*/
 
 
 #define VAR_0x8008                 0x8008

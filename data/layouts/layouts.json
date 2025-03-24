@@ -2765,7 +2765,7 @@
       "id": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
       "name": "FiveIsland_MemorialPillar_Layout",
       "width": 24,
-      "height": 60,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

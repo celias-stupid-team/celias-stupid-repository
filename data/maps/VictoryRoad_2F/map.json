@@ -269,7 +269,7 @@
       "x": 2,
       "y": 19,
       "elevation": 3,
-      "var": "VAR_CSR_DUMMY_6",
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
       "var_value": "99",
       "script": "VictoryRoad_2F_EventScript_FloorSwitch1"
     },

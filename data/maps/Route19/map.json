@@ -16,12 +16,17 @@
   "connections": [
     {
       "map": "MAP_FUSHCIA_CITY",
-      "offset": -12,
+      "offset": -18,
       "direction": "up"
     },
     {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": 23,
+      "direction": "right"
+    },
+    {
       "map": "MAP_ROUTE20",
-      "offset": 66,
+      "offset": 68,
       "direction": "left"
     }
   ],
