@@ -4812,6 +4812,18 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/New_Fuchsia_Gym_Status_Rooms/border.bin",
       "blockdata_filepath": "data/layouts/New_Fuchsia_Gym_Status_Rooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_GREAT_SEA_CENTER",
+      "name": "GreatSea_Center_Layout",
+      "width": 48,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/GreatSea_Center/border.bin",
+      "blockdata_filepath": "data/layouts/GreatSea_Center/map.bin"
     }
   ]
 }

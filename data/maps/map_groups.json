@@ -56,7 +56,8 @@
     "Chapter2",
     "ViridianCity_GamblerHouse",
     "GreatBay_SkyPillarOutside",
-    "GreatSea_North"
+    "GreatSea_North",
+    "GreatSea_Center"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

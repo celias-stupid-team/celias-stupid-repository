@@ -33,6 +33,6 @@ script FushciaCity_House1_PorygonHint {
 }
 
 script FushciaCity_House1_Kid {
-	msgbox("I've been trying to teach GRANDPA\nhow to use the computer.\pI don't think he really gets it.\nHe keeps installing nasty malware.\I'm sure he'll get it soon.\n", MSGBOX_NPC)
+	msgbox("I've been trying to teach GRANDPA\nhow to use the computer.\pI don't think he really gets it.\nHe keeps installing nasty malware.\pI'm sure he'll get it soon.\n", MSGBOX_NPC)
 	end
 }

@@ -272,6 +272,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Zigzagoon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rhydon;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Floatstone;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Birdcultist;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -547,4 +549,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RHYDON] = &gObjectEventGraphicsInfo_Rhydon,
 
     [OBJ_EVENT_GFX_FLOATSTONE] = &gObjectEventGraphicsInfo_Floatstone,
+
+    [OBJ_EVENT_GFX_BIRDCULTIST] = &gObjectEventGraphicsInfo_Birdcultist,
 };

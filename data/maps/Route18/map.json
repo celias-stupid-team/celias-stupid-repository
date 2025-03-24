@@ -28,12 +28,17 @@
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "offset": 33,
       "direction": "up"
+    },
+    {
+      "map": "MAP_GREAT_SEA_CENTER",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
       "x": 38,
       "y": 16,
       "elevation": 3,
@@ -47,7 +52,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
       "x": 35,
       "y": 12,
       "elevation": 3,
@@ -61,7 +66,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
       "x": 32,
       "y": 16,
       "elevation": 3,
@@ -75,13 +80,13 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 58,
-      "y": 23,
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_LAND",
+      "x": 55,
+      "y": 24,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
