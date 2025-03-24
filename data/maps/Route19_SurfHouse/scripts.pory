@@ -45,3 +45,7 @@ script Route19_SurfHouse_Fridge {
 	end
 }
 
+script Route19_SurfHouse_SurfGuy {
+	msgbox("surf\n", MSGBOX_NPC)
+	end
+}
