@@ -331,7 +331,7 @@
 #define FLAG_ROUTE13_HIDE_DAD               0x11D
 #define FLAG_ROUTE13_LASS_2               0x11E
 #define FLAG_INSERTED_INSTINCT_SEAL               0x11F
-#define FLAG_0x120               0x120
+#define FLAG_GOT_MATH_CLUB               0x120
 #define FLAG_0x121               0x121
 #define FLAG_0x122               0x122
 #define FLAG_0x123               0x123

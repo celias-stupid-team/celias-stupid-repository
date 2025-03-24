@@ -85,3 +85,13 @@ script PokemonTower_5F_Twins {
 	trainerbattle_double(TRAINER_CHANNELER_KARINA, "MAI: I love doing math!\nWhat's two plus two?\pPRA: Ooh, yeah!\nI love MAGIKARP!", "Oh no!\n", "You are insufficient.")
 	msgbox("MAI: No, no, PRA.\nWe're doing Math!", MSGBOX_AUTOCLOSE)
 }
+
+script PokemonTower_6F_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pSay, this spot on the ground is\nreally nice!\lIt makes me all warm and tingly!\pBut never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
