@@ -156,9 +156,9 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BROCK",
       "x": 13,
-      "y": 9,
+      "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -198,7 +198,7 @@
     },
     {
       "x": 16,
-      "y": 8,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE18_SANDWICH_SHOP",
       "dest_warp_id": "0"
@@ -246,7 +246,7 @@
     {
       "type": "sign",
       "x": 33,
-      "y": 11,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route15_EventScript_RouteSign"
@@ -334,7 +334,7 @@
     {
       "type": "sign",
       "x": 18,
-      "y": 8,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route15_BakerySign"

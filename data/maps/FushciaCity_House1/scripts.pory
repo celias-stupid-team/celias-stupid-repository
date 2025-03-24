@@ -19,9 +19,10 @@ FushciaCity_House1_EventScript_LittleBoy::
 `
 script FushciaCity_House1_PorygonHint {
 	lock
+	waitse
 	playse(SE_PIN)
 	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
-	waitmovement(0)
+	delay(60)
 	msgbox("Ah, confound it!")
 	closemessage
 	faceplayer
@@ -32,6 +33,6 @@ script FushciaCity_House1_PorygonHint {
 }
 
 script FushciaCity_House1_Kid {
-	msgbox("I've been trying to teach GRANDPA\nhow to use the computer.\pI don't think he really gets it.\nHe keeps installing nasty malware.\pMaybe it's time for us to stop…\n", MSGBOX_NPC)
+	msgbox("I've been trying to teach GRANDPA\nhow to use the computer.\pI don't think he really gets it.\nHe keeps installing nasty malware.\I'm sure he'll get it soon.\n", MSGBOX_NPC)
 	end
 }

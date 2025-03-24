@@ -131,10 +131,11 @@ FushciaCity_EventScript_FossilMonSign::
 	releaseall
 	end
 
-FushciaCity_EventScript_OmanyteSign::
-	setvar VAR_0x8004, SPECIES_BOUFFALANT
+FushciaCity_EventScript_StakatakaSign::
+	lockall
+	setvar VAR_0x8004, SPECIES_STAKATAKA
 	special SetSeenMon
-	showmonpic SPECIES_BOUFFALANT, 10, 3
+	showmonpic SPECIES_STAKATAKA, 10, 3
 	msgbox FushciaCity_Text_OmanyteSign
 	hidemonpic
 	releaseall
@@ -234,7 +235,7 @@ script FushciaCity_SmallChild {
 	faceplayer
 	msgbox("Help!\nI can't get up!\pIf only it were physically possible\nto scale waist-high cliffs…", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
 	waitmovement(0)
 	release
 }

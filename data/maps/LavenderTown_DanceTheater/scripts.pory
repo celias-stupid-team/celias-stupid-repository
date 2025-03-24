@@ -19,10 +19,10 @@ script DanceTheater_LookLookGirl {
 	    lock
 	
 		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
-		applymovement(LOOK_GIRL, Common_Movement_FacePlayer)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 		waitmovement(0)
 		playse(SE_PIN)
-		applymovement(LOOK_GIRL, DT_exclmark)
+		applymovement(VAR_LAST_TALKED, DT_exclmark)
 		waitmovement(0)
 		delay(48)
 		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
@@ -30,16 +30,16 @@ script DanceTheater_LookLookGirl {
 		switch(var(VAR_FACING)) {
 			case DIR_EAST:
                     addvar(VAR_TEMP_5, 1)
-					applymovement(LOOK_GIRL, DT_walkbackRight)
+					applymovement(VAR_LAST_TALKED, DT_walkbackRight)
 					waitmovement(0)
 					break
 				default:
                     subvar(VAR_TEMP_5, 1)
-					applymovement(LOOK_GIRL, DT_walkbackLeft)
+					applymovement(VAR_LAST_TALKED, DT_walkbackLeft)
 					waitmovement(0)
 					break
         }
-    copyobjectxytoperm(LOOK_GIRL)
+    copyobjectxytoperm(VAR_LAST_TALKED)
 	release
 }
 

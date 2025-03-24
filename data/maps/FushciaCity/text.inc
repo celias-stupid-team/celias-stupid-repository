@@ -69,11 +69,8 @@ FushciaCity_Text_LaprasSign::
 	.string "Currently seeking a girlfriend!$"
 
 FushciaCity_Text_OmanyteSign::
-	.string "Name: BOUFFALANT\n"
-	.string "Did you know?\p"
-	.string "UNOVA BOUFFALANT whom UNOVA\n"
-	.string "BOUFFALANT bully themselves bully\l"
-	.string "UNOVA BOUFFALANT!$"
+	.string "Name: STAKATAKA\n"
+	.string "Ours is very fancy!$"
 
 FushciaCity_Text_KabutoSign::
 	.string "Name: BOUFFALANT\n"
