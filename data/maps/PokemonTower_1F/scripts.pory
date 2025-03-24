@@ -62,3 +62,8 @@ script PokemonTower_ShortcutSign {
 	msgbox("{RIGHT_ARROW} Top Floor\n{LEFT_ARROW} Exit", MSGBOX_SIGN)
 	end
 }
+
+script PokemonTower_ShortcutBlocker {
+	msgbox("I'm sorry, but this staircase\nis broken right now.\lWe need some time to repair it.", MSGBOX_NPC)
+	end
+}

@@ -540,3 +540,12 @@ script PalletTown_EventScript_CeliaYouMissed {
 	msgbox("There's an easter egg if you miss\nwhen going to Oak's Lab.\pIt's a small reference to an old\nRBY softlock.", MSGBOX_NPC)
 	end
 }
+
+script PalletTown_ImposterOak {
+	lock
+	msgbox("Something about this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}

@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_PALLET_TOWN_WEST_FIELD",
-      "offset": -4,
+      "offset": -3,
       "direction": "left"
     }
   ],
@@ -240,6 +240,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_WEST",
       "script": "PalletTown_EventScript_LabMissed"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_ImposterOak"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PalletTown_ImposterOak"
     }
   ]
 }

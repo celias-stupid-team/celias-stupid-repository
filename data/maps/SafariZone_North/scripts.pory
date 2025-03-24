@@ -1,6 +1,4 @@
 raw `
-SafariZone_North_MapScripts::
-	.byte 0
 
 SafariZone_North_EventScript_RestHouseSign::
 	msgbox SafariZone_North_Text_RestHouse, MSGBOX_SIGN
@@ -22,3 +20,28 @@ SafariZone_North_EventScript_TrainerTips3::
 	msgbox SafariZone_North_Text_WinFreeHMFindSecretHouse, MSGBOX_SIGN
 	end
 `
+const BRELOOM = 8
+mapscripts SafariZone_North_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			removeobject(BRELOOM)
+		} else {
+			addobject(BRELOOM)
+		}
+	}
+}
+
+script SafariZone_North_Breloom {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playmoncry(SPECIES_BRELOOM, CRY_MODE_DEFAULT)
+	msgbox("BRELOOM: Bre-Breee!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("He seems sad to have missed the\naction.", MSGBOX_DEFAULT)
+	release
+
+}

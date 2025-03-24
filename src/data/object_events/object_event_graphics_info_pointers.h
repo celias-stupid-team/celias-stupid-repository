@@ -276,6 +276,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Floatstone;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Birdcultist;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tentacool;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breloom;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -555,4 +557,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BIRDCULTIST] = &gObjectEventGraphicsInfo_Birdcultist,
 
     [OBJ_EVENT_GFX_TENTACOOL] = &gObjectEventGraphicsInfo_Tentacool,
+
+    [OBJ_EVENT_GFX_BRELOOM] = &gObjectEventGraphicsInfo_Breloom,
 };

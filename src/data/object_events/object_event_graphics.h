@@ -392,3 +392,4 @@ const u32 gObjectEventPic_Rhydon[] = INCBIN_U32("graphics/object_events/pics/stu
 const u32 gObjectEventPic_Floatstone[] = INCBIN_U32("graphics/object_events/pics/stupid/Floatstone.4bpp");
 const u32 gObjectEventPic_Birdcultist[] = INCBIN_U32("graphics/object_events/pics/stupid/Birdcultist.4bpp");
 const u32 gObjectEventPic_Tentacool[] = INCBIN_U32("graphics/object_events/pics/stupid/Tentacool.4bpp");
+const u32 gObjectEventPic_Breloom[] = INCBIN_U32("graphics/object_events/pics/stupid/Breloom.4bpp");
