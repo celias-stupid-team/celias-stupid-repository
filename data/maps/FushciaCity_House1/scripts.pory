@@ -30,3 +30,8 @@ script FushciaCity_House1_PorygonHint {
 	waitmovement(0)
 	release
 }
+
+script FushciaCity_House1_Kid {
+	msgbox("I've been trying to teach GRANDPA\nhow to use the computer.\pI don't think he really gets it.\nHe keeps installing nasty malware.\pMaybe it's time for us to stop…\n", MSGBOX_NPC)
+	end
+}

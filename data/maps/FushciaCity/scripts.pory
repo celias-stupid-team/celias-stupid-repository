@@ -287,3 +287,24 @@ movement WalkInPlaceLeft {
 	walk_in_place_left * 2
 	face_left
 }
+
+const DAD = 1
+script FushciaCity_Dad {
+	lock
+	applymovement(DAD, Common_Movement_FaceDown)
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm just relaxing here in my\ncage.\lI love when people come to see me!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script FushciaCity_OldMan {
+	msgbox("Our SAFARI ZONE used to be the\ncrown jewel of the city.\lThat was back in the old days.\pEver since the DMCA came into the\npicture, it's been in decline.\pAh, to have the old FUSHCIA back…\n", MSGBOX_NPC)
+	end
+}
+
+script FushciaCity_OfficesSign {
+	msgbox("SAFARI ZONE OFFICES\nFinancial Division", MSGBOX_SIGN)
+	end
+}

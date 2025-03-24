@@ -34,7 +34,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 43,
+      "x": 44,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -118,15 +118,15 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 42,
+      "x": 40,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
-      "movement_range_x": 4,
+      "movement_range_x": 3,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_EventScript_OldMan",
+      "script": "FushciaCity_OldMan",
       "flag": "0"
     },
     {
@@ -226,6 +226,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 9,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DanceTheater_LookLookGirl",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -314,8 +328,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 20,
-      "y": 14,
+      "x": 9,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
       "dest_warp_id": "0"
@@ -384,24 +398,33 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "FushciaCity_ReturnTMCase"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "FushciaCity_ReturnTMCase"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 37,
-      "y": 18,
+      "x": 17,
+      "y": 13,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_CitySign"
     },
     {
       "type": "sign",
-      "x": 32,
+      "x": 36,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FushciaCity_EventScript_SafariZoneSign"
+      "script": "FushciaCity_OfficesSign"
     },
     {
       "type": "sign",
@@ -429,7 +452,7 @@
     },
     {
       "type": "sign",
-      "x": 46,
+      "x": 47,
       "y": 16,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -503,7 +526,7 @@
     },
     {
       "type": "sign",
-      "x": 45,
+      "x": 46,
       "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -511,15 +534,15 @@
     },
     {
       "type": "sign",
-      "x": 43,
+      "x": 44,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "FushciaCity_Dad"
     },
     {
       "type": "sign",
-      "x": 25,
+      "x": 24,
       "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
