@@ -123,8 +123,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 45,
-      "y": 22,
+      "x": 54,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -133,6 +133,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route18_BeachBoy",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 35,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_18_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_18_CANDY"
     }
   ],
   "warp_events": [
