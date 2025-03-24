@@ -62,7 +62,7 @@
 #define METATILE_General_Plain_Grass             0x00D
 #define METATILE_General_Plain_Mowed             0x001
 #define METATILE_General_SlidingDoubleDoor       0x15B
-#define METATILE_General_SlidingSingleDoor       0x062
+#define METATILE_General_SlidingSingleDoor       0x23E
 #define METATILE_General_ThinTreeTop_Grass       0x00A
 #define METATILE_General_ThinTreeTop_Mowed       0x013
 #define METATILE_General_WideTreeTopLeft_Grass   0x00B
