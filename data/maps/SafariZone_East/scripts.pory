@@ -1,6 +1,5 @@
 raw `
-SafariZone_East_MapScripts::
-	.byte 0
+
 
 SafariZone_East_EventScript_RestHouseSign::
 	msgbox SafariZone_East_Text_RestHouse, MSGBOX_SIGN
@@ -14,6 +13,12 @@ SafariZone_East_EventScript_AreaSign::
 	msgbox SafariZone_East_Text_AreaSign, MSGBOX_SIGN
 	end
 `
+mapscripts SafariZone_East_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_SAFARIZONE_EAST)
+	}
+}
+
 script SafariZone_TauntTM {
 	lock
 	if(!flag(FLAG_NO_TM_CASE)) {
@@ -27,5 +32,10 @@ script SafariZone_TauntTM {
 
 script SafariZone_UndergroundPathHint {
 	msgbox("People often lose things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
+	end
+}
+
+script SafariZone_MazeSign {
+	msgbox("Behold!\pThe SAFARI ZONE's incredible\n600-Step Maze!", MSGBOX_SIGN)
 	end
 }
