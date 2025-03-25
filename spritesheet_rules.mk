@@ -675,32 +675,62 @@ $(OBJEVENTGFXDIR)/stupid/Shadowkanga.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(OBJEVENTGFXDIR)/stupid/Bouffalant.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Machokeboxes.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Banette.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Squirtle.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Ivysaur.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Charizard.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Slugma.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+
 $(OBJEVENTGFXDIR)/stupid/Delibird.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Rsemom.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Zigzagoon.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+
 $(OBJEVENTGFXDIR)/stupid/Rhydon.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Floatstone.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 4
-$(OBJEVENTGFXDIR)/stupid/Birdcultist.4bpp: %.4bpp: %.png
+
+$(OBJEVENTGFXDIR)/stupid/BirdCultist.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/stupid/Tentacool.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+
 $(OBJEVENTGFXDIR)/stupid/Breloom.4bpp: %.4bpp: %.png
+
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
