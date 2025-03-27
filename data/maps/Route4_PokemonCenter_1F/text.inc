@@ -40,8 +40,7 @@ Route4_PokemonCenter_1F_Text_YoullNeedMoreMoney::
     .string "You'll need more money than that!$"
 
 Route4_PokemonCenter_1F_Text_IDontGiveRefunds::
-    .string "MAN: Well, I don't give refunds.\n"
-    .string "You knew what you were getting!$"
+    .string "MAN: Don't let it evolve, now!$"
 
 Route4_PokemonCenter_1F_Text_ShouldStoreMonsUsingPC::
     .string "I gave my SLOWPOKE a pair of\n"

@@ -14,7 +14,7 @@ SafariZone_East_RestHouse_EventScript_BaldingMan::
 	msgbox SafariZone_East_Text_TiredFromAllTheFun, MSGBOX_NPC
 	end
 `
-script SafariZone_RestHouse_FishingGuru {
+script Script_Name {
 	if(flag(FLAG_TALKED_TO_FISHING_GURU)) {
 		msgbox("If we want to stop the DMCA, you'll\nneed to obtain a DRAGONITE.\lAfterwards, you need to evolve it.\pGood luck.\nI'm sure you can save us!", MSGBOX_NPC)
 	} else {

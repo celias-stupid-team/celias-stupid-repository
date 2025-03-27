@@ -327,8 +327,8 @@ const u8 gGolduckPokedexText[] = _( //The Yellow One
 const u8 gGolduckPokedexTextUnused[] = _("");
 
 const u8 gMankeyPokedexText[] = _(
-	"          It's a pig monkey.\n"
-	"That's definitely a real thing, right?");
+	"      It's a pig monkey.\n"
+	"That's a real thing, right?");
 
 const u8 gMankeyPokedexTextUnused[] = _("");
 

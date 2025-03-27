@@ -510,6 +510,30 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     case 8:
         gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 8, reverse));
         break;
+    case 9:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 9, reverse));
+        break;
+    case 10:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 10, reverse));
+        break;
+    case 11:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 11, reverse));
+        break;
+    case 12:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 12, reverse));
+        break;
+    case 13:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 13, reverse));
+        break;
+    case 14:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 14, reverse));
+        break;
+    case 15:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 15, reverse));
+        break;
+    case 16:
+        gMPlay_PokemonCry = SetPokemonCryTone(GET_CRY(index, 16, reverse));
+        break;
     }
     
 

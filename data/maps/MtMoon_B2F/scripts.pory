@@ -275,3 +275,8 @@ script MtMoon_MiguelStoleFossil {
 	msgbox("Yes!\nI've always wanted a SAIL FOSSIL!\pHahaha!\nGet your own, loser!", MSGBOX_NPC)
 	end
 }
+
+script MtMoon_IncredibleTechnology {
+	msgbox("Technology is incredible!\pNow you can have a PC in the middle\nof a cave!", MSGBOX_NPC)
+	end
+}

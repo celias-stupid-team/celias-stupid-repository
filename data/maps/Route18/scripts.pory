@@ -41,7 +41,7 @@ script Route18_BirdCultistStopsYouTrigger {
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
 	msgbox("That way goes to a sacred site of\nthe BIRD CULTISTS.\lDo not test us!\pIf you wish to proceed, you must\nearn the trust of our PRIEST.", MSGBOX_DEFAULT)
 	closemessage
-	delay(60)
+	delay(30)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
 	waitmovement(0)
 	release
@@ -49,7 +49,7 @@ script Route18_BirdCultistStopsYouTrigger {
 
 
 script Route18_BeachBoy {
-	msgbox("Huh?\nA bird cult ceremony?\pNah, man.\nEddie's my uncle.\lHe lets me through just to hang out!", MSGBOX_NPC)
+	msgbox("Huh?\nA bird cult ceremony?\pNah, man.\nEddie's my uncle.\lHe lets me through for free!", MSGBOX_NPC)
 	end
 }
 
@@ -86,4 +86,14 @@ script Route18_InstinctSealPedestal {
 		}
 	}
 	release
+}
+
+script Route18_BirdCultistLeft {
+	msgbox("Glory to the Wing!\nPraise to the Talon!\pMay we soar forevermore above the\nplains of despair!", MSGBOX_NPC)
+	end
+}
+
+script Route18_BirdCultistRight {
+	msgbox("We are the BIRD CULTISTS.\nOur herald has been called!\pIn the presence of the FLOAT STONE\nwe are given peace and power.", MSGBOX_NPC)
+	end
 }
