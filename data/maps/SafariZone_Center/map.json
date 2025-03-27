@@ -235,15 +235,15 @@
     },
     {
       "type": "sign",
-      "x": 30,
-      "y": 19,
+      "x": 22,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SafariZone_Center_EventScript_TrainerTips"
     },
     {
       "type": "hidden_item",
-      "x": 27,
+      "x": 29,
       "y": 15,
       "elevation": 3,
       "item": "ITEM_LEAF_STONE",
