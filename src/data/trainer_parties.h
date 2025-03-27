@@ -434,7 +434,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPoison[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherColton[] = {
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 26,
         .species = SPECIES_WURMPLE,
     },
 };

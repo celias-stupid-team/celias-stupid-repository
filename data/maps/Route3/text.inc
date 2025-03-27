@@ -22,7 +22,7 @@ Route3_Text_ColtonDefeat::
 Route3_Text_ColtonPostBattle::
 	.string "I'm evolving my WURMPLE to fight\n"
 	.string "ROXANNE.\p"
-	.string "I'm already level 19, but I still\n"
+	.string "I'm already level 26, but I still\n"
 	.string "have a long way to go!$"
 
 Route3_Text_BenIntro::
