@@ -429,6 +429,10 @@ script PalletTown_OnTransition {
 		setobjectxyperm(1, 5, 15)
 		setobjectmovementtype(1, MOVEMENT_TYPE_FACE_UP)
 	}
+	if(flag(FLAG_PALLET_IMPOSTER_OAK)) {	
+			setmetatile(1, 4, 0x009, FALSE)
+			setmetatile(1, 5, 0x00F, FALSE)
+	}
 }
 
 script PalletTown_EventScript_CeliaLookLook {
@@ -574,7 +578,7 @@ script PalletTown_ImposterOak {
 			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
 			delay(60)
 			textcolor(NPC_TEXT_COLOR_TREE)
-			msgbox("{FONT_SMALL}OAK?: Hey!\nWhat's the big idea?\pOne minute I'm sitting here,\nsoaking up the sun.\pThe next, some brat decides to dump\nsome water on me!\pAh, to heck with it.\nI'm outta here!", MSGBOX_DEFAULT)
+			msgbox("{FONT_SMALL}OAK?: Wha-… Hey!\nWhat's the big idea?\pThis spot here is mine!\nI've been here since the beginning.\pAh forget it.\nI don't need to take this.", MSGBOX_DEFAULT)
 			closemessage
 			fadescreen(FADE_TO_BLACK)
 			setflag(FLAG_PALLET_IMPOSTER_OAK)
@@ -582,6 +586,8 @@ script PalletTown_ImposterOak {
 			removeobject(INVISIBLE_OAK)
 			playse(SE_EXIT)
 			fadeoutbgm(1)
+			setmetatile(1, 4, 0x009, FALSE)
+			setmetatile(1, 5, 0x00F, FALSE)
 			waitse
 			fadescreen(FADE_FROM_BLACK)
 			delay(90)
