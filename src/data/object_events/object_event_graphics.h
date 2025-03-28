@@ -38,6 +38,7 @@ const u16 gObjectEventPal_ShadowKanga[] = INCBIN_U16("graphics/object_events/pal
 const u16 gObjectEventPal_Bouffalant[] = INCBIN_U16("graphics/object_events/palettes/bouffalant.gbapal");
 const u16 gObjectEventPal_Machoke[] = INCBIN_U16("graphics/object_events/palettes/machoke_boxes.gbapal");
 const u16 gObjectEventPal_Ivysaur[] = INCBIN_U16("graphics/object_events/palettes/ivysaur.gbapal");
+const u16 gObjectEventPal_Looker[] = INCBIN_U16("graphics/object_events/palettes/looker.gbapal");
 const u16 gObjectEventPaletteNull1[16] = {};
 const u16 gObjectEventPaletteNull2[16] = {};
 const u16 gObjectEventPaletteNull3[16] = {};

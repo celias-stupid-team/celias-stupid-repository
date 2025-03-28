@@ -1,3 +1,21 @@
 mapscripts PalletTown_WestField_MapScripts {
     
 }
+
+script PalletTown_WestField_Looker {
+    lock
+    faceplayer
+    fadenewbgm(MUS_LOOKER_THEME)
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+    delay(60)
+    msgbox("LOOKER: Gah!\nA civilian's found my camp?\pThis isn't good…\nOur mission has been compromised.\lUnless…", MSGBOX_DEFAULT)
+    fadedefaultbgm
+    release
+    end
+}
+
+script PalletTown_WestField_LookerTent {
+	msgbox("A small research tent has been\nhaphazardly set up.\pIt's not much of a looker.\n", MSGBOX_SIGN)
+	end
+}

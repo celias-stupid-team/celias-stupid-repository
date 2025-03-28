@@ -3256,7 +3256,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Imakuni = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Looker = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_LOOKER,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,

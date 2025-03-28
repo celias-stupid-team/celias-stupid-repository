@@ -541,11 +541,54 @@ script PalletTown_EventScript_CeliaYouMissed {
 	end
 }
 
+const IMPOSTER_OAK = 7
+const INVISIBLE_OAK = 8
 script PalletTown_ImposterOak {
 	lock
-	msgbox("Something about this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
-	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
-	waitmoncry
+	if(!checkitem(ITEM_WAILMER_PAIL)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
+		waitmoncry
+	} else {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Something about this tree in\nparticular feels... off.\pWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			fadeoutbgm(1)
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			closemessage
+			delay(10)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp) // open eyes
+			waitmovement(0)
+			delay(60)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(20)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceLeft)
+			delay(10)
+			applymovement(IMPOSTER_OAK, Common_Movement_FaceUp)
+			delay(60)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			msgbox("{FONT_SMALL}OAK?: Hey!\nWhat's the big idea?\pOne minute I'm sitting here,\nsoaking up the sun.\pThe next, some brat decides to dump\nsome water on me!\pAh, to heck with it.\nI'm outta here!", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			setflag(FLAG_PALLET_IMPOSTER_OAK)
+			removeobject(IMPOSTER_OAK)
+			removeobject(INVISIBLE_OAK)
+			playse(SE_EXIT)
+			fadeoutbgm(1)
+			waitse
+			fadescreen(FADE_FROM_BLACK)
+			delay(90)
+			fadedefaultbgm
+			
+		}
+	}
 	release
 	end
 }

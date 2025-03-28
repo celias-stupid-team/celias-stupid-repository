@@ -383,12 +383,13 @@
 #define SE_ROLLOUT            374
 #define SE_MAKE_IT_RAIN            375
 #define MUS_LITTLEROOT            376
+#define MUS_LOOKER_THEME            377
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_LITTLEROOT
+#define END_MUS                     MUS_LOOKER_THEME
 
 #endif  // GUARD_CONSTANTS_SONGS_H
