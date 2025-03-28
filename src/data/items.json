@@ -2918,7 +2918,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_EXP_SHARE",
       "holdEffectParam": 0,
-      "description_english": "We've heard your complaints and\\nare happy to report that you can\\nnow turn off the EXP. SHARE!",
+      "description_english": "We've heard your complaints and\\nare happy to report that you can\\nnow turn the EXP. SHARE off!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",

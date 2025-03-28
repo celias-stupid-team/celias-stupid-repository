@@ -125,6 +125,9 @@ const u8 gOtherText_Register[] = _("REGISTER");
 const u8 gOtherText_Give[] = _("GIVE");
 const u8 gMenuText_Confirm[] = _("けってい");
 const u8 gOtherText_Walk[] = _("WALK");
+const u8 gOtherText_On[] = _("WALK");
+const u8 gOtherText_Off[] = _("OFF");
+
 const u8 gFameCheckerText_Cancel[] = _("CANCEL");
 const u8 gOtherText_Exit[] = _("EXIT");
 const u8 gString_Dummy[] = _("");
@@ -182,6 +185,7 @@ const u8 gText_CloseBag[] = _("CLOSE BAG");
 const u8 gText_Var1IsSelected[] = _("{STR_VAR_1} is\nselected.");
 const u8 gText_CantWriteMailHere[] = _("You can't write\nMAIL here.");
 const u8 gText_ThereIsNoPokemon[] = _("There is no\nPOKéMON.");
+const u8 gText_ExpShareOff[] = _("The EXP. SHARE was turned off.");
 const u8 gOtherText_WhereShouldTheStrVar1BePlaced[] = _("Where should the {STR_VAR_1}\nbe placed?");
 const u8 gText_ItemCantBeHeld[] = _("The {STR_VAR_1} can't be held.");
 const u8 gText_TheStrVar1CantBeHeldHere[] = _("The {STR_VAR_1} can't be held\nhere.");

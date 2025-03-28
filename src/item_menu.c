@@ -121,6 +121,7 @@ static void Task_SelectQuantityToToss(u8 taskId);
 static void Task_TossItem_Yes(u8 taskId);
 static void Task_WaitAB_RedrawAndReturnToBag(u8 taskId);
 static void Task_ItemMenuAction_ToggleSelect(u8 taskId);
+static void Task_ItemMenuAction_ExpShareOff(u8 taskId);
 static void Task_ItemMenuAction_Give(u8 taskId);
 static void Task_PrintThereIsNoPokemon(u8 taskId);
 static void Task_ItemMenuAction_Cancel(u8 taskId);
@@ -203,6 +204,7 @@ static const struct MenuAction sItemMenuContextActions[] = {
     [ITEMMENUACTION_OPEN_BERRIES] = {gOtherText_Open, {.void_u8 = Task_ItemMenuAction_BattleUse}},
     [ITEMMENUACTION_WALK] = {gOtherText_Walk, {.void_u8 = Task_ItemMenuAction_Use}},
     [ITEMMENUACTION_DESELECT] = {gOtherText_Deselect, {.void_u8 = Task_ItemMenuAction_ToggleSelect}},
+    [ITEMMENUACTION_OFF] = {gOtherText_Off, {.void_u8 = Task_ItemMenuAction_ExpShareOff}},
     [ITEMMENUACTION_DUMMY] = {gString_Dummy, {.void_u8 = NULL}}
 };
 
@@ -1413,6 +1415,9 @@ static void OpenContextMenu(u8 taskId)
                     sContextMenuItemsBuffer[1] == ITEMMENUACTION_CANCEL;
                 }
                 
+                else if (gSpecialVar_ItemId == ITEM_EXP_SHARE) { // This doesn't seem to work. If you can figure it out I'd apprecaite it :)
+                    sContextMenuItemsBuffer[0] = ITEMMENUACTION_OFF;
+                }
                 
                 else
                     sContextMenuItemsBuffer[0] = ITEMMENUACTION_USE;
@@ -1603,6 +1608,17 @@ static void Task_ItemMenuAction_ToggleSelect(u8 taskId)
     data[0] = ListMenuInit(&gMultiuseListMenuTemplate, gBagMenuState.cursorPos[gBagMenuState.pocket], gBagMenuState.itemsAbove[gBagMenuState.pocket]);
     CopyWindowToVram(0, COPYWIN_MAP);
     Task_ItemMenuAction_Cancel(taskId);
+}
+
+static void Task_ItemMenuAction_ExpShareOff(u8 taskId)
+{
+                HideBagWindow(10);
+        HideBagWindow(6);
+        PutWindowTilemap(0);
+        PutWindowTilemap(1);
+        ScheduleBgCopyTilemapToVram(0);
+
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_ExpShareOff, Task_WaitAButtonAndCloseContextMenu);
 }
 
 static void Task_ItemMenuAction_Give(u8 taskId)
