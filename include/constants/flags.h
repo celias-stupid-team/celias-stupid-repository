@@ -335,7 +335,7 @@
 #define FLAG_BATTLED_IRON_CLEFTS               0x121
 #define FLAG_TALKED_TO_FISHING_GURU               0x122
 #define FLAG_PALLET_IMPOSTER_OAK               0x123
-#define FLAG_0x124               0x124
+#define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_0x125               0x125
 #define FLAG_0x126               0x126
 #define FLAG_0x127               0x127

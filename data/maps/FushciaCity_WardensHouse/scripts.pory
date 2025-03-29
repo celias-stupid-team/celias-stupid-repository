@@ -1,6 +1,5 @@
 raw `
-FushciaCity_WardensHouse_MapScripts::
-	.byte 0
+
 
 FushciaCity_WardensHouse_EventScript_Warden::
 	lock
@@ -59,6 +58,121 @@ FushciaCity_WardensHouse_EventScript_DisplaySign2::
 	msgbox FushciaCity_WardensHouse_Text_OldMonMerchandiseOnDisplay, MSGBOX_SIGN
 	end
 `
+
+const WARDEN = 1
+mapscripts FushciaCity_WardensHouse_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 0 {
+			if(!flag(FLAG_WAS_THREATENED_BY_WARDEN)) {
+
+			
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+				fadeoutbgm(1)
+				waitmovement(0)
+				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+				playse(SE_PIN)
+				applymovement(WARDEN, Common_Movement_ExclamationMark)
+				delay(60)
+				applymovement(WARDEN, WardenTurnsAroundWithGun)
+				waitmovement(0)
+				playse(SE_SWITCH)
+				delay(60)
+				textcolor(NPC_TEXT_COLOR_BLUE)
+				msgbox("WARDEN: Ah howhee ho hoo…\nEef ee hafahi ho.\lAah weef heaa?", MSGBOX_YESNO)
+				if(var(VAR_RESULT)) {
+					closemessage
+					delay(60)
+					msgbox("… … … …\n", MSGBOX_DEFAULT)
+					closemessage
+					delay(60)
+					msgbox("Bwa bwaa.\n", MSGBOX_DEFAULT)
+					closemessage
+					fadescreen(FADE_TO_BLACK)
+					playmoncry(SPECIES_REMORAID, CRY_MODE_NORMAL)
+					waitmoncry
+					delay(30)
+					textcolor(NPC_TEXT_COLOR_NEUTRAL)
+					msgbox("{PLAYER} fucking died!\n", MSGBOX_DEFAULT)
+					warp(MAP_ROUTE_15, 0)
+					fadescreen(FADE_FROM_BLACK)
+					release
+					end
+
+				} else {
+					setflag(FLAG_WAS_THREATENED_BY_WARDEN)
+					msgbox("WARDEN: Hwoog. Hwoog.\nAhm swaaawah.", MSGBOX_DEFAULT)
+					applymovement(WARDEN, Common_Movement_FaceDown)
+					waitmovement(0)
+					fadedefaultbgm
+				}
+				setvar(VAR_TEMP_1, 1)
+			} else {
+				setvar(VAR_TEMP_1, 1)
+			} 
+
+		}
+	]
+}
+
+script WardensHouse_TalkToWarden {
+	lock
+	faceplayer
+	if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+		msgbox("thank you\n", MSGBOX_DEFAULT) //PLACEHOLDER
+	} else {
+		if(flag(FLAG_WARDENS_TEETH)) {
+			// He has his teeth
+			msgbox("help us\n", MSGBOX_DEFAULT) //PLACEHOLDER
+		} else {
+			if(checkitem(ITEM_GOLD_TEETH)) {
+				msgbox(FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_YESNO)
+				if(var(VAR_RESULT)) {
+					playfanfare(MUS_LEVEL_UP)
+					msgbox(FushciaCity_WardensHouse_Text_GaveGoldTeethToWarden, MSGBOX_DEFAULT)
+					waitfanfare
+					msgbox("thank you for teeth\nplease hlep", MSGBOX_YESNO) //PLACEHOLDER
+					if(var(VAR_RESULT)) {
+						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+						playfanfare(MUS_LEVEL_UP)
+						msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
+						call(Common_Script_ObtainedPokemon)
+						msgbox("go\n", MSGBOX_DEFAULT) //PLACEHOLDER
+
+					}
+					msgbox("no\n", MSGBOX_DEFAULT) //PLACEHOLDER
+
+				}
+				msgbox("WARDEN: … … …\n", MSGBOX_DEFAULT)
+				closemessage
+				delay(30)
+				playse(SE_SWITCH)
+				applymovement(WARDEN, WardenGun)
+				waitmovement(0)
+				delay(120)
+				applymovement(WARDEN, Common_Movement_FaceDown)
+				waitmovement(0)
+
+			} else {
+				msgbox(FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_DEFAULT)
+			}
+		}
+
+	}
+	release
+}
+
+movement WardenTurnsAroundWithGun {
+	face_right
+	delay_8
+	face_down
+	delay_16 * 4
+	raise_hand_and_stop
+}
+
+movement WardenGun {
+	raise_hand_and_stop
+}
+
 script WardensHouse_Warden {
 	if(flag(FLAG_WARDENS_TEETH)) {
 		msgbox("teeth\n", MSGBOX_DEFAULT)

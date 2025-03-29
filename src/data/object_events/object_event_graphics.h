@@ -401,3 +401,4 @@ const u32 gObjectEventPic_Tentacool[] = INCBIN_U32("graphics/object_events/pics/
 
 const u32 gObjectEventPic_Breloom[] = INCBIN_U32("graphics/object_events/pics/stupid/Breloom.4bpp");
 
+const u32 gObjectEventPic_Safariwarden[] = INCBIN_U32("graphics/object_events/pics/stupid/Safariwarden.4bpp");
