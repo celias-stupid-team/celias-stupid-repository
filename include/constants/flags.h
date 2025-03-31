@@ -858,7 +858,7 @@
 #define FLAG_CSR_HIDE_MUSIC_GIRL               0x319
 #define FLAG_CSR_FUSHCIA_HBOX               0x31A
 #define FLAG_CSR_GOT_SLOWPOKE               0x31B
-#define FLAG_0x31C               0x31C
+#define FLAG_CSR_GOT_GUN               0x31C
 #define FLAG_0x31D               0x31D
 #define FLAG_0x31E               0x31E
 #define FLAG_0x31F               0x31F
@@ -1421,7 +1421,7 @@
 
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
-#define FLAG_0x82A                                                  (SYS_FLAGS + 0x2A)
+#define FLAG_SYS_IS_FULL_RELEASE                                                  (SYS_FLAGS + 0x2A) //For locking surf out of demo 3
 #define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)

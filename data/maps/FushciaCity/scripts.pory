@@ -319,3 +319,8 @@ script FushciaCity_OfficesSign {
 	msgbox("SAFARI ZONE OFFICES\nFinancial Division", MSGBOX_SIGN)
 	end
 }
+
+script FushciaCity_GuruBrotherSign {
+	msgbox("The FISHING GURU'S BROTHER's house\n", MSGBOX_SIGN)
+	end
+}

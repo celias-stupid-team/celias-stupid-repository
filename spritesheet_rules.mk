@@ -736,3 +736,5 @@ $(OBJEVENTGFXDIR)/stupid/Breloom.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/stupid/Safariwarden.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Cannon.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

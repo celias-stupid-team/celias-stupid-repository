@@ -1782,7 +1782,6 @@ static const struct LevelUpMove sGyaradosLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_THRASH),
     LEVEL_UP_MOVE(1, MOVE_OUTRAGE),
     LEVEL_UP_MOVE(1, MOVE_PETAL_DANCE),
-    LEVEL_UP_MOVE(1, MOVE_HYDRO_PUMP),
     LEVEL_UP_MOVE(20, MOVE_BITE),
     LEVEL_UP_END
 };

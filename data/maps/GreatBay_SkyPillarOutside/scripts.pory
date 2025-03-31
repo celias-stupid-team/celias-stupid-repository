@@ -24,7 +24,7 @@ script GreatBay_SkyPillarOutside_LookingOut {
 
 movement GreatBay_CameraGoesUp {
     walk_up * 1
-    walk_fast_up * 13
+    walk_fast_up * 16
     walk_up * 1
 }
 

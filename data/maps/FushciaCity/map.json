@@ -583,6 +583,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaCity_EventScript_StakatakaSign"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaCity_GuruBrotherSign"
     }
   ]
 }

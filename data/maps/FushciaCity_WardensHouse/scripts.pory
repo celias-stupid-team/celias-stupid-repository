@@ -93,7 +93,7 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					delay(30)
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					msgbox("{PLAYER} fucking died!\n", MSGBOX_DEFAULT)
-					warp(MAP_ROUTE_15, 0)
+					warp(MAP_ROUTE15, 0)
 					fadescreen(FADE_FROM_BLACK)
 					release
 					end
@@ -122,7 +122,20 @@ script WardensHouse_TalkToWarden {
 	} else {
 		if(flag(FLAG_WARDENS_TEETH)) {
 			// He has his teeth
-			msgbox("help us\n", MSGBOX_DEFAULT) //PLACEHOLDER
+			if(!flag(FLAG_CSR_GOT_GUN)) {
+				msgbox("WARDEN: Here, take my GUN.\nI'm sure you'll need it.", MSGBOX_DEFAULT)
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+				playfanfare(MUS_LEVEL_UP)
+				textcolor(NPC_TEXT_COLOR_MON)
+				msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
+				call(Common_Script_ObtainedPokemon)
+				textcolor(NPC_TEXT_COLOR_BLUE)
+				setflag(FLAG_CSR_GOT_GUN)
+				msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
+
+			} else {
+				msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
+			}
 		} else {
 			if(checkitem(ITEM_GOLD_TEETH)) {
 				msgbox(FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_YESNO)
@@ -130,16 +143,18 @@ script WardensHouse_TalkToWarden {
 					playfanfare(MUS_LEVEL_UP)
 					msgbox(FushciaCity_WardensHouse_Text_GaveGoldTeethToWarden, MSGBOX_DEFAULT)
 					waitfanfare
-					msgbox("thank you for teeth\nplease hlep", MSGBOX_YESNO) //PLACEHOLDER
-					if(var(VAR_RESULT)) {
-						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
-						playfanfare(MUS_LEVEL_UP)
-						msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
-						call(Common_Script_ObtainedPokemon)
-						msgbox("go\n", MSGBOX_DEFAULT) //PLACEHOLDER
+					msgbox("WARDEN: Aha!\nThat's much better.\lThank you so much!\pSorry about earlier.\nI've been under a lot of stress.\pThe DMCA have instituted a takeover\nof my precious SAFARI ZONE.\lI thought you were with them.\pWe need to stop them somehow, but\nI'm to old to do it alone.\p…What's that?\nYou're going to fight them?\lHa! Great news!\pHere, take my GUN.\nI'm sure you'll need it.", MSGBOX_DEFAULT)
+					
+					setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+					playfanfare(MUS_LEVEL_UP)
+					textcolor(NPC_TEXT_COLOR_MON)
+					msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
+					call(Common_Script_ObtainedPokemon)
+					textcolor(NPC_TEXT_COLOR_BLUE)
+					setflag(FLAG_CSR_GOT_GUN)
+					msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
 
-					}
-					msgbox("no\n", MSGBOX_DEFAULT) //PLACEHOLDER
+					
 
 				}
 				msgbox("WARDEN: … … …\n", MSGBOX_DEFAULT)
