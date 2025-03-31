@@ -28,7 +28,7 @@
 // Use this switch to choose a handler for pretty printing.
 // NOTE: mini_printf supports a custom pretty printing formatter to display preproc encoded strings. (%S)
 //       some libc distributions (especially dkp arm-libc) will fail to link pretty printing.
-#define PRETTY_PRINT_HANDLER (PRETTY_PRINT_MINI_PRINTF)
+#define PRETTY_PRINT_HANDLER (PRETTY_PRINT_LIBC)
 
 // Use this switch to choose a handler for printf output.
 // NOTE: These will only work on the respective emulators and should not be used in a productive environment.
