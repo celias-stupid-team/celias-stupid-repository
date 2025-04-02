@@ -1,0 +1,18 @@
+{
+    "image": "celias-stupid-docker-image:1",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.makefile-tools"
+            ],
+            "settings": {
+                "files.insertFinalNewline": true,
+                "files.trimFinalNewlines": true
+            }
+        }
+    },
+    "remoteUser": "dev",
+    "updateRemoteUserUID": true,
+    "postAttachCommand": ["sh", ".devcontainer/post-attach.sh"]
+}

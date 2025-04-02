@@ -1,0 +1,26 @@
+diff --git a/gcc/expr.h b/gcc/expr.h
+index 466b4b1..e7f8f79 100755
+--- a/gcc/expr.h
++++ b/gcc/expr.h
+@@ -356,7 +356,7 @@ typedef struct optab
+ #define GEN_FCN(CODE) (*insn_gen_function[(int) (CODE)])
+ #endif
+ 
+-extern rtx (*const insn_gen_function[]) (rtx, ...);
++extern rtx (*const insn_gen_function[]) ();
+ 
+ extern optab add_optab;
+ extern optab sub_optab;
+diff --git a/gcc_arm/expr.h b/gcc_arm/expr.h
+index 7825a52..d037167 100755
+--- a/gcc_arm/expr.h
++++ b/gcc_arm/expr.h
+@@ -365,7 +365,7 @@ typedef struct optab
+ #define GEN_FCN(CODE) (*insn_gen_function[(int) (CODE)])
+ #endif
+ 
+-extern rtx (*const insn_gen_function[]) PROTO ((rtx, ...));
++extern rtx (*const insn_gen_function[]) PROTO (());
+ 
+ extern optab add_optab;
+ extern optab sub_optab;
