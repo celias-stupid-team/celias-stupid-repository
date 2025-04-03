@@ -103,14 +103,16 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					msgbox("WARDEN: Hwoog. Hwoog.\nAhm swaaawah.", MSGBOX_DEFAULT)
 					applymovement(WARDEN, Common_Movement_FaceDown)
 					waitmovement(0)
-					fadedefaultbgm
+					closemessage
+					fadeinbgm(1)
 				}
 				setvar(VAR_TEMP_1, 1)
 			} else {
 				setvar(VAR_TEMP_1, 1)
 			} 
-
+			release
 		}
+		
 	]
 }
 

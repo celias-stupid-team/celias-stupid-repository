@@ -860,8 +860,8 @@
 #define FLAG_CSR_GOT_SLOWPOKE               0x31B
 #define FLAG_CSR_GOT_GUN               0x31C
 #define FLAG_LIGHTHOUSE_OLD_MAN               0x31D
-#define FLAG_0x31E               0x31E
-#define FLAG_0x31F               0x31F
+#define FLAG_JUMPED_FROM_LIGHTHOUSE               0x31E
+#define FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE               0x31F
 #define FLAG_0x320               0x320
 #define FLAG_0x321               0x321
 #define FLAG_0x322               0x322

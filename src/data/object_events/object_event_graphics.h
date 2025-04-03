@@ -39,6 +39,7 @@ const u16 gObjectEventPal_Bouffalant[] = INCBIN_U16("graphics/object_events/pale
 const u16 gObjectEventPal_Machoke[] = INCBIN_U16("graphics/object_events/palettes/machoke_boxes.gbapal");
 const u16 gObjectEventPal_Ivysaur[] = INCBIN_U16("graphics/object_events/palettes/ivysaur.gbapal");
 const u16 gObjectEventPal_Looker[] = INCBIN_U16("graphics/object_events/palettes/looker.gbapal");
+const u16 gObjectEventPal_Ampharos[] = INCBIN_U16("graphics/object_events/palettes/ampharos.gbapal");
 const u16 gObjectEventPaletteNull1[16] = {};
 const u16 gObjectEventPaletteNull2[16] = {};
 const u16 gObjectEventPaletteNull3[16] = {};
@@ -402,4 +403,6 @@ const u32 gObjectEventPic_Tentacool[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Breloom[] = INCBIN_U32("graphics/object_events/pics/stupid/Breloom.4bpp");
 
 const u32 gObjectEventPic_Safariwarden[] = INCBIN_U32("graphics/object_events/pics/stupid/Safariwarden.4bpp");
+
 const u32 gObjectEventPic_Cannon[] = INCBIN_U32("graphics/object_events/pics/stupid/Cannon.4bpp");
+

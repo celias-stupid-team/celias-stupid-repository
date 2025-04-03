@@ -4120,7 +4120,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sudowoodo = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ampharos = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_AMPHAROS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 1048,
     .width = 32,

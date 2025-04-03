@@ -1,5 +1,7 @@
 mapscripts KantoLighthouse_1F_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        clearflag(FLAG_CSR_CAUGHT_AMPHAROS)
+    }
 }
 
 script KantoLighthouse_1F_OldMan {
@@ -20,5 +22,5 @@ movement LighthouseMan {
     walk_up
     walk_right * 2
     face_right
-    delay_16 * 2
+    delay_16
 }

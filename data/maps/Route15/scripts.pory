@@ -7,11 +7,16 @@ Route15_EventScript_RouteSign::
 `
 
 const TUBER = 7
+const OldMan = 11
+const Woman = 12
 mapscripts Route15_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_CSR_TALKED_TO_TUBER)) {
 			setflag(FLAG_CSR_TUBER_EATEN)
 			removeobject(TUBER)
+		}
+		if(!flag(FLAG_JUMPED_FROM_LIGHTHOUSE)) {
+			setflag(FLAG_TEMP_7)
 		}
 		setbench(BENCH_ROUTE15)
 	}
@@ -147,6 +152,16 @@ script Route15_Guard_NPC {
 	applymovement(GUARD, Common_Movement_FaceLeft)
 	waitmovement(0)
 	release
+}
+
+script Route15_GrandpaDead {
+	msgbox("Oh no!\pGrandpa's dead!\n", MSGBOX_NPC)
+	end
+}
+
+script Route15_DeadGrandpa {
+	msgbox("oops.\n", MSGBOX_SIGN)
+	end
 }
 
 script Route15_Tuber {

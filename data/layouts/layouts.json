@@ -4672,8 +4672,8 @@
     {
       "id": "LAYOUT_KANTO_LIGHTHOUSE_2F",
       "name": "KantoLighthouse_2F_Layout",
-      "width": 16,
-      "height": 16,
+      "width": 50,
+      "height": 50,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -4684,8 +4684,8 @@
     {
       "id": "LAYOUT_KANTO_LIGHTHOUSE_3F",
       "name": "KantoLighthouse_3F_Layout",
-      "width": 16,
-      "height": 16,
+      "width": 50,
+      "height": 50,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

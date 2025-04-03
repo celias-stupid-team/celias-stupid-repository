@@ -1,5 +1,11 @@
+
+const DeadMan = 1
 mapscripts KantoLighthouse_2F_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }
 
 script KantoLighthouse_2F_DeadMan {
