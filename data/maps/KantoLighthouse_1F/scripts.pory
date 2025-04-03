@@ -1,3 +1,24 @@
 mapscripts KantoLighthouse_1F_MapScripts {
     
 }
+
+script KantoLighthouse_1F_OldMan {
+    lock
+    faceplayer
+	msgbox("Ah, finally the power is back\non!\pI've been waiting here before\nmaking the climb up.\lI wouldn't want to trip and fall!\pHo!\nThat'd be rather nasty indeed!\pWell, off I go.\nMeet you at the top?", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, LighthouseMan)
+    waitmovement(0)
+    removeobject(VAR_LAST_TALKED)
+    playse(SE_EXIT)
+    setflag(FLAG_LIGHTHOUSE_OLD_MAN)
+    delay(30)
+    release
+}
+
+movement LighthouseMan {
+    walk_up
+    walk_right * 2
+    face_right
+    delay_16 * 2
+}

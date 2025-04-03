@@ -7,15 +7,16 @@ PokemonTower_3F_Text_HopeDefeat::
 
 PokemonTower_3F_Text_HopePostBattle::
 	.string "Please give me your blood.\n"
-	.string "I need a transfusion.\l"
+	.string "I need a transfusion.\p"
 	.string "It keeps leaking out of my eyes!$"
 
 PokemonTower_3F_Text_CarlyIntro::
-	.string "Turn back now!\n"
-	.string "This game is over for you!$"
+	.string "H U R R Y …\p"
+	.string "G O . B A C K …$"
 
 PokemonTower_3F_Text_CarlyDefeat::
-	.string "He died\n$"
+	.string "H E\n"
+	.string "D I E D …$"
 
 PokemonTower_3F_Text_CarlyPostBattle::
 	.string "The DMCA does not approve of our\n"

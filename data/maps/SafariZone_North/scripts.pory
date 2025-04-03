@@ -47,24 +47,24 @@ script SafariZone_North_Breloom {
 }
 
 script SafariZone_North_DMCA_1 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_17, "A big portal opened up around here.\nA buncha POKéMON came out of it,\lbut all of them were copies!\pGood thing we, the DMCA, were here!\n", "PLACEHOLDER")
-	msgbox("PLACEHOLDER", MSGBOX_NPC)
+	trainerbattle_single(TRAINER_DMCA_GRUNT_19, "A big portal opened up around here.\nA buncha POKéMON came out of it,\lbut all of them were copies!\pGood thing we, the DMCA, were here!\n", "PLACEHOLDER")
+	msgbox("The DMCA is here on important\nbusiness.\lThere's infringement afoot!\pWe won't rest until the violating\nPOKéMON is apprehended!", MSGBOX_NPC)
 }
 
 script SafariZone_North_DMCA_2 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_17, "Were you the kid trying to sneak in\nthe TM CASE?\nHahaha!", "PLACEHOLDER")
+	trainerbattle_single(TRAINER_DMCA_GRUNT_20, "Were you the kid trying to sneak in\nthe TM CASE?\nHahaha!", "PLACEHOLDER")
 	msgbox("PLACEHOLDER", MSGBOX_NPC)
 
 }
 
 script SafariZone_North_DMCA_3 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_17, "We were supposed to be taking all\nthe PARADOX POKéMON, but…\pI think I'm doing something wrong.\n", "PLACEHOLDER")
-	msgbox("PLACEHOLDER", MSGBOX_NPC)
+	trainerbattle_single(TRAINER_DMCA_GRUNT_21, "We were supposed to be taking all\nthe PARADOX POKéMON, but…\pI think I'm doing something wrong.\n", "Grr!\nIt's the wrong kind of PARADOX!")
+	msgbox("Our ADMIN up ahead took the\nstrongest PARADOX POKéMON.\lThere's no way you'll get through!", MSGBOX_NPC)
 
 }
 
 script SafariZone_North_DMCA_4 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_17, "Graaah!\nWhy won't this POKéMON just change?", "PLACEHOLDER")
-	msgbox("PLACEHOLDER", MSGBOX_NPC)
+	trainerbattle_single(TRAINER_DMCA_GRUNT_22, "Graaah!\nWhy won't this POKéMON just change?", "PLACEHOLDER")
+	msgbox("We found an ITEM here that induced\nan illegal EVOLUTION.\pWe passed it to our team in the\nCELADON DMCA LAW OFFICES.\lOne of our ADMINS is guarding it.\p…What's that?\nYou took it from him!?\lNo!", MSGBOX_NPC)
 
 }

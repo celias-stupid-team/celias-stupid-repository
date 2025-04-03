@@ -1,3 +1,10 @@
 mapscripts KantoLighthouse_2F_MapScripts {
     
 }
+
+script KantoLighthouse_2F_DeadMan {
+    lock
+	msgbox("Oops\n", MSGBOX_DEFAULT)
+    release
+	end
+}

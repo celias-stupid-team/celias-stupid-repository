@@ -2,7 +2,7 @@
   "id": "MAP_KANTO_LIGHTHOUSE_1F",
   "name": "KantoLighthouse_1F",
   "layout": "LAYOUT_KANTO_LIGHTHOUSE_1F",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_45",
   "region_map_section": "MAPSEC_KANTO_LIGHTHOUSE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,7 +15,20 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "KantoLighthouse_1F_OldMan",
+      "flag": "FLAG_LIGHTHOUSE_OLD_MAN"
+    }
   ],
   "warp_events": [
     {

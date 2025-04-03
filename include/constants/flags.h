@@ -859,7 +859,7 @@
 #define FLAG_CSR_FUSHCIA_HBOX               0x31A
 #define FLAG_CSR_GOT_SLOWPOKE               0x31B
 #define FLAG_CSR_GOT_GUN               0x31C
-#define FLAG_0x31D               0x31D
+#define FLAG_LIGHTHOUSE_OLD_MAN               0x31D
 #define FLAG_0x31E               0x31E
 #define FLAG_0x31F               0x31F
 #define FLAG_0x320               0x320

@@ -15,3 +15,8 @@ SilphCo_1F_EventScript_FloorSign::
 	msgbox SilphCo_1F_Text_FloorSign, MSGBOX_SIGN
 	end
 `
+
+script SilphCo_BackDoorSign {
+	msgbox("SILPH CO.\nBack Door", MSGBOX_SIGN)
+	end
+}

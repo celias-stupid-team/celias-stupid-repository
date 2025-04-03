@@ -408,6 +408,13 @@
       "elevation": 0,
       "dest_map": "MAP_SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_1F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

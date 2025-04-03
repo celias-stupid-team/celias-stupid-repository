@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonTower_ShortcutBlocker",
-      "flag": "FLAG_WORLD_MAP_CELADON_POKEMON_CENTER"
+      "flag": "FLAG_HIDE_TOWER_RIVAL"
     }
   ],
   "warp_events": [

@@ -121,12 +121,11 @@ CeladonCity_GameCorner_Text_GruntPostBattle::
 	.string "it!$"
 
 CeladonCity_GameCorner_Text_SwitchBehindPosterPushIt::
-	.string "This poster contains an image of\n"
-	.string "a copyrighted character.\p"
-	.string "There's no way this should be\n"
-	.string "allowed to stand!\p"
-	.string "…Oh, and you press the button\n"
-	.string "behind it.$"
+	.string "Hey!\n"
+	.string "This looks like an NES, but it's\l"
+	.string "actually a very fancy poster!\p"
+	.string "… … …\p"
+	.string "{PAUSE 30}You press the POWER button.\n$"
 
 CeladonCity_GameCorner_Text_CoinCaseIsRequired::
     .string "A COIN CASE is required…$"
