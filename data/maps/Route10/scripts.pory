@@ -75,7 +75,7 @@ script Route10_RouteSign {
 	end
 }
 
-const DAD = 8
+const DAD = 7
 script Route10_TrappedDad {
 	lock
 	applymovement(DAD, Common_Movement_FaceUp)
@@ -96,7 +96,7 @@ script Route10_SecretDad {
 	end
 }
 
-const LASS = 9
+const LASS = 8
 
 script Route10_LassAttack {
 	lock

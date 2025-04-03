@@ -296,7 +296,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_HIDE_SILPH_RIVAL)) { // 
 		setobtainable(SPECIES_BIDOOF) // 96
 	}
-	if(flag(FLAG_CSR_HINT_PEWTER_GRASS) && checkmoncaught(SPECIES_COMBEE)) { //and if Combee
+	if((flag(FLAG_CSR_HINT_PEWTER_GRASS) && checkmoncaught(SPECIES_COMBEE)) || flag(FLAG_WORLD_MAP_CERULEAN_CITY) || checkmoncaught(SPECIES_GRIMER)) { //and if Combee
 		setobtainable(SPECIES_GRIMER) // 97
 	}
 	if(flag(FLAG_CSR_HINT_REVEAL_GLASS)) { //and if Grimer
