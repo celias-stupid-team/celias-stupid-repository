@@ -62,7 +62,7 @@ script RockTunnel_ClefableHint {
 const HINT_GIRL = 1
 script RockTunnel_PokemonSign {
 	lock
-	msgbox("A silhouette can be seen projected\nfrom behind.\pHe looks to be a shadow of his\nformer self.", MSGBOX_DEFAULT)
+	msgbox("A silhouette can be seen projected\nfrom behind.\pIt looks to be a shadow of its\nformer self.", MSGBOX_DEFAULT)
 	if(!flag(FLAG_ELECTIVIRE_SIGN)) {
 		closemessage
 		playfanfare(MUS_SLOTS_WIN)

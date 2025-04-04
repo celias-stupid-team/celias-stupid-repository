@@ -303,6 +303,13 @@
       "elevation": 0,
       "dest_map": "MAP_NEW_FUCHSIA_GYM",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [
