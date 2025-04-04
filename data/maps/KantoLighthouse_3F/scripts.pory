@@ -110,7 +110,7 @@ movement JumpToDeath_1 {
 	face_up
 	delay_16 * 4
 	unlock_facing_direction
-	player_run_up * 
+	player_run_up * 2
 }
 movement JumpToDeath_2 {
 	jump_2_up
