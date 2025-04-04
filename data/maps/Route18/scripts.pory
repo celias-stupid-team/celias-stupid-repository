@@ -67,7 +67,7 @@ script Route18_BirdCultistCeremony {
 		case 36:
 			applymovement(BirdCultLeader, BirdCult_Left)
 		case 37:
-			applymovement(BirdCultLeader, BirdCult_Middle)
+			applymovement(BirdCultLeader, BirdCult_Mid)
 		default:
 			applymovement(BirdCultLeader, BirdCult_Right)
 	}

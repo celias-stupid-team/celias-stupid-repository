@@ -50,6 +50,7 @@ script RockTunnel_1F_OnTransition {
 	if(var(VAR_CSR_TURNED_ON_POWER)) {
 		setflashlevel(0)
 	}
+	setflag(FLAG_TEMP_1)
 }
 
 script RockTunnel_ClefableHint {
@@ -57,3 +58,29 @@ script RockTunnel_ClefableHint {
 	end
 }
 
+
+const HINT_GIRL = 1
+script RockTunnel_PokemonSign {
+	lock
+	msgbox("A silhouette can be seen projected\nfrom behind.\pHe looks to be a shadow of his\nformer self.", MSGBOX_DEFAULT)
+	if(!flag(FLAG_ELECTIVIRE_SIGN)) {
+		closemessage
+		playfanfare(MUS_SLOTS_WIN)
+		msgbox("{PLAYER} discovered a POKéMON SIGN!\n", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_ELECTIVIRE_SIGN)
+		addobject(HINT_GIRL)
+
+		clearflag(FLAG_TEMP_1)
+	}
+	release
+	end
+}
+
+script RockTunnel_CavePeople {
+	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("He's transfixed by the shadow on\nthe wall.\pHe does not consider your presence.\n", MSGBOX_DEFAULT)
+	release
+	end
+}

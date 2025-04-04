@@ -4351,7 +4351,7 @@
           "map": "MAP_ROCK_TUNNEL_1F",
           "base_label": "sRockTunnel1F_FireRed",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 1,
             "mons": [
               {
                 "min_level": 15,

@@ -988,7 +988,7 @@
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
 #define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
-#define FLAG_CSR_SIGN               0x39D
+#define FLAG_ONIX_TAIL_SIGN               0x39D
 #define FLAG_CSR_SIGN_2               0x39E
 
 
