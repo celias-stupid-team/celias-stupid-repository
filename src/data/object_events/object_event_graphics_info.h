@@ -4898,3 +4898,4 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cannon = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spotlight = {     .tileTag = 0xFFFF,    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,    .size = 4096,    .width = 64,    .height = 64,    .paletteSlot = PALSLOT_NPC_2,    .shadowSize = SHADOW_SIZE_M,    .inanimate = FALSE,    .disableReflectionPaletteLoad = FALSE,    .tracks = TRACKS_FOOT,    .oam = &gObjectEventBaseOam_64x64,    .subspriteTables = gObjectEventSpriteOamTables_64x64,    .anims = sAnimTable_Standard,    .images = gObjectEventPicTable_Spotlight,    .affineAnims = gDummySpriteAffineAnimTable,};

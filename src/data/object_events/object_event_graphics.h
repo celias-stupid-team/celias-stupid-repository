@@ -406,3 +406,4 @@ const u32 gObjectEventPic_Safariwarden[] = INCBIN_U32("graphics/object_events/pi
 
 const u32 gObjectEventPic_Cannon[] = INCBIN_U32("graphics/object_events/pics/stupid/Cannon.4bpp");
 
+const u32 gObjectEventPic_Spotlight[] = INCBIN_U32("graphics/object_events/pics/stupid/Spotlight.4bpp");
