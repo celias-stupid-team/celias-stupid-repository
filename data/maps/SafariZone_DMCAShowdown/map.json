@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SafariZone_IronCleftBattle",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DMCA_IN_SAFARI_ZONE"
     },
     {
       "type": "object",
@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DMCA_IN_SAFARI_ZONE"
     },
     {
       "type": "object",
@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_DMCA_IN_SAFARI_ZONE"
     }
   ],
   "warp_events": [
@@ -64,7 +64,7 @@
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
-      "dest_warp_id": "12"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

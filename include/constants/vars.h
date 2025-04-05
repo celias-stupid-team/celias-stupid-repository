@@ -152,7 +152,7 @@
 #define VAR_MAP_SCENE_ROUTE5_ROUTE6_ROUTE7_ROUTE8_GATES                        0x4062
 #define VAR_ROUTE13_LASS_ATTACK                                      0x4063
 #define VAR_CSR_DANCE_SHOW                                          0x4064
-#define VAR_CSR_DUMMY_6                                 0x4065
+#define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_CSR_DUMMY_7                                 0x4066
 #define VAR_CSR_DUMMY_8                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
@@ -205,6 +205,22 @@ It is reset after every battle.
 7 = Harry with Ho-oh
 8 = Giovanni 1
 */
+
+#define EVENT_BATTLE_LARRY  1
+#define EVENT_BATTLE_BROCK  2
+#define EVENT_BATTLE_DMCA_WOLFF  3
+#define EVENT_BATTLE_JERRY  4
+#define EVENT_BATTLE_MISTY  5
+#define EVENT_BATTLE_SURGE  6
+#define EVENT_BATTLE_HARRY  7
+#define EVENT_BATTLE_GIOVANNI_1  8
+#define EVENT_BATTLE_ARIANA  9
+#define EVENT_BATTLE_ARCHER  10
+#define EVENT_BATTLE_DAD  11
+
+
+
+
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C
 #define VAR_ROUTE01_SHINY_RAT1         0x408D
 #define VAR_ROUTE01_SHINY_RAT2         0x408E
@@ -226,7 +242,7 @@ It is reset after every battle.
 #define VAR_CSR_TOASTER_COUNTER                 0x409E
 #define VAR_CSR_GIFT_POKEMON                 0x409F
 #define VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE                 0x40A0
-#define VAR_0x40A1                 0x40A1
+#define VAR_FUCHSIA_TYPE_TRIO_PROGRESS                 0x40A1
 #define VAR_0x40A2                 0x40A2
 #define VAR_0x40A3                 0x40A3
 #define VAR_0x40A4                 0x40A4
@@ -282,7 +298,7 @@ It is reset after every battle.
 #define VAR_CSR_CURRENT_LAVENDER_SECRET           0x40D5
 #define VAR_CSR_LAVENDER_LAST_DOOR                 0x40D6
 #define VAR_CSR_SAFARI_ZONE_EVOLUTION                 0x40D7
-#define VAR_0x40D8                 0x40D8
+#define VAR_POKEMON_TOWER_SCENE                 0x40D8
 #define VAR_0x40D9                 0x40D9
 #define VAR_0x40DA                 0x40DA
 #define VAR_0x40DB                 0x40DB
@@ -341,6 +357,15 @@ It is reset after every battle.
 #define VAR_SHAKESCREEN_HORIZONTAL_PAN VAR_0x8005
 #define VAR_SHAKESCREEN_NUM_SHAKES VAR_0x8006
 #define VAR_SHAKESCREEN_SHAKE_DELAY VAR_0x8007
+
+/*
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+
+
+*/
 
 
 #define VAR_0x8008                 0x8008

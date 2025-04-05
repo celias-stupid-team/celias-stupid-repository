@@ -28,3 +28,120 @@ Route18_EventScript_CyclingRoadSign::
 	msgbox Route18_Text_CyclingRoadSign, MSGBOX_SIGN
 	end
 `
+const BIRD_CULTIST = 6
+
+script Route18_BirdCultistStopsYouTrigger {
+	lock
+	playse(SE_PIN)
+	applymovement(BIRD_CULTIST, Common_Movement_ExclamationMark)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Halt there!\n", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	msgbox("That way goes to a sacred site of\nthe BIRD CULTISTS.\lDo not test us!\pIf you wish to proceed, you must\nearn the trust of our PRIEST.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+	waitmovement(0)
+	release
+}
+
+
+script Route18_BeachBoy {
+	msgbox("Huh?\nA bird cult ceremony?\pNah, man.\nEddie's my uncle.\lHe lets me through for free!", MSGBOX_NPC)
+	end
+}
+
+script Route18_SheSellsSeashells {
+	msgbox("SALLY: Hiya!\nI'm SALLY.\pI'm looking on the seashore for\nthings to sell.\lIt's fun!", MSGBOX_NPC)
+	end
+}
+
+
+const BirdCultLeader = 2
+script Route18_BirdCultistCeremony {
+	lock
+	getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+	switch(var(VAR_TEMP_2)) {
+		case 36:
+			applymovement(BirdCultLeader, BirdCult_Left)
+		case 37:
+			applymovement(BirdCultLeader, BirdCult_Mid)
+		default:
+			applymovement(BirdCultLeader, BirdCult_Right)
+	}
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("birds idk\n", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_BIRD_CULTISTS_TRUST_YOU, 1)
+	applymovement(BirdCultLeader, BirdCult_WalkAway)
+	waitmovement(0)
+	release
+
+}
+
+script Route18_BirdCultistLeader {
+	msgbox("I like birds\n", MSGBOX_NPC)
+	end
+}
+
+movement BirdCult_Left {
+	walk_down
+	face_down
+}
+movement BirdCult_Mid {
+	walk_down
+	walk_right
+	face_down
+}
+movement BirdCult_Right {
+	walk_down
+	walk_right * 2
+	face_down
+}
+
+movement BirdCult_WalkAway {
+	walk_left
+	face_right
+}
+
+script Route18_InstinctSealPedestal {
+	lock
+	if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
+		msgbox("The INSTINCT SEAL has been\ninserted.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("The pedestal is engraved with\nthe number two.", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_INSTINCT_SEAL)) {
+			msgbox("Would you like to insert the\nINSTINCT SEAL?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_INSERTED_INSTINCT_SEAL)
+				removeitem(ITEM_INSTINCT_SEAL)
+				msgbox("{PLAYER} inserted the\nINSTINCT SEAL…", MSGBOX_DEFAULT)
+				playse(SE_SWITCH)
+				closemessage
+				delay(30)
+				playse(SE_M_EARTHQUAKE)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+				special(ShakeScreen)
+				delay(60)
+				playse(SE_ITEMFINDER)
+				waitse
+			}
+		}
+	}
+	release
+}
+
+script Route18_BirdCultistLeft {
+	msgbox("Glory to the Wing!\nPraise to the Talon!\pMay we soar forevermore above the\nplains of despair!", MSGBOX_NPC)
+	end
+}
+
+script Route18_BirdCultistRight {
+	msgbox("We are the BIRD CULTISTS.\nOur herald has been called!\pIn the presence of the FLOAT STONE\nwe are given peace and power.", MSGBOX_NPC)
+	end
+}

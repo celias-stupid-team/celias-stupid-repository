@@ -119,7 +119,7 @@ Route11_Text_Receptionist::
 	.string "Receptionist.\n$"
 
 Route11_Text_Doctor::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Doctor.\n$"
+	.string "{COLOR GREEN}{SHADOW LIGHT_GREEN}Doctor.\n$"
 
 Route11_Text_Miscarriage::
 	.string "Miscarriage.\n$"

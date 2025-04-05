@@ -10,3 +10,32 @@ SafariZone_Center_RestHouse_EventScript_Scientist::
 	msgbox SafariZone_Center_Text_CatchingMonsAsGifts, MSGBOX_NPC
 	end
 `
+script SafariZone_RestDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm enjoying some sightseeing here\nin the SAFARI ZONE.\lThe wildlife seems sparse, though.\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script SafariZone_RestDad2 {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pWhat?\nOf course I'm in all of these.\lWhy d'ya think it's a REST house?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script SafariZone_Rest_Scientist {
+	msgbox("The SAFARI ZONE doesn't have any\nwild POKéMON anymore.\pYou'd think it's the DMCA's fault,\nbut they actually didn't do it.\pSome kid caught tons and tons of one\nsingle POKéMON.\lThat threw off the whole ecosystem.\pHopefully it'll recover someday…\n", MSGBOX_NPC)
+	end
+}
+
+script SafariZone_WhiteSesameSeed {
+	msgbox("SARA: Oh? Hello.\nI am a white sesame seed.\lMy name is SARA.", MSGBOX_SIGN)
+	end
+}

@@ -434,7 +434,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPoison[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherColton[] = {
     {
         .iv = 0,
-        .lvl = 19,
+        .lvl = 26,
         .species = SPECIES_WURMPLE,
     },
 };
@@ -4398,7 +4398,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt19[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_IRON_BUNDLE,
     },
     {
         .iv = 0,
@@ -6157,16 +6157,18 @@ static const struct TrainerMonItemCustomMoves sParty_ChampionFirstCharmander[] =
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerPatricia[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_ChannelerPatricia[] = {
     {
         .iv = 0,
         .lvl = 22,
         .species = SPECIES_SWELLOW,
+        .moves = {MOVE_FLY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 22,
         .species = SPECIES_LUDICOLO,
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
@@ -6174,7 +6176,27 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerCarly[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_UNOWN_S,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_UNOWN_E,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_UNOWN_N,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_UNOWN_D,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_UNOWN_NUDES,
     },
 };
 
@@ -6182,7 +6204,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerHope[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_GASTLY,
+        .species = SPECIES_CELEBI,
     },
 };
 
@@ -10081,3 +10103,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer40[] = {
 
 };
 
+
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_IRON_CLEFT,
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_IRON_CLEFT,
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
+    },
+
+};

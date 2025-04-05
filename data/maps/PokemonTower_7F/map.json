@@ -5,7 +5,7 @@
   "music": "MUS_POKE_TOWER",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
-  "weather": "WEATHER_FOG_HORIZONTAL",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": true,
@@ -20,14 +20,14 @@
       "graphics_id": "OBJ_EVENT_GFX_SHADOWKANGA",
       "x": 12,
       "y": 5,
-      "elevation": 3,
+      "elevation": 2,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonTower_7F_EventScript_MrFuji",
-      "flag": "FLAG_HIDE_TOWER_FUJI"
+      "flag": "FLAG_HIDE_TOWER_ROCKET_3"
     },
     {
       "type": "object",
@@ -70,6 +70,34 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "PokemonTower_7F_EventScript_Grunt3",
       "flag": "FLAG_HIDE_TOWER_ROCKET_3"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_KANGASKHAN",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MR_FUJI",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -85,11 +113,29 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_POKEMON_TOWER_SCENE",
       "var_value": "0",
-      "script": "PokemonTower_Trailer"
+      "script": "PokemonTower_CenterWalkUp"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_POKEMON_TOWER_SCENE",
+      "var_value": "0",
+      "script": "PokemonTower_LeftWalkUp"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_POKEMON_TOWER_SCENE",
+      "var_value": "0",
+      "script": "PokemonTower_RightWalkUp"
     }
   ],
   "bg_events": [

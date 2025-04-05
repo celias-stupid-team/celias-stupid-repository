@@ -469,7 +469,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_KANGA                0x1126
 #define OBJ_EVENT_PAL_TAG_SHADOW_KANGA                0x1127
 #define OBJ_EVENT_PAL_TAG_BOUFFALANT                0x1128
-#define OBJ_EVENT_PAL_TAG_IVYSAUR                0x1128
+#define OBJ_EVENT_PAL_TAG_IVYSAUR                0x1129
+#define OBJ_EVENT_PAL_TAG_LOOKER                0x1130
+#define OBJ_EVENT_PAL_TAG_AMPHAROS                0x1131
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -516,6 +518,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Bouffalant,             OBJ_EVENT_PAL_TAG_BOUFFALANT},
     {gObjectEventPal_Machoke,             OBJ_EVENT_PAL_TAG_RS_MACHOKE},
     {gObjectEventPal_Ivysaur,             OBJ_EVENT_PAL_TAG_IVYSAUR},
+    {gObjectEventPal_Looker,             OBJ_EVENT_PAL_TAG_LOOKER},
+    {gObjectEventPal_Ampharos,             OBJ_EVENT_PAL_TAG_AMPHAROS},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

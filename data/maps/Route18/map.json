@@ -28,63 +28,138 @@
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "offset": 33,
       "direction": "up"
+    },
+    {
+      "map": "MAP_GREAT_SEA_CENTER",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 52,
-      "y": 2,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route18_EventScript_Jacob",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 50,
-      "y": 3,
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 35,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route18_EventScript_Ramiro",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route18_BirdCultistLeft",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 48,
-      "y": 2,
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 36,
+      "y": 13,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Route18_BirdCultistLeader",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 39,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "6",
-      "script": "Route18_EventScript_Wilton",
+      "script": "Route18_BirdCultistRight",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BROCK",
-      "x": 54,
-      "y": 7,
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
+      "x": 43,
+      "y": 1,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route18_SheSellsSeashells",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FLOATSTONE",
+      "x": 37,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SOUL_DEW",
+      "script": "EventScript_FindItem",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 50,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route15_Brock",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "x": 54,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route18_BeachBoy",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 35,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route_18_EventScript_CSR_ItemOddCandy",
+      "flag": "FLAG_ROUTE_18_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -102,17 +177,45 @@
       "elevation": 3,
       "dest_map": "MAP_ROUTE18_EAST_ENTRANCE_1F",
       "dest_warp_id": "1"
-    },
-    {
-      "x": 59,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE18_SANDWICH_SHOP",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
+      "var_value": "0",
+      "script": "Route18_BirdCultistStopsYouTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
+      "var_value": "0",
+      "script": "Route18_BirdCultistStopsYouTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 50,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
+      "var_value": "0",
+      "script": "Route18_BirdCultistStopsYouTrigger"
+    }
   ],
   "bg_events": [
     {
@@ -125,11 +228,11 @@
     },
     {
       "type": "sign",
-      "x": 56,
-      "y": 6,
+      "x": 21,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route15_BakerySign"
+      "script": "Route18_InstinctSealPedestal"
     }
   ]
 }

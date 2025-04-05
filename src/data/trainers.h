@@ -4317,13 +4317,13 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_CHANNELER_PATRICIA] = {
         .trainerClass = TRAINER_CLASS_ANGRY_NERD,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS | F_TRAINER_FEMALE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_SCIENTIST,
         .trainerName = _("JAN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_ChannelerPatricia),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_ChannelerPatricia),
     },
     [TRAINER_CHANNELER_CARLY] = {
         .trainerClass = TRAINER_CLASS_CHANNELER,
@@ -6274,6 +6274,17 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("41"),
         .items = {},
         .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_PokerapTrainer40),
+    },
+    
+    [TRAINER_DMCA_ARCHER] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerName = _("ARCHER"),
+        .items = {},
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PokerapTrainer40),
     },

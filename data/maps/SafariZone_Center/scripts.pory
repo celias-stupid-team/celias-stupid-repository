@@ -24,6 +24,7 @@ mapscripts SafariZone_Center_MapScripts {
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
+			setflag(FLAG_TEMP_2)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
 			goto(SafariZone_Center_DMCA_Take_Case)
 		}
@@ -32,6 +33,7 @@ mapscripts SafariZone_Center_MapScripts {
 			waitmovement(0)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
 			msgbox("no case for you\n", MSGBOX_DEFAULT)
+			setflag(FLAG_TEMP_2)
 			removeitem(ITEM_TM_CASE)
 			setflag(FLAG_NO_TM_CASE)
 			release
@@ -103,9 +105,52 @@ script SafariZone_Center_DMCA_Take_Case {
 	playse(SE_M_DOUBLE_SLAP)
 	waitmovement(0)
 	setvar(VAR_TEMP_0, 1)
+	playse(SE_PIN)
+	applymovement(DMCA_Right, Common_Movement_ExclamationMark)
+	delay(60)
+	applymovement(DMCA_Right, Common_Movement_FaceUp)
+	waitmovement(0)
+	msgbox("Hey BOSS!\nCheck out what I found!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(DMCA_Lead, Common_Movement_WalkRight)
+	waitmovement(0)
+	applymovement(DMCA_Lead, Common_Movement_FaceDown)
+	msgbox("What's this?\nA TM CASE?\pHa!\nNo way we'll let that slide.\lIt's ours now!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{PLAYER}'s TM CASE was taken…\n", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(DMCA_Lead, DMCA_Lead_GoesUp)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Come on, gang!\nLet's bring this up.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(DMCA_Lead, DMCA_Lead_Leaves)
+	applymovement(DMCA_Right, DMCA_GoonsLeave)
+	applymovement(DMCA_Left, DMCA_GoonsLeave)
+	waitmovement(0)
 	removeitem(ITEM_TM_CASE)
+	removeobject(DMCA_Lead)
+	removeobject(DMCA_Right)
+	removeobject(DMCA_Left)
 	setflag(FLAG_NO_TM_CASE)
 	release
+}
+
+movement DMCA_Lead_GoesUp {
+	walk_up
+	face_down
+}
+
+movement DMCA_Lead_Leaves {
+	walk_right * 9
+}
+
+movement DMCA_GoonsLeave {
+	walk_up * 2
+	walk_right * 9
 }
 
 movement DMCALeft { 
@@ -128,6 +173,8 @@ movement PlayerRoughedUp {
 	face_left
 	delay_16
 	face_right
+	delay_16
+	face_left
 	delay_16
 }
 

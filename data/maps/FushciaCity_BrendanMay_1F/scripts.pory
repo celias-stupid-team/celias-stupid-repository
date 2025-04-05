@@ -14,4 +14,18 @@ script BrendanMay_Machoke {
     end
 }
 
+script BrendanMay_Mom {
+    if(flag(FLAG_TEMP_1)) {
+        msgbox("Oh, wasn't there a POKéMON over\nthere helping us move in?\pI wonder what happened to it.\n", MSGBOX_NPC)
+    } else {
+	    msgbox("Hello.\nAre you a visitor?\pMy family recently moved here.\nMy SON should be arriving shortly.\lHis FATHER is the GYM LEADER, see.\pI hope his trip went safely…\n", MSGBOX_NPC)
+    }
+}
 
+script BrendanMay_ImposterOak {
+    lock
+    msgbox("Something about this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
+    playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
+    waitmoncry
+    release
+}

@@ -12,7 +12,7 @@ Route12_EventScript_TryRemoveSnorlax::
 Route12_EventScript_Snorlax::
 	lock
 	faceplayer
-	goto_if_unset FLAG_GOT_POKE_FLUTE, Route12_EventScript_SnorlaxNoPokeFlute
+	goto Route12_EventScript_SnorlaxNoPokeFlute
 	goto_if_questlog EventScript_ReleaseEnd
 	special QuestLog_CutRecording
 	msgbox Text_WantToUsePokeFlute, MSGBOX_YESNO
@@ -66,7 +66,19 @@ mapscripts Route12_MapScripts{
 	 }
 }
 
+script Route12_SleepingSnorlax {
+	msgbox("A POKéMON is in a deep slumber.\n", MSGBOX_SIGN)
+	end
+}
 
+script Route12_AnnoyedGuy {
+	if(flag(FLAG_CSR_DEFEATED_SNORLAX)) {
+		msgbox("Rats!\nThe POKéMON in the road moved, but…\pIt doesn't actually help me.\nI was trying to go to The Mountains!\lGrumble grumble…", MSGBOX_NPC)
+	} else {
+		msgbox("Rats!\nThere's a POKéMON in the road.\pI tried to catch it just to get it\nout of the way, but I couldn't.\lThe BALLS just bounced right off!\pIf only there were a way to wake\nit up…", MSGBOX_NPC)
+	}
+	end
+}
 
 script Route12_DrawHall {
 

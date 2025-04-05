@@ -113,7 +113,7 @@ script Route18_LassBinoculars {
 		end
 
 	} else {
-		msgbox("Thank you for taking the time to\ncheck these binoculars.\p...\pThese binoculars love you.\n", MSGBOX_DEFAULT)
+		msgbox("… … …\n… … …\pOkay.\nLooks like she's gone.", MSGBOX_DEFAULT)
 	releaseall
 	end
 	}

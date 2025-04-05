@@ -1,3 +1,18 @@
 mapscripts FushciaCity_BrendanMay_2F_MapScripts {
     
 }
+
+script BrendanMay_Clock {
+	msgbox("The clock is stopped…\pToo bad there's no way to start it!\n", MSGBOX_SIGN)
+	end
+}
+
+script BrendanMay_Bed {
+	msgbox("Hmm…\nIt doesn't smell like you!", MSGBOX_SIGN)
+	end
+}
+
+script BrendanMay_ChildDelivery {
+	msgbox("There's an email message here…\pWe are deeply sorry for the delay\non the delivery of your package.\lIt was sadly lost in transit.\pAs an apology, please accept this\ncoupon for 40% off your next order!\lKANTO CHILD DELIVERY SERVICE", MSGBOX_SIGN)
+	end
+}

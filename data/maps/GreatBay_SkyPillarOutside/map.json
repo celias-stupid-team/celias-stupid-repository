@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_ROUTE17",
-      "offset": -102,
+      "offset": -80,
       "direction": "left"
     }
   ],
@@ -29,10 +29,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 18,
-      "y": 27,
+      "x": 26,
+      "y": 23,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -42,8 +42,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 13,
+      "graphics_id": "OBJ_EVENT_GFX_BIRDCULTIST",
+      "x": 14,
       "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",

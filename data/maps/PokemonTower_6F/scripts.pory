@@ -24,18 +24,63 @@ PokemonTower_6F_EventScript_Jennifer::
 script PokemonTower_6F_WorriedAboutCuboneMom {
 	lock
 	faceplayer
-	if(flag(FLAG_RESCUED_CUBONES_MOM)) {
-		msgbox("The DMCA have left.\n", MSGBOX_DEFAULT) //PLACEHOLDER
+	if(flag(FLAG_GOT_MATH_CLUB)) {
+		msgbox("CUBONE's MOTHER was a lovely\nvolunteer at the school.\lShe'd come in if MR. FUJI got sick.\pI'd be distraught if anything\nhappened to her.", MSGBOX_DEFAULT)
 	} else {
-	msgbox("The local schoolteacher MR. FUJI\nwas taken up here a while ago.\pHe allowed his students to use\ncopyrighted characters in class.\lThe DMCA goons were not happy.\pCUBONE's MOM came up to save him.\nI hope she's okay…", MSGBOX_DEFAULT)
+		msgbox("CUBONE was one of my students after\nschool.\lI ran the extra-curriculars, see.\pThis one was always his favorite.\nYou should take it.", MSGBOX_DEFAULT)
+		setflag(FLAG_GOT_MATH_CLUB)
+		giveitem_msg("{PLAYER} recieved the MATH CLUB.\n", ITEM_MATH_CLUB, 1, FANFARE_LEVEL_UP)
+		msgbox("CUBONE's MOTHER was a lovely\nvolunteer at the school.\lShe'd come in if MR. FUJI got sick.\pI'd be distraught if anything\nhappened to her.", MSGBOX_DEFAULT)
 	}
 	release
 }
 
-script PokemonTower_6F_Placeholder {
+script PokemonTower_6F_Fuji {
+	msgbox("MR. FUJI: Oh, goodness…\pMy name is MR. FUJI.\nI am the schoolteacher here.\pThose miserable DMCA are waiting\nupstairs.\lThey've taken CUBONE'S MOTHER.\pShe supported our students' freedom\nof creativity.\pThey weren't happy about that.\nI pray for her safety…", MSGBOX_NPC)
+	end
+}
 
+script PokemonTower_6F_SpellingKid {
+	trainerbattle_single(TRAINER_CHANNELER_JENNIFER, PokemonTower_6F_Text_JenniferIntro, PokemonTower_6F_Text_JenniferDefeat)
+	
+}
+
+script PokemonTower_6F_MoveTutor {
+	lock
+	faceplayer
+	msgbox(TwoIsland_House_Text_WantMeToTeachMove, MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+			msgbox(TwoIsland_House_Text_TutorWhichMon)
+			special(SelectMoveTutorMon)
+			waitstate
+			goto_if_ge(VAR_0x8004, PARTY_SIZE, TwoIsland_House_EventScript_EndTutorMove)
+			special(IsSelectedMonEgg)
+			goto_if_eq(VAR_RESULT, TRUE, TwoIsland_House_EventScript_CantTutorEgg)
+			goto_if_eq(VAR_0x8005, 0, TwoIsland_House_EventScript_NoMoveToTutorMon)
+			goto(TwoIsland_House_EventScript_ChooseMoveToTeach)
+
+				msgbox(TwoIsland_House_Text_TeachWhichMove)
+				special(DisplayMoveTutorMenu)
+				waitstate
+				goto_if_eq(VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor)
+				call(EventScript_RestorePrevTextColor)
+				goto(TwoIsland_House_EventScript_EndTutorMove)
+				end
+
+
+	} else {
+		goto(TwoIsland_House_EventScript_EndTutorMove)
+	}
 }
 
 script PokemonTower_6F_Placeholder2 {
 	
 }
+
+script PokemonTower_6F_Savestate {
+	msgbox("TRAINER TIPS!\pRemember to savestate frequently!\n", MSGBOX_SIGN)
+	end
+}
+
+
+

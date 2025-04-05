@@ -20,8 +20,13 @@
       "direction": "left"
     },
     {
+      "map": "MAP_GREAT_SEA_CENTER",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
       "map": "MAP_ROUTE19",
-      "offset": -66,
+      "offset": -68,
       "direction": "right"
     }
   ],

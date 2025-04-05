@@ -240,3 +240,8 @@ const u32 gMetatileAttributes_EmeraldBuilding[] = INCBIN_U32("data/tilesets/prim
 
 const u16 gMetatiles_SodaShop[] = INCBIN_U16("data/tilesets/secondary/soda_shop/metatiles.bin");
 const u32 gMetatileAttributes_SodaShop[] = INCBIN_U32("data/tilesets/secondary/soda_shop/metatile_attributes.bin");
+
+const u16 gMetatiles_RSE_Indoors[] = INCBIN_U16("data/tilesets/secondary/rse_indoors/metatiles.bin");
+const u32 gMetatileAttributes_RSE_Indoors[] = INCBIN_U32("data/tilesets/secondary/rse_indoors/metatile_attributes.bin");
+const u16 gMetatiles_NewFuchsiaGym[] = INCBIN_U16("data/tilesets/secondary/new_fuchsia_gym/metatiles.bin");
+const u32 gMetatileAttributes_NewFuchsiaGym[] = INCBIN_U32("data/tilesets/secondary/new_fuchsia_gym/metatile_attributes.bin");

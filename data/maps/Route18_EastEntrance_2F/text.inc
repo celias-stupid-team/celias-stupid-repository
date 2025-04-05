@@ -6,5 +6,6 @@ Route18_EastEntrance_2F_Text_PalletTownInWest::
 Route18_EastEntrance_2F_Text_PeopleSwimming::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "There are people swimming.$"
+	.string "There's a tower going up to the\n"
+	.string "sky.$"
 

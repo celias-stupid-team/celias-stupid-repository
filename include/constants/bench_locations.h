@@ -23,5 +23,6 @@
 #define BENCH_VIRIDIAN_FOREST                20
 #define BENCH_ROUTE14                21
 #define BENCH_ROUTE15                22
+#define BENCH_SAFARIZONE_EAST                23
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

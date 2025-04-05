@@ -4,6 +4,7 @@ mapscripts KantoLighthouse_3F_MapScripts {
 
 script KantoLighthouse_3F_FallDownHole {
     lock
+	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
     warphole(MAP_KANTO_LIGHTHOUSE_2F)
     release
     end
@@ -13,7 +14,7 @@ script KantoLighthouse_3F_Dad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, you'd better watch out for\nthe holes in the floor!\lI wouldn't want you to get hurt!\pAnyway, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, you'd better watch out for\nthe holes in the floor.\lI wouldn't want you to get hurt!\pAnyway, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -48,4 +49,70 @@ script Common_EventScript_StaticEncounter {
     fadescreen(FADE_FROM_BLACK)
 	release
 	end
+}
+
+const WindowLeft = 41
+const WindowMiddle = 42
+const WindowRight = 43
+const WindowTop = 30
+const WindowBottom = 31
+
+script Lighthouse_3F_Window {
+	lock
+	fadenewbgm(MUS_DUMMY)
+	if(flag(FLAG_JUMPED_FROM_LIGHTHOUSE)) {
+		msgbox("A thin piece of paper covers a\n{PLAYER}-shaped hole in the glass.\pWould you like to jump?\n", MSGBOX_YESNO)
+	} else {
+		msgbox("The window overlooks a 70-foot\ndrop down to the ground below.\pWould you like to jump?\n", MSGBOX_YESNO)
+	}
+	if(!var(VAR_RESULT)) {
+		msgbox("{PLAYER} decided to be a fucking\npussy.", MSGBOX_DEFAULT)
+		closemessage
+		fadedefaultbgm
+		release 
+		end
+	} else {
+		closemessage
+		delay(30)
+		special(SpawnCameraObject)
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpToDeath_1)
+		waitmovement(0)
+		playse(SE_LEDGE)
+		applymovement(OBJ_EVENT_ID_PLAYER, JumpToDeath_2)
+		waitmovement(0)
+		playse(SE_ICE_BREAK)
+		special(RemoveCameraObject)
+		setmetatile(WindowLeft, WindowTop, 0x37B, TRUE)
+		setmetatile(WindowMiddle, WindowTop, 0x37C, TRUE)
+		setmetatile(WindowRight, WindowTop, 0x37D, TRUE)
+		setmetatile(WindowLeft, WindowBottom, 0x383, TRUE)
+		setmetatile(WindowMiddle, WindowBottom, 0x384, TRUE)
+		setmetatile(WindowRight, WindowBottom, 0x385, TRUE)
+		special(DrawWholeMapView)
+		delay(120)
+		setflag(FLAG_JUMPED_FROM_LIGHTHOUSE)
+		warphole(MAP_ROUTE15)
+
+
+
+	}
+}
+
+movement JumpToDeath_1 {
+	lock_facing_direction
+	walk_slow_down
+	face_up
+	delay_16 * 2
+	walk_slow_down
+	face_up
+	delay_16 * 2
+	walk_slow_down
+	face_up
+	delay_16 * 4
+	unlock_facing_direction
+	player_run_up * 2
+}
+movement JumpToDeath_2 {
+	jump_2_up
+	set_invisible
 }

@@ -206,3 +206,7 @@ FushciaCity_SafariZone_Entrance_EventScript_ExplainSafariZone::
 	release
 	end
 `
+script FushciaCity_SafariZone_Entrance_EventScript_Guy {
+	msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.", MSGBOX_NPC)
+	end
+}

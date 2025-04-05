@@ -50,6 +50,7 @@ FushciaCity_EventScript_SafariZoneSign::
 	end
 
 FushciaCity_EventScript_SafariGameSign::
+	setflag FLAG_TEMP_1
 	msgbox FushciaCity_Text_SafariGameSign, MSGBOX_SIGN
 	end
 
@@ -130,10 +131,11 @@ FushciaCity_EventScript_FossilMonSign::
 	releaseall
 	end
 
-FushciaCity_EventScript_OmanyteSign::
-	setvar VAR_0x8004, SPECIES_BOUFFALANT
+FushciaCity_EventScript_StakatakaSign::
+	lockall
+	setvar VAR_0x8004, SPECIES_STAKATAKA
 	special SetSeenMon
-	showmonpic SPECIES_BOUFFALANT, 10, 3
+	showmonpic SPECIES_STAKATAKA, 10, 3
 	msgbox FushciaCity_Text_OmanyteSign
 	hidemonpic
 	releaseall
@@ -143,6 +145,16 @@ FushciaCity_EventScript_OmanyteSign::
 script FuschiaCity_BrickBreak {
 	call(Common_Script_BrickBreak)
 	//wall breaks
+	release
+}
+
+script FushciaCity_Fishing {
+	lock
+	faceplayer
+	msgbox("I hate fish.\nFishing is a farce.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(0)
 	release
 }
 
@@ -162,7 +174,7 @@ script Common_Script_BrickBreak {
 		}
 
 	} else {
-		msgbox("{PLAYER} decided against causing severe\nproperty damage.", MSGBOX_DEFAULT)
+		msgbox("There's a BRICK wall in the way.", MSGBOX_DEFAULT)
 	}
 	release
 }
@@ -213,4 +225,102 @@ script FushciaCity_ReturnTMCase {
 		msgbox("Mysteriously, you feel your TM CASE\nre-materialize in your bag.\lNeat!", MSGBOX_DEFAULT)
 	}
 	release
+}
+
+script FushciaCity_HiddenHbox {
+	if(checkitem(ITEM_DEVON_SCOPE)) {
+		//messagebox about using the scope
+		//set visible, toggle on and off
+		delay(60)
+		goto(Common_EventScript_StaticEncounter)
+	} else {
+		lock
+		msgbox("There's an invisible object in\nthe way.", MSGBOX_DEFAULT)
+		release
+	}
+}
+
+script FushciaCity_SmallChild {
+	lock
+	faceplayer
+	msgbox("Help!\nI can't get up!\pIf only it were physically possible\nto scale waist-high cliffs…", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+	waitmovement(0)
+	release
+}
+
+script FushciaCity_MartClosed {
+	msgbox("FUSHCIA CITY POKéMART\nTEMPORARILY CLOSED\pPending investigation of a link to\nthe mass POISONING scandal.\pAuthorities cite spike in sales of\nANTIDOTES as evidence.\lStay tuned for updates.", MSGBOX_SIGN)
+	end
+}
+
+script FushciaCity_MartEmployee {
+	msgbox("This is outrageous!\nWe're innocent, I tell you!", MSGBOX_NPC)
+	end
+}
+
+script FushciaCity_BlackSesameSeed {
+	lock
+	msgbox("ERIK: Oh?\nHello, there.\pI am but a humble black sesame seed.\nMy name is ERIK.", MSGBOX_DEFAULT)
+	release
+}
+
+script FushciaCity_SloganGuy {
+	lock
+	if(flag(FLAG_TEMP_1)) {
+		msgbox("…\pWhat the fuck kind of slogan is\nthat?", MSGBOX_DEFAULT)
+	} else {
+		msgbox("…\p…What?", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script FushciaCity_MoveDeleterSign {
+	msgbox("Move Deleter's House\pNotice!\nThe Move Deleter's House\lhas been deleted.", MSGBOX_SIGN)
+	end
+}
+
+const SIGN_GUY = 10
+script FushciaCity_SloganSign {
+	lock
+	msgbox(FushciaCity_Text_SafariGameSign)
+	closemessage
+	delay(20)
+	applymovement(SIGN_GUY, WalkInPlaceLeft)
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("…\pWhat the fuck kind of slogan is\nthat?", MSGBOX_DEFAULT)
+	release
+}
+
+movement WalkInPlaceLeft {
+	walk_in_place_left * 2
+	face_left
+}
+
+const DAD = 1
+script FushciaCity_Dad {
+	lock
+	applymovement(DAD, Common_Movement_FaceDown)
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm just relaxing here in my\ncage.\lI love when people come to see me!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script FushciaCity_OldMan {
+	msgbox("Our SAFARI ZONE used to be the\ncrown jewel of the city.\lThat was back in the old days.\pEver since the DMCA came into the\npicture, it's been in decline.\pAh, to have the old FUSHCIA back…\n", MSGBOX_NPC)
+	end
+}
+
+script FushciaCity_OfficesSign {
+	msgbox("SAFARI ZONE OFFICES\nFinancial Division", MSGBOX_SIGN)
+	end
+}
+
+script FushciaCity_GuruBrotherSign {
+	msgbox("The FISHING GURU'S BROTHER's house\n", MSGBOX_SIGN)
+	end
 }

@@ -42,9 +42,8 @@ FushciaCity_Text_SafariZoneOfficeSign::
     .string "SAFARI ZONE OFFICE$"
 
 FushciaCity_Text_GymSign::
-    .string "FUSHCIA CITY POKéMON GYM\n"
-    .string "LEADER: KOGA\l"
-    .string "The Poisonous Ninja Master$"
+	.string "“Three steps {RIGHT_ARROW} and two steps {UP_ARROW}\n"
+	.string "to reach FUSHCIA GYM.”$"
 
 FushciaCity_Text_ChanseySign::
     .string "Name: CHANSEY\n"
@@ -70,11 +69,8 @@ FushciaCity_Text_LaprasSign::
 	.string "Currently seeking a girlfriend!$"
 
 FushciaCity_Text_OmanyteSign::
-	.string "Name: BOUFFALANT\n"
-	.string "Did you know?\p"
-	.string "UNOVA BOUFFALANT whom UNOVA\n"
-	.string "BOUFFALANT bully themselves bully\l"
-	.string "UNOVA BOUFFALANT!$"
+	.string "Name: STAKATAKA\n"
+	.string "Ours is very fancy!$"
 
 FushciaCity_Text_KabutoSign::
 	.string "Name: BOUFFALANT\n"

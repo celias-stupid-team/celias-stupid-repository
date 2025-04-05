@@ -16,12 +16,22 @@
   "connections": [
     {
       "map": "MAP_FUSHCIA_CITY",
-      "offset": -12,
+      "offset": -18,
       "direction": "up"
     },
     {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": 12,
+      "direction": "right"
+    },
+    {
       "map": "MAP_ROUTE20",
-      "offset": 66,
+      "offset": 68,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE20",
+      "offset": 68,
       "direction": "left"
     }
   ],
@@ -30,7 +40,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
       "x": 12,
-      "y": 17,
+      "y": 24,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -57,8 +67,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 8,
-      "y": 27,
+      "x": 6,
+      "y": 28,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -72,7 +82,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
       "x": 16,
-      "y": 22,
+      "y": 31,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -182,8 +192,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 13,
-      "y": 12,
+      "x": 9,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route19_EventScript_RouteSign"

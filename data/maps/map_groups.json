@@ -55,7 +55,9 @@
     "Chapter1_TitleDrop",
     "Chapter2",
     "ViridianCity_GamblerHouse",
-    "GreatBay_SkyPillarOutside"
+    "GreatBay_SkyPillarOutside",
+    "GreatSea_North",
+    "GreatSea_Center"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -412,6 +414,8 @@
     "FushciaCity_WardensHouse",
     "FushciaCity_House2",
     "FushciaCity_House3",
+    "New_Fuchsia_Gym",
+    "New_Fuchsia_Gym_Status_Rooms",
     "FushciaCity_BrendanMay_1F",
     "FushciaCity_BrendanMay_2F",
     "SafariZone_DMCAShowdown"

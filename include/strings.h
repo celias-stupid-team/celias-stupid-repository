@@ -102,6 +102,7 @@ extern const u8 gText_NumberClear01[];
 extern const u8 gText_TimesStrVar1[];
 extern const u8 gText_IsSelected[];
 extern const u8 gText_ThereIsNoPokemon[];
+extern const u8 gText_ExpShareOff[];
 extern const u8 gText_ItemCantBeHeld[];
 extern const u8 gText_TMCase[];
 extern const u8 gText_Close[];
@@ -375,6 +376,7 @@ extern const u8 gText_NoMoreThanTwoMayEnter[];
 extern const u8 gText_NoMoreThanThreeMayEnter[];
 extern const u8 gText_PauseUntilPress[];
 extern const u8 gText_CantUseUntilNewBadge[];
+extern const u8 gText_CantUseUntilNewDemo[];
 extern const u8 gText_ReturnToHealingSpot[];
 extern const u8 gText_ReturnToBench[];
 extern const u8 gText_EscapeFromHereAndReturnTo[];
@@ -1123,6 +1125,8 @@ extern const u8 gText_CantWriteMailHere[];
 extern const u8 gText_DepositHowManyStrVars1[];
 extern const u8 gText_DepositedStrVar2StrVar1s[];
 extern const u8 gText_NoRoomToStoreItems[];
+extern const u8 gOtherText_On[];
+extern const u8 gOtherText_Off[];
 
 // union_room_battle
 extern const u8 gText_CommStandbyAwaitingOtherPlayer[];

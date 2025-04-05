@@ -114,8 +114,7 @@ Route19_Text_ConniePostBattle::
     .string "would keep me dry on water.$"
 
 Route19_Text_RouteSign::
-    .string "SEA ROUTE 19\n"
-    .string "FUSHCIA CITY - SEAFOAM ISLANDS$"
+    .string "SURF HOUSE$"
 
 Route19_Text_LiaIntro::
     .string "LIA: I'm looking after my brother.\n"

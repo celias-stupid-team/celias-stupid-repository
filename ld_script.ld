@@ -997,6 +997,8 @@ SECTIONS {
         sound/songs/midi/mus_chapter_3.o(.rodata);
         sound/songs/midi/se_rollout.o(.rodata);
         sound/songs/midi/se_make_it_rain.o(.rodata);
+        sound/songs/midi/mus_littleroot.o(.rodata);
+        sound/songs/midi/mus_looker_theme.o(.rodata);
 
     } > ROM =0
 

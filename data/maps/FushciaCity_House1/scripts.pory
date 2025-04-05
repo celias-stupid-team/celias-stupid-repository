@@ -19,9 +19,20 @@ FushciaCity_House1_EventScript_LittleBoy::
 `
 script FushciaCity_House1_PorygonHint {
 	lock
+	waitse
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+	delay(60)
+	msgbox("Ah, confound it!")
+	closemessage
 	faceplayer
-	msgbox("Ah, confound it!\nI clicked on one of those darn\lpop-up windows again.\pRats, I hope I didn't install a\nvirus on my POKéMON again…", MSGBOX_DEFAULT)
+	msgbox("I clicked on one of those darned\npop-up windows.\pRats, I hope I didn't install a\nvirus on my POKéMON again…", MSGBOX_DEFAULT)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
 	waitmovement(0)
 	release
+}
+
+script FushciaCity_House1_Kid {
+	msgbox("Technology is incredible!\pNow even grandpa can put POKéMON\nin the PC!", MSGBOX_NPC)
+	end
 }

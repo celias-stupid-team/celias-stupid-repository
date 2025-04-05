@@ -1464,3 +1464,14 @@ Text_TestMsg::
 
 	.include "data/maps/Route19_SurfHouse/scripts.inc"
 	.include "data/maps/Route19_SurfHouse/text.inc"
+
+	.include "data/maps/GreatSea_North/scripts.inc"
+	.include "data/maps/GreatSea_North/text.inc"
+	.include "data/maps/New_Fuchsia_Gym/scripts.inc"
+	.include "data/maps/New_Fuchsia_Gym/text.inc"
+
+	.include "data/maps/New_Fuchsia_Gym_Status_Rooms/scripts.inc"
+	.include "data/maps/New_Fuchsia_Gym_Status_Rooms/text.inc"
+
+	.include "data/maps/GreatSea_Center/scripts.inc"
+	.include "data/maps/GreatSea_Center/text.inc"

@@ -63,9 +63,8 @@ TwoIsland_House_EventScript_ChooseMoveToTeach::
 	special DisplayMoveTutorMenu
 	waitstate
 	goto_if_eq VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor
-	goto_if_set HAS_BOTH_MUSHROOMS, TwoIsland_House_EventScript_ChooseMushroom
-	goto_if_set HAS_BIG_MUSHROOM, TwoIsland_House_EventScript_GiveBigMushroom
-	goto_if_set HAS_TINY_MUSHROOMS, TwoIsland_House_EventScript_GiveTinyMushrooms
+	call EventScript_RestorePrevTextColor
+	goto TwoIsland_House_EventScript_EndTutorMove
 	end
 
 TwoIsland_House_EventScript_GiveBigMushroom::

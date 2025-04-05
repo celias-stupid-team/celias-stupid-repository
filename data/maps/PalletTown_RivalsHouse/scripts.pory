@@ -218,7 +218,7 @@ script BobOmbBattlefield_EventScript_Cannon {
 		//player locks facing direction
 		//player slides up very quickly until off screen
 		
-		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 9, 1)
+		warp(MAP_FUSHCIA_CITY_BRENDAN_MAY_2F, 2, 2)
 
 	}
 	release

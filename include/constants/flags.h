@@ -325,17 +325,17 @@
 #define FLAG_NO_TM_CASE               0x117
 #define FLAG_POKEMONTOWER_POKEBALL               0x118
 #define FLAG_POKEMONTOWER_BANETTE               0x119
-#define FLAG_0x11A               0x11A
-#define FLAG_0x11B               0x11B
-#define FLAG_0x11C               0x11C
-#define FLAG_0x11D               0x11D
-#define FLAG_0x11E               0x11E
-#define FLAG_0x11F               0x11F
-#define FLAG_0x120               0x120
-#define FLAG_0x121               0x121
-#define FLAG_0x122               0x122
-#define FLAG_0x123               0x123
-#define FLAG_0x124               0x124
+#define FLAG_FUCHSIA_SIGN_LADY_EAST               0x11A
+#define FLAG_FUCHSIA_SIGN_LADY_WEST               0x11B
+#define FLAG_HIDE_DMCA_IN_SAFARI_ZONE               0x11C
+#define FLAG_ROUTE13_HIDE_DAD               0x11D
+#define FLAG_ROUTE13_LASS_2               0x11E
+#define FLAG_INSERTED_INSTINCT_SEAL               0x11F
+#define FLAG_GOT_MATH_CLUB               0x120
+#define FLAG_BATTLED_IRON_CLEFTS               0x121
+#define FLAG_TALKED_TO_FISHING_GURU               0x122
+#define FLAG_PALLET_IMPOSTER_OAK               0x123
+#define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_0x125               0x125
 #define FLAG_0x126               0x126
 #define FLAG_0x127               0x127
@@ -856,12 +856,12 @@
 #define FLAG_CSR_TALKED_TO_TUBER               0x317
 #define FLAG_CSR_ON_PATH_TO_LAVENDER_SECRET               0x318
 #define FLAG_CSR_HIDE_MUSIC_GIRL               0x319
-#define FLAG_0x31A               0x31A
-#define FLAG_0x31B               0x31B
-#define FLAG_0x31C               0x31C
-#define FLAG_0x31D               0x31D
-#define FLAG_0x31E               0x31E
-#define FLAG_0x31F               0x31F
+#define FLAG_CSR_FUSHCIA_HBOX               0x31A
+#define FLAG_CSR_GOT_SLOWPOKE               0x31B
+#define FLAG_CSR_GOT_GUN               0x31C
+#define FLAG_LIGHTHOUSE_OLD_MAN               0x31D
+#define FLAG_JUMPED_FROM_LIGHTHOUSE               0x31E
+#define FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE               0x31F
 #define FLAG_0x320               0x320
 #define FLAG_0x321               0x321
 #define FLAG_0x322               0x322
@@ -988,7 +988,7 @@
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
 #define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
-#define FLAG_CSR_SIGN               0x39D
+#define FLAG_ONIX_TAIL_SIGN               0x39D
 #define FLAG_CSR_SIGN_2               0x39E
 
 
@@ -1421,7 +1421,7 @@
 
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
-#define FLAG_0x82A                                                  (SYS_FLAGS + 0x2A)
+#define FLAG_SYS_IS_FULL_RELEASE                                                  (SYS_FLAGS + 0x2A) //For locking surf out of demo 3
 #define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
