@@ -80,7 +80,12 @@ script DanceTheater_ShortKid {
         }
     } else {
         if(flag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)) {
-            msgbox("thank you message\n", MSGBOX_DEFAULT)
+            if(!checkitem(ITEM_CANDY_DISPENSER)) {
+                msgbox("Wowie, thanks!\nThat DANCE was so cool!\pBeing short stinks!\nI can't wait until I grow up…\pHere, take this.\nIt'll help your POKéMON grow!", MSGBOX_DEFAULT)
+                msgreceiveditem("{PLAYER} received a CANDY DISPENSER\nfrom the tiny child!", ITEM_CANDY_DISPENSER)
+            }
+            msgbox("I wish eating CANDY all day would\nmake me grow up faster.\lIt's not fair…", MSGBOX_DEFAULT)
+
         } else {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
                 msgbox("fuck you message\n", MSGBOX_DEFAULT)

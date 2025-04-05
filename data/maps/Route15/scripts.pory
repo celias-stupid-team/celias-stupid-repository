@@ -245,6 +245,31 @@ script Route15_NoHMBoat {
 	release
 }
 
+script Route15_FindShellder_Left {
+	lock
+	setmetatile(16, 25, 0x115, FALSE)
+	special(DrawWholeMapView)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_ObtainedPokemon)
+	release
+}
+
+script Route15_FindShellder_Right {
+	lock
+	setmetatile(32, 30, 0x115, FALSE)
+	special(DrawWholeMapView)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_ObtainedPokemon)
+	release
+}
+
+
 movement Route15_Lighthouse_WalkOneLeft // I kinda forgot aboout the * notation for multiple walks oops
 {
 	walk_left

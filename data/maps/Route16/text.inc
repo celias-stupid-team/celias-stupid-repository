@@ -41,8 +41,8 @@ Route16_Text_HideoPostBattle::
     .string "FUSHCIA going along the coast.$"
 
 Route16_Text_CamronIntro::
-    .string "I'm feeling hungry and mean!\n"
-    .string "I need a punching bag!$"
+	.string "Watch out!\n"
+	.string "There's a dangerous criminal afoot!$"
 
 Route16_Text_CamronDefeat::
     .string "Bad, bad, bad!$"

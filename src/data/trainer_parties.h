@@ -10117,5 +10117,34 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
         .species = SPECIES_IRON_CLEFT,
         .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
     },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopSailor[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHOP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopShorts[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SCRAGGY,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopRichKid[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ZIGZAGOON,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 
 };

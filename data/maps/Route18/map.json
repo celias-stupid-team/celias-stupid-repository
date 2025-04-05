@@ -203,9 +203,9 @@
       "x": 37,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route18_BirdCultistCeremony"
     },
     {
       "type": "trigger",
@@ -215,6 +215,24 @@
       "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
       "var_value": "0",
       "script": "Route18_BirdCultistStopsYouTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
+      "var_value": "0",
+      "script": "Route18_BirdCultistCeremony"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CSR_BIRD_CULTISTS_TRUST_YOU",
+      "var_value": "0",
+      "script": "Route18_BirdCultistCeremony"
     }
   ],
   "bg_events": [
@@ -233,6 +251,56 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route18_InstinctSealPedestal"
+    },
+    {
+      "type": "hidden_item",
+      "x": 45,
+      "y": 1,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 40,
+      "y": 3,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_3",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 51,
+      "y": 2,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_2",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 47,
+      "y": 23,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_4",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 57,
+      "y": 25,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_HIDDEN_ITEM_POKE_DOLL_5",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

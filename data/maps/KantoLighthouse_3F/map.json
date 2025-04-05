@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "SPECIES_AMPHAROS_MEGA",
-      "script": "Common_EventScript_StaticEncounter",
+      "script": "KantoLighthouse_3F_Ampharos",
       "flag": "FLAG_CSR_CAUGHT_AMPHAROS"
     },
     {
