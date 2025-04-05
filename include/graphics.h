@@ -7921,6 +7921,7 @@ extern const u32 gItemIcon_SecretEther[];
 extern const u32 gItemIconPalette_SecretEther[];
 extern const u32 gItemIcon_CandyDispenser[];
 extern const u32 gItemIconPalette_CandyDispenser[];
+extern const u32 gItemIcon_Nothing[];
 extern const u32 gItemIconPalette_ShoalSalt[];
 extern const u32 gItemIcon_ShoalShell[];
 extern const u32 gItemIconPalette_Shell[];

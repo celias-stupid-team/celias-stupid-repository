@@ -6601,6 +6601,21 @@
       "battleUsage": 1,
       "battleUseFunc": "BattleUseFunc_Medicine",
       "secondaryId": 0
+    },
+    {
+      "english": "NOTHING",
+      "itemId": "ITEM_NOTHING",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "Damn that sign wasn't kidding\\nthere sure was nothing up here",      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Medicine",
+      "secondaryId": 0
     }
   ]
 }

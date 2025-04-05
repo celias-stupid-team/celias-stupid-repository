@@ -75,11 +75,20 @@ script PokemonTower_6F_MoveTutor {
 	end
 }
 
+script PokemonTower_6F_Cubone {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CUBONE, CRY_MODE_DEFAULT)
+	msgbox("CUBONE: placeholder\n", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
 
 
-
-script PokemonTower_6F_Placeholder2 {
-	
+script PokemonTower_6F_SpellingTrainer {
+	lock
+	msgbox("i'm going to be a trainer\n", MSGBOX_DEFAULT)
+	release
 }
 
 script PokemonTower_6F_Savestate {

@@ -1,6 +1,7 @@
 mapscripts Route15_SodaShop_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_TEMP_2)
+        setbench(BENCH_SODA_SHOP)
     }
 }
 
@@ -93,3 +94,12 @@ script SodaShop_RichKid {
     msgbox("I don't understand.\nWhy couldn't I win?\pI purchased all the CELIA'S STUPID\nROMHACK DLC and bonus content.\lI should've won!", MSGBOX_NPC)
 }
 
+script SodaShop_VendingMachine {
+	msgbox("Statistically, it's more dangerous\nthan a shark.", MSGBOX_SIGN)
+	end
+}
+
+script SodaShop_WeirdMachine {
+	msgbox("Is that a…\nCoffee machine?\lA french press, maybe?\pI have no clue.\n", MSGBOX_SIGN)
+	end
+}

@@ -151,21 +151,21 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 20,
+      "x": 19,
       "y": 34,
       "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
+      "dest_map": "MAP_SAFARI_ZONE_CENTER",
       "dest_warp_id": "3"
     },
     {
-      "x": 21,
+      "x": 22,
       "y": 34,
       "elevation": 3,
-      "dest_map": "MAP_SAFARI_ZONE_WEST",
+      "dest_map": "MAP_SAFARI_ZONE_CENTER",
       "dest_warp_id": "4"
     },
     {
-      "x": 22,
+      "x": 26,
       "y": 34,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_WEST",
@@ -193,14 +193,14 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 30,
+      "x": 20,
       "y": 34,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",
       "dest_warp_id": "3"
     },
     {
-      "x": 31,
+      "x": 21,
       "y": 34,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_CENTER",

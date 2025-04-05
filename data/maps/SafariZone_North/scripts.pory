@@ -24,9 +24,9 @@ const BRELOOM = 8
 mapscripts SafariZone_North_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-			removeobject(BRELOOM)
+			setflag(FLAG_TEMP_2)
 		} else {
-			addobject(BRELOOM)
+			clearflag(FLAG_TEMP_2)
 		}
 	}
 }

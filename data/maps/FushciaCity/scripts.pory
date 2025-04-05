@@ -335,3 +335,7 @@ script FushciaCity_Splat {
 	release
 }
 
+script FushciaCity_SplatOops {
+	msgbox("Oops\n", MSGBOX_SIGN)
+	end
+}

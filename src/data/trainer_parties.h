@@ -6176,22 +6176,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerCarly[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_UNOWN_S,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_E,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_N,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_D,
+        .species = SPECIES_UNOWN,
     },
     {
         .iv = 0,
