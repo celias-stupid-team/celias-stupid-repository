@@ -6296,12 +6296,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerEmilia[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_EXPONELLE,
+        .species = SPECIES_SUDOWOODO,
     },
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_SUDOWOODO,
+        .species = SPECIES_EXPONELLE,
     },
 };
 

@@ -184,7 +184,7 @@ script FushciaCity_TaurosGuy {
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_MALE)
 	if(flag(FLAG_GOT_TAUROSES)) {
-
+		msgbox("If I'm being honest, I didn't\nreally need more than one.\lOh well!", MSGBOX_DEFAULT)
 	} else {
 		msgbox("I caught some cool POKéMON in the\nSAFARI ZONE!\pHere, I have a few extra.\nWhy don't you take some?", MSGBOX_DEFAULT)
 		closemessage
@@ -324,3 +324,14 @@ script FushciaCity_GuruBrotherSign {
 	msgbox("The FISHING GURU'S BROTHER's house\n", MSGBOX_SIGN)
 	end
 }
+
+const SMALL_KID = 14
+script FushciaCity_Splat {
+	lock
+	playse(SE_BANG)
+	removeobject(SMALL_KID)
+	waitse
+	setvar(VAR_TEMP_9, 1)
+	release
+}
+

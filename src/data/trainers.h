@@ -4428,7 +4428,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_CHANNELER_EMILIA] = {
         .trainerClass = TRAINER_CLASS_TWINS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_CLASS_TWINS,
+        .trainerPic = TRAINER_PIC_IMPOSTER_TWINS,
         .trainerName = _("KHAKI&JAy"),
         .items = {},
         .doubleBattle = TRUE,
@@ -6286,7 +6286,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_PokerapTrainer40),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_DMCAArcher),
     },
     [TRAINER_SODASHOP_SAILOR] = {
         .trainerClass = TRAINER_CLASS_SAILOR,

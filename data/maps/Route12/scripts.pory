@@ -244,6 +244,11 @@ script Route12_ShinyOmanyte {
 
 script Route12_Snorlax {
 	lock
+	if(flag(FLAG_HALL_OF_ORIGIN_ACTIVE)) {
+		msgbox("A POKéMON is asleep in the road,\nbut there's a path around it.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(!checkitem(ITEM_POKE_FLUTE)) {
 		msgbox(Route12_Text_MonSprawledOutInSlumber)
 		release

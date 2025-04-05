@@ -172,6 +172,7 @@
 #define TRAINER_PIC_PETREL               151
 #define TRAINER_PIC_IMPOSTER               152
 #define TRAINER_PIC_RED_NORMAL               153
+#define TRAINER_PIC_IMPOSTER_TWINS               154
 
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
