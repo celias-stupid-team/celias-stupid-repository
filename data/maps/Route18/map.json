@@ -104,7 +104,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_SOUL_DEW",
       "script": "EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GOT_FLOAT_STONE"
     },
     {
       "type": "object",

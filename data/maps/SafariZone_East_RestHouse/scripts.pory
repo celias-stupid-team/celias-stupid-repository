@@ -15,6 +15,8 @@ SafariZone_East_RestHouse_EventScript_BaldingMan::
 	end
 `
 script SafariZone_RestHouse_FishingGuru {
+	setflag(FLAG_CSR_HINT_DRAGONITE)
+	call(SetPlayerPokedexValues)
 	if(flag(FLAG_TALKED_TO_FISHING_GURU)) {
 	msgbox("FISHING GURU'S BROTHER: The DMCA\nare after DRAGONITE.\pIf we want to stop them, you'll\nneed to find one somewhere.\lIt won't be in the SAFARI ZONE.\pGood luck.\nI'm sure you can save us!", MSGBOX_NPC)	} else {
 		setflag(FLAG_TALKED_TO_FISHING_GURU)

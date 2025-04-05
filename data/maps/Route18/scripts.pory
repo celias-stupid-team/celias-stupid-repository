@@ -54,6 +54,8 @@ script Route18_BeachBoy {
 }
 
 script Route18_SheSellsSeashells {
+	setflag(FLAG_SHE_SELLS_SEASHELLS)
+	call(SetPlayerPokedexValues)
 	msgbox("SALLY: Hiya!\nI'm SALLY.\pI'm looking on the seashore for\nthings to sell.\lIt's fun!", MSGBOX_NPC)
 	end
 }

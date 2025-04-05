@@ -54,6 +54,8 @@ script Route17_TurnAroundAndLeave {
 
 script Route17_BikeFliesUp {
 	closemessage
+	setflag(FLAG_FED_SANDWICH)
+	call(SetPlayerPokedexValues)
 	removeitem(ITEM_SANDWICH, 1)
 	msgbox("{PLAYER}'s BIKE ate the SANDWICH!\n", MSGBOX_DEFAULT)
 	fadeoutbgm(1)

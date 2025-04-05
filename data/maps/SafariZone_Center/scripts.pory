@@ -48,6 +48,8 @@ mapscripts SafariZone_Center_MapScripts {
 script SafariZone_BrickBreakTM {
 	lock
 	if(!flag(FLAG_NO_TM_CASE)) {
+		setflag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)
+		call(SetPlayerPokedexValues)
 		finditem(ITEM_TM32)
 	} else {
 		msgbox("{PLAYER} found a TM32!\nIt contains BRICK BREAK.", MSGBOX_DEFAULT)

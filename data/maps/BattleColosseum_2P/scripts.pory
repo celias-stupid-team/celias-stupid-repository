@@ -185,7 +185,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_ABRA_TRADE) && checkmoncaught(SPECIES_MR_MIME)) {
 		setobtainable(SPECIES_ALAKAZAM) // 58
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //if got Brick Break
+	if(flag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)) { //if got Brick Break
 		setobtainable(SPECIES_KANGASKHAN) // 59 
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_11) && flag(FLAG_DID_FARFETCHD_TRADE)) {
@@ -227,13 +227,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
 		setobtainable(SPECIES_GOLBAT) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) {
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
 	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { //TODO figure out this logic
 		setobtainable(SPECIES_YOSHI) // 76
 	}
 	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)) {
@@ -251,13 +251,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
 		setobtainable(SPECIES_ALCREMIE) // 81
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) { //TODO figure out this logic
 		setobtainable(SPECIES_SLOWPOKE) // 82
 	}
-	if(flag(FLAG_CSR_HINT_OCEAN_FISHING) && flag(FLAG_GOT_OLD_ROD)) { //TODO figure out this logic
+	if(flag(FLAG_SHE_SELLS_SEASHELLS) && flag(FLAG_GOT_OLD_ROD)) { //TODO figure out this logic
 		setobtainable(SPECIES_SHELLDER) // 83
 	}
-	if(flag(FLAG_CSR_HINT_OCEAN_FISHING) && checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
+	if(flag(FLAG_SHE_SELLS_SEASHELLS) && checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
 		setobtainable(SPECIES_SLOWBRO) // 84
 	}
 	if(flag(FLAG_CSR_MAP_MINNESOTA)) {
@@ -275,7 +275,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_EEVEE)) { // and if Eevee
 		setobtainable(SPECIES_SYLVEON) // 89
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_EEVEE)) {
+	if(flag(FLAG_GOT_FLOAT_STONE) && checkmoncaught(SPECIES_EEVEE)) {
 		setobtainable(SPECIES_LATIAS) // 90
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_5)) {
@@ -290,7 +290,7 @@ script SetPlayerPokedexValues {
 	if((flag(FLAG_CSR_HINT_SPEAROW) && checkmoncaught(SPECIES_EXEGGCUTE)) || checkmoncaught(SPECIES_FARFETCHD)) { //and if Exeggcute
 		setobtainable(SPECIES_FARFETCHD) // 94
 	}
-	if(flag(FLAG_CSR_MAP_ROUTE_16_FAR)) {
+	if(flag(FLAG_FED_SANDWICH)) {
 		setobtainable(SPECIES_GOLURK) // 95
 	}
 	if(flag(FLAG_HIDE_SILPH_RIVAL)) { // 
@@ -323,7 +323,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_GOLDEEN) && checkmoncaught(SPECIES_GOLDEEN)) { //and if Goldeen
 		setobtainable(SPECIES_SEAKING) // 105
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(flag(FLAG_CSR_MAP_BRENDANMAY)) { //TODO figure out this logic
 		setobtainable(SPECIES_MACHOKE) // 106
 	}
 	if(flag(FLAG_CSR_HINT_ARMS_TRADE) && checkmoncaught(SPECIES_MACHOKE)) { 
@@ -383,7 +383,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_PINSIR) // 125
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) { //TODO figure out logic
 		setobtainable(SPECIES_TAUROS) // 126
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
@@ -446,7 +446,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_WARDENS_TEETH)) { //TODO figure out logic
 		setobtainable(SPECIES_POKEMON_GUN) // 147
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic

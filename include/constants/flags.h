@@ -862,7 +862,7 @@
 #define FLAG_LIGHTHOUSE_OLD_MAN               0x31D
 #define FLAG_JUMPED_FROM_LIGHTHOUSE               0x31E
 #define FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE               0x31F
-#define FLAG_0x320               0x320
+#define FLAG_GOT_FLOAT_STONE               0x320
 #define FLAG_0x321               0x321
 #define FLAG_0x322               0x322
 #define FLAG_0x323               0x323
@@ -958,7 +958,7 @@
 #define FLAG_CSR_HINT_DRAGONITE               0x37D
 #define FLAG_CSR_HINT_SPEAROW               0x37E
 #define FLAG_CSR_HINT_PEWTER_GRASS               0x37F
-#define FLAG_CSR_HINT_OCEAN_FISHING               0x380
+#define FLAG_SHE_SELLS_SEASHELLS               0x380
 #define FLAG_CSR_HINT_REVEAL_GLASS               0x381
 #define FLAG_CSR_HINT_GYM_STATUES               0x382
 #define FLAG_CSR_HINT_ARMS_TRADE               0x383
@@ -968,8 +968,8 @@
 #define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
 #define FLAG_CSR_TALKED_TO_JYNX_GUY               0x388
 #define FLAG_CSR_GOT_GOLDEN_ROD               0x389
-#define FLAG_0x38A               0x38A
-#define FLAG_0x38B               0x38B
+#define FLAG_BAKED_DONUT_HINT               0x38A
+#define FLAG_FED_SANDWICH               0x38B
 #define FLAG_0x38C               0x38C
 #define FLAG_0x38D               0x38D
 #define FLAG_0x38E               0x38E
@@ -1528,7 +1528,7 @@
 #define FLAG_CSR_MAP_BROCK_GYM                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
-#define FLAG_CSR_MAP_DUMMY_2                                                  (SYS_FLAGS + 0xD6)
+#define FLAG_CSR_MAP_BRENDANMAY                                                  (SYS_FLAGS + 0xD6)
 #define FLAG_CSR_MAP_DUMMY_3                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_CSR_MAP_DUMMY_4                                                  (SYS_FLAGS + 0xD9)

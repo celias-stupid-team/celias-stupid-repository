@@ -125,3 +125,21 @@ script RockTunnel_CavePeople {
 	release
 	end
 }
+
+script RockTunnel_LightsOutlet {
+	if(var(VAR_CSR_TURNED_ON_POWER)) {
+		msgbox("A perfectly-sized fork recepticle.\n", MSGBOX_SIGN)
+	} else {
+		msgbox("The lights are plugged in, but\nthe power is off.", MSGBOX_SIGN)
+	}
+}
+
+
+script RockTunnel_LightsOut {
+	if(var(VAR_CSR_TURNED_ON_POWER)) {
+		msgbox("the lights are on yay\n", MSGBOX_NPC)
+	} else {
+		msgbox("the lights are out oh no\n", MSGBOX_NPC)
+	}
+	end
+}
