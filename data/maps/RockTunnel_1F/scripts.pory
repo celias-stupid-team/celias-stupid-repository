@@ -44,11 +44,47 @@ RockTunnel_1F_EventScript_Dana::
 	msgbox RockTunnel_1F_Text_DanaPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+const X1 = 18
+const X2 = 19
+const X3 = 20
+const X4 = 21
+const X5 = 22
+
+const Y1 = 8
+const Y2 = 9
+const Y3 = 10
+const Y4 = 11
 
 script RockTunnel_1F_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ROCK_TUNNEL_1F)
 	if(var(VAR_CSR_TURNED_ON_POWER)) {
 		setflashlevel(0)
+	} else {
+		setmetatile(X1, Y1, 0x31B, TRUE)
+		setmetatile(X2, Y1, 0x33D, TRUE)
+		setmetatile(X3, Y1, 0x33D, TRUE)
+		setmetatile(X4, Y1, 0x33D, TRUE)
+		setmetatile(X5, Y1, 0x33A, TRUE)
+		
+		setmetatile(X1, Y2, 0x31B, TRUE)
+		setmetatile(X2, Y2, 0x33D, TRUE)
+		setmetatile(X3, Y2, 0x33D, TRUE)
+		setmetatile(X4, Y2, 0x33D, TRUE)
+		setmetatile(X5, Y2, 0x33A, TRUE)
+		
+		setmetatile(X1, Y3, 0x31B, TRUE)
+		setmetatile(X2, Y3, 0x33D, TRUE)
+		setmetatile(X3, Y3, 0x33D, TRUE)
+		setmetatile(X4, Y3, 0x33D, TRUE)
+		setmetatile(X5, Y3, 0x33A, TRUE)
+		
+		setmetatile(X1, Y4, 0x31B, TRUE)
+		setmetatile(X2, Y4, 0x33D, TRUE)
+		setmetatile(X3, Y4, 0x33D, TRUE)
+		setmetatile(X4, Y4, 0x33D, TRUE)
+		setmetatile(X5, Y4, 0x33A, TRUE)
+
+		setflag(FLAG_TEMP_2)
 	}
 	setflag(FLAG_TEMP_1)
 }
@@ -62,6 +98,11 @@ script RockTunnel_ClefableHint {
 const HINT_GIRL = 1
 script RockTunnel_PokemonSign {
 	lock
+	if(!var(VAR_CSR_TURNED_ON_POWER)) {
+		msgbox("A projector screen is set up\nagainst the wall of the cave.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox("A silhouette can be seen projected\nfrom behind.\pIt looks to be a shadow of its\nformer self.", MSGBOX_DEFAULT)
 	if(!flag(FLAG_ELECTIVIRE_SIGN)) {
 		closemessage

@@ -4,7 +4,7 @@
   "layout": "LAYOUT_ROCK_TUNNEL_1F",
   "music": "MUS_MT_MOON",
   "region_map_section": "MAPSEC_ROCK_TUNNEL",
-  "requires_flash": false,
+  "requires_flash": true,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
@@ -167,7 +167,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RockTunnel_CavePeople",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -195,7 +195,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RockTunnel_CavePeople",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -209,7 +209,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RockTunnel_CavePeople",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [
