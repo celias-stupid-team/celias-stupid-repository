@@ -474,6 +474,8 @@ const u32 gTrainerPalette_Imposter[] = INCBIN_U32("graphics/trainers/palettes/im
 const u32 gTrainerFrontPic_RedNormal[] = INCBIN_U32("graphics/trainers/front_pics/red_normal_front_pic.4bpp.lz");
 const u32 gTrainerPalette_RedNormal[] = INCBIN_U32("graphics/trainers/palettes/red_normal.gbapal.lz");
 
+const u32 gTrainerFrontPic_ImposterTwins[] = INCBIN_U32("graphics/trainers/front_pics/imposter_twins.4bpp.lz");
+const u32 gTrainerPalette_ImposterTwins[] = INCBIN_U32("graphics/trainers/palettes/imposter_twins.gbapal.lz");
 // CSR outfits
 const u32 gBackPicPalette_Red_L[] = INCBIN_U32("graphics/trainers/palettes/red_back_l.gbapal.lz");
 const u32 gBackPicPalette_Red_W[] = INCBIN_U32("graphics/trainers/palettes/red_back_w.gbapal.lz");

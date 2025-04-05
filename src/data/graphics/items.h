@@ -120,6 +120,13 @@ const u32 gItemIconPalette_BerryJuice[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_SacredAsh[] = INCBIN_U32("graphics/items/icons/sacred_ash.4bpp.lz");
 const u32 gItemIconPalette_SacredAsh[] = INCBIN_U32("graphics/items/icon_palettes/sacred_ash.gbapal.lz");
 
+const u32 gItemIcon_GenderFluid[] = INCBIN_U32("graphics/items/icons/gender_fluid.4bpp.lz");
+const u32 gItemIconPalette_GenderFluid[] = INCBIN_U32("graphics/items/icon_palettes/gender_fluid.gbapal.lz");
+const u32 gItemIcon_SecretEther[] = INCBIN_U32("graphics/items/icons/secret_ether.4bpp.lz");
+const u32 gItemIconPalette_SecretEther[] = INCBIN_U32("graphics/items/icon_palettes/secret_ether.gbapal.lz");
+const u32 gItemIcon_CandyDispenser[] = INCBIN_U32("graphics/items/icons/candy_dispenser.4bpp.lz");
+const u32 gItemIconPalette_CandyDispenser[] = INCBIN_U32("graphics/items/icon_palettes/candy_dispenser.gbapal.lz");
+const u32 gItemIcon_Nothing[] = INCBIN_U32("graphics/items/icons/nothing.4bpp.lz");
 // Collectibles
 
 const u32 gItemIconPalette_ShoalSalt[] = INCBIN_U32("graphics/items/icon_palettes/shoal_salt.gbapal.lz");

@@ -6176,22 +6176,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerCarly[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_UNOWN_S,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_E,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_N,
-    },
-    {
-        .iv = 0,
-        .lvl = 24,
-        .species = SPECIES_UNOWN_D,
+        .species = SPECIES_UNOWN,
     },
     {
         .iv = 0,
@@ -6296,12 +6281,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerEmilia[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_EXPONELLE,
+        .species = SPECIES_SUDOWOODO,
     },
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_SUDOWOODO,
+        .species = SPECIES_EXPONELLE,
     },
 };
 
@@ -10116,6 +10101,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
         .lvl = 30,
         .species = SPECIES_IRON_CLEFT,
         .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopSailor[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_MACHOP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopShorts[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_SCRAGGY,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_SodaShopRichKid[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_ZIGZAGOON,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

@@ -22,7 +22,7 @@ mapscripts SafariZone_East_MapScripts {
 script SafariZone_TauntTM {
 	lock
 	if(!flag(FLAG_NO_TM_CASE)) {
-		finditem(ITEM_TM32)
+		finditem(ITEM_TM12)
 	} else {
 		msgbox("{PLAYER} found a TM12!\nIt contains TAUNT.", MSGBOX_DEFAULT)
 		msgbox("Too bad!\nThere's no TM CASE…", MSGBOX_DEFAULT)

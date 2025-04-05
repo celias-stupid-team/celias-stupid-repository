@@ -29,5 +29,5 @@ movement GreatBay_CameraGoesUp {
 }
 
 movement GreatBay_CameraComesDown {
-    walk_fast_down * 15
+    walk_fast_down * 18
 }

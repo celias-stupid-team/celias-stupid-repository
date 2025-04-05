@@ -2000,7 +2000,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = 0,
-        .stringId = B_MSG_TRYATTACK,
     },
 
     [MOVE_ACID_ARMOR] =
@@ -3552,7 +3551,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAUNT] =
     {
-        .effect = EFFECT_TAUNT,
+        .effect = EFFECT_SPLASH,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 100,

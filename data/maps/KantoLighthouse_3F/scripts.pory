@@ -23,7 +23,16 @@ script KantoLighthouse_3F_Dad {
 script KantoLighthouse_3F_Ampharos {
     lock
     setwildbattle(SPECIES_AMPHAROS_MEGA, 30, ITEM_SECRETETHER)
-    dowildbattle
+	waitse
+	playmoncry(SPECIES_AMPHAROS_MEGA, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    fadescreen(FADE_FROM_BLACK)
     release
 }
 

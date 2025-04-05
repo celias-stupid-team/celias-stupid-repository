@@ -48,7 +48,7 @@ script PokemonTower_6F_SpellingKid {
 script PokemonTower_6F_MoveTutor {
 	lock
 	faceplayer
-	msgbox(TwoIsland_House_Text_WantMeToTeachMove, MSGBOX_YESNO)
+	msgbox("I am a teacher\pAlso I am the move tutor\n", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 			msgbox(TwoIsland_House_Text_TutorWhichMon)
 			special(SelectMoveTutorMon)
@@ -56,7 +56,7 @@ script PokemonTower_6F_MoveTutor {
 			goto_if_ge(VAR_0x8004, PARTY_SIZE, TwoIsland_House_EventScript_EndTutorMove)
 			special(IsSelectedMonEgg)
 			goto_if_eq(VAR_RESULT, TRUE, TwoIsland_House_EventScript_CantTutorEgg)
-			goto_if_eq(VAR_0x8005, 0, TwoIsland_House_EventScript_NoMoveToTutorMon)
+			goto_if_eq(VAR_0x8005, 0, "no moves\n")
 			goto(TwoIsland_House_EventScript_ChooseMoveToTeach)
 
 				msgbox(TwoIsland_House_Text_TeachWhichMove)
@@ -64,17 +64,31 @@ script PokemonTower_6F_MoveTutor {
 				waitstate
 				goto_if_eq(VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor)
 				call(EventScript_RestorePrevTextColor)
-				goto(TwoIsland_House_EventScript_EndTutorMove)
+				msgbox("come back if you want moves\n", MSGBOX_DEFAULT)
 				end
 
 
 	} else {
-		goto(TwoIsland_House_EventScript_EndTutorMove)
+		msgbox("come back if you want moves\n", MSGBOX_DEFAULT)
 	}
+	release
+	end
 }
 
-script PokemonTower_6F_Placeholder2 {
-	
+script PokemonTower_6F_Cubone {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CUBONE, CRY_MODE_DEFAULT)
+	msgbox("CUBONE: placeholder\n", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
+
+
+script PokemonTower_6F_SpellingTrainer {
+	lock
+	msgbox("i'm going to be a trainer\n", MSGBOX_DEFAULT)
+	release
 }
 
 script PokemonTower_6F_Savestate {

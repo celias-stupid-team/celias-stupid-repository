@@ -312,9 +312,27 @@
       "x": 4,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_6",
       "var_value": "0",
-      "script": "NULL"
+      "script": "DanceTheater_PlayerDance"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "DanceTheater_PlayerDance"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "0",
+      "script": "DanceTheater_PlayerDance"
     }
   ],
   "bg_events": [

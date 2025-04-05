@@ -80,7 +80,12 @@ script DanceTheater_ShortKid {
         }
     } else {
         if(flag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)) {
-            msgbox("thank you message\n", MSGBOX_DEFAULT)
+            if(!checkitem(ITEM_CANDY_DISPENSER)) {
+                msgbox("Wowie, thanks!\nThat DANCE was so cool!\pBeing short stinks!\nI can't wait until I grow up…\pHere, take this.\nIt'll help your POKéMON grow!", MSGBOX_DEFAULT)
+                giveitem_msg("{PLAYER} received a PEZ DISPENSER\nfrom the tiny child!", ITEM_CANDY_DISPENSER)
+            }
+            msgbox("I wish eating CANDY all day would\nmake me grow up faster.\lIt's not fair…", MSGBOX_DEFAULT)
+
         } else {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
                 msgbox("fuck you message\n", MSGBOX_DEFAULT)
@@ -1005,4 +1010,29 @@ movement DT_walkbackRight {
 	walk_right
 	walk_in_place_faster_left
 	step_end
+}
+
+
+script DanceTheater_PlayerDance {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerDanceStart)
+    fadenewbgm(MUS_DUMMY)
+    special(SpawnCameraObject)
+    waitmovement(0)
+    msgbox("It is implied that you are dancing\n", MSGBOX_DEFAULT)
+    special(RemoveCameraObject)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerDanceEnd)
+    fadedefaultbgm
+    waitmovement(0)
+    release
+    end
+}
+
+movement PlayerDanceStart {
+    walk_up * 2
+    face_down
+}
+
+movement PlayerDanceEnd {
+    walk_down * 3
 }

@@ -236,3 +236,8 @@ script PowerPlant_MinigameStart {
 	release
 	end
 }
+
+script PowerPlant_Electrode {
+	msgbox("placeholder\n", MSGBOX_SIGN)
+	end
+}
