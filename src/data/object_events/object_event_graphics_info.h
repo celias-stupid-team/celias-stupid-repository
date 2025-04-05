@@ -4824,7 +4824,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Birdcultist = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tentacool = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
