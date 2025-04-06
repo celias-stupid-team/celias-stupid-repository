@@ -7,3 +7,7 @@ RocketHideout_B2F_EventScript_Grunt::
 	msgbox RocketHideout_B2F_Text_GruntPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script RocketHideout_FractalDMCA {
+	msgbox("That pattern in the tiles there...\pSomething about it is off-puttting\nto me.\pAlmost as though at its very core,\nit embodies copying and repeating.", MSGBOX_NPC)
+	end
+}

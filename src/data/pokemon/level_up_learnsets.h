@@ -8874,8 +8874,11 @@ static const struct LevelUpMove sDitto_MewLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUnown_LossLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
-	LEVEL_UP_END
+    LEVEL_UP_MOVE(1, MOVE_SLAM),
+    LEVEL_UP_MOVE(1, MOVE_CHATTER),
+    LEVEL_UP_MOVE(1, MOVE_CONFIDE),
+    LEVEL_UP_MOVE(1, MOVE_REAL_TEARS),
+    LEVEL_UP_END
 };
 
 static const struct LevelUpMove sMagnaloneLevelUpLearnset[] = {

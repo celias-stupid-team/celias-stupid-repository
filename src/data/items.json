@@ -294,7 +294,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A spray-type medicine.\\nIt heals one POKéMON from\\nparalysis.",
+      "description_english": "Heals you of the dreadful\\ncondition known as PARLYZ.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
