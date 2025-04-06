@@ -3065,4 +3065,13 @@ const struct SpriteFrameImage gObjectEventPicTable_Cannon[] = {
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Spotlight[] = {
-    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 1),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 2),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 3),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 4),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 5),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 6),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 7),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 8),};
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 5),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 6),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 7),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 8),
+};
