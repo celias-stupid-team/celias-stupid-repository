@@ -1020,6 +1020,9 @@ script DanceTheater_PlayerDance {
     special(SpawnCameraObject)
     waitmovement(0)
     msgbox("It is implied that you are dancing\n", MSGBOX_DEFAULT)
+    closemessage
+    playbgm(MUS_CELADON_GYM_2, FALSE)
+    delay(1140)
     special(RemoveCameraObject)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerDanceEnd)
     fadedefaultbgm

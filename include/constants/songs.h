@@ -384,12 +384,14 @@
 #define SE_MAKE_IT_RAIN            375
 #define MUS_LITTLEROOT            376
 #define MUS_LOOKER_THEME            377
+#define MUS_SAFARI_MARCH            378
+#define MUS_CELADON_GYM_2            379
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_LOOKER_THEME
+#define END_MUS                     MUS_CELADON_GYM_2
 
 #endif  // GUARD_CONSTANTS_SONGS_H

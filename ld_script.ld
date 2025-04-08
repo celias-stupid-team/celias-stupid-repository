@@ -999,6 +999,8 @@ SECTIONS {
         sound/songs/midi/se_make_it_rain.o(.rodata);
         sound/songs/midi/mus_littleroot.o(.rodata);
         sound/songs/midi/mus_looker_theme.o(.rodata);
+        sound/songs/midi/mus_safari_march.o(.rodata);
+        sound/songs/midi/mus_celadon_gym_2.o(.rodata);
 
     } > ROM =0
 

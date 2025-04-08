@@ -3725,6 +3725,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_MAKE_IT_RAIN) \
     X(MUS_LITTLEROOT) \
     X(MUS_LOOKER_THEME) \
+    X(MUS_SAFARI_MARCH) \
+    X(MUS_CELADON_GYM_2) \
 
 
 #define SOUND_LIST_SE \
