@@ -11464,17 +11464,38 @@ Move_FOLLOW_HIM:
 	end
 	
 Move_SPIKY_SHIELD:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	loadspritegfx ANIM_TAG_PROTECT
+	loadspritegfx ANIM_TAG_GREEN_SPIKE
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 0x10
+	createsprite gProtectSpriteTemplate, ANIM_ATTACKER, 2, 0x18, 0x0, 0x5a
+	delay 0xF
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x0, 0xFFE0, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x16, 0xFFEA, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x1E, 0x0, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x14, 0x14, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x0, 0x1C, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0xFFED, 0x13, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0xFFE5, 0x0, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0xFFEE, 0xFFEE, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x0, 0xFFE7, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x11, 0xFFEF, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x17, 0x0, 0x10
+	delay 0x2
+	createsprite gNeedleArmSpikeSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x1, 0x10, 0x10, 0x10
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_ATK_PARTNER
 	end
 	
 Move_SEARING_SHOT:
@@ -15340,4 +15361,3 @@ Move_SWORDSDANCE_TCG:
 	blendoff
 	delay 1
 	end
-

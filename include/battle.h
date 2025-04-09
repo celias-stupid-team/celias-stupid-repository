@@ -192,6 +192,7 @@ struct ProtectStruct
     /* field_0 */
     u32 protected:1;
     u32 endured:1;
+    u32 touchedProtectLike:1;
     u32 noValidMoves:1;
     u32 helpingHand:1;
     u32 bounceMove:1;

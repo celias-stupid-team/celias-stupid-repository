@@ -90,6 +90,7 @@
 #define VARIOUS_WAIT_FANFARE                    12
 #define VARIOUS_JUMP_IF_NO_HOLD_EFFECT          13
 #define VARIOUS_EMIT_YESNOBOX                   14
+#define VARIOUS_JUMP_IF_ABSENT                  15
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
@@ -122,23 +123,24 @@
 #define PARTY_SCREEN_OPTIONAL (1 << 7) // Flag for first argument to openpartyscreen
 
 // cases for Cmd_moveend
-#define MOVEEND_RAGE                            0
-#define MOVEEND_DEFROST                         1
-#define MOVEEND_SYNCHRONIZE_TARGET              2
-#define MOVEEND_ON_DAMAGE_ABILITIES             3
-#define MOVEEND_IMMUNITY_ABILITIES              4
-#define MOVEEND_SYNCHRONIZE_ATTACKER            5
-#define MOVEEND_CHOICE_MOVE                     6
-#define MOVEEND_CHANGED_ITEMS                   7
-#define MOVEEND_ATTACKER_INVISIBLE              8
-#define MOVEEND_ATTACKER_VISIBLE                9
-#define MOVEEND_TARGET_VISIBLE                  10
-#define MOVEEND_ITEM_EFFECTS_ALL                11
-#define MOVEEND_KINGSROCK_SHELLBELL             12
-#define MOVEEND_SUBSTITUTE                      13
-#define MOVEEND_UPDATE_LAST_MOVES               14
-#define MOVEEND_MIRROR_MOVE                     15
-#define MOVEEND_NEXT_TARGET                     16
-#define MOVEEND_COUNT                           17
+#define MOVEEND_PROTECT_LIKE_EFFECT             0
+#define MOVEEND_RAGE                            1
+#define MOVEEND_DEFROST                         2
+#define MOVEEND_SYNCHRONIZE_TARGET              3
+#define MOVEEND_ON_DAMAGE_ABILITIES             4
+#define MOVEEND_IMMUNITY_ABILITIES              5
+#define MOVEEND_SYNCHRONIZE_ATTACKER            6
+#define MOVEEND_CHOICE_MOVE                     7
+#define MOVEEND_CHANGED_ITEMS                   8
+#define MOVEEND_ATTACKER_INVISIBLE              9
+#define MOVEEND_ATTACKER_VISIBLE                10
+#define MOVEEND_TARGET_VISIBLE                  11
+#define MOVEEND_ITEM_EFFECTS_ALL                12
+#define MOVEEND_KINGSROCK_SHELLBELL             13
+#define MOVEEND_SUBSTITUTE                      14
+#define MOVEEND_UPDATE_LAST_MOVES               15
+#define MOVEEND_MIRROR_MOVE                     16
+#define MOVEEND_NEXT_TARGET                     17
+#define MOVEEND_COUNT                           18
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

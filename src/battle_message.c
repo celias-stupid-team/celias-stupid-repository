@@ -154,6 +154,7 @@ static const u8 sText_PkmnProtectedByMist[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 const u8 gBattleText_GetPumped[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\npumped!");
 static const u8 sText_PkmnHitWithRecoil[] = _("{B_ATK_NAME_WITH_PREFIX} is hit\nwith recoil!");
 static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} protected\nitself!");
+static const u8 sText_ProtectedTeam[] =_("SPIKY SHIELD protected\nthe opposing team!");
 static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the sandstorm!");
 static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} is pelted\nby HAIL!");
 static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off!");
@@ -222,13 +223,14 @@ static const u8 sText_PkmnChoseXAsDestiny[] = _("{B_ATK_NAME_WITH_PREFIX} chose\
 static const u8 sText_Foursight[] = _("{B_ATK_NAME_WITH_PREFIX} foursaw the future!");
 static const u8 sText_FoursightApply[] = _("4");
 static const u8 sText_PkmnAttack[] = _("{B_BUFF1}'s attack!");
-static const u8 sText_PkmnCenterAttention[] = _("{B_ATK_NAME_WITH_PREFIX} became the\ncenter of attention!");
+static const u8 sText_PkmnCenterAttention[] = _("{B_DEF_NAME_WITH_PREFIX} became the\ncenter of attention!");
 static const u8 sText_PkmnChargingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\ncharging power!");
 static const u8 sText_NaturePowerTurnedInto[] = _("NATURE POWER turned into\n{B_CURRENT_MOVE}!");
 static const u8 sText_PkmnStatusNormal[] = _("{B_ATK_NAME_WITH_PREFIX}'s status\nreturned to normal!");
 static const u8 sText_PkmnSubjectedToTorment[] = _("{B_DEF_NAME_WITH_PREFIX} was subjected\nto TORMENT!");
 static const u8 sText_PkmnTighteningFocus[] = _("{B_ATK_NAME_WITH_PREFIX} is tightening\nits focus!");
 static const u8 sText_PkmnFellForTaunt[] = _("{B_DEF_NAME_WITH_PREFIX} fell for\nthe TAUNT!");
+static const u8 sText_FellForFeint[] = _("{B_DEF_NAME_WITH_PREFIX} fell for\nthe FEINT!");
 static const u8 sText_PkmnReadyToHelp[] = _("{B_ATK_NAME_WITH_PREFIX} is ready to\nhelp {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnSwitchedItems[] = _("{B_ATK_NAME_WITH_PREFIX} switched\nitems with its opponent!");
 static const u8 sText_PkmnObtainedX[] = _("{B_ATK_NAME_WITH_PREFIX} obtained\n{B_BUFF1}.");
@@ -282,6 +284,7 @@ static const u8 sText_PkmnAnchorsItselfWith[] = _("{B_DEF_NAME_WITH_PREFIX} anch
 static const u8 sText_PkmnCutsAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s ATTACK!");
 static const u8 sText_PkmnPreventsStatLossWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nprevents stat loss!");
 static const u8 sText_PkmnHurtsWith[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nhurt {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_PkmnHurtsWithSpikyShield[] = _("{B_ATK_NAME_WITH_PREFIX} was hurt by\n{B_DEF_NAME_WITH_PREFIX}'s SPIKY SHIELD!");
 static const u8 sText_PkmnTraced[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} TRACED\n{B_BUFF1}'s {B_BUFF2}!");
 static const u8 sText_PkmnsXPreventsBurns[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents burns!");
 static const u8 sText_PkmnsXBlocksY[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nblocks {B_CURRENT_MOVE}!");
@@ -936,6 +939,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_FICKLE_BEAM - BATTLESTRINGS_TABLE_START]    = sText_FickleBeam,
     [STRINGID_FOURSIGHT - BATTLESTRINGS_TABLE_START]    = sText_Foursight,
     [STRINGID_FOURSIGHT_APPLY - BATTLESTRINGS_TABLE_START]    = sText_FoursightApply,
+    [STRINGID_PROTECTEDTEAM - BATTLESTRINGS_TABLE_START]        = sText_ProtectedTeam,
+    [STRINGID_FELLFORFEINT - BATTLESTRINGS_TABLE_START]        = sText_FellForFeint,
+    [STRINGID_PKMNHURTSWITHSPIKYSHIELD - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtsWithSpikyShield,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -996,7 +1002,8 @@ const u16 gProtectLikeUsedStringIds[] =
 {
     [B_MSG_PROTECTED_ITSELF] = STRINGID_PKMNPROTECTEDITSELF2,
     [B_MSG_BRACED_ITSELF]    = STRINGID_PKMNBRACEDITSELF,
-    [B_MSG_PROTECT_FAILED]   = STRINGID_BUTITFAILED
+    [B_MSG_PROTECT_FAILED]   = STRINGID_BUTITFAILED,
+    [B_MSG_PROTECTED_TEAM]   = STRINGID_PROTECTEDTEAM
 };
 
 const u16 gReflectLightScreenSafeguardStringIds[] =

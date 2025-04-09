@@ -249,8 +249,26 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectFoursight              @ EFFECT_FOURSIGHT
 	.4byte BattleScript_EffectCounterStupid              @ EFFECT_COUNTER_STUPID
+	.4byte BattleScript_EffectFollowHim              @ EFFECT_FOLLOW_HIM
+	.4byte BattleScript_EffectSpikyShield             @ EFFECT_SPIKY_SHIELD
+	.4byte BattleScript_EffectFeint                 @ EFFECT_FEINT
+	.4byte BattleScript_EffectFlyOMeteor             @ EFFECT_FLY_O_METEOR
+	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
 
+BattleScript_EffectFeint::
+	setmoveeffect MOVE_EFFECT_FEINT
+	goto BattleScript_EffectHit
 
+BattleScript_EffectFollowHim::
+	attackcanceler
+	attackstring
+	ppreduce
+	setforcedtarget
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCENTERATTENTION
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -950,6 +968,7 @@ BattleScript_MoveMissedDoDamage::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
+	moveendcase MOVEEND_PROTECT_LIKE_EFFECT @ Spiky Shield's damage happens before recoil.
 	printstring STRINGID_PKMNCRASHED
 	waitmessage B_WAIT_TIME_LONG
 	damagecalc
@@ -1619,6 +1638,7 @@ BattleScript_DoGhostCurse::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectSpikyShield::
 BattleScript_EffectProtect::
 BattleScript_EffectEndure::
 	attackcanceler
@@ -1857,6 +1877,10 @@ BattleScript_EffectDefenseUpHit::
 
 BattleScript_EffectAttackUpHit::
 	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_EffectSpeedUpHit::
+	setmoveeffect MOVE_EFFECT_SPD_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 
 BattleScript_EffectAllStatsUpHit::
@@ -2736,6 +2760,10 @@ BattleScript_EffectOverheat::
 	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
+BattleScript_EffectFlyOMeteor::
+	setmoveeffect MOVE_EFFECT_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
 BattleScript_EffectTickle::
 	attackcanceler
 	attackstring
@@ -3415,6 +3443,19 @@ BattleScript_RageIsBuilding::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_SpikyShieldEffect::
+	jumpifabsent BS_ATTACKER, BattleScript_SpikyShieldRet
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	bicbyte gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNHURTSWITHSPIKYSHIELD
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	orbyte gMoveResultFlags, MOVE_RESULT_MISSED
+BattleScript_SpikyShieldRet::
+	return
+
 BattleScript_MoveUsedIsDisabled::
 	printstring STRINGID_PKMNMOVEISDISABLED
 	waitmessage B_WAIT_TIME_LONG
@@ -3755,6 +3796,22 @@ BattleScript_SAtkDown2::
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SAtkDown2End::
+	return
+
+BattleScript_AtkDown2::
+	setbyte sSTAT_ANIM_PLAYED, 0
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO | STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_ATK, 2, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR | MOVE_EFFECT_CERTAIN, BattleScript_AtkDown2End
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 2, BattleScript_AtkDown2End
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AtkDown2End::
+	return
+
+BattleScript_MoveEffectFeint::
+	printstring STRINGID_FELLFORFEINT
+	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_FocusPunchSetUp::
