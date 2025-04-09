@@ -6286,7 +6286,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_PokerapTrainer40),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_DMCAArcher),
     },
 
 };

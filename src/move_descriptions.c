@@ -450,7 +450,7 @@ const u8 gMoveDescription_Struggle_Bug[] = _("The user is\nstruggling while\nbei
 const u8 gMoveDescription_X_Scissor[] = _("Between this and\nU-TURN, it seems\nBUG TYPES get all\nthe letter moves.");
 const u8 gMoveDescription_Iron_Head[] = _("An extremely fair\nmove, especially\nwhen combined with\nSERENE GRACE.");
 const u8 gMoveDescription_Precipice_Blades[] = _("The user brings\nforth the power\nof the drought\nto attack.");
-const u8 gMoveDescription_Aqua_Step[] = _("The user performs\nthe traditional\nPaldea Duck Dance\nto raise its speed");
+const u8 gMoveDescription_Aqua_Step[] = _("The user performs\nthe traditional\nPaldea Duck Dance\nto raise its speed.");
 const u8 gMoveDescription_SomeSensory[] = _("The user has just\nenough SENSORY to\nget by.");
 const u8 gMoveDescription_NoSensory[] = _("Sorry, we're out\nof SENSORY.");
 const u8 gMoveDescription_Healing_Wish[] = _("Unfinished.\nSorry!");
@@ -573,7 +573,6 @@ const u8 gMoveDescription_maxairstream[] = _("Dummy");
 const u8 gMoveDescription_Steamroller[] = _("Yeah, why would\nsomething like\nthis be BUG type?");
 const u8 gMoveDescription_Slash_TCG[] = _("The foe is slashed\nwith claws, etc.\nIt has a high\ncritical-hit ratio.");
 const u8 gMoveDescription_SwordsDance_TCG[] = _("A frenetic dance of\nfighting. It sharply\nraises the ATTACK\nstat.");
-
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
