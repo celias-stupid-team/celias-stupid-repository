@@ -2796,12 +2796,12 @@ const struct SpriteFrameImage gObjectEventPicTable_KangaBaby[] = {
 overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 0),
 overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 1),
 overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 2),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 3),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 4),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 5),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 6),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 7),
-overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 8),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 0),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 0),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 1),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 1),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 2),
+overworld_frame(gObjectEventPic_KangaBaby, 2, 2, 2),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Hippopotas[] = {
@@ -3065,4 +3065,15 @@ const struct SpriteFrameImage gObjectEventPicTable_Cannon[] = {
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Spotlight[] = {
-    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 1),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 2),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 3),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 4),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 5),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 6),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 7),    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 8),};
+
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 5),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 6),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 7),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 8),
+};
+

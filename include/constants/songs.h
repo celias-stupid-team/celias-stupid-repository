@@ -386,12 +386,13 @@
 #define MUS_LOOKER_THEME            377
 #define MUS_SAFARI_MARCH            378
 #define MUS_CELADON_GYM_2            379
+#define MUS_DMCA_SHOWDOWN            380
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CELADON_GYM_2
+#define END_MUS                     MUS_DMCA_SHOWDOWN
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -1,7 +1,7 @@
 mapscripts SafariZone_DMCAShowdown_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-            playbgm(MUS_ROCKET_HIDEOUT, TRUE)
+            playbgm(MUS_NONE, TRUE)
         }
     }
 }
@@ -10,9 +10,42 @@ const DMCA_LEAD = 1
 const DMCA_2 = 2
 const DMCA_3 = 3
 
-script SafariZone_IronCleftBattle {
+
+script SafariZone_EnterArena {
     lock
-    fadeoutbgm(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE)) {
+        playbgm(MUS_DMCA_SHOWDOWN, TRUE)
+    } else {
+        playbgm(MUS_ROCKET_HIDEOUT, TRUE)
+    }
+    waitmovement(0)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    switch(var(VAR_TEMP_1)) {
+        case 9:
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
+        case 11:
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+    }
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerGoesUp1)
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp)
+    waitmovement(0)
+    delay(60)
+    applymovement(DMCA_LEAD, Common_Movement_WalkDown)
+    goto(SafariZone_IronCleftBattle)
+
+}
+
+movement PlayerGoesUp1 {
+    walk_up * 5
+}
+
+
+const WARDEN = 4
+const GURU = 5
+script SafariZone_IronCleftBattle {
     //cinematic camera stuff
     textcolor(NPC_TEXT_COLOR_MALE)
     if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
@@ -31,6 +64,9 @@ script SafariZone_IronCleftBattle {
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
         msgbox("no.")
+        applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
+        waitmovement(0)
+        special(RemoveCameraObject)
         release
         end
     }
@@ -53,8 +89,82 @@ script SafariZone_IronCleftBattle {
         fadescreen(FADE_FROM_BLACK)
         additem(ITEM_TM_CASE, 1)
         clearflag(FLAG_NO_TM_CASE)
+        delay(120)
+        addobject(WARDEN)
+        addobject(GURU)
+        setobjectxy(WARDEN, 10, 15)
+        playse(SE_EXIT)
+        applymovement(WARDEN, WardenEnters)
+        delay(30)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksDown)
+        playse(SE_PIN)
+        delay(40)
+        applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
+        waitmovement(WARDEN)
+        special(RemoveCameraObject)
+        textcolor(NPC_TEXT_COLOR_BLUE)
+        msgbox("WARDEN: Oh, lovely!\nLooks like you're all wrapped up.\pThose DMCA fiends were no match\nfor you!\pFrom the bottom of my heart, thank\nyou.\lYou've saved my life's work.", MSGBOX_DEFAULT)
+        closemessage
+        applymovement(WARDEN, WardenContemplates)
+        waitmovement(0)
+        setobjectxy(GURU, 10, 15)
+        applymovement(GURU, GuruEnters)
+        msgbox("Now the only thing I'm still\nconcerned about is…", MSGBOX_DEFAULT)
+        closemessage
+        waitmovement(0)
+        applymovement(WARDEN, PlayerLooksDown)
+        playse(SE_PIN)
+        delay(60)
+        msgbox("Ah! It's my good friend the\nFISHING GURU'S BROTHER!\lI'm glad to see you're safe.", MSGBOX_DEFAULT)
+        closemessage
+        msgbox("FISHING GURU'S BROTHER: Aha!\nWe've done it!\pWe've finally shown those corporate\njerks who's boss!", MSGBOX_DEFAULT)
+        closemessage
+        msgbox("WARDEN: Lovely!\nAnd I know that you helped as well.\pThank you so much, the FISHING\nGURU'S BROTHER!", MSGBOX_DEFAULT)
+        closemessage
+        delay(40)
+        msgbox("FISHING GURU'S BROTHER: Oh!\nBy the way, {PLAYER}.\pWhile I was captured, they hid\nthis near my cell.\lI've been holding onto it.\pHere, take it.\nYou've easily earned it back.", MSGBOX_DEFAULT)
+        giveitem_msg("{PLAYER} reclaimed the TM CASE!\n", ITEM_TM_CASE)
+        waitfanfare
+        msgbox("WARDEN: Come, let's head back home.\pI'm eager to move on from this\ntrying time.\pWhat say you, the FISHING GURU'S\nBROTHER?", MSGBOX_DEFAULT)
+        closemessage
+        msgbox("FISHING GURU'S BROTHER: Same here!\nI'm ready to take a long nap.\pAnd {PLAYER}!\nStop by my home later.\pI might be able to spare a gift\nfor you!", MSGBOX_DEFAULT)
+        closemessage
+        msgbox("WARDEN: Ah!\nA nice trinket, perhaps?\pAnyway, I'm going to head out now.\nThank you again, {PLAYER}!", MSGBOX_DEFAULT)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        playse(SE_EXIT)
+        waitse
+        removeobject(GURU)
+        removeobject(WARDEN)
+        fadescreen(FADE_FROM_BLACK)
+    
         release
         end
     }
 
+}
+
+movement PlayerLooksDown {
+    face_down
+    emote_exclamation_mark
+}
+
+movement WardenEnters {
+    set_visible
+    walk_up * 5
+    face_up
+}
+
+movement GuruEnters {
+    set_visible
+    walk_up * 4
+    face_up
+}
+
+movement WardenContemplates {
+    walk_slow_left
+    face_left
+    delay_16
+    walk_slow_right * 2
+    face_right
 }

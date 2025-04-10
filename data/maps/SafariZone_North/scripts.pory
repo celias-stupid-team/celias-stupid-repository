@@ -28,7 +28,11 @@ mapscripts SafariZone_North_MapScripts {
 		} else {
 			clearflag(FLAG_TEMP_2)
 		}
+		if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) && !flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			fadenewbgm(MUS_DMCA_SHOWDOWN)
+		} 
 	}
+	
 }
 
 script SafariZone_North_Breloom {

@@ -1001,6 +1001,7 @@ SECTIONS {
         sound/songs/midi/mus_looker_theme.o(.rodata);
         sound/songs/midi/mus_safari_march.o(.rodata);
         sound/songs/midi/mus_celadon_gym_2.o(.rodata);
+        sound/songs/midi/mus_dmca_showdown.o(.rodata);
 
     } > ROM =0
 
