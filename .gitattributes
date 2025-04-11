@@ -1,3 +1,6 @@
+# enable core.autocrlf
+* text=auto
+
 *.pal text eol=crlf
 
 *.s text eol=lf
