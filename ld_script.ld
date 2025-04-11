@@ -1002,6 +1002,7 @@ SECTIONS {
         sound/songs/midi/mus_safari_march.o(.rodata);
         sound/songs/midi/mus_celadon_gym_2.o(.rodata);
         sound/songs/midi/mus_dmca_showdown.o(.rodata);
+        sound/songs/midi/mus_battle_frontier.o(.rodata);
 
     } > ROM =0
 

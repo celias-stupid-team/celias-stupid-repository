@@ -310,6 +310,13 @@
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 35,
+      "y": 92,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

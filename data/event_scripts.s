@@ -1475,3 +1475,87 @@ Text_TestMsg::
 
 	.include "data/maps/GreatSea_Center/scripts.inc"
 	.include "data/maps/GreatSea_Center/text.inc"
+
+	.include "data/maps/FushciaGym_Entrance/scripts.inc"
+	.include "data/maps/FushciaGym_Entrance/text.inc"
+
+	.include "data/maps/FushciaGym_TrainerRoom1/scripts.inc"
+	.include "data/maps/FushciaGym_TrainerRoom1/text.inc"
+
+	.include "data/maps/FushciaGym_GymLeaderRoom/scripts.inc"
+	.include "data/maps/FushciaGym_GymLeaderRoom/text.inc"
+
+	.include "data/maps/FushciaGym_TrainerRoom2/scripts.inc"
+	.include "data/maps/FushciaGym_TrainerRoom2/text.inc"
+
+	.include "data/maps/FushciaGym_AronRoom/scripts.inc"
+	.include "data/maps/FushciaGym_AronRoom/text.inc"
+
+	.include "data/maps/FushciaGym_MouseholeHeal/scripts.inc"
+	.include "data/maps/FushciaGym_MouseholeHeal/text.inc"
+
+	.include "data/maps/FushciaGym_ShedinjaRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ShedinjaRoom/text.inc"
+
+	.include "data/maps/FushciaGym_LassMaze/scripts.inc"
+	.include "data/maps/FushciaGym_LassMaze/text.inc"
+
+	.include "data/maps/FushciaGym_BurnDusclopsRoom/scripts.inc"
+	.include "data/maps/FushciaGym_BurnDusclopsRoom/text.inc"
+
+	.include "data/maps/FushciaGym_DarkraiRoom/scripts.inc"
+	.include "data/maps/FushciaGym_DarkraiRoom/text.inc"
+
+	.include "data/maps/FushciaGym_ImposterOakRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ImposterOakRoom/text.inc"
+
+	.include "data/maps/FushciaGym_HealRoom_2/scripts.inc"
+	.include "data/maps/FushciaGym_HealRoom_2/text.inc"
+
+	.include "data/maps/FushciaGym_ParalysisDusclopsRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ParalysisDusclopsRoom/text.inc"
+
+	.include "data/maps/FushciaGym_DrillRoom/scripts.inc"
+	.include "data/maps/FushciaGym_DrillRoom/text.inc"
+
+	.include "data/maps/FushciaGym_RainRoom/scripts.inc"
+	.include "data/maps/FushciaGym_RainRoom/text.inc"
+
+	.include "data/maps/FushciaGym_TrioRoom/scripts.inc"
+	.include "data/maps/FushciaGym_TrioRoom/text.inc"
+
+	.include "data/maps/FushciaGym_ScrollRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ScrollRoom/text.inc"
+
+	.include "data/maps/FushciaGym_ThePitRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ThePitRoom/text.inc"
+
+	.include "data/maps/FushciaGym_ElectrifyRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ElectrifyRoom/text.inc"
+
+	.include "data/maps/FushciaGym_LionsRoom/scripts.inc"
+	.include "data/maps/FushciaGym_LionsRoom/text.inc"
+
+	.include "data/maps/FushciaGym_LookGirlRoom/scripts.inc"
+	.include "data/maps/FushciaGym_LookGirlRoom/text.inc"
+
+	.include "data/maps/FushciaGym_IcePuzzleRoom/scripts.inc"
+	.include "data/maps/FushciaGym_IcePuzzleRoom/text.inc"
+
+	.include "data/maps/FushciaGym_ToxicDusclopsRoom/scripts.inc"
+	.include "data/maps/FushciaGym_ToxicDusclopsRoom/text.inc"
+
+	.include "data/maps/FushciaGym_DevonScopeRoom/scripts.inc"
+	.include "data/maps/FushciaGym_DevonScopeRoom/text.inc"
+
+	.include "data/maps/FushciaGym_DoubleBattleRoom/scripts.inc"
+	.include "data/maps/FushciaGym_DoubleBattleRoom/text.inc"
+
+	.include "data/maps/FushciaGym_TrickRoomRoom/scripts.inc"
+	.include "data/maps/FushciaGym_TrickRoomRoom/text.inc"
+
+	.include "data/maps/FushciaGym_MapRoom/scripts.inc"
+	.include "data/maps/FushciaGym_MapRoom/text.inc"
+
+	.include "data/maps/FushciaGym_IronCurtainRoom/scripts.inc"
+	.include "data/maps/FushciaGym_IronCurtainRoom/text.inc"

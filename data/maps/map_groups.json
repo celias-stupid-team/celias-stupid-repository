@@ -44,7 +44,8 @@
     "gMapGroup_IndoorSixIslandRoute",
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_PokemonTowerMath",
-    "gMapGroup_KantoLighthouse"
+    "gMapGroup_KantoLighthouse",
+    "gMapGroup_FushciaGym"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -597,5 +598,35 @@
     "KantoLighthouse_1F",
     "KantoLighthouse_2F",
     "KantoLighthouse_3F"
+  ],
+  "gMapGroup_FushciaGym": [
+    "FushciaGym_Entrance",
+    "FushciaGym_TrainerRoom1",
+    "FushciaGym_GymLeaderRoom",
+    "FushciaGym_TrainerRoom2",
+    "FushciaGym_AronRoom",
+    "FushciaGym_MouseholeHeal",
+    "FushciaGym_ShedinjaRoom",
+    "FushciaGym_LassMaze",
+    "FushciaGym_BurnDusclopsRoom",
+    "FushciaGym_DarkraiRoom",
+    "FushciaGym_ImposterOakRoom",
+    "FushciaGym_HealRoom_2",
+    "FushciaGym_ParalysisDusclopsRoom",
+    "FushciaGym_DrillRoom",
+    "FushciaGym_RainRoom",
+    "FushciaGym_TrioRoom",
+    "FushciaGym_ScrollRoom",
+    "FushciaGym_ThePitRoom",
+    "FushciaGym_ElectrifyRoom",
+    "FushciaGym_LionsRoom",
+    "FushciaGym_LookGirlRoom",
+    "FushciaGym_IcePuzzleRoom",
+    "FushciaGym_ToxicDusclopsRoom",
+    "FushciaGym_DevonScopeRoom",
+    "FushciaGym_DoubleBattleRoom",
+    "FushciaGym_TrickRoomRoom",
+    "FushciaGym_MapRoom",
+    "FushciaGym_IronCurtainRoom"
   ]
 }
