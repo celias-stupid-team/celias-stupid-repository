@@ -5,7 +5,7 @@
   "music": "MUS_BATTLE_FRONTIER",
   "region_map_section": "MAPSEC_FUSHCIA_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -18,7 +18,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_LIONS_ROOM",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

@@ -18,7 +18,48 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_DARKRAI_ROOM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

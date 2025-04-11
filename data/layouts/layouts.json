@@ -4852,7 +4852,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_GYM_LEADER_ROOM",
       "name": "FushciaGym_GymLeaderRoom_Layout",
-      "width": 20,
+      "width": 25,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4888,7 +4888,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_MOUSEHOLE_HEAL",
       "name": "FushciaGym_MouseholeHeal_Layout",
-      "width": 20,
+      "width": 28,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4900,7 +4900,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_SHEDINJA_ROOM",
       "name": "FushciaGym_ShedinjaRoom_Layout",
-      "width": 20,
+      "width": 26,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4912,7 +4912,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_LASS_MAZE",
       "name": "FushciaGym_LassMaze_Layout",
-      "width": 20,
+      "width": 30,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -5008,7 +5008,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_TRIO_ROOM",
       "name": "FushciaGym_TrioRoom_Layout",
-      "width": 20,
+      "width": 30,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -5068,7 +5068,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_LOOK_GIRL_ROOM",
       "name": "FushciaGym_LookGirlRoom_Layout",
-      "width": 20,
+      "width": 39,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -5116,7 +5116,7 @@
     {
       "id": "LAYOUT_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM",
       "name": "FushciaGym_DoubleBattleRoom_Layout",
-      "width": 20,
+      "width": 24,
       "height": 20,
       "border_width": 2,
       "border_height": 2,

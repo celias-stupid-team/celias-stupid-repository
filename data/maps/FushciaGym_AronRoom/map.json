@@ -18,7 +18,27 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_TRAINER_ROOM1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_DARKRAI_ROOM",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

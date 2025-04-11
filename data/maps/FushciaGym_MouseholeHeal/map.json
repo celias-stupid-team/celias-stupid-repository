@@ -18,7 +18,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 11,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_TRAINER_ROOM1",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_GYM_LEADER_ROOM",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 

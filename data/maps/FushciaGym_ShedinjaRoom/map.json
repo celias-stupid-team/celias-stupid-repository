@@ -18,7 +18,34 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_IMPOSTER_OAK_ROOM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_HEAL_ROOM_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_TRAINER_ROOM2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_GYM_LEADER_ROOM",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
 

@@ -303,8 +303,8 @@
       "x": 9,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_NEW_FUCHSIA_GYM",
-      "dest_warp_id": "14"
+      "dest_map": "MAP_FUSHCIA_GYM_ENTRANCE",
+      "dest_warp_id": "3"
     },
     {
       "x": 16,

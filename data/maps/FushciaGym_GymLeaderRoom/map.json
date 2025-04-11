@@ -18,7 +18,27 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_ENTRANCE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_MOUSEHOLE_HEAL",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_SHEDINJA_ROOM",
+      "dest_warp_id": "3"
+    }
   ],
   "coord_events": [
 
