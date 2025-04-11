@@ -1,6 +1,5 @@
 raw `
-FushciaCity_House2_MapScripts::
-	.byte 0
+
 
 FushciaCity_House2_EventScript_FishingGurusBrother::
 	lock
@@ -32,8 +31,31 @@ FushciaCity_House2_EventScript_NoRoomForGoodRod::
 	release
 	end
 `
+
+mapscripts FushciaCity_House2_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}
 script FushciaCity_FishingGuruDMCA {
 	msgbox("This FISHING GURU was a rip-off\nof all the other ones!", MSGBOX_NPC)
 	end
 }
 
+script FushciaCity_FishingGuru {
+	lock
+	faceplayer
+	if(checkitem(ITEM_CHARCOAL)) {
+		msgbox("FISHING GURU'S BROTHER: That OLD\nROD is a family heirloom.\pIt's been passed down since my\nbrother's father's sister's\lhusband's son's brother's cousin.\pTake good care of it, y'hear?\n", MSGBOX_DEFAULT)
+	} else {
+		msgbox("FISHING GURU'S BROTHER: Hey there,\n{PLAYER}!\lHow're you doing?\pThank you again for all your help.\nYou've earned a reward.\pHere, take this. It was my brother's\nfather's prized posession.\lI pass it onto you with pride!", MSGBOX_DEFAULT)
+		closemessage
+		giveitem_msg("{PLAYER} obtained the OLD ROD!", ITEM_CHARCOAL, 1)
+		waitfanfare
+		msgbox("FISHING GURU'S BROTHER: That OLD\nROD is a family heirloom.\pIt's been passed down since my\nbrother's father's sister's\lhusband's son's brother's cousin.\pTake good care of it, y'hear?\n", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}

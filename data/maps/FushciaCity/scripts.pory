@@ -152,7 +152,7 @@ script FuschiaCity_BrickBreak {
 script FushciaCity_Fishing {
 	lock
 	faceplayer
-	msgbox("I hate fish.\nFishing is a farce.", MSGBOX_DEFAULT)
+	msgbox("I hate fish.\pFishing is a farce.", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
 	waitmovement(0)

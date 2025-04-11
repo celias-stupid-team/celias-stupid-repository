@@ -772,8 +772,8 @@
     {
       "id": "LAYOUT_LAVENDER_TOWN",
       "name": "LavenderTown_Layout",
-      "width": 74,
-      "height": 26,
+      "width": 79,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4792,8 +4792,8 @@
     {
       "id": "LAYOUT_NEW_FUCHSIA_GYM",
       "name": "New_Fuchsia_Gym_Layout",
-      "width": 60,
-      "height": 60,
+      "width": 74,
+      "height": 96,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

@@ -3441,12 +3441,12 @@
       "secondaryId": 0
     },
     {
-      "english": "CHARCOAL",
+      "english": "OLD ROD",
       "itemId": "ITEM_CHARCOAL",
       "price": 9800,
       "holdEffect": "HOLD_EFFECT_FIRE_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item to be held by a POKéMON.\\nA combustible fuel that boosts the\\npower of FIRE-type moves.",
+      "description_english": "The charred remains of a ROD that\\nmust've been caught in a blaze.\\nBoosts the power of FIRE moves.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -4209,7 +4209,7 @@
       "secondaryId": "OLD_ROD"
     },
     {
-      "english": "GOOD ROD",
+      "english": "OLD ROD",
       "itemId": "ITEM_GOOD_ROD",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -4218,8 +4218,8 @@
       "importance": 1,
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
-      "type": "ITEM_TYPE_FIELD",
-      "fieldUseFunc": "FieldUseFunc_Rod",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": "GOOD_ROD"

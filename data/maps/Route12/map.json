@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_LAVENDER_TOWN",
-      "offset": 7,
+      "offset": 4,
       "direction": "up"
     },
     {
