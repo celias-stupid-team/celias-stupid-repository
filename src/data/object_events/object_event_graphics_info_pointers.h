@@ -284,6 +284,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Safariwarden;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cannon;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spotlight;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dusclops;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Vulpix;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chili;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cress;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cilan;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -571,4 +581,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CANNON] = &gObjectEventGraphicsInfo_Cannon,
 
     [OBJ_EVENT_GFX_SPOTLIGHT] = &gObjectEventGraphicsInfo_Spotlight,
+
+    [OBJ_EVENT_GFX_DUSCLOPS] = &gObjectEventGraphicsInfo_Dusclops,
+
+    [OBJ_EVENT_GFX_VULPIX] = &gObjectEventGraphicsInfo_Vulpix,
+
+    [OBJ_EVENT_GFX_CHILI] = &gObjectEventGraphicsInfo_Chili,
+
+    [OBJ_EVENT_GFX_CRESS] = &gObjectEventGraphicsInfo_Cress,
+
+    [OBJ_EVENT_GFX_CILAN] = &gObjectEventGraphicsInfo_Cilan,
 };

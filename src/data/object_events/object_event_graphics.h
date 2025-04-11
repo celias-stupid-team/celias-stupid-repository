@@ -407,3 +407,8 @@ const u32 gObjectEventPic_Safariwarden[] = INCBIN_U32("graphics/object_events/pi
 const u32 gObjectEventPic_Cannon[] = INCBIN_U32("graphics/object_events/pics/stupid/Cannon.4bpp");
 
 const u32 gObjectEventPic_Spotlight[] = INCBIN_U32("graphics/object_events/pics/stupid/Spotlight.4bpp");
+const u32 gObjectEventPic_Dusclops[] = INCBIN_U32("graphics/object_events/pics/stupid/Dusclops.4bpp");
+const u32 gObjectEventPic_Vulpix[] = INCBIN_U32("graphics/object_events/pics/stupid/Vulpix.4bpp");
+const u32 gObjectEventPic_Chili[] = INCBIN_U32("graphics/object_events/pics/stupid/Chili.4bpp");
+const u32 gObjectEventPic_Cress[] = INCBIN_U32("graphics/object_events/pics/stupid/Cress.4bpp");
+const u32 gObjectEventPic_Cilan[] = INCBIN_U32("graphics/object_events/pics/stupid/Cilan.4bpp");
