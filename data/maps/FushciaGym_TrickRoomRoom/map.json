@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 13,
+      "x": 15,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -32,10 +32,24 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NES",
-      "x": 15,
+      "x": 17,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -46,14 +60,14 @@
   ],
   "warp_events": [
     {
-      "x": 13,
+      "x": 15,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
       "dest_warp_id": "2"
     },
     {
-      "x": 13,
+      "x": 15,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_IRON_CURTAIN_ROOM",
