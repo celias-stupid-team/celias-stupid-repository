@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FLAG_LASS_BROKE_WALL",
       "flag": "0"
     },
     {
@@ -60,7 +60,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
+      "x": 16,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
@@ -77,7 +77,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "FushciaGym_ScrollRoom_Scroll"
     }
   ]
 }

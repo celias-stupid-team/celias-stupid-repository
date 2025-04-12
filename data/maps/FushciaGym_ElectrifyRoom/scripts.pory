@@ -1,3 +1,11 @@
 mapscripts FushciaGym_ElectrifyRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        call(FushciaGym_ElectrifyRoom_OpenDoor)
+    }
+}
+
+script FushciaGym_ElectrifyRoom_OpenDoor {
+    setmetatile(10, 6, 0x3A6, TRUE)
+    setmetatile(10, 7, 0x357, TRUE)
+    return
 }

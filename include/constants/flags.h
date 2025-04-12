@@ -886,7 +886,7 @@
 #define FLAG_IRON_CURTAIN_OPENED               0x333
 #define FLAG_MEMORIZED_SCROLL               0x334
 #define FLAG_OBTAINED_IRON_CURTAIN               0x335
-#define FLAG_0x336               0x336
+#define FLAG_LASS_BROKE_WALL               0x336
 #define FLAG_0x337               0x337
 #define FLAG_0x338               0x338
 #define FLAG_0x339               0x339

@@ -1,3 +1,23 @@
 mapscripts FushciaGym_ScrollRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_LASS_BROKE_WALL)) {
+            call(FushciaGym_ScrollRoom_SetBrokenWall)
+        }
+    }
+}
+
+script FushciaGym_ScrollRoom_Scroll {
+    setflag(FLAG_MEMORIZED_SCROLL)
+	msgbox("{PLAYER} memorized the secret\npassword…", MSGBOX_SIGN)
+	end
+}
+
+script FushciaGym_ScrollRoom_SetBrokenWall {
+    setmetatile(17, 11, 0x39E, TRUE)
+    setmetatile(18, 11, 0x39E, TRUE)
+    setmetatile(19, 11, 0x39E, TRUE)
+    setmetatile(20, 11, 0x39E, TRUE)
+    setmetatile(21, 11, 0x39E, TRUE)
+    setmetatile(22, 11, 0x39E, TRUE)
+    return
 }
