@@ -870,11 +870,11 @@
 #define FLAG_FUSHCIA_GYM_INVISIBLE_LASS               0x323
 #define FLAG_DEFEATED_TRAINER_1               0x324
 #define FLAG_REVEALED_DAD               0x325
-#define FLAG_0x326               0x326
-#define FLAG_0x327               0x327
-#define FLAG_0x328               0x328
-#define FLAG_0x329               0x329
-#define FLAG_0x32A               0x32A
+#define FLAG_DEFEATED_TRAINER_2               0x326
+#define FLAG_DRILLED_LEFT_HOLE               0x327
+#define FLAG_DRILLED_RIGHT_HOLE               0x328
+#define FLAG_DEFEATED_ARON_MAN               0x329
+#define FLAG_DEFEATED_SHEDINJA_MAN               0x32A
 #define FLAG_0x32B               0x32B
 #define FLAG_0x32C               0x32C
 #define FLAG_0x32D               0x32D

@@ -1,3 +1,28 @@
 mapscripts FushciaGym_TrainerRoom2_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+        setvar(VAR_FUSHCIA_PREVIOUS_ROOM, FUSHCIA_ROOM_GENGAR)
+        if(flag(FLAG_DEFEATED_TRAINER_2)) {
+            call(FushciaGym_TrainerRoom2_OpenDoors)
+        }
+    }
+}
+
+script FushciaGym_TrainerRoom1_GengarTrainer {
+    lock
+    faceplayer
+    msgbox("trainer\n", MSGBOX_DEFAULT)
+    setflag(FLAG_DEFEATED_TRAINER_2)
+    call(FushciaGym_TrainerRoom2_OpenDoors)
+    special(DrawWholeMapView)
+    release
+    end
+}
+
+
+script FushciaGym_TrainerRoom2_OpenDoors {
+    setmetatile(10, 3, 0x34F, TRUE)
+    setmetatile(14, 3, 0x34F, TRUE)
+    setmetatile(10, 4, 0x357, TRUE)
+    setmetatile(14, 4, 0x357, TRUE)
+    return
 }

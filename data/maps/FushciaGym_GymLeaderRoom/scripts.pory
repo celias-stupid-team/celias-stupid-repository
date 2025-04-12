@@ -1,7 +1,14 @@
 mapscripts FushciaGym_GymLeaderRoom_MapScripts {
-    MAP_SCRIPT_ON_LOAD {
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_FUSHCIA_PREVIOUS_ROOM, FUSHCIA_ROOM_GYM_LEADER)
         if(!flag(FLAG_REVEALED_DAD)) {
             setflag(FLAG_TEMP_1)
+        }
+        if(flag(FLAG_DEFEATED_TRAINER_1)) {
+            setmetatile(3, 8, 0x357, TRUE)
+        }
+        if(flag(FLAG_DEFEATED_TRAINER_2)) {
+            setmetatile(21, 8, 0x357, TRUE)
         }
     }
 }

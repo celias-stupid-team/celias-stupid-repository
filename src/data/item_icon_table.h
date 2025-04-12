@@ -436,6 +436,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_GENDER_FLUID]      =  {gItemIcon_GenderFluid, gItemIconPalette_GenderFluid},
     [ITEM_CANDY_DISPENSER]      =  {gItemIcon_CandyDispenser, gItemIconPalette_CandyDispenser},
     [ITEM_NOTHING]      =  {gItemIcon_Nothing, gItemIconPalette_CandyDispenser},
+    [ITEM_DRILL_DOZER]      =  {gItemIcon_DrillDozer, gItemIconPalette_DrillDozer},
 
     // Return to field arrow
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},

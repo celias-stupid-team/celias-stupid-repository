@@ -1,3 +1,49 @@
+
+const NURSE = 1
+
 mapscripts FushciaGym_MouseholeHeal_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_FUSHCIA_PREVIOUS_ROOM) == FUSHCIA_ROOM_DURANT) {
+            setobjectxyperm(NURSE, 11, 11)
+        } else {
+            
+            setobjectxyperm(NURSE, 17, 11)
+        }
+        if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) == 1) {
+            setweather(WEATHER_SANDSTORM)
+        } else {
+            setflag(FLAG_TEMP_1)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0 {
+            setvar(VAR_TEMP_1, 1)
+            applymovement(NURSE, Common_Movement_WalkDown)
+            waitmovement(0)
+            call(FushciaGym_HealNurse)
+        }
+    ]
+}
+
+script FushciaGym_HealNurse {
+    msgbox("heal\n", MSGBOX_DEFAULT)
+    special(HealPlayerParty)
+    release
+}
+
+script FushciaGym_HippoMiddle {
+    lock
+    playmoncry(SPECIES_HIPPOPOTAS, CRY_MODE_DEFAULT)
+    msgbox("scared\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
+        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 2)
+    } else {
+        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)
+
+    }
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_TEMP_1)
+    release
 }

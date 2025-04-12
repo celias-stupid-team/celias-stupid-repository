@@ -127,6 +127,8 @@ const u32 gItemIconPalette_SecretEther[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_CandyDispenser[] = INCBIN_U32("graphics/items/icons/candy_dispenser.4bpp.lz");
 const u32 gItemIconPalette_CandyDispenser[] = INCBIN_U32("graphics/items/icon_palettes/candy_dispenser.gbapal.lz");
 const u32 gItemIcon_Nothing[] = INCBIN_U32("graphics/items/icons/nothing.4bpp.lz");
+const u32 gItemIcon_DrillDozer[] = INCBIN_U32("graphics/items/icons/drill_dozer.4bpp.lz");
+const u32 gItemIconPalette_DrillDozer[] = INCBIN_U32("graphics/items/icon_palettes/drill_dozer.gbapal.lz");
 // Collectibles
 
 const u32 gItemIconPalette_ShoalSalt[] = INCBIN_U32("graphics/items/icon_palettes/shoal_salt.gbapal.lz");

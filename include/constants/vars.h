@@ -242,9 +242,22 @@ It is reset after every battle.
 #define VAR_CSR_TOASTER_COUNTER                 0x409E
 #define VAR_CSR_GIFT_POKEMON                 0x409F
 #define VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE                 0x40A0
+
+//Fushcia Gym Vars
 #define VAR_FUCHSIA_TYPE_TRIO_PROGRESS                 0x40A1
-#define VAR_0x40A2                 0x40A2
-#define VAR_0x40A3                 0x40A3
+#define VAR_FUSCSIA_GYM_HIPPO_ROOM                 0x40A2
+
+#define VAR_FUSHCIA_PREVIOUS_ROOM                 0x40A3
+#define FUSHCIA_ROOM_DURANT 1
+#define FUSHCIA_ROOM_MOUSEHOLES 2
+#define FUSHCIA_ROOM_GYM_LEADER 3
+#define FUSHCIA_ROOM_SHEDINJA 4
+#define FUSHCIA_ROOM_LASS MAZE 5
+#define FUSHCIA_ROOM_ELECTRIFY 6
+#define FUSHCIA_ROOM_GENGAR 7
+
+
+
 #define VAR_0x40A4                 0x40A4
 #define VAR_0x40A5                 0x40A5
 #define VAR_0x40A6                 0x40A6

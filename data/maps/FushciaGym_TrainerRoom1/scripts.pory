@@ -1,5 +1,6 @@
 mapscripts FushciaGym_TrainerRoom1_MapScripts {
     MAP_SCRIPT_ON_LOAD {
+        setvar(VAR_FUSHCIA_PREVIOUS_ROOM, FUSHCIA_ROOM_DURANT)
         if(flag(FLAG_DEFEATED_TRAINER_1)) {
             call(FushciaGym_TrainerRoom1_OpenDoors)
         }

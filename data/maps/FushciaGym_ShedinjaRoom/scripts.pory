@@ -1,3 +1,113 @@
 mapscripts FushciaGym_ShedinjaRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
+            setmetatile(11, 7, 0x39B, TRUE)
+            setmetatile(12, 7, 0x39B, TRUE)
+            setmetatile(13, 7, 0x39B, TRUE)
+        }
+        if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
+            setmetatile(11, 8, 0x357, TRUE)
+            setmetatile(15, 8, 0x357, TRUE)
+        }
+
+        if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) == 2) {
+            setweather(WEATHER_SANDSTORM)
+        } else {
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+script FushciaGym_ShedinjaTrainer {
+    lock
+    faceplayer
+    if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) == 2) {
+        msgbox("Hippo is here\nYou win", MSGBOX_DEFAULT)
+        setflag(FLAG_DEFEATED_SHEDINJA_MAN)
+            setmetatile(11, 8, 0x357, TRUE)
+            setmetatile(15, 8, 0x357, TRUE)
+            special(DrawWholeMapView)
+        
+    } else {
+        msgbox("tera electric shedinja\nYou lose", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_HippopotasRight {
+    lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+    delay(60)
+    playmoncry(SPECIES_HIPPOPOTAS, CRY_MODE_NORMAL)
+    msgbox("HIPPOPOTAS: Po-prra…!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+        applymovement(VAR_LAST_TALKED, HippoLooksAround_Right)
+        waitmovement(0)
+        delay(48)
+        playse(SE_FLEE)
+        applymovement(VAR_LAST_TALKED, HippoRunsAway_Right)
+        if(var(VAR_FACING) == DIR_EAST) {
+            applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsOutOfWay_Right)
+        }
+        waitmovement(VAR_LAST_TALKED)
+        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)
+        setflag(FLAG_TEMP_1)
+        setweather(WEATHER_NONE)
+        doweather
+
+    } else {
+        msgbox("This POKéMON is terrified of you.\nHe looks ready to run away.", MSGBOX_DEFAULT)
+    }
+
+}
+
+script FushciaGym_CrackedWallRight {
+    lock
+    if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
+        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+            closemessage
+            setflag(FLAG_DRILLED_RIGHT_HOLE)
+            setmetatile(7, 10, 0x39B, TRUE)
+            setmetatile(6, 10, 0x39B, TRUE)
+            setmetatile(5, 10, 0x39B, TRUE)
+            special(DrawWholeMapView)
+        }
+    }
+    release
+}
+
+movement HippoLooksAround_Right {
+    face_left
+    delay_16 * 2
+    face_right
+    delay_16 * 2
+    face_left
+    face_right
+    delay_16 * 2
+}
+
+movement HippoRunsAway_Right {
+    walk_faster_left * 8 //it makes sense trust me
+}
+
+movement PlayerGetsOutOfWay_Right {
+    face_up
+    lock_facing_direction
+    jump_down
+    unlock_facing_direction
+}
+
+movement DrillTheWall_Right {
+    walk_faster_left
+    walk_in_place_fast_left * 3
 }
