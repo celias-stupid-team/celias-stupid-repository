@@ -1,3 +1,4 @@
+const LOOK_GIRL = 1
 mapscripts FushciaGym_IcePuzzleRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) >= 17) {

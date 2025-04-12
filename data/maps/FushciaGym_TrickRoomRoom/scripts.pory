@@ -18,7 +18,7 @@ script FushciaGym_TrickRoomRoom_Trainer {
 
 script FushciaGym_TrickRoomRoom_Stakataka {
     lock
-    playmoncry(SPECIES_STAKATAKA)
+    playmoncry(SPECIES_STAKATAKA, CRY_MODE_DEFAULT)
 	msgbox("Hey!\nIt's that very fancy STAKATAKA!", MSGBOX_DEFAULT)
     waitmoncry
 	end
