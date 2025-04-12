@@ -875,7 +875,7 @@
 #define FLAG_DRILLED_RIGHT_HOLE               0x328
 #define FLAG_DEFEATED_ARON_MAN               0x329
 #define FLAG_DEFEATED_SHEDINJA_MAN               0x32A
-#define FLAG_0x32B               0x32B
+#define FLAG_GOT_DRILL_DOZER               0x32B
 #define FLAG_0x32C               0x32C
 #define FLAG_0x32D               0x32D
 #define FLAG_0x32E               0x32E

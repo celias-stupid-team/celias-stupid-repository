@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_DRILL_DOZER",
       "script": "EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_GOT_DRILL_DOZER"
     }
   ],
   "warp_events": [
