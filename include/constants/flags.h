@@ -863,11 +863,13 @@
 #define FLAG_JUMPED_FROM_LIGHTHOUSE               0x31E
 #define FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE               0x31F
 #define FLAG_GOT_FLOAT_STONE               0x320
-#define FLAG_0x321               0x321
-#define FLAG_0x322               0x322
-#define FLAG_0x323               0x323
-#define FLAG_0x324               0x324
-#define FLAG_0x325               0x325
+
+//Fushcia Gym
+#define FLAG_GOT_DEVON_SCOPE               0x321
+#define FLAG_IN_FUSHCIA_GYM               0x322
+#define FLAG_FUSHCIA_GYM_INVISIBLE_LASS               0x323
+#define FLAG_DEFEATED_TRAINER_1               0x324
+#define FLAG_REVEALED_DAD               0x325
 #define FLAG_0x326               0x326
 #define FLAG_0x327               0x327
 #define FLAG_0x328               0x328

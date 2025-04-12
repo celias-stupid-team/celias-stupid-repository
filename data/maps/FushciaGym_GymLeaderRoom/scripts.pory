@@ -1,3 +1,7 @@
 mapscripts FushciaGym_GymLeaderRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+        if(!flag(FLAG_REVEALED_DAD)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }

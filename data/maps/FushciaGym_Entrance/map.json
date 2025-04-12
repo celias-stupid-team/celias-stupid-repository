@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FushciaGym_Attendant",
       "flag": "0"
     },
     {
@@ -40,8 +40,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "FushciaGym_InvisibleLass",
+      "flag": "FLAG_FUSHCIA_GYM_INVISIBLE_LASS"
     }
   ],
   "warp_events": [
@@ -75,7 +75,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "FushciaGym_LeaveChallenge"
+    }
   ],
   "bg_events": [
     {

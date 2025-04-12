@@ -39,6 +39,5 @@ script FushciaCity_GetThroughGym {
 }
 
 script FushciaCity_PlaceholderNPC {
-	msgbox("The GYM goes around and around,\njust like a snake.\lHisss!", MSGBOX_NPC)
-	end
+msgbox("The FUSHCIA CITY GYM is laid out\nlike a big maze.\lIt just keeps snaking around.\pWhen I try to tackle it, I always\nkeep a notebook handy.\lKeeping track of it all is hard!\pGood luck if you're gonna try it!\n", MSGBOX_NPC)	end
 }

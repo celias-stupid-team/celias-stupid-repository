@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
       "x": 11,
       "y": 5,
       "elevation": 3,
@@ -59,7 +59,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
       "x": 4,
       "y": 7,
       "elevation": 0,
