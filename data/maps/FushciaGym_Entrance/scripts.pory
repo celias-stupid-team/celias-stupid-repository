@@ -51,13 +51,13 @@ script FushciaGym_LeaveChallenge {
                 applymovement(ATTENDANT, AttendantReturnsFromDown)
                 waitmovement(0)
 
+            }
             } else {
                 msgbox("That's good to hear.\nBest of luck!", MSGBOX_DEFAULT)
                 closemessage
                 applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
                 setvar(VAR_TEMP_0, 0)
                 waitmovement(0)
-            }
         }
     }
     release
