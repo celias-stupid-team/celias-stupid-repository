@@ -1,3 +1,28 @@
 mapscripts FushciaGym_RainRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_BEAT_RAIN_GIRL)) {
+            call(FushciaGym_RainRoom_OpenDoor)
+        }
+    }
+}
+
+script FushciaGym_RainRoomGirl {
+    call(FushciaGym_RainRoom_OpenDoor)
+    setflag(FLAG_BEAT_RAIN_GIRL)
+    msgbox("I was supposed to have a SUN\nteam, but…\pI think I'm doing something wrong.\n", MSGBOX_NPC)
+}
+
+script FushciaGym_RainRoom_OpenDoor {
+    setmetatile(7, 6, 0x357, TRUE)
+    setmetatile(7, 5, 0x3A6, TRUE)
+    return
+}
+
+script FushciaGym_RainRoom_Vulpix {
+    lock
+    faceplayer
+    playmoncry(SPECIES_VULPIX, CRY_MODE_DEFAULT)
+    msgbox("VULPIX: Prrrah!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    release
 }

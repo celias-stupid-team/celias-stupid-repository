@@ -492,10 +492,11 @@
 #define ITEM_CANDY_DISPENSER 408
 #define ITEM_NOTHING 409
 #define ITEM_DRILL_DOZER 410
+#define ITEM_IRON_CURTAIN 411
 
 
 
-#define ITEMS_COUNT 411
+#define ITEMS_COUNT 412
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

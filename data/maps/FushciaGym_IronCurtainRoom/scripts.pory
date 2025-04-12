@@ -1,3 +1,16 @@
 mapscripts FushciaGym_IronCurtainRoom_MapScripts {
     
 }
+
+script FushciaGym_IronCurtainRoom_AngryNerd {
+    msgbox("Grr…\pI hate this new wallpaper!\n", MSGBOX_NPC)
+}
+
+script FushciaGym_IronCurtainRoom_Wallpaper {
+    lock
+    msgbox("The wallpaper is relatively new.\nWould you like to look under it?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox("Yuck!\nShouldn't have looked!", MSGBOX_DEFAULT)
+    }
+    release
+}

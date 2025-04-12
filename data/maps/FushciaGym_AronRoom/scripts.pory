@@ -1,5 +1,6 @@
 mapscripts FushciaGym_AronRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_TEMP_2)
         if(flag(FLAG_DRILLED_LEFT_HOLE)) {
             setmetatile(11, 7, 0x39B, TRUE)
             setmetatile(12, 7, 0x39B, TRUE)

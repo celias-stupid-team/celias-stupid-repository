@@ -294,6 +294,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chili;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cress;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cilan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drill;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -591,4 +592,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CRESS] = &gObjectEventGraphicsInfo_Cress,
 
     [OBJ_EVENT_GFX_CILAN] = &gObjectEventGraphicsInfo_Cilan,
+    [OBJ_EVENT_GFX_DRILL] = &gObjectEventGraphicsInfo_Drill,
 };

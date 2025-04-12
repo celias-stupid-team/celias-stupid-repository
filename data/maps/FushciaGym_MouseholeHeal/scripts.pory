@@ -14,6 +14,18 @@ mapscripts FushciaGym_MouseholeHeal_MapScripts {
         } else {
             setflag(FLAG_TEMP_1)
         }
+        if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+            setmetatile(20, 10, 0x39B, TRUE)
+            setmetatile(21, 10, 0x39B, TRUE)
+            setmetatile(22, 10, 0x39B, TRUE)
+
+        }
+        if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
+            setmetatile(7, 10, 0x39B, TRUE)
+            setmetatile(6, 10, 0x39B, TRUE)
+            setmetatile(5, 10, 0x39B, TRUE)
+
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {
@@ -45,5 +57,48 @@ script FushciaGym_HippoMiddle {
     }
     removeobject(VAR_LAST_TALKED)
     setflag(FLAG_TEMP_1)
+    release
+}
+
+
+script FushciaGym_CrackedWallMiddleRight {
+    lock
+    if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+            closemessage
+            setflag(FLAG_DRILLED_LEFT_HOLE)
+            setmetatile(20, 10, 0x39B, TRUE)
+            setmetatile(21, 10, 0x39B, TRUE)
+            setmetatile(22, 10, 0x39B, TRUE)
+            special(DrawWholeMapView)
+        }
+    }
+    release
+}
+
+script FushciaGym_CrackedWallMiddleLeft {
+    lock
+    if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
+        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+            closemessage
+            setflag(FLAG_DRILLED_RIGHT_HOLE)
+            setmetatile(7, 10, 0x39B, TRUE)
+            setmetatile(6, 10, 0x39B, TRUE)
+            setmetatile(5, 10, 0x39B, TRUE)
+            special(DrawWholeMapView)
+        }
+    }
     release
 }

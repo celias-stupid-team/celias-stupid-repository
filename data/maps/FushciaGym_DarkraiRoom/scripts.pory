@@ -1,3 +1,11 @@
 mapscripts FushciaGym_DarkraiRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        call(FushciaGym_DarkraiRoom_OpenDoors)
+    }
+}
+
+script FushciaGym_DarkraiRoom_OpenDoors {
+    setmetatile(9, 6, 0x3A6, TRUE)
+    setmetatile(9, 7, 0x357, TRUE)
+    return
 }

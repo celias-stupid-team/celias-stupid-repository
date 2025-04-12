@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FushciaGym_LookLookGirl",
       "flag": "0"
     },
     {
@@ -47,7 +47,7 @@
   "warp_events": [
     {
       "x": 15,
-      "y": 13,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_TRIO_ROOM",
       "dest_warp_id": "1"
@@ -75,7 +75,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_LookGirlRoom_ResetButton"
     }
   ],
   "bg_events": [
@@ -85,7 +85,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "FushciaGym_LookGirl_Sign"
     },
     {
       "type": "sign",
@@ -94,6 +94,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaGym_LookGirlRoom_RedCurtain"
     }
   ]
 }

@@ -1,3 +1,13 @@
 mapscripts FushciaGym_IcePuzzleRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) >= 17) {
+            copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
+            subvar(VAR_TEMP_1, 17)
+            setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 9)
+
+        }
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }

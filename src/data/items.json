@@ -6566,8 +6566,8 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_Medicine",
-      "battleUsage": 1,
-      "battleUseFunc": "BattleUseFunc_Medicine",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     },
     {
@@ -6582,8 +6582,8 @@
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 1,
-      "battleUseFunc": "BattleUseFunc_Medicine",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     },
     {
@@ -6598,8 +6598,8 @@
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 1,
-      "battleUseFunc": "BattleUseFunc_Medicine",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     },
     {
@@ -6613,8 +6613,8 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 1,
-      "battleUseFunc": "BattleUseFunc_Medicine",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     },
     {
@@ -6629,8 +6629,24 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 1,
-      "battleUseFunc": "BattleUseFunc_Medicine",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "IRON CURTAIN",
+      "itemId": "ITEM_IRON_CURTAIN",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A political barrier designed to\\nweaken the capitalist WEST.\\nMaybe you can hang it somewhere…",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
       "secondaryId": 0
     }
   ]

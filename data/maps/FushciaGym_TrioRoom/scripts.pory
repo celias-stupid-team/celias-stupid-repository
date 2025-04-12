@@ -1,3 +1,220 @@
 mapscripts FushciaGym_TrioRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_GREEN_DOOR_OPENED)) {
+            call(FushciaGym_OpenGreenDoor)
+        }
+    }
+}
+
+script FushciaGym_TrioRoom_Ninjas {
+    lock
+    faceplayer
+    msgbox("we are ninjas\n", MSGBOX_DEFAULT)
+    setflag(FLAG_TEMP_1)
+    removeobject(VAR_LAST_TALKED)
+    release
+    end
+}
+
+script FushciaGym_StepOnButton {
+    lock
+    playse(SE_SWITCH)
+    if(!flag(FLAG_GREEN_DOOR_OPENED)) {
+        setflag(FLAG_GREEN_DOOR_OPENED)
+        call(FushciaGym_OpenGreenDoor)
+        special(DrawWholeMapView)
+    }
+    if(flag(FLAG_IRON_CURTAIN_SET)) {
+        if(flag(FLAG_IRON_CURTAIN_ON_RED)) {
+            call(FushciaGym_OpenIronRed)
+        } else {
+            call(FushciaGym_OpenIronBlue)
+        }
+        special(DrawWholeMapView)
+    }
+}
+
+script FushciaGym_CheckBlueCurtain {
+    lock
+    if(checkitem(ITEM_IRON_CURTAIN)) {
+        msgbox("A curtain depicting a WATER\ninsignia.\pWould you like to hang the\nIRON CURTAIN?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} hung the IRON CURTAIN.\n", MSGBOX_DEFAULT)
+            setflag(FLAG_IRON_CURTAIN_SET)
+            removeitem(ITEM_IRON_CURTAIN)
+            call(FushciaGym_IronCurtainOnBlue)
+            special(DrawWholeMapView)
+            release
+            end
+        } else {
+            release
+            end
+        }
+    }
+    if(flag(FLAG_IRON_CURTAIN_SET) && !flag(FLAG_IRON_CURTAIN_ON_RED)) {
+        msgbox("The IRON CURTAIN is hanging on the\nwall.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox("A curtain depicting a WATER\ninsignita.", MSGBOX_DEFAULT)
+    release
+}
+
+
+script FushciaGym_CheckRedCurtain {
+    lock
+    if(checkitem(ITEM_IRON_CURTAIN)) {
+        msgbox("A curtain depicting a FIRE\ninsignia.\pWould you like to hang the\nIRON CURTAIN?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} hung the IRON CURTAIN.\n", MSGBOX_DEFAULT)
+            setflag(FLAG_IRON_CURTAIN_SET)
+            setflag(FLAG_IRON_CURTAIN_ON_RED)
+            removeitem(ITEM_IRON_CURTAIN)
+            call(FushciaGym_IronCurtainOnRed)
+            special(DrawWholeMapView)
+            release
+            end
+        } else {
+            release
+            end
+        }
+    }
+    if(flag(FLAG_IRON_CURTAIN_SET) && flag(FLAG_IRON_CURTAIN_ON_RED)) {
+        if(flag(FLAG_IRON_CURTAIN_OPENED)) {
+            msgbox("It appears the door is misaligned\nwith the tile grid.\lYou cannot go through.\pWould you like to remove the\nIRON CURTAIN?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                msgbox("{PLAYER} removed the IRON CURTAIN.\nIt's just like 1989!", MSGBOX_DEFAULT)
+                call(FushciaGym_NormalCurtainOnRed)
+                special(DrawWholeMapView)
+                clearflag(FLAG_IRON_CURTAIN_SET)
+                clearflag(FLAG_IRON_CURTAIN_ON_RED)
+                clearflag(FLAG_IRON_CURTAIN_OPENED)
+                additem(ITEM_IRON_CURTAIN)
+                release
+                end
+            } else {
+                release
+                end
+            }
+        }
+        msgbox("The IRON CURTAIN is hanging on the\nwall.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox("A curtain depicting a FIRE\ninsignita.", MSGBOX_DEFAULT)
+    release
+}
+
+
+script FushciaGym_OpenGreenDoor {
+    setmetatile(19, 6, 0x2D4, TRUE)
+    setmetatile(20, 6, 0x2D5, TRUE)
+    setmetatile(21, 6, 0x2D6, TRUE)
+    setmetatile(22, 6, 0x2D7, TRUE)
+
+    setmetatile(19, 7, 0x2DC, TRUE)
+    setmetatile(20, 7, 0x2DD, TRUE)
+    setmetatile(21, 7, 0x2DE, TRUE)
+    setmetatile(22, 7, 0x2DF, TRUE)
+
+    setmetatile(19, 8, 0x2E4, TRUE)
+    setmetatile(20, 8, 0x2E5, TRUE)
+    setmetatile(21, 8, 0x2E6, TRUE)
+    setmetatile(22, 8, 0x2E7, TRUE)
+    return
+}
+
+script FushciaGym_IronCurtainOnRed {
+    setmetatile(10, 5, 0x3C8, TRUE)
+    setmetatile(11, 5, 0x3C9, TRUE)
+    setmetatile(12, 5, 0x3CA, TRUE)
+    setmetatile(13, 5, 0x3CB, TRUE)
+
+    setmetatile(10, 6, 0x3D0, TRUE)
+    setmetatile(11, 6, 0x3D1, TRUE)
+    setmetatile(12, 6, 0x3D2, TRUE)
+    setmetatile(13, 6, 0x3D3, TRUE)
+
+    setmetatile(10, 7, 0x3D8, TRUE)
+    setmetatile(11, 7, 0x3D9, TRUE)
+    setmetatile(12, 7, 0x3DA, TRUE)
+    setmetatile(13, 7, 0x3DB, TRUE)
+
+    setmetatile(10, 8, 0x3E0, TRUE)
+    setmetatile(11, 8, 0x3E1, TRUE)
+    setmetatile(12, 8, 0x3E2, TRUE)
+    setmetatile(13, 8, 0x3E3, TRUE)
+    return
+
+}
+
+
+script FushciaGym_NormalCurtainOnRed {
+    setmetatile(10, 5, 0x328, TRUE)
+    setmetatile(11, 5, 0x329, TRUE)
+    setmetatile(12, 5, 0x32A, TRUE)
+    setmetatile(13, 5, 0x32B, TRUE)
+
+    setmetatile(10, 6, 0x330, TRUE)
+    setmetatile(11, 6, 0x331, TRUE)
+    setmetatile(12, 6, 0x332, TRUE)
+    setmetatile(13, 6, 0x333, TRUE)
+
+    setmetatile(10, 7, 0x338, TRUE)
+    setmetatile(11, 7, 0x339, TRUE)
+    setmetatile(12, 7, 0x33A, TRUE)
+    setmetatile(13, 7, 0x33B, TRUE)
+
+    setmetatile(10, 8, 0x340, TRUE)
+    setmetatile(11, 8, 0x341, TRUE)
+    setmetatile(12, 8, 0x342, TRUE)
+    setmetatile(13, 8, 0x343, TRUE)
+    return
+
+}
+
+script FushciaGym_IronCurtainOnBlue {
+    setmetatile(14, 5, 0x308, TRUE)
+    setmetatile(15, 5, 0x309, TRUE)
+    setmetatile(16, 5, 0x30A, TRUE)
+    setmetatile(17, 5, 0x30B, TRUE)
+    setmetatile(18, 5, 0x30C, TRUE)
     
+    setmetatile(14, 6, 0x310, TRUE)
+    setmetatile(15, 6, 0x311, TRUE)
+    setmetatile(16, 6, 0x312, TRUE)
+    setmetatile(17, 6, 0x313, TRUE)
+    setmetatile(18, 6, 0x314, TRUE)
+    
+    setmetatile(14, 7, 0x318, TRUE)
+    setmetatile(15, 7, 0x319, TRUE)
+    setmetatile(16, 7, 0x31A, TRUE)
+    setmetatile(17, 7, 0x31B, TRUE)
+    setmetatile(18, 7, 0x31C, TRUE)
+    
+    setmetatile(14, 8, 0x320, TRUE)
+    setmetatile(15, 8, 0x321, TRUE)
+    setmetatile(16, 8, 0x322, TRUE)
+    setmetatile(17, 8, 0x323, TRUE)
+    setmetatile(18, 8, 0x324, TRUE)
+    return
+}
+
+script FushciaGym_OpenIronRed {
+    setmetatile(11, 7, 0x3DD, TRUE)
+    setmetatile(12, 7, 0x3DE, TRUE)
+    setmetatile(11, 8, 0x3E5, TRUE)
+    setmetatile(12, 8, 0x3E6, TRUE)
+    return
+
+}
+
+script FushciaGym_OpenIronBlue {
+    setmetatile(15, 7, 0x30D, TRUE)
+    setmetatile(16, 7, 0x30E, TRUE)
+    setmetatile(17, 7, 0x30F, TRUE)
+    setmetatile(15, 8, 0x315, TRUE)
+    setmetatile(16, 8, 0x316, TRUE)
+    setmetatile(17, 8, 0x317, TRUE)
+    return
 }

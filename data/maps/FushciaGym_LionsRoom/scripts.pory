@@ -1,3 +1,16 @@
+const LOOK_GIRL = 2
 mapscripts FushciaGym_LionsRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
+        addvar(VAR_TEMP_1, 1)
+        setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 9)
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+script FushciaGym_LionsRoom_Trainer {
+    lock
+    release
 }

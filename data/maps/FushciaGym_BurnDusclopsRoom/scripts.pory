@@ -1,3 +1,54 @@
+
+const MAN = 1
+const DUSCLOPS = 2
 mapscripts FushciaGym_BurnDusclopsRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_GOT_BURNED_ONCE)) {
+            setvar(VAR_TEMP_1, 2)
+            setobjectxyperm(MAN, 6, 11)
+            setobjectxyperm(DUSCLOPS, 7, 11)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0 {
+            playse(SE_PIN)
+            applymovement(MAN, Common_Movement_ExclamationMark)
+            applymovement(DUSCLOPS, DusclopsAttacksYou)
+            waitmovement(DUSCLOPS)
+            playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
+            msgbox("DUSCLOPS: Cloooops!\n", MSGBOX_DEFAULT)
+            waitmoncry
+            closemessage
+            msgbox("DUSCLOPS used WILL-O-WISP!\n", MSGBOX_DEFAULT)
+            setflag(FLAG_GOT_BURNED_ONCE)
+            release
+        }
+    ]
+}
+
+
+script FushciaGym_BurnDusclops {
+    lock
+    faceplayer
+    if(var(VAR_TEMP_1) == 1) {
+            playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
+            msgbox("DUSCLOPS: Cloooops!\n", MSGBOX_DEFAULT)
+            waitmoncry
+            closemessage
+            msgbox("DUSCLOPS used WILL-O-WISP!\n", MSGBOX_DEFAULT)
+            setflag(FLAG_GOT_BURNED_ONCE)
+            setvar(VAR_TEMP_1, 2)
+
+    } else {
+            playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
+            msgbox("DUSCLOPS: Cloooops!\n", MSGBOX_DEFAULT)
+            waitmoncry
+    }
+    release
+    end
+}
+
+script FushciaGym_BurnDusclopsMan {
+	msgbox("bad dusclops\n", MSGBOX_NPC)
+	end
 }

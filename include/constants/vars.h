@@ -244,7 +244,7 @@ It is reset after every battle.
 #define VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE                 0x40A0
 
 //Fushcia Gym Vars
-#define VAR_FUCHSIA_TYPE_TRIO_PROGRESS                 0x40A1
+#define VAR_FUCHSIA_LOOK_GIRL_LOCATION                 0x40A1
 #define VAR_FUSCSIA_GYM_HIPPO_ROOM                 0x40A2
 
 #define VAR_FUSHCIA_PREVIOUS_ROOM                 0x40A3
