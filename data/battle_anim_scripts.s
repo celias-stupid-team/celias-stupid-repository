@@ -3525,9 +3525,10 @@ Move_ROLLOUT:
 	setalpha 12, 8
 	createvisualtask AnimTask_Rollout, 2
 	waitforvisualfinish
+	waitsound
 	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 30, 1, 0
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 4, 0, 0, ANIM_TARGET, 2
-	playsewithpan SE_ROLLOUT, SOUND_PAN_TARGET
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
