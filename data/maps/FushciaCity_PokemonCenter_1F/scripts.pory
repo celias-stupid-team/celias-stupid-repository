@@ -33,11 +33,11 @@ script FushciaCity_GetOakPC {
 	end
 }
 
+
 script FushciaCity_GetThroughGym {
-	msgbox("Oh, man!\nOur GYM is a real doozy.\pLearning my way through the maze\ntakes a lot of focus.\pI hear that you can get to the end\nwith any POKéMON you want.\lThere's no restrictions at all.\pThat means the only thing standing\nin my way is my own problem solving!", MSGBOX_NPC)
-	end
+msgbox("FUCHSIA CITY GYM is a big, winding\nmaze.\lIt snakes around and around!\pWhenever I try to tackle it, I\nalways keep a notebook handy.\pI hear you can make it all the way to\nthe LEADER with any POKéMON.\lAfter that? Who knows.\pI guess I just have to give it\nanother shot to find out!", MSGBOX_NPC)
 }
 
 script FushciaCity_PlaceholderNPC {
-msgbox("The FUSHCIA CITY GYM is laid out\nlike a big maze.\lIt just keeps snaking around.\pWhen I try to tackle it, I always\nkeep a notebook handy.\lKeeping track of it all is hard!\pGood luck if you're gonna try it!\n", MSGBOX_NPC)	end
+	
 }
