@@ -1,6 +1,6 @@
 const LOOK_GIRL = 1
 mapscripts FushciaGym_LookGirlRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 18)
         } else {
@@ -19,6 +19,7 @@ script FushciaGym_LookGirlRoom_ResetButton {
     playse(SE_CLICK)
     setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 18)
     setobjectxyperm(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
+    special(DrawWholeMapView)
     release
     end
 }

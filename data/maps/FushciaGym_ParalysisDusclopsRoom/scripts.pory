@@ -2,9 +2,9 @@
 const MAN = 1
 const DUSCLOPS = 2
 mapscripts FushciaGym_ParalysisDusclopsRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_GOT_PARALYZED_ONCE)) {
-            setvar(VAR_TEMP_1, 2)
+            setvar(VAR_TEMP_1, 1)
             setobjectxyperm(MAN, 6, 11)
             setobjectxyperm(DUSCLOPS, 7, 11)
         }
@@ -12,6 +12,7 @@ mapscripts FushciaGym_ParalysisDusclopsRoom_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {
             playse(SE_PIN)
+            setvar(VAR_TEMP_1, 2)
             applymovement(MAN, Common_Movement_ExclamationMark)
             applymovement(DUSCLOPS, DusclopsAttacksYou)
             waitmovement(DUSCLOPS)

@@ -1,7 +1,23 @@
 mapscripts FushciaGym_TrioRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_GREEN_DOOR_OPENED)) {
             call(FushciaGym_OpenGreenDoor)
+        }
+        if(flag(FLAG_IRON_CURTAIN_SET)) {
+            if(flag(FLAG_IRON_CURTAIN_ON_RED)) {
+                if(flag(FLAG_IRON_CURTAIN_OPENED)) {
+                    call(FushciaGym_OpenIronRed)
+                } else {
+                    call(FushciaGym_IronCurtainOnRed)
+                }
+            } else {
+                if(flag(FLAG_IRON_CURTAIN_OPENED)) {
+                    call(FushciaGym_OpenIronBlue)
+                } else {
+                    call(FushciaGym_IronCurtainOnBlue)
+                }
+            }
+
         }
     }
 }
@@ -25,6 +41,7 @@ script FushciaGym_StepOnButton {
         special(DrawWholeMapView)
     }
     if(flag(FLAG_IRON_CURTAIN_SET)) {
+        setflag(FLAG_IRON_CURTAIN_OPENED)
         if(flag(FLAG_IRON_CURTAIN_ON_RED)) {
             call(FushciaGym_OpenIronRed)
         } else {
@@ -118,8 +135,8 @@ script FushciaGym_OpenGreenDoor {
     setmetatile(22, 7, 0x2DF, TRUE)
 
     setmetatile(19, 8, 0x2E4, TRUE)
-    setmetatile(20, 8, 0x2E5, TRUE)
-    setmetatile(21, 8, 0x2E6, TRUE)
+    setmetatile(20, 8, 0x2E5, FALSE)
+    setmetatile(21, 8, 0x2E6, FALSE)
     setmetatile(22, 8, 0x2E7, TRUE)
     return
 }
@@ -214,7 +231,7 @@ script FushciaGym_OpenIronBlue {
     setmetatile(16, 7, 0x30E, TRUE)
     setmetatile(17, 7, 0x30F, TRUE)
     setmetatile(15, 8, 0x315, TRUE)
-    setmetatile(16, 8, 0x316, TRUE)
+    setmetatile(16, 8, 0x316, FALSE)
     setmetatile(17, 8, 0x317, TRUE)
     return
 }

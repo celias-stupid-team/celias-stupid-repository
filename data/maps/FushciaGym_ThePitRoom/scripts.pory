@@ -31,8 +31,10 @@ script FushciaGym_ThePitRoom_LassBreaksWall {
     waitse
     playse(SE_BANG)
     call(FushciaGym_ThePitRoom_SetBrokenWall)
+    setobjectxy(LASS, 11, 12)
     setobjectxyperm(LASS, 11, 12)
     special(DrawWholeMapView)
+    applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerJumpsBack)
     delay(60)
     setflag(FLAG_LASS_BROKE_WALL)
     removeobject(LASS)

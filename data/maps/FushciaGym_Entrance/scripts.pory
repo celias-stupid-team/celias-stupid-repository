@@ -1,7 +1,7 @@
 
 const ATTENDANT = 1
 mapscripts FushciaGym_Entrance_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_IN_FUSHCIA_GYM)) {
             setobjectxy(ATTENDANT, 8, 13)
         }

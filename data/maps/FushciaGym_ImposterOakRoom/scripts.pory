@@ -1,3 +1,25 @@
 mapscripts FushciaGym_ImposterOakRoom_MapScripts {
     
 }
+
+
+script FushciaGym_ImposterOakRoom_ImposterOak{
+    lock
+    special(GetPlayerFacingDirection)
+    if(var(VAR_FACING) == DIR_SOUTH) {
+        removeobject(VAR_LAST_TALKED)
+        setflag(FLAG_FUSHCIA_IMPOSTER_OAK)
+    } else {
+		applymovement(VAR_LAST_TALKED, OakDances)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		playse(SE_M_SCRATCH)
+		delay(10)
+		waitmovement(0)
+		
+	}
+	
+	release
+}

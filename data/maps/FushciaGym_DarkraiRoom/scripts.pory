@@ -1,5 +1,5 @@
 mapscripts FushciaGym_DarkraiRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         call(FushciaGym_DarkraiRoom_OpenDoors)
     }
 }

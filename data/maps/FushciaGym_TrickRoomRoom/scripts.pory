@@ -1,5 +1,5 @@
 mapscripts FushciaGym_TrickRoomRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         call(FushciaGym_TrickRoomRoom_OpenDoors)
     }
 }
@@ -21,5 +21,5 @@ script FushciaGym_TrickRoomRoom_Stakataka {
     playmoncry(SPECIES_STAKATAKA, CRY_MODE_DEFAULT)
 	msgbox("Hey!\nIt's that very fancy STAKATAKA!", MSGBOX_DEFAULT)
     waitmoncry
-	end
+	release
 }

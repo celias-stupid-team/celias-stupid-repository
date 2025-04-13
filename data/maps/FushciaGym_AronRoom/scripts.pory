@@ -1,5 +1,5 @@
 mapscripts FushciaGym_AronRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         setflag(FLAG_TEMP_2)
         if(flag(FLAG_DRILLED_LEFT_HOLE)) {
             setmetatile(11, 7, 0x39B, TRUE)
@@ -7,8 +7,7 @@ mapscripts FushciaGym_AronRoom_MapScripts {
             setmetatile(13, 7, 0x39B, TRUE)
         }
         if(flag(FLAG_DEFEATED_ARON_MAN)) {
-            setmetatile(4, 5, 0x357, TRUE)
-            setmetatile(4, 5, 0x357, TRUE)
+            call(FushciaGym_AronRoom_OpenDoors)
         }
         if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) != 0) {
             setflag(FLAG_TEMP_1)
@@ -17,20 +16,28 @@ mapscripts FushciaGym_AronRoom_MapScripts {
     }
 }
 
+
 script FushciaGym_AronTrainer {
     lock
     faceplayer
     if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) != 0) {
         msgbox("Hippo is gone\nYou win", MSGBOX_DEFAULT)
         setflag(FLAG_DEFEATED_ARON_MAN)
-            setmetatile(4, 5, 0x357, TRUE)
-            setmetatile(4, 5, 0x357, TRUE)
+            call(FushciaGym_AronRoom_OpenDoors)
             special(DrawWholeMapView)
         
     } else {
         msgbox("shell bell aron\nYou lose", MSGBOX_DEFAULT)
     }
     release
+}
+
+script FushciaGym_AronRoom_OpenDoors {
+    setmetatile(4, 5, 0x357, TRUE)
+    setmetatile(8, 5, 0x357, TRUE)
+    setmetatile(4, 4, 0x34F, TRUE)
+    setmetatile(8, 4, 0x34F, TRUE)
+    return
 }
 
 script FushciaGym_HippopotasLeft {
@@ -61,13 +68,15 @@ script FushciaGym_HippopotasLeft {
     } else {
         msgbox("This POKéMON is terrified of you.\nHe looks ready to run away.", MSGBOX_DEFAULT)
     }
-
+    release
 }
 
 script FushciaGym_CrackedWallLeft {
     lock
     if(flag(FLAG_DRILLED_LEFT_HOLE)) {
         msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+        release
+        end
     }
     msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
     if(checkitem(ITEM_DRILL_DOZER)) {
@@ -96,7 +105,7 @@ movement HippoLooksAround {
 }
 
 movement HippoRunsAway {
-    walk_faster_left * 8
+    walk_faster_right * 8
 }
 
 movement PlayerGetsOutOfWay {

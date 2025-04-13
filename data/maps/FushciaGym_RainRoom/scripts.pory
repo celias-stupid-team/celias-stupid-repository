@@ -1,5 +1,5 @@
 mapscripts FushciaGym_RainRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_BEAT_RAIN_GIRL)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
@@ -9,7 +9,11 @@ mapscripts FushciaGym_RainRoom_MapScripts {
 script FushciaGym_RainRoomGirl {
     call(FushciaGym_RainRoom_OpenDoor)
     setflag(FLAG_BEAT_RAIN_GIRL)
-    msgbox("I was supposed to have a SUN\nteam, but…\pI think I'm doing something wrong.\n", MSGBOX_NPC)
+    msgbox("I was supposed to have a SUN\nteam, but…\pI think I'm doing something wrong.\n", MSGBOX_DEFAULT)
+    call(FushciaGym_RainRoom_OpenDoor)
+    special(DrawWholeMapView)
+    release
+
 }
 
 script FushciaGym_RainRoom_OpenDoor {

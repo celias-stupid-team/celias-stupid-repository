@@ -413,3 +413,4 @@ const u32 gObjectEventPic_Chili[] = INCBIN_U32("graphics/object_events/pics/stup
 const u32 gObjectEventPic_Cress[] = INCBIN_U32("graphics/object_events/pics/stupid/Cress.4bpp");
 const u32 gObjectEventPic_Cilan[] = INCBIN_U32("graphics/object_events/pics/stupid/Cilan.4bpp");
 const u32 gObjectEventPic_Drill[] = INCBIN_U32("graphics/object_events/pics/stupid/Drill.4bpp");
+const u32 gObjectEventPic_Hippo2[] = INCBIN_U32("graphics/object_events/pics/stupid/Hippo2.4bpp");

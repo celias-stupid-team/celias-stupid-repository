@@ -1,9 +1,7 @@
 mapscripts FushciaGym_ShedinjaRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
-            setmetatile(11, 7, 0x39B, TRUE)
-            setmetatile(12, 7, 0x39B, TRUE)
-            setmetatile(13, 7, 0x39B, TRUE)
+            call(FushciaGym_ShedinjaRoom_DrawDrilledWall)
         }
         if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
             setmetatile(11, 8, 0x357, TRUE)
@@ -14,6 +12,14 @@ mapscripts FushciaGym_ShedinjaRoom_MapScripts {
             setweather(WEATHER_SANDSTORM)
         } else {
             setflag(FLAG_TEMP_1)
+        }
+        if(!flag(FLAG_DEFEATED_TRAINER_2)) {
+            setmetatile(15, 14, 0x281, FALSE)
+            setmetatile(15, 15, 0x280, TRUE)
+            setmetatile(16, 14, 0x281, FALSE)
+            setmetatile(16, 15, 0x280, TRUE)
+            setmetatile(17, 14, 0x281, FALSE)
+            setmetatile(17, 15, 0x280, TRUE)
         }
     }
 }
@@ -44,7 +50,7 @@ script FushciaGym_HippopotasRight {
     msgbox("HIPPOPOTAS: Po-prra…!\n", MSGBOX_DEFAULT)
     waitmoncry
     closemessage
-    if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+    if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
         applymovement(VAR_LAST_TALKED, HippoLooksAround_Right)
         waitmovement(0)
         delay(48)
@@ -69,6 +75,8 @@ script FushciaGym_CrackedWallRight {
     lock
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
         msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+        release
+        end
     }
     msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
     if(checkitem(ITEM_DRILL_DOZER)) {
@@ -77,13 +85,19 @@ script FushciaGym_CrackedWallRight {
             msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
             closemessage
             setflag(FLAG_DRILLED_RIGHT_HOLE)
-            setmetatile(7, 10, 0x39B, TRUE)
-            setmetatile(6, 10, 0x39B, TRUE)
-            setmetatile(5, 10, 0x39B, TRUE)
+            call(FushciaGym_ShedinjaRoom_DrawDrilledWall)
             special(DrawWholeMapView)
         }
     }
     release
+}
+
+script FushciaGym_ShedinjaRoom_DrawDrilledWall {
+    
+            setmetatile(7, 10, 0x39B, TRUE)
+            setmetatile(6, 10, 0x39B, TRUE)
+            setmetatile(5, 10, 0x39B, TRUE)
+            return
 }
 
 movement HippoLooksAround_Right {

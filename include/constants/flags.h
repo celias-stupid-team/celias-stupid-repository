@@ -887,8 +887,8 @@
 #define FLAG_MEMORIZED_SCROLL               0x334
 #define FLAG_OBTAINED_IRON_CURTAIN               0x335
 #define FLAG_LASS_BROKE_WALL               0x336
-#define FLAG_0x337               0x337
-#define FLAG_0x338               0x338
+#define FLAG_FUSHCIA_IMPOSTER_OAK               0x337
+#define FLAG_DEFEATED_NINJAS               0x338
 #define FLAG_0x339               0x339
 #define FLAG_0x33A               0x33A
 #define FLAG_0x33B               0x33B

@@ -1,5 +1,5 @@
 mapscripts FushciaGym_GymLeaderRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         setvar(VAR_FUSHCIA_PREVIOUS_ROOM, FUSHCIA_ROOM_GYM_LEADER)
         if(!flag(FLAG_REVEALED_DAD)) {
             setflag(FLAG_TEMP_1)
