@@ -114,3 +114,14 @@ script Route16_Dad {
 	release
 	end
 }
+
+script Route16_RoadWorkGirl {
+	lock
+	msgbox("Hmm…\nIt doesn't seem like it does.", MSGBOX_DEFAULT)
+	release
+}
+
+script Route16_RoadWorkSign {
+	msgbox("ROAD WORK AHEAD\n", MSGBOX_SIGN)
+	end
+}

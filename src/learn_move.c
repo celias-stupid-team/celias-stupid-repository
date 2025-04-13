@@ -755,7 +755,10 @@ static void MoveRelearnerInitListMenuBuffersEtc(void)
     sMoveRelearner->numLearnableMoves = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearner->selectedPartyMember], sMoveRelearner->learnableMoves);
     count = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearner->selectedPartyMember], sMoveRelearner->learnableMoves);
     for (i = 0; i < sMoveRelearner->numLearnableMoves; i++)
-        StringCopy(sMoveRelearner->listMenuStrbufs[i], gLongMoveNames[sMoveRelearner->learnableMoves[i]]);
+        StringCopy(sMoveRelearner->listMenuStrbufs[i], gMoveNames[sMoveRelearner->learnableMoves[i]]);  //Hmmmm
+        /*
+        This is not the most elegant answer but w/e
+        */
     GetMonData(&gPlayerParty[sMoveRelearner->selectedPartyMember], MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(gStringVar1, nickname);
     StringCopy(sMoveRelearner->listMenuStrbufs[sMoveRelearner->numLearnableMoves], gFameCheckerText_Cancel);
@@ -781,8 +784,9 @@ static void MoveRelearnerMenuHandleInput(void)
         if (sMoveRelearner->selectedIndex != 0xFE)
         {
             sMoveRelearner->state = 8;
-            StringCopy(gStringVar2, sMoveRelearner->listMenuStrbufs[sMoveRelearner->selectedIndex]);
-            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_TeachMoveQues);
+            StringCopy(gStringVar2, gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]);
+            // sMoveRelearner->listMenuStrbufs[i], gLongMoveNames[sMoveRelearner->learnableMoves[sMoveRelearner->selectedIndex]]
+            StringExpandPlaceholdersAndPrintTextOnWindow7Color2(gText_TeachMoveQues); //this needs to grab the long move and not the short one
         }
         else
         {

@@ -45,15 +45,15 @@ script PokemonTower_6F_SpellingKid {
 }
 
 script PokemonTower_6F_MoveTutor {
-	lock
+	lockall
 	faceplayer
 	if(!flag(FLAG_TEMP_1)) {
-			msgbox("MR. FUJI: Oh, goodness…\nMy name is MR. FUJI.\lI am the schoolteacher here.\pThose miserable DMCA are waiting\nupstairs.\lThey've taken CUBONE'S MOTHER.\pShe was always supportive of the\nstories our students would write.\lThey weren't happy about that.\p…Oh?\nYou're planning to help her?\pAll right.\nEven now, I'm still a TEACHER.\lI'll help your POKéMON learn moves.", MSGBOX_DEFAULT)
+			msgbox("MR. FUJI: Oh, goodness…\nMy name is MR. FUJI.\lI am the schoolteacher here.\pThose miserable DMCA are waiting\nupstairs.\lThey've taken CUBONE'S MOTHER.\pShe was always supportive of the\nstories our students would write.\p…Oh?\nYou're planning to help her?\pAll right.\nEven now, I'm still a TEACHER.\lI'll help your POKéMON learn moves.", MSGBOX_DEFAULT)
 			setflag(FLAG_TEMP_1)
 	} else {
 		msgbox("MR. FUJI: CUBONE's MOTHER has\nbeen taken away by the DMCA.\lEven still, I'll help you.", MSGBOX_DEFAULT)
 	}
-	msgbox("Would you like me to help your\nPOKéMON learn a MOVE?", MSGBOX_DEFAULT)
+	msgbox("Would you like me to help your\nPOKéMON learn a MOVE?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 			msgbox(TwoIsland_House_Text_TutorWhichMon)
 			special(SelectMoveTutorMon)
@@ -77,7 +77,7 @@ script PokemonTower_6F_MoveTutor {
 	} else {
 			msgbox("Come back here if you'd like\nto teach your POKéMON a move.", MSGBOX_DEFAULT)
 	}
-	release
+	releaseall
 	end
 }
 

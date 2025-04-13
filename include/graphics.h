@@ -7924,6 +7924,8 @@ extern const u32 gItemIconPalette_CandyDispenser[];
 extern const u32 gItemIcon_Nothing[];
 extern const u32 gItemIcon_DrillDozer[];
 extern const u32 gItemIconPalette_DrillDozer[];
+extern const u32 gItemIcon_BanetteDoll[];
+extern const u32 gItemIconPalette_BanetteDoll[];
 extern const u32 gItemIconPalette_ShoalSalt[];
 extern const u32 gItemIcon_ShoalShell[];
 extern const u32 gItemIconPalette_Shell[];

@@ -50,24 +50,30 @@ script SafariZone_IronCleftBattle {
     //cinematic camera stuff
     textcolor(NPC_TEXT_COLOR_MALE)
     if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
-        msgbox("Copyright\n", MSGBOX_DEFAULT)
-        //battle
-        trainerbattle_no_intro(TRAINER_DMCA_ARCHER, "darn")
-        msgbox("oh no\n", MSGBOX_DEFAULT)
+        if(flag(FLAG_ARCHER_CUTSCENE_SECOND)) {
+            msgbox("ARCHER: Oh?\nYou're back again?", MSGBOX_DEFAULT)
+        } else {
+            setflag(FLAG_ARCHER_CUTSCENE_SECOND)
+            msgbox("ARCHER: So.\nYou've finally arrived.\pI hear you're the little rascal\nwho's been disrupting our plans.\lYou'd better listen here!\pWe are the DMCA!\pWe command the production of all\ncreative works.\lNothing gets made without us!\pDo you think you're doing creators\na favor by infringing on them?\lStealing profits from their mouths?", MSGBOX_DEFAULT)
+        }
+        msgbox("Ha.\nHow naive.\pBut it's no matter.\nYou're an insignificant vagrant.\lJust another wayward fly to swat.\pI'll use the power of the illegal\nPOKéMON to crush you to bits!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_DMCA_ARCHER, "N-no!\nHow could this be?\pYour POKéMON was illegal!\nThere's no way we should lose!")
+        msgbox("Grr…\nThat was a dirty trick you pulled.\pThat POKéMON violates copyright.\nYou knew it was illegal.\pBut no matter.\nWe're not going to give up.\lYou'll need to do better.", MSGBOX_DEFAULT)
         setflag(FLAG_BATTLED_IRON_CLEFTS)
 
     } else {
         msgbox("ARCHER: Oh?\nYou're back for more?", MSGBOX_DEFAULT)
     }
-
+    
     msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me.\pYou'll need something with REAL\nfirepower if you wanna take us down!", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
-        msgbox("no.")
+        msgbox("ARCHER: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
         applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
         waitmovement(0)
         special(RemoveCameraObject)
+        warp(MAP_SAFARI_ZONE_NORTH, 12)
         release
         end
     }
@@ -101,6 +107,7 @@ script SafariZone_IronCleftBattle {
         playse(SE_PIN)
         delay(40)
         applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
+        waitmovement(OBJ_EVENT_ID_CAMERA)
         waitmovement(WARDEN)
         special(RemoveCameraObject)
         textcolor(NPC_TEXT_COLOR_BLUE)
@@ -152,13 +159,13 @@ movement PlayerLooksDown {
 
 movement WardenEnters {
     set_visible
-    walk_up * 5
+    walk_up * 6
     face_up
 }
 
 movement GuruEnters {
     set_visible
-    walk_up * 4
+    walk_up * 5
     face_up
 }
 

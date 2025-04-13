@@ -131,7 +131,15 @@ script DanceTheater_Ash {
     end
 }
 
-
+script DanceTheater_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("{PLAYER}!\nWhat are you doing out here?\pI didn't know you were into\ntraditional ceremonial dance.\lWhat fine taste you've developed!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
 
 script DanceTheater_Pikachu {
     lock

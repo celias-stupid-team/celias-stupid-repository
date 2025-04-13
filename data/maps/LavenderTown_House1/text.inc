@@ -15,8 +15,8 @@ LavenderTown_House1_Text_RocketsKilledCubonesMother::
     .string "notices!$"
     
 LavenderTown_House1_Text_GhostOfPokemonTowerIsGone::
-    .string "The ghost of POKéMON TOWER is\n"
-    .string "gone!\p"
-    .string "Someone must have soothed its\n"
-    .string "restless spirit!$"
+	.string "Hey, did you hear?\n"
+	.string "The DMCA are finally gone!\p"
+	.string "Now we can write whatever stories\n"
+	.string "we want!$"
 

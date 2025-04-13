@@ -32,7 +32,7 @@ script Route15_Brock {
 }
 
 script Route15_LighthouseGirl {
-	msgbox("You know the LIGHTHOUSE on the shore\nof ROUTE 15?\pLegends say that at the top rests\na powerful DRAGON.\pI hope that someday I can meet him…\n", MSGBOX_NPC)
+	msgbox("You know the LIGHTHOUSE on the\nshore of ROUTE 15?\pLegends say that at the top rests\na powerful DRAGON.\pI hope that someday I can meet him…\n", MSGBOX_NPC)
 	end
 }
 
