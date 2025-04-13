@@ -5004,7 +5004,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "The foe is slammed with a sturdy\\ntail of steel. It may lower the\\ntarget's DEFENSE stat.",
+      "description_english": "A mystical seed is planted on the\\nopponent. This changes their\\nABILITY to WONDER GUARD.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",

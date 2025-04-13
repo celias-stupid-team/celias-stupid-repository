@@ -53,13 +53,14 @@ CeladonCity_DepartmentStore_2F_EventScript_ClerkTMs::
 
 	.align 2
 CeladonCity_DepartmentStore_2F_TMs::
-	.2byte ITEM_TM05
-	.2byte ITEM_TM15
-	.2byte ITEM_TM28
-	.2byte ITEM_TM31
-	.2byte ITEM_TM43
-	.2byte ITEM_TM45
+	.2byte ITEM_TM23
 	.2byte ITEM_NONE
 	release
 	end
 `
+
+
+script CeladonCity_DepartmentStore_2F_ConfusedGirl {
+	msgbox("Hmm…\nHeya, stranger!\lI have a question.\pI was about to head home after\nshopping, but I can't seem to leave.\pThere's some weird arena upstairs\nfor some reason, and I can go down.\lI think I'm stuck here.\pDo you have any idea what's\ngoing on?", MSGBOX_NPC)
+	end
+}

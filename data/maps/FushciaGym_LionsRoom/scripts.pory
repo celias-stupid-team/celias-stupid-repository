@@ -12,5 +12,6 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
 
 script FushciaGym_LionsRoom_Trainer {
     lock
+    msgbox("crash")
     release
 }

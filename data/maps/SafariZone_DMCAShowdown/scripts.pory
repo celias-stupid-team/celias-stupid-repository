@@ -13,6 +13,7 @@ const DMCA_3 = 3
 
 script SafariZone_EnterArena {
     lock
+    setvar(VAR_TEMP_0, 1)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
     if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE)) {
         playbgm(MUS_DMCA_SHOWDOWN, TRUE)

@@ -50,6 +50,6 @@ script FushciaGym_ThePitRoom_SetBrokenWall {
     setmetatile(8, 12, 0x39E, TRUE)
     setmetatile(9, 12, 0x39E, TRUE)
     setmetatile(10, 12, 0x39E, TRUE)
-    setmetatile(11, 12, 0x3A9, TRUE)
+    setmetatile(11, 12, 0x3A9, FALSE)
     return
 }

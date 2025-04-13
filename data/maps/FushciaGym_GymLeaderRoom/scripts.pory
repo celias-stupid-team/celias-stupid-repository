@@ -12,3 +12,54 @@ mapscripts FushciaGym_GymLeaderRoom_MapScripts {
         }
     }
 }
+
+const DAD = 2
+script FushciaGym_GymLeaderRoom_Koga {
+    lock
+    faceplayer
+    msgbox("Fufufufu…\nWelcome, {PLAYER}!\lI am the LEADER of this GYM.\pOh? What's that?\nHow did I know your name?\pHa!\nThat's because you've been misled.\lYou see, this is merely a disguise!\pIn truth, my real identity is…\n", MSGBOX_DEFAULT)
+    applymovement(VAR_LAST_TALKED, FushciaGymLeaderSpin)
+    waitmovement(0)
+    removeobject(VAR_LAST_TALKED)
+    addobject(DAD)
+    setflag(FLAG_REVEALED_DAD)
+    applymovement(DAD, FushciaGymLeaderSpin)
+    waitmovement(0)
+    msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    release
+}
+
+script FushciaGym_GymLeaderRoom_Dad {
+    lock
+    faceplayer
+    msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    release
+
+}
+
+script FushciaGymLeaderSpin {
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+    face_left
+    delay_1
+    face_up
+    delay_1
+    face_right
+    delay_1
+    face_down
+    delay_1
+}

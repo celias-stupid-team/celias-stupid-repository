@@ -68,6 +68,7 @@ script FushciaGym_InvisibleLass {
     lock
     faceplayer
     if(checkitem(ITEM_DEVON_SCOPE)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
         msgbox("There's an invisible object\nin the way.\pWould you like to use the\nDEVON SCOPE?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             msgbox("{PLAYER} used the DEVON SCOPE!\n", MSGBOX_DEFAULT)
