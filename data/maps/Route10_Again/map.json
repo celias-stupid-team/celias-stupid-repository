@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_LAVENDER_TOWN",
-      "offset": 0,
+      "offset": -3,
       "direction": "down"
     },
     {
