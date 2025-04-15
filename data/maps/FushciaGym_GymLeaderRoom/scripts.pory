@@ -13,14 +13,15 @@ mapscripts FushciaGym_GymLeaderRoom_MapScripts {
     }
 }
 
+const KOGA = 1
 const DAD = 2
 script FushciaGym_GymLeaderRoom_Koga {
     lock
     faceplayer
     msgbox("Fufufufu…\nWelcome, {PLAYER}!\lI am the LEADER of this GYM.\pOh? What's that?\nHow did I know your name?\pHa!\nThat's because you've been misled.\lYou see, this is merely a disguise!\pIn truth, my real identity is…\n", MSGBOX_DEFAULT)
-    applymovement(VAR_LAST_TALKED, FushciaGymLeaderSpin)
+    applymovement(KOGA, FushciaGymLeaderSpin)
     waitmovement(0)
-    removeobject(VAR_LAST_TALKED)
+    removeobject(KOGA)
     addobject(DAD)
     setflag(FLAG_REVEALED_DAD)
     applymovement(DAD, FushciaGymLeaderSpin)
@@ -62,4 +63,5 @@ script FushciaGymLeaderSpin {
     delay_1
     face_down
     delay_1
+    step_end
 }

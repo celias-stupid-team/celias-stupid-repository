@@ -18,11 +18,15 @@ script FushciaGym_LookGirlRoom_ResetButton {
     lock
     playse(SE_CLICK)
     setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 18)
+    setobjectxy(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
     setobjectxyperm(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
+    applymovement(LOOK_GIRL, Common_Movement_FaceUp)
+    waitmovement(0)
     special(DrawWholeMapView)
     release
     end
 }
+
 
 script FushciaGym_LookGirl_Sign {
 	msgbox("TRAINER TIPS\pTalk to her again!\n", MSGBOX_SIGN)

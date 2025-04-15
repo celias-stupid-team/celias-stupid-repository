@@ -27,6 +27,13 @@ mapscripts FushciaGym_BurnDusclopsRoom_MapScripts {
     ]
 }
 
+movement DusclopsAttacksYou_Left {  
+    walk_fast_down
+    Walk_fast_right
+    walk_fast_down
+    face_down
+}
+
 
 script FushciaGym_BurnDusclops {
     lock
