@@ -41,6 +41,12 @@ def main_editor_function(data):
     edit_file_1(data)
     edit_file_2(data)
     edit_file_3(data)
+    edit_file_4(data)
+    edit_file_5(data)
+    edit_file_6(data)
+    edit_file_7(data)
+    edit_file_8(data)
+    edit_file_9(data)
 
 def edit_file_1(data):
     print("Editing include/constants/hoenn_cries.h with", data)
@@ -123,18 +129,75 @@ def edit_file_5(data):
 
 def edit_file_6(data):
     print("Editing sound/cry_tables.inc with", data)
+    path = os.path.join("sound", "cry_tables.inc")
+
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Append to gCryTable
+    cry_pattern = r'(gCryTable::\s*\n(?:\s*cry\s+Cry_.*\n)+)'
+    new_cry = f"\tcry Cry_{sanitized_name}\n"
+    content = re.sub(cry_pattern, lambda m: m.group(1) + new_cry, content, count=1)
+
+    # Append to gCryTable_Reverse
+    reverse_pattern = r'(gCryTable_Reverse::\s*\n(?:\s*cry_reverse\s+Cry_.*\n)+)'
+    new_reverse = f"\tcry_reverse Cry_{sanitized_name}\n"
+    content = re.sub(reverse_pattern, lambda m: m.group(1) + new_reverse, content, count=1)
+
+    with open(path, "w", encoding="utf-8", newline='\n') as f:
+        f.write(content)
 
 def edit_file_7(data):
     print("Editing sound/direct_sound_data.inc with", data)
+    path = os.path.join("sound", "direct_sound_data.inc")
+
+    with open(path, "a", encoding="utf-8", newline='\n') as f:
+        f.write(f"Cry_{sanitized_name}::\\n")
+        f.write(f"\t.incbin \"sound/direct_sound_samples/cries/{folder_name}.bin\"\\n\\n")
+        f.write(f"\t.align 2\\n")
+
 
 def edit_file_8(data):
     print("Editing src/data/pokemon/cry_ids.h with", data)
+    path = os.path.join("src", "data", "pokemon", "cry_ids.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    new_entry = f"	[{species_number} - HOENN_MON_SPECIES_START] = CRY_{uppercase_name},\n"
+    updated_content = re.sub(r'\n+\/\/End', f"\n{new_entry}\n\n\/\/End", file_content)
+
+    with open(path, "w", encoding="utf-8", newline='\n') as f:
+        f.write(updated_content)
+
 
 def edit_file_9(data):
     print("Editing src/data/pokemon/level_up_learnset_pointers.h with", data)
+    path = os.path.join("src", "data", "pokemon," "level_up_learnset_pointers.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    matches = re.findall(r'=\s*(\d+),', file_content)
+    last_index = int(matches[-1]) if matches else 0
+    new_index = last_index + 1
+
+    new_entry = f"\t[{species_number}] = s{sanitized_name}LevelUpLearnset,\n"
+    updated_content = re.sub(r'\n+};', f"\n{new_entry}\n\n}};", file_content)
+
+    with open(path, "w", encoding="utf-8", newline='\n') as f:
+        f.write(updated_content)
 
 def edit_file_10(data):
     print("Editing src/data/pokemon/level_up_learnsets.h with", data)
+    path = os.path.join("src", "data", "pokemon", "level_up_learnsets.h")
+
+    with open(path, "a", encoding="utf-8", newline='\n') as f:
+        f.write(f"static const u16 s{sanitized_name}LevelUpLearnset[] = ")
+        f.write("{\n")
+        f.write("\tLEVEL_UP_MOVE(1, MOVE_TACKLE),\n")
+        f.write("\tLEVEL_UP_END\n")
+        f.write("};\n\n")
 
 def edit_file_11(data):
     print("Editing src/data/pokemon/tmhm_learnsets.h with", data)
