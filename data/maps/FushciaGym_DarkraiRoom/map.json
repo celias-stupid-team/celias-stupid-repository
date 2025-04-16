@@ -17,8 +17,8 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 10,
+      "graphics_id": "OBJ_EVENT_GFX_JANINE",
+      "x": 9,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",

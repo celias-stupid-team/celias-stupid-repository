@@ -78,6 +78,9 @@ static u16 GiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
 static u8 GetLevelFromMonExp(struct Pokemon *mon);
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
 
+
+
+
 #include "data/battle_moves.h"
 #include "data/pokemon_graphics/footprint_table.h"
 

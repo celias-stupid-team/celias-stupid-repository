@@ -889,9 +889,9 @@
 #define FLAG_LASS_BROKE_WALL               0x336
 #define FLAG_FUSHCIA_IMPOSTER_OAK               0x337
 #define FLAG_DEFEATED_NINJAS               0x338
-#define FLAG_0x339               0x339
-#define FLAG_0x33A               0x33A
-#define FLAG_0x33B               0x33B
+#define FLAG_LION_BATTLE               0x339 // yes I know this is cringe but idk how to do it 
+#define FLAG_LEFT_FIRST               0x33A
+#define FLAG_RIGHT_FIRST               0x33B
 #define FLAG_0x33C               0x33C
 #define FLAG_0x33D               0x33D
 #define FLAG_0x33E               0x33E

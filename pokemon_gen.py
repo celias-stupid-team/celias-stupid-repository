@@ -164,7 +164,7 @@ def edit_file_8(data):
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
 
-    new_entry = f"	[{species_number} - HOENN_MON_SPECIES_START] = CRY_{uppercase_name},\n"
+    new_entry = f"	[{species_number} - POKERAP2_MON_SPECIES_START] = CRY_{uppercase_name},\n"
     updated_content = re.sub(r'\n+\/\/End', f"\n{new_entry}\n\n\/\/End", file_content)
 
     with open(path, "w", encoding="utf-8", newline='\n') as f:
@@ -201,21 +201,41 @@ def edit_file_10(data):
 
 def edit_file_11(data):
     print("Editing src/data/pokemon/tmhm_learnsets.h with", data)
+    path = os.path.join("src", "data", "pokemon", "tmhm_learnsets.h")
 
-def edit_file_12(data):
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    new_entry = f"\t[{species_number}]    = TMHM_LEARNSET(0),\n"
+    updated_content = re.sub(r'\n};', f"\n{new_entry}}};", file_content)
+
+    with open(path, "w", encoding="utf-8", newline='\n') as f:
+        f.write(updated_content)
+
+def edit_file_12(data): # TO DO
     print("Editing src/data/pokemon/graphics/back_pic_coordinates.h with", data)
 
 def edit_file_13(data):
     print("Editing src/data/pokemon/graphics/footprint_table.h with", data)
+    path = os.path.join("src", "data", "pokemon", "graphics", "footprint_table.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    new_entry = f"\t[{species_number}]    = gMonFootprint_{sanitized_name},\n"
+    updated_content = re.sub(r'\n};', f"\n{new_entry}}};", file_content)
+
+    with open(path, "w", encoding="utf-8", newline='\n') as f:
+        f.write(updated_content)
 
 def edit_file_14(data):
     print("Editing src/data/pokemon/graphics/front_pic_coordinates.h with", data)
 
-def edit_file_15(data):
+def edit_file_15(data): # TO DO
     print("Editing src/menu2.c with", data)
 
 def edit_file_16(data):
-    print("Editing src/pokemon/icon.c with", data)
+    print("Editing src/pokemon_icon.c with", data)
 
 def edit_file_17(data):
     print("Editing src/data/pokemon/graphics/back_pic_table.h with", data)
