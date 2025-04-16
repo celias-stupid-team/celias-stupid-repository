@@ -17,12 +17,17 @@ script FushciaGym_LookGirlRoom_RedCurtain {
 script FushciaGym_LookGirlRoom_ResetButton {
     lock
     playse(SE_CLICK)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
     setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 18)
     setobjectxy(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
     setobjectxyperm(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
     applymovement(LOOK_GIRL, Common_Movement_FaceUp)
     waitmovement(0)
     special(DrawWholeMapView)
+    special(ShakeScreen)
     release
     end
 }

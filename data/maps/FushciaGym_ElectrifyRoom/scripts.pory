@@ -1,6 +1,9 @@
 mapscripts FushciaGym_ElectrifyRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        call(FushciaGym_ElectrifyRoom_OpenDoor)
+        if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE)) {
+            call(FushciaGym_ElectrifyRoom_OpenDoor)
+
+        }
     }
 }
 
@@ -8,4 +11,12 @@ script FushciaGym_ElectrifyRoom_OpenDoor {
     setmetatile(10, 6, 0x3A6, TRUE)
     setmetatile(10, 7, 0x357, TRUE)
     return
+}
+
+script FushciaGym_ElectrifyRoom_Lance {
+    trainerbattle_single(TRAINER_FUSHCIA_GYM_LANCE, "I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!", "Impossible!\n")
+    msgbox("lost")
+    call(FushciaGym_ElectrifyRoom_OpenDoor)
+    release
+    end
 }

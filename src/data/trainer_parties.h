@@ -10132,4 +10132,136 @@ static const struct TrainerMonNoItemCustomMoves sParty_SodaShopRichKid[] = {
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainBrandon[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_REGIROCK,
+        .moves = {MOVE_SUPERPOWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainSpenser[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_REGICE,
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainGreta[] = {
+    {
+        .iv = 0,
+        .lvl = 1,
+        .species = SPECIES_ARON,
+        .moves = {MOVE_ENDEAVOR, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainTucker[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_SHEDINJA_ELECTRIC,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_STAKATAKA,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainAnabel[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_VENUSAUR_MEGA,
+        .moves = {MOVE_SOLAR_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_ShadowTriad[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_GRENINJA,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_RABOOT,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_SCEPTILE,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_GYARADOS,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_PYROAR,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_REGIGIGAS,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainDarach[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_WEEZING,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_LeaderJanine[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_DARKRAI,
+        .moves = {MOVE_SLEEP_POWDER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdRichard[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_REGISTEEL,
+        .moves = {MOVE_HAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
 };
