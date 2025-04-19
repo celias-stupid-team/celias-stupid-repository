@@ -14,7 +14,7 @@ mapscripts FushciaGym_BurnDusclopsRoom_MapScripts {
             playse(SE_PIN)
             setvar(VAR_TEMP_1, 2)
             applymovement(MAN, Common_Movement_ExclamationMark)
-            applymovement(DUSCLOPS, DusclopsAttacksYou)
+            applymovement(DUSCLOPS, DusclopsAttacksYou_Left)
             waitmovement(DUSCLOPS)
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
             msgbox("DUSCLOPS: Cloooops!\n", MSGBOX_DEFAULT)

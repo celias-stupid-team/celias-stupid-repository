@@ -23,7 +23,7 @@ script FushciaGym_TrainerRoom1_Brandon {
         call(FushciaGym_TrainerRoom1_OpenDoors)
         special(DrawWholeMapView)
     } else {
-        trainerbattle_single(TRAINER_BATTLE_FRONTIER_BRANDON, "YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE\nFRONTIER BRAIN BRANDON\pCOME AT ME\n", "DARN WHAT A SHAME\n")
+        trainerbattle_single(TRAINER_BATTLE_FRONTIER_BRANDON, "YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE\nFRONTIER BRAIN BRANDON\pLET US BATTLE\n", "DARN WHAT A SHAME\n")
         setflag(FLAG_DEFEATED_TRAINER_1)
 
     }
@@ -42,7 +42,7 @@ script FushciaGym_TrainerRoom1_Spenser {
         special(DrawWholeMapView)
     } else {
     
-        trainerbattle_single(TRAINER_BATTLE_FRONTIER_SPENSER, "HELLO CHALLENGER\nI AM SPENSER OF THE BATTLE PALACE\pMY POKéMON CHOOSE THEIR OWN MOVES\n{PAUSE 30}I PUT MY FULL FAITH IN THEIR CHOICE", "OH NO\n")
+        trainerbattle_single(TRAINER_BATTLE_FRONTIER_SPENSER, "HELLO CHALLENGER\nI AM SPENSER OF THE BATTLE PALACE\pMY POKéMON CHOOSE THEIR OWN MOVES\n{PAUSE 30}I PUT FULL FAITH IN THEIR CHOICE", "OH NO\n")
         setflag(FLAG_DEFEATED_TRAINER_1)
     }
     call(FushciaGym_TrainerRoom1_OpenDoors)

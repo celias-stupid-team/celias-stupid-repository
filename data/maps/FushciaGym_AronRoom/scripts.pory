@@ -20,15 +20,10 @@ mapscripts FushciaGym_AronRoom_MapScripts {
 script FushciaGym_AronTrainer {
     lock
     faceplayer
-    if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) != 0) {
-        msgbox("Hippo is gone\nYou win", MSGBOX_DEFAULT)
-        setflag(FLAG_DEFEATED_ARON_MAN)
-            call(FushciaGym_AronRoom_OpenDoors)
-            special(DrawWholeMapView)
-        
-    } else {
-        msgbox("shell bell aron\nYou lose", MSGBOX_DEFAULT)
-    }
+    trainerbattle_single(TRAINER_BATTLE_FRONTIER_GRETA, "intro text", "you win")
+    setflag(FLAG_DEFEATED_ARON_MAN)
+    call(FushciaGym_AronRoom_OpenDoors)
+    special(DrawWholeMapView)
     release
 }
 
