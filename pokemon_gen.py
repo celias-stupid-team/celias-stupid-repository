@@ -223,12 +223,31 @@ def edit_file_11(data):
     with open(path, "w", encoding="utf-8", newline='\n') as f:
         f.write(updated_content)
 
-def edit_file_12(data): # TO DO
-    print("Editing src/data/pokemon/graphics/back_pic_coordinates.h with", data)
+def edit_file_12(data):
+    print("Editing src/data/pokemon_graphics/back_pic_coordinates.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "back_pic_coordinates.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    pattern = r'(const struct MonCoords gMonBackPicCoords\[\] = \{\n(?:.*?\n)*?)(\n\};)'
+    new_entry = (
+        f"\t[{species_number}] =\n"
+        f"\t{{\n"
+        f"\t\t.size = MON_COORDS_SIZE(48, 32),\n"
+        f"\t\t.y_offset = 16,\n"
+        f"\t}},\n"
+    )
+
+    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(updated_content)
+
 
 def edit_file_13(data):
-    print("Editing src/data/pokemon/graphics/footprint_table.h with", data)
-    path = os.path.join("src", "data", "pokemon", "graphics", "footprint_table.h")
+    print("Editing src/data/pokemon_graphics/footprint_table.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "footprint_table.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
@@ -240,9 +259,27 @@ def edit_file_13(data):
         f.write(updated_content)
 
 def edit_file_14(data):
-    print("Editing src/data/pokemon/graphics/front_pic_coordinates.h with", data)
+    print("Editing src/data/pokemon_graphics/front_pic_coordinates.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "front_pic_coordinates.h")
 
-def edit_file_15(data): # TO DO
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    pattern = r'(const struct MonCoords gMonFrontPicCoords\[\] = \{\n(?:.*?\n)*?)(\n\};)'
+    new_entry = (
+        f"\t[{species_number}] =\n"
+        f"\t{{\n"
+        f"\t\t.size = MON_COORDS_SIZE(48, 32),\n"
+        f"\t\t.y_offset = 16,\n"
+        f"\t}},\n"
+    )
+
+    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(updated_content)
+
+def edit_file_15(data):
     print("Editing src/menu2.c with", data)
 
     path = os.path.join("src", "menu2.c")
@@ -274,8 +311,8 @@ def edit_file_16(data):
         f.write(updated_content)
 
 def edit_file_17(data):
-    print("Editing src/data/pokemon/graphics/back_pic_table.h with", data)
-    path = os.path.join("src", "data", "pokemon", "graphics", "back_pic_table.h")
+    print("Editing src/data/pokemon_graphics/back_pic_table.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "back_pic_table.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
@@ -292,8 +329,8 @@ def edit_file_17(data):
         print("Back Pic Table marker not found, insertion skipped.")
 
 def edit_file_18(data):
-    print("Editing src/data/pokemon/graphics/front_pic_table.h with", data)
-    path = os.path.join("src", "data", "pokemon", "graphics", "front_pic_table.h")
+    print("Editing src/data/pokemon_graphics/front_pic_table.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "front_pic_table.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
@@ -310,8 +347,8 @@ def edit_file_18(data):
         print("Front Pic Table marker not found, insertion skipped.")
 
 def edit_file_19(data):
-    print("Editing src/data/pokemon/graphics/palette_table.h with", data)
-    path = os.path.join("src", "data", "pokemon", "graphics", "palette_table.h")
+    print("Editing src/data/pokemon_graphics/palette_table.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "palette_table.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
@@ -328,8 +365,8 @@ def edit_file_19(data):
         print("Front Pic Table marker not found, insertion skipped.")
 
 def edit_file_20(data):
-    print("Editing src/data/pokemon/graphics/shiny_palette_table.h with", data)
-    path = os.path.join("src", "data", "pokemon", "graphics", "shiny_palette_table.h")
+    print("Editing src/data/pokemon_graphics/shiny_palette_table.h with", data)
+    path = os.path.join("src", "data", "pokemon_graphics", "shiny_palette_table.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
