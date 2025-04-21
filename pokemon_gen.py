@@ -173,7 +173,7 @@ def edit_file_8(data):
 
 def edit_file_9(data):
     print("Editing src/data/pokemon/level_up_learnset_pointers.h with", data)
-    path = os.path.join("src", "data", "pokemon," "level_up_learnset_pointers.h")
+    path = os.path.join("src", "data", "pokemon", "level_up_learnset_pointers.h")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
@@ -234,23 +234,160 @@ def edit_file_14(data):
 def edit_file_15(data): # TO DO
     print("Editing src/menu2.c with", data)
 
+    path = os.path.join("src", "menu2.c")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    pattern = r'(static const u8 sMonSpriteAnchorCoords\[\]\[5\] = \{\n(?:.*?\n)*?)(\n\};)'
+    new_entry = f"\t[{species_number}       - 1] = {{0x20, 0x23, 0x08, 0x20, 0x2d}},\n"
+
+    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(updated_content)
+
 def edit_file_16(data):
     print("Editing src/pokemon_icon.c with", data)
+    path = os.path.join("src", "pokemon_icon.c")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    pattern = r'(const u8 \*const gMonIconTable\[\] = \{\n(?:.*?\n)*?)(\n\};)'
+    new_entry = f"\t[{species_number}]   = gMonIcon_{sanitized_name},\n"
+
+    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(updated_content)
 
 def edit_file_17(data):
     print("Editing src/data/pokemon/graphics/back_pic_table.h with", data)
+    path = os.path.join("src", "data", "pokemon", "graphics", "back_pic_table.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    insert_marker = "SPECIES_SPRITE(EGG, gMonFrontPic_Egg)"
+    new_entry = f"\tSPECIES_SPRITE({uppercase_name}, gMonBackPic_{sanitized_name}),\n"
+
+    if insert_marker in file_content:
+        updated_content = file_content.replace(insert_marker, new_entry + insert_marker)
+
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(updated_content)
+    else:
+        print("Back Pic Table marker not found, insertion skipped.")
 
 def edit_file_18(data):
     print("Editing src/data/pokemon/graphics/front_pic_table.h with", data)
+    path = os.path.join("src", "data", "pokemon", "graphics", "front_pic_table.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    insert_marker = "SPECIES_SPRITE(EGG, gMonFrontPic_Egg)"
+    new_entry = f"\tSPECIES_SPRITE({uppercase_name}, gMonFrontPic_{sanitized_name}),\n"
+
+    if insert_marker in file_content:
+        updated_content = file_content.replace(insert_marker, new_entry + insert_marker)
+
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(updated_content)
+    else:
+        print("Front Pic Table marker not found, insertion skipped.")
 
 def edit_file_19(data):
     print("Editing src/data/pokemon/graphics/palette_table.h with", data)
+    path = os.path.join("src", "data", "pokemon", "graphics", "palette_table.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    insert_marker = "SPECIES_PAL(EGG, gMonPalette_Egg)"
+    new_entry = f"\tSPECIES_PAL({uppercase_name}, gMonPalette_{sanitized_name}),\n"
+
+    if insert_marker in file_content:
+        updated_content = file_content.replace(insert_marker, new_entry + insert_marker)
+
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(updated_content)
+    else:
+        print("Front Pic Table marker not found, insertion skipped.")
 
 def edit_file_20(data):
     print("Editing src/data/pokemon/graphics/shiny_palette_table.h with", data)
+    path = os.path.join("src", "data", "pokemon", "graphics", "shiny_palette_table.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    insert_marker = "SPECIES_SHINY_PAL(EGG, gMonPalette_Egg)"
+    new_entry = f"\tSPECIES_SHINY_PAL({uppercase_name}, gMonShinyPalette_{sanitized_name}),\n"
+
+    if insert_marker in file_content:
+        updated_content = file_content.replace(insert_marker, new_entry + insert_marker)
+
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(updated_content)
+    else:
+        print("Front Pic Table marker not found, insertion skipped.")
 
 def edit_file_21(data):
-    print("Editing <UNUSED FILE 21> with", data)
+    print("Editing src/data/pokemon/species_info.h with", data)
+    path = os.path.join("src", "data", "pokemon", "species_info.h")
+
+    with open(path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+
+    base_hp = data["HP"]
+    base_attack = data["Attack"]
+    base_defense = data["Defense"]
+    base_speed = data["Speed"]
+    base_sp_attack = data["Special Attack"]
+    base_sp_defense = data["Special Defense"]
+    type1 = data["Type 1"]
+    type2 = data["Type 2"]
+    body_color = "GRAY"  # <-- You can adapt this to be dynamic if needed
+
+    new_entry = (
+        f"    [{species_number}] =\n"
+        "    {\n"
+        f"        .baseHP = {base_hp},\n"
+        f"        .baseAttack = {base_attack},\n"
+        f"        .baseDefense = {base_defense},\n"
+        f"        .baseSpeed = {base_speed},\n"
+        f"        .baseSpAttack = {base_sp_attack},\n"
+        f"        .baseSpDefense = {base_sp_defense},\n"
+        f"        .types = {{{type1}, {type2}}},\n"
+        "        .catchRate = 255,\n"
+        "        .expYield = 150,\n"
+        "        .evYield_HP = 1,\n"
+        "        .evYield_Attack = 1,\n"
+        "        .evYield_Defense = 1,\n"
+        "        .evYield_Speed = 1,\n"
+        "        .evYield_SpAttack = 1,\n"
+        "        .evYield_SpDefense = 1,\n"
+        "        .itemCommon = ITEM_NONE,\n"
+        "        .itemRare = ITEM_NONE,\n"
+        "        .genderRatio = PERCENT_FEMALE(50),\n"
+        "        .eggCycles = 20,\n"
+        "        .friendship = 70,\n"
+        "        .growthRate = GROWTH_FAST,\n"
+        "        .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},\n"
+        "        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},\n"
+        "        .safariZoneFleeRate = 0,\n"
+        f"        .bodyColor = BODY_COLOR_{body_color},\n"
+        "        .noFlip = FALSE,\n"
+        "    },\n"
+    )
+
+    updated_content = re.sub(r'(\n\};\s*)$', f"\n{new_entry}\\1", file_content)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(updated_content)
+
 
 def edit_file_22(data):
     print("Editing <UNUSED FILE 22> with", data)
