@@ -47,6 +47,18 @@ def main_editor_function(data):
     edit_file_7(data)
     edit_file_8(data)
     edit_file_9(data)
+    edit_file_10(data)
+    edit_file_11(data)
+    edit_file_12(data)
+    edit_file_13(data)
+    edit_file_14(data)
+    edit_file_15(data)
+    edit_file_16(data)
+    edit_file_17(data)
+    edit_file_18(data)
+    edit_file_19(data)
+    edit_file_20(data)
+    edit_file_21(data)
 
 def edit_file_1(data):
     print("Editing include/constants/hoenn_cries.h with", data)
@@ -165,8 +177,7 @@ def edit_file_8(data):
         file_content = f.read()
 
     new_entry = f"	[{species_number} - POKERAP2_MON_SPECIES_START] = CRY_{uppercase_name},\n"
-    updated_content = re.sub(r'\n+\/\/End', f"\n{new_entry}\n\n\/\/End", file_content)
-
+    updated_content = re.sub(r'\n+//End', f"\n{new_entry}\n\n//End", file_content)
     with open(path, "w", encoding="utf-8", newline='\n') as f:
         f.write(updated_content)
 
