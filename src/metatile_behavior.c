@@ -75,6 +75,7 @@ bool8 MetatileBehavior_IsCuttableGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS
      || metatileBehavior == MB_LONG_GRASS
+     || metatileBehavior == MB_TALL_GRASS_FAKE
      || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE)
         return TRUE;
     else
@@ -456,7 +457,7 @@ bool8 MetatileBehavior_IsPuddle(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS)
+    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS || metatileBehavior == MB_TALL_GRASS_FAKE)
         return TRUE;
     else
         return FALSE;

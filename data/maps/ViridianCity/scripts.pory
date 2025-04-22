@@ -713,3 +713,8 @@ script ViridianCity_OnLoad {
 		setmetatile(53, 15, METATILE_ViridianCity_Door, FALSE) //Unlocks the door if you've returned the key
 	}
 }
+
+script ViridianCity_SetShinyWeedle {
+	setflag(FLAG_SHINY_CREATION)
+	release
+}

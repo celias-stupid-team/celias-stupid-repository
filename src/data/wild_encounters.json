@@ -20688,7 +20688,7 @@
           "map": "MAP_VIRIDIAN_CITY",
           "base_label": "sViridianCity_FireRed",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 6,

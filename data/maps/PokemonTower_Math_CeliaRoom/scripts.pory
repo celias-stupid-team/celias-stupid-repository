@@ -14,7 +14,7 @@ mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
                 applymovement(CELIA, CeliaEnters)
                 waitmovement(0)
                 delay(120)
-                msgbox("Y{PAUSE 5)o{PAUSE 5)u{PAUSE 5)'{PAUSE 5)r{PAUSE 5)e{PAUSE 5) n{PAUSE 5)o{PAUSE 5)t{PAUSE 5) t{PAUSE 5)h{PAUSE 5)e {PAUSE 5)o{PAUSE 5)n{PAUSE 5)e{PAUSE 5)…\n", MSGBOX_DEFAULT)
+                msgbox("Y{PAUSE 5}o{PAUSE 5}u{PAUSE 5}'{PAUSE 5}r{PAUSE 5}e{PAUSE 5} n{PAUSE 5}o{PAUSE 5}t{PAUSE 5} t{PAUSE 5}h{PAUSE 5}e {PAUSE 5}o{PAUSE 5}n{PAUSE 5}e{PAUSE 5}…\n", MSGBOX_DEFAULT)
                 closemessage
                 delay(60)
                 applymovement(CELIA, CeliaMiddle)
