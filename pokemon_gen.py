@@ -2,6 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 import re
 import os
+from PIL import Image
+import wave
+import aifc
 
 def sanitize_string(value):
     return ''.join(e for e in value if e.isalnum())
@@ -59,6 +62,40 @@ def main_editor_function(data):
     edit_file_19(data)
     edit_file_20(data)
     edit_file_21(data)
+    create_placeholder_assets()
+
+def create_placeholder_assets():
+    gfx_dir = os.path.join("graphics", "pokemon", folder_name)
+    sound_dir = os.path.join("sound", "direct_sound_samples", "cries")
+    os.makedirs(gfx_dir, exist_ok=True)
+    os.makedirs(sound_dir, exist_ok=True)
+
+    # Create PNG placeholders
+    def create_png(filename, size):
+        path = os.path.join(gfx_dir, filename)
+        img = Image.new("P", size)
+        img.putpalette([0] * 768)  # 256 colors * RGB
+        img.save(path, format="PNG")
+
+    create_png("front.png", (64, 64))
+    create_png("back.png", (64, 64))
+    create_png("icon.png", (32, 64))
+
+    # Create .pal files
+    pal_text = "JASC-PAL\n0100\n16\n" + '\n'.join(["0 0 0"] * 16) + '\n\n'
+    with open(os.path.join(gfx_dir, "normal.pal"), "w", newline='\n') as f:
+        f.write(pal_text)
+    with open(os.path.join(gfx_dir, "shiny.pal"), "w", newline='\n') as f:
+        f.write(pal_text)
+
+    # Create silent .aif file
+    aif_path = os.path.join(sound_dir, f"{folder_name}.aif")
+    with aifc.open(aif_path, "w") as aif:
+        aif.setnchannels(1)
+        aif.setsampwidth(1)
+        aif.setframerate(22050)
+        aif.writeframes(b"\x80" * 22050)  
+
 
 def edit_file_1(data):
     print("Editing include/constants/hoenn_cries.h with", data)
