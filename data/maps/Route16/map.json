@@ -77,9 +77,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route16_EventScript_Ruben",
+      "script": "Route16_Dad",
       "flag": "0"
     },
     {
@@ -207,6 +207,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route16_Ligma",
       "flag": "FLAG_HIDE_LIGMA"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route16_RoadWorkGirl",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -252,8 +266,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 7,
-      "y": 15,
+      "x": 17,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route16_EventScript_RouteSign"
@@ -265,6 +279,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route16_EventScript_CyclingRoadSign"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route16_RoadWorkSign"
     }
   ]
 }

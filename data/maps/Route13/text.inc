@@ -118,9 +118,8 @@ Route13_Text_LookToLeftOfThatPost::
     .string "Look to the left of that post!$"
 
 Route13_Text_SelectToSwitchItems::
-    .string "TRAINER TIPS\p"
-    .string "Use SELECT to switch items in the\n"
-    .string "ITEMS window.$"
+	.string "TRAINER TIPS\p"
+	.string "There is NOTHING up here.\n$"
 
 Route13_Text_RouteSign::
     .string "ROUTE 13\n"

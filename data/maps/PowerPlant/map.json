@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_EventScript_ItemMaxPotion",
+      "script": "PowerPlant_Electrode",
       "flag": "FLAG_HIDE_POWER_PLANT_MAX_POTION"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_EventScript_ItemTM17",
+      "script": "PowerPlant_Electrode",
       "flag": "FLAG_HIDE_POWER_PLANT_TM17"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_EventScript_ItemElixir",
+      "script": "PowerPlant_Electrode",
       "flag": "FLAG_HIDE_POWER_PLANT_ELIXIR"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PowerPlant_EventScript_Electrode2",
+      "script": "PowerPlant_Electrode",
       "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_2"
     },
     {
@@ -338,6 +338,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PowerPlant_Trees"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PowerPlant_Computer"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PowerPlant_Computer"
     }
   ]
 }

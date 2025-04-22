@@ -1,0 +1,55 @@
+const LASS = 1
+mapscripts FushciaGym_ThePitRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_LASS_BROKE_WALL)) {
+            call(FushciaGym_ThePitRoom_SetBrokenWall)
+
+        }
+    }
+
+}
+
+script FushciaGym_ThePitRoom_Sign {
+    lock
+    msgbox("TRAINER TIPS!\pPress start to save the game!\n", MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    msgbox("Dumbass.\n", MSGBOX_DEFAULT)
+    release
+}
+
+
+movement FushciaGym_PlayerJumpsBack {
+    face_left
+    lock_facing_direction
+    jump_right
+    unlock_facing_direction
+}
+
+script FushciaGym_ThePitRoom_LassBreaksWall {
+    lock
+    waitse
+    playse(SE_BANG)
+    call(FushciaGym_ThePitRoom_SetBrokenWall)
+    setobjectxy(LASS, 11, 12)
+    setobjectxyperm(LASS, 11, 12)
+    special(DrawWholeMapView)
+    applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerJumpsBack)
+    delay(60)
+    setflag(FLAG_LASS_BROKE_WALL)
+    removeobject(LASS)
+    release
+    end
+
+}
+
+script FushciaGym_ThePitRoom_SetBrokenWall {
+    setmetatile(5, 12, 0x39E, TRUE)
+    setmetatile(6, 12, 0x39E, TRUE)
+    setmetatile(7, 12, 0x39E, TRUE)
+    setmetatile(8, 12, 0x39E, TRUE)
+    setmetatile(9, 12, 0x39E, TRUE)
+    setmetatile(10, 12, 0x39E, TRUE)
+    setmetatile(11, 12, 0x3A9, FALSE)
+    return
+}

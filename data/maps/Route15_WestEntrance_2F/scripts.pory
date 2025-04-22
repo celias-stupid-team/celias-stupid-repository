@@ -47,3 +47,15 @@ Route15_WestEntrance_2F_EventScript_GetAideRequestInfo::
 	bufferitemname STR_VAR_2, ITEM_EXP_SHARE
 	return
 `
+script Route15_WestEntrance_2F_EventScript_ExpShareGuy {
+	lock
+	faceplayer
+	if(!checkitem(ITEM_EXP_SHARE)) {
+		msgbox("Hi, there!\nI'm from the POKéMON FAN CLUB.\pY'know, the new games are all\nso easy.\lI wish they made them hard again.\pHere, you can have this.\nIt works just the way I want it to!", MSGBOX_DEFAULT)
+		giveitem_msg(Route15_WestEntrance_2F_Text_ReceivedItemFromAide, ITEM_EXP_SHARE)
+	} else {
+		msgbox("One of these days, I'm sure they'll\nstart catering to exactly me.\pUntil then, I'll just complain\nabout it online!", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}

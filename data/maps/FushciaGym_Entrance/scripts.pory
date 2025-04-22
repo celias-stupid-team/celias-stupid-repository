@@ -1,0 +1,129 @@
+
+const ATTENDANT = 1
+mapscripts FushciaGym_Entrance_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_IN_FUSHCIA_GYM)) {
+            setobjectxy(ATTENDANT, 8, 13)
+        }
+    }
+}
+
+
+script FushciaGym_Attendant {
+    lock
+    faceplayer
+    if(!flag(FLAG_IN_FUSHCIA_GYM)) {
+        msgbox("Welcome\nGood Luck") // Placeholder
+        setflag(FLAG_IN_FUSHCIA_GYM)
+        setflag(FLAG_TEMP_1)
+        closemessage
+        applymovement(ATTENDANT, AttendantWalksAway)
+        waitmovement(0)
+    } else {
+        msgbox("Good luck") //Placeholder
+    }
+    release
+    end
+}
+
+script FushciaGym_LeaveChallenge {
+    setvar(VAR_TEMP_0, 1)
+    if(flag(FLAG_IN_FUSHCIA_GYM)) {
+        if(flag(FLAG_TEMP_1)) {
+            applymovement(ATTENDANT, Common_Movement_FaceRight)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+        } else {
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+
+        }
+        waitmovement(0)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox("Are you finished with your\nGYM challenge?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("I see.\nThank you for giving it a go!", MSGBOX_DEFAULT)
+            closemessage
+            if(flag(FLAG_TEMP_1)) {
+                applymovement(ATTENDANT, AttendantReturnsFromUp)
+                waitmovement(0)
+            } else {
+                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+                waitmovement(0)
+                applymovement(ATTENDANT, AttendantReturnsFromDown)
+                waitmovement(0)
+
+            }
+            } else {
+                msgbox("That's good to hear.\nBest of luck!", MSGBOX_DEFAULT)
+                closemessage
+                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+                setvar(VAR_TEMP_0, 0)
+                waitmovement(0)
+        }
+    }
+    release
+    end
+}
+
+script FushciaGym_InvisibleLass {
+    lock
+    faceplayer
+    if(checkitem(ITEM_DEVON_SCOPE)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox("There's an invisible object\nin the way.\pWould you like to use the\nDEVON SCOPE?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} used the DEVON SCOPE!\n", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            applymovement(VAR_LAST_TALKED, InvisibleToVisible)
+            waitmovement(0)
+            textcolor(NPC_TEXT_COLOR_FEMALE)
+            msgbox("oh no\n", MSGBOX_DEFAULT) // Placeholder
+            closemessage
+            removeobject(VAR_LAST_TALKED)
+            setflag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)
+        } else {   
+            release
+            end
+        }
+    } else {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox("There's an invisible object\nin the way.", MSGBOX_DEFAULT)
+    }
+    release
+    end
+}
+
+movement AttendantWalksAway {
+    walk_up
+    walk_right
+    face_left
+}
+
+movement AttendantReturnsFromUp {
+    walk_left
+    walk_down
+    face_down
+}
+
+movement AttendantReturnsFromDown {
+    walk_right
+    walk_up
+    face_down
+}
+
+movement InvisibleToVisible {
+    set_visible
+    delay_2
+    set_invisible
+    delay_2
+    set_visible
+    delay_4
+    set_invisible
+    delay_4
+    
+    set_visible
+    delay_8
+    set_invisible
+    delay_8
+    set_visible
+}

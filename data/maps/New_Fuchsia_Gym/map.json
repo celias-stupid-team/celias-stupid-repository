@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 41,
-      "y": 48,
+      "x": 48,
+      "y": 63,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -32,8 +32,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 44,
-      "y": 44,
+      "x": 51,
+      "y": 59,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
       "movement_range_x": 5,
@@ -46,8 +46,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 51,
-      "y": 44,
+      "x": 58,
+      "y": 59,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
       "movement_range_x": 6,
@@ -60,8 +60,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 52,
-      "y": 48,
+      "x": 59,
+      "y": 63,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_LEFT_UP",
       "movement_range_x": 4,
@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 54,
-      "y": 42,
+      "x": 61,
+      "y": 57,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -88,8 +88,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 41,
-      "y": 44,
+      "x": 48,
+      "y": 59,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -102,8 +102,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 49,
-      "y": 49,
+      "x": 56,
+      "y": 64,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
       "movement_range_x": 5,
@@ -116,8 +116,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 56,
-      "y": 50,
+      "x": 63,
+      "y": 65,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_RIGHT_DOWN",
       "movement_range_x": 4,
@@ -129,11 +129,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 23,
-      "y": 4,
+      "graphics_id": "OBJ_EVENT_GFX_BIKER",
+      "x": 32,
+      "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -144,8 +144,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 40,
-      "y": 18,
+      "x": 16,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -158,14 +158,14 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLACKBELT",
-      "x": 32,
-      "y": 18,
+      "x": 6,
+      "y": 26,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "NULL",
       "flag": "FLAG_TEMP_13"
     },
@@ -186,8 +186,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 44,
-      "y": 18,
+      "x": 23,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -242,8 +242,8 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 23,
-      "y": 6,
+      "x": 31,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_NEW_FUCHSIA_GYM",
       "dest_warp_id": "2"
@@ -307,6 +307,13 @@
     {
       "x": 30,
       "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 35,
+      "y": 92,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY",
       "dest_warp_id": "4"

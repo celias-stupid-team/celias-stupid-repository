@@ -1,0 +1,25 @@
+mapscripts FushciaGym_TrickRoomRoom_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        call(FushciaGym_TrickRoomRoom_OpenDoors)
+    }
+}
+
+script FushciaGym_TrickRoomRoom_OpenDoors {
+    setmetatile(15, 6, 0x357, TRUE)
+    setmetatile(15, 5, 0x3A6, TRUE)
+    return
+}
+
+
+script FushciaGym_TrickRoomRoom_Trainer {
+	msgbox("trick room room\n", MSGBOX_NPC)
+	end
+}
+
+script FushciaGym_TrickRoomRoom_Stakataka {
+    lock
+    playmoncry(SPECIES_STAKATAKA, CRY_MODE_DEFAULT)
+	msgbox("Hey!\nIt's that very fancy STAKATAKA!", MSGBOX_DEFAULT)
+    waitmoncry
+	release
+}

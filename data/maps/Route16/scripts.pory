@@ -104,3 +104,24 @@ script Route16_EventScript_Jed {
 script Route16_Ligma {
 	finditem(ITEM_BIG_PEARL)
 }
+
+script Route16_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pLooks like whoever lives there was\nRUNNING in their normal shoes.\lThat's against the law, you know!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Route16_RoadWorkGirl {
+	lock
+	msgbox("Hmm…\nIt doesn't seem like it does.", MSGBOX_DEFAULT)
+	release
+}
+
+script Route16_RoadWorkSign {
+	msgbox("ROAD WORK AHEAD\n", MSGBOX_SIGN)
+	end
+}

@@ -1,9 +1,7 @@
 raw `
 
 
-SafariZone_Center_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SAFARI_ZONE_CENTER
-	end
+
 
 SafariZone_Center_EventScript_RestHouseSign::
 	msgbox SafariZone_Center_Text_RestHouse, MSGBOX_SIGN
@@ -19,7 +17,12 @@ SafariZone_Center_EventScript_AreaSign::
 `
 
 mapscripts SafariZone_Center_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION: SafariZone_Center_OnTransition
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
+		if(flag(FLAG_NO_TM_CASE)) {
+			setflag(FLAG_TEMP_3)
+		}
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
@@ -45,6 +48,8 @@ mapscripts SafariZone_Center_MapScripts {
 script SafariZone_BrickBreakTM {
 	lock
 	if(!flag(FLAG_NO_TM_CASE)) {
+		setflag(FLAG_HIDE_SAFARI_ZONE_CENTER_TM32)
+		call(SetPlayerPokedexValues)
 		finditem(ITEM_TM32)
 	} else {
 		msgbox("{PLAYER} found a TM32!\nIt contains BRICK BREAK.", MSGBOX_DEFAULT)
@@ -53,17 +58,28 @@ script SafariZone_BrickBreakTM {
 	}
 }
 
+const BIG_KANGA = 7
+const SMALL_KANGA = 6
 script SafariZone_KangaskahnCage {
 	lock
 	msgbox("Big kanga trapped :(\n", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_TM32)) {
 		msgbox("Give brick break?\n", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
+			msgbox("It is implied that the bricks have\nbeen broken.", MSGBOX_DEFAULT)
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_KANGASKHAN)
+			removeobject(BIG_KANGA)
+			removeobject(SMALL_KANGA)
 			call(Common_Script_ObtainedPokemon)
+
 		}
 	}
 	release
+}
+
+script SafariZone_KangaJailDMCA {
+	msgbox("This POKéMON was holding an\nillegal copy of itself.\pI've put into custody until I can\nfigure out which came first.", MSGBOX_NPC)
+	end
 }
 
 script SafariZone_KangaBabyCage {

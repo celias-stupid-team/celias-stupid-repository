@@ -39,7 +39,6 @@ script MoonAltar_CameraPan {
 					call(EventScript_GetGiftMonPartySlot)
 					call(EventScript_ChangePokemonNickname)
 					goto(MtMoon_GiveGrimerEnd)
-					setvar(VAR_CSR_JIRACHI_STATUS, 2)
 					end
 				case 1: //Mon goes to PC
 						bufferspeciesname(STR_VAR_1, SPECIES_GRIMER)
@@ -52,7 +51,6 @@ script MoonAltar_CameraPan {
 							call(EventScript_TransferredToPC)
 							goto(MtMoon_GiveGrimerEnd) //This can be simplified; I'll deal with it later
 						}
-						setvar(VAR_CSR_JIRACHI_STATUS, 2)
 						end
 				case 2:
 					goto(EventScript_NoMoreRoomForPokemon)
@@ -66,7 +64,7 @@ script MoonAltar_CameraPan {
 }
 
 script MtMoon_ShitComputerSign {
-	msgbox("WARNING!\nThis computer sucks.\pI'm working on it.\n-Celia, the creator", MSGBOX_SIGN)
+	msgbox("There was once a sign here\nbecause the computer was broken.\pHowever, now the computer is fixed,\nso the sign was removed.\pDespite this, you feel compelled\nto check this patch of grass.\pInteresting.\n", MSGBOX_SIGN)
 	end
 }
 

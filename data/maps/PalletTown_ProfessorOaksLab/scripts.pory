@@ -12,7 +12,14 @@ raw `
 .equ RIVAL_STARTER_SPECIES,   VAR_TEMP_3
 .equ RIVAL_STARTER_ID,        VAR_TEMP_4
 
+.equ NUM_STARTERS_CHECKED,    VAR_TEMP_5
+.equ LAST_BALL_CHECKED,     VAR_TEMP_8
+
 .equ SHOWED_OAK_COMPLETE_DEX, FLAG_TEMP_2
+.equ BALL_1_CHECKED, 	  FLAG_TEMP_3
+.equ BALL_2_CHECKED, 	  FLAG_TEMP_4
+.equ BALL_3_CHECKED, 	  FLAG_TEMP_5
+.equ IS_NEW_BALL, 	  FLAG_TEMP_6
 
 PalletTown_ProfessorOaksLab_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_ProfessorOaksLab_OnTransition
@@ -1099,15 +1106,7 @@ PalletTown_ProfessorOaksLab_EventScript_BulbasaurBall::
 	release
 	end
 
-PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice::
-	applymovement LOCALID_PROF_OAK, Common_Movement_FaceRight
-	waitmovement 0
-	showmonpic PLAYER_STARTER_SPECIES, 10, 3
-	textcolor NPC_TEXT_COLOR_MALE
-	goto_if_eq PLAYER_STARTER_NUM, 0, PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur
-	goto_if_eq PLAYER_STARTER_NUM, 1, PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle
-	goto_if_eq PLAYER_STARTER_NUM, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander
-	end
+
 
 PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur::
 	textcolor NPC_TEXT_COLOR_TREE
@@ -1246,44 +1245,7 @@ PalletTown_ProfessorOaksLab_EventScript_SquirtleBall::
 	release
 	end
 
-PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1::
-	lock
-	faceplayer
-	setvar PLAYER_STARTER_NUM, 0
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
-	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
-	release
-	end
 
-PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2::
-	lock
-	faceplayer
-	setvar PLAYER_STARTER_NUM, 1
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
-	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
-	release
-	end
-
-PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3::
-	lock
-	faceplayer
-	setvar PLAYER_STARTER_NUM, 2
-	setvar PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER
-	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
-	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice
-	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
-	release
-	end
 
 PalletTown_ProfessorOaksLab_EventScript_LastPokeBall::
 	msgbox PalletTown_ProfessorOaksLab_Text_OaksLastMon
@@ -1541,3 +1503,75 @@ movement OakLab_LeftAideRuns {
 }
 
 
+
+
+script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
+	lock
+	faceplayer
+	if(!flag(BALL_1_CHECKED)) {
+		addvar(NUM_STARTERS_CHECKED, 1)
+		setflag(BALL_1_CHECKED)
+	}
+	setvar(LAST_BALL_CHECKED, 1)
+	setvar(PLAYER_STARTER_NUM, 0)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER)
+	setvar(RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE)
+	setvar(RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL)
+	goto_if_ge(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice)
+	msgbox(PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls)
+	release
+	end
+}
+script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
+	lock
+	faceplayer
+	if(!flag(BALL_2_CHECKED)) {
+		addvar(NUM_STARTERS_CHECKED, 1)
+		setflag(BALL_2_CHECKED)
+	}
+	setvar(LAST_BALL_CHECKED, 2)
+	setvar(PLAYER_STARTER_NUM, 1)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER)
+	setvar(RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE)
+	setvar(RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL)
+	goto_if_ge(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice)
+	msgbox(PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls)
+	release
+}
+
+script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3 {
+	lock
+	faceplayer
+	if(!flag(BALL_3_CHECKED)) {
+		addvar(NUM_STARTERS_CHECKED, 1)
+		setflag(BALL_3_CHECKED)
+	}
+	setvar(LAST_BALL_CHECKED, 3)
+	setvar(PLAYER_STARTER_NUM, 2)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHARMANDER)
+	setvar(RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE)
+	setvar(RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL)
+	goto_if_ge(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_LastPokeBall)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice)
+	msgbox(PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls)
+	release
+}
+
+script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
+	applymovement(LOCALID_PROF_OAK, Common_Movement_FaceRight)
+	waitmovement(0)
+	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	switch(var(NUM_STARTERS_CHECKED)) {
+		case 1:
+			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur)
+		case 2:
+			setflag(FLAG_SHINY_CREATION)
+			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle)
+		default: 
+			clearflag(FLAG_SHINY_CREATION)
+			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmCharmander)
+	}
+}

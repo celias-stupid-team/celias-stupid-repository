@@ -456,17 +456,24 @@ script PokemonTower_Trailer {
 			setobjectxy(FUJI, 11, 14)
 			playse(SE_EXIT)
 			applymovement(FUJI, FujiEnters)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
 			waitmovement(0)
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("MR. FUJI: Ah, my dear\nKANGASKHAN!\lYou're finally safe.", MSGBOX_DEFAULT)
-			msgbox("I understand.\pIt was the PARENTAL BOND between\nher and CUBONE that kept her safe.", MSGBOX_DEFAULT)
-			
+			closemessage
+			applymovement(FUJI, FujiGoesToYou)
+			waitmovement(0)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			msgbox("And you, there.\n{PLAYER}, was it?\pThank you, {PLAYER}.\nYou've done a great deed.\pBut I must ask:\nHow were you able to save her?", MSGBOX_DEFAULT)
+			closemessage
+			textcolor(NPC_TEXT_COLOR_MON)
+			msgbox("… … … … …\n … … … … …")
+			closemessage
+			textcolor(NPC_TEXT_COLOR_MALE)
+			msgbox("…Ah.\nI understand.\pIt was the PARENTAL BOND between\nher and CUBONE that called to her.\lThat must've kept her safe.\pCome, this is no place to have\nconversation.\lLet's return to the SCHOOL.", MSGBOX_DEFAULT)
+			closemessage
 			special(QuestLog_CutRecording)
-			fadescreen(FADE_TO_BLACK)
-			removeobject(PURE_KANGA)
-			removeobject(FUJI)
 			special(RemoveCameraObject)
-			fadescreen(FADE_FROM_BLACK)
 			setflag(FLAG_HIDE_DMCA_IN_LAVENDER)
 			clearflag(FLAG_HIDE_POKEHOUSE_FUJI)
 			setflag(FLAG_RESCUED_CUBONES_MOM)
@@ -481,6 +488,11 @@ script PokemonTower_Trailer {
 			break
 	}
 	release
+}
+
+movement FujiGoesToYou {
+	walk_up
+	face_left
 }
 
 movement KangaApproaches {

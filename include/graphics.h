@@ -7576,6 +7576,8 @@ extern const u32 gTrainerFrontPic_TeamRocket[];
 extern const u32 gTrainerFrontPic_Petrel[];
 extern const u32 gTrainerFrontPic_Imposter[];
 extern const u32 gTrainerFrontPic_RedNormal[];
+extern const u32 gTrainerFrontPic_ImposterTwins[];
+extern const u32 gTrainerPalette_ImposterTwins[];
 
 
 
@@ -7913,6 +7915,17 @@ extern const u32 gItemIcon_BerryJuice[];
 extern const u32 gItemIconPalette_BerryJuice[];
 extern const u32 gItemIcon_SacredAsh[];
 extern const u32 gItemIconPalette_SacredAsh[];
+extern const u32 gItemIcon_GenderFluid[];
+extern const u32 gItemIconPalette_GenderFluid[];
+extern const u32 gItemIcon_SecretEther[];
+extern const u32 gItemIconPalette_SecretEther[];
+extern const u32 gItemIcon_CandyDispenser[];
+extern const u32 gItemIconPalette_CandyDispenser[];
+extern const u32 gItemIcon_Nothing[];
+extern const u32 gItemIcon_DrillDozer[];
+extern const u32 gItemIconPalette_DrillDozer[];
+extern const u32 gItemIcon_BanetteDoll[];
+extern const u32 gItemIconPalette_BanetteDoll[];
 extern const u32 gItemIconPalette_ShoalSalt[];
 extern const u32 gItemIcon_ShoalShell[];
 extern const u32 gItemIconPalette_Shell[];

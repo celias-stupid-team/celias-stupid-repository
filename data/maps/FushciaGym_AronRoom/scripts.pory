@@ -1,0 +1,116 @@
+mapscripts FushciaGym_AronRoom_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        setflag(FLAG_TEMP_2)
+        if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+            setmetatile(11, 7, 0x39B, TRUE)
+            setmetatile(12, 7, 0x39B, TRUE)
+            setmetatile(13, 7, 0x39B, TRUE)
+        }
+        if(flag(FLAG_DEFEATED_ARON_MAN)) {
+            call(FushciaGym_AronRoom_OpenDoors)
+        }
+        if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) != 0) {
+            setflag(FLAG_TEMP_1)
+            setweather(WEATHER_NONE)
+        }
+    }
+}
+
+
+script FushciaGym_AronTrainer {
+    lock
+    faceplayer
+    trainerbattle_single(TRAINER_BATTLE_FRONTIER_GRETA, "intro text", "you win")
+    setflag(FLAG_DEFEATED_ARON_MAN)
+    call(FushciaGym_AronRoom_OpenDoors)
+    special(DrawWholeMapView)
+    release
+}
+
+script FushciaGym_AronRoom_OpenDoors {
+    setmetatile(4, 5, 0x357, TRUE)
+    setmetatile(8, 5, 0x357, TRUE)
+    setmetatile(4, 4, 0x34F, TRUE)
+    setmetatile(8, 4, 0x34F, TRUE)
+    return
+}
+
+script FushciaGym_HippopotasLeft {
+    lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+    delay(60)
+    playmoncry(SPECIES_HIPPOPOTAS, CRY_MODE_NORMAL)
+    msgbox("HIPPOPOTAS: Po-prra…!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+        applymovement(VAR_LAST_TALKED, HippoLooksAround)
+        waitmovement(0)
+        delay(48)
+        playse(SE_FLEE)
+        applymovement(VAR_LAST_TALKED, HippoRunsAway)
+        if(var(VAR_FACING) == DIR_WEST) {
+            applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsOutOfWay)
+        }
+        waitmovement(VAR_LAST_TALKED)
+        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)
+        setflag(FLAG_TEMP_1)
+        setweather(WEATHER_NONE)
+        doweather
+
+    } else {
+        msgbox("This POKéMON is terrified of you.\nHe looks ready to run away.", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_CrackedWallLeft {
+    lock
+    if(flag(FLAG_DRILLED_LEFT_HOLE)) {
+        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+            closemessage
+            setflag(FLAG_DRILLED_LEFT_HOLE)
+            setmetatile(11, 7, 0x39B, TRUE)
+            setmetatile(12, 7, 0x39B, TRUE)
+            setmetatile(13, 7, 0x39B, TRUE)
+            special(DrawWholeMapView)
+        }
+    }
+    release
+}
+
+movement HippoLooksAround {
+    face_right
+    delay_16 * 2
+    face_left
+    delay_16 * 2
+    face_right
+    delay_16 * 2
+    face_left
+}
+
+movement HippoRunsAway {
+    walk_faster_right * 8
+}
+
+movement PlayerGetsOutOfWay {
+    face_up
+    lock_facing_direction
+    jump_down
+    unlock_facing_direction
+}
+
+movement DrillTheWall {
+    walk_faster_right
+    walk_in_place_fast_right * 3
+}

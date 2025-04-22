@@ -621,6 +621,7 @@ static void AnimTask_Rollout_Step(u8 taskId)
     case 1:
         if (--task->data[11] == 0)
             ++task->data[0];
+        PlaySE12WithPanning(SE_ROLLOUT, task->data[13]);
         break;
     case 2:
         if (--task->data[9] != 0)
@@ -645,7 +646,6 @@ static void AnimTask_Rollout_Step(u8 taskId)
             task->data[9] = 0;
             CreateRolloutDirtSprite(task);
             task->data[13] += task->data[14];
-            PlaySE12WithPanning(SE_M_DIG, task->data[13]);
         }
         if (--task->data[8] == 0)
         {

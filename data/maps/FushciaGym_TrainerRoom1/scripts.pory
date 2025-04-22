@@ -1,0 +1,60 @@
+mapscripts FushciaGym_TrainerRoom1_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        setvar(VAR_FUSHCIA_PREVIOUS_ROOM, FUSHCIA_ROOM_DURANT)
+        if(flag(FLAG_DEFEATED_TRAINER_1)) {
+            call(FushciaGym_TrainerRoom1_OpenDoors)
+        }
+        if(!flag(FLAG_FUSHCIA_GYM_RIGHT_FIRST)) {
+            setflag(FLAG_FUSHCIA_GYM_LEFT_FIRST)
+        }
+        if(flag(FLAG_FUSHCIA_GYM_LEFT_FIRST)) {
+            setflag(FLAG_TEMP_3)
+        } else {
+            setflag(FLAG_TEMP_2)
+        }
+    }
+}
+
+script FushciaGym_TrainerRoom1_Brandon {
+    lock
+    faceplayer
+    if(flag(FLAG_DEFEATED_TRAINER_1)) {
+        msgbox("…HUH?\nNO, I AM BRANDON\lBRENDAN IS THE KID NEXT DOOR\pPEOPLE GET US MIXED UP ALL THE TIME\n", MSGBOX_DEFAULT)
+        call(FushciaGym_TrainerRoom1_OpenDoors)
+        special(DrawWholeMapView)
+    } else {
+        trainerbattle_single(TRAINER_BATTLE_FRONTIER_BRANDON, "YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE\nFRONTIER BRAIN BRANDON\pLET US BATTLE\n", "DARN WHAT A SHAME\n")
+        setflag(FLAG_DEFEATED_TRAINER_1)
+
+    }
+    call(FushciaGym_TrainerRoom1_OpenDoors)
+    special(DrawWholeMapView)
+    release
+    end
+}
+
+script FushciaGym_TrainerRoom1_Spenser {
+    lock
+    faceplayer
+    if(flag(FLAG_DEFEATED_TRAINER_1)) {
+        msgbox("I HAD THE SAME LUCK IN MY\nLOW-LEVEL CHALLENGE RUN\pOH WELL\n", MSGBOX_DEFAULT)
+        call(FushciaGym_TrainerRoom1_OpenDoors)
+        special(DrawWholeMapView)
+    } else {
+    
+        trainerbattle_single(TRAINER_BATTLE_FRONTIER_SPENSER, "HELLO CHALLENGER\nI AM SPENSER OF THE BATTLE PALACE\pMY POKéMON CHOOSE THEIR OWN MOVES\n{PAUSE 30}I PUT FULL FAITH IN THEIR CHOICE", "OH NO\n")
+        setflag(FLAG_DEFEATED_TRAINER_1)
+    }
+    call(FushciaGym_TrainerRoom1_OpenDoors)
+    special(DrawWholeMapView)
+    release
+    end
+}
+
+script FushciaGym_TrainerRoom1_OpenDoors {
+    setmetatile(7, 7, 0x34F, TRUE)
+    setmetatile(11, 7, 0x34F, TRUE)
+    setmetatile(7, 8, 0x357, TRUE)
+    setmetatile(11, 8, 0x357, TRUE)
+    return
+}

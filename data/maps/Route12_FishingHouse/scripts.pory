@@ -102,7 +102,10 @@ Route12_FishingHouse_EventScript_MagikarpRecordSignRecordSet::
 	end
 `
 
-
+script AwakeningShop_Bed {
+	msgbox("{PLAYER} laid in the bed…\p…Yuck!\nIt smells like SMELLING SALTS!", MSGBOX_SIGN)
+	end
+}
 
 script AwakeningShop_Storeperson {
 

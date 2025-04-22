@@ -3392,15 +3392,7 @@ static const struct LevelUpMove sHoOhLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sCelebiLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_LEECH_SEED),
-    LEVEL_UP_MOVE(1, MOVE_CONFUSION),
-    LEVEL_UP_MOVE(1, MOVE_RECOVER),
-    LEVEL_UP_MOVE(1, MOVE_HEAL_BELL),
-    LEVEL_UP_MOVE(10, MOVE_SAFEGUARD),
-    LEVEL_UP_MOVE(20, MOVE_ANCIENT_POWER),
-    LEVEL_UP_MOVE(30, MOVE_FUTURE_SIGHT),
-    LEVEL_UP_MOVE(40, MOVE_BATON_PASS),
-    LEVEL_UP_MOVE(50, MOVE_PERISH_SONG),
+    LEVEL_UP_MOVE(1, MOVE_PERISH_SONG),
     LEVEL_UP_END
 };
 
@@ -6829,7 +6821,6 @@ static const struct LevelUpMove sGolettLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGolurkLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_FLY),
     LEVEL_UP_MOVE(1, MOVE_MEGA_PUNCH),
     LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
     LEVEL_UP_MOVE(1, MOVE_AUTOMOTIZE),
@@ -8883,8 +8874,11 @@ static const struct LevelUpMove sDitto_MewLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUnown_LossLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
-	LEVEL_UP_END
+    LEVEL_UP_MOVE(1, MOVE_SLAM),
+    LEVEL_UP_MOVE(1, MOVE_CHATTER),
+    LEVEL_UP_MOVE(1, MOVE_CONFIDE),
+    LEVEL_UP_MOVE(1, MOVE_REAL_TEARS),
+    LEVEL_UP_END
 };
 
 static const struct LevelUpMove sMagnaloneLevelUpLearnset[] = {

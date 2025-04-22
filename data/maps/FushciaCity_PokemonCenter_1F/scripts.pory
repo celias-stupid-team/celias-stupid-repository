@@ -27,3 +27,17 @@ FushciaCity_PokemonCenter_1F_EventScript_Youngster::
 	msgbox FushciaCity_PokemonCenter_1F_Text_VisitSafariZoneForPokedex, MSGBOX_NPC
 	end
 `
+
+script FushciaCity_GetOakPC {
+	msgbox("D'ya ever find yourself completely\nstuck with no clue what to do?\lI do sometimes.\pWhenever I'm completely stumped, I\ncheck OAK's PC.\lThere's no shame in getting help.", MSGBOX_NPC)
+	end
+}
+
+
+script FushciaCity_GetThroughGym {
+msgbox("FUCHSIA CITY GYM is a big, winding\nmaze.\lIt snakes around and around!\pWhenever I try to tackle it, I\nalways keep a notebook handy.\pI hear you can make it all the way to\nthe LEADER with any POKéMON.\lAfter that? Who knows.\pI guess I just have to give it\nanother shot to find out!", MSGBOX_NPC)
+}
+
+script FushciaCity_PlaceholderNPC {
+	
+}

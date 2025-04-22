@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_ROUTE10_AGAIN",
-      "offset": 0,
+      "offset": 3,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE12",
-      "offset": -7,
+      "offset": -4,
       "direction": "down"
     },
     {
@@ -34,7 +34,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 22,
+      "x": 25,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -48,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
-      "x": 10,
+      "x": 13,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -62,8 +62,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 26,
-      "y": 16,
+      "x": 29,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -76,7 +76,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DIETDANCE",
-      "x": 32,
+      "x": 35,
       "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -90,7 +90,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 29,
+      "x": 32,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -104,7 +104,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 19,
+      "x": 22,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -118,7 +118,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HUMANOAK",
-      "x": 46,
+      "x": 51,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -132,7 +132,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 6,
+      "x": 9,
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -146,56 +146,56 @@
   ],
   "warp_events": [
     {
-      "x": 18,
+      "x": 21,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_TOWER_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 5,
+      "x": 8,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 10,
-      "y": 11,
+      "x": 13,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_VOLUNTEER_POKEMON_HOUSE",
       "dest_warp_id": "1"
     },
     {
-      "x": 5,
-      "y": 16,
+      "x": 8,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_HOUSE1",
       "dest_warp_id": "1"
     },
     {
-      "x": 10,
-      "y": 16,
+      "x": 13,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_HOUSE2",
       "dest_warp_id": "1"
     },
     {
-      "x": 23,
-      "y": 15,
+      "x": 26,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_MART",
       "dest_warp_id": "1"
     },
     {
-      "x": 68,
+      "x": 73,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_UNDERGROUND_PATH_EAST_ENTRANCE",
       "dest_warp_id": "1"
     },
     {
-      "x": 29,
+      "x": 32,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_LAVENDER_TOWN_DANCE_THEATER",
@@ -205,124 +205,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 17,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 51,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "LavenderTown_MusicGoesAway"
-    },
-    {
-      "type": "trigger",
-      "x": 51,
+      "x": 54,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -331,7 +214,7 @@
     },
     {
       "type": "trigger",
-      "x": 41,
+      "x": 44,
       "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -340,7 +223,7 @@
     },
     {
       "type": "trigger",
-      "x": 41,
+      "x": 44,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -349,7 +232,7 @@
     },
     {
       "type": "trigger",
-      "x": 65,
+      "x": 70,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -358,7 +241,7 @@
     },
     {
       "type": "trigger",
-      "x": 66,
+      "x": 71,
       "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_3",
@@ -367,144 +250,63 @@
     },
     {
       "type": "trigger",
-      "x": 67,
+      "x": 72,
       "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_3",
       "var_value": "0",
       "script": "LavenderTown_MusicDoesntFade"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "LavenderTown_MusicGoesAway"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
       "x": 51,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "LavenderTown_MusicGoesAway"
-    },
-    {
-      "type": "trigger",
-      "x": 50,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_3",
-      "var_value": "0",
-      "script": "LavenderTown_MusicGoesAway"
-    },
-    {
-      "type": "trigger",
-      "x": 48,
       "y": 15,
       "elevation": 0,
       "var": "VAR_TEMP_3",
       "var_value": "0",
       "script": "LavenderTown_MusicGoesAway"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
     },
     {
       "type": "trigger",
       "x": 54,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
+      "var": "VAR_TEMP_3",
       "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "script": "LavenderTown_MusicGoesAway"
     },
     {
       "type": "trigger",
-      "x": 54,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
+      "x": 44,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
-    },
-    {
-      "type": "trigger",
-      "x": 54,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_TEMP_9",
-      "var_value": "0",
-      "script": "CommonScript_EmptyPail"
+      "var": "VAR_TEMP_3",
+      "var_value": "1",
+      "script": "LavenderTown_MusicComesBack"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 31,
+      "x": 34,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -512,15 +314,15 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 13,
+      "x": 20,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavenderTown_EventScript_TownSign"
     },
     {
       "type": "sign",
-      "x": 21,
+      "x": 24,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -528,15 +330,15 @@
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 11,
+      "x": 10,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavenderTown_EventScript_VolunteerHouseSign"
     },
     {
       "type": "sign",
-      "x": 66,
+      "x": 71,
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

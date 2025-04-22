@@ -399,6 +399,7 @@ static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
+static const u8 sText_Trainer1SentOutLions[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout 1 BILLION LIONS!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!{PAUSE 60}");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_BUFF1}!");
 static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME}!");
@@ -1706,7 +1707,12 @@ void BufferStringBattle(u16 stringId)
             else
             {
                 if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
-                    stringPtr = sText_Trainer1SentOutPkmn;
+                    if(FlagGet(FLAG_LION_BATTLE)) {
+                        stringPtr = sText_Trainer1SentOutLions;
+                    } else {
+                        stringPtr = sText_Trainer1SentOutPkmn;
+
+                    }
                 else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
                     stringPtr = sText_Trainer1SentOutPkmn;
                 else

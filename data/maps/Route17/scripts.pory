@@ -29,6 +29,8 @@ Route17_EventScript_CyclingRoadSign::
 
 script Route17_KoraidonNeedsSandwich {
 	lock
+	setflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
+	setflag(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F)
 	if(checkitem(ITEM_SANDWICH)) {
 		msgbox("The slope is too steep for your\nBIKE to handle.\pWould you like to feed your BIKE\na SANDWICH?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
@@ -52,6 +54,8 @@ script Route17_TurnAroundAndLeave {
 
 script Route17_BikeFliesUp {
 	closemessage
+	setflag(FLAG_FED_SANDWICH)
+	call(SetPlayerPokedexValues)
 	removeitem(ITEM_SANDWICH, 1)
 	msgbox("{PLAYER}'s BIKE ate the SANDWICH!\n", MSGBOX_DEFAULT)
 	fadeoutbgm(1)

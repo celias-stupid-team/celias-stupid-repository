@@ -22,13 +22,20 @@ SafariZone_North_EventScript_TrainerTips3::
 `
 const BRELOOM = 8
 mapscripts SafariZone_North_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) && !flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			playbgm(MUS_SAFARI_MARCH, TRUE)
+		} 
+	}
 	MAP_SCRIPT_ON_TRANSITION {
 		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-			removeobject(BRELOOM)
+			setflag(FLAG_TEMP_2)
 		} else {
-			addobject(BRELOOM)
+			clearflag(FLAG_TEMP_2)
 		}
+		
 	}
+	
 }
 
 script SafariZone_North_Breloom {

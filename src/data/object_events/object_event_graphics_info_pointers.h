@@ -284,6 +284,28 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Safariwarden;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cannon;
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spotlight;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dusclops;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Vulpix;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chili;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cress;
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cilan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drill;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hippo2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brandon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spenser;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tucker;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Greta;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Anabel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Noland;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Janine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Darach;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Caitlin;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -571,4 +593,26 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CANNON] = &gObjectEventGraphicsInfo_Cannon,
 
     [OBJ_EVENT_GFX_SPOTLIGHT] = &gObjectEventGraphicsInfo_Spotlight,
+
+    [OBJ_EVENT_GFX_DUSCLOPS] = &gObjectEventGraphicsInfo_Dusclops,
+
+    [OBJ_EVENT_GFX_VULPIX] = &gObjectEventGraphicsInfo_Vulpix,
+
+    [OBJ_EVENT_GFX_CHILI] = &gObjectEventGraphicsInfo_Chili,
+
+    [OBJ_EVENT_GFX_CRESS] = &gObjectEventGraphicsInfo_Cress,
+
+    [OBJ_EVENT_GFX_CILAN] = &gObjectEventGraphicsInfo_Cilan,
+    [OBJ_EVENT_GFX_DRILL] = &gObjectEventGraphicsInfo_Drill,
+    [OBJ_EVENT_GFX_HIPPO2] = &gObjectEventGraphicsInfo_Hippo2,
+    [OBJ_EVENT_GFX_BRANDON] = &gObjectEventGraphicsInfo_Brandon,
+    [OBJ_EVENT_GFX_SPENSER] = &gObjectEventGraphicsInfo_Spenser,
+    [OBJ_EVENT_GFX_TUCKER] = &gObjectEventGraphicsInfo_Tucker,
+    [OBJ_EVENT_GFX_GRETA] = &gObjectEventGraphicsInfo_Greta,
+    [OBJ_EVENT_GFX_ANABEL] = &gObjectEventGraphicsInfo_Anabel,
+    [OBJ_EVENT_GFX_NOLAND] = &gObjectEventGraphicsInfo_Noland,
+    [OBJ_EVENT_GFX_LUCY] = &gObjectEventGraphicsInfo_Lucy,
+    [OBJ_EVENT_GFX_JANINE] = &gObjectEventGraphicsInfo_Janine,
+    [OBJ_EVENT_GFX_DARACH] = &gObjectEventGraphicsInfo_Darach,
+    [OBJ_EVENT_GFX_CAITLIN] = &gObjectEventGraphicsInfo_Caitlin,
 };

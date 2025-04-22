@@ -172,6 +172,7 @@
 #define TRAINER_PIC_PETREL               151
 #define TRAINER_PIC_IMPOSTER               152
 #define TRAINER_PIC_RED_NORMAL               153
+#define TRAINER_PIC_IMPOSTER_TWINS               154
 
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -218,7 +219,7 @@
 #define TRAINER_CLASS_EXPERT              28
 #define TRAINER_CLASS_RS_YOUNGSTER        29
 #define TRAINER_CLASS_RS_CHAMPION         30
-#define TRAINER_CLASS_RS_FISHERMAN        31
+#define TRAINER_CLASS_FRONTIER_BRAIN        31
 #define TRAINER_CLASS_TRIATHLETE          32
 #define TRAINER_CLASS_DRAGON_TAMER        33
 #define TRAINER_CLASS_RS_BIRD_KEEPER      34

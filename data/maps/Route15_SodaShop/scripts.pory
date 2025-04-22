@@ -1,3 +1,105 @@
 mapscripts Route15_SodaShop_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_TEMP_2)
+        setbench(BENCH_SODA_SHOP)
+    }
+}
+
+
+const MALE_OWNER = 1
+const FEMALE_OWNER = 5
+script SodaShop_Owner {
+    lock
+    faceplayer
+    if(!(checktrainerflag(TRAINER_SODASHOP_SAILOR) && checktrainerflag(TRAINER_SODASHOP_SHORTS) && checktrainerflag(TRAINER_SODASHOP_RICHKID))) {
+        msgbox("I'm the owner of the SEASIDE HOUSE.\nYou can call me Mx. SEA!\pWe got a special drink in from\nCELADON GYM.\lThey say it's a real doozy!\pIf you can defeat all the TRAINERS\nhere, I'll reward your efforts!", MSGBOX_DEFAULT)
+    } else {
+        if(checkitem(ITEM_GENDER_FLUID)) {
+            msgbox("Mx. SEA: Everyone should have the\nfreedom to live the life they need.\lOnly you know what's right for you.", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            applymovement(VAR_LAST_TALKED, SodaShopSpins)
+            call(SwapOwners)
+            delay(60)
+            msgbox("Mx. SEA: There's no greater gift\nthan full autonomy over yourself.\pTake control of your own needs\nand well-being!", MSGBOX_DEFAULT)
+        } else {
+            msgbox("I'm the owner of the SEASIDE HOUSE.\nYou can call me Mx. SEA!\pWe got a special drink in from\nCELADON GYM.\lThey say it's a real doozy!\pHere, take this!", MSGBOX_DEFAULT)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            giveitem_msg("{PLAYER} received a can of\nGENDER FLUID!\n", ITEM_GENDER_FLUID)
+            textcolor(NPC_TEXT_COLOR_MALE)
+            msgbox("Mx. SEA: This drink is crazy, yo!\pJust one sip of this and watch-!\n", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            applymovement(VAR_LAST_TALKED, SodaShopSpins)
+            call(SwapOwners)
+            delay(60)
+            msgbox("Mx. SEA: A whole new style, and a\nwhole new me!\pTry it for yourself!\n", MSGBOX_DEFAULT)
+        }
+    }
+    release
+}
+
+script SwapOwners {
+    if(flag(FLAG_TEMP_1)) {
+        removeobject(FEMALE_OWNER)
+        addobject(MALE_OWNER)
+        clearflag(FLAG_TEMP_1)
+        textcolor(NPC_TEXT_COLOR_MALE)
+    } else {
+        removeobject(MALE_OWNER)
+        addobject(FEMALE_OWNER)
+        setflag(FLAG_TEMP_1)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+
+    }
+    return
+}
+
+movement SodaShopSpins {
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+    face_left
+    face_up
+    face_right
+    face_down
+}
+
+script SodaShop_SwimTrunks {
+    trainerbattle_single(TRAINER_SODASHOP_SHORTS, "PLACEHOLDER", "PLACEHOLDER")
+    msgbox("Placeholder!\n", MSGBOX_NPC)
+}
+
+script SodaShop_Sailor {
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
+    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
+
+}
+
+script SodaShop_RichKid {
+    trainerbattle_single(TRAINER_SODASHOP_RICHKID, "Sure, I'll accept your challenge.\nI have a lot of money.", "It's…\nIt's just not the same.\n")
+    msgbox("I don't understand.\nWhy couldn't I win?\pI purchased all the CELIA'S STUPID\nROMHACK DLC and bonus content.\lI should've won!", MSGBOX_NPC)
+}
+
+script SodaShop_VendingMachine {
+	msgbox("Statistically, it's more dangerous\nthan a shark.", MSGBOX_SIGN)
+	end
+}
+
+script SodaShop_WeirdMachine {
+	msgbox("Is that a…\nCoffee machine?\lA french press, maybe?\pI have no clue.\n", MSGBOX_SIGN)
+	end
 }

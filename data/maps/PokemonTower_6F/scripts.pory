@@ -36,7 +36,6 @@ script PokemonTower_6F_WorriedAboutCuboneMom {
 }
 
 script PokemonTower_6F_Fuji {
-	msgbox("MR. FUJI: Oh, goodness…\pMy name is MR. FUJI.\nI am the schoolteacher here.\pThose miserable DMCA are waiting\nupstairs.\lThey've taken CUBONE'S MOTHER.\pShe supported our students' freedom\nof creativity.\pThey weren't happy about that.\nI pray for her safety…", MSGBOX_NPC)
 	end
 }
 
@@ -46,9 +45,15 @@ script PokemonTower_6F_SpellingKid {
 }
 
 script PokemonTower_6F_MoveTutor {
-	lock
+	lockall
 	faceplayer
-	msgbox(TwoIsland_House_Text_WantMeToTeachMove, MSGBOX_YESNO)
+	if(!flag(FLAG_TEMP_1)) {
+			msgbox("MR. FUJI: Oh, goodness…\nMy name is MR. FUJI.\lI am the schoolteacher here.\pThose miserable DMCA are waiting\nupstairs.\lThey've taken CUBONE'S MOTHER.\pShe was always supportive of the\nstories our students would write.\p…Oh?\nYou're planning to help her?\pAll right.\nEven now, I'm still a TEACHER.\lI'll help your POKéMON learn moves.", MSGBOX_DEFAULT)
+			setflag(FLAG_TEMP_1)
+	} else {
+		msgbox("MR. FUJI: CUBONE's MOTHER has\nbeen taken away by the DMCA.\lEven still, I'll help you.", MSGBOX_DEFAULT)
+	}
+	msgbox("Would you like me to help your\nPOKéMON learn a MOVE?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 			msgbox(TwoIsland_House_Text_TutorWhichMon)
 			special(SelectMoveTutorMon)
@@ -56,7 +61,7 @@ script PokemonTower_6F_MoveTutor {
 			goto_if_ge(VAR_0x8004, PARTY_SIZE, TwoIsland_House_EventScript_EndTutorMove)
 			special(IsSelectedMonEgg)
 			goto_if_eq(VAR_RESULT, TRUE, TwoIsland_House_EventScript_CantTutorEgg)
-			goto_if_eq(VAR_0x8005, 0, TwoIsland_House_EventScript_NoMoveToTutorMon)
+			goto_if_eq(VAR_0x8005, 0, "MR. FUJI: This POKéMON doesn't\nhave any MOVES it can learn.")
 			goto(TwoIsland_House_EventScript_ChooseMoveToTeach)
 
 				msgbox(TwoIsland_House_Text_TeachWhichMove)
@@ -64,17 +69,35 @@ script PokemonTower_6F_MoveTutor {
 				waitstate
 				goto_if_eq(VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor)
 				call(EventScript_RestorePrevTextColor)
-				goto(TwoIsland_House_EventScript_EndTutorMove)
+				msgbox("Come back here if you'd like\nto teach your POKéMON a move.", MSGBOX_DEFAULT)
+				release
 				end
 
 
 	} else {
-		goto(TwoIsland_House_EventScript_EndTutorMove)
+			msgbox("Come back here if you'd like\nto teach your POKéMON a move.", MSGBOX_DEFAULT)
 	}
+	releaseall
+	end
 }
 
-script PokemonTower_6F_Placeholder2 {
-	
+script PokemonTower_6F_Cubone {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CUBONE, CRY_MODE_DEFAULT)
+	msgbox("CUBONE: Cu-Curraa!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox("He's worried for his MOTHER.\n", MSGBOX_DEFAULT)
+	release
+}
+
+
+script PokemonTower_6F_SpellingTrainer {
+	lock
+	msgbox("i'm going to be a trainer\n", MSGBOX_DEFAULT)
+	release
 }
 
 script PokemonTower_6F_Savestate {

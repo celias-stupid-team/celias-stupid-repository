@@ -67,9 +67,10 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 
 			
 				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
-				fadeoutbgm(1)
+				fadenewbgm(MUS_NONE)
 				waitmovement(0)
 				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+				delay(30)
 				playse(SE_PIN)
 				applymovement(WARDEN, Common_Movement_ExclamationMark)
 				delay(60)
@@ -93,8 +94,7 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					delay(30)
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					msgbox("{PLAYER} fucking died!\n", MSGBOX_DEFAULT)
-					warp(MAP_ROUTE15, 0)
-					fadescreen(FADE_FROM_BLACK)
+					warpsilent(MAP_ROUTE15, 0)
 					release
 					end
 

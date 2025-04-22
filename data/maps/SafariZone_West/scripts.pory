@@ -41,3 +41,8 @@ script SafariZone_West_MusicGirl {
 	msgbox("Hey, where's that music coming\nfrom?", MSGBOX_NPC)
 	end
 }
+
+script SafariZone_West_SecretHouse {
+	msgbox("SAFARI ZONE\nSecret House!", MSGBOX_SIGN)
+	end
+}

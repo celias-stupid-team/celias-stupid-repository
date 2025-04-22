@@ -92,6 +92,9 @@
         },
         "checkmoncaught": {
             "var_name": "VAR_RESULT"
+        },
+        "checktrainerflag": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

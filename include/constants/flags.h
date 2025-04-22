@@ -336,7 +336,7 @@
 #define FLAG_TALKED_TO_FISHING_GURU               0x122
 #define FLAG_PALLET_IMPOSTER_OAK               0x123
 #define FLAG_WAS_THREATENED_BY_WARDEN               0x124
-#define FLAG_0x125               0x125
+#define FLAG_ARCHER_CUTSCENE_SECOND               0x125
 #define FLAG_0x126               0x126
 #define FLAG_0x127               0x127
 #define FLAG_0x128               0x128
@@ -862,34 +862,36 @@
 #define FLAG_LIGHTHOUSE_OLD_MAN               0x31D
 #define FLAG_JUMPED_FROM_LIGHTHOUSE               0x31E
 #define FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE               0x31F
-#define FLAG_0x320               0x320
-#define FLAG_0x321               0x321
-#define FLAG_0x322               0x322
-#define FLAG_0x323               0x323
-#define FLAG_0x324               0x324
-#define FLAG_0x325               0x325
-#define FLAG_0x326               0x326
-#define FLAG_0x327               0x327
-#define FLAG_0x328               0x328
-#define FLAG_0x329               0x329
-#define FLAG_0x32A               0x32A
-#define FLAG_0x32B               0x32B
-#define FLAG_0x32C               0x32C
-#define FLAG_0x32D               0x32D
-#define FLAG_0x32E               0x32E
-#define FLAG_0x32F               0x32F
-#define FLAG_0x330               0x330
-#define FLAG_0x331               0x331
-#define FLAG_0x332               0x332
-#define FLAG_0x333               0x333
-#define FLAG_0x334               0x334
-#define FLAG_0x335               0x335
-#define FLAG_0x336               0x336
-#define FLAG_0x337               0x337
-#define FLAG_0x338               0x338
-#define FLAG_0x339               0x339
-#define FLAG_0x33A               0x33A
-#define FLAG_0x33B               0x33B
+#define FLAG_GOT_FLOAT_STONE               0x320
+
+//Fushcia Gym
+#define FLAG_GOT_DEVON_SCOPE               0x321
+#define FLAG_IN_FUSHCIA_GYM               0x322
+#define FLAG_FUSHCIA_GYM_INVISIBLE_LASS               0x323
+#define FLAG_DEFEATED_TRAINER_1               0x324
+#define FLAG_REVEALED_DAD               0x325
+#define FLAG_DEFEATED_TRAINER_2               0x326
+#define FLAG_DRILLED_LEFT_HOLE               0x327
+#define FLAG_DRILLED_RIGHT_HOLE               0x328
+#define FLAG_DEFEATED_ARON_MAN               0x329
+#define FLAG_DEFEATED_SHEDINJA_MAN               0x32A
+#define FLAG_GOT_DRILL_DOZER               0x32B
+#define FLAG_GOT_BURNED_ONCE               0x32C
+#define FLAG_GOT_PARALYZED_ONCE               0x32D
+#define FLAG_GOT_POISONED_ONCE               0x32E
+#define FLAG_BEAT_RAIN_GIRL               0x32F
+#define FLAG_IRON_CURTAIN_SET               0x330
+#define FLAG_IRON_CURTAIN_ON_RED               0x331
+#define FLAG_GREEN_DOOR_OPENED               0x332
+#define FLAG_IRON_CURTAIN_OPENED               0x333
+#define FLAG_MEMORIZED_SCROLL               0x334
+#define FLAG_OBTAINED_IRON_CURTAIN               0x335
+#define FLAG_LASS_BROKE_WALL               0x336
+#define FLAG_FUSHCIA_IMPOSTER_OAK               0x337
+#define FLAG_DEFEATED_NINJAS               0x338
+#define FLAG_LION_BATTLE               0x339 // yes I know this is cringe but idk how to do it 
+#define FLAG_FUSHCIA_GYM_LEFT_FIRST               0x33A
+#define FLAG_FUSHCIA_GYM_RIGHT_FIRST               0x33B
 #define FLAG_0x33C               0x33C
 #define FLAG_0x33D               0x33D
 #define FLAG_0x33E               0x33E
@@ -958,7 +960,7 @@
 #define FLAG_CSR_HINT_DRAGONITE               0x37D
 #define FLAG_CSR_HINT_SPEAROW               0x37E
 #define FLAG_CSR_HINT_PEWTER_GRASS               0x37F
-#define FLAG_CSR_HINT_OCEAN_FISHING               0x380
+#define FLAG_SHE_SELLS_SEASHELLS               0x380
 #define FLAG_CSR_HINT_REVEAL_GLASS               0x381
 #define FLAG_CSR_HINT_GYM_STATUES               0x382
 #define FLAG_CSR_HINT_ARMS_TRADE               0x383
@@ -968,8 +970,8 @@
 #define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
 #define FLAG_CSR_TALKED_TO_JYNX_GUY               0x388
 #define FLAG_CSR_GOT_GOLDEN_ROD               0x389
-#define FLAG_0x38A               0x38A
-#define FLAG_0x38B               0x38B
+#define FLAG_BAKED_DONUT_HINT               0x38A
+#define FLAG_FED_SANDWICH               0x38B
 #define FLAG_0x38C               0x38C
 #define FLAG_0x38D               0x38D
 #define FLAG_0x38E               0x38E
@@ -1085,19 +1087,19 @@
 #define FLAG_HIDDEN_ITEM_ROUTE9_ETHER                                      (FLAG_HIDDEN_ITEMS_START +   6)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x07                                       (FLAG_HIDDEN_ITEMS_START +   7)
 #define FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE                 (FLAG_HIDDEN_ITEMS_START +   8)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_2                              (FLAG_HIDDEN_ITEMS_START +   9)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL                              (FLAG_HIDDEN_ITEMS_START +   9) //naming this 2 was a mistake.
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_3                                 (FLAG_HIDDEN_ITEMS_START +  10)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_4                          (FLAG_HIDDEN_ITEMS_START +  11)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_5                         (FLAG_HIDDEN_ITEMS_START +  12)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_6                      (FLAG_HIDDEN_ITEMS_START +  13)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_7                     (FLAG_HIDDEN_ITEMS_START +  14)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_8                                     (FLAG_HIDDEN_ITEMS_START +  15)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_9                                       (FLAG_HIDDEN_ITEMS_START +  16)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_10                                (FLAG_HIDDEN_ITEMS_START +  17)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_11                              (FLAG_HIDDEN_ITEMS_START +  18)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_2                          (FLAG_HIDDEN_ITEMS_START +  11)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_4                         (FLAG_HIDDEN_ITEMS_START +  12)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_5                      (FLAG_HIDDEN_ITEMS_START +  13)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_6                     (FLAG_HIDDEN_ITEMS_START +  14)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_7                                     (FLAG_HIDDEN_ITEMS_START +  15)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_8                                       (FLAG_HIDDEN_ITEMS_START +  16)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_3                                (FLAG_HIDDEN_ITEMS_START +  17)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_9                              (FLAG_HIDDEN_ITEMS_START +  18)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_12                                     (FLAG_HIDDEN_ITEMS_START +  19)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_13                                (FLAG_HIDDEN_ITEMS_START +  20)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_14                                (FLAG_HIDDEN_ITEMS_START +  21)
+#define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_15                     (FLAG_HIDDEN_ITEMS_START +  22)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_16                           (FLAG_HIDDEN_ITEMS_START +  23)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
@@ -1528,7 +1530,7 @@
 #define FLAG_CSR_MAP_BROCK_GYM                                                  (SYS_FLAGS + 0xD3)
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
-#define FLAG_CSR_MAP_DUMMY_2                                                  (SYS_FLAGS + 0xD6)
+#define FLAG_CSR_MAP_BRENDANMAY                                                  (SYS_FLAGS + 0xD6)
 #define FLAG_CSR_MAP_DUMMY_3                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_CSR_MAP_DUMMY_4                                                  (SYS_FLAGS + 0xD9)

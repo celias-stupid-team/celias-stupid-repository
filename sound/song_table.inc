@@ -377,6 +377,10 @@ gSongTable::
 	song se_make_it_rain, 1, 1
 	song mus_littleroot, 0, 0
 	song mus_looker_theme, 0, 0
+	song mus_safari_march, 0, 0
+	song mus_celadon_gym_2, 0, 0
+	song mus_dmca_showdown, 0, 0
+	song mus_battle_frontier, 0, 0
 
 
 dummy_song_header:

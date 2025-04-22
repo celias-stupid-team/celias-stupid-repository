@@ -26,3 +26,13 @@ LavenderTown_House1_EventScript_Cubone::
 	release
 	end
 `
+script LavenderTown_House1_EventScript_Kanga {
+	lock
+	faceplayer
+	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_NORMAL)
+	msgbox("KANGASKHAN: Kan-GAH!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	msgbox("She's grateful for your help.\n", MSGBOX_DEFAULT)
+	release
+}
