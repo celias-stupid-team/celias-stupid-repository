@@ -125,8 +125,8 @@ script Route13_LassAttack {
 	delay(60)
 	applymovement(LASS, Route13_LassLeaves)
 	waitmovement(0)
-	setobjectxy(LASS, 27, 9)
-	setobjectxyperm(LASS, 27, 9)
+	setobjectxy(LASS, 34, 17)
+	setobjectxyperm(LASS, 34, 17)
 	setvar(VAR_ROUTE13_LASS_ATTACK, 1)
 	setflag(FLAG_ROUTE13_LASSATTACK)
 	release
