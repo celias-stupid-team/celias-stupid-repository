@@ -753,6 +753,13 @@ bool8 MetatileBehavior_IsDaisy(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsShitWall(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SHIT_WALLS)
+        return TRUE;
+    else
+        return FALSE;
+}
 bool8 MetatileBehavior_IsPokeMartShelf(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POKEMART_SHELF)

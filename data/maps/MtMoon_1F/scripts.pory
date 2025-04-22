@@ -77,6 +77,12 @@ script MtMoon_1F_Item_MaxRepel {
 	finditem(ITEM_MAX_REPEL)
 }
 
+script EventScript_ShitWalls {
+	lock
+	msgbox("Deal with the shit bricks, Archie.\n", MSGBOX_DEFAULT)
+	release
+}
+
 script MtMoon_1F_Trigger_FirstTentacool {
 	lock
 	setvar(VAR_MAP_SCENE_MT_MOON_TENTACOOL, 1)
