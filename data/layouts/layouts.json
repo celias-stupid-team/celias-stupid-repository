@@ -5160,6 +5160,30 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/FushciaGym_IronCurtainRoom/border.bin",
       "blockdata_filepath": "data/layouts/FushciaGym_IronCurtainRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TOWER_MATH_POINCARE",
+      "name": "PokemonTower_Math_Poincare_Layout",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/PokemonTower_Math_Poincare/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTower_Math_Poincare/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TOWER_MATH_BIKE_VOUCHER",
+      "name": "PokemonTower_Math_BikeVoucher_Layout",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/map.bin"
     }
   ]
 }

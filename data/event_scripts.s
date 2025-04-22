@@ -1559,3 +1559,9 @@ Text_TestMsg::
 
 	.include "data/maps/FushciaGym_IronCurtainRoom/scripts.inc"
 	.include "data/maps/FushciaGym_IronCurtainRoom/text.inc"
+
+	.include "data/maps/PokemonTower_Math_Poincare/scripts.inc"
+	.include "data/maps/PokemonTower_Math_Poincare/text.inc"
+
+	.include "data/maps/PokemonTower_Math_BikeVoucher/scripts.inc"
+	.include "data/maps/PokemonTower_Math_BikeVoucher/text.inc"

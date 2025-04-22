@@ -592,7 +592,9 @@
     "PokemonTower_Math_5",
     "PokemonTower_Math_6",
     "PokemonTower_Math_CandyRoom",
-    "PokemonTower_Math_CeliaRoom"
+    "PokemonTower_Math_CeliaRoom",
+    "PokemonTower_Math_Poincare",
+    "PokemonTower_Math_BikeVoucher"
   ],
   "gMapGroup_KantoLighthouse": [
     "KantoLighthouse_1F",
