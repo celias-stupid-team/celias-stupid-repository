@@ -15,6 +15,7 @@
 #include "quest_log.h"
 #include "script.h"
 #include "event_data.h"
+#include "item.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -197,7 +198,7 @@ void SetNextWeather(u8 weather)
     {
         PlayRainStoppingSoundEffect();
     } else {
-        RunScriptImmediately(EventScript_FillPsyduckPail);
+        RefillPsyduckPail();
     }
 
     if (gWeatherPtr->nextWeather != weather && gWeatherPtr->currWeather == weather)
@@ -1204,7 +1205,7 @@ void SlightlyDarkenPalsInWeather(u16 *palbuf, u16 *unused, u32 size)
 bool8 UpdatePsyduckPailCounter(void)
 {
     u16 steps;
-        switch (gWeatherPtr->currWeather)
+        switch (gWeatherPtr->nextWeather)
     {
     case WEATHER_RAIN:
     case WEATHER_RAIN_THUNDERSTORM:
@@ -1229,4 +1230,23 @@ bool8 UpdatePsyduckPailCounter(void)
         }
     }
     return FALSE;
+}
+
+
+//I do not know how to include these. I tried.
+//If someone who's not me figures it out, it should be easy to remove these lines.
+#define ITEM_WAILMER_PAIL 268
+#define ITEM_EMPTY_PAIL 400
+
+void RefillPsyduckPail(void) {
+    if(CheckBagHasItem(ITEM_EMPTY_PAIL, 1)) {
+        VarSet(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS);
+        RemoveBagItem(ITEM_EMPTY_PAIL, 1);
+        AddBagItem(ITEM_WAILMER_PAIL, 1);
+    } else {
+        if(CheckBagHasItem(ITEM_WAILMER_PAIL, 1)) {
+            VarSet(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS);
+
+        }
+    }
 }

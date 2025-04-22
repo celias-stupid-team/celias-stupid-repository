@@ -173,5 +173,6 @@ extern const u8 gWeatherAshTiles[];
 extern const u8 gWeatherRainTiles[];
 extern const u8 gWeatherSandstormTiles[];
 extern bool8 UpdatePsyduckPailCounter(void);
+extern void RefillPsyduckPail(void);
 
 #endif // GUARD_WEATHER_H
