@@ -38,6 +38,7 @@ PewterCity_Gym_EventScript_GiveTM39::
 	closemessage
 	delay 50
 	msgbox PewterCity_Gym_Text_DryingPan
+	call PewterGym_CheckForButterfree
 	release
 	end
 
@@ -107,6 +108,13 @@ script PewterCity_EventScript_Dad {
 	setflag(FLAG_DAD_PEWTER_GYM)
 	release
 	end
+}
+
+script PewterGym_CheckForButterfree {
+	if(!checkmoncaught(SPECIES_BUTTERFREE)) {
+		setvar(VAR_PEWTER_CELIA_SCENE, 1)
+	}
+	return
 }
 
 script PewterCity_EventScript_LightYearsSet {

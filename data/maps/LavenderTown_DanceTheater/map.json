@@ -312,7 +312,7 @@
       "x": 4,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_6",
+      "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "DanceTheater_PlayerDance"
     },
@@ -321,7 +321,7 @@
       "x": 5,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_6",
+      "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "DanceTheater_PlayerDance"
     },
@@ -330,7 +330,7 @@
       "x": 6,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_6",
+      "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "DanceTheater_PlayerDance"
     }

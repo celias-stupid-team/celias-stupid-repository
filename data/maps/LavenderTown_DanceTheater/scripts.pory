@@ -244,7 +244,7 @@ script DanceTheater_Trailer {
     delay(150)
     applymovement(OBJ_EVENT_ID_CAMERA, Theater_CameraGoesUp)
     waitmovement(0)
-    delay(390)
+    delay(410)
     if(var(VAR_TEMP_5) != 8) {
         setflag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)
     }
@@ -1023,15 +1023,23 @@ movement DT_walkbackRight {
 
 script DanceTheater_PlayerDance {
     lock
+    special(SpawnCameraObject)
+    removeobject(YELLOW)
+    removeobject(BLUE)
+    applymovement(OBJ_EVENT_ID_CAMERA, PlayerDanceStart)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerDanceStart)
     fadenewbgm(MUS_DUMMY)
-    special(SpawnCameraObject)
     waitmovement(0)
-    msgbox("It is implied that you are dancing\n", MSGBOX_DEFAULT)
-    closemessage
+    delay(120)
     playbgm(MUS_CELADON_GYM_2, FALSE)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerDance)
     delay(1140)
     special(RemoveCameraObject)
+    addobject(GUY)
+    setobjectxy(GUY, 5, 2)
+    applymovement(GUY, PlayerDanceSplat)
+    waitmovement(GUY)
+    playse(SE_LEDGE)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerDanceEnd)
     fadedefaultbgm
     waitmovement(0)
@@ -1044,6 +1052,86 @@ movement PlayerDanceStart {
     face_down
 }
 
+movement PlayerDance {
+    face_left
+    delay_16
+    delay_8
+    delay_4
+    face_right
+    delay_16
+    delay_8
+    delay_4
+    face_left
+    delay_16
+    delay_8
+    delay_4
+    face_up
+    delay_16
+    delay_8
+    delay_4
+    face_down
+    delay_16 * 4
+    delay_8 * 4
+    delay_4 * 4
+    
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    face_right
+    delay_16 * 2
+    walk_slow_left
+    face_right
+    delay_16 * 2
+    unlock_facing_direction
+    face_left
+    lock_facing_direction
+    walk_slow_right
+    face_left
+    delay_16 * 2
+    walk_slow_right
+    face_left
+    delay_16 * 2
+
+    
+    walk_slow_right
+    face_left
+    delay_16 * 2
+    walk_slow_right
+    face_left
+    delay_16 * 2
+    unlock_facing_direction
+    face_right
+    lock_facing_direction
+    walk_slow_left
+    face_right
+    delay_16 * 2
+    walk_slow_left
+    face_right
+    delay_16 * 2
+    unlock_facing_direction
+    face_down
+    lock_facing_direction
+    walk_slow_left * 2
+    walk_slow_up
+    walk_slow_right * 3
+    walk_slow_down
+    walk_slow_left
+
+    
+
+}
+
 movement PlayerDanceEnd {
-    walk_down * 3
+    unlock_facing_direction
+    face_up
+    lock_facing_direction
+    jump_2_down
+    face_up
+    unlock_facing_direction
+    delay_16 * 4
+    walk_down * 2
+}
+
+movement PlayerDanceSplat {
+    slide_down * 8
 }

@@ -3,9 +3,6 @@ raw `
 .equ LOCALID_GYM_GUIDE,    5
 .equ LOCALID_AIDE,         7
 
-PewterCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_OnTransition
-	.byte 0
 
 PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
@@ -839,6 +836,80 @@ PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
 `
+
+
+const CELIA = 11
+mapscripts PewterCity_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(var(VAR_PEWTER_CELIA_SCENE) == 1) {
+			setobjectxy(CELIA, 15, 19)
+			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION: PewterCity_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_PEWTER_CELIA_SCENE, 1 {
+			setvar(VAR_PEWTER_CELIA_SCENE, 2)
+			playse(SE_PIN)
+			applymovement(CELIA, Common_Movement_ExclamationMark)
+			delay(60)
+			applymovement(CELIA, Common_Movement_WalkUp)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("Hiya!\nI'm CELIA, the creator!\pWow, you sure did beat that fight\nwithout getting BUTTERFREE!\lThat, uh… impressive?\pY'know, there was an easier way to\ndo it.\lOne that doesn't involve grinding.\pOh, who am I kidding.\nYou already knew that, didn't you?\pWell, if you're so insistent on\ngetting through via levels, here!\lI have a gift for you!", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			msgbox("{PLAYER} obtained a comically-strong\nCATERPIE!", MSGBOX_DEFAULT)
+			//gift pokemon
+			call(PewterCity_OntainedCaterpie)
+			clearflag(FLAG_SHINY_CREATION)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("There!\nThat should do you for now.\pWith all those levels, I'm sure\nyou'll be able to get through!\pAnyway, good luck!\nRemember to fill in your POKéDEX!", MSGBOX_DEFAULT)
+			closemessage
+			applymovement(CELIA, CeliaLeavesAfterBrock)
+			removeobject(CELIA)
+			release
+		}
+	]
+}
+
+movement CeliaLeavesAfterBrock {
+	walk_left* 8 //It didn't like the multiplication for some reason
+}
+
+script PewterCity_OntainedCaterpie {
+	copyvar(VAR_TEMP_1, SPECIES_CATERPIE)
+	givemon(SPECIES_CATERPIE, 100)
+	clearflag(FLAG_SHINY_CREATION)
+	switch(var(VAR_RESULT)) {
+		case 0: //Mon goes to party
+			bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE)
+			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+			if(!var(VAR_RESULT)) {
+				return
+			}
+			call(EventScript_GetGiftMonPartySlot)
+			call(EventScript_ChangePokemonNickname)
+			return
+		case 1: //Mon goes to PC
+				bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE)
+				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+				if(var(VAR_RESULT) == 0) {
+					call(EventScript_TransferredToPC)
+					return
+				} else {
+					call(EventScript_NameReceivedBoxMon)
+					call(EventScript_TransferredToPC)
+					return //This can be simplified; I'll deal with it later
+				}
+				
+				return
+		case 2:
+			goto(EventScript_NoMoreRoomForPokemon)
+			break
+	}
+}
+
 script PewterCity_MapScript_SetObtainable {
 	//if pokedex(SPECIES_KAKUNA) {
 		//setobtainable(SPECIES_COMBEE)
@@ -874,7 +945,6 @@ script PewterCity_NotOak {
 }
 
 const IMPOSTER_OAK = 14
-const CELIA = 11
 script EventScript_PewterCity_AlolanOak {
 	if(flag(FLAG_CELIA_SECRET_PEWTER)) {
 		msgbox("The grove is now noticably less\ndense.", MSGBOX_SIGN)
