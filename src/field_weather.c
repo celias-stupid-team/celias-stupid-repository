@@ -215,6 +215,9 @@ void SetNextWeather(u8 weather)
 void SetCurrentAndNextWeather(u8 weather)
 {
     PlayRainStoppingSoundEffect();
+    if(weather == WEATHER_RAIN || weather == WEATHER_RAIN_THUNDERSTORM || weather == WEATHER_DOWNPOUR) {
+        RefillPsyduckPail();
+    }
     gWeatherPtr->currWeather = weather;
     gWeatherPtr->nextWeather = weather;
 }
@@ -222,6 +225,9 @@ void SetCurrentAndNextWeather(u8 weather)
 static void SetCurrentAndNextWeatherNoDelay(u8 weather)
 {
     PlayRainStoppingSoundEffect();
+    if(weather == WEATHER_RAIN || weather == WEATHER_RAIN_THUNDERSTORM || weather == WEATHER_DOWNPOUR) {
+        RefillPsyduckPail();
+    }
     gWeatherPtr->currWeather = weather;
     gWeatherPtr->nextWeather = weather;
     // Overrides the normal delay during screen fading.
