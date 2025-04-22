@@ -12,6 +12,7 @@
 #include "field_fadetransition.h"
 #include "field_player_avatar.h"
 #include "field_poison.h"
+#include "field_weather.h"
 #include "field_specials.h"
 #include "item_menu.h"
 #include "link.h"
@@ -648,6 +649,8 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
         return TRUE;
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior) && UpdateRepelCounter() == TRUE)
         return TRUE;
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior) && UpdatePsyduckPailCounter() == TRUE)
+        return TRUE;
     return FALSE;
 }
 
@@ -1222,3 +1225,6 @@ int SetCableClubWarp(void)
     SetupWarp(&gMapHeader, GetWarpEventAtMapPosition(&gMapHeader, &position), &position);
     return 0;
 }
+
+
+

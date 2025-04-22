@@ -11,6 +11,10 @@
 #include "constants/weather.h"
 #include "constants/songs.h"
 #include "field_camera.h"
+#include "event_scripts.h"
+#include "quest_log.h"
+#include "script.h"
+#include "event_data.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -192,6 +196,8 @@ void SetNextWeather(u8 weather)
     if (weather != WEATHER_RAIN && weather != WEATHER_RAIN_THUNDERSTORM && weather != WEATHER_DOWNPOUR)
     {
         PlayRainStoppingSoundEffect();
+    } else {
+        RunScriptImmediately(EventScript_FillPsyduckPail);
     }
 
     if (gWeatherPtr->nextWeather != weather && gWeatherPtr->currWeather == weather)
@@ -832,7 +838,6 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
     case WEATHER_RAIN_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
     case WEATHER_SNOW:
-    case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
     case WEATHER_DROUGHT:
         useWeatherPal = TRUE;
@@ -1194,4 +1199,34 @@ void SlightlyDarkenPalsInWeather(u16 *palbuf, u16 *unused, u32 size)
         BlendPalettesAt(palbuf, RGB_BLACK, 3, size);
         break;
     }
+}
+
+bool8 UpdatePsyduckPailCounter(void)
+{
+    u16 steps;
+        switch (gWeatherPtr->currWeather)
+    {
+    case WEATHER_RAIN:
+    case WEATHER_RAIN_THUNDERSTORM:
+    case WEATHER_DOWNPOUR:
+        return FALSE;
+    }
+
+
+    if (gQuestLogState == QL_STATE_PLAYBACK)
+        return FALSE;
+
+    steps = VarGet(VAR_PSYDUCK_PAIL_COUNTER);
+
+    if (steps != 0)
+    {
+        steps--;
+        VarSet(VAR_PSYDUCK_PAIL_COUNTER, steps);
+        if (steps == 0)
+        {
+            ScriptContext_SetupScript(EventScript_DrainPsyduckPail);
+            return TRUE;
+        }
+    }
+    return FALSE;
 }

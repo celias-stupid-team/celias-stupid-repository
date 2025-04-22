@@ -775,3 +775,32 @@ script GetOakPCPokedexMessage {
 
 	return
 }
+
+script EventScript_DrainPsyduckPail {
+	lock
+		removeitem(ITEM_WAILMER_PAIL)
+		additem(ITEM_EMPTY_PAIL)
+
+	if(flag(FLAG_CSR_DUCK_PAIL_EMPTIED)) {
+		msgbox("Your PSYDUCK PAIL is out of water…\n", MSGBOX_DEFAULT)
+
+	} else {
+		setflag(FLAG_CSR_DUCK_PAIL_EMPTIED)
+		msgbox("Oh no!\nThe PSYDUCK PAIL is totally empty!\pLooks like it's got a hole in the\nbottom…", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script EventScript_FillPsyduckPail {
+	if(checkitem(ITEM_EMPTY_PAIL)) {
+			removeitem(ITEM_EMPTY_PAIL)
+			giveitem(ITEM_WAILMER_PAIL)
+			setvar(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS)
+
+	} else {
+		if(checkitem(ITEM_WAILMER_PAIL)) {
+			setvar(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS)
+		}
+	}
+	release
+}
