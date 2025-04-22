@@ -77,7 +77,7 @@ script MtMoon_1F_Item_MaxRepel {
 	finditem(ITEM_MAX_REPEL)
 }
 
-script EventScript_ShitWalls {
+script EventScript_ShitWall {
 	lock
 	msgbox("Deal with the shit bricks, Archie.\n", MSGBOX_DEFAULT)
 	release
