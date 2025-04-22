@@ -1,3 +1,70 @@
+const CELIA = 2
 mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0 {
+            setvar(VAR_TEMP_1, 1)
+            if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+                waitmovement(0)
+                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+                delay(60)
+                playse(SE_EXIT)
+                setobjectxy(CELIA, 13, 15)
+                setflag(FLAG_CELIA_SECRET_LAVENDER)
+                applymovement(CELIA, CeliaEnters)
+                waitmovement(0)
+                delay(120)
+                msgbox("Y{PAUSE 5)o{PAUSE 5)u{PAUSE 5)'{PAUSE 5)r{PAUSE 5)e{PAUSE 5) n{PAUSE 5)o{PAUSE 5)t{PAUSE 5) t{PAUSE 5)h{PAUSE 5)e {PAUSE 5)o{PAUSE 5)n{PAUSE 5)e{PAUSE 5)…\n", MSGBOX_DEFAULT)
+                closemessage
+                delay(60)
+                applymovement(CELIA, CeliaMiddle)
+                waitmovement(0)
+                playse(SE_PIN)
+                applymovement(CELIA, Common_Movement_ExclamationMark)
+                delay(60)
+                msgbox("…Buuuuuuuut!\pBecause you found me here, I'll\ntell you a secret!", MSGBOX_DEFAULT)
+                closemessage
+                delay(20)
+                setvar(VAR_CSR_CURRENT_CELIA_SECRET, 4)
+                call(CeliaSecrets_CeliaTellsYouNextHint)
+                delay(60)
+                applymovement(CELIA, CeliaLeaves)
+                waitmovement(0)
+                release
+                
+            }
+        }
+    ]
+}
+
+movement CeliaEnters {
+    set_visible
+}
+
+movement CeliaMiddle {
+    walk_slow_up
+    walk_slow_left * 2
+    face_up
+}
+
+movement CeliaMiddle2 {
+    walk_down
+    face_right
+}
+
+movement CeliaLeaves {
+    walk_up
+    walk_right * 6
+    set_invisible
+}
+
+script PokemonTower_CeliaRoom_Shorts {
+    lock
+    faceplayer
+    msgbox("Death is an illusion.\nAnd so are pants.", MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    fadescreen(FADE_FROM_BLACK)
+    release
 }

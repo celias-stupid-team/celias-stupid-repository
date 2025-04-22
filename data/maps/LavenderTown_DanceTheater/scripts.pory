@@ -100,7 +100,7 @@ script DanceTheater_ShortKid {
 }
 
 script DanceTheater_DietDance {
-	msgbox("placeholder\n", MSGBOX_NPC)
+	msgbox("Ah, the DANCE THEATER is finally\nopen!\pI can't wait to SHAKE IT!\nThe DIET DANCE beckons!", MSGBOX_NPC)
 	end
 }
 
