@@ -11,7 +11,7 @@ mapscripts Route7_MapScripts {
 }
 
 script Route7_EventScript_Ann { //needs the actual trainer
-	trainerbattle_single(TRAINER_LASS_JULIA, Route7_Text_AtNightBefore, Route7_Text_AtNightDefeat)
+	trainerbattle_single(TRAINER_PICNICKER_NIGHT, Route7_Text_AtNightBefore, Route7_Text_AtNightDefeat)
 	msgbox(Route7_Text_AtNightAfter, MSGBOX_AUTOCLOSE)
 }
 

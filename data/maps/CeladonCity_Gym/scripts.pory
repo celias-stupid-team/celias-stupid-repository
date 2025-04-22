@@ -27,12 +27,12 @@ CeladonCity_Gym_EventScript_NoRoomForTM19::
 	end
 
 CeladonCity_Gym_EventScript_Kay::
-	trainerbattle_single TRAINER_LASS_KAY, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
+	trainerbattle_single TRAINER_LASS_GAY, CeladonCity_Gym_Text_KayIntro, CeladonCity_Gym_Text_KayDefeat
 	msgbox CeladonCity_Gym_Text_KayPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 CeladonCity_Gym_EventScript_Lisa::
-	trainerbattle_single TRAINER_LASS_LISA, CeladonCity_Gym_Text_LisaIntro, CeladonCity_Gym_Text_LisaDefeat
+	trainerbattle_single TRAINER_ANGRY_NERD_MIKE, CeladonCity_Gym_Text_LisaIntro, CeladonCity_Gym_Text_LisaDefeat
 	msgbox CeladonCity_Gym_Text_LisaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

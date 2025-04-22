@@ -2689,3 +2689,12 @@ const u8 gDachsbunPokedexText[] = _(
 	"The results are in!\n"
 	"It turns out that a Hot Dog\n"
 	"IS a sandwich!");
+        
+const u8 gEternatusPokedexText[] = _(
+	"In several hundred years, we might\n"
+	"start to run out of power.\n"
+	"Thus, all of you must die.");
+        
+const u8 gAmpharosMPokedexText[] = _(
+	"So wait, how are you gonna\n"
+	"get out of here?");

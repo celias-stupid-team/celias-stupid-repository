@@ -280,17 +280,17 @@ Route8_EventScript_Paige::
 	end
 
 Route8_EventScript_Andrea::
-	trainerbattle_single TRAINER_LASS_ANDREA, Route8_Text_AndreaIntro, Route8_Text_AndreaDefeat
+	trainerbattle_single TRAINER_LASS_FENCES, Route8_Text_AndreaIntro, Route8_Text_AndreaDefeat
 	msgbox Route8_Text_AndreaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route8_EventScript_Megan::
-	trainerbattle_single TRAINER_LASS_MEGAN, Route8_Text_MeganIntro, Route8_Text_MeganDefeat
+	trainerbattle_single TRAINER_LASS_WEATHER, Route8_Text_MeganIntro, Route8_Text_MeganDefeat
 	msgbox Route8_Text_MeganPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route8_EventScript_Julia::
-	trainerbattle_single TRAINER_LASS_JULIA, Route8_Text_JuliaIntro, Route8_Text_JuliaDefeat
+	trainerbattle_single TRAINER_PICNICKER_NIGHT, Route8_Text_JuliaIntro, Route8_Text_JuliaDefeat
 	msgbox Route8_Text_JuliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -400,27 +400,27 @@ Route13_EventScript_Sheila::
 	end
 
 Route13_EventScript_Sebastian::
-	trainerbattle_single TRAINER_BIRD_KEEPER_SEBASTIAN, Route13_Text_SebastianIntro, Route13_Text_SebastianDefeat
+	trainerbattle_single TRAINER_BIRD_CULTIST_SEBASTIAN, Route13_Text_SebastianIntro, Route13_Text_SebastianDefeat
 	msgbox Route13_Text_SebastianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route13_EventScript_Perry::
-	trainerbattle_single TRAINER_BIRD_KEEPER_PERRY, Route13_Text_PerryIntro, Route13_Text_PerryDefeat
+	trainerbattle_single TRAINER_BIRD_CULTIST_PERRY, Route13_Text_PerryIntro, Route13_Text_PerryDefeat
 	msgbox Route13_Text_PerryPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route13_EventScript_Robert::
-	trainerbattle_single TRAINER_BIRD_KEEPER_ROBERT, Route13_Text_RobertIntro, Route13_Text_RobertDefeat
+	trainerbattle_single TRAINER_BIRD_CULTIST_EDWARDO, Route13_Text_RobertIntro, Route13_Text_RobertDefeat
 	msgbox Route13_Text_RobertPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route13_EventScript_Alma::
-	trainerbattle_single TRAINER_PICNICKER_ALMA, Route13_Text_AlmaIntro, Route13_Text_AlmaDefeat
+	trainerbattle_single TRAINER_LASS_PIT, Route13_Text_AlmaIntro, Route13_Text_AlmaDefeat
 	msgbox Route13_Text_AlmaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route13_EventScript_Susie::
-	trainerbattle_single TRAINER_PICNICKER_SUSIE, Route13_Text_SusieIntro, Route13_Text_SusieDefeat
+	trainerbattle_single TRAINER_LASS_INVISIBLE, Route13_Text_SusieIntro, Route13_Text_SusieDefeat
 	msgbox Route13_Text_SusiePostBattle, MSGBOX_AUTOCLOSE
 	end
 
