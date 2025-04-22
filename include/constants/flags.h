@@ -892,7 +892,7 @@
 #define FLAG_LION_BATTLE               0x339 // yes I know this is cringe but idk how to do it 
 #define FLAG_FUSHCIA_GYM_LEFT_FIRST               0x33A
 #define FLAG_FUSHCIA_GYM_RIGHT_FIRST               0x33B
-#define FLAG_0x33C               0x33C
+#define FLAG_GOT_POINCARE_VOUCHER               0x33C
 #define FLAG_0x33D               0x33D
 #define FLAG_0x33E               0x33E
 #define FLAG_0x33F               0x33F

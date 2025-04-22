@@ -142,12 +142,12 @@
     {
       "type": "hidden_item",
       "x": 11,
-      "y": 2,
+      "y": 3,
       "elevation": 3,
-      "item": "ITEM_SOOTHE_BELL",
+      "item": "ITEM_BASCI_BERRY_WHITE",
       "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",
       "quantity": 1,
-      "underfoot": true
+      "underfoot": false
     },
     {
       "type": "sign",
