@@ -11,6 +11,11 @@
 #include "constants/weather.h"
 #include "constants/songs.h"
 #include "field_camera.h"
+#include "event_scripts.h"
+#include "quest_log.h"
+#include "script.h"
+#include "event_data.h"
+#include "item.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -192,6 +197,8 @@ void SetNextWeather(u8 weather)
     if (weather != WEATHER_RAIN && weather != WEATHER_RAIN_THUNDERSTORM && weather != WEATHER_DOWNPOUR)
     {
         PlayRainStoppingSoundEffect();
+    } else {
+        RefillPsyduckPail();
     }
 
     if (gWeatherPtr->nextWeather != weather && gWeatherPtr->currWeather == weather)
@@ -208,6 +215,9 @@ void SetNextWeather(u8 weather)
 void SetCurrentAndNextWeather(u8 weather)
 {
     PlayRainStoppingSoundEffect();
+    if(weather == WEATHER_RAIN || weather == WEATHER_RAIN_THUNDERSTORM || weather == WEATHER_DOWNPOUR) {
+        RefillPsyduckPail();
+    }
     gWeatherPtr->currWeather = weather;
     gWeatherPtr->nextWeather = weather;
 }
@@ -215,6 +225,9 @@ void SetCurrentAndNextWeather(u8 weather)
 static void SetCurrentAndNextWeatherNoDelay(u8 weather)
 {
     PlayRainStoppingSoundEffect();
+    if(weather == WEATHER_RAIN || weather == WEATHER_RAIN_THUNDERSTORM || weather == WEATHER_DOWNPOUR) {
+        RefillPsyduckPail();
+    }
     gWeatherPtr->currWeather = weather;
     gWeatherPtr->nextWeather = weather;
     // Overrides the normal delay during screen fading.
@@ -832,7 +845,6 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
     case WEATHER_RAIN_THUNDERSTORM:
     case WEATHER_DOWNPOUR:
     case WEATHER_SNOW:
-    case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
     case WEATHER_DROUGHT:
         useWeatherPal = TRUE;
@@ -1193,5 +1205,54 @@ void SlightlyDarkenPalsInWeather(u16 *palbuf, u16 *unused, u32 size)
     case WEATHER_DOWNPOUR:
         BlendPalettesAt(palbuf, RGB_BLACK, 3, size);
         break;
+    }
+}
+
+bool8 UpdatePsyduckPailCounter(void)
+{
+    u16 steps;
+        switch (gWeatherPtr->nextWeather)
+    {
+    case WEATHER_RAIN:
+    case WEATHER_RAIN_THUNDERSTORM:
+    case WEATHER_DOWNPOUR:
+        return FALSE;
+    }
+
+
+    if (gQuestLogState == QL_STATE_PLAYBACK)
+        return FALSE;
+
+    steps = VarGet(VAR_PSYDUCK_PAIL_COUNTER);
+
+    if (steps != 0)
+    {
+        steps--;
+        VarSet(VAR_PSYDUCK_PAIL_COUNTER, steps);
+        if (steps == 0)
+        {
+            ScriptContext_SetupScript(EventScript_DrainPsyduckPail);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+
+//I do not know how to include these. I tried.
+//If someone who's not me figures it out, it should be easy to remove these lines.
+#define ITEM_WAILMER_PAIL 268
+#define ITEM_EMPTY_PAIL 400
+
+void RefillPsyduckPail(void) {
+    if(CheckBagHasItem(ITEM_EMPTY_PAIL, 1)) {
+        VarSet(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS);
+        RemoveBagItem(ITEM_EMPTY_PAIL, 1);
+        AddBagItem(ITEM_WAILMER_PAIL, 1);
+    } else {
+        if(CheckBagHasItem(ITEM_WAILMER_PAIL, 1)) {
+            VarSet(VAR_PSYDUCK_PAIL_COUNTER, NUM_PSYDUCK_PAIL_STEPS);
+
+        }
     }
 }
