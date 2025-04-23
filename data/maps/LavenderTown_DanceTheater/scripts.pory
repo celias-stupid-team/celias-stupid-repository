@@ -100,7 +100,12 @@ script DanceTheater_ShortKid {
 }
 
 script DanceTheater_DietDance {
-	msgbox("Ah, the DANCE THEATER is finally\nopen!\pI can't wait to SHAKE IT!\nThe DIET DANCE beckons!", MSGBOX_NPC)
+    if(flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
+        msgbox("What a lovely show!\nAh, it brings back memories.\pMe and my friends were BLUE, RED,\nYELLOW, and GREEN too!\pI hear my GREEN-HAIRED friend is\naround here somewhere.\lI hope I run into him again!", MSGBOX_NPC)
+    } else {
+	    msgbox("Ah, the DANCE THEATER is finally\nopen!\pI can't wait to SHAKE IT!\nThe DIET DANCE beckons!", MSGBOX_NPC)
+
+    }
 	end
 }
 

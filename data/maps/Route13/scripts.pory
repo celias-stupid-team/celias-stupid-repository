@@ -118,7 +118,7 @@ script Route13_LassAttack {
 	clearflag(FLAG_ROUTE13_HIDE_DAD)
 	msgbox("Hey!\nDon't look at me!", MSGBOX_DEFAULT)
 	playbgm(MUS_ROUTE11, TRUE)
-	//Battle
+	trainerbattle_no_intro(TRAINER_LASS_FENCES, "Hey!")
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("Aww, man.\nAll these fences are see-through!\pOh well.\n", MSGBOX_DEFAULT)
 	closemessage
