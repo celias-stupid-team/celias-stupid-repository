@@ -388,6 +388,7 @@
 #define MUS_CELADON_GYM_2            379
 #define MUS_DMCA_SHOWDOWN            380
 #define MUS_BATTLE_FRONTIER            381
+#define MUS_LASS_INTRO            382
 
 
 

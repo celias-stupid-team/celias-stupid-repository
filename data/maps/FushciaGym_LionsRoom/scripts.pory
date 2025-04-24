@@ -14,3 +14,16 @@ script FushciaGym_LionsRoom_Trainer {
     trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "I AM ROLAND OF THE BATTLE FACTORY\nI OWN ALL THE POKéMON\pHOWEVER, NOT EVEN ALL OF THEM AT\nONCE CAN DEFEAT ME!", "lol")
     release
 }
+
+script FushciaGym_LionsRoom_SetLionFlag {
+    setvar(VAR_TEMP_2, 1)
+    setflag(FLAG_LION_BATTLE)
+    release
+}
+
+script FushciaGym_LionsRoom_ClearLionFlag {
+    setvar(VAR_TEMP_2, 0)
+    clearflag(FLAG_LION_BATTLE)
+    release
+
+}

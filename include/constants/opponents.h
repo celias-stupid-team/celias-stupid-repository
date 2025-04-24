@@ -520,7 +520,7 @@
 #define TRAINER_PLAYER_RED                       514
 #define TRAINER_PLAYER_LEAF                      515
 #define TRAINER_DMCA_GRUNT_42             516
-#define TRAINER_PSYCHIC_JACLYN                   517
+#define TRAINER_IMPOSTER_OAK_FUSHCIA                   517
 #define TRAINER_CRUSH_GIRL_SHARON                518
 #define TRAINER_TUBER_AMIRA                      519
 #define TRAINER_PKMN_BREEDER_ALIZE               520

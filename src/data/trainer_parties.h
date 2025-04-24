@@ -10069,7 +10069,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainBrandon[] = 
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainSpenser[] = {
     {
         .iv = 0,
-        .lvl = 15,
+        .lvl = 35,
         .species = SPECIES_REGICE,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10184,6 +10184,17 @@ static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdRichard[] = {
         .lvl = 30,
         .species = SPECIES_REGISTEEL,
         .moves = {MOVE_HAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+
+static const struct TrainerMonNoItemCustomMoves sParty_ImposterOakFushcia[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_TREVENANT,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

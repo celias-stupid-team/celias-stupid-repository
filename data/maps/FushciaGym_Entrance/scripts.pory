@@ -3,11 +3,59 @@ const ATTENDANT = 1
 mapscripts FushciaGym_Entrance_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_IN_FUSHCIA_GYM)) {
-            setobjectxy(ATTENDANT, 8, 13)
+            setflag(FLAG_TEMP_1)
         }
     }
 }
 
+script FushciaGym_Entrance_Koga {
+    lock
+    faceplayer
+    if(!flag(FLAG_TALKED_TO_KOGA_AT_START)) {
+        msgbox("Fwahahaha!\nWelcome, child, to FUSHCIA GYM!\pYou wish to challenge me and claim\nmy BADGE as your own?\lWhat folly!\pIf that's what you desire, you\nmust solve the maze ahead.\pHowever!\nThere is a twist!\pTo enter my GYM, you are only\npermitted to bring 3 POKéMON.\lBeyond that, only your wits remain.\pKnowing this, do you still wish to\nchallenge me?", MSGBOX_YESNO)
+        setflag(FLAG_TALKED_TO_KOGA_AT_START)
+    } else {
+        msgbox("Fwahahaha!\nSo you've returned to my GYM!\pTo earn the right to challenge me,\nnavigate my maze to the end.\lYou may only bring 3 POKéMON along.\pDo you wish to attempt the\nchallenge again?", MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT)) {
+        msgbox("Excellent!\nI welcome your tenacity.\pWhich POKéMON would you like to\nbring? Choose wisely…", MSGBOX_DEFAULT)
+        special(SavePlayerParty)
+        //select three Pokemon
+        fadescreen(FADE_TO_BLACK)
+        special(ChooseHalfPartyForBattle)
+        //Only use three pokemon
+        waitstate
+        if(var(VAR_RESULT) == 0) {
+            special(LoadPlayerParty)
+            msgbox("Bah!\nSuch cowardice!\pFine, then.\nBe on your way.", MSGBOX_DEFAULT)
+            release
+            end
+        }
+        special(LoadPlayerParty)
+        special(SavePlayerParty)
+        special(ReducePlayerPartyToThree)
+        msgbox("I shall await you at your final\ngoal.\lShow me all that you've learned!\pBut first, you must take a rest.\nI'll be gone when you arise.", MSGBOX_DEFAULT)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        special(HealPlayerParty)
+        playfanfare(MUS_HEAL)
+        waitfanfare
+        setflag(FLAG_IN_FUSHCIA_GYM)
+        removeobject(VAR_LAST_TALKED)
+        fadescreen(FADE_FROM_BLACK)
+        delay(30)
+        setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
+        applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerWalksUp)
+        waitmovement(0)
+        release
+
+
+    } else {
+        msgbox("Bah!\nSuch cowardice!\pFine, then.\nBe on your way.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+}
 
 script FushciaGym_Attendant {
     lock
@@ -27,41 +75,41 @@ script FushciaGym_Attendant {
 }
 
 script FushciaGym_LeaveChallenge {
-    setvar(VAR_TEMP_0, 1)
-    if(flag(FLAG_IN_FUSHCIA_GYM)) {
-        if(flag(FLAG_TEMP_1)) {
-            applymovement(ATTENDANT, Common_Movement_FaceRight)
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
-        } else {
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    lock
+    addobject(ATTENDANT)
+    setobjectxy(ATTENDANT, 9, 10)
+    playse(SE_LEDGE)
+    applymovement(ATTENDANT, KogaJumpsYou)
+    waitmovement(0)
+    delay(20)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    textcolor(NPC_TEXT_COLOR_MALE)
+    delay(40)
+    msgbox("Aha!\nSo you wish to leave the GYM?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        copyobjectxytoperm(ATTENDANT)
+        setvar(VAR_FUSHCIA_GYM_CHALLENGE, 0)
+        special(LoadPlayerParty)
+        msgbox("Bah!\nSuch cowardice!\pFine, then.\nBe on your way.", MSGBOX_DEFAULT)
+        release
+        end
 
-        }
+    } else {
+        msgbox("That's what I thought.\nThen return to the challenge!", MSGBOX_DEFAULT)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        removeobject(ATTENDANT)
+        fadescreen(FADE_FROM_BLACK)
+        delay(30)
+        setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
+        applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerWalksUp)
         waitmovement(0)
-        textcolor(NPC_TEXT_COLOR_FEMALE)
-        msgbox("Are you finished with your\nGYM challenge?", MSGBOX_YESNO)
-        if(var(VAR_RESULT)) {
-            msgbox("I see.\nThank you for giving it a go!", MSGBOX_DEFAULT)
-            closemessage
-            if(flag(FLAG_TEMP_1)) {
-                applymovement(ATTENDANT, AttendantReturnsFromUp)
-                waitmovement(0)
-            } else {
-                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
-                waitmovement(0)
-                applymovement(ATTENDANT, AttendantReturnsFromDown)
-                waitmovement(0)
-
-            }
-            } else {
-                msgbox("That's good to hear.\nBest of luck!", MSGBOX_DEFAULT)
-                closemessage
-                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
-                setvar(VAR_TEMP_0, 0)
-                waitmovement(0)
-        }
+        release
     }
-    release
-    end
+}
+
+movement KogaJumpsYou {
+    jump_2_down
 }
 
 script FushciaGym_InvisibleLass {
@@ -77,9 +125,16 @@ script FushciaGym_InvisibleLass {
             applymovement(VAR_LAST_TALKED, InvisibleToVisible)
             waitmovement(0)
             textcolor(NPC_TEXT_COLOR_FEMALE)
-            msgbox("oh no\n", MSGBOX_DEFAULT) // Placeholder
+            playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+            delay(60)
+            msgbox("Hey!\n", MSGBOX_DEFAULT) // Placeholder
+            playbgm(MUS_BATTLE_FRONTIER, FALSE)
+            trainerbattle_no_intro(TRAINER_LASS_INVISIBLE, "Oh no!")
+            msgbox("Y'know, I've always liked the\nREGI POKéMON.\pThe only people who find them on\ntheir own never look at me!", MSGBOX_DEFAULT)
             closemessage
+            fadescreen(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
+            fadescreen(FADE_FROM_BLACK)
             setflag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)
         } else {   
             release
@@ -91,6 +146,10 @@ script FushciaGym_InvisibleLass {
     }
     release
     end
+}
+
+movement FushciaGym_PlayerWalksUp {
+    walk_up * 2
 }
 
 movement AttendantWalksAway {

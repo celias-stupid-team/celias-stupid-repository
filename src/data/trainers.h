@@ -4808,15 +4808,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt42),
     },
-    [TRAINER_PSYCHIC_JACLYN] = {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+    [TRAINER_IMPOSTER_OAK_FUSHCIA] = {
+        .trainerClass = TRAINER_CLASS_IMPOSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_PSYCHIC_F,
-        .trainerName = _("JACLYN"),
+        .trainerPic = TRAINER_PIC_IMPOSTER,
+        .trainerName = _("OAK"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_PsychicJaclyn),
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_ImposterOakFushcia),
     },
     [TRAINER_CRUSH_GIRL_SHARON] = {
         .trainerClass = TRAINER_CLASS_IMPOSTER,

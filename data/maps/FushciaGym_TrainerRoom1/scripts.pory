@@ -19,12 +19,12 @@ script FushciaGym_TrainerRoom1_Brandon {
     lock
     faceplayer
     if(flag(FLAG_DEFEATED_TRAINER_1)) {
-        msgbox("…HUH?\nNO, I AM BRANDON\lBRENDAN IS THE KID NEXT DOOR\pPEOPLE GET US MIXED UP ALL THE TIME\n", MSGBOX_DEFAULT)
+        msgbox("…HUH?\nNO, I AM BRANDON\lBRENDAN IS THE KID NEXT DOOR\pPEOPLE GET US MIXED UP ALL THE\nTIME", MSGBOX_DEFAULT)
         call(FushciaGym_TrainerRoom1_OpenDoors)
         special(DrawWholeMapView)
     } else {
-        msgbox("YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE\nFRONTIER BRAIN BRANDON\pLET US BATTLE\n")
-        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_BRANDON, "DARN WHAT A SHAME\n")
+        msgbox("YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE:\nFRONTIER BRAIN BRANDON\pLET US BATTLE\n")
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_BRANDON, "DARN\nWHAT A SHAME\n")
         setflag(FLAG_DEFEATED_TRAINER_1)
 
     }

@@ -46,6 +46,7 @@ script FushciaGym_LookGirlRoom_Scroll {
         msgbox(Text_Bookshelf)
         closemessage
         msgbox("The secret door opened!\n", MSGBOX_DEFAULT)
+        warp(MAP_FUSHCIA_GYM_DEVON_SCOPE_ROOM, 0)
     } else {
         msgbox("There's a scroll on the wall.\nIt needs a secret message.", MSGBOX_DEFAULT)
     }

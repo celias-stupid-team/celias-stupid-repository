@@ -3729,6 +3729,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CELADON_GYM_2) \
     X(MUS_DMCA_SHOWDOWN) \
     X(MUS_BATTLE_FRONTIER) \
+    X(MUS_LASS_INTRO) \
 
 
 #define SOUND_LIST_SE \

@@ -1,9 +1,14 @@
 mapscripts FushciaGym_ScrollRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_LASS_BROKE_WALL)) {
             call(FushciaGym_ScrollRoom_SetBrokenWall)
         }
     }
+}
+
+script FushciaGym_ScrollRoom_Glass {
+	msgbox("100% Look-proof glass!\pSatisfaction guaranteed!\n", MSGBOX_SIGN)
+	end
 }
 
 script FushciaGym_ScrollRoom_Scroll {

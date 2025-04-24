@@ -17,7 +17,7 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CABLE_CLUB_RECEPTIONIST",
+      "graphics_id": "OBJ_EVENT_GFX_KOGA",
       "x": 9,
       "y": 12,
       "elevation": 0,
@@ -26,8 +26,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaGym_Attendant",
-      "flag": "0"
+      "script": "FushciaGym_Entrance_Koga",
+      "flag": "FLAG_TEMP_1"
     },
     {
       "type": "object",
@@ -68,7 +68,7 @@
     },
     {
       "x": 9,
-      "y": 17,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY",
       "dest_warp_id": "4"
@@ -80,8 +80,8 @@
       "x": 9,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_FUSHCIA_GYM_CHALLENGE",
+      "var_value": "1",
       "script": "FushciaGym_LeaveChallenge"
     }
   ],
@@ -89,7 +89,7 @@
     {
       "type": "sign",
       "x": 7,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
@@ -97,7 +97,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"

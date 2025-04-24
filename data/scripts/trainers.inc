@@ -1002,7 +1002,7 @@ SixIsland_OutcastIsland_EventScript_Geb::
 	end
 
 SixIsland_GreenPath_EventScript_Jaclyn::
-	trainerbattle_single TRAINER_PSYCHIC_JACLYN, SixIsland_GreenPath_Text_JaclynIntro, SixIsland_GreenPath_Text_JaclynDefeat
+	trainerbattle_single TRAINER_IMPOSTER_OAK_FUSHCIA, SixIsland_GreenPath_Text_JaclynIntro, SixIsland_GreenPath_Text_JaclynDefeat
 	msgbox SixIsland_GreenPath_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -20,7 +20,8 @@ mapscripts FushciaGym_AronRoom_MapScripts {
 script FushciaGym_AronTrainer {
     lock
     faceplayer
-    trainerbattle_single(TRAINER_BATTLE_FRONTIER_GRETA, "intro text", "you win")
+    msgbox("WELCOME TRAINER\nI AM GRETA OF THE BATTLE TOWER\pCAN YOU GET THROUGH ME?\n", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_GRETA, "WOW")
     setflag(FLAG_DEFEATED_ARON_MAN)
     call(FushciaGym_AronRoom_OpenDoors)
     special(DrawWholeMapView)

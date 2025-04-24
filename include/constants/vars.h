@@ -313,7 +313,7 @@ It is reset after every battle.
 #define VAR_CSR_SAFARI_ZONE_EVOLUTION                 0x40D7
 #define VAR_POKEMON_TOWER_SCENE                 0x40D8
 #define VAR_PEWTER_CELIA_SCENE                 0x40D9
-#define VAR_0x40DA                 0x40DA
+#define VAR_FUSHCIA_GYM_CHALLENGE                 0x40DA
 #define VAR_0x40DB                 0x40DB
 #define VAR_0x40DC                 0x40DC
 #define VAR_0x40DD                 0x40DD

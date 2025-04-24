@@ -224,6 +224,17 @@
 #define METATILE_RestaurantHotel_CoveringFloorShaded  0x2EC
 #define METATILE_RestaurantHotel_TopEdge              0x2E8
 
+// gTileset_Route18_SkyPillar
+#define METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_LEFT    0x363
+#define METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_MIDDLE  0x364
+#define METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_RIGHT   0x365
+#define METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_LEFT    0x35B
+#define METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_MIDDLE  0x35C
+#define METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_RIGHT   0x35D
+#define METATILE_Route18_SkyPillar_ZAPDOS_TOP_LEFT       0x353
+#define METATILE_Route18_SkyPillar_ZAPDOS_TOP_MIDDLE     0x354
+#define METATILE_Route18_SkyPillar_ZAPDOS_TOP_RIGHT      0x355
+
 // gTileset_SSAnne
 #define METATILE_SSAnne_Door  0x281
 

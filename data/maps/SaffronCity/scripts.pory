@@ -1,9 +1,6 @@
 raw `
 .set LOCALID_DOOR_GUARD_GRUNT, 6
 
-SaffronCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SaffronCity_OnTransition
-	.byte 0
 
 SaffronCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_SAFFRON_CITY
@@ -125,6 +122,16 @@ SaffronCity_EventScript_TrainerFanClubSign::
 	msgbox SaffronCity_Text_TrainerFanClubSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts SaffronCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SaffronCity_OnTransition
+	MAP_SCRIPT_ON_LOAD {
+		if(checkmoncaught(SPECIES_GEODUDE)) {
+			
+		}
+	}
+}
+
 script SaffronCity_EventScript_EntryDMCA {
 	msgbox("Haha! Welcome to SAFFRON CITY!\nNow officially under DMCA control!\p...Huh?\nWhere's the music?\pThat song was infringing on both\nPEWTER and VIRIDIAN!\lIt had to go!", MSGBOX_NPC)
 	end

@@ -4829,7 +4829,7 @@
       "id": "LAYOUT_FUSHCIA_GYM_ENTRANCE",
       "name": "FushciaGym_Entrance_Layout",
       "width": 20,
-      "height": 20,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
