@@ -54,6 +54,8 @@ script FushciaGym_LookGirlRoom_Scroll {
     end
 }
 
+
+
 script FushciaGym_LookLookGirl {
 	    lock
 	

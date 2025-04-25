@@ -3,7 +3,8 @@ mapscripts FushciaGym_IronCurtainRoom_MapScripts {
 }
 
 script FushciaGym_IronCurtainRoom_AngryNerd {
-    msgbox("Grr…\pI hate this new wallpaper!\n", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_ANGRY_NERD_RICHARD, "Grr…\pI hate this new wallpaper!\n", "Hey!")
+    msgbox("Grumble grumble...", MSGBOX_NPC)
 }
 
 script FushciaGym_IronCurtainRoom_Wallpaper {

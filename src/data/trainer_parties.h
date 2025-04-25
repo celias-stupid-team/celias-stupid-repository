@@ -10145,7 +10145,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 100,
         .species = SPECIES_PYROAR,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
