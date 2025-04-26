@@ -25,7 +25,7 @@ Route4_PokemonCenter_1F_Text_SweetieBuyMagikarpForJust500::
     .string "So, you'll buy it, am I right?$"
 
 Route4_PokemonCenter_1F_Text_PaidOutrageouslyForMagikarp::
-    .string "{PLAYER} paid very fair ¥500\n"
+    .string "{PLAYER} paid the very fair ¥500\n"
     .string "and bought the GYARADOS…$"
 
 Route4_PokemonCenter_1F_Text_OnlyDoingThisAsFavorToYou::

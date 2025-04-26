@@ -206,7 +206,9 @@ const u8 gNidokingPokedexText[] = _(
 const u8 gNidokingPokedexTextUnused[] = _("");
 
 const u8 gClefairyPokedexText[] = _(
-	"I wonder what it'll do!");
+	"The solution to every puzzle in\n"
+	"the game!\n"
+	"(technically)");
 
 const u8 gClefairyPokedexTextUnused[] = _("");
 
