@@ -10995,12 +10995,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_REGISTEEL] =
     {
-        .baseHP = 80,
+        .baseHP = 20,
         .baseAttack = 75,
-        .baseDefense = 150,
-        .baseSpeed = 50,
+        .baseDefense = 20,
+        .baseSpeed = 150,
         .baseSpAttack = 75,
-        .baseSpDefense = 150,
+        .baseSpDefense = 20,
         .types = {TYPE_STEEL, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 215,

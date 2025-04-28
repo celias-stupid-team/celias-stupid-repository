@@ -4497,9 +4497,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
     },
     [TRAINER_LASS_INVISIBLE] = {
-        .trainerClass = TRAINER_CLASS_PICNICKER,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerPic = TRAINER_PIC_LASS,
         .trainerName = _("SUSIE"),
         .items = {},
         .doubleBattle = FALSE,
