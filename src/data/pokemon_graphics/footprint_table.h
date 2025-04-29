@@ -1241,4 +1241,5 @@ const u8 *const gMonFootprintTable[] =
 
 
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
+	[SPECIES_REVENANT]    = gMonFootprint_REVENANT,
 };

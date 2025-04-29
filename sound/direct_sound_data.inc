@@ -5230,3 +5230,7 @@ Cry_Mewtwo_POKERAP::
 	.incbin "sound/direct_sound_samples/cries/mewtwo_pokerap.bin"
 
 	.align 2
+Cry_REVENANT::
+	.incbin "sound/direct_sound_samples/cries/revenant.bin"
+	
+	.align 2

@@ -77,16 +77,43 @@ def create_placeholder_assets():
         img.putpalette([0] * 768)  # 256 colors * RGB
         img.save(path, format="PNG")
 
+    
+
+    # Create .pal files
+    def create_pal_files(gfx_dir):
+        pal_text = (
+            "JASC-PAL\n"
+            "0100\n"
+            "16\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "0 0 0\n"
+            "\n"
+        )
+
+        with open(os.path.join(gfx_dir, "normal.pal"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(pal_text)
+        with open(os.path.join(gfx_dir, "shiny.pal"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(pal_text)
+
     create_png("front.png", (64, 64))
     create_png("back.png", (64, 64))
     create_png("icon.png", (32, 64))
-
-    # Create .pal files
-    pal_text = "JASC-PAL\n0100\n16\n" + '\n'.join(["0 0 0"] * 16) + '\n\n'
-    with open(os.path.join(gfx_dir, "normal.pal"), "w", newline='\n') as f:
-        f.write(pal_text)
-    with open(os.path.join(gfx_dir, "shiny.pal"), "w", newline='\n') as f:
-        f.write(pal_text)
+    create_png("footprint.png", (16, 16))
+    create_pal_files(gfx_dir)
 
     # Create silent .aif file
     aif_path = os.path.join(sound_dir, f"{folder_name}.aif")
@@ -201,9 +228,10 @@ def edit_file_7(data):
     path = os.path.join("sound", "direct_sound_data.inc")
 
     with open(path, "a", encoding="utf-8", newline='\n') as f:
-        f.write(f"Cry_{sanitized_name}::\\n")
-        f.write(f"\t.incbin \"sound/direct_sound_samples/cries/{folder_name}.bin\"\\n\\n")
-        f.write(f"\t.align 2\\n")
+        f.write(f"Cry_{sanitized_name}::\n")
+        f.write(f"\t.incbin \"sound/direct_sound_samples/cries/{folder_name}.bin\"\n")
+        f.write("\n")
+        f.write("\t.align 2\n")
 
 
 def edit_file_8(data):
@@ -241,7 +269,7 @@ def edit_file_10(data):
     path = os.path.join("src", "data", "pokemon", "level_up_learnsets.h")
 
     with open(path, "a", encoding="utf-8", newline='\n') as f:
-        f.write(f"static const u16 s{sanitized_name}LevelUpLearnset[] = ")
+        f.write(f"static const struct LevelUpMove s{sanitized_name}LevelUpLearnset[] = ")
         f.write("{\n")
         f.write("\tLEVEL_UP_MOVE(1, MOVE_TACKLE),\n")
         f.write("\tLEVEL_UP_END\n")
@@ -318,34 +346,46 @@ def edit_file_14(data):
 
 def edit_file_15(data):
     print("Editing src/menu2.c with", data)
-
     path = os.path.join("src", "menu2.c")
 
     with open(path, "r", encoding="utf-8") as f:
         file_content = f.read()
 
-    pattern = r'(static const u8 sMonSpriteAnchorCoords\[\]\[5\] = \{\n(?:.*?\n)*?)(\n\};)'
-    new_entry = f"\t[{species_number}       - 1] = {{0x20, 0x23, 0x08, 0x20, 0x2d}},\n"
+    pattern = r'(static const u8 sMonSpriteAnchorCoords\[\]\[5\] = \{\n)(.*?)(\n\};)'  # capture header, body, footer
+    match = re.search(pattern, file_content, flags=re.DOTALL)
 
-    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
+    if not match:
+        print("Array not found!")
+        return
+
+    header, body, footer = match.groups()
+
+    # Split the body into lines and fix the last element
+    lines = body.strip().splitlines()
+    if lines:
+        if not lines[-1].strip().endswith(","):
+            lines[-1] += ","
+
+    # Add the new entry WITHOUT a trailing comma
+    new_entry = f"\t[{species_number}       - 1] = {{0x20, 0x23, 0x08, 0x20, 0x2d}}"
+
+    lines.append(new_entry)
+
+    # Rebuild the array
+    new_body = "\n".join(lines) + "\n"
+
+    updated_content = header + new_body + footer
 
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(updated_content)
 
+
 def edit_file_16(data):
+    
     print("Editing src/pokemon_icon.c with", data)
     path = os.path.join("src", "pokemon_icon.c")
 
-    with open(path, "r", encoding="utf-8") as f:
-        file_content = f.read()
-
-    pattern = r'(const u8 \*const gMonIconTable\[\] = \{\n(?:.*?\n)*?)(\n\};)'
-    new_entry = f"\t[{species_number}]   = gMonIcon_{sanitized_name},\n"
-
-    updated_content = re.sub(pattern, lambda m: m.group(1) + new_entry + m.group(2), file_content, flags=re.DOTALL)
-
-    with open(path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(updated_content)
+    
 
 def edit_file_17(data):
     print("Editing src/data/pokemon_graphics/back_pic_table.h with", data)
@@ -445,7 +485,7 @@ def edit_file_21(data):
         f"        .baseSpeed = {base_speed},\n"
         f"        .baseSpAttack = {base_sp_attack},\n"
         f"        .baseSpDefense = {base_sp_defense},\n"
-        f"        .types = {{{type1}, {type2}}},\n"
+        f"        .types = TYPE_{{{type1}, TYPE_{type2}}},\n"
         "        .catchRate = 255,\n"
         "        .expYield = 150,\n"
         "        .evYield_HP = 1,\n"

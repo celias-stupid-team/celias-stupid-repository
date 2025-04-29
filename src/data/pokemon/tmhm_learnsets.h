@@ -10647,4 +10647,5 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_MEWTWO_POKERAP]    = TMHM_LEARNSET(0),
 
 
+	[SPECIES_REVENANT]    = TMHM_LEARNSET(0),
 };

@@ -1210,6 +1210,7 @@ gCryTable::
 	cry Cry_Dragonair_POKERAP
 	cry Cry_Dragonite_POKERAP
 	cry Cry_Mewtwo_POKERAP
+	cry Cry_REVENANT
 
 
 
@@ -2430,6 +2431,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Dragonair_POKERAP
 	cry_reverse Cry_Dragonite_POKERAP
 	cry_reverse Cry_Mewtwo_POKERAP
+	cry_reverse Cry_REVENANT
 
 
 

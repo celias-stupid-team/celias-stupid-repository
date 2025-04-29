@@ -1237,6 +1237,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_DRAGONAIR_POKERAP] = sDragonair_POKERAPLevelUpLearnset,
 	[SPECIES_DRAGONITE_POKERAP] = sDragonite_POKERAPLevelUpLearnset,
 	[SPECIES_MEWTWO_POKERAP] = sMewtwo_POKERAPLevelUpLearnset,
+	[SPECIES_REVENANT] = sREVENANTLevelUpLearnset,
 
 
 };

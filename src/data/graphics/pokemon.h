@@ -9428,3 +9428,11 @@ const u32 gMonShinyPalette_Mewtwo_POKERAP[] = INCBIN_U32("graphics/pokemon/mewtw
 const u8 gMonIcon_Mewtwo_POKERAP[] = INCBIN_U8("graphics/pokemon/mewtwo_pokerap/icon.4bpp");
 const u8 gMonFootprint_Mewtwo_POKERAP[] = INCBIN_U8("graphics/pokemon/mewtwo_pokerap/footprint.1bpp");
 
+// REVENANT
+const u32 gMonFrontPic_REVENANT[] = INCBIN_U32("graphics/pokemon/revenant/front.4bpp.lz");
+const u32 gMonPalette_REVENANT[] = INCBIN_U32("graphics/pokemon/revenant/normal.gbapal.lz");
+const u32 gMonBackPic_REVENANT[] = INCBIN_U32("graphics/pokemon/revenant/back.4bpp.lz");
+const u32 gMonShinyPalette_REVENANT[] = INCBIN_U32("graphics/pokemon/revenant/shiny.gbapal.lz");
+const u8 gMonIcon_REVENANT[] = INCBIN_U8("graphics/pokemon/revenant/icon.4bpp");
+const u8 gMonFootprint_REVENANT[] = INCBIN_U8("graphics/pokemon/revenant/footprint.1bpp");
+

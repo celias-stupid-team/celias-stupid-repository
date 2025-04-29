@@ -12131,3 +12131,11 @@ extern const u32 gBattleTerrainTiles_Indoor[];
 extern const u32 gBattleTerrainTilemap_Indoor[];
 
 #endif //GUARD_GRAPHICS_H
+// REVENANT
+extern const u32 gMonFrontPic_REVENANT[];
+extern const u32 gMonPalette_REVENANT[];
+extern const u32 gMonBackPic_REVENANT[];
+extern const u32 gMonShinyPalette_REVENANT[];
+extern const u8 gMonFootprint_REVENANT[];
+extern const u8 gMonIcon_REVENANT[];
+
