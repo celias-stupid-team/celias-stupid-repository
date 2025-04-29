@@ -1211,6 +1211,21 @@ gCryTable::
 	cry Cry_Dragonite_POKERAP
 	cry Cry_Mewtwo_POKERAP
 	cry Cry_REVENANT
+	cry Cry_UNOWNS
+	cry Cry_UNOWNE
+	cry Cry_UNOWNN
+	cry Cry_UNOWND
+	cry Cry_RELICANTHPAST
+	cry Cry_RELICANTHFUTURE
+	cry Cry_POKEMONRAP
+	cry Cry_NIDORANMPOKERAP
+	cry Cry_NIDORANFPOKERAP
+	cry Cry_THATSALL
+	cry Cry_KANGASKHANTEACHER
+	cry Cry_TANGELACREEPY
+	cry Cry_CHANSEYBLANK
+	cry Cry_IRONCLEFTGREEN
+	cry Cry_LATIASBLAZIKEN
 
 
 
@@ -2432,6 +2447,21 @@ gCryTable_Reverse::
 	cry_reverse Cry_Dragonite_POKERAP
 	cry_reverse Cry_Mewtwo_POKERAP
 	cry_reverse Cry_REVENANT
+	cry_reverse Cry_UNOWNS
+	cry_reverse Cry_UNOWNE
+	cry_reverse Cry_UNOWNN
+	cry_reverse Cry_UNOWND
+	cry_reverse Cry_RELICANTHPAST
+	cry_reverse Cry_RELICANTHFUTURE
+	cry_reverse Cry_POKEMONRAP
+	cry_reverse Cry_NIDORANMPOKERAP
+	cry_reverse Cry_NIDORANFPOKERAP
+	cry_reverse Cry_THATSALL
+	cry_reverse Cry_KANGASKHANTEACHER
+	cry_reverse Cry_TANGELACREEPY
+	cry_reverse Cry_CHANSEYBLANK
+	cry_reverse Cry_IRONCLEFTGREEN
+	cry_reverse Cry_LATIASBLAZIKEN
 
 
 

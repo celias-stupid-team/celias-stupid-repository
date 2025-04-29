@@ -5,6 +5,7 @@ import os
 from PIL import Image
 import wave
 import aifc
+import shutil
 
 def sanitize_string(value):
     return ''.join(e for e in value if e.isalnum())
@@ -79,49 +80,18 @@ def create_placeholder_assets():
 
     
 
-    # Create .pal files
-    def create_pal_files(gfx_dir):
-        pal_text = (
-            "JASC-PAL\n"
-            "0100\n"
-            "16\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "0 0 0\n"
-            "\n"
-        )
-
-        with open(os.path.join(gfx_dir, "normal.pal"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(pal_text)
-        with open(os.path.join(gfx_dir, "shiny.pal"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(pal_text)
-
+    
     create_png("front.png", (64, 64))
     create_png("back.png", (64, 64))
     create_png("icon.png", (32, 64))
     create_png("footprint.png", (16, 16))
-    create_pal_files(gfx_dir)
+    aboma_gfx = os.path.join("graphics", "pokemon", "abomasnow")
+    shutil.copyfile(os.path.join(aboma_gfx, "normal.pal"), os.path.join(gfx_dir, "normal.pal"))
+    shutil.copyfile(os.path.join(aboma_gfx, "shiny.pal"), os.path.join(gfx_dir, "shiny.pal"))
 
     # Create silent .aif file
-    aif_path = os.path.join(sound_dir, f"{folder_name}.aif")
-    with aifc.open(aif_path, "w") as aif:
-        aif.setnchannels(1)
-        aif.setsampwidth(1)
-        aif.setframerate(22050)
-        aif.writeframes(b"\x80" * 22050)  
+    aboma_cry = os.path.join("sound", "direct_sound_samples", "cries", "abomasnow.aif")
+    shutil.copyfile(aboma_cry, os.path.join(sound_dir, f"{folder_name}.aif"))
 
 
 def edit_file_1(data):
@@ -485,7 +455,7 @@ def edit_file_21(data):
         f"        .baseSpeed = {base_speed},\n"
         f"        .baseSpAttack = {base_sp_attack},\n"
         f"        .baseSpDefense = {base_sp_defense},\n"
-        f"        .types = TYPE_{{{type1}, TYPE_{type2}}},\n"
+        f"        .types = {{TYPE_{type1}, TYPE_{type2}}},\n"
         "        .catchRate = 255,\n"
         "        .expYield = 150,\n"
         "        .evYield_HP = 1,\n"
