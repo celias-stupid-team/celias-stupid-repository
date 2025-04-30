@@ -4387,22 +4387,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt21[] = {
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_STOUTLAND,
     },
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_RATTATA,
+        .species = SPECIES_LILLIPUP,
     },
     {
         .iv = 0,
         .lvl = 23,
-        .species = SPECIES_RATICATE_ALOLA,
-    },
-    {
-        .iv = 0,
-        .lvl = 23,
-        .species = SPECIES_ZUBAT,
+        .species = SPECIES_DUOSION,
     },
 };
 
@@ -4410,12 +4405,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt22[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_DROWZEE,
+        .species = SPECIES_RELICANTHPAST,
+    },
+    {
+        .iv = 0,
+        .lvl = 29,
+        .species = SPECIES_RELICANTHFUTURE,
     },
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_GRIMER,
+        .species = SPECIES_RELICANTH,
     },
 };
 
@@ -6122,7 +6122,22 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerCarly[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_UNOWN,
+        .species = SPECIES_UNOWNS,
+    },
+    {
+        .iv = 0,
+        .lvl = 28,
+        .species = SPECIES_UNOWNE,
+    },
+    {
+        .iv = 0,
+        .lvl = 27,
+        .species = SPECIES_UNOWNN,
+    },
+    {
+        .iv = 0,
+        .lvl = 26,
+        .species = SPECIES_UNOWND,
     },
     {
         .iv = 0,
@@ -6136,6 +6151,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerHope[] = {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_CELEBI,
+    },
+    {
+        .iv = 0,
+        .lvl = 23,
+        .species = SPECIES_REVENANT,
+    },
+    {
+        .iv = 0,
+        .lvl = 23,
+        .species = SPECIES_TANGELACREEPY,
     },
 };
 
@@ -9004,7 +9029,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer1[] = {
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_NIDORINO_POKERAP,
+        .species = SPECIES_NIDORANMPOKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
@@ -9601,6 +9626,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer23[] = {
         .species = SPECIES_WEEDLE_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_NIDORANFPOKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 
 };
 
@@ -9677,14 +9708,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer26[] = {
         .species = SPECIES_CHANSEY_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    /*
+    
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_POKEMON,
+        .species = SPECIES_POKEMONRAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    */
+    
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer27[] = {
@@ -9752,12 +9783,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer29[] = {
         .iv = 0,
         .lvl = 15,
         .species = SPECIES_MACHAMP_POKERAP,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_PINSIR_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
@@ -10021,7 +10046,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
     {
         .iv = 0,
         .lvl = 30,
-        .species = SPECIES_IRON_CLEFT,
+        .species = SPECIES_IRONCLEFTGREEN,
         .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
     },
 };

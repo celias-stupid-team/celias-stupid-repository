@@ -73,9 +73,9 @@ FushciaCity_EventScript_GymSign::
 
 FushciaCity_EventScript_ChanseySign::
 	lockall
-	setvar VAR_0x8004, SPECIES_CHANSEY
+	setvar VAR_0x8004, SPECIES_CHANSEYBLANK
 	special SetSeenMon
-	showmonpic SPECIES_CHANSEY, 10, 3
+	showmonpic SPECIES_CHANSEYBLANK, 10, 3
 	msgbox FushciaCity_Text_ChanseySign
 	hidemonpic
 	releaseall
