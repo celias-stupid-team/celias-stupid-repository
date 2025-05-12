@@ -3,6 +3,8 @@ mapscripts Route18_SandwichShop_MapScripts {
 }
 
 
+
+
 script SandwichShop_Dad {
 	lock
 	faceplayer
@@ -34,3 +36,11 @@ script Route18_SandwichChef {
 	waitfanfare
 	release
 }
+
+
+mart SandwichShop_Mart {
+	ITEM_SANDWICH
+	ITEM_JELLY_DONUT
+}
+
+
