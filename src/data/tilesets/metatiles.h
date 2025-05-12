@@ -245,3 +245,6 @@ const u16 gMetatiles_RSE_Indoors[] = INCBIN_U16("data/tilesets/secondary/rse_ind
 const u32 gMetatileAttributes_RSE_Indoors[] = INCBIN_U32("data/tilesets/secondary/rse_indoors/metatile_attributes.bin");
 const u16 gMetatiles_NewFuchsiaGym[] = INCBIN_U16("data/tilesets/secondary/new_fuchsia_gym/metatiles.bin");
 const u32 gMetatileAttributes_NewFuchsiaGym[] = INCBIN_U32("data/tilesets/secondary/new_fuchsia_gym/metatile_attributes.bin");
+
+const u16 gMetatiles_chapter3[] = INCBIN_U16("data/tilesets/primary/chapter_3/metatiles.bin");
+const u32 gMetatileAttributes_chapter3[] = INCBIN_U32("data/tilesets/primary/chapter_3/metatile_attributes.bin");

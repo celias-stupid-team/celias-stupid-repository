@@ -5184,6 +5184,18 @@
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER3",
+      "name": "Chapter3_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_chapter3",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter3/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter3/map.bin"
     }
   ]
 }

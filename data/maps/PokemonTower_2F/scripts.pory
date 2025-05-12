@@ -106,8 +106,12 @@ PokemonTower_2F_Movement_RivalExitDown::
 
 mapscripts PokemonTower_2F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
+		setdynamicwarp(MAP_POKEMON_TOWER_3F, 0)
 		if(flag(FLAG_CSR_SUPER_SCOPE)) {
 			clearflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)
+			if(var(VAR_CURRENT_CHAPTER) == 2) {
+				setdynamicwarp(MAP_CHAPTER3, 0)
+			}
 		} else {
 			setflag(FLAG_CSR_HIDE_POKEMONTOWER_CELIA)
 		}
