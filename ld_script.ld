@@ -1004,6 +1004,7 @@ SECTIONS {
         sound/songs/midi/mus_dmca_showdown.o(.rodata);
         sound/songs/midi/mus_battle_frontier.o(.rodata);
         sound/songs/midi/mus_lass_intro.o(.rodata);
+        sound/songs/midi/mus_iki_town_test.o(.rodata);
 
     } > ROM =0
 

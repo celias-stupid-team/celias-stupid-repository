@@ -306,6 +306,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucy;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Janine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Darach;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Caitlin;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Curtain_top;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Curtain_bottom;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -615,4 +617,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JANINE] = &gObjectEventGraphicsInfo_Janine,
     [OBJ_EVENT_GFX_DARACH] = &gObjectEventGraphicsInfo_Darach,
     [OBJ_EVENT_GFX_CAITLIN] = &gObjectEventGraphicsInfo_Caitlin,
+    [OBJ_EVENT_GFX_CURTAIN_TOP] = &gObjectEventGraphicsInfo_Curtain_top,
+    [OBJ_EVENT_GFX_CURTAIN_BOTTOM] = &gObjectEventGraphicsInfo_Curtain_bottom,
 };

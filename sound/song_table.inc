@@ -382,6 +382,7 @@ gSongTable::
 	song mus_dmca_showdown, 0, 0
 	song mus_battle_frontier, 0, 0
 	song mus_lass_intro, 0, 0
+	song mus_iki_town_test, 0, 0
 
 
 dummy_song_header:
