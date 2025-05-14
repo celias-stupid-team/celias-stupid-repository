@@ -364,4 +364,9 @@
 // Indicator for the party summary bar to display an empty slot.
 #define HP_EMPTY_SLOT 0xFFFF
 
+// constants for substitute2 layers
+#define SUBSTITUTE2_3_LAYERS         3
+#define SUBSTITUTE2_2_LAYERS         2
+#define SUBSTITUTE2_1_LAYERS         1
+
 #endif // GUARD_CONSTANTS_BATTLE_H
