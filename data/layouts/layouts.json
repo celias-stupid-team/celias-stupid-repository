@@ -1000,7 +1000,7 @@
     {
       "id": "LAYOUT_ROUTE13",
       "name": "Route13_Layout",
-      "width": 96,
+      "width": 104,
       "height": 17,
       "border_width": 2,
       "border_height": 2,
@@ -4829,7 +4829,7 @@
       "id": "LAYOUT_FUSHCIA_GYM_ENTRANCE",
       "name": "FushciaGym_Entrance_Layout",
       "width": 20,
-      "height": 20,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5184,6 +5184,18 @@
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTower_Math_BikeVoucher/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER3",
+      "name": "Chapter3_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_chapter3",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter3/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter3/map.bin"
     }
   ]
 }

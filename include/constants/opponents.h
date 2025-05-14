@@ -132,11 +132,11 @@
 #define TRAINER_LASS_ROCK_TUNNEL                         126
 #define TRAINER_LASS_UNDERGROUND_PATH                        127
 #define TRAINER_LASS_ROUTE8                       128
-#define TRAINER_LASS_ANDREA                      129
-#define TRAINER_LASS_MEGAN                       130
-#define TRAINER_LASS_JULIA                       131
-#define TRAINER_LASS_KAY                         132
-#define TRAINER_LASS_LISA                        133
+#define TRAINER_LASS_FENCES                      129
+#define TRAINER_LASS_WEATHER                       130
+#define TRAINER_PICNICKER_NIGHT                       131
+#define TRAINER_LASS_GAY                         132
+#define TRAINER_ANGRY_NERD_MIKE                        133
 #define TRAINER_SAILOR_EDMOND                    134
 #define TRAINER_SAILOR_TREVOR                    135
 #define TRAINER_SAILOR_LEONARD                   136
@@ -303,9 +303,9 @@
 #define TRAINER_TAMER_COLE                       297
 #define TRAINER_TAMER_VINCENT                    298
 #define TRAINER_TAMER_JOHN                       299
-#define TRAINER_BIRD_KEEPER_SEBASTIAN            300
-#define TRAINER_BIRD_KEEPER_PERRY                301
-#define TRAINER_BIRD_KEEPER_ROBERT               302
+#define TRAINER_BIRD_CULTIST_SEBASTIAN            300
+#define TRAINER_BIRD_CULTIST_PERRY                301
+#define TRAINER_BIRD_CULTIST_EDWARDO               302
 #define TRAINER_BIRD_KEEPER_DONALD               303
 #define TRAINER_BIRD_KEEPER_BENNY                304
 #define TRAINER_BIRD_KEEPER_EDWIN                305
@@ -395,7 +395,7 @@
 #define TRAINER_DMCA_GRUNT_39             389
 #define TRAINER_DMCA_GRUNT_40             390
 #define TRAINER_DMCA_GRUNT_41             391
-#define TRAINER_COOLTRAINER_SAMUEL               392
+#define TRAINER_SCHOOL_KID_SAMMY               392
 #define TRAINER_COOLTRAINER_GEORGE               393
 #define TRAINER_COOLTRAINER_COLBY                394
 #define TRAINER_COOLTRAINER_PAUL                 395
@@ -469,8 +469,8 @@
 #define TRAINER_CHANNELER_STACY                  463
 #define TRAINER_CHANNELER_TASHA                  464
 #define TRAINER_HIKER_JEREMY                     465
-#define TRAINER_PICNICKER_ALMA                   466
-#define TRAINER_PICNICKER_SUSIE                  467
+#define TRAINER_LASS_PIT                   466
+#define TRAINER_LASS_INVISIBLE                  467
 #define TRAINER_PICNICKER_VALERIE                468
 #define TRAINER_PICNICKER_GWEN                   469
 #define TRAINER_BIKER_VIRGIL                     470
@@ -520,7 +520,7 @@
 #define TRAINER_PLAYER_RED                       514
 #define TRAINER_PLAYER_LEAF                      515
 #define TRAINER_DMCA_GRUNT_42             516
-#define TRAINER_PSYCHIC_JACLYN                   517
+#define TRAINER_IMPOSTER_OAK_FUSHCIA                   517
 #define TRAINER_CRUSH_GIRL_SHARON                518
 #define TRAINER_TUBER_AMIRA                      519
 #define TRAINER_PKMN_BREEDER_ALIZE               520
@@ -619,7 +619,7 @@
 #define TRAINER_BUG_CATCHER_VANCE                613
 #define TRAINER_YOUNGSTER_NASH                   614
 #define TRAINER_YOUNGSTER_CORDELL                615
-#define TRAINER_LASS_DALIA                       616
+#define TRAINER_LASS_BINOCULARS                       616
 #define TRAINER_LASS_JOANA                       617
 #define TRAINER_CAMPER_RILEY                     618
 #define TRAINER_PICNICKER_MARCY                  619

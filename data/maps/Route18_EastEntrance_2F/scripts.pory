@@ -108,6 +108,8 @@ script Route18_LassBinoculars {
 		msgbox("You just HAD to look at me,\ndidn't you?\p...\nWhatever.\pYou know what happens next.\n", MSGBOX_DEFAULT)
 		playbgm(MUS_PEWTER, TRUE)
 		//battle
+		
+		trainerbattle_no_intro(TRAINER_LASS_BINOCULARS, "Yeah.\nFigured.")
 		special(RemoveCameraObject)
 		releaseall
 		end

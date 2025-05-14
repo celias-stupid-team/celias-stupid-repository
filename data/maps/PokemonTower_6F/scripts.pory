@@ -69,7 +69,7 @@ script PokemonTower_6F_MoveTutor {
 				waitstate
 				goto_if_eq(VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor)
 				call(EventScript_RestorePrevTextColor)
-				msgbox("Come back here if you'd like\nto teach your POKéMON a move.", MSGBOX_DEFAULT)
+				msgbox("Come back here if you'd like\nto teach your POKéMON a MOVE.", MSGBOX_DEFAULT)
 				release
 				end
 
@@ -95,9 +95,8 @@ script PokemonTower_6F_Cubone {
 
 
 script PokemonTower_6F_SpellingTrainer {
-	lock
-	msgbox("i'm going to be a trainer\n", MSGBOX_DEFAULT)
-	release
+	trainerbattle_single(TRAINER_SCHOOL_KID_SAMMY, "Wow!\nI aced my math test!\pI spent all weak studying nothing\nbut math, but it sure payed off!", "Hay!\nThat hurt!")
+	msgbox("I was never very good at langage\narts.\lWriting class is the hardest!\pI hope CUBONE'S MOM can come in\nto help learn me…", MSGBOX_NPC)
 }
 
 script PokemonTower_6F_Savestate {

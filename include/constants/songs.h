@@ -388,12 +388,14 @@
 #define MUS_CELADON_GYM_2            379
 #define MUS_DMCA_SHOWDOWN            380
 #define MUS_BATTLE_FRONTIER            381
+#define MUS_LASS_INTRO            382
+#define MUS_IKI_TOWN_TEST            383
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_BATTLE_FRONTIER
+#define END_MUS                     MUS_IKI_TOWN_TEST
 
 #endif  // GUARD_CONSTANTS_SONGS_H

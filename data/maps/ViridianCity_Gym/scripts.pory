@@ -65,7 +65,7 @@ ViridianCity_Gym_EventScript_Takashi::
 	end
 
 ViridianCity_Gym_EventScript_Samuel::
-	trainerbattle_single TRAINER_COOLTRAINER_SAMUEL, ViridianCity_Gym_Text_SamuelIntro, ViridianCity_Gym_Text_SamuelDefeat
+	trainerbattle_single TRAINER_SCHOOL_KID_SAMMY, ViridianCity_Gym_Text_SamuelIntro, ViridianCity_Gym_Text_SamuelDefeat
 	msgbox ViridianCity_Gym_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE
 	end
 

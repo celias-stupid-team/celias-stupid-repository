@@ -29,18 +29,51 @@ movement FushciaGym_PlayerJumpsBack {
 script FushciaGym_ThePitRoom_LassBreaksWall {
     lock
     waitse
-    playse(SE_BANG)
+    playbgm(MUS_LASS_INTRO, FALSE)
+    delay(60)
+    playbgm(MUS_NONE, TRUE)
+    playse(SE_M_STRENGTH)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    delay(60)
+    playse(SE_M_STRENGTH)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    delay(60)
+    playse(SE_EFFECTIVE)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
     call(FushciaGym_ThePitRoom_SetBrokenWall)
     setobjectxy(LASS, 11, 12)
     setobjectxyperm(LASS, 11, 12)
     special(DrawWholeMapView)
     applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerJumpsBack)
-    delay(60)
+    delay(120)
+    msgbox("…\pYou knew you were looking at me,\ndidn't you?", MSGBOX_DEFAULT)
+    playbgm(MUS_BATTLE_FRONTIER, TRUE)
+    trainerbattle_no_intro(TRAINER_LASS_PIT, "Stop it!")
     setflag(FLAG_LASS_BROKE_WALL)
-    removeobject(LASS)
+    applymovement(LASS, LassMovesAway)
+    waitmovement(0)
+    copyobjectxytoperm(LASS)
+    setobjectmovementtype(LASS, MOVEMENT_TYPE_FACE_DOWN)
     release
     end
 
+}
+
+movement LassMovesAway {
+    walk_up
+    face_down
 }
 
 script FushciaGym_ThePitRoom_SetBrokenWall {

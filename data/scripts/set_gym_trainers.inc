@@ -26,8 +26,8 @@ EventScript_SetVermilionGymTrainers::
 	return
 
 EventScript_SetCeladonGymTrainers::
-	settrainerflag TRAINER_LASS_KAY
-	settrainerflag TRAINER_LASS_LISA
+	settrainerflag TRAINER_LASS_GAY
+	settrainerflag TRAINER_ANGRY_NERD_MIKE
 	settrainerflag TRAINER_PICNICKER_TINA
 	settrainerflag TRAINER_BEAUTY_BRIDGET
 	settrainerflag TRAINER_BEAUTY_TAMIA
@@ -70,7 +70,7 @@ EventScript_SetViridianGymTrainers::
 	settrainerflag TRAINER_BLACK_BELT_ATSUSHI
 	settrainerflag TRAINER_BLACK_BELT_KIYO
 	settrainerflag TRAINER_BLACK_BELT_TAKASHI
-	settrainerflag TRAINER_COOLTRAINER_SAMUEL
+	settrainerflag TRAINER_SCHOOL_KID_SAMMY
 	settrainerflag TRAINER_COOLTRAINER_YUJI
 	settrainerflag TRAINER_COOLTRAINER_WARREN
 	return

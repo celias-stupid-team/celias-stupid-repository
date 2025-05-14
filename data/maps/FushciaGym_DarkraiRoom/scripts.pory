@@ -1,7 +1,7 @@
 mapscripts FushciaGym_DarkraiRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
-        call(FushciaGym_DarkraiRoom_OpenDoors)
+            call(FushciaGym_DarkraiRoom_OpenDoors)
 
         }
     }
@@ -14,7 +14,13 @@ script FushciaGym_DarkraiRoom_OpenDoors {
 }
 
 script FushciaGym_DarkraiRoom_Janine {
-    trainerbattle_single(TRAINER_FUSHCIA_GYM_JANINE, "My name is JANINE!\nMy FATHER is the LEADER of this GYM!\pAre you tired yet?\nFUSHCIA GYM is just beginning!", "Hey!\nNo fair!")
+    lock
+    faceplayer
+    if(!checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
+        msgbox("My name is JANINE!\nMy FATHER is the LEADER of this GYM!\pAre you tired yet?\nFUSHCIA GYM is just beginning!")
+        trainerbattle_no_intro(TRAINER_FUSHCIA_GYM_JANINE, "Hey!\nNo fair!")
+
+    }
     msgbox("The FRONTIER BRAINS in the other\nrooms won't stop yelling.\pIt's keeping me awake!\n", MSGBOX_DEFAULT)
     call(FushciaGym_DarkraiRoom_OpenDoors)
     release

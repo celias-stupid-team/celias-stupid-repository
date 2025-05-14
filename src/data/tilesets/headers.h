@@ -910,3 +910,14 @@ const struct Tileset gTileset_NewFuchsiaGym =
     .metatileAttributes = gMetatileAttributes_NewFuchsiaGym,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_chapter3 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_chapter3,
+    .palettes = gTilesetPalettes_chapter3,
+    .metatiles = gMetatiles_chapter3,
+    .metatileAttributes = gMetatileAttributes_chapter3,
+    .callback = NULL,
+};

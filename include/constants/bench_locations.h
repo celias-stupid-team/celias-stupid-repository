@@ -25,5 +25,6 @@
 #define BENCH_ROUTE15                22
 #define BENCH_SAFARIZONE_EAST                23
 #define BENCH_SODA_SHOP                24
+#define BENCH_LAVENDER_TOWER                25
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

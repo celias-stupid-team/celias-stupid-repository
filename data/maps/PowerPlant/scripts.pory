@@ -177,7 +177,14 @@ script PowerPlant_StarmieHint {
 }
 
 script PowerPlant_PowerPlantIsBroken {
-
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_POWER_IS_ON)) {
+		msgbox("Thank goodness the POWER is back\non.\pI bet the LIGHTHOUSE is finally\ntaking visitors again.", MSGBOX_NPC)
+	} else {
+		msgbox("Oh, no!\pThe POWER PLANT's broken!", MSGBOX_NPC)
+	}
+	release
 }
 
 script PowerPlant_RockTunnelIsDark {

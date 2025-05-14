@@ -1565,3 +1565,6 @@ Text_TestMsg::
 
 	.include "data/maps/PokemonTower_Math_BikeVoucher/scripts.inc"
 	.include "data/maps/PokemonTower_Math_BikeVoucher/text.inc"
+
+	.include "data/maps/Chapter3/scripts.inc"
+	.include "data/maps/Chapter3/text.inc"

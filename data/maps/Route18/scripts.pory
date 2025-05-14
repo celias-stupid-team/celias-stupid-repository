@@ -1,8 +1,4 @@
 raw `
-Route18_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route18_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Route18_OnWarp
-	.byte 0
 
 Route18_OnTransition::
 	call_if_eq VAR_MAP_SCENE_ROUTE16, 1, Route18_OnTransitionCyclingRoad
@@ -28,6 +24,18 @@ Route18_EventScript_CyclingRoadSign::
 	msgbox Route18_Text_CyclingRoadSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route18_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route18_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: Route18_OnWarp
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
+			call(Route18_SetZapdosStatue)
+		}
+	}
+}
+
+
 const BIRD_CULTIST = 6
 
 script Route18_BirdCultistStopsYouTrigger {
@@ -120,22 +128,42 @@ script Route18_InstinctSealPedestal {
 				setflag(FLAG_INSERTED_INSTINCT_SEAL)
 				removeitem(ITEM_INSTINCT_SEAL)
 				msgbox("{PLAYER} inserted the\nINSTINCT SEAL…", MSGBOX_DEFAULT)
-				playse(SE_SWITCH)
 				closemessage
+				fadeoutbgm(1)
+				playse(SE_SWITCH)
 				delay(30)
 				playse(SE_M_EARTHQUAKE)
-				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
-				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
-				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
 				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
 				special(ShakeScreen)
-				delay(60)
-				playse(SE_ITEMFINDER)
 				waitse
+				delay(20)
+				call(Route18_SetZapdosStatue)
+				special(DrawWholeMapView)
+				playmoncry(SPECIES_ZAPDOS, CRY_MODE_NORMAL)
+				fadeinbgm(1)
+				waitmoncry
 			}
 		}
 	}
 	release
+}
+
+script Route18_SetZapdosStatue {
+	setmetatile(20, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_LEFT, TRUE)
+	setmetatile(21, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_MIDDLE, TRUE)
+	setmetatile(22, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_RIGHT, TRUE)
+	
+	setmetatile(20, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_LEFT, TRUE)
+	setmetatile(21, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_MIDDLE, TRUE)
+	setmetatile(22, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_RIGHT, TRUE)
+	
+	setmetatile(20, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_LEFT, TRUE)
+	setmetatile(21, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_MIDDLE, TRUE)
+	setmetatile(22, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_RIGHT, TRUE)
+	return
 }
 
 script Route18_BirdCultistLeft {
@@ -145,5 +173,11 @@ script Route18_BirdCultistLeft {
 
 script Route18_BirdCultistRight {
 	msgbox("We are the BIRD CULTISTS.\nOur herald has been called!\pIn the presence of the FLOAT STONE\nwe are given peace and power.", MSGBOX_NPC)
+	end
+}
+
+
+script Route18_BirdCultistBottom {
+	msgbox("Have you come to pray at the\naltar of the LIGHTNING ARCHBIRD?\pThey say that one who encounters\nall three is holy and blessed.\lFor the GLORY of the SKIES!\pI pray calm for you, o traveler.\n", MSGBOX_NPC)
 	end
 }

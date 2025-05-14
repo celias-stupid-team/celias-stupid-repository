@@ -3,8 +3,7 @@ raw `
 .set LOCALID_GRUNT2, 3
 .set LOCALID_GRUNT3, 4
 
-PokemonTower_7F_MapScripts::
-	.byte 0
+
 
 PokemonTower_7F_EventScript_MrFuji::
 	lock
@@ -233,6 +232,11 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	walk_down
 	step_end
 `
+mapscripts PokemonTower_7F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_LAVENDER_TOWER)
+	}
+}
 
 script PokemonTower_LeftWalkUp {
 	lock
@@ -371,7 +375,7 @@ script PokemonTower_Trailer {
 	waitmovement(0)
 	special(RemoveCameraObject)
 
-	setwildbattle(SPECIES_KANGASKHAN_POKERAP, 30)
+	setwildbattle(SPECIES_KANGASKHANTEACHER, 30)
 	playbgm(MUS_DUMMY, TRUE)
 	dowildbattle
 	specialvar(VAR_RESULT, GetBattleOutcome)

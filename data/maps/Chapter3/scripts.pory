@@ -1,0 +1,267 @@
+mapscripts Chapter3_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CURRENT_CHAPTER, 2 {
+            applymovement(OBJ_EVENT_ID_PLAYER, SetPlayerInvisible)
+            applymovement(1, CurtainLeft) //sorry not labeling these it's much faster this way
+            applymovement(3, CurtainLeft)
+            applymovement(5, CurtainLeft)            
+            applymovement(2, CurtainRight)
+            applymovement(4, CurtainRight)
+            applymovement(6, CurtainRight)
+            delay(16)
+            call(Chapter3_DeleteInnerCurtainColumns)
+            delay(16)
+            call(Chapter3_DeleteOuterCurtainColumns)
+
+
+            waitmovement(1)
+            copyobjectxytoperm(1)
+            copyobjectxytoperm(2)
+            copyobjectxytoperm(3)
+            copyobjectxytoperm(4)
+            copyobjectxytoperm(5)
+            copyobjectxytoperm(6)
+            call(Chapter3_PrintChapter)
+            delay(170)
+            call(Chapter3_Print3)
+            delay(40)
+            call(Chapter3_PrintMy)
+            delay(40)
+            call(Chapter3_PrintSe)
+            delay(40)
+            call(Chapter3_PrintCret)
+            delay(40)
+            call(Chapter3_PrintLife)
+
+            setvar(VAR_CURRENT_CHAPTER, 3)
+            delay(250)
+            warp(MAP_POKEMON_TOWER_3F, 0)
+        }
+    ]
+}
+
+movement OuterCurtainLeft {
+    walk_fast_left 
+    walk_faster_left * 2
+    walk_fast_left
+}
+movement OuterCurtainRight {
+    walk_fast_right
+    walk_faster_right * 2
+    walk_fast_right
+}
+
+script Chapter3_DeleteInnerCurtainColumns {
+    setmetatile(3, 1, 0x009, TRUE)
+    setmetatile(3, 2, 0x011, TRUE)
+    setmetatile(3, 3, 0x000, TRUE)
+    setmetatile(3, 4, 0x000, TRUE)
+    setmetatile(3, 5, 0x000, TRUE)
+    setmetatile(3, 6, 0x000, TRUE)
+    setmetatile(3, 7, 0x000, TRUE)
+    setmetatile(3, 8, 0x000, TRUE)
+    setmetatile(3, 9, 0x000, TRUE)
+    setmetatile(3, 10, 0x000, TRUE)
+
+    
+    setmetatile(11, 1, 0x00C, TRUE)
+    setmetatile(11, 2, 0x014, TRUE)
+    setmetatile(11, 3, 0x000, TRUE)
+    setmetatile(11, 4, 0x000, TRUE)
+    setmetatile(11, 5, 0x000, TRUE)
+    setmetatile(11, 6, 0x000, TRUE)
+    setmetatile(11, 7, 0x000, TRUE)
+    setmetatile(11, 8, 0x000, TRUE)
+    setmetatile(11, 9, 0x000, TRUE)
+    setmetatile(11, 10, 0x000, TRUE)
+
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_DeleteOuterCurtainColumns {
+    setmetatile(0, 3, 0x000, TRUE)
+    setmetatile(1, 3, 0x000, TRUE)
+    setmetatile(2, 3, 0x000, TRUE)
+    setmetatile(14, 3, 0x000, TRUE)
+    setmetatile(12, 3, 0x000, TRUE)
+    setmetatile(13, 3, 0x000, TRUE)
+    
+    setmetatile(0, 4, 0x000, TRUE)
+    setmetatile(1, 4, 0x000, TRUE)
+    setmetatile(2, 4, 0x000, TRUE)
+    setmetatile(14, 4, 0x000, TRUE)
+    setmetatile(12, 4, 0x000, TRUE)
+    setmetatile(13, 4, 0x000, TRUE)
+    
+    setmetatile(0, 5, 0x000, TRUE)
+    setmetatile(1, 5, 0x000, TRUE)
+    setmetatile(2, 5, 0x000, TRUE)
+    setmetatile(14, 5, 0x000, TRUE)
+    setmetatile(12, 5, 0x000, TRUE)
+    setmetatile(13, 5, 0x000, TRUE)
+    
+    setmetatile(0, 6, 0x000, TRUE)
+    setmetatile(1, 6, 0x000, TRUE)
+    setmetatile(2, 6, 0x000, TRUE)
+    setmetatile(14, 6, 0x000, TRUE)
+    setmetatile(12, 6, 0x000, TRUE)
+    setmetatile(13, 6, 0x000, TRUE)
+    
+    setmetatile(0, 7, 0x000, TRUE)
+    setmetatile(1, 7, 0x000, TRUE)
+    setmetatile(2, 7, 0x000, TRUE)
+    setmetatile(14, 7, 0x000, TRUE)
+    setmetatile(12, 7, 0x000, TRUE)
+    setmetatile(13, 7, 0x000, TRUE)
+    
+    setmetatile(0, 8, 0x000, TRUE)
+    setmetatile(1, 8, 0x000, TRUE)
+    setmetatile(2, 8, 0x000, TRUE)
+    setmetatile(14, 8, 0x000, TRUE)
+    setmetatile(12, 8, 0x000, TRUE)
+    setmetatile(13, 8, 0x000, TRUE)
+    
+    setmetatile(0, 9, 0x000, TRUE)
+    setmetatile(1, 9, 0x000, TRUE)
+    setmetatile(2, 9, 0x000, TRUE)
+    setmetatile(14, 9, 0x000, TRUE)
+    setmetatile(12, 9, 0x000, TRUE)
+    setmetatile(13, 9, 0x000, TRUE)
+    
+    setmetatile(0, 10, 0x000, TRUE)
+    setmetatile(1, 10, 0x000, TRUE)
+    setmetatile(2, 10, 0x000, TRUE)
+    setmetatile(14, 10, 0x000, TRUE)
+    setmetatile(12, 10, 0x000, TRUE)
+    setmetatile(13, 10, 0x000, TRUE)
+    
+    setmetatile(0, 11, 0x000, TRUE)
+    setmetatile(1, 11, 0x000, TRUE)
+    setmetatile(2, 11, 0x000, TRUE)
+    setmetatile(14, 11, 0x000, TRUE)
+    setmetatile(12, 11, 0x000, TRUE)
+    setmetatile(13, 11, 0x000, TRUE)
+
+
+    setmetatile(0, 2, 0x012, TRUE)
+    setmetatile(1, 2, 0x013, TRUE)
+    setmetatile(2, 2, 0x014, TRUE)
+    setmetatile(12, 2, 0x011, TRUE)
+    setmetatile(13, 2, 0x012, TRUE)
+    setmetatile(14, 2, 0x013, TRUE)
+
+    special(DrawWholeMapView)
+    return
+
+}
+
+script Chapter3_PrintChapter {
+    setmetatile(1, 3, 0x020, TRUE)
+    setmetatile(1, 4, 0x028, TRUE)
+
+    setmetatile(2, 3, 0x021, TRUE)
+    setmetatile(2, 4, 0x029, TRUE)
+
+    setmetatile(3, 3, 0x022, TRUE)
+    setmetatile(3, 4, 0x02A, TRUE)
+
+    setmetatile(4, 3, 0x023, TRUE)
+    setmetatile(4, 4, 0x02B, TRUE)
+
+    setmetatile(5, 3, 0x024, TRUE)
+    setmetatile(5, 4, 0x02C, TRUE)
+
+    setmetatile(6, 3, 0x025, TRUE)
+    setmetatile(6, 4, 0x02D, TRUE)
+
+    setmetatile(7, 3, 0x026, TRUE)
+    setmetatile(7, 4, 0x02E, TRUE)
+
+    setmetatile(8, 3, 0x027, TRUE)
+    setmetatile(8, 4, 0x02F, TRUE)
+
+    
+    setmetatile(9, 3, 0x00D, TRUE)
+    setmetatile(9, 4, 0x015, TRUE)
+    setmetatile(10, 3, 0x00E, TRUE)
+    setmetatile(10, 4, 0x016, TRUE)
+    setmetatile(11, 3, 0x00F, TRUE)
+    setmetatile(11, 4, 0x017, TRUE)
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_Print3 {
+    setmetatile(12, 2, 0x030, TRUE)
+    setmetatile(12, 3, 0x038, TRUE)
+    setmetatile(12, 4, 0x040, TRUE)
+
+
+    setmetatile(13, 2, 0x031, TRUE)
+    setmetatile(13, 3, 0x039, TRUE)
+    setmetatile(13, 4, 0x041, TRUE)
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_PrintMy {
+    setmetatile(4, 5, 0x068, TRUE)
+    setmetatile(4, 6, 0x070, TRUE)
+    setmetatile(5, 5, 0x069, TRUE)
+    setmetatile(5, 6, 0x071, TRUE)
+    
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_PrintSe {
+    setmetatile(6, 5, 0x058, TRUE)
+
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_PrintCret {
+    setmetatile(6, 5, 0x06A, TRUE)
+    setmetatile(7, 5, 0x06B, TRUE)
+    setmetatile(8, 5, 0x06C, TRUE)
+
+    special(DrawWholeMapView)
+    return
+}
+
+script Chapter3_PrintLife {
+    setmetatile(9, 5, 0x06D, TRUE)
+    setmetatile(9, 6, 0x075, TRUE)
+    setmetatile(10, 5, 0x06E, TRUE)
+    setmetatile(10, 6, 0x076, TRUE)
+
+    special(DrawWholeMapView)
+    return
+}
+
+movement SetPlayerInvisible {
+    set_invisible
+}
+
+movement CurtainLeft {
+    walk_fast_left
+    walk_faster_left * 2
+    walk_fast_left
+    delay_16
+    walk_fast_left
+    walk_faster_left * 2
+    walk_fast_left
+}
+
+
+movement CurtainRight {
+    walk_fast_right
+    walk_faster_right * 2
+    walk_fast_right
+    delay_16
+    walk_fast_right
+    walk_faster_right * 2
+    walk_fast_right
+}

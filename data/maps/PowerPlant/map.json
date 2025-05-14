@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Electrode",
-      "flag": "FLAG_HIDE_POWER_PLANT_MAX_POTION"
+      "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_2"
     },
     {
       "type": "object",
@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Electrode",
-      "flag": "FLAG_HIDE_POWER_PLANT_TM17"
+      "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_2"
     },
     {
       "type": "object",
@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Electrode",
-      "flag": "FLAG_HIDE_POWER_PLANT_ELIXIR"
+      "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_2"
     },
     {
       "type": "object",

@@ -36,7 +36,7 @@
       "x": 12,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_TOWER_MATH_POINCARE",
+      "dest_map": "MAP_POKEMON_TOWER_MATH_BIKE_VOUCHER",
       "dest_warp_id": "0"
     },
     {
@@ -57,7 +57,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PokemonTower_Math_Poincare_Sign"
     }
   ]
 }

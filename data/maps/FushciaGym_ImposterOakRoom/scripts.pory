@@ -6,9 +6,36 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 script FushciaGym_ImposterOakRoom_ImposterOak{
     lock
     special(GetPlayerFacingDirection)
-    if(var(VAR_FACING) == DIR_SOUTH) {
-        removeobject(VAR_LAST_TALKED)
-        setflag(FLAG_FUSHCIA_IMPOSTER_OAK)
+    if(checkitem(ITEM_WAILMER_PAIL)) {
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("There is an odd tree in the way.\nWould you like to WATER it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			removeitem(ITEM_WAILMER_PAIL)
+			additem(ITEM_EMPTY_PAIL)
+			setvar(VAR_CSR_PSYDUCK_PAIL_STATUS, 1)
+			msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_PIN)
+			applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+			
+			fadeoutbgm(1)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_TREE)
+			playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+			msgbox("{FONT_SMALL}OAK?: Wha-?\nHey!\p{FONT_SMALL}You again?", MSGBOX_DEFAULT)
+			trainerbattle_no_intro(TRAINER_IMPOSTER_OAK_FUSHCIA, "{FONT_SMALL}Hey!\n")
+			msgbox("{FONT_SMALL}Just when I thought I had a nice\n{FONT_SMALL}place to myself!\p{FONT_SMALL}Later, kid.\n{FONT_SMALL}I got better things to do!", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			playse(SE_EXIT)
+			fadedefaultbgm
+			removeobject(VAR_LAST_TALKED)
+			waitse
+			setflag(FLAG_FUSHCIA_IMPOSTER_OAK)
+			fadescreen(FADE_FROM_BLACK)
+			release
+
+		}
     } else {
 		applymovement(VAR_LAST_TALKED, OakDances)
 		playse(SE_M_SCRATCH)

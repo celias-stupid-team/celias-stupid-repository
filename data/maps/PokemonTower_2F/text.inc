@@ -298,7 +298,7 @@ PokemonTower_2F_Text_Litwick_SS::
 PokemonTower_2F_Text_Litwick_SSJ::	
 	
 	    .string "Joyous LITWICK: No, silly!\n"
-	    .string "You came from an egg!"
+	    .string "You came from an egg!$"
 	
 PokemonTower_2F_Text_Litwick_SSF::	
 	

@@ -14,6 +14,7 @@
 #include "event_scripts.h"
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
+#include "event_data.h"
 
 static const u16 sFlashLevelToRadius[] = { 200, 72, 56, 40, 24 };
 const s32 gMaxFlashLevel = ARRAY_COUNT(sFlashLevelToRadius) - 1;
@@ -388,6 +389,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
 {
     u8 windowId;
     const struct HealLocation *loc;
+    FlagClear(FLAG_LION_BATTLE);
 
     switch (gTasks[taskId].tState)
     {

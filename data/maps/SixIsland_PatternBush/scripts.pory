@@ -54,7 +54,7 @@ SixIsland_PatternBush_EventScript_Cordell::
 	end
 
 SixIsland_PatternBush_EventScript_Dalia::
-	trainerbattle_single TRAINER_LASS_DALIA, SixIsland_PatternBush_Text_DaliaIntro, SixIsland_PatternBush_Text_DaliaDefeat
+	trainerbattle_single TRAINER_LASS_BINOCULARS, SixIsland_PatternBush_Text_DaliaIntro, SixIsland_PatternBush_Text_DaliaDefeat
 	msgbox SixIsland_PatternBush_Text_DaliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

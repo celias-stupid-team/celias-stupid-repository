@@ -7,6 +7,7 @@ FushciaCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_FUSHCIA_CITY
 	setworldmapflag FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F
 	call SetPlayerPokedexValues
+	clearflag FLAG_IN_FUSHCIA_GYM
 	call_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx
 	call_if_unset FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetKabutoGfx
 	end
@@ -72,9 +73,9 @@ FushciaCity_EventScript_GymSign::
 
 FushciaCity_EventScript_ChanseySign::
 	lockall
-	setvar VAR_0x8004, SPECIES_CHANSEY
+	setvar VAR_0x8004, SPECIES_CHANSEYBLANK
 	special SetSeenMon
-	showmonpic SPECIES_CHANSEY, 10, 3
+	showmonpic SPECIES_CHANSEYBLANK, 10, 3
 	msgbox FushciaCity_Text_ChanseySign
 	hidemonpic
 	releaseall

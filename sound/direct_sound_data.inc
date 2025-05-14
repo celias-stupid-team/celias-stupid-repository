@@ -5230,3 +5230,67 @@ Cry_Mewtwo_POKERAP::
 	.incbin "sound/direct_sound_samples/cries/mewtwo_pokerap.bin"
 
 	.align 2
+Cry_REVENANT::
+	.incbin "sound/direct_sound_samples/cries/revenant.bin"
+	
+	.align 2
+Cry_UNOWNS::
+	.incbin "sound/direct_sound_samples/cries/unowns.bin"
+
+	.align 2
+Cry_UNOWNE::
+	.incbin "sound/direct_sound_samples/cries/unowne.bin"
+
+	.align 2
+Cry_UNOWNN::
+	.incbin "sound/direct_sound_samples/cries/unownn.bin"
+
+	.align 2
+Cry_UNOWND::
+	.incbin "sound/direct_sound_samples/cries/unownd.bin"
+
+	.align 2
+Cry_RELICANTHPAST::
+	.incbin "sound/direct_sound_samples/cries/relicanthpast.bin"
+
+	.align 2
+Cry_RELICANTHFUTURE::
+	.incbin "sound/direct_sound_samples/cries/relicanthfuture.bin"
+
+	.align 2
+Cry_POKEMONRAP::
+	.incbin "sound/direct_sound_samples/cries/pokemonrap.bin"
+
+	.align 2
+Cry_NIDORANMPOKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidoranmpokerap.bin"
+
+	.align 2
+Cry_NIDORANFPOKERAP::
+	.incbin "sound/direct_sound_samples/cries/nidoranfpokerap.bin"
+
+	.align 2
+Cry_THATSALL::
+	.incbin "sound/direct_sound_samples/cries/thatsall.bin"
+
+	.align 2
+Cry_KANGASKHANTEACHER::
+	.incbin "sound/direct_sound_samples/cries/kangaskhanteacher.bin"
+
+	.align 2
+Cry_TANGELACREEPY::
+	.incbin "sound/direct_sound_samples/cries/tangelacreepy.bin"
+
+	.align 2
+Cry_CHANSEYBLANK::
+	.incbin "sound/direct_sound_samples/cries/chanseyblank.bin"
+
+	.align 2
+Cry_IRONCLEFTGREEN::
+	.incbin "sound/direct_sound_samples/cries/ironcleftgreen.bin"
+
+	.align 2
+Cry_LATIASBLAZIKEN::
+	.incbin "sound/direct_sound_samples/cries/latiasblaziken.bin"
+
+	.align 2
