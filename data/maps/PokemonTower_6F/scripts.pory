@@ -95,7 +95,7 @@ script PokemonTower_6F_Cubone {
 
 
 script PokemonTower_6F_SpellingTrainer {
-	trainerbattle_single(TRAINER_SCHOOL_KID_SAMMY, "Wow!\nI aced my math test!\pI spent all week studying nothing\nbut math, but it sure payed off!", "Hay!\nThat hurt!")
+	trainerbattle_single(TRAINER_SCHOOL_KID_SAMMY, "Wow!\nI aced my math test!\pI spent all weak studying nothing\nbut math, but it sure payed off!", "Hay!\nThat hurt!")
 	msgbox("I was never very good at langage\narts.\lWriting class is the hardest!\pI hope CUBONE'S MOM can come in\nto help learn me…", MSGBOX_NPC)
 }
 

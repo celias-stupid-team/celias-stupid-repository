@@ -375,7 +375,7 @@ script PokemonTower_Trailer {
 	waitmovement(0)
 	special(RemoveCameraObject)
 
-	setwildbattle(SPECIES_KANGASKHAN_POKERAP, 30)
+	setwildbattle(SPECIES_KANGASKHANTEACHER, 30)
 	playbgm(MUS_DUMMY, TRUE)
 	dowildbattle
 	specialvar(VAR_RESULT, GetBattleOutcome)
