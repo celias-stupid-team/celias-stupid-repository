@@ -1836,7 +1836,7 @@ static void Cmd_attackanimation(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER))
+    if ((gHitMarker & HITMARKER_NO_ANIMATIONS) && (gCurrentMove != MOVE_TRANSFORM && gCurrentMove != MOVE_SUBSTITUTE && gCurrentMove != MOVE_SUBSTITUTE_TEACHER && gCurrentMove != MOVE_SUBSTITUTE_2))
     {
         BattleScriptPush(gBattlescriptCurrInstr + 1);
         gBattlescriptCurrInstr = BattleScript_Pausex20;
@@ -1973,14 +1973,42 @@ static void Cmd_datahpupdate(void)
                     gSpecialStatuses[gActiveBattler].dmg = gDisableStructs[gActiveBattler].substituteHP;
                 gHpDealt = gDisableStructs[gActiveBattler].substituteHP;
                 gDisableStructs[gActiveBattler].substituteHP = 0;
+                if (gDisableStructs[gActiveBattler].substitute2Layers > 0)
+                    gDisableStructs[gActiveBattler].substitute2Layers -= 1;
             }
             // check substitute fading
             if (gDisableStructs[gActiveBattler].substituteHP == 0)
             {
-                gBattlescriptCurrInstr += 2;
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_SubstituteFade;
-                return;
+                if (gDisableStructs[gActiveBattler].substitute2Layers == 2)
+                {
+                    
+                    // reset sub hp 
+                    gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
+
+                    // TODO fade the sub from layer 3 -> layer 2 by making a BattleScript_SubstituteFade2
+                    // gBattlescriptCurrInstr += 2;
+                    // BattleScriptPushCursor();
+                    // gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                    // return;
+                }
+                else if (gDisableStructs[gActiveBattler].substitute2Layers == 1)
+                {
+                    // reset sub hp 
+                    gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
+
+                    // TODO fade the sub from layer 2 -> layer 1 by making a BattleScript_SubstituteFade3
+                    // gBattlescriptCurrInstr += 2;
+                    // BattleScriptPushCursor();
+                    // gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                    // return;
+                }
+                else 
+                {
+                    gBattlescriptCurrInstr += 2;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_SubstituteFade;
+                    return;
+                }
             }
         }
         else
@@ -7815,6 +7843,10 @@ static void Cmd_setsubstitute(void)
         gDisableStructs[gBattlerAttacker].substituteHP = gBattleMoveDamage;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
         gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
+        // TODO im not sure if this is the right check here but you get the idea
+        
+        if(gCurrentMove == MOVE_SUBSTITUTE_2)
+            gDisableStructs[gBattlerAttacker].substitute2Layers = 3;
     }
 
     gBattlescriptCurrInstr++;
