@@ -3730,6 +3730,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_DMCA_SHOWDOWN) \
     X(MUS_BATTLE_FRONTIER) \
     X(MUS_LASS_INTRO) \
+    X(MUS_IKI_TOWN_TEST) \
 
 
 #define SOUND_LIST_SE \
