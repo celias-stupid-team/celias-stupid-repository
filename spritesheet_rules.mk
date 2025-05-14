@@ -787,7 +787,7 @@ $(OBJEVENTGFXDIR)/stupid/Darach.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/Caitlin.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
-$(OBJEVENTGFXDIR)/stupid/Curtain_top.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/stupid/Curtain_Top.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
-$(OBJEVENTGFXDIR)/stupid/Curtain_bottom.4bpp: %.4bpp: %.png
+$(OBJEVENTGFXDIR)/stupid/Curtain_Bottom.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
