@@ -45,6 +45,9 @@ script PokemonTower_ClefairyDoll {
 	finditem(ITEM_POKE_DOLL)
 }
 
+
+const LITTLEGIRL = 8
+const CLEFAIRY = 4
 script PokemonTower_6F_EventScript_MarowakGhost {
 	lockall
 	textcolor(NPC_TEXT_COLOR_MON)
@@ -53,6 +56,10 @@ script PokemonTower_6F_EventScript_MarowakGhost {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	setwildbattle(SPECIES_MAROWAK, 30)
 	special(StartMarowakBattle)
+	delay(65)
+	addobject(LITTLEGIRL)
+	clearflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
+	addobject(CLEFAIRY)
 	waitstate
 	special(QuestLog_CutRecording)
 	//goto_if_eq(FLAG_USED_CLEFAIRY_DOLL, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost)  // VAR_RESULT set by CB2_EndMarowakBattle

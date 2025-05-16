@@ -117,7 +117,7 @@ script Route16_Dad {
 
 script Route16_RoadWorkGirl {
 	lock
-	msgbox("Hmm…\nIt doesn't seem like it does.", MSGBOX_DEFAULT)
+	msgbox("Hmm…\nIt sure don't seem like it.", MSGBOX_DEFAULT)
 	release
 }
 
