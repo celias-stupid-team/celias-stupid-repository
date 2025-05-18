@@ -829,7 +829,7 @@ void LoadBattleMonGfxAndAnimate(u8 battlerId, bool8 loadMonSprite, u8 spriteId)
 
 void TrySetBehindSubstituteSpriteBit(u8 battlerId, u16 move)
 {
-    if (move == MOVE_SUBSTITUTE || move == MOVE_SUBSTITUTE_TEACHER || MOVE_SUBSTITUTE_2)
+    if (move == MOVE_SUBSTITUTE || move == MOVE_SUBSTITUTE_TEACHER || move == MOVE_SUBSTITUTE_2)
         gBattleSpritesDataPtr->battlerData[battlerId].behindSubstitute = 1;
 }
 
