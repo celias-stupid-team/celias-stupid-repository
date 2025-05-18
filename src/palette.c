@@ -60,6 +60,9 @@ static EWRAM_DATA struct PaletteStruct sPaletteStructs[NUM_PALETTE_STRUCTS] = {0
 EWRAM_DATA struct PaletteFadeControl gPaletteFade = {0};
 static EWRAM_DATA u32 sPlttBufferTransferPending = 0;
 EWRAM_DATA u8 gPaletteDecompressionBuffer[PLTT_SIZE] = {0};
+// this should really use a bool8, but because of presumably some nasty UB elsewhere, with a u8 it breaks shit real bad
+// I blame GF.
+EWRAM_DATA bool16 gFadeScreenInstant = 0; 
 
 static const struct PaletteStructTemplate sDummyPaletteStructTemplate =
 {
@@ -167,7 +170,7 @@ bool8 BeginNormalPaletteFade(u32 selectedPalettes, s8 delay, u8 startY, u8 targe
     }
     else
     {
-        gPaletteFade.deltaY = 2;
+        gPaletteFade.deltaY = gFadeScreenInstant ? 15 : 2;
         if (delay < 0)
         {
             gPaletteFade.deltaY += (delay * -1);
