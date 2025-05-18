@@ -58,10 +58,13 @@ void PlayerTurnInPlace(u8 direction);
 void PlayerJumpLedge(u8 direction);
 void PlayerShakeHeadOrWalkInPlace(void);
 void player_step(u8 direction, u16 newKeys, u16 heldKeys);
-bool32 PlayerIsMovingOnRockStairs(u8 direction);
+bool32 PlayerIsMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction);
 void UpdatePlayerAvatarTransitionState(void);
 void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender);
 void PlayerUseAcroBikeOnBumpySlope(u8 direction);
 u16 GetRSAvatarGraphicsIdByGender(u8 gender);
+//sideways stairs
+u8 GetRightSideStairsDirection(u8 direction);
+u8 GetLeftSideStairsDirection(u8 direction);
 
 #endif //GUARD_FIELD_PLAYER_AVATAR_H
