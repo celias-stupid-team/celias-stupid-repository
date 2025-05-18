@@ -23,7 +23,7 @@ mapscripts PokemonTower_3F_MapScripts {
 			setflag(FLAG_TEMP_10)
 		}
 		if(!flag(FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE)) {
-			setflag(FLAG_TEMP_4)
+			setflag(FLAG_TEMP_8)
 			setflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
 		}
 		setflag(FLAG_CSR_HIDE_MUSIC_GIRL)

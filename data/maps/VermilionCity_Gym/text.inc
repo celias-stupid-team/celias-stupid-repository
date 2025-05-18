@@ -93,7 +93,7 @@ VermilionCity_Gym_Text_DwaynePostBattle::
     .string "the GYM himself.\p"
     .string "The FIRST switch is in a random can\n"
     .string "somewhere in the gym!\l"
-    .string "It can be anywhere exept the\l"
+    .string "It can be anywhere except the\l"
     .string "middle column.\p"
     .string "The SECOND switch is located two\n"
     .string "cans away from the first!\p"

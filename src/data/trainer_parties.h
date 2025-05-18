@@ -4134,7 +4134,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt8[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt9[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt9[] = { //TEAM ROCKET
     {
         .iv = 0,
         .lvl = 21,
@@ -4143,7 +4143,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt9[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_GRIMER,
+        .species = SPECIES_KOFFING,
     },
     {
         .iv = 0,

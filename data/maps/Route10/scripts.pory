@@ -63,7 +63,7 @@ script Route10_Youngster {
 
 script Route10_RouteSign {
 	lock
-	special(GetPlayerFacingDirection)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	if(var(VAR_RESULT) == DIR_SOUTH) {
 		msgbox("There's graffiti on the back of the\nsign…", MSGBOX_DEFAULT)
 		closemessage
