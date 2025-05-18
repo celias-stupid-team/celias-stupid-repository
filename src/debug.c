@@ -2074,6 +2074,8 @@ static void DebugAction_FlagsVars_PokedexFlags_All(u8 taskId)
     {
         GetSetPokedexFlag(i + 1, FLAG_SET_CAUGHT);
         GetSetPokedexFlag(i + 1, FLAG_SET_SEEN);
+        GetSetPokedexFlag(i + 1, FLAG_SET_OBTAINABLE);
+        GetSetPokedexFlag(i + 1, FLAG_SET_SHINY_FOUND);
     }
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
@@ -2088,6 +2090,8 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
     
     memset(&gSaveBlock2Ptr->pokedex.owned, 0, sizeof(gSaveBlock2Ptr->pokedex.owned));
     memset(&gSaveBlock2Ptr->pokedex.seen, 0, sizeof(gSaveBlock2Ptr->pokedex.seen));
+    memset(&gSaveBlock2Ptr->pokedex.obtainable, 0, sizeof(gSaveBlock2Ptr->pokedex.obtainable));
+    memset(&gSaveBlock2Ptr->shinyFound, 0, sizeof(gSaveBlock2Ptr->shinyFound));
 
     // Add party Pokemon to Pokedex
     for (partyId = 0; partyId < PARTY_SIZE; partyId++)

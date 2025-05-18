@@ -1590,6 +1590,7 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     bool8 seen = (itemId >> 16) & 1;  // not used but required to match
 
     bool8 obtainable = DexScreen_GetSetPokedexFlag(species, FLAG_GET_OBTAINABLE, TRUE);
+    bool8 shinyFound = DexScreen_GetSetPokedexFlag(species, FLAG_GET_SHINY_FOUND, TRUE);
 
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
@@ -1601,9 +1602,17 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     if (caught) // Print ball and types if it's caught; otherwise nothing
     {
         if (obtainable) {
-            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28, y); // Icon Caught
+            if (shinyFound) {
+                BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_PREMIER, 0x28, y); // Icon Premier
+            } else {
+                BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28, y); // Icon Caught
+            }
         } else {
-            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_BONUS, 0x28, y); // Icon Bonus
+            if (shinyFound) {
+                BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_THREE_STAR, 0x28, y); // Three Stars
+            } else {
+                BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_BONUS, 0x28, y); // Icon Bonus
+            }
         }
         type1 = gSpeciesInfo[species].types[0];
         BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, type1 + 1, 0x78, y);
@@ -2395,14 +2404,25 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
         if (gSaveBlock2Ptr->pokedex.obtainable[index] & mask)
             retVal = 1;
         break;
+    case FLAG_GET_SHINY_FOUND:
+        if (gSaveBlock2Ptr->shinyFound[index] & mask)
+            retVal = 1;
+        break;
     case FLAG_SET_SEEN:
         gSaveBlock2Ptr->pokedex.seen[index] |= mask;
         break;
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;
+        if (FlagGet(FLAG_SHINY_CREATION)) 
+        {
+            gSaveBlock2Ptr->shinyFound[index] |= mask;
+        }
         break;
     case FLAG_SET_OBTAINABLE:
         gSaveBlock2Ptr->pokedex.obtainable[index] |= mask;
+        break;
+    case FLAG_SET_SHINY_FOUND:
+        gSaveBlock2Ptr->shinyFound[index] |= mask;
         break;
     }
     return retVal;
