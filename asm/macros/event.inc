@@ -1729,6 +1729,12 @@
 	.2byte \y
 	.byte \impassable
 	.endm
+	
+	@ Fades the screen to and from black and white instantly. Modes are FADE_(TO/FROM)_(WHITE/BLACK)
+	.macro fadescreeninstant mode:req
+	.byte 0xde
+	.byte \mode
+	.endm
 
 @ Supplementary
 
