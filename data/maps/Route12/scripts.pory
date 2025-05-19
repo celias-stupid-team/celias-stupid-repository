@@ -154,6 +154,16 @@ script Route12_DrawHall {
 	setmetatile(29, 19, 0x2CC, FALSE)
 
 	//Bottom half
+	setmetatile(18, 57, 0x2CA, FALSE)
+	setmetatile(19, 57, 0x2CB, FALSE)
+	setmetatile(20, 57, 0x2CB, FALSE)
+	setmetatile(18, 58, 0x2CA, FALSE)
+	setmetatile(19, 58, 0x2CB, FALSE)
+	setmetatile(20, 58, 0x2CB, FALSE)
+	setmetatile(18, 59, 0x2D2, FALSE)
+	setmetatile(19, 59, 0x2D3, FALSE)
+	setmetatile(20, 59, 0x2D3, FALSE)
+
 	setmetatile(22, 59, 0x2CA, FALSE)
 	setmetatile(23, 59, 0x2CB, FALSE)
 	setmetatile(24, 59, 0x2CC, FALSE)
@@ -234,7 +244,13 @@ script Route12_DrawHall {
 	setmetatile(25, 68, 0x2CC, FALSE)
 	setmetatile(25, 69, 0x2CC, FALSE)
 	setmetatile(25, 70, 0x2D2, FALSE)
+	setmetatile(16, 66, 0x003, TRUE)
 
+}
+
+script Route12_CeliaOops {
+	msgbox("Yeah, it's slightly misaligned.\pMy bad!\n-Celia", MSGBOX_SIGN)
+	end
 }
 
 script Route12_ShinyOmanyte {

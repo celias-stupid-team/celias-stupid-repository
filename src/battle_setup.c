@@ -313,7 +313,13 @@ void StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
+    if(FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
+
+    } else {
+         gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
+
+    }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);

@@ -231,7 +231,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 12,
-      "y": 62,
+      "y": 63,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -457,11 +457,11 @@
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 62,
+      "x": 16,
+      "y": 66,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route12_EventScript_FishingSign"
+      "script": "Route12_CeliaOops"
     },
     {
       "type": "hidden_item",
@@ -475,8 +475,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 65,
+      "x": 14,
+      "y": 59,
       "elevation": 3,
       "item": "ITEM_LEFTOVERS",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_LEFTOVERS",
