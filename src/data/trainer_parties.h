@@ -3191,7 +3191,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_TamerJohn[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperSebastian[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperSebastian[] = { //Bird Cultist
 
     {
         .iv = 0,
@@ -3200,7 +3200,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperSebastian[] = 
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperPerry[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperPerry[] = { //Bird Cultist
     {
         .iv = 0,
         .lvl = 33,
@@ -3209,7 +3209,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperPerry[] = {
 
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperRobert[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_BirdKeeperRobert[] = { //Bird Cultist
     {
         .iv = 0,
         .lvl = 35,

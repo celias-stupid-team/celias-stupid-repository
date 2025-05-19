@@ -152,17 +152,17 @@ script Route18_InstinctSealPedestal {
 }
 
 script Route18_SetZapdosStatue {
-	setmetatile(20, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_LEFT, TRUE)
-	setmetatile(21, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_MIDDLE, TRUE)
-	setmetatile(22, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_RIGHT, TRUE)
+	setmetatile(25, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_LEFT, TRUE)
+	setmetatile(26, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_MIDDLE, TRUE)
+	setmetatile(27, 14, METATILE_Route18_SkyPillar_ZAPDOS_TOP_RIGHT, TRUE)
 	
-	setmetatile(20, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_LEFT, TRUE)
-	setmetatile(21, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_MIDDLE, TRUE)
-	setmetatile(22, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_RIGHT, TRUE)
+	setmetatile(25, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_LEFT, TRUE)
+	setmetatile(26, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_MIDDLE, TRUE)
+	setmetatile(27, 15, METATILE_Route18_SkyPillar_ZAPDOS_MIDDLE_RIGHT, TRUE)
 	
-	setmetatile(20, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_LEFT, TRUE)
-	setmetatile(21, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_MIDDLE, TRUE)
-	setmetatile(22, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_RIGHT, TRUE)
+	setmetatile(25, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_LEFT, TRUE)
+	setmetatile(26, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_MIDDLE, TRUE)
+	setmetatile(27, 16, METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_RIGHT, TRUE)
 	return
 }
 
