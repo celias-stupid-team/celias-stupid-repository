@@ -75,6 +75,7 @@ static void ClearPokedexFlags(void)
     memset(&gSaveBlock2Ptr->pokedex.owned, 0, sizeof(gSaveBlock2Ptr->pokedex.owned));
     memset(&gSaveBlock2Ptr->pokedex.seen, 0, sizeof(gSaveBlock2Ptr->pokedex.seen));
     memset(&gSaveBlock2Ptr->pokedex.obtainable, 0, sizeof(gSaveBlock2Ptr->pokedex.obtainable));
+    memset(&gSaveBlock2Ptr->shinyFound, 0, sizeof(gSaveBlock2Ptr->shinyFound));
 }
 
 static void ClearBattleTower(void)

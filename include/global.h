@@ -210,6 +210,7 @@ struct Pokedex
     /*0x10*/ u8 owned[DEX_FLAGS_NO];
     /*0x44*/ u8 seen[DEX_FLAGS_NO];
     /*0x57*/ u8 obtainable[DEX_FLAGS_NO];
+    // shiny found flags are just stored in saveblock2 by themselves
 };
 
 struct PokemonJumpRecords
@@ -361,7 +362,8 @@ struct SaveBlock2
     /*0xB00*/ struct PokemonJumpRecords pokeJump;
     /*0xB10*/ struct BerryPickingResults berryPick;
     /*0xF20*/ u32 encryptionKey;
-              u8 spaceReserveCSR[1084];
+              u8 shinyFound[DEX_FLAGS_NO];
+              u8 spaceReserveCSR[1035];
 }; // size: 0xF24
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;

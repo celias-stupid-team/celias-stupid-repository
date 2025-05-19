@@ -25,6 +25,7 @@
 #include "constants/items.h"
 #include "script_pokemon_util.h"
 #include "pokemon_storage_system.h"
+#include "palette.h"
 #include "party_menu.h"
 #include "money.h"
 #include "coins.h"
@@ -631,6 +632,15 @@ bool8 ScrCmd_fadescreen(struct ScriptContext * ctx)
 {
     FadeScreen(ScriptReadByte(ctx), 0);
     SetupNativeScript(ctx, IsPaletteNotActive);
+    return TRUE;
+}
+
+bool8 ScrCmd_fadescreeninstant(struct ScriptContext * ctx)
+{
+    gFadeScreenInstant = TRUE;
+    FadeScreen(ScriptReadByte(ctx), 0);
+    SetupNativeScript(ctx, IsPaletteNotActive);
+    gFadeScreenInstant = FALSE;
     return TRUE;
 }
 

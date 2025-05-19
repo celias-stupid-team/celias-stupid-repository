@@ -14,7 +14,9 @@ enum
     FLAG_SET_SEEN,
     FLAG_SET_CAUGHT,
     FLAG_GET_OBTAINABLE,
-    FLAG_SET_OBTAINABLE
+    FLAG_SET_OBTAINABLE,
+    FLAG_GET_SHINY_FOUND,
+    FLAG_SET_SHINY_FOUND,
 };
 
 // IDs for the pokedex area markers

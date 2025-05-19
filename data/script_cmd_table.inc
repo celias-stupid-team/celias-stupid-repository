@@ -223,6 +223,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkmoncaught           		 @ 0xdb
 	.4byte ScrCmd_fadescreenswapbuffers    		 @ 0xdc
 	.4byte ScrCmd_settilecollision    		     @ 0xdd
+	.4byte ScrCmd_fadescreeninstant              @ 0xde
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
