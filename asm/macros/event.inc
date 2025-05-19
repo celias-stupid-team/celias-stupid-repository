@@ -1736,6 +1736,14 @@
 	.byte \mode
 	.endm
 
+	@ Inflicts the given status1 condition on the party member in the given slot
+	@ If PARTY_SIZE is passed as the slot, it will inflict it on the whole party
+	.macro setstatus1 status1:req, slot:req
+	.byte 0xdf
+	.byte \status1
+	.byte \slot
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
