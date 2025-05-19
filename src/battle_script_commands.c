@@ -10016,6 +10016,10 @@ static void Cmd_trysetcaughtmondexflags(void)
 
     if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT))
     {
+        // explicitly set the shiny found flag when it's a mon that has already been caught
+        if (FlagGet(FLAG_SHINY_CREATION))
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SHINY_FOUND);
+
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
     else
