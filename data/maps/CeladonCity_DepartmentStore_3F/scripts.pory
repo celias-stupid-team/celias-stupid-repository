@@ -78,7 +78,7 @@ script DepartmentStore_GameShop_DifferentGamecube { //simplify this script so I 
 			msgbox("Congratulations!\nWISHMAKER JIRACHI was sent!", MSGBOX_DEFAULT)
 			waitmessage
 			waitfanfare
-			setflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_SHINY_CREATION) //Jirachi
 			setvar(VAR_TEMP_1, SPECIES_JIRACHI)
 			givemon(SPECIES_JIRACHI, 25)
 			clearflag(FLAG_SHINY_CREATION)

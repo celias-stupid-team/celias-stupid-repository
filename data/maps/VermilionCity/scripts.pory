@@ -437,7 +437,7 @@ script Vermillion_ChildMemorial {
 				playmoncry(SPECIES_DIGLETT, CRY_MODE_NORMAL)
 				waitmoncry
 				if(var(VAR_TEMP_5) == 3) {
-					setflag(FLAG_SHINY_CREATION)
+					setflag(FLAG_SHINY_CREATION) //Diglett
 					setwildbattle(SPECIES_DIGLETT, 15)
 					dowildbattle
 				} else {

@@ -204,7 +204,7 @@ script FushciaCity_TaurosGuy {
 			clearflag(FLAG_SHINY_CREATION)
 			setflag(FLAG_GOT_TAUROSES)
 			if (var(VAR_TEMP_F) == VAR_TEMP_E) {
-				setflag(FLAG_SHINY_CREATION)
+				setflag(FLAG_SHINY_CREATION) //Tauros
 			}
 			givemon(SPECIES_TAUROS, 30)
 			addvar(VAR_TEMP_F, 1)

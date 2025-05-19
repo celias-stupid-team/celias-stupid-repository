@@ -254,7 +254,7 @@ script Route12_CeliaOops {
 }
 
 script Route12_ShinyOmanyte {
-	setflag(FLAG_SHINY_CREATION)
+	setflag(FLAG_SHINY_CREATION) //Omanyte
 	call(Common_EventScript_StaticEncounter)
 }
 
