@@ -1900,6 +1900,11 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
+    if (FlagGet(FLAG_SHINY_CREATION))
+    {
+        SetBoxMonLockedAbility(boxMon, ABILITY_FREE_SHINY);
+    }
+    
     GiveBoxMonInitialMoveset(boxMon);
 }
 
@@ -3856,7 +3861,7 @@ u8 GetAbilityBySpecies(u16 species, u8 abilityNum, u8 lockedAbility)
     case 1:
         gLastUsedAbility = gSpeciesInfo[species].abilities[abilityNum];
         break;
-    case 3: //locked ability (any)
+    case ABILITY_NUM_LOCKED_ABILITY:
         gLastUsedAbility = lockedAbility;
         break;
     }
@@ -6600,11 +6605,16 @@ const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species)
 void SetMonLockedAbility(struct Pokemon *mon, u8 ability)
 {
     SetMonData(mon, MON_DATA_LOCKED_ABILITY, &ability);
-    ability = 3;
+    ability = ABILITY_NUM_LOCKED_ABILITY;
     SetMonData(mon, MON_DATA_ABILITY_NUM, &ability);
 }
 
-
+void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability)
+{
+    SetBoxMonData(boxMon, MON_DATA_LOCKED_ABILITY, &ability);
+    ability = ABILITY_NUM_LOCKED_ABILITY;
+    SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &ability);
+}
 
 // CSR Level Caps!
 
