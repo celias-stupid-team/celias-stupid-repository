@@ -166,6 +166,15 @@ script Route18_SetZapdosStatue {
 	return
 }
 
+script Route18_FloatyRockKid {
+	if(flag(FLAG_GOT_FLOAT_STONE)) {
+		msgbox("You took the floaty rock?\nYeah, understandable.", MSGBOX_NPC)
+	} else {
+		msgbox("Ooooh…\pLook at this cool floaty\nrock!", MSGBOX_NPC)
+	}
+	end
+}
+
 script Route18_BirdCultistLeft {
 	msgbox("Glory to the Wing!\nPraise to the Talon!\pMay we soar forevermore above the\nplains of despair!", MSGBOX_NPC)
 	end

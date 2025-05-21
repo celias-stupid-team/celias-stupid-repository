@@ -60,7 +60,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
-      "x": 5,
+      "x": 4,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -116,7 +116,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 4,
+      "x": 5,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",

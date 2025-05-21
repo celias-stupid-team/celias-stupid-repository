@@ -153,7 +153,7 @@ script Route16_Cop4 {
 
 
 script Route16_Cop5 {
-	trainerbattle_single(TRAINER_COP_5, "Some dumb couple was speeding down\nthe turnpike the other day.\pThe wife was pregnant, so I took her\nkid too!", "Knockout!")
+	trainerbattle_single(TRAINER_COP_5, "Some dumb couple was speeding down\nthe turnpike the other day.\pThe wife was pregnant, so I took\nher kid too!", "Knockout!")
 	msgbox("Ha, maybe I should write a book\nabout the experience.\pHmm…\nOn second thought, nah.\lWho'd read a book like that anyway?", MSGBOX_NPC)
 	end
 }

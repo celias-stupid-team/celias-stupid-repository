@@ -31,6 +31,15 @@ script Route17_KoraidonNeedsSandwich {
 	lock
 	setflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
 	setflag(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F)
+	if(flag(FLAG_FED_SANDWICH)) {
+		msgbox("You've already seen this cutscene!\nWould you like to skip it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			closemessage
+			warp(MAP_ROUTE16, 5)
+		} else {
+			goto(Route17_BikeFliesUp)
+		}
+	}
 	if(checkitem(ITEM_SANDWICH)) {
 		msgbox("The slope is too steep for your\nBIKE to handle.\pWould you like to feed your BIKE\na SANDWICH?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {

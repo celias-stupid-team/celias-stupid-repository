@@ -4,7 +4,16 @@ mapscripts GreatBay_SkyPillarOutside_MapScripts {
 
 script GreatBay_SkyPillarOutside_LookingOut {
     lock
-    faceplayer
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_NORTH) {
+        applymovement(OBJ_EVENT_ID_PLAYER, GreatBay_PlayerMovesIntoPosition)
+        waitmovement(0)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+
+    } else {
+        faceplayer
+    }
+    
     msgbox("Hello, traveller.\nSee that TOWER across the bay?", MSGBOX_DEFAULT)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
@@ -18,8 +27,21 @@ script GreatBay_SkyPillarOutside_LookingOut {
     closemessage
     applymovement(OBJ_EVENT_ID_CAMERA, GreatBay_CameraComesDown)
     waitmovement(0)
+    if(var(VAR_RESULT) == DIR_SOUTH) {
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+    } else {
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+    }
+    msgbox("The TOWER has been sealed away\nall my life.\lNo one knows what lies inside.\pPerhaps one day, a brave soul will\nventure within.", MSGBOX_DEFAULT)
     special(RemoveCameraObject)
     release
+}
+
+movement GreatBay_PlayerMovesIntoPosition {
+    walk_right
+    walk_up
+    face_left
 }
 
 movement GreatBay_CameraGoesUp {
