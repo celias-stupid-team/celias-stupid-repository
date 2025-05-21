@@ -570,17 +570,17 @@ Route16_EventScript_Ruben::
 	end
 
 Route16_EventScript_Koji::
-	trainerbattle_single TRAINER_CUE_BALL_KOJI, Route16_Text_KojiIntro, Route16_Text_KojiDefeat
+	trainerbattle_single TRAINER_COP_1, Route16_Text_KojiIntro, Route16_Text_KojiDefeat
 	msgbox Route16_Text_KojiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route16_EventScript_Luke::
-	trainerbattle_single TRAINER_CUE_BALL_LUKE, Route16_Text_LukeIntro, Route16_Text_LukeDefeat
+	trainerbattle_single TRAINER_COP_2, Route16_Text_LukeIntro, Route16_Text_LukeDefeat
 	msgbox Route16_Text_LukePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route16_EventScript_Camron::
-	trainerbattle_single TRAINER_CUE_BALL_CAMRON, Route16_Text_CamronIntro, Route16_Text_CamronDefeat
+	trainerbattle_single TRAINER_COP_3, Route16_Text_CamronIntro, Route16_Text_CamronDefeat
 	msgbox Route16_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -612,12 +612,12 @@ Route17_EventScript_William::
 	end
 
 Route17_EventScript_Raul::
-	trainerbattle_single TRAINER_CUE_BALL_RAUL, Route17_Text_RaulIntro, Route17_Text_RaulDefeat
+	trainerbattle_single TRAINER_COP_4, Route17_Text_RaulIntro, Route17_Text_RaulDefeat
 	msgbox Route17_Text_RaulPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route17_EventScript_Isaiah::
-	trainerbattle_single TRAINER_CUE_BALL_ISAIAH, Route17_Text_IsaiahIntro, Route17_Text_IsaiahDefeat
+	trainerbattle_single TRAINER_COP_5, Route17_Text_IsaiahIntro, Route17_Text_IsaiahDefeat
 	msgbox Route17_Text_IsaiahPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -1208,6 +1208,13 @@ void SlightlyDarkenPalsInWeather(u16 *palbuf, u16 *unused, u32 size)
     }
 }
 
+
+
+//I do not know how to include these. I tried.
+//If someone who's not me figures it out, it should be easy to remove these lines.
+#define ITEM_WAILMER_PAIL 268
+#define ITEM_EMPTY_PAIL 400
+
 bool8 UpdatePsyduckPailCounter(void)
 {
     u16 steps;
@@ -1229,7 +1236,7 @@ bool8 UpdatePsyduckPailCounter(void)
     {
         steps--;
         VarSet(VAR_PSYDUCK_PAIL_COUNTER, steps);
-        if (steps == 0)
+        if (steps == 0 && CheckBagHasItem(ITEM_WAILMER_PAIL, 1))
         {
             ScriptContext_SetupScript(EventScript_DrainPsyduckPail);
             return TRUE;
@@ -1239,10 +1246,7 @@ bool8 UpdatePsyduckPailCounter(void)
 }
 
 
-//I do not know how to include these. I tried.
-//If someone who's not me figures it out, it should be easy to remove these lines.
-#define ITEM_WAILMER_PAIL 268
-#define ITEM_EMPTY_PAIL 400
+
 
 void RefillPsyduckPail(void) {
     if(CheckBagHasItem(ITEM_EMPTY_PAIL, 1)) {

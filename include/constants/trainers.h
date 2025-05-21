@@ -173,6 +173,7 @@
 #define TRAINER_PIC_IMPOSTER               152
 #define TRAINER_PIC_RED_NORMAL               153
 #define TRAINER_PIC_IMPOSTER_TWINS               154
+#define TRAINER_PIC_COP               155
 
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -305,6 +306,7 @@
 #define TRAINER_CLASS_IMPOSTER             114
 #define TRAINER_CLASS_MASTER             115
 #define TRAINER_CLASS_RAPPER             116
+#define TRAINER_CLASS_COP             117
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

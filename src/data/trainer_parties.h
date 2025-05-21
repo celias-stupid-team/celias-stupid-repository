@@ -2447,73 +2447,43 @@ static const struct TrainerMonNoItemDefaultMoves sParty_SwimmerMaleRoland[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_CueBallKoji[] = {
-    {
-        .iv = 0,
-        .lvl = 28,
-        .species = SPECIES_MACHOP,
-    },
+static const struct TrainerMonNoItemDefaultMoves sParty_CueBallKoji[] = { //Cop 1
     {
         .iv = 0,
         .lvl = 28,
         .species = SPECIES_MANKEY,
     },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CueBallLuke[] = { //Cop 2
+    {
+        .iv = 0,
+        .lvl = 29,
+        .species = SPECIES_CYCLIZAR,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CueBallCamron[] = { //Cop 3
     {
         .iv = 0,
         .lvl = 28,
-        .species = SPECIES_MACHOP,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_CueBallLuke[] = {
-    {
-        .iv = 0,
-        .lvl = 29,
         .species = SPECIES_MANKEY,
     },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_CueBallRaul[] = { //Cop 4
     {
         .iv = 0,
         .lvl = 29,
-        .species = SPECIES_MACHOP,
+        .species = SPECIES_REMORAID,
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_CueBallCamron[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_CueBallIsaiah[] = { //Cop 5
     {
         .iv = 0,
         .lvl = 29,
-        .species = SPECIES_MANKEY,
-    },
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_MACHOP,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_CueBallRaul[] = {
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_MANKEY,
-    },
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_PRIMEAPE,
-    },
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_CueBallIsaiah[] = {
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_MACHOP,
-    },
-    {
-        .iv = 0,
-        .lvl = 29,
-        .species = SPECIES_MACHAMP,
+        .species = SPECIES_IGGLYBUFF,
     },
 };
 

@@ -109,7 +109,7 @@ script Route16_Dad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pLooks like whoever lives there was\nRUNNING in their normal shoes.\lThat's against the law, you know!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pHey, there sure are a lot of\npolicemen out here.\lBetter not break the law!\pWell, never mind that.\nHow about you take arrest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -123,5 +123,37 @@ script Route16_RoadWorkGirl {
 
 script Route16_RoadWorkSign {
 	msgbox("ROAD WORK AHEAD\n", MSGBOX_SIGN)
+	end
+}
+
+script Route16_Cop1 {
+	trainerbattle_single(TRAINER_COP_1, "I'm feeling hungry and mean!\nI need a punching bag!", "Don't make me mad!\n")
+	msgbox("I get my kicks by harassing people\nwith my stinking POKéMON.\pThey're great for startling people.\nAnd, they bite, too.", MSGBOX_NPC)
+}
+
+script Route16_Cop2 {
+	trainerbattle_single(TRAINER_COP_2, "Nice BIKE!\nHand it over!", "Hey!")
+	msgbox("It's Civil Asset Forfeiture, baby!\nNothing illegal about that!\pWhazzat?\nYou got a problem with it?\lHa!\pWhat're you gonna do about it?\nCall the cops?", MSGBOX_NPC)
+
+
+}
+
+script Route16_Cop3 {
+	trainerbattle_single(TRAINER_COP_3, "There's a dangerous criminal hiding\nout in that house.\lNo one's allowed through!", "Don't make me mad!")
+	msgbox("Grr…\pAt times like these, kids like you\nshould be locked in a room getting\lwhalloped by the CAPTAIN!", MSGBOX_NPC)
+	end
+}
+
+
+script Route16_Cop4 {
+	trainerbattle_single(TRAINER_COP_4, "FREEZE!\nHands where I can see them!\pI have literally zero qualms about\nthreatening children!", "Kaboom!")
+	msgbox("My buddy here lost his GUN.\nSomeone from FUSHCIA picked it up.\pI don't care, though.\nIt's not my problem.\pWe have bigger things to worry about\nthan a rando with a deadly weapon.", MSGBOX_NPC)
+	end
+}
+
+
+script Route16_Cop5 {
+	trainerbattle_single(TRAINER_COP_5, "Some dumb couple was speeding down\nthe turnpike the other day.\pThe wife was pregnant, so I took her\nkid too!", "Knockout!")
+	msgbox("Ha, maybe I should write a book\nabout the experience.\pHmm…\nOn second thought, nah.\lWho'd read a book like that anyway?", MSGBOX_NPC)
 	end
 }

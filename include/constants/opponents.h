@@ -252,11 +252,11 @@
 #define TRAINER_SWIMMER_MALE_JACK                246
 #define TRAINER_SWIMMER_MALE_JEROME              247
 #define TRAINER_SWIMMER_MALE_ROLAND              248
-#define TRAINER_CUE_BALL_KOJI                    249
-#define TRAINER_CUE_BALL_LUKE                    250
-#define TRAINER_CUE_BALL_CAMRON                  251
-#define TRAINER_CUE_BALL_RAUL                    252
-#define TRAINER_CUE_BALL_ISAIAH                  253
+#define TRAINER_COP_1                    249
+#define TRAINER_COP_2                    250
+#define TRAINER_COP_3                  251
+#define TRAINER_COP_4                    252
+#define TRAINER_COP_5                  253
 #define TRAINER_CUE_BALL_ZEEK                    254
 #define TRAINER_CUE_BALL_JAMAL                   255
 #define TRAINER_CUE_BALL_COREY                   256

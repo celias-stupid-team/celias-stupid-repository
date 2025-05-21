@@ -3288,3 +3288,14 @@ const struct SpriteFrameImage gObjectEventPicTable_Curtain_bottom[] = {
     overworld_frame(gObjectEventPic_Curtain_bottom, 8, 8, 7),
     overworld_frame(gObjectEventPic_Curtain_bottom, 8, 8, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Buff_oak[] = {
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 3),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 4),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 5),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 6),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 7),
+    overworld_frame(gObjectEventPic_Buff_oak, 8, 8, 8),
+};
