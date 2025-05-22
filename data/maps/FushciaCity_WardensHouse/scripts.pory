@@ -88,13 +88,16 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					delay(60)
 					msgbox("Bwa bwaa.\n", MSGBOX_DEFAULT)
 					closemessage
-					fadescreen(FADE_TO_BLACK)
-					playmoncry(SPECIES_REMORAID, CRY_MODE_NORMAL)
-					waitmoncry
 					delay(30)
+					playmoncry(SPECIES_REMORAID, CRY_MODE_NORMAL)
+					fadescreeninstant(FADE_TO_BLACK)
+					waitmoncry
+					delay(60)
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					msgbox("{PLAYER} fucking died!\n", MSGBOX_DEFAULT)
-					warpsilent(MAP_ROUTE15, 0)
+					setvar(VAR_TEMP_1, 1)
+					closemessage
+					warp(MAP_ROUTE15, 0)
 					release
 					end
 

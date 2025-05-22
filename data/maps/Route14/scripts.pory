@@ -162,7 +162,7 @@ script Route15_PokeRap_Trainer10_Defeat {
 }
 
 script Route15_PokeRap_Trainer11 {
-    ttrainerbattle_single(TRAINER_POKERAP_11, Rapper_11_Intro, "Nice!")
+    trainerbattle_single(TRAINER_POKERAP_11, Rapper_11_Intro, "Nice!")
     msgbox("Placeholder After")
     release
 }

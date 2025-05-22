@@ -8,6 +8,7 @@ script GreatBay_SkyPillarOutside_LookingOut {
     if(var(VAR_RESULT) == DIR_NORTH) {
         applymovement(OBJ_EVENT_ID_PLAYER, GreatBay_PlayerMovesIntoPosition)
         waitmovement(0)
+        delay(30)
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
 
     } else {
