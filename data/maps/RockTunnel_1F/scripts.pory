@@ -57,6 +57,9 @@ const Y4 = 11
 
 script RockTunnel_1F_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ROCK_TUNNEL_1F)
+	if(!checktrainerflag(TRAINER_POKEMANIAC_STEVE)) {
+		setflag(FLAG_TEMP_5)
+	}
 	if(var(VAR_CSR_TURNED_ON_POWER)) {
 		setflashlevel(0)
 	} else {
@@ -141,5 +144,10 @@ script RockTunnel_LightsOut {
 	} else {
 		msgbox("the lights are out oh no\n", MSGBOX_NPC)
 	}
+	end
+}
+
+script RockTunnel_Statistician {
+	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nhow many spiders people eat.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
 	end
 }

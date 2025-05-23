@@ -105,6 +105,6 @@ script Route10_PokemonCenter_MindyTrade_AlreadyTraded {
 }
 
 script Route10_PokemonCenter_EverstoneCop {
-	msgbox("There was a scientist-type here\nearlier.\pHe said something about being\nFOREVER STONED and how he was\lwaiting for a TRAINER to come by.\pI have no clue what he meant, so\nI arrested him just in case.", MSGBOX_NPC)
+	msgbox("There was a scientist-type here\nearlier.\pHe said something about being\nEVER STONED and how he was\lwaiting for a TRAINER to come by.\pI have no clue what he meant, so\nI arrested him just in case.", MSGBOX_NPC)
 	end
 }

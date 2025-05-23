@@ -2051,6 +2051,7 @@ bool8 ScrCmd_checktrainerflag(struct ScriptContext * ctx)
     u16 index = VarGet(ScriptReadHalfword(ctx));
 
     ctx->comparisonResult = HasTrainerBeenFought(index);
+    gSpecialVar_Result = HasTrainerBeenFought(index);
     return FALSE;
 }
 

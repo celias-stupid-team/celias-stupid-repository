@@ -102,8 +102,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 4,
-      "y": 35,
+      "x": 17,
+      "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
       "movement_range_x": 1,
@@ -130,8 +130,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 5,
-      "y": 35,
+      "x": 18,
+      "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
