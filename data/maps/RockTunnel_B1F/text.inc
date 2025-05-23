@@ -36,8 +36,10 @@ RockTunnel_B1F_Text_CooperPostBattle::
     .string "can I have it?$"
 
 RockTunnel_B1F_Text_SteveIntro::
-    .string "Um… Do you know about POKéMON\n"
-    .string "cosplay?$"
+	.string "Wha-?\n"
+	.string "Who's there?\p"
+	.string "Leave me alone!\n"
+	.string "I'm eating dinner!$"
 
 RockTunnel_B1F_Text_SteveDefeat::
     .string "Well, that's that.$"

@@ -1221,12 +1221,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PokemaniacSteve[] = {
     {
         .iv = 30,
         .lvl = 22,
-        .species = SPECIES_CHARMANDER,
+        .species = SPECIES_SPINARAK,
     },
     {
         .iv = 30,
         .lvl = 22,
-        .species = SPECIES_CUBONE,
+        .species = SPECIES_JOLTIK,
     },
 };
 

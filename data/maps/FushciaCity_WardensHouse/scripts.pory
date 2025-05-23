@@ -107,7 +107,7 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					applymovement(WARDEN, Common_Movement_FaceDown)
 					waitmovement(0)
 					closemessage
-					fadeinbgm(1)
+					fadedefaultbgm
 				}
 				setvar(VAR_TEMP_1, 1)
 			} else {
@@ -123,7 +123,7 @@ script WardensHouse_TalkToWarden {
 	lock
 	faceplayer
 	if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-		msgbox("thank you\n", MSGBOX_DEFAULT) //PLACEHOLDER
+		msgbox("WARDEN: Ah, it's {PLAYER}!\nSo lovely to see you.\pThank you again for your help.\nAll of FUSCHIA is in your debt!", MSGBOX_DEFAULT)
 	} else {
 		if(flag(FLAG_WARDENS_TEETH)) {
 			// He has his teeth
@@ -193,6 +193,8 @@ movement WardenGun {
 	raise_hand_and_stop
 }
 
+
+//unused
 script WardensHouse_Warden {
 	if(flag(FLAG_WARDENS_TEETH)) {
 		msgbox("teeth\n", MSGBOX_DEFAULT)
