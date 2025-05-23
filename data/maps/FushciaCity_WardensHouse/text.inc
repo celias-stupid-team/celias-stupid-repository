@@ -56,10 +56,10 @@ FushciaCity_WardensHouse_Text_YouHaveTooMuchStuff::
     .string "いっぱいやんけ！$"
 
 FushciaCity_WardensHouse_Text_MonPhotosFossilsOnDisplay::
-    .string "POKéMON photos and fossils are on\n"
-    .string "display.$"
+	.string "The display case has been\n"
+	.string "stripped dry.$"
 
 FushciaCity_WardensHouse_Text_OldMonMerchandiseOnDisplay::
-    .string "Old POKéMON merchandise is on\n"
-    .string "display.$"
+	.string "The display case has been\n"
+	.string "stripped dry.$"
 

@@ -154,3 +154,104 @@ Route14_Text_JanPostBattle::
 Route14_Text_JanNotEnoughMons::
     .string "JAN: You want to battle?\n"
     .string "You don't have enough POKéMON.$"
+
+
+
+Rapper_1_Intro::
+	.string "Okay, guys!\n"
+	.string "We gotta rap some POKéMON!$"
+Rapper_2_Intro::
+	.string "You just do the singing.\n$"
+Rapper_3_Intro::
+	.string "We'll take care of the hard part!\n$"
+Rapper_4_Intro::
+	.string "Let's get it on!\n$"
+Rapper_5_Intro::
+	.string "I want to be the best\n"
+	.string "there ever was$"
+Rapper_6_Intro::
+	.string "To beat all the rest, yeah\n"
+	.string "that's my cause$"
+Rapper_7_Intro::
+	.string "Catch 'em, catch'em\n"
+	.string "Gotta catch 'em all$"
+Rapper_8_Intro::
+	.string "POKéMON!\n$"
+Rapper_9_Intro::
+	.string "I'll search across the land\n$"
+Rapper_10_Intro::
+	.string "Look far and wide\n$"
+Rapper_11_Intro::
+	.string "Release from my hand\n$"
+Rapper_12_Intro::
+	.string "the power that's inside!\n$"
+Rapper_13_Intro::
+	.string "Catch 'em, catch 'em\n"
+	.string "Gotta catch 'em all$"
+Rapper_14_Intro::
+	.string "Gotta catch 'em all!\n$"
+Rapper_15_Intro::
+	.string "POKéMON!\n$"
+Rapper_16_Intro::
+	.string "Gotta catch 'em all\n"
+	.string "Gotta catch 'em all$"
+Rapper_17_Intro::
+	.string "Yeah\n$"
+Rapper_18_Intro::
+	.string "Gotta catch 'em all\n"
+	.string "Gotta catch 'em all$"
+Rapper_19_Intro::
+	.string "Yeah\n$"
+Rapper_20_Intro::
+	.string "Gotta catch 'em all\n$"
+Rapper_21_Intro::
+	.string "POKéMON!\n$"
+Rapper_22_Intro::
+	.string "Ow!\n$"
+Rapper_23_Intro::
+	.string "At least one-hundred and fifty\n"
+	.string "or more to see!$"
+Rapper_24_Intro::
+	.string "To be a POKéMON MASTER is my\n"
+	.string "destiny!$"
+Rapper_25_Intro::
+	.string "Woo!\n"
+	.string "We're at the halfway point$"
+Rapper_26_Intro::
+	.string "Doing great so far!\n$"
+Rapper_27_Intro::
+	.string "We?\n"
+	.string "What's all this “we” stuff?$"
+Rapper_28_Intro::
+	.string "I'm doing all the hard work!\n$"
+
+Rapper_29_Intro::
+	.string "Breaktime's over, here we go!\n$"
+Rapper_30_Intro::
+	.string "Gotta catch 'em all\n"
+	.string "Gotta catch 'em all$"
+Rapper_31_Intro::
+	.string "Yeah\n$"
+Rapper_32_Intro::
+	.string "Gotta catch 'em all\n"
+	.string "Gotta catch 'em all$"
+Rapper_33_Intro::
+	.string "Yeah\n$"
+Rapper_34_Intro::
+	.string "At least one-hundred and fifty\n"
+	.string "or more to see!$"
+Rapper_35_Intro::
+	.string "To be a POKéMON MASTER is my\n"
+	.string "destiny!$"
+Rapper_36_Intro::
+	.string "Shake out those lips!$"
+Rapper_37_Intro::
+	.string "It's down hill from here.\n"
+	.string "Just 24 more to go!$"
+Rapper_38_Intro::
+	.string "Now it gets tricky, so listen\n"
+	.string "real good!$"
+Rapper_39_Intro::
+	.string "We're almost home!\n$"
+Rapper_40_Intro::
+	.string "That's all, folks!\n$"

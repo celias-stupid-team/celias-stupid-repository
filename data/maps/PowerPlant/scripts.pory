@@ -97,7 +97,10 @@ PowerPlant_EventScript_FoughtElectrode2::
 	goto EventScript_RemoveStaticMon
 	end
 `
-
+const ELECTRODE_1 = 1
+const ELECTRODE_2 = 2
+const ELECTRODE_3 = 3
+const ELECTRODE_4 = 4
 script PowerPlant_MagnemiteMan {
 	lock
 	faceplayer
@@ -228,6 +231,7 @@ script PowerPlant_MinigameStart {
 		msgbox("no power\nplay game?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			if(checkitem(ITEM_EVERSTONE)) {
+				call(PowerPlant_ElectrodesSlideDown)
 				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 1)
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
@@ -247,4 +251,39 @@ script PowerPlant_MinigameStart {
 script PowerPlant_Electrode {
 	msgbox("placeholder\n", MSGBOX_SIGN)
 	end
+}
+
+
+
+script PowerPlant_ElectrodesSlideDown {
+	fadenewbgm(MUS_NONE)
+	addobject(ELECTRODE_1)
+	addobject(ELECTRODE_2)
+	addobject(ELECTRODE_3)
+	addobject(ELECTRODE_4)
+	applymovement(ELECTRODE_1, PowerPlant_ElectrodeMoveDown)
+	playse(SE_FALL)
+	delay(20)
+	applymovement(ELECTRODE_2, PowerPlant_ElectrodeMoveDown)
+	playse(SE_FALL)
+	delay(20)
+	applymovement(ELECTRODE_3, PowerPlant_ElectrodeMoveDown)
+	playse(SE_FALL)
+	delay(20)
+	applymovement(ELECTRODE_4, PowerPlant_ElectrodeMoveDown)
+	playse(SE_FALL)
+	delay(60)
+	return
+}
+
+movement PowerPlant_ElectrodeMoveDown {
+	slide_down * 6
+}
+
+movement PowerPlant_CameraGoUp {
+	walk_up * 3
+}
+
+movement PowerPlant_CameraGoDown {
+	walk_down * 3
 }

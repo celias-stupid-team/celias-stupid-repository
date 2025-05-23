@@ -18,6 +18,7 @@ script BrendanMay_Machoke {
 }
 
 script BrendanMay_Mom {
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     if(flag(FLAG_TEMP_1)) {
         msgbox("Oh, wasn't there a POKéMON over\nthere helping us move in?\pI wonder what happened to it.\n", MSGBOX_NPC)
     } else {

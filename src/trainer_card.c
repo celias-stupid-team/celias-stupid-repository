@@ -69,7 +69,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 badgeTiles[0x80 * 8]; //Num Badges needs un-fucked I guess
     u16 stickerTiles[0x100];
     u16 cardTiles[0x1180];
     u16 cardTilemapBuffer[0x1000];

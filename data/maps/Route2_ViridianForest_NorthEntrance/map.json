@@ -33,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 4,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -61,21 +61,21 @@
   "warp_events": [
     {
       "x": 6,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_VIRIDIAN_FOREST",
       "dest_warp_id": "2"
     },
     {
       "x": 7,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_VIRIDIAN_FOREST",
       "dest_warp_id": "2"
     },
     {
       "x": 8,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_VIRIDIAN_FOREST",
       "dest_warp_id": "2"

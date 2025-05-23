@@ -105,6 +105,7 @@
 #define METATILE_MtEmber_CaveEntrance  0x346
 
 // gTileset_NewFuchsiaGym
+#define METATILE_NewFuchsiaGym_FushciaDoor          0x357
 #define METATILE_NewFuchsiaGym_GreenOpenCurtain1    0x2D5
 #define METATILE_NewFuchsiaGym_GreenOpenCurtain10   0x2E7
 #define METATILE_NewFuchsiaGym_GreenOpenCurtain2    0x2D6

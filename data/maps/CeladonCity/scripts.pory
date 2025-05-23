@@ -4,10 +4,7 @@ raw `
 
 
 
-CeladonCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_CELADON_CITY
-	setbench BENCH_CELADON
-	end
+
 
 CeladonCity_EventScript_LittleGirl::
 	msgbox CeladonCity_Text_GotMyKoffingInCinnabar, MSGBOX_NPC
@@ -15,6 +12,7 @@ CeladonCity_EventScript_LittleGirl::
 
 CeladonCity_EventScript_OldMan1::
 	lock
+	faceplayer
 	msgbox CeladonCity_Text_GymIsGreatFullOfWomen
 	release
 	end
@@ -107,7 +105,14 @@ CeladonCity_EventScript_GameCornerSign::
 
 const CELIA = 15
 mapscripts CeladonCity_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION: CeladonCity_OnTransition
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_CELADON_CITY)
+		setbench(BENCH_CELADON)
+		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
+			setflag(FLAG_TEMP_3)
+		} 
+	
+	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_CURRENT_CELIA_SECRET, 5 {
 			lock
@@ -422,6 +427,8 @@ script CeladonCity_EventScript_EggMan {
 	}
 }
 
+
+
 script CeliaSecrets_CeladonStart {
 	msgbox("The first three houses are designed\nto show you the randomization.\pThe first two lead directly to each\nother, and then the third goes to\lthe CENTER.\pThis sets the tone for the area\nwithout being too confusing!", MSGBOX_NPC)
 	end
@@ -575,3 +582,4 @@ script CeliaSecrets_CeladonShinies {
 	msgbox("Yeah, the shinies are guaranteed.\n", MSGBOX_NPC)
 	end
 }
+

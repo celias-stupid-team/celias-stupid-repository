@@ -61,21 +61,21 @@
   "warp_events": [
     {
       "x": 6,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "2"
     },
     {
       "x": 7,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "2"
     },
     {
       "x": 8,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "2"

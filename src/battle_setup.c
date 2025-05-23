@@ -313,7 +313,13 @@ void StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
+    if(FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
+
+    } else {
+         gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
+
+    }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -327,8 +333,8 @@ void StartMarowakBattle(void)
     {
         gBattleTypeFlags = BATTLE_TYPE_GHOST | BATTLE_TYPE_GHOST_UNVEILED; //make GHOST_UNVEILED the same as regular ghost, except Poke Dolls work
         
-        FlagClear(FLAG_HIDE_CLEFAIRY_DOLL_GIRL);
-        FlagClear(FLAG_TEMP_4);
+        //FlagClear(FLAG_HIDE_CLEFAIRY_DOLL_GIRL);
+        //FlagClear(FLAG_TEMP_4);
         
         CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_GHOST, 30, 31, MON_GENDERLESS, NATURE_SERIOUS, 0);
     }

@@ -1568,7 +1568,7 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 		case 1:
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur)
 		case 2:
-			setflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_SHINY_CREATION) //Charmander
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle)
 		default: 
 			clearflag(FLAG_SHINY_CREATION)

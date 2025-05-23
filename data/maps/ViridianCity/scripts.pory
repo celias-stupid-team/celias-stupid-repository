@@ -715,6 +715,6 @@ script ViridianCity_OnLoad {
 }
 
 script ViridianCity_SetShinyWeedle {
-	setflag(FLAG_SHINY_CREATION)
+	setflag(FLAG_SHINY_CREATION) //Weedle
 	release
 }

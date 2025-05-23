@@ -289,6 +289,9 @@ const u32 gTrainerPalette_SwimmerM[] = INCBIN_U32("graphics/trainers/palettes/sw
 const u32 gTrainerFrontPic_CueBall[] = INCBIN_U32("graphics/trainers/front_pics/cue_ball_front_pic.4bpp.lz");
 const u32 gTrainerPalette_CueBall[] = INCBIN_U32("graphics/trainers/palettes/cue_ball.gbapal.lz");
 
+const u32 gTrainerFrontPic_Cop[] = INCBIN_U32("graphics/trainers/front_pics/cop_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Cop[] = INCBIN_U32("graphics/trainers/palettes/cop.gbapal.lz");
+
 const u32 gTrainerFrontPic_Gamer[] = INCBIN_U32("graphics/trainers/front_pics/gamer_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Gamer[] = INCBIN_U32("graphics/trainers/palettes/gamer.gbapal.lz");
 

@@ -808,7 +808,7 @@
     {
       "id": "LAYOUT_FUSHCIA_CITY",
       "name": "FushciaCity_Layout",
-      "width": 62,
+      "width": 64,
       "height": 42,
       "border_width": 2,
       "border_height": 2,
@@ -1060,7 +1060,7 @@
     {
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
-      "width": 72,
+      "width": 65,
       "height": 33,
       "border_width": 2,
       "border_height": 2,
@@ -2548,7 +2548,7 @@
     {
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
-      "width": 42,
+      "width": 52,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -2764,7 +2764,7 @@
     {
       "id": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
       "name": "FiveIsland_MemorialPillar_Layout",
-      "width": 24,
+      "width": 32,
       "height": 40,
       "border_width": 2,
       "border_height": 2,

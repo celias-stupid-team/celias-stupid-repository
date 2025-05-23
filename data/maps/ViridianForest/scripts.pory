@@ -259,3 +259,16 @@ movement PlayerSeesHer {
 movement CeliaAbsconds {
 	walk_right * 8
 }
+
+script ViridianForest_BuffOak {
+	lock
+	if(checkitem(ITEM_WAILMER_PAIL)) {
+		msgbox("buff tree")
+		removeitem(ITEM_WAILMER_PAIL)
+		additem(ITEM_EMPTY_PAIL)
+		finditem(ITEM_MACHO_BRACE)
+	} else {
+		msgbox("weird tree")
+	}
+	release
+}

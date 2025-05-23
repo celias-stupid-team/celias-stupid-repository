@@ -21,6 +21,7 @@ mapscripts FushciaGym_ToxicDusclopsRoom_MapScripts {
             waitmoncry
             closemessage
             msgbox("DUSCLOPS used TOXIC!\n", MSGBOX_DEFAULT)
+            setstatus1(STATUS1_POISON, 0)
             setflag(FLAG_GOT_POISONED_ONCE)
             release
         }

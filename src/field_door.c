@@ -180,6 +180,8 @@ static const u16 sDoorNullPalette63[16] = {};
 static const u8 sDoorAnimTiles_TrainerTowerRoofElevator[] = INCBIN_U8("graphics/door_anims/trainer_tower_roof_elevator.4bpp");
 static const u16 sDoorNullPalette64[16] = {};
 
+static const u8 sDoorAnimTiles_FushciaGym[] = INCBIN_U8("graphics/door_anims/fushcia_gym.4bpp");
+
 #define CLOSED_DOOR_TILES_OFFSET 0xFFFF
 
 static const struct DoorAnimFrame sDoorAnimFrames_OpenSmall[] = {
@@ -246,6 +248,7 @@ static const u8 sDoorAnimPalettes_Sevii67[] = {5, 5, 5, 5, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_Teleporter[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_TrainerTowerLobbyElevator[] = {8, 8, 2, 2, 2, 2, 2, 2};
 static const u8 sDoorAnimPalettes_TrainerTowerRoofElevator[] = {11, 11, 2, 2, 2, 2, 2, 2};
+static const u8 sDoorAnimPalettes_FushciaGym[] = {7, 7, 7, 7, 7, 7, 7, 7};
 
 static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_General_Door,                                DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_General, sDoorAnimPalettes_General},
@@ -284,6 +287,7 @@ static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_SeaCottage_Teleporter_Door,                  DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sDoorAnimTiles_Teleporter, sDoorAnimPalettes_Teleporter},
     {METATILE_TrainerTower_LobbyElevatorDoor,              DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sDoorAnimTiles_TrainerTowerLobbyElevator, sDoorAnimPalettes_TrainerTowerLobbyElevator},
     {METATILE_TrainerTower_RoofElevatorDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x2, sDoorAnimTiles_TrainerTowerRoofElevator, sDoorAnimPalettes_TrainerTowerRoofElevator},
+    {METATILE_NewFuchsiaGym_FushciaDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_FushciaGym, sDoorAnimPalettes_FushciaGym},
     {}
 };
 

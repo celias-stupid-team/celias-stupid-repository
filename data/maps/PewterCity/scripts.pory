@@ -857,7 +857,7 @@ mapscripts PewterCity_MapScripts {
 			waitmovement(0)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
 			msgbox("Hiya!\nI'm CELIA, the creator!\pWow, you sure did beat that fight\nwithout getting BUTTERFREE!\lThat, uh… impressive?\pY'know, there was an easier way to\ndo it.\lOne that doesn't involve grinding.\pOh, who am I kidding.\nYou already knew that, didn't you?\pWell, if you're so insistent on\ngetting through via levels, here!\lI have a gift for you!", MSGBOX_DEFAULT)
-			setflag(FLAG_SHINY_CREATION)
+			setflag(FLAG_SHINY_CREATION) //Butterfree
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			msgbox("{PLAYER} obtained a comically-strong\nCATERPIE!", MSGBOX_DEFAULT)
 			//gift pokemon

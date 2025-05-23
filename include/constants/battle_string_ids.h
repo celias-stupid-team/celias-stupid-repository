@@ -405,9 +405,11 @@
 #define STRINGID_FICKLE_BEAM 404
 #define STRINGID_FOURSIGHT 405
 #define STRINGID_FOURSIGHT_APPLY 406
-#define STRINGID_NONE 407
+#define STRINGID_BALL_BOUNCED_OFF 407
+#define STRINGID_CANT_BE_CAUGHT 408
+#define STRINGID_NONE 409
 
-#define BATTLESTRINGS_COUNT     408
+#define BATTLESTRINGS_COUNT     410
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

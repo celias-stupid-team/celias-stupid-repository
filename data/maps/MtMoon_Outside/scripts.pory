@@ -27,7 +27,7 @@ script MoonAltar_CameraPan {
             msgbox("The TOXIC SLUDGE in your BAG\ntransformed into GRIMER!", MSGBOX_DEFAULT)
             waitfanfare
             waitmessage
-            setflag(FLAG_SHINY_CREATION)
+            setflag(FLAG_SHINY_CREATION) //Grimer
             setvar(VAR_TEMP_1, SPECIES_GRIMER)
 			givemon(SPECIES_GRIMER, 25)
 			clearflag(FLAG_SHINY_CREATION)

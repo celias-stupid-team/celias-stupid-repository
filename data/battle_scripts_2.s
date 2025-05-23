@@ -130,6 +130,15 @@ BattleScript_TrainerBallBlock::
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
 
+
+BattleScript_BallBouncedOff::
+	waitmessage B_WAIT_TIME_SHORT
+	printstring STRINGID_BALL_BOUNCED_OFF
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_CANT_BE_CAUGHT
+	waitmessage B_WAIT_TIME_LONG
+	finishaction
+
 BattleScript_GhostBallDodge::
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_ITDODGEDBALL

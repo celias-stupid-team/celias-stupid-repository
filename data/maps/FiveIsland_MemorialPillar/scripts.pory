@@ -86,3 +86,15 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 	releaseall
 	end
 `
+
+script MemorialPillar_OnixSign {
+	lock
+	msgbox("it's onix")
+	playfanfare(MUS_SLOTS_WIN)
+	setflag(FLAG_ONIX_TAIL_SIGN)
+	msgbox("pokemon sign")
+	waitfanfare
+	msgbox("here")
+	msgreceiveditem("metal coat", ITEM_METAL_COAT, 1)
+	release
+}
