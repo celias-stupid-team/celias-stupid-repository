@@ -158,6 +158,11 @@
 #define OBJ_EVENT_GFX_ODD_CANDY 153
 #define OBJ_EVENT_GFX_NES                        154
 #define OBJ_EVENT_GFX_BENCH                        155          //Placeholder
+
+
+
+
+
 #define OBJ_EVENT_GFX_SHITPICKLE                        156          //Placeholder
 #define OBJ_EVENT_GFX_ROTOMDEX                        157          //Placeholder
 #define OBJ_EVENT_GFX_MARIOSTAR                        158          //Placeholder
@@ -242,55 +247,33 @@
 #define OBJ_EVENT_GFX_RILEY                        237          //Placeholder
 #define OBJ_EVENT_GFX_DMCADAD                        238          //Placeholder
 #define OBJ_EVENT_GFX_N                        239          //Placeholder
+
 #define OBJ_EVENT_GFX_FALINKS 240
 #define OBJ_EVENT_GFX_ARCEUS 241
 
 #define OBJ_EVENT_GFX_SHADOWKANGA 242
-
 #define OBJ_EVENT_GFX_BOUFFALANT 243
-
 #define OBJ_EVENT_GFX_MACHOKEBOXES 244
-
 #define OBJ_EVENT_GFX_BANETTE 245
-
 #define OBJ_EVENT_GFX_SQUIRTLE 246
-
 #define OBJ_EVENT_GFX_IVYSAUR 247
-
 #define OBJ_EVENT_GFX_CHARIZARD 248
-
 #define OBJ_EVENT_GFX_SLUGMA 249
-
 #define OBJ_EVENT_GFX_DELIBIRD 250
-
 #define OBJ_EVENT_GFX_RSEMOM 251
-
 #define OBJ_EVENT_GFX_ZIGZAGOON 252
-
 #define OBJ_EVENT_GFX_RHYDON 253
-
 #define OBJ_EVENT_GFX_FLOATSTONE 254
-
 #define OBJ_EVENT_GFX_BIRDCULTIST 255
-
 #define OBJ_EVENT_GFX_TENTACOOL 256
-
 #define OBJ_EVENT_GFX_BRELOOM 257
-
 #define OBJ_EVENT_GFX_SAFARIWARDEN 258
-
 #define OBJ_EVENT_GFX_CANNON 259
-
 #define OBJ_EVENT_GFX_SPOTLIGHT 260
-
 #define OBJ_EVENT_GFX_DUSCLOPS 261
-
 #define OBJ_EVENT_GFX_VULPIX 262
-
 #define OBJ_EVENT_GFX_CHILI 263
-
 #define OBJ_EVENT_GFX_CRESS 264
-
 #define OBJ_EVENT_GFX_CILAN 265
 #define OBJ_EVENT_GFX_DRILL 266
 #define OBJ_EVENT_GFX_HIPPO2 267
@@ -307,7 +290,8 @@
 #define OBJ_EVENT_GFX_CURTAIN_TOP 278
 #define OBJ_EVENT_GFX_CURTAIN_BOTTOM 279
 #define OBJ_EVENT_GFX_BUFF_OAK 280
-#define NUM_OBJ_EVENT_GFX 281
+#define OBJ_EVENT_GFX_LUCARIO 281
+#define NUM_OBJ_EVENT_GFX 282
 
 
 

@@ -18,6 +18,11 @@
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
       "offset": 18,
       "direction": "up"
+    },
+    {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": -8,
+      "direction": "left"
     }
   ],
   "object_events": [
