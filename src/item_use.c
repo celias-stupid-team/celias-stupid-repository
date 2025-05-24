@@ -1013,30 +1013,35 @@ static void LWPEmblemWarpOutEffect_Init(struct Task *task)
 
 #define OBJ_EVENT_PAL_TAG_PLAYER_RED   0x1100
 #define OBJ_EVENT_PAL_TAG_PLAYER_GREEN 0x1110
-#define LWP_SPIN_LENGTH                60 
+#define LWP_PLAY_SE                    5 
+#define LWP_SPIN_END                   60 
+#define LWP_SHOW_MESSAGE               100 
 
 static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
 {
     struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
     s16 *data = task->data;
-    tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
-    if (tTimer < LWP_SPIN_LENGTH)
+    
+    if (tTimer == LWP_PLAY_SE)
     {
-        tTimer++;
-        if (tTimer == 5)
-            PlaySE(SE_M_REVERSAL);
+        PlaySE(SE_M_REVERSAL);
     }
-    else if (tTimer >= LWP_SPIN_LENGTH && tCurrentDir == DIR_EAST)
+    else if (tTimer >= LWP_SPIN_END && tCurrentDir == DIR_SOUTH && !tSpinEnded)
     {
         tSpinEnded = TRUE;
-    }
-    else if (tSpinEnded)
-    {
         PlaySE(SE_EXP_MAX);
         LoadObjectEventPalette(gSaveBlock2Ptr->playerGender == MALE ? OBJ_EVENT_PAL_TAG_PLAYER_RED : OBJ_EVENT_PAL_TAG_PLAYER_GREEN);
+    }
+    else if (tSpinEnded && tTimer >= LWP_SHOW_MESSAGE)
+    {
         StringExpandPlaceholders(gStringVar4, gText_LWPEmblemEnd);
         DisplayItemMessageOnField(FindTaskIdByFunc(Task_LWPEmblemWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
     }
+
+    if (!tSpinEnded)
+        tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
+    
+    tTimer++;
 }
 
 #undef tState       
