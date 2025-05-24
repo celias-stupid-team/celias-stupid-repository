@@ -38,17 +38,22 @@ mapscripts FushciaGym_MouseholeHeal_MapScripts {
 }
 
 script FushciaGym_HealNurse {
-    msgbox("heal\n", MSGBOX_DEFAULT)
+    msgbox("Allow me to heal your POKéMON.\n", MSGBOX_DEFAULT)
     special(HealPlayerParty)
     release
 }
 
 script FushciaGym_HippoMiddle {
-    lock
-    playmoncry(SPECIES_HIPPOPOTAS, CRY_MODE_DEFAULT)
-    msgbox("scared\n", MSGBOX_DEFAULT)
+        lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+    delay(60)
+    playmoncry(SPECIES_HIPPOPOTAS, CRY_MODE_NORMAL)
+    msgbox("HIPPOPOTAS: Po-prra…!\n", MSGBOX_DEFAULT)
     waitmoncry
     closemessage
+
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
         setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 2)
     } else {
