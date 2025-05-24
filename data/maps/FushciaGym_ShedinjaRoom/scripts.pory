@@ -71,6 +71,8 @@ script FushciaGym_HippopotasRight {
 
 }
 
+
+const DRILL = 3
 script FushciaGym_CrackedWallRight {
     lock
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
@@ -83,14 +85,38 @@ script FushciaGym_CrackedWallRight {
         msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+            
             closemessage
+            delay(20)
+            addobject(DRILL)
+            playse(SE_M_EARTHQUAKE)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
             setflag(FLAG_DRILLED_RIGHT_HOLE)
-            call(FushciaGym_ShedinjaRoom_DrawDrilledWall)
+            setobjectxy(DRILL, 7, 10)
+
+            applymovement(DRILL, DrillDozesLeft)
+            setmetatile(7, 10, 0x39B, TRUE)
             special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(40)
+            setmetatile(6, 10, 0x39B, TRUE)
+            special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(40)
+            setmetatile(5, 10, 0x39B, TRUE)
+            special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(40)
+            setobjectxy(DRILL, 0, 0)
         }
     }
     release
 }
+
+
 
 script FushciaGym_ShedinjaRoom_DrawDrilledWall {
     

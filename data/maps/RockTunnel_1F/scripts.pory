@@ -142,12 +142,56 @@ script RockTunnel_LightsOut {
 	if(var(VAR_CSR_TURNED_ON_POWER)) {
 		msgbox("the lights are on yay\n", MSGBOX_NPC)
 	} else {
-		msgbox("the lights are out oh no\n", MSGBOX_NPC)
+		msgbox("Oh hey, thanks for lighting\nthe cave up with your POKéMON!\lBut…\pWell, we had a special show set\nup with our light stands.\lWithout POWER, we can't do it!\pHopefully the POWER PLANT will\ncome back on soon…", MSGBOX_NPC)
 	}
 	end
 }
 
 script RockTunnel_Statistician {
 	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nhow many spiders people eat.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
+	end
+}
+
+script RockTunnel_Lucario {
+	lock
+	playmoncry(SPECIES_LUCARIO, CRY_MODE_DEFAULT)
+	msgbox("LUCARIO: Carrr?\n", MSGBOX_DEFAULT)
+	waitmoncry
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, Movement_QuestionMark)
+	closemessage
+	delay(60)
+	msgbox("The POKéMON looks exceedingly\nconfused.", MSGBOX_DEFAULT)
+	release
+}
+
+movement Movement_QuestionMark {
+	emote_question_mark
+}
+
+script RockTunnel_ImpressedNerd {
+	lock
+	msgbox("Wow!\nThat's an awesome costume!\pWhere'd you get it?\n", MSGBOX_DEFAULT)
+	release
+}
+
+script RockTunnel_MaidPsyduck {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("I'm dressed like a MAID as\nPROF. OAK's POKéMON.", MSGBOX_NPC)
+	end
+}
+
+script RockTunnel_BillNerd {
+	msgbox("Have you heard of a POKéMANIAC\nnamed BILL?\lHe's a legend around here.\pThey say he even turned himself\ninto a POKéMON!\pBut…\nNo one's heard from him in a while.\pI hope he's okay.\n", MSGBOX_NPC)
+	end
+}
+
+script RockTunnel_MerchSeller {
+	msgbox("I've been making bank off my\nlife-sized CLEFAIRY DOLLS.", MSGBOX_NPC)
+	end
+}
+
+script RockTunnel_Pokemaniac {
+	msgbox("Another year, another successful\nPOKéMANIAC CONVENTION!\pHopefully next time they won't\nshove us all into a cave.", MSGBOX_NPC)
 	end
 }
