@@ -176,7 +176,15 @@ script PowerPlant_Max {
 }
 
 script PowerPlant_StarmieHint {
+	if(flag(FLAG_CSR_POWER_IS_ON)) {
 
+	} else {
+		if(checkitem(ITEM_EVERSTONE)) {
+			msgbox("Oh, hey!\nIs that a B BUTTON?\pI think that's what our reactor\nneeds to get started again!\lLet's give it a shot!", MSGBOX_NPC)
+		} else {
+			msgbox("I see the problem.\nThe reactor got flipped off.\pAccording to our protocols, to get\nit back on we just need someone to\lplay a fun mini-game!\pBut…\nThe control console is really old.\lI think it's broken, actually.\pUhh… let's try it anyway, maybe?\nNot like we can break it harder!", MSGBOX_NPC)		
+		}
+	}
 }
 
 script PowerPlant_PowerPlantIsBroken {
@@ -231,11 +239,17 @@ script PowerPlant_MinigameStart {
 		msgbox("no power\nplay game?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			if(checkitem(ITEM_EVERSTONE)) {
+				closemessage
 				call(PowerPlant_ElectrodesSlideDown)
 				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 1)
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 				dowildbattle
+				//waitstate
+				special(SpawnCameraObject)
+				applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
+				waitmovement(0)
+				special(RemoveCameraObject)
 			} else {
 				msgbox("cannot beat game\n", MSGBOX_DEFAULT)
 			}
@@ -257,6 +271,9 @@ script PowerPlant_Electrode {
 
 script PowerPlant_ElectrodesSlideDown {
 	fadenewbgm(MUS_NONE)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoUp)
+	waitmovement(0)
 	addobject(ELECTRODE_1)
 	addobject(ELECTRODE_2)
 	addobject(ELECTRODE_3)
@@ -277,13 +294,14 @@ script PowerPlant_ElectrodesSlideDown {
 }
 
 movement PowerPlant_ElectrodeMoveDown {
+	set_visible
 	slide_down * 6
 }
 
 movement PowerPlant_CameraGoUp {
-	walk_up * 3
+	walk_fast_up * 3
 }
 
 movement PowerPlant_CameraGoDown {
-	walk_down * 3
+	walk_fast_up * 3
 }

@@ -1,6 +1,7 @@
 raw `
 RockTunnel_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RockTunnel_1F_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, RockTunnel_1F_OnLoad
 	.byte 0
 
 
@@ -60,9 +61,26 @@ script RockTunnel_1F_OnTransition {
 	if(!checktrainerflag(TRAINER_POKEMANIAC_STEVE)) {
 		setflag(FLAG_TEMP_5)
 	}
+	setflag(FLAG_TEMP_1)
+}
+
+script RockTunnel_1F_OnLoad {
 	if(var(VAR_CSR_TURNED_ON_POWER)) {
 		setflashlevel(0)
 	} else {
+		call(RockTunnel_DrawBlankScreen)
+		//special(DrawWholeMapView)
+		setflag(FLAG_TEMP_2)
+	}
+}
+
+script RockTunnel_ClefableHint {
+	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
+	end
+}
+
+script RockTunnel_DrawBlankScreen {
+	
 		setmetatile(X1, Y1, 0x31B, TRUE)
 		setmetatile(X2, Y1, 0x33D, TRUE)
 		setmetatile(X3, Y1, 0x33D, TRUE)
@@ -86,17 +104,8 @@ script RockTunnel_1F_OnTransition {
 		setmetatile(X3, Y4, 0x33D, TRUE)
 		setmetatile(X4, Y4, 0x33D, TRUE)
 		setmetatile(X5, Y4, 0x33A, TRUE)
-		special(DrawWholeMapView)
-		setflag(FLAG_TEMP_2)
-	}
-	setflag(FLAG_TEMP_1)
+		return
 }
-
-script RockTunnel_ClefableHint {
-	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
-	end
-}
-
 
 const HINT_GIRL = 1
 script RockTunnel_PokemonSign {

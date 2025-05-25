@@ -47,9 +47,9 @@ RockTunnel_B1F_Text_SteveDefeat::
 RockTunnel_B1F_Text_StevePostBattle::
 	.string "Actually, the average FISHERMAN\n"
 	.string "only has one MAGIKARP.\p"
-	.string "FISHERMAN RAYMOND, FISHERMAN MICK,\n"
-	.string "FISHERMAN WADE, and FISHER LUC are\l"
-	.string "all outliers and shouldn't be counted!$"
+	.string "FISHERMEN RAYMOND, MICK, WADE,\n"
+	.string "ANDREW, and MURRAY are outliers\l"
+	.string "and shouldn't have been counted!$"
 
 RockTunnel_B1F_Text_AllenIntro::
     .string "My POKéMON techniques will leave\n"

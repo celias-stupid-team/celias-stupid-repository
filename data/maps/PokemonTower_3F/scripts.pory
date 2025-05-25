@@ -19,7 +19,7 @@ PokemonTower_3F_EventScript_Hope::
 
 mapscripts PokemonTower_3F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(var(VAR_CURRENT_CHAPTER) == 2) || var(VAR_CURRENT_CHAPTER) == 1 {
+		if(var(VAR_CURRENT_CHAPTER) == 2 || var(VAR_CURRENT_CHAPTER) == 1) {
 			setflag(FLAG_TEMP_10)
 		}
 		if(!flag(FLAG_ENTERED_MAROWAK_FIGHT_WITH_SCOPE)) {

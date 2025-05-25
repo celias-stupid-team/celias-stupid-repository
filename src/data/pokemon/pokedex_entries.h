@@ -5420,7 +5420,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_ETERNATUS] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("ECO-FRIEND"),
         .height = 20,
         .weight = 950,
         .description = gEternatusPokedexText,
