@@ -45,9 +45,11 @@ RockTunnel_B1F_Text_SteveDefeat::
     .string "Well, that's that.$"
 
 RockTunnel_B1F_Text_StevePostBattle::
-    .string "POKéMON cosplay is dressing up as\n"
-    .string "POKéMON for fun.\p"
-    .string "CLEFAIRY is a favorite.$"
+	.string "Actually, the average FISHERMAN\n"
+	.string "only has one MAGIKARP.\p"
+	.string "FISHERMAN RAYMOND, FISHERMAN MICK,\n"
+	.string "FISHERMAN WADE, and FISHER LUC are\l"
+	.string "all outliers and shouldn't be counted!$"
 
 RockTunnel_B1F_Text_AllenIntro::
     .string "My POKéMON techniques will leave\n"

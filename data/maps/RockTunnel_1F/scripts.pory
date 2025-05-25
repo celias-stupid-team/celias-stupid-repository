@@ -86,7 +86,7 @@ script RockTunnel_1F_OnTransition {
 		setmetatile(X3, Y4, 0x33D, TRUE)
 		setmetatile(X4, Y4, 0x33D, TRUE)
 		setmetatile(X5, Y4, 0x33A, TRUE)
-
+		special(DrawWholeMapView)
 		setflag(FLAG_TEMP_2)
 	}
 	setflag(FLAG_TEMP_1)
@@ -186,12 +186,178 @@ script RockTunnel_BillNerd {
 	end
 }
 
+const BUYER = 26
+
+const MERCHANT = 21
+const CLEFAIRY1 = 23
+const CLEFAIRY2 = 22
+const CLEFAIRY3 = 20
 script RockTunnel_MerchSeller {
-	msgbox("I've been making bank off my\nlife-sized CLEFAIRY DOLLS.", MSGBOX_NPC)
+	lock
+	faceplayer
+	msgbox("Hey hey!\nWelcome to the MERCH table!\pWanna buy a life-sized CLEFAIRY\ndoll?\lThey're perfect for snuggling!\pWe've got a discount right now.\nOnly ¥100,000,000 each!", MSGBOX_YESNO)
+	closemessage
+	
+	setobjectxy(BUYER, 16, 27)
+	applymovement(BUYER, RockTunnel_NerdBuysStuff)
+	applymovement(CLEFAIRY1, RockTunnel_Clefairy1)
+	applymovement(CLEFAIRY2, RockTunnel_Clefairy2)
+	applymovement(CLEFAIRY3, RockTunnel_Clefairy3)
+	msgbox("Oh… You can't afford one?\nDarn!\pThat's okay, though.\nMaybe you'll get one next time!", MSGBOX_DEFAULT)
+	closemessage
+	waitmovement(BUYER)
+	delay(10)
+	applymovement(BUYER, RockTunnel_WalkInPlace)
+	delay(16)
+	applymovement(MERCHANT, Common_Movement_FaceRight)
+	waitmovement(BUYER)
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Hi! I have a bit of spending money\nleft over.\pI'll just take a few DOLLS.\nThe craftsmanship is lovely!", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Aha!\nAnother passionate CLEFAIRY fan!\lHere you are!", MSGBOX_DEFAULT)
+	playse(SE_SHOP)
+	waitse
+	msgbox("Thanks for the support!\n", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	setobjectxy(BUYER, 14, 17)
+	applymovement(MERCHANT, Common_Movement_FaceDown)
+	applymovement(CLEFAIRY1, Common_Movement_SetVisible)
+	applymovement(CLEFAIRY2, Common_Movement_SetVisible)
+	applymovement(CLEFAIRY3, Common_Movement_SetVisible)
+	applymovement(BUYER, Common_Movement_SetInvisible)
+	delay(20)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("There!\nAll stocked up!", MSGBOX_DEFAULT)
+	release
 	end
 }
+
+movement RockTunnel_WalkInPlace {
+	walk_in_place_left * 2
+	face_left
+}
+
+movement RockTunnel_NerdBuysStuff {
+	set_visible
+	walk_up * 7
+	face_up
+	delay_16
+	walk_left
+	face_up
+	delay_16
+	walk_left
+	face_up
+	delay_16
+	face_left
+}
+
+movement RockTunnel_Clefairy1 {
+	delay_16 * 8
+	delay_8
+	set_invisible
+
+}
+
+movement RockTunnel_Clefairy2 {
+	delay_16 * 10
+	delay_8
+	set_invisible
+
+}
+
+movement RockTunnel_Clefairy3 {
+	delay_16 * 12
+	delay_8
+	set_invisible
+}
+
 
 script RockTunnel_Pokemaniac {
 	msgbox("Another year, another successful\nPOKéMANIAC CONVENTION!\pHopefully next time they won't\nshove us all into a cave.", MSGBOX_NPC)
 	end
 }
+
+
+script RockTunnel_PokeDoll {
+	lock
+	playfanfare(MUS_LEVEL_UP)
+	applymovement(VAR_LAST_TALKED, Common_Movement_SetInvisible)
+	msgbox("{PLAYER} found a POKé DOLL!\n", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	delay(10)
+	playse(SE_PIN)
+	applymovement(MERCHANT, RockTunnel_MerchantLooksOver)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	delay(45)
+	msgbox("Hey!\n", MSGBOX_DEFAULT)
+	closemessage
+	getplayerxy(VAR_TEMP_4, VAR_TEMP_5)
+	switch(var(VAR_TEMP_4)) {
+		case 15:
+			applymovement(MERCHANT, RockTunnel_WalkRightTwo)
+		case 16:
+			applymovement(MERCHANT, RockTunnel_WalkRightThree)
+		default:
+			applymovement(MERCHANT, Common_Movement_WalkRight)
+	}
+	delay(16)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	waitmovement(MERCHANT)
+	msgbox("Those DOLLS aren't free!\nYou can't just take one!", MSGBOX_DEFAULT)
+	closemessage
+	delay(15)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	delay(30)
+	playse(SE_BALL)
+	applymovement(VAR_LAST_TALKED, Common_Movement_SetVisible)
+	delay(30)
+	switch(var(VAR_TEMP_4)) {
+		case 15:
+			applymovement(MERCHANT, RockTunnel_WalkLeftTwo)
+		case 16:
+			applymovement(MERCHANT, RockTunnel_WalkLeftThree)
+		default:
+			applymovement(MERCHANT, Common_Movement_WalkLeft)
+	}
+	waitmovement(MERCHANT)
+	applymovement(MERCHANT, Common_Movement_FaceDown)
+	waitmovement(0)
+	release
+
+}
+
+movement RockTunnel_MerchantLooksOver {
+	face_right
+	emote_exclamation_mark
+}
+
+movement RockTunnel_WalkRightTwo {
+	walk_right * 2
+	face_right
+}
+
+
+movement RockTunnel_WalkLeftTwo {
+	walk_left * 2
+}
+
+movement RockTunnel_WalkRightThree {
+	walk_right * 3
+	face_right
+}
+
+
+movement RockTunnel_WalkLeftThree {
+	walk_left * 3
+}
+
+movement RockTunnel_Buyer {
+
+}
+

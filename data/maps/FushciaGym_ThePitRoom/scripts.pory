@@ -29,13 +29,21 @@ movement FushciaGym_PlayerJumpsBack {
 script FushciaGym_ThePitRoom_LassBreaksWall {
     lock
     waitse
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     playbgm(MUS_LASS_INTRO, FALSE)
-    delay(60)
+    delay(90)
     playbgm(MUS_NONE, TRUE)
     playse(SE_M_STRENGTH)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    delay(60)
+    playse(SE_M_STRENGTH)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
     setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
     special(ShakeScreen)
     delay(60)
