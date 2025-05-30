@@ -4755,19 +4755,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FOLLOW_HIM] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_FOLLOW_HIM,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 6,
-        .flags = FLAG_PROTECT_AFFECTED
     },
 
     [MOVE_SPIKY_SHIELD] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_SPIKY_SHIELD,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,
@@ -4984,7 +4983,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FLY_O_METEOR] =    {
-        .effect = EFFECT_OVERHEAT,
+        .effect = EFFECT_FLY_O_METEOR,
         .power = 140,
         .type = TYPE_FLYING,
         .accuracy = 90,
@@ -5742,12 +5741,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_AQUA_STEP] =    {
-        .effect = EFFECT_HIT,  // Placeholder Effect
+        .effect = EFFECT_SPEED_UP_HIT,  // Placeholder Effect
         .power = 80,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
-        .secondaryEffectChance = 10,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
@@ -6126,15 +6125,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_GULP] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
+        .effect = EFFECT_FEINT, // Placeholder Effect
         .power = 80,
-        .type = TYPE_NORMAL,
+        .type = TYPE_DRAGON,
         .accuracy = 100,
-        .pp = 35,
-        .secondaryEffectChance = 10,
-        .target = MOVE_TARGET_SELECTED,
+        .pp = 15,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_MAKES_CONTACT | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED
     },
 
     [MOVE_GROUND_POUND] =    {
@@ -7203,7 +7202,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
-    
 
 };
 

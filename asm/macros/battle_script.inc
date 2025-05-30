@@ -1406,6 +1406,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifabsent battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_ABSENT
+	.4byte \jumpInstr
+	.endm
+
 	.macro forfeityesnobox battler:req
 	various \battler, VARIOUS_EMIT_YESNOBOX
 	.endm
