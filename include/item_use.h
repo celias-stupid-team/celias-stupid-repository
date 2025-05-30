@@ -42,6 +42,7 @@ void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseEscapeRopeOnCurrMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void FieldUseFunc_LWPEmblem(u8 taskId);
+void FieldUseFunc_GenderFluid(u8 taskId);
 
 
 void FieldUseFunc_PayDayTM(u8 taskId);
