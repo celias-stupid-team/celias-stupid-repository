@@ -35,6 +35,7 @@ script SafariZone_EnterArena {
     waitmovement(0)
     delay(60)
     applymovement(DMCA_LEAD, Common_Movement_WalkDown)
+    waitmovement(0)
     goto(SafariZone_IronCleftBattle)
 
 }

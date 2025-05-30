@@ -15,12 +15,21 @@ SafariZone_Center_EventScript_AreaSign::
 	msgbox SafariZone_Center_Text_CenterArea, MSGBOX_SIGN
 	end
 `
+const DMCA_Lead = 4
+const DMCA_Left = 2
+const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
 		if(flag(FLAG_NO_TM_CASE)) {
 			setflag(FLAG_TEMP_3)
+		}
+		
+		if(flag(FLAG_FREED_KANGA)) {
+			call(SafariZone_Center_BreakLeftWall)
+			call(SafariZone_Center_BreakMiddleWall)
+			call(SafariZone_Center_BreakRightWall)
 		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
@@ -35,14 +44,30 @@ mapscripts SafariZone_Center_MapScripts {
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
-			msgbox("no case for you\n", MSGBOX_DEFAULT)
+			applymovement(DMCA_Lead, DMCA_Lead_Down)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_MALE)
+			delay(20)
+			msgbox("Hey!\nHow'd you get your TM CASE back?\pGrr…\nGive it here!", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			fadescreen(FADE_TO_BLACK)
+			removeobject(DMCA_Lead)
+			removeobject(DMCA_Right)
+			removeobject(DMCA_Left)
 			setflag(FLAG_TEMP_2)
 			removeitem(ITEM_TM_CASE)
 			setflag(FLAG_NO_TM_CASE)
+			fadescreen(FADE_FROM_BLACK)
 			release
 			end
 		}
 	]
+}
+
+movement DMCA_Lead_Down {
+	walk_down
+	face_down
 }
 
 script SafariZone_BrickBreakTM {
@@ -62,20 +87,171 @@ const BIG_KANGA = 7
 const SMALL_KANGA = 6
 script SafariZone_KangaskahnCage {
 	lock
-	msgbox("Big kanga trapped :(\n", MSGBOX_DEFAULT)
-	if(checkitem(ITEM_TM32)) {
-		msgbox("Give brick break?\n", MSGBOX_YESNO)
+	applymovement(BIG_KANGA, Common_Movement_FaceDown)
+	if(flag(FLAG_FREED_KANGA)) {
+		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	if(checkitem(ITEM_ODD_CANDY)) {
+		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			msgbox("It is implied that the bricks have\nbeen broken.", MSGBOX_DEFAULT)
-			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_KANGASKHAN)
-			removeobject(BIG_KANGA)
-			removeobject(SMALL_KANGA)
-			call(Common_Script_ObtainedPokemon)
-
-		}
+			msgbox("Which TM would you like to give?\n", MSGBOX_DEFAULT)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_FREED_KANGA)
+				removeitem(ITEM_TM32)
+				playfanfare(MUS_LEVEL_UP)
+				msgbox("{PLAYER} gave the TM32 to the\nimprisoned KANGASKHAN!", MSGBOX_DEFAULT)
+				waitfanfare
+				closemessage
+				applymovement(BIG_KANGA, SafariZone_KangaskahnWalkInPlace)
+				waitmovement(0)
+				playse(SE_PC_LOGIN)
+				msgbox("KANGASKHAN booted up the TM!\pIt contained BRICK BREAK!\n", MSGBOX_DEFAULT)
+				closemessage
+				fadenewbgm(MUS_NONE)
+				delay(30)
+				applymovement(BIG_KANGA, Common_Movement_FaceRight)
+				delay(60)
+				playmoncry(BIG_KANGA, CRY_MODE_DEFAULT)
+				waitmoncry
+				delay(20)
+				applymovement(BIG_KANGA, SafariZone_KangaAttackWall1)
+				waitmovement(0)
+				playse(SE_M_HORN_ATTACK)
+				applymovement(BIG_KANGA, SafariZone_KangaAttackWall2)
+				waitmovement(0)
+				playse(SE_M_HORN_ATTACK)
+				applymovement(BIG_KANGA, SafariZone_KangaAttackWall2)
+				waitmovement(0)
+				playse(SE_M_EXPLOSION)
+				fadescreen(FADE_TO_WHITE)
+				call(SafariZone_Center_BreakMiddleWall)
+				special(DrawWholeMapView)
+				playbgm(MUS_SEVII_ROUTE, TRUE)
+				fadescreen(FADE_FROM_WHITE)
+				delay(60)
+				applymovement(SMALL_KANGA, Common_Movement_FaceLeft)
+				waitmovement(0)
+				playse(SE_PIN)
+				applymovement(SMALL_KANGA, Common_Movement_ExclamationMark)
+				delay(60)
+				msgbox("KANGASKHAN: Gah!\nKan-Gah!!", MSGBOX_DEFAULT)
+				closemessage
+				applymovement(SMALL_KANGA, Common_Movement_WalkLeft)
+				waitmovement(0)
+				playse(SE_LEDGE)
+				applymovement(SMALL_KANGA, SafariZone_BabyJumpLeft)
+				waitmovement(0)
+				delay(60)
+				applymovement(BIG_KANGA, SafariZone_KangaWalksOverToYou)
+				waitmovement(0)
+				playse(SE_M_EXPLOSION)
+				fadescreen(FADE_TO_WHITE)
+				call(SafariZone_Center_BreakLeftWall)
+				special(DrawWholeMapView)
+				fadescreen(FADE_FROM_WHITE)
+				delay(60)
+				playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
+				waitmoncry
+				msgbox("The KANGASKHAN breathes a sigh of\nrelief.", MSGBOX_DEFAULT)
+				closemessage
+				applymovement(BIG_KANGA, Common_Movement_WalkDown)
+				waitmovement(0)
+				msgbox("…Oh?\nWhat's this?\pKANGASKHAN would like to join you\non your adventure!", MSGBOX_DEFAULT)
+				playfanfare(MUS_LEVEL_UP)
+				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_KANGASKHAN)
+				removeobject(BIG_KANGA)
+				removeobject(SMALL_KANGA)
+				setflag(FLAG_FREED_KANGA)
+				msgbox("{PLAYER} obtained the grateful\nKANGASKHAN!", MSGBOX_DEFAULT)
+				call(Common_Script_ObtainedPokemon)
+				fadedefaultbgm
+				release
+			}
+		} else {
+			closemessage
+			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
+			msgbox("KANGASKHAN: Gah! Kan-gah!\n", MSGBOX_DEFAULT)
+			waitmoncry
+			closemessage
+			delay(20)
+			msgbox("The POKéMON looks thoroughly\nforlorn.", MSGBOX_DEFAULT)
+		} 
+	} else {
+		
+		msgbox("She's separated from her child…\n", MSGBOX_DEFAULT)
 	}
 	release
 }
+
+movement SafariZone_BabyJumpLeft {
+	jump_2_left
+	set_invisible
+}
+
+movement SafariZone_KangaskahnWalkInPlace {
+	walk_in_place_down * 2
+	face_down
+}
+
+movement SafariZone_KangaAttackWall1 {
+	walk_fast_right
+	face_right
+}
+
+
+movement SafariZone_KangaAttackWall2 {
+	lock_facing_direction
+	walk_slow_left
+	face_right
+	delay_16 * 2
+	walk_fast_right
+	face_right
+	unlock_facing_direction
+}
+
+movement SafariZone_KangaWalksOverToYou {
+	walk_left
+	face_down
+	delay_16 * 2
+	walk_fast_down
+	face_down
+}
+
+script SafariZone_Center_BreakLeftWall {
+	setmetatile(11, 12, 0x0D8, FALSE)
+	setmetatile(12, 12, 0x0D9, FALSE)
+	setmetatile(13, 12, 0x0D9, FALSE)
+	setmetatile(11, 13, 0x0E0, FALSE)
+	setmetatile(12, 13, 0x0E1, FALSE)
+	setmetatile(13, 13, 0x0E1, FALSE)
+	return
+}
+
+script SafariZone_Center_BreakMiddleWall {
+	setmetatile(14, 10, 0x294, FALSE)
+	setmetatile(14, 11, 0x0D1, FALSE)
+	setmetatile(14, 12, 0x0D9, FALSE)
+	return
+
+}
+
+script SafariZone_Center_BreakRightWall {
+	setmetatile(15, 12, 0x0D9, FALSE)
+	setmetatile(16, 12, 0x0D9, FALSE)
+	setmetatile(17, 12, 0x0DA, FALSE)
+	setmetatile(15, 13, 0x0E1, FALSE)
+	setmetatile(16, 13, 0x0E1, FALSE)
+	setmetatile(17, 13, 0x0E2, FALSE)
+	return
+
+}
+
 
 script SafariZone_KangaJailDMCA {
 	msgbox("This POKéMON was holding an\nillegal copy of itself.\pI've put into custody until I can\nfigure out which came first.", MSGBOX_NPC)
@@ -84,13 +260,18 @@ script SafariZone_KangaJailDMCA {
 
 script SafariZone_KangaBabyCage {
 	lock
-	msgbox("Baby kanga trapped :(\n", MSGBOX_DEFAULT)
+	if(flag(FLAG_FREED_KANGA)) {
+		release
+		end
+	}
+	playmoncry(SPECIES_CUBONE, CRY_MODE_FAINT)
+	msgbox("BABY: Ka-kanga?\n", MSGBOX_DEFAULT)
+	waitmoncry
+	
 	release
 }
 
-const DMCA_Lead = 4
-const DMCA_Left = 2
-const DMCA_Right = 3
+
 script SafariZone_Center_DMCA_Take_Case {
 	lock
 	textcolor(NPC_TEXT_COLOR_MALE)

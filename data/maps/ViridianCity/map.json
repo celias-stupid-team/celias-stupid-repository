@@ -511,7 +511,7 @@
     {
       "type": "sign",
       "x": 53,
-      "y": 15,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_EventScript_GamblerDoor"

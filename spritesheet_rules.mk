@@ -797,3 +797,6 @@ $(OBJEVENTGFXDIR)/stupid/Lucario.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/Psyduck_maid.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+
+$(OBJEVENTGFXDIR)/stupid/Kanga_Baby.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2

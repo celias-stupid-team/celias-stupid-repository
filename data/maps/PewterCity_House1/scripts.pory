@@ -56,3 +56,8 @@ script PewterCity_Furret_F {
 	msgbox("FURRET is walking!\n", MSGBOX_DEFAULT)
 	release
 }
+
+script PewterCity_Furret_Oak {
+	msgbox("OAK is not walking.\n", MSGBOX_SIGN)
+	end
+}

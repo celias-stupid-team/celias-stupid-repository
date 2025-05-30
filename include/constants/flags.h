@@ -899,7 +899,8 @@
 #define FLAG_0x340               0x340
 #define FLAG_0x341               0x341
 #define FLAG_0x342               0x342
-#define FLAG_0x343               0x343
+
+#define FLAG_FREED_KANGA               0x343
 #define FLAG_0x344               0x344
 #define FLAG_0x345               0x345
 #define FLAG_0x346               0x346
