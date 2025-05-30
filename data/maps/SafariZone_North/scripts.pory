@@ -28,12 +28,7 @@ mapscripts SafariZone_North_MapScripts {
 		} 
 	}
 	MAP_SCRIPT_ON_TRANSITION {
-		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-			setflag(FLAG_TEMP_2)
-		} else {
-			clearflag(FLAG_TEMP_2)
-		}
-		
+	
 	}
 	
 }
