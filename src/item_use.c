@@ -33,6 +33,7 @@
 #include "vs_seeker.h"
 #include "constants/sound.h"
 #include "constants/event_object_movement.h"
+#include "constants/event_objects.h"
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/maps.h"
@@ -77,6 +78,12 @@ static void StartLWPEmblemFieldEffect(void);
 static void Task_LWPEmblemWarpOut(u8 taskId);
 static void LWPEmblemWarpOutEffect_Init(struct Task *task);
 static void LWPEmblemWarpOutEffect_Spin(struct Task *task);
+static void ItemUseOnFieldCB_GenderFluid(u8 taskId);
+static void Task_UseGenderFluidOnField(u8 taskId);
+static void StartGenderFluidFieldEffect(void);
+static void Task_GenderFluidWarpOut(u8 taskId);
+static void GenderFluidWarpOutEffect_Init(struct Task *task);
+static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -960,7 +967,7 @@ void FieldUseFunc_LWPEmblem(u8 taskId)
 {
     PlaySE(SE_SELECT);
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_LWPEmblem);
+    StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
 
     sItemUseOnFieldCB = ItemUseOnFieldCB_LWPEmblem;
     SetUpItemUseOnFieldCallback(taskId);
@@ -1044,6 +1051,103 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
     tTimer++;
 }
 
+void FieldUseFunc_GenderFluid(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE | PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER))
+    {
+        StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_GenderFluid;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        StringExpandPlaceholders(gStringVar4, gText_DontDrinkAndDrive);
+        DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_NORMAL, gStringVar4); // data[3] == inField
+    }
+}
+
+static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
+{
+    if (gSaveBlock2Ptr->playerGender == MALE)
+    {
+        gSaveBlock2Ptr->playerGender = FEMALE;
+        gPlayerAvatar.gender = FEMALE;
+    }
+    else
+    {
+        gSaveBlock2Ptr->playerGender = MALE;
+        gPlayerAvatar.gender = MALE;
+    }
+    
+    DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseGenderFluidOnField);
+}
+
+static void Task_UseGenderFluidOnField(u8 taskId)
+{
+    ResetInitialPlayerAvatarState();
+    StartGenderFluidFieldEffect();
+    DestroyTask(taskId);
+}
+
+static void StartGenderFluidFieldEffect(void)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    CreateTask(Task_GenderFluidWarpOut, 80);
+}
+
+static void (*const sGenderFluidWarpOutEffectFuncs[])(struct Task *task) =
+{
+    GenderFluidWarpOutEffect_Init,
+    GenderFluidWarpOutEffect_Spin
+};
+
+static void Task_GenderFluidWarpOut(u8 taskId)
+{
+    sGenderFluidWarpOutEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
+}
+
+static void GenderFluidWarpOutEffect_Init(struct Task *task)
+{
+    task->tState++;
+    task->tDirection = DIR_NONE;
+}
+
+#define GF_PLAY_SE      5 
+#define GF_SPIN_END     60 
+#define GF_SHOW_MESSAGE 100 
+
+static void GenderFluidWarpOutEffect_Spin(struct Task *task)
+{
+    struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+    s16 *data = task->data;
+    
+    if (tTimer == GF_PLAY_SE)
+    {
+        PlaySE(SE_M_REVERSAL);
+    }
+    else if (tTimer >= GF_SPIN_END && tCurrentDir == DIR_SOUTH && !tSpinEnded)
+    {
+        tSpinEnded = TRUE;
+        PlaySE(SE_EXP_MAX);
+        ObjectEventSetGraphicsId(playerObj, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_NORMAL));
+        ObjectEventClearHeldMovement(playerObj);
+        PlayerFaceDirection(GetPlayerFacingDirection());
+    }
+    else if (tSpinEnded && tTimer >= GF_SHOW_MESSAGE)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_GenderFluidEnd);
+        DisplayItemMessageOnField(FindTaskIdByFunc(Task_GenderFluidWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+    }
+
+    if (!tSpinEnded)
+        tCurrentDir = SpinObjectEvent(playerObj, &task->tSpinDelay, &task->tNumTurns);
+    
+    tTimer++;
+}
 #undef tState       
 #undef tSpinDelay   
 #undef tNumTurns    

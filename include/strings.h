@@ -188,6 +188,7 @@ extern const u8 gText_ReturnToPC[];
 
 extern const u8 gText_OakForbidsUseOfItemHere[];
 extern const u8 gText_CantDismountBike[];
+extern const u8 gText_DontDrinkAndDrive[];
 extern const u8 gText_CoinCase[];
 extern const u8 gText_PlayerUsedVar2[];
 extern const u8 gText_RepelEffectsLingered[];
@@ -1584,7 +1585,9 @@ extern const u8 gText_PokeSum_EggOrigin_Spa[];
 extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
 // csr outfits
-extern const u8 gText_LWPEmblem[];
+extern const u8 gText_UsedTheItem[];
 extern const u8 gText_LWPEmblemEnd[];
+
+extern const u8 gText_GenderFluidEnd[];
 
 #endif //GUARD_STRINGS_H
