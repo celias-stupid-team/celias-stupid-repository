@@ -433,4 +433,4 @@ const u32 gObjectEventPic_Curtain_top[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Curtain_bottom[] = INCBIN_U32("graphics/object_events/pics/stupid/curtain_bottom.4bpp");
 const u32 gObjectEventPic_Buff_oak[] = INCBIN_U32("graphics/object_events/pics/stupid/Buff_oak.4bpp");
 const u32 gObjectEventPic_Lucario[] = INCBIN_U32("graphics/object_events/pics/stupid/Lucario.4bpp");
-const u32 gObjectEventPic_Psyduck_maid[] = INCBIN_U32("graphics/object_events/pics/stupid/Psyduck_maid.4bpp");
+const u32 gObjectEventPic_Psyduck_maid[] = INCBIN_U32("graphics/object_events/pics/stupid/psyduck_maid.4bpp");
