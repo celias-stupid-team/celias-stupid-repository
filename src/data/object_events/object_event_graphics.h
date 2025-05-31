@@ -44,6 +44,7 @@ const u16 gObjectEventPal_Brandon[] = INCBIN_U16("graphics/object_events/palette
 const u16 gObjectEventPal_Greta[] = INCBIN_U16("graphics/object_events/palettes/greta.gbapal");
 const u16 gObjectEventPal_Anabel[] = INCBIN_U16("graphics/object_events/palettes/anabel.gbapal");
 const u16 gObjectEventPal_Curtain[] = INCBIN_U16("graphics/object_events/palettes/curtain.gbapal");
+const u16 gObjectEventPal_BuffOak[] = INCBIN_U16("graphics/object_events/palettes/buff_oak.gbapal");
 const u16 gObjectEventPaletteNull1[16] = {};
 const u16 gObjectEventPaletteNull2[16] = {};
 const u16 gObjectEventPaletteNull3[16] = {};
