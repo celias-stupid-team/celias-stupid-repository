@@ -1,14 +1,79 @@
+
+const DMCA_LEAD = 1
+const DMCA_2 = 2
+const DMCA_3 = 3
+const WARDEN = 4
+const GURU = 5
+
+
 mapscripts SafariZone_DMCAShowdown_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
             playbgm(MUS_NONE, TRUE)
         }
+        if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			setflag(FLAG_TEMP_2)
+		} else {
+			clearflag(FLAG_TEMP_2)
+		}
+		
+	
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_3, 1 {
+            addobject(WARDEN)
+            addobject(GURU)
+            setobjectxy(WARDEN, 10, 15)
+            playse(SE_EXIT)
+            special(SpawnCameraObject)
+            applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
+            waitmovement(0)
+            applymovement(WARDEN, WardenEnters)
+            delay(30)
+            applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksDown)
+            playse(SE_PIN)
+            delay(40)
+            waitmovement(OBJ_EVENT_ID_CAMERA)
+            waitmovement(WARDEN)
+            special(RemoveCameraObject)
+            textcolor(NPC_TEXT_COLOR_BLUE)
+            msgbox("WARDEN: Oh, lovely!\nLooks like you're all wrapped up.\pThose DMCA fiends were no match\nfor you!\pFrom the bottom of my heart, thank\nyou.\lYou've saved my life's work.", MSGBOX_DEFAULT)
+            closemessage
+            applymovement(WARDEN, WardenContemplates)
+            waitmovement(0)
+            setobjectxy(GURU, 10, 15)
+            applymovement(GURU, GuruEnters)
+            msgbox("Now the only thing I'm still\nconcerned about is…", MSGBOX_DEFAULT)
+            closemessage
+            waitmovement(0)
+            applymovement(WARDEN, PlayerLooksDown)
+            playse(SE_PIN)
+            delay(60)
+            msgbox("Ah! It's my good friend, the\nFISHING GURU'S BROTHER!\lI'm glad to see you're safe.", MSGBOX_DEFAULT)
+            closemessage
+            msgbox("FISHING GURU'S BROTHER: Aha!\nWe've done it!\pWe've finally shown those corporate\njerks who's boss!", MSGBOX_DEFAULT)
+            closemessage
+            msgbox("WARDEN: Lovely!\nAnd I know that you helped as well.\pThank you so much, the FISHING\nGURU'S BROTHER!", MSGBOX_DEFAULT)
+            closemessage
+            delay(40)
+            msgbox("FISHING GURU'S BROTHER: Oh!\nBy the way, {PLAYER}.\pWhile I was captured, they hid\nthis near my cell.\lI've been holding onto it.\pHere, take it.\nYou've easily earned it back.", MSGBOX_DEFAULT)
+            giveitem_msg("{PLAYER} reclaimed the TM CASE!\n", ITEM_TM_CASE)
+            waitfanfare
+            msgbox("WARDEN: Come, let's head back home.\pI'm eager to move on from this\ntrying time.\pWhat say you, the FISHING GURU'S\nBROTHER?", MSGBOX_DEFAULT)
+            closemessage
+            msgbox("FISHING GURU'S BROTHER: Same here!\nI'm ready to take a long nap.", MSGBOX_DEFAULT)
+            closemessage
+            msgbox("WARDEN: Come, {PLAYER}.\nYou should join us!", MSGBOX_DEFAULT)
+            closemessage
+            setvar(VAR_TEMP_3, 2)
+            warp(MAP_FUSHCIA_CITY_WARDENS_HOUSE, 1)
+        
+            release
+            end
+        }
+    ]
 }
 
-const DMCA_LEAD = 1
-const DMCA_2 = 2
-const DMCA_3 = 3
 
 
 script SafariZone_EnterArena {
@@ -25,16 +90,18 @@ script SafariZone_EnterArena {
     switch(var(VAR_TEMP_1)) {
         case 9:
             applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
+            waitmovement(0)
         case 11:
             applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+            waitmovement(0)
     }
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerGoesUp1)
     waitmovement(0)
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp)
     waitmovement(0)
-    delay(60)
     applymovement(DMCA_LEAD, Common_Movement_WalkDown)
+    waitmovement(0)
     goto(SafariZone_IronCleftBattle)
 
 }
@@ -44,10 +111,10 @@ movement PlayerGoesUp1 {
 }
 
 
-const WARDEN = 4
-const GURU = 5
+
 script SafariZone_IronCleftBattle {
     //cinematic camera stuff
+    special(RemoveCameraObject)
     textcolor(NPC_TEXT_COLOR_MALE)
     if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
         if(flag(FLAG_ARCHER_CUTSCENE_SECOND)) {
@@ -64,21 +131,16 @@ script SafariZone_IronCleftBattle {
     } else {
         msgbox("ARCHER: Oh?\nYou're back for more?", MSGBOX_DEFAULT)
     }
-    
+    special(RemoveCameraObject)
     msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me.\pYou'll need something with REAL\nfirepower if you wanna take us down!", MSGBOX_DEFAULT)
     special(ChoosePartyMon)
     waitstate
     if(var(VAR_0x8004) >= PARTY_SIZE) {
-        msgbox("ARCHER: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
-        applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
-        waitmovement(0)
-        special(RemoveCameraObject)
-        warp(MAP_SAFARI_ZONE_NORTH, 12)
-        release
-        end
+        goto(DMCA_Showdown_NotGun)
     }
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
     if(var(VAR_RESULT) == SPECIES_REMORAID) {
+        playbgm(MUS_NONE, TRUE)
         delay(20)
         fadescreen(FADE_TO_BLACK)
         delay(20)
@@ -97,59 +159,23 @@ script SafariZone_IronCleftBattle {
         additem(ITEM_TM_CASE, 1)
         clearflag(FLAG_NO_TM_CASE)
         delay(120)
-        addobject(WARDEN)
-        addobject(GURU)
-        setobjectxy(WARDEN, 10, 15)
-        playse(SE_EXIT)
-        applymovement(WARDEN, WardenEnters)
-        delay(30)
-        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksDown)
-        playse(SE_PIN)
-        delay(40)
-        applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
-        waitmovement(OBJ_EVENT_ID_CAMERA)
-        waitmovement(WARDEN)
+        setvar(VAR_TEMP_3, 1)
         special(RemoveCameraObject)
-        textcolor(NPC_TEXT_COLOR_BLUE)
-        msgbox("WARDEN: Oh, lovely!\nLooks like you're all wrapped up.\pThose DMCA fiends were no match\nfor you!\pFrom the bottom of my heart, thank\nyou.\lYou've saved my life's work.", MSGBOX_DEFAULT)
-        closemessage
-        applymovement(WARDEN, WardenContemplates)
-        waitmovement(0)
-        setobjectxy(GURU, 10, 15)
-        applymovement(GURU, GuruEnters)
-        msgbox("Now the only thing I'm still\nconcerned about is…", MSGBOX_DEFAULT)
-        closemessage
-        waitmovement(0)
-        applymovement(WARDEN, PlayerLooksDown)
-        playse(SE_PIN)
-        delay(60)
-        msgbox("Ah! It's my good friend the\nFISHING GURU'S BROTHER!\lI'm glad to see you're safe.", MSGBOX_DEFAULT)
-        closemessage
-        msgbox("FISHING GURU'S BROTHER: Aha!\nWe've done it!\pWe've finally shown those corporate\njerks who's boss!", MSGBOX_DEFAULT)
-        closemessage
-        msgbox("WARDEN: Lovely!\nAnd I know that you helped as well.\pThank you so much, the FISHING\nGURU'S BROTHER!", MSGBOX_DEFAULT)
-        closemessage
-        delay(40)
-        msgbox("FISHING GURU'S BROTHER: Oh!\nBy the way, {PLAYER}.\pWhile I was captured, they hid\nthis near my cell.\lI've been holding onto it.\pHere, take it.\nYou've easily earned it back.", MSGBOX_DEFAULT)
-        giveitem_msg("{PLAYER} reclaimed the TM CASE!\n", ITEM_TM_CASE)
-        waitfanfare
-        msgbox("WARDEN: Come, let's head back home.\pI'm eager to move on from this\ntrying time.\pWhat say you, the FISHING GURU'S\nBROTHER?", MSGBOX_DEFAULT)
-        closemessage
-        msgbox("FISHING GURU'S BROTHER: Same here!\nI'm ready to take a long nap.\pAnd {PLAYER}!\nStop by my home later.\pI might be able to spare a gift\nfor you!", MSGBOX_DEFAULT)
-        closemessage
-        msgbox("WARDEN: Ah!\nA nice trinket, perhaps?\pAnyway, I'm going to head out now.\nThank you again, {PLAYER}!", MSGBOX_DEFAULT)
-        closemessage
-        fadescreen(FADE_TO_BLACK)
-        playse(SE_EXIT)
-        waitse
-        removeobject(GURU)
-        removeobject(WARDEN)
-        fadescreen(FADE_FROM_BLACK)
-    
         release
         end
+    } else {
+        goto(DMCA_Showdown_NotGun)
     }
 
+}
+
+script DMCA_Showdown_NotGun {
+    
+        msgbox("ARCHER: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
+        closemessage
+        warp(MAP_SAFARI_ZONE_NORTH, 12)
+        release
+        end
 }
 
 movement PlayerLooksDown {

@@ -210,3 +210,40 @@ script FushciaCity_SafariZone_Entrance_EventScript_Guy {
 	msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.", MSGBOX_NPC)
 	end
 }
+
+script FushciaCity_SafariZone_Entrance {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	if(checkitem(ITEM_SANDWICH_CASE)) {
+		msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.\pWould you like to enter anyway?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("Lovely!\pI hope you have a wonderful, non-\ninfringing visit!", MSGBOX_DEFAULT)
+			closemessage
+			getplayerxy(VAR_TEMP_2, VAR_TEMP_5)
+			switch(var(VAR_TEMP_2)) {
+				case 3:
+					call(FushciaCity_SafariZone_Entrance_EventScript_EnterSafariZoneLeft)
+				case 4:
+					call(FushciaCity_SafariZone_Entrance_EventScript_EnterSafariZoneMid)
+				case 5:
+					call(FushciaCity_SafariZone_Entrance_EventScript_EnterSafariZoneRight)
+			}
+			special(EnterSafariMode)
+			setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 2)
+			warp(MAP_SAFARI_ZONE_CENTER, 255, 26, 30)
+			waitstate
+			end
+		} else {
+			msgbox("All right, totally understood.\pHave a nice day!\n", MSGBOX_DEFAULT)
+			closemessage
+			goto(FushciaCity_SafariZone_Entrance_EventScript_ForcePlayerBack)
+
+		}
+	} else {
+		msgbox("Excuse me!\pYou need a SANDWICH CASE to enter\nthe SAFARI ZONE!\pTrust me, these rules make a lot\nof sense.\lPlease come again!", MSGBOX_DEFAULT)
+		closemessage
+		goto(FushciaCity_SafariZone_Entrance_EventScript_ForcePlayerBack)
+	}
+	release
+}

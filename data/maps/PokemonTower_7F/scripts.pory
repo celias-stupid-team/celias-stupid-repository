@@ -461,7 +461,7 @@ script PokemonTower_Trailer {
 			playse(SE_EXIT)
 			applymovement(FUJI, FujiEnters)
 			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
-			waitmovement(0)
+			waitmovement(FUJI)
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("MR. FUJI: Ah, my dear\nKANGASKHAN!\lYou're finally safe.", MSGBOX_DEFAULT)
 			closemessage
@@ -471,7 +471,7 @@ script PokemonTower_Trailer {
 			msgbox("And you, there.\n{PLAYER}, was it?\pThank you, {PLAYER}.\nYou've done a great deed.\pBut I must ask:\nHow were you able to save her?", MSGBOX_DEFAULT)
 			closemessage
 			textcolor(NPC_TEXT_COLOR_MON)
-			msgbox("… … … … …\n … … … … …")
+			msgbox("… … … … …\n… … … … …")
 			closemessage
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("…Ah.\nI understand.\pIt was the PARENTAL BOND between\nher and CUBONE that called to her.\lThat must've kept her safe.\pCome, this is no place to have\nconversation.\lLet's return to the SCHOOL.", MSGBOX_DEFAULT)

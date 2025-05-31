@@ -275,7 +275,7 @@ PalletTown_ProfessorOaksLab_Movement_RivalReact::
 
 PalletTown_ProfessorOaksLab_EventScript_LeaveStarterSceneTrigger::
 	lockall
-	textcolor NPC_TEXT_COLOR_MALE
+	textcolor NPC_TEXT_COLOR_TREE
 	applymovement LOCALID_PROF_OAK, Common_Movement_FaceDown
 	waitmovement 0
 	msgbox PalletTown_ProfessorOaksLab_Text_OakHeyDontGoAwayYet

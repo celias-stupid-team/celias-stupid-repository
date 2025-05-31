@@ -371,7 +371,8 @@ const u32 gObjectEventPic_Trubbish[] = INCBIN_U32("graphics/object_events/pics/s
 const u32 gObjectEventPic_Az[] = INCBIN_U32("graphics/object_events/pics/stupid/AZ.4bpp");
 const u32 gObjectEventPic_Riley[] = INCBIN_U32("graphics/object_events/pics/stupid/Riley.4bpp");
 const u32 gObjectEventPic_Dmca_dad[] = INCBIN_U32("graphics/object_events/pics/stupid/DMCA_Dad.4bpp");
-const u32 gObjectEventPic_N[] = INCBIN_U32("graphics/object_events/pics/stupid/N.4bpp");const u32 gObjectEventPic_Falinks[] = INCBIN_U32("graphics/object_events/pics/stupid/Falinks.4bpp");
+const u32 gObjectEventPic_N[] = INCBIN_U32("graphics/object_events/pics/stupid/N.4bpp");
+const u32 gObjectEventPic_Falinks[] = INCBIN_U32("graphics/object_events/pics/stupid/Falinks.4bpp");
 const u32 gObjectEventPic_Arceus[] = INCBIN_U32("graphics/object_events/pics/stupid/Arceus.4bpp");
 
 const u32 gObjectEventPic_Shadowkanga[] = INCBIN_U32("graphics/object_events/pics/stupid/Shadowkanga.4bpp");
@@ -432,3 +433,4 @@ const u32 gObjectEventPic_Curtain_top[] = INCBIN_U32("graphics/object_events/pic
 const u32 gObjectEventPic_Curtain_bottom[] = INCBIN_U32("graphics/object_events/pics/stupid/curtain_bottom.4bpp");
 const u32 gObjectEventPic_Buff_oak[] = INCBIN_U32("graphics/object_events/pics/stupid/Buff_oak.4bpp");
 const u32 gObjectEventPic_Lucario[] = INCBIN_U32("graphics/object_events/pics/stupid/Lucario.4bpp");
+const u32 gObjectEventPic_Psyduck_maid[] = INCBIN_U32("graphics/object_events/pics/stupid/psyduck_maid.4bpp");

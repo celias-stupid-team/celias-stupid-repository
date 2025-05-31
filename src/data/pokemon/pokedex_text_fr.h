@@ -352,7 +352,8 @@ const u8 gArcaninePokedexText[] = _(
 const u8 gArcaninePokedexTextUnused[] = _("");
 
 const u8 gPoliwagPokedexText[] = _(
-	"yeah those are its intestines");
+	"Don't forget you need a second\n"
+	"one for the trade!");
 
 const u8 gPoliwagPokedexTextUnused[] = _("");
 

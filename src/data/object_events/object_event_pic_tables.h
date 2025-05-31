@@ -3310,3 +3310,14 @@ const struct SpriteFrameImage gObjectEventPicTable_Lucario[] = {
     overworld_frame(gObjectEventPic_Lucario, 2, 4, 7),
     overworld_frame(gObjectEventPic_Lucario, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Psyduck_maid[] = {
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 3),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 4),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 5),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 6),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 7),
+    overworld_frame(gObjectEventPic_Psyduck_maid, 2, 2, 8),
+};
