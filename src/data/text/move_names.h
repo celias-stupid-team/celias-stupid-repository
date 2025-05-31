@@ -1147,5 +1147,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_STEAMROLLER]     = _("STEAMROLLER"),
 [MOVE_SLASH_TCG]     = _("SLASH"),
 [MOVE_SWORDSDANCE_TCG]     = _("SWORDS DANCE"),
+[MOVE_SUBSTITUTE_2]    = _("SUBSTITUTE"),
 }; //For any move which needs its name lengthened, these will display in battle.
 
