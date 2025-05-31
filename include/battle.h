@@ -183,6 +183,8 @@ struct DisableStruct
     /*0x18*/ u8 mimickedMoves : 4;
     /*0x19*/ u8 rechargeTimer;
     /*0x1A*/ u8 unk1A[2];
+             u8 substitute2Layers : 2;
+             u8 padding : 6 ;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];

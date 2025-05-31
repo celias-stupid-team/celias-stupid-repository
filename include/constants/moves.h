@@ -572,8 +572,9 @@
 #define MOVE_STEAMROLLER 567
 #define MOVE_SLASH_TCG 568
 #define MOVE_SWORDSDANCE_TCG 569
+#define MOVE_SUBSTITUTE_2 570
 
-#define MOVES_COUNT 570
+#define MOVES_COUNT 571
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
