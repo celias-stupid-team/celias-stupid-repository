@@ -594,6 +594,7 @@ gBattleAnims_Moves::
 	.4byte Move_STEAMROLLER
 	.4byte Move_SLASH_TCG
 	.4byte Move_SWORDSDANCE_TCG
+	.4byte Move_SUBSTITUTE_2
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -15361,4 +15362,11 @@ Move_SWORDSDANCE_TCG:
 	clearmonbg ANIM_ATTACKER
 	blendoff
 	delay 1
+	end
+
+
+
+Move_SUBSTITUTE_2:
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MonToSubstitute, 2
 	end

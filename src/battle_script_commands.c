@@ -1987,10 +1987,10 @@ static void Cmd_datahpupdate(void)
                     gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
 
                     // TODO fade the sub from layer 3 -> layer 2 by making a BattleScript_SubstituteFade2
-                    // gBattlescriptCurrInstr += 2;
-                    // BattleScriptPushCursor();
-                    // gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
-                    // return;
+                    gBattlescriptCurrInstr += 2;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                    return;
                 }
                 else if (gDisableStructs[gActiveBattler].substitute2Layers == SUBSTITUTE2_1_LAYERS)
                 {
@@ -1998,10 +1998,10 @@ static void Cmd_datahpupdate(void)
                     gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
 
                     // TODO fade the sub from layer 2 -> layer 1 by making a BattleScript_SubstituteFade3
-                    // gBattlescriptCurrInstr += 2;
-                    // BattleScriptPushCursor();
-                    // gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
-                    // return;
+                    gBattlescriptCurrInstr += 2;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                    return;
                 }
                 else 
                 {

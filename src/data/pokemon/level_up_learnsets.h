@@ -9678,7 +9678,6 @@ static const struct LevelUpMove sTangela_POKERAPLevelUpLearnset[] = {
 
 static const struct LevelUpMove sKangaskhan_POKERAPLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
-	LEVEL_UP_MOVE(1, MOVE_SUBSTITUTE_TEACHER), //temp
 	LEVEL_UP_END
 };
 
@@ -9928,7 +9927,8 @@ static const struct LevelUpMove sTHATSALLLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sKANGASKHANTEACHERLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_COMET_PUNCH),
+	LEVEL_UP_MOVE(1, MOVE_SUBSTITUTE_2),
 	LEVEL_UP_END
 };
 
