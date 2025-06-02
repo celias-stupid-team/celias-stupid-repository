@@ -32,8 +32,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 40,
-      "y": 33,
+      "x": 45,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
@@ -42,12 +42,26 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "KantoLighthouse_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_KANTO_LIGHTHOUSE_CANDY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 43,
+      "y": 43,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "KantoLighthouse_HaircutHint",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 46,
-      "y": 39,
+      "y": 40,
       "elevation": 0,
       "dest_map": "MAP_KANTO_LIGHTHOUSE_1F",
       "dest_warp_id": "3"
@@ -68,7 +82,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "KantoLighthouse_3F_FallDownHole"
+    }
   ],
   "bg_events": [
 

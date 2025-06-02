@@ -8,7 +8,7 @@ Route14_EventScript_RouteSign::
 
 script Route15_PokeRap_Trainer1 {
     trainerbattle_single(TRAINER_POKERAP_1, Rapper_1_Intro, "Nice!")
-    msgbox("Diglett done by Jogaklaa!\pMankey done by PKMNTRAINERSPRITERC")
+    msgbox("Diglett done by Jogaklaa!\pMankey's hat by PKMNTRAINERSPRITERC")
     release
 }
 
@@ -19,7 +19,7 @@ mapscripts Route14_MapScripts {
 }
 
 script Route14_ThankYouSign {
-	msgbox("Thank you to everyone who\ncontributed!\pNever forget your inner joy!\n-Celia, the creator", MSGBOX_SIGN)
+	msgbox("Thank you to everyone who\ncontributed!\pIndulge yourself in the joy of\ncreation!\lNever forget your childlike glee!\pAll art, no matter your skill,\nstill has value!\l-CELIA the creator", MSGBOX_SIGN)
 	end
 }
 
@@ -46,7 +46,7 @@ script Route15_PokeRap_Trainer2_Defeat {
 }
 
 script Route15_PokeRap_Trainer3 {
-    trainerbattle_single(TRAINER_POKERAP_3, "Let's get it on!", "Placeholder Defeat", Route15_PokeRap_Trainer3_Defeat)
+    trainerbattle_single(TRAINER_POKERAP_3, "Let's get it on!", "Nice", Route15_PokeRap_Trainer3_Defeat)
     msgbox("Placeholder After")
     release
 }

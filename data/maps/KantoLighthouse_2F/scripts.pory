@@ -14,3 +14,8 @@ script KantoLighthouse_2F_DeadMan {
     release
 	end
 }
+
+script KantoLighthouse_HaircutHint {
+	msgbox("People often do things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
+	end
+}
