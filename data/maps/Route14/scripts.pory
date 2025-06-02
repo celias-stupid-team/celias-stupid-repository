@@ -7,7 +7,7 @@ Route14_EventScript_RouteSign::
 `
 
 script Route15_PokeRap_Trainer1 {
-    trainerbattle_single(TRAINER_POKERAP_1, Rapper_1_Intro, "Nice!")
+    trainerbattle_single(TRAINER_POKERAP_1, Rapper_1_Intro, "Nice!", Route15_PokeRap_Trainer1_Defeat)
     msgbox("Diglett done by Jogaklaa!\pMankey's hat by PKMNTRAINERSPRITERC")
     release
 }
@@ -34,8 +34,8 @@ script Route15_PokeRap_Trainer1_Defeat {
 }
 
 script Route15_PokeRap_Trainer2 {
-    trainerbattle_single(TRAINER_POKERAP_2, Rapper_2_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_2, Rapper_2_Intro, "Nice!", Route15_PokeRap_Trainer2_Defeat)
+    msgbox("FEAROW by SimpleMary!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -47,7 +47,7 @@ script Route15_PokeRap_Trainer2_Defeat {
 
 script Route15_PokeRap_Trainer3 {
     trainerbattle_single(TRAINER_POKERAP_3, "Let's get it on!", "Nice", Route15_PokeRap_Trainer3_Defeat)
-    msgbox("Placeholder After")
+    msgbox("GASTLY by Jogaklaa\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -62,8 +62,8 @@ script Route15_PokeRap_Trainer3_Defeat {
 }
 
 script Route15_PokeRap_Trainer4 {
-    trainerbattle_single(TRAINER_POKERAP_4, Rapper_4_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_4, Rapper_4_Intro, "Nice!", Route15_PokeRap_Trainer4_Defeat)
+    msgbox("BUTTERFREE by KaizenStarlight!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -74,8 +74,8 @@ script Route15_PokeRap_Trainer4_Defeat {
 }
 
 script Route15_PokeRap_Trainer5 {
-    trainerbattle_single(TRAINER_POKERAP_5, Rapper_5_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_5, Rapper_5_Intro, "Nice!", Route15_PokeRap_Trainer5_Defeat)
+    msgbox("POLIWAG by Jogaklaa\nNIDORINO by SharkGuy\lGOLDUCK by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -90,8 +90,8 @@ script Route15_PokeRap_Trainer5_Defeat {
 }
 
 script Route15_PokeRap_Trainer6 {
-    trainerbattle_single(TRAINER_POKERAP_6, Rapper_6_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_6, Rapper_6_Intro, "Nice!", Route15_PokeRap_Trainer6_Defeat)
+    msgbox("VICTREEBEL by Swiwious!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -104,8 +104,8 @@ script Route15_PokeRap_Trainer6_Defeat {
 }
 
 script Route15_PokeRap_Trainer7 {
-    trainerbattle_single(TRAINER_POKERAP_7, Rapper_7_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_7, Rapper_7_Intro, "Nice!", Route15_PokeRap_Trainer7_Defeat)
+    msgbox("FARFETCH'D by Roshie\nABRA by Lichen!", MSGBOX_DEFAULT)
     release
 }
 
@@ -122,8 +122,8 @@ script Route15_PokeRap_Trainer7_Defeat {
 }
 
 script Route15_PokeRap_Trainer8 {
-    trainerbattle_single(TRAINER_POKERAP_8, Rapper_8_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_8, Rapper_8_Intro, "Nice!", Route15_PokeRap_Trainer8_Defeat)
+    msgbox("KINGLER by Jogaklaa\nCLEFABLE by SharkGuy\lWIGGLYTUFF by TigerChimera", MSGBOX_DEFAULT)
     release
 }
 
@@ -134,8 +134,8 @@ script Route15_PokeRap_Trainer8_Defeat {
 }
 
 script Route15_PokeRap_Trainer9 {
-    trainerbattle_single(TRAINER_POKERAP_9, Rapper_9_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_9, Rapper_9_Intro, "Nice!", Route15_PokeRap_Trainer9_Defeat)
+    msgbox("ZUBAT by Raw Meat Arrow\nMEOWTH by KaizanStarlight\lONIX by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -150,8 +150,8 @@ script Route15_PokeRap_Trainer9_Defeat {
 }
 
 script Route15_PokeRap_Trainer10 {
-    trainerbattle_single(TRAINER_POKERAP_10, Rapper_10_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_10, Rapper_10_Intro, "Nice!", Route15_PokeRap_Trainer10_Defeat)
+    msgbox("GEODUDE by Plasto\nMagneton by Crow\lSnorlax by Swiwious", MSGBOX_DEFAULT)
     release
 }
 
@@ -162,8 +162,8 @@ script Route15_PokeRap_Trainer10_Defeat {
 }
 
 script Route15_PokeRap_Trainer11 {
-    trainerbattle_single(TRAINER_POKERAP_11, Rapper_11_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_11, Rapper_11_Intro, "Nice!", Route15_PokeRap_Trainer11_Defeat)
+    msgbox("GENGAR by Derpzones\nTANGELA by Derpzones\lGOLDEEN by Lichen!", MSGBOX_DEFAULT)
     release
 }
 
@@ -180,8 +180,8 @@ script Route15_PokeRap_Trainer11_Defeat {
 }
 
 script Route15_PokeRap_Trainer12 {
-    trainerbattle_single(TRAINER_POKERAP_12, Rapper_12_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_12, Rapper_12_Intro, "Nice!", Route15_PokeRap_Trainer12_Defeat)
+    msgbox("WEEZING by Raw Meat Arrow\nSEEL by Jogaklaa\pGYARADOS by Boba Tea\nSLOWBRO by 12345678910111213141\l(how tf do you remember that name?)", MSGBOX_DEFAULT)
     release
 }
 
@@ -192,8 +192,8 @@ script Route15_PokeRap_Trainer12_Defeat {
 }
 
 script Route15_PokeRap_Trainer13 {
-    trainerbattle_single(TRAINER_POKERAP_13, Rapper_13_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_13, Rapper_13_Intro, "Nice!", Route15_PokeRap_Trainer13_Defeat)
+    msgbox("KABUTO by FoF\nPARAS by KaizanStarlight\lHORSEA by FoF", MSGBOX_DEFAULT)
     release
 }
 
@@ -206,8 +206,8 @@ script Route15_PokeRap_Trainer13_Defeat {
 }
 
 script Route15_PokeRap_Trainer14 {
-    trainerbattle_single(TRAINER_POKERAP_14, Rapper_14_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_14, Rapper_14_Intro, "Nice!", Route15_PokeRap_Trainer14_Defeat)
+    msgbox("RATICATE by Elliot\nWEEPINBELL by SimplyMary", MSGBOX_DEFAULT)
     release
 }
 
@@ -222,8 +222,8 @@ script Route15_PokeRap_Trainer14_Defeat {
 }
 
 script Route15_PokeRap_Trainer15 {
-    trainerbattle_single(TRAINER_POKERAP_15, Rapper_15_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_15, Rapper_15_Intro, "Nice!", Route15_PokeRap_Trainer15_Defeat)
+    msgbox("DITTO by Jogaklaa\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -236,8 +236,8 @@ script Route15_PokeRap_Trainer15_Defeat {
 }
 
 script Route15_PokeRap_Trainer16 {
-    trainerbattle_single(TRAINER_POKERAP_16, Rapper_16_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_16, Rapper_16_Intro, "Nice!", Route15_PokeRap_Trainer16_Defeat)
+    msgbox("BULBASAUR by Elliot\nGOLEM by number1jojofan", MSGBOX_DEFAULT)
     release
 }
 
@@ -248,8 +248,8 @@ script Route15_PokeRap_Trainer16_Defeat {
 }
 
 script Route15_PokeRap_Trainer17 {
-    trainerbattle_single(TRAINER_POKERAP_17, Rapper_17_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_17, Rapper_17_Intro, "Nice!", Route15_PokeRap_Trainer17_Defeat)
+    msgbox("ALAKAZAM by Boba Tea\nDODUO by Boba Tea", MSGBOX_DEFAULT)
     release
 }
 
@@ -266,8 +266,8 @@ script Route15_PokeRap_Trainer17_Defeat {
 }
 
 script Route15_PokeRap_Trainer18 {
-    trainerbattle_single(TRAINER_POKERAP_18, Rapper_18_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_18, Rapper_18_Intro, "Nice!", Route15_PokeRap_Trainer18_Defeat)
+    msgbox("ELECTABUZZ by FoF\nFlareon by FoF", MSGBOX_DEFAULT)
     release
 }
 
@@ -278,8 +278,8 @@ script Route15_PokeRap_Trainer18_Defeat {
 }
 
 script Route15_PokeRap_Trainer19 {
-    trainerbattle_single(TRAINER_POKERAP_19, Rapper_19_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_19, Rapper_19_Intro, "Nice!", Route15_PokeRap_Trainer19_Defeat)
+    msgbox("BLASTOISE by Savannah\nPOLIWHIRL by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -290,8 +290,8 @@ script Route15_PokeRap_Trainer19_Defeat {
 }
 
 script Route15_PokeRap_Trainer20 {
-    trainerbattle_single(TRAINER_POKERAP_20, Rapper_20_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_20, Rapper_20_Intro, "Nice!", Route15_PokeRap_Trainer20_Defeat)
+    msgbox("BELLSPROUT by Jogaklaa!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -308,8 +308,8 @@ script Route15_PokeRap_Trainer20_Defeat {
 }
 
 script Route15_PokeRap_Trainer21 {
-    trainerbattle_single(TRAINER_POKERAP_21, Rapper_21_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_21, Rapper_21_Intro, "Nice!", Route15_PokeRap_Trainer21_Defeat)
+    msgbox("MAROWAK by Lichen\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -326,8 +326,8 @@ script Route15_PokeRap_Trainer21_Defeat {
 }
 
 script Route15_PokeRap_Trainer22 {
-    trainerbattle_single(TRAINER_POKERAP_22, Rapper_22_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_22, Rapper_22_Intro, "Nice!", Route15_PokeRap_Trainer22_Defeat)
+    msgbox("DODRIO by FeelgoodInk\nSEADRA  by KaizenStarlight\pVILEPLUME by Raw Meat Arrow\nKRABBY by Reverend", MSGBOX_DEFAULT)
     release
 }
 
@@ -338,8 +338,8 @@ script Route15_PokeRap_Trainer22_Defeat {
 }
 
 script Route15_PokeRap_Trainer23 {
-    trainerbattle_single(TRAINER_POKERAP_23, Rapper_23_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_23, Rapper_23_Intro, "Nice!", Route15_PokeRap_Trainer23_Defeat)
+    msgbox("TAUROS by Jogaklaa\nNIDORAN by Misofa", MSGBOX_DEFAULT)
     release
 }
 
@@ -356,8 +356,8 @@ script Route15_PokeRap_Trainer23_Defeat {
 }
 
 script Route15_PokeRap_Trainer24 {
-    trainerbattle_single(TRAINER_POKERAP_24, Rapper_24_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_24, Rapper_24_Intro, "Nice!", Route15_PokeRap_Trainer24_Defeat)
+    msgbox("SHELLDER by Jogaklaa!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -370,22 +370,20 @@ script Route15_PokeRap_Trainer24_Defeat {
 }
 
 script Route15_PokeRap_Trainer25 {
-    trainerbattle_single(TRAINER_POKERAP_25, Rapper_25_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_25, Rapper_25_Intro, "Nice!", Route15_PokeRap_Trainer25_Defeat)
+    msgbox("JYNX by FemboyPixelart\nNIDORINA by\lBEEDRILL by Beespoon!", MSGBOX_DEFAULT)
     release
 }
 
 script Route15_PokeRap_Trainer25_Defeat {
     setvar(VAR_0x8004, SPECIES_NIDORINA)
     special(SetSeenMon)
-    setvar(VAR_0x8004, SPECIES_BEEDRILL)
-    special(SetSeenMon)
     release
 }
 
 script Route15_PokeRap_Trainer26 {
-    trainerbattle_single(TRAINER_POKERAP_26, Rapper_26_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_26, Rapper_26_Intro, "Nice!", Route15_PokeRap_Trainer26_Defeat)
+    msgbox("HAUNTER by Plasto!\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -400,8 +398,8 @@ script Route15_PokeRap_Trainer26_Defeat {
 }
 
 script Route15_PokeRap_Trainer27 {
-    trainerbattle_single(TRAINER_POKERAP_27, Rapper_27_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_27, Rapper_27_Intro, "Nice!", Route15_PokeRap_Trainer27_Defeat)
+    msgbox("PARASECT by Plasto\nEXEGGCUTE by Crypto Test\pMUK by Jake The Axo\nDEWGONG by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -412,8 +410,8 @@ script Route15_PokeRap_Trainer27_Defeat {
 }
 
 script Route15_PokeRap_Trainer28 {
-    trainerbattle_single(TRAINER_POKERAP_28, Rapper_28_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_28, Rapper_28_Intro, "Nice!", Route15_PokeRap_Trainer28_Defeat)
+    msgbox("LAPRAS by Vissery\nVULPIX by Lichen", MSGBOX_DEFAULT)
     release
 }
 
@@ -426,8 +424,36 @@ script Route15_PokeRap_Trainer28_Defeat {
 }
 
 script Route15_PokeRap_Trainer29 {
-    trainerbattle_single(TRAINER_POKERAP_29, Rapper_29_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_29, Rapper_29_Intro, "Nice!", Route15_PokeRap_Trainer29_Defeat)
+    if(flag(FLAG_GOT_SHINY_PINSIR)) {
+        msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623")
+        release
+        end
+    }
+    msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox("Yeah, I didn't think so.\n", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    if(var(VAR_RESULT) == SPECIES_PINSIR) {
+        setflag(FLAG_SHINY_CREATION)
+        msgbox("Oh!\nShoot, you're right.\lI guess I missed my cue.\pHere, take him.\nI guess I kinda ruined the bit…", MSGBOX_DEFAULT)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        playfanfare(MUS_LEVEL_UP)
+        setflag(FLAG_GOT_SHINY_PINSIR)
+        msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
+        waitfanfare
+		call(Common_Script_ObtainedPokemon)
+        msgbox("My bad!\n", MSGBOX_DEFAULT)
+        release
+    } else {
+        msgbox("Uhh, I don't think that one\ngoes here.\pMaybe you're mistaken.\n", MSGBOX_DEFAULT)
+    }
     release
 }
 
@@ -440,8 +466,8 @@ script Route15_PokeRap_Trainer29_Defeat {
 }
 
 script Route15_PokeRap_Trainer30 {
-    trainerbattle_single(TRAINER_POKERAP_30, Rapper_30_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_30, Rapper_30_Intro, "Nice!", Route15_PokeRap_Trainer30_Defeat)
+    msgbox("DUGTRIO by FeelgoodInk\nGOLBAT by Plasto\lMAGIKARP by Boba Tea", MSGBOX_DEFAULT)
     release
 }
 
@@ -452,8 +478,8 @@ script Route15_PokeRap_Trainer30_Defeat {
 }
 
 script Route15_PokeRap_Trainer31 {
-    trainerbattle_single(TRAINER_POKERAP_31, Rapper_31_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_31, Rapper_31_Intro, "Nice!", Route15_PokeRap_Trainer31_Defeat)
+    msgbox("NINETALES by Lichen\nEKANS by Jogaklaa\lOMASTAR by Dillsack", MSGBOX_DEFAULT)
     release
 }
 
@@ -464,8 +490,8 @@ script Route15_PokeRap_Trainer31_Defeat {
 }
 
 script Route15_PokeRap_Trainer32 {
-    trainerbattle_single(TRAINER_POKERAP_32, Rapper_32_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_32, Rapper_32_Intro, "Nice!", Route15_PokeRap_Trainer32_Defeat)
+    msgbox("TENTACOOL by KaizanStarlight\nDRAGONAIR by sonicfachero\lMAGMAR by GarfieldTheLightning", MSGBOX_DEFAULT)
     release
 }
 
@@ -478,8 +504,8 @@ script Route15_PokeRap_Trainer32_Defeat {
 }
 
 script Route15_PokeRap_Trainer33 {
-    trainerbattle_single(TRAINER_POKERAP_33, Rapper_33_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_33, Rapper_33_Intro, "Nice!", Route15_PokeRap_Trainer33_Defeat)
+    msgbox("HITMONLEE by number1jojofan\nPSYDUCK by", MSGBOX_DEFAULT)
     release
 }
 
@@ -492,8 +518,8 @@ script Route15_PokeRap_Trainer33_Defeat {
 }
 
 script Route15_PokeRap_Trainer34 {
-    trainerbattle_single(TRAINER_POKERAP_34, Rapper_34_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_34, Rapper_34_Intro, "Nice!", Route15_PokeRap_Trainer34_Defeat)
+    msgbox("EXEGGUTOR by Lichen\nZAPDOS by HoodlumCal!", MSGBOX_DEFAULT)
     release
 }
 
@@ -511,7 +537,7 @@ script Route15_PokeRap_Trainer34_Defeat {
 
 script Route15_PokeRap_Trainer35 {
     trainerbattle_single(TRAINER_POKERAP_35, Rapper_35_Intro, "Nice!")
-    msgbox("Placeholder After")
+    msgbox("DRATINI by Cookie\nGROWLITHE by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -520,8 +546,8 @@ script Route15_PokeRap_Trainer35_Defeat {
 }
 
 script Route15_PokeRap_Trainer36 {
-    trainerbattle_single(TRAINER_POKERAP_36, Rapper_36_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_36, Rapper_36_Intro, "Nice!", Route15_PokeRap_Trainer36_Defeat)
+    msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa", MSGBOX_DEFAULT)
     release
 }
 
@@ -536,8 +562,8 @@ script Route15_PokeRap_Trainer36_Defeat {
 }
 
 script Route15_PokeRap_Trainer37 {
-    trainerbattle_single(TRAINER_POKERAP_37, Rapper_37_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_37, Rapper_37_Intro, "Nice!", Route15_PokeRap_Trainer37_Defeat)
+    msgbox("(Both sprites done by Celia Dawn!)\n", MSGBOX_DEFAULT)
     release
 }
 
@@ -548,8 +574,8 @@ script Route15_PokeRap_Trainer37_Defeat {
 }
 
 script Route15_PokeRap_Trainer38 {
-    trainerbattle_single(TRAINER_POKERAP_38, Rapper_38_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_38, Rapper_38_Intro, "Nice!", Route15_PokeRap_Trainer38_Defeat)
+    msgbox("MEWTWO by Crow\nTENTACRUEL by Lichen\lAERODACTYL by Vissery", MSGBOX_DEFAULT)
     release
 }
 
@@ -560,8 +586,8 @@ script Route15_PokeRap_Trainer38_Defeat {
 }
 
 script Route15_PokeRap_Trainer39 {
-    trainerbattle_single(TRAINER_POKERAP_39, Rapper_39_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_39, Rapper_39_Intro, "Nice!", Route15_PokeRap_Trainer39_Defeat)
+    msgbox("OMANYTE by Lichen\nSLOWPOKE by Raw Meat Arrow", MSGBOX_DEFAULT)
     release
 }
 
@@ -572,8 +598,8 @@ script Route15_PokeRap_Trainer39_Defeat {
 }
 
 script Route15_PokeRap_Trainer40 {
-    trainerbattle_single(TRAINER_POKERAP_40, Rapper_40_Intro, "Nice!")
-    msgbox("Placeholder After")
+    trainerbattle_single(TRAINER_POKERAP_40, Rapper_40_Intro, "Nice!", Route15_PokeRap_Trainer40_Defeat)
+    msgbox("PIDGEOT by Lichen\nARBOK by Boba Tea\pThank you all!\n", MSGBOX_DEFAULT)
     release
 }
 
