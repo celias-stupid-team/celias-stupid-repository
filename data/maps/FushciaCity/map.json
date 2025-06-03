@@ -380,8 +380,8 @@
       "x": 25,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_ROUTE19_SURF_HOUSE",
+      "dest_warp_id": "0"
     },
     {
       "x": 11,

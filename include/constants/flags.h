@@ -973,7 +973,7 @@
 #define FLAG_CSR_GOT_GOLDEN_ROD               0x389
 #define FLAG_BAKED_DONUT_HINT               0x38A
 #define FLAG_FED_SANDWICH               0x38B
-#define FLAG_0x38C               0x38C
+#define FLAG_GOT_SANDWICH_CASE               0x38C
 #define FLAG_0x38D               0x38D
 #define FLAG_0x38E               0x38E
 #define FLAG_0x38F               0x38F

@@ -15,6 +15,11 @@ script Route15_PokeRap_Trainer1 {
 mapscripts Route14_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_ROUTE14)
+        if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_FED_SANDWICH)) {
+            //I accidentally did the logic backwards but this is more sensible anyway LOL 
+        } else {
+            setflag(FLAG_TEMP_5)
+        }
     }
 }
 
@@ -30,6 +35,7 @@ script Route15_PokeRap_Trainer1_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_MANKEY)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -42,6 +48,7 @@ script Route15_PokeRap_Trainer2 {
 script Route15_PokeRap_Trainer2_Defeat {
     setvar(VAR_0x8004, SPECIES_RATTATA)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -58,6 +65,7 @@ script Route15_PokeRap_Trainer3_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_DRAGONITE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -70,6 +78,7 @@ script Route15_PokeRap_Trainer4 {
 script Route15_PokeRap_Trainer4_Defeat {
     setvar(VAR_0x8004, SPECIES_BUTTERFREE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -86,6 +95,7 @@ script Route15_PokeRap_Trainer5_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_GOLDUCK)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -100,6 +110,7 @@ script Route15_PokeRap_Trainer6_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_GRIMER)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -118,6 +129,7 @@ script Route15_PokeRap_Trainer7_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_JIGGLYPUFF)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -130,6 +142,7 @@ script Route15_PokeRap_Trainer8 {
 script Route15_PokeRap_Trainer8_Defeat {
     setvar(VAR_0x8004, SPECIES_CLEFABLE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -146,6 +159,7 @@ script Route15_PokeRap_Trainer9_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_ONIX)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -158,6 +172,7 @@ script Route15_PokeRap_Trainer10 {
 script Route15_PokeRap_Trainer10_Defeat {
     setvar(VAR_0x8004, SPECIES_GEODUDE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -176,6 +191,7 @@ script Route15_PokeRap_Trainer11_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_SPEAROW)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -188,6 +204,7 @@ script Route15_PokeRap_Trainer12 {
 script Route15_PokeRap_Trainer12_Defeat {
     setvar(VAR_0x8004, SPECIES_GYARADOS)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -202,6 +219,7 @@ script Route15_PokeRap_Trainer13_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_HORSEA)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -218,6 +236,7 @@ script Route15_PokeRap_Trainer14_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_MISSINGNO)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -232,6 +251,7 @@ script Route15_PokeRap_Trainer15_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_SANDSHREW)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -244,6 +264,7 @@ script Route15_PokeRap_Trainer16 {
 script Route15_PokeRap_Trainer16_Defeat {
     setvar(VAR_0x8004, SPECIES_CHARMANDER)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -262,6 +283,7 @@ script Route15_PokeRap_Trainer17_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_MACHOKE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -274,6 +296,7 @@ script Route15_PokeRap_Trainer18 {
 script Route15_PokeRap_Trainer18_Defeat {
     setvar(VAR_0x8004, SPECIES_KANGASKHAN)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -286,6 +309,7 @@ script Route15_PokeRap_Trainer19 {
 script Route15_PokeRap_Trainer19_Defeat {
     setvar(VAR_0x8004, SPECIES_ODDISH)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -304,6 +328,7 @@ script Route15_PokeRap_Trainer20_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_STARMIE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -322,6 +347,7 @@ script Route15_PokeRap_Trainer21_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_CLEFAIRY)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -334,6 +360,7 @@ script Route15_PokeRap_Trainer22 {
 script Route15_PokeRap_Trainer22_Defeat {
     setvar(VAR_0x8004, SPECIES_KRABBY)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -352,6 +379,7 @@ script Route15_PokeRap_Trainer23_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_NIDORAN_F)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -366,6 +394,7 @@ script Route15_PokeRap_Trainer24_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_PORYGON)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -378,6 +407,7 @@ script Route15_PokeRap_Trainer25 {
 script Route15_PokeRap_Trainer25_Defeat {
     setvar(VAR_0x8004, SPECIES_NIDORINA)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -394,6 +424,7 @@ script Route15_PokeRap_Trainer26_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_CHANSEY)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -406,6 +437,7 @@ script Route15_PokeRap_Trainer27 {
 script Route15_PokeRap_Trainer27_Defeat {
     setvar(VAR_0x8004, SPECIES_EXEGGCUTE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -420,6 +452,7 @@ script Route15_PokeRap_Trainer28_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_VULPIX)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -462,6 +495,7 @@ script Route15_PokeRap_Trainer29_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_PINSIR)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -474,6 +508,7 @@ script Route15_PokeRap_Trainer30 {
 script Route15_PokeRap_Trainer30_Defeat {
     setvar(VAR_0x8004, SPECIES_MAGIKARP)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -486,6 +521,7 @@ script Route15_PokeRap_Trainer31 {
 script Route15_PokeRap_Trainer31_Defeat {
     setvar(VAR_0x8004, SPECIES_EKANS)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -500,6 +536,7 @@ script Route15_PokeRap_Trainer32_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_TENTACOOL)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -514,6 +551,7 @@ script Route15_PokeRap_Trainer33_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_ARCANINE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -532,6 +570,7 @@ script Route15_PokeRap_Trainer34_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_ZAPDOS)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -558,6 +597,7 @@ script Route15_PokeRap_Trainer36_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_VOLTORB)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -570,6 +610,7 @@ script Route15_PokeRap_Trainer37 {
 script Route15_PokeRap_Trainer37_Defeat {
     setvar(VAR_0x8004, SPECIES_CHARMELEON)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -582,6 +623,7 @@ script Route15_PokeRap_Trainer38 {
 script Route15_PokeRap_Trainer38_Defeat {
     setvar(VAR_0x8004, SPECIES_MEWTWO)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -594,6 +636,7 @@ script Route15_PokeRap_Trainer39 {
 script Route15_PokeRap_Trainer39_Defeat {
     setvar(VAR_0x8004, SPECIES_OMANYTE)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -608,6 +651,7 @@ script Route15_PokeRap_Trainer40_Defeat {
     special(SetSeenMon)
     setvar(VAR_0x8004, SPECIES_ARBOK)
     special(SetSeenMon)
+    special(HealPlayerParty)
     release
 }
 
@@ -618,5 +662,12 @@ script Route15_Pokerap_Dad {
 	msgbox("DAD: Whoa!\nCatch your breath, man!", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
+	end
+}
+
+
+
+script Route15_CeliaSandwich {
+	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_NPC)
 	end
 }

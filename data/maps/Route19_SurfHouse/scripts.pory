@@ -46,6 +46,15 @@ script Route19_SurfHouse_Fridge {
 }
 
 script Route19_SurfHouse_SurfGuy {
-	msgbox("surf\n", MSGBOX_NPC)
-	end
+        lock
+        faceplayer
+    if(!flag(FLAG_GOT_SANDWICH_CASE)) {
+        msgbox("Hey, kid!\nYou wanna know what's hot?\lThat's right: SANDWICHES.\pFor breakfast? SANDWICHES.\nLunch? SANDWICHES.\lDinner? Dessert? Take a guess.\pThere is literally nothing in the\nworld I love more.\pHere, take this.\nI need to share my love with you.", MSGBOX_DEFAULT)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        giveitem_msg("{PLAYER} obtained the\nSANDWICH CASE!", ITEM_SANDWICH_CASE, 1)
+        setflag(FLAG_GOT_SANDWICH_CASE)
+    }
+    textcolor(NPC_TEXT_COLOR_MALE)
+    msgbox("Aight, listen up!\nHere's the perfect SANDWICH:\pA fresh loaf of BREAD!\nCoated in SESAME SEEDS!\pHearty cuts of MEAT, alongside a\nlovely slice of CHEESE!\pSome LETTUCE that's been very\nfreshly CUT.\pAnd to top it off: Crunchy,\nflavorful PICKLES!\pBring all of these together, and\nyou'll have the perfect food!", MSGBOX_DEFAULT)
+    release
 }
