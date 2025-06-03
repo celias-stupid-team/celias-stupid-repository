@@ -39,7 +39,7 @@ script Route18_SandwichChef {
 		release
 		end
 	} else {
-		msgbox("I see you've brought your SANDWICH\nCASE!\lVery good!\pHow may I serve you today?\n", MSGBOX_DEFAULT)
+		msgbox("I see you've brought your\nSANDWICH CASE!\lVery good!\pHow may I serve you today?\n", MSGBOX_DEFAULT)
 		pokemart(SandwichShop_Mart)
 		msgbox("Thank you for your business!\n", MSGBOX_DEFAULT)
 	}
@@ -48,7 +48,7 @@ script Route18_SandwichChef {
 
 
 mart SandwichShop_Mart {
-	ITEM_SANDWICH
+	ITEM_BREAD
 	ITEM_JELLY_DONUT
 }
 
