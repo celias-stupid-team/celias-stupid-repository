@@ -80,5 +80,6 @@ CeladonCity_DepartmentStore_Roof_Text_NoMoreRoomForStuff::
     .string "There's no more room for stuff!$"
 
 CeladonCity_DepartmentStore_Roof_Text_NotThirsty::
-    .string "Not thirsty!$"
+	.string "A cheese machine?\n"
+	.string "Yuck!$"
 

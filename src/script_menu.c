@@ -238,8 +238,6 @@ static const struct MenuAction sMultichoiceList_DomeAmber[] = {
 
 static const struct MenuAction sMultichoiceList_CeladonVendingMachine[] = {
     { gText_FreshWater_200 },
-    { gText_SodaPop_300 },
-    { gText_Lemonade_350 },
     { gOtherText_Exit }
 };
 

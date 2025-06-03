@@ -263,9 +263,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_MINNESOTA)) {
 		setobtainable(SPECIES_SEEL) // 85
 	}
-	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
-		setobtainable(SPECIES_PLUG_OINK) // 86
+	if(flag(FLAG_SILPH_DMCA_DEFEATED) && checkmoncaught(SPECIES_SLOWBRO)) {
+		setobtainable(SPECIES_LICKITUNG) // 86
 	}
+	
 	if(flag(FLAG_CSR_MAP_EEVEE_ROOM)) {
 		setobtainable(SPECIES_EEVEE) // 87
 	}
@@ -603,7 +604,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintCloyster)
 		case SPECIES_ONIX: 
 			 msgbox(PokedexRating_Text_HintOnix)
-		case SPECIES_PLUG_OINK: 
+		case SPECIES_LICKITUNG: 
 			 msgbox(PokedexRating_Text_HintPlugOink)
 		case SPECIES_BELLSPROUT: 
 			 msgbox(PokedexRating_Text_HintBellsprout)

@@ -338,12 +338,12 @@
 #define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_ARCHER_CUTSCENE_SECOND               0x125
 #define FLAG_0x126               0x126
-#define FLAG_0x127               0x127
-#define FLAG_0x128               0x128
-#define FLAG_0x129               0x129
-#define FLAG_0x12A               0x12A
-#define FLAG_0x12B               0x12B
-#define FLAG_0x12C               0x12C
+#define FLAG_SANDWICH_GOT_BREAD               0x127
+#define FLAG_SANDWICH_GOT_MEAT               0x128
+#define FLAG_SANDWICH_GOT_CHEESE               0x129
+#define FLAG_SANDWICH_GOT_LETTUCE               0x12A
+#define FLAG_SANDWICH_GOT_PICKLES               0x12B
+#define FLAG_SANDWICH_GOT_SESAME_SEED               0x12C
 #define FLAG_0x12D               0x12D
 #define FLAG_0x12E               0x12E
 #define FLAG_0x12F               0x12F
@@ -685,7 +685,7 @@
 #define FLAG_DID_ESPHERE_TRADE                           0x274
 #define FLAG_DID_TANGENY_TRADE                           0x275
 #define FLAG_DID_SEELOR_TRADE                            0x276
-#define FLAG_0x277                                       0x277
+#define FLAG_FUSCHIA_CUT_TREE                                       0x277
 #define FLAG_GOT_HITMON_FROM_DOJO                        0x278
 #define FLAG_0x279                                       0x279
 #define FLAG_SILPH_2F_DOOR_1                             0x27A

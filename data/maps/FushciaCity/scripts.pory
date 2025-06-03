@@ -341,3 +341,36 @@ script FushciaCity_SplatOops {
 	msgbox("Oops\n", MSGBOX_SIGN)
 	end
 }
+
+script FushciaCity_OakTree {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lockall
+	goto_if_unset(FLAG_BADGE02_GET, EventScript_CantCutTree)
+	checkpartymove(MOVE_CUT)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+	buffermovename(STR_VAR_2, MOVE_CUT)
+	msgbox(Text_CutTreeDown, MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(Text_TreeConfirm, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, EventScript_DontCutTree)
+	msgbox(Text_MonUsedMove)
+	closemessage
+	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
+	waitstate
+	applymovement(VAR_LAST_TALKED, Movement_CutTreeDown)
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	if(checkitem(ITEM_SANDWICH_CASE)) {
+		delay(30)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} obtained some LETTUCE!\n", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox("{PLAYER} put the LETTUCE in the\nSANDWICH CASE.", MSGBOX_DEFAULT)
+		setflag(FLAG_FUSCHIA_CUT_TREE)
+
+	}
+	releaseall
+	end
+}
