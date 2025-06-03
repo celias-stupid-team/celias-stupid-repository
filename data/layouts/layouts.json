@@ -5196,6 +5196,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Chapter3/border.bin",
       "blockdata_filepath": "data/layouts/Chapter3/map.bin"
+    },
+    {
+      "id": "LAYOUT_FESTIVAL_PLAZA",
+      "name": "FestivalPlaza_Layout",
+      "width": 30,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FestivalPlaza",
+      "border_filepath": "data/layouts/FestivalPlaza/border.bin",
+      "blockdata_filepath": "data/layouts/FestivalPlaza/map.bin"
     }
   ]
 }

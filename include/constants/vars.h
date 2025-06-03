@@ -258,7 +258,7 @@ It is reset after every battle.
 
 
 
-#define VAR_0x40A4                 0x40A4
+#define VAR_FESTIVAL_PLAZA_MAP_SCENE                 0x40A4
 #define VAR_0x40A5                 0x40A5
 #define VAR_0x40A6                 0x40A6
 #define VAR_0x40A7                 0x40A7

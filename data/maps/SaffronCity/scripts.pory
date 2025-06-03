@@ -123,14 +123,19 @@ SaffronCity_EventScript_TrainerFanClubSign::
 	end
 `
 
+
+const SneakyGuy = 20
 mapscripts SaffronCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: SaffronCity_OnTransition
 	MAP_SCRIPT_ON_LOAD {
-		if(checkmoncaught(SPECIES_GEODUDE)) {
-			
+		if(checkmoncaught(SPECIES_GEODUDE) && checkmoncaught(SPECIES_MACHOKE)) {
+			//oops did the logic backwards again
+		} else {
+			setflag(FLAG_TEMP_1)
 		}
 	}
 }
+
 
 script SaffronCity_EventScript_EntryDMCA {
 	msgbox("Haha! Welcome to SAFFRON CITY!\nNow officially under DMCA control!\p...Huh?\nWhere's the music?\pThat song was infringing on both\nPEWTER and VIRIDIAN!\lIt had to go!", MSGBOX_NPC)
@@ -195,5 +200,10 @@ script SaffronCity_EventScript_CSR2Sign {
 
 script SaffronCity_EventScript_SaffronSign {
 	msgbox("This sign's contents have been\ntaken down due to copyright.", MSGBOX_SIGN)
+	end
+}
+
+script SaffronCity_EventScript_SneakyGuy {
+	msgbox("Pssst…\nHey! C'mere!\pDon't tell any of the DMCA guys,\nbut I have a secret!\pThere's a way into SILPH CO. from\nbehind.\lYou just gotta find the back door!\pIf you need somewhere safe, you\ncan duck in!", MSGBOX_NPC)
 	end
 }

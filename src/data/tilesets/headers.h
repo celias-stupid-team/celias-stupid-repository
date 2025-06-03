@@ -921,3 +921,14 @@ const struct Tileset gTileset_chapter3 =
     .metatileAttributes = gMetatileAttributes_chapter3,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FestivalPlaza =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FestivalPlaza,
+    .palettes = gTilesetPalettes_FestivalPlaza,
+    .metatiles = gMetatiles_FestivalPlaza,
+    .metatileAttributes = gMetatileAttributes_FestivalPlaza,
+    .callback = NULL,
+};

@@ -86,6 +86,13 @@
       "elevation": 0,
       "dest_map": "MAP_SAFFRON_CITY",
       "dest_warp_id": "15"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FESTIVAL_PLAZA",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

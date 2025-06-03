@@ -248,3 +248,6 @@ const u32 gMetatileAttributes_NewFuchsiaGym[] = INCBIN_U32("data/tilesets/second
 
 const u16 gMetatiles_chapter3[] = INCBIN_U16("data/tilesets/primary/chapter_3/metatiles.bin");
 const u32 gMetatileAttributes_chapter3[] = INCBIN_U32("data/tilesets/primary/chapter_3/metatile_attributes.bin");
+
+const u16 gMetatiles_FestivalPlaza[] = INCBIN_U16("data/tilesets/secondary/festival_plaza/metatiles.bin");
+const u32 gMetatileAttributes_FestivalPlaza[] = INCBIN_U32("data/tilesets/secondary/festival_plaza/metatile_attributes.bin");
