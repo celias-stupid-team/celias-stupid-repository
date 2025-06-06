@@ -188,12 +188,32 @@ script Route15_Sandcastle {
 		if(var(VAR_RESULT)) {
 			setflag(FLAG_CSR_TALKED_TO_TUBER)
 			msgbox("Peering into the sandcastle, you\nsee dozens of small skeletons.", MSGBOX_DEFAULT)
+			if(checkitem(ITEM_SANDWICH, 1) && !flag(FLAG_CUBONE_SANDWICH)) {
+				msgbox("Would you like to feed the\nSAND CASTLE a SAND WICH?", MSGBOX_YESNO)
+					if(var(VAR_RESULT)) {
+						msgbox("{PLAYER} fed the ominous CASTLE\na SANDWICH!", MSGBOX_DEFAULT)
+						closemessage
+						playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
+						waitmoncry
+						msgbox("Oh?\nThe CASTLE spit something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
+						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CUBONE)
+						setflag(FLAG_SHINY_CREATION)
+						playfanfare(MUS_LEVEL_UP)
+						msgbox("{PLAYER} obtained the\nCUBONE!", MSGBOX_DEFAULT)
+						waitfanfare
+						call(Common_Script_ObtainedPokemon)
+						setflag(FLAG_CUBONE_SANDWICH)
+						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
+					
+				}
+			}
 			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 			waitmoncry
 		} else {
 			msgbox("{PLAYER} decided against testing\nfate.", MSGBOX_DEFAULT)
 		}
 	}
+	
 	release
 }
 

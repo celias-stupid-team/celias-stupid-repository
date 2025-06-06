@@ -344,7 +344,7 @@
 #define FLAG_SANDWICH_GOT_LETTUCE               0x12A
 #define FLAG_SANDWICH_GOT_PICKLES               0x12B
 #define FLAG_SANDWICH_GOT_SESAME_SEED               0x12C
-#define FLAG_0x12D               0x12D
+#define FLAG_CUBONE_SANDWICH               0x12D
 #define FLAG_0x12E               0x12E
 #define FLAG_0x12F               0x12F
 #define FLAG_0x130               0x130
