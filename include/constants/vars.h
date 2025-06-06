@@ -23,6 +23,8 @@
 #define VAR_TEMP_F                 (TEMP_VARS_START + 0xF)
 #define TEMP_VARS_END              VAR_TEMP_F
 
+
+
 // Object event graphics IDs which can be changed by
 // script commands.
 #define VAR_OBJ_GFX_ID_0                    0x4010
@@ -298,7 +300,7 @@ It is reset after every battle.
 #define VAR_0x40CA                 0x40CA
 #define VAR_0x40CB                 0x40CB
 #define VAR_0x40CC                 0x40CC
-#define VAR_0x40CD                 0x40CD
+#define VAR_CSR_SEPIA                 0x40CD
 #define VAR_CURRENT_CHAPTER                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF
 //Photo Man Vars

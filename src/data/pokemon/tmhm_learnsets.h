@@ -1213,7 +1213,6 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM27_VACUUM_CUT) |
                                         TMHM(TM28_TOMBSTONER) |
                                         TMHM(TM29_STEEL_WING) |
-                                        TMHM(TM31_MUD_SLAP) |
                                         TMHM(TM37_KNOCK_OFF) |
                                         TMHM(TM39_FAINT_ATTACK) |
                                         TMHM(TM41_TORMENT) |

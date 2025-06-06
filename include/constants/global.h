@@ -52,8 +52,7 @@
 #define POCKET_POKE_BALLS   3
 #define POCKET_TM_CASE      4
 #define POCKET_BERRY_POUCH  5
-#define POCKET_SANDWICH_CASE  6
-#define NUM_BAG_POCKETS 7
+#define NUM_BAG_POCKETS 6
 
 // Contests
 #define CONTEST_CATEGORIES_COUNT  5

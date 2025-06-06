@@ -280,3 +280,13 @@ script MtMoon_IncredibleTechnology {
 	msgbox("Technology is incredible!\pNow you can have a PC in the middle\nof a cave!", MSGBOX_NPC)
 	end
 }
+
+script MtMoonCelia_WallMoved {
+	msgbox("If you stand along the wall, you\ncan see the PC on the other side.\pI'd rather players not see it\nearly, so I changed the layout\lof the rocks by the ladder.\pThis new way pushes the player\nto walking right and not against\lthe wall.", MSGBOX_NPC)
+	end
+}
+
+script MtMoonCelia_PC {
+	msgbox("Adding a PC into a cave was\nactually really obnoxious.\pThe turn on the PC animation is\ntied to the tile ID and it only\lworks for indoor maps by default.\pI needed to edit the outdoor\ntileset so that the PC lined up\lperfectly with the indoor one.", MSGBOX_NPC)
+	end
+}
