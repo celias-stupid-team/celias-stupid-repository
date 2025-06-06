@@ -15,7 +15,7 @@ PalletTown_RivalsHouse_OnTransition::
 
 PalletTown_RivalsHouse_EventScript_MoveDaisyToTable::
 	setobjectmovementtype LOCALID_DAISY, MOVEMENT_TYPE_FACE_RIGHT
-	setobjectxyperm LOCALID_DAISY, 5, 4
+	setobjectxyperm LOCALID_DAISY, 10, 13
 	return
 
 PalletTown_RivalsHouse_EventScript_AlreadyReceivedTownMap::
@@ -164,7 +164,7 @@ script EventScript_DaisyTile {
 	release
 }
 script PalletTown_RivalsHouse_EventScript_CeliaBoB {
-	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nI delivered on my promise.", MSGBOX_NPC)
+	msgbox("Every time I watched someone play\nthis hack, I'd promise that I would\ladd the full Mario 64 level here.\pWell...\nYou'll see.", MSGBOX_NPC)
 	end
 }
 script BobOmbBattlefield_EventScript_CannonBuddy {
@@ -218,7 +218,7 @@ script BobOmbBattlefield_EventScript_Cannon {
 		//player locks facing direction
 		//player slides up very quickly until off screen
 		
-		warp(MAP_FUSHCIA_CITY_BRENDAN_MAY_2F, 2, 2)
+		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 3)
 
 	}
 	release
@@ -227,7 +227,7 @@ script BobOmbBattlefield_EventScript_Cannon {
 
 script SaffronCity_CopycatHouse_EventScript_Picture {
 	lock
-	msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		closemessage
 		delay(20)
@@ -248,8 +248,20 @@ script SaffronCity_CopycatHouse_EventScript_Picture {
 }
 
 script PalletTown_RivalsHouse_EventScript_Picture {
-		lock
-	msgbox("A familiar painting of three\nlit bombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+	lock
+	if(flag(FLAG_BROKE_RIVALS_WALL)) {
+		msgbox("I'm sure they won't mind.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	switch(var(VAR_TEMP_4)) {
+		case 0:
+			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+		case 1:
+			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it\nagain?", MSGBOX_YESNO)
+		case 2:
+			msgbox("An off-center picture of three\nlit bombs.\pWanna do it again?\n", MSGBOX_YESNO)
+	}
 	if(var(VAR_RESULT) == YES) {
 		closemessage
 		delay(20)
@@ -258,10 +270,46 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 		playse(SE_LEDGE)
 		applymovement(OBJ_EVENT_ID_PLAYER, JumpSplat)
 		waitmovement(0)
-		playse(SE_WALL_HIT)
-		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
-		waitmovement(0)
-		delay(40)
+		switch(var(VAR_TEMP_4)) {
+			case 0:
+				playse(SE_WALL_HIT)
+				applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+				waitmovement(0)
+				delay(40)
+				setvar(VAR_TEMP_4, 1)
+			case 1:
+				playse(SE_WALL_HIT)
+				setmetatile(14, 9, 0x376, TRUE)
+				setmetatile(14, 10, 0x37E, TRUE)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+				special(DrawWholeMapView)
+				special(ShakeScreen)
+				applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+				waitmovement(0)
+				delay(40)
+				setvar(VAR_TEMP_4, 2)
+			case 2:
+				playse(SE_BANG)
+				setmetatile(14, 9, 0x009, FALSE)
+				setmetatile(14, 10, 0x009, FALSE)
+				setmetatile(13, 9, 0x366, TRUE)
+				setmetatile(13, 10, 0x36E, TRUE)
+				setmetatile(15, 9, 0x367, TRUE)
+				setmetatile(15, 10, 0x36F, TRUE)
+
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+				special(DrawWholeMapView)
+				special(ShakeScreen)
+				delay(40)
+				setflag(FLAG_BROKE_RIVALS_WALL)
+
+		}
 		
 	}
 	release
