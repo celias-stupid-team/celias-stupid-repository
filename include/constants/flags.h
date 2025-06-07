@@ -346,7 +346,7 @@
 #define FLAG_SANDWICH_GOT_SESAME_SEED               0x12C
 #define FLAG_CUBONE_SANDWICH               0x12D
 #define FLAG_BROKE_RIVALS_WALL               0x12E
-#define FLAG_0x12F               0x12F
+#define FLAG_NERD_TOOK_KABUTOPS               0x12F
 #define FLAG_0x130               0x130
 #define FLAG_0x131               0x131
 #define FLAG_0x132               0x132

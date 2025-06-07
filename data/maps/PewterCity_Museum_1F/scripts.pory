@@ -2,9 +2,6 @@ raw `
 .set LOCALID_SCIENTIST1, 1
 .set LOCALID_OLD_AMBER,  4
 
-PewterCity_Museum_1F_MapScripts::
-	.byte 0
-
 PewterCity_Museum_1F_EventScript_Scientist1::
 	lock
 	faceplayer
@@ -183,17 +180,22 @@ PewterCity_Museum_1F_EventScript_AerodactylFossil::
 	releaseall
 	end
 
-PewterCity_Museum_1F_EventScript_KabutopsFossil::
-	lockall
-	setvar VAR_0x8004, SPECIES_KABUTOPS
-	setvar VAR_0x8005, 10
-	setvar VAR_0x8006, 3
-	special OpenMuseumFossilPic
-	msgbox PewterCity_Museum_1F_Text_KabutopsFossil
-	special CloseMuseumFossilPic
-	releaseall
-	end
+
 `
+
+mapscripts PewterCity_Museum_1F_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_GOT_DOME_FOSSIL) && !flag(FLAG_NERD_TOOK_KABUTOPS)) {
+
+		} else {
+			setflag(FLAG_TEMP_7)
+		}
+		if(flag(FLAG_NERD_TOOK_KABUTOPS)) {
+			setflag(FLAG_TEMP_7)
+			call(PewterCity_Museum_DrawEmptyKabutops)
+		}
+	}
+}
 script PewterCity_Museum_1F_EventScript_Receptionist {
 	lock
 	faceplayer
@@ -282,4 +284,58 @@ script PewterCity_Museum_1F_EventScript_Trees {
 	msgbox("Hmm…\nThere's no response from this one!")
 	release
 	end
+}
+
+script PewterCity_Museum_NerdStealsKabutops {
+	lock
+	faceplayer
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+	delay(60)
+	msgbox("Hey!\nYou're that kid from MT. MOON.\lYou wanted my favorite FOSSIL!\pBut! Look at this one.\nIt's my other favorite!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	delay(30)
+	playse(SE_BALL)
+	call(PewterCity_Museum_DrawEmptyKabutops)
+	special(DrawWholeMapView)
+	delay(60)
+	faceplayer
+	msgbox("Haha!\nNow this one's mine too!\pBye bye!\n", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	removeobject(VAR_LAST_TALKED)
+	playse(SE_EXIT)
+	setflag(FLAG_NERD_TOOK_KABUTOPS)
+	delay(30)
+	fadescreen(FADE_FROM_BLACK)
+	release
+}
+
+script PewterCity_Museum_DrawEmptyKabutops {
+	setmetatile(3, 6, 0x2D8, FALSE)
+	setmetatile(4, 6, 0x2D9, FALSE)
+	setmetatile(5, 6, 0x2DA, FALSE)
+	setmetatile(6, 6, 0x2DB, FALSE)
+	setmetatile(3, 7, 0x2E0, FALSE)
+	setmetatile(4, 7, 0x2E1, FALSE)
+	setmetatile(5, 7, 0x2E2, FALSE)
+	setmetatile(6, 7, 0x2E3, FALSE)
+	return
+}
+
+script PewterCity_Museum_1F_EventScript_KabutopsFossil {
+	lockall
+	if(flag(FLAG_NERD_TOOK_KABUTOPS)) {
+		msgbox("The average age in this room has\nincreased by 4.7 years.", MSGBOX_DEFAULT)
+		releaseall
+		end
+	}
+	setvar(VAR_0x8004, SPECIES_KABUTOPS)
+	setvar(VAR_0x8005, 10)
+	setvar(VAR_0x8006, 3)
+	special(OpenMuseumFossilPic)
+	msgbox(PewterCity_Museum_1F_Text_KabutopsFossil)
+	special(CloseMuseumFossilPic)
+	releaseall
 }
