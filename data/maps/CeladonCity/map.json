@@ -41,6 +41,7 @@
       "flag": "FLAG_HIDE_CELADON_ROCKETS"
     },
     {
+      "local_id": "LOCALID_CELADON_FAT_MAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 14,
@@ -55,6 +56,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CELADON_POLIWRATH",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SLOWBRO",
       "x": 12,
@@ -97,6 +99,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CERULEAN_CITY_YOUNGSTER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 53,
@@ -477,9 +480,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

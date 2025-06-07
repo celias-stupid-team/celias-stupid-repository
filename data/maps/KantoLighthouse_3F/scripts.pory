@@ -84,10 +84,10 @@ script Lighthouse_3F_Window {
 		closemessage
 		delay(30)
 		special(SpawnCameraObject)
-		applymovement(OBJ_EVENT_ID_PLAYER, JumpToDeath_1)
+		applymovement(LOCALID_PLAYER, JumpToDeath_1)
 		waitmovement(0)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, JumpToDeath_2)
+		applymovement(LOCALID_PLAYER, JumpToDeath_2)
 		waitmovement(0)
 		playse(SE_ICE_BREAK)
 		special(RemoveCameraObject)

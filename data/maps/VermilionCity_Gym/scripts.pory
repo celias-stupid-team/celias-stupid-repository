@@ -388,7 +388,7 @@ script VermillionGym_BonusCan5 {
 		applymovement(CELIA, CeliaSecretApproach)
 		waitmovement(0)
 		delay(20)
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+		applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 		waitmovement(0)
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("Uh, hi!\nI'm CELIA, the creator.\pWow, you sure did go through\nall those trash cans, huh?\lThe door was already open!\pWell, for going through all the\ntrouble, here's a reward for you!\lIt's the TRASH MASTER MEDAL!", MSGBOX_DEFAULT)
@@ -528,7 +528,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 		setflag(FLAG_TEMP_2)
 	}
 	applymovement(SURGE, Common_Movement_FaceDown)
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksCelia)
+	applymovement(LOCALID_PLAYER, PlayerLooksCelia)
 	waitmovement(0)
 	delay(30)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
@@ -536,7 +536,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 	closemessage
 	if(flag(FLAG_TEMP_2)) {
 		delay(20)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerStepsAside)
+		applymovement(LOCALID_PLAYER, PlayerStepsAside)
 		waitmovement(0)
 		delay(20)
 	}
@@ -575,7 +575,7 @@ script VermilionCity_Gym_EventScript_GiveTM34 {
 	waitmovement(0)
 	if(flag(FLAG_TEMP_2)) {
 		delay(20)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerMovesBack)
+		applymovement(LOCALID_PLAYER, PlayerMovesBack)
 		waitmovement(0)
 		delay(20)
 	}

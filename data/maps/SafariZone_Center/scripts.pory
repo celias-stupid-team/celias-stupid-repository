@@ -34,14 +34,14 @@ mapscripts SafariZone_Center_MapScripts {
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
 			setflag(FLAG_TEMP_2)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
 			goto(SafariZone_Center_DMCA_Take_Case)
 		}
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 2 {
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
 			applymovement(DMCA_Lead, DMCA_Lead_Down)
@@ -293,7 +293,7 @@ script SafariZone_Center_DMCA_Take_Case {
 	waitmovement(0)
 	delay(8)
 	playse(SE_M_DOUBLE_SLAP)
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerRoughedUp)
+	applymovement(LOCALID_PLAYER, PlayerRoughedUp)
 	waitse
 	playse(SE_M_DOUBLE_SLAP)
 	waitse
@@ -309,7 +309,7 @@ script SafariZone_Center_DMCA_Take_Case {
 	waitmovement(0)
 	msgbox("Hey BOSS!\nCheck out what I found!", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 	applymovement(DMCA_Lead, Common_Movement_WalkRight)
 	waitmovement(0)
 	applymovement(DMCA_Lead, Common_Movement_FaceDown)

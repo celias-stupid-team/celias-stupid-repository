@@ -137,7 +137,7 @@ script MtMoonSquare_StartDance {
     lockall
     special(SpawnCameraObject)
     setflag(FLAG_CSR_SPEEDRUN_CAVE)
-    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraUp)
+    applymovement(LOCALID_CAMERA, MtMoonSquare_CameraUp)
     fadeoutbgm(3)
     waitmovement(0)
     
@@ -183,12 +183,12 @@ script MtMoonSquare_StartDance {
     delay(30)
     fadescreen(FADE_TO_BLACK)
     addobject(EMBLEM)
-    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraRepositions)
+    applymovement(LOCALID_CAMERA, MtMoonSquare_CameraRepositions)
     waitmovement(0)
     setvar(VAR_MAP_SCENE_CLEFAIRY_DANCE, 2)
     fadescreen(FADE_FROM_BLACK)
     delay(30)
-    applymovement(OBJ_EVENT_ID_CAMERA, MtMoonSquare_CameraDown)
+    applymovement(LOCALID_CAMERA, MtMoonSquare_CameraDown)
     waitmovement(0)
     special(RemoveCameraObject)
     release

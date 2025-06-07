@@ -14,7 +14,7 @@ PalletTown_Truck_Opening_Call::
 
 PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
 	playbgm MUS_NONE TRUE
-	setrespawn SPAWN_PALLET_TOWN
+	setrespawn HEAL_LOCATION_PALLET_TOWN
 	return
 
 PalletTown_PlayersHouse_2F_OnWarp::
@@ -22,7 +22,7 @@ PalletTown_PlayersHouse_2F_OnWarp::
 	.2byte 0
 
 PalletTown_PlayersHouse_2F_FirstWarpIn::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_NES::
@@ -77,7 +77,7 @@ script PalletTown_Truck_Opening {
 	if(!flag(FLAG_CSR_EXITED_TRUCK)) {
 		setvar(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 1)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsOutOfTruck)
+		applymovement(LOCALID_PLAYER, PlayerJumpsOutOfTruck)
 		delay(50)
 		playse(SE_M_EARTHQUAKE)
 		applymovement(TRUCK, TruckRevsUp)
@@ -89,7 +89,7 @@ script PalletTown_Truck_Opening {
 		waitmovement(0)
 		delay(60)
 		removeobject(TRUCK)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerFaceUp)
+		applymovement(LOCALID_PLAYER, PlayerFaceUp)
 		waitmovement(0)
 		delay(5)
 		playbgm(MUS_PALLET, TRUE)

@@ -6,7 +6,7 @@ mapscripts SecretTunnel_MapScripts {
         VAR_TEMP_0, 0 {
             setvar(VAR_TEMP_0, 1)
             if(flag(FLAG_CSR_SPEEDRUN_CAVE)) {
-                applymovement(OBJ_EVENT_ID_PLAYER, PlayerZoomsOut)
+                applymovement(LOCALID_PLAYER, PlayerZoomsOut)
                 
                 clearflag(FLAG_CSR_SPEEDRUN_CAVE)
                 waitmovement(0)

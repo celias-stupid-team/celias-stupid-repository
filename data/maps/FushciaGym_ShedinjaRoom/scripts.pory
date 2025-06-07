@@ -57,7 +57,7 @@ script FushciaGym_HippopotasRight {
         playse(SE_FLEE)
         applymovement(VAR_LAST_TALKED, HippoRunsAway_Right)
         if(var(VAR_FACING) == DIR_EAST) {
-            applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsOutOfWay_Right)
+            applymovement(LOCALID_PLAYER, PlayerGetsOutOfWay_Right)
         }
         waitmovement(VAR_LAST_TALKED)
         setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)

@@ -64,7 +64,7 @@ script FushciaGym_ThePitRoom_LassBreaksWall {
     setobjectxy(LASS, 11, 12)
     setobjectxyperm(LASS, 11, 12)
     special(DrawWholeMapView)
-    applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerJumpsBack)
+    applymovement(LOCALID_PLAYER, FushciaGym_PlayerJumpsBack)
     delay(120)
     msgbox("…\pYou knew you were looking at me,\ndidn't you?", MSGBOX_DEFAULT)
     playbgm(MUS_BATTLE_FRONTIER, TRUE)

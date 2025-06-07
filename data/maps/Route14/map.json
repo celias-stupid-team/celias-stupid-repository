@@ -83,6 +83,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE14_BIKER1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
       "x": 16,
@@ -97,6 +98,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE14_BIKER2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
       "x": 16,
@@ -125,6 +127,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE14_ROCKER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
       "x": 16,
@@ -139,6 +142,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE14_BIKER3",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
       "x": 16,

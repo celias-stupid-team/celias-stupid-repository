@@ -113,11 +113,11 @@ script Route1_EventScript_Dad {
 script Route1_EventScript_ReturnToPit {
 	lock
 	setvar(VAR_CSR_VIRIDIAN_DOOR_TWICE, 2)
-	applymovement(OBJ_EVENT_ID_PLAYER, ReturnToPit_Start)
+	applymovement(LOCALID_PLAYER, ReturnToPit_Start)
 	waitmovement(0)
 	getplayerxy(VAR_TEMP_2, VAR_RESULT)
 	if(var(VAR_RESULT) == 3) {
-		applymovement(OBJ_EVENT_ID_PLAYER, ExtraRunDown)
+		applymovement(LOCALID_PLAYER, ExtraRunDown)
 		waitmovement(0)
 	}
 	

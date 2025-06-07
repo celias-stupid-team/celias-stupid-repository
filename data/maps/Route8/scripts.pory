@@ -124,10 +124,10 @@ script Route8_PushBench {
 		closemessage
 		delay(20)
 		special(SpawnCameraObject)
-		applymovement(OBJ_EVENT_ID_CAMERA, Route8_CameraGoesUp)
+		applymovement(LOCALID_CAMERA, Route8_CameraGoesUp)
 		waitmovement(0)
 		playse(SE_WALL_HIT)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerPushesBench)
+		applymovement(LOCALID_PLAYER, PlayerPushesBench)
 		waitmovement(0)
 		playse(SE_M_WATERFALL)
 		applymovement(BENCH, Bench1)
@@ -144,7 +144,7 @@ script Route8_PushBench {
 		setmetatile(37, 2, 0x3C2, FALSE)
 		special(DrawWholeMapView)
 		delay(30)
-		applymovement(OBJ_EVENT_ID_CAMERA, Route8_CameraGoesDown)
+		applymovement(LOCALID_CAMERA, Route8_CameraGoesDown)
 		waitmovement(0)
 		special(RemoveCameraObject)
 		removeobject(BENCH)
@@ -239,9 +239,9 @@ script Route8_GrowlitheSign {
 				if(var(VAR_FACING) == DIR_SOUTH) { //Player jumps out of the way if they're above it 
 					getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
 					if(var(VAR_TEMP_2) == 22) {
-						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsLeft)
+						applymovement(LOCALID_PLAYER, PlayerJumpsLeft)
 					} else {
-						applymovement(OBJ_EVENT_ID_PLAYER, PlayerJumpsRight)
+						applymovement(LOCALID_PLAYER, PlayerJumpsRight)
 					}
 					
 					

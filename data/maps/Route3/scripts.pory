@@ -34,9 +34,9 @@ script Route3_EventScript_Lass {
 	playbgm(MUS_ENCOUNTER_GIRL, 1)
 	delay(90)
 	 //set Rumor Log variables 4,3
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+	applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
 	waitmovement(0)
-	applymovement(OBJ_EVENT_ID_PLAYER, Lass_Player_Start)
+	applymovement(LOCALID_PLAYER, Lass_Player_Start)
 	waitmovement(0)
 	switch(var(VAR_TEMP_1)) {
 		case 5:
@@ -47,9 +47,9 @@ script Route3_EventScript_Lass {
 	waitmovement(0)
 	delay(10)
 	playse(SE_PIN)
-	applymovement(OBJ_EVENT_ID_PLAYER, Lass_Player_End)
+	applymovement(LOCALID_PLAYER, Lass_Player_End)
 	waitmovement(0)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	delay(10)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
@@ -243,14 +243,14 @@ script Route3_Blackglasses {
 				applymovement(Nerd,NerdApproachesPlayerRight)
 				waitmovement(0)
 				delay(5)
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+				applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 				waitmovement(0)
 				break
 			case DIR_SOUTH:
 				applymovement(Nerd,NerdApproachesPlayerFar)
 				waitmovement(0)
 				delay(5)
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+				applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
 				waitmovement(0)
 				break
 			case DIR_EAST:
@@ -266,16 +266,16 @@ script Route3_Blackglasses {
 		delay(20)
 		switch(var(VAR_TEMP_1)) {// 1 
 			case DIR_SOUTH:
-				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShook)
+				applymovement(LOCALID_PLAYER, PlayerIsShook)
 				waitmovement(0)
 				
 				applymovement(Nerd, NerdIsSadUp)
 				waitmovement(0)
-				applymovement(OBJ_EVENT_ID_PLAYER,Common_Movement_FaceDown)
+				applymovement(LOCALID_PLAYER,Common_Movement_FaceDown)
 				delay(10)
 				break
 			case DIR_WEST:
-				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShook)
+				applymovement(LOCALID_PLAYER, PlayerIsShook)
 				waitmovement(0)
 				applymovement(Nerd, NerdIsSad)
 				waitmovement(0)
@@ -283,7 +283,7 @@ script Route3_Blackglasses {
 				break
 
 			case DIR_EAST:
-				applymovement(OBJ_EVENT_ID_PLAYER, PlayerIsShookInverse)
+				applymovement(LOCALID_PLAYER, PlayerIsShookInverse)
 				waitmovement(0)
 				applymovement(Nerd, NerdIsSad)
 				waitmovement(0)

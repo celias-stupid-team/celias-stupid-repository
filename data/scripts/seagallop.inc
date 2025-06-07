@@ -117,8 +117,8 @@ EventScript_CancelSail::
 
 VermilionCity_EventScript_WalkUpPier::
 	closemessage
-	applymovement LOCALID_FERRY_SAILOR, Common_Movement_FaceOriginalDirection
-	applymovement OBJ_EVENT_ID_PLAYER, VermilionCity_Movement_WalkUp
+	applymovement LOCALID_VERMILION_FERRY_SAILOR, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_PLAYER, VermilionCity_Movement_WalkUp
 	waitmovement 0
 	releaseall
 	end

@@ -73,7 +73,7 @@ script PokemonTower_6F_EventScript_MarowakGhost {
 		releaseall
 		end
 	} else {
-		applymovement(OBJ_EVENT_ID_PLAYER, PokemonTower_6F_Movement_ForcePlayerUp)
+		applymovement(LOCALID_PLAYER, PokemonTower_6F_Movement_ForcePlayerUp)
 		waitmovement(0)
 		releaseall
 

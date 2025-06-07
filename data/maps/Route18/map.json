@@ -125,7 +125,7 @@
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 42,
       "y": -3,
-      "target_local_id": 2,
+      "target_local_id": "LOCALID_GREAT_BAY_SKY_PILLAR_OUTSIDE_OLD_MAN_1",
       "target_map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE"
     }
   ],

@@ -316,12 +316,12 @@ script RockTunnel_PokeDoll {
 			applymovement(MERCHANT, Common_Movement_WalkRight)
 	}
 	delay(16)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 	waitmovement(MERCHANT)
 	msgbox("Those DOLLS aren't free!\nYou can't just take one!", MSGBOX_DEFAULT)
 	closemessage
 	delay(15)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 	delay(30)
 	playse(SE_BALL)
 	applymovement(VAR_LAST_TALKED, Common_Movement_SetVisible)

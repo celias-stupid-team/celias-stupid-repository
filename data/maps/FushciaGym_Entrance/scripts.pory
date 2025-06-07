@@ -45,7 +45,7 @@ script FushciaGym_Entrance_Koga {
         fadescreen(FADE_FROM_BLACK)
         delay(30)
         setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
-        applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerWalksUp)
+        applymovement(LOCALID_PLAYER, FushciaGym_PlayerWalksUp)
         waitmovement(0)
         release
 
@@ -82,7 +82,7 @@ script FushciaGym_LeaveChallenge {
     applymovement(ATTENDANT, KogaJumpsYou)
     waitmovement(0)
     delay(20)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
     textcolor(NPC_TEXT_COLOR_MALE)
     delay(40)
     msgbox("Aha!\nSo you wish to leave the GYM?", MSGBOX_YESNO)
@@ -102,7 +102,7 @@ script FushciaGym_LeaveChallenge {
         fadescreen(FADE_FROM_BLACK)
         delay(30)
         setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
-        applymovement(OBJ_EVENT_ID_PLAYER, FushciaGym_PlayerWalksUp)
+        applymovement(LOCALID_PLAYER, FushciaGym_PlayerWalksUp)
         waitmovement(0)
         release
     }

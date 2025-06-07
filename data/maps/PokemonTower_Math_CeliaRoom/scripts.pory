@@ -4,9 +4,9 @@ mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
         VAR_TEMP_1, 0 {
             setvar(VAR_TEMP_1, 1)
             if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+                applymovement(LOCALID_PLAYER, Common_Movement_WalkLeft)
                 waitmovement(0)
-                applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+                applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
                 delay(60)
                 playse(SE_EXIT)
                 setobjectxy(CELIA, 13, 15)
