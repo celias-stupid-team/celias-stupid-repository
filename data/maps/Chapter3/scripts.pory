@@ -1,7 +1,7 @@
 mapscripts Chapter3_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_CURRENT_CHAPTER, 2 {
-            applymovement(OBJ_EVENT_ID_PLAYER, SetPlayerInvisible)
+            applymovement(LOCALID_PLAYER, SetPlayerInvisible)
             applymovement(1, CurtainLeft) //sorry not labeling these it's much faster this way
             applymovement(3, CurtainLeft)
             applymovement(5, CurtainLeft)            

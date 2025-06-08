@@ -27,6 +27,7 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_ROUTE24_ROCKET",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
       "x": 12,
@@ -153,6 +154,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ROUTE24_ODD_CANDY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
       "x": 19,

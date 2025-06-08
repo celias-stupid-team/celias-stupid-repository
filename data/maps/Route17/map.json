@@ -125,13 +125,11 @@
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 11,
       "y": -4,
-      "target_local_id": 14,
+      "target_local_id": "LOCALID_ROUTE16_BATTLE_GIRL",
       "target_map": "MAP_ROUTE16"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "trigger",

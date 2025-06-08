@@ -1,11 +1,4 @@
 raw `
-.set LOCALID_FAT_MAN,   2
-.set LOCALID_POLIWRATH, 3
-
-
-
-
-
 CeladonCity_EventScript_LittleGirl::
 	msgbox CeladonCity_Text_GotMyKoffingInCinnabar, MSGBOX_NPC
 	end
@@ -34,7 +27,7 @@ CeladonCity_EventScript_FatMan::
 	faceplayer
 	msgbox CeladonCity_Text_MyTrustedPalPoliwrath
 	closemessage
-	applymovement LOCALID_FAT_MAN, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_CELADON_FAT_MAN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
@@ -47,7 +40,7 @@ CeladonCity_EventScript_Poliwrath::
 	msgbox CeladonCity_Text_Poliwrath
 	closemessage
 	waitmoncry
-	applymovement LOCALID_POLIWRATH, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_CELADON_POLIWRATH, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
@@ -117,7 +110,7 @@ mapscripts CeladonCity_MapScripts {
 		VAR_CSR_CURRENT_CELIA_SECRET, 5 {
 			lock
 			delay(90)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 			if(flag(FLAG_CELIA_SECRET_CELADON)) {
 				waitmovement(0)
 				setvar(VAR_CSR_CURRENT_CELIA_SECRET, 0)

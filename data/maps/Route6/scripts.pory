@@ -28,7 +28,7 @@ script Route6_LassAttack {
 	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
 	delay(80)
 	playse(SE_PIN)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	setobjectxy(LASS, 19, 13)
 	delay(50)
@@ -40,25 +40,25 @@ script Route6_LassAttack {
 		case 17:
 			applymovement(LASS, Lass_PlayerX_17)
 			waitmovement(0)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 			waitmovement(0)
 			break
 		case 18:
 			applymovement(LASS, Lass_PlayerX_18)
 			waitmovement(0)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 			waitmovement(0)
 			break
 		case 19:
 			applymovement(LASS, Lass_PlayerX_19)
 			waitmovement(0)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 			waitmovement(0)
 			break
 		case 20:
 			applymovement(LASS, Lass_PlayerX_20)
 			waitmovement(0)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 			waitmovement(0)
 			break
 	}

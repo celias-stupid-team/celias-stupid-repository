@@ -1,10 +1,4 @@
 raw `
-.set LOCALID_GRUNT1, 2
-.set LOCALID_GRUNT2, 3
-.set LOCALID_GRUNT3, 4
-
-
-
 PokemonTower_7F_EventScript_MrFuji::
 	lock
 	faceplayer
@@ -30,25 +24,25 @@ PokemonTower_7F_EventScript_DefeatedGrunt1::
 	goto_if_eq VAR_0x8004, 10, PokemonTower_7F_EventScript_Grunt1ExitMid
 	goto_if_eq VAR_0x8004, 11, PokemonTower_7F_EventScript_Grunt1ExitRight
 	goto_if_eq VAR_0x8004, 9, PokemonTower_7F_EventScript_Grunt1ExitLeft
-	applymovement LOCALID_GRUNT1, PokemonTower_7F_Movement_Grunt1Exit
+	applymovement LOCALID_POKEMON_TOWER_GRUNT1, PokemonTower_7F_Movement_Grunt1Exit
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt1
 	end
 
 PokemonTower_7F_EventScript_Grunt1ExitMid::
-	applymovement LOCALID_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitMid
+	applymovement LOCALID_POKEMON_TOWER_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitMid
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt1
 	end
 
 PokemonTower_7F_EventScript_Grunt1ExitRight::
-	applymovement LOCALID_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitRight
+	applymovement LOCALID_POKEMON_TOWER_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitRight
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt1
 	end
 
 PokemonTower_7F_EventScript_Grunt1ExitLeft::
-	applymovement LOCALID_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitLeft
+	applymovement LOCALID_POKEMON_TOWER_GRUNT1, PokemonTower_7F_Movement_Grunt1ExitLeft
 	waitmovement 0
 	playse SE_EXIT
 	delay 25
@@ -56,7 +50,7 @@ PokemonTower_7F_EventScript_Grunt1ExitLeft::
 	end
 
 PokemonTower_7F_EventScript_RemoveGrunt1::
-	removeobject LOCALID_GRUNT1
+	removeobject LOCALID_POKEMON_TOWER_GRUNT1
 	release
 	end
 
@@ -113,25 +107,25 @@ PokemonTower_7F_EventScript_DefeatedGrunt2::
 	getplayerxy VAR_0x8004, VAR_0x8005
 	goto_if_eq VAR_0x8004, 12, PokemonTower_7F_EventScript_Grunt2ExitLeft
 	goto_if_eq VAR_0x8004, 13, PokemonTower_7F_EventScript_Grunt2ExitRight
-	applymovement LOCALID_GRUNT2, PokemonTower_7F_Movement_Grunt2Exit
+	applymovement LOCALID_POKEMON_TOWER_GRUNT2, PokemonTower_7F_Movement_Grunt2Exit
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt2
 	end
 
 PokemonTower_7F_EventScript_Grunt2ExitLeft::
-	applymovement LOCALID_GRUNT2, PokemonTower_7F_Movement_Grunt2ExitLeft
+	applymovement LOCALID_POKEMON_TOWER_GRUNT2, PokemonTower_7F_Movement_Grunt2ExitLeft
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt2
 	end
 
 PokemonTower_7F_EventScript_Grunt2ExitRight::
-	applymovement LOCALID_GRUNT2, PokemonTower_7F_Movement_Grunt2ExitRight
+	applymovement LOCALID_POKEMON_TOWER_GRUNT2, PokemonTower_7F_Movement_Grunt2ExitRight
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt2
 	end
 
 PokemonTower_7F_EventScript_RemoveGrunt2::
-	removeobject LOCALID_GRUNT2
+	removeobject LOCALID_POKEMON_TOWER_GRUNT2
 	release
 	end
 
@@ -176,25 +170,25 @@ PokemonTower_7F_EventScript_DefeatedGrunt3::
 	getplayerxy VAR_0x8004, VAR_0x8005
 	goto_if_eq VAR_0x8004, 10, PokemonTower_7F_EventScript_Grunt3ExitRight
 	goto_if_eq VAR_0x8004, 9, PokemonTower_7F_EventScript_Grunt3ExitLeft
-	applymovement LOCALID_GRUNT3, PokemonTower_7F_Movement_Grunt3Exit
+	applymovement LOCALID_POKEMON_TOWER_GRUNT3, PokemonTower_7F_Movement_Grunt3Exit
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt3
 	end
 
 PokemonTower_7F_EventScript_Grunt3ExitRight::
-	applymovement LOCALID_GRUNT3, PokemonTower_7F_Movement_Grunt3ExitRight
+	applymovement LOCALID_POKEMON_TOWER_GRUNT3, PokemonTower_7F_Movement_Grunt3ExitRight
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt3
 	end
 
 PokemonTower_7F_EventScript_Grunt3ExitLeft::
-	applymovement LOCALID_GRUNT3, PokemonTower_7F_Movement_Grunt3ExitLeft
+	applymovement LOCALID_POKEMON_TOWER_GRUNT3, PokemonTower_7F_Movement_Grunt3ExitLeft
 	waitmovement 0
 	goto PokemonTower_7F_EventScript_RemoveGrunt3
 	end
 
 PokemonTower_7F_EventScript_RemoveGrunt3::
-	removeobject LOCALID_GRUNT3
+	removeobject LOCALID_POKEMON_TOWER_GRUNT3
 	release
 	end
 
@@ -240,14 +234,14 @@ mapscripts PokemonTower_7F_MapScripts {
 
 script PokemonTower_LeftWalkUp {
 	lock
-	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUpLeft)
+	applymovement(LOCALID_PLAYER, PokemonTowerWalkUpLeft)
 	waitmovement(0)
 	call(PokemonTower_Trailer)
 }
 
 script PokemonTower_CenterWalkUp {
 	lock
-	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUp)
+	applymovement(LOCALID_PLAYER, PokemonTowerWalkUp)
 	waitmovement(0)
 	call(PokemonTower_Trailer)
 
@@ -255,7 +249,7 @@ script PokemonTower_CenterWalkUp {
 
 script PokemonTower_RightWalkUp {
 	lock
-	applymovement(OBJ_EVENT_ID_PLAYER, PokemonTowerWalkUpRight)
+	applymovement(LOCALID_PLAYER, PokemonTowerWalkUpRight)
 	waitmovement(0)
 	call(PokemonTower_Trailer)
 
@@ -287,7 +281,7 @@ const FUJI = 6
 script PokemonTower_Trailer {
 	special(SpawnCameraObject)
 	setweather(WEATHER_NONE)
-	applymovement(OBJ_EVENT_ID_CAMERA, PokemonTower_CameraSlowUp)
+	applymovement(LOCALID_CAMERA, PokemonTower_CameraSlowUp)
 	doweather
 	waitmovement(0)
 	special(DrawWholeMapView)
@@ -371,7 +365,7 @@ script PokemonTower_Trailer {
 	closemessage
 	delay(15)
 	applymovement(KANGA, KangAttacks)
-	applymovement(OBJ_EVENT_ID_CAMERA, KangAttacks)
+	applymovement(LOCALID_CAMERA, KangAttacks)
 	waitmovement(0)
 	special(RemoveCameraObject)
 
@@ -432,7 +426,7 @@ script PokemonTower_Trailer {
 			closemessage
 			special(SpawnCameraObject)
 			applymovement(PURE_KANGA, Common_Movement_WalkSlowUp)
-			applymovement(OBJ_EVENT_ID_PLAYER, PlayerGoesUp)
+			applymovement(LOCALID_PLAYER, PlayerGoesUp)
 			waitmovement(0)
 			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
 			msgbox("KANGASKHAN: Krraaaaa!")
@@ -451,7 +445,7 @@ script PokemonTower_Trailer {
 			removeobject(ARIANA)
 			removeobject(LEFT_GRUNT)
 			removeobject(RIGHT_GRUNT)
-			applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkLeft)
+			applymovement(LOCALID_CAMERA, Common_Movement_WalkLeft)
 			waitmovement(0)
 			applymovement(PURE_KANGA, Common_Movement_FaceDown)
 			fadescreen(FADE_FROM_BLACK)
@@ -460,14 +454,14 @@ script PokemonTower_Trailer {
 			setobjectxy(FUJI, 11, 14)
 			playse(SE_EXIT)
 			applymovement(FUJI, FujiEnters)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
 			waitmovement(FUJI)
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("MR. FUJI: Ah, my dear\nKANGASKHAN!\lYou're finally safe.", MSGBOX_DEFAULT)
 			closemessage
 			applymovement(FUJI, FujiGoesToYou)
 			waitmovement(0)
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 			msgbox("And you, there.\n{PLAYER}, was it?\pThank you, {PLAYER}.\nYou've done a great deed.\pBut I must ask:\nHow were you able to save her?", MSGBOX_DEFAULT)
 			closemessage
 			textcolor(NPC_TEXT_COLOR_MON)

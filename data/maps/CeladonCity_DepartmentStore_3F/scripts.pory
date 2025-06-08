@@ -189,7 +189,7 @@ script DepartmentStore_GameShop_TVDad {
 	delay(25)
 	addobject(DAD)
 	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_DepartmentStore_3F_CameraUp)
+	applymovement(LOCALID_CAMERA, CeladonCity_DepartmentStore_3F_CameraUp)
 	waitmovement(0)
 	delay(10)
 	setobjectxy(DAD, 9, 2)
@@ -211,7 +211,7 @@ script DepartmentStore_GameShop_TVDad {
 	playse(SE_EXIT)
 	setobjectxy(DAD, 5, 0)
 	removeobject(DAD)
-	applymovement(OBJ_EVENT_ID_CAMERA, CeladonCity_DepartmentStore_3F_CameraDown)
+	applymovement(LOCALID_CAMERA, CeladonCity_DepartmentStore_3F_CameraDown)
 	waitmovement(0)
 	special(RemoveCameraObject)
 	release

@@ -1,7 +1,4 @@
 raw `
-.equ LOCALID_DAISY,    1
-.equ LOCALID_TOWN_MAP, 2
-
 .equ RECEIVED_TOWN_MAP, VAR_TEMP_1
 
 PalletTown_RivalsHouse_MapScripts::
@@ -190,21 +187,21 @@ script BobOmbBattlefield_EventScript_Cannon {
 		playse(SE_LEDGE)
 		switch(var(VAR_FACING)) {
 			case DIR_NORTH:
-				applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+				applymovement(LOCALID_PLAYER, JumpUp)
 				break
 			case DIR_SOUTH:
-				applymovement(OBJ_EVENT_ID_PLAYER, JumpDown)
+				applymovement(LOCALID_PLAYER, JumpDown)
 				break
 			case DIR_EAST:
-				applymovement(OBJ_EVENT_ID_PLAYER, JumpRight)
+				applymovement(LOCALID_PLAYER, JumpRight)
 				break
 			case DIR_WEST:
-				applymovement(OBJ_EVENT_ID_PLAYER, JumpLeft)
+				applymovement(LOCALID_PLAYER, JumpLeft)
 				break
 		}
 		waitmovement(0)
 		setmetatile(31,32,0x075,0)
-		applymovement(OBJ_EVENT_ID_PLAYER, FallIntoHole)
+		applymovement(LOCALID_PLAYER, FallIntoHole)
 		waitmovement(0)
 		delay(30)
 		msgbox("It is implied that a cannon is\nlaunching you.", MSGBOX_DEFAULT)
@@ -231,16 +228,16 @@ script SaffronCity_CopycatHouse_EventScript_Picture {
 	if(var(VAR_RESULT) == YES) {
 		closemessage
 		delay(20)
-		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		applymovement(LOCALID_PLAYER, BackUp)
 		waitmovement(0)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, JumpUp)
+		applymovement(LOCALID_PLAYER, JumpUp)
 		waitmovement(0)
 		fadescreen(FADE_TO_WHITE)
 		delay(30)
-		setobjectxy(OBJ_EVENT_ID_PLAYER, 31, 35)
+		setobjectxy(LOCALID_PLAYER, 31, 35)
 		warphole(MAP_PALLET_TOWN_BOB_OMB_BATTLEFIELD)
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+		applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 	} else {
 		msgbox("{PLAYER} decided against a\nlikely concussion.", MSGBOX_DEFAULT)
 	}
@@ -253,13 +250,13 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 	if(var(VAR_RESULT) == YES) {
 		closemessage
 		delay(20)
-		applymovement(OBJ_EVENT_ID_PLAYER, BackUp)
+		applymovement(LOCALID_PLAYER, BackUp)
 		waitmovement(0)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, JumpSplat)
+		applymovement(LOCALID_PLAYER, JumpSplat)
 		waitmovement(0)
 		playse(SE_WALL_HIT)
-		applymovement(OBJ_EVENT_ID_PLAYER, Faceplant)
+		applymovement(LOCALID_PLAYER, Faceplant)
 		waitmovement(0)
 		delay(40)
 		

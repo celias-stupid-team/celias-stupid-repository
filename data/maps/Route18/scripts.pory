@@ -46,11 +46,11 @@ script Route18_BirdCultistStopsYouTrigger {
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("Halt there!\n", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 	msgbox("That way goes to a sacred site of\nthe BIRD CULTISTS.\lDo not test us!\pIf you wish to proceed, you must\nearn the trust of our PRIEST.", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkLeft)
 	waitmovement(0)
 	release
 }

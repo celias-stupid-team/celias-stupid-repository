@@ -1,8 +1,4 @@
 raw `
-.equ LOCALID_DOME_FOSSIL,  1
-.equ LOCALID_HELIX_FOSSIL, 2
-.equ LOCALID_MIGUEL,       3
-
 MtMoon_B2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MtMoon_B2F_OnTransition
 	.byte 0
@@ -152,7 +148,7 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 	delay(10)
 	if(flag(FLAG_GOT_DOME_FOSSIL)) {
 		applymovement(ACTUAL_MIGUEL, Common_Movement_FaceRight)
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+		applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 		waitmovement(0)
 		textcolor(NPC_TEXT_COLOR_MALE)
 		msgbox("That's okay.\nI got the one I wanted.\pHey, what was that other guy doing\nhere anyway?", MSGBOX_DEFAULT)
@@ -160,10 +156,10 @@ script MtMoon_B2F_EventScript_HelixFossil { //Jaw Fossil
 		applymovement(LOCALID_MIGUEL, ProtonArrestsMiguel)
 		delay(15)
 		playse(SE_PIN)
-		//applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+		//applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
 		applymovement(ACTUAL_MIGUEL, MiguelOhShit)
 		delay(60)
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+		applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 		waitmovement(ACTUAL_MIGUEL)
 		setobjectxy(ACTUAL_MIGUEL, 0, 18)
 		setobjectmovementtype(ACTUAL_MIGUEL, MOVEMENT_TYPE_INVISIBLE)		// Doesn't actually seem to do anything
@@ -244,10 +240,10 @@ script MtMoon_B2F_EventScript_DomeFossil { //Sail fossil that you can't have
 	msgbox("Wait!!\n", MSGBOX_DEFAULT)
 	closemessage
 	addobject(ACTUAL_MIGUEL)
-	//applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown) Doesn't look good 
+	//applymovement(LOCALID_PLAYER, Common_Movement_FaceDown) Doesn't look good 
 	waitmovement(0)
 	playse(SE_PIN)
-	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
 	delay(15)
 	setobjectxy(ACTUAL_MIGUEL, 14, 13)
 	applymovement(ACTUAL_MIGUEL, MiguelRunsUp)
@@ -255,8 +251,8 @@ script MtMoon_B2F_EventScript_DomeFossil { //Sail fossil that you can't have
 	delay(10)
 	playse(SE_WALL_HIT)
 	applymovement(ACTUAL_MIGUEL, MiguelShovesYou)
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerGetsShoved)
-	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(LOCALID_PLAYER, PlayerGetsShoved)
+	waitmovement(LOCALID_PLAYER)
 	delay(30)
 	applymovement(ACTUAL_MIGUEL, Common_Movement_FaceUp)
 	waitmovement(0)

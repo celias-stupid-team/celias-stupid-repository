@@ -37,6 +37,7 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_CERULEAN_POLICEMAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 31,
@@ -51,6 +52,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CERULEAN_GRUNT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 33,
@@ -93,6 +95,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CERULEAN_SLOWBRO",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SLOWBRO",
       "x": 32,
@@ -107,6 +110,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CERULEAN_LASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 33,
@@ -149,6 +153,7 @@
       "flag": "FLAG_TEMP_13"
     },
     {
+      "local_id": "LOCALID_CERULEAN_WOMAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
       "x": 12,
@@ -163,6 +168,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_CERULEAN_CAVE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
       "x": 2,
@@ -191,6 +197,7 @@
       "flag": "FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK"
     },
     {
+      "local_id": "LOCALID_CERULEAN_RIVAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 22,
@@ -293,7 +300,7 @@
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
       "x": 50,
       "y": 23,
-      "target_local_id": 9,
+      "target_local_id": "LOCALID_ROUTE9_CUT_TREE",
       "target_map": "MAP_ROUTE9"
     },
     {

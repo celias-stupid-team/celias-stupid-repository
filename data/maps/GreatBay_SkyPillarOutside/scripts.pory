@@ -6,7 +6,7 @@ script GreatBay_SkyPillarOutside_LookingOut {
     lock
     specialvar(VAR_RESULT, GetPlayerFacingDirection)
     if(var(VAR_RESULT) == DIR_NORTH) {
-        applymovement(OBJ_EVENT_ID_PLAYER, GreatBay_PlayerMovesIntoPosition)
+        applymovement(LOCALID_PLAYER, GreatBay_PlayerMovesIntoPosition)
         waitmovement(0)
         delay(30)
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
@@ -17,21 +17,21 @@ script GreatBay_SkyPillarOutside_LookingOut {
     
     msgbox("Hello, traveller.\nSee that TOWER across the bay?", MSGBOX_DEFAULT)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
     delay(20)
     special(SpawnCameraObject)
-    applymovement(OBJ_EVENT_ID_CAMERA, GreatBay_CameraGoesUp)
+    applymovement(LOCALID_CAMERA, GreatBay_CameraGoesUp)
     waitmovement(0)
     delay(30)
     msgbox("They say that atop the TOWER awaits\na powerful BIRD POKéMON.\lIt comes to roost once a lifetime.", MSGBOX_DEFAULT)
     closemessage
-    applymovement(OBJ_EVENT_ID_CAMERA, GreatBay_CameraComesDown)
+    applymovement(LOCALID_CAMERA, GreatBay_CameraComesDown)
     waitmovement(0)
     if(var(VAR_RESULT) == DIR_SOUTH) {
-        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
     } else {
-        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
     }
     msgbox("The TOWER has been sealed away\nall my life.\lNo one knows what lies inside.\pPerhaps one day, a brave soul will\nventure within.", MSGBOX_DEFAULT)

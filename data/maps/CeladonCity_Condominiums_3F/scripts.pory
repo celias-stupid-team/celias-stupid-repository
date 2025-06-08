@@ -114,7 +114,7 @@ script CeladonCity_CeliaOffice_Staircase {
 	addvar(VAR_TEMP_2, 1)
 	closemessage
 	delay(15)
-	applymovement(OBJ_EVENT_ID_PLAYER, PlayerLeaves)
+	applymovement(LOCALID_PLAYER, PlayerLeaves)
 	waitmovement(0)
 	applymovement(CELIABOSS, CeliaReturns)
 	waitmovement(0)

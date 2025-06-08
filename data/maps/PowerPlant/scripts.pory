@@ -247,7 +247,7 @@ script PowerPlant_MinigameStart {
 				dowildbattle
 				//waitstate
 				special(SpawnCameraObject)
-				applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
+				applymovement(LOCALID_CAMERA, PowerPlant_CameraGoDown)
 				waitmovement(0)
 				special(RemoveCameraObject)
 			} else {
@@ -272,7 +272,7 @@ script PowerPlant_Electrode {
 script PowerPlant_ElectrodesSlideDown {
 	fadenewbgm(MUS_NONE)
 	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoUp)
+	applymovement(LOCALID_CAMERA, PowerPlant_CameraGoUp)
 	waitmovement(0)
 	addobject(ELECTRODE_1)
 	addobject(ELECTRODE_2)

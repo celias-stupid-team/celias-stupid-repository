@@ -91,7 +91,7 @@ script Route15_PowerOutTrigger {
 			break
 	}
 	delay(10)
-	applymovement(OBJ_EVENT_ID_PLAYER, Route15_Lighthouse_WalkDown)
+	applymovement(LOCALID_PLAYER, Route15_Lighthouse_WalkDown)
 	waitmovement(0)
 	release
 }
@@ -103,7 +103,7 @@ script Route15_NoPower {
 	//camera goes up
 	delay(30)
 	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesUp)
+	applymovement(LOCALID_CAMERA, Route15_Lighthouse_CameraGoesUp)
 	waitmovement(0)
 
 
@@ -113,7 +113,7 @@ script Route15_NoPower {
 	closemessage
 	delay(15)
 	//camera goes down
-	applymovement(OBJ_EVENT_ID_CAMERA, Route15_Lighthouse_CameraGoesDown)
+	applymovement(LOCALID_CAMERA, Route15_Lighthouse_CameraGoesDown)
 	//NPC enters lighthouse
 	delay(8) //delay to make it line up with the camera
 

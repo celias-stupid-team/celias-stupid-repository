@@ -85,7 +85,7 @@ static void ClearBattleTower(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(4, 5, -1, 2, 2); //InsideOfTruck, idk what the -1 means, (2,2)
+    SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), -1, 2, 2); //InsideOfTruck, idk what the -1 means, (2,2)
     WarpIntoMap();
 }
 
