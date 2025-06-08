@@ -41,6 +41,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PEWTER_MUSEUM_GUIDE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
       "x": 22,
@@ -83,6 +84,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PEWTER_GYM_GUIDE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
       "x": 45,
@@ -111,6 +113,7 @@
       "flag": "FLAG_TEMP_12"
     },
     {
+      "local_id": "LOCALID_PEWTER_AIDE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
       "x": 46,
@@ -185,7 +188,7 @@
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
       "x": 26,
       "y": 44,
-      "target_local_id": 9,
+      "target_local_id": "LOCALID_ROUTE2_ODD_CANDY",
       "target_map": "MAP_ROUTE2"
     },
     {
@@ -193,7 +196,7 @@
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 14,
       "y": 42,
-      "target_local_id": 6,
+      "target_local_id": "LOCALID_ROUTE2_ITEM_BALL",
       "target_map": "MAP_ROUTE2"
     },
     {

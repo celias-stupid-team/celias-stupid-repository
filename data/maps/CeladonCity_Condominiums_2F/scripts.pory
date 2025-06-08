@@ -19,13 +19,13 @@ script CeladonCondominiums_JumpUpLeftStairs {
 		getplayerxy(VAR_RESULT, VAR_TEMP_2)
 		switch(var(VAR_RESULT)) {
 			case 2:
-				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsLeft_1)
+				applymovement(LOCALID_PLAYER, CeladonMansion_PlayerRepositionsLeft_1)
 				waitmovement(0)
 			case 3:
-				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsLeft_2)
+				applymovement(LOCALID_PLAYER, CeladonMansion_PlayerRepositionsLeft_2)
 				waitmovement(0)
 			default:
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+				applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 				waitmovement(0)
 				delay(16)
 		}
@@ -34,18 +34,18 @@ script CeladonCondominiums_JumpUpLeftStairs {
 		//Blj sound, cry?
 		playmoncry(SPECIES_YVELTAL, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)
 		waitmoncry
 		playmoncry(SPECIES_YVELTAL, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)
 		waitmoncry
 		playmoncry(SPECIES_MIRAIDON, CRY_MODE_NORMAL)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsLeft)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsLeft)
 		waitmovement(0)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_JumpLeftEnd)
+		applymovement(LOCALID_PLAYER, CeladonMansion_JumpLeftEnd)
 		closemessage
 		fadescreen(FADE_TO_BLACK)
 		fadeoutbgm(2)
@@ -103,13 +103,13 @@ script CeladonCondominiums_JumpUpRightStairs {
 		getplayerxy(VAR_RESULT, VAR_TEMP_2)
 		switch(var(VAR_RESULT)) {
 			case 4:
-				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsRight_1)
+				applymovement(LOCALID_PLAYER, CeladonMansion_PlayerRepositionsRight_1)
 				waitmovement(0)
 			case 3:
-				applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerRepositionsRight_2)
+				applymovement(LOCALID_PLAYER, CeladonMansion_PlayerRepositionsRight_2)
 				waitmovement(0)
 			default:
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+				applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 				waitmovement(0)
 				delay(16)
 		}
@@ -118,18 +118,18 @@ script CeladonCondominiums_JumpUpRightStairs {
 		//Blj sound, cry?
 		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)
 		waitmoncry
 		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)
 		waitmoncry
 		playmoncry(SPECIES_MIRAIDON, CRY_MODE_NORMAL)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_PlayerJumpsRight)
+		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsRight)
 		waitmovement(0)
-		applymovement(OBJ_EVENT_ID_PLAYER, CeladonMansion_JumpRightEnd)
+		applymovement(LOCALID_PLAYER, CeladonMansion_JumpRightEnd)
 		closemessage
 		fadescreen(FADE_TO_BLACK)
 		fadeoutbgm(2)

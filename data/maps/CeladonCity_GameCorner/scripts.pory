@@ -1,5 +1,4 @@
 raw `
-.set LOCALID_GRUNT, 10
 
 CeladonCity_GameCorner_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_OnLoad
@@ -11,8 +10,8 @@ CeladonCity_GameCorner_OnLoad::
 
 
 CeladonCity_GameCorner_EventScript_HideRocketHideout::
-	setobjectxy LOCALID_GRUNT 11 2
-	setobjectmovementtype LOCALID_GRUNT MOVEMENT_TYPE_FACE_UP
+	setobjectxy LOCALID_GAME_CORNER_GRUNT 11 2
+	setobjectmovementtype LOCALID_GAME_CORNER_GRUNT MOVEMENT_TYPE_FACE_UP
 	setmetatile 15, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 16, 2, METATILE_GameCorner_Floor_ShadeFull, 0
 	setmetatile 17, 2, METATILE_GameCorner_Floor_ShadeFull, 0
@@ -167,14 +166,14 @@ CeladonCity_GameCorner_EventScript_SlotMachine::
 	goto_if_unset FLAG_GOT_COIN_CASE, CeladonCity_GameCorner_EventScript_SlotMachineNoCoinCase
 	msgbox CeladonCity_GameCorner_Text_SlotMachineWantToPlay, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CeladonCity_GameCorner_EventScript_DontPlaySlotMachine
-	setfieldeffectargument 0, OBJ_EVENT_ID_PLAYER
+	setfieldeffectargument 0, LOCALID_PLAYER
 .ifdef BUGFIX
-	setfieldeffectargument 1, MAP_NUM(CELADON_CITY_GAME_CORNER)
-	setfieldeffectargument 2, MAP_GROUP(CELADON_CITY_GAME_CORNER)
+	setfieldeffectargument 1, MAP_NUM(MAP_CELADON_CITY_GAME_CORNER)
+	setfieldeffectargument 2, MAP_GROUP(MAP_CELADON_CITY_GAME_CORNER)
 .else
 	@ Map num/group were provided in the wrong order
-	setfieldeffectargument 1, MAP_GROUP(CELADON_CITY_GAME_CORNER)
-	setfieldeffectargument 2, MAP_NUM(CELADON_CITY_GAME_CORNER)
+	setfieldeffectargument 1, MAP_GROUP(MAP_CELADON_CITY_GAME_CORNER)
+	setfieldeffectargument 2, MAP_NUM(MAP_CELADON_CITY_GAME_CORNER)
 .endif
 	dofieldeffect FLDEFF_SMILEY_FACE_ICON
 	waitfieldeffect FLDEFF_SMILEY_FACE_ICON
@@ -334,14 +333,13 @@ CeladonCity_GameCorner_EventScript_OpenRocketHideout::
 
 
 
-
 CeladonCity_GameCorner_Text_GruntExitWest::
-	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExitWest
+	applymovement LOCALID_GAME_CORNER_GRUNT, CeladonCity_GameCorner_Movement_GruntExitWest
 	waitmovement 0
 	return
 
 CeladonCity_GameCorner_Text_GruntExit::
-	applymovement LOCALID_GRUNT, CeladonCity_GameCorner_Movement_GruntExit
+	applymovement LOCALID_GAME_CORNER_GRUNT, CeladonCity_GameCorner_Movement_GruntExit
 	waitmovement 0
 	return
 
@@ -484,9 +482,9 @@ script CeladonCity_GameCorner_Text_DefeatedGrunt{
 	closemessage
 	call_if_eq(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExitWest)
 	call_if_ne(VAR_FACING, DIR_WEST, CeladonCity_GameCorner_Text_GruntExit)
-	setobjectxy(LOCALID_GRUNT, 9, 9)
+	setobjectxy(LOCALID_GAME_CORNER_GRUNT, 9, 9)
 	delay(90)
-	applymovement(LOCALID_GRUNT, DMCA_Confused)
+	applymovement(LOCALID_GAME_CORNER_GRUNT, DMCA_Confused)
 	waitmovement(0)
 	delay(50)
 	msgbox("Um.\pThat didn't quite work as\nplanned.", MSGBOX_DEFAULT)

@@ -4,7 +4,7 @@ mapscripts SecretRoom_MapScripts {
 
 script PeachSecretRoom_FallDown {
     lock
-    applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomFallDownHole)
+    applymovement(LOCALID_PLAYER, PeachRoomFallDownHole)
     playbgm(MUS_DUMMY, TRUE)
     playse(SE_DOOR)
 
@@ -56,10 +56,10 @@ script PeachSecretRoom_FallDown {
     special(SpawnCameraObject)
     delay(130)
     playse(SE_FALL)
-    applymovement(OBJ_EVENT_ID_PLAYER, PeachRoomDescent)
+    applymovement(LOCALID_PLAYER, PeachRoomDescent)
     setvar(VAR_CSR_CURRENT_CELIA_SECRET, 5)
     delay(60)
-    setobjectxy(OBJ_EVENT_ID_PLAYER, 30, 14)
+    setobjectxy(LOCALID_PLAYER, 30, 14)
     special(RemoveCameraObject)
     warphole(MAP_CELADON_CITY)
     release

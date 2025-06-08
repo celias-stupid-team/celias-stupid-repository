@@ -171,7 +171,7 @@ script ViridianForest_EventScript_CeliaChecksDex {
 		applymovement(CELIA_FOREST, CeliaApproaches)
 		waitmovement(0)
 		playse(SE_PIN)
-		applymovement(OBJ_EVENT_ID_PLAYER, PlayerSeesHer)
+		applymovement(LOCALID_PLAYER, PlayerSeesHer)
 		waitmovement(0)
 		delay(15)
 		textcolor(1)

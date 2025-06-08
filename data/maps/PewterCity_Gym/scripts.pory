@@ -127,9 +127,9 @@ script PewterCity_EventScript_LightYearsSet {
 script PewterCity_EventScript_LightYearsGo {
 	specialvar(VAR_FACING, GetPlayerFacingDirection)
 	if(var(VAR_FACING) == DIR_NORTH) {
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp2)
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkUp2)
 	} elif(var(VAR_FACING) == DIR_SOUTH) {
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
 	}
 	fadescreen(FADE_TO_BLACK)
 	waitmovement(0)
@@ -137,9 +137,9 @@ script PewterCity_EventScript_LightYearsGo {
 	msgbox("58,786,253,730,000,000 miles\nlater…", MSGBOX_DEFAULT)
 	closemessage
 		if(var(VAR_FACING) == DIR_NORTH) {
-		applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp2)
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkUp2)
 	} elif(var(VAR_FACING) == DIR_SOUTH) {
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown2)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
 	}
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(0)

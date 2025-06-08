@@ -26,14 +26,14 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
             setobjectxy(WARDEN, 10, 15)
             playse(SE_EXIT)
             special(SpawnCameraObject)
-            applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkDown)
+            applymovement(LOCALID_CAMERA, Common_Movement_WalkDown)
             waitmovement(0)
             applymovement(WARDEN, WardenEnters)
             delay(30)
-            applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksDown)
+            applymovement(LOCALID_PLAYER, PlayerLooksDown)
             playse(SE_PIN)
             delay(40)
-            waitmovement(OBJ_EVENT_ID_CAMERA)
+            waitmovement(LOCALID_CAMERA)
             waitmovement(WARDEN)
             special(RemoveCameraObject)
             textcolor(NPC_TEXT_COLOR_BLUE)
@@ -79,7 +79,7 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
 script SafariZone_EnterArena {
     lock
     setvar(VAR_TEMP_0, 1)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
     if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE)) {
         playbgm(MUS_DMCA_SHOWDOWN, TRUE)
     } else {
@@ -89,16 +89,16 @@ script SafariZone_EnterArena {
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     switch(var(VAR_TEMP_1)) {
         case 9:
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkRight)
             waitmovement(0)
         case 11:
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkLeft)
             waitmovement(0)
     }
-    applymovement(OBJ_EVENT_ID_PLAYER, PlayerGoesUp1)
+    applymovement(LOCALID_PLAYER, PlayerGoesUp1)
     waitmovement(0)
     special(SpawnCameraObject)
-    applymovement(OBJ_EVENT_ID_CAMERA, Common_Movement_WalkUp)
+    applymovement(LOCALID_CAMERA, Common_Movement_WalkUp)
     waitmovement(0)
     applymovement(DMCA_LEAD, Common_Movement_WalkDown)
     waitmovement(0)

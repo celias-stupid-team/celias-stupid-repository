@@ -1,9 +1,5 @@
 raw `
-.equ LOCALID_BILL_HUMAN,    1
-.equ LOCALID_CELIA, 2
-.equ LOCALID_BILL_CLEFAIRY, 3
-
-
+.set LOCALID_DUMMY, 1
 .equ BILL_IN_TELEPORTER,     FLAG_TEMP_2
 .equ RETURN_AFTER_SS_TICKET, FLAG_TEMP_3
 
@@ -13,7 +9,7 @@ Route25_SeaCottage_MapScripts::
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
 	clearflag FLAG_HIDE_BILL_CLEFAIRY
-	setobjectxyperm LOCALID_BILL_HUMAN, 3, 3
+	setobjectxyperm LOCALID_DUMMY, 3, 3
 	return
 
 Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket::
@@ -141,7 +137,7 @@ Route25_SeaCottage_EventScript_RunCellSeparator::
 	clearflag BILL_IN_TELEPORTER
 	setflag FLAG_HELPED_BILL_IN_SEA_COTTAGE
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, Route25_SeaCottage_Movement_CameraPanToTeleporters
+	applymovement LOCALID_CAMERA, Route25_SeaCottage_Movement_CameraPanToTeleporters
 	waitmovement 0
 	delay 35
 	playse SE_PIN
@@ -169,19 +165,19 @@ Route25_SeaCottage_EventScript_RunCellSeparator::
 	opendoor 3, 3
 	waitdooranim
 	fadeinbgm 0
-	addobject LOCALID_BILL_HUMAN
+	addobject LOCALID_DUMMY
 	clearflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
 	delay 50
 	playfanfare MUS_LEVEL_UP
-	applymovement LOCALID_BILL_HUMAN, Route25_SeaCottage_Movement_BillExitTeleporter
+	applymovement LOCALID_DUMMY, Route25_SeaCottage_Movement_BillExitTeleporter
 	waitmovement 0
 	waitfanfare
-	applymovement OBJ_EVENT_ID_CAMERA, Route25_SeaCottage_Movement_CameraPanBackFromTeleporters
+	applymovement LOCALID_CAMERA, Route25_SeaCottage_Movement_CameraPanBackFromTeleporters
 	waitmovement 0
 	playse SE_CONTEST_CURTAIN_FALL
 	closedoor 3, 3
 	waitdooranim
-	applymovement LOCALID_BILL_HUMAN, Route25_SeaCottage_Movement_BillWalkToMiddleOfRoom
+	applymovement LOCALID_DUMMY, Route25_SeaCottage_Movement_BillWalkToMiddleOfRoom
 	waitmovement 0
 	special RemoveCameraObject
 	releaseall

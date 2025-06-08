@@ -56,7 +56,7 @@ script PokemonTower_6F_MoveTutor {
 	msgbox("Would you like me to help your\nPOKéMON learn a MOVE?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
 			msgbox(TwoIsland_House_Text_TutorWhichMon)
-			special(SelectMoveTutorMon)
+			special(ChooseMonForMoveRelearner)
 			waitstate
 			goto_if_ge(VAR_0x8004, PARTY_SIZE, TwoIsland_House_EventScript_EndTutorMove)
 			special(IsSelectedMonEgg)
@@ -65,7 +65,7 @@ script PokemonTower_6F_MoveTutor {
 			goto(TwoIsland_House_EventScript_ChooseMoveToTeach)
 
 				msgbox(TwoIsland_House_Text_TeachWhichMove)
-				special(DisplayMoveTutorMenu)
+				special(TeachMoveRelearnerMove)
 				waitstate
 				goto_if_eq(VAR_0x8004, 0, TwoIsland_House_EventScript_ChooseMonToTutor)
 				call(EventScript_RestorePrevTextColor)

@@ -127,7 +127,7 @@ script LavenderTown_EventScript_FailedMath {
 	closemessage
 	delay(20)
 	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, LavenderCameraUp)
+	applymovement(LOCALID_CAMERA, LavenderCameraUp)
 	waitmovement(0)
 	delay(60)
 	msgbox("However, the engineers who built\nit all failed math.", MSGBOX_DEFAULT)
@@ -136,7 +136,7 @@ script LavenderTown_EventScript_FailedMath {
 	msgbox("This is what we got instead.\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
-	applymovement(OBJ_EVENT_ID_CAMERA, LavenderCameraDown)
+	applymovement(LOCALID_CAMERA, LavenderCameraDown)
 	waitmovement(0)
 	special(RemoveCameraObject)
 	release

@@ -1,5 +1,4 @@
 raw `
-.set LOCALID_EEVEE_POKEBALL, 2
 
 CeladonCity_Condominiums_RoofRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION CeladonCity_Condominiums_RoofRoom_MapScript

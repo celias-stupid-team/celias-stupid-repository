@@ -66,10 +66,10 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 			if(!flag(FLAG_WAS_THREATENED_BY_WARDEN)) {
 
 			
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+				applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
 				fadenewbgm(MUS_NONE)
 				waitmovement(0)
-				applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+				applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
 				delay(30)
 				playse(SE_PIN)
 				applymovement(WARDEN, Common_Movement_ExclamationMark)
