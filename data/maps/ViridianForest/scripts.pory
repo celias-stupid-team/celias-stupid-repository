@@ -148,6 +148,9 @@ script ViridianForest_EventScript_FlowersClear {
 script ViridianForest_EventScript_Flowers4 {
 	lock
 	setvar(VAR_TEMP_1, 0)
+	if(!flag(FLAG_WALKED_THROUGH_GRASS)) {
+		setflag(FLAG_SHINY_CREATION)
+	}
 	setwildbattle(SPECIES_METAPOD, 6, ITEM_REPEL)
 	dowildbattle
 	release
@@ -263,12 +266,32 @@ movement CeliaAbsconds {
 script ViridianForest_BuffOak {
 	lock
 	if(checkitem(ITEM_WAILMER_PAIL)) {
-		msgbox("buff tree")
+		msgbox("buff tree\nwater?", MSGBOX_YESNO)
+		if(!var(VAR_RESULT)) {
+			release
+			end
+		}
+		msgbox("cutscene\n", MSGBOX_DEFAULT)
 		removeitem(ITEM_WAILMER_PAIL)
 		additem(ITEM_EMPTY_PAIL)
+		removeobject(VAR_LAST_TALKED)
+		setflag(FLAG_HIDE_BUFF_OAK)
 		finditem(ITEM_MACHO_BRACE)
 	} else {
-		msgbox("weird tree")
+		msgbox("For some reason, this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
+		waitmoncry
 	}
+	release
+}
+
+script ViridianForest_ClearGrassFlag {
+	clearflag(FLAG_WALKED_THROUGH_GRASS)
+	release
+}
+
+
+script ViridianForest_SetGrassFlag {
+	setflag(FLAG_WALKED_THROUGH_GRASS)
 	release
 }

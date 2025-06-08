@@ -316,7 +316,7 @@ script CeladonGym_GenderFluidSale {
 	lock
 	msgbox("All right, here's your order!\n20 cases of GENDER FLUID!", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(ERIKA, Common_Movement_WalkInPlaceDown)
+	applymovement(ERIKA, ErikaWalkInPlace)
 	waitmovement(0)
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
@@ -330,6 +330,11 @@ script CeladonGym_GenderFluidSale {
 	removeobject(VAR_LAST_TALKED)
 	release
 	end
+}
+
+movement ErikaWalkInPlace {
+	walk_in_place_down * 2
+	face_down
 }
 
 script CeladonGym_GiovanniDefeat {

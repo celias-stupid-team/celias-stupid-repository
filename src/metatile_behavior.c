@@ -1,6 +1,7 @@
 #include "global.h"
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
+#include "event_data.h"
 
 static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_POND_WATER]         = TRUE,
@@ -467,7 +468,11 @@ bool8 MetatileBehavior_IsPuddle(u8 metatileBehavior)
 bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_CYCLING_ROAD_PULL_DOWN_GRASS || metatileBehavior == MB_TALL_GRASS_FAKE)
+        //don't mind me
+        {
+        FlagSet(FLAG_WALKED_THROUGH_GRASS);
         return TRUE;
+        }
     else
         return FALSE;
 }

@@ -987,8 +987,14 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     s16 *data = gTasks[taskId].data;
 
     PutWindowTilemap(4);
+    if(tItemId == ITEM_POKE_DOLL) {
+            PlaySE(MUS_LEVEL_UP);
+            BuyMenuDisplayMessage(taskId, gText_PlayerObtainedClefairy, BuyMenuSubtractMoney);
+
+        }
     if (AddBagItem(tItemId, tItemCount) == TRUE)
     {
+        
         BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
         DebugFunc_PrintPurchaseDetails(taskId);
         RecordItemTransaction(tItemId, tItemCount, QL_EVENT_BOUGHT_ITEM - QL_EVENT_USED_POKEMART);
@@ -1011,7 +1017,10 @@ static void BuyMenuSubtractMoney(u8 taskId)
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-
+    if(tItemId == ITEM_POKE_DOLL) {
+        //Do Stuff
+        BuyMenuReturnToItemList(taskId);
+    }
     if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
     {
         if (tItemId == ITEM_POKE_BALL && tItemCount >= 10) { //Makes fun of you if you try to buy premier balls
