@@ -19,6 +19,7 @@
 #include "constants/songs.h"
 #include "constants/game_stat.h"
 #include "constants/trainers.h"
+#include "script.h"
 
 // Trainer Card Strings
 enum
@@ -472,7 +473,7 @@ static void CB2_TrainerCard(void)
 }
 
 static void CloseTrainerCard(u8 taskId)
-{
+{   
     SetMainCallback2(sTrainerCardDataPtr->callback2);
     FreeAllWindowBuffers();
     FREE_AND_SET_NULL(sTrainerCardDataPtr);
@@ -1630,6 +1631,14 @@ u8 GetTrainerCardStars(u8 cardId)
 static void FlipTrainerCard(void)
 {
     u8 taskId = CreateTask(Task_DoCardFlipTask, 0);
+    if(VarGet(VAR_CSR_SEPIA) < 2) {
+    if(sTrainerCardDataPtr->trainerCard.monIconTint == MON_ICON_TINT_SEPIA) {
+        VarSet(VAR_CSR_SEPIA, 1);
+    } else {
+        VarSet(VAR_CSR_SEPIA, 0);
+
+    }
+}
     Task_DoCardFlipTask(taskId);
     SetHBlankCallback(HBlankCB_TrainerCard);
 }

@@ -181,6 +181,10 @@ extern const u8 BattleScript_IgnoresAndUsesRandomMove[];
 extern const u8 BattleScript_MoveUsedLoafingAround[];
 extern const u8 BattleScript_IgnoresAndFallsAsleep[];
 extern const u8 BattleScript_SubstituteFade[];
+extern const u8 BattleScript_SubstituteFade2[];
+extern const u8 BattleScript_SubstituteFade3[];
+
+extern const u8 BattleScript_EffectSubstitute2[];
 extern const u8 BattleScript_BerryCurePrlzEnd2[];
 extern const u8 BattleScript_BerryCureParRet[];
 extern const u8 BattleScript_BerryCurePsnEnd2[];

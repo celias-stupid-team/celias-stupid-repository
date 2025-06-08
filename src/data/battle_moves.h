@@ -7203,6 +7203,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 
+[MOVE_SUBSTITUTE_2] =       {
+        .effect = EFFECT_SUBSTITUTE_2,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 5,
+        .flags = FLAG_SNATCH_AFFECTED,
+    },
+    
+
 };
 
 

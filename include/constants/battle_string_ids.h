@@ -410,8 +410,12 @@
 #define STRINGID_PROTECTEDTEAM 409
 #define STRINGID_FELLFORFEINT 410
 #define STRINGID_PKMNHURTSWITHSPIKYSHIELD 411
+#define STRINGID_SUBSTITUTE_LAYER_2 412
+#define STRINGID_SUBSTITUTE_LAYER_3 413
+#define STRINGID_SUBSTITUTE_LAYER_3_FADE 414
+#define STRINGID_SUBSTITUTE_LAYER_2_FADE 415
 
-#define BATTLESTRINGS_COUNT     413 //Plus 2 from last one
+#define BATTLESTRINGS_COUNT     417 //Plus 2 from last one
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
 
 // This is the string id that gBattleStringsTable starts with.
@@ -541,6 +545,8 @@
 // gSubstituteUsedStringIds
 #define B_MSG_SET_SUBSTITUTE    0
 #define B_MSG_SUBSTITUTE_FAILED 1
+
+
 
 //gSubstituteTeacherStringIds
 #define B_MSG_ALREADY_FULL_HEALTH 0

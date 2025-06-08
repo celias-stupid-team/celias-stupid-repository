@@ -520,6 +520,7 @@ SPECIES_DACHSBUN,
 
 static const u16 sDexCategory_FifthBadgePkmn_Page6[] = {
 SPECIES_MACHOKE,
+SPECIES_LICKITUNG,
 };
 
 //UNUSED

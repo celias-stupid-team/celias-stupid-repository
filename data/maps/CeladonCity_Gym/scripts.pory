@@ -1,6 +1,5 @@
 raw `
-CeladonCity_Gym_MapScripts::
-	.byte 0
+
 
 CeladonCity_Gym_EventScript_DefeatedErika::
 	clearflag FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS
@@ -86,7 +85,13 @@ const TopLeftTrainer = 4
 const BottomRightTrainer = 1 // Fuck.
 const BottomLeftTrainer = 2 // I don't know my left from my right and I got these two mixed up.
 
-
+mapscripts CeladonCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!checkitem(ITEM_GENDER_FLUID)) {
+			setflag(FLAG_TEMP_5)
+		}
+	}
+}
 
 script CeladonCity_Gym_EventScript_Erika {
 	lockall
@@ -305,6 +310,31 @@ script CeladonGym_GiovanniBattles {
 	trainerbattle_single(TRAINER_BOSS_GIOVANNI, CeladonCity_Gym_Text_GiovanniIntro, CeladonCity_Gym_Text_GiovanniDefeat, CeladonGym_GiovanniDefeat)
 	releaseall
 	end
+}
+
+script CeladonGym_GenderFluidSale {
+	lock
+	msgbox("All right, here's your order!\n20 cases of GENDER FLUID!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(ERIKA, ErikaWalkInPlace)
+	waitmovement(0)
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("ERIKA: Thanks so much!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	//something something 
+	setflag(FLAG_SHINY_CREATION)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_NIDORAN_F)
+	call(Common_Script_ObtainedPokemon)
+	removeobject(VAR_LAST_TALKED)
+	release
+	end
+}
+
+movement ErikaWalkInPlace {
+	walk_in_place_down * 2
+	face_down
 }
 
 script CeladonGym_GiovanniDefeat {

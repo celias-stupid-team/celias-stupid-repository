@@ -1,7 +1,4 @@
 raw `
-LavenderTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LavenderTown_OnTransition
-	.byte 0
 
 LavenderTown_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_LAVENDER_TOWN
@@ -60,6 +57,31 @@ LavenderTown_EventScript_UndergroundPathSign::
 	end
 `
 const IMPOSTER_OAK = 7
+
+mapscripts LavenderTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: LavenderTown_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_CSR_SEPIA, 1 {
+			if(flag(FLAG_TEMP_5)) {
+				setvar(VAR_CSR_SEPIA, 2)
+				delay(30)
+				msgbox("…?\n", MSGBOX_DEFAULT)
+				closemessage
+				setflag(FLAG_SHINY_CREATION)
+				setwildbattle(SPECIES_TANGELA, 20)
+				dowildbattle
+				delay(30)
+				msgbox("It was the GREEN-HARIED\nDANCER!", MSGBOX_DEFAULT)
+				release
+				end
+			} else {
+				setvar(VAR_CSR_SEPIA, 0)
+			}
+		}
+	]
+}
+
+
 script LavenderTown_ImposterOak {
 	lock
 	if(checkitem(ITEM_WAILMER_PAIL)) {
@@ -154,16 +176,19 @@ script LavenderTown_DanceDMCA {
 script LavenderTown_MusicGoesAway {
 	fadenewbgm(MUS_DUMMY)
 	setvar(VAR_TEMP_3, 1)
+	setflag(FLAG_TEMP_5)
 	release
 }
 
 script LavenderTown_MusicComesBack {
 	fadedefaultbgm
 	setvar(VAR_TEMP_3, 0)
+	clearflag(FLAG_TEMP_5)
 	release
 }
 
 script LavenderTown_MusicDoesntFade {
 	setvar(VAR_TEMP_3, 1)
+	clearflag(FLAG_TEMP_5)
 	release
 }

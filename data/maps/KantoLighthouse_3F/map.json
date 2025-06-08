@@ -69,6 +69,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "KantoLighthouse_3F_FallDownHole"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "KantoLighthouse_3F_FallDownHole"
     }
   ],
   "bg_events": [

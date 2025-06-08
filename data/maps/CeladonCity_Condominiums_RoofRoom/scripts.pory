@@ -367,11 +367,31 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 
 		}
 		// gives you an eevee
+		if(checkitem(ITEM_MACHO_BRACE)) {
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EEVEE)
+			playfanfare(MUS_LEVEL_UP)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			msgbox(CeladonCity_EeveeGag_CeliaGives)
+			waitfanfare
+			call(Common_Script_ObtainedPokemon)
+			setflag(FLAG_GOT_EEVEE)
+			msgbox("Oh, hey!\nIs that a MACHO BRACE?\pThat lets you double your\nEEVEE gain!\lHave another!", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} exchanged the MACHO BRACE\nfor another EEVEE!", MSGBOX_DEFAULT)
+			waitfanfare
+			removeitem(ITEM_MACHO_BRACE)
+			call(Common_Script_ObtainedPokemon)
+
+			release
+			end
+		}
 		setvar(VAR_TEMP_1, SPECIES_EEVEE)
 			givemon(SPECIES_EEVEE, 25)
 			goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyCelia)
 			goto_if_eq(VAR_RESULT, 1, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePCCelia)
 			goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
+		
 
 		setflag(FLAG_TEMP_3)
 	} else {

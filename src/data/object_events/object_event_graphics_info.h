@@ -5266,7 +5266,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Curtain_bottom = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Buff_oak = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BUFF_OAK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 4096,
     .width = 64,

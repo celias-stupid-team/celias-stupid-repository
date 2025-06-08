@@ -447,6 +447,14 @@ static const u8 sText_GmaxMove[] = _("But it failed!\pThere's no GMAX energy in 
 static const u8 sText_ExtremeEvoboost[] = _("But it failed!\p{B_PLAYER_MON1_NAME} isn't holding a\nZ CRYSTAL!");
 static const u8 sText_VeeveeVolley[] = _("But it failed!\p{B_PLAYER_MON1_NAME} was stolen from its\nowner!\lIt doesn't love {B_PLAYER_NAME} enough!");
 static const u8 sText_FickleBeam[] = _("But it failed!\p{B_PLAYER_MON1_NAME} doesn't have any heads!");
+
+
+static const u8 sText_PkmnMadeSubstitute_2[] = _("{B_ATK_NAME_WITH_PREFIX}'s SUBSTITUTE\nmade a SUBSTITUTE!");
+static const u8 sText_PkmnMadeSubstitute_3[] = _("{B_ATK_NAME_WITH_PREFIX}'s SUBSTITUTE's\nSUBSTITUTE made a SUBSTITUTE!");
+static const u8 sText_PkmnSubstituteFaded_2[] = _("{B_DEF_NAME_WITH_PREFIX}'s SUBSTITUTE's\nSUBSTITUTE faded!\p");
+static const u8 sText_PkmnSubstituteFaded_3[] = _("{B_DEF_NAME_WITH_PREFIX}'s SUBSTITUTE's\nSUBSTITUTE's SUBSTITUTE faded!\p");
+
+
 static const u8 sText_None[] = _("TEXT ID ERROR\nNo .stringId maintained!");
 
 static const u8 sText_HP2[] = _("HP");
@@ -947,6 +955,10 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PROTECTEDTEAM - BATTLESTRINGS_TABLE_START]        = sText_ProtectedTeam,
     [STRINGID_FELLFORFEINT - BATTLESTRINGS_TABLE_START]        = sText_FellForFeint,
     [STRINGID_PKMNHURTSWITHSPIKYSHIELD - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtsWithSpikyShield,
+    [STRINGID_SUBSTITUTE_LAYER_2 - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_2,
+    [STRINGID_SUBSTITUTE_LAYER_3 - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_3,
+    [STRINGID_SUBSTITUTE_LAYER_3_FADE - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_3,
+    [STRINGID_SUBSTITUTE_LAYER_2_FADE - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_2,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1128,6 +1140,25 @@ const u16 gTransformUsedStringIds[] =
 };
 
 const u16 gSubstituteUsedStringIds[] =
+{
+    [B_MSG_SET_SUBSTITUTE]    = STRINGID_PKMNMADESUBSTITUTE,
+    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
+};
+
+
+const u16 gSubstituteUsedStringIds_Layer2[] =
+{
+    [B_MSG_SET_SUBSTITUTE]    = STRINGID_SUBSTITUTE_LAYER_2,
+    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
+};
+const u16 gSubstituteUsedStringIds_Layer3[] =
+{
+    [B_MSG_SET_SUBSTITUTE]    = STRINGID_SUBSTITUTE_LAYER_3,
+    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
+};
+
+
+const u16 gSubstitute2UsedStringIds[] =
 {
     [B_MSG_SET_SUBSTITUTE]    = STRINGID_PKMNMADESUBSTITUTE,
     [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE

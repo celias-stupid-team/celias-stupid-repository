@@ -1568,3 +1568,6 @@ Text_TestMsg::
 
 	.include "data/maps/Chapter3/scripts.inc"
 	.include "data/maps/Chapter3/text.inc"
+
+	.include "data/maps/FestivalPlaza/scripts.inc"
+	.include "data/maps/FestivalPlaza/text.inc"

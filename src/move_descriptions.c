@@ -284,7 +284,7 @@ const u8 gMoveDescription_Revenge[] = _("An attack move that\ngains in intensity
 const u8 gMoveDescription_BrickBreak[] = _("An attack that also\nbreaks any barrier\nlike LIGHT SCREEN\nand REFLECT.");
 const u8 gMoveDescription_Yawn[] = _("A huge yawn lulls\nthe foe into falling\nasleep on the next\nturn.");
 const u8 gMoveDescription_KnockOff[] = _("Knocks down the\nfoe's held item to\nprevent its use\nduring the battle.");
-const u8 gMoveDescription_Endeavor[] = _("Gains power the\nfewer HP the user\nhas compared with\nthe foe.");
+const u8 gMoveDescription_Endeavor[] = _("You click this\none first");
 const u8 gMoveDescription_Eruption[] = _("The higher the\nuser's HP, the more\npowerful this\nattack becomes.");
 const u8 gMoveDescription_SkillSwap[] = _("The user employs\nits psychic power\nto swap abilities\nwith the foe.");
 const u8 gMoveDescription_Imprison[] = _("Prevents foes from\nusing any move\nthat is also known\nby the user.");
@@ -1146,4 +1146,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_STEAMROLLER     -1 ] = gMoveDescription_Steamroller,
     [MOVE_SLASH_TCG     -1 ] = gMoveDescription_Slash_TCG,
     [MOVE_SWORDSDANCE_TCG     -1 ] = gMoveDescription_SwordsDance_TCG,
+    [MOVE_SUBSTITUTE_2    - 1] = gMoveDescription_Substitute,
 };

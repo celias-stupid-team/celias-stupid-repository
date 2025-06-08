@@ -254,6 +254,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFeint                 @ EFFECT_FEINT
 	.4byte BattleScript_EffectFlyOMeteor             @ EFFECT_FLY_O_METEOR
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
+	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
 
 BattleScript_EffectFeint::
 	setmoveeffect MOVE_EFFECT_FEINT
@@ -4823,3 +4824,46 @@ BattleScript_FickleBeamDoNothing::
 		printstring STRINGID_BUTNOTHINGHAPPENED
 		waitmessage B_WAIT_TIME_LONG
 		goto BattleScript_MoveEnd
+
+
+BattleScript_EffectSubstitute2::
+	attackcanceler
+	ppreduce
+	attackstring
+	waitstate
+	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	setsubstitute
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteAnim2
+	goto BattleScript_SubstituteString
+
+
+	@ In reality this needs to check what layer you're currently on
+	@ And then only keep going until it's full
+	@ This will do for now tho
+BattleScript_SubstituteAnim2::
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printfromtable gSubstituteUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printfromtable gSubstituteUsedStringIds_Layer2
+	waitmessage B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	pause B_WAIT_TIME_SHORT
+	printfromtable gSubstituteUsedStringIds_Layer3
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_SubstituteFade2::
+	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
+	printstring STRINGID_PKMNSUBSTITUTEFADED
+	return
+
+BattleScript_SubstituteFade3::
+	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
+	printstring STRINGID_PKMNSUBSTITUTEFADED
+	return

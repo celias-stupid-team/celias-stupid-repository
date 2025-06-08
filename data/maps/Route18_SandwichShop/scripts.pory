@@ -1,5 +1,9 @@
 mapscripts Route18_SandwichShop_MapScripts {
-    
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 1 {
+
+		}
+	]
 }
 
 
@@ -29,18 +33,39 @@ script SandwichShop_DonutGirl {
 
 script Route18_SandwichChef {
 	lock
-	msgbox("here you are\n", MSGBOX_DEFAULT)
-	giveitem(ITEM_SANDWICH_CASE)
-	giveitem(ITEM_JELLY_DONUT)
-	giveitem(ITEM_SANDWICH)
-	waitfanfare
+	msgbox("Ah, hello!\nWelcome to our AMERICAN Bakery!", MSGBOX_DEFAULT)
+	if(!checkitem(ITEM_SANDWICH_CASE)) {
+		msgbox("I'm sorry, but it appears you have\nnot brought your SANDWICH CASE.\lI cannot do business with you.\pTurning customers away for dumb\nreasons is how I choose to express\lmy traditional AMERICAN values!\pCome back once you have one!\n", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox("I see you've brought your\nSANDWICH CASE!\lVery good!\pHow may I serve you today?\n", MSGBOX_DEFAULT)
+		pokemart(SandwichShop_Mart)
+		msgbox("Thank you for your business!\n", MSGBOX_DEFAULT)
+	}
 	release
 }
 
 
 mart SandwichShop_Mart {
-	ITEM_SANDWICH
+	ITEM_BREAD
 	ITEM_JELLY_DONUT
 }
 
 
+script SandwichShop_AppleJuice {
+	msgbox("A glass of nice, frothy\nAPPLE JUICE!", MSGBOX_SIGN)
+	end
+}
+
+script SandwichShop_CreateSandwich {
+	if(flag(FLAG_SANDWICH_GOT_BREAD) && flag(FLAG_SANDWICH_GOT_MEAT) && flag(FLAG_SANDWICH_GOT_CHEESE) && flag(FLAG_SANDWICH_GOT_LETTUCE) && flag(FLAG_SANDWICH_GOT_PICKLES) && flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Oh?\p{PLAYER} has gathered together\nall the ingredients!\pAfter a silly minigame (which\nCelia will not be programming in)…", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} turned all the ingredients\ninto a SANDWICH!", ITEM_SANDWICH, 1)
+		return
+
+	} else {
+		return
+	}
+}
