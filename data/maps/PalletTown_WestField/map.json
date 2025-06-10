@@ -52,10 +52,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 19,
-      "y": 11,
+      "x": 11,
+      "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -107,9 +107,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LOOKER",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 11,
-      "y": 11,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -127,53 +127,6 @@
 
   ],
   "bg_events": [
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    },
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    },
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PalletTown_WestField_LookerTent"
-    }
+
   ]
 }

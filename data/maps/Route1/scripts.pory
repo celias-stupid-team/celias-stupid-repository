@@ -100,7 +100,7 @@ script Route1_EventScript_PitEscaped {
 
 script Route1_EventScript_LittleBoy {
 	lock
-	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I'm gonna need a new one..."), MSGBOX_NPC)
+	msgbox(format("My daddy was playing POKéMON GO\nand didn't watch where he was going.\pI guess I need a new dad now."), MSGBOX_NPC)
 	release
 }
 
