@@ -97,6 +97,13 @@ script Route1_EventScript_PitEscaped {
 	release
 }
 
+script Route1_ImposterOak {
+	lock
+	msgbox("For some reason, this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+}
 
 script Route1_EventScript_LittleBoy {
 	lock
