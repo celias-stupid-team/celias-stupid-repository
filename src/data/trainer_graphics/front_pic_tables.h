@@ -156,6 +156,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // RED NORMAL
     {.size = 8, .y_offset = 1}, // Imposter Twins
     {.size = 8, .y_offset = 1}, // Cop
+    {.size = 8, .y_offset = 1}, // Brandon
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -317,6 +318,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(IMPOSTER_TWINS, gTrainerFrontPic_ImposterTwins, 0x800),
     TRAINER_SPRITE(COP, gTrainerFrontPic_Cop, 0x800),
 
+    TRAINER_SPRITE(BRANDON, gTrainerFrontPic_Brandon, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -488,4 +490,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RED_NORMAL, gTrainerPalette_RedNormal),
     TRAINER_PAL(IMPOSTER_TWINS, gTrainerPalette_ImposterTwins),
     TRAINER_PAL(COP, gTrainerPalette_Cop),
+    TRAINER_PAL(BRANDON, gTrainerPalette_Brandon),
 };
