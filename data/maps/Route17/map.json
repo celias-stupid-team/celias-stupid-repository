@@ -28,11 +28,6 @@
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "offset": 80,
       "direction": "right"
-    },
-    {
-      "map": "MAP_GREAT_SEA_NORTH",
-      "offset": 1,
-      "direction": "left"
     }
   ],
   "object_events": [
