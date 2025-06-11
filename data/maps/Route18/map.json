@@ -28,11 +28,6 @@
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "offset": 28,
       "direction": "up"
-    },
-    {
-      "map": "MAP_GREAT_SEA_CENTER",
-      "offset": 0,
-      "direction": "left"
     }
   ],
   "object_events": [
@@ -145,9 +140,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

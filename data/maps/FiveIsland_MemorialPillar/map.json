@@ -16,13 +16,8 @@
   "connections": [
     {
       "map": "MAP_ROUTE19",
-      "offset": -12,
+      "offset": -48,
       "direction": "left"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": 8,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -70,12 +65,8 @@
       "flag": "FLAG_HIDE_FIVE_ISLAND_MEMORIAL_PILLAR_METAL_COAT"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -23,11 +23,6 @@
       "map": "MAP_CINNABAR_ISLAND",
       "offset": 0,
       "direction": "down"
-    },
-    {
-      "map": "MAP_GREAT_SEA_CENTER",
-      "offset": 0,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -102,13 +97,7 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }

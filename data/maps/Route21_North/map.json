@@ -23,11 +23,6 @@
       "map": "MAP_ROUTE21_SOUTH",
       "offset": 0,
       "direction": "down"
-    },
-    {
-      "map": "MAP_GREAT_SEA_NORTH",
-      "offset": -59,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -139,12 +134,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

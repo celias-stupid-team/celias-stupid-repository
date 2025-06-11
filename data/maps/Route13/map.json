@@ -108,7 +108,7 @@
     },
     {
       "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
       "x": 24,
       "y": 24,
       "target_local_id": "LOCALID_ROUTE14_BIKER3",
@@ -157,9 +157,7 @@
       "flag": "FLAG_ROUTE_13_CANDY"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "trigger",

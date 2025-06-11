@@ -552,7 +552,7 @@
     },
     {
       "type": "trigger",
-      "x": 6,
+      "x": 9,
       "y": 36,
       "elevation": 0,
       "var": "VAR_TEMP_0",

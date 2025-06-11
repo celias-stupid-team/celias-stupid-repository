@@ -18,11 +18,6 @@
       "map": "MAP_FIVE_ISLAND",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 20,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -135,9 +130,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
