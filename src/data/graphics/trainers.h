@@ -514,3 +514,6 @@ const u32 gFrontPicPalette_Green_LWP[] = INCBIN_U32("graphics/trainers/palettes/
 
 const u32 gTrainerFrontPic_Brandon[] = INCBIN_U32("graphics/trainers/front_pics/brandon_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Brandon[] = INCBIN_U32("graphics/trainers/palettes/brandon.gbapal.lz");
+
+const u32 gTrainerFrontPic_Spenser[] = INCBIN_U32("graphics/trainers/front_pics/spenser_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Spenser[] = INCBIN_U32("graphics/trainers/palettes/spenser.gbapal.lz");

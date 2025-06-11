@@ -176,6 +176,7 @@
 #define TRAINER_PIC_COP               155
 
 #define TRAINER_PIC_BRANDON   156
+#define TRAINER_PIC_SPENSER   157
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

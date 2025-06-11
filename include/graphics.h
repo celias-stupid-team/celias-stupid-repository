@@ -12264,3 +12264,6 @@ extern const u8 gMonIcon_LATIASBLAZIKEN[];
 
 extern const u32 gTrainerFrontPic_Brandon[];
 extern const u32 gTrainerPalette_Brandon[];
+
+extern const u32 gTrainerFrontPic_Spenser[];
+extern const u32 gTrainerPalette_Spenser[];
