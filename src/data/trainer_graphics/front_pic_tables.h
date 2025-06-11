@@ -157,7 +157,17 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Imposter Twins
     {.size = 8, .y_offset = 1}, // Cop
     {.size = 8, .y_offset = 1}, // Brandon
-    {.size = 8, .y_offset = 1}, // Spenser
+    {.size = 8, .y_offset = 1}, // Spenser,
+    {.size = 8, .y_offset = 1}, // Greta,
+    {.size = 8, .y_offset = 1}, // Tucker,
+    {.size = 8, .y_offset = 1}, // Lucy,
+    {.size = 8, .y_offset = 1}, // Anabel,
+    {.size = 8, .y_offset = 1}, // Noland,
+    {.size = 8, .y_offset = 1}, // Caitlyn,
+    {.size = 8, .y_offset = 1}, // Darach,
+    {.size = 8, .y_offset = 1}, // Janine,
+    {.size = 8, .y_offset = 1}, // Archer,
+    {.size = 8, .y_offset = 1}, // Dad
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -321,6 +331,16 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 
     TRAINER_SPRITE(BRANDON, gTrainerFrontPic_Brandon, 0x800),
     TRAINER_SPRITE(SPENSER, gTrainerFrontPic_Spenser, 0x800),
+    TRAINER_SPRITE(GRETA, gTrainerFrontPic_Greta, 0x800),
+    TRAINER_SPRITE(TUCKER, gTrainerFrontPic_Tucker, 0x800),
+    TRAINER_SPRITE(LUCY, gTrainerFrontPic_Lucy, 0x800),
+    TRAINER_SPRITE(ANABEL, gTrainerFrontPic_Anabel, 0x800),
+    TRAINER_SPRITE(NOLAND, gTrainerFrontPic_Noland, 0x800),
+    TRAINER_SPRITE(CAITLYN, gTrainerFrontPic_Caitlyn, 0x800),
+    TRAINER_SPRITE(DARACH, gTrainerFrontPic_Darach, 0x800),
+    TRAINER_SPRITE(JANINE, gTrainerFrontPic_Janine, 0x800),
+    TRAINER_SPRITE(ARCHER, gTrainerFrontPic_Archer, 0x800),
+    TRAINER_SPRITE(DAD, gTrainerFrontPic_Dad, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -494,4 +514,14 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(COP, gTrainerPalette_Cop),
     TRAINER_PAL(BRANDON, gTrainerPalette_Brandon),
     TRAINER_PAL(SPENSER, gTrainerPalette_Spenser),
+    TRAINER_PAL(GRETA, gTrainerPalette_Greta),
+    TRAINER_PAL(TUCKER, gTrainerPalette_Tucker),
+    TRAINER_PAL(LUCY, gTrainerPalette_Lucy),
+    TRAINER_PAL(ANABEL, gTrainerPalette_Anabel),
+    TRAINER_PAL(NOLAND, gTrainerPalette_Noland),
+    TRAINER_PAL(CAITLYN, gTrainerPalette_Caitlyn),
+    TRAINER_PAL(DARACH, gTrainerPalette_Darach),
+    TRAINER_PAL(JANINE, gTrainerPalette_Janine),
+    TRAINER_PAL(ARCHER, gTrainerPalette_Archer),
+    TRAINER_PAL(DAD, gTrainerPalette_Dad),
 };

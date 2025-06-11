@@ -177,6 +177,16 @@
 
 #define TRAINER_PIC_BRANDON   156
 #define TRAINER_PIC_SPENSER   157
+#define TRAINER_PIC_GRETA   158
+#define TRAINER_PIC_TUCKER   159
+#define TRAINER_PIC_LUCY   160
+#define TRAINER_PIC_ANABEL   161
+#define TRAINER_PIC_NOLAND   162
+#define TRAINER_PIC_CAITLYN   163
+#define TRAINER_PIC_DARACH   164
+#define TRAINER_PIC_JANINE   165
+#define TRAINER_PIC_ARCHER   166
+#define TRAINER_PIC_DAD   167
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
