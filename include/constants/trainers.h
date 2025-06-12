@@ -187,6 +187,7 @@
 #define TRAINER_PIC_JANINE   165
 #define TRAINER_PIC_ARCHER   166
 #define TRAINER_PIC_DAD   167
+#define TRAINER_PIC_SKIRT   168
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

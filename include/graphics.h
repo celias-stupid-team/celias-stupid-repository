@@ -12297,3 +12297,6 @@ extern const u32 gTrainerPalette_Archer[];
 
 extern const u32 gTrainerFrontPic_Dad[];
 extern const u32 gTrainerPalette_Dad[];
+
+extern const u32 gTrainerFrontPic_Skirt[];
+extern const u32 gTrainerPalette_Skirt[];
