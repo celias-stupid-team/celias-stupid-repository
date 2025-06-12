@@ -502,7 +502,7 @@
 
 
 
-#define ITEMS_COUNT 414
+#define ITEMS_COUNT 418
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
