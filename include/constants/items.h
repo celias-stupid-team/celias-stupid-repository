@@ -499,9 +499,6 @@
 #define ITEM_MEAT 415
 #define ITEM_SESAME_SEEDS 416
 #define ITEM_PICKLES 417
-
-
-
 #define ITEMS_COUNT 418
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
