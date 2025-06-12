@@ -3332,3 +3332,14 @@ const struct SpriteFrameImage gObjectEventPicTable_Bugsy[] = {
     overworld_frame(gObjectEventPic_Bugsy, 2, 4, 7),
     overworld_frame(gObjectEventPic_Bugsy, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Surfurret[] = {
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Surfurret, 4, 4, 8),
+};

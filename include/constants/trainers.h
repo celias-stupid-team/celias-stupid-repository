@@ -322,6 +322,7 @@
 #define TRAINER_CLASS_MASTER             115
 #define TRAINER_CLASS_RAPPER             116
 #define TRAINER_CLASS_COP             117
+#define TRAINER_CLASS_SKIRT             118
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

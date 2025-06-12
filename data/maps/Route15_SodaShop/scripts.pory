@@ -79,8 +79,16 @@ movement SodaShopSpins {
 }
 
 script SodaShop_SwimTrunks {
-    trainerbattle_single(TRAINER_SODASHOP_SHORTS, "PLACEHOLDER", "PLACEHOLDER")
-    msgbox("Placeholder!\n", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_SODASHOP_SHORTS, "A mere half year ago, I\nwas SHORTS!\lQuite a transformation, no?", "Ah!\nYou got me!")
+    lock
+    faceplayer
+    msgbox("I love that I'm SKIRT now!\nLook what I can do!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, SodaShopSpins)
+    waitmovement(0)
+    faceplayer
+    msgbox("SKIRT go spinny!\n", MSGBOX_DEFAULT)
+    release
 }
 
 script SodaShop_Sailor {

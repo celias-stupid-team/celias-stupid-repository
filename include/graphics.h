@@ -12303,3 +12303,6 @@ extern const u32 gTrainerPalette_Skirt[];
 
 extern const u32 gTrainerFrontPic_Bugsy[];
 extern const u32 gTrainerPalette_Bugsy[];
+
+extern const u32 gItemIcon_AirBalloon[];
+extern const u32 gItemIconPalette_AirBalloon[];
