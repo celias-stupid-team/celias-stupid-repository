@@ -313,6 +313,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucario;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Psyduck_maid;
 
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bugsy;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -627,4 +628,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BUFF_OAK] = &gObjectEventGraphicsInfo_Buff_oak,
     [OBJ_EVENT_GFX_LUCARIO] = &gObjectEventGraphicsInfo_Lucario,
     [OBJ_EVENT_GFX_PSYDUCK_MAID] = &gObjectEventGraphicsInfo_Psyduck_maid,
+    [OBJ_EVENT_GFX_BUGSY] = &gObjectEventGraphicsInfo_Bugsy,
 };

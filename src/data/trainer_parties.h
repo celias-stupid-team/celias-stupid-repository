@@ -10012,8 +10012,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_SodaShopSailor[] = {
     {
         .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_MACHOP,
+        .lvl = 6,
+        .species = SPECIES_METAPOD,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 

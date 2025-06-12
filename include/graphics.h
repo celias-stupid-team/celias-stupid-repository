@@ -12300,3 +12300,6 @@ extern const u32 gTrainerPalette_Dad[];
 
 extern const u32 gTrainerFrontPic_Skirt[];
 extern const u32 gTrainerPalette_Skirt[];
+
+extern const u32 gTrainerFrontPic_Bugsy[];
+extern const u32 gTrainerPalette_Bugsy[];

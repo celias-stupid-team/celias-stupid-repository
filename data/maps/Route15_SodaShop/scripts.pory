@@ -84,10 +84,12 @@ script SodaShop_SwimTrunks {
 }
 
 script SodaShop_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
-    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "hi i'm bugsy", "PLACEHOLDER")
+    msgbox("trans!", MSGBOX_NPC)
 
 }
+
+
 
 script SodaShop_RichKid {
     trainerbattle_single(TRAINER_SODASHOP_RICHKID, "Sure, I'll accept your challenge.\nI have a lot of money.", "It's…\nIt's just not the same.\n")

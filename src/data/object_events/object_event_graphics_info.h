@@ -5318,3 +5318,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Psyduck_maid = {
     .images = gObjectEventPicTable_Psyduck_maid,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bugsy = { 
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_Bugsy,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};

@@ -800,3 +800,5 @@ $(OBJEVENTGFXDIR)/stupid/psyduck_maid.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/stupid/Kanga_Baby.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
+$(OBJEVENTGFXDIR)/stupid/Bugsy.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
