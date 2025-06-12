@@ -14,6 +14,7 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "powerplant_game.h"
 #include "quest_log.h"
 #include "quest_log_player.h"
 #include "random.h"
@@ -124,6 +125,9 @@ static void Task_TeleportWarpInPlayerAnim(u8 taskId);
 static u8 TeleportAnim_RotatePlayer(struct ObjectEvent * object, s16 *timer);
 static bool8 IsSidewaysStairToRight(s16, s16, u8);
 static bool8 IsSidewaysStairToLeft(s16, s16, u8);
+//Powerplant mini game
+static void Task_Powerplant(u8 taskId);
+static bool32 Powerplant_StartGame(struct Task *task);
 
 void MovementType_Player(struct Sprite *sprite)
 {
@@ -2236,3 +2240,53 @@ u8 GetLeftSideStairsDirection(u8 direction)
         return direction;
     }
 }
+
+// Powerplant mini game
+enum Powerplant_States
+{
+    POWERPLANT_START_GAME,
+};
+
+static bool32 (*const sPowerplantStateFuncs[])(struct Task *) =
+{
+    [POWERPLANT_START_GAME]            = Powerplant_StartGame,
+};
+
+#define tStep              data[0]
+#define tFrameCounter      data[1]
+#define tPlayerGfxId       data[14]
+
+void StartPowerplantGame(void)
+{
+    u8 taskId = CreateTask(Task_Powerplant, 0xFF);
+    DebugPrintf("StartPowerplantGame");
+
+    Task_Powerplant(taskId);
+}
+
+static void Task_Powerplant(u8 taskId)
+{
+    while (sPowerplantStateFuncs[gTasks[taskId].tStep](&gTasks[taskId]))
+        ;
+}
+
+static bool32 Powerplant_StartGame(struct Task *task)
+{
+    u8 i;
+    
+    DebugPrintf("Powerplant_StartGame");
+
+    //reset task data
+    for (i = 0; i <= 1; i++)
+    {
+        task->data[i] = 0;
+    }
+
+    task->func = Task_InitPowerplantGame;
+
+    return FALSE;
+}
+
+#undef tStep
+#undef tFrameCounter
+#undef tPlayerGfxId

@@ -238,26 +238,37 @@ script PowerPlant_MinigameStart {
 	if(!var(VAR_CSR_TURNED_ON_POWER)) {
 		msgbox("no power\nplay game?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			if(checkitem(ITEM_EVERSTONE)) {
+			// if(checkitem(ITEM_EVERSTONE)) {
 				closemessage
 				call(PowerPlant_ElectrodesSlideDown)
 				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
-				setvar(VAR_CSR_TURNED_ON_POWER, 1)
-				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
-				dowildbattle
-				//waitstate
-				special(SpawnCameraObject)
-				applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
-				waitmovement(0)
-				special(RemoveCameraObject)
-			} else {
-				msgbox("cannot beat game\n", MSGBOX_DEFAULT)
-			}
+			// 	setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
+			// 	dowildbattle
+			// 	//waitstate
+				// special(SpawnCameraObject)
+				// applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
+				// waitmovement(0)
+				// special(RemoveCameraObject)
+			// } else {
+			// 	msgbox("cannot beat game\n", MSGBOX_DEFAULT)
+			// }
+			callnative(StartPowerplantGame)
+			waitstate
+			msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+			waitmessage
+			special(SpawnCameraObject)
+			applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
+			waitmovement(0)
+			special(RemoveCameraObject)
 		}
 
 	} else {
 		msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
 	}
+	removeobject(ELECTRODE_1)
+	removeobject(ELECTRODE_2)
+	removeobject(ELECTRODE_3)
+	removeobject(ELECTRODE_4)
 	release
 	end
 }
@@ -274,6 +285,7 @@ script PowerPlant_ElectrodesSlideDown {
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoUp)
 	waitmovement(0)
+	special(RemoveCameraObject)
 	addobject(ELECTRODE_1)
 	addobject(ELECTRODE_2)
 	addobject(ELECTRODE_3)
@@ -303,5 +315,5 @@ movement PowerPlant_CameraGoUp {
 }
 
 movement PowerPlant_CameraGoDown {
-	walk_fast_up * 3
+	walk_fast_down * 3
 }
