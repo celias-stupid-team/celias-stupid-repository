@@ -168,7 +168,7 @@ script Route18_SetZapdosStatue {
 
 script Route18_FloatyRockKid {
 	if(flag(FLAG_GOT_FLOAT_STONE)) {
-		msgbox("You took the floaty rock?\nYeah, understandable.", MSGBOX_NPC)
+		msgbox("Oh…\nYou took the cool floaty rock?\l{PAUSE 30}Yeah, understandable.", MSGBOX_NPC)
 	} else {
 		msgbox("Ooooh…\pLook at this cool floaty\nrock!", MSGBOX_NPC)
 	}

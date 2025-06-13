@@ -6299,10 +6299,10 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_SodaShopSailor),
     },
     [TRAINER_SODASHOP_SHORTS] = {
-        .trainerClass = TRAINER_CLASS_SHORTS,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerClass = TRAINER_CLASS_SKIRT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_SKIRT,
-        .trainerName = _("JAYCEE"),
+        .trainerName = _("MACY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,

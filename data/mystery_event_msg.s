@@ -170,7 +170,7 @@ MysteryEventScript_BattleCard::
 	vmessage sText_MysteryGiftBattleCountCard_2
 	waitmessage
 	waitbuttonpress
-	giveitem ITEM_POTION
+	giveitem ITEM_ETHER
 	release
 	setflag FLAG_MYSTERY_GIFT_DONE
 	end

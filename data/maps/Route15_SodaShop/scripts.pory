@@ -84,16 +84,22 @@ script SodaShop_SwimTrunks {
     faceplayer
     msgbox("I love that I'm SKIRT now!\nLook what I can do!", MSGBOX_DEFAULT)
     closemessage
+    delay(20)
+    playse(SE_M_REVERSAL)
     applymovement(VAR_LAST_TALKED, SodaShopSpins)
     waitmovement(0)
+    applymovement(VAR_LAST_TALKED, SodaShopSpins)
+    waitmovement(0)
+    playse(SE_EXP_MAX)
     faceplayer
+    delay(30)
     msgbox("SKIRT go spinny!\n", MSGBOX_DEFAULT)
     release
 }
 
 script SodaShop_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "hi i'm bugsy", "PLACEHOLDER")
-    msgbox("trans!", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "{COLOR BLUE}Heya!\nI'm the LEADER of AZALEA GYM!\pUh… Where am I?\n", "Rats!")
+    msgbox("{COLOR BLUE}My prize SCYTHER just learned a\nnew MOVE, so I gave it a try.\pApparently it wound up, uh…\nteleporting me to a bench?\lSo now I'm here.", MSGBOX_NPC)
 
 }
 
@@ -111,5 +117,20 @@ script SodaShop_VendingMachine {
 
 script SodaShop_WeirdMachine {
 	msgbox("Is that a…\nCoffee machine?\lA french press, maybe?\pI have no clue.\n", MSGBOX_SIGN)
+	end
+}
+
+script CeliaSecret_SodaShop {
+	msgbox("At first Celadon Gym was gonna be\nthe only trans jokes in the hack.\pHowever, that made so many people\nangry that I decided to go harder.\lSuck my ass, fuckheads!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_Bugsy {
+	msgbox("Did you know in GSC, Bugsy is\ninexplicably coded to be female?", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_RichKid {
+	msgbox("This guy's here cuz in Emerald,\nthey swap the places of him and\lthe rich lady to the north.\pNo clue why, but it's trans enough\nfor me!", MSGBOX_NPC)
 	end
 }
