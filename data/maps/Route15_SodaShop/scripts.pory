@@ -25,7 +25,7 @@ mapscripts Route15_SodaShop_MapScripts {
                     msgbox("BUGSY: Phew…\nWhere'd you come from, anyway?\lYou just flew in from the ceiling!\p… … … …\n… … … …The heck?\pYou saw some benches and you\nwanted to… {PAUSE 20}RETREAT to one?\lWhat does that even mean?\pMaybe I still have a long way\nto go in my BUG-POKéMON studies.\pHere. If I give you this, will you\nleave me be?", MSGBOX_DEFAULT)
                     closemessage
                     settrainerflag(TRAINER_SODASHOP_SAILOR)
-                    setflag(FLAG_SHINY_CREATION)
+                    setflag(FLAG_SHINY_CREATION) //Scyther
                     textcolor(NPC_TEXT_COLOR_NEUTRAL)
                     playfanfare(MUS_LEVEL_UP)
                     msgbox("{PLAYER} obtained the SCYTHER from\nthe disgruntled boy(?)!", MSGBOX_DEFAULT)

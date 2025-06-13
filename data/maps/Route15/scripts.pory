@@ -195,9 +195,9 @@ script Route15_Sandcastle {
 						closemessage
 						playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 						waitmoncry
-						msgbox("Oh?\nThe CASTLE spit something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
+						msgbox("Oh?\nThe CASTLE spat something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
 						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CUBONE)
-						setflag(FLAG_SHINY_CREATION)
+						setflag(FLAG_SHINY_CREATION) //Cubone
 						playfanfare(MUS_LEVEL_UP)
 						msgbox("{PLAYER} obtained the\nCUBONE!", MSGBOX_DEFAULT)
 						waitfanfare
