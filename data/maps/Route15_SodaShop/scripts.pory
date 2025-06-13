@@ -31,7 +31,7 @@ mapscripts Route15_SodaShop_MapScripts {
                     msgbox("{PLAYER} obtained the SCYTHER from\nthe disgruntled boy(?)!", MSGBOX_DEFAULT)
                     waitfanfare
                     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SCYTHER)
-                    call(Common_Script_ObtainedPokemon)
+                    call(Common_Script_GiftPokemon)
 
                 } else {
                     msgbox("BUGSY: Yeah, exactly!\nThat's what happened to me!\pDo you have any clue what's\nup with that?", MSGBOX_DEFAULT)

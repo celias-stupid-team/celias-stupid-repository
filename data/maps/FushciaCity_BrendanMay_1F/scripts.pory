@@ -12,7 +12,7 @@ script BrendanMay_Machoke {
     msgbox("{PLAYER} obtained the MACHOKE!\n", MSGBOX_DEFAULT)
     waitfanfare
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MACHOKE)
-    call(Common_Script_ObtainedPokemon)
+    call(Common_Script_GiftPokemon)
     release
     end
 }

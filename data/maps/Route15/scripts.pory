@@ -201,7 +201,7 @@ script Route15_Sandcastle {
 						playfanfare(MUS_LEVEL_UP)
 						msgbox("{PLAYER} obtained the\nCUBONE!", MSGBOX_DEFAULT)
 						waitfanfare
-						call(Common_Script_ObtainedPokemon)
+						call(Common_Script_GiftPokemon)
 						setflag(FLAG_CUBONE_SANDWICH)
 						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
 					
@@ -273,7 +273,7 @@ script Route15_FindShellder_Left {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
 	waitfanfare
-	call(Common_Script_ObtainedPokemon)
+	call(Common_Script_GiftPokemon)
 	release
 }
 
@@ -285,7 +285,7 @@ script Route15_FindShellder_Right {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
 	waitfanfare
-	call(Common_Script_ObtainedPokemon)
+	call(Common_Script_GiftPokemon)
 	release
 }
 

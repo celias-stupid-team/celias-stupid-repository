@@ -481,7 +481,7 @@ script Route15_PokeRap_Trainer29 {
         setflag(FLAG_GOT_SHINY_PINSIR)
         msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
         waitfanfare
-		call(Common_Script_ObtainedPokemon)
+		call(Common_Script_GiftPokemon)
         msgbox("My bad!\n", MSGBOX_DEFAULT)
         release
     } else {

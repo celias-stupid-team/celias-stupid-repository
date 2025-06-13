@@ -169,7 +169,7 @@ script SafariZone_KangaskahnCage {
 				removeobject(SMALL_KANGA)
 				setflag(FLAG_FREED_KANGA)
 				msgbox("{PLAYER} obtained the grateful\nKANGASKHAN!", MSGBOX_DEFAULT)
-				call(Common_Script_ObtainedPokemon)
+				call(Common_Script_GiftPokemon)
 				fadedefaultbgm
 				release
 			}

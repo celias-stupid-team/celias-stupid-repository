@@ -3,6 +3,7 @@
 mapscripts LavenderTown_DanceTheater_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_TEMP_5, 8) // Sign Lady's X
+        setflag(FLAG_TEMP_5)
     }
 }
 
@@ -50,8 +51,7 @@ script DanceTheater_ShortKid {
     if(!flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
         if(var(VAR_TEMP_5) == 8) {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
-                msgbox("hey move her again message\n", MSGBOX_DEFAULT)
-                clearflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                msgbox("Hey!\nWhy'd you put her back?\lNow I can't see!", MSGBOX_DEFAULT)
                 release
                 end
             } else {
@@ -88,15 +88,35 @@ script DanceTheater_ShortKid {
 
         } else {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
-                msgbox("fuck you message\n", MSGBOX_DEFAULT)
+                msgbox("…\pYou moved the girl out of the\nway\land then you-\p…{PAUSE 20}C'mon, man…\n", MSGBOX_DEFAULT)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                removeobject(VAR_LAST_TALKED)
+                setflag(FLAG_SHORT_KID_RAN_OFF)
+                clearflag(FLAG_TEMP_5)
+                addobject(SHORT_KID_BALL)
+                delay(30)
+                fadescreen(FADE_FROM_BLACK)
+
             }   else {
-                msgbox("disappointed\n", MSGBOX_DEFAULT)
+                msgbox("Aww…\pI really wanted to watch the show,\nbut that girl blocked my way!\pGuess I'll need to come back\nnext year.", MSGBOX_DEFAULT)
             }
         } 
         release
         end
     }
     
+}
+
+script DanceTheater_ShortKidBall {
+    lock
+    msgbox("The short kid left this here.\n", MSGBOX_DEFAULT)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_SHINY_CREATION) //Ekans
+    playfanfare(MUS_LEVEL_UP)
+    msgbox("{PLAYER} stole a small child's\nEKANS!", MSGBOX_DEFAULT)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EKANS)
+    call(Common_Script_GiftPokemon)
 }
 
 script DanceTheater_DietDance {

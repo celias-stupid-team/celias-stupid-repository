@@ -373,7 +373,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
 			msgbox(CeladonCity_EeveeGag_CeliaGives)
 			waitfanfare
-			call(Common_Script_ObtainedPokemon)
+			call(Common_Script_GiftPokemon)
 			setflag(FLAG_GOT_EEVEE)
 			msgbox("Oh, hey!\nIs that a MACHO BRACE?\pThat lets you double your\nEEVEE gain!\lHave another!", MSGBOX_DEFAULT)
 			setflag(FLAG_SHINY_CREATION)
@@ -381,7 +381,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 			msgbox("{PLAYER} exchanged the MACHO BRACE\nfor another EEVEE!", MSGBOX_DEFAULT)
 			waitfanfare
 			removeitem(ITEM_MACHO_BRACE)
-			call(Common_Script_ObtainedPokemon)
+			call(Common_Script_GiftPokemon)
 
 			release
 			end

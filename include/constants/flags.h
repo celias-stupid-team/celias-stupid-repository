@@ -337,7 +337,7 @@
 #define FLAG_PALLET_IMPOSTER_OAK               0x123
 #define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_ARCHER_CUTSCENE_SECOND               0x125
-#define FLAG_0x126               0x126
+#define FLAG_SHORT_KID_RAN_OFF               0x126
 #define FLAG_SANDWICH_GOT_BREAD               0x127
 #define FLAG_SANDWICH_GOT_MEAT               0x128
 #define FLAG_SANDWICH_GOT_CHEESE               0x129
