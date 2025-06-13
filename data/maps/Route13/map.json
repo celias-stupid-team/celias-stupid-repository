@@ -129,6 +129,7 @@
       "flag": "FLAG_ROUTE13_HIDE_DAD"
     },
     {
+      "local_id": "LOOK_SIGN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
       "x": 53,
@@ -155,6 +156,14 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route_13_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_ROUTE_13_CANDY"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 12,
+      "y": 21,
+      "target_local_id": "45",
+      "target_map": "MAP_ROUTE14"
     }
   ],
   "warp_events": [],
@@ -167,6 +176,24 @@
       "var": "VAR_ROUTE13_LASS_ATTACK",
       "var_value": "0",
       "script": "Route13_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route13_Approaching_From_Behind_Ledge"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "Route13_Approaching_From_Behind_Ledge"
     }
   ],
   "bg_events": [
@@ -1060,70 +1087,6 @@
     },
     {
       "type": "sign",
-      "x": 39,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 38,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 37,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 36,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 34,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 33,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
-      "x": 32,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route13_Fence"
-    },
-    {
-      "type": "sign",
       "x": 37,
       "y": 12,
       "elevation": 0,
@@ -1923,6 +1886,14 @@
       "flag": "FLAG_TEMP_7",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route13_SignItem"
     }
   ]
 }

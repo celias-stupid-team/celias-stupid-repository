@@ -15370,3 +15370,4 @@ Move_SUBSTITUTE_2:
 	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_MonToSubstitute, 2
 	end
+

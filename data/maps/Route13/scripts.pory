@@ -1,6 +1,4 @@
 raw `
-Route13_MapScripts::
-	.byte 0
 
 Route13_EventScript_TrainerTips1::
 	msgbox Route13_Text_LookToLeftOfThatPost, MSGBOX_SIGN
@@ -14,6 +12,33 @@ Route13_EventScript_RouteSign::
 	msgbox Route13_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route13_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setvar(VAR_TEMP_1, 53)
+		if(flag(FLAG_ROUTE13_SIGN_BACK_HOME)) {
+			setvar(VAR_TEMP_1, 17)
+			setobjectxyperm(LOOK_SIGN, 17, 14)
+
+		}
+	}
+}
+
+script Route13_SignItem {
+	lock
+	if(flag(FLAG_ROUTE13_SIGN_BACK_HOME)) {
+		if(flag(FLAG_FOUND_ZINC)) {
+			msgbox("There was ZINC here.\n", MSGBOX_DEFAULT)
+			release
+			end
+		}
+		setflag(FLAG_FOUND_ZINC)
+		finditem(ITEM_ZINC)
+	} else {
+		msgbox("There's nothing here… {PAUSE 20}yet.\n", MSGBOX_DEFAULT)
+	}
+}
+
 script Route13_SpeedupTip {
 	msgbox("TRAINER TIPS\pThe Speedup option is in your\nemulator.\pRemember to use it when needed!\n", MSGBOX_SIGN)
 	end
@@ -29,11 +54,28 @@ script Route13_LookLookSign {
 	playse(SE_PIN)
 	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
 	delay(60)
-	msgbox("TRAINER TIPS!\pLook, look!\nTo the right of this sign!", MSGBOX_DEFAULT)
-	closemessage
-	delay(30)
-	applymovement(VAR_LAST_TALKED, Common_Movement_WalkLeft)
-	waitmovement(0)
+	if(var(VAR_TEMP_1) == 17) {
+		setflag(FLAG_ROUTE13_SIGN_BACK_HOME)
+		msgbox("Oh my goodness-!\nI… I'm back home!\pThank you so much for bringing\nme here.\pI am forever in your debt.\n", MSGBOX_DEFAULT)
+	} else {
+		
+		msgbox("TRAINER TIPS!\pLook, look!\nTo the right of this sign!", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		special(GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_EAST) {
+			addvar(VAR_TEMP_1, 1)
+			applymovement(VAR_LAST_TALKED, Common_Movement_WalkRight)
+			waitmovement(0)
+
+		} else {
+			subvar(VAR_TEMP_1, 1)
+			applymovement(VAR_LAST_TALKED, Common_Movement_WalkLeft)
+			waitmovement(0)
+
+		}
+		copyobjectxytoperm(VAR_LAST_TALKED)
+	}
 	release
 }
 
@@ -62,8 +104,18 @@ script Route13_Snorlax {
 	end
 }
 
+script Route13_Approaching_From_Behind_Ledge {
+	setflag(FLAG_APPROACHING_ROUTE_14_FROM_ABOVE)
+	setvar(VAR_TEMP_2, 1)
+}
+
 script Route13_Artist {
 	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic fences\nall along the grass on this route!\lMy artistic genius knows no limits!", MSGBOX_NPC)
+	end
+}
+
+script Route13_Artist_Two {
+	msgbox("At long last, I have completed\nmy life's work!\pI've painted photorealistic,\nanimated water behind the trees!\lMy genius continues to impress!\pYes, the water back there is\ncompletely intentional and not the\lresult of a developer oversight.\pHow could you possibly imply such\na thing about my artistic vision?", MSGBOX_NPC)
 	end
 }
 
@@ -126,8 +178,8 @@ script Route13_LassAttack {
 	delay(60)
 	applymovement(LASS, Route13_LassLeaves)
 	waitmovement(0)
-	setobjectxy(LASS, 34, 17)
-	setobjectxyperm(LASS, 34, 17)
+	setobjectxy(LASS, 35, 9)
+	setobjectxyperm(LASS, 35, 9)
 	setvar(VAR_ROUTE13_LASS_ATTACK, 1)
 	setflag(FLAG_ROUTE13_LASSATTACK)
 	release

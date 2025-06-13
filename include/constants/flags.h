@@ -349,7 +349,7 @@
 #define FLAG_NERD_TOOK_KABUTOPS               0x12F
 #define FLAG_HIDE_BUFF_OAK               0x130
 #define FLAG_WALKED_THROUGH_GRASS               0x131
-#define FLAG_0x132               0x132
+#define FLAG_ROUTE13_SIGN_BACK_HOME               0x132
 #define FLAG_0x133               0x133
 #define FLAG_0x134               0x134
 #define FLAG_0x135               0x135
@@ -491,7 +491,7 @@
 #define FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
-#define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
+#define FLAG_FOUND_ZINC                             0x1BB
 #define FLAG_HIDE_CELADON_TAUNT                                              0x1BC
 #define FLAG_HIDE_WRAP_TM                                              0x1BD
 #define FLAG_HIDE_VIRIDIAN_FOREST_POTION_2                      0x1BE
@@ -628,7 +628,7 @@
 #define FLAG_GOT_HM05                                    0x23B
 #define FLAG_RESCUED_CUBONES_MOM                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
-#define FLAG_0x23E                                       0x23E
+#define FLAG_APPROACHING_ROUTE_14_FROM_ABOVE                                       0x23E
 #define FLAG_GOT_TM28_FROM_ROCKET                        0x23F
 #define FLAG_GOT_OLD_ROD                                 0x240
 #define FLAG_GOT_BIKE_VOUCHER                            0x241

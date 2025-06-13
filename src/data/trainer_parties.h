@@ -4328,16 +4328,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt19[] = {
         .lvl = 25,
         .species = SPECIES_IRON_BUNDLE,
     },
-    {
-        .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_ZUBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_GOLBAT,
-    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt20[] = {
