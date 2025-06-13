@@ -4,7 +4,11 @@ mapscripts KantoLighthouse_2F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(!flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
             setflag(FLAG_TEMP_1)
+            setobjectsubpriority(LOCALID_DEAD_GUY, MAP_KANTO_LIGHTHOUSE_2F, 255)
+            setobjectsubpriority(OBJ_EVENT_ID_PLAYER, MAP_KANTO_LIGHTHOUSE_2F, 1)
         }
+    }
+    MAP_SCRIPT_ON_LOAD {
     }
 }
 

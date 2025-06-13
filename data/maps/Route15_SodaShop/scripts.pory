@@ -98,7 +98,7 @@ script SodaShop_SwimTrunks {
 }
 
 script SodaShop_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "{COLOR BLUE}Heya!\nI'm the LEADER of AZALEA GYM!\pUh… Where am I?\n", "Rats!")
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "{COLOR BLUE}Er, hey!\nI'm the LEADER of AZALEA GYM!\pUh…\nWhere am I?\n", "Rats!")
     msgbox("{COLOR BLUE}My prize SCYTHER just learned a\nnew MOVE, so I gave it a try.\pApparently it wound up, uh…\nteleporting me to a bench?\lSo now I'm here.", MSGBOX_NPC)
 
 }

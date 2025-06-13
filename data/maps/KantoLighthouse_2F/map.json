@@ -13,36 +13,8 @@
   "show_map_name": false,
   "floor_number": 2,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN",
-      "x": 37,
-      "y": 36,
-      "elevation": -1,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "KantoLighthouse_2F_DeadMan",
-      "flag": "FLAG_TEMP_1"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 45,
-      "y": 35,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "KantoLighthouse_EventScript_CSR_ItemOddCandy",
-      "flag": "FLAG_KANTO_LIGHTHOUSE_CANDY"
-    },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
@@ -56,6 +28,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "KantoLighthouse_HaircutHint",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEAD_GUY",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN",
+      "x": 37,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "KantoLighthouse_2F_DeadMan",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -92,7 +79,5 @@
       "script": "KantoLighthouse_3F_FallDownHole"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }
