@@ -30,6 +30,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "local_id": "BUGSY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUGSY",
       "x": 10,

@@ -212,21 +212,11 @@
     },
     {
       "type": "hidden_item",
-      "x": 11,
-      "y": 11,
-      "elevation": 0,
-      "item": "ITEM_POKE_DOLL",
-      "flag": "FLAG_TEMP_1",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
-      "type": "hidden_item",
-      "x": 15,
+      "x": 12,
       "y": 14,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
-      "flag": "FLAG_TEMP_2",
+      "flag": "FLAG_ROUTE19_DOLL_1",
       "quantity": 1,
       "underfoot": false
     },
@@ -236,7 +226,7 @@
       "y": 10,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
-      "flag": "FLAG_TEMP_3",
+      "flag": "FLAG_ROUTE19_DOLL_2",
       "quantity": 1,
       "underfoot": false
     }

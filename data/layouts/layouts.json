@@ -5213,11 +5213,11 @@
       "id": "LAYOUT_SURF_FURRET",
       "name": "Surf_Furret",
       "width": 11,
-      "height": 9,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GenericBuilding2",
+      "secondary_tileset": "gTileset_SurfHouse",
       "border_filepath": "data/layouts/Surf_Furret/border.bin",
       "blockdata_filepath": "data/layouts/Surf_Furret/map.bin"
     }

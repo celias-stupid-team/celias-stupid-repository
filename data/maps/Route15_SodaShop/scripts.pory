@@ -3,8 +3,53 @@ mapscripts Route15_SodaShop_MapScripts {
         setflag(FLAG_TEMP_2)
         setbench(BENCH_SODA_SHOP)
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0 {
+            getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+            if(var(VAR_TEMP_2) == 10) {
+                delay(20)
+                applymovement(BUGSY, Common_Movement_FaceDown)
+                waitmovement(0)
+                applymovement(BUGSY, Common_Movement_ExclamationMark)
+                playse(SE_PIN)
+                delay(60)
+                textcolor(NPC_TEXT_COLOR_MALE)
+                msgbox("BUGSY: Hey!\nGet off me!", MSGBOX_DEFAULT)
+                closemessage
+                delay(20)
+                applymovement(OBJ_EVENT_ID_PLAYER, SodaShop_JumpOffBugsy)
+                playse(SE_LEDGE)
+                waitmovement(0)
+                delay(20)
+                if(!checktrainerflag(TRAINER_SODASHOP_SAILOR)) {
+                    msgbox("BUGSY: Phew…\nWhere'd you come from, anyway?\lYou just flew in from the ceiling!\p… … … …\n… … … …The heck?\pYou saw some benches and you\nwanted to… {PAUSE 20}RETREAT to one?\lWhat does that even mean?\pMaybe I still have a long way\nto go in my BUG-POKéMON studies.\pHere. If I give you this, will you\nleave me be?", MSGBOX_DEFAULT)
+                    closemessage
+                    settrainerflag(TRAINER_SODASHOP_SAILOR)
+                    setflag(FLAG_SHINY_CREATION)
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox("{PLAYER} obtained the SCYTHER from\nthe disgruntled boy(?)!", MSGBOX_DEFAULT)
+                    waitfanfare
+                    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SCYTHER)
+                    call(Common_Script_ObtainedPokemon)
+
+                } else {
+                    msgbox("BUGSY: Yeah, exactly!\nThat's what happened to me!\pDo you have any clue what's\nup with that?", MSGBOX_DEFAULT)
+                }
+
+            }
+            release
+            setvar(VAR_TEMP_1, 1)
+        }
+    ]
 }
 
+movement SodaShop_JumpOffBugsy {
+    face_up
+    lock_facing_direction
+    jump_down
+    unlock_facing_direction
+}
 
 const MALE_OWNER = 1
 const FEMALE_OWNER = 5

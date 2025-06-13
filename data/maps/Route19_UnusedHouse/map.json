@@ -9,7 +9,7 @@
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -46,8 +46,8 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 7,
+      "x": 3,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROUTE19",
       "dest_warp_id": "0"
