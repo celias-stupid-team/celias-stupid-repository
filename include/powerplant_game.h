@@ -28,7 +28,7 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 #define SCORE_INTERVAL                  (SCORE_MAX / SCORE_AREA_WIDTH)
 #define SCORE_SECTION_INIT_X            ((taskData.tScore / SCORE_INTERVAL) - SCORE_BAR_OFFSET)
 #define SCORE_SECTION_LAST_X            ((SCORE_MAX / SCORE_INTERVAL) - SCORE_BAR_OFFSET)
-#define SCORE_SECTION_Y                 99
+#define SCORE_SECTION_Y                 132
 #define SCORE_SECTION_WIDTH             8   // The width of one score meter section sprite in number of pixels.
 #define NUM_SCORE_SECTIONS              (SCORE_AREA_WIDTH / SCORE_SECTION_WIDTH)
 #define NUM_COLOR_INTERVALS             64

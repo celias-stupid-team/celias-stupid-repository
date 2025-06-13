@@ -28,6 +28,7 @@
 #include "text.h"
 #include "text_window.h"
 #include "window.h"
+#include "constants/event_objects.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
@@ -36,12 +37,11 @@ static void CreateMinigameSprites(u8 taskId);
 
 //wiz1989 add files
 // static const u32 gScoreBG_Tilemap[] = INCBIN_U32("graphics/powerplant_game/score_bg_tilemap.bin.lz");
+static const u32 gPowerplantGameControls_Gfx[] = INCBIN_U32("graphics/powerplant_game/controls.4bpp.lz");
+static const u16 gPowerplantGameControls_Pal[] = INCBIN_U16("graphics/powerplant_game/controls.gbapal");
+static const u32 gPowerplantGameControls_Tilemap[] = INCBIN_U32("graphics/powerplant_game/controls.bin.lz");
 static const u32 gScoreMeter_Gfx[] = INCBIN_U32("graphics/powerplant_game/score_meter_8x8.4bpp.lz");
-// static const u32 gPowerplantGameOWBG_Gfx[] = INCBIN_U32("graphics/powerplant_game/powerplant_bg_ow_tiles.4bpp.lz");
-// static const u16 gPowerplantGameOWBG_Pal[] = INCBIN_U16("graphics/powerplant_game/powerplant_bg_ow_tiles.gbapal");
-// static const u32 gPowerplantGameOWBG_Tilemap[] = INCBIN_U32("graphics/powerplant_game/powerplant_bg_ow_tiles.bin.lz");
 static const u32 gScoreMeterOWBehind_Gfx[] = INCBIN_U32("graphics/powerplant_game/score_meter_ow_behind.4bpp.lz");
-static const u32 gPowerplantBar_Gfx[] = INCBIN_U32("graphics/powerplant_game/progress_bar.4bpp.lz");
 static const u16 sPowerplantBar_Pal[] = INCBIN_U16("graphics/powerplant_game/progress_bar.gbapal");
 
 
@@ -187,14 +187,21 @@ static const struct SpriteTemplate sSpriteTemplate_ScoreMeterBacking =
 void Task_InitPowerplantGame(u8 taskId)
 {
     void *tilemapBuffer;
+    u32 size = 0;
 
     LoadSpritePalettes(sSpritePalettes_PowerplantGame);
 
-    // LoadMessageBoxAndFrameGfx(0, TRUE);
+    //show control graphics
+    tilemapBuffer = MallocAndDecompress(gPowerplantGameControls_Gfx, &size);
+    CopyToBgTilemapBuffer(0, gPowerplantGameControls_Tilemap, 0, 0);
+    CopyBgTilemapBufferToVram(0);
+    LoadPalette(gPowerplantGameControls_Pal, BG_PLTT_ID(13), PLTT_SIZE_4BPP);
+    LoadBgTiles(0, tilemapBuffer, size, 0);
+
     LoadPowerplantSpritesheets();
 
     CreateMinigameSprites(taskId);
-
+    
     taskData.func = Task_PowerplantGame;
 }
 
@@ -347,10 +354,21 @@ static void Task_PowerplantPauseUntilFadeIn(u8 taskId)
 
 static void Task_HandlePowerplantGameInput(u8 taskId)
 {
+    //change light colors
+    if (taskData.tFrameCounter % 60 == 0) // change colors every 60s
+    {
+        DebugPrintf("change lights");
+        if (Random() % 2)
+            SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_YOUNGSTER, 7, 6, 24, 9, 0);
+        else
+            SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_ITEM_BALL, 7, 6, 24, 9, 0);
+    }
+
+
     RunTextPrinters();
     DebugPrintf("Task_HandlePowerplantGameInput");
 
-    if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW(START_BUTTON))
     {
         taskData.tGameStateBits |= FG_PAUSED; // Pause/Unpause the game.
         taskData.func = Task_AskWantToQuit;
@@ -372,6 +390,8 @@ static void Task_HandlePowerplantGameInput(u8 taskId)
                 PlaySE(SE_BOO);
                 increment = SCORE_DECREASE;
             }
+
+            DebugPrintf("A Button");
 
             taskData.tFlagButtonInput = TRUE;
         }
@@ -443,9 +463,10 @@ static void HandleScore(u8 taskId)
 
 static void Task_AskWantToQuit(u8 taskId)
 {
+    LoadMessageBoxAndFrameGfx(0, TRUE);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
     AddTextPrinterParameterized(0, FONT_NORMAL, sText_WantToQuit, 0, 1, 1, NULL); // Ask to quit the game.
-    ScheduleBgCopyTilemapToVram(0);
+    // ScheduleBgCopyTilemapToVram(0);
     RunTextPrinters();
     CreateYesNoMenu(&sWindowTemplate_AskQuit, FONT_NORMAL, 0, 2, 0x2A8, 14, 0); //wiz1989 check 0x2A8
     taskData.func = Task_HandleConfirmQuitInput;
@@ -463,9 +484,10 @@ static void Task_HandleConfirmQuitInput(u8 taskId)
         break;
     case 1:  // NO
     case MENU_B_PRESSED:
+        ClearDialogWindowAndFrame(0, TRUE);
         PlaySE(SE_SELECT);
         FillWindowPixelBuffer(0, PIXEL_FILL(1));
-        AddTextPrinterParameterized(0, FONT_NORMAL, sText_PowerUp, 0, 1, 0, NULL); // Show the instructions again.
+        // AddTextPrinterParameterized(0, FONT_NORMAL, sText_PowerUp, 0, 1, 0, NULL); // Show the instructions again.
         taskData.tGameStateBits &= ~FG_PAUSED; // Unpause the game.
         taskData.func = Task_HandlePowerplantGameInput;
         break;
@@ -480,9 +502,16 @@ static void Task_QuitGame(u8 taskId)
     RunTextPrinters();
     if (!gPaletteFade.active) // If the screen has fully faded to black.
     {
+        void *blankTileBuffer = AllocZeroed(0x800); // 0x800 bytes = 64 4bpp tiles
+        
+        if (blankTileBuffer == NULL)
+            return; // Safety check in case memory allocation fails
+        LoadBgTiles(0, blankTileBuffer, 0x800, 0); // Load to tile offset 0
+        Free(blankTileBuffer);
+        FillBgTilemapBufferRect(0, 0, 0, 0, 32, 32, 0);
+        CopyBgTilemapBufferToVram(0);
+
         gFieldCallback2 = NULL;
-        // taskData.data[8] = TRUE; // Don't show any more text boxes.
-        // taskData.data[0] = 15; // Set Task_Fishing to run Fishing_GotAway.
         taskData.tGameStateBits |= FG_GAME_ENDED;
         taskData.func = Task_PowerplantGame;
 

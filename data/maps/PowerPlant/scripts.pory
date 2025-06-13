@@ -238,24 +238,14 @@ script PowerPlant_MinigameStart {
 	if(!var(VAR_CSR_TURNED_ON_POWER)) {
 		msgbox("no power\nplay game?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			// if(checkitem(ITEM_EVERSTONE)) {
-				closemessage
-				call(PowerPlant_ElectrodesSlideDown)
-				msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
-			// 	setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
-			// 	dowildbattle
-			// 	//waitstate
-				// special(SpawnCameraObject)
-				// applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
-				// waitmovement(0)
-				// special(RemoveCameraObject)
-			// } else {
-			// 	msgbox("cannot beat game\n", MSGBOX_DEFAULT)
-			// }
+			closemessage
+			call(PowerPlant_ElectrodesSlideDown)
+			msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
+			closemessage
 			callnative(StartPowerplantGame)
 			waitstate
 			msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
-			waitmessage
+			closemessage
 			special(SpawnCameraObject)
 			applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
 			waitmovement(0)
