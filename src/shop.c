@@ -29,6 +29,7 @@
 #include "constants/items.h"
 #include "constants/game_stat.h"
 #include "constants/field_weather.h"
+#include "event_data.h"
 
 #define tItemCount data[1]
 #define tItemId data[5]
