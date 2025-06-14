@@ -443,5 +443,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     // Return to field arrow
     [ITEM_AIR_BALLOON]      =  {gItemIcon_AirBalloon, gItemIconPalette_AirBalloon},
     [ITEM_SHINY_BIKE]      =  {gItemIcon_ShinyBike, gItemIconPalette_ShinyBike},
+    [ITEM_AWAKENING_DUNE]      =  {gItemIcon_AwakeningDune, gItemIconPalette_AwakeningDune},
+    [ITEM_DMC]      =  {gItemIcon_Dmc, gItemIconPalette_Dmc},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
