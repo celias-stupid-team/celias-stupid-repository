@@ -12315,3 +12315,6 @@ extern const u32 gItemIconPalette_AwakeningDune[];
 
 extern const u32 gItemIcon_Dmc[];
 extern const u32 gItemIconPalette_Dmc[];
+
+extern const u32 gItemIcon_AwakeningFireEmblem[];
+extern const u32 gItemIconPalette_AwakeningFireEmblem[];

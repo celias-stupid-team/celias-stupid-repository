@@ -292,5 +292,6 @@ script CeladonCity_DepartmentStore_Roof_EventScript_TryBuyDrink {
 	msgbox("{PLAYER} put the CHEESE in the\nSANDWICH CASE.", MSGBOX_DEFAULT)
 	setflag(FLAG_SANDWICH_GOT_CHEESE)
 	waitfanfare
+	call(FushciaCity_MakeASandwich)
 	goto(CeladonCity_DepartmentStore_Roof_EventScript_ChooseNewDrink)
 }

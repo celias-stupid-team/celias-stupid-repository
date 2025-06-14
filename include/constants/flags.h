@@ -338,10 +338,10 @@
 #define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_ARCHER_CUTSCENE_SECOND               0x125
 #define FLAG_SHORT_KID_RAN_OFF               0x126
-#define FLAG_SANDWICH_GOT_BREAD               0x127
-#define FLAG_SANDWICH_GOT_MEAT               0x128
-#define FLAG_SANDWICH_GOT_CHEESE               0x129
-#define FLAG_SANDWICH_GOT_LETTUCE               0x12A
+#define FLAG_SANDWICH_GOT_BREAD               0x127 //check
+#define FLAG_SANDWICH_GOT_MEAT               0x128 //check
+#define FLAG_SANDWICH_GOT_CHEESE               0x129 //check
+#define FLAG_SANDWICH_GOT_LETTUCE               0x12A //check
 #define FLAG_SANDWICH_GOT_PICKLES               0x12B
 #define FLAG_SANDWICH_GOT_SESAME_SEED               0x12C
 #define FLAG_CUBONE_SANDWICH               0x12D
@@ -350,8 +350,8 @@
 #define FLAG_HIDE_BUFF_OAK               0x130
 #define FLAG_WALKED_THROUGH_GRASS               0x131
 #define FLAG_ROUTE13_SIGN_BACK_HOME               0x132
-#define FLAG_0x133               0x133
-#define FLAG_0x134               0x134
+#define FLAG_FUSCHIA_BROKE_WALL               0x133
+#define FLAG_TALKED_TO_SARA               0x134
 #define FLAG_0x135               0x135
 #define FLAG_0x136               0x136
 #define FLAG_0x137               0x137
