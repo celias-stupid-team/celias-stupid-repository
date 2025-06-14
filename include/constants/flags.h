@@ -352,7 +352,7 @@
 #define FLAG_ROUTE13_SIGN_BACK_HOME               0x132
 #define FLAG_FUSCHIA_BROKE_WALL               0x133
 #define FLAG_TALKED_TO_SARA               0x134
-#define FLAG_0x135               0x135
+#define FLAG_MADE_A_SANDWICH               0x135
 #define FLAG_0x136               0x136
 #define FLAG_0x137               0x137
 #define FLAG_0x138               0x138

@@ -1,7 +1,12 @@
 mapscripts Route18_SandwichShop_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_TEMP_1, 1 {
-
+			while(checkitem(ITEM_BREAD)) {
+				removeitem(ITEM_BREAD)
+			}
+			setflag(FLAG_SANDWICH_GOT_BREAD)
+			call(FushciaCity_MakeASandwich)
+			setvar(VAR_TEMP_1, 2)
 		}
 	]
 }
