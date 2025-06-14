@@ -1651,7 +1651,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_GAMER,
         .trainerName = _("GEORG"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_PokemaniacSteve),
     },

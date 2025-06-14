@@ -71,7 +71,16 @@ script RockTunnel_1F_OnLoad {
 		call(RockTunnel_DrawBlankScreen)
 		//special(DrawWholeMapView)
 		setflag(FLAG_TEMP_2)
+		setflag(FLAG_TEMP_6)
+		setflag(FLAG_TEMP_7)
+		setflag(FLAG_TEMP_8)
+		setflag(FLAG_TEMP_9)
 	}
+}
+
+script RockTunnel_SoldOut {
+	msgbox("Sold out!\nGuess you should come back later.", MSGBOX_SIGN)
+	end
 }
 
 script RockTunnel_ClefableHint {
@@ -157,7 +166,7 @@ script RockTunnel_LightsOut {
 }
 
 script RockTunnel_Statistician {
-	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nhow many spiders people eat.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
+	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nannual average spider consumption.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
 	end
 }
 

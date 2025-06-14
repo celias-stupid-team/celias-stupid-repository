@@ -418,6 +418,7 @@ script SafariZone_LaprasMeatSalesman {
 			delay(20)
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("Thanks for doing business!\n", MSGBOX_DEFAULT)
+			call(FushciaCity_MakeASandwich)
 
 		} else {
 			msgbox("Huh?\nYou don't even have ¥500?\pYeesh, kid.\nGo visit BILL.", MSGBOX_DEFAULT)

@@ -579,7 +579,7 @@
 #define FLAG_CSR_GOT_BULLDOZE               0x20D
 #define FLAG_CSR_GOT_STEAMROLLER               0x20E
 #define FLAG_CSR_POKEMON_TOWER_MUSIC               0x20F
-#define FLAG_0x210               0x210
+#define FLAG_WATER_GUN_TM               0x210
 #define FLAG_0x211               0x211
 #define FLAG_0x212               0x212
 #define FLAG_0x213               0x213
