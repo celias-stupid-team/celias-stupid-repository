@@ -7,6 +7,7 @@ mapscripts Route18_SandwichShop_MapScripts {
 			setflag(FLAG_SANDWICH_GOT_BREAD)
 			call(FushciaCity_MakeASandwich)
 			setvar(VAR_TEMP_1, 2)
+			release
 		}
 	]
 }
@@ -67,6 +68,8 @@ script SandwichShop_CreateSandwich {
 	if(flag(FLAG_SANDWICH_GOT_BREAD) && flag(FLAG_SANDWICH_GOT_MEAT) && flag(FLAG_SANDWICH_GOT_CHEESE) && flag(FLAG_SANDWICH_GOT_LETTUCE) && flag(FLAG_SANDWICH_GOT_PICKLES) && flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox("Oh?\p{PLAYER} has gathered together\nall the ingredients!\pAfter a silly minigame (which\nCelia shall not be programming)…", MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
 		giveitem_msg("{PLAYER} turned all the ingredients\ninto a SANDWICH!", ITEM_SANDWICH, 1)
 		return
 

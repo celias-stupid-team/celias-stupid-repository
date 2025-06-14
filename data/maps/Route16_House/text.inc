@@ -17,13 +17,13 @@ Route16_House_Text_ReceivedHM02FromGirl::
     .string "from the disgusting criminal.$"
 
 Route16_House_Text_ExplainHM02::
-	.string "I went to go for a jog early\n"
+	.string "I'd gone for a quick jog early\n"
 	.string "in the morning.\l"
-	.string "That's what we'd all do!\p"
-	.string "Back home, it was always safe.\n"
-	.string "Cops only came out at night.\p"
-	.string "Guess it's not the same around\n"
-	.string "here…$"
+	.string "That's what we'd do back home.\p"
+	.string "See, it was safe then because\n"
+	.string "cops only came out at night.\p"
+	.string "Sadly it seems there's no in-game\n"
+	.string "clock around these parts…$"
 
 Route16_House_Text_DontHaveAnyRoomForThis::
     .string "You don't have any room for this.$"

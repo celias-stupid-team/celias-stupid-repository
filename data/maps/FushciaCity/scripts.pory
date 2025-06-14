@@ -154,7 +154,6 @@ script FushciaCity_OnTransition {
 	}
 	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
 		call(FuschiaCity_RemoveErik)
-		special(DrawWholeMapView)
 	}
 }
 
