@@ -361,9 +361,9 @@ script Route12_ConcernedSister {
 	lock
 	faceplayer
 	if(flag(FLAG_CSR_ROUTE12_BROTHER_IS_CHASING)) {
-		msgbox("Oh no!\nMy brother is attacking a GYARADOS!\lSomeone help it!", MSGBOX_DEFAULT)
+		msgbox("I told him this was a bad idea.\pOh well!\n", MSGBOX_DEFAULT)
 	} else {
-		msgbox("Oh no!\nA GYARADOS is attacking my brother!\lSomeone help him!", MSGBOX_DEFAULT)
+		msgbox("I told him this was a bad idea.\pOh well!\n", MSGBOX_DEFAULT)
 	}
 	closemessage
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)

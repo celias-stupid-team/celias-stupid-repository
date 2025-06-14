@@ -6,3 +6,10 @@ Route19_EventScript_RouteSign::
 	msgbox Route19_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+
+script Route19_Sailor {
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
+    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
+
+}

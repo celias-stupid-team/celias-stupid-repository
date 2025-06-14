@@ -247,8 +247,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route1_ImposterOak",
+      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
     }
   ],
   "warp_events": [

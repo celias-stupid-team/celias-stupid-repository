@@ -18,16 +18,9 @@
       "map": "MAP_TWO_ISLAND",
       "offset": -18,
       "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE15",
-      "offset": -28,
-      "direction": "left"
     }
   ],
-  "object_events": [
-
-  ],
+  "object_events": [],
   "warp_events": [
     {
       "x": 12,
@@ -37,9 +30,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

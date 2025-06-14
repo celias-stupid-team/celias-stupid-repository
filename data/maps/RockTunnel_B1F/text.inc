@@ -49,7 +49,7 @@ RockTunnel_B1F_Text_StevePostBattle::
 	.string "only has one MAGIKARP.\p"
 	.string "FISHERMEN RAYMOND, MICK, WADE,\n"
 	.string "ANDREW, and MURRAY are outliers\l"
-	.string "and shouldn't have been counted!$"
+	.string "and shouldn't have been counted.$"
 
 RockTunnel_B1F_Text_AllenIntro::
     .string "My POKéMON techniques will leave\n"

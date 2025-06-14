@@ -16,13 +16,8 @@
   "connections": [
     {
       "map": "MAP_ROUTE19",
-      "offset": -12,
+      "offset": -48,
       "direction": "left"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": 8,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -30,7 +25,7 @@
       "local_id": "LOCALID_MEMORIAL_MAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 16,
+      "x": 13,
       "y": 21,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
@@ -44,7 +39,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 19,
+      "x": 16,
       "y": -17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
@@ -58,7 +53,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 12,
+      "x": 9,
       "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -70,16 +65,12 @@
       "flag": "FLAG_HIDE_FIVE_ISLAND_MEMORIAL_PILLAR_METAL_COAT"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
-      "x": 17,
+      "x": 14,
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -87,7 +78,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 15,
+      "x": 12,
       "y": 29,
       "elevation": 3,
       "item": "ITEM_BIG_PEARL",
@@ -97,7 +88,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 22,
+      "x": 19,
       "y": -16,
       "elevation": 3,
       "item": "ITEM_RAZZ_BERRY",

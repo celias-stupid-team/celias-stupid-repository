@@ -302,7 +302,11 @@ static void DoTrainerBattle(void)
 
 void StartOldManTutorialBattle(void)
 {
-    FlagSet(FLAG_SHINY_CREATION); //Doesn't actually help
+    if(!FlagGet(FLAG_TEMP_3)) {
+        FlagSet(FLAG_SHINY_CREATION); //Doesn't actually help
+    } else {
+        FlagClear(FLAG_SHINY_CREATION);
+    }
     CreateScriptedWildMon(SPECIES_WEEDLE, 5, ITEM_NONE);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;

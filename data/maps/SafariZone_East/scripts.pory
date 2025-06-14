@@ -39,3 +39,26 @@ script SafariZone_MazeSign {
 	msgbox("Behold!\pThe SAFARI ZONE's incredible\n600-Step Maze!", MSGBOX_SIGN)
 	end
 }
+
+script SafariZone_WaterGunTM {
+	lock
+	if(!flag(FLAG_NO_TM_CASE)) {
+		setflag(FLAG_SHINY_CREATION) // GUN
+		playfanfare(MUS_LEVEL_UP)
+		removeobject(VAR_LAST_TALKED)
+		msgbox("{PLAYER} found the TM11!\nIt contained WATER GUN!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(20)
+		msgbox("…Wait, no!\nThis is just a regular GUN!", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} found a fucking GUN!\n", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+		call(Common_Script_GiftPokemon)
+
+	} else {
+		msgbox("{PLAYER} found a TM11!\nIt contains WATER GUN.", MSGBOX_DEFAULT)
+		msgbox("Too bad!\nThere's no TM CASE…", MSGBOX_DEFAULT)
+		release
+	}
+}

@@ -326,7 +326,7 @@ script CeladonGym_GenderFluidSale {
 	//something something 
 	setflag(FLAG_SHINY_CREATION)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_NIDORAN_F)
-	call(Common_Script_ObtainedPokemon)
+	call(Common_Script_GiftPokemon)
 	removeobject(VAR_LAST_TALKED)
 	release
 	end

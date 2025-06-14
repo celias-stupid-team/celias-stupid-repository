@@ -6,6 +6,8 @@ mapscripts KantoLighthouse_2F_MapScripts {
             setflag(FLAG_TEMP_1)
         }
     }
+    MAP_SCRIPT_ON_LOAD {
+    }
 }
 
 script KantoLighthouse_2F_DeadMan {

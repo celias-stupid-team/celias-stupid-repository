@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FIVE_ISLAND_WATER_LABYRINTH",
-      "offset": -48,
-      "direction": "up"
-    },
-    {
       "map": "MAP_FIVE_ISLAND_MEADOW",
       "offset": 0,
       "direction": "right"
@@ -93,9 +88,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

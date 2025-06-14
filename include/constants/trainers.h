@@ -175,6 +175,21 @@
 #define TRAINER_PIC_IMPOSTER_TWINS               154
 #define TRAINER_PIC_COP               155
 
+#define TRAINER_PIC_BRANDON   156
+#define TRAINER_PIC_SPENSER   157
+#define TRAINER_PIC_GRETA   158
+#define TRAINER_PIC_TUCKER   159
+#define TRAINER_PIC_LUCY   160
+#define TRAINER_PIC_ANABEL   161
+#define TRAINER_PIC_NOLAND   162
+#define TRAINER_PIC_CAITLYN   163
+#define TRAINER_PIC_DARACH   164
+#define TRAINER_PIC_JANINE   165
+#define TRAINER_PIC_ARCHER   166
+#define TRAINER_PIC_DAD   167
+#define TRAINER_PIC_SKIRT   168
+#define TRAINER_PIC_BUGSY   169
+// TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0
@@ -307,6 +322,7 @@
 #define TRAINER_CLASS_MASTER             115
 #define TRAINER_CLASS_RAPPER             116
 #define TRAINER_CLASS_COP             117
+#define TRAINER_CLASS_SKIRT             118
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

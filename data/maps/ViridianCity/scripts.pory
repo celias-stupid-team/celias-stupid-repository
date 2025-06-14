@@ -368,6 +368,7 @@ ViridianCity_EventScript_DoTutorialBattle::
 `
 
 
+
 const GAMBLER = 10
 const CELIA = 18
 script ViridianCity_EventScript_Gambler {
@@ -711,6 +712,13 @@ script ViridianCity_OnLoad {
 }
 
 script ViridianCity_SetShinyWeedle {
-	setflag(FLAG_SHINY_CREATION) //Weedle
+	if(var(VAR_TEMP_2) < 5 && var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 1 && !flag(FLAG_TEMP_3)) {
+		addvar(VAR_TEMP_2, 1)
+	} else {
+		setflag(FLAG_SHINY_CREATION) //Weedle
+		setflag(FLAG_TEMP_3)
+		setwildbattle(SPECIES_WEEDLE, 6)
+		dowildbattle
+	}
 	release
 }

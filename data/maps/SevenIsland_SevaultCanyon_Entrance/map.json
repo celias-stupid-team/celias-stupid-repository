@@ -119,12 +119,8 @@
       "target_map": "MAP_SEVEN_ISLAND"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

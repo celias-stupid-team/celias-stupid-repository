@@ -2,3 +2,26 @@ raw `
 Route19_UnusedHouse_MapScripts::
 	.byte 0
 `
+script Route19_Furrets {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("FURRET is surfing!\n", MSGBOX_DEFAULT)
+	release
+}
+
+script Route19_Furret_F {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("FURRET is surfing!\n", MSGBOX_DEFAULT)
+	release
+}

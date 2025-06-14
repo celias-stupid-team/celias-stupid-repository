@@ -20,7 +20,16 @@ mapscripts Route14_MapScripts {
         } else {
             setflag(FLAG_TEMP_5)
         }
+        if(!flag(FLAG_APPROACHING_ROUTE_14_FROM_ABOVE)) {
+            setflag(FLAG_TEMP_4)
+        }
     }
+}
+
+script Route14_Not_Approaching_From_Behind_Ledge {
+	clearflag(FLAG_APPROACHING_ROUTE_14_FROM_ABOVE)
+	setvar(VAR_TEMP_2, 1)
+    setflag(FLAG_TEMP_4)
 }
 
 script Route14_ThankYouSign {
@@ -481,7 +490,7 @@ script Route15_PokeRap_Trainer29 {
         setflag(FLAG_GOT_SHINY_PINSIR)
         msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
         waitfanfare
-		call(Common_Script_ObtainedPokemon)
+		call(Common_Script_GiftPokemon)
         msgbox("My bad!\n", MSGBOX_DEFAULT)
         release
     } else {

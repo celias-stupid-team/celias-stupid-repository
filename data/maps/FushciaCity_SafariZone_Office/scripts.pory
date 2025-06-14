@@ -29,7 +29,7 @@ script FushciaCity_SlowpokeGuy {
 		playfanfare(MUS_LEVEL_UP)
 		msgbox("{PLAYER} received a SLOWPOKE!\n", MSGBOX_DEFAULT)
 		waitfanfare
-		call(Common_Script_ObtainedPokemon)
+		call(Common_Script_GiftPokemon)
 		setflag(FLAG_CSR_GOT_SLOWPOKE)
 		msgbox("Trust me - You'll thank me later!\n", MSGBOX_DEFAULT)
 	}

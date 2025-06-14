@@ -133,7 +133,7 @@ script WardensHouse_TalkToWarden {
 				playfanfare(MUS_LEVEL_UP)
 				textcolor(NPC_TEXT_COLOR_MON)
 				msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
-				call(Common_Script_ObtainedPokemon)
+				call(Common_Script_GiftPokemon)
 				textcolor(NPC_TEXT_COLOR_BLUE)
 				setflag(FLAG_CSR_GOT_GUN)
 				msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
@@ -154,7 +154,7 @@ script WardensHouse_TalkToWarden {
 					playfanfare(MUS_LEVEL_UP)
 					textcolor(NPC_TEXT_COLOR_MON)
 					msgbox("{PLAYER} received the GUN from the\nSAFARI ZONE WARDEN!", MSGBOX_DEFAULT)
-					call(Common_Script_ObtainedPokemon)
+					call(Common_Script_GiftPokemon)
 					textcolor(NPC_TEXT_COLOR_BLUE)
 					setflag(FLAG_CSR_GOT_GUN)
 					msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
@@ -205,7 +205,7 @@ script WardensHouse_Warden {
 				setflag(FLAG_WARDENS_TEETH)
 				removeitem(ITEM_GOLD_TEETH)
 				setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
-				call(Common_Script_ObtainedPokemon)
+				call(Common_Script_GiftPokemon)
 			} else {
 				msgbox("die\n", MSGBOX_DEFAULT)
 			}

@@ -251,3 +251,6 @@ const u32 gMetatileAttributes_chapter3[] = INCBIN_U32("data/tilesets/primary/cha
 
 const u16 gMetatiles_FestivalPlaza[] = INCBIN_U16("data/tilesets/secondary/festival_plaza/metatiles.bin");
 const u32 gMetatileAttributes_FestivalPlaza[] = INCBIN_U32("data/tilesets/secondary/festival_plaza/metatile_attributes.bin");
+
+const u16 gMetatiles_SurfHouse[] = INCBIN_U16("data/tilesets/secondary/surf_house/metatiles.bin");
+const u32 gMetatileAttributes_SurfHouse[] = INCBIN_U32("data/tilesets/secondary/surf_house/metatile_attributes.bin");

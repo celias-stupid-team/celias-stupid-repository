@@ -117,4 +117,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_MASTER]             = _("CLUB MASTER"),
     [TRAINER_CLASS_RAPPER]             = _("RAPPER"),
     [TRAINER_CLASS_COP]             = _("COP"),
+    [TRAINER_CLASS_SKIRT]             = _("SKIRT"),
 };

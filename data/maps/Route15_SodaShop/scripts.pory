@@ -3,8 +3,53 @@ mapscripts Route15_SodaShop_MapScripts {
         setflag(FLAG_TEMP_2)
         setbench(BENCH_SODA_SHOP)
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 0 {
+            getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+            if(var(VAR_TEMP_2) == 10) {
+                delay(20)
+                applymovement(BUGSY, Common_Movement_FaceDown)
+                waitmovement(0)
+                applymovement(BUGSY, Common_Movement_ExclamationMark)
+                playse(SE_PIN)
+                delay(60)
+                textcolor(NPC_TEXT_COLOR_MALE)
+                msgbox("BUGSY: Hey!\nGet off me!", MSGBOX_DEFAULT)
+                closemessage
+                delay(20)
+                applymovement(OBJ_EVENT_ID_PLAYER, SodaShop_JumpOffBugsy)
+                playse(SE_LEDGE)
+                waitmovement(0)
+                delay(20)
+                if(!checktrainerflag(TRAINER_SODASHOP_SAILOR)) {
+                    msgbox("BUGSY: Phew…\nWhere'd you come from, anyway?\lYou just flew in from the ceiling!\p… … … …\n… … … …The heck?\pYou saw some benches and you\nwanted to… {PAUSE 20}RETREAT to one?\lWhat does that even mean?\pMaybe I still have a long way\nto go in my BUG-POKéMON studies.\pHere. If I give you this, will you\nleave me be?", MSGBOX_DEFAULT)
+                    closemessage
+                    settrainerflag(TRAINER_SODASHOP_SAILOR)
+                    setflag(FLAG_SHINY_CREATION) //Scyther
+                    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+                    playfanfare(MUS_LEVEL_UP)
+                    msgbox("{PLAYER} obtained the SCYTHER from\nthe disgruntled boy(?)!", MSGBOX_DEFAULT)
+                    waitfanfare
+                    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SCYTHER)
+                    call(Common_Script_GiftPokemon)
+
+                } else {
+                    msgbox("BUGSY: Yeah, exactly!\nThat's what happened to me!\pDo you have any clue what's\nup with that?", MSGBOX_DEFAULT)
+                }
+
+            }
+            release
+            setvar(VAR_TEMP_1, 1)
+        }
+    ]
 }
 
+movement SodaShop_JumpOffBugsy {
+    face_up
+    lock_facing_direction
+    jump_down
+    unlock_facing_direction
+}
 
 const MALE_OWNER = 1
 const FEMALE_OWNER = 5
@@ -79,15 +124,31 @@ movement SodaShopSpins {
 }
 
 script SodaShop_SwimTrunks {
-    trainerbattle_single(TRAINER_SODASHOP_SHORTS, "PLACEHOLDER", "PLACEHOLDER")
-    msgbox("Placeholder!\n", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_SODASHOP_SHORTS, "A mere half year ago, I\nwas SHORTS!\lQuite a transformation, no?", "Ah!\nYou got me!")
+    lock
+    faceplayer
+    msgbox("I love that I'm SKIRT now!\nLook what I can do!", MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    playse(SE_M_REVERSAL)
+    applymovement(VAR_LAST_TALKED, SodaShopSpins)
+    waitmovement(0)
+    applymovement(VAR_LAST_TALKED, SodaShopSpins)
+    waitmovement(0)
+    playse(SE_EXP_MAX)
+    faceplayer
+    delay(30)
+    msgbox("SKIRT go spinny!\n", MSGBOX_DEFAULT)
+    release
 }
 
 script SodaShop_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
-    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "{COLOR BLUE}Er, hey!\nI'm the LEADER of AZALEA GYM!\pUh…\nWhere am I?\n", "Rats!")
+    msgbox("{COLOR BLUE}My prize SCYTHER just learned a\nnew MOVE, so I gave it a try.\pApparently it wound up, uh…\nteleporting me to a bench?\lSo now I'm here.", MSGBOX_NPC)
 
 }
+
+
 
 script SodaShop_RichKid {
     trainerbattle_single(TRAINER_SODASHOP_RICHKID, "Sure, I'll accept your challenge.\nI have a lot of money.", "It's…\nIt's just not the same.\n")
@@ -101,5 +162,20 @@ script SodaShop_VendingMachine {
 
 script SodaShop_WeirdMachine {
 	msgbox("Is that a…\nCoffee machine?\lA french press, maybe?\pI have no clue.\n", MSGBOX_SIGN)
+	end
+}
+
+script CeliaSecret_SodaShop {
+	msgbox("At first Celadon Gym was gonna be\nthe only trans jokes in the hack.\pHowever, that made so many people\nangry that I decided to go harder.\lSuck my ass, fuckheads!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_Bugsy {
+	msgbox("Did you know in GSC, Bugsy is\ninexplicably coded to be female?", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_RichKid {
+	msgbox("This guy's here cuz in Emerald,\nthey swap the places of him and\lthe rich lady to the north.\pNo clue why, but it's trans enough\nfor me!", MSGBOX_NPC)
 	end
 }

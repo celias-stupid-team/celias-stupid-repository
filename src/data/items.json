@@ -65,7 +65,7 @@
       "secondaryId": 2
     },
     {
-      "english": "POK\u00e9 BALL",
+      "english": "POKé BALL",
       "itemId": "ITEM_POKE_BALL",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -1126,7 +1126,7 @@
       "price": 9800,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A nutritious drink for POKéMON.\\nIt raises the base SP. DEF stat\\nof one POKéMON.",
+      "description_english": "The next best thing after\\nMAGNESIUM.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -1281,7 +1281,7 @@
       "secondaryId": 0
     },
     {
-      "english": "POK\u00e9 DOLL",
+      "english": "POKé DOLL",
       "itemId": "ITEM_POKE_DOLL",
       "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6249,7 +6249,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
-    },    
+    },
     {
       "english": "MYSTIC SEAL",
       "itemId": "ITEM_MYSTIC_SEAL",
@@ -6265,7 +6265,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
-    },    
+    },
     {
       "english": "INSTINCT SEAL",
       "itemId": "ITEM_INSTINCT_SEAL",
@@ -6281,7 +6281,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
-    },    
+    },
     {
       "english": "VALOR SEAL",
       "itemId": "ITEM_VALOR_SEAL",
@@ -6608,7 +6608,8 @@
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Damn that sign wasn't kidding\\nthere sure was nothing up here",      "importance": 0,
+      "description_english": "Damn that sign wasn't kidding\\nthere sure was nothing up here",
+      "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
@@ -6650,7 +6651,7 @@
       "secondaryId": 0
     },
     {
-      "english": "POK\u00e9 DOLL",
+      "english": "POKé DOLL",
       "itemId": "ITEM_BANETTE_DOLL",
       "price": 9999,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6666,17 +6667,33 @@
       "secondaryId": 0
     },
     {
-      "english": "BREAD",
-      "itemId": "ITEM_BREAD",
-      "price": 9999,
+      "english": "AIR BALLOON",
+      "itemId": "ITEM_AIR_BALLOON",
+      "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A freshly-baked loaf of BREAD.\\nIt has a fluffy interior, but the\\noutside could use SESAME SEEDS.",
+      "description_english": "DUMMY DESCRIPTION",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "BIKE",
+      "itemId": "ITEM_SHINY_BIKE",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A fancier BIKE, for a more refined\\ncustomer.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_Bike",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

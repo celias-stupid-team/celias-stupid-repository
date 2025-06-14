@@ -3384,7 +3384,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_SWALLOW,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_BIRD,
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,

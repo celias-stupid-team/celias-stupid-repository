@@ -195,13 +195,13 @@ script Route15_Sandcastle {
 						closemessage
 						playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 						waitmoncry
-						msgbox("Oh?\nThe CASTLE spit something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
+						msgbox("Oh?\nThe CASTLE spat something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
 						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CUBONE)
-						setflag(FLAG_SHINY_CREATION)
+						setflag(FLAG_SHINY_CREATION) //Cubone
 						playfanfare(MUS_LEVEL_UP)
 						msgbox("{PLAYER} obtained the\nCUBONE!", MSGBOX_DEFAULT)
 						waitfanfare
-						call(Common_Script_ObtainedPokemon)
+						call(Common_Script_GiftPokemon)
 						setflag(FLAG_CUBONE_SANDWICH)
 						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
 					
@@ -273,7 +273,7 @@ script Route15_FindShellder_Left {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
 	waitfanfare
-	call(Common_Script_ObtainedPokemon)
+	call(Common_Script_GiftPokemon)
 	release
 }
 
@@ -285,7 +285,7 @@ script Route15_FindShellder_Right {
 	playfanfare(MUS_LEVEL_UP)
 	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
 	waitfanfare
-	call(Common_Script_ObtainedPokemon)
+	call(Common_Script_GiftPokemon)
 	release
 }
 

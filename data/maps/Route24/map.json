@@ -239,9 +239,7 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "trigger",

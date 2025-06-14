@@ -3,6 +3,7 @@
 mapscripts LavenderTown_DanceTheater_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_TEMP_5, 8) // Sign Lady's X
+        setflag(FLAG_TEMP_5)
     }
 }
 
@@ -50,8 +51,7 @@ script DanceTheater_ShortKid {
     if(!flag(FLAG_DANCE_THEATER_WATCHED_SHOW)) {
         if(var(VAR_TEMP_5) == 8) {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
-                msgbox("hey move her again message\n", MSGBOX_DEFAULT)
-                clearflag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)
+                msgbox("Hey!\nWhy'd you put her back?\lNow I can't see!", MSGBOX_DEFAULT)
                 release
                 end
             } else {
@@ -88,15 +88,35 @@ script DanceTheater_ShortKid {
 
         } else {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
-                msgbox("fuck you message\n", MSGBOX_DEFAULT)
+                msgbox("…\pYou moved the girl out of the\nway\land then you-\p…{PAUSE 20}C'mon, man…\n", MSGBOX_DEFAULT)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                removeobject(VAR_LAST_TALKED)
+                setflag(FLAG_SHORT_KID_RAN_OFF)
+                clearflag(FLAG_TEMP_5)
+                addobject(SHORT_KID_BALL)
+                delay(30)
+                fadescreen(FADE_FROM_BLACK)
+
             }   else {
-                msgbox("disappointed\n", MSGBOX_DEFAULT)
+                msgbox("Aww…\pI really wanted to watch the show,\nbut I couldn't see anything!\pGuess I'll need to come back\nnext year.", MSGBOX_DEFAULT)
             }
         } 
         release
         end
     }
     
+}
+
+script DanceTheater_ShortKidBall {
+    lock
+    msgbox("The short kid left this here.\n", MSGBOX_DEFAULT)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_SHINY_CREATION) //Ekans
+    playfanfare(MUS_LEVEL_UP)
+    msgbox("{PLAYER} stole a small child's\nEKANS!", MSGBOX_DEFAULT)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EKANS)
+    call(Common_Script_GiftPokemon)
 }
 
 script DanceTheater_DietDance {
@@ -1048,8 +1068,16 @@ script DanceTheater_PlayerDance {
     applymovement(LOCALID_PLAYER, PlayerDanceEnd)
     fadedefaultbgm
     waitmovement(0)
+    applymovement(GUY, GuyAscends)
+    waitmovement(0)
+    removeobject(GUY)
     release
     end
+}
+
+movement GuyAscends {
+    lock_facing_direction
+    walk_fast_up * 4
 }
 
 movement PlayerDanceStart {
@@ -1112,17 +1140,83 @@ movement PlayerDance {
     delay_16 * 2
     walk_slow_left
     face_right
-    delay_16 * 2
+    delay_16 * 3
     unlock_facing_direction
     face_down
     lock_facing_direction
     walk_slow_left * 2
     walk_slow_up
-    walk_slow_right * 3
+    walk_slow_right * 4
     walk_slow_down
-    walk_slow_left
-
-    
+    walk_slow_left * 2
+    unlock_facing_direction
+    walk_slow_up * 2
+    lock_facing_direction
+    walk_slow_down * 2
+    unlock_facing_direction
+    delay_16
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    face_up
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down
+    delay_2
+    face_left
+    delay_2
+    face_up
+    delay_2
+    face_right
+    delay_2
+    face_down      
+    delay_2 
 
 }
 

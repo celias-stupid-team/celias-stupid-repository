@@ -30,8 +30,8 @@
       "direction": "up"
     },
     {
-      "map": "MAP_GREAT_SEA_CENTER",
-      "offset": 0,
+      "map": "MAP_TWO_ISLAND",
+      "offset": 12,
       "direction": "left"
     }
   ],
@@ -145,9 +145,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

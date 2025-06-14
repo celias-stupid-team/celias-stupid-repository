@@ -595,3 +595,8 @@ script PalletTown_ImposterOak {
 	release
 	end
 }
+
+script PalletTown_TV_Outside {
+	msgbox("Ohohoho!\nOut-side!", MSGBOX_SIGN)
+	end
+}

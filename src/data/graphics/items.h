@@ -798,3 +798,9 @@ const u32 gItemIcon_Sandwich[] = INCBIN_U32("graphics/items/icons/sandwich.4bpp.
 const u32 gItemIconPalette_Sandwich[] = INCBIN_U32("graphics/items/icon_palettes/sandwich.gbapal.lz");
 const u32 gItemIcon_JellyDonut[] = INCBIN_U32("graphics/items/icons/jelly_donut.4bpp.lz");
 const u32 gItemIconPalette_JellyDonut[] = INCBIN_U32("graphics/items/icon_palettes/jelly_donut.gbapal.lz");
+
+const u32 gItemIcon_AirBalloon[] = INCBIN_U32("graphics/items/icons/air_balloon.4bpp.lz");
+const u32 gItemIconPalette_AirBalloon[] = INCBIN_U32("graphics/items/icon_palettes/air_balloon.gbapal.lz");
+
+const u32 gItemIcon_ShinyBike[] = INCBIN_U32("graphics/items/icons/shiny_bike.4bpp.lz");
+const u32 gItemIconPalette_ShinyBike[] = INCBIN_U32("graphics/items/icon_palettes/shiny_bike.gbapal.lz");

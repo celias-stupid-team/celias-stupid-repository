@@ -65,3 +65,20 @@ script SafariZone_SecretHouse_EventScript_Prize {
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)
 		msgbox(SafariZone_SecretHouse_Text_ExplainSurf)
 }
+
+
+script FushciaCity_MakeASandwich {
+	if(flag(FLAG_SANDWICH_GOT_BREAD) && flag(FLAG_SANDWICH_GOT_MEAT) && flag(FLAG_SANDWICH_GOT_CHEESE) && flag(FLAG_SANDWICH_GOT_LETTUCE) && flag(FLAG_SANDWICH_GOT_PICKLES) && flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+		closemessage
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} successfully collected\nall the ingredients!", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox("Now we just need to put them\ntogether.\pBREAD…\nMEAT…\lCHEESE… LETTUCE… uh…\pOh!\nCan't forget the PICKLES!\pAnd topped off with a sprinkle\nof SESAME SEED!\lAll done!", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} assembled the SANDWICH!\n", ITEM_SANDWICH)
+		waitfanfare
+
+	}
+	return
+}

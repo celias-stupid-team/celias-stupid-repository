@@ -13,33 +13,9 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE17",
-      "offset": -1,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE21_NORTH",
-      "offset": 59,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_GREAT_SEA_CENTER",
-      "offset": 0,
-      "direction": "down"
-    }
-  ],
-  "object_events": [
-
-  ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }

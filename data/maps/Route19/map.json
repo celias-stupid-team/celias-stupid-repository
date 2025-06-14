@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 12,
+      "offset": 48,
       "direction": "right"
     },
     {
@@ -175,6 +175,20 @@
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route19_EventScript_Luc",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 21,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route19_Sailor",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -182,21 +196,39 @@
       "x": 6,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_CITY_HOUSE1",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_ROUTE19_UNUSED_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
-      "x": 3,
-      "y": 7,
+      "x": 9,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route19_EventScript_RouteSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_ROUTE19_DOLL_1",
+      "quantity": 1,
+      "underfoot": false
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 10,
+      "elevation": 0,
+      "item": "ITEM_POKE_DOLL",
+      "flag": "FLAG_ROUTE19_DOLL_2",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

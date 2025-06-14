@@ -172,7 +172,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ThreeIsland_EventScript_ItemZinc",
-      "flag": "FLAG_HIDE_THREE_ISLAND_ZINC"
+      "flag": "FLAG_FOUND_ZINC"
     },
     {
       "type": "object",
@@ -283,9 +283,7 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -337,7 +337,7 @@
 #define FLAG_PALLET_IMPOSTER_OAK               0x123
 #define FLAG_WAS_THREATENED_BY_WARDEN               0x124
 #define FLAG_ARCHER_CUTSCENE_SECOND               0x125
-#define FLAG_0x126               0x126
+#define FLAG_SHORT_KID_RAN_OFF               0x126
 #define FLAG_SANDWICH_GOT_BREAD               0x127
 #define FLAG_SANDWICH_GOT_MEAT               0x128
 #define FLAG_SANDWICH_GOT_CHEESE               0x129
@@ -349,7 +349,7 @@
 #define FLAG_NERD_TOOK_KABUTOPS               0x12F
 #define FLAG_HIDE_BUFF_OAK               0x130
 #define FLAG_WALKED_THROUGH_GRASS               0x131
-#define FLAG_0x132               0x132
+#define FLAG_ROUTE13_SIGN_BACK_HOME               0x132
 #define FLAG_0x133               0x133
 #define FLAG_0x134               0x134
 #define FLAG_0x135               0x135
@@ -491,7 +491,7 @@
 #define FLAG_HIDE_CERULEAN_CAVE_B1F_ULTRA_BALL                  0x1B8
 #define FLAG_HIDE_FUSHCIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
-#define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
+#define FLAG_FOUND_ZINC                             0x1BB
 #define FLAG_HIDE_CELADON_TAUNT                                              0x1BC
 #define FLAG_HIDE_WRAP_TM                                              0x1BD
 #define FLAG_HIDE_VIRIDIAN_FOREST_POTION_2                      0x1BE
@@ -579,8 +579,8 @@
 #define FLAG_CSR_GOT_BULLDOZE               0x20D
 #define FLAG_CSR_GOT_STEAMROLLER               0x20E
 #define FLAG_CSR_POKEMON_TOWER_MUSIC               0x20F
-#define FLAG_0x210               0x210
-#define FLAG_0x211               0x211
+#define FLAG_WATER_GUN_TM               0x210
+#define FLAG_SAFARI_ZONE_WATER_STONE               0x211
 #define FLAG_0x212               0x212
 #define FLAG_0x213               0x213
 #define FLAG_0x214               0x214
@@ -628,11 +628,11 @@
 #define FLAG_GOT_HM05                                    0x23B
 #define FLAG_RESCUED_CUBONES_MOM                             0x23C
 #define FLAG_GOT_POKE_FLUTE                              0x23D
-#define FLAG_0x23E                                       0x23E
+#define FLAG_APPROACHING_ROUTE_14_FROM_ABOVE                                       0x23E
 #define FLAG_GOT_TM28_FROM_ROCKET                        0x23F
 #define FLAG_GOT_OLD_ROD                                 0x240
 #define FLAG_GOT_BIKE_VOUCHER                            0x241
-#define FLAG_0x242                                       0x242
+#define FLAG_SECRET_BIKE_SHOP                                       0x242
 #define FLAG_GOT_COIN_CASE                               0x243
 #define FLAG_GOT_GOOD_ROD                                0x244
 #define FLAG_GOT_TM29_FROM_MR_PSYCHIC                    0x245
@@ -1098,8 +1098,8 @@
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_8                                       (FLAG_HIDDEN_ITEMS_START +  16)
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_3                                (FLAG_HIDDEN_ITEMS_START +  17)
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_9                              (FLAG_HIDDEN_ITEMS_START +  18)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_12                                     (FLAG_HIDDEN_ITEMS_START +  19)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_13                                (FLAG_HIDDEN_ITEMS_START +  20)
+#define FLAG_ROUTE19_DOLL_1                                     (FLAG_HIDDEN_ITEMS_START +  19)
+#define FLAG_ROUTE19_DOLL_2                                (FLAG_HIDDEN_ITEMS_START +  20)
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_15                     (FLAG_HIDDEN_ITEMS_START +  22)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_16                           (FLAG_HIDDEN_ITEMS_START +  23)
@@ -1142,7 +1142,7 @@
 #define FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_10                 (FLAG_HIDDEN_ITEMS_START +  60)
 #define FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_11                 (FLAG_HIDDEN_ITEMS_START +  61)
 #define FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_12                 (FLAG_HIDDEN_ITEMS_START +  62)
-#define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_SEVAULT_CANYON_CHERI_BERRY           (FLAG_HIDDEN_ITEMS_START +  63)
+#define FLAG_HIDDEN_ITEM_NOTHING           (FLAG_HIDDEN_ITEMS_START +  63)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_4           (FLAG_HIDDEN_ITEMS_START +  64)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE             (FLAG_HIDDEN_ITEMS_START +  65)
 #define FLAG_HIDDEN_ITEM_SEVEN_ISLAND_TANOBY_RUINS_HEART_SCALE_2           (FLAG_HIDDEN_ITEMS_START +  66)

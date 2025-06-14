@@ -1533,6 +1533,17 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
+
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN || objectEvent->graphicsId == OBJ_EVENT_GFX_BUGSY_FAKE)
+    //if (objectEvent->graphicsId == OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN)
+    {
+        sprite->oam.priority = 2;
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0xFF;
+        objectEvent->currentElevation = 3;
+        objectEvent->previousElevation = 3;
+    }
+
     return objectEventId;
 }
 

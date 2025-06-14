@@ -4696,7 +4696,7 @@
     {
       "id": "LAYOUT_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "name": "GreatBay_SkyPillarOutside_Layout",
-      "width": 30,
+      "width": 38,
       "height": 30,
       "border_width": 2,
       "border_height": 2,
@@ -5208,6 +5208,18 @@
       "secondary_tileset": "gTileset_FestivalPlaza",
       "border_filepath": "data/layouts/FestivalPlaza/border.bin",
       "blockdata_filepath": "data/layouts/FestivalPlaza/map.bin"
+    },
+    {
+      "id": "LAYOUT_SURF_FURRET",
+      "name": "Surf_Furret",
+      "width": 11,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SurfHouse",
+      "border_filepath": "data/layouts/Surf_Furret/border.bin",
+      "blockdata_filepath": "data/layouts/Surf_Furret/map.bin"
     }
   ]
 }

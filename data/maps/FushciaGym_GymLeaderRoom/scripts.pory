@@ -27,15 +27,45 @@ script FushciaGym_GymLeaderRoom_Koga {
     applymovement(DAD, FushciaGymLeaderSpin)
     waitmovement(0)
     msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
     release
 }
 
 script FushciaGym_GymLeaderRoom_Dad {
+    if(flag(FLAG_DEFEATED_KOGA)) {
+        goto(FushciaGym_GymLeaderRoom_Dad_Heal)
+    }
     lock
     faceplayer
     msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
     release
 
+}
+
+script FushciaGym_GymLeaderRoom_Dad_Defeat {
+    playfanfare(MUS_OBTAIN_BADGE)
+    msgbox("{PLAYER} obtained the\nDAD BADGE!", MSGBOX_DEFAULT)
+    waitfanfare
+	setflag(FLAG_DEFEATED_KOGA)
+	setflag(FLAG_BADGE05_GET)
+
+    msgbox("DAD: The DAD BADGE will allow\nyou to use SURF outside of battle.\pNow you can explore the KANTO\nGREAT SEA!\l(…in the next demo. Sorry!)\pBut never mind that.\nHow about you take REST?", MSGBOX_DEFAULT)
+    giveitem_msg("Obtained the TM44!\n", ITEM_TM44, 1)
+    msgbox("DAD: There you are!\nGood luck on your adventure!", MSGBOX_DEFAULT)
+    
+    release
+    end
+}
+
+script FushciaGym_GymLeaderRoom_Dad_Heal {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pComing back to visit me after\nyour victory?\lThat's so sweet of you!\pBut never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }
 
 script FushciaGymLeaderSpin {

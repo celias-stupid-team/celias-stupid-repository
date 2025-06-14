@@ -439,8 +439,9 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_DRILL_DOZER]      =  {gItemIcon_DrillDozer, gItemIconPalette_DrillDozer},
     [ITEM_IRON_CURTAIN]      =  {gItemIcon_DrillDozer, gItemIconPalette_DrillDozer},
     [ITEM_BANETTE_DOLL]      =  {gItemIcon_BanetteDoll, gItemIconPalette_BanetteDoll},
-    [ITEM_BREAD]      =  {gItemIcon_BanetteDoll, gItemIconPalette_BanetteDoll},
 
     // Return to field arrow
+    [ITEM_AIR_BALLOON]      =  {gItemIcon_AirBalloon, gItemIconPalette_AirBalloon},
+    [ITEM_SHINY_BIKE]      =  {gItemIcon_ShinyBike, gItemIconPalette_ShinyBike},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

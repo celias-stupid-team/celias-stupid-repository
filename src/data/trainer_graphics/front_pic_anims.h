@@ -774,6 +774,76 @@ static const union AnimCmd *const sAnims_Cop[] =
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Brandon[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Spenser[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Greta[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Tucker[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Lucy[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Anabel[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Noland[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Caitlyn[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Darach[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Janine[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Archer[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Dad[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Skirt[] =
+{
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Bugsy[] =
+{
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_AQUA_LEADER_ARCHIE]    = sAnims_AquaLeaderArchie,
@@ -933,5 +1003,19 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_IMPOSTER]             = sAnims_Imposter,
     [TRAINER_PIC_RED_NORMAL]             = sAnims_RedNormal,
     [TRAINER_PIC_IMPOSTER_TWINS]             = sAnims_ImposterTwins,
-    [TRAINER_PIC_COP]             = sAnims_Cop
+    [TRAINER_PIC_COP]             = sAnims_Cop,
+    [TRAINER_PIC_BRANDON]             = sAnims_Brandon,
+    [TRAINER_PIC_SPENSER]             = sAnims_Spenser,
+    [TRAINER_PIC_GRETA]             = sAnims_Greta,
+    [TRAINER_PIC_TUCKER]             = sAnims_Tucker,
+    [TRAINER_PIC_LUCY]             = sAnims_Lucy,
+    [TRAINER_PIC_ANABEL]             = sAnims_Anabel,
+    [TRAINER_PIC_NOLAND]             = sAnims_Noland,
+    [TRAINER_PIC_CAITLYN]             = sAnims_Caitlyn,
+    [TRAINER_PIC_DARACH]             = sAnims_Darach,
+    [TRAINER_PIC_JANINE]             = sAnims_Janine,
+    [TRAINER_PIC_ARCHER]             = sAnims_Archer,
+    [TRAINER_PIC_DAD]             = sAnims_Dad,
+    [TRAINER_PIC_SKIRT]             = sAnims_Skirt,
+    [TRAINER_PIC_BUGSY]             = sAnims_Bugsy
 };
