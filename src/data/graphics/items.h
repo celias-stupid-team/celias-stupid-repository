@@ -801,3 +801,6 @@ const u32 gItemIconPalette_JellyDonut[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_AirBalloon[] = INCBIN_U32("graphics/items/icons/air_balloon.4bpp.lz");
 const u32 gItemIconPalette_AirBalloon[] = INCBIN_U32("graphics/items/icon_palettes/air_balloon.gbapal.lz");
+
+const u32 gItemIcon_ShinyBike[] = INCBIN_U32("graphics/items/icons/shiny_bike.4bpp.lz");
+const u32 gItemIconPalette_ShinyBike[] = INCBIN_U32("graphics/items/icon_palettes/shiny_bike.gbapal.lz");

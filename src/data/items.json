@@ -6667,23 +6667,7 @@
       "secondaryId": 0
     },
     {
-      "english": "BREAD",
-      "itemId": "ITEM_BREAD",
-      "price": 9999,
-      "holdEffect": "HOLD_EFFECT_NONE",
-      "holdEffectParam": 0,
-      "description_english": "A freshly-baked loaf of BREAD.\\nIt has a fluffy interior, but the\\noutside could use SESAME SEEDS.",
-      "importance": 0,
-      "registrability": 0,
-      "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
-      "battleUsage": 0,
-      "battleUseFunc": "NULL",
-      "secondaryId": 0
-    },
-    {
-      "english": "Air Balloon",
+      "english": "AIR BALLOON",
       "itemId": "ITEM_AIR_BALLOON",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6694,6 +6678,22 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "BIKE",
+      "itemId": "ITEM_SHINY_BIKE",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A fancier BIKE, for a more refined\\ncustomer.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_Bike",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

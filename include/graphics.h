@@ -12306,3 +12306,6 @@ extern const u32 gTrainerPalette_Bugsy[];
 
 extern const u32 gItemIcon_AirBalloon[];
 extern const u32 gItemIconPalette_AirBalloon[];
+
+extern const u32 gItemIcon_ShinyBike[];
+extern const u32 gItemIconPalette_ShinyBike[];

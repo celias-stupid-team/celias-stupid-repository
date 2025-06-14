@@ -21,13 +21,41 @@ script UndergroundPath_SproutTowerSign {
 	end
 }
 
+script UndergroundPath_Psyduck {
+	msgbox("I'm studying BRAIDS as PROF.\nOAK's POKéMON.", MSGBOX_NPC)
+	end
+}
+
 script UndergroundPath_BikeShop {
 	lock
 	faceplayer
+	if(flag(FLAG_SECRET_BIKE_SHOP)) {
+		msgbox("They say that variety is the\nspice of life, but I disagree.\pI pride myself in offering exactly\none thing with no other choices!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	//oh a customer
 	//Do bikes come in more than one color?
 	//Sorry, the answer is actually No.
-	//
+	msgbox("Oh! Oh!\nHello!\lWelcome to my BIKE shop!\pYou're my first customer since\nsetting up shop down here!\pI have a special promotion going on\nright now.\lEvery 1 customers gets a prize!\pAll you need to do is answer one\nquestion correctly. Ready?\pTrue or False: BIKES come in\nmore than one color?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox("Oh… {PAUSE 20}I'm sorry, but the answer\nwas actually No.\pToo bad!\n", MSGBOX_DEFAULT)
+		setflag(FLAG_SECRET_BIKE_SHOP)
+	} else {
+		msgbox("You're completely correct!\nNicely done!\pHere, take this!\n", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		setflag(FLAG_SECRET_BIKE_SHOP)
+		giveitem_msg("{PLAYER} obtained the\nslightly-dubious BIKE!", ITEM_SHINY_BIKE)
+		waitfanfare
+		closemessage
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("They say that variety is the\nspice of life, but I disagree.\pI pride myself in offering exactly\none thing with no other choices!", MSGBOX_DEFAULT)
+		release
+		end
+
+
+	}
+	
 	release
 	end
 }
@@ -41,6 +69,7 @@ mapscripts UndergroundPath_NorthSouthTunnel_MapScripts {
 		VAR_TEMP_1, AMPHAROS_EVOLUTION {
 			applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("Ah!\nU-um…\pIt's, uh…\nIt's not… ALL bad?\pYeah!\nActually, it's very lovely!\pThere's such a neat, uhh… f-fade!\nThere's a neat fade to it!\pYes, I'm sure you'll be very happy\nwith it.\pPlease, uh, don't come again!\n", MSGBOX_DEFAULT)
 			setvar(VAR_TEMP_1, 0)
 			release

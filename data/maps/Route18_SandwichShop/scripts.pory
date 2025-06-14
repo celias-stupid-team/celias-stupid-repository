@@ -48,7 +48,7 @@ script Route18_SandwichChef {
 
 
 mart SandwichShop_Mart {
-	ITEM_BREAD
+	ITEM_SANDWICH
 	ITEM_JELLY_DONUT
 }
 
