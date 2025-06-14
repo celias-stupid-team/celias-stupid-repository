@@ -23,7 +23,7 @@ Route18_EastEntrance_2F_EventScript_Haden::
 	call EventScript_GetInGameTradeSpecies
 	goto_if_ne VAR_RESULT, VAR_0x8009, Route18_EastEntrance_2F_EventScript_NotRequestedMon
 	call EventScript_DoInGameTrade
-	msgbox Trade_Text_HeyThanks
+	call Route18_Pickles
 	setflag FLAG_DID_MARC_TRADE
 	release
 	end
@@ -44,6 +44,16 @@ Route18_EastEntrance_2F_EventScript_AlreadyTraded::
 	release
 	end
 `
+
+script Route18_Pickles {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{PLAYER} looked a little closer…\n… … … {PAUSE 20}\l…Aha!\pHe was hiding the PICKLES under\nhis tongue the whole time!", MSGBOX_DEFAULT)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} obtained the PICKLES!\n", MSGBOX_DEFAULT)
+	closemessage
+	call(FushciaCity_MakeASandwich)
+	return
+}
 
 // Other binoculars look at Sky Pillar
 

@@ -36,6 +36,15 @@ script SafariZone_Rest_Scientist {
 }
 
 script SafariZone_WhiteSesameSeed {
-	msgbox("SARA: Oh? Hello.\nI am a white sesame seed.\lMy name is SARA.", MSGBOX_SIGN)
-	end
+	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+		msgbox("SARA: Now where could ERIK have\ngone…?", MSGBOX_SIGN)
+		end
+	}
+	if(flag(FLAG_TALKED_TO_SARA)) {
+		msgbox("SARA: ERIK and I are together, see.\nBut…{PAUSE 20} I'm not so sure anymore.\pHe always forgets about our plans.\nMaybe it's best if we split.", MSGBOX_SIGN)
+		end
+	} else {
+	setflag(FLAG_TALKED_TO_SARA)
+	msgbox("SARA: Oh, where could he be…?\n{PAUSE 20}Ah!\pHello, there. I didn't see you.\nMy name is SARA.\lI am a humble white sesame seed.\pSay, by chance have you run into a\nblack sesame seed?\pHis name is ERIK, and I had\nplanned to meet him here.\lBut…\pLooks like he forgot again.\nJust like last year…\pMaybe the two of us aren't meant\nfor each other after all...", MSGBOX_SIGN)
+	}
 }
