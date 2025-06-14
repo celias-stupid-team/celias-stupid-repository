@@ -48,7 +48,7 @@
     {
       "local_id": "LOCALID_CELIO",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CELIO",
+      "graphics_id": "OBJ_EVENT_GFX_BUGSY_FAKE",
       "x": 15,
       "y": 6,
       "elevation": 3,

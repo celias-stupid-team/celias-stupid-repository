@@ -32,7 +32,7 @@
     {
       "local_id": "BUGSY",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BUGSY",
+      "graphics_id": "OBJ_EVENT_GFX_BUGSY_FAKE",
       "x": 10,
       "y": 6,
       "elevation": 0,
