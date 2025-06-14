@@ -498,7 +498,8 @@
 #define ITEM_SHINY_BIKE 414
 #define ITEM_AWAKENING_DUNE 415
 #define ITEM_DMC 416
-#define ITEMS_COUNT 417
+#define ITEM_BREAD 417
+#define ITEMS_COUNT 418
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

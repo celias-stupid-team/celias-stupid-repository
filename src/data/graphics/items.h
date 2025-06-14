@@ -816,3 +816,6 @@ const u32 gItemIconPalette_AwakeningFireEmblem[] = INCBIN_U32("graphics/items/ic
 
 const u32 gItemIcon_SandwichCase[] = INCBIN_U32("graphics/items/icons/sandwich_case.4bpp.lz");
 const u32 gItemIconPalette_SandwichCase[] = INCBIN_U32("graphics/items/icon_palettes/sandwich_case.gbapal.lz");
+
+const u32 gItemIcon_Bread[] = INCBIN_U32("graphics/items/icons/bread.4bpp.lz");
+const u32 gItemIconPalette_Bread[] = INCBIN_U32("graphics/items/icon_palettes/bread.gbapal.lz");
