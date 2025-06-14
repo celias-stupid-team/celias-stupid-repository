@@ -296,7 +296,8 @@
 #define OBJ_EVENT_GFX_PSYDUCK_MAID 282
 #define OBJ_EVENT_GFX_BUGSY 283 //I made this one celio don't ask why
 #define OBJ_EVENT_GFX_SURFURRET 284
-#define NUM_OBJ_EVENT_GFX 285
+#define OBJ_EVENT_GFX_SESAME 285
+#define NUM_OBJ_EVENT_GFX 286
 
 
 

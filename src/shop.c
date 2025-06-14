@@ -992,6 +992,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_PlayerObtainedClefairy, BuyMenuSubtractMoney);
 
         }
+        
     if (AddBagItem(tItemId, tItemCount) == TRUE)
     {
         
@@ -1023,6 +1024,9 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
     }
     if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
     {
+        if(tItemId == ITEM_BREAD) {
+            VarSet(VAR_TEMP_1, 1);
+        }
         if (tItemId == ITEM_POKE_BALL && tItemCount >= 10) { //Makes fun of you if you try to buy premier balls
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
         } else 

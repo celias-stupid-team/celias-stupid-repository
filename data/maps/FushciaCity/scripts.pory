@@ -3,14 +3,7 @@ FushciaCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FushciaCity_OnTransition
 	.byte 0
 
-FushciaCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FUSHCIA_CITY
-	setworldmapflag FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F
-	call SetPlayerPokedexValues
-	clearflag FLAG_IN_FUSHCIA_GYM
-	call_if_set FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx
-	call_if_unset FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetKabutoGfx
-	end
+
 
 FushciaCity_EventScript_SetOmanyteGfx::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_OMANYTE
@@ -144,10 +137,50 @@ FushciaCity_EventScript_StakatakaSign::
 	end
 `
 
+script FushciaCity_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
+	setworldmapflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
+	call(SetPlayerPokedexValues)
+	clearflag(FLAG_IN_FUSHCIA_GYM)
+	call_if_set(FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx)
+	call_if_unset(FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetKabutoGfx)
+	if(flag(FLAG_SANDWICH_GOT_LETTUCE)) {
+		setflag(FLAG_FUSCHIA_CUT_TREE)
+	} else {
+		clearflag(FLAG_FUSCHIA_CUT_TREE)
+	}
+	if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
+		call(FushciaCity_DrawBrokenWall)
+	}
+	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+		call(FuschiaCity_RemoveErik)
+		special(DrawWholeMapView)
+	}
+}
+
 script FuschiaCity_BrickBreak {
 	call(Common_Script_BrickBreak)
 	//wall breaks
+	call(FushciaCity_DrawBrokenWall)
+	special(DrawWholeMapView)
+	setflag(FLAG_FUSCHIA_BROKE_WALL)
 	release
+}
+
+script FushciaCity_DrawBrokenWall {
+	setmetatile(46, 9, 0x0CD, FALSE)
+	setmetatile(47, 9, 0x0CE, FALSE)
+	setmetatile(48, 9, 0x0CE, FALSE)
+	setmetatile(49, 9, 0x0CE, FALSE)
+	setmetatile(50, 9, 0x0CF, FALSE)
+
+	
+	setmetatile(46, 9, 0x010, FALSE)
+	setmetatile(47, 9, 0x011, FALSE)
+	setmetatile(48, 9, 0x010, FALSE)
+	setmetatile(49, 9, 0x011, FALSE)
+	setmetatile(50, 9, 0x28F, TRUE)
+	return
 }
 
 script FushciaCity_Fishing {
@@ -264,8 +297,36 @@ script FushciaCity_MartEmployee {
 
 script FushciaCity_BlackSesameSeed {
 	lock
+	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+		msgbox("A small sesame seed-shaped\nimprint is all that remains.", MSGBOX_SIGN)
+		end
+	}
+	if(flag(FLAG_TALKED_TO_SARA)) {
+		msgbox("ERIK: Hello, there!\n{PAUSE 20}…Oh? What's that?\lSARA's waiting for me?\pOh no… I totally forgot.\nToday was our anniversary…\pI'm {PAUSE 30}an awful partner.\nShe deserves better than me…\pCould you take me to where she is?\nI need to make it up to her.", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("ERIK: Great, thank you!\n", MSGBOX_DEFAULT)
+			playfanfare(MUS_LEVEL_UP)
+			call(FuschiaCity_RemoveErik)
+			special(DrawWholeMapView)
+			msgbox("{PLAYER} used false pretenses to\nobtain the SESAME SEED!", MSGBOX_DEFAULT)
+			waitfanfare
+			setflag(FLAG_SANDWICH_GOT_SESAME_SEED)
+			call(FushciaCity_MakeASandwich)
+			release
+			end
+		} else {
+			msgbox("Ah, I understand.\nI need to take responsibility.\pThank you for telling me.\nI'll figure something out.", MSGBOX_DEFAULT)
+			release
+			end
+		}
+	}
 	msgbox("ERIK: Oh?\nHello, there.\pI am but a humble black sesame seed.\nMy name is ERIK.", MSGBOX_DEFAULT)
 	release
+}
+
+script FuschiaCity_RemoveErik {
+	setmetatile(48, 17, 0x0BE, FALSE)
+	return
 }
 
 script FushciaCity_SloganGuy {
@@ -368,7 +429,9 @@ script FushciaCity_OakTree {
 		msgbox("{PLAYER} obtained some LETTUCE!\n", MSGBOX_DEFAULT)
 		waitfanfare
 		msgbox("{PLAYER} put the LETTUCE in the\nSANDWICH CASE.", MSGBOX_DEFAULT)
+		setflag(FLAG_SANDWICH_GOT_LETTUCE)
 		setflag(FLAG_FUSCHIA_CUT_TREE)
+		call(FushciaCity_MakeASandwich)
 
 	}
 	releaseall

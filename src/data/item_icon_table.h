@@ -428,10 +428,10 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FIGHTING_ENERGY]      =  {gItemIcon_FightingEnergy, gItemIconPalette_FightingEnergy},
     [ITEM_EMPTY_PAIL]      =  {gItemIcon_WailmerPail, gItemIconPalette_WailmerPail},
     [ITEM_METRONOME]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
-    [ITEM_SANDWICH_CASE]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome},
+    [ITEM_SANDWICH_CASE]      =  {gItemIcon_SandwichCase, gItemIconPalette_SandwichCase},
     [ITEM_SANDWICH]      =  {gItemIcon_Sandwich, gItemIconPalette_Sandwich},
     [ITEM_JELLY_DONUT]      =  {gItemIcon_JellyDonut, gItemIconPalette_JellyDonut},
-    [ITEM_AWAKENING_FIRE_EMBLEM]      =  {gItemIcon_Metronome, gItemIconPalette_Metronome}, //Placeholders
+    [ITEM_AWAKENING_FIRE_EMBLEM]      =  {gItemIcon_AwakeningFireEmblem, gItemIconPalette_AwakeningFireEmblem},
     [ITEM_SECRETETHER]      =  {gItemIcon_SecretEther, gItemIconPalette_SecretEther},
     [ITEM_GENDER_FLUID]      =  {gItemIcon_GenderFluid, gItemIconPalette_GenderFluid},
     [ITEM_CANDY_DISPENSER]      =  {gItemIcon_CandyDispenser, gItemIconPalette_CandyDispenser},
@@ -443,5 +443,8 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     // Return to field arrow
     [ITEM_AIR_BALLOON]      =  {gItemIcon_AirBalloon, gItemIconPalette_AirBalloon},
     [ITEM_SHINY_BIKE]      =  {gItemIcon_ShinyBike, gItemIconPalette_ShinyBike},
+    [ITEM_AWAKENING_DUNE]      =  {gItemIcon_AwakeningDune, gItemIconPalette_AwakeningDune},
+    [ITEM_DMC]      =  {gItemIcon_Dmc, gItemIconPalette_Dmc},
+    [ITEM_BREAD]      =  {gItemIcon_Bread, gItemIconPalette_Bread},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
