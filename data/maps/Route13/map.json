@@ -1883,7 +1883,7 @@
       "y": 5,
       "elevation": 0,
       "item": "ITEM_NOTHING",
-      "flag": "FLAG_TEMP_7",
+      "flag": "FLAG_HIDDEN_ITEM_NOTHING",
       "quantity": 1,
       "underfoot": false
     },

@@ -385,3 +385,49 @@ movement DMCA_Lead_Returns {
 	walk_right * 5
 	walk_up * 2
 }
+
+script SafariZone_LaprasMeatSalesman {
+	lock
+	faceplayer
+	if(flag(FLAG_SANDWICH_GOT_MEAT)) {
+		msgbox("Those DMCA guys have been a real\nboon to my hustle here.\pThere used to be some kinda\n“Conservation effort” stopping me\lfrom doing my honest work.\pBah, to heck with that.\nI'm here to make a living!", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+		waitmovement(0)
+		release
+		end
+	}
+	showmoneybox(0, 0)
+	msgbox("Why hello there, young adventurer!\nHow're you doing this fine day?\pI'm but a humble salesman of the\nfreshest meats in KANTO.\lEthically sourced, of course!\pRight now, my exotic tastes go\nfor a mere ¥500!\lHow's about it, eh?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		if(checkmoney(500)) {
+			playse(SE_SHOP)
+			removemoney(500)
+			updatemoneybox
+			waitse
+			closemessage
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} purchased the (allegedly)\nethically-sourced MEAT!", MSGBOX_DEFAULT)
+			waitfanfare
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			setflag(FLAG_SANDWICH_GOT_MEAT)
+			delay(20)
+			removeobject(LAPRAS)
+			fadescreen(FADE_FROM_BLACK)
+			delay(20)
+			textcolor(NPC_TEXT_COLOR_MALE)
+			msgbox("Thanks for doing business!\n", MSGBOX_DEFAULT)
+
+		} else {
+			msgbox("Huh?\nYou don't even have ¥500?\pYeesh, kid.\nGo visit BILL.", MSGBOX_DEFAULT)
+		}
+		
+	}
+	hidemoneybox
+
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
