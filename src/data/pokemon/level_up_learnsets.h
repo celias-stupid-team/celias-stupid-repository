@@ -9090,7 +9090,7 @@ static const struct LevelUpMove sDigimonLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUnown_NudesLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
@@ -9877,22 +9877,22 @@ static const struct LevelUpMove sREVENANTLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUNOWNSLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNELevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNNLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNDLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 

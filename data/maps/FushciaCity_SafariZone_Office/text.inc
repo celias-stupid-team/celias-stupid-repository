@@ -21,7 +21,7 @@ FushciaCity_SafariZone_Office_Text_CouldntUnderstandWarden::
 	.string "Easy!\p"
 	.string "All you do is buy a bunch now and\n"
 	.string "hope that later, others believe\l"
-	.string "they're actually worth something!$"
+	.string "it's actually worth something!$"
 
 FushciaCity_SafariZone_Office_Text_PrizeInSafariZone::
     .string "WARDEN SLOWPOKE is running a\n"

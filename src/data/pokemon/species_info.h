@@ -29906,13 +29906,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
 },
 [SPECIES_IRON_CLEFT] =
 {
-    .baseHP = 80,
+    .baseHP = 2,
     .baseAttack = 80,
     .baseDefense = 80,
     .baseSpeed = 80,
     .baseSpAttack = 80,
-    .baseSpDefense = 80,
-    .types = {TYPE_STEEL, TYPE_STEEL},
+    .baseSpDefense = 2,
+    .types = {TYPE_STEEL, TYPE_DRAGON},
     .catchRate = 255,
     .expYield = 150,
     .evYield_HP = 1,

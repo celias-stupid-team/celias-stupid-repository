@@ -5220,6 +5220,18 @@
       "secondary_tileset": "gTileset_SurfHouse",
       "border_filepath": "data/layouts/Surf_Furret/border.bin",
       "blockdata_filepath": "data/layouts/Surf_Furret/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAFARI_ZONE_REST_HOUSE_LAYOUT_2",
+      "name": "SafariZone_RestHouse_Layout_2",
+      "width": 13,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SafariZoneBuilding",
+      "border_filepath": "data/layouts/SafariZone_RestHouse_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/SafariZone_RestHouse_Layout_2/map.bin"
     }
   ]
 }

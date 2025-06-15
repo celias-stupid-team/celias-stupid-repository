@@ -36,6 +36,7 @@ script Route13_SignItem {
 		finditem(ITEM_ZINC)
 	} else {
 		msgbox("There's nothing here… {PAUSE 20}yet.\n", MSGBOX_DEFAULT)
+			release
 	}
 }
 
@@ -165,7 +166,7 @@ script Route13_LassAttack {
 	applymovement(LASS, Route13_LastSteps)
 	applymovement(LOCALID_CAMERA, Route13_LastSteps)
 	waitmovement(0)
-	delay(30)
+	delay(40)
 	special(RemoveCameraObject)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	clearflag(FLAG_ROUTE13_HIDE_DAD)

@@ -160,9 +160,12 @@ script FushciaCity_OnTransition {
 script FuschiaCity_BrickBreak {
 	call(Common_Script_BrickBreak)
 	//wall breaks
-	call(FushciaCity_DrawBrokenWall)
-	special(DrawWholeMapView)
-	setflag(FLAG_FUSCHIA_BROKE_WALL)
+	if(var(VAR_RESULT) == 1) {
+		
+		call(FushciaCity_DrawBrokenWall)
+		special(DrawWholeMapView)
+		setflag(FLAG_FUSCHIA_BROKE_WALL)
+	}
 	release
 }
 
@@ -174,11 +177,11 @@ script FushciaCity_DrawBrokenWall {
 	setmetatile(50, 9, 0x0CF, FALSE)
 
 	
-	setmetatile(46, 9, 0x010, FALSE)
-	setmetatile(47, 9, 0x011, FALSE)
-	setmetatile(48, 9, 0x010, FALSE)
-	setmetatile(49, 9, 0x011, FALSE)
-	setmetatile(50, 9, 0x28F, TRUE)
+	setmetatile(46, 10, 0x010, FALSE)
+	setmetatile(47, 10, 0x011, FALSE)
+	setmetatile(48, 10, 0x010, FALSE)
+	setmetatile(49, 10, 0x011, FALSE)
+	setmetatile(50, 10, 0x28F, TRUE)
 	return
 }
 
@@ -200,6 +203,7 @@ script Common_Script_BrickBreak {
 			bufferpartymonnick(STR_VAR_1, VAR_RESULT)
 			setfieldeffectargument(0, VAR_RESULT)
 			dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+			setvar(VAR_RESULT, 1)
 			return
 			release
 			end

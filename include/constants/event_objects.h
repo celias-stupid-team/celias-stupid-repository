@@ -297,7 +297,8 @@
 #define OBJ_EVENT_GFX_BUGSY 283 //I made this one celio don't ask why
 #define OBJ_EVENT_GFX_SURFURRET 284
 #define OBJ_EVENT_GFX_SESAME 285
-#define NUM_OBJ_EVENT_GFX 286
+#define OBJ_EVENT_GFX_WORMHOLE 286
+#define NUM_OBJ_EVENT_GFX 287
 
 
 

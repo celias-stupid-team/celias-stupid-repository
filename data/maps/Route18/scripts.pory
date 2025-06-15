@@ -1,8 +1,6 @@
 raw `
 
-Route18_OnTransition::
-	call_if_eq VAR_MAP_SCENE_ROUTE16, 1, Route18_OnTransitionCyclingRoad
-	end
+
 
 Route18_OnTransitionCyclingRoad::
 	setflag FLAG_SYS_ON_CYCLING_ROAD
@@ -32,10 +30,15 @@ mapscripts Route18_MapScripts {
 		if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
 			call(Route18_SetZapdosStatue)
 		}
-		if(!flag(FLAG_TRIED_SLOPE)) {
+		
+	}
+}
+
+script Route18_OnTransition {
+	call_if_eq(VAR_MAP_SCENE_ROUTE16, 1, Route18_OnTransitionCyclingRoad)
+	if(!flag(FLAG_TRIED_SLOPE)) {
 			setflag(FLAG_TEMP_5)
 		}
-	}
 }
 
 script Route18_TiredBiker {

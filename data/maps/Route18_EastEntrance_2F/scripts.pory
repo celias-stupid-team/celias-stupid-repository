@@ -47,10 +47,12 @@ Route18_EastEntrance_2F_EventScript_AlreadyTraded::
 
 script Route18_Pickles {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	setflag(FLAG_SANDWICH_GOT_PICKLES)
 	msgbox("{PLAYER} looked a little closer…\n… … … {PAUSE 20}\l…Aha!\pHe was hiding the PICKLES under\nhis tongue the whole time!", MSGBOX_DEFAULT)
 	playfanfare(MUS_LEVEL_UP)
 	setflag(FLAG_SANDWICH_GOT_PICKLES)
 	msgbox("{PLAYER} obtained the PICKLES!\n", MSGBOX_DEFAULT)
+	waitfanfare
 	closemessage
 	call(FushciaCity_MakeASandwich)
 	return

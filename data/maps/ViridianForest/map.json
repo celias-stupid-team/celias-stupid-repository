@@ -312,8 +312,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 47,
-      "y": 58,
+      "x": 49,
+      "y": 56,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -552,8 +552,8 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 36,
+      "x": 10,
+      "y": 35,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
