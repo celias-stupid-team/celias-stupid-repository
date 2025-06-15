@@ -118,12 +118,23 @@ script Route18_LassBinoculars {
 		applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
 		waitmovement(0)
 		setflag(FLAG_ROUTE18_LASSATTACK)
+		special(RemoveCameraObject)
 		msgbox("You just HAD to look at me,\ndidn't you?\p...\nWhatever.\pYou know what happens next.\n", MSGBOX_DEFAULT)
-		playbgm(MUS_PEWTER, TRUE)
+		playbgm(MUS_NONE, TRUE)
 		//battle
 		
 		trainerbattle_no_intro(TRAINER_LASS_BINOCULARS, "Yeah.\nFigured.")
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Yeah, yeah.\nWhatever.", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(LASS, Route18_LassLeaves)
+		delay(30)
+		special(SpawnCameraObject)
+		applymovement(LOCALID_CAMERA, Route18_CameraGoesBack)
+		waitmovement(LOCALID_CAMERA)
+		fadedefaultbgm
 		special(RemoveCameraObject)
+		removeobject(LASS)
 		releaseall
 		end
 
@@ -132,6 +143,18 @@ script Route18_LassBinoculars {
 	releaseall
 	end
 	}
+}
+
+movement Route18_LassLeaves {
+	walk_down
+	walk_right * 2
+	walk_down * 8
+}
+
+movement Route18_CameraGoesBack {
+	walk_left * 2
+	walk_up
+
 }
 
 movement Route18_CameraGoesDown {

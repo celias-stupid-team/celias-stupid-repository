@@ -60,7 +60,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
-      "x": 15,
+      "x": 16,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",

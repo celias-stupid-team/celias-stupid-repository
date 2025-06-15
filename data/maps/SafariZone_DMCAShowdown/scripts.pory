@@ -81,7 +81,7 @@ script SafariZone_EnterArena {
     lock
     setvar(VAR_TEMP_0, 1)
     applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
-    if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE)) {
+    if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) || flag(FLAG_BATTLED_IRON_CLEFTS)) {
         playbgm(MUS_DMCA_SHOWDOWN, TRUE)
     } else {
         playbgm(MUS_ROCKET_HIDEOUT, TRUE)

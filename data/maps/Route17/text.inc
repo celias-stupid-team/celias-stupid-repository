@@ -126,6 +126,6 @@ Route17_Text_DontThrowGameThrowBalls::
     .string "BALLS instead!$"
 
 Route17_Text_CyclingRoadSign::
-    .string "CYCLING ROAD\n"
-    .string "Slope ends here!$"
+	.string "CYCLING ROAD\n"
+	.string "This sign is obnoxious to read.$"
 
