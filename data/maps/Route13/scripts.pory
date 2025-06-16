@@ -99,6 +99,7 @@ script Route13_Snorlax {
 	fadescreen(FADE_TO_BLACK)
 	playmoncry(SPECIES_SNORLAX, CRY_MODE_NORMAL)
 	waitmoncry
+	clearflag(FLAG_SYS_SNORLAX_FIGHT)
 	removeobject(SNORLAX)
 	fadescreen(FADE_FROM_BLACK)
 	release

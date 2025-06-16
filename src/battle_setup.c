@@ -303,7 +303,7 @@ static void DoTrainerBattle(void)
 void StartOldManTutorialBattle(void)
 {
     if(!FlagGet(FLAG_TEMP_3)) {
-        FlagSet(FLAG_SHINY_CREATION); //Doesn't actually help
+        FlagSet(FLAG_SHINY_CREATION); //Does actually help
     } else {
         FlagClear(FLAG_SHINY_CREATION);
     }

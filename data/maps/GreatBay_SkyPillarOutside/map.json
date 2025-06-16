@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE18",
-      "offset": -28,
+      "offset": -33,
       "direction": "down"
     },
     {
@@ -29,8 +29,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 26,
-      "y": 23,
+      "x": 30,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -44,7 +44,7 @@
       "local_id": "LOCALID_GREAT_BAY_SKY_PILLAR_OUTSIDE_OLD_MAN_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 14,
+      "x": 9,
       "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",

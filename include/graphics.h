@@ -9060,6 +9060,17 @@ extern const u32 gSubstituteKangaGfx[];
 extern const u32 gSubstituteKangaBackGfx[];
 extern const u32 gSubstituteKangaPal[];
 
+
+extern const u32 gSubstituteLayer3Pal[];
+extern const u32 gSubstituteLayer3Gfx[];
+extern const u32 gSubstituteLayer3Tilemap[];
+
+extern const u32 gSubstituteLayer1Pal[];
+extern const u32 gSubstituteLayer1Gfx[];
+extern const u32 gSubstituteLayer1Tilemap[];
+
+
+
 // ice
 extern const u8 gWeatherFogHorizontalTiles[];
 extern const u32 gBattleAnimFogTilemap[];
