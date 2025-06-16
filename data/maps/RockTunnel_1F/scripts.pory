@@ -65,7 +65,7 @@ script RockTunnel_1F_OnTransition {
 }
 
 script RockTunnel_1F_OnLoad {
-	if(var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 		setflashlevel(0)
 	} else {
 		call(RockTunnel_DrawBlankScreen)
@@ -110,7 +110,7 @@ script RockTunnel_DrawBlankScreen {
 const HINT_GIRL = 1
 script RockTunnel_PokemonSign {
 	lock
-	if(!var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
 		msgbox("A projector screen is set up\nagainst the wall of the cave.", MSGBOX_DEFAULT)
 		release
 		end
@@ -139,7 +139,7 @@ script RockTunnel_CavePeople {
 }
 
 script RockTunnel_LightsOutlet {
-	if(var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 		msgbox("A perfectly-sized fork recepticle.\n", MSGBOX_SIGN)
 	} else {
 		msgbox("The lights are plugged in, but\nthe power is off.", MSGBOX_SIGN)
@@ -148,7 +148,7 @@ script RockTunnel_LightsOutlet {
 
 
 script RockTunnel_LightsOut {
-	if(var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 		msgbox("the lights are on yay\n", MSGBOX_NPC)
 	} else {
 		msgbox("Oh hey, thanks for lighting\nthe cave up with your POKéMON!\lBut…\pWell, we had a special show set\nup with our light stands.\lWithout POWER, we can't do it!\pHopefully the POWER PLANT will\ncome back on soon…", MSGBOX_NPC)

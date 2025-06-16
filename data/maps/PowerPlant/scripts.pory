@@ -235,7 +235,7 @@ script PowerPlant_Computer {
 
 script PowerPlant_MinigameStart {
 	lock
-	if(!var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
 		msgbox("no power\nplay game?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			closemessage
@@ -244,7 +244,16 @@ script PowerPlant_MinigameStart {
 			closemessage
 			callnative(StartPowerplantGame)
 			waitstate
-			msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+			if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
+				msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+			}
+			elif (var(VAR_CSR_TURNED_ON_POWER) == 2) { //NO_B_BUTTON
+				msgbox("No B Button!\n", MSGBOX_DEFAULT) //placeholder
+				setvar(VAR_CSR_TURNED_ON_POWER, 0)
+			}
+			else {
+				msgbox("battery low\n", MSGBOX_DEFAULT) //placeholder
+			}
 			closemessage
 			special(SpawnCameraObject)
 			applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)

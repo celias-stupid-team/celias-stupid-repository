@@ -992,7 +992,7 @@ bool8 MetatileBehavior_IsPainting(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsPowerPlantMachine(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_POWER_PLANT_MACHINE)
+    if (metatileBehavior == MB_POWER_PLANT_MACHINE || metatileBehavior == MB_POWER_PLANT_LIGHTS)
         return TRUE;
     else
         return FALSE;

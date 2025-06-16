@@ -18,7 +18,7 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 // Score constants
 #define STARTING_SCORE                  56   // The number of points you already have when the game starts.
 #define SCORE_INCREASE                  5    // The score increases by this many point everytime a correct button press occurs
-#define SCORE_DECREASE                  -10  // The score decreases by this many point everytime an incorrect button press occurs
+#define SCORE_DECREASE                  -10   // The score decreases by this many point everytime an incorrect button press occurs
 #define SCORE_MAX                       128  // The number of points required to win. Must be divisible by SCORE_AREA_WIDTH.
 
 // Score Meter Constants
@@ -28,7 +28,7 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 #define SCORE_INTERVAL                  (SCORE_MAX / SCORE_AREA_WIDTH)
 #define SCORE_SECTION_INIT_X            ((taskData.tScore / SCORE_INTERVAL) - SCORE_BAR_OFFSET)
 #define SCORE_SECTION_LAST_X            ((SCORE_MAX / SCORE_INTERVAL) - SCORE_BAR_OFFSET)
-#define SCORE_SECTION_Y                 132
+#define SCORE_SECTION_Y                 136
 #define SCORE_SECTION_WIDTH             8   // The width of one score meter section sprite in number of pixels.
 #define NUM_SCORE_SECTIONS              (SCORE_AREA_WIDTH / SCORE_SECTION_WIDTH)
 #define NUM_COLOR_INTERVALS             64
@@ -38,10 +38,17 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 #define SCORE_COLOR_NUM                 12   // The color position in the palette that the score meter uses.
 #define SCORE_INPUT_FRAME_OFFSET        12   // button Input is accepted every x frames
 
-// Others
-#define OW_PAUSE_BEFORE_START   20 // Number of frames before the minigame starts in the overworld.
+// Blinking Colors
+#define COLOR_SWITCH_FRAMES     60 // Number of frames the palette will change the base color of the light
+#define COLOR_BLINKING_FRAMES   30 // Number of frames the palette will darken/brighten for the blinking effect
 #define CHARGE_UP_COLOR_BLUE_A  0
 #define CHARGE_UP_COLOR_GREEN_B 1
+
+// Others
+#define OW_PAUSE_BEFORE_START   20 // Number of frames before the minigame starts in the overworld.
+#define POWER_OFF               0
+#define POWER_ON                1
+#define NO_B_BUTTON             2
 
 
 // Sprite sheet numbers.
