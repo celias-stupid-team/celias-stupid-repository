@@ -9877,22 +9877,22 @@ static const struct LevelUpMove sREVENANTLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUNOWNSLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNELevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNNLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sUNOWNDLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 
@@ -9949,6 +9949,16 @@ static const struct LevelUpMove sIRONCLEFTGREENLevelUpLearnset[] = {
 
 static const struct LevelUpMove sLATIASBLAZIKENLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMonicaLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_MEGA_KICK),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sIRONBUTTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
 	LEVEL_UP_END
 };
 

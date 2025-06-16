@@ -1226,6 +1226,8 @@ gCryTable::
 	cry Cry_CHANSEYBLANK
 	cry Cry_IRONCLEFTGREEN
 	cry Cry_LATIASBLAZIKEN
+	cry Cry_Monica
+	cry Cry_IRONBUTT
 
 
 
@@ -2462,6 +2464,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_CHANSEYBLANK
 	cry_reverse Cry_IRONCLEFTGREEN
 	cry_reverse Cry_LATIASBLAZIKEN
+	cry_reverse Cry_Monica
+	cry_reverse Cry_IRONBUTT
 
 
 

@@ -4334,12 +4334,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt20[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_GRIMER,
+        .species = SPECIES_IRON_HANDS,
     },
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_DROWZEE,
+        .species = SPECIES_MONICA,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_IRONBUTT,
     },
 };
 

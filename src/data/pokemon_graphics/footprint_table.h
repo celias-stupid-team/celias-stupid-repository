@@ -1257,4 +1257,6 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_CHANSEYBLANK]    = gMonFootprint_CHANSEYBLANK,
 	[SPECIES_IRONCLEFTGREEN]    = gMonFootprint_IRONCLEFTGREEN,
 	[SPECIES_LATIASBLAZIKEN]    = gMonFootprint_LATIASBLAZIKEN,
+	[SPECIES_MONICA]    = gMonFootprint_Monica,
+	[SPECIES_IRONBUTT]    = gMonFootprint_IRONBUTT,
 };
