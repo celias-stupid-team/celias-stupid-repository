@@ -133,8 +133,8 @@ script AwakeningShop_Storeperson {
 mart AwakeningShop_Mart {
 	ITEM_AWAKENING
 	ITEM_AWAKENING_FIRE_EMBLEM
-	ITEM_AWAKENING_DUNE
 	ITEM_DMC
+	ITEM_AWAKENING_DUNE
 }
 
 script AwakeningShop_VitalSpiritDelibird {

@@ -122,7 +122,7 @@ script Route16_RoadWorkGirl {
 }
 
 script Route16_RoadWorkSign {
-	msgbox("ROAD WORK AHEAD\n", MSGBOX_SIGN)
+	msgbox("ROUTE 16\nROAD WORK AHEAD\n", MSGBOX_SIGN)
 	end
 }
 

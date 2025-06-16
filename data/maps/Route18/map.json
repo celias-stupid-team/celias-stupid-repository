@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
-      "offset": 28,
+      "offset": 33,
       "direction": "up"
     },
     {
@@ -127,6 +127,20 @@
       "y": -3,
       "target_local_id": "LOCALID_GREAT_BAY_SKY_PILLAR_OUTSIDE_OLD_MAN_1",
       "target_map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BIKER",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route18_TiredBiker",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [

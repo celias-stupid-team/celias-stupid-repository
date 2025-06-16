@@ -773,16 +773,35 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER)
+        if (gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_TEACHER || gBattleMons[battlerId].moves[i] == MOVE_SUBSTITUTE_2)
             knowsSubTeacher = TRUE;
     }
-
+    
+    if(gDisableStructs[gBattlerAttacker].substitute2Layers > 0) {
+        loadMonSprite = FALSE;
+    }
     if (!loadMonSprite)
     {
         position = GetBattlerPosition(battlerId);
         if (GetBattlerSide(battlerId) != B_SIDE_PLAYER) {
-            if (knowsSubTeacher)
-                LZDecompressVram(gSubstituteKangaGfx, gMonSpritesGfxPtr->sprites[position]);
+            if (knowsSubTeacher) {
+                switch(gDisableStructs[gBattlerAttacker].substitute2CurrentLayer) {
+                    case 0:
+                    DebugPrintf("First use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                        LZDecompressVram(gSubstituteLayer1Gfx, gMonSpritesGfxPtr->sprites[position]);
+                        break;
+                    case 1:
+                     DebugPrintf("Second use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                        LZDecompressVram(gSubstituteKangaGfx, gMonSpritesGfxPtr->sprites[position]);
+                        break;
+                    default:
+                        DebugPrintf("Third use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                        LZDecompressVram(gSubstituteLayer3Gfx, gMonSpritesGfxPtr->sprites[position]);
+                        break;
+                }
+                DebugPrintf("After adding: %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+
+            }
             else
                 LZDecompressVram(gSubstituteDollGfx, gMonSpritesGfxPtr->sprites[position]);
         }
@@ -790,6 +809,9 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
         {
             if (knowsSubTeacher)
                 LZDecompressVram(gSubstituteKangaBackGfx, gMonSpritesGfxPtr->sprites[position]);
+
+
+
             else
                 LZDecompressVram(gSubstituteDollTilemap, gMonSpritesGfxPtr->sprites[position]);
         }
@@ -803,8 +825,26 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
             DmaCopy32Defvars(3, (*ptr)[0], (*ptr)[i], 0x800);
         }
         palOffset = OBJ_PLTT_ID(battlerId);
-        if (knowsSubTeacher)
-            LoadCompressedPalette(gSubstituteKangaPal, palOffset, PLTT_SIZE_4BPP);
+        if (knowsSubTeacher) {
+            
+            switch(gDisableStructs[gBattlerAttacker].substitute2CurrentLayer) {
+                        case 0:
+                        DebugPrintf("First use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                            LoadCompressedPalette(gSubstituteLayer1Pal, palOffset, PLTT_SIZE_4BPP);
+                            break;
+                        case 1:
+                        DebugPrintf("Second use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                            LoadCompressedPalette(gSubstituteKangaPal, palOffset, PLTT_SIZE_4BPP);
+                            break;
+                        default:
+                            DebugPrintf("Third use %d", gDisableStructs[gBattlerAttacker].substitute2CurrentLayer);
+                            LoadCompressedPalette(gSubstituteLayer3Pal, palOffset, PLTT_SIZE_4BPP);
+                            break;
+                    }
+                //Put this somewhere that's not the graphics engine at some point
+            gDisableStructs[gBattlerAttacker].substitute2CurrentLayer = gDisableStructs[gBattlerAttacker].substitute2CurrentLayer + 1;
+            
+        }   
         else
             LoadCompressedPalette(gSubstituteDollPal, palOffset, PLTT_SIZE_4BPP);
     }

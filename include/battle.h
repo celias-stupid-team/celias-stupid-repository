@@ -184,7 +184,8 @@ struct DisableStruct
     /*0x19*/ u8 rechargeTimer;
     /*0x1A*/ u8 unk1A[2];
              u8 substitute2Layers : 2;
-             u8 padding : 6 ;
+             u8 substitute2CurrentLayer : 2; //Am I allowed to use this?????
+             u8 padding : 4 ;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];

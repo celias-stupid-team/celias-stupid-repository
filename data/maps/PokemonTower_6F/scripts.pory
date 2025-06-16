@@ -29,6 +29,8 @@ script PokemonTower_6F_WorriedAboutCuboneMom {
 	} else {
 		msgbox("CUBONE was one of my students after\nschool.\lI ran the extra-curriculars, see.\pThis one was always his favorite.\nYou should take it.", MSGBOX_DEFAULT)
 		setflag(FLAG_GOT_MATH_CLUB)
+		waitse
+		closemessage
 		giveitem_msg("{PLAYER} recieved the MATH CLUB.\n", ITEM_MATH_CLUB, 1, FANFARE_LEVEL_UP)
 		msgbox("CUBONE's MOTHER was a lovely\nvolunteer at the school.\lShe'd come in if MR. FUJI got sick.\pI'd be distraught if anything\nhappened to her.", MSGBOX_DEFAULT)
 	}

@@ -43,8 +43,8 @@ FushciaCity_SafariZone_Entrance_Text_GoodLuck::
     .string "Good luck!$"
 
 FushciaCity_SafariZone_Entrance_Text_CatchFairShareComeAgain::
-    .string "Did you catch your fair share?\n"
-    .string "Come again!$"
+	.string "Did you have a good time?\n"
+	.string "Come again!$"
 
 FushciaCity_SafariZone_Entrance_Text_FirstTimeAtSafariZone::
     .string "Hi! Is it your first time here at\n"

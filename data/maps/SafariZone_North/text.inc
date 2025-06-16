@@ -15,7 +15,9 @@ SafariZone_North_Text_ZigzagThroughTallGrass::
     .string "flush them out.$"
 
 SafariZone_North_Text_WinFreeHMFindSecretHouse::
-    .string "TRAINER TIPS\p"
-    .string "Win a free HM for finding the\n"
-    .string "SECRET HOUSE.$"
+	.string "Please keep a safe distance from\n"
+	.string "the DEATH SPIRAL at all times.\p"
+	.string "SAFARI ZONE, LLC. will not\n"
+	.string "compensate you for any appendages\l"
+	.string "lost via DEATH SPIRAL incidents.$"
 

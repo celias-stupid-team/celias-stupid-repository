@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -112,24 +112,6 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 10,
-      "y": 12,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "1",
-      "script": "EventScript_SetExitingCyclingRoad"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 12,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "0",
-      "script": "EventScript_SetEnteringCyclingRoad"
-    },
-    {
-      "type": "trigger",
       "x": 6,
       "y": 10,
       "elevation": 3,
@@ -145,42 +127,6 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route16_NorthEntrance_1F_EventScript_NeedBikeTriggerMidTop"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 13,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "0",
-      "script": "EventScript_SetEnteringCyclingRoad"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "0",
-      "script": "EventScript_SetEnteringCyclingRoad"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "1",
-      "script": "EventScript_SetExitingCyclingRoad"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 13,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE16",
-      "var_value": "1",
-      "script": "EventScript_SetExitingCyclingRoad"
     },
     {
       "type": "trigger",
@@ -210,7 +156,5 @@
       "script": "Route16_NorthEntrance_1F_EventScript_NeedBikeTriggerBottom"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

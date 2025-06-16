@@ -1,7 +1,7 @@
 {
   "id": "MAP_SAFARI_ZONE_EAST_REST_HOUSE",
   "name": "SafariZone_East_RestHouse",
-  "layout": "LAYOUT_SAFARI_ZONE_REST_HOUSE",
+  "layout": "LAYOUT_SAFARI_ZONE_REST_HOUSE_LAYOUT_2",
   "music": "MUS_EVOLUTION",
   "region_map_section": "MAPSEC_KANTO_SAFARI_ZONE",
   "requires_flash": false,
@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -67,10 +67,6 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

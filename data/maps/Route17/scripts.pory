@@ -29,6 +29,7 @@ Route17_EventScript_CyclingRoadSign::
 
 script Route17_KoraidonNeedsSandwich {
 	lock
+	setflag(FLAG_TRIED_SLOPE)
 	setflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
 	setflag(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F)
 	if(flag(FLAG_FED_SANDWICH)) {
@@ -48,6 +49,7 @@ script Route17_KoraidonNeedsSandwich {
 			goto(Route17_TurnAroundAndLeave)
 		}
 	} else {
+		setflag(FLAG_TRIED_SLOPE)
 		msgbox("The steep slope is too much for\nyour BIKE to handle…", MSGBOX_DEFAULT)
 		goto(Route17_TurnAroundAndLeave)
 	}
@@ -56,6 +58,7 @@ script Route17_KoraidonNeedsSandwich {
 script Route17_TurnAroundAndLeave {
 	closemessage
 	delay(30)
+	setflag(FLAG_TRIED_SLOPE)
 	applymovement(LOCALID_PLAYER, Common_Movement_WalkDown)
 	waitmovement(0)
 	release

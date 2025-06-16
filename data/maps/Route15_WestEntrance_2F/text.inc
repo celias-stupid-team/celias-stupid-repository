@@ -18,7 +18,7 @@ Route15_WestEntrance_2F_Text_GreatHereYouGo::
 
 Route15_WestEntrance_2F_Text_ReceivedItemFromAide::
     .string "{PLAYER} received the EXP. SHARE\n"
-    .string "from the POKéMON FAN!$"
+    .string "from the confused COP!$"
 
 Route15_WestEntrance_2F_Text_ExplainExpShare::
     .string "EXP. SHARE is an item to be held\n"

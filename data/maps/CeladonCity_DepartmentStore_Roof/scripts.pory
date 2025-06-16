@@ -211,8 +211,6 @@ CeladonCity_DepartmentStore_Roof_EventScript_ChooseDrink::
 	copyvar VAR_TEMP_1, VAR_RESULT
 	switch VAR_TEMP_1
 	case 0, CeladonCity_DepartmentStore_Roof_EventScript_BuyFreshWater
-	case 1, CeladonCity_DepartmentStore_Roof_EventScript_BuySodaPop
-	case 2, CeladonCity_DepartmentStore_Roof_EventScript_BuyLemonade
 	msgbox CeladonCity_DepartmentStore_Roof_Text_NotThirsty
 	goto CeladonCity_DepartmentStore_Roof_EventScript_ExitVendingMachine
 	end
