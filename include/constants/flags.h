@@ -353,7 +353,7 @@
 #define FLAG_FUSCHIA_BROKE_WALL               0x133
 #define FLAG_TALKED_TO_SARA               0x134
 #define FLAG_MADE_A_SANDWICH               0x135
-#define FLAG_0x136               0x136
+#define FLAG_TRIED_SLOPE               0x136
 #define FLAG_0x137               0x137
 #define FLAG_0x138               0x138
 #define FLAG_0x139               0x139
@@ -581,7 +581,7 @@
 #define FLAG_CSR_POKEMON_TOWER_MUSIC               0x20F
 #define FLAG_WATER_GUN_TM               0x210
 #define FLAG_SAFARI_ZONE_WATER_STONE               0x211
-#define FLAG_0x212               0x212
+#define FLAG_ROUTE_17_POKEBALL               0x212
 #define FLAG_0x213               0x213
 #define FLAG_0x214               0x214
 #define FLAG_0x215               0x215

@@ -14,6 +14,7 @@
 #include "constants/battle_anim.h"
 #include "constants/songs.h"
 #include "constants/weather.h"
+#include "constants/moves.h"
 
 static void AnimBlackSmoke(struct Sprite *);
 static void AnimBlackSmoke_Step(struct Sprite *);
@@ -4683,6 +4684,7 @@ void AnimTask_MonToSubstitute(u8 taskId)
     int i;
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
 
+    
     if (gTasks[taskId].data[0] == 0)
     {
         PrepareBattlerSpriteForRotScale(spriteId, FALSE);
@@ -4708,7 +4710,7 @@ void AnimTask_MonToSubstitute(u8 taskId)
         LoadBattleMonGfxAndAnimate(gBattleAnimAttacker, 0, spriteId);
         for (i = 0; i < NUM_TASK_DATA; i++)
             gTasks[taskId].data[i] = 0;
-
+        
         gTasks[taskId].func = AnimTask_MonToSubstituteDoll;
     }
 }
@@ -4717,6 +4719,7 @@ static void AnimTask_MonToSubstituteDoll(u8 taskId)
 {
     u8 spriteId = GetAnimBattlerSpriteId(ANIM_ATTACKER);
 
+    
     switch (gTasks[taskId].data[0])
     {
     case 0:

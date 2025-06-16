@@ -13,9 +13,10 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
+      "local_id": "ASSISTANT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
       "x": 7,
@@ -103,7 +104,5 @@
       "script": "FushciaCity_SafariZone_Entrance"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

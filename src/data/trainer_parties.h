@@ -6192,12 +6192,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ChannelerAngelica[] = {
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_EXPONELLE,
+        .species = SPECIES_SUDOWOODO,
     },
     {
         .iv = 0,
         .lvl = 22,
-        .species = SPECIES_SUDOWOODO,
+        .species = SPECIES_EXPONELLE,
     },
 };
 
@@ -9994,7 +9994,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAArcher[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_IRON_CLEFT,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SPIKY_SHIELD, MOVE_FOLLOW_HIM, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,

@@ -117,11 +117,11 @@ script PokemonTower_5F_EventScript_PurifiedZone {
 		case 4:
 			msgbox("Ah, to bask in the warm glow of\nthe purified zone!\p{PLAYER} enjoys the brief spot of\nrespite.", MSGBOX_DEFAULT)
 		case 5:
-			msgbox("Perhaps it's the pleasant white\nflash that draws {PLAYER} in so.\pAh, what a lovely flash.\nHow about we see it again?", MSGBOX_DEFAULT)
+			msgbox("Perhaps it's the pleasant white\nflash that draws {PLAYER} in so.\pAh, what a fine flash.\nHow about we see it again?", MSGBOX_DEFAULT)
 		case 6:
-			msgbox("There we are!\nAbsolutely beautiful!\pYes, now that we've experienced\nthe nice white flash, we can\lbe on our way.", MSGBOX_DEFAULT)
+			msgbox("There we are!\nAbsolutely beautiful!\pYes, now that we've experienced\nthe lovely white flash, we can\lbe on our way.", MSGBOX_DEFAULT)
 		case 7:
-			msgbox("Er…\nAhem. Let me repeat myself:\pNow that we have experienced the\nnice{PAUSE 20} white{PAUSE 20} flash{PAUSE 20},\lwe can be on our way.", MSGBOX_DEFAULT)
+			msgbox("Er…\nAhem. Let me repeat myself:\pNow that we have experienced the\nlovely{PAUSE 20} white{PAUSE 20} flash,{PAUSE 40}\lwe can be on our way.", MSGBOX_DEFAULT)
 		case 8:
 			msgbox("It's not OAK.\n", MSGBOX_DEFAULT)
 
@@ -144,7 +144,7 @@ script PokemonTower_5F_EventScript_PurifiedZone {
 		case 20:
 			msgbox("OH, FOR PETE'S SAKE.\nWOULD YOU JUST STOP IT?\pHrrrrm.\nNow I've had it!\pYou've really made me lose my\ntemper now!\pFine then.\nYou've made your bed.\lNow sleep in it!", MSGBOX_DEFAULT)
 			closemessage
-			delay(20)
+			delay(30)
 			    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
 				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
 				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)

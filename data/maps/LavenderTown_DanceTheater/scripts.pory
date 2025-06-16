@@ -182,7 +182,7 @@ script DanceTheater_Pikachu {
             applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
             delay(30)
         //}
-        msgbox("POKéKID: Uh, hey.\pThis guy picked me up off the street\nthe other day.\pI think he actually believes I'm a\nPOKéMON.\nChu Pika!!", MSGBOX_DEFAULT)
+        msgbox("POKéKID: Uh, hey.\pThis guy picked me up off the street\nthe other day.\pI guess he thinks I'm a\nPOKéMON?\lChu Pika!!", MSGBOX_DEFAULT)
         
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
         closemessage

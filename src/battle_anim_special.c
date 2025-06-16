@@ -1939,6 +1939,11 @@ void AnimTask_SwapMonSpriteToFromSubstitute(u8 taskId)
     u32 x;
     bool32 done = FALSE;
 
+    if(gCurrentMove == MOVE_SUBSTITUTE_2) {
+            DebugPrintf("%d", gDisableStructs[gBattlerAttacker].substitute2Layers);
+            DestroyAnimVisualTask(taskId);
+    }
+
     spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
     switch (gTasks[taskId].data[10])
     {

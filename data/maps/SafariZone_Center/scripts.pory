@@ -22,7 +22,7 @@ const DMCA_Right = 3
 mapscripts SafariZone_Center_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
-		if(flag(FLAG_NO_TM_CASE)) {
+		if(flag(FLAG_NO_TM_CASE) || flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 			setflag(FLAG_TEMP_3)
 		}
 		
@@ -97,7 +97,7 @@ script SafariZone_KangaskahnCage {
 	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
-	if(checkitem(ITEM_ODD_CANDY)) {
+	if(checkitem(ITEM_TM32)) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			msgbox("Which TM would you like to give?\n", MSGBOX_DEFAULT)

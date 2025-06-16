@@ -33,7 +33,7 @@ mapscripts PokemonTower_3F_MapScripts {
 script PokemonTower_3F_ClefairyDollGirl {
 	lock
 	faceplayer
-	if(flag(FLAG_TEMP_4)) {
+	if(flag(FLAG_TEMP_8)) {
 		msgbox("Wha-?\nHey!\pDon't take my CLEFAIRY!\n", MSGBOX_DEFAULT)
 	} else {
 		msgbox("Waa!\nThe GHOSTS in here are so scary!\pIt's okay, though.\nMy CLEFAIRY will keep me safe.", MSGBOX_DEFAULT)

@@ -76,7 +76,7 @@ script FushciaCity_MakeASandwich {
 		playfanfare(MUS_LEVEL_UP)
 		msgbox("{PLAYER} successfully collected\nall the ingredients!", MSGBOX_DEFAULT)
 		waitfanfare
-		msgbox("Now we just need to put them\ntogether.\pBREAD…\nMEAT…\lCHEESE… LETTUCE… uh…\pOh!\nCan't forget the PICKLES!\pAnd topped off with a sprinkle\nof SESAME SEED!\lAll done!", MSGBOX_DEFAULT)
+		msgbox("Now we just need to put them\ntogether.\pBREAD…\nMEAT…\lCHEESE… LETTUCE… uh…\pOh!\nCan't forget the PICKLES!\pAnd topped off with a sprinkle\nof SESAME SEED!\pAfter a silly minigame (which\nCelia shall not be programming)…\lAll done!", MSGBOX_DEFAULT)
 		giveitem_msg("{PLAYER} assembled the SANDWICH!\n", ITEM_SANDWICH)
 		waitfanfare
 

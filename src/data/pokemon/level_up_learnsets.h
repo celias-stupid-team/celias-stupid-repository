@@ -9090,7 +9090,7 @@ static const struct LevelUpMove sDigimonLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUnown_NudesLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
 	LEVEL_UP_END
 };
 

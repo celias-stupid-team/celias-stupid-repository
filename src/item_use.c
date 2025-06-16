@@ -304,6 +304,9 @@ void FieldUseFunc_Rod(u8 taskId)
 {
     if (CanFish() == TRUE)
     {
+        if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_VIRIDIAN_FOREST) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_VIRIDIAN_FOREST)) {
+            FlagSet(FLAG_SHINY_CREATION);
+        }
         sItemUseOnFieldCB = ItemUseOnFieldCB_Rod;
         SetUpItemUseOnFieldCallback(taskId);
     }
