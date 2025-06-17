@@ -16,7 +16,7 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 #define FG_GAME_ENDED   (1 << 1)
 
 // Score constants
-#define STARTING_SCORE                  56   // The number of points you already have when the game starts.
+#define STARTING_SCORE                  26   // The number of points you already have when the game starts.
 #define SCORE_INCREASE                  5    // The score increases by this many point everytime a correct button press occurs
 #define SCORE_DECREASE                  -10   // The score decreases by this many point everytime an incorrect button press occurs
 #define SCORE_MAX                       128  // The number of points required to win. Must be divisible by SCORE_AREA_WIDTH.
@@ -49,6 +49,8 @@ static const u8 sText_PowerUp[] = _("Press A and B to power up\nthe engine!");
 #define POWER_OFF               0
 #define POWER_ON                1
 #define NO_B_BUTTON             2
+
+#define MUSIC_FADEOUT_DELAY     60
 
 
 // Sprite sheet numbers.

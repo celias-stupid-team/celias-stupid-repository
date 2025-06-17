@@ -236,19 +236,40 @@ script PowerPlant_Computer {
 script PowerPlant_MinigameStart {
 	lock
 	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
-		msgbox("no power\nplay game?", MSGBOX_YESNO)
+		if(checkitem(ITEM_EVERSTONE)) {
+			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to insert your\nB BUTTON and turn the power on?", MSGBOX_YESNO)
+		} else {
+			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to attempt to turn\nit on?", MSGBOX_YESNO)
+		}
 		if(var(VAR_RESULT)) {
 			closemessage
 			call(PowerPlant_ElectrodesSlideDown)
-			msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
-			closemessage
+			//msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
+			//closemessage
+			delay(30)
+			playbgm(MUS_THUNDERING_DYNAMO, TRUE)
 			callnative(StartPowerplantGame)
 			waitstate
 			if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
-				msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+				playbgm(MUS_NONE, TRUE)
+				playse(SE_ITEMFINDER)
+				waitse
+				msgbox("{PLAYER} turned on the power!\n", MSGBOX_DEFAULT)
+				closemessage
+				delay(60)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 90)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+				playse(SE_M_EARTHQUAKE)
+				special(ShakeScreen)
+				waitse
+				playmoncry(SPECIES_ETERNATUS, CRY_MODE_ENCOUNTER)
+				waitmoncry
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 				dowildbattle
-				//waitstate
+				specialvar(VAR_RESULT, GetBattleOutcome)
+				delay(60)
 				special(SpawnCameraObject)
 				applymovement(LOCALID_CAMERA, PowerPlant_CameraGoDown)
 				waitmovement(0)
@@ -256,11 +277,14 @@ script PowerPlant_MinigameStart {
 
 			}
 			elif (var(VAR_CSR_TURNED_ON_POWER) == 2) { //NO_B_BUTTON
-				msgbox("No B Button!\n", MSGBOX_DEFAULT) //placeholder
+				delay(120)
+				msgbox("It seems the B BUTTON isn't\nworking.\pThe POWER couldn't be turned on!\n", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 0)
+				fadedefaultbgm
 			}
 			else {
-				msgbox("battery low\n", MSGBOX_DEFAULT) //placeholder
+				msgbox("{PLAYER} gave up on the assignment.\n", MSGBOX_DEFAULT)
+				fadedefaultbgm
 			}
 			closemessage
 			special(SpawnCameraObject)

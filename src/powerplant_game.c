@@ -419,9 +419,13 @@ static void SetEngineColors(u8 taskId)
         u8 random = Random() % 2;
 
         // force an early green light if the player doesn't have the B button yet
-        if (!CheckBagHasItem(ITEM_EVERSTONE, 1) && taskData.tFrameCounter % 180)
+
+        if (taskData.tFrameCounter < COLOR_SWITCH_FRAMES * 2) //&& taskData.tFrameCounter % 300
+            random = 1;
+        if (taskData.tFrameCounter == COLOR_SWITCH_FRAMES * 2) //&& taskData.tFrameCounter % 300
             random = 0;
         
+
         if (random && taskData.tChargeUpColor == CHARGE_UP_COLOR_GREEN_B && CheckBagHasItem(ITEM_EVERSTONE, 1))
         {
             ModifyPalette(taskId, LIGHTS_PAL);
@@ -469,12 +473,15 @@ static void Task_HandlePowerplantGameInput(u8 taskId)
             }
             else
             {
+                
                 PlaySE(SE_BOO);
-                increment = SCORE_DECREASE;
+                //increment = SCORE_DECREASE;
+                
             }
 
             taskData.tFlagButtonInput = TRUE;
         }
+
         if (JOY_NEW(B_BUTTON))
         {
             if (CheckBagHasItem(ITEM_EVERSTONE, 1))
@@ -486,17 +493,23 @@ static void Task_HandlePowerplantGameInput(u8 taskId)
                 }
                 else
                 {
+                    
                     PlaySE(SE_BOO);
-                    increment = SCORE_DECREASE;
+                    //increment = SCORE_DECREASE;
+                    
                 }
 
                 taskData.tFlagButtonInput = TRUE;
             }
             else
             {
-                ClearDialogWindowAndFrame(0, TRUE);
-                PlaySE(SE_BOO);
-                taskData.func = Task_NoB_Button;
+                if (taskData.tChargeUpColor == CHARGE_UP_COLOR_GREEN_B)
+                {
+                    ClearDialogWindowAndFrame(0, TRUE);
+                    taskData.func = Task_NoB_Button;   
+
+                    
+                }
             }
         }
 
@@ -648,10 +661,12 @@ static void Task_Victory(u8 taskId)
     }
 }
 
-static void Task_NoB_Button(u8 taskId)
+static void Task_NoB_Button(u8 taskId, u8 musicDelay)
 {
     VarSet(VAR_CSR_TURNED_ON_POWER, NO_B_BUTTON);
     
+    Overworld_ChangeMusicTo(MUS_NONE);
+
     RunTextPrinters();
     if (!gPaletteFade.active) // If the screen has fully faded to black.
     {
