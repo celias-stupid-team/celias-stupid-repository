@@ -264,29 +264,33 @@ script PowerPlant_MinigameStart {
 				playse(SE_M_EARTHQUAKE)
 				special(ShakeScreen)
 				waitse
+				addobject(ETERNATUS)
+				applymovement(ETERNATUS, Eternatus_WalkSlowDown)
+				waitmovement(0)
 				playmoncry(SPECIES_ETERNATUS, CRY_MODE_ENCOUNTER)
 				waitmoncry
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 				dowildbattle
+				delay(40)
+				setflag(FLAG_HIDE_POWER_PLANT_ELECTRODE_1)
 				specialvar(VAR_RESULT, GetBattleOutcome)
 				delay(60)
-				special(SpawnCameraObject)
-				applymovement(LOCALID_CAMERA, PowerPlant_CameraGoDown)
-				waitmovement(0)
-				special(RemoveCameraObject)
+				msgbox("Wow!\nETERNATUS unleashed its energy!", MSGBOX_DEFAULT)
+				playfanfare(MUS_LEVEL_UP)
+				msgbox("DYNAMAX ENERGY now fills\nthe area!", MSGBOX_DEFAULT)
+				waitfanfare
 
 			}
 			elif (var(VAR_CSR_TURNED_ON_POWER) == 2) { //NO_B_BUTTON
 				delay(120)
 				msgbox("It seems the B BUTTON isn't\nworking.\pThe POWER couldn't be turned on!\n", MSGBOX_DEFAULT)
 				setvar(VAR_CSR_TURNED_ON_POWER, 0)
-				fadedefaultbgm
 			}
 			else {
 				msgbox("{PLAYER} gave up on the assignment.\n", MSGBOX_DEFAULT)
-				fadedefaultbgm
 			}
 			closemessage
+			fadedefaultbgm
 			special(SpawnCameraObject)
 			applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
 			waitmovement(0)
@@ -294,7 +298,7 @@ script PowerPlant_MinigameStart {
 		}
 
 	} else {
-		msgbox("yay power\n", MSGBOX_DEFAULT) //placeholder
+		msgbox("The power has been turned on!\n", MSGBOX_DEFAULT)
 	}
 	removeobject(ELECTRODE_1)
 	removeobject(ELECTRODE_2)
@@ -302,6 +306,12 @@ script PowerPlant_MinigameStart {
 	removeobject(ELECTRODE_4)
 	release
 	end
+}
+
+movement Eternatus_WalkSlowDown {
+	set_visible
+	walk_slow_down * 5
+	delay_16
 }
 
 script PowerPlant_Electrode {

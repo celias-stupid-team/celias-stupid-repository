@@ -475,7 +475,12 @@ static void Task_HandlePowerplantGameInput(u8 taskId)
             {
                 
                 PlaySE(SE_BOO);
-                //increment = SCORE_DECREASE;
+
+                //Removed the score decrease feature for now - I can imagine it getting very frustrating 
+                //If we want score decreases for incorrect buttons, we'll need to include some sort of grace period so they have time to react to the new color
+                //But honestly I'm fine with this as-is
+
+                //increment = SCORE_DECREASE; 
                 
             }
 
@@ -661,7 +666,7 @@ static void Task_Victory(u8 taskId)
     }
 }
 
-static void Task_NoB_Button(u8 taskId, u8 musicDelay)
+static void Task_NoB_Button(u8 taskId)
 {
     VarSet(VAR_CSR_TURNED_ON_POWER, NO_B_BUTTON);
     
