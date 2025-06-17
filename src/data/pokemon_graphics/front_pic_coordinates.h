@@ -5593,12 +5593,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_IVYSAUR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_VENUSAUR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_CHARMANDER_POKERAP] =
 	{
@@ -5608,17 +5608,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_CHARMELEON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_CHARIZARD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_SQUIRTLE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_WARTORTLE_POKERAP] =
 	{
@@ -5628,17 +5628,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_BLASTOISE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_CATERPIE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_METAPOD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_BUTTERFREE_POKERAP] =
 	{
@@ -5658,7 +5658,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_BEEDRILL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_PIDGEY_POKERAP] =
 	{
@@ -5668,12 +5668,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_PIDGEOTTO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 13,
 	},
 	[SPECIES_PIDGEOT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_RATTATA_POKERAP] =
 	{
@@ -5693,12 +5693,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_FEAROW_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_EKANS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_ARBOK_POKERAP] =
 	{
@@ -5708,7 +5708,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_PIKACHU_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_RAICHU_POKERAP] =
 	{
@@ -5723,7 +5723,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SANDSLASH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_NIDORINA_POKERAP] =
 	{
@@ -5733,7 +5733,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_NIDOQUEEN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_NIDORINO_POKERAP] =
 	{
@@ -5748,7 +5748,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_CLEFAIRY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_CLEFABLE_POKERAP] =
 	{
@@ -5758,12 +5758,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_VULPIX_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_NINETALES_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_JIGGLYPUFF_POKERAP] =
 	{
@@ -5783,7 +5783,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GOLBAT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_ODDISH_POKERAP] =
 	{
@@ -5813,12 +5813,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_VENONAT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_VENOMOTH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_DIGLETT_POKERAP] =
 	{
@@ -5828,17 +5828,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_DUGTRIO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MEOWTH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_PERSIAN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_PSYDUCK_POKERAP] =
 	{
@@ -5858,7 +5858,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_PRIMEAPE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_GROWLITHE_POKERAP] =
 	{
@@ -5868,7 +5868,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_ARCANINE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_POLIWAG_POKERAP] =
 	{
@@ -5888,7 +5888,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_ABRA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_KADABRA_POKERAP] =
 	{
@@ -5898,22 +5898,22 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_ALAKAZAM_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MACHOP_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 20,
 	},
 	[SPECIES_MACHOKE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MACHAMP_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_BELLSPROUT_POKERAP] =
 	{
@@ -5938,7 +5938,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_TENTACRUEL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_GEODUDE_POKERAP] =
 	{
@@ -5953,22 +5953,22 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GOLEM_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_PONYTA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_RAPIDASH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 20,
 	},
 	[SPECIES_SLOWPOKE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_SLOWBRO_POKERAP] =
 	{
@@ -5978,17 +5978,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MAGNEMITE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MAGNETON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_FARFETCHD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_DODUO_POKERAP] =
 	{
@@ -5998,7 +5998,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_DODRIO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_SEEL_POKERAP] =
 	{
@@ -6013,7 +6013,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GRIMER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MUK_POKERAP] =
 	{
@@ -6023,7 +6023,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SHELLDER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_CLOYSTER_POKERAP] =
 	{
@@ -6033,12 +6033,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GASTLY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_HAUNTER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_GENGAR_POKERAP] =
 	{
@@ -6088,7 +6088,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_EXEGGUTOR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_CUBONE_POKERAP] =
 	{
@@ -6098,17 +6098,17 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MAROWAK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 20,
 	},
 	[SPECIES_HITMONLEE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_HITMONCHAN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_LICKITUNG_POKERAP] =
 	{
@@ -6138,7 +6138,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_CHANSEY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_TANGELA_POKERAP] =
 	{
@@ -6168,12 +6168,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SEAKING_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_STARYU_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_STARMIE_POKERAP] =
 	{
@@ -6198,12 +6198,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_ELECTABUZZ_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MAGMAR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_PINSIR_POKERAP] =
 	{
@@ -6223,7 +6223,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_GYARADOS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_LAPRAS_POKERAP] =
 	{
@@ -6238,7 +6238,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_EEVEE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_VAPOREON_POKERAP] =
 	{
@@ -6253,12 +6253,12 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_FLAREON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_PORYGON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_OMANYTE_POKERAP] =
 	{
@@ -6283,7 +6283,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_AERODACTYL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_SNORLAX_POKERAP] =
 	{
@@ -6293,7 +6293,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_ARTICUNO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_ZAPDOS_POKERAP] =
 	{
@@ -6303,7 +6303,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_MOLTRES_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_DRATINI_POKERAP] =
 	{
@@ -6318,7 +6318,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_DRAGONITE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 15,
 	},
 	[SPECIES_MEWTWO_POKERAP] =
 	{

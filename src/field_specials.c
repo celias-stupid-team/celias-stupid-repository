@@ -105,6 +105,13 @@ void ForcePlayerOntoBike(void)
     Overworld_ChangeMusicTo(MUS_CYCLING);
 }
 
+void ForcePlayerOffBike(void)
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+
+}
+
 void ResetCyclingRoadChallengeData(void)
 {
 
