@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "menu.h"
 #include "menu_helpers.h"
+#include "new_menu_helpers.h"
 #include "strings.h"
 #include "text_window.h"
 #include "constants/songs.h"
