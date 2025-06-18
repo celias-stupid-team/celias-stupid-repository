@@ -112,7 +112,8 @@ script AwakeningShop_Bed {
 	fadescreen(FADE_FROM_BLACK)
 	msgbox("(something happens here idk)\n", MSGBOX_DEFAULT)
 	fadeinbgm(0)
-	finditem(ITEM_TM33)
+	giveitem_msg("{PLAYER} got a TM33!\n", ITEM_TM33)
+	release
 	end
 }
 
