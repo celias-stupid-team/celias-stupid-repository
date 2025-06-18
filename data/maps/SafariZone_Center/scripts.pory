@@ -31,6 +31,9 @@ mapscripts SafariZone_Center_MapScripts {
 			call(SafariZone_Center_BreakMiddleWall)
 			call(SafariZone_Center_BreakRightWall)
 		}
+		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
+			setflag(FLAG_TEMP_4)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
@@ -439,7 +442,7 @@ script SafariZone_Center_Chuckster {
 	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
-	special(GetPlayerFacingDirection)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	switch(var(VAR_RESULT)) {
 		case DIR_NORTH:
 			applymovement(LOCALID_PLAYER, PlayerWalkUp)
@@ -452,20 +455,26 @@ script SafariZone_Center_Chuckster {
 	}
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
 	waitmovement(LOCALID_PLAYER)
-	delay(60)
+	delay(30)
 	applymovement(LOCALID_PLAYER, WalkFastUp)
 	applymovement(VAR_LAST_TALKED, WalkFastUp)
 	waitmovement(0)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_PLAYER, Jump2Up)
 	waitmovement(0)
-	delay(60)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, Common_Movement_WalkDown)
+	delay(10)
+	
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	delay(30)
 
 }
 
 movement Jump2Up {
 	jump_2_up
-	face_down
 }
 
 movement WalkFastUp {
