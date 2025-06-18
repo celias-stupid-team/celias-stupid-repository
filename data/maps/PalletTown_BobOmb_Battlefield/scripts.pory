@@ -24,6 +24,20 @@ script BobOmbBattlefield_ChainChomp {
 	end
 }
 
+script BobOmbBattlefield_CeliaSecretEmpty {
+	msgbox("Why'd I leave a big empty space\nwith nothing in it?\pGood question!\n", MSGBOX_NPC)
+	end
+}
+
+script BobOmbBattlefield_CeliaSecretCoins {
+	msgbox("I wanted to have Game Corner\nCoins under the bridge, as a\lsilly way to call attention to the\lgenre mismatch here.\pAlas, I couldn't figure out how to\nmake it not break getting 9999\lcoins in the game corner.", MSGBOX_NPC)
+	end
+}
+
+script BobOmbBattlefield_CeliaSecretRock {
+	msgbox("This rock is here cuz the orange\ncliff color looked awful under\lthe wire fence.\pI covered it up with a rock instead\nand hoped no one would notice.", MSGBOX_NPC)
+	end
+}
 
 script BobOmbBattlefield_Star {
     lock

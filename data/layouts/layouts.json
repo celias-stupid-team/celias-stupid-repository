@@ -4397,7 +4397,7 @@
       "id": "LAYOUT_PALLET_TOWN_BOB_OMB_BATTLEFIELD",
       "name": "PalletTown_BobOmb_Battlefield_Layout",
       "width": 40,
-      "height": 40,
+      "height": 45,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BobOmbBattlefield",
