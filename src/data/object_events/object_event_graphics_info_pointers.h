@@ -318,6 +318,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Surfurret;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sesame;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wormhole;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Checkmark;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Star;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -637,4 +638,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SESAME] = &gObjectEventGraphicsInfo_Sesame,
     [OBJ_EVENT_GFX_WORMHOLE] = &gObjectEventGraphicsInfo_Wormhole,
     [OBJ_EVENT_GFX_CHECKMARK] = &gObjectEventGraphicsInfo_Checkmark,
+    [OBJ_EVENT_GFX_STAR] = &gObjectEventGraphicsInfo_Star,
 };

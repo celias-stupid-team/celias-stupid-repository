@@ -440,3 +440,4 @@ const u32 gObjectEventPic_Surfurret[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Sesame[] = INCBIN_U32("graphics/object_events/pics/stupid/Sesame.4bpp");
 const u32 gObjectEventPic_Wormhole[] = INCBIN_U32("graphics/object_events/pics/stupid/Wormhole.4bpp");
 const u32 gObjectEventPic_Checkmark[] = INCBIN_U32("graphics/object_events/pics/stupid/Checkmark.4bpp");
+const u32 gObjectEventPic_Star[] = INCBIN_U32("graphics/object_events/pics/stupid/Star.4bpp");

@@ -894,8 +894,8 @@
 #define FLAG_FUSHCIA_GYM_RIGHT_FIRST               0x33B
 #define FLAG_GOT_POINCARE_VOUCHER               0x33C
 #define FLAG_TALKED_TO_KOGA_AT_START               0x33D
-#define FLAG_0x33E               0x33E
-#define FLAG_0x33F               0x33F
+#define FLAG_RELEASED_CHOMP               0x33E
+#define FLAG_GOT_STAR               0x33F
 #define FLAG_0x340               0x340
 #define FLAG_0x341               0x341
 #define FLAG_0x342               0x342

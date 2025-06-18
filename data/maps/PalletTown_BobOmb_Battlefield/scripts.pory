@@ -1,1 +1,44 @@
 mapscripts PalletTown_BobOmb_Battlefield_MapScripts {}
+
+
+script BobOmbBattlefield_ChainChomp {
+    if(checkpartymove(MOVE_GROUND_POUND) < PARTY_SIZE) {
+        lock
+        msgbox("An extremely poorly-drawn chain\nchomp\l(I'm working on it)\pWould you like to free it using\nGROUND POUND?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            checkpartymove(MOVE_GROUND_POUND)
+            bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+            buffermovename(STR_VAR_2, MOVE_GROUND_POUND)
+	        msgbox(Text_MonUsedMove)
+            removeobject(VAR_LAST_TALKED)
+            closemessage
+            delay(30)
+            applymovement(LOCALID_STAR, StarComesDown)
+            waitmovement(0)
+            setflag(FLAG_RELEASED_CHOMP)
+            release
+            end
+        }
+    }
+	msgbox("An extremely poorly-drawn chain\nchomp\l(I'm working on it)", MSGBOX_NPC)
+	end
+}
+
+
+script BobOmbBattlefield_Star {
+    lock
+    removeobject(VAR_LAST_TALKED)
+    playfanfare(MUS_LEVEL_UP)
+    msgbox("{PLAYER} found a STARMIE!\n", MSGBOX_DEFAULT)
+    waitfanfare
+    setflag(FLAG_SHINY_CREATION)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_STARMIE)
+    call(Common_Script_GiftPokemon)
+    release
+    end
+}
+
+
+movement StarComesDown {
+    walk_down * 3
+}

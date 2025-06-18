@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -46,16 +46,16 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHAINCHOMP",
-      "x": 10,
-      "y": 4,
+      "x": 9,
+      "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "BobOmbBattlefield_ChainChomp",
+      "flag": "FLAG_RELEASED_CHOMP"
     },
     {
       "type": "object",
@@ -70,14 +70,25 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_STAR",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_STAR",
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BobOmbBattlefield_Star",
+      "flag": "FLAG_GOT_STAR"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
@@ -89,8 +100,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 29,
-      "y": 14,
+      "x": 12,
+      "y": 12,
       "elevation": 0,
       "item": "ITEM_NONE",
       "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
@@ -115,8 +126,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 27,
-      "y": 14,
+      "x": 9,
+      "y": 12,
       "elevation": 0,
       "item": "ITEM_NONE",
       "flag": "FLAG_HIDDEN_ITEM_CELADON_CITY_GAME_CORNER_COINS_4",
