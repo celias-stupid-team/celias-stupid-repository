@@ -162,6 +162,7 @@ script SafariZone_IronCleftBattle {
         clearflag(FLAG_NO_TM_CASE)
         delay(120)
         setvar(VAR_TEMP_3, 1)
+        setvar(VAR_SAFARI_ZONE_ENTRANCE, 1)
         special(RemoveCameraObject)
         release
         end

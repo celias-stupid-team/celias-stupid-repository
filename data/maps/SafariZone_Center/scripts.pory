@@ -86,6 +86,21 @@ script SafariZone_BrickBreakTM {
 	}
 }
 
+script SafariZone_KangaskhanSign {
+	lock
+	if(flag(FLAG_FREED_KANGA)) {
+		showmonpic(SPECIES_CHANSEYBLANK, 10, 3)
+		msgbox("Name: KANGASKHAN\pOurs ran away.\n", MSGBOX_DEFAULT)
+		hidemonpic
+	} else {
+		showmonpic(SPECIES_KANGASKHAN, 10, 3)
+		msgbox("Name: KANGASKHAN\n", MSGBOX_DEFAULT)
+		hidemonpic
+	}
+	release
+	end
+}
+
 const BIG_KANGA = 7
 const SMALL_KANGA = 6
 script SafariZone_KangaskahnCage {
