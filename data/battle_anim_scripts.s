@@ -11452,17 +11452,13 @@ Move_TOMBSTONER:
 
 	
 Move_FOLLOW_HIM:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	loadspritegfx ANIM_TAG_FINGER
+	createsprite gFollowHimFingerSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	delay 18
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 81
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
 	end
 	
 Move_SPIKY_SHIELD:

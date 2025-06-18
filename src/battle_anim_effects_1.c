@@ -132,6 +132,10 @@ static void AnimMetronomeFinger_Step(struct Sprite *);
 static void AnimFollowMeFinger(struct Sprite *);
 static void AnimFollowMeFinger_Step1(struct Sprite *);
 static void AnimFollowMeFinger_Step2(struct Sprite *);
+static void AnimFollowHimFinger(struct Sprite *);
+static void AnimFollowHimFinger_Step1(struct Sprite *);
+static void AnimFollowHimFinger_Step2(struct Sprite *);
+static void AnimFollowHimFinger_Step3(struct Sprite *);
 static void AnimTauntFinger(struct Sprite *);
 static void AnimTauntFinger_Step1(struct Sprite *);
 static void AnimTauntFinger_Step2(struct Sprite *);
@@ -2205,6 +2209,47 @@ const struct SpriteTemplate gFollowMeFingerSpriteTemplate =
     .images = NULL,
     .affineAnims = sMetronomeFingerAffineAnimTable,
     .callback = AnimFollowMeFinger,
+};
+
+static const union AffineAnimCmd sFollowHimAffineFingerAnimCmds1[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(0x1E, 0x1E, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sFollowHimAffineFingerAnimCmds2[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, -8, 6),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 40),
+    AFFINEANIMCMD_FRAME(-0x1E, -0x1E, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd sFollowHimAffineFingerAnimCmds3[] =
+{
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 8, 11),
+    AFFINEANIMCMD_FRAME(0, 0, 0, 40),
+    AFFINEANIMCMD_FRAME(-0x1E, -0x1E, 0, 8),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sFollowHimAffineFingerAnimTable[] =
+{
+    sFollowHimAffineFingerAnimCmds1,
+    sFollowHimAffineFingerAnimCmds2,
+    sFollowHimAffineFingerAnimCmds3,
+};
+
+const struct SpriteTemplate gFollowHimFingerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FINGER,
+    .paletteTag = ANIM_TAG_FINGER,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sFollowHimAffineFingerAnimTable,
+    .callback = AnimFollowHimFinger,
 };
 
 static const union AnimCmd sTauntFingerAnimCmds1[] =
@@ -5678,6 +5723,97 @@ static void AnimFollowMeFinger_Step2(struct Sprite* sprite)
     x1 = gSineTable[sprite->data[1]];
     x2 = x1 >> 3;
     sprite->x2 = (x1 >> 3) + (x2 >> 1);
+}
+
+static void AnimFollowHimFinger(struct Sprite* sprite)
+{
+    u8 battler;
+    
+    if (gBattleAnimArgs[0] == 0)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    sprite->x = GetBattlerSpriteCoord(battler, BATTLER_COORD_X);
+    sprite->y = GetBattlerSpriteCoordAttr(battler, BATTLER_COORD_ATTR_TOP);
+    if (sprite->y <= 9)
+        sprite->y = 10;
+
+    sprite->data[0] = 1;
+    sprite->data[1] = 0;
+    sprite->data[2] = sprite->subpriority;
+    sprite->data[3] = sprite->subpriority + 4;
+    sprite->data[4] = 0;
+
+    StoreSpriteCallbackInData6(sprite, AnimFollowHimFinger_Step1);
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+}
+
+static void AnimFollowHimFinger_Step1(struct Sprite* sprite)
+{
+    if (++sprite->data[4] > 12)
+        sprite->callback = AnimFollowHimFinger_Step2;
+}
+
+static void AnimFollowHimFinger_Step2(struct Sprite* sprite)
+{
+    s16 x1, x2;
+
+    sprite->data[1] += 4;
+    if (sprite->data[1] > 254)
+    {
+        if (--sprite->data[0] == 0)
+        {
+            sprite->x2 = 0;
+            sprite->callback = AnimFollowHimFinger_Step3;
+            return;
+        }
+        else
+        {
+            sprite->data[1] &= 0xFF;
+        }
+    }
+
+    if (sprite->data[1] > 0x4F)
+        sprite->subpriority = sprite->data[3];
+
+    if (sprite->data[1] > 0x9F)
+        sprite->subpriority = sprite->data[2];
+
+    x1 = gSineTable[sprite->data[1]];
+    x2 = x1 >> 3;
+    sprite->x2 = (x1 >> 3) + (x2 >> 1);
+}
+
+static void AnimFollowHimFinger_Step3(struct Sprite* sprite)
+{
+    u8 battler;
+    
+    if (gBattleAnimArgs[0] == 0)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+    
+    if (++sprite->data[0] > 16)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        {
+            if (GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT)
+                StartSpriteAffineAnim(sprite, 1);
+            else
+                StartSpriteAffineAnim(sprite, 2);
+        }
+        else
+        {
+            if (GetBattlerPosition(battler) == B_POSITION_OPPONENT_LEFT)
+                StartSpriteAffineAnim(sprite, 2);
+            else
+                StartSpriteAffineAnim(sprite, 1);
+        }
+
+        StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+        sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+    }
 }
 
 static void AnimTauntFinger(struct Sprite* sprite)
