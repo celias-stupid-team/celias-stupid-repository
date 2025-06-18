@@ -9929,6 +9929,7 @@ static const struct LevelUpMove sTHATSALLLevelUpLearnset[] = {
 static const struct LevelUpMove sKANGASKHANTEACHERLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_COMET_PUNCH),
 	LEVEL_UP_MOVE(1, MOVE_SUBSTITUTE_2),
+	LEVEL_UP_MOVE(1, MOVE_BITE),
 	LEVEL_UP_END
 };
 
