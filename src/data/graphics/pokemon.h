@@ -9572,3 +9572,11 @@ const u32 gMonShinyPalette_IRONBUTT[] = INCBIN_U32("graphics/pokemon/ironbutt/sh
 const u8 gMonIcon_IRONBUTT[] = INCBIN_U8("graphics/pokemon/ironbutt/icon.4bpp");
 const u8 gMonFootprint_IRONBUTT[] = INCBIN_U8("graphics/pokemon/ironbutt/footprint.1bpp");
 
+// Relicrabby
+const u32 gMonFrontPic_Relicrabby[] = INCBIN_U32("graphics/pokemon/relicrabby/front.4bpp.lz");
+const u32 gMonPalette_Relicrabby[] = INCBIN_U32("graphics/pokemon/relicrabby/normal.gbapal.lz");
+const u32 gMonBackPic_Relicrabby[] = INCBIN_U32("graphics/pokemon/relicrabby/back.4bpp.lz");
+const u32 gMonShinyPalette_Relicrabby[] = INCBIN_U32("graphics/pokemon/relicrabby/shiny.gbapal.lz");
+const u8 gMonIcon_Relicrabby[] = INCBIN_U8("graphics/pokemon/relicrabby/icon.4bpp");
+const u8 gMonFootprint_Relicrabby[] = INCBIN_U8("graphics/pokemon/relicrabby/footprint.1bpp");
+

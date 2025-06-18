@@ -1133,8 +1133,8 @@ const u8 gFlaaffyPokedexText[] = _(
 const u8 gFlaaffyPokedexTextUnused[] = _("");
 
 const u8 gAmpharosPokedexText[] = _(
-    "Maybe go for just a little\n"
-	"off the top next time.");
+	"People often lose things in the\n"
+	"darkness of the UNDERGROUND PATH.");
 
 const u8 gAmpharosPokedexTextUnused[] = _("");
 

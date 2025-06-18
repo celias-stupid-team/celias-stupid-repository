@@ -4367,6 +4367,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt21[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt22[] = {
+    
+    {
+        .iv = 0,
+        .lvl = 26,
+        .species = SPECIES_RELICANTH,
+    },
     {
         .iv = 0,
         .lvl = 26,
@@ -4380,7 +4386,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt22[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_RELICANTH,
+        .species = SPECIES_RELICRABBY,
     },
 };
 

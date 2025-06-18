@@ -432,3 +432,56 @@ script SafariZone_LaprasMeatSalesman {
 	release
 	end
 }
+
+script SafariZone_Center_Chuckster {
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	special(GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, PlayerWalkUp)
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, PlayerWalkDown)
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(60)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(60)
+
+}
+
+movement Jump2Up {
+	jump_2_up
+	face_down
+}
+
+movement WalkFastUp {
+	walk_fast_up
+	face_up
+}
+
+movement PlayerWalkUp {
+	walk_left
+	walk_up
+	face_up
+
+}
+
+movement PlayerWalkDown {
+	walk_left
+	walk_down
+	face_up
+}

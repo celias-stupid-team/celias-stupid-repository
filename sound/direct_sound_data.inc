@@ -5302,3 +5302,7 @@ Cry_IRONBUTT::
 	.incbin "sound/direct_sound_samples/cries/ironbutt.bin"
 
 	.align 2
+Cry_Relicrabby::
+	.incbin "sound/direct_sound_samples/cries/relicrabby.bin"
+
+	.align 2

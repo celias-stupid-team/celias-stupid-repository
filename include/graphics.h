@@ -12351,3 +12351,11 @@ extern const u32 gMonShinyPalette_IRONBUTT[];
 extern const u8 gMonFootprint_IRONBUTT[];
 extern const u8 gMonIcon_IRONBUTT[];
 
+// Relicrabby
+extern const u32 gMonFrontPic_Relicrabby[];
+extern const u32 gMonPalette_Relicrabby[];
+extern const u32 gMonBackPic_Relicrabby[];
+extern const u32 gMonShinyPalette_Relicrabby[];
+extern const u8 gMonFootprint_Relicrabby[];
+extern const u8 gMonIcon_Relicrabby[];
+

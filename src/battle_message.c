@@ -1879,6 +1879,27 @@ void BufferStringBattle(u16 stringId)
                         FlagSet(FLAG_SYS_CSR_VICTORY);
                     }
                     break;
+                case EVENT_BATTLE_ARIANA:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_BONEMERANG) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_ARCHER:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_GULP) {
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
+                case EVENT_BATTLE_DAD:
+                    if(sBattleMsgDataPtr->currentMove == MOVE_BRICK_BREAK) { 
+                        BattleStopLowHpSound();
+                        RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
+                        FlagSet(FLAG_SYS_CSR_VICTORY);
+                    }
+                    break;
                 default:
                     break;
             }

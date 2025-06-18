@@ -214,7 +214,7 @@
 #define FLAG_CSR_KENYA_OBTAINED         0x0BC
 
 #define FLAG_ROUTE1_ENTERED_PIT                        0x0BD
-#define FLAG_0x0BE                      0x0BE
+#define FLAG_CHRIS_GIVES_LICKITUNG                      0x0BE
 
 //Pewter City
 #define FLAG_CSR_UNUSED_3               0x0BF
@@ -291,7 +291,7 @@
 
 #define FLAG_EATEN_SIGNPOST               0x0F7
 #define FLAG_LIMIT_NOT_EXIST               0x0F8
-#define FLAG_0x0F9               0x0F9
+#define FLAG_TALKED_TO_LICKITUNG_TRADE               0x0F9
 #define FLAG_0x0FA               0x0FA
 #define FLAG_0x0FB               0x0FB
 #define FLAG_0x0FC               0x0FC

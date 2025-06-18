@@ -415,7 +415,17 @@ PokedexRating_Text_HintAlakazam::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintPlugOink::
-	.string "Placeholder!$"
+	.string "Looking for sandwich ingredients,\n"
+	.string "you say?\l"
+	.string "How tricky!\p"
+	.string "Maybe you can… … …\n"
+	.string "…Huh? Who are you?\p"
+	.string "MASTERFOF: Hey guys, I'm MASTER\n"
+	.string "FOF!\l"
+	.string "I helped CELIA with this game!\p"
+	.string "If you wanna get my FAVORITE gen 1\n"
+	.string "Pokemon, come talk to me!\l"
+	.string "I have a present!$"
 
 PokedexRating_Text_HintMachoke::
 	.string "Placeholder!$"

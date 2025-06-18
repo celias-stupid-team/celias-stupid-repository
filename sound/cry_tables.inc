@@ -1228,6 +1228,7 @@ gCryTable::
 	cry Cry_LATIASBLAZIKEN
 	cry Cry_Monica
 	cry Cry_IRONBUTT
+	cry Cry_Relicrabby
 
 
 
@@ -2466,6 +2467,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_LATIASBLAZIKEN
 	cry_reverse Cry_Monica
 	cry_reverse Cry_IRONBUTT
+	cry_reverse Cry_Relicrabby
 
 
 

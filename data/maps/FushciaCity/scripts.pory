@@ -323,7 +323,12 @@ script FushciaCity_BlackSesameSeed {
 			end
 		}
 	}
-	msgbox("ERIK: Oh?\nHello, there.\pI am but a humble black sesame seed.\nMy name is ERIK.", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_SANDWICH_CASE)) {
+		msgbox("ERIK: Oh?\nHello, there.\lI am but a humble black sesame seed.\pWhat's that?\nYou'd like me to come with you?\pSorry, but I cannot.\nI plan to see my partner SARA soon.\pI wonder where she's gone…\n", MSGBOX_DEFAULT)
+	} else {
+		msgbox("ERIK: Oh?\nHello, there.\pI am but a humble black sesame seed.\nMy name is ERIK.", MSGBOX_DEFAULT)
+
+	}
 	release
 }
 

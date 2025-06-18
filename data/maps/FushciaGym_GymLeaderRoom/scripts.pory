@@ -26,6 +26,7 @@ script FushciaGym_GymLeaderRoom_Koga {
     setflag(FLAG_REVEALED_DAD)
     applymovement(DAD, FushciaGymLeaderSpin)
     waitmovement(0)
+    setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_DAD)
     msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
     release
@@ -38,6 +39,7 @@ script FushciaGym_GymLeaderRoom_Dad {
     lock
     faceplayer
     msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_DAD)
     trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
     release
 

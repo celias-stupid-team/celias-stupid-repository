@@ -148,8 +148,28 @@ script Route1_EventScript_CeliaShiny {
 }
 
 script Route1_Bonus_Chris {
-	textcolor(NPC_TEXT_COLOR_MALE)
-	msgbox("FoF: What do you call a shiny\nHOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_NPC)
+	if(flag(FLAG_CHRIS_GIVES_LICKITUNG)) {
+		lock
+		faceplayer
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("FoF: Hey! Glad you remembered!\nHere's a present!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		setflag(FLAG_SHINY_CREATION)
+		clearflag(FLAG_CHRIS_GIVES_LICKITUNG)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} obtained the LICKITUNG!\n", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_LICKITUNG)
+		call(Common_Script_GiftPokemon)
+		textcolor(NPC_TEXT_COLOR_BLUE)
+		msgbox("For more information about this\nPOKéMON, visit Lickipedia.org!", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("FoF: What do you call a shiny\nHOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_NPC)
+	}
+
 }
 
 
