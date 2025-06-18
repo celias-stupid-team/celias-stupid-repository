@@ -43,6 +43,11 @@ script SafariZone_North_GrandDad {
 	end
 }
 
+script SafariZone_North_ShowdownSign {
+	msgbox("SAFARI ZONE\nMAIN STADIUM\pRemember to savestate frequently!\n- SAFARI ZONE, LLC.", MSGBOX_SIGN)
+	end
+}
+
 script SafariZone_North_Breloom {
 	lock
 	faceplayer

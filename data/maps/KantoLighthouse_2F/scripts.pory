@@ -17,6 +17,15 @@ script KantoLighthouse_2F_DeadMan {
 	end
 }
 
+script KantoLighthouse_2F_FallDownHole {
+    lock
+	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
+    setobjectxy(LOCALID_PLAYER, 8, 3)
+    warphole(MAP_KANTO_LIGHTHOUSE_1F)
+    release
+    end
+}
+
 script KantoLighthouse_HaircutHint {
 	msgbox("People often do things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
 	end

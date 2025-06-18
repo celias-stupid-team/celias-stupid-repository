@@ -4,10 +4,49 @@ mapscripts KantoLighthouse_3F_MapScripts {
 
 script KantoLighthouse_3F_FallDownHole {
     lock
-	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
+	call(DrawHoleFloorCovers)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_PLAYER, PlayerFallsDownHole)
+	delay(46)
+	playse(SE_FALL)
+	waitmovement(0)
     warphole(MAP_KANTO_LIGHTHOUSE_2F)
     release
     end
+}
+
+
+movement PlayerFallsDownHole {
+	delay_16 * 2
+	slide_down * 4
+}
+
+script KantoLighthouse_3F_LeftHole {
+    lock
+	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
+    goto(KantoLighthouse_3F_FallDownHole)
+
+}
+
+
+script KantoLighthouse_3F_RightHole {
+    lock
+    goto(KantoLighthouse_3F_FallDownHole)
+
+}
+
+script DrawHoleFloorCovers {
+	setmetatile(37, 37, 0x378, TRUE)
+	setmetatile(37, 38, 0x380, TRUE)
+	setmetatile(37, 39, 0x380, TRUE)
+	setmetatile(37, 40, 0x380, TRUE)
+	
+	setmetatile(47, 37, 0x378, TRUE)
+	setmetatile(47, 38, 0x380, TRUE)
+	setmetatile(47, 39, 0x380, TRUE)
+	setmetatile(47, 40, 0x380, TRUE)
+	special(DrawWholeMapView)
+	return
 }
 
 script KantoLighthouse_3F_Dad {
