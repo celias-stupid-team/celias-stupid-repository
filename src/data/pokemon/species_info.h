@@ -35577,13 +35577,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_IRONCLEFTGREEN] =
     {
-        .baseHP = 40,
+        .baseHP = 2,
         .baseAttack = 40,
         .baseDefense = 40,
         .baseSpeed = 40,
         .baseSpAttack = 40,
-        .baseSpDefense = 40,
-        .types = {TYPE_STEEL, TYPE_STEEL},
+        .baseSpDefense = 2,
+        .types = {TYPE_DRAGON, TYPE_DRAGON},
         .catchRate = 255,
         .expYield = 150,
         .evYield_HP = 1,

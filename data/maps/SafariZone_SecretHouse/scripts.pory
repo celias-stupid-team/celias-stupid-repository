@@ -43,10 +43,10 @@ script SafariZone_SecretHouse_EventScript_Prize {
 		}
 		else {
 			if(flag(FLAG_NO_TM_CASE)) {
-				msgbox(("placeholder dialogue\nTalked before, didn't get case"), MSGBOX_DEFAULT) //Needs Replaced
+				msgbox("If you want our prize, you'll\nneed to come back with a TM CASE.\pIn the meantime, I'll wait\nright here.", MSGBOX_DEFAULT)
 			}
 			else {
-				msgbox(("placeholder dialogue\n"), MSGBOX_DEFAULT) //Talked before, now we have case!
+				msgbox("Hey, congratulations!\nYou found the SECRET HOUSE!\l…Again.\pHey!\nYou have your TM CASE now!\pThat means you're eligible for\nour prize. Here!", MSGBOX_DEFAULT)
 				goto(GivingPrize)
 			}
 		}
@@ -62,8 +62,10 @@ script SafariZone_SecretHouse_EventScript_Prize {
 		//Give the TM
 		//Handle Bag issues I guess?
 		setflag(FLAG_CSR_GOT_PAY_DAY)
+		giveitem_msg("{PLAYER} received the\nTM16 (PAY DAY)!", ITEM_TM16)
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)
 		msgbox(SafariZone_SecretHouse_Text_ExplainSurf)
+		release
 }
 
 

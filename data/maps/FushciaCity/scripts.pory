@@ -387,7 +387,7 @@ script FushciaCity_OldMan {
 }
 
 script FushciaCity_OfficesSign {
-	msgbox("SAFARI ZONE OFFICES\nFinancial Division", MSGBOX_SIGN)
+	msgbox("SAFARI ZONE, LLC.\nFinancial Division", MSGBOX_SIGN)
 	end
 }
 
