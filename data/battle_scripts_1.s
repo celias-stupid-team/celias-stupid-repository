@@ -4828,7 +4828,6 @@ BattleScript_FickleBeamDoNothing::
 
 BattleScript_EffectSubstitute2::
 	attackcanceler
-	ppreduce
 	attackstring
 	waitstate
 	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute

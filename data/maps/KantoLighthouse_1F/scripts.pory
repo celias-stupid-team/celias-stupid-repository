@@ -33,3 +33,8 @@ movement LighthouseMan {
     face_left
     delay_16
 }
+
+script GTS_Attendant {
+	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM\l(GTS for short).\pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\pI hope you enjoy our services.\n", MSGBOX_NPC)
+	end
+}
