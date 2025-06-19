@@ -4,6 +4,8 @@ mapscripts KantoLighthouse_2F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(!flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
             setflag(FLAG_TEMP_1)
+        }
+        if(flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
             setflag(FLAG_LIGHTHOUSE_OLD_MAN)
         }
     }
@@ -21,7 +23,7 @@ script KantoLighthouse_2F_DeadMan {
 script KantoLighthouse_2F_FallDownHole {
     lock
 	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
-    setobjectxy(LOCALID_PLAYER, 8, 3)
+    setobjectxy(LOCALID_PLAYER, 11, 5)
     warphole(MAP_KANTO_LIGHTHOUSE_1F)
     release
     end

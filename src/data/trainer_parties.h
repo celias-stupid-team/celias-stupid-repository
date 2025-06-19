@@ -10030,12 +10030,23 @@ static const struct TrainerMonNoItemCustomMoves sParty_SodaShopShorts[] = {
 
 
 };
-static const struct TrainerMonNoItemCustomMoves sParty_SodaShopRichKid[] = {
+static const struct TrainerMonItemCustomMoves sParty_SodaShopRichKid[] = {
     {
         .iv = 0,
         .lvl = 15,
+        .heldItem = ITEM_NUGGET,
         .species = SPECIES_ZIGZAGOON,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdAndrew[] = {
+    {
+        .iv = 0,
+        .lvl = 35,
+        .species = SPECIES_GENGAR,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 

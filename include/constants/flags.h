@@ -293,7 +293,7 @@
 #define FLAG_LIMIT_NOT_EXIST               0x0F8
 #define FLAG_TALKED_TO_LICKITUNG_TRADE               0x0F9
 #define FLAG_HIDE_TM42               0x0FA
-#define FLAG_0x0FB               0x0FB
+#define FLAG_DID_AMPHAROS_TRADE               0x0FB
 #define FLAG_0x0FC               0x0FC
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
@@ -354,8 +354,8 @@
 #define FLAG_TALKED_TO_SARA               0x134
 #define FLAG_MADE_A_SANDWICH               0x135
 #define FLAG_TRIED_SLOPE               0x136
-#define FLAG_0x137               0x137
-#define FLAG_0x138               0x138
+#define FLAG_TALKED_TO_LEFT_SCAMMER               0x137
+#define FLAG_TALKED_TO_RIGHT_SCAMMER               0x138
 #define FLAG_0x139               0x139
 #define FLAG_0x13A               0x13A
 #define FLAG_0x13B               0x13B

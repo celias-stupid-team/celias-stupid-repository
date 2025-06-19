@@ -1133,8 +1133,9 @@ const u8 gFlaaffyPokedexText[] = _(
 const u8 gFlaaffyPokedexTextUnused[] = _("");
 
 const u8 gAmpharosPokedexText[] = _(
-	"People often lose things in the\n"
-	"darkness of the UNDERGROUND PATH.");
+	"Why, yes. This IS a seperate and\n"
+	"distinct POKéMON species.\n"
+	"Are there any further questions?");
 
 const u8 gAmpharosPokedexTextUnused[] = _("");
 
@@ -2699,5 +2700,5 @@ const u8 gEternatusPokedexText[] = _(
 	"Thus, all of you must die.");
         
 const u8 gAmpharosMPokedexText[] = _(
-	"So wait, how are you gonna\n"
-	"get out of here?");
+	"People often lose things in the\n"
+	"darkness of the UNDERGROUND PATH.");

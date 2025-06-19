@@ -1,6 +1,7 @@
 mapscripts KantoLighthouse_1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         clearflag(FLAG_CSR_CAUGHT_AMPHAROS)
+        setflag(FLAG_CSR_MAP_KANTO_LIGHTHOUSE)
     }
 }
 
@@ -35,6 +36,144 @@ movement LighthouseMan {
 }
 
 script GTS_Attendant {
-	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM\l(GTS for short).\pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\pI hope you enjoy our services.\n", MSGBOX_NPC)
+	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM.  \l(GTS for short)\pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\pI hope you enjoy our services!\n", MSGBOX_NPC)
 	end
+}
+
+
+script GTS_AngryNerdJim {
+    trainerbattle_single(TRAINER_ANGRY_NERD_ANDREW, "Grr…\pI hate all these people different\nthan me!", "Grumble grumble…\n")
+    msgbox("Grumble grumble…\n", MSGBOX_NPC)
+}
+
+script GTS_LowLevelGuy {
+    lock
+    if(flag(FLAG_DID_AMPHAROS_TRADE)) {
+        msgbox("Hmm, looks like there's no\ntrade today.\lDarn!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("You're asking for a…\nlevel 9 JIRACHI?\pYeah, okay bud.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script GTS_TradeSpot {
+	msgbox("OFFER: Level 80 CATERPIE{PAUSE 60}\nREQUESTED: BUTTERFREE (Any Level)\pTrainer's Note:{PAUSE 60}\nHOw do you beat brock??", MSGBOX_SIGN)
+	end
+}
+
+
+script GTS_TradeSpot_Secret {
+    lock
+    if(flag(FLAG_DID_AMPHAROS_TRADE)) {
+        msgbox("Thank you!\n", MSGBOX_DEFAULT)
+        release
+        end
+    }
+	msgbox("OFFER: Level 30 AMPHAROS{PAUSE 60}\nREQUESTED: JIRACHI\lLevel 9 or lower", MSGBOX_DEFAULT)
+    closemessage
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) >= PARTY_SIZE) {
+        release
+        end
+    }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    if(var(VAR_RESULT) == SPECIES_JIRACHI) {
+        specialvar(VAR_RESULT, ScriptGetPartyMonLevel)
+        if(var(VAR_RESULT) <= 9) {
+            msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
+            closemessage
+            setvar(VAR_0x8008, INGAME_TRADE_JIRACHI)
+            setflag(FLAG_DID_AMPHAROS_TRADE)
+            call(EventScript_DoInGameTrade)
+            msgbox("Thank you!\n", MSGBOX_DEFAULT)
+            release
+            end
+        } else {
+            playse(SE_BOO)
+            msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+            waitse
+            release
+            end
+
+        }
+    } else {
+        playse(SE_BOO)
+        msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+        waitse
+        release
+        end
+    }
+}
+
+script GTS_TradeScammer_Left {
+    lock
+    faceplayer
+    if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
+
+    } else {
+        setflag(FLAG_TALKED_TO_LEFT_SCAMMER)
+        if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
+            msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
+        } else {
+            msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
+
+        }
+        msgbox("placeholder\ndescribe scam", MSGBOX_DEFAULT)
+    }
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
+
+
+script GTS_TradeScammer_Right {
+    lock
+    faceplayer
+    if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
+
+    } else {
+        setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
+        if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
+            msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
+        } else {
+            msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
+
+        }
+        msgbox("placeholder\ndescribe scam", MSGBOX_DEFAULT)
+    }
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
+
+script GTS_WonderTradeKid {
+    lock
+    faceplayer
+    msgbox("wonder trade joke\n", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    delay(30)
+    applymovement(POKEBALL, WonderTradeBallUp)
+    delay(16)
+    playse(SE_WARP_OUT)
+    waitmovement(0)
+    delay(30)
+    playse(SE_WARP_IN)
+    applymovement(POKEBALL, WonderTradeBallDown)
+    waitmovement(0)
+    msgbox("oh no caterpie\n", MSGBOX_DEFAULT)
+    release
+}
+
+movement WonderTradeBallUp {
+    set_visible
+    delay_16
+    walk_fast_up * 6
+}
+
+
+movement WonderTradeBallDown {
+    set_visible
+    walk_fast_down * 6
 }

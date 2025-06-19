@@ -1,8 +1,40 @@
 mapscripts KantoLighthouse_3F_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+		getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+		if(var(VAR_TEMP_2) == 42) {
+			setobjectxy(LOCALID_AMPHAROS, 0, 0)
+		}
+	}
 }
 
 script KantoLighthouse_3F_FallDownHole {
+}
+
+
+movement PlayerFallsDownHole {
+	delay_16 * 2
+	slide_down * 4
+	set_invisible
+}
+
+script KantoLighthouse_3F_LeftHole {
+    lock
+	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
+	call(DrawHoleFloorCovers)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_PLAYER, PlayerFallsDownHole)
+	delay(46)
+	playse(SE_FALL)
+	waitmovement(0)
+	setobjectxy(LOCALID_PLAYER, 37, 36)
+    warphole(MAP_KANTO_LIGHTHOUSE_2F)
+    release
+    end
+
+}
+
+
+script KantoLighthouse_3F_RightHole {
     lock
 	call(DrawHoleFloorCovers)
 	special(SpawnCameraObject)
@@ -10,28 +42,10 @@ script KantoLighthouse_3F_FallDownHole {
 	delay(46)
 	playse(SE_FALL)
 	waitmovement(0)
+	setobjectxy(LOCALID_PLAYER, 47, 35)
     warphole(MAP_KANTO_LIGHTHOUSE_2F)
     release
     end
-}
-
-
-movement PlayerFallsDownHole {
-	delay_16 * 2
-	slide_down * 4
-}
-
-script KantoLighthouse_3F_LeftHole {
-    lock
-	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
-    goto(KantoLighthouse_3F_FallDownHole)
-
-}
-
-
-script KantoLighthouse_3F_RightHole {
-    lock
-    goto(KantoLighthouse_3F_FallDownHole)
 
 }
 
