@@ -4,6 +4,7 @@ mapscripts KantoLighthouse_2F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(!flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
             setflag(FLAG_TEMP_1)
+            setflag(FLAG_LIGHTHOUSE_OLD_MAN)
         }
     }
     MAP_SCRIPT_ON_LOAD {

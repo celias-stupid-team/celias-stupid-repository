@@ -9,8 +9,13 @@ script KantoLighthouse_1F_OldMan {
     faceplayer
 	msgbox("Ah, finally the power is back\non!\pI've been waiting here before\nmaking the climb up.\lI wouldn't want to trip and fall!\pHo!\nThat'd be rather nasty indeed!\pWell, off I go.\nMeet you at the top?", MSGBOX_DEFAULT)
     closemessage
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_EAST) {
+        applymovement(LOCALID_PLAYER, PlayerGetsOutOfWay)
+        delay(20)
+    }
     applymovement(VAR_LAST_TALKED, LighthouseMan)
-    waitmovement(0)
+    waitmovement(VAR_LAST_TALKED)
     removeobject(VAR_LAST_TALKED)
     playse(SE_EXIT)
     setflag(FLAG_LIGHTHOUSE_OLD_MAN)
@@ -18,9 +23,13 @@ script KantoLighthouse_1F_OldMan {
     release
 }
 
-movement LighthouseMan {
+movement PlayerGetsOutOfWay {
     walk_up
-    walk_right * 2
-    face_right
+    face_down
+}
+
+movement LighthouseMan {
+    walk_left * 2
+    face_left
     delay_16
 }
