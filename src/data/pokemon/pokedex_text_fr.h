@@ -543,8 +543,9 @@ const u8 gMukPokedexText[] = _(
 const u8 gMukPokedexTextUnused[] = _("");
 
 const u8 gShellderPokedexText[] = _(
-	"psst you should still evolve\n"
-	"this one");
+	"Hey, stop!\n"
+	"Selling seashells requires a\n"
+	"permit!");
 
 const u8 gShellderPokedexTextUnused[] = _("");
 
@@ -1133,9 +1134,9 @@ const u8 gFlaaffyPokedexText[] = _(
 const u8 gFlaaffyPokedexTextUnused[] = _("");
 
 const u8 gAmpharosPokedexText[] = _(
-	"Why, yes. This IS a seperate and\n"
-	"distinct POKéMON species.\n"
-	"Are there any further questions?");
+	"Why, yes.\n"
+	"This IS a distinct POKéMON species.\n"
+	"Any further questions?");
 
 const u8 gAmpharosPokedexTextUnused[] = _("");
 

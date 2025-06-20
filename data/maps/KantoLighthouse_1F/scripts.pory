@@ -3,6 +3,11 @@ mapscripts KantoLighthouse_1F_MapScripts {
         clearflag(FLAG_CSR_CAUGHT_AMPHAROS)
         setflag(FLAG_CSR_MAP_KANTO_LIGHTHOUSE)
     }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
+            setmetatile(11, 4, 0x32A, FALSE)
+        }
+    }
 }
 
 script KantoLighthouse_1F_OldMan {
@@ -36,7 +41,7 @@ movement LighthouseMan {
 }
 
 script GTS_Attendant {
-	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM.  \l(GTS for short)\pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\pI hope you enjoy our services!\n", MSGBOX_NPC)
+	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM! \pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\lI hope you enjoy our services!\n", MSGBOX_NPC)
 	end
 }
 
@@ -57,7 +62,7 @@ script GTS_LowLevelGuy {
 }
 
 script GTS_TradeSpot {
-	msgbox("OFFER: Level 80 CATERPIE{PAUSE 60}\nREQUESTED: BUTTERFREE (Any Level)\pTrainer's Note:{PAUSE 60}\nHOw do you beat brock??", MSGBOX_SIGN)
+	msgbox("OFFER: Level 80 CATERPIE{PAUSE 30}\nREQUESTED: BUTTERFREE {PAUSE 30}(Any Level)\pTrainer's Note:{PAUSE 30}\nHOw do you beat brock??", MSGBOX_SIGN)
 	end
 }
 
@@ -110,45 +115,96 @@ script GTS_TradeScammer_Left {
     lock
     faceplayer
     if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
+        msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            goto(GTS_LeftScammerMeat)
+        } else {
+            msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+            release
 
+        }
     } else {
-        setflag(FLAG_TALKED_TO_LEFT_SCAMMER)
         if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
             msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                
+                setflag(FLAG_TALKED_TO_LEFT_SCAMMER)
+                msgbox("Sick - Here's the plan:\pYou give me some POKéMON, doesn't\nmatter which.\pThen, I'll tell people that it's\nextremely rare and valuable.\lThat way, we get high-value offers!\pWhen all's said and done, we'll\nget something awesome out of it!\lHow about it?", MSGBOX_YESNO)
+                if(var(VAR_RESULT)) {
+                    goto(GTS_LeftScammerMeat)
+                }
 
+            } else {
+                msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+                release
+            }
+           
         }
-        msgbox("placeholder\ndescribe scam", MSGBOX_DEFAULT)
     }
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
     waitmovement(0)
     release
 }
 
+script GTS_LeftScammerMeat {
+    release
+
+}
+
+script GTS_SetMachineTop {
+    setmetatile(11, 4, 0x31B, FALSE)
+    special(DrawWholeMapView)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
 
 script GTS_TradeScammer_Right {
     lock
     faceplayer
     if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
-
+        msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            goto(GTS_RightScammerMeat)
+        } else {
+            msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+            release
+        }
     } else {
-        setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
         if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
             msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                
+                setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
+                msgbox("Sick - Here's the plan:\pYou give me some POKéMON, doesn't\nmatter which.\pThen, I'll tell people that it's\nextremely rare and valuable.\lThat way, we get high-value offers!\pWhen all's said and done, we'll\nget something awesome out of it!\lHow about it?", MSGBOX_YESNO)
+                if(var(VAR_RESULT)) {
+                    goto(GTS_RightScammerMeat)
+                }
 
+            } else {
+                msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+                release
+            }
+           
         }
-        msgbox("placeholder\ndescribe scam", MSGBOX_DEFAULT)
     }
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
     waitmovement(0)
     release
 }
 
+
+script GTS_RightScammerMeat {
+    release
+}
+
 script GTS_WonderTradeKid {
     lock
+    setmetatile(11, 4, 0x32A, FALSE)
+    special(DrawWholeMapView)
     faceplayer
     msgbox("wonder trade joke\n", MSGBOX_DEFAULT)
     closemessage
@@ -162,7 +218,10 @@ script GTS_WonderTradeKid {
     playse(SE_WARP_IN)
     applymovement(POKEBALL, WonderTradeBallDown)
     waitmovement(0)
+    delay(30)
     msgbox("oh no caterpie\n", MSGBOX_DEFAULT)
+    setmetatile(11, 4, 0x31B, FALSE)
+    special(DrawWholeMapView)
     release
 }
 

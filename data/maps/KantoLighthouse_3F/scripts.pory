@@ -2,7 +2,7 @@ mapscripts KantoLighthouse_3F_MapScripts {
     MAP_SCRIPT_ON_LOAD {
 		getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 		if(var(VAR_TEMP_2) == 42) {
-			setobjectxy(LOCALID_AMPHAROS, 0, 0)
+			setobjectxyperm(LOCALID_AMPHAROS, 0, 0)
 		}
 	}
 }

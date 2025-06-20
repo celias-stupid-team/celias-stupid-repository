@@ -1,9 +1,7 @@
 raw `
 .equ RECEIVED_TOWN_MAP, VAR_TEMP_1
 
-PalletTown_RivalsHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_RivalsHouse_OnTransition
-	.byte 0
+
 
 PalletTown_RivalsHouse_OnTransition::
 	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_MoveDaisyToTable
@@ -153,6 +151,15 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 
 `
+
+mapscripts PalletTown_RivalsHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PalletTown_RivalsHouse_OnTransition
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_BROKE_RIVALS_WALL)) {
+			call(RivalsHouse_DrawBrokenWall)
+		}
+	}
+}
 
 script EventScript_DaisyTile {
 	lock
@@ -310,6 +317,17 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 		
 	}
 	release
+}
+
+script RivalsHouse_DrawBrokenWall {
+	
+				setmetatile(14, 9, 0x009, FALSE)
+				setmetatile(14, 10, 0x009, FALSE)
+				setmetatile(13, 9, 0x366, TRUE)
+				setmetatile(13, 10, 0x36E, TRUE)
+				setmetatile(15, 9, 0x367, TRUE)
+				setmetatile(15, 10, 0x36F, TRUE)
+				return
 }
 
 movement BackUp {

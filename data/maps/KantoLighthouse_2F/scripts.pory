@@ -21,8 +21,13 @@ script KantoLighthouse_2F_DeadMan {
 }
 
 script KantoLighthouse_2F_FallDownHole {
-    lock
 	setflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
+	call(DrawHoleFloorCovers)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_PLAYER, PlayerFallsDownHole)
+	delay(46)
+	playse(SE_FALL)
+	waitmovement(0)
     setobjectxy(LOCALID_PLAYER, 11, 5)
     warphole(MAP_KANTO_LIGHTHOUSE_1F)
     release
@@ -31,5 +36,11 @@ script KantoLighthouse_2F_FallDownHole {
 
 script KantoLighthouse_HaircutHint {
 	msgbox("People often do things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
+	end
+}
+
+
+script KantoLighthouse_TopHalfLady {
+	msgbox("Phew, good thing the entire top\nhalf of the LIGHTHOUSE is intact!\pThe week they remodeled downstairs,\nthere were at least 12 shipwrecks.\lThe debris really ruined the view!", MSGBOX_NPC)
 	end
 }
