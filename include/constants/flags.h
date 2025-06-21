@@ -356,10 +356,10 @@
 #define FLAG_TRIED_SLOPE               0x136
 #define FLAG_TALKED_TO_LEFT_SCAMMER               0x137
 #define FLAG_TALKED_TO_RIGHT_SCAMMER               0x138
-#define FLAG_LEFT_SCAMMER_HAS_MON               0x139
-#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A
-#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B
-#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C
+#define FLAG_LEFT_SCAMMER_HAS_MON               0x139 // Left Scammer has been given a Pokemon, so he won't ask for another.
+#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A // Right Scammer has been given a Pokemon, so he won't ask for another.
+#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B // Right Scammer has sent a mon over and the Left Scammer has recieved it. Right Scammer will not prompt until you take it
+#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C // Left Scammer has sent a mon over and Right Scammer has recieved it. Left Scammer will not prompt until you grab it
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_0x13E               0x13E
 #define FLAG_0x13F               0x13F

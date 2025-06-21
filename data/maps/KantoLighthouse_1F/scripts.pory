@@ -257,6 +257,7 @@ script GTS_LeftScammerMeat {
         // while you haven't withdrawn the other side, 
     } else {
 	    special(StoreSelectedPokemonInDaycare)
+        setflag(FLAG_LEFT_SCAMMER_HAS_MON)
         copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
         msgbox("Haha, thanks!\pI'll see what I can swipe with\nthis.", MSGBOX_DEFAULT)
 
@@ -411,6 +412,7 @@ script GTS_RightScammerMeat {
     } else {
 	    special(StoreSelectedPokemonInDaycare)
         copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
+        setflag(FLAG_RIGHT_SCAMMER_HAS_MON)
         msgbox("Haha, thanks!\pI'll see what I can swipe with\nthis.", MSGBOX_DEFAULT)
 
     }
