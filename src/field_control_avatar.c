@@ -807,6 +807,7 @@ static bool8 CheckStandardWildEncounter(u32 metatileAttributes)
 
 static bool8 TrySetUpWalkIntoSignpostScript(struct MapPosition * position, u16 metatileBehavior, u8 playerDirection)
 {
+    /*
     u8 signpostType;
     const u8 * script;
     if (JOY_HELD(DPAD_LEFT | DPAD_RIGHT))
@@ -845,6 +846,8 @@ static bool8 TrySetUpWalkIntoSignpostScript(struct MapPosition * position, u16 m
         SetUpWalkIntoSignScript(script, playerDirection);
         return TRUE;
     }
+    */
+   return FALSE; //I fuckin hate this feature
 }
 
 static u8 GetFacingSignpostType(u16 metatileBehavior, u8 playerDirection)

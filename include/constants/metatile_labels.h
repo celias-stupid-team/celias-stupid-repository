@@ -225,6 +225,9 @@
 #define METATILE_RestaurantHotel_CoveringFloorShaded  0x2EC
 #define METATILE_RestaurantHotel_TopEdge              0x2E8
 
+// gTileset_Route15
+#define METATILE_Route15_LIGHTHOUSE_DOOR  0x2DA
+
 // gTileset_Route18_SkyPillar
 #define METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_LEFT    0x363
 #define METATILE_Route18_SkyPillar_ZAPDOS_BOTTOM_MIDDLE  0x364

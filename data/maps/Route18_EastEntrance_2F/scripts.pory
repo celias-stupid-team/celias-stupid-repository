@@ -1,6 +1,5 @@
 raw `
-Route18_EastEntrance_2F_MapScripts::
-	.byte 0
+
 
 Route18_EastEntrance_2F_EventScript_LeftBinoculars::
 	msgbox Route18_EastEntrance_2F_Text_PalletTownInWest, MSGBOX_SIGN
@@ -13,6 +12,8 @@ Route18_EastEntrance_2F_EventScript_RightBinoculars::
 Route18_EastEntrance_2F_EventScript_Haden::
 	lock
 	faceplayer
+	setflag FLAG_TALKED_TO_LICKITUNG_TRADE
+	call SetPlayerPokedexValues
 	setvar VAR_0x8008, INGAME_TRADE_LICKITUNG
 	call EventScript_GetInGameTradeSpeciesInfo
 	goto_if_set FLAG_DID_MARC_TRADE, Route18_EastEntrance_2F_EventScript_AlreadyTraded
@@ -57,7 +58,11 @@ script Route18_Pickles {
 	call(FushciaCity_MakeASandwich)
 	return
 }
-
+mapscripts Route18_EastEntrance_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		call(SetPlayerPokedexValues)
+	}
+}
 // Other binoculars look at Sky Pillar
 
 const LASS = 2

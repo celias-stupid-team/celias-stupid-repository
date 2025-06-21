@@ -33,6 +33,21 @@ mapscripts SafariZone_North_MapScripts {
 	
 }
 
+script SafariZone_North_GrandDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script SafariZone_North_ShowdownSign {
+	msgbox("SAFARI ZONE\nMAIN STADIUM\pRemember to savestate frequently!\n- SAFARI ZONE, LLC.", MSGBOX_SIGN)
+	end
+}
+
 script SafariZone_North_Breloom {
 	lock
 	faceplayer

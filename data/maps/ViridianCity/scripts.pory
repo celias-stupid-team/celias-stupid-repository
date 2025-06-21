@@ -226,7 +226,7 @@ ViridianCity_EventScript_OldManGymLeaderReturned::
 
 ViridianCity_EventScript_TutorialOldMan::
 	lock
-	faceplayer
+	
 	goto_if_set FLAG_BADGE01_GET, ViridianCity_EventScript_TeachyTVNotHelpful
 	goto_if_ge VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_TutorialCompleted
 	goto_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1, ViridianCity_EventScript_TutorialStart
@@ -245,12 +245,10 @@ ViridianCity_EventScript_TeachyTVNotHelpful::
 	release
 	end
 
-ViridianCity_EventScript_TutorialCompleted::
-	msgbox ViridianCity_Text_WeakenMonsFirstToCatch
-	release
-	end
+
 
 ViridianCity_EventScript_TutorialStart::
+	faceplayer
 	call ViridianCity_EventScript_DoTutorialBattle
 	release
 	end
@@ -357,13 +355,21 @@ ViridianCity_EventScript_DoTutorialBattle::
 	goto_if_questlog EventScript_ReleaseEnd
 	special QuestLog_CutRecording
 	special StartOldManTutorialBattle
+	delay 58
+	removeobject LOCALID_TUTORIAL_MAN
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN
+	delay 1
+	setobjectmovementtype LOCALID_TUTORIAL_MAN, MOVEMENT_TYPE_FACE_DOWN
+	addobject LOCALID_TUTORIAL_MAN
 	waitstate
 	lock
-	faceplayer
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
+	delay 20
+	
 	call SetPlayerPokedexValues
 	clearflag FLAG_SHINY_CREATION
-	msgbox ViridianCity_Text_WatchThatToLearnBasics
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	setflag FLAG_TEMP_4
 	return
 `
 
@@ -719,6 +725,18 @@ script ViridianCity_SetShinyWeedle {
 		setflag(FLAG_TEMP_3)
 		setwildbattle(SPECIES_WEEDLE, 6)
 		dowildbattle
+	}
+	release
+}
+
+script ViridianCity_EventScript_TutorialCompleted {
+	if(flag(FLAG_TEMP_4)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox(ViridianCity_Text_WeakenMonsFirstToCatch)
+
+	} else {
+		faceplayer
+		msgbox("I am 30 years old.\n", MSGBOX_DEFAULT)
 	}
 	release
 }

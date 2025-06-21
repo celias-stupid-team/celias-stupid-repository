@@ -458,4 +458,6 @@ gSpecials::
 	def_special TeleportCamera
 	def_special SocialSecurityCheck
 	def_special CreateMail
+	def_special ForcePlayerOffBike
+	def_special ScriptGetPartyMonLevel
 gSpecialsEnd::

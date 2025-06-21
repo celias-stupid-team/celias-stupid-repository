@@ -63,7 +63,7 @@ script Route13_LookLookSign {
 		msgbox("TRAINER TIPS!\pLook, look!\nTo the right of this sign!", MSGBOX_DEFAULT)
 		closemessage
 		delay(30)
-		special(GetPlayerFacingDirection)
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
 		if(var(VAR_RESULT) == DIR_EAST) {
 			addvar(VAR_TEMP_1, 1)
 			applymovement(VAR_LAST_TALKED, Common_Movement_WalkRight)

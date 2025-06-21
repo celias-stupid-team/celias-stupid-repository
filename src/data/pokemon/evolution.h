@@ -60,14 +60,15 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_ABRA]       = {{EVO_TRADE, 0, SPECIES_ALAKAZAM}},
     
 
-    [SPECIES_MACHOKE]    = {{EVO_TRADE, 0, SPECIES_MACHAMP}}, //Only if traded for a Graveler
+    
+    [SPECIES_MACHOKE]   = {{EVO_HAIRCUT, 1, SPECIES_MACHAMP}}, //Only if traded for a Graveler
 
     [SPECIES_BELLSPROUT] = {{EVO_LEVEL, 20, SPECIES_CHERUBI}},
 
     [SPECIES_TENTACOOL]  = {{EVO_ITEM, ITEM_RUNNING_SHOES, SPECIES_TOEDSCOOL}},
 
     [SPECIES_GEODUDE]    = {{EVO_LEVEL, 20, SPECIES_GRAVELER}},
-    [SPECIES_GRAVELER]   = {{EVO_TRADE, 0, SPECIES_GOLEM}},                             //Only if traded for Machoke
+    [SPECIES_GRAVELER]   = {{EVO_HAIRCUT, 1, SPECIES_GOLEM}},                             //Only if traded for Machoke
     [SPECIES_PONYTA]     = {{EVO_LEVEL, 40, SPECIES_RAPIDASH}},
  
 

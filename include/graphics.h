@@ -12335,3 +12335,27 @@ extern const u32 gItemIconPalette_SandwichCase[];
 
 extern const u32 gItemIcon_Bread[];
 extern const u32 gItemIconPalette_Bread[];
+// Monica
+extern const u32 gMonFrontPic_Monica[];
+extern const u32 gMonPalette_Monica[];
+extern const u32 gMonBackPic_Monica[];
+extern const u32 gMonShinyPalette_Monica[];
+extern const u8 gMonFootprint_Monica[];
+extern const u8 gMonIcon_Monica[];
+
+// IRON_BUTT
+extern const u32 gMonFrontPic_IRONBUTT[];
+extern const u32 gMonPalette_IRONBUTT[];
+extern const u32 gMonBackPic_IRONBUTT[];
+extern const u32 gMonShinyPalette_IRONBUTT[];
+extern const u8 gMonFootprint_IRONBUTT[];
+extern const u8 gMonIcon_IRONBUTT[];
+
+// Relicrabby
+extern const u32 gMonFrontPic_Relicrabby[];
+extern const u32 gMonPalette_Relicrabby[];
+extern const u32 gMonBackPic_Relicrabby[];
+extern const u32 gMonShinyPalette_Relicrabby[];
+extern const u8 gMonFootprint_Relicrabby[];
+extern const u8 gMonIcon_Relicrabby[];
+

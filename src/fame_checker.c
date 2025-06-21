@@ -1138,6 +1138,13 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
                 27 * (i / 3) + 0x2F
             );
             result = TRUE;
+            sFameCheckerData->spriteIds[i] = CreateFameCheckerObject(
+                OBJ_EVENT_GFX_CHECKMARK,
+                i,
+                47 * (i % 3) + 0x72,
+                27 * (i / 3) + 0x2F
+            );
+            result = TRUE;
         }
         else
         {

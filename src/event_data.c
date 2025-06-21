@@ -67,6 +67,7 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SHINY_CREATION); //Clear shiny flag on load
     FlagClear(FLAG_FORCE_AI_SWITCH_IN_ORDER);
     FlagClear(FLAG_SYS_SNORLAX_FIGHT);
+    FlagClear(FLAG_SYS_KANGA_FIGHT);
     FlagClear(FLAG_SYS_CSR_VICTORY);
     RunScriptImmediately(SetPlayerPokedexValues);
 }
