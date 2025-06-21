@@ -41,7 +41,7 @@ script SafariZone_WhiteSesameSeed {
 		end
 	}
 	if(flag(FLAG_TALKED_TO_SARA)) {
-		msgbox("SARA: ERIK and I are together, see.\nBut…{PAUSE 20} I'm not so sure anymore.\pHe always forgets about our plans.\nMaybe it's best if we split.", MSGBOX_SIGN)
+		msgbox("SARA: ERIK and I are together, see.\nBut…{PAUSE 20} I'm not so sure anymore.\pHe always forgets about our plans.\nMaybe it's best if we move on.\pIf you see him, could you bring\nhim to me?\lWe need to talk through this.", MSGBOX_SIGN)
 		end
 	} else {
 	setflag(FLAG_TALKED_TO_SARA)

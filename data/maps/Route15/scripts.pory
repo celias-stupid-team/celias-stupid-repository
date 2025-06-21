@@ -30,6 +30,11 @@ mapscripts Route15_MapScripts {
 	
 }
 
+script CeliaSecrets_LighthouseSign {
+	msgbox("Getting the LIGHTHOUSE sign to\nonly be visible once the camera\lpanned up was fun.\pEspecially cuz you can see the\ntop of the lighthouse from above.", MSGBOX_NPC)
+	end
+}
+
 script Route15_BakerySign {
 	msgbox("Traditional American Bakery!\n", MSGBOX_SIGN)
 }

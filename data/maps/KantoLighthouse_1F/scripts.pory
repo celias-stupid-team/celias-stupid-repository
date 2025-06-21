@@ -23,6 +23,31 @@ mapscripts KantoLighthouse_1F_MapScripts {
     ]
 }
 
+script CeliaSecret_TradeGuys {
+	msgbox("Fun fact: These guys function\nusing the Day Care system!\pWhen you give one of them a mon,\nit deposits it into the day care.\pThen when you walk to the other guy\nthe mon you give is also put into\lthe day care, and the other mon is\ltaken out!\pThis gives the impression of them\nswapping a mon between each other.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_Cabinet {
+	msgbox("I had to do a lot of script fuckery\nto make this cabinet appear right\lwhile sending the pokeball.\pWhen you walk behind it, normally\nit's layered in front of you.\lSwitching it temporarily took work", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_LighthosueStatue {
+	msgbox("This area is almost fully blocked\noff unless you go out of your way\lto catch the statue mons.\pFor the 2% of you who found the\nother way in, I hope I didn't\ljust spoil you!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_GengarGuy {
+	msgbox("I will not elaborate on why\nthis guy is here.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecret_LighthosueGTS {
+	msgbox("I had two major roadblocks in\ndemo 3:\pI wanted the GTS to be\nsomewhere, and I had no clue\lwhat to do with the LIGHTHOUSE.\pShoving it here solved both\nproblems!", MSGBOX_NPC)
+	end
+}
+
 script KantoLighthouse_1F_OldMan {
     lock
     faceplayer
@@ -128,6 +153,50 @@ script GTS_TradeSpot_Secret {
 script GTS_TradeScammer_Left {
     lock
     faceplayer
+
+        if(flag(FLAG_LEFT_SCAMMER_HAS_MON)) {
+        msgbox("I have a mon\n(placeholder)", MSGBOX_DEFAULT)
+                goto(GTS_Scammers_ReleaseEnd)
+    }
+    if(flag(FLAG_LEFT_SCAMMER_RECIEVED_MON)) {
+        msgbox("I have recieved pokemon\n", MSGBOX_DEFAULT)
+        setvar(VAR_0x8004, 0)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+        delay(30)
+        getpartysize
+        if(var(VAR_RESULT) >= PARTY_SIZE) {
+            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            goto(GTS_Scammers_ReleaseEnd)
+
+        }
+        specialvar(VAR_RESULT, TakePokemonFromDaycare)
+        waitse
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        waitmoncry
+        closemessage
+        playfanfare(MUS_LEVEL_UP)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("Later!\n", MSGBOX_DEFAULT)
+        
+        if(flag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)) {
+            //evolve your Pokemon
+            getpartysize
+            subvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+            waitstate
+
+        }
+
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+
+
     if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
         msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
@@ -277,10 +346,44 @@ script GTS_TradeScammer_Right {
     faceplayer
     if(flag(FLAG_RIGHT_SCAMMER_HAS_MON)) {
         msgbox("I have a mon\n(placeholder)", MSGBOX_DEFAULT)
-        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
-        waitmovement(0)
-        release
-        end
+                goto(GTS_Scammers_ReleaseEnd)
+    }
+    if(flag(FLAG_RIGHT_SCAMMER_RECIEVED_MON)) {
+        msgbox("I have recieved pokemon\n", MSGBOX_DEFAULT)
+        setvar(VAR_0x8004, 0)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+        delay(30)
+        getpartysize
+        if(var(VAR_RESULT) >= PARTY_SIZE) {
+            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            goto(GTS_Scammers_ReleaseEnd)
+
+        }
+        specialvar(VAR_RESULT, TakePokemonFromDaycare)
+        waitse
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        waitmoncry
+        closemessage
+        playfanfare(MUS_LEVEL_UP)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("Later!\n", MSGBOX_DEFAULT)
+        
+        if(flag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)) {
+            //evolve your Pokemon
+            getpartysize
+            subvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+            waitstate
+
+        }
+
+        goto(GTS_Scammers_ReleaseEnd)
     }
     if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
         msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
@@ -288,7 +391,7 @@ script GTS_TradeScammer_Right {
             goto(GTS_RightScammerMeat)
         } else {
             msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
-            release
+                goto(GTS_Scammers_ReleaseEnd)
         }
     } else {
         if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {

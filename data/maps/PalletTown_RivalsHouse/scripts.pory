@@ -260,9 +260,9 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 	}
 	switch(var(VAR_TEMP_4)) {
 		case 0:
-			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+			msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
 		case 1:
-			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it\nagain?", MSGBOX_YESNO)
+			msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it\nagain?", MSGBOX_YESNO)
 		case 2:
 			msgbox("An off-center picture of three\nlit bombs.\pWanna do it again?\n", MSGBOX_YESNO)
 	}
