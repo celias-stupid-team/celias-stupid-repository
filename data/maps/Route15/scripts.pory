@@ -17,9 +17,17 @@ mapscripts Route15_MapScripts {
 		}
 		if(!flag(FLAG_JUMPED_FROM_LIGHTHOUSE)) {
 			setflag(FLAG_TEMP_7)
+		} else {
+			setflag(FLAG_TEMP_4)
 		}
 		setbench(BENCH_ROUTE15)
+		if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
+			setflag(FLAG_TEMP_4)
+		} else {
+			setflag(FLAG_TEMP_5)
+		}
 	}
+	
 }
 
 script Route15_BakerySign {

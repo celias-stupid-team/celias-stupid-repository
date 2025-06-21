@@ -6316,7 +6316,17 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_SodaShopRichKid),
+        .party = ITEM_CUSTOM_MOVES(sParty_SodaShopRichKid),
+    },
+    [TRAINER_ANGRY_NERD_ANDREW] = {
+        .trainerClass = TRAINER_CLASS_ANGRY_NERD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BIKER,
+        .trainerName = _("DUKE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_AngryNerdAndrew),
     },
 
     

@@ -31,6 +31,9 @@ mapscripts SafariZone_Center_MapScripts {
 			call(SafariZone_Center_BreakMiddleWall)
 			call(SafariZone_Center_BreakRightWall)
 		}
+		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
+			setflag(FLAG_TEMP_4)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
@@ -81,6 +84,21 @@ script SafariZone_BrickBreakTM {
 		msgbox("Too bad!\nThere's no TM CASE…", MSGBOX_DEFAULT)
 		release
 	}
+}
+
+script SafariZone_KangaskhanSign {
+	lock
+	if(flag(FLAG_FREED_KANGA)) {
+		showmonpic(SPECIES_CHANSEYBLANK, 10, 3)
+		msgbox("Name: KANGASKHAN\pOurs ran away.\n", MSGBOX_DEFAULT)
+		hidemonpic
+	} else {
+		showmonpic(SPECIES_KANGASKHAN, 10, 3)
+		msgbox("Name: KANGASKHAN\n", MSGBOX_DEFAULT)
+		hidemonpic
+	}
+	release
+	end
 }
 
 const BIG_KANGA = 7
@@ -431,4 +449,63 @@ script SafariZone_LaprasMeatSalesman {
 	waitmovement(0)
 	release
 	end
+}
+
+script SafariZone_Center_Chuckster {
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, PlayerWalkUp)
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, PlayerWalkDown)
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, Common_Movement_WalkDown)
+	delay(10)
+	
+	applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	delay(30)
+
+}
+
+movement Jump2Up {
+	jump_2_up
+}
+
+movement WalkFastUp {
+	walk_fast_up
+	face_up
+}
+
+movement PlayerWalkUp {
+	walk_left
+	walk_up
+	face_up
+
+}
+
+movement PlayerWalkDown {
+	walk_left
+	walk_down
+	face_up
 }

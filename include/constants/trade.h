@@ -19,6 +19,7 @@
 #define INGAME_TRADE_HAUNTER 6
 #define INGAME_TRADE_MEWTWO   7
 #define INGAME_TRADE_SEEL      8
+#define INGAME_TRADE_JIRACHI      9
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0

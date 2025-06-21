@@ -1,7 +1,5 @@
 raw `
-CeladonCity_DepartmentStore_4F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION CeladonDeptStoneEmporium_OnTransition
-	.byte 0
+
 
 CeladonCity_DepartmentStore_4F_EventScript_Man::
 	msgbox CeladonCity_DepartmentStore_4F_Text_GettingPokeDollAsPresent, MSGBOX_NPC
@@ -38,6 +36,21 @@ CeladonCity_DepartmentStore_4F_Items::
 	release
 	end
 `
+mapscripts CeladonCity_DepartmentStore_4F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CeladonDeptStoneEmporium_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_3, 1 {
+			setvar(VAR_TEMP_3, 0)
+			setflag(FLAG_SHINY_CREATION)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CLEFAIRY)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} obtained a CLEFAIRY!\n", MSGBOX_DEFAULT)
+			waitfanfare
+			call(Common_Script_GiftPokemon)
+			release
+		}
+	]
+}
 script CeladonDeptStoneEmporium_OnTransition {
 	setflag(FLAG_CSR_MAP_STONE_EMPORIUM)
 	call(SetPlayerPokedexValues)

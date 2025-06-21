@@ -5,7 +5,7 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 
 script FushciaGym_ImposterOakRoom_ImposterOak{
     lock
-    special(GetPlayerFacingDirection)
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
     if(checkitem(ITEM_WAILMER_PAIL)) {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox("There is an odd tree in the way.\nWould you like to WATER it?", MSGBOX_YESNO)

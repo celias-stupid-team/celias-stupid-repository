@@ -173,7 +173,7 @@ script DanceTheater_Pikachu {
     if(flag(FLAG_PUT_ASH_IN_SACK)) {
         msgbox("POKéKID: Huh?\nWhere'd that guy go?", MSGBOX_DEFAULT)
     } else {
-        special(GetPlayerFacingDirection)
+        specialvar(VAR_RESULT, GetPlayerFacingDirection)
         //if(var(VAR_RESULT) == DIR_SOUTH) {
             applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
             delay(30)

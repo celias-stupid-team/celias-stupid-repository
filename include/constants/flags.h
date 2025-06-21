@@ -214,7 +214,7 @@
 #define FLAG_CSR_KENYA_OBTAINED         0x0BC
 
 #define FLAG_ROUTE1_ENTERED_PIT                        0x0BD
-#define FLAG_0x0BE                      0x0BE
+#define FLAG_CHRIS_GIVES_LICKITUNG                      0x0BE
 
 //Pewter City
 #define FLAG_CSR_UNUSED_3               0x0BF
@@ -291,9 +291,9 @@
 
 #define FLAG_EATEN_SIGNPOST               0x0F7
 #define FLAG_LIMIT_NOT_EXIST               0x0F8
-#define FLAG_0x0F9               0x0F9
-#define FLAG_0x0FA               0x0FA
-#define FLAG_0x0FB               0x0FB
+#define FLAG_TALKED_TO_LICKITUNG_TRADE               0x0F9
+#define FLAG_HIDE_TM42               0x0FA
+#define FLAG_DID_AMPHAROS_TRADE               0x0FB
 #define FLAG_0x0FC               0x0FC
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
@@ -354,13 +354,13 @@
 #define FLAG_TALKED_TO_SARA               0x134
 #define FLAG_MADE_A_SANDWICH               0x135
 #define FLAG_TRIED_SLOPE               0x136
-#define FLAG_0x137               0x137
-#define FLAG_0x138               0x138
-#define FLAG_0x139               0x139
-#define FLAG_0x13A               0x13A
-#define FLAG_0x13B               0x13B
-#define FLAG_0x13C               0x13C
-#define FLAG_0x13D               0x13D
+#define FLAG_TALKED_TO_LEFT_SCAMMER               0x137
+#define FLAG_TALKED_TO_RIGHT_SCAMMER               0x138
+#define FLAG_LEFT_SCAMMER_HAS_MON               0x139
+#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A
+#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B
+#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C
+#define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_0x13E               0x13E
 #define FLAG_0x13F               0x13F
 #define FLAG_0x140               0x140
@@ -894,8 +894,8 @@
 #define FLAG_FUSHCIA_GYM_RIGHT_FIRST               0x33B
 #define FLAG_GOT_POINCARE_VOUCHER               0x33C
 #define FLAG_TALKED_TO_KOGA_AT_START               0x33D
-#define FLAG_0x33E               0x33E
-#define FLAG_0x33F               0x33F
+#define FLAG_RELEASED_CHOMP               0x33E
+#define FLAG_GOT_STAR               0x33F
 #define FLAG_0x340               0x340
 #define FLAG_0x341               0x341
 #define FLAG_0x342               0x342
@@ -1388,7 +1388,7 @@
 #define FLAG_SYS_CSR_VICTORY                                                  (SYS_FLAGS + 0x9)
 #define FLAG_SYS_EXEGGUTOR                                                  (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                                  (SYS_FLAGS + 0xB)
-#define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
+#define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
 #define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)
 #define FLAG_0x80E                                                  (SYS_FLAGS + 0xE)
 #define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)

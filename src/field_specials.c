@@ -105,6 +105,13 @@ void ForcePlayerOntoBike(void)
     Overworld_ChangeMusicTo(MUS_CYCLING);
 }
 
+void ForcePlayerOffBike(void)
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+
+}
+
 void ResetCyclingRoadChallengeData(void)
 {
 
@@ -2592,4 +2599,9 @@ static void Task_WingFlapSound(u8 taskId)
 u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
+}
+
+u16 ScriptGetPartyMonLevel(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, NULL);
 }

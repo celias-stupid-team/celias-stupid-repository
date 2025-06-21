@@ -27,8 +27,8 @@ SafariZone_SecretHouse_Text_ExplainSurf::
 	.string "And because of our recent budget\n"
 	.string "cuts, we can't even restock!\p"
 	.string "Thus!\n"
-	.string "Congratulations.\l"
-	.string "You get our pity prize instead!\p"
+	.string "Congratulations!\l"
+	.string "You get our pity prize instead.\p"
 	.string "Hope you have fun with it!$"
 
 SafariZone_SecretHouse_Text_DontHaveRoomForPrize::

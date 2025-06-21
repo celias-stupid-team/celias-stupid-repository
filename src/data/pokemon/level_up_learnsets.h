@@ -4385,7 +4385,7 @@ static const struct LevelUpMove sMakuhitaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(19, MOVE_FAKE_OUT),
     LEVEL_UP_MOVE(22, MOVE_WHIRLWIND),
     LEVEL_UP_MOVE(28, MOVE_KNOCK_OFF),
-    LEVEL_UP_MOVE(31, MOVE_SMELLING_SALT),
+    LEVEL_UP_MOVE(31, MOVE_WAKE_UP_SLAP),
     LEVEL_UP_MOVE(37, MOVE_BELLY_DRUM),
     LEVEL_UP_MOVE(40, MOVE_ENDURE),
     LEVEL_UP_MOVE(46, MOVE_SEISMIC_TOSS),
@@ -4404,7 +4404,7 @@ static const struct LevelUpMove sHariyamaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(19, MOVE_FAKE_OUT),
     LEVEL_UP_MOVE(22, MOVE_WHIRLWIND),
     LEVEL_UP_MOVE(29, MOVE_KNOCK_OFF),
-    LEVEL_UP_MOVE(33, MOVE_SMELLING_SALT),
+    LEVEL_UP_MOVE(33, MOVE_WAKE_UP_SLAP),
     LEVEL_UP_MOVE(40, MOVE_BELLY_DRUM),
     LEVEL_UP_MOVE(44, MOVE_ENDURE),
     LEVEL_UP_MOVE(51, MOVE_SEISMIC_TOSS),
@@ -9929,6 +9929,7 @@ static const struct LevelUpMove sTHATSALLLevelUpLearnset[] = {
 static const struct LevelUpMove sKANGASKHANTEACHERLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_COMET_PUNCH),
 	LEVEL_UP_MOVE(1, MOVE_SUBSTITUTE_2),
+	LEVEL_UP_MOVE(1, MOVE_BITE),
 	LEVEL_UP_END
 };
 
@@ -9948,6 +9949,21 @@ static const struct LevelUpMove sIRONCLEFTGREENLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sLATIASBLAZIKENLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMonicaLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_MEGA_KICK),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sIRONBUTTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sRelicrabbyLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

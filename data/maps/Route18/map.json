@@ -48,13 +48,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "1",
       "script": "Route18_FloatyRockKid",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TM42"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
-      "x": 38,
-      "y": 23,
+      "x": 37,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 3,
@@ -141,6 +141,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route18_TiredBiker",
       "flag": "FLAG_TEMP_5"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 37,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM42",
+      "script": "EventScript_FindItem",
+      "flag": "0"
     }
   ],
   "warp_events": [

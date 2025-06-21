@@ -4334,12 +4334,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt20[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_GRIMER,
+        .species = SPECIES_IRON_HANDS,
     },
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_DROWZEE,
+        .species = SPECIES_MONICA,
+    },
+    {
+        .iv = 0,
+        .lvl = 24,
+        .species = SPECIES_IRONBUTT,
     },
 };
 
@@ -4362,6 +4367,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt21[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt22[] = {
+    
+    {
+        .iv = 0,
+        .lvl = 26,
+        .species = SPECIES_RELICANTH,
+    },
     {
         .iv = 0,
         .lvl = 26,
@@ -4375,7 +4386,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt22[] = {
     {
         .iv = 0,
         .lvl = 26,
-        .species = SPECIES_RELICANTH,
+        .species = SPECIES_RELICRABBY,
     },
 };
 
@@ -10019,12 +10030,23 @@ static const struct TrainerMonNoItemCustomMoves sParty_SodaShopShorts[] = {
 
 
 };
-static const struct TrainerMonNoItemCustomMoves sParty_SodaShopRichKid[] = {
+static const struct TrainerMonItemCustomMoves sParty_SodaShopRichKid[] = {
     {
         .iv = 0,
         .lvl = 15,
+        .heldItem = ITEM_NUGGET,
         .species = SPECIES_ZIGZAGOON,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
+static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdAndrew[] = {
+    {
+        .iv = 0,
+        .lvl = 35,
+        .species = SPECIES_GENGAR,
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 

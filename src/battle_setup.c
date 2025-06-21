@@ -321,6 +321,9 @@ void StartScriptedWildBattle(void)
     if(FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
          gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
 
+    } else if(FlagGet(FLAG_SYS_KANGA_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_KANGA;
+
     } else {
          gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
 

@@ -53,7 +53,7 @@ script FushciaGym_HippopotasLeft {
         playse(SE_FLEE)
         applymovement(VAR_LAST_TALKED, HippoRunsAway)
         if(var(VAR_FACING) == DIR_WEST) {
-            applymovement(LOCALID_PLAYER, PlayerGetsOutOfWay)
+            applymovement(LOCALID_PLAYER, AronRoom_PlayerGetsOutOfWay)
         }
         waitmovement(VAR_LAST_TALKED)
         setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)
@@ -124,7 +124,7 @@ movement HippoRunsAway {
     walk_faster_right * 8
 }
 
-movement PlayerGetsOutOfWay {
+movement AronRoom_PlayerGetsOutOfWay {
     face_up
     lock_facing_direction
     jump_down

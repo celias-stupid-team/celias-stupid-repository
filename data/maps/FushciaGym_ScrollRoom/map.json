@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -63,13 +63,11 @@
       "x": 16,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
+      "dest_map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

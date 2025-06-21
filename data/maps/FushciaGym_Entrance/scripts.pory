@@ -2,10 +2,18 @@
 const ATTENDANT = 1
 mapscripts FushciaGym_Entrance_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_IN_FUSHCIA_GYM)) {
+        if(flag(FLAG_IN_FUSHCIA_GYM) || flag(FLAG_REVEALED_DAD)) {
             setflag(FLAG_TEMP_1)
         }
+        if(flag(FLAG_REVEALED_DAD)) {
+            setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
+        }
     }
+}
+
+script FushciaGym_Entrance_Celia {
+	msgbox("Hi!\nI'm CELIA, the creator.\lThis is the end of the preview!\pI hope you had fun!\pSee if you can catch all 100\nPOKéMON available.\lYou made it this far. You can do it!\pThe full demo will contain this\ngym, so look forward to it!", MSGBOX_NPC)
+	end
 }
 
 script FushciaGym_Entrance_Koga {

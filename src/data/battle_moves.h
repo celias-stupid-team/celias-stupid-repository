@@ -3497,11 +3497,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED,
     },
 
-    [MOVE_SMELLING_SALT] =
+    [MOVE_WAKE_UP_SLAP] =
     {
         .effect = EFFECT_SMELLINGSALT,
         .power = 60,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
