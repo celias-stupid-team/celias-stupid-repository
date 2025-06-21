@@ -356,11 +356,11 @@
 #define FLAG_TRIED_SLOPE               0x136
 #define FLAG_TALKED_TO_LEFT_SCAMMER               0x137
 #define FLAG_TALKED_TO_RIGHT_SCAMMER               0x138
-#define FLAG_0x139               0x139
-#define FLAG_0x13A               0x13A
-#define FLAG_0x13B               0x13B
-#define FLAG_0x13C               0x13C
-#define FLAG_0x13D               0x13D
+#define FLAG_LEFT_SCAMMER_HAS_MON               0x139
+#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A
+#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B
+#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C
+#define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_0x13E               0x13E
 #define FLAG_0x13F               0x13F
 #define FLAG_0x140               0x140

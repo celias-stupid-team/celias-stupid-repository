@@ -6,8 +6,21 @@ mapscripts KantoLighthouse_1F_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
             setmetatile(11, 4, 0x32A, FALSE)
+            setvar(VAR_TEMP_1, 1)
         }
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_1, 1 {
+            playse(SE_PIN)
+            applymovement(WONDER_KID, Common_Movement_ExclamationMark)
+            delay(60)
+            applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+            textcolor(NPC_TEXT_COLOR_BLUE)
+            msgbox("Wowwie!\pI've never gotten THAT from\nWonder Trade before!", MSGBOX_DEFAULT)
+            closemessage
+            setvar(VAR_TEMP_1, 0)
+        }
+    ]
 }
 
 script KantoLighthouse_1F_OldMan {
@@ -16,7 +29,7 @@ script KantoLighthouse_1F_OldMan {
 	msgbox("Ah, finally the power is back\non!\pI've been waiting here before\nmaking the climb up.\lI wouldn't want to trip and fall!\pHo!\nThat'd be rather nasty indeed!\pWell, off I go.\nMeet you at the top?", MSGBOX_DEFAULT)
     closemessage
     specialvar(VAR_RESULT, GetPlayerFacingDirection)
-    if(var(VAR_RESULT) == DIR_EAST) {
+    if(var(VAR_RESULT) == DIR_SOUTH) {
         applymovement(LOCALID_PLAYER, PlayerGetsOutOfWay)
         delay(20)
     }
@@ -30,13 +43,13 @@ script KantoLighthouse_1F_OldMan {
 }
 
 movement PlayerGetsOutOfWay {
-    walk_up
-    face_down
+    walk_left
+    face_right
 }
 
 movement LighthouseMan {
-    walk_left * 2
-    face_left
+    walk_up * 3
+    face_up
     delay_16
 }
 
@@ -111,6 +124,7 @@ script GTS_TradeSpot_Secret {
     }
 }
 
+
 script GTS_TradeScammer_Left {
     lock
     faceplayer
@@ -120,12 +134,18 @@ script GTS_TradeScammer_Left {
             goto(GTS_LeftScammerMeat)
         } else {
             msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
-            release
+	        goto(GTS_Scammers_ReleaseEnd)
 
         }
     } else {
         if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
             msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                goto(GTS_LeftScammerMeat)
+            } else {
+                msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+                goto(GTS_Scammers_ReleaseEnd)
+            }
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
             if(var(VAR_RESULT)) {
@@ -138,19 +158,90 @@ script GTS_TradeScammer_Left {
 
             } else {
                 msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
-                release
+	            goto(GTS_Scammers_ReleaseEnd)
             }
            
         }
     }
-    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
-    waitmovement(0)
-    release
+	goto(GTS_Scammers_ReleaseEnd)
 }
 
 script GTS_LeftScammerMeat {
-    release
+    
+    specialvar(VAR_RESULT, CountPartyNonEggMons)
+	if(var(VAR_RESULT) == 1) {
+        msgbox("Hehehe…\nThat's great to hear!\lBut…\pYou only have one POKéMON with\nyou! You'll need another.\pGo grab one and come back!\n", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+    msgbox("Heheh…\nThat's great to hear!\lNow, gimme a POKéMOn…", MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(ChooseSendDaycareMon)
+	waitstate
+	if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox("What, you're not in?\nGimme a break!\pFine.\nCome back if you change your mind.", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+	specialvar(VAR_RESULT, CountPartyAliveNonEggMons_IgnoreVar0x8004Slot)
+	if(var(VAR_RESULT) == 0) {
+        msgbox("Hey!\nEverything else you have is dead!\pThis is a really obscure text box.\nGood job finding it!", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+	waitse
+	playmoncry(VAR_0x8005, CRY_MODE_NORMAL)
+	waitmoncry
+	specialvar(VAR_RESULT, GetDaycareState) //Use this to check in advance
+    //I gotta make sure this whole chunk isn't accessed if this NPC in particular has a Pokemon stored with him
+    //And then figure out what to do about if there's the other guy
+    //Cuz I need to make sure you're withdrawing the right mon from the right NPC
 
+    if(var(VAR_RESULT) == DAYCARE_ONE_MON) { //if there's already a trade waiting over there
+        // Store the current mon in the daycare
+	    special(StoreSelectedPokemonInDaycare)
+        
+        // And set a flag so when you check the other day care guy, you can withdraw
+        setflag(FLAG_LEFT_SCAMMER_HAS_MON)
+        setflag(FLAG_LEFT_SCAMMER_RECIEVED_MON)
+        clearflag(FLAG_RIGHT_SCAMMER_HAS_MON)
+        // Withdraw the other mon, with text saying "Looks like we got one"
+        msgbox("Looks like we got one!\n(placeholder)", MSGBOX_DEFAULT)
+        setvar(VAR_0x8004, 0)
+        specialvar(VAR_RESULT, TakePokemonFromDaycare)
+        waitse
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        textcolor(NPC_TEXT_COLOR_MALE)
+        waitmoncry
+        msgbox("bye\n", MSGBOX_DEFAULT)
+        
+        //check species of other mon
+        call(GTS_Scammers_CheckIfComplimentaryMon) 
+
+        // if other species is right, then trigger the evolution
+        //saved in Flag Temp 3
+
+        // and set another flag so the other side knows to evolve too
+        if(flag(FLAG_TEMP_3)) {
+            //evolve your Pokemon
+            msgbox("temp 3")
+            setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+            getpartysize
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+
+        }
+
+        // while you haven't withdrawn the other side, 
+    } else {
+	    special(StoreSelectedPokemonInDaycare)
+        copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
+        msgbox("put first mon in\n", MSGBOX_DEFAULT)
+
+    }
+	goto(GTS_Scammers_ReleaseEnd)
 }
 
 script GTS_SetMachineTop {
@@ -163,6 +254,13 @@ script GTS_SetMachineTop {
 script GTS_TradeScammer_Right {
     lock
     faceplayer
+    if(flag(FLAG_RIGHT_SCAMMER_HAS_MON)) {
+        msgbox("I have a mon\n(placeholder)", MSGBOX_DEFAULT)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+        waitmovement(0)
+        release
+        end
+    }
     if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
         msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
@@ -174,6 +272,12 @@ script GTS_TradeScammer_Right {
     } else {
         if(flag(FLAG_TALKED_TO_LEFT_SCAMMER)) {
             msgbox("Hey, you!\nListen here!\pI got a great scam going.\nYou want in?\p…Huh?\nYou've heard this pitch before?\lNonsense!\pNow come on.\nAre you in or not?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                goto(GTS_RightScammerMeat)
+            } else {
+                msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
+                goto(GTS_Scammers_ReleaseEnd)
+            }
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
             if(var(VAR_RESULT)) {
@@ -186,18 +290,107 @@ script GTS_TradeScammer_Right {
 
             } else {
                 msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
-                release
+                goto(GTS_Scammers_ReleaseEnd)
             }
            
         }
     }
-    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
-    waitmovement(0)
-    release
+    goto(GTS_Scammers_ReleaseEnd)
 }
 
 
 script GTS_RightScammerMeat {
+    
+
+    specialvar(VAR_RESULT, CountPartyNonEggMons)
+	if(var(VAR_RESULT) == 1) {
+        msgbox("Hehehe…\nThat's great to hear!\lBut…\pYou only have one POKéMON with\nyou! You'll need another.\pGo grab one and come back!\n", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+    msgbox("Heheh…\nThat's great to hear!\lNow, gimme a POKéMOn…", MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(ChooseSendDaycareMon)
+	waitstate
+	if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox("What, you're not in?\nGimme a break!\pFine.\nCome back if you change your mind.", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+	specialvar(VAR_RESULT, CountPartyAliveNonEggMons_IgnoreVar0x8004Slot)
+	if(var(VAR_RESULT) == 0) {
+        msgbox("Hey!\nEverything else you have is dead!\pThis is a really obscure text box.\nGood job finding it!", MSGBOX_DEFAULT)
+        goto(GTS_Scammers_ReleaseEnd)
+    }
+	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+	waitse
+	playmoncry(VAR_0x8005, CRY_MODE_NORMAL)
+	waitmoncry
+	specialvar(VAR_RESULT, GetDaycareState) //Use this to check in advance
+    //I gotta make sure this whole chunk isn't accessed if this NPC in particular has a Pokemon stored with him
+    //And then figure out what to do about if there's the other guy
+    //Cuz I need to make sure you're withdrawing the right mon from the right NPC
+
+    if(var(VAR_RESULT) == DAYCARE_ONE_MON) { //if there's already a trade waiting over there
+        // Store the current mon in the daycare
+	    special(StoreSelectedPokemonInDaycare)
+        
+        // And set a flag so when you check the other day care guy, you can withdraw
+        setflag(FLAG_RIGHT_SCAMMER_HAS_MON)
+        setflag(FLAG_RIGHT_SCAMMER_RECIEVED_MON)
+        clearflag(FLAG_LEFT_SCAMMER_HAS_MON)
+        // Withdraw the other mon, with text saying "Looks like we got one"
+        msgbox("Looks like we got one!\n(placeholder)", MSGBOX_DEFAULT)
+        setvar(VAR_0x8004, 0)
+        specialvar(VAR_RESULT, TakePokemonFromDaycare)
+        waitse
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        textcolor(NPC_TEXT_COLOR_MALE)
+        waitmoncry
+        msgbox("bye\n", MSGBOX_DEFAULT)
+        
+        //check species of other mon
+        call(GTS_Scammers_CheckIfComplimentaryMon) 
+
+        // if other species is right, then trigger the evolution
+        //saved in Flag Temp 3
+
+        // and set another flag so the other side knows to evolve too
+        if(flag(FLAG_TEMP_3)) {
+            //evolve your Pokemon
+            msgbox("temp 3")
+            setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+            getpartysize
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+
+        }
+
+        // while you haven't withdrawn the other side, 
+    } else {
+	    special(StoreSelectedPokemonInDaycare)
+        copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
+        msgbox("put first mon in\n", MSGBOX_DEFAULT)
+
+    }
+	goto(GTS_Scammers_ReleaseEnd)
+
+}
+
+script GTS_Scammers_CheckIfComplimentaryMon {
+    clearflag(FLAG_TEMP_3)
+    if((var(VAR_RESULT) == SPECIES_GRAVELER && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_MACHOKE) || (var(VAR_RESULT) == SPECIES_MACHOKE && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_GRAVELER)) {
+        setflag(FLAG_TEMP_3)
+    }
+    return
+}
+
+script GTS_Scammers_ReleaseEnd {
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
     release
 }
 
