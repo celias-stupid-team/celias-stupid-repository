@@ -9936,6 +9936,12 @@ static void Cmd_handleballthrow(void)
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_BallBouncedOff;
     }
+    else if (gBattleTypeFlags & BATTLE_TYPE_KANGA)
+    {
+        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_CantCatchNoSnagMachine;
+    }
     else if (gBattleTypeFlags & (BATTLE_TYPE_POKEDUDE | BATTLE_TYPE_OLD_MAN_TUTORIAL))
     {
         BtlController_EmitBallThrowAnim(BUFFER_A, BALL_NO_SHAKES);

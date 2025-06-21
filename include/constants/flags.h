@@ -1388,7 +1388,7 @@
 #define FLAG_SYS_CSR_VICTORY                                                  (SYS_FLAGS + 0x9)
 #define FLAG_SYS_EXEGGUTOR                                                  (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                                  (SYS_FLAGS + 0xB)
-#define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
+#define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
 #define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)
 #define FLAG_0x80E                                                  (SYS_FLAGS + 0xE)
 #define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)

@@ -70,6 +70,7 @@
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 22)
 #define BATTLE_TYPE_ARENA              (1 << 23)
 #define BATTLE_TYPE_SNORLAX              (1 << 24)
+#define BATTLE_TYPE_KANGA              (1 << 25)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)

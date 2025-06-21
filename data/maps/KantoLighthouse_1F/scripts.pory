@@ -173,7 +173,7 @@ script GTS_LeftScammerMeat {
         msgbox("Hehehe…\nThat's great to hear!\lBut…\pYou only have one POKéMON with\nyou! You'll need another.\pGo grab one and come back!\n", MSGBOX_DEFAULT)
         goto(GTS_Scammers_ReleaseEnd)
     }
-    msgbox("Heheh…\nThat's great to hear!\lNow, gimme a POKéMOn…", MSGBOX_DEFAULT)
+    msgbox("Hah, great to hear!\pNow, gimme one of your POKéMON.\nI'll take care of the rest!", MSGBOX_DEFAULT)
 	fadescreen(FADE_TO_BLACK)
 	special(ChooseSendDaycareMon)
 	waitstate
@@ -204,16 +204,35 @@ script GTS_LeftScammerMeat {
         setflag(FLAG_LEFT_SCAMMER_RECIEVED_MON)
         clearflag(FLAG_RIGHT_SCAMMER_HAS_MON)
         // Withdraw the other mon, with text saying "Looks like we got one"
-        msgbox("Looks like we got one!\n(placeholder)", MSGBOX_DEFAULT)
+        msgbox("Thanks!\nNow lemme put this up for trade…", MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+        delay(30)
+        msgbox("… … …\n… … …", MSGBOX_DEFAULT)
+        fadescreen(FADE_TO_BLACK)
+        delay(20)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox("…Aha!\nWe got one!\lNice!", MSGBOX_DEFAULT)
         setvar(VAR_0x8004, 0)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+        delay(30)
+        call(GTS_Scammers_CheckIfComplimentaryMon)
+        if(flag(FLAG_TEMP_3)) {
+            msgbox("Oh…\nThis guy looks a little… broken.\pOh well!\nYour problem now!\lSee ya!", MSGBOX_DEFAULT)
+        } else {
+            msgbox("Here, why don't you take it?\nI got higher standards than this.", MSGBOX_DEFAULT)
+        }
         specialvar(VAR_RESULT, TakePokemonFromDaycare)
         waitse
         playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
-        textcolor(NPC_TEXT_COLOR_MALE)
         waitmoncry
-        msgbox("bye\n", MSGBOX_DEFAULT)
+        closemessage
+        playfanfare(MUS_LEVEL_UP)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("Later!\n", MSGBOX_DEFAULT)
         
         //check species of other mon
         call(GTS_Scammers_CheckIfComplimentaryMon) 
@@ -224,13 +243,14 @@ script GTS_LeftScammerMeat {
         // and set another flag so the other side knows to evolve too
         if(flag(FLAG_TEMP_3)) {
             //evolve your Pokemon
-            msgbox("temp 3")
             setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
             getpartysize
+            subvar(VAR_RESULT, 1)
             copyvar(VAR_0x8000, VAR_RESULT)
             setvar(VAR_0x8001, 0)
             setvar(VAR_0x8002, FALSE)
             callnative(EvolvePartyMon)
+            waitstate
 
         }
 
@@ -238,7 +258,7 @@ script GTS_LeftScammerMeat {
     } else {
 	    special(StoreSelectedPokemonInDaycare)
         copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
-        msgbox("put first mon in\n", MSGBOX_DEFAULT)
+        msgbox("Haha, thanks!\pI'll see what I can swipe with\nthis.", MSGBOX_DEFAULT)
 
     }
 	goto(GTS_Scammers_ReleaseEnd)
@@ -307,8 +327,7 @@ script GTS_RightScammerMeat {
         msgbox("Hehehe…\nThat's great to hear!\lBut…\pYou only have one POKéMON with\nyou! You'll need another.\pGo grab one and come back!\n", MSGBOX_DEFAULT)
         goto(GTS_Scammers_ReleaseEnd)
     }
-    msgbox("Heheh…\nThat's great to hear!\lNow, gimme a POKéMOn…", MSGBOX_DEFAULT)
-	fadescreen(FADE_TO_BLACK)
+    msgbox("Hah, great to hear!\pNow, gimme one of your POKéMON.\nI'll take care of the rest!", MSGBOX_DEFAULT)
 	special(ChooseSendDaycareMon)
 	waitstate
 	if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -338,16 +357,35 @@ script GTS_RightScammerMeat {
         setflag(FLAG_RIGHT_SCAMMER_RECIEVED_MON)
         clearflag(FLAG_LEFT_SCAMMER_HAS_MON)
         // Withdraw the other mon, with text saying "Looks like we got one"
-        msgbox("Looks like we got one!\n(placeholder)", MSGBOX_DEFAULT)
+        msgbox("Thanks!\nNow lemme put this up for trade…", MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+        delay(30)
+        msgbox("… … …\n… … …", MSGBOX_DEFAULT)
+        fadescreen(FADE_TO_BLACK)
+        delay(20)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox("…Aha!\nWe got one!\lNice!", MSGBOX_DEFAULT)
         setvar(VAR_0x8004, 0)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+        delay(30)
+        call(GTS_Scammers_CheckIfComplimentaryMon)
+        if(flag(FLAG_TEMP_3)) {
+            msgbox("Oh…\nThis guy looks a little… broken.\pOh well!\nYour problem now!\lSee ya!", MSGBOX_DEFAULT)
+        } else {
+            msgbox("Here, why don't you take it?\nI got higher standards than this.", MSGBOX_DEFAULT)
+        }
         specialvar(VAR_RESULT, TakePokemonFromDaycare)
         waitse
         playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
-        textcolor(NPC_TEXT_COLOR_MALE)
         waitmoncry
-        msgbox("bye\n", MSGBOX_DEFAULT)
+        closemessage
+        playfanfare(MUS_LEVEL_UP)
+        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        waitfanfare
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("Later!\n", MSGBOX_DEFAULT)
         
         //check species of other mon
         call(GTS_Scammers_CheckIfComplimentaryMon) 
@@ -358,13 +396,14 @@ script GTS_RightScammerMeat {
         // and set another flag so the other side knows to evolve too
         if(flag(FLAG_TEMP_3)) {
             //evolve your Pokemon
-            msgbox("temp 3")
             setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
             getpartysize
+            subvar(VAR_RESULT, 1)
             copyvar(VAR_0x8000, VAR_RESULT)
             setvar(VAR_0x8001, 0)
             setvar(VAR_0x8002, FALSE)
             callnative(EvolvePartyMon)
+            waitstate
 
         }
 
@@ -372,7 +411,7 @@ script GTS_RightScammerMeat {
     } else {
 	    special(StoreSelectedPokemonInDaycare)
         copyvar(VAR_FIRST_TRADED_MON_SPECIES, VAR_0x8005)
-        msgbox("put first mon in\n", MSGBOX_DEFAULT)
+        msgbox("Haha, thanks!\pI'll see what I can swipe with\nthis.", MSGBOX_DEFAULT)
 
     }
 	goto(GTS_Scammers_ReleaseEnd)
@@ -381,8 +420,10 @@ script GTS_RightScammerMeat {
 
 script GTS_Scammers_CheckIfComplimentaryMon {
     clearflag(FLAG_TEMP_3)
-    if((var(VAR_RESULT) == SPECIES_GRAVELER && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_MACHOKE) || (var(VAR_RESULT) == SPECIES_MACHOKE && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_GRAVELER)) {
+    if((var(VAR_0x8005) == SPECIES_GRAVELER && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_MACHOKE) || (var(VAR_0x8005) == SPECIES_MACHOKE && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_GRAVELER)) {
         setflag(FLAG_TEMP_3)
+    } else {
+        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
     }
     return
 }
