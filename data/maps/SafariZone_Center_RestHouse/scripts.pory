@@ -1,6 +1,4 @@
 raw `
-SafariZone_Center_RestHouse_MapScripts::
-	.byte 0
 
 SafariZone_Center_RestHouse_EventScript_Sara::
 	msgbox SafariZone_Center_Text_WhereDidErikGo, MSGBOX_NPC
@@ -10,6 +8,14 @@ SafariZone_Center_RestHouse_EventScript_Scientist::
 	msgbox SafariZone_Center_Text_CatchingMonsAsGifts, MSGBOX_NPC
 	end
 `
+
+mapscripts SafariZone_Center_RestHouse_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(!flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+			setflag(FLAG_TEMP_3)
+		}
+	}
+}
 script SafariZone_RestDad {
 	lock
 	faceplayer
@@ -37,7 +43,12 @@ script SafariZone_Rest_Scientist {
 
 script SafariZone_WhiteSesameSeed {
 	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
-		msgbox("SARA: Now where could ERIK have\ngone…?", MSGBOX_SIGN)
+		removeobject(VAR_LAST_TALKED)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} reunited the\nSESAME SEEDS!", MSGBOX_DEFAULT)
+		waitfanfare
+		msgbox("{PLAYER} put the other SESAME SEED\nin the SANDWICH CASE.", MSGBOX_DEFAULT)
+		release
 		end
 	}
 	if(flag(FLAG_TALKED_TO_SARA)) {
@@ -47,4 +58,9 @@ script SafariZone_WhiteSesameSeed {
 	setflag(FLAG_TALKED_TO_SARA)
 	msgbox("SARA: Oh, where could he be…?\n{PAUSE 20}Ah!\pHello, there. I didn't see you.\nMy name is SARA.\lI am a humble white sesame seed.\pSay, by chance have you run into a\nblack sesame seed?\pHis name is ERIK, and I had\nplanned to meet him here.\lBut…\pLooks like he forgot again.\nJust like last year…\pMaybe the two of us aren't meant\nfor each other after all...", MSGBOX_SIGN)
 	}
+}
+
+script SafariZone_SesameStealingNerd {
+	msgbox("Hey, did you know you only need\none SESAME SEED for a SANDWICH?\pI got lucky and spotted one on\nthe ground over here.\lScore!", MSGBOX_NPC)
+	end
 }

@@ -592,7 +592,7 @@ script GTS_WonderTradeKid {
     applymovement(POKEBALL, WonderTradeBallDown)
     waitmovement(0)
     delay(30)
-    msgbox("Oh.\nIt's… {PAUSE 30}another CATERPIE.\pThat's okay!\nTime to try again!", MSGBOX_DEFAULT)
+    msgbox("Oh.\nIt's… {PAUSE 30}another CATERPIE.\pAh, well.\nI'll try again tomorrow!", MSGBOX_DEFAULT)
     setmetatile(11, 4, 0x31B, FALSE)
     special(DrawWholeMapView)
     release

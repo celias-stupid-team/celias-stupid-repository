@@ -314,6 +314,7 @@ script FushciaCity_BlackSesameSeed {
 			special(DrawWholeMapView)
 			msgbox("{PLAYER} used false pretenses to\nobtain the SESAME SEED!", MSGBOX_DEFAULT)
 			waitfanfare
+			msgbox("{PLAYER} put the SESAME SEED in\nthe SANDWICH CASE.", MSGBOX_DEFAULT)
 			setflag(FLAG_SANDWICH_GOT_SESAME_SEED)
 			call(FushciaCity_MakeASandwich)
 			release
