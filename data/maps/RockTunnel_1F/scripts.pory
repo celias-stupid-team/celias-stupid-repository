@@ -86,7 +86,7 @@ script RockTunnel_SoldOut {
 }
 
 script RockTunnel_ClefableHint {
-	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
+	msgbox("I hear that sometimes when CLEFAIRY\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
 	end
 }
 
@@ -168,7 +168,7 @@ script RockTunnel_LightsOut {
 }
 
 script RockTunnel_Statistician {
-	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nannual average spider consumption.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
+	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\naverage annual spider consumption.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
 	end
 }
 

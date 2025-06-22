@@ -5327,7 +5327,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A pecuilar move learned only by\\nfully-evolved POKéMON.",
+      "description_english": "A move learned\\nonly by POKéMON\\nready for their\\nfinal evolution.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",

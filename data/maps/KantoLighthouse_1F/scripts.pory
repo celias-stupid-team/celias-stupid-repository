@@ -579,7 +579,7 @@ script GTS_WonderTradeKid {
     setmetatile(11, 4, 0x32A, FALSE)
     special(DrawWholeMapView)
     faceplayer
-    msgbox("wonder trade joke\n", MSGBOX_DEFAULT)
+    msgbox("I always send my most valuable\nPOKéMON through WONDER TRADE.\pThat way, the person on the other\nside is getting something special!\pNow!\nLet's see what I get today…", MSGBOX_DEFAULT)
     closemessage
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
     delay(30)
@@ -592,7 +592,7 @@ script GTS_WonderTradeKid {
     applymovement(POKEBALL, WonderTradeBallDown)
     waitmovement(0)
     delay(30)
-    msgbox("oh no caterpie\n", MSGBOX_DEFAULT)
+    msgbox("Oh.\nIt's… {PAUSE 30}another CATERPIE.\pThat's okay!\nTime to try again!", MSGBOX_DEFAULT)
     setmetatile(11, 4, 0x31B, FALSE)
     special(DrawWholeMapView)
     release
