@@ -391,12 +391,13 @@
 #define MUS_LASS_INTRO            382
 #define MUS_IKI_TOWN_TEST            383
 #define MUS_THUNDERING_DYNAMO            384
+#define MUS_CSR_SECRET_HOUSE            385
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_THUNDERING_DYNAMO
+#define END_MUS                     MUS_CSR_SECRET_HOUSE
 
 #endif  // GUARD_CONSTANTS_SONGS_H
