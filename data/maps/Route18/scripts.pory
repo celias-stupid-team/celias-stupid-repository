@@ -38,7 +38,8 @@ script Route18_OnTransition {
 	call_if_eq(VAR_MAP_SCENE_ROUTE16, 1, Route18_OnTransitionCyclingRoad)
 	if(!flag(FLAG_TRIED_SLOPE)) {
 			setflag(FLAG_TEMP_5)
-		}
+	}
+	setbench(BENCH_FUSHCIA)
 }
 
 script Route18_TiredBiker {

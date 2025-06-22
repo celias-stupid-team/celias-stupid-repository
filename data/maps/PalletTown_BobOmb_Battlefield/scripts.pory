@@ -1,27 +1,58 @@
-mapscripts PalletTown_BobOmb_Battlefield_MapScripts {}
+mapscripts PalletTown_BobOmb_Battlefield_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_RELEASED_CHOMP)) {
+            setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
+
+        }
+    }
+
+}
 
 
 script BobOmbBattlefield_ChainChomp {
-    if(checkpartymove(MOVE_GROUND_POUND) < PARTY_SIZE) {
-        lock
-        msgbox("An extremely extremely well-drawn chain\nchomp\l(thanks!)\pWould you like to free it using\nGROUND POUND?", MSGBOX_YESNO)
-        if(var(VAR_RESULT)) {
-            checkpartymove(MOVE_GROUND_POUND)
-            bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-            buffermovename(STR_VAR_2, MOVE_GROUND_POUND)
-	        msgbox(Text_MonUsedMove)
-            removeobject(VAR_LAST_TALKED)
-            closemessage
-            delay(30)
-            applymovement(LOCALID_STAR, StarComesDown)
-            waitmovement(0)
-            setflag(FLAG_RELEASED_CHOMP)
-            release
-            end
-        }
-    }
-	msgbox("An extremely well-drawn chain\nchomp\l(thanks!)", MSGBOX_NPC)
+	lock
+    waitse
+    playmoncry(SPECIES_STOUTLAND, CRY_MODE_ENCOUNTER)
+    waitmoncry
 	end
+}
+
+script BobOmbBattlefield_Stump {
+    if(flag(FLAG_RELEASED_CHOMP)) {
+        msgbox("A pounded-in stump.\n", MSGBOX_SIGN)
+        end
+    } else {
+        lockall
+        msgbox("A stump sits in front of the\ngate.", MSGBOX_DEFAULT)
+        if(checkpartymove(MOVE_GROUND_POUND) < PARTY_SIZE) {
+            
+            msgbox("Would you like to pound it using\nGROUND POUND?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                checkpartymove(MOVE_GROUND_POUND)
+                bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+                buffermovename(STR_VAR_2, MOVE_GROUND_POUND)
+                msgbox(Text_MonUsedMove)
+                closemessage
+                delay(30)
+                applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+                waitmovement(0)
+                delay(30)
+                removeobject(LOCALID_CHOMP)
+                delay(40)
+                applymovement(LOCALID_STAR, StarComesDown)
+                waitmovement(0)
+                setflag(FLAG_RELEASED_CHOMP)
+                setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
+            }
+        }
+        releaseall
+        end
+
+    }
+}
+
+movement ChompRunsOff {
+    walk_fast_up * 6
 }
 
 script BobOmbBattlefield_CeliaSecretEmpty {
@@ -55,4 +86,99 @@ script BobOmbBattlefield_Star {
 
 movement StarComesDown {
     walk_down * 3
+}
+
+script BoB_Buddy1 {
+	msgbox("Hey, there!\nWelcome to BOB-OMB BATTLEFIELD!\p…What's that?\nYou think you've stumbled into\lthe wrong game?\pUh huh.\nWell, I hope you enjoy your stay!", MSGBOX_NPC)
+	end
+}
+
+script BoB_Buddy2 {
+	msgbox("Down this hole is a CANNON.\nWe use it to launch our friends!\pIf you need to leave, just jump\nin!", MSGBOX_NPC)
+	end
+}
+
+
+script BobOmbBattlefield_EventScript_Cannon {
+	lock
+	msgbox("There's a cannon down the hole.\nWould you like to launch yourself?", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		closemessage
+		delay(15)
+		playse(SE_LEDGE)
+		switch(var(VAR_FACING)) {
+			case DIR_NORTH:
+				applymovement(LOCALID_PLAYER, JumpUp)
+				break
+			case DIR_SOUTH:
+				applymovement(LOCALID_PLAYER, JumpDown)
+				break
+			case DIR_EAST:
+				applymovement(LOCALID_PLAYER, JumpRight)
+				break
+			case DIR_WEST:
+				applymovement(LOCALID_PLAYER, JumpLeft)
+				break
+		}
+		waitmovement(0)
+		setmetatile(31,32,0x075,0)
+        special(SpawnCameraObject)
+		applymovement(LOCALID_PLAYER, FallIntoHole)
+		waitmovement(0)
+		delay(30)
+        addobject(LOCALID_CANNON)
+        setobjectxy(LOCALID_CANNON, 31, 37)
+        applymovement(LOCALID_CANNON, BoB_CannonLaunch)
+        waitmovement(0)
+        delay(30)
+        playse(SE_BANG)
+        applymovement(OBJ_EVENT_ID_PLAYER, BoB_PlayerIsLaunched)
+        waitmovement(0)
+		
+		fadescreen(FADE_TO_BLACK)
+
+		//player faces down
+		//spawn camera
+		//camera locks in place
+		//cannon comes up out of the ground
+		//player locks facing direction
+		//player slides up very quickly until off screen
+		
+		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 3)
+
+	}
+	release
+	end
+}
+
+movement BoB_PlayerIsLaunched {
+    face_up
+    set_visible
+    walk_fastest_up * 7
+}
+
+movement BoB_CannonLaunch {
+    walk_slow_up
+    delay_16
+    face_right
+    delay_8
+    face_down
+    delay_16
+}
+
+movement JumpUp {
+	jump_up
+	set_invisible
+}
+movement JumpDown {
+	jump_down
+	set_invisible
+}
+movement JumpLeft {
+	jump_left
+	set_invisible
+}
+movement JumpRight {
+	jump_right
+	set_invisible
 }

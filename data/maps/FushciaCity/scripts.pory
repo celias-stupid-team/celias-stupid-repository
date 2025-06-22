@@ -140,6 +140,7 @@ FushciaCity_EventScript_StakatakaSign::
 script FushciaCity_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
 	setworldmapflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
+	setbench(BENCH_FUSHCIA)
 	call(SetPlayerPokedexValues)
 	clearflag(FLAG_IN_FUSHCIA_GYM)
 	call_if_set(FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx)
@@ -382,7 +383,7 @@ script FushciaCity_Dad {
 }
 
 script FushciaCity_OldMan {
-	msgbox("Our SAFARI ZONE used to be the\ncrown jewel of the city.\lThat was back in the old days.\pEver since the DMCA came into the\npicture, it's been in decline.\pAh, to have the old FUSHCIA back…\n", MSGBOX_NPC)
+	msgbox("Hello, traveler!\nHave you met the SAFARI WARDEN?\pHe's a kind soul. He wouldn't dare\nhurt anyone innocent.\lBut…\pHe's been under a lot of stress,\nwith the whole SAFARI ZONE thing.\lMaybe he needs someone to talk to.\pYou should pay him a visit.\nI'm sure he'd appreciate it.", MSGBOX_NPC)
 	end
 }
 
