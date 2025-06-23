@@ -64,6 +64,7 @@ static void InitBerryPouchFromBattle(void);
 static void InitTeachyTvFromBag(void);
 static void Task_InitTeachyTvFromField(u8 taskId);
 static void Task_UseRepel(u8 taskId);
+static void Task_UseMaxRepel(u8 taskId);
 static void RemoveUsedItem(void);
 static void Task_UsedBlackWhiteFlute(u8 taskId);
 static void ItemUseOnFieldCB_EscapeRope(u8 taskId);
@@ -579,9 +580,24 @@ static void Task_InitTeachyTvFromField(u8 taskId)
 void FieldUseFunc_Repel(u8 taskId)
 {
     if (gSpecialVar_ItemId == ITEM_MAX_REPEL) {
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
+        if(FlagGet(FLAG_CSR_POWER_IS_ON)) {
+            if(FlagGet(FLAG_SYS_MAX_REPEL)) {
+                FlagClear(FLAG_SYS_MAX_REPEL);
+                DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelTurnedOff, Task_ReturnToBagFromContextMenu);
 
-    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
+            } else {
+                VarSet(VAR_REPEL_STEP_COUNT, 0);
+                FlagSet(FLAG_SYS_MAX_REPEL);
+                PlaySE(SE_REPEL);
+                gTasks[taskId].func = Task_UseMaxRepel;
+            }
+            
+        } else {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
+
+        }
+
+    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0 || FlagGet(FLAG_SYS_MAX_REPEL))
     {
         PlaySE(SE_REPEL);
         gTasks[taskId].func = Task_UseRepel;
@@ -601,6 +617,16 @@ static void Task_UseRepel(u8 taskId)
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
+}
+
+static void Task_UseMaxRepel(u8 taskId) {
+    if (!IsSEPlaying())
+    {
+        ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelWorks, Task_ReturnToBagFromContextMenu);
+    }
+
+
 }
 
 static void RemoveUsedItem(void)

@@ -172,7 +172,42 @@ script PowerPlant_Max {
 	lock
 	faceplayer
 	msgbox("MAX: Hello!\nMy name is MAX.\pBehind me is a very important LOCK.\nNo one is allowed to touch it.", MSGBOX_DEFAULT)
+	closemessage
+	if(flag(FLAG_SYS_MAX_REPEL)) {
+		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+		playse(SE_PIN)
+		waitmovement(0)
+		delay(30)
+		msgbox("MAX: H-hey!\nWhat gives?\lWhat's up with that-", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, PowerPlant_MaxFlustered)
+		waitmovement(0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+		waitmovement(0)
+		msgbox("Forget this-!\nI can't stand it anymore!", MSGBOX_DEFAULT)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+		delay(30)
+		setflag(FLAG_REPELLED_MAX)
+		removeobject(VAR_LAST_TALKED)
+		fadescreen(FADE_FROM_BLACK)
+	}
 	release
+}
+
+script PowerPlant_ShinyLock {
+	msgbox("Wow!\nThis LOCK is really shiny!\pIt seems to need a key.\n", MSGBOX_SIGN)
+	end
+}
+
+movement PowerPlant_MaxFlustered {
+	face_left
+	delay_16 * 2
+	face_right
+	delay_16 * 2
+	face_left
+	delay_16 * 2
+	face_right
+	delay_16 * 2
 }
 
 script PowerPlant_StarmieHint {
@@ -202,7 +237,7 @@ script PowerPlant_RockTunnelIsDark {
 	lock
 	faceplayer
 	if(flag(FLAG_CSR_POWER_IS_ON)) {
-		//reacts to power being back on
+		msgbox("Hey!\nThe POWER's back on!\pI hope everyone in ROCK TUNNEL\nis doing well.\lYou should check on them!", MSGBOX_DEFAULT)
 	} else {
 		msgbox("The POWER PLANT is supposed to\nsupply lighting to ROCK TUNNEL.\pNow that it's down, the whole cave\nis pitch black.\lThis is awful!\pWho knows what they're doing in\nthere?", MSGBOX_DEFAULT)
 	}
@@ -264,6 +299,7 @@ script PowerPlant_MinigameStart {
 				playse(SE_M_EARTHQUAKE)
 				special(ShakeScreen)
 				waitse
+				setflag(FLAG_CSR_POWER_IS_ON)
 				addobject(ETERNATUS)
 				applymovement(ETERNATUS, Eternatus_WalkSlowDown)
 				waitmovement(0)
@@ -272,8 +308,19 @@ script PowerPlant_MinigameStart {
 				setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
 				dowildbattle
 				delay(40)
-				setflag(FLAG_HIDE_POWER_PLANT_ELECTRODE_1)
+				removeobject(ETERNATUS)
 				specialvar(VAR_RESULT, GetBattleOutcome)
+				while(var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
+					msgbox("(wait let's try again)\n", MSGBOX_DEFAULT)
+					closemessage
+					giveitem(ITEM_POKE_BALL)
+					setwildbattle(SPECIES_ETERNATUS, 50, ITEM_NONE)
+					dowildbattle
+					delay(40)
+					removeobject(ETERNATUS)
+					specialvar(VAR_RESULT, GetBattleOutcome)
+				}
+
 				delay(60)
 				msgbox("Wow!\nETERNATUS unleashed its energy!", MSGBOX_DEFAULT)
 				playfanfare(MUS_LEVEL_UP)

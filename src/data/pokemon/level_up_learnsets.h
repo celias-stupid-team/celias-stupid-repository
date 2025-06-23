@@ -8169,7 +8169,10 @@ static const struct LevelUpMove sZamazentaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sEternatusLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_SLUDGE_BOMB),
+	LEVEL_UP_MOVE(1, MOVE_DRAGON_PULSE),
+	LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
+	LEVEL_UP_MOVE(1, MOVE_BODY_SLAM),
 	LEVEL_UP_END
 };
 

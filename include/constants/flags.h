@@ -897,7 +897,7 @@
 #define FLAG_RELEASED_CHOMP               0x33E
 #define FLAG_GOT_STAR               0x33F
 #define FLAG_GOT_PARAS_FROM_LUIGI               0x340
-#define FLAG_0x341               0x341
+#define FLAG_REPELLED_MAX               0x341
 #define FLAG_0x342               0x342
 
 #define FLAG_FREED_KANGA               0x343
@@ -1389,7 +1389,7 @@
 #define FLAG_SYS_EXEGGUTOR                                                  (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                                  (SYS_FLAGS + 0xB)
 #define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
-#define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)
+#define FLAG_SYS_MAX_REPEL                                                  (SYS_FLAGS + 0xD)
 #define FLAG_0x80E                                                  (SYS_FLAGS + 0xE)
 #define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)
 #define FLAG_0x810                                                  (SYS_FLAGS + 0x10)
