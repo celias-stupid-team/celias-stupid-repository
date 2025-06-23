@@ -986,6 +986,8 @@ void FieldUseFunc_PayDayTM(u8 taskId)
         break;
     case MON_GIVEN_TO_PARTY:
     case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
         GetSpeciesName(speciesName, species);
         StringExpandPlaceholders(gStringVar1, speciesName);
         sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
