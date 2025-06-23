@@ -1570,7 +1570,8 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 	waitmovement(0)
 	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
 	textcolor(NPC_TEXT_COLOR_MALE)
-	if(flag(FLAG_TEMP_7)) {
+	if(flag(FLAG_TEMP_7) && !flag(FLAG_SHINY_CREATION)) {
+			
 			textcolor(NPC_TEXT_COLOR_TREE)
 			setflag(FLAG_SHINY_CREATION) //Charmander
 			msgbox("Oh, you didn't want that\nother CHARMANDER?\pThat's okay - this one is still\nan option!", MSGBOX_YESNO)
@@ -1580,8 +1581,10 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 	}
 	switch(var(NUM_STARTERS_CHECKED)) {
 		case 1:
+			clearflag(FLAG_SHINY_CREATION)
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur)
 		case 2:
+			clearflag(FLAG_SHINY_CREATION)
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle)
 		default: 
 			clearflag(FLAG_SHINY_CREATION)
