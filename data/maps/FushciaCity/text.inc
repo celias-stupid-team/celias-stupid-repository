@@ -29,11 +29,11 @@ FushciaCity_Text_SafariZoneSign::
     .string "SAFARI ZONE$"
 
 FushciaCity_Text_SafariGameSign::
-    .string "SAFARI GAME\n"
+    .string "SAFARI ZONE, LLC.{PAUSE 30}\n"
     .string "POKéMON-U-CATCH!$"
 
 FushciaCity_Text_WardensHomeSign::
-    .string "SAFARI ZONE\n"
+    .string "SAFARI ZONE, LLC.\n"
     .string "WARDEN'S HOME$"
 
 FushciaCity_Text_SafariZoneOfficeSign::

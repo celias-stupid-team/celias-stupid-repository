@@ -5,6 +5,9 @@ mapscripts FushciaGym_ThePitRoom_MapScripts {
             call(FushciaGym_ThePitRoom_SetBrokenWall)
 
         }
+        if(!flag(FLAG_MEMORIZED_SCROLL)) {
+            setflag(FLAG_TEMP_3)
+        }
     }
 
 }

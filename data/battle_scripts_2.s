@@ -139,6 +139,15 @@ BattleScript_BallBouncedOff::
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
 
+
+BattleScript_CantCatchNoSnagMachine::
+	waitmessage B_WAIT_TIME_SHORT
+	printstring STRINGID_BALL_DIDNT_WORK
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_NO_SNAG_MACHINE
+	waitmessage B_WAIT_TIME_LONG
+	finishaction
+
 BattleScript_GhostBallDodge::
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_ITDODGEDBALL

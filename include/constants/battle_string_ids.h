@@ -414,9 +414,10 @@
 #define STRINGID_SUBSTITUTE_LAYER_3 413
 #define STRINGID_SUBSTITUTE_LAYER_3_FADE 414
 #define STRINGID_SUBSTITUTE_LAYER_2_FADE 415
-
-#define BATTLESTRINGS_COUNT     417 //Plus 2 from last one
+#define STRINGID_BALL_DIDNT_WORK 416
+#define STRINGID_NO_SNAG_MACHINE 417
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
+#define BATTLESTRINGS_COUNT     419 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

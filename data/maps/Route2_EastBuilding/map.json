@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -61,21 +61,21 @@
   "warp_events": [
     {
       "x": 6,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "5"
     },
     {
       "x": 7,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "5"
     },
     {
       "x": 8,
-      "y": 10,
+      "y": 9,
       "elevation": 3,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "5"
@@ -88,10 +88,6 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

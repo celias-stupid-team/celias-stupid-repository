@@ -47,7 +47,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 3,
-      "y": 4,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,

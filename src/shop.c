@@ -990,6 +990,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
     PutWindowTilemap(4);
     if(tItemId == ITEM_POKE_DOLL) {
             PlaySE(MUS_LEVEL_UP);
+            VarSet(VAR_TEMP_3, 1);
             BuyMenuDisplayMessage(taskId, gText_PlayerObtainedClefairy, BuyMenuSubtractMoney);
 
         }

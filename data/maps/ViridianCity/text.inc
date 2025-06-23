@@ -48,17 +48,12 @@ ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "oh take this too$"
 
 ViridianCity_Text_WatchThatToLearnBasics::
-    .string "Ah, I'm sure that was helpful\n"
-    .string "and informative!\p"
-	.string "All right, ♀:mna!\n"
-	.string "Now quickly!\l"
-	.string "FLY over to CINNABAR ISLAND!\p"
-	.string "…What's that?\n"
-	.string "You can't FLY yet?\p"
-	.string "Darn.$"
+    .string "Oh no!\n"
+    .string "Grandpa's dead!$"
 
 ViridianCity_Text_WeakenMonsFirstToCatch::
-	.string "I am 30 years old.$"
+	.string "Oh no!\n"
+    .string "Grandpa's dead!$"
 
 
 ViridianCity_Text_HowsTeachyTVHelping::

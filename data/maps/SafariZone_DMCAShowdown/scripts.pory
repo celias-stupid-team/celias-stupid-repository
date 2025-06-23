@@ -56,14 +56,19 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
             closemessage
             msgbox("WARDEN: Lovely!\nAnd I know that you helped as well.\pThank you so much, the FISHING\nGURU'S BROTHER!", MSGBOX_DEFAULT)
             closemessage
-            delay(40)
+            delay(20)
+            applymovement(GURU, Common_Movement_WalkUp)
+            waitmovement(0)
+            applymovement(WARDEN, Common_Movement_FaceUp)
             msgbox("FISHING GURU'S BROTHER: Oh!\nBy the way, {PLAYER}.\pWhile I was captured, they hid\nthis near my cell.\lI've been holding onto it.\pHere, take it.\nYou've easily earned it back.", MSGBOX_DEFAULT)
             giveitem_msg("{PLAYER} reclaimed the TM CASE!\n", ITEM_TM_CASE)
             waitfanfare
+            applymovement(WARDEN, Common_Movement_FaceLeft)
             msgbox("WARDEN: Come, let's head back home.\pI'm eager to move on from this\ntrying time.\pWhat say you, the FISHING GURU'S\nBROTHER?", MSGBOX_DEFAULT)
             closemessage
             msgbox("FISHING GURU'S BROTHER: Same here!\nI'm ready to take a long nap.", MSGBOX_DEFAULT)
             closemessage
+            applymovement(WARDEN, Common_Movement_FaceUp)
             msgbox("WARDEN: Come, {PLAYER}.\nYou should join us!", MSGBOX_DEFAULT)
             closemessage
             setvar(VAR_TEMP_3, 2)
@@ -125,6 +130,7 @@ script SafariZone_IronCleftBattle {
             msgbox("ARCHER: So.\nYou've finally arrived.\pI hear you're the little rascal\nwho's been disrupting our plans.\lYou'd better listen here!\pWe are the DMCA!\pWe command the production of all\ncreative works.\lNothing gets made without us!\pDo you think you're doing creators\na favor by infringing on them?\lStealing profits from their mouths?", MSGBOX_DEFAULT)
         }
         msgbox("Ha.\nHow naive.\pBut it's no matter.\nYou're an insignificant vagrant.\lJust another wayward fly to swat.\pI'll use the power of the illegal\nPOKéMON to crush you to bits!", MSGBOX_DEFAULT)
+        setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARCHER)
         trainerbattle_no_intro(TRAINER_DMCA_ARCHER, "N-no!\nHow could this be?\pYour POKéMON was illegal!\nThere's no way we should lose!")
         msgbox("Grr…\nThat was a dirty trick you pulled.\pThat POKéMON violates copyright.\nYou knew it was illegal.\pBut no matter.\nWe're not going to give up.\lYou'll need to do better.", MSGBOX_DEFAULT)
         setflag(FLAG_BATTLED_IRON_CLEFTS)
@@ -161,6 +167,7 @@ script SafariZone_IronCleftBattle {
         clearflag(FLAG_NO_TM_CASE)
         delay(120)
         setvar(VAR_TEMP_3, 1)
+        setvar(VAR_SAFARI_ZONE_ENTRANCE, 1)
         special(RemoveCameraObject)
         release
         end

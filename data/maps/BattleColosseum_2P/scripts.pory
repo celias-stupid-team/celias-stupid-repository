@@ -263,7 +263,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_MINNESOTA)) {
 		setobtainable(SPECIES_SEEL) // 85
 	}
-	if(flag(FLAG_SILPH_DMCA_DEFEATED) && checkmoncaught(SPECIES_SLOWBRO)) {
+	if(flag(FLAG_TALKED_TO_LICKITUNG_TRADE) && checkitem(ITEM_SANDWICH_CASE) && checkmoncaught(SPECIES_SLOWBRO)) {
 		setobtainable(SPECIES_LICKITUNG) // 86
 	}
 	
@@ -606,6 +606,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintOnix)
 		case SPECIES_LICKITUNG: 
 			 msgbox(PokedexRating_Text_HintPlugOink)
+			 setflag(FLAG_CHRIS_GIVES_LICKITUNG)
 		case SPECIES_BELLSPROUT: 
 			 msgbox(PokedexRating_Text_HintBellsprout)
 		case SPECIES_CHERUBI: 

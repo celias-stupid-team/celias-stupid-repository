@@ -67,3 +67,8 @@ script PokemonTower_ShortcutBlocker {
 	msgbox("I'm sorry, but this staircase\nis broken right now.\lWe need some time to repair it.", MSGBOX_NPC)
 	end
 }
+
+script PokemonTower_ShortcutBlockerCelia {
+	msgbox("Very sneaky of you to find here!\pDon't worry about this - you'll\nunderstand eventually.", MSGBOX_NPC)
+	end
+}

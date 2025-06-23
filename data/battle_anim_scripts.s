@@ -288,7 +288,7 @@ gBattleAnims_Moves::
 	.4byte Move_MEMENTO
 	.4byte Move_FACADE
 	.4byte Move_FOCUS_PUNCH
-	.4byte Move_SMELLING_SALT
+	.4byte MOVE_WAKE_UP_SLAP
 	.4byte Move_FOLLOW_ME
 	.4byte Move_NATURE_POWER
 	.4byte Move_CHARGE
@@ -3825,7 +3825,7 @@ Move_FACADE:
 	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 24, 3
 	end
 
-Move_SMELLING_SALT:
+MOVE_WAKE_UP_SLAP:
 	loadspritegfx ANIM_TAG_TAG_HAND
 	loadspritegfx ANIM_TAG_SMELLINGSALT_EFFECT
 	createsprite gSmellingSaltsHandSpriteTemplate, ANIM_TARGET, 2, ANIM_TARGET, 0, 2
@@ -11452,17 +11452,13 @@ Move_TOMBSTONER:
 
 	
 Move_FOLLOW_HIM:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	loadspritegfx ANIM_TAG_FINGER
+	createsprite gFollowHimFingerSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	delay 18
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 81
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
 	end
 	
 Move_SPIKY_SHIELD:

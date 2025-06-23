@@ -43,6 +43,6 @@ script SafariZone_West_MusicGirl {
 }
 
 script SafariZone_West_SecretHouse {
-	msgbox("SAFARI ZONE\nSecret House!", MSGBOX_SIGN)
+	msgbox("SECRET HOUSE\nNow offering prizes!\l- SAFARI ZONE, LLC.", MSGBOX_SIGN)
 	end
 }

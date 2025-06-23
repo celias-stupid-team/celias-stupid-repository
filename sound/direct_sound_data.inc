@@ -5294,3 +5294,15 @@ Cry_LATIASBLAZIKEN::
 	.incbin "sound/direct_sound_samples/cries/latiasblaziken.bin"
 
 	.align 2
+Cry_Monica::
+	.incbin "sound/direct_sound_samples/cries/monica.bin"
+
+	.align 2
+Cry_IRONBUTT::
+	.incbin "sound/direct_sound_samples/cries/ironbutt.bin"
+
+	.align 2
+Cry_Relicrabby::
+	.incbin "sound/direct_sound_samples/cries/relicrabby.bin"
+
+	.align 2
