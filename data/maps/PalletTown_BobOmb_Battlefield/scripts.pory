@@ -14,6 +14,7 @@ script BobOmbBattlefield_ChainChomp {
     waitse
     playmoncry(SPECIES_STOUTLAND, CRY_MODE_ENCOUNTER)
     waitmoncry
+    release
 	end
 }
 
@@ -89,7 +90,7 @@ movement StarComesDown {
 }
 
 script BoB_Buddy1 {
-	msgbox("Hey, there!\nWelcome to BOB-OMB BATTLEFIELD!\p…What's that?\nYou think you've stumbled into\lthe wrong game?\pUh huh.\nWell, I hope you enjoy your stay!", MSGBOX_NPC)
+	msgbox("Hey, there!\nWelcome to BOB-OMB BATTLEFIELD!\p…What's that?\pYou think you've stumbled into\nthe wrong game?\lUh huh.\pWell, I hope you enjoy your stay!", MSGBOX_NPC)
 	end
 }
 

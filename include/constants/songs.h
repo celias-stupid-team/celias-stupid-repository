@@ -392,12 +392,13 @@
 #define MUS_IKI_TOWN_TEST            383
 #define MUS_THUNDERING_DYNAMO            384
 #define MUS_CSR_SECRET_HOUSE            385
+#define MUS_KOROK_SEED            386
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CSR_SECRET_HOUSE
+#define END_MUS                     MUS_KOROK_SEED
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -11,7 +11,21 @@ UndergroundPath_NorthSouthTunnel_OnTransition::
 
 script UndergroundPath_SproutTower {
 	lock
-	msgbox("The door is too small to enter…", MSGBOX_DEFAULT)
+	msgbox("A small tower is growing\nunderground.", MSGBOX_DEFAULT)
+	if(!flag(FLAG_GOT_SHINY_BELLSPROUT)) {
+		closemessage
+		playmoncry(SPECIES_BELLSPROUT, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox("A POKéMON inside would like to\njoin you!", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} obtained a friendly\nBELLSPROUT!", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_BELLSPROUT)
+		call(Common_Script_GiftPokemon)
+		setflag(FLAG_GOT_SHINY_BELLSPROUT)
+
+	}
 	release
 	end
 }

@@ -306,8 +306,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 36,
-      "y": 16,
+      "x": 56,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,

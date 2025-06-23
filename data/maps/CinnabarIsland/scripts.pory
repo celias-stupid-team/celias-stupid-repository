@@ -68,7 +68,6 @@ CinnabarIsland_EventScript_ReturnFromSeviiIslands::
 	removeobject LOCALID_CINNABAR_BILL
 	setvar VAR_CSR_DUMMY_11, 4
 	setflag FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE
-	clearflag FLAG_HIDE_LOSTELLE_IN_HER_HOME
 	releaseall
 	end
 

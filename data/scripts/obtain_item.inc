@@ -74,6 +74,10 @@ EventScript_PlayFanfareObtainedItem::
 	playfanfare MUS_LEVEL_UP
 	return
 
+EventScript_PlayFanfareObtainedKorok::
+	playfanfare MUS_KOROK_SEED
+	return
+
 EventScript_PlayFanfareObtainedTMHM::
 	playfanfare MUS_LEVEL_UP
 	return

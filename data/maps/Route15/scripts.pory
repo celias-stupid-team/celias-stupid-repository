@@ -26,6 +26,10 @@ mapscripts Route15_MapScripts {
 		} else {
 			setflag(FLAG_TEMP_5)
 		}
+		if(flag(FLAG_MELTED_LIGHTHOUSE_GUARD)) {
+			setflag(FLAG_TEMP_5)
+
+		}
 	}
 	
 }
@@ -60,6 +64,10 @@ const FAR_RIGHT = 43
 
 
 script Route15_PowerOutTrigger {
+	if(flag(FLAG_MELTED_LIGHTHOUSE_GUARD)) {
+		release
+		end
+	}
 	lock
 	textcolor(NPC_TEXT_COLOR_MALE)
 	playse(SE_PIN)
@@ -114,6 +122,27 @@ script Route15_NoPower {
 	msgbox("I'm sorry, but there's a blackout\nat the LIGHTHOUSE right now.", MSGBOX_DEFAULT)
 	closemessage
 	//camera goes up
+	if(checkitem(ITEM_TEA)) {
+		msgbox("Wait…\nWhat are you doing?\pNo! Stop!\nPlease!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Would you like to use your\nTOXIC SLUDGE?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} used the TOXIC SLUDGE!\n", MSGBOX_DEFAULT)
+			removeitem(ITEM_TEA)
+			fadescreen(FADE_TO_BLACK)
+			playse(SE_M_TOXIC)
+			waitse
+			fadescreen(FADE_FROM_BLACK)
+			setflag(FLAG_MELTED_LIGHTHOUSE_GUARD)
+			setflag(FLAG_HIDE_GTS_NPCS)
+			release
+			end
+		} else {
+			textcolor(NPC_TEXT_COLOR_BLUE)
+			msgbox("Oh, phew…\nOkay. False alarm.\lBut yeah, anyway…\pThere's a blackout at the\nLIGHTHOUSE.", MSGBOX_DEFAULT)
+		}
+
+	}
 	delay(30)
 	special(SpawnCameraObject)
 	applymovement(LOCALID_CAMERA, Route15_Lighthouse_CameraGoesUp)

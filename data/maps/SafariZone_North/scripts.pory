@@ -59,6 +59,29 @@ script SafariZone_North_Breloom {
 	delay(30)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox("He seems sad to have missed the\naction.", MSGBOX_DEFAULT)
+	callnative(GetPlayerOutfit)
+	if(!flag(FLAG_GOT_PARAS_FROM_LUIGI) && var(VAR_RESULT) == OUTFIT_L) {
+		delay(30)
+		applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+		playse(SE_PIN)
+		waitmovement(0)
+		delay(30)
+		msgbox("…But he really likes\nyour outfit!", MSGBOX_DEFAULT)
+		closemessage
+		playmoncry(SPECIES_BRELOOM, CRY_MODE_DEFAULT)
+		msgbox("BRELOOM: Bree!\n", MSGBOX_DEFAULT)
+		waitmoncry
+		closemessage
+		msgbox("He has a gift for you!\n", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} recieved a PARAS\nfrom the kindly BRELOOM!", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PARAS)
+		call(Common_Script_GiftPokemon)
+
+		setflag(FLAG_GOT_PARAS_FROM_LUIGI)
+	}
 	release
 
 }

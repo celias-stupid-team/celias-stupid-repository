@@ -156,6 +156,9 @@ script FushciaCity_OnTransition {
 	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
 		call(FuschiaCity_RemoveErik)
 	}
+	if(!flag(FLAG_BADGE05_GET)) {
+		setflag(FLAG_TEMP_3)
+	}
 }
 
 script FuschiaCity_BrickBreak {
@@ -445,5 +448,10 @@ script FushciaCity_OakTree {
 
 	}
 	releaseall
+	end
+}
+
+script FushciaCity_CeliaEndDemo3 {
+	msgbox("Hiya!\nI'm CELIA, the creator!\pThis is the end of DEMO 3!\nThank you for playing!\pSurf will be unusable until the\nfull release of the game.\lStay tuned!\pIn the meantime, try to fill out\nyour POKéDEX!\pI recommend that you have 87\nPOKéMON caught right now.\lThe most you can have is 103!\pPlus, there's plenty of secrets\nto find if you know where to look!\pTry everything you can think of -\nYou're likely to be rewarded!\pAnyway, thank you so much for\nplaying!\lI hope you had fun!", MSGBOX_NPC)
 	end
 }

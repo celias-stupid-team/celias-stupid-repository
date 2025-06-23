@@ -3737,6 +3737,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_IKI_TOWN_TEST) \
     X(MUS_THUNDERING_DYNAMO) \
     X(MUS_CSR_SECRET_HOUSE) \
+    X(MUS_KOROK_SEED) \
 
 
 #define SOUND_LIST_SE \

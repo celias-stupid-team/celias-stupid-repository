@@ -8730,12 +8730,13 @@ static const struct LevelUpMove sBaxcaliburLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGimmighoulLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_PAY_DAY),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sGholdengoLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(0, MOVE_SURF),
+	LEVEL_UP_MOVE(20, MOVE_SURF),
 	LEVEL_UP_END
 };
 

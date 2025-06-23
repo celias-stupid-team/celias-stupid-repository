@@ -17,20 +17,7 @@ PalletTown_RivalsHouse_EventScript_AlreadyReceivedTownMap::
 	setvar RECEIVED_TOWN_MAP, TRUE
 	return
 
-PalletTown_RivalsHouse_EventScript_Daisy::
-	lock
-	faceplayer
-	goto_if_set FLAG_SYS_GAME_CLEAR, PalletTown_RivalsHouse_EventScript_GroomMon
-	goto_if_eq RECEIVED_TOWN_MAP, TRUE, PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_RivalsHouse_EventScript_HeardBattledRival
-	msgbox PalletTown_RivalsHouse_Text_HiBrothersAtLab
-	closemessage
-	applymovement LOCALID_DAISY, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
-	end
+
 
 PalletTown_RivalsHouse_EventScript_HeardBattledRival::
 	msgbox PalletTown_RivalsHouse_Text_HeardYouBattledRival
@@ -152,6 +139,28 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 `
 
+script PalletTown_RivalsHouse_EventScript_Daisy {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_CUT_OAK)) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Oh no!\pGrandpa's dead!\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	goto_if_set(FLAG_SYS_GAME_CLEAR, PalletTown_RivalsHouse_EventScript_GroomMon)
+	goto_if_eq(RECEIVED_TOWN_MAP, TRUE, PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap)
+	goto_if_ge(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_RivalsHouse_EventScript_HeardBattledRival)
+	msgbox(PalletTown_RivalsHouse_Text_HiBrothersAtLab)
+	closemessage
+	applymovement(LOCALID_DAISY, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
 mapscripts PalletTown_RivalsHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: PalletTown_RivalsHouse_OnTransition
 	MAP_SCRIPT_ON_LOAD {
@@ -181,7 +190,7 @@ script BobOmbBattlefield_EventScript_IntroBuddy {
 }
 
 script BobOmbBattlefield_EventScript_Sign {
-	msgbox("I'm a sign!\pThis is placeholder text!\nYay!", MSGBOX_SIGN)
+	msgbox("I'm a sign!", MSGBOX_SIGN)
 	end
 }
 

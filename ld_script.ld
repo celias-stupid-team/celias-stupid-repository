@@ -1007,6 +1007,7 @@ SECTIONS {
         sound/songs/midi/mus_iki_town_test.o(.rodata);
         sound/songs/midi/mus_thundering_dynamo.o(.rodata);
         sound/songs/midi/mus_secret_house.o(.rodata);
+        sound/songs/midi/mus_korok_seed.o(.rodata);
 
     } > ROM =0
 

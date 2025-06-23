@@ -243,6 +243,12 @@ void EvolvePartyMon(void){
         EvolvePartyMonToSpecies();
 }
 
+
+void GetPlayerOutfit(void){ 
+
+    gSpecialVar_Result = gSaveBlock1Ptr->currentOutfit;
+}
+
 /* Example script:
 
 

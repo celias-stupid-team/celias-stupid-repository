@@ -8,6 +8,9 @@ mapscripts KantoLighthouse_1F_MapScripts {
             setmetatile(11, 4, 0x32A, FALSE)
             setvar(VAR_TEMP_1, 1)
         }
+        if(var(VAR_CSR_TURNED_ON_POWER) != 0) {
+            clearflag(FLAG_HIDE_GTS_NPCS)
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 1 {
@@ -79,6 +82,9 @@ movement LighthouseMan {
 }
 
 script GTS_Attendant {
+    if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
+        msgbox("Oh!\nUm, hello?\lWelcome to the GLOBAL TRADE SYSTEM\pWe're having a big power outage.\nMost of our machines are down.\pThe guard outside was supposed to\nstop anyone from coming in here.\lI hope he's not taking a break…", MSGBOX_NPC)
+    }
 	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM! \pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\lI hope you enjoy our services!\n", MSGBOX_NPC)
 	end
 }
