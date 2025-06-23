@@ -34,7 +34,9 @@ script Sootopolis_EventScript_Kiri {
 	} else {
 		msgbox("Hi, what's your name?\p... ... ...\n... ... ...\p... ... ...\nOkay. That's nice!\pMy name is KIRI.\pMy mommy and daddy named me that so\nI would grow healthy and happy.\lThat's what they wished.\pMy daddy really loves this POKéMON.\nYou can have it as a gift!", MSGBOX_DEFAULT)
 
-
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} obtained the\nPSYDUCK!", MSGBOX_DEFAULT)
+		waitfanfare
 		setvar(VAR_TEMP_1, SPECIES_GOLDUCK)
 			givemon(SPECIES_GOLDUCK, 25)
 			switch(var(VAR_RESULT)) {
