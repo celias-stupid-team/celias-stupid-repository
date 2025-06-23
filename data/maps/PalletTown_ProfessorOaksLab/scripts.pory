@@ -1502,6 +1502,11 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
 	if(!flag(BALL_1_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_1_CHECKED)
+		clearflag(FLAG_TEMP_7)
+	} else {
+		if(var(NUM_STARTERS_CHECKED) == 2 && !flag(FLAG_TEMP_7)) {
+			setflag(FLAG_TEMP_7)
+		}
 	}
 	setvar(LAST_BALL_CHECKED, 1)
 	setvar(PLAYER_STARTER_NUM, 0)
@@ -1520,6 +1525,11 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
 	if(!flag(BALL_2_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_2_CHECKED)
+		clearflag(FLAG_TEMP_7)
+	} else {
+		if(var(NUM_STARTERS_CHECKED) == 2 && !flag(FLAG_TEMP_7)) {
+			setflag(FLAG_TEMP_7)
+		}
 	}
 	setvar(LAST_BALL_CHECKED, 2)
 	setvar(PLAYER_STARTER_NUM, 1)
@@ -1538,6 +1548,11 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3 {
 	if(!flag(BALL_3_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_3_CHECKED)
+		clearflag(FLAG_TEMP_7)
+	} else {
+		if(var(NUM_STARTERS_CHECKED) == 2 && !flag(FLAG_TEMP_7)) {
+			setflag(FLAG_TEMP_7)
+		}
 	}
 	setvar(LAST_BALL_CHECKED, 3)
 	setvar(PLAYER_STARTER_NUM, 2)
@@ -1555,11 +1570,18 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 	waitmovement(0)
 	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
 	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_TEMP_7)) {
+			textcolor(NPC_TEXT_COLOR_TREE)
+			setflag(FLAG_SHINY_CREATION) //Charmander
+			msgbox("Oh, you didn't want that\nother CHARMANDER?\pThat's okay - this one is still\nan option!", MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, YES, PalletTown_ProfessorOaksLab_EventScript_ChoseStarter)
+			goto_if_eq(VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter)
+			end
+	}
 	switch(var(NUM_STARTERS_CHECKED)) {
 		case 1:
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmBulbasaur)
 		case 2:
-			setflag(FLAG_SHINY_CREATION) //Charmander
 			goto(PalletTown_ProfessorOaksLab_EventScript_ConfirmSquirtle)
 		default: 
 			clearflag(FLAG_SHINY_CREATION)

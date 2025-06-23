@@ -61,11 +61,13 @@ script RockTunnel_1F_OnTransition {
 	if(!checktrainerflag(TRAINER_POKEMANIAC_STEVE)) {
 		setflag(FLAG_TEMP_5)
 	}
-	setflag(FLAG_TEMP_1)
+	if(!flag(FLAG_ELECTIVIRE_SIGN)) {
+		setflag(FLAG_TEMP_1)
+	}
 }
 
 script RockTunnel_1F_OnLoad {
-	if(var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 		setflashlevel(0)
 	} else {
 		call(RockTunnel_DrawBlankScreen)
@@ -84,7 +86,7 @@ script RockTunnel_SoldOut {
 }
 
 script RockTunnel_ClefableHint {
-	msgbox("I hear that sometimes when CLEFABLE\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
+	msgbox("I hear that sometimes when CLEFAIRY\nevolves, its SHADOW comes to life.", MSGBOX_NPC)
 	end
 }
 
@@ -119,7 +121,7 @@ script RockTunnel_DrawBlankScreen {
 const HINT_GIRL = 1
 script RockTunnel_PokemonSign {
 	lock
-	if(!var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
 		msgbox("A projector screen is set up\nagainst the wall of the cave.", MSGBOX_DEFAULT)
 		release
 		end
@@ -148,7 +150,7 @@ script RockTunnel_CavePeople {
 }
 
 script RockTunnel_LightsOutlet {
-	if(var(VAR_CSR_TURNED_ON_POWER)) {
+	if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
 		msgbox("A perfectly-sized fork recepticle.\n", MSGBOX_SIGN)
 	} else {
 		msgbox("The lights are plugged in, but\nthe power is off.", MSGBOX_SIGN)
@@ -166,7 +168,7 @@ script RockTunnel_LightsOut {
 }
 
 script RockTunnel_Statistician {
-	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\nannual average spider consumption.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
+	msgbox("Why, hello!\nI'm a STATISTICIAN!\pI'm conducting a survey to analyze\naverage annual spider consumption.\pDo you have a minute to answer\nsome questions?", MSGBOX_NPC)
 	end
 }
 

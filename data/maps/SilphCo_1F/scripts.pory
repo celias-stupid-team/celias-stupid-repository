@@ -20,3 +20,8 @@ script SilphCo_BackDoorSign {
 	msgbox("SILPH CO.\nBack Door", MSGBOX_SIGN)
 	end
 }
+
+script SilphCo_Roadblock {
+	msgbox("Sorry, but this teleport pad\nis out of service.\pCome back next update!\n", MSGBOX_NPC)
+	end
+}

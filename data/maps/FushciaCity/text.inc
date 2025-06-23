@@ -22,7 +22,9 @@ FushciaCity_Text_ItemBallInThere::
 FushciaCity_Text_CitySign::
 	.string "FUSHCIA CITY\n"
 	.string "We spelled the name wrong\l"
-	.string "on accident!$"
+	.string "on accident!\p"
+	.string "Recommended POKéDEX completion:\n"
+	.string "87$"
 
 FushciaCity_Text_SafariZoneSign::
     .string "POKéMON PARADISE\n"

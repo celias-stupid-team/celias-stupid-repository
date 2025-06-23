@@ -114,7 +114,19 @@ mapscripts PokemonTower_2F_MapScripts {
 	}
 }
 script PokemonTower_2F_EndOfDemo {
-	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 85, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 21 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
+	if(flag(FLAG_CSR_CELIA_BONUS)) {
+		lock
+		faceplayer
+		msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2.9!\nThank you for playing!\lBut...\pI see that you've found my\nsecrets all across KANTO!\lNicely done!\pAs a reward, you get to have\na sneak peek of DEMO 3!", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(VAR_LAST_TALKED, Common_Movement_WalkUp)
+		waitmovement(0)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+		msgbox("Just up these stairs is the new\ncontent.\pGood luck!\pps I'm not writing in any more\nlogic here.\lI will continue to walk up.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2.9!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 85, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 21 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
 	end
 }
 

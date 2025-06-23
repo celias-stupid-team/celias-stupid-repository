@@ -34,6 +34,9 @@ mapscripts SafariZone_Center_MapScripts {
 		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
 			setflag(FLAG_TEMP_4)
 		}
+		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			setflag(FLAG_TEMP_5)
+		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
@@ -115,7 +118,7 @@ script SafariZone_KangaskahnCage {
 	msgbox("KANGASKHAN: Kang! Kanga-!!\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
-	if(checkitem(ITEM_TM32)) {
+	if(checkitem(ITEM_TM_CASE)) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			msgbox("Which TM would you like to give?\n", MSGBOX_DEFAULT)
@@ -204,6 +207,19 @@ script SafariZone_KangaskahnCage {
 		
 		msgbox("She's separated from her child…\n", MSGBOX_DEFAULT)
 	}
+	release
+}
+
+script SafariZoneCenter_WorriedWoman {
+	lock
+	faceplayer
+	if(flag(FLAG_FREED_KANGA)) {
+		msgbox("KANGASKHAN!\nShe's finally free!\pThank goodness.\nIt hurt my heart seeing her stuck.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("The DMCA have been chased out,\nbut KANGASKHAN is still trapped…\pIt's all right, though.\nShe's a fierce one.\lI bet she's planning an escape.\pMaybe we can give her something\nto help out!", MSGBOX_DEFAULT)
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
 	release
 }
 

@@ -2630,12 +2630,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_EXEGGCUTE,
+        .species = SPECIES_PANCHAM,
     },
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_PANCHAM,
+        .species = SPECIES_EXEGGCUTE,
     },
 };
 
@@ -4204,18 +4204,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt13[] = {
         .lvl = 17,
         .species = SPECIES_GRIMER,
         .moves = {MOVE_SMOG, MOVE_TACKLE, MOVE_POISON_GAS, MOVE_NONE},
-    },
-    {
-        .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_GRIMER,
-        .moves = {MOVE_SLUDGE, MOVE_DISABLE, MOVE_HARDEN, MOVE_POUND},
-    },
-    {
-        .iv = 0,
-        .lvl = 17,
-        .species = SPECIES_ZUBAT,
-        .moves = {MOVE_BITE, MOVE_ASTONISH, MOVE_SUPERSONIC, MOVE_LEECH_LIFE},
     },
     {
         .iv = 0,

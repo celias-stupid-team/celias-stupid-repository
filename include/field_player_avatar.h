@@ -67,4 +67,6 @@ u16 GetRSAvatarGraphicsIdByGender(u8 gender);
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);
 
+void StartPowerplantGame(void);
+
 #endif //GUARD_FIELD_PLAYER_AVATAR_H

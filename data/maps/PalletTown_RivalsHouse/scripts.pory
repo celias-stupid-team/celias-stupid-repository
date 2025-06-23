@@ -17,20 +17,7 @@ PalletTown_RivalsHouse_EventScript_AlreadyReceivedTownMap::
 	setvar RECEIVED_TOWN_MAP, TRUE
 	return
 
-PalletTown_RivalsHouse_EventScript_Daisy::
-	lock
-	faceplayer
-	goto_if_set FLAG_SYS_GAME_CLEAR, PalletTown_RivalsHouse_EventScript_GroomMon
-	goto_if_eq RECEIVED_TOWN_MAP, TRUE, PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_RivalsHouse_EventScript_HeardBattledRival
-	msgbox PalletTown_RivalsHouse_Text_HiBrothersAtLab
-	closemessage
-	applymovement LOCALID_DAISY, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
-	end
+
 
 PalletTown_RivalsHouse_EventScript_HeardBattledRival::
 	msgbox PalletTown_RivalsHouse_Text_HeardYouBattledRival
@@ -152,6 +139,28 @@ PalletTown_RivalsHouse_EventScript_Bookshelf::
 
 `
 
+script PalletTown_RivalsHouse_EventScript_Daisy {
+	lock
+	faceplayer
+	if(flag(FLAG_CSR_CUT_OAK)) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Oh no!\pGrandpa's dead!\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	goto_if_set(FLAG_SYS_GAME_CLEAR, PalletTown_RivalsHouse_EventScript_GroomMon)
+	goto_if_eq(RECEIVED_TOWN_MAP, TRUE, PalletTown_RivalsHouse_EventScript_PleaseGiveMonsRest)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, PalletTown_RivalsHouse_EventScript_ExplainTownMap)
+	goto_if_eq(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1, PalletTown_RivalsHouse_EventScript_GiveTownMap)
+	goto_if_ge(VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_RivalsHouse_EventScript_HeardBattledRival)
+	msgbox(PalletTown_RivalsHouse_Text_HiBrothersAtLab)
+	closemessage
+	applymovement(LOCALID_DAISY, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
 mapscripts PalletTown_RivalsHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: PalletTown_RivalsHouse_OnTransition
 	MAP_SCRIPT_ON_LOAD {
@@ -181,53 +190,11 @@ script BobOmbBattlefield_EventScript_IntroBuddy {
 }
 
 script BobOmbBattlefield_EventScript_Sign {
-	msgbox("I'm a sign!\pThis is placeholder text!\nYay!", MSGBOX_SIGN)
+	msgbox("I'm a sign!", MSGBOX_SIGN)
 	end
 }
 
-script BobOmbBattlefield_EventScript_Cannon {
-	lock
-	msgbox("Placeholder text!\pLaunch yourself out of a cannon?\n", MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES) {
-		closemessage
-		delay(15)
-		playse(SE_LEDGE)
-		switch(var(VAR_FACING)) {
-			case DIR_NORTH:
-				applymovement(LOCALID_PLAYER, JumpUp)
-				break
-			case DIR_SOUTH:
-				applymovement(LOCALID_PLAYER, JumpDown)
-				break
-			case DIR_EAST:
-				applymovement(LOCALID_PLAYER, JumpRight)
-				break
-			case DIR_WEST:
-				applymovement(LOCALID_PLAYER, JumpLeft)
-				break
-		}
-		waitmovement(0)
-		setmetatile(31,32,0x075,0)
-		applymovement(LOCALID_PLAYER, FallIntoHole)
-		waitmovement(0)
-		delay(30)
-		msgbox("It is implied that a cannon is\nlaunching you.", MSGBOX_DEFAULT)
-		closemessage
-		fadescreen(FADE_TO_BLACK)
 
-		//player faces down
-		//spawn camera
-		//camera locks in place
-		//cannon comes up out of the ground
-		//player locks facing direction
-		//player slides up very quickly until off screen
-		
-		warp(MAP_PALLET_TOWN_RIVALS_HOUSE, 3)
-
-	}
-	release
-	end
-}
 
 script SaffronCity_CopycatHouse_EventScript_Picture {
 	lock
@@ -260,9 +227,9 @@ script PalletTown_RivalsHouse_EventScript_Picture {
 	}
 	switch(var(VAR_TEMP_4)) {
 		case 0:
-			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
+			msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it?\n", MSGBOX_YESNO)
 		case 1:
-			msgbox("A painting of three lit\nbombs.\pWanna jump face-first into it\nagain?", MSGBOX_YESNO)
+			msgbox("A familiar painting of three lit\nbombs.\pWanna jump face-first into it\nagain?", MSGBOX_YESNO)
 		case 2:
 			msgbox("An off-center picture of three\nlit bombs.\pWanna do it again?\n", MSGBOX_YESNO)
 	}
@@ -348,22 +315,7 @@ movement Faceplant {
 	unlock_facing_direction
 }
 
-movement JumpUp {
-	jump_up
-	set_invisible
-}
-movement JumpDown {
-	jump_down
-	set_invisible
-}
-movement JumpLeft {
-	jump_left
-	set_invisible
-}
-movement JumpRight {
-	jump_right
-	set_invisible
-}
+
 movement ExitPainting {
 	jump_2_down
 }

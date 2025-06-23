@@ -116,12 +116,12 @@ script CeladonCondominiums_JumpUpRightStairs {
 		fadeoutbgm(1)
 		delay(10)
 		//Blj sound, cry?
-		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playmoncry(SPECIES_YVELTAL, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
 		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)
 		waitmoncry
-		playmoncry(SPECIES_CYCLIZAR, CRY_MODE_NORMAL)
+		playmoncry(SPECIES_YVELTAL, CRY_MODE_NORMAL)
 		playse(SE_LEDGE)
 		applymovement(LOCALID_PLAYER, CeladonMansion_PlayerJumpsInPlace)
 		waitmovement(0)

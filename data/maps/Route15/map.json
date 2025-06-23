@@ -57,8 +57,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 24,
-      "y": 4,
+      "x": -2,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -71,8 +71,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 27,
-      "y": 4,
+      "x": 1,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -85,8 +85,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 25,
-      "y": 4,
+      "x": -1,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -99,8 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 26,
-      "y": 4,
+      "x": 0,
+      "y": 41,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 2,
@@ -208,6 +208,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "KantoLighthouse_1F_OldMan",
       "flag": "FLAG_TEMP_4"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 40,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeliaSecrets_LighthouseSign",
+      "flag": "FLAG_CELIA_BONUS_3"
     }
   ],
   "warp_events": [
@@ -312,24 +326,24 @@
     },
     {
       "type": "sign",
-      "x": 21,
-      "y": 4,
+      "x": -5,
+      "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route15_GluedToTree"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 4,
+      "x": -6,
+      "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route15_GluedToTree"
     },
     {
       "type": "sign",
-      "x": 22,
-      "y": 4,
+      "x": -4,
+      "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route15_GluedToTree"

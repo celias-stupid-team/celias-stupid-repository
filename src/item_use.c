@@ -23,9 +23,11 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "pokedex_screen.h"
 #include "quest_log.h"
 #include "region_map.h"
 #include "script.h"
+#include "script_pokemon_util.h"
 #include "strings.h"
 #include "task.h"
 #include "teachy_tv.h"
@@ -941,10 +943,57 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
 }
 
-void FieldUseFunc_PayDayTM(u8 taskId) {
+#define STATE_PAYDAY_SENTTOPC 4
+
+static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
+{
+    if (gSpecialVar_Result != STATE_PAYDAY_SENTTOPC)
+        PlayFanfare(MUS_LEVEL_UP);
+
+    if (gSpecialVar_Result == STATE_PAYDAY_SENTTOPC) //special state to handle PC message
+        DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_SentToPC, Task_ItemUse_CloseMessageBoxAndReturnToField);
+    else if (gSpecialVar_Result == MON_GIVEN_TO_PC)
+    {
+        DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_ReceivedPokemon, ItemUseOnFieldCB_PayDayTM);
+        gSpecialVar_Result = STATE_PAYDAY_SENTTOPC;
+    }
+    else
+        DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_ReceivedPokemon, Task_ItemUse_CloseMessageBoxAndReturnToField);
+}
+
+void FieldUseFunc_PayDayTM(u8 taskId)
+{
+    //ToDo: messages not working correctly
+    u16 species;
+    u8 speciesName[POKEMON_NAME_LENGTH + 1];
+
+    species = SPECIES_GIMMIGHOUL;
     
+    if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
+    {
+        gSpecialVar_Result = ScriptGiveMon(species, 5, ITEM_NONE, 0, 0, 0);
+    }
+    else
+    {
+        PrintNotTheTimeToUseThat(taskId, FALSE);
+        return;
+    }
 
-
+    switch (gSpecialVar_Result)
+    {
+    case MON_CANT_GIVE: // no space in PC
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_AllBoxesFull);
+        break;
+    case MON_GIVEN_TO_PARTY:
+    case MON_GIVEN_TO_PC:
+        PlayCry_Normal(species, CRY_MODE_DEFAULT);
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
+        GetSpeciesName(speciesName, species);
+        StringExpandPlaceholders(gStringVar1, speciesName);
+        sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM;
+        SetUpItemUseOnFieldCallback(taskId);
+        break;
+    }
 }
 
 static void LWPEmblem_EquipOutfit(void)

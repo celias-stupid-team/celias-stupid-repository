@@ -38,7 +38,8 @@ script Route18_OnTransition {
 	call_if_eq(VAR_MAP_SCENE_ROUTE16, 1, Route18_OnTransitionCyclingRoad)
 	if(!flag(FLAG_TRIED_SLOPE)) {
 			setflag(FLAG_TEMP_5)
-		}
+	}
+	setbench(BENCH_FUSHCIA)
 }
 
 script Route18_TiredBiker {
@@ -68,6 +69,11 @@ script Route18_BirdCultistStopsYouTrigger {
 
 script Route18_BeachBoy {
 	msgbox("Huh?\nA bird cult ceremony?\pNah, man.\nEddie's my uncle.\lHe lets me through for free!", MSGBOX_NPC)
+	end
+}
+
+script Route18_KrabbyTM {
+	msgbox("Every so often, a peculiar TM\nwill wash up on the beach.\pIt's said that to use the move,\nyour POKéMON needs to be prepared\lfor the final evolutionary step.\pI wonder if I'll ever truly\nsee what that means…", MSGBOX_NPC)
 	end
 }
 

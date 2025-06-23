@@ -1382,3 +1382,7 @@ const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4
 const u8 gText_UsedTheItem[] = _("Used the {STR_VAR_1}!{PAUSE_UNTIL_PRESS}");
 const u8 gText_LWPEmblemEnd[] = _("{PLAYER} looks fabulous!{PAUSE_UNTIL_PRESS}");
 const u8 gText_GenderFluidEnd[] = _("Gender?\nI hardly know 'er!{PAUSE_UNTIL_PRESS}");
+const u8 gText_ReceivedPokemon[] = _("You received {STR_VAR_1}!{PAUSE_UNTIL_PRESS}");
+const u8 gText_AllBoxesFull[] = _("There's no more room for POKéMON!\pThe PC BOXES are full and\ncan't accept any more!{PAUSE_UNTIL_PRESS}");
+const u8 gText_GimmieghoulTMUsed[] = _("Oh?{PAUSE_UNTIL_PRESS}");
+const u8 gText_SentToPC[] = _("{STR_VAR_1} was sent to the PC!{PAUSE_UNTIL_PRESS}");

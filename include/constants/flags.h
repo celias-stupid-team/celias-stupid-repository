@@ -131,7 +131,7 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_HIDE_LOSTELLE_IN_HER_HOME                     0x076
+#define FLAG_CELIA_BONUS_3                     0x076
 #define FLAG_HIDE_P_EMBLEM                                         0x077
 #define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
@@ -356,10 +356,10 @@
 #define FLAG_TRIED_SLOPE               0x136
 #define FLAG_TALKED_TO_LEFT_SCAMMER               0x137
 #define FLAG_TALKED_TO_RIGHT_SCAMMER               0x138
-#define FLAG_LEFT_SCAMMER_HAS_MON               0x139
-#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A
-#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B
-#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C
+#define FLAG_LEFT_SCAMMER_HAS_MON               0x139 // Left Scammer has been given a Pokemon, so he won't ask for another.
+#define FLAG_RIGHT_SCAMMER_HAS_MON               0x13A // Right Scammer has been given a Pokemon, so he won't ask for another.
+#define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B // Right Scammer has sent a mon over and the Left Scammer has recieved it. Right Scammer will not prompt until you take it
+#define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C // Left Scammer has sent a mon over and Right Scammer has recieved it. Left Scammer will not prompt until you grab it
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_0x13E               0x13E
 #define FLAG_0x13F               0x13F
@@ -582,10 +582,10 @@
 #define FLAG_WATER_GUN_TM               0x210
 #define FLAG_SAFARI_ZONE_WATER_STONE               0x211
 #define FLAG_ROUTE_17_POKEBALL               0x212
-#define FLAG_0x213               0x213
-#define FLAG_0x214               0x214
-#define FLAG_0x215               0x215
-#define FLAG_0x216               0x216
+#define FLAG_GOT_SHINY_BELLSPROUT               0x213
+#define FLAG_HIDE_GTS_NPCS               0x214
+#define FLAG_LOOK_GIRL_LASS               0x215
+#define FLAG_MELTED_LIGHTHOUSE_GUARD               0x216
 #define FLAG_0x217               0x217
 #define FLAG_0x218               0x218
 #define FLAG_0x219               0x219
@@ -896,7 +896,7 @@
 #define FLAG_TALKED_TO_KOGA_AT_START               0x33D
 #define FLAG_RELEASED_CHOMP               0x33E
 #define FLAG_GOT_STAR               0x33F
-#define FLAG_0x340               0x340
+#define FLAG_GOT_PARAS_FROM_LUIGI               0x340
 #define FLAG_0x341               0x341
 #define FLAG_0x342               0x342
 

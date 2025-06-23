@@ -250,6 +250,8 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall {
 			setflag(FLAG_HIDE_EEVEE_BALL)
 			setwildbattle(SPECIES_JIGGLYPUFF, 13, ITEM_SODA_POP)
 			dowildbattle
+			delay(50)
+			setflag(FLAG_HIDE_EEVEE_BALL)
 			release
 			break
 	}
@@ -266,7 +268,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt {
 				msgbox("He appears to be asleep…\pNow's your chance!", MSGBOX_DEFAULT)
 				break
 			case 1: 
-				msgbox("It seems he's still asleep.\p", MSGBOX_DEFAULT)
+				msgbox("It seems he's still asleep.", MSGBOX_DEFAULT)
 				break
 			}
 			break
@@ -346,7 +348,7 @@ script DMCAHideout_EeveeManScreams { //placing this here for my own convenience 
 script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 	lock
 	faceplayer
-	if(!flag(FLAG_TEMP_3)) {
+	if(!flag(FLAG_TEMP_4)) {
 
 		switch(var(VAR_EEVEE_COUNT)) {
 			case 4:
@@ -386,6 +388,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 			release
 			end
 		}
+		setflag(FLAG_TEMP_4)
 		setvar(VAR_TEMP_1, SPECIES_EEVEE)
 			givemon(SPECIES_EEVEE, 25)
 			goto_if_eq(VAR_RESULT, 0, CeladonCity_Condominiums_RoofRoom_EventScript_GetEeveePartyCelia)
@@ -393,7 +396,7 @@ script CeladonCity_Condominiums_RoofRoom_EventScript_Celia {
 			goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon)
 		
 
-		setflag(FLAG_TEMP_3)
+		
 	} else {
 		msgbox("You can keep coming back in\nif you really want to.\pJust don't expect me to keep\nwriting new dialogue for you.", MSGBOX_DEFAULT)
 	}

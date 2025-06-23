@@ -84,7 +84,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_GASTLY]     = {{EVO_LEVEL, 25, SPECIES_HAUNTER}},
 
-    //[SPECIES_HAUNTER]    = {{EVO_TRADE, 0, SPECIES_GENGAR}},      //TODO some post-dex mon that LOOKS like gengar
+    [SPECIES_HAUNTER]    = {{EVO_TRADE, 0, SPECIES_GENGAR}},      //TODO some post-dex mon that LOOKS like gengar
 
 
 

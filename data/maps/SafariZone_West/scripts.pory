@@ -46,3 +46,25 @@ script SafariZone_West_SecretHouse {
 	msgbox("SECRET HOUSE\nNow offering prizes!\l- SAFARI ZONE, LLC.", MSGBOX_SIGN)
 	end
 }
+
+script SafariZone_West_PitSign {
+	lock
+	addobject(LOCALID_CHUCKSTER)
+	setobjectxy(LOCALID_CHUCKSTER, 9, 30)
+	applymovement(LOCALID_CHUCKSTER, SafariZone_ChucksterApproaches)
+	msgbox("TRAINER TIPS!\pVisit the SECRET HOUSE for\na great prize!\p…\pDumbass.\n", MSGBOX_DEFAULT)
+	closemessage
+	waitmovement(0)
+	copyobjectxytoperm(LOCALID_CHUCKSTER)
+	setobjectmovementtype(LOCALID_CHUCKSTER, MOVEMENT_TYPE_FACE_UP)
+	release
+	end
+}
+
+movement SafariZone_ChucksterApproaches {
+	delay_16 * 2
+	set_visible
+	walk_right * 7
+	walk_up * 2
+	face_up
+}

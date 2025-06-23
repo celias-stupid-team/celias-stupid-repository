@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": -2,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_2",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B2F_EventScript_ItemXSpeed",
+      "script": "EventScript_FindItem",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_X_SPEED"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B2F_EventScript_ItemMoonStone",
+      "script": "EventScript_FindItem",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_MOON_STONE"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B2F_EventScript_ItemTM49",
+      "script": "EventScript_FindItem",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_TM12"
     },
     {
@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RocketHideout_B2F_EventScript_ItemSuperPotion",
+      "script": "EventScript_FindItem",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_SUPER_POTION"
     },
     {
@@ -149,12 +149,15 @@
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
+      "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

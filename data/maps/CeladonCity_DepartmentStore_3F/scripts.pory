@@ -159,7 +159,7 @@ script DepartmentStore_GameShop_TradeLeft {
 }
 
 script DepartmentStore_GameShop_NES {
-	msgbox("This looks like an NES, but it's\nactually a very fancy GAMECUBE!", MSGBOX_NPC)
+	msgbox("This looks like an NES, but it's\nactually a very fancy GAMECUBE!", MSGBOX_SIGN)
 	end
 }
 

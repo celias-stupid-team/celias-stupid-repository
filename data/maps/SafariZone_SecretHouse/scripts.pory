@@ -1,7 +1,4 @@
 raw `
-SafariZone_SecretHouse_MapScripts::
-	.byte 0
-
 SafariZone_SecretHouse_EventScript_Attendant::
 	lock
 	faceplayer
@@ -25,6 +22,14 @@ SafariZone_SecretHouse_EventScript_ExplainSurf::
 	release
 	end
 `
+mapscripts SafariZone_SecretHouse_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(checkitem(ITEM_P_EMBLEM)) {
+			playbgm(MUS_CSR_SECRET_HOUSE, TRUE)
+		}
+	}
+}
+
 script SafariZone_SecretHouse_EventScript_Prize {
 	lock
 	faceplayer

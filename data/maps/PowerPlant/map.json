@@ -87,11 +87,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ETERNATUS",
+      "graphics_id": "OBJ_EVENT_GFX_DODUO",
       "x": 24,
-      "y": 6,
+      "y": 42,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -182,6 +182,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_StarmieHint",
       "flag": "0"
+    },
+    {
+      "local_id": "ETERNATUS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ETERNATUS",
+      "x": 24,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_POWER_PLANT_ELECTRODE_1"
     }
   ],
   "warp_events": [

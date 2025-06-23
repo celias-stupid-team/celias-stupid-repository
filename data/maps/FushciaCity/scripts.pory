@@ -140,6 +140,7 @@ FushciaCity_EventScript_StakatakaSign::
 script FushciaCity_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
 	setworldmapflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
+	setbench(BENCH_FUSHCIA)
 	call(SetPlayerPokedexValues)
 	clearflag(FLAG_IN_FUSHCIA_GYM)
 	call_if_set(FLAG_GOT_DOME_FOSSIL, FushciaCity_EventScript_SetOmanyteGfx)
@@ -154,6 +155,9 @@ script FushciaCity_OnTransition {
 	}
 	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
 		call(FuschiaCity_RemoveErik)
+	}
+	if(!flag(FLAG_BADGE05_GET)) {
+		setflag(FLAG_TEMP_3)
 	}
 }
 
@@ -313,6 +317,7 @@ script FushciaCity_BlackSesameSeed {
 			special(DrawWholeMapView)
 			msgbox("{PLAYER} used false pretenses to\nobtain the SESAME SEED!", MSGBOX_DEFAULT)
 			waitfanfare
+			msgbox("{PLAYER} put the SESAME SEED in\nthe SANDWICH CASE.", MSGBOX_DEFAULT)
 			setflag(FLAG_SANDWICH_GOT_SESAME_SEED)
 			call(FushciaCity_MakeASandwich)
 			release
@@ -382,7 +387,7 @@ script FushciaCity_Dad {
 }
 
 script FushciaCity_OldMan {
-	msgbox("Our SAFARI ZONE used to be the\ncrown jewel of the city.\lThat was back in the old days.\pEver since the DMCA came into the\npicture, it's been in decline.\pAh, to have the old FUSHCIA back…\n", MSGBOX_NPC)
+	msgbox("Hello, traveler!\nHave you met the SAFARI WARDEN?\pHe's a kind soul. He wouldn't dare\nhurt anyone innocent.\lBut…\pHe's been under a lot of stress,\nwith the whole SAFARI ZONE thing.\lMaybe he needs someone to talk to.\pYou should pay him a visit.\nI'm sure he'd appreciate it.", MSGBOX_NPC)
 	end
 }
 
@@ -443,5 +448,10 @@ script FushciaCity_OakTree {
 
 	}
 	releaseall
+	end
+}
+
+script FushciaCity_CeliaEndDemo3 {
+	msgbox("Hiya!\nI'm CELIA, the creator!\pThis is the end of DEMO 3!\nThank you for playing!\pSurf will be unusable until the\nfull release of the game.\lStay tuned!\pIn the meantime, try to fill out\nyour POKéDEX!\pI recommend that you have 87\nPOKéMON caught right now.\lThe most you can have is 103!\pPlus, there's plenty of secrets\nto find if you know where to look!\pTry everything you can think of -\nYou're likely to be rewarded!\pAnyway, thank you so much for\nplaying!\lI hope you had fun!", MSGBOX_NPC)
 	end
 }
