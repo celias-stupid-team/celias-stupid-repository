@@ -44,7 +44,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_VENONAT]    = {{EVO_LEVEL, 20, SPECIES_BUTTERFREE}},
     [SPECIES_DIGLETT]    = {{EVO_LEVEL, 20, SPECIES_DUGTRIO}},
-    //[SPECIES_MEOWTH]     = {{EVO_LEVEL, 28, SPECIES_PERSIAN}},  //Evolution only available with something from Persian - idk what
+    [SPECIES_MEOWTH]     = {{EVO_TRADE, 0, SPECIES_RAICHU}},  //Evolution only available with something from Persian - idk what
 
     [SPECIES_GOLDUCK]    = {{EVO_LEVEL, 20, SPECIES_PSYDUCK}},
 
@@ -84,7 +84,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_GASTLY]     = {{EVO_LEVEL, 25, SPECIES_HAUNTER}},
 
-    [SPECIES_HAUNTER]    = {{EVO_TRADE, 0, SPECIES_GENGAR}},      //TODO some post-dex mon that LOOKS like gengar
+    [SPECIES_HAUNTER]    = {{EVO_TRADE, 0, SPECIES_MEOWTH}},      //TODO some post-dex mon that LOOKS like gengar
 
 
 

@@ -187,7 +187,7 @@ script GTS_TradeScammer_Left {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -324,7 +324,7 @@ script GTS_LeftScammerMeat {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -390,7 +390,7 @@ script GTS_TradeScammer_Right {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -540,6 +540,16 @@ script GTS_RightScammerMeat {
             callnative(EvolvePartyMon)
             waitstate
 
+        } elif(flag(FLAG_TEMP_4)) {
+            clearflag(FLAG_TEMP_4)
+            getpartysize
+            subvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+            waitstate
+
         }
 
         // while you haven't withdrawn the other side, 
@@ -559,7 +569,23 @@ script GTS_Scammers_CheckIfComplimentaryMon {
     if((var(VAR_0x8005) == SPECIES_GRAVELER && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_MACHOKE) || (var(VAR_0x8005) == SPECIES_MACHOKE && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_GRAVELER)) {
         setflag(FLAG_TEMP_3)
     } else {
-        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        switch(var(VAR_FIRST_TRADED_MON_SPECIES)) {
+            case SPECIES_HAUNTER:
+            case SPECIES_RAICHU:
+            case SPECIES_MEOWTH:
+                setflag(FLAG_TEMP_4)
+            default:
+                clearflag(FLAG_TEMP_4)
+        }
+        switch(var(VAR_0x8005)) {
+            case SPECIES_HAUNTER:
+            case SPECIES_RAICHU:
+            case SPECIES_MEOWTH:
+                setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+            default:
+                clearflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+        }
+
     }
     return
 }
