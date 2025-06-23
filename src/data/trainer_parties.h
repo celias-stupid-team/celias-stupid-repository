@@ -2630,12 +2630,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BeautyBridget[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_EXEGGCUTE,
+        .species = SPECIES_PANCHAM,
     },
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_PANCHAM,
+        .species = SPECIES_EXEGGCUTE,
     },
 };
 
