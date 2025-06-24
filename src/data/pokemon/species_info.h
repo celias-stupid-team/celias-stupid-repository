@@ -16529,7 +16529,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_CUTE_CHARM, ABILITY_CUTE_CHARM},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
@@ -35489,7 +35489,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP = 40,
         .baseAttack = 250,
-        .baseDefense = 40,
+        .baseDefense = 10,
         .baseSpeed = 10,
         .baseSpAttack = 40,
         .baseSpDefense = 40,

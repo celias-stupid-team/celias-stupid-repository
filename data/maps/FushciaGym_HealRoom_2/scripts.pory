@@ -12,6 +12,7 @@ mapscripts FushciaGym_HealRoom_2_MapScripts {
             default:
                 setobjectxyperm(NURSE, 10, 10)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_HEAL_ROOM_2)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {

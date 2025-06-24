@@ -122,11 +122,11 @@ script PokemonTower_2F_EndOfDemo {
 		applymovement(VAR_LAST_TALKED, Common_Movement_WalkUp)
 		waitmovement(0)
 		applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
-		msgbox("Just up these stairs is the new\ncontent.\pGood luck!\pps I'm not writing in any more\nlogic here.\lI will continue to walk up.", MSGBOX_DEFAULT)
+		msgbox("Just up these stairs is the new\ncontent.\pGood luck!\pPS I'm not writing in any more\nlogic here.\lI will continue to walk up.", MSGBOX_DEFAULT)
 		release
 		end
 	}
-	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2.9!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 85, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 21 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
+	msgbox("Hi, I'm CELIA!\nI'm the creator.\pThis is the end of DEMO 2.9!\nThank you for playing!\pIf you want more to do, try to\nfill out your POKéDEX!\pMy reccomendation is to have 69\nPOKéMON caught right now (nice).\pThe highest possible is 83, but\nsome of them are VERY hard to find.\lDon't force yourself to finish!\pAdditionally, have you collected\nall 22 ODD CANDIES?\lAnd grabbed both POKéMON SIGNS?\pEven after doing all that, there's\nstill more to find!\lBut! It's a secret, so no hints!\pAnyway, thanks again!\nGood luck!", MSGBOX_NPC)
 	end
 }
 

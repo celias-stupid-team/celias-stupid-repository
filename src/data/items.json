@@ -6613,7 +6613,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_Nothing",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -6736,7 +6736,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "A fluffy slice of white bread,\\nready to be coated in sesame seed.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

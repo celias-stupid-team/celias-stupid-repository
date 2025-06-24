@@ -295,7 +295,7 @@
       "y": 38,
       "elevation": 3,
       "item": "ITEM_BASCI_BERRY_WHITE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE10_PERSIM_BERRY",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE8_RAWST_BERRY",
       "quantity": 1,
       "underfoot": false
     },

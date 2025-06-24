@@ -227,7 +227,7 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	step_end
 `
 mapscripts PokemonTower_7F_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
+	MAP_SCRIPT_ON_LOAD {
 		setbench(BENCH_LAVENDER_TOWER)
 	}
 }

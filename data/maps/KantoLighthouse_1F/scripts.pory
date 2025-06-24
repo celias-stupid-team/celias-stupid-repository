@@ -5,6 +5,7 @@ mapscripts KantoLighthouse_1F_MapScripts {
     }
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
+            clearflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
             setmetatile(11, 4, 0x32A, FALSE)
             setvar(VAR_TEMP_1, 1)
         }

@@ -186,6 +186,7 @@ const u8 gText_Var1IsSelected[] = _("{STR_VAR_1} is\nselected.");
 const u8 gText_CantWriteMailHere[] = _("You can't write\nMAIL here.");
 const u8 gText_ThereIsNoPokemon[] = _("There is no\nPOKéMON.");
 const u8 gText_ExpShareOff[] = _("The EXP. SHARE was turned off.");
+const u8 gText_NothingHappened[] = _("NOTHING happened.{PAUSE_UNTIL_PRESS}");
 const u8 gOtherText_WhereShouldTheStrVar1BePlaced[] = _("Where should the {STR_VAR_1}\nbe placed?");
 const u8 gText_ItemCantBeHeld[] = _("The {STR_VAR_1} can't be held.");
 const u8 gText_TheStrVar1CantBeHeldHere[] = _("The {STR_VAR_1} can't be held\nhere.");

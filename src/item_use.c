@@ -88,6 +88,7 @@ static void Task_GenderFluidWarpOut(u8 taskId);
 static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 
+
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
 // but the arrangement of values is not sensible (e.g., not giving all "old unown" the same value).
@@ -969,6 +970,13 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
 }
 
+
+void FieldUseFunc_Nothing(u8 taskId)
+{
+    DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_NothingHappened);
+}
+
+
 #define STATE_PAYDAY_SENTTOPC 4
 
 static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
@@ -997,7 +1005,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
     {
-        gSpecialVar_Result = ScriptGiveMon(species, 5, ITEM_NONE, 0, 0, 0);
+        gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
     else
     {

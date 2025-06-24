@@ -33,7 +33,7 @@ script GamblerHouse_Cards {
         msgbox("{PLAYER} flipped a card...\n", MSGBOX_DEFAULT)
         closemessage
         delay(10)
-        if(var(VAR_TEMP_2) > 4) {
+        if(var(VAR_TEMP_2) < 4) {
             playse(SE_BOO)
             addvar(VAR_TEMP_2, 1)
             waitse

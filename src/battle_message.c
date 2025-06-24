@@ -1884,7 +1884,7 @@ void BufferStringBattle(u16 stringId)
                     }
                     break;
                 case EVENT_BATTLE_ARIANA:
-                    if(sBattleMsgDataPtr->currentMove == MOVE_BONEMERANG) {
+                    if(sBattleMsgDataPtr->currentMove == MOVE_BONEMERANG && GetMonData(&gPlayerParty[gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]], MON_DATA_HELD_ITEM) == ITEM_MATH_CLUB) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);

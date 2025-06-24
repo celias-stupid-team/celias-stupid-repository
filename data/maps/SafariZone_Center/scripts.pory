@@ -138,7 +138,7 @@ script SafariZone_KangaskahnCage {
 				delay(30)
 				applymovement(BIG_KANGA, Common_Movement_FaceRight)
 				delay(60)
-				playmoncry(BIG_KANGA, CRY_MODE_DEFAULT)
+				playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
 				waitmoncry
 				delay(20)
 				applymovement(BIG_KANGA, SafariZone_KangaAttackWall1)

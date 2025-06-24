@@ -1,5 +1,8 @@
 mapscripts FushciaGym_ImposterOakRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+		
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_IMPOSTER_OAK_ROOM)
+	}
 }
 
 

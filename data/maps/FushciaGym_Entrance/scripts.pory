@@ -4,6 +4,7 @@ mapscripts FushciaGym_Entrance_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_IN_FUSHCIA_GYM) || flag(FLAG_REVEALED_DAD)) {
             setflag(FLAG_TEMP_1)
+            setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
         }
         if(flag(FLAG_REVEALED_DAD)) {
             setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
@@ -22,6 +23,7 @@ script FushciaGym_Entrance_Koga {
     if(!flag(FLAG_TALKED_TO_KOGA_AT_START)) {
         msgbox("Fwahahaha!\nWelcome, child, to FUSHCIA GYM!\pYou wish to challenge me and claim\nmy BADGE as your own?\lWhat folly!\pIf that's what you desire, you\nmust solve the maze ahead.\pHowever!\nThere is a twist!\pTo enter my GYM, you are only\npermitted to bring 3 POKéMON.\lBeyond that, only your wits remain.\pKnowing this, do you still wish to\nchallenge me?", MSGBOX_YESNO)
         setflag(FLAG_TALKED_TO_KOGA_AT_START)
+        
     } else {
         msgbox("Fwahahaha!\nSo you've returned to my GYM!\pTo earn the right to challenge me,\nnavigate my maze to the end.\lYou may only bring 3 POKéMON along.\pDo you wish to attempt the\nchallenge again?", MSGBOX_YESNO)
     }
@@ -53,6 +55,7 @@ script FushciaGym_Entrance_Koga {
         fadescreen(FADE_FROM_BLACK)
         delay(30)
         setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
         applymovement(LOCALID_PLAYER, FushciaGym_PlayerWalksUp)
         waitmovement(0)
         release

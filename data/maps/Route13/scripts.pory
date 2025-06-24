@@ -33,6 +33,7 @@ script Route13_SignItem {
 			end
 		}
 		setflag(FLAG_FOUND_ZINC)
+		setvar(VAR_LAST_TALKED, 30)
 		finditem(ITEM_ZINC)
 	} else {
 		msgbox("There's nothing here… {PAUSE 20}yet.\n", MSGBOX_DEFAULT)

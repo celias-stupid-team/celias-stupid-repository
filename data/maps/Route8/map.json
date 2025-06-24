@@ -986,7 +986,7 @@
     {
       "type": "hidden_item",
       "x": 42,
-      "y": 10,
+      "y": 20,
       "elevation": 3,
       "item": "ITEM_RAWST_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE8_RAWST_BERRY",
@@ -1005,8 +1005,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 42,
-      "y": 15,
+      "x": 44,
+      "y": 20,
       "elevation": 3,
       "item": "ITEM_LEPPA_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE8_LEPPA_BERRY",

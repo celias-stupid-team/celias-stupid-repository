@@ -1,6 +1,8 @@
 mapscripts FushciaGym_TrickRoomRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         call(FushciaGym_TrickRoomRoom_OpenDoors)
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM)
     }
 }
 

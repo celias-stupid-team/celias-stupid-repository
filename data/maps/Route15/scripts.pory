@@ -30,6 +30,7 @@ mapscripts Route15_MapScripts {
 			setflag(FLAG_TEMP_5)
 
 		}
+		clearflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
 	}
 	
 }

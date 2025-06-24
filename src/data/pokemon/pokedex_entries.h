@@ -5336,7 +5336,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_AMPHAROS_MEGA] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("DRAGON"),
         .height = 14,
         .weight = 61.5,
         .description = gAmpharosMPokedexText,
