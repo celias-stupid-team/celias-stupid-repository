@@ -280,6 +280,7 @@ const RIGHT_GRUNT = 3
 const PURE_KANGA = 5
 const FUJI = 6
 script PokemonTower_Trailer {
+	clearflag(FLAG_SHINY_CREATION)
 	special(SpawnCameraObject)
 	setweather(WEATHER_NONE)
 	applymovement(LOCALID_CAMERA, PokemonTower_CameraSlowUp)
