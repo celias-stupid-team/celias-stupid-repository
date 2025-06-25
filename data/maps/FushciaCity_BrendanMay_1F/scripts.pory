@@ -4,7 +4,7 @@ mapscripts FushciaCity_BrendanMay_1F_MapScripts {
         call(SetPlayerPokedexValues)
     }
     MAP_SCRIPT_ON_LOAD {
-        if(FLAG_WATERED_BRENDANMAY_OAK) {
+        if(flag(FLAG_WATERED_BRENDANMAY_OAK)) {
             call(BrendanMay_DrawStaircase)
         }
     }
@@ -37,9 +37,10 @@ script BrendanMay_ImposterOak {
         msgbox("water tree?\n", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             setflag(FLAG_WATERED_BRENDANMAY_OAK)
-            playbgm(MUS_CSR_IMPOSTER_OAK)
+            playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
             msgbox("watered\n", MSGBOX_DEFAULT)
             call(BrendanMay_DrawStaircase)
+            fadedefaultbgm
             release
             end
         } else {

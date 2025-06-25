@@ -13,7 +13,7 @@ mapscripts FushciaGym_Entrance_MapScripts {
 }
 
 script FushciaGym_Entrance_Celia {
-	msgbox("Hi!\nI'm CELIA, the creator.\lThis is the end of the preview!\pI hope you had fun!\pSee if you can catch all 100\nPOKéMON available.\lYou made it this far. You can do it!\pThe full demo will contain this\ngym, so look forward to it!", MSGBOX_NPC)
+	msgbox("Hi!\nI'm CELIA, the creator.\lThis is the end of the preview!\pI hope you had fun!\pSee if you can catch all 103\nPOKéMON available.\lYou made it this far. You can do it!\pThe full demo will contain this\ngym, so look forward to it!", MSGBOX_NPC)
 	end
 }
 

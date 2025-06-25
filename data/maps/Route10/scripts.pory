@@ -93,7 +93,7 @@ script Route10_SecretDad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pActually, yeah.\nWhat are you doing?\lYou're not supposed to get here!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pWait, you were able to get back\nhere? Wow!\lCould you help me get unstuck?\pActually, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
 	end

@@ -333,12 +333,14 @@ static const struct ListMenuItem sListMenuItems_KantoDexModeSelect[] = {
     {gText_DexCategory_SeventhBadgePkmn, DEX_CATEGORY_SEVENTH_BADGE},
     {gText_DexCategory_FinalBadgePkmn,        DEX_CATEGORY_FINAL_BADGE},
     {gText_DexCategory_RarePkmn,         DEX_CATEGORY_RARE},
+    /* I need to force the player to see Pokemon in their pokedex order
     {gText_Search,                       LIST_HEADER},
     {gText_AToZMode,                     DEX_MODE(ATOZ)},
     {gText_TypeMode,                     DEX_MODE(TYPE)},
     {gText_LightestMode,                 DEX_MODE(LIGHTEST)},
     {gText_SmallestMode,                 DEX_MODE(SMALLEST)},
     {gText_PokedexOther,                 LIST_HEADER},
+    */
     {gText_ClosePokedex,                 LIST_CANCEL},
 };
 
