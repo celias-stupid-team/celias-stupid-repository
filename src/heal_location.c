@@ -85,8 +85,11 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
         warp->mapGroup = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0];
         warp->mapNum = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1];
         warp->warpId = WARP_ID_NONE;
-
-        if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F))
+        if(DoesHealLocationSkipCutscene()) {
+            warp->x = gSaveBlock1Ptr->lastHealLocation.x;
+            warp->y = gSaveBlock1Ptr->lastHealLocation.y;
+        }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F))
         {
             warp->x = 8;
             warp->y = 6;
@@ -119,4 +122,60 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
 static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx)
 {
     gSpecialVar_LastTalked = sWhiteoutRespawnHealerNpcIds[healLocationIdx - 1];
+}
+
+
+bool8 DoesHealLocationSkipCutscene(void) {
+    const struct HealLocation *loc;
+
+    static const u32 HealLocationsWithoutCutscene[] = 
+    {
+        HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE,
+        HEAL_LOCATION_FUSHCIA_GYM_TRAINER_ROOM_1,
+        HEAL_LOCATION_FUSHCIA_GYM_GYM_LEADER_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_TRAINER_ROOM_2,
+        HEAL_LOCATION_FUSHCIA_GYM_ARON_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_MOUSEHOLE_HEAL,
+        HEAL_LOCATION_FUSHCIA_GYM_SHEDINJA_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_LASS_MAZE,
+        HEAL_LOCATION_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_DARKRAI_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_IMPOSTER_OAK_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_HEAL_ROOM_2,
+        HEAL_LOCATION_FUSHCIA_GYM_PARALYSIS_DUSCLOPS_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_DRILL_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_RAIN_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_TRIO_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_SCROLL_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_ELECTRIFY_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_LOOK_GIRL_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_ICE_PUZZLE_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_DEVON_SCOPE_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_MAP_ROOM,
+        HEAL_LOCATION_FUSHCIA_GYM_IRON_CURTAIN_ROOM,
+        HEAL_LOCATION_POKEMON_TOWER,
+        HEAL_LOCATION_FUSHCIA_OUTSIDE,
+    };
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(HealLocationsWithoutCutscene); i++)
+    {
+        loc = GetHealLocation(HealLocationsWithoutCutscene[i]);
+        if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
+        && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
+        && gSaveBlock1Ptr->lastHealLocation.x == loc->x
+        && gSaveBlock1Ptr->lastHealLocation.y == loc->y) {
+            DebugPrintf("Should not have cutscene, case %d", i);
+            return TRUE;
+        } else {
+            
+            DebugPrintf("Compared %d to %d not equal", gSaveBlock1Ptr->lastHealLocation.mapGroup, loc->mapGroup);
+        }
+    }
+    DebugPrintf("Should have cutscene");
+    return FALSE;
 }

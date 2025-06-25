@@ -100,7 +100,7 @@
       "id": "HEAL_LOCATION_ROUTE10",
       "map": "MAP_ROUTE10",
       "x": 24,
-      "y": 43,
+      "y": 44,
       "respawn_map": "MAP_ROUTE10_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ROUTE10_NURSE"
     },
@@ -390,6 +390,22 @@
       "x": 9,
       "y": 11,
       "respawn_map": "MAP_FUSHCIA_GYM_IRON_CURTAIN_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_TOWER",
+      "map": "MAP_POKEMON_TOWER_6F",
+      "x": 8,
+      "y": 10,
+      "respawn_map": "MAP_POKEMON_TOWER_6F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_OUTSIDE",
+      "map": "MAP_FUSHCIA_CITY",
+      "x": 9,
+      "y": 11,
+      "respawn_map": "MAP_FUSHCIA_CITY",
       "respawn_npc": "1"
     }
   ]

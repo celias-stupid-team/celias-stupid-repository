@@ -990,6 +990,7 @@ const u8 gText_ThankYou[] = _("THANK YOU");
 const u8 gText_ByeBye[] = _("BYE-BYE!");
 const u8 gText_PlayerScurriedToCenter[] = _("{PLAYER} scurried to a POKéMON CENTER,\nprotecting the exhausted and fainted\nPOKéMON from further harm‥\p");
 const u8 gText_PlayerScurriedBackHome[] = _("{PLAYER} scurried back home, protecting\nthe exhausted and fainted POKéMON from\nfurther harm‥\p");
+const u8 gText_PlayerScurriedToSafety[] = _(" \n");
 const u8 gText_Diploma_Player[] = _("PLAYER: {DYNAMIC 0x00}");
 const u8 gText_Diploma_ThisDocument[] = _("This document is issued in\nrecognition of your magnificent\nachievement - the completion of\nthe {DYNAMIC 0x01} POKéDEX.");
 const u8 gText_Diploma_GameFreak[] = _("GAME FREAK");

@@ -93,7 +93,24 @@ script Route10_SecretDad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pWait, you were able to get back\nhere? Wow!\lCould you help me get unstuck?\pActually, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	if(flag(FLAG_GOT_HORSEA_FROM_DAD)) {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+			call(EventScript_DadHeal)
+			release
+			end
+
+	}
+	msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pSay, one of the kind young men in\nthat cave came by.\lHe had this POKéMON with him.\pHe seemed to really like it.\nI think you would too!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
+	setflag(FLAG_SHINY_CREATION) //Horsea
+	playfanfare(MUS_LEVEL_UP)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{PLAYER} obtained the secondhand,\nused HORSEA!", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_GiftPokemon)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("DAD: Well, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	setflag(FLAG_GOT_HORSEA_FROM_DAD)
 	call(EventScript_DadHeal)
 	release
 	end

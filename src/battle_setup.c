@@ -319,7 +319,7 @@ void StartScriptedWildBattle(void)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     if (FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
+         gBattleTypeFlags = BATTLE_TYPE_SNORLAX | BATTLE_TYPE_WILD_SCRIPTED;
 
     } else if (FlagGet(FLAG_SYS_KANGA_FIGHT)) {
          gBattleTypeFlags = BATTLE_TYPE_KANGA | BATTLE_TYPE_WILD_SCRIPTED;
@@ -738,19 +738,39 @@ static u16 GetTrainerAFlag(void)
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
 {
-    switch (battleOutcome)
-    {
-    case B_OUTCOME_LOST:
-    case B_OUTCOME_DREW:
-        return TRUE;
-    case B_OUTCOME_WON:
-    case B_OUTCOME_RAN:
-    case B_OUTCOME_PLAYER_TELEPORTED:
-    case B_OUTCOME_MON_FLED:
-    case B_OUTCOME_CAUGHT:
-        return FALSE;
-    default:
-        return FALSE;
+    if(gBattleTypeFlags & BATTLE_TYPE_WILD_SCRIPTED) {
+        switch (battleOutcome)
+        {
+        case B_OUTCOME_LOST:
+        case B_OUTCOME_DREW:
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+        case B_OUTCOME_MON_FLED:
+        case B_OUTCOME_CAUGHT:
+            return TRUE;
+            
+        case B_OUTCOME_WON:
+            return FALSE;
+        default:
+            return FALSE;
+        }
+
+    } else {
+        switch (battleOutcome)
+        {
+        case B_OUTCOME_LOST:
+        case B_OUTCOME_DREW:
+            return TRUE;
+        case B_OUTCOME_WON:
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+        case B_OUTCOME_MON_FLED:
+        case B_OUTCOME_CAUGHT:
+            return FALSE;
+        default:
+            return FALSE;
+        }
+
     }
 }
 

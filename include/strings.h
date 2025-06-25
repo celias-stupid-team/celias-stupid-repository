@@ -1107,6 +1107,7 @@ extern const u8 gText_RegionMap_AreaDesc_DottedHole[];
 // field_screen_effect
 extern const u8 gText_PlayerScurriedToCenter[];
 extern const u8 gText_PlayerScurriedBackHome[];
+extern const u8 gText_PlayerScurriedToSafety[];
 
 // save_failed_screen
 extern const u8 gText_SaveFailedCheckingBackup[];

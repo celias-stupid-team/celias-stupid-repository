@@ -898,7 +898,7 @@
 #define FLAG_GOT_STAR               0x33F
 #define FLAG_GOT_PARAS_FROM_LUIGI               0x340
 #define FLAG_REPELLED_MAX               0x341
-#define FLAG_0x342               0x342
+#define FLAG_GOT_HORSEA_FROM_DAD               0x342
 
 #define FLAG_FREED_KANGA               0x343
 #define FLAG_WATERED_BRENDANMAY_OAK               0x344
