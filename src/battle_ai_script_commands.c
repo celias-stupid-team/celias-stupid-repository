@@ -136,6 +136,8 @@ static void Cmd_end(void);
 static void Cmd_if_level_compare(void);
 static void Cmd_if_target_taunted(void);
 static void Cmd_if_target_not_taunted(void);
+static void Cmd_get_number_of_sub_layers(void);
+static void Cmd_if_species(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -240,6 +242,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_level_compare,                 // 0x5B
     Cmd_if_target_taunted,                // 0x5C
     Cmd_if_target_not_taunted,            // 0x5D
+    Cmd_get_number_of_sub_layers,         // 0x5E
+    Cmd_if_species,                       // 0x5F
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -300,6 +304,10 @@ void BattleAI_SetupAIData(void)
     for (i = 0; i < MAX_MON_MOVES; i++)
         AI_THINKING_STRUCT->score[i] = 100;
 
+    // AI score logging
+    // for (i = 0; i < MAX_MON_MOVES; i++)
+    //     DebugPrintf("A move %d score %d", i, AI_THINKING_STRUCT->score[i]);
+
     moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
 
     // Ignore moves that aren't possible to use.
@@ -354,7 +362,7 @@ void BattleAI_SetupAIData(void)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_WILD_SCRIPTED)
         {
-            AI_THINKING_STRUCT->aiFlags = AI_SCRIPT_CHECK_BAD_MOVE;
+            AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
             return;
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY_FRLG)
@@ -1947,6 +1955,36 @@ static void Cmd_if_target_not_taunted(void)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
     else
         sAIScriptPtr += 5;
+}
+
+static void Cmd_get_number_of_sub_layers(void)
+{
+    u8 battlerId;
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+
+    AI_THINKING_STRUCT->funcResult = gDisableStructs[battlerId].substitute2CurrentLayer;
+
+    sAIScriptPtr += 2;
+}
+
+static void Cmd_if_species(void)
+{
+    u8 battlerId;
+    u16 species = T1_READ_16(sAIScriptPtr + 2);
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+    
+    if (gBattleMons[battlerId].species == species)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+    else
+        sAIScriptPtr += 8;
 }
 
 static void AIStackPushVar(const u8 *var)

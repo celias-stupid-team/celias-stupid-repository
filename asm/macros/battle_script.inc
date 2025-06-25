@@ -1415,6 +1415,14 @@
 	various \battler, VARIOUS_EMIT_YESNOBOX
 	.endm
 
+	.macro get_number_of_sub_layers battler:req
+	various \battler, VARIOUS_GET_NUMBER_OF_SUB_LAYERS
+	.endm
+
+	.macro increment_sub_layer battler:req
+	various \battler, VARIOUS_INCREMENT_SUB_LAYER
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

@@ -1974,36 +1974,35 @@ static void Cmd_datahpupdate(void)
                     gSpecialStatuses[gActiveBattler].dmg = gDisableStructs[gActiveBattler].substituteHP;
                 gHpDealt = gDisableStructs[gActiveBattler].substituteHP;
                 gDisableStructs[gActiveBattler].substituteHP = 0;
-                if (gDisableStructs[gActiveBattler].substitute2Layers > 0)
-                    gDisableStructs[gActiveBattler].substitute2Layers -= 1;
+                if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
+                {
+                    gDisableStructs[gActiveBattler].substitute2CurrentLayer -= 1;
+                }
             }
             // check substitute fading
             if (gDisableStructs[gActiveBattler].substituteHP == 0)
             {
-                if (gDisableStructs[gActiveBattler].substitute2Layers == SUBSTITUTE2_2_LAYERS)
-                {
-                    
-                    // reset sub hp 
-                    gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
-
-                    // TODO fade the sub from layer 3 -> layer 2 by making a BattleScript_SubstituteFade2
-                    gBattlescriptCurrInstr += 2;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
-                    return;
-                }
-                else if (gDisableStructs[gActiveBattler].substitute2Layers == SUBSTITUTE2_1_LAYERS)
+                // check how many layers of sub remain
+                if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
                 {
                     // reset sub hp 
                     gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
 
-                    // TODO fade the sub from layer 2 -> layer 1 by making a BattleScript_SubstituteFade3
                     gBattlescriptCurrInstr += 2;
                     BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+
+                    switch (gDisableStructs[gActiveBattler].substitute2CurrentLayer)
+                    {
+                    case SUBSTITUTE2_1_LAYERS:
+                        gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                        break;
+                    case SUBSTITUTE2_2_LAYERS:
+                        gBattlescriptCurrInstr = BattleScript_SubstituteFade3;
+                        break;
+                    }
                     return;
                 }
-                else 
+                else // none, sub is fully destroyed
                 {
                     gBattlescriptCurrInstr += 2;
                     BattleScriptPushCursor();
@@ -6575,6 +6574,37 @@ static void Cmd_various(void)
             MarkBattlerForControllerExec(gActiveBattler);
             break;
         }
+        case VARIOUS_GET_NUMBER_OF_SUB_LAYERS:
+        {
+            VARIOUS_ARGS();
+
+            gBattleCommunication[0] = gDisableStructs[cmd->battler].substitute2CurrentLayer;
+            break;
+        }
+        case VARIOUS_INCREMENT_SUB_LAYER:
+        {
+            VARIOUS_ARGS();
+
+            gDisableStructs[cmd->battler].substitute2CurrentLayer++;
+
+            // handle battle messages
+            switch (gDisableStructs[cmd->battler].substitute2CurrentLayer)
+            {
+            case SUBSTITUTE2_1_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
+                break;
+            case SUBSTITUTE2_2_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE_L2;
+                break;
+            case SUBSTITUTE2_3_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE_L3;
+                break;
+            default:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SUBSTITUTE_FAILED;
+                break;
+            }
+            break;
+        }
     }
 
     gBattlescriptCurrInstr += 3;
@@ -7888,10 +7918,6 @@ static void Cmd_setsubstitute(void)
         gDisableStructs[gBattlerAttacker].substituteHP = gBattleMoveDamage;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
         gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
-        // TODO im not sure if this is the right check here but you get the idea
-
-        if(gCurrentMove == MOVE_SUBSTITUTE_2)
-            gDisableStructs[gBattlerAttacker].substitute2Layers = SUBSTITUTE2_3_LAYERS;
     }
 
     gBattlescriptCurrInstr++;

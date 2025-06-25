@@ -4802,7 +4802,6 @@ BattleScript_FickleBeamDoNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-
 	BattleScript_EffectFoursight::
 	attackcanceler
 	attackstring
@@ -4815,54 +4814,44 @@ BattleScript_FickleBeamDoNothing::
 	goto BattleScript_MoveEnd
 
 	BattleScript_EffectCounterStupid::
-		attackcanceler
-		attackstring
-		ppreduce
-		attackanimation
-		waitanimation
-		incrementgamestat GAME_STAT_USED_SPLASH
-		printstring STRINGID_BUTNOTHINGHAPPENED
-		waitmessage B_WAIT_TIME_LONG
-		goto BattleScript_MoveEnd
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	incrementgamestat GAME_STAT_USED_SPLASH
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
-
-BattleScript_EffectSubstitute2::
+	BattleScript_EffectSubstitute2::
 	attackcanceler
 	attackstring
 	waitstate
-	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	get_number_of_sub_layers BS_ATTACKER
+	jumpifbyte CMP_EQUAL, gBattleCommunication, 3, BattleScript_AlreadyHasSubstitute
+	@ jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
 	setsubstitute
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteAnim2
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_Substitute2_Loop
 	goto BattleScript_SubstituteString
 
-
-	@ In reality this needs to check what layer you're currently on
-	@ And then only keep going until it's full
-	@ This will do for now tho
-BattleScript_SubstituteAnim2::
+BattleScript_Substitute2_Loop::
+	increment_sub_layer BS_ATTACKER
 	attackanimation
 	waitanimation
 	pause B_WAIT_TIME_SHORT
 	printfromtable gSubstituteUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
-	attackanimation
-	waitanimation
-	pause B_WAIT_TIME_SHORT
-	printfromtable gSubstituteUsedStringIds_Layer2
-	waitmessage B_WAIT_TIME_LONG
-	attackanimation
-	waitanimation
-	pause B_WAIT_TIME_SHORT
-	printfromtable gSubstituteUsedStringIds_Layer3
-	waitmessage B_WAIT_TIME_LONG
+	get_number_of_sub_layers BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 3, BattleScript_Substitute2_Loop
 	goto BattleScript_MoveEnd
 
 BattleScript_SubstituteFade2::
 	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
-	printstring STRINGID_PKMNSUBSTITUTEFADED
+	printstring STRINGID_SUBSTITUTE_LAYER_2_FADED
 	return
 
 BattleScript_SubstituteFade3::
 	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
-	printstring STRINGID_PKMNSUBSTITUTEFADED
+	printstring STRINGID_SUBSTITUTE_LAYER_3_FADED
 	return

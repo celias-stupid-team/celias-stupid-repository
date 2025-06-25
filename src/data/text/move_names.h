@@ -570,6 +570,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_STEAMROLLER]     = _("STEAMROLLER"),
     [MOVE_SLASH_TCG]     = _("SLASH"),
     [MOVE_SWORDSDANCE_TCG]     = _("SWORDS DANCE"),
+    [MOVE_SUBSTITUTE_2]    = _("SUBSTITUTE"),
 
 };
 

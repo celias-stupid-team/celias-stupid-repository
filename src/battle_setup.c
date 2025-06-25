@@ -318,11 +318,11 @@ void StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    if(FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
+    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
          gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
 
-    } else if(FlagGet(FLAG_SYS_KANGA_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_KANGA;
+    } else if (FlagGet(FLAG_SYS_KANGA_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_KANGA | BATTLE_TYPE_WILD_SCRIPTED;
 
     } else {
          gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
