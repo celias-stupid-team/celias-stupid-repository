@@ -2478,6 +2478,19 @@ static void CreateInGameTradePokemonInternal(u8 playerSlot, u8 inGameTradeIdx)
     SetMonData(tradeMon, MON_DATA_TOUGH, &inGameTrade->conditions[4]);
     SetMonData(tradeMon, MON_DATA_SHEEN, &inGameTrade->sheen);
     SetMonData(tradeMon, MON_DATA_MET_LOCATION, &metLocation);
+    /* I tried :)
+    if(inGameTradeIdx == INGAME_TRADE_JIRACHI) {
+
+            u8 personality = Random32();
+            u32 value = inGameTrade->otId;
+            u8 nature = personality % NUM_NATURES;  // keep current nature
+            do {
+                personality = Random32();
+                personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+            } while (nature != GetNatureFromPersonality(personality));
+        SetMonData(tradeMon, MON_DATA_PERSONALITY, &personality);
+    }
+    */
     mailNum = 0;
     if (inGameTrade->heldItem != ITEM_NONE)
     {

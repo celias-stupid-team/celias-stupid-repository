@@ -127,42 +127,49 @@ script GTS_TradeSpot_Secret {
     }
 	msgbox("OFFER: Level 30 AMPHAROS{PAUSE 60}\nREQUESTED: JIRACHI\lLevel 9 or lower", MSGBOX_DEFAULT)
     closemessage
-    special(ChoosePartyMon)
-    waitstate
+    setvar(VAR_0x8008, INGAME_TRADE_JIRACHI)
+	call(EventScript_ChooseMonForInGameTrade)
     if(var(VAR_0x8004) >= PARTY_SIZE) {
         release
         end
     }
-    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-    if(var(VAR_RESULT) == SPECIES_JIRACHI) {
-        callnative(GetPartyMonLevel)
-        if(var(VAR_RESULT) <= 9) {
-            msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
-            closemessage
-            setvar(VAR_0x8008, INGAME_TRADE_JIRACHI)
-            copyvar(VAR_RESULT, VAR_0x8004)
-            setflag(FLAG_DID_AMPHAROS_TRADE)
-            call(EventScript_DoInGameTrade)
-            msgbox("Thank you!\n", MSGBOX_DEFAULT)
-            release
-            end
-        } else {
-            playse(SE_BOO)
-            msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
-            waitse
-            release
-            end
-
-        }
+    callnative(GetPartyMonLevel)
+    if(var(VAR_RESULT) <= 9) {
+        call(EventScript_GetInGameTradeSpecies)
+        goto_if_ne(VAR_RESULT, SPECIES_JIRACHI, GTS_TradeDoesNotMatch)
+        msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
+        closemessage
+        setflag(FLAG_SHINY_CREATION)
+        setflag(FLAG_DID_AMPHAROS_TRADE)
+        call(EventScript_DoInGameTrade)
+        msgbox("Thank you!\n", MSGBOX_DEFAULT)
+        release
+        end
     } else {
+        copyvar(VAR_TEMP_1, VAR_0x8004)
         playse(SE_BOO)
-        msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+        msgbox("Error1: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
         waitse
         release
         end
+
     }
+
+    
+    
+
 }
 
+script GTS_TradeDoesNotMatch {
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        copyvar(VAR_TEMP_2, VAR_0x8009)
+        playse(SE_BOO)
+        msgbox("Error2: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+        waitse
+        release
+        end
+
+}
 
 script GTS_TradeScammer_Left {
     lock

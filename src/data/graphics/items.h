@@ -819,3 +819,6 @@ const u32 gItemIconPalette_SandwichCase[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_Bread[] = INCBIN_U32("graphics/items/icons/bread.4bpp.lz");
 const u32 gItemIconPalette_Bread[] = INCBIN_U32("graphics/items/icon_palettes/bread.gbapal.lz");
+
+const u32 gItemIcon_PERSON_DOLL[] = INCBIN_U32("graphics/items/icons/person_doll.4bpp.lz");
+const u32 gItemIconPalette_PERSON_DOLL[] = INCBIN_U32("graphics/items/icon_palettes/person_doll.gbapal.lz");

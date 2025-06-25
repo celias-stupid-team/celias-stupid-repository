@@ -812,8 +812,8 @@ Minnesota_EventScript_CSR_ItemOddCandy::
 	end
 
 Route_1_EventScript_CSR_ItemOddCandy::
-	finditem ITEM_ODD_CANDY
 	setflag FLAG_ROUTE_1_CANDY
+	finditem ITEM_ODD_CANDY
 	end
 
 Route_2_EventScript_CSR_ItemOddCandy::

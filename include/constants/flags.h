@@ -361,7 +361,7 @@
 #define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B // Right Scammer has sent a mon over and the Left Scammer has recieved it. Right Scammer will not prompt until you take it
 #define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C // Left Scammer has sent a mon over and Right Scammer has recieved it. Left Scammer will not prompt until you grab it
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
-#define FLAG_0x13E               0x13E
+#define FLAG_TOOK_GIRL_DOLL               0x13E
 #define FLAG_0x13F               0x13F
 #define FLAG_0x140               0x140
 #define FLAG_0x141               0x141
