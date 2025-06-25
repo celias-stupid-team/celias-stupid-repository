@@ -35487,12 +35487,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_KANGASKHANTEACHER] =
     {
-        .baseHP = 40,
+        .baseHP = 20,
         .baseAttack = 250,
         .baseDefense = 10,
         .baseSpeed = 10,
-        .baseSpAttack = 40,
-        .baseSpDefense = 40,
+        .baseSpAttack = 250,
+        .baseSpDefense = 10,
         .types = {TYPE_GHOST, TYPE_GHOST},
         .catchRate = 255,
         .expYield = 150,

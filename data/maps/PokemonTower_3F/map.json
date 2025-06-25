@@ -158,7 +158,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BANETTE",
-      "x": 17,
+      "x": 4,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -166,8 +166,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_BANETTE_DOLL",
-      "script": "EventScript_FindItem",
-      "flag": "FLAG_POKEMONTOWER_BANETTE"
+      "script": "PokemonTower_BanetteDoll",
+      "flag": "FLAG_TEMP_9"
     },
     {
       "type": "object",

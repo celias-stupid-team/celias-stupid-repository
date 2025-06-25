@@ -22,9 +22,9 @@ RocketHideout_B4F_Text_GiovanniPostBattle::
     .string "I hope we meet again…$"
 
 RocketHideout_B4F_Text_Grunt2Intro::
-	.string "What...?\n"
+	.string "LARS: What...?\n"
 	.string "Who are you?\p"
-	.string "My name is PETREL.\n"
+	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
 	.string "How dare you tresspass in our\n"
 	.string "LAW OFFICES!$"
@@ -74,7 +74,7 @@ RocketHideout_B4F_Text_Grunt1PostBattle::
 DMCA_LawOffices_PetrelIntro::
 	.string "What...?\n"
 	.string "Who are you?\p"
-	.string "My name is PETREL.\n"
+	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
 	.string "How dare you tresspass in our\n"
 	.string "LAW OFFICES!$"

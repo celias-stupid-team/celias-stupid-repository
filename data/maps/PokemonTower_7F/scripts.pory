@@ -286,12 +286,12 @@ script PokemonTower_Trailer {
 	waitmovement(0)
 	special(DrawWholeMapView)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("ARIANA: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
+	msgbox("LUCIA: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceRight)
 	delay(30)
 	waitmovement(0)
-	msgbox("ARIANA: …Or are you here for her?", MSGBOX_DEFAULT)
+	msgbox("LUCIA: …Or are you here for her?", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceDown)
 	delay(20)
@@ -310,7 +310,7 @@ script PokemonTower_Trailer {
 	applymovement(ARIANA, Common_Movement_FaceDown)
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("ARIANA: It's no use trying to save\nher now.\lCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
+	msgbox("LUCIA: It's no use trying to save\nher now.\lCUBONE's mom belongs to us!\n", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceRight)
 	waitmovement(0)
@@ -424,7 +424,7 @@ script PokemonTower_Trailer {
 			delay(30)
 			applymovement(ARIANA, WalkInPlaceDown)
 			waitmovement(0)
-			msgbox("ARIANA: What? No!\nHow is this possible?", MSGBOX_DEFAULT)
+			msgbox("LUCIA: What? No!\nHow is this possible?", MSGBOX_DEFAULT)
 			closemessage
 			special(SpawnCameraObject)
 			applymovement(PURE_KANGA, Common_Movement_WalkSlowUp)
@@ -439,7 +439,7 @@ script PokemonTower_Trailer {
 			applymovement(RIGHT_GRUNT, RightGruntConsiders)
 			applymovement(LEFT_GRUNT, LeftGruntConsiders)
 			waitmovement(0)
-			msgbox("ARIANA: Grr…\nEveryone!\pWe need to RETREAT!\nLet's get out of here!", MSGBOX_DEFAULT)
+			msgbox("LUCIA: Grr…\nEveryone!\pWe need to RETREAT!\nLet's get out of here!", MSGBOX_DEFAULT)
 			closemessage
 			fadescreen(FADE_TO_BLACK)
 			fadedefaultbgm
