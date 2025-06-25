@@ -6597,7 +6597,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_PARTY_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "fieldUseFunc": "FieldUseFunc_RareCandy",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

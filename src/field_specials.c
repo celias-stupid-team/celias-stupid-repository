@@ -2600,8 +2600,3 @@ u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
-
-u16 ScriptGetPartyMonLevel(void)
-{
-    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, NULL);
-}

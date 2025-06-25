@@ -182,7 +182,7 @@ static const struct InGameTrade sInGameTrades[] = {
     [INGAME_TRADE_JIRACHI] = 
     {
         .nickname = _("JASMINE"),
-        .species = SPECIES_AMPHAROS,
+        .species = SPECIES_AMPHAROS_MEGA,
         .ivs = {24, 15, 22, 16, 23, 22},
         .abilityNum = 0,
         .otId = 9853,

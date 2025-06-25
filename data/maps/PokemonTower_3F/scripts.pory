@@ -77,8 +77,11 @@ script PokemonTower_6F_EventScript_MarowakGhost {
 	delay(65)
 	addobject(LITTLEGIRL)
 	clearflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
-	addobject(CLEFAIRY)
-	clearflag(FLAG_TEMP_8)
+	if(!flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL)) {
+		addobject(CLEFAIRY)
+		clearflag(FLAG_TEMP_8)
+
+	}
 	waitstate
 	special(QuestLog_CutRecording)
 	//goto_if_eq(FLAG_USED_CLEFAIRY_DOLL, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost)  // VAR_RESULT set by CB2_EndMarowakBattle

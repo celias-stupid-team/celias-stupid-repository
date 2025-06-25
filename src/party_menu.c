@@ -5118,7 +5118,10 @@ static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, mon, gSpecialVar_ItemId, 0xFFFF);
     PlayFanfare(MUS_LEVEL_UP);
     UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-    RemoveBagItem(gSpecialVar_ItemId, 1);
+    if(gSpecialVar_ItemId != ITEM_CANDY_DISPENSER) {
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+
+    }
     GetMonNickname(mon, gStringVar1);
     level = GetMonData(mon, MON_DATA_LEVEL);
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
