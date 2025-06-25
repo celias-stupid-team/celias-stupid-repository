@@ -11,7 +11,7 @@ const OldMan = 11
 const Woman = 12
 mapscripts Route15_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_CSR_TALKED_TO_TUBER)) {
+		if(flag(FLAG_CSR_TALKED_TO_TUBER) && !flag(FLAG_GOLURK_SANDWICH)) {
 			setflag(FLAG_CSR_TUBER_EATEN)
 			removeobject(TUBER)
 		}
@@ -211,6 +211,13 @@ script Route15_DeadGrandpa {
 script Route15_Tuber {
 	lock
 	faceplayer
+	if(flag(FLAG_GOLURK_SANDWICH)) {
+		msgbox("Wowwie!\nWas that a GHOST/GROUND TYPE?\pI've never seen one of those\nbefore!", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+		waitmovement(0)
+		release
+		end
+	}
 	if(flag(FLAG_CSR_TALKED_TO_TUBER)) {
 		msgbox("I'm gonna play pretend.\nI'll be the queen of this castle!\pDo you wanna play with me?\nMy mommy won't be back for a while.", MSGBOX_DEFAULT)	
 	} else {
@@ -232,24 +239,8 @@ script Route15_Sandcastle {
 		if(var(VAR_RESULT)) {
 			setflag(FLAG_CSR_TALKED_TO_TUBER)
 			msgbox("Peering into the sandcastle, you\nsee dozens of small skeletons.", MSGBOX_DEFAULT)
-			if(checkitem(ITEM_SANDWICH, 1) && !flag(FLAG_CUBONE_SANDWICH)) {
-				msgbox("Would you like to feed the\nSAND CASTLE a SAND WICH?", MSGBOX_YESNO)
-					if(var(VAR_RESULT)) {
-						msgbox("{PLAYER} fed the ominous CASTLE\na SANDWICH!", MSGBOX_DEFAULT)
-						closemessage
-						playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
-						waitmoncry
-						msgbox("Oh?\nThe CASTLE spat something up!\pIt's one of the skeletons!\n", MSGBOX_DEFAULT)
-						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CUBONE)
-						setflag(FLAG_SHINY_CREATION) //Cubone
-						playfanfare(MUS_LEVEL_UP)
-						msgbox("{PLAYER} obtained the\nCUBONE!", MSGBOX_DEFAULT)
-						waitfanfare
-						call(Common_Script_GiftPokemon)
-						setflag(FLAG_CUBONE_SANDWICH)
-						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
-					
-				}
+			if(checkitem(ITEM_SANDWICH, 1) && !flag(FLAG_GOLURK_SANDWICH)) {
+				call(Route15_ShinyGolurk)
 			}
 			playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
 			waitmoncry
@@ -259,6 +250,27 @@ script Route15_Sandcastle {
 	}
 	
 	release
+}
+
+script Route15_ShinyGolurk {
+					msgbox("Would you like to feed the\nSAND CASTLE a SAND WICH?", MSGBOX_YESNO)
+					if(var(VAR_RESULT)) {
+						msgbox("{PLAYER} fed the ominous CASTLE\na SANDWICH!", MSGBOX_DEFAULT)
+						closemessage
+						playmoncry(SPECIES_PALOSSAND, CRY_MODE_NORMAL)
+						waitmoncry
+						msgbox("Oh?\nOne of the CASTLE GUARDS showed up.\pLooks like it wants in on the\npicnic as well!", MSGBOX_DEFAULT)
+						setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GOLURK)
+						setflag(FLAG_SHINY_CREATION) //GOLURK
+						playfanfare(MUS_LEVEL_UP)
+						msgbox("{PLAYER} obtained the\nGOLURK!", MSGBOX_DEFAULT)
+						waitfanfare
+						call(Common_Script_GiftPokemon)
+						setflag(FLAG_GOLURK_SANDWICH)
+						msgbox("{PLAYER} quickly made a\nnew SANDIWCH, such that\lyou don't have to do it again!", MSGBOX_DEFAULT)
+					
+				}
+				return
 }
 
 script Route15_Psyduck {
