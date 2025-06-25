@@ -447,5 +447,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_DMC]      =  {gItemIcon_Dmc, gItemIconPalette_Dmc},
     [ITEM_BREAD]      =  {gItemIcon_Bread, gItemIconPalette_Bread},
     [ITEM_PERSON_DOLL]      =  {gItemIcon_PERSON_DOLL, gItemIconPalette_PERSON_DOLL},
+    [ITEM_BIG_NUGGET]      =  {gItemIcon_BIGNUGGET, gItemIconPalette_BIGNUGGET},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

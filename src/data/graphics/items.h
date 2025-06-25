@@ -822,3 +822,6 @@ const u32 gItemIconPalette_Bread[] = INCBIN_U32("graphics/items/icon_palettes/br
 
 const u32 gItemIcon_PERSON_DOLL[] = INCBIN_U32("graphics/items/icons/person_doll.4bpp.lz");
 const u32 gItemIconPalette_PERSON_DOLL[] = INCBIN_U32("graphics/items/icon_palettes/person_doll.gbapal.lz");
+
+const u32 gItemIcon_BIGNUGGET[] = INCBIN_U32("graphics/items/icons/big_nugget.4bpp.lz");
+const u32 gItemIconPalette_BIGNUGGET[] = INCBIN_U32("graphics/items/icon_palettes/big_nugget.gbapal.lz");

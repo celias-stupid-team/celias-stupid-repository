@@ -12362,3 +12362,6 @@ extern const u8 gMonIcon_Relicrabby[];
 
 extern const u32 gItemIcon_PERSON_DOLL[];
 extern const u32 gItemIconPalette_PERSON_DOLL[];
+
+extern const u32 gItemIcon_BIGNUGGET[];
+extern const u32 gItemIconPalette_BIGNUGGET[];
