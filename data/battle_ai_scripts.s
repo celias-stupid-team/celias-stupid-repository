@@ -6,6 +6,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/hold_effects.h"
 #include "constants/pokemon.h"
+#include "constants/species.h"
 #include "constants/global.h"
 	.include "asm/macros/battle_ai_script.inc"
 
@@ -213,7 +214,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
-	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CBM_Substitute
+	if_effect EFFECT_SUBSTITUTE_2, AI_CBM_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	end
 
@@ -413,6 +414,12 @@ AI_CBM_Paralyze::
 
 AI_CBM_Substitute::
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
+	if_hp_less_than AI_USER, 26, Score_Minus10
+	end
+
+AI_CBM_Substitute_2::
+	get_number_of_sub_layers AI_USER
+	if_more_than 2, Score_Minus10
 	if_hp_less_than AI_USER, 26, Score_Minus10
 	end
 
@@ -787,9 +794,10 @@ AI_CheckViability::
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
-	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
+	if_effect EFFECT_SUBSTITUTE_2, AI_CV_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
+	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
 	end
 
 AI_CV_Sleep::
@@ -1707,6 +1715,27 @@ AI_CV_Substitute8::
 
 AI_CV_Substitute_End::
 	end
+
+@Substitute 2 AI
+AI_CV_Substitute_2::
+	is_first_turn_for AI_USER
+	if_equal 1, AI_CV_Substitute_2_FirstTurn
+	get_number_of_sub_layers AI_USER
+	if_less_than 3, AI_CV_Substitute_2_Restore
+	score -1
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_FirstTurn::
+	score +15 @ anything > +28 will result in an overflow of the s8!
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_Restore::
+	score +15 @ anything > +28 will result in an overflow of the s8!
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_End::
+	end
+
 
 AI_CV_Recharge::
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_Recharge_ScoreDown1
@@ -2791,6 +2820,11 @@ AI_CV_WaterShuriken:: @ special AI behavior for Nugget Bridge Rival
 	if_equal 1, Score_Plus5 @ 1 = TRUE
 	has_target_prio_move AI_TARGET
 	if_equal 0, Score_Minus12 @ 0 = FALSE
+	end
+
+AI_CV_CometPunch:: @ special AI behavior for Kangashkan Teacher fight
+	if_species AI_USER, SPECIES_KANGASKHANTEACHER, Score_Plus1
+	end
 
 AI_TryToFaint::
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
@@ -2883,7 +2917,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_BULK_UP
 	.byte EFFECT_CALM_MIND
 	.byte EFFECT_CAMOUFLAGE
-	.byte EFFECT_SUBSTITUTE_TEACHER
+	.byte EFFECT_SUBSTITUTE_2
 	.byte -1
 
 AI_PreferStrongestMove::

@@ -9056,9 +9056,9 @@ extern const u32 gGhostPalette[];
 extern const u32 gSubstituteDollGfx[];
 extern const u32 gSubstituteDollTilemap[];
 extern const u32 gSubstituteDollPal[];
-extern const u32 gSubstituteKangaGfx[];
+extern const u32 gSubstituteLayer2Gfx[];
 extern const u32 gSubstituteKangaBackGfx[];
-extern const u32 gSubstituteKangaPal[];
+extern const u32 gSubstituteLayer2Pal[];
 
 
 extern const u32 gSubstituteLayer3Pal[];

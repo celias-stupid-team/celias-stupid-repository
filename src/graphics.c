@@ -864,8 +864,8 @@ const u32 gSubstituteLayer3Pal[] = INCBIN_U32("graphics/battle_anims/sprites/sub
 const u32 gSubstituteLayer3Gfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute_layer3.4bpp.lz");
 const u32 gSubstituteLayer3Tilemap[] = INCBIN_U32("graphics/battle_anims/sprites/substitute.bin.lz");
 
-const u32 gSubstituteKangaPal[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.gbapal.lz"); //Layer 2
-const u32 gSubstituteKangaGfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.4bpp.lz");
+const u32 gSubstituteLayer2Pal[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.gbapal.lz"); //Layer 2
+const u32 gSubstituteLayer2Gfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_front.4bpp.lz");
 const u32 gSubstituteKangaBackGfx[] = INCBIN_U32("graphics/battle_anims/sprites/substitute2_back.4bpp.lz");
 
 
