@@ -3,6 +3,11 @@ mapscripts FushciaCity_BrendanMay_1F_MapScripts {
         setflag(FLAG_CSR_MAP_BRENDANMAY)
         call(SetPlayerPokedexValues)
     }
+    MAP_SCRIPT_ON_LOAD {
+        if(FLAG_WATERED_BRENDANMAY_OAK) {
+            call(BrendanMay_DrawStaircase)
+        }
+    }
 }
 
 script BrendanMay_Machoke {
@@ -28,8 +33,29 @@ script BrendanMay_Mom {
 
 script BrendanMay_ImposterOak {
     lock
+    if(checkitem(ITEM_WAILMER_PAIL)) {
+        msgbox("water tree?\n", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            setflag(FLAG_WATERED_BRENDANMAY_OAK)
+            playbgm(MUS_CSR_IMPOSTER_OAK)
+            msgbox("watered\n", MSGBOX_DEFAULT)
+            call(BrendanMay_DrawStaircase)
+            release
+            end
+        } else {
+            msgbox("not watered\n", MSGBOX_DEFAULT)
+            release
+            end
+        }
+    }
     msgbox("Something about this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
     playmoncry(SPECIES_SUDOWOODO, CRY_MODE_NORMAL)
     waitmoncry
     release
+}
+
+script BrendanMay_DrawStaircase {
+    setmetatile(8, 2, 0x28B, FALSE)
+    setmetatile(8, 3, 0x280, FALSE)
+    return
 }
