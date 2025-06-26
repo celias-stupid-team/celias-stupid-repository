@@ -2691,9 +2691,9 @@ const u8 gPorygonZPokedexText[] = _(
 	"Someone installed a virus on it!");
     
 const u8 gDachsbunPokedexText[] = _(
-	"The results are in!\n"
-	"It turns out that a Hot Dog\n"
-	"IS a sandwich!");
+	"The results are in, and it's\n"
+	"officially confirmed:\n"
+	"A Hot Dog IS a Sandwich!");
         
 const u8 gEternatusPokedexText[] = _(
 	"In several hundred years, we might\n"
