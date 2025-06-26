@@ -31,10 +31,10 @@
 #define TUTOR_MOVE_BLAST_BURN      16
 #define TUTOR_MOVE_HYDRO_CANNON    17
 
-#define FIELD_MOVE_FLASH        0
+#define FIELD_MOVE_STRENGTH        0
 #define FIELD_MOVE_CUT          1
-#define FIELD_MOVE_FLY          2
-#define FIELD_MOVE_STRENGTH     3
+#define FIELD_MOVE_FLASH          2
+#define FIELD_MOVE_FLY     3
 #define FIELD_MOVE_SURF         4
 #define FIELD_MOVE_ROCK_SMASH   5
 #define FIELD_MOVE_WATERFALL    6

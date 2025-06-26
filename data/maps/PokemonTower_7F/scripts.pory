@@ -481,6 +481,7 @@ script PokemonTower_Trailer {
 			clearflag(FLAG_HIDE_POKEHOUSE_FUJI)
 			setflag(FLAG_RESCUED_CUBONES_MOM)
 			closemessage
+			setrespawn(HEAL_LOCATION_LAVENDER_TOWN)
 			warp(MAP_LAVENDER_TOWN_VOLUNTEER_POKEMON_HOUSE, 4, 7)
 			waitstate
 			release

@@ -378,6 +378,7 @@ movement WalkInPlaceLeft {
 const DAD = 1
 script FushciaCity_Dad {
 	lock
+	setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
 	applymovement(DAD, Common_Movement_FaceDown)
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm just relaxing here in my\ncage.\lI love when people come to see me!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)

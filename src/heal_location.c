@@ -160,6 +160,7 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_FUSHCIA_GYM_IRON_CURTAIN_ROOM,
         HEAL_LOCATION_POKEMON_TOWER,
         HEAL_LOCATION_FUSHCIA_OUTSIDE,
+        HEAL_LOCATION_ROUTE12,
     };
     u32 i;
     for (i = 0; i < ARRAY_COUNT(HealLocationsWithoutCutscene); i++)

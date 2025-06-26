@@ -1005,6 +1005,16 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
     {
+
+        /*
+        How I want this to work:
+        You use the TM. A message prints that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
+        Upon pressing A, Gimmieghoul's Cry plays (the text stays on screen)
+        After the cry is finished, then the game returns to the field and prints the "{PLAYER} recieved a GIMMIEGHOUL!" line
+        
+        */
+
+        //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PayDayTM, Task_ReturnToBagFromContextMenu);
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
     else

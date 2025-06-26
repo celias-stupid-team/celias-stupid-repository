@@ -194,6 +194,7 @@ extern const u8 gText_CoinCase[];
 extern const u8 gText_PlayerUsedVar2[];
 extern const u8 gText_RepelEffectsLingered[];
 extern const u8 gText_MaxRepelDoesntWork[];
+extern const u8 gText_PayDayTM[];
 extern const u8 gText_MaxRepelTurnedOff[];
 extern const u8 gText_MaxRepelWorks[];
 extern const u8 gText_UsedVar2WildLured[];

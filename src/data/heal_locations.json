@@ -407,6 +407,14 @@
       "y": 11,
       "respawn_map": "MAP_FUSHCIA_CITY",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE12",
+      "map": "MAP_ROUTE12",
+      "x": 20,
+      "y": 82,
+      "respawn_map": "MAP_ROUTE12",
+      "respawn_npc": "1"
     }
   ]
 }
