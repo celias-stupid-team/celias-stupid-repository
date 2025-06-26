@@ -40,6 +40,7 @@ gBattlescriptsForUsingItem::
 	.4byte BattleScript_AIUseStatRestore
 	.4byte BattleScript_AIUseXstat
 	.4byte BattleScript_AIUseGuardSpec
+	.4byte BattleScript_AIUsePPRestore
 
 gBattlescriptsForRunningByItem::
 	.4byte BattleScript_UseFluffyTail
@@ -169,6 +170,20 @@ BattleScript_AIUseFullRestoreOrHpHeal::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	moveendcase 15
+	finishaction
+
+BattleScript_AIUsePPRestore::
+	printstring STRINGID_EMPTYSTRING3
+	pause B_WAIT_TIME_MED
+	playse SE_USE_ITEM
+	printstring STRINGID_TRAINER1USEDITEM
+	waitmessage B_WAIT_TIME_LONG
+	useitemonopponent
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	printstring STRINGID_PKMNSITEMRESTOREDPP2
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_ATTACKER
 	moveendcase 15
