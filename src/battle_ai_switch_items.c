@@ -551,7 +551,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
 
 static u8 GetAI_ItemType(u8 itemId, const u8 *itemEffect) // NOTE: should take u16 as item Id argument
 {
-    if (itemId == ITEM_FULL_RESTORE || ITEM_MAX_ELIXIR)
+    if (itemId == ITEM_FULL_RESTORE)
         return AI_ITEM_FULL_RESTORE;
     else if (itemEffect[4] & ITEM4_HEAL_HP)
         return AI_ITEM_HEAL_HP;
@@ -561,6 +561,8 @@ static u8 GetAI_ItemType(u8 itemId, const u8 *itemEffect) // NOTE: should take u
         return AI_ITEM_X_STAT;
     else if (itemEffect[3] & ITEM3_GUARD_SPEC)
         return AI_ITEM_GUARD_SPECS;
+    else if (itemEffect[4] & (ITEM4_HEAL_PP_ONE | ITEM4_HEAL_PP_ALL))
+        return AI_ITEM_HEAL_PP;
     else
         return AI_ITEM_NOT_RECOGNIZABLE;
 }
@@ -596,12 +598,6 @@ static bool8 ShouldUseItem(void)
         switch (*(gBattleStruct->AI_itemType + gActiveBattler / 2))
         {
         case AI_ITEM_FULL_RESTORE:
-            // special rule for battle TRAINER_SODASHOP_RICHKID
-            if (gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
-            {
-                shouldUse = TRUE;
-                break;
-            }
             if (gBattleMons[gActiveBattler].hp >= gBattleMons[gActiveBattler].maxHP / 4)
                 break;
             if (gBattleMons[gActiveBattler].hp == 0)
@@ -669,6 +665,11 @@ static bool8 ShouldUseItem(void)
         case AI_ITEM_GUARD_SPECS:
             battlerSide = GetBattlerSide(gActiveBattler);
             if (gDisableStructs[gActiveBattler].isFirstTurn && gSideTimers[battlerSide].mistTimer == 0)
+                shouldUse = TRUE;
+            break;
+        case AI_ITEM_HEAL_PP: // only implemented for a hard coded case
+            // special rule for battle TRAINER_SODASHOP_RICHKID
+            if (gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
                 shouldUse = TRUE;
             break;
         case AI_ITEM_NOT_RECOGNIZABLE:

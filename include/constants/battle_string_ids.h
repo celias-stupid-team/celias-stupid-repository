@@ -416,8 +416,9 @@
 #define STRINGID_SUBSTITUTE_LAYER_2_FADED 415
 #define STRINGID_BALL_DIDNT_WORK 416
 #define STRINGID_NO_SNAG_MACHINE 417
+#define STRINGID_PKMNSITEMRESTOREDPP2 418
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     419 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     420 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
