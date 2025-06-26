@@ -551,7 +551,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
 
 static u8 GetAI_ItemType(u8 itemId, const u8 *itemEffect) // NOTE: should take u16 as item Id argument
 {
-    if (itemId == ITEM_FULL_RESTORE)
+    if (itemId == ITEM_FULL_RESTORE || ITEM_MAX_ELIXIR)
         return AI_ITEM_FULL_RESTORE;
     else if (itemEffect[4] & ITEM4_HEAL_HP)
         return AI_ITEM_HEAL_HP;
@@ -596,6 +596,12 @@ static bool8 ShouldUseItem(void)
         switch (*(gBattleStruct->AI_itemType + gActiveBattler / 2))
         {
         case AI_ITEM_FULL_RESTORE:
+            // special rule for battle TRAINER_SODASHOP_RICHKID
+            if (gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
+            {
+                shouldUse = TRUE;
+                break;
+            }
             if (gBattleMons[gActiveBattler].hp >= gBattleMons[gActiveBattler].maxHP / 4)
                 break;
             if (gBattleMons[gActiveBattler].hp == 0)
@@ -668,6 +674,7 @@ static bool8 ShouldUseItem(void)
         case AI_ITEM_NOT_RECOGNIZABLE:
             return FALSE;
         }
+
         if (shouldUse)
         {
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
