@@ -300,13 +300,18 @@ script SafariZone_KangaBabyCage {
 		call(Common_Script_BrickBreak)
 			if(var(VAR_RESULT) == 1) {
 		
-		call(SafariZone_Center_BreakRightWall)
-		special(DrawWholeMapView)
-		setflag(FLAG_BROKE_BABY_KANGA_WALL)
-		delay(30)
-		giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
-		release
-		end
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+				call(SafariZone_Center_BreakRightWall)
+				special(DrawWholeMapView)
+				special(ShakeScreen)
+				setflag(FLAG_BROKE_BABY_KANGA_WALL)
+				delay(60)
+				giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
+				release
+				end
 	}
 	release
 	}
