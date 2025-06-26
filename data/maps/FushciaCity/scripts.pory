@@ -1,7 +1,5 @@
 raw `
-FushciaCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, FushciaCity_OnTransition
-	.byte 0
+
 
 
 
@@ -137,6 +135,19 @@ FushciaCity_EventScript_StakatakaSign::
 	end
 `
 
+
+mapscripts FushciaCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
+			call(FushciaCity_DrawBrokenWall)
+		}
+		if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+			call(FuschiaCity_RemoveErik)
+		}
+	}
+}
+
 script FushciaCity_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
 	setworldmapflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
@@ -150,12 +161,7 @@ script FushciaCity_OnTransition {
 	} else {
 		clearflag(FLAG_FUSCHIA_CUT_TREE)
 	}
-	if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
-		call(FushciaCity_DrawBrokenWall)
-	}
-	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
-		call(FuschiaCity_RemoveErik)
-	}
+
 	if(!flag(FLAG_BADGE05_GET)) {
 		setflag(FLAG_TEMP_3)
 	}
@@ -166,14 +172,13 @@ script FuschiaCity_BrickBreak {
 	//wall breaks
 	if(var(VAR_RESULT) == 1) {
 		
-				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
-				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
-				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
-				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
 		call(FushciaCity_DrawBrokenWall)
 		special(DrawWholeMapView)
-				special(ShakeScreen)
-
+		special(ShakeScreen)
 		setflag(FLAG_FUSCHIA_BROKE_WALL)
 		delay(60)
 		giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
