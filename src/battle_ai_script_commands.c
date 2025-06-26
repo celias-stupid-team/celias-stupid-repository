@@ -138,6 +138,8 @@ static void Cmd_if_target_taunted(void);
 static void Cmd_if_target_not_taunted(void);
 static void Cmd_get_number_of_sub_layers(void);
 static void Cmd_if_species(void);
+static void Cmd_get_battler_id(void);
+static void Cmd_if_last_used_move(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -244,6 +246,8 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_target_not_taunted,            // 0x5D
     Cmd_get_number_of_sub_layers,         // 0x5E
     Cmd_if_species,                       // 0x5F
+    Cmd_get_battler_id,                   // 0x60
+    Cmd_if_last_used_move,                // 0x61
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -303,10 +307,6 @@ void BattleAI_SetupAIData(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         AI_THINKING_STRUCT->score[i] = 100;
-
-    // AI score logging
-    // for (i = 0; i < MAX_MON_MOVES; i++)
-    //     DebugPrintf("A move %d score %d", i, AI_THINKING_STRUCT->score[i]);
 
     moveLimitations = CheckMoveLimitations(gActiveBattler, 0, 0xFF);
 
@@ -370,6 +370,12 @@ void BattleAI_SetupAIData(void)
             AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY);
             return;
         }
+        else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        {
+            //always use CBM and CV for trainers
+            AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
+            return;
+        }
     }
     else
     {
@@ -424,6 +430,10 @@ u8 BattleAI_ChooseMoveOrAction(void)
             consideredMoveArray[numOfBestMoves++] = i;
         }
     }
+
+    // AI score logging
+    // for (i = 0; i < MAX_MON_MOVES; i++)
+    //     DebugPrintf("battler %d move %d score %d", gActiveBattler, i, AI_THINKING_STRUCT->score[i]);
 
     return consideredMoveArray[Random() % numOfBestMoves]; // break any ties that exist.
 }
@@ -1982,6 +1992,36 @@ static void Cmd_if_species(void)
         battlerId = gBattlerTarget;
     
     if (gBattleMons[battlerId].species == species)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+    else
+        sAIScriptPtr += 8;
+}
+
+static void Cmd_get_battler_id(void)
+{
+    u8 battlerId;
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+
+    AI_THINKING_STRUCT->funcResult = battlerId;
+
+    sAIScriptPtr += 2;
+}
+
+static void Cmd_if_last_used_move(void)
+{
+    u8 battlerId;
+    u16 move = T1_READ_16(sAIScriptPtr + 2);
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+
+    if (gLastMoves[battlerId] == move)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
     else
         sAIScriptPtr += 8;
