@@ -565,6 +565,18 @@
 	.4byte \ptr
 	.endm
 
+	.macro get_battler_id byte:req
+	.byte 0x60
+	.byte \byte
+	.endm
+
+	.macro if_last_used_move byte:req, move:req, ptr:req
+	.byte 0x61
+	.byte \byte
+	.2byte \move
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
