@@ -12365,3 +12365,6 @@ extern const u32 gItemIconPalette_PERSON_DOLL[];
 
 extern const u32 gItemIcon_BIGNUGGET[];
 extern const u32 gItemIconPalette_BIGNUGGET[];
+
+extern const u32 gItemIcon_BRICKPIECE[];
+extern const u32 gItemIconPalette_BRICKPIECE[];

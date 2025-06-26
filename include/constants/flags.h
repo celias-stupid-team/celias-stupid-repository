@@ -708,7 +708,7 @@
 #define FLAG_SILPH_9F_DOOR_4                             0x28B
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D
-#define FLAG_0x28E                                       0x28E
+#define FLAG_GOT_MACHOKE                                       0x28E
 #define FLAG_GOT_SHINY_PINSIR                                       0x28F
 #define FLAG_MET_STICKER_MAN                             0x290
 #define FLAG_PALLET_LADY_NOT_BLOCKING_SIGN               0x291
@@ -730,7 +730,7 @@
 #define FLAG_SEVII_DETOUR_FINISHED                       0x2A1
 #define FLAG_VISITED_TWO_ISLAND                          0x2A2
 #define FLAG_RESCUED_LOSTELLE                            0x2A3
-#define FLAG_0x2A4                                       0x2A4
+#define FLAG_BROKE_BABY_KANGA_WALL                                       0x2A4
 #define FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT                 0x2A5
 #define FLAG_GOT_TEA                                     0x2A6
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7

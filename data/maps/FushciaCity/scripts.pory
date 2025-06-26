@@ -169,6 +169,10 @@ script FuschiaCity_BrickBreak {
 		call(FushciaCity_DrawBrokenWall)
 		special(DrawWholeMapView)
 		setflag(FLAG_FUSCHIA_BROKE_WALL)
+		delay(30)
+		giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
+		release
+		end
 	}
 	release
 }
