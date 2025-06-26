@@ -1156,7 +1156,16 @@ static void DrawVerticalMultichoiceMenu(u8 left, u8 top, u8 mcId, u8 ignoreBpres
         if (mcId == MULTICHOICE_GAME_CORNER_TMPRIZES
          || mcId == MULTICHOICE_BIKE_SHOP
          || mcId == MULTICHOICE_GAME_CORNER_BATTLE_ITEM_PRIZES)
-            MultichoiceList_PrintItems(windowId, FONT_NORMAL, 8, 2, 14, count, list, 0, 2);
+        {
+            if (mcId == MULTICHOICE_BIKE_SHOP)
+            {
+                MultichoiceList_PrintBikeShop(windowId, FONT_NORMAL, 8, 2, 14, count, list, 0, 2);
+            }
+            else
+            {
+                MultichoiceList_PrintItems(windowId, FONT_NORMAL, 8, 2, 14, count, list, 0, 2);
+            }
+        }
         else
             MultichoiceList_PrintItems(windowId, FONT_NORMAL, 8, 2, 14, count, list, 0, 2);
         Menu_InitCursor(windowId, FONT_NORMAL, 0, 2, 14, count, initPos);
