@@ -59,7 +59,7 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	special(SocialSecurityCheck)
 	waitstate
 	//msgbox("DEBUG\p{STR_VAR_1}\n{STR_VAR_2}", MSGBOX_DEFAULT)
-	if(var(VAR_RESULT)) {
+	if(var(VAR_RESULT) == TRUE) {
 		msgbox("Oh, that's it!\nYes!\lHaha, sucker!\p…Er, I mean…\nYes, very good!\pI, uh, don't have a SUPER ROD for\nyou, but here!\pThis is what you get!\nTake it or leave it!", MSGBOX_DEFAULT)
 		closemessage
 		textcolor(NPC_TEXT_COLOR_MON) //I can't remember if it's Default or Neutral and I can't be assed to check
@@ -68,7 +68,54 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 		waitmessage
 		waitfanfare
 		setflag(FLAG_CSR_PHISHING_GURU_MENUS)
-	} else {
+	} elif (var(VAR_RESULT) == 2) {
+			if(flag(FLAG_GOT_SECRET_FARFETCHD)) {
+				msgbox("PHISHING GURU: Nope!\nNo way!\pWe're not doing that again!\n", MSGBOX_DEFAULT)
+			}
+			fadenewbgm(MUS_NONE)
+			msgbox("PHISHING GURU: Huh-!?\nWha-\pHow'd you know that?\n", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			playse(SE_EXIT)
+			applymovement(CELIA, PhishingGuru_CeliaEnters)
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			if(!checkmoncaught(SPECIES_FARFETCHD)) {
+				setflag(FLAG_TEMP_3)
+			}
+			msgbox("Hi, there!\nI'm CELIA, the creator!\pOh my goodness!\nYou actually read the README!\lI'm impressed!\pUnless someone else told you to do\nthis, in which case uhh...\lGlad you interacted with others!\pIn any case, here's your reward!\n", MSGBOX_DEFAULT)
+			setflag(FLAG_SHINY_CREATION) //Farfetchd
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_FARFETCHD)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} obtained the FARFETCH'D!\n", MSGBOX_DEFAULT)
+			waitfanfare
+			call(Common_Script_GiftPokemon)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			setflag(FLAG_GOT_SECRET_FARFETCHD)
+			msgbox("CELIA: Okay!\nYou two can get back at it, then.\pHave fun!\n", MSGBOX_DEFAULT)
+			closemessage
+			applymovement(CELIA, PhishingGuru_CeliaDown)
+			waitmovement(0)
+			if(flag(FLAG_TEMP_3)) {
+				playse(SE_PIN)
+				applymovement(CELIA, Common_Movement_ExclamationMark)
+				waitmovement(0)
+				delay(30)
+				msgbox("CELIA: Oh, by the way.\n", MSGBOX_DEFAULT)
+				applymovement(CELIA, Common_Movement_FaceUp)
+				msgbox("You didn't get FARFETCH'D the\nregular way yet.\pDon't worry - this isn't the\nnormal method.\pI won't force you to, but I think\nyou should try to figure out the\lnormal way.\pAnyway, good bye and good luck!\n", MSGBOX_DEFAULT)
+				closemessage
+				delay(20)
+				applymovement(CELIA, Common_Movement_FaceDown)
+			}
+			delay(20)
+			playse(SE_EXIT)
+			removeobject(CELIA)
+			fadedefaultbgm
+		
+	}	else {
 		msgbox("Aww, no deal?\pC'mon, kid!\nYou can trust me!", MSGBOX_DEFAULT)
 	}
 	release
@@ -76,4 +123,16 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	//} else [don't]
 
 // Pulls up a name entry. Checks if the result is equal to the string of your trainer ID. If so, FLAG_CSR_PHISHING_GURU_MENUS gets set. If not, he has dialogue and ends.
+}
+
+movement PhishingGuru_CeliaEnters {
+	face_up
+	set_visible
+	delay_16 * 4
+	walk_slow_up
+}
+
+movement PhishingGuru_CeliaDown {
+	walk_slow_down
+	face_down
 }
