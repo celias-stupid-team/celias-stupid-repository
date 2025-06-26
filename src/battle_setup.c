@@ -738,7 +738,7 @@ static u16 GetTrainerAFlag(void)
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
 {
-    if(gBattleTypeFlags & BATTLE_TYPE_WILD_SCRIPTED) {
+    if(FlagGet(FLAG_SYS_KANGA_FIGHT) || FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
         switch (battleOutcome)
         {
         case B_OUTCOME_LOST:

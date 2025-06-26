@@ -105,7 +105,7 @@
       "x": 11,
       "y": 35,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_FAST_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -144,7 +144,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 2,
+      "x": 21,
       "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

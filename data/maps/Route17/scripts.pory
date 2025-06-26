@@ -145,7 +145,7 @@ movement Route17_BikeZoomsUp {
 script Route17_IllusionPants {
 	lock
 	faceplayer
-	msgbox("Death is an illusion.\nAnd so are pants!", MSGBOX_DEFAULT)
+	msgbox("Death is an illusion.{PAUSE 10}\nAnd so are pants!", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
 	playse(SE_CLICK)

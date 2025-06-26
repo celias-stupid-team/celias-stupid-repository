@@ -1790,6 +1790,9 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 {
     u32 arg;
     ZeroMonData(mon);
+    if(species == SPECIES_UNOWN_LOSS) {
+        IncrementGameStat(GAME_STAT_UNOWNS_CAUGHT);
+    }
     CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
     arg = MAIL_NONE;

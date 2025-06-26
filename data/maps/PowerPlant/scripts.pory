@@ -270,13 +270,7 @@ script PowerPlant_Computer {
 
 script PowerPlant_MinigameStart {
 	lock
-	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
-		if(checkitem(ITEM_EVERSTONE)) {
-			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to insert your\nB BUTTON and turn the power on?", MSGBOX_YESNO)
-		} else {
-			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to attempt to turn\nit on?", MSGBOX_YESNO)
-		}
-		if(var(VAR_RESULT)) {
+
 			closemessage
 			call(PowerPlant_ElectrodesSlideDown)
 			//msgbox("you have b button\nyou win", MSGBOX_DEFAULT)
@@ -286,6 +280,7 @@ script PowerPlant_MinigameStart {
 			callnative(StartPowerplantGame)
 			waitstate
 			if(var(VAR_CSR_TURNED_ON_POWER) == 1) { //POWER_ON
+				setvar(VAR_CSR_TURNED_ON_POWER, 0)
 				playbgm(MUS_NONE, TRUE)
 				playse(SE_ITEMFINDER)
 				waitse
@@ -322,6 +317,7 @@ script PowerPlant_MinigameStart {
 				}
 
 				delay(60)
+				setvar(VAR_CSR_TURNED_ON_POWER, 1)
 				msgbox("Wow!\nETERNATUS unleashed its energy!", MSGBOX_DEFAULT)
 				playfanfare(MUS_LEVEL_UP)
 				msgbox("DYNAMAX ENERGY now fills\nthe area!", MSGBOX_DEFAULT)
@@ -342,17 +338,31 @@ script PowerPlant_MinigameStart {
 			applymovement(OBJ_EVENT_ID_CAMERA, PowerPlant_CameraGoDown)
 			waitmovement(0)
 			special(RemoveCameraObject)
-		}
-
-	} else {
-		msgbox("The power has been turned on!\n", MSGBOX_DEFAULT)
-	}
+		
 	removeobject(ELECTRODE_1)
 	removeobject(ELECTRODE_2)
 	removeobject(ELECTRODE_3)
 	removeobject(ELECTRODE_4)
 	release
 	end
+}
+
+script PowerPlant_Console {
+ 	if(var(VAR_CSR_TURNED_ON_POWER) == 0) { //POWER_OFF
+		if(checkitem(ITEM_EVERSTONE)) {
+			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to insert your\nB BUTTON and turn the power on?", MSGBOX_YESNO)
+		} else {
+			msgbox("The POWER PLANT's reactor is down.\nIt seems the controller is broken.\pWould you like to attempt to turn\nit on?", MSGBOX_YESNO)
+		}
+		if(var(VAR_RESULT)) {
+			goto(PowerPlant_MinigameStart)
+		}
+	} else {
+		msgbox("The POWER has been turned on!\pWould you like to turn it on\nagain anyway?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			goto(PowerPlant_MinigameStart)
+		}
+	}
 }
 
 movement Eternatus_WalkSlowDown {

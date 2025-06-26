@@ -100,14 +100,16 @@ script Route10_SecretDad {
 			end
 
 	}
-	msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pSay, one of the kind young men in\nthat cave came by.\lHe had this POKéMON with him.\pHe seemed to really like it.\nI think you would too!", MSGBOX_DEFAULT)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pSay, one of the kind young men in\nthat cave came by.\lHe had this POKéMON with him.\pHe seemed to really like it.\nI think you would too!\pHere, catch!", MSGBOX_DEFAULT)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
 	setflag(FLAG_SHINY_CREATION) //Horsea
+	closemessage
 	playfanfare(MUS_LEVEL_UP)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox("{PLAYER} obtained the secondhand,\nused HORSEA!", MSGBOX_DEFAULT)
+	msgbox("{PLAYER} caught the gracefully-thrown\nHORSEA!", MSGBOX_DEFAULT)
 	waitfanfare
 	call(Common_Script_GiftPokemon)
+	closemessage
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("DAD: Well, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	setflag(FLAG_GOT_HORSEA_FROM_DAD)

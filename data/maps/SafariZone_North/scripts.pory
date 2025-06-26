@@ -87,13 +87,13 @@ script SafariZone_North_Breloom {
 }
 
 script SafariZone_North_DMCA_1 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_19, "A big portal opened up around here.\nA buncha POKéMON came out of it,\lbut all of them were copies!\pGood thing we, the DMCA, were here!\n", "PLACEHOLDER")
+	trainerbattle_single(TRAINER_DMCA_GRUNT_19, "A big portal opened up around here.\nA buncha POKéMON came out of it,\lbut all of them were copies!\pGood thing we, the DMCA, were here!\n", "Hey!")
 	msgbox("The DMCA is here on important\nbusiness.\lThere's infringement afoot!\pWe won't rest until the violating\nPOKéMON is apprehended!", MSGBOX_NPC)
 }
 
 script SafariZone_North_DMCA_2 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_20, "Were you the kid trying to sneak in\nthe TM CASE?\nHahaha!", "PLACEHOLDER")
-	msgbox("PLACEHOLDER", MSGBOX_NPC)
+	trainerbattle_single(TRAINER_DMCA_GRUNT_20, "Were you the kid trying to sneak in\nthe TM CASE?\nHaha!", "But how!?")
+	msgbox("You think all the TMs laying on\nthe ground are free pickings?\pIf you want a TRADEMARK, you have\nto work hard and earn it!\l(or be born rich and buy a company)", MSGBOX_NPC)
 
 }
 
@@ -104,7 +104,7 @@ script SafariZone_North_DMCA_3 {
 }
 
 script SafariZone_North_DMCA_4 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_22, "Graaah!\nWhy won't this POKéMON just change?", "PLACEHOLDER")
+	trainerbattle_single(TRAINER_DMCA_GRUNT_22, "Graaah!\nWhy won't this POKéMON just change?", "It's violating its own copyright!")
 	msgbox("We found an ITEM here that induced\nan illegal EVOLUTION.\pWe passed it to our team in the\nCELADON DMCA LAW OFFICES.\lOne of our ADMINS is guarding it.\p…What's that?\nYou took it from him!?\lNo!", MSGBOX_NPC)
 
 }
