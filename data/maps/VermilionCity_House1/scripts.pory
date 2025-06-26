@@ -59,7 +59,7 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	special(SocialSecurityCheck)
 	waitstate
 	//msgbox("DEBUG\p{STR_VAR_1}\n{STR_VAR_2}", MSGBOX_DEFAULT)
-	if(var(VAR_RESULT) == TRUE) {
+	if(var(VAR_RESULT) == 1) {
 		msgbox("Oh, that's it!\nYes!\lHaha, sucker!\p…Er, I mean…\nYes, very good!\pI, uh, don't have a SUPER ROD for\nyou, but here!\pThis is what you get!\nTake it or leave it!", MSGBOX_DEFAULT)
 		closemessage
 		textcolor(NPC_TEXT_COLOR_MON) //I can't remember if it's Default or Neutral and I can't be assed to check
@@ -76,10 +76,12 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 			msgbox("PHISHING GURU: Huh-!?\nWha-\pHow'd you know that?\n", MSGBOX_DEFAULT)
 			closemessage
 			delay(30)
+			setobjectxy(CELIA, 4, 7)
 			playse(SE_EXIT)
 			applymovement(CELIA, PhishingGuru_CeliaEnters)
 			waitmovement(0)
 			applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+			delay(20)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
 			if(!checkmoncaught(SPECIES_FARFETCHD)) {
 				setflag(FLAG_TEMP_3)
@@ -96,16 +98,17 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 			setflag(FLAG_GOT_SECRET_FARFETCHD)
 			msgbox("CELIA: Okay!\nYou two can get back at it, then.\pHave fun!\n", MSGBOX_DEFAULT)
 			closemessage
+			delay(30)
 			applymovement(CELIA, PhishingGuru_CeliaDown)
 			waitmovement(0)
 			if(flag(FLAG_TEMP_3)) {
 				playse(SE_PIN)
 				applymovement(CELIA, Common_Movement_ExclamationMark)
 				waitmovement(0)
-				delay(30)
+				delay(60)
 				msgbox("CELIA: Oh, by the way.\n", MSGBOX_DEFAULT)
 				applymovement(CELIA, Common_Movement_FaceUp)
-				msgbox("You didn't get FARFETCH'D the\nregular way yet.\pDon't worry - this isn't the\nnormal method.\pI won't force you to, but I think\nyou should try to figure out the\lnormal way.\pAnyway, good bye and good luck!\n", MSGBOX_DEFAULT)
+				msgbox("You didn't get FARFETCH'D the\nregular way yet.\pDon't worry - this isn't the\nnormal method.\pI won't force you to, but I think\nyou should try to figure out how\lyou're supposed to.\pAnyway, good bye and good luck!\n", MSGBOX_DEFAULT)
 				closemessage
 				delay(20)
 				applymovement(CELIA, Common_Movement_FaceDown)
@@ -130,6 +133,7 @@ movement PhishingGuru_CeliaEnters {
 	set_visible
 	delay_16 * 4
 	walk_slow_up
+	face_up
 }
 
 movement PhishingGuru_CeliaDown {
