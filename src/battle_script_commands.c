@@ -1395,6 +1395,7 @@ static void Cmd_typecalc(void)
     s32 i = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1428,19 +1429,31 @@ static void Cmd_typecalc(void)
         defType2 = gBattleMons[gBattlerTarget].type2;
 
         modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
-        
-        if (defType2 != defType1)
-            modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
 
         if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-          && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+          && (defType1 == TYPE_GHOST)
           && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
           && modifier == TYPE_MUL_NO_EFFECT)
         {
             modifier = UQ_4_12(1.0);
         }
+        // DebugPrintf("Cmd_typecalc modifier1 = %d", modifier);
+        
+        if (defType2 != defType1)
+        {
+            modifier_temp = GetTypeModifier(moveType, defType2);
 
-        // DebugPrintf("Cmd_typecalc modifier = %d", modifier);
+            if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+              && (defType2 == TYPE_GHOST)
+              && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            modifier = uq4_12_multiply(modifier, modifier_temp);
+        }
+
+        // DebugPrintf("Cmd_typecalc modifier2 = %d", modifier);
 
         mult = (TYPE_MUL_NORMAL * modifier) / 4096;
         ModulateDmgByType(mult);
@@ -1470,6 +1483,7 @@ static void CheckWonderGuardAndLevitate(void)
     s32 i = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1491,15 +1505,26 @@ static void CheckWonderGuardAndLevitate(void)
 
 	modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
 	
-	if (defType2 != defType1)
-		modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
-
     if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-      && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+      && (defType1 == TYPE_GHOST)
       && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
       && modifier == TYPE_MUL_NO_EFFECT)
     {
         modifier = UQ_4_12(1.0);
+    }
+
+    if (defType2 != defType1)
+    {
+        modifier_temp = GetTypeModifier(moveType, defType2);
+
+        if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+            && (defType2 == TYPE_GHOST)
+            && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+            && modifier_temp == TYPE_MUL_NO_EFFECT)
+        {
+            modifier_temp = UQ_4_12(1.0);
+        }
+        modifier = uq4_12_multiply(modifier, modifier_temp);
     }
 
 	mult = (modifier * TYPE_MUL_NORMAL) / 4096;
@@ -1582,6 +1607,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     u8 flags = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1608,15 +1634,26 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
 
         modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
         
-        if (defType2 != defType1)
-            modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
-
         if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-          && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+          && (defType1 == TYPE_GHOST)
           && gBattleMons[defender].status2 & STATUS2_FORESIGHT
           && modifier == TYPE_MUL_NO_EFFECT)
         {
             modifier = UQ_4_12(1.0);
+        }
+
+        if (defType2 != defType1)
+        {
+            modifier_temp = GetTypeModifier(moveType, defType2);
+
+            if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+              && (defType2 == TYPE_GHOST)
+              && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            modifier = uq4_12_multiply(modifier, modifier_temp);
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
@@ -4671,7 +4708,7 @@ static void Cmd_typecalc2(void)
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
-        // DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
+        DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
 
         if (mult == TYPE_MUL_NO_EFFECT)
             gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
