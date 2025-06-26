@@ -203,3 +203,19 @@ script Route10_PowerGridRepair {
 	msgbox("Hello!\nAre you in charge around here?\pI'm from the KANTO LIGHTHOUSE\nPOWER GRID REPAIR SERVICE.\lI'm here to fix the electricity.\p…Oh, you've already fixed the\npower problem?\lUh\pGreat to hear!\nLess work for me.\pI'm sure the folks down at the\nLIGHTHOUSE are back in business!", MSGBOX_NPC)
 	end
 }
+
+
+script Route10_DirtPatch {
+	msgbox("This patch of dirt is\ninteractable!", MSGBOX_NPC)
+	end
+}
+
+script Route10_TwoMaps {
+	msgbox("In order to get the music to stop\nand restart in a funny way, I had\lto make a copy of this route.\pWhen you go into the cave, you get\nsent to the other copy.\pThen, that map is set to play a\nduplicate of the Route 10 music.\pThat way, the music stops and\nstarts back up, instead of just\lplaying nonstop.", MSGBOX_NPC)
+	end
+}
+
+script Route10_Trees {
+	msgbox("In vanilla, these are cut trees.\pI couldn't let you skip the setup\nto skipping Rock Tunnel, so I\lmade you go around to fight th\ltrainer.", MSGBOX_NPC)
+	end
+}

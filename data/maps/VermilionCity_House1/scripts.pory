@@ -71,6 +71,8 @@ script VermilionCity_House1_EventScript_SocialSecurityCheck {
 	} elif (var(VAR_RESULT) == 2) {
 			if(flag(FLAG_GOT_SECRET_FARFETCHD)) {
 				msgbox("PHISHING GURU: Nope!\nNo way!\pWe're not doing that again!\n", MSGBOX_DEFAULT)
+				release
+				end
 			}
 			fadenewbgm(MUS_NONE)
 			msgbox("PHISHING GURU: Huh-!?\nWha-\pHow'd you know that?\n", MSGBOX_DEFAULT)

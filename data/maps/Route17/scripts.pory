@@ -152,3 +152,8 @@ script Route17_IllusionPants {
 	removeobject(VAR_LAST_TALKED)
 	release
 }
+
+script Route17_DickBridge {
+	msgbox("DICK BRIDGE\pThis bridge is DICK.\n", MSGBOX_SIGN)
+	end
+}
