@@ -2788,6 +2788,18 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattleMoveDamage = (gHpDealt) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
+                
+                if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
+                {
+                    u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
+                    DebugPrintf("you have basci berry");
+                    gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+
+                    gActiveBattler = gBattlerAttacker;
+                    BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
+                    MarkBattlerForControllerExec(gBattlerAttacker);
+                }
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
@@ -2991,6 +3003,19 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattleMoveDamage = gHpDealt / 3;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
+                if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
+                {
+                    u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
+                    DebugPrintf("you have basci berry");
+                    gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+
+                    gActiveBattler = gBattlerAttacker;
+                    BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
+                    MarkBattlerForControllerExec(gBattlerAttacker);
+
+                }
+
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
