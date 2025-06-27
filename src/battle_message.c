@@ -557,6 +557,7 @@ static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the match!
 static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the match\nand quit now?");
 static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto fight again!");
 static const u8 sText_VanishedFromExistence[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\nfrom existence!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_FuckingDied[] = _("{B_DEF_NAME_WITH_PREFIX}\nfucking died!\p");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -967,6 +968,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SUBSTITUTE_LAYER_2_FADED - BATTLESTRINGS_TABLE_START] = sText_PkmnSubstituteFaded_2,
     [STRINGID_PKMNSITEMRESTOREDPP2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemRestoredPP2,
     [STRINGID_VANISHEDFROMEXISTENCE - BATTLESTRINGS_TABLE_START] = sText_VanishedFromExistence,
+    [STRINGID_FUCKINGDIED - BATTLESTRINGS_TABLE_START] = sText_FuckingDied,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 

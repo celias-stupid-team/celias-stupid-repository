@@ -3152,14 +3152,21 @@ static void Cmd_tryfaintmon(void)
             gActiveBattler = gBattlerAttacker;
             battlerId = gBattlerTarget;
             
-            BS_ptr = BattleScript_FaintAttacker;
+            if (gCurrentMove == MOVE_GUILLOTINE_2)
+                BS_ptr = BattleScript_VanishedFromExistence;
+            else
+                BS_ptr = BattleScript_FaintAttacker;
             
         }
         else
         {
             gActiveBattler = gBattlerTarget;
             battlerId = gBattlerAttacker;
-            BS_ptr = BattleScript_FaintTarget;
+
+            if (gCurrentMove == MOVE_GUILLOTINE_2)
+                BS_ptr = BattleScript_FuckingDied;
+            else
+                BS_ptr = BattleScript_FaintTarget;
         }
         if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler])
          && gBattleMons[gActiveBattler].hp == 0)

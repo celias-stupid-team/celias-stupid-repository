@@ -2951,6 +2951,24 @@ BattleScript_FaintTarget::
 	printstring STRINGID_EMPTYSTRING3
 	return
 
+BattleScript_VanishedFromExistence::
+	playfaintcry BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_ATTACKER
+	cleareffectsonfaint BS_ATTACKER
+	printstring STRINGID_VANISHEDFROMEXISTENCE
+	printstring STRINGID_EMPTYSTRING3
+	return
+
+BattleScript_FuckingDied::
+	playfaintcry BS_TARGET
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_TARGET
+	cleareffectsonfaint BS_TARGET
+	printstring STRINGID_FUCKINGDIED
+	printstring STRINGID_EMPTYSTRING3
+	return
+
 BattleScript_GiveExp::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_TARGET
@@ -4888,8 +4906,6 @@ BattleScript_EffectGuillotine2_SelfKO::
 	datahpupdate BS_ATTACKER
 	waitmessage B_WAIT_TIME_MED
 	tryfaintmon BS_ATTACKER
-	printstring STRINGID_VANISHEDFROMEXISTENCE
-	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_EffectGuillotine2_KOFail::
 	pause B_WAIT_TIME_LONG
