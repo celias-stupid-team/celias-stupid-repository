@@ -179,7 +179,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BASCI_BERRY_RED]   = {gItemIcon_MagostBerry, gItemIconPalette_MagostBerry},
     [ITEM_BASCI_BERRY_BLUE]   = {gItemIcon_RabutaBerry, gItemIconPalette_RabutaBerry},
     [ITEM_BASCI_BERRY_WHITE]    = {gItemIcon_MagostBerry, gItemIconPalette_BasciBerryWhite},
-    [ITEM_BERRYLEGION]   = {gItemIcon_SpelonBerry, gItemIconPalette_SpelonBerry},
     [ITEM_PAMTRE_BERRY]   = {gItemIcon_PamtreBerry, gItemIconPalette_PamtreBerry},
     [ITEM_WATMEL_BERRY]   = {gItemIcon_WatmelBerry, gItemIconPalette_WatmelBerry},
     [ITEM_DURIN_BERRY]    = {gItemIcon_DurinBerry, gItemIconPalette_DurinBerry},
@@ -449,5 +448,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_PERSON_DOLL]      =  {gItemIcon_PERSON_DOLL, gItemIconPalette_PERSON_DOLL},
     [ITEM_BIG_NUGGET]      =  {gItemIcon_BIGNUGGET, gItemIconPalette_BIGNUGGET},
     [ITEM_BRICK_PIECE]      =  {gItemIcon_BRICKPIECE, gItemIconPalette_BRICKPIECE},
+    [ITEM_BERRYLEGION]      =  {gItemIcon_BERRYLEGION, gItemIconPalette_BERRYLEGION},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -12368,3 +12368,6 @@ extern const u32 gItemIconPalette_BIGNUGGET[];
 
 extern const u32 gItemIcon_BRICKPIECE[];
 extern const u32 gItemIconPalette_BRICKPIECE[];
+
+extern const u32 gItemIcon_BERRYLEGION[];
+extern const u32 gItemIconPalette_BERRYLEGION[];
