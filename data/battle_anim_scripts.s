@@ -595,6 +595,7 @@ gBattleAnims_Moves::
 	.4byte Move_SLASH_TCG
 	.4byte Move_SWORDSDANCE_TCG
 	.4byte Move_SUBSTITUTE_2
+	.4byte Move_GUILLOTINE_2
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -15365,3 +15366,27 @@ Move_SUBSTITUTE_2:
 	createvisualtask AnimTask_MonToSubstitute, 2
 	end
 
+Move_GUILLOTINE_2:
+	loadspritegfx ANIM_TAG_CUT
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	fadetobgfromset BG_GUILLOTINE_OPPONENT, BG_GUILLOTINE_PLAYER, BG_GUILLOTINE_CONTESTS
+	waitbgfadein
+	playsewithpan SE_M_VICEGRIP, SOUND_PAN_TARGET
+	createsprite gGuillotineSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gGuillotineSpriteTemplate, ANIM_ATTACKER, 2, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 16, RGB_BLACK
+	delay 9
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 23, 1
+	delay 46
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 4, 0, 8, 1
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 0
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 1, RGB_BLACK, 8, RGB_BLACK, 0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	restorebg
+	waitbgfadein
+	end

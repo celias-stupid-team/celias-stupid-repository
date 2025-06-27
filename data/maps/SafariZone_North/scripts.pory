@@ -98,7 +98,7 @@ script SafariZone_North_DMCA_2 {
 }
 
 script SafariZone_North_DMCA_3 {
-	trainerbattle_single(TRAINER_DMCA_GRUNT_21, "We were supposed to be taking all\nthe PARADOX POKéMON, but…\pI think I'm doing something wrong.\n", "Grr!\nIt's the wrong kind of PARADOX!")
+	trainerbattle_single(TRAINER_DMCA_GRUNT_21, "We were supposed to be taking all\nthe PARADOX POKéMON, but…\pI think I'm doing something wrong.\n", "Hey, where'd he go?")
 	msgbox("Our ADMIN up ahead took the\nstrongest PARADOX POKéMON.\lThere's no way you'll get through!", MSGBOX_NPC)
 
 }
