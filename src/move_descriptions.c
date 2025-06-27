@@ -1147,4 +1147,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_SLASH_TCG     -1 ] = gMoveDescription_Slash_TCG,
     [MOVE_SWORDSDANCE_TCG     -1 ] = gMoveDescription_SwordsDance_TCG,
     [MOVE_SUBSTITUTE_2    - 1] = gMoveDescription_Substitute,
+    [MOVE_GUILLOTINE_2  - 1] = gMoveDescription_Guillotine,
 };

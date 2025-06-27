@@ -4348,21 +4348,18 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt20[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt21[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt21[] = {
     {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_STOUTLAND,
+        .moves = {MOVE_BITE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 23,
         .species = SPECIES_LILLIPUP,
-    },
-    {
-        .iv = 0,
-        .lvl = 23,
-        .species = SPECIES_DUOSION,
+        .moves = {MOVE_GUILLOTINE_2, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 

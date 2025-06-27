@@ -7589,6 +7589,9 @@ static void Cmd_tryKO(void)
         else
             chance = FALSE;
     }
+    if (gCurrentMove == MOVE_GUILLOTINE_2) //move always hits!
+        chance = TRUE;
+
     if (chance)
     {
         if (gProtectStructs[gBattlerTarget].endured)

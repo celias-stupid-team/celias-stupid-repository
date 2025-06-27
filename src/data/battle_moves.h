@@ -7214,7 +7214,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 5,
         .flags = FLAG_SNATCH_AFFECTED,
     },
-    
+
+    [MOVE_GUILLOTINE_2] =
+    {
+        .effect = EFFECT_GUILLOTINE_2,
+        .power = 1,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
 
 };
 
