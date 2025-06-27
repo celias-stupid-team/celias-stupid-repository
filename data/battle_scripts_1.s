@@ -255,6 +255,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlyOMeteor             @ EFFECT_FLY_O_METEOR
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
 	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
+	.4byte BattleScript_EffectGuillotine2			  @ EFFECT_GUILLOTINE_2
 
 BattleScript_EffectFeint::
 	setmoveeffect MOVE_EFFECT_FEINT
@@ -2950,6 +2951,24 @@ BattleScript_FaintTarget::
 	printstring STRINGID_EMPTYSTRING3
 	return
 
+BattleScript_VanishedFromExistence::
+	playfaintcry BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_ATTACKER
+	cleareffectsonfaint BS_ATTACKER
+	printstring STRINGID_VANISHEDFROMEXISTENCE
+	printstring STRINGID_EMPTYSTRING3
+	return
+
+BattleScript_FuckingDied::
+	playfaintcry BS_TARGET
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_TARGET
+	cleareffectsonfaint BS_TARGET
+	printstring STRINGID_FUCKINGDIED
+	printstring STRINGID_EMPTYSTRING3
+	return
+
 BattleScript_GiveExp::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_TARGET
@@ -4855,3 +4874,41 @@ BattleScript_SubstituteFade3::
 	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
 	printstring STRINGID_SUBSTITUTE_LAYER_3_FADED
 	return
+
+BattleScript_EffectGuillotine2::
+	getmovetarget BS_ATTACKER @used to set target to partner
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifnotbattletype BATTLE_TYPE_DOUBLE, BattleScript_EffectGuillotine2_KOFail
+	typecalc
+	jumpifmovehadnoeffect BattleScript_HitFromAtkAnimation
+	tryKO BattleScript_EffectGuillotine2_KOFail
+	trysetdestinybondtohappen
+BattleScript_EffectGuillotine2_Animation::
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+BattleScript_EffectGuillotine2_SelfKO::
+	setatkhptozero
+	waitstate
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitmessage B_WAIT_TIME_MED
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_EffectGuillotine2_KOFail::
+	pause B_WAIT_TIME_LONG
+	printfromtable gKOFailedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectGuillotine2_SelfKO

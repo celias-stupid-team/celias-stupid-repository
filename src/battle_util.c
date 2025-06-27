@@ -3226,6 +3226,10 @@ u8 GetMoveTarget(u16 move, u8 setTarget)
         break;
     }
 
+    // overwrite targetBattler for MOVE_GUILLOTINE_2
+    if (gCurrentMove == MOVE_GUILLOTINE_2)
+        targetBattler = gBattlerAttacker ^ BIT_FLANK;
+
     *(gBattleStruct->moveTarget + gBattlerAttacker) = targetBattler;
 
     return targetBattler;
