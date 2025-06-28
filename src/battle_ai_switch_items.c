@@ -561,6 +561,8 @@ static u8 GetAI_ItemType(u8 itemId, const u8 *itemEffect) // NOTE: should take u
         return AI_ITEM_X_STAT;
     else if (itemEffect[3] & ITEM3_GUARD_SPEC)
         return AI_ITEM_GUARD_SPECS;
+    else if (itemEffect[4] & (ITEM4_HEAL_PP_ONE | ITEM4_HEAL_PP_ALL))
+        return AI_ITEM_HEAL_PP;
     else
         return AI_ITEM_NOT_RECOGNIZABLE;
 }
@@ -665,9 +667,15 @@ static bool8 ShouldUseItem(void)
             if (gDisableStructs[gActiveBattler].isFirstTurn && gSideTimers[battlerSide].mistTimer == 0)
                 shouldUse = TRUE;
             break;
+        case AI_ITEM_HEAL_PP: // only implemented for a hard coded case
+            // special rule for battle TRAINER_SODASHOP_RICHKID
+            if (gTrainerBattleOpponent_A == TRAINER_SODASHOP_RICHKID && !gDisableStructs[gActiveBattler].isFirstTurn && item == ITEM_MAX_ELIXIR)
+                shouldUse = TRUE;
+            break;
         case AI_ITEM_NOT_RECOGNIZABLE:
             return FALSE;
         }
+
         if (shouldUse)
         {
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);

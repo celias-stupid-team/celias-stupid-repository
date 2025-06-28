@@ -5588,742 +5588,742 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_BULBASAUR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_IVYSAUR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_VENUSAUR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_CHARMANDER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_CHARMELEON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_CHARIZARD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_SQUIRTLE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_WARTORTLE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_BLASTOISE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_CATERPIE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_METAPOD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_BUTTERFREE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_WEEDLE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KAKUNA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_BEEDRILL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_PIDGEY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PIDGEOTTO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 13,
+		.y_offset = 2,
 	},
 	[SPECIES_PIDGEOT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_RATTATA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_RATICATE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SPEAROW_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_FEAROW_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_EKANS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_ARBOK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PIKACHU_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_RAICHU_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SANDSHREW_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SANDSLASH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_NIDORINA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_NIDOQUEEN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_NIDORINO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_NIDOKING_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_CLEFAIRY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_CLEFABLE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_VULPIX_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_NINETALES_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_JIGGLYPUFF_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_WIGGLYTUFF_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ZUBAT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GOLBAT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_ODDISH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GLOOM_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_VILEPLUME_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PARAS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PARASECT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_VENONAT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_VENOMOTH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_DIGLETT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DUGTRIO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MEOWTH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_PERSIAN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_PSYDUCK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GOLDUCK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MANKEY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_PRIMEAPE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_GROWLITHE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ARCANINE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_POLIWAG_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_POLIWHIRL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_POLIWRATH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ABRA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_KADABRA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ALAKAZAM_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MACHOP_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 20,
+		.y_offset = 2,
 	},
 	[SPECIES_MACHOKE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MACHAMP_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_BELLSPROUT_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_WEEPINBELL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_VICTREEBEL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_TENTACOOL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_TENTACRUEL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_GEODUDE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GRAVELER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GOLEM_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_PONYTA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_RAPIDASH_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 20,
+		.y_offset = 2,
 	},
 	[SPECIES_SLOWPOKE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_SLOWBRO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MAGNEMITE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MAGNETON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_FARFETCHD_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_DODUO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DODRIO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_SEEL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DEWGONG_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GRIMER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MUK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SHELLDER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_CLOYSTER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GASTLY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_HAUNTER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_GENGAR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ONIX_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DROWZEE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_HYPNO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KRABBY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KINGLER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_VOLTORB_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ELECTRODE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_EXEGGCUTE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_EXEGGUTOR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_CUBONE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MAROWAK_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 20,
+		.y_offset = 2,
 	},
 	[SPECIES_HITMONLEE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_HITMONCHAN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_LICKITUNG_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KOFFING_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_WEEZING_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_RHYHORN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_RHYDON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_CHANSEY_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_TANGELA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KANGASKHAN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_HORSEA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SEADRA_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GOLDEEN_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SEAKING_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_STARYU_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_STARMIE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MRMIME_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_SCYTHER_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_JYNX_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ELECTABUZZ_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MAGMAR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_PINSIR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_TAUROS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MAGIKARP_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_GYARADOS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_LAPRAS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DITTO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_EEVEE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_VAPOREON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_JOLTEON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_FLAREON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_PORYGON_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_OMANYTE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_OMASTAR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KABUTO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_KABUTOPS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_AERODACTYL_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_SNORLAX_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_ARTICUNO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_ZAPDOS_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_MOLTRES_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_DRATINI_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DRAGONAIR_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 	[SPECIES_DRAGONITE_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 15,
+		.y_offset = 2,
 	},
 	[SPECIES_MEWTWO_POKERAP] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 2,
 	},
 
 };

@@ -141,3 +141,19 @@ movement Route17_BikeZoomsUp {
 	walk_fast_up * 4
 	walk_up * 2
 }
+
+script Route17_IllusionPants {
+	lock
+	faceplayer
+	msgbox("Death is an illusion.{PAUSE 10}\nAnd so are pants!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playse(SE_CLICK)
+	removeobject(VAR_LAST_TALKED)
+	release
+}
+
+script Route17_DickBridge {
+	msgbox("DICK BRIDGE\pThis bridge is DICK.\n", MSGBOX_SIGN)
+	end
+}

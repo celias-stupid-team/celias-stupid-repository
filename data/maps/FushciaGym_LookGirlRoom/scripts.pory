@@ -6,6 +6,7 @@ mapscripts FushciaGym_LookGirlRoom_MapScripts {
         } else {
             setobjectxyperm(LOOK_GIRL, VAR_FUCHSIA_LOOK_GIRL_LOCATION, 9)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LOOK_GIRL_ROOM)
     }
 }
 

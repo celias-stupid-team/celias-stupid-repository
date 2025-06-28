@@ -7,6 +7,8 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM)
     }
 }
 

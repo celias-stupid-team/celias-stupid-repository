@@ -13,5 +13,5 @@ struct HealLocation
 
 const struct HealLocation *GetHealLocation(u32 loc);
 void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp);
-
+bool8 DoesHealLocationSkipCutscene(void);
 #endif // GUARD_HEAL_LOCATION_H

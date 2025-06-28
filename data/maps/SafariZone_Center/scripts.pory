@@ -29,6 +29,8 @@ mapscripts SafariZone_Center_MapScripts {
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)
 			call(SafariZone_Center_BreakMiddleWall)
+		}
+		if(flag(FLAG_BROKE_BABY_KANGA_WALL)) {
 			call(SafariZone_Center_BreakRightWall)
 		}
 		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
@@ -138,7 +140,7 @@ script SafariZone_KangaskahnCage {
 				delay(30)
 				applymovement(BIG_KANGA, Common_Movement_FaceRight)
 				delay(60)
-				playmoncry(BIG_KANGA, CRY_MODE_DEFAULT)
+				playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
 				waitmoncry
 				delay(20)
 				applymovement(BIG_KANGA, SafariZone_KangaAttackWall1)
@@ -295,8 +297,23 @@ script SafariZone_KangaJailDMCA {
 script SafariZone_KangaBabyCage {
 	lock
 	if(flag(FLAG_FREED_KANGA)) {
-		release
-		end
+		call(Common_Script_BrickBreak)
+			if(var(VAR_RESULT) == 1) {
+		
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+				call(SafariZone_Center_BreakRightWall)
+				special(DrawWholeMapView)
+				special(ShakeScreen)
+				setflag(FLAG_BROKE_BABY_KANGA_WALL)
+				delay(60)
+				giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
+				release
+				end
+	}
+	release
 	}
 	playmoncry(SPECIES_CUBONE, CRY_MODE_FAINT)
 	msgbox("BABY: Ka-kanga?\n", MSGBOX_DEFAULT)

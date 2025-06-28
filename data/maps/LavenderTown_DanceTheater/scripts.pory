@@ -79,6 +79,7 @@ script DanceTheater_ShortKid {
             }
         }
     } else {
+        faceplayer
         if(flag(FLAG_DANCE_THEATER_MOVED_GIRL_BEFORE_SHOW)) {
             if(!checkitem(ITEM_CANDY_DISPENSER)) {
                 msgbox("Wowie, thanks!\nThat DANCE was so cool!\pBeing short stinks!\nI can't wait until I grow up…\pHere, take this.\nIt'll help your POKéMON grow!", MSGBOX_DEFAULT)

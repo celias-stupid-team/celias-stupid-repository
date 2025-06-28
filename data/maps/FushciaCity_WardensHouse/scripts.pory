@@ -123,6 +123,7 @@ script WardensHouse_TalkToWarden {
 	lock
 	faceplayer
 	if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox("WARDEN: Ah, it's {PLAYER}!\nSo lovely to see you.\pThank you again for your help.\nAll of FUSCHIA is in your debt!", MSGBOX_DEFAULT)
 	} else {
 		if(flag(FLAG_WARDENS_TEETH)) {

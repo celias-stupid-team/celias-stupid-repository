@@ -1,7 +1,12 @@
 raw `
-Route19_UnusedHouse_MapScripts::
-	.byte 0
+
 `
+
+mapscripts Route19_UnusedHouse_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		setflag(FLAG_SHINY_CREATION)
+	}
+}
 script Route19_Furrets {
 	lock
 	faceplayer

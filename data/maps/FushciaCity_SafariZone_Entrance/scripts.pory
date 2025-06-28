@@ -163,7 +163,6 @@ FushciaCity_SafariZone_Entrance_EventScript_NotEnoughMoney::
 
 FushciaCity_SafariZone_Entrance_EventScript_ForcePlayerBack::
 	closemessage
-	hidemoneybox
 	applymovement LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_ForceBack
 	waitmovement 0
 	releaseall
@@ -219,16 +218,24 @@ mapscripts FushciaCity_SafariZone_Entrance_MapScripts {
 script FushciaCity_SafariZone_Entrance_EventScript_Guy {
 	lock
 	faceplayer
-	msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.", MSGBOX_DEFAULT)
+	if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+		msgbox("Thank you for kicking those DMCA\nguys out of the SAFARI ZONE.\pNow we can get back to business\nas usual!", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.", MSGBOX_DEFAULT)
+
+	}
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
 	end
 }
 
 script FushciaCity_SafariZone_Entrance {
-	lock
+	lockall
+	setvar(VAR_RESULT, 0)
 	textcolor(NPC_TEXT_COLOR_MALE)
 	applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
-	applymovement(ASSISTANT, Common_Movement_FaceLeft)
+	//applymovement(ASSISTANT, Common_Movement_FaceLeft)
 	if(checkitem(ITEM_SANDWICH_CASE)) {
 		msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.\pWould you like to enter anyway?\n", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
@@ -259,5 +266,5 @@ script FushciaCity_SafariZone_Entrance {
 		closemessage
 		goto(FushciaCity_SafariZone_Entrance_EventScript_ForcePlayerBack)
 	}
-	release
+	releaseall
 }

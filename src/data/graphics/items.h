@@ -819,3 +819,15 @@ const u32 gItemIconPalette_SandwichCase[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_Bread[] = INCBIN_U32("graphics/items/icons/bread.4bpp.lz");
 const u32 gItemIconPalette_Bread[] = INCBIN_U32("graphics/items/icon_palettes/bread.gbapal.lz");
+
+const u32 gItemIcon_PERSON_DOLL[] = INCBIN_U32("graphics/items/icons/person_doll.4bpp.lz");
+const u32 gItemIconPalette_PERSON_DOLL[] = INCBIN_U32("graphics/items/icon_palettes/person_doll.gbapal.lz");
+
+const u32 gItemIcon_BIGNUGGET[] = INCBIN_U32("graphics/items/icons/big_nugget.4bpp.lz");
+const u32 gItemIconPalette_BIGNUGGET[] = INCBIN_U32("graphics/items/icon_palettes/big_nugget.gbapal.lz");
+
+const u32 gItemIcon_BRICKPIECE[] = INCBIN_U32("graphics/items/icons/brick_piece.4bpp.lz");
+const u32 gItemIconPalette_BRICKPIECE[] = INCBIN_U32("graphics/items/icon_palettes/brick_piece.gbapal.lz");
+
+const u32 gItemIcon_BERRYLEGION[] = INCBIN_U32("graphics/items/icons/berrylegion.4bpp.lz");
+const u32 gItemIconPalette_BERRYLEGION[] = INCBIN_U32("graphics/items/icon_palettes/berrylegion.gbapal.lz");

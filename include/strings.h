@@ -103,6 +103,7 @@ extern const u8 gText_TimesStrVar1[];
 extern const u8 gText_IsSelected[];
 extern const u8 gText_ThereIsNoPokemon[];
 extern const u8 gText_ExpShareOff[];
+extern const u8 gText_NothingHappened[];
 extern const u8 gText_ItemCantBeHeld[];
 extern const u8 gText_TMCase[];
 extern const u8 gText_Close[];
@@ -193,6 +194,9 @@ extern const u8 gText_CoinCase[];
 extern const u8 gText_PlayerUsedVar2[];
 extern const u8 gText_RepelEffectsLingered[];
 extern const u8 gText_MaxRepelDoesntWork[];
+extern const u8 gText_PayDayTM[];
+extern const u8 gText_MaxRepelTurnedOff[];
+extern const u8 gText_MaxRepelWorks[];
 extern const u8 gText_UsedVar2WildLured[];
 extern const u8 gText_UsedVar2WildRepelled[];
 extern const u8 gText_BoxFull[];
@@ -205,6 +209,7 @@ extern const u8 gText_YesNo[];
 extern const u8 gText_Berry[];
 extern const u8 gText_Ghost[];
 extern const u8 gText_Luvdisc[];
+extern const u8 gText_Leekd[];
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -1104,6 +1109,7 @@ extern const u8 gText_RegionMap_AreaDesc_DottedHole[];
 // field_screen_effect
 extern const u8 gText_PlayerScurriedToCenter[];
 extern const u8 gText_PlayerScurriedBackHome[];
+extern const u8 gText_PlayerScurriedToSafety[];
 
 // save_failed_screen
 extern const u8 gText_SaveFailedCheckingBackup[];

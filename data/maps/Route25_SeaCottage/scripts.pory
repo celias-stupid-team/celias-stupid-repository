@@ -295,7 +295,7 @@ script Route25_SeaCottage_EventScript_ViewVaporeon {
 script Route25_SeaCottage_OnLoad {
 	clearflag(FLAG_HIDE_BILL_CLEFAIRY)
 	setflag(FLAG_TEMP_5)
-	if(var(VAR_CSR_BILLS_TAKEN) > 1 && !flag(FLAG_CSR_MAP_ROUTE_5)) {
+	if(var(VAR_CSR_BILLS_TAKEN) > 1) {
 		clearflag(FLAG_TEMP_5)
 	}
 

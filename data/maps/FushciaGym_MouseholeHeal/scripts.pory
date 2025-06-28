@@ -26,6 +26,8 @@ mapscripts FushciaGym_MouseholeHeal_MapScripts {
             setmetatile(5, 10, 0x39B, TRUE)
 
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_MOUSEHOLE_HEAL)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {

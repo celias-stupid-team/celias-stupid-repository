@@ -16,3 +16,72 @@ script BrendanMay_ChildDelivery {
 	msgbox("There's an email message here…\pWe are deeply sorry for the delay\non the delivery of your package.\lIt was sadly lost in transit.\pAs an apology, please accept this\ncoupon for 40% off your next order!\lKANTO CHILD DELIVERY SERVICE", MSGBOX_SIGN)
 	end
 }
+
+script BrendanMay_Gamecube {
+	lock
+	if(flag(FLAG_TEMP_1)) {
+		clearflag(FLAG_TEMP_1)
+		msgbox("{PLAYER} connected their GBA!\n", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} received the special event\nJIRACHI!", MSGBOX_DEFAULT)
+		waitfanfare
+		call(BrendanMay_GiftJirachi)
+		setflag(FLAG_GOT_BRENDANMAY_JIRACHI)
+	} else {
+		msgbox("It looks like a GAMECUBE.\p… … …\pThere is no reason to suspect that\nit's anything else.", MSGBOX_DEFAULT)
+
+	}
+	release
+}
+
+script BrendanMay_TV {
+	lock
+	if(!flag(FLAG_GOT_BRENDANMAY_JIRACHI)) {
+		if(flag(FLAG_TEMP_1)) {
+			msgbox("Quick!\nConnect your GBA!", MSGBOX_DEFAULT)
+		} else {
+			msgbox("It's POKéMON CHANNEL!\n", MSGBOX_DEFAULT)
+			msgbox("(cutscene here)\n", MSGBOX_DEFAULT)
+			msgbox("Wow!\nAs a reward, you get a free\lJIRACHI!\pQuick!\nConnect your GBA!", MSGBOX_DEFAULT)
+			setflag(FLAG_TEMP_1)
+		}
+
+	} else {
+		msgbox("Only one per save file!\n", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+
+script BrendanMay_GiftJirachi {
+	copyvar(VAR_TEMP_1, SPECIES_JIRACHI)
+	givemon(SPECIES_JIRACHI, 5)
+	clearflag(FLAG_SHINY_CREATION)
+	switch(var(VAR_RESULT)) {
+		case 0: //Mon goes to party
+			bufferspeciesname(STR_VAR_1, SPECIES_JIRACHI)
+			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+			if(!var(VAR_RESULT)) {
+				return
+			}
+			call(EventScript_GetGiftMonPartySlot)
+			call(EventScript_ChangePokemonNickname)
+			return
+		case 1: //Mon goes to PC
+				bufferspeciesname(STR_VAR_1, SPECIES_JIRACHI)
+				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
+				if(var(VAR_RESULT) == 0) {
+					call(EventScript_TransferredToPC)
+					return
+				} else {
+					call(EventScript_NameReceivedBoxMon)
+					call(EventScript_TransferredToPC)
+					return //This can be simplified; I'll deal with it later
+				}
+				
+				return
+		case 2:
+			goto(EventScript_NoMoreRoomForPokemon)
+			break
+	}
+}

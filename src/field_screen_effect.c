@@ -34,6 +34,7 @@ static const u8 sWhiteoutTextColors[] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHI
 
 static void Task_EnableScriptAfterMusicFade(u8 taskId);
 static void Task_BarnDoorWipeChild(u8 taskId);
+bool8 DoesHealLocationSkipCutscene(void);
 
 static void SetFlashScanlineEffectWindowBoundary(u16 *dest, u32 y, s32 left, s32 right)
 {
@@ -401,16 +402,24 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         PutWindowTilemap(windowId);
         CopyWindowToVram(windowId, COPYWIN_FULL);
 
-        // Scene changes if last heal location was the player's house
-        loc = GetHealLocation(HEAL_LOCATION_PALLET_TOWN);
-        if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
-         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
-         && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
-         && gSaveBlock1Ptr->lastHealLocation.x == loc->x
-         && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
-            gTasks[taskId].tState = 4;
-        else
-            gTasks[taskId].tState = 1;
+        //Checks if there's a scene for the given heal location 
+        if(DoesHealLocationSkipCutscene()) {
+            DebugPrintf("going to task 7");
+            gTasks[taskId].tState = 7;
+
+        } else {
+            // Scene changes if last heal location was the player's house
+            loc = GetHealLocation(HEAL_LOCATION_PALLET_TOWN);
+            if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
+            && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
+            && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
+            && gSaveBlock1Ptr->lastHealLocation.x == loc->x
+            && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
+                gTasks[taskId].tState = 4;
+            else
+                gTasks[taskId].tState = 1;
+
+        }
         break;
     case 1:
         if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToCenter, 2, 8))
@@ -450,8 +459,42 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
             ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
         }
         break;
+    
+    case 7:
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToSafety, 2, 8))
+        {
+            ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
+            
+            DebugPrintf("going to task 8");
+            gTasks[taskId].tState++;
+        }
+        break;
+    case 8:
+        windowId = gTasks[taskId].tWindowId;
+        ClearWindowTilemap(windowId);
+        CopyWindowToVram(windowId, COPYWIN_MAP);
+        RemoveWindow(windowId);
+        palette_bg_faded_fill_black();
+        FadeInFromBlack();
+            DebugPrintf("going to task 9");
+        gTasks[taskId].tState++;
+        break;
+    case 9:
+        if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
+        {
+            DestroyTask(taskId);
+            DebugPrintf("going to release end");
+            ScriptContext_SetupScript(EventScript_AfterWhiteOutReleaseEnd);
+        }
+        break;
     }
+
 }
+
+
+
+
+
 
 void FieldCB_RushInjuredPokemonToCenter(void)
 {

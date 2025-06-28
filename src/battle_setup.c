@@ -318,11 +318,11 @@ void StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    if(FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_SNORLAX;
+    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_SNORLAX | BATTLE_TYPE_WILD_SCRIPTED;
 
-    } else if(FlagGet(FLAG_SYS_KANGA_FIGHT)) {
-         gBattleTypeFlags = BATTLE_TYPE_KANGA;
+    } else if (FlagGet(FLAG_SYS_KANGA_FIGHT)) {
+         gBattleTypeFlags = BATTLE_TYPE_KANGA | BATTLE_TYPE_WILD_SCRIPTED;
 
     } else {
          gBattleTypeFlags = BATTLE_TYPE_WILD_SCRIPTED;
@@ -398,6 +398,7 @@ void StartLegendaryBattle(void)
     case SPECIES_ZAPDOS:
     case SPECIES_HO_OH:
     case SPECIES_LUGIA:
+    case SPECIES_ETERNATUS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_LEGEND);
         break;
     default:
@@ -737,19 +738,39 @@ static u16 GetTrainerAFlag(void)
 
 static bool32 IsPlayerDefeated(u32 battleOutcome)
 {
-    switch (battleOutcome)
-    {
-    case B_OUTCOME_LOST:
-    case B_OUTCOME_DREW:
-        return TRUE;
-    case B_OUTCOME_WON:
-    case B_OUTCOME_RAN:
-    case B_OUTCOME_PLAYER_TELEPORTED:
-    case B_OUTCOME_MON_FLED:
-    case B_OUTCOME_CAUGHT:
-        return FALSE;
-    default:
-        return FALSE;
+    if(gBattleTypeFlags & BATTLE_TYPE_KANGA || gBattleTypeFlags & BATTLE_TYPE_SNORLAX) {
+        switch (battleOutcome)
+        {
+        case B_OUTCOME_LOST:
+        case B_OUTCOME_DREW:
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+        case B_OUTCOME_MON_FLED:
+        case B_OUTCOME_CAUGHT:
+            return TRUE;
+            
+        case B_OUTCOME_WON:
+            return FALSE;
+        default:
+            return FALSE;
+        }
+
+    } else {
+        switch (battleOutcome)
+        {
+        case B_OUTCOME_LOST:
+        case B_OUTCOME_DREW:
+            return TRUE;
+        case B_OUTCOME_WON:
+        case B_OUTCOME_RAN:
+        case B_OUTCOME_PLAYER_TELEPORTED:
+        case B_OUTCOME_MON_FLED:
+        case B_OUTCOME_CAUGHT:
+            return FALSE;
+        default:
+            return FALSE;
+        }
+
     }
 }
 

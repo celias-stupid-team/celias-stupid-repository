@@ -4,6 +4,7 @@ mapscripts FushciaGym_ElectrifyRoom_MapScripts {
             call(FushciaGym_ElectrifyRoom_OpenDoor)
 
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ELECTRIFY_ROOM)
     }
 }
 

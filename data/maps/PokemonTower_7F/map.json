@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
   "connections": null,
@@ -86,7 +86,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_TOWER_ROCKET_3"
     },
     {
       "type": "object",
@@ -145,7 +145,7 @@
     {
       "type": "hidden_item",
       "x": 11,
-      "y": 3,
+      "y": 1,
       "elevation": 3,
       "item": "ITEM_BASCI_BERRY_WHITE",
       "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_7F_SOOTHE_BELL",

@@ -19,6 +19,7 @@ PokemonTower_3F_EventScript_Hope::
 
 mapscripts PokemonTower_3F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_9)
 		if(var(VAR_CURRENT_CHAPTER) == 2 || var(VAR_CURRENT_CHAPTER) == 1) {
 			setflag(FLAG_TEMP_10)
 		}
@@ -26,25 +27,63 @@ mapscripts PokemonTower_3F_MapScripts {
 			setflag(FLAG_TEMP_8)
 			setflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
 		}
-		setflag(FLAG_CSR_HIDE_MUSIC_GIRL)
+		if(flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL) && var(VAR_CSR_GHOST_FIGHT) != 0) {
+			clearflag(FLAG_TEMP_9)
+			setflag(FLAG_TEMP_8)
+			if(flag(FLAG_POKEMONTOWER_BANETTE)) {
+				setflag(FLAG_TEMP_9)
+				setflag(FLAG_TEMP_11)
+			} else {
+				setflag(FLAG_TEMP_13) // Room loaded in with banette
+			}
+		}
+		if(flag(FLAG_TOOK_GIRL_DOLL)) {
+			setflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
+			setflag(FLAG_TEMP_9)
+			setflag(FLAG_TEMP_8)
+		}
+		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
+			setflag(FLAG_CSR_HIDE_MUSIC_GIRL)
+		}
 	}
 }
 
 script PokemonTower_3F_ClefairyDollGirl {
 	lock
 	faceplayer
-	if(flag(FLAG_TEMP_8)) {
-		msgbox("Wha-?\nHey!\pDon't take my CLEFAIRY!\n", MSGBOX_DEFAULT)
+	if(flag(FLAG_TEMP_11)) {
+		setflag(FLAG_TOOK_GIRL_DOLL)
+		finditem(ITEM_PERSON_DOLL)
+		end
+	}
+	if(var(VAR_CSR_GHOST_FIGHT) != 0 && flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL) && flag(FLAG_TEMP_8) && flag(FLAG_TEMP_13)) {
+		if(flag(FLAG_TEMP_12)) {
+			msgbox("Wha-?\nHey!\pDon't take my new DOLL!\n", MSGBOX_DEFAULT)
+		} else {
+			msgbox("Waa!\nThe GHOSTS in here are so scary!\pIt's okay, though.\nI found a new DOLL to keep me safe.", MSGBOX_DEFAULT)
+		}
 	} else {
-		msgbox("Waa!\nThe GHOSTS in here are so scary!\pIt's okay, though.\nMy CLEFAIRY will keep me safe.", MSGBOX_DEFAULT)
+		if(flag(FLAG_TEMP_12)) {
+			msgbox("Wha-?\nHey!\pDon't take my CLEFAIRY!\n", MSGBOX_DEFAULT)
+		} else {
+			msgbox("Waa!\nThe GHOSTS in here are so scary!\pIt's okay, though.\nMy CLEFAIRY will keep me safe.", MSGBOX_DEFAULT)
+		}
+
 	}
 	release
 }
 
-script PokemonTower_ClefairyDoll {
-	finditem(ITEM_POKE_DOLL)
+script PokemonTower_BanetteDoll {
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_POKEMONTOWER_BANETTE)
+	finditem(ITEM_BANETTE_DOLL)
 }
 
+script PokemonTower_ClefairyDoll {
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL)
+	finditem(ITEM_POKE_DOLL)
+}
 
 const LITTLEGIRL = 8
 const CLEFAIRY = 4
@@ -59,7 +98,11 @@ script PokemonTower_6F_EventScript_MarowakGhost {
 	delay(65)
 	addobject(LITTLEGIRL)
 	clearflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
-	addobject(CLEFAIRY)
+	if(!flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL)) {
+		addobject(CLEFAIRY)
+		clearflag(FLAG_TEMP_8)
+
+	}
 	waitstate
 	special(QuestLog_CutRecording)
 	//goto_if_eq(FLAG_USED_CLEFAIRY_DOLL, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost)  // VAR_RESULT set by CB2_EndMarowakBattle

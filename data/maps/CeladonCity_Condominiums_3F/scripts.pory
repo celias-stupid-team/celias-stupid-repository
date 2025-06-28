@@ -104,8 +104,7 @@ script CeladonCity_CeliaOffice_Staircase {
 			msgbox("Uh, wow!\nYou really wanna go down there.\pAll right, if you insist!\pJust remember to savestate\nfrequently!", MSGBOX_DEFAULT)
 			setvar(VAR_TEMP_0, 1)
 			addvar(VAR_TEMP_2, 1)
-			setflag(FLAG_ROUTE1_OBJECTS_RETREAT)
-			clearflag(FLAG_CSR_CELIA_DEV_CREW)
+			setvar(VAR_CELIA_DEV_CREW, 1)
 			release
 			end
 

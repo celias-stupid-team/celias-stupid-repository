@@ -253,6 +253,11 @@ void GetPlayerOutfit(void){
     gSpecialVar_Result = gSaveBlock1Ptr->currentOutfit;
 }
 
+void GetPartyMonLevel(void){
+    gSpecialVar_Result = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, NULL);
+
+}
+
 /* Example script:
 
 

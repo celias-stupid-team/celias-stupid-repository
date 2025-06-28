@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SafariZone_TauntTM",
-      "flag": "FLAG_HIDE_SAFARI_ZONE_EAST_TM11"
+      "flag": "FLAG_NO_TM_CASE"
     },
     {
       "type": "object",
@@ -84,26 +84,40 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SafariZone_WaterGunTM",
       "flag": "FLAG_WATER_GUN_TM"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SafariZone_TauntGuy",
+      "flag": "FLAG_NO_TM_CASE"
     }
   ],
   "warp_events": [
     {
       "x": 8,
-      "y": 13,
+      "y": 11,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
       "dest_warp_id": "6"
     },
     {
       "x": 8,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
       "dest_warp_id": "7"
     },
     {
       "x": 8,
-      "y": 12,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SAFARI_ZONE_NORTH",
       "dest_warp_id": "8"

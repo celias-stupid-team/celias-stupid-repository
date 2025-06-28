@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE17",
   "name": "Route17",
   "layout": "LAYOUT_ROUTE17",
-  "music": "MUS_ROUTE3",
+  "music": "MUS_CYCLING",
   "region_map_section": "MAPSEC_ROUTE_17",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -126,8 +126,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 8,
-      "y": 12,
+      "x": 6,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -136,6 +136,20 @@
       "trainer_sight_or_berry_tree_id": "ITEM_POKE_BALL",
       "script": "EventScript_FindItem",
       "flag": "FLAG_ROUTE_17_POKEBALL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 18,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route17_IllusionPants",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [],
@@ -270,6 +284,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route17_EventScript_CyclingRoadSign"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route17_DickBridge"
     }
   ]
 }

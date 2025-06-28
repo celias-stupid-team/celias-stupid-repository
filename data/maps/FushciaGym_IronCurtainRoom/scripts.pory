@@ -1,5 +1,8 @@
 mapscripts FushciaGym_IronCurtainRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_IRON_CURTAIN_ROOM)
+    }
 }
 
 script FushciaGym_IronCurtainRoom_AngryNerd {

@@ -20,10 +20,9 @@ VermilionCity_Gym_Text_LtSurgePostBattle::
 VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis::
     .string "The PHOTOSENSITIVEBADGE cranks up\n"
     .string "your POKéMON's SPEED!\p"
-    .string "It also lets your POKéMON FLY\n"
-    .string "lightning-quick anytime, kid!\p"
-    .string "You're special, kid!\n"
-    .string "Take this!$"
+    .string "It also lets your POKéMON use\n"
+	.string "FLASH outside of battle!\p"
+	.string "Here, take this!\n$"
 
 VermilionCity_Gym_Text_ReceivedTM34FromLtSurge::
     .string "{PLAYER} received HM05\n"

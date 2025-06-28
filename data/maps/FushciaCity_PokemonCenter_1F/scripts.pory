@@ -35,7 +35,8 @@ script FushciaCity_GetOakPC {
 
 
 script FushciaCity_GetThroughGym {
-	msgbox("Hey, TRAINER!\nYou been using your RUMOR LOG?\pIf I'm not sure what to do, I'll\npull it up first thing.\lHelps me keep track of everything.\pOnce you've figured a RUMOR out, a\ncheck will appear to mark it off.\pUse that feature to be sure you're\nnot missing anything!", MSGBOX_NPC)
+	msgbox("This NPC's dialogue revoked\nuntil the full release.\pSorry!\n-Celia", MSGBOX_NPC)
+	//msgbox("Hey, TRAINER!\nYou been using your RUMOR LOG?\pIf I'm not sure what to do, I'll\npull it up first thing.\lHelps me keep track of everything.\pOnce you've figured a RUMOR out, a\ncheck will appear to mark it off.\pUse that feature to be sure you're\nnot missing anything!", MSGBOX_NPC)
 }
 
 script FushciaCity_PlaceholderNPC {

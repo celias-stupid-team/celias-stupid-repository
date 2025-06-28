@@ -93,7 +93,26 @@ script Route10_SecretDad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pActually, yeah.\nWhat are you doing?\lYou're not supposed to get here!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	if(flag(FLAG_GOT_HORSEA_FROM_DAD)) {
+		msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+			call(EventScript_DadHeal)
+			release
+			end
+
+	}
+	msgbox("DAD: {PLAYER}!\nWhat are you doing back here?\pBe careful not to get stuck.\nOnce you jump down here, that's it!\pSay, one of the kind young men in\nthat cave came by.\lHe had this POKéMON with him.\pHe seemed to really like it.\nI think you would too!\pHere, catch!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_HORSEA)
+	setflag(FLAG_SHINY_CREATION) //Horsea
+	closemessage
+	playfanfare(MUS_LEVEL_UP)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{PLAYER} caught the gracefully-thrown\nHORSEA!", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_GiftPokemon)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("DAD: Well, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	setflag(FLAG_GOT_HORSEA_FROM_DAD)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -182,5 +201,21 @@ script Route10_DrifloonHbox {
 
 script Route10_PowerGridRepair {
 	msgbox("Hello!\nAre you in charge around here?\pI'm from the KANTO LIGHTHOUSE\nPOWER GRID REPAIR SERVICE.\lI'm here to fix the electricity.\p…Oh, you've already fixed the\npower problem?\lUh\pGreat to hear!\nLess work for me.\pI'm sure the folks down at the\nLIGHTHOUSE are back in business!", MSGBOX_NPC)
+	end
+}
+
+
+script Route10_DirtPatch {
+	msgbox("This patch of dirt is\ninteractable!", MSGBOX_NPC)
+	end
+}
+
+script Route10_TwoMaps {
+	msgbox("In order to get the music to stop\nand restart in a funny way, I had\lto make a copy of this route.\pWhen you go into the cave, you get\nsent to the other copy.\pThen, that map is set to play a\nduplicate of the Route 10 music.\pThat way, the music stops and\nstarts back up, instead of just\lplaying nonstop.", MSGBOX_NPC)
+	end
+}
+
+script Route10_Trees {
+	msgbox("In vanilla, these are cut trees.\pI couldn't let you skip the setup\nto skipping Rock Tunnel, so I\lmade you go around to fight th\ltrainer.", MSGBOX_NPC)
 	end
 }

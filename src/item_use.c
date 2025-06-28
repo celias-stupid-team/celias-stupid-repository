@@ -64,6 +64,7 @@ static void InitBerryPouchFromBattle(void);
 static void InitTeachyTvFromBag(void);
 static void Task_InitTeachyTvFromField(u8 taskId);
 static void Task_UseRepel(u8 taskId);
+static void Task_UseMaxRepel(u8 taskId);
 static void RemoveUsedItem(void);
 static void Task_UsedBlackWhiteFlute(u8 taskId);
 static void ItemUseOnFieldCB_EscapeRope(u8 taskId);
@@ -86,6 +87,7 @@ static void StartGenderFluidFieldEffect(void);
 static void Task_GenderFluidWarpOut(u8 taskId);
 static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
+
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -579,9 +581,24 @@ static void Task_InitTeachyTvFromField(u8 taskId)
 void FieldUseFunc_Repel(u8 taskId)
 {
     if (gSpecialVar_ItemId == ITEM_MAX_REPEL) {
-        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
+        if(FlagGet(FLAG_CSR_POWER_IS_ON)) {
+            if(FlagGet(FLAG_SYS_MAX_REPEL)) {
+                FlagClear(FLAG_SYS_MAX_REPEL);
+                DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelTurnedOff, Task_ReturnToBagFromContextMenu);
 
-    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0)
+            } else {
+                VarSet(VAR_REPEL_STEP_COUNT, 0);
+                FlagSet(FLAG_SYS_MAX_REPEL);
+                PlaySE(SE_REPEL);
+                gTasks[taskId].func = Task_UseMaxRepel;
+            }
+            
+        } else {
+            DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelDoesntWork, Task_ReturnToBagFromContextMenu);
+
+        }
+
+    } else if (VarGet(VAR_REPEL_STEP_COUNT) == 0 || FlagGet(FLAG_SYS_MAX_REPEL))
     {
         PlaySE(SE_REPEL);
         gTasks[taskId].func = Task_UseRepel;
@@ -601,6 +618,16 @@ static void Task_UseRepel(u8 taskId)
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
+}
+
+static void Task_UseMaxRepel(u8 taskId) {
+    if (!IsSEPlaying())
+    {
+        ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_MaxRepelWorks, Task_ReturnToBagFromContextMenu);
+    }
+
+
 }
 
 static void RemoveUsedItem(void)
@@ -943,6 +970,13 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
 }
 
+
+void FieldUseFunc_Nothing(u8 taskId)
+{
+    DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_MALE, gText_NothingHappened);
+}
+
+
 #define STATE_PAYDAY_SENTTOPC 4
 
 static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
@@ -971,7 +1005,17 @@ void FieldUseFunc_PayDayTM(u8 taskId)
     
     if (!DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, TRUE))
     {
-        gSpecialVar_Result = ScriptGiveMon(species, 5, ITEM_NONE, 0, 0, 0);
+
+        /*
+        How I want this to work:
+        You use the TM. A message prints that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
+        Upon pressing A, Gimmieghoul's Cry plays (the text stays on screen)
+        After the cry is finished, then the game returns to the field and prints the "{PLAYER} recieved a GIMMIEGHOUL!" line
+        
+        */
+
+        //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PayDayTM, Task_ReturnToBagFromContextMenu);
+        gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
     }
     else
     {

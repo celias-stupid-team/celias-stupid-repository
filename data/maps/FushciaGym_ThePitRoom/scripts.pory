@@ -8,6 +8,8 @@ mapscripts FushciaGym_ThePitRoom_MapScripts {
         if(!flag(FLAG_MEMORIZED_SCROLL)) {
             setflag(FLAG_TEMP_3)
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM)
     }
 
 }

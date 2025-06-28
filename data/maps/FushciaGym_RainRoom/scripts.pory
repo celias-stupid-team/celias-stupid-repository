@@ -3,6 +3,7 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         if(flag(FLAG_BEAT_RAIN_GIRL)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_RAIN_ROOM)
     }
 }
 

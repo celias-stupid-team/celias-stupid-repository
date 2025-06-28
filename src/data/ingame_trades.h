@@ -182,12 +182,12 @@ static const struct InGameTrade sInGameTrades[] = {
     [INGAME_TRADE_JIRACHI] = 
     {
         .nickname = _("JASMINE"),
-        .species = SPECIES_AMPHAROS,
+        .species = SPECIES_AMPHAROS_MEGA,
         .ivs = {24, 15, 22, 16, 23, 22},
         .abilityNum = 0,
-        .otId = 9853,
+        .otId = 0,
         .conditions = {5, 5, 5, 5, 30},
-        .personality = 0x482cac89, //make this shiny
+        .personality = 0x0, //make this shiny
         .heldItem = ITEM_NONE,
         .mailNum = 255,
         .otName = _("CELIA"),

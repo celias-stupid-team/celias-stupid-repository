@@ -12,6 +12,7 @@ mapscripts FushciaGym_TrainerRoom2_MapScripts {
         } else {
             setflag(FLAG_TEMP_2)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRAINER_ROOM_2)
     }
 }
 
