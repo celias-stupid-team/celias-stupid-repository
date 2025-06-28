@@ -6580,7 +6580,7 @@
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
+      "type": "ITEM_TYPE_FIELD",
       "fieldUseFunc": "FieldUseFunc_GenderFluid",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
