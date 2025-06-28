@@ -947,6 +947,7 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
 
 static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
 {
+    RemoveUsedItem();
     if (gSpecialVar_Result != STATE_PAYDAY_SENTTOPC)
         PlayFanfare(MUS_LEVEL_UP);
 

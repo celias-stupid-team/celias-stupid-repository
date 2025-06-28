@@ -116,6 +116,7 @@ static void HandleFlavorTextModeSwitch(bool8 state);
 static void Task_FCOpenOrCloseInfoBox(u8 taskId);
 static void UpdateInfoBoxTilemap(u8 bg, s16 state);
 static void PlaceListMenuCursor(bool8 isActive);
+static bool8 IsRumorLogQuestCompleted();
 
 static const u16 sFameCheckerTilemap[] = INCBIN_U16("graphics/fame_checker/tilemap1.bin");
 static const u8 sQuestionMarkSpriteGfx[] = INCBIN_U8("graphics/fame_checker/question_mark.4bpp");
