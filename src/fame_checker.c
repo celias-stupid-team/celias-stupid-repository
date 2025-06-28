@@ -1120,6 +1120,10 @@ static void DestroyAllFlavorTextIcons(void)
     for (i = 0; i < 6; i++)
     {
         DestroySprite(&gSprites[sFameCheckerData->spriteIds[i]]);
+        //if(fame checker quest done[i]) {
+
+            DestroySprite(&gSprites[sFameCheckerData->spriteIds[i + 6]]);
+        // }
     }
 }
 
@@ -1137,13 +1141,14 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
                 47 * (i % 3) + 0x72,
                 27 * (i / 3) + 0x2F
             );
-            result = TRUE;
-            sFameCheckerData->spriteIds[i] = CreateFameCheckerObject(
-                OBJ_EVENT_GFX_CHECKMARK,
-                i,
-                47 * (i % 3) + 0x72,
-                27 * (i / 3) + 0x2F
-            );
+            //if(fame checker quest done[i]) {
+                sFameCheckerData->spriteIds[i + 6] = CreateFameCheckerObject(
+                    OBJ_EVENT_GFX_CHECKMARK,
+                    i + 6,
+                    47 * (i % 3) + 0x72,
+                    27 * (i / 3) + 0x2F
+                );
+            // }
             result = TRUE;
         }
         else

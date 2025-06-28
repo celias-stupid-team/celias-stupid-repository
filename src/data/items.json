@@ -6576,7 +6576,7 @@
       "price": 250,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Mom says it's my turn on the\\ngender! (slightly broken, you\\ngotta register it)",
+      "description_english": "Mom says it's my turn on the\\ngender! Use this to change\\ninto the other one.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
