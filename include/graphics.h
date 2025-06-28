@@ -12359,3 +12359,11 @@ extern const u32 gMonShinyPalette_Relicrabby[];
 extern const u8 gMonFootprint_Relicrabby[];
 extern const u8 gMonIcon_Relicrabby[];
 
+// EGEXCSUTER
+extern const u32 gMonFrontPic_EGEXCSUTER[];
+extern const u32 gMonPalette_EGEXCSUTER[];
+extern const u32 gMonBackPic_EGEXCSUTER[];
+extern const u32 gMonShinyPalette_EGEXCSUTER[];
+extern const u8 gMonFootprint_EGEXCSUTER[];
+extern const u8 gMonIcon_EGEXCSUTER[];
+
