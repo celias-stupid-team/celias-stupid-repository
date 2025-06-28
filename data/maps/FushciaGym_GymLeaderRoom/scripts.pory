@@ -10,6 +10,7 @@ mapscripts FushciaGym_GymLeaderRoom_MapScripts {
         if(flag(FLAG_DEFEATED_TRAINER_2)) {
             setmetatile(21, 8, 0x357, TRUE)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_GYM_LEADER_ROOM)
     }
 }
 

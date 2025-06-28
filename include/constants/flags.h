@@ -277,7 +277,7 @@
 #define FLAG_CSR_CLEFAIRY_BOTTOMRIGHT               0x0EC
 #define FLAG_CSR_HIDE_ROUTE6_CELIA               0x0ED
 #define FLAG_CSR_HIDE_POKEMONTOWER_CELIA               0x0EE
-#define FLAG_0x0EF               0x0EF
+#define FLAG_TOOK_TOWER_CLEFAIRY_DOLL               0x0EF
 //Celadon City
 #define FLAG_CSR_ERIKA_CUTSCENE_SKIP               0x0F0
 #define FLAG_FORCE_AI_SWITCH_IN_ORDER    0x0F1 //resets after each battle
@@ -344,7 +344,7 @@
 #define FLAG_SANDWICH_GOT_LETTUCE               0x12A //check
 #define FLAG_SANDWICH_GOT_PICKLES               0x12B
 #define FLAG_SANDWICH_GOT_SESAME_SEED               0x12C
-#define FLAG_CUBONE_SANDWICH               0x12D
+#define FLAG_GOLURK_SANDWICH               0x12D
 #define FLAG_BROKE_RIVALS_WALL               0x12E
 #define FLAG_NERD_TOOK_KABUTOPS               0x12F
 #define FLAG_HIDE_BUFF_OAK               0x130
@@ -361,8 +361,8 @@
 #define FLAG_LEFT_SCAMMER_RECIEVED_MON               0x13B // Right Scammer has sent a mon over and the Left Scammer has recieved it. Right Scammer will not prompt until you take it
 #define FLAG_RIGHT_SCAMMER_RECIEVED_MON               0x13C // Left Scammer has sent a mon over and Right Scammer has recieved it. Left Scammer will not prompt until you grab it
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
-#define FLAG_0x13E               0x13E
-#define FLAG_0x13F               0x13F
+#define FLAG_TOOK_GIRL_DOLL               0x13E
+#define FLAG_GOT_SECRET_FARFETCHD               0x13F
 #define FLAG_0x140               0x140
 #define FLAG_0x141               0x141
 #define FLAG_0x142               0x142
@@ -687,7 +687,7 @@
 #define FLAG_DID_SEELOR_TRADE                            0x276
 #define FLAG_FUSCHIA_CUT_TREE                                       0x277
 #define FLAG_GOT_HITMON_FROM_DOJO                        0x278
-#define FLAG_0x279                                       0x279
+#define FLAG_GOT_SHINY_MANKEY_FROM_CELIA                                       0x279
 #define FLAG_SILPH_2F_DOOR_1                             0x27A
 #define FLAG_SILPH_2F_DOOR_2                             0x27B
 #define FLAG_SILPH_3F_DOOR_1                             0x27C
@@ -708,7 +708,7 @@
 #define FLAG_SILPH_9F_DOOR_4                             0x28B
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D
-#define FLAG_0x28E                                       0x28E
+#define FLAG_GOT_MACHOKE                                       0x28E
 #define FLAG_GOT_SHINY_PINSIR                                       0x28F
 #define FLAG_MET_STICKER_MAN                             0x290
 #define FLAG_PALLET_LADY_NOT_BLOCKING_SIGN               0x291
@@ -730,7 +730,7 @@
 #define FLAG_SEVII_DETOUR_FINISHED                       0x2A1
 #define FLAG_VISITED_TWO_ISLAND                          0x2A2
 #define FLAG_RESCUED_LOSTELLE                            0x2A3
-#define FLAG_0x2A4                                       0x2A4
+#define FLAG_BROKE_BABY_KANGA_WALL                                       0x2A4
 #define FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT                 0x2A5
 #define FLAG_GOT_TEA                                     0x2A6
 #define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
@@ -897,12 +897,12 @@
 #define FLAG_RELEASED_CHOMP               0x33E
 #define FLAG_GOT_STAR               0x33F
 #define FLAG_GOT_PARAS_FROM_LUIGI               0x340
-#define FLAG_0x341               0x341
-#define FLAG_0x342               0x342
+#define FLAG_REPELLED_MAX               0x341
+#define FLAG_GOT_HORSEA_FROM_DAD               0x342
 
 #define FLAG_FREED_KANGA               0x343
-#define FLAG_0x344               0x344
-#define FLAG_0x345               0x345
+#define FLAG_WATERED_BRENDANMAY_OAK               0x344
+#define FLAG_GOT_BRENDANMAY_JIRACHI               0x345
 #define FLAG_0x346               0x346
 #define FLAG_0x347               0x347
 #define FLAG_0x348               0x348
@@ -1389,7 +1389,7 @@
 #define FLAG_SYS_EXEGGUTOR                                                  (SYS_FLAGS + 0xA)
 #define FLAG_SYS_SNORLAX_FIGHT                                                  (SYS_FLAGS + 0xB)
 #define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
-#define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)
+#define FLAG_SYS_MAX_REPEL                                                  (SYS_FLAGS + 0xD)
 #define FLAG_0x80E                                                  (SYS_FLAGS + 0xE)
 #define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)
 #define FLAG_0x810                                                  (SYS_FLAGS + 0x10)

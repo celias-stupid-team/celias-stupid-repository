@@ -122,6 +122,7 @@ static void Task_TossItem_Yes(u8 taskId);
 static void Task_WaitAB_RedrawAndReturnToBag(u8 taskId);
 static void Task_ItemMenuAction_ToggleSelect(u8 taskId);
 static void Task_ItemMenuAction_ExpShareOff(u8 taskId);
+static void Task_ItemMenuAction_UseNothing(u8 taskId);
 static void Task_ItemMenuAction_Give(u8 taskId);
 static void Task_PrintThereIsNoPokemon(u8 taskId);
 static void Task_ItemMenuAction_Cancel(u8 taskId);
@@ -711,7 +712,7 @@ static void BagListMenuItemPrintFunc(u8 windowId, u32 itemId, u8 y)
     {
         bagItemId = BagGetItemIdByPocketPosition(gBagMenuState.pocket + 1, itemId);
         bagItemQuantity = BagGetQuantityByPocketPosition(gBagMenuState.pocket + 1, itemId);
-        if ((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 || bagItemId == ITEM_ODD_CANDY) && ItemId_GetImportance(bagItemId) == 0)
+        if ((gBagMenuState.pocket != POCKET_KEY_ITEMS - 1 || bagItemId == ITEM_ODD_CANDY || bagItemId == ITEM_BRICK_PIECE) && ItemId_GetImportance(bagItemId) == 0)
         {
             ConvertIntToDecimalStringN(gStringVar1, bagItemQuantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
             StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
@@ -1620,6 +1621,19 @@ static void Task_ItemMenuAction_ExpShareOff(u8 taskId)
 
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_ExpShareOff, Task_WaitAButtonAndCloseContextMenu);
 }
+
+
+static void Task_ItemMenuAction_UseNothing(u8 taskId)
+{
+                HideBagWindow(10);
+        HideBagWindow(6);
+        PutWindowTilemap(0);
+        PutWindowTilemap(1);
+        ScheduleBgCopyTilemapToVram(0);
+
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_NothingHappened, Task_WaitAButtonAndCloseContextMenu);
+}
+
 
 static void Task_ItemMenuAction_Give(u8 taskId)
 {

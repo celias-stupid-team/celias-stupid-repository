@@ -3,6 +3,8 @@ mapscripts FushciaGym_ScrollRoom_MapScripts {
         if(flag(FLAG_LASS_BROKE_WALL)) {
             call(FushciaGym_ScrollRoom_SetBrokenWall)
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_SCROLL_ROOM)
     }
 }
 

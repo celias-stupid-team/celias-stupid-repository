@@ -16266,38 +16266,38 @@
                 "species": "SPECIES_PARAS"
               },
               {
-                "min_level": 20,
-                "max_level": 20,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_EXEGGCUTE"
               },
               {
@@ -24360,6 +24360,124 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_VENONAT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_POKEMON_TOWER_7F",
+          "base_label": "gPokemonTower_7F",
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_CUBONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE19_UNUSED_HOUSE",
+          "base_label": "gRoute19_UnusedHouse",
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
               }
             ]
           }

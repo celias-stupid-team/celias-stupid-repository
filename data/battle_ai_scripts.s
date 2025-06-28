@@ -6,6 +6,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/hold_effects.h"
 #include "constants/pokemon.h"
+#include "constants/species.h"
 #include "constants/global.h"
 	.include "asm/macros/battle_ai_script.inc"
 
@@ -213,7 +214,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
-	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CBM_Substitute
+	if_effect EFFECT_SUBSTITUTE_2, AI_CBM_Substitute_2
 	if_Effect EFFECT_REVIVAL_BLESSING, AI_CBM_RevivalBlessing
 	end
 
@@ -413,6 +414,12 @@ AI_CBM_Paralyze::
 
 AI_CBM_Substitute::
 	if_status2 AI_USER, STATUS2_SUBSTITUTE, Score_Minus8
+	if_hp_less_than AI_USER, 26, Score_Minus10
+	end
+
+AI_CBM_Substitute_2::
+	get_number_of_sub_layers AI_USER
+	if_more_than 2, Score_Minus10
 	if_hp_less_than AI_USER, 26, Score_Minus10
 	end
 
@@ -738,6 +745,7 @@ AI_CheckViability::
 	if_effect EFFECT_MINIMIZE, AI_CV_EvasionUp
 	if_effect EFFECT_CURSE, AI_CV_Curse
 	if_effect EFFECT_PROTECT, AI_CV_Protect
+	if_effect EFFECT_SPIKY_SHIELD, AI_CV_Protect
 	if_effect EFFECT_FORESIGHT, AI_CV_Foresight
 	if_effect EFFECT_ENDURE, AI_CV_Endure
 	if_effect EFFECT_BATON_PASS, AI_CV_BatonPass
@@ -787,9 +795,11 @@ AI_CheckViability::
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
-	if_effect EFFECT_SUBSTITUTE_TEACHER, AI_CV_Substitute
-	if_Effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
+	if_effect EFFECT_SUBSTITUTE_2, AI_CV_Substitute_2
+	if_effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
+	if_effect EFFECT_FOLLOW_HIM, AI_CV_FollowHim
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
+	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
 	end
 
 AI_CV_Sleep::
@@ -1456,6 +1466,7 @@ AI_CV_Toxic2::
 AI_CV_Toxic3::
 	if_has_move_with_effect AI_USER, EFFECT_SPECIAL_DEFENSE_UP, AI_CV_Toxic4
 	if_has_move_with_effect AI_USER, EFFECT_PROTECT, AI_CV_Toxic4
+	if_has_move_with_effect AI_USER, EFFECT_SPIKY_SHIELD, AI_CV_Toxic4
 	goto AI_CV_Toxic_End
 
 AI_CV_Toxic4::
@@ -1708,6 +1719,27 @@ AI_CV_Substitute8::
 AI_CV_Substitute_End::
 	end
 
+@Substitute 2 AI
+AI_CV_Substitute_2::
+	is_first_turn_for AI_USER
+	if_equal 1, AI_CV_Substitute_2_FirstTurn
+	get_number_of_sub_layers AI_USER
+	if_less_than 3, AI_CV_Substitute_2_Restore
+	score -1
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_FirstTurn::
+	score +15 @ anything > +28 will result in an overflow of the s8!
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_Restore::
+	score +15 @ anything > +28 will result in an overflow of the s8!
+	goto AI_CV_Substitute_2_End
+
+AI_CV_Substitute_2_End::
+	end
+
+
 AI_CV_Recharge::
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_Recharge_ScoreDown1
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_Recharge_ScoreDown1
@@ -1852,6 +1884,7 @@ AI_CV_Encore_EncouragedMovesToEncore::
 	.byte EFFECT_MEAN_LOOK
 	.byte EFFECT_NIGHTMARE
 	.byte EFFECT_PROTECT
+	.byte EFFECT_SPIKY_SHIELD
 	.byte EFFECT_SKILL_SWAP
 	.byte EFFECT_FORESIGHT
 	.byte EFFECT_PERISH_SONG
@@ -2030,7 +2063,7 @@ AI_CV_Curse_End::
 
 AI_CV_Protect::
 	get_protect_count AI_USER
-	if_more_than 1, AI_CV_Protect_ScoreDown2
+	if_more_than 0, AI_CV_Protect_ScoreDown2
 	if_status AI_USER, STATUS1_TOXIC_POISON, AI_CV_Protect3
 	if_status2 AI_USER, STATUS2_CURSED, AI_CV_Protect3
 	if_status3 AI_USER, STATUS3_PERISH_SONG, AI_CV_Protect3
@@ -2328,6 +2361,7 @@ AI_CV_ChargeUpMove::
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_ChargeUpMove_ScoreDown2
 	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_ChargeUpMove_ScoreDown2
+	if_has_move_with_effect AI_TARGET, EFFECT_SPIKY_SHIELD, AI_CV_ChargeUpMove_ScoreDown2
 	if_hp_more_than AI_USER, 38, AI_CV_ChargeUpMove_End
 	score -1
 	goto AI_CV_ChargeUpMove_End
@@ -2340,6 +2374,7 @@ AI_CV_ChargeUpMove_End::
 
 AI_CV_SemiInvulnerable::
 	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_SemiInvulnerable2
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_SPIKY_SHIELD, AI_CV_SemiInvulnerable2
 	score -1
 	goto AI_CV_SemiInvulnerable_End
 
@@ -2786,11 +2821,30 @@ AI_CV_RevivalBlessing::
 	if_not_equal PARTY_SIZE, Score_Plus3
 	end
 
+AI_CV_FollowHim::
+	if_not_double_battle Score_Minus10
+	@disincentivize consecutive usage
+	if_last_used_move AI_USER, MOVE_FOLLOW_HIM, Score_Minus10
+	@ score +1
+	@prioritize only one battler in double battle for first turn
+	get_battler_id AI_USER
+	if_equal 1, Score_Plus1
+	if_equal 3, Score_Minus1
+	end
+
+AI_CV_FollowHim_End::
+	end
+
 AI_CV_WaterShuriken:: @ special AI behavior for Nugget Bridge Rival
 	has_target_prio_move AI_TARGET
 	if_equal 1, Score_Plus5 @ 1 = TRUE
 	has_target_prio_move AI_TARGET
 	if_equal 0, Score_Minus12 @ 0 = FALSE
+	end
+
+AI_CV_CometPunch:: @ special AI behavior for Kangashkan Teacher fight
+	if_species AI_USER, SPECIES_KANGASKHANTEACHER, Score_Plus1
+	end
 
 AI_TryToFaint::
 	if_can_faint AI_TryToFaint_TryToEncourageQuickAttack
@@ -2883,7 +2937,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_BULK_UP
 	.byte EFFECT_CALM_MIND
 	.byte EFFECT_CAMOUFLAGE
-	.byte EFFECT_SUBSTITUTE_TEACHER
+	.byte EFFECT_SUBSTITUTE_2
 	.byte -1
 
 AI_PreferStrongestMove::

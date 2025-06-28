@@ -21,6 +21,8 @@ mapscripts FushciaGym_ShedinjaRoom_MapScripts {
             setmetatile(17, 14, 0x281, FALSE)
             setmetatile(17, 15, 0x280, TRUE)
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_SHEDINJA_ROOM)
     }
 }
 

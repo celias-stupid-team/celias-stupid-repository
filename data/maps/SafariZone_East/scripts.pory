@@ -30,6 +30,11 @@ script SafariZone_TauntTM {
 	}
 }
 
+script SafariZone_TauntGuy {
+	msgbox("There was a nifty TM on the\nground over here.\lIt looked useful, too!\pI made sure to snag it before\nanyone else noticed.\lHa ha!", MSGBOX_NPC)
+	end
+}
+
 script SafariZone_UndergroundPathHint {
 	msgbox("People often lose things in the\ndarkness of the UNDERGROUND PATH.", MSGBOX_NPC)
 	end
@@ -55,6 +60,7 @@ script SafariZone_WaterGunTM {
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
 		call(Common_Script_GiftPokemon)
+		release
 
 	} else {
 		msgbox("{PLAYER} found a TM11!\nIt contains WATER GUN.", MSGBOX_DEFAULT)

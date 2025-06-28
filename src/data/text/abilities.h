@@ -83,6 +83,7 @@ static const u8 sLeafRideDescription[] = _("This POKéMON's RETREAT cost is 0.")
 static const u8 sBeastBoostDescription[] = _("I thought you said WEAST BOOST.");
 static const u8 sNormalizeDescription[] = _("User's moves become NORMAL.");
 static const u8 sFairyTagDescription[] = _("Allows the foe to switch if it wants.");
+static const u8 sBakedBodyDescription[] = _("Gives immunity to FIRE moves.");
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 {
@@ -171,6 +172,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BEAST_BOOST] = sBeastBoostDescription,
     [ABILITY_NORMALIZE] = sNormalizeDescription,
     [ABILITY_FAIRY_TAG] = sFairyTagDescription,
+    [ABILITY_BAKED_BODY] = sBakedBodyDescription,
 
 };
 
@@ -262,4 +264,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BEAST_BOOST] = _("BEAST BOOST"),
     [ABILITY_NORMALIZE] = _("NORMALIZE"),
     [ABILITY_FAIRY_TAG] = _("FAIRY TAG"),
+    [ABILITY_BAKED_BODY] = _("BAKED BODY"),
 };

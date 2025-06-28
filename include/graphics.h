@@ -9056,9 +9056,9 @@ extern const u32 gGhostPalette[];
 extern const u32 gSubstituteDollGfx[];
 extern const u32 gSubstituteDollTilemap[];
 extern const u32 gSubstituteDollPal[];
-extern const u32 gSubstituteKangaGfx[];
+extern const u32 gSubstituteLayer2Gfx[];
 extern const u32 gSubstituteKangaBackGfx[];
-extern const u32 gSubstituteKangaPal[];
+extern const u32 gSubstituteLayer2Pal[];
 
 
 extern const u32 gSubstituteLayer3Pal[];
@@ -12367,3 +12367,15 @@ extern const u32 gMonShinyPalette_EGEXCSUTER[];
 extern const u8 gMonFootprint_EGEXCSUTER[];
 extern const u8 gMonIcon_EGEXCSUTER[];
 
+
+extern const u32 gItemIcon_PERSON_DOLL[];
+extern const u32 gItemIconPalette_PERSON_DOLL[];
+
+extern const u32 gItemIcon_BIGNUGGET[];
+extern const u32 gItemIconPalette_BIGNUGGET[];
+
+extern const u32 gItemIcon_BRICKPIECE[];
+extern const u32 gItemIconPalette_BRICKPIECE[];
+
+extern const u32 gItemIcon_BERRYLEGION[];
+extern const u32 gItemIconPalette_BERRYLEGION[];

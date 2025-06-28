@@ -1,7 +1,5 @@
 raw `
-FushciaCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, FushciaCity_OnTransition
-	.byte 0
+
 
 
 
@@ -137,6 +135,19 @@ FushciaCity_EventScript_StakatakaSign::
 	end
 `
 
+
+mapscripts FushciaCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
+			call(FushciaCity_DrawBrokenWall)
+		}
+		if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
+			call(FuschiaCity_RemoveErik)
+		}
+	}
+}
+
 script FushciaCity_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
 	setworldmapflag(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)
@@ -150,12 +161,7 @@ script FushciaCity_OnTransition {
 	} else {
 		clearflag(FLAG_FUSCHIA_CUT_TREE)
 	}
-	if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
-		call(FushciaCity_DrawBrokenWall)
-	}
-	if(flag(FLAG_SANDWICH_GOT_SESAME_SEED)) {
-		call(FuschiaCity_RemoveErik)
-	}
+
 	if(!flag(FLAG_BADGE05_GET)) {
 		setflag(FLAG_TEMP_3)
 	}
@@ -166,9 +172,18 @@ script FuschiaCity_BrickBreak {
 	//wall breaks
 	if(var(VAR_RESULT) == 1) {
 		
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
 		call(FushciaCity_DrawBrokenWall)
 		special(DrawWholeMapView)
+		special(ShakeScreen)
 		setflag(FLAG_FUSCHIA_BROKE_WALL)
+		delay(60)
+		giveitem_msg("{PLAYER} found a BRICK PIECE!\n", ITEM_BRICK_PIECE, 1)
+		release
+		end
 	}
 	release
 }
@@ -203,10 +218,16 @@ script Common_Script_BrickBreak {
 	lock
 	if(!(checkpartymove(MOVE_BRICK_BREAK) == PARTY_SIZE)) {
 		msgbox("There's a BRICK wall in the way.\nWould you like to BREAK it?", MSGBOX_YESNO)
-		if(!var(VAR_RESULT)) {
+		if(var(VAR_RESULT)) {
+			checkpartymove(MOVE_BRICK_BREAK)
 			bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+			buffermovename(STR_VAR_2, MOVE_BRICK_BREAK)
+			msgbox(Text_MonUsedMove)
+			closemessage
 			setfieldeffectargument(0, VAR_RESULT)
 			dofieldeffect(FLDEFF_USE_ROCK_SMASH)
+			waitstate
+			delay(30)
 			setvar(VAR_RESULT, 1)
 			return
 			release
@@ -378,6 +399,7 @@ movement WalkInPlaceLeft {
 const DAD = 1
 script FushciaCity_Dad {
 	lock
+	setrespawn(HEAL_LOCATION_FUSHCIA_OUTSIDE)
 	applymovement(DAD, Common_Movement_FaceDown)
 	textcolor(0)
 	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI'm just relaxing here in my\ncage.\lI love when people come to see me!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)

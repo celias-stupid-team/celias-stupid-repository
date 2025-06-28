@@ -106,6 +106,15 @@ mapscripts CeladonCity_MapScripts {
 		} 
 	
 	}
+
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_BADGE04_GET) && !(checkmoncaught(SPECIES_NIDOQUEEN) || checkmoncaught(SPECIES_NIDOKING)) && !flag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)) {
+			setobjectxyperm(CELIA, 35, 15)
+			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
+			setvar(VAR_TEMP_1, 1)
+		}
+	}
+
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_CURRENT_CELIA_SECRET, 5 {
 			lock
@@ -136,7 +145,38 @@ mapscripts CeladonCity_MapScripts {
 			release
 			end
 		}
+		VAR_TEMP_1, 1 {
+			setvar(VAR_TEMP_1, 0)
+			playse(SE_PIN)
+			applymovement(CELIA, Celadon_CeliaAppearsForMankey)
+			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("Hi!\nI'm CELIA, the creator.\pY'know, that GYM would've been\nmuch easier if you'd just let your\lNIDOs evolve.\pYou really went that far to avoid\nsupporting trans people? Damn!\pWell, I have news for you:\nMANKEY still says TRANS RIGHTS!\pTake this, you scumbag!\n:)", MSGBOX_DEFAULT)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox("{PLAYER} recieved the trans-supporting\nMANKEY!", MSGBOX_DEFAULT)
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MANKEY)
+			setflag(FLAG_SHINY_CREATION) //Mankey
+			call(Common_Script_GiftPokemon)
+			setflag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("I hope you take some time to\nreflect on your actions!\pAnyway, I'll be leaving now.\nRemember to fill out the POKéDEX!", MSGBOX_DEFAULT)
+			closemessage
+			applymovement(CELIA, Celadon_CeliaLeaves)
+			removeobject(CELIA)
+			setobjectmovementtype(CELIA, MOVEMENT_TYPE_INVISIBLE)
+			setobjectxyperm(CELIA, 30, 9)
+			release
+		}
 	]
+}
+
+movement Celadon_CeliaAppearsForMankey {
+	emote_exclamation_mark
+	delay_16 * 4
+	walk_up * 2
+	face_up
 }
 
 
@@ -463,7 +503,7 @@ script CeliaSecrets_CeladonYMCA {
 }
 
 script CeliaSecrets_CeladonItem {
-	msgbox("You can't actually get up here, no.\pIt's just here to fuck with you\n", MSGBOX_NPC)
+	msgbox("I'd always planned this ledge to\nbe the shortcut back to CELADON.\pThe fact that it functions as a\nred herring while exploring the\lcity was just a fun coincidence!", MSGBOX_NPC)
 	end
 }
 

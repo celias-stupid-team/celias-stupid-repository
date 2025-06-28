@@ -86,6 +86,7 @@ script FushciaCity_MakeASandwich {
 		msgbox("Now we just need to put them\ntogether.\pBREAD…\nMEAT…\lCHEESE… LETTUCE… uh…\pOh!\nCan't forget the PICKLES!\pAnd topped off with a sprinkle\nof SESAME SEED!\pAfter a silly minigame (which\nCelia shall not be programming)…\lAll done!", MSGBOX_DEFAULT)
 		giveitem_msg("{PLAYER} assembled the SANDWICH!\n", ITEM_SANDWICH)
 		waitfanfare
+		fadedefaultbgm
 
 	}
 	return

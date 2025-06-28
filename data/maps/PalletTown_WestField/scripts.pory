@@ -40,12 +40,12 @@ script WestField_LookGirlLass {
             msgbox("Ugh, fine.\pIf you take this, will you leave\nme alone?", MSGBOX_DEFAULT)
             playfanfare(MUS_LEVEL_UP)
             textcolor(NPC_TEXT_COLOR_NEUTRAL)
-            msgbox("{PLAYER} obtained the MANKEY\nfrom the LASS!", MSGBOX_DEFAULT)
+            msgbox("{PLAYER} obtained the DODUO\nfrom the LASS!", MSGBOX_DEFAULT)
             waitfanfare
             setflag(FLAG_SHINY_CREATION)
-            setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MANKEY)
+            setvar(VAR_CSR_GIFT_POKEMON, SPECIES_DODUO)
             call(Common_Script_GiftPokemon)
-            msgbox("goodbye\n", MSGBOX_DEFAULT)
+            msgbox("This POKéMON is the worst.\pCompared to everyone else, it\nlooks at me twice as hard!", MSGBOX_DEFAULT)
             setflag(FLAG_LOOK_GIRL_LASS)
 
         }

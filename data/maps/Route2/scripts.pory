@@ -1,12 +1,15 @@
 raw `
-Route2_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route1_OnTransition
-	.byte 0
 
 Route2_EventScript_DiglettsCaveSign::
 	msgbox Route2_Text_DiglettsCave, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route2_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_ROUTE1)
+	}
+}
 script Route2_EventScript_CeliaGrass {
 	msgbox("I had to remove the grass here to\nlet Mr. Mime spawn over there.\pIt's not like there's anything of\nnote here in vanilla anyway.", MSGBOX_NPC)
 	end

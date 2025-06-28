@@ -66,6 +66,6 @@ script PokemonTower_MathQuestions_MultiplyTwin {
 }
 
 script PokemonTower_MathQuestions_DivideTwin {
-    trainerbattle_double(TRAINER_CHANNELER_JANAE, "PLACEHOLDER","PLACEHOLDER", "You are insufficient.")
+    trainerbattle_double(TRAINER_CHANNELER_JANAE, "MULLY: Our mommy loved math!\pDINA: When we were born, she did\nmultiplication!","Waah!", "You are insufficient.")
     msgbox("DINA: I eat glue.", MSGBOX_NPC)
 }

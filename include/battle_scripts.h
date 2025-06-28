@@ -17,6 +17,8 @@ extern const u8 BattleScript_PresentHealTarget[];
 extern const u8 BattleScript_MoveUsedMustRecharge[];
 extern const u8 BattleScript_FaintAttacker[];
 extern const u8 BattleScript_FaintTarget[];
+extern const u8 BattleScript_VanishedFromExistence[];
+extern const u8 BattleScript_FuckingDied[];
 extern const u8 BattleScript_GiveExp[];
 extern const u8 BattleScript_HandleFaintedMon[];
 extern const u8 BattleScript_LocalTrainerBattleWon[];

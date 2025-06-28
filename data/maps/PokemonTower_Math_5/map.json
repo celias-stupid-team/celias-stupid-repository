@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TOWER_MATH_5",
   "name": "PokemonTower_Math_5",
   "layout": "LAYOUT_POKEMON_TOWER_MATH_5",
-  "music": "MUS_POKE_TOWER",
+  "music": "MUS_NONE",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",

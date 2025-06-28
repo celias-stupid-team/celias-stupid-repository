@@ -1,11 +1,5 @@
 raw `
-Route1_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route1_OnTransition
-	.byte 0
 
-Route1_OnTransition::
-	setbench BENCH_ROUTE1
-	end
 
 Route1_EventScript_MartClerk::
 	lock
@@ -50,6 +44,29 @@ Route1_EventScript_ThePit::
 	msgbox Route1_Text_ThePitDumbass, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route1_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setbench(BENCH_ROUTE1)
+		setflag(FLAG_TEMP_1)
+		setflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
+		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_BADGE02_GET)) {
+			clearflag(FLAG_TEMP_1)
+			if(!flag(FLAG_ROUTE_1_CANDY)) {
+				clearflag(FLAG_CSR_HIDE_ROUTE_1_CANDY_BEFORE_RETREAT)
+			}
+		}
+		if(var(VAR_CELIA_DEV_CREW) == 1) {
+			clearflag(FLAG_TEMP_2)
+			setflag(FLAG_TEMP_1)
+			setvar(VAR_CELIA_DEV_CREW, 0)
+		}
+	} 
+}
+
+
+
 script Route1_EventScript_CeliaPotion {
 	msgbox("The Potion gag was entirely made\nas an improvised joke.\lI didn't expect to actually commit.\pHowever, the idea of just casually\nhaving the last potion in the whole\lgoddamn universe is really funny.", MSGBOX_NPC)
 	end
@@ -167,7 +184,7 @@ script Route1_Bonus_Chris {
 		end
 	} else {
 		textcolor(NPC_TEXT_COLOR_MALE)
-		msgbox("FoF: What do you call a shiny\nHOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_NPC)
+		msgbox("MASTER FoF: What do you call\na shiny HOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_DEFAULT)
 	}
 
 }

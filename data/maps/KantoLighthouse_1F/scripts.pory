@@ -5,6 +5,7 @@ mapscripts KantoLighthouse_1F_MapScripts {
     }
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)) {
+            clearflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
             setmetatile(11, 4, 0x32A, FALSE)
             setvar(VAR_TEMP_1, 1)
         }
@@ -83,10 +84,12 @@ movement LighthouseMan {
 
 script GTS_Attendant {
     if(var(VAR_CSR_TURNED_ON_POWER) == 0) {
-        msgbox("Oh!\nUm, hello?\lWelcome to the GLOBAL TRADE SYSTEM\pWe're having a big power outage.\nMost of our machines are down.\pThe guard outside was supposed to\nstop anyone from coming in here.\lI hope he's not taking a break…", MSGBOX_NPC)
+        msgbox("Oh!\nUm, hello?\lWelcome to the GLOBAL TRADE SYSTEM.\pWe're having a big power outage.\nMost of our machines are down.\pThe guard outside was supposed to\nstop anyone from coming in here…\lHe'd better not be slacking off.", MSGBOX_NPC)
+    } else {
+	    msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM! \pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\lI hope you enjoy our services!\n", MSGBOX_NPC)
+	
+
     }
-	msgbox("Hello!\nWelcome to the GLOBAL TRADE SYSTEM! \pThe LIGHTHOUSE wasn't doing well\nfor tourism, so we traded it away.\lI hope you enjoy our services!\n", MSGBOX_NPC)
-	end
 }
 
 
@@ -110,6 +113,10 @@ script GTS_TradeSpot {
 	end
 }
 
+script GTS_PowerOff {
+	msgbox("The power is off.\n", MSGBOX_SIGN)
+	end
+}
 
 script GTS_TradeSpot_Secret {
     lock
@@ -120,41 +127,49 @@ script GTS_TradeSpot_Secret {
     }
 	msgbox("OFFER: Level 30 AMPHAROS{PAUSE 60}\nREQUESTED: JIRACHI\lLevel 9 or lower", MSGBOX_DEFAULT)
     closemessage
-    special(ChoosePartyMon)
-    waitstate
+    setvar(VAR_0x8008, INGAME_TRADE_JIRACHI)
+	call(EventScript_ChooseMonForInGameTrade)
     if(var(VAR_0x8004) >= PARTY_SIZE) {
         release
         end
     }
-    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-    if(var(VAR_RESULT) == SPECIES_JIRACHI) {
-        specialvar(VAR_RESULT, ScriptGetPartyMonLevel)
-        if(var(VAR_RESULT) <= 9) {
-            msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
-            closemessage
-            setvar(VAR_0x8008, INGAME_TRADE_JIRACHI)
-            setflag(FLAG_DID_AMPHAROS_TRADE)
-            call(EventScript_DoInGameTrade)
-            msgbox("Thank you!\n", MSGBOX_DEFAULT)
-            release
-            end
-        } else {
-            playse(SE_BOO)
-            msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
-            waitse
-            release
-            end
-
-        }
+    callnative(GetPartyMonLevel)
+    if(var(VAR_RESULT) <= 9) {
+        call(EventScript_GetInGameTradeSpecies)
+        goto_if_ne(VAR_RESULT, SPECIES_JIRACHI, GTS_TradeDoesNotMatch)
+        msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
+        closemessage
+        setflag(FLAG_SHINY_CREATION)
+        setflag(FLAG_DID_AMPHAROS_TRADE)
+        call(EventScript_DoInGameTrade)
+        msgbox("Thank you!\n", MSGBOX_DEFAULT)
+        release
+        end
     } else {
+        copyvar(VAR_TEMP_1, VAR_0x8004)
         playse(SE_BOO)
-        msgbox("Error: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+        msgbox("Error1: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
         waitse
         release
         end
+
     }
+
+    
+    
+
 }
 
+script GTS_TradeDoesNotMatch {
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        copyvar(VAR_TEMP_2, VAR_0x8009)
+        playse(SE_BOO)
+        msgbox("Error2: Does not match request.\nTrade declined.", MSGBOX_DEFAULT)
+        waitse
+        release
+        end
+
+}
 
 script GTS_TradeScammer_Left {
     lock
@@ -187,7 +202,7 @@ script GTS_TradeScammer_Left {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -324,7 +339,7 @@ script GTS_LeftScammerMeat {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -390,7 +405,7 @@ script GTS_TradeScammer_Right {
         waitmoncry
         closemessage
         playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} got the illicitly-acquired\n{STR_VAR_1}!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!!", MSGBOX_DEFAULT)
         waitfanfare
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("Later!\n", MSGBOX_DEFAULT)
@@ -540,6 +555,16 @@ script GTS_RightScammerMeat {
             callnative(EvolvePartyMon)
             waitstate
 
+        } elif(flag(FLAG_TEMP_4)) {
+            clearflag(FLAG_TEMP_4)
+            getpartysize
+            subvar(VAR_RESULT, 1)
+            copyvar(VAR_0x8000, VAR_RESULT)
+            setvar(VAR_0x8001, 0)
+            setvar(VAR_0x8002, FALSE)
+            callnative(EvolvePartyMon)
+            waitstate
+
         }
 
         // while you haven't withdrawn the other side, 
@@ -559,7 +584,23 @@ script GTS_Scammers_CheckIfComplimentaryMon {
     if((var(VAR_0x8005) == SPECIES_GRAVELER && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_MACHOKE) || (var(VAR_0x8005) == SPECIES_MACHOKE && var(VAR_FIRST_TRADED_MON_SPECIES) == SPECIES_GRAVELER)) {
         setflag(FLAG_TEMP_3)
     } else {
-        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+        switch(var(VAR_FIRST_TRADED_MON_SPECIES)) {
+            case SPECIES_HAUNTER:
+            case SPECIES_RAICHU:
+            case SPECIES_MEOWTH:
+                setflag(FLAG_TEMP_4)
+            default:
+                clearflag(FLAG_TEMP_4)
+        }
+        switch(var(VAR_0x8005)) {
+            case SPECIES_HAUNTER:
+            case SPECIES_RAICHU:
+            case SPECIES_MEOWTH:
+                setflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+            default:
+                clearflag(FLAG_OTHER_SCAMMER_READY_TO_EVOLVE)
+        }
+
     }
     return
 }

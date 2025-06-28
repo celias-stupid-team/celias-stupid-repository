@@ -13,6 +13,7 @@ mapscripts FushciaGym_AronRoom_MapScripts {
             setflag(FLAG_TEMP_1)
             setweather(WEATHER_NONE)
         }
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ARON_ROOM)
     }
 }
 

@@ -96,10 +96,17 @@ mapscripts CeladonCity_Gym_MapScripts {
 script CeladonCity_Gym_EventScript_Erika {
 	lockall
 	faceplayer
-	
+	setobjectmovementtype(TopRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
+	setobjectmovementtype(TopLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+	setobjectmovementtype(BottomLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+	setobjectmovementtype(BottomRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
 	famechecker(FAMECHECKER_CELADON, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
 	if(!flag(FLAG_DEFEATED_ERIKA)) {
 		msgbox(CeladonCity_Gym_Text_ErikaIntro, MSGBOX_DEFAULT)
+		removeobject(BottomRightTrainer)
+		removeobject(BottomLeftTrainer)
+		addobject(BottomRightTrainer)
+		addobject(BottomLeftTrainer)
 		if(flag(FLAG_CSR_ERIKA_CUTSCENE_SKIP)) {
 			closemessage
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
@@ -120,6 +127,8 @@ script CeladonCity_Gym_EventScript_Erika {
 				addobject(BottomLeftTrainer)
 				applymovement(BottomLeftTrainer, Common_Movement_FaceDown)
 				applymovement(BottomRightTrainer, Common_Movement_FaceDown)
+				setobjectmovementtype(BottomLeftTrainer, MOVEMENT_TYPE_FACE_DOWN)
+				setobjectmovementtype(BottomRightTrainer, MOVEMENT_TYPE_FACE_DOWN)
 				setobjectxy(BottomRightTrainer, 3, 10)
 				setobjectxy(BottomLeftTrainer, 9, 10)
 				setobjectxy(TopRightTrainer, 4, 7)
@@ -440,8 +449,7 @@ script CeladonGym_GiovanniDefeat {
 	applymovement(BottomRightTrainer, Common_Movement_WalkRight)
 	waitmovement(0)
 
-	setobjectmovementtype(TopRightTrainer, MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE)
-	setobjectmovementtype(TopLeftTrainer, MOVEMENT_TYPE_ROTATE_CLOCKWISE)
+	
 
 	releaseall
 	end

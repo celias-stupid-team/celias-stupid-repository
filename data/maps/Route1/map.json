@@ -66,7 +66,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_EventScript_Dad",
-      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "type": "object",
@@ -94,7 +94,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_EventScript_LittleBoy",
-      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "type": "object",
@@ -150,7 +150,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_Bonus_Chris",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -164,7 +164,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_Lichen",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -178,7 +178,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_Swi",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -192,7 +192,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_Wiz",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -206,7 +206,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_RavePossum",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -220,7 +220,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_Plasto",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -234,7 +234,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_CeliaCrew_Sphyralg",
-      "flag": "FLAG_CSR_CELIA_DEV_CREW"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "type": "object",
@@ -242,13 +242,13 @@
       "x": 4,
       "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route1_ImposterOak",
-      "flag": "FLAG_ROUTE1_OBJECTS_RETREAT"
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [

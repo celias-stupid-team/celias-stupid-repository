@@ -1668,7 +1668,9 @@ static const s8 sFriendshipEventDeltas[][3] =
 static const u16 sHMMoves[] = // The HM moves that prevent you from releasing a Pokemon
 {
     MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_TAIL_GLOW,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, MOVE_GROWL_CHARMANDER, MOVE_ODOR_SLEUTH, MOVE_GUILLOTINE, MOVE_ROCK_PUNCH, HM_MOVES_END
+    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, MOVE_GROWL_CHARMANDER, MOVE_ODOR_SLEUTH, MOVE_GUILLOTINE, MOVE_ROCK_PUNCH,
+    MOVE_BRICK_BREAK,
+    HM_MOVES_END
 };
 
 #if defined(FIRERED)
@@ -1790,6 +1792,9 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 {
     u32 arg;
     ZeroMonData(mon);
+    if(species == SPECIES_UNOWN_LOSS) {
+        IncrementGameStat(GAME_STAT_UNOWNS_CAUGHT);
+    }
     CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
     arg = MAIL_NONE;

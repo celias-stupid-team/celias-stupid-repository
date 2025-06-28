@@ -18,3 +18,13 @@ script CommonScript_EmptyPail {
 	}
 	release
 }
+
+script Route10_CeliaSecret {
+	msgbox("Rock Tunnel is awful and unfun\nand I'm so glad I could skip it.", MSGBOX_NPC)
+	end
+}
+
+script Route10_MunnaSecret {
+	msgbox("They say that in gen 1, this girl\npredicts the existence of MUNNA.\pI just made her prediction mildly\nmore accurate!", MSGBOX_NPC)
+	end
+}

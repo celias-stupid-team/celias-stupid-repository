@@ -99,8 +99,8 @@
     {
       "id": "HEAL_LOCATION_ROUTE10",
       "map": "MAP_ROUTE10",
-      "x": 23,
-      "y": 43,
+      "x": 24,
+      "y": 44,
       "respawn_map": "MAP_ROUTE10_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ROUTE10_NURSE"
     },
@@ -167,6 +167,254 @@
       "y": 22,
       "respawn_map": "MAP_ROUTE4_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ROUTE4_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE",
+      "map": "MAP_FUSHCIA_GYM_ENTRANCE",
+      "x": 9,
+      "y": 10,
+      "respawn_map": "MAP_FUSHCIA_GYM_ENTRANCE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_TRAINER_ROOM_1",
+      "map": "MAP_FUSHCIA_GYM_TRAINER_ROOM1",
+      "x": 9,
+      "y": 14,
+      "respawn_map": "MAP_FUSHCIA_GYM_TRAINER_ROOM1",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_GYM_LEADER_ROOM",
+      "map": "MAP_FUSHCIA_GYM_GYM_LEADER_ROOM",
+      "x": 12,
+      "y": 14,
+      "respawn_map": "MAP_FUSHCIA_GYM_GYM_LEADER_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_TRAINER_ROOM_2",
+      "map": "MAP_FUSHCIA_GYM_TRAINER_ROOM2",
+      "x": 12,
+      "y": 10,
+      "respawn_map": "MAP_FUSHCIA_GYM_TRAINER_ROOM2",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_ARON_ROOM",
+      "map": "MAP_FUSHCIA_GYM_ARON_ROOM",
+      "x": 6,
+      "y": 11,
+      "respawn_map": "MAP_FUSHCIA_GYM_ARON_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_MOUSEHOLE_HEAL",
+      "map": "MAP_FUSHCIA_GYM_MOUSEHOLE_HEAL",
+      "x": 9,
+      "y": 10,
+      "respawn_map": "MAP_FUSHCIA_GYM_MOUSEHOLE_HEAL",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_SHEDINJA_ROOM",
+      "map": "MAP_FUSHCIA_GYM_SHEDINJA_ROOM",
+      "x": 10,
+      "y": 14,
+      "respawn_map": "MAP_FUSHCIA_GYM_SHEDINJA_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_LASS_MAZE",
+      "map": "MAP_FUSHCIA_GYM_LASS_MAZE",
+      "x": 8,
+      "y": 14,
+      "respawn_map": "MAP_FUSHCIA_GYM_LASS_MAZE",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM",
+      "map": "MAP_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM",
+      "x": 10,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_DARKRAI_ROOM",
+      "map": "MAP_FUSHCIA_GYM_DARKRAI_ROOM",
+      "x": 9,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_DARKRAI_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_IMPOSTER_OAK_ROOM",
+      "map": "MAP_FUSHCIA_GYM_IMPOSTER_OAK_ROOM",
+      "x": 21,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_IMPOSTER_OAK_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_HEAL_ROOM_2",
+      "map": "MAP_FUSHCIA_GYM_HEAL_ROOM_2",
+      "x": 9,
+      "y": 10,
+      "respawn_map": "MAP_FUSHCIA_GYM_HEAL_ROOM_2",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_PARALYSIS_DUSCLOPS_ROOM",
+      "map": "MAP_FUSHCIA_GYM_PARALYSIS_DUSCLOPS_ROOM",
+      "x": 9,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_PARALYSIS_DUSCLOPS_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_DRILL_ROOM",
+      "map": "MAP_FUSHCIA_GYM_DRILL_ROOM",
+      "x": 13,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_DRILL_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_RAIN_ROOM",
+      "map": "MAP_FUSHCIA_GYM_RAIN_ROOM",
+      "x": 7,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_RAIN_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_TRIO_ROOM",
+      "map": "MAP_FUSHCIA_GYM_TRIO_ROOM",
+      "x": 16,
+      "y": 15,
+      "respawn_map": "MAP_FUSHCIA_GYM_TRIO_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_SCROLL_ROOM",
+      "map": "MAP_FUSHCIA_GYM_SCROLL_ROOM",
+      "x": 11,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_SCROLL_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM",
+      "map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
+      "x": 13,
+      "y": 7,
+      "respawn_map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_ELECTRIFY_ROOM",
+      "map": "MAP_FUSHCIA_GYM_ELECTRIFY_ROOM",
+      "x": 10,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_ELECTRIFY_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM",
+      "map": "MAP_FUSHCIA_GYM_LIONS_ROOM",
+      "x": 10,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_LIONS_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "x": 21,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
+      "map": "MAP_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
+      "x": 10,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_ICE_PUZZLE_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM",
+      "map": "MAP_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM",
+      "x": 9,
+      "y": 13,
+      "respawn_map": "MAP_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_DEVON_SCOPE_ROOM",
+      "map": "MAP_FUSHCIA_GYM_DEVON_SCOPE_ROOM",
+      "x": 9,
+      "y": 15,
+      "respawn_map": "MAP_FUSHCIA_GYM_DEVON_SCOPE_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM",
+      "map": "MAP_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM",
+      "x": 11,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM",
+      "map": "MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM",
+      "x": 15,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_MAP_ROOM",
+      "map": "MAP_FUSHCIA_GYM_MAP_ROOM",
+      "x": 17,
+      "y": 12,
+      "respawn_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_GYM_IRON_CURTAIN_ROOM",
+      "map": "MAP_FUSHCIA_GYM_IRON_CURTAIN_ROOM",
+      "x": 9,
+      "y": 11,
+      "respawn_map": "MAP_FUSHCIA_GYM_IRON_CURTAIN_ROOM",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_TOWER",
+      "map": "MAP_POKEMON_TOWER_6F",
+      "x": 8,
+      "y": 10,
+      "respawn_map": "MAP_POKEMON_TOWER_6F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_FUSHCIA_OUTSIDE",
+      "map": "MAP_FUSHCIA_CITY",
+      "x": 9,
+      "y": 11,
+      "respawn_map": "MAP_FUSHCIA_CITY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE12",
+      "map": "MAP_ROUTE12",
+      "x": 20,
+      "y": 82,
+      "respawn_map": "MAP_ROUTE12",
+      "respawn_npc": "1"
     }
   ]
 }

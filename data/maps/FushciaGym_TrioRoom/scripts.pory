@@ -19,6 +19,8 @@ mapscripts FushciaGym_TrioRoom_MapScripts {
             }
 
         }
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRIO_ROOM)
     }
 }
 

@@ -4190,6 +4190,7 @@ static void HandleAction_UseItem(void)
         {
         case AI_ITEM_FULL_RESTORE:
         case AI_ITEM_HEAL_HP:
+        case AI_ITEM_HEAL_PP:
             break;
         case AI_ITEM_CURE_CONDITION:
             gBattleCommunication[MULTISTRING_CHOOSER] = 0;
@@ -4233,7 +4234,6 @@ static void HandleAction_UseItem(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             break;
         }
-
         gBattlescriptCurrInstr = gBattlescriptsForUsingItem[*(gBattleStruct->AI_itemType + gBattlerAttacker / 2)];
     }
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;

@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "menu_helpers.h"
 #include "new_menu_helpers.h"
+#include "money.h"
 #include "strings.h"
 #include "text_window.h"
 #include "constants/songs.h"
@@ -483,6 +484,29 @@ void MultichoiceList_PrintItems(u8 windowId, u8 fontId, u8 left, u8 top, u8 line
 
     for (i = 0; i < itemCount; i++)
         AddTextPrinterParameterized5(windowId, fontId, strs[i].text, left, (lineHeight * i) + top, 0xFF, NULL, letterSpacing, lineSpacing);
+    CopyWindowToVram(windowId, COPYWIN_GFX);
+}
+
+void MultichoiceList_PrintBikeShop(u8 windowId, u8 fontId, u8 left, u8 top, u8 lineHeight, u8 itemCount, const struct MenuAction *strs, u8 letterSpacing, u8 lineSpacing)
+{
+    u8 i;
+
+    for (i = 0; i < itemCount; i++)
+    {
+        if (i == 0)
+        {
+            u32 currCash = GetMoney(&gSaveBlock1Ptr->money) + 1;
+            u8 someText[] = _("BICYCLE{CLEAR_TO 0x49}{FONT_SMALL}Â¥");
+            ConvertIntToDecimalStringN(gStringVar2, currCash, STR_CONV_MODE_LEFT_ALIGN, 7);
+            StringCopy(gStringVar1, someText);
+            StringAppend(gStringVar1, gStringVar2);
+            AddTextPrinterParameterized5(windowId, fontId, gStringVar1, left, (lineHeight * i) + top, 0xFF, NULL, letterSpacing, lineSpacing);
+        }
+        else
+        {
+            AddTextPrinterParameterized5(windowId, fontId, strs[i].text, left, (lineHeight * i) + top, 0xFF, NULL, letterSpacing, lineSpacing);
+        }
+    }
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
 

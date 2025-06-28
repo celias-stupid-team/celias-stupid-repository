@@ -531,6 +531,7 @@ static const u8 sText_PkmnsItemCuredProblem[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFI
 static const u8 sText_PkmnsItemNormalizedStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nnormalized its status!");
 static const u8 sText_PkmnsItemRestoredHealth[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored health!");
 static const u8 sText_PkmnsItemRestoredPP[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored {B_BUFF1}'s PP!");
+static const u8 sText_PkmnsItemRestoredPP2[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored PP!");
 static const u8 sText_PkmnsItemRestoredStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored its status!");
 static const u8 sText_PkmnsItemRestoredHPALittle[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored its HP a little!");
 static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM}'s effect allows only\n{B_CURRENT_MOVE} to be used!\p");
@@ -555,6 +556,8 @@ static const u8 sText_EnduredViaSturdy[] = _("{B_DEF_NAME_WITH_PREFIX} endured\n
 static const u8 sText_ForfeitedMatch[] = _("{B_PLAYER_NAME} forfeited the match!");
 static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the match\nand quit now?");
 static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto fight again!");
+static const u8 sText_VanishedFromExistence[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\nfrom existence!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_FuckingDied[] = _("{B_DEF_NAME_WITH_PREFIX}\nfucking died!\p");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -961,8 +964,11 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNHURTSWITHSPIKYSHIELD - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtsWithSpikyShield,
     [STRINGID_SUBSTITUTE_LAYER_2 - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_2,
     [STRINGID_SUBSTITUTE_LAYER_3 - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_3,
-    [STRINGID_SUBSTITUTE_LAYER_3_FADE - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_3,
-    [STRINGID_SUBSTITUTE_LAYER_2_FADE - BATTLESTRINGS_TABLE_START] = sText_PkmnMadeSubstitute_2,
+    [STRINGID_SUBSTITUTE_LAYER_3_FADED - BATTLESTRINGS_TABLE_START] = sText_PkmnSubstituteFaded_3,
+    [STRINGID_SUBSTITUTE_LAYER_2_FADED - BATTLESTRINGS_TABLE_START] = sText_PkmnSubstituteFaded_2,
+    [STRINGID_PKMNSITEMRESTOREDPP2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemRestoredPP2,
+    [STRINGID_VANISHEDFROMEXISTENCE - BATTLESTRINGS_TABLE_START] = sText_VanishedFromExistence,
+    [STRINGID_FUCKINGDIED - BATTLESTRINGS_TABLE_START] = sText_FuckingDied,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1146,21 +1152,10 @@ const u16 gTransformUsedStringIds[] =
 const u16 gSubstituteUsedStringIds[] =
 {
     [B_MSG_SET_SUBSTITUTE]    = STRINGID_PKMNMADESUBSTITUTE,
-    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
+    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE,
+    [B_MSG_SET_SUBSTITUTE_L2] = STRINGID_SUBSTITUTE_LAYER_2,
+    [B_MSG_SET_SUBSTITUTE_L3] = STRINGID_SUBSTITUTE_LAYER_3,
 };
-
-
-const u16 gSubstituteUsedStringIds_Layer2[] =
-{
-    [B_MSG_SET_SUBSTITUTE]    = STRINGID_SUBSTITUTE_LAYER_2,
-    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
-};
-const u16 gSubstituteUsedStringIds_Layer3[] =
-{
-    [B_MSG_SET_SUBSTITUTE]    = STRINGID_SUBSTITUTE_LAYER_3,
-    [B_MSG_SUBSTITUTE_FAILED] = STRINGID_TOOWEAKFORSUBSTITUTE
-};
-
 
 const u16 gSubstitute2UsedStringIds[] =
 {
@@ -1884,7 +1879,7 @@ void BufferStringBattle(u16 stringId)
                     }
                     break;
                 case EVENT_BATTLE_ARIANA:
-                    if(sBattleMsgDataPtr->currentMove == MOVE_BONEMERANG) {
+                    if(sBattleMsgDataPtr->currentMove == MOVE_BONEMERANG && GetMonData(&gPlayerParty[gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]], MON_DATA_HELD_ITEM) == ITEM_MATH_CLUB) {
                         BattleStopLowHpSound();
                         RunScriptImmediately(FadeSongAndPlayVictory); //MUS_CSR_DRILL_DOZER
                         FlagSet(FLAG_SYS_CSR_VICTORY);

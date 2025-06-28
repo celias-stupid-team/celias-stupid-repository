@@ -255,6 +255,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlyOMeteor             @ EFFECT_FLY_O_METEOR
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
 	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
+	.4byte BattleScript_EffectGuillotine2			  @ EFFECT_GUILLOTINE_2
 
 BattleScript_EffectFeint::
 	setmoveeffect MOVE_EFFECT_FEINT
@@ -2950,6 +2951,24 @@ BattleScript_FaintTarget::
 	printstring STRINGID_EMPTYSTRING3
 	return
 
+BattleScript_VanishedFromExistence::
+	playfaintcry BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_ATTACKER
+	cleareffectsonfaint BS_ATTACKER
+	printstring STRINGID_VANISHEDFROMEXISTENCE
+	printstring STRINGID_EMPTYSTRING3
+	return
+
+BattleScript_FuckingDied::
+	playfaintcry BS_TARGET
+	pause B_WAIT_TIME_LONG
+	dofaintanimation BS_TARGET
+	cleareffectsonfaint BS_TARGET
+	printstring STRINGID_FUCKINGDIED
+	printstring STRINGID_EMPTYSTRING3
+	return
+
 BattleScript_GiveExp::
 	setbyte sGIVEEXP_STATE, 0
 	getexp BS_TARGET
@@ -4802,7 +4821,6 @@ BattleScript_FickleBeamDoNothing::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-
 	BattleScript_EffectFoursight::
 	attackcanceler
 	attackstring
@@ -4815,54 +4833,82 @@ BattleScript_FickleBeamDoNothing::
 	goto BattleScript_MoveEnd
 
 	BattleScript_EffectCounterStupid::
-		attackcanceler
-		attackstring
-		ppreduce
-		attackanimation
-		waitanimation
-		incrementgamestat GAME_STAT_USED_SPLASH
-		printstring STRINGID_BUTNOTHINGHAPPENED
-		waitmessage B_WAIT_TIME_LONG
-		goto BattleScript_MoveEnd
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	incrementgamestat GAME_STAT_USED_SPLASH
+	printstring STRINGID_BUTNOTHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
-
-BattleScript_EffectSubstitute2::
+	BattleScript_EffectSubstitute2::
 	attackcanceler
 	attackstring
 	waitstate
-	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	get_number_of_sub_layers BS_ATTACKER
+	jumpifbyte CMP_EQUAL, gBattleCommunication, 3, BattleScript_AlreadyHasSubstitute
+	@ jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
 	setsubstitute
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteAnim2
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_Substitute2_Loop
 	goto BattleScript_SubstituteString
 
-
-	@ In reality this needs to check what layer you're currently on
-	@ And then only keep going until it's full
-	@ This will do for now tho
-BattleScript_SubstituteAnim2::
+BattleScript_Substitute2_Loop::
+	increment_sub_layer BS_ATTACKER
 	attackanimation
 	waitanimation
 	pause B_WAIT_TIME_SHORT
 	printfromtable gSubstituteUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
-	attackanimation
-	waitanimation
-	pause B_WAIT_TIME_SHORT
-	printfromtable gSubstituteUsedStringIds_Layer2
-	waitmessage B_WAIT_TIME_LONG
-	attackanimation
-	waitanimation
-	pause B_WAIT_TIME_SHORT
-	printfromtable gSubstituteUsedStringIds_Layer3
-	waitmessage B_WAIT_TIME_LONG
+	get_number_of_sub_layers BS_ATTACKER
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 3, BattleScript_Substitute2_Loop
 	goto BattleScript_MoveEnd
 
 BattleScript_SubstituteFade2::
 	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
-	printstring STRINGID_PKMNSUBSTITUTEFADED
+	printstring STRINGID_SUBSTITUTE_LAYER_2_FADED
 	return
 
 BattleScript_SubstituteFade3::
 	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
-	printstring STRINGID_PKMNSUBSTITUTEFADED
+	printstring STRINGID_SUBSTITUTE_LAYER_3_FADED
 	return
+
+BattleScript_EffectGuillotine2::
+	getmovetarget BS_ATTACKER @used to set target to partner
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifnotbattletype BATTLE_TYPE_DOUBLE, BattleScript_EffectGuillotine2_KOFail
+	typecalc
+	jumpifmovehadnoeffect BattleScript_HitFromAtkAnimation
+	tryKO BattleScript_EffectGuillotine2_KOFail
+	trysetdestinybondtohappen
+BattleScript_EffectGuillotine2_Animation::
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+BattleScript_EffectGuillotine2_SelfKO::
+	setatkhptozero
+	waitstate
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitmessage B_WAIT_TIME_MED
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_EffectGuillotine2_KOFail::
+	pause B_WAIT_TIME_LONG
+	printfromtable gKOFailedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectGuillotine2_SelfKO

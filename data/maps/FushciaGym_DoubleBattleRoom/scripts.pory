@@ -1,3 +1,6 @@
 mapscripts FushciaGym_DoubleBattleRoom_MapScripts {
-    
+    MAP_SCRIPT_ON_LOAD {
+        
+        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM)
+    }
 }

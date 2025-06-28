@@ -1395,6 +1395,7 @@ static void Cmd_typecalc(void)
     s32 i = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1428,19 +1429,31 @@ static void Cmd_typecalc(void)
         defType2 = gBattleMons[gBattlerTarget].type2;
 
         modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
-        
-        if (defType2 != defType1)
-            modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
 
         if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-          && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+          && (defType1 == TYPE_GHOST)
           && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
           && modifier == TYPE_MUL_NO_EFFECT)
         {
             modifier = UQ_4_12(1.0);
         }
+        // DebugPrintf("Cmd_typecalc modifier1 = %d", modifier);
+        
+        if (defType2 != defType1)
+        {
+            modifier_temp = GetTypeModifier(moveType, defType2);
 
-        // DebugPrintf("Cmd_typecalc modifier = %d", modifier);
+            if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+              && (defType2 == TYPE_GHOST)
+              && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            modifier = uq4_12_multiply(modifier, modifier_temp);
+        }
+
+        // DebugPrintf("Cmd_typecalc modifier2 = %d", modifier);
 
         mult = (TYPE_MUL_NORMAL * modifier) / 4096;
         ModulateDmgByType(mult);
@@ -1470,6 +1483,7 @@ static void CheckWonderGuardAndLevitate(void)
     s32 i = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1491,15 +1505,26 @@ static void CheckWonderGuardAndLevitate(void)
 
 	modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
 	
-	if (defType2 != defType1)
-		modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
-
     if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-      && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+      && (defType1 == TYPE_GHOST)
       && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
       && modifier == TYPE_MUL_NO_EFFECT)
     {
         modifier = UQ_4_12(1.0);
+    }
+
+    if (defType2 != defType1)
+    {
+        modifier_temp = GetTypeModifier(moveType, defType2);
+
+        if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+            && (defType2 == TYPE_GHOST)
+            && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+            && modifier_temp == TYPE_MUL_NO_EFFECT)
+        {
+            modifier_temp = UQ_4_12(1.0);
+        }
+        modifier = uq4_12_multiply(modifier, modifier_temp);
     }
 
 	mult = (modifier * TYPE_MUL_NORMAL) / 4096;
@@ -1582,6 +1607,7 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     u8 flags = 0;
     u8 moveType;
     uq4_12_t modifier = UQ_4_12(1.0);
+    uq4_12_t modifier_temp = UQ_4_12(1.0);
     u32 defType1, defType2;
     u32 mult;
 
@@ -1608,15 +1634,26 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
 
         modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType1));
         
-        if (defType2 != defType1)
-            modifier = uq4_12_multiply(modifier, GetTypeModifier(moveType, defType2));
-
         if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
-          && (defType1 == TYPE_GHOST || defType2 == TYPE_GHOST)
+          && (defType1 == TYPE_GHOST)
           && gBattleMons[defender].status2 & STATUS2_FORESIGHT
           && modifier == TYPE_MUL_NO_EFFECT)
         {
             modifier = UQ_4_12(1.0);
+        }
+
+        if (defType2 != defType1)
+        {
+            modifier_temp = GetTypeModifier(moveType, defType2);
+
+            if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL)
+              && (defType2 == TYPE_GHOST)
+              && gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
+              && modifier_temp == TYPE_MUL_NO_EFFECT)
+            {
+                modifier_temp = UQ_4_12(1.0);
+            }
+            modifier = uq4_12_multiply(modifier, modifier_temp);
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
@@ -1974,36 +2011,35 @@ static void Cmd_datahpupdate(void)
                     gSpecialStatuses[gActiveBattler].dmg = gDisableStructs[gActiveBattler].substituteHP;
                 gHpDealt = gDisableStructs[gActiveBattler].substituteHP;
                 gDisableStructs[gActiveBattler].substituteHP = 0;
-                if (gDisableStructs[gActiveBattler].substitute2Layers > 0)
-                    gDisableStructs[gActiveBattler].substitute2Layers -= 1;
+                if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
+                {
+                    gDisableStructs[gActiveBattler].substitute2CurrentLayer -= 1;
+                }
             }
             // check substitute fading
             if (gDisableStructs[gActiveBattler].substituteHP == 0)
             {
-                if (gDisableStructs[gActiveBattler].substitute2Layers == SUBSTITUTE2_2_LAYERS)
-                {
-                    
-                    // reset sub hp 
-                    gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
-
-                    // TODO fade the sub from layer 3 -> layer 2 by making a BattleScript_SubstituteFade2
-                    gBattlescriptCurrInstr += 2;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
-                    return;
-                }
-                else if (gDisableStructs[gActiveBattler].substitute2Layers == SUBSTITUTE2_1_LAYERS)
+                // check how many layers of sub remain
+                if (gDisableStructs[gActiveBattler].substitute2CurrentLayer > 0)
                 {
                     // reset sub hp 
                     gDisableStructs[gActiveBattler].substituteHP = gBattleMons[gActiveBattler].maxHP / 4;
 
-                    // TODO fade the sub from layer 2 -> layer 1 by making a BattleScript_SubstituteFade3
                     gBattlescriptCurrInstr += 2;
                     BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+
+                    switch (gDisableStructs[gActiveBattler].substitute2CurrentLayer)
+                    {
+                    case SUBSTITUTE2_1_LAYERS:
+                        gBattlescriptCurrInstr = BattleScript_SubstituteFade2;
+                        break;
+                    case SUBSTITUTE2_2_LAYERS:
+                        gBattlescriptCurrInstr = BattleScript_SubstituteFade3;
+                        break;
+                    }
                     return;
                 }
-                else 
+                else // none, sub is fully destroyed
                 {
                     gBattlescriptCurrInstr += 2;
                     BattleScriptPushCursor();
@@ -2752,6 +2788,18 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattleMoveDamage = (gHpDealt) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
+                
+                if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
+                {
+                    u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
+                    DebugPrintf("you have basci berry");
+                    gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+
+                    gActiveBattler = gBattlerAttacker;
+                    BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
+                    MarkBattlerForControllerExec(gBattlerAttacker);
+                }
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
@@ -2955,6 +3003,19 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 gBattleMoveDamage = gHpDealt / 3;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
+                if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
+                {
+                    u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
+                    DebugPrintf("you have basci berry");
+                    gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+
+                    gActiveBattler = gBattlerAttacker;
+                    BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gLastUsedItem), &gLastUsedItem);
+                    MarkBattlerForControllerExec(gBattlerAttacker);
+
+                }
+
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleCommunication[MOVE_EFFECT_BYTE]];
@@ -3116,14 +3177,21 @@ static void Cmd_tryfaintmon(void)
             gActiveBattler = gBattlerAttacker;
             battlerId = gBattlerTarget;
             
-            BS_ptr = BattleScript_FaintAttacker;
+            if (gCurrentMove == MOVE_GUILLOTINE_2)
+                BS_ptr = BattleScript_VanishedFromExistence;
+            else
+                BS_ptr = BattleScript_FaintAttacker;
             
         }
         else
         {
             gActiveBattler = gBattlerTarget;
             battlerId = gBattlerAttacker;
-            BS_ptr = BattleScript_FaintTarget;
+
+            if (gCurrentMove == MOVE_GUILLOTINE_2)
+                BS_ptr = BattleScript_FuckingDied;
+            else
+                BS_ptr = BattleScript_FaintTarget;
         }
         if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler])
          && gBattleMons[gActiveBattler].hp == 0)
@@ -4672,7 +4740,7 @@ static void Cmd_typecalc2(void)
         }
 
         mult = (modifier * TYPE_MUL_NORMAL) / 4096;
-        // DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
+        DebugPrintf("Cmd_typecalc2 mult = %d", mult / TYPE_MUL_NORMAL);
 
         if (mult == TYPE_MUL_NO_EFFECT)
             gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
@@ -6575,6 +6643,37 @@ static void Cmd_various(void)
             MarkBattlerForControllerExec(gActiveBattler);
             break;
         }
+        case VARIOUS_GET_NUMBER_OF_SUB_LAYERS:
+        {
+            VARIOUS_ARGS();
+
+            gBattleCommunication[0] = gDisableStructs[cmd->battler].substitute2CurrentLayer;
+            break;
+        }
+        case VARIOUS_INCREMENT_SUB_LAYER:
+        {
+            VARIOUS_ARGS();
+
+            gDisableStructs[cmd->battler].substitute2CurrentLayer++;
+
+            // handle battle messages
+            switch (gDisableStructs[cmd->battler].substitute2CurrentLayer)
+            {
+            case SUBSTITUTE2_1_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
+                break;
+            case SUBSTITUTE2_2_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE_L2;
+                break;
+            case SUBSTITUTE2_3_LAYERS:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE_L3;
+                break;
+            default:
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SUBSTITUTE_FAILED;
+                break;
+            }
+            break;
+        }
     }
 
     gBattlescriptCurrInstr += 3;
@@ -7522,6 +7621,9 @@ static void Cmd_tryKO(void)
         else
             chance = FALSE;
     }
+    if (gCurrentMove == MOVE_GUILLOTINE_2) //move always hits!
+        chance = TRUE;
+
     if (chance)
     {
         if (gProtectStructs[gBattlerTarget].endured)
@@ -7888,10 +7990,6 @@ static void Cmd_setsubstitute(void)
         gDisableStructs[gBattlerAttacker].substituteHP = gBattleMoveDamage;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
         gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
-        // TODO im not sure if this is the right check here but you get the idea
-
-        if(gCurrentMove == MOVE_SUBSTITUTE_2)
-            gDisableStructs[gBattlerAttacker].substitute2Layers = SUBSTITUTE2_3_LAYERS;
     }
 
     gBattlescriptCurrInstr++;

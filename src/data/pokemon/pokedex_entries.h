@@ -5336,7 +5336,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_AMPHAROS_MEGA] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("DRAGON"),
         .height = 14,
         .weight = 61.5,
         .description = gAmpharosMPokedexText,
@@ -5363,7 +5363,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .categoryName = _("JELLYFILLED"),
         .height = 5,
         .weight = 14.9,
-        .description = gDummyPokedexTextUnused,
+        .description = gDachsbunPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 363,   
         .pokemonOffset = 0,

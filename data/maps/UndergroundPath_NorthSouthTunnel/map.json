@@ -147,6 +147,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "UndergroundPath_SproutTowerSign"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 30,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_YellowBike"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 30,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_YellowBike"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_YellowBike"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_YellowBike"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "UndergroundPath_RedYellowBike"
     }
   ]
 }

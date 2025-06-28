@@ -124,10 +124,10 @@ script SafariZone_IronCleftBattle {
     textcolor(NPC_TEXT_COLOR_MALE)
     if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
         if(flag(FLAG_ARCHER_CUTSCENE_SECOND)) {
-            msgbox("ARCHER: Oh?\nYou're back again?", MSGBOX_DEFAULT)
+            msgbox("ALFRED: Oh?\nYou're back again?", MSGBOX_DEFAULT)
         } else {
             setflag(FLAG_ARCHER_CUTSCENE_SECOND)
-            msgbox("ARCHER: So.\nYou've finally arrived.\pI hear you're the little rascal\nwho's been disrupting our plans.\lYou'd better listen here!\pWe are the DMCA!\pWe command the production of all\ncreative works.\lNothing gets made without us!\pDo you think you're doing creators\na favor by infringing on them?\lStealing profits from their mouths?", MSGBOX_DEFAULT)
+            msgbox("DAUMAN: So.\nYou've finally arrived.\pI hear you're the little rascal\nwho's been disrupting our plans.\lYou'd better listen here!\pWe are the DMCA!\pWe command the production of all\ncreative works.\lNothing gets made without us!\pDo you think you're doing creators\na favor by infringing on them?\lStealing profits from their mouths?", MSGBOX_DEFAULT)
         }
         msgbox("Ha.\nHow naive.\pBut it's no matter.\nYou're an insignificant vagrant.\lJust another wayward fly to swat.\pI'll use the power of the illegal\nPOKéMON to crush you to bits!", MSGBOX_DEFAULT)
         setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARCHER)
@@ -136,7 +136,7 @@ script SafariZone_IronCleftBattle {
         setflag(FLAG_BATTLED_IRON_CLEFTS)
 
     } else {
-        msgbox("ARCHER: Oh?\nYou're back for more?", MSGBOX_DEFAULT)
+        msgbox("DAUMAN: Oh?\nYou're back for more?", MSGBOX_DEFAULT)
     }
     special(RemoveCameraObject)
     msgbox("That little plastic SCOPE you stole\nfrom us doesn't scare me.\pYou'll need something with REAL\nfirepower if you wanna take us down!", MSGBOX_DEFAULT)
@@ -179,7 +179,7 @@ script SafariZone_IronCleftBattle {
 
 script DMCA_Showdown_NotGun {
     
-        msgbox("ARCHER: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
+        msgbox("DAUMAN: That?\nThat's your answer to us?\lHa!\pGet out of my sight.\nI have nothing more to say.", MSGBOX_DEFAULT)
         closemessage
         warp(MAP_SAFARI_ZONE_NORTH, 12)
         release

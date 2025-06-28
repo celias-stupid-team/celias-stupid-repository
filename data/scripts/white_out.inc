@@ -31,6 +31,13 @@ EventScript_AfterWhiteOutMomHeal::
 	releaseall
 	end
 
+EventScript_AfterWhiteOutReleaseEnd::
+	lockall
+	fadedefaultbgm
+	releaseall
+	end
+
+
 EventScript_FieldPoison::
 	lockall
 	textcolor NPC_TEXT_COLOR_NEUTRAL
