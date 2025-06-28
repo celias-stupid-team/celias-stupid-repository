@@ -19,6 +19,8 @@
 #include "fame_checker.h"
 #include "strings.h"
 #include "constants/event_objects.h"
+#include "debug.h"
+#include "pokedex_screen.h"
 
 #define SPRITETAG_SELECTOR_CURSOR 1000
 #define SPRITETAG_QUESTION_MARK 1001
@@ -116,7 +118,7 @@ static void HandleFlavorTextModeSwitch(bool8 state);
 static void Task_FCOpenOrCloseInfoBox(u8 taskId);
 static void UpdateInfoBoxTilemap(u8 bg, s16 state);
 static void PlaceListMenuCursor(bool8 isActive);
-static bool8 IsRumorLogQuestCompleted();
+static bool8 IsRumorLogQuestCompleted(u8 who, u8 index);
 
 static const u16 sFameCheckerTilemap[] = INCBIN_U16("graphics/fame_checker/tilemap1.bin");
 static const u8 sQuestionMarkSpriteGfx[] = INCBIN_U8("graphics/fame_checker/question_mark.4bpp");
@@ -1142,14 +1144,22 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
                 47 * (i % 3) + 0x72,
                 27 * (i / 3) + 0x2F
             );
-            //if(fame checker quest done[i]) {
+            if(IsRumorLogQuestCompleted(who, i)) {
                 sFameCheckerData->spriteIds[i + 6] = CreateFameCheckerObject(
                     OBJ_EVENT_GFX_CHECKMARK,
                     i + 6,
                     47 * (i % 3) + 0x72,
                     27 * (i / 3) + 0x2F
                 );
-            // }
+            } else {
+                sFameCheckerData->spriteIds[i + 6] = CreateFameCheckerObject(
+                    OBJ_EVENT_GFX_BLANK,
+                    i + 6,
+                    47 * (i % 3) + 0x72,
+                    27 * (i / 3) + 0x2F
+                );
+
+            }
             result = TRUE;
         }
         else
@@ -1175,6 +1185,487 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
         PrintUIHelp(1);
     }
     return result;
+}
+
+
+static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
+    bool8 isQuestCompleted = FALSE;
+    u8 currentRumorQuestLocation = who; //This should be the "FAMECHECKER_PALLET", etc 
+    u8 currentRumorQuestIndex = index; //shhhhhh I'm trying
+    // okay nvm this is over my head
+    // I got this I got this
+    // I believe in myself
+    
+    switch(currentRumorQuestLocation) {
+        case FAMECHECKER_PALLET:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0: //I am an Oak!
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1: //Gary, not X
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2: // Fancy Toaster
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_DACHSBUN, FLAG_GET_CAUGHT, TRUE))
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3: //Dad
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4: //GS Ball
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5: //Complete your pokedex
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_VIRIDIAN:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_PEWTER:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_MT_MOON:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_CERULEAN:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_VERMILION:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_ROCK_TUNNEL:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_LAVENDER:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_CELADON:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_FUSHCIA:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_KANTO_SHORELINE:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_SAFFRON:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_GREAT_SEA:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_GREAT_SEA_NORTH:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_GREAT_SEA_WEST:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+        case FAMECHECKER_CINNABAR:
+        DebugPrintf("Current check: %d", currentRumorQuestLocation);
+            switch(currentRumorQuestIndex) {
+                case 0:
+                    if(TRUE) //Conditions go here
+                        isQuestCompleted = TRUE;
+                    break;
+                case 1:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 2:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 3:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 4:
+                    if(TRUE)
+                        isQuestCompleted = TRUE;
+                    break;
+                case 5:
+                    if(FALSE)
+                        isQuestCompleted = TRUE;
+                    break;
+            }
+        break;
+
+    }
+
+    return isQuestCompleted;
+
 }
 
 void ResetFameChecker(void)

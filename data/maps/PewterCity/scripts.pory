@@ -837,7 +837,7 @@ const CELIA = 11
 mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(var(VAR_PEWTER_CELIA_SCENE) == 1) {
-			setobjectxy(CELIA, 15, 19)
+			setobjectxyperm(CELIA, 15, 19)
 			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
 		}
 	}
