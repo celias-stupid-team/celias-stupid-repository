@@ -2101,6 +2101,10 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
             species = GetMonData(&gPlayerParty[partyId], MON_DATA_SPECIES);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
+            if (IsMonCSRShiny(&gPlayerParty[partyId]))
+            {
+                GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SHINY_FOUND);
+            }
         }
     }
 
@@ -2114,6 +2118,10 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
                 species = GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES);
                 GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
                 GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
+                if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_LOCKED_ABILITY, NULL) == ABILITY_FREE_SHINY)
+                {
+                    GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SHINY_FOUND);
+                }
             }
         }
     }
