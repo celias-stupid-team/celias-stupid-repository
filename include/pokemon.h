@@ -14,7 +14,8 @@ struct PokemonSubstruct0
     u8 ppBonuses;
     u8 friendship;
     u8 lockedAbility;
-    u8 filler0_B;
+    bool8 isCSRShiny:1;
+    u8 filler0_B:7;
 };
 
 struct PokemonSubstruct1
@@ -419,6 +420,7 @@ void SetMonPreventsSwitchingString(void);
 void SetWildMonHeldItem(void);
 bool8 IsMonShiny(struct Pokemon *mon);
 bool8 IsMonCSRShiny(struct Pokemon *mon);
+bool8 IsBoxMonCSRShiny(struct BoxPokemon *boxMon);
 u8 *GetTrainerPartnerName(void);
 u8 GetPlayerPartyHighestLevel(void);
 u16 FacilityClassToPicIndex(u16 facilityClass);

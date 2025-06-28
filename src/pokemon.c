@@ -1902,7 +1902,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
 
     if (FlagGet(FLAG_SHINY_CREATION))
     {
-        SetBoxMonLockedAbility(boxMon, ABILITY_FREE_SHINY);
+        value = TRUE;
+        SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);
     }
     
     GiveBoxMonInitialMoveset(boxMon);
@@ -3383,6 +3384,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_LOCKED_ABILITY:
         retVal = substruct0->lockedAbility;
         break;
+    case MON_DATA_CSR_SHINY:
+        retVal = substruct0->isCSRShiny;
+        break;
     default:
         break;
     }
@@ -3731,6 +3735,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     }
     case MON_DATA_LOCKED_ABILITY:
         SET8(substruct0->lockedAbility);
+        break;
+    case MON_DATA_CSR_SHINY:
+        SET8(substruct0->isCSRShiny);
         break;
     default:
         break;
@@ -6172,7 +6179,12 @@ bool8 IsMonShiny(struct Pokemon *mon)
 
 bool8 IsMonCSRShiny(struct Pokemon *mon)
 {
-    return GetMonAbility(mon) == ABILITY_FREE_SHINY;
+    return IsBoxMonCSRShiny(&mon->box);
+}
+
+bool8 IsBoxMonCSRShiny(struct BoxPokemon *boxMon)
+{
+    return GetBoxMonData(boxMon, MON_DATA_CSR_SHINY, NULL);
 }
 
 static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
