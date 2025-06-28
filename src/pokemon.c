@@ -6170,6 +6170,11 @@ bool8 IsMonShiny(struct Pokemon *mon)
     return IsShinyOtIdPersonality(otId, personality);
 }
 
+bool8 IsMonCSRShiny(struct Pokemon *mon)
+{
+    return GetMonAbility(mon) == ABILITY_FREE_SHINY;
+}
+
 static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;

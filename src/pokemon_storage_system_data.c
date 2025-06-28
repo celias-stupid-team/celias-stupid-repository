@@ -638,7 +638,11 @@ static void CheckPorygonEvolve(u8 boxId){
         SetMonData(&gStorage->movingMon, MON_DATA_SPECIES, &target_species);
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SEEN, 0);
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_CAUGHT,0);
-
+        if (IsMonCSRShiny(&gStorage->movingMon))
+        {
+            GetSetPokedexFlag(SpeciesToNationalPokedexNum(target_species), FLAG_SET_SHINY_FOUND);
+        }
+        
         Task_EvolvePorygon();
      }
 }

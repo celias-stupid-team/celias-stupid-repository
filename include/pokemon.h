@@ -418,6 +418,7 @@ void BoxMonRestorePP(struct BoxPokemon *boxMon);
 void SetMonPreventsSwitchingString(void);
 void SetWildMonHeldItem(void);
 bool8 IsMonShiny(struct Pokemon *mon);
+bool8 IsMonCSRShiny(struct Pokemon *mon);
 u8 *GetTrainerPartnerName(void);
 u8 GetPlayerPartyHighestLevel(void);
 u16 FacilityClassToPicIndex(u16 facilityClass);
