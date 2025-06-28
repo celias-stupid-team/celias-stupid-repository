@@ -92,6 +92,7 @@
 #define MON_DATA_SPATK2                   87
 #define MON_DATA_SPDEF2                   88
 #define MON_DATA_LOCKED_ABILITY           89
+#define MON_DATA_CSR_SHINY                90
 
 // Pokemon types
 #define TYPE_NONE           255
