@@ -25,13 +25,14 @@ script PokemonTower_6F_WorriedAboutCuboneMom {
 	lock
 	faceplayer
 	if(flag(FLAG_GOT_MATH_CLUB)) {
-		msgbox("CUBONE's MOTHER was a lovely\nvolunteer at the school.\lShe'd come in if MR. FUJI got sick.\pI'd be distraught if anything\nhappened to her.", MSGBOX_DEFAULT)
+		msgbox("MATH CLUB was always CUBONE's\nfavorite activity after school.\lI hope his MOTHER is safe up there.\pI'd be distraught if something\nhappened to her.", MSGBOX_DEFAULT)
 	} else {
 		msgbox("CUBONE was one of my students after\nschool.\lI ran the extra-curriculars, see.\pThis one was always his favorite.\nYou should take it.", MSGBOX_DEFAULT)
 		setflag(FLAG_GOT_MATH_CLUB)
 		waitse
 		closemessage
-		giveitem_msg("{PLAYER} recieved the MATH CLUB.\n", ITEM_MATH_CLUB, 1, FANFARE_LEVEL_UP)
+		giveitem_msg("{PLAYER} recieved the MATH CLUB.\n", ITEM_MATH_CLUB, 1)
+		waitfanfare
 		msgbox("CUBONE's MOTHER was a lovely\nvolunteer at the school.\lShe'd come in if MR. FUJI got sick.\pI'd be distraught if anything\nhappened to her.", MSGBOX_DEFAULT)
 	}
 	release
@@ -98,7 +99,7 @@ script PokemonTower_6F_Cubone {
 
 script PokemonTower_6F_SpellingTrainer {
 	trainerbattle_single(TRAINER_SCHOOL_KID_SAMMY, "Wow!\nI aced my math test!\pI spent all weak studying nothing\nbut math, but it sure payed off!", "Hay!\nThat hurt!")
-	msgbox("I was never very good at langage\narts.\lWriting class is the hardest!\pI hope CUBONE'S MOM can come in\nto help learn me…", MSGBOX_NPC)
+	msgbox("I transferred schools from JHOTO\nwhen I moved to FUSHCIA CITY.\pI was never very good at langage\narts.\lWriting class is the hardest!\pI hope CUBONE'S MOM can come in\nto help learn me…", MSGBOX_NPC)
 }
 
 script PokemonTower_6F_Savestate {

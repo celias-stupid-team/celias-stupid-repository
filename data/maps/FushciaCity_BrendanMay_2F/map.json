@@ -61,9 +61,9 @@
     {
       "type": "sign",
       "x": 1,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
       "script": "BrendanMay_Bed"
     },
     {

@@ -370,7 +370,7 @@ gFameCheckerFlavorText_Celadon4:: @ 0x81AEAEE
 
 gFameCheckerFlavorText_Celadon5:: @ 0x81AEB69
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}A friendly warning…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}TM19 contains MAGICAL LEAF.\p"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}TM30 contains MAGICAL LEAF.\p"
 	.string "I'm sure you'll find it very\n"
 	.string "useful in the near future!$"
 
