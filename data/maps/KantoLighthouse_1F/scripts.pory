@@ -190,7 +190,7 @@ script GTS_TradeScammer_Left {
         delay(30)
         getpartysize
         if(var(VAR_RESULT) >= PARTY_SIZE) {
-            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            msgbox("We got one!\nAyy!\pWait, your party's full.\nGo clear it out!", MSGBOX_DEFAULT)
             goto(GTS_Scammers_ReleaseEnd)
 
         }
@@ -393,7 +393,7 @@ script GTS_TradeScammer_Right {
         delay(30)
         getpartysize
         if(var(VAR_RESULT) >= PARTY_SIZE) {
-            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            msgbox("We got one!\nAyy!\pWait, your party's full.\nGo clear it out!", MSGBOX_DEFAULT)
             goto(GTS_Scammers_ReleaseEnd)
 
         }

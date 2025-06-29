@@ -47,7 +47,7 @@ struct FameCheckerData
     u8 listMenuTopIdx2;
     u8 listMenuDrawnSelIdx;
     u8 unlockedPersons[NUM_FAMECHECKER_PERSONS + 1];
-    u8 spriteIds[6];
+    u8 spriteIds[12];
     u8 viewingFlavorText:1;
     u8 unk_23_1:1; // unused
     u8 pickModeOverCancel:1;
@@ -1052,31 +1052,52 @@ static void Task_DestroyAssetsAndCloseFameChecker(u8 taskId)
     {
         if (sFameCheckerData->inPickMode)
         {
+            DebugPrintf("in pick mode check");
             DestroyPersonPicSprite(taskId, FameCheckerGetCursorY());
             FreeSpriteOamMatrix(&gSprites[gTasks[taskId].data[3]]);
             DestroySprite(&gSprites[gTasks[taskId].data[3]]);
         }
         for (i = 0; i < 6; i++)
         {
+            DebugPrintf("Destroy the sprites on close");
             DestroySprite(&gSprites[sFameCheckerData->spriteIds[i]]);
+            DestroySprite(&gSprites[sFameCheckerData->spriteIds[i + 6]]);// <- I added 6 more objects when the fame checker opens. I destroy them here, but I don't think it's enough
         }
+            DebugPrintf("Step 2");
         FreeNonTrainerPicTiles();
+            DebugPrintf("Step 3");
         FreeSpinningPokeballSpriteResources();
+            DebugPrintf("Step 4");
         FreeSelectionCursorSpriteResources();
+            DebugPrintf("Step 5");
         FreeQuestionMarkSpriteResources();
+            DebugPrintf("Step 6");
         FreeListMenuSelectorArrowPairResources();
+            DebugPrintf("Step 7");
         SetMainCallback2(sFameCheckerData->savedCallback);
+            DebugPrintf("Step 8");
         DestroyListMenuTask(sFameCheckerData->listMenuTaskId, NULL, NULL);
+            DebugPrintf("Step 9");
         Free(sBg3TilemapBuffer);
+            DebugPrintf("Step 10");
         Free(sBg1TilemapBuffer);
+            DebugPrintf("Step 11");
         Free(sBg2TilemapBuffer);
+            DebugPrintf("Step 12");
         Free(sFameCheckerData);
+            DebugPrintf("Step 13");
         Free(sListMenuItems);
+            DebugPrintf("Step 14");
         FC_DestroyWindow(FCWINDOWID_LIST);
+            DebugPrintf("Step 15");
         FC_DestroyWindow(FCWINDOWID_UIHELP);
+            DebugPrintf("Step 16");
         FC_DestroyWindow(FCWINDOWID_MSGBOX);
+            DebugPrintf("Step 17");
         FC_DestroyWindow(FCWINDOWID_ICONDESC);
+            DebugPrintf("Step 18");
         FreeAllWindowBuffers();
+            DebugPrintf("Step 19");
         DestroyTask(taskId);
     }
 }
@@ -1091,6 +1112,7 @@ static void FC_DestroyWindow(u8 windowId)
 
 static u8 AdjustGiovanniIndexIfBeatenInGym(u8 a0)
 {
+    /*
     if (HasTrainerBeenFought(TRAINER_LEADER_GIOVANNI) == TRUE)
     {
         if (a0 == 9)
@@ -1098,6 +1120,7 @@ static u8 AdjustGiovanniIndexIfBeatenInGym(u8 a0)
         if (a0 > 9)
             return a0 - 1;
     }
+    */
     return a0;
 }
 
@@ -1125,7 +1148,7 @@ static void DestroyAllFlavorTextIcons(void)
         DestroySprite(&gSprites[sFameCheckerData->spriteIds[i]]);
         //if(fame checker quest done[i]) {
 
-            DestroySprite(&gSprites[sFameCheckerData->spriteIds[i + 6]]);
+        DestroySprite(&gSprites[sFameCheckerData->spriteIds[i + 6]]);
         // }
     }
 }
@@ -1144,7 +1167,7 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
                 47 * (i % 3) + 0x72,
                 27 * (i / 3) + 0x2F
             );
-            if(IsRumorLogQuestCompleted(who, i)) {
+            if(IsRumorLogQuestCompleted(sFameCheckerData->unlockedPersons[who], i)) {
                 sFameCheckerData->spriteIds[i + 6] = CreateFameCheckerObject(
                     OBJ_EVENT_GFX_CHECKMARK,
                     i + 6,
@@ -1201,10 +1224,10 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0: //I am an Oak!
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_DID_FARFETCHD_TRADE)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
-                case 1: //Gary, not X
+                case 1: //Gary, not X. Completion smell quest
                     if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
@@ -1213,15 +1236,15 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3: //Dad
-                    if(FALSE)
+                    if(FlagGet(FLAG_REVEALED_DAD))
                         isQuestCompleted = TRUE;
                     break;
                 case 4: //GS Ball
-                    if(TRUE)
+                    if(FlagGet(FLAG_CSR_GS_BALL_GOT))
                         isQuestCompleted = TRUE;
                     break;
                 case 5: //Complete your pokedex
-                    if(FALSE)
+                    if(GetKantoPokedexCount(1) >= 151)
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1230,27 +1253,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FALSE) //Last Potion in universe. Condition = Orthworm
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FALSE) //Larry. Condition = Other larry
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FlagGet(FLAG_ROUTE_1_CANDY)) //The pit
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_PIDGEY, FLAG_GET_CAUGHT, TRUE)) //Looking for pidgey
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_RATICATE, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MR_MIME, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1263,23 +1286,23 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_BUTTERFREE, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_GRIMER, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_GOLURK, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_GENESECT, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FlagGet(FLAG_HIDE_OLD_AMBER))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1288,27 +1311,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(TRUE) // Wolff
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ARCANINE, FLAG_GET_CAUGHT, TRUE)) //shorts
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ZUBAT, FLAG_GET_CAUGHT, TRUE)) // water routes
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FALSE) //Lass in elite four, or golbat
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_TOEDSCOOL, FLAG_GET_CAUGHT, TRUE)) //toady
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FlagGet(FLAG_BADGE04_GET)) //giovanni
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1317,27 +1340,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_BADGE02_GET)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FALSE) //Get all candies
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FALSE) // larry, Hearing test
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ARCANINE, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(VarGet(VAR_CSR_BILLS_TAKEN) > 2) //bill
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_PIKABLU, FLAG_GET_CAUGHT, TRUE)) //Go to secret garden
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1346,27 +1369,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FALSE) //Go on SS Anne
                         isQuestCompleted = TRUE;
                     break;
-                case 1:
-                    if(FALSE)
+                case 1: //Hatched spearow
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SPEAROW, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
-                case 2:
-                    if(TRUE)
+                case 2: //Give Trainer ID
+                    if(FlagGet(FLAG_CSR_PHISHING_GURU_MENUS))
                         isQuestCompleted = TRUE;
                     break;
-                case 3:
-                    if(FALSE)
+                case 3: // Get Kenya
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_KENYA, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
-                case 4:
-                    if(TRUE)
+                case 4: //Beat Surve
+                    if(FlagGet(FLAG_BADGE03_GET))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_DITTO_MEW, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1375,27 +1398,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F)) //Wasn't there pokemon center here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_ONIX, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MAGNALONE, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FlagGet(FLAG_CSR_DID_MINDY_TRADE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FlagGet(FLAG_CSR_TRADED_WITH_DAZZLE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_GENGAR, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1404,27 +1427,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_WORLD_MAP_LAVENDER_TOWN)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FlagGet(FLAG_RESCUED_CUBONES_MOM))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FALSE) // Kill raticate
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FlagGet(FLAG_GOT_MOVE_BOOK))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FlagGet(FLAG_CRAFTED_BLUE_FLUTE))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FlagGet(FLAG_CSR_POKEMON_TOWER_MUSIC))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1433,27 +1456,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_CSR_SUPER_SCOPE)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FlagGet(FLAG_CSR_ERIKA_CUTSCENE_SKIP))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(exScreen_GetSetPokedexFlag(SPECIES_JIRACHI, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FlagGet(FLAG_CSR_SUPER_SCOPE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FlagGet(FLAG_BADGE04_GET))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FALSE) //Magical Leaf - beat sans
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1491,27 +1514,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(TRUE) //Sandwiches
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FALSE) // Find dragonite
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(TRUE) //Use Super Scope
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FALSE) //Virus in PC
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(TRUE) //Gold Teeth
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FALSE) //Pay Day
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1520,27 +1543,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(TRUE) //Lighthouse
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(FALSE) //Crispy Donut
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(TRUE) // Seashells
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(FALSE) // Trade between each other
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(TRUE) // Golurk dex 
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(FALSE) //Ampharos
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -2030,6 +2053,7 @@ static void FC_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list
                 for (i = 0; i < 6; i++)
                 {
                     gSprites[sFameCheckerData->spriteIds[i]].invisible = TRUE;
+                    gSprites[sFameCheckerData->spriteIds[i + 6]].invisible = TRUE;
                 }
             }
         }

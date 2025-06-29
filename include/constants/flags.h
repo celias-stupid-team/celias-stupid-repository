@@ -642,7 +642,7 @@
 #define FLAG_BOUGHT_GYARADOS                             0x249
 #define FLAG_DID_JYNX_TRADE                              0x24A
 #define FLAG_DID_RAICHU_TRADE                           0x24B
-#define FLAG_0x24C                                       0x24C
+#define FLAG_GOT_MOVE_BOOK                                       0x24C
 #define FLAG_DID_FARFETCHD_TRADE                           0x24D
 #define FLAG_GOT_TM38_FROM_BLAINE                        0x24E
 #define FLAG_OAK_SKIP_22_RIVAL_CHECK                     0x24F

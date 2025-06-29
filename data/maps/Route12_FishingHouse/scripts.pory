@@ -126,6 +126,7 @@ script AwakeningShop_Storeperson {
 	lock
 	msgbox("Hello, dearie.\nHow can I help you?", MSGBOX_DEFAULT)
 	waitmessage
+	goto_if_questlog(EventScript_ReleaseEnd)
 	pokemart(AwakeningShop_Mart)
 	msgbox("I hope to see you soon!\n", MSGBOX_DEFAULT)
 	release
