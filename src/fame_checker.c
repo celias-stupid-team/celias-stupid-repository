@@ -1464,7 +1464,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(exScreen_GetSetPokedexFlag(SPECIES_JIRACHI, FLAG_GET_CAUGHT, TRUE))
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_JIRACHI, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
