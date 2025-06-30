@@ -37,12 +37,20 @@ script FushciaGym_TrioRoom_Ninjas {
 script FushciaGym_StepOnButton {
     lock
     playse(SE_SWITCH)
+    delay(20)
+    
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
     if(!flag(FLAG_GREEN_DOOR_OPENED)) {
+        special(ShakeScreen)
         setflag(FLAG_GREEN_DOOR_OPENED)
         call(FushciaGym_OpenGreenDoor)
         special(DrawWholeMapView)
     }
     if(flag(FLAG_IRON_CURTAIN_SET)) {
+        special(ShakeScreen)
         setflag(FLAG_IRON_CURTAIN_OPENED)
         if(flag(FLAG_IRON_CURTAIN_ON_RED)) {
             call(FushciaGym_OpenIronRed)
@@ -51,6 +59,7 @@ script FushciaGym_StepOnButton {
         }
         special(DrawWholeMapView)
     }
+    delay(10)
 }
 
 script FushciaGym_CheckBlueCurtain {
