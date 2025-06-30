@@ -76,6 +76,11 @@ script BrendanMay_Mom {
 
 script BrendanMay_ImposterOak {
     lock
+    if(flag(FLAG_WATERED_BRENDANMAY_OAK)) {
+        msgbox("no tree")
+        release
+        end
+    }
     if(checkitem(ITEM_WAILMER_PAIL)) {
         msgbox("water tree?\n", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {

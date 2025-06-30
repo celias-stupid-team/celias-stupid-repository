@@ -2289,12 +2289,12 @@
       "secondaryId": 0
     },
     {
-      "english": "FIGY BERRY",
+      "english": "MISBERRIAGE",
       "itemId": "ITEM_FIGY_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CONFUSE_SPICY",
       "holdEffectParam": 8,
-      "description_english": "A hold item that restores HP but\\nmay cause confusion when used.",
+      "description_english": "A BERRY traditionally eaten to\\ncopy with one's loss.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -4817,7 +4817,7 @@
       "price": 3000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A taunted foe may become enraged.\\nIt will then only be able to use\\nattack moves.",
+      "description_english": "fuck you.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
