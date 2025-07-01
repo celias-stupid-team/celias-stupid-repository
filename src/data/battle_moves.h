@@ -146,9 +146,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SCRATCH] =
     {
         .effect = EFFECT_PRESENT,
-        .power = 40,
+        .power = 35,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 95,
         .pp = 35,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,

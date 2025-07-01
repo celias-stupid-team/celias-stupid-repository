@@ -232,8 +232,14 @@ script ViridianForest_EventScript_CeliaChecksDex {
 script ViridianForest_EventScript_CeliaGotCaught {
 	lock
 	faceplayer
+	if(var(VAR_TEMP_5) > 30) {
+		msgbox("All right, that should be more\nthan enough CANDY.\pYou're on your own from here.\nGood luck!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(flag(FLAG_TEMP_7)) {
 		msgbox("You want another one?\nSure!", MSGBOX_DEFAULT)
+		addvar(VAR_TEMP_5, 1)
 	} else {
 		msgbox("Oh, hey there!\pI was planning on leaving, but\nI got tired.\pThanks for catching back up with\nme, though!\lHere's a gift!", MSGBOX_DEFAULT)
 	}
