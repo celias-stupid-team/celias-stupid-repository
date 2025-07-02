@@ -7635,9 +7635,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_JET_PUNCH_2] =   
     {
-        .effect = EFFECT_HIT,
-        .power = 35,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_QUICK_ATTACK,
+        .power = 80,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -7650,7 +7650,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 35,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
