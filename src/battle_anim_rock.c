@@ -109,6 +109,17 @@ const struct SpriteTemplate gWhirlpoolSpriteTemplate =
     .callback = AnimParticleInVortex,
 };
 
+const struct SpriteTemplate gWhirlpoolTomatoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOMATO,
+    .paletteTag = ANIM_TAG_TOMATO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
 const struct SpriteTemplate gFireSpinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
