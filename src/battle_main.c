@@ -459,6 +459,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RAPPER, 50},
     {TRAINER_CLASS_COP, 50},
     {TRAINER_CLASS_SKIRT, 50},
+    {TRAINER_CLASS_NINJAS, 50},
     { 0xFF, 5},
 };
 

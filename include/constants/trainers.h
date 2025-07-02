@@ -189,6 +189,7 @@
 #define TRAINER_PIC_DAD   167
 #define TRAINER_PIC_SKIRT   168
 #define TRAINER_PIC_BUGSY   169
+#define TRAINER_PIC_NINJAS   170
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -323,6 +324,7 @@
 #define TRAINER_CLASS_RAPPER             116
 #define TRAINER_CLASS_COP             117
 #define TRAINER_CLASS_SKIRT             118
+#define TRAINER_CLASS_NINJAS             119
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

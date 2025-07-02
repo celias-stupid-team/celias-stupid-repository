@@ -23641,7 +23641,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_RABOOT] =
     {
-        .baseHP = 65,
+        .baseHP = 1,
         .baseAttack = 86,
         .baseDefense = 60,
         .baseSpeed = 94,

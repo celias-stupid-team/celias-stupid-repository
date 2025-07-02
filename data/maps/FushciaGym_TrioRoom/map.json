@@ -16,12 +16,13 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_GREEN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CILAN",
-      "x": 14,
-      "y": 11,
+      "x": 18,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -30,12 +31,13 @@
       "flag": "FLAG_DEFEATED_NINJAS"
     },
     {
+      "local_id": "LOCALID_BLUE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CRESS",
-      "x": 18,
-      "y": 11,
+      "x": 16,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -44,12 +46,13 @@
       "flag": "FLAG_DEFEATED_NINJAS"
     },
     {
+      "local_id": "LOCALID_RED",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHILI",
-      "x": 16,
-      "y": 12,
+      "x": 14,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -136,23 +139,23 @@
       "x": 16,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "FushciaGym_StepOnButton"
     },
     {
       "type": "trigger",
       "x": 16,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_TrioRoom_NinjasAppear"
     },
     {
       "type": "trigger",
       "x": 15,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -161,7 +164,7 @@
     {
       "type": "trigger",
       "x": 17,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

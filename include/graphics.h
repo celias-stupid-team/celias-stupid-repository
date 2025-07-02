@@ -12379,3 +12379,6 @@ extern const u32 gItemIconPalette_BRICKPIECE[];
 
 extern const u32 gItemIcon_BERRYLEGION[];
 extern const u32 gItemIconPalette_BERRYLEGION[];
+
+extern const u32 gTrainerFrontPic_Ninjas[];
+extern const u32 gTrainerPalette_Ninjas[];

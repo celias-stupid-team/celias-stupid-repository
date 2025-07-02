@@ -34,6 +34,70 @@ script FushciaGym_TrioRoom_Ninjas {
     end
 }
 
+
+script FushciaGym_TrioRoom_NinjasAppear {
+    lock
+    if(flag(FLAG_DEFEATED_NINJAS)) {
+        setvar(VAR_TEMP_0, 1)
+        release
+        end
+    } else {
+        playse(SE_FALL)
+        applymovement(LOCALID_BLUE, TrioRoom_NinjaFallsDown)
+        delay(20)
+        playse(SE_FALL)
+        applymovement(LOCALID_RED, TrioRoom_NinjaFallsDown)
+        delay(20)
+        playse(SE_FALL)
+        applymovement(LOCALID_GREEN, TrioRoom_NinjaFallsDown)
+        waitmovement(LOCALID_BLUE)
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("We are ninjas!", MSGBOX_DEFAULT)
+        closemessage
+        delay(20)
+        applymovement(LOCALID_RED, TrioRoom_NinjasWalkInPlace)
+        waitmovement(0)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox("We learned from the GYM LEADER!", MSGBOX_DEFAULT)
+        closemessage
+        delay(10)
+        applymovement(LOCALID_GREEN, TrioRoom_NinjasWalkInPlace)
+        waitmovement(0)
+        textcolor(NPC_TEXT_COLOR_TREE)
+        msgbox("Fight us!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_TYPE_TRIO, "No!\nHow could this be?")
+        textcolor(NPC_TEXT_COLOR_MALE)
+        msgbox("we are defeated\pOur LEADER is a master ninja!\nHe's swift as the wind", MSGBOX_DEFAULT)
+        setflag(FLAG_DEFEATED_NINJAS)
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        playse(SE_M_DOUBLE_TEAM)
+        waitse
+        playse(SE_M_DOUBLE_TEAM)
+        waitse
+        playse(SE_M_DOUBLE_TEAM)
+        waitse
+        removeobject(LOCALID_BLUE)
+        removeobject(LOCALID_RED)
+        removeobject(LOCALID_GREEN)
+        setvar(VAR_TEMP_0, 1)
+        fadescreen(FADE_FROM_BLACK)
+        release
+
+
+
+    }
+}
+
+movement TrioRoom_NinjaFallsDown {
+    slide_down * 4
+}
+
+movement TrioRoom_NinjasWalkInPlace {
+    walk_in_place_down * 2
+    face_down
+}
+
 script FushciaGym_StepOnButton {
     lock
     playse(SE_SWITCH)

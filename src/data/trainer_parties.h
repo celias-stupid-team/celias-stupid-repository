@@ -10178,3 +10178,4 @@ static const struct TrainerMonNoItemCustomMoves sParty_ImposterOakFushcia[] = {
     },
 
 };
+
