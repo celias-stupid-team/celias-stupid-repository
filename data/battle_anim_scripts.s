@@ -14346,7 +14346,6 @@ Move_CHEESE_DRY:
 	
 Move_LEAF_TOMATO:
 	loadspritegfx ANIM_TAG_TOMATO
-	loadspritegfx ANIM_TAG_MUD_SAND
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_POISON_BUBBLE, 0, 13, 13, RGB(250, 12, 12)

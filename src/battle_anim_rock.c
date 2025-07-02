@@ -111,9 +111,9 @@ const struct SpriteTemplate gWhirlpoolSpriteTemplate =
 
 const struct SpriteTemplate gWhirlpoolTomatoSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_MUD_SAND,
-    .paletteTag = ANIM_TAG_MUD_SAND,
-    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .tileTag = ANIM_TAG_TOMATO,
+    .paletteTag = ANIM_TAG_TOMATO,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
