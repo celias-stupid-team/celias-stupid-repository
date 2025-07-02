@@ -386,6 +386,7 @@ gSongTable::
 	song mus_thundering_dynamo, 0, 0
 	song mus_secret_house, 0, 0
 	song mus_korok_seed, 0, 0
+	song mus_trick_house, 0, 0
 
 
 

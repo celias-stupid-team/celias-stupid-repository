@@ -393,12 +393,13 @@
 #define MUS_THUNDERING_DYNAMO            384
 #define MUS_CSR_SECRET_HOUSE            385
 #define MUS_KOROK_SEED            386
+#define MUS_TRICK_HOUSE            387
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_KOROK_SEED
+#define END_MUS                     MUS_TRICK_HOUSE
 
 #endif  // GUARD_CONSTANTS_SONGS_H
