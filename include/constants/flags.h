@@ -903,7 +903,7 @@
 #define FLAG_FREED_KANGA               0x343
 #define FLAG_WATERED_BRENDANMAY_OAK               0x344
 #define FLAG_GOT_BRENDANMAY_JIRACHI               0x345
-#define FLAG_0x346               0x346
+#define FLAG_DUG_IN_DIGLETTS_CAVE               0x346
 #define FLAG_0x347               0x347
 #define FLAG_0x348               0x348
 #define FLAG_0x349               0x349
