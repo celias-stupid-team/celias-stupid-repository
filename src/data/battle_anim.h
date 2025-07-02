@@ -1225,7 +1225,6 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_CircleOfLight, 0x0800, ANIM_TAG_CIRCLE_OF_LIGHT},
     {gBattleAnimSpriteGfx_Electricity, 0x0800, ANIM_TAG_ELECTRICITY},
     {gBattleAnimSpriteGfx_Finger2, 0x0600, ANIM_TAG_FINGER_2},
-    {gBattleAnimSpriteGfx_Tomato, 0x0200, ANIM_TAG_TOMATO},
     {gBattleAnimSpriteGfx_MovementWaves, 0x0600, ANIM_TAG_MOVEMENT_WAVES},
     {gBattleAnimSpriteGfx_MagentaHeart, 0x0080, ANIM_TAG_RED_HEART},
     {gBattleAnimSpriteGfx_RedOrb, 0x0080, ANIM_TAG_RED_ORB},
@@ -1305,6 +1304,7 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_WaterShuriken, 0x0200, ANIM_TAG_WATER_SHURIKEN},
     {gBattleAnimSpriteGfx_StealthRock, 0x0C00, ANIM_TAG_STEALTH_ROCK},
     {gBattleAnimSpriteGfx_Weed, 0x0800, ANIM_TAG_WEED},
+    {gBattleAnimSpriteGfx_Tomato, 0x0200, ANIM_TAG_TOMATO},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1524,7 +1524,6 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_ElectricOrbs, ANIM_TAG_CIRCLE_OF_LIGHT},
     {gBattleAnimSpritePal_ElectricOrbs, ANIM_TAG_ELECTRICITY},
     {gBattleAnimSpritePal_Finger, ANIM_TAG_FINGER_2},
-    {gBattleAnimSpritePal_Tomato, ANIM_TAG_TOMATO},
     {gBattleAnimSpritePal_MovementWaves, ANIM_TAG_MOVEMENT_WAVES},
     {gBattleAnimSpritePal_RedHeart, ANIM_TAG_RED_HEART},
     {gBattleAnimSpritePal_RedOrb, ANIM_TAG_RED_ORB},
@@ -1604,6 +1603,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_WaterShuriken, ANIM_TAG_WATER_SHURIKEN},
     {gBattleAnimSpritePal_StealthRock, ANIM_TAG_STEALTH_ROCK},
     {gBattleAnimSpritePal_Weed, ANIM_TAG_WEED},
+    {gBattleAnimSpritePal_Tomato, ANIM_TAG_TOMATO},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
