@@ -301,6 +301,7 @@
 #define ANIM_TAG_WATER_SHURIKEN             (ANIM_SPRITES_START + 291)
 #define ANIM_TAG_STEALTH_ROCK               (ANIM_SPRITES_START + 292)
 #define ANIM_TAG_WEED                       (ANIM_SPRITES_START + 293)
+#define ANIM_TAG_TOMATO                     (ANIM_SPRITES_START + 294)
 
 
 // battlers
