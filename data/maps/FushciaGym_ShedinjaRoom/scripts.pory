@@ -29,16 +29,20 @@ mapscripts FushciaGym_ShedinjaRoom_MapScripts {
 script FushciaGym_ShedinjaTrainer {
     lock
     faceplayer
-    if(var(VAR_FUSCSIA_GYM_HIPPO_ROOM) == 2) {
-        msgbox("Hippo is here\nYou win", MSGBOX_DEFAULT)
-        setflag(FLAG_DEFEATED_SHEDINJA_MAN)
-            setmetatile(11, 8, 0x357, TRUE)
-            setmetatile(15, 8, 0x357, TRUE)
-            special(DrawWholeMapView)
-        
+    if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
+        msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n{PAUSE 30}…Huh? It's an ORB, you say?", MSGBOX_DEFAULT)
+        call(FushciaGym_ShedinjaRoom_OpenDoors)
+        special(DrawWholeMapView)
     } else {
-        msgbox("tera electric shedinja\nYou lose", MSGBOX_DEFAULT)
+        msgbox("shedinja\n")
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_TUCKER, "No!\nDropped my balls!")
+        call(FushciaGym_ShedinjaRoom_OpenDoors)
+        setflag(FLAG_DEFEATED_SHEDINJA_MAN)
+        special(DrawWholeMapView)
+
     }
+    call(FushciaGym_ShedinjaRoom_OpenDoors)
+    special(DrawWholeMapView)
     release
 }
 

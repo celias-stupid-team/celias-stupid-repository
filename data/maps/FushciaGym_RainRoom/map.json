@@ -16,8 +16,9 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_NURSE",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
       "x": 7,
       "y": 9,
       "elevation": 0,
@@ -32,8 +33,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VULPIX",
-      "x": 9,
-      "y": 8,
+      "x": 0,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,

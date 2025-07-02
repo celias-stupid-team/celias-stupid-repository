@@ -496,7 +496,7 @@ void MultichoiceList_PrintBikeShop(u8 windowId, u8 fontId, u8 left, u8 top, u8 l
         if (i == 0)
         {
             u32 currCash = GetMoney(&gSaveBlock1Ptr->money) + 1;
-            u8 someText[] = _("BICYCLE{CLEAR_TO 0x49}{FONT_SMALL}Â¥");
+            u8 someText[] = _("BICYCLE{CLEAR_TO 0x49}{FONT_SMALL}¥");
             ConvertIntToDecimalStringN(gStringVar2, currCash, STR_CONV_MODE_LEFT_ALIGN, 7);
             StringCopy(gStringVar1, someText);
             StringAppend(gStringVar1, gStringVar2);

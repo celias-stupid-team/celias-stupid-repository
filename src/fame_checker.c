@@ -355,20 +355,20 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_GENTLEMAN,
     OBJ_EVENT_GFX_ROCKET_M,
     OBJ_EVENT_GFX_ERIKA,
-    // LORELEI
-    OBJ_EVENT_GFX_LORELEI,
-    OBJ_EVENT_GFX_LORELEI,
+    // Fushcia
+    OBJ_EVENT_GFX_BALDING_MAN,
+    OBJ_EVENT_GFX_FISHER,
+    OBJ_EVENT_GFX_ROCKET_M,
     OBJ_EVENT_GFX_OLD_MAN_1,
-    OBJ_EVENT_GFX_CLIPBOARD,
+    OBJ_EVENT_GFX_TRAINER_TIPS,
+    OBJ_EVENT_GFX_CLERK,
+    // Kanto Shoreline
+    OBJ_EVENT_GFX_POLICEMAN,
+    OBJ_EVENT_GFX_BATTLE_GIRL,
     OBJ_EVENT_GFX_LITTLE_GIRL,
-    OBJ_EVENT_GFX_OLD_WOMAN,
-    // BRUNO
-    OBJ_EVENT_GFX_BRUNO,
-    OBJ_EVENT_GFX_BRUNO,
-    OBJ_EVENT_GFX_CLIPBOARD,
-    OBJ_EVENT_GFX_BLACKBELT,
-    OBJ_EVENT_GFX_BEAUTY,
-    OBJ_EVENT_GFX_BLACKBELT,
+    OBJ_EVENT_GFX_GBA_KID,
+    OBJ_EVENT_GFX_BIRDCULTIST,
+    OBJ_EVENT_GFX_WOMAN_2,
     // AGATHA
     OBJ_EVENT_GFX_AGATHA,
     OBJ_EVENT_GFX_BLACKBELT,
@@ -1485,27 +1485,27 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FlagGet(FLAG_MADE_A_SANDWICH)) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_DRAGONITE, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_YOSHI, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_PORYGON_Z, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FlagGet(FLAG_GOT_GOLD_TEETH))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE)
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_GIMMIGHOUL, FLAG_GET_CAUGHT, TRUE))
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1514,19 +1514,19 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Sandwiches
+                    if(FlagGet(FLAG_CSR_MAP_KANTO_LIGHTHOUSE)) //Sandwiches
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE) // Find dragonite
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_DACHSBUN, FLAG_GET_CAUGHT, TRUE)) // Find dragonite
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE) //Use Super Scope
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_SHELLDER, FLAG_GET_CAUGHT, TRUE)) //Use Super Scope
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE) //Virus in PC
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_MACHAMP, FLAG_GET_CAUGHT, TRUE)) //Virus in PC
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1534,7 +1534,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FALSE) //Pay Day
+                    if(DexScreen_GetSetPokedexFlag(SPECIES_AMPHAROS, FLAG_GET_CAUGHT, TRUE) && FlagGet(FLAG_GOT_GOLD_TEETH)) //Pay Day
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1543,7 +1543,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Lighthouse
+                    if(FALSE) //Lighthouse
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1551,7 +1551,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE) // Seashells
+                    if(FALSE) // Seashells
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
@@ -1559,7 +1559,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE) // Golurk dex 
+                    if(FALSE) // Golurk dex 
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
@@ -1601,7 +1601,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FALSE) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1609,7 +1609,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
@@ -1617,7 +1617,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
@@ -1630,7 +1630,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FALSE) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1638,7 +1638,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
@@ -1646,7 +1646,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
@@ -1659,7 +1659,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
-                    if(TRUE) //Conditions go here
+                    if(FALSE) //Conditions go here
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
@@ -1667,7 +1667,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
@@ -1675,7 +1675,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(TRUE)
+                    if(FALSE)
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
