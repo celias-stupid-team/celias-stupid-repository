@@ -610,8 +610,16 @@
 #define MOVE_TAIL_SLAP 605
 #define MOVE_ZEKROM_KICK 606
 #define MOVE_RAIN_DANCE_2 607
+#define MOVE_AQUA 608
+#define MOVE_WHIP 609
+#define MOVE_SLAP 610
+#define MOVE_POISON 611
+#define MOVE_IRON 612
+#define MOVE_SHED 613
+#define MOVE_WIND 614
+#define MOVE_GLOW 615
 
-#define MOVES_COUNT 608
+#define MOVES_COUNT 616
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
