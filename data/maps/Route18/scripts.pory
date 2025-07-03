@@ -184,11 +184,16 @@ script Route18_SetZapdosStatue {
 }
 
 script Route18_FloatyRockKid {
+	lock
+	faceplayer
 	if(flag(FLAG_GOT_FLOAT_STONE)) {
-		msgbox("Oh…\nYou took the cool floaty rock?\l{PAUSE 30}Yeah, understandable.", MSGBOX_NPC)
+		msgbox("Oh…\nYou took the cool floaty rock?\l{PAUSE 30}Yeah, understandable.", MSGBOX_DEFAULT)
 	} else {
-		msgbox("Ooooh…\pLook at this cool floaty\nrock!", MSGBOX_NPC)
+		msgbox("Ooooh…\pLook at this cool floaty\nrock!", MSGBOX_DEFAULT)
 	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
 	end
 }
 
@@ -205,6 +210,7 @@ script Route18_BirdCultistRight {
 
 script Route18_BirdCultistBottom {
 	famechecker(FAMECHECKER_KANTO_SHORELINE, 4)
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("Have you come to pray at the\naltar of the LIGHTNING ARCHBIRD?\pThey say that one who encounters\nall three is holy and blessed.\lFor the GLORY of the SKIES!\pI pray calm for you, o traveler.\n", MSGBOX_NPC)
 	end
 }
