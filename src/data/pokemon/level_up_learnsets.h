@@ -892,8 +892,8 @@ static const struct LevelUpMove sMachopLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMachokeLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_LOW_KICK),
-    LEVEL_UP_MOVE(1, MOVE_KARATE_CHOP),
+    LEVEL_UP_MOVE(1, MOVE_MACH_PUNCH),
+    LEVEL_UP_MOVE(1, MOVE_FOCUS_PUNCH),
     LEVEL_UP_MOVE(1, MOVE_FOCUS_ENERGY),
     LEVEL_UP_END
 };
@@ -907,7 +907,7 @@ static const struct LevelUpMove sMachampLevelUpLearnset[] = {
     LEVEL_UP_MOVE(19, MOVE_SEISMIC_TOSS),
     LEVEL_UP_MOVE(22, MOVE_FORESIGHT),
     LEVEL_UP_MOVE(25, MOVE_REVENGE),
-    LEVEL_UP_MOVE(33, MOVE_VITAL_THROW),
+    LEVEL_UP_MOVE(30, MOVE_THIEF),
     LEVEL_UP_MOVE(41, MOVE_SUBMISSION),
     LEVEL_UP_MOVE(46, MOVE_CROSS_CHOP),
     LEVEL_UP_MOVE(51, MOVE_SCARY_FACE),
@@ -1012,6 +1012,7 @@ static const struct LevelUpMove sGravelerLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sGolemLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(0, MOVE_REAL_TEARS),
     LEVEL_UP_MOVE(1, MOVE_TACKLE),
     LEVEL_UP_MOVE(1, MOVE_DEFENSE_CURL),
     LEVEL_UP_MOVE(1, MOVE_MUD_SPORT),
@@ -1278,7 +1279,7 @@ static const struct LevelUpMove sGengarLevelUpLearnset[] = {
     LEVEL_UP_MOVE(24, MOVE_EARTH_POWER),
     LEVEL_UP_MOVE(26, MOVE_SHADOW_BALL),
     LEVEL_UP_MOVE(28, MOVE_MORNING_SUN),
-    //LEVEL_UP_MOVE(30, MOVE_SHADOW_FORCE),
+    LEVEL_UP_MOVE(30, MOVE_SHADOW_FORCE),
     LEVEL_UP_END
 };
 
@@ -1570,6 +1571,7 @@ static const struct LevelUpMove sChanseyLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTangelaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_POUND),
     LEVEL_UP_MOVE(1, MOVE_POUND),
     LEVEL_UP_MOVE(1, MOVE_POISON_GAS),
     LEVEL_UP_MOVE(1, MOVE_RECYCLE),

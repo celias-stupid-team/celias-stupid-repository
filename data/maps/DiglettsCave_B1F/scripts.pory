@@ -29,7 +29,7 @@ script DiglettsCave_WallHole {
 			delay(30)
 			playse(SE_M_STRENGTH)
 			call(DiglettsCave_DrawHole)
-			special(DrawWholeScreenView)
+			special(DrawWholeMapView)
 			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
 			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
 			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)

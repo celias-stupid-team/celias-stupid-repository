@@ -2681,7 +2681,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_GIGA_DRAIN] =
     {
         .effect = EFFECT_ABSORB,
-        .power = 60,
+        .power = 74,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 5,
@@ -4348,7 +4348,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ACCURACY_DOWN_HIT,
         .power = 95,
         .type = TYPE_WATER,
-        .accuracy = 85,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_BOTH,
@@ -5237,10 +5237,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FAIRY_TAIL] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 65,
+        .effect = EFFECT_FLINCH_HIT, // Placeholder Effect
+        .power = 110,
         .type = TYPE_FAIRY,
-        .accuracy = 95,
+        .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -6890,9 +6890,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_SHADOW_FORCE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_ALWAYS_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_NORMAL,
+        .type = TYPE_GHOST,
         .accuracy = 80,
         .pp = 35,
         .secondaryEffectChance = 10,
