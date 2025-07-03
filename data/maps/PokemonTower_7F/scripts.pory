@@ -288,7 +288,14 @@ script PokemonTower_Trailer {
 	doweather
 	waitmovement(0)
 	special(DrawWholeMapView)
+	if(flag(FLAG_SAW_KANGA_CUTSCENE)) {
+		msgbox("Hey!\nYou've already seen this cutscene.\lWould you like to skip it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			
+		}
+	}
 	textcolor(NPC_TEXT_COLOR_FEMALE)
+	setflag(FLAG_SAW_KANGA_CUTSCENE)
 	msgbox("SUSAN: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceRight)

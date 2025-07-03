@@ -24,6 +24,7 @@ PokemonTower_6F_EventScript_Jennifer::
 script PokemonTower_6F_WorriedAboutCuboneMom {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_LAVENDER, 4)
 	if(flag(FLAG_GOT_MATH_CLUB)) {
 		msgbox("MATH CLUB was always CUBONE's\nfavorite activity after school.\lI hope his MOTHER is safe up there.\pI'd be distraught if something\nhappened to her.", MSGBOX_DEFAULT)
 	} else {

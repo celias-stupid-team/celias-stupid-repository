@@ -316,8 +316,9 @@ gFameCheckerFlavorText_Lavender3:: @ 0x81AE762
 
 gFameCheckerFlavorText_Lavender4:: @ 0x81AE7CB
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"
-	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}LAVENDER TOWN\n"
-	.string "DANCE THEATER$"
+	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}MATH CLUB was always CUBONE's\n"
+	.string "favorite activity after school.\l"
+	.string "I hope his MOTHER is safe up there.$"
 
 gFameCheckerFlavorText_Lavender5:: @ 0x81AE841
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}There's a rumor…\p"

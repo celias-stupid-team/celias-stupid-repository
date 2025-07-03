@@ -337,7 +337,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_FAIRY_TRANS] = _("FAIRY"),
     [TYPE_SOUND] = _("SOUND"),
     [TYPE_GRASS_TCG] = _("GRASS"),
-    [TYPE_FIGHTING_SPECIAL] = _("FIGHTING"),
+    [TYPE_FIGHTING_SPECIAL] = _("FIGHT"),
 
 };
 

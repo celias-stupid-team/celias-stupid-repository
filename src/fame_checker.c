@@ -1443,7 +1443,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
-                    if(FlagGet(FLAG_CRAFTED_BLUE_FLUTE))
+                    if(FlagGet(FLAG_HIDE_DMCA_IN_LAVENDER))
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
