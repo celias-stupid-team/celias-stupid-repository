@@ -301,10 +301,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 16,
-      "y": 21,
+      "x": 4,
+      "y": 19,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -315,8 +315,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 24,
-      "y": 19,
+      "x": 2,
+      "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -329,7 +329,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 18,
+      "x": 1,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",

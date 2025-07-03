@@ -3,11 +3,40 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         if(flag(FLAG_BEAT_RAIN_GIRL)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
+        special(GetPlayerXY)
         if(flag(FLAG_GOT_POISONED_ONCE)) {
             setobjectmovementtype(LOCALID_NURSE, MOVEMENT_TYPE_RAISE_HAND_AND_STOP)
+            setvar(VAR_0x8005, 0)
+        }
+        if(var(VAR_0x8005) == 12) {
+            setobjectxyperm(LOCALID_NURSE, 6, 7)
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_RAIN_ROOM)
     }
+
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_0x8005, 6 {
+            lock
+            setvar(VAR_0x8005, 0)
+            applymovement(LOCALID_NURSE, Common_Movement_FaceRight)
+            applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+            waitmovement(0)
+            call(FushciaGym_HealNurse)
+            
+        }
+        VAR_0x8005, 12 {
+            lock
+            setvar(VAR_0x8005, 0)
+            applymovement(LOCALID_NURSE, FushciaGym_NuseWalkTwo)
+            waitmovement(0)
+            call(FushciaGym_HealNurse)
+        }
+    ]
+}
+
+movement FushciaGym_NuseWalkTwo {
+    walk_down * 2
+    face_down
 }
 
 script FushciaGym_RainRoomGirl {

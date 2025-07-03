@@ -66,7 +66,7 @@ Route3_Text_GregPostBattle::
 
 Route3_Text_SallyIntro::
     .string "That look you gave me…\n"
-    .string "It was.\p"
+    .string "It was.{PAUSE 30}\p"
     .string "Yup.\n"
     .string "There definitely was a look.$"
 
