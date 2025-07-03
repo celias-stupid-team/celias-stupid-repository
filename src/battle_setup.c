@@ -401,10 +401,6 @@ void StartLegendaryBattle(void)
     case SPECIES_ETERNATUS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_LEGEND);
         break;
-    
-    case SPECIES_KANGASKHANTEACHER:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_CSR_DMCA_ADMIN);
-
     default:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RS_VS_TRAINER);
         break;

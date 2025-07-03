@@ -502,7 +502,8 @@
 #define ITEM_PERSON_DOLL 418
 #define ITEM_BIG_NUGGET 419
 #define ITEM_BRICK_PIECE 420
-#define ITEMS_COUNT 421
+#define ITEM_PSYCHIC_KEY 421
+#define ITEMS_COUNT 422
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

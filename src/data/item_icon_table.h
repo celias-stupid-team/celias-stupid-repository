@@ -449,5 +449,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BIG_NUGGET]      =  {gItemIcon_BIGNUGGET, gItemIconPalette_BIGNUGGET},
     [ITEM_BRICK_PIECE]      =  {gItemIcon_BRICKPIECE, gItemIconPalette_BRICKPIECE},
     [ITEM_BERRYLEGION]      =  {gItemIcon_BERRYLEGION, gItemIconPalette_BERRYLEGION},
+    [ITEM_PSYCHIC_KEY]      =  {gItemIcon_PsychicKey, gItemIconPalette_PsychicKey},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -661,7 +661,7 @@
 #define FLAG_GOT_HOUSE_KEY                                       0x25C
 #define FLAG_SAW_KANGA_CUTSCENE                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
-#define FLAG_0x25F                                       0x25F
+#define FLAG_GOT_PSYCHIC_KEY                                       0x25F
 #define FLAG_0x260                                       0x260
 #define FLAG_0x261                                       0x261
 #define FLAG_0x262                                       0x262

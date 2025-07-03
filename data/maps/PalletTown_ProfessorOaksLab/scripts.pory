@@ -6,6 +6,7 @@ raw `
 
 .equ NUM_STARTERS_CHECKED,    VAR_TEMP_5
 .equ LAST_BALL_CHECKED,     VAR_TEMP_8
+.equ FIRST_BALL_CHECKED,     VAR_TEMP_9
 
 .equ SHOWED_OAK_COMPLETE_DEX, FLAG_TEMP_2
 .equ BALL_1_CHECKED, 	  FLAG_TEMP_3
@@ -1499,6 +1500,9 @@ movement OakLab_LeftAideRuns {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
 	lock
 	faceplayer
+	if(var(NUM_STARTERS_CHECKED) == 0) {
+		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+	}
 	if(!flag(BALL_1_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_1_CHECKED)
@@ -1522,6 +1526,9 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall1 {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
 	lock
 	faceplayer
+	if(var(NUM_STARTERS_CHECKED) == 0) {
+		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+	}
 	if(!flag(BALL_2_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_2_CHECKED)
@@ -1545,6 +1552,9 @@ script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall2 {
 script PalletTown_ProfessorOaksLab_EventScript_CharmanderBall3 {
 	lock
 	faceplayer
+	if(var(NUM_STARTERS_CHECKED) == 0) {
+		copyvar(VAR_TEMP_9, VAR_LAST_TALKED)
+	}
 	if(!flag(BALL_3_CHECKED)) {
 		addvar(NUM_STARTERS_CHECKED, 1)
 		setflag(BALL_3_CHECKED)
@@ -1570,7 +1580,7 @@ script PalletTown_ProfessorOaksLab_EventScript_ConfirmStarterChoice {
 	waitmovement(0)
 	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
 	textcolor(NPC_TEXT_COLOR_MALE)
-	if(flag(FLAG_TEMP_7) && !flag(FLAG_SHINY_CREATION)) {
+	if(var(VAR_TEMP_9 == VAR_LAST_TALKED) && var(NUM_STARTERS_CHECKED) == 2 && flag(FLAG_TEMP_7) && !flag(FLAG_SHINY_CREATION)) {
 			
 			textcolor(NPC_TEXT_COLOR_TREE)
 			setflag(FLAG_SHINY_CREATION) //Charmander

@@ -6793,6 +6793,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "PSYCHIC KEY",
+      "itemId": "ITEM_PSYCHIC_KEY",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A mysterious KEY gotten for\\ndelivering a message through\\nspace and time.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

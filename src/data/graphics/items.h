@@ -831,3 +831,6 @@ const u32 gItemIconPalette_BRICKPIECE[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_BERRYLEGION[] = INCBIN_U32("graphics/items/icons/berrylegion.4bpp.lz");
 const u32 gItemIconPalette_BERRYLEGION[] = INCBIN_U32("graphics/items/icon_palettes/berrylegion.gbapal.lz");
+
+const u32 gItemIcon_PsychicKey[] = INCBIN_U32("graphics/items/icons/psychic_key.4bpp.lz");
+const u32 gItemIconPalette_PsychicKey[] = INCBIN_U32("graphics/items/icon_palettes/psychic_key.gbapal.lz");
