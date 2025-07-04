@@ -632,6 +632,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_CANT_USE_RETREAT]       = gText_CantUseRetreat,
     [PARTY_MSG_NO_RETREAT]       = gText_NoRetreat,
     [PARTY_MSG_BUT_IT_FAILED]       = gText_ButItFailed,
+    [PARTY_MSG_NO_RELEARNS]             = gText_NoRelearns,
 };
 
 static const u8 *const sDescriptionStringTable[] =

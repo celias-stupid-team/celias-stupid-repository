@@ -92,6 +92,8 @@ static void GenderFluidWarpOutEffect_Spin(struct Task *task);
 static void TryToTransTheNidotrans(void);
 static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
 static u16 FindSpeciesInParty(u16 species);
+static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
+static void Task_UseMoveRelearnerOnField(u8 taskId);
 
 
 // unknown unused data.
@@ -1335,4 +1337,23 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u
         data->species = 0xFFFF;
     SetQuestLogEvent(eventId, (void *)data);
     Free(data);
+}
+
+void FieldUseFunc_MoveRelearner(u8 taskId)
+{
+    CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
+    sItemUseOnFieldCB = ItemUseOnFieldCB_MoveRelearner;
+    SetUpItemUseOnFieldCallback(taskId);
+}
+
+static void ItemUseOnFieldCB_MoveRelearner(u8 taskId)
+{
+    DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseMoveRelearnerOnField);
+}
+
+static void Task_UseMoveRelearnerOnField(u8 taskId)
+{
+    ChooseMonForMoveRelearnerItem();
+    DestroyTask(taskId);
 }
