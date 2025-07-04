@@ -2565,9 +2565,8 @@ const u8 gRayquazaPokedexText[] = _(
 const u8 gRayquazaPokedexTextUnused[] = _("");
 
 const u8 gJirachiPokedexText[] = _(
-	"I've spent months and months\n"
-	"trying to get a shiny JIRACHI.\n"
-	"I'm not convinced it's possible.");
+	"If you can see the future,\n"
+	"why didn't you stop 9/11?");
 
 const u8 gJirachiPokedexTextUnused[] = _("");
 

@@ -12387,3 +12387,6 @@ extern const u32 gTrainerPalette_Ninjas[];
 
 extern const u32 gItemIcon_PsychicKey[];
 extern const u32 gItemIconPalette_PsychicKey[];
+
+extern const u32 gItemIcon_HISTORYBOOK[];
+extern const u32 gItemIconPalette_HISTORYBOOK[];

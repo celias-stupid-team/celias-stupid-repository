@@ -21,6 +21,7 @@ mapscripts FushciaGym_AronRoom_MapScripts {
 script FushciaGym_AronTrainer {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_RED)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_GRETA)) {
         msgbox("DO YOU THINK YOU CAN CLEAR THE GYM\nWITH YOUR CHOSEN 3 POKéMON?\lWORRY NOT!\pIF YOU USE YOUR WITS, YOU CAN MAKE\nIT TO THE LEADER WITH ANY CHOICE.", MSGBOX_NPC)
     }

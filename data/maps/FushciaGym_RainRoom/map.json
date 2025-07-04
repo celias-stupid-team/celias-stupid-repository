@@ -5,7 +5,7 @@
   "music": "MUS_BATTLE_FRONTIER",
   "region_map_section": "MAPSEC_FUSHCIA_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_RAIN",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -76,5 +76,14 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    }
+  ]
 }

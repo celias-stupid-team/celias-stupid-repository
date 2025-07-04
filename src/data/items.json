@@ -6809,6 +6809,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "HISTORY BOOK",
+      "itemId": "ITEM_HISTORY_BOOK",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "A detailed record of every\\nPOKéMON's past atrocities.\\nUse it to remember them!",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_MoveRelearner",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

@@ -19,6 +19,7 @@ mapscripts FushciaGym_TrainerRoom2_MapScripts {
 script FushciaGym_TrainerRoom2_Brandon {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
     if(flag(FLAG_DEFEATED_TRAINER_2)) {
         msgbox("…HUH?\nNO, I AM BRANDON\lBRENDAN IS THE KID NEXT DOOR\pPEOPLE GET US MIXED UP ALL THE\nTIME\n", MSGBOX_DEFAULT)
         call(FushciaGym_TrainerRoom2_OpenDoors)
@@ -38,6 +39,7 @@ script FushciaGym_TrainerRoom2_Brandon {
 script FushciaGym_TrainerRoom2_Spenser {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
     if(flag(FLAG_DEFEATED_TRAINER_2)) {
         msgbox("I HAD THE SAME LUCK IN MY\nLOW-LEVEL CHALLENGE RUN\pOH WELL\n", MSGBOX_DEFAULT)
         call(FushciaGym_TrainerRoom2_OpenDoors)
