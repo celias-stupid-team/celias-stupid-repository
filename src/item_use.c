@@ -24,7 +24,9 @@
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokedex_screen.h"
+#include "pokemon.h"
 #include "quest_log.h"
+#include "random.h"
 #include "region_map.h"
 #include "script.h"
 #include "script_pokemon_util.h"
@@ -87,6 +89,9 @@ static void StartGenderFluidFieldEffect(void);
 static void Task_GenderFluidWarpOut(u8 taskId);
 static void GenderFluidWarpOutEffect_Init(struct Task *task);
 static void GenderFluidWarpOutEffect_Spin(struct Task *task);
+static void TryToTransTheNidotrans(void);
+static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
+static u16 FindSpeciesInParty(u16 species);
 
 
 // unknown unused data.
@@ -1177,8 +1182,74 @@ static void ItemUseOnFieldCB_GenderFluid(u8 taskId)
         gSaveBlock2Ptr->playerGender = MALE;
         gPlayerAvatar.gender = MALE;
     }
+
+    TryToTransTheNidotrans();
     
     DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseGenderFluidOnField);
+}
+
+static void TryToTransTheNidotrans(void)
+{
+    u16 nidoFIdx, nidoMIdx;
+    nidoFIdx = FindSpeciesInParty(SPECIES_NIDORAN_M); 
+    nidoMIdx = FindSpeciesInParty(SPECIES_NIDORAN_F); 
+
+    // only trans 'em if they're both present
+    if (nidoFIdx == SPECIES_NONE || nidoMIdx == SPECIES_NONE)
+    {
+        return;    
+    }
+
+    TransTheNidotrans(nidoFIdx, nidoMIdx);
+}
+
+static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx)
+{
+    u32 newPersonality, otID, i;
+    u16 newSpecies, oldSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    struct Pokemon *mon;
+    bool32 thisIsTrue = TRUE;
+
+    for (i = 0; i < 2; i++)
+    {
+        mon = &gPlayerParty[i == 0 ? nidoFIdx : nidoMIdx];
+        newSpecies = i == 0 ? SPECIES_NIDORAN_F : SPECIES_NIDORAN_M;
+        oldSpecies = i == 0 ? SPECIES_NIDORAN_M : SPECIES_NIDORAN_F;
+
+        otID = GetMonData(mon, MON_DATA_OT_ID, NULL);
+        GetMonNickname(mon, nickname);
+        newPersonality = Random32();
+
+        // force the mon to be shiny
+        newPersonality = ((((Random() % SHINY_ODDS) ^ (HIHALF(otID) ^ LOHALF(otID))) ^ LOHALF(newPersonality)) << 16) | LOHALF(newPersonality);
+        
+        // if player has nicknamed their nidotran, don't overwrite it
+        if (StringCompare(nickname, gSpeciesNames[oldSpecies]) == 0)
+        {
+            SetMonData(mon, MON_DATA_NICKNAME, &gSpeciesNames[newSpecies]);
+        }
+        SetMonData(mon, MON_DATA_SPECIES, &newSpecies); 
+        SetMonData(mon, MON_DATA_CSR_SHINY, &thisIsTrue); 
+        GetSetPokedexFlag(SpeciesToNationalPokedexNum(newSpecies), FLAG_SET_SHINY_FOUND);
+        UpdateMonPersonality(&mon->box, newPersonality);
+        CalculateMonStats(mon);
+    } 
+}
+
+static u16 FindSpeciesInParty(u16 species)
+{
+    u32 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES)
+            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == species)
+        {
+            return i;
+        }
+    }
+
+    return SPECIES_NONE;
 }
 
 static void Task_UseGenderFluidOnField(u8 taskId)
