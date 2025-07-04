@@ -25,6 +25,7 @@
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
+#include "learn_move.h"
 #include "link.h"
 #include "link_rfu.h"
 #include "load_save.h"
@@ -1096,6 +1097,12 @@ static void Task_ClosePartyMenu(u8 taskId)
     gTasks[taskId].func = Task_ClosePartyMenuAndSetCB2;
 }
 
+static void Task_CloseAndRelearnMove(u8 taskId)
+{
+    BeginNormalPaletteFade(PALETTES_ALL, -2, 0, 16, RGB_BLACK);
+    gTasks[taskId].func = Task_InitMoveRelearnerMenu;
+}
+
 static void Task_ClosePartyMenuAndSetCB2(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -1203,11 +1210,27 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             SwitchSelectedMons(taskId);
             break;
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
-            PlaySE(SE_SELECT);
             gSpecialVar_0x8004 = *slotPtr;
-            if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER)
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER || gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM)
                 gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[*slotPtr]);
-            Task_ClosePartyMenu(taskId);
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM)
+            {
+                if (gSpecialVar_0x8005 == 0)
+                {
+                    PlaySE(SE_FAILURE);
+                    DisplayPartyMenuStdMessage(PARTY_MSG_NO_RELEARNS);
+                }
+                else
+                {
+                    PlaySE(SE_SELECT);
+                    Task_CloseAndRelearnMove(taskId);
+                }
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                Task_ClosePartyMenu(taskId);
+            }
             break;
         case PARTY_ACTION_MINIGAME:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
@@ -1377,6 +1400,12 @@ static void UpdateCurrentPartySelection(s8 *slotPtr, s8 movementDir)
         PlaySE(SE_SELECT);
         AnimatePartySlot(newSlotId, 0);
         AnimatePartySlot(*slotPtr, 1);
+    }
+        
+    // reprint choose text when using relearner item to clear the "no moves" message
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM && gSpecialVar_0x8005 == 0)
+    {
+        DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
     }
 }
 

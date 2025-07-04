@@ -325,6 +325,7 @@ ALIGNED(4) const u8 gText_CantTradeWithTrainer[] = _("You can't trade with that\
 ALIGNED(4) const u8 gText_NotPkmnOtherTrainerWants[] = _("That isn't the type of POKéMON\nthat the other TRAINER wants.");
 ALIGNED(4) const u8 gText_ThatIsntAnEgg[] = _("That isn't an EGG.");
 const u8 gText_ChoosePokemon[] = _("Choose a POKéMON.");
+const u8 gText_NoRelearns[] = _("No moves to learn!");
 const u8 gText_MoveToWhere[] = _("Move to where?");
 const u8 gText_TeachWhichPokemon[] = _("Teach which POKéMON?");
 const u8 gText_UseOnWhichPokemon[] = _("Use on which POKéMON?");

@@ -8,6 +8,7 @@
 #include "overworld.h"
 #include "new_menu_helpers.h"
 #include "menu.h"
+#include "learn_move.h"
 #include "list_menu.h"
 #include "event_data.h"
 #include "text_window.h"
@@ -152,7 +153,6 @@ struct LearnMoveGfxResources
 
 static EWRAM_DATA struct LearnMoveGfxResources * sMoveRelearner = NULL;
 
-static void Task_InitMoveRelearnerMenu(u8 taskId);
 static void CB2_MoveRelearner_Init(void);
 static void CB2_MoveRelearner(void);
 static void MoveRelearnerStateMachine(void);
@@ -371,7 +371,7 @@ void TeachMoveRelearnerMove(void)
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
 }
 
-static void Task_InitMoveRelearnerMenu(u8 taskId)
+void Task_InitMoveRelearnerMenu(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
