@@ -31,6 +31,16 @@ void ChooseMonForMoveRelearner(void)
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 }
 
+void ChooseMonForMoveRelearnerItem(void)
+{
+    u8 taskId;
+    LockPlayerFieldControls();
+    taskId = CreateTask(Task_ChoosePartyMon, 10);
+    gSpecialVar_0x8005 = 0;
+    gTasks[taskId].data[0] = PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM;
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
 static void Task_ChoosePartyMon(u8 taskId)
 {
     if (!gPaletteFade.active)
