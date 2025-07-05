@@ -622,7 +622,7 @@
 #define EC_WORD_NEGATIVE      (EC_GROUP_FEELINGS << 9) | 0x3b
 #define EC_WORD_DONE          (EC_GROUP_FEELINGS << 9) | 0x3c
 #define EC_WORD_DANGER        (EC_GROUP_FEELINGS << 9) | 0x3d
-#define EC_WORD_DEFEATED      (EC_GROUP_FEELINGS << 9) | 0x3e
+#define EC_WORD_DEMO      (EC_GROUP_FEELINGS << 9) | 0x3e
 #define EC_WORD_BEAT          (EC_GROUP_FEELINGS << 9) | 0x3f
 #define EC_WORD_GREAT         (EC_GROUP_FEELINGS << 9) | 0x40
 #define EC_WORD_ROMANTIC      (EC_GROUP_FEELINGS << 9) | 0x41
@@ -982,7 +982,7 @@
 #define EC_WORD_HUNGRY        (EC_GROUP_ADJECTIVES << 9) | 0x3
 #define EC_WORD_TIGHT         (EC_GROUP_ADJECTIVES << 9) | 0x4
 #define EC_WORD_TICKLISH      (EC_GROUP_ADJECTIVES << 9) | 0x5
-#define EC_WORD_TWIRLING      (EC_GROUP_ADJECTIVES << 9) | 0x6
+#define EC_WORD_TWO      (EC_GROUP_ADJECTIVES << 9) | 0x6
 #define EC_WORD_SPIRALING     (EC_GROUP_ADJECTIVES << 9) | 0x7
 #define EC_WORD_THIRSTY       (EC_GROUP_ADJECTIVES << 9) | 0x8
 #define EC_WORD_LOLLING       (EC_GROUP_ADJECTIVES << 9) | 0x9
@@ -1063,7 +1063,7 @@
 #define EC_WORD_HIP_AND        (EC_GROUP_TRENDY_SAYING << 9) | 0x10
 #define EC_WORD_SHAKE          (EC_GROUP_TRENDY_SAYING << 9) | 0x11
 #define EC_WORD_SHADY          (EC_GROUP_TRENDY_SAYING << 9) | 0x12
-#define EC_WORD_UPBEAT         (EC_GROUP_TRENDY_SAYING << 9) | 0x13
+#define EC_WORD_UPGRADE         (EC_GROUP_TRENDY_SAYING << 9) | 0x13
 #define EC_WORD_MODERN         (EC_GROUP_TRENDY_SAYING << 9) | 0x14
 #define EC_WORD_SMELL_YA       (EC_GROUP_TRENDY_SAYING << 9) | 0x15
 #define EC_WORD_BANG           (EC_GROUP_TRENDY_SAYING << 9) | 0x16
