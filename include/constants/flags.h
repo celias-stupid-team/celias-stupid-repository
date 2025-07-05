@@ -586,7 +586,7 @@
 #define FLAG_HIDE_GTS_NPCS               0x214
 #define FLAG_LOOK_GIRL_LASS               0x215
 #define FLAG_MELTED_LIGHTHOUSE_GUARD               0x216
-#define FLAG_0x217               0x217
+#define FLAG_GOT_HISTORY_BOOK               0x217
 #define FLAG_0x218               0x218
 #define FLAG_0x219               0x219
 #define FLAG_0x21A               0x21A

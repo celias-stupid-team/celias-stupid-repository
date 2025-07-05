@@ -1601,6 +1601,7 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
 // csr outfits
 extern const u8 gText_UsedTheItem[];
+extern const u8 gText_UnzippedTheItem[];
 extern const u8 gText_LWPEmblemEnd[];
 
 extern const u8 gText_GenderFluidEnd[];

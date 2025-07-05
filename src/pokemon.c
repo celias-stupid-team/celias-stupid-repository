@@ -80,7 +80,6 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
 
 
 
-
 #include "data/battle_moves.h"
 #include "data/pokemon_graphics/footprint_table.h"
 
@@ -6642,6 +6641,8 @@ void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability)
     ability = ABILITY_NUM_LOCKED_ABILITY;
     SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &ability);
 }
+
+
 
 // CSR Level Caps!
 

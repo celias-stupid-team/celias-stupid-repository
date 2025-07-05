@@ -987,7 +987,7 @@ static const struct LevelUpMove sTentacruelLevelUpLearnset[] = {
 
 static const struct LevelUpMove sGeodudeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DIVE),
-    LEVEL_UP_MOVE(6, MOVE_ROCK_THROW),
+    LEVEL_UP_MOVE(10, MOVE_ROCK_THROW),
     LEVEL_UP_MOVE(12, MOVE_MAGNITUDE),
     LEVEL_UP_MOVE(14, MOVE_ROLLOUT),
     LEVEL_UP_MOVE(17, MOVE_SELF_DESTRUCT),

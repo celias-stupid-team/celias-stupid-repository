@@ -19,8 +19,8 @@
       "local_id": "LOCALID_PROSPECTOR",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 23,
-      "y": 2,
+      "x": 20,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -34,14 +34,14 @@
   "warp_events": [
     {
       "x": 3,
-      "y": 4,
+      "y": 17,
       "elevation": 3,
       "dest_map": "MAP_DIGLETTS_CAVE_B1F",
       "dest_warp_id": "3"
     },
     {
       "x": 25,
-      "y": 5,
+      "y": 14,
       "elevation": 3,
       "dest_map": "MAP_THREE_ISLAND_PORT",
       "dest_warp_id": "1"
@@ -51,8 +51,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 21,
-      "y": 3,
+      "x": 27,
+      "y": 18,
       "elevation": 0,
       "item": "ITEM_NUGGET",
       "flag": "FLAG_HIDDEN_ITEM_THREE_ISLAND_DUNSPARCE_TUNNEL_NUGGET",
