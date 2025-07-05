@@ -5,7 +5,7 @@
   "music": "MUS_BATTLE_FRONTIER",
   "region_map_section": "MAPSEC_FUSHCIA_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -18,10 +18,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NOLAND",
-      "x": 8,
-      "y": 8,
+      "x": 7,
+      "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -42,19 +42,33 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FushciaGym_LookLookGirl",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_VULPIX",
+      "x": 12,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FushciaGym_RainRoom_Vulpix",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 9,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_RAIN_ROOM",
       "dest_warp_id": "1"
     },
     {
-      "x": 6,
-      "y": 7,
+      "x": 9,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM",
       "dest_warp_id": "0"
@@ -63,7 +77,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 9,
+      "x": 8,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_2",
@@ -72,7 +86,7 @@
     },
     {
       "type": "trigger",
-      "x": 10,
+      "x": 9,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_2",
@@ -81,7 +95,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 10,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_2",
@@ -90,8 +104,8 @@
     },
     {
       "type": "trigger",
-      "x": 6,
-      "y": 8,
+      "x": 9,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_2",
       "var_value": "1",
@@ -99,34 +113,34 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "FushciaGym_LionsRoom_SetLionFlag"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "FushciaGym_LionsRoom_SetLionFlag"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "FushciaGym_LionsRoom_SetLionFlag"
-    },
-    {
-      "type": "trigger",
       "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "FushciaGym_LionsRoom_SetLionFlag"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "FushciaGym_LionsRoom_SetLionFlag"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "0",
+      "script": "FushciaGym_LionsRoom_SetLionFlag"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
       "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_2",
@@ -134,5 +148,14 @@
       "script": "FushciaGym_LionsRoom_ClearLionFlag"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    }
+  ]
 }

@@ -126,7 +126,7 @@ script Route10_LassAttack {
 	delay(90)
 	playse(SE_EXIT)
 	addobject(LASS)
-	setobjectxy(LASS, 8, 19)
+	setobjectxy(LASS, 9, 19)
 	applymovement(LASS, LassFindsYou)
 	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_FEMALE)

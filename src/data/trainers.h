@@ -6460,5 +6460,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_AngryNerdRichard),
     },
+    [TRAINER_TYPE_TRIO] = {
+        .trainerClass = TRAINER_CLASS_NINJAS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_NINJAS,
+        .trainerName = _("TRIAD"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = NO_ITEM_CUSTOM_MOVES(sParty_ShadowTriad),
+    },
 
 };

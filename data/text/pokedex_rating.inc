@@ -147,8 +147,7 @@ PokedexRating_Text_HintSquirtle::
 	.string "Oh wow!\n"
 	.string "Your CHARIZARD sure evolved early!\p"
 	.string "I wonder if there's a reason for\n"
-	.string "that\l"
-	.string "…$"
+	.string "that…$"
 
 PokedexRating_Text_HintIvysaur::
 	.string "Your SQUIRTLE can still evolve.\n"
@@ -519,10 +518,16 @@ PokedexRating_Text_HintMuk::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintShellder::
-	.string "Placeholder!$"
+	.string "I hear if you comb the beach,\n"
+	.string "you can find many valuables.\p"
+	.string "You should see if you can find\n"
+	.string "anything on ROUTE 15!$"
 
 PokedexRating_Text_HintSlowbro::
-	.string "Placeholder!$"
+	.string "I think someone in CELADON\n"
+	.string "mentioned evolving a SLOWBRO.\p"
+	.string "I wonder what evolved into\n"
+	.string "it?$"
 
 PokedexRating_Text_HintCastform::
 	.string "Placeholder!$"
@@ -599,7 +604,9 @@ PokedexRating_Text_HintFarfetchd::
 	.string "You should talk to her!\n$"
 
 PokedexRating_Text_HintGolurk::
-	.string "Placeholder!$"
+	.string "ROUTE 16 has a wild POKéMON\n"
+	.string "you never caught.\l"
+	.string "Be sure to go back for it!$"
 
 PokedexRating_Text_HintBidoof::
 	.string "Placeholder!$"
@@ -629,17 +636,25 @@ PokedexRating_Text_HintChansey::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintHorsea::
-	.string "The SAFARI WARDEN wanted you to find\n"
-	.string "a DRAGONITE.\p"
-	.string "There must be a tool to figure out\n"
-	.string "which POKéMON evolves into it…$"
+	.string "Your POKéDEX has many valuable\n"
+	.string "features.\p"
+	.string "Did you know you can check the\n"
+	.string "AREA where a POKéMON can be found?\l"
+	.string "Be sure to check it often!$"
 
 PokedexRating_Text_HintDragonite::
-	.string "Your HORSEA can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "Your POKéDEX has many valuable\n"
+	.string "features.\p"
+	.string "Did you know you can check the\n"
+	.string "AREA where a POKéMON can be found?\l"
+	.string "Be sure to check it often!$"
 
 PokedexRating_Text_HintYoshi::
-	.string "Placeholder!$"
+	.string "The DMCA said they'd kept an ITEM\n"
+	.string "that induced an illegal evolution.\p"
+	.string "Did you find something in CELADON\n"
+	.string "that might fit the bill?\l"
+	.string "I bet it'll chase them out!$"
 
 PokedexRating_Text_HintZygarde::
 	.string "Placeholder!$"
@@ -662,7 +677,10 @@ PokedexRating_Text_HintJynx::
 	.string "You should take it!$"
 
 PokedexRating_Text_HintTauros::
-	.string "Placeholder!$"
+	.string "Have you talked to everyone in\n"
+	.string "FUSHCIA CITY?\p"
+	.string "That's a good way to find new\n"
+	.string "POKéMON!$"
 
 PokedexRating_Text_HintScyther::
 	.string "A trainer in CERULEAN GYM says he\n"
@@ -695,7 +713,12 @@ PokedexRating_Text_HintSylveon::
 	.string "Maybe you should use one on it!$"
 
 PokedexRating_Text_HintLatias::
-	.string "Placeholder!$"
+	.string "That cool floaty rock you found\n"
+	.string "seems to induce EVOLUTION!\p"
+	.string "If you look carefully at it, it\n"
+	.string "should seem familiar.\p"
+	.string "What POKéMON normally holds it?\n"
+	.string "Your POKéDEX might give a clue.$"
 
 PokedexRating_Text_HintLumineon::
 	.string "Placeholder!$"
@@ -743,7 +766,8 @@ PokedexRating_Text_HintSeaking::
 	.string "Try leveling it up!$"
 
 PokedexRating_Text_HintGun::
-	.string "Placeholder!$"
+	.string "People often lose things in the\n"
+	.string "darkness of the UNDERGROUND PATH.$"
 
 PokedexRating_Text_HintArcanine::
 	.string "Placeholder!$"
@@ -755,7 +779,11 @@ PokedexRating_Text_HintOrthworm::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintDachsbun::
-	.string "Placeholder!$"
+	.string "You bought a DONUT at the AMERICAN\n"
+	.string "BAKERY earlier, didn't you?\l"
+	.string "Sounds delicious!\p"
+	.string "It's probably gone cold by now.\n"
+	.string "Perhaps you could warm it up?$"
 
 
 PokedexRating_Text_HintMewtwo::

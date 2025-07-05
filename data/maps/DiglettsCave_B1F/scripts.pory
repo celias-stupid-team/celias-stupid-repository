@@ -3,7 +3,76 @@ DiglettsCave_B1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DiglettsCave_B1F_OnTransition
 	.byte 0
 
-DiglettsCave_B1F_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F
-	end
+
 `
+
+script DiglettsCave_B1F_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)
+	if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
+		call(DiglettsCave_DrawHole)
+	}
+}
+
+script DiglettsCave_WallHole {
+	if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
+		lock
+		msgbox("A hole has been dug.\n", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	if(checkitem(ITEM_DRILL_DOZER)) {
+		lock
+		msgbox("There is a small hole in the wall.\pWould you like to DRILL through it?\n", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} used the\nDRILL DOZER!", MSGBOX_DEFAULT)
+			closemessage
+			delay(30)
+			playse(SE_M_STRENGTH)
+			call(DiglettsCave_DrawHole)
+			special(DrawWholeMapView)
+			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+			setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+			special(ShakeScreen)
+			setflag(FLAG_DUG_IN_DIGLETTS_CAVE)
+			release
+			end
+
+
+		}
+	} else {
+		msgbox("There is a small hole in the wall.\n", MSGBOX_SIGN)
+
+	}
+	end
+}
+
+script DiglettsCave_DrawHole {
+	setmetatile(74, 57, 0x298, TRUE)
+	setmetatile(75, 57, 0x299, TRUE)
+	setmetatile(76, 57, 0x299, TRUE)
+	setmetatile(77, 57, 0x299, TRUE)
+	setmetatile(78, 57, 0x299, TRUE)
+	setmetatile(79, 57, 0x299, TRUE)
+	setmetatile(80, 57, 0x299, TRUE)
+
+	
+	setmetatile(74, 57, 0x281, FALSE)
+	setmetatile(75, 57, 0x281, FALSE)
+	setmetatile(76, 57, 0x281, FALSE)
+	setmetatile(77, 57, 0x281, FALSE)
+	setmetatile(78, 57, 0x281, FALSE)
+	setmetatile(79, 57, 0x281, FALSE)
+	setmetatile(80, 57, 0x281, FALSE)
+
+	
+	setmetatile(74, 57, 0x288, TRUE)
+	setmetatile(75, 57, 0x289, TRUE)
+	setmetatile(76, 57, 0x289, TRUE)
+	setmetatile(77, 57, 0x289, TRUE)
+	setmetatile(78, 57, 0x289, TRUE)
+	setmetatile(79, 57, 0x289, TRUE)
+	setmetatile(80, 57, 0x289, TRUE)
+	return
+}

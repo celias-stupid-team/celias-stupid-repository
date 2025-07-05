@@ -85,6 +85,7 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_WATER_PHYSICAL + 1]     = { 32, 12, 0x28 },
     [TYPE_ELECTRIC_PHYSICAL + 1] = { 32, 12, 0x40 },
     [TYPE_PSYCHIC_PHYSICAL + 1]  = { 32, 12, 0x84 },
+    [TYPE_FIGHTING_SPECIAL + 1]  = { 32, 12, 0x64 },
     [MENU_INFO_ICON_TYPE]      = { 40, 12, 0xA8 },
     [MENU_INFO_ICON_POWER]     = { 40, 12, 0xC0 },
     [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },

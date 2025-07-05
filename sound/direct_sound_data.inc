@@ -5306,3 +5306,7 @@ Cry_Relicrabby::
 	.incbin "sound/direct_sound_samples/cries/relicrabby.bin"
 
 	.align 2
+Cry_EGEXCSUTER::
+	.incbin "sound/direct_sound_samples/cries/egexcsuter.bin"
+
+	.align 2

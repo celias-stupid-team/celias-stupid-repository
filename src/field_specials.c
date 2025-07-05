@@ -83,6 +83,8 @@ static void Task_DoDeoxysTriangleInteraction(u8 taskId);
 static void MoveDeoxysObject(u8 num);
 static void Task_WaitDeoxysFieldEffect(u8 taskId);
 static void Task_WingFlapSound(u8 taskId);
+void GetUnownCount(void);
+
 
 static u8 *const sStringVarPtrs[] = {
     gStringVar1,
@@ -2607,4 +2609,9 @@ static void Task_WingFlapSound(u8 taskId)
 u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
+}
+
+
+void GetUnownCount(void) {
+    gSpecialVar_Result = GetGameStat(GAME_STAT_UNOWNS_CAUGHT);
 }

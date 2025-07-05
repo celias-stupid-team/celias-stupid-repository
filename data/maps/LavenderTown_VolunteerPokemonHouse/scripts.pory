@@ -2,14 +2,7 @@ raw `
 LavenderTown_VolunteerPokemonHouse_MapScripts::
 	.byte 0
 
-LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji::
-	lock
-	faceplayer
-	goto_if_set FLAG_GOT_POKE_FLUTE, LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute
-	msgbox LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis
-	setflag FLAG_GOT_POKE_FLUTE
-	release
-	end
+
 
 LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute::
 	msgbox LavenderTown_VolunteerPokemonHouse_Text_HasPokeFluteHelpedYou
@@ -82,3 +75,19 @@ LavenderTown_VolunteerPokemonHouse_EventScript_Blackboard::
 	msgbox LavenderTown_VolunteerPokemonHouse_Text_Blackboard, MSGBOX_SIGN
 	end
 `
+
+
+script LavenderTown_VolunteerPokemonHouse_EventScript_MrFuji {
+	lock
+	faceplayer
+	if(flag(FLAG_GOT_HISTORY_BOOK)) {
+		goto(LavenderTown_VolunteerPokemonHouse_EventScript_AlreadyHavePokeFlute)
+	} else {
+		setflag(FLAG_GOT_HISTORY_BOOK)
+		msgbox(LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis)
+		giveitem_msg("{PLAYER} received the\nHISTORY BOOK!", ITEM_HISTORY_BOOK)
+		msgbox("I provide that HISTORY BOOK to my\nstudents free of charge.\lEveryone should be able to learn.\pIncidentally, have you gone to\nvisit the DANCE THEATER?\pNow that the DMCA are gone,\nthey're free to perform again!", MSGBOX_DEFAULT)
+	}
+	
+	release
+}

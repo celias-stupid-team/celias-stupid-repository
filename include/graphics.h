@@ -12361,6 +12361,14 @@ extern const u32 gMonShinyPalette_Relicrabby[];
 extern const u8 gMonFootprint_Relicrabby[];
 extern const u8 gMonIcon_Relicrabby[];
 
+// EGEXCSUTER
+extern const u32 gMonFrontPic_EGEXCSUTER[];
+extern const u32 gMonPalette_EGEXCSUTER[];
+extern const u32 gMonBackPic_EGEXCSUTER[];
+extern const u32 gMonShinyPalette_EGEXCSUTER[];
+extern const u8 gMonFootprint_EGEXCSUTER[];
+extern const u8 gMonIcon_EGEXCSUTER[];
+
 
 extern const u32 gItemIcon_PERSON_DOLL[];
 extern const u32 gItemIconPalette_PERSON_DOLL[];
@@ -12373,3 +12381,12 @@ extern const u32 gItemIconPalette_BRICKPIECE[];
 
 extern const u32 gItemIcon_BERRYLEGION[];
 extern const u32 gItemIconPalette_BERRYLEGION[];
+
+extern const u32 gTrainerFrontPic_Ninjas[];
+extern const u32 gTrainerPalette_Ninjas[];
+
+extern const u32 gItemIcon_PsychicKey[];
+extern const u32 gItemIconPalette_PsychicKey[];
+
+extern const u32 gItemIcon_HISTORYBOOK[];
+extern const u32 gItemIconPalette_HISTORYBOOK[];

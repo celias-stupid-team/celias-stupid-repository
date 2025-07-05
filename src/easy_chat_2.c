@@ -301,9 +301,17 @@ static const u16 sECPhrase_LinkTogetherWithAll[] = {
     EC_WORD_ALL
 };
 
+static const u16 sECPhrase_PsychicKeyGottenFree[] = {
+    EC_WORD_PSYCHIC,
+    EC_WORD_KEY,
+    EC_WORD_GOTTEN,
+    EC_WORD_FREE
+};
+
 static void CompareQuestionnaireResponseWithPassphrase(void)
 {
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
+    gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
 }
 
 static const struct EasyChatScreenTemplate sEasyChatScreenTemplates[] = {

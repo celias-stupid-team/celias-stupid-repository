@@ -14,15 +14,22 @@ script FushciaGym_DarkraiRoom_OpenDoors {
     return
 }
 
+
 script FushciaGym_DarkraiRoom_Janine {
     lock
     faceplayer
-    if(!checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
+    textcolor(NPC_TEXT_COLOR_RED)
+    if(checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
+    msgbox("The FRONTIER BRAINS in the other\nrooms won't stop yelling.\lIt's keeping me awake!\pI gotta tell my FATHER to do\nsomething about that.", MSGBOX_DEFAULT)
+        call(FushciaGym_DarkraiRoom_OpenDoors)
+        special(DrawWholeMapView)
+    } else {
         msgbox("My name is JANINE!\nMy FATHER is the LEADER of this GYM!\pAre you tired yet?\nFUSHCIA GYM is just beginning!")
         trainerbattle_no_intro(TRAINER_FUSHCIA_GYM_JANINE, "Hey!\nNo fair!")
+        call(FushciaGym_DarkraiRoom_OpenDoors)
+        special(DrawWholeMapView)
 
     }
-    msgbox("The FRONTIER BRAINS in the other\nrooms won't stop yelling.\pIt's keeping me awake!\n", MSGBOX_DEFAULT)
     call(FushciaGym_DarkraiRoom_OpenDoors)
     special(DrawWholeMapView)
     release

@@ -3398,3 +3398,6 @@ const struct SpriteFrameImage gObjectEventPicTable_Stump[] = {
     overworld_frame(gObjectEventPic_Stump, 2, 4, 7),
     overworld_frame(gObjectEventPic_Stump, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Blank[] = {
+    overworld_frame(gObjectEventPic_Blank, 2, 2, 0),
+};

@@ -33,6 +33,7 @@ script SandwichShop_GamblerMan {
 script SandwichShop_DonutGirl {
 	setflag(FLAG_BAKED_DONUT_HINT)
 	call(SetPlayerPokedexValues)
+	famechecker(FAMECHECKER_KANTO_SHORELINE, 1)
 	msgbox("The traditional AMERICAN cuisine\nhere is amazing!\pI think the DONUTS are extra good \nif you put them in the toaster first.\lIt gets 'em nice and crispy!", MSGBOX_NPC)
 	end
 }

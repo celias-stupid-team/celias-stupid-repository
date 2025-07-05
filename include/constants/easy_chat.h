@@ -38,7 +38,7 @@
 
 // TRAINER
 #define EC_WORD_I_CHOOSE_YOU  (EC_GROUP_TRAINER << 9) | 0x0
-#define EC_WORD_GOTCHA        (EC_GROUP_TRAINER << 9) | 0x1
+#define EC_WORD_GOTTEN        (EC_GROUP_TRAINER << 9) | 0x1
 #define EC_WORD_TRADE         (EC_GROUP_TRAINER << 9) | 0x2
 #define EC_WORD_SAPPHIRE      (EC_GROUP_TRAINER << 9) | 0x3
 #define EC_WORD_EVOLVE        (EC_GROUP_TRAINER << 9) | 0x4
@@ -318,7 +318,7 @@
 #define EC_WORD_HE_S         (EC_GROUP_PEOPLE << 9) | 0x1e
 #define EC_WORD_AREN_T       (EC_GROUP_PEOPLE << 9) | 0x1f
 #define EC_WORD_SIBLINGS     (EC_GROUP_PEOPLE << 9) | 0x20
-#define EC_WORD_KID          (EC_GROUP_PEOPLE << 9) | 0x21
+#define EC_WORD_KEY          (EC_GROUP_PEOPLE << 9) | 0x21
 #define EC_WORD_CHILDREN     (EC_GROUP_PEOPLE << 9) | 0x22
 #define EC_WORD_MR           (EC_GROUP_PEOPLE << 9) | 0x23
 #define EC_WORD_MRS          (EC_GROUP_PEOPLE << 9) | 0x24
@@ -899,7 +899,7 @@
 #define EC_WORD_TUESDAY    (EC_GROUP_TIME << 9) | 0xb
 #define EC_WORD_YESTERDAY  (EC_GROUP_TIME << 9) | 0xc
 #define EC_WORD_TODAY      (EC_GROUP_TIME << 9) | 0xd
-#define EC_WORD_FRIDAY     (EC_GROUP_TIME << 9) | 0xe
+#define EC_WORD_FREE     (EC_GROUP_TIME << 9) | 0xe
 #define EC_WORD_MONDAY     (EC_GROUP_TIME << 9) | 0xf
 #define EC_WORD_LATER      (EC_GROUP_TIME << 9) | 0x10
 #define EC_WORD_EARLIER    (EC_GROUP_TIME << 9) | 0x11

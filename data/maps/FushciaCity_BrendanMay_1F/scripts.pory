@@ -76,6 +76,11 @@ script BrendanMay_Mom {
 
 script BrendanMay_ImposterOak {
     lock
+    if(flag(FLAG_WATERED_BRENDANMAY_OAK)) {
+        msgbox("no tree")
+        release
+        end
+    }
     if(checkitem(ITEM_WAILMER_PAIL)) {
         msgbox("water tree?\n", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
@@ -83,6 +88,7 @@ script BrendanMay_ImposterOak {
             playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
             msgbox("watered\n", MSGBOX_DEFAULT)
             call(BrendanMay_DrawStaircase)
+            special(DrawWholeMapView)
             fadedefaultbgm
             release
             end
