@@ -6,6 +6,8 @@ SafariZone_West_EventScript_RestHouseSign::
 	end
 
 SafariZone_West_EventScript_LostTeethNotice::
+	famechecker FAMECHECKER_FUSHCIA 4
+	setflag FLAG_CSR_HINT_GOLD_TEETH
 	msgbox SafariZone_West_Text_PleaseFindWardensLostTeeth, MSGBOX_SIGN
 	end
 

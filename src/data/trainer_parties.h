@@ -4706,14 +4706,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerSamuel[] = {
     {
         .iv = 100,
         .lvl = 24,
-        .species = SPECIES_FLAAFFY,
+        .species = SPECIES_MAWILE,
         .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 100,
-        .lvl = 24,
-        .species = SPECIES_MAWILE,
-        .moves = {MOVE_SLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .lvl = 22,
+        .species = SPECIES_EGEXCSUTER,
+        .moves = {MOVE_BARRAGE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
@@ -10178,3 +10178,4 @@ static const struct TrainerMonNoItemCustomMoves sParty_ImposterOakFushcia[] = {
     },
 
 };
+

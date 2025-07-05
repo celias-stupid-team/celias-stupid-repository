@@ -75,7 +75,7 @@ script Route12_AnnoyedGuy {
 	if(flag(FLAG_CSR_DEFEATED_SNORLAX)) {
 		msgbox("Rats!\nThe POKéMON in the road moved, but…\pIt doesn't actually help me.\nI was trying to go to The Mountains!\lGrumble grumble…", MSGBOX_NPC)
 	} else {
-		msgbox("Rats!\nThere's a POKéMON in the road.\pI tried to catch it to get it out\nof the way, but I couldn't.\lThe BALLS just bounced right off!\pIf only there were a way to wake\nit up…", MSGBOX_NPC)
+		msgbox("Rats!\nThere's a POKéMON in the road.\pI've been pushing and pushing, but\nI can't move it out of the way!\pGrr, if only there was a way I\ncould just wake it up!\lGrumble grumble…", MSGBOX_NPC)
 	}
 	end
 }

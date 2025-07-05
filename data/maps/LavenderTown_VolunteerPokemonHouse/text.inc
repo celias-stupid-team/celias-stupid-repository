@@ -44,10 +44,9 @@ LavenderTown_VolunteerPokemonHouse_Text_IdLikeYouToHaveThis::
 	.string "Thank you for saving CUBONE'S\n"
 	.string "MOTHER.\l"
 	.string "The children are deeply grateful.\p"
-	.string "Incidentally, have you gone to\n"
-	.string "visit the DANCE THEATER?\p"
-	.string "Now that the DMCA are gone, they're\n"
-	.string "free to perform again.$"
+	.string "Here, let me give you the greatest\n"
+	.string "gift I can offer:\l"
+	.string "A repository of knowledge!$"
 
 LavenderTown_VolunteerPokemonHouse_Text_ReceivedPokeFluteFromMrFuji::
     .string "{PLAYER} received a POKé FLUTE\n"
@@ -63,8 +62,10 @@ LavenderTown_VolunteerPokemonHouse_Text_MustMakeRoomForThis::
     .string "You must make room for this!$"
 
 LavenderTown_VolunteerPokemonHouse_Text_HasPokeFluteHelpedYou::
-	.string "MR. FUJI: Have you gone to see the\n"
-	.string "DANCE HALL?$"
+	.string "MR. FUJI: Ah, {PLAYER}!\n"
+	.string "Nice to see you.\p"
+	.string "Say, have you gone to visit the\n"
+	.string "DANCE THEATER yet?$"
 
 LavenderTown_VolunteerPokemonHouse_Text_GrandPrizeDrawingClipped::
     .string "The book “My Secret Life”\n"

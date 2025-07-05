@@ -1,23 +1,13 @@
 raw `
-ThreeIsland_DunsparceTunnel_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, ThreeIsland_DunsparceTunnel_OnTransition
-	.byte 0
 
-ThreeIsland_DunsparceTunnel_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL
-	specialvar VAR_RESULT, IsNationalPokedexEnabled
-	copyvar VAR_0x8008, VAR_RESULT
-	call_if_eq VAR_0x8008, TRUE, ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut
-	call_if_eq VAR_0x8008, FALSE, ThreeIsland_DunsparceTunnel_EventScript_MoveProspectorToWall
-	end
 
 ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut::
 	setmaplayoutindex LAYOUT_THREE_ISLAND_DUNSPARCE_TUNNEL_DUG_OUT
 	return
 
 ThreeIsland_DunsparceTunnel_EventScript_MoveProspectorToWall::
-	setobjectxyperm LOCALID_PROSPECTOR, 6, 3
-	setobjectmovementtype LOCALID_PROSPECTOR, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectxyperm LOCALID_PROSPECTOR, 3, 14
+	setobjectmovementtype LOCALID_PROSPECTOR, MOVEMENT_TYPE_FACE_UP
 	return
 
 ThreeIsland_DunsparceTunnel_EventScript_Prospector::
@@ -51,3 +41,17 @@ ThreeIsland_DunsparceTunnel_EventScript_ProspectorAlreadyGaveNugget::
 	release
 	end
 `
+
+mapscripts ThreeIsland_DunsparceTunnel_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL)
+		callnative(GetUnownCount)
+		if(var(VAR_RESULT) >= 25) {
+			call(ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut)
+
+		} else {
+			call(ThreeIsland_DunsparceTunnel_EventScript_MoveProspectorToWall)
+		}
+	}
+
+}

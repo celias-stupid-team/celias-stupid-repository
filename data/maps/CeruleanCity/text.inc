@@ -164,7 +164,7 @@ CeruleanCity_Text_ThisIsCeruleanCave::
 CeruleanCity_Text_CitySign::
     .string "CERULEAN CITY\n"
     .string "The Home of Competition\p"
-    .string "RECOMMENDED POKéDEX COMPLETION: 30$"
+    .string "RECOMMENDED POKéDEX COMPLETION: 38$"
 
 CeruleanCity_Text_TrainerTipsHeldItems::
     .string "TRAINER TIPS\p"

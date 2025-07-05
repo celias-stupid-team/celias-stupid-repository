@@ -988,6 +988,7 @@ void FieldUseFunc_Nothing(u8 taskId)
 
 static void ItemUseOnFieldCB_PayDayTM(u8 taskId)
 {
+    RemoveUsedItem();
     if (gSpecialVar_Result != STATE_PAYDAY_SENTTOPC)
         PlayFanfare(MUS_LEVEL_UP);
 
@@ -1342,7 +1343,7 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u
 void FieldUseFunc_MoveRelearner(u8 taskId)
 {
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
+    StringExpandPlaceholders(gStringVar4, gText_UnzippedTheItem);
     sItemUseOnFieldCB = ItemUseOnFieldCB_MoveRelearner;
     SetUpItemUseOnFieldCallback(taskId);
 }

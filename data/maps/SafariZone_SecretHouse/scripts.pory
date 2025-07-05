@@ -66,6 +66,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 	GivingPrize:
 		//Give the TM
 		//Handle Bag issues I guess?
+		famechecker(FAMECHECKER_FUSHCIA, 5)
 		setflag(FLAG_CSR_GOT_PAY_DAY)
 		giveitem_msg("{PLAYER} received the\nTM16 (PAY DAY)!", ITEM_TM16)
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)

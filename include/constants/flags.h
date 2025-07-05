@@ -586,7 +586,7 @@
 #define FLAG_HIDE_GTS_NPCS               0x214
 #define FLAG_LOOK_GIRL_LASS               0x215
 #define FLAG_MELTED_LIGHTHOUSE_GUARD               0x216
-#define FLAG_0x217               0x217
+#define FLAG_GOT_HISTORY_BOOK               0x217
 #define FLAG_0x218               0x218
 #define FLAG_0x219               0x219
 #define FLAG_0x21A               0x21A
@@ -642,7 +642,7 @@
 #define FLAG_BOUGHT_GYARADOS                             0x249
 #define FLAG_DID_JYNX_TRADE                              0x24A
 #define FLAG_DID_RAICHU_TRADE                           0x24B
-#define FLAG_0x24C                                       0x24C
+#define FLAG_GOT_MOVE_BOOK                                       0x24C
 #define FLAG_DID_FARFETCHD_TRADE                           0x24D
 #define FLAG_GOT_TM38_FROM_BLAINE                        0x24E
 #define FLAG_OAK_SKIP_22_RIVAL_CHECK                     0x24F
@@ -659,9 +659,9 @@
 #define FLAG_AIDES_RAN_AWAY                                       0x25A
 #define FLAG_GOT_TM27                                    0x25B
 #define FLAG_GOT_HOUSE_KEY                                       0x25C
-#define FLAG_0x25D                                       0x25D
+#define FLAG_SAW_KANGA_CUTSCENE                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
-#define FLAG_0x25F                                       0x25F
+#define FLAG_GOT_PSYCHIC_KEY                                       0x25F
 #define FLAG_0x260                                       0x260
 #define FLAG_0x261                                       0x261
 #define FLAG_0x262                                       0x262
@@ -903,7 +903,7 @@
 #define FLAG_FREED_KANGA               0x343
 #define FLAG_WATERED_BRENDANMAY_OAK               0x344
 #define FLAG_GOT_BRENDANMAY_JIRACHI               0x345
-#define FLAG_0x346               0x346
+#define FLAG_DUG_IN_DIGLETTS_CAVE               0x346
 #define FLAG_0x347               0x347
 #define FLAG_0x348               0x348
 #define FLAG_0x349               0x349
@@ -946,7 +946,7 @@
 #define FLAG_0x36E               0x36E
 #define FLAG_0x36F               0x36F
 #define FLAG_0x370               0x370
-#define FLAG_0x371               0x371
+#define FLAG_CSR_HINT_GOLD_TEETH               0x371
 #define FLAG_CSR_SPEEDRUN_CAVE               0x372
 #define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373
 #define FLAG_CSR_HINT_EVO_LEVEL               0x374

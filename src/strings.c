@@ -1394,6 +1394,7 @@ const u8 gText_Send[] = _("SEND");
 const u8 gText_Toss[] = _("TOSS");
 const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK");
 const u8 gText_UsedTheItem[] = _("Used the {STR_VAR_1}!{PAUSE_UNTIL_PRESS}");
+const u8 gText_UnzippedTheItem[] = _("{PLAYER} unzipped the {STR_VAR_1}!{PAUSE_UNTIL_PRESS}");
 const u8 gText_LWPEmblemEnd[] = _("{PLAYER} looks fabulous!{PAUSE_UNTIL_PRESS}");
 const u8 gText_GenderFluidEnd[] = _("Gender?\nI hardly know 'er!{PAUSE_UNTIL_PRESS}");
 const u8 gText_GimmieghoulCameOut[] = _("Wow!\nA GIMMIEGHOUL came out of the TM!{PAUSE_UNTIL_PRESS}");

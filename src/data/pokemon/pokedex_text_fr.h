@@ -6,9 +6,7 @@ const u8 gDummyPokedexText[] = _(
 const u8 gDummyPokedexTextUnused[] = _("");
 
 const u8 gBulbasaurPokedexText[] = _(
-	"And with that, we have all\n"
-	"of the starters!\n"
-	"Lovely!");
+		"One, two…");
 
 const u8 gBulbasaurPokedexTextUnused[] = _("");
 
@@ -20,9 +18,7 @@ const u8 gIvysaurPokedexText[] = _(
 const u8 gIvysaurPokedexTextUnused[] = _("");
 
 const u8 gVenusaurPokedexText[] = _(
-    "A bewitching aroma wafts from its flower.\n"
-    "The fragrance becalms those engaged in\n"
-    "a battle.");
+    	"Oops, we skipped a few.");
 
 const u8 gVenusaurPokedexTextUnused[] = _("");
 
@@ -653,7 +649,7 @@ const u8 gHitmonchanPokedexText[] = _(
 const u8 gHitmonchanPokedexTextUnused[] = _("");
 
 const u8 gLickitungPokedexText[] = _(
-	"(insert sex joke here)");
+	"(1 2 3 4 2 7 1)");
 
 const u8 gLickitungPokedexTextUnused[] = _("");
 
@@ -2569,9 +2565,8 @@ const u8 gRayquazaPokedexText[] = _(
 const u8 gRayquazaPokedexTextUnused[] = _("");
 
 const u8 gJirachiPokedexText[] = _(
-	"I've spent months and months\n"
-	"trying to get a shiny JIRACHI.\n"
-	"I'm not convinced it's possible.");
+	"If you can see the future,\n"
+	"why didn't you stop 9/11?");
 
 const u8 gJirachiPokedexTextUnused[] = _("");
 
@@ -2703,3 +2698,8 @@ const u8 gEternatusPokedexText[] = _(
 const u8 gAmpharosMPokedexText[] = _(
 	"People often lose things in the\n"
 	"darkness of the UNDERGROUND PATH.");
+
+
+const u8 gVictiniPokedexText[] = _(
+	"All good programmers will\n"
+	"index starting at 0!");

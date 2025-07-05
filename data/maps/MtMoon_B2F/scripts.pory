@@ -268,7 +268,7 @@ script MtMoon_B2F_EventScript_DomeFossil { //Sail fossil that you can't have
 }
 
 script MtMoon_MiguelStoleFossil {
-	msgbox("Yes!\nI've always wanted a SAIL FOSSIL!\pHahaha!\nGet your own, loser!", MSGBOX_NPC)
+	msgbox("Yes!\nI've always wanted a SAIL FOSSIL!\pHahaha!\nGet your own!", MSGBOX_NPC)
 	end
 }
 
@@ -284,5 +284,10 @@ script MtMoonCelia_WallMoved {
 
 script MtMoonCelia_PC {
 	msgbox("Adding a PC into a cave was\nactually really obnoxious.\pThe turn on the PC animation is\ntied to the tile ID and it only\lworks for indoor maps by default.\pI needed to edit the outdoor\ntileset so that the PC lined up\lperfectly with the indoor one.", MSGBOX_NPC)
+	end
+}
+
+script MtMoon_ExitSign {
+	msgbox("MT MOON\nExit {LEFT_ARROW}\lEntrance {RIGHT_ARROW}", MSGBOX_SIGN)
 	end
 }

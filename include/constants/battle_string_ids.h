@@ -419,8 +419,9 @@
 #define STRINGID_PKMNSITEMRESTOREDPP2 418
 #define STRINGID_VANISHEDFROMEXISTENCE 419
 #define STRINGID_FUCKINGDIED 420
+#define STRINGID_IT_MIST 421
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     422 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     423 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -652,5 +653,6 @@
 #define B_MSG_EXTREME_EVOBOOST        7
 #define B_MSG_VEEVEE_VOLLEY        8
 #define B_MSG_FICKLE_BEAM        9
+#define B_MSG_MIST        10
 
 #endif // GUARD_BATTLE_STRING_IDS_H

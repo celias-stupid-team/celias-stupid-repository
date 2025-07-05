@@ -323,7 +323,7 @@
     {
       "id": "HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM",
       "map": "MAP_FUSHCIA_GYM_LIONS_ROOM",
-      "x": 10,
+      "x": 9,
       "y": 13,
       "respawn_map": "MAP_FUSHCIA_GYM_LIONS_ROOM",
       "respawn_npc": "1"
