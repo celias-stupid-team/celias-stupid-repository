@@ -55,3 +55,11 @@ mapscripts ThreeIsland_DunsparceTunnel_MapScripts {
 	}
 
 }
+
+
+script DunsparceTunnelMapTest {
+	lock
+	call(ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut)
+	special(DrawWholeMapView)
+	release
+}
