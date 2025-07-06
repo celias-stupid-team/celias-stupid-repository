@@ -587,8 +587,8 @@
 #define FLAG_LOOK_GIRL_LASS               0x215
 #define FLAG_MELTED_LIGHTHOUSE_GUARD               0x216
 #define FLAG_GOT_HISTORY_BOOK               0x217
-#define FLAG_0x218               0x218
-#define FLAG_0x219               0x219
+#define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE               0x218
+#define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS               0x219
 #define FLAG_0x21A               0x21A
 #define FLAG_0x21B               0x21B
 #define FLAG_0x21C               0x21C

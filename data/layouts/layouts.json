@@ -5232,6 +5232,18 @@
       "secondary_tileset": "gTileset_SafariZoneBuilding",
       "border_filepath": "data/layouts/SafariZone_RestHouse_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_RestHouse_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2",
+      "name": "FushciaGym_ImposterOakRoom_Layout_2",
+      "width": 35,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NewFuchsiaGym",
+      "border_filepath": "data/layouts/FushciaGym_ImposterOakRoom_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/FushciaGym_ImposterOakRoom_Layout_2/map.bin"
     }
   ]
 }

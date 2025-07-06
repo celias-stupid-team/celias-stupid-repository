@@ -6,8 +6,12 @@ mapscripts FushciaGym_LassMaze_MapScripts {
 }
 
 script FushciaGym_DoorBlockingLass {
-    lock
-    release //Intentionally causes a softlock for now
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox("Hey!\nDon't look at me!", MSGBOX_DEFAULT)
+    closemessage
+    warp(MAP_FUSHCIA_GYM_LASS_MAZE, 0)
+    release
+    end
 }
 
 script FushciaGym_LassMaze_Sign {

@@ -2,8 +2,14 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
 		
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_IMPOSTER_OAK_ROOM)
+		if(!flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+			setflag(FLAG_TEMP_1)
+		} else {
+			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
+		}
 	}
 }
+
 
 
 script FushciaGym_ImposterOakRoom_ImposterOak{
@@ -52,4 +58,9 @@ script FushciaGym_ImposterOakRoom_ImposterOak{
 	}
 	
 	release
+}
+
+script FushciaGym_CleaningLady {
+	msgbox("Huh?\nYeah, I'm the CLEANING LADY.\pThis room's getting remodeled.\nI moved the STATUES to storage.", MSGBOX_NPC)
+	end
 }

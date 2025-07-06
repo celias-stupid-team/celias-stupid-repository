@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "6",
-      "script": "NULL",
+      "script": "FushciaGym_DoorBlockingLass",
       "flag": "0"
     },
     {
@@ -120,8 +120,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 8,
-      "y": 12,
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaGym_LassMaze_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaGym_LassMaze_Sign"
