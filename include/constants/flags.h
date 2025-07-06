@@ -363,9 +363,9 @@
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_TOOK_GIRL_DOLL               0x13E
 #define FLAG_GOT_SECRET_FARFETCHD               0x13F
-#define FLAG_0x140               0x140
-#define FLAG_0x141               0x141
-#define FLAG_0x142               0x142
+#define FLAG_DRILLED_RAIN_HOLE               0x140
+#define FLAG_DRILLED_LION_HOLE               0x141
+#define FLAG_CHASED_VULPIX               0x142
 #define FLAG_0x143               0x143
 #define FLAG_0x144               0x144
 #define FLAG_0x145               0x145

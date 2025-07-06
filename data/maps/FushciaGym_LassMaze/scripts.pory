@@ -9,7 +9,7 @@ script FushciaGym_DoorBlockingLass {
     textcolor(NPC_TEXT_COLOR_RED)
     msgbox("Hey!\nDon't look at me!", MSGBOX_DEFAULT)
     closemessage
-    warp(MAP_FUSHCIA_GYM_LASS_MAZE, 0)
+    warp(MAP_FUSHCIA_GYM_LASS_MAZE, 3)
     release
     end
 }

@@ -29,8 +29,9 @@ mapscripts FushciaGym_ShedinjaRoom_MapScripts {
 script FushciaGym_ShedinjaTrainer {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_MALE)
     if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
-        msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n{PAUSE 30}…Huh? It's an ORB, you say?", MSGBOX_DEFAULT)
+        msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n{PAUSE 30}…Huh?\lIt's an ORB, you say?", MSGBOX_DEFAULT)
         call(FushciaGym_ShedinjaRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {
