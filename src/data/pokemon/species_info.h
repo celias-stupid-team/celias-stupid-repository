@@ -357,7 +357,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_BUTTERFREE] =
     {
         .baseHP = 60,
-        .baseAttack = 45,
+        .baseAttack = 85,
         .baseDefense = 50,
         .baseSpeed = 70,
         .baseSpAttack = 100,
@@ -2560,12 +2560,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GRIMER] =
     {
-        .baseHP = 80,
-        .baseAttack = 80,
-        .baseDefense = 50,
-        .baseSpeed = 25,
-        .baseSpAttack = 40,
-        .baseSpDefense = 50,
+        .baseHP = 100,
+        .baseAttack = 110,
+        .baseDefense = 80,
+        .baseSpeed = 50,
+        .baseSpAttack = 60,
+        .baseSpDefense = 90,
         .types = {TYPE_POISON, TYPE_POISON},
         .catchRate = 255,
         .expYield = 90,
@@ -21140,7 +21140,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_EARLY_BIRD, ABILITY_NONE},
+        .abilities = {ABILITY_INTIMIDATE, ABILITY_INTIMIDATE},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,

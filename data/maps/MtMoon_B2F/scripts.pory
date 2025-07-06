@@ -287,7 +287,7 @@ script MtMoonCelia_PC {
 	end
 }
 
-script MtMoon_ExitSign {
-	msgbox("MT MOON\nExit {LEFT_ARROW}\lEntrance {RIGHT_ARROW}", MSGBOX_SIGN)
+script MtMoon_1F_ExitSign {
+	msgbox("MT MOON\nExit {UP_ARROW}\lEntrance {DOWN_ARROW}", MSGBOX_SIGN)
 	end
 }

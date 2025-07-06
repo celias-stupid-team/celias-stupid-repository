@@ -523,11 +523,11 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 11,
       "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "MtMoon_1F_ExitSign"
     }
   ]
 }

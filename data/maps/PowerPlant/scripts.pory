@@ -422,7 +422,7 @@ script PowerPlant_CeliaComputer {
 	end
 }
 
-script PowerPlant_Dazzle {
+script PowerPlant_Celia_Dazzle {
 	msgbox("This guy is from Paper Mario TTYD!\nHe trades a badge for a star piece.\pHave you found how to get his\nBADGE?", MSGBOX_NPC)
 	end
 }
