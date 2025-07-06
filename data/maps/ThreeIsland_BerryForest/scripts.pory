@@ -33,6 +33,11 @@ ThreeIsland_BerryForest_EventScript_BewareSign::
 	end
 `
 
+script BerryForest_SetShinyFlag {
+	setflag(FLAG_SHINY_CREATION)
+	release
+}
+
 script BerryForest_Hbox {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	lock

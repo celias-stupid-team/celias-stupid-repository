@@ -43,8 +43,8 @@
       "x": 25,
       "y": 14,
       "elevation": 3,
-      "dest_map": "MAP_THREE_ISLAND_PORT",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_THREE_ISLAND_BERRY_FOREST",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [],

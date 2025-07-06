@@ -59,7 +59,7 @@ script FushciaGym_LionsRoom_Vulpix {
             special(ShakeScreen)
             removeobject(VAR_LAST_TALKED)
             setflag(FLAG_CHASED_VULPIX)
-            setweather(WEATHER_CLEAR)
+            setweather(WEATHER_NONE)
             doweather
             delay(20)
 
