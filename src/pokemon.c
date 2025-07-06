@@ -2178,6 +2178,7 @@ void CalculateMonStats(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+    s32 arg;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
@@ -2227,6 +2228,13 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
+
+    //special Sleep status clause for FLAG_SYS_SNORLAX_FIGHT
+    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT) && species == SPECIES_SNORLAX)
+    {
+        arg = STATUS1_SLEEP_TURN(3);
+        SetMonData(mon, MON_DATA_STATUS, &arg);
+    }
 }
 
 void BoxMonToMon(struct BoxPokemon *src, struct Pokemon *dest)
