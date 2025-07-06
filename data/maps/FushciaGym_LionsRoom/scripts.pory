@@ -7,6 +7,12 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+            setmetatile(11, 12, 0x3C3, FALSE)
+        }
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
+            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
+        }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM)
     }
@@ -28,4 +34,23 @@ script FushciaGym_LionsRoom_ClearLionFlag {
     clearflag(FLAG_LION_BATTLE)
     release
 
+}
+
+script FushciaGym_LionsRoom_LookGirlResetButton {
+    if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+        setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 10)
+        copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
+        addvar(VAR_TEMP_1, 2)
+        setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 9)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+            playse(SE_CLICK)
+            special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(20)
+
+    }
+    release
 }

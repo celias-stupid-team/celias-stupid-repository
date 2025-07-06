@@ -5194,7 +5194,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Janine = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Darach = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -5212,7 +5212,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Darach = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Caitlin = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
