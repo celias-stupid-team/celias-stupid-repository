@@ -390,7 +390,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_CHANSEY) // 127
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_BAKED_DONUT_HINT) || checkmoncaught(SPECIES_DACHSBUN)) { //TODO figure out logic
 		setobtainable(SPECIES_DACHSBUN) // 128
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
