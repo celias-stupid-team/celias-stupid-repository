@@ -210,7 +210,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_CeliaComputer",
-      "flag": "FLAG_CSR_CELIA_BONUS"
+      "flag": "FLAG_CELIA_BONUS_3"
     },
     {
       "type": "object",
@@ -224,7 +224,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Celia_Dazzle",
-      "flag": "FLAG_CSR_CELIA_BONUS"
+      "flag": "FLAG_CELIA_BONUS_3"
     },
     {
       "type": "object",
@@ -238,7 +238,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Uranium",
-      "flag": "FLAG_CSR_CELIA_BONUS"
+      "flag": "FLAG_CELIA_BONUS_3"
     },
     {
       "type": "object",
@@ -252,7 +252,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PowerPlant_Minigame",
-      "flag": "FLAG_CSR_CELIA_BONUS"
+      "flag": "FLAG_CELIA_BONUS_3"
     }
   ],
   "warp_events": [
@@ -310,7 +310,7 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PowerPlant_MinigameStart"
+      "script": "PowerPlant_Console"
     },
     {
       "type": "sign",

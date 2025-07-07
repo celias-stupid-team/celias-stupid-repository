@@ -3,7 +3,7 @@
   "name": "CeladonCity_PokemonCenter_1F",
   "layout": "LAYOUT_POKEMON_CENTER_1F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_ONE_ISLAND",
+  "region_map_section": "MAPSEC_POKEMON_CENTER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_CELADON_NURSE",
@@ -117,10 +117,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

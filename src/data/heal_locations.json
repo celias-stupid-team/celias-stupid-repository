@@ -415,6 +415,14 @@
       "y": 82,
       "respawn_map": "MAP_ROUTE12",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_SAFARI_ZONE",
+      "map": "MAP_SAFARI_ZONE_NORTH",
+      "x": 39,
+      "y": 12,
+      "respawn_map": "MAP_SAFARI_ZONE_NORTH",
+      "respawn_npc": "1"
     }
   ]
 }

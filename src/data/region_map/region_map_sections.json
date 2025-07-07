@@ -706,7 +706,7 @@
     },
     {
       "id": "MAPSEC_ONE_ISLAND",
-      "name": "ONE ISLANDS",
+      "name": "CELADON CITY",
       "x": 1,
       "y": 8,
       "width": 1,
@@ -1011,7 +1011,7 @@
     {
       "id": "MAPSEC_POKEMON_CENTER",
       "name": "POKéMON CENTER",
-      "x": 0,
+      "x": 15,
       "y": 0,
       "width": 1,
       "height": 1

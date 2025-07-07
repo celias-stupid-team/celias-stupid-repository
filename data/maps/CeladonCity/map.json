@@ -293,7 +293,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_CeladonItem",
-      "flag": "FLAG_CSR_CELIA_BONUS"
+      "flag": "FLAG_CELIA_BONUS_3"
     },
     {
       "type": "object",

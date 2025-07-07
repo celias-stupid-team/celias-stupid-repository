@@ -144,7 +144,7 @@ script PowerPlant_Dazzle {
 					closemessage
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					//You got the badge!
-					msgbox("{PLAYER} obtained the POWER BOUNCE BADGE!\n", MSGBOX_DEFAULT)
+					msgbox("{PLAYER} obtained the\nPOWER BOUNCE BADGE!\n", MSGBOX_DEFAULT)
 					call(EventScript_GymBadgeFanfare)
 					closemessage
 					textcolor(NPC_TEXT_COLOR_MALE)
