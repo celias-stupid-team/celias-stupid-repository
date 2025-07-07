@@ -28,7 +28,7 @@ gBattleAI_ScriptsTable::
 	.4byte AI_DoubleBattle
 	.4byte AI_HPAware
 	.4byte AI_Unknown
-	.4byte AI_Ret
+	.4byte AI_Ret // AI_SCRIPT_SWITCH_IN_ORDER, has no actual script. Only used in GetMostSuitableMonToSwitchInto()
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
