@@ -111,6 +111,22 @@ u8 ScriptGiveShortsEkans(u16 species, u8 level, u16 item, u32 unused1, u32 unuse
     return sentToPc;
 }
 
+
+static const u16 sShortsGangMessage[][10] = {
+    {
+        EC_WORD_THAT_S,
+        EC_WORD_A,
+        EC_WORD_HEALTHY,
+        EC_POKEMON(JYNX),
+        EC_WORD_EXCL,
+        EC_WORD_BE,
+        EC_WORD_KIND,
+        EC_WORD_TO,
+        EC_WORD_IT
+    }
+};
+
+
 u8 ScriptGiveEgg(u16 species)
 {
     struct Pokemon *mon = AllocZeroed(sizeof(struct Pokemon));

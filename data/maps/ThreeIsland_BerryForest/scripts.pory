@@ -34,7 +34,7 @@ ThreeIsland_BerryForest_EventScript_BewareSign::
 `
 
 script BerryForest_SetShinyFlag {
-	setflag(FLAG_SHINY_CREATION)
+	setflag(FLAG_SHINY_CREATION) // Unown
 	release
 }
 

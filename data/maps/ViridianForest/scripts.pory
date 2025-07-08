@@ -149,7 +149,7 @@ script ViridianForest_EventScript_Flowers4 {
 	lock
 	setvar(VAR_TEMP_1, 0)
 	if(!flag(FLAG_WALKED_THROUGH_GRASS)) {
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Metapod
 	}
 	setwildbattle(SPECIES_METAPOD, 5, ITEM_REPEL)
 	dowildbattle

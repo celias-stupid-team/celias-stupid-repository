@@ -21,7 +21,7 @@ mapscripts Route13_MapScripts {
 			setobjectxyperm(LOOK_SIGN, 17, 14)
 
 		}
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Venonat
 	}
 }
 

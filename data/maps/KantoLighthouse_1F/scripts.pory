@@ -139,7 +139,7 @@ script GTS_TradeSpot_Secret {
         goto_if_ne(VAR_RESULT, SPECIES_JIRACHI, GTS_TradeDoesNotMatch)
         msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
         closemessage
-        setflag(FLAG_SHINY_CREATION)
+        setflag(FLAG_SHINY_CREATION) // Ampharos
         setflag(FLAG_DID_AMPHAROS_TRADE)
         call(EventScript_DoInGameTrade)
         msgbox("Thank you!\n", MSGBOX_DEFAULT)

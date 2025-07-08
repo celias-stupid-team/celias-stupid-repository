@@ -510,7 +510,7 @@ script Route15_PokeRap_Trainer29 {
     }
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
     if(var(VAR_RESULT) == SPECIES_PINSIR) {
-        setflag(FLAG_SHINY_CREATION)
+        setflag(FLAG_SHINY_CREATION) // Pinsir
         msgbox("Oh!\nShoot, you're right.\lI guess I missed my cue.\pHere, take him.\nI guess I kinda ruined the bit…", MSGBOX_DEFAULT)
         setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
