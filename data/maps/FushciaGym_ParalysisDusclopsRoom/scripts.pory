@@ -51,6 +51,7 @@ script FushciaGym_ParalysisDusclops {
             waitmoncry
             closemessage
             msgbox("DUSCLOPS used THUNDER WAVE!\n", MSGBOX_DEFAULT)
+            setstatus1(STATUS1_PARALYSIS, 0)
             setflag(FLAG_GOT_PARALYZED_ONCE)
             setvar(VAR_TEMP_1, 2)
 

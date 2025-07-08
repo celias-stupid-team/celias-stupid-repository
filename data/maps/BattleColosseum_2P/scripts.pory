@@ -134,7 +134,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)) {
 		setobtainable(SPECIES_DUGTRIO) //Digletts 41
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out conditions
+	if(checkitem(ITEM_TM42)) { //TODO figure out conditions
 		setobtainable(SPECIES_KRABBY) // 42
 	}
 	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
