@@ -1423,6 +1423,11 @@
 	various \battler, VARIOUS_INCREMENT_SUB_LAYER
 	.endm
 
+	.macro trysetspecialreflect failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_SET_SPECIAL_REFLECT
+	.4byte \failInstr
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

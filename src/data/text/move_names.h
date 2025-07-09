@@ -572,7 +572,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_SWORDSDANCE_TCG]     = _("SWORDS DANCE"),
     [MOVE_SUBSTITUTE_2]    = _("SUBSTITUTE"),
     [MOVE_GUILLOTINE_2]    = _("GUILLOTINE"),
-};
+    [MOVE_REFLECT_2]    = _("REFLECT"),
+};  
 
 
 const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
@@ -1150,5 +1151,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_SWORDSDANCE_TCG]     = _("SWORDS DANCE"),
 [MOVE_SUBSTITUTE_2]    = _("SUBSTITUTE"),
 [MOVE_GUILLOTINE_2]    = _("GUILLOTINE"),
+[MOVE_REFLECT_2]    = _("REFLECT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

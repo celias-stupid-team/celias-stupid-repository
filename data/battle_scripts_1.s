@@ -256,6 +256,18 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
 	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
 	.4byte BattleScript_EffectGuillotine2			  @ EFFECT_GUILLOTINE_2
+	.4byte BattleScript_EffectReflect2              @ EFFECT_REFLECT_2
+
+BattleScript_EffectReflect2::
+	attackcanceler
+	trysetspecialreflect BattleScript_ButItFailedAtkStringPpReduce
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCOVEREDBYVEIL
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectFeint::
 	setmoveeffect MOVE_EFFECT_FEINT

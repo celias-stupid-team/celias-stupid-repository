@@ -2390,6 +2390,7 @@ void FaintClearSetData(void)
     gProtectStructs[gActiveBattler].noValidMoves = FALSE;
     gProtectStructs[gActiveBattler].helpingHand = FALSE;
     gProtectStructs[gActiveBattler].bounceMove = FALSE;
+    gProtectStructs[gActiveBattler].bounceReflectMove = FALSE;
     gProtectStructs[gActiveBattler].stealMove = FALSE;
     gProtectStructs[gActiveBattler].flag0Unknown = FALSE;
     gProtectStructs[gActiveBattler].prlzImmobility = FALSE;
