@@ -337,6 +337,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_FAIRY_TRANS] = _("FAIRY"),
     [TYPE_SOUND] = _("SOUND"),
     [TYPE_GRASS_TCG] = _("GRASS"),
+    [TYPE_FIGHTING_SPECIAL] = _("FIGHT"),
 
 };
 
@@ -459,6 +460,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RAPPER, 50},
     {TRAINER_CLASS_COP, 50},
     {TRAINER_CLASS_SKIRT, 50},
+    {TRAINER_CLASS_NINJAS, 50},
     { 0xFF, 5},
 };
 

@@ -424,7 +424,7 @@ script CeladonGym_GiovanniDefeat {
 
 	} else {
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		msgreceiveditem("{PLAYER} received TM30\nfrom ERIKA.", ITEM_TM30, 1)
+		giveitem_msg("{PLAYER} received TM30\nfrom ERIKA.", ITEM_TM30, 1)
 		setflag(FLAG_GOT_TM19_FROM_ERIKA)
 		famechecker(FAMECHECKER_CELADON, 5)
 		

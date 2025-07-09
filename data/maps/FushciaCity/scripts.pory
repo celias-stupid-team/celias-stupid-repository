@@ -168,6 +168,12 @@ script FushciaCity_OnTransition {
 }
 
 script FuschiaCity_BrickBreak {
+	if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
+		msgbox("The BRICKS have been BREAKED.\n", MSGBOX_DEFAULT)
+		release
+		end
+		
+	}
 	call(Common_Script_BrickBreak)
 	//wall breaks
 	if(var(VAR_RESULT) == 1) {
@@ -280,7 +286,7 @@ script FushciaCity_TaurosGuy {
 }
 
 script FushciaCity_ReturnTMCase {
-	if(flag(FLAG_NO_TM_CASE)) {
+	if(flag(FLAG_NO_TM_CASE) && !flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 		lock
 		additem(ITEM_TM_CASE, 1)
 		clearflag(FLAG_NO_TM_CASE)

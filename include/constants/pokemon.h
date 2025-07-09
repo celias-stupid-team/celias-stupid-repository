@@ -130,8 +130,9 @@
 #define TYPE_SHIT           30
 #define TYPE_FAIRY_TRANS    31
 #define TYPE_SOUND          32
+#define TYPE_FIGHTING_SPECIAL          33
 
-#define NUMBER_OF_MON_TYPES 33
+#define NUMBER_OF_MON_TYPES 34
 // Pokemon egg groups
 #define EGG_GROUP_NONE         0
 #define EGG_GROUP_MONSTER      1

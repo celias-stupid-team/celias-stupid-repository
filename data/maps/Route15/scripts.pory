@@ -119,7 +119,7 @@ script Route15_PowerOutTrigger {
 }
 
 script Route15_NoPower {
-	
+	famechecker(FAMECHECKER_KANTO_SHORELINE, 0)
 	msgbox("I'm sorry, but there's a blackout\nat the LIGHTHOUSE right now.", MSGBOX_DEFAULT)
 	closemessage
 	//camera goes up

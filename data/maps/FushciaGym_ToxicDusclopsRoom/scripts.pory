@@ -10,7 +10,6 @@ mapscripts FushciaGym_ToxicDusclopsRoom_MapScripts {
         }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TOXIC_DUSCLOPS_ROOM)
-        setflag(FLAG_SHINY_CREATION)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {

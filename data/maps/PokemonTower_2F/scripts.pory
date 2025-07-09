@@ -16,6 +16,7 @@ PokemonTower_2F_EventScript_RivalTriggerDown::
 	end
 
 PokemonTower_2F_EventScript_Rival::
+	famechecker FAMECHECKER_LAVENDER, 2
 	textcolor NPC_TEXT_COLOR_MALE
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	call_if_eq VAR_TEMP_1, 0, PokemonTower_2F_EventScript_RivalFacePlayerRight

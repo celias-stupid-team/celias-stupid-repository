@@ -75,6 +75,7 @@ define FIELD_MOVE_GUILLOTINE   13
 #define PARTY_MENU_TYPE_UNION_ROOM_TRADE          9  // trading board
 #define PARTY_MENU_TYPE_SPIN_TRADE                10 // Unused beta for Gen IV's Spin Trade
 #define PARTY_MENU_TYPE_MINIGAME                  11
+#define PARTY_MENU_TYPE_MOVE_RELEARNER_ITEM       12 
 
 #define PARTY_ACTION_CHOOSE_MON         0
 #define PARTY_ACTION_SEND_OUT           1
@@ -124,6 +125,7 @@ define FIELD_MOVE_GUILLOTINE   13
 #define PARTY_MSG_CANT_USE_RETREAT          27
 #define PARTY_MSG_NO_RETREAT          28
 #define PARTY_MSG_BUT_IT_FAILED          29
+#define PARTY_MSG_NO_RELEARNS               30
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

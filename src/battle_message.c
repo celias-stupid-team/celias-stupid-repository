@@ -558,6 +558,7 @@ static const u8 sText_QuestionForfeitMatch[] = _("Would you like to forfeit the 
 static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto fight again!");
 static const u8 sText_VanishedFromExistence[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\nfrom existence!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_FuckingDied[] = _("{B_DEF_NAME_WITH_PREFIX}\nfucking died!\p");
+static const u8 sText_ButItMist[] = _("But it mist!{PAUSE_UNTIL_PRESS}");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -969,6 +970,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNSITEMRESTOREDPP2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemRestoredPP2,
     [STRINGID_VANISHEDFROMEXISTENCE - BATTLESTRINGS_TABLE_START] = sText_VanishedFromExistence,
     [STRINGID_FUCKINGDIED - BATTLESTRINGS_TABLE_START] = sText_FuckingDied,
+    [STRINGID_IT_MIST-  BATTLESTRINGS_TABLE_START] = sText_ButItMist,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1384,6 +1386,7 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_EXTREME_EVOBOOST] = STRINGID_EXTREME_EVOBOOST,
     [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
+    [B_MSG_MIST] = STRINGID_IT_MIST,
     
 };
 

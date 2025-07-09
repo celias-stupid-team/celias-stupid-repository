@@ -21,12 +21,13 @@ mapscripts Route13_MapScripts {
 			setobjectxyperm(LOOK_SIGN, 17, 14)
 
 		}
+		setflag(FLAG_SHINY_CREATION)
 	}
 }
 
 script Route13_SignItem {
 	lock
-	if(flag(FLAG_ROUTE13_SIGN_BACK_HOME)) {
+	if(flag(FLAG_ROUTE13_SIGN_BACK_HOME) || var(VAR_TEMP_1) == 17) {
 		if(flag(FLAG_FOUND_ZINC)) {
 			msgbox("There was ZINC here.\n", MSGBOX_DEFAULT)
 			release

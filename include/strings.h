@@ -292,6 +292,7 @@ extern const u8 Pokedude_Text_PickBestKindOfBall[];
 
 // party_menu
 extern const u8 gText_ChoosePokemon[];
+extern const u8 gText_NoRelearns[];
 extern const u8 gText_ChoosePokemonCancel[];
 extern const u8 gText_ChoosePokemonConfirm[];
 extern const u8 gText_MoveToWhere[];
@@ -1600,6 +1601,7 @@ extern const u8 gText_PokeSum_EggOrigin_Trade[];
 
 // csr outfits
 extern const u8 gText_UsedTheItem[];
+extern const u8 gText_UnzippedTheItem[];
 extern const u8 gText_LWPEmblemEnd[];
 
 extern const u8 gText_GenderFluidEnd[];

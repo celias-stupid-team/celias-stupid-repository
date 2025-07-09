@@ -440,6 +440,7 @@ void GiveBoxMonInitialMoveset_Fast(struct BoxPokemon *boxMon);
 void SetMonLockedAbility(struct Pokemon *mon, u8 ability);
 void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability);
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove);
+void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 
 u32 GetCurrentLevelCap(u16 species);
 

@@ -236,7 +236,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
-	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)) {
+	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH)) {
 		setobtainable(SPECIES_REMORAID) // 77
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) {

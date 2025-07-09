@@ -422,6 +422,7 @@ script CeruleanCity_NuggetSeller {
 	removemoney(4999, 0)
 	updatemoneybox
 	playfanfare(MUS_LEVEL_UP)
+	giveitem(ITEM_NUGGET, 1)
 	waitfanfare
 	msgbox("Haha!\nSucker!", MSGBOX_DEFAULT)
 	hidemoneybox

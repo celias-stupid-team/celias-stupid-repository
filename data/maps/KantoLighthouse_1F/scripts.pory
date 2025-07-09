@@ -190,7 +190,7 @@ script GTS_TradeScammer_Left {
         delay(30)
         getpartysize
         if(var(VAR_RESULT) >= PARTY_SIZE) {
-            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            msgbox("We got one!\nAyy!\pWait, your party's full.\nGo clear it out!", MSGBOX_DEFAULT)
             goto(GTS_Scammers_ReleaseEnd)
 
         }
@@ -245,7 +245,7 @@ script GTS_TradeScammer_Left {
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
             if(var(VAR_RESULT)) {
-                
+                famechecker(FAMECHECKER_KANTO_SHORELINE, 3)
                 setflag(FLAG_TALKED_TO_LEFT_SCAMMER)
                 msgbox("Sick - Here's the plan:\pYou give me some POKéMON, doesn't\nmatter which.\pThen, I'll tell people that it's\nextremely rare and valuable.\lThat way, we get high-value offers!\pWhen all's said and done, we'll\nget something awesome out of it!\lHow about it?", MSGBOX_YESNO)
                 if(var(VAR_RESULT)) {
@@ -393,7 +393,7 @@ script GTS_TradeScammer_Right {
         delay(30)
         getpartysize
         if(var(VAR_RESULT) >= PARTY_SIZE) {
-            msgbox("stop having pokemon\n", MSGBOX_DEFAULT)
+            msgbox("We got one!\nAyy!\pWait, your party's full.\nGo clear it out!", MSGBOX_DEFAULT)
             goto(GTS_Scammers_ReleaseEnd)
 
         }
@@ -447,6 +447,7 @@ script GTS_TradeScammer_Right {
             if(var(VAR_RESULT)) {
                 
                 setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
+                famechecker(FAMECHECKER_KANTO_SHORELINE, 3)
                 msgbox("Sick - Here's the plan:\pYou give me some POKéMON, doesn't\nmatter which.\pThen, I'll tell people that it's\nextremely rare and valuable.\lThat way, we get high-value offers!\pWhen all's said and done, we'll\nget something awesome out of it!\lHow about it?", MSGBOX_YESNO)
                 if(var(VAR_RESULT)) {
                     goto(GTS_RightScammerMeat)

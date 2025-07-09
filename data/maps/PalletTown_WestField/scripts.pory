@@ -47,6 +47,7 @@ script WestField_LookGirlLass {
             call(Common_Script_GiftPokemon)
             msgbox("This POKéMON is the worst.\pCompared to everyone else, it\nlooks at me twice as hard!", MSGBOX_DEFAULT)
             setflag(FLAG_LOOK_GIRL_LASS)
+            removeobject(LOCALID_LASS)
 
         }
     copyobjectxytoperm(VAR_LAST_TALKED)

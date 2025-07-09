@@ -1260,4 +1260,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_MONICA]    = gMonFootprint_Monica,
 	[SPECIES_IRONBUTT]    = gMonFootprint_IRONBUTT,
 	[SPECIES_RELICRABBY]    = gMonFootprint_Relicrabby,
+	[SPECIES_EGEXCSUTER]    = gMonFootprint_EGEXCSUTER,
 };

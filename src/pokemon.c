@@ -80,7 +80,6 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
 
 
 
-
 #include "data/battle_moves.h"
 #include "data/pokemon_graphics/footprint_table.h"
 
@@ -1792,9 +1791,6 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
 {
     u32 arg;
     ZeroMonData(mon);
-    if(species == SPECIES_UNOWN_LOSS) {
-        IncrementGameStat(GAME_STAT_UNOWNS_CAUGHT);
-    }
     CreateBoxMon(&mon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     SetMonData(mon, MON_DATA_LEVEL, &level);
     arg = MAIL_NONE;
@@ -1808,6 +1804,10 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u32 personality;
     u32 value;
     u16 checksum;
+    
+    if(species == SPECIES_UNOWN_LOSS) {
+        IncrementGameStat(GAME_STAT_UNOWNS_CAUGHT);
+    }
 
     ZeroBoxMonData(boxMon);
 
@@ -5969,6 +5969,8 @@ static u16 GetBattleBGM(void)
         return MUS_RS_VS_TRAINER;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return MUS_RS_VS_TRAINER;
+    if (gBattleTypeFlags & BATTLE_TYPE_KANGA)
+        return MUS_CSR_DMCA_ADMIN;
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
@@ -6640,6 +6642,8 @@ void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability)
     SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &ability);
 }
 
+
+
 // CSR Level Caps!
 
 u32 GetCurrentLevelCap(u16 species)
@@ -6680,3 +6684,31 @@ u32 GetCurrentLevelCap(u16 species)
     return MAX_LEVEL;
 }
 
+void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
+{
+    struct PokemonSubstruct0 *old0, *new0;
+    struct PokemonSubstruct1 *old1, *new1;
+    struct PokemonSubstruct2 *old2, *new2;
+    struct PokemonSubstruct3 *old3, *new3;
+    struct BoxPokemon old;
+
+    old = *boxMon;
+    old0 = &(GetSubstruct(&old, old.personality, 0)->type0);
+    old1 = &(GetSubstruct(&old, old.personality, 1)->type1);
+    old2 = &(GetSubstruct(&old, old.personality, 2)->type2);
+    old3 = &(GetSubstruct(&old, old.personality, 3)->type3);
+
+    new0 = &(GetSubstruct(boxMon, personality, 0)->type0);
+    new1 = &(GetSubstruct(boxMon, personality, 1)->type1);
+    new2 = &(GetSubstruct(boxMon, personality, 2)->type2);
+    new3 = &(GetSubstruct(boxMon, personality, 3)->type3);
+
+    DecryptBoxMon(&old);
+    boxMon->personality = personality;
+    *new0 = *old0;
+    *new1 = *old1;
+    *new2 = *old2;
+    *new3 = *old3;
+    boxMon->checksum = CalculateBoxMonChecksum(boxMon);
+    EncryptBoxMon(boxMon);
+}

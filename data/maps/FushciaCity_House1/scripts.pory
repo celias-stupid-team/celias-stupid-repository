@@ -25,6 +25,7 @@ script FushciaCity_House1_PorygonHint {
 	call(SetPlayerPokedexValues)
 	applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
 	delay(60)
+	famechecker(FAMECHECKER_FUSHCIA, 3)
 	msgbox("Ah, confound it!")
 	closemessage
 	faceplayer

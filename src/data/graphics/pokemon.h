@@ -9580,3 +9580,11 @@ const u32 gMonShinyPalette_Relicrabby[] = INCBIN_U32("graphics/pokemon/relicrabb
 const u8 gMonIcon_Relicrabby[] = INCBIN_U8("graphics/pokemon/relicrabby/icon.4bpp");
 const u8 gMonFootprint_Relicrabby[] = INCBIN_U8("graphics/pokemon/relicrabby/footprint.1bpp");
 
+// EGEXCSUTER
+const u32 gMonFrontPic_EGEXCSUTER[] = INCBIN_U32("graphics/pokemon/egexcsuter/front.4bpp.lz");
+const u32 gMonPalette_EGEXCSUTER[] = INCBIN_U32("graphics/pokemon/egexcsuter/normal.gbapal.lz");
+const u32 gMonBackPic_EGEXCSUTER[] = INCBIN_U32("graphics/pokemon/egexcsuter/back.4bpp.lz");
+const u32 gMonShinyPalette_EGEXCSUTER[] = INCBIN_U32("graphics/pokemon/egexcsuter/shiny.gbapal.lz");
+const u8 gMonIcon_EGEXCSUTER[] = INCBIN_U8("graphics/pokemon/egexcsuter/icon.4bpp");
+const u8 gMonFootprint_EGEXCSUTER[] = INCBIN_U8("graphics/pokemon/egexcsuter/footprint.1bpp");
+

@@ -1,8 +1,10 @@
 mapscripts FushciaGym_TrickRoomRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
+     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
         call(FushciaGym_TrickRoomRoom_OpenDoors)
         
-        setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM)
+    }
+    setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM)
     }
 }
 
@@ -14,9 +16,24 @@ script FushciaGym_TrickRoomRoom_OpenDoors {
 
 
 script FushciaGym_TrickRoomRoom_Trainer {
-	msgbox("trick room room\n", MSGBOX_NPC)
-	end
+    lock
+    faceplayer
+    if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
+	    msgbox("trick room room\n", MSGBOX_DEFAULT)
+        call(FushciaGym_TrickRoomRoom_OpenDoors)
+        special(DrawWholeMapView)
+    } else {
+	    msgbox("trick room room\n", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_LUCY, "Hmph.")
+        call(FushciaGym_TrickRoomRoom_OpenDoors)
+        special(DrawWholeMapView)
+
+    }
+    call(FushciaGym_TrickRoomRoom_OpenDoors)
+    special(DrawWholeMapView)
+    release
 }
+
 
 script FushciaGym_TrickRoomRoom_Stakataka {
     lock

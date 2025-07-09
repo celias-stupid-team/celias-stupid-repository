@@ -3,10 +3,7 @@ Route16_NorthEntrance_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route16_NorthEntrance_1F_OnTransition
 	.byte 0
 
-Route16_NorthEntrance_1F_OnTransition::
-	clearflag FLAG_SYS_ON_CYCLING_ROAD
-	call_if_set FLAG_GOT_BICYCLE, Route16_NorthEntrance_1F_EventScript_DisableNeedBikeTrigger
-	end
+
 
 Route16_NorthEntrance_1F_EventScript_DisableNeedBikeTrigger::
 	setvar VAR_TEMP_1, 1
@@ -123,4 +120,12 @@ script Route16_NorthEntrance_1F_EventScript_Dad {
 	setflag(FLAG_DAD_CELADON_GATE)
 	release
 	end
+}
+
+
+script Route16_NorthEntrance_1F_OnTransition {
+	clearflag(FLAG_SYS_ON_CYCLING_ROAD)
+	if(checkitem(ITEM_BICYCLE) || checkitem(ITEM_SHINY_BIKE)) {
+		goto(Route16_NorthEntrance_1F_EventScript_DisableNeedBikeTrigger)
+	}
 }

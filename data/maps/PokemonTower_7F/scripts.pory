@@ -226,6 +226,8 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	walk_down
 	step_end
 `
+
+
 mapscripts PokemonTower_7F_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		setbench(BENCH_LAVENDER_TOWER)
@@ -288,7 +290,38 @@ script PokemonTower_Trailer {
 	doweather
 	waitmovement(0)
 	special(DrawWholeMapView)
+	if(flag(FLAG_SAW_KANGA_CUTSCENE)) {
+		msgbox("Hey!\nYou've already seen this cutscene.\lWould you like to skip it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			applymovement(ARIANA, Common_Movement_WalkLeft)
+			applymovement(KANGA, PokemonTower_FastKangaAppraoch)
+			waitmovement(KANGA)
+			applymovement(ARIANA, Common_Movement_FaceDown)
+			fadescreen(FADE_FROM_BLACK)
+			delay(20)
+
+
+
+			goto(PokemonTower7F_KangaBattleAndAfter)
+		}
+	}
+	goto(PokemonTower7F_PlayKangaCutscene)
+
+}
+
+movement PokemonTower_FastKangaAppraoch {
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	face_down
+
+}
+
+script PokemonTower7F_PlayKangaCutscene {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
+	setflag(FLAG_SAW_KANGA_CUTSCENE)
 	msgbox("SUSAN: Oh?\nWho are you?\pYet another kid with a copyright-\nplagued story for us to take down?", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(ARIANA, Common_Movement_FaceRight)
@@ -363,6 +396,10 @@ script PokemonTower_Trailer {
 	setvar(VAR_0x8006, 10)
 	special(ShakeScreen)
 	delay(60)
+	goto(PokemonTower7F_KangaBattleAndAfter)
+}
+
+script PokemonTower7F_KangaBattleAndAfter {
 	playmoncry(SPECIES_KANGASKHAN, CRY_MODE_FAINT)
 	msgbox("KANGASKHAN: Graaaah!\n", MSGBOX_DEFAULT)
 	closemessage

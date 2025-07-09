@@ -5045,10 +5045,10 @@ const struct PokedexEntry gPokedexEntries[] =
     
     [NATIONAL_DEX_VICTINI] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("ZEROTH"),
         .height = 1,
         .weight = 1,
-        .description = gDummyPokedexTextUnused, //Placeholder
+        .description = gVictiniPokedexText, //Placeholder
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 271,  
         .pokemonOffset = 0,

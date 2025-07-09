@@ -8684,6 +8684,7 @@ extern const u32 gBattleAnimBgTilemap_ScaryFaceOpponent[];
 extern const u32 gBattleAnimBgTilemap_ScaryFaceContest[];
 extern const u32 gBattleAnimSpriteGfx_Bird[];
 extern const u32 gBattleAnimSpriteGfx_CrossImpact[];
+extern const u32 gBattleAnimSpriteGfx_Tomato[];
 
 // battle anim particle pals
 extern const u32 gBattleAnimSpritePal_Bone[];
@@ -8933,6 +8934,7 @@ extern const u32 gBattleAnimSpritePal_Slash2[];
 extern const u32 gBattleAnimSpritePal_WhipHit[];
 extern const u32 gBattleAnimSpritePal_BlueRing2[];
 extern const u32 gBattleAnimSpritePal_StealthRock[];
+extern const u32 gBattleAnimSpritePal_Tomato[];
 
 //CSR Moves
 
@@ -12359,6 +12361,14 @@ extern const u32 gMonShinyPalette_Relicrabby[];
 extern const u8 gMonFootprint_Relicrabby[];
 extern const u8 gMonIcon_Relicrabby[];
 
+// EGEXCSUTER
+extern const u32 gMonFrontPic_EGEXCSUTER[];
+extern const u32 gMonPalette_EGEXCSUTER[];
+extern const u32 gMonBackPic_EGEXCSUTER[];
+extern const u32 gMonShinyPalette_EGEXCSUTER[];
+extern const u8 gMonFootprint_EGEXCSUTER[];
+extern const u8 gMonIcon_EGEXCSUTER[];
+
 
 extern const u32 gItemIcon_PERSON_DOLL[];
 extern const u32 gItemIconPalette_PERSON_DOLL[];
@@ -12371,3 +12381,12 @@ extern const u32 gItemIconPalette_BRICKPIECE[];
 
 extern const u32 gItemIcon_BERRYLEGION[];
 extern const u32 gItemIconPalette_BERRYLEGION[];
+
+extern const u32 gTrainerFrontPic_Ninjas[];
+extern const u32 gTrainerPalette_Ninjas[];
+
+extern const u32 gItemIcon_PsychicKey[];
+extern const u32 gItemIconPalette_PsychicKey[];
+
+extern const u32 gItemIcon_HISTORYBOOK[];
+extern const u32 gItemIconPalette_HISTORYBOOK[];
