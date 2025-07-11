@@ -978,6 +978,15 @@ static void Cmd_attackcanceler(void)
         return;
     }
 
+    if (gProtectStructs[gBattlerTarget].bounceReflectMove && gCurrentMove != MOVE_BRICK_BREAK)
+    {
+        PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
+        gProtectStructs[gBattlerTarget].bounceReflectMove = FALSE;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_MagicCoatBounce;
+        return;
+    }
+    
     for (i = 0; i < gBattlersCount; i++)
     {
         if ((gProtectStructs[gBattlerByTurnOrder[i]].stealMove) && gBattleMoves[gCurrentMove].flags & FLAG_SNATCH_AFFECTED)
@@ -6671,6 +6680,23 @@ static void Cmd_various(void)
             default:
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SUBSTITUTE_FAILED;
                 break;
+            }
+            break;
+        }
+        case VARIOUS_TRY_SET_SPECIAL_REFLECT:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+
+            gBattlerTarget = gBattlerAttacker;
+            gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+            if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gProtectStructs[gBattlerAttacker].bounceReflectMove = TRUE;
+                gBattlescriptCurrInstr = cmd->nextInstr;
             }
             break;
         }

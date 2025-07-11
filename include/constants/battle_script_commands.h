@@ -93,6 +93,7 @@
 #define VARIOUS_JUMP_IF_ABSENT                  15
 #define VARIOUS_GET_NUMBER_OF_SUB_LAYERS        16
 #define VARIOUS_INCREMENT_SUB_LAYER             17
+#define VARIOUS_TRY_SET_SPECIAL_REFLECT         18
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
