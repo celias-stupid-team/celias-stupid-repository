@@ -791,9 +791,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_SANDSHREW] =
     {
-        .baseHP = 50,
+        .baseHP = 40,
         .baseAttack = 75,
-        .baseDefense = 85,
+        .baseDefense = 45,
         .baseSpeed = 40,
         .baseSpAttack = 20,
         .baseSpDefense = 30,
@@ -2154,9 +2154,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GEODUDE] =
     {
-        .baseHP = 40,
+        .baseHP = 60,
         .baseAttack = 80,
-        .baseDefense = 100,
+        .baseDefense = 110,
         .baseSpeed = 20,
         .baseSpAttack = 30,
         .baseSpDefense = 30,
@@ -2183,7 +2183,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GRAVELER] =
     {
-        .baseHP = 55,
+        .baseHP = 65,
         .baseAttack = 95,
         .baseDefense = 115,
         .baseSpeed = 35,
