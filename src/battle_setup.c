@@ -239,7 +239,7 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
 void StartWildBattle(void)
 {
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE2) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE2)) {
-        setvar(VAR_ROUTE2_SHINY_MIME, 1);
+        VarSet(VAR_ROUTE2_SHINY_MIME, 1);
     }
     if (GetSafariZoneFlag())
         DoSafariBattle();
