@@ -153,6 +153,7 @@ u8 DoJumpSpriteMovement(struct Sprite *);
 u8 DoJumpSpecialSpriteMovement(struct Sprite *);
 void TurnVirtualObject(u8 virtualObjId, u8 direction);
 const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId);
+const u8 *GetObjectEventScriptPointerByObjectEventIdAndCondition(u8 objectEventId);
 u8 GetFirstInactiveObjectEventId(void);
 u8 GetCollisionFlagsAtCoords(struct ObjectEvent * objectEvent, s16 x, s16 y, u8 direction);
 void OverrideTemplateCoordsForObjectEvent(const struct ObjectEvent *objectEvent);
@@ -233,6 +234,7 @@ u8 GetObjectEventIdByLocalId(u8 localId);
 void SetPlayerOutfit(u8 outfit);
 void ClearPlayerOutfit(u8 outfit);
 void TogglePlayerOutfit(u8 outfit);
+void FreezeObjectEventsExceptTwo(u8 objectEventId1, u8 objectEventId2);
 // sideways stairs 
 u8 GetSidewaysStairsToRightDirection(s16, s16, u8);
 u8 GetSidewaysStairsToLeftDirection(s16, s16, u8);

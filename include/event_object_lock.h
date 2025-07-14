@@ -10,5 +10,7 @@ void FreezeObjects_WaitForPlayerAndSelected(void);
 void ClearPlayerHeldMovementAndUnfreezeObjectEvents(void);
 bool8 walkrun_is_standing_still(void);
 void UnionRoom_UnlockPlayerAndChatPartner(void);
+bool8 IsFreezeObjectAndPlayerFinished(void);
+void FreezeForApproachingTrainers(void);
 
 #endif // GUARD_EVENT_OBJECT_LOCK_H

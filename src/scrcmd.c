@@ -38,6 +38,7 @@
 #include "list_menu.h"
 #include "script_menu.h"
 #include "malloc.h"
+#include "trainer_see.h"
 #include "pokedex_screen.h"
 #include "constants/event_objects.h"
 #include "constants/maps.h"
@@ -2493,4 +2494,20 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
     {
         SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
     }
+}
+
+bool8 ScrCmd_selectapproachingtrainer(struct ScriptContext *ctx)
+{
+    gSelectedObjectEvent = GetCurrentApproachingTrainerObjectEventId();
+    return FALSE;
+}
+
+bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
+{
+    if (gObjectEvents[gSelectedObjectEvent].active)
+    {
+        FreezeForApproachingTrainers();
+        SetupNativeScript(ctx, IsFreezeObjectAndPlayerFinished);
+    }
+    return TRUE;
 }

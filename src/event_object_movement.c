@@ -17,6 +17,7 @@
 #include "trig.h"
 #include "config/debug.h"
 #include "config/overworld.h"
+#include "constants/battle_setup.h"
 #include "constants/metatile_behaviors.h"
 #include "constants/maps.h"
 #include "constants/event_object_movement.h"
@@ -2486,6 +2487,21 @@ static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNu
 const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId)
 {
     return GetObjectEventScriptPointerByLocalIdAndMap(gObjectEvents[objectEventId].localId, gObjectEvents[objectEventId].mapNum, gObjectEvents[objectEventId].mapGroup);
+}
+
+const u8 *GetObjectEventScriptPointerByObjectEventIdAndCondition(u8 objectEventId)
+{
+    const u8 *script;
+
+    //check if the object event exists and has a double battle script
+    if (gObjectEvents[objectEventId].active && gObjectEvents[objectEventId].invisible)
+    {
+        script = GetObjectEventScriptPointerByLocalIdAndMap(gObjectEvents[objectEventId].localId, gObjectEvents[objectEventId].mapNum, gObjectEvents[objectEventId].mapGroup);
+        if (script[1] == TRAINER_BATTLE_DOUBLE || script[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE || script[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
+            return script;
+    }
+
+    return NULL;
 }
 
 static u16 GetObjectEventFlagIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
@@ -9717,4 +9733,17 @@ static void DoRippleFieldEffect(struct ObjectEvent *objectEvent, struct Sprite *
     gFieldEffectArguments[2] = 151;
     gFieldEffectArguments[3] = 3;
     FieldEffectStart(FLDEFF_RIPPLE);
+}
+
+// Used to freeze other objects except two trainers approaching for battle
+void FreezeObjectEventsExceptTwo(u8 objectEventId1, u8 objectEventId2)
+{
+    u8 i;
+
+    for(i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if(i != objectEventId1 && i != objectEventId2 &&
+            gObjectEvents[i].active && i != gPlayerAvatar.objectEventId)
+                FreezeObjectEvent(&gObjectEvents[i]);
+    }
 }
