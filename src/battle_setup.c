@@ -12,6 +12,7 @@
 #include "script_pokemon_util.h"
 #include "strings.h"
 #include "string_util.h"
+#include "trainer_see.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "metatile_behavior.h"
@@ -774,6 +775,12 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
+void ResetTrainerOpponentIds(void)
+{
+    gTrainerBattleOpponent_A = 0;
+    // gTrainerBattleOpponent_B = 0;
+}
+
 static void InitTrainerBattleVariables(void)
 {
     sTrainerBattleMode = 0;
@@ -902,6 +909,20 @@ void ConfigureAndSetUpOneTrainerBattle(u8 trainerEventObjId, const u8 *trainerSc
     gSelectedObjectEvent = trainerEventObjId;
     gSpecialVar_LastTalked = gObjectEvents[trainerEventObjId].localId;
     BattleSetup_ConfigureTrainerBattle(trainerScript + 1);
+    ScriptContext_SetupScript(EventScript_DoTrainerBattleFromApproach);
+    LockPlayerFieldControls();
+}
+
+void ConfigureTwoTrainersBattle(u8 trainerEventObjId, const u8 *trainerScript)
+{
+    gSelectedObjectEvent = trainerEventObjId;
+    gSpecialVar_LastTalked = gObjectEvents[trainerEventObjId].localId;
+
+    BattleSetup_ConfigureTrainerBattle(trainerScript + 1);
+}
+
+void SetUpTwoTrainersBattle(void)
+{
     ScriptContext_SetupScript(EventScript_DoTrainerBattleFromApproach);
     LockPlayerFieldControls();
 }
