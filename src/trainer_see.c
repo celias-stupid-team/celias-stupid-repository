@@ -117,7 +117,7 @@ bool8 CheckForTrainersWantingBattle(void)
     {
         if (!gObjectEvents[i].active)
             continue;
-        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED)
+        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED && gObjectEvents[i].trainerType != TRAINER_TYPE_RUN_SCRIPT)
             continue;
 
         numTrainers = CheckTrainer(i);
@@ -186,12 +186,11 @@ static u8 CheckTrainer(u8 trainerObjId)
     if (scriptFlag < TRAINER_TYPE_RUN_SCRIPT)
     {
         if (GetTrainerFlagFromScriptPointer(script))
-            return 0;
+            return FALSE;
     }
 
-    if (GetTrainerFlagFromScriptPointer(script))
-        return FALSE;
     approachDistance = GetTrainerApproachDistance(&gObjectEvents[trainerObjId]);
+    
     if (approachDistance != 0)
     {
         if (scriptFlag >= TRAINER_TYPE_RUN_SCRIPT)
