@@ -10147,6 +10147,22 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainDarach[] = {
     },
 
 };
+static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlynDarach[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_WEEZING,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_REGIGIGAS,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+
+};
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderJanine[] = {
     {
         .iv = 0,

@@ -7,23 +7,23 @@ mapscripts FushciaGym_DoubleBattleRoom_MapScripts {
 
 // single battle 1
 script FushciaGym_DoubleBattleRoom_EventScript_Liam {
-	trainerbattle_single(TRAINER_CAMPER_LIAM, PewterCity_Gym_Text_LiamIntro, PewterCity_Gym_Text_LiamDefeat)
+	trainerbattle_single(TRAINER_BATTLE_FRONTIER_DARACH, "Darach", "rip")
 	msgbox("Double battler 1\n", MSGBOX_AUTOCLOSE)
 }
 
 // single battle 2
 script FushciaGym_DoubleBattleRoom_EventScript_Linda {
-	trainerbattle_single(TRAINER_CAMPER_FLINT, PewterCity_Gym_Text_LiamIntro, PewterCity_Gym_Text_LiamDefeat)
+	trainerbattle_single(TRAINER_BATTLE_FRONTIER_CAITLIN, "Caitlyn", "rip")
 	msgbox("Double battler 2\n", MSGBOX_AUTOCLOSE)
 }
 
 // double battle
 script FushciaGym_DoubleBattleRoom_EventScript_Linda_Double {
-	trainerbattle_double(TRAINER_COOL_COUPLE_RAY_TYRA, VictoryRoad_3F_Text_TyraIntro, VictoryRoad_3F_Text_TyraDefeat, VictoryRoad_3F_Text_TyraNotEnoughMons, FushciaGym_DoubleBattleRoom_EventScript_Linda_Double_Continue)
+	trainerbattle_double(TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH, "it us", VictoryRoad_3F_Text_TyraDefeat, VictoryRoad_3F_Text_TyraNotEnoughMons, "rip 3")
 }
 
 script FushciaGym_DoubleBattleRoom_EventScript_Linda_Double_Continue {
     // set the flags for both single trainers after winning the double battle
-    settrainerflag(TRAINER_CAMPER_LIAM)
-    settrainerflag(TRAINER_CAMPER_FLINT)
+    settrainerflag(TRAINER_BATTLE_FRONTIER_DARACH)
+    settrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)
 }
