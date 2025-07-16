@@ -12390,3 +12390,11 @@ extern const u32 gItemIconPalette_PsychicKey[];
 
 extern const u32 gItemIcon_HISTORYBOOK[];
 extern const u32 gItemIconPalette_HISTORYBOOK[];
+// Gyarados_Lance
+extern const u32 gMonFrontPic_GyaradosLance[];
+extern const u32 gMonPalette_GyaradosLance[];
+extern const u32 gMonBackPic_GyaradosLance[];
+extern const u32 gMonShinyPalette_GyaradosLance[];
+extern const u8 gMonFootprint_GyaradosLance[];
+extern const u8 gMonIcon_GyaradosLance[];
+
