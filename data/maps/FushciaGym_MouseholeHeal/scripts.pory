@@ -26,6 +26,9 @@ mapscripts FushciaGym_MouseholeHeal_MapScripts {
             setmetatile(5, 10, 0x39B, TRUE)
 
         }
+        if(!flag(FLAG_DEFEATED_TRAINER_1)) {
+            call(FushciaGym_MouseholesHeal_CloseLeftDoor)
+        }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_MOUSEHOLE_HEAL)
     }
@@ -61,7 +64,7 @@ script FushciaGym_HippoMiddle {
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
         setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 2)
     } else {
-        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 1)
+        setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 0)
 
     }
     removeobject(VAR_LAST_TALKED)
@@ -97,7 +100,7 @@ script FushciaGym_CrackedWallMiddleRight {
             setobjectxy(DRILL, 20, 10)
 
             applymovement(DRILL, DrillDozesRight)
-            setflag(FLAG_DRILLED_LEFT_HOLE)
+            setflag(FLAG_DRILLED_RIGHT_HOLE)
             setmetatile(20, 10, 0x39B, TRUE)
             special(DrawWholeMapView)
             special(ShakeScreen)
@@ -180,4 +183,14 @@ movement DrillDozesLeft {
     walk_in_place_fast_left * 4
     walk_fast_left
     walk_in_place_fast_left * 4
+}
+
+script FushciaGym_MouseholesHeal_CloseLeftDoor {
+    setmetatile(10, 13, 0x28C, FALSE)
+    setmetatile(11, 13, 0x28C, FALSE)
+    setmetatile(12, 13, 0x28C, FALSE)
+    setmetatile(10, 14, 0x280, TRUE)
+    setmetatile(11, 14, 0x280, TRUE)
+    setmetatile(12, 14, 0x280, TRUE)
+    return
 }

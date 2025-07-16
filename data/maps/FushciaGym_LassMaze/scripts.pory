@@ -1,6 +1,6 @@
 mapscripts FushciaGym_LassMaze_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        
+        setflag(FLAG_LASS_MAZE)
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LASS_MAZE)
     }
 }

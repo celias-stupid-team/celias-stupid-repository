@@ -59,7 +59,7 @@ script FushciaGym_TrainerRoom1_Spenser {
 
 script FushciaGym_TrainerRoom1_OpenDoors {
     setmetatile(7, 7, 0x34F, TRUE)
-    setmetatile(11, 7, 0x34F, TRUE)
+    setmetatile(11, 7, 0x3BD, TRUE)
     setmetatile(7, 8, 0x357, TRUE)
     setmetatile(11, 8, 0x357, TRUE)
     return

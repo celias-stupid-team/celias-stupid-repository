@@ -43,7 +43,7 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_0x020               0x020
+#define FLAG_LASS_MAZE               0x020
 #define FLAG_0x021               0x021
 #define FLAG_0x022               0x022
 #define FLAG_0x023               0x023
@@ -974,7 +974,7 @@
 #define FLAG_BAKED_DONUT_HINT               0x38A
 #define FLAG_FED_SANDWICH               0x38B
 #define FLAG_GOT_SANDWICH_CASE               0x38C
-#define FLAG_LASS_MAZE               0x38D
+#define FLAG_0x38D               0x38D
 #define FLAG_0x38E               0x38E
 #define FLAG_0x38F               0x38F
 #define FLAG_0x390               0x390
