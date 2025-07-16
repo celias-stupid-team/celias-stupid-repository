@@ -2924,6 +2924,7 @@ static const u8 sNpcTextColorToFont[] =
     [NPC_TEXT_COLOR_FEMALE]  = FONT_FEMALE, 
     [NPC_TEXT_COLOR_MON]     = FONT_NORMAL, 
     [NPC_TEXT_COLOR_NEUTRAL] = FONT_NORMAL,
+    [NPC_TEXT_COLOR_TREE]    = FONT_NORMAL,
 };
 
 // windowId: Upper 2 bits are text flags
