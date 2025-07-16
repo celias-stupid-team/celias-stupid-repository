@@ -117,7 +117,7 @@ bool8 CheckForTrainersWantingBattle(void)
     {
         if (!gObjectEvents[i].active)
             continue;
-        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED && gObjectEvents[i].trainerType != TRAINER_TYPE_RUN_SCRIPT)
+        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED && !(gObjectEvents[i].trainerType >= TRAINER_TYPE_RUN_SCRIPT))
             continue;
 
         numTrainers = CheckTrainer(i);
