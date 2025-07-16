@@ -8,6 +8,12 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
 		}
 	}
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
+
+		}
+	}
 }
 
 

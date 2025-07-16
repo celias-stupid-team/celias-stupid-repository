@@ -67,7 +67,7 @@ script FushciaGym_ParalysisDusclops {
 
 script FushciaGym_ParalysisDusclopsMan {
     if(var(VAR_TEMP_1) == 2) {
-	    msgbox("Ah!\nTerribly sorry about that.\pMy DUSCLOPS is quite ill-mannered.\nI only recently acquired him.\pI'll see to it that he's trained\nat once.", MSGBOX_DEFAULT)
+	    msgbox("Ah!\nTerribly sorry about that.\pMy DUSCLOPS is quite ill-mannered.\nI only recently acquired him.\pI'll see to it that he's trained\nat once.", MSGBOX_NPC)
 
     } else {
         lock
