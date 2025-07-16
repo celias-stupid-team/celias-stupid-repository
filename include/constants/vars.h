@@ -404,8 +404,7 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_FEMALE    1 // Red, for female NPCs
 #define NPC_TEXT_COLOR_MON       2 // Black, for Pokémon
 #define NPC_TEXT_COLOR_NEUTRAL   3 // Black, for inanimate objects and messages from the game
-
-#define NPC_TEXT_COLOR_TREE       4 // Tree, for Oak and oak-adjactent things
+#define NPC_TEXT_COLOR_TREE      4 // Tree, for Oak and oak-adjactent things
 
 
 // don't make fun of me :(
