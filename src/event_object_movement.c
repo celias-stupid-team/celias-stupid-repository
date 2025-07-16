@@ -2520,6 +2520,11 @@ static u16 GetObjectEventFlagIdByObjectEventId(u8 objectEventId)
     return GetObjectEventFlagIdByLocalIdAndMap(gObjectEvents[objectEventId].localId, gObjectEvents[objectEventId].mapNum, gObjectEvents[objectEventId].mapGroup);
 }
 
+u16 GetObjectEventTrainerSightFlagByObjectEventId(u8 objEventId)
+{
+    return gObjectEvents[objEventId].trainerType;
+}
+
 // Unused
 u8 GetObjectTrainerTypeByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
 {
