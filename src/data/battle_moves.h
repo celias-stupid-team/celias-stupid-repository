@@ -1547,6 +1547,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_SNATCH_AFFECTED,
     },
 
+    [MOVE_REFLECT_2] =
+    {
+        .effect = EFFECT_REFLECT_2,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_DEPENDS,
+        .priority = 0,
+        .flags = 0,
+    },
+
     [MOVE_FOCUS_ENERGY] =
     {
         .effect = EFFECT_FOCUS_ENERGY,

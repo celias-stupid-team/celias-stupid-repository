@@ -1236,4 +1236,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_SHED     -1 ] = gMoveDescription_Shed,
     [MOVE_WIND     -1 ] = gMoveDescription_Wind,
     [MOVE_GLOW     -1 ] = gMoveDescription_Glow,
+    [MOVE_REFLECT_2    - 1] = gMoveDescription_Reflect,
 };

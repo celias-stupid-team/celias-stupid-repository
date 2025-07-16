@@ -37064,5 +37064,3 @@ extern const u8 Bible_Text_Revelation_22_18[];
 extern const u8 Bible_Text_Revelation_22_19[];
 extern const u8 Bible_Text_Revelation_22_20[];
 extern const u8 Bible_Text_Revelation_22_21[];
-
-extern const u8 EventScript_ObjectApproachPlayer[];

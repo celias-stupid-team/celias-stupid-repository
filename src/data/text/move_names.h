@@ -616,7 +616,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_SHED]     = _("SHED"),
     [MOVE_WIND]     = _("WIND"),
     [MOVE_GLOW]     = _("GLOW"),
-    
+    [MOVE_REFLECT_2]    = _("REFLECT"),    
 };
 
 
@@ -1239,5 +1239,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_SHED]     = _("SHED"),
 [MOVE_WIND]     = _("WIND"),
 [MOVE_GLOW]     = _("GLOW"),
+[MOVE_REFLECT_2]    = _("REFLECT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

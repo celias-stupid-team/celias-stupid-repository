@@ -3,7 +3,6 @@
 #include "event_data.h"
 #include "quest_log.h"
 #include "mystery_gift.h"
-#include "trainer_see.h"
 #include "constants/maps.h"
 #include "constants/map_scripts.h"
 
@@ -533,10 +532,4 @@ void InitRamScript_NoObjectEvent(u8 *script, u16 scriptSize)
 void GetObjectEventTrainerRangeFromTemplate(void)
 {
     gSpecialVar_Result = gMapHeader.events->objectEvents[gSpecialVar_LastTalked - 1].objUnion.normal.trainerRange_berryTreeId;
-}
-
-bool8 LoadTrainerObjectScript(void)
-{
-    sGlobalScriptContext.scriptPtr = gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr;
-    return TRUE;
 }

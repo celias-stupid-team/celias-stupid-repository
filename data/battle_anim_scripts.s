@@ -640,6 +640,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHED
 	.4byte Move_WIND
 	.4byte Move_GLOW
+	.4byte Move_REFLECT_2
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -5436,6 +5437,23 @@ Move_MIRROR_COAT:
 	delay 10
 	playsewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER
 	call SpecialScreenSparkle
+	waitforvisualfinish
+	delay 1
+	blendoff
+	end
+
+Move_REFLECT_2:
+	loadspritegfx ANIM_TAG_SPARKLE_4
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
+	setalpha 0, 16
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER, 15
+	createsprite gReflectWallSpriteTemplate, ANIM_ATTACKER, 1, 40, 0, ANIM_TAG_BLUE_LIGHT_WALL
+	delay 20
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 30, 0, ANIM_ATTACKER, TRUE
+	delay 7
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 19, -12, ANIM_ATTACKER, TRUE
+	delay 7
+	createsprite gReflectSparkleSpriteTemplate, ANIM_ATTACKER, 2, 10, 20, ANIM_ATTACKER, TRUE
 	waitforvisualfinish
 	delay 1
 	blendoff

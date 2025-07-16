@@ -133,7 +133,6 @@ void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u16 graphicsId);
 u8 CreateFameCheckerObject(u16 graphicsId, u8 localId, s16 x, s16 y);
 bool8 ObjectEventIsMovementOverridden(struct ObjectEvent *objectEvent);
 u8 ObjectEventCheckHeldMovementStatus(struct ObjectEvent *objectEvent);
-u16 GetObjectEventTrainerSightFlagByObjectEventId(u8 objEventId);
 u8 GetWalkNormalMovementAction(u32);
 u8 GetWalkFastMovementAction(u32);
 u8 GetWalkFasterMovementAction(u32);
