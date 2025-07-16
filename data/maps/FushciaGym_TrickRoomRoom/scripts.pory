@@ -18,6 +18,7 @@ script FushciaGym_TrickRoomRoom_OpenDoors {
 script FushciaGym_TrickRoomRoom_Trainer {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
 	    msgbox("You've done well to navigate\nthis maze, TRAINER.\pLet nothing slow you down.\n", MSGBOX_DEFAULT)
         call(FushciaGym_TrickRoomRoom_OpenDoors)

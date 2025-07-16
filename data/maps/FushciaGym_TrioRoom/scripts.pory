@@ -50,7 +50,7 @@ script FushciaGym_TrioRoom_NinjasAppear {
         delay(20)
         playse(SE_FALL)
         applymovement(LOCALID_GREEN, TrioRoom_NinjaFallsDown)
-        waitmovement(LOCALID_BLUE)
+        waitmovement(LOCALID_GREEN)
         textcolor(NPC_TEXT_COLOR_MALE)
         msgbox("We are ninjas!", MSGBOX_DEFAULT)
         closemessage

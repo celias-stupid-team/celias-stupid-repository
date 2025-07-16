@@ -23,7 +23,7 @@ script FushciaGym_AronTrainer {
     faceplayer
     textcolor(NPC_TEXT_COLOR_RED)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_GRETA)) {
-        msgbox("They say the challenges in this\nGYM can be beated with any team.\pIf you want to get through, use\nyour wits - not just brute force!", MSGBOX_DEFAULT)
+        msgbox("They say the challenges in this\nGYM can be beaten with any team.\pIf you want to get through, use\nyour wits - not just brute force!", MSGBOX_DEFAULT)
         release
         end
     }
@@ -46,6 +46,7 @@ script FushciaGym_AronRoom_OpenDoors {
 script FushciaGym_HippopotasLeft {
     lock
     faceplayer
+    waitse
     playse(SE_PIN)
     applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
     delay(60)

@@ -1166,3 +1166,8 @@ SevenIsland_TanobyRuins_EventScript_Clifford::
 	msgbox SevenIsland_TanobyRuins_Text_CliffordPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+EventScript_ObjectApproachPlayer::
+	lock
+	special DoTrainerApproach
+	waitstate
+	gotonative LoadTrainerObjectScript

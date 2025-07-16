@@ -42,7 +42,6 @@ script FushciaGym_ToxicDusclops {
             msgbox("DUSCLOPS used TOXIC!\n", MSGBOX_DEFAULT)
             setstatus1(STATUS1_POISON, 0)
             setflag(FLAG_GOT_POISONED_ONCE)
-            setvar(VAR_TEMP_1, 2)
 
     } else {
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)

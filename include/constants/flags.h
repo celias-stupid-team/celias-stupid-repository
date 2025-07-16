@@ -974,7 +974,7 @@
 #define FLAG_BAKED_DONUT_HINT               0x38A
 #define FLAG_FED_SANDWICH               0x38B
 #define FLAG_GOT_SANDWICH_CASE               0x38C
-#define FLAG_0x38D               0x38D
+#define FLAG_LASS_MAZE               0x38D
 #define FLAG_0x38E               0x38E
 #define FLAG_0x38F               0x38F
 #define FLAG_0x390               0x390

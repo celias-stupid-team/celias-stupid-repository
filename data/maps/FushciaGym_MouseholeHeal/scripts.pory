@@ -56,7 +56,8 @@ script FushciaGym_HippoMiddle {
     msgbox("HIPPOPOTAS: Po-prra…!\n", MSGBOX_DEFAULT)
     waitmoncry
     closemessage
-
+    fadescreen(FADE_TO_BLACK)
+    playse(SE_FLEE)
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
         setvar(VAR_FUSCSIA_GYM_HIPPO_ROOM, 2)
     } else {
@@ -64,6 +65,7 @@ script FushciaGym_HippoMiddle {
 
     }
     removeobject(VAR_LAST_TALKED)
+    fadescreen(FADE_FROM_BLACK)
     setweather(WEATHER_NONE)
     doweather
     setflag(FLAG_TEMP_1)

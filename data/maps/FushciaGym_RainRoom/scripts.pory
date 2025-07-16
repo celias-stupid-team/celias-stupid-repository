@@ -90,6 +90,7 @@ script FushciaGym_RainRoom_WallHole {
     if(checkitem(ITEM_DRILL_DOZER)) {
         msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
+            closemessage
             setflag(FLAG_DRILLED_RAIN_HOLE)
             fadescreen(FADE_TO_BLACK)
             playse(SE_M_HORN_ATTACK)

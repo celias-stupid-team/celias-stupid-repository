@@ -2,6 +2,7 @@
 #include "battle_setup.h"
 #include "event_data.h"
 #include "event_object_movement.h"
+#include "event_scripts.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
 #include "quest_log.h"
@@ -99,6 +100,7 @@ static const TrainerSeeFunc sTrainerSeeFuncList2[] = {
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
+    u8 numTrainers = 0;
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
@@ -113,14 +115,16 @@ bool8 CheckForTrainersWantingBattle(void)
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
-        u8 numTrainers;
-
         if (!gObjectEvents[i].active)
             continue;
-        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED)
+        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED && gObjectEvents[i].trainerType != TRAINER_TYPE_RUN_SCRIPT)
             continue;
 
         numTrainers = CheckTrainer(i);
+
+        if (numTrainers == 0xFF)    //run script
+            break;
+
         if (numTrainers == 2)
             break;
 
@@ -129,6 +133,17 @@ bool8 CheckForTrainersWantingBattle(void)
 
         if (gNoOfApproachingTrainers > 1)
             break;
+    }
+        
+    if (numTrainers == 0xFF)
+    {
+        u8 objectEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
+        
+        gSelectedObjectEvent = objectEventId;
+        gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
+        ScriptContext_SetupScript(EventScript_ObjectApproachPlayer);
+        LockPlayerFieldControls();
+        return TRUE;
     }
 
     if (gNoOfApproachingTrainers == 1)
@@ -166,26 +181,48 @@ static u8 CheckTrainer(u8 trainerObjId)
     const u8 *double_script = GetObjectEventScriptPointerByObjectEventIdAndCondition(double_trainerObjId);
     u8 approachDistance;
     u8 numTrainers = 1;
+    u16 scriptFlag = GetObjectEventTrainerSightFlagByObjectEventId(trainerObjId);
 
-    if (GetTrainerFlagFromScriptPointer(script))
-        return FALSE;
+    if (scriptFlag < TRAINER_TYPE_RUN_SCRIPT)
+    {
+        if (GetTrainerFlagFromScriptPointer(script))
+            return FALSE;
+    }
+
     approachDistance = GetTrainerApproachDistance(&gObjectEvents[trainerObjId]);
+    
     if (approachDistance != 0)
     {
-        // no battle if regular double battle and only a single available mon in party
-        if (script[1] == TRAINER_BATTLE_DOUBLE)
+        if (scriptFlag >= TRAINER_TYPE_RUN_SCRIPT)
         {
-            if (GetMonsStateToDoubles())
+            if (!FlagGet(scriptFlag) && script != NULL)
+            {
+                // TRAINER_TYPE_RUN_SCRIPT
+                FlagSet(scriptFlag);
+                numTrainers = 0xFF;
+            }
+            else
+            {
                 return FALSE;
-
-            numTrainers = 2;
+            }
         }
-
-        // no battle if double single battle and only a single available mon in party
-        if (script[1] == TRAINER_BATTLE_SINGLE && gNoOfApproachingTrainers > 0)
+        else
         {
-            if (GetMonsStateToDoubles())
-                return FALSE;
+            // no battle if regular double battle and only a single available mon in party
+            if (script[1] == TRAINER_BATTLE_DOUBLE)
+            {
+                if (GetMonsStateToDoubles())
+                    return FALSE;
+
+                numTrainers = 2;
+            }
+
+            // no battle if double single battle and only a single available mon in party
+            if (script[1] == TRAINER_BATTLE_SINGLE && gNoOfApproachingTrainers > 0)
+            {
+                if (GetMonsStateToDoubles())
+                    return FALSE;
+            }
         }
 
         if (gNoOfApproachingTrainers > 0)
@@ -224,7 +261,7 @@ static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj)
     u8 approachDistance;
 
     PlayerGetDestCoords(&x, &y);
-    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL)  // can only see in one direction
+    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL || trainerObj->trainerType >= TRAINER_TYPE_RUN_SCRIPT)  // can only see in one direction
     {
         approachDistance = sDirectionalApproachDistanceFuncs[trainerObj->facingDirection - 1](trainerObj, trainerObj->trainerRange_berryTreeId, x, y);
         return CheckPathBetweenTrainerAndPlayer(trainerObj, approachDistance, trainerObj->facingDirection);
