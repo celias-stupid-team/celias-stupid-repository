@@ -1,9 +1,12 @@
+const START_SHEDINJA_BATTLE = 1
+const DEFEATED_SHEDINJA = 2
+
 mapscripts FushciaGym_ShedinjaRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
             call(FushciaGym_ShedinjaRoom_DrawDrilledWall)
         }
-        if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
+        if(var(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == DEFEATED_SHEDINJA) {
             setmetatile(11, 8, 0x357, TRUE)
             setmetatile(15, 8, 0x357, TRUE)
         }
@@ -30,15 +33,16 @@ script FushciaGym_ShedinjaTrainer {
     lock
     faceplayer
     textcolor(NPC_TEXT_COLOR_MALE)
-    if(flag(FLAG_DEFEATED_SHEDINJA_MAN)) {
+    if(var(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == DEFEATED_SHEDINJA) {
         msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n{PAUSE 30}…Huh?\lIt's an ORB, you say?", MSGBOX_DEFAULT)
         call(FushciaGym_ShedinjaRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {
         msgbox("Ahaha!\nI am DOME ACE TUCKER.\pCome, let's put on a show!\n", MSGBOX_DEFAULT)
+        setvar(VAR_FUSHCIA_GYM_SHEDINJA_STATE, START_SHEDINJA_BATTLE)
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_TUCKER, "No!\nDropped my balls!")
         call(FushciaGym_ShedinjaRoom_OpenDoors)
-        setflag(FLAG_DEFEATED_SHEDINJA_MAN)
+        setvar(VAR_FUSHCIA_GYM_SHEDINJA_STATE, DEFEATED_SHEDINJA)
         special(DrawWholeMapView)
 
     }

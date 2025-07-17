@@ -985,15 +985,19 @@ void ClearTrainerFlag(u16 trainerId)
     FlagClear(TRAINER_FLAGS_START + trainerId);
 }
 
+#define START_SHEDINJA_BATTLE 1
 void StartTrainerBattle(void)
 {
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
+    if (VarGet(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == START_SHEDINJA_BATTLE)
+        gBattleTypeFlags |= BATTLE_TYPE_SHEDINJA_TERA;
     gMain.savedCallback = CB2_EndTrainerBattle;
     DoTrainerBattle();
     ScriptContext_Stop();
 }
+#undef START_SHEDINJA_BATTLE
 
 static void CB2_EndTrainerBattle(void)
 {

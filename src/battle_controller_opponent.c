@@ -11,6 +11,7 @@
 #include "battle_controllers.h"
 #include "battle_message.h"
 #include "battle_interface.h"
+#include "battle_scripts.h"
 #include "battle_tower.h"
 #include "battle_gfx_sfx_util.h"
 #include "battle_ai_script_commands.h"
@@ -1068,7 +1069,13 @@ static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit)
     gBattlerPartyIndexes[battlerId] = gBattleBufferA[battlerId][1];
     species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
     gBattleControllerData[battlerId] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
-    BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[battlerId]], battlerId);
+    
+    // load Shedinja sprite first for Tera Shedinja battle
+    if (gBattleTypeFlags & BATTLE_TYPE_SHEDINJA_TERA)
+        DecompressSpeciesFrontPic(&gEnemyParty[gBattlerPartyIndexes[battlerId]], battlerId, SPECIES_SHEDINJA);
+    else
+        BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[battlerId]], battlerId);
+
     SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battlerId));
     gBattlerSpriteIds[battlerId] = CreateSprite(&gMultiuseSpriteTemplate,
                                                 GetBattlerSpriteCoord(battlerId, BATTLER_COORD_X_2),
@@ -1648,6 +1655,13 @@ static void OpponentHandleIntroTrainerBallThrow(void)
         gTasks[gBattlerStatusSummaryTaskId[gActiveBattler]].func = Task_HidePartyStatusSummary;
     gBattleSpritesDataPtr->animationData->introAnimActive = TRUE;
     gBattlerControllerFuncs[gActiveBattler] = OpponentDummy;
+
+    // execute Shedinja Tera animation
+    if (gBattleTypeFlags & BATTLE_TYPE_SHEDINJA_TERA)
+    {
+        gBattleScripting.battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        BattleScriptExecute(BattleScript_TerastallizeShedinja);
+    }
 }
 
 static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite)

@@ -317,7 +317,7 @@ It is reset after every battle.
 #define VAR_PEWTER_CELIA_SCENE                 0x40D9
 #define VAR_FUSHCIA_GYM_CHALLENGE                 0x40DA
 #define VAR_FUSHCIA_GYM_PIT_STATE                 0x40DB
-#define VAR_0x40DC                 0x40DC
+#define VAR_FUSHCIA_GYM_SHEDINJA_STATE                 0x40DC
 #define VAR_0x40DD                 0x40DD
 #define VAR_0x40DE                 0x40DE
 #define VAR_0x40DF                 0x40DF

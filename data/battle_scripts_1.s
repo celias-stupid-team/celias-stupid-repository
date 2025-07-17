@@ -4027,6 +4027,19 @@ BattleScript_SilphScopeUnveiled::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TerastallizeShedinja::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DEFSTORINGENERGY
+	playanimation BS_OPPONENT1, B_ANIM_TERA_CHARGE
+	waitanimation
+	playanimation BS_OPPONENT1, B_ANIM_TERA_ACTIVATE
+	waitanimation
+	@ playanimation BS_OPPONENT1, B_ANIM_SILPH_SCOPED
+	@ pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DEFTERASTALLIZEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_AlomomolaMidBattleEvo::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_ALOMOMOLAEVO
