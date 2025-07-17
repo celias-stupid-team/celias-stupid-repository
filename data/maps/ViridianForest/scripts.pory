@@ -272,17 +272,48 @@ movement CeliaAbsconds {
 script ViridianForest_BuffOak {
 	lock
 	if(checkitem(ITEM_WAILMER_PAIL)) {
-		msgbox("buff tree\nwater?", MSGBOX_YESNO)
+		msgbox("This tree looks extraordinarily\nbuff.\lIts biceps could crush your skull.\pWould you like to dump water on it?\n", MSGBOX_YESNO)
 		if(!var(VAR_RESULT)) {
+			msgbox("{PLAYER} decided not to risk\ninternal hemmorage.", MSGBOX_DEFAULT)
 			release
 			end
 		}
-		msgbox("cutscene\n", MSGBOX_DEFAULT)
+		fadenewbgm(MUS_NONE)
+		msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+		closemessage
 		removeitem(ITEM_WAILMER_PAIL)
 		additem(ITEM_EMPTY_PAIL)
+		closemessage
+		delay(10)
+		playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+		delay(20)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp) // open eyes
+		waitmovement(0)
+		delay(60)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+		delay(10)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+		delay(20)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceLeft)
+		delay(10)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+		delay(60)
+		textcolor(NPC_TEXT_COLOR_TREE)
+		msgbox("{FONT_SMALL}OAK?: Huuu-ah!!\nHey, kid!\lWhat's the big idea?\pWhat's that?\nYou like my gains?\pHa, ha! Yeah, I get it.\nYou want a bod like mine!\pBut you can't just go chuckin'\nwater on anyone you're jealous of.\lDon't let envy turn ya green!\pBut here - you want a boost?\nTry this!", MSGBOX_DEFAULT)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		giveitem_msg("{PLAYER} was gifted the\nMACHO BRACE from the large tree!", ITEM_MACHO_BRACE, 1)
+		textcolor(NPC_TEXT_COLOR_TREE)
+		msgbox("{FONT_SMALL}OAK?: Aight, kid.\nMake some good use outta that!\pAnyway, I'm leavin.\nI got bigger fish to fry!\pPeace out!\n", MSGBOX_DEFAULT)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
 		removeobject(VAR_LAST_TALKED)
 		setflag(FLAG_HIDE_BUFF_OAK)
-		finditem(ITEM_MACHO_BRACE)
+		fadenewbgm(MUS_NONE)
+		playse(SE_EXIT)
+		fadescreen(FADE_FROM_BLACK)
+		fadedefaultbgm
+		release
+		end
 	} else {
 		msgbox("For some reason, this tree in\nparticular feels… off.", MSGBOX_DEFAULT)
 		playmoncry(SPECIES_SUDOWOODO, CRY_MODE_DEFAULT)
