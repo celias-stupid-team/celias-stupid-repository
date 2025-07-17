@@ -164,6 +164,7 @@ movement DrillTheWall_Right {
 }
 
 script FushciaGym_ShedinjaRoom_OpenDoors {
+    //setvar(VAR_FUSHCIA_GYM_SHEDINJA_STATE, DEFEATED_SHEDINJA) My attempt to solve the problem; didn't work
     setmetatile(11, 7, 0x34F, TRUE)
     setmetatile(11, 8, 0x357, TRUE)
     setmetatile(15, 7, 0x34F, TRUE)

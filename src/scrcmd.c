@@ -2476,7 +2476,7 @@ bool8 ScrCmd_checkmoncaught(struct ScriptContext * ctx)
 void ScrCmd_setstatus1(struct ScriptContext *ctx)
 {
     u32 status1 = VarGet(ScriptReadByte(ctx));
-    u32 slot = VarGet(ScriptReadByte(ctx));
+    u32 slot = VarGet(ScriptReadHalfword(ctx)); //Made it so you can read a variable
     u16 species = SPECIES_NONE;
 
     if (slot >= PARTY_SIZE)

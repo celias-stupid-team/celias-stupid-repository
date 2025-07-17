@@ -27,6 +27,12 @@ script FushciaGym_ImposterOakRoom_SecretSwitch {
 		release
 		end
 	} else {
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_SOUTH) {
+			msgbox("The statue is blocking your path.\pIt seems there's a switch on the\nother side.", MSGBOX_DEFAULT)
+			release
+			end
+		} 
 		msgbox("A secret switch!\nPress it?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			msgbox("{PLAYER} pressed the switch!\n", MSGBOX_DEFAULT)
