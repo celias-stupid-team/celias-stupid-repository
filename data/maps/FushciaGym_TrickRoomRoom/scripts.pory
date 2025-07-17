@@ -20,7 +20,7 @@ script FushciaGym_TrickRoomRoom_Trainer {
     faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
-	    msgbox("You've done well to navigate\nthis maze, TRAINER.\pLet nothing slow you down.\n", MSGBOX_DEFAULT)
+	    msgbox("The LEADER set up the invisible\nwalls that block your path.\lTo find him is no small feat.\pYou've done well to navigate\nthis maze, TRAINER.\pLet nothing slow you down.\n", MSGBOX_DEFAULT)
         call(FushciaGym_TrickRoomRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {

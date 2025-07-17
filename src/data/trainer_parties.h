@@ -10115,7 +10115,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
     {
         .iv = 0,
         .lvl = 30,
-        .species = SPECIES_GYARADOS,
+        .species = SPECIES_GYARADOS_LANCE,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 

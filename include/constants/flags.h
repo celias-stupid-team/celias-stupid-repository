@@ -294,7 +294,7 @@
 #define FLAG_TALKED_TO_LICKITUNG_TRADE               0x0F9
 #define FLAG_HIDE_TM42               0x0FA
 #define FLAG_DID_AMPHAROS_TRADE               0x0FB
-#define FLAG_0x0FC               0x0FC
+#define FLAG_IMPOSTER_OAK_ROOM_SWITCH               0x0FC
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
 #define FLAG_ROUTE18_LASSATTACK               0x0FE
