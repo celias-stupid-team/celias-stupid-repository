@@ -153,13 +153,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->dpadDirection = DIR_SOUTH;
         else if (heldKeys & DPAD_LEFT) {
             input->dpadDirection = DIR_WEST;
-            // special handling for Fuchsia Gym pit room
-            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_THE_PIT_ROOM)
-                && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_THE_PIT_ROOM)
-                && gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y == 19)
-            {
-                VarSet(VAR_FUSHCIA_GYM_PIT_STATE, 1);
-            }
         }
         else if (heldKeys & DPAD_RIGHT)
             input->dpadDirection = DIR_EAST;

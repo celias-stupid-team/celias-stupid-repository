@@ -1432,6 +1432,15 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         else
         {
             player_step(fieldInput.dpadDirection, newKeys, heldKeys);
+            // special handling for Fuchsia Gym pit room
+            if (GetPlayerFacingDirection() == DIR_WEST
+                && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_THE_PIT_ROOM)
+                && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_THE_PIT_ROOM)
+                && gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y == 19
+                && !FlagGet(FLAG_LASS_BROKE_WALL))
+            {
+                VarSet(VAR_FUSHCIA_GYM_PIT_STATE, 1);
+            }
         }
     }
     RunQuestLogCB();
