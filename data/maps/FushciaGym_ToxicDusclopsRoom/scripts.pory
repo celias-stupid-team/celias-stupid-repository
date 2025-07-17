@@ -40,9 +40,7 @@ script FushciaGym_ToxicDusclops {
             waitmoncry
             closemessage
             msgbox("DUSCLOPS used TOXIC!\n", MSGBOX_DEFAULT)
-            getpartysize
-            random(VAR_RESULT)
-            setstatus1(STATUS1_POISON, VAR_RESULT)
+            setstatus1(STATUS1_POISON, 0)
             setflag(FLAG_GOT_POISONED_ONCE)
 
     } else {
