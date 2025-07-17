@@ -140,6 +140,9 @@ static void CB2_ReturnToFieldLink(void);
 static void FieldClearVBlankHBlankCallbacks(void);
 static void SetFieldVBlankCallback(void);
 static void VBlankCB_Field(void);
+void ReloadMap(void);
+void Task_ReloadMap(u8 taskId);
+
 
 static bool32 LoadMapInStepsLink(u8 *state);
 static bool32 ReturnToFieldLocal(u8 *state);
@@ -3582,4 +3585,16 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
         sprite->invisible = ((sprite->data[7] & 4) >> 2);
         sprite->data[7]++;
     }
+}
+
+
+void ReloadMap(void)
+{
+  CreateTask(Task_ReloadMap, 0);
+}
+
+void Task_ReloadMap(u8 taskId)
+{
+  WarpIntoMap();
+  SetMainCallback2(CB2_LoadMap);
 }

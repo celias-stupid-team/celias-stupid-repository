@@ -36,7 +36,7 @@ script WestField_LookGirlLass {
             closemessage
             playbgm(MUS_PALLET, TRUE)
             //battle
-            trainerbattle_single(TRAINER_LASS_JOANA, "No way!")
+            trainerbattle_no_intro(TRAINER_LASS_JOANA, "No way!")
             textcolor(NPC_TEXT_COLOR_FEMALE)
             msgbox("Ugh, fine.\pIf you take this, will you leave\nme alone?", MSGBOX_DEFAULT)
             playfanfare(MUS_LEVEL_UP)
