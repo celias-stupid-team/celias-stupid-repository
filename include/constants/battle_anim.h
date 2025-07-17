@@ -302,7 +302,8 @@
 #define ANIM_TAG_STEALTH_ROCK               (ANIM_SPRITES_START + 292)
 #define ANIM_TAG_WEED                       (ANIM_SPRITES_START + 293)
 #define ANIM_TAG_TOMATO                     (ANIM_SPRITES_START + 294)
-
+#define ANIM_TAG_TERA_CRYSTAL               (ANIM_SPRITES_START + 295)
+#define ANIM_TAG_TERA_SHATTER               (ANIM_SPRITES_START + 296)
 
 // battlers
 #define ANIM_ATTACKER    0

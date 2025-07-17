@@ -4034,8 +4034,6 @@ BattleScript_TerastallizeShedinja::
 	waitanimation
 	playanimation BS_OPPONENT1, B_ANIM_TERA_ACTIVATE
 	waitanimation
-	@ playanimation BS_OPPONENT1, B_ANIM_SILPH_SCOPED
-	@ pause B_WAIT_TIME_SHORT
 	printstring STRINGID_DEFTERASTALLIZEDINTO
 	waitmessage B_WAIT_TIME_LONG
 	end2
