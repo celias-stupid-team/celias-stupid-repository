@@ -6825,6 +6825,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "HOUSE VOUCHER",
+      "itemId": "ITEM_HOUSEVOUCHER",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

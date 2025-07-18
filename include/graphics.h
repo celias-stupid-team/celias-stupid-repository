@@ -12405,3 +12405,9 @@ extern const u8 gMonIcon_GyaradosLance[];
 
 extern const u32 gTrainerFrontPic_Darachcait[];
 extern const u32 gTrainerPalette_Darachcait[];
+
+extern const u32 gItemIcon_HOUSEVOUCHER[];
+extern const u32 gItemIconPalette_HOUSEVOUCHER[];
+
+extern const u32 gTrainerFrontPic_Karen[];
+extern const u32 gTrainerPalette_Karen[];

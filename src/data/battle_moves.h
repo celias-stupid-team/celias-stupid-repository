@@ -925,8 +925,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SEISMIC_TOSS] =
     {
-        .effect = EFFECT_LEVEL_DAMAGE,
-        .power = 1,
+        .effect = EFFECT_HIT,
+        .power = 110,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
