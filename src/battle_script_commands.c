@@ -6725,6 +6725,17 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
         }
+        case VARIOUS_JUMP_IF_TARGET_ALLY:
+        {
+            VARIOUS_ARGS(const u8 *jumpInstr);
+            
+            if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER
+              && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            else
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            return;
+        }
     }
 
     gBattlescriptCurrInstr += 3;
@@ -6992,6 +7003,8 @@ static void Cmd_manipulatedamage(void)
     case DMG_DOUBLED:
         gBattleMoveDamage *= 2;
         break;
+    case DMG_FULL:
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
     }
 
     gBattlescriptCurrInstr += 2;

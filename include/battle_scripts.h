@@ -248,6 +248,7 @@ extern const u8 BattleScript_BattleTowerTrainerBattleWon[];
 extern const u8 BattleScript_AlomomolaMidBattleEvo[];
 extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_EffectStealthRock[];
+extern const u8 BattleScript_BadDreamsActivates[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForBallThrow[];

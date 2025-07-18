@@ -95,11 +95,13 @@
 #define VARIOUS_INCREMENT_SUB_LAYER             17
 #define VARIOUS_TRY_SET_SPECIAL_REFLECT         18
 #define VARIOUS_HANDLE_SPRITE_UPDATE            19
+#define VARIOUS_JUMP_IF_TARGET_ALLY             20
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
 #define DMG_RECOIL_FROM_MISS       1
 #define DMG_DOUBLED                2
+#define DMG_FULL                   3
 
 // Cmd_jumpifcantswitch
 #define SWITCH_IGNORE_ESCAPE_PREVENTION   (1 << 7)

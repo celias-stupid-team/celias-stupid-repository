@@ -6165,7 +6165,7 @@ static const struct LevelUpMove sManaphyLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sDarkraiLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_SPORE),
 	LEVEL_UP_END
 };
 

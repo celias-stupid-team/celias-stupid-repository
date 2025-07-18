@@ -1428,6 +1428,15 @@
 	.4byte \failInstr
 	.endm
 
+	.macro handlespriteupdate battler:req
+	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
+	.endm
+
+	.macro jumpiftargetally jumpInstr:req
+	various BS_ATTACKER, VARIOUS_JUMP_IF_TARGET_ALLY
+	.4byte \jumpInstr
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
@@ -1549,8 +1558,4 @@
 
 	.macro setbattlestringid
 	callnative BS_SetBattleStringId
-	.endm
-
-	.macro handlespriteupdate battler:req
-	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
 	.endm
