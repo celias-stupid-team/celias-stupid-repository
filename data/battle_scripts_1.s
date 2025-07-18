@@ -4032,6 +4032,7 @@ BattleScript_TerastallizeShedinja::
 	printstring STRINGID_DEFSTORINGENERGY
 	playanimation BS_OPPONENT1, B_ANIM_TERA_CHARGE
 	waitanimation
+	handlespriteupdate BS_OPPONENT1
 	playanimation BS_OPPONENT1, B_ANIM_TERA_ACTIVATE
 	waitanimation
 	printstring STRINGID_DEFTERASTALLIZEDINTO

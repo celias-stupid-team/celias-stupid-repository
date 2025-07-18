@@ -1550,3 +1550,7 @@
 	.macro setbattlestringid
 	callnative BS_SetBattleStringId
 	.endm
+
+	.macro handlespriteupdate battler:req
+	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
+	.endm

@@ -4,6 +4,7 @@
 #include "battle_message.h"
 #include "battle_anim.h"
 #include "battle_ai_script_commands.h"
+#include "battle_gfx_sfx_util.h"
 #include "battle_scripts.h"
 #include "constants/moves.h"
 #include "constants/abilities.h"
@@ -6699,6 +6700,30 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             break;
+        }
+        case VARIOUS_HANDLE_SPRITE_UPDATE:
+        {
+            VARIOUS_ARGS();
+            u8 position;
+            struct BattleAnimBgData animBg;
+            u8 *dest;
+            u8 *src;
+
+            // BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[cmd->battler]], cmd->battler);
+            HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
+            GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
+            if (IsContest())
+                position = 0;
+            else
+                position = GetBattlerPosition(gBattleAnimAttacker);
+
+            src = gMonSpritesGfxPtr->sprites[position] + (gBattleMonForms[gBattleAnimAttacker] << 11);
+            dest = animBg.bgTiles;
+            CpuCopy32(src, dest, MON_PIC_SIZE);
+            LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
+            
+            gBattlescriptCurrInstr = cmd->nextInstr;
+            return;
         }
     }
 
