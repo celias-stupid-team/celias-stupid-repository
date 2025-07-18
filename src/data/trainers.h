@@ -6441,9 +6441,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainDarach),
     },
     [TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_DARACH,
+        .trainerPic = TRAINER_PIC_DARACHCAIT,
         .trainerName = _("CAIT&DARACH"),
         .items = {},
         .doubleBattle = TRUE,
