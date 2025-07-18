@@ -12402,3 +12402,6 @@ extern const u32 gMonShinyPalette_GyaradosLance[];
 extern const u8 gMonFootprint_GyaradosLance[];
 extern const u8 gMonIcon_GyaradosLance[];
 
+
+extern const u32 gTrainerFrontPic_Darachcait[];
+extern const u32 gTrainerPalette_Darachcait[];
