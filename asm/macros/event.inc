@@ -1977,3 +1977,8 @@
 	setvar VAR_0x8006, \item
 	special CreateEnemyEventMon
 	.endm
+
+	.macro loadpit index:req
+	.byte 0xe2
+	.2byte \index
+	.endm

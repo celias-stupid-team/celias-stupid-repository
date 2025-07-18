@@ -10,6 +10,7 @@
 #include "quest_log.h"
 #include "map_preview_screen.h"
 #include "fieldmap.h"
+#include "field_camera.h"
 #include "field_weather.h"
 #include "field_tasks.h"
 #include "field_fadetransition.h"
@@ -2533,4 +2534,33 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
         SetupNativeScript(ctx, IsFreezeObjectAndPlayerFinished);
     }
     return TRUE;
+}
+
+u16 GrabLayout(const struct MapLayout *mapLayout) {
+    u32 i = 0;
+    for (i < mapLayout->map[x + (y * mapLayout->width)] & MAPGRID_METATILE_ID_MASK)
+        {
+            return mapLayout->map[i] & MAPGRID_METATILE_ID_MASK
+            i += 1;
+        }
+}
+
+bool8 ScrCmd_setlayouttiles(struct ScriptContext * ctx)
+{
+    u16 layout = VarGet(ScriptReadHalfword(ctx));
+    GrabLayout(layout);
+    
+    u16 CurrentMapX = VarGet(ScriptReadHalfword(ctx));
+    u16 CurrentMapY = VarGet(ScriptReadHalfword(ctx));
+  
+    x += MAP_OFFSET;
+    y += MAP_OFFSET;
+
+    if (!isImpassable)
+        MapGridSetMetatileIdAt(x, y, metatileId);
+    else
+        MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
+    
+    
+    return FALSE;
 }

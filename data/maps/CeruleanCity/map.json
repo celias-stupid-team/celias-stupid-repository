@@ -716,7 +716,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CeruleanCity_BerryPowderMan"
+      "script": "Cerulean_SignThatChangesTheLayout"
     }
   ]
 }

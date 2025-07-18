@@ -439,6 +439,11 @@ script CeruleanCity_Celia_Bike {
 	end
 }
 
+script Cerulean_SignThatChangesTheLayout{
+	callnative(SwapLayout)
+	end
+}
+
 script CeruleanCity_SummonThePit {
 	// draw the pit
 	setmetatile(19, 0, 0x014, FALSE)
