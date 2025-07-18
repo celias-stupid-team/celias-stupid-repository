@@ -131,7 +131,7 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_CELIA_BONUS_3                     0x076
+#define FLAG_CSR_CELIA_BONUS                     0x076
 #define FLAG_HIDE_P_EMBLEM                                         0x077
 #define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
@@ -366,7 +366,7 @@
 #define FLAG_DRILLED_RAIN_HOLE               0x140
 #define FLAG_DRILLED_LION_HOLE               0x141
 #define FLAG_CHASED_VULPIX               0x142
-#define FLAG_0x143               0x143
+#define FLAG_GOT_WAKE_UP_SLAP               0x143
 #define FLAG_0x144               0x144
 #define FLAG_0x145               0x145
 #define FLAG_0x146               0x146
@@ -840,7 +840,7 @@
 #define FLAG_CSR_JIRACHI_SET               0x307
 #define FLAG_CSR_JIRACHI_GOT               0x308
 #define FLAG_CSR_MELTED_GUARDS               0x309
-#define FLAG_CSR_CELIA_BONUS     0x30A
+#define FLAG_CSR_OLD_CELIA_BONUS     0x30A
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
 #define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
 #define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D

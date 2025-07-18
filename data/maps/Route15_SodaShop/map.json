@@ -98,7 +98,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_SodaShop",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
       "type": "object",
@@ -112,7 +112,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_Bugsy",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
       "type": "object",
@@ -126,7 +126,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_RichKid",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [

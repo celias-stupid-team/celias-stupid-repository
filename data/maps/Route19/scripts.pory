@@ -13,3 +13,16 @@ script Route19_Sailor {
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
 }
+
+script Route19_DrawThePit {
+	setmaplayoutindex(LAYOUT_ROUTE19_LAYOUT_PIT)
+	callnative(ReloadMap)
+	setvar(VAR_TEMP_0, 1)
+}
+
+script Route19_DestroyThePit {
+	setmaplayoutindex(LAYOUT_ROUTE19)
+	callnative(ReloadMap)
+	setvar(VAR_TEMP_0, 0)
+}
+

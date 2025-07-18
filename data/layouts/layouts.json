@@ -5244,6 +5244,18 @@
       "secondary_tileset": "gTileset_NewFuchsiaGym",
       "border_filepath": "data/layouts/FushciaGym_ImposterOakRoom_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/FushciaGym_ImposterOakRoom_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_LAYOUT_PIT",
+      "name": "Route19_Layout_Pit",
+      "width": 24,
+      "height": 88,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route15",
+      "border_filepath": "data/layouts/Route19_Layout_Pit/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_Layout_Pit/map.bin"
     }
   ]
 }

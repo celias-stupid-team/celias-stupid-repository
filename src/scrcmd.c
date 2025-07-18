@@ -2476,8 +2476,31 @@ bool8 ScrCmd_checkmoncaught(struct ScriptContext * ctx)
 void ScrCmd_setstatus1(struct ScriptContext *ctx)
 {
     u32 status1 = VarGet(ScriptReadByte(ctx));
-    u32 slot = VarGet(ScriptReadHalfword(ctx)); //Made it so you can read a variable
+    u32 slot = VarGet(ScriptReadByte(ctx));
     u16 species = SPECIES_NONE;
+    if (slot == 0) {
+        bool8 randomPoison = FALSE;
+        u8 failsafe = 0;
+        u8 timesCheckedFirst = 0;
+        while(!(randomPoison || failsafe > 40)) {
+            slot = Random() %  PARTY_SIZE;
+            species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
+            if (species != SPECIES_NONE
+             && species != SPECIES_EGG
+             && GetMonData(&gPlayerParty[slot], MON_DATA_HP) != 0
+             && GetMonData(&gPlayerParty[slot], MON_DATA_STATUS) == STATUS1_NONE) {
+                if(slot == 0 && timesCheckedFirst < 3) { // It needs to land on the first slot 3 times before actually statusing it. That way you're more likely to have status in back of party.
+                    timesCheckedFirst++;
+                } else {
+                    SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
+                    randomPoison = TRUE;
+
+                }
+            }
+            failsafe++;
+        }
+
+    }
 
     if (slot >= PARTY_SIZE)
     {

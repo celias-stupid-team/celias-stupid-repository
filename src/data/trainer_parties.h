@@ -8198,8 +8198,8 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassDalia[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_LassJoana[] = {
     {
         .iv = 0,
-        .lvl = 49,
-        .species = SPECIES_SNUBBULL,
+        .lvl = 19,
+        .species = SPECIES_DODUO,
     },
 };
 
