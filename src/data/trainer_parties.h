@@ -325,9 +325,15 @@ static const struct TrainerMonNoItemCustomMoves sParty_CeruleanClubPsychic[] = {
     },
     {
         .iv = 0,
-        .lvl = 2,
+        .lvl = 19,
         .species = SPECIES_GASTLY,
         .moves = {MOVE_SLEEP_POWDER, MOVE_DESTINY_BOND, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 42,
+        .species = SPECIES_ALAKAZAMTCG,
+        .moves = {MOVE_CONFUSE_RAY, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

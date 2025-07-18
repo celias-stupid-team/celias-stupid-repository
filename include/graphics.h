@@ -12411,3 +12411,11 @@ extern const u32 gItemIconPalette_HOUSEVOUCHER[];
 
 extern const u32 gTrainerFrontPic_Karen[];
 extern const u32 gTrainerPalette_Karen[];
+// Alakazam_TCG
+extern const u32 gMonFrontPic_AlakazamTCG[];
+extern const u32 gMonPalette_AlakazamTCG[];
+extern const u32 gMonBackPic_AlakazamTCG[];
+extern const u32 gMonShinyPalette_AlakazamTCG[];
+extern const u8 gMonFootprint_AlakazamTCG[];
+extern const u8 gMonIcon_AlakazamTCG[];
+

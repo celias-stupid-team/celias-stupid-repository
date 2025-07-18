@@ -318,10 +318,10 @@ script PewterCity_Museum_DrawEmptyKabutops {
 	setmetatile(4, 6, 0x2D9, FALSE)
 	setmetatile(5, 6, 0x2DA, FALSE)
 	setmetatile(6, 6, 0x2DB, FALSE)
-	setmetatile(3, 7, 0x2E0, FALSE)
-	setmetatile(4, 7, 0x2E1, FALSE)
-	setmetatile(5, 7, 0x2E2, FALSE)
-	setmetatile(6, 7, 0x2E3, FALSE)
+	setmetatile(3, 7, 0x2E0, TRUE)
+	setmetatile(4, 7, 0x2E1, TRUE)
+	setmetatile(5, 7, 0x2E2, TRUE)
+	setmetatile(6, 7, 0x2E3, TRUE)
 	return
 }
 

@@ -1262,4 +1262,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_RELICRABBY]    = gMonFootprint_Relicrabby,
 	[SPECIES_EGEXCSUTER]    = gMonFootprint_EGEXCSUTER,
 	[SPECIES_GYARADOS_LANCE]    = gMonFootprint_GyaradosLance,
+	[SPECIES_ALAKAZAMTCG]    = gMonFootprint_AlakazamTCG,
 };

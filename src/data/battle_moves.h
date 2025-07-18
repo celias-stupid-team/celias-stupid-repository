@@ -5107,7 +5107,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PRIMAL_RAGE] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 29,
+        .power = 83,
         .type = TYPE_FIGHTING,
         .accuracy = 97,
         .pp = 35,
