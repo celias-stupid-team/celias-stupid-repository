@@ -122,8 +122,8 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 script WardensHouse_TalkToWarden {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-		textcolor(NPC_TEXT_COLOR_BLUE)
 		msgbox("WARDEN: Ah, it's {PLAYER}!\nSo lovely to see you.\pThank you again for your help.\nAll of FUSCHIA is in your debt!", MSGBOX_DEFAULT)
 	} else {
 		if(flag(FLAG_WARDENS_TEETH)) {
@@ -149,9 +149,10 @@ script WardensHouse_TalkToWarden {
 					playfanfare(MUS_LEVEL_UP)
 					msgbox(FushciaCity_WardensHouse_Text_GaveGoldTeethToWarden, MSGBOX_DEFAULT)
 					waitfanfare
-					
+					msgbox(FushciaCity_WardensHouse_Text_WardenPoppedInHisTeeth)
+					removeitem(ITEM_GOLD_TEETH, 1)
 					textcolor(NPC_TEXT_COLOR_BLUE)
-					msgbox("WARDEN: Aha!\nThat's much better.\lThank you so much!\pSorry about earlier.\nI've been under a lot of stress.\pThe DMCA have instituted a takeover\nof my precious SAFARI ZONE.\lI thought you were with them.\pWe need to stop them somehow, but\nI'm to old to do it alone.\p…What's that?\nYou're going to fight them?\lHa! Great news!\pHere, take my GUN.\nI'm sure you'll need it.", MSGBOX_DEFAULT)
+					msgbox("WARDEN: Aha!\nThat's much better.\lThank you so much!\pSorry about earlier.\nI've been under a lot of stress.\pThe DMCA have instituted a takeover\nof my precious SAFARI ZONE.\lI thought you were with them.\pWe need to stop them somehow, but\nI'm too old to do it alone.\p…What's that?\nYou're going to fight them?\lHa! Great news!\pHere, take my GUN.\nI'm sure you'll need it.", MSGBOX_DEFAULT)
 					
 					setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
 					playfanfare(MUS_LEVEL_UP)

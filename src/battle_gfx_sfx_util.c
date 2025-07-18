@@ -438,6 +438,21 @@ void DecompressGhostFrontPic(struct Pokemon *unused, u8 battlerId)
     Free(buffer);
 }
 
+void DecompressSpeciesFrontPic(struct Pokemon *unused, u8 battlerId, u16 species)
+{
+    u16 palOffset;
+    void *buffer;
+    u8 position = GetBattlerPosition(battlerId);
+
+    LZ77UnCompWram(gMonFrontPicTable[species].data, gMonSpritesGfxPtr->sprites[position]);
+    palOffset = OBJ_PLTT_ID(battlerId);
+    buffer = AllocZeroed(0x400);
+    LZDecompressWram(gMonPaletteTable[species].data, buffer);
+    LoadPalette(buffer, palOffset, PLTT_SIZE_4BPP);
+    LoadPalette(buffer, BG_PLTT_ID(8) + BG_PLTT_ID(battlerId), PLTT_SIZE_4BPP);
+    Free(buffer);
+}
+
 void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 {
     struct SpriteSheet sheet;
@@ -1005,7 +1020,7 @@ void SetBattlerShadowSpriteCallback(u8 battlerId, u16 species)
     if (gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != SPECIES_NONE)
         species = gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies;
 
-    if (gEnemyMonElevation[species] != 0)
+    if (gEnemyMonElevation[species] != 0 && species != SPECIES_EXEGGUTOR)
         gSprites[gBattleSpritesDataPtr->healthBoxesData[battlerId].shadowSpriteId].callback = SpriteCB_EnemyShadow;
     else
         gSprites[gBattleSpritesDataPtr->healthBoxesData[battlerId].shadowSpriteId].callback = SpriteCB_SetInvisible;

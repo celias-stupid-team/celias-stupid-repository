@@ -99,7 +99,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_VoidLighthouse",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
       "type": "object",
@@ -113,7 +113,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_WhyLighthouseGts",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
       "type": "object",
@@ -127,7 +127,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecret_ObjectEventSubpriority",
-      "flag": "FLAG_CELIA_BONUS_3"
+      "flag": "FLAG_CSR_CELIA_BONUS"
     }
   ],
   "warp_events": [

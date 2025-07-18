@@ -20,12 +20,8 @@ const DMCA_Left = 2
 const DMCA_Right = 3
 
 mapscripts SafariZone_Center_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
-		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
-		if(flag(FLAG_NO_TM_CASE) || flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
-			setflag(FLAG_TEMP_3)
-		}
-		
+	MAP_SCRIPT_ON_LOAD {
+
 		if(flag(FLAG_FREED_KANGA)) {
 			call(SafariZone_Center_BreakLeftWall)
 			call(SafariZone_Center_BreakMiddleWall)
@@ -33,6 +29,13 @@ mapscripts SafariZone_Center_MapScripts {
 		if(flag(FLAG_BROKE_BABY_KANGA_WALL)) {
 			call(SafariZone_Center_BreakRightWall)
 		}
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER)
+		if(flag(FLAG_NO_TM_CASE) || flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			setflag(FLAG_TEMP_3)
+		}
+		
 		if(!flag(FLAG_BATTLED_IRON_CLEFTS)) {
 			setflag(FLAG_TEMP_4)
 		}

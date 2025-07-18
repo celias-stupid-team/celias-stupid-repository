@@ -225,6 +225,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_settilecollision    		     @ 0xdd
 	.4byte ScrCmd_fadescreeninstant              @ 0xde
 	.4byte ScrCmd_setstatus1                     @ 0xdf
+	.4byte ScrCmd_selectapproachingtrainer       @ 0xe0
+	.4byte ScrCmd_lockfortrainer                 @ 0xe1
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

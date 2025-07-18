@@ -18,13 +18,14 @@ script FushciaGym_TrickRoomRoom_OpenDoors {
 script FushciaGym_TrickRoomRoom_Trainer {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
-	    msgbox("trick room room\n", MSGBOX_DEFAULT)
+	    msgbox("The LEADER set up the invisible\nwalls that block your path.\lTo find him is no small feat.\pYou've done well to navigate\nthis maze, TRAINER.\pLet nothing slow you down.\n", MSGBOX_DEFAULT)
         call(FushciaGym_TrickRoomRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {
-	    msgbox("trick room room\n", MSGBOX_DEFAULT)
-        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_LUCY, "Hmph.")
+	    msgbox("LUCY: Hmph.\nRunning out of steam yet?\pI am LUCY of the BATTLE PIKE.\nWelcome to the TRICK ROOM!\lThink you can get past?", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_LUCY, "Urk…\n")
         call(FushciaGym_TrickRoomRoom_OpenDoors)
         special(DrawWholeMapView)
 

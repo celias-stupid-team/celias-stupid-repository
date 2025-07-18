@@ -20,7 +20,7 @@ script FushciaGym_DarkraiRoom_Janine {
     faceplayer
     textcolor(NPC_TEXT_COLOR_RED)
     if(checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
-    msgbox("The FRONTIER BRAINS in the other\nrooms won't stop yelling.\lIt's keeping me awake!\pI gotta tell my FATHER to do\nsomething about that.", MSGBOX_DEFAULT)
+        msgbox("So you've made it through me.\nBig deal!\pYou'll never make it all the\nway to my FATHER!", MSGBOX_DEFAULT)
         call(FushciaGym_DarkraiRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {

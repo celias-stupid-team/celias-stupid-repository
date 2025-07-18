@@ -12,6 +12,7 @@
 #include "script_pokemon_util.h"
 #include "strings.h"
 #include "string_util.h"
+#include "trainer_see.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "metatile_behavior.h"
@@ -238,6 +239,9 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
 
 void StartWildBattle(void)
 {
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE2) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE2)) {
+        VarSet(VAR_ROUTE2_SHINY_MIME, 1);
+    }
     if (GetSafariZoneFlag())
         DoSafariBattle();
     else if (CheckSilphScopeInPokemonTower(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
@@ -774,6 +778,12 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     }
 }
 
+void ResetTrainerOpponentIds(void)
+{
+    gTrainerBattleOpponent_A = 0;
+    // gTrainerBattleOpponent_B = 0;
+}
+
 static void InitTrainerBattleVariables(void)
 {
     sTrainerBattleMode = 0;
@@ -906,6 +916,20 @@ void ConfigureAndSetUpOneTrainerBattle(u8 trainerEventObjId, const u8 *trainerSc
     LockPlayerFieldControls();
 }
 
+void ConfigureTwoTrainersBattle(u8 trainerEventObjId, const u8 *trainerScript)
+{
+    gSelectedObjectEvent = trainerEventObjId;
+    gSpecialVar_LastTalked = gObjectEvents[trainerEventObjId].localId;
+
+    BattleSetup_ConfigureTrainerBattle(trainerScript + 1);
+}
+
+void SetUpTwoTrainersBattle(void)
+{
+    ScriptContext_SetupScript(EventScript_DoTrainerBattleFromApproach);
+    LockPlayerFieldControls();
+}
+
 bool32 GetTrainerFlagFromScriptPointer(const u8 *data)
 {
     u32 flag = TrainerBattleLoadArg16(data + 2);
@@ -961,15 +985,21 @@ void ClearTrainerFlag(u16 trainerId)
     FlagClear(TRAINER_FLAGS_START + trainerId);
 }
 
+#define START_SHEDINJA_BATTLE 1
 void StartTrainerBattle(void)
 {
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
+      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
+      && VarGet(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == START_SHEDINJA_BATTLE)
+        gBattleTypeFlags |= BATTLE_TYPE_SHEDINJA_TERA;
     gMain.savedCallback = CB2_EndTrainerBattle;
     DoTrainerBattle();
     ScriptContext_Stop();
 }
+#undef START_SHEDINJA_BATTLE
 
 static void CB2_EndTrainerBattle(void)
 {

@@ -2,9 +2,65 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
 		
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_IMPOSTER_OAK_ROOM)
+		if(!flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+			setflag(FLAG_TEMP_1)
+			if(flag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)) {
+			call(FushciaGym_ImposterOakRoom_DrawNoStatue)
+
+			}
+		} else {
+			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
+
+		}
 	}
 }
 
+script FushciaGym_ImposterOakRoom_SecretSwitch {
+	lock
+	if(flag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)) {
+		msgbox("The secret switch inexplicably\nmade the whole statue disappear.", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_SOUTH) {
+			msgbox("The statue is blocking your path.\pIt seems there's a switch on the\nother side.", MSGBOX_DEFAULT)
+			release
+			end
+		} 
+		msgbox("A secret switch!\nPress it?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} pressed the switch!\n", MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_CLICK)
+			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+			setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+			call(FushciaGym_ImposterOakRoom_DrawNoStatue)
+			special(DrawWholeMapView)
+			special(ShakeScreen)
+			delay(40)
+			setflag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)
+			
+			msgbox("The secret switch inexplicably\nmade the whole statue disappear.", MSGBOX_DEFAULT)
+
+		}
+		release
+
+	}
+}
+
+script FushciaGym_ImposterOakRoom_DrawNoStatue {
+	setmetatile(10, 9, 0x28C, FALSE)
+	setmetatile(10, 10, 0x28C, FALSE)
+	return
+}
 
 script FushciaGym_ImposterOakRoom_ImposterOak{
     lock
@@ -52,4 +108,9 @@ script FushciaGym_ImposterOakRoom_ImposterOak{
 	}
 	
 	release
+}
+
+script FushciaGym_CleaningLady {
+	msgbox("Huh?\nYeah, I'm the CLEANING LADY.\pThis room's getting remodeled.\nI moved the STATUES to storage.", MSGBOX_NPC)
+	end
 }

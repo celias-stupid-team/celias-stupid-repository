@@ -42,7 +42,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     [SPECIES_PARAS]      = {{EVO_ITEM, ITEM_SUN_STONE, SPECIES_PARASECT}},
 
-    [SPECIES_VENONAT]    = {{EVO_LEVEL, 20, SPECIES_BUTTERFREE}},
+    [SPECIES_VENONAT]    = {{EVO_LEVEL, 20, SPECIES_COMBEE}},
     [SPECIES_DIGLETT]    = {{EVO_LEVEL, 20, SPECIES_DUGTRIO}},
     [SPECIES_MEOWTH]     = {{EVO_TRADE, 0, SPECIES_RAICHU}},  //Evolution only available with something from Persian - idk what
 

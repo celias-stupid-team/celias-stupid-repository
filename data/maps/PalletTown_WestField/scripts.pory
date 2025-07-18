@@ -29,25 +29,30 @@ script WestField_LookGirlLass {
             applymovement(LOCALID_LASS, Common_Movement_ExclamationMark)
             playbgm(MUS_ENCOUNTER_GIRL, TRUE)
             waitmovement(0)
-            delay(30)
+            delay(45)
             applymovement(LOCALID_LASS, WestField_LassWalkDown)
             waitmovement(0)
             msgbox("Hey!\n", MSGBOX_DEFAULT)
             closemessage
             playbgm(MUS_PALLET, TRUE)
             //battle
+            trainerbattle_no_intro(TRAINER_LASS_JOANA, "No way!")
             textcolor(NPC_TEXT_COLOR_FEMALE)
             msgbox("Ugh, fine.\pIf you take this, will you leave\nme alone?", MSGBOX_DEFAULT)
             playfanfare(MUS_LEVEL_UP)
             textcolor(NPC_TEXT_COLOR_NEUTRAL)
             msgbox("{PLAYER} obtained the DODUO\nfrom the LASS!", MSGBOX_DEFAULT)
             waitfanfare
-            setflag(FLAG_SHINY_CREATION)
+            setflag(FLAG_SHINY_CREATION) // Doduo
             setvar(VAR_CSR_GIFT_POKEMON, SPECIES_DODUO)
             call(Common_Script_GiftPokemon)
             msgbox("This POKéMON is the worst.\pCompared to everyone else, it\nlooks at me twice as hard!", MSGBOX_DEFAULT)
+            closemessage
+            fadescreen(FADE_TO_BLACK)
             setflag(FLAG_LOOK_GIRL_LASS)
             removeobject(LOCALID_LASS)
+            playse(SE_FLEE)
+            fadescreen(FADE_FROM_BLACK)
 
         }
     copyobjectxytoperm(VAR_LAST_TALKED)

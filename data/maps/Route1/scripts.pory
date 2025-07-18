@@ -90,7 +90,7 @@ script Route1_EventScript_Rat1 {
 
 script Route1_EventScript_Rat2 {
 	lock
-	setflag(FLAG_SHINY_CREATION)
+	setflag(FLAG_SHINY_CREATION) // Rattata
 	setwildbattle(SPECIES_RATTATA_SHINY, 3, ITEM_FOCUS_SASH)
 	clearflag(FLAG_SHINY_CREATION)
 	//increment VAR_ROUTE01_SHINY_RAT2 so it only triggers once
@@ -171,7 +171,7 @@ script Route1_Bonus_Chris {
 		textcolor(NPC_TEXT_COLOR_MALE)
 		msgbox("FoF: Hey! Glad you remembered!\nHere's a present!", MSGBOX_DEFAULT)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Lickitung
 		clearflag(FLAG_CHRIS_GIVES_LICKITUNG)
 		playfanfare(MUS_LEVEL_UP)
 		msgbox("{PLAYER} obtained the LICKITUNG!\n", MSGBOX_DEFAULT)

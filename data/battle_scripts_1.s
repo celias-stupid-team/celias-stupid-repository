@@ -4027,6 +4027,18 @@ BattleScript_SilphScopeUnveiled::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TerastallizeShedinja::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DEFSTORINGENERGY
+	playanimation BS_OPPONENT1, B_ANIM_TERA_CHARGE
+	waitanimation
+	handlespriteupdate BS_OPPONENT1
+	playanimation BS_OPPONENT1, B_ANIM_TERA_ACTIVATE
+	waitanimation
+	printstring STRINGID_DEFTERASTALLIZEDINTO
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_AlomomolaMidBattleEvo::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_ALOMOMOLAEVO
@@ -4924,3 +4936,24 @@ BattleScript_EffectGuillotine2_KOFail::
 	printfromtable gKOFailedStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectGuillotine2_SelfKO
+
+BattleScript_BadDreamsActivates::
+	setbyte gBattlerTarget, 0
+BattleScript_BadDreamsLoop:
+	jumpiftargetally BattleScript_BadDreamsIncrement
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_BadDreams_Dmg
+	goto BattleScript_BadDreamsIncrement
+BattleScript_BadDreams_Dmg:
+	printstring STRINGID_BADDREAMSDMG
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	manipulatedamage DMG_FULL
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	tryfaintmon BS_TARGET
+BattleScript_BadDreamsIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_BadDreamsLoop
+	pause 15
+BattleScript_BadDreamsEnd:
+	end3

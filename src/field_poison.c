@@ -93,6 +93,7 @@ s32 DoPoisonFieldEffect(void)
 {
     int i;
     u32 hp;
+    int poisonHPDecrease = 10;
     
     struct Pokemon *pokemon = gPlayerParty;
     u32 numPoisoned = 0;
@@ -102,7 +103,12 @@ s32 DoPoisonFieldEffect(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
             hp = GetMonData(pokemon, MON_DATA_HP);
-            if (hp == 0 || --hp == 0)
+            if(hp <= poisonHPDecrease)
+                hp = 0;
+            else
+                hp = hp - poisonHPDecrease;
+                
+            if (hp == 0)
                 numFainted++;
             SetMonData(pokemon, MON_DATA_HP, &hp);
             numPoisoned++;

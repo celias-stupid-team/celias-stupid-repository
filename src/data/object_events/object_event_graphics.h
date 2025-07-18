@@ -443,3 +443,4 @@ const u32 gObjectEventPic_Checkmark[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Star[] = INCBIN_U32("graphics/object_events/pics/stupid/Star.4bpp");
 const u32 gObjectEventPic_Stump[] = INCBIN_U32("graphics/object_events/pics/stupid/Stump.4bpp");
 const u32 gObjectEventPic_Blank[] = INCBIN_U32("graphics/object_events/pics/stupid/Blank.4bpp");
+const u32 gObjectEventPic_Deadnurse[] = INCBIN_U32("graphics/object_events/pics/stupid/Deadnurse.4bpp");

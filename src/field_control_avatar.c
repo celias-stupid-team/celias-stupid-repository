@@ -151,8 +151,9 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->dpadDirection = DIR_NORTH;
         else if (heldKeys & DPAD_DOWN)
             input->dpadDirection = DIR_SOUTH;
-        else if (heldKeys & DPAD_LEFT)
+        else if (heldKeys & DPAD_LEFT) {
             input->dpadDirection = DIR_WEST;
+        }
         else if (heldKeys & DPAD_RIGHT)
             input->dpadDirection = DIR_EAST;
     }

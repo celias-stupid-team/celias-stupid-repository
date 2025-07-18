@@ -1744,6 +1744,17 @@
 	.byte \slot
 	.endm
 
+	@ Sets the selected object to the id of the currently approaching trainer.
+	.macro selectapproachingtrainer
+	.byte 0xe0
+	.endm
+
+	@ Freezes all objects immediately except the player and the approaching trainers.
+	@ The player and trainers are frozen once their movement is finished.
+	.macro lockfortrainer
+	.byte 0xe1
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
