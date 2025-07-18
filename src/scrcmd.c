@@ -2536,31 +2536,36 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
     return TRUE;
 }
 
-u16 GrabLayout(const struct MapLayout *mapLayout) {
-    u32 i = 0;
-    for (i < mapLayout->map[x + (y * mapLayout->width)] & MAPGRID_METATILE_ID_MASK)
-        {
-            return mapLayout->map[i] & MAPGRID_METATILE_ID_MASK
-            i += 1;
-        }
-}
-
 bool8 ScrCmd_setlayouttiles(struct ScriptContext * ctx)
 {
-    u16 layout = VarGet(ScriptReadHalfword(ctx));
-    GrabLayout(layout);
+    u32 targetLayout = VarGet(ScriptReadHalfword(ctx));
+    gSaveBlock1Ptr->mapLayoutId = targetLayout;
+    gMapHeader.mapLayout = GetMapLayout();
+    u32 layoutWidth = mapLayout->width;
+    u32 layoutHeight = mapLayout->height;
+    u32 targetLayoutX = 0;
+    u32 targetLayoutY = 0;
+    u32 metatileId = mapLayout->map[targetLayoutX + (targetLayoutY * mapLayout->width)] & MAPGRID_METATILE_ID_MASK;
     
-    u16 CurrentMapX = VarGet(ScriptReadHalfword(ctx));
-    u16 CurrentMapY = VarGet(ScriptReadHalfword(ctx));
-  
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+    // bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+
     x += MAP_OFFSET;
     y += MAP_OFFSET;
-
-    if (!isImpassable)
+    
+    for (x <= (layoutWidth) && y <= (layoutHeight));
+    {
         MapGridSetMetatileIdAt(x, y, metatileId);
-    else
-        MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
-    
-    
+        x++;
+        y++;
+        targetLayoutX++;
+        targetLayoutY++;
+    }
+
+    // if (!isImpassable)
+    //     MapGridSetMetatileIdAt(x, y, metatileId);
+    // else
+    //     MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
     return FALSE;
 }

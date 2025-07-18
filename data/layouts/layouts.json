@@ -5261,7 +5261,7 @@
       "id": "LAYOUT_CERULEAN_CITY_PIT",
       "name": "CeruleanCityPit",
       "width": 17,
-      "height": 12,
+      "height": 13,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

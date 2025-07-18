@@ -440,7 +440,7 @@ script CeruleanCity_Celia_Bike {
 }
 
 script Cerulean_SignThatChangesTheLayout{
-	callnative(SwapLayout)
+	setlayouttiles(LAYOUT_CERULEAN_CITY_PIT)
 	end
 }
 

@@ -227,6 +227,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_setstatus1                     @ 0xdf
 	.4byte ScrCmd_selectapproachingtrainer       @ 0xe0
 	.4byte ScrCmd_lockfortrainer                 @ 0xe1
+	.4byte ScrCmd_setlayouttiles				 @ 0xe2
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

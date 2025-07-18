@@ -1978,7 +1978,7 @@
 	special CreateEnemyEventMon
 	.endm
 
-	.macro loadpit index:req
+	.macro setlayouttiles index:req
 	.byte 0xe2
 	.2byte \index
 	.endm
