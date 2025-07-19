@@ -760,18 +760,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LassMegan[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_LassJulia[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_LassJulia[] = {
     {
         .iv = 0,
-        .lvl = 37,
-        .species = SPECIES_MR_MIME,
-        .moves = {MOVE_REFLECT_2, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .lvl = 22,
+        .species = SPECIES_HOUNDOUR,
     },
     {
         .iv = 0,
-        .lvl = 43,
-        .species = SPECIES_WEEZING,
-        .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .lvl = 22,
+        .species = SPECIES_MURKROW,
     },
 };
 
