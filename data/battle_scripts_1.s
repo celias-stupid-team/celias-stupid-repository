@@ -260,7 +260,7 @@ gBattleScriptsForMoveEffects::
 
 BattleScript_EffectReflect2::
 	attackcanceler
-	trysetspecialreflect BattleScript_ButItFailedAtkStringPpReduce
+	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
 	attackstring
 	ppreduce
 	attackanimation
