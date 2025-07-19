@@ -451,5 +451,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BERRYLEGION]      =  {gItemIcon_BERRYLEGION, gItemIconPalette_BERRYLEGION},
     [ITEM_PSYCHIC_KEY]      =  {gItemIcon_PsychicKey, gItemIconPalette_PsychicKey},
     [ITEM_HISTORY_BOOK]      =  {gItemIcon_HISTORYBOOK, gItemIconPalette_HISTORYBOOK},
+    [ITEM_HOUSEVOUCHER]      =  {gItemIcon_HOUSEVOUCHER, gItemIconPalette_HOUSEVOUCHER},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

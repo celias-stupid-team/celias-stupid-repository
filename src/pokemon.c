@@ -2178,10 +2178,11 @@ void CalculateMonStats(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
+    s32 arg;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE)
+    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC)
     {
         newMaxHP = 1;
     }
@@ -2203,7 +2204,7 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD)
+    if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_RATICATE_DEAD || species == SPECIES_SHEDINJA_ELECTRIC)
     {
         if (currentHP != 0 || oldMaxHP == 0)
             currentHP = 1;
@@ -2227,6 +2228,13 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
+
+    //special Sleep status clause for FLAG_SYS_SNORLAX_FIGHT
+    if (FlagGet(FLAG_SYS_SNORLAX_FIGHT) && species == SPECIES_SNORLAX)
+    {
+        arg = STATUS1_SLEEP_TURN(3);
+        SetMonData(mon, MON_DATA_STATUS, &arg);
+    }
 }
 
 void BoxMonToMon(struct BoxPokemon *src, struct Pokemon *dest)

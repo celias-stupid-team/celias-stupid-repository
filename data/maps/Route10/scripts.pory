@@ -219,3 +219,14 @@ script Route10_Trees {
 	msgbox("In vanilla, these are cut trees.\pI couldn't let you skip the setup\nto skipping Rock Tunnel, so I\lmade you go around to fight th\ltrainer.", MSGBOX_NPC)
 	end
 }
+
+
+script Route10_CeliaLook {
+	msgbox("This girl is here to get you to\nnotice the odd candy up there.\pWhether she's actually looking at\nsomething is immaterial.", MSGBOX_NPC)
+	end
+}
+
+script Route10_CeliaDadSecret {
+	msgbox("It took me quite a few tries to get\na line for this secret that wasn't\lcreepy or gross.\pI don't wanna punch down on folks.\nI'm very committed to that.", MSGBOX_NPC)
+	end
+}

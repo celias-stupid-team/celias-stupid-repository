@@ -20,6 +20,7 @@
 	.include "event_data.o"
 	.include "sound.o"
 	.include "task.o"
+	.include "trainer_see.o"
 	.include "cable_club.o"
 	.include "image_processing_effects.o"
 	.include "field_specials.o"

@@ -1230,6 +1230,8 @@ gCryTable::
 	cry Cry_IRONBUTT
 	cry Cry_Relicrabby
 	cry Cry_EGEXCSUTER
+	cry Cry_GyaradosLance
+	cry Cry_AlakazamTCG
 
 
 
@@ -2470,6 +2472,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_IRONBUTT
 	cry_reverse Cry_Relicrabby
 	cry_reverse Cry_EGEXCSUTER
+	cry_reverse Cry_GyaradosLance
+	cry_reverse Cry_AlakazamTCG
 
 
 

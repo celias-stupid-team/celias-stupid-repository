@@ -170,7 +170,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Dad,
     {.size = 8, .y_offset = 1}, // Skirt,
     {.size = 8, .y_offset = 1}, // Bugsy,
-    {.size = 8, .y_offset = 1}, // Ninjas
+    {.size = 8, .y_offset = 1}, // Ninjas,
+    {.size = 8, .y_offset = 1}, // Darachcait,
+    {.size = 8, .y_offset = 1}, // Karen
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -347,6 +349,8 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(SKIRT, gTrainerFrontPic_Skirt, 0x800),
     TRAINER_SPRITE(BUGSY, gTrainerFrontPic_Bugsy, 0x800),
     TRAINER_SPRITE(NINJAS, gTrainerFrontPic_Ninjas, 0x800),
+    TRAINER_SPRITE(DARACHCAIT, gTrainerFrontPic_Darachcait, 0x800),
+    TRAINER_SPRITE(KAREN, gTrainerFrontPic_Karen, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -533,4 +537,6 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(SKIRT, gTrainerPalette_Skirt),
     TRAINER_PAL(BUGSY, gTrainerPalette_Bugsy),
     TRAINER_PAL(NINJAS, gTrainerPalette_Ninjas),
+    TRAINER_PAL(DARACHCAIT, gTrainerPalette_Darachcait),
+    TRAINER_PAL(KAREN, gTrainerPalette_Karen),
 };

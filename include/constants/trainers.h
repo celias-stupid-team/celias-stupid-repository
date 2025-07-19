@@ -190,6 +190,8 @@
 #define TRAINER_PIC_SKIRT   168
 #define TRAINER_PIC_BUGSY   169
 #define TRAINER_PIC_NINJAS   170
+#define TRAINER_PIC_DARACHCAIT   171
+#define TRAINER_PIC_KAREN   172
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

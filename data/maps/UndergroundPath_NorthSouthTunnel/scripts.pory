@@ -20,7 +20,7 @@ script UndergroundPath_SproutTower {
 		playfanfare(MUS_LEVEL_UP)
 		msgbox("{PLAYER} obtained a friendly\nBELLSPROUT!", MSGBOX_DEFAULT)
 		waitfanfare
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Bellsprout
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_BELLSPROUT)
 		call(Common_Script_GiftPokemon)
 		setflag(FLAG_GOT_SHINY_BELLSPROUT)

@@ -14,10 +14,25 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_HOUSEVOUCHER",
+      "script": "EventScript_FindItem",
+      "flag": "0"
+    }
+  ],
   "warp_events": [
     {
-      "x": 8,
+      "x": 10,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_CITY_BRENDAN_MAY_1F",
@@ -28,7 +43,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 6,
+      "x": 8,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -36,7 +51,7 @@
     },
     {
       "type": "sign",
-      "x": 0,
+      "x": 2,
       "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -44,7 +59,7 @@
     },
     {
       "type": "sign",
-      "x": 3,
+      "x": 5,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -52,7 +67,7 @@
     },
     {
       "type": "sign",
-      "x": 0,
+      "x": 2,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -60,7 +75,7 @@
     },
     {
       "type": "sign",
-      "x": 1,
+      "x": 3,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
@@ -68,11 +83,35 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 6,
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BrendanMay_TV"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BrendanMay_ChildDeliveryTruck"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BrendanMay_ChildDeliveryTruck"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BrendanMay_ChildDeliveryTruck"
     }
   ]
 }

@@ -17,14 +17,14 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 17,
+      "x": 16,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_ELECTRIFY_ROOM",
       "dest_warp_id": "1"
     },
     {
-      "x": 11,
+      "x": 10,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
@@ -32,5 +32,14 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaGym_MapRoom_Sign"
+    }
+  ]
 }

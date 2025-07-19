@@ -22,12 +22,12 @@ script FushciaGym_TrainerRoom1_Brandon {
     faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     if(flag(FLAG_DEFEATED_TRAINER_1)) {
-        msgbox("…HUH?\nNO, I AM BRANDON\lBRENDAN IS THE KID NEXT DOOR\pPEOPLE GET US MIXED UP ALL THE\nTIME", MSGBOX_DEFAULT)
+        msgbox("…Huh?\nNo, I am BRANDON.\lBRENDAN is the kid next door.\pPeople get us mixed up all the\ntime.", MSGBOX_DEFAULT)
         call(FushciaGym_TrainerRoom1_OpenDoors)
         special(DrawWholeMapView)
     } else {
-        msgbox("YOUNG ADVENTURER{PAUSE 20}\nWELCOME TO FUSHCIA GYM\pI AM YOUR FIRST CHALLENGE:\nFRONTIER BRAIN BRANDON\pLET US BATTLE\n")
-        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_BRANDON, "DARN\nWHAT A SHAME\n")
+        msgbox("Young adventurer!\nWelcome to FUSHCIA GYM!\pI am your first challenge:\nPYRAMID KING BRANDON!\lShow me your courage in battle!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_BRANDON, "Haha!\nWell done!")
         setflag(FLAG_DEFEATED_TRAINER_1)
 
     }
@@ -42,13 +42,13 @@ script FushciaGym_TrainerRoom1_Spenser {
     faceplayer
     textcolor(NPC_TEXT_COLOR_BLUE)
     if(flag(FLAG_DEFEATED_TRAINER_1)) {
-        msgbox("I HAD THE SAME LUCK IN MY\nLOW-LEVEL CHALLENGE RUN\pOH WELL\n", MSGBOX_DEFAULT)
+        msgbox("SPENSER: Hrrm…\pI had the same luck in my\nlow-level challenge run.", MSGBOX_DEFAULT)
         call(FushciaGym_TrainerRoom1_OpenDoors)
         special(DrawWholeMapView)
     } else {
     
-        msgbox("HELLO CHALLENGER\nI AM SPENSER OF THE BATTLE PALACE\pMY POKéMON CHOOSE THEIR OWN MOVES\n{PAUSE 30}I PUT FULL FAITH IN THEIR CHOICE")
-        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_SPENSER, "OH NO\n")
+        msgbox("Hello, challenger!\nI am SPENSER of the BATTLE PALACE.\pI give my POKéMON freedom to\nchoose their own MOVES.\lI put full faith in their choices.", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_SPENSER, "Darn.\n")
         setflag(FLAG_DEFEATED_TRAINER_1)
     }
     call(FushciaGym_TrainerRoom1_OpenDoors)
@@ -59,7 +59,7 @@ script FushciaGym_TrainerRoom1_Spenser {
 
 script FushciaGym_TrainerRoom1_OpenDoors {
     setmetatile(7, 7, 0x34F, TRUE)
-    setmetatile(11, 7, 0x34F, TRUE)
+    setmetatile(11, 7, 0x3BD, TRUE)
     setmetatile(7, 8, 0x357, TRUE)
     setmetatile(11, 8, 0x357, TRUE)
     return

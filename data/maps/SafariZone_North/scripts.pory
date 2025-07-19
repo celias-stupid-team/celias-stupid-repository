@@ -76,7 +76,7 @@ script SafariZone_North_Breloom {
 		playfanfare(MUS_LEVEL_UP)
 		msgbox("{PLAYER} recieved a PARAS\nfrom the kindly BRELOOM!", MSGBOX_DEFAULT)
 		waitfanfare
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Paras
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PARAS)
 		call(Common_Script_GiftPokemon)
 

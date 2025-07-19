@@ -67,7 +67,7 @@ mapscripts LavenderTown_MapScripts {
 				delay(30)
 				msgbox("…?\n", MSGBOX_DEFAULT)
 				closemessage
-				setflag(FLAG_SHINY_CREATION)
+				setflag(FLAG_SHINY_CREATION) // Tangela
 				setwildbattle(SPECIES_TANGELA, 20)
 				dowildbattle
 				delay(30)

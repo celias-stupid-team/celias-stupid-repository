@@ -7,9 +7,34 @@ mapscripts FushciaGym_IcePuzzleRoom_MapScripts {
             setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 8)
 
         }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)) {
+            setmetatile(12, 12, 0x3C3, FALSE)
+        }
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) >= 26) {
+            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)
+        }
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ICE_PUZZLE_ROOM)
     }
+}
+
+script FushciaGym_IcePuzzleRoom_ResetButton {
+    if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)) {
+        setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 26)
+            copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
+            subvar(VAR_TEMP_1, 17)
+            setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 8)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+            playse(SE_CLICK)
+            special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(20)
+    }
+    release
+
 }

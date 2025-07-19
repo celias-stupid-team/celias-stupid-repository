@@ -21,7 +21,7 @@ mapscripts Route13_MapScripts {
 			setobjectxyperm(LOOK_SIGN, 17, 14)
 
 		}
-		setflag(FLAG_SHINY_CREATION)
+		setflag(FLAG_SHINY_CREATION) // Venonat
 	}
 }
 
@@ -88,13 +88,13 @@ const SNORLAX = 2
 script Route13_Snorlax {
 	lock
 	setrespawn(HEAL_LOCATION_ROUTE12)
+	setflag(FLAG_SYS_SNORLAX_FIGHT)
 	msgbox("A POKéMON is asleep on the road.\nThere's no way around it.\pLooks like it's time to get through\nby force!", MSGBOX_DEFAULT)
 	setwildbattle(SPECIES_SNORLAX, 30)
 	waitse
 	playmoncry(SPECIES_SNORLAX, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
-	setflag(FLAG_SYS_SNORLAX_FIGHT)
 	dowildbattle
 	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 	msgbox("The SNORLAX ran off to the\nmountains…", MSGBOX_DEFAULT)

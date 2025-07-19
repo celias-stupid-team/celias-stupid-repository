@@ -5,6 +5,7 @@
 #include "random.h"
 #include "util.h"
 #include "constants/abilities.h"
+#include "constants/battle_ai.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -444,6 +445,22 @@ u8 GetMostSuitableMonToSwitchInto(void)
         battlerIn1 = gActiveBattler;
         battlerIn2 = gActiveBattler;
     }
+
+    // for special battles use party order
+    if (FlagGet(FLAG_FORCE_AI_SWITCH_IN_ORDER) || (gBattleResources->ai->aiFlags & AI_SCRIPT_SWITCH_IN_ORDER))
+    {
+        for (i = 0; i < PARTY_SIZE; ++i)
+        {
+            if (((GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_NONE)
+              && (GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0)
+              && (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_EGG)
+            {
+                bestMonId = i;
+                break;
+            }
+        }
+    }
+
     invalidMons = 0;
     while (invalidMons != 0x3F) // All mons are invalid.
     {
@@ -527,21 +544,6 @@ u8 GetMostSuitableMonToSwitchInto(void)
             {
                 bestDmg = gBattleMoveDamage;
                 bestMonId = i;
-            }
-        }
-    }
-
-    // for special battles use party order
-    if (FlagGet(FLAG_FORCE_AI_SWITCH_IN_ORDER))
-    {
-        for (i = 0; i < PARTY_SIZE; ++i)
-        {
-            if (((GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_NONE)
-              && (GetMonData(&gEnemyParty[i], MON_DATA_HP) > 0)
-              && (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES)) != SPECIES_EGG)
-            {
-                bestMonId = i;
-                break;
             }
         }
     }

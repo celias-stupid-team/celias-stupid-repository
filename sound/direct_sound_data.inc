@@ -5310,3 +5310,11 @@ Cry_EGEXCSUTER::
 	.incbin "sound/direct_sound_samples/cries/egexcsuter.bin"
 
 	.align 2
+Cry_GyaradosLance::
+	.incbin "sound/direct_sound_samples/cries/gyaradoslance.bin"
+
+	.align 2
+Cry_AlakazamTCG::
+	.incbin "sound/direct_sound_samples/cries/alakazamtcg.bin"
+
+	.align 2

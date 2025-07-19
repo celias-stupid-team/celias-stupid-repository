@@ -837,3 +837,6 @@ const u32 gItemIconPalette_PsychicKey[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_HISTORYBOOK[] = INCBIN_U32("graphics/items/icons/history_book.4bpp.lz");
 const u32 gItemIconPalette_HISTORYBOOK[] = INCBIN_U32("graphics/items/icon_palettes/history_book.gbapal.lz");
+
+const u32 gItemIcon_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icons/housevoucher.4bpp.lz");
+const u32 gItemIconPalette_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icon_palettes/housevoucher.gbapal.lz");

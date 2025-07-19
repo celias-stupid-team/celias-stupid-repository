@@ -540,7 +540,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 35,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
@@ -744,7 +744,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WATER_GUN] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 60,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 25,
@@ -925,8 +925,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SEISMIC_TOSS] =
     {
-        .effect = EFFECT_LEVEL_DAMAGE,
-        .power = 1,
+        .effect = EFFECT_HIT,
+        .power = 110,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
@@ -3519,7 +3519,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = -5,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -5107,7 +5107,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PRIMAL_RAGE] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 29,
+        .power = 83,
         .type = TYPE_FIGHTING,
         .accuracy = 97,
         .pp = 35,
@@ -5925,7 +5925,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SPECIALPUNCH] =    {
         .effect = EFFECT_HIT,
         .power = 40,
-        .type = TYPE_DRAGON,
+        .type = TYPE_FIGHTING_SPECIAL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5937,7 +5937,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PSYCHIC_PUNCH] =    {
         .effect = EFFECT_CONFUSE_HIT,
         .power = 75,
-        .type = TYPE_PSYCHIC,
+        .type = TYPE_PSYCHIC_PHYSICAL,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

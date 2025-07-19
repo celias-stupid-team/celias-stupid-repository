@@ -379,7 +379,7 @@
     {
       "id": "HEAL_LOCATION_FUSHCIA_GYM_MAP_ROOM",
       "map": "MAP_FUSHCIA_GYM_MAP_ROOM",
-      "x": 17,
+      "x": 16,
       "y": 12,
       "respawn_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
       "respawn_npc": "1"
@@ -414,6 +414,14 @@
       "x": 20,
       "y": 82,
       "respawn_map": "MAP_ROUTE12",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_SAFARI_ZONE",
+      "map": "MAP_SAFARI_ZONE_NORTH",
+      "x": 39,
+      "y": 12,
+      "respawn_map": "MAP_SAFARI_ZONE_NORTH",
       "respawn_npc": "1"
     }
   ]

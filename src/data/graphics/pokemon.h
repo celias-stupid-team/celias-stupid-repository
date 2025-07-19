@@ -9588,3 +9588,19 @@ const u32 gMonShinyPalette_EGEXCSUTER[] = INCBIN_U32("graphics/pokemon/egexcsute
 const u8 gMonIcon_EGEXCSUTER[] = INCBIN_U8("graphics/pokemon/egexcsuter/icon.4bpp");
 const u8 gMonFootprint_EGEXCSUTER[] = INCBIN_U8("graphics/pokemon/egexcsuter/footprint.1bpp");
 
+// Gyarados_Lance
+const u32 gMonFrontPic_GyaradosLance[] = INCBIN_U32("graphics/pokemon/gyaradoslance/front.4bpp.lz");
+const u32 gMonPalette_GyaradosLance[] = INCBIN_U32("graphics/pokemon/gyaradoslance/normal.gbapal.lz");
+const u32 gMonBackPic_GyaradosLance[] = INCBIN_U32("graphics/pokemon/gyaradoslance/back.4bpp.lz");
+const u32 gMonShinyPalette_GyaradosLance[] = INCBIN_U32("graphics/pokemon/gyaradoslance/shiny.gbapal.lz");
+const u8 gMonIcon_GyaradosLance[] = INCBIN_U8("graphics/pokemon/gyaradoslance/icon.4bpp");
+const u8 gMonFootprint_GyaradosLance[] = INCBIN_U8("graphics/pokemon/gyaradoslance/footprint.1bpp");
+
+// Alakazam_TCG
+const u32 gMonFrontPic_AlakazamTCG[] = INCBIN_U32("graphics/pokemon/alakazamtcg/front.4bpp.lz");
+const u32 gMonPalette_AlakazamTCG[] = INCBIN_U32("graphics/pokemon/alakazamtcg/normal.gbapal.lz");
+const u32 gMonBackPic_AlakazamTCG[] = INCBIN_U32("graphics/pokemon/alakazamtcg/back.4bpp.lz");
+const u32 gMonShinyPalette_AlakazamTCG[] = INCBIN_U32("graphics/pokemon/alakazamtcg/shiny.gbapal.lz");
+const u8 gMonIcon_AlakazamTCG[] = INCBIN_U8("graphics/pokemon/alakazamtcg/icon.4bpp");
+const u8 gMonFootprint_AlakazamTCG[] = INCBIN_U8("graphics/pokemon/alakazamtcg/footprint.1bpp");
+

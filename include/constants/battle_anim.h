@@ -302,7 +302,8 @@
 #define ANIM_TAG_STEALTH_ROCK               (ANIM_SPRITES_START + 292)
 #define ANIM_TAG_WEED                       (ANIM_SPRITES_START + 293)
 #define ANIM_TAG_TOMATO                     (ANIM_SPRITES_START + 294)
-
+#define ANIM_TAG_TERA_CRYSTAL               (ANIM_SPRITES_START + 295)
+#define ANIM_TAG_TERA_SHATTER               (ANIM_SPRITES_START + 296)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -384,6 +385,8 @@
 #define B_ANIM_SAFARI_REACTION          27
 #define B_ANIM_ALOMOMOLA_EVOLVE         28
 #define B_ANIM_HANGED_ON                29
+#define B_ANIM_TERA_CHARGE              30
+#define B_ANIM_TERA_ACTIVATE            31
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

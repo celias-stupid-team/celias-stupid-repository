@@ -72,6 +72,7 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
             msgbox("WARDEN: Come, {PLAYER}.\nYou should join us!", MSGBOX_DEFAULT)
             closemessage
             setvar(VAR_TEMP_3, 2)
+            special(ExitSafariMode)
             warp(MAP_FUSHCIA_CITY_WARDENS_HOUSE, 1)
         
             release
@@ -85,6 +86,7 @@ mapscripts SafariZone_DMCAShowdown_MapScripts {
 script SafariZone_EnterArena {
     lock
     setvar(VAR_TEMP_0, 1)
+    setrespawn(HEAL_LOCATION_SAFARI_ZONE)
     applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
     if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) || flag(FLAG_BATTLED_IRON_CLEFTS)) {
         playbgm(MUS_DMCA_SHOWDOWN, TRUE)
