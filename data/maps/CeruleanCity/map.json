@@ -506,7 +506,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_SummonThePit2"
     },
     {
       "type": "trigger",
@@ -515,7 +515,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_SummonThePit2"
     },
     {
       "type": "trigger",
@@ -524,7 +524,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_SummonThePit2"
     },
     {
       "type": "trigger",

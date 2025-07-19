@@ -90,8 +90,7 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	setlayouttiles 19 0 LAYOUT_CERULEAN_CITY_PIT
-	special DrawWholeMapView
+	setlayouttiles LAYOUT_CERULEAN_CITY_PIT 19 0 0 0 16 12
 	end
 
 Debug_EventScript_Script_2::

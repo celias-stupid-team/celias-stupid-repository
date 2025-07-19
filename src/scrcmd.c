@@ -2537,56 +2537,44 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
     return TRUE;
 }
 
-u16 ReturnMetatileAt(u32 x, u32 y, u16 mapLayoutId) {
-    gSaveBlock1Ptr->mapLayoutId = mapLayoutId;
-    gMapHeader.mapLayout = GetMapLayout();
-    return gMapHeader.mapLayout->map[x + (y * gMapHeader.mapLayout->width)] & MAPGRID_METATILE_ID_MASK;
-}
-
-
-bool8 ScrCmd_setlayouttiles(struct ScriptContext * ctx)
+void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
 {
     u16 targetLayout = VarGet(ScriptReadHalfword(ctx)); //the layout you want to print on the map
-    u16 x = VarGet(ScriptReadHalfword(ctx)); //x on current map to print to
-    u16 y = VarGet(ScriptReadHalfword(ctx)); //y on current map to print to
-    gSaveBlock1Ptr->mapLayoutId = targetLayout;
-    gMapHeader.mapLayout = GetMapLayout();
-    u32 layoutWidth = gMapHeader.mapLayout->width; // target layout's width
-    u32 layoutHeight = gMapHeader.mapLayout->height; // target layout's height
-    u32 targetLayoutX = 0;
-    u32 targetLayoutY = 0;
-    
-    
-    // bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
-    
-    x += MAP_OFFSET;
-    y += MAP_OFFSET;
-    
-    //initial          //condition to               //action after
-    //assignment       //continue                   //each loop
-    for (targetLayoutX; targetLayoutX < layoutWidth; targetLayoutX++);
+    s16 startingX = VarGet(ScriptReadHalfword(ctx));
+    s16 startingY = VarGet(ScriptReadHalfword(ctx));
+    s16 x1 = VarGet(ScriptReadHalfword(ctx));
+    s16 y1 = VarGet(ScriptReadHalfword(ctx));
+    s16 x2 = VarGet(ScriptReadHalfword(ctx));
+    s16 y2 = VarGet(ScriptReadHalfword(ctx));
+
+    s16 i;
+    s16 j;
+
+    const struct MapLayout *mapLayout = gMapLayouts[targetLayout - 1];
+
+    for (i = x1; i <= x2; i++)
     {
-        for (targetLayoutY; targetLayoutY < layoutHeight; (targetLayoutY++));
+        for (j = y1; j <= y2; j++)
         {
-            MapGridSetMetatileIdAt(x, y, ReturnMetatileAt(targetLayoutX, targetLayoutY, targetLayout));
-            y++;
+            u16 metatile = mapLayout->map[j * mapLayout->width + i] & MAPGRID_METATILE_ID_MASK;
+
+            s16 destX = i + startingX;
+            s16 destY = j + startingY;
+
+            DebugPrintf("destX: %u", destX);
+            DebugPrintf("destY: %u", destY);
+            MapGridSetMetatileIdAt(destX, destY, metatile);
         }
-        x++;
-        y == 0;
-    };
-    
-    // if (!isImpassable)
-    //     MapGridSetMetatileIdAt(x, y, metatileId);
-    // else
-    //     MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
-    return FALSE;
+    }
+
+    DrawWholeMapView();
 }
 
 void SampleScript(void){
-    /**/
+    /*
     MapGridSetMetatileIdAt(19 + MAP_OFFSET, 0 + MAP_OFFSET, ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
     DrawWholeMapView();
-    /**/
+    */
     //DebugPrintf("Metatile ID: %u", ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
 }
 

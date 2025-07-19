@@ -439,6 +439,10 @@ script CeruleanCity_Celia_Bike {
 	end
 }
 
+script CeruleanCity_SummonThePit2{
+	setlayouttiles(LAYOUT_CERULEAN_CITY_PIT, 19, 0, 0, 0, 16, 12)
+}
+
 script CeruleanCity_SummonThePit {
 	// draw the pit
 	setmetatile(19, 0, 0x014, FALSE)

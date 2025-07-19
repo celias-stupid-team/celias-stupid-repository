@@ -189,4 +189,6 @@ extern u16 *gBGTilemapBuffers2;
 extern u16 *gBGTilemapBuffers3;
 extern u16 gHeldKeyCodeToSend;
 
+extern const struct MapLayout * gMapLayouts[];
+
 #endif //GUARD_OVERWORLD_H
