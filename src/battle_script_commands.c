@@ -6687,18 +6687,17 @@ static void Cmd_various(void)
         {
             VARIOUS_ARGS(const u8 *failInstr);
 
-            gBattlerTarget = gBattlerAttacker;
-            gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+            gSpecialStatuses[cmd->battler].ppNotAffectedByPressure = 1;
             if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
             }
             else
             {
-                gProtectStructs[gBattlerAttacker].bounceReflectMove = TRUE;
+                gProtectStructs[cmd->battler].bounceReflectMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
-            break;
+            return;
         }
     }
 

@@ -1423,8 +1423,8 @@
 	various \battler, VARIOUS_INCREMENT_SUB_LAYER
 	.endm
 
-	.macro trysetspecialreflect failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_SET_SPECIAL_REFLECT
+	.macro trysetspecialreflect battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_SET_SPECIAL_REFLECT
 	.4byte \failInstr
 	.endm
 
