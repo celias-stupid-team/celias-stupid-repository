@@ -399,3 +399,29 @@ script Route12_AwakeningShopSign {
 	msgbox("ROUTE 12\nWAKE-UP SHOP\pFor all your Waking Up needs!\n", MSGBOX_SIGN)
 	end
 }
+
+
+script Route12_CeliaChase {
+	msgbox("I tried really hard to make a joke\nwhere the guy and the gyara would\lswitch between chasing each other.\pI wanted to take advantage of how\nthe game loads sprites based on\lyour screen position.\pSadly I couldn't get it to\nwork consistently.", MSGBOX_NPC)
+	end
+}
+
+script Route12_CeliaBench {
+	msgbox("Nope, you can't get up here lol\n", MSGBOX_NPC)
+	end
+}
+
+script Route12_CeliaDad {
+	msgbox("DAD is my response to the Mother 3\nsave frogs.\pI like putting him in various\nsilly situations just for fun.", MSGBOX_NPC)
+	end
+}
+
+script Route12_CeliaAlignment {
+	msgbox("I never said I was good at\nplanning.", MSGBOX_NPC)
+	end
+}
+
+script Route12_CeliaDune {
+	msgbox("I've never read or seen Dune.\pI hear it's good.\n", MSGBOX_NPC)
+	end
+}

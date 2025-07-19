@@ -36,8 +36,7 @@ FushciaCity_SafariZone_Entrance_Text_GoingToLeaveSafariZoneEarly::
     .string "SAFARI ZONE early?$"
 
 FushciaCity_SafariZone_Entrance_Text_PleaseReturnSafariBalls::
-    .string "Please return any SAFARI BALLS\n"
-    .string "you may have left.$"
+	.string "I hope you had a good time!\n$"
 
 FushciaCity_SafariZone_Entrance_Text_GoodLuck::
     .string "Good luck!$"

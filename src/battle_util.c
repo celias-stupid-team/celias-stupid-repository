@@ -1927,6 +1927,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                     break;
+                case ABILITY_BAD_DREAMS:
+                    BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
+                    effect++;
+                    break;
                 }
             }
             break;

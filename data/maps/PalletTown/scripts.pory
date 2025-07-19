@@ -546,6 +546,12 @@ const IMPOSTER_OAK = 7
 const INVISIBLE_OAK = 8
 script PalletTown_ImposterOak {
 	lock
+	if(flag(FLAG_PALLET_IMPOSTER_OAK)) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("Ooh, look!\nThere's a path through the trees!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(!checkitem(ITEM_WAILMER_PAIL)) {
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox("Something about this tree in\nparticular feels... off.", MSGBOX_DEFAULT)

@@ -215,6 +215,8 @@ mapscripts FushciaCity_SafariZone_Entrance_MapScripts {
 	}
 }
 
+
+
 script FushciaCity_SafariZone_Entrance_EventScript_Guy {
 	lock
 	faceplayer
@@ -229,6 +231,8 @@ script FushciaCity_SafariZone_Entrance_EventScript_Guy {
 	release
 	end
 }
+
+
 
 script FushciaCity_SafariZone_Entrance {
 	lockall

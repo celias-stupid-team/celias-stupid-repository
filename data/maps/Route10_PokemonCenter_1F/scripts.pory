@@ -108,3 +108,9 @@ script Route10_PokemonCenter_EverstoneCop {
 	msgbox("There was a scientist-type here\nearlier.\pHe said something about being\nEVER STONED and how he was\lwaiting for a TRAINER to come by.\pI have no clue what he meant, so\nI arrested him just in case.", MSGBOX_NPC)
 	end
 }
+
+
+script Route10_CeliaMindy {
+	msgbox("Mindy's gonna be moved next\nupdate.\pShe's supposed to be in Cinnabar\nLab, but right now she's here for…\lreasons.", MSGBOX_NPC)
+	end
+}

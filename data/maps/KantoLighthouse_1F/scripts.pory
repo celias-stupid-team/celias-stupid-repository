@@ -139,7 +139,7 @@ script GTS_TradeSpot_Secret {
         goto_if_ne(VAR_RESULT, SPECIES_JIRACHI, GTS_TradeDoesNotMatch)
         msgbox("{PLAYER} offered a TRADE!\n", MSGBOX_DEFAULT)
         closemessage
-        setflag(FLAG_SHINY_CREATION)
+        setflag(FLAG_SHINY_CREATION) // Ampharos
         setflag(FLAG_DID_AMPHAROS_TRADE)
         call(EventScript_DoInGameTrade)
         msgbox("Thank you!\n", MSGBOX_DEFAULT)
@@ -174,7 +174,6 @@ script GTS_TradeDoesNotMatch {
 script GTS_TradeScammer_Left {
     lock
     faceplayer
-
     if(flag(FLAG_LEFT_SCAMMER_HAS_MON)) {
         msgbox("I've put your POKéMON up on\nthe TRADE network.\pI'll let you know if we get a\nhit!", MSGBOX_DEFAULT)
         goto(GTS_Scammers_ReleaseEnd)
@@ -216,9 +215,11 @@ script GTS_TradeScammer_Left {
             setvar(VAR_0x8002, FALSE)
             callnative(EvolvePartyMon)
             waitstate
-
         }
-
+        setvar(VAR_FIRST_TRADED_MON_SPECIES, 0)
+        setvar(VAR_0x8005, 0)
+        setvar(VAR_0x8004, 0)
+        setvar(VAR_RESULT, 0)
         goto(GTS_Scammers_ReleaseEnd)
     }
 
@@ -230,7 +231,6 @@ script GTS_TradeScammer_Left {
         } else {
             msgbox("Aww…\nYou're no fun.", MSGBOX_DEFAULT)
 	        goto(GTS_Scammers_ReleaseEnd)
-
         }
     } else {
         if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
@@ -270,7 +270,6 @@ script GTS_LeftScammerMeat {
         goto(GTS_Scammers_ReleaseEnd)
     }
     msgbox("Hah, great to hear!\pNow, gimme one of your POKéMON.\nI'll take care of the rest!", MSGBOX_DEFAULT)
-	fadescreen(FADE_TO_BLACK)
 	special(ChooseSendDaycareMon)
 	waitstate
 	if(var(VAR_0x8004) >= PARTY_SIZE) {
@@ -324,14 +323,6 @@ script GTS_LeftScammerMeat {
         } else {
             msgbox("Here, why don't you take it?\nI got higher standards than this.", MSGBOX_DEFAULT)
         }
-        specialvar(VAR_RESULT, TakePokemonFromDaycare)
-        waitse
-        playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
-        textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        waitmoncry
-        closemessage
-        playfanfare(MUS_LEVEL_UP)
-        msgbox("{PLAYER} received their own {STR_VAR_1}\nfrom the incompetent scammer!", MSGBOX_DEFAULT)
         specialvar(VAR_RESULT, TakePokemonFromDaycare)
         waitse
         playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
@@ -419,11 +410,15 @@ script GTS_TradeScammer_Right {
             setvar(VAR_0x8002, FALSE)
             callnative(EvolvePartyMon)
             waitstate
-
         }
-
+        setvar(VAR_FIRST_TRADED_MON_SPECIES, 0)
+        setvar(VAR_0x8005, 0)
+        setvar(VAR_0x8004, 0)
+        setvar(VAR_RESULT, 0)
         goto(GTS_Scammers_ReleaseEnd)
     }
+
+
     if(flag(FLAG_TALKED_TO_RIGHT_SCAMMER)) {
         msgbox("Hey, you!\nWanna pull our little scam?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
@@ -445,9 +440,8 @@ script GTS_TradeScammer_Right {
         } else {
             msgbox("Hey, you!\nListen here!\pI wanna scam someone out of a good\ntrade.\lWe'll both make out like bandits!\pWhaddya say?\nAre you in?", MSGBOX_YESNO)
             if(var(VAR_RESULT)) {
-                
-                setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
                 famechecker(FAMECHECKER_KANTO_SHORELINE, 3)
+                setflag(FLAG_TALKED_TO_RIGHT_SCAMMER)
                 msgbox("Sick - Here's the plan:\pYou give me some POKéMON, doesn't\nmatter which.\pThen, I'll tell people that it's\nextremely rare and valuable.\lThat way, we get high-value offers!\pWhen all's said and done, we'll\nget something awesome out of it!\lHow about it?", MSGBOX_YESNO)
                 if(var(VAR_RESULT)) {
                     goto(GTS_RightScammerMeat)
@@ -463,10 +457,8 @@ script GTS_TradeScammer_Right {
     goto(GTS_Scammers_ReleaseEnd)
 }
 
-
 script GTS_RightScammerMeat {
     
-
     specialvar(VAR_RESULT, CountPartyNonEggMons)
 	if(var(VAR_RESULT) == 1) {
         msgbox("Hehehe…\nThat's great to hear!\lBut…\pYou only have one POKéMON with\nyou! You'll need another.\pGo grab one and come back!\n", MSGBOX_DEFAULT)

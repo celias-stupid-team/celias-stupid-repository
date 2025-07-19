@@ -333,7 +333,7 @@ script CeladonGym_GenderFluidSale {
 	closemessage
 	delay(20)
 	//something something 
-	setflag(FLAG_SHINY_CREATION)
+	setflag(FLAG_SHINY_CREATION) // Unused
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_NIDORAN_F)
 	call(Common_Script_GiftPokemon)
 	removeobject(VAR_LAST_TALKED)

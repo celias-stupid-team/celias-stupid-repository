@@ -7,13 +7,76 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
+            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
+        }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+            setmetatile(11, 12, 0x3C3, FALSE)
+        }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM)
+        
+        if(!flag(FLAG_CHASED_VULPIX)) {
+            setweather(WEATHER_RAIN)
+        }
+
+    }
+    MAP_SCRIPT_ON_LOAD {
+        
+        if(flag(FLAG_DRILLED_LION_HOLE)) {
+            call(FushciaGym_LionRoom_DrawHole)
+        }
     }
 }
 
+script FushciaGym_LionsRoom_Vulpix {
+    lock
+    faceplayer
+    playmoncry(SPECIES_VULPIX, CRY_MODE_DEFAULT)
+    msgbox("VULPIX: Prrrah!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    msgbox("The VULPIX seems very content.\n", MSGBOX_DEFAULT)
+    if(flag(FLAG_DRILLED_LION_HOLE)) {
+        msgbox("Would you like to put it through\nthe wall hole?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox("{PLAYER} picked up the\nVULPIX!", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            playse(SE_PIN)
+            applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            delay(30)
+            playse(SE_FALL)
+            applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+            applymovement(VAR_LAST_TALKED, FushciaGym_ThrowVulpix)
+            waitmovement(VAR_LAST_TALKED)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+            playse(SE_M_STRENGTH)
+            special(ShakeScreen)
+            removeobject(VAR_LAST_TALKED)
+            setflag(FLAG_CHASED_VULPIX)
+            setweather(WEATHER_NONE)
+            doweather
+            delay(20)
+
+        }
+    }
+    release
+
+}
+
+movement FushciaGym_ThrowVulpix {
+    face_right
+    lock_facing_direction
+    walk_fastest_left * 12
+}
+
 script FushciaGym_LionsRoom_Trainer {
-    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "I AM ROLAND OF THE BATTLE FACTORY\nI OWN ALL THE POKéMON\pHOWEVER, NOT EVEN ALL OF THEM AT\nONCE CAN DEFEAT ME!", "lol")
+    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
     release
 }
 
@@ -28,4 +91,66 @@ script FushciaGym_LionsRoom_ClearLionFlag {
     clearflag(FLAG_LION_BATTLE)
     release
 
+}
+
+script FushciaGym_LionsRoom_LookGirlResetButton {
+    if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+        setvar(VAR_FUCHSIA_LOOK_GIRL_LOCATION, 10)
+        copyvar(VAR_TEMP_1, VAR_FUCHSIA_LOOK_GIRL_LOCATION)
+        addvar(VAR_TEMP_1, 2)
+        setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 9)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 1)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 1)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+            playse(SE_CLICK)
+            special(DrawWholeMapView)
+            special(ShakeScreen)
+            delay(20)
+
+    }
+    release
+}
+
+
+script FushciaGym_LionRoom_WallHole {
+    lock
+    if(flag(FLAG_DRILLED_LION_HOLE)) {
+        msgbox("The hole is too small for you\nto walk through.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            setflag(FLAG_DRILLED_LION_HOLE)
+            fadescreen(FADE_TO_BLACK)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(30)
+            call(FushciaGym_LionRoom_DrawHole)
+            special(DrawWholeMapView)
+            fadescreen(FADE_FROM_BLACK)
+
+        }
+    }
+    release
+}
+
+script FushciaGym_LionRoom_DrawHole {
+    setmetatile(0, 12, 0x39C, TRUE)
+    setmetatile(1, 12, 0x39C, TRUE)
+    setmetatile(2, 12, 0x39C, TRUE)
+    setmetatile(3, 12, 0x39C, TRUE)
+    setmetatile(4, 12, 0x39C, TRUE)
+    setmetatile(5, 12, 0x39C, TRUE)
+    return
 }

@@ -4,3 +4,26 @@ mapscripts FushciaGym_DoubleBattleRoom_MapScripts {
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM)
     }
 }
+
+// single battle 1
+script FushciaGym_DoubleBattleRoom_EventScript_Liam {
+	trainerbattle_single(TRAINER_BATTLE_FRONTIER_DARACH, "Darach", "rip")
+	msgbox("Double battler 1\n", MSGBOX_AUTOCLOSE)
+}
+
+// single battle 2
+script FushciaGym_DoubleBattleRoom_EventScript_Linda {
+	trainerbattle_single(TRAINER_BATTLE_FRONTIER_CAITLIN, "Caitlyn", "rip")
+	msgbox("Double battler 2\n", MSGBOX_AUTOCLOSE)
+}
+
+// double battle
+script FushciaGym_DoubleBattleRoom_EventScript_Linda_Double {
+	trainerbattle_double(TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH, "it us", VictoryRoad_3F_Text_TyraDefeat, VictoryRoad_3F_Text_TyraNotEnoughMons, "rip 3")
+}
+
+script FushciaGym_DoubleBattleRoom_EventScript_Linda_Double_Continue {
+    // set the flags for both single trainers after winning the double battle
+    settrainerflag(TRAINER_BATTLE_FRONTIER_DARACH)
+    settrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)
+}

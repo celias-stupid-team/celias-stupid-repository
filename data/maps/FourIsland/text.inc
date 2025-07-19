@@ -1,6 +1,5 @@
 FourIsland_Text_IslandSign::
-    .string "FOUR ISLAND\n"
-    .string "The Warm, Blue, Floe Island$"
+    .string "POKéMON DAY CARE$"
 
 FourIsland_Text_LoreleiHasReturned::
     .string "LORELEI has returned.\p"

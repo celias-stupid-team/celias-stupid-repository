@@ -144,7 +144,7 @@ script PowerPlant_Dazzle {
 					closemessage
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					//You got the badge!
-					msgbox("{PLAYER} obtained the POWER BOUNCE BADGE!\n", MSGBOX_DEFAULT)
+					msgbox("{PLAYER} obtained the\nPOWER BOUNCE BADGE!\n", MSGBOX_DEFAULT)
 					call(EventScript_GymBadgeFanfare)
 					closemessage
 					textcolor(NPC_TEXT_COLOR_MALE)
@@ -415,3 +415,25 @@ movement PowerPlant_CameraGoUp {
 movement PowerPlant_CameraGoDown {
 	walk_fast_down * 3
 }
+
+
+script PowerPlant_CeliaComputer {
+	msgbox("One of my favorite bits of\nflavor text", MSGBOX_NPC)
+	end
+}
+
+script PowerPlant_Celia_Dazzle {
+	msgbox("This guy is from Paper Mario TTYD!\nHe trades a badge for a star piece.\pHave you found how to get his\nBADGE?", MSGBOX_NPC)
+	end
+}
+
+script PowerPlant_Uranium {
+	msgbox("Fuck Nintendo.\pUranium wasn't really my thing,\nbut fuck them for taking it down.", MSGBOX_NPC)
+	end
+}
+
+script PowerPlant_Minigame {
+	msgbox("Oh man, this was so fun.\n", MSGBOX_NPC)
+	end
+}
+

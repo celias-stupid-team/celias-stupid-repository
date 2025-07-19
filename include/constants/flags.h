@@ -43,7 +43,7 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 
-#define FLAG_0x020               0x020
+#define FLAG_LASS_MAZE               0x020
 #define FLAG_0x021               0x021
 #define FLAG_0x022               0x022
 #define FLAG_0x023               0x023
@@ -131,7 +131,7 @@
 #define FLAG_HIDE_ONE_ISLAND_POKECENTER_CELIO              0x073
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
-#define FLAG_CELIA_BONUS_3                     0x076
+#define FLAG_CSR_CELIA_BONUS                     0x076
 #define FLAG_HIDE_P_EMBLEM                                         0x077
 #define FLAG_HIDE_W_EMBLEM                                         0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
@@ -294,7 +294,7 @@
 #define FLAG_TALKED_TO_LICKITUNG_TRADE               0x0F9
 #define FLAG_HIDE_TM42               0x0FA
 #define FLAG_DID_AMPHAROS_TRADE               0x0FB
-#define FLAG_0x0FC               0x0FC
+#define FLAG_IMPOSTER_OAK_ROOM_SWITCH               0x0FC
 
 #define FLAG_ROUTE13_LASSATTACK               0x0FD
 #define FLAG_ROUTE18_LASSATTACK               0x0FE
@@ -363,10 +363,10 @@
 #define FLAG_OTHER_SCAMMER_READY_TO_EVOLVE               0x13D
 #define FLAG_TOOK_GIRL_DOLL               0x13E
 #define FLAG_GOT_SECRET_FARFETCHD               0x13F
-#define FLAG_0x140               0x140
-#define FLAG_0x141               0x141
-#define FLAG_0x142               0x142
-#define FLAG_0x143               0x143
+#define FLAG_DRILLED_RAIN_HOLE               0x140
+#define FLAG_DRILLED_LION_HOLE               0x141
+#define FLAG_CHASED_VULPIX               0x142
+#define FLAG_GOT_WAKE_UP_SLAP               0x143
 #define FLAG_0x144               0x144
 #define FLAG_0x145               0x145
 #define FLAG_0x146               0x146
@@ -587,8 +587,8 @@
 #define FLAG_LOOK_GIRL_LASS               0x215
 #define FLAG_MELTED_LIGHTHOUSE_GUARD               0x216
 #define FLAG_GOT_HISTORY_BOOK               0x217
-#define FLAG_0x218               0x218
-#define FLAG_0x219               0x219
+#define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE               0x218
+#define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS               0x219
 #define FLAG_0x21A               0x21A
 #define FLAG_0x21B               0x21B
 #define FLAG_0x21C               0x21C
@@ -840,7 +840,7 @@
 #define FLAG_CSR_JIRACHI_SET               0x307
 #define FLAG_CSR_JIRACHI_GOT               0x308
 #define FLAG_CSR_MELTED_GUARDS               0x309
-#define FLAG_CSR_CELIA_BONUS     0x30A
+#define FLAG_CSR_OLD_CELIA_BONUS     0x30A
 #define FLAG_CSR_PHISHING_GURU_MENUS               0x30B
 #define FLAG_CSR_TALKED_TO_YOUNGER_BROTHER               0x30C
 #define FLAG_CSR_TALKED_TO_OLDER_BROTHER               0x30D
@@ -874,7 +874,7 @@
 #define FLAG_DRILLED_LEFT_HOLE               0x327
 #define FLAG_DRILLED_RIGHT_HOLE               0x328
 #define FLAG_DEFEATED_ARON_MAN               0x329
-#define FLAG_DEFEATED_SHEDINJA_MAN               0x32A
+#define FLAG_UNUSED_0x32A               0x32A
 #define FLAG_GOT_DRILL_DOZER               0x32B
 #define FLAG_GOT_BURNED_ONCE               0x32C
 #define FLAG_GOT_PARALYZED_ONCE               0x32D

@@ -77,7 +77,7 @@ script BobOmbBattlefield_Star {
     playfanfare(MUS_LEVEL_UP)
     msgbox("{PLAYER} found a STARMIE!\n", MSGBOX_DEFAULT)
     waitfanfare
-    setflag(FLAG_SHINY_CREATION)
+    setflag(FLAG_SHINY_CREATION) // Starmie
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_STARMIE)
     call(Common_Script_GiftPokemon)
     release

@@ -234,6 +234,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sIcefallCaveMapPreviewTilemap,
         .palptr = sIcefallCaveMapPreviewPalette
     },
+    /*
     [MPS_LOST_CAVE] = {
         .mapsec = MAPSEC_POKEMON_CENTER,
         .type = MPS_TYPE_CAVE,
@@ -242,6 +243,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
     },
+    */
     [MPS_ALTERING_CAVE] = {
         .mapsec = MAPSEC_YES,
         .type = MPS_TYPE_CAVE,

@@ -1,4 +1,5 @@
 const LASS = 1
+
 mapscripts FushciaGym_ThePitRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_LASS_BROKE_WALL)) {
@@ -11,7 +12,17 @@ mapscripts FushciaGym_ThePitRoom_MapScripts {
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM)
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        // VAR_FUSHCIA_GYM_PIT_STATE is set to 1 in FieldGetPlayerInput()
+        VAR_FUSHCIA_GYM_PIT_STATE, 1: FushciaGym_ThePitRoom_OnFrame_CheckDirection
+	    ]
+}
 
+script FushciaGym_ThePitRoom_OnFrame_CheckDirection {
+    setvar(VAR_FUSHCIA_GYM_PIT_STATE, 0)
+    if(!flag(FLAG_LASS_BROKE_WALL)) {
+        goto(FushciaGym_ThePitRoom_LassBreaksWall)
+    }
 }
 
 script FushciaGym_ThePitRoom_Sign {
