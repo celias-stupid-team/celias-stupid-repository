@@ -308,8 +308,17 @@ static const u16 sECPhrase_PsychicKeyGottenFree[] = {
     EC_WORD_FREE
 };
 
+static const u16 sECPhrase_UpgradeFromDemoTwo[] = {
+    EC_WORD_UPGRADE,
+    EC_WORD_FROM,
+    EC_WORD_DEMO,
+    EC_WORD_TWO
+};
+
+
 static void CompareQuestionnaireResponseWithPassphrase(void)
 {
+    gSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_UpgradeFromDemoTwo));
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
     gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
 }

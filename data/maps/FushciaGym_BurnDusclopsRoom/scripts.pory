@@ -7,6 +7,7 @@ mapscripts FushciaGym_BurnDusclopsRoom_MapScripts {
             setvar(VAR_TEMP_1, 1)
             setobjectxyperm(MAN, 6, 11)
             setobjectxyperm(DUSCLOPS, 7, 11)
+            setobjectmovementtype(MAN, MOVEMENT_TYPE_FACE_RIGHT)
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_BURN_DUSCLOPS_ROOM)
     }
@@ -46,6 +47,7 @@ script FushciaGym_BurnDusclops {
             waitmoncry
             closemessage
             msgbox("DUSCLOPS used WILL-O-WISP!\n", MSGBOX_DEFAULT)
+            setstatus1(STATUS1_BURN, 0)
             setflag(FLAG_GOT_BURNED_ONCE)
             setvar(VAR_TEMP_1, 2)
 
@@ -59,6 +61,13 @@ script FushciaGym_BurnDusclops {
 }
 
 script FushciaGym_BurnDusclopsMan {
-	msgbox("bad dusclops\n", MSGBOX_NPC)
+    if(var(VAR_TEMP_1) == 2) {
+	    msgbox("Ah!\nTerribly sorry about that.\pMy DUSCLOPS is quite ill-mannered.\nI only recently acquired him.\pI'll see to it that he's trained\nat once.", MSGBOX_NPC)
+
+    } else {
+        lock
+        msgbox("Now see here, DUSCLOPS.\pYou cannot simply attack any\nTRAINER who comes in.\lIt's quite unbefitting of you!", MSGBOX_DEFAULT)
+        release
+    }
 	end
 }

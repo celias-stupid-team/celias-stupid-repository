@@ -63,7 +63,7 @@ gSpecials::
 	def_special ShowTrainerIntroSpeech
 	def_special ShowTrainerCantBattleSpeech
 	def_special Script_HasTrainerBeenFought
-	def_special EndTrainerApproach
+	def_special DoTrainerApproach
 	def_special PlayTrainerEncounterMusic
 	def_special ShouldTryRematchBattle
 	def_special IsTrainerReadyForRematch
@@ -459,4 +459,5 @@ gSpecials::
 	def_special SocialSecurityCheck
 	def_special CreateMail
 	def_special ForcePlayerOffBike
+	def_special TryPrepareSecondApproachingTrainer
 gSpecialsEnd::

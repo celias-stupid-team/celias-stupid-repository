@@ -1228,7 +1228,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1: //Gary, not X. Completion smell quest
-                    if(FALSE)
+                    if(TRUE)
                         isQuestCompleted = TRUE;
                     break;
                 case 2: // Fancy Toaster
@@ -1236,7 +1236,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3: //Dad
-                    if(FlagGet(FLAG_REVEALED_DAD))
+                    if(TRUE)
                         isQuestCompleted = TRUE;
                     break;
                 case 4: //GS Ball
@@ -1257,7 +1257,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE) //Larry. Condition = Other larry
+                    if(TRUE) //Larry. Condition = Other larry
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
@@ -1294,7 +1294,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_GOLURK, FLAG_GET_CAUGHT, TRUE))
+                    if(TRUE)
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1315,7 +1315,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(DexScreen_GetSetPokedexFlag(SPECIES_ARCANINE, FLAG_GET_CAUGHT, TRUE)) //shorts
+                    if(TRUE) //shorts
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
@@ -1323,7 +1323,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 3:
-                    if(FALSE) //Lass in elite four, or golbat
+                    if(TRUE) //Lass in elite four, or golbat
                         isQuestCompleted = TRUE;
                     break;
                 case 4:
@@ -1331,7 +1331,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 5:
-                    if(FlagGet(FLAG_BADGE04_GET)) //giovanni
+                    if(TRUE) //giovanni
                         isQuestCompleted = TRUE;
                     break;
             }
@@ -1344,11 +1344,11 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FALSE) //Get all candies
+                    if(TRUE) //Get all candies
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE) // larry, Hearing test
+                    if(TRUE) // larry, Hearing test
                         isQuestCompleted = TRUE;
                     break;
                 case 3:

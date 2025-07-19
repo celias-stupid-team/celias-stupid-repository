@@ -15,8 +15,8 @@ script FushciaGym_ElectrifyRoom_OpenDoor {
 }
 
 script FushciaGym_ElectrifyRoom_Lance {
-    trainerbattle_single(TRAINER_FUSHCIA_GYM_LANCE, "I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!", "Impossible!\n")
-    msgbox("lost")
+    trainerbattle_single(TRAINER_FUSHCIA_GYM_LANCE, "I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!", "But how!\n")
+    msgbox("Impossible!\nYou must have cheated!", MSGBOX_DEFAULT)
     call(FushciaGym_ElectrifyRoom_OpenDoor)
     release
     end

@@ -3,12 +3,22 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         if(flag(FLAG_BEAT_RAIN_GIRL)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
+        if(flag(FLAG_CHASED_VULPIX)) {
+            setweather(WEATHER_RAIN)
+
+        } else {
+            setflag(FLAG_TEMP_3)
+        }
+        if(flag(FLAG_DRILLED_RAIN_HOLE)) {
+            call(FushciaGym_RainRoom_DrawHole)
+        }
         special(GetPlayerXY)
-        if(flag(FLAG_GOT_POISONED_ONCE)) {
-            setobjectmovementtype(LOCALID_NURSE, MOVEMENT_TYPE_RAISE_HAND_AND_STOP)
+        if(!flag(FLAG_GOT_POISONED_ONCE)) {
+            setflag(FLAG_TEMP_2)
+        } else {
             setvar(VAR_0x8005, 0)
         }
-        if(var(VAR_0x8005) == 12) {
+        if(var(VAR_0x8005) == 6) {
             setobjectxyperm(LOCALID_NURSE, 6, 7)
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_RAIN_ROOM)
@@ -58,8 +68,56 @@ script FushciaGym_RainRoom_OpenDoor {
 script FushciaGym_RainRoom_Vulpix {
     lock
     faceplayer
-    playmoncry(SPECIES_VULPIX, CRY_MODE_DEFAULT)
-    msgbox("VULPIX: Prrrah!\n", MSGBOX_DEFAULT)
+    playmoncry(SPECIES_VULPIX, CRY_MODE_FAINT)
+    msgbox("VULPIX: P-prrrah?\n", MSGBOX_DEFAULT)
     waitmoncry
+    closemessage
+    msgbox("The VULPIX does not want to be\npicked up.", MSGBOX_DEFAULT)
     release
+}
+
+script FushciaGym_RainRoom_DeadNurse {
+	msgbox("Oh no!\nShe's been POISONED!", MSGBOX_SIGN)
+	end
+}
+
+script FushciaGym_RainRoom_WallHole {
+    lock
+    if(flag(FLAG_DRILLED_RAIN_HOLE)) {
+        msgbox("The hole is too small for you\nto walk through.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox("A small crack has been forming in\nthe wall.", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_DRILL_DOZER)) {
+        msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            closemessage
+            setflag(FLAG_DRILLED_RAIN_HOLE)
+            fadescreen(FADE_TO_BLACK)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(10)
+            playse(SE_M_HORN_ATTACK)
+            delay(30)
+            call(FushciaGym_RainRoom_DrawHole)
+            special(DrawWholeMapView)
+            fadescreen(FADE_FROM_BLACK)
+
+        }
+    }
+    release
+}
+
+script FushciaGym_RainRoom_DrawHole {
+    setmetatile(0, 8, 0x3CD, TRUE)
+    setmetatile(1, 8, 0x3CC, TRUE)
+    setmetatile(2, 8, 0x3CC, TRUE)
+    setmetatile(3, 8, 0x3CC, TRUE)
+    return
 }

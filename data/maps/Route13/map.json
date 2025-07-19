@@ -27,6 +27,7 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_LASS_MAZE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 23,
@@ -83,52 +84,6 @@
       "flag": "0"
     },
     {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 24,
-      "y": 21,
-      "target_local_id": "LOCALID_ROUTE14_ROCKER",
-      "target_map": "MAP_ROUTE14"
-    },
-    {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 24,
-      "y": 22,
-      "target_local_id": "LOCALID_ROUTE14_BIKER1",
-      "target_map": "MAP_ROUTE14"
-    },
-    {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 24,
-      "y": 23,
-      "target_local_id": "LOCALID_ROUTE14_BIKER2",
-      "target_map": "MAP_ROUTE14"
-    },
-    {
-      "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 24,
-      "y": 24,
-      "target_local_id": "LOCALID_ROUTE14_BIKER3",
-      "target_map": "MAP_ROUTE14"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 46,
-      "y": 11,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route13_StuckDad",
-      "flag": "FLAG_ROUTE13_HIDE_DAD"
-    },
-    {
       "local_id": "LOOK_SIGN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
@@ -163,6 +118,47 @@
       "x": 12,
       "y": 21,
       "target_local_id": "45",
+      "target_map": "MAP_ROUTE14"
+    },
+    {
+      "local_id": "LOCALID_CLONE_2",
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BIKER",
+      "x": 24,
+      "y": 21,
+      "target_local_id": "LOCALID_ROUTE14_BIKER1",
+      "target_map": "MAP_ROUTE14"
+    },
+    {
+      "local_id": "LOCALID_CLONE_3",
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BIKER",
+      "x": 24,
+      "y": 22,
+      "target_local_id": "LOCALID_ROUTE14_BIKER2",
+      "target_map": "MAP_ROUTE14"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 46,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route13_StuckDad",
+      "flag": "FLAG_ROUTE13_HIDE_DAD"
+    },
+    {
+      "local_id": "LOCALID_CLONE_4",
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "x": 24,
+      "y": 23,
+      "target_local_id": "LOCALID_ROUTE14_BIKER3",
       "target_map": "MAP_ROUTE14"
     }
   ],
@@ -1894,6 +1890,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route13_SignItem"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route13_Fence"
     }
   ]
 }

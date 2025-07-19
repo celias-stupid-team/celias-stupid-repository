@@ -969,16 +969,16 @@ gRumorLogFlavorTextIntoLine1_RockTunnel1::
 	.string "Crystaline$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel2::
-	.string "FUSHCIA GYM$"
+	.string "Magnetic$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel3::
-	.string "FUSHCIA CITY$"
+	.string "Sinister$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel4::
-	.string "FUSHCIA CITY$"
+	.string "Badge$"
 
 gRumorLogFlavorTextIntoLine1_RockTunnel5::
-	.string "SAFARI ZONE$"
+	.string "Shadow$"
 
 gRumorLogFlavorTextIntoLine1_Lavender0::
 	.string "Graveyard$"
@@ -992,8 +992,8 @@ gRumorLogFlavorTextIntoLine1_Lavender2::
 gRumorLogFlavorTextIntoLine1_Lavender3::
 	.string "Preschool$"
 
-gRumorLogFlavorTextIntoLine1_Lavender4::
-	.string "SAFFRON CITY$"
+gRumorLogFlavorTextIntoLine1_Lavender4:: @ idk man
+	.string "Math$"
 
 gRumorLogFlavorTextIntoLine1_Lavender5::
 	.string "Ghostly$"
@@ -1017,40 +1017,40 @@ gRumorLogFlavorTextIntoLine1_Celadon5::
 	.string "Inspiring$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia0::
-	.string "POKéMON LEAGUE$"
+	.string "Sandwich$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia1::
-	.string "POKéMON LEAGUE$"
+	.string "Sibling$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia2::
-	.string "FOUR ISLAND$"
+	.string "Infringement$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia3::
-	.string "FIVE ISLAND$"
+	.string "Malware$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia4::
-	.string "FOUR ISLAND$"
+	.string "Molars$"
 
 gRumorLogFlavorTextIntoLine1_Fushcia5::
-	.string "FOUR ISLAND$"
+	.string "Corporate$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline0::
-	.string "POKéMON LEAGUE$"
+	.string "Beacon$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline1::
-	.string "POKéMON LEAGUE$"
+	.string "Glazed$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline2::
-	.string "SAFFRON CITY$"
+	.string "Coastal$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline3::
-	.string "EMBER SPA$"
+	.string "Scheming$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline4::
-	.string "TWO ISLAND$"
+	.string "Zephyr$"
 
 gRumorLogFlavorTextIntoLine1_KantoShoreline5::
-	.string "SEVAULT CANYON$"
+	.string "Tunnel$"
 
 gRumorLogFlavorTextIntoLine1_Agatha0::
 	.string "POKéMON LEAGUE$"
@@ -1257,16 +1257,16 @@ gFameCheckerFlavorTextOriginObjectName_RockTunnel1::
 	.string "Caver$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel2:: @ Unfinished
-	.string "KIRK$"
+	.string "Melodrama$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel3:: @ Unfinished
-	.string "CHARINE$"
+	.string "Soliciter$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel4:: @ Unfinished
-	.string "POKéMON JOURNAL$"
+	.string "Broker$"
 
 gFameCheckerFlavorTextOriginObjectName_RockTunnel5:: @ Unfinished
-	.string "MAN$"
+	.string "Superstition$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender0::
 	.string "Guide$"
@@ -1281,7 +1281,7 @@ gFameCheckerFlavorTextOriginObjectName_Lavender3::
 	.string "Pupil$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender4:: @ Unfinished
-	.string "POKéMON JOURNAL$"
+	.string "Mentor$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender5::
 	.string "Guide$"
@@ -1304,41 +1304,41 @@ gFameCheckerFlavorTextOriginObjectName_Celadon4::
 gFameCheckerFlavorTextOriginObjectName_Celadon5::
 	.string "Inclusivity!$"
 
-gFameCheckerFlavorTextOriginObjectName_Lorelei0::
-	.string "LORELEI$"
+gFameCheckerFlavorTextOriginObjectName_Lorelei0:: @ Fushcia
+	.string "Savant$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei1::
-	.string "LORELEI$"
+	.string "Survivor$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei2::
-	.string "OLD MAN$"
+	.string "Informant$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei3::
-	.string "POKéMON JOURNAL$"
+	.string "Maligned$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei4::
-	.string "LITTLE GIRL$"
+	.string "Missing$"
 
 gFameCheckerFlavorTextOriginObjectName_Lorelei5::
-	.string "OLD LADY$"
+	.string "Copout$"
 
-gFameCheckerFlavorTextOriginObjectName_Bruno0::
-	.string "BRUNO$"
+gFameCheckerFlavorTextOriginObjectName_Bruno0:: @ Kanto Shoreline
+	.string "Blockade$"
 
 gFameCheckerFlavorTextOriginObjectName_Bruno1::
-	.string "BRUNO$"
+	.string "Gourmond$"
 
 gFameCheckerFlavorTextOriginObjectName_Bruno2::
-	.string "POKéMON JOURNAL$"
+	.string "Capitalist$"
 
 gFameCheckerFlavorTextOriginObjectName_Bruno3::
-	.string "CRUSHER$"
+	.string "Schmuck$"
 
 gFameCheckerFlavorTextOriginObjectName_Bruno4::
-	.string "WOMAN$"
+	.string "Zealot$"
 
 gFameCheckerFlavorTextOriginObjectName_Bruno5::
-	.string "CRUSHER$"
+	.string "Troubled$"
 
 gFameCheckerFlavorTextOriginObjectName_Agatha0::
 	.string "AGATHA$"

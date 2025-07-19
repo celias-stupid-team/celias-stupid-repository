@@ -190,3 +190,26 @@ FourIsland_PokemonDayCare_EventScript_UnusedRetrieveMon::
 	release
 	end
 `
+
+
+script DayCare_Furret_M {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("FURRET is fucking!\n", MSGBOX_DEFAULT)
+	release
+}
+
+script DayCare_Furret_F {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("FURRET is fucking!\n", MSGBOX_DEFAULT)
+	release
+}

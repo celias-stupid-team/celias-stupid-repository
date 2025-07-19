@@ -316,8 +316,8 @@ It is reset after every battle.
 #define VAR_POKEMON_TOWER_SCENE                 0x40D8
 #define VAR_PEWTER_CELIA_SCENE                 0x40D9
 #define VAR_FUSHCIA_GYM_CHALLENGE                 0x40DA
-#define VAR_0x40DB                 0x40DB
-#define VAR_0x40DC                 0x40DC
+#define VAR_FUSHCIA_GYM_PIT_STATE                 0x40DB
+#define VAR_FUSHCIA_GYM_SHEDINJA_STATE                 0x40DC
 #define VAR_0x40DD                 0x40DD
 #define VAR_0x40DE                 0x40DE
 #define VAR_0x40DF                 0x40DF
@@ -404,8 +404,7 @@ It is reset after every battle.
 #define NPC_TEXT_COLOR_FEMALE    1 // Red, for female NPCs
 #define NPC_TEXT_COLOR_MON       2 // Black, for Pokémon
 #define NPC_TEXT_COLOR_NEUTRAL   3 // Black, for inanimate objects and messages from the game
-
-#define NPC_TEXT_COLOR_TREE       4 // Tree, for Oak and oak-adjactent things
+#define NPC_TEXT_COLOR_TREE      4 // Tree, for Oak and oak-adjactent things
 
 
 // don't make fun of me :(

@@ -77,23 +77,37 @@ script BrendanMay_Mom {
 script BrendanMay_ImposterOak {
     lock
     if(flag(FLAG_WATERED_BRENDANMAY_OAK)) {
-        msgbox("no tree")
+        msgbox("It seems the tree has moved on.\n", MSGBOX_DEFAULT)
         release
         end
     }
     if(checkitem(ITEM_WAILMER_PAIL)) {
-        msgbox("water tree?\n", MSGBOX_YESNO)
+        msgbox("Something about this tree in\nparticular feels… off.\pWould you like to water it?\n", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
+            fadenewbgm(MUS_NONE)
+            msgbox("{PLAYER} watered the tree…\n", MSGBOX_DEFAULT)
+            closemessage
             setflag(FLAG_WATERED_BRENDANMAY_OAK)
+            removeitem(ITEM_WAILMER_PAIL)
+		    additem(ITEM_EMPTY_PAIL)
+            setmetatile(8, 2, 0x2DF, TRUE)
+            setmetatile(8, 3, 0x2E7, TRUE)
+            special(DrawWholeMapView)
             playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
-            msgbox("watered\n", MSGBOX_DEFAULT)
+            delay(50)
+            textcolor(NPC_TEXT_COLOR_TREE)
+            msgbox("{FONT_SMALL}OAK?: Wha-\nHey!\lHow'd you get in here?\pI found this nice empty home to\nmove to, livin' all by myself.\pAnd then some self-important jerk\nshoves in and drenches me in water!\lWhat's up with that?\pMan, forget this.\nYou wanna go upstairs? Fine!\pI'll spread my roots somewhere\nelse!", MSGBOX_DEFAULT)
+            fadescreen(FADE_TO_BLACK)
+            fadedefaultbgm
+            playse(SE_EXIT)
             call(BrendanMay_DrawStaircase)
             special(DrawWholeMapView)
-            fadedefaultbgm
+            waitse
+            fadescreen(FADE_FROM_BLACK)
             release
             end
         } else {
-            msgbox("not watered\n", MSGBOX_DEFAULT)
+            msgbox("{PLAYER} refused to water the\ntree.\pThe tree appears grateful.\n", MSGBOX_DEFAULT)
             release
             end
         }

@@ -3401,3 +3401,14 @@ const struct SpriteFrameImage gObjectEventPicTable_Stump[] = {
 const struct SpriteFrameImage gObjectEventPicTable_Blank[] = {
     overworld_frame(gObjectEventPic_Blank, 2, 2, 0),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Deadnurse[] = {
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Deadnurse, 4, 4, 8),
+};

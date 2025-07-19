@@ -17,6 +17,11 @@ script BrendanMay_ChildDelivery {
 	end
 }
 
+script BrendanMay_ChildDeliveryTruck {
+	msgbox("The wall is empty except for a\nlarge, truck-shaped hole.\pVicious tire treads can be seen\nmaking a swift u-turn out.", MSGBOX_SIGN)
+	end
+}
+
 script BrendanMay_Gamecube {
 	lock
 	if(flag(FLAG_TEMP_1)) {

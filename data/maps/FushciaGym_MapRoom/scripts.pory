@@ -4,3 +4,8 @@ mapscripts FushciaGym_MapRoom_MapScripts {
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_MAP_ROOM)
     }
 }
+
+script FushciaGym_MapRoom_Sign {
+	msgbox("Storage\n", MSGBOX_SIGN)
+	end
+}

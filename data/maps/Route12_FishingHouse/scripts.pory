@@ -109,9 +109,26 @@ script AwakeningShop_Bed {
 	fadescreen(FADE_TO_BLACK)
 	fadeoutbgm(0)
 	msgbox("… … …\n… … …", MSGBOX_DEFAULT)
-	fadescreen(FADE_FROM_BLACK)
-	msgbox("(something happens here idk)\n", MSGBOX_DEFAULT)
+	closemessage
+	msgbox("Welcome to the POKéMON\nGLOBAL LINK website!\pWould you like to connect to\nthe DREAM WORLD?", MSGBOX_YESNO)
+	setobjectxy(LOCALID_DELIBIRD, 12, 4)
+	copyobjectxytoperm(LOCALID_DELIBIRD)
+	applymovement(LOCALID_DELIBIRD, Common_Movement_FaceLeft)
+	special(DrawWholeMapView)
+	waitse
+	closemessage
+	playse(SE_M_DOUBLE_SLAP)
+	fadescreeninstant(FADE_FROM_BLACK)
+	delay(60)
+	msgbox("DELIBIRD used WAKE-UP SLAP!\n", MSGBOX_DEFAULT)
+	closemessage
 	fadeinbgm(0)
+	if(flag(FLAG_GOT_WAKE_UP_SLAP)) {
+		release
+		end
+	}
+	msgbox("Oh?\nIt looks like he has a PRESENT!", MSGBOX_DEFAULT)
+	setflag(FLAG_GOT_WAKE_UP_SLAP)
 	giveitem_msg("{PLAYER} got a TM33!\n", ITEM_TM33)
 	release
 	end

@@ -23,10 +23,12 @@ script FushciaGym_AronTrainer {
     faceplayer
     textcolor(NPC_TEXT_COLOR_RED)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_GRETA)) {
-        msgbox("DO YOU THINK YOU CAN CLEAR THE GYM\nWITH YOUR CHOSEN 3 POKéMON?\lWORRY NOT!\pIF YOU USE YOUR WITS, YOU CAN MAKE\nIT TO THE LEADER WITH ANY CHOICE.", MSGBOX_NPC)
+        msgbox("They say the challenges in this\nGYM can be beaten with any team.\pIf you want to get through, use\nyour wits - not just brute force!", MSGBOX_DEFAULT)
+        release
+        end
     }
-    msgbox("WELCOME TRAINER\nI AM GRETA OF THE BATTLE TOWER\pCAN YOU GET THROUGH ME?\n", MSGBOX_DEFAULT)
-    trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_GRETA, "WOW")
+    msgbox("TRAINER!\nI am GRETA of the BATTLE TOWER!\pMy POKéMON has weathered the\nharshest of conditions.\lDo you think you stand a chance?", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_GRETA, "Haha!")
     setflag(FLAG_DEFEATED_ARON_MAN)
     call(FushciaGym_AronRoom_OpenDoors)
     special(DrawWholeMapView)
@@ -44,6 +46,7 @@ script FushciaGym_AronRoom_OpenDoors {
 script FushciaGym_HippopotasLeft {
     lock
     faceplayer
+    waitse
     playse(SE_PIN)
     applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
     delay(60)
