@@ -6348,7 +6348,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainSpenser),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainSpenser),
     },
     [TRAINER_BATTLE_FRONTIER_GRETA] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
@@ -6431,7 +6431,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainCaitlin),
     },
     [TRAINER_BATTLE_FRONTIER_DARACH] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_DARACH,
         .trainerName = _("DARACH"),

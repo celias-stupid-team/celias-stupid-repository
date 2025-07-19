@@ -1556,7 +1556,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_DEPENDS,
-        .priority = 0,
+        .priority = 5,
         .flags = 0,
     },
 

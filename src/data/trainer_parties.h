@@ -10050,15 +10050,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainBrandon[] = 
 
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainSpenser[] = {
+
+
+static const struct TrainerMonItemCustomMoves sParty_FrontierBrainSpenser[] = {
     {
         .iv = 0,
         .lvl = 35,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_REGICE,
         .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 
+    },
 };
+
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainGreta[] = {
     {
         .iv = 0,
@@ -10073,7 +10077,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainTucker[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_SHEDINJA_ELECTRIC,
-        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHADOW_BALL, MOVE_SILVER_WIND, MOVE_THUNDERBOLT, MOVE_NONE}
     },
 
 };
@@ -10138,7 +10142,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 60,
         .species = SPECIES_REGIGIGAS,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10147,7 +10151,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = 
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainDarach[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 20,
         .species = SPECIES_WEEZING,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10156,13 +10160,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainDarach[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlynDarach[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 20,
         .species = SPECIES_WEEZING,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 60,
         .species = SPECIES_REGIGIGAS,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
