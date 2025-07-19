@@ -487,7 +487,7 @@ static void InitMapView(void)
     InitTilesetAnimations();
 }
 
-static const struct MapLayout *GetMapLayout(void)
+const struct MapLayout *GetMapLayout(void)
 {
     u16 mapLayoutId = gSaveBlock1Ptr->mapLayoutId;
     if (mapLayoutId)

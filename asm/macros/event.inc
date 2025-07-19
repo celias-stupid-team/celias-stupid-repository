@@ -1978,7 +1978,9 @@
 	special CreateEnemyEventMon
 	.endm
 
-	.macro setlayouttiles index:req
+	.macro setlayouttiles x:req y:req index:req
 	.byte 0xe2
+	.2byte \x
+	.2byte \y
 	.2byte \index
 	.endm

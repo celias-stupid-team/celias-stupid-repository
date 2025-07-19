@@ -30,9 +30,9 @@ void AGBPrintInit(void);
 
 #if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
 
-#define DebugPrintf(pBuf, ...) MgbaPrintf(MGBA_LOG_INFO, pBuf, ## __VA_ARGS__)
+#define DebugPrintf(pBuf, ...) MgbaPrintf(MGBA_LOG_WARN, pBuf, ## __VA_ARGS__)
 #define DebugAssert(pFile, nLine, pExpression, nStopProgram) MgbaAssert(pFile, nLine, pExpression, nStopProgram)
-#define DebugPrintfLevel(level, pBuf, ...) MgbaPrintf(level, pBuf, ## __VA_ARGS__)
+#define Level(level, pBuf, ...) MgbaPrintf(level, pBuf, ## __VA_ARGS__)
 
 #elif (LOG_HANDLER == LOG_HANDLER_NOCASH_PRINT)
 

@@ -44,6 +44,7 @@
 #include "constants/event_objects.h"
 #include "constants/maps.h"
 #include "constants/sound.h"
+#include "constants/layouts.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -2536,37 +2537,56 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
     return TRUE;
 }
 
-u16 ReturnMetatileAt(u32 x, u32 y, const struct MapLayout *mapLayout) {
-    return mapLayout->map[x + (y * mapLayout->width)] & MAPGRID_METATILE_ID_MASK
+u16 ReturnMetatileAt(u32 x, u32 y, u16 mapLayoutId) {
+    gSaveBlock1Ptr->mapLayoutId = mapLayoutId;
+    gMapHeader.mapLayout = GetMapLayout();
+    return gMapHeader.mapLayout->map[x + (y * gMapHeader.mapLayout->width)] & MAPGRID_METATILE_ID_MASK;
 }
+
 
 bool8 ScrCmd_setlayouttiles(struct ScriptContext * ctx)
 {
-    u32 targetLayout = VarGet(ScriptReadHalfword(ctx));
-    u32 layoutWidth = mapLayout->width;
-    u32 layoutHeight = mapLayout->height;
+    u16 targetLayout = VarGet(ScriptReadHalfword(ctx)); //the layout you want to print on the map
+    u16 x = VarGet(ScriptReadHalfword(ctx)); //x on current map to print to
+    u16 y = VarGet(ScriptReadHalfword(ctx)); //y on current map to print to
+    gSaveBlock1Ptr->mapLayoutId = targetLayout;
+    gMapHeader.mapLayout = GetMapLayout();
+    u32 layoutWidth = gMapHeader.mapLayout->width; // target layout's width
+    u32 layoutHeight = gMapHeader.mapLayout->height; // target layout's height
     u32 targetLayoutX = 0;
     u32 targetLayoutY = 0;
     
-    u16 x = VarGet(ScriptReadHalfword(ctx));
-    u16 y = VarGet(ScriptReadHalfword(ctx));
+    
     // bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
-
+    
     x += MAP_OFFSET;
     y += MAP_OFFSET;
     
-    for (x <= (layoutWidth) && y <= (layoutHeight));
+    //initial          //condition to               //action after
+    //assignment       //continue                   //each loop
+    for (targetLayoutX; targetLayoutX < layoutWidth; targetLayoutX++);
     {
-        MapGridSetMetatileIdAt(targetLayoutX, targetLayoutY, ReturnMetatileAt(targetLayout));
+        for (targetLayoutY; targetLayoutY < layoutHeight; (targetLayoutY++));
+        {
+            MapGridSetMetatileIdAt(x, y, ReturnMetatileAt(targetLayoutX, targetLayoutY, targetLayout));
+            y++;
+        }
         x++;
-        y++;
-        targetLayoutX++;
-        targetLayoutY++;
-    }
-
+        y == 0;
+    };
+    
     // if (!isImpassable)
     //     MapGridSetMetatileIdAt(x, y, metatileId);
     // else
     //     MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
     return FALSE;
 }
+
+void SampleScript(void){
+    /**/
+    MapGridSetMetatileIdAt(19 + MAP_OFFSET, 0 + MAP_OFFSET, ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
+    DrawWholeMapView();
+    /**/
+    //DebugPrintf("Metatile ID: %u", ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
+}
+
