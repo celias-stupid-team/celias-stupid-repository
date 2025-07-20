@@ -3840,6 +3840,32 @@ u8 CalculatePlayerPartyCount(void)
 }
 
 
+void CalculatePlayerLivingPartyCount(void)
+{
+        s32 aliveCount = 0;
+    s32 i;
+    CalculatePlayerPartyCount();
+
+    if (gPlayerPartyCount == 1)
+        gSpecialVar_Result = 1; // PLAYER_HAS_ONE_MON
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        // FRLG changed the order of these checks, but there's no point to doing that
+        // because of the requirement of all 3 of these checks.
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_EGG)
+            aliveCount++;
+    }
+
+    //return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
+    gSpecialVar_Result = aliveCount;
+
+    
+}
+
+
 u8 CalculateEnemyPartyCount(void)
 {
     gEnemyPartyCount = 0;

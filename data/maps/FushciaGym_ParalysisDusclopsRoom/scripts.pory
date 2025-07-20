@@ -33,7 +33,7 @@ mapscripts FushciaGym_ParalysisDusclopsRoom_MapScripts {
 
 movement DusclopsAttacksYou {
     walk_fast_down
-    Walk_fast_left
+    walk_fast_left
     walk_fast_down
     face_down
 }
@@ -67,7 +67,7 @@ script FushciaGym_ParalysisDusclops {
 
 script FushciaGym_ParalysisDusclopsMan {
     if(var(VAR_TEMP_1) == 2) {
-	    msgbox("Ah!\nTerribly sorry about that.\pMy DUSCLOPS is quite ill-mannered.\nI only recently acquired him.\pI'll see to it that he's trained\nat once.", MSGBOX_NPC)
+	    msgbox("Oh, no…\nI do beg your pardon.\pI only recently taught that attack\nto my DUSCLOPS.\lHe's been eager to try it, see.\pI hope your POKéMON don't mind\nbeing a touch sluggish for a while.", MSGBOX_DEFAULT)
 
     } else {
         lock

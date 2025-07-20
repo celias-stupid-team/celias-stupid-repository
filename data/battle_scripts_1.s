@@ -257,12 +257,12 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
 	.4byte BattleScript_EffectGuillotine2			  @ EFFECT_GUILLOTINE_2
 	.4byte BattleScript_EffectReflect2              @ EFFECT_REFLECT_2
+	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 
 BattleScript_EffectReflect2::
 	attackcanceler
 	trysetspecialreflect BattleScript_ButItFailedAtkStringPpReduce
 	attackstring
-	ppreduce
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNCOVEREDBYVEIL
@@ -2480,6 +2480,18 @@ BattleScript_EffectRolePlay::
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNCOPIEDFOE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectWonderSeed::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	trycopyability BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_WONDER_SEED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

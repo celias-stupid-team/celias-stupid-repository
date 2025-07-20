@@ -26,7 +26,17 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(flag(FLAG_DRILLED_LION_HOLE)) {
             call(FushciaGym_LionRoom_DrawHole)
         }
+        if(flag(FLAG_DRAW_STATUE_IN_LION_ROOM)) {
+            call(FushciaGym_LionsRoom_DrawStatue)
+        }
     }
+}
+
+script FushciaGym_LionsRoom_DrawStatue {
+    setmetatile(9, 8, 0x3E7, FALSE)
+    setmetatile(9, 8, 0x3EF, TRUE)
+    return
+
 }
 
 script FushciaGym_LionsRoom_Vulpix {

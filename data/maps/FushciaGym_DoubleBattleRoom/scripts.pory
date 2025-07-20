@@ -27,3 +27,66 @@ script FushciaGym_DoubleBattleRoom_EventScript_Linda_Double_Continue {
     settrainerflag(TRAINER_BATTLE_FRONTIER_DARACH)
     settrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)
 }
+
+
+script FushciaGym_DoubleBattleRoom_CheeseScript {
+    callnative(CalculatePlayerLivingPartyCount)
+    if(var(VAR_RESULT) > 1) {
+        playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+        applymovement(LOCALID_CAIT, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_right * 2
+            face_right
+        ))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox("CAITLYN: Ah, hello.\nAre you the new challenger?\pI wish to test your mettle\nmyself.\lWould you like to battle?", MSGBOX_DEFAULT)
+        closemessage
+        playbgm(MUS_ENCOUNTER_ROCKET, TRUE)
+        applymovement(LOCALID_DARACH, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_left * 2
+            face_left
+
+        ))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+        msgbox("DARACH: Ah, I see you're\nchallenging my lady?\lAha!\pWell if you're capable, then I\nshall add myself to the fray.\pWhen my lady and I fight, nothing\ncan ever defeat us!", MSGBOX_DEFAULT)
+        playbgm(MUS_BATTLE_FRONTIER, TRUE)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH, "lol")
+        delay(30)
+        setvar(VAR_DEFEATED_DARACH_AND_CAIT, 1)
+    } else {
+        playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+        applymovement(LOCALID_CAIT, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_right * 2
+            face_right
+        ))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+        textcolor(NPC_TEXT_COLOR_FEMALE)
+        msgbox("CAITLYN: Ah, hello.\nAre you the new challenger?\pI wish to test your mettle\nmyself.\lWould you like to battle?", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_CAITLIN, "Oh, my stars!\nDARACH, where were you…?")
+        delay(30)
+        playbgm(MUS_ENCOUNTER_ROCKET, TRUE)
+        applymovement(LOCALID_DARACH, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_left * 2
+            face_left
+
+        ))
+        waitmovement(0)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+        msgbox("DARACH: Gah, I was too slow…\nI wasn't able to assist my lady.\pNonethematter!\nI shall deal with you myself!", MSGBOX_DEFAULT)
+        playbgm(MUS_BATTLE_FRONTIER, TRUE)
+        trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_DARACH, "Inconcievable!\nHow could you…?")
+        setvar(VAR_DEFEATED_DARACH_AND_CAIT, 1)
+        
+    }
+}

@@ -270,6 +270,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherRick[] = {
     {
         .iv = 0,
         .lvl = 6,
+        .species = SPECIES_WEEDLE,
+    },
+    {
+        .iv = 0,
+        .lvl = 6,
         .species = SPECIES_CATERPIE,
     },
 };
@@ -10142,9 +10147,9 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = {
     {
         .iv = 0,
-        .lvl = 60,
+        .lvl = 10,
         .species = SPECIES_REGIGIGAS,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CRUSH_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };
@@ -10160,15 +10165,15 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainDarach[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlynDarach[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 30,
         .species = SPECIES_WEEZING,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_PROTECT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 60,
         .species = SPECIES_REGIGIGAS,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CRUSH_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 

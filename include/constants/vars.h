@@ -156,7 +156,7 @@
 #define VAR_CSR_DANCE_SHOW                                          0x4064
 #define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
-#define VAR_CSR_DUMMY_8                                          0x4067
+#define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
 #define VAR_CSR_DUMMY_10 0x4069
 #define VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A

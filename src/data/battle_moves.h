@@ -4049,7 +4049,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 75,
         .type = TYPE_NORMAL,
-        .accuracy = 95,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
@@ -6853,10 +6853,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
 [MOVE_WONDER_SEED] =    {
-        .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_STEEL,
-        .accuracy = 80,
+        .effect = EFFECT_WONDER_SEED, // Placeholder Effect
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 0,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,

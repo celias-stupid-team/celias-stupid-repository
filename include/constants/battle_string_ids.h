@@ -423,8 +423,9 @@
 #define STRINGID_DEFSTORINGENERGY 422
 #define STRINGID_DEFTERASTALLIZEDINTO 423
 #define STRINGID_BADDREAMSDMG 424
+#define STRINGID_WONDER_SEED 425
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     426 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     427 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
