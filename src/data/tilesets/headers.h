@@ -943,3 +943,14 @@ const struct Tileset gTileset_SurfHouse =
     .metatileAttributes = gMetatileAttributes_SurfHouse,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GlitchCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GlitchCity,
+    .palettes = gTilesetPalettes_GlitchCity,
+    .metatiles = gMetatiles_GlitchCity,
+    .metatileAttributes = gMetatileAttributes_GlitchCity,
+    .callback = NULL,
+};

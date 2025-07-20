@@ -5256,6 +5256,18 @@
       "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/Route19_Layout_Pit/border.bin",
       "blockdata_filepath": "data/layouts/Route19_Layout_Pit/map.bin"
+    },
+    {
+      "id": "LAYOUT_GLITCH_CITY",
+      "name": "GlitchCity_Layout",
+      "width": 36,
+      "height": 36,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GlitchCity",
+      "border_filepath": "data/layouts/GlitchCity/border.bin",
+      "blockdata_filepath": "data/layouts/GlitchCity/map.bin"
     }
   ]
 }
