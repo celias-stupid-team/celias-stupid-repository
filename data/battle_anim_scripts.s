@@ -11314,7 +11314,6 @@ Move_DARK_VOID::
 	waitbgfadeout
 	createvisualtask AnimTask_StartSlidingBg, 5, 0, 0xFFA0, 1, 0xffff
 	waitbgfadein
-	debugprintf Text_MayIHelpYou
 	createvisualtask AnimTask_DestinyBondWhiteShadow, 5, 0, 0x30
 	loopsewithpan SE_M_CONFUSE_RAY, SOUND_PAN_ATTACKER, 5, 2
 	delay 48

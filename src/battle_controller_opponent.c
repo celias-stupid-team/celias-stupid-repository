@@ -1270,8 +1270,6 @@ static void OpponentDoMoveAnimation(void)
     u16 move = gBattleBufferA[gActiveBattler][1] | (gBattleBufferA[gActiveBattler][2] << 8);
     u8 multihit = gBattleBufferA[gActiveBattler][11];
 
-    DebugPrintf("OpponentDoMoveAnimation, case %d", gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].animationState);
-
     switch (gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].animationState)
     {
     case 0:

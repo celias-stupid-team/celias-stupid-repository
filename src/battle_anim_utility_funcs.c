@@ -666,8 +666,6 @@ void AnimTask_StartSlidingBg(u8 taskId)
 {
     u8 newTaskId;
 
-    DebugPrintf("AnimTask_StartSlidingBg");
-
     ToggleBg3Mode(0);
     newTaskId = CreateTask(AnimTask_UpdateSlidingBg, 5);
     if (gBattleAnimArgs[2] && GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
@@ -679,20 +677,17 @@ void AnimTask_StartSlidingBg(u8 taskId)
     gTasks[newTaskId].data[2] = gBattleAnimArgs[1];
     gTasks[newTaskId].data[3] = gBattleAnimArgs[3];
     ++gTasks[newTaskId].data[0];
-    DebugPrintf("Destroy Task");
     DestroyAnimVisualTask(taskId);
 }
 
 static void AnimTask_UpdateSlidingBg(u8 taskId)
 {
-    DebugPrintf("AnimTask_UpdateSlidingBg");
     gTasks[taskId].data[10] += gTasks[taskId].data[1];
     gTasks[taskId].data[11] += gTasks[taskId].data[2];
     gBattle_BG3_X += gTasks[taskId].data[10] >> 8;
     gBattle_BG3_Y += gTasks[taskId].data[11] >> 8;
     gTasks[taskId].data[10] &= 0xFF;
     gTasks[taskId].data[11] &= 0xFF;
-    DebugPrintf("A");
     if (gBattleAnimArgs[7] == gTasks[taskId].data[3])
     {
         gBattle_BG3_X = 0;
@@ -700,7 +695,6 @@ static void AnimTask_UpdateSlidingBg(u8 taskId)
         ToggleBg3Mode(1);
         DestroyTask(taskId);
     }
-    DebugPrintf("B");
 }
 
 void AnimTask_GetAttackerSide(u8 taskId)

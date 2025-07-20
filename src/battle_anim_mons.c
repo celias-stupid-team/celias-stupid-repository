@@ -973,7 +973,6 @@ u8 GetBattleBgPaletteNum(void)
 
 void ToggleBg3Mode(bool8 largeScreenSize)
 {
-    DebugPrintf("ToggleBg3Mode");
     if (!largeScreenSize)
     {
         SetAnimBgAttribute(3, BG_ANIM_SCREEN_SIZE, 0);
