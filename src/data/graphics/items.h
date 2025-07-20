@@ -131,6 +131,8 @@ const u32 gItemIcon_DrillDozer[] = INCBIN_U32("graphics/items/icons/drill_dozer.
 const u32 gItemIconPalette_DrillDozer[] = INCBIN_U32("graphics/items/icon_palettes/drill_dozer.gbapal.lz");
 const u32 gItemIcon_BanetteDoll[] = INCBIN_U32("graphics/items/icons/banette_doll.4bpp.lz");
 const u32 gItemIconPalette_BanetteDoll[] = INCBIN_U32("graphics/items/icon_palettes/banette_doll.gbapal.lz");
+const u32 gItemIcon_IronCurtain[] = INCBIN_U32("graphics/items/icons/iron_curtain.4bpp.lz");
+const u32 gItemIconPalette_IronCurtain[] = INCBIN_U32("graphics/items/icon_palettes/iron_curtain.gbapal.lz");
 // Collectibles
 
 const u32 gItemIconPalette_ShoalSalt[] = INCBIN_U32("graphics/items/icon_palettes/shoal_salt.gbapal.lz");

@@ -1058,7 +1058,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_GRASS,
-        .accuracy = 75,
+        .accuracy = 85,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -4046,7 +4046,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CRUSH_CLAW] =
     {
-        .effect = EFFECT_DEFENSE_DOWN_HIT,
+        .effect = EFFECT_ALWAYS_HIT,
         .power = 75,
         .type = TYPE_NORMAL,
         .accuracy = 100,

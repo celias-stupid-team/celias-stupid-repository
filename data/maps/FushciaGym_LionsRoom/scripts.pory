@@ -34,7 +34,7 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
 
 script FushciaGym_LionsRoom_DrawStatue {
     setmetatile(9, 8, 0x3E7, FALSE)
-    setmetatile(9, 8, 0x3EF, TRUE)
+    setmetatile(9, 9, 0x3EF, TRUE)
     return
 
 }

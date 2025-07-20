@@ -43,6 +43,8 @@ mapscripts FushciaGym_MouseholeHeal_MapScripts {
 }
 
 script FushciaGym_HealNurse {
+    lock
+    faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
     msgbox("Allow me to heal your POKéMON.\n", MSGBOX_DEFAULT)
     special(HealPlayerParty)
