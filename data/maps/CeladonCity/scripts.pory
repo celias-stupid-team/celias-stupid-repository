@@ -201,11 +201,13 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 			clearflag(FLAG_HIDE_CELIA_IN_CERULEAN_BACK)
 		case CELIA_SECRET_VERMILION: //implemented!!
 			msgbox("The trash can puzzle in VERMILLION\nGYM looked incredibly complicated.\lThank goodness for the power outage!", MSGBOX_DEFAULT)
-		case CELIA_SECRET_LAVENDER:
-			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the other TRAINER SCHOOL?", MSGBOX_DEFAULT)
 		case CELIA_SECRET_CELADON: //implemented!!
 			msgbox("Man, that staircase in the back of\nthe CELADON MANSION went on forever!\pCan't you skip staircases like\nthat with a speedrunning technique?\lI wonder how you could do that here.", MSGBOX_DEFAULT)
 		case CELIA_SECRET_FUCHSIA:
+
+		case CELIA_SECRET_LAVENDER:
+			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the other TRAINER SCHOOL?", MSGBOX_DEFAULT)
+
 
 	}
 	closemessage
@@ -271,7 +273,7 @@ script CeliaSecrets_GetNextHint {
 			}
 
 
-		case CELIA_SECRET_CERULEAN:
+		case CELIA_SECRET_CERULEAN: // Viridian, Celadon, Vermilion, Pewter, Fushcia, Lavender, Cerulean
 
 
 		case CELIA_SECRET_VERMILION: //Viridian, Celadon, Pewter, Fuchsia, Lavender, Cerulean

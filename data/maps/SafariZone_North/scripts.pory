@@ -25,7 +25,10 @@ mapscripts SafariZone_North_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
 		if(!(checkpartymove(MOVE_GULP) == PARTY_SIZE) && !flag(FLAG_BATTLED_IRON_CLEFTS)) {
 			playbgm(MUS_SAFARI_MARCH, TRUE)
-		} 
+		}
+		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			setflag(FLAG_TEMP_1)
+		}
 	}
 	MAP_SCRIPT_ON_TRANSITION {
 	
@@ -108,4 +111,108 @@ script SafariZone_North_DMCA_4 {
 	famechecker(FAMECHECKER_FUSHCIA, 2)
 	msgbox("We found an ITEM here that induced\nan illegal EVOLUTION.\pWe passed it to our team in the\nCELADON DMCA LAW OFFICES.\lOne of our ADMINS is guarding it.\p…What's that?\nYou took it from him!?\lNo!", MSGBOX_NPC)
 
+}
+
+script SafariZone_North_Child {
+	msgbox("Ooooh…\nPretty colors!", MSGBOX_NPC)
+	end
+}
+
+script SafariZone_North_Mother {
+	lock
+	if(flag(FLAG_TEMP_2)) {
+		faceplayer
+		
+		msgbox("Whelp.\n{PAUSE 30}I warned her.", MSGBOX_DEFAULT)
+
+	}
+	setobjectxyperm(LOCALID_NORTH_CHUCKSTER, 21, 34)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
+	msgbox("Now listen, sweetie!\nStay away from the fence.\lYou don't wanna get hurt!", MSGBOX_DEFAULT)
+	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
+		delay_16 * 2
+		face_up
+		set_visible
+		walk_up * 2
+		walk_right * 5
+		face_up
+	))
+	closemessage
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	delay(20)
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
+		face_right
+	))
+	applymovement(LOCALID_SAFARI_CHILD, moves(
+		face_left
+		lock_facing_direction
+		jump_2_right
+		delay_8
+		walk_in_place_fast_left
+		walk_slower_right
+		walk_slow_right
+		unlock_facing_direction
+		face_up
+		delay_4
+		face_right
+		delay_4
+		face_down
+		delay_4
+		face_left
+		delay_4
+		face_up
+		delay_4
+		face_right
+		delay_4
+		face_down
+		delay_4
+		face_left
+		delay_4
+		face_up
+		delay_2
+		face_right
+		delay_2
+		face_down
+		delay_2
+		face_left
+		delay_2
+		face_up
+		delay_2
+		face_right
+		delay_2
+		face_down
+		delay_2
+		face_left
+		delay_2
+		set_invisible
+
+	))
+	delay(30)
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_right
+		emote_exclamation_mark
+	))
+	waitmovement(LOCALID_SAFARI_CHILD)
+	playse(SE_BANG)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("…\n", MSGBOX_DEFAULT)
+	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
+		walk_left * 8
+		set_invisible
+	))
+	closemessage
+	delay(30)
+	faceplayer
+	msgbox("Whelp.\n{PAUSE 30}I warned her.", MSGBOX_DEFAULT)
+	setflag(FLAG_TEMP_2)
+	waitmovement(LOCALID_NORTH_CHUCKSTER)
+	removeobject(LOCALID_NORTH_CHUCKSTER)
+	release
+	end
 }
