@@ -234,6 +234,7 @@ void DoMoveAnim(u16 move)
 void LaunchBattleAnimation(const u8 *const animsTable[], u16 tableId, bool8 isMoveAnim)
 {
     s32 i;
+    DebugPrintf("LaunchBattleAnimation");
 
     InitPrioritiesForVisibleBattlers();
     UpdateOamPriorityInAllHealthboxes(0);
@@ -330,6 +331,7 @@ static void ClearSpriteIndex(u16 index)
 
 static void WaitAnimFrameCount(void)
 {
+    DebugPrintf("WaitAnimFrameCount");
     if (sAnimFramesToWait <= 0)
     {
         gAnimScriptCallback = RunAnimScriptCommand;
@@ -345,6 +347,7 @@ static void RunAnimScriptCommand(void)
 {
     do
     {
+        DebugPrintf("RunAnimScriptCommand");
         sScriptCmdTable[sBattleAnimScriptPtr[0]]();
     } while (sAnimFramesToWait == 0 && gAnimScriptActive);
 }
@@ -1173,6 +1176,7 @@ static void Cmd_waitbgfadeout(void)
 
 static void Cmd_waitbgfadein(void)
 {
+    DebugPrintf("Cmd_waitbgfadein: sAnimBackgroundFadeState = %d\n", sAnimBackgroundFadeState);
     if (sAnimBackgroundFadeState == 0)
     {
         sBattleAnimScriptPtr++;

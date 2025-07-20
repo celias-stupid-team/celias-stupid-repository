@@ -748,6 +748,8 @@ extern u16 gRandomTurnNumber;
 struct Pokemon *GetSideParty(u8 side);
 struct Pokemon *GetBattlerParty(u8 battler);
 
+u32 IsOnPlayerSide(u8 battler);
+
 #endif // GUARD_BATTLE_H
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)

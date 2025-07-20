@@ -360,7 +360,7 @@ const u8 gMoveDescription_HeartSwap[] = _("Swaps any stat changes\nwith the foe.
 const u8 gMoveDescription_Retreat[] = _("Switch your active\nPOKéMON with one\nof your benched\nPOKéMON.");
 const u8 gMoveDescription_SubstituteTeacher[] = _("The user creates a\ndecoy using one-\nquarter of its full\nHP.");
 const u8 gMoveDescription_ConfusionPsyduck[] = _("The user is\nslightly confused\nas to who they're\nsupposed to hit.");
-
+const u8 gMoveDescription_DarkVoid[] = _("Drags the foes into total\ndarkness, inducing Sleep.");
 
 
 //dummies out for now
@@ -1237,4 +1237,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_WIND     -1 ] = gMoveDescription_Wind,
     [MOVE_GLOW     -1 ] = gMoveDescription_Glow,
     [MOVE_REFLECT_2    - 1] = gMoveDescription_Reflect,
+    [MOVE_DARK_VOID - 1] = gMoveDescription_DarkVoid,
 };

@@ -619,8 +619,9 @@
 #define MOVE_WIND 614
 #define MOVE_GLOW 615
 #define MOVE_REFLECT_2 616
+#define MOVE_DARK_VOID 617
 
-#define MOVES_COUNT 617
+#define MOVES_COUNT 618
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

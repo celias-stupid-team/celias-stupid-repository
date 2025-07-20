@@ -3370,6 +3370,11 @@ struct Pokemon *GetBattlerParty(u8 battler)
     return GetSideParty(GetBattlerSide(battler));
 }
 
+u32 IsOnPlayerSide(u8 battler)
+{
+    return GetBattlerSide(battler) == B_SIDE_PLAYER;
+}
+
 s32 GetStealthHazardDamage(u8 hazardType, u32 battler)
 {
     u8 type1 = gBattleMons[battler].type1;

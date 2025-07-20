@@ -1207,7 +1207,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * (100 - param)) / 100;
 
         // final calculation
-        if ((Random() % 100 + 1) > calc)
+        if ((Random() % 100 + 1) > calc && moveAcc)
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE

@@ -641,6 +641,7 @@ gBattleAnims_Moves::
 	.4byte Move_WIND
 	.4byte Move_GLOW
 	.4byte Move_REFLECT_2
+	.4byte Move_DARK_VOID
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -11303,6 +11304,42 @@ General_TeraActivate::
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
 	end
+
+Move_DARK_VOID::
+	loadspritegfx ANIM_TAG_WHITE_SHADOW @Destiny Bond
+	loadspritegfx ANIM_TAG_QUICK_GUARD_HAND @Black Colour
+	loadspritegfx ANIM_TAG_SPARKLE_2 @Healing Stars
+	loadspritegfx ANIM_TAG_POISON_BUBBLE @Poison
+	fadetobg BG_DARK_VOID
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 5, 0, 0xFFA0, 1, 0xffff
+	waitbgfadein
+	debugprintf Text_MayIHelpYou
+	createvisualtask AnimTask_DestinyBondWhiteShadow, 5, 0, 0x30
+	loopsewithpan SE_M_CONFUSE_RAY, SOUND_PAN_ATTACKER, 5, 2
+	delay 48
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, -768, 21, 0, 112 @Last is duration
+	createsprite gSlideMonToOffsetPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, -768, 21, 0, 112 @Last is duration
+	delay 64
+	invisible ANIM_TARGET
+	invisible ANIM_DEF_PARTNER
+	createsprite gDarkVoidPurpleStarsTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0, 32, 60
+	createsprite gDarkVoidPurpleStarsTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_DEF_PARTNER, 0, 32, 60
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
+	createsprite gSlideMonToOriginalPosPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0, 16
+	delay 32
+	call UnsetPsychicBg
+	visible ANIM_TARGET
+	visible ANIM_DEF_PARTNER
+	end
+
+UnsetPsychicBg:
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	return
 
 General_SafariRockThrow:
 	createvisualtask AnimTask_SafariOrGhost_DecideAnimSides, 2, 0
