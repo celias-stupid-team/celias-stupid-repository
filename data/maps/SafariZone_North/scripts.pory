@@ -28,6 +28,7 @@ mapscripts SafariZone_North_MapScripts {
 		}
 		if(!flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
 			setflag(FLAG_TEMP_1)
+			setflag(FLAG_TEMP_3)
 		}
 	}
 	MAP_SCRIPT_ON_TRANSITION {
@@ -40,7 +41,7 @@ script SafariZone_North_GrandDad {
 	lock
 	faceplayer
 	textcolor(0)
-	msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	msgbox("GRAND DAD: {PLAYER}!\nWhat are you doing out here?\pSee that portal?\nI actually came out of there!\lThat's why I'm your GRAND DAD!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
 	release
 	end
@@ -114,7 +115,9 @@ script SafariZone_North_DMCA_4 {
 }
 
 script SafariZone_North_Child {
-	msgbox("Ooooh…\nPretty colors!", MSGBOX_NPC)
+	lock
+	msgbox("Ooooh…\nPretty colors!", MSGBOX_DEFAULT)
+	release
 	end
 }
 
@@ -126,18 +129,20 @@ script SafariZone_North_Mother {
 		msgbox("Whelp.\n{PAUSE 30}I warned her.", MSGBOX_DEFAULT)
 
 	}
-	setobjectxyperm(LOCALID_NORTH_CHUCKSTER, 21, 34)
+	addobject(LOCALID_NORTH_CHUCKSTER)
+	setobjectxy(LOCALID_NORTH_CHUCKSTER, 21, 34)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceDown)
-	msgbox("Now listen, sweetie!\nStay away from the fence.\lYou don't wanna get hurt!", MSGBOX_DEFAULT)
 	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
 		delay_16 * 2
 		face_up
 		set_visible
-		walk_up * 2
-		walk_right * 5
-		face_up
+		walk_up * 3
+		walk_right * 4
+		face_right
 	))
+	msgbox("Now listen, sweetie!\nStay away from the fence.\lYou don't wanna get hurt!", MSGBOX_DEFAULT)
 	closemessage
+	waitmovement(LOCALID_NORTH_CHUCKSTER)
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	delay(20)
 	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
@@ -145,6 +150,7 @@ script SafariZone_North_Mother {
 	delay(30)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
+		walk_right
 		face_right
 	))
 	applymovement(LOCALID_SAFARI_CHILD, moves(
@@ -188,10 +194,27 @@ script SafariZone_North_Mother {
 		delay_2
 		face_left
 		delay_2
+		face_up
+		delay_2
+		face_right
+		delay_2
+		face_down
+		delay_2
+		face_left
+		delay_2
+		face_up
+		delay_2
+		face_right
+		delay_2
+		face_down
+		delay_2
+		face_left
+		delay_2
 		set_invisible
 
 	))
 	delay(30)
+	setobjectsubpriority(LOCALID_SAFARI_CHILD, MAP_SAFARI_ZONE_NORTH, 255)
 	playse(SE_PIN)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_right
@@ -200,17 +223,22 @@ script SafariZone_North_Mother {
 	waitmovement(LOCALID_SAFARI_CHILD)
 	playse(SE_BANG)
 	delay(60)
-	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("…\n", MSGBOX_DEFAULT)
 	applymovement(LOCALID_NORTH_CHUCKSTER, moves(
-		walk_left * 8
+		walk_left * 5
+		walk_down * 3
+		face_down
 		set_invisible
 	))
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	delay(30)
+	msgbox("…\n", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
 	faceplayer
 	msgbox("Whelp.\n{PAUSE 30}I warned her.", MSGBOX_DEFAULT)
 	setflag(FLAG_TEMP_2)
+	setflag(FLAG_TEMP_3)
+	removeobject(LOCALID_SAFARI_CHILD)
 	waitmovement(LOCALID_NORTH_CHUCKSTER)
 	removeobject(LOCALID_NORTH_CHUCKSTER)
 	release

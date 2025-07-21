@@ -159,7 +159,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_TrioRoom_NinjasAppear"
     },
     {
       "type": "trigger",
@@ -168,7 +168,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_TrioRoom_NinjasAppear"
     },
     {
       "type": "trigger",
@@ -177,7 +177,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_TrioRoom_NinjasAppear"
     },
     {
       "type": "trigger",
@@ -186,7 +186,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "FushciaGym_TrioRoom_NinjasAppear"
     }
   ],
   "bg_events": [

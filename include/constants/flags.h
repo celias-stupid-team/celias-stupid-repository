@@ -905,7 +905,7 @@
 #define FLAG_GOT_BRENDANMAY_JIRACHI               0x345
 #define FLAG_DUG_IN_DIGLETTS_CAVE               0x346
 #define FLAG_DRAW_STATUE_IN_LION_ROOM               0x347
-#define FLAG_0x348               0x348
+#define FLAG_GOT_SHINY_VULPIX               0x348
 #define FLAG_0x349               0x349
 #define FLAG_0x34A               0x34A
 #define FLAG_0x34B               0x34B

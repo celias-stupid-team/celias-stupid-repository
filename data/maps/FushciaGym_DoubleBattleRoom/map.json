@@ -27,7 +27,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "FushciaGym_DoubleBattleRoom_EventScript_Liam",
+      "script": "FushciaGym_DoubleBattleRoom_Darach",
       "flag": "0"
     },
     {
@@ -42,7 +42,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "FushciaGym_DoubleBattleRoom_EventScript_Linda",
+      "script": "FushciaGym_DoubleBattleRoom_Caitlyn",
       "flag": "0"
     },
     {
