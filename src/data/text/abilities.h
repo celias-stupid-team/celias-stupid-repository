@@ -174,6 +174,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_FAIRY_TAG] = sFairyTagDescription,
     [ABILITY_BAKED_BODY] = sBakedBodyDescription,
     [ABILITY_BAD_DREAMS] = COMPOUND_STRING("Faints sleeping Pokémon."),
+    [ABILITY_SLOW_START] = COMPOUND_STRING("Takes a while to get going."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -266,4 +267,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_FAIRY_TAG] = _("FAIRY TAG"),
     [ABILITY_BAKED_BODY] = _("BAKED BODY"),
     [ABILITY_BAD_DREAMS] = _("BAD DREAMS"),
+    [ABILITY_SLOW_START] = _("SLOW START"),
 };

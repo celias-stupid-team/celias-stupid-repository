@@ -1859,6 +1859,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                 }
                 break;
+            case ABILITY_SLOW_START:
+                if (!gSpecialStatuses[battler].switchInAbilityDone)
+                {
+                    gDisableStructs[battler].slowStartTimer = gBattleResults.battleTurnCounter + 5;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
+                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    effect++;
+                }
+                break;
             }
             break;
         case ABILITYEFFECT_ENDTURN: // 1
@@ -1930,6 +1940,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 case ABILITY_BAD_DREAMS:
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
                     effect++;
+                    break;
+                case ABILITY_SLOW_START:
+                    if (gDisableStructs[battler].slowStartTimer == gBattleResults.battleTurnCounter)
+                    {
+                        BattleScriptExecute(BattleScript_SlowStartEnds);
+                        effect++;
+                    }
                     break;
                 }
             }

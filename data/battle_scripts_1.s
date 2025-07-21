@@ -4957,3 +4957,19 @@ BattleScript_BadDreamsIncrement:
 	pause 15
 BattleScript_BadDreamsEnd:
 	end3
+
+BattleScript_SwitchInAbilityMsg::
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_SwitchInAbilityMsgRet::
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_SlowStartEnds::
+	pause 5
+	printstring STRINGID_SLOWSTARTEND
+	waitmessage B_WAIT_TIME_LONG
+	end2

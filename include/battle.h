@@ -182,7 +182,7 @@ struct DisableStruct
     /*0x18*/ u8 unk18_a_2 : 2;
     /*0x18*/ u8 mimickedMoves : 4;
     /*0x19*/ u8 rechargeTimer;
-    /*0x1A*/ u8 unk1A[2];
+    /*0x1A*/ u16 slowStartTimer;
              u8 substitute2Layers : 2; // Unused, was replaced with substitute2CurrentLayer
              u8 substitute2CurrentLayer : 2;
              u8 padding : 4 ;
@@ -241,6 +241,7 @@ struct SpecialStatus
     u8 ppNotAffectedByPressure:1;
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
+    //eob
     u8 field1[3];
     s32 dmg;
     s32 physicalDmg;
@@ -249,7 +250,9 @@ struct SpecialStatus
     u8 specialBattlerId;
     u8 focusSashed:1;
     u8 sturdied:1;
-    u8 filler:6;
+    u8 switchInAbilityDone:1;
+    u8 filler:5;
+    //eob
     u8 field13;
 };
 
