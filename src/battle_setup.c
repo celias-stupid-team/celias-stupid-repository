@@ -1150,7 +1150,17 @@ static const u8 *ReturnEmptyStringIfNull(const u8 *string)
 
 static const u8 *GetIntroSpeechOfApproachingTrainer(void)
 {
+    if (gNoOfApproachingTrainers == 2)
+    {
+        return ReturnEmptyStringIfNull(gApproachingTrainers[gApproachingTrainerId].trainerIntroSpeech);
+    }
     return ReturnEmptyStringIfNull(sTrainerAIntroSpeech);
+}
+
+const u8 *GetTrainerAIntroSpeechFromScriptPointer(const u8 *trainerScript)
+{
+    const u8 *introText = (const u8 *)TrainerBattleLoadArg32(trainerScript + 6);
+    return ReturnEmptyStringIfNull(introText);
 }
 
 const u8 *GetTrainerALoseText(void)
