@@ -752,6 +752,7 @@ struct Pokemon *GetSideParty(u8 side);
 struct Pokemon *GetBattlerParty(u8 battler);
 
 u32 IsOnPlayerSide(u8 battler);
+bool32 IsBattlerTurnDamaged(u32 battler);
 
 #endif // GUARD_BATTLE_H
 

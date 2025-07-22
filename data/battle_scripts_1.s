@@ -4973,3 +4973,14 @@ BattleScript_SlowStartEnds::
 	printstring STRINGID_SLOWSTARTEND
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+BattleScript_AirBalloonMsgIn::
+	printstring STRINGID_AIRBALLOONFLOAT
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_AirBalloonMsgPop::
+	printstring STRINGID_AIRBALLOONPOP
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_TARGET
+	return

@@ -978,6 +978,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_SLOWSTARTEND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} finally got its act together!"),
     [STRINGID_NEUTRALIZINGGASENTERS - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("Neutralizing gas filled the area!"),
     [STRINGID_NEUTRALIZINGGASOVER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("The effects of the neutralizing gas wore off!"),
+    [STRINGID_AIRBALLOONFLOAT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} floats in the air with\nits Air Balloon!"),
+    [STRINGID_AIRBALLOONPOP - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s Air Balloon popped!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
