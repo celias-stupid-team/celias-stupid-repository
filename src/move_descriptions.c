@@ -36,7 +36,7 @@ const u8 gMoveDescription_HornDrill[] = _("The horn is rotated\nlike a drill to 
 const u8 gMoveDescription_Tackle[] = _("A physical attack\nin which the user\ncharges, full body,\ninto the foe.");
 const u8 gMoveDescription_BodySlam[] = _("The user drops its\nfull body on the\nfoe. It may leave\nthe foe paralyzed.");
 const u8 gMoveDescription_Wrap[] = _("A long body or\nvines are used to\nwrap the foe for\ntwo to five turns.");
-const u8 gMoveDescription_TakeDown[] = _("A corporate ploy\nto remove content\nfrom the INTERNET\nfor profits.");
+const u8 gMoveDescription_TakeDown[] = _("A corporate ploy\nto remove content\nfrom the INTERNET\nfor profit.");
 const u8 gMoveDescription_Thrash[] = _("The user thrashes\nabout for two to\nthree turns, then\nbecomes confused.");
 const u8 gMoveDescription_DoubleEdge[] = _("A reckless, life-\nrisking tackle that\nalso hurts the user\na little.");
 const u8 gMoveDescription_TailWhip[] = _("The user wags its\ntail cutely, making\nthe foe lower its\nATTACK stat.");
@@ -617,6 +617,15 @@ const u8 gMoveDescription_Iron[] = _("An attack with a\nsteel-hard .\nIt may low
 const u8 gMoveDescription_Shed[] = _("The user sheds\nits\nto create a\nSUBSTITUTE.");
 const u8 gMoveDescription_Wind[] = _("The user whips up\nwinds that raises\nthe SPEED of all\nparty members.");
 const u8 gMoveDescription_Glow[] = _("The user's\nemits a light\nthat sharply\nraises SP. ATK.");
+const u8 gMoveDescription_QwickAttack[] = _("Dummy");
+const u8 gMoveDescription_Whish[] = _("Dummy");
+const u8 gMoveDescription_MultiAttack[] = _("Dummy");
+const u8 gMoveDescription_GyroBall[] = _("Dummy");
+const u8 gMoveDescription_Syhncrhonozhe[] = _("Dummy");
+const u8 gMoveDescription_CurseGreninja[] = _("Dummy");
+const u8 gMoveDescription_LionLadder[] = _("Dummy");
+const u8 gMoveDescription_StrangeSteam[] = _("Dummy");
+
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -1237,4 +1246,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_WIND     -1 ] = gMoveDescription_Wind,
     [MOVE_GLOW     -1 ] = gMoveDescription_Glow,
     [MOVE_REFLECT_2    - 1] = gMoveDescription_Reflect,
+    [MOVE_QWICK_ATTACK     -1 ] = gMoveDescription_QwickAttack,
+    [MOVE_WHISH     -1 ] = gMoveDescription_Whish,
+    [MOVE_MULTI_ATTACK     -1 ] = gMoveDescription_MultiAttack,
+    [MOVE_GYRO_BALL     -1 ] = gMoveDescription_GyroBall,
+    [MOVE_SYHNCRHONOZHE     -1 ] = gMoveDescription_Syhncrhonozhe,
+    [MOVE_CURSE_GRENINJA     -1 ] = gMoveDescription_CurseGreninja,
+    [MOVE_LION_LADDER     -1 ] = gMoveDescription_LionLadder,
+    [MOVE_STRANGE_STEAM     -1 ] = gMoveDescription_StrangeSteam,
 };

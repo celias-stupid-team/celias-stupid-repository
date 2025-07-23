@@ -4048,7 +4048,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ALWAYS_HIT,
         .power = 75,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FAIRY, //so there's no immunities
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
@@ -5854,7 +5854,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_HIGH_CRITICAL,
         .power = 90,
         .type = TYPE_GROUND,
-        .accuracy = 95,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -7816,5 +7816,105 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_SNATCH_AFFECTED,
     },
 
+    [MOVE_QWICK_ATTACK] =
+    {
+        .effect = EFFECT_QUICK_ATTACK,
+        .power = 40,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_WHISH] =
+    {
+        .effect = EFFECT_WISH,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED,
+    },
+    [MOVE_MULTI_ATTACK] =
+    {
+        .effect = EFFECT_MULTI_HIT,
+        .power = 15,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_GYRO_BALL] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 200,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 25,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+
+    [MOVE_SYHNCRHONOZHE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 55,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+    [MOVE_CURSE_GRENINJA] =
+    {
+        .effect = EFFECT_CURSE,
+        .power = 0,
+        .type = TYPE_MYSTERY,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .flags = 0,
+    },
+
+    [MOVE_LION_LADDER] =
+    {
+        .effect = EFFECT_HIGH_CRITICAL,
+        .power = 200,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 25,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
+    [MOVE_STRANGE_STEAM] =
+    {
+        .effect = EFFECT_POISON_HIT,
+        .power = 20,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 40,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
 
 };

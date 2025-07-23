@@ -31,9 +31,9 @@ script FushciaGym_GymLeaderRoom_Koga {
     applymovement(DAD, FushciaGymLeaderSpin)
     waitmovement(0)
     setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_DAD)
-    msgbox("DAD!{PAUSE 30}\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
-    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
-    release
+    msgbox("DAD!{PAUSE 30}\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pHere, take this.\nYou've earned it.\p{FONT_NORMAL}{PLAYER} obtained the\nDAD BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}")
+    goto(FushciaGym_GymLeaderRoom_Dad_Defeat)
 }
 
 script FushciaGym_GymLeaderRoom_Dad {
@@ -42,20 +42,34 @@ script FushciaGym_GymLeaderRoom_Dad {
     }
     lock
     faceplayer
-    msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?", MSGBOX_DEFAULT)
+    msgbox("DAD!\nHey, {PLAYER}!\lWhat are you doing out here?\pDon't you know I'm the LEADER of\nFUSHCIA GYM?\lMy INVISIBLE WALLS are strong!\pWell, never mind that.\nHow about we battle?{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}", MSGBOX_DEFAULT)
     setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_DAD)
-    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pTake this - you've earned it.\nIt's the DAD BADGE!")
-    release
+    trainerbattle_no_intro(TRAINER_LEADER_KOGA, "Hey!\nNicely done!\lI'm so proud of you, {PLAYER}.\pSaving a mother from those nasty\nDMCA guys…\lYou make your father proud!\pHere, take this.\nYou've earned it.\p{FONT_NORMAL}{PLAYER} obtained the\nDAD BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}")
+    goto(FushciaGym_GymLeaderRoom_Dad_Defeat)
 
 }
 
-script FushciaGym_GymLeaderRoom_Dad_Defeat {
-    playfanfare(MUS_OBTAIN_BADGE)
-    msgbox("{PLAYER} obtained the\nDAD BADGE!", MSGBOX_DEFAULT)
-    waitfanfare
+script FushciaGym_GymLeaderRoom_AferBattle {
+	clearflag(FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL)
 	setflag(FLAG_DEFEATED_KOGA)
 	setflag(FLAG_BADGE05_GET)
+	set_gym_trainers(5)
+    msgbox(FushciaCity_Gym_Text_KogaExplainSoulBadge)
+	checkitemspace(ITEM_TM06)
+	goto_if_eq(VAR_RESULT, FALSE, FushciaCity_Gym_EventScript_NoRoomForTM06)
+	giveitem_msg(FushciaCity_Gym_Text_ReceivedTM06FromKoga, ITEM_TM06)
+	setflag(FLAG_GOT_TM06_FROM_KOGA)
+	msgbox(FushciaCity_Gym_Text_KogaExplainTM06)
+	release
+	end
 
+}
+
+
+
+script FushciaGym_GymLeaderRoom_Dad_Defeat {
+	setflag(FLAG_DEFEATED_KOGA)
+	setflag(FLAG_BADGE05_GET)
     msgbox("DAD: The DAD BADGE will allow\nyou to use SURF outside of battle.\pNow you can explore the KANTO\nGREAT SEA!\l(…in the next demo. Sorry!)\pBut never mind that.\nHow about you take REST?", MSGBOX_DEFAULT)
     giveitem_msg("Obtained the TM44!\n", ITEM_TM44, 1)
     msgbox("DAD: There you are!\nGood luck on your adventure!", MSGBOX_DEFAULT)

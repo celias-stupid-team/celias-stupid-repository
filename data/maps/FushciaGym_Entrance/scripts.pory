@@ -143,6 +143,7 @@ script FushciaGym_InvisibleLass {
             trainerbattle_no_intro(TRAINER_LASS_INVISIBLE, "Oh no!")
             msgbox("Y'know, I've always liked the\nREGI POKéMON.\pThe only people who find them on\ntheir own never look at me!", MSGBOX_DEFAULT)
             closemessage
+            special(LoadPlayerParty)
             fadescreen(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
             fadescreen(FADE_FROM_BLACK)
@@ -152,7 +153,6 @@ script FushciaGym_InvisibleLass {
             playfanfare(MUS_LEVEL_UP)
             msgbox("It's the rest of your POKéMON!\nNice!", MSGBOX_DEFAULT)
             waitfanfare
-            special(LoadPlayerParty)
             release
         } else {   
             release

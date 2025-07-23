@@ -309,7 +309,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_SLACK_OFF]     = _("SLACK OFF"),
     [MOVE_HYPER_VOICE]   = _("HYPER VOICE"),
     [MOVE_POISON_FANG]   = _("POISON FANG"),
-    [MOVE_CRUSH_CLAW]    = _("CRUSH CLAW"),
+    [MOVE_CRUSH_CLAW]    = _("CRUSH GRIP"),
     [MOVE_BLAST_BURN]    = _("BLAST BURN"),
     [MOVE_HYDRO_CANNON]  = _("HYDRO CANNON"),
     [MOVE_METEOR_MASH]   = _("METEOR MASH"),
@@ -617,6 +617,14 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_WIND]     = _("WIND"),
     [MOVE_GLOW]     = _("GLOW"),
     [MOVE_REFLECT_2]    = _("REFLECT"),    
+    [MOVE_QWICK_ATTACK]     = _("QWICK ATTACK"),
+    [MOVE_WHISH]     = _("WHISH"),
+    [MOVE_MULTI_ATTACK]     = _("MULTI ATTACK"),
+    [MOVE_GYRO_BALL]     = _("GYRO BALL"),
+    [MOVE_SYHNCRHONOZHE]     = _("FALSE"),
+    [MOVE_CURSE_GRENINJA]     = _("FALSE"),
+    [MOVE_LION_LADDER]     = _("LION LADDER"),
+    [MOVE_STRANGE_STEAM]     = _("FALSE"),
 };
 
 
@@ -1240,5 +1248,13 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_WIND]     = _("WIND"),
 [MOVE_GLOW]     = _("GLOW"),
 [MOVE_REFLECT_2]    = _("REFLECT"),
+[MOVE_QWICK_ATTACK]     = _("QWICK ATTACK"),
+[MOVE_WHISH]     = _("WHISH"),
+[MOVE_MULTI_ATTACK]     = _("MULTI ATTACK"),
+[MOVE_GYRO_BALL]     = _("GYRO BALL"),
+[MOVE_SYHNCRHONOZHE]     = _("SYHNCRHONOZHE"),
+[MOVE_CURSE_GRENINJA]     = _("CURSE GRENINJA"),
+[MOVE_LION_LADDER]     = _("LION LADDER"),
+[MOVE_STRANGE_STEAM]     = _("STRANGE STEAM"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

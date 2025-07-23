@@ -11024,12 +11024,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_KYOGRE] =
     {
-        .baseHP = 100,
+        .baseHP = 80,
         .baseAttack = 100,
-        .baseDefense = 90,
+        .baseDefense = 60,
         .baseSpeed = 90,
         .baseSpAttack = 150,
-        .baseSpDefense = 140,
+        .baseSpDefense = 70,
         .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
         .expYield = 218,
