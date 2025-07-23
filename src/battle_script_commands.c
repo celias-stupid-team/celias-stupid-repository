@@ -1207,7 +1207,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * (100 - param)) / 100;
 
         // final calculation
-        if ((Random() % 100 + 1) > calc)
+        if ((Random() % 100 + 1) > calc && moveAcc)
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
@@ -1433,6 +1433,13 @@ static void Cmd_typecalc(void)
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+    else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
+    {
+        gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
+        gLastHitByType[gBattlerTarget] = 0;
+    }
     else
     {
         defType1 = gBattleMons[gBattlerTarget].type1;
@@ -1508,6 +1515,10 @@ static void CheckWonderGuardAndLevitate(void)
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, ABILITY_LEVITATE);
         return;
+    }
+    else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
+    {
+        gLastUsedItem = ITEM_AIR_BALLOON;
     }
 
     defType1 = gBattleMons[gBattlerTarget].type1;
@@ -1637,6 +1648,10 @@ u8 TypeCalc(u16 move, u8 attacker, u8 defender)
     {
         flags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
     }
+    else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
+    {
+        flags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+    }
     else
     {
         defType1 = gBattleMons[defender].type1;
@@ -1696,6 +1711,10 @@ u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility)
     moveType = gBattleMoves[move].type;
 
     if (targetAbility == ABILITY_LEVITATE && moveType == TYPE_GROUND)
+    {
+        flags = MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE;
+    }
+    else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
     {
         flags = MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE;
     }
@@ -4532,6 +4551,11 @@ static void Cmd_moveend(void)
                 *choicedMoveAtk = MOVE_NONE;
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_ITEM_EFFECTS_TARGET:
+            if (ItemBattleEffects(ITEMEFFECT_TARGET, gBattlerTarget, FALSE))
+                effect = TRUE;
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_CHANGED_ITEMS: // changed held items
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -4730,6 +4754,12 @@ static void Cmd_typecalc2(void)
         gLastLandedMoves[gBattlerTarget] = 0;
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+    else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
+    {
+        gLastUsedItem = gBattleMons[gBattlerTarget].item;
+        gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+        gLastLandedMoves[gBattlerTarget] = 0;
     }
     else
     {
@@ -5312,7 +5342,8 @@ static void Cmd_switchineffects(void)
     if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
-        && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+        && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
+        && gBattleMons[gActiveBattler].item != ITEM_AIR_BALLOON)
     {
         u8 spikesDmg;
 
@@ -6050,8 +6081,12 @@ static void Cmd_removeitem(void)
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
-    usedHeldItem = &gBattleStruct->usedHeldItems[gActiveBattler];
-    *usedHeldItem = gBattleMons[gActiveBattler].item;
+    // Popped Air Balloon cannot be restored by any means.
+    if (ItemId_GetHoldEffect(gBattleMons[gActiveBattler].item) != HOLD_EFFECT_AIR_BALLOON)
+    {
+        usedHeldItem = &gBattleStruct->usedHeldItems[gActiveBattler];
+        *usedHeldItem = gBattleMons[gActiveBattler].item;
+    }
     gBattleMons[gActiveBattler].item = ITEM_NONE;
 
     BtlController_EmitSetMonData(BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].item), &gBattleMons[gActiveBattler].item);
@@ -6688,18 +6723,17 @@ static void Cmd_various(void)
         {
             VARIOUS_ARGS(const u8 *failInstr);
 
-            gBattlerTarget = gBattlerAttacker;
-            gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+            gSpecialStatuses[cmd->battler].ppNotAffectedByPressure = 1;
             if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
             }
             else
             {
-                gProtectStructs[gBattlerAttacker].bounceReflectMove = TRUE;
+                gProtectStructs[cmd->battler].bounceReflectMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
-            break;
+            return;
         }
         case VARIOUS_HANDLE_SPRITE_UPDATE:
         {

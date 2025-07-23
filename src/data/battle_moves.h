@@ -1547,19 +1547,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_SNATCH_AFFECTED,
     },
 
-    [MOVE_REFLECT_2] =
-    {
-        .effect = EFFECT_REFLECT_2,
-        .power = 0,
-        .type = TYPE_PSYCHIC,
-        .accuracy = 100,
-        .pp = 20,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_DEPENDS,
-        .priority = 5,
-        .flags = 0,
-    },
-
     [MOVE_FOCUS_ENERGY] =
     {
         .effect = EFFECT_FOCUS_ENERGY,
@@ -7916,5 +7903,29 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
+[MOVE_REFLECT_2] =
+    {
+        .effect = EFFECT_REFLECT_2,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_DEPENDS,
+        .priority = 4,
+        .flags = 0,
+    },
 
+[MOVE_DARK_VOID] =
+    {
+        .effect = EFFECT_SLEEP,//EFFECT_DARK_VOID,
+        .power = 0,
+        .type = TYPE_DARK,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 3,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
 };

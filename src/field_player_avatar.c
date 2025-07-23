@@ -2259,7 +2259,6 @@ static bool32 (*const sPowerplantStateFuncs[])(struct Task *) =
 void StartPowerplantGame(void)
 {
     u8 taskId = CreateTask(Task_Powerplant, 0xFF);
-    DebugPrintf("StartPowerplantGame");
 
     Task_Powerplant(taskId);
 }
@@ -2273,8 +2272,6 @@ static void Task_Powerplant(u8 taskId)
 static bool32 Powerplant_StartGame(struct Task *task)
 {
     u8 i;
-    
-    DebugPrintf("Powerplant_StartGame");
 
     //reset task data
     for (i = 0; i <= 1; i++)

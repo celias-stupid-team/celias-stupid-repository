@@ -1859,6 +1859,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                 }
                 break;
+            case ABILITY_SLOW_START:
+                if (!gSpecialStatuses[battler].switchInAbilityDone)
+                {
+                    gDisableStructs[battler].slowStartTimer = gBattleResults.battleTurnCounter + 5;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
+                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    effect++;
+                }
+                break;
             }
             break;
         case ABILITYEFFECT_ENDTURN: // 1
@@ -1930,6 +1940,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 case ABILITY_BAD_DREAMS:
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
                     effect++;
+                    break;
+                case ABILITY_SLOW_START:
+                    if (gDisableStructs[battler].slowStartTimer == gBattleResults.battleTurnCounter)
+                    {
+                        BattleScriptExecute(BattleScript_SlowStartEnds);
+                        effect++;
+                    }
                     break;
                 }
             }
@@ -2617,6 +2634,14 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 BattleScriptExecute(BattleScript_WhiteHerbEnd2);
             }
             break;
+        case HOLD_EFFECT_AIR_BALLOON:
+            effect = ITEM_EFFECT_OTHER;
+            gBattleScripting.battler = battlerId;
+            gPotentialItemEffectBattler = battlerId;
+            gActiveBattler = gBattlerAttacker = battlerId;
+            BattleScriptExecute(BattleScript_AirBalloonMsgIn);
+            RecordItemEffectBattle(battlerId, HOLD_EFFECT_AIR_BALLOON);
+            break;
         }
         break;
     case ITEMEFFECT_NORMAL:
@@ -2917,6 +2942,25 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                         gBattleMons[battlerId].pp[i] = changedPP;
                     break;
                 }
+            }
+        }
+        break;
+    case ITEMEFFECT_TARGET:
+        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            u8 moveType;
+            GET_MOVE_TYPE(gCurrentMove, moveType);
+            
+            switch (battlerHoldEffect)
+            {
+            case HOLD_EFFECT_AIR_BALLOON:
+                if (IsBattlerTurnDamaged(gBattlerTarget))
+                {
+                    effect = ITEM_EFFECT_OTHER;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AirBalloonMsgPop;
+                }
+                break;
             }
         }
         break;
@@ -3368,6 +3412,18 @@ struct Pokemon *GetSideParty(u8 side)
 struct Pokemon *GetBattlerParty(u8 battler)
 {
     return GetSideParty(GetBattlerSide(battler));
+}
+
+u32 IsOnPlayerSide(u8 battler)
+{
+    return GetBattlerSide(battler) == B_SIDE_PLAYER;
+}
+
+bool32 IsBattlerTurnDamaged(u32 battler)
+{
+    return gSpecialStatuses[battler].physicalDmg != 0
+        || gSpecialStatuses[battler].specialDmg != 0;
+        // || gSpecialStatuses[battler].enduredDamage;
 }
 
 s32 GetStealthHazardDamage(u8 hazardType, u32 battler)

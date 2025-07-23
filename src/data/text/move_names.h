@@ -625,6 +625,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_CURSE_GRENINJA]     = _("FALSE"),
     [MOVE_LION_LADDER]     = _("LION LADDER"),
     [MOVE_STRANGE_STEAM]     = _("FALSE"),
+    [MOVE_DARK_VOID]    = _("DARK VOID"),
 };
 
 
@@ -1256,5 +1257,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_CURSE_GRENINJA]     = _("CURSE GRENINJA"),
 [MOVE_LION_LADDER]     = _("LION LADDER"),
 [MOVE_STRANGE_STEAM]     = _("STRANGE STEAM"),
+[MOVE_DARK_VOID]    = _("DARK VOID"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

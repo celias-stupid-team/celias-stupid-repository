@@ -33,6 +33,7 @@ const u8 *BattleSetup_GetScriptAddrAfterBattle(void);
 const u8 *BattleSetup_GetTrainerPostBattleScript(void);
 void ShowTrainerCantBattleSpeech(void);
 void PlayTrainerEncounterMusic(void);
+const u8 *GetTrainerAIntroSpeechFromScriptPointer(const u8 *trainerScript);
 const u8 *GetTrainerALoseText(void);
 const u8 *GetTrainerWonSpeech(void);
 void ResetTrainerOpponentIds(void);

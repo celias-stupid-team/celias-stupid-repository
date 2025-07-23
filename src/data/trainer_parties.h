@@ -10183,7 +10183,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderJanine[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_DARKRAI,
-        .moves = {MOVE_SLEEP_POWDER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_DARK_VOID, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

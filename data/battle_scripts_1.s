@@ -261,7 +261,7 @@ gBattleScriptsForMoveEffects::
 
 BattleScript_EffectReflect2::
 	attackcanceler
-	trysetspecialreflect BattleScript_ButItFailedAtkStringPpReduce
+	trysetspecialreflect BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
 	attackstring
 	attackanimation
 	waitanimation
@@ -4969,3 +4969,30 @@ BattleScript_BadDreamsIncrement:
 	pause 15
 BattleScript_BadDreamsEnd:
 	end3
+
+BattleScript_SwitchInAbilityMsg::
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_SwitchInAbilityMsgRet::
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_SlowStartEnds::
+	pause 5
+	printstring STRINGID_SLOWSTARTEND
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_AirBalloonMsgIn::
+	printstring STRINGID_AIRBALLOONFLOAT
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_AirBalloonMsgPop::
+	printstring STRINGID_AIRBALLOONPOP
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_TARGET
+	return
