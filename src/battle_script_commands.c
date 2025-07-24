@@ -1243,6 +1243,10 @@ static void Cmd_ppreduce(void)
     if (gBattleControllerExecFlags)
         return;
 
+    //no PP reduction for AI
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+        return;
+
     if (!gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure)
     {
         switch (gBattleMoves[gCurrentMove].target)
