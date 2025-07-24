@@ -662,7 +662,7 @@
 #define FLAG_SAW_KANGA_CUTSCENE                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
 #define FLAG_GOT_PSYCHIC_KEY                                       0x25F
-#define FLAG_0x260                                       0x260
+#define FLAG_DRILLED_PALLET_HOLE                                       0x260
 #define FLAG_0x261                                       0x261
 #define FLAG_0x262                                       0x262
 #define FLAG_GOT_EEVEE                                   0x263
@@ -796,7 +796,7 @@
 #define FLAG_LEARNED_ALL_MOVES_AT_CAPE_BRINK             0x2E1
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
-#define FLAG_CELIA_SECRET_PALLET                               0x2E4
+#define FLAG_CELIA_SECRET_PALLET                               0x2E4 // 8
 #define FLAG_CELIA_SECRET_VIRIDIAN                                       0x2E5 //0
 #define FLAG_CELIA_SECRET_PEWTER                                       0x2E6 //1
 #define FLAG_CELIA_SECRET_CERULEAN                                       0x2E7 //2
@@ -804,14 +804,23 @@
 #define FLAG_CELIA_SECRET_LAVENDER                                       0x2E9 //4
 #define FLAG_CELIA_SECRET_CELADON                                       0x2EA //5
 #define FLAG_CELIA_SECRET_FUCHSIA                                       0x2EB //6
-
-
-
-
-#define FLAG_CELIA_SECRET_CINNABAR                                0x2EC
+#define FLAG_CELIA_SECRET_CINNABAR                                0x2EC // 7
 #define FLAG_CELIA_SECRETS_FINISHED                               0x2ED
 #define FLAG_HIDE_CELIA_IN_CERULEAN_BACK                               0x2EE
 #define FLAG_CELIA_SECRETS_NEXT_UPDATE                                    0x2EF
+
+#define CELIA_SECRET_VIRIDIAN 0
+#define CELIA_SECRET_PEWTER 1
+#define CELIA_SECRET_CERULEAN 2
+#define CELIA_SECRET_VERMILION 3
+#define CELIA_SECRET_LAVENDER 4
+#define CELIA_SECRET_CELADON 5
+#define CELIA_SECRET_FUCHSIA 6
+#define CELIA_SECRET_CINNABAR 7
+#define CELIA_SECRET_PALLET 8
+
+
+
 #define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
 #define FLAG_SHOWN_AURORA_TICKET                         0x2F1
 #define FLAG_FOUGHT_LUGIA                                0x2F2

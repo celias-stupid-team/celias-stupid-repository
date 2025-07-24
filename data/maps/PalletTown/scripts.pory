@@ -491,6 +491,7 @@ script PalletTown_EventScript_JumpFromRoof {
 		delay(30)
 		textcolor(NPC_TEXT_COLOR_FEMALE)
 		msgbox("Woah, there!\nIt's me: CELIA, the creator.\lSorry about the landing!\pI hope you don't mind sleeping\nwith a giant hole in your wall.\lThose winter nights'll be rough!\pBut hey, while I'm here: How about\nyou give this a try next?", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_CURRENT_CELIA_SECRET, CELIA_SECRET_PALLET)
 		call(CeliaSecrets_CeliaTellsYouNextHint)
 		applymovement(LOCALID_PALLET_CELIA, moves(
 			face_right

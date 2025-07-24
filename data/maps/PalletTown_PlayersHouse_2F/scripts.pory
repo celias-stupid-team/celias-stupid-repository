@@ -3,6 +3,7 @@ PalletTown_PlayersHouse_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_PlayersHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_PlayersHouse_2F_OnWarp
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_Truck_Opening_Call
+	map_script MAP_SCRIPT_ON_LOAD, PalletTown_PlayersHouse_2F_OnLoad
 	.byte 0
 
 PalletTown_Truck_Opening_Call::
@@ -60,6 +61,19 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	releaseall
 	end
 `
+script PalletTown_PlayersHouse_2F_OnLoad {
+	if(flag(FLAG_DRILLED_PALLET_HOLE)) {
+		call(PalletTown_PlayersHouse_2F_DrawDrilledWall)
+	}
+}
+
+script PalletTown_PlayersHouse_2F_DrawDrilledWall {
+	setmetatile(0, 7, 0x189, TRUE)
+	setmetatile(1, 7, 0x29B, FALSE)
+	return
+}
+
+
 
 script PalletTown_PlayersHouse_2F_OnTransition{
 	setvar(VAR_JUMPING_FROM_PALLET_ROOF, 1)
@@ -102,6 +116,28 @@ script PalletTown_Truck_Opening {
 }
 
 script PlayerRoom_TruckShapedHole {
+	if(flag(FLAG_DRILLED_PALLET_HOLE)) {
+			msgbox("wall", MSGBOX_SIGN)
+			end
+
+	}
+	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
+		lock
+		msgbox("wall", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_DRILL_DOZER)) {
+				msgbox("drill", MSGBOX_YESNO)
+				if(var(VAR_RESULT)) {
+					fadescreen(FADE_TO_BLACK)
+					setflag(FLAG_DRILLED_PALLET_HOLE)
+					call(PalletTown_PlayersHouse_2F_DrawDrilledWall)
+					special(DrawWholeMapView)
+					fadescreen(FADE_FROM_BLACK)
+
+				}
+		}
+		release
+		end
+	}
 	msgbox("The wall is empty except for a\nlarge, truck-shaped hole.", MSGBOX_SIGN)
 }
 
