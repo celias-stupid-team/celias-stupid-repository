@@ -2341,6 +2341,8 @@ BattleScript_EffectMemento::
 	setatkhptozero
 	attackanimation
 	waitanimation
+	printstring STRINGID_MEMENTO
+	waitmessage B_WAIT_TIME_LONG
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_EffectMementoPrintNoEffect
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPATK, STAT_CHANGE_NEGATIVE | STAT_CHANGE_BY_TWO | STAT_CHANGE_MULTIPLE_STATS
@@ -5018,6 +5020,7 @@ BattleScript_EffectGhostCurse::
 	ppreduce
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PROTEAN
+	waitmessage B_WAIT_TIME_LONG
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	cursetarget BattleScript_ButItFailed
