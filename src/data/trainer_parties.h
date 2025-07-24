@@ -9744,6 +9744,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer29[] = {
         .species = SPECIES_KOFFING_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+    {
+        .iv = 0,
+        .lvl = 15,
+        .species = SPECIES_PINSIR_POKERAP,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer30[] = {
@@ -9892,12 +9898,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer35[] = {
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer36[] = {
-    {
-        .iv = 0,
-        .lvl = 15,
-        .species = SPECIES_CUBONE_POKERAP,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
     {
         .iv = 0,
         .lvl = 15,

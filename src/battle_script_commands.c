@@ -1520,6 +1520,13 @@ static void CheckWonderGuardAndLevitate(void)
         RecordAbilityBattle(gBattlerTarget, ABILITY_LEVITATE);
         return;
     }
+    
+    if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
+    {
+        gLastUsedAbility = ABILITY_LEVITATE;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AIR_BALLOON;
+        return;
+    }
     else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
     {
         gLastUsedItem = ITEM_AIR_BALLOON;

@@ -329,7 +329,7 @@ static bool8 CanFish(void)
 {
     s16 x, y;
     u16 behavior;
-
+    
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     behavior = MapGridGetMetatileBehaviorAt(x, y);
 

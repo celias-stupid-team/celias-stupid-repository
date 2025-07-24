@@ -433,8 +433,9 @@
 #define STRINGID_WONDER_SEED 432
 #define STRINGID_PROTEAN 433
 #define STRINGID_MEMENTO 434
+#define STRINGID_MISSED_FROM_AIR_BALLOON 435
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     436 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     437 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -466,6 +467,7 @@
 #define B_MSG_AVOIDED_ATK  2
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
+#define B_MSG_AIR_BALLOON  5
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

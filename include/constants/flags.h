@@ -709,7 +709,7 @@
 #define FLAG_SILPH_10F_DOOR                              0x28C
 #define FLAG_SILPH_11F_DOOR                              0x28D
 #define FLAG_GOT_MACHOKE                                       0x28E
-#define FLAG_GOT_SHINY_PINSIR                                       0x28F
+#define FLAG_GOT_SHINY_CUBONE                                       0x28F
 #define FLAG_MET_STICKER_MAN                             0x290
 #define FLAG_PALLET_LADY_NOT_BLOCKING_SIGN               0x291
 #define FLAG_GOT_VS_SEEKER                               0x292
