@@ -6358,7 +6358,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainGreta),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainGreta),
     },
     [TRAINER_BATTLE_FRONTIER_TUCKER] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
@@ -6368,7 +6368,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainTucker),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainTucker),
     },
     [TRAINER_BATTLE_FRONTIER_LUCY] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,

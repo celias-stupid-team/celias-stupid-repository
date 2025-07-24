@@ -217,6 +217,7 @@ script FushciaGym_FirstRoomSign {
 	msgbox("There's a sign on the door…\n")
     closemessage
     msgbox("Will you enter the left door, or\nwill you enter the right door?\pTrust your intuition, and let your\nwit be your guide!", MSGBOX_DEFAULT)
+    release
 	end
 }
 
@@ -235,5 +236,6 @@ script FushciaGym_FirstRoomSign_2 {
         delay(30)
         msgbox("The door does not respond.\n", MSGBOX_DEFAULT)
     }
+    release
 	end
 }

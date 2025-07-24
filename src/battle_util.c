@@ -907,7 +907,7 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_CURSE:  // curse
                 if ((gBattleMons[gActiveBattler].status2 & STATUS2_CURSED) && gBattleMons[gActiveBattler].hp != 0)
                 {
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 4;
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 2; //Curse affliction deals half HP so Greninja dies fast
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_CurseTurnDmg);

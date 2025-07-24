@@ -796,7 +796,7 @@
 #define FLAG_LEARNED_ALL_MOVES_AT_CAPE_BRINK             0x2E1
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
-#define FLAG_FOUGHT_DEOXYS                               0x2E4
+#define FLAG_CELIA_SECRET_PALLET                               0x2E4
 #define FLAG_CELIA_SECRET_VIRIDIAN                                       0x2E5 //0
 #define FLAG_CELIA_SECRET_PEWTER                                       0x2E6 //1
 #define FLAG_CELIA_SECRET_CERULEAN                                       0x2E7 //2

@@ -62,6 +62,7 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 `
 
 script PalletTown_PlayersHouse_2F_OnTransition{
+	setvar(VAR_JUMPING_FROM_PALLET_ROOF, 1)
 	call_if_eq(VAR_MAP_SCENE_PALLET_TOWN_PLAYERS_HOUSE_2F, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn)
 }
 

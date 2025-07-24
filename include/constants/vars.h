@@ -189,7 +189,7 @@
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_CSR_DUMMY_25                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
-#define VAR_CSR_DUMMY_26                                         0x4088
+#define VAR_JUMPING_FROM_PALLET_ROOF                                         0x4088
 #define VAR_CELIA_DEV_CREW                             0x4089
 #define VAR_CSR_ROUTE6_LASS                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B

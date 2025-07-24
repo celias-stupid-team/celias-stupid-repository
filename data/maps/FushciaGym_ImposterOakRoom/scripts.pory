@@ -5,7 +5,7 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 		if(!flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
 			setflag(FLAG_TEMP_1)
 			if(flag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)) {
-			call(FushciaGym_ImposterOakRoom_DrawNoStatue)
+				call(FushciaGym_ImposterOakRoom_DrawNoStatue)
 
 			}
 		} else {
@@ -13,7 +13,7 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 		}
 	}
 	MAP_SCRIPT_ON_TRANSITION {
-		if(flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
+		if(flag(FLAG_FUSHCIA_IMPOSTER_OAK) && flag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)) {
 			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
 
 		}
@@ -116,6 +116,6 @@ script FushciaGym_CleaningLady {
 }
 
 script FushciaGym_OakRoom_Sign {
-	msgbox("SCROLL ROOM\pFor the time being, feel free to\nscroll right past it.", MSGBOX_SIGN)
+	msgbox("SCROLL ROOM\pFor the time being, feel free to\nscroll right past.", MSGBOX_SIGN)
 	end
 }

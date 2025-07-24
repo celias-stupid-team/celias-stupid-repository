@@ -86,7 +86,7 @@ movement FushciaGym_ThrowVulpix {
 }
 
 script FushciaGym_LionsRoom_Trainer {
-    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
+    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "{COLOR BLUE}Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
     release
 }
 

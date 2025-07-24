@@ -32,6 +32,7 @@ PalletTown_EventScript_MoveSignLadyToRouteEntrance::
 
 PalletTown_OnFrame::
 	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_EventScript_OakRatingScene
+	map_script_2 VAR_JUMPING_FROM_PALLET_ROOF, 1, PalletTown_EventScript_JumpFromRoof
 	.2byte 0
 
 @ Oak approaches player after exiting their house post Elite Four to check if they should receieve the National Dex
@@ -412,6 +413,10 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	end
 `
 script PalletTown_OnTransition {
+	if(var(VAR_JUMPING_FROM_PALLET_ROOF) > 0) {
+		applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
+		playbgm(MUS_NONE, TRUE)
+	}
 	setworldmapflag (FLAG_WORLD_MAP_PALLET_TOWN)
 	call(SetPlayerPokedexValues)
 	famechecker(FAMECHECKER_PALLET, 0)
@@ -430,6 +435,79 @@ script PalletTown_OnTransition {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 	}
+}
+
+script PalletTown_EventScript_JumpFromRoof {
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, moves(
+		jump_2_left
+		face_left
+		delay_16 * 3
+	))
+	waitmovement(0)
+	playse(SE_FALL)
+	applymovement(LOCALID_PLAYER, moves(
+		lock_facing_direction
+		slide_down * 2
+		unlock_facing_direction
+	))
+	waitmovement(0)
+	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	playse(SE_WALL_HIT)
+	special(ShakeScreen)
+	delay(60)
+	setvar(VAR_JUMPING_FROM_PALLET_ROOF, 0)
+	if(!flag(FLAG_CELIA_SECRET_PALLET)) {
+		setflag(FLAG_CELIA_SECRET_PALLET)
+		applymovement(LOCALID_PALLET_CELIA, Common_Movement_WalkLeft)
+		waitmovement(LOCALID_PALLET_CELIA)
+		playse(SE_LEDGE)
+		applymovement(LOCALID_PALLET_CELIA, moves(
+			jump_2_left
+			face_left
+			delay_16 * 3
+
+		))
+		waitmovement(0)
+		playse(SE_FALL)
+		applymovement(LOCALID_PALLET_CELIA, moves(
+			lock_facing_direction
+			slide_down * 2
+			unlock_facing_direction
+			
+		))
+		waitmovement(0)
+		playse(SE_WALL_HIT)
+		applymovement(LOCALID_PLAYER, moves(
+			face_right
+			lock_facing_direction
+			jump_left
+			unlock_facing_direction
+		))
+		waitmovement(LOCALID_PLAYER)
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("Woah, there!\nIt's me: CELIA, the creator.\lSorry about the landing!\pI hope you don't mind sleeping\nwith a giant hole in your wall.\lThose winter nights'll be rough!\pBut hey, while I'm here: How about\nyou give this a try next?", MSGBOX_DEFAULT)
+		call(CeliaSecrets_CeliaTellsYouNextHint)
+		applymovement(LOCALID_PALLET_CELIA, moves(
+			face_right
+			delay_16 * 2
+			lock_facing_direction
+			walk_slow_up * 2
+			face_right
+			delay_16
+			walk_slow_right
+			face_right
+			delay_16
+		))
+		waitmovement(LOCALID_PALLET_CELIA)
+		playse(SE_EXIT)
+		removeobject(LOCALID_PALLET_CELIA)
+	}
+	playbgm(MUS_PALLET, TRUE)
 }
 
 script PalletTown_EventScript_CeliaLookLook {

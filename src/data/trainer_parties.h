@@ -10068,19 +10068,21 @@ static const struct TrainerMonItemCustomMoves sParty_FrontierBrainSpenser[] = {
     },
 };
 
-static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainGreta[] = {
+static const struct TrainerMonItemCustomMoves sParty_FrontierBrainGreta[] = {
     {
         .iv = 0,
         .lvl = 1,
+        .heldItem = ITEM_SHELL_BELL,
         .species = SPECIES_ARON,
         .moves = {MOVE_ENDEAVOR, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };
-static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainTucker[] = {
+static const struct TrainerMonItemCustomMoves sParty_FrontierBrainTucker[] = {
     {
         .iv = 0,
         .lvl = 30,
+        .heldItem = ITEM_AIR_BALLOON,
         .species = SPECIES_SHEDINJA_ELECTRIC,
         .moves = {MOVE_SHADOW_BALL, MOVE_SILVER_WIND, MOVE_THUNDERBOLT, MOVE_NONE}
     },
@@ -10108,20 +10110,20 @@ static const struct TrainerMonNoItemCustomMoves sParty_ShadowTriad[] = {
     {
         .iv = 0,
         .lvl = 30,
+        .species = SPECIES_SIMISEAR,
+        .moves = {MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_SHEDINJA,
+        .moves = {MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 50,
         .species = SPECIES_GRENINJA,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 30,
-        .species = SPECIES_RABOOT,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 30,
-        .species = SPECIES_SCEPTILE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_CURSE_GRENINJA, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     
 
@@ -10131,7 +10133,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_GYARADOS_LANCE,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };
@@ -10140,7 +10142,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainNoland[] = {
         .iv = 0,
         .lvl = 100,
         .species = SPECIES_PYROAR,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_LION_LADDER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

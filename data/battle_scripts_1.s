@@ -260,6 +260,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSleep                  @ EFFECT_DARK_VOID
 	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
+	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5009,4 +5010,24 @@ BattleScript_EffectElectrify::
 	waitanimation
 	printstring STRINGID_TARGETELECTRIFIED
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectGhostCurse::
+	attackcanceler
+	attackstring
+	ppreduce
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PROTEAN
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	cursetarget BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sB_ANIM_TURN, 0
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNLAIDCURSE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd

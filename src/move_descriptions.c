@@ -626,6 +626,7 @@ const u8 gMoveDescription_Syhncrhonozhe[] = _("Dummy");
 const u8 gMoveDescription_CurseGreninja[] = _("Dummy");
 const u8 gMoveDescription_LionLadder[] = _("Dummy");
 const u8 gMoveDescription_StrangeSteam[] = _("Dummy");
+const u8 gMoveDescription_FlareBlitz[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1257,4 +1258,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_STRANGE_STEAM     -1 ] = gMoveDescription_StrangeSteam,
     [MOVE_DARK_VOID - 1] = gMoveDescription_DarkVoid,
     [MOVE_ELECTRIFY - 1] = gMoveDescription_Electrify,
+    [MOVE_FLARE_BLITZ - 1] = gMoveDescription_FlareBlitz
 };

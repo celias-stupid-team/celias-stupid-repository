@@ -7868,7 +7868,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
     [MOVE_CURSE_GRENINJA] =
     {
-        .effect = EFFECT_CURSE,
+        .effect = EFFECT_CURSE_GHOST,
         .power = 0,
         .type = TYPE_MYSTERY,
         .accuracy = 0,
@@ -7940,5 +7940,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+    
+    [MOVE_FLARE_BLITZ] =
+    {
+        .effect = EFFECT_DOUBLE_EDGE,
+        .power = 120,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 };

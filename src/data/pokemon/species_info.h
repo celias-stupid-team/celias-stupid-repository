@@ -8096,7 +8096,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SHEDINJA] =
     {
         .baseHP = 1,
-        .baseAttack = 90,
+        .baseAttack = 1,
         .baseDefense = 45,
         .baseSpeed = 40,
         .baseSpAttack = 30,
@@ -10386,7 +10386,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_ARON] =
     {
-        .baseHP = 50,
+        .baseHP = 2,
         .baseAttack = 70,
         .baseDefense = 100,
         .baseSpeed = 30,
@@ -19117,12 +19117,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GRENINJA] =
     {
-        .baseHP = 72,
+        .baseHP = 200,
         .baseAttack = 95,
-        .baseDefense = 67,
+        .baseDefense = 97,
         .baseSpeed = 122,
         .baseSpAttack = 103,
-        .baseSpDefense = 71,
+        .baseSpDefense = 91,
         .types = {TYPE_WATER, TYPE_DARK},
         .catchRate = 255,
         .expYield = 150,
@@ -30693,7 +30693,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     .baseHP = 110,
     .baseAttack = 110,
     .baseDefense = 110,
-    .baseSpeed = 110,
+    .baseSpeed = 20,
     .baseSpAttack = 110,
     .baseSpDefense = 110,
     .types = {TYPE_ELECTRIC, TYPE_ELECTRIC},
