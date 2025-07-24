@@ -2926,6 +2926,7 @@ void BattleTurnPassed(void)
     {
         gChosenActionByBattler[i] = B_ACTION_NONE;
         gChosenMoveByBattler[i] = MOVE_NONE;
+        gStatuses3[i] &= ~STATUS3_ELECTRIFIED;
     }
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
@@ -4052,6 +4053,11 @@ static void HandleAction_UseMove(void)
         gBattleResults.lastUsedMovePlayer = gCurrentMove;
     else
         gBattleResults.lastUsedMoveOpponent = gCurrentMove;
+
+    //handle dynamic move types
+    if (gStatuses3[gBattlerAttacker] & STATUS3_ELECTRIFIED)
+        gBattleStruct->dynamicMoveType = TYPE_ELECTRIC | F_DYNAMIC_TYPE_2;
+
     // choose target
     side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
     if (gSideTimers[side].followmeTimer != 0

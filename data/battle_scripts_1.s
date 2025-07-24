@@ -240,23 +240,25 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectOHKO_Flash             @ EFFECT_OHKO_FLASH
 	.4byte BattleScript_EffectSubstituteTeacher      @ EFFECT_SUBSTITUTE_TEACHER
 	.4byte BattleScript_EffectTailSlap				 @ EFFECT_TAILSLAP
-	.4byte BattleScript_EffectExplosionUseless              @ EFFECT_EXPLOSION_USELESS
-	.4byte BattleScript_EffectAttackAccuracyUp              @ EFFECT_ATTACK_ACCURACY_UP
+	.4byte BattleScript_EffectExplosionUseless       @ EFFECT_EXPLOSION_USELESS
+	.4byte BattleScript_EffectAttackAccuracyUp       @ EFFECT_ATTACK_ACCURACY_UP
 	.4byte BattleScript_EffectStealthRock	         @ EFFECT_STEALTH_ROCK
 	.4byte BattleScript_EffectRevivalBlessing        @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectDoubleKick			 @ EFFECT_DOUBLE_KICK
 	.4byte BattleScript_EffectDoNothing              @ EFFECT_DO_NOTHING
-	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
+	.4byte BattleScript_EffectFickleBeam             @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectFoursight              @ EFFECT_FOURSIGHT
-	.4byte BattleScript_EffectCounterStupid              @ EFFECT_COUNTER_STUPID
+	.4byte BattleScript_EffectCounterStupid          @ EFFECT_COUNTER_STUPID
 	.4byte BattleScript_EffectFollowHim              @ EFFECT_FOLLOW_HIM
-	.4byte BattleScript_EffectSpikyShield             @ EFFECT_SPIKY_SHIELD
-	.4byte BattleScript_EffectFeint                 @ EFFECT_FEINT
+	.4byte BattleScript_EffectSpikyShield            @ EFFECT_SPIKY_SHIELD
+	.4byte BattleScript_EffectFeint                  @ EFFECT_FEINT
 	.4byte BattleScript_EffectFlyOMeteor             @ EFFECT_FLY_O_METEOR
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
-	.4byte BattleScript_EffectSubstitute2             @ EFFECT_SUBSTITUTE_2
-	.4byte BattleScript_EffectGuillotine2			  @ EFFECT_GUILLOTINE_2
-	.4byte BattleScript_EffectReflect2              @ EFFECT_REFLECT_2
+	.4byte BattleScript_EffectSubstitute2            @ EFFECT_SUBSTITUTE_2
+	.4byte BattleScript_EffectGuillotine2			 @ EFFECT_GUILLOTINE_2
+	.4byte BattleScript_EffectReflect2               @ EFFECT_REFLECT_2
+	.4byte BattleScript_EffectSleep                  @ EFFECT_DARK_VOID
+	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 
 BattleScript_EffectReflect2::
@@ -4996,3 +4998,15 @@ BattleScript_AirBalloonMsgPop::
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_TARGET
 	return
+
+BattleScript_EffectElectrify::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryelectrify BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_TARGETELECTRIFIED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

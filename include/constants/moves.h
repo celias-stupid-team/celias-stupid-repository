@@ -628,7 +628,10 @@
 #define MOVE_LION_LADDER 623
 #define MOVE_STRANGE_STEAM 624
 #define MOVE_DARK_VOID 625
-#define MOVES_COUNT 626
+#define MOVE_DARK_VOID 626
+#define MOVE_ELECTRIFY 627
+
+#define MOVES_COUNT 628
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

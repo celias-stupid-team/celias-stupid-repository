@@ -650,6 +650,7 @@ gBattleAnims_Moves::
 	.4byte Move_LION_LADDER
 	.4byte Move_STRANGE_STEAM
 	.4byte Move_DARK_VOID
+	.4byte Move_ELECTRIFY
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -11347,6 +11348,69 @@ UnsetPsychicBg:
 	setarg 7, 0xFFFF
 	waitbgfadein
 	return
+
+Move_ELECTRIFY::
+	loadspritegfx ANIM_TAG_GUARD_RING @ring around user
+	loadspritegfx ANIM_TAG_SPARK_2 @yellow color
+	loadspritegfx ANIM_TAG_SMALL_EMBER @yellow color
+	loadspritegfx ANIM_TAG_SPARK @electric travel
+	loadspritegfx ANIM_TAG_THIN_RING @ring
+	monbg ANIM_ATTACKER
+	loopsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_TARGET 0xa 0x4
+	createsprite gElectrifyRingTemplate, ANIM_ATTACKER, 2
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 0x18, 190, 12, ANIM_ATTACKER, 1, 0
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 0x18, 22, 12, ANIM_ATTACKER, 1, 0
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 0x18, 121, 13, ANIM_ATTACKER, 1, 1
+	delay 0x4
+	createsprite gElectrifyRingTemplate, ANIM_ATTACKER, 2
+	delay 0x4
+	createsprite gElectrifyRingTemplate, ANIM_ATTACKER, 2
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 100, 0x18, 60, 10, ANIM_ATTACKER, 1, 0
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 170, 0x18, 42, 11, ANIM_ATTACKER, 1, 1
+	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 238, 0x18, 165, 10, ANIM_ATTACKER, 1, 1
+	waitforvisualfinish
+	playsewithpan SE_M_THUNDER_WAVE, SOUND_PAN_ATTACKER
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x0, 0x28, 0x0
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x40, 0x28, 0x1
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0x80, 0x28, 0x0
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x10, 0x1e, 0, 0x28, 0x2
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x20, 0x28, 0x0
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0x60, 0x28, 0x1
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xa0, 0x28, 0x0
+	createsprite gZapCannonSparkSpriteTemplate, ANIM_TARGET, 4, 0xa, 0x0, 0x8, 0x1e, 0xe0, 0x28, 0x2
+	delay 0xA
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xA, F_PAL_TARGET, 0x2, 0x0, 0xB, 0x039B
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x3, 0x039B
+	delay 0x4
+	clearmonbg ANIM_ATTACKER
+	delay 0x1
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_TARGET
+	createsprite gElectrifyYellowRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x1, 0x0, 0x1f, 0x8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x5, 0x0, 0x5, 0x0
+	delay 0x1
+	createsprite gElectrifyYellowRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x1, 0x0, 0x1f, 0x8
+	delay 0x1
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfffb, 0xa, 0x5, 0x1
+	createsprite gElectrifyYellowRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x1, 0x0, 0x1f, 0x8
+	delay 0x1
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xf, 0x14, 0x5, 0x2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfff1, 0xfff6, 0x5, 0x0
+	delay 0x2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x19, 0x0, 0x5, 0x1
+	delay 0x2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xfff8, 0x8, 0x5, 0x2
+	delay 0x2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0x2, 0xfff8, 0x5, 0x0
+	delay 0x2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 0xffec, 0xf, 0x5, 0x1
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xA, F_PAL_TARGET, 0x2, 0xB, 0x0, 0x039B
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x3, 0x0, 0x039B
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
 
 General_SafariRockThrow:
 	createvisualtask AnimTask_SafariOrGhost_DecideAnimSides, 2, 0

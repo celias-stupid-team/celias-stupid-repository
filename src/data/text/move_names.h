@@ -611,7 +611,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_AQUA]     = _("AQUA"),
     [MOVE_WHIP]     = _("WHIP"),
     [MOVE_SLAP]     = _("SLAP"),
-    [MOVE_POISON]     = _("POISON"),
+    [MOVE_POISON]   = _("POISON"),
     [MOVE_IRON]     = _("IRON"),
     [MOVE_SHED]     = _("SHED"),
     [MOVE_WIND]     = _("WIND"),
@@ -626,6 +626,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_LION_LADDER]     = _("LION LADDER"),
     [MOVE_STRANGE_STEAM]     = _("FALSE"),
     [MOVE_DARK_VOID]    = _("DARK VOID"),
+    [MOVE_ELECTRIFY]    = _("ELECTRIFY"),
 };
 
 
@@ -1258,5 +1259,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_LION_LADDER]     = _("LION LADDER"),
 [MOVE_STRANGE_STEAM]     = _("STRANGE STEAM"),
 [MOVE_DARK_VOID]    = _("DARK VOID"),
+[MOVE_ELECTRIFY]    = _("ELECTRIFY"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

@@ -1243,6 +1243,10 @@ static void Cmd_ppreduce(void)
     if (gBattleControllerExecFlags)
         return;
 
+    //no PP reduction for AI
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+        return;
+
     if (!gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure)
     {
         switch (gBattleMoves[gCurrentMove].target)
@@ -6768,6 +6772,21 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->jumpInstr;
             else
                 gBattlescriptCurrInstr = cmd->nextInstr;
+            return;
+        }
+        case VARIOUS_TRY_ELECTRIFY:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+
+            if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gStatuses3[gBattlerTarget] |= STATUS3_ELECTRIFIED;
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
             return;
         }
     }
