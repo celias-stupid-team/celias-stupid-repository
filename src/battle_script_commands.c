@@ -1245,7 +1245,7 @@ static void Cmd_ppreduce(void)
 
     //no PP reduction for AI
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-        return;
+        gHitMarker |= HITMARKER_NO_PPDEDUCT;
 
     if (!gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure)
     {
