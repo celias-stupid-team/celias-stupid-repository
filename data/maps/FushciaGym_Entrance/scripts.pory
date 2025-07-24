@@ -204,3 +204,36 @@ movement InvisibleToVisible {
     delay_8
     set_visible
 }
+
+script FushciaGym_LeaderRoomSign {
+	msgbox("GYM LEADER ROOM\pBehind this door awaits your\nultimate challenge.\pBe prepared to show all that\nyou've learned!", MSGBOX_SIGN)
+	end
+}
+
+
+
+script FushciaGym_FirstRoomSign {
+    lock
+	msgbox("There's a sign on the door…\n")
+    closemessage
+    msgbox("Will you enter the left door, or\nwill you enter the right door?\pTrust your intuition, and let your\nwit be your guide!", MSGBOX_DEFAULT)
+	end
+}
+
+
+script FushciaGym_FirstRoomSign_2 {
+    lock
+	msgbox("There's a sign on the door…\n")
+    closemessage
+    msgbox("One of these doors will tell the\ntruth, and the other always lies!\pYou may ask one question.\nChoose wisely, or be lost forever!", MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    msgbox("Ask the door a question?\n", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox("… … …\n", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        msgbox("The door does not respond.\n", MSGBOX_DEFAULT)
+    }
+	end
+}

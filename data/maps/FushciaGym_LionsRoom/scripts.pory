@@ -164,3 +164,8 @@ script FushciaGym_LionRoom_DrawHole {
     setmetatile(5, 12, 0x39C, TRUE)
     return
 }
+
+script FushciaGym_LionRoom_Sign {
+	msgbox("FRIEND ROOM\pWell, this friend is actually a bit\ntoxic.", MSGBOX_SIGN)
+	end
+}

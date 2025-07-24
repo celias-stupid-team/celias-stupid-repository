@@ -38,3 +38,13 @@ script FushciaGym_IcePuzzleRoom_ResetButton {
     release
 
 }
+
+script FushciaGym_IcePuzzleRoom_TrickRoomSign {
+	msgbox("TRICK ROOM\p(It's a trick!)\n", MSGBOX_SIGN)
+	end
+}
+
+script FushciaGym_IcePuzzleRoom_DoubleRoomSign {
+	msgbox("ROOM\pI don't have a name for this\none, sorry.", MSGBOX_SIGN)
+	end
+}

@@ -348,7 +348,7 @@ movement NerdIsSad {
 }
 
 movement NerdIsSadUp {
-	walk_in_place_Up * 3
+	walk_in_place_up * 3
 }
 
 movement NerdApproachesPlayerRight {

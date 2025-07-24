@@ -7719,7 +7719,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_WURMPLE] =
     {
         .baseHP = 45,
-        .baseAttack = 45,
+        .baseAttack = 25,
         .baseDefense = 35,
         .baseSpeed = 20,
         .baseSpAttack = 20,

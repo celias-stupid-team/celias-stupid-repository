@@ -103,3 +103,8 @@ script FushciaGym_DoubleBattleRoom_CheeseScript {
         
     }
 }
+
+script FushciaGym_DoubleBattleRoom_PotionDoorSign {
+	msgbox("POTION ROOM\pThis room contains our backup\nsupply of POTIONS.\lFor emergency use only!", MSGBOX_SIGN)
+	end
+}

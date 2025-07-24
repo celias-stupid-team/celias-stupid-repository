@@ -3428,7 +3428,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-        speedBattler1 = speedBattler1 / 10;
+        speedBattler1 = speedBattler1 / 100;
     
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -3460,7 +3460,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-        speedBattler2 = speedBattler2 / 10;
+        speedBattler2 = speedBattler2 / 100;
 
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)

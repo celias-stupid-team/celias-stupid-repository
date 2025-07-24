@@ -114,3 +114,8 @@ script FushciaGym_CleaningLady {
 	msgbox("Huh?\nYeah, I'm the CLEANING LADY.\pThis room's getting remodeled.\nI moved the STATUES to storage.", MSGBOX_NPC)
 	end
 }
+
+script FushciaGym_OakRoom_Sign {
+	msgbox("SCROLL ROOM\pFor the time being, feel free to\nscroll right past it.", MSGBOX_SIGN)
+	end
+}

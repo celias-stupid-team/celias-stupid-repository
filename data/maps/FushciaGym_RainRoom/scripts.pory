@@ -123,3 +123,9 @@ script FushciaGym_RainRoom_DrawHole {
     setmetatile(3, 8, 0x3CC, TRUE)
     return
 }
+
+
+script FushciaGym_RainRoom_Sign {
+	msgbox("WET ROOM\pIt's wet.\n", MSGBOX_SIGN)
+	end
+}
