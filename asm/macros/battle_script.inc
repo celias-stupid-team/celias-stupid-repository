@@ -1437,6 +1437,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro tryelectrify failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_ELECTRIFY
+	.4byte \failInstr
+	.endm
+
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

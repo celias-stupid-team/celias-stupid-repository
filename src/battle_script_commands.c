@@ -6770,6 +6770,21 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->nextInstr;
             return;
         }
+        case VARIOUS_TRY_ELECTRIFY:
+        {
+            VARIOUS_ARGS(const u8 *failInstr);
+
+            if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            {
+                gBattlescriptCurrInstr = cmd->failInstr;
+            }
+            else
+            {
+                gStatuses3[gBattlerTarget] |= STATUS3_ELECTRIFIED;
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
+            return;
+        }
     }
 
     gBattlescriptCurrInstr += 3;

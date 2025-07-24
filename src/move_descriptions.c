@@ -361,6 +361,7 @@ const u8 gMoveDescription_Retreat[] = _("Switch your active\nPOKéMON with one\n
 const u8 gMoveDescription_SubstituteTeacher[] = _("The user creates a\ndecoy using one-\nquarter of its full\nHP.");
 const u8 gMoveDescription_ConfusionPsyduck[] = _("The user is\nslightly confused\nas to who they're\nsupposed to hit.");
 const u8 gMoveDescription_DarkVoid[] = _("Drags the foes into total\ndarkness, inducing Sleep.");
+const u8 gMoveDescription_Electrify[] = _("Electrifies the foe, making\nits next move Electric-type.");
 
 
 //dummies out for now
@@ -1238,4 +1239,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_GLOW     -1 ] = gMoveDescription_Glow,
     [MOVE_REFLECT_2    - 1] = gMoveDescription_Reflect,
     [MOVE_DARK_VOID - 1] = gMoveDescription_DarkVoid,
+    [MOVE_ELECTRIFY - 1] = gMoveDescription_Electrify,
 };

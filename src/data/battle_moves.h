@@ -7818,7 +7818,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 [MOVE_DARK_VOID] =
     {
-        .effect = EFFECT_SLEEP,//EFFECT_DARK_VOID,
+        .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 0,
@@ -7827,5 +7827,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_BOTH,
         .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+    },
+
+[MOVE_ELECTRIFY] =
+    {
+        .effect = EFFECT_ELECTRIFY,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 };

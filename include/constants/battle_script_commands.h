@@ -96,6 +96,7 @@
 #define VARIOUS_TRY_SET_SPECIAL_REFLECT         18
 #define VARIOUS_HANDLE_SPRITE_UPDATE            19
 #define VARIOUS_JUMP_IF_TARGET_ALLY             20
+#define VARIOUS_TRY_ELECTRIFY                   21
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
