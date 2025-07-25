@@ -4937,7 +4937,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FINAL_GAMBIT] =    {
         .effect = EFFECT_HIT, // Plaseholder Effect
-        .power = 0,
+        .power = 1,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
         .pp = 35,
@@ -7825,7 +7825,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED,
     },
     [MOVE_MULTI_ATTACK] =
@@ -7863,7 +7863,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
     [MOVE_CURSE_GRENINJA] =

@@ -4710,19 +4710,19 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerSamuel[] = {
         .iv = 100,
         .lvl = 23,
         .species = SPECIES_QWILFISH,
-        .moves = {MOVE_WATER_SPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_QWICK_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 100,
         .lvl = 24,
         .species = SPECIES_MAWILE,
-        .moves = {MOVE_THUNDER_SHOCK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_WHISH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 100,
         .lvl = 22,
         .species = SPECIES_EGEXCSUTER,
-        .moves = {MOVE_BARRAGE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_SYHNCRHONOZHE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
