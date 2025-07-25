@@ -5,7 +5,7 @@
   "music": "MUS_BATTLE_FRONTIER",
   "region_map_section": "MAPSEC_FUSHCIA_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_TRICK_ROOM",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,

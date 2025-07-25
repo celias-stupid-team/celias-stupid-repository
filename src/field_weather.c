@@ -150,6 +150,7 @@ static const u8 sBasePaletteGammaTypes[32] = {
 
 const u16 gDefaultWeatherSpritePalette[] = INCBIN_U16("graphics/weather/default.gbapal");
 const u16 gCloudsWeatherPalette[] = INCBIN_U16("graphics/weather/cloud.gbapal");
+const u16 gTrickRoomWeatherSpritePalette[] = INCBIN_U16("graphics/weather/trick_room.gbapal");
 const u16 gSandstormWeatherPalette[] = INCBIN_U16("graphics/weather/sandstorm.gbapal");
 const u8 gWeatherFogDiagonalTiles[] = INCBIN_U8("graphics/weather/fog_diagonal.4bpp");
 const u8 gWeatherFogHorizontalTiles[] = INCBIN_U8("graphics/weather/fog_horizontal.4bpp");
@@ -167,7 +168,14 @@ void StartWeather(void)
     if (!FuncIsActiveTask(Task_WeatherMain))
     {
         u8 index = AllocSpritePalette(0x1200);
-        CpuCopy32(gDefaultWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
+        if(gSaveBlock1Ptr->weather == WEATHER_TRICK_ROOM) {
+            DebugPrintf("Trick Weater");
+            CpuCopy32(gTrickRoomWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
+
+        } else {
+            CpuCopy32(gDefaultWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
+
+        }
         ApplyGlobalFieldPaletteTint(index);
         BuildGammaShiftTables();
         gWeatherPtr->altGammaSpritePalIndex = index;
@@ -412,7 +420,7 @@ static void FadeInScreenWithWeather(void)
         break;
     case WEATHER_VOLCANIC_ASH:
     case WEATHER_SANDSTORM:
-    case WEATHER_FOG_DIAGONAL:
+    case WEATHER_TRICK_ROOM:
     case WEATHER_UNDERWATER:
     default:
         if (!gPaletteFade.active)
@@ -1104,8 +1112,8 @@ static void SetFieldWeather(u8 weather)
     case COORD_EVENT_WEATHER_FOG_HORIZONTAL:
         SetWeather(WEATHER_FOG_HORIZONTAL);
         break;
-    case COORD_EVENT_WEATHER_FOG_DIAGONAL:
-        SetWeather(WEATHER_FOG_DIAGONAL);
+    case COORD_EVENT_WEATHER_TRICK_ROOM:
+        SetWeather(WEATHER_TRICK_ROOM);
         break;
     case COORD_EVENT_WEATHER_VOLCANIC_ASH:
         SetWeather(WEATHER_VOLCANIC_ASH);
