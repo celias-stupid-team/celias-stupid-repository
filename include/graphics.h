@@ -12430,3 +12430,19 @@ extern const u32 gMonShinyPalette_AlakazamTCG[];
 extern const u8 gMonFootprint_AlakazamTCG[];
 extern const u8 gMonIcon_AlakazamTCG[];
 
+// REGIEYES
+extern const u32 gMonFrontPic_REGIEYES[];
+extern const u32 gMonPalette_REGIEYES[];
+extern const u32 gMonBackPic_REGIEYES[];
+extern const u32 gMonShinyPalette_REGIEYES[];
+extern const u8 gMonFootprint_REGIEYES[];
+extern const u8 gMonIcon_REGIEYES[];
+
+// REGI FILS_AMIE
+extern const u32 gMonFrontPic_REGIFILSAMIE[];
+extern const u32 gMonPalette_REGIFILSAMIE[];
+extern const u32 gMonBackPic_REGIFILSAMIE[];
+extern const u32 gMonShinyPalette_REGIFILSAMIE[];
+extern const u8 gMonFootprint_REGIFILSAMIE[];
+extern const u8 gMonIcon_REGIFILSAMIE[];
+

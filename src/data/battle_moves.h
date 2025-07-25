@@ -4936,7 +4936,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_FINAL_GAMBIT] =    {
-        .effect = EFFECT_HIT, // Plaseholder Effect
+        .effect = EFFECT_DOUBLE_EDGE, // Plaseholder Effect
         .power = 1,
         .type = TYPE_FIGHTING,
         .accuracy = 0,

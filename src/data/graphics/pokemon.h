@@ -9604,3 +9604,19 @@ const u32 gMonShinyPalette_AlakazamTCG[] = INCBIN_U32("graphics/pokemon/alakazam
 const u8 gMonIcon_AlakazamTCG[] = INCBIN_U8("graphics/pokemon/alakazamtcg/icon.4bpp");
 const u8 gMonFootprint_AlakazamTCG[] = INCBIN_U8("graphics/pokemon/alakazamtcg/footprint.1bpp");
 
+// REGIEYES
+const u32 gMonFrontPic_REGIEYES[] = INCBIN_U32("graphics/pokemon/regieyes/front.4bpp.lz");
+const u32 gMonPalette_REGIEYES[] = INCBIN_U32("graphics/pokemon/regieyes/normal.gbapal.lz");
+const u32 gMonBackPic_REGIEYES[] = INCBIN_U32("graphics/pokemon/regieyes/back.4bpp.lz");
+const u32 gMonShinyPalette_REGIEYES[] = INCBIN_U32("graphics/pokemon/regieyes/shiny.gbapal.lz");
+const u8 gMonIcon_REGIEYES[] = INCBIN_U8("graphics/pokemon/regieyes/icon.4bpp");
+const u8 gMonFootprint_REGIEYES[] = INCBIN_U8("graphics/pokemon/regieyes/footprint.1bpp");
+
+// REGI FILS_AMIE
+const u32 gMonFrontPic_REGIFILSAMIE[] = INCBIN_U32("graphics/pokemon/regifilsamie/front.4bpp.lz");
+const u32 gMonPalette_REGIFILSAMIE[] = INCBIN_U32("graphics/pokemon/regifilsamie/normal.gbapal.lz");
+const u32 gMonBackPic_REGIFILSAMIE[] = INCBIN_U32("graphics/pokemon/regifilsamie/back.4bpp.lz");
+const u32 gMonShinyPalette_REGIFILSAMIE[] = INCBIN_U32("graphics/pokemon/regifilsamie/shiny.gbapal.lz");
+const u8 gMonIcon_REGIFILSAMIE[] = INCBIN_U8("graphics/pokemon/regifilsamie/icon.4bpp");
+const u8 gMonFootprint_REGIFILSAMIE[] = INCBIN_U8("graphics/pokemon/regifilsamie/footprint.1bpp");
+

@@ -6287,12 +6287,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerSusie[] = {
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_REGIELEKI,
+        .species = SPECIES_REGIEYES,
     },
     {
         .iv = 0,
         .lvl = 24,
-        .species = SPECIES_REGIDRAGO,
+        .species = SPECIES_REGIFILSAMIE,
     },
 };
 
@@ -10133,6 +10133,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_GYARADOS_LANCE,
+        .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_DRAGONITE,
         .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
