@@ -2258,35 +2258,63 @@ static bool8 HasGottenAtLeastOneHM(void)
     return FALSE;
 }
 
+
+#define HELP_MENU_WELCOME_MESSAGE_PRINT 8
+#define HELP_MENU_WELCOME_MESSAGE_WAIT 9
+#define HELP_MENU_SECOND_WELCOME_PRINT 10
+#define HELP_MENU_SECOND_WELCOME_WAIT 11
+#define HELP_MENU_GOTO_FIRST_MENU 12
+
+#define HELP_MENU_FIRST_MENU_WAIT 0
+#define HELP_MENU_FIRST_MENU_GOTO_SECOND 1
+#define HELP_MENU_SECOND_MENU_GOTO_FIRST 2
+
+#define HELP_MENU_SECOND_MENU_WAIT 3
+#define HELP_MENU_SECOND_MENU_GOTO_THIRD 4
+#define HELP_MENU_THIRD_MENU_GOTO_SECOND 5
+
+#define HELP_MENU_THIRD_MENU_WAIT 6
+#define HELP_MENU_THIRD_MENU_GOTO_FOURTH 13
+#define HELP_MENU_FOURTH_MENU_GOTO_THIRD 14
+
+#define HELP_MENU_FOURTH_MENU_WAIT 15
+
 bool8 RunHelpMenuSubroutine(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
 {
     switch (helpListMenu->state)
     {
-    case  8:
+    case  HELP_MENU_WELCOME_MESSAGE_PRINT:
         return HelpSystemSubroutine_PrintWelcomeMessage(helpListMenu, listMenuItemsBuffer);
-    case  9:
+    case  HELP_MENU_WELCOME_MESSAGE_WAIT:
         return HelpSystemSubroutine_WelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
-    case 10:
+    case HELP_MENU_SECOND_WELCOME_PRINT:
         return HelpSystemSubroutine_PrintSecondWelcomeMessage(helpListMenu, listMenuItemsBuffer);
     
-    case 11:
+    case HELP_MENU_SECOND_WELCOME_WAIT:
         return HelpSystemSubroutine_SecondWelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
-    case 12:
+    case HELP_MENU_GOTO_FIRST_MENU:
         return HelpSystemSubroutine_WelcomeEndGotoMenu(helpListMenu, listMenuItemsBuffer);
 
-    case  0:
+    case  HELP_MENU_FIRST_MENU_WAIT:
         return HelpSystemSubroutine_MenuInputHandlerMain(helpListMenu, listMenuItemsBuffer);
-    case  1:
+    case  HELP_MENU_FIRST_MENU_GOTO_SECOND:
         return HelpMenuSubroutine_InitSubmenu(helpListMenu, listMenuItemsBuffer);
-    case  2:
+    case  HELP_MENU_SECOND_MENU_GOTO_FIRST:
         return HelpMenuSubroutine_ReturnFromSubmenu(helpListMenu, listMenuItemsBuffer);
-    case  3:
+    case  HELP_MENU_SECOND_MENU_WAIT:
         return HelpMenuSubroutine_SubmenuInputHandler(helpListMenu, listMenuItemsBuffer);
-    case  4:
+    case  HELP_MENU_SECOND_MENU_GOTO_THIRD:
         return HelpMenuSubroutine_HelpItemPrint(helpListMenu, listMenuItemsBuffer);
-    case  5:
+    case  HELP_MENU_THIRD_MENU_GOTO_SECOND:
         return HelpMenuSubroutine_ReturnFromHelpItem(helpListMenu, listMenuItemsBuffer);
-    case  6:
+    case  HELP_MENU_THIRD_MENU_WAIT:
+        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
+
+    case  HELP_MENU_THIRD_MENU_GOTO_FOURTH:
+        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_FOURTH_MENU_GOTO_THIRD:
+        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_FOURTH_MENU_WAIT:
         return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
     }
     return FALSE;
