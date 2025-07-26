@@ -1905,7 +1905,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
-    if (FlagGet(FLAG_SHINY_CREATION))
+    if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
     {
         value = TRUE;
         SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);

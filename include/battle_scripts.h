@@ -255,6 +255,7 @@ extern const u8 BattleScript_SlowStartEnds[];
 extern const u8 BattleScript_AirBalloonMsgIn[];
 extern const u8 BattleScript_AirBalloonMsgPop[];
 extern const u8 BattleScript_EffectElectrify[];
+extern const u8 BattleScript_NeutralizingGasExits[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForBallThrow[];

@@ -2948,6 +2948,7 @@ BattleScript_EffectTailSlap::
 	goto BattleScript_MultiHitLoop
 
 BattleScript_FaintAttacker::
+	tryendneutralizinggas BS_ATTACKER
 	playfaintcry BS_ATTACKER
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_ATTACKER
@@ -2957,6 +2958,7 @@ BattleScript_FaintAttacker::
 	return
 
 BattleScript_FaintTarget::
+	tryendneutralizinggas BS_TARGET
 	playfaintcry BS_TARGET
 	pause B_WAIT_TIME_LONG
 	dofaintanimation BS_TARGET
@@ -4998,3 +5000,23 @@ BattleScript_EffectElectrify::
 	printstring STRINGID_TARGETELECTRIFIED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_NeutralizingGasExits::
+	saveattacker
+	savetarget
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NEUTRALIZINGGASOVER
+	waitmessage B_WAIT_TIME_LONG
+	setbyte gBattlerAttacker, 0
+BattleScript_NeutralizingGasExitsLoop:
+	copyarraywithindex gBattlerTarget, gBattlerByTurnOrder, gBattlerAttacker, 1
+	@ jumpifabilitycantbesuppressed BS_TARGET, BattleScript_NeutralizingGasExitsLoopIncrement
+	saveattacker
+	switchinabilities BS_TARGET
+	restoreattacker
+BattleScript_NeutralizingGasExitsLoopIncrement:
+	addbyte gBattlerAttacker, 1
+	jumpifbytenotequal gBattlerAttacker, gBattlersCount, BattleScript_NeutralizingGasExitsLoop
+	restoreattacker
+	restoretarget
+	return

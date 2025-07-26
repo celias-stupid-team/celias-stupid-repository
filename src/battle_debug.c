@@ -232,7 +232,6 @@ enum
 
 // Static Declarations
 static const u8 *GetHoldEffectName(u16 holdEffect);
-static bool32 IsBattlerAlive(u32 battler);
 
 // const rom data
 static const u8 sText_HP[] = _("HP");
@@ -1736,18 +1735,6 @@ static const u8 *GetHoldEffectName(u16 holdEffect)
     if (holdEffect > ARRAY_COUNT(sHoldEffectNames))
         return sHoldEffectNames[0];
     return sHoldEffectNames[holdEffect];
-}
-
-bool32 IsBattlerAlive(u32 battler)
-{
-    if (gBattleMons[battler].hp == 0)
-        return FALSE;
-    else if (battler >= gBattlersCount)
-        return FALSE;
-    else if (gAbsentBattlerFlags & gBitTable[battler])
-        return FALSE;
-    else
-        return TRUE;
 }
 
 #endif //DEBUG_BATTLE_MENU == TRUE
