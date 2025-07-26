@@ -175834,3 +175834,203 @@ verse_11_56::
     .string "11:56$"
 verse_11_57::
     .string "11:57$"
+
+
+Bible_Book_Name_Genesis::
+    .string "GENESIS$"
+
+Bible_Book_Name_Exodus::
+    .string "EXODUS$"
+
+Bible_Book_Name_Leviticus::
+    .string "LEVITICUS$"
+
+Bible_Book_Name_Numbers::
+    .string "NUMBERS$"
+
+Bible_Book_Name_Deuteronomy::
+    .string "DEUTERONOMY$"
+
+Bible_Book_Name_Joshua::
+    .string "JOSHUA$"
+
+Bible_Book_Name_Judges::
+    .string "JUDGES$"
+
+Bible_Book_Name_Ruth::
+    .string "RUTH$"
+
+Bible_Book_Name_1_Samuel::
+    .string "1 SAMUEL$"
+
+Bible_Book_Name_2_Samuel::
+    .string "2 SAMUEL$"
+
+Bible_Book_Name_1_Kings::
+    .string "1 KINGS$"
+
+Bible_Book_Name_2_Kings::
+    .string "2 KINGS$"
+
+Bible_Book_Name_1_Chronicles::
+    .string "1 CHRONICLES$"
+
+Bible_Book_Name_2_Chronicles::
+    .string "2 CHRONICLES$"
+
+Bible_Book_Name_Ezra::
+    .string "EZRA$"
+
+Bible_Book_Name_Nehemiah::
+    .string "NEHEMIAH$"
+
+Bible_Book_Name_Esther::
+    .string "ESTHER$"
+
+Bible_Book_Name_Job::
+    .string "JOB$"
+
+Bible_Book_Name_Psalms::
+    .string "PSALMS$"
+
+Bible_Book_Name_Proverbs::
+    .string "PROVERBS$"
+
+Bible_Book_Name_Ecclesiastes::
+    .string "ECCLESIASTES$"
+
+Bible_Book_Name_Song_Of_Solomon::
+    .string "SONG OF SOLOMON$"
+
+Bible_Book_Name_Isaiah::
+    .string "ISAIAH$"
+
+Bible_Book_Name_Jeremiah::
+    .string "JEREMIAH$"
+
+Bible_Book_Name_Lamentations::
+    .string "LAMENTATIONS$"
+
+Bible_Book_Name_Ezekiel::
+    .string "EZEKIEL$"
+
+Bible_Book_Name_Daniel::
+    .string "DANIEL$"
+
+Bible_Book_Name_Hosea::
+    .string "HOSEA$"
+
+Bible_Book_Name_Joel::
+    .string "JOEL$"
+
+Bible_Book_Name_Amos::
+    .string "AMOS$"
+
+Bible_Book_Name_Obadiah::
+    .string "OBADIAH$"
+
+Bible_Book_Name_Jonah::
+    .string "JONAH$"
+
+Bible_Book_Name_Micah::
+    .string "MICAH$"
+
+Bible_Book_Name_Nahum::
+    .string "NAHUM$"
+
+Bible_Book_Name_Habakkuk::
+    .string "HABAKKUK$"
+
+Bible_Book_Name_Zephaniah::
+    .string "ZEPHANIAH$"
+
+Bible_Book_Name_Haggai::
+    .string "HAGGAI$"
+
+Bible_Book_Name_Zechariah::
+    .string "ZECHARIAH$"
+
+Bible_Book_Name_Malachi::
+    .string "MALACHI$"
+
+Bible_Book_Name_Matthew::
+    .string "MATTHEW$"
+
+Bible_Book_Name_Mark::
+    .string "MARK$"
+
+Bible_Book_Name_Luke::
+    .string "LUKE$"
+
+Bible_Book_Name_John::
+    .string "JOHN$"
+
+Bible_Book_Name_Acts::
+    .string "ACTS$"
+
+Bible_Book_Name_Paul::
+    .string "ROMANS$"
+
+Bible_Book_Name_1_Corinthians::
+    .string "1 CORINTHIANS$"
+
+Bible_Book_Name_2_Corinthians::
+    .string "2 CORINTHIANS$"
+
+Bible_Book_Name_Galatians::
+    .string "GALATIANS$"
+
+Bible_Book_Name_Ephesians::
+    .string "EPHESIANS$"
+
+Bible_Book_Name_Philippians::
+    .string "PHILIPPIANS$"
+
+Bible_Book_Name_Colossians::
+    .string "COLOSSIANS$"
+
+Bible_Book_Name_1_Thessalonians::
+    .string "1 THESSALONIANS$"
+
+Bible_Book_Name_2_Thessalonians::
+    .string "2 THESSALONIANS$"
+
+Bible_Book_Name_1_Timothy::
+    .string "1 TIMOTHY$"
+
+Bible_Book_Name_2_Timothy::
+    .string "2 TIMOTHY$"
+
+Bible_Book_Name_Titus::
+    .string "TITUS$"
+
+Bible_Book_Name_Philemon::
+    .string "PHILEMON$"
+
+Bible_Book_Name_Hebrews::
+    .string "HEBREWS$"
+
+Bible_Book_Name_James::
+    .string "JAMES$"
+
+Bible_Book_Name_1_Peter::
+    .string "1 PETER$"
+
+Bible_Book_Name_2_Peter::
+    .string "2 PETER$"
+
+Bible_Book_Name_1_John::
+    .string "1 JOHN$"
+
+Bible_Book_Name_2_John::
+    .string "2 JOHN$"
+
+Bible_Book_Name_3_John::
+    .string "3 JOHN$"
+
+Bible_Book_Name_Jude::
+    .string "JUDE$"
+
+Bible_Book_Name_Revelation::
+    .string "REVELATION$"
+

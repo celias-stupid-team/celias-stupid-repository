@@ -7,12 +7,6 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
-        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
-            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
-        }
-        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
-            setmetatile(11, 12, 0x3C3, FALSE)
-        }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM)
         
@@ -28,6 +22,14 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         }
         if(flag(FLAG_DRAW_STATUE_IN_LION_ROOM)) {
             call(FushciaGym_LionsRoom_DrawStatue)
+        }
+        
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
+            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
+        }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+            setmetatile(11, 12, 0x3C3, FALSE)
+            setvar(VAR_TEMP_0, 1)
         }
     }
 }
