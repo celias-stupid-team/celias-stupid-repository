@@ -1339,7 +1339,7 @@ extern const u8 FadeSongAndPlayVictory[];
 extern const u8 GetOakPCPokedexMessage[];
 extern const u8 EventScript_DrainPsyduckPail[];
 extern const u8 EventScript_FillPsyduckPail[];
-
+extern const u8 SafariZone_GlitchCityActivates[];
 #endif //GUARD_EVENT_SCRIPTS_H
 
 //The Bible

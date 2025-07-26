@@ -295,6 +295,9 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
+    DebugPrintf("Reset State After Fly");
+    VarSet(VAR_GLITCH_CITY_STATUS, 0);
+    VarSet(VAR_GLITCH_CITY_STEP_COUNT, 0);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
     VarSet(VAR_QL_ENTRANCE, 0);
@@ -310,6 +313,9 @@ void Overworld_ResetStateAfterTeleport(void)
     VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
+    DebugPrintf("Reset State After Teleport");
+    VarSet(VAR_GLITCH_CITY_STATUS, 0);
+    VarSet(VAR_GLITCH_CITY_STEP_COUNT, 0);
     FlagClear(FLAG_SYS_QL_DEPARTED);
     VarSet(VAR_QL_ENTRANCE, 0);
 }
@@ -325,6 +331,9 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
+    DebugPrintf("Reset State After Dig");
+    VarSet(VAR_GLITCH_CITY_STATUS, 0);
+    VarSet(VAR_GLITCH_CITY_STEP_COUNT, 0);
     VarSet(VAR_QL_ENTRANCE, 0);
 }
 
@@ -339,13 +348,16 @@ static void Overworld_ResetStateAfterWhitingOut(void)
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_FLASH_ACTIVE);
     FlagClear(FLAG_SYS_QL_DEPARTED);
+    DebugPrintf("Reset State After Die");
+    VarSet(VAR_GLITCH_CITY_STATUS, 0);
+    VarSet(VAR_GLITCH_CITY_STEP_COUNT, 0);
     VarSet(VAR_QL_ENTRANCE, 0);
 }
 
 static void Overworld_ResetStateOnContinue(void)
 {
-    FlagClear(FLAG_SYS_SAFARI_MODE);
-    VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
+    //FlagClear(FLAG_SYS_SAFARI_MODE);
+    //VarSet(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     ChooseAmbientCrySpecies();
     UpdateLocationHistoryForRoamer();
     RoamerMoveToOtherLocationSet();
@@ -1717,7 +1729,7 @@ void CB2_ContinueSavedGame(void)
 {
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
-    ResetSafariZoneFlag_();
+    //ResetSafariZoneFlag_();
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
     UnfreezeObjectEvents();
@@ -2346,7 +2358,7 @@ void CB2_EnterFieldFromQuestLog(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     gGlobalFieldTintMode = QL_TINT_BACKUP_GRAYSCALE;
-    ResetSafariZoneFlag_();
+    //ResetSafariZoneFlag_();
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
     UnfreezeObjectEvents();

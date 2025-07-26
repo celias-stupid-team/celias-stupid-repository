@@ -81,7 +81,7 @@
       "x": 4,
       "y": 3,
       "elevation": 3,
-      "var": "VAR_SAFARI_ZONE_ENTRANCE",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "FushciaCity_SafariZone_Entrance"
     },
@@ -90,7 +90,7 @@
       "x": 5,
       "y": 3,
       "elevation": 3,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "FushciaCity_SafariZone_Entrance"
     },
@@ -99,7 +99,7 @@
       "x": 3,
       "y": 3,
       "elevation": 3,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "FushciaCity_SafariZone_Entrance"
     }

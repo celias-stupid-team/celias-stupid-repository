@@ -88,8 +88,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 24,
-      "y": 21,
+      "x": 21,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -130,7 +130,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 30,
+      "x": 18,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -154,20 +154,6 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SafariZone_North_Child",
-      "flag": "FLAG_TEMP_3"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 17,
-      "y": 21,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_UndergroundPathHint",
       "flag": "FLAG_TEMP_3"
     },
     {
@@ -348,14 +334,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SafariZone_North_ShowdownSign"
-    },
-    {
-      "type": "sign",
-      "x": 19,
-      "y": 23,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SafariZone_West_EventScript_LostTeethNotice"
     }
   ]
 }
