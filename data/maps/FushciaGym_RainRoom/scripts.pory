@@ -77,7 +77,7 @@ script FushciaGym_RainRoom_Sign {
                 delay(30)
                 playse(SE_CLICK)
                 removeitem(ITEM_SPARE_DOOR)
-
+                setflag(FLAG_SET_FUSHCIA_DOOR)
                 call(FushciaGym_RainRoom_OpenDoor)
                 special(DrawWholeMapView)
                 delay(60)
