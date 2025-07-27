@@ -3381,6 +3381,12 @@ BattleScript_SunlightFaded::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TrickRoomContinues::
+	printstring STRINGID_DIMENSIONSARETWISTED
+	waitmessage B_WAIT_TIME_LONG
+	@ playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
+	end2
+
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds
 	waitmessage B_WAIT_TIME_LONG

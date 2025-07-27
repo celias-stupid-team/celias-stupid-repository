@@ -256,7 +256,7 @@ u16 VarGet(u16 idx)
 }
 
 void GlitchCityDebug(void) {
-    DebugPrintf("Glitch City Status %u", VarGet(VAR_GLITCH_CITY_STATUS));
+    // DebugPrintf("Glitch City Status %u", VarGet(VAR_GLITCH_CITY_STATUS));
 }
 
 bool8 VarSet(u16 idx, u16 val)

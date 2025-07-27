@@ -434,8 +434,9 @@
 #define STRINGID_PROTEAN 433
 #define STRINGID_MEMENTO 434
 #define STRINGID_MISSED_FROM_AIR_BALLOON 435
+#define STRINGID_DIMENSIONSARETWISTED 436
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     437 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     438 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
