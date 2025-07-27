@@ -261,6 +261,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
+	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
+
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5063,3 +5065,26 @@ BattleScript_NeutralizingGasExitsLoopIncrement:
 	restoreattacker
 	restoretarget
 	return
+
+
+BattleScript_EffectAgilityDumb::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_GOING_TOO_FAST
+	waitmessage B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	setatkhptozero
+	waitstate
+	effectivenesssound
+	hitanimation BS_ATTACKER
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	printstring STRINGID_HIT_A_WALL
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd

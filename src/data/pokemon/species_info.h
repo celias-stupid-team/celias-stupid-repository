@@ -23380,12 +23380,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_STAKATAKA] =
     {
-        .baseHP = 10,
+        .baseHP = 2,
         .baseAttack = 255,
-        .baseDefense = 10,
+        .baseDefense = 2,
         .baseSpeed = 8,
         .baseSpAttack = 53,
-        .baseSpDefense = 10,
+        .baseSpDefense = 2,
         .types = {TYPE_ROCK, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 150,

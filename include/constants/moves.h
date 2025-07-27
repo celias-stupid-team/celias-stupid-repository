@@ -630,8 +630,9 @@
 #define MOVE_DARK_VOID 625
 #define MOVE_ELECTRIFY 626
 #define MOVE_FLARE_BLITZ 627
+#define MOVE_AGILITY_DUMB 628
 
-#define MOVES_COUNT 628
+#define MOVES_COUNT 629
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

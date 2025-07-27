@@ -10091,9 +10091,15 @@ static const struct TrainerMonItemCustomMoves sParty_FrontierBrainTucker[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 70,
         .species = SPECIES_STAKATAKA,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ROCK_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_REGIELEKI,
+        .moves = {MOVE_AGILITY_DUMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

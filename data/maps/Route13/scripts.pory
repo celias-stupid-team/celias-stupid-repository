@@ -282,3 +282,124 @@ movement Route13_BackOnTrack {
 movement Route13_LastSteps {
 	walk_right * 3
 }
+
+
+script CeliaSecrets_Bonus_SnorlaxPuzzle {
+	msgbox("I tried so hard to make an\ninteresting puzzle out of this\lSNORLAX.\pAlas, no matter what I tried\nI couldn't think of anything fun.\pThus, he blows up in your face.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SignSide {
+	msgbox("If you want to know the level of\ndetail I strive for:\pI spent at least an hour agonizing\nover whether this sign should be on\lthe right or left of the snorlax.\pIt's right.\nDefinitely right.\p…\puh\nI think", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SkipRoute {
+	msgbox("This route is so fucking boring\nin vanilla.\lI had no clue what to do with it.\pI settled on “Let you ignore all\nof it.”", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_LeftOfSign {
+	msgbox("The “Look! To the left of\nthis sign!” thing in vanilla\lwas always so weird.\pThe hidden item is… to the\nfucking left of it.\pUnless it means from the player\ncharacter's POV, and you'd have to\luse spacial reasoning for it?\pIdk, it's fucky.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_PhotorealisticWater {
+	msgbox("I'm very good at programming.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_RapSkip {
+	msgbox("As much fun as the pokerap is, I'd\nnever force someone to do all of it\pThe joke here is that this stretch\nin Kanto is basically just a giant\lline of trainers.\pI just put them a little closer\ntogether.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_RapSong {
+	msgbox("To my knowledge, I was the first\nperson to make a midi pokerap.\pI couldn't find any fan ones made\nonline, so I had to do it myself.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DadRap {
+	msgbox("Did you notice that Dad here is the\nRap's entry for Mr. Mime?", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Thesis {
+	msgbox("This right here is my thesis\nstatement for this game.\pIf you come away from this hack\nwith nothing else, let it be this:\lYour creative work is valuable!\pAll art is a conversation, and\nevery voice matters.\lNo one but you has your vision!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Onigiri {
+	msgbox("The sign says ONIGIRI in Japanese.\nThat's the word for Rice Balls.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SurfBoat {
+	msgbox("The idea here is that someone\nkept shoving Surf HMs onto the boat\land they kept breaking.\pThus, they came to the conclusion\nthat the boat sucks.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SeashoreJesus {
+	msgbox("The layering on these beach chairs\nwas really obnoxious to get right.\pThe way FRLG is set up, tiles that\nlet you walk onto higher elevation\lalso let you walk onto water.\pI had to do a lot of trickery to\nprevent you from becoming Jesus.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Route15Pretty {
+	msgbox("I'm very happy wtih how this\nroute turned out.\pAll the jokes and bits are paced\nout wonderfully, and it's very\lpretty too.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_FushciaSpelling {
+	msgbox("Read this guy's dialogue veeeeeery\ncarefully lol", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_ModernExp {
+	msgbox("In this hack, I removed the ability\nto organize your pokedex by type\land by letter.\pThis is explicitly me taking\nagency away from the player.\pHowever, within the context of\nthis hack, it's obvious why.\pPlayers who use those features by\ndefault don't expect there to be\lanything new with the dex order,\lso they default to what they know.\pIt's my job as a game designer to\nguide players to the experience I\lwant them to have.\pAnyway, modern gen exp share.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_BinocularLass {
+	msgbox("Strong contender for best cutscene\nin the hack.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_Pickles {
+	msgbox("Lickitung's bit was gonna be some\nweird schtick where the guy was\lbisexual and you needed to give him\lonix or cloyster based on your\lplayer's gender.\pIt wasn't funny, and it wasn't\nvery interesting.\pNow it's pickles.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_BikeSign {
+	msgbox("I love making people annoy\nthemselves with their own actions.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_DickBridge {
+	msgbox("This bridge was drawn by my good\nfriend LIAM DICK!", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_IllusionPants {
+	msgbox("In Pokemon BW, there's an NPC\non a bridge who suddenly phases\lout of existence.\pIn Avatar the Last Airbender, an\niconic line is “Pants are an\lillusion, and so is death!”", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_CivilAssetForfeiture {
+	msgbox("Ah, politics.\n", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_HarryDubois {
+	msgbox("This guy is an allusion to Harry\nDubois from Disco Elysium!\pHe lost his gun, which the\nSafari Warden eventualy finds.\pReal Harry is not nearly this\nrude, though.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_TentacoolSound {
+	msgbox("You wouldn't believe how hard it\nis to come up with convincing\lsounds for random Pokemon to make\lwhen writing dialouge for them.", MSGBOX_NPC)
+	end
+}
+
+script CeliaSecrets_Bonus_SwimFurret {
+	msgbox("Normally it's impossible to talk\nto NPCs in the water while you're\lon land.\pI had to do some actual fuckery\nin the game's code to let this\lroom work.", MSGBOX_NPC)
+	end
+}

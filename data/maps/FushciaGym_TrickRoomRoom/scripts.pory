@@ -1,8 +1,23 @@
 mapscripts FushciaGym_TrickRoomRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
-        call(FushciaGym_TrickRoomRoom_OpenDoors)
-        
+    if(flag(FLAG_DRILLED_TRICK_WALL)) {
+        call(FushciaGym_TrickRoomRoom_DrawBigHole)
+    } else {
+        if(flag(FLAG_CAN_DRILL_TRICK_WALL)) {
+            call(FushciaGym_TrickRoomRoom_DrawSmallHole)
+        }
+    }
+    if(flag(FLAG_GOT_SHINY_SLOWPOKE)) {
+        setflag(FLAG_TEMP_1)
+        setflag(FLAG_TEMP_2)
+    }
+    if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
+        setweather(WEATHER_NONE)
+        call(FushciaGym_TrickRoomRoom_DrawTireTreadsAndDeadSlowpoke)
+        setflag(FLAG_TEMP_1)
+    } else {
+        setflag(FLAG_TEMP_2)
+        setflag(FLAG_TEMP_3)
     }
     setrespawn(HEAL_LOCATION_FUSHCIA_GYM_TRICK_ROOM_ROOM)
     }
@@ -14,34 +29,212 @@ script FushciaGym_TrickRoomRoom_OpenDoors {
     return
 }
 
+script FushciaGym_TrickRoomRoom_Regieleki {
+    lock
+    playmoncry(SPECIES_REGIELEKI, CRY_MODE_DEFAULT)
+    msgbox("REGIELEKI: Bzzzt!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(20)
+    msgbox("Looks like it's still going.\n", MSGBOX_DEFAULT)
+    release
+}
+
+script FushciaGym_TrickRoomRoom_WallHole {
+    if(flag(FLAG_DRILLED_TRICK_WALL)) {
+        msgbox("There is a {PLAYER}-sized hole\nin the wall.", MSGBOX_SIGN)
+        end
+    } else {
+        if(flag(FLAG_CAN_DRILL_TRICK_WALL)) {
+            if(!checkitem(ITEM_DRILL_DOZER)) {
+                msgbox("There's a crack in the wall where\nREGIELEKI rammed into it.", MSGBOX_SIGN)
+                end
+            
+            }
+            lock
+
+            msgbox("There's a crack in the wall where\nREGIELEKI rammed into it.\pWould you like to make the hole\nbigger?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                call(FushciaGym_TrickRoomRoom_DrawBigHole)
+                special(DrawWholeMapView)
+                
+                playse(SE_M_HORN_ATTACK)
+                delay(10)
+                playse(SE_M_HORN_ATTACK)
+                delay(10)
+                playse(SE_M_HORN_ATTACK)
+                delay(10)
+                playse(SE_M_HORN_ATTACK)
+                delay(10)
+                playse(SE_M_HORN_ATTACK)
+                delay(30)
+                setflag(FLAG_DRILLED_TRICK_WALL)
+                fadescreen(FADE_FROM_BLACK)
+                release
+                end
+            } else {
+                release
+                end
+            }
+        } else {
+            lock
+            msgbox("The wall is exceptionally normal.\pNothing suggests anything out of\nthe ordinary about it.\lNonetheless, you feel drawn to it.", MSGBOX_DEFAULT)
+            if(checkitem(ITEM_DRILL_DOZER)) {
+                msgbox("Would you like to use your\nDRILL DOZER?", MSGBOX_YESNO)
+                if(var(VAR_RESULT)) {
+                    msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
+                    closemessage
+                    fadescreen(FADE_TO_BLACK)
+                    call(FushciaGym_TrickRoomRoom_DrawBigHole)
+                    special(DrawWholeMapView)
+                    
+                    playse(SE_M_HORN_ATTACK)
+                    delay(10)
+                    playse(SE_M_HORN_ATTACK)
+                    delay(10)
+                    playse(SE_M_HORN_ATTACK)
+                    delay(10)
+                    playse(SE_M_HORN_ATTACK)
+                    delay(10)
+                    playse(SE_M_HORN_ATTACK)
+                    delay(30)
+                    setflag(FLAG_DRILLED_TRICK_WALL)
+                    fadescreen(FADE_FROM_BLACK)
+                } else {
+                    release
+                    end
+                }
+            }
+            
+        }
+    }
+    release
+}
+
+script FushciaGym_TrickRoomRoom_DrawBigHole {
+    setmetatile(19, 7, 0x3F6, TRUE)
+    setmetatile(19, 8, 0x282, FALSE)
+    setmetatile(19, 9, 0x3FE, TRUE)
+
+    setmetatile(20, 7, 0x3F6, TRUE)
+    setmetatile(20, 8, 0x282, FALSE)
+    setmetatile(20, 9, 0x3FE, TRUE)
+
+    setmetatile(21, 7, 0x3F6, TRUE)
+    setmetatile(21, 8, 0x282, FALSE)
+    setmetatile(21, 9, 0x3FE, TRUE)
+
+    setmetatile(22, 7, 0x3F6, TRUE)
+    setmetatile(22, 8, 0x282, FALSE)
+    setmetatile(22, 9, 0x3FE, TRUE)
+
+    setmetatile(23, 7, 0x3F6, TRUE)
+    setmetatile(23, 8, 0x282, FALSE)
+    setmetatile(23, 9, 0x3FE, TRUE)
+
+    setmetatile(24, 7, 0x3F6, TRUE)
+    setmetatile(24, 8, 0x282, FALSE)
+    setmetatile(24, 9, 0x3FE, TRUE)
+
+    setmetatile(25, 7, 0x3F6, TRUE)
+    setmetatile(25, 8, 0x282, FALSE)
+    setmetatile(25, 9, 0x3FE, TRUE)
+    return
+}
+
+script FushciaGym_TrickRoomRoom_DrawSmallHole {
+    setmetatile(19, 8, 0x365, TRUE)
+    return
+    
+}
+
+script FushciaGym_TrickRoomRoom_DrawTireTreadsAndDeadSlowpoke {
+    setmetatile(26, 8, 0x3D7, FALSE)
+    setmetatile(27, 8, 0x2A0, FALSE)
+    setmetatile(28, 8, 0x390, FALSE)
+    setmetatile(29, 8, 0x3A5, FALSE)
+    setmetatile(30, 8, 0x3A7, FALSE)
+    setmetatile(31, 8, 0x2A0, FALSE)
+    setmetatile(232, 8, 0x383, FALSE)
+    if(!flag(FLAG_GOT_SHINY_SLOWPOKE)) {
+        clearflag(FLAG_TEMP_2)
+
+    }
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script FushciaGym_TrickRoomRoom_ShinySlowpoke {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SLOWPOKE, CRY_MODE_DEFAULT)
+    msgbox("SLOWPOKE: Slooooow?\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(20)
+    removeobject(VAR_LAST_TALKED)
+    setflag(FLAG_SHINY_CREATION)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SLOWPOKE)
+    playfanfare(MUS_LEVEL_UP)
+    msgbox("{PLAYER} got the tricked-up\nSLOWPOKE!", MSGBOX_DEFAULT)
+    call(Common_Script_GiftPokemon)
+    setflag(FLAG_GOT_SHINY_SLOWPOKE)
+    release
+    end
+
+}
+
+script FushciaGym_TrickRoomRoom_DeadSlowpoke {
+	msgbox("He's dead.\n", MSGBOX_SIGN)
+	end
+}
 
 script FushciaGym_TrickRoomRoom_Trainer {
     lock
     faceplayer
     textcolor(NPC_TEXT_COLOR_FEMALE)
     if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
-	    msgbox("The LEADER set up the invisible\nwalls that block your path.\lTo find him is no small feat.\pYou've done well to navigate\nthis maze, TRAINER.\pLet nothing slow you down.\n", MSGBOX_DEFAULT)
-        call(FushciaGym_TrickRoomRoom_OpenDoors)
-        special(DrawWholeMapView)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+        
+        msgbox("LUCY: … … …\n", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        faceplayer
+        msgbox("Uh.\pI hope he's okay.\n", MSGBOX_DEFAULT)
+        setflag(FLAG_CAN_DRILL_TRICK_WALL)
     } else {
 	    msgbox("LUCY: Hmph.\nRunning out of steam yet?\pI am LUCY of the BATTLE PIKE.\nWelcome to the TRICK ROOM!\lThink you can get past?", MSGBOX_DEFAULT)
+        call(FushciaGym_TrickRoomRoom_DrawSmallHole)
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_LUCY, "Urk…\n")
-        call(FushciaGym_TrickRoomRoom_OpenDoors)
+        setflag(FLAG_CAN_DRILL_TRICK_WALL)
+        call(FushciaGym_TrickRoomRoom_DrawTireTreadsAndDeadSlowpoke)
+        setflag(FLAG_TEMP_1)
         special(DrawWholeMapView)
+        clearflag(FLAG_TEMP_3)
+        setweather(WEATHER_NONE)
+        doweather
 
     }
-    call(FushciaGym_TrickRoomRoom_OpenDoors)
-    special(DrawWholeMapView)
     release
 }
 
 
 script FushciaGym_TrickRoomRoom_Stakataka {
     lock
-    playmoncry(SPECIES_STAKATAKA, CRY_MODE_DEFAULT)
-	msgbox("Hey!\nIt's that very fancy STAKATAKA!", MSGBOX_DEFAULT)
-    waitmoncry
-	release
+    if(checktrainerflag(TRAINER_BATTLE_FRONTIER_LUCY)) {
+        msgbox("The fancy STAKATAKA is dead.\n", MSGBOX_DEFAULT)
+        release
+        end
+    } else {
+        playmoncry(SPECIES_STAKATAKA, CRY_MODE_DEFAULT)
+        msgbox("Hey!\nIt's that very fancy STAKATAKA!", MSGBOX_DEFAULT)
+        waitmoncry
+        release
+
+    }
 }
 
 script FushciaGym_TrickRoomRoom_Sign {

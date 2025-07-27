@@ -628,6 +628,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_DARK_VOID]    = _("DARK VOID"),
     [MOVE_ELECTRIFY]    = _("ELECTRIFY"),
 [MOVE_FLARE_BLITZ]    = _("FLARE BLITZ"),
+
+    [MOVE_AGILITY_DUMB]       = _("AGILITY"),
 };
 
 
@@ -1262,5 +1264,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_DARK_VOID]    = _("DARK VOID"),
 [MOVE_ELECTRIFY]    = _("ELECTRIFY"),
 [MOVE_FLARE_BLITZ]    = _("FLARE BLITZ"),
+    [MOVE_AGILITY_DUMB]       = _("AGILITY"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

@@ -38,7 +38,7 @@ script FushciaGym_ShedinjaTrainer {
         call(FushciaGym_ShedinjaRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {
-        msgbox("Ahaha!\nI am DOME ACE TUCKER.\pCome, darling\nLet's put on a show!\n", MSGBOX_DEFAULT)
+        msgbox("Ahaha!\nI am DOME ACE TUCKER.\pCome, darling.\nLet's put on a show!\n", MSGBOX_DEFAULT)
         setvar(VAR_FUSHCIA_GYM_SHEDINJA_STATE, START_SHEDINJA_BATTLE)
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_TUCKER, "No!\nDropped my balls!")
         call(FushciaGym_ShedinjaRoom_OpenDoors)

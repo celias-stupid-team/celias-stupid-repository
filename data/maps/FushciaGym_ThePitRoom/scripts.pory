@@ -34,7 +34,7 @@ script FushciaGym_ThePitRoom_Sign {
 }
 
 script FushciaGym_ThePitRoom_Lass {
-	msgbox("Stop looking at me!\n", MSGBOX_NPC)
+	msgbox("The GYM LEADER set up the\ninvisible walls all over the GYM.\lBut…\pThey make me so anxious!\nAnyone could be looking at me!", MSGBOX_NPC)
 	end
 }
 

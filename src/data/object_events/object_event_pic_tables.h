@@ -3423,3 +3423,25 @@ const struct SpriteFrameImage gObjectEventPicTable_Gray_celia[] = {
     overworld_frame(gObjectEventPic_Gray_celia, 2, 4, 7),
     overworld_frame(gObjectEventPic_Gray_celia, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Regieleki[] = {
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Regieleki, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_Deadpoke[] = {
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 0),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 1),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 2),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 3),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 4),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 5),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 6),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 7),
+    overworld_frame(gObjectEventPic_Deadpoke, 2, 2, 8),
+};
