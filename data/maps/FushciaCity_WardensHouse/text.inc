@@ -56,8 +56,8 @@ FushciaCity_WardensHouse_Text_YouHaveTooMuchStuff::
     .string "いっぱいやんけ！$"
 
 FushciaCity_WardensHouse_Text_MonPhotosFossilsOnDisplay::
-	.string "The display case has been\n"
-	.string "stripped dry.$"
+	.string "A seemingly-endless collection\n"
+	.string "of guns.$"
 
 FushciaCity_WardensHouse_Text_OldMonMerchandiseOnDisplay::
 	.string "The display case has been\n"

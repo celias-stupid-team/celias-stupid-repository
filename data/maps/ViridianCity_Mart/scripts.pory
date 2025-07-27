@@ -121,11 +121,43 @@ script EventScript_Questionnaire {
 		end
 
 	}
-
+	
+	goto_if_eq(VAR_0x8002, 0, PokeMart_ShinyVulpix)
 	goto_if_eq(VAR_0x8004, 0, EventScript_EnableMysteryGift)
 	goto_if_eq(VAR_RESULT, 0, EventScript_DeclineQuestionnaire)
 	goto_if_eq(VAR_RESULT, 1, EventScript_TookQuestionnaire)
 }
+
+script PokeMart_ShinyVulpix {
+	if(flag(FLAG_GOT_SHINY_VULPIX)) {
+		goto(EventScript_TookQuestionnaire)
+	} else {
+		fadenewbgm(MUS_DUMMY)
+		delay(30)
+		playse(SE_PIN)
+		applymovement(VAR_0x8008, PokeMart_FaceDownExclamation)
+		waitmovement(0)
+		delay(30)
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Oh, hey!\nThat's a valid password!\pIt's not quite as good as\nNARPAS SWORD, but hey!\lIt'll do in a pinch.\pHere's what you've unlocked.\nEnjoy!", MSGBOX_DEFAULT)
+		closemessage
+		setflag(FLAG_SHINY_CREATION)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_VULPIX)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox("{PLAYER} was given two E TANKS,\nMISSILES, and a VULPIX!", MSGBOX_DEFAULT)
+		waitfanfare
+		call(Common_Script_GiftPokemon)
+		setflag(FLAG_GOT_SHINY_VULPIX)
+		msgbox("Hey, best of luck with that.\pI'm sure you'll be able to beat\nMOTHER BRAIN!", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(VAR_0x8008, Common_Movement_FaceOriginalDirection)
+		waitmovement(0)
+		fadedefaultbgm
+		release
+		end
+	}
+}
+
 
 movement PokeMart_FaceDownExclamation {
 	face_down

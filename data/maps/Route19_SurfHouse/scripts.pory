@@ -24,6 +24,11 @@ script Route19_SurfHouse_Zigzagoon {
 
 }
 
+script Route19_SurfHouse_NotLettuce {
+	msgbox("That's not LETTUCE, silly!\n", MSGBOX_SIGN)
+	end
+}
+
 script Route19_SurfHouse_Furret {
     lock
     faceplayer

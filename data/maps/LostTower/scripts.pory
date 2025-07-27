@@ -1,0 +1,9 @@
+mapscripts LostTower_MapScripts {
+
+
+}
+
+script LostTower_Gravestone {
+	msgbox("something\n", MSGBOX_SIGN)
+	end
+}

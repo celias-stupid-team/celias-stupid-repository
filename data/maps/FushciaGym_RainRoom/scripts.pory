@@ -15,8 +15,10 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         special(GetPlayerXY)
         if(!flag(FLAG_GOT_POISONED_ONCE)) {
             setflag(FLAG_TEMP_2)
+            
         } else {
             setvar(VAR_0x8005, 0)
+            setflag(FLAG_DRAW_STATUE_IN_LION_ROOM)
         }
         if(var(VAR_0x8005) == 6) {
             setobjectxyperm(LOCALID_NURSE, 6, 7)
@@ -120,4 +122,10 @@ script FushciaGym_RainRoom_DrawHole {
     setmetatile(2, 8, 0x3CC, TRUE)
     setmetatile(3, 8, 0x3CC, TRUE)
     return
+}
+
+
+script FushciaGym_RainRoom_Sign {
+	msgbox("WET ROOM\pIt's wet.\n", MSGBOX_SIGN)
+	end
 }

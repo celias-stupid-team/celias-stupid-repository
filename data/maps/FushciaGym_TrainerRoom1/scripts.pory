@@ -64,3 +64,23 @@ script FushciaGym_TrainerRoom1_OpenDoors {
     setmetatile(11, 8, 0x357, TRUE)
     return
 }
+
+script FushciaGym_TrainerRoom1_LeftDoor {
+    lock
+    if(flag(FLAG_DEFEATED_TRAINER_1)) {
+        msgbox("GUTS ROOM\pThis room can easily be cheesed\nif you want.\pBut, like… please don't?\nThanks :)", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_TrainerRoom1_RightDoor {
+    lock
+    if(flag(FLAG_DEFEATED_TRAINER_1)) {
+        msgbox("HEALING ROOM\nGive your POKéMON a full rest!\pNotice!\pThis room is found to be violating\nthe Geneva Conventions.\pPlease proceed with caution.\n", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}

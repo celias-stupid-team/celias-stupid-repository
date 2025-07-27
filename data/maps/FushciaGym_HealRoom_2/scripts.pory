@@ -24,3 +24,9 @@ mapscripts FushciaGym_HealRoom_2_MapScripts {
         }
     ]
 }
+
+
+script FushciaGym_HealRoom_2_Sign {
+	msgbox("JAIL\pThis room is for cheaters\n", MSGBOX_SIGN)
+	end
+}

@@ -1905,7 +1905,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
-    if (FlagGet(FLAG_SHINY_CREATION))
+    if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
     {
         value = TRUE;
         SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);
@@ -2523,6 +2523,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
+
+    if (attacker->ability == ABILITY_SLOW_START && gDisableStructs[battlerIdAtk].slowStartTimer > gBattleResults.battleTurnCounter)
+        attack = attack / 10;
 
     if (ShouldGetStatBadgeBoost(FLAG_BADGE01_GET, battlerIdAtk))
         attack = (110 * attack) / 100;
@@ -3837,6 +3840,32 @@ u8 CalculatePlayerPartyCount(void)
     }
 
     return gPlayerPartyCount;
+}
+
+
+void CalculatePlayerLivingPartyCount(void)
+{
+        s32 aliveCount = 0;
+    s32 i;
+    CalculatePlayerPartyCount();
+
+    if (gPlayerPartyCount == 1)
+        gSpecialVar_Result = 1; // PLAYER_HAS_ONE_MON
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        // FRLG changed the order of these checks, but there's no point to doing that
+        // because of the requirement of all 3 of these checks.
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_EGG)
+            aliveCount++;
+    }
+
+    //return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
+    gSpecialVar_Result = aliveCount;
+
+    
 }
 
 

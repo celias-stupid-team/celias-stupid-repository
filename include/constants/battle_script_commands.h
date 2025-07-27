@@ -96,6 +96,9 @@
 #define VARIOUS_TRY_SET_SPECIAL_REFLECT         18
 #define VARIOUS_HANDLE_SPRITE_UPDATE            19
 #define VARIOUS_JUMP_IF_TARGET_ALLY             20
+#define VARIOUS_TRY_ELECTRIFY                   21
+#define VARIOUS_TRY_END_NEUTRALIZING_GAS        22
+#define VARIOUS_SWITCHIN_ABILITIES              23
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0
@@ -147,6 +150,7 @@
 #define MOVEEND_UPDATE_LAST_MOVES               15
 #define MOVEEND_MIRROR_MOVE                     16
 #define MOVEEND_NEXT_TARGET                     17
-#define MOVEEND_COUNT                           18
+#define MOVEEND_ITEM_EFFECTS_TARGET             18
+#define MOVEEND_COUNT                           19
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

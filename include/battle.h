@@ -182,10 +182,11 @@ struct DisableStruct
     /*0x18*/ u8 unk18_a_2 : 2;
     /*0x18*/ u8 mimickedMoves : 4;
     /*0x19*/ u8 rechargeTimer;
-    /*0x1A*/ u8 unk1A[2];
+    /*0x1A*/ u16 slowStartTimer;
              u8 substitute2Layers : 2; // Unused, was replaced with substitute2CurrentLayer
              u8 substitute2CurrentLayer : 2;
-             u8 padding : 4 ;
+             u8 neutralizingGas : 1;
+             u8 padding : 3 ;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];
@@ -241,6 +242,7 @@ struct SpecialStatus
     u8 ppNotAffectedByPressure:1;
     u8 faintedHasReplacement:1;
     u8 focusBanded:1;
+    //eob
     u8 field1[3];
     s32 dmg;
     s32 physicalDmg;
@@ -249,7 +251,11 @@ struct SpecialStatus
     u8 specialBattlerId;
     u8 focusSashed:1;
     u8 sturdied:1;
-    u8 filler:6;
+    u8 switchInAbilityDone:1;
+    u8 announceNeutralizingGas:1;   // See Cmd_switchineffects
+    u8 neutralizingGasRemoved:1;    // See VARIOUS_TRY_END_NEUTRALIZING_GAS
+    u8 filler:3;
+    //eob
     u8 field13;
 };
 
@@ -476,7 +482,11 @@ struct BattleStruct
         struct LinkBattlerHeader linkBattlerHeader;
         struct MultiBattlePokemonTx multiBattleMons[3];
     } multiBuffer;
-    u8 padding_1E4[0x1C];
+    u8 savedBattlerTarget[5];
+    u8 savedBattlerAttacker[5];
+    u8 savedTargetCount:4;
+    u8 savedAttackerCount:4;
+    u8 padding_1E4[0x11];
 }; // size == 0x200 bytes
 
 extern struct BattleStruct *gBattleStruct;
@@ -747,6 +757,10 @@ extern u16 gRandomTurnNumber;
 
 struct Pokemon *GetSideParty(u8 side);
 struct Pokemon *GetBattlerParty(u8 battler);
+
+u32 IsOnPlayerSide(u8 battler);
+bool32 IsBattlerTurnDamaged(u32 battler);
+bool32 IsBattlerAlive(u32 battler);
 
 #endif // GUARD_BATTLE_H
 

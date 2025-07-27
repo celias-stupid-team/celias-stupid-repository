@@ -134,6 +134,11 @@ script PokemonTower_2F_EndOfDemo {
 	end
 }
 
+script PokemonTower_2F_CeliaDexUpdate {
+	msgbox("Hiya!\nIt's me, CELIA!\lI hope you've been having fun!\pYou've been completing your\nPOKéDEX, right?\lIt's very important to do that!\pRight now, I recommend that you\nhave 69 POKéMON caught.\l(nice)\pThe highest you can have is 83, but\nsome are VERY hard to find.\lDon't force yourself to finish!\pAnyway, good luck coming up!\nRead carefully and pay attention.\lHave fun!", MSGBOX_NPC)
+	end
+}
+
 script PokemonTower2F_Gravestone {
 	lock
 	msgbox("In loving memory of grandpa.\nMay we always recall his last words.", MSGBOX_DEFAULT)

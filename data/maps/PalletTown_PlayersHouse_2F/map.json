@@ -100,6 +100,13 @@
       "elevation": 0,
       "dest_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_PALLET_TOWN",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [],

@@ -62,3 +62,24 @@ script FushciaGym_TrainerRoom2_OpenDoors {
     setmetatile(14, 4, 0x357, TRUE)
     return
 }
+
+
+script FushciaGym_TrainerRoom2_LeftDoor {
+    lock
+    if(flag(FLAG_DEFEATED_TRAINER_2)) {
+        msgbox("BALLROOM\pThis room is balls.\n", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_TrainerRoom2_RightDoor {
+    lock
+    if(flag(FLAG_DEFEATED_TRAINER_2)) {
+        msgbox("MAZE ROOM\pDon't look at her!\n", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}

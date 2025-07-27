@@ -7,11 +7,12 @@ mapscripts FushciaGym_IcePuzzleRoom_MapScripts {
             setobjectxyperm(LOOK_GIRL, VAR_TEMP_1, 8)
 
         }
-        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)) {
-            setmetatile(12, 12, 0x3C3, FALSE)
-        }
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) >= 26) {
             setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)
+        }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE)) {
+            setmetatile(12, 12, 0x3C3, FALSE)
+            setvar(VAR_TEMP_0, 1)
         }
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
@@ -37,4 +38,14 @@ script FushciaGym_IcePuzzleRoom_ResetButton {
     }
     release
 
+}
+
+script FushciaGym_IcePuzzleRoom_TrickRoomSign {
+	msgbox("TRICK ROOM\p(It's a trick!)\n", MSGBOX_SIGN)
+	end
+}
+
+script FushciaGym_IcePuzzleRoom_DoubleRoomSign {
+	msgbox("ROOM\pI don't have a name for this\none, sorry.", MSGBOX_SIGN)
+	end
 }

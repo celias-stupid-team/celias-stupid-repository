@@ -210,7 +210,6 @@ MysteryEventScript_AuroraTicket::
 	lock
 	faceplayer
 	vgoto_if_set FLAG_RECEIVED_AURORA_TICKET, AuroraTicket_Obtained
-	vgoto_if_set FLAG_FOUGHT_DEOXYS, AuroraTicket_Obtained
 	checkitem ITEM_AURORA_TICKET, 1
 	vgoto_if_eq VAR_RESULT, TRUE, AuroraTicket_Obtained
 	vmessage sText_AuroraTicket1

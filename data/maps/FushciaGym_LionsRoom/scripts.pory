@@ -7,12 +7,6 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 0) {
             setflag(FLAG_TEMP_1)
         }
-        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
-            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
-        }
-        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
-            setmetatile(11, 12, 0x3C3, FALSE)
-        }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_LIONS_ROOM)
         
@@ -26,7 +20,25 @@ mapscripts FushciaGym_LionsRoom_MapScripts {
         if(flag(FLAG_DRILLED_LION_HOLE)) {
             call(FushciaGym_LionRoom_DrawHole)
         }
+        if(flag(FLAG_DRAW_STATUE_IN_LION_ROOM)) {
+            call(FushciaGym_LionsRoom_DrawStatue)
+        }
+        
+        if(var(VAR_FUCHSIA_LOOK_GIRL_LOCATION) == 10) {
+            setflag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)
+        }
+        if(flag(FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS)) {
+            setmetatile(11, 12, 0x3C3, FALSE)
+            setvar(VAR_TEMP_0, 1)
+        }
     }
+}
+
+script FushciaGym_LionsRoom_DrawStatue {
+    setmetatile(9, 8, 0x3E7, FALSE)
+    setmetatile(9, 9, 0x3EF, TRUE)
+    return
+
 }
 
 script FushciaGym_LionsRoom_Vulpix {
@@ -76,7 +88,7 @@ movement FushciaGym_ThrowVulpix {
 }
 
 script FushciaGym_LionsRoom_Trainer {
-    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
+    trainerbattle_single(TRAINER_BATTLE_FRONTIER_NOLAND, "{COLOR BLUE}Hey, hey!\nI'm NOLAND of the BATTLE FACTORY!\pAt my place, I got access to all\nof the POKéMON.\pAnd yet! Even all the POKéMON at\nonce can't take me down!", "lol")
     release
 }
 
@@ -153,4 +165,9 @@ script FushciaGym_LionRoom_DrawHole {
     setmetatile(4, 12, 0x39C, TRUE)
     setmetatile(5, 12, 0x39C, TRUE)
     return
+}
+
+script FushciaGym_LionRoom_Sign {
+	msgbox("FRIEND ROOM\pWell, this friend is actually a bit\ntoxic.", MSGBOX_SIGN)
+	end
 }

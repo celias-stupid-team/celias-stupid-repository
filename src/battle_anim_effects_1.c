@@ -2340,6 +2340,17 @@ const struct SpriteTemplate gTauntFingerSpriteTemplate =
     .callback = AnimTauntFinger,
 };
 
+const struct SpriteTemplate gDarkVoidPurpleStarsTemplate =
+{
+    .tileTag = ANIM_TAG_SPARKLE_2,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sGrantingStarsAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGrantingStars
+};
+
 // Animates the falling particles that horizontally wave back and forth.
 // Used by Sleep Powder, Stun Spore, and Poison Powder.
 // arg 0: initial x pixel offset
