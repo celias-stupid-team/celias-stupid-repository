@@ -198,11 +198,11 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 		case CELIA_SECRET_CELADON: //implemented!!
 			msgbox("Man, that staircase in the back of\nthe CELADON MANSION went on forever!\pCan't you skip staircases like\nthat with a speedrunning technique?\lI wonder how you could do that here.", MSGBOX_DEFAULT)
 		case CELIA_SECRET_FUCHSIA:
-			msgbox("safari clue\n", MSGBOX_DEFAULT) //Placeholder
+			msgbox("Have you ever looked up glitches\nin the old POKéMON games?\lThere's one called “GLITCH CITY.”\pI wonder what would happen if you\ntried going there now!", MSGBOX_DEFAULT)
 		case CELIA_SECRET_LAVENDER:
 			msgbox("Going through POKéMON TOWER was a\nreal pain.\lIt was like being in school again!\pSay, wasn't there something odd\nwritten in the other TRAINER SCHOOL?", MSGBOX_DEFAULT)
 		case CELIA_SECRET_PALLET: //Placeholder
-			msgbox("pallet clue\n", MSGBOX_DEFAULT)
+			msgbox("Hey, remember when you got dropped\noff right at the start of the game?\pI bet you could chase that TRUCK\ndown if you had the right tool.\lWanna give it a try?", MSGBOX_DEFAULT)
 
 
 	}
@@ -214,174 +214,47 @@ script CeliaSecrets_CeliaTellsYouNextHint {
 }
 
 script CeliaSecrets_GetNextHint {
-	switch(var(VAR_CSR_CURRENT_CELIA_SECRET)) {
-		// Ultimate Order:
-		// Viridian, Lavender, Fushcia, Cinnabar, Pallet, Vermilion, Celadon, Pewter, Cerulean 
-		
+	// Ultimate Order:
+	// Viridian, Celadon, Cinnabar, Fushcia, Lavender, Pallet, Vermilion, Pewter, Cerulean 
 
-
-		case CELIA_SECRET_VIRIDIAN: // Lavender, Fushcia, Cinnabar, Pallet, Vermilion, Celadon, Pewter, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
-		case CELIA_SECRET_PEWTER: //Viridian, Lavender, Fushcia, Cinnabar, Pallet, Vermilion, Celadon, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
-
-
-		case CELIA_SECRET_CERULEAN: // Viridian, Lavender, Fushcia, Cinnabar, Pallet, Vermilion, Celadon, Pewter, Cerulean
-
-
-		case CELIA_SECRET_VERMILION: //Viridian, Lavender, Fushcia, Cinnabar, Pallet, Celadon, Pewter, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
-
-
-		case CELIA_SECRET_LAVENDER: //Viridian, Fushcia, Cinnabar, Pallet, Vermilion, Celadon, Pewter, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
-
-
-		case CELIA_SECRET_CELADON: //Viridian, Lavender, Fushcia, Cinnabar, Pallet, Vermilion, Pewter, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) { // Skip fuchsia for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) { // Skip Lavender for this demo
-				//setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				//return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
-
-
-		case CELIA_SECRET_FUCHSIA: //Viridian, Lavender, Cinnabar, Pallet, Vermilion, Celadon, Pewter, Cerulean
-			if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CELADON)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
-				return
-			}
-			if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
-				setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
-				return
-			}
+	if(!flag(FLAG_CELIA_SECRET_VIRIDIAN)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VIRIDIAN)
+		return
 	}
+	if(!flag(FLAG_CELIA_SECRET_CELADON)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CELADON)
+		return
+	}
+	//Cinnabar goes here
+
+	if(!flag(FLAG_CELIA_SECRET_FUCHSIA)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_FUCHSIA)
+		return
+	}
+	
+	if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_LAVENDER)
+		return
+	}
+	if(!flag(FLAG_CELIA_SECRET_PALLET)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PALLET)
+		return
+	}
+	if(!flag(FLAG_CELIA_SECRET_VERMILION)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_VERMILION)
+		return
+	}
+	if(!flag(FLAG_CELIA_SECRET_PEWTER)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_PEWTER)
+		return
+	}
+	if(!flag(FLAG_CELIA_SECRET_CERULEAN)) {
+		setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
+		return
+	}
+
+		
+	
 	setvar(VAR_CSR_CELIA_SECRET_NEXT_HINT, CELIA_SECRET_CERULEAN)
 	return
 }

@@ -117,23 +117,35 @@ script PalletTown_Truck_Opening {
 
 script PlayerRoom_TruckShapedHole {
 	if(flag(FLAG_DRILLED_PALLET_HOLE)) {
-			msgbox("wall", MSGBOX_SIGN)
+			msgbox("The wall is now adorned with twice\nas many holes.", MSGBOX_DEFAULT)
 			end
 
 	}
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
 		lock
-		msgbox("wall", MSGBOX_DEFAULT)
+		msgbox("The wall is empty except for a\nlarge, truck-shaped hole.\pThe hole is not person-shaped, so\nyou cannot fit.", MSGBOX_DEFAULT)
 		if(checkitem(ITEM_DRILL_DOZER)) {
-				msgbox("drill", MSGBOX_YESNO)
+				msgbox("Would you like to drill another\nhole?", MSGBOX_DEFAULT)
 				if(var(VAR_RESULT)) {
 					fadescreen(FADE_TO_BLACK)
 					setflag(FLAG_DRILLED_PALLET_HOLE)
 					call(PalletTown_PlayersHouse_2F_DrawDrilledWall)
 					special(DrawWholeMapView)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(30)
 					fadescreen(FADE_FROM_BLACK)
 
 				}
+		} else {
+			msgbox("Perhaps if you had a tool, you'd\nbe able to add one.", MSGBOX_DEFAULT)
 		}
 		release
 		end
