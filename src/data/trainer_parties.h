@@ -6275,10 +6275,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerJeremy[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerAlma[] = {
+static const struct TrainerMonItemDefaultMoves sParty_PicnickerAlma[] = {
     {
         .iv = 0,
-        .lvl = 28,
+        .lvl = 1,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_RATTATA,
     },
 };

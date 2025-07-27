@@ -3695,7 +3695,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_BRICK_BREAK] =
     {
         .effect = EFFECT_BRICK_BREAK,
-        .power = 75,
+        .power = 95,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
@@ -4034,14 +4034,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CRUSH_CLAW] =
     {
         .effect = EFFECT_ALWAYS_HIT,
-        .power = 75,
-        .type = TYPE_FAIRY, //so there's no immunities
+        .power = 250,
+        .type = TYPE_ROCK, //so there's no immunities
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
+        .flags = 0,
     },
 
     [MOVE_BLAST_BURN] =

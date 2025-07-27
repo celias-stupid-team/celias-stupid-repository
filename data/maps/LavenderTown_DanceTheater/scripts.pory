@@ -115,6 +115,7 @@ script DanceTheater_ShortKidBall {
     removeobject(VAR_LAST_TALKED)
     setflag(FLAG_SHINY_CREATION) //Ekans
     playfanfare(MUS_LEVEL_UP)
+    giveitem(ITEM_CANDY_DISPENSER)
     msgbox("{PLAYER} stole a small child's\nEKANS!", MSGBOX_DEFAULT)
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EKANS)
     call(Common_Script_GiftPokemon)

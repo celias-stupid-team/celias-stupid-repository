@@ -994,12 +994,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_NIDOKING] =
     {
-        .baseHP = 81,
+        .baseHP = 91,
         .baseAttack = 92,
-        .baseDefense = 77,
+        .baseDefense = 87,
         .baseSpeed = 85,
         .baseSpAttack = 85,
-        .baseSpDefense = 75,
+        .baseSpDefense = 85,
         .types = {TYPE_POISON, TYPE_FAIRY_TRANS},
         .catchRate = 255,
         .expYield = 195,
@@ -1596,7 +1596,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = {EGG_GROUP_WATER_1, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_DAMP, ABILITY_CLOUD_NINE},
+        .abilities = {ABILITY_OBLIVIOUS, ABILITY_OBLIVIOUS},
         .safariZoneFleeRate = 50,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
@@ -3344,7 +3344,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_KANGASKHAN] =
     {
         .baseHP = 105,
-        .baseAttack = 95,
+        .baseAttack = 115,
         .baseDefense = 80,
         .baseSpeed = 90,
         .baseSpAttack = 40,
@@ -3546,9 +3546,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MR_MIME] =
     {
-        .baseHP = 40,
+        .baseHP = 20,
         .baseAttack = 45,
-        .baseDefense = 65,
+        .baseDefense = 35,
         .baseSpeed = 90,
         .baseSpAttack = 100,
         .baseSpDefense = 120,
@@ -29965,7 +29965,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 [SPECIES_WEEZING_ALOLA] =
 {
     .baseHP = 5,
-    .baseAttack = 80,
+    .baseAttack = 70,
     .baseDefense = 5,
     .baseSpeed = 1,
     .baseSpAttack = 80,

@@ -5737,8 +5737,8 @@ static const struct LevelUpMove sMothimLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sCombeeLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(0, MOVE_GUST),
-    LEVEL_UP_MOVE(0, MOVE_SWEET_SCENT),
+	LEVEL_UP_MOVE(0, MOVE_SWEET_SCENT),
+    LEVEL_UP_MOVE(0, MOVE_GUST),
     LEVEL_UP_MOVE(1, MOVE_GUST),
     LEVEL_UP_MOVE(1, MOVE_SWEET_SCENT),
     LEVEL_UP_MOVE(11, MOVE_SWEET_SCENT),

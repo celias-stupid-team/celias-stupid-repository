@@ -740,6 +740,8 @@ script ViridianCity_EventScript_Woman {
 	faceplayer
 	if(flag(FLAG_TEMP_4)) {
 		msgbox(ViridianCity_Text_WeakenMonsFirstToCatch)
+		release
+		end
 
 	}
 	goto_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 0, ViridianCity_EventScript_WomanRoadBlocked)

@@ -3,15 +3,18 @@ const LASS = 1
 
 mapscripts FushciaGym_ThePitRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if(flag(FLAG_LASS_BROKE_WALL)) {
-            call(FushciaGym_ThePitRoom_SetBrokenWall)
-
-        }
         if(!flag(FLAG_MEMORIZED_SCROLL)) {
             setflag(FLAG_TEMP_3)
         }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_LASS_BROKE_WALL)) {
+            call(FushciaGym_ThePitRoom_SetBrokenWall)
+
+        }
+
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         // VAR_FUSHCIA_GYM_PIT_STATE is set to 1 in FieldGetPlayerInput()
@@ -51,6 +54,7 @@ script FushciaGym_ThePitRoom_LassBreaksWall {
     waitse
     textcolor(NPC_TEXT_COLOR_FEMALE)
     playbgm(MUS_LASS_INTRO, FALSE)
+    addobject(LASS)
     delay(90)
     playbgm(MUS_NONE, TRUE)
     playse(SE_M_STRENGTH)

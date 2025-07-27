@@ -230,10 +230,6 @@ AI_CBM_Explosion::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_DAMP, Score_Minus10
-	count_alive_pokemon AI_USER
-	if_not_equal 0, AI_CBM_Explosion_End
-	count_alive_pokemon AI_TARGET
-	if_not_equal 0, Score_Minus10
 	goto Score_Minus1
 
 AI_CBM_Explosion_End::
@@ -3080,7 +3076,6 @@ AI_HPAware_End::
 	end
 
 AI_HPAware_DiscouragedEffectsWhenHighHP::
-	.byte EFFECT_EXPLOSION
 	.byte EFFECT_RESTORE_HP
 	.byte EFFECT_REST
 	.byte EFFECT_DESTINY_BOND
@@ -3096,7 +3091,6 @@ AI_HPAware_DiscouragedEffectsWhenHighHP::
 	.byte -1
 
 AI_HPAware_DiscouragedEffectsWhenMediumHP::
-	.byte EFFECT_EXPLOSION
 	.byte EFFECT_ATTACK_UP
 	.byte EFFECT_DEFENSE_UP
 	.byte EFFECT_SPEED_UP
@@ -3237,7 +3231,6 @@ AI_HPAware_DiscouragedEffectsWhenTargetMediumHP::
 
 AI_HPAware_DiscouragedEffectsWhenTargetLowHP::
 	.byte EFFECT_SLEEP
-	.byte EFFECT_EXPLOSION
 	.byte EFFECT_ATTACK_UP
 	.byte EFFECT_DEFENSE_UP
 	.byte EFFECT_SPEED_UP

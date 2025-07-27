@@ -4494,7 +4494,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
+        .party = ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
     },
     [TRAINER_LASS_INVISIBLE] = {
         .trainerClass = TRAINER_CLASS_LASS,

@@ -462,8 +462,8 @@
     },
     {
       "type": "trigger",
-      "x": 21,
-      "y": 10,
+      "x": 17,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
       "var_value": "1",

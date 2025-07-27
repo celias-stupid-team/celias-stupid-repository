@@ -4738,24 +4738,10 @@ BattleScript_ExplosionUselessDoAnimStartLoop:
 	attackanimation
 	waitanimation
 BattleScript_ExplosionUselessLoop:
-	movevaluescleanup
-	critcalc
-	damagecalc
-	typecalc
-	adjustnormaldamage
-	accuracycheck BattleScript_ExplosionUselessMissed, ACC_CURR_MOVE
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-	moveendto MOVEEND_NEXT_TARGET
-	jumpifnexttargetvalid BattleScript_ExplosionUselessLoop
+	pause B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	end
 BattleScript_ExplosionUselessMissed:
