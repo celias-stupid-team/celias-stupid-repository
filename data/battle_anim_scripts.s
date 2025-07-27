@@ -15157,17 +15157,16 @@ Move_STEEL_WANG:
 	end
 
 Move_WONDER_SEED:
-	loadspritegfx ANIM_TAG_SEED
-	playsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 0, 24, 35, -32
-	delay 8
-	playsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, -16, 24, 35, -40
-	delay 8
-	playsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER
-	createsprite gLeechSeedSpriteTemplate, ANIM_TARGET, 2, 15, 0, 16, 24, 35, -37
-	delay 12
-	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_TARGET, 10, 8
+	loadspritegfx ANIM_TAG_WONDER_SEED
+	loadspritegfx ANIM_TAG_SMALL_CLOUD
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	createsprite gWonderSeedSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 32, -32
+	waitforvisualfinish
+	playsewithpan SE_M_PSYBEAM2, SOUND_PAN_TARGET
+	createsprite gSmallCloudTemplate, ANIM_ATTACKER, 3, -2, -1, 0, -1, -1
+	createsprite gSmallCloudTemplate, ANIM_ATTACKER, 3,  3,  1, 1, 2, -1
+	createsprite gSmallCloudTemplate, ANIM_ATTACKER, 3, -2,  1, 2, 1, -2
+	createsprite gSmallCloudTemplate, ANIM_ATTACKER, 3,  3, -2, 1, -1, -2
 	waitforvisualfinish
 	end
 

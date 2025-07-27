@@ -1185,6 +1185,12 @@ const u32 gBattleAnimSpritePal_TeraShatter[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_QuickGuard[] = INCBIN_U32("graphics/battle_anims/sprites/quick_guard.4bpp.lz");
 const u32 gBattleAnimSpritePal_QuickGuard[] = INCBIN_U32("graphics/battle_anims/sprites/quick_guard.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_WonderSeed[] = INCBIN_U32("graphics/battle_anims/sprites/wonder_seed.4bpp.lz");
+const u32 gBattleAnimSpritePal_WonderSeed[] = INCBIN_U32("graphics/battle_anims/sprites/wonder_seed.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_SmallCloud[] = INCBIN_U32("graphics/battle_anims/sprites/small_cloud.4bpp.lz");
+const u32 gBattleAnimSpritePal_SmallCloud[] = INCBIN_U32("graphics/battle_anims/sprites/small_cloud.gbapal.lz");
+
 #include "data/graphics/mail.h"
 
 const u16 gMenuInfoElements1_Pal[] = INCBIN_U16("graphics/interface/dex_caught_pokeball.gbapal");
