@@ -984,7 +984,7 @@ static void Cmd_attackcanceler(void)
         PressurePPLose(gBattlerAttacker, gBattlerTarget, MOVE_REFLECT);
         gProtectStructs[gBattlerTarget].bounceReflectMove = FALSE;
         BattleScriptPushCursor();
-        gBattlescriptCurrInstr = BattleScript_MagicCoatBounce;
+        gBattlescriptCurrInstr = BattleScript_ReflectBounce;
         return;
     }
     
