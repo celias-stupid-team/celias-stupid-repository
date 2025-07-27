@@ -5350,7 +5350,17 @@ static void Cmd_switchineffects(void)
     gHitMarker &= ~HITMARKER_FAINTED(gActiveBattler);
     gSpecialStatuses[gActiveBattler].faintedHasReplacement = FALSE;
 
-    if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
+    // Neutralizing Gas announces itself before hazards
+    if (gBattleMons[gActiveBattler].ability == ABILITY_NEUTRALIZING_GAS && gSpecialStatuses[gActiveBattler].announceNeutralizingGas == 0)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_NEUTRALIZING_GAS;
+        gSpecialStatuses[gActiveBattler].announceNeutralizingGas = TRUE;
+        gDisableStructs[gActiveBattler].neutralizingGas = TRUE;
+        gSpecialStatuses[gActiveBattler].neutralizingGasRemoved = FALSE;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_SwitchInAbilityMsgRet;
+    }
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES_DAMAGED)
         && (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SPIKES)
         && !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
         && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
@@ -6702,18 +6712,20 @@ static void Cmd_various(void)
         case VARIOUS_GET_NUMBER_OF_SUB_LAYERS:
         {
             VARIOUS_ARGS();
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
 
-            gBattleCommunication[0] = gDisableStructs[cmd->battler].substitute2CurrentLayer;
+            gBattleCommunication[0] = gDisableStructs[battler].substitute2CurrentLayer;
             break;
         }
         case VARIOUS_INCREMENT_SUB_LAYER:
         {
             VARIOUS_ARGS();
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
 
-            gDisableStructs[cmd->battler].substitute2CurrentLayer++;
+            gDisableStructs[battler].substitute2CurrentLayer++;
 
             // handle battle messages
-            switch (gDisableStructs[cmd->battler].substitute2CurrentLayer)
+            switch (gDisableStructs[battler].substitute2CurrentLayer)
             {
             case SUBSTITUTE2_1_LAYERS:
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
@@ -6733,15 +6745,16 @@ static void Cmd_various(void)
         case VARIOUS_TRY_SET_SPECIAL_REFLECT:
         {
             VARIOUS_ARGS(const u8 *failInstr);
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
 
-            gSpecialStatuses[cmd->battler].ppNotAffectedByPressure = 1;
+            gSpecialStatuses[battler].ppNotAffectedByPressure = 1;
             if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
             }
             else
             {
-                gProtectStructs[cmd->battler].bounceReflectMove = TRUE;
+                gProtectStructs[battler].bounceReflectMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             return;
@@ -6754,7 +6767,6 @@ static void Cmd_various(void)
             u8 *dest;
             u8 *src;
 
-            // BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[cmd->battler]], cmd->battler);
             HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
             GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
             if (IsContest())
@@ -6795,6 +6807,31 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             return;
+        }
+        case VARIOUS_SWITCHIN_ABILITIES:
+        {
+            VARIOUS_ARGS();
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
+
+            gBattlescriptCurrInstr = cmd->nextInstr;
+            AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, battler, 0, 0, 0);
+            AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, battler, 0, 0, 0);
+            return;
+        }
+        case VARIOUS_TRY_END_NEUTRALIZING_GAS:
+        {
+            VARIOUS_ARGS();
+            u8 battler = GetBattlerForBattleScript(cmd->battler);
+            
+            if (gDisableStructs[battler].neutralizingGas)
+            {
+                gSpecialStatuses[battler].neutralizingGasRemoved = TRUE;
+                gDisableStructs[battler].neutralizingGas = FALSE;
+                BattleScriptPush(cmd->nextInstr);
+                gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+                return;
+            }
+            break;
         }
     }
 
@@ -9874,16 +9911,25 @@ static void Cmd_switchoutabilities(void)
 {
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
-    switch (gBattleMons[gActiveBattler].ability)
+    if (gBattleMons[gActiveBattler].ability == ABILITY_NEUTRALIZING_GAS)
     {
-    case ABILITY_NATURAL_CURE:
-        gBattleMons[gActiveBattler].status1 = 0;
-        BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE,
-                                     gBitTable[*(gBattleStruct->battlerPartyIndexes + gActiveBattler)],
-                                     sizeof(gBattleMons[gActiveBattler].status1),
-                                     &gBattleMons[gActiveBattler].status1);
-        MarkBattlerForControllerExec(gActiveBattler);
-        break;
+        gBattleMons[gActiveBattler].ability = ABILITY_NONE;
+        BattleScriptPush(gBattlescriptCurrInstr);
+        gBattlescriptCurrInstr = BattleScript_NeutralizingGasExits;
+    }
+    else
+    {
+        switch (gBattleMons[gActiveBattler].ability)
+        {
+        case ABILITY_NATURAL_CURE:
+            gBattleMons[gActiveBattler].status1 = 0;
+            BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE,
+                                        gBitTable[*(gBattleStruct->battlerPartyIndexes + gActiveBattler)],
+                                        sizeof(gBattleMons[gActiveBattler].status1),
+                                        &gBattleMons[gActiveBattler].status1);
+            MarkBattlerForControllerExec(gActiveBattler);
+            break;
+        }
     }
 
     gBattlescriptCurrInstr += 2;
@@ -10773,6 +10819,74 @@ void BS_MultihitResultMessage(void)
         }
     }
     gBattlescriptCurrInstr += 5;
+}
+
+void SaveBattlerTarget(u32 battler)
+{
+    if (gBattleStruct->savedTargetCount < NELEMS(gBattleStruct->savedBattlerTarget))
+        gBattleStruct->savedBattlerTarget[gBattleStruct->savedTargetCount++] = battler;
+    else
+        DebugPrintfLevel(MGBA_LOG_WARN, "Attempting to exceed savedBattlerTarget array size!");
+}
+
+void SaveBattlerAttacker(u32 battler)
+{
+    if (gBattleStruct->savedAttackerCount < NELEMS(gBattleStruct->savedBattlerAttacker))
+        gBattleStruct->savedBattlerAttacker[gBattleStruct->savedAttackerCount++] = battler;
+    else
+        DebugPrintfLevel(MGBA_LOG_WARN, "Attempting to exceed savedBattlerAttacker array size!");
+}
+
+void BS_SaveTarget(void)
+{
+    NATIVE_ARGS();
+    SaveBattlerTarget(gBattlerTarget);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RestoreTarget(void)
+{
+    NATIVE_ARGS();
+    if (gBattleStruct->savedTargetCount > 0)
+    {
+        gBattleStruct->savedTargetCount--;
+        gBattlerTarget = gBattleStruct->savedBattlerTarget[gBattleStruct->savedTargetCount];
+    }
+    else
+    {
+        // #if TESTING
+        // Test_ExitWithResult(TEST_RESULT_ERROR, "BS_RestoreTarget attempting to restore an empty target!");
+        // #else
+        DebugPrintfLevel(MGBA_LOG_WARN, "BS_RestoreTarget attempting to restore an empty target!");
+        // #endif
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SaveAttacker(void)
+{
+    NATIVE_ARGS();
+    SaveBattlerAttacker(gBattlerAttacker);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_RestoreAttacker(void)
+{
+    NATIVE_ARGS();
+    if (gBattleStruct->savedAttackerCount > 0)
+    {
+        gBattleStruct->savedAttackerCount--;
+        gBattlerAttacker = gBattleStruct->savedBattlerAttacker[gBattleStruct->savedAttackerCount];
+    }
+    else
+    {
+        // #if TESTING
+        // Test_ExitWithResult(TEST_RESULT_ERROR,  "BS_RestoreAttacker attempting to restore an empty attacker!");
+        // #else
+        DebugPrintfLevel(MGBA_LOG_WARN, "BS_RestoreAttacker attempting to restore an empty attacker!");
+        // #endif
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_TryRevivalBlessing(void)
