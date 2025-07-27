@@ -10651,7 +10651,7 @@ static void Cmd_jumpifnotspeciescondition(void)
 {
     CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
 
-    u32 battler = GetBattlerForBattleScript(battler);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
     if (cmd->jumpIfTrue)
     {
         if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
@@ -10719,7 +10719,7 @@ static void Cmd_jumpifhelditem(void)
 
     struct Pokemon *party;
     u32 species, item;
-    u32 battler = GetBattlerForBattleScript(battler);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
 
     //check for attacker battle side
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
