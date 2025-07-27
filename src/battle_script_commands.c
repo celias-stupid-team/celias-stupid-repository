@@ -6655,19 +6655,21 @@ static void Cmd_various(void)
         }
         case VARIOUS_GET_NUMBER_OF_SUB_LAYERS:
         {
-            VARIOUS_ARGS();
+            VARIOUS_ARGS(u8 battler);
+            u32 battler = GetBattlerForBattleScript(battler);
 
-            gBattleCommunication[0] = gDisableStructs[cmd->battler].substitute2CurrentLayer;
+            gBattleCommunication[0] = gDisableStructs[battler].substitute2CurrentLayer;
             break;
         }
         case VARIOUS_INCREMENT_SUB_LAYER:
         {
-            VARIOUS_ARGS();
+            VARIOUS_ARGS(u8 battler);
+            u32 battler = GetBattlerForBattleScript(battler);
 
-            gDisableStructs[cmd->battler].substitute2CurrentLayer++;
+            gDisableStructs[battler].substitute2CurrentLayer++;
 
             // handle battle messages
-            switch (gDisableStructs[cmd->battler].substitute2CurrentLayer)
+            switch (gDisableStructs[battler].substitute2CurrentLayer)
             {
             case SUBSTITUTE2_1_LAYERS:
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
@@ -6686,16 +6688,17 @@ static void Cmd_various(void)
         }
         case VARIOUS_TRY_SET_SPECIAL_REFLECT:
         {
-            VARIOUS_ARGS(const u8 *failInstr);
+            VARIOUS_ARGS(u8 battler, const u8 *failInstr);
+            u32 battler = GetBattlerForBattleScript(battler);
 
-            gSpecialStatuses[cmd->battler].ppNotAffectedByPressure = 1;
+            gSpecialStatuses[battler].ppNotAffectedByPressure = 1;
             if (gCurrentTurnActionNumber == gBattlersCount - 1) // moves last turn
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
             }
             else
             {
-                gProtectStructs[cmd->battler].bounceReflectMove = TRUE;
+                gProtectStructs[battler].bounceReflectMove = TRUE;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
             return;
@@ -6708,7 +6711,7 @@ static void Cmd_various(void)
             u8 *dest;
             u8 *src;
 
-            // BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[cmd->battler]], cmd->battler);
+            // BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[battler]], battler);
             HandleSpeciesGfxDataChange(gBattleAnimAttacker, gBattleAnimTarget, 255);
             GetBattleAnimBgDataByPriorityRank(&animBg, gBattleAnimAttacker);
             if (IsContest())
@@ -10534,7 +10537,7 @@ static void Cmd_jumpifnotspeciescondition(void)
 {
     CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
 
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 battler = GetBattlerForBattleScript(battler);
     if (cmd->jumpIfTrue)
     {
         if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
@@ -10602,7 +10605,7 @@ static void Cmd_jumpifhelditem(void)
 
     struct Pokemon *party;
     u32 species, item;
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 battler = GetBattlerForBattleScript(battler);
 
     //check for attacker battle side
     if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
