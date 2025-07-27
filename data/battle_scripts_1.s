@@ -3819,6 +3819,29 @@ BattleScript_MagicCoatBounce::
 	setmagiccoattarget BS_ATTACKER
 	return
 
+BattleScript_ReflectBounce::
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNMOVEBOUNCED
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_ATTACKSTRING_PRINTED | HITMARKER_NO_PPDEDUCT | HITMARKER_ALLOW_NO_PP
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	effectivenesssound
+	hitanimation BS_ATTACKER
+	waitstate
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	moveendall
+	end
+
 BattleScript_SnatchedMove::
 	attackstring
 	ppreduce
