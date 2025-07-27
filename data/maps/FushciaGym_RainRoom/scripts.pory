@@ -45,7 +45,7 @@ mapscripts FushciaGym_RainRoom_MapScripts {
 }
 
 movement FushciaGym_NuseWalkTwo {
-    walk_down * 2
+    walk_down
     face_down
 }
 

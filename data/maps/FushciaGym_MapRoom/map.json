@@ -29,6 +29,13 @@
       "elevation": 0,
       "dest_map": "MAP_FUSHCIA_GYM_THE_PIT_ROOM",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FUSHCIA_GYM_DEVON_SCOPE_ROOM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -40,6 +47,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FushciaGym_MapRoom_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaGym_LookGirlRoom_Scroll"
     }
   ]
 }
