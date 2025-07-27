@@ -88,8 +88,8 @@
 #define VAR_QUEST_LOG_MON_COUNTS           0x4027
 #define VAR_WONDER_NEWS_STEP_COUNTER       0x4028
 #define VAR_PSYDUCK_PAIL_COUNTER                         0x4029
-#define VAR_0x402A                         0x402A
-#define VAR_0x402B                         0x402B
+#define VAR_GLITCH_CITY_STATUS                         0x402A
+#define VAR_GLITCH_CITY_STEP_COUNT                         0x402B
 #define VAR_0x402C                         0x402C
 #define VAR_0x402D                         0x402D
 #define VAR_0x402E                         0x402E
@@ -156,7 +156,7 @@
 #define VAR_CSR_DANCE_SHOW                                          0x4064
 #define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
-#define VAR_CSR_DUMMY_8                                          0x4067
+#define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
 #define VAR_CSR_DUMMY_10 0x4069
 #define VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
@@ -189,7 +189,7 @@
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_CSR_DUMMY_25                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
-#define VAR_CSR_DUMMY_26                                         0x4088
+#define VAR_JUMPING_FROM_PALLET_ROOF                                         0x4088
 #define VAR_CELIA_DEV_CREW                             0x4089
 #define VAR_CSR_ROUTE6_LASS                                        0x408A
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B

@@ -1254,6 +1254,28 @@ bool8 UpdatePsyduckPailCounter(void)
 }
 
 
+bool8 UpdateGlitchCityCounter(void)
+{
+    u16 steps;
+    if (gQuestLogState == QL_STATE_PLAYBACK)
+        return FALSE;
+
+    steps = VarGet(VAR_GLITCH_CITY_STEP_COUNT);
+
+    if (steps != 0)
+    {
+        steps--;
+        VarSet(VAR_GLITCH_CITY_STEP_COUNT, steps);
+        
+        if (steps == 0 && VarGet(VAR_GLITCH_CITY_STATUS) == 6)
+        {
+            ScriptContext_SetupScript(SafariZone_GlitchCityActivates);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 
 
 void RefillPsyduckPail(void) {

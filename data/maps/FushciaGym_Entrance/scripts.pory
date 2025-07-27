@@ -143,6 +143,7 @@ script FushciaGym_InvisibleLass {
             trainerbattle_no_intro(TRAINER_LASS_INVISIBLE, "Oh no!")
             msgbox("Y'know, I've always liked the\nREGI POKéMON.\pThe only people who find them on\ntheir own never look at me!", MSGBOX_DEFAULT)
             closemessage
+            special(LoadPlayerParty)
             fadescreen(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
             fadescreen(FADE_FROM_BLACK)
@@ -152,7 +153,6 @@ script FushciaGym_InvisibleLass {
             playfanfare(MUS_LEVEL_UP)
             msgbox("It's the rest of your POKéMON!\nNice!", MSGBOX_DEFAULT)
             waitfanfare
-            special(LoadPlayerParty)
             release
         } else {   
             release
@@ -203,4 +203,39 @@ movement InvisibleToVisible {
     set_invisible
     delay_8
     set_visible
+}
+
+script FushciaGym_LeaderRoomSign {
+	msgbox("GYM LEADER ROOM\pBehind this door awaits your\nultimate challenge.\pBe prepared to show all that\nyou've learned!", MSGBOX_SIGN)
+	end
+}
+
+
+
+script FushciaGym_FirstRoomSign {
+    lock
+	msgbox("There's a sign on the door…\n")
+    closemessage
+    msgbox("Will you enter the left door, or\nwill you enter the right door?\pTrust your intuition, and let your\nwit be your guide!", MSGBOX_DEFAULT)
+    release
+	end
+}
+
+
+script FushciaGym_FirstRoomSign_2 {
+    lock
+	msgbox("There's a sign on the door…\n")
+    closemessage
+    msgbox("One of these doors will tell the\ntruth, and the other always lies!\pYou may ask one question.\nChoose wisely, or be lost forever!", MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    msgbox("Ask the door a question?\n", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox("… … …\n", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        msgbox("The door does not respond.\n", MSGBOX_DEFAULT)
+    }
+    release
+	end
 }

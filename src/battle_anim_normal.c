@@ -33,7 +33,6 @@ static void AnimShakeMonOrBattleTerrain_UpdateCoordOffsetEnabled(void);
 static void AnimShakeMonOrBattleTerrain_Step(struct Sprite *sprite);
 static void AnimTask_ShakeBattleTerrain_Step(u8 taskId);
 static void AnimFlashingHitSplat_Step(struct Sprite *sprite);
-static void SpriteCB_SurroundingRing(struct Sprite *sprite);
 
 static const union AnimCmd sAnim_ConfusionDuck_0[] =
 {
@@ -1025,7 +1024,7 @@ static void AnimFlashingHitSplat_Step(struct Sprite *sprite)
         DestroyAnimSprite(sprite);
 }
 
-static void SpriteCB_SurroundingRing(struct Sprite *sprite)
+void SpriteCB_SurroundingRing(struct Sprite *sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, 0);
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, 1) + 40;

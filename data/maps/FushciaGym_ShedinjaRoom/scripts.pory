@@ -34,7 +34,7 @@ script FushciaGym_ShedinjaTrainer {
     faceplayer
     textcolor(NPC_TEXT_COLOR_MALE)
     if(var(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == DEFEATED_SHEDINJA) {
-        msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n{PAUSE 30}…Huh?\lIt's an ORB, you say?", MSGBOX_DEFAULT)
+        msgbox("I dropped my balls!\p…\n…\l…\pMy TERA balls, of course.\n…\l{PAUSE 30}…Huh?\pIt's an ORB, you say?", MSGBOX_DEFAULT)
         call(FushciaGym_ShedinjaRoom_OpenDoors)
         special(DrawWholeMapView)
     } else {

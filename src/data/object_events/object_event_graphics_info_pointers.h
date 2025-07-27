@@ -322,6 +322,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Star;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Stump;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blank;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadnurse;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gray_celia;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -645,4 +646,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_STUMP] = &gObjectEventGraphicsInfo_Stump,
     [OBJ_EVENT_GFX_BLANK] = &gObjectEventGraphicsInfo_Blank,
     [OBJ_EVENT_GFX_DEADNURSE] = &gObjectEventGraphicsInfo_Deadnurse,
+    [OBJ_EVENT_GFX_GRAY_CELIA] = &gObjectEventGraphicsInfo_Gray_celia,
 };

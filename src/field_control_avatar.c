@@ -686,6 +686,8 @@ static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileB
         return TRUE;
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior) && UpdatePsyduckPailCounter() == TRUE)
         return TRUE;
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior) && UpdateGlitchCityCounter() == TRUE)
+        return TRUE;
     return FALSE;
 }
 

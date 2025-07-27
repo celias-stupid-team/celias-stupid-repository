@@ -190,6 +190,8 @@ static u8 CheckTrainer(u8 trainerObjId)
     }
 
     approachDistance = GetTrainerApproachDistance(&gObjectEvents[trainerObjId]);
+    // read the intro text of each separate trainer
+    gApproachingTrainers[gNoOfApproachingTrainers].trainerIntroSpeech = GetTrainerAIntroSpeechFromScriptPointer(script);
     
     if (approachDistance != 0)
     {

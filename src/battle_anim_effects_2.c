@@ -1251,6 +1251,29 @@ const struct SpriteTemplate gGuardRingSpriteTemplate =
     .callback = AnimGuardRing,
 };
 
+// Electrify
+const struct SpriteTemplate gElectrifyRingTemplate =
+{
+    .tileTag = ANIM_TAG_GUARD_RING,
+    .paletteTag = ANIM_TAG_SPARK_2,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gGuardRingAffineAnimTable,
+    .callback = SpriteCB_SurroundingRing
+};
+
+const struct SpriteTemplate gElectrifyYellowRingTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sThinRingExpandingAffineAnimTable,
+    .callback = AnimUproarRing
+};
+
 #define sAmplitudeX  data[1]
 #define sCircleSpeed data[2]
 #define sMoveSteps   data[3]

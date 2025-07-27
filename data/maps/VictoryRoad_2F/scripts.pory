@@ -5,7 +5,6 @@ VictoryRoad_2F_MapScripts::
 
 VictoryRoad_2F_OnLoad::
 	call_if_ne VAR_CSR_BIRD_CULTISTS_TRUST_YOU, 100, VictoryRoad_2F_EventScript_SetRockBarrier1
-	call_if_ne VAR_SAFARI_ZONE_ENTRANCE, 100, VictoryRoad_2F_EventScript_SetRockBarrier2
 	end
 
 VictoryRoad_2F_EventScript_SetRockBarrier1::
@@ -44,7 +43,6 @@ VictoryRoad_2F_EventScript_FloorSwitch2::
 	special DrawWholeMapView
 	waitse
 	copyobjectxytoperm LOCALID_VICTORY_ROAD_2F_BOULDER2
-	setvar VAR_SAFARI_ZONE_ENTRANCE, 100
 	releaseall
 	end
 

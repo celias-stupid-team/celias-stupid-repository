@@ -259,8 +259,8 @@
     {
       "id": "HEAL_LOCATION_FUSHCIA_GYM_HEAL_ROOM_2",
       "map": "MAP_FUSHCIA_GYM_HEAL_ROOM_2",
-      "x": 9,
-      "y": 10,
+      "x": 10,
+      "y": 12,
       "respawn_map": "MAP_FUSHCIA_GYM_HEAL_ROOM_2",
       "respawn_npc": "1"
     },

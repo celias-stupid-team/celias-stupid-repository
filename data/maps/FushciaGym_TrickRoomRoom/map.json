@@ -45,7 +45,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CAITLIN",
+      "graphics_id": "OBJ_EVENT_GFX_DARACH",
       "x": 7,
       "y": 8,
       "elevation": 0,
@@ -75,5 +75,14 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FushciaGym_TrickRoomRoom_Sign"
+    }
+  ]
 }

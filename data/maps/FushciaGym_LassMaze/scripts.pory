@@ -18,3 +18,13 @@ script FushciaGym_LassMaze_Sign {
 	msgbox("don't let her see you.\nsavestate frequently", MSGBOX_SIGN)
 	end
 }
+
+script FushciaGym_LassMaze_FriendRoom {
+	msgbox("FRIEND ROOM\pA room to connect with a kind\nacquaintance", MSGBOX_SIGN)
+	end
+}
+
+script FushciaGym_LassMaze_DrillSign {
+	msgbox("DRILL ROOM\pYou know the drill.\p…Y'know.\n{PAUSE 30}The drill.", MSGBOX_SIGN)
+	end
+}

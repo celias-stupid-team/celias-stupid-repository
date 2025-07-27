@@ -28,3 +28,8 @@ script FushciaGym_ScrollRoom_SetBrokenWall {
     setmetatile(22, 11, 0x39E, TRUE)
     return
 }
+
+script FushciaGym_ScrollRoom_Sign {
+	msgbox("ICE ROOM\pIdk I think it's pretty cool\n", MSGBOX_SIGN)
+	end
+}

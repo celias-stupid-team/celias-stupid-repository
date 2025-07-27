@@ -9,6 +9,7 @@ struct ApproachingTrainer
     u8 approachDistance; // plus 1
     const u8 *trainerScriptPtr;
     u8 taskId;
+    const u8 *trainerIntroSpeech;
 };
 
 extern struct ApproachingTrainer gApproachingTrainers[2];

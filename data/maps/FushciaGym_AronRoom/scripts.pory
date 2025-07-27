@@ -143,3 +143,46 @@ movement DrillTheWall {
     walk_faster_right
     walk_in_place_fast_right * 3
 }
+
+
+const DEFEATED_SHEDINJA = 2
+script FushciaGym_AronRoom_LeftDoor {
+    lock
+    if((var(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == DEFEATED_SHEDINJA)) {
+        msgbox("MAZE ROOM\pThis maze kinda sucks\n", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_AronRoom_RightDoor {
+    lock
+    if((var(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == DEFEATED_SHEDINJA)) {
+        msgbox("HEALING ROOM\nGive your POKéMON a full rest!\pNotice!\pThis room is found to be violating\nthe copyright of the other one.\pPlease proceed with caution.\n", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+
+script FushciaGym_AronRoomActual_LeftDoor { //The other one is for the shedinja room and I'm a dumbass
+    lock
+    if(flag(FLAG_DEFEATED_ARON_MAN)) {
+        msgbox("FRIEND ROOM\pA room that greets you with a\nnice, warm hug!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script FushciaGym_AronRoomActual_RightDoor {
+    lock
+    if(flag(FLAG_DEFEATED_ARON_MAN)) {
+        msgbox("BED ROOM\pA room perfectly suited for a\nnice, long nap", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}

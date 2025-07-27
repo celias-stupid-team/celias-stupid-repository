@@ -34,3 +34,14 @@ script FushciaGym_DarkraiRoom_Janine {
     special(DrawWholeMapView)
     release
 }
+
+
+script FushciaGym_DarkraiRoom_Door {
+    lock
+    if(checktrainerflag(TRAINER_FUSHCIA_GYM_JANINE)) {
+        msgbox("TYPE ROOM\pA room to test your knowledge of\ntype matchups!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("The door is locked.\n", MSGBOX_DEFAULT)
+    }
+    release
+}

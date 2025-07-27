@@ -619,8 +619,19 @@
 #define MOVE_WIND 614
 #define MOVE_GLOW 615
 #define MOVE_REFLECT_2 616
+#define MOVE_QWICK_ATTACK 617
+#define MOVE_WHISH 618
+#define MOVE_MULTI_ATTACK 619
+#define MOVE_GYRO_BALL 620
+#define MOVE_SYHNCRHONOZHE 621
+#define MOVE_CURSE_GRENINJA 622
+#define MOVE_LION_LADDER 623
+#define MOVE_STRANGE_STEAM 624
+#define MOVE_DARK_VOID 625
+#define MOVE_ELECTRIFY 626
+#define MOVE_FLARE_BLITZ 627
 
-#define MOVES_COUNT 617
+#define MOVES_COUNT 628
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
