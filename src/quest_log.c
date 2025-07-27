@@ -1152,11 +1152,11 @@ static void Task_QuestLogScene_SavedGame(u8 taskId)
     
     if(VarGet(VAR_GLITCH_CITY_STATUS) == 3 || VarGet(VAR_GLITCH_CITY_STATUS) == 4) {
         
-        DebugPrintf("Glitch City was 3, now it's 4");
+        // DebugPrintf("Glitch City was 3, now it's 4");
         VarSet(VAR_GLITCH_CITY_STATUS, 4);
         
     } else {
-        DebugPrintf("Glitch City was not 3, now it's 0");
+        // DebugPrintf("Glitch City was not 3, now it's 0");
         VarSet(VAR_GLITCH_CITY_STATUS, 0);
     }
     if(FlagGet(FLAG_SYS_SAFARI_MODE)) {
