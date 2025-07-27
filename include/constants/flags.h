@@ -663,8 +663,8 @@
 #define FLAG_GOT_OLD_AMBER                               0x25E
 #define FLAG_GOT_PSYCHIC_KEY                                       0x25F
 #define FLAG_DRILLED_PALLET_HOLE                                       0x260
-#define FLAG_0x261                                       0x261
-#define FLAG_0x262                                       0x262
+#define FLAG_PICKED_UP_FUSHCIA_DOOR                                       0x261
+#define FLAG_SET_FUSHCIA_DOOR                                       0x262
 #define FLAG_GOT_EEVEE                                   0x263
 #define FLAG_VERMILLION_GYM_DOOR_OPENED           0x264
 #define FLAG_CINNABAR_GYM_QUIZ_1                         0x265

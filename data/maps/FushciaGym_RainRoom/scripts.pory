@@ -1,6 +1,6 @@
 mapscripts FushciaGym_RainRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_BEAT_RAIN_GIRL)) {
+        if(flag(FLAG_SET_FUSHCIA_DOOR)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
         if(flag(FLAG_CHASED_VULPIX)) {
@@ -59,6 +59,46 @@ script FushciaGym_RainRoomGirl {
     special(DrawWholeMapView)
     release
 
+}
+
+
+script FushciaGym_RainRoom_Sign {
+    lock
+	if(flag(FLAG_SET_FUSHCIA_DOOR)) {
+        msgbox("The newly-set door shines with\npride.", MSGBOX_DEFAULT)
+        release
+        end
+    } else {
+        if(checkitem(ITEM_SPARE_DOOR)) {
+            msgbox("An empty doorframe sits on the\nwall.\pWould you like to use your\nSPARE DOOR?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                msgbox("{PLAYER} inserted the\nSPARE DOOR!", MSGBOX_DEFAULT)
+                closemessage
+                delay(30)
+                playse(SE_CLICK)
+                removeitem(ITEM_SPARE_DOOR)
+
+                call(FushciaGym_RainRoom_OpenDoor)
+                special(DrawWholeMapView)
+                delay(60)
+                msgbox("The door appears happy.\n", MSGBOX_DEFAULT)
+                release
+                end
+
+            } else {
+                msgbox("The empty doorframe remains\nalone.", MSGBOX_DEFAULT)
+                
+                release
+                end
+            }
+        } else {
+            msgbox("An empty doorframe sits on the\nwall.\pIt looks lonely.\n", MSGBOX_DEFAULT)
+            
+            release
+            end
+        }
+    }
+	end
 }
 
 script FushciaGym_RainRoom_OpenDoor {
@@ -124,8 +164,3 @@ script FushciaGym_RainRoom_DrawHole {
     return
 }
 
-
-script FushciaGym_RainRoom_Sign {
-	msgbox("WET ROOM\pIt's wet.\n", MSGBOX_SIGN)
-	end
-}

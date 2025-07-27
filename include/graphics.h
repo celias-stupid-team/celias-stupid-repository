@@ -12446,3 +12446,6 @@ extern const u32 gMonShinyPalette_REGIFILSAMIE[];
 extern const u8 gMonFootprint_REGIFILSAMIE[];
 extern const u8 gMonIcon_REGIFILSAMIE[];
 
+
+extern const u32 gItemIcon_SPAREDOOR[];
+extern const u32 gItemIconPalette_SPAREDOOR[];
