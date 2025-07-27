@@ -907,7 +907,7 @@ u8 DoBattlerEndTurnEffects(void)
             case ENDTURN_CURSE:  // curse
                 if ((gBattleMons[gActiveBattler].status2 & STATUS2_CURSED) && gBattleMons[gActiveBattler].hp != 0)
                 {
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 4;
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 2; //Curse affliction deals half HP so Greninja dies fast
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_CurseTurnDmg);
@@ -1734,6 +1734,9 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
         else
             gLastUsedAbility = gBattleMons[battler].ability;
 
+        if (IsNeutralizingGasOnField() && gDisableStructs[i].neutralizingGas)
+            return FALSE;
+
         if (moveArg)
             move = moveArg;
         else
@@ -1859,6 +1862,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                 }
                 break;
+            case ABILITY_SLOW_START:
+                if (!gSpecialStatuses[battler].switchInAbilityDone && !IsNeutralizingGasOnField())
+                {
+                    gDisableStructs[battler].slowStartTimer = gBattleResults.battleTurnCounter + 5;
+                    gBattlerAttacker = battler;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
+                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    effect++;
+                }
+                break;
             }
             break;
         case ABILITYEFFECT_ENDTURN: // 1
@@ -1930,6 +1944,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 case ABILITY_BAD_DREAMS:
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
                     effect++;
+                    break;
+                case ABILITY_SLOW_START:
+                    if (gDisableStructs[battler].slowStartTimer == gBattleResults.battleTurnCounter)
+                    {
+                        BattleScriptExecute(BattleScript_SlowStartEnds);
+                        effect++;
+                    }
                     break;
                 }
             }
@@ -2481,6 +2502,22 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
+        case ABILITYEFFECT_NEUTRALIZINGGAS: // 20
+            // Prints message only. separate from ABILITYEFFECT_ON_SWITCHIN bc activates before entry hazards
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleMons[i].ability == ABILITY_NEUTRALIZING_GAS && !gDisableStructs[i].neutralizingGas && !gSpecialStatuses[i].neutralizingGasRemoved)
+                {
+                    gDisableStructs[i].neutralizingGas = TRUE;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_NEUTRALIZING_GAS;
+                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    effect++;
+                }
+
+                if (effect != 0)
+                    break;
+            }
+            break;
         }
 
         if (effect && caseID < ABILITYEFFECT_CHECK_OTHER_SIDE && gLastUsedAbility != 0xFF)
@@ -2616,6 +2653,14 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 gActiveBattler = gBattlerAttacker = battlerId;
                 BattleScriptExecute(BattleScript_WhiteHerbEnd2);
             }
+            break;
+        case HOLD_EFFECT_AIR_BALLOON:
+            effect = ITEM_EFFECT_OTHER;
+            gBattleScripting.battler = battlerId;
+            gPotentialItemEffectBattler = battlerId;
+            gActiveBattler = gBattlerAttacker = battlerId;
+            BattleScriptExecute(BattleScript_AirBalloonMsgIn);
+            RecordItemEffectBattle(battlerId, HOLD_EFFECT_AIR_BALLOON);
             break;
         }
         break;
@@ -2917,6 +2962,25 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                         gBattleMons[battlerId].pp[i] = changedPP;
                     break;
                 }
+            }
+        }
+        break;
+    case ITEMEFFECT_TARGET:
+        if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            u8 moveType;
+            GET_MOVE_TYPE(gCurrentMove, moveType);
+            
+            switch (battlerHoldEffect)
+            {
+            case HOLD_EFFECT_AIR_BALLOON:
+                if (IsBattlerTurnDamaged(gBattlerTarget))
+                {
+                    effect = ITEM_EFFECT_OTHER;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AirBalloonMsgPop;
+                }
+                break;
             }
         }
         break;
@@ -3370,6 +3434,18 @@ struct Pokemon *GetBattlerParty(u8 battler)
     return GetSideParty(GetBattlerSide(battler));
 }
 
+u32 IsOnPlayerSide(u8 battler)
+{
+    return GetBattlerSide(battler) == B_SIDE_PLAYER;
+}
+
+bool32 IsBattlerTurnDamaged(u32 battler)
+{
+    return gSpecialStatuses[battler].physicalDmg != 0
+        || gSpecialStatuses[battler].specialDmg != 0;
+        // || gSpecialStatuses[battler].enduredDamage;
+}
+
 s32 GetStealthHazardDamage(u8 hazardType, u32 battler)
 {
     u8 type1 = gBattleMons[battler].type1;
@@ -3432,4 +3508,29 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     //  DebugPrintf("GetTypeModifier modifier = %d", sTypeEffectivenessTable[atkType][defType]);
 
     return sTypeEffectivenessTable[atkType][defType];
+}
+
+bool32 IsNeutralizingGasOnField(void)
+{
+    u32 i;
+
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        if (IsBattlerAlive(i) && gBattleMons[i].ability == ABILITY_NEUTRALIZING_GAS)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool32 IsBattlerAlive(u32 battler)
+{
+    if (gBattleMons[battler].hp == 0)
+        return FALSE;
+    else if (battler >= gBattlersCount)
+        return FALSE;
+    else if (gAbsentBattlerFlags & (1u << battler))
+        return FALSE;
+    else
+        return TRUE;
 }

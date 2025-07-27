@@ -423,8 +423,19 @@
 #define STRINGID_DEFSTORINGENERGY 422
 #define STRINGID_DEFTERASTALLIZEDINTO 423
 #define STRINGID_BADDREAMSDMG 424
+#define STRINGID_SLOWSTARTENTERS 425
+#define STRINGID_SLOWSTARTEND 426
+#define STRINGID_NEUTRALIZINGGASENTERS 427
+#define STRINGID_NEUTRALIZINGGASOVER 428
+#define STRINGID_AIRBALLOONFLOAT 429
+#define STRINGID_AIRBALLOONPOP 430
+#define STRINGID_TARGETELECTRIFIED 431
+#define STRINGID_WONDER_SEED 432
+#define STRINGID_PROTEAN 433
+#define STRINGID_MEMENTO 434
+#define STRINGID_MISSED_FROM_AIR_BALLOON 435
 #define STRINGID_NONE BATTLESTRINGS_COUNT - 1
-#define BATTLESTRINGS_COUNT     426 //Plus 2 from final one
+#define BATTLESTRINGS_COUNT     437 //Plus 2 from final one
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -456,6 +467,7 @@
 #define B_MSG_AVOIDED_ATK  2
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
+#define B_MSG_AIR_BALLOON  5
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0
@@ -657,5 +669,12 @@
 #define B_MSG_VEEVEE_VOLLEY        8
 #define B_MSG_FICKLE_BEAM        9
 #define B_MSG_MIST        10
+
+// gSwitchInAbilityStringIds
+enum SwitchInAbilityStringID
+{
+    B_MSG_SWITCHIN_SLOWSTART,
+    B_MSG_SWITCHIN_NEUTRALIZING_GAS,
+};
 
 #endif // GUARD_BATTLE_STRING_IDS_H

@@ -36,28 +36,9 @@ FushciaCity_SafariZone_Entrance_EventScript_ExitWarpIn::
 	end
 
 @ When player re-enters the entrance building with balls/steps remaining
-FushciaCity_SafariZone_Entrance_EventScript_ExitEarly::
-	lockall
-	textcolor NPC_TEXT_COLOR_MALE
-	msgbox FushciaCity_SafariZone_Entrance_Text_GoingToLeaveSafariZoneEarly, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, FushciaCity_SafariZone_Entrance_EventScript_ReturnToSafariZone
-	msgbox FushciaCity_SafariZone_Entrance_Text_PleaseReturnSafariBalls
-	closemessage
-	applymovement LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_Exit
-	waitmovement 0
-	special ExitSafariMode
-	setvar VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0
-	releaseall
-	end
 
-FushciaCity_SafariZone_Entrance_EventScript_ReturnToSafariZone::
-	msgbox FushciaCity_SafariZone_Entrance_Text_GoodLuck
-	closemessage
-	applymovement LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_ReEnter
-	waitmovement 0
-	warp MAP_SAFARI_ZONE_CENTER, 26, 30
-	waitstate
-	end
+
+
 
 FushciaCity_SafariZone_Entrance_Movement_Exit::
 	walk_down
@@ -216,6 +197,67 @@ mapscripts FushciaCity_SafariZone_Entrance_MapScripts {
 }
 
 
+script FushciaCity_SafariZone_Entrance_EventScript_ExitEarly {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	callnative(GlitchCityDebug)
+	if(var(VAR_GLITCH_CITY_STATUS) == 5 ||var(VAR_GLITCH_CITY_STATUS) == 4) {
+		if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			msgbox("Hiya!\nThanks for clearing out the DMCA!\pWould you like to spend some time\nin the SAFARI ZONE?", MSGBOX_YESNO)
+		} else {
+			msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.\pWould you like to enter anyway?\n", MSGBOX_YESNO)
+		
+
+		}if(var(VAR_RESULT)) {
+			if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+				msgbox("Lovely!\nThanks so much!\pI hope you have a great time!\n", MSGBOX_DEFAULT)
+			} else {
+				msgbox("Lovely!\pI hope you have a wonderful, non-\ninfringing visit!", MSGBOX_DEFAULT)
+			}
+			goto(FushciaCity_SafariZone_Entrance_EventScript_ReturnToSafariZone)
+
+		} else {
+			msgbox("All right, totally understood.\pHave a nice day!\n", MSGBOX_DEFAULT)
+			closemessage
+			
+			callnative(GlitchCityDebug)
+			setvar(VAR_GLITCH_CITY_STATUS, 6)
+			setvar(VAR_GLITCH_CITY_STEP_COUNT, 200)
+			closemessage
+			applymovement(LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_Exit)
+			waitmovement(0)
+			special(ExitSafariMode)
+			setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0)
+			releaseall
+			end
+
+		}
+	}
+	msgbox(FushciaCity_SafariZone_Entrance_Text_GoingToLeaveSafariZoneEarly, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, FushciaCity_SafariZone_Entrance_EventScript_ReturnToSafariZone)
+	msgbox(FushciaCity_SafariZone_Entrance_Text_PleaseReturnSafariBalls)
+	closemessage
+	applymovement(LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_Exit)
+	waitmovement(0)
+	special(ExitSafariMode)
+	setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 0)
+	releaseall
+}
+
+script FushciaCity_SafariZone_Entrance_EventScript_ReturnToSafariZone {
+	msgbox(FushciaCity_SafariZone_Entrance_Text_GoodLuck)
+	closemessage
+	
+	callnative(GlitchCityDebug)
+	if(var(VAR_GLITCH_CITY_STATUS) == 1) {
+		setvar(VAR_GLITCH_CITY_STATUS, 3)
+		callnative(GlitchCityDebug)
+	}
+	applymovement(LOCALID_PLAYER, FushciaCity_SafariZone_Entrance_Movement_ReEnter)
+	waitmovement(0)
+	warp(MAP_SAFARI_ZONE_CENTER, 26, 30)
+	waitstate
+}
 
 script FushciaCity_SafariZone_Entrance_EventScript_Guy {
 	lock
@@ -241,9 +283,19 @@ script FushciaCity_SafariZone_Entrance {
 	applymovement(LOCALID_PLAYER, Common_Movement_FaceRight)
 	//applymovement(ASSISTANT, Common_Movement_FaceLeft)
 	if(checkitem(ITEM_SANDWICH_CASE)) {
-		msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.\pWould you like to enter anyway?\n", MSGBOX_YESNO)
-		if(var(VAR_RESULT)) {
-			msgbox("Lovely!\pI hope you have a wonderful, non-\ninfringing visit!", MSGBOX_DEFAULT)
+		if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+			msgbox("Hiya!\nThanks for clearing out the DMCA!\pWould you like to spend some time\nin the SAFARI ZONE?", MSGBOX_YESNO)
+		} else {
+			msgbox("Hiya!\nWelcome to the SAFARI ZONE.\pWe, uh… We have some important\nguests in the park right now.\lI hope you don't mind them.\pWould you like to enter anyway?\n", MSGBOX_YESNO)
+		
+
+		}if(var(VAR_RESULT)) {
+			if(flag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)) {
+				
+				msgbox("Lovely!\nThanks so much!\pI hope you have a great time!\n", MSGBOX_DEFAULT)
+			} else {
+				msgbox("Lovely!\pI hope you have a wonderful, non-\ninfringing visit!", MSGBOX_DEFAULT)
+			}
 			closemessage
 			getplayerxy(VAR_TEMP_2, VAR_TEMP_5)
 			switch(var(VAR_TEMP_2)) {
@@ -254,6 +306,10 @@ script FushciaCity_SafariZone_Entrance {
 				case 5:
 					call(FushciaCity_SafariZone_Entrance_EventScript_EnterSafariZoneRight)
 			}
+			setvar(VAR_GLITCH_CITY_STEP_COUNT, 0)
+			setvar(VAR_GLITCH_CITY_STATUS, 1)
+			
+			callnative(GlitchCityDebug)
 			special(EnterSafariMode)
 			setvar(VAR_MAP_SCENE_FUSHCIA_CITY_SAFARI_ZONE_ENTRANCE, 2)
 			warp(MAP_SAFARI_ZONE_CENTER, 255, 26, 30)
@@ -271,4 +327,19 @@ script FushciaCity_SafariZone_Entrance {
 		goto(FushciaCity_SafariZone_Entrance_EventScript_ForcePlayerBack)
 	}
 	releaseall
+}
+
+
+script SafariZone_GlitchCityActivates {
+	
+	callnative(GlitchCityDebug)
+	setvar(VAR_GLITCH_CITY_STATUS, 0)
+	playse(SE_DING_DONG)
+	msgbox(SafariZone_Text_TimesUp)
+	closemessage
+	special(ExitSafariMode)
+	warp(MAP_GLITCH_CITY, 0)
+	waitstate
+	end
+
 }

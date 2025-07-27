@@ -43,3 +43,8 @@ script FushciaGym_TrickRoomRoom_Stakataka {
     waitmoncry
 	release
 }
+
+script FushciaGym_TrickRoomRoom_Sign {
+	msgbox("NINJA TRICK ROOM\pThe room for KOGA's NINJA TRICK!\n", MSGBOX_NPC)
+	end
+}

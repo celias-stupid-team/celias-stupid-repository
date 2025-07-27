@@ -10,3 +10,7 @@ ThreeIsland_BondBridge_EventScript_BondBridgeSign::
 	msgbox ThreeIsland_BondBridge_Text_BondBridgeSign, MSGBOX_SIGN
 	end
 `
+script ThreeIsland_BondBridge_EventScript_Celia {
+	msgbox("Hi, there!\nI'm CELIA, the creator.\lYou're not supposed to be here!\pI'm not sure how you got here, but\nI'll make sure you can leave.\pThanks, and good luck!\n", MSGBOX_NPC)
+	end
+}

@@ -1316,7 +1316,13 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_GYARADOS_LANCE 1257
 
-#define SPECIES_EGG 1258
+#define SPECIES_ALAKAZAMTCG 1258
+
+#define SPECIES_REGIEYES 1259
+
+#define SPECIES_REGIFILSAMIE 1260
+
+#define SPECIES_EGG 1261
 
 #define NUM_SPECIES SPECIES_EGG
 

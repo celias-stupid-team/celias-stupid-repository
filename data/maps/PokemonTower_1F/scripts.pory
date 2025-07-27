@@ -40,12 +40,23 @@ PokemonTower_1F_EventScript_WorkerF::
 script PokemonTower_BlackMarket { //Clean up this dialogue; it's a little weak
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_LAVENDER, 1)
 	msgbox("Welcome, young traveler.\nI see you have an eye for rarities.\pI offer many wares that those in\npower may find… objectionable.", MSGBOX_DEFAULT)
 	message("Come, browse my collection…")
 	waitmessage
 	pokemart(PokemonTower_Market)
 	msgbox("I hope our paths cross again.")
 	release
+}
+
+script PokemonTower_LostTowerSign {
+	msgbox("LOST TOWER\n", MSGBOX_SIGN)
+	end
+}
+
+script PokemonTower_LostTowerLady {
+	msgbox("Ohhh…\pSo THAT'S where the tower went.\n", MSGBOX_NPC)
+	end
 }
 
 mart PokemonTower_Market {
@@ -59,7 +70,7 @@ mart PokemonTower_Market {
 }
 
 script PokemonTower_ShortcutSign {
-	msgbox("{RIGHT_ARROW} Top Floor\n{LEFT_ARROW} Exit", MSGBOX_SIGN)
+	msgbox("POKéMON TOWER\nTop Floor {RIGHT_ARROW} \lExit {LEFT_ARROW}", MSGBOX_SIGN)
 	end
 }
 

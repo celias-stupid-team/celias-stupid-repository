@@ -254,3 +254,6 @@ const u32 gMetatileAttributes_FestivalPlaza[] = INCBIN_U32("data/tilesets/second
 
 const u16 gMetatiles_SurfHouse[] = INCBIN_U16("data/tilesets/secondary/surf_house/metatiles.bin");
 const u32 gMetatileAttributes_SurfHouse[] = INCBIN_U32("data/tilesets/secondary/surf_house/metatile_attributes.bin");
+
+const u16 gMetatiles_GlitchCity[] = INCBIN_U16("data/tilesets/secondary/glitch_city/metatiles.bin");
+const u32 gMetatileAttributes_GlitchCity[] = INCBIN_U32("data/tilesets/secondary/glitch_city/metatile_attributes.bin");

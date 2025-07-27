@@ -761,7 +761,7 @@
       "id": "LAYOUT_CERULEAN_CITY",
       "name": "CeruleanCity_Layout",
       "width": 48,
-      "height": 45,
+      "height": 44,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -905,7 +905,7 @@
       "id": "LAYOUT_ROUTE5",
       "name": "Route5_Layout",
       "width": 48,
-      "height": 40,
+      "height": 41,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1721,7 +1721,7 @@
       "id": "LAYOUT_POKEMON_TOWER_1F",
       "name": "PokemonTower_1F_Layout",
       "width": 34,
-      "height": 20,
+      "height": 45,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -5256,6 +5256,30 @@
       "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/Route19_Layout_Pit/border.bin",
       "blockdata_filepath": "data/layouts/Route19_Layout_Pit/map.bin"
+    },
+    {
+      "id": "LAYOUT_GLITCH_CITY",
+      "name": "GlitchCity_Layout",
+      "width": 36,
+      "height": 36,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GlitchCity",
+      "border_filepath": "data/layouts/GlitchCity/border.bin",
+      "blockdata_filepath": "data/layouts/GlitchCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_LOST_TOWER",
+      "name": "LostTower_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/LostTower/border.bin",
+      "blockdata_filepath": "data/layouts/LostTower/map.bin"
     }
   ]
 }

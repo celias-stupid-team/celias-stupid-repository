@@ -6165,7 +6165,7 @@ static const struct LevelUpMove sManaphyLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sDarkraiLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_SPORE),
+	LEVEL_UP_MOVE(1, MOVE_DARK_VOID),
 	LEVEL_UP_END
 };
 
@@ -10008,6 +10008,21 @@ static const struct LevelUpMove sEGEXCSUTERLevelUpLearnset[] = {
 
 static const struct LevelUpMove sGyaradosLanceLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sAlakazamTCGLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sREGIEYESLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_MEAN_LOOK),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sREGIFILSAMIELevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_BODY_SLAM),
 	LEVEL_UP_END
 };
 

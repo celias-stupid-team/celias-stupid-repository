@@ -169,35 +169,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_CSR_DUMMY_26",
-      "var_value": "0",
-      "script": "FiveIsland_RocketWarehouse_EventScript_Admin2Trigger"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_CSR_DUMMY_26",
-      "var_value": "0",
-      "script": "FiveIsland_RocketWarehouse_EventScript_Admin2Trigger"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 11,
-      "elevation": 3,
-      "var": "VAR_CSR_DUMMY_26",
-      "var_value": "0",
-      "script": "FiveIsland_RocketWarehouse_EventScript_Admin2Trigger"
-    }
-  ],
   "bg_events": [
     {
       "type": "sign",

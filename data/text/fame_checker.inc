@@ -294,9 +294,10 @@ gFameCheckerFlavorText_Lavender0:: @ 0x81AE5E8
 
 gFameCheckerFlavorText_Lavender1:: @ 0x81AE656
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}Who is this person?\p"
-	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I recently moved to this town.\p"
-	.string "When I got here, the DMCA forced me\n"
-	.string "to take down my fanfic…$"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Welcome, young traveler\n"
+	.string "I see you have an eye for rarities.\p"
+	.string "I offer many wares that those in\n"
+	.string "power may find… objectionable.$"
 
 
 gFameCheckerFlavorText_Lavender2:: @ 0x81AE6D7
@@ -984,7 +985,7 @@ gRumorLogFlavorTextIntoLine1_Lavender0::
 	.string "Graveyard$"
 
 gRumorLogFlavorTextIntoLine1_Lavender1::
-	.string "Copywritten$"
+	.string "Shady$"
 
 gRumorLogFlavorTextIntoLine1_Lavender2::
 	.string "Relieved$"
@@ -1272,7 +1273,7 @@ gFameCheckerFlavorTextOriginObjectName_Lavender0::
 	.string "Guide$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender1::
-	.string "Creative$"
+	.string "Salesman$"
 
 gFameCheckerFlavorTextOriginObjectName_Lavender2::
 	.string "Ratkeeper$"
