@@ -37,6 +37,7 @@
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
+#include "constants/maps.h"
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
 #define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
@@ -2179,8 +2180,11 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
     s32 arg;
+    u8 RegiSpeed = 3;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
+
+
 
     if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC)
     {
@@ -2228,6 +2232,10 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
+
+    if(species == SPECIES_REGIELEKI) {
+        SetMonData(mon, MON_DATA_SPEED, &RegiSpeed);
+    }
 
     //special Sleep status clause for FLAG_SYS_SNORLAX_FIGHT
     if (FlagGet(FLAG_SYS_SNORLAX_FIGHT) && species == SPECIES_SNORLAX)
@@ -2524,8 +2532,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
 
-    if (attacker->ability == ABILITY_SLOW_START && gDisableStructs[battlerIdAtk].slowStartTimer > gBattleResults.battleTurnCounter)
-        attack = attack / 10;
+    if (attacker->ability == ABILITY_SLOW_START && gDisableStructs[battlerIdAtk].slowStartTimer > gBattleResults.battleTurnCounter) {
+        DebugPrintf("Cut Attack From slow start");
+        attack = attack / 100;
+    }
 
     if (ShouldGetStatBadgeBoost(FLAG_BADGE01_GET, battlerIdAtk))
         attack = (110 * attack) / 100;
@@ -3786,8 +3796,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
             break;
     }
-
-    if (i >= PARTY_SIZE)
+    
+    if (i >= PARTY_SIZE || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM)))
         return SendMonToPC(mon);
 
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));

@@ -842,3 +842,6 @@ const u32 gItemIconPalette_HISTORYBOOK[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icons/housevoucher.4bpp.lz");
 const u32 gItemIconPalette_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icon_palettes/housevoucher.gbapal.lz");
+
+const u32 gItemIcon_SPAREDOOR[] = INCBIN_U32("graphics/items/icons/spare_door.4bpp.lz");
+const u32 gItemIconPalette_SPAREDOOR[] = INCBIN_U32("graphics/items/icon_palettes/spare_door.gbapal.lz");

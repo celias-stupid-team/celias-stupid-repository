@@ -1521,7 +1521,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_PICNICKER,
         .trainerName = _("ISABELLE"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PicnickerIsabelle),
     },
@@ -4494,7 +4494,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
+        .party = ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
     },
     [TRAINER_LASS_INVISIBLE] = {
         .trainerClass = TRAINER_CLASS_LASS,

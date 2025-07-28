@@ -404,7 +404,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
 
         //Checks if there's a scene for the given heal location 
         if(DoesHealLocationSkipCutscene()) {
-            DebugPrintf("going to task 7");
+            // DebugPrintf("going to task 7");
             gTasks[taskId].tState = 7;
 
         } else {
@@ -465,7 +465,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
             
-            DebugPrintf("going to task 8");
+            // DebugPrintf("going to task 8");
             gTasks[taskId].tState++;
         }
         break;
@@ -476,14 +476,14 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         RemoveWindow(windowId);
         palette_bg_faded_fill_black();
         FadeInFromBlack();
-            DebugPrintf("going to task 9");
+            // DebugPrintf("going to task 9");
         gTasks[taskId].tState++;
         break;
     case 9:
         if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
         {
             DestroyTask(taskId);
-            DebugPrintf("going to release end");
+            // DebugPrintf("going to release end");
             ScriptContext_SetupScript(EventScript_AfterWhiteOutReleaseEnd);
         }
         break;

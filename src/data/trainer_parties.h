@@ -6275,10 +6275,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerJeremy[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerAlma[] = {
+static const struct TrainerMonItemDefaultMoves sParty_PicnickerAlma[] = {
     {
         .iv = 0,
-        .lvl = 28,
+        .lvl = 1,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_RATTATA,
     },
 };
@@ -10091,9 +10092,15 @@ static const struct TrainerMonItemCustomMoves sParty_FrontierBrainTucker[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
     {
         .iv = 0,
-        .lvl = 30,
+        .lvl = 70,
         .species = SPECIES_STAKATAKA,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ROCK_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 30,
+        .species = SPECIES_REGIELEKI,
+        .moves = {MOVE_AGILITY_DUMB, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

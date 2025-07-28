@@ -295,7 +295,7 @@
       "x": 22,
       "y": 1,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route9_SetMap"
     },
@@ -304,7 +304,7 @@
       "x": 22,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route9_SetMap"
     },
@@ -355,8 +355,8 @@
     },
     {
       "type": "trigger",
-      "x": 68,
-      "y": 10,
+      "x": 69,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

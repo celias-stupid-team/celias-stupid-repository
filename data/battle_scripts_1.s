@@ -261,6 +261,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
+	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
+
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -3381,6 +3383,12 @@ BattleScript_SunlightFaded::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TrickRoomContinues::
+	printstring STRINGID_DIMENSIONSARETWISTED
+	waitmessage B_WAIT_TIME_LONG
+	@ playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
+	end2
+
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -4730,24 +4738,10 @@ BattleScript_ExplosionUselessDoAnimStartLoop:
 	attackanimation
 	waitanimation
 BattleScript_ExplosionUselessLoop:
-	movevaluescleanup
-	critcalc
-	damagecalc
-	typecalc
-	adjustnormaldamage
-	accuracycheck BattleScript_ExplosionUselessMissed, ACC_CURR_MOVE
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-	moveendto MOVEEND_NEXT_TARGET
-	jumpifnexttargetvalid BattleScript_ExplosionUselessLoop
+	pause B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	end
 BattleScript_ExplosionUselessMissed:
@@ -5080,3 +5074,26 @@ BattleScript_NeutralizingGasExitsLoopIncrement:
 	restoreattacker
 	restoretarget
 	return
+
+
+BattleScript_EffectAgilityDumb::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_GOING_TOO_FAST
+	waitmessage B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	setatkhptozero
+	waitstate
+	effectivenesssound
+	hitanimation BS_ATTACKER
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	printstring STRINGID_HIT_A_WALL
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd

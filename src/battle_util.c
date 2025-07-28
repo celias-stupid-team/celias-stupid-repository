@@ -34,7 +34,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 {//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
 	// Attacker  	NORMAL 	FIGHTING 	FLYING 	POISON 	STEEL 	ROCK 	BUG 	GHOST 	WATER_PHYSICAL 	ELECTRIC_PHYSICAL 	PSYCHIC_PHYSICAL 	GRASS_TCG 	MYSTERY 	GROUND 	FIRE 	WATER 	GRASS 	ELECTRIC 	PSYCHIC 	ICE 	DRAGON 	DARK 	FAIRY 	BROCK 	WEIRD 	DAD 	CHOCOLATE 	SHADOW 	LARGE 	BIRD 	SHIT 	FAIRY_TRANS 	SOUND 	FIGHTING_SPECIAL 	
 	[TYPE_NORMAL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIGHTING]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
+	[TYPE_FIGHTING]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
 	[TYPE_FLYING]   = {	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
 	[TYPE_POISON]   = {	______, 	______, 	______, 	X(0.5), 	X(0.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
 	[TYPE_STEEL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
@@ -506,6 +506,7 @@ enum
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
     ENDTURN_HAIL,
+    ENDTURN_TRICK_ROOM,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -750,6 +751,15 @@ u8 DoFieldEndTurnEffects(void)
 
                 gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_HAIL;
+                BattleScriptExecute(gBattlescriptCurrInstr);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_TRICK_ROOM:
+            if (GetCurrentWeather() == WEATHER_TRICK_ROOM)
+            {
+                gBattlescriptCurrInstr = BattleScript_TrickRoomContinues;
                 BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
@@ -1483,7 +1493,7 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_PARALYSED: // paralysis
-            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0)
+            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
             {
                 gProtectStructs[gBattlerAttacker].prlzImmobility = 1;
                 // This is removed in FRLG and Emerald for some reason

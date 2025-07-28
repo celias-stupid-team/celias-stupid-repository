@@ -252,7 +252,6 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
 {
-    EFFECT_EXPLOSION,
     EFFECT_DREAM_EATER,
     EFFECT_RAZOR_WIND,
     EFFECT_SKY_ATTACK,
