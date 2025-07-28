@@ -91,7 +91,13 @@ script CeruleanClub_CeliaReward {
 	faceplayer
 	if(!flag(FLAG_CSR_OLD_CELIA_BONUS) && flag(FLAG_CSR_CELIA_BONUS)) {
 		msgbox("Hi, there!\nWelcome back from Demo 2!\pIt looks like last update, you\nunlocked the Dev Commentary!\lNicely done!\pThis time, there's new quests to\nfind, so I've disabled it for now.\lYou need to find the new stuff too!\pHere's a hint to get you started:\n", MSGBOX_DEFAULT)
+		clearflag(FLAG_CSR_OLD_CELIA_BONUS)
 		clearflag(FLAG_CELIA_SECRETS_FINISHED)
+		call(CeliaSecrets_GetNextHint)
+		fadescreen(FADE_TO_BLACK)
+		removeobject(VAR_LAST_TALKED)
+		special(DrawWholeMapView)
+		fadescreen(FADE_FROM_BLACK)
 		release
 		end
 	}
