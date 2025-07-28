@@ -125,7 +125,7 @@ script PlayerRoom_TruckShapedHole {
 		lock
 		msgbox("The wall is empty except for a\nlarge, truck-shaped hole.\pThe hole is not person-shaped, so\nyou cannot fit.", MSGBOX_DEFAULT)
 		if(checkitem(ITEM_DRILL_DOZER)) {
-				msgbox("Would you like to drill another\nhole?", MSGBOX_DEFAULT)
+				msgbox("Would you like to drill another\nhole?", MSGBOX_YESNO)
 				if(var(VAR_RESULT)) {
 					fadescreen(FADE_TO_BLACK)
 					setflag(FLAG_DRILLED_PALLET_HOLE)

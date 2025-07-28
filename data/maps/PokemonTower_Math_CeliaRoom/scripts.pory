@@ -4,7 +4,9 @@ mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
         VAR_TEMP_1, 0 {
             setvar(VAR_TEMP_1, 1)
             if(!flag(FLAG_CELIA_SECRET_LAVENDER)) {
-                applymovement(LOCALID_PLAYER, Common_Movement_WalkLeft)
+                applymovement(LOCALID_PLAYER, moves(
+                    walk_left * 2
+                ))
                 waitmovement(0)
                 applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
                 delay(60)
@@ -14,6 +16,7 @@ mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
                 applymovement(CELIA, CeliaEnters)
                 waitmovement(0)
                 delay(120)
+                textcolor(NPC_TEXT_COLOR_FEMALE)
                 msgbox("Y{PAUSE 5}o{PAUSE 5}u{PAUSE 5}'{PAUSE 5}r{PAUSE 5}e{PAUSE 5} n{PAUSE 5}o{PAUSE 5}t{PAUSE 5} t{PAUSE 5}h{PAUSE 5}e {PAUSE 5}o{PAUSE 5}n{PAUSE 5}e{PAUSE 5}…\n", MSGBOX_DEFAULT)
                 closemessage
                 delay(60)
@@ -38,13 +41,19 @@ mapscripts PokemonTower_Math_CeliaRoom_MapScripts {
 }
 
 movement CeliaEnters {
+    face_left
     set_visible
+    delay_16 * 2
+    walk_slower_left
+    face_left
 }
 
 movement CeliaMiddle {
-    walk_slow_up
-    walk_slow_left * 2
-    face_up
+    walk_slower_up
+    walk_slower_left * 2
+    walk_slower_up
+    delay_16 * 2
+    face_down
 }
 
 movement CeliaMiddle2 {
