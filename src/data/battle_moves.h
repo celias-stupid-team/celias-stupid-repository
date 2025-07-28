@@ -6817,10 +6817,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 [MOVE_FOURSIGHT] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 120,
+        .power = 4,
         .type = TYPE_BUG,
-        .accuracy = 100,
-        .pp = 35,
+        .accuracy = 4,
+        .pp = 4,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
