@@ -144,6 +144,8 @@ script FushciaGym_InvisibleLass {
             msgbox("Y'know, I've always liked the\nREGI POKéMON.\pThe only people who find them on\ntheir own never look at me!", MSGBOX_DEFAULT)
             closemessage
             special(LoadPlayerParty)
+            setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
+            clearflag(FLAG_IN_FUSHCIA_GYM)
             fadescreen(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
             fadescreen(FADE_FROM_BLACK)
