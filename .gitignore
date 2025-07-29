@@ -68,3 +68,4 @@ prefabs.json
 data/maps/*/scripts.inc
 src/data/map_group_count.h
 pokefirered*.png
+pokefirered.ss*
