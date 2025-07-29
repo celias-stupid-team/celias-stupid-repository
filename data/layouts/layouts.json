@@ -5268,6 +5268,18 @@
       "secondary_tileset": "gTileset_CeruleanCity",
       "border_filepath": "data/layouts/CeruleanCityPit/border.bin",
       "blockdata_filepath": "data/layouts/CeruleanCityPit/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CITY_NO_LONGER_PIT",
+      "name": "CeruleanCityNoLongerPit",
+      "width": 17,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeruleanCity",
+      "border_filepath": "data/layouts/CeruleanCityNoLongerPit/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanCityNoLongerPit/map.bin"
     }
   ]
 }

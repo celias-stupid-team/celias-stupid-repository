@@ -2538,7 +2538,7 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
 }
 
 void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
-{
+{    
     u16 targetLayout = VarGet(ScriptReadHalfword(ctx)); //the layout you want to print on the map
     s16 startingX = VarGet(ScriptReadHalfword(ctx));
     s16 startingY = VarGet(ScriptReadHalfword(ctx));
@@ -2551,30 +2551,21 @@ void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
     s16 j;
 
     const struct MapLayout *mapLayout = gMapLayouts[targetLayout - 1];
-
+    
     for (i = x1; i <= x2; i++)
     {
         for (j = y1; j <= y2; j++)
         {
             u16 metatile = mapLayout->map[j * mapLayout->width + i] & MAPGRID_METATILE_ID_MASK;
 
-            s16 destX = i + startingX;
-            s16 destY = j + startingY;
+            s16 destX = i + startingX + MAP_OFFSET;
+            s16 destY = j + startingY + MAP_OFFSET;
 
-            DebugPrintf("destX: %u", destX);
-            DebugPrintf("destY: %u", destY);
+            
+            
             MapGridSetMetatileIdAt(destX, destY, metatile);
         }
-    }
-
+    }   
     DrawWholeMapView();
-}
-
-void SampleScript(void){
-    /*
-    MapGridSetMetatileIdAt(19 + MAP_OFFSET, 0 + MAP_OFFSET, ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
-    DrawWholeMapView();
-    */
-    //DebugPrintf("Metatile ID: %u", ReturnMetatileAt(0, 0, LAYOUT_CERULEAN_CITY_PIT));
 }
 

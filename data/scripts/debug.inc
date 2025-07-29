@@ -90,11 +90,10 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_EventScript_Script_1::
-	setlayouttiles LAYOUT_CERULEAN_CITY_PIT 19 0 0 0 16 12
+	callnative CeruleanCity_SummonThePit2
 	end
 
 Debug_EventScript_Script_2::
-	callnative SampleScript
 	end
 
 Debug_EventScript_Script_3::
