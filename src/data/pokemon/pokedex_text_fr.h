@@ -2607,7 +2607,7 @@ const u8 gHitmonchanShitPokedexText[] = _(
 	"FIRE PUNCH should be really strong now!");
 
 const u8 gJigglypuffAbovePokedexText[] = _(
-	"Haha, gottem!");
+	"A circle has no beginning.");
 
 const u8 gKenyaPokedexText[] = _(
 	"No, I will not be taking a side on\n"

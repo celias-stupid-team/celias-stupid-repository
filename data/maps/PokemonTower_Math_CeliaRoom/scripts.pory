@@ -77,3 +77,9 @@ script PokemonTower_CeliaRoom_Shorts {
     fadescreen(FADE_FROM_BLACK)
     release
 }
+
+
+script PokemonTower_CeliaRoom_BerryPowder {
+	msgbox("Here lies the BERRY POWDER MAN.\prip\n", MSGBOX_SIGN)
+	end
+}
