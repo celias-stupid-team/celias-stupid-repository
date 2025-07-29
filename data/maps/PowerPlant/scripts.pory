@@ -140,6 +140,7 @@ script PowerPlant_Dazzle {
 				msgbox("DAZZLE: Ooh!\nYou have a STAR PIECE!\pWould you like to trade it for a\nBADGE?", MSGBOX_YESNO)
 				setflag(FLAG_CSR_TALKED_TO_DAZZLE)
 				if(var(VAR_RESULT)) {
+					removeitem(ITEM_STAR_PIECE)
 					msgbox("DAZZLE: Yes!\nLet's trade!", MSGBOX_DEFAULT)
 					closemessage
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
