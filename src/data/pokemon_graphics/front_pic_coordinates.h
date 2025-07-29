@@ -4153,7 +4153,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_STAKATAKA] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 0,
 	},
 	[SPECIES_BLACEPHALON] =
 	{
@@ -5558,7 +5558,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 	[SPECIES_SHEDINJA_ELECTRIC] =
 	{
 		.size = MON_COORDS_SIZE(48, 32),
-		.y_offset = 7,
+		.y_offset = 0,
 	},
 	[SPECIES_VENUSAUR_MEGA] =
 	{

@@ -14,6 +14,7 @@
 #include "decompress.h"
 #include "event_data.h"
 #include "evolution_scene.h"
+#include "field_weather.h"
 #include "graphics.h"
 #include "help_system.h"
 #include "item.h"
@@ -42,6 +43,7 @@
 #include "constants/pokemon.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/weather.h"
 
 static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
 static void HandleAction_UseMove(void);
@@ -1455,7 +1457,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
         ZeroEnemyPartyMons();
         for (i = 0; i < gTrainers[trainerNum].partySize; i++)
         {
-
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
@@ -2355,6 +2356,9 @@ void SwitchInClearSetData(void)
     gBattleResources->flags->flags[gActiveBattler] = 0;
     gCurrentMove = MOVE_NONE;
 
+    // Restore struct member so replacement does not miss timing
+    gSpecialStatuses[gActiveBattler].switchInAbilityDone = FALSE;
+
     // Clear selected party ID so Revival Blessing doesn't get confused.
     gSelectedMonPartyId = PARTY_SIZE;
 }
@@ -2808,19 +2812,24 @@ static void TryDoEventsBeforeFirstTurn(void)
         gBattleStruct->overworldWeatherDone = TRUE;
         return;
     }
+    if (AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, 0, 0, 0, 0) != 0)
+        return;
     // Check all switch in abilities happening from the fastest mon to slowest.
-    while (gBattleStruct->switchInAbilitiesCounter < gBattlersCount)
+    if (!IsNeutralizingGasOnField())
     {
-        if (AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gBattlerByTurnOrder[gBattleStruct->switchInAbilitiesCounter], 0, 0, 0) != 0)
-            effect++;
-        ++gBattleStruct->switchInAbilitiesCounter;
-        if (effect != 0)
+        while (gBattleStruct->switchInAbilitiesCounter < gBattlersCount)
+        {
+            if (AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, gBattlerByTurnOrder[gBattleStruct->switchInAbilitiesCounter], 0, 0, 0) != 0)
+                effect++;
+            ++gBattleStruct->switchInAbilitiesCounter;
+            if (effect != 0)
+                return;
+        }
+        if (AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE1, 0, 0, 0, 0) != 0)
+            return;
+        if (AbilityBattleEffects(ABILITYEFFECT_TRACE, 0, 0, 0, 0) != 0)
             return;
     }
-    if (AbilityBattleEffects(ABILITYEFFECT_INTIMIDATE1, 0, 0, 0, 0) != 0)
-        return;
-    if (AbilityBattleEffects(ABILITYEFFECT_TRACE, 0, 0, 0, 0) != 0)
-        return;
     // Check all switch in items having effect from the fastest mon to slowest.
     while (gBattleStruct->switchInItemsCounter < gBattlersCount)
     {
@@ -2923,6 +2932,7 @@ void BattleTurnPassed(void)
     {
         gChosenActionByBattler[i] = B_ACTION_NONE;
         gChosenMoveByBattler[i] = MOVE_NONE;
+        gStatuses3[i] &= ~STATUS3_ELECTRIFIED;
     }
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
@@ -3422,18 +3432,29 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         holdEffect = ItemId_GetHoldEffect(gBattleMons[battler1].item);
         holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[battler1].item);
     }
+
+    // abilities
+    if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
+    {
+        DebugPrintf("Cut Speed from Slow Start");
+        speedBattler1 = speedBattler1 / 100;
+        }
+    
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
      && FlagGet(FLAG_BADGE03_GET)
      && GetBattlerSide(battler1) == B_SIDE_PLAYER)
         speedBattler1 = (speedBattler1 * 110) / 100;
+    
+    // items
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
     if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
-        speedBattler1 /= 4;
+        speedBattler1 = 5; // Guaranteed outslow Trick Room
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler1 = UINT_MAX;
-    // check second battlerId's speed
+
+    // ### check second battlerId's speed ###
     speedBattler2 = (gBattleMons[battler2].speed * speedMultiplierBattler2)
                     * (gStatStageRatios[gBattleMons[battler2].statStages[STAT_SPEED]][0])
                     / (gStatStageRatios[gBattleMons[battler2].statStages[STAT_SPEED]][1]);
@@ -3447,17 +3468,30 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         holdEffect = ItemId_GetHoldEffect(gBattleMons[battler2].item);
         holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[battler2].item);
     }
+
+    // abilities
+    if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
+            {
+        DebugPrintf("Cut Speed from Slow Start");
+        speedBattler1 = speedBattler1 / 100;
+        }
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
      && FlagGet(FLAG_BADGE03_GET)
      && GetBattlerSide(battler2) == B_SIDE_PLAYER)
         speedBattler2 = (speedBattler2 * 110) / 100;
+
+    // items
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler2 /= 2;
     if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)
-        speedBattler2 /= 4;
+        speedBattler2 = 5;
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler2 = UINT_MAX;
+
+    // ### speed calcs completed ###
+
+    // get chosen move
     if (ignoreChosenMoves)
     {
         moveBattler1 = MOVE_NONE;
@@ -3465,6 +3499,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     }
     else
     {
+        //battler1
         if (gChosenActionByBattler[battler1] == B_ACTION_USE_MOVE)
         {
             if (gProtectStructs[battler1].noValidMoves)
@@ -3474,6 +3509,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         }
         else
             moveBattler1 = MOVE_NONE;
+        //battler2
         if (gChosenActionByBattler[battler2] == B_ACTION_USE_MOVE)
         {
             if (gProtectStructs[battler2].noValidMoves)
@@ -3484,6 +3520,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         else
             moveBattler2 = MOVE_NONE;
     }
+
     // both move priorities are different than 0
     if (gBattleMoves[moveBattler1].priority != 0 || gBattleMoves[moveBattler2].priority != 0)
     {
@@ -3493,8 +3530,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
             else if (speedBattler1 < speedBattler2)
-                strikesFirst = 1; // battler2 has more speed
-            // else battler1 has more speed
+            {
+                if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                    strikesFirst = 1; // battler2 has more speed
+                else
+                    strikesFirst = 0; // else battler1 has more speed
+            }
+            else
+            {
+                if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                    strikesFirst = 0; // battler1 has more speed
+                else
+                    strikesFirst = 1; // else battler2 has more speed
+            }
         }
         else if (gBattleMoves[moveBattler1].priority < gBattleMoves[moveBattler2].priority)
             strikesFirst = 1; // battler2's move has greater priority
@@ -3506,8 +3554,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         if (speedBattler1 == speedBattler2 && Random() & 1)
             strikesFirst = 2; // same speeds, same priorities
         else if (speedBattler1 < speedBattler2)
-            strikesFirst = 1; // battler2 has more speed
-        // else battler1 has more speed
+        {
+            if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                strikesFirst = 1; // battler2 has more speed
+            else
+                strikesFirst = 0; // else battler1 has more speed
+        }
+        else
+        {
+            if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                strikesFirst = 0; // battler1 has more speed
+            else
+                strikesFirst = 1; // else battler2 has more speed
+        }    
     }
     return strikesFirst;
 }
@@ -4035,6 +4094,11 @@ static void HandleAction_UseMove(void)
         gBattleResults.lastUsedMovePlayer = gCurrentMove;
     else
         gBattleResults.lastUsedMoveOpponent = gCurrentMove;
+
+    //handle dynamic move types
+    if (gStatuses3[gBattlerAttacker] & STATUS3_ELECTRIFIED)
+        gBattleStruct->dynamicMoveType = TYPE_ELECTRIC | F_DYNAMIC_TYPE_2;
+
     // choose target
     side = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
     if (gSideTimers[side].followmeTimer != 0

@@ -173,7 +173,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_NORMALIZE] = sNormalizeDescription,
     [ABILITY_FAIRY_TAG] = sFairyTagDescription,
     [ABILITY_BAKED_BODY] = sBakedBodyDescription,
-
+    [ABILITY_BAD_DREAMS] = COMPOUND_STRING("Faints sleeping Pokémon."),
+    [ABILITY_SLOW_START] = COMPOUND_STRING("Takes a while to get going."),
+    [ABILITY_NEUTRALIZING_GAS] = COMPOUND_STRING("All Abilities are nullified."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -265,4 +267,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_NORMALIZE] = _("NORMALIZE"),
     [ABILITY_FAIRY_TAG] = _("FAIRY TAG"),
     [ABILITY_BAKED_BODY] = _("BAKED BODY"),
+    [ABILITY_BAD_DREAMS] = _("BAD DREAMS"),
+    [ABILITY_SLOW_START] = _("SLOW START"),
+    [ABILITY_NEUTRALIZING_GAS] = _("NEUTRAL. GAS"),
 };

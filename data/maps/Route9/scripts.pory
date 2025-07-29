@@ -7,7 +7,7 @@ Route9_EventScript_RouteSign::
 `
 mapscripts Route9_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setbench(BENCH_ROUTE9)
+		//setbench(BENCH_ROUTE9)
 		setflag(FLAG_CSR_MAP_ROUTE_9)
 		call(SetPlayerPokedexValues)
 	}
@@ -48,5 +48,6 @@ script Route9_SetBenchCerulean {
 
 script Route9_SetBenchRoute9 {
 	setbench(BENCH_ROUTE9)
+	setvar(VAR_TEMP_0, 1)
 	release
 }

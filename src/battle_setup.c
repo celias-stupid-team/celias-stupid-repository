@@ -991,7 +991,9 @@ void StartTrainerBattle(void)
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
-    if (VarGet(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == START_SHEDINJA_BATTLE)
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
+      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
+      && VarGet(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == START_SHEDINJA_BATTLE)
         gBattleTypeFlags |= BATTLE_TYPE_SHEDINJA_TERA;
     gMain.savedCallback = CB2_EndTrainerBattle;
     DoTrainerBattle();
@@ -1148,7 +1150,17 @@ static const u8 *ReturnEmptyStringIfNull(const u8 *string)
 
 static const u8 *GetIntroSpeechOfApproachingTrainer(void)
 {
+    if (gNoOfApproachingTrainers == 2)
+    {
+        return ReturnEmptyStringIfNull(gApproachingTrainers[gApproachingTrainerId].trainerIntroSpeech);
+    }
     return ReturnEmptyStringIfNull(sTrainerAIntroSpeech);
+}
+
+const u8 *GetTrainerAIntroSpeechFromScriptPointer(const u8 *trainerScript)
+{
+    const u8 *introText = (const u8 *)TrainerBattleLoadArg32(trainerScript + 6);
+    return ReturnEmptyStringIfNull(introText);
 }
 
 const u8 *GetTrainerALoseText(void)

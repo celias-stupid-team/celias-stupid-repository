@@ -1572,3 +1572,9 @@ Text_TestMsg::
 
 	.include "data/maps/FestivalPlaza/scripts.inc"
 	.include "data/maps/FestivalPlaza/text.inc"
+
+	.include "data/maps/GlitchCity/scripts.inc"
+	.include "data/maps/GlitchCity/text.inc"
+
+	.include "data/maps/LostTower/scripts.inc"
+	.include "data/maps/LostTower/text.inc"

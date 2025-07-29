@@ -10,7 +10,7 @@
 #define WEATHER_FOG_HORIZONTAL     6
 #define WEATHER_VOLCANIC_ASH       7   // unused
 #define WEATHER_SANDSTORM          8   // unused
-#define WEATHER_FOG_DIAGONAL       9   // unused
+#define WEATHER_TRICK_ROOM       9   // unused
 #define WEATHER_UNDERWATER         10  // unused
 #define WEATHER_SHADE              11
 #define WEATHER_DROUGHT            12  // used and unbroken in overworld
@@ -29,7 +29,7 @@
 #define COORD_EVENT_WEATHER_SNOW                4
 #define COORD_EVENT_WEATHER_RAIN_THUNDERSTORM   5
 #define COORD_EVENT_WEATHER_FOG_HORIZONTAL      6
-#define COORD_EVENT_WEATHER_FOG_DIAGONAL        7
+#define COORD_EVENT_WEATHER_TRICK_ROOM        7
 #define COORD_EVENT_WEATHER_VOLCANIC_ASH        8
 #define COORD_EVENT_WEATHER_SANDSTORM           9
 #define COORD_EVENT_WEATHER_SHADE               10

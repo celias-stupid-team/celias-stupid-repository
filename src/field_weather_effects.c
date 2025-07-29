@@ -1657,7 +1657,7 @@ static void UpdateAshSprite(struct Sprite *sprite)
 #undef tSpriteRow
 
 //------------------------------------------------------------------------------
-// WEATHER_FOG_DIAGONAL
+// WEATHER_TRICK_ROOM
 //------------------------------------------------------------------------------
 
 static void UpdateFogDiagonalMovement(void);

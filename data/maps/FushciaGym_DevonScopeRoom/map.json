@@ -35,21 +35,21 @@
       "x": 9,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
       "dest_warp_id": "2"
     },
     {
       "x": 8,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
       "dest_warp_id": "2"
     },
     {
       "x": 10,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_FUSHCIA_GYM_LOOK_GIRL_ROOM",
+      "dest_map": "MAP_FUSHCIA_GYM_MAP_ROOM",
       "dest_warp_id": "2"
     }
   ],

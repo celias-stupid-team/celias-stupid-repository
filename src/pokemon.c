@@ -37,6 +37,7 @@
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
 #include "constants/union_room.h"
+#include "constants/maps.h"
 
 #define SPECIES_TO_HOENN(name)      [SPECIES_##name - 1] = HOENN_DEX_##name
 #define SPECIES_TO_NATIONAL(name)   [SPECIES_##name - 1] = NATIONAL_DEX_##name
@@ -1905,7 +1906,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
-    if (FlagGet(FLAG_SHINY_CREATION))
+    if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
     {
         value = TRUE;
         SetBoxMonData(boxMon, MON_DATA_CSR_SHINY, &value);
@@ -2179,8 +2180,12 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
     s32 arg;
+    u8 RegiSpeed = 3;
+    u8 StakatakaSpeed = 8;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
+
+
 
     if (species == SPECIES_SHEDINJA || species == SPECIES_RATICATE || species == SPECIES_SHEDINJA_ELECTRIC)
     {
@@ -2229,6 +2234,14 @@ void CalculateMonStats(struct Pokemon *mon)
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
 
+    if(species == SPECIES_REGIELEKI) {
+        SetMonData(mon, MON_DATA_SPEED, &RegiSpeed);
+    }
+
+    if(species == SPECIES_STAKATAKA) {
+        SetMonData(mon, MON_DATA_SPEED, &StakatakaSpeed);
+    }
+    
     //special Sleep status clause for FLAG_SYS_SNORLAX_FIGHT
     if (FlagGet(FLAG_SYS_SNORLAX_FIGHT) && species == SPECIES_SNORLAX)
     {
@@ -2523,6 +2536,11 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
+
+    if (attacker->ability == ABILITY_SLOW_START && gDisableStructs[battlerIdAtk].slowStartTimer > gBattleResults.battleTurnCounter) {
+        DebugPrintf("Cut Attack From slow start");
+        attack = attack / 100;
+    }
 
     if (ShouldGetStatBadgeBoost(FLAG_BADGE01_GET, battlerIdAtk))
         attack = (110 * attack) / 100;
@@ -3783,8 +3801,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
             break;
     }
-
-    if (i >= PARTY_SIZE)
+    
+    if (i >= PARTY_SIZE || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM)))
         return SendMonToPC(mon);
 
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
@@ -3837,6 +3855,32 @@ u8 CalculatePlayerPartyCount(void)
     }
 
     return gPlayerPartyCount;
+}
+
+
+void CalculatePlayerLivingPartyCount(void)
+{
+        s32 aliveCount = 0;
+    s32 i;
+    CalculatePlayerPartyCount();
+
+    if (gPlayerPartyCount == 1)
+        gSpecialVar_Result = 1; // PLAYER_HAS_ONE_MON
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        // FRLG changed the order of these checks, but there's no point to doing that
+        // because of the requirement of all 3 of these checks.
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_EGG)
+            aliveCount++;
+    }
+
+    //return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
+    gSpecialVar_Result = aliveCount;
+
+    
 }
 
 

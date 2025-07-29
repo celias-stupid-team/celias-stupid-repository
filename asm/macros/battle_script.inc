@@ -1423,9 +1423,31 @@
 	various \battler, VARIOUS_INCREMENT_SUB_LAYER
 	.endm
 
-	.macro trysetspecialreflect failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_SET_SPECIAL_REFLECT
+	.macro trysetspecialreflect battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_SET_SPECIAL_REFLECT
 	.4byte \failInstr
+	.endm
+
+	.macro handlespriteupdate battler:req
+	various \battler, VARIOUS_HANDLE_SPRITE_UPDATE
+	.endm
+
+	.macro jumpiftargetally jumpInstr:req
+	various BS_ATTACKER, VARIOUS_JUMP_IF_TARGET_ALLY
+	.4byte \jumpInstr
+	.endm
+
+	.macro tryelectrify failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_ELECTRIFY
+	.4byte \failInstr
+	.endm
+
+	.macro tryendneutralizinggas battler:req
+	various \battler, VARIOUS_TRY_END_NEUTRALIZING_GAS
+	.endm
+
+	.macro switchinabilities battler:req
+	various \battler, VARIOUS_SWITCHIN_ABILITIES
 	.endm
 
 
@@ -1549,4 +1571,20 @@
 
 	.macro setbattlestringid
 	callnative BS_SetBattleStringId
+	.endm
+
+	.macro savetarget
+	callnative BS_SaveTarget
+	.endm
+
+	.macro restoretarget
+	callnative BS_RestoreTarget
+	.endm
+
+	.macro saveattacker
+	callnative BS_SaveAttacker
+	.endm
+
+	.macro restoreattacker
+	callnative BS_RestoreAttacker
 	.endm

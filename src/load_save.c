@@ -10,6 +10,7 @@
 #include "berry_powder.h"
 #include "overworld.h"
 #include "quest_log.h"
+#include "event_data.h"
 
 #define SAVEBLOCK_MOVE_RANGE    128
 
@@ -166,7 +167,7 @@ void SavePlayerParty(void)
 void LoadPlayerParty(void)
 {
     int i;
-
+    FlagClear(FLAG_SYS_DISABLE_SAVE);
     gPlayerPartyCount = gSaveBlock1Ptr->playerPartyCount;
 
     for (i = 0; i < PARTY_SIZE; i++)

@@ -5,8 +5,12 @@ mapscripts FushciaGym_ImposterOakRoom_MapScripts {
 		if(!flag(FLAG_FUSHCIA_IMPOSTER_OAK)) {
 			setflag(FLAG_TEMP_1)
 			if(flag(FLAG_IMPOSTER_OAK_ROOM_SWITCH)) {
-			call(FushciaGym_ImposterOakRoom_DrawNoStatue)
+				call(FushciaGym_ImposterOakRoom_DrawNoStatue)
 
+			}
+			if(flag(FLAG_PICKED_UP_FUSHCIA_DOOR)) {
+				
+				call(FushciaGym_OakRoom_RemoveDoor)
 			}
 		} else {
 			setmaplayoutindex(LAYOUT_FUSHCIA_GYM_IMPOSTER_OAK_ROOM_LAYOUT_2)
@@ -113,4 +117,30 @@ script FushciaGym_ImposterOakRoom_ImposterOak{
 script FushciaGym_CleaningLady {
 	msgbox("Huh?\nYeah, I'm the CLEANING LADY.\pThis room's getting remodeled.\nI moved the STATUES to storage.", MSGBOX_NPC)
 	end
+}
+
+script FushciaGym_OakRoom_Sign {
+	msgbox("SCROLL ROOM\pFor the time being, feel free to\nscroll right past.", MSGBOX_SIGN)
+	end
+}
+
+
+script FushciaGym_OakRoom_SpareDoor {
+	lock
+	if(flag(FLAG_PICKED_UP_FUSHCIA_DOOR)) {
+		msgbox("Hopefully the door will find\na new home.", MSGBOX_SIGN)
+		end
+	}
+	msgbox("An unused door lay dejected\nagainst the wall.", MSGBOX_DEFAULT)
+	call(FushciaGym_OakRoom_RemoveDoor)
+	special(DrawWholeMapView)
+	giveitem_msg("{PLAYER} obtained the\nSPARE DOOR!", ITEM_SPARE_DOOR)
+	setflag(FLAG_PICKED_UP_FUSHCIA_DOOR)
+	release
+}
+
+script FushciaGym_OakRoom_RemoveDoor {
+	setmetatile(21, 7 , 0x298, TRUE)
+	setmetatile(21, 8 , 0x284, FALSE)
+	return
 }

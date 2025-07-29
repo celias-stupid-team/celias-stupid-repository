@@ -343,7 +343,7 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_BALDING_MAN,
     // Lavender
     OBJ_EVENT_GFX_WORKER_M,
-    OBJ_EVENT_GFX_PICNICKER,
+    OBJ_EVENT_GFX_CHANNELER,
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_WOMAN_2,
     OBJ_EVENT_GFX_CLIPBOARD,
@@ -1431,11 +1431,11 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                         isQuestCompleted = TRUE;
                     break;
                 case 1:
-                    if(FlagGet(FLAG_RESCUED_CUBONES_MOM))
+                    if(VarGet(VAR_MAP_SCENE_POKEMON_TOWER_2F) >= 1) // TM guy 
                         isQuestCompleted = TRUE;
                     break;
                 case 2:
-                    if(FALSE) // Kill raticate
+                    if(VarGet(VAR_MAP_SCENE_POKEMON_TOWER_2F) >= 1) // Kill raticate
                         isQuestCompleted = TRUE;
                     break;
                 case 3:

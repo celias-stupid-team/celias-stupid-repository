@@ -460,7 +460,7 @@ PokedexRating_Text_HintTentacool::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintToedscool::
-	.string "I hear my AIDE delivered the RUNNING\n"
+	.string "I heard my AIDE delivered RUNNING\n"
 	.string "SHOES, but you didn't need them.\p"
 	.string "Maybe you could try giving them to\n"
 	.string "a POKéMON instead!$"

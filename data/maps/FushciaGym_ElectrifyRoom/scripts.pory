@@ -3,6 +3,8 @@ mapscripts FushciaGym_ElectrifyRoom_MapScripts {
         if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE)) {
             call(FushciaGym_ElectrifyRoom_OpenDoor)
 
+        } else {
+            setflag(FLAG_TEMP_4)
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ELECTRIFY_ROOM)
     }
@@ -15,9 +17,42 @@ script FushciaGym_ElectrifyRoom_OpenDoor {
 }
 
 script FushciaGym_ElectrifyRoom_Lance {
-    trainerbattle_single(TRAINER_FUSHCIA_GYM_LANCE, "I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!", "But how!\n")
-    msgbox("Impossible!\nYou must have cheated!", MSGBOX_DEFAULT)
+    lock
+    faceplayer
+    if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE)) {
+        call(FushciaGym_ElectrifyRoom_OpenDoor)
+        special(DrawWholeMapView)
+        msgbox("Impossible!\nYou must have cheated!", MSGBOX_DEFAULT)
+        release
+        end
+
+    }
+    msgbox("I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Or well, I was.\pI got kicked out for using an\n“illegal” POKéMON.\lPah!\pI've moved on to a format more\nsuited to my strenghs:\lBalanced Hackmons!")
+    trainerbattle_no_intro(TRAINER_FUSHCIA_GYM_LANCE, "But how!\n")
+    addobject(LOCALID_REGIDRAGO)
     call(FushciaGym_ElectrifyRoom_OpenDoor)
+    special(DrawWholeMapView)
+    release
+    end
+}
+
+script FushciaGym_ElectrifyRoom_DoorSign {
+    if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE)) {
+        msgbox("MAY'S ROOM\pA private bedroom for the GYM\nLEADER's child, given with the\lutmost of care.", MSGBOX_SIGN)
+    } else {
+        msgbox("The door is locked…\n", MSGBOX_SIGN)
+    }
+}
+
+script FushciaGym_ElectrifyRoom_Regidrago {
+    lock
+    faceplayer
+    playmoncry(SPECIES_REGIDRAGO, CRY_MODE_FAINT)
+    msgbox("REGIDRAGO: Draa-!\n", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(20)
+    msgbox("Hmm, looks like we forgot about\nhim.", MSGBOX_DEFAULT)
     release
     end
 }

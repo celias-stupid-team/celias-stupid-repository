@@ -1,6 +1,6 @@
 mapscripts FushciaGym_RainRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_BEAT_RAIN_GIRL)) {
+        if(flag(FLAG_SET_FUSHCIA_DOOR)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
         if(flag(FLAG_CHASED_VULPIX)) {
@@ -15,8 +15,10 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         special(GetPlayerXY)
         if(!flag(FLAG_GOT_POISONED_ONCE)) {
             setflag(FLAG_TEMP_2)
+            
         } else {
             setvar(VAR_0x8005, 0)
+            setflag(FLAG_DRAW_STATUE_IN_LION_ROOM)
         }
         if(var(VAR_0x8005) == 6) {
             setobjectxyperm(LOCALID_NURSE, 6, 7)
@@ -45,7 +47,7 @@ mapscripts FushciaGym_RainRoom_MapScripts {
 }
 
 movement FushciaGym_NuseWalkTwo {
-    walk_down * 2
+    walk_down
     face_down
 }
 
@@ -57,6 +59,46 @@ script FushciaGym_RainRoomGirl {
     special(DrawWholeMapView)
     release
 
+}
+
+
+script FushciaGym_RainRoom_Sign {
+    lock
+	if(flag(FLAG_SET_FUSHCIA_DOOR)) {
+        msgbox("The newly-set door shines with\npride.", MSGBOX_DEFAULT)
+        release
+        end
+    } else {
+        if(checkitem(ITEM_SPARE_DOOR)) {
+            msgbox("An empty doorframe sits on the\nwall.\pWould you like to use your\nSPARE DOOR?", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                msgbox("{PLAYER} inserted the\nSPARE DOOR!", MSGBOX_DEFAULT)
+                closemessage
+                delay(30)
+                playse(SE_CLICK)
+                removeitem(ITEM_SPARE_DOOR)
+                setflag(FLAG_SET_FUSHCIA_DOOR)
+                call(FushciaGym_RainRoom_OpenDoor)
+                special(DrawWholeMapView)
+                delay(60)
+                msgbox("The door appears happy.\n", MSGBOX_DEFAULT)
+                release
+                end
+
+            } else {
+                msgbox("The empty doorframe remains\nalone.", MSGBOX_DEFAULT)
+                
+                release
+                end
+            }
+        } else {
+            msgbox("An empty doorframe sits on the\nwall.\pIt looks lonely.\n", MSGBOX_DEFAULT)
+            
+            release
+            end
+        }
+    }
+	end
 }
 
 script FushciaGym_RainRoom_OpenDoor {
@@ -121,3 +163,4 @@ script FushciaGym_RainRoom_DrawHole {
     setmetatile(3, 8, 0x3CC, TRUE)
     return
 }
+

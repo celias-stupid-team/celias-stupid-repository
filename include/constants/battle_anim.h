@@ -304,6 +304,9 @@
 #define ANIM_TAG_TOMATO                     (ANIM_SPRITES_START + 294)
 #define ANIM_TAG_TERA_CRYSTAL               (ANIM_SPRITES_START + 295)
 #define ANIM_TAG_TERA_SHATTER               (ANIM_SPRITES_START + 296)
+#define ANIM_TAG_QUICK_GUARD_HAND           (ANIM_SPRITES_START + 297)
+#define ANIM_TAG_WONDER_SEED                (ANIM_SPRITES_START + 298)
+#define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 299)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -353,6 +356,7 @@
 #define BG_SOLAR_BEAM_OPPONENT 24
 #define BG_SOLAR_BEAM_PLAYER 25
 #define BG_SOLAR_BEAM_CONTESTS 26
+#define BG_DARK_VOID 27
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

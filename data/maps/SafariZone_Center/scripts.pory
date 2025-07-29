@@ -45,6 +45,7 @@ mapscripts SafariZone_Center_MapScripts {
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 0 {
+			setvar(VAR_GLITCH_CITY_STATUS, 0)
 			applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
 			setflag(FLAG_TEMP_2)
@@ -52,6 +53,7 @@ mapscripts SafariZone_Center_MapScripts {
 			goto(SafariZone_Center_DMCA_Take_Case)
 		}
 		VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 2 {
+			setvar(VAR_GLITCH_CITY_STATUS, 0)
 			applymovement(LOCALID_PLAYER, Common_Movement_WalkUp)
 			waitmovement(0)
 			setvar(VAR_CSR_DMCA_SAFARI_ZONE_MAP_SCENE, 1)
@@ -74,6 +76,11 @@ mapscripts SafariZone_Center_MapScripts {
 			end
 		}
 	]
+}
+
+script SafariZone_Center_ResetGlitchCity {
+	setvar(VAR_GLITCH_CITY_STATUS, 0)
+	release
 }
 
 movement DMCA_Lead_Down {
@@ -273,7 +280,7 @@ script SafariZone_Center_BreakLeftWall {
 }
 
 script SafariZone_Center_BreakMiddleWall {
-	setmetatile(14, 10, 0x294, FALSE)
+	setmetatile(14, 10, 0x294, TRUE)
 	setmetatile(14, 11, 0x0D1, FALSE)
 	setmetatile(14, 12, 0x0D9, FALSE)
 	return

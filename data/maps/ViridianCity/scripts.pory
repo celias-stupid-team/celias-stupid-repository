@@ -293,13 +293,7 @@ ViridianCity_EventScript_YoungsterDeclineExplanation::
 	release
 	end
 
-ViridianCity_EventScript_Woman::
-	lock
-	faceplayer
-	goto_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 0, ViridianCity_EventScript_WomanRoadBlocked
-	msgbox ViridianCity_Text_GoShoppingInPewterOccasionally
-	release
-	end
+
 
 ViridianCity_EventScript_WomanRoadBlocked::
 	msgbox ViridianCity_Text_GrandpaHasntHadCoffeeYet
@@ -738,5 +732,19 @@ script ViridianCity_EventScript_TutorialCompleted {
 		faceplayer
 		msgbox("I am 30 years old.\n", MSGBOX_DEFAULT)
 	}
+	release
+}
+
+script ViridianCity_EventScript_Woman {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_4)) {
+		msgbox(ViridianCity_Text_WeakenMonsFirstToCatch)
+		release
+		end
+
+	}
+	goto_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 0, ViridianCity_EventScript_WomanRoadBlocked)
+	msgbox(ViridianCity_Text_GoShoppingInPewterOccasionally)
 	release
 }

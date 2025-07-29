@@ -1256,7 +1256,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ELITE_FOUR_KAREN] = {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_BEAUTY,
+        .trainerPic = TRAINER_PIC_KAREN,
         .trainerName = _("KAREN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -1521,7 +1521,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_PICNICKER,
         .trainerName = _("ISABELLE"),
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_PicnickerIsabelle),
     },
@@ -4062,7 +4062,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("MISTY"),
         .items = {ITEM_X_SPECIAL},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_LeaderMisty),
     },
     [TRAINER_LEADER_LT_SURGE] = {
@@ -4494,7 +4494,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
+        .party = ITEM_DEFAULT_MOVES(sParty_PicnickerAlma),
     },
     [TRAINER_LASS_INVISIBLE] = {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -6348,7 +6348,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainSpenser),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainSpenser),
     },
     [TRAINER_BATTLE_FRONTIER_GRETA] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
@@ -6358,7 +6358,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainGreta),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainGreta),
     },
     [TRAINER_BATTLE_FRONTIER_TUCKER] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
@@ -6368,7 +6368,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainTucker),
+        .party = ITEM_CUSTOM_MOVES(sParty_FrontierBrainTucker),
     },
     [TRAINER_BATTLE_FRONTIER_LUCY] = {
         .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
@@ -6431,7 +6431,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainCaitlin),
     },
     [TRAINER_BATTLE_FRONTIER_DARACH] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_DARACH,
         .trainerName = _("DARACH"),
@@ -6441,9 +6441,9 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainDarach),
     },
     [TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_DARACH,
+        .trainerPic = TRAINER_PIC_DARACHCAIT,
         .trainerName = _("CAIT&DARACH"),
         .items = {},
         .doubleBattle = TRUE,

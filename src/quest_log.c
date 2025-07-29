@@ -26,6 +26,7 @@
 #include "strings.h"
 #include "constants/event_objects.h"
 #include "constants/maps.h"
+#include "constants/vars.h"
 #include "constants/quest_log.h"
 #include "constants/field_weather.h"
 #include "constants/event_object_movement.h"
@@ -137,6 +138,7 @@ static bool8 RecordHeadAtEndOfEntry(void);
 static bool8 InQuestLogDisabledLocation(void);
 static bool8 TrySetLinkQuestLogEvent(u16, const u16 *);
 static bool8 TrySetTrainerBattleQuestLogEvent(u16, const u16 *);
+extern void EnterSafariMode();
 
 static const struct WindowTemplate sWindowTemplates[WIN_COUNT] = {
     [WIN_TOP_BAR] = {
@@ -1147,7 +1149,19 @@ static void Task_FinalScene_WaitFade(u8 taskId)
 static void Task_QuestLogScene_SavedGame(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
-
+    
+    if(VarGet(VAR_GLITCH_CITY_STATUS) == 3 || VarGet(VAR_GLITCH_CITY_STATUS) == 4) {
+        
+        // DebugPrintf("Glitch City was 3, now it's 4");
+        VarSet(VAR_GLITCH_CITY_STATUS, 4);
+        
+    } else {
+        // DebugPrintf("Glitch City was not 3, now it's 0");
+        VarSet(VAR_GLITCH_CITY_STATUS, 0);
+    }
+    if(FlagGet(FLAG_SYS_SAFARI_MODE)) {
+        EnterSafariMode();
+    }
     if (!gPaletteFade.active)
     {
         if (sPlaybackControl.endMode != END_MODE_FINISH)

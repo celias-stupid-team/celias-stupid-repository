@@ -292,37 +292,10 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 67,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 67,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 67,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
       "x": 22,
       "y": 1,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route9_SetMap"
     },
@@ -331,31 +304,13 @@
       "x": 22,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route9_SetMap"
     },
     {
       "type": "trigger",
-      "x": 0,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route9_SetBenchCerulean"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route9_SetBenchCerulean"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
+      "x": 3,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -364,8 +319,44 @@
     },
     {
       "type": "trigger",
-      "x": 5,
+      "x": 3,
       "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

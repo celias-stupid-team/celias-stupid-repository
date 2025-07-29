@@ -205,6 +205,6 @@ script MtMoon_Celia_EndLass {
 }
 
 script MtMoon_ExitSign {
-	msgbox("MT. MOON\nExit {LEFT_ARROW}\lEntrance: {RIGHT_ARROW}", MSGBOX_SIGN)
+	msgbox("MT. MOON\nExit {LEFT_ARROW}\lEntrance {RIGHT_ARROW}", MSGBOX_SIGN)
 	end
 }

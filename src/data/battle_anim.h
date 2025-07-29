@@ -1305,8 +1305,11 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_StealthRock, 0x0C00, ANIM_TAG_STEALTH_ROCK},
     {gBattleAnimSpriteGfx_Weed, 0x0800, ANIM_TAG_WEED},
     {gBattleAnimSpriteGfx_Tomato, 0x0200, ANIM_TAG_TOMATO},
-    {gBattleAnimSpriteGfx_TeraCrystal, 0x800, ANIM_TAG_TERA_CRYSTAL},
+    {gBattleAnimSpriteGfx_TeraCrystal, 0x0800, ANIM_TAG_TERA_CRYSTAL},
     {gBattleAnimSpriteGfx_TeraShatter, 0x0180, ANIM_TAG_TERA_SHATTER},
+    {gBattleAnimSpriteGfx_QuickGuard, 0x200, ANIM_TAG_QUICK_GUARD_HAND},
+    {gBattleAnimSpriteGfx_WonderSeed, 0x0200, ANIM_TAG_WONDER_SEED},
+    {gBattleAnimSpriteGfx_SmallCloud, 0x0080, ANIM_TAG_SMALL_CLOUD},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1608,6 +1611,9 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Tomato, ANIM_TAG_TOMATO},
     {gBattleAnimSpritePal_TeraCrystal, ANIM_TAG_TERA_CRYSTAL},
     {gBattleAnimSpritePal_TeraShatter, ANIM_TAG_TERA_SHATTER},
+    {gBattleAnimSpritePal_QuickGuard, ANIM_TAG_QUICK_GUARD_HAND},
+    {gBattleAnimSpritePal_WonderSeed, ANIM_TAG_WONDER_SEED},
+    {gBattleAnimSpritePal_SmallCloud, ANIM_TAG_SMALL_CLOUD},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1639,4 +1645,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SOLAR_BEAM_OPPONENT] = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactOpponent},
     [BG_SOLAR_BEAM_PLAYER]   = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactPlayer},
     [BG_SOLAR_BEAM_CONTESTS] = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactContests},
+    [BG_DARK_VOID]           = {gBattleAnimBgImage_Waterfall,  gBattleAnimBgPalette_DarkVoid,   gBattleAnimBgTilemap_DarkVoid},   
 };

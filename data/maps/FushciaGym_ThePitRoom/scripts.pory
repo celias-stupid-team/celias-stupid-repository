@@ -1,16 +1,20 @@
+
 const LASS = 1
 
 mapscripts FushciaGym_ThePitRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if(flag(FLAG_LASS_BROKE_WALL)) {
-            call(FushciaGym_ThePitRoom_SetBrokenWall)
-
-        }
         if(!flag(FLAG_MEMORIZED_SCROLL)) {
             setflag(FLAG_TEMP_3)
         }
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_THE_PIT_ROOM)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_LASS_BROKE_WALL)) {
+            call(FushciaGym_ThePitRoom_SetBrokenWall)
+
+        }
+
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         // VAR_FUSHCIA_GYM_PIT_STATE is set to 1 in FieldGetPlayerInput()
@@ -29,9 +33,12 @@ script FushciaGym_ThePitRoom_Sign {
     lock
     msgbox("TRAINER TIPS!\pPress start to save the game!\n", MSGBOX_DEFAULT)
     closemessage
-    delay(20)
-    msgbox("Dumbass.\n", MSGBOX_DEFAULT)
     release
+}
+
+script FushciaGym_ThePitRoom_Lass {
+	msgbox("The GYM LEADER set up the\ninvisible walls all over the GYM.\lBut…\pThey make me so anxious!\nAnyone could be looking at me!", MSGBOX_NPC)
+	end
 }
 
 
@@ -47,6 +54,7 @@ script FushciaGym_ThePitRoom_LassBreaksWall {
     waitse
     textcolor(NPC_TEXT_COLOR_FEMALE)
     playbgm(MUS_LASS_INTRO, FALSE)
+    addobject(LASS)
     delay(90)
     playbgm(MUS_NONE, TRUE)
     playse(SE_M_STRENGTH)
@@ -80,7 +88,10 @@ script FushciaGym_ThePitRoom_LassBreaksWall {
     setobjectxy(LASS, 11, 12)
     setobjectxyperm(LASS, 11, 12)
     special(DrawWholeMapView)
-    applymovement(LOCALID_PLAYER, FushciaGym_PlayerJumpsBack)
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    if(var(VAR_TEMP_3) == 11) {
+        applymovement(LOCALID_PLAYER, FushciaGym_PlayerJumpsBack)
+    }
     delay(120)
     msgbox("…\pYou knew you were looking at me,\ndidn't you?", MSGBOX_DEFAULT)
     playbgm(MUS_BATTLE_FRONTIER, TRUE)

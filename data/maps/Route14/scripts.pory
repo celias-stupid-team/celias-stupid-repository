@@ -495,36 +495,7 @@ script Route15_PokeRap_Trainer28_Defeat {
 
 script Route15_PokeRap_Trainer29 {
     trainerbattle_single(TRAINER_POKERAP_29, Rapper_29_Intro, "Nice!", Route15_PokeRap_Trainer29_Defeat)
-    if(flag(FLAG_GOT_SHINY_PINSIR)) {
-        msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623")
-        release
-        end
-    }
-    msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
-    special(ChoosePartyMon)
-    waitstate
-    if(var(VAR_0x8004) >= PARTY_SIZE) {
-        msgbox("Yeah, I didn't think so.\n", MSGBOX_DEFAULT)
-        release
-        end
-    }
-    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-    if(var(VAR_RESULT) == SPECIES_PINSIR) {
-        setflag(FLAG_SHINY_CREATION) // Pinsir
-        msgbox("Oh!\nShoot, you're right.\lI guess I missed my cue.\pHere, take him.\nI guess I kinda ruined the bit…", MSGBOX_DEFAULT)
-        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
-        textcolor(NPC_TEXT_COLOR_NEUTRAL)
-        playfanfare(MUS_LEVEL_UP)
-        setflag(FLAG_GOT_SHINY_PINSIR)
-        msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
-        waitfanfare
-		call(Common_Script_GiftPokemon)
-        msgbox("My bad!\n", MSGBOX_DEFAULT)
-        release
-    } else {
-        msgbox("Uhh, I don't think that one\ngoes here.\pMaybe you're mistaken.\n", MSGBOX_DEFAULT)
-    }
-    release
+    msgbox("CHARIZARD made by Crow\nMACHAMP made by The GameJumper623", MSGBOX_NPC)
 }
 
 script Route15_PokeRap_Trainer29_Defeat {
@@ -629,7 +600,35 @@ script Route15_PokeRap_Trainer35_Defeat {
 
 script Route15_PokeRap_Trainer36 {
     trainerbattle_single(TRAINER_POKERAP_36, Rapper_36_Intro, "Nice!", Route15_PokeRap_Trainer36_Defeat)
-    msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa", MSGBOX_DEFAULT)
+    if(flag(FLAG_GOT_SHINY_CUBONE)) {
+        msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa")
+        release
+        end
+    }
+    msgbox("VOLTORB by Lichen\nGLOOM by Jogaklaa\p…Huh?\nWhat's that?\lI missed one?", MSGBOX_DEFAULT)
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox("Yeah, I didn't think so.\n", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    if(var(VAR_RESULT) == SPECIES_CUBONE) {
+        setflag(FLAG_SHINY_CREATION) // Pinsir
+        msgbox("Oh!\nShoot, you're right.\lI guess I missed my cue.\pHere, take him.\nI guess I kinda ruined the bit…", MSGBOX_DEFAULT)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CUBONE)
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        playfanfare(MUS_LEVEL_UP)
+        setflag(FLAG_GOT_SHINY_CUBONE)
+        msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
+        waitfanfare
+		call(Common_Script_GiftPokemon)
+        msgbox("My bad!\n", MSGBOX_DEFAULT)
+        release
+    } else {
+        msgbox("Uhh, I don't think that one\ngoes here.\pMaybe you're mistaken.\n", MSGBOX_DEFAULT)
+    }
     release
 }
 
