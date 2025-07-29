@@ -215,6 +215,7 @@ script DanceTheater_FluteMan {
                 fadescreen(FADE_FROM_BLACK)
                 delay(15)
                 msgbox("Here you are!\nA beautiful glass FLUTE, huff-puff!", MSGBOX_DEFAULT)
+                removeitem(ITEM_SOOT_SACK)
                 giveitem(ITEM_POKE_FLUTE)
                 msgbox("A BLUE FLUTE is a most wonderful\nitem, huff-puff.\pPlaying it will awaken any sleeping\nPOKéMON, huff-puff!", MSGBOX_DEFAULT)
             } else {

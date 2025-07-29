@@ -10012,12 +10012,12 @@ static const struct LevelUpMove sAlakazamTCGLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sREGIEYESLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_MEAN_LOOK),
 	LEVEL_UP_END
 };
 
 static const struct LevelUpMove sREGIFILSAMIELevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_BODY_SLAM),
 	LEVEL_UP_END
 };
 

@@ -2181,6 +2181,7 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 newMaxHP;
     s32 arg;
     u8 RegiSpeed = 3;
+    u8 StakatakaSpeed = 8;
 
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
@@ -2237,6 +2238,10 @@ void CalculateMonStats(struct Pokemon *mon)
         SetMonData(mon, MON_DATA_SPEED, &RegiSpeed);
     }
 
+    if(species == SPECIES_STAKATAKA) {
+        SetMonData(mon, MON_DATA_SPEED, &StakatakaSpeed);
+    }
+    
     //special Sleep status clause for FLAG_SYS_SNORLAX_FIGHT
     if (FlagGet(FLAG_SYS_SNORLAX_FIGHT) && species == SPECIES_SNORLAX)
     {

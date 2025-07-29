@@ -92,6 +92,9 @@ ViridianCity_Mart_EventScript_Youngster::
 script EventScript_Questionnaire {
 	lockall
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	setvar(VAR_0x8002, 2)
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 2)
 	msgbox(Text_FillOutQuestionnaire, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, EventScript_DeclineQuestionnaire)
 	setvar(VAR_0x8004, EASY_CHAT_TYPE_QUESTIONNAIRE)

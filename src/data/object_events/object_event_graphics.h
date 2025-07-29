@@ -447,3 +447,4 @@ const u32 gObjectEventPic_Deadnurse[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Gray_celia[] = INCBIN_U32("graphics/object_events/pics/stupid/Gray_celia.4bpp");
 const u32 gObjectEventPic_Regieleki[] = INCBIN_U32("graphics/object_events/pics/stupid/Regieleki.4bpp");
 const u32 gObjectEventPic_Deadpoke[] = INCBIN_U32("graphics/object_events/pics/stupid/Deadpoke.4bpp");
+const u32 gObjectEventPic_Regidrago[] = INCBIN_U32("graphics/object_events/pics/stupid/Regidrago.4bpp");

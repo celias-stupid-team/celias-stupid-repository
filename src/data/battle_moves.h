@@ -2579,7 +2579,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_ATTRACT,
         .power = 0,
         .type = TYPE_GHOST,
-        .accuracy = 0,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -6817,10 +6817,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 [MOVE_FOURSIGHT] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 120,
+        .power = 4,
         .type = TYPE_BUG,
-        .accuracy = 100,
-        .pp = 35,
+        .accuracy = 4,
+        .pp = 4,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -7938,7 +7938,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
     

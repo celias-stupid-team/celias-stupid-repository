@@ -238,7 +238,10 @@ static void BuildDebugStartMenu(void)
         AppendToStartMenuItems(STARTMENU_POKEMON);
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER);
-    AppendToStartMenuItems(STARTMENU_SAVE);
+    if (!FlagGet(FLAG_SYS_DISABLE_SAVE)) {
+        AppendToStartMenuItems(STARTMENU_SAVE);
+
+    }
     AppendToStartMenuItems(STARTMENU_OPTION);
     AppendToStartMenuItems(STARTMENU_DEBUG);
 }
@@ -251,7 +254,10 @@ static void SetUpStartMenu_NormalField(void)
         AppendToStartMenuItems(STARTMENU_POKEMON);
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER);
-    AppendToStartMenuItems(STARTMENU_SAVE);
+    if (!FlagGet(FLAG_SYS_DISABLE_SAVE)) {
+        AppendToStartMenuItems(STARTMENU_SAVE);
+
+    }
     AppendToStartMenuItems(STARTMENU_OPTION);
     AppendToStartMenuItems(STARTMENU_EXIT);
 }
@@ -262,7 +268,10 @@ static void SetUpStartMenu_SafariZone(void)
     AppendToStartMenuItems(STARTMENU_POKEMON);
     AppendToStartMenuItems(STARTMENU_BAG);
     AppendToStartMenuItems(STARTMENU_PLAYER);
-    AppendToStartMenuItems(STARTMENU_SAVE);
+    if (!FlagGet(FLAG_SYS_DISABLE_SAVE)) {
+        AppendToStartMenuItems(STARTMENU_SAVE);
+
+    }
     AppendToStartMenuItems(STARTMENU_OPTION);
     AppendToStartMenuItems(STARTMENU_RETIRE);
 }

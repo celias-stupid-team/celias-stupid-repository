@@ -184,6 +184,8 @@ movement Celadon_CeliaAppearsForMankey {
 
 script CeliaSecrets_CeliaTellsYouNextHint {
 	call(CeliaSecrets_GetNextHint)
+	setflag(FLAG_CSR_OLD_CELIA_BONUS)
+
 	switch(var(VAR_CSR_CELIA_SECRET_NEXT_HINT)) {
 		case CELIA_SECRET_VIRIDIAN: //implemented!
 			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)
