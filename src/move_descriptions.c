@@ -121,7 +121,8 @@ const u8 gMoveDescription_Bide[] = _("The user endures\nattacks for two\nturns, 
 const u8 gMoveDescription_Metronome[] = _("The solution to\nevery puzzle in\nthe game!\n(technically)");
 const u8 gMoveDescription_MirrorMove[] = _("The user counters\nthe move last used\nby the foe with the\nsame move.");
 const u8 gMoveDescription_SelfDestruct[] = _("It goes right\nto your thighs!\n…And then you\nblow up!");
-const u8 gMoveDescription_EggBomb[] = _("fucking worthless");
+const u8 gMoveDescription_
+b[] = _("fucking worthless");
 const u8 gMoveDescription_Lick[] = _("The foe is licked\nand hit with a long\ntongue. It may\nalso paralyze.");
 const u8 gMoveDescription_Smog[] = _("The foe is attacked\nwith exhaust gases.\nIt may also poison\nthe foe.");
 const u8 gMoveDescription_Sludge[] = _("Toxic sludge is\nhurled at the foe.\nIt may poison the\ntarget.");
