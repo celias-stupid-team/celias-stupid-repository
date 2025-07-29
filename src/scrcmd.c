@@ -2556,14 +2556,12 @@ void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
     {
         for (j = y1; j <= y2; j++)
         {
-            u16 metatile = mapLayout->map[j * mapLayout->width + i] & MAPGRID_METATILE_ID_MASK;
+            u16 metatile = mapLayout->map[j * mapLayout->width + i];
 
             s16 destX = i + startingX + MAP_OFFSET;
             s16 destY = j + startingY + MAP_OFFSET;
-
             
-            
-            MapGridSetMetatileIdAt(destX, destY, metatile);
+            MapGridSetMetatileEntryAt(destX, destY, metatile);// thank you for this bit griffin
         }
     }   
     DrawWholeMapView();
