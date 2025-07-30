@@ -18,7 +18,7 @@
     {
       "local_id": "LOCALID_SILPH_CO_RIVAL",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "graphics_id": "OBJ_EVENT_GFX_LARRY",
       "x": 2,
       "y": 6,
       "elevation": 3,
