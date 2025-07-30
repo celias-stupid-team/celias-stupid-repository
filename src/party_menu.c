@@ -4294,6 +4294,12 @@ void CB2_ShowPartyMenuForItemUse(void)
     u8 msgId;
     TaskFunc task;
 
+    if (gUsingRegisteredPartyMenuItem)
+    {
+        callback = CB2_ReturnToField;
+        gUsingRegisteredPartyMenuItem = FALSE;
+    }
+
     if (gMain.inBattle)
     {
         menuType = PARTY_MENU_TYPE_IN_BATTLE;

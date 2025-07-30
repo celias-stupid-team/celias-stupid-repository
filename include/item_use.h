@@ -49,4 +49,6 @@ void FieldUseFunc_MoveRelearner(u8 taskId);
 
 void FieldUseFunc_PayDayTM(u8 taskId);
 
+extern bool8 gUsingRegisteredPartyMenuItem;
+
 #endif //GUARD_ITEM_USE_H
