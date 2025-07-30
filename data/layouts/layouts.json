@@ -2336,7 +2336,7 @@
       "height": 13,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_PokemonLeague",
       "border_filepath": "data/layouts/PokemonLeague_LoreleisRoom/border.bin",
       "blockdata_filepath": "data/layouts/PokemonLeague_LoreleisRoom/map.bin"
@@ -2369,10 +2369,10 @@
       "id": "LAYOUT_POKEMON_LEAGUE_LANCES_ROOM",
       "name": "PokemonLeague_LancesRoom_Layout",
       "width": 28,
-      "height": 24,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_PokemonLeague",
       "border_filepath": "data/layouts/PokemonLeague_LancesRoom/border.bin",
       "blockdata_filepath": "data/layouts/PokemonLeague_LancesRoom/map.bin"

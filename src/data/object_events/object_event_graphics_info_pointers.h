@@ -326,6 +326,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gray_celia;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Regieleki;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadpoke;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Regidrago;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dewgong;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadlass;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -551,7 +554,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ORTHWORM] =         &gObjectEventGraphicsInfo_Orthworm,
     [OBJ_EVENT_GFX_ETERNATUS] =         &gObjectEventGraphicsInfo_Eternatus,
     [OBJ_EVENT_GFX_PRIMEAPE] =         &gObjectEventGraphicsInfo_Primeape,
-    [OBJ_EVENT_GFX_DEWGONG] =         &gObjectEventGraphicsInfo_Dewgong,
+    [OBJ_EVENT_GFX_DEWGONG_1] =         &gObjectEventGraphicsInfo_Dewgong,
     [OBJ_EVENT_GFX_CASTFORM] =         &gObjectEventGraphicsInfo_Castform,
     [OBJ_EVENT_GFX_ZYGARDE] =         &gObjectEventGraphicsInfo_Zygarde,
     [OBJ_EVENT_GFX_ZUBAT] =         &gObjectEventGraphicsInfo_Zubat,
@@ -653,4 +656,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_REGIELEKI] = &gObjectEventGraphicsInfo_Regieleki,
     [OBJ_EVENT_GFX_DEADPOKE] = &gObjectEventGraphicsInfo_Deadpoke,
     [OBJ_EVENT_GFX_REGIDRAGO] = &gObjectEventGraphicsInfo_Regidrago,
+    [OBJ_EVENT_GFX_PRIMEAPE2] = &gObjectEventGraphicsInfo_Primeape2,
+    [OBJ_EVENT_GFX_DEWGONG] = &gObjectEventGraphicsInfo_Dewgong,
+    [OBJ_EVENT_GFX_DEADLASS] = &gObjectEventGraphicsInfo_Deadlass,
 };
