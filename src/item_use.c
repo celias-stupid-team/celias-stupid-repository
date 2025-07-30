@@ -488,15 +488,8 @@ void FieldUseFunc_RareCandy(u8 taskId)
 
 void FieldUseFunc_EvoItem(u8 taskId)
 {
-    if (!gTasks[taskId].tUsingRegisteredKeyItem)
-    {
-        gItemUseCB = ItemUseCB_EvolutionStone;
-        DoSetUpItemUseCallback(taskId);
-    }
-    else
-    {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-    }
+    gItemUseCB = ItemUseCB_EvolutionStone;
+    DoSetUpItemUseCallback(taskId);
 }
 
 void FieldUseFunc_SacredAsh(u8 taskId)
