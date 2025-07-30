@@ -325,8 +325,8 @@ static const u16 sECPhrase_OddishTaurosMewtwoVulpix[] = {
 
 static void CompareQuestionnaireResponseWithPassphrase(void)
 {
-    gSpecialVar_0x8002 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_OddishTaurosMewtwoVulpix));
-    gSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_UpgradeFromDemoTwo));
+    gSpecialVar_0x8002 = IsPhraseDifferentThanPlayerInput(sECPhrase_OddishTaurosMewtwoVulpix, NELEMS(sECPhrase_OddishTaurosMewtwoVulpix));
+    gSpecialVar_0x8003 = IsPhraseDifferentThanPlayerInput(sECPhrase_UpgradeFromDemoTwo, NELEMS(sECPhrase_UpgradeFromDemoTwo));
     gSpecialVar_0x8004 = IsPhraseDifferentThanPlayerInput(sECPhrase_LinkTogetherWithAll, NELEMS(sECPhrase_LinkTogetherWithAll));
     gSpecialVar_0x8005 = IsPhraseDifferentThanPlayerInput(sECPhrase_PsychicKeyGottenFree, NELEMS(sECPhrase_PsychicKeyGottenFree));
 }

@@ -918,7 +918,7 @@
 #define FLAG_CAN_DRILL_TRICK_WALL               0x349
 #define FLAG_DRILLED_TRICK_WALL               0x34A
 #define FLAG_GOT_SHINY_SLOWPOKE               0x34B
-#define FLAG_0x34C               0x34C
+#define FLAG_GOT_HOUSE_VOUCHER               0x34C
 #define FLAG_0x34D               0x34D
 #define FLAG_0x34E               0x34E
 #define FLAG_0x34F               0x34F
@@ -1399,7 +1399,7 @@
 #define FLAG_SYS_SNORLAX_FIGHT                                                  (SYS_FLAGS + 0xB)
 #define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
 #define FLAG_SYS_MAX_REPEL                                                  (SYS_FLAGS + 0xD)
-#define FLAG_0x80E                                                  (SYS_FLAGS + 0xE)
+#define FLAG_SYS_DISABLE_SAVE                                                  (SYS_FLAGS + 0xE)
 #define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)
 #define FLAG_0x810                                                  (SYS_FLAGS + 0x10)
 #define FLAG_0x811                                                  (SYS_FLAGS + 0x11)

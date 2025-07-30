@@ -1686,6 +1686,7 @@ BattleScript_EffectForesight::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	setforesight
 	attackanimation
 	waitanimation
