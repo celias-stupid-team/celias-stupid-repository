@@ -164,7 +164,6 @@ static const struct LevelUpMove sButterfreeLevelUpLearnset[] = {
 
 static const struct LevelUpMove sWeedleLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POISON_STING),
-    LEVEL_UP_MOVE(1, MOVE_STRING_SHOT),
     LEVEL_UP_MOVE(1, MOVE_EXPLOSION),
     LEVEL_UP_END
 };

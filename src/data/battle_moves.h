@@ -3499,7 +3499,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WAKE_UP_SLAP] =
     {
-        .effect = EFFECT_SMELLINGSALT,
+        .effect = EFFECT_FOCUS_PUNCH,
         .power = 60,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
