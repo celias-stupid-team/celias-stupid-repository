@@ -8935,8 +8935,8 @@ static const struct LevelUpMove sPikabluLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sRattata_ShinyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
    	LEVEL_UP_MOVE(1, MOVE_QUICK_ATTACK),
+	LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
 	LEVEL_UP_END
 };
 

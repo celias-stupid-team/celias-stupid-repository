@@ -157,16 +157,20 @@ static const u16 sDexCategory_FirstBadgePkmn_Page27[] = {
 //BADGE 2
 static const u16 sDexCategory_SecondBadgePkmn_Page1[] = {
     SPECIES_CHARMELEON,
+    SPECIES_CHARIZARD,
+    SPECIES_SQUIRTLE,
+    SPECIES_IVYSAUR,
 };
 
 static const u16 sDexCategory_SecondBadgePkmn_Page2[] = {
     SPECIES_PIDGEOTTO,
-    SPECIES_JIGGLYPUFF,
+    SPECIES_PIDGEOT,
 };
 
 static const u16 sDexCategory_SecondBadgePkmn_Page3[] = {
     SPECIES_NIDORINA,
     SPECIES_NIDORINO,
+    SPECIES_PRIMEAPE,
 };
 
 static const u16 sDexCategory_SecondBadgePkmn_Page4[] = {
@@ -193,11 +197,13 @@ static const u16 sDexCategory_SecondBadgePkmn_Page7[] = {
 
 static const u16 sDexCategory_SecondBadgePkmn_Page8[] = {
     SPECIES_SANDSHREW,
-    SPECIES_ABRA,
+    SPECIES_SANDSLASH,
     SPECIES_BELLSPROUT,
+    SPECIES_CHERUBI,
 };
 
 static const u16 sDexCategory_SecondBadgePkmn_Page9[] = {
+    SPECIES_ABRA,
     SPECIES_SCYTHER,
 };
 
@@ -300,52 +306,47 @@ static const u16 sDexCategory_SecondBadgePkmn_Page26[] = {
 
 
 static const u16 sDexCategory_ThirdBadgePkmn_Page1[] = {
-    SPECIES_CHARIZARD,
-    SPECIES_SQUIRTLE,
-    SPECIES_IVYSAUR,
-};
-
-static const u16 sDexCategory_ThirdBadgePkmn_Page2[] = {
-    SPECIES_PIDGEOT,
-    SPECIES_PRIMEAPE,
-};
-
-static const u16 sDexCategory_ThirdBadgePkmn_Page3[] = {
-    SPECIES_SANDSLASH,
-    SPECIES_CHERUBI,
-};
-
-static const u16 sDexCategory_ThirdBadgePkmn_Page4[] = {
     SPECIES_DIGLETT,
     SPECIES_DUGTRIO,
     SPECIES_KENYA,
 };
 
-static const u16 sDexCategory_ThirdBadgePkmn_Page5[] = {
+static const u16 sDexCategory_ThirdBadgePkmn_Page2[] = {
     SPECIES_RAICHU,
     SPECIES_MEOWTH,
 };
 
-static const u16 sDexCategory_ThirdBadgePkmn_Page6[] = {
+static const u16 sDexCategory_ThirdBadgePkmn_Page3[] = {
     SPECIES_CUBONE,
     SPECIES_MAROWAK,
     SPECIES_UNOWN_LOSS,
 };
 
-static const u16 sDexCategory_ThirdBadgePkmn_Page7[] = {
+static const u16 sDexCategory_ThirdBadgePkmn_Page4[] = {
     SPECIES_POLIWAG,
     SPECIES_TENTAQUIL,
     SPECIES_JYNX,
 };
 
-static const u16 sDexCategory_ThirdBadgePkmn_Page8[] = {
+static const u16 sDexCategory_ThirdBadgePkmn_Page5[] = {
     SPECIES_EXEGGCUTE,
     SPECIES_SPEAROW,
     SPECIES_FARFETCHD,
 };
 
+
 //UNUSED
 /*
+
+static const u16 sDexCategory_ThirdBadgePkmn_Page6[] = {
+};
+
+static const u16 sDexCategory_ThirdBadgePkmn_Page7[] = {
+};
+
+static const u16 sDexCategory_ThirdBadgePkmn_Page8[] = {
+};
+
 static const u16 sDexCategory_ThirdBadgePkmn_Page9[] = {
     SPECIES_SLOWPOKE,
     SPECIES_SLOWBRO,
@@ -841,9 +842,6 @@ static const struct PokedexCategoryPage sDexCategory_ThirdBadgePkmn[] = {
     DEX_CATEGORY(ThirdBadgePkmn_Page3),
     DEX_CATEGORY(ThirdBadgePkmn_Page4),
     DEX_CATEGORY(ThirdBadgePkmn_Page5),
-    DEX_CATEGORY(ThirdBadgePkmn_Page6),
-    DEX_CATEGORY(ThirdBadgePkmn_Page7),
-    DEX_CATEGORY(ThirdBadgePkmn_Page8),
 };
 
 static const struct PokedexCategoryPage sDexCategory_FourthBadgePkmn[] = {
