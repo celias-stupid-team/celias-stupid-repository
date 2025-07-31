@@ -954,3 +954,14 @@ const struct Tileset gTileset_GlitchCity =
     .metatileAttributes = gMetatileAttributes_GlitchCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Chapter8 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Chapter8,
+    .palettes = gTilesetPalettes_Chapter8,
+    .metatiles = gMetatiles_Chapter8,
+    .metatileAttributes = gMetatileAttributes_Chapter8,
+    .callback = NULL,
+};

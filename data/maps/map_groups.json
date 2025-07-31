@@ -45,7 +45,8 @@
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_PokemonTowerMath",
     "gMapGroup_KantoLighthouse",
-    "gMapGroup_FushciaGym"
+    "gMapGroup_FushciaGym",
+    "gMapGroup_ViridianGym"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -61,7 +62,8 @@
     "GreatSea_Center",
     "Chapter3",
     "GlitchCity",
-    "LostTower"
+    "LostTower",
+    "Chapter8"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -634,5 +636,8 @@
     "FushciaGym_TrickRoomRoom",
     "FushciaGym_MapRoom",
     "FushciaGym_IronCurtainRoom"
+  ],
+  "gMapGroup_ViridianGym": [
+    "ViridianGym_Entrance"
   ]
 }

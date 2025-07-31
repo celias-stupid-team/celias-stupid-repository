@@ -5280,6 +5280,90 @@
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/LostTower/border.bin",
       "blockdata_filepath": "data/layouts/LostTower/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8",
+      "name": "Chapter8_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8_FRAME5",
+      "name": "Chapter8_Frame5",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8_Frame5/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8_Frame5/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8_FRAME4",
+      "name": "Chapter8_Frame4",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8_Frame4/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8_Frame4/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8_FRAME3",
+      "name": "Chapter8_Frame3",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8_Frame3/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8_Frame3/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8_FRAME2",
+      "name": "Chapter8_Frame2",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8_Frame2/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8_Frame2/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER8_FRAME1",
+      "name": "Chapter8_Frame1",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter8_Frame1/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter8_Frame1/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_ENTRANCE",
+      "name": "ViridianGym_Entrance_Layout",
+      "width": 13,
+      "height": 16,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PewterGym",
+      "border_filepath": "data/layouts/ViridianGym_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Entrance/map.bin"
     }
   ]
 }

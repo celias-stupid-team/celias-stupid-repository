@@ -335,8 +335,8 @@
       "x": 38,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_CITY_GYM",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "x": 25,
@@ -506,7 +506,7 @@
     {
       "type": "sign",
       "x": 38,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ViridianCity_EventScript_GymDoor"
