@@ -394,12 +394,13 @@
 #define MUS_CSR_SECRET_HOUSE            385
 #define MUS_KOROK_SEED            386
 #define MUS_TRICK_HOUSE            387
+#define MUS_CHAPTER_8            388
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_TRICK_HOUSE
+#define END_MUS                     MUS_CHAPTER_8
 
 #endif  // GUARD_CONSTANTS_SONGS_H

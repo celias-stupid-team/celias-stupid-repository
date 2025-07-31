@@ -46,7 +46,7 @@
       "flag": "FLAG_HIDE_OAK_IN_CHAMP_ROOM"
     },
     {
-      "local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "local_id": "LOCALID_CHAMPIONS_ROOM_JERRY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 10,
@@ -61,7 +61,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "local_id": "LOCALID_CHAMPIONS_ROOM_LARRY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 2,
@@ -76,7 +76,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "local_id": "LOCALID_CHAMPIONS_ROOM_HARRY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 6,
@@ -91,7 +91,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "local_id": "LOCALID_CHAMPIONS_ROOM_MARY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 9,
@@ -106,7 +106,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_CHAMPIONS_ROOM_RIVAL",
+      "local_id": "LOCALID_CHAMPIONS_ROOM_LARRY_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LARRY",
       "x": 3,
