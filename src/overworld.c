@@ -219,7 +219,6 @@ static u8 FlipVerticalAndClearForced(u8 newFacing, u8 oldFacing);
 static u8 LinkPlayerDetectCollision(u8 selfObjEventId, u8 a2, s16 x, s16 y);
 static void SpriteCB_LinkPlayer(struct Sprite *sprite);
 
-extern const struct MapLayout * gMapLayouts[];
 extern const struct MapHeader *const *gMapGroups[];
 
 // Routines related to game state on warping in
@@ -499,7 +498,7 @@ static void InitMapView(void)
     InitTilesetAnimations();
 }
 
-static const struct MapLayout *GetMapLayout(void)
+const struct MapLayout *GetMapLayout(void)
 {
     u16 mapLayoutId = gSaveBlock1Ptr->mapLayoutId;
     if (mapLayoutId)

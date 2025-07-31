@@ -46,6 +46,7 @@
 #include "constants/field_weather.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
+EWRAM_DATA bool8 gUsingRegisteredPartyMenuItem = FALSE;
 
 static void FieldCB_FadeInFromBlack(void);
 static void Task_WaitFadeIn_CallItemUseOnFieldCB(u8 taskId);
@@ -94,6 +95,7 @@ static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
+static void Task_InitPartyMenuFromRegisteredItem(u8 taskId);
 
 
 // unknown unused data.
@@ -177,10 +179,33 @@ static void SetUpItemUseCallback(u8 taskId)
     }
     else
     {
-        ItemMenu_SetExitCallback(sExitCallbackByItemType[itemType]);
-        if (itemType == ITEM_TYPE_FIELD - 1)
-            Bag_BeginCloseWin0Animation();
-        ItemMenu_StartFadeToExitCallback(taskId);
+        // yeah I know this is kinda silly, but I don't want a redundant call to get the item type
+        // blame GF for their silly array indexing
+        if (gTasks[taskId].tUsingRegisteredKeyItem && itemType == (ITEM_TYPE_PARTY_MENU - 1))
+        {
+            StopPokemonLeagueLightingEffectTask();
+            FadeScreen(FADE_TO_BLACK, 0);
+            gUsingRegisteredPartyMenuItem = TRUE;
+            gTasks[taskId].func = Task_InitPartyMenuFromRegisteredItem;
+        }
+        else
+        {
+            ItemMenu_SetExitCallback(sExitCallbackByItemType[itemType]);
+            if (itemType == ITEM_TYPE_FIELD - 1)
+                Bag_BeginCloseWin0Animation();
+            
+            ItemMenu_StartFadeToExitCallback(taskId);
+        }
+    }
+}
+
+static void Task_InitPartyMenuFromRegisteredItem(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetMainCallback2(CB2_ShowPartyMenuForItemUse);
+        DestroyTask(taskId);
     }
 }
 
@@ -463,15 +488,8 @@ void FieldUseFunc_RareCandy(u8 taskId)
 
 void FieldUseFunc_EvoItem(u8 taskId)
 {
-    if (!gTasks[taskId].tUsingRegisteredKeyItem)
-    {
-        gItemUseCB = ItemUseCB_EvolutionStone;
-        DoSetUpItemUseCallback(taskId);
-    }
-    else
-    {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-    }
+    gItemUseCB = ItemUseCB_EvolutionStone;
+    DoSetUpItemUseCallback(taskId);
 }
 
 void FieldUseFunc_SacredAsh(u8 taskId)

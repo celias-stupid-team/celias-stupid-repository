@@ -10825,16 +10825,16 @@ void SaveBattlerTarget(u32 battler)
 {
     if (gBattleStruct->savedTargetCount < NELEMS(gBattleStruct->savedBattlerTarget))
         gBattleStruct->savedBattlerTarget[gBattleStruct->savedTargetCount++] = battler;
-    else
-        DebugPrintfLevel(MGBA_LOG_WARN, "Attempting to exceed savedBattlerTarget array size!");
+    // else
+        DebugPrintf("Attempting to exceed savedBattlerTarget array size!");
 }
 
 void SaveBattlerAttacker(u32 battler)
 {
     if (gBattleStruct->savedAttackerCount < NELEMS(gBattleStruct->savedBattlerAttacker))
         gBattleStruct->savedBattlerAttacker[gBattleStruct->savedAttackerCount++] = battler;
-    else
-        DebugPrintfLevel(MGBA_LOG_WARN, "Attempting to exceed savedBattlerAttacker array size!");
+    // else
+        DebugPrintf("Attempting to exceed savedBattlerAttacker array size!");
 }
 
 void BS_SaveTarget(void)
@@ -10857,7 +10857,7 @@ void BS_RestoreTarget(void)
         // #if TESTING
         // Test_ExitWithResult(TEST_RESULT_ERROR, "BS_RestoreTarget attempting to restore an empty target!");
         // #else
-        DebugPrintfLevel(MGBA_LOG_WARN, "BS_RestoreTarget attempting to restore an empty target!");
+        DebugPrintf("BS_RestoreTarget attempting to restore an empty target!");
         // #endif
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -10883,7 +10883,7 @@ void BS_RestoreAttacker(void)
         // #if TESTING
         // Test_ExitWithResult(TEST_RESULT_ERROR,  "BS_RestoreAttacker attempting to restore an empty attacker!");
         // #else
-        DebugPrintfLevel(MGBA_LOG_WARN, "BS_RestoreAttacker attempting to restore an empty attacker!");
+        DebugPrintf("BS_RestoreAttacker attempting to restore an empty attacker!");
         // #endif
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
