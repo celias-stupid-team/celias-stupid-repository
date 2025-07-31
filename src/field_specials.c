@@ -43,6 +43,7 @@
 #include "constants/menu.h"
 #include "constants/event_objects.h"
 #include "constants/metatile_labels.h"
+#include "constants/layouts.h"
 
 static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
@@ -2614,4 +2615,10 @@ u16 ScriptGetPartyMonSpecies(void)
 
 void GetUnownCount(void) {
     gSpecialVar_Result = GetGameStat(GAME_STAT_UNOWNS_CAUGHT);
+}
+
+void SwapLayout() {
+    SetCurrentMapLayout(LAYOUT_ROUTE19_LAYOUT_PIT);
+    InitMapLayoutData(&gMapHeader);
+    DrawWholeMapView();
 }

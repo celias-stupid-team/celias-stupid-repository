@@ -182,9 +182,13 @@ void UpdateEscapeWarp(s16 x, s16 y);
 bool8 SetDiveWarpEmerge(u16 x, u16 y);
 bool8 SetDiveWarpDive(u16 x, u16 y);
 
+const struct MapLayout *GetMapLayout(void);
+
 extern u16 *gBGTilemapBuffers1;
 extern u16 *gBGTilemapBuffers2;
 extern u16 *gBGTilemapBuffers3;
 extern u16 gHeldKeyCodeToSend;
+
+extern const struct MapLayout * gMapLayouts[];
 
 #endif //GUARD_OVERWORLD_H

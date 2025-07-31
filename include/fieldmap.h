@@ -53,5 +53,6 @@ void CopyPrimaryTilesetToVram(const struct MapLayout *mapLayout);
 void CopySecondaryTilesetToVram(const struct MapLayout *mapLayout);
 void GetCameraFocusCoords(u16 *x, u16 *y);
 void SetCameraFocusCoords(u16 x, u16 y);
+void InitMapLayoutData(struct MapHeader * mapHeader);
 
 #endif //GUARD_FIELDMAP_H

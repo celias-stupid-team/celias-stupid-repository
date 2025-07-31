@@ -23,7 +23,6 @@ EWRAM_DATA u8 gGlobalFieldTintMode = QL_TINT_NONE;
 
 static const struct ConnectionFlags sDummyConnectionFlags = {};
 
-static void InitMapLayoutData(struct MapHeader *);
 static void InitBackupMapLayoutData(const u16 *, u16, u16);
 static void InitBackupMapLayoutConnections(struct MapHeader *);
 static void FillSouthConnection(struct MapHeader const *, struct MapHeader const *, s32);
@@ -100,7 +99,7 @@ void InitMapFromSavedGame(void)
     RunOnLoadMapScript();
 }
 
-static void InitMapLayoutData(struct MapHeader * mapHeader)
+void InitMapLayoutData(struct MapHeader * mapHeader)
 {
     const struct MapLayout * mapLayout = mapHeader->mapLayout;
     CpuFastFill16(MAPGRID_UNDEFINED, gBackupMapData, sizeof(gBackupMapData));
