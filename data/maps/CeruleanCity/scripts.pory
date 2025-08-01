@@ -441,25 +441,25 @@ script CeruleanCity_Celia_Bike {
 
 script CeruleanCity_SummonThePit2{
 	setlayouttiles(
-		LAYOUT_CERULEAN_CITY_PIT, 
-		19,	// startingX
+		LAYOUT_CERULEAN_CITY_THE_PIT, 
+		0,	// startingX
 		0,	// startingY 
 		0,	// x1 
 		0,	// y1
-		16, // x2
-		12) // y2
+		47, // x2
+		43) // y2
 	release
 }
 
 script CeruleanCity_EscapeThePit2{
 	setlayouttiles(
-		LAYOUT_CERULEAN_CITY_NO_LONGER_PIT, 
-		19,	// startingX
+		LAYOUT_CERULEAN_CITY, 
+		0,	// startingX
 		0,	// startingY 
 		0,	// x1 
 		0,	// y1
-		16, // x2
-		12) // y2
+		47, // x2
+		43) // y2
 	release
 }
 

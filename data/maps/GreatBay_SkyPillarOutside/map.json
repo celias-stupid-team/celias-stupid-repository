@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE17",
       "offset": -80,
       "direction": "left"
+    },
+    {
+      "map": "MAP_GREAT_BAY_NORTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -1584,3 +1584,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianGym_Entrance/scripts.inc"
 	.include "data/maps/ViridianGym_Entrance/text.inc"
+
+	.include "data/maps/GreatBay_North/scripts.inc"
+	.include "data/maps/GreatBay_North/text.inc"

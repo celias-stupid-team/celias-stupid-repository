@@ -140,7 +140,7 @@
       "id": "HEAL_LOCATION_FIVE_ISLAND",
       "map": "MAP_FIVE_ISLAND",
       "x": 18,
-      "y": 7,
+      "y": 12,
       "respawn_map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FIVE_ISLAND_NURSE"
     },
