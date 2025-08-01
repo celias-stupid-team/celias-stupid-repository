@@ -1,0 +1,69 @@
+mapscripts FalknerGym_MapScripts {
+
+}
+
+
+script FalknerGym_TeamSkyGrunt1 {
+    if(checktrainerflag(TRAINER_TEAM_SKY_1)) {
+        setvar(VAR_TEMP_0, 1)
+        release
+        end
+    } else {
+        playbgm(MUS_ENCOUNTER_ROCKET, FALSE)
+        applymovement(LOCALID_TEAMSKY_1, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_right * 2
+            face_right
+        ))
+        waitmovement(0)
+        setvar(VAR_TEMP_0, 1)
+        textcolor(NPC_TEXT_COLOR_TREE)
+        msgbox("Fwahaha, behold!\nI am a member of TEAM SKY!\pWe're a nefarious organization\ndedicated to the expansion of air!\pSoon we shall accomplish our goal\nof shrinking both the LAND and SEA!\lNone shall stand in our way!", MSGBOX_DEFAULT)
+        playbgm(MUS_GYM, TRUE)
+        trainerbattle_no_intro(TRAINER_TEAM_SKY_1, "All life depends on air!\nOur cause is just and right!")
+        release
+        end
+    }
+}
+
+
+script FalknerGym_TeamSkyGrunt2 {
+    if(flag(FLAG_TEAM_SKY_FALLS_DOWN)) {
+        setvar(VAR_TEMP_1, 1)
+        release
+        end
+    } else {
+        playbgm(MUS_ENCOUNTER_ROCKET, FALSE)
+        applymovement(LOCALID_TEAMSKY_2, moves(
+            emote_exclamation_mark
+            delay_16 * 3
+            walk_left * 3
+            face_left
+        ))
+        waitmovement(0)
+        delay(30)
+        playbgm(MUS_NONE, TRUE)
+        playse(SE_FALL)
+        applymovement(LOCALID_TEAMSKY_2, moves(
+            lock_facing_direction
+            slide_down * 3
+        ))
+        waitmovement(0)
+        delay(60)
+        playse(SE_WALL_HIT)
+        
+        setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+        setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+        setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+        setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+        special(ShakeScreen)
+        setflag(FLAG_TEAM_SKY_FALLS_DOWN)
+        setvar(VAR_TEMP_1, 1)
+        delay(45)
+        
+        playbgm(MUS_GYM, TRUE)
+        release
+        end
+    }
+}
