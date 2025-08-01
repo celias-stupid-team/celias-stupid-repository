@@ -5388,6 +5388,18 @@
       "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/GreatBay_North/border.bin",
       "blockdata_filepath": "data/layouts/GreatBay_North/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALKNER_GYM",
+      "name": "FalknerGym_Layout",
+      "width": 14,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonMansion",
+      "border_filepath": "data/layouts/FalknerGym/border.bin",
+      "blockdata_filepath": "data/layouts/FalknerGym/map.bin"
     }
   ]
 }
