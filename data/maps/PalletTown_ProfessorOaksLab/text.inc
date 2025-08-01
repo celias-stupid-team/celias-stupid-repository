@@ -235,9 +235,7 @@ PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
     .string "Press SPACE to speed up!$"
 
 PalletTown_ProfessorOaksLab_Text_SaveOptionInMenu::
-    .string "The SAVESTATE option is in your\n"
-    .string "emulator.\p"
-    .string "Remember to use it regularly!$"
+	.string "Remember to savestate frequently!\n$"
 
 PalletTown_ProfessorOaksLab_Text_AllMonTypesHaveStrongAndWeakPoints::
     .string "All POKéMON types have strong and\n"

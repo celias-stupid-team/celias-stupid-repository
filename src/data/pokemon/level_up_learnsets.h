@@ -164,7 +164,6 @@ static const struct LevelUpMove sButterfreeLevelUpLearnset[] = {
 
 static const struct LevelUpMove sWeedleLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POISON_STING),
-    LEVEL_UP_MOVE(1, MOVE_STRING_SHOT),
     LEVEL_UP_MOVE(1, MOVE_EXPLOSION),
     LEVEL_UP_END
 };
@@ -650,9 +649,10 @@ static const struct LevelUpMove sDiglettLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DOUBLE_KICK),
     LEVEL_UP_MOVE(1, MOVE_TRIPLE_KICK),
     LEVEL_UP_MOVE(17, MOVE_BLAZE_KICK),
-    LEVEL_UP_MOVE(25, MOVE_STOMPING_TANTRUM),
-    LEVEL_UP_MOVE(29, MOVE_THUNDURUS_KICK),
-    LEVEL_UP_MOVE(30, MOVE_TORNADUS_KICK),
+    LEVEL_UP_MOVE(23, MOVE_STOMPING_TANTRUM),
+    LEVEL_UP_MOVE(25, MOVE_THUNDURUS_KICK),
+    LEVEL_UP_MOVE(27, MOVE_TORNADUS_KICK),
+    LEVEL_UP_MOVE(30, MOVE_ZEKROM_KICK),
     LEVEL_UP_END
 };
 
@@ -8935,8 +8935,8 @@ static const struct LevelUpMove sPikabluLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sRattata_ShinyLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
    	LEVEL_UP_MOVE(1, MOVE_QUICK_ATTACK),
+	LEVEL_UP_MOVE(1, MOVE_ENDEAVOR),
 	LEVEL_UP_END
 };
 

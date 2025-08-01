@@ -114,13 +114,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourDrake[] = {DUMM
 static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterBen[] = {
     {
         .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_EKANS,
+        .lvl = 8,
+        .species = SPECIES_COMFEY,
     },
     {
         .iv = 0,
         .lvl = 11,
-        .species = SPECIES_COMFEY,
+        .species = SPECIES_EKANS,
     },
 };
 
@@ -266,15 +266,17 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDave[] = {
 
 
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BugCatcherRick[] = {
+static const struct TrainerMonItemDefaultMoves sParty_BugCatcherRick[] = {
     {
         .iv = 0,
         .lvl = 6,
+        .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_WEEDLE,
     },
     {
         .iv = 0,
         .lvl = 6,
+        .heldItem = ITEM_NONE,
         .species = SPECIES_CATERPIE,
     },
 };
@@ -289,14 +291,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherDoug[] = {
     {
         .iv = 0,
         .lvl = 7,
-        .species = SPECIES_KAKUNA,
-        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_HARDEN, MOVE_NONE}
+        .species = SPECIES_WEEDLE,
+        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 7,
-        .species = SPECIES_WEEDLE,
-        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_KAKUNA,
+        .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_HARDEN, MOVE_NONE}
     },
 };
 

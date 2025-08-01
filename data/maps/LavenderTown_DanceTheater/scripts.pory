@@ -98,6 +98,9 @@ script DanceTheater_ShortKid {
                 addobject(SHORT_KID_BALL)
                 delay(30)
                 fadescreen(FADE_FROM_BLACK)
+                delay(10)
+                release
+                end
 
             }   else {
                 msgbox("Aww…\pI really wanted to watch the show,\nbut I couldn't see anything!\pGuess I'll need to come back\nnext year.", MSGBOX_DEFAULT)
@@ -119,6 +122,7 @@ script DanceTheater_ShortKidBall {
     msgbox("{PLAYER} stole a small child's\nEKANS!", MSGBOX_DEFAULT)
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EKANS)
     call(Common_Script_GiftPokemon)
+    release
 }
 
 script DanceTheater_DietDance {

@@ -285,7 +285,7 @@ script ViridianForest_BuffOak {
 		additem(ITEM_EMPTY_PAIL)
 		closemessage
 		delay(10)
-		playbgm(MUS_CSR_IMPOSTER_OAK, TRUE)
+		playbgm(MUS_CSR_IMPOSTER_OAK, FALSE)
 		delay(20)
 		applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp) // open eyes
 		waitmovement(0)

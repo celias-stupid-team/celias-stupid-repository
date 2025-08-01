@@ -1009,6 +1009,7 @@ SECTIONS {
         sound/songs/midi/mus_secret_house.o(.rodata);
         sound/songs/midi/mus_korok_seed.o(.rodata);
         sound/songs/midi/mus_trick_house.o(.rodata);
+        sound/songs/midi/mus_chapter_8.o(.rodata);
 
     } > ROM =0
 

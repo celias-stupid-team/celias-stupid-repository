@@ -360,13 +360,13 @@ PokedexRating_Text_HintDigletts::
 	.string "Your DIGLETT can still evolve.\n"
 	.string "Try leveling it up!$"
 
-PokedexRating_Text_HintPsyduck::
+PokedexRating_Text_HintGolduck::
 	.string "One path in CELADON CITY led to a\n"
 	.string "strange, faraway land.\p"
 	.string "Was there someone there you could\n"
 	.string "talk to?$"
 
-PokedexRating_Text_HintGolduck::
+PokedexRating_Text_HintPsyduck::
 	.string "Your PSYDUCK can still evolve.\n"
 	.string "Try leveling it up!$"
 

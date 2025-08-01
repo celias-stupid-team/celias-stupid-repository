@@ -28,11 +28,6 @@
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "offset": 33,
       "direction": "up"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": 12,
-      "direction": "left"
     }
   ],
   "object_events": [

@@ -21,17 +21,12 @@
     },
     {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 48,
+      "offset": 15,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE20",
-      "offset": 68,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE20",
-      "offset": 68,
+      "offset": 35,
       "direction": "left"
     }
   ],

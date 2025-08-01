@@ -232,7 +232,7 @@
 #define OBJ_EVENT_GFX_ORTHWORM                        220          //Placeholder
 #define OBJ_EVENT_GFX_ETERNATUS                        221          //Placeholder
 #define OBJ_EVENT_GFX_PRIMEAPE                        222          //Placeholder
-#define OBJ_EVENT_GFX_DEWGONG                        223          //Placeholder
+#define OBJ_EVENT_GFX_DEWGONG_1                        223          //Placeholder
 #define OBJ_EVENT_GFX_CASTFORM                        224          //Placeholder
 #define OBJ_EVENT_GFX_ZYGARDE                        225          //Placeholder
 #define OBJ_EVENT_GFX_ZUBAT                        226          //Placeholder
@@ -307,7 +307,10 @@
 #define OBJ_EVENT_GFX_REGIELEKI 293
 #define OBJ_EVENT_GFX_DEADPOKE 294
 #define OBJ_EVENT_GFX_REGIDRAGO 295
-#define NUM_OBJ_EVENT_GFX 296
+#define OBJ_EVENT_GFX_PRIMEAPE2 296
+#define OBJ_EVENT_GFX_DEWGONG 297
+#define OBJ_EVENT_GFX_DEADLASS 298
+#define NUM_OBJ_EVENT_GFX 299
 
 
 

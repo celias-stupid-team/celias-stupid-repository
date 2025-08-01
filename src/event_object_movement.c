@@ -478,6 +478,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_ANABEL                0x1134
 #define OBJ_EVENT_PAL_TAG_CURTAIN                0x1135
 #define OBJ_EVENT_PAL_TAG_BUFF_OAK                0x1136
+#define OBJ_EVENT_PAL_TAG_MAY                0x1137
 
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
@@ -531,6 +532,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Anabel,             OBJ_EVENT_PAL_TAG_ANABEL},
     {gObjectEventPal_Curtain,             OBJ_EVENT_PAL_TAG_CURTAIN},
     {gObjectEventPal_BuffOak,             OBJ_EVENT_PAL_TAG_BUFF_OAK},
+    {gObjectEventPal_May,             OBJ_EVENT_PAL_TAG_MAY},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

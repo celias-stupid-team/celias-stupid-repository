@@ -230,6 +230,8 @@ AI_CBM_Explosion::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_DAMP, Score_Minus10
+	get_ability AI_USER
+	if_equal ABILITY_DAMP, Score_Minus10
 	goto Score_Minus1
 
 AI_CBM_Explosion_End::

@@ -1578,3 +1578,12 @@ Text_TestMsg::
 
 	.include "data/maps/LostTower/scripts.inc"
 	.include "data/maps/LostTower/text.inc"
+
+	.include "data/maps/Chapter8/scripts.inc"
+	.include "data/maps/Chapter8/text.inc"
+
+	.include "data/maps/ViridianGym_Entrance/scripts.inc"
+	.include "data/maps/ViridianGym_Entrance/text.inc"
+
+	.include "data/maps/GreatBay_North/scripts.inc"
+	.include "data/maps/GreatBay_North/text.inc"

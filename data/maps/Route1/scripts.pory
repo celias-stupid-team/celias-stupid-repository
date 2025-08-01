@@ -184,8 +184,11 @@ script Route1_Bonus_Chris {
 		end
 	} else {
 		textcolor(NPC_TEXT_COLOR_MALE)
+		lock
+		faceplayer
 		msgbox("MASTER FoF: What do you call\na shiny HOOPA?\pA Golden Temp-Hole!\n:D", MSGBOX_DEFAULT)
 	}
+	release
 
 }
 
