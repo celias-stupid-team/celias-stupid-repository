@@ -1590,3 +1590,9 @@ Text_TestMsg::
 
 	.include "data/maps/FalknerGym/scripts.inc"
 	.include "data/maps/FalknerGym/text.inc"
+
+	.include "data/maps/Great_Sea_1/scripts.inc"
+	.include "data/maps/Great_Sea_1/text.inc"
+
+	.include "data/maps/Zero_Island/scripts.inc"
+	.include "data/maps/Zero_Island/text.inc"
