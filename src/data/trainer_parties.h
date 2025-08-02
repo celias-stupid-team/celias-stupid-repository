@@ -10225,3 +10225,48 @@ static const struct TrainerMonNoItemCustomMoves sParty_ImposterOakFushcia[] = {
 
 };
 
+static const struct TrainerMonItemCustomMoves sParty_TeamSkyGrunt[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .heldItem = ITEM_AIR_BALLOON,
+        .species = SPECIES_ROTOM,
+        .moves = {MOVE_MAGNET_RISE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+static const struct TrainerMonItemCustomMoves sParty_ThunderArmorKid[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_LIGHT_BALL,
+        .species = SPECIES_PIKACHU,
+        .moves = {MOVE_THUNDER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 25,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_SWELLOW,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+static const struct TrainerMonItemCustomMoves sParty_LeaderFalkner[] = {
+    {
+        .iv = 0,
+        .lvl = 10,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PIDGEOTTO,
+        .moves = {MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 11,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PIDGEOT,
+        .moves = {MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};

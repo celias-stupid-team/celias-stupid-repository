@@ -12,14 +12,15 @@ script FalknerGym_TeamSkyGrunt1 {
         playbgm(MUS_ENCOUNTER_ROCKET, FALSE)
         applymovement(LOCALID_TEAMSKY_1, moves(
             emote_exclamation_mark
-            delay_16 * 3
-            walk_right * 2
+            delay_16 * 4
+            walk_right * 1
             face_right
         ))
         waitmovement(0)
         setvar(VAR_TEMP_0, 1)
+        delay(10)
         textcolor(NPC_TEXT_COLOR_TREE)
-        msgbox("Fwahaha, behold!\nI am a member of TEAM SKY!\pWe're a nefarious organization\ndedicated to the expansion of air!\pSoon we shall accomplish our goal\nof shrinking both the LAND and SEA!\lNone shall stand in our way!", MSGBOX_DEFAULT)
+        msgbox("Fwahaha, behold!\nI am a member of TEAM SKY!\pWe're a nefarious organization\ndedicated to the expansion of AIR!\lNone shall stand in our way!\pSoon we shall accomplish our goal\nto shrink both the LAND and the SEA!", MSGBOX_DEFAULT)
         playbgm(MUS_GYM, TRUE)
         trainerbattle_no_intro(TRAINER_TEAM_SKY_1, "All life depends on air!\nOur cause is just and right!")
         release
@@ -37,8 +38,8 @@ script FalknerGym_TeamSkyGrunt2 {
         playbgm(MUS_ENCOUNTER_ROCKET, FALSE)
         applymovement(LOCALID_TEAMSKY_2, moves(
             emote_exclamation_mark
-            delay_16 * 3
-            walk_left * 3
+            delay_16 * 4
+            walk_left * 2
             face_left
         ))
         waitmovement(0)
@@ -60,7 +61,7 @@ script FalknerGym_TeamSkyGrunt2 {
         special(ShakeScreen)
         setflag(FLAG_TEAM_SKY_FALLS_DOWN)
         setvar(VAR_TEMP_1, 1)
-        delay(45)
+        delay(60)
         
         playbgm(MUS_GYM, TRUE)
         release

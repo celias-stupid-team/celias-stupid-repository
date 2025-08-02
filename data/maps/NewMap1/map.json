@@ -86,6 +86,13 @@
       "elevation": 0,
       "dest_map": "MAP_CELADON_CITY_DEPARTMENT_STORE_1F",
       "dest_warp_id": "7"
+    },
+    {
+      "x": 30,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_FALKNER_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

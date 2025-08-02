@@ -192,6 +192,8 @@
 #define TRAINER_PIC_NINJAS   170
 #define TRAINER_PIC_DARACHCAIT   171
 #define TRAINER_PIC_KAREN   172
+#define TRAINER_PIC_TEAM_SKY   173
+#define TRAINER_PIC_FALKNER   174
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -255,7 +257,7 @@
 #define TRAINER_CLASS_RS_PKMN_BREEDER     45
 #define TRAINER_CLASS_RS_PKMN_RANGER      46
 #define TRAINER_CLASS_MAGMA_LEADER        47
-#define TRAINER_CLASS_TEAM_MAGMA          48
+#define TRAINER_CLASS_TEAM_SKY          48
 #define TRAINER_CLASS_RS_LASS             49
 #define TRAINER_CLASS_RS_BUG_CATCHER      50
 #define TRAINER_CLASS_RS_HIKER            51

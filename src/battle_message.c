@@ -989,7 +989,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
     [STRINGID_HIT_A_WALL - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("Oh no! {PAUSE 30}\n{B_ATK_NAME_WITH_PREFIX} hit a wall!"), //dummy
     [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!\nSlower POKéMON will move first!"),
-
+    [STRINGID_MAGNET_RISE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is floating\neven harder!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1407,6 +1407,7 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     [B_MSG_MIST] = STRINGID_IT_MIST,
+    [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
