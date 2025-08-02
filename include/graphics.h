@@ -12453,3 +12453,9 @@ extern const u8 gMonIcon_REGIFILSAMIE[];
 
 extern const u32 gItemIcon_SPAREDOOR[];
 extern const u32 gItemIconPalette_SPAREDOOR[];
+
+extern const u32 gTrainerFrontPic_TeamSky[];
+extern const u32 gTrainerPalette_TeamSky[];
+
+extern const u32 gTrainerFrontPic_Falkner[];
+extern const u32 gTrainerPalette_Falkner[];

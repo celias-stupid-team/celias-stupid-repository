@@ -1587,3 +1587,6 @@ Text_TestMsg::
 
 	.include "data/maps/GreatBay_North/scripts.inc"
 	.include "data/maps/GreatBay_North/text.inc"
+
+	.include "data/maps/FalknerGym/scripts.inc"
+	.include "data/maps/FalknerGym/text.inc"

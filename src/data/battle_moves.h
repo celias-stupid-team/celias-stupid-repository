@@ -7967,4 +7967,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 5,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
+    [MOVE_MAGNET_RISE] =    {
+        .effect = EFFECT_DO_NOTHING, 
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 0,
+        .pp = 35,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_USER,
+        .priority = 3,
+        .flags = FLAG_PROTECT_AFFECTED,
+        .stringId = B_MSG_MAGNET_RISE,
+    },
 };

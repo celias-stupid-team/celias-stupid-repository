@@ -329,6 +329,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Regidrago;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dewgong;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadlass;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teamsky;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -659,4 +660,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PRIMEAPE2] = &gObjectEventGraphicsInfo_Primeape2,
     [OBJ_EVENT_GFX_DEWGONG] = &gObjectEventGraphicsInfo_Dewgong,
     [OBJ_EVENT_GFX_DEADLASS] = &gObjectEventGraphicsInfo_Deadlass,
+    [OBJ_EVENT_GFX_TEAMSKY] = &gObjectEventGraphicsInfo_Teamsky,
 };
