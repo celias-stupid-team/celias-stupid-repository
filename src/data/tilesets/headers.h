@@ -965,3 +965,14 @@ const struct Tileset gTileset_Chapter8 =
     .metatileAttributes = gMetatileAttributes_Chapter8,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PorytilesBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesBuilding,
+    .palettes = gTilesetPalettes_PorytilesBuilding,
+    .metatiles = gMetatiles_PorytilesBuilding,
+    .metatileAttributes = gMetatileAttributes_PorytilesBuilding,
+    .callback = NULL,
+};
