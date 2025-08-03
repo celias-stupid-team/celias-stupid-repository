@@ -4,7 +4,7 @@ mapscripts Chapter8_MapScripts {
             if(var(VAR_CURRENT_CHAPTER) == 8) {
                 warp(MAP_VIRIDIAN_GYM_ENTRANCE, 0)
 
-            }
+            } else {
             setvar(VAR_CURRENT_CHAPTER, 8)
             setvar(VAR_TEMP_0, 1)
             delay(3)
@@ -20,7 +20,7 @@ mapscripts Chapter8_MapScripts {
             setlayouttiles(LAYOUT_CHAPTER8, 0, 0, 0, 0, 14, 10) //sense
             delay(210)
             warp(MAP_VIRIDIAN_GYM_ENTRANCE, 0)
-
+            }
         }
     ]
 }
