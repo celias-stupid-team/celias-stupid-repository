@@ -5400,6 +5400,18 @@
       "secondary_tileset": "gTileset_PokemonMansion",
       "border_filepath": "data/layouts/FalknerGym/border.bin",
       "blockdata_filepath": "data/layouts/FalknerGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_DMCA_BROCK",
+      "name": "ViridianGym_DMCA_Brock_Layout",
+      "width": 20,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_Wormhole",
+      "border_filepath": "data/layouts/ViridianGym_DMCA_Brock/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_DMCA_Brock/map.bin"
     }
   ]
 }

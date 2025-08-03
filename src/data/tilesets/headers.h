@@ -965,3 +965,25 @@ const struct Tileset gTileset_Chapter8 =
     .metatileAttributes = gMetatileAttributes_Chapter8,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PorytilesBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesBuilding,
+    .palettes = gTilesetPalettes_PorytilesBuilding,
+    .metatiles = gMetatiles_PorytilesBuilding,
+    .metatileAttributes = gMetatileAttributes_PorytilesBuilding,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Wormhole =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Wormhole,
+    .palettes = gTilesetPalettes_Wormhole,
+    .metatiles = gMetatiles_Wormhole,
+    .metatileAttributes = gMetatileAttributes_Wormhole,
+    .callback = NULL,
+};

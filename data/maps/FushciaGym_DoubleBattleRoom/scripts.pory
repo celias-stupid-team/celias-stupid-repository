@@ -66,7 +66,7 @@ script FushciaGym_DoubleBattleRoom_CheeseScript {
         waitmovement(0)
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
         textcolor(NPC_TEXT_COLOR_MALE)
-        msgbox("DARACH: Ah, I see you're\nchallenging my lady?\lAha!\pWell if you're capable, then I\nshall add myself to the fray.\pWhen my lady and I fight, nothing\ncan ever defeat us!", MSGBOX_DEFAULT)
+        msgbox("DARACH: Ah, I see you're\nchallenging my lady?\lAha!\pWell if you're capable, then I\nshall add myself to the fray.\pWhen my lady and I fight together,\nnothing can ever defeat us!", MSGBOX_DEFAULT)
         playbgm(MUS_BATTLE_FRONTIER, TRUE)
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH, "lol")
         delay(30)

@@ -1786,3 +1786,41 @@ const u16 gTilesetPalettes_Chapter8[][16] =
 };
 
 const u32 gTilesetTiles_Chapter8[] = INCBIN_U32("data/tilesets/primary/chapter_8/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_PorytilesBuilding[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_PorytilesBuilding[] = INCBIN_U32("data/tilesets/primary/porytiles_building/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Wormhole[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wormhole/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Wormhole[] = INCBIN_U32("data/tilesets/secondary/wormhole/tiles.4bpp.lz");

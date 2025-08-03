@@ -1,3 +1,9 @@
 mapscripts ViridianGym_Entrance_MapScripts {
     
 }
+
+
+script ViridianGym_Entrance_Trainer {
+    trainerbattle_single(TRAINER_DMCA_GRUNT_35, "Hold it right there!\pYou're ten thousand light years\naway from stopping the DMCA!", "Fuck.")
+    msgbox("Our ADMIN up ahead has an\ninvincible POKéMON!\pIt's immune to both physical AND\nspecial attacks.\lYou'll never get through!", MSGBOX_NPC)
+}

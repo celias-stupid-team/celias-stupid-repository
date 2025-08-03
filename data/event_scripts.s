@@ -1590,3 +1590,6 @@ Text_TestMsg::
 
 	.include "data/maps/FalknerGym/scripts.inc"
 	.include "data/maps/FalknerGym/text.inc"
+
+	.include "data/maps/ViridianGym_DMCA_Brock/scripts.inc"
+	.include "data/maps/ViridianGym_DMCA_Brock/text.inc"

@@ -4576,26 +4576,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt34[] = {
     },
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt35[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt35[] = { //Viridian Gym
     {
         .iv = 0,
         .lvl = 26,
         .species = SPECIES_RATICATE_ALOLA,
-    },
-    {
-        .iv = 0,
-        .lvl = 26,
-        .species = SPECIES_ZUBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 26,
-        .species = SPECIES_GOLBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 26,
-        .species = SPECIES_RATTATA,
     },
 };
 
@@ -10268,5 +10253,17 @@ static const struct TrainerMonItemCustomMoves sParty_LeaderFalkner[] = {
         .species = SPECIES_PIDGEOT,
         .moves = {MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
+
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
 
 };

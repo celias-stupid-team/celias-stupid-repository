@@ -139,6 +139,9 @@ FushciaCity_EventScript_StakatakaSign::
 mapscripts FushciaCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: FushciaCity_OnTransition
 	MAP_SCRIPT_ON_LOAD {
+		setvar(VAR_0x8004, SPECIES_HORSEA)
+		special(SetSeenMon)
+
 		if(flag(FLAG_FUSCHIA_BROKE_WALL)) {
 			call(FushciaCity_DrawBrokenWall)
 		}
