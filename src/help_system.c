@@ -12,6 +12,7 @@
 #include "save.h"
 #include "save_location.h"
 #include "strings.h"
+#include "string_util.h"
 #include "constants/items.h"
 #include "constants/maps.h"
 #include "constants/songs.h"
@@ -22,2601 +23,73 @@
 // Help Main Topics
 enum HelpSystemTopics
 {
-    TOPIC_WHAT_TO_DO,
-    TOPIC_HOW_TO_DO,
-    TOPIC_TERMS,
-    TOPIC_ABOUT_GAME,
-    TOPIC_TYPE_MATCHUP,
-    TOPIC_EXIT,
+    TOPIC_GENESIS,
+    TOPIC_EXODUS,
+    TOPIC_LEVITICUS,
+    TOPIC_NUMBERS,
+    TOPIC_DEUTERONOMY,
+    TOPIC_JOSHUA,
+    TOPIC_JUDGES,
+    TOPIC_RUTH,
+    TOPIC_1_SAMUEL,
+    TOPIC_2_SAMUEL,
+    TOPIC_1_KINGS,
+    TOPIC_2_KINGS,
+    TOPIC_1_CHRONICLES,
+    TOPIC_2_CHRONICLES,
+    TOPIC_EZRA,
+    TOPIC_NEHEMIAH,
+    TOPIC_ESTHER,
+    TOPIC_JOB,
+    TOPIC_PSALMS,
+    TOPIC_PROVERBS,
+    TOPIC_ECCLESIASTES,
+    TOPIC_SONG_OF_SOLOMON,
+    TOPIC_ISAIAH,
+    TOPIC_JEREMIAH,
+    TOPIC_LAMENTATIONS,
+    TOPIC_EZEKIEL,
+    TOPIC_DANIEL,
+    TOPIC_HOSEA,
+    TOPIC_JOEL,
+    TOPIC_AMOS,
+    TOPIC_OBADIAH,
+    TOPIC_JONAH,
+    TOPIC_MICAH,
+    TOPIC_NAHUM,
+    TOPIC_HABAKKUK,
+    TOPIC_ZEPHANIAH,
+    TOPIC_HAGGAI,
+    TOPIC_ZECHARIAH,
+    TOPIC_MALACHI,
+    TOPIC_MATTHEW,
+    TOPIC_MARK,
+    TOPIC_LUKE,
+    TOPIC_JOHN,
+    TOPIC_ACTS,
+    TOPIC_PAUL,
+    TOPIC_1_CORINTHIANS,
+    TOPIC_2_CORINTHIANS,
+    TOPIC_GALATIANS,
+    TOPIC_EPHESIANS,
+    TOPIC_PHILIPPIANS,
+    TOPIC_COLOSSIANS,
+    TOPIC_1_THESSALONIANS,
+    TOPIC_2_THESSALONIANS,
+    TOPIC_1_TIMOTHY,
+    TOPIC_2_TIMOTHY,
+    TOPIC_TITUS,
+    TOPIC_PHILEMON,
+    TOPIC_HEBREWS,
+    TOPIC_JAMES,
+    TOPIC_1_PETER,
+    TOPIC_2_PETER,
+    TOPIC_1_JOHN,
+    TOPIC_2_JOHN,
+    TOPIC_3_JOHN,
+    TOPIC_JUDE,
+    TOPIC_REVELATION,
     TOPIC_COUNT
-};
-
-static EWRAM_DATA u16 sHelpSystemContextId = 0;
-static EWRAM_DATA u8 sSeenHelpSystemIntro = 0;
-
-struct HelpSystemState
-{
-    // 0: Top level
-    // 1: Submenu
-    // 2: Help content
-    u8 level;
-
-    // enum HelpSystemTopics
-    u8 topic;
-
-    // Where the player's cursor was at top level
-    u8 scrollMain;
-
-    // Where the player's cursor was at submenu
-    u8 scrollSub;
-};
-
-COMMON_DATA struct HelpSystemState gHelpSystemState = {0};
-COMMON_DATA u16 gHelpContextIdBackup = 0;
-
-static bool32 IsCurrentMapInArray(const u16 * mapIdxs);
-static void BuildMainTopicsListAndMoveToH00(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
-static void SetHelpSystemSubmenuItems(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
-static bool8 HelpSystem_ShouldShowBasicTerms(void);
-static bool8 IsHelpSystemSubmenuEnabled(u8);
-static bool8 HasGottenAtLeastOneHM(void);
-
-static void PrintWelcomeMessageOnPanel1(void);
-static void PrintSecondWelcomeMessageOnPanel1(void);
-static void PrintTextOnPanel2Row52RightAlign(const u8 *);
-static void ResetHelpSystemCursor(struct HelpSystemListMenu * a0);
-static void PrintHelpSystemTopicMouseoverDescription(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
-
-static const u8 *const sHelpSystemTopicPtrs[TOPIC_COUNT] = {
-    [TOPIC_WHAT_TO_DO]   = Help_Text_WhatShouldIDo,
-    [TOPIC_HOW_TO_DO]    = Help_Text_HowDoIDoThis,
-    [TOPIC_TERMS]        = Help_Text_WhatDoesThisTermMean,
-    [TOPIC_ABOUT_GAME]   = Help_Text_AboutThisGame,
-    [TOPIC_TYPE_MATCHUP] = Help_Text_TypeMatchupList,
-    [TOPIC_EXIT]         = Help_Text_Exit
-};
-
-static const u8 *const sHelpSystemTopicMouseoverDescriptionPtrs[TOPIC_COUNT] = {
-    [TOPIC_WHAT_TO_DO]   = Help_Text_DescWhatShouldIDo,
-    [TOPIC_HOW_TO_DO]    = Help_Text_DescHowDoIDoThis,
-    [TOPIC_TERMS]        = Help_Text_DescWhatDoesThisTermMean,
-    [TOPIC_ABOUT_GAME]   = Help_Text_DescAboutThisGame,
-    [TOPIC_TYPE_MATCHUP] = Help_Text_DescTypeMatchupList,
-    [TOPIC_EXIT]         = Help_Text_DescExit
-};
-
-// Submenu IDs for TOPIC_WHAT_TO_DO
-enum
-{
-    HELP_PLAYING_FOR_FIRST_TIME = 1,
-    HELP_WHAT_SHOULD_I_BE_DOING,
-    HELP_CANT_GET_OUT_OF_ROOM,
-    HELP_CANT_FIND_PERSON_I_WANT,
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT,
-    HELP_SOMEONE_BLOCKING_MY_WAY,
-    HELP_I_CANT_GO_ON,
-    HELP_OUT_OF_THINGS_TO_DO,
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT,
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS,
-    HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT,
-    HELP_HOW_ARE_CAVES_DIFFERENT,
-    HELP_HOW_DO_I_PROGRESS,
-    HELP_WHEN_CAN_I_USE_ITEM,
-    HELP_WHATS_A_BATTLE,
-    HELP_HOW_DO_I_PREPARE_FOR_BATTLE,
-    HELP_WHAT_IS_A_MONS_VITALITY,
-    HELP_MY_MONS_ARE_HURT,
-    HELP_WHAT_IS_STATUS_PROBLEM,
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT,
-    HELP_CANT_CATCH_MONS,
-    HELP_RAN_OUT_OF_POTIONS,
-    HELP_CAN_I_BUY_POKEBALLS,
-    HELP_WHATS_A_TRAINER,
-    HELP_HOW_DO_I_WIN_AGAINST_TRAINER,
-    HELP_WHERE_DO_MONS_APPEAR,
-    HELP_WHAT_ARE_MOVES,
-    HELP_WHAT_ARE_HIDDEN_MOVES,
-    HELP_WHAT_MOVES_SHOULD_I_USE,
-    HELP_WANT_TO_ADD_MORE_MOVES,
-    HELP_WANT_TO_MAKE_MON_STRONGER,
-    HELP_FOE_MONS_TOO_STRONG,
-    HELP_WHAT_DO_I_DO_IN_CAVE,
-    HELP_NOTHING_I_WANT_TO_KNOW,
-    HELP_WHATS_POKEMON_CENTER,
-    HELP_WHATS_POKEMON_MART,
-    HELP_WANT_TO_END_GAME,
-    HELP_WHATS_A_MON,
-    HELP_WHAT_IS_THAT_PERSON_LIKE,
-    HELP_WHAT_DOES_HIDDEN_MOVE_DO,
-    HELP_WHAT_DO_I_DO_IN_SAFARI,
-    HELP_WHAT_ARE_SAFARI_RULES,
-    HELP_WANT_TO_END_SAFARI,
-    HELP_WHAT_IS_A_GYM,
-};
-
-static const u8 *const sHelpSystemSpecializedQuestionTextPtrs[] = {
-    [HELP_NONE]                              = NULL,
-    [HELP_PLAYING_FOR_FIRST_TIME]            = Help_Text_PlayingForFirstTime,
-    [HELP_WHAT_SHOULD_I_BE_DOING]            = Help_Text_WhatShouldIBeDoing,
-    [HELP_CANT_GET_OUT_OF_ROOM]              = Help_Text_CantGetOutOfRoom,
-    [HELP_CANT_FIND_PERSON_I_WANT]           = Help_Text_CantFindPersonIWant,
-    [HELP_TALKED_TO_EVERYONE_NOW_WHAT]       = Help_Text_TalkedToEveryoneNowWhat,
-    [HELP_SOMEONE_BLOCKING_MY_WAY]           = Help_Text_SomeoneBlockingMyWay,
-    [HELP_I_CANT_GO_ON]                      = Help_Text_ICantGoOn,
-    [HELP_OUT_OF_THINGS_TO_DO]               = Help_Text_OutOfThingsToDo,
-    [HELP_WHAT_HAPPENED_TO_ITEM_I_GOT]       = Help_Text_WhatHappenedToItemIGot,
-    [HELP_WHAT_ARE_MY_ADVENTURE_BASICS]      = Help_Text_WhatAreMyAdventureBasics,
-    [HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT]   = Help_Text_HowAreRoadsForestsDifferent,
-    [HELP_HOW_ARE_CAVES_DIFFERENT]           = Help_Text_HowAreCavesDifferent,
-    [HELP_HOW_DO_I_PROGRESS]                 = Help_Text_HowDoIProgress,
-    [HELP_WHEN_CAN_I_USE_ITEM]               = Help_Text_WhenCanIUseItem,
-    [HELP_WHATS_A_BATTLE]                    = Help_Text_WhatsABattle,
-    [HELP_HOW_DO_I_PREPARE_FOR_BATTLE]       = Help_Text_HowDoIPrepareForBattle,
-    [HELP_WHAT_IS_A_MONS_VITALITY]           = Help_Text_WhatIsAMonsVitality,
-    [HELP_MY_MONS_ARE_HURT]                  = Help_Text_MyMonsAreHurt,
-    [HELP_WHAT_IS_STATUS_PROBLEM]            = Help_Text_WhatIsStatusProblem,
-    [HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT] = Help_Text_WhatHappensIfAllMyMonsFaint,
-    [HELP_CANT_CATCH_MONS]                   = Help_Text_CantCatchMons,
-    [HELP_RAN_OUT_OF_POTIONS]                = Help_Text_RanOutOfPotions,
-    [HELP_CAN_I_BUY_POKEBALLS]               = Help_Text_CanIBuyPokeBalls,
-    [HELP_WHATS_A_TRAINER]                   = Help_Text_WhatsATrainer,
-    [HELP_HOW_DO_I_WIN_AGAINST_TRAINER]      = Help_Text_HowDoIWinAgainstTrainer,
-    [HELP_WHERE_DO_MONS_APPEAR]              = Help_Text_WhereDoMonsAppear,
-    [HELP_WHAT_ARE_MOVES]                    = Help_Text_WhatAreMoves,
-    [HELP_WHAT_ARE_HIDDEN_MOVES]             = Help_Text_WhatAreHiddenMoves,
-    [HELP_WHAT_MOVES_SHOULD_I_USE]           = Help_Text_WhatMovesShouldIUse,
-    [HELP_WANT_TO_ADD_MORE_MOVES]            = Help_Text_WantToAddMoreMoves,
-    [HELP_WANT_TO_MAKE_MON_STRONGER]         = Help_Text_WantToMakeMonStronger,
-    [HELP_FOE_MONS_TOO_STRONG]               = Help_Text_FoeMonsTooStrong,
-    [HELP_WHAT_DO_I_DO_IN_CAVE]              = Help_Text_WhatDoIDoInCave,
-    [HELP_NOTHING_I_WANT_TO_KNOW]            = Help_Text_NothingIWantToKnow,
-    [HELP_WHATS_POKEMON_CENTER]              = Help_Text_WhatsPokemonCenter,
-    [HELP_WHATS_POKEMON_MART]                = Help_Text_WhatsPokemonMart,
-    [HELP_WANT_TO_END_GAME]                  = Help_Text_WantToEndGame,
-    [HELP_WHATS_A_MON]                       = Help_Text_WhatsAMon,
-    [HELP_WHAT_IS_THAT_PERSON_LIKE]          = Help_Text_WhatIsThatPersonLike,
-    [HELP_WHAT_DOES_HIDDEN_MOVE_DO]          = Help_Text_WhatDoesHiddenMoveDo,
-    [HELP_WHAT_DO_I_DO_IN_SAFARI]            = Help_Text_WhatDoIDoInSafari,
-    [HELP_WHAT_ARE_SAFARI_RULES]             = Help_Text_WhatAreSafariRules,
-    [HELP_WANT_TO_END_SAFARI]                = Help_Text_WantToEndSafari,
-    [HELP_WHAT_IS_A_GYM]                     = Help_Text_WhatIsAGym
-};
-
-static const u8 *const sHelpSystemSpecializedAnswerTextPtrs[] = {
-    [HELP_NONE]                              = NULL,
-    [HELP_PLAYING_FOR_FIRST_TIME]            = Help_Text_AnswerPlayingForFirstTime,
-    [HELP_WHAT_SHOULD_I_BE_DOING]            = Help_Text_AnswerWhatShouldIBeDoing,
-    [HELP_CANT_GET_OUT_OF_ROOM]              = Help_Text_AnswerCantGetOutOfRoom,
-    [HELP_CANT_FIND_PERSON_I_WANT]           = Help_Text_AnswerCantFindPersonIWant,
-    [HELP_TALKED_TO_EVERYONE_NOW_WHAT]       = Help_Text_AnswerTalkedToEveryoneNowWhat,
-    [HELP_SOMEONE_BLOCKING_MY_WAY]           = Help_Text_AnswerSomeoneBlockingMyWay,
-    [HELP_I_CANT_GO_ON]                      = Help_Text_AnswerICantGoOn,
-    [HELP_OUT_OF_THINGS_TO_DO]               = Help_Text_AnswerOutOfThingsToDo,
-    [HELP_WHAT_HAPPENED_TO_ITEM_I_GOT]       = Help_Text_AnswerWhatHappenedToItemIGot,
-    [HELP_WHAT_ARE_MY_ADVENTURE_BASICS]      = Help_Text_AnswerWhatAreMyAdventureBasics,
-    [HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT]   = Help_Text_AnswerHowAreRoadsForestsDifferent,
-    [HELP_HOW_ARE_CAVES_DIFFERENT]           = Help_Text_AnswerHowAreCavesDifferent,
-    [HELP_HOW_DO_I_PROGRESS]                 = Help_Text_AnswerHowDoIProgress,
-    [HELP_WHEN_CAN_I_USE_ITEM]               = Help_Text_AnswerWhenCanIUseItem,
-    [HELP_WHATS_A_BATTLE]                    = Help_Text_AnswerWhatsABattle,
-    [HELP_HOW_DO_I_PREPARE_FOR_BATTLE]       = Help_Text_AnswerHowDoIPrepareForBattle,
-    [HELP_WHAT_IS_A_MONS_VITALITY]           = Help_Text_AnswerWhatIsAMonsVitality,
-    [HELP_MY_MONS_ARE_HURT]                  = Help_Text_AnswerMyMonsAreHurt,
-    [HELP_WHAT_IS_STATUS_PROBLEM]            = Help_Text_AnswerWhatIsStatusProblem,
-    [HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT] = Help_Text_AnswerWhatHappensIfAllMyMonsFaint,
-    [HELP_CANT_CATCH_MONS]                   = Help_Text_AnswerCantCatchMons,
-    [HELP_RAN_OUT_OF_POTIONS]                = Help_Text_AnswerRanOutOfPotions,
-    [HELP_CAN_I_BUY_POKEBALLS]               = Help_Text_AnswerCanIBuyPokeBalls,
-    [HELP_WHATS_A_TRAINER]                   = Help_Text_AnswerWhatsATrainer,
-    [HELP_HOW_DO_I_WIN_AGAINST_TRAINER]      = Help_Text_AnswerHowDoIWinAgainstTrainer,
-    [HELP_WHERE_DO_MONS_APPEAR]              = Help_Text_AnswerWhereDoMonsAppear,
-    [HELP_WHAT_ARE_MOVES]                    = Help_Text_AnswerWhatAreMoves,
-    [HELP_WHAT_ARE_HIDDEN_MOVES]             = Help_Text_AnswerWhatAreHiddenMoves,
-    [HELP_WHAT_MOVES_SHOULD_I_USE]           = Help_Text_AnswerWhatMovesShouldIUse,
-    [HELP_WANT_TO_ADD_MORE_MOVES]            = Help_Text_AnswerWantToAddMoreMoves,
-    [HELP_WANT_TO_MAKE_MON_STRONGER]         = Help_Text_AnswerWantToMakeMonStronger,
-    [HELP_FOE_MONS_TOO_STRONG]               = Help_Text_AnswerFoeMonsTooStrong,
-    [HELP_WHAT_DO_I_DO_IN_CAVE]              = Help_Text_AnswerWhatDoIDoInCave,
-    [HELP_NOTHING_I_WANT_TO_KNOW]            = Help_Text_AnswerNothingIWantToKnow,
-    [HELP_WHATS_POKEMON_CENTER]              = Help_Text_AnswerWhatsPokemonCenter,
-    [HELP_WHATS_POKEMON_MART]                = Help_Text_AnswerWhatsPokemonMart,
-    [HELP_WANT_TO_END_GAME]                  = Help_Text_AnswerWantToEndGame,
-    [HELP_WHATS_A_MON]                       = Help_Text_AnswerWhatsAMon,
-    [HELP_WHAT_IS_THAT_PERSON_LIKE]          = Help_Text_AnswerWhatIsThatPersonLike,
-    [HELP_WHAT_DOES_HIDDEN_MOVE_DO]          = Help_Text_AnswerWhatDoesHiddenMoveDo,
-    [HELP_WHAT_DO_I_DO_IN_SAFARI]            = Help_Text_AnswerWhatDoIDoInSafari,
-    [HELP_WHAT_ARE_SAFARI_RULES]             = Help_Text_AnswerWhatAreSafariRules,
-    [HELP_WANT_TO_END_SAFARI]                = Help_Text_AnswerWantToEndSafari,
-    [HELP_WHAT_IS_A_GYM]                     = Help_Text_AnswerWhatIsAGym
-};
-
-// Submenu IDs for TOPIC_HOW_TO_DO
-enum
-{
-    HELP_USING_POKEDEX = 1,
-    HELP_USING_POKEMON,
-    HELP_USING_SUMMARY,
-    HELP_USING_SWITCH,
-    HELP_USING_ITEM,
-    HELP_USING_BAG,
-    HELP_USING_AN_ITEM,
-    HELP_USING_KEYITEM,
-    HELP_USING_POKEBALL,
-    HELP_USING_PLAYER,
-    HELP_USING_SAVE,
-    HELP_USING_OPTION,
-    HELP_USING_POTION,
-    HELP_USING_TOWN_MAP,
-    HELP_USING_TM,
-    HELP_USING_HM,
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE,
-    HELP_RIDING_BICYCLE,
-    HELP_ENTERING_NAME,
-    HELP_USING_PC,
-    HELP_USING_BILLS_PC,
-    HELP_USING_WITHDRAW,
-    HELP_USING_DEPOSIT,
-    HELP_USING_MOVE,
-    HELP_MOVING_ITEMS,
-    HELP_USING_PLAYERS_PC,
-    HELP_USING_WITHDRAW_ITEM,
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX,
-    HELP_USING_PROF_OAKS_PC,
-    HELP_OPENING_MENU,
-    HELP_USING_FIGHT,
-    HELP_USING_POKEMON2,
-    HELP_USING_SHIFT,
-    HELP_USING_SUMMARY2,
-    HELP_USING_BAG2,
-    HELP_READING_POKEDEX,
-    HELP_USING_HOME_PC,
-    HELP_USING_ITEM_STORAGE,
-    HELP_USING_WITHDRAW_ITEM2,
-    HELP_USING_DEPOSIT_ITEM2,
-    HELP_USING_MAILBOX2,
-    HELP_USING_RUN,
-    HELP_REGISTER_KEY_ITEM,
-    HELP_USING_BALL,
-    HELP_USING_BAIT,
-    HELP_USING_ROCK,
-    HELP_USING_HALL_OF_FAME,
-};
-
-static const u8 *const sHelpSystemMenuTopicTextPtrs[] = {
-    [HELP_NONE]                         = NULL,
-    [HELP_USING_POKEDEX]                = Help_Text_UsingPokedex,
-    [HELP_USING_POKEMON]                = Help_Text_UsingPokemon,
-    [HELP_USING_SUMMARY]                = Help_Text_UsingSummary,
-    [HELP_USING_SWITCH]                 = Help_Text_UsingSwitch,
-    [HELP_USING_ITEM]                   = Help_Text_UsingItem,
-    [HELP_USING_BAG]                    = Help_Text_UsingBag,
-    [HELP_USING_AN_ITEM]                = Help_Text_UsingAnItem,
-    [HELP_USING_KEYITEM]                = Help_Text_UsingKeyItem,
-    [HELP_USING_POKEBALL]               = Help_Text_UsingPokeBall,
-    [HELP_USING_PLAYER]                 = Help_Text_UsingPlayer,
-    [HELP_USING_SAVE]                   = Help_Text_UsingSave,
-    [HELP_USING_OPTION]                 = Help_Text_UsingOption,
-    [HELP_USING_POTION]                 = Help_Text_UsingPotion,
-    [HELP_USING_TOWN_MAP]               = Help_Text_UsingTownMap,
-    [HELP_USING_TM]                     = Help_Text_UsingTM,
-    [HELP_USING_HM]                     = Help_Text_UsingHM,
-    [HELP_USING_MOVE_OUTSIDE_OF_BATTLE] = Help_Text_UsingMoveOutsideOfBattle,
-    [HELP_RIDING_BICYCLE]               = Help_Text_RidingBicycle,
-    [HELP_ENTERING_NAME]                = Help_Text_EnteringName,
-    [HELP_USING_PC]                     = Help_Text_UsingPC,
-    [HELP_USING_BILLS_PC]               = Help_Text_UsingBillsPC,
-    [HELP_USING_WITHDRAW]               = Help_Text_UsingWithdraw,
-    [HELP_USING_DEPOSIT]                = Help_Text_UsingDeposit,
-    [HELP_USING_MOVE]                   = Help_Text_UsingMove,
-    [HELP_MOVING_ITEMS]                 = Help_Text_MovingItems,
-    [HELP_USING_PLAYERS_PC]             = Help_Text_UsingPlayersPC,
-    [HELP_USING_WITHDRAW_ITEM]          = Help_Text_UsingWithdrawItem,
-    [HELP_USING_DEPOSIT_ITEM]           = Help_Text_UsingDepositItem,
-    [HELP_USING_MAILBOX]                = Help_Text_UsingMailbox,
-    [HELP_USING_PROF_OAKS_PC]           = Help_Text_UsingProfOaksPC,
-    [HELP_OPENING_MENU]                 = Help_Text_OpeningMenu,
-    [HELP_USING_FIGHT]                  = Help_Text_UsingFight,
-    [HELP_USING_POKEMON2]               = Help_Text_UsingPokemon2,
-    [HELP_USING_SHIFT]                  = Help_Text_UsingShift,
-    [HELP_USING_SUMMARY2]               = Help_Text_UsingSummary2,
-    [HELP_USING_BAG2]                   = Help_Text_UsingBag2,
-    [HELP_READING_POKEDEX]              = Help_Text_ReadingPokedex,
-    [HELP_USING_HOME_PC]                = Help_Text_UsingHomePC,
-    [HELP_USING_ITEM_STORAGE]           = Help_Text_UsingItemStorage,
-    [HELP_USING_WITHDRAW_ITEM2]         = Help_Text_UsingWithdrawItem2,
-    [HELP_USING_DEPOSIT_ITEM2]          = Help_Text_UsingDepositItem2,
-    [HELP_USING_MAILBOX2]               = Help_Text_UsingMailbox2,
-    [HELP_USING_RUN]                    = Help_Text_UsingRun,
-    [HELP_REGISTER_KEY_ITEM]            = Help_Text_RegisterKeyItem,
-    [HELP_USING_BALL]                   = Help_Text_UsingBall,
-    [HELP_USING_BAIT]                   = Help_Text_UsingBait,
-    [HELP_USING_ROCK]                   = Help_Text_UsingRock,
-    [HELP_USING_HALL_OF_FAME]           = Help_Text_UsingHallOfFame
-};
-
-static const u8 *const sHelpSystemHowToUseMenuTextPtrs[] = {
-    [HELP_NONE]                         = NULL,
-    [HELP_USING_POKEDEX]                = Help_Text_HowToUsePokedex,
-    [HELP_USING_POKEMON]                = Help_Text_HowToUsePokemon,
-    [HELP_USING_SUMMARY]                = Help_Text_HowToUseSummary,
-    [HELP_USING_SWITCH]                 = Help_Text_HowToUseSwitch,
-    [HELP_USING_ITEM]                   = Help_Text_HowToUseItem,
-    [HELP_USING_BAG]                    = Help_Text_HowToUseBag,
-    [HELP_USING_AN_ITEM]                = Help_Text_HowToUseAnItem,
-    [HELP_USING_KEYITEM]                = Help_Text_HowToUseKeyItem,
-    [HELP_USING_POKEBALL]               = Help_Text_HowToUsePokeBall,
-    [HELP_USING_PLAYER]                 = Help_Text_HowToUsePlayer,
-    [HELP_USING_SAVE]                   = Help_Text_HowToUseSave,
-    [HELP_USING_OPTION]                 = Help_Text_HowToUseOption,
-    [HELP_USING_POTION]                 = Help_Text_HowToUsePotion,
-    [HELP_USING_TOWN_MAP]               = Help_Text_HowToUseTownMap,
-    [HELP_USING_TM]                     = Help_Text_HowToUseTM,
-    [HELP_USING_HM]                     = Help_Text_HowToUseHM,
-    [HELP_USING_MOVE_OUTSIDE_OF_BATTLE] = Help_Text_HowToUseMoveOutsideOfBattle,
-    [HELP_RIDING_BICYCLE]               = Help_Text_HowToRideBicycle,
-    [HELP_ENTERING_NAME]                = Help_Text_HowToEnterName,
-    [HELP_USING_PC]                     = Help_Text_HowToUsePC,
-    [HELP_USING_BILLS_PC]               = Help_Text_HowToUseBillsPC,
-    [HELP_USING_WITHDRAW]               = Help_Text_HowToUseWithdraw,
-    [HELP_USING_DEPOSIT]                = Help_Text_HowToUseDeposit,
-    [HELP_USING_MOVE]                   = Help_Text_HowToUseMove,
-    [HELP_MOVING_ITEMS]                 = Help_Text_HowToMoveItems,
-    [HELP_USING_PLAYERS_PC]             = Help_Text_HowToUsePlayersPC,
-    [HELP_USING_WITHDRAW_ITEM]          = Help_Text_HowToUseWithdrawItem,
-    [HELP_USING_DEPOSIT_ITEM]           = Help_Text_HowToUseDepositItem,
-    [HELP_USING_MAILBOX]                = Help_Text_HowToUseMailbox,
-    [HELP_USING_PROF_OAKS_PC]           = Help_Text_HowToUseProfOaksPC,
-    [HELP_OPENING_MENU]                 = Help_Text_HowToOpenMenu,
-    [HELP_USING_FIGHT]                  = Help_Text_HowToUseFight,
-    [HELP_USING_POKEMON2]               = Help_Text_HowToUsePokemon2,
-    [HELP_USING_SHIFT]                  = Help_Text_HowToUseShift,
-    [HELP_USING_SUMMARY2]               = Help_Text_HowToUseSummary2,
-    [HELP_USING_BAG2]                   = Help_Text_HowToUseBag2,
-    [HELP_READING_POKEDEX]              = Help_Text_HowToReadPokedex,
-    [HELP_USING_HOME_PC]                = Help_Text_HowToUseHomePC,
-    [HELP_USING_ITEM_STORAGE]           = Help_Text_HowToUseItemStorage,
-    [HELP_USING_WITHDRAW_ITEM2]         = Help_Text_HowToUseWithdrawItem2,
-    [HELP_USING_DEPOSIT_ITEM2]          = Help_Text_HowToUseDepositItem2,
-    [HELP_USING_MAILBOX2]               = Help_Text_HowToUseMailbox2,
-    [HELP_USING_RUN]                    = Help_Text_HowToUseRun,
-    [HELP_REGISTER_KEY_ITEM]            = Help_Text_HowToRegisterKeyItem,
-    [HELP_USING_BALL]                   = Help_Text_HowToUseBall,
-    [HELP_USING_BAIT]                   = Help_Text_HowToUseBait,
-    [HELP_USING_ROCK]                   = Help_Text_HowToUseRock,
-    [HELP_USING_HALL_OF_FAME]           = Help_Text_HowToUseHallOfFame
-};
-
-// Submenu IDs for TOPIC_TERMS
-enum
-{
-    HELP_TERM_HP = 1,
-    HELP_TERM_EXP,
-    HELP_TERM_MOVES,
-    HELP_TERM_ATTACK,
-    HELP_TERM_DEFENSE,
-    HELP_TERM_SPATK,
-    HELP_TERM_SPDEF,
-    HELP_TERM_SPEED,
-    HELP_TERM_LEVEL,
-    HELP_TERM_TYPE,
-    HELP_TERM_OT,
-    HELP_TERM_ITEM,
-    HELP_TERM_ABILITY,
-    HELP_TERM_MONEY,
-    HELP_TERM_MOVE_TYPE,
-    HELP_TERM_NATURE,
-    HELP_TERM_ID_NO,
-    HELP_TERM_PP,
-    HELP_TERM_POWER,
-    HELP_TERM_ACCURACY,
-    HELP_TERM_FNT,
-    HELP_TERM_ITEMS,
-    HELP_TERM_KEYITEMS,
-    HELP_TERM_POKEBALLS,
-    HELP_TERM_POKEDEX,
-    HELP_TERM_PLAY_TIME,
-    HELP_TERM_BADGES,
-    HELP_TERM_TEXT_SPEED,
-    HELP_TERM_BATTLE_SCENE,
-    HELP_TERM_BATTLE_STYLE,
-    HELP_TERM_SOUND,
-    HELP_TERM_BUTTON_MODE,
-    HELP_TERM_FRAME,
-    HELP_TERM_CANCEL,
-    HELP_TERM_TM,
-    HELP_TERM_HM,
-    HELP_TERM_HM_MOVE,
-    HELP_TERM_EVOLUTION,
-    HELP_TERM_STATUS_PROBLEM,
-    HELP_TERM_POKEMON,
-    HELP_TERM_ID_NO2,
-    HELP_TERM_MONEY2,
-    HELP_TERM_BADGES2,
-};
-
-static const u8 *const sHelpSystemTermTextPtrs[] = {
-    [HELP_NONE]                = NULL,
-    [HELP_TERM_HP]             = Help_Text_HP,
-    [HELP_TERM_EXP]            = Help_Text_EXP,
-    [HELP_TERM_MOVES]          = Help_Text_Moves,
-    [HELP_TERM_ATTACK]         = Help_Text_Attack,
-    [HELP_TERM_DEFENSE]        = Help_Text_Defense,
-    [HELP_TERM_SPATK]          = Help_Text_SpAtk,
-    [HELP_TERM_SPDEF]          = Help_Text_SpDef,
-    [HELP_TERM_SPEED]          = Help_Text_Speed,
-    [HELP_TERM_LEVEL]          = Help_Text_Level,
-    [HELP_TERM_TYPE]           = Help_Text_Type,
-    [HELP_TERM_OT]             = Help_Text_OT,
-    [HELP_TERM_ITEM]           = Help_Text_Item,
-    [HELP_TERM_ABILITY]        = Help_Text_Ability,
-    [HELP_TERM_MONEY]          = Help_Text_Money,
-    [HELP_TERM_MOVE_TYPE]      = Help_Text_MoveType,
-    [HELP_TERM_NATURE]         = Help_Text_Nature,
-    [HELP_TERM_ID_NO]          = Help_Text_IDNo,
-    [HELP_TERM_PP]             = Help_Text_PP,
-    [HELP_TERM_POWER]          = Help_Text_Power,
-    [HELP_TERM_ACCURACY]       = Help_Text_Accuracy,
-    [HELP_TERM_FNT]            = Help_Text_FNT,
-    [HELP_TERM_ITEMS]          = Help_Text_Items,
-    [HELP_TERM_KEYITEMS]       = Help_Text_KeyItems,
-    [HELP_TERM_POKEBALLS]      = Help_Text_PokeBalls,
-    [HELP_TERM_POKEDEX]        = Help_Text_Pokedex,
-    [HELP_TERM_PLAY_TIME]      = Help_Text_PlayTime,
-    [HELP_TERM_BADGES]         = Help_Text_Badges,
-    [HELP_TERM_TEXT_SPEED]     = Help_Text_TextSpeed,
-    [HELP_TERM_BATTLE_SCENE]   = Help_Text_BattleScene,
-    [HELP_TERM_BATTLE_STYLE]   = Help_Text_BattleStyle,
-    [HELP_TERM_SOUND]          = Help_Text_Sound,
-    [HELP_TERM_BUTTON_MODE]    = Help_Text_ButtonMode,
-    [HELP_TERM_FRAME]          = Help_Text_Frame,
-    [HELP_TERM_CANCEL]         = Help_Text_Cancel2,
-    [HELP_TERM_TM]             = Help_Text_TM,
-    [HELP_TERM_HM]             = Help_Text_HM,
-    [HELP_TERM_HM_MOVE]        = Help_Text_HMMove,
-    [HELP_TERM_EVOLUTION]      = Help_Text_Evolution,
-    [HELP_TERM_STATUS_PROBLEM] = Help_Text_StatusProblem,
-    [HELP_TERM_POKEMON]        = Help_Text_Pokemon,
-    [HELP_TERM_ID_NO2]         = Help_Text_IDNo2,
-    [HELP_TERM_MONEY2]         = Help_Text_Money2,
-    [HELP_TERM_BADGES2]        = Help_Text_Badges2
-};
-
-static const u8 *const sHelpSystemTermDefinitionsTextPtrs[] = {
-    [HELP_NONE]                = NULL,
-    [HELP_TERM_HP]             = Help_Text_DefineHP,
-    [HELP_TERM_EXP]            = Help_Text_DefineEXP,
-    [HELP_TERM_MOVES]          = Help_Text_DefineMoves,
-    [HELP_TERM_ATTACK]         = Help_Text_DefineAttack,
-    [HELP_TERM_DEFENSE]        = Help_Text_DefineDefense,
-    [HELP_TERM_SPATK]          = Help_Text_DefineSpAtk,
-    [HELP_TERM_SPDEF]          = Help_Text_DefineSpDef,
-    [HELP_TERM_SPEED]          = Help_Text_DefineSpeed,
-    [HELP_TERM_LEVEL]          = Help_Text_DefineLevel,
-    [HELP_TERM_TYPE]           = Help_Text_DefineType,
-    [HELP_TERM_OT]             = Help_Text_DefineOT,
-    [HELP_TERM_ITEM]           = Help_Text_DefineItem,
-    [HELP_TERM_ABILITY]        = Help_Text_DefineAbility,
-    [HELP_TERM_MONEY]          = Help_Text_DefineMoney,
-    [HELP_TERM_MOVE_TYPE]      = Help_Text_DefineMoveType,
-    [HELP_TERM_NATURE]         = Help_Text_DefineNature,
-    [HELP_TERM_ID_NO]          = Help_Text_DefineIDNo,
-    [HELP_TERM_PP]             = Help_Text_DefinePP,
-    [HELP_TERM_POWER]          = Help_Text_DefinePower,
-    [HELP_TERM_ACCURACY]       = Help_Text_DefineAccuracy,
-    [HELP_TERM_FNT]            = Help_Text_DefineFNT,
-    [HELP_TERM_ITEMS]          = Help_Text_DefineItems,
-    [HELP_TERM_KEYITEMS]       = Help_Text_DefineKeyItems,
-    [HELP_TERM_POKEBALLS]      = Help_Text_DefinePokeBalls,
-    [HELP_TERM_POKEDEX]        = Help_Text_DefinePokedex,
-    [HELP_TERM_PLAY_TIME]      = Help_Text_DefinePlayTime,
-    [HELP_TERM_BADGES]         = Help_Text_DefineBadges,
-    [HELP_TERM_TEXT_SPEED]     = Help_Text_DefineTextSpeed,
-    [HELP_TERM_BATTLE_SCENE]   = Help_Text_DefineBattleScene,
-    [HELP_TERM_BATTLE_STYLE]   = Help_Text_DefineBattleStyle,
-    [HELP_TERM_SOUND]          = Help_Text_DefineSound,
-    [HELP_TERM_BUTTON_MODE]    = Help_Text_DefineButtonMode,
-    [HELP_TERM_FRAME]          = Help_Text_DefineFrame,
-    [HELP_TERM_CANCEL]         = Help_Text_DefineCancel2,
-    [HELP_TERM_TM]             = Help_Text_DefineTM,
-    [HELP_TERM_HM]             = Help_Text_DefineHM,
-    [HELP_TERM_HM_MOVE]        = Help_Text_DefineHMMove,
-    [HELP_TERM_EVOLUTION]      = Help_Text_DefineEvolution,
-    [HELP_TERM_STATUS_PROBLEM] = Help_Text_DefineStatusProblem,
-    [HELP_TERM_POKEMON]        = Help_Text_DefinePokemon,
-    [HELP_TERM_ID_NO2]         = Help_Text_DefineIDNo2,
-    [HELP_TERM_MONEY2]         = Help_Text_DefineMoney2,
-    [HELP_TERM_BADGES2]        = Help_Text_DefineBadges2
-};
-
-// Submenu IDs for TOPIC_ABOUT_GAME
-enum
-{
-    HELP_THE_HELP_SYSTEM = 1,
-    HELP_THE_GAME,
-    HELP_WIRELESS_ADAPTER,
-    HELP_GAME_FUNDAMENTALS_1,
-    HELP_GAME_FUNDAMENTALS_2,
-    HELP_GAME_FUNDAMENTALS_3,
-    HELP_WHAT_ARE_POKEMON,
-};
-
-static const u8 *const sHelpSystemGeneralTopicTextPtrs[] = {
-    [HELP_NONE]                = NULL,
-    [HELP_THE_HELP_SYSTEM]     = Help_Text_TheHelpSystem,
-    [HELP_THE_GAME]            = Help_Text_TheGame,
-    [HELP_WIRELESS_ADAPTER]    = Help_Text_WirelessAdapter,
-    [HELP_GAME_FUNDAMENTALS_1] = Help_Text_GameFundamentals1,
-    [HELP_GAME_FUNDAMENTALS_2] = Help_Text_GameFundamentals2,
-    [HELP_GAME_FUNDAMENTALS_3] = Help_Text_GameFundamentals3,
-    [HELP_WHAT_ARE_POKEMON]    = Help_Text_WhatArePokemon
-};
-
-static const u8 *const sHelpSystemGeneralTopicDescriptionTextPtrs[] = {
-    [HELP_NONE]                = NULL,
-    [HELP_THE_HELP_SYSTEM]     = Help_Text_DescTheHelpSystem,
-    [HELP_THE_GAME]            = Help_Text_DescTheGame,
-    [HELP_WIRELESS_ADAPTER]    = Help_Text_DescWirelessAdapter,
-    [HELP_GAME_FUNDAMENTALS_1] = Help_Text_DescGameFundamentals1,
-    [HELP_GAME_FUNDAMENTALS_2] = Help_Text_DescGameFundamentals2,
-    [HELP_GAME_FUNDAMENTALS_3] = Help_Text_DescGameFundamentals3,
-    [HELP_WHAT_ARE_POKEMON]    = Help_Text_DescWhatArePokemon
-};
-
-// An enum for the type matchups isn't necessary, when used they're always used in their entirety
-// Macro below is used to reference the entire group at once
-#define HELP_TYPE_MATCHUPS  \
-    1,                      \
-    2, 3,                   \
-    4, 5,                   \
-    6, 7,                   \
-    8, 9,                   \
-    10, 11,                 \
-    12, 13,                 \
-    14, 15,                 \
-    16, 17,                 \
-    18, 19,                 \
-    20, 21,                 \
-    22, 23,                 \
-    24, 25,                 \
-    26, 27,                 \
-    28, 29,                 \
-    30, 31,                 \
-    32, 33,                 \
-    34, 35                  \
-
-static const u8 *const sHelpSystemTypeMatchupTextPtrs[] = {
-    [HELP_NONE] = NULL,
-    [1]  = Help_Text_UsingTypeMatchupList,
-    [2]  = Help_Text_OwnMoveDark,
-    [3]  = Help_Text_OwnPokemonDark,
-    [4]  = Help_Text_OwnMoveRock,
-    [5]  = Help_Text_OwnPokemonRock,
-    [6]  = Help_Text_OwnMovePsychic,
-    [7]  = Help_Text_OwnPokemonPsychic,
-    [8]  = Help_Text_OwnMoveFighting,
-    [9]  = Help_Text_OwnPokemonFighting,
-    [10] = Help_Text_OwnMoveGrass,
-    [11] = Help_Text_OwnPokemonGrass,
-    [12] = Help_Text_OwnMoveGhost,
-    [13] = Help_Text_OwnPokemonGhost,
-    [14] = Help_Text_OwnMoveIce,
-    [15] = Help_Text_OwnPokemonIce,
-    [16] = Help_Text_OwnMoveGround,
-    [17] = Help_Text_OwnPokemonGround,
-    [18] = Help_Text_OwnMoveElectric,
-    [19] = Help_Text_OwnPokemonElectric,
-    [20] = Help_Text_OwnMovePoison,
-    [21] = Help_Text_OwnPokemonPoison,
-    [22] = Help_Text_OwnMoveDragon,
-    [23] = Help_Text_OwnPokemonDragon,
-    [24] = Help_Text_OwnMoveNormal,
-    [25] = Help_Text_OwnPokemonNormal,
-    [26] = Help_Text_OwnMoveSteel,
-    [27] = Help_Text_OwnPokemonSteel,
-    [28] = Help_Text_OwnMoveFlying,
-    [29] = Help_Text_OwnPokemonFlying,
-    [30] = Help_Text_OwnMoveFire,
-    [31] = Help_Text_OwnPokemonFire,
-    [32] = Help_Text_OwnMoveWater,
-    [33] = Help_Text_OwnPokemonWater,
-    [34] = Help_Text_OwnMoveBug,
-    [35] = Help_Text_OwnPokemonBug
-};
-
-static const u8 *const sHelpSystemTypeMatchupDescriptionTextPtrs[] = {
-    [HELP_NONE] = NULL,
-    [1]  = Help_Text_HowToUseTypeMatchupList,
-    [2]  = Help_Text_TypeMatchupOwnMoveDark,
-    [3]  = Help_Text_TypeMatchupOwnPokemonDark,
-    [4]  = Help_Text_TypeMatchupOwnMoveRock,
-    [5]  = Help_Text_TypeMatchupOwnPokemonRock,
-    [6]  = Help_Text_TypeMatchupOwnMovePsychic,
-    [7]  = Help_Text_TypeMatchupOwnPokemonPsychic,
-    [8]  = Help_Text_TypeMatchupOwnMoveFighting,
-    [9]  = Help_Text_TypeMatchupOwnPokemonFighting,
-    [10] = Help_Text_TypeMatchupOwnMoveGrass,
-    [11] = Help_Text_TypeMatchupOwnPokemonGrass,
-    [12] = Help_Text_TypeMatchupOwnMoveGhost,
-    [13] = Help_Text_TypeMatchupOwnPokemonGhost,
-    [14] = Help_Text_TypeMatchupOwnMoveIce,
-    [15] = Help_Text_TypeMatchupOwnPokemonIce,
-    [16] = Help_Text_TypeMatchupOwnMoveGround,
-    [17] = Help_Text_TypeMatchupOwnPokemonGround,
-    [18] = Help_Text_TypeMatchupOwnMoveElectric,
-    [19] = Help_Text_TypeMatchupOwnPokemonElectric,
-    [20] = Help_Text_TypeMatchupOwnMovePoison,
-    [21] = Help_Text_TypeMatchupOwnPokemonPoison,
-    [22] = Help_Text_TypeMatchupOwnMoveDragon,
-    [23] = Help_Text_TypeMatchupOwnPokemonDragon,
-    [24] = Help_Text_TypeMatchupOwnMoveNormal,
-    [25] = Help_Text_TypeMatchupOwnPokemonNormal,
-    [26] = Help_Text_TypeMatchupOwnMoveSteel,
-    [27] = Help_Text_TypeMatchupOwnPokemonSteel,
-    [28] = Help_Text_TypeMatchupOwnMoveFlying,
-    [29] = Help_Text_TypeMatchupOwnPokemonFlying,
-    [30] = Help_Text_TypeMatchupOwnMoveFire,
-    [31] = Help_Text_TypeMatchupOwnPokemonFire,
-    [32] = Help_Text_TypeMatchupOwnMoveWater,
-    [33] = Help_Text_TypeMatchupOwnPokemonWater,
-    [34] = Help_Text_TypeMatchupOwnMoveBug,
-    [35] = Help_Text_TypeMatchupOwnPokemonBug
-};
-
-static const u8 sAboutGame_TitleScreen[] = {
-    HELP_THE_HELP_SYSTEM, 
-    HELP_THE_GAME, 
-    HELP_WIRELESS_ADAPTER, 
-    HELP_END
-};
-
-static const u8 sAboutGame_NewGame[] = {
-    HELP_THE_HELP_SYSTEM, 
-    HELP_THE_GAME, 
-    HELP_WIRELESS_ADAPTER, 
-    HELP_END
-};
-
-static const u8 sHowTo_NamingScreen[] = {
-    HELP_ENTERING_NAME, 
-    HELP_END
-};
-
-static const u8 sAboutGame_NamingScreen[] = {
-    HELP_THE_HELP_SYSTEM, 
-    HELP_THE_GAME, 
-    HELP_WIRELESS_ADAPTER, 
-    HELP_END
-};
-
-static const u8 sHowTo_Pokedex[] = {
-    HELP_USING_POKEDEX, 
-    HELP_READING_POKEDEX, 
-    HELP_END
-};
-
-static const u8 sHowTo_PartyMenu[] = {
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY,
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE,
-    HELP_END
-};
-
-static const u8 sTerms_PartyMenu[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_END
-};
-
-static const u8 sHowTo_PokemonInfo[] = {
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_END
-};
-
-static const u8 sTerms_PokemonInfo[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ID_NO, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_NATURE, 
-    HELP_END
-};
-
-static const u8 sTerms_PokemonSkills[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_EXP, 
-    HELP_TERM_ABILITY, 
-    HELP_END
-};
-
-static const u8 sTerms_PokemonMoves[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_END
-};
-
-static const u8 sHowTo_Bag[] = {
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_RIDING_BICYCLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Bag[] = {
-    HELP_TERM_ITEMS, 
-    HELP_TERM_KEYITEMS, 
-    HELP_TERM_POKEBALLS, 
-    HELP_END
-};
-
-static const u8 sHowTo_TrainerCardFront[] = {
-    HELP_USING_PLAYER, 
-    HELP_END
-};
-
-static const u8 sTerms_TrainerCardFront[] = {
-    HELP_TERM_ID_NO, 
-    HELP_TERM_MONEY, 
-    HELP_TERM_POKEDEX, 
-    HELP_TERM_PLAY_TIME, 
-    HELP_TERM_BADGES, 
-    HELP_END
-};
-
-static const u8 sHowTo_TrainerCardBack[] = {
-    HELP_USING_PLAYER, 
-    HELP_END
-};
-
-static const u8 sHowTo_Save[] = {
-    HELP_USING_SAVE, 
-    HELP_END
-};
-
-static const u8 sTerms_Save[] = {
-    HELP_TERM_BADGES2, 
-    HELP_TERM_POKEDEX, 
-    HELP_TERM_PLAY_TIME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Options[] = {
-    HELP_USING_OPTION, 
-    HELP_END
-};
-
-static const u8 sTerms_Options[] = {
-    HELP_TERM_TEXT_SPEED, 
-    HELP_TERM_BATTLE_SCENE, 
-    HELP_TERM_BATTLE_STYLE, 
-    HELP_TERM_SOUND, 
-    HELP_TERM_BUTTON_MODE, 
-    HELP_TERM_FRAME, 
-    HELP_TERM_CANCEL, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_PlayersHouse[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_CANT_GET_OUT_OF_ROOM, 
-    HELP_CANT_FIND_PERSON_I_WANT, 
-    HELP_END
-};
-
-static const u8 sAboutGame_PlayersHouse[] = {
-    HELP_THE_HELP_SYSTEM, 
-    HELP_THE_GAME, 
-    HELP_WIRELESS_ADAPTER, 
-    HELP_WHAT_ARE_POKEMON, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_OaksLab[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_CANT_FIND_PERSON_I_WANT, 
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_OaksLab[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM,
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_OaksLab[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_POKEMON, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_PokeCenter[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT, 
-    HELP_SOMEONE_BLOCKING_MY_WAY, 
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_PokeCenter[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_USING_PC, 
-    HELP_END
-};
-
-static const u8 sTerms_PokeCenter[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_POKEMON, 
-    HELP_END
-};
-
-static const u8 sAboutGame_PokeCenter[] = {
-    HELP_WIRELESS_ADAPTER, 
-    HELP_WHAT_ARE_POKEMON, 
-    HELP_GAME_FUNDAMENTALS_1, 
-    HELP_GAME_FUNDAMENTALS_2, 
-    HELP_GAME_FUNDAMENTALS_3, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_Mart[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT, 
-    HELP_SOMEONE_BLOCKING_MY_WAY, 
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Mart[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Mart[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_MONEY, 
-    HELP_TERM_ITEMS, 
-    HELP_TERM_KEYITEMS, 
-    HELP_TERM_POKEBALLS, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_Gym[] = {
-    HELP_SOMEONE_BLOCKING_MY_WAY, 
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Gym[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Gym[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sTypeMatchups_Gym[] = {
-    HELP_TYPE_MATCHUPS,
-    HELP_END
-};
-
-static const u8 sWhatToDo_Indoors[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_CANT_FIND_PERSON_I_WANT, 
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT, 
-    HELP_SOMEONE_BLOCKING_MY_WAY, 
-    HELP_I_CANT_GO_ON, 
-    HELP_HOW_DO_I_PROGRESS, 
-    HELP_WHAT_IS_THAT_PERSON_LIKE, 
-    HELP_OUT_OF_THINGS_TO_DO, 
-    HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT, 
-    HELP_WHAT_DO_I_DO_IN_CAVE, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_IS_A_GYM, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WHEN_CAN_I_USE_ITEM, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_CAN_I_BUY_POKEBALLS, 
-    HELP_WHATS_A_BATTLE, 
-    HELP_HOW_DO_I_PREPARE_FOR_BATTLE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_WHERE_DO_MONS_APPEAR, 
-    HELP_CANT_CATCH_MONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_WHATS_A_TRAINER, 
-    HELP_HOW_DO_I_WIN_AGAINST_TRAINER, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WANT_TO_ADD_MORE_MOVES, 
-    HELP_WHAT_ARE_HIDDEN_MOVES, 
-    HELP_WHAT_DOES_HIDDEN_MOVE_DO, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Indoors[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_SUMMARY, 
-    HELP_USING_SWITCH, 
-    HELP_USING_ITEM, 
-    HELP_USING_BAG, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_KEYITEM, 
-    HELP_REGISTER_KEY_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_POTION, 
-    HELP_USING_TOWN_MAP, 
-    HELP_USING_TM, 
-    HELP_USING_HM, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Indoors[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_ABILITY,
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_Overworld[] = {
-    HELP_WHAT_SHOULD_I_BE_DOING, 
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_CANT_FIND_PERSON_I_WANT, 
-    HELP_TALKED_TO_EVERYONE_NOW_WHAT, 
-    HELP_SOMEONE_BLOCKING_MY_WAY, 
-    HELP_I_CANT_GO_ON, 
-    HELP_HOW_DO_I_PROGRESS, 
-    HELP_WHAT_IS_THAT_PERSON_LIKE, 
-    HELP_OUT_OF_THINGS_TO_DO, 
-    HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT, 
-    HELP_WHAT_DO_I_DO_IN_CAVE, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_IS_A_GYM, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WHEN_CAN_I_USE_ITEM, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_CAN_I_BUY_POKEBALLS, 
-    HELP_WHATS_A_BATTLE, 
-    HELP_HOW_DO_I_PREPARE_FOR_BATTLE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_WHERE_DO_MONS_APPEAR, 
-    HELP_CANT_CATCH_MONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_WHATS_A_TRAINER, 
-    HELP_HOW_DO_I_WIN_AGAINST_TRAINER, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WANT_TO_ADD_MORE_MOVES, 
-    HELP_WHAT_ARE_HIDDEN_MOVES, 
-    HELP_WHAT_DOES_HIDDEN_MOVE_DO, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Overworld[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_BAG, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Overworld[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_FNT, 
-    HELP_TERM_POKEMON, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_Dungeon[] = {
-    HELP_WHAT_ARE_MY_ADVENTURE_BASICS, 
-    HELP_I_CANT_GO_ON, 
-    HELP_HOW_DO_I_PROGRESS, 
-    HELP_WHAT_IS_THAT_PERSON_LIKE, 
-    HELP_OUT_OF_THINGS_TO_DO, 
-    HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT, 
-    HELP_WHAT_DO_I_DO_IN_CAVE, 
-    HELP_WHATS_POKEMON_CENTER, 
-    HELP_WHATS_POKEMON_MART, 
-    HELP_WHAT_IS_A_GYM, 
-    HELP_WHAT_HAPPENED_TO_ITEM_I_GOT, 
-    HELP_WHEN_CAN_I_USE_ITEM, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_WHATS_A_BATTLE, 
-    HELP_HOW_DO_I_PREPARE_FOR_BATTLE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_WHERE_DO_MONS_APPEAR, 
-    HELP_CANT_CATCH_MONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_WHATS_A_TRAINER, 
-    HELP_HOW_DO_I_WIN_AGAINST_TRAINER, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WANT_TO_ADD_MORE_MOVES, 
-    HELP_WHAT_ARE_HIDDEN_MOVES, 
-    HELP_WHAT_DOES_HIDDEN_MOVE_DO, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Dungeon[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_BAG, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Dungeon[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_Surfing[] = {
-    HELP_I_CANT_GO_ON, 
-    HELP_WHAT_IS_THAT_PERSON_LIKE, 
-    HELP_OUT_OF_THINGS_TO_DO, 
-    HELP_WHAT_IS_A_GYM, 
-    HELP_CANT_CATCH_MONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_WHATS_A_TRAINER, 
-    HELP_HOW_DO_I_WIN_AGAINST_TRAINER, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WANT_TO_ADD_MORE_MOVES, 
-    HELP_WHAT_ARE_HIDDEN_MOVES, 
-    HELP_WHAT_DOES_HIDDEN_MOVE_DO, 
-    HELP_WANT_TO_END_GAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_Surfing[] = {
-    HELP_OPENING_MENU, 
-    HELP_USING_POKEDEX, 
-    HELP_USING_POKEMON, 
-    HELP_USING_BAG, 
-    HELP_USING_PLAYER, 
-    HELP_USING_SAVE, 
-    HELP_USING_OPTION, 
-    HELP_USING_MOVE_OUTSIDE_OF_BATTLE, 
-    HELP_END
-};
-
-static const u8 sTerms_Surfing[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP,
-    HELP_TERM_EXP, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_WildBattle[] = {
-    HELP_WHATS_A_BATTLE, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WHAT_MOVES_SHOULD_I_USE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_CANT_CATCH_MONS, 
-    HELP_CAN_I_BUY_POKEBALLS, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_END
-};
-
-static const u8 sHowTo_WildBattle[] = {
-    HELP_USING_FIGHT, 
-    HELP_USING_POKEMON2, 
-    HELP_USING_SHIFT, 
-    HELP_USING_SUMMARY2, 
-    HELP_USING_BAG2, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_POKEBALL, 
-    HELP_USING_RUN, 
-    HELP_END
-};
-
-static const u8 sTerms_WildBattle[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_TERM_STATUS_PROBLEM, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sTypeMatchups_WildBattle[] = {
-    HELP_TYPE_MATCHUPS,
-    HELP_END
-};
-
-static const u8 sWhatToDo_TrainerBattleSingle[] = {
-    HELP_WHATS_A_BATTLE, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WHAT_MOVES_SHOULD_I_USE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT,
-    HELP_END
-};
-
-static const u8 sHowTo_TrainerBattleSingle[] = {
-    HELP_USING_FIGHT, 
-    HELP_USING_POKEMON2, 
-    HELP_USING_SHIFT, 
-    HELP_USING_SUMMARY2, 
-    HELP_USING_BAG2, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_RUN, 
-    HELP_END
-};
-
-static const u8 sTerms_TrainerBattleSingle[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_TERM_STATUS_PROBLEM, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sTypeMatchups_TrainerBattleSingle[] = {
-    HELP_TYPE_MATCHUPS, 
-    HELP_END
-};
-
-static const u8 sWhatToDo_TrainerBattleDouble[] = {
-    HELP_WHATS_A_BATTLE, 
-    HELP_WHAT_ARE_MOVES, 
-    HELP_WHAT_MOVES_SHOULD_I_USE, 
-    HELP_WHAT_IS_A_MONS_VITALITY, 
-    HELP_MY_MONS_ARE_HURT, 
-    HELP_RAN_OUT_OF_POTIONS, 
-    HELP_WANT_TO_MAKE_MON_STRONGER, 
-    HELP_FOE_MONS_TOO_STRONG, 
-    HELP_WHAT_IS_STATUS_PROBLEM, 
-    HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT, 
-    HELP_END
-};
-
-static const u8 sHowTo_TrainerBattleDouble[] = {
-    HELP_USING_FIGHT, 
-    HELP_USING_POKEMON2, 
-    HELP_USING_SHIFT, 
-    HELP_USING_SUMMARY2, 
-    HELP_USING_BAG2, 
-    HELP_USING_AN_ITEM, 
-    HELP_USING_RUN, 
-    HELP_END
-};
-
-static const u8 sTerms_TrainerBattleDouble[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_TERM_STATUS_PROBLEM, 
-    HELP_TERM_FNT, 
-    HELP_END
-};
-
-static const u8 sTypeMatchups_TrainerBattleDouble[] = {
-    HELP_TYPE_MATCHUPS,
-    HELP_END
-};
-
-static const u8 sWhatToDo_SafariBattle[] = {
-    HELP_WHAT_DO_I_DO_IN_SAFARI, 
-    HELP_WHAT_ARE_SAFARI_RULES, 
-    HELP_WANT_TO_END_SAFARI, 
-    HELP_END
-};
-
-static const u8 sHowTo_SafariBattle[] = {
-    HELP_USING_BALL, 
-    HELP_USING_BAIT, 
-    HELP_USING_ROCK, 
-    HELP_USING_RUN, 
-    HELP_END
-};
-
-static const u8 sTerms_SafariBattle[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_END
-};
-
-static const u8 sTypeMatchups_SafariBattle[] = {
-    HELP_TYPE_MATCHUPS,
-    HELP_END
-};
-
-static const u8 sHowTo_PC[] = {
-    HELP_USING_PC, 
-    HELP_USING_BILLS_PC, 
-    HELP_USING_WITHDRAW, 
-    HELP_USING_DEPOSIT, 
-    HELP_USING_MOVE, 
-    HELP_MOVING_ITEMS, 
-    HELP_USING_PLAYERS_PC, 
-    HELP_USING_WITHDRAW_ITEM, 
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX, 
-    HELP_USING_PROF_OAKS_PC, 
-    HELP_USING_HALL_OF_FAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_BillsPC[] = {
-    HELP_USING_PC, 
-    HELP_USING_BILLS_PC, 
-    HELP_USING_WITHDRAW, 
-    HELP_USING_DEPOSIT, 
-    HELP_USING_MOVE, 
-    HELP_MOVING_ITEMS, 
-    HELP_USING_PLAYERS_PC, 
-    HELP_USING_WITHDRAW_ITEM, 
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX, 
-    HELP_USING_PROF_OAKS_PC, 
-    HELP_USING_HALL_OF_FAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_PlayersPCItems[] = {
-    HELP_USING_PC, 
-    HELP_USING_BILLS_PC, 
-    HELP_USING_WITHDRAW, 
-    HELP_USING_DEPOSIT, 
-    HELP_USING_MOVE, 
-    HELP_MOVING_ITEMS, 
-    HELP_USING_PLAYERS_PC, 
-    HELP_USING_WITHDRAW_ITEM, 
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX, 
-    HELP_USING_PROF_OAKS_PC, 
-    HELP_USING_HALL_OF_FAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_PlayersPCMailbox[] = {
-    HELP_USING_PC, 
-    HELP_USING_BILLS_PC, 
-    HELP_USING_WITHDRAW, 
-    HELP_USING_DEPOSIT, 
-    HELP_USING_MOVE, 
-    HELP_MOVING_ITEMS, 
-    HELP_USING_PLAYERS_PC, 
-    HELP_USING_WITHDRAW_ITEM, 
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX, 
-    HELP_USING_PROF_OAKS_PC, 
-    HELP_USING_HALL_OF_FAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_PCMisc[] = {
-    HELP_USING_PC, 
-    HELP_USING_BILLS_PC, 
-    HELP_USING_WITHDRAW, 
-    HELP_USING_DEPOSIT, 
-    HELP_USING_MOVE, 
-    HELP_MOVING_ITEMS, 
-    HELP_USING_PLAYERS_PC, 
-    HELP_USING_WITHDRAW_ITEM, 
-    HELP_USING_DEPOSIT_ITEM,
-    HELP_USING_MAILBOX, 
-    HELP_USING_PROF_OAKS_PC, 
-    HELP_USING_HALL_OF_FAME, 
-    HELP_END
-};
-
-static const u8 sHowTo_BedroomPC[] = {
-    HELP_USING_HOME_PC, 
-    HELP_USING_ITEM_STORAGE, 
-    HELP_USING_WITHDRAW_ITEM2, 
-    HELP_USING_DEPOSIT_ITEM2, 
-    HELP_USING_MAILBOX2, 
-    HELP_END
-};
-
-static const u8 sHowTo_BedroomPCItems[] = {
-    HELP_USING_HOME_PC, 
-    HELP_USING_ITEM_STORAGE, 
-    HELP_USING_WITHDRAW_ITEM2, 
-    HELP_USING_DEPOSIT_ITEM2, 
-    HELP_USING_MAILBOX2, 
-    HELP_END
-};
-
-static const u8 sHowTo_BedroomPCMailbox[] = {
-    HELP_USING_HOME_PC, 
-    HELP_USING_ITEM_STORAGE, 
-    HELP_USING_WITHDRAW_ITEM2, 
-    HELP_USING_DEPOSIT_ITEM2, 
-    HELP_USING_MAILBOX2, 
-    HELP_END
-};
-
-static const u8 sTerms_Basic[] = {
-    HELP_TERM_LEVEL, 
-    HELP_TERM_HP, 
-    HELP_TERM_EXP, 
-    HELP_TERM_MOVES, 
-    HELP_TERM_TM, 
-    HELP_TERM_HM_MOVE, 
-    HELP_TERM_HM, 
-    HELP_TERM_ATTACK, 
-    HELP_TERM_DEFENSE, 
-    HELP_TERM_SPATK, 
-    HELP_TERM_SPDEF, 
-    HELP_TERM_SPEED, 
-    HELP_TERM_TYPE, 
-    HELP_TERM_OT, 
-    HELP_TERM_ITEM, 
-    HELP_TERM_ABILITY, 
-    HELP_TERM_MOVE_TYPE, 
-    HELP_TERM_NATURE, 
-    HELP_TERM_ID_NO, 
-    HELP_TERM_PP, 
-    HELP_TERM_POWER, 
-    HELP_TERM_ACCURACY, 
-    HELP_TERM_STATUS_PROBLEM, 
-    HELP_TERM_FNT, 
-    HELP_TERM_EVOLUTION, 
-    HELP_TERM_ITEMS, 
-    HELP_TERM_KEYITEMS, 
-    HELP_TERM_POKEBALLS, 
-    HELP_TERM_PLAY_TIME, 
-    HELP_TERM_MONEY, 
-    HELP_TERM_BADGES, 
-    HELP_END
-};
-
-
-// Cant get this to match as a 2D array but it probably should be one, [HELPCONTEXT_COUNT][TOPIC_COUNT - 1] (Excludes TOPIC_EXIT)
-static const u8 *const sHelpSystemSubmenuItemLists[HELPCONTEXT_COUNT * (TOPIC_COUNT - 1)] = {
-    NULL,                          NULL,                       NULL,                       NULL,                    NULL, // HELPCONTEXT_NONE
-    NULL,                          NULL,                       NULL,                       sAboutGame_TitleScreen,  NULL, // HELPCONTEXT_TITLE_SCREEN
-    NULL,                          NULL,                       NULL,                       sAboutGame_NewGame,      NULL, // HELPCONTEXT_NEW_GAME
-    NULL,                          sHowTo_NamingScreen,        NULL,                       sAboutGame_NamingScreen, NULL, // HELPCONTEXT_NAMING_SCREEN
-    NULL,                          sHowTo_Pokedex,             NULL,                       NULL,                    NULL, // HELPCONTEXT_POKEDEX
-    NULL,                          sHowTo_PartyMenu,           sTerms_PartyMenu,           NULL,                    NULL, // HELPCONTEXT_PARTY_MENU
-    NULL,                          sHowTo_PokemonInfo,         sTerms_PokemonInfo,         NULL,                    NULL, // HELPCONTEXT_POKEMON_INFO
-    NULL,                          NULL,                       sTerms_PokemonSkills,       NULL,                    NULL, // HELPCONTEXT_POKEMON_SKILLS
-    NULL,                          NULL,                       sTerms_PokemonMoves,        NULL,                    NULL, // HELPCONTEXT_POKEMON_MOVES
-    NULL,                          sHowTo_Bag,                 sTerms_Bag,                 NULL,                    NULL, // HELPCONTEXT_BAG
-    NULL,                          sHowTo_TrainerCardFront,    sTerms_TrainerCardFront,    NULL,                    NULL, // HELPCONTEXT_TRAINER_CARD_FRONT
-    NULL,                          sHowTo_TrainerCardBack,     NULL,                       NULL,                    NULL, // HELPCONTEXT_TRAINER_CARD_BACK
-    NULL,                          sHowTo_Save,                sTerms_Save,                NULL,                    NULL, // HELPCONTEXT_SAVE
-    NULL,                          sHowTo_Options,             sTerms_Options,             NULL,                    NULL, // HELPCONTEXT_OPTIONS
-    sWhatToDo_PlayersHouse,        NULL,                       NULL,                       sAboutGame_PlayersHouse, NULL, // HELPCONTEXT_PLAYERS_HOUSE
-    sWhatToDo_OaksLab,             sHowTo_OaksLab,             sTerms_OaksLab,             NULL,                    NULL, // HELPCONTEXT_OAKS_LAB
-    sWhatToDo_PokeCenter,          sHowTo_PokeCenter,          sTerms_PokeCenter,          sAboutGame_PokeCenter,   NULL, // HELPCONTEXT_POKECENTER
-    sWhatToDo_Mart,                sHowTo_Mart,                sTerms_Mart,                NULL,                    NULL, // HELPCONTEXT_MART
-    sWhatToDo_Gym,                 sHowTo_Gym,                 sTerms_Gym,                 NULL,                    sTypeMatchups_Gym, // HELPCONTEXT_GYM
-    sWhatToDo_Indoors,             sHowTo_Indoors,             sTerms_Indoors,             NULL,                    NULL, // HELPCONTEXT_INDOORS
-    sWhatToDo_Overworld,           sHowTo_Overworld,           sTerms_Overworld,           NULL,                    NULL, // HELPCONTEXT_OVERWORLD
-    sWhatToDo_Dungeon,             sHowTo_Dungeon,             sTerms_Dungeon,             NULL,                    NULL, // HELPCONTEXT_DUNGEON
-    sWhatToDo_Surfing,             sHowTo_Surfing,             sTerms_Surfing,             NULL,                    NULL, // HELPCONTEXT_SURFING
-    sWhatToDo_WildBattle,          sHowTo_WildBattle,          sTerms_WildBattle,          NULL,                    sTypeMatchups_WildBattle, // HELPCONTEXT_WILD_BATTLE
-    sWhatToDo_TrainerBattleSingle, sHowTo_TrainerBattleSingle, sTerms_TrainerBattleSingle, NULL,                    sTypeMatchups_TrainerBattleSingle, // HELPCONTEXT_TRAINER_BATTLE_SINGLE
-    sWhatToDo_TrainerBattleDouble, sHowTo_TrainerBattleDouble, sTerms_TrainerBattleDouble, NULL,                    sTypeMatchups_TrainerBattleDouble, // HELPCONTEXT_TRAINER_BATTLE_DOUBLE
-    sWhatToDo_SafariBattle,        sHowTo_SafariBattle,        sTerms_SafariBattle,        NULL,                    sTypeMatchups_SafariBattle, // HELPCONTEXT_SAFARI_BATTLE
-    NULL,                          sHowTo_PC,                  NULL,                       NULL,                    NULL, // HELPCONTEXT_PC
-    NULL,                          sHowTo_BillsPC,             NULL,                       NULL,                    NULL, // HELPCONTEXT_BILLS_PC
-    NULL,                          sHowTo_PlayersPCItems,      NULL,                       NULL,                    NULL, // HELPCONTEXT_PLAYERS_PC_ITEMS
-    NULL,                          sHowTo_PlayersPCMailbox,    NULL,                       NULL,                    NULL, // HELPCONTEXT_PLAYERS_PC_MAILBOX
-    NULL,                          sHowTo_PCMisc,              NULL,                       NULL,                    NULL, // HELPCONTEXT_PC_MISC
-    NULL,                          sHowTo_BedroomPC,           NULL,                       NULL,                    NULL, // HELPCONTEXT_BEDROOM_PC
-    NULL,                          sHowTo_BedroomPCItems,      NULL,                       NULL,                    NULL, // HELPCONTEXT_BEDROOM_PC_ITEMS
-    NULL,                          sHowTo_BedroomPCMailbox,    NULL,                       NULL,                    NULL, // HELPCONTEXT_BEDROOM_PC_MAILBOX
-    NULL,                          NULL,                       NULL,                       NULL,                    NULL  // HELPCONTEXT_UNUSED
-};
-
-static const u16 sUnused[] = INCBIN_U16("graphics/help_system/unused.bin");
-
-static const u8 sHelpSystemContextTopicOrder[TOPIC_COUNT] = {
-    TOPIC_ABOUT_GAME, 
-    TOPIC_WHAT_TO_DO, 
-    TOPIC_HOW_TO_DO, 
-    TOPIC_TERMS, 
-    TOPIC_TYPE_MATCHUP, 
-    TOPIC_EXIT
-};
-
-#define CONTEXT_TOPIC_FLAGS(whatToDo, howToDo, terms, aboutGame, typeMatchup, exit)     \
-    {                                                                                   \
-        [TOPIC_WHAT_TO_DO]   = whatToDo,                                                \
-        [TOPIC_HOW_TO_DO]    = howToDo,                                                 \
-        [TOPIC_TERMS]        = terms,                                                   \
-        [TOPIC_ABOUT_GAME]   = aboutGame,                                               \
-        [TOPIC_TYPE_MATCHUP] = typeMatchup,                                             \
-        [TOPIC_EXIT]         = exit                                                     \
-    }                                                                                   \
-
-static const bool8 sHelpSystemContextTopicFlags[HELPCONTEXT_COUNT + 1][TOPIC_COUNT] = {
-    [HELPCONTEXT_NONE]                  = CONTEXT_TOPIC_FLAGS(FALSE, FALSE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_TITLE_SCREEN]          = CONTEXT_TOPIC_FLAGS(FALSE, FALSE, FALSE,  TRUE, FALSE,  TRUE),
-    [HELPCONTEXT_NEW_GAME]              = CONTEXT_TOPIC_FLAGS(FALSE, FALSE, FALSE,  TRUE, FALSE,  TRUE),
-    [HELPCONTEXT_NAMING_SCREEN]         = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE,  TRUE, FALSE,  TRUE),
-    [HELPCONTEXT_POKEDEX]               = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_PARTY_MENU]            = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_POKEMON_INFO]          = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_POKEMON_SKILLS]        = CONTEXT_TOPIC_FLAGS(FALSE, FALSE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_POKEMON_MOVES]         = CONTEXT_TOPIC_FLAGS(FALSE, FALSE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_BAG]                   = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_TRAINER_CARD_FRONT]    = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_TRAINER_CARD_BACK]     = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_SAVE]                  = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_OPTIONS]               = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_PLAYERS_HOUSE]         = CONTEXT_TOPIC_FLAGS( TRUE, FALSE, FALSE,  TRUE, FALSE,  TRUE),
-    [HELPCONTEXT_OAKS_LAB]              = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_POKECENTER]            = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE,  TRUE, FALSE,  TRUE),
-    [HELPCONTEXT_MART]                  = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_GYM]                   = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE,  TRUE,  TRUE),
-    [HELPCONTEXT_INDOORS]               = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_OVERWORLD]             = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_DUNGEON]               = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_SURFING]               = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_WILD_BATTLE]           = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE,  TRUE,  TRUE),
-    [HELPCONTEXT_TRAINER_BATTLE_SINGLE] = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE,  TRUE,  TRUE),
-    [HELPCONTEXT_TRAINER_BATTLE_DOUBLE] = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE,  TRUE,  TRUE),
-    [HELPCONTEXT_SAFARI_BATTLE]         = CONTEXT_TOPIC_FLAGS( TRUE,  TRUE,  TRUE, FALSE,  TRUE,  TRUE),
-    [HELPCONTEXT_PC]                    = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_BILLS_PC]              = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_PLAYERS_PC_ITEMS]      = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_PLAYERS_PC_MAILBOX]    = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_PC_MISC]               = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_BEDROOM_PC]            = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_BEDROOM_PC_ITEMS]      = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_BEDROOM_PC_MAILBOX]    = CONTEXT_TOPIC_FLAGS(FALSE,  TRUE, FALSE, FALSE, FALSE,  TRUE),
-    [HELPCONTEXT_UNUSED]                = {},
-    [HELPCONTEXT_COUNT]                 = {}
-};
-
-static const u16 sMartMaps[] = {
-    MAP_VIRIDIAN_CITY_MART,
-    MAP_PEWTER_CITY_MART,
-    MAP_CERULEAN_CITY_MART,
-    MAP_LAVENDER_TOWN_MART,
-    MAP_VERMILION_CITY_MART,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_1F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_2F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_3F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_4F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_5F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR,
-    MAP_FUSHCIA_CITY_MART,
-    MAP_CINNABAR_ISLAND_MART,
-    MAP_SAFFRON_CITY_MART,
-    MAP_THREE_ISLAND_MART,
-    MAP_FOUR_ISLAND_MART,
-    MAP_SEVEN_ISLAND_MART,
-    MAP_SIX_ISLAND_MART,
-    MAP_UNDEFINED
-};
-
-static const u16 sGymMaps[] = {
-    MAP_PEWTER_CITY_GYM,
-    MAP_CERULEAN_CITY_GYM,
-    MAP_VERMILION_CITY_GYM,
-    MAP_CELADON_CITY_GYM,
-    MAP_FUSHCIA_CITY_GYM,
-    MAP_SAFFRON_CITY_GYM,
-    MAP_CINNABAR_ISLAND_GYM,
-    MAP_VIRIDIAN_CITY_GYM,
-    MAP_UNDEFINED
-};
-
-static const u8 sDungeonMaps[][3] = {
-    { MAP_GROUP(MAP_VIRIDIAN_FOREST), MAP_NUM(MAP_VIRIDIAN_FOREST), 1 },
-    { MAP_GROUP(MAP_MT_MOON_1F), MAP_NUM(MAP_MT_MOON_1F), 3 },
-    { MAP_GROUP(MAP_ROCK_TUNNEL_1F), MAP_NUM(MAP_ROCK_TUNNEL_1F), 2 },
-    { MAP_GROUP(MAP_DIGLETTS_CAVE_NORTH_ENTRANCE), MAP_NUM(MAP_DIGLETTS_CAVE_NORTH_ENTRANCE), 3 },
-    { MAP_GROUP(MAP_SEAFOAM_ISLANDS_1F), MAP_NUM(MAP_SEAFOAM_ISLANDS_1F), 5 },
-    { MAP_GROUP(MAP_VICTORY_ROAD_1F), MAP_NUM(MAP_VICTORY_ROAD_1F), 3 },
-    { MAP_GROUP(MAP_CERULEAN_CAVE_1F), MAP_NUM(MAP_CERULEAN_CAVE_1F), 3 },
-    { MAP_GROUP(MAP_MT_EMBER_RUBY_PATH_B4F), MAP_NUM(MAP_MT_EMBER_RUBY_PATH_B4F), 1 },
-    { MAP_GROUP(MAP_MT_EMBER_SUMMIT_PATH_1F), MAP_NUM(MAP_MT_EMBER_SUMMIT_PATH_1F), 3 },
-    { MAP_GROUP(MAP_MT_EMBER_RUBY_PATH_B5F), MAP_NUM(MAP_MT_EMBER_RUBY_PATH_B5F), 7 },
-    { MAP_GROUP(MAP_THREE_ISLAND_BERRY_FOREST), MAP_NUM(MAP_THREE_ISLAND_BERRY_FOREST), 1 },
-    { MAP_GROUP(MAP_SIX_ISLAND_PATTERN_BUSH), MAP_NUM(MAP_SIX_ISLAND_PATTERN_BUSH), 1 },
-    { MAP_GROUP(MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE), MAP_NUM(MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE), 15 },
-    { MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), 4 },
-    { MAP_GROUP(MAP_SIX_ISLAND_ALTERING_CAVE), MAP_NUM(MAP_SIX_ISLAND_ALTERING_CAVE), 1 },
-    { MAP_GROUP(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), MAP_NUM(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), 7 }
-};
-
-void SetHelpContextDontCheckBattle(u8 contextId)
-{
-    sHelpSystemContextId = contextId;
-}
-
-void SetHelpContext(u8 contextId)
-{
-    switch (sHelpSystemContextId)
-    {
-    case HELPCONTEXT_WILD_BATTLE:
-    case HELPCONTEXT_TRAINER_BATTLE_SINGLE:
-    case HELPCONTEXT_TRAINER_BATTLE_DOUBLE:
-    case HELPCONTEXT_SAFARI_BATTLE:
-        if (contextId == HELPCONTEXT_BAG 
-         || contextId == HELPCONTEXT_PARTY_MENU 
-         || contextId == HELPCONTEXT_POKEMON_INFO 
-         || contextId == HELPCONTEXT_POKEMON_SKILLS 
-         || contextId == HELPCONTEXT_POKEMON_MOVES)
-            break;
-        // fallthrough
-    default:
-        sHelpSystemContextId = contextId;
-        break;
-    }
-}
-
-void Script_SetHelpContext(void)
-{
-    sHelpSystemContextId = gSpecialVar_0x8004;
-}
-
-void BackupHelpContext(void)
-{
-    gHelpContextIdBackup = sHelpSystemContextId;
-}
-
-void RestoreHelpContext(void)
-{
-    sHelpSystemContextId = gHelpContextIdBackup;
-}
-
-static bool32 IsInMartMap(void)
-{
-    return IsCurrentMapInArray(sMartMaps);
-}
-
-static bool32 IsInGymMap(void)
-{
-    return IsCurrentMapInArray(sGymMaps);
-}
-
-static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
-{
-    u16 mapIdx = (gSaveBlock1Ptr->location.mapGroup << 8) + gSaveBlock1Ptr->location.mapNum;
-    s32 i;
-
-    for (i = 0; mapIdxs[i] != MAP_UNDEFINED; i++)
-    {
-        if (mapIdxs[i] == mapIdx)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 IsInDungeonMap(void)
-{
-    u8 i, j;
-
-    for (i = 0; i < NELEMS(sDungeonMaps); i++)
-    {
-        for (j = 0; j < sDungeonMaps[i][2]; j++)
-        {
-            if (
-                   sDungeonMaps[i][0] == gSaveBlock1Ptr->location.mapGroup
-                && sDungeonMaps[i][1] + j == gSaveBlock1Ptr->location.mapNum
-                && (i != 15 /* TANOBY */ || FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS) == TRUE)
-            )
-                return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
-#define IN_PLAYERS_HOUSE \
-    ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F) \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F))     \
- || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F)  \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F)))    \
-
- #define IN_OAKS_LAB \
-    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB) \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB))    \
-
-void SetHelpContextForMap(void)
-{
-    HelpSystem_EnableToggleWithRButton();
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-        SetHelpContext(HELPCONTEXT_SURFING);
-    else if (IsInDungeonMap())
-        SetHelpContext(HELPCONTEXT_DUNGEON);
-    else if (IsMapTypeIndoors(gMapHeader.mapType))
-    {
-        if (IN_PLAYERS_HOUSE)
-            SetHelpContext(HELPCONTEXT_PLAYERS_HOUSE);
-        else if (IN_OAKS_LAB)
-            SetHelpContext(HELPCONTEXT_OAKS_LAB);
-        else if (IsCurMapPokeCenter() == TRUE)
-            SetHelpContext(HELPCONTEXT_POKECENTER);
-        else if (IsInMartMap() == TRUE)
-            SetHelpContext(HELPCONTEXT_MART);
-        else if (IsInGymMap() == TRUE)
-            SetHelpContext(HELPCONTEXT_GYM);
-        else
-            SetHelpContext(HELPCONTEXT_INDOORS);
-    }
-    else
-        SetHelpContext(HELPCONTEXT_OVERWORLD);
-}
-
-bool8 HelpSystem_UpdateHasntSeenIntro(void)
-{
-    if (sSeenHelpSystemIntro == TRUE)
-        return FALSE;
-
-    if (gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID && FlagGet(FLAG_SYS_SAW_HELP_SYSTEM_INTRO))
-        return FALSE;
-
-    FlagSet(FLAG_SYS_SAW_HELP_SYSTEM_INTRO);
-    sSeenHelpSystemIntro = TRUE;
-    return TRUE;
-}
-
-bool8 HelpSystem_IsSinglePlayer(void)
-{
-    if (gReceivedRemoteLinkPlayers == TRUE)
-        return FALSE;
-    return TRUE;
-}
-
-void HelpSystem_Disable(void)
-{
-    gHelpSystemEnabled = FALSE;
-}
-
-void HelpSystem_Enable(void)
-{
-    if (!QL_IS_PLAYBACK_STATE)
-    {
-        gHelpSystemEnabled = TRUE;
-        HelpSystem_EnableToggleWithRButton();
-    }
-}
-
-void HelpSystem_DisableToggleWithRButton(void)
-{
-    gHelpSystemToggleWithRButtonDisabled = TRUE;
-}
-
-void HelpSystem_EnableToggleWithRButton(void)
-{
-    gHelpSystemToggleWithRButtonDisabled = FALSE;
-}
-
-static void ResetHelpSystemListMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    helpListMenu->sub.items = listMenuItemsBuffer;
-    helpListMenu->sub.totalItems = 1;
-    helpListMenu->sub.maxShowed = 1;
-    helpListMenu->sub.left = 1;
-    helpListMenu->sub.top = 4;
-}
-
-static void BuildAndPrintMainTopicsListMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    ResetHelpSystemListMenu(helpListMenu, listMenuItemsBuffer);
-    BuildMainTopicsListAndMoveToH00(helpListMenu, listMenuItemsBuffer);
-    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_PickOkEnd);
-    HelpSystem_InitListMenuController(helpListMenu, 0, gHelpSystemState.scrollMain);
-    //PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
-    HS_ShowOrHideMainWindowText(1);
-    HS_ShowOrHideControlsGuideInTopRight(1);
-}
-
-static void BuildMainTopicsListAndMoveToH00(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    u8 i;
-    u8 totalItems = 0;
-    for (i = 0; i < TOPIC_COUNT; i++)
-    {
-        if (sHelpSystemContextTopicFlags[sHelpSystemContextId][sHelpSystemContextTopicOrder[i]] == TRUE)
-        {
-            listMenuItemsBuffer[totalItems].label = sHelpSystemTopicPtrs[sHelpSystemContextTopicOrder[i]];
-            listMenuItemsBuffer[totalItems].index = sHelpSystemContextTopicOrder[i];
-            totalItems++;
-        }
-    }
-    listMenuItemsBuffer[totalItems - 1].index = -2;
-    helpListMenu->sub.totalItems = totalItems;
-    helpListMenu->sub.maxShowed = totalItems;
-    helpListMenu->sub.left = 0;
-}
-
-static void BuildAndPrintSubmenuList(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    HS_SetMainWindowBgBrightness(0);
-    HS_ShowOrHideHeaderLine_Darker_FooterStyle(0);
-    HS_ShowOrHideHeaderAndFooterLines_Lighter(1);
-    ResetHelpSystemListMenu(helpListMenu, listMenuItemsBuffer);
-    SetHelpSystemSubmenuItems(helpListMenu, listMenuItemsBuffer);
-    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_PickOkCancel);
-    HelpSystem_InitListMenuController(helpListMenu, helpListMenu->itemsAbove, helpListMenu->cursorPos);
-    HelpSystem_PrintTextAt(sHelpSystemTopicPtrs[gHelpSystemState.topic], 0, 0);
-    HS_ShowOrHideMainWindowText(1);
-    HS_ShowOrHideControlsGuideInTopRight(1);
-}
-
-static void SetHelpSystemSubmenuItems(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    u8 totalItems = 0;
-    const u8 * submenuItems = sHelpSystemSubmenuItemLists[sHelpSystemContextId * 5 + gHelpSystemState.topic]; // accessing as 2D array
-    u8 i;
-    for (i = 0; submenuItems[i] != HELP_END; i++)
-    {
-        if (IsHelpSystemSubmenuEnabled(submenuItems[i]) == TRUE)
-        {
-            if (gHelpSystemState.topic == TOPIC_WHAT_TO_DO)
-                listMenuItemsBuffer[totalItems].label = sHelpSystemSpecializedQuestionTextPtrs[submenuItems[i]];
-            else if (gHelpSystemState.topic == TOPIC_HOW_TO_DO)
-                listMenuItemsBuffer[totalItems].label = sHelpSystemMenuTopicTextPtrs[submenuItems[i]];
-            else if (gHelpSystemState.topic == TOPIC_TERMS)
-                listMenuItemsBuffer[totalItems].label = sHelpSystemTermTextPtrs[submenuItems[i]];
-            else if (gHelpSystemState.topic == TOPIC_ABOUT_GAME)
-                listMenuItemsBuffer[totalItems].label = sHelpSystemGeneralTopicTextPtrs[submenuItems[i]];
-            else // TOPIC_TYPE_MATCHUP
-                listMenuItemsBuffer[totalItems].label = sHelpSystemTypeMatchupTextPtrs[submenuItems[i]];
-            listMenuItemsBuffer[totalItems].index = submenuItems[i];
-            totalItems++;
-        }
-    }
-    if (HelpSystem_ShouldShowBasicTerms() == TRUE)
-    {
-        for (i = 0, submenuItems = sTerms_Basic; submenuItems[i] != HELP_END; i++)
-        {
-            listMenuItemsBuffer[totalItems].label = sHelpSystemTermTextPtrs[submenuItems[i]];
-            listMenuItemsBuffer[totalItems].index = submenuItems[i];
-            totalItems++;
-        }
-    }
-    listMenuItemsBuffer[totalItems].label = Help_Text_Cancel;
-    listMenuItemsBuffer[totalItems].index = -2;
-    totalItems++;
-    helpListMenu->sub.totalItems = totalItems;
-    helpListMenu->sub.maxShowed = 7;
-    helpListMenu->sub.left = 0;
-    helpListMenu->sub.top = 21;
-}
-
-static bool8 HelpSystem_ShouldShowBasicTerms(void)
-{
-    if (FlagGet(FLAG_DEFEATED_BROCK) == TRUE && gHelpSystemState.topic == TOPIC_TERMS)
-        return TRUE;
-    return FALSE;
-}
-
-static bool8 IsHelpSystemSubmenuEnabled(u8 id)
-{
-    u8 i = 0;
-
-    if (gHelpSystemState.topic == TOPIC_WHAT_TO_DO)
-    {
-        switch (id)
-        {
-        case HELP_PLAYING_FOR_FIRST_TIME:
-        case HELP_WHAT_SHOULD_I_BE_DOING:
-        case HELP_CANT_GET_OUT_OF_ROOM:
-        case HELP_TALKED_TO_EVERYONE_NOW_WHAT:
-        case HELP_OUT_OF_THINGS_TO_DO:
-        case HELP_NOTHING_I_WANT_TO_KNOW:
-        case HELP_WHATS_A_MON:
-        case HELP_WHAT_DO_I_DO_IN_SAFARI:
-        case HELP_WHAT_ARE_SAFARI_RULES:
-        case HELP_WANT_TO_END_SAFARI:
-            return TRUE;
-        case HELP_CANT_FIND_PERSON_I_WANT:
-            return FlagGet(FLAG_VISITED_OAKS_LAB);
-        case HELP_SOMEONE_BLOCKING_MY_WAY:
-        case HELP_WHAT_ARE_MY_ADVENTURE_BASICS:
-        case HELP_HOW_DO_I_PREPARE_FOR_BATTLE:
-        case HELP_WHAT_IS_STATUS_PROBLEM:
-        case HELP_RAN_OUT_OF_POTIONS:
-        case HELP_WHATS_POKEMON_CENTER:
-        case HELP_WHATS_POKEMON_MART:
-            return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_CITY);
-        case HELP_I_CANT_GO_ON:
-            return FlagGet(FLAG_WORLD_MAP_VERMILION_CITY);
-        case HELP_HOW_ARE_ROADS_FORESTS_DIFFERENT:
-        case HELP_WHATS_A_TRAINER:
-            return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_FOREST);
-        case HELP_WHAT_HAPPENED_TO_ITEM_I_GOT:
-        case HELP_WHEN_CAN_I_USE_ITEM:
-        case HELP_HOW_DO_I_PROGRESS:
-        case HELP_WHATS_A_BATTLE:
-        case HELP_WHAT_IS_A_MONS_VITALITY:
-        case HELP_MY_MONS_ARE_HURT:
-        case HELP_WHAT_HAPPENS_IF_ALL_MY_MONS_FAINT:
-        case HELP_WHERE_DO_MONS_APPEAR:
-        case HELP_WHAT_MOVES_SHOULD_I_USE:
-        case HELP_WANT_TO_MAKE_MON_STRONGER:
-        case HELP_WANT_TO_END_GAME:
-            return FlagGet(FLAG_SYS_POKEMON_GET);
-        case HELP_CANT_CATCH_MONS:
-        case HELP_CAN_I_BUY_POKEBALLS:
-            return FlagGet(FLAG_SYS_POKEDEX_GET);
-        case HELP_HOW_ARE_CAVES_DIFFERENT:
-        case HELP_WHAT_DO_I_DO_IN_CAVE:
-        case HELP_HOW_DO_I_WIN_AGAINST_TRAINER:
-        case HELP_FOE_MONS_TOO_STRONG:
-        case HELP_WHAT_ARE_MOVES:
-        case HELP_WANT_TO_ADD_MORE_MOVES:
-            return FlagGet(FLAG_BADGE01_GET);
-        case HELP_WHAT_ARE_HIDDEN_MOVES:
-        case HELP_WHAT_DOES_HIDDEN_MOVE_DO:
-            return HasGottenAtLeastOneHM();
-        case HELP_WHAT_IS_THAT_PERSON_LIKE:
-            return FlagGet(FLAG_GOT_FAME_CHECKER);
-        case HELP_WHAT_IS_A_GYM:
-            return FlagGet(FLAG_WORLD_MAP_PEWTER_CITY);
-        }
-        return FALSE;
-    }
-    if (gHelpSystemState.topic == TOPIC_HOW_TO_DO)
-    {
-        switch (id)
-        {
-        case HELP_USING_BAG:
-        case HELP_USING_PLAYER:
-        case HELP_USING_SAVE:
-        case HELP_USING_OPTION:
-        case HELP_ENTERING_NAME:
-        case HELP_USING_PC:
-        case HELP_USING_BILLS_PC:
-        case HELP_USING_WITHDRAW:
-        case HELP_USING_DEPOSIT:
-        case HELP_USING_MOVE:
-        case HELP_MOVING_ITEMS:
-        case HELP_USING_PLAYERS_PC:
-        case HELP_USING_WITHDRAW_ITEM:
-        case HELP_USING_DEPOSIT_ITEM:
-        case HELP_USING_MAILBOX:
-        case HELP_OPENING_MENU:
-        case HELP_USING_BAG2:
-        case HELP_USING_HOME_PC:
-        case HELP_USING_ITEM_STORAGE:
-        case HELP_USING_WITHDRAW_ITEM2:
-        case HELP_USING_DEPOSIT_ITEM2:
-        case HELP_USING_MAILBOX2:
-        case HELP_USING_BALL:
-        case HELP_USING_BAIT:
-        case HELP_USING_ROCK:
-            return TRUE;
-        case HELP_USING_POKEDEX:
-        case HELP_USING_PROF_OAKS_PC:
-        case HELP_READING_POKEDEX:
-            return FlagGet(FLAG_SYS_POKEDEX_GET);
-        case HELP_USING_TOWN_MAP:
-            return CheckBagHasItem(ITEM_TOWN_MAP, 1);
-        case HELP_USING_POKEMON:
-        case HELP_USING_SUMMARY:
-        case HELP_USING_ITEM:
-        case HELP_USING_AN_ITEM:
-        case HELP_USING_KEYITEM:
-        case HELP_USING_POKEBALL:
-        case HELP_USING_POTION:
-        case HELP_USING_FIGHT:
-        case HELP_USING_POKEMON2:
-        case HELP_USING_SUMMARY2:
-        case HELP_USING_RUN:
-        case HELP_REGISTER_KEY_ITEM:
-            return FlagGet(FLAG_SYS_POKEMON_GET);
-        case HELP_USING_SWITCH:
-        case HELP_USING_SHIFT:
-            // Only show if player has caught mon after starter
-            if (GetKantoPokedexCount(1) > 1)
-                return TRUE;
-            return FALSE;
-        case HELP_USING_TM:
-            return FlagGet(FLAG_BADGE01_GET);
-        case HELP_USING_HM:
-        case HELP_USING_MOVE_OUTSIDE_OF_BATTLE:
-            return HasGottenAtLeastOneHM();
-        case HELP_RIDING_BICYCLE:
-            return FlagGet(FLAG_GOT_BICYCLE);
-        case HELP_USING_HALL_OF_FAME:
-            return FlagGet(FLAG_SYS_GAME_CLEAR);
-        }
-        return FALSE;
-    }
-    if (gHelpSystemState.topic == TOPIC_TERMS)
-    {
-        if (HelpSystem_ShouldShowBasicTerms() == TRUE)
-        {
-            // After defeating Brock, all basic terms are added
-            // This checks to make sure they arent added twice
-            for (i = 0; sTerms_Basic[i] != HELP_END; i++)
-            {
-                if (sTerms_Basic[i] == id)
-                    return FALSE;
-            }
-        }
-        switch (id)
-        {
-        case HELP_TERM_MONEY:
-        case HELP_TERM_ID_NO:
-        case HELP_TERM_ITEMS:
-        case HELP_TERM_KEYITEMS:
-        case HELP_TERM_POKEBALLS:
-        case HELP_TERM_POKEDEX:
-        case HELP_TERM_PLAY_TIME:
-        case HELP_TERM_BADGES:
-        case HELP_TERM_TEXT_SPEED:
-        case HELP_TERM_BATTLE_SCENE:
-        case HELP_TERM_BATTLE_STYLE:
-        case HELP_TERM_SOUND:
-        case HELP_TERM_BUTTON_MODE:
-        case HELP_TERM_FRAME:
-        case HELP_TERM_CANCEL:
-        case HELP_TERM_TM:
-        case HELP_TERM_EVOLUTION:
-            return TRUE;
-        case HELP_TERM_HP:
-        case HELP_TERM_EXP:
-        case HELP_TERM_ATTACK:
-        case HELP_TERM_DEFENSE:
-        case HELP_TERM_SPATK:
-        case HELP_TERM_SPDEF:
-        case HELP_TERM_SPEED:
-        case HELP_TERM_LEVEL:
-        case HELP_TERM_TYPE:
-        case HELP_TERM_OT:
-        case HELP_TERM_ITEM:
-        case HELP_TERM_ABILITY:
-        case HELP_TERM_NATURE:
-        case HELP_TERM_POWER:
-        case HELP_TERM_ACCURACY:
-        case HELP_TERM_FNT:
-            return FlagGet(FLAG_SYS_POKEMON_GET);
-        case HELP_TERM_HM:
-        case HELP_TERM_HM_MOVE:
-            return HasGottenAtLeastOneHM();
-        case HELP_TERM_MOVES:
-        case HELP_TERM_MOVE_TYPE:
-        case HELP_TERM_PP:
-        case HELP_TERM_STATUS_PROBLEM:
-            return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_FOREST);
-        }
-        return TRUE;
-    }
-    if (gHelpSystemState.topic == TOPIC_ABOUT_GAME)
-    {
-        switch (id)
-        {
-        case HELP_GAME_FUNDAMENTALS_2:
-            return FlagGet(FLAG_BADGE01_GET);
-        case HELP_GAME_FUNDAMENTALS_3:
-            return FlagGet(FLAG_BADGE02_GET);
-        }
-        return TRUE;
-    }
-    if (gHelpSystemState.topic == TOPIC_TYPE_MATCHUP)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
-static bool8 HasGottenAtLeastOneHM(void)
-{
-    if (FlagGet(FLAG_GOT_HM01) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM02) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_CSR_GOT_PAY_DAY) == TRUE)
-        return TRUE;
-
-    if (FlagGet(FLAG_GOT_HM05) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_GOT_HM06) == TRUE)
-        return TRUE;
-    if (FlagGet(FLAG_HIDE_FOUR_ISLAND_ICEFALL_CAVE_1F_HM07) == TRUE)
-        return TRUE;
-    return FALSE;
-}
-
-
-#define HELP_MENU_WELCOME_MESSAGE_PRINT 8
-#define HELP_MENU_WELCOME_MESSAGE_WAIT 9
-#define HELP_MENU_SECOND_WELCOME_PRINT 10
-#define HELP_MENU_SECOND_WELCOME_WAIT 11
-#define HELP_MENU_GOTO_FIRST_MENU 12
-
-#define HELP_MENU_FIRST_MENU_WAIT 0
-#define HELP_MENU_FIRST_MENU_GOTO_SECOND 1
-#define HELP_MENU_SECOND_MENU_GOTO_FIRST 2
-
-#define HELP_MENU_SECOND_MENU_WAIT 3
-#define HELP_MENU_SECOND_MENU_GOTO_THIRD 4
-#define HELP_MENU_THIRD_MENU_GOTO_SECOND 5
-
-#define HELP_MENU_THIRD_MENU_WAIT 6
-#define HELP_MENU_THIRD_MENU_GOTO_FOURTH 13
-#define HELP_MENU_FOURTH_MENU_GOTO_THIRD 14
-
-#define HELP_MENU_FOURTH_MENU_WAIT 15
-
-bool8 RunHelpMenuSubroutine(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    switch (helpListMenu->state)
-    {
-    case  HELP_MENU_WELCOME_MESSAGE_PRINT:
-        return HelpSystemSubroutine_PrintWelcomeMessage(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_WELCOME_MESSAGE_WAIT:
-        return HelpSystemSubroutine_WelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
-    case HELP_MENU_SECOND_WELCOME_PRINT:
-        return HelpSystemSubroutine_PrintSecondWelcomeMessage(helpListMenu, listMenuItemsBuffer);
-    
-    case HELP_MENU_SECOND_WELCOME_WAIT:
-        return HelpSystemSubroutine_SecondWelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
-    case HELP_MENU_GOTO_FIRST_MENU:
-        return HelpSystemSubroutine_WelcomeEndGotoMenu(helpListMenu, listMenuItemsBuffer);
-
-    case  HELP_MENU_FIRST_MENU_WAIT:
-        return HelpSystemSubroutine_MenuInputHandlerMain(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_FIRST_MENU_GOTO_SECOND:
-        return HelpMenuSubroutine_InitSubmenu(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_SECOND_MENU_GOTO_FIRST:
-        return HelpMenuSubroutine_ReturnFromSubmenu(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_SECOND_MENU_WAIT:
-        return HelpMenuSubroutine_SubmenuInputHandler(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_SECOND_MENU_GOTO_THIRD:
-        return HelpMenuSubroutine_HelpItemPrint(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_THIRD_MENU_GOTO_SECOND:
-        return HelpMenuSubroutine_ReturnFromHelpItem(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_THIRD_MENU_WAIT:
-        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
-
-    case  HELP_MENU_THIRD_MENU_GOTO_FOURTH:
-        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_FOURTH_MENU_GOTO_THIRD:
-        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
-    case  HELP_MENU_FOURTH_MENU_WAIT:
-        return HelpMenuSubroutine_HelpItemWaitButton(helpListMenu, listMenuItemsBuffer);
-    }
-    return FALSE;
-}
-
-bool8 HelpSystemSubroutine_PrintWelcomeMessage(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_A_Next);
-    PrintWelcomeMessageOnPanel1();
-    HS_ShowOrHideMainWindowText(1);
-    HS_ShowOrHideControlsGuideInTopRight(1);
-    helpListMenu->state = 9;
-    return TRUE;
-}
-
-bool8 HelpSystemSubroutine_PrintSecondWelcomeMessage(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_A_Next);
-    PrintSecondWelcomeMessageOnPanel1();
-    HS_ShowOrHideMainWindowText(1);
-    HS_ShowOrHideControlsGuideInTopRight(1);
-    helpListMenu->state = 11;
-    return TRUE;
-}
-
-bool8 HelpSystemSubroutine_WelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        helpListMenu->state = 10;
-    }
-    return TRUE;
-}
-
-bool8 HelpSystemSubroutine_SecondWelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        helpListMenu->state = 12;
-    }
-    return TRUE;
-}
-
-bool8 HelpSystemSubroutine_WelcomeEndGotoMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    gHelpSystemState.scrollMain = 0;
-    ResetHelpSystemCursor(helpListMenu);
-    BuildAndPrintMainTopicsListMenu(helpListMenu, listMenuItemsBuffer);
-    helpListMenu->state = 0;
-    return TRUE;
-}
-
-bool8 HelpSystemSubroutine_MenuInputHandlerMain(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    s32 input = HelpSystem_GetMenuInput();
-    switch (input)
-    {
-    case -6:
-    case -2:
-        return FALSE;
-    case -5:
-    case -4:
-        //PrintHelpSystemTopicMouseoverDescription(helpListMenu, listMenuItemsBuffer);
-        break;
-    case -3:
-    case -1:
-        break;
-    default:
-        gHelpSystemState.topic = input;
-        helpListMenu->state = 1;
-        break;
-    }
-    return TRUE;
-}
-
-bool8 HelpMenuSubroutine_InitSubmenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    gHelpSystemState.level = 1;
-    gHelpSystemState.scrollMain = helpListMenu->cursorPos;
-    ResetHelpSystemCursor(helpListMenu);
-    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
-    HS_UpdateMenuScrollArrows();
-    HelpSystem_SetInputDelay(2);
-    helpListMenu->state = 3;
-    return TRUE;
-}
-
-bool8 HelpMenuSubroutine_ReturnFromSubmenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    HS_ShowOrHideScrollArrows(0, 0);
-    HS_ShowOrHideScrollArrows(1, 0);
-    gHelpSystemState.level = 0;
-    BuildAndPrintMainTopicsListMenu(helpListMenu, listMenuItemsBuffer);
-    helpListMenu->state = 0;
-    return TRUE;
-}
-
-bool8 HelpMenuSubroutine_SubmenuInputHandler(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    s32 input = HelpSystem_GetMenuInput();
-    switch (input)
-    {
-    case -6:
-        return FALSE;
-    case -2:
-        helpListMenu->state = 2;
-        break;
-    case -5:
-    case -4:
-    case -3:
-    case -1:
-        break;
-    default:
-        gHelpSystemState.scrollSub = input;
-        helpListMenu->state = 4;
-        break;
-    }
-    return TRUE;
-}
-
-void HelpSystem_PrintTopicLabel(void)
-{
-    HelpSystem_PrintTextAt(sHelpSystemTopicPtrs[gHelpSystemState.topic], 0, 0);
-}
-
-bool8 HelpMenuSubroutine_HelpItemPrint(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    gHelpSystemState.level = 2;
-    HS_ShowOrHideMainWindowText(0);
-    HelpSystem_FillPanel1();
-    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_AorBtoCancel);
-    HS_SetMainWindowBgBrightness(1);
-    HS_ShowOrHideHeaderAndFooterLines_Darker(1);
-
-    if (gHelpSystemState.topic == TOPIC_WHAT_TO_DO)
-    {
-        HelpSystem_PrintQuestionAndAnswerPair(sHelpSystemSpecializedQuestionTextPtrs[gHelpSystemState.scrollSub], sHelpSystemSpecializedAnswerTextPtrs[gHelpSystemState.scrollSub]);
-    }
-    else if (gHelpSystemState.topic == TOPIC_HOW_TO_DO)
-    {
-        HelpSystem_PrintQuestionAndAnswerPair(sHelpSystemMenuTopicTextPtrs[gHelpSystemState.scrollSub], sHelpSystemHowToUseMenuTextPtrs[gHelpSystemState.scrollSub]);
-    }
-    else if (gHelpSystemState.topic == TOPIC_TERMS)
-    {
-        HelpSystem_PrintQuestionAndAnswerPair(sHelpSystemTermTextPtrs[gHelpSystemState.scrollSub], sHelpSystemTermDefinitionsTextPtrs[gHelpSystemState.scrollSub]);
-    }
-    else if (gHelpSystemState.topic == TOPIC_ABOUT_GAME)
-    {
-        HelpSystem_PrintQuestionAndAnswerPair(sHelpSystemGeneralTopicTextPtrs[gHelpSystemState.scrollSub], sHelpSystemGeneralTopicDescriptionTextPtrs[gHelpSystemState.scrollSub]);
-    }
-    else // TOPIC_TYPE_MATCHUP
-    {
-        HelpSystem_PrintQuestionAndAnswerPair(sHelpSystemTypeMatchupTextPtrs[gHelpSystemState.scrollSub], sHelpSystemTypeMatchupDescriptionTextPtrs[gHelpSystemState.scrollSub]);
-    }
-    HS_ShowOrHideMainWindowText(1);
-    HS_ShowOrHideControlsGuideInTopRight(1);
-    helpListMenu->state = 6;
-    return TRUE;
-}
-
-bool8 HelpMenuSubroutine_ReturnFromHelpItem(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    gHelpSystemState.level = 1;
-    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
-    HS_UpdateMenuScrollArrows();
-    HelpSystem_SetInputDelay(2);
-    helpListMenu->state = 3;
-    return TRUE;
-}
-
-bool8 HelpMenuSubroutine_HelpItemWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    if (JOY_NEW(B_BUTTON) || JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        helpListMenu->state = 5;
-        return TRUE;
-    }
-    if (JOY_NEW(L_BUTTON | R_BUTTON))
-        return FALSE;
-    return TRUE;
-}
-
-static void PrintWelcomeMessageOnPanel1(void)
-{
-    HelpSystem_FillPanel1();
-    HelpSystem_PrintTextAt(Help_Text_Greetings, 0, 0);
-}
-
-static void PrintSecondWelcomeMessageOnPanel1(void)
-{
-    HelpSystem_FillPanel1();
-    HelpSystem_PrintTextAt(Help_Text_Continued, 0, 0);
-}
-
-
-static void PrintTextOnPanel2Row52RightAlign(const u8 * str)
-{
-    HelpSystem_FillPanel2();
-    HelpSystem_PrintTextRightAlign_Row52(str);
-}
-
-u8 GetHelpSystemMenuLevel(void)
-{
-    return gHelpSystemState.level;
-}
-
-static void ResetHelpSystemCursor(struct HelpSystemListMenu * helpListMenu)
-{
-    helpListMenu->itemsAbove = 0;
-    helpListMenu->cursorPos = 0;
-}
-
-static void PrintHelpSystemTopicMouseoverDescription(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
-{
-    s32 index = listMenuItemsBuffer[helpListMenu->itemsAbove + helpListMenu->cursorPos].index;
-    if (index == -2)
-        HelpSystem_PrintTopicMouseoverDescription(sHelpSystemTopicMouseoverDescriptionPtrs[5]);
-    else
-        HelpSystem_PrintTopicMouseoverDescription(sHelpSystemTopicMouseoverDescriptionPtrs[index]);
-    HS_ShowOrHideToplevelTooltipWindow(1);
-}
-
-
-/*
-Lord Almighty
-Yes, I am doing this godforsaken thing.
-
-Wish me luck.
-*/
-
-
-enum {
-    BIBLE_BOOK_GENESIS,
-    BIBLE_BOOK_EXODUS,
-    BIBLE_BOOK_LEVITICUS,
-    BIBLE_BOOK_NUMBERS,
-    BIBLE_BOOK_DEUTERONOMY,
-    BIBLE_BOOK_JOSHUA,
-    BIBLE_BOOK_JUDGES,
-    BIBLE_BOOK_RUTH,
-    BIBLE_BOOK_1_SAMUEL,
-    BIBLE_BOOK_2_SAMUEL,
-    BIBLE_BOOK_1_KINGS,
-    BIBLE_BOOK_2_KINGS,
-    BIBLE_BOOK_1_CHRONICLES,
-    BIBLE_BOOK_2_CHRONICLES,
-    BIBLE_BOOK_EZRA,
-    BIBLE_BOOK_NEHEMIAH,
-    BIBLE_BOOK_ESTHER,
-    BIBLE_BOOK_JOB,
-    BIBLE_BOOK_PSALMS,
-    BIBLE_BOOK_PROVERBS,
-    BIBLE_BOOK_ECCLESIASTES,
-    BIBLE_BOOK_SONG_OF_SOLOMON,
-    BIBLE_BOOK_ISAIAH,
-    BIBLE_BOOK_JEREMIAH,
-    BIBLE_BOOK_LAMENTATIONS,
-    BIBLE_BOOK_EZEKIEL,
-    BIBLE_BOOK_DANIEL,
-    BIBLE_BOOK_HOSEA,
-    BIBLE_BOOK_JOEL,
-    BIBLE_BOOK_AMOS,
-    BIBLE_BOOK_OBADIAH,
-    BIBLE_BOOK_JONAH,
-    BIBLE_BOOK_MICAH,
-    BIBLE_BOOK_NAHUM,
-    BIBLE_BOOK_HABAKKUK,
-    BIBLE_BOOK_ZEPHANIAH,
-    BIBLE_BOOK_HAGGAI,
-    BIBLE_BOOK_ZECHARIAH,
-    BIBLE_BOOK_MALACHI,
-    BIBLE_BOOK_MATTHEW,
-    BIBLE_BOOK_MARK,
-    BIBLE_BOOK_LUKE,
-    BIBLE_BOOK_JOHN,
-    BIBLE_BOOK_ACTS,
-    BIBLE_BOOK_PAUL,
-    BIBLE_BOOK_1_CORINTHIANS,
-    BIBLE_BOOK_2_CORINTHIANS,
-    BIBLE_BOOK_GALATIANS,
-    BIBLE_BOOK_EPHESIANS,
-    BIBLE_BOOK_PHILIPPIANS,
-    BIBLE_BOOK_COLOSSIANS,
-    BIBLE_BOOK_1_THESSALONIANS,
-    BIBLE_BOOK_2_THESSALONIANS,
-    BIBLE_BOOK_1_TIMOTHY,
-    BIBLE_BOOK_2_TIMOTHY,
-    BIBLE_BOOK_TITUS,
-    BIBLE_BOOK_PHILEMON,
-    BIBLE_BOOK_HEBREWS,
-    BIBLE_BOOK_JAMES,
-    BIBLE_BOOK_1_PETER,
-    BIBLE_BOOK_2_PETER,
-    BIBLE_BOOK_1_JOHN,
-    BIBLE_BOOK_2_JOHN,
-    BIBLE_BOOK_3_JOHN,
-    BIBLE_BOOK_JUDE,
-    BIBLE_BOOK_REVELATION,
-    NUM_BIBLE_BOOKS
 };
 
 enum {
@@ -2953,1461 +426,1644 @@ enum {
     NUM_HIGHEST_BIBLE_VERSE
 };
 
-#define NUM_CHAPTERS_GENESIS 50
-#define NUM_CHAPTERS_EXODUS 40
-#define NUM_CHAPTERS_LEVITICUS 27
-#define NUM_CHAPTERS_NUMBERS 36
-#define NUM_CHAPTERS_DEUTERONOMY 34
-#define NUM_CHAPTERS_JOSHUA 24
-#define NUM_CHAPTERS_JUDGES 21
-#define NUM_CHAPTERS_RUTH 4
-#define NUM_CHAPTERS_1_SAMUEL 31
-#define NUM_CHAPTERS_2_SAMUEL 24
-#define NUM_CHAPTERS_1_KINGS 22
-#define NUM_CHAPTERS_2_KINGS 25
-#define NUM_CHAPTERS_1_CHRONICLES 29
-#define NUM_CHAPTERS_2_CHRONICLES 36
-#define NUM_CHAPTERS_EZRA 10
-#define NUM_CHAPTERS_NEHEMIAH 13
-#define NUM_CHAPTERS_ESTHER 10
-#define NUM_CHAPTERS_JOB 42
-#define NUM_CHAPTERS_PSALMS 150
-#define NUM_CHAPTERS_PROVERBS 31
-#define NUM_CHAPTERS_ECCLESIASTES 12
-#define NUM_CHAPTERS_SONG_OF_SOLOMON 8
-#define NUM_CHAPTERS_ISAIAH 66
-#define NUM_CHAPTERS_JEREMIAH 52
-#define NUM_CHAPTERS_LAMENTATIONS 5
-#define NUM_CHAPTERS_EZEKIEL 48
-#define NUM_CHAPTERS_DANIEL 12
-#define NUM_CHAPTERS_HOSEA 14
-#define NUM_CHAPTERS_JOEL 3
-#define NUM_CHAPTERS_AMOS 9
-#define NUM_CHAPTERS_OBADIAH 1
-#define NUM_CHAPTERS_JONAH 4
-#define NUM_CHAPTERS_MICAH 7
-#define NUM_CHAPTERS_NAHUM 3
-#define NUM_CHAPTERS_HABAKKUK 3
-#define NUM_CHAPTERS_ZEPHANIAH 3
-#define NUM_CHAPTERS_HAGGAI 2
-#define NUM_CHAPTERS_ZECHARIAH 14
-#define NUM_CHAPTERS_MALACHI 4
-#define NUM_CHAPTERS_MATTHEW 28
-#define NUM_CHAPTERS_MARK 16
-#define NUM_CHAPTERS_LUKE 24
-#define NUM_CHAPTERS_JOHN 21
-#define NUM_CHAPTERS_ACTS 28
-#define NUM_CHAPTERS_PAUL 16
-#define NUM_CHAPTERS_1_CORINTHIANS 16
-#define NUM_CHAPTERS_2_CORINTHIANS 13
-#define NUM_CHAPTERS_GALATIANS 6
-#define NUM_CHAPTERS_EPHESIANS 6
-#define NUM_CHAPTERS_PHILIPPIANS 4
-#define NUM_CHAPTERS_COLOSSIANS 4
-#define NUM_CHAPTERS_1_THESSALONIANS 5
-#define NUM_CHAPTERS_2_THESSALONIANS 3
-#define NUM_CHAPTERS_1_TIMOTHY 6
-#define NUM_CHAPTERS_2_TIMOTHY 4
-#define NUM_CHAPTERS_TITUS 3
-#define NUM_CHAPTERS_PHILEMON 1
-#define NUM_CHAPTERS_HEBREWS 13
-#define NUM_CHAPTERS_JAMES 5
-#define NUM_CHAPTERS_1_PETER 5
-#define NUM_CHAPTERS_2_PETER 3
-#define NUM_CHAPTERS_1_JOHN 5
-#define NUM_CHAPTERS_2_JOHN 1
-#define NUM_CHAPTERS_3_JOHN 1
-#define NUM_CHAPTERS_JUDE 1
-#define NUM_CHAPTERS_REVELATION 22
-
-static const u8 sGenesisVerseCounts[] = {
-    31,  // Chapter 1
-    25,  // Chapter 2
-    24,  // Chapter 3
-    26,  // Chapter 4
-    32,  // Chapter 5
-    22,  // Chapter 6
-    24,  // Chapter 7
-    22,  // Chapter 8
-    29,  // Chapter 9
-    32,  // Chapter 10
-    32,  // Chapter 11
-    20,  // Chapter 12
-    18,  // Chapter 13
-    24,  // Chapter 14
-    21,  // Chapter 15
-    16,  // Chapter 16
-    27,  // Chapter 17
-    33,  // Chapter 18
-    38,  // Chapter 19
-    18,  // Chapter 20
-    34,  // Chapter 21
-    24,  // Chapter 22
-    20,  // Chapter 23
-    67,  // Chapter 24
-    34,  // Chapter 25
-    35,  // Chapter 26
-    46,  // Chapter 27
-    22,  // Chapter 28
-    35,  // Chapter 29
-    43,  // Chapter 30
-    55,  // Chapter 31
-    32,  // Chapter 32
-    20,  // Chapter 33
-    31,  // Chapter 34
-    29,  // Chapter 35
-    43,  // Chapter 36
-    36,  // Chapter 37
-    30,  // Chapter 38
-    23,  // Chapter 39
-    23,  // Chapter 40
-    57,  // Chapter 41
-    38,  // Chapter 42
-    34,  // Chapter 43
-    34,  // Chapter 44
-    28,  // Chapter 45
-    34,  // Chapter 46
-    31,  // Chapter 47
-    22,  // Chapter 48
-    33,  // Chapter 49
-    26,  // Chapter 50
-};
-
-static const u8 sExodusVerseCounts[] = {
-    22,  // Chapter 1
-    25,  // Chapter 2
-    22,  // Chapter 3
-    31,  // Chapter 4
-    23,  // Chapter 5
-    30,  // Chapter 6
-    25,  // Chapter 7
-    32,  // Chapter 8
-    35,  // Chapter 9
-    29,  // Chapter 10
-    10,  // Chapter 11
-    51,  // Chapter 12
-    22,  // Chapter 13
-    31,  // Chapter 14
-    27,  // Chapter 15
-    36,  // Chapter 16
-    16,  // Chapter 17
-    27,  // Chapter 18
-    25,  // Chapter 19
-    26,  // Chapter 20
-    36,  // Chapter 21
-    31,  // Chapter 22
-    33,  // Chapter 23
-    18,  // Chapter 24
-    40,  // Chapter 25
-    37,  // Chapter 26
-    21,  // Chapter 27
-    43,  // Chapter 28
-    46,  // Chapter 29
-    38,  // Chapter 30
-    18,  // Chapter 31
-    35,  // Chapter 32
-    23,  // Chapter 33
-    35,  // Chapter 34
-    35,  // Chapter 35
-    38,  // Chapter 36
-    29,  // Chapter 37
-    31,  // Chapter 38
-    43,  // Chapter 39
-    38,  // Chapter 40
-};
-
-static const u8 sLeviticusVerseCounts[] = {
-    17,  // Chapter 1
-    16,  // Chapter 2
-    17,  // Chapter 3
-    35,  // Chapter 4
-    19,  // Chapter 5
-    30,  // Chapter 6
-    38,  // Chapter 7
-    36,  // Chapter 8
-    24,  // Chapter 9
-    20,  // Chapter 10
-    47,  // Chapter 11
-    8,  // Chapter 12
-    59,  // Chapter 13
-    57,  // Chapter 14
-    33,  // Chapter 15
-    34,  // Chapter 16
-    16,  // Chapter 17
-    30,  // Chapter 18
-    37,  // Chapter 19
-    27,  // Chapter 20
-    24,  // Chapter 21
-    33,  // Chapter 22
-    44,  // Chapter 23
-    23,  // Chapter 24
-    55,  // Chapter 25
-    46,  // Chapter 26
-    34,  // Chapter 27
-};
-
-static const u8 sNumbersVerseCounts[] = {
-    54,  // Chapter 1
-    34,  // Chapter 2
-    51,  // Chapter 3
-    49,  // Chapter 4
-    31,  // Chapter 5
-    27,  // Chapter 6
-    89,  // Chapter 7
-    26,  // Chapter 8
-    23,  // Chapter 9
-    36,  // Chapter 10
-    35,  // Chapter 11
-    16,  // Chapter 12
-    33,  // Chapter 13
-    45,  // Chapter 14
-    41,  // Chapter 15
-    50,  // Chapter 16
-    13,  // Chapter 17
-    32,  // Chapter 18
-    22,  // Chapter 19
-    29,  // Chapter 20
-    35,  // Chapter 21
-    41,  // Chapter 22
-    30,  // Chapter 23
-    25,  // Chapter 24
-    18,  // Chapter 25
-    65,  // Chapter 26
-    23,  // Chapter 27
-    31,  // Chapter 28
-    40,  // Chapter 29
-    16,  // Chapter 30
-    54,  // Chapter 31
-    42,  // Chapter 32
-    56,  // Chapter 33
-    29,  // Chapter 34
-    34,  // Chapter 35
-    13,  // Chapter 36
-};
-
-static const u8 sDeuteronomyVerseCounts[] = {
-    46,  // Chapter 1
-    37,  // Chapter 2
-    29,  // Chapter 3
-    49,  // Chapter 4
-    33,  // Chapter 5
-    25,  // Chapter 6
-    26,  // Chapter 7
-    20,  // Chapter 8
-    29,  // Chapter 9
-    22,  // Chapter 10
-    32,  // Chapter 11
-    32,  // Chapter 12
-    18,  // Chapter 13
-    29,  // Chapter 14
-    23,  // Chapter 15
-    22,  // Chapter 16
-    20,  // Chapter 17
-    22,  // Chapter 18
-    21,  // Chapter 19
-    20,  // Chapter 20
-    23,  // Chapter 21
-    30,  // Chapter 22
-    25,  // Chapter 23
-    22,  // Chapter 24
-    19,  // Chapter 25
-    19,  // Chapter 26
-    26,  // Chapter 27
-    68,  // Chapter 28
-    29,  // Chapter 29
-    20,  // Chapter 30
-    30,  // Chapter 31
-    52,  // Chapter 32
-    29,  // Chapter 33
-    12,  // Chapter 34
-};
-
-static const u8 sJoshuaVerseCounts[] = {
-    18,  // Chapter 1
-    24,  // Chapter 2
-    17,  // Chapter 3
-    24,  // Chapter 4
-    15,  // Chapter 5
-    27,  // Chapter 6
-    26,  // Chapter 7
-    35,  // Chapter 8
-    27,  // Chapter 9
-    43,  // Chapter 10
-    23,  // Chapter 11
-    24,  // Chapter 12
-    33,  // Chapter 13
-    15,  // Chapter 14
-    63,  // Chapter 15
-    10,  // Chapter 16
-    18,  // Chapter 17
-    28,  // Chapter 18
-    51,  // Chapter 19
-    9,  // Chapter 20
-    45,  // Chapter 21
-    34,  // Chapter 22
-    16,  // Chapter 23
-    33,  // Chapter 24
-};
-
-static const u8 sJudgesVerseCounts[] = {
-    36,  // Chapter 1
-    23,  // Chapter 2
-    31,  // Chapter 3
-    24,  // Chapter 4
-    31,  // Chapter 5
-    40,  // Chapter 6
-    25,  // Chapter 7
-    35,  // Chapter 8
-    57,  // Chapter 9
-    18,  // Chapter 10
-    40,  // Chapter 11
-    15,  // Chapter 12
-    25,  // Chapter 13
-    20,  // Chapter 14
-    20,  // Chapter 15
-    31,  // Chapter 16
-    13,  // Chapter 17
-    31,  // Chapter 18
-    30,  // Chapter 19
-    48,  // Chapter 20
-    25,  // Chapter 21
-};
-
-static const u8 sRuthVerseCounts[] = {
-    22,  // Chapter 1
-    23,  // Chapter 2
-    18,  // Chapter 3
-    22,  // Chapter 4
-};
-
-static const u8 s1SamuelVerseCounts[] = {
-    28,  // Chapter 1
-    36,  // Chapter 2
-    21,  // Chapter 3
-    22,  // Chapter 4
-    12,  // Chapter 5
-    21,  // Chapter 6
-    17,  // Chapter 7
-    22,  // Chapter 8
-    27,  // Chapter 9
-    27,  // Chapter 10
-    15,  // Chapter 11
-    25,  // Chapter 12
-    23,  // Chapter 13
-    52,  // Chapter 14
-    35,  // Chapter 15
-    23,  // Chapter 16
-    58,  // Chapter 17
-    30,  // Chapter 18
-    24,  // Chapter 19
-    42,  // Chapter 20
-    15,  // Chapter 21
-    23,  // Chapter 22
-    29,  // Chapter 23
-    22,  // Chapter 24
-    44,  // Chapter 25
-    25,  // Chapter 26
-    12,  // Chapter 27
-    25,  // Chapter 28
-    11,  // Chapter 29
-    31,  // Chapter 30
-    13,  // Chapter 31
-};
-
-static const u8 s2SamuelVerseCounts[] = {
-    27,  // Chapter 1
-    32,  // Chapter 2
-    39,  // Chapter 3
-    12,  // Chapter 4
-    25,  // Chapter 5
-    23,  // Chapter 6
-    29,  // Chapter 7
-    18,  // Chapter 8
-    13,  // Chapter 9
-    19,  // Chapter 10
-    27,  // Chapter 11
-    31,  // Chapter 12
-    39,  // Chapter 13
-    33,  // Chapter 14
-    37,  // Chapter 15
-    23,  // Chapter 16
-    29,  // Chapter 17
-    33,  // Chapter 18
-    43,  // Chapter 19
-    26,  // Chapter 20
-    22,  // Chapter 21
-    51,  // Chapter 22
-    39,  // Chapter 23
-    25,  // Chapter 24
-};
-
-static const u8 s1KingsVerseCounts[] = {
-    53,  // Chapter 1
-    46,  // Chapter 2
-    28,  // Chapter 3
-    34,  // Chapter 4
-    18,  // Chapter 5
-    38,  // Chapter 6
-    51,  // Chapter 7
-    66,  // Chapter 8
-    28,  // Chapter 9
-    29,  // Chapter 10
-    43,  // Chapter 11
-    33,  // Chapter 12
-    34,  // Chapter 13
-    31,  // Chapter 14
-    34,  // Chapter 15
-    34,  // Chapter 16
-    24,  // Chapter 17
-    46,  // Chapter 18
-    21,  // Chapter 19
-    43,  // Chapter 20
-    29,  // Chapter 21
-    53,  // Chapter 22
-};
-
-static const u8 s2KingsVerseCounts[] = {
-    18,  // Chapter 1
-    25,  // Chapter 2
-    27,  // Chapter 3
-    44,  // Chapter 4
-    27,  // Chapter 5
-    33,  // Chapter 6
-    20,  // Chapter 7
-    29,  // Chapter 8
-    37,  // Chapter 9
-    36,  // Chapter 10
-    21,  // Chapter 11
-    21,  // Chapter 12
-    25,  // Chapter 13
-    29,  // Chapter 14
-    38,  // Chapter 15
-    20,  // Chapter 16
-    41,  // Chapter 17
-    37,  // Chapter 18
-    37,  // Chapter 19
-    21,  // Chapter 20
-    26,  // Chapter 21
-    20,  // Chapter 22
-    37,  // Chapter 23
-    20,  // Chapter 24
-    30,  // Chapter 25
-};
-
-static const u8 s1ChroniclesVerseCounts[] = {
-    54,  // Chapter 1
-    55,  // Chapter 2
-    24,  // Chapter 3
-    43,  // Chapter 4
-    26,  // Chapter 5
-    81,  // Chapter 6
-    40,  // Chapter 7
-    40,  // Chapter 8
-    44,  // Chapter 9
-    14,  // Chapter 10
-    47,  // Chapter 11
-    40,  // Chapter 12
-    14,  // Chapter 13
-    17,  // Chapter 14
-    29,  // Chapter 15
-    43,  // Chapter 16
-    27,  // Chapter 17
-    17,  // Chapter 18
-    19,  // Chapter 19
-    8,  // Chapter 20
-    30,  // Chapter 21
-    19,  // Chapter 22
-    32,  // Chapter 23
-    31,  // Chapter 24
-    31,  // Chapter 25
-    32,  // Chapter 26
-    34,  // Chapter 27
-    21,  // Chapter 28
-    30,  // Chapter 29
-};
-
-static const u8 s2ChroniclesVerseCounts[] = {
-    17,  // Chapter 1
-    18,  // Chapter 2
-    17,  // Chapter 3
-    22,  // Chapter 4
-    14,  // Chapter 5
-    42,  // Chapter 6
-    22,  // Chapter 7
-    18,  // Chapter 8
-    31,  // Chapter 9
-    19,  // Chapter 10
-    23,  // Chapter 11
-    16,  // Chapter 12
-    22,  // Chapter 13
-    15,  // Chapter 14
-    19,  // Chapter 15
-    14,  // Chapter 16
-    19,  // Chapter 17
-    34,  // Chapter 18
-    11,  // Chapter 19
-    37,  // Chapter 20
-    20,  // Chapter 21
-    12,  // Chapter 22
-    21,  // Chapter 23
-    27,  // Chapter 24
-    28,  // Chapter 25
-    23,  // Chapter 26
-    9,  // Chapter 27
-    27,  // Chapter 28
-    36,  // Chapter 29
-    27,  // Chapter 30
-    21,  // Chapter 31
-    33,  // Chapter 32
-    25,  // Chapter 33
-    33,  // Chapter 34
-    27,  // Chapter 35
-    23,  // Chapter 36
-};
-
-static const u8 sEzraVerseCounts[] = {
-    11,  // Chapter 1
-    70,  // Chapter 2
-    13,  // Chapter 3
-    24,  // Chapter 4
-    17,  // Chapter 5
-    22,  // Chapter 6
-    28,  // Chapter 7
-    36,  // Chapter 8
-    15,  // Chapter 9
-    44,  // Chapter 10
-};
-
-static const u8 sNehemiahVerseCounts[] = {
-    11,  // Chapter 1
-    20,  // Chapter 2
-    32,  // Chapter 3
-    23,  // Chapter 4
-    19,  // Chapter 5
-    19,  // Chapter 6
-    73,  // Chapter 7
-    18,  // Chapter 8
-    38,  // Chapter 9
-    39,  // Chapter 10
-    36,  // Chapter 11
-    47,  // Chapter 12
-    31,  // Chapter 13
-};
-
-static const u8 sEstherVerseCounts[] = {
-    22,  // Chapter 1
-    23,  // Chapter 2
-    15,  // Chapter 3
-    17,  // Chapter 4
-    14,  // Chapter 5
-    14,  // Chapter 6
-    10,  // Chapter 7
-    17,  // Chapter 8
-    32,  // Chapter 9
-    3,  // Chapter 10
-};
-
-static const u8 sJobVerseCounts[] = {
-    22,  // Chapter 1
-    13,  // Chapter 2
-    26,  // Chapter 3
-    21,  // Chapter 4
-    27,  // Chapter 5
-    30,  // Chapter 6
-    21,  // Chapter 7
-    22,  // Chapter 8
-    35,  // Chapter 9
-    22,  // Chapter 10
-    20,  // Chapter 11
-    25,  // Chapter 12
-    28,  // Chapter 13
-    22,  // Chapter 14
-    35,  // Chapter 15
-    22,  // Chapter 16
-    16,  // Chapter 17
-    21,  // Chapter 18
-    29,  // Chapter 19
-    29,  // Chapter 20
-    34,  // Chapter 21
-    30,  // Chapter 22
-    17,  // Chapter 23
-    25,  // Chapter 24
-    6,  // Chapter 25
-    14,  // Chapter 26
-    23,  // Chapter 27
-    28,  // Chapter 28
-    25,  // Chapter 29
-    31,  // Chapter 30
-    40,  // Chapter 31
-    22,  // Chapter 32
-    33,  // Chapter 33
-    37,  // Chapter 34
-    16,  // Chapter 35
-    33,  // Chapter 36
-    24,  // Chapter 37
-    41,  // Chapter 38
-    30,  // Chapter 39
-    24,  // Chapter 40
-    34,  // Chapter 41
-    17,  // Chapter 42
-};
-
-static const u8 sPsalmsVerseCounts[] = {
-    6,  // Chapter 1
-    12,  // Chapter 2
-    8,  // Chapter 3
-    8,  // Chapter 4
-    12,  // Chapter 5
-    10,  // Chapter 6
-    17,  // Chapter 7
-    9,  // Chapter 8
-    20,  // Chapter 9
-    18,  // Chapter 10
-    7,  // Chapter 11
-    8,  // Chapter 12
-    6,  // Chapter 13
-    7,  // Chapter 14
-    5,  // Chapter 15
-    11,  // Chapter 16
-    15,  // Chapter 17
-    50,  // Chapter 18
-    14,  // Chapter 19
-    9,  // Chapter 20
-    13,  // Chapter 21
-    31,  // Chapter 22
-    6,  // Chapter 23
-    10,  // Chapter 24
-    22,  // Chapter 25
-    12,  // Chapter 26
-    14,  // Chapter 27
-    9,  // Chapter 28
-    11,  // Chapter 29
-    12,  // Chapter 30
-    24,  // Chapter 31
-    11,  // Chapter 32
-    22,  // Chapter 33
-    22,  // Chapter 34
-    28,  // Chapter 35
-    12,  // Chapter 36
-    40,  // Chapter 37
-    22,  // Chapter 38
-    13,  // Chapter 39
-    17,  // Chapter 40
-    13,  // Chapter 41
-    11,  // Chapter 42
-    5,  // Chapter 43
-    26,  // Chapter 44
-    17,  // Chapter 45
-    11,  // Chapter 46
-    9,  // Chapter 47
-    14,  // Chapter 48
-    20,  // Chapter 49
-    23,  // Chapter 50
-    19,  // Chapter 51
-    9,  // Chapter 52
-    6,  // Chapter 53
-    7,  // Chapter 54
-    23,  // Chapter 55
-    13,  // Chapter 56
-    11,  // Chapter 57
-    11,  // Chapter 58
-    17,  // Chapter 59
-    12,  // Chapter 60
-    8,  // Chapter 61
-    12,  // Chapter 62
-    11,  // Chapter 63
-    10,  // Chapter 64
-    13,  // Chapter 65
-    20,  // Chapter 66
-    7,  // Chapter 67
-    35,  // Chapter 68
-    36,  // Chapter 69
-    5,  // Chapter 70
-    24,  // Chapter 71
-    20,  // Chapter 72
-    28,  // Chapter 73
-    23,  // Chapter 74
-    10,  // Chapter 75
-    12,  // Chapter 76
-    20,  // Chapter 77
-    72,  // Chapter 78
-    13,  // Chapter 79
-    19,  // Chapter 80
-    16,  // Chapter 81
-    8,  // Chapter 82
-    18,  // Chapter 83
-    12,  // Chapter 84
-    13,  // Chapter 85
-    17,  // Chapter 86
-    7,  // Chapter 87
-    18,  // Chapter 88
-    52,  // Chapter 89
-    17,  // Chapter 90
-    16,  // Chapter 91
-    15,  // Chapter 92
-    5,  // Chapter 93
-    23,  // Chapter 94
-    11,  // Chapter 95
-    13,  // Chapter 96
-    12,  // Chapter 97
-    9,  // Chapter 98
-    9,  // Chapter 99
-    5,  // Chapter 100
-    8,  // Chapter 101
-    28,  // Chapter 102
-    22,  // Chapter 103
-    35,  // Chapter 104
-    45,  // Chapter 105
-    48,  // Chapter 106
-    43,  // Chapter 107
-    13,  // Chapter 108
-    31,  // Chapter 109
-    7,  // Chapter 110
-    10,  // Chapter 111
-    10,  // Chapter 112
-    9,  // Chapter 113
-    8,  // Chapter 114
-    18,  // Chapter 115
-    19,  // Chapter 116
-    2,  // Chapter 117
-    29,  // Chapter 118
-    176,  // Chapter 119
-    7,  // Chapter 120
-    8,  // Chapter 121
-    9,  // Chapter 122
-    4,  // Chapter 123
-    8,  // Chapter 124
-    5,  // Chapter 125
-    6,  // Chapter 126
-    5,  // Chapter 127
-    6,  // Chapter 128
-    8,  // Chapter 129
-    8,  // Chapter 130
-    3,  // Chapter 131
-    18,  // Chapter 132
-    3,  // Chapter 133
-    3,  // Chapter 134
-    21,  // Chapter 135
-    26,  // Chapter 136
-    9,  // Chapter 137
-    8,  // Chapter 138
-    24,  // Chapter 139
-    13,  // Chapter 140
-    10,  // Chapter 141
-    7,  // Chapter 142
-    12,  // Chapter 143
-    15,  // Chapter 144
-    21,  // Chapter 145
-    10,  // Chapter 146
-    20,  // Chapter 147
-    14,  // Chapter 148
-    9,  // Chapter 149
-    6,  // Chapter 150
-};
-
-static const u8 sProverbsVerseCounts[] = {
-    33,  // Chapter 1
-    22,  // Chapter 2
-    35,  // Chapter 3
-    27,  // Chapter 4
-    23,  // Chapter 5
-    35,  // Chapter 6
-    27,  // Chapter 7
-    36,  // Chapter 8
-    18,  // Chapter 9
-    32,  // Chapter 10
-    31,  // Chapter 11
-    28,  // Chapter 12
-    25,  // Chapter 13
-    35,  // Chapter 14
-    33,  // Chapter 15
-    33,  // Chapter 16
-    28,  // Chapter 17
-    24,  // Chapter 18
-    29,  // Chapter 19
-    30,  // Chapter 20
-    31,  // Chapter 21
-    29,  // Chapter 22
-    35,  // Chapter 23
-    34,  // Chapter 24
-    28,  // Chapter 25
-    28,  // Chapter 26
-    27,  // Chapter 27
-    28,  // Chapter 28
-    27,  // Chapter 29
-    33,  // Chapter 30
-    31,  // Chapter 31
-};
-
-static const u8 sEcclesiastesVerseCounts[] = {
-    18,  // Chapter 1
-    26,  // Chapter 2
-    22,  // Chapter 3
-    16,  // Chapter 4
-    20,  // Chapter 5
-    12,  // Chapter 6
-    29,  // Chapter 7
-    17,  // Chapter 8
-    18,  // Chapter 9
-    20,  // Chapter 10
-    10,  // Chapter 11
-    14,  // Chapter 12
-};
-
-static const u8 sSongOfSolomonVerseCounts[] = {
-    17,  // Chapter 1
-    17,  // Chapter 2
-    11,  // Chapter 3
-    16,  // Chapter 4
-    16,  // Chapter 5
-    13,  // Chapter 6
-    13,  // Chapter 7
-    14,  // Chapter 8
-};
-
-static const u8 sIsaiahVerseCounts[] = {
-    31,  // Chapter 1
-    22,  // Chapter 2
-    26,  // Chapter 3
-    6,  // Chapter 4
-    30,  // Chapter 5
-    13,  // Chapter 6
-    25,  // Chapter 7
-    22,  // Chapter 8
-    21,  // Chapter 9
-    34,  // Chapter 10
-    16,  // Chapter 11
-    6,  // Chapter 12
-    22,  // Chapter 13
-    32,  // Chapter 14
-    9,  // Chapter 15
-    14,  // Chapter 16
-    14,  // Chapter 17
-    7,  // Chapter 18
-    25,  // Chapter 19
-    6,  // Chapter 20
-    17,  // Chapter 21
-    25,  // Chapter 22
-    18,  // Chapter 23
-    23,  // Chapter 24
-    12,  // Chapter 25
-    21,  // Chapter 26
-    13,  // Chapter 27
-    29,  // Chapter 28
-    24,  // Chapter 29
-    33,  // Chapter 30
-    9,  // Chapter 31
-    20,  // Chapter 32
-    24,  // Chapter 33
-    17,  // Chapter 34
-    10,  // Chapter 35
-    22,  // Chapter 36
-    38,  // Chapter 37
-    22,  // Chapter 38
-    8,  // Chapter 39
-    31,  // Chapter 40
-    29,  // Chapter 41
-    25,  // Chapter 42
-    28,  // Chapter 43
-    28,  // Chapter 44
-    25,  // Chapter 45
-    13,  // Chapter 46
-    15,  // Chapter 47
-    22,  // Chapter 48
-    26,  // Chapter 49
-    11,  // Chapter 50
-    23,  // Chapter 51
-    15,  // Chapter 52
-    12,  // Chapter 53
-    17,  // Chapter 54
-    13,  // Chapter 55
-    12,  // Chapter 56
-    21,  // Chapter 57
-    14,  // Chapter 58
-    21,  // Chapter 59
-    22,  // Chapter 60
-    11,  // Chapter 61
-    12,  // Chapter 62
-    19,  // Chapter 63
-    12,  // Chapter 64
-    25,  // Chapter 65
-    24,  // Chapter 66
-};
-
-static const u8 sJeremiahVerseCounts[] = {
-    19,  // Chapter 1
-    37,  // Chapter 2
-    25,  // Chapter 3
-    31,  // Chapter 4
-    31,  // Chapter 5
-    30,  // Chapter 6
-    34,  // Chapter 7
-    22,  // Chapter 8
-    26,  // Chapter 9
-    25,  // Chapter 10
-    23,  // Chapter 11
-    17,  // Chapter 12
-    27,  // Chapter 13
-    22,  // Chapter 14
-    21,  // Chapter 15
-    21,  // Chapter 16
-    27,  // Chapter 17
-    23,  // Chapter 18
-    15,  // Chapter 19
-    18,  // Chapter 20
-    14,  // Chapter 21
-    30,  // Chapter 22
-    40,  // Chapter 23
-    10,  // Chapter 24
-    38,  // Chapter 25
-    24,  // Chapter 26
-    22,  // Chapter 27
-    17,  // Chapter 28
-    32,  // Chapter 29
-    24,  // Chapter 30
-    40,  // Chapter 31
-    44,  // Chapter 32
-    26,  // Chapter 33
-    22,  // Chapter 34
-    19,  // Chapter 35
-    32,  // Chapter 36
-    21,  // Chapter 37
-    28,  // Chapter 38
-    18,  // Chapter 39
-    16,  // Chapter 40
-    18,  // Chapter 41
-    22,  // Chapter 42
-    13,  // Chapter 43
-    30,  // Chapter 44
-    5,  // Chapter 45
-    28,  // Chapter 46
-    7,  // Chapter 47
-    47,  // Chapter 48
-    39,  // Chapter 49
-    46,  // Chapter 50
-    64,  // Chapter 51
-    34,  // Chapter 52
-};
-
-static const u8 sLamentationsVerseCounts[] = {
-    22,  // Chapter 1
-    22,  // Chapter 2
-    66,  // Chapter 3
-    22,  // Chapter 4
-    22,  // Chapter 5
-};
-
-static const u8 sEzekielVerseCounts[] = {
-    28,  // Chapter 1
-    10,  // Chapter 2
-    27,  // Chapter 3
-    17,  // Chapter 4
-    17,  // Chapter 5
-    14,  // Chapter 6
-    27,  // Chapter 7
-    18,  // Chapter 8
-    11,  // Chapter 9
-    22,  // Chapter 10
-    25,  // Chapter 11
-    28,  // Chapter 12
-    23,  // Chapter 13
-    23,  // Chapter 14
-    8,  // Chapter 15
-    63,  // Chapter 16
-    24,  // Chapter 17
-    32,  // Chapter 18
-    14,  // Chapter 19
-    49,  // Chapter 20
-    32,  // Chapter 21
-    31,  // Chapter 22
-    49,  // Chapter 23
-    27,  // Chapter 24
-    17,  // Chapter 25
-    21,  // Chapter 26
-    36,  // Chapter 27
-    26,  // Chapter 28
-    21,  // Chapter 29
-    26,  // Chapter 30
-    18,  // Chapter 31
-    32,  // Chapter 32
-    33,  // Chapter 33
-    31,  // Chapter 34
-    15,  // Chapter 35
-    38,  // Chapter 36
-    28,  // Chapter 37
-    23,  // Chapter 38
-    29,  // Chapter 39
-    49,  // Chapter 40
-    26,  // Chapter 41
-    20,  // Chapter 42
-    27,  // Chapter 43
-    31,  // Chapter 44
-    25,  // Chapter 45
-    24,  // Chapter 46
-    23,  // Chapter 47
-    35,  // Chapter 48
-};
-
-static const u8 sDanielVerseCounts[] = {
-    21,  // Chapter 1
-    49,  // Chapter 2
-    30,  // Chapter 3
-    37,  // Chapter 4
-    31,  // Chapter 5
-    28,  // Chapter 6
-    28,  // Chapter 7
-    27,  // Chapter 8
-    27,  // Chapter 9
-    21,  // Chapter 10
-    45,  // Chapter 11
-    13,  // Chapter 12
-};
-
-static const u8 sHoseaVerseCounts[] = {
-    11,  // Chapter 1
-    23,  // Chapter 2
-    5,  // Chapter 3
-    19,  // Chapter 4
-    15,  // Chapter 5
-    11,  // Chapter 6
-    16,  // Chapter 7
-    14,  // Chapter 8
-    17,  // Chapter 9
-    15,  // Chapter 10
-    12,  // Chapter 11
-    14,  // Chapter 12
-    16,  // Chapter 13
-    9,  // Chapter 14
-};
-
-static const u8 sJoelVerseCounts[] = {
-    20,  // Chapter 1
-    32,  // Chapter 2
-    21,  // Chapter 3
-};
-
-static const u8 sAmosVerseCounts[] = {
-    15,  // Chapter 1
-    16,  // Chapter 2
-    15,  // Chapter 3
-    13,  // Chapter 4
-    27,  // Chapter 5
-    14,  // Chapter 6
-    17,  // Chapter 7
-    14,  // Chapter 8
-    15,  // Chapter 9
-};
-
-static const u8 sObadiahVerseCounts[] = {
-    21,  // Chapter 1
-};
-
-static const u8 sJonahVerseCounts[] = {
-    17,  // Chapter 1
-    10,  // Chapter 2
-    10,  // Chapter 3
-    11,  // Chapter 4
-};
-
-static const u8 sMicahVerseCounts[] = {
-    16,  // Chapter 1
-    13,  // Chapter 2
-    12,  // Chapter 3
-    13,  // Chapter 4
-    15,  // Chapter 5
-    16,  // Chapter 6
-    20,  // Chapter 7
-};
-
-static const u8 sNahumVerseCounts[] = {
-    15,  // Chapter 1
-    13,  // Chapter 2
-    19,  // Chapter 3
-};
-
-static const u8 sHabakkukVerseCounts[] = {
-    17,  // Chapter 1
-    20,  // Chapter 2
-    19,  // Chapter 3
-};
-
-static const u8 sZephaniahVerseCounts[] = {
-    18,  // Chapter 1
-    15,  // Chapter 2
-    20,  // Chapter 3
-};
-
-static const u8 sHaggaiVerseCounts[] = {
-    15,  // Chapter 1
-    23,  // Chapter 2
-};
-
-static const u8 sZechariahVerseCounts[] = {
-    21,  // Chapter 1
-    13,  // Chapter 2
-    10,  // Chapter 3
-    14,  // Chapter 4
-    11,  // Chapter 5
-    15,  // Chapter 6
-    14,  // Chapter 7
-    23,  // Chapter 8
-    17,  // Chapter 9
-    12,  // Chapter 10
-    17,  // Chapter 11
-    14,  // Chapter 12
-    9,  // Chapter 13
-    21,  // Chapter 14
-};
-
-static const u8 sMalachiVerseCounts[] = {
-    14,  // Chapter 1
-    17,  // Chapter 2
-    18,  // Chapter 3
-    6,  // Chapter 4
-};
-
-static const u8 sMatthewVerseCounts[] = {
-    25,  // Chapter 1
-    23,  // Chapter 2
-    17,  // Chapter 3
-    25,  // Chapter 4
-    48,  // Chapter 5
-    34,  // Chapter 6
-    29,  // Chapter 7
-    34,  // Chapter 8
-    38,  // Chapter 9
-    42,  // Chapter 10
-    30,  // Chapter 11
-    50,  // Chapter 12
-    58,  // Chapter 13
-    36,  // Chapter 14
-    39,  // Chapter 15
-    28,  // Chapter 16
-    27,  // Chapter 17
-    35,  // Chapter 18
-    30,  // Chapter 19
-    34,  // Chapter 20
-    46,  // Chapter 21
-    46,  // Chapter 22
-    39,  // Chapter 23
-    51,  // Chapter 24
-    46,  // Chapter 25
-    75,  // Chapter 26
-    66,  // Chapter 27
-    20,  // Chapter 28
-};
-
-static const u8 sMarkVerseCounts[] = {
-    45,  // Chapter 1
-    28,  // Chapter 2
-    35,  // Chapter 3
-    41,  // Chapter 4
-    43,  // Chapter 5
-    56,  // Chapter 6
-    37,  // Chapter 7
-    38,  // Chapter 8
-    50,  // Chapter 9
-    52,  // Chapter 10
-    33,  // Chapter 11
-    44,  // Chapter 12
-    37,  // Chapter 13
-    72,  // Chapter 14
-    47,  // Chapter 15
-    20,  // Chapter 16
-};
-
-static const u8 sLukeVerseCounts[] = {
-    80,  // Chapter 1
-    52,  // Chapter 2
-    38,  // Chapter 3
-    44,  // Chapter 4
-    39,  // Chapter 5
-    49,  // Chapter 6
-    50,  // Chapter 7
-    56,  // Chapter 8
-    62,  // Chapter 9
-    42,  // Chapter 10
-    54,  // Chapter 11
-    59,  // Chapter 12
-    35,  // Chapter 13
-    35,  // Chapter 14
-    32,  // Chapter 15
-    31,  // Chapter 16
-    37,  // Chapter 17
-    43,  // Chapter 18
-    48,  // Chapter 19
-    47,  // Chapter 20
-    38,  // Chapter 21
-    71,  // Chapter 22
-    56,  // Chapter 23
-    53,  // Chapter 24
-};
-
-static const u8 sJohnVerseCounts[] = {
-    51,  // Chapter 1
-    25,  // Chapter 2
-    36,  // Chapter 3
-    54,  // Chapter 4
-    47,  // Chapter 5
-    71,  // Chapter 6
-    53,  // Chapter 7
-    59,  // Chapter 8
-    41,  // Chapter 9
-    42,  // Chapter 10
-    57,  // Chapter 11
-    50,  // Chapter 12
-    38,  // Chapter 13
-    31,  // Chapter 14
-    27,  // Chapter 15
-    33,  // Chapter 16
-    26,  // Chapter 17
-    40,  // Chapter 18
-    42,  // Chapter 19
-    31,  // Chapter 20
-    25,  // Chapter 21
-};
-
-static const u8 sActsVerseCounts[] = {
-    26,  // Chapter 1
-    47,  // Chapter 2
-    26,  // Chapter 3
-    37,  // Chapter 4
-    42,  // Chapter 5
-    15,  // Chapter 6
-    60,  // Chapter 7
-    40,  // Chapter 8
-    43,  // Chapter 9
-    48,  // Chapter 10
-    30,  // Chapter 11
-    25,  // Chapter 12
-    52,  // Chapter 13
-    28,  // Chapter 14
-    41,  // Chapter 15
-    40,  // Chapter 16
-    34,  // Chapter 17
-    28,  // Chapter 18
-    41,  // Chapter 19
-    38,  // Chapter 20
-    40,  // Chapter 21
-    30,  // Chapter 22
-    35,  // Chapter 23
-    27,  // Chapter 24
-    27,  // Chapter 25
-    32,  // Chapter 26
-    44,  // Chapter 27
-    31,  // Chapter 28
-};
-
-static const u8 sPaulVerseCounts[] = {
-    32,  // Chapter 1
-    29,  // Chapter 2
-    31,  // Chapter 3
-    25,  // Chapter 4
-    21,  // Chapter 5
-    23,  // Chapter 6
-    25,  // Chapter 7
-    39,  // Chapter 8
-    33,  // Chapter 9
-    21,  // Chapter 10
-    36,  // Chapter 11
-    21,  // Chapter 12
-    14,  // Chapter 13
-    23,  // Chapter 14
-    33,  // Chapter 15
-    27,  // Chapter 16
-};
-
-static const u8 s1CorinthiansVerseCounts[] = {
-    31,  // Chapter 1
-    16,  // Chapter 2
-    23,  // Chapter 3
-    21,  // Chapter 4
-    13,  // Chapter 5
-    20,  // Chapter 6
-    40,  // Chapter 7
-    13,  // Chapter 8
-    27,  // Chapter 9
-    33,  // Chapter 10
-    34,  // Chapter 11
-    31,  // Chapter 12
-    13,  // Chapter 13
-    40,  // Chapter 14
-    58,  // Chapter 15
-    24,  // Chapter 16
-};
-
-static const u8 s2CorinthiansVerseCounts[] = {
-    24,  // Chapter 1
-    17,  // Chapter 2
-    18,  // Chapter 3
-    18,  // Chapter 4
-    21,  // Chapter 5
-    18,  // Chapter 6
-    16,  // Chapter 7
-    24,  // Chapter 8
-    15,  // Chapter 9
-    18,  // Chapter 10
-    33,  // Chapter 11
-    21,  // Chapter 12
-    14,  // Chapter 13
-};
-
-static const u8 sGalatiansVerseCounts[] = {
-    24,  // Chapter 1
-    21,  // Chapter 2
-    29,  // Chapter 3
-    31,  // Chapter 4
-    26,  // Chapter 5
-    18,  // Chapter 6
-};
-
-static const u8 sEphesiansVerseCounts[] = {
-    23,  // Chapter 1
-    22,  // Chapter 2
-    21,  // Chapter 3
-    32,  // Chapter 4
-    33,  // Chapter 5
-    24,  // Chapter 6
-};
-
-static const u8 sPhilippiansVerseCounts[] = {
-    30,  // Chapter 1
-    30,  // Chapter 2
-    21,  // Chapter 3
-    23,  // Chapter 4
-};
-
-static const u8 sColossiansVerseCounts[] = {
-    29,  // Chapter 1
-    23,  // Chapter 2
-    25,  // Chapter 3
-    18,  // Chapter 4
-};
-
-static const u8 s1ThessaloniansVerseCounts[] = {
-    10,  // Chapter 1
-    20,  // Chapter 2
-    13,  // Chapter 3
-    18,  // Chapter 4
-    28,  // Chapter 5
-};
-
-static const u8 s2ThessaloniansVerseCounts[] = {
-    12,  // Chapter 1
-    17,  // Chapter 2
-    18,  // Chapter 3
-};
-
-static const u8 s1TimothyVerseCounts[] = {
-    20,  // Chapter 1
-    15,  // Chapter 2
-    16,  // Chapter 3
-    16,  // Chapter 4
-    25,  // Chapter 5
-    21,  // Chapter 6
-};
-
-static const u8 s2TimothyVerseCounts[] = {
-    18,  // Chapter 1
-    26,  // Chapter 2
-    17,  // Chapter 3
-    22,  // Chapter 4
-};
-
-static const u8 sTitusVerseCounts[] = {
-    16,  // Chapter 1
-    15,  // Chapter 2
-    15,  // Chapter 3
-};
-
-static const u8 sPhilemonVerseCounts[] = {
-    25,  // Chapter 1
-};
-
-static const u8 sHebrewsVerseCounts[] = {
-    14,  // Chapter 1
-    18,  // Chapter 2
-    19,  // Chapter 3
-    16,  // Chapter 4
-    14,  // Chapter 5
-    20,  // Chapter 6
-    28,  // Chapter 7
-    13,  // Chapter 8
-    28,  // Chapter 9
-    39,  // Chapter 10
-    40,  // Chapter 11
-    29,  // Chapter 12
-    25,  // Chapter 13
-};
-
-static const u8 sJamesVerseCounts[] = {
-    27,  // Chapter 1
-    26,  // Chapter 2
-    18,  // Chapter 3
-    17,  // Chapter 4
-    20,  // Chapter 5
-};
-
-static const u8 s1PeterVerseCounts[] = {
-    25,  // Chapter 1
-    25,  // Chapter 2
-    22,  // Chapter 3
-    19,  // Chapter 4
-    14,  // Chapter 5
-};
-
-static const u8 s2PeterVerseCounts[] = {
-    21,  // Chapter 1
-    22,  // Chapter 2
-    18,  // Chapter 3
-};
-
-static const u8 s1JohnVerseCounts[] = {
-    10,  // Chapter 1
-    29,  // Chapter 2
-    24,  // Chapter 3
-    21,  // Chapter 4
-    21,  // Chapter 5
-};
-
-static const u8 s2JohnVerseCounts[] = {
-    13,  // Chapter 1
-};
-
-static const u8 s3JohnVerseCounts[] = {
-    14,  // Chapter 1
-};
-
-static const u8 sJudeVerseCounts[] = {
-    25,  // Chapter 1
-};
-
-static const u8 sRevelationVerseCounts[] = {
-    20,  // Chapter 1
-    29,  // Chapter 2
-    22,  // Chapter 3
-    11,  // Chapter 4
-    14,  // Chapter 5
-    17,  // Chapter 6
-    17,  // Chapter 7
-    13,  // Chapter 8
-    21,  // Chapter 9
-    11,  // Chapter 10
-    19,  // Chapter 11
-    17,  // Chapter 12
-    18,  // Chapter 13
-    20,  // Chapter 14
-    8,  // Chapter 15
-    21,  // Chapter 16
-    18,  // Chapter 17
-    24,  // Chapter 18
-    21,  // Chapter 19
-    15,  // Chapter 20
-    27,  // Chapter 21
-    21,  // Chapter 22
-};
-
-static const u8 *const sGenesis_Chapter1[] = {
+static EWRAM_DATA u16 sHelpSystemContextId = 0;
+static EWRAM_DATA u8 sSeenHelpSystemIntro = 0;
+
+struct HelpSystemState
+{
+    // 0: Top level / Book
+    // 1: Chapter
+    // 2: Verse
+    // 3: Text
+    u8 level;
+
+    // enum HelpSystemTopics
+    u8 topic;
+    u8 chapter;
+    u8 verse;
+
+    // Where the player's cursor was at Book level
+    u8 scrollBook;
+
+    // Where the player's cursor was at Chapter level
+    u8 scrollChapter;
+
+    // Where the player's cursor was at Verse level
+    u8 scrollVerse;
+};
+
+COMMON_DATA struct HelpSystemState gHelpSystemState = {0};
+COMMON_DATA u16 gHelpContextIdBackup = 0;
+
+static bool32 IsCurrentMapInArray(const u16 * mapIdxs);
+static void BuildMainTopicsListAndMoveToH00(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
+static void SetHelpSystemSubmenuItems(struct HelpSystemListMenu * a0, struct ListMenuItem * a1);
+static bool8 IsHelpSystemSubmenuEnabled(u8);
+static bool8 HelpSystemSubroutine_MenuInputHandlerLayer0(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+
+static void PrintWelcomeMessageOnPanel1(void);
+static void PrintSecondWelcomeMessageOnPanel1(void);
+static void PrintTextOnPanel2Row52RightAlign(const u8 *);
+static void ResetHelpSystemCursor(struct HelpSystemListMenu * a0);
+static u8 GetHighestFilledArrayElement(u8 dimension);
+
+static const u16 *const sHelpSystemTopicPtrs[TOPIC_COUNT] = {
+    [TOPIC_GENESIS] = Bible_Book_Name_Genesis,
+    [TOPIC_EXODUS] = Bible_Book_Name_Exodus,
+    [TOPIC_LEVITICUS] = Bible_Book_Name_Leviticus,
+    [TOPIC_NUMBERS] = Bible_Book_Name_Numbers,
+    [TOPIC_DEUTERONOMY] = Bible_Book_Name_Deuteronomy,
+    [TOPIC_JOSHUA] = Bible_Book_Name_Joshua,
+    [TOPIC_JUDGES] = Bible_Book_Name_Judges,
+    [TOPIC_RUTH] = Bible_Book_Name_Ruth,
+    [TOPIC_1_SAMUEL] = Bible_Book_Name_1_Samuel,
+    [TOPIC_2_SAMUEL] = Bible_Book_Name_2_Samuel,
+    [TOPIC_1_KINGS] = Bible_Book_Name_1_Kings,
+    [TOPIC_2_KINGS] = Bible_Book_Name_2_Kings,
+    [TOPIC_1_CHRONICLES] = Bible_Book_Name_1_Chronicles,
+    [TOPIC_2_CHRONICLES] = Bible_Book_Name_2_Chronicles,
+    [TOPIC_EZRA] = Bible_Book_Name_Ezra,
+    [TOPIC_NEHEMIAH] = Bible_Book_Name_Nehemiah,
+    [TOPIC_ESTHER] = Bible_Book_Name_Esther,
+    [TOPIC_JOB] = Bible_Book_Name_Job,
+    [TOPIC_PSALMS] = Bible_Book_Name_Psalms,
+    [TOPIC_PROVERBS] = Bible_Book_Name_Proverbs,
+    [TOPIC_ECCLESIASTES] = Bible_Book_Name_Ecclesiastes,
+    [TOPIC_SONG_OF_SOLOMON] = Bible_Book_Name_Song_Of_Solomon,
+    [TOPIC_ISAIAH] = Bible_Book_Name_Isaiah,
+    [TOPIC_JEREMIAH] = Bible_Book_Name_Jeremiah,
+    [TOPIC_LAMENTATIONS] = Bible_Book_Name_Lamentations,
+    [TOPIC_EZEKIEL] = Bible_Book_Name_Ezekiel,
+    [TOPIC_DANIEL] = Bible_Book_Name_Daniel,
+    [TOPIC_HOSEA] = Bible_Book_Name_Hosea,
+    [TOPIC_JOEL] = Bible_Book_Name_Joel,
+    [TOPIC_AMOS] = Bible_Book_Name_Amos,
+    [TOPIC_OBADIAH] = Bible_Book_Name_Obadiah,
+    [TOPIC_JONAH] = Bible_Book_Name_Jonah,
+    [TOPIC_MICAH] = Bible_Book_Name_Micah,
+    [TOPIC_NAHUM] = Bible_Book_Name_Nahum,
+    [TOPIC_HABAKKUK] = Bible_Book_Name_Habakkuk,
+    [TOPIC_ZEPHANIAH] = Bible_Book_Name_Zephaniah,
+    [TOPIC_HAGGAI] = Bible_Book_Name_Haggai,
+    [TOPIC_ZECHARIAH] = Bible_Book_Name_Zechariah,
+    [TOPIC_MALACHI] = Bible_Book_Name_Malachi,
+    [TOPIC_MATTHEW] = Bible_Book_Name_Matthew,
+    [TOPIC_MARK] = Bible_Book_Name_Mark,
+    [TOPIC_LUKE] = Bible_Book_Name_Luke,
+    [TOPIC_JOHN] = Bible_Book_Name_John,
+    [TOPIC_ACTS] = Bible_Book_Name_Acts,
+    [TOPIC_PAUL] = Bible_Book_Name_Paul,
+    [TOPIC_1_CORINTHIANS] = Bible_Book_Name_1_Corinthians,
+    [TOPIC_2_CORINTHIANS] = Bible_Book_Name_2_Corinthians,
+    [TOPIC_GALATIANS] = Bible_Book_Name_Galatians,
+    [TOPIC_EPHESIANS] = Bible_Book_Name_Ephesians,
+    [TOPIC_PHILIPPIANS] = Bible_Book_Name_Philippians,
+    [TOPIC_COLOSSIANS] = Bible_Book_Name_Colossians,
+    [TOPIC_1_THESSALONIANS] = Bible_Book_Name_1_Thessalonians,
+    [TOPIC_2_THESSALONIANS] = Bible_Book_Name_2_Thessalonians,
+    [TOPIC_1_TIMOTHY] = Bible_Book_Name_1_Timothy,
+    [TOPIC_2_TIMOTHY] = Bible_Book_Name_2_Timothy,
+    [TOPIC_TITUS] = Bible_Book_Name_Titus,
+    [TOPIC_PHILEMON] = Bible_Book_Name_Philemon,
+    [TOPIC_HEBREWS] = Bible_Book_Name_Hebrews,
+    [TOPIC_JAMES] = Bible_Book_Name_James,
+    [TOPIC_1_PETER] = Bible_Book_Name_1_Peter,
+    [TOPIC_2_PETER] = Bible_Book_Name_2_Peter,
+    [TOPIC_1_JOHN] = Bible_Book_Name_1_John,
+    [TOPIC_2_JOHN] = Bible_Book_Name_2_John,
+    [TOPIC_3_JOHN] = Bible_Book_Name_3_John,
+    [TOPIC_JUDE] = Bible_Book_Name_Jude,
+    [TOPIC_REVELATION] = Bible_Book_Name_Revelation
+};
+
+static const u16 *const *const sBibleText_GenesisTextPtrs[];
+static const u16 *const *const sBibleText_ExodusTextPtrs[];
+static const u16 *const *const sBibleText_LeviticusTextPtrs[];
+static const u16 *const *const sBibleText_NumbersTextPtrs[];
+static const u16 *const *const sBibleText_DeuteronomyTextPtrs[];
+static const u16 *const *const sBibleText_JoshuaTextPtrs[];
+static const u16 *const *const sBibleText_JudgesTextPtrs[];
+static const u16 *const *const sBibleText_RuthTextPtrs[];
+static const u16 *const *const sBibleText_1SamuelTextPtrs[];
+static const u16 *const *const sBibleText_2SamuelTextPtrs[];
+static const u16 *const *const sBibleText_1KingsTextPtrs[];
+static const u16 *const *const sBibleText_2KingsTextPtrs[];
+static const u16 *const *const sBibleText_1ChroniclesTextPtrs[];
+static const u16 *const *const sBibleText_2ChroniclesTextPtrs[];
+static const u16 *const *const sBibleText_EzraTextPtrs[];
+static const u16 *const *const sBibleText_NehemiahTextPtrs[];
+static const u16 *const *const sBibleText_EstherTextPtrs[];
+static const u16 *const *const sBibleText_JobTextPtrs[];
+static const u16 *const *const sBibleText_PsalmsTextPtrs[];
+static const u16 *const *const sBibleText_ProverbsTextPtrs[];
+static const u16 *const *const sBibleText_EcclesiastesTextPtrs[];
+static const u16 *const *const sBibleText_SongOfSolomonTextPtrs[];
+static const u16 *const *const sBibleText_IsaiahTextPtrs[];
+static const u16 *const *const sBibleText_JeremiahTextPtrs[];
+static const u16 *const *const sBibleText_LamentationsTextPtrs[];
+static const u16 *const *const sBibleText_EzekielTextPtrs[];
+static const u16 *const *const sBibleText_DanielTextPtrs[];
+static const u16 *const *const sBibleText_HoseaTextPtrs[];
+static const u16 *const *const sBibleText_JoelTextPtrs[];
+static const u16 *const *const sBibleText_AmosTextPtrs[];
+static const u16 *const *const sBibleText_ObadiahTextPtrs[];
+static const u16 *const *const sBibleText_JonahTextPtrs[];
+static const u16 *const *const sBibleText_MicahTextPtrs[];
+static const u16 *const *const sBibleText_NahumTextPtrs[];
+static const u16 *const *const sBibleText_HabakkukTextPtrs[];
+static const u16 *const *const sBibleText_ZephaniahTextPtrs[];
+static const u16 *const *const sBibleText_HaggaiTextPtrs[];
+static const u16 *const *const sBibleText_ZechariahTextPtrs[];
+static const u16 *const *const sBibleText_MalachiTextPtrs[];
+static const u16 *const *const sBibleText_MatthewTextPtrs[];
+static const u16 *const *const sBibleText_MarkTextPtrs[];
+static const u16 *const *const sBibleText_LukeTextPtrs[];
+static const u16 *const *const sBibleText_JohnTextPtrs[];
+static const u16 *const *const sBibleText_ActsTextPtrs[];
+static const u16 *const *const sBibleText_PaulTextPtrs[];
+static const u16 *const *const sBibleText_1CorinthiansTextPtrs[];
+static const u16 *const *const sBibleText_2CorinthiansTextPtrs[];
+static const u16 *const *const sBibleText_GalatiansTextPtrs[];
+static const u16 *const *const sBibleText_EphesiansTextPtrs[];
+static const u16 *const *const sBibleText_PhilippiansTextPtrs[];
+static const u16 *const *const sBibleText_ColossiansTextPtrs[];
+static const u16 *const *const sBibleText_1ThessaloniansTextPtrs[];
+static const u16 *const *const sBibleText_2ThessaloniansTextPtrs[];
+static const u16 *const *const sBibleText_1TimothyTextPtrs[];
+static const u16 *const *const sBibleText_2TimothyTextPtrs[];
+static const u16 *const *const sBibleText_TitusTextPtrs[];
+static const u16 *const *const sBibleText_PhilemonTextPtrs[];
+static const u16 *const *const sBibleText_HebrewsTextPtrs[];
+static const u16 *const *const sBibleText_JamesTextPtrs[];
+static const u16 *const *const sBibleText_1PeterTextPtrs[];
+static const u16 *const *const sBibleText_2PeterTextPtrs[];
+static const u16 *const *const sBibleText_1JohnTextPtrs[];
+static const u16 *const *const sBibleText_2JohnTextPtrs[];
+static const u16 *const *const sBibleText_3JohnTextPtrs[];
+static const u16 *const *const sBibleText_JudeTextPtrs[];
+static const u16 *const *const sBibleText_RevelationTextPtrs[];
+
+static const u16 *const *const *const sLayer3VerseDescTextPtrs[];
+static const u8 *const sLayer2ChapterTextPtrs[];
+static const u8 *const sLayer3VerseCaptionTextPtrs[];
+static u8 sFullLabel[32];
+
+static const u16 sUnused[] = INCBIN_U16("graphics/help_system/unused.bin");
+
+static const u8 sHelpSystemContextTopicOrder[TOPIC_COUNT] = {
+    TOPIC_GENESIS,
+    TOPIC_EXODUS,
+    TOPIC_LEVITICUS,
+    TOPIC_NUMBERS,
+    TOPIC_DEUTERONOMY,
+    TOPIC_JOSHUA,
+    TOPIC_JUDGES,
+    TOPIC_RUTH,
+    TOPIC_1_SAMUEL,
+    TOPIC_2_SAMUEL,
+    TOPIC_1_KINGS,
+    TOPIC_2_KINGS,
+    TOPIC_1_CHRONICLES,
+    TOPIC_2_CHRONICLES,
+    TOPIC_EZRA,
+    TOPIC_NEHEMIAH,
+    TOPIC_ESTHER,
+    TOPIC_JOB,
+    TOPIC_PSALMS,
+    TOPIC_PROVERBS,
+    TOPIC_ECCLESIASTES,
+    TOPIC_SONG_OF_SOLOMON,
+    TOPIC_ISAIAH,
+    TOPIC_JEREMIAH,
+    TOPIC_LAMENTATIONS,
+    TOPIC_EZEKIEL,
+    TOPIC_DANIEL,
+    TOPIC_HOSEA,
+    TOPIC_JOEL,
+    TOPIC_AMOS,
+    TOPIC_OBADIAH,
+    TOPIC_JONAH,
+    TOPIC_MICAH,
+    TOPIC_NAHUM,
+    TOPIC_HABAKKUK,
+    TOPIC_ZEPHANIAH,
+    TOPIC_HAGGAI,
+    TOPIC_ZECHARIAH,
+    TOPIC_MALACHI,
+    TOPIC_MATTHEW,
+    TOPIC_MARK,
+    TOPIC_LUKE,
+    TOPIC_JOHN,
+    TOPIC_ACTS,
+    TOPIC_PAUL,
+    TOPIC_1_CORINTHIANS,
+    TOPIC_2_CORINTHIANS,
+    TOPIC_GALATIANS,
+    TOPIC_EPHESIANS,
+    TOPIC_PHILIPPIANS,
+    TOPIC_COLOSSIANS,
+    TOPIC_1_THESSALONIANS,
+    TOPIC_2_THESSALONIANS,
+    TOPIC_1_TIMOTHY,
+    TOPIC_2_TIMOTHY,
+    TOPIC_TITUS,
+    TOPIC_PHILEMON,
+    TOPIC_HEBREWS,
+    TOPIC_JAMES,
+    TOPIC_1_PETER,
+    TOPIC_2_PETER,
+    TOPIC_1_JOHN,
+    TOPIC_2_JOHN,
+    TOPIC_3_JOHN,
+    TOPIC_JUDE,
+    TOPIC_REVELATION
+};
+
+static const u16 sMartMaps[] = {
+    MAP_VIRIDIAN_CITY_MART,
+    MAP_PEWTER_CITY_MART,
+    MAP_CERULEAN_CITY_MART,
+    MAP_LAVENDER_TOWN_MART,
+    MAP_VERMILION_CITY_MART,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_1F,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_2F,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_3F,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_4F,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_5F,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF,
+    MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR,
+    MAP_FUSHCIA_CITY_MART,
+    MAP_CINNABAR_ISLAND_MART,
+    MAP_SAFFRON_CITY_MART,
+    MAP_THREE_ISLAND_MART,
+    MAP_FOUR_ISLAND_MART,
+    MAP_SEVEN_ISLAND_MART,
+    MAP_SIX_ISLAND_MART,
+    MAP_UNDEFINED
+};
+
+static const u16 sGymMaps[] = {
+    MAP_PEWTER_CITY_GYM,
+    MAP_CERULEAN_CITY_GYM,
+    MAP_VERMILION_CITY_GYM,
+    MAP_CELADON_CITY_GYM,
+    MAP_FUSHCIA_CITY_GYM,
+    MAP_SAFFRON_CITY_GYM,
+    MAP_CINNABAR_ISLAND_GYM,
+    MAP_VIRIDIAN_CITY_GYM,
+    MAP_UNDEFINED
+};
+
+static const u8 sDungeonMaps[][3] = {
+    { MAP_GROUP(MAP_VIRIDIAN_FOREST), MAP_NUM(MAP_VIRIDIAN_FOREST), 1 },
+    { MAP_GROUP(MAP_MT_MOON_1F), MAP_NUM(MAP_MT_MOON_1F), 3 },
+    { MAP_GROUP(MAP_ROCK_TUNNEL_1F), MAP_NUM(MAP_ROCK_TUNNEL_1F), 2 },
+    { MAP_GROUP(MAP_DIGLETTS_CAVE_NORTH_ENTRANCE), MAP_NUM(MAP_DIGLETTS_CAVE_NORTH_ENTRANCE), 3 },
+    { MAP_GROUP(MAP_SEAFOAM_ISLANDS_1F), MAP_NUM(MAP_SEAFOAM_ISLANDS_1F), 5 },
+    { MAP_GROUP(MAP_VICTORY_ROAD_1F), MAP_NUM(MAP_VICTORY_ROAD_1F), 3 },
+    { MAP_GROUP(MAP_CERULEAN_CAVE_1F), MAP_NUM(MAP_CERULEAN_CAVE_1F), 3 },
+    { MAP_GROUP(MAP_MT_EMBER_RUBY_PATH_B4F), MAP_NUM(MAP_MT_EMBER_RUBY_PATH_B4F), 1 },
+    { MAP_GROUP(MAP_MT_EMBER_SUMMIT_PATH_1F), MAP_NUM(MAP_MT_EMBER_SUMMIT_PATH_1F), 3 },
+    { MAP_GROUP(MAP_MT_EMBER_RUBY_PATH_B5F), MAP_NUM(MAP_MT_EMBER_RUBY_PATH_B5F), 7 },
+    { MAP_GROUP(MAP_THREE_ISLAND_BERRY_FOREST), MAP_NUM(MAP_THREE_ISLAND_BERRY_FOREST), 1 },
+    { MAP_GROUP(MAP_SIX_ISLAND_PATTERN_BUSH), MAP_NUM(MAP_SIX_ISLAND_PATTERN_BUSH), 1 },
+    { MAP_GROUP(MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE), MAP_NUM(MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE), 15 },
+    { MAP_GROUP(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), MAP_NUM(MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), 4 },
+    { MAP_GROUP(MAP_SIX_ISLAND_ALTERING_CAVE), MAP_NUM(MAP_SIX_ISLAND_ALTERING_CAVE), 1 },
+    { MAP_GROUP(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), MAP_NUM(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), 7 }
+};
+
+u8 GetHelpSystemStateLevel(void)
+{
+    return gHelpSystemState.level;
+}
+
+void SetHelpContextDontCheckBattle(u8 contextId)
+{
+    sHelpSystemContextId = contextId;
+}
+
+void SetHelpContext(u8 contextId)
+{
+    // still required for existing coding
+}
+
+void Script_SetHelpContext(void)
+{
+    sHelpSystemContextId = gSpecialVar_0x8004;
+}
+
+void BackupHelpContext(void)
+{
+    gHelpContextIdBackup = sHelpSystemContextId;
+}
+
+void RestoreHelpContext(void)
+{
+    sHelpSystemContextId = gHelpContextIdBackup;
+}
+
+static bool32 IsInMartMap(void)
+{
+    return IsCurrentMapInArray(sMartMaps);
+}
+
+static bool32 IsInGymMap(void)
+{
+    return IsCurrentMapInArray(sGymMaps);
+}
+
+static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
+{
+    u16 mapIdx = (gSaveBlock1Ptr->location.mapGroup << 8) + gSaveBlock1Ptr->location.mapNum;
+    s32 i;
+
+    for (i = 0; mapIdxs[i] != MAP_UNDEFINED; i++)
+    {
+        if (mapIdxs[i] == mapIdx)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static bool8 IsInDungeonMap(void)
+{
+    u8 i, j;
+
+    for (i = 0; i < NELEMS(sDungeonMaps); i++)
+    {
+        for (j = 0; j < sDungeonMaps[i][2]; j++)
+        {
+            if (
+                   sDungeonMaps[i][0] == gSaveBlock1Ptr->location.mapGroup
+                && sDungeonMaps[i][1] + j == gSaveBlock1Ptr->location.mapNum
+                && (i != 15 /* TANOBY */ || FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS) == TRUE)
+            )
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+#define IN_PLAYERS_HOUSE \
+    ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F) \
+  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_1F))     \
+ || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F)  \
+  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F)))    \
+
+ #define IN_OAKS_LAB \
+    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB) \
+  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB))    \
+
+void SetHelpContextForMap(void)
+{
+    HelpSystem_EnableToggleWithRButton();
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+        SetHelpContext(HELPCONTEXT_SURFING);
+    else if (IsInDungeonMap())
+        SetHelpContext(HELPCONTEXT_DUNGEON);
+    else if (IsMapTypeIndoors(gMapHeader.mapType))
+    {
+        if (IN_PLAYERS_HOUSE)
+            SetHelpContext(HELPCONTEXT_PLAYERS_HOUSE);
+        else if (IN_OAKS_LAB)
+            SetHelpContext(HELPCONTEXT_OAKS_LAB);
+        else if (IsCurMapPokeCenter() == TRUE)
+            SetHelpContext(HELPCONTEXT_POKECENTER);
+        else if (IsInMartMap() == TRUE)
+            SetHelpContext(HELPCONTEXT_MART);
+        else if (IsInGymMap() == TRUE)
+            SetHelpContext(HELPCONTEXT_GYM);
+        else
+            SetHelpContext(HELPCONTEXT_INDOORS);
+    }
+    else
+        SetHelpContext(HELPCONTEXT_OVERWORLD);
+}
+
+bool8 HelpSystem_UpdateHasntSeenIntro(void)
+{
+    if (sSeenHelpSystemIntro == TRUE)
+        return FALSE;
+
+    if (gSaveFileStatus != SAVE_STATUS_EMPTY && gSaveFileStatus != SAVE_STATUS_INVALID && FlagGet(FLAG_SYS_SAW_HELP_SYSTEM_INTRO))
+        return FALSE;
+
+    FlagSet(FLAG_SYS_SAW_HELP_SYSTEM_INTRO);
+    sSeenHelpSystemIntro = TRUE;
+    return TRUE;
+}
+
+bool8 HelpSystem_IsSinglePlayer(void)
+{
+    if (gReceivedRemoteLinkPlayers == TRUE)
+        return FALSE;
+    return TRUE;
+}
+
+void HelpSystem_Disable(void)
+{
+    gHelpSystemEnabled = FALSE;
+}
+
+void HelpSystem_Enable(void)
+{
+    if (!QL_IS_PLAYBACK_STATE)
+    {
+        gHelpSystemEnabled = TRUE;
+        HelpSystem_EnableToggleWithRButton();
+    }
+}
+
+void HelpSystem_DisableToggleWithRButton(void)
+{
+    gHelpSystemToggleWithRButtonDisabled = TRUE;
+}
+
+void HelpSystem_EnableToggleWithRButton(void)
+{
+    gHelpSystemToggleWithRButtonDisabled = FALSE;
+}
+
+static void ResetHelpSystemListMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    helpListMenu->sub.items = listMenuItemsBuffer;
+    helpListMenu->sub.totalItems = 1;
+    helpListMenu->sub.maxShowed = 1;
+    helpListMenu->sub.left = 1;
+    helpListMenu->sub.top = 4;
+}
+
+static void BuildAndPrintMainTopicsListMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    ResetHelpSystemListMenu(helpListMenu, listMenuItemsBuffer);
+    BuildMainTopicsListAndMoveToH00(helpListMenu, listMenuItemsBuffer);
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_PickOkEnd);
+    HelpSystem_InitListMenuController(helpListMenu, gHelpSystemState.topic - gHelpSystemState.scrollBook, gHelpSystemState.scrollBook);
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+}
+
+static void BuildMainTopicsListAndMoveToH00(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    u8 i;
+    u8 totalItems = 0;
+    for (i = 0; i < TOPIC_COUNT; i++)
+    {
+        listMenuItemsBuffer[totalItems].label = (const u8 *)(sHelpSystemTopicPtrs[sHelpSystemContextTopicOrder[i]]);
+        listMenuItemsBuffer[totalItems].index = sHelpSystemContextTopicOrder[i];
+        totalItems++;
+    }
+    listMenuItemsBuffer[totalItems].index = -2;
+    helpListMenu->sub.totalItems = totalItems;
+    helpListMenu->sub.maxShowed = MAX_ITEMS_SHOWED_MAIN;
+    helpListMenu->sub.left = 0;
+}
+
+#define DIM_BOOK    0
+#define DIM_CHAPTER 1
+#define DIM_VERSE   2
+
+static void BuildAndPrintSubmenuList(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    HS_SetMainWindowBgBrightness(0);
+    HS_ShowOrHideHeaderLine_Darker_FooterStyle(0);
+    HS_ShowOrHideHeaderAndFooterLines_Lighter(1);
+    ResetHelpSystemListMenu(helpListMenu, listMenuItemsBuffer);
+    SetHelpSystemSubmenuItems(helpListMenu, listMenuItemsBuffer);
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_PickOkCancel);
+    if (gHelpSystemState.level == 2)
+    {
+        HelpSystem_InitListMenuController(helpListMenu, helpListMenu->itemsAbove, helpListMenu->cursorPos);
+        StringCopy(sFullLabel, (const u8 *)(sHelpSystemTopicPtrs[gHelpSystemState.topic]));
+        StringAppend(sFullLabel, gExpandedPlaceholder_Separator);
+        StringAppend(sFullLabel, sLayer2ChapterTextPtrs[gHelpSystemState.chapter]);
+        HelpSystem_PrintTextAt(sFullLabel, 0, 0);
+    }
+    else // level == 1
+    {
+        u8 cursorPos = 0;
+        u8 high = GetHighestFilledArrayElement(gHelpSystemState.level);
+        
+        if (gHelpSystemState.chapter < MAX_ITEMS_OFFSET)
+            cursorPos = gHelpSystemState.chapter;
+        else if (gHelpSystemState.chapter > (high - MAX_ITEMS_OFFSET) && gHelpSystemState.chapter > MAX_ITEMS_SHOWED)
+            cursorPos = MAX_ITEMS_OFFSET;
+
+        HelpSystem_InitListMenuController(helpListMenu, gHelpSystemState.chapter - cursorPos, cursorPos);
+        HelpSystem_PrintTextAt(
+            (const u8 *)(sHelpSystemTopicPtrs[gHelpSystemState.topic]), 0, 0
+        );
+    }
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+}
+
+#undef DIM_BOOK
+#undef DIM_CHAPTER
+#undef DIM_VERSE
+
+static void SetHelpSystemSubmenuItems(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    u8 totalItems = 0;
+    u8 i;
+
+    if (gHelpSystemState.level == 1)
+    {
+        for (i = 0; IsHelpSystemSubmenuEnabled(i); i++)
+        {
+            listMenuItemsBuffer[totalItems].label = sLayer2ChapterTextPtrs[i];
+            listMenuItemsBuffer[totalItems].index = i;
+            totalItems++;
+        }
+    }
+    else if (gHelpSystemState.level == 2)
+    {
+        for (i = 0; IsHelpSystemSubmenuEnabled(i); i++)
+        {
+            listMenuItemsBuffer[totalItems].label = sLayer3VerseCaptionTextPtrs[i];
+            listMenuItemsBuffer[totalItems].index = i;
+            totalItems++;
+        }
+    }
+
+    listMenuItemsBuffer[totalItems].label = Help_Text_Cancel;
+    listMenuItemsBuffer[totalItems].index = -2;
+    totalItems++;
+    helpListMenu->sub.totalItems = totalItems;
+    helpListMenu->sub.maxShowed = MAX_ITEMS_SHOWED;
+    helpListMenu->sub.left = 0;
+    helpListMenu->sub.top = 21;
+}
+
+static bool8 IsHelpSystemSubmenuEnabled(u8 id)
+{
+    if (gHelpSystemState.level == 1)
+    {
+        switch (gHelpSystemState.topic)
+        {
+            case TOPIC_GENESIS:
+                if (id < NUM_CHAPTERS_GENESIS)
+                    return TRUE;
+                break;
+            case TOPIC_EXODUS:
+                if (id < NUM_CHAPTERS_EXODUS)
+                    return TRUE;
+                break;
+            case TOPIC_LEVITICUS:
+                if (id < NUM_CHAPTERS_LEVITICUS)
+                    return TRUE;
+                break;
+            case TOPIC_NUMBERS:
+                if (id < NUM_CHAPTERS_NUMBERS)
+                    return TRUE;
+                break;
+            case TOPIC_DEUTERONOMY:
+                if (id < NUM_CHAPTERS_DEUTERONOMY)
+                    return TRUE;
+                break;
+            case TOPIC_JOSHUA:
+                if (id < NUM_CHAPTERS_JOSHUA)
+                    return TRUE;
+                break;
+            case TOPIC_JUDGES:
+                if (id < NUM_CHAPTERS_JUDGES)
+                    return TRUE;
+                break;
+            case TOPIC_RUTH:
+                if (id < NUM_CHAPTERS_RUTH)
+                    return TRUE;
+                break;
+            case TOPIC_1_SAMUEL:
+                if (id < NUM_CHAPTERS_1_SAMUEL)
+                    return TRUE;
+                break;
+            case TOPIC_2_SAMUEL:
+                if (id < NUM_CHAPTERS_2_SAMUEL)
+                    return TRUE;
+                break;
+            case TOPIC_1_KINGS:
+                if (id < NUM_CHAPTERS_1_KINGS)
+                    return TRUE;
+                break;
+            case TOPIC_2_KINGS:
+                if (id < NUM_CHAPTERS_2_KINGS)
+                    return TRUE;
+                break;
+            case TOPIC_1_CHRONICLES:
+                if (id < NUM_CHAPTERS_1_CHRONICLES)
+                    return TRUE;
+                break;
+            case TOPIC_2_CHRONICLES:
+                if (id < NUM_CHAPTERS_2_CHRONICLES)
+                    return TRUE;
+                break;
+            case TOPIC_EZRA:
+                if (id < NUM_CHAPTERS_EZRA)
+                    return TRUE;
+                break;
+            case TOPIC_NEHEMIAH:
+                if (id < NUM_CHAPTERS_NEHEMIAH)
+                    return TRUE;
+                break;
+            case TOPIC_ESTHER:
+                if (id < NUM_CHAPTERS_ESTHER)
+                    return TRUE;
+                break;
+            case TOPIC_JOB:
+                if (id < NUM_CHAPTERS_JOB)
+                    return TRUE;
+                break;
+            case TOPIC_PSALMS:
+                if (id < NUM_CHAPTERS_PSALMS)
+                    return TRUE;
+                break;
+            case TOPIC_PROVERBS:
+                if (id < NUM_CHAPTERS_PROVERBS)
+                    return TRUE;
+                break;
+            case TOPIC_ECCLESIASTES:
+                if (id < NUM_CHAPTERS_ECCLESIASTES)
+                    return TRUE;
+                break;
+            case TOPIC_SONG_OF_SOLOMON:
+                if (id < NUM_CHAPTERS_SONG_OF_SOLOMON)
+                    return TRUE;
+                break;
+            case TOPIC_ISAIAH:
+                if (id < NUM_CHAPTERS_ISAIAH)
+                    return TRUE;
+                break;
+            case TOPIC_JEREMIAH:
+                if (id < NUM_CHAPTERS_JEREMIAH)
+                    return TRUE;
+                break;
+            case TOPIC_LAMENTATIONS:
+                if (id < NUM_CHAPTERS_LAMENTATIONS)
+                    return TRUE;
+                break;
+            case TOPIC_EZEKIEL:
+                if (id < NUM_CHAPTERS_EZEKIEL)
+                    return TRUE;
+                break;
+            case TOPIC_DANIEL:
+                if (id < NUM_CHAPTERS_DANIEL)
+                    return TRUE;
+                break;
+            case TOPIC_HOSEA:
+                if (id < NUM_CHAPTERS_HOSEA)
+                    return TRUE;
+                break;
+            case TOPIC_JOEL:
+                if (id < NUM_CHAPTERS_JOEL)
+                    return TRUE;
+                break;
+            case TOPIC_AMOS:
+                if (id < NUM_CHAPTERS_AMOS)
+                    return TRUE;
+                break;
+            case TOPIC_OBADIAH:
+                if (id < NUM_CHAPTERS_OBADIAH)
+                    return TRUE;
+                break;
+            case TOPIC_JONAH:
+                if (id < NUM_CHAPTERS_JONAH)
+                    return TRUE;
+                break;
+            case TOPIC_MICAH:
+                if (id < NUM_CHAPTERS_MICAH)
+                    return TRUE;
+                break;
+            case TOPIC_NAHUM:
+                if (id < NUM_CHAPTERS_NAHUM)
+                    return TRUE;
+                break;
+            case TOPIC_HABAKKUK:
+                if (id < NUM_CHAPTERS_HABAKKUK)
+                    return TRUE;
+                break;
+            case TOPIC_ZEPHANIAH:
+                if (id < NUM_CHAPTERS_ZEPHANIAH)
+                    return TRUE;
+                break;
+            case TOPIC_HAGGAI:
+                if (id < NUM_CHAPTERS_HAGGAI)
+                    return TRUE;
+                break;
+            case TOPIC_ZECHARIAH:
+                if (id < NUM_CHAPTERS_ZECHARIAH)
+                    return TRUE;
+                break;
+            case TOPIC_MALACHI:
+                if (id < NUM_CHAPTERS_MALACHI)
+                    return TRUE;
+                break;
+            case TOPIC_MATTHEW:
+                if (id < NUM_CHAPTERS_MATTHEW)
+                    return TRUE;
+                break;
+            case TOPIC_MARK:
+                if (id < NUM_CHAPTERS_MARK)
+                    return TRUE;
+                break;
+            case TOPIC_LUKE:
+                if (id < NUM_CHAPTERS_LUKE)
+                    return TRUE;
+                break;
+            case TOPIC_JOHN:
+                if (id < NUM_CHAPTERS_JOHN)
+                    return TRUE;
+                break;
+            case TOPIC_ACTS:
+                if (id < NUM_CHAPTERS_ACTS)
+                    return TRUE;
+                break;
+            case TOPIC_PAUL:
+                if (id < NUM_CHAPTERS_PAUL)
+                    return TRUE;
+                break;
+            case TOPIC_1_CORINTHIANS:
+                if (id < NUM_CHAPTERS_1_CORINTHIANS)
+                    return TRUE;
+                break;
+            case TOPIC_2_CORINTHIANS:
+                if (id < NUM_CHAPTERS_2_CORINTHIANS)
+                    return TRUE;
+                break;
+            case TOPIC_GALATIANS:
+                if (id < NUM_CHAPTERS_GALATIANS)
+                    return TRUE;
+                break;
+            case TOPIC_EPHESIANS:
+                if (id < NUM_CHAPTERS_EPHESIANS)
+                    return TRUE;
+                break;
+            case TOPIC_PHILIPPIANS:
+                if (id < NUM_CHAPTERS_PHILIPPIANS)
+                    return TRUE;
+                break;
+            case TOPIC_COLOSSIANS:
+                if (id < NUM_CHAPTERS_COLOSSIANS)
+                    return TRUE;
+                break;
+            case TOPIC_1_THESSALONIANS:
+                if (id < NUM_CHAPTERS_1_THESSALONIANS)
+                    return TRUE;
+                break;
+            case TOPIC_2_THESSALONIANS:
+                if (id < NUM_CHAPTERS_2_THESSALONIANS)
+                    return TRUE;
+                break;
+            case TOPIC_1_TIMOTHY:
+                if (id < NUM_CHAPTERS_1_TIMOTHY)
+                    return TRUE;
+                break;
+            case TOPIC_2_TIMOTHY:
+                if (id < NUM_CHAPTERS_2_TIMOTHY)
+                    return TRUE;
+                break;
+            case TOPIC_TITUS:
+                if (id < NUM_CHAPTERS_TITUS)
+                    return TRUE;
+                break;
+            case TOPIC_PHILEMON:
+                if (id < NUM_CHAPTERS_PHILEMON)
+                    return TRUE;
+                break;
+            case TOPIC_HEBREWS:
+                if (id < NUM_CHAPTERS_HEBREWS)
+                    return TRUE;
+                break;
+            case TOPIC_JAMES:
+                if (id < NUM_CHAPTERS_JAMES)
+                    return TRUE;
+                break;
+            case TOPIC_1_PETER:
+                if (id < NUM_CHAPTERS_1_PETER)
+                    return TRUE;
+                break;
+            case TOPIC_2_PETER:
+                if (id < NUM_CHAPTERS_2_PETER)
+                    return TRUE;
+                break;
+            case TOPIC_1_JOHN:
+                if (id < NUM_CHAPTERS_1_JOHN)
+                    return TRUE;
+                break;
+            case TOPIC_2_JOHN:
+                if (id < NUM_CHAPTERS_2_JOHN)
+                    return TRUE;
+                break;
+            case TOPIC_3_JOHN:
+                if (id < NUM_CHAPTERS_3_JOHN)
+                    return TRUE;
+                break;
+            case TOPIC_JUDE:
+                if (id < NUM_CHAPTERS_JUDE)
+                    return TRUE;
+                break;
+            case TOPIC_REVELATION:
+                if (id < NUM_CHAPTERS_REVELATION)
+                    return TRUE;
+                break;
+            default:
+                break;
+        }
+    }
+    else if (gHelpSystemState.level == 2)
+    {
+        if (id < GetHighestFilledArrayElement(gHelpSystemState.level))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+#define HELP_MENU_WELCOME_MESSAGE_PRINT 10
+#define HELP_MENU_WELCOME_MESSAGE_WAIT 11
+#define HELP_MENU_SECOND_WELCOME_PRINT 12
+#define HELP_MENU_SECOND_WELCOME_WAIT 13
+#define HELP_MENU_GOTO_FIRST_MENU 14
+
+#define HELP_MENU_FIRST_MENU_WAIT 0
+#define HELP_MENU_FIRST_MENU_GOTO_SECOND 1
+#define HELP_MENU_SECOND_MENU_GOTO_FIRST 2
+
+#define HELP_MENU_SECOND_MENU_WAIT 3
+#define HELP_MENU_SECOND_MENU_GOTO_THIRD 4
+#define HELP_MENU_THIRD_MENU_GOTO_SECOND 5
+
+#define HELP_MENU_THIRD_MENU_WAIT 6
+#define HELP_MENU_THIRD_MENU_GOTO_FOURTH 7
+#define HELP_MENU_FOURTH_MENU_GOTO_THIRD 8
+
+#define HELP_MENU_FOURTH_MENU_WAIT 9
+
+bool8 RunHelpMenuSubroutine(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    switch (helpListMenu->state)
+    {
+    case  HELP_MENU_WELCOME_MESSAGE_PRINT:
+        return HelpSystemSubroutine_PrintWelcomeMessage(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_WELCOME_MESSAGE_WAIT:
+        return HelpSystemSubroutine_WelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
+    case HELP_MENU_SECOND_WELCOME_PRINT:
+        return HelpSystemSubroutine_PrintSecondWelcomeMessage(helpListMenu, listMenuItemsBuffer);
+    
+    case HELP_MENU_SECOND_WELCOME_WAIT:
+        return HelpSystemSubroutine_SecondWelcomeWaitButton(helpListMenu, listMenuItemsBuffer);
+    case HELP_MENU_GOTO_FIRST_MENU:
+        return HelpSystemSubroutine_WelcomeEndGotoMenu(helpListMenu, listMenuItemsBuffer);
+
+    case  HELP_MENU_FIRST_MENU_WAIT:
+        return HelpSystemSubroutine_MenuInputHandlerLayer0(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_FIRST_MENU_GOTO_SECOND:
+        return HelpMenuSubroutine_InitLayer1(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_SECOND_MENU_GOTO_FIRST:
+        return HelpMenuSubroutine_ReturnToLayer0(helpListMenu, listMenuItemsBuffer);
+
+    case  HELP_MENU_SECOND_MENU_WAIT:
+        return HelpMenuSubroutine_SubmenuInputHandlerLayer1(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_SECOND_MENU_GOTO_THIRD:
+        return HelpMenuSubroutine_InitLayer2(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_THIRD_MENU_GOTO_SECOND:
+        return HelpMenuSubroutine_ReturnToLayer1(helpListMenu, listMenuItemsBuffer);
+
+    case  HELP_MENU_THIRD_MENU_WAIT:
+        return HelpMenuSubroutine_SubmenuInputHandlerLayer2(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_THIRD_MENU_GOTO_FOURTH:
+        return HelpMenuSubroutine_HelpItemPrintLayer3(helpListMenu, listMenuItemsBuffer);
+    case  HELP_MENU_FOURTH_MENU_GOTO_THIRD:
+        return HelpMenuSubroutine_ReturnToLayer2(helpListMenu, listMenuItemsBuffer);
+
+    case  HELP_MENU_FOURTH_MENU_WAIT:
+        return HelpMenuSubroutine_VerseDetails_WaitButton(helpListMenu, listMenuItemsBuffer);
+    }
+    return FALSE;
+}
+
+bool8 HelpSystemSubroutine_PrintWelcomeMessage(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_A_Next);
+    PrintWelcomeMessageOnPanel1();
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+    helpListMenu->state = HELP_MENU_WELCOME_MESSAGE_WAIT;
+    return TRUE;
+}
+
+bool8 HelpSystemSubroutine_PrintSecondWelcomeMessage(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_A_Next);
+    PrintSecondWelcomeMessageOnPanel1();
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+    helpListMenu->state = HELP_MENU_SECOND_WELCOME_WAIT;
+    return TRUE;
+}
+
+bool8 HelpSystemSubroutine_WelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        helpListMenu->state = HELP_MENU_SECOND_WELCOME_PRINT;
+    }
+    return TRUE;
+}
+
+bool8 HelpSystemSubroutine_SecondWelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        helpListMenu->state = HELP_MENU_GOTO_FIRST_MENU;
+    }
+    return TRUE;
+}
+
+bool8 HelpSystemSubroutine_WelcomeEndGotoMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.scrollBook = 0;
+    gHelpSystemState.level = 0;
+    gHelpSystemState.topic = 0;
+    gHelpSystemState.chapter = 0;
+    gHelpSystemState.verse = 0;
+    ResetHelpSystemCursor(helpListMenu);
+    BuildAndPrintMainTopicsListMenu(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_FIRST_MENU_WAIT;
+    return TRUE;
+}
+
+static bool8 HelpSystemSubroutine_MenuInputHandlerLayer0(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    s32 input = HelpSystem_GetMenuInput();
+    switch (input)
+    {
+    case MENU_INPUT_LR:
+    case MENU_INPUT_B:
+        return FALSE;
+    case MENU_INPUT_DOWN:
+    case MENU_INPUT_UP:
+        break;
+    case -3:
+    case MENU_INPUT_IDLE:
+        break;
+    default: // choosing an item with A button
+        gHelpSystemState.topic = input;
+        helpListMenu->state = HELP_MENU_FIRST_MENU_GOTO_SECOND;
+        break;
+    }
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_InitLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.level = 1;
+    gHelpSystemState.scrollBook = helpListMenu->cursorPos;
+    ResetHelpSystemCursor(helpListMenu);
+    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_SECOND_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_InitLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.level = 2;
+    gHelpSystemState.scrollChapter = helpListMenu->cursorPos;
+    ResetHelpSystemCursor(helpListMenu);
+    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_THIRD_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_ReturnToLayer0(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    // HS_ShowOrHideScrollArrows(0, 0);
+    // HS_ShowOrHideScrollArrows(1, 0);
+    gHelpSystemState.level = 0;
+    gHelpSystemState.chapter = 0;
+    gHelpSystemState.verse = 0;
+    BuildAndPrintMainTopicsListMenu(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_FIRST_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_SubmenuInputHandlerLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    s32 input = HelpSystem_GetMenuInput();
+
+    switch (input)
+    {
+    case MENU_INPUT_LR:
+        return FALSE;
+    case MENU_INPUT_B:
+        helpListMenu->state = HELP_MENU_SECOND_MENU_GOTO_FIRST;
+        break;
+    case MENU_INPUT_DOWN:
+    case MENU_INPUT_UP:
+    case -3:
+    case MENU_INPUT_IDLE:
+        break;
+    default:
+        gHelpSystemState.chapter = input;
+        helpListMenu->state = HELP_MENU_SECOND_MENU_GOTO_THIRD;
+        break;
+    }
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_SubmenuInputHandlerLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    s32 input = HelpSystem_GetMenuInput();
+
+    switch (input)
+    {
+    case MENU_INPUT_LR:
+        return FALSE;
+    case MENU_INPUT_B:
+        helpListMenu->state = HELP_MENU_THIRD_MENU_GOTO_SECOND;
+        break;
+    case MENU_INPUT_DOWN:
+    case MENU_INPUT_UP:
+    case -3:
+    case MENU_INPUT_IDLE:
+        break;
+    default:
+        gHelpSystemState.verse = input;
+        helpListMenu->state = HELP_MENU_THIRD_MENU_GOTO_FOURTH;
+        break;
+    }
+    return TRUE;
+}
+
+void HelpSystem_PrintTopicLabel(void)
+{
+    HelpSystem_PrintTextAt(
+        (const u8 *)(sHelpSystemTopicPtrs[gHelpSystemState.topic]), 0, 0
+    );
+}
+
+bool8 HelpMenuSubroutine_HelpItemPrintLayer3(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.level = 3;
+    HS_ShowOrHideMainWindowText(0);
+    HelpSystem_FillPanel1();
+    PrintTextOnPanel2Row52RightAlign(gText_HelpSystemControls_AorBtoCancel);
+    HS_SetMainWindowBgBrightness(1);
+    HS_ShowOrHideHeaderAndFooterLines_Darker(1);
+
+    StringCopy(sFullLabel, (const u8 *)(sHelpSystemTopicPtrs[gHelpSystemState.topic]));
+    StringAppend(sFullLabel, gText_RegionMap_Space);
+    StringAppend(sFullLabel, sLayer2ChapterTextPtrs[gHelpSystemState.chapter]);
+    StringAppend(sFullLabel, gExpandedPlaceholder_Separator);
+    StringAppend(sFullLabel, (const u8 *) (sLayer3VerseCaptionTextPtrs[gHelpSystemState.verse]));
+    HelpSystem_PrintQuestionAndAnswerPair(
+        sFullLabel,
+        (const u8 *)(sLayer3VerseDescTextPtrs[gHelpSystemState.topic][gHelpSystemState.chapter][gHelpSystemState.verse])
+    );
+    HS_ShowOrHideMainWindowText(1);
+    HS_ShowOrHideControlsGuideInTopRight(1);
+    helpListMenu->state = HELP_MENU_FOURTH_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_ReturnToLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.level = 1;
+    gHelpSystemState.verse = 0;
+    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_SECOND_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_ReturnToLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    gHelpSystemState.level = 2;
+    BuildAndPrintSubmenuList(helpListMenu, listMenuItemsBuffer);
+    HS_UpdateMenuScrollArrows();
+    HelpSystem_SetInputDelay(2);
+    helpListMenu->state = HELP_MENU_THIRD_MENU_WAIT;
+    return TRUE;
+}
+
+bool8 HelpMenuSubroutine_VerseDetails_WaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer)
+{
+    if (JOY_NEW(B_BUTTON) || JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        helpListMenu->state = HELP_MENU_FOURTH_MENU_GOTO_THIRD;
+        return TRUE;
+    }
+    if (JOY_NEW(L_BUTTON | R_BUTTON))
+        return FALSE;
+    return TRUE;
+}
+
+static void PrintWelcomeMessageOnPanel1(void)
+{
+    HelpSystem_FillPanel1();
+    HelpSystem_PrintTextAt(Help_Text_Greetings, 0, 0);
+}
+
+static void PrintSecondWelcomeMessageOnPanel1(void)
+{
+    HelpSystem_FillPanel1();
+    HelpSystem_PrintTextAt(Help_Text_Continued, 0, 0);
+}
+
+
+static void PrintTextOnPanel2Row52RightAlign(const u8 * str)
+{
+    HelpSystem_FillPanel2();
+    HelpSystem_PrintTextRightAlign_Row52(str);
+}
+
+u8 GetHelpSystemMenuLevel(void)
+{
+    return gHelpSystemState.level;
+}
+
+static void ResetHelpSystemCursor(struct HelpSystemListMenu * helpListMenu)
+{
+    helpListMenu->itemsAbove = 0;
+    helpListMenu->cursorPos = 0;
+}
+
+static u8 GetHighestFilledArrayElement(u8 dimension)
+{
+    u8 x, y, z;
+    u8 value_max = 0;
+
+    if (dimension > 2)
+        dimension = 2;
+
+    for (x = 0; x < TOPIC_COUNT; x++)
+    {
+        if (dimension != 0)
+        {
+            for (y = 0; y < NUM_HIGHEST_BIBLE_CHAPTER; y++)
+            {
+                if (dimension != 1)
+                {
+                    for (z = 0; z < NUM_HIGHEST_BIBLE_VERSE; z++)
+                    {
+                        if (sLayer3VerseDescTextPtrs[gHelpSystemState.topic][gHelpSystemState.chapter][z] != 0)
+                        {
+                            if (z > value_max)
+                                value_max = z;
+                        }
+                        else
+                            break;
+                    }
+                    break;
+                }
+                if (sLayer3VerseDescTextPtrs[gHelpSystemState.topic][y] != 0)
+                {
+                    if (y > value_max)
+                        value_max = y;
+                }
+                else
+                    break;
+            }
+            break;
+        }
+        if (sLayer3VerseDescTextPtrs[x] != 0)
+        {
+            if (x > value_max)
+                value_max = x;
+        }
+        else
+            break;
+    }
+
+    value_max++; // add 1 due to the 0 index
+    return value_max;
+}
+
+
+/*
+Lord Almighty
+Yes, I am doing this godforsaken thing.
+
+Wish me luck.
+Amen.
+*/
+
+static const u8 *const sLayer2ChapterTextPtrs[] = {
+    chapter_1,
+    chapter_2,
+    chapter_3,
+    chapter_4,
+    chapter_5,
+    chapter_6,
+    chapter_7,
+    chapter_8,
+    chapter_9,
+    chapter_10,
+    chapter_11,
+    chapter_12,
+    chapter_13,
+    chapter_14,
+    chapter_15,
+    chapter_16,
+    chapter_17,
+    chapter_18,
+    chapter_19,
+    chapter_20,
+    chapter_21,
+    chapter_22,
+    chapter_23,
+    chapter_24,
+    chapter_25,
+    chapter_26,
+    chapter_27,
+    chapter_28,
+    chapter_29,
+    chapter_30,
+    chapter_31,
+    chapter_32,
+    chapter_33,
+    chapter_34,
+    chapter_35,
+    chapter_36,
+    chapter_37,
+    chapter_38,
+    chapter_39,
+    chapter_40,
+    chapter_41,
+    chapter_42,
+    chapter_43,
+    chapter_44,
+    chapter_45,
+    chapter_46,
+    chapter_47,
+    chapter_48,
+    chapter_49,
+    chapter_50,
+    chapter_51,
+    chapter_52,
+    chapter_53,
+    chapter_54,
+    chapter_55,
+    chapter_56,
+    chapter_57,
+    chapter_58,
+    chapter_59,
+    chapter_60,
+    chapter_61,
+    chapter_62,
+    chapter_63,
+    chapter_64,
+    chapter_65,
+    chapter_66,
+    chapter_67,
+    chapter_68,
+    chapter_69,
+    chapter_70,
+    chapter_71,
+    chapter_72,
+    chapter_73,
+    chapter_74,
+    chapter_75,
+    chapter_76,
+    chapter_77,
+    chapter_78,
+    chapter_79,
+    chapter_80,
+    chapter_81,
+    chapter_82,
+    chapter_83,
+    chapter_84,
+    chapter_85,
+    chapter_86,
+    chapter_87,
+    chapter_88,
+    chapter_89,
+    chapter_90,
+    chapter_91,
+    chapter_92,
+    chapter_93,
+    chapter_94,
+    chapter_95,
+    chapter_96,
+    chapter_97,
+    chapter_98,
+    chapter_99,
+    chapter_100,
+    chapter_101,
+    chapter_102,
+    chapter_103,
+    chapter_104,
+    chapter_105,
+    chapter_106,
+    chapter_107,
+    chapter_108,
+    chapter_109,
+    chapter_110,
+    chapter_111,
+    chapter_112,
+    chapter_113,
+    chapter_114,
+    chapter_115,
+    chapter_116,
+    chapter_117,
+    chapter_118,
+    chapter_119,
+    chapter_120,
+    chapter_121,
+    chapter_122,
+    chapter_123,
+    chapter_124,
+    chapter_125,
+    chapter_126,
+    chapter_127,
+    chapter_128,
+    chapter_129,
+    chapter_130,
+    chapter_131,
+    chapter_132,
+    chapter_133,
+    chapter_134,
+    chapter_135,
+    chapter_136,
+    chapter_137,
+    chapter_138,
+    chapter_139,
+    chapter_140,
+    chapter_141,
+    chapter_142,
+    chapter_143,
+    chapter_144,
+    chapter_145,
+    chapter_146,
+    chapter_147,
+    chapter_148,
+    chapter_149,
+    chapter_150
+};
+
+static const u16 *const *const *const sLayer3VerseDescTextPtrs[] = {
+    sBibleText_GenesisTextPtrs,
+    sBibleText_ExodusTextPtrs,
+    sBibleText_LeviticusTextPtrs,
+    sBibleText_NumbersTextPtrs,
+    sBibleText_DeuteronomyTextPtrs,
+    sBibleText_JoshuaTextPtrs,
+    sBibleText_JudgesTextPtrs,
+    sBibleText_RuthTextPtrs,
+    sBibleText_1SamuelTextPtrs,
+    sBibleText_2SamuelTextPtrs,
+    sBibleText_1KingsTextPtrs,
+    sBibleText_2KingsTextPtrs,
+    sBibleText_1ChroniclesTextPtrs,
+    sBibleText_2ChroniclesTextPtrs,
+    sBibleText_EzraTextPtrs,
+    sBibleText_NehemiahTextPtrs,
+    sBibleText_EstherTextPtrs,
+    sBibleText_JobTextPtrs,
+    sBibleText_PsalmsTextPtrs,
+    sBibleText_ProverbsTextPtrs,
+    sBibleText_EcclesiastesTextPtrs,
+    sBibleText_SongOfSolomonTextPtrs,
+    sBibleText_IsaiahTextPtrs,
+    sBibleText_JeremiahTextPtrs,
+    sBibleText_LamentationsTextPtrs,
+    sBibleText_EzekielTextPtrs,
+    sBibleText_DanielTextPtrs,
+    sBibleText_HoseaTextPtrs,
+    sBibleText_JoelTextPtrs,
+    sBibleText_AmosTextPtrs,
+    sBibleText_ObadiahTextPtrs,
+    sBibleText_JonahTextPtrs,
+    sBibleText_MicahTextPtrs,
+    sBibleText_NahumTextPtrs,
+    sBibleText_HabakkukTextPtrs,
+    sBibleText_ZephaniahTextPtrs,
+    sBibleText_HaggaiTextPtrs,
+    sBibleText_ZechariahTextPtrs,
+    sBibleText_MalachiTextPtrs,
+    sBibleText_MatthewTextPtrs,
+    sBibleText_MarkTextPtrs,
+    sBibleText_LukeTextPtrs,
+    sBibleText_JohnTextPtrs,
+    sBibleText_ActsTextPtrs,
+    sBibleText_PaulTextPtrs,
+    sBibleText_1CorinthiansTextPtrs,
+    sBibleText_2CorinthiansTextPtrs,
+    sBibleText_GalatiansTextPtrs,
+    sBibleText_EphesiansTextPtrs,
+    sBibleText_PhilippiansTextPtrs,
+    sBibleText_ColossiansTextPtrs,
+    sBibleText_1ThessaloniansTextPtrs,
+    sBibleText_2ThessaloniansTextPtrs,
+    sBibleText_1TimothyTextPtrs,
+    sBibleText_2TimothyTextPtrs,
+    sBibleText_TitusTextPtrs,
+    sBibleText_PhilemonTextPtrs,
+    sBibleText_HebrewsTextPtrs,
+    sBibleText_JamesTextPtrs,
+    sBibleText_1PeterTextPtrs,
+    sBibleText_2PeterTextPtrs,
+    sBibleText_1JohnTextPtrs,
+    sBibleText_2JohnTextPtrs,
+    sBibleText_3JohnTextPtrs,
+    sBibleText_JudeTextPtrs,
+    sBibleText_RevelationTextPtrs
+};
+
+static const u8 *const sLayer3VerseCaptionTextPtrs[] = {
+    verse_1,
+    verse_2,
+    verse_3,
+    verse_4,
+    verse_5,
+    verse_6,
+    verse_7,
+    verse_8,
+    verse_9,
+    verse_10,
+    verse_11,
+    verse_12,
+    verse_13,
+    verse_14,
+    verse_15,
+    verse_16,
+    verse_17,
+    verse_18,
+    verse_19,
+    verse_20,
+    verse_21,
+    verse_22,
+    verse_23,
+    verse_24,
+    verse_25,
+    verse_26,
+    verse_27,
+    verse_28,
+    verse_29,
+    verse_30,
+    verse_31,
+    verse_32,
+    verse_33,
+    verse_34,
+    verse_35,
+    verse_36,
+    verse_37,
+    verse_38,
+    verse_39,
+    verse_40,
+    verse_41,
+    verse_42,
+    verse_43,
+    verse_44,
+    verse_45,
+    verse_46,
+    verse_47,
+    verse_48,
+    verse_49,
+    verse_50,
+    verse_51,
+    verse_52,
+    verse_53,
+    verse_54,
+    verse_55,
+    verse_56,
+    verse_57,
+    verse_58,
+    verse_59,
+    verse_60,
+    verse_61,
+    verse_62,
+    verse_63,
+    verse_64,
+    verse_65,
+    verse_66,
+    verse_67,
+    verse_68,
+    verse_69,
+    verse_70,
+    verse_71,
+    verse_72,
+    verse_73,
+    verse_74,
+    verse_75,
+    verse_76,
+    verse_77,
+    verse_78,
+    verse_79,
+    verse_80,
+    verse_81,
+    verse_82,
+    verse_83,
+    verse_84,
+    verse_85,
+    verse_86,
+    verse_87,
+    verse_88,
+    verse_89,
+    verse_90,
+    verse_91,
+    verse_92,
+    verse_93,
+    verse_94,
+    verse_95,
+    verse_96,
+    verse_97,
+    verse_98,
+    verse_99,
+    verse_100,
+    verse_101,
+    verse_102,
+    verse_103,
+    verse_104,
+    verse_105,
+    verse_106,
+    verse_107,
+    verse_108,
+    verse_109,
+    verse_110,
+    verse_111,
+    verse_112,
+    verse_113,
+    verse_114,
+    verse_115,
+    verse_116,
+    verse_117,
+    verse_118,
+    verse_119,
+    verse_120,
+    verse_121,
+    verse_122,
+    verse_123,
+    verse_124,
+    verse_125,
+    verse_126,
+    verse_127,
+    verse_128,
+    verse_129,
+    verse_130,
+    verse_131,
+    verse_132,
+    verse_133,
+    verse_134,
+    verse_135,
+    verse_136,
+    verse_137,
+    verse_138,
+    verse_139,
+    verse_140,
+    verse_141,
+    verse_142,
+    verse_143,
+    verse_144,
+    verse_145,
+    verse_146,
+    verse_147,
+    verse_148,
+    verse_149,
+    verse_150,
+    verse_151,
+    verse_152,
+    verse_153,
+    verse_154,
+    verse_155,
+    verse_156,
+    verse_157,
+    verse_158,
+    verse_159,
+    verse_160,
+    verse_161,
+    verse_162,
+    verse_163,
+    verse_164,
+    verse_165,
+    verse_166,
+    verse_167,
+    verse_168,
+    verse_169,
+    verse_170,
+    verse_171,
+    verse_172,
+    verse_173,
+    verse_174,
+    verse_175,
+    verse_176,
+};
+
+static const u16 *const sGenesis_Chapter1[] = {
     Bible_Text_Genesis_1_1,
     Bible_Text_Genesis_1_2,
     Bible_Text_Genesis_1_3,
@@ -4439,9 +2095,10 @@ static const u8 *const sGenesis_Chapter1[] = {
     Bible_Text_Genesis_1_29,
     Bible_Text_Genesis_1_30,
     Bible_Text_Genesis_1_31,
+    0
 };
 
-static const u8 *const sGenesis_Chapter2[] = {
+static const u16 *const sGenesis_Chapter2[] = {
     Bible_Text_Genesis_2_1,
     Bible_Text_Genesis_2_2,
     Bible_Text_Genesis_2_3,
@@ -4467,9 +2124,10 @@ static const u8 *const sGenesis_Chapter2[] = {
     Bible_Text_Genesis_2_23,
     Bible_Text_Genesis_2_24,
     Bible_Text_Genesis_2_25,
+    0
 };
 
-static const u8 *const sGenesis_Chapter3[] = {
+static const u16 *const sGenesis_Chapter3[] = {
     Bible_Text_Genesis_3_1,
     Bible_Text_Genesis_3_2,
     Bible_Text_Genesis_3_3,
@@ -4494,9 +2152,10 @@ static const u8 *const sGenesis_Chapter3[] = {
     Bible_Text_Genesis_3_22,
     Bible_Text_Genesis_3_23,
     Bible_Text_Genesis_3_24,
+    0
 };
 
-static const u8 *const sGenesis_Chapter4[] = {
+static const u16 *const sGenesis_Chapter4[] = {
     Bible_Text_Genesis_4_1,
     Bible_Text_Genesis_4_2,
     Bible_Text_Genesis_4_3,
@@ -4523,9 +2182,10 @@ static const u8 *const sGenesis_Chapter4[] = {
     Bible_Text_Genesis_4_24,
     Bible_Text_Genesis_4_25,
     Bible_Text_Genesis_4_26,
+    0
 };
 
-static const u8 *const sGenesis_Chapter5[] = {
+static const u16 *const sGenesis_Chapter5[] = {
     Bible_Text_Genesis_5_1,
     Bible_Text_Genesis_5_2,
     Bible_Text_Genesis_5_3,
@@ -4558,9 +2218,10 @@ static const u8 *const sGenesis_Chapter5[] = {
     Bible_Text_Genesis_5_30,
     Bible_Text_Genesis_5_31,
     Bible_Text_Genesis_5_32,
+    0
 };
 
-static const u8 *const sGenesis_Chapter6[] = {
+static const u16 *const sGenesis_Chapter6[] = {
     Bible_Text_Genesis_6_1,
     Bible_Text_Genesis_6_2,
     Bible_Text_Genesis_6_3,
@@ -4583,9 +2244,10 @@ static const u8 *const sGenesis_Chapter6[] = {
     Bible_Text_Genesis_6_20,
     Bible_Text_Genesis_6_21,
     Bible_Text_Genesis_6_22,
+    0
 };
 
-static const u8 *const sGenesis_Chapter7[] = {
+static const u16 *const sGenesis_Chapter7[] = {
     Bible_Text_Genesis_7_1,
     Bible_Text_Genesis_7_2,
     Bible_Text_Genesis_7_3,
@@ -4610,9 +2272,10 @@ static const u8 *const sGenesis_Chapter7[] = {
     Bible_Text_Genesis_7_22,
     Bible_Text_Genesis_7_23,
     Bible_Text_Genesis_7_24,
+    0
 };
 
-static const u8 *const sGenesis_Chapter8[] = {
+static const u16 *const sGenesis_Chapter8[] = {
     Bible_Text_Genesis_8_1,
     Bible_Text_Genesis_8_2,
     Bible_Text_Genesis_8_3,
@@ -4635,9 +2298,10 @@ static const u8 *const sGenesis_Chapter8[] = {
     Bible_Text_Genesis_8_20,
     Bible_Text_Genesis_8_21,
     Bible_Text_Genesis_8_22,
+    0
 };
 
-static const u8 *const sGenesis_Chapter9[] = {
+static const u16 *const sGenesis_Chapter9[] = {
     Bible_Text_Genesis_9_1,
     Bible_Text_Genesis_9_2,
     Bible_Text_Genesis_9_3,
@@ -4667,9 +2331,10 @@ static const u8 *const sGenesis_Chapter9[] = {
     Bible_Text_Genesis_9_27,
     Bible_Text_Genesis_9_28,
     Bible_Text_Genesis_9_29,
+    0
 };
 
-static const u8 *const sGenesis_Chapter10[] = {
+static const u16 *const sGenesis_Chapter10[] = {
     Bible_Text_Genesis_10_1,
     Bible_Text_Genesis_10_2,
     Bible_Text_Genesis_10_3,
@@ -4702,9 +2367,10 @@ static const u8 *const sGenesis_Chapter10[] = {
     Bible_Text_Genesis_10_30,
     Bible_Text_Genesis_10_31,
     Bible_Text_Genesis_10_32,
+    0
 };
 
-static const u8 *const sGenesis_Chapter11[] = {
+static const u16 *const sGenesis_Chapter11[] = {
     Bible_Text_Genesis_11_1,
     Bible_Text_Genesis_11_2,
     Bible_Text_Genesis_11_3,
@@ -4737,9 +2403,10 @@ static const u8 *const sGenesis_Chapter11[] = {
     Bible_Text_Genesis_11_30,
     Bible_Text_Genesis_11_31,
     Bible_Text_Genesis_11_32,
+    0
 };
 
-static const u8 *const sGenesis_Chapter12[] = {
+static const u16 *const sGenesis_Chapter12[] = {
     Bible_Text_Genesis_12_1,
     Bible_Text_Genesis_12_2,
     Bible_Text_Genesis_12_3,
@@ -4760,9 +2427,10 @@ static const u8 *const sGenesis_Chapter12[] = {
     Bible_Text_Genesis_12_18,
     Bible_Text_Genesis_12_19,
     Bible_Text_Genesis_12_20,
+    0
 };
 
-static const u8 *const sGenesis_Chapter13[] = {
+static const u16 *const sGenesis_Chapter13[] = {
     Bible_Text_Genesis_13_1,
     Bible_Text_Genesis_13_2,
     Bible_Text_Genesis_13_3,
@@ -4781,9 +2449,10 @@ static const u8 *const sGenesis_Chapter13[] = {
     Bible_Text_Genesis_13_16,
     Bible_Text_Genesis_13_17,
     Bible_Text_Genesis_13_18,
+    0
 };
 
-static const u8 *const sGenesis_Chapter14[] = {
+static const u16 *const sGenesis_Chapter14[] = {
     Bible_Text_Genesis_14_1,
     Bible_Text_Genesis_14_2,
     Bible_Text_Genesis_14_3,
@@ -4808,9 +2477,10 @@ static const u8 *const sGenesis_Chapter14[] = {
     Bible_Text_Genesis_14_22,
     Bible_Text_Genesis_14_23,
     Bible_Text_Genesis_14_24,
+    0
 };
 
-static const u8 *const sGenesis_Chapter15[] = {
+static const u16 *const sGenesis_Chapter15[] = {
     Bible_Text_Genesis_15_1,
     Bible_Text_Genesis_15_2,
     Bible_Text_Genesis_15_3,
@@ -4832,9 +2502,10 @@ static const u8 *const sGenesis_Chapter15[] = {
     Bible_Text_Genesis_15_19,
     Bible_Text_Genesis_15_20,
     Bible_Text_Genesis_15_21,
+    0
 };
 
-static const u8 *const sGenesis_Chapter16[] = {
+static const u16 *const sGenesis_Chapter16[] = {
     Bible_Text_Genesis_16_1,
     Bible_Text_Genesis_16_2,
     Bible_Text_Genesis_16_3,
@@ -4851,9 +2522,10 @@ static const u8 *const sGenesis_Chapter16[] = {
     Bible_Text_Genesis_16_14,
     Bible_Text_Genesis_16_15,
     Bible_Text_Genesis_16_16,
+    0
 };
 
-static const u8 *const sGenesis_Chapter17[] = {
+static const u16 *const sGenesis_Chapter17[] = {
     Bible_Text_Genesis_17_1,
     Bible_Text_Genesis_17_2,
     Bible_Text_Genesis_17_3,
@@ -4881,9 +2553,10 @@ static const u8 *const sGenesis_Chapter17[] = {
     Bible_Text_Genesis_17_25,
     Bible_Text_Genesis_17_26,
     Bible_Text_Genesis_17_27,
+    0
 };
 
-static const u8 *const sGenesis_Chapter18[] = {
+static const u16 *const sGenesis_Chapter18[] = {
     Bible_Text_Genesis_18_1,
     Bible_Text_Genesis_18_2,
     Bible_Text_Genesis_18_3,
@@ -4917,9 +2590,10 @@ static const u8 *const sGenesis_Chapter18[] = {
     Bible_Text_Genesis_18_31,
     Bible_Text_Genesis_18_32,
     Bible_Text_Genesis_18_33,
+    0
 };
 
-static const u8 *const sGenesis_Chapter19[] = {
+static const u16 *const sGenesis_Chapter19[] = {
     Bible_Text_Genesis_19_1,
     Bible_Text_Genesis_19_2,
     Bible_Text_Genesis_19_3,
@@ -4958,9 +2632,10 @@ static const u8 *const sGenesis_Chapter19[] = {
     Bible_Text_Genesis_19_36,
     Bible_Text_Genesis_19_37,
     Bible_Text_Genesis_19_38,
+    0
 };
 
-static const u8 *const sGenesis_Chapter20[] = {
+static const u16 *const sGenesis_Chapter20[] = {
     Bible_Text_Genesis_20_1,
     Bible_Text_Genesis_20_2,
     Bible_Text_Genesis_20_3,
@@ -4979,9 +2654,10 @@ static const u8 *const sGenesis_Chapter20[] = {
     Bible_Text_Genesis_20_16,
     Bible_Text_Genesis_20_17,
     Bible_Text_Genesis_20_18,
+    0
 };
 
-static const u8 *const sGenesis_Chapter21[] = {
+static const u16 *const sGenesis_Chapter21[] = {
     Bible_Text_Genesis_21_1,
     Bible_Text_Genesis_21_2,
     Bible_Text_Genesis_21_3,
@@ -5016,9 +2692,10 @@ static const u8 *const sGenesis_Chapter21[] = {
     Bible_Text_Genesis_21_32,
     Bible_Text_Genesis_21_33,
     Bible_Text_Genesis_21_34,
+    0
 };
 
-static const u8 *const sGenesis_Chapter22[] = {
+static const u16 *const sGenesis_Chapter22[] = {
     Bible_Text_Genesis_22_1,
     Bible_Text_Genesis_22_2,
     Bible_Text_Genesis_22_3,
@@ -5043,9 +2720,10 @@ static const u8 *const sGenesis_Chapter22[] = {
     Bible_Text_Genesis_22_22,
     Bible_Text_Genesis_22_23,
     Bible_Text_Genesis_22_24,
+    0
 };
 
-static const u8 *const sGenesis_Chapter23[] = {
+static const u16 *const sGenesis_Chapter23[] = {
     Bible_Text_Genesis_23_1,
     Bible_Text_Genesis_23_2,
     Bible_Text_Genesis_23_3,
@@ -5066,9 +2744,10 @@ static const u8 *const sGenesis_Chapter23[] = {
     Bible_Text_Genesis_23_18,
     Bible_Text_Genesis_23_19,
     Bible_Text_Genesis_23_20,
+    0
 };
 
-static const u8 *const sGenesis_Chapter24[] = {
+static const u16 *const sGenesis_Chapter24[] = {
     Bible_Text_Genesis_24_1,
     Bible_Text_Genesis_24_2,
     Bible_Text_Genesis_24_3,
@@ -5136,9 +2815,10 @@ static const u8 *const sGenesis_Chapter24[] = {
     Bible_Text_Genesis_24_65,
     Bible_Text_Genesis_24_66,
     Bible_Text_Genesis_24_67,
+    0
 };
 
-static const u8 *const sGenesis_Chapter25[] = {
+static const u16 *const sGenesis_Chapter25[] = {
     Bible_Text_Genesis_25_1,
     Bible_Text_Genesis_25_2,
     Bible_Text_Genesis_25_3,
@@ -5173,9 +2853,10 @@ static const u8 *const sGenesis_Chapter25[] = {
     Bible_Text_Genesis_25_32,
     Bible_Text_Genesis_25_33,
     Bible_Text_Genesis_25_34,
+    0
 };
 
-static const u8 *const sGenesis_Chapter26[] = {
+static const u16 *const sGenesis_Chapter26[] = {
     Bible_Text_Genesis_26_1,
     Bible_Text_Genesis_26_2,
     Bible_Text_Genesis_26_3,
@@ -5211,9 +2892,10 @@ static const u8 *const sGenesis_Chapter26[] = {
     Bible_Text_Genesis_26_33,
     Bible_Text_Genesis_26_34,
     Bible_Text_Genesis_26_35,
+    0
 };
 
-static const u8 *const sGenesis_Chapter27[] = {
+static const u16 *const sGenesis_Chapter27[] = {
     Bible_Text_Genesis_27_1,
     Bible_Text_Genesis_27_2,
     Bible_Text_Genesis_27_3,
@@ -5260,9 +2942,10 @@ static const u8 *const sGenesis_Chapter27[] = {
     Bible_Text_Genesis_27_44,
     Bible_Text_Genesis_27_45,
     Bible_Text_Genesis_27_46,
+    0
 };
 
-static const u8 *const sGenesis_Chapter28[] = {
+static const u16 *const sGenesis_Chapter28[] = {
     Bible_Text_Genesis_28_1,
     Bible_Text_Genesis_28_2,
     Bible_Text_Genesis_28_3,
@@ -5285,9 +2968,10 @@ static const u8 *const sGenesis_Chapter28[] = {
     Bible_Text_Genesis_28_20,
     Bible_Text_Genesis_28_21,
     Bible_Text_Genesis_28_22,
+    0
 };
 
-static const u8 *const sGenesis_Chapter29[] = {
+static const u16 *const sGenesis_Chapter29[] = {
     Bible_Text_Genesis_29_1,
     Bible_Text_Genesis_29_2,
     Bible_Text_Genesis_29_3,
@@ -5323,9 +3007,10 @@ static const u8 *const sGenesis_Chapter29[] = {
     Bible_Text_Genesis_29_33,
     Bible_Text_Genesis_29_34,
     Bible_Text_Genesis_29_35,
+    0
 };
 
-static const u8 *const sGenesis_Chapter30[] = {
+static const u16 *const sGenesis_Chapter30[] = {
     Bible_Text_Genesis_30_1,
     Bible_Text_Genesis_30_2,
     Bible_Text_Genesis_30_3,
@@ -5369,9 +3054,10 @@ static const u8 *const sGenesis_Chapter30[] = {
     Bible_Text_Genesis_30_41,
     Bible_Text_Genesis_30_42,
     Bible_Text_Genesis_30_43,
+    0
 };
 
-static const u8 *const sGenesis_Chapter31[] = {
+static const u16 *const sGenesis_Chapter31[] = {
     Bible_Text_Genesis_31_1,
     Bible_Text_Genesis_31_2,
     Bible_Text_Genesis_31_3,
@@ -5427,9 +3113,10 @@ static const u8 *const sGenesis_Chapter31[] = {
     Bible_Text_Genesis_31_53,
     Bible_Text_Genesis_31_54,
     Bible_Text_Genesis_31_55,
+    0
 };
 
-static const u8 *const sGenesis_Chapter32[] = {
+static const u16 *const sGenesis_Chapter32[] = {
     Bible_Text_Genesis_32_1,
     Bible_Text_Genesis_32_2,
     Bible_Text_Genesis_32_3,
@@ -5462,9 +3149,10 @@ static const u8 *const sGenesis_Chapter32[] = {
     Bible_Text_Genesis_32_30,
     Bible_Text_Genesis_32_31,
     Bible_Text_Genesis_32_32,
+    0
 };
 
-static const u8 *const sGenesis_Chapter33[] = {
+static const u16 *const sGenesis_Chapter33[] = {
     Bible_Text_Genesis_33_1,
     Bible_Text_Genesis_33_2,
     Bible_Text_Genesis_33_3,
@@ -5485,9 +3173,10 @@ static const u8 *const sGenesis_Chapter33[] = {
     Bible_Text_Genesis_33_18,
     Bible_Text_Genesis_33_19,
     Bible_Text_Genesis_33_20,
+    0
 };
 
-static const u8 *const sGenesis_Chapter34[] = {
+static const u16 *const sGenesis_Chapter34[] = {
     Bible_Text_Genesis_34_1,
     Bible_Text_Genesis_34_2,
     Bible_Text_Genesis_34_3,
@@ -5519,9 +3208,10 @@ static const u8 *const sGenesis_Chapter34[] = {
     Bible_Text_Genesis_34_29,
     Bible_Text_Genesis_34_30,
     Bible_Text_Genesis_34_31,
+    0
 };
 
-static const u8 *const sGenesis_Chapter35[] = {
+static const u16 *const sGenesis_Chapter35[] = {
     Bible_Text_Genesis_35_1,
     Bible_Text_Genesis_35_2,
     Bible_Text_Genesis_35_3,
@@ -5551,9 +3241,10 @@ static const u8 *const sGenesis_Chapter35[] = {
     Bible_Text_Genesis_35_27,
     Bible_Text_Genesis_35_28,
     Bible_Text_Genesis_35_29,
+    0
 };
 
-static const u8 *const sGenesis_Chapter36[] = {
+static const u16 *const sGenesis_Chapter36[] = {
     Bible_Text_Genesis_36_1,
     Bible_Text_Genesis_36_2,
     Bible_Text_Genesis_36_3,
@@ -5597,9 +3288,10 @@ static const u8 *const sGenesis_Chapter36[] = {
     Bible_Text_Genesis_36_41,
     Bible_Text_Genesis_36_42,
     Bible_Text_Genesis_36_43,
+    0
 };
 
-static const u8 *const sGenesis_Chapter37[] = {
+static const u16 *const sGenesis_Chapter37[] = {
     Bible_Text_Genesis_37_1,
     Bible_Text_Genesis_37_2,
     Bible_Text_Genesis_37_3,
@@ -5636,9 +3328,10 @@ static const u8 *const sGenesis_Chapter37[] = {
     Bible_Text_Genesis_37_34,
     Bible_Text_Genesis_37_35,
     Bible_Text_Genesis_37_36,
+    0
 };
 
-static const u8 *const sGenesis_Chapter38[] = {
+static const u16 *const sGenesis_Chapter38[] = {
     Bible_Text_Genesis_38_1,
     Bible_Text_Genesis_38_2,
     Bible_Text_Genesis_38_3,
@@ -5669,9 +3362,10 @@ static const u8 *const sGenesis_Chapter38[] = {
     Bible_Text_Genesis_38_28,
     Bible_Text_Genesis_38_29,
     Bible_Text_Genesis_38_30,
+    0
 };
 
-static const u8 *const sGenesis_Chapter39[] = {
+static const u16 *const sGenesis_Chapter39[] = {
     Bible_Text_Genesis_39_1,
     Bible_Text_Genesis_39_2,
     Bible_Text_Genesis_39_3,
@@ -5695,9 +3389,10 @@ static const u8 *const sGenesis_Chapter39[] = {
     Bible_Text_Genesis_39_21,
     Bible_Text_Genesis_39_22,
     Bible_Text_Genesis_39_23,
+    0
 };
 
-static const u8 *const sGenesis_Chapter40[] = {
+static const u16 *const sGenesis_Chapter40[] = {
     Bible_Text_Genesis_40_1,
     Bible_Text_Genesis_40_2,
     Bible_Text_Genesis_40_3,
@@ -5721,9 +3416,10 @@ static const u8 *const sGenesis_Chapter40[] = {
     Bible_Text_Genesis_40_21,
     Bible_Text_Genesis_40_22,
     Bible_Text_Genesis_40_23,
+    0
 };
 
-static const u8 *const sGenesis_Chapter41[] = {
+static const u16 *const sGenesis_Chapter41[] = {
     Bible_Text_Genesis_41_1,
     Bible_Text_Genesis_41_2,
     Bible_Text_Genesis_41_3,
@@ -5781,9 +3477,10 @@ static const u8 *const sGenesis_Chapter41[] = {
     Bible_Text_Genesis_41_55,
     Bible_Text_Genesis_41_56,
     Bible_Text_Genesis_41_57,
+    0
 };
 
-static const u8 *const sGenesis_Chapter42[] = {
+static const u16 *const sGenesis_Chapter42[] = {
     Bible_Text_Genesis_42_1,
     Bible_Text_Genesis_42_2,
     Bible_Text_Genesis_42_3,
@@ -5822,9 +3519,10 @@ static const u8 *const sGenesis_Chapter42[] = {
     Bible_Text_Genesis_42_36,
     Bible_Text_Genesis_42_37,
     Bible_Text_Genesis_42_38,
+    0
 };
 
-static const u8 *const sGenesis_Chapter43[] = {
+static const u16 *const sGenesis_Chapter43[] = {
     Bible_Text_Genesis_43_1,
     Bible_Text_Genesis_43_2,
     Bible_Text_Genesis_43_3,
@@ -5859,9 +3557,10 @@ static const u8 *const sGenesis_Chapter43[] = {
     Bible_Text_Genesis_43_32,
     Bible_Text_Genesis_43_33,
     Bible_Text_Genesis_43_34,
+    0
 };
 
-static const u8 *const sGenesis_Chapter44[] = {
+static const u16 *const sGenesis_Chapter44[] = {
     Bible_Text_Genesis_44_1,
     Bible_Text_Genesis_44_2,
     Bible_Text_Genesis_44_3,
@@ -5896,9 +3595,10 @@ static const u8 *const sGenesis_Chapter44[] = {
     Bible_Text_Genesis_44_32,
     Bible_Text_Genesis_44_33,
     Bible_Text_Genesis_44_34,
+    0
 };
 
-static const u8 *const sGenesis_Chapter45[] = {
+static const u16 *const sGenesis_Chapter45[] = {
     Bible_Text_Genesis_45_1,
     Bible_Text_Genesis_45_2,
     Bible_Text_Genesis_45_3,
@@ -5927,9 +3627,10 @@ static const u8 *const sGenesis_Chapter45[] = {
     Bible_Text_Genesis_45_26,
     Bible_Text_Genesis_45_27,
     Bible_Text_Genesis_45_28,
+    0
 };
 
-static const u8 *const sGenesis_Chapter46[] = {
+static const u16 *const sGenesis_Chapter46[] = {
     Bible_Text_Genesis_46_1,
     Bible_Text_Genesis_46_2,
     Bible_Text_Genesis_46_3,
@@ -5964,9 +3665,10 @@ static const u8 *const sGenesis_Chapter46[] = {
     Bible_Text_Genesis_46_32,
     Bible_Text_Genesis_46_33,
     Bible_Text_Genesis_46_34,
+    0
 };
 
-static const u8 *const sGenesis_Chapter47[] = {
+static const u16 *const sGenesis_Chapter47[] = {
     Bible_Text_Genesis_47_1,
     Bible_Text_Genesis_47_2,
     Bible_Text_Genesis_47_3,
@@ -5998,9 +3700,10 @@ static const u8 *const sGenesis_Chapter47[] = {
     Bible_Text_Genesis_47_29,
     Bible_Text_Genesis_47_30,
     Bible_Text_Genesis_47_31,
+    0
 };
 
-static const u8 *const sGenesis_Chapter48[] = {
+static const u16 *const sGenesis_Chapter48[] = {
     Bible_Text_Genesis_48_1,
     Bible_Text_Genesis_48_2,
     Bible_Text_Genesis_48_3,
@@ -6023,9 +3726,10 @@ static const u8 *const sGenesis_Chapter48[] = {
     Bible_Text_Genesis_48_20,
     Bible_Text_Genesis_48_21,
     Bible_Text_Genesis_48_22,
+    0
 };
 
-static const u8 *const sGenesis_Chapter49[] = {
+static const u16 *const sGenesis_Chapter49[] = {
     Bible_Text_Genesis_49_1,
     Bible_Text_Genesis_49_2,
     Bible_Text_Genesis_49_3,
@@ -6059,9 +3763,10 @@ static const u8 *const sGenesis_Chapter49[] = {
     Bible_Text_Genesis_49_31,
     Bible_Text_Genesis_49_32,
     Bible_Text_Genesis_49_33,
+    0
 };
 
-static const u8 *const sGenesis_Chapter50[] = {
+static const u16 *const sGenesis_Chapter50[] = {
     Bible_Text_Genesis_50_1,
     Bible_Text_Genesis_50_2,
     Bible_Text_Genesis_50_3,
@@ -6088,9 +3793,10 @@ static const u8 *const sGenesis_Chapter50[] = {
     Bible_Text_Genesis_50_24,
     Bible_Text_Genesis_50_25,
     Bible_Text_Genesis_50_26,
+    0
 };
 
-static const u8 *const *const sBibleText_GenesisTextPtrs[] = {
+static const u16 *const *const sBibleText_GenesisTextPtrs[] = {
     sGenesis_Chapter1,
     sGenesis_Chapter2,
     sGenesis_Chapter3,
@@ -6141,9 +3847,10 @@ static const u8 *const *const sBibleText_GenesisTextPtrs[] = {
     sGenesis_Chapter48,
     sGenesis_Chapter49,
     sGenesis_Chapter50,
+    0
 };
 
-static const u8 *const sExodus_Chapter1[] = {
+static const u16 *const sExodus_Chapter1[] = {
     Bible_Text_Exodus_1_1,
     Bible_Text_Exodus_1_2,
     Bible_Text_Exodus_1_3,
@@ -6166,9 +3873,10 @@ static const u8 *const sExodus_Chapter1[] = {
     Bible_Text_Exodus_1_20,
     Bible_Text_Exodus_1_21,
     Bible_Text_Exodus_1_22,
+    0
 };
 
-static const u8 *const sExodus_Chapter2[] = {
+static const u16 *const sExodus_Chapter2[] = {
     Bible_Text_Exodus_2_1,
     Bible_Text_Exodus_2_2,
     Bible_Text_Exodus_2_3,
@@ -6194,9 +3902,10 @@ static const u8 *const sExodus_Chapter2[] = {
     Bible_Text_Exodus_2_23,
     Bible_Text_Exodus_2_24,
     Bible_Text_Exodus_2_25,
+    0
 };
 
-static const u8 *const sExodus_Chapter3[] = {
+static const u16 *const sExodus_Chapter3[] = {
     Bible_Text_Exodus_3_1,
     Bible_Text_Exodus_3_2,
     Bible_Text_Exodus_3_3,
@@ -6219,9 +3928,10 @@ static const u8 *const sExodus_Chapter3[] = {
     Bible_Text_Exodus_3_20,
     Bible_Text_Exodus_3_21,
     Bible_Text_Exodus_3_22,
+    0
 };
 
-static const u8 *const sExodus_Chapter4[] = {
+static const u16 *const sExodus_Chapter4[] = {
     Bible_Text_Exodus_4_1,
     Bible_Text_Exodus_4_2,
     Bible_Text_Exodus_4_3,
@@ -6253,9 +3963,10 @@ static const u8 *const sExodus_Chapter4[] = {
     Bible_Text_Exodus_4_29,
     Bible_Text_Exodus_4_30,
     Bible_Text_Exodus_4_31,
+    0
 };
 
-static const u8 *const sExodus_Chapter5[] = {
+static const u16 *const sExodus_Chapter5[] = {
     Bible_Text_Exodus_5_1,
     Bible_Text_Exodus_5_2,
     Bible_Text_Exodus_5_3,
@@ -6279,9 +3990,10 @@ static const u8 *const sExodus_Chapter5[] = {
     Bible_Text_Exodus_5_21,
     Bible_Text_Exodus_5_22,
     Bible_Text_Exodus_5_23,
+    0
 };
 
-static const u8 *const sExodus_Chapter6[] = {
+static const u16 *const sExodus_Chapter6[] = {
     Bible_Text_Exodus_6_1,
     Bible_Text_Exodus_6_2,
     Bible_Text_Exodus_6_3,
@@ -6312,9 +4024,10 @@ static const u8 *const sExodus_Chapter6[] = {
     Bible_Text_Exodus_6_28,
     Bible_Text_Exodus_6_29,
     Bible_Text_Exodus_6_30,
+    0
 };
 
-static const u8 *const sExodus_Chapter7[] = {
+static const u16 *const sExodus_Chapter7[] = {
     Bible_Text_Exodus_7_1,
     Bible_Text_Exodus_7_2,
     Bible_Text_Exodus_7_3,
@@ -6340,9 +4053,10 @@ static const u8 *const sExodus_Chapter7[] = {
     Bible_Text_Exodus_7_23,
     Bible_Text_Exodus_7_24,
     Bible_Text_Exodus_7_25,
+    0
 };
 
-static const u8 *const sExodus_Chapter8[] = {
+static const u16 *const sExodus_Chapter8[] = {
     Bible_Text_Exodus_8_1,
     Bible_Text_Exodus_8_2,
     Bible_Text_Exodus_8_3,
@@ -6375,9 +4089,10 @@ static const u8 *const sExodus_Chapter8[] = {
     Bible_Text_Exodus_8_30,
     Bible_Text_Exodus_8_31,
     Bible_Text_Exodus_8_32,
+    0
 };
 
-static const u8 *const sExodus_Chapter9[] = {
+static const u16 *const sExodus_Chapter9[] = {
     Bible_Text_Exodus_9_1,
     Bible_Text_Exodus_9_2,
     Bible_Text_Exodus_9_3,
@@ -6413,9 +4128,10 @@ static const u8 *const sExodus_Chapter9[] = {
     Bible_Text_Exodus_9_33,
     Bible_Text_Exodus_9_34,
     Bible_Text_Exodus_9_35,
+    0
 };
 
-static const u8 *const sExodus_Chapter10[] = {
+static const u16 *const sExodus_Chapter10[] = {
     Bible_Text_Exodus_10_1,
     Bible_Text_Exodus_10_2,
     Bible_Text_Exodus_10_3,
@@ -6445,9 +4161,10 @@ static const u8 *const sExodus_Chapter10[] = {
     Bible_Text_Exodus_10_27,
     Bible_Text_Exodus_10_28,
     Bible_Text_Exodus_10_29,
+    0
 };
 
-static const u8 *const sExodus_Chapter11[] = {
+static const u16 *const sExodus_Chapter11[] = {
     Bible_Text_Exodus_11_1,
     Bible_Text_Exodus_11_2,
     Bible_Text_Exodus_11_3,
@@ -6458,9 +4175,10 @@ static const u8 *const sExodus_Chapter11[] = {
     Bible_Text_Exodus_11_8,
     Bible_Text_Exodus_11_9,
     Bible_Text_Exodus_11_10,
+    0
 };
 
-static const u8 *const sExodus_Chapter12[] = {
+static const u16 *const sExodus_Chapter12[] = {
     Bible_Text_Exodus_12_1,
     Bible_Text_Exodus_12_2,
     Bible_Text_Exodus_12_3,
@@ -6512,9 +4230,10 @@ static const u8 *const sExodus_Chapter12[] = {
     Bible_Text_Exodus_12_49,
     Bible_Text_Exodus_12_50,
     Bible_Text_Exodus_12_51,
+    0
 };
 
-static const u8 *const sExodus_Chapter13[] = {
+static const u16 *const sExodus_Chapter13[] = {
     Bible_Text_Exodus_13_1,
     Bible_Text_Exodus_13_2,
     Bible_Text_Exodus_13_3,
@@ -6537,9 +4256,10 @@ static const u8 *const sExodus_Chapter13[] = {
     Bible_Text_Exodus_13_20,
     Bible_Text_Exodus_13_21,
     Bible_Text_Exodus_13_22,
+    0
 };
 
-static const u8 *const sExodus_Chapter14[] = {
+static const u16 *const sExodus_Chapter14[] = {
     Bible_Text_Exodus_14_1,
     Bible_Text_Exodus_14_2,
     Bible_Text_Exodus_14_3,
@@ -6571,9 +4291,10 @@ static const u8 *const sExodus_Chapter14[] = {
     Bible_Text_Exodus_14_29,
     Bible_Text_Exodus_14_30,
     Bible_Text_Exodus_14_31,
+    0
 };
 
-static const u8 *const sExodus_Chapter15[] = {
+static const u16 *const sExodus_Chapter15[] = {
     Bible_Text_Exodus_15_1,
     Bible_Text_Exodus_15_2,
     Bible_Text_Exodus_15_3,
@@ -6601,9 +4322,10 @@ static const u8 *const sExodus_Chapter15[] = {
     Bible_Text_Exodus_15_25,
     Bible_Text_Exodus_15_26,
     Bible_Text_Exodus_15_27,
+    0
 };
 
-static const u8 *const sExodus_Chapter16[] = {
+static const u16 *const sExodus_Chapter16[] = {
     Bible_Text_Exodus_16_1,
     Bible_Text_Exodus_16_2,
     Bible_Text_Exodus_16_3,
@@ -6640,9 +4362,10 @@ static const u8 *const sExodus_Chapter16[] = {
     Bible_Text_Exodus_16_34,
     Bible_Text_Exodus_16_35,
     Bible_Text_Exodus_16_36,
+    0
 };
 
-static const u8 *const sExodus_Chapter17[] = {
+static const u16 *const sExodus_Chapter17[] = {
     Bible_Text_Exodus_17_1,
     Bible_Text_Exodus_17_2,
     Bible_Text_Exodus_17_3,
@@ -6659,9 +4382,10 @@ static const u8 *const sExodus_Chapter17[] = {
     Bible_Text_Exodus_17_14,
     Bible_Text_Exodus_17_15,
     Bible_Text_Exodus_17_16,
+    0
 };
 
-static const u8 *const sExodus_Chapter18[] = {
+static const u16 *const sExodus_Chapter18[] = {
     Bible_Text_Exodus_18_1,
     Bible_Text_Exodus_18_2,
     Bible_Text_Exodus_18_3,
@@ -6689,9 +4413,10 @@ static const u8 *const sExodus_Chapter18[] = {
     Bible_Text_Exodus_18_25,
     Bible_Text_Exodus_18_26,
     Bible_Text_Exodus_18_27,
+    0
 };
 
-static const u8 *const sExodus_Chapter19[] = {
+static const u16 *const sExodus_Chapter19[] = {
     Bible_Text_Exodus_19_1,
     Bible_Text_Exodus_19_2,
     Bible_Text_Exodus_19_3,
@@ -6717,9 +4442,10 @@ static const u8 *const sExodus_Chapter19[] = {
     Bible_Text_Exodus_19_23,
     Bible_Text_Exodus_19_24,
     Bible_Text_Exodus_19_25,
+    0
 };
 
-static const u8 *const sExodus_Chapter20[] = {
+static const u16 *const sExodus_Chapter20[] = {
     Bible_Text_Exodus_20_1,
     Bible_Text_Exodus_20_2,
     Bible_Text_Exodus_20_3,
@@ -6746,9 +4472,10 @@ static const u8 *const sExodus_Chapter20[] = {
     Bible_Text_Exodus_20_24,
     Bible_Text_Exodus_20_25,
     Bible_Text_Exodus_20_26,
+    0
 };
 
-static const u8 *const sExodus_Chapter21[] = {
+static const u16 *const sExodus_Chapter21[] = {
     Bible_Text_Exodus_21_1,
     Bible_Text_Exodus_21_2,
     Bible_Text_Exodus_21_3,
@@ -6785,9 +4512,10 @@ static const u8 *const sExodus_Chapter21[] = {
     Bible_Text_Exodus_21_34,
     Bible_Text_Exodus_21_35,
     Bible_Text_Exodus_21_36,
+    0
 };
 
-static const u8 *const sExodus_Chapter22[] = {
+static const u16 *const sExodus_Chapter22[] = {
     Bible_Text_Exodus_22_1,
     Bible_Text_Exodus_22_2,
     Bible_Text_Exodus_22_3,
@@ -6819,9 +4547,10 @@ static const u8 *const sExodus_Chapter22[] = {
     Bible_Text_Exodus_22_29,
     Bible_Text_Exodus_22_30,
     Bible_Text_Exodus_22_31,
+    0
 };
 
-static const u8 *const sExodus_Chapter23[] = {
+static const u16 *const sExodus_Chapter23[] = {
     Bible_Text_Exodus_23_1,
     Bible_Text_Exodus_23_2,
     Bible_Text_Exodus_23_3,
@@ -6855,9 +4584,10 @@ static const u8 *const sExodus_Chapter23[] = {
     Bible_Text_Exodus_23_31,
     Bible_Text_Exodus_23_32,
     Bible_Text_Exodus_23_33,
+    0
 };
 
-static const u8 *const sExodus_Chapter24[] = {
+static const u16 *const sExodus_Chapter24[] = {
     Bible_Text_Exodus_24_1,
     Bible_Text_Exodus_24_2,
     Bible_Text_Exodus_24_3,
@@ -6876,9 +4606,10 @@ static const u8 *const sExodus_Chapter24[] = {
     Bible_Text_Exodus_24_16,
     Bible_Text_Exodus_24_17,
     Bible_Text_Exodus_24_18,
+    0
 };
 
-static const u8 *const sExodus_Chapter25[] = {
+static const u16 *const sExodus_Chapter25[] = {
     Bible_Text_Exodus_25_1,
     Bible_Text_Exodus_25_2,
     Bible_Text_Exodus_25_3,
@@ -6919,9 +4650,10 @@ static const u8 *const sExodus_Chapter25[] = {
     Bible_Text_Exodus_25_38,
     Bible_Text_Exodus_25_39,
     Bible_Text_Exodus_25_40,
+    0
 };
 
-static const u8 *const sExodus_Chapter26[] = {
+static const u16 *const sExodus_Chapter26[] = {
     Bible_Text_Exodus_26_1,
     Bible_Text_Exodus_26_2,
     Bible_Text_Exodus_26_3,
@@ -6959,9 +4691,10 @@ static const u8 *const sExodus_Chapter26[] = {
     Bible_Text_Exodus_26_35,
     Bible_Text_Exodus_26_36,
     Bible_Text_Exodus_26_37,
+    0
 };
 
-static const u8 *const sExodus_Chapter27[] = {
+static const u16 *const sExodus_Chapter27[] = {
     Bible_Text_Exodus_27_1,
     Bible_Text_Exodus_27_2,
     Bible_Text_Exodus_27_3,
@@ -6983,9 +4716,10 @@ static const u8 *const sExodus_Chapter27[] = {
     Bible_Text_Exodus_27_19,
     Bible_Text_Exodus_27_20,
     Bible_Text_Exodus_27_21,
+    0
 };
 
-static const u8 *const sExodus_Chapter28[] = {
+static const u16 *const sExodus_Chapter28[] = {
     Bible_Text_Exodus_28_1,
     Bible_Text_Exodus_28_2,
     Bible_Text_Exodus_28_3,
@@ -7029,9 +4763,10 @@ static const u8 *const sExodus_Chapter28[] = {
     Bible_Text_Exodus_28_41,
     Bible_Text_Exodus_28_42,
     Bible_Text_Exodus_28_43,
+    0
 };
 
-static const u8 *const sExodus_Chapter29[] = {
+static const u16 *const sExodus_Chapter29[] = {
     Bible_Text_Exodus_29_1,
     Bible_Text_Exodus_29_2,
     Bible_Text_Exodus_29_3,
@@ -7078,9 +4813,10 @@ static const u8 *const sExodus_Chapter29[] = {
     Bible_Text_Exodus_29_44,
     Bible_Text_Exodus_29_45,
     Bible_Text_Exodus_29_46,
+    0
 };
 
-static const u8 *const sExodus_Chapter30[] = {
+static const u16 *const sExodus_Chapter30[] = {
     Bible_Text_Exodus_30_1,
     Bible_Text_Exodus_30_2,
     Bible_Text_Exodus_30_3,
@@ -7119,9 +4855,10 @@ static const u8 *const sExodus_Chapter30[] = {
     Bible_Text_Exodus_30_36,
     Bible_Text_Exodus_30_37,
     Bible_Text_Exodus_30_38,
+    0
 };
 
-static const u8 *const sExodus_Chapter31[] = {
+static const u16 *const sExodus_Chapter31[] = {
     Bible_Text_Exodus_31_1,
     Bible_Text_Exodus_31_2,
     Bible_Text_Exodus_31_3,
@@ -7140,9 +4877,10 @@ static const u8 *const sExodus_Chapter31[] = {
     Bible_Text_Exodus_31_16,
     Bible_Text_Exodus_31_17,
     Bible_Text_Exodus_31_18,
+    0
 };
 
-static const u8 *const sExodus_Chapter32[] = {
+static const u16 *const sExodus_Chapter32[] = {
     Bible_Text_Exodus_32_1,
     Bible_Text_Exodus_32_2,
     Bible_Text_Exodus_32_3,
@@ -7178,9 +4916,10 @@ static const u8 *const sExodus_Chapter32[] = {
     Bible_Text_Exodus_32_33,
     Bible_Text_Exodus_32_34,
     Bible_Text_Exodus_32_35,
+    0
 };
 
-static const u8 *const sExodus_Chapter33[] = {
+static const u16 *const sExodus_Chapter33[] = {
     Bible_Text_Exodus_33_1,
     Bible_Text_Exodus_33_2,
     Bible_Text_Exodus_33_3,
@@ -7204,9 +4943,10 @@ static const u8 *const sExodus_Chapter33[] = {
     Bible_Text_Exodus_33_21,
     Bible_Text_Exodus_33_22,
     Bible_Text_Exodus_33_23,
+    0
 };
 
-static const u8 *const sExodus_Chapter34[] = {
+static const u16 *const sExodus_Chapter34[] = {
     Bible_Text_Exodus_34_1,
     Bible_Text_Exodus_34_2,
     Bible_Text_Exodus_34_3,
@@ -7242,9 +4982,10 @@ static const u8 *const sExodus_Chapter34[] = {
     Bible_Text_Exodus_34_33,
     Bible_Text_Exodus_34_34,
     Bible_Text_Exodus_34_35,
+    0
 };
 
-static const u8 *const sExodus_Chapter35[] = {
+static const u16 *const sExodus_Chapter35[] = {
     Bible_Text_Exodus_35_1,
     Bible_Text_Exodus_35_2,
     Bible_Text_Exodus_35_3,
@@ -7280,9 +5021,10 @@ static const u8 *const sExodus_Chapter35[] = {
     Bible_Text_Exodus_35_33,
     Bible_Text_Exodus_35_34,
     Bible_Text_Exodus_35_35,
+    0
 };
 
-static const u8 *const sExodus_Chapter36[] = {
+static const u16 *const sExodus_Chapter36[] = {
     Bible_Text_Exodus_36_1,
     Bible_Text_Exodus_36_2,
     Bible_Text_Exodus_36_3,
@@ -7321,9 +5063,10 @@ static const u8 *const sExodus_Chapter36[] = {
     Bible_Text_Exodus_36_36,
     Bible_Text_Exodus_36_37,
     Bible_Text_Exodus_36_38,
+    0
 };
 
-static const u8 *const sExodus_Chapter37[] = {
+static const u16 *const sExodus_Chapter37[] = {
     Bible_Text_Exodus_37_1,
     Bible_Text_Exodus_37_2,
     Bible_Text_Exodus_37_3,
@@ -7353,9 +5096,10 @@ static const u8 *const sExodus_Chapter37[] = {
     Bible_Text_Exodus_37_27,
     Bible_Text_Exodus_37_28,
     Bible_Text_Exodus_37_29,
+    0
 };
 
-static const u8 *const sExodus_Chapter38[] = {
+static const u16 *const sExodus_Chapter38[] = {
     Bible_Text_Exodus_38_1,
     Bible_Text_Exodus_38_2,
     Bible_Text_Exodus_38_3,
@@ -7387,9 +5131,10 @@ static const u8 *const sExodus_Chapter38[] = {
     Bible_Text_Exodus_38_29,
     Bible_Text_Exodus_38_30,
     Bible_Text_Exodus_38_31,
+    0
 };
 
-static const u8 *const sExodus_Chapter39[] = {
+static const u16 *const sExodus_Chapter39[] = {
     Bible_Text_Exodus_39_1,
     Bible_Text_Exodus_39_2,
     Bible_Text_Exodus_39_3,
@@ -7433,9 +5178,10 @@ static const u8 *const sExodus_Chapter39[] = {
     Bible_Text_Exodus_39_41,
     Bible_Text_Exodus_39_42,
     Bible_Text_Exodus_39_43,
+    0
 };
 
-static const u8 *const sExodus_Chapter40[] = {
+static const u16 *const sExodus_Chapter40[] = {
     Bible_Text_Exodus_40_1,
     Bible_Text_Exodus_40_2,
     Bible_Text_Exodus_40_3,
@@ -7474,9 +5220,10 @@ static const u8 *const sExodus_Chapter40[] = {
     Bible_Text_Exodus_40_36,
     Bible_Text_Exodus_40_37,
     Bible_Text_Exodus_40_38,
+    0
 };
 
-static const u8 *const *const sBibleText_ExodusTextPtrs[] = {
+static const u16 *const *const sBibleText_ExodusTextPtrs[] = {
     sExodus_Chapter1,
     sExodus_Chapter2,
     sExodus_Chapter3,
@@ -7517,9 +5264,10 @@ static const u8 *const *const sBibleText_ExodusTextPtrs[] = {
     sExodus_Chapter38,
     sExodus_Chapter39,
     sExodus_Chapter40,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter1[] = {
+static const u16 *const sLeviticus_Chapter1[] = {
     Bible_Text_Leviticus_1_1,
     Bible_Text_Leviticus_1_2,
     Bible_Text_Leviticus_1_3,
@@ -7537,9 +5285,10 @@ static const u8 *const sLeviticus_Chapter1[] = {
     Bible_Text_Leviticus_1_15,
     Bible_Text_Leviticus_1_16,
     Bible_Text_Leviticus_1_17,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter2[] = {
+static const u16 *const sLeviticus_Chapter2[] = {
     Bible_Text_Leviticus_2_1,
     Bible_Text_Leviticus_2_2,
     Bible_Text_Leviticus_2_3,
@@ -7556,9 +5305,10 @@ static const u8 *const sLeviticus_Chapter2[] = {
     Bible_Text_Leviticus_2_14,
     Bible_Text_Leviticus_2_15,
     Bible_Text_Leviticus_2_16,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter3[] = {
+static const u16 *const sLeviticus_Chapter3[] = {
     Bible_Text_Leviticus_3_1,
     Bible_Text_Leviticus_3_2,
     Bible_Text_Leviticus_3_3,
@@ -7576,9 +5326,10 @@ static const u8 *const sLeviticus_Chapter3[] = {
     Bible_Text_Leviticus_3_15,
     Bible_Text_Leviticus_3_16,
     Bible_Text_Leviticus_3_17,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter4[] = {
+static const u16 *const sLeviticus_Chapter4[] = {
     Bible_Text_Leviticus_4_1,
     Bible_Text_Leviticus_4_2,
     Bible_Text_Leviticus_4_3,
@@ -7614,9 +5365,10 @@ static const u8 *const sLeviticus_Chapter4[] = {
     Bible_Text_Leviticus_4_33,
     Bible_Text_Leviticus_4_34,
     Bible_Text_Leviticus_4_35,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter5[] = {
+static const u16 *const sLeviticus_Chapter5[] = {
     Bible_Text_Leviticus_5_1,
     Bible_Text_Leviticus_5_2,
     Bible_Text_Leviticus_5_3,
@@ -7636,9 +5388,10 @@ static const u8 *const sLeviticus_Chapter5[] = {
     Bible_Text_Leviticus_5_17,
     Bible_Text_Leviticus_5_18,
     Bible_Text_Leviticus_5_19,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter6[] = {
+static const u16 *const sLeviticus_Chapter6[] = {
     Bible_Text_Leviticus_6_1,
     Bible_Text_Leviticus_6_2,
     Bible_Text_Leviticus_6_3,
@@ -7669,9 +5422,10 @@ static const u8 *const sLeviticus_Chapter6[] = {
     Bible_Text_Leviticus_6_28,
     Bible_Text_Leviticus_6_29,
     Bible_Text_Leviticus_6_30,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter7[] = {
+static const u16 *const sLeviticus_Chapter7[] = {
     Bible_Text_Leviticus_7_1,
     Bible_Text_Leviticus_7_2,
     Bible_Text_Leviticus_7_3,
@@ -7710,9 +5464,10 @@ static const u8 *const sLeviticus_Chapter7[] = {
     Bible_Text_Leviticus_7_36,
     Bible_Text_Leviticus_7_37,
     Bible_Text_Leviticus_7_38,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter8[] = {
+static const u16 *const sLeviticus_Chapter8[] = {
     Bible_Text_Leviticus_8_1,
     Bible_Text_Leviticus_8_2,
     Bible_Text_Leviticus_8_3,
@@ -7749,9 +5504,10 @@ static const u8 *const sLeviticus_Chapter8[] = {
     Bible_Text_Leviticus_8_34,
     Bible_Text_Leviticus_8_35,
     Bible_Text_Leviticus_8_36,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter9[] = {
+static const u16 *const sLeviticus_Chapter9[] = {
     Bible_Text_Leviticus_9_1,
     Bible_Text_Leviticus_9_2,
     Bible_Text_Leviticus_9_3,
@@ -7776,9 +5532,10 @@ static const u8 *const sLeviticus_Chapter9[] = {
     Bible_Text_Leviticus_9_22,
     Bible_Text_Leviticus_9_23,
     Bible_Text_Leviticus_9_24,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter10[] = {
+static const u16 *const sLeviticus_Chapter10[] = {
     Bible_Text_Leviticus_10_1,
     Bible_Text_Leviticus_10_2,
     Bible_Text_Leviticus_10_3,
@@ -7799,9 +5556,10 @@ static const u8 *const sLeviticus_Chapter10[] = {
     Bible_Text_Leviticus_10_18,
     Bible_Text_Leviticus_10_19,
     Bible_Text_Leviticus_10_20,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter11[] = {
+static const u16 *const sLeviticus_Chapter11[] = {
     Bible_Text_Leviticus_11_1,
     Bible_Text_Leviticus_11_2,
     Bible_Text_Leviticus_11_3,
@@ -7849,9 +5607,10 @@ static const u8 *const sLeviticus_Chapter11[] = {
     Bible_Text_Leviticus_11_45,
     Bible_Text_Leviticus_11_46,
     Bible_Text_Leviticus_11_47,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter12[] = {
+static const u16 *const sLeviticus_Chapter12[] = {
     Bible_Text_Leviticus_12_1,
     Bible_Text_Leviticus_12_2,
     Bible_Text_Leviticus_12_3,
@@ -7860,9 +5619,10 @@ static const u8 *const sLeviticus_Chapter12[] = {
     Bible_Text_Leviticus_12_6,
     Bible_Text_Leviticus_12_7,
     Bible_Text_Leviticus_12_8,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter13[] = {
+static const u16 *const sLeviticus_Chapter13[] = {
     Bible_Text_Leviticus_13_1,
     Bible_Text_Leviticus_13_2,
     Bible_Text_Leviticus_13_3,
@@ -7922,9 +5682,10 @@ static const u8 *const sLeviticus_Chapter13[] = {
     Bible_Text_Leviticus_13_57,
     Bible_Text_Leviticus_13_58,
     Bible_Text_Leviticus_13_59,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter14[] = {
+static const u16 *const sLeviticus_Chapter14[] = {
     Bible_Text_Leviticus_14_1,
     Bible_Text_Leviticus_14_2,
     Bible_Text_Leviticus_14_3,
@@ -7982,9 +5743,10 @@ static const u8 *const sLeviticus_Chapter14[] = {
     Bible_Text_Leviticus_14_55,
     Bible_Text_Leviticus_14_56,
     Bible_Text_Leviticus_14_57,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter15[] = {
+static const u16 *const sLeviticus_Chapter15[] = {
     Bible_Text_Leviticus_15_1,
     Bible_Text_Leviticus_15_2,
     Bible_Text_Leviticus_15_3,
@@ -8018,9 +5780,10 @@ static const u8 *const sLeviticus_Chapter15[] = {
     Bible_Text_Leviticus_15_31,
     Bible_Text_Leviticus_15_32,
     Bible_Text_Leviticus_15_33,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter16[] = {
+static const u16 *const sLeviticus_Chapter16[] = {
     Bible_Text_Leviticus_16_1,
     Bible_Text_Leviticus_16_2,
     Bible_Text_Leviticus_16_3,
@@ -8055,9 +5818,10 @@ static const u8 *const sLeviticus_Chapter16[] = {
     Bible_Text_Leviticus_16_32,
     Bible_Text_Leviticus_16_33,
     Bible_Text_Leviticus_16_34,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter17[] = {
+static const u16 *const sLeviticus_Chapter17[] = {
     Bible_Text_Leviticus_17_1,
     Bible_Text_Leviticus_17_2,
     Bible_Text_Leviticus_17_3,
@@ -8074,9 +5838,10 @@ static const u8 *const sLeviticus_Chapter17[] = {
     Bible_Text_Leviticus_17_14,
     Bible_Text_Leviticus_17_15,
     Bible_Text_Leviticus_17_16,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter18[] = {
+static const u16 *const sLeviticus_Chapter18[] = {
     Bible_Text_Leviticus_18_1,
     Bible_Text_Leviticus_18_2,
     Bible_Text_Leviticus_18_3,
@@ -8107,9 +5872,10 @@ static const u8 *const sLeviticus_Chapter18[] = {
     Bible_Text_Leviticus_18_28,
     Bible_Text_Leviticus_18_29,
     Bible_Text_Leviticus_18_30,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter19[] = {
+static const u16 *const sLeviticus_Chapter19[] = {
     Bible_Text_Leviticus_19_1,
     Bible_Text_Leviticus_19_2,
     Bible_Text_Leviticus_19_3,
@@ -8147,9 +5913,10 @@ static const u8 *const sLeviticus_Chapter19[] = {
     Bible_Text_Leviticus_19_35,
     Bible_Text_Leviticus_19_36,
     Bible_Text_Leviticus_19_37,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter20[] = {
+static const u16 *const sLeviticus_Chapter20[] = {
     Bible_Text_Leviticus_20_1,
     Bible_Text_Leviticus_20_2,
     Bible_Text_Leviticus_20_3,
@@ -8177,9 +5944,10 @@ static const u8 *const sLeviticus_Chapter20[] = {
     Bible_Text_Leviticus_20_25,
     Bible_Text_Leviticus_20_26,
     Bible_Text_Leviticus_20_27,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter21[] = {
+static const u16 *const sLeviticus_Chapter21[] = {
     Bible_Text_Leviticus_21_1,
     Bible_Text_Leviticus_21_2,
     Bible_Text_Leviticus_21_3,
@@ -8204,9 +5972,10 @@ static const u8 *const sLeviticus_Chapter21[] = {
     Bible_Text_Leviticus_21_22,
     Bible_Text_Leviticus_21_23,
     Bible_Text_Leviticus_21_24,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter22[] = {
+static const u16 *const sLeviticus_Chapter22[] = {
     Bible_Text_Leviticus_22_1,
     Bible_Text_Leviticus_22_2,
     Bible_Text_Leviticus_22_3,
@@ -8240,9 +6009,10 @@ static const u8 *const sLeviticus_Chapter22[] = {
     Bible_Text_Leviticus_22_31,
     Bible_Text_Leviticus_22_32,
     Bible_Text_Leviticus_22_33,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter23[] = {
+static const u16 *const sLeviticus_Chapter23[] = {
     Bible_Text_Leviticus_23_1,
     Bible_Text_Leviticus_23_2,
     Bible_Text_Leviticus_23_3,
@@ -8287,9 +6057,10 @@ static const u8 *const sLeviticus_Chapter23[] = {
     Bible_Text_Leviticus_23_42,
     Bible_Text_Leviticus_23_43,
     Bible_Text_Leviticus_23_44,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter24[] = {
+static const u16 *const sLeviticus_Chapter24[] = {
     Bible_Text_Leviticus_24_1,
     Bible_Text_Leviticus_24_2,
     Bible_Text_Leviticus_24_3,
@@ -8313,9 +6084,10 @@ static const u8 *const sLeviticus_Chapter24[] = {
     Bible_Text_Leviticus_24_21,
     Bible_Text_Leviticus_24_22,
     Bible_Text_Leviticus_24_23,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter25[] = {
+static const u16 *const sLeviticus_Chapter25[] = {
     Bible_Text_Leviticus_25_1,
     Bible_Text_Leviticus_25_2,
     Bible_Text_Leviticus_25_3,
@@ -8371,9 +6143,10 @@ static const u8 *const sLeviticus_Chapter25[] = {
     Bible_Text_Leviticus_25_53,
     Bible_Text_Leviticus_25_54,
     Bible_Text_Leviticus_25_55,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter26[] = {
+static const u16 *const sLeviticus_Chapter26[] = {
     Bible_Text_Leviticus_26_1,
     Bible_Text_Leviticus_26_2,
     Bible_Text_Leviticus_26_3,
@@ -8420,9 +6193,10 @@ static const u8 *const sLeviticus_Chapter26[] = {
     Bible_Text_Leviticus_26_44,
     Bible_Text_Leviticus_26_45,
     Bible_Text_Leviticus_26_46,
+    0
 };
 
-static const u8 *const sLeviticus_Chapter27[] = {
+static const u16 *const sLeviticus_Chapter27[] = {
     Bible_Text_Leviticus_27_1,
     Bible_Text_Leviticus_27_2,
     Bible_Text_Leviticus_27_3,
@@ -8457,9 +6231,10 @@ static const u8 *const sLeviticus_Chapter27[] = {
     Bible_Text_Leviticus_27_32,
     Bible_Text_Leviticus_27_33,
     Bible_Text_Leviticus_27_34,
+    0
 };
 
-static const u8 *const *const sBibleText_LeviticusTextPtrs[] = {
+static const u16 *const *const sBibleText_LeviticusTextPtrs[] = {
     sLeviticus_Chapter1,
     sLeviticus_Chapter2,
     sLeviticus_Chapter3,
@@ -8487,9 +6262,10 @@ static const u8 *const *const sBibleText_LeviticusTextPtrs[] = {
     sLeviticus_Chapter25,
     sLeviticus_Chapter26,
     sLeviticus_Chapter27,
+    0
 };
 
-static const u8 *const sNumbers_Chapter1[] = {
+static const u16 *const sNumbers_Chapter1[] = {
     Bible_Text_Numbers_1_1,
     Bible_Text_Numbers_1_2,
     Bible_Text_Numbers_1_3,
@@ -8544,9 +6320,10 @@ static const u8 *const sNumbers_Chapter1[] = {
     Bible_Text_Numbers_1_52,
     Bible_Text_Numbers_1_53,
     Bible_Text_Numbers_1_54,
+    0
 };
 
-static const u8 *const sNumbers_Chapter2[] = {
+static const u16 *const sNumbers_Chapter2[] = {
     Bible_Text_Numbers_2_1,
     Bible_Text_Numbers_2_2,
     Bible_Text_Numbers_2_3,
@@ -8581,9 +6358,10 @@ static const u8 *const sNumbers_Chapter2[] = {
     Bible_Text_Numbers_2_32,
     Bible_Text_Numbers_2_33,
     Bible_Text_Numbers_2_34,
+    0
 };
 
-static const u8 *const sNumbers_Chapter3[] = {
+static const u16 *const sNumbers_Chapter3[] = {
     Bible_Text_Numbers_3_1,
     Bible_Text_Numbers_3_2,
     Bible_Text_Numbers_3_3,
@@ -8635,9 +6413,10 @@ static const u8 *const sNumbers_Chapter3[] = {
     Bible_Text_Numbers_3_49,
     Bible_Text_Numbers_3_50,
     Bible_Text_Numbers_3_51,
+    0
 };
 
-static const u8 *const sNumbers_Chapter4[] = {
+static const u16 *const sNumbers_Chapter4[] = {
     Bible_Text_Numbers_4_1,
     Bible_Text_Numbers_4_2,
     Bible_Text_Numbers_4_3,
@@ -8687,9 +6466,10 @@ static const u8 *const sNumbers_Chapter4[] = {
     Bible_Text_Numbers_4_47,
     Bible_Text_Numbers_4_48,
     Bible_Text_Numbers_4_49,
+    0
 };
 
-static const u8 *const sNumbers_Chapter5[] = {
+static const u16 *const sNumbers_Chapter5[] = {
     Bible_Text_Numbers_5_1,
     Bible_Text_Numbers_5_2,
     Bible_Text_Numbers_5_3,
@@ -8721,9 +6501,10 @@ static const u8 *const sNumbers_Chapter5[] = {
     Bible_Text_Numbers_5_29,
     Bible_Text_Numbers_5_30,
     Bible_Text_Numbers_5_31,
+    0
 };
 
-static const u8 *const sNumbers_Chapter6[] = {
+static const u16 *const sNumbers_Chapter6[] = {
     Bible_Text_Numbers_6_1,
     Bible_Text_Numbers_6_2,
     Bible_Text_Numbers_6_3,
@@ -8751,9 +6532,10 @@ static const u8 *const sNumbers_Chapter6[] = {
     Bible_Text_Numbers_6_25,
     Bible_Text_Numbers_6_26,
     Bible_Text_Numbers_6_27,
+    0
 };
 
-static const u8 *const sNumbers_Chapter7[] = {
+static const u16 *const sNumbers_Chapter7[] = {
     Bible_Text_Numbers_7_1,
     Bible_Text_Numbers_7_2,
     Bible_Text_Numbers_7_3,
@@ -8843,9 +6625,10 @@ static const u8 *const sNumbers_Chapter7[] = {
     Bible_Text_Numbers_7_87,
     Bible_Text_Numbers_7_88,
     Bible_Text_Numbers_7_89,
+    0
 };
 
-static const u8 *const sNumbers_Chapter8[] = {
+static const u16 *const sNumbers_Chapter8[] = {
     Bible_Text_Numbers_8_1,
     Bible_Text_Numbers_8_2,
     Bible_Text_Numbers_8_3,
@@ -8872,9 +6655,10 @@ static const u8 *const sNumbers_Chapter8[] = {
     Bible_Text_Numbers_8_24,
     Bible_Text_Numbers_8_25,
     Bible_Text_Numbers_8_26,
+    0
 };
 
-static const u8 *const sNumbers_Chapter9[] = {
+static const u16 *const sNumbers_Chapter9[] = {
     Bible_Text_Numbers_9_1,
     Bible_Text_Numbers_9_2,
     Bible_Text_Numbers_9_3,
@@ -8898,9 +6682,10 @@ static const u8 *const sNumbers_Chapter9[] = {
     Bible_Text_Numbers_9_21,
     Bible_Text_Numbers_9_22,
     Bible_Text_Numbers_9_23,
+    0
 };
 
-static const u8 *const sNumbers_Chapter10[] = {
+static const u16 *const sNumbers_Chapter10[] = {
     Bible_Text_Numbers_10_1,
     Bible_Text_Numbers_10_2,
     Bible_Text_Numbers_10_3,
@@ -8937,9 +6722,10 @@ static const u8 *const sNumbers_Chapter10[] = {
     Bible_Text_Numbers_10_34,
     Bible_Text_Numbers_10_35,
     Bible_Text_Numbers_10_36,
+    0
 };
 
-static const u8 *const sNumbers_Chapter11[] = {
+static const u16 *const sNumbers_Chapter11[] = {
     Bible_Text_Numbers_11_1,
     Bible_Text_Numbers_11_2,
     Bible_Text_Numbers_11_3,
@@ -8975,9 +6761,10 @@ static const u8 *const sNumbers_Chapter11[] = {
     Bible_Text_Numbers_11_33,
     Bible_Text_Numbers_11_34,
     Bible_Text_Numbers_11_35,
+    0
 };
 
-static const u8 *const sNumbers_Chapter12[] = {
+static const u16 *const sNumbers_Chapter12[] = {
     Bible_Text_Numbers_12_1,
     Bible_Text_Numbers_12_2,
     Bible_Text_Numbers_12_3,
@@ -8994,9 +6781,10 @@ static const u8 *const sNumbers_Chapter12[] = {
     Bible_Text_Numbers_12_14,
     Bible_Text_Numbers_12_15,
     Bible_Text_Numbers_12_16,
+    0
 };
 
-static const u8 *const sNumbers_Chapter13[] = {
+static const u16 *const sNumbers_Chapter13[] = {
     Bible_Text_Numbers_13_1,
     Bible_Text_Numbers_13_2,
     Bible_Text_Numbers_13_3,
@@ -9030,9 +6818,10 @@ static const u8 *const sNumbers_Chapter13[] = {
     Bible_Text_Numbers_13_31,
     Bible_Text_Numbers_13_32,
     Bible_Text_Numbers_13_33,
+    0
 };
 
-static const u8 *const sNumbers_Chapter14[] = {
+static const u16 *const sNumbers_Chapter14[] = {
     Bible_Text_Numbers_14_1,
     Bible_Text_Numbers_14_2,
     Bible_Text_Numbers_14_3,
@@ -9078,9 +6867,10 @@ static const u8 *const sNumbers_Chapter14[] = {
     Bible_Text_Numbers_14_43,
     Bible_Text_Numbers_14_44,
     Bible_Text_Numbers_14_45,
+    0
 };
 
-static const u8 *const sNumbers_Chapter15[] = {
+static const u16 *const sNumbers_Chapter15[] = {
     Bible_Text_Numbers_15_1,
     Bible_Text_Numbers_15_2,
     Bible_Text_Numbers_15_3,
@@ -9122,9 +6912,10 @@ static const u8 *const sNumbers_Chapter15[] = {
     Bible_Text_Numbers_15_39,
     Bible_Text_Numbers_15_40,
     Bible_Text_Numbers_15_41,
+    0
 };
 
-static const u8 *const sNumbers_Chapter16[] = {
+static const u16 *const sNumbers_Chapter16[] = {
     Bible_Text_Numbers_16_1,
     Bible_Text_Numbers_16_2,
     Bible_Text_Numbers_16_3,
@@ -9175,9 +6966,10 @@ static const u8 *const sNumbers_Chapter16[] = {
     Bible_Text_Numbers_16_48,
     Bible_Text_Numbers_16_49,
     Bible_Text_Numbers_16_50,
+    0
 };
 
-static const u8 *const sNumbers_Chapter17[] = {
+static const u16 *const sNumbers_Chapter17[] = {
     Bible_Text_Numbers_17_1,
     Bible_Text_Numbers_17_2,
     Bible_Text_Numbers_17_3,
@@ -9191,9 +6983,10 @@ static const u8 *const sNumbers_Chapter17[] = {
     Bible_Text_Numbers_17_11,
     Bible_Text_Numbers_17_12,
     Bible_Text_Numbers_17_13,
+    0
 };
 
-static const u8 *const sNumbers_Chapter18[] = {
+static const u16 *const sNumbers_Chapter18[] = {
     Bible_Text_Numbers_18_1,
     Bible_Text_Numbers_18_2,
     Bible_Text_Numbers_18_3,
@@ -9226,9 +7019,10 @@ static const u8 *const sNumbers_Chapter18[] = {
     Bible_Text_Numbers_18_30,
     Bible_Text_Numbers_18_31,
     Bible_Text_Numbers_18_32,
+    0
 };
 
-static const u8 *const sNumbers_Chapter19[] = {
+static const u16 *const sNumbers_Chapter19[] = {
     Bible_Text_Numbers_19_1,
     Bible_Text_Numbers_19_2,
     Bible_Text_Numbers_19_3,
@@ -9251,9 +7045,10 @@ static const u8 *const sNumbers_Chapter19[] = {
     Bible_Text_Numbers_19_20,
     Bible_Text_Numbers_19_21,
     Bible_Text_Numbers_19_22,
+    0
 };
 
-static const u8 *const sNumbers_Chapter20[] = {
+static const u16 *const sNumbers_Chapter20[] = {
     Bible_Text_Numbers_20_1,
     Bible_Text_Numbers_20_2,
     Bible_Text_Numbers_20_3,
@@ -9283,9 +7078,10 @@ static const u8 *const sNumbers_Chapter20[] = {
     Bible_Text_Numbers_20_27,
     Bible_Text_Numbers_20_28,
     Bible_Text_Numbers_20_29,
+    0
 };
 
-static const u8 *const sNumbers_Chapter21[] = {
+static const u16 *const sNumbers_Chapter21[] = {
     Bible_Text_Numbers_21_1,
     Bible_Text_Numbers_21_2,
     Bible_Text_Numbers_21_3,
@@ -9321,9 +7117,10 @@ static const u8 *const sNumbers_Chapter21[] = {
     Bible_Text_Numbers_21_33,
     Bible_Text_Numbers_21_34,
     Bible_Text_Numbers_21_35,
+    0
 };
 
-static const u8 *const sNumbers_Chapter22[] = {
+static const u16 *const sNumbers_Chapter22[] = {
     Bible_Text_Numbers_22_1,
     Bible_Text_Numbers_22_2,
     Bible_Text_Numbers_22_3,
@@ -9365,9 +7162,10 @@ static const u8 *const sNumbers_Chapter22[] = {
     Bible_Text_Numbers_22_39,
     Bible_Text_Numbers_22_40,
     Bible_Text_Numbers_22_41,
+    0
 };
 
-static const u8 *const sNumbers_Chapter23[] = {
+static const u16 *const sNumbers_Chapter23[] = {
     Bible_Text_Numbers_23_1,
     Bible_Text_Numbers_23_2,
     Bible_Text_Numbers_23_3,
@@ -9398,9 +7196,10 @@ static const u8 *const sNumbers_Chapter23[] = {
     Bible_Text_Numbers_23_28,
     Bible_Text_Numbers_23_29,
     Bible_Text_Numbers_23_30,
+    0
 };
 
-static const u8 *const sNumbers_Chapter24[] = {
+static const u16 *const sNumbers_Chapter24[] = {
     Bible_Text_Numbers_24_1,
     Bible_Text_Numbers_24_2,
     Bible_Text_Numbers_24_3,
@@ -9426,9 +7225,10 @@ static const u8 *const sNumbers_Chapter24[] = {
     Bible_Text_Numbers_24_23,
     Bible_Text_Numbers_24_24,
     Bible_Text_Numbers_24_25,
+    0
 };
 
-static const u8 *const sNumbers_Chapter25[] = {
+static const u16 *const sNumbers_Chapter25[] = {
     Bible_Text_Numbers_25_1,
     Bible_Text_Numbers_25_2,
     Bible_Text_Numbers_25_3,
@@ -9447,9 +7247,10 @@ static const u8 *const sNumbers_Chapter25[] = {
     Bible_Text_Numbers_25_16,
     Bible_Text_Numbers_25_17,
     Bible_Text_Numbers_25_18,
+    0
 };
 
-static const u8 *const sNumbers_Chapter26[] = {
+static const u16 *const sNumbers_Chapter26[] = {
     Bible_Text_Numbers_26_1,
     Bible_Text_Numbers_26_2,
     Bible_Text_Numbers_26_3,
@@ -9515,9 +7316,10 @@ static const u8 *const sNumbers_Chapter26[] = {
     Bible_Text_Numbers_26_63,
     Bible_Text_Numbers_26_64,
     Bible_Text_Numbers_26_65,
+    0
 };
 
-static const u8 *const sNumbers_Chapter27[] = {
+static const u16 *const sNumbers_Chapter27[] = {
     Bible_Text_Numbers_27_1,
     Bible_Text_Numbers_27_2,
     Bible_Text_Numbers_27_3,
@@ -9541,9 +7343,10 @@ static const u8 *const sNumbers_Chapter27[] = {
     Bible_Text_Numbers_27_21,
     Bible_Text_Numbers_27_22,
     Bible_Text_Numbers_27_23,
+    0
 };
 
-static const u8 *const sNumbers_Chapter28[] = {
+static const u16 *const sNumbers_Chapter28[] = {
     Bible_Text_Numbers_28_1,
     Bible_Text_Numbers_28_2,
     Bible_Text_Numbers_28_3,
@@ -9575,9 +7378,10 @@ static const u8 *const sNumbers_Chapter28[] = {
     Bible_Text_Numbers_28_29,
     Bible_Text_Numbers_28_30,
     Bible_Text_Numbers_28_31,
+    0
 };
 
-static const u8 *const sNumbers_Chapter29[] = {
+static const u16 *const sNumbers_Chapter29[] = {
     Bible_Text_Numbers_29_1,
     Bible_Text_Numbers_29_2,
     Bible_Text_Numbers_29_3,
@@ -9618,9 +7422,10 @@ static const u8 *const sNumbers_Chapter29[] = {
     Bible_Text_Numbers_29_38,
     Bible_Text_Numbers_29_39,
     Bible_Text_Numbers_29_40,
+    0
 };
 
-static const u8 *const sNumbers_Chapter30[] = {
+static const u16 *const sNumbers_Chapter30[] = {
     Bible_Text_Numbers_30_1,
     Bible_Text_Numbers_30_2,
     Bible_Text_Numbers_30_3,
@@ -9637,9 +7442,10 @@ static const u8 *const sNumbers_Chapter30[] = {
     Bible_Text_Numbers_30_14,
     Bible_Text_Numbers_30_15,
     Bible_Text_Numbers_30_16,
+    0
 };
 
-static const u8 *const sNumbers_Chapter31[] = {
+static const u16 *const sNumbers_Chapter31[] = {
     Bible_Text_Numbers_31_1,
     Bible_Text_Numbers_31_2,
     Bible_Text_Numbers_31_3,
@@ -9694,9 +7500,10 @@ static const u8 *const sNumbers_Chapter31[] = {
     Bible_Text_Numbers_31_52,
     Bible_Text_Numbers_31_53,
     Bible_Text_Numbers_31_54,
+    0
 };
 
-static const u8 *const sNumbers_Chapter32[] = {
+static const u16 *const sNumbers_Chapter32[] = {
     Bible_Text_Numbers_32_1,
     Bible_Text_Numbers_32_2,
     Bible_Text_Numbers_32_3,
@@ -9739,9 +7546,10 @@ static const u8 *const sNumbers_Chapter32[] = {
     Bible_Text_Numbers_32_40,
     Bible_Text_Numbers_32_41,
     Bible_Text_Numbers_32_42,
+    0
 };
 
-static const u8 *const sNumbers_Chapter33[] = {
+static const u16 *const sNumbers_Chapter33[] = {
     Bible_Text_Numbers_33_1,
     Bible_Text_Numbers_33_2,
     Bible_Text_Numbers_33_3,
@@ -9798,9 +7606,10 @@ static const u8 *const sNumbers_Chapter33[] = {
     Bible_Text_Numbers_33_54,
     Bible_Text_Numbers_33_55,
     Bible_Text_Numbers_33_56,
+    0
 };
 
-static const u8 *const sNumbers_Chapter34[] = {
+static const u16 *const sNumbers_Chapter34[] = {
     Bible_Text_Numbers_34_1,
     Bible_Text_Numbers_34_2,
     Bible_Text_Numbers_34_3,
@@ -9830,9 +7639,10 @@ static const u8 *const sNumbers_Chapter34[] = {
     Bible_Text_Numbers_34_27,
     Bible_Text_Numbers_34_28,
     Bible_Text_Numbers_34_29,
+    0
 };
 
-static const u8 *const sNumbers_Chapter35[] = {
+static const u16 *const sNumbers_Chapter35[] = {
     Bible_Text_Numbers_35_1,
     Bible_Text_Numbers_35_2,
     Bible_Text_Numbers_35_3,
@@ -9867,9 +7677,10 @@ static const u8 *const sNumbers_Chapter35[] = {
     Bible_Text_Numbers_35_32,
     Bible_Text_Numbers_35_33,
     Bible_Text_Numbers_35_34,
+    0
 };
 
-static const u8 *const sNumbers_Chapter36[] = {
+static const u16 *const sNumbers_Chapter36[] = {
     Bible_Text_Numbers_36_1,
     Bible_Text_Numbers_36_2,
     Bible_Text_Numbers_36_3,
@@ -9883,9 +7694,10 @@ static const u8 *const sNumbers_Chapter36[] = {
     Bible_Text_Numbers_36_11,
     Bible_Text_Numbers_36_12,
     Bible_Text_Numbers_36_13,
+    0
 };
 
-static const u8 *const *const sBibleText_NumbersTextPtrs[] = {
+static const u16 *const *const sBibleText_NumbersTextPtrs[] = {
     sNumbers_Chapter1,
     sNumbers_Chapter2,
     sNumbers_Chapter3,
@@ -9922,9 +7734,10 @@ static const u8 *const *const sBibleText_NumbersTextPtrs[] = {
     sNumbers_Chapter34,
     sNumbers_Chapter35,
     sNumbers_Chapter36,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter1[] = {
+static const u16 *const sDeuteronomy_Chapter1[] = {
     Bible_Text_Deuteronomy_1_1,
     Bible_Text_Deuteronomy_1_2,
     Bible_Text_Deuteronomy_1_3,
@@ -9971,9 +7784,10 @@ static const u8 *const sDeuteronomy_Chapter1[] = {
     Bible_Text_Deuteronomy_1_44,
     Bible_Text_Deuteronomy_1_45,
     Bible_Text_Deuteronomy_1_46,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter2[] = {
+static const u16 *const sDeuteronomy_Chapter2[] = {
     Bible_Text_Deuteronomy_2_1,
     Bible_Text_Deuteronomy_2_2,
     Bible_Text_Deuteronomy_2_3,
@@ -10011,9 +7825,10 @@ static const u8 *const sDeuteronomy_Chapter2[] = {
     Bible_Text_Deuteronomy_2_35,
     Bible_Text_Deuteronomy_2_36,
     Bible_Text_Deuteronomy_2_37,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter3[] = {
+static const u16 *const sDeuteronomy_Chapter3[] = {
     Bible_Text_Deuteronomy_3_1,
     Bible_Text_Deuteronomy_3_2,
     Bible_Text_Deuteronomy_3_3,
@@ -10043,9 +7858,10 @@ static const u8 *const sDeuteronomy_Chapter3[] = {
     Bible_Text_Deuteronomy_3_27,
     Bible_Text_Deuteronomy_3_28,
     Bible_Text_Deuteronomy_3_29,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter4[] = {
+static const u16 *const sDeuteronomy_Chapter4[] = {
     Bible_Text_Deuteronomy_4_1,
     Bible_Text_Deuteronomy_4_2,
     Bible_Text_Deuteronomy_4_3,
@@ -10095,9 +7911,10 @@ static const u8 *const sDeuteronomy_Chapter4[] = {
     Bible_Text_Deuteronomy_4_47,
     Bible_Text_Deuteronomy_4_48,
     Bible_Text_Deuteronomy_4_49,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter5[] = {
+static const u16 *const sDeuteronomy_Chapter5[] = {
     Bible_Text_Deuteronomy_5_1,
     Bible_Text_Deuteronomy_5_2,
     Bible_Text_Deuteronomy_5_3,
@@ -10131,9 +7948,10 @@ static const u8 *const sDeuteronomy_Chapter5[] = {
     Bible_Text_Deuteronomy_5_31,
     Bible_Text_Deuteronomy_5_32,
     Bible_Text_Deuteronomy_5_33,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter6[] = {
+static const u16 *const sDeuteronomy_Chapter6[] = {
     Bible_Text_Deuteronomy_6_1,
     Bible_Text_Deuteronomy_6_2,
     Bible_Text_Deuteronomy_6_3,
@@ -10159,9 +7977,10 @@ static const u8 *const sDeuteronomy_Chapter6[] = {
     Bible_Text_Deuteronomy_6_23,
     Bible_Text_Deuteronomy_6_24,
     Bible_Text_Deuteronomy_6_25,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter7[] = {
+static const u16 *const sDeuteronomy_Chapter7[] = {
     Bible_Text_Deuteronomy_7_1,
     Bible_Text_Deuteronomy_7_2,
     Bible_Text_Deuteronomy_7_3,
@@ -10188,9 +8007,10 @@ static const u8 *const sDeuteronomy_Chapter7[] = {
     Bible_Text_Deuteronomy_7_24,
     Bible_Text_Deuteronomy_7_25,
     Bible_Text_Deuteronomy_7_26,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter8[] = {
+static const u16 *const sDeuteronomy_Chapter8[] = {
     Bible_Text_Deuteronomy_8_1,
     Bible_Text_Deuteronomy_8_2,
     Bible_Text_Deuteronomy_8_3,
@@ -10211,9 +8031,10 @@ static const u8 *const sDeuteronomy_Chapter8[] = {
     Bible_Text_Deuteronomy_8_18,
     Bible_Text_Deuteronomy_8_19,
     Bible_Text_Deuteronomy_8_20,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter9[] = {
+static const u16 *const sDeuteronomy_Chapter9[] = {
     Bible_Text_Deuteronomy_9_1,
     Bible_Text_Deuteronomy_9_2,
     Bible_Text_Deuteronomy_9_3,
@@ -10243,9 +8064,10 @@ static const u8 *const sDeuteronomy_Chapter9[] = {
     Bible_Text_Deuteronomy_9_27,
     Bible_Text_Deuteronomy_9_28,
     Bible_Text_Deuteronomy_9_29,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter10[] = {
+static const u16 *const sDeuteronomy_Chapter10[] = {
     Bible_Text_Deuteronomy_10_1,
     Bible_Text_Deuteronomy_10_2,
     Bible_Text_Deuteronomy_10_3,
@@ -10268,9 +8090,10 @@ static const u8 *const sDeuteronomy_Chapter10[] = {
     Bible_Text_Deuteronomy_10_20,
     Bible_Text_Deuteronomy_10_21,
     Bible_Text_Deuteronomy_10_22,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter11[] = {
+static const u16 *const sDeuteronomy_Chapter11[] = {
     Bible_Text_Deuteronomy_11_1,
     Bible_Text_Deuteronomy_11_2,
     Bible_Text_Deuteronomy_11_3,
@@ -10303,9 +8126,10 @@ static const u8 *const sDeuteronomy_Chapter11[] = {
     Bible_Text_Deuteronomy_11_30,
     Bible_Text_Deuteronomy_11_31,
     Bible_Text_Deuteronomy_11_32,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter12[] = {
+static const u16 *const sDeuteronomy_Chapter12[] = {
     Bible_Text_Deuteronomy_12_1,
     Bible_Text_Deuteronomy_12_2,
     Bible_Text_Deuteronomy_12_3,
@@ -10338,9 +8162,10 @@ static const u8 *const sDeuteronomy_Chapter12[] = {
     Bible_Text_Deuteronomy_12_30,
     Bible_Text_Deuteronomy_12_31,
     Bible_Text_Deuteronomy_12_32,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter13[] = {
+static const u16 *const sDeuteronomy_Chapter13[] = {
     Bible_Text_Deuteronomy_13_1,
     Bible_Text_Deuteronomy_13_2,
     Bible_Text_Deuteronomy_13_3,
@@ -10359,9 +8184,10 @@ static const u8 *const sDeuteronomy_Chapter13[] = {
     Bible_Text_Deuteronomy_13_16,
     Bible_Text_Deuteronomy_13_17,
     Bible_Text_Deuteronomy_13_18,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter14[] = {
+static const u16 *const sDeuteronomy_Chapter14[] = {
     Bible_Text_Deuteronomy_14_1,
     Bible_Text_Deuteronomy_14_2,
     Bible_Text_Deuteronomy_14_3,
@@ -10391,9 +8217,10 @@ static const u8 *const sDeuteronomy_Chapter14[] = {
     Bible_Text_Deuteronomy_14_27,
     Bible_Text_Deuteronomy_14_28,
     Bible_Text_Deuteronomy_14_29,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter15[] = {
+static const u16 *const sDeuteronomy_Chapter15[] = {
     Bible_Text_Deuteronomy_15_1,
     Bible_Text_Deuteronomy_15_2,
     Bible_Text_Deuteronomy_15_3,
@@ -10417,9 +8244,10 @@ static const u8 *const sDeuteronomy_Chapter15[] = {
     Bible_Text_Deuteronomy_15_21,
     Bible_Text_Deuteronomy_15_22,
     Bible_Text_Deuteronomy_15_23,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter16[] = {
+static const u16 *const sDeuteronomy_Chapter16[] = {
     Bible_Text_Deuteronomy_16_1,
     Bible_Text_Deuteronomy_16_2,
     Bible_Text_Deuteronomy_16_3,
@@ -10442,9 +8270,10 @@ static const u8 *const sDeuteronomy_Chapter16[] = {
     Bible_Text_Deuteronomy_16_20,
     Bible_Text_Deuteronomy_16_21,
     Bible_Text_Deuteronomy_16_22,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter17[] = {
+static const u16 *const sDeuteronomy_Chapter17[] = {
     Bible_Text_Deuteronomy_17_1,
     Bible_Text_Deuteronomy_17_2,
     Bible_Text_Deuteronomy_17_3,
@@ -10465,9 +8294,10 @@ static const u8 *const sDeuteronomy_Chapter17[] = {
     Bible_Text_Deuteronomy_17_18,
     Bible_Text_Deuteronomy_17_19,
     Bible_Text_Deuteronomy_17_20,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter18[] = {
+static const u16 *const sDeuteronomy_Chapter18[] = {
     Bible_Text_Deuteronomy_18_1,
     Bible_Text_Deuteronomy_18_2,
     Bible_Text_Deuteronomy_18_3,
@@ -10490,9 +8320,10 @@ static const u8 *const sDeuteronomy_Chapter18[] = {
     Bible_Text_Deuteronomy_18_20,
     Bible_Text_Deuteronomy_18_21,
     Bible_Text_Deuteronomy_18_22,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter19[] = {
+static const u16 *const sDeuteronomy_Chapter19[] = {
     Bible_Text_Deuteronomy_19_1,
     Bible_Text_Deuteronomy_19_2,
     Bible_Text_Deuteronomy_19_3,
@@ -10514,9 +8345,10 @@ static const u8 *const sDeuteronomy_Chapter19[] = {
     Bible_Text_Deuteronomy_19_19,
     Bible_Text_Deuteronomy_19_20,
     Bible_Text_Deuteronomy_19_21,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter20[] = {
+static const u16 *const sDeuteronomy_Chapter20[] = {
     Bible_Text_Deuteronomy_20_1,
     Bible_Text_Deuteronomy_20_2,
     Bible_Text_Deuteronomy_20_3,
@@ -10537,9 +8369,10 @@ static const u8 *const sDeuteronomy_Chapter20[] = {
     Bible_Text_Deuteronomy_20_18,
     Bible_Text_Deuteronomy_20_19,
     Bible_Text_Deuteronomy_20_20,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter21[] = {
+static const u16 *const sDeuteronomy_Chapter21[] = {
     Bible_Text_Deuteronomy_21_1,
     Bible_Text_Deuteronomy_21_2,
     Bible_Text_Deuteronomy_21_3,
@@ -10563,9 +8396,10 @@ static const u8 *const sDeuteronomy_Chapter21[] = {
     Bible_Text_Deuteronomy_21_21,
     Bible_Text_Deuteronomy_21_22,
     Bible_Text_Deuteronomy_21_23,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter22[] = {
+static const u16 *const sDeuteronomy_Chapter22[] = {
     Bible_Text_Deuteronomy_22_1,
     Bible_Text_Deuteronomy_22_2,
     Bible_Text_Deuteronomy_22_3,
@@ -10596,9 +8430,10 @@ static const u8 *const sDeuteronomy_Chapter22[] = {
     Bible_Text_Deuteronomy_22_28,
     Bible_Text_Deuteronomy_22_29,
     Bible_Text_Deuteronomy_22_30,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter23[] = {
+static const u16 *const sDeuteronomy_Chapter23[] = {
     Bible_Text_Deuteronomy_23_1,
     Bible_Text_Deuteronomy_23_2,
     Bible_Text_Deuteronomy_23_3,
@@ -10624,9 +8459,10 @@ static const u8 *const sDeuteronomy_Chapter23[] = {
     Bible_Text_Deuteronomy_23_23,
     Bible_Text_Deuteronomy_23_24,
     Bible_Text_Deuteronomy_23_25,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter24[] = {
+static const u16 *const sDeuteronomy_Chapter24[] = {
     Bible_Text_Deuteronomy_24_1,
     Bible_Text_Deuteronomy_24_2,
     Bible_Text_Deuteronomy_24_3,
@@ -10649,9 +8485,10 @@ static const u8 *const sDeuteronomy_Chapter24[] = {
     Bible_Text_Deuteronomy_24_20,
     Bible_Text_Deuteronomy_24_21,
     Bible_Text_Deuteronomy_24_22,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter25[] = {
+static const u16 *const sDeuteronomy_Chapter25[] = {
     Bible_Text_Deuteronomy_25_1,
     Bible_Text_Deuteronomy_25_2,
     Bible_Text_Deuteronomy_25_3,
@@ -10671,9 +8508,10 @@ static const u8 *const sDeuteronomy_Chapter25[] = {
     Bible_Text_Deuteronomy_25_17,
     Bible_Text_Deuteronomy_25_18,
     Bible_Text_Deuteronomy_25_19,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter26[] = {
+static const u16 *const sDeuteronomy_Chapter26[] = {
     Bible_Text_Deuteronomy_26_1,
     Bible_Text_Deuteronomy_26_2,
     Bible_Text_Deuteronomy_26_3,
@@ -10693,9 +8531,10 @@ static const u8 *const sDeuteronomy_Chapter26[] = {
     Bible_Text_Deuteronomy_26_17,
     Bible_Text_Deuteronomy_26_18,
     Bible_Text_Deuteronomy_26_19,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter27[] = {
+static const u16 *const sDeuteronomy_Chapter27[] = {
     Bible_Text_Deuteronomy_27_1,
     Bible_Text_Deuteronomy_27_2,
     Bible_Text_Deuteronomy_27_3,
@@ -10722,9 +8561,10 @@ static const u8 *const sDeuteronomy_Chapter27[] = {
     Bible_Text_Deuteronomy_27_24,
     Bible_Text_Deuteronomy_27_25,
     Bible_Text_Deuteronomy_27_26,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter28[] = {
+static const u16 *const sDeuteronomy_Chapter28[] = {
     Bible_Text_Deuteronomy_28_1,
     Bible_Text_Deuteronomy_28_2,
     Bible_Text_Deuteronomy_28_3,
@@ -10793,9 +8633,10 @@ static const u8 *const sDeuteronomy_Chapter28[] = {
     Bible_Text_Deuteronomy_28_66,
     Bible_Text_Deuteronomy_28_67,
     Bible_Text_Deuteronomy_28_68,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter29[] = {
+static const u16 *const sDeuteronomy_Chapter29[] = {
     Bible_Text_Deuteronomy_29_1,
     Bible_Text_Deuteronomy_29_2,
     Bible_Text_Deuteronomy_29_3,
@@ -10825,9 +8666,10 @@ static const u8 *const sDeuteronomy_Chapter29[] = {
     Bible_Text_Deuteronomy_29_27,
     Bible_Text_Deuteronomy_29_28,
     Bible_Text_Deuteronomy_29_29,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter30[] = {
+static const u16 *const sDeuteronomy_Chapter30[] = {
     Bible_Text_Deuteronomy_30_1,
     Bible_Text_Deuteronomy_30_2,
     Bible_Text_Deuteronomy_30_3,
@@ -10848,9 +8690,10 @@ static const u8 *const sDeuteronomy_Chapter30[] = {
     Bible_Text_Deuteronomy_30_18,
     Bible_Text_Deuteronomy_30_19,
     Bible_Text_Deuteronomy_30_20,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter31[] = {
+static const u16 *const sDeuteronomy_Chapter31[] = {
     Bible_Text_Deuteronomy_31_1,
     Bible_Text_Deuteronomy_31_2,
     Bible_Text_Deuteronomy_31_3,
@@ -10881,9 +8724,10 @@ static const u8 *const sDeuteronomy_Chapter31[] = {
     Bible_Text_Deuteronomy_31_28,
     Bible_Text_Deuteronomy_31_29,
     Bible_Text_Deuteronomy_31_30,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter32[] = {
+static const u16 *const sDeuteronomy_Chapter32[] = {
     Bible_Text_Deuteronomy_32_1,
     Bible_Text_Deuteronomy_32_2,
     Bible_Text_Deuteronomy_32_3,
@@ -10936,9 +8780,10 @@ static const u8 *const sDeuteronomy_Chapter32[] = {
     Bible_Text_Deuteronomy_32_50,
     Bible_Text_Deuteronomy_32_51,
     Bible_Text_Deuteronomy_32_52,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter33[] = {
+static const u16 *const sDeuteronomy_Chapter33[] = {
     Bible_Text_Deuteronomy_33_1,
     Bible_Text_Deuteronomy_33_2,
     Bible_Text_Deuteronomy_33_3,
@@ -10968,9 +8813,10 @@ static const u8 *const sDeuteronomy_Chapter33[] = {
     Bible_Text_Deuteronomy_33_27,
     Bible_Text_Deuteronomy_33_28,
     Bible_Text_Deuteronomy_33_29,
+    0
 };
 
-static const u8 *const sDeuteronomy_Chapter34[] = {
+static const u16 *const sDeuteronomy_Chapter34[] = {
     Bible_Text_Deuteronomy_34_1,
     Bible_Text_Deuteronomy_34_2,
     Bible_Text_Deuteronomy_34_3,
@@ -10983,9 +8829,10 @@ static const u8 *const sDeuteronomy_Chapter34[] = {
     Bible_Text_Deuteronomy_34_10,
     Bible_Text_Deuteronomy_34_11,
     Bible_Text_Deuteronomy_34_12,
+    0
 };
 
-static const u8 *const *const sBibleText_DeuteronomyTextPtrs[] = {
+static const u16 *const *const sBibleText_DeuteronomyTextPtrs[] = {
     sDeuteronomy_Chapter1,
     sDeuteronomy_Chapter2,
     sDeuteronomy_Chapter3,
@@ -11020,9 +8867,10 @@ static const u8 *const *const sBibleText_DeuteronomyTextPtrs[] = {
     sDeuteronomy_Chapter32,
     sDeuteronomy_Chapter33,
     sDeuteronomy_Chapter34,
+    0
 };
 
-static const u8 *const sJoshua_Chapter1[] = {
+static const u16 *const sJoshua_Chapter1[] = {
     Bible_Text_Joshua_1_1,
     Bible_Text_Joshua_1_2,
     Bible_Text_Joshua_1_3,
@@ -11041,9 +8889,10 @@ static const u8 *const sJoshua_Chapter1[] = {
     Bible_Text_Joshua_1_16,
     Bible_Text_Joshua_1_17,
     Bible_Text_Joshua_1_18,
+    0
 };
 
-static const u8 *const sJoshua_Chapter2[] = {
+static const u16 *const sJoshua_Chapter2[] = {
     Bible_Text_Joshua_2_1,
     Bible_Text_Joshua_2_2,
     Bible_Text_Joshua_2_3,
@@ -11068,9 +8917,10 @@ static const u8 *const sJoshua_Chapter2[] = {
     Bible_Text_Joshua_2_22,
     Bible_Text_Joshua_2_23,
     Bible_Text_Joshua_2_24,
+    0
 };
 
-static const u8 *const sJoshua_Chapter3[] = {
+static const u16 *const sJoshua_Chapter3[] = {
     Bible_Text_Joshua_3_1,
     Bible_Text_Joshua_3_2,
     Bible_Text_Joshua_3_3,
@@ -11088,9 +8938,10 @@ static const u8 *const sJoshua_Chapter3[] = {
     Bible_Text_Joshua_3_15,
     Bible_Text_Joshua_3_16,
     Bible_Text_Joshua_3_17,
+    0
 };
 
-static const u8 *const sJoshua_Chapter4[] = {
+static const u16 *const sJoshua_Chapter4[] = {
     Bible_Text_Joshua_4_1,
     Bible_Text_Joshua_4_2,
     Bible_Text_Joshua_4_3,
@@ -11115,9 +8966,10 @@ static const u8 *const sJoshua_Chapter4[] = {
     Bible_Text_Joshua_4_22,
     Bible_Text_Joshua_4_23,
     Bible_Text_Joshua_4_24,
+    0
 };
 
-static const u8 *const sJoshua_Chapter5[] = {
+static const u16 *const sJoshua_Chapter5[] = {
     Bible_Text_Joshua_5_1,
     Bible_Text_Joshua_5_2,
     Bible_Text_Joshua_5_3,
@@ -11133,9 +8985,10 @@ static const u8 *const sJoshua_Chapter5[] = {
     Bible_Text_Joshua_5_13,
     Bible_Text_Joshua_5_14,
     Bible_Text_Joshua_5_15,
+    0
 };
 
-static const u8 *const sJoshua_Chapter6[] = {
+static const u16 *const sJoshua_Chapter6[] = {
     Bible_Text_Joshua_6_1,
     Bible_Text_Joshua_6_2,
     Bible_Text_Joshua_6_3,
@@ -11163,9 +9016,10 @@ static const u8 *const sJoshua_Chapter6[] = {
     Bible_Text_Joshua_6_25,
     Bible_Text_Joshua_6_26,
     Bible_Text_Joshua_6_27,
+    0
 };
 
-static const u8 *const sJoshua_Chapter7[] = {
+static const u16 *const sJoshua_Chapter7[] = {
     Bible_Text_Joshua_7_1,
     Bible_Text_Joshua_7_2,
     Bible_Text_Joshua_7_3,
@@ -11192,9 +9046,10 @@ static const u8 *const sJoshua_Chapter7[] = {
     Bible_Text_Joshua_7_24,
     Bible_Text_Joshua_7_25,
     Bible_Text_Joshua_7_26,
+    0
 };
 
-static const u8 *const sJoshua_Chapter8[] = {
+static const u16 *const sJoshua_Chapter8[] = {
     Bible_Text_Joshua_8_1,
     Bible_Text_Joshua_8_2,
     Bible_Text_Joshua_8_3,
@@ -11230,9 +9085,10 @@ static const u8 *const sJoshua_Chapter8[] = {
     Bible_Text_Joshua_8_33,
     Bible_Text_Joshua_8_34,
     Bible_Text_Joshua_8_35,
+    0
 };
 
-static const u8 *const sJoshua_Chapter9[] = {
+static const u16 *const sJoshua_Chapter9[] = {
     Bible_Text_Joshua_9_1,
     Bible_Text_Joshua_9_2,
     Bible_Text_Joshua_9_3,
@@ -11260,9 +9116,10 @@ static const u8 *const sJoshua_Chapter9[] = {
     Bible_Text_Joshua_9_25,
     Bible_Text_Joshua_9_26,
     Bible_Text_Joshua_9_27,
+    0
 };
 
-static const u8 *const sJoshua_Chapter10[] = {
+static const u16 *const sJoshua_Chapter10[] = {
     Bible_Text_Joshua_10_1,
     Bible_Text_Joshua_10_2,
     Bible_Text_Joshua_10_3,
@@ -11306,9 +9163,10 @@ static const u8 *const sJoshua_Chapter10[] = {
     Bible_Text_Joshua_10_41,
     Bible_Text_Joshua_10_42,
     Bible_Text_Joshua_10_43,
+    0
 };
 
-static const u8 *const sJoshua_Chapter11[] = {
+static const u16 *const sJoshua_Chapter11[] = {
     Bible_Text_Joshua_11_1,
     Bible_Text_Joshua_11_2,
     Bible_Text_Joshua_11_3,
@@ -11332,9 +9190,10 @@ static const u8 *const sJoshua_Chapter11[] = {
     Bible_Text_Joshua_11_21,
     Bible_Text_Joshua_11_22,
     Bible_Text_Joshua_11_23,
+    0
 };
 
-static const u8 *const sJoshua_Chapter12[] = {
+static const u16 *const sJoshua_Chapter12[] = {
     Bible_Text_Joshua_12_1,
     Bible_Text_Joshua_12_2,
     Bible_Text_Joshua_12_3,
@@ -11359,9 +9218,10 @@ static const u8 *const sJoshua_Chapter12[] = {
     Bible_Text_Joshua_12_22,
     Bible_Text_Joshua_12_23,
     Bible_Text_Joshua_12_24,
+    0
 };
 
-static const u8 *const sJoshua_Chapter13[] = {
+static const u16 *const sJoshua_Chapter13[] = {
     Bible_Text_Joshua_13_1,
     Bible_Text_Joshua_13_2,
     Bible_Text_Joshua_13_3,
@@ -11395,9 +9255,10 @@ static const u8 *const sJoshua_Chapter13[] = {
     Bible_Text_Joshua_13_31,
     Bible_Text_Joshua_13_32,
     Bible_Text_Joshua_13_33,
+    0
 };
 
-static const u8 *const sJoshua_Chapter14[] = {
+static const u16 *const sJoshua_Chapter14[] = {
     Bible_Text_Joshua_14_1,
     Bible_Text_Joshua_14_2,
     Bible_Text_Joshua_14_3,
@@ -11413,9 +9274,10 @@ static const u8 *const sJoshua_Chapter14[] = {
     Bible_Text_Joshua_14_13,
     Bible_Text_Joshua_14_14,
     Bible_Text_Joshua_14_15,
+    0
 };
 
-static const u8 *const sJoshua_Chapter15[] = {
+static const u16 *const sJoshua_Chapter15[] = {
     Bible_Text_Joshua_15_1,
     Bible_Text_Joshua_15_2,
     Bible_Text_Joshua_15_3,
@@ -11479,9 +9341,10 @@ static const u8 *const sJoshua_Chapter15[] = {
     Bible_Text_Joshua_15_61,
     Bible_Text_Joshua_15_62,
     Bible_Text_Joshua_15_63,
+    0
 };
 
-static const u8 *const sJoshua_Chapter16[] = {
+static const u16 *const sJoshua_Chapter16[] = {
     Bible_Text_Joshua_16_1,
     Bible_Text_Joshua_16_2,
     Bible_Text_Joshua_16_3,
@@ -11492,9 +9355,10 @@ static const u8 *const sJoshua_Chapter16[] = {
     Bible_Text_Joshua_16_8,
     Bible_Text_Joshua_16_9,
     Bible_Text_Joshua_16_10,
+    0
 };
 
-static const u8 *const sJoshua_Chapter17[] = {
+static const u16 *const sJoshua_Chapter17[] = {
     Bible_Text_Joshua_17_1,
     Bible_Text_Joshua_17_2,
     Bible_Text_Joshua_17_3,
@@ -11513,9 +9377,10 @@ static const u8 *const sJoshua_Chapter17[] = {
     Bible_Text_Joshua_17_16,
     Bible_Text_Joshua_17_17,
     Bible_Text_Joshua_17_18,
+    0
 };
 
-static const u8 *const sJoshua_Chapter18[] = {
+static const u16 *const sJoshua_Chapter18[] = {
     Bible_Text_Joshua_18_1,
     Bible_Text_Joshua_18_2,
     Bible_Text_Joshua_18_3,
@@ -11544,9 +9409,10 @@ static const u8 *const sJoshua_Chapter18[] = {
     Bible_Text_Joshua_18_26,
     Bible_Text_Joshua_18_27,
     Bible_Text_Joshua_18_28,
+    0
 };
 
-static const u8 *const sJoshua_Chapter19[] = {
+static const u16 *const sJoshua_Chapter19[] = {
     Bible_Text_Joshua_19_1,
     Bible_Text_Joshua_19_2,
     Bible_Text_Joshua_19_3,
@@ -11598,9 +9464,10 @@ static const u8 *const sJoshua_Chapter19[] = {
     Bible_Text_Joshua_19_49,
     Bible_Text_Joshua_19_50,
     Bible_Text_Joshua_19_51,
+    0
 };
 
-static const u8 *const sJoshua_Chapter20[] = {
+static const u16 *const sJoshua_Chapter20[] = {
     Bible_Text_Joshua_20_1,
     Bible_Text_Joshua_20_2,
     Bible_Text_Joshua_20_3,
@@ -11610,9 +9477,10 @@ static const u8 *const sJoshua_Chapter20[] = {
     Bible_Text_Joshua_20_7,
     Bible_Text_Joshua_20_8,
     Bible_Text_Joshua_20_9,
+    0
 };
 
-static const u8 *const sJoshua_Chapter21[] = {
+static const u16 *const sJoshua_Chapter21[] = {
     Bible_Text_Joshua_21_1,
     Bible_Text_Joshua_21_2,
     Bible_Text_Joshua_21_3,
@@ -11658,9 +9526,10 @@ static const u8 *const sJoshua_Chapter21[] = {
     Bible_Text_Joshua_21_43,
     Bible_Text_Joshua_21_44,
     Bible_Text_Joshua_21_45,
+    0
 };
 
-static const u8 *const sJoshua_Chapter22[] = {
+static const u16 *const sJoshua_Chapter22[] = {
     Bible_Text_Joshua_22_1,
     Bible_Text_Joshua_22_2,
     Bible_Text_Joshua_22_3,
@@ -11695,9 +9564,10 @@ static const u8 *const sJoshua_Chapter22[] = {
     Bible_Text_Joshua_22_32,
     Bible_Text_Joshua_22_33,
     Bible_Text_Joshua_22_34,
+    0
 };
 
-static const u8 *const sJoshua_Chapter23[] = {
+static const u16 *const sJoshua_Chapter23[] = {
     Bible_Text_Joshua_23_1,
     Bible_Text_Joshua_23_2,
     Bible_Text_Joshua_23_3,
@@ -11714,9 +9584,10 @@ static const u8 *const sJoshua_Chapter23[] = {
     Bible_Text_Joshua_23_14,
     Bible_Text_Joshua_23_15,
     Bible_Text_Joshua_23_16,
+    0
 };
 
-static const u8 *const sJoshua_Chapter24[] = {
+static const u16 *const sJoshua_Chapter24[] = {
     Bible_Text_Joshua_24_1,
     Bible_Text_Joshua_24_2,
     Bible_Text_Joshua_24_3,
@@ -11750,9 +9621,10 @@ static const u8 *const sJoshua_Chapter24[] = {
     Bible_Text_Joshua_24_31,
     Bible_Text_Joshua_24_32,
     Bible_Text_Joshua_24_33,
+    0
 };
 
-static const u8 *const *const sBibleText_JoshuaTextPtrs[] = {
+static const u16 *const *const sBibleText_JoshuaTextPtrs[] = {
     sJoshua_Chapter1,
     sJoshua_Chapter2,
     sJoshua_Chapter3,
@@ -11777,9 +9649,10 @@ static const u8 *const *const sBibleText_JoshuaTextPtrs[] = {
     sJoshua_Chapter22,
     sJoshua_Chapter23,
     sJoshua_Chapter24,
+    0
 };
 
-static const u8 *const sJudges_Chapter1[] = {
+static const u16 *const sJudges_Chapter1[] = {
     Bible_Text_Judges_1_1,
     Bible_Text_Judges_1_2,
     Bible_Text_Judges_1_3,
@@ -11816,9 +9689,10 @@ static const u8 *const sJudges_Chapter1[] = {
     Bible_Text_Judges_1_34,
     Bible_Text_Judges_1_35,
     Bible_Text_Judges_1_36,
+    0
 };
 
-static const u8 *const sJudges_Chapter2[] = {
+static const u16 *const sJudges_Chapter2[] = {
     Bible_Text_Judges_2_1,
     Bible_Text_Judges_2_2,
     Bible_Text_Judges_2_3,
@@ -11842,9 +9716,10 @@ static const u8 *const sJudges_Chapter2[] = {
     Bible_Text_Judges_2_21,
     Bible_Text_Judges_2_22,
     Bible_Text_Judges_2_23,
+    0
 };
 
-static const u8 *const sJudges_Chapter3[] = {
+static const u16 *const sJudges_Chapter3[] = {
     Bible_Text_Judges_3_1,
     Bible_Text_Judges_3_2,
     Bible_Text_Judges_3_3,
@@ -11876,9 +9751,10 @@ static const u8 *const sJudges_Chapter3[] = {
     Bible_Text_Judges_3_29,
     Bible_Text_Judges_3_30,
     Bible_Text_Judges_3_31,
+    0
 };
 
-static const u8 *const sJudges_Chapter4[] = {
+static const u16 *const sJudges_Chapter4[] = {
     Bible_Text_Judges_4_1,
     Bible_Text_Judges_4_2,
     Bible_Text_Judges_4_3,
@@ -11903,9 +9779,10 @@ static const u8 *const sJudges_Chapter4[] = {
     Bible_Text_Judges_4_22,
     Bible_Text_Judges_4_23,
     Bible_Text_Judges_4_24,
+    0
 };
 
-static const u8 *const sJudges_Chapter5[] = {
+static const u16 *const sJudges_Chapter5[] = {
     Bible_Text_Judges_5_1,
     Bible_Text_Judges_5_2,
     Bible_Text_Judges_5_3,
@@ -11937,9 +9814,10 @@ static const u8 *const sJudges_Chapter5[] = {
     Bible_Text_Judges_5_29,
     Bible_Text_Judges_5_30,
     Bible_Text_Judges_5_31,
+    0
 };
 
-static const u8 *const sJudges_Chapter6[] = {
+static const u16 *const sJudges_Chapter6[] = {
     Bible_Text_Judges_6_1,
     Bible_Text_Judges_6_2,
     Bible_Text_Judges_6_3,
@@ -11980,9 +9858,10 @@ static const u8 *const sJudges_Chapter6[] = {
     Bible_Text_Judges_6_38,
     Bible_Text_Judges_6_39,
     Bible_Text_Judges_6_40,
+    0
 };
 
-static const u8 *const sJudges_Chapter7[] = {
+static const u16 *const sJudges_Chapter7[] = {
     Bible_Text_Judges_7_1,
     Bible_Text_Judges_7_2,
     Bible_Text_Judges_7_3,
@@ -12008,9 +9887,10 @@ static const u8 *const sJudges_Chapter7[] = {
     Bible_Text_Judges_7_23,
     Bible_Text_Judges_7_24,
     Bible_Text_Judges_7_25,
+    0
 };
 
-static const u8 *const sJudges_Chapter8[] = {
+static const u16 *const sJudges_Chapter8[] = {
     Bible_Text_Judges_8_1,
     Bible_Text_Judges_8_2,
     Bible_Text_Judges_8_3,
@@ -12046,9 +9926,10 @@ static const u8 *const sJudges_Chapter8[] = {
     Bible_Text_Judges_8_33,
     Bible_Text_Judges_8_34,
     Bible_Text_Judges_8_35,
+    0
 };
 
-static const u8 *const sJudges_Chapter9[] = {
+static const u16 *const sJudges_Chapter9[] = {
     Bible_Text_Judges_9_1,
     Bible_Text_Judges_9_2,
     Bible_Text_Judges_9_3,
@@ -12106,9 +9987,10 @@ static const u8 *const sJudges_Chapter9[] = {
     Bible_Text_Judges_9_55,
     Bible_Text_Judges_9_56,
     Bible_Text_Judges_9_57,
+    0
 };
 
-static const u8 *const sJudges_Chapter10[] = {
+static const u16 *const sJudges_Chapter10[] = {
     Bible_Text_Judges_10_1,
     Bible_Text_Judges_10_2,
     Bible_Text_Judges_10_3,
@@ -12127,9 +10009,10 @@ static const u8 *const sJudges_Chapter10[] = {
     Bible_Text_Judges_10_16,
     Bible_Text_Judges_10_17,
     Bible_Text_Judges_10_18,
+    0
 };
 
-static const u8 *const sJudges_Chapter11[] = {
+static const u16 *const sJudges_Chapter11[] = {
     Bible_Text_Judges_11_1,
     Bible_Text_Judges_11_2,
     Bible_Text_Judges_11_3,
@@ -12170,9 +10053,10 @@ static const u8 *const sJudges_Chapter11[] = {
     Bible_Text_Judges_11_38,
     Bible_Text_Judges_11_39,
     Bible_Text_Judges_11_40,
+    0
 };
 
-static const u8 *const sJudges_Chapter12[] = {
+static const u16 *const sJudges_Chapter12[] = {
     Bible_Text_Judges_12_1,
     Bible_Text_Judges_12_2,
     Bible_Text_Judges_12_3,
@@ -12188,9 +10072,10 @@ static const u8 *const sJudges_Chapter12[] = {
     Bible_Text_Judges_12_13,
     Bible_Text_Judges_12_14,
     Bible_Text_Judges_12_15,
+    0
 };
 
-static const u8 *const sJudges_Chapter13[] = {
+static const u16 *const sJudges_Chapter13[] = {
     Bible_Text_Judges_13_1,
     Bible_Text_Judges_13_2,
     Bible_Text_Judges_13_3,
@@ -12216,9 +10101,10 @@ static const u8 *const sJudges_Chapter13[] = {
     Bible_Text_Judges_13_23,
     Bible_Text_Judges_13_24,
     Bible_Text_Judges_13_25,
+    0
 };
 
-static const u8 *const sJudges_Chapter14[] = {
+static const u16 *const sJudges_Chapter14[] = {
     Bible_Text_Judges_14_1,
     Bible_Text_Judges_14_2,
     Bible_Text_Judges_14_3,
@@ -12239,9 +10125,10 @@ static const u8 *const sJudges_Chapter14[] = {
     Bible_Text_Judges_14_18,
     Bible_Text_Judges_14_19,
     Bible_Text_Judges_14_20,
+    0
 };
 
-static const u8 *const sJudges_Chapter15[] = {
+static const u16 *const sJudges_Chapter15[] = {
     Bible_Text_Judges_15_1,
     Bible_Text_Judges_15_2,
     Bible_Text_Judges_15_3,
@@ -12262,9 +10149,10 @@ static const u8 *const sJudges_Chapter15[] = {
     Bible_Text_Judges_15_18,
     Bible_Text_Judges_15_19,
     Bible_Text_Judges_15_20,
+    0
 };
 
-static const u8 *const sJudges_Chapter16[] = {
+static const u16 *const sJudges_Chapter16[] = {
     Bible_Text_Judges_16_1,
     Bible_Text_Judges_16_2,
     Bible_Text_Judges_16_3,
@@ -12296,9 +10184,10 @@ static const u8 *const sJudges_Chapter16[] = {
     Bible_Text_Judges_16_29,
     Bible_Text_Judges_16_30,
     Bible_Text_Judges_16_31,
+    0
 };
 
-static const u8 *const sJudges_Chapter17[] = {
+static const u16 *const sJudges_Chapter17[] = {
     Bible_Text_Judges_17_1,
     Bible_Text_Judges_17_2,
     Bible_Text_Judges_17_3,
@@ -12312,9 +10201,10 @@ static const u8 *const sJudges_Chapter17[] = {
     Bible_Text_Judges_17_11,
     Bible_Text_Judges_17_12,
     Bible_Text_Judges_17_13,
+    0
 };
 
-static const u8 *const sJudges_Chapter18[] = {
+static const u16 *const sJudges_Chapter18[] = {
     Bible_Text_Judges_18_1,
     Bible_Text_Judges_18_2,
     Bible_Text_Judges_18_3,
@@ -12346,9 +10236,10 @@ static const u8 *const sJudges_Chapter18[] = {
     Bible_Text_Judges_18_29,
     Bible_Text_Judges_18_30,
     Bible_Text_Judges_18_31,
+    0
 };
 
-static const u8 *const sJudges_Chapter19[] = {
+static const u16 *const sJudges_Chapter19[] = {
     Bible_Text_Judges_19_1,
     Bible_Text_Judges_19_2,
     Bible_Text_Judges_19_3,
@@ -12379,9 +10270,10 @@ static const u8 *const sJudges_Chapter19[] = {
     Bible_Text_Judges_19_28,
     Bible_Text_Judges_19_29,
     Bible_Text_Judges_19_30,
+    0
 };
 
-static const u8 *const sJudges_Chapter20[] = {
+static const u16 *const sJudges_Chapter20[] = {
     Bible_Text_Judges_20_1,
     Bible_Text_Judges_20_2,
     Bible_Text_Judges_20_3,
@@ -12430,9 +10322,10 @@ static const u8 *const sJudges_Chapter20[] = {
     Bible_Text_Judges_20_46,
     Bible_Text_Judges_20_47,
     Bible_Text_Judges_20_48,
+    0
 };
 
-static const u8 *const sJudges_Chapter21[] = {
+static const u16 *const sJudges_Chapter21[] = {
     Bible_Text_Judges_21_1,
     Bible_Text_Judges_21_2,
     Bible_Text_Judges_21_3,
@@ -12458,9 +10351,10 @@ static const u8 *const sJudges_Chapter21[] = {
     Bible_Text_Judges_21_23,
     Bible_Text_Judges_21_24,
     Bible_Text_Judges_21_25,
+    0
 };
 
-static const u8 *const *const sBibleText_JudgesTextPtrs[] = {
+static const u16 *const *const sBibleText_JudgesTextPtrs[] = {
     sJudges_Chapter1,
     sJudges_Chapter2,
     sJudges_Chapter3,
@@ -12482,9 +10376,10 @@ static const u8 *const *const sBibleText_JudgesTextPtrs[] = {
     sJudges_Chapter19,
     sJudges_Chapter20,
     sJudges_Chapter21,
+    0
 };
 
-static const u8 *const sRuth_Chapter1[] = {
+static const u16 *const sRuth_Chapter1[] = {
     Bible_Text_Ruth_1_1,
     Bible_Text_Ruth_1_2,
     Bible_Text_Ruth_1_3,
@@ -12507,9 +10402,10 @@ static const u8 *const sRuth_Chapter1[] = {
     Bible_Text_Ruth_1_20,
     Bible_Text_Ruth_1_21,
     Bible_Text_Ruth_1_22,
+    0
 };
 
-static const u8 *const sRuth_Chapter2[] = {
+static const u16 *const sRuth_Chapter2[] = {
     Bible_Text_Ruth_2_1,
     Bible_Text_Ruth_2_2,
     Bible_Text_Ruth_2_3,
@@ -12533,9 +10429,10 @@ static const u8 *const sRuth_Chapter2[] = {
     Bible_Text_Ruth_2_21,
     Bible_Text_Ruth_2_22,
     Bible_Text_Ruth_2_23,
+    0
 };
 
-static const u8 *const sRuth_Chapter3[] = {
+static const u16 *const sRuth_Chapter3[] = {
     Bible_Text_Ruth_3_1,
     Bible_Text_Ruth_3_2,
     Bible_Text_Ruth_3_3,
@@ -12554,9 +10451,10 @@ static const u8 *const sRuth_Chapter3[] = {
     Bible_Text_Ruth_3_16,
     Bible_Text_Ruth_3_17,
     Bible_Text_Ruth_3_18,
+    0
 };
 
-static const u8 *const sRuth_Chapter4[] = {
+static const u16 *const sRuth_Chapter4[] = {
     Bible_Text_Ruth_4_1,
     Bible_Text_Ruth_4_2,
     Bible_Text_Ruth_4_3,
@@ -12579,16 +10477,18 @@ static const u8 *const sRuth_Chapter4[] = {
     Bible_Text_Ruth_4_20,
     Bible_Text_Ruth_4_21,
     Bible_Text_Ruth_4_22,
+    0
 };
 
-static const u8 *const *const sBibleText_RuthTextPtrs[] = {
+static const u16 *const *const sBibleText_RuthTextPtrs[] = {
     sRuth_Chapter1,
     sRuth_Chapter2,
     sRuth_Chapter3,
     sRuth_Chapter4,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter1[] = {
+static const u16 *const s1Samuel_Chapter1[] = {
     Bible_Text_1_Samuel_1_1,
     Bible_Text_1_Samuel_1_2,
     Bible_Text_1_Samuel_1_3,
@@ -12617,9 +10517,10 @@ static const u8 *const s1Samuel_Chapter1[] = {
     Bible_Text_1_Samuel_1_26,
     Bible_Text_1_Samuel_1_27,
     Bible_Text_1_Samuel_1_28,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter2[] = {
+static const u16 *const s1Samuel_Chapter2[] = {
     Bible_Text_1_Samuel_2_1,
     Bible_Text_1_Samuel_2_2,
     Bible_Text_1_Samuel_2_3,
@@ -12656,9 +10557,10 @@ static const u8 *const s1Samuel_Chapter2[] = {
     Bible_Text_1_Samuel_2_34,
     Bible_Text_1_Samuel_2_35,
     Bible_Text_1_Samuel_2_36,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter3[] = {
+static const u16 *const s1Samuel_Chapter3[] = {
     Bible_Text_1_Samuel_3_1,
     Bible_Text_1_Samuel_3_2,
     Bible_Text_1_Samuel_3_3,
@@ -12680,9 +10582,10 @@ static const u8 *const s1Samuel_Chapter3[] = {
     Bible_Text_1_Samuel_3_19,
     Bible_Text_1_Samuel_3_20,
     Bible_Text_1_Samuel_3_21,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter4[] = {
+static const u16 *const s1Samuel_Chapter4[] = {
     Bible_Text_1_Samuel_4_1,
     Bible_Text_1_Samuel_4_2,
     Bible_Text_1_Samuel_4_3,
@@ -12705,9 +10608,10 @@ static const u8 *const s1Samuel_Chapter4[] = {
     Bible_Text_1_Samuel_4_20,
     Bible_Text_1_Samuel_4_21,
     Bible_Text_1_Samuel_4_22,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter5[] = {
+static const u16 *const s1Samuel_Chapter5[] = {
     Bible_Text_1_Samuel_5_1,
     Bible_Text_1_Samuel_5_2,
     Bible_Text_1_Samuel_5_3,
@@ -12720,9 +10624,10 @@ static const u8 *const s1Samuel_Chapter5[] = {
     Bible_Text_1_Samuel_5_10,
     Bible_Text_1_Samuel_5_11,
     Bible_Text_1_Samuel_5_12,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter6[] = {
+static const u16 *const s1Samuel_Chapter6[] = {
     Bible_Text_1_Samuel_6_1,
     Bible_Text_1_Samuel_6_2,
     Bible_Text_1_Samuel_6_3,
@@ -12744,9 +10649,10 @@ static const u8 *const s1Samuel_Chapter6[] = {
     Bible_Text_1_Samuel_6_19,
     Bible_Text_1_Samuel_6_20,
     Bible_Text_1_Samuel_6_21,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter7[] = {
+static const u16 *const s1Samuel_Chapter7[] = {
     Bible_Text_1_Samuel_7_1,
     Bible_Text_1_Samuel_7_2,
     Bible_Text_1_Samuel_7_3,
@@ -12764,9 +10670,10 @@ static const u8 *const s1Samuel_Chapter7[] = {
     Bible_Text_1_Samuel_7_15,
     Bible_Text_1_Samuel_7_16,
     Bible_Text_1_Samuel_7_17,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter8[] = {
+static const u16 *const s1Samuel_Chapter8[] = {
     Bible_Text_1_Samuel_8_1,
     Bible_Text_1_Samuel_8_2,
     Bible_Text_1_Samuel_8_3,
@@ -12789,9 +10696,10 @@ static const u8 *const s1Samuel_Chapter8[] = {
     Bible_Text_1_Samuel_8_20,
     Bible_Text_1_Samuel_8_21,
     Bible_Text_1_Samuel_8_22,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter9[] = {
+static const u16 *const s1Samuel_Chapter9[] = {
     Bible_Text_1_Samuel_9_1,
     Bible_Text_1_Samuel_9_2,
     Bible_Text_1_Samuel_9_3,
@@ -12819,9 +10727,10 @@ static const u8 *const s1Samuel_Chapter9[] = {
     Bible_Text_1_Samuel_9_25,
     Bible_Text_1_Samuel_9_26,
     Bible_Text_1_Samuel_9_27,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter10[] = {
+static const u16 *const s1Samuel_Chapter10[] = {
     Bible_Text_1_Samuel_10_1,
     Bible_Text_1_Samuel_10_2,
     Bible_Text_1_Samuel_10_3,
@@ -12849,9 +10758,10 @@ static const u8 *const s1Samuel_Chapter10[] = {
     Bible_Text_1_Samuel_10_25,
     Bible_Text_1_Samuel_10_26,
     Bible_Text_1_Samuel_10_27,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter11[] = {
+static const u16 *const s1Samuel_Chapter11[] = {
     Bible_Text_1_Samuel_11_1,
     Bible_Text_1_Samuel_11_2,
     Bible_Text_1_Samuel_11_3,
@@ -12867,9 +10777,10 @@ static const u8 *const s1Samuel_Chapter11[] = {
     Bible_Text_1_Samuel_11_13,
     Bible_Text_1_Samuel_11_14,
     Bible_Text_1_Samuel_11_15,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter12[] = {
+static const u16 *const s1Samuel_Chapter12[] = {
     Bible_Text_1_Samuel_12_1,
     Bible_Text_1_Samuel_12_2,
     Bible_Text_1_Samuel_12_3,
@@ -12895,9 +10806,10 @@ static const u8 *const s1Samuel_Chapter12[] = {
     Bible_Text_1_Samuel_12_23,
     Bible_Text_1_Samuel_12_24,
     Bible_Text_1_Samuel_12_25,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter13[] = {
+static const u16 *const s1Samuel_Chapter13[] = {
     Bible_Text_1_Samuel_13_1,
     Bible_Text_1_Samuel_13_2,
     Bible_Text_1_Samuel_13_3,
@@ -12921,9 +10833,10 @@ static const u8 *const s1Samuel_Chapter13[] = {
     Bible_Text_1_Samuel_13_21,
     Bible_Text_1_Samuel_13_22,
     Bible_Text_1_Samuel_13_23,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter14[] = {
+static const u16 *const s1Samuel_Chapter14[] = {
     Bible_Text_1_Samuel_14_1,
     Bible_Text_1_Samuel_14_2,
     Bible_Text_1_Samuel_14_3,
@@ -12976,9 +10889,10 @@ static const u8 *const s1Samuel_Chapter14[] = {
     Bible_Text_1_Samuel_14_50,
     Bible_Text_1_Samuel_14_51,
     Bible_Text_1_Samuel_14_52,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter15[] = {
+static const u16 *const s1Samuel_Chapter15[] = {
     Bible_Text_1_Samuel_15_1,
     Bible_Text_1_Samuel_15_2,
     Bible_Text_1_Samuel_15_3,
@@ -13014,9 +10928,10 @@ static const u8 *const s1Samuel_Chapter15[] = {
     Bible_Text_1_Samuel_15_33,
     Bible_Text_1_Samuel_15_34,
     Bible_Text_1_Samuel_15_35,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter16[] = {
+static const u16 *const s1Samuel_Chapter16[] = {
     Bible_Text_1_Samuel_16_1,
     Bible_Text_1_Samuel_16_2,
     Bible_Text_1_Samuel_16_3,
@@ -13040,9 +10955,10 @@ static const u8 *const s1Samuel_Chapter16[] = {
     Bible_Text_1_Samuel_16_21,
     Bible_Text_1_Samuel_16_22,
     Bible_Text_1_Samuel_16_23,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter17[] = {
+static const u16 *const s1Samuel_Chapter17[] = {
     Bible_Text_1_Samuel_17_1,
     Bible_Text_1_Samuel_17_2,
     Bible_Text_1_Samuel_17_3,
@@ -13101,9 +11017,10 @@ static const u8 *const s1Samuel_Chapter17[] = {
     Bible_Text_1_Samuel_17_56,
     Bible_Text_1_Samuel_17_57,
     Bible_Text_1_Samuel_17_58,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter18[] = {
+static const u16 *const s1Samuel_Chapter18[] = {
     Bible_Text_1_Samuel_18_1,
     Bible_Text_1_Samuel_18_2,
     Bible_Text_1_Samuel_18_3,
@@ -13134,9 +11051,10 @@ static const u8 *const s1Samuel_Chapter18[] = {
     Bible_Text_1_Samuel_18_28,
     Bible_Text_1_Samuel_18_29,
     Bible_Text_1_Samuel_18_30,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter19[] = {
+static const u16 *const s1Samuel_Chapter19[] = {
     Bible_Text_1_Samuel_19_1,
     Bible_Text_1_Samuel_19_2,
     Bible_Text_1_Samuel_19_3,
@@ -13161,9 +11079,10 @@ static const u8 *const s1Samuel_Chapter19[] = {
     Bible_Text_1_Samuel_19_22,
     Bible_Text_1_Samuel_19_23,
     Bible_Text_1_Samuel_19_24,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter20[] = {
+static const u16 *const s1Samuel_Chapter20[] = {
     Bible_Text_1_Samuel_20_1,
     Bible_Text_1_Samuel_20_2,
     Bible_Text_1_Samuel_20_3,
@@ -13206,9 +11125,10 @@ static const u8 *const s1Samuel_Chapter20[] = {
     Bible_Text_1_Samuel_20_40,
     Bible_Text_1_Samuel_20_41,
     Bible_Text_1_Samuel_20_42,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter21[] = {
+static const u16 *const s1Samuel_Chapter21[] = {
     Bible_Text_1_Samuel_21_1,
     Bible_Text_1_Samuel_21_2,
     Bible_Text_1_Samuel_21_3,
@@ -13224,9 +11144,10 @@ static const u8 *const s1Samuel_Chapter21[] = {
     Bible_Text_1_Samuel_21_13,
     Bible_Text_1_Samuel_21_14,
     Bible_Text_1_Samuel_21_15,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter22[] = {
+static const u16 *const s1Samuel_Chapter22[] = {
     Bible_Text_1_Samuel_22_1,
     Bible_Text_1_Samuel_22_2,
     Bible_Text_1_Samuel_22_3,
@@ -13250,9 +11171,10 @@ static const u8 *const s1Samuel_Chapter22[] = {
     Bible_Text_1_Samuel_22_21,
     Bible_Text_1_Samuel_22_22,
     Bible_Text_1_Samuel_22_23,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter23[] = {
+static const u16 *const s1Samuel_Chapter23[] = {
     Bible_Text_1_Samuel_23_1,
     Bible_Text_1_Samuel_23_2,
     Bible_Text_1_Samuel_23_3,
@@ -13282,9 +11204,10 @@ static const u8 *const s1Samuel_Chapter23[] = {
     Bible_Text_1_Samuel_23_27,
     Bible_Text_1_Samuel_23_28,
     Bible_Text_1_Samuel_23_29,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter24[] = {
+static const u16 *const s1Samuel_Chapter24[] = {
     Bible_Text_1_Samuel_24_1,
     Bible_Text_1_Samuel_24_2,
     Bible_Text_1_Samuel_24_3,
@@ -13307,9 +11230,10 @@ static const u8 *const s1Samuel_Chapter24[] = {
     Bible_Text_1_Samuel_24_20,
     Bible_Text_1_Samuel_24_21,
     Bible_Text_1_Samuel_24_22,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter25[] = {
+static const u16 *const s1Samuel_Chapter25[] = {
     Bible_Text_1_Samuel_25_1,
     Bible_Text_1_Samuel_25_2,
     Bible_Text_1_Samuel_25_3,
@@ -13354,9 +11278,10 @@ static const u8 *const s1Samuel_Chapter25[] = {
     Bible_Text_1_Samuel_25_42,
     Bible_Text_1_Samuel_25_43,
     Bible_Text_1_Samuel_25_44,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter26[] = {
+static const u16 *const s1Samuel_Chapter26[] = {
     Bible_Text_1_Samuel_26_1,
     Bible_Text_1_Samuel_26_2,
     Bible_Text_1_Samuel_26_3,
@@ -13382,9 +11307,10 @@ static const u8 *const s1Samuel_Chapter26[] = {
     Bible_Text_1_Samuel_26_23,
     Bible_Text_1_Samuel_26_24,
     Bible_Text_1_Samuel_26_25,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter27[] = {
+static const u16 *const s1Samuel_Chapter27[] = {
     Bible_Text_1_Samuel_27_1,
     Bible_Text_1_Samuel_27_2,
     Bible_Text_1_Samuel_27_3,
@@ -13397,9 +11323,10 @@ static const u8 *const s1Samuel_Chapter27[] = {
     Bible_Text_1_Samuel_27_10,
     Bible_Text_1_Samuel_27_11,
     Bible_Text_1_Samuel_27_12,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter28[] = {
+static const u16 *const s1Samuel_Chapter28[] = {
     Bible_Text_1_Samuel_28_1,
     Bible_Text_1_Samuel_28_2,
     Bible_Text_1_Samuel_28_3,
@@ -13425,9 +11352,10 @@ static const u8 *const s1Samuel_Chapter28[] = {
     Bible_Text_1_Samuel_28_23,
     Bible_Text_1_Samuel_28_24,
     Bible_Text_1_Samuel_28_25,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter29[] = {
+static const u16 *const s1Samuel_Chapter29[] = {
     Bible_Text_1_Samuel_29_1,
     Bible_Text_1_Samuel_29_2,
     Bible_Text_1_Samuel_29_3,
@@ -13439,9 +11367,10 @@ static const u8 *const s1Samuel_Chapter29[] = {
     Bible_Text_1_Samuel_29_9,
     Bible_Text_1_Samuel_29_10,
     Bible_Text_1_Samuel_29_11,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter30[] = {
+static const u16 *const s1Samuel_Chapter30[] = {
     Bible_Text_1_Samuel_30_1,
     Bible_Text_1_Samuel_30_2,
     Bible_Text_1_Samuel_30_3,
@@ -13473,9 +11402,10 @@ static const u8 *const s1Samuel_Chapter30[] = {
     Bible_Text_1_Samuel_30_29,
     Bible_Text_1_Samuel_30_30,
     Bible_Text_1_Samuel_30_31,
+    0
 };
 
-static const u8 *const s1Samuel_Chapter31[] = {
+static const u16 *const s1Samuel_Chapter31[] = {
     Bible_Text_1_Samuel_31_1,
     Bible_Text_1_Samuel_31_2,
     Bible_Text_1_Samuel_31_3,
@@ -13489,9 +11419,10 @@ static const u8 *const s1Samuel_Chapter31[] = {
     Bible_Text_1_Samuel_31_11,
     Bible_Text_1_Samuel_31_12,
     Bible_Text_1_Samuel_31_13,
+    0
 };
 
-static const u8 *const *const sBibleText_1SamuelTextPtrs[] = {
+static const u16 *const *const sBibleText_1SamuelTextPtrs[] = {
     s1Samuel_Chapter1,
     s1Samuel_Chapter2,
     s1Samuel_Chapter3,
@@ -13523,9 +11454,10 @@ static const u8 *const *const sBibleText_1SamuelTextPtrs[] = {
     s1Samuel_Chapter29,
     s1Samuel_Chapter30,
     s1Samuel_Chapter31,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter1[] = {
+static const u16 *const s2Samuel_Chapter1[] = {
     Bible_Text_2_Samuel_1_1,
     Bible_Text_2_Samuel_1_2,
     Bible_Text_2_Samuel_1_3,
@@ -13553,9 +11485,10 @@ static const u8 *const s2Samuel_Chapter1[] = {
     Bible_Text_2_Samuel_1_25,
     Bible_Text_2_Samuel_1_26,
     Bible_Text_2_Samuel_1_27,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter2[] = {
+static const u16 *const s2Samuel_Chapter2[] = {
     Bible_Text_2_Samuel_2_1,
     Bible_Text_2_Samuel_2_2,
     Bible_Text_2_Samuel_2_3,
@@ -13588,9 +11521,10 @@ static const u8 *const s2Samuel_Chapter2[] = {
     Bible_Text_2_Samuel_2_30,
     Bible_Text_2_Samuel_2_31,
     Bible_Text_2_Samuel_2_32,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter3[] = {
+static const u16 *const s2Samuel_Chapter3[] = {
     Bible_Text_2_Samuel_3_1,
     Bible_Text_2_Samuel_3_2,
     Bible_Text_2_Samuel_3_3,
@@ -13630,9 +11564,10 @@ static const u8 *const s2Samuel_Chapter3[] = {
     Bible_Text_2_Samuel_3_37,
     Bible_Text_2_Samuel_3_38,
     Bible_Text_2_Samuel_3_39,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter4[] = {
+static const u16 *const s2Samuel_Chapter4[] = {
     Bible_Text_2_Samuel_4_1,
     Bible_Text_2_Samuel_4_2,
     Bible_Text_2_Samuel_4_3,
@@ -13645,9 +11580,10 @@ static const u8 *const s2Samuel_Chapter4[] = {
     Bible_Text_2_Samuel_4_10,
     Bible_Text_2_Samuel_4_11,
     Bible_Text_2_Samuel_4_12,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter5[] = {
+static const u16 *const s2Samuel_Chapter5[] = {
     Bible_Text_2_Samuel_5_1,
     Bible_Text_2_Samuel_5_2,
     Bible_Text_2_Samuel_5_3,
@@ -13673,9 +11609,10 @@ static const u8 *const s2Samuel_Chapter5[] = {
     Bible_Text_2_Samuel_5_23,
     Bible_Text_2_Samuel_5_24,
     Bible_Text_2_Samuel_5_25,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter6[] = {
+static const u16 *const s2Samuel_Chapter6[] = {
     Bible_Text_2_Samuel_6_1,
     Bible_Text_2_Samuel_6_2,
     Bible_Text_2_Samuel_6_3,
@@ -13699,9 +11636,10 @@ static const u8 *const s2Samuel_Chapter6[] = {
     Bible_Text_2_Samuel_6_21,
     Bible_Text_2_Samuel_6_22,
     Bible_Text_2_Samuel_6_23,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter7[] = {
+static const u16 *const s2Samuel_Chapter7[] = {
     Bible_Text_2_Samuel_7_1,
     Bible_Text_2_Samuel_7_2,
     Bible_Text_2_Samuel_7_3,
@@ -13731,9 +11669,10 @@ static const u8 *const s2Samuel_Chapter7[] = {
     Bible_Text_2_Samuel_7_27,
     Bible_Text_2_Samuel_7_28,
     Bible_Text_2_Samuel_7_29,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter8[] = {
+static const u16 *const s2Samuel_Chapter8[] = {
     Bible_Text_2_Samuel_8_1,
     Bible_Text_2_Samuel_8_2,
     Bible_Text_2_Samuel_8_3,
@@ -13752,9 +11691,10 @@ static const u8 *const s2Samuel_Chapter8[] = {
     Bible_Text_2_Samuel_8_16,
     Bible_Text_2_Samuel_8_17,
     Bible_Text_2_Samuel_8_18,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter9[] = {
+static const u16 *const s2Samuel_Chapter9[] = {
     Bible_Text_2_Samuel_9_1,
     Bible_Text_2_Samuel_9_2,
     Bible_Text_2_Samuel_9_3,
@@ -13768,9 +11708,10 @@ static const u8 *const s2Samuel_Chapter9[] = {
     Bible_Text_2_Samuel_9_11,
     Bible_Text_2_Samuel_9_12,
     Bible_Text_2_Samuel_9_13,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter10[] = {
+static const u16 *const s2Samuel_Chapter10[] = {
     Bible_Text_2_Samuel_10_1,
     Bible_Text_2_Samuel_10_2,
     Bible_Text_2_Samuel_10_3,
@@ -13790,9 +11731,10 @@ static const u8 *const s2Samuel_Chapter10[] = {
     Bible_Text_2_Samuel_10_17,
     Bible_Text_2_Samuel_10_18,
     Bible_Text_2_Samuel_10_19,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter11[] = {
+static const u16 *const s2Samuel_Chapter11[] = {
     Bible_Text_2_Samuel_11_1,
     Bible_Text_2_Samuel_11_2,
     Bible_Text_2_Samuel_11_3,
@@ -13820,9 +11762,10 @@ static const u8 *const s2Samuel_Chapter11[] = {
     Bible_Text_2_Samuel_11_25,
     Bible_Text_2_Samuel_11_26,
     Bible_Text_2_Samuel_11_27,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter12[] = {
+static const u16 *const s2Samuel_Chapter12[] = {
     Bible_Text_2_Samuel_12_1,
     Bible_Text_2_Samuel_12_2,
     Bible_Text_2_Samuel_12_3,
@@ -13854,9 +11797,10 @@ static const u8 *const s2Samuel_Chapter12[] = {
     Bible_Text_2_Samuel_12_29,
     Bible_Text_2_Samuel_12_30,
     Bible_Text_2_Samuel_12_31,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter13[] = {
+static const u16 *const s2Samuel_Chapter13[] = {
     Bible_Text_2_Samuel_13_1,
     Bible_Text_2_Samuel_13_2,
     Bible_Text_2_Samuel_13_3,
@@ -13896,9 +11840,10 @@ static const u8 *const s2Samuel_Chapter13[] = {
     Bible_Text_2_Samuel_13_37,
     Bible_Text_2_Samuel_13_38,
     Bible_Text_2_Samuel_13_39,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter14[] = {
+static const u16 *const s2Samuel_Chapter14[] = {
     Bible_Text_2_Samuel_14_1,
     Bible_Text_2_Samuel_14_2,
     Bible_Text_2_Samuel_14_3,
@@ -13932,9 +11877,10 @@ static const u8 *const s2Samuel_Chapter14[] = {
     Bible_Text_2_Samuel_14_31,
     Bible_Text_2_Samuel_14_32,
     Bible_Text_2_Samuel_14_33,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter15[] = {
+static const u16 *const s2Samuel_Chapter15[] = {
     Bible_Text_2_Samuel_15_1,
     Bible_Text_2_Samuel_15_2,
     Bible_Text_2_Samuel_15_3,
@@ -13972,9 +11918,10 @@ static const u8 *const s2Samuel_Chapter15[] = {
     Bible_Text_2_Samuel_15_35,
     Bible_Text_2_Samuel_15_36,
     Bible_Text_2_Samuel_15_37,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter16[] = {
+static const u16 *const s2Samuel_Chapter16[] = {
     Bible_Text_2_Samuel_16_1,
     Bible_Text_2_Samuel_16_2,
     Bible_Text_2_Samuel_16_3,
@@ -13998,9 +11945,10 @@ static const u8 *const s2Samuel_Chapter16[] = {
     Bible_Text_2_Samuel_16_21,
     Bible_Text_2_Samuel_16_22,
     Bible_Text_2_Samuel_16_23,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter17[] = {
+static const u16 *const s2Samuel_Chapter17[] = {
     Bible_Text_2_Samuel_17_1,
     Bible_Text_2_Samuel_17_2,
     Bible_Text_2_Samuel_17_3,
@@ -14030,9 +11978,10 @@ static const u8 *const s2Samuel_Chapter17[] = {
     Bible_Text_2_Samuel_17_27,
     Bible_Text_2_Samuel_17_28,
     Bible_Text_2_Samuel_17_29,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter18[] = {
+static const u16 *const s2Samuel_Chapter18[] = {
     Bible_Text_2_Samuel_18_1,
     Bible_Text_2_Samuel_18_2,
     Bible_Text_2_Samuel_18_3,
@@ -14066,9 +12015,10 @@ static const u8 *const s2Samuel_Chapter18[] = {
     Bible_Text_2_Samuel_18_31,
     Bible_Text_2_Samuel_18_32,
     Bible_Text_2_Samuel_18_33,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter19[] = {
+static const u16 *const s2Samuel_Chapter19[] = {
     Bible_Text_2_Samuel_19_1,
     Bible_Text_2_Samuel_19_2,
     Bible_Text_2_Samuel_19_3,
@@ -14112,9 +12062,10 @@ static const u8 *const s2Samuel_Chapter19[] = {
     Bible_Text_2_Samuel_19_41,
     Bible_Text_2_Samuel_19_42,
     Bible_Text_2_Samuel_19_43,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter20[] = {
+static const u16 *const s2Samuel_Chapter20[] = {
     Bible_Text_2_Samuel_20_1,
     Bible_Text_2_Samuel_20_2,
     Bible_Text_2_Samuel_20_3,
@@ -14141,9 +12092,10 @@ static const u8 *const s2Samuel_Chapter20[] = {
     Bible_Text_2_Samuel_20_24,
     Bible_Text_2_Samuel_20_25,
     Bible_Text_2_Samuel_20_26,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter21[] = {
+static const u16 *const s2Samuel_Chapter21[] = {
     Bible_Text_2_Samuel_21_1,
     Bible_Text_2_Samuel_21_2,
     Bible_Text_2_Samuel_21_3,
@@ -14166,9 +12118,10 @@ static const u8 *const s2Samuel_Chapter21[] = {
     Bible_Text_2_Samuel_21_20,
     Bible_Text_2_Samuel_21_21,
     Bible_Text_2_Samuel_21_22,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter22[] = {
+static const u16 *const s2Samuel_Chapter22[] = {
     Bible_Text_2_Samuel_22_1,
     Bible_Text_2_Samuel_22_2,
     Bible_Text_2_Samuel_22_3,
@@ -14220,9 +12173,10 @@ static const u8 *const s2Samuel_Chapter22[] = {
     Bible_Text_2_Samuel_22_49,
     Bible_Text_2_Samuel_22_50,
     Bible_Text_2_Samuel_22_51,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter23[] = {
+static const u16 *const s2Samuel_Chapter23[] = {
     Bible_Text_2_Samuel_23_1,
     Bible_Text_2_Samuel_23_2,
     Bible_Text_2_Samuel_23_3,
@@ -14262,9 +12216,10 @@ static const u8 *const s2Samuel_Chapter23[] = {
     Bible_Text_2_Samuel_23_37,
     Bible_Text_2_Samuel_23_38,
     Bible_Text_2_Samuel_23_39,
+    0
 };
 
-static const u8 *const s2Samuel_Chapter24[] = {
+static const u16 *const s2Samuel_Chapter24[] = {
     Bible_Text_2_Samuel_24_1,
     Bible_Text_2_Samuel_24_2,
     Bible_Text_2_Samuel_24_3,
@@ -14290,9 +12245,10 @@ static const u8 *const s2Samuel_Chapter24[] = {
     Bible_Text_2_Samuel_24_23,
     Bible_Text_2_Samuel_24_24,
     Bible_Text_2_Samuel_24_25,
+    0
 };
 
-static const u8 *const *const sBibleText_2SamuelTextPtrs[] = {
+static const u16 *const *const sBibleText_2SamuelTextPtrs[] = {
     s2Samuel_Chapter1,
     s2Samuel_Chapter2,
     s2Samuel_Chapter3,
@@ -14317,9 +12273,10 @@ static const u8 *const *const sBibleText_2SamuelTextPtrs[] = {
     s2Samuel_Chapter22,
     s2Samuel_Chapter23,
     s2Samuel_Chapter24,
+    0
 };
 
-static const u8 *const s1Kings_Chapter1[] = {
+static const u16 *const s1Kings_Chapter1[] = {
     Bible_Text_1_Kings_1_1,
     Bible_Text_1_Kings_1_2,
     Bible_Text_1_Kings_1_3,
@@ -14373,9 +12330,10 @@ static const u8 *const s1Kings_Chapter1[] = {
     Bible_Text_1_Kings_1_51,
     Bible_Text_1_Kings_1_52,
     Bible_Text_1_Kings_1_53,
+    0
 };
 
-static const u8 *const s1Kings_Chapter2[] = {
+static const u16 *const s1Kings_Chapter2[] = {
     Bible_Text_1_Kings_2_1,
     Bible_Text_1_Kings_2_2,
     Bible_Text_1_Kings_2_3,
@@ -14422,9 +12380,10 @@ static const u8 *const s1Kings_Chapter2[] = {
     Bible_Text_1_Kings_2_44,
     Bible_Text_1_Kings_2_45,
     Bible_Text_1_Kings_2_46,
+    0
 };
 
-static const u8 *const s1Kings_Chapter3[] = {
+static const u16 *const s1Kings_Chapter3[] = {
     Bible_Text_1_Kings_3_1,
     Bible_Text_1_Kings_3_2,
     Bible_Text_1_Kings_3_3,
@@ -14453,9 +12412,10 @@ static const u8 *const s1Kings_Chapter3[] = {
     Bible_Text_1_Kings_3_26,
     Bible_Text_1_Kings_3_27,
     Bible_Text_1_Kings_3_28,
+    0
 };
 
-static const u8 *const s1Kings_Chapter4[] = {
+static const u16 *const s1Kings_Chapter4[] = {
     Bible_Text_1_Kings_4_1,
     Bible_Text_1_Kings_4_2,
     Bible_Text_1_Kings_4_3,
@@ -14490,9 +12450,10 @@ static const u8 *const s1Kings_Chapter4[] = {
     Bible_Text_1_Kings_4_32,
     Bible_Text_1_Kings_4_33,
     Bible_Text_1_Kings_4_34,
+    0
 };
 
-static const u8 *const s1Kings_Chapter5[] = {
+static const u16 *const s1Kings_Chapter5[] = {
     Bible_Text_1_Kings_5_1,
     Bible_Text_1_Kings_5_2,
     Bible_Text_1_Kings_5_3,
@@ -14511,9 +12472,10 @@ static const u8 *const s1Kings_Chapter5[] = {
     Bible_Text_1_Kings_5_16,
     Bible_Text_1_Kings_5_17,
     Bible_Text_1_Kings_5_18,
+    0
 };
 
-static const u8 *const s1Kings_Chapter6[] = {
+static const u16 *const s1Kings_Chapter6[] = {
     Bible_Text_1_Kings_6_1,
     Bible_Text_1_Kings_6_2,
     Bible_Text_1_Kings_6_3,
@@ -14552,9 +12514,10 @@ static const u8 *const s1Kings_Chapter6[] = {
     Bible_Text_1_Kings_6_36,
     Bible_Text_1_Kings_6_37,
     Bible_Text_1_Kings_6_38,
+    0
 };
 
-static const u8 *const s1Kings_Chapter7[] = {
+static const u16 *const s1Kings_Chapter7[] = {
     Bible_Text_1_Kings_7_1,
     Bible_Text_1_Kings_7_2,
     Bible_Text_1_Kings_7_3,
@@ -14606,9 +12569,10 @@ static const u8 *const s1Kings_Chapter7[] = {
     Bible_Text_1_Kings_7_49,
     Bible_Text_1_Kings_7_50,
     Bible_Text_1_Kings_7_51,
+    0
 };
 
-static const u8 *const s1Kings_Chapter8[] = {
+static const u16 *const s1Kings_Chapter8[] = {
     Bible_Text_1_Kings_8_1,
     Bible_Text_1_Kings_8_2,
     Bible_Text_1_Kings_8_3,
@@ -14675,9 +12639,10 @@ static const u8 *const s1Kings_Chapter8[] = {
     Bible_Text_1_Kings_8_64,
     Bible_Text_1_Kings_8_65,
     Bible_Text_1_Kings_8_66,
+    0
 };
 
-static const u8 *const s1Kings_Chapter9[] = {
+static const u16 *const s1Kings_Chapter9[] = {
     Bible_Text_1_Kings_9_1,
     Bible_Text_1_Kings_9_2,
     Bible_Text_1_Kings_9_3,
@@ -14706,9 +12671,10 @@ static const u8 *const s1Kings_Chapter9[] = {
     Bible_Text_1_Kings_9_26,
     Bible_Text_1_Kings_9_27,
     Bible_Text_1_Kings_9_28,
+    0
 };
 
-static const u8 *const s1Kings_Chapter10[] = {
+static const u16 *const s1Kings_Chapter10[] = {
     Bible_Text_1_Kings_10_1,
     Bible_Text_1_Kings_10_2,
     Bible_Text_1_Kings_10_3,
@@ -14738,9 +12704,10 @@ static const u8 *const s1Kings_Chapter10[] = {
     Bible_Text_1_Kings_10_27,
     Bible_Text_1_Kings_10_28,
     Bible_Text_1_Kings_10_29,
+    0
 };
 
-static const u8 *const s1Kings_Chapter11[] = {
+static const u16 *const s1Kings_Chapter11[] = {
     Bible_Text_1_Kings_11_1,
     Bible_Text_1_Kings_11_2,
     Bible_Text_1_Kings_11_3,
@@ -14784,9 +12751,10 @@ static const u8 *const s1Kings_Chapter11[] = {
     Bible_Text_1_Kings_11_41,
     Bible_Text_1_Kings_11_42,
     Bible_Text_1_Kings_11_43,
+    0
 };
 
-static const u8 *const s1Kings_Chapter12[] = {
+static const u16 *const s1Kings_Chapter12[] = {
     Bible_Text_1_Kings_12_1,
     Bible_Text_1_Kings_12_2,
     Bible_Text_1_Kings_12_3,
@@ -14820,9 +12788,10 @@ static const u8 *const s1Kings_Chapter12[] = {
     Bible_Text_1_Kings_12_31,
     Bible_Text_1_Kings_12_32,
     Bible_Text_1_Kings_12_33,
+    0
 };
 
-static const u8 *const s1Kings_Chapter13[] = {
+static const u16 *const s1Kings_Chapter13[] = {
     Bible_Text_1_Kings_13_1,
     Bible_Text_1_Kings_13_2,
     Bible_Text_1_Kings_13_3,
@@ -14857,9 +12826,10 @@ static const u8 *const s1Kings_Chapter13[] = {
     Bible_Text_1_Kings_13_32,
     Bible_Text_1_Kings_13_33,
     Bible_Text_1_Kings_13_34,
+    0
 };
 
-static const u8 *const s1Kings_Chapter14[] = {
+static const u16 *const s1Kings_Chapter14[] = {
     Bible_Text_1_Kings_14_1,
     Bible_Text_1_Kings_14_2,
     Bible_Text_1_Kings_14_3,
@@ -14891,9 +12861,10 @@ static const u8 *const s1Kings_Chapter14[] = {
     Bible_Text_1_Kings_14_29,
     Bible_Text_1_Kings_14_30,
     Bible_Text_1_Kings_14_31,
+    0
 };
 
-static const u8 *const s1Kings_Chapter15[] = {
+static const u16 *const s1Kings_Chapter15[] = {
     Bible_Text_1_Kings_15_1,
     Bible_Text_1_Kings_15_2,
     Bible_Text_1_Kings_15_3,
@@ -14928,9 +12899,10 @@ static const u8 *const s1Kings_Chapter15[] = {
     Bible_Text_1_Kings_15_32,
     Bible_Text_1_Kings_15_33,
     Bible_Text_1_Kings_15_34,
+    0
 };
 
-static const u8 *const s1Kings_Chapter16[] = {
+static const u16 *const s1Kings_Chapter16[] = {
     Bible_Text_1_Kings_16_1,
     Bible_Text_1_Kings_16_2,
     Bible_Text_1_Kings_16_3,
@@ -14965,9 +12937,10 @@ static const u8 *const s1Kings_Chapter16[] = {
     Bible_Text_1_Kings_16_32,
     Bible_Text_1_Kings_16_33,
     Bible_Text_1_Kings_16_34,
+    0
 };
 
-static const u8 *const s1Kings_Chapter17[] = {
+static const u16 *const s1Kings_Chapter17[] = {
     Bible_Text_1_Kings_17_1,
     Bible_Text_1_Kings_17_2,
     Bible_Text_1_Kings_17_3,
@@ -14992,9 +12965,10 @@ static const u8 *const s1Kings_Chapter17[] = {
     Bible_Text_1_Kings_17_22,
     Bible_Text_1_Kings_17_23,
     Bible_Text_1_Kings_17_24,
+    0
 };
 
-static const u8 *const s1Kings_Chapter18[] = {
+static const u16 *const s1Kings_Chapter18[] = {
     Bible_Text_1_Kings_18_1,
     Bible_Text_1_Kings_18_2,
     Bible_Text_1_Kings_18_3,
@@ -15041,9 +13015,10 @@ static const u8 *const s1Kings_Chapter18[] = {
     Bible_Text_1_Kings_18_44,
     Bible_Text_1_Kings_18_45,
     Bible_Text_1_Kings_18_46,
+    0
 };
 
-static const u8 *const s1Kings_Chapter19[] = {
+static const u16 *const s1Kings_Chapter19[] = {
     Bible_Text_1_Kings_19_1,
     Bible_Text_1_Kings_19_2,
     Bible_Text_1_Kings_19_3,
@@ -15065,9 +13040,10 @@ static const u8 *const s1Kings_Chapter19[] = {
     Bible_Text_1_Kings_19_19,
     Bible_Text_1_Kings_19_20,
     Bible_Text_1_Kings_19_21,
+    0
 };
 
-static const u8 *const s1Kings_Chapter20[] = {
+static const u16 *const s1Kings_Chapter20[] = {
     Bible_Text_1_Kings_20_1,
     Bible_Text_1_Kings_20_2,
     Bible_Text_1_Kings_20_3,
@@ -15111,9 +13087,10 @@ static const u8 *const s1Kings_Chapter20[] = {
     Bible_Text_1_Kings_20_41,
     Bible_Text_1_Kings_20_42,
     Bible_Text_1_Kings_20_43,
+    0
 };
 
-static const u8 *const s1Kings_Chapter21[] = {
+static const u16 *const s1Kings_Chapter21[] = {
     Bible_Text_1_Kings_21_1,
     Bible_Text_1_Kings_21_2,
     Bible_Text_1_Kings_21_3,
@@ -15143,9 +13120,10 @@ static const u8 *const s1Kings_Chapter21[] = {
     Bible_Text_1_Kings_21_27,
     Bible_Text_1_Kings_21_28,
     Bible_Text_1_Kings_21_29,
+    0
 };
 
-static const u8 *const s1Kings_Chapter22[] = {
+static const u16 *const s1Kings_Chapter22[] = {
     Bible_Text_1_Kings_22_1,
     Bible_Text_1_Kings_22_2,
     Bible_Text_1_Kings_22_3,
@@ -15199,9 +13177,10 @@ static const u8 *const s1Kings_Chapter22[] = {
     Bible_Text_1_Kings_22_51,
     Bible_Text_1_Kings_22_52,
     Bible_Text_1_Kings_22_53,
+    0
 };
 
-static const u8 *const *const sBibleText_1KingsTextPtrs[] = {
+static const u16 *const *const sBibleText_1KingsTextPtrs[] = {
     s1Kings_Chapter1,
     s1Kings_Chapter2,
     s1Kings_Chapter3,
@@ -15224,9 +13203,10 @@ static const u8 *const *const sBibleText_1KingsTextPtrs[] = {
     s1Kings_Chapter20,
     s1Kings_Chapter21,
     s1Kings_Chapter22,
+    0
 };
 
-static const u8 *const s2Kings_Chapter1[] = {
+static const u16 *const s2Kings_Chapter1[] = {
     Bible_Text_2_Kings_1_1,
     Bible_Text_2_Kings_1_2,
     Bible_Text_2_Kings_1_3,
@@ -15245,9 +13225,10 @@ static const u8 *const s2Kings_Chapter1[] = {
     Bible_Text_2_Kings_1_16,
     Bible_Text_2_Kings_1_17,
     Bible_Text_2_Kings_1_18,
+    0
 };
 
-static const u8 *const s2Kings_Chapter2[] = {
+static const u16 *const s2Kings_Chapter2[] = {
     Bible_Text_2_Kings_2_1,
     Bible_Text_2_Kings_2_2,
     Bible_Text_2_Kings_2_3,
@@ -15273,9 +13254,10 @@ static const u8 *const s2Kings_Chapter2[] = {
     Bible_Text_2_Kings_2_23,
     Bible_Text_2_Kings_2_24,
     Bible_Text_2_Kings_2_25,
+    0
 };
 
-static const u8 *const s2Kings_Chapter3[] = {
+static const u16 *const s2Kings_Chapter3[] = {
     Bible_Text_2_Kings_3_1,
     Bible_Text_2_Kings_3_2,
     Bible_Text_2_Kings_3_3,
@@ -15303,9 +13285,10 @@ static const u8 *const s2Kings_Chapter3[] = {
     Bible_Text_2_Kings_3_25,
     Bible_Text_2_Kings_3_26,
     Bible_Text_2_Kings_3_27,
+    0
 };
 
-static const u8 *const s2Kings_Chapter4[] = {
+static const u16 *const s2Kings_Chapter4[] = {
     Bible_Text_2_Kings_4_1,
     Bible_Text_2_Kings_4_2,
     Bible_Text_2_Kings_4_3,
@@ -15350,9 +13333,10 @@ static const u8 *const s2Kings_Chapter4[] = {
     Bible_Text_2_Kings_4_42,
     Bible_Text_2_Kings_4_43,
     Bible_Text_2_Kings_4_44,
+    0
 };
 
-static const u8 *const s2Kings_Chapter5[] = {
+static const u16 *const s2Kings_Chapter5[] = {
     Bible_Text_2_Kings_5_1,
     Bible_Text_2_Kings_5_2,
     Bible_Text_2_Kings_5_3,
@@ -15380,9 +13364,10 @@ static const u8 *const s2Kings_Chapter5[] = {
     Bible_Text_2_Kings_5_25,
     Bible_Text_2_Kings_5_26,
     Bible_Text_2_Kings_5_27,
+    0
 };
 
-static const u8 *const s2Kings_Chapter6[] = {
+static const u16 *const s2Kings_Chapter6[] = {
     Bible_Text_2_Kings_6_1,
     Bible_Text_2_Kings_6_2,
     Bible_Text_2_Kings_6_3,
@@ -15416,9 +13401,10 @@ static const u8 *const s2Kings_Chapter6[] = {
     Bible_Text_2_Kings_6_31,
     Bible_Text_2_Kings_6_32,
     Bible_Text_2_Kings_6_33,
+    0
 };
 
-static const u8 *const s2Kings_Chapter7[] = {
+static const u16 *const s2Kings_Chapter7[] = {
     Bible_Text_2_Kings_7_1,
     Bible_Text_2_Kings_7_2,
     Bible_Text_2_Kings_7_3,
@@ -15439,9 +13425,10 @@ static const u8 *const s2Kings_Chapter7[] = {
     Bible_Text_2_Kings_7_18,
     Bible_Text_2_Kings_7_19,
     Bible_Text_2_Kings_7_20,
+    0
 };
 
-static const u8 *const s2Kings_Chapter8[] = {
+static const u16 *const s2Kings_Chapter8[] = {
     Bible_Text_2_Kings_8_1,
     Bible_Text_2_Kings_8_2,
     Bible_Text_2_Kings_8_3,
@@ -15471,9 +13458,10 @@ static const u8 *const s2Kings_Chapter8[] = {
     Bible_Text_2_Kings_8_27,
     Bible_Text_2_Kings_8_28,
     Bible_Text_2_Kings_8_29,
+    0
 };
 
-static const u8 *const s2Kings_Chapter9[] = {
+static const u16 *const s2Kings_Chapter9[] = {
     Bible_Text_2_Kings_9_1,
     Bible_Text_2_Kings_9_2,
     Bible_Text_2_Kings_9_3,
@@ -15511,9 +13499,10 @@ static const u8 *const s2Kings_Chapter9[] = {
     Bible_Text_2_Kings_9_35,
     Bible_Text_2_Kings_9_36,
     Bible_Text_2_Kings_9_37,
+    0
 };
 
-static const u8 *const s2Kings_Chapter10[] = {
+static const u16 *const s2Kings_Chapter10[] = {
     Bible_Text_2_Kings_10_1,
     Bible_Text_2_Kings_10_2,
     Bible_Text_2_Kings_10_3,
@@ -15550,9 +13539,10 @@ static const u8 *const s2Kings_Chapter10[] = {
     Bible_Text_2_Kings_10_34,
     Bible_Text_2_Kings_10_35,
     Bible_Text_2_Kings_10_36,
+    0
 };
 
-static const u8 *const s2Kings_Chapter11[] = {
+static const u16 *const s2Kings_Chapter11[] = {
     Bible_Text_2_Kings_11_1,
     Bible_Text_2_Kings_11_2,
     Bible_Text_2_Kings_11_3,
@@ -15574,9 +13564,10 @@ static const u8 *const s2Kings_Chapter11[] = {
     Bible_Text_2_Kings_11_19,
     Bible_Text_2_Kings_11_20,
     Bible_Text_2_Kings_11_21,
+    0
 };
 
-static const u8 *const s2Kings_Chapter12[] = {
+static const u16 *const s2Kings_Chapter12[] = {
     Bible_Text_2_Kings_12_1,
     Bible_Text_2_Kings_12_2,
     Bible_Text_2_Kings_12_3,
@@ -15598,9 +13589,10 @@ static const u8 *const s2Kings_Chapter12[] = {
     Bible_Text_2_Kings_12_19,
     Bible_Text_2_Kings_12_20,
     Bible_Text_2_Kings_12_21,
+    0
 };
 
-static const u8 *const s2Kings_Chapter13[] = {
+static const u16 *const s2Kings_Chapter13[] = {
     Bible_Text_2_Kings_13_1,
     Bible_Text_2_Kings_13_2,
     Bible_Text_2_Kings_13_3,
@@ -15626,9 +13618,10 @@ static const u8 *const s2Kings_Chapter13[] = {
     Bible_Text_2_Kings_13_23,
     Bible_Text_2_Kings_13_24,
     Bible_Text_2_Kings_13_25,
+    0
 };
 
-static const u8 *const s2Kings_Chapter14[] = {
+static const u16 *const s2Kings_Chapter14[] = {
     Bible_Text_2_Kings_14_1,
     Bible_Text_2_Kings_14_2,
     Bible_Text_2_Kings_14_3,
@@ -15658,9 +13651,10 @@ static const u8 *const s2Kings_Chapter14[] = {
     Bible_Text_2_Kings_14_27,
     Bible_Text_2_Kings_14_28,
     Bible_Text_2_Kings_14_29,
+    0
 };
 
-static const u8 *const s2Kings_Chapter15[] = {
+static const u16 *const s2Kings_Chapter15[] = {
     Bible_Text_2_Kings_15_1,
     Bible_Text_2_Kings_15_2,
     Bible_Text_2_Kings_15_3,
@@ -15699,9 +13693,10 @@ static const u8 *const s2Kings_Chapter15[] = {
     Bible_Text_2_Kings_15_36,
     Bible_Text_2_Kings_15_37,
     Bible_Text_2_Kings_15_38,
+    0
 };
 
-static const u8 *const s2Kings_Chapter16[] = {
+static const u16 *const s2Kings_Chapter16[] = {
     Bible_Text_2_Kings_16_1,
     Bible_Text_2_Kings_16_2,
     Bible_Text_2_Kings_16_3,
@@ -15722,9 +13717,10 @@ static const u8 *const s2Kings_Chapter16[] = {
     Bible_Text_2_Kings_16_18,
     Bible_Text_2_Kings_16_19,
     Bible_Text_2_Kings_16_20,
+    0
 };
 
-static const u8 *const s2Kings_Chapter17[] = {
+static const u16 *const s2Kings_Chapter17[] = {
     Bible_Text_2_Kings_17_1,
     Bible_Text_2_Kings_17_2,
     Bible_Text_2_Kings_17_3,
@@ -15766,9 +13762,10 @@ static const u8 *const s2Kings_Chapter17[] = {
     Bible_Text_2_Kings_17_39,
     Bible_Text_2_Kings_17_40,
     Bible_Text_2_Kings_17_41,
+    0
 };
 
-static const u8 *const s2Kings_Chapter18[] = {
+static const u16 *const s2Kings_Chapter18[] = {
     Bible_Text_2_Kings_18_1,
     Bible_Text_2_Kings_18_2,
     Bible_Text_2_Kings_18_3,
@@ -15806,9 +13803,10 @@ static const u8 *const s2Kings_Chapter18[] = {
     Bible_Text_2_Kings_18_35,
     Bible_Text_2_Kings_18_36,
     Bible_Text_2_Kings_18_37,
+    0
 };
 
-static const u8 *const s2Kings_Chapter19[] = {
+static const u16 *const s2Kings_Chapter19[] = {
     Bible_Text_2_Kings_19_1,
     Bible_Text_2_Kings_19_2,
     Bible_Text_2_Kings_19_3,
@@ -15846,9 +13844,10 @@ static const u8 *const s2Kings_Chapter19[] = {
     Bible_Text_2_Kings_19_35,
     Bible_Text_2_Kings_19_36,
     Bible_Text_2_Kings_19_37,
+    0
 };
 
-static const u8 *const s2Kings_Chapter20[] = {
+static const u16 *const s2Kings_Chapter20[] = {
     Bible_Text_2_Kings_20_1,
     Bible_Text_2_Kings_20_2,
     Bible_Text_2_Kings_20_3,
@@ -15870,9 +13869,10 @@ static const u8 *const s2Kings_Chapter20[] = {
     Bible_Text_2_Kings_20_19,
     Bible_Text_2_Kings_20_20,
     Bible_Text_2_Kings_20_21,
+    0
 };
 
-static const u8 *const s2Kings_Chapter21[] = {
+static const u16 *const s2Kings_Chapter21[] = {
     Bible_Text_2_Kings_21_1,
     Bible_Text_2_Kings_21_2,
     Bible_Text_2_Kings_21_3,
@@ -15899,9 +13899,10 @@ static const u8 *const s2Kings_Chapter21[] = {
     Bible_Text_2_Kings_21_24,
     Bible_Text_2_Kings_21_25,
     Bible_Text_2_Kings_21_26,
+    0
 };
 
-static const u8 *const s2Kings_Chapter22[] = {
+static const u16 *const s2Kings_Chapter22[] = {
     Bible_Text_2_Kings_22_1,
     Bible_Text_2_Kings_22_2,
     Bible_Text_2_Kings_22_3,
@@ -15922,9 +13923,10 @@ static const u8 *const s2Kings_Chapter22[] = {
     Bible_Text_2_Kings_22_18,
     Bible_Text_2_Kings_22_19,
     Bible_Text_2_Kings_22_20,
+    0
 };
 
-static const u8 *const s2Kings_Chapter23[] = {
+static const u16 *const s2Kings_Chapter23[] = {
     Bible_Text_2_Kings_23_1,
     Bible_Text_2_Kings_23_2,
     Bible_Text_2_Kings_23_3,
@@ -15962,9 +13964,10 @@ static const u8 *const s2Kings_Chapter23[] = {
     Bible_Text_2_Kings_23_35,
     Bible_Text_2_Kings_23_36,
     Bible_Text_2_Kings_23_37,
+    0
 };
 
-static const u8 *const s2Kings_Chapter24[] = {
+static const u16 *const s2Kings_Chapter24[] = {
     Bible_Text_2_Kings_24_1,
     Bible_Text_2_Kings_24_2,
     Bible_Text_2_Kings_24_3,
@@ -15985,9 +13988,10 @@ static const u8 *const s2Kings_Chapter24[] = {
     Bible_Text_2_Kings_24_18,
     Bible_Text_2_Kings_24_19,
     Bible_Text_2_Kings_24_20,
+    0
 };
 
-static const u8 *const s2Kings_Chapter25[] = {
+static const u16 *const s2Kings_Chapter25[] = {
     Bible_Text_2_Kings_25_1,
     Bible_Text_2_Kings_25_2,
     Bible_Text_2_Kings_25_3,
@@ -16018,9 +14022,10 @@ static const u8 *const s2Kings_Chapter25[] = {
     Bible_Text_2_Kings_25_28,
     Bible_Text_2_Kings_25_29,
     Bible_Text_2_Kings_25_30,
+    0
 };
 
-static const u8 *const *const sBibleText_2KingsTextPtrs[] = {
+static const u16 *const *const sBibleText_2KingsTextPtrs[] = {
     s2Kings_Chapter1,
     s2Kings_Chapter2,
     s2Kings_Chapter3,
@@ -16046,9 +14051,10 @@ static const u8 *const *const sBibleText_2KingsTextPtrs[] = {
     s2Kings_Chapter23,
     s2Kings_Chapter24,
     s2Kings_Chapter25,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter1[] = {
+static const u16 *const s1Chronicles_Chapter1[] = {
     Bible_Text_1_Chronicles_1_1,
     Bible_Text_1_Chronicles_1_2,
     Bible_Text_1_Chronicles_1_3,
@@ -16103,9 +14109,10 @@ static const u8 *const s1Chronicles_Chapter1[] = {
     Bible_Text_1_Chronicles_1_52,
     Bible_Text_1_Chronicles_1_53,
     Bible_Text_1_Chronicles_1_54,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter2[] = {
+static const u16 *const s1Chronicles_Chapter2[] = {
     Bible_Text_1_Chronicles_2_1,
     Bible_Text_1_Chronicles_2_2,
     Bible_Text_1_Chronicles_2_3,
@@ -16161,9 +14168,10 @@ static const u8 *const s1Chronicles_Chapter2[] = {
     Bible_Text_1_Chronicles_2_53,
     Bible_Text_1_Chronicles_2_54,
     Bible_Text_1_Chronicles_2_55,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter3[] = {
+static const u16 *const s1Chronicles_Chapter3[] = {
     Bible_Text_1_Chronicles_3_1,
     Bible_Text_1_Chronicles_3_2,
     Bible_Text_1_Chronicles_3_3,
@@ -16188,9 +14196,10 @@ static const u8 *const s1Chronicles_Chapter3[] = {
     Bible_Text_1_Chronicles_3_22,
     Bible_Text_1_Chronicles_3_23,
     Bible_Text_1_Chronicles_3_24,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter4[] = {
+static const u16 *const s1Chronicles_Chapter4[] = {
     Bible_Text_1_Chronicles_4_1,
     Bible_Text_1_Chronicles_4_2,
     Bible_Text_1_Chronicles_4_3,
@@ -16234,9 +14243,10 @@ static const u8 *const s1Chronicles_Chapter4[] = {
     Bible_Text_1_Chronicles_4_41,
     Bible_Text_1_Chronicles_4_42,
     Bible_Text_1_Chronicles_4_43,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter5[] = {
+static const u16 *const s1Chronicles_Chapter5[] = {
     Bible_Text_1_Chronicles_5_1,
     Bible_Text_1_Chronicles_5_2,
     Bible_Text_1_Chronicles_5_3,
@@ -16263,9 +14273,10 @@ static const u8 *const s1Chronicles_Chapter5[] = {
     Bible_Text_1_Chronicles_5_24,
     Bible_Text_1_Chronicles_5_25,
     Bible_Text_1_Chronicles_5_26,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter6[] = {
+static const u16 *const s1Chronicles_Chapter6[] = {
     Bible_Text_1_Chronicles_6_1,
     Bible_Text_1_Chronicles_6_2,
     Bible_Text_1_Chronicles_6_3,
@@ -16347,9 +14358,10 @@ static const u8 *const s1Chronicles_Chapter6[] = {
     Bible_Text_1_Chronicles_6_79,
     Bible_Text_1_Chronicles_6_80,
     Bible_Text_1_Chronicles_6_81,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter7[] = {
+static const u16 *const s1Chronicles_Chapter7[] = {
     Bible_Text_1_Chronicles_7_1,
     Bible_Text_1_Chronicles_7_2,
     Bible_Text_1_Chronicles_7_3,
@@ -16390,9 +14402,10 @@ static const u8 *const s1Chronicles_Chapter7[] = {
     Bible_Text_1_Chronicles_7_38,
     Bible_Text_1_Chronicles_7_39,
     Bible_Text_1_Chronicles_7_40,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter8[] = {
+static const u16 *const s1Chronicles_Chapter8[] = {
     Bible_Text_1_Chronicles_8_1,
     Bible_Text_1_Chronicles_8_2,
     Bible_Text_1_Chronicles_8_3,
@@ -16433,9 +14446,10 @@ static const u8 *const s1Chronicles_Chapter8[] = {
     Bible_Text_1_Chronicles_8_38,
     Bible_Text_1_Chronicles_8_39,
     Bible_Text_1_Chronicles_8_40,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter9[] = {
+static const u16 *const s1Chronicles_Chapter9[] = {
     Bible_Text_1_Chronicles_9_1,
     Bible_Text_1_Chronicles_9_2,
     Bible_Text_1_Chronicles_9_3,
@@ -16480,9 +14494,10 @@ static const u8 *const s1Chronicles_Chapter9[] = {
     Bible_Text_1_Chronicles_9_42,
     Bible_Text_1_Chronicles_9_43,
     Bible_Text_1_Chronicles_9_44,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter10[] = {
+static const u16 *const s1Chronicles_Chapter10[] = {
     Bible_Text_1_Chronicles_10_1,
     Bible_Text_1_Chronicles_10_2,
     Bible_Text_1_Chronicles_10_3,
@@ -16497,9 +14512,10 @@ static const u8 *const s1Chronicles_Chapter10[] = {
     Bible_Text_1_Chronicles_10_12,
     Bible_Text_1_Chronicles_10_13,
     Bible_Text_1_Chronicles_10_14,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter11[] = {
+static const u16 *const s1Chronicles_Chapter11[] = {
     Bible_Text_1_Chronicles_11_1,
     Bible_Text_1_Chronicles_11_2,
     Bible_Text_1_Chronicles_11_3,
@@ -16547,9 +14563,10 @@ static const u8 *const s1Chronicles_Chapter11[] = {
     Bible_Text_1_Chronicles_11_45,
     Bible_Text_1_Chronicles_11_46,
     Bible_Text_1_Chronicles_11_47,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter12[] = {
+static const u16 *const s1Chronicles_Chapter12[] = {
     Bible_Text_1_Chronicles_12_1,
     Bible_Text_1_Chronicles_12_2,
     Bible_Text_1_Chronicles_12_3,
@@ -16590,9 +14607,10 @@ static const u8 *const s1Chronicles_Chapter12[] = {
     Bible_Text_1_Chronicles_12_38,
     Bible_Text_1_Chronicles_12_39,
     Bible_Text_1_Chronicles_12_40,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter13[] = {
+static const u16 *const s1Chronicles_Chapter13[] = {
     Bible_Text_1_Chronicles_13_1,
     Bible_Text_1_Chronicles_13_2,
     Bible_Text_1_Chronicles_13_3,
@@ -16607,9 +14625,10 @@ static const u8 *const s1Chronicles_Chapter13[] = {
     Bible_Text_1_Chronicles_13_12,
     Bible_Text_1_Chronicles_13_13,
     Bible_Text_1_Chronicles_13_14,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter14[] = {
+static const u16 *const s1Chronicles_Chapter14[] = {
     Bible_Text_1_Chronicles_14_1,
     Bible_Text_1_Chronicles_14_2,
     Bible_Text_1_Chronicles_14_3,
@@ -16627,9 +14646,10 @@ static const u8 *const s1Chronicles_Chapter14[] = {
     Bible_Text_1_Chronicles_14_15,
     Bible_Text_1_Chronicles_14_16,
     Bible_Text_1_Chronicles_14_17,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter15[] = {
+static const u16 *const s1Chronicles_Chapter15[] = {
     Bible_Text_1_Chronicles_15_1,
     Bible_Text_1_Chronicles_15_2,
     Bible_Text_1_Chronicles_15_3,
@@ -16659,9 +14679,10 @@ static const u8 *const s1Chronicles_Chapter15[] = {
     Bible_Text_1_Chronicles_15_27,
     Bible_Text_1_Chronicles_15_28,
     Bible_Text_1_Chronicles_15_29,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter16[] = {
+static const u16 *const s1Chronicles_Chapter16[] = {
     Bible_Text_1_Chronicles_16_1,
     Bible_Text_1_Chronicles_16_2,
     Bible_Text_1_Chronicles_16_3,
@@ -16705,9 +14726,10 @@ static const u8 *const s1Chronicles_Chapter16[] = {
     Bible_Text_1_Chronicles_16_41,
     Bible_Text_1_Chronicles_16_42,
     Bible_Text_1_Chronicles_16_43,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter17[] = {
+static const u16 *const s1Chronicles_Chapter17[] = {
     Bible_Text_1_Chronicles_17_1,
     Bible_Text_1_Chronicles_17_2,
     Bible_Text_1_Chronicles_17_3,
@@ -16735,9 +14757,10 @@ static const u8 *const s1Chronicles_Chapter17[] = {
     Bible_Text_1_Chronicles_17_25,
     Bible_Text_1_Chronicles_17_26,
     Bible_Text_1_Chronicles_17_27,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter18[] = {
+static const u16 *const s1Chronicles_Chapter18[] = {
     Bible_Text_1_Chronicles_18_1,
     Bible_Text_1_Chronicles_18_2,
     Bible_Text_1_Chronicles_18_3,
@@ -16755,9 +14778,10 @@ static const u8 *const s1Chronicles_Chapter18[] = {
     Bible_Text_1_Chronicles_18_15,
     Bible_Text_1_Chronicles_18_16,
     Bible_Text_1_Chronicles_18_17,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter19[] = {
+static const u16 *const s1Chronicles_Chapter19[] = {
     Bible_Text_1_Chronicles_19_1,
     Bible_Text_1_Chronicles_19_2,
     Bible_Text_1_Chronicles_19_3,
@@ -16777,9 +14801,10 @@ static const u8 *const s1Chronicles_Chapter19[] = {
     Bible_Text_1_Chronicles_19_17,
     Bible_Text_1_Chronicles_19_18,
     Bible_Text_1_Chronicles_19_19,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter20[] = {
+static const u16 *const s1Chronicles_Chapter20[] = {
     Bible_Text_1_Chronicles_20_1,
     Bible_Text_1_Chronicles_20_2,
     Bible_Text_1_Chronicles_20_3,
@@ -16788,9 +14813,10 @@ static const u8 *const s1Chronicles_Chapter20[] = {
     Bible_Text_1_Chronicles_20_6,
     Bible_Text_1_Chronicles_20_7,
     Bible_Text_1_Chronicles_20_8,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter21[] = {
+static const u16 *const s1Chronicles_Chapter21[] = {
     Bible_Text_1_Chronicles_21_1,
     Bible_Text_1_Chronicles_21_2,
     Bible_Text_1_Chronicles_21_3,
@@ -16821,9 +14847,10 @@ static const u8 *const s1Chronicles_Chapter21[] = {
     Bible_Text_1_Chronicles_21_28,
     Bible_Text_1_Chronicles_21_29,
     Bible_Text_1_Chronicles_21_30,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter22[] = {
+static const u16 *const s1Chronicles_Chapter22[] = {
     Bible_Text_1_Chronicles_22_1,
     Bible_Text_1_Chronicles_22_2,
     Bible_Text_1_Chronicles_22_3,
@@ -16843,9 +14870,10 @@ static const u8 *const s1Chronicles_Chapter22[] = {
     Bible_Text_1_Chronicles_22_17,
     Bible_Text_1_Chronicles_22_18,
     Bible_Text_1_Chronicles_22_19,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter23[] = {
+static const u16 *const s1Chronicles_Chapter23[] = {
     Bible_Text_1_Chronicles_23_1,
     Bible_Text_1_Chronicles_23_2,
     Bible_Text_1_Chronicles_23_3,
@@ -16878,9 +14906,10 @@ static const u8 *const s1Chronicles_Chapter23[] = {
     Bible_Text_1_Chronicles_23_30,
     Bible_Text_1_Chronicles_23_31,
     Bible_Text_1_Chronicles_23_32,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter24[] = {
+static const u16 *const s1Chronicles_Chapter24[] = {
     Bible_Text_1_Chronicles_24_1,
     Bible_Text_1_Chronicles_24_2,
     Bible_Text_1_Chronicles_24_3,
@@ -16912,9 +14941,10 @@ static const u8 *const s1Chronicles_Chapter24[] = {
     Bible_Text_1_Chronicles_24_29,
     Bible_Text_1_Chronicles_24_30,
     Bible_Text_1_Chronicles_24_31,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter25[] = {
+static const u16 *const s1Chronicles_Chapter25[] = {
     Bible_Text_1_Chronicles_25_1,
     Bible_Text_1_Chronicles_25_2,
     Bible_Text_1_Chronicles_25_3,
@@ -16946,9 +14976,10 @@ static const u8 *const s1Chronicles_Chapter25[] = {
     Bible_Text_1_Chronicles_25_29,
     Bible_Text_1_Chronicles_25_30,
     Bible_Text_1_Chronicles_25_31,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter26[] = {
+static const u16 *const s1Chronicles_Chapter26[] = {
     Bible_Text_1_Chronicles_26_1,
     Bible_Text_1_Chronicles_26_2,
     Bible_Text_1_Chronicles_26_3,
@@ -16981,9 +15012,10 @@ static const u8 *const s1Chronicles_Chapter26[] = {
     Bible_Text_1_Chronicles_26_30,
     Bible_Text_1_Chronicles_26_31,
     Bible_Text_1_Chronicles_26_32,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter27[] = {
+static const u16 *const s1Chronicles_Chapter27[] = {
     Bible_Text_1_Chronicles_27_1,
     Bible_Text_1_Chronicles_27_2,
     Bible_Text_1_Chronicles_27_3,
@@ -17018,9 +15050,10 @@ static const u8 *const s1Chronicles_Chapter27[] = {
     Bible_Text_1_Chronicles_27_32,
     Bible_Text_1_Chronicles_27_33,
     Bible_Text_1_Chronicles_27_34,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter28[] = {
+static const u16 *const s1Chronicles_Chapter28[] = {
     Bible_Text_1_Chronicles_28_1,
     Bible_Text_1_Chronicles_28_2,
     Bible_Text_1_Chronicles_28_3,
@@ -17042,9 +15075,10 @@ static const u8 *const s1Chronicles_Chapter28[] = {
     Bible_Text_1_Chronicles_28_19,
     Bible_Text_1_Chronicles_28_20,
     Bible_Text_1_Chronicles_28_21,
+    0
 };
 
-static const u8 *const s1Chronicles_Chapter29[] = {
+static const u16 *const s1Chronicles_Chapter29[] = {
     Bible_Text_1_Chronicles_29_1,
     Bible_Text_1_Chronicles_29_2,
     Bible_Text_1_Chronicles_29_3,
@@ -17075,9 +15109,10 @@ static const u8 *const s1Chronicles_Chapter29[] = {
     Bible_Text_1_Chronicles_29_28,
     Bible_Text_1_Chronicles_29_29,
     Bible_Text_1_Chronicles_29_30,
+    0
 };
 
-static const u8 *const *const sBibleText_1ChroniclesTextPtrs[] = {
+static const u16 *const *const sBibleText_1ChroniclesTextPtrs[] = {
     s1Chronicles_Chapter1,
     s1Chronicles_Chapter2,
     s1Chronicles_Chapter3,
@@ -17107,9 +15142,10 @@ static const u8 *const *const sBibleText_1ChroniclesTextPtrs[] = {
     s1Chronicles_Chapter27,
     s1Chronicles_Chapter28,
     s1Chronicles_Chapter29,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter1[] = {
+static const u16 *const s2Chronicles_Chapter1[] = {
     Bible_Text_2_Chronicles_1_1,
     Bible_Text_2_Chronicles_1_2,
     Bible_Text_2_Chronicles_1_3,
@@ -17127,9 +15163,10 @@ static const u8 *const s2Chronicles_Chapter1[] = {
     Bible_Text_2_Chronicles_1_15,
     Bible_Text_2_Chronicles_1_16,
     Bible_Text_2_Chronicles_1_17,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter2[] = {
+static const u16 *const s2Chronicles_Chapter2[] = {
     Bible_Text_2_Chronicles_2_1,
     Bible_Text_2_Chronicles_2_2,
     Bible_Text_2_Chronicles_2_3,
@@ -17148,9 +15185,10 @@ static const u8 *const s2Chronicles_Chapter2[] = {
     Bible_Text_2_Chronicles_2_16,
     Bible_Text_2_Chronicles_2_17,
     Bible_Text_2_Chronicles_2_18,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter3[] = {
+static const u16 *const s2Chronicles_Chapter3[] = {
     Bible_Text_2_Chronicles_3_1,
     Bible_Text_2_Chronicles_3_2,
     Bible_Text_2_Chronicles_3_3,
@@ -17168,9 +15206,10 @@ static const u8 *const s2Chronicles_Chapter3[] = {
     Bible_Text_2_Chronicles_3_15,
     Bible_Text_2_Chronicles_3_16,
     Bible_Text_2_Chronicles_3_17,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter4[] = {
+static const u16 *const s2Chronicles_Chapter4[] = {
     Bible_Text_2_Chronicles_4_1,
     Bible_Text_2_Chronicles_4_2,
     Bible_Text_2_Chronicles_4_3,
@@ -17193,9 +15232,10 @@ static const u8 *const s2Chronicles_Chapter4[] = {
     Bible_Text_2_Chronicles_4_20,
     Bible_Text_2_Chronicles_4_21,
     Bible_Text_2_Chronicles_4_22,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter5[] = {
+static const u16 *const s2Chronicles_Chapter5[] = {
     Bible_Text_2_Chronicles_5_1,
     Bible_Text_2_Chronicles_5_2,
     Bible_Text_2_Chronicles_5_3,
@@ -17210,9 +15250,10 @@ static const u8 *const s2Chronicles_Chapter5[] = {
     Bible_Text_2_Chronicles_5_12,
     Bible_Text_2_Chronicles_5_13,
     Bible_Text_2_Chronicles_5_14,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter6[] = {
+static const u16 *const s2Chronicles_Chapter6[] = {
     Bible_Text_2_Chronicles_6_1,
     Bible_Text_2_Chronicles_6_2,
     Bible_Text_2_Chronicles_6_3,
@@ -17255,9 +15296,10 @@ static const u8 *const s2Chronicles_Chapter6[] = {
     Bible_Text_2_Chronicles_6_40,
     Bible_Text_2_Chronicles_6_41,
     Bible_Text_2_Chronicles_6_42,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter7[] = {
+static const u16 *const s2Chronicles_Chapter7[] = {
     Bible_Text_2_Chronicles_7_1,
     Bible_Text_2_Chronicles_7_2,
     Bible_Text_2_Chronicles_7_3,
@@ -17280,9 +15322,10 @@ static const u8 *const s2Chronicles_Chapter7[] = {
     Bible_Text_2_Chronicles_7_20,
     Bible_Text_2_Chronicles_7_21,
     Bible_Text_2_Chronicles_7_22,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter8[] = {
+static const u16 *const s2Chronicles_Chapter8[] = {
     Bible_Text_2_Chronicles_8_1,
     Bible_Text_2_Chronicles_8_2,
     Bible_Text_2_Chronicles_8_3,
@@ -17301,9 +15344,10 @@ static const u8 *const s2Chronicles_Chapter8[] = {
     Bible_Text_2_Chronicles_8_16,
     Bible_Text_2_Chronicles_8_17,
     Bible_Text_2_Chronicles_8_18,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter9[] = {
+static const u16 *const s2Chronicles_Chapter9[] = {
     Bible_Text_2_Chronicles_9_1,
     Bible_Text_2_Chronicles_9_2,
     Bible_Text_2_Chronicles_9_3,
@@ -17335,9 +15379,10 @@ static const u8 *const s2Chronicles_Chapter9[] = {
     Bible_Text_2_Chronicles_9_29,
     Bible_Text_2_Chronicles_9_30,
     Bible_Text_2_Chronicles_9_31,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter10[] = {
+static const u16 *const s2Chronicles_Chapter10[] = {
     Bible_Text_2_Chronicles_10_1,
     Bible_Text_2_Chronicles_10_2,
     Bible_Text_2_Chronicles_10_3,
@@ -17357,9 +15402,10 @@ static const u8 *const s2Chronicles_Chapter10[] = {
     Bible_Text_2_Chronicles_10_17,
     Bible_Text_2_Chronicles_10_18,
     Bible_Text_2_Chronicles_10_19,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter11[] = {
+static const u16 *const s2Chronicles_Chapter11[] = {
     Bible_Text_2_Chronicles_11_1,
     Bible_Text_2_Chronicles_11_2,
     Bible_Text_2_Chronicles_11_3,
@@ -17383,9 +15429,10 @@ static const u8 *const s2Chronicles_Chapter11[] = {
     Bible_Text_2_Chronicles_11_21,
     Bible_Text_2_Chronicles_11_22,
     Bible_Text_2_Chronicles_11_23,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter12[] = {
+static const u16 *const s2Chronicles_Chapter12[] = {
     Bible_Text_2_Chronicles_12_1,
     Bible_Text_2_Chronicles_12_2,
     Bible_Text_2_Chronicles_12_3,
@@ -17402,9 +15449,10 @@ static const u8 *const s2Chronicles_Chapter12[] = {
     Bible_Text_2_Chronicles_12_14,
     Bible_Text_2_Chronicles_12_15,
     Bible_Text_2_Chronicles_12_16,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter13[] = {
+static const u16 *const s2Chronicles_Chapter13[] = {
     Bible_Text_2_Chronicles_13_1,
     Bible_Text_2_Chronicles_13_2,
     Bible_Text_2_Chronicles_13_3,
@@ -17427,9 +15475,10 @@ static const u8 *const s2Chronicles_Chapter13[] = {
     Bible_Text_2_Chronicles_13_20,
     Bible_Text_2_Chronicles_13_21,
     Bible_Text_2_Chronicles_13_22,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter14[] = {
+static const u16 *const s2Chronicles_Chapter14[] = {
     Bible_Text_2_Chronicles_14_1,
     Bible_Text_2_Chronicles_14_2,
     Bible_Text_2_Chronicles_14_3,
@@ -17445,9 +15494,10 @@ static const u8 *const s2Chronicles_Chapter14[] = {
     Bible_Text_2_Chronicles_14_13,
     Bible_Text_2_Chronicles_14_14,
     Bible_Text_2_Chronicles_14_15,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter15[] = {
+static const u16 *const s2Chronicles_Chapter15[] = {
     Bible_Text_2_Chronicles_15_1,
     Bible_Text_2_Chronicles_15_2,
     Bible_Text_2_Chronicles_15_3,
@@ -17467,9 +15517,10 @@ static const u8 *const s2Chronicles_Chapter15[] = {
     Bible_Text_2_Chronicles_15_17,
     Bible_Text_2_Chronicles_15_18,
     Bible_Text_2_Chronicles_15_19,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter16[] = {
+static const u16 *const s2Chronicles_Chapter16[] = {
     Bible_Text_2_Chronicles_16_1,
     Bible_Text_2_Chronicles_16_2,
     Bible_Text_2_Chronicles_16_3,
@@ -17484,9 +15535,10 @@ static const u8 *const s2Chronicles_Chapter16[] = {
     Bible_Text_2_Chronicles_16_12,
     Bible_Text_2_Chronicles_16_13,
     Bible_Text_2_Chronicles_16_14,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter17[] = {
+static const u16 *const s2Chronicles_Chapter17[] = {
     Bible_Text_2_Chronicles_17_1,
     Bible_Text_2_Chronicles_17_2,
     Bible_Text_2_Chronicles_17_3,
@@ -17506,9 +15558,10 @@ static const u8 *const s2Chronicles_Chapter17[] = {
     Bible_Text_2_Chronicles_17_17,
     Bible_Text_2_Chronicles_17_18,
     Bible_Text_2_Chronicles_17_19,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter18[] = {
+static const u16 *const s2Chronicles_Chapter18[] = {
     Bible_Text_2_Chronicles_18_1,
     Bible_Text_2_Chronicles_18_2,
     Bible_Text_2_Chronicles_18_3,
@@ -17543,9 +15596,10 @@ static const u8 *const s2Chronicles_Chapter18[] = {
     Bible_Text_2_Chronicles_18_32,
     Bible_Text_2_Chronicles_18_33,
     Bible_Text_2_Chronicles_18_34,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter19[] = {
+static const u16 *const s2Chronicles_Chapter19[] = {
     Bible_Text_2_Chronicles_19_1,
     Bible_Text_2_Chronicles_19_2,
     Bible_Text_2_Chronicles_19_3,
@@ -17557,9 +15611,10 @@ static const u8 *const s2Chronicles_Chapter19[] = {
     Bible_Text_2_Chronicles_19_9,
     Bible_Text_2_Chronicles_19_10,
     Bible_Text_2_Chronicles_19_11,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter20[] = {
+static const u16 *const s2Chronicles_Chapter20[] = {
     Bible_Text_2_Chronicles_20_1,
     Bible_Text_2_Chronicles_20_2,
     Bible_Text_2_Chronicles_20_3,
@@ -17597,9 +15652,10 @@ static const u8 *const s2Chronicles_Chapter20[] = {
     Bible_Text_2_Chronicles_20_35,
     Bible_Text_2_Chronicles_20_36,
     Bible_Text_2_Chronicles_20_37,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter21[] = {
+static const u16 *const s2Chronicles_Chapter21[] = {
     Bible_Text_2_Chronicles_21_1,
     Bible_Text_2_Chronicles_21_2,
     Bible_Text_2_Chronicles_21_3,
@@ -17620,9 +15676,10 @@ static const u8 *const s2Chronicles_Chapter21[] = {
     Bible_Text_2_Chronicles_21_18,
     Bible_Text_2_Chronicles_21_19,
     Bible_Text_2_Chronicles_21_20,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter22[] = {
+static const u16 *const s2Chronicles_Chapter22[] = {
     Bible_Text_2_Chronicles_22_1,
     Bible_Text_2_Chronicles_22_2,
     Bible_Text_2_Chronicles_22_3,
@@ -17635,9 +15692,10 @@ static const u8 *const s2Chronicles_Chapter22[] = {
     Bible_Text_2_Chronicles_22_10,
     Bible_Text_2_Chronicles_22_11,
     Bible_Text_2_Chronicles_22_12,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter23[] = {
+static const u16 *const s2Chronicles_Chapter23[] = {
     Bible_Text_2_Chronicles_23_1,
     Bible_Text_2_Chronicles_23_2,
     Bible_Text_2_Chronicles_23_3,
@@ -17659,9 +15717,10 @@ static const u8 *const s2Chronicles_Chapter23[] = {
     Bible_Text_2_Chronicles_23_19,
     Bible_Text_2_Chronicles_23_20,
     Bible_Text_2_Chronicles_23_21,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter24[] = {
+static const u16 *const s2Chronicles_Chapter24[] = {
     Bible_Text_2_Chronicles_24_1,
     Bible_Text_2_Chronicles_24_2,
     Bible_Text_2_Chronicles_24_3,
@@ -17689,9 +15748,10 @@ static const u8 *const s2Chronicles_Chapter24[] = {
     Bible_Text_2_Chronicles_24_25,
     Bible_Text_2_Chronicles_24_26,
     Bible_Text_2_Chronicles_24_27,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter25[] = {
+static const u16 *const s2Chronicles_Chapter25[] = {
     Bible_Text_2_Chronicles_25_1,
     Bible_Text_2_Chronicles_25_2,
     Bible_Text_2_Chronicles_25_3,
@@ -17720,9 +15780,10 @@ static const u8 *const s2Chronicles_Chapter25[] = {
     Bible_Text_2_Chronicles_25_26,
     Bible_Text_2_Chronicles_25_27,
     Bible_Text_2_Chronicles_25_28,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter26[] = {
+static const u16 *const s2Chronicles_Chapter26[] = {
     Bible_Text_2_Chronicles_26_1,
     Bible_Text_2_Chronicles_26_2,
     Bible_Text_2_Chronicles_26_3,
@@ -17746,9 +15807,10 @@ static const u8 *const s2Chronicles_Chapter26[] = {
     Bible_Text_2_Chronicles_26_21,
     Bible_Text_2_Chronicles_26_22,
     Bible_Text_2_Chronicles_26_23,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter27[] = {
+static const u16 *const s2Chronicles_Chapter27[] = {
     Bible_Text_2_Chronicles_27_1,
     Bible_Text_2_Chronicles_27_2,
     Bible_Text_2_Chronicles_27_3,
@@ -17758,9 +15820,10 @@ static const u8 *const s2Chronicles_Chapter27[] = {
     Bible_Text_2_Chronicles_27_7,
     Bible_Text_2_Chronicles_27_8,
     Bible_Text_2_Chronicles_27_9,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter28[] = {
+static const u16 *const s2Chronicles_Chapter28[] = {
     Bible_Text_2_Chronicles_28_1,
     Bible_Text_2_Chronicles_28_2,
     Bible_Text_2_Chronicles_28_3,
@@ -17788,9 +15851,10 @@ static const u8 *const s2Chronicles_Chapter28[] = {
     Bible_Text_2_Chronicles_28_25,
     Bible_Text_2_Chronicles_28_26,
     Bible_Text_2_Chronicles_28_27,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter29[] = {
+static const u16 *const s2Chronicles_Chapter29[] = {
     Bible_Text_2_Chronicles_29_1,
     Bible_Text_2_Chronicles_29_2,
     Bible_Text_2_Chronicles_29_3,
@@ -17827,9 +15891,10 @@ static const u8 *const s2Chronicles_Chapter29[] = {
     Bible_Text_2_Chronicles_29_34,
     Bible_Text_2_Chronicles_29_35,
     Bible_Text_2_Chronicles_29_36,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter30[] = {
+static const u16 *const s2Chronicles_Chapter30[] = {
     Bible_Text_2_Chronicles_30_1,
     Bible_Text_2_Chronicles_30_2,
     Bible_Text_2_Chronicles_30_3,
@@ -17857,9 +15922,10 @@ static const u8 *const s2Chronicles_Chapter30[] = {
     Bible_Text_2_Chronicles_30_25,
     Bible_Text_2_Chronicles_30_26,
     Bible_Text_2_Chronicles_30_27,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter31[] = {
+static const u16 *const s2Chronicles_Chapter31[] = {
     Bible_Text_2_Chronicles_31_1,
     Bible_Text_2_Chronicles_31_2,
     Bible_Text_2_Chronicles_31_3,
@@ -17881,9 +15947,10 @@ static const u8 *const s2Chronicles_Chapter31[] = {
     Bible_Text_2_Chronicles_31_19,
     Bible_Text_2_Chronicles_31_20,
     Bible_Text_2_Chronicles_31_21,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter32[] = {
+static const u16 *const s2Chronicles_Chapter32[] = {
     Bible_Text_2_Chronicles_32_1,
     Bible_Text_2_Chronicles_32_2,
     Bible_Text_2_Chronicles_32_3,
@@ -17917,9 +15984,10 @@ static const u8 *const s2Chronicles_Chapter32[] = {
     Bible_Text_2_Chronicles_32_31,
     Bible_Text_2_Chronicles_32_32,
     Bible_Text_2_Chronicles_32_33,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter33[] = {
+static const u16 *const s2Chronicles_Chapter33[] = {
     Bible_Text_2_Chronicles_33_1,
     Bible_Text_2_Chronicles_33_2,
     Bible_Text_2_Chronicles_33_3,
@@ -17945,9 +16013,10 @@ static const u8 *const s2Chronicles_Chapter33[] = {
     Bible_Text_2_Chronicles_33_23,
     Bible_Text_2_Chronicles_33_24,
     Bible_Text_2_Chronicles_33_25,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter34[] = {
+static const u16 *const s2Chronicles_Chapter34[] = {
     Bible_Text_2_Chronicles_34_1,
     Bible_Text_2_Chronicles_34_2,
     Bible_Text_2_Chronicles_34_3,
@@ -17981,9 +16050,10 @@ static const u8 *const s2Chronicles_Chapter34[] = {
     Bible_Text_2_Chronicles_34_31,
     Bible_Text_2_Chronicles_34_32,
     Bible_Text_2_Chronicles_34_33,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter35[] = {
+static const u16 *const s2Chronicles_Chapter35[] = {
     Bible_Text_2_Chronicles_35_1,
     Bible_Text_2_Chronicles_35_2,
     Bible_Text_2_Chronicles_35_3,
@@ -18011,9 +16081,10 @@ static const u8 *const s2Chronicles_Chapter35[] = {
     Bible_Text_2_Chronicles_35_25,
     Bible_Text_2_Chronicles_35_26,
     Bible_Text_2_Chronicles_35_27,
+    0
 };
 
-static const u8 *const s2Chronicles_Chapter36[] = {
+static const u16 *const s2Chronicles_Chapter36[] = {
     Bible_Text_2_Chronicles_36_1,
     Bible_Text_2_Chronicles_36_2,
     Bible_Text_2_Chronicles_36_3,
@@ -18037,9 +16108,10 @@ static const u8 *const s2Chronicles_Chapter36[] = {
     Bible_Text_2_Chronicles_36_21,
     Bible_Text_2_Chronicles_36_22,
     Bible_Text_2_Chronicles_36_23,
+    0
 };
 
-static const u8 *const *const sBibleText_2ChroniclesTextPtrs[] = {
+static const u16 *const *const sBibleText_2ChroniclesTextPtrs[] = {
     s2Chronicles_Chapter1,
     s2Chronicles_Chapter2,
     s2Chronicles_Chapter3,
@@ -18076,9 +16148,10 @@ static const u8 *const *const sBibleText_2ChroniclesTextPtrs[] = {
     s2Chronicles_Chapter34,
     s2Chronicles_Chapter35,
     s2Chronicles_Chapter36,
+    0
 };
 
-static const u8 *const sEzra_Chapter1[] = {
+static const u16 *const sEzra_Chapter1[] = {
     Bible_Text_Ezra_1_1,
     Bible_Text_Ezra_1_2,
     Bible_Text_Ezra_1_3,
@@ -18090,9 +16163,10 @@ static const u8 *const sEzra_Chapter1[] = {
     Bible_Text_Ezra_1_9,
     Bible_Text_Ezra_1_10,
     Bible_Text_Ezra_1_11,
+    0
 };
 
-static const u8 *const sEzra_Chapter2[] = {
+static const u16 *const sEzra_Chapter2[] = {
     Bible_Text_Ezra_2_1,
     Bible_Text_Ezra_2_2,
     Bible_Text_Ezra_2_3,
@@ -18163,9 +16237,10 @@ static const u8 *const sEzra_Chapter2[] = {
     Bible_Text_Ezra_2_68,
     Bible_Text_Ezra_2_69,
     Bible_Text_Ezra_2_70,
+    0
 };
 
-static const u8 *const sEzra_Chapter3[] = {
+static const u16 *const sEzra_Chapter3[] = {
     Bible_Text_Ezra_3_1,
     Bible_Text_Ezra_3_2,
     Bible_Text_Ezra_3_3,
@@ -18179,9 +16254,10 @@ static const u8 *const sEzra_Chapter3[] = {
     Bible_Text_Ezra_3_11,
     Bible_Text_Ezra_3_12,
     Bible_Text_Ezra_3_13,
+    0
 };
 
-static const u8 *const sEzra_Chapter4[] = {
+static const u16 *const sEzra_Chapter4[] = {
     Bible_Text_Ezra_4_1,
     Bible_Text_Ezra_4_2,
     Bible_Text_Ezra_4_3,
@@ -18206,9 +16282,10 @@ static const u8 *const sEzra_Chapter4[] = {
     Bible_Text_Ezra_4_22,
     Bible_Text_Ezra_4_23,
     Bible_Text_Ezra_4_24,
+    0
 };
 
-static const u8 *const sEzra_Chapter5[] = {
+static const u16 *const sEzra_Chapter5[] = {
     Bible_Text_Ezra_5_1,
     Bible_Text_Ezra_5_2,
     Bible_Text_Ezra_5_3,
@@ -18226,9 +16303,10 @@ static const u8 *const sEzra_Chapter5[] = {
     Bible_Text_Ezra_5_15,
     Bible_Text_Ezra_5_16,
     Bible_Text_Ezra_5_17,
+    0
 };
 
-static const u8 *const sEzra_Chapter6[] = {
+static const u16 *const sEzra_Chapter6[] = {
     Bible_Text_Ezra_6_1,
     Bible_Text_Ezra_6_2,
     Bible_Text_Ezra_6_3,
@@ -18251,9 +16329,10 @@ static const u8 *const sEzra_Chapter6[] = {
     Bible_Text_Ezra_6_20,
     Bible_Text_Ezra_6_21,
     Bible_Text_Ezra_6_22,
+    0
 };
 
-static const u8 *const sEzra_Chapter7[] = {
+static const u16 *const sEzra_Chapter7[] = {
     Bible_Text_Ezra_7_1,
     Bible_Text_Ezra_7_2,
     Bible_Text_Ezra_7_3,
@@ -18282,9 +16361,10 @@ static const u8 *const sEzra_Chapter7[] = {
     Bible_Text_Ezra_7_26,
     Bible_Text_Ezra_7_27,
     Bible_Text_Ezra_7_28,
+    0
 };
 
-static const u8 *const sEzra_Chapter8[] = {
+static const u16 *const sEzra_Chapter8[] = {
     Bible_Text_Ezra_8_1,
     Bible_Text_Ezra_8_2,
     Bible_Text_Ezra_8_3,
@@ -18321,9 +16401,10 @@ static const u8 *const sEzra_Chapter8[] = {
     Bible_Text_Ezra_8_34,
     Bible_Text_Ezra_8_35,
     Bible_Text_Ezra_8_36,
+    0
 };
 
-static const u8 *const sEzra_Chapter9[] = {
+static const u16 *const sEzra_Chapter9[] = {
     Bible_Text_Ezra_9_1,
     Bible_Text_Ezra_9_2,
     Bible_Text_Ezra_9_3,
@@ -18339,9 +16420,10 @@ static const u8 *const sEzra_Chapter9[] = {
     Bible_Text_Ezra_9_13,
     Bible_Text_Ezra_9_14,
     Bible_Text_Ezra_9_15,
+    0
 };
 
-static const u8 *const sEzra_Chapter10[] = {
+static const u16 *const sEzra_Chapter10[] = {
     Bible_Text_Ezra_10_1,
     Bible_Text_Ezra_10_2,
     Bible_Text_Ezra_10_3,
@@ -18386,9 +16468,10 @@ static const u8 *const sEzra_Chapter10[] = {
     Bible_Text_Ezra_10_42,
     Bible_Text_Ezra_10_43,
     Bible_Text_Ezra_10_44,
+    0
 };
 
-static const u8 *const *const sBibleText_EzraTextPtrs[] = {
+static const u16 *const *const sBibleText_EzraTextPtrs[] = {
     sEzra_Chapter1,
     sEzra_Chapter2,
     sEzra_Chapter3,
@@ -18399,9 +16482,10 @@ static const u8 *const *const sBibleText_EzraTextPtrs[] = {
     sEzra_Chapter8,
     sEzra_Chapter9,
     sEzra_Chapter10,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter1[] = {
+static const u16 *const sNehemiah_Chapter1[] = {
     Bible_Text_Nehemiah_1_1,
     Bible_Text_Nehemiah_1_2,
     Bible_Text_Nehemiah_1_3,
@@ -18413,9 +16497,10 @@ static const u8 *const sNehemiah_Chapter1[] = {
     Bible_Text_Nehemiah_1_9,
     Bible_Text_Nehemiah_1_10,
     Bible_Text_Nehemiah_1_11,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter2[] = {
+static const u16 *const sNehemiah_Chapter2[] = {
     Bible_Text_Nehemiah_2_1,
     Bible_Text_Nehemiah_2_2,
     Bible_Text_Nehemiah_2_3,
@@ -18436,9 +16521,10 @@ static const u8 *const sNehemiah_Chapter2[] = {
     Bible_Text_Nehemiah_2_18,
     Bible_Text_Nehemiah_2_19,
     Bible_Text_Nehemiah_2_20,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter3[] = {
+static const u16 *const sNehemiah_Chapter3[] = {
     Bible_Text_Nehemiah_3_1,
     Bible_Text_Nehemiah_3_2,
     Bible_Text_Nehemiah_3_3,
@@ -18471,9 +16557,10 @@ static const u8 *const sNehemiah_Chapter3[] = {
     Bible_Text_Nehemiah_3_30,
     Bible_Text_Nehemiah_3_31,
     Bible_Text_Nehemiah_3_32,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter4[] = {
+static const u16 *const sNehemiah_Chapter4[] = {
     Bible_Text_Nehemiah_4_1,
     Bible_Text_Nehemiah_4_2,
     Bible_Text_Nehemiah_4_3,
@@ -18497,9 +16584,10 @@ static const u8 *const sNehemiah_Chapter4[] = {
     Bible_Text_Nehemiah_4_21,
     Bible_Text_Nehemiah_4_22,
     Bible_Text_Nehemiah_4_23,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter5[] = {
+static const u16 *const sNehemiah_Chapter5[] = {
     Bible_Text_Nehemiah_5_1,
     Bible_Text_Nehemiah_5_2,
     Bible_Text_Nehemiah_5_3,
@@ -18519,9 +16607,10 @@ static const u8 *const sNehemiah_Chapter5[] = {
     Bible_Text_Nehemiah_5_17,
     Bible_Text_Nehemiah_5_18,
     Bible_Text_Nehemiah_5_19,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter6[] = {
+static const u16 *const sNehemiah_Chapter6[] = {
     Bible_Text_Nehemiah_6_1,
     Bible_Text_Nehemiah_6_2,
     Bible_Text_Nehemiah_6_3,
@@ -18541,9 +16630,10 @@ static const u8 *const sNehemiah_Chapter6[] = {
     Bible_Text_Nehemiah_6_17,
     Bible_Text_Nehemiah_6_18,
     Bible_Text_Nehemiah_6_19,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter7[] = {
+static const u16 *const sNehemiah_Chapter7[] = {
     Bible_Text_Nehemiah_7_1,
     Bible_Text_Nehemiah_7_2,
     Bible_Text_Nehemiah_7_3,
@@ -18617,9 +16707,10 @@ static const u8 *const sNehemiah_Chapter7[] = {
     Bible_Text_Nehemiah_7_71,
     Bible_Text_Nehemiah_7_72,
     Bible_Text_Nehemiah_7_73,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter8[] = {
+static const u16 *const sNehemiah_Chapter8[] = {
     Bible_Text_Nehemiah_8_1,
     Bible_Text_Nehemiah_8_2,
     Bible_Text_Nehemiah_8_3,
@@ -18638,9 +16729,10 @@ static const u8 *const sNehemiah_Chapter8[] = {
     Bible_Text_Nehemiah_8_16,
     Bible_Text_Nehemiah_8_17,
     Bible_Text_Nehemiah_8_18,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter9[] = {
+static const u16 *const sNehemiah_Chapter9[] = {
     Bible_Text_Nehemiah_9_1,
     Bible_Text_Nehemiah_9_2,
     Bible_Text_Nehemiah_9_3,
@@ -18679,9 +16771,10 @@ static const u8 *const sNehemiah_Chapter9[] = {
     Bible_Text_Nehemiah_9_36,
     Bible_Text_Nehemiah_9_37,
     Bible_Text_Nehemiah_9_38,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter10[] = {
+static const u16 *const sNehemiah_Chapter10[] = {
     Bible_Text_Nehemiah_10_1,
     Bible_Text_Nehemiah_10_2,
     Bible_Text_Nehemiah_10_3,
@@ -18721,9 +16814,10 @@ static const u8 *const sNehemiah_Chapter10[] = {
     Bible_Text_Nehemiah_10_37,
     Bible_Text_Nehemiah_10_38,
     Bible_Text_Nehemiah_10_39,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter11[] = {
+static const u16 *const sNehemiah_Chapter11[] = {
     Bible_Text_Nehemiah_11_1,
     Bible_Text_Nehemiah_11_2,
     Bible_Text_Nehemiah_11_3,
@@ -18760,9 +16854,10 @@ static const u8 *const sNehemiah_Chapter11[] = {
     Bible_Text_Nehemiah_11_34,
     Bible_Text_Nehemiah_11_35,
     Bible_Text_Nehemiah_11_36,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter12[] = {
+static const u16 *const sNehemiah_Chapter12[] = {
     Bible_Text_Nehemiah_12_1,
     Bible_Text_Nehemiah_12_2,
     Bible_Text_Nehemiah_12_3,
@@ -18810,9 +16905,10 @@ static const u8 *const sNehemiah_Chapter12[] = {
     Bible_Text_Nehemiah_12_45,
     Bible_Text_Nehemiah_12_46,
     Bible_Text_Nehemiah_12_47,
+    0
 };
 
-static const u8 *const sNehemiah_Chapter13[] = {
+static const u16 *const sNehemiah_Chapter13[] = {
     Bible_Text_Nehemiah_13_1,
     Bible_Text_Nehemiah_13_2,
     Bible_Text_Nehemiah_13_3,
@@ -18844,9 +16940,10 @@ static const u8 *const sNehemiah_Chapter13[] = {
     Bible_Text_Nehemiah_13_29,
     Bible_Text_Nehemiah_13_30,
     Bible_Text_Nehemiah_13_31,
+    0
 };
 
-static const u8 *const *const sBibleText_NehemiahTextPtrs[] = {
+static const u16 *const *const sBibleText_NehemiahTextPtrs[] = {
     sNehemiah_Chapter1,
     sNehemiah_Chapter2,
     sNehemiah_Chapter3,
@@ -18860,9 +16957,10 @@ static const u8 *const *const sBibleText_NehemiahTextPtrs[] = {
     sNehemiah_Chapter11,
     sNehemiah_Chapter12,
     sNehemiah_Chapter13,
+    0
 };
 
-static const u8 *const sEsther_Chapter1[] = {
+static const u16 *const sEsther_Chapter1[] = {
     Bible_Text_Esther_1_1,
     Bible_Text_Esther_1_2,
     Bible_Text_Esther_1_3,
@@ -18885,9 +16983,10 @@ static const u8 *const sEsther_Chapter1[] = {
     Bible_Text_Esther_1_20,
     Bible_Text_Esther_1_21,
     Bible_Text_Esther_1_22,
+    0
 };
 
-static const u8 *const sEsther_Chapter2[] = {
+static const u16 *const sEsther_Chapter2[] = {
     Bible_Text_Esther_2_1,
     Bible_Text_Esther_2_2,
     Bible_Text_Esther_2_3,
@@ -18911,9 +17010,10 @@ static const u8 *const sEsther_Chapter2[] = {
     Bible_Text_Esther_2_21,
     Bible_Text_Esther_2_22,
     Bible_Text_Esther_2_23,
+    0
 };
 
-static const u8 *const sEsther_Chapter3[] = {
+static const u16 *const sEsther_Chapter3[] = {
     Bible_Text_Esther_3_1,
     Bible_Text_Esther_3_2,
     Bible_Text_Esther_3_3,
@@ -18929,9 +17029,10 @@ static const u8 *const sEsther_Chapter3[] = {
     Bible_Text_Esther_3_13,
     Bible_Text_Esther_3_14,
     Bible_Text_Esther_3_15,
+    0
 };
 
-static const u8 *const sEsther_Chapter4[] = {
+static const u16 *const sEsther_Chapter4[] = {
     Bible_Text_Esther_4_1,
     Bible_Text_Esther_4_2,
     Bible_Text_Esther_4_3,
@@ -18949,9 +17050,10 @@ static const u8 *const sEsther_Chapter4[] = {
     Bible_Text_Esther_4_15,
     Bible_Text_Esther_4_16,
     Bible_Text_Esther_4_17,
+    0
 };
 
-static const u8 *const sEsther_Chapter5[] = {
+static const u16 *const sEsther_Chapter5[] = {
     Bible_Text_Esther_5_1,
     Bible_Text_Esther_5_2,
     Bible_Text_Esther_5_3,
@@ -18966,9 +17068,10 @@ static const u8 *const sEsther_Chapter5[] = {
     Bible_Text_Esther_5_12,
     Bible_Text_Esther_5_13,
     Bible_Text_Esther_5_14,
+    0
 };
 
-static const u8 *const sEsther_Chapter6[] = {
+static const u16 *const sEsther_Chapter6[] = {
     Bible_Text_Esther_6_1,
     Bible_Text_Esther_6_2,
     Bible_Text_Esther_6_3,
@@ -18983,9 +17086,10 @@ static const u8 *const sEsther_Chapter6[] = {
     Bible_Text_Esther_6_12,
     Bible_Text_Esther_6_13,
     Bible_Text_Esther_6_14,
+    0
 };
 
-static const u8 *const sEsther_Chapter7[] = {
+static const u16 *const sEsther_Chapter7[] = {
     Bible_Text_Esther_7_1,
     Bible_Text_Esther_7_2,
     Bible_Text_Esther_7_3,
@@ -18996,9 +17100,10 @@ static const u8 *const sEsther_Chapter7[] = {
     Bible_Text_Esther_7_8,
     Bible_Text_Esther_7_9,
     Bible_Text_Esther_7_10,
+    0
 };
 
-static const u8 *const sEsther_Chapter8[] = {
+static const u16 *const sEsther_Chapter8[] = {
     Bible_Text_Esther_8_1,
     Bible_Text_Esther_8_2,
     Bible_Text_Esther_8_3,
@@ -19016,9 +17121,10 @@ static const u8 *const sEsther_Chapter8[] = {
     Bible_Text_Esther_8_15,
     Bible_Text_Esther_8_16,
     Bible_Text_Esther_8_17,
+    0
 };
 
-static const u8 *const sEsther_Chapter9[] = {
+static const u16 *const sEsther_Chapter9[] = {
     Bible_Text_Esther_9_1,
     Bible_Text_Esther_9_2,
     Bible_Text_Esther_9_3,
@@ -19051,15 +17157,17 @@ static const u8 *const sEsther_Chapter9[] = {
     Bible_Text_Esther_9_30,
     Bible_Text_Esther_9_31,
     Bible_Text_Esther_9_32,
+    0
 };
 
-static const u8 *const sEsther_Chapter10[] = {
+static const u16 *const sEsther_Chapter10[] = {
     Bible_Text_Esther_10_1,
     Bible_Text_Esther_10_2,
     Bible_Text_Esther_10_3,
+    0
 };
 
-static const u8 *const *const sBibleText_EstherTextPtrs[] = {
+static const u16 *const *const sBibleText_EstherTextPtrs[] = {
     sEsther_Chapter1,
     sEsther_Chapter2,
     sEsther_Chapter3,
@@ -19070,9 +17178,10 @@ static const u8 *const *const sBibleText_EstherTextPtrs[] = {
     sEsther_Chapter8,
     sEsther_Chapter9,
     sEsther_Chapter10,
+    0
 };
 
-static const u8 *const sJob_Chapter1[] = {
+static const u16 *const sJob_Chapter1[] = {
     Bible_Text_Job_1_1,
     Bible_Text_Job_1_2,
     Bible_Text_Job_1_3,
@@ -19095,9 +17204,10 @@ static const u8 *const sJob_Chapter1[] = {
     Bible_Text_Job_1_20,
     Bible_Text_Job_1_21,
     Bible_Text_Job_1_22,
+    0
 };
 
-static const u8 *const sJob_Chapter2[] = {
+static const u16 *const sJob_Chapter2[] = {
     Bible_Text_Job_2_1,
     Bible_Text_Job_2_2,
     Bible_Text_Job_2_3,
@@ -19111,9 +17221,10 @@ static const u8 *const sJob_Chapter2[] = {
     Bible_Text_Job_2_11,
     Bible_Text_Job_2_12,
     Bible_Text_Job_2_13,
+    0
 };
 
-static const u8 *const sJob_Chapter3[] = {
+static const u16 *const sJob_Chapter3[] = {
     Bible_Text_Job_3_1,
     Bible_Text_Job_3_2,
     Bible_Text_Job_3_3,
@@ -19140,9 +17251,10 @@ static const u8 *const sJob_Chapter3[] = {
     Bible_Text_Job_3_24,
     Bible_Text_Job_3_25,
     Bible_Text_Job_3_26,
+    0
 };
 
-static const u8 *const sJob_Chapter4[] = {
+static const u16 *const sJob_Chapter4[] = {
     Bible_Text_Job_4_1,
     Bible_Text_Job_4_2,
     Bible_Text_Job_4_3,
@@ -19164,9 +17276,10 @@ static const u8 *const sJob_Chapter4[] = {
     Bible_Text_Job_4_19,
     Bible_Text_Job_4_20,
     Bible_Text_Job_4_21,
+    0
 };
 
-static const u8 *const sJob_Chapter5[] = {
+static const u16 *const sJob_Chapter5[] = {
     Bible_Text_Job_5_1,
     Bible_Text_Job_5_2,
     Bible_Text_Job_5_3,
@@ -19194,9 +17307,10 @@ static const u8 *const sJob_Chapter5[] = {
     Bible_Text_Job_5_25,
     Bible_Text_Job_5_26,
     Bible_Text_Job_5_27,
+    0
 };
 
-static const u8 *const sJob_Chapter6[] = {
+static const u16 *const sJob_Chapter6[] = {
     Bible_Text_Job_6_1,
     Bible_Text_Job_6_2,
     Bible_Text_Job_6_3,
@@ -19227,9 +17341,10 @@ static const u8 *const sJob_Chapter6[] = {
     Bible_Text_Job_6_28,
     Bible_Text_Job_6_29,
     Bible_Text_Job_6_30,
+    0
 };
 
-static const u8 *const sJob_Chapter7[] = {
+static const u16 *const sJob_Chapter7[] = {
     Bible_Text_Job_7_1,
     Bible_Text_Job_7_2,
     Bible_Text_Job_7_3,
@@ -19251,9 +17366,10 @@ static const u8 *const sJob_Chapter7[] = {
     Bible_Text_Job_7_19,
     Bible_Text_Job_7_20,
     Bible_Text_Job_7_21,
+    0
 };
 
-static const u8 *const sJob_Chapter8[] = {
+static const u16 *const sJob_Chapter8[] = {
     Bible_Text_Job_8_1,
     Bible_Text_Job_8_2,
     Bible_Text_Job_8_3,
@@ -19276,9 +17392,10 @@ static const u8 *const sJob_Chapter8[] = {
     Bible_Text_Job_8_20,
     Bible_Text_Job_8_21,
     Bible_Text_Job_8_22,
+    0
 };
 
-static const u8 *const sJob_Chapter9[] = {
+static const u16 *const sJob_Chapter9[] = {
     Bible_Text_Job_9_1,
     Bible_Text_Job_9_2,
     Bible_Text_Job_9_3,
@@ -19314,9 +17431,10 @@ static const u8 *const sJob_Chapter9[] = {
     Bible_Text_Job_9_33,
     Bible_Text_Job_9_34,
     Bible_Text_Job_9_35,
+    0
 };
 
-static const u8 *const sJob_Chapter10[] = {
+static const u16 *const sJob_Chapter10[] = {
     Bible_Text_Job_10_1,
     Bible_Text_Job_10_2,
     Bible_Text_Job_10_3,
@@ -19339,9 +17457,10 @@ static const u8 *const sJob_Chapter10[] = {
     Bible_Text_Job_10_20,
     Bible_Text_Job_10_21,
     Bible_Text_Job_10_22,
+    0
 };
 
-static const u8 *const sJob_Chapter11[] = {
+static const u16 *const sJob_Chapter11[] = {
     Bible_Text_Job_11_1,
     Bible_Text_Job_11_2,
     Bible_Text_Job_11_3,
@@ -19362,9 +17481,10 @@ static const u8 *const sJob_Chapter11[] = {
     Bible_Text_Job_11_18,
     Bible_Text_Job_11_19,
     Bible_Text_Job_11_20,
+    0
 };
 
-static const u8 *const sJob_Chapter12[] = {
+static const u16 *const sJob_Chapter12[] = {
     Bible_Text_Job_12_1,
     Bible_Text_Job_12_2,
     Bible_Text_Job_12_3,
@@ -19390,9 +17510,10 @@ static const u8 *const sJob_Chapter12[] = {
     Bible_Text_Job_12_23,
     Bible_Text_Job_12_24,
     Bible_Text_Job_12_25,
+    0
 };
 
-static const u8 *const sJob_Chapter13[] = {
+static const u16 *const sJob_Chapter13[] = {
     Bible_Text_Job_13_1,
     Bible_Text_Job_13_2,
     Bible_Text_Job_13_3,
@@ -19421,9 +17542,10 @@ static const u8 *const sJob_Chapter13[] = {
     Bible_Text_Job_13_26,
     Bible_Text_Job_13_27,
     Bible_Text_Job_13_28,
+    0
 };
 
-static const u8 *const sJob_Chapter14[] = {
+static const u16 *const sJob_Chapter14[] = {
     Bible_Text_Job_14_1,
     Bible_Text_Job_14_2,
     Bible_Text_Job_14_3,
@@ -19446,9 +17568,10 @@ static const u8 *const sJob_Chapter14[] = {
     Bible_Text_Job_14_20,
     Bible_Text_Job_14_21,
     Bible_Text_Job_14_22,
+    0
 };
 
-static const u8 *const sJob_Chapter15[] = {
+static const u16 *const sJob_Chapter15[] = {
     Bible_Text_Job_15_1,
     Bible_Text_Job_15_2,
     Bible_Text_Job_15_3,
@@ -19484,9 +17607,10 @@ static const u8 *const sJob_Chapter15[] = {
     Bible_Text_Job_15_33,
     Bible_Text_Job_15_34,
     Bible_Text_Job_15_35,
+    0
 };
 
-static const u8 *const sJob_Chapter16[] = {
+static const u16 *const sJob_Chapter16[] = {
     Bible_Text_Job_16_1,
     Bible_Text_Job_16_2,
     Bible_Text_Job_16_3,
@@ -19509,9 +17633,10 @@ static const u8 *const sJob_Chapter16[] = {
     Bible_Text_Job_16_20,
     Bible_Text_Job_16_21,
     Bible_Text_Job_16_22,
+    0
 };
 
-static const u8 *const sJob_Chapter17[] = {
+static const u16 *const sJob_Chapter17[] = {
     Bible_Text_Job_17_1,
     Bible_Text_Job_17_2,
     Bible_Text_Job_17_3,
@@ -19528,9 +17653,10 @@ static const u8 *const sJob_Chapter17[] = {
     Bible_Text_Job_17_14,
     Bible_Text_Job_17_15,
     Bible_Text_Job_17_16,
+    0
 };
 
-static const u8 *const sJob_Chapter18[] = {
+static const u16 *const sJob_Chapter18[] = {
     Bible_Text_Job_18_1,
     Bible_Text_Job_18_2,
     Bible_Text_Job_18_3,
@@ -19552,9 +17678,10 @@ static const u8 *const sJob_Chapter18[] = {
     Bible_Text_Job_18_19,
     Bible_Text_Job_18_20,
     Bible_Text_Job_18_21,
+    0
 };
 
-static const u8 *const sJob_Chapter19[] = {
+static const u16 *const sJob_Chapter19[] = {
     Bible_Text_Job_19_1,
     Bible_Text_Job_19_2,
     Bible_Text_Job_19_3,
@@ -19584,9 +17711,10 @@ static const u8 *const sJob_Chapter19[] = {
     Bible_Text_Job_19_27,
     Bible_Text_Job_19_28,
     Bible_Text_Job_19_29,
+    0
 };
 
-static const u8 *const sJob_Chapter20[] = {
+static const u16 *const sJob_Chapter20[] = {
     Bible_Text_Job_20_1,
     Bible_Text_Job_20_2,
     Bible_Text_Job_20_3,
@@ -19616,9 +17744,10 @@ static const u8 *const sJob_Chapter20[] = {
     Bible_Text_Job_20_27,
     Bible_Text_Job_20_28,
     Bible_Text_Job_20_29,
+    0
 };
 
-static const u8 *const sJob_Chapter21[] = {
+static const u16 *const sJob_Chapter21[] = {
     Bible_Text_Job_21_1,
     Bible_Text_Job_21_2,
     Bible_Text_Job_21_3,
@@ -19653,9 +17782,10 @@ static const u8 *const sJob_Chapter21[] = {
     Bible_Text_Job_21_32,
     Bible_Text_Job_21_33,
     Bible_Text_Job_21_34,
+    0
 };
 
-static const u8 *const sJob_Chapter22[] = {
+static const u16 *const sJob_Chapter22[] = {
     Bible_Text_Job_22_1,
     Bible_Text_Job_22_2,
     Bible_Text_Job_22_3,
@@ -19686,9 +17816,10 @@ static const u8 *const sJob_Chapter22[] = {
     Bible_Text_Job_22_28,
     Bible_Text_Job_22_29,
     Bible_Text_Job_22_30,
+    0
 };
 
-static const u8 *const sJob_Chapter23[] = {
+static const u16 *const sJob_Chapter23[] = {
     Bible_Text_Job_23_1,
     Bible_Text_Job_23_2,
     Bible_Text_Job_23_3,
@@ -19706,9 +17837,10 @@ static const u8 *const sJob_Chapter23[] = {
     Bible_Text_Job_23_15,
     Bible_Text_Job_23_16,
     Bible_Text_Job_23_17,
+    0
 };
 
-static const u8 *const sJob_Chapter24[] = {
+static const u16 *const sJob_Chapter24[] = {
     Bible_Text_Job_24_1,
     Bible_Text_Job_24_2,
     Bible_Text_Job_24_3,
@@ -19734,18 +17866,20 @@ static const u8 *const sJob_Chapter24[] = {
     Bible_Text_Job_24_23,
     Bible_Text_Job_24_24,
     Bible_Text_Job_24_25,
+    0
 };
 
-static const u8 *const sJob_Chapter25[] = {
+static const u16 *const sJob_Chapter25[] = {
     Bible_Text_Job_25_1,
     Bible_Text_Job_25_2,
     Bible_Text_Job_25_3,
     Bible_Text_Job_25_4,
     Bible_Text_Job_25_5,
     Bible_Text_Job_25_6,
+    0
 };
 
-static const u8 *const sJob_Chapter26[] = {
+static const u16 *const sJob_Chapter26[] = {
     Bible_Text_Job_26_1,
     Bible_Text_Job_26_2,
     Bible_Text_Job_26_3,
@@ -19760,9 +17894,10 @@ static const u8 *const sJob_Chapter26[] = {
     Bible_Text_Job_26_12,
     Bible_Text_Job_26_13,
     Bible_Text_Job_26_14,
+    0
 };
 
-static const u8 *const sJob_Chapter27[] = {
+static const u16 *const sJob_Chapter27[] = {
     Bible_Text_Job_27_1,
     Bible_Text_Job_27_2,
     Bible_Text_Job_27_3,
@@ -19786,9 +17921,10 @@ static const u8 *const sJob_Chapter27[] = {
     Bible_Text_Job_27_21,
     Bible_Text_Job_27_22,
     Bible_Text_Job_27_23,
+    0
 };
 
-static const u8 *const sJob_Chapter28[] = {
+static const u16 *const sJob_Chapter28[] = {
     Bible_Text_Job_28_1,
     Bible_Text_Job_28_2,
     Bible_Text_Job_28_3,
@@ -19817,9 +17953,10 @@ static const u8 *const sJob_Chapter28[] = {
     Bible_Text_Job_28_26,
     Bible_Text_Job_28_27,
     Bible_Text_Job_28_28,
+    0
 };
 
-static const u8 *const sJob_Chapter29[] = {
+static const u16 *const sJob_Chapter29[] = {
     Bible_Text_Job_29_1,
     Bible_Text_Job_29_2,
     Bible_Text_Job_29_3,
@@ -19845,9 +17982,10 @@ static const u8 *const sJob_Chapter29[] = {
     Bible_Text_Job_29_23,
     Bible_Text_Job_29_24,
     Bible_Text_Job_29_25,
+    0
 };
 
-static const u8 *const sJob_Chapter30[] = {
+static const u16 *const sJob_Chapter30[] = {
     Bible_Text_Job_30_1,
     Bible_Text_Job_30_2,
     Bible_Text_Job_30_3,
@@ -19879,9 +18017,10 @@ static const u8 *const sJob_Chapter30[] = {
     Bible_Text_Job_30_29,
     Bible_Text_Job_30_30,
     Bible_Text_Job_30_31,
+    0
 };
 
-static const u8 *const sJob_Chapter31[] = {
+static const u16 *const sJob_Chapter31[] = {
     Bible_Text_Job_31_1,
     Bible_Text_Job_31_2,
     Bible_Text_Job_31_3,
@@ -19922,9 +18061,10 @@ static const u8 *const sJob_Chapter31[] = {
     Bible_Text_Job_31_38,
     Bible_Text_Job_31_39,
     Bible_Text_Job_31_40,
+    0
 };
 
-static const u8 *const sJob_Chapter32[] = {
+static const u16 *const sJob_Chapter32[] = {
     Bible_Text_Job_32_1,
     Bible_Text_Job_32_2,
     Bible_Text_Job_32_3,
@@ -19947,9 +18087,10 @@ static const u8 *const sJob_Chapter32[] = {
     Bible_Text_Job_32_20,
     Bible_Text_Job_32_21,
     Bible_Text_Job_32_22,
+    0
 };
 
-static const u8 *const sJob_Chapter33[] = {
+static const u16 *const sJob_Chapter33[] = {
     Bible_Text_Job_33_1,
     Bible_Text_Job_33_2,
     Bible_Text_Job_33_3,
@@ -19983,9 +18124,10 @@ static const u8 *const sJob_Chapter33[] = {
     Bible_Text_Job_33_31,
     Bible_Text_Job_33_32,
     Bible_Text_Job_33_33,
+    0
 };
 
-static const u8 *const sJob_Chapter34[] = {
+static const u16 *const sJob_Chapter34[] = {
     Bible_Text_Job_34_1,
     Bible_Text_Job_34_2,
     Bible_Text_Job_34_3,
@@ -20023,9 +18165,10 @@ static const u8 *const sJob_Chapter34[] = {
     Bible_Text_Job_34_35,
     Bible_Text_Job_34_36,
     Bible_Text_Job_34_37,
+    0
 };
 
-static const u8 *const sJob_Chapter35[] = {
+static const u16 *const sJob_Chapter35[] = {
     Bible_Text_Job_35_1,
     Bible_Text_Job_35_2,
     Bible_Text_Job_35_3,
@@ -20042,9 +18185,10 @@ static const u8 *const sJob_Chapter35[] = {
     Bible_Text_Job_35_14,
     Bible_Text_Job_35_15,
     Bible_Text_Job_35_16,
+    0
 };
 
-static const u8 *const sJob_Chapter36[] = {
+static const u16 *const sJob_Chapter36[] = {
     Bible_Text_Job_36_1,
     Bible_Text_Job_36_2,
     Bible_Text_Job_36_3,
@@ -20078,9 +18222,10 @@ static const u8 *const sJob_Chapter36[] = {
     Bible_Text_Job_36_31,
     Bible_Text_Job_36_32,
     Bible_Text_Job_36_33,
+    0
 };
 
-static const u8 *const sJob_Chapter37[] = {
+static const u16 *const sJob_Chapter37[] = {
     Bible_Text_Job_37_1,
     Bible_Text_Job_37_2,
     Bible_Text_Job_37_3,
@@ -20105,9 +18250,10 @@ static const u8 *const sJob_Chapter37[] = {
     Bible_Text_Job_37_22,
     Bible_Text_Job_37_23,
     Bible_Text_Job_37_24,
+    0
 };
 
-static const u8 *const sJob_Chapter38[] = {
+static const u16 *const sJob_Chapter38[] = {
     Bible_Text_Job_38_1,
     Bible_Text_Job_38_2,
     Bible_Text_Job_38_3,
@@ -20149,9 +18295,10 @@ static const u8 *const sJob_Chapter38[] = {
     Bible_Text_Job_38_39,
     Bible_Text_Job_38_40,
     Bible_Text_Job_38_41,
+    0
 };
 
-static const u8 *const sJob_Chapter39[] = {
+static const u16 *const sJob_Chapter39[] = {
     Bible_Text_Job_39_1,
     Bible_Text_Job_39_2,
     Bible_Text_Job_39_3,
@@ -20182,9 +18329,10 @@ static const u8 *const sJob_Chapter39[] = {
     Bible_Text_Job_39_28,
     Bible_Text_Job_39_29,
     Bible_Text_Job_39_30,
+    0
 };
 
-static const u8 *const sJob_Chapter40[] = {
+static const u16 *const sJob_Chapter40[] = {
     Bible_Text_Job_40_1,
     Bible_Text_Job_40_2,
     Bible_Text_Job_40_3,
@@ -20209,9 +18357,10 @@ static const u8 *const sJob_Chapter40[] = {
     Bible_Text_Job_40_22,
     Bible_Text_Job_40_23,
     Bible_Text_Job_40_24,
+    0
 };
 
-static const u8 *const sJob_Chapter41[] = {
+static const u16 *const sJob_Chapter41[] = {
     Bible_Text_Job_41_1,
     Bible_Text_Job_41_2,
     Bible_Text_Job_41_3,
@@ -20246,9 +18395,10 @@ static const u8 *const sJob_Chapter41[] = {
     Bible_Text_Job_41_32,
     Bible_Text_Job_41_33,
     Bible_Text_Job_41_34,
+    0
 };
 
-static const u8 *const sJob_Chapter42[] = {
+static const u16 *const sJob_Chapter42[] = {
     Bible_Text_Job_42_1,
     Bible_Text_Job_42_2,
     Bible_Text_Job_42_3,
@@ -20266,9 +18416,10 @@ static const u8 *const sJob_Chapter42[] = {
     Bible_Text_Job_42_15,
     Bible_Text_Job_42_16,
     Bible_Text_Job_42_17,
+    0
 };
 
-static const u8 *const *const sBibleText_JobTextPtrs[] = {
+static const u16 *const *const sBibleText_JobTextPtrs[] = {
     sJob_Chapter1,
     sJob_Chapter2,
     sJob_Chapter3,
@@ -20311,18 +18462,20 @@ static const u8 *const *const sBibleText_JobTextPtrs[] = {
     sJob_Chapter40,
     sJob_Chapter41,
     sJob_Chapter42,
+    0
 };
 
-static const u8 *const sPsalms_Chapter1[] = {
+static const u16 *const sPsalms_Chapter1[] = {
     Bible_Text_Psalms_1_1,
     Bible_Text_Psalms_1_2,
     Bible_Text_Psalms_1_3,
     Bible_Text_Psalms_1_4,
     Bible_Text_Psalms_1_5,
     Bible_Text_Psalms_1_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter2[] = {
+static const u16 *const sPsalms_Chapter2[] = {
     Bible_Text_Psalms_2_1,
     Bible_Text_Psalms_2_2,
     Bible_Text_Psalms_2_3,
@@ -20335,9 +18488,10 @@ static const u8 *const sPsalms_Chapter2[] = {
     Bible_Text_Psalms_2_10,
     Bible_Text_Psalms_2_11,
     Bible_Text_Psalms_2_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter3[] = {
+static const u16 *const sPsalms_Chapter3[] = {
     Bible_Text_Psalms_3_1,
     Bible_Text_Psalms_3_2,
     Bible_Text_Psalms_3_3,
@@ -20346,9 +18500,10 @@ static const u8 *const sPsalms_Chapter3[] = {
     Bible_Text_Psalms_3_6,
     Bible_Text_Psalms_3_7,
     Bible_Text_Psalms_3_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter4[] = {
+static const u16 *const sPsalms_Chapter4[] = {
     Bible_Text_Psalms_4_1,
     Bible_Text_Psalms_4_2,
     Bible_Text_Psalms_4_3,
@@ -20357,9 +18512,10 @@ static const u8 *const sPsalms_Chapter4[] = {
     Bible_Text_Psalms_4_6,
     Bible_Text_Psalms_4_7,
     Bible_Text_Psalms_4_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter5[] = {
+static const u16 *const sPsalms_Chapter5[] = {
     Bible_Text_Psalms_5_1,
     Bible_Text_Psalms_5_2,
     Bible_Text_Psalms_5_3,
@@ -20372,9 +18528,10 @@ static const u8 *const sPsalms_Chapter5[] = {
     Bible_Text_Psalms_5_10,
     Bible_Text_Psalms_5_11,
     Bible_Text_Psalms_5_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter6[] = {
+static const u16 *const sPsalms_Chapter6[] = {
     Bible_Text_Psalms_6_1,
     Bible_Text_Psalms_6_2,
     Bible_Text_Psalms_6_3,
@@ -20385,9 +18542,10 @@ static const u8 *const sPsalms_Chapter6[] = {
     Bible_Text_Psalms_6_8,
     Bible_Text_Psalms_6_9,
     Bible_Text_Psalms_6_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter7[] = {
+static const u16 *const sPsalms_Chapter7[] = {
     Bible_Text_Psalms_7_1,
     Bible_Text_Psalms_7_2,
     Bible_Text_Psalms_7_3,
@@ -20405,9 +18563,10 @@ static const u8 *const sPsalms_Chapter7[] = {
     Bible_Text_Psalms_7_15,
     Bible_Text_Psalms_7_16,
     Bible_Text_Psalms_7_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter8[] = {
+static const u16 *const sPsalms_Chapter8[] = {
     Bible_Text_Psalms_8_1,
     Bible_Text_Psalms_8_2,
     Bible_Text_Psalms_8_3,
@@ -20417,9 +18576,10 @@ static const u8 *const sPsalms_Chapter8[] = {
     Bible_Text_Psalms_8_7,
     Bible_Text_Psalms_8_8,
     Bible_Text_Psalms_8_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter9[] = {
+static const u16 *const sPsalms_Chapter9[] = {
     Bible_Text_Psalms_9_1,
     Bible_Text_Psalms_9_2,
     Bible_Text_Psalms_9_3,
@@ -20440,9 +18600,10 @@ static const u8 *const sPsalms_Chapter9[] = {
     Bible_Text_Psalms_9_18,
     Bible_Text_Psalms_9_19,
     Bible_Text_Psalms_9_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter10[] = {
+static const u16 *const sPsalms_Chapter10[] = {
     Bible_Text_Psalms_10_1,
     Bible_Text_Psalms_10_2,
     Bible_Text_Psalms_10_3,
@@ -20461,9 +18622,10 @@ static const u8 *const sPsalms_Chapter10[] = {
     Bible_Text_Psalms_10_16,
     Bible_Text_Psalms_10_17,
     Bible_Text_Psalms_10_18,
+    0
 };
 
-static const u8 *const sPsalms_Chapter11[] = {
+static const u16 *const sPsalms_Chapter11[] = {
     Bible_Text_Psalms_11_1,
     Bible_Text_Psalms_11_2,
     Bible_Text_Psalms_11_3,
@@ -20471,9 +18633,10 @@ static const u8 *const sPsalms_Chapter11[] = {
     Bible_Text_Psalms_11_5,
     Bible_Text_Psalms_11_6,
     Bible_Text_Psalms_11_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter12[] = {
+static const u16 *const sPsalms_Chapter12[] = {
     Bible_Text_Psalms_12_1,
     Bible_Text_Psalms_12_2,
     Bible_Text_Psalms_12_3,
@@ -20482,18 +18645,20 @@ static const u8 *const sPsalms_Chapter12[] = {
     Bible_Text_Psalms_12_6,
     Bible_Text_Psalms_12_7,
     Bible_Text_Psalms_12_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter13[] = {
+static const u16 *const sPsalms_Chapter13[] = {
     Bible_Text_Psalms_13_1,
     Bible_Text_Psalms_13_2,
     Bible_Text_Psalms_13_3,
     Bible_Text_Psalms_13_4,
     Bible_Text_Psalms_13_5,
     Bible_Text_Psalms_13_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter14[] = {
+static const u16 *const sPsalms_Chapter14[] = {
     Bible_Text_Psalms_14_1,
     Bible_Text_Psalms_14_2,
     Bible_Text_Psalms_14_3,
@@ -20501,17 +18666,19 @@ static const u8 *const sPsalms_Chapter14[] = {
     Bible_Text_Psalms_14_5,
     Bible_Text_Psalms_14_6,
     Bible_Text_Psalms_14_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter15[] = {
+static const u16 *const sPsalms_Chapter15[] = {
     Bible_Text_Psalms_15_1,
     Bible_Text_Psalms_15_2,
     Bible_Text_Psalms_15_3,
     Bible_Text_Psalms_15_4,
     Bible_Text_Psalms_15_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter16[] = {
+static const u16 *const sPsalms_Chapter16[] = {
     Bible_Text_Psalms_16_1,
     Bible_Text_Psalms_16_2,
     Bible_Text_Psalms_16_3,
@@ -20523,9 +18690,10 @@ static const u8 *const sPsalms_Chapter16[] = {
     Bible_Text_Psalms_16_9,
     Bible_Text_Psalms_16_10,
     Bible_Text_Psalms_16_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter17[] = {
+static const u16 *const sPsalms_Chapter17[] = {
     Bible_Text_Psalms_17_1,
     Bible_Text_Psalms_17_2,
     Bible_Text_Psalms_17_3,
@@ -20541,9 +18709,10 @@ static const u8 *const sPsalms_Chapter17[] = {
     Bible_Text_Psalms_17_13,
     Bible_Text_Psalms_17_14,
     Bible_Text_Psalms_17_15,
+    0
 };
 
-static const u8 *const sPsalms_Chapter18[] = {
+static const u16 *const sPsalms_Chapter18[] = {
     Bible_Text_Psalms_18_1,
     Bible_Text_Psalms_18_2,
     Bible_Text_Psalms_18_3,
@@ -20594,9 +18763,10 @@ static const u8 *const sPsalms_Chapter18[] = {
     Bible_Text_Psalms_18_48,
     Bible_Text_Psalms_18_49,
     Bible_Text_Psalms_18_50,
+    0
 };
 
-static const u8 *const sPsalms_Chapter19[] = {
+static const u16 *const sPsalms_Chapter19[] = {
     Bible_Text_Psalms_19_1,
     Bible_Text_Psalms_19_2,
     Bible_Text_Psalms_19_3,
@@ -20611,9 +18781,10 @@ static const u8 *const sPsalms_Chapter19[] = {
     Bible_Text_Psalms_19_12,
     Bible_Text_Psalms_19_13,
     Bible_Text_Psalms_19_14,
+    0
 };
 
-static const u8 *const sPsalms_Chapter20[] = {
+static const u16 *const sPsalms_Chapter20[] = {
     Bible_Text_Psalms_20_1,
     Bible_Text_Psalms_20_2,
     Bible_Text_Psalms_20_3,
@@ -20623,9 +18794,10 @@ static const u8 *const sPsalms_Chapter20[] = {
     Bible_Text_Psalms_20_7,
     Bible_Text_Psalms_20_8,
     Bible_Text_Psalms_20_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter21[] = {
+static const u16 *const sPsalms_Chapter21[] = {
     Bible_Text_Psalms_21_1,
     Bible_Text_Psalms_21_2,
     Bible_Text_Psalms_21_3,
@@ -20639,9 +18811,10 @@ static const u8 *const sPsalms_Chapter21[] = {
     Bible_Text_Psalms_21_11,
     Bible_Text_Psalms_21_12,
     Bible_Text_Psalms_21_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter22[] = {
+static const u16 *const sPsalms_Chapter22[] = {
     Bible_Text_Psalms_22_1,
     Bible_Text_Psalms_22_2,
     Bible_Text_Psalms_22_3,
@@ -20673,18 +18846,20 @@ static const u8 *const sPsalms_Chapter22[] = {
     Bible_Text_Psalms_22_29,
     Bible_Text_Psalms_22_30,
     Bible_Text_Psalms_22_31,
+    0
 };
 
-static const u8 *const sPsalms_Chapter23[] = {
+static const u16 *const sPsalms_Chapter23[] = {
     Bible_Text_Psalms_23_1,
     Bible_Text_Psalms_23_2,
     Bible_Text_Psalms_23_3,
     Bible_Text_Psalms_23_4,
     Bible_Text_Psalms_23_5,
     Bible_Text_Psalms_23_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter24[] = {
+static const u16 *const sPsalms_Chapter24[] = {
     Bible_Text_Psalms_24_1,
     Bible_Text_Psalms_24_2,
     Bible_Text_Psalms_24_3,
@@ -20695,9 +18870,10 @@ static const u8 *const sPsalms_Chapter24[] = {
     Bible_Text_Psalms_24_8,
     Bible_Text_Psalms_24_9,
     Bible_Text_Psalms_24_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter25[] = {
+static const u16 *const sPsalms_Chapter25[] = {
     Bible_Text_Psalms_25_1,
     Bible_Text_Psalms_25_2,
     Bible_Text_Psalms_25_3,
@@ -20720,9 +18896,10 @@ static const u8 *const sPsalms_Chapter25[] = {
     Bible_Text_Psalms_25_20,
     Bible_Text_Psalms_25_21,
     Bible_Text_Psalms_25_22,
+    0
 };
 
-static const u8 *const sPsalms_Chapter26[] = {
+static const u16 *const sPsalms_Chapter26[] = {
     Bible_Text_Psalms_26_1,
     Bible_Text_Psalms_26_2,
     Bible_Text_Psalms_26_3,
@@ -20735,9 +18912,10 @@ static const u8 *const sPsalms_Chapter26[] = {
     Bible_Text_Psalms_26_10,
     Bible_Text_Psalms_26_11,
     Bible_Text_Psalms_26_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter27[] = {
+static const u16 *const sPsalms_Chapter27[] = {
     Bible_Text_Psalms_27_1,
     Bible_Text_Psalms_27_2,
     Bible_Text_Psalms_27_3,
@@ -20752,9 +18930,10 @@ static const u8 *const sPsalms_Chapter27[] = {
     Bible_Text_Psalms_27_12,
     Bible_Text_Psalms_27_13,
     Bible_Text_Psalms_27_14,
+    0
 };
 
-static const u8 *const sPsalms_Chapter28[] = {
+static const u16 *const sPsalms_Chapter28[] = {
     Bible_Text_Psalms_28_1,
     Bible_Text_Psalms_28_2,
     Bible_Text_Psalms_28_3,
@@ -20764,9 +18943,10 @@ static const u8 *const sPsalms_Chapter28[] = {
     Bible_Text_Psalms_28_7,
     Bible_Text_Psalms_28_8,
     Bible_Text_Psalms_28_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter29[] = {
+static const u16 *const sPsalms_Chapter29[] = {
     Bible_Text_Psalms_29_1,
     Bible_Text_Psalms_29_2,
     Bible_Text_Psalms_29_3,
@@ -20778,9 +18958,10 @@ static const u8 *const sPsalms_Chapter29[] = {
     Bible_Text_Psalms_29_9,
     Bible_Text_Psalms_29_10,
     Bible_Text_Psalms_29_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter30[] = {
+static const u16 *const sPsalms_Chapter30[] = {
     Bible_Text_Psalms_30_1,
     Bible_Text_Psalms_30_2,
     Bible_Text_Psalms_30_3,
@@ -20793,9 +18974,10 @@ static const u8 *const sPsalms_Chapter30[] = {
     Bible_Text_Psalms_30_10,
     Bible_Text_Psalms_30_11,
     Bible_Text_Psalms_30_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter31[] = {
+static const u16 *const sPsalms_Chapter31[] = {
     Bible_Text_Psalms_31_1,
     Bible_Text_Psalms_31_2,
     Bible_Text_Psalms_31_3,
@@ -20820,9 +19002,10 @@ static const u8 *const sPsalms_Chapter31[] = {
     Bible_Text_Psalms_31_22,
     Bible_Text_Psalms_31_23,
     Bible_Text_Psalms_31_24,
+    0
 };
 
-static const u8 *const sPsalms_Chapter32[] = {
+static const u16 *const sPsalms_Chapter32[] = {
     Bible_Text_Psalms_32_1,
     Bible_Text_Psalms_32_2,
     Bible_Text_Psalms_32_3,
@@ -20834,9 +19017,10 @@ static const u8 *const sPsalms_Chapter32[] = {
     Bible_Text_Psalms_32_9,
     Bible_Text_Psalms_32_10,
     Bible_Text_Psalms_32_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter33[] = {
+static const u16 *const sPsalms_Chapter33[] = {
     Bible_Text_Psalms_33_1,
     Bible_Text_Psalms_33_2,
     Bible_Text_Psalms_33_3,
@@ -20859,9 +19043,10 @@ static const u8 *const sPsalms_Chapter33[] = {
     Bible_Text_Psalms_33_20,
     Bible_Text_Psalms_33_21,
     Bible_Text_Psalms_33_22,
+    0
 };
 
-static const u8 *const sPsalms_Chapter34[] = {
+static const u16 *const sPsalms_Chapter34[] = {
     Bible_Text_Psalms_34_1,
     Bible_Text_Psalms_34_2,
     Bible_Text_Psalms_34_3,
@@ -20884,9 +19069,10 @@ static const u8 *const sPsalms_Chapter34[] = {
     Bible_Text_Psalms_34_20,
     Bible_Text_Psalms_34_21,
     Bible_Text_Psalms_34_22,
+    0
 };
 
-static const u8 *const sPsalms_Chapter35[] = {
+static const u16 *const sPsalms_Chapter35[] = {
     Bible_Text_Psalms_35_1,
     Bible_Text_Psalms_35_2,
     Bible_Text_Psalms_35_3,
@@ -20915,9 +19101,10 @@ static const u8 *const sPsalms_Chapter35[] = {
     Bible_Text_Psalms_35_26,
     Bible_Text_Psalms_35_27,
     Bible_Text_Psalms_35_28,
+    0
 };
 
-static const u8 *const sPsalms_Chapter36[] = {
+static const u16 *const sPsalms_Chapter36[] = {
     Bible_Text_Psalms_36_1,
     Bible_Text_Psalms_36_2,
     Bible_Text_Psalms_36_3,
@@ -20930,9 +19117,10 @@ static const u8 *const sPsalms_Chapter36[] = {
     Bible_Text_Psalms_36_10,
     Bible_Text_Psalms_36_11,
     Bible_Text_Psalms_36_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter37[] = {
+static const u16 *const sPsalms_Chapter37[] = {
     Bible_Text_Psalms_37_1,
     Bible_Text_Psalms_37_2,
     Bible_Text_Psalms_37_3,
@@ -20973,9 +19161,10 @@ static const u8 *const sPsalms_Chapter37[] = {
     Bible_Text_Psalms_37_38,
     Bible_Text_Psalms_37_39,
     Bible_Text_Psalms_37_40,
+    0
 };
 
-static const u8 *const sPsalms_Chapter38[] = {
+static const u16 *const sPsalms_Chapter38[] = {
     Bible_Text_Psalms_38_1,
     Bible_Text_Psalms_38_2,
     Bible_Text_Psalms_38_3,
@@ -20998,9 +19187,10 @@ static const u8 *const sPsalms_Chapter38[] = {
     Bible_Text_Psalms_38_20,
     Bible_Text_Psalms_38_21,
     Bible_Text_Psalms_38_22,
+    0
 };
 
-static const u8 *const sPsalms_Chapter39[] = {
+static const u16 *const sPsalms_Chapter39[] = {
     Bible_Text_Psalms_39_1,
     Bible_Text_Psalms_39_2,
     Bible_Text_Psalms_39_3,
@@ -21014,9 +19204,10 @@ static const u8 *const sPsalms_Chapter39[] = {
     Bible_Text_Psalms_39_11,
     Bible_Text_Psalms_39_12,
     Bible_Text_Psalms_39_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter40[] = {
+static const u16 *const sPsalms_Chapter40[] = {
     Bible_Text_Psalms_40_1,
     Bible_Text_Psalms_40_2,
     Bible_Text_Psalms_40_3,
@@ -21034,9 +19225,10 @@ static const u8 *const sPsalms_Chapter40[] = {
     Bible_Text_Psalms_40_15,
     Bible_Text_Psalms_40_16,
     Bible_Text_Psalms_40_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter41[] = {
+static const u16 *const sPsalms_Chapter41[] = {
     Bible_Text_Psalms_41_1,
     Bible_Text_Psalms_41_2,
     Bible_Text_Psalms_41_3,
@@ -21050,9 +19242,10 @@ static const u8 *const sPsalms_Chapter41[] = {
     Bible_Text_Psalms_41_11,
     Bible_Text_Psalms_41_12,
     Bible_Text_Psalms_41_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter42[] = {
+static const u16 *const sPsalms_Chapter42[] = {
     Bible_Text_Psalms_42_1,
     Bible_Text_Psalms_42_2,
     Bible_Text_Psalms_42_3,
@@ -21064,17 +19257,19 @@ static const u8 *const sPsalms_Chapter42[] = {
     Bible_Text_Psalms_42_9,
     Bible_Text_Psalms_42_10,
     Bible_Text_Psalms_42_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter43[] = {
+static const u16 *const sPsalms_Chapter43[] = {
     Bible_Text_Psalms_43_1,
     Bible_Text_Psalms_43_2,
     Bible_Text_Psalms_43_3,
     Bible_Text_Psalms_43_4,
     Bible_Text_Psalms_43_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter44[] = {
+static const u16 *const sPsalms_Chapter44[] = {
     Bible_Text_Psalms_44_1,
     Bible_Text_Psalms_44_2,
     Bible_Text_Psalms_44_3,
@@ -21101,9 +19296,10 @@ static const u8 *const sPsalms_Chapter44[] = {
     Bible_Text_Psalms_44_24,
     Bible_Text_Psalms_44_25,
     Bible_Text_Psalms_44_26,
+    0
 };
 
-static const u8 *const sPsalms_Chapter45[] = {
+static const u16 *const sPsalms_Chapter45[] = {
     Bible_Text_Psalms_45_1,
     Bible_Text_Psalms_45_2,
     Bible_Text_Psalms_45_3,
@@ -21121,9 +19317,10 @@ static const u8 *const sPsalms_Chapter45[] = {
     Bible_Text_Psalms_45_15,
     Bible_Text_Psalms_45_16,
     Bible_Text_Psalms_45_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter46[] = {
+static const u16 *const sPsalms_Chapter46[] = {
     Bible_Text_Psalms_46_1,
     Bible_Text_Psalms_46_2,
     Bible_Text_Psalms_46_3,
@@ -21135,9 +19332,10 @@ static const u8 *const sPsalms_Chapter46[] = {
     Bible_Text_Psalms_46_9,
     Bible_Text_Psalms_46_10,
     Bible_Text_Psalms_46_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter47[] = {
+static const u16 *const sPsalms_Chapter47[] = {
     Bible_Text_Psalms_47_1,
     Bible_Text_Psalms_47_2,
     Bible_Text_Psalms_47_3,
@@ -21147,9 +19345,10 @@ static const u8 *const sPsalms_Chapter47[] = {
     Bible_Text_Psalms_47_7,
     Bible_Text_Psalms_47_8,
     Bible_Text_Psalms_47_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter48[] = {
+static const u16 *const sPsalms_Chapter48[] = {
     Bible_Text_Psalms_48_1,
     Bible_Text_Psalms_48_2,
     Bible_Text_Psalms_48_3,
@@ -21164,9 +19363,10 @@ static const u8 *const sPsalms_Chapter48[] = {
     Bible_Text_Psalms_48_12,
     Bible_Text_Psalms_48_13,
     Bible_Text_Psalms_48_14,
+    0
 };
 
-static const u8 *const sPsalms_Chapter49[] = {
+static const u16 *const sPsalms_Chapter49[] = {
     Bible_Text_Psalms_49_1,
     Bible_Text_Psalms_49_2,
     Bible_Text_Psalms_49_3,
@@ -21187,9 +19387,10 @@ static const u8 *const sPsalms_Chapter49[] = {
     Bible_Text_Psalms_49_18,
     Bible_Text_Psalms_49_19,
     Bible_Text_Psalms_49_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter50[] = {
+static const u16 *const sPsalms_Chapter50[] = {
     Bible_Text_Psalms_50_1,
     Bible_Text_Psalms_50_2,
     Bible_Text_Psalms_50_3,
@@ -21213,9 +19414,10 @@ static const u8 *const sPsalms_Chapter50[] = {
     Bible_Text_Psalms_50_21,
     Bible_Text_Psalms_50_22,
     Bible_Text_Psalms_50_23,
+    0
 };
 
-static const u8 *const sPsalms_Chapter51[] = {
+static const u16 *const sPsalms_Chapter51[] = {
     Bible_Text_Psalms_51_1,
     Bible_Text_Psalms_51_2,
     Bible_Text_Psalms_51_3,
@@ -21235,9 +19437,10 @@ static const u8 *const sPsalms_Chapter51[] = {
     Bible_Text_Psalms_51_17,
     Bible_Text_Psalms_51_18,
     Bible_Text_Psalms_51_19,
+    0
 };
 
-static const u8 *const sPsalms_Chapter52[] = {
+static const u16 *const sPsalms_Chapter52[] = {
     Bible_Text_Psalms_52_1,
     Bible_Text_Psalms_52_2,
     Bible_Text_Psalms_52_3,
@@ -21247,18 +19450,20 @@ static const u8 *const sPsalms_Chapter52[] = {
     Bible_Text_Psalms_52_7,
     Bible_Text_Psalms_52_8,
     Bible_Text_Psalms_52_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter53[] = {
+static const u16 *const sPsalms_Chapter53[] = {
     Bible_Text_Psalms_53_1,
     Bible_Text_Psalms_53_2,
     Bible_Text_Psalms_53_3,
     Bible_Text_Psalms_53_4,
     Bible_Text_Psalms_53_5,
     Bible_Text_Psalms_53_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter54[] = {
+static const u16 *const sPsalms_Chapter54[] = {
     Bible_Text_Psalms_54_1,
     Bible_Text_Psalms_54_2,
     Bible_Text_Psalms_54_3,
@@ -21266,9 +19471,10 @@ static const u8 *const sPsalms_Chapter54[] = {
     Bible_Text_Psalms_54_5,
     Bible_Text_Psalms_54_6,
     Bible_Text_Psalms_54_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter55[] = {
+static const u16 *const sPsalms_Chapter55[] = {
     Bible_Text_Psalms_55_1,
     Bible_Text_Psalms_55_2,
     Bible_Text_Psalms_55_3,
@@ -21292,9 +19498,10 @@ static const u8 *const sPsalms_Chapter55[] = {
     Bible_Text_Psalms_55_21,
     Bible_Text_Psalms_55_22,
     Bible_Text_Psalms_55_23,
+    0
 };
 
-static const u8 *const sPsalms_Chapter56[] = {
+static const u16 *const sPsalms_Chapter56[] = {
     Bible_Text_Psalms_56_1,
     Bible_Text_Psalms_56_2,
     Bible_Text_Psalms_56_3,
@@ -21308,9 +19515,10 @@ static const u8 *const sPsalms_Chapter56[] = {
     Bible_Text_Psalms_56_11,
     Bible_Text_Psalms_56_12,
     Bible_Text_Psalms_56_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter57[] = {
+static const u16 *const sPsalms_Chapter57[] = {
     Bible_Text_Psalms_57_1,
     Bible_Text_Psalms_57_2,
     Bible_Text_Psalms_57_3,
@@ -21322,9 +19530,10 @@ static const u8 *const sPsalms_Chapter57[] = {
     Bible_Text_Psalms_57_9,
     Bible_Text_Psalms_57_10,
     Bible_Text_Psalms_57_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter58[] = {
+static const u16 *const sPsalms_Chapter58[] = {
     Bible_Text_Psalms_58_1,
     Bible_Text_Psalms_58_2,
     Bible_Text_Psalms_58_3,
@@ -21336,9 +19545,10 @@ static const u8 *const sPsalms_Chapter58[] = {
     Bible_Text_Psalms_58_9,
     Bible_Text_Psalms_58_10,
     Bible_Text_Psalms_58_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter59[] = {
+static const u16 *const sPsalms_Chapter59[] = {
     Bible_Text_Psalms_59_1,
     Bible_Text_Psalms_59_2,
     Bible_Text_Psalms_59_3,
@@ -21356,9 +19566,10 @@ static const u8 *const sPsalms_Chapter59[] = {
     Bible_Text_Psalms_59_15,
     Bible_Text_Psalms_59_16,
     Bible_Text_Psalms_59_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter60[] = {
+static const u16 *const sPsalms_Chapter60[] = {
     Bible_Text_Psalms_60_1,
     Bible_Text_Psalms_60_2,
     Bible_Text_Psalms_60_3,
@@ -21371,9 +19582,10 @@ static const u8 *const sPsalms_Chapter60[] = {
     Bible_Text_Psalms_60_10,
     Bible_Text_Psalms_60_11,
     Bible_Text_Psalms_60_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter61[] = {
+static const u16 *const sPsalms_Chapter61[] = {
     Bible_Text_Psalms_61_1,
     Bible_Text_Psalms_61_2,
     Bible_Text_Psalms_61_3,
@@ -21382,9 +19594,10 @@ static const u8 *const sPsalms_Chapter61[] = {
     Bible_Text_Psalms_61_6,
     Bible_Text_Psalms_61_7,
     Bible_Text_Psalms_61_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter62[] = {
+static const u16 *const sPsalms_Chapter62[] = {
     Bible_Text_Psalms_62_1,
     Bible_Text_Psalms_62_2,
     Bible_Text_Psalms_62_3,
@@ -21397,9 +19610,10 @@ static const u8 *const sPsalms_Chapter62[] = {
     Bible_Text_Psalms_62_10,
     Bible_Text_Psalms_62_11,
     Bible_Text_Psalms_62_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter63[] = {
+static const u16 *const sPsalms_Chapter63[] = {
     Bible_Text_Psalms_63_1,
     Bible_Text_Psalms_63_2,
     Bible_Text_Psalms_63_3,
@@ -21411,9 +19625,10 @@ static const u8 *const sPsalms_Chapter63[] = {
     Bible_Text_Psalms_63_9,
     Bible_Text_Psalms_63_10,
     Bible_Text_Psalms_63_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter64[] = {
+static const u16 *const sPsalms_Chapter64[] = {
     Bible_Text_Psalms_64_1,
     Bible_Text_Psalms_64_2,
     Bible_Text_Psalms_64_3,
@@ -21424,9 +19639,10 @@ static const u8 *const sPsalms_Chapter64[] = {
     Bible_Text_Psalms_64_8,
     Bible_Text_Psalms_64_9,
     Bible_Text_Psalms_64_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter65[] = {
+static const u16 *const sPsalms_Chapter65[] = {
     Bible_Text_Psalms_65_1,
     Bible_Text_Psalms_65_2,
     Bible_Text_Psalms_65_3,
@@ -21440,9 +19656,10 @@ static const u8 *const sPsalms_Chapter65[] = {
     Bible_Text_Psalms_65_11,
     Bible_Text_Psalms_65_12,
     Bible_Text_Psalms_65_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter66[] = {
+static const u16 *const sPsalms_Chapter66[] = {
     Bible_Text_Psalms_66_1,
     Bible_Text_Psalms_66_2,
     Bible_Text_Psalms_66_3,
@@ -21463,9 +19680,10 @@ static const u8 *const sPsalms_Chapter66[] = {
     Bible_Text_Psalms_66_18,
     Bible_Text_Psalms_66_19,
     Bible_Text_Psalms_66_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter67[] = {
+static const u16 *const sPsalms_Chapter67[] = {
     Bible_Text_Psalms_67_1,
     Bible_Text_Psalms_67_2,
     Bible_Text_Psalms_67_3,
@@ -21473,9 +19691,10 @@ static const u8 *const sPsalms_Chapter67[] = {
     Bible_Text_Psalms_67_5,
     Bible_Text_Psalms_67_6,
     Bible_Text_Psalms_67_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter68[] = {
+static const u16 *const sPsalms_Chapter68[] = {
     Bible_Text_Psalms_68_1,
     Bible_Text_Psalms_68_2,
     Bible_Text_Psalms_68_3,
@@ -21511,9 +19730,10 @@ static const u8 *const sPsalms_Chapter68[] = {
     Bible_Text_Psalms_68_33,
     Bible_Text_Psalms_68_34,
     Bible_Text_Psalms_68_35,
+    0
 };
 
-static const u8 *const sPsalms_Chapter69[] = {
+static const u16 *const sPsalms_Chapter69[] = {
     Bible_Text_Psalms_69_1,
     Bible_Text_Psalms_69_2,
     Bible_Text_Psalms_69_3,
@@ -21550,17 +19770,19 @@ static const u8 *const sPsalms_Chapter69[] = {
     Bible_Text_Psalms_69_34,
     Bible_Text_Psalms_69_35,
     Bible_Text_Psalms_69_36,
+    0
 };
 
-static const u8 *const sPsalms_Chapter70[] = {
+static const u16 *const sPsalms_Chapter70[] = {
     Bible_Text_Psalms_70_1,
     Bible_Text_Psalms_70_2,
     Bible_Text_Psalms_70_3,
     Bible_Text_Psalms_70_4,
     Bible_Text_Psalms_70_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter71[] = {
+static const u16 *const sPsalms_Chapter71[] = {
     Bible_Text_Psalms_71_1,
     Bible_Text_Psalms_71_2,
     Bible_Text_Psalms_71_3,
@@ -21585,9 +19807,10 @@ static const u8 *const sPsalms_Chapter71[] = {
     Bible_Text_Psalms_71_22,
     Bible_Text_Psalms_71_23,
     Bible_Text_Psalms_71_24,
+    0
 };
 
-static const u8 *const sPsalms_Chapter72[] = {
+static const u16 *const sPsalms_Chapter72[] = {
     Bible_Text_Psalms_72_1,
     Bible_Text_Psalms_72_2,
     Bible_Text_Psalms_72_3,
@@ -21608,9 +19831,10 @@ static const u8 *const sPsalms_Chapter72[] = {
     Bible_Text_Psalms_72_18,
     Bible_Text_Psalms_72_19,
     Bible_Text_Psalms_72_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter73[] = {
+static const u16 *const sPsalms_Chapter73[] = {
     Bible_Text_Psalms_73_1,
     Bible_Text_Psalms_73_2,
     Bible_Text_Psalms_73_3,
@@ -21639,9 +19863,10 @@ static const u8 *const sPsalms_Chapter73[] = {
     Bible_Text_Psalms_73_26,
     Bible_Text_Psalms_73_27,
     Bible_Text_Psalms_73_28,
+    0
 };
 
-static const u8 *const sPsalms_Chapter74[] = {
+static const u16 *const sPsalms_Chapter74[] = {
     Bible_Text_Psalms_74_1,
     Bible_Text_Psalms_74_2,
     Bible_Text_Psalms_74_3,
@@ -21665,9 +19890,10 @@ static const u8 *const sPsalms_Chapter74[] = {
     Bible_Text_Psalms_74_21,
     Bible_Text_Psalms_74_22,
     Bible_Text_Psalms_74_23,
+    0
 };
 
-static const u8 *const sPsalms_Chapter75[] = {
+static const u16 *const sPsalms_Chapter75[] = {
     Bible_Text_Psalms_75_1,
     Bible_Text_Psalms_75_2,
     Bible_Text_Psalms_75_3,
@@ -21678,9 +19904,10 @@ static const u8 *const sPsalms_Chapter75[] = {
     Bible_Text_Psalms_75_8,
     Bible_Text_Psalms_75_9,
     Bible_Text_Psalms_75_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter76[] = {
+static const u16 *const sPsalms_Chapter76[] = {
     Bible_Text_Psalms_76_1,
     Bible_Text_Psalms_76_2,
     Bible_Text_Psalms_76_3,
@@ -21693,9 +19920,10 @@ static const u8 *const sPsalms_Chapter76[] = {
     Bible_Text_Psalms_76_10,
     Bible_Text_Psalms_76_11,
     Bible_Text_Psalms_76_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter77[] = {
+static const u16 *const sPsalms_Chapter77[] = {
     Bible_Text_Psalms_77_1,
     Bible_Text_Psalms_77_2,
     Bible_Text_Psalms_77_3,
@@ -21716,9 +19944,10 @@ static const u8 *const sPsalms_Chapter77[] = {
     Bible_Text_Psalms_77_18,
     Bible_Text_Psalms_77_19,
     Bible_Text_Psalms_77_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter78[] = {
+static const u16 *const sPsalms_Chapter78[] = {
     Bible_Text_Psalms_78_1,
     Bible_Text_Psalms_78_2,
     Bible_Text_Psalms_78_3,
@@ -21791,9 +20020,10 @@ static const u8 *const sPsalms_Chapter78[] = {
     Bible_Text_Psalms_78_70,
     Bible_Text_Psalms_78_71,
     Bible_Text_Psalms_78_72,
+    0
 };
 
-static const u8 *const sPsalms_Chapter79[] = {
+static const u16 *const sPsalms_Chapter79[] = {
     Bible_Text_Psalms_79_1,
     Bible_Text_Psalms_79_2,
     Bible_Text_Psalms_79_3,
@@ -21807,9 +20037,10 @@ static const u8 *const sPsalms_Chapter79[] = {
     Bible_Text_Psalms_79_11,
     Bible_Text_Psalms_79_12,
     Bible_Text_Psalms_79_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter80[] = {
+static const u16 *const sPsalms_Chapter80[] = {
     Bible_Text_Psalms_80_1,
     Bible_Text_Psalms_80_2,
     Bible_Text_Psalms_80_3,
@@ -21829,9 +20060,10 @@ static const u8 *const sPsalms_Chapter80[] = {
     Bible_Text_Psalms_80_17,
     Bible_Text_Psalms_80_18,
     Bible_Text_Psalms_80_19,
+    0
 };
 
-static const u8 *const sPsalms_Chapter81[] = {
+static const u16 *const sPsalms_Chapter81[] = {
     Bible_Text_Psalms_81_1,
     Bible_Text_Psalms_81_2,
     Bible_Text_Psalms_81_3,
@@ -21848,9 +20080,10 @@ static const u8 *const sPsalms_Chapter81[] = {
     Bible_Text_Psalms_81_14,
     Bible_Text_Psalms_81_15,
     Bible_Text_Psalms_81_16,
+    0
 };
 
-static const u8 *const sPsalms_Chapter82[] = {
+static const u16 *const sPsalms_Chapter82[] = {
     Bible_Text_Psalms_82_1,
     Bible_Text_Psalms_82_2,
     Bible_Text_Psalms_82_3,
@@ -21859,9 +20092,10 @@ static const u8 *const sPsalms_Chapter82[] = {
     Bible_Text_Psalms_82_6,
     Bible_Text_Psalms_82_7,
     Bible_Text_Psalms_82_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter83[] = {
+static const u16 *const sPsalms_Chapter83[] = {
     Bible_Text_Psalms_83_1,
     Bible_Text_Psalms_83_2,
     Bible_Text_Psalms_83_3,
@@ -21880,9 +20114,10 @@ static const u8 *const sPsalms_Chapter83[] = {
     Bible_Text_Psalms_83_16,
     Bible_Text_Psalms_83_17,
     Bible_Text_Psalms_83_18,
+    0
 };
 
-static const u8 *const sPsalms_Chapter84[] = {
+static const u16 *const sPsalms_Chapter84[] = {
     Bible_Text_Psalms_84_1,
     Bible_Text_Psalms_84_2,
     Bible_Text_Psalms_84_3,
@@ -21895,9 +20130,10 @@ static const u8 *const sPsalms_Chapter84[] = {
     Bible_Text_Psalms_84_10,
     Bible_Text_Psalms_84_11,
     Bible_Text_Psalms_84_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter85[] = {
+static const u16 *const sPsalms_Chapter85[] = {
     Bible_Text_Psalms_85_1,
     Bible_Text_Psalms_85_2,
     Bible_Text_Psalms_85_3,
@@ -21911,9 +20147,10 @@ static const u8 *const sPsalms_Chapter85[] = {
     Bible_Text_Psalms_85_11,
     Bible_Text_Psalms_85_12,
     Bible_Text_Psalms_85_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter86[] = {
+static const u16 *const sPsalms_Chapter86[] = {
     Bible_Text_Psalms_86_1,
     Bible_Text_Psalms_86_2,
     Bible_Text_Psalms_86_3,
@@ -21931,9 +20168,10 @@ static const u8 *const sPsalms_Chapter86[] = {
     Bible_Text_Psalms_86_15,
     Bible_Text_Psalms_86_16,
     Bible_Text_Psalms_86_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter87[] = {
+static const u16 *const sPsalms_Chapter87[] = {
     Bible_Text_Psalms_87_1,
     Bible_Text_Psalms_87_2,
     Bible_Text_Psalms_87_3,
@@ -21941,9 +20179,10 @@ static const u8 *const sPsalms_Chapter87[] = {
     Bible_Text_Psalms_87_5,
     Bible_Text_Psalms_87_6,
     Bible_Text_Psalms_87_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter88[] = {
+static const u16 *const sPsalms_Chapter88[] = {
     Bible_Text_Psalms_88_1,
     Bible_Text_Psalms_88_2,
     Bible_Text_Psalms_88_3,
@@ -21962,9 +20201,10 @@ static const u8 *const sPsalms_Chapter88[] = {
     Bible_Text_Psalms_88_16,
     Bible_Text_Psalms_88_17,
     Bible_Text_Psalms_88_18,
+    0
 };
 
-static const u8 *const sPsalms_Chapter89[] = {
+static const u16 *const sPsalms_Chapter89[] = {
     Bible_Text_Psalms_89_1,
     Bible_Text_Psalms_89_2,
     Bible_Text_Psalms_89_3,
@@ -22017,9 +20257,10 @@ static const u8 *const sPsalms_Chapter89[] = {
     Bible_Text_Psalms_89_50,
     Bible_Text_Psalms_89_51,
     Bible_Text_Psalms_89_52,
+    0
 };
 
-static const u8 *const sPsalms_Chapter90[] = {
+static const u16 *const sPsalms_Chapter90[] = {
     Bible_Text_Psalms_90_1,
     Bible_Text_Psalms_90_2,
     Bible_Text_Psalms_90_3,
@@ -22037,9 +20278,10 @@ static const u8 *const sPsalms_Chapter90[] = {
     Bible_Text_Psalms_90_15,
     Bible_Text_Psalms_90_16,
     Bible_Text_Psalms_90_17,
+    0
 };
 
-static const u8 *const sPsalms_Chapter91[] = {
+static const u16 *const sPsalms_Chapter91[] = {
     Bible_Text_Psalms_91_1,
     Bible_Text_Psalms_91_2,
     Bible_Text_Psalms_91_3,
@@ -22056,9 +20298,10 @@ static const u8 *const sPsalms_Chapter91[] = {
     Bible_Text_Psalms_91_14,
     Bible_Text_Psalms_91_15,
     Bible_Text_Psalms_91_16,
+    0
 };
 
-static const u8 *const sPsalms_Chapter92[] = {
+static const u16 *const sPsalms_Chapter92[] = {
     Bible_Text_Psalms_92_1,
     Bible_Text_Psalms_92_2,
     Bible_Text_Psalms_92_3,
@@ -22074,17 +20317,19 @@ static const u8 *const sPsalms_Chapter92[] = {
     Bible_Text_Psalms_92_13,
     Bible_Text_Psalms_92_14,
     Bible_Text_Psalms_92_15,
+    0
 };
 
-static const u8 *const sPsalms_Chapter93[] = {
+static const u16 *const sPsalms_Chapter93[] = {
     Bible_Text_Psalms_93_1,
     Bible_Text_Psalms_93_2,
     Bible_Text_Psalms_93_3,
     Bible_Text_Psalms_93_4,
     Bible_Text_Psalms_93_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter94[] = {
+static const u16 *const sPsalms_Chapter94[] = {
     Bible_Text_Psalms_94_1,
     Bible_Text_Psalms_94_2,
     Bible_Text_Psalms_94_3,
@@ -22108,9 +20353,10 @@ static const u8 *const sPsalms_Chapter94[] = {
     Bible_Text_Psalms_94_21,
     Bible_Text_Psalms_94_22,
     Bible_Text_Psalms_94_23,
+    0
 };
 
-static const u8 *const sPsalms_Chapter95[] = {
+static const u16 *const sPsalms_Chapter95[] = {
     Bible_Text_Psalms_95_1,
     Bible_Text_Psalms_95_2,
     Bible_Text_Psalms_95_3,
@@ -22122,9 +20368,10 @@ static const u8 *const sPsalms_Chapter95[] = {
     Bible_Text_Psalms_95_9,
     Bible_Text_Psalms_95_10,
     Bible_Text_Psalms_95_11,
+    0
 };
 
-static const u8 *const sPsalms_Chapter96[] = {
+static const u16 *const sPsalms_Chapter96[] = {
     Bible_Text_Psalms_96_1,
     Bible_Text_Psalms_96_2,
     Bible_Text_Psalms_96_3,
@@ -22138,9 +20385,10 @@ static const u8 *const sPsalms_Chapter96[] = {
     Bible_Text_Psalms_96_11,
     Bible_Text_Psalms_96_12,
     Bible_Text_Psalms_96_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter97[] = {
+static const u16 *const sPsalms_Chapter97[] = {
     Bible_Text_Psalms_97_1,
     Bible_Text_Psalms_97_2,
     Bible_Text_Psalms_97_3,
@@ -22153,9 +20401,10 @@ static const u8 *const sPsalms_Chapter97[] = {
     Bible_Text_Psalms_97_10,
     Bible_Text_Psalms_97_11,
     Bible_Text_Psalms_97_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter98[] = {
+static const u16 *const sPsalms_Chapter98[] = {
     Bible_Text_Psalms_98_1,
     Bible_Text_Psalms_98_2,
     Bible_Text_Psalms_98_3,
@@ -22165,9 +20414,10 @@ static const u8 *const sPsalms_Chapter98[] = {
     Bible_Text_Psalms_98_7,
     Bible_Text_Psalms_98_8,
     Bible_Text_Psalms_98_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter99[] = {
+static const u16 *const sPsalms_Chapter99[] = {
     Bible_Text_Psalms_99_1,
     Bible_Text_Psalms_99_2,
     Bible_Text_Psalms_99_3,
@@ -22177,17 +20427,19 @@ static const u8 *const sPsalms_Chapter99[] = {
     Bible_Text_Psalms_99_7,
     Bible_Text_Psalms_99_8,
     Bible_Text_Psalms_99_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter100[] = {
+static const u16 *const sPsalms_Chapter100[] = {
     Bible_Text_Psalms_100_1,
     Bible_Text_Psalms_100_2,
     Bible_Text_Psalms_100_3,
     Bible_Text_Psalms_100_4,
     Bible_Text_Psalms_100_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter101[] = {
+static const u16 *const sPsalms_Chapter101[] = {
     Bible_Text_Psalms_101_1,
     Bible_Text_Psalms_101_2,
     Bible_Text_Psalms_101_3,
@@ -22196,9 +20448,10 @@ static const u8 *const sPsalms_Chapter101[] = {
     Bible_Text_Psalms_101_6,
     Bible_Text_Psalms_101_7,
     Bible_Text_Psalms_101_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter102[] = {
+static const u16 *const sPsalms_Chapter102[] = {
     Bible_Text_Psalms_102_1,
     Bible_Text_Psalms_102_2,
     Bible_Text_Psalms_102_3,
@@ -22227,9 +20480,10 @@ static const u8 *const sPsalms_Chapter102[] = {
     Bible_Text_Psalms_102_26,
     Bible_Text_Psalms_102_27,
     Bible_Text_Psalms_102_28,
+    0
 };
 
-static const u8 *const sPsalms_Chapter103[] = {
+static const u16 *const sPsalms_Chapter103[] = {
     Bible_Text_Psalms_103_1,
     Bible_Text_Psalms_103_2,
     Bible_Text_Psalms_103_3,
@@ -22252,9 +20506,10 @@ static const u8 *const sPsalms_Chapter103[] = {
     Bible_Text_Psalms_103_20,
     Bible_Text_Psalms_103_21,
     Bible_Text_Psalms_103_22,
+    0
 };
 
-static const u8 *const sPsalms_Chapter104[] = {
+static const u16 *const sPsalms_Chapter104[] = {
     Bible_Text_Psalms_104_1,
     Bible_Text_Psalms_104_2,
     Bible_Text_Psalms_104_3,
@@ -22290,9 +20545,10 @@ static const u8 *const sPsalms_Chapter104[] = {
     Bible_Text_Psalms_104_33,
     Bible_Text_Psalms_104_34,
     Bible_Text_Psalms_104_35,
+    0
 };
 
-static const u8 *const sPsalms_Chapter105[] = {
+static const u16 *const sPsalms_Chapter105[] = {
     Bible_Text_Psalms_105_1,
     Bible_Text_Psalms_105_2,
     Bible_Text_Psalms_105_3,
@@ -22338,9 +20594,10 @@ static const u8 *const sPsalms_Chapter105[] = {
     Bible_Text_Psalms_105_43,
     Bible_Text_Psalms_105_44,
     Bible_Text_Psalms_105_45,
+    0
 };
 
-static const u8 *const sPsalms_Chapter106[] = {
+static const u16 *const sPsalms_Chapter106[] = {
     Bible_Text_Psalms_106_1,
     Bible_Text_Psalms_106_2,
     Bible_Text_Psalms_106_3,
@@ -22389,9 +20646,10 @@ static const u8 *const sPsalms_Chapter106[] = {
     Bible_Text_Psalms_106_46,
     Bible_Text_Psalms_106_47,
     Bible_Text_Psalms_106_48,
+    0
 };
 
-static const u8 *const sPsalms_Chapter107[] = {
+static const u16 *const sPsalms_Chapter107[] = {
     Bible_Text_Psalms_107_1,
     Bible_Text_Psalms_107_2,
     Bible_Text_Psalms_107_3,
@@ -22435,9 +20693,10 @@ static const u8 *const sPsalms_Chapter107[] = {
     Bible_Text_Psalms_107_41,
     Bible_Text_Psalms_107_42,
     Bible_Text_Psalms_107_43,
+    0
 };
 
-static const u8 *const sPsalms_Chapter108[] = {
+static const u16 *const sPsalms_Chapter108[] = {
     Bible_Text_Psalms_108_1,
     Bible_Text_Psalms_108_2,
     Bible_Text_Psalms_108_3,
@@ -22451,9 +20710,10 @@ static const u8 *const sPsalms_Chapter108[] = {
     Bible_Text_Psalms_108_11,
     Bible_Text_Psalms_108_12,
     Bible_Text_Psalms_108_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter109[] = {
+static const u16 *const sPsalms_Chapter109[] = {
     Bible_Text_Psalms_109_1,
     Bible_Text_Psalms_109_2,
     Bible_Text_Psalms_109_3,
@@ -22485,9 +20745,10 @@ static const u8 *const sPsalms_Chapter109[] = {
     Bible_Text_Psalms_109_29,
     Bible_Text_Psalms_109_30,
     Bible_Text_Psalms_109_31,
+    0
 };
 
-static const u8 *const sPsalms_Chapter110[] = {
+static const u16 *const sPsalms_Chapter110[] = {
     Bible_Text_Psalms_110_1,
     Bible_Text_Psalms_110_2,
     Bible_Text_Psalms_110_3,
@@ -22495,9 +20756,10 @@ static const u8 *const sPsalms_Chapter110[] = {
     Bible_Text_Psalms_110_5,
     Bible_Text_Psalms_110_6,
     Bible_Text_Psalms_110_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter111[] = {
+static const u16 *const sPsalms_Chapter111[] = {
     Bible_Text_Psalms_111_1,
     Bible_Text_Psalms_111_2,
     Bible_Text_Psalms_111_3,
@@ -22508,9 +20770,10 @@ static const u8 *const sPsalms_Chapter111[] = {
     Bible_Text_Psalms_111_8,
     Bible_Text_Psalms_111_9,
     Bible_Text_Psalms_111_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter112[] = {
+static const u16 *const sPsalms_Chapter112[] = {
     Bible_Text_Psalms_112_1,
     Bible_Text_Psalms_112_2,
     Bible_Text_Psalms_112_3,
@@ -22521,9 +20784,10 @@ static const u8 *const sPsalms_Chapter112[] = {
     Bible_Text_Psalms_112_8,
     Bible_Text_Psalms_112_9,
     Bible_Text_Psalms_112_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter113[] = {
+static const u16 *const sPsalms_Chapter113[] = {
     Bible_Text_Psalms_113_1,
     Bible_Text_Psalms_113_2,
     Bible_Text_Psalms_113_3,
@@ -22533,9 +20797,10 @@ static const u8 *const sPsalms_Chapter113[] = {
     Bible_Text_Psalms_113_7,
     Bible_Text_Psalms_113_8,
     Bible_Text_Psalms_113_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter114[] = {
+static const u16 *const sPsalms_Chapter114[] = {
     Bible_Text_Psalms_114_1,
     Bible_Text_Psalms_114_2,
     Bible_Text_Psalms_114_3,
@@ -22544,9 +20809,10 @@ static const u8 *const sPsalms_Chapter114[] = {
     Bible_Text_Psalms_114_6,
     Bible_Text_Psalms_114_7,
     Bible_Text_Psalms_114_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter115[] = {
+static const u16 *const sPsalms_Chapter115[] = {
     Bible_Text_Psalms_115_1,
     Bible_Text_Psalms_115_2,
     Bible_Text_Psalms_115_3,
@@ -22565,9 +20831,10 @@ static const u8 *const sPsalms_Chapter115[] = {
     Bible_Text_Psalms_115_16,
     Bible_Text_Psalms_115_17,
     Bible_Text_Psalms_115_18,
+    0
 };
 
-static const u8 *const sPsalms_Chapter116[] = {
+static const u16 *const sPsalms_Chapter116[] = {
     Bible_Text_Psalms_116_1,
     Bible_Text_Psalms_116_2,
     Bible_Text_Psalms_116_3,
@@ -22587,14 +20854,16 @@ static const u8 *const sPsalms_Chapter116[] = {
     Bible_Text_Psalms_116_17,
     Bible_Text_Psalms_116_18,
     Bible_Text_Psalms_116_19,
+    0
 };
 
-static const u8 *const sPsalms_Chapter117[] = {
+static const u16 *const sPsalms_Chapter117[] = {
     Bible_Text_Psalms_117_1,
     Bible_Text_Psalms_117_2,
+    0
 };
 
-static const u8 *const sPsalms_Chapter118[] = {
+static const u16 *const sPsalms_Chapter118[] = {
     Bible_Text_Psalms_118_1,
     Bible_Text_Psalms_118_2,
     Bible_Text_Psalms_118_3,
@@ -22624,9 +20893,10 @@ static const u8 *const sPsalms_Chapter118[] = {
     Bible_Text_Psalms_118_27,
     Bible_Text_Psalms_118_28,
     Bible_Text_Psalms_118_29,
+    0
 };
 
-static const u8 *const sPsalms_Chapter119[] = {
+static const u16 *const sPsalms_Chapter119[] = {
     Bible_Text_Psalms_119_1,
     Bible_Text_Psalms_119_2,
     Bible_Text_Psalms_119_3,
@@ -22803,9 +21073,10 @@ static const u8 *const sPsalms_Chapter119[] = {
     Bible_Text_Psalms_119_174,
     Bible_Text_Psalms_119_175,
     Bible_Text_Psalms_119_176,
+    0
 };
 
-static const u8 *const sPsalms_Chapter120[] = {
+static const u16 *const sPsalms_Chapter120[] = {
     Bible_Text_Psalms_120_1,
     Bible_Text_Psalms_120_2,
     Bible_Text_Psalms_120_3,
@@ -22813,9 +21084,10 @@ static const u8 *const sPsalms_Chapter120[] = {
     Bible_Text_Psalms_120_5,
     Bible_Text_Psalms_120_6,
     Bible_Text_Psalms_120_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter121[] = {
+static const u16 *const sPsalms_Chapter121[] = {
     Bible_Text_Psalms_121_1,
     Bible_Text_Psalms_121_2,
     Bible_Text_Psalms_121_3,
@@ -22824,9 +21096,10 @@ static const u8 *const sPsalms_Chapter121[] = {
     Bible_Text_Psalms_121_6,
     Bible_Text_Psalms_121_7,
     Bible_Text_Psalms_121_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter122[] = {
+static const u16 *const sPsalms_Chapter122[] = {
     Bible_Text_Psalms_122_1,
     Bible_Text_Psalms_122_2,
     Bible_Text_Psalms_122_3,
@@ -22836,16 +21109,18 @@ static const u8 *const sPsalms_Chapter122[] = {
     Bible_Text_Psalms_122_7,
     Bible_Text_Psalms_122_8,
     Bible_Text_Psalms_122_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter123[] = {
+static const u16 *const sPsalms_Chapter123[] = {
     Bible_Text_Psalms_123_1,
     Bible_Text_Psalms_123_2,
     Bible_Text_Psalms_123_3,
     Bible_Text_Psalms_123_4,
+    0
 };
 
-static const u8 *const sPsalms_Chapter124[] = {
+static const u16 *const sPsalms_Chapter124[] = {
     Bible_Text_Psalms_124_1,
     Bible_Text_Psalms_124_2,
     Bible_Text_Psalms_124_3,
@@ -22854,43 +21129,48 @@ static const u8 *const sPsalms_Chapter124[] = {
     Bible_Text_Psalms_124_6,
     Bible_Text_Psalms_124_7,
     Bible_Text_Psalms_124_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter125[] = {
+static const u16 *const sPsalms_Chapter125[] = {
     Bible_Text_Psalms_125_1,
     Bible_Text_Psalms_125_2,
     Bible_Text_Psalms_125_3,
     Bible_Text_Psalms_125_4,
     Bible_Text_Psalms_125_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter126[] = {
+static const u16 *const sPsalms_Chapter126[] = {
     Bible_Text_Psalms_126_1,
     Bible_Text_Psalms_126_2,
     Bible_Text_Psalms_126_3,
     Bible_Text_Psalms_126_4,
     Bible_Text_Psalms_126_5,
     Bible_Text_Psalms_126_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter127[] = {
+static const u16 *const sPsalms_Chapter127[] = {
     Bible_Text_Psalms_127_1,
     Bible_Text_Psalms_127_2,
     Bible_Text_Psalms_127_3,
     Bible_Text_Psalms_127_4,
     Bible_Text_Psalms_127_5,
+    0
 };
 
-static const u8 *const sPsalms_Chapter128[] = {
+static const u16 *const sPsalms_Chapter128[] = {
     Bible_Text_Psalms_128_1,
     Bible_Text_Psalms_128_2,
     Bible_Text_Psalms_128_3,
     Bible_Text_Psalms_128_4,
     Bible_Text_Psalms_128_5,
     Bible_Text_Psalms_128_6,
+    0
 };
 
-static const u8 *const sPsalms_Chapter129[] = {
+static const u16 *const sPsalms_Chapter129[] = {
     Bible_Text_Psalms_129_1,
     Bible_Text_Psalms_129_2,
     Bible_Text_Psalms_129_3,
@@ -22899,9 +21179,10 @@ static const u8 *const sPsalms_Chapter129[] = {
     Bible_Text_Psalms_129_6,
     Bible_Text_Psalms_129_7,
     Bible_Text_Psalms_129_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter130[] = {
+static const u16 *const sPsalms_Chapter130[] = {
     Bible_Text_Psalms_130_1,
     Bible_Text_Psalms_130_2,
     Bible_Text_Psalms_130_3,
@@ -22910,15 +21191,17 @@ static const u8 *const sPsalms_Chapter130[] = {
     Bible_Text_Psalms_130_6,
     Bible_Text_Psalms_130_7,
     Bible_Text_Psalms_130_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter131[] = {
+static const u16 *const sPsalms_Chapter131[] = {
     Bible_Text_Psalms_131_1,
     Bible_Text_Psalms_131_2,
     Bible_Text_Psalms_131_3,
+    0
 };
 
-static const u8 *const sPsalms_Chapter132[] = {
+static const u16 *const sPsalms_Chapter132[] = {
     Bible_Text_Psalms_132_1,
     Bible_Text_Psalms_132_2,
     Bible_Text_Psalms_132_3,
@@ -22937,21 +21220,24 @@ static const u8 *const sPsalms_Chapter132[] = {
     Bible_Text_Psalms_132_16,
     Bible_Text_Psalms_132_17,
     Bible_Text_Psalms_132_18,
+    0
 };
 
-static const u8 *const sPsalms_Chapter133[] = {
+static const u16 *const sPsalms_Chapter133[] = {
     Bible_Text_Psalms_133_1,
     Bible_Text_Psalms_133_2,
     Bible_Text_Psalms_133_3,
+    0
 };
 
-static const u8 *const sPsalms_Chapter134[] = {
+static const u16 *const sPsalms_Chapter134[] = {
     Bible_Text_Psalms_134_1,
     Bible_Text_Psalms_134_2,
     Bible_Text_Psalms_134_3,
+    0
 };
 
-static const u8 *const sPsalms_Chapter135[] = {
+static const u16 *const sPsalms_Chapter135[] = {
     Bible_Text_Psalms_135_1,
     Bible_Text_Psalms_135_2,
     Bible_Text_Psalms_135_3,
@@ -22973,9 +21259,10 @@ static const u8 *const sPsalms_Chapter135[] = {
     Bible_Text_Psalms_135_19,
     Bible_Text_Psalms_135_20,
     Bible_Text_Psalms_135_21,
+    0
 };
 
-static const u8 *const sPsalms_Chapter136[] = {
+static const u16 *const sPsalms_Chapter136[] = {
     Bible_Text_Psalms_136_1,
     Bible_Text_Psalms_136_2,
     Bible_Text_Psalms_136_3,
@@ -23002,9 +21289,10 @@ static const u8 *const sPsalms_Chapter136[] = {
     Bible_Text_Psalms_136_24,
     Bible_Text_Psalms_136_25,
     Bible_Text_Psalms_136_26,
+    0
 };
 
-static const u8 *const sPsalms_Chapter137[] = {
+static const u16 *const sPsalms_Chapter137[] = {
     Bible_Text_Psalms_137_1,
     Bible_Text_Psalms_137_2,
     Bible_Text_Psalms_137_3,
@@ -23014,9 +21302,10 @@ static const u8 *const sPsalms_Chapter137[] = {
     Bible_Text_Psalms_137_7,
     Bible_Text_Psalms_137_8,
     Bible_Text_Psalms_137_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter138[] = {
+static const u16 *const sPsalms_Chapter138[] = {
     Bible_Text_Psalms_138_1,
     Bible_Text_Psalms_138_2,
     Bible_Text_Psalms_138_3,
@@ -23025,9 +21314,10 @@ static const u8 *const sPsalms_Chapter138[] = {
     Bible_Text_Psalms_138_6,
     Bible_Text_Psalms_138_7,
     Bible_Text_Psalms_138_8,
+    0
 };
 
-static const u8 *const sPsalms_Chapter139[] = {
+static const u16 *const sPsalms_Chapter139[] = {
     Bible_Text_Psalms_139_1,
     Bible_Text_Psalms_139_2,
     Bible_Text_Psalms_139_3,
@@ -23052,9 +21342,10 @@ static const u8 *const sPsalms_Chapter139[] = {
     Bible_Text_Psalms_139_22,
     Bible_Text_Psalms_139_23,
     Bible_Text_Psalms_139_24,
+    0
 };
 
-static const u8 *const sPsalms_Chapter140[] = {
+static const u16 *const sPsalms_Chapter140[] = {
     Bible_Text_Psalms_140_1,
     Bible_Text_Psalms_140_2,
     Bible_Text_Psalms_140_3,
@@ -23068,9 +21359,10 @@ static const u8 *const sPsalms_Chapter140[] = {
     Bible_Text_Psalms_140_11,
     Bible_Text_Psalms_140_12,
     Bible_Text_Psalms_140_13,
+    0
 };
 
-static const u8 *const sPsalms_Chapter141[] = {
+static const u16 *const sPsalms_Chapter141[] = {
     Bible_Text_Psalms_141_1,
     Bible_Text_Psalms_141_2,
     Bible_Text_Psalms_141_3,
@@ -23081,9 +21373,10 @@ static const u8 *const sPsalms_Chapter141[] = {
     Bible_Text_Psalms_141_8,
     Bible_Text_Psalms_141_9,
     Bible_Text_Psalms_141_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter142[] = {
+static const u16 *const sPsalms_Chapter142[] = {
     Bible_Text_Psalms_142_1,
     Bible_Text_Psalms_142_2,
     Bible_Text_Psalms_142_3,
@@ -23091,9 +21384,10 @@ static const u8 *const sPsalms_Chapter142[] = {
     Bible_Text_Psalms_142_5,
     Bible_Text_Psalms_142_6,
     Bible_Text_Psalms_142_7,
+    0
 };
 
-static const u8 *const sPsalms_Chapter143[] = {
+static const u16 *const sPsalms_Chapter143[] = {
     Bible_Text_Psalms_143_1,
     Bible_Text_Psalms_143_2,
     Bible_Text_Psalms_143_3,
@@ -23106,9 +21400,10 @@ static const u8 *const sPsalms_Chapter143[] = {
     Bible_Text_Psalms_143_10,
     Bible_Text_Psalms_143_11,
     Bible_Text_Psalms_143_12,
+    0
 };
 
-static const u8 *const sPsalms_Chapter144[] = {
+static const u16 *const sPsalms_Chapter144[] = {
     Bible_Text_Psalms_144_1,
     Bible_Text_Psalms_144_2,
     Bible_Text_Psalms_144_3,
@@ -23124,9 +21419,10 @@ static const u8 *const sPsalms_Chapter144[] = {
     Bible_Text_Psalms_144_13,
     Bible_Text_Psalms_144_14,
     Bible_Text_Psalms_144_15,
+    0
 };
 
-static const u8 *const sPsalms_Chapter145[] = {
+static const u16 *const sPsalms_Chapter145[] = {
     Bible_Text_Psalms_145_1,
     Bible_Text_Psalms_145_2,
     Bible_Text_Psalms_145_3,
@@ -23148,9 +21444,10 @@ static const u8 *const sPsalms_Chapter145[] = {
     Bible_Text_Psalms_145_19,
     Bible_Text_Psalms_145_20,
     Bible_Text_Psalms_145_21,
+    0
 };
 
-static const u8 *const sPsalms_Chapter146[] = {
+static const u16 *const sPsalms_Chapter146[] = {
     Bible_Text_Psalms_146_1,
     Bible_Text_Psalms_146_2,
     Bible_Text_Psalms_146_3,
@@ -23161,9 +21458,10 @@ static const u8 *const sPsalms_Chapter146[] = {
     Bible_Text_Psalms_146_8,
     Bible_Text_Psalms_146_9,
     Bible_Text_Psalms_146_10,
+    0
 };
 
-static const u8 *const sPsalms_Chapter147[] = {
+static const u16 *const sPsalms_Chapter147[] = {
     Bible_Text_Psalms_147_1,
     Bible_Text_Psalms_147_2,
     Bible_Text_Psalms_147_3,
@@ -23184,9 +21482,10 @@ static const u8 *const sPsalms_Chapter147[] = {
     Bible_Text_Psalms_147_18,
     Bible_Text_Psalms_147_19,
     Bible_Text_Psalms_147_20,
+    0
 };
 
-static const u8 *const sPsalms_Chapter148[] = {
+static const u16 *const sPsalms_Chapter148[] = {
     Bible_Text_Psalms_148_1,
     Bible_Text_Psalms_148_2,
     Bible_Text_Psalms_148_3,
@@ -23201,9 +21500,10 @@ static const u8 *const sPsalms_Chapter148[] = {
     Bible_Text_Psalms_148_12,
     Bible_Text_Psalms_148_13,
     Bible_Text_Psalms_148_14,
+    0
 };
 
-static const u8 *const sPsalms_Chapter149[] = {
+static const u16 *const sPsalms_Chapter149[] = {
     Bible_Text_Psalms_149_1,
     Bible_Text_Psalms_149_2,
     Bible_Text_Psalms_149_3,
@@ -23213,18 +21513,20 @@ static const u8 *const sPsalms_Chapter149[] = {
     Bible_Text_Psalms_149_7,
     Bible_Text_Psalms_149_8,
     Bible_Text_Psalms_149_9,
+    0
 };
 
-static const u8 *const sPsalms_Chapter150[] = {
+static const u16 *const sPsalms_Chapter150[] = {
     Bible_Text_Psalms_150_1,
     Bible_Text_Psalms_150_2,
     Bible_Text_Psalms_150_3,
     Bible_Text_Psalms_150_4,
     Bible_Text_Psalms_150_5,
     Bible_Text_Psalms_150_6,
+    0
 };
 
-static const u8 *const *const sBibleText_PsalmsTextPtrs[] = {
+static const u16 *const *const sBibleText_PsalmsTextPtrs[] = {
     sPsalms_Chapter1,
     sPsalms_Chapter2,
     sPsalms_Chapter3,
@@ -23375,9 +21677,10 @@ static const u8 *const *const sBibleText_PsalmsTextPtrs[] = {
     sPsalms_Chapter148,
     sPsalms_Chapter149,
     sPsalms_Chapter150,
+    0
 };
 
-static const u8 *const sProverbs_Chapter1[] = {
+static const u16 *const sProverbs_Chapter1[] = {
     Bible_Text_Proverbs_1_1,
     Bible_Text_Proverbs_1_2,
     Bible_Text_Proverbs_1_3,
@@ -23411,9 +21714,10 @@ static const u8 *const sProverbs_Chapter1[] = {
     Bible_Text_Proverbs_1_31,
     Bible_Text_Proverbs_1_32,
     Bible_Text_Proverbs_1_33,
+    0
 };
 
-static const u8 *const sProverbs_Chapter2[] = {
+static const u16 *const sProverbs_Chapter2[] = {
     Bible_Text_Proverbs_2_1,
     Bible_Text_Proverbs_2_2,
     Bible_Text_Proverbs_2_3,
@@ -23436,9 +21740,10 @@ static const u8 *const sProverbs_Chapter2[] = {
     Bible_Text_Proverbs_2_20,
     Bible_Text_Proverbs_2_21,
     Bible_Text_Proverbs_2_22,
+    0
 };
 
-static const u8 *const sProverbs_Chapter3[] = {
+static const u16 *const sProverbs_Chapter3[] = {
     Bible_Text_Proverbs_3_1,
     Bible_Text_Proverbs_3_2,
     Bible_Text_Proverbs_3_3,
@@ -23474,9 +21779,10 @@ static const u8 *const sProverbs_Chapter3[] = {
     Bible_Text_Proverbs_3_33,
     Bible_Text_Proverbs_3_34,
     Bible_Text_Proverbs_3_35,
+    0
 };
 
-static const u8 *const sProverbs_Chapter4[] = {
+static const u16 *const sProverbs_Chapter4[] = {
     Bible_Text_Proverbs_4_1,
     Bible_Text_Proverbs_4_2,
     Bible_Text_Proverbs_4_3,
@@ -23504,9 +21810,10 @@ static const u8 *const sProverbs_Chapter4[] = {
     Bible_Text_Proverbs_4_25,
     Bible_Text_Proverbs_4_26,
     Bible_Text_Proverbs_4_27,
+    0
 };
 
-static const u8 *const sProverbs_Chapter5[] = {
+static const u16 *const sProverbs_Chapter5[] = {
     Bible_Text_Proverbs_5_1,
     Bible_Text_Proverbs_5_2,
     Bible_Text_Proverbs_5_3,
@@ -23530,9 +21837,10 @@ static const u8 *const sProverbs_Chapter5[] = {
     Bible_Text_Proverbs_5_21,
     Bible_Text_Proverbs_5_22,
     Bible_Text_Proverbs_5_23,
+    0
 };
 
-static const u8 *const sProverbs_Chapter6[] = {
+static const u16 *const sProverbs_Chapter6[] = {
     Bible_Text_Proverbs_6_1,
     Bible_Text_Proverbs_6_2,
     Bible_Text_Proverbs_6_3,
@@ -23568,9 +21876,10 @@ static const u8 *const sProverbs_Chapter6[] = {
     Bible_Text_Proverbs_6_33,
     Bible_Text_Proverbs_6_34,
     Bible_Text_Proverbs_6_35,
+    0
 };
 
-static const u8 *const sProverbs_Chapter7[] = {
+static const u16 *const sProverbs_Chapter7[] = {
     Bible_Text_Proverbs_7_1,
     Bible_Text_Proverbs_7_2,
     Bible_Text_Proverbs_7_3,
@@ -23598,9 +21907,10 @@ static const u8 *const sProverbs_Chapter7[] = {
     Bible_Text_Proverbs_7_25,
     Bible_Text_Proverbs_7_26,
     Bible_Text_Proverbs_7_27,
+    0
 };
 
-static const u8 *const sProverbs_Chapter8[] = {
+static const u16 *const sProverbs_Chapter8[] = {
     Bible_Text_Proverbs_8_1,
     Bible_Text_Proverbs_8_2,
     Bible_Text_Proverbs_8_3,
@@ -23637,9 +21947,10 @@ static const u8 *const sProverbs_Chapter8[] = {
     Bible_Text_Proverbs_8_34,
     Bible_Text_Proverbs_8_35,
     Bible_Text_Proverbs_8_36,
+    0
 };
 
-static const u8 *const sProverbs_Chapter9[] = {
+static const u16 *const sProverbs_Chapter9[] = {
     Bible_Text_Proverbs_9_1,
     Bible_Text_Proverbs_9_2,
     Bible_Text_Proverbs_9_3,
@@ -23658,9 +21969,10 @@ static const u8 *const sProverbs_Chapter9[] = {
     Bible_Text_Proverbs_9_16,
     Bible_Text_Proverbs_9_17,
     Bible_Text_Proverbs_9_18,
+    0
 };
 
-static const u8 *const sProverbs_Chapter10[] = {
+static const u16 *const sProverbs_Chapter10[] = {
     Bible_Text_Proverbs_10_1,
     Bible_Text_Proverbs_10_2,
     Bible_Text_Proverbs_10_3,
@@ -23693,9 +22005,10 @@ static const u8 *const sProverbs_Chapter10[] = {
     Bible_Text_Proverbs_10_30,
     Bible_Text_Proverbs_10_31,
     Bible_Text_Proverbs_10_32,
+    0
 };
 
-static const u8 *const sProverbs_Chapter11[] = {
+static const u16 *const sProverbs_Chapter11[] = {
     Bible_Text_Proverbs_11_1,
     Bible_Text_Proverbs_11_2,
     Bible_Text_Proverbs_11_3,
@@ -23727,9 +22040,10 @@ static const u8 *const sProverbs_Chapter11[] = {
     Bible_Text_Proverbs_11_29,
     Bible_Text_Proverbs_11_30,
     Bible_Text_Proverbs_11_31,
+    0
 };
 
-static const u8 *const sProverbs_Chapter12[] = {
+static const u16 *const sProverbs_Chapter12[] = {
     Bible_Text_Proverbs_12_1,
     Bible_Text_Proverbs_12_2,
     Bible_Text_Proverbs_12_3,
@@ -23758,9 +22072,10 @@ static const u8 *const sProverbs_Chapter12[] = {
     Bible_Text_Proverbs_12_26,
     Bible_Text_Proverbs_12_27,
     Bible_Text_Proverbs_12_28,
+    0
 };
 
-static const u8 *const sProverbs_Chapter13[] = {
+static const u16 *const sProverbs_Chapter13[] = {
     Bible_Text_Proverbs_13_1,
     Bible_Text_Proverbs_13_2,
     Bible_Text_Proverbs_13_3,
@@ -23786,9 +22101,10 @@ static const u8 *const sProverbs_Chapter13[] = {
     Bible_Text_Proverbs_13_23,
     Bible_Text_Proverbs_13_24,
     Bible_Text_Proverbs_13_25,
+    0
 };
 
-static const u8 *const sProverbs_Chapter14[] = {
+static const u16 *const sProverbs_Chapter14[] = {
     Bible_Text_Proverbs_14_1,
     Bible_Text_Proverbs_14_2,
     Bible_Text_Proverbs_14_3,
@@ -23824,9 +22140,10 @@ static const u8 *const sProverbs_Chapter14[] = {
     Bible_Text_Proverbs_14_33,
     Bible_Text_Proverbs_14_34,
     Bible_Text_Proverbs_14_35,
+    0
 };
 
-static const u8 *const sProverbs_Chapter15[] = {
+static const u16 *const sProverbs_Chapter15[] = {
     Bible_Text_Proverbs_15_1,
     Bible_Text_Proverbs_15_2,
     Bible_Text_Proverbs_15_3,
@@ -23860,9 +22177,10 @@ static const u8 *const sProverbs_Chapter15[] = {
     Bible_Text_Proverbs_15_31,
     Bible_Text_Proverbs_15_32,
     Bible_Text_Proverbs_15_33,
+    0
 };
 
-static const u8 *const sProverbs_Chapter16[] = {
+static const u16 *const sProverbs_Chapter16[] = {
     Bible_Text_Proverbs_16_1,
     Bible_Text_Proverbs_16_2,
     Bible_Text_Proverbs_16_3,
@@ -23896,9 +22214,10 @@ static const u8 *const sProverbs_Chapter16[] = {
     Bible_Text_Proverbs_16_31,
     Bible_Text_Proverbs_16_32,
     Bible_Text_Proverbs_16_33,
+    0
 };
 
-static const u8 *const sProverbs_Chapter17[] = {
+static const u16 *const sProverbs_Chapter17[] = {
     Bible_Text_Proverbs_17_1,
     Bible_Text_Proverbs_17_2,
     Bible_Text_Proverbs_17_3,
@@ -23927,9 +22246,10 @@ static const u8 *const sProverbs_Chapter17[] = {
     Bible_Text_Proverbs_17_26,
     Bible_Text_Proverbs_17_27,
     Bible_Text_Proverbs_17_28,
+    0
 };
 
-static const u8 *const sProverbs_Chapter18[] = {
+static const u16 *const sProverbs_Chapter18[] = {
     Bible_Text_Proverbs_18_1,
     Bible_Text_Proverbs_18_2,
     Bible_Text_Proverbs_18_3,
@@ -23954,9 +22274,10 @@ static const u8 *const sProverbs_Chapter18[] = {
     Bible_Text_Proverbs_18_22,
     Bible_Text_Proverbs_18_23,
     Bible_Text_Proverbs_18_24,
+    0
 };
 
-static const u8 *const sProverbs_Chapter19[] = {
+static const u16 *const sProverbs_Chapter19[] = {
     Bible_Text_Proverbs_19_1,
     Bible_Text_Proverbs_19_2,
     Bible_Text_Proverbs_19_3,
@@ -23986,9 +22307,10 @@ static const u8 *const sProverbs_Chapter19[] = {
     Bible_Text_Proverbs_19_27,
     Bible_Text_Proverbs_19_28,
     Bible_Text_Proverbs_19_29,
+    0
 };
 
-static const u8 *const sProverbs_Chapter20[] = {
+static const u16 *const sProverbs_Chapter20[] = {
     Bible_Text_Proverbs_20_1,
     Bible_Text_Proverbs_20_2,
     Bible_Text_Proverbs_20_3,
@@ -24019,9 +22341,10 @@ static const u8 *const sProverbs_Chapter20[] = {
     Bible_Text_Proverbs_20_28,
     Bible_Text_Proverbs_20_29,
     Bible_Text_Proverbs_20_30,
+    0
 };
 
-static const u8 *const sProverbs_Chapter21[] = {
+static const u16 *const sProverbs_Chapter21[] = {
     Bible_Text_Proverbs_21_1,
     Bible_Text_Proverbs_21_2,
     Bible_Text_Proverbs_21_3,
@@ -24053,9 +22376,10 @@ static const u8 *const sProverbs_Chapter21[] = {
     Bible_Text_Proverbs_21_29,
     Bible_Text_Proverbs_21_30,
     Bible_Text_Proverbs_21_31,
+    0
 };
 
-static const u8 *const sProverbs_Chapter22[] = {
+static const u16 *const sProverbs_Chapter22[] = {
     Bible_Text_Proverbs_22_1,
     Bible_Text_Proverbs_22_2,
     Bible_Text_Proverbs_22_3,
@@ -24085,9 +22409,10 @@ static const u8 *const sProverbs_Chapter22[] = {
     Bible_Text_Proverbs_22_27,
     Bible_Text_Proverbs_22_28,
     Bible_Text_Proverbs_22_29,
+    0
 };
 
-static const u8 *const sProverbs_Chapter23[] = {
+static const u16 *const sProverbs_Chapter23[] = {
     Bible_Text_Proverbs_23_1,
     Bible_Text_Proverbs_23_2,
     Bible_Text_Proverbs_23_3,
@@ -24123,9 +22448,10 @@ static const u8 *const sProverbs_Chapter23[] = {
     Bible_Text_Proverbs_23_33,
     Bible_Text_Proverbs_23_34,
     Bible_Text_Proverbs_23_35,
+    0
 };
 
-static const u8 *const sProverbs_Chapter24[] = {
+static const u16 *const sProverbs_Chapter24[] = {
     Bible_Text_Proverbs_24_1,
     Bible_Text_Proverbs_24_2,
     Bible_Text_Proverbs_24_3,
@@ -24160,9 +22486,10 @@ static const u8 *const sProverbs_Chapter24[] = {
     Bible_Text_Proverbs_24_32,
     Bible_Text_Proverbs_24_33,
     Bible_Text_Proverbs_24_34,
+    0
 };
 
-static const u8 *const sProverbs_Chapter25[] = {
+static const u16 *const sProverbs_Chapter25[] = {
     Bible_Text_Proverbs_25_1,
     Bible_Text_Proverbs_25_2,
     Bible_Text_Proverbs_25_3,
@@ -24191,9 +22518,10 @@ static const u8 *const sProverbs_Chapter25[] = {
     Bible_Text_Proverbs_25_26,
     Bible_Text_Proverbs_25_27,
     Bible_Text_Proverbs_25_28,
+    0
 };
 
-static const u8 *const sProverbs_Chapter26[] = {
+static const u16 *const sProverbs_Chapter26[] = {
     Bible_Text_Proverbs_26_1,
     Bible_Text_Proverbs_26_2,
     Bible_Text_Proverbs_26_3,
@@ -24222,9 +22550,10 @@ static const u8 *const sProverbs_Chapter26[] = {
     Bible_Text_Proverbs_26_26,
     Bible_Text_Proverbs_26_27,
     Bible_Text_Proverbs_26_28,
+    0
 };
 
-static const u8 *const sProverbs_Chapter27[] = {
+static const u16 *const sProverbs_Chapter27[] = {
     Bible_Text_Proverbs_27_1,
     Bible_Text_Proverbs_27_2,
     Bible_Text_Proverbs_27_3,
@@ -24252,9 +22581,10 @@ static const u8 *const sProverbs_Chapter27[] = {
     Bible_Text_Proverbs_27_25,
     Bible_Text_Proverbs_27_26,
     Bible_Text_Proverbs_27_27,
+    0
 };
 
-static const u8 *const sProverbs_Chapter28[] = {
+static const u16 *const sProverbs_Chapter28[] = {
     Bible_Text_Proverbs_28_1,
     Bible_Text_Proverbs_28_2,
     Bible_Text_Proverbs_28_3,
@@ -24283,9 +22613,10 @@ static const u8 *const sProverbs_Chapter28[] = {
     Bible_Text_Proverbs_28_26,
     Bible_Text_Proverbs_28_27,
     Bible_Text_Proverbs_28_28,
+    0
 };
 
-static const u8 *const sProverbs_Chapter29[] = {
+static const u16 *const sProverbs_Chapter29[] = {
     Bible_Text_Proverbs_29_1,
     Bible_Text_Proverbs_29_2,
     Bible_Text_Proverbs_29_3,
@@ -24313,9 +22644,10 @@ static const u8 *const sProverbs_Chapter29[] = {
     Bible_Text_Proverbs_29_25,
     Bible_Text_Proverbs_29_26,
     Bible_Text_Proverbs_29_27,
+    0
 };
 
-static const u8 *const sProverbs_Chapter30[] = {
+static const u16 *const sProverbs_Chapter30[] = {
     Bible_Text_Proverbs_30_1,
     Bible_Text_Proverbs_30_2,
     Bible_Text_Proverbs_30_3,
@@ -24349,9 +22681,10 @@ static const u8 *const sProverbs_Chapter30[] = {
     Bible_Text_Proverbs_30_31,
     Bible_Text_Proverbs_30_32,
     Bible_Text_Proverbs_30_33,
+    0
 };
 
-static const u8 *const sProverbs_Chapter31[] = {
+static const u16 *const sProverbs_Chapter31[] = {
     Bible_Text_Proverbs_31_1,
     Bible_Text_Proverbs_31_2,
     Bible_Text_Proverbs_31_3,
@@ -24383,9 +22716,10 @@ static const u8 *const sProverbs_Chapter31[] = {
     Bible_Text_Proverbs_31_29,
     Bible_Text_Proverbs_31_30,
     Bible_Text_Proverbs_31_31,
+    0
 };
 
-static const u8 *const *const sBibleText_ProverbsTextPtrs[] = {
+static const u16 *const *const sBibleText_ProverbsTextPtrs[] = {
     sProverbs_Chapter1,
     sProverbs_Chapter2,
     sProverbs_Chapter3,
@@ -24417,9 +22751,10 @@ static const u8 *const *const sBibleText_ProverbsTextPtrs[] = {
     sProverbs_Chapter29,
     sProverbs_Chapter30,
     sProverbs_Chapter31,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter1[] = {
+static const u16 *const sEcclesiastes_Chapter1[] = {
     Bible_Text_Ecclesiastes_1_1,
     Bible_Text_Ecclesiastes_1_2,
     Bible_Text_Ecclesiastes_1_3,
@@ -24438,9 +22773,10 @@ static const u8 *const sEcclesiastes_Chapter1[] = {
     Bible_Text_Ecclesiastes_1_16,
     Bible_Text_Ecclesiastes_1_17,
     Bible_Text_Ecclesiastes_1_18,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter2[] = {
+static const u16 *const sEcclesiastes_Chapter2[] = {
     Bible_Text_Ecclesiastes_2_1,
     Bible_Text_Ecclesiastes_2_2,
     Bible_Text_Ecclesiastes_2_3,
@@ -24467,9 +22803,10 @@ static const u8 *const sEcclesiastes_Chapter2[] = {
     Bible_Text_Ecclesiastes_2_24,
     Bible_Text_Ecclesiastes_2_25,
     Bible_Text_Ecclesiastes_2_26,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter3[] = {
+static const u16 *const sEcclesiastes_Chapter3[] = {
     Bible_Text_Ecclesiastes_3_1,
     Bible_Text_Ecclesiastes_3_2,
     Bible_Text_Ecclesiastes_3_3,
@@ -24492,9 +22829,10 @@ static const u8 *const sEcclesiastes_Chapter3[] = {
     Bible_Text_Ecclesiastes_3_20,
     Bible_Text_Ecclesiastes_3_21,
     Bible_Text_Ecclesiastes_3_22,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter4[] = {
+static const u16 *const sEcclesiastes_Chapter4[] = {
     Bible_Text_Ecclesiastes_4_1,
     Bible_Text_Ecclesiastes_4_2,
     Bible_Text_Ecclesiastes_4_3,
@@ -24511,9 +22849,10 @@ static const u8 *const sEcclesiastes_Chapter4[] = {
     Bible_Text_Ecclesiastes_4_14,
     Bible_Text_Ecclesiastes_4_15,
     Bible_Text_Ecclesiastes_4_16,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter5[] = {
+static const u16 *const sEcclesiastes_Chapter5[] = {
     Bible_Text_Ecclesiastes_5_1,
     Bible_Text_Ecclesiastes_5_2,
     Bible_Text_Ecclesiastes_5_3,
@@ -24534,9 +22873,10 @@ static const u8 *const sEcclesiastes_Chapter5[] = {
     Bible_Text_Ecclesiastes_5_18,
     Bible_Text_Ecclesiastes_5_19,
     Bible_Text_Ecclesiastes_5_20,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter6[] = {
+static const u16 *const sEcclesiastes_Chapter6[] = {
     Bible_Text_Ecclesiastes_6_1,
     Bible_Text_Ecclesiastes_6_2,
     Bible_Text_Ecclesiastes_6_3,
@@ -24549,9 +22889,10 @@ static const u8 *const sEcclesiastes_Chapter6[] = {
     Bible_Text_Ecclesiastes_6_10,
     Bible_Text_Ecclesiastes_6_11,
     Bible_Text_Ecclesiastes_6_12,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter7[] = {
+static const u16 *const sEcclesiastes_Chapter7[] = {
     Bible_Text_Ecclesiastes_7_1,
     Bible_Text_Ecclesiastes_7_2,
     Bible_Text_Ecclesiastes_7_3,
@@ -24581,9 +22922,10 @@ static const u8 *const sEcclesiastes_Chapter7[] = {
     Bible_Text_Ecclesiastes_7_27,
     Bible_Text_Ecclesiastes_7_28,
     Bible_Text_Ecclesiastes_7_29,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter8[] = {
+static const u16 *const sEcclesiastes_Chapter8[] = {
     Bible_Text_Ecclesiastes_8_1,
     Bible_Text_Ecclesiastes_8_2,
     Bible_Text_Ecclesiastes_8_3,
@@ -24601,9 +22943,10 @@ static const u8 *const sEcclesiastes_Chapter8[] = {
     Bible_Text_Ecclesiastes_8_15,
     Bible_Text_Ecclesiastes_8_16,
     Bible_Text_Ecclesiastes_8_17,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter9[] = {
+static const u16 *const sEcclesiastes_Chapter9[] = {
     Bible_Text_Ecclesiastes_9_1,
     Bible_Text_Ecclesiastes_9_2,
     Bible_Text_Ecclesiastes_9_3,
@@ -24622,9 +22965,10 @@ static const u8 *const sEcclesiastes_Chapter9[] = {
     Bible_Text_Ecclesiastes_9_16,
     Bible_Text_Ecclesiastes_9_17,
     Bible_Text_Ecclesiastes_9_18,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter10[] = {
+static const u16 *const sEcclesiastes_Chapter10[] = {
     Bible_Text_Ecclesiastes_10_1,
     Bible_Text_Ecclesiastes_10_2,
     Bible_Text_Ecclesiastes_10_3,
@@ -24645,9 +22989,10 @@ static const u8 *const sEcclesiastes_Chapter10[] = {
     Bible_Text_Ecclesiastes_10_18,
     Bible_Text_Ecclesiastes_10_19,
     Bible_Text_Ecclesiastes_10_20,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter11[] = {
+static const u16 *const sEcclesiastes_Chapter11[] = {
     Bible_Text_Ecclesiastes_11_1,
     Bible_Text_Ecclesiastes_11_2,
     Bible_Text_Ecclesiastes_11_3,
@@ -24658,9 +23003,10 @@ static const u8 *const sEcclesiastes_Chapter11[] = {
     Bible_Text_Ecclesiastes_11_8,
     Bible_Text_Ecclesiastes_11_9,
     Bible_Text_Ecclesiastes_11_10,
+    0
 };
 
-static const u8 *const sEcclesiastes_Chapter12[] = {
+static const u16 *const sEcclesiastes_Chapter12[] = {
     Bible_Text_Ecclesiastes_12_1,
     Bible_Text_Ecclesiastes_12_2,
     Bible_Text_Ecclesiastes_12_3,
@@ -24675,9 +23021,10 @@ static const u8 *const sEcclesiastes_Chapter12[] = {
     Bible_Text_Ecclesiastes_12_12,
     Bible_Text_Ecclesiastes_12_13,
     Bible_Text_Ecclesiastes_12_14,
+    0
 };
 
-static const u8 *const *const sBibleText_EcclesiastesTextPtrs[] = {
+static const u16 *const *const sBibleText_EcclesiastesTextPtrs[] = {
     sEcclesiastes_Chapter1,
     sEcclesiastes_Chapter2,
     sEcclesiastes_Chapter3,
@@ -24690,9 +23037,10 @@ static const u8 *const *const sBibleText_EcclesiastesTextPtrs[] = {
     sEcclesiastes_Chapter10,
     sEcclesiastes_Chapter11,
     sEcclesiastes_Chapter12,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter1[] = {
+static const u16 *const sSongOfSolomon_Chapter1[] = {
     Bible_Text_Song_of_Solomon_1_1,
     Bible_Text_Song_of_Solomon_1_2,
     Bible_Text_Song_of_Solomon_1_3,
@@ -24710,9 +23058,10 @@ static const u8 *const sSongOfSolomon_Chapter1[] = {
     Bible_Text_Song_of_Solomon_1_15,
     Bible_Text_Song_of_Solomon_1_16,
     Bible_Text_Song_of_Solomon_1_17,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter2[] = {
+static const u16 *const sSongOfSolomon_Chapter2[] = {
     Bible_Text_Song_of_Solomon_2_1,
     Bible_Text_Song_of_Solomon_2_2,
     Bible_Text_Song_of_Solomon_2_3,
@@ -24730,9 +23079,10 @@ static const u8 *const sSongOfSolomon_Chapter2[] = {
     Bible_Text_Song_of_Solomon_2_15,
     Bible_Text_Song_of_Solomon_2_16,
     Bible_Text_Song_of_Solomon_2_17,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter3[] = {
+static const u16 *const sSongOfSolomon_Chapter3[] = {
     Bible_Text_Song_of_Solomon_3_1,
     Bible_Text_Song_of_Solomon_3_2,
     Bible_Text_Song_of_Solomon_3_3,
@@ -24744,9 +23094,10 @@ static const u8 *const sSongOfSolomon_Chapter3[] = {
     Bible_Text_Song_of_Solomon_3_9,
     Bible_Text_Song_of_Solomon_3_10,
     Bible_Text_Song_of_Solomon_3_11,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter4[] = {
+static const u16 *const sSongOfSolomon_Chapter4[] = {
     Bible_Text_Song_of_Solomon_4_1,
     Bible_Text_Song_of_Solomon_4_2,
     Bible_Text_Song_of_Solomon_4_3,
@@ -24763,9 +23114,10 @@ static const u8 *const sSongOfSolomon_Chapter4[] = {
     Bible_Text_Song_of_Solomon_4_14,
     Bible_Text_Song_of_Solomon_4_15,
     Bible_Text_Song_of_Solomon_4_16,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter5[] = {
+static const u16 *const sSongOfSolomon_Chapter5[] = {
     Bible_Text_Song_of_Solomon_5_1,
     Bible_Text_Song_of_Solomon_5_2,
     Bible_Text_Song_of_Solomon_5_3,
@@ -24782,9 +23134,10 @@ static const u8 *const sSongOfSolomon_Chapter5[] = {
     Bible_Text_Song_of_Solomon_5_14,
     Bible_Text_Song_of_Solomon_5_15,
     Bible_Text_Song_of_Solomon_5_16,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter6[] = {
+static const u16 *const sSongOfSolomon_Chapter6[] = {
     Bible_Text_Song_of_Solomon_6_1,
     Bible_Text_Song_of_Solomon_6_2,
     Bible_Text_Song_of_Solomon_6_3,
@@ -24798,9 +23151,10 @@ static const u8 *const sSongOfSolomon_Chapter6[] = {
     Bible_Text_Song_of_Solomon_6_11,
     Bible_Text_Song_of_Solomon_6_12,
     Bible_Text_Song_of_Solomon_6_13,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter7[] = {
+static const u16 *const sSongOfSolomon_Chapter7[] = {
     Bible_Text_Song_of_Solomon_7_1,
     Bible_Text_Song_of_Solomon_7_2,
     Bible_Text_Song_of_Solomon_7_3,
@@ -24814,9 +23168,10 @@ static const u8 *const sSongOfSolomon_Chapter7[] = {
     Bible_Text_Song_of_Solomon_7_11,
     Bible_Text_Song_of_Solomon_7_12,
     Bible_Text_Song_of_Solomon_7_13,
+    0
 };
 
-static const u8 *const sSongOfSolomon_Chapter8[] = {
+static const u16 *const sSongOfSolomon_Chapter8[] = {
     Bible_Text_Song_of_Solomon_8_1,
     Bible_Text_Song_of_Solomon_8_2,
     Bible_Text_Song_of_Solomon_8_3,
@@ -24831,9 +23186,10 @@ static const u8 *const sSongOfSolomon_Chapter8[] = {
     Bible_Text_Song_of_Solomon_8_12,
     Bible_Text_Song_of_Solomon_8_13,
     Bible_Text_Song_of_Solomon_8_14,
+    0
 };
 
-static const u8 *const *const sBibleText_SongOfSolomonTextPtrs[] = {
+static const u16 *const *const sBibleText_SongOfSolomonTextPtrs[] = {
     sSongOfSolomon_Chapter1,
     sSongOfSolomon_Chapter2,
     sSongOfSolomon_Chapter3,
@@ -24842,9 +23198,10 @@ static const u8 *const *const sBibleText_SongOfSolomonTextPtrs[] = {
     sSongOfSolomon_Chapter6,
     sSongOfSolomon_Chapter7,
     sSongOfSolomon_Chapter8,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter1[] = {
+static const u16 *const sIsaiah_Chapter1[] = {
     Bible_Text_Isaiah_1_1,
     Bible_Text_Isaiah_1_2,
     Bible_Text_Isaiah_1_3,
@@ -24876,9 +23233,10 @@ static const u8 *const sIsaiah_Chapter1[] = {
     Bible_Text_Isaiah_1_29,
     Bible_Text_Isaiah_1_30,
     Bible_Text_Isaiah_1_31,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter2[] = {
+static const u16 *const sIsaiah_Chapter2[] = {
     Bible_Text_Isaiah_2_1,
     Bible_Text_Isaiah_2_2,
     Bible_Text_Isaiah_2_3,
@@ -24901,9 +23259,10 @@ static const u8 *const sIsaiah_Chapter2[] = {
     Bible_Text_Isaiah_2_20,
     Bible_Text_Isaiah_2_21,
     Bible_Text_Isaiah_2_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter3[] = {
+static const u16 *const sIsaiah_Chapter3[] = {
     Bible_Text_Isaiah_3_1,
     Bible_Text_Isaiah_3_2,
     Bible_Text_Isaiah_3_3,
@@ -24930,18 +23289,20 @@ static const u8 *const sIsaiah_Chapter3[] = {
     Bible_Text_Isaiah_3_24,
     Bible_Text_Isaiah_3_25,
     Bible_Text_Isaiah_3_26,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter4[] = {
+static const u16 *const sIsaiah_Chapter4[] = {
     Bible_Text_Isaiah_4_1,
     Bible_Text_Isaiah_4_2,
     Bible_Text_Isaiah_4_3,
     Bible_Text_Isaiah_4_4,
     Bible_Text_Isaiah_4_5,
     Bible_Text_Isaiah_4_6,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter5[] = {
+static const u16 *const sIsaiah_Chapter5[] = {
     Bible_Text_Isaiah_5_1,
     Bible_Text_Isaiah_5_2,
     Bible_Text_Isaiah_5_3,
@@ -24972,9 +23333,10 @@ static const u8 *const sIsaiah_Chapter5[] = {
     Bible_Text_Isaiah_5_28,
     Bible_Text_Isaiah_5_29,
     Bible_Text_Isaiah_5_30,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter6[] = {
+static const u16 *const sIsaiah_Chapter6[] = {
     Bible_Text_Isaiah_6_1,
     Bible_Text_Isaiah_6_2,
     Bible_Text_Isaiah_6_3,
@@ -24988,9 +23350,10 @@ static const u8 *const sIsaiah_Chapter6[] = {
     Bible_Text_Isaiah_6_11,
     Bible_Text_Isaiah_6_12,
     Bible_Text_Isaiah_6_13,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter7[] = {
+static const u16 *const sIsaiah_Chapter7[] = {
     Bible_Text_Isaiah_7_1,
     Bible_Text_Isaiah_7_2,
     Bible_Text_Isaiah_7_3,
@@ -25016,9 +23379,10 @@ static const u8 *const sIsaiah_Chapter7[] = {
     Bible_Text_Isaiah_7_23,
     Bible_Text_Isaiah_7_24,
     Bible_Text_Isaiah_7_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter8[] = {
+static const u16 *const sIsaiah_Chapter8[] = {
     Bible_Text_Isaiah_8_1,
     Bible_Text_Isaiah_8_2,
     Bible_Text_Isaiah_8_3,
@@ -25041,9 +23405,10 @@ static const u8 *const sIsaiah_Chapter8[] = {
     Bible_Text_Isaiah_8_20,
     Bible_Text_Isaiah_8_21,
     Bible_Text_Isaiah_8_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter9[] = {
+static const u16 *const sIsaiah_Chapter9[] = {
     Bible_Text_Isaiah_9_1,
     Bible_Text_Isaiah_9_2,
     Bible_Text_Isaiah_9_3,
@@ -25065,9 +23430,10 @@ static const u8 *const sIsaiah_Chapter9[] = {
     Bible_Text_Isaiah_9_19,
     Bible_Text_Isaiah_9_20,
     Bible_Text_Isaiah_9_21,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter10[] = {
+static const u16 *const sIsaiah_Chapter10[] = {
     Bible_Text_Isaiah_10_1,
     Bible_Text_Isaiah_10_2,
     Bible_Text_Isaiah_10_3,
@@ -25102,9 +23468,10 @@ static const u8 *const sIsaiah_Chapter10[] = {
     Bible_Text_Isaiah_10_32,
     Bible_Text_Isaiah_10_33,
     Bible_Text_Isaiah_10_34,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter11[] = {
+static const u16 *const sIsaiah_Chapter11[] = {
     Bible_Text_Isaiah_11_1,
     Bible_Text_Isaiah_11_2,
     Bible_Text_Isaiah_11_3,
@@ -25121,18 +23488,20 @@ static const u8 *const sIsaiah_Chapter11[] = {
     Bible_Text_Isaiah_11_14,
     Bible_Text_Isaiah_11_15,
     Bible_Text_Isaiah_11_16,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter12[] = {
+static const u16 *const sIsaiah_Chapter12[] = {
     Bible_Text_Isaiah_12_1,
     Bible_Text_Isaiah_12_2,
     Bible_Text_Isaiah_12_3,
     Bible_Text_Isaiah_12_4,
     Bible_Text_Isaiah_12_5,
     Bible_Text_Isaiah_12_6,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter13[] = {
+static const u16 *const sIsaiah_Chapter13[] = {
     Bible_Text_Isaiah_13_1,
     Bible_Text_Isaiah_13_2,
     Bible_Text_Isaiah_13_3,
@@ -25155,9 +23524,10 @@ static const u8 *const sIsaiah_Chapter13[] = {
     Bible_Text_Isaiah_13_20,
     Bible_Text_Isaiah_13_21,
     Bible_Text_Isaiah_13_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter14[] = {
+static const u16 *const sIsaiah_Chapter14[] = {
     Bible_Text_Isaiah_14_1,
     Bible_Text_Isaiah_14_2,
     Bible_Text_Isaiah_14_3,
@@ -25190,9 +23560,10 @@ static const u8 *const sIsaiah_Chapter14[] = {
     Bible_Text_Isaiah_14_30,
     Bible_Text_Isaiah_14_31,
     Bible_Text_Isaiah_14_32,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter15[] = {
+static const u16 *const sIsaiah_Chapter15[] = {
     Bible_Text_Isaiah_15_1,
     Bible_Text_Isaiah_15_2,
     Bible_Text_Isaiah_15_3,
@@ -25202,9 +23573,10 @@ static const u8 *const sIsaiah_Chapter15[] = {
     Bible_Text_Isaiah_15_7,
     Bible_Text_Isaiah_15_8,
     Bible_Text_Isaiah_15_9,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter16[] = {
+static const u16 *const sIsaiah_Chapter16[] = {
     Bible_Text_Isaiah_16_1,
     Bible_Text_Isaiah_16_2,
     Bible_Text_Isaiah_16_3,
@@ -25219,9 +23591,10 @@ static const u8 *const sIsaiah_Chapter16[] = {
     Bible_Text_Isaiah_16_12,
     Bible_Text_Isaiah_16_13,
     Bible_Text_Isaiah_16_14,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter17[] = {
+static const u16 *const sIsaiah_Chapter17[] = {
     Bible_Text_Isaiah_17_1,
     Bible_Text_Isaiah_17_2,
     Bible_Text_Isaiah_17_3,
@@ -25236,9 +23609,10 @@ static const u8 *const sIsaiah_Chapter17[] = {
     Bible_Text_Isaiah_17_12,
     Bible_Text_Isaiah_17_13,
     Bible_Text_Isaiah_17_14,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter18[] = {
+static const u16 *const sIsaiah_Chapter18[] = {
     Bible_Text_Isaiah_18_1,
     Bible_Text_Isaiah_18_2,
     Bible_Text_Isaiah_18_3,
@@ -25246,9 +23620,10 @@ static const u8 *const sIsaiah_Chapter18[] = {
     Bible_Text_Isaiah_18_5,
     Bible_Text_Isaiah_18_6,
     Bible_Text_Isaiah_18_7,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter19[] = {
+static const u16 *const sIsaiah_Chapter19[] = {
     Bible_Text_Isaiah_19_1,
     Bible_Text_Isaiah_19_2,
     Bible_Text_Isaiah_19_3,
@@ -25274,18 +23649,20 @@ static const u8 *const sIsaiah_Chapter19[] = {
     Bible_Text_Isaiah_19_23,
     Bible_Text_Isaiah_19_24,
     Bible_Text_Isaiah_19_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter20[] = {
+static const u16 *const sIsaiah_Chapter20[] = {
     Bible_Text_Isaiah_20_1,
     Bible_Text_Isaiah_20_2,
     Bible_Text_Isaiah_20_3,
     Bible_Text_Isaiah_20_4,
     Bible_Text_Isaiah_20_5,
     Bible_Text_Isaiah_20_6,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter21[] = {
+static const u16 *const sIsaiah_Chapter21[] = {
     Bible_Text_Isaiah_21_1,
     Bible_Text_Isaiah_21_2,
     Bible_Text_Isaiah_21_3,
@@ -25303,9 +23680,10 @@ static const u8 *const sIsaiah_Chapter21[] = {
     Bible_Text_Isaiah_21_15,
     Bible_Text_Isaiah_21_16,
     Bible_Text_Isaiah_21_17,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter22[] = {
+static const u16 *const sIsaiah_Chapter22[] = {
     Bible_Text_Isaiah_22_1,
     Bible_Text_Isaiah_22_2,
     Bible_Text_Isaiah_22_3,
@@ -25331,9 +23709,10 @@ static const u8 *const sIsaiah_Chapter22[] = {
     Bible_Text_Isaiah_22_23,
     Bible_Text_Isaiah_22_24,
     Bible_Text_Isaiah_22_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter23[] = {
+static const u16 *const sIsaiah_Chapter23[] = {
     Bible_Text_Isaiah_23_1,
     Bible_Text_Isaiah_23_2,
     Bible_Text_Isaiah_23_3,
@@ -25352,9 +23731,10 @@ static const u8 *const sIsaiah_Chapter23[] = {
     Bible_Text_Isaiah_23_16,
     Bible_Text_Isaiah_23_17,
     Bible_Text_Isaiah_23_18,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter24[] = {
+static const u16 *const sIsaiah_Chapter24[] = {
     Bible_Text_Isaiah_24_1,
     Bible_Text_Isaiah_24_2,
     Bible_Text_Isaiah_24_3,
@@ -25378,9 +23758,10 @@ static const u8 *const sIsaiah_Chapter24[] = {
     Bible_Text_Isaiah_24_21,
     Bible_Text_Isaiah_24_22,
     Bible_Text_Isaiah_24_23,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter25[] = {
+static const u16 *const sIsaiah_Chapter25[] = {
     Bible_Text_Isaiah_25_1,
     Bible_Text_Isaiah_25_2,
     Bible_Text_Isaiah_25_3,
@@ -25393,9 +23774,10 @@ static const u8 *const sIsaiah_Chapter25[] = {
     Bible_Text_Isaiah_25_10,
     Bible_Text_Isaiah_25_11,
     Bible_Text_Isaiah_25_12,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter26[] = {
+static const u16 *const sIsaiah_Chapter26[] = {
     Bible_Text_Isaiah_26_1,
     Bible_Text_Isaiah_26_2,
     Bible_Text_Isaiah_26_3,
@@ -25417,9 +23799,10 @@ static const u8 *const sIsaiah_Chapter26[] = {
     Bible_Text_Isaiah_26_19,
     Bible_Text_Isaiah_26_20,
     Bible_Text_Isaiah_26_21,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter27[] = {
+static const u16 *const sIsaiah_Chapter27[] = {
     Bible_Text_Isaiah_27_1,
     Bible_Text_Isaiah_27_2,
     Bible_Text_Isaiah_27_3,
@@ -25433,9 +23816,10 @@ static const u8 *const sIsaiah_Chapter27[] = {
     Bible_Text_Isaiah_27_11,
     Bible_Text_Isaiah_27_12,
     Bible_Text_Isaiah_27_13,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter28[] = {
+static const u16 *const sIsaiah_Chapter28[] = {
     Bible_Text_Isaiah_28_1,
     Bible_Text_Isaiah_28_2,
     Bible_Text_Isaiah_28_3,
@@ -25465,9 +23849,10 @@ static const u8 *const sIsaiah_Chapter28[] = {
     Bible_Text_Isaiah_28_27,
     Bible_Text_Isaiah_28_28,
     Bible_Text_Isaiah_28_29,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter29[] = {
+static const u16 *const sIsaiah_Chapter29[] = {
     Bible_Text_Isaiah_29_1,
     Bible_Text_Isaiah_29_2,
     Bible_Text_Isaiah_29_3,
@@ -25492,9 +23877,10 @@ static const u8 *const sIsaiah_Chapter29[] = {
     Bible_Text_Isaiah_29_22,
     Bible_Text_Isaiah_29_23,
     Bible_Text_Isaiah_29_24,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter30[] = {
+static const u16 *const sIsaiah_Chapter30[] = {
     Bible_Text_Isaiah_30_1,
     Bible_Text_Isaiah_30_2,
     Bible_Text_Isaiah_30_3,
@@ -25528,9 +23914,10 @@ static const u8 *const sIsaiah_Chapter30[] = {
     Bible_Text_Isaiah_30_31,
     Bible_Text_Isaiah_30_32,
     Bible_Text_Isaiah_30_33,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter31[] = {
+static const u16 *const sIsaiah_Chapter31[] = {
     Bible_Text_Isaiah_31_1,
     Bible_Text_Isaiah_31_2,
     Bible_Text_Isaiah_31_3,
@@ -25540,9 +23927,10 @@ static const u8 *const sIsaiah_Chapter31[] = {
     Bible_Text_Isaiah_31_7,
     Bible_Text_Isaiah_31_8,
     Bible_Text_Isaiah_31_9,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter32[] = {
+static const u16 *const sIsaiah_Chapter32[] = {
     Bible_Text_Isaiah_32_1,
     Bible_Text_Isaiah_32_2,
     Bible_Text_Isaiah_32_3,
@@ -25563,9 +23951,10 @@ static const u8 *const sIsaiah_Chapter32[] = {
     Bible_Text_Isaiah_32_18,
     Bible_Text_Isaiah_32_19,
     Bible_Text_Isaiah_32_20,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter33[] = {
+static const u16 *const sIsaiah_Chapter33[] = {
     Bible_Text_Isaiah_33_1,
     Bible_Text_Isaiah_33_2,
     Bible_Text_Isaiah_33_3,
@@ -25590,9 +23979,10 @@ static const u8 *const sIsaiah_Chapter33[] = {
     Bible_Text_Isaiah_33_22,
     Bible_Text_Isaiah_33_23,
     Bible_Text_Isaiah_33_24,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter34[] = {
+static const u16 *const sIsaiah_Chapter34[] = {
     Bible_Text_Isaiah_34_1,
     Bible_Text_Isaiah_34_2,
     Bible_Text_Isaiah_34_3,
@@ -25610,9 +24000,10 @@ static const u8 *const sIsaiah_Chapter34[] = {
     Bible_Text_Isaiah_34_15,
     Bible_Text_Isaiah_34_16,
     Bible_Text_Isaiah_34_17,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter35[] = {
+static const u16 *const sIsaiah_Chapter35[] = {
     Bible_Text_Isaiah_35_1,
     Bible_Text_Isaiah_35_2,
     Bible_Text_Isaiah_35_3,
@@ -25623,9 +24014,10 @@ static const u8 *const sIsaiah_Chapter35[] = {
     Bible_Text_Isaiah_35_8,
     Bible_Text_Isaiah_35_9,
     Bible_Text_Isaiah_35_10,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter36[] = {
+static const u16 *const sIsaiah_Chapter36[] = {
     Bible_Text_Isaiah_36_1,
     Bible_Text_Isaiah_36_2,
     Bible_Text_Isaiah_36_3,
@@ -25648,9 +24040,10 @@ static const u8 *const sIsaiah_Chapter36[] = {
     Bible_Text_Isaiah_36_20,
     Bible_Text_Isaiah_36_21,
     Bible_Text_Isaiah_36_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter37[] = {
+static const u16 *const sIsaiah_Chapter37[] = {
     Bible_Text_Isaiah_37_1,
     Bible_Text_Isaiah_37_2,
     Bible_Text_Isaiah_37_3,
@@ -25689,9 +24082,10 @@ static const u8 *const sIsaiah_Chapter37[] = {
     Bible_Text_Isaiah_37_36,
     Bible_Text_Isaiah_37_37,
     Bible_Text_Isaiah_37_38,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter38[] = {
+static const u16 *const sIsaiah_Chapter38[] = {
     Bible_Text_Isaiah_38_1,
     Bible_Text_Isaiah_38_2,
     Bible_Text_Isaiah_38_3,
@@ -25714,9 +24108,10 @@ static const u8 *const sIsaiah_Chapter38[] = {
     Bible_Text_Isaiah_38_20,
     Bible_Text_Isaiah_38_21,
     Bible_Text_Isaiah_38_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter39[] = {
+static const u16 *const sIsaiah_Chapter39[] = {
     Bible_Text_Isaiah_39_1,
     Bible_Text_Isaiah_39_2,
     Bible_Text_Isaiah_39_3,
@@ -25725,9 +24120,10 @@ static const u8 *const sIsaiah_Chapter39[] = {
     Bible_Text_Isaiah_39_6,
     Bible_Text_Isaiah_39_7,
     Bible_Text_Isaiah_39_8,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter40[] = {
+static const u16 *const sIsaiah_Chapter40[] = {
     Bible_Text_Isaiah_40_1,
     Bible_Text_Isaiah_40_2,
     Bible_Text_Isaiah_40_3,
@@ -25759,9 +24155,10 @@ static const u8 *const sIsaiah_Chapter40[] = {
     Bible_Text_Isaiah_40_29,
     Bible_Text_Isaiah_40_30,
     Bible_Text_Isaiah_40_31,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter41[] = {
+static const u16 *const sIsaiah_Chapter41[] = {
     Bible_Text_Isaiah_41_1,
     Bible_Text_Isaiah_41_2,
     Bible_Text_Isaiah_41_3,
@@ -25791,9 +24188,10 @@ static const u8 *const sIsaiah_Chapter41[] = {
     Bible_Text_Isaiah_41_27,
     Bible_Text_Isaiah_41_28,
     Bible_Text_Isaiah_41_29,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter42[] = {
+static const u16 *const sIsaiah_Chapter42[] = {
     Bible_Text_Isaiah_42_1,
     Bible_Text_Isaiah_42_2,
     Bible_Text_Isaiah_42_3,
@@ -25819,9 +24217,10 @@ static const u8 *const sIsaiah_Chapter42[] = {
     Bible_Text_Isaiah_42_23,
     Bible_Text_Isaiah_42_24,
     Bible_Text_Isaiah_42_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter43[] = {
+static const u16 *const sIsaiah_Chapter43[] = {
     Bible_Text_Isaiah_43_1,
     Bible_Text_Isaiah_43_2,
     Bible_Text_Isaiah_43_3,
@@ -25850,9 +24249,10 @@ static const u8 *const sIsaiah_Chapter43[] = {
     Bible_Text_Isaiah_43_26,
     Bible_Text_Isaiah_43_27,
     Bible_Text_Isaiah_43_28,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter44[] = {
+static const u16 *const sIsaiah_Chapter44[] = {
     Bible_Text_Isaiah_44_1,
     Bible_Text_Isaiah_44_2,
     Bible_Text_Isaiah_44_3,
@@ -25881,9 +24281,10 @@ static const u8 *const sIsaiah_Chapter44[] = {
     Bible_Text_Isaiah_44_26,
     Bible_Text_Isaiah_44_27,
     Bible_Text_Isaiah_44_28,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter45[] = {
+static const u16 *const sIsaiah_Chapter45[] = {
     Bible_Text_Isaiah_45_1,
     Bible_Text_Isaiah_45_2,
     Bible_Text_Isaiah_45_3,
@@ -25909,9 +24310,10 @@ static const u8 *const sIsaiah_Chapter45[] = {
     Bible_Text_Isaiah_45_23,
     Bible_Text_Isaiah_45_24,
     Bible_Text_Isaiah_45_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter46[] = {
+static const u16 *const sIsaiah_Chapter46[] = {
     Bible_Text_Isaiah_46_1,
     Bible_Text_Isaiah_46_2,
     Bible_Text_Isaiah_46_3,
@@ -25925,9 +24327,10 @@ static const u8 *const sIsaiah_Chapter46[] = {
     Bible_Text_Isaiah_46_11,
     Bible_Text_Isaiah_46_12,
     Bible_Text_Isaiah_46_13,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter47[] = {
+static const u16 *const sIsaiah_Chapter47[] = {
     Bible_Text_Isaiah_47_1,
     Bible_Text_Isaiah_47_2,
     Bible_Text_Isaiah_47_3,
@@ -25943,9 +24346,10 @@ static const u8 *const sIsaiah_Chapter47[] = {
     Bible_Text_Isaiah_47_13,
     Bible_Text_Isaiah_47_14,
     Bible_Text_Isaiah_47_15,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter48[] = {
+static const u16 *const sIsaiah_Chapter48[] = {
     Bible_Text_Isaiah_48_1,
     Bible_Text_Isaiah_48_2,
     Bible_Text_Isaiah_48_3,
@@ -25968,9 +24372,10 @@ static const u8 *const sIsaiah_Chapter48[] = {
     Bible_Text_Isaiah_48_20,
     Bible_Text_Isaiah_48_21,
     Bible_Text_Isaiah_48_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter49[] = {
+static const u16 *const sIsaiah_Chapter49[] = {
     Bible_Text_Isaiah_49_1,
     Bible_Text_Isaiah_49_2,
     Bible_Text_Isaiah_49_3,
@@ -25997,9 +24402,10 @@ static const u8 *const sIsaiah_Chapter49[] = {
     Bible_Text_Isaiah_49_24,
     Bible_Text_Isaiah_49_25,
     Bible_Text_Isaiah_49_26,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter50[] = {
+static const u16 *const sIsaiah_Chapter50[] = {
     Bible_Text_Isaiah_50_1,
     Bible_Text_Isaiah_50_2,
     Bible_Text_Isaiah_50_3,
@@ -26011,9 +24417,10 @@ static const u8 *const sIsaiah_Chapter50[] = {
     Bible_Text_Isaiah_50_9,
     Bible_Text_Isaiah_50_10,
     Bible_Text_Isaiah_50_11,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter51[] = {
+static const u16 *const sIsaiah_Chapter51[] = {
     Bible_Text_Isaiah_51_1,
     Bible_Text_Isaiah_51_2,
     Bible_Text_Isaiah_51_3,
@@ -26037,9 +24444,10 @@ static const u8 *const sIsaiah_Chapter51[] = {
     Bible_Text_Isaiah_51_21,
     Bible_Text_Isaiah_51_22,
     Bible_Text_Isaiah_51_23,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter52[] = {
+static const u16 *const sIsaiah_Chapter52[] = {
     Bible_Text_Isaiah_52_1,
     Bible_Text_Isaiah_52_2,
     Bible_Text_Isaiah_52_3,
@@ -26055,9 +24463,10 @@ static const u8 *const sIsaiah_Chapter52[] = {
     Bible_Text_Isaiah_52_13,
     Bible_Text_Isaiah_52_14,
     Bible_Text_Isaiah_52_15,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter53[] = {
+static const u16 *const sIsaiah_Chapter53[] = {
     Bible_Text_Isaiah_53_1,
     Bible_Text_Isaiah_53_2,
     Bible_Text_Isaiah_53_3,
@@ -26070,9 +24479,10 @@ static const u8 *const sIsaiah_Chapter53[] = {
     Bible_Text_Isaiah_53_10,
     Bible_Text_Isaiah_53_11,
     Bible_Text_Isaiah_53_12,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter54[] = {
+static const u16 *const sIsaiah_Chapter54[] = {
     Bible_Text_Isaiah_54_1,
     Bible_Text_Isaiah_54_2,
     Bible_Text_Isaiah_54_3,
@@ -26090,9 +24500,10 @@ static const u8 *const sIsaiah_Chapter54[] = {
     Bible_Text_Isaiah_54_15,
     Bible_Text_Isaiah_54_16,
     Bible_Text_Isaiah_54_17,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter55[] = {
+static const u16 *const sIsaiah_Chapter55[] = {
     Bible_Text_Isaiah_55_1,
     Bible_Text_Isaiah_55_2,
     Bible_Text_Isaiah_55_3,
@@ -26106,9 +24517,10 @@ static const u8 *const sIsaiah_Chapter55[] = {
     Bible_Text_Isaiah_55_11,
     Bible_Text_Isaiah_55_12,
     Bible_Text_Isaiah_55_13,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter56[] = {
+static const u16 *const sIsaiah_Chapter56[] = {
     Bible_Text_Isaiah_56_1,
     Bible_Text_Isaiah_56_2,
     Bible_Text_Isaiah_56_3,
@@ -26121,9 +24533,10 @@ static const u8 *const sIsaiah_Chapter56[] = {
     Bible_Text_Isaiah_56_10,
     Bible_Text_Isaiah_56_11,
     Bible_Text_Isaiah_56_12,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter57[] = {
+static const u16 *const sIsaiah_Chapter57[] = {
     Bible_Text_Isaiah_57_1,
     Bible_Text_Isaiah_57_2,
     Bible_Text_Isaiah_57_3,
@@ -26145,9 +24558,10 @@ static const u8 *const sIsaiah_Chapter57[] = {
     Bible_Text_Isaiah_57_19,
     Bible_Text_Isaiah_57_20,
     Bible_Text_Isaiah_57_21,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter58[] = {
+static const u16 *const sIsaiah_Chapter58[] = {
     Bible_Text_Isaiah_58_1,
     Bible_Text_Isaiah_58_2,
     Bible_Text_Isaiah_58_3,
@@ -26162,9 +24576,10 @@ static const u8 *const sIsaiah_Chapter58[] = {
     Bible_Text_Isaiah_58_12,
     Bible_Text_Isaiah_58_13,
     Bible_Text_Isaiah_58_14,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter59[] = {
+static const u16 *const sIsaiah_Chapter59[] = {
     Bible_Text_Isaiah_59_1,
     Bible_Text_Isaiah_59_2,
     Bible_Text_Isaiah_59_3,
@@ -26186,9 +24601,10 @@ static const u8 *const sIsaiah_Chapter59[] = {
     Bible_Text_Isaiah_59_19,
     Bible_Text_Isaiah_59_20,
     Bible_Text_Isaiah_59_21,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter60[] = {
+static const u16 *const sIsaiah_Chapter60[] = {
     Bible_Text_Isaiah_60_1,
     Bible_Text_Isaiah_60_2,
     Bible_Text_Isaiah_60_3,
@@ -26211,9 +24627,10 @@ static const u8 *const sIsaiah_Chapter60[] = {
     Bible_Text_Isaiah_60_20,
     Bible_Text_Isaiah_60_21,
     Bible_Text_Isaiah_60_22,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter61[] = {
+static const u16 *const sIsaiah_Chapter61[] = {
     Bible_Text_Isaiah_61_1,
     Bible_Text_Isaiah_61_2,
     Bible_Text_Isaiah_61_3,
@@ -26225,9 +24642,10 @@ static const u8 *const sIsaiah_Chapter61[] = {
     Bible_Text_Isaiah_61_9,
     Bible_Text_Isaiah_61_10,
     Bible_Text_Isaiah_61_11,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter62[] = {
+static const u16 *const sIsaiah_Chapter62[] = {
     Bible_Text_Isaiah_62_1,
     Bible_Text_Isaiah_62_2,
     Bible_Text_Isaiah_62_3,
@@ -26240,9 +24658,10 @@ static const u8 *const sIsaiah_Chapter62[] = {
     Bible_Text_Isaiah_62_10,
     Bible_Text_Isaiah_62_11,
     Bible_Text_Isaiah_62_12,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter63[] = {
+static const u16 *const sIsaiah_Chapter63[] = {
     Bible_Text_Isaiah_63_1,
     Bible_Text_Isaiah_63_2,
     Bible_Text_Isaiah_63_3,
@@ -26262,9 +24681,10 @@ static const u8 *const sIsaiah_Chapter63[] = {
     Bible_Text_Isaiah_63_17,
     Bible_Text_Isaiah_63_18,
     Bible_Text_Isaiah_63_19,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter64[] = {
+static const u16 *const sIsaiah_Chapter64[] = {
     Bible_Text_Isaiah_64_1,
     Bible_Text_Isaiah_64_2,
     Bible_Text_Isaiah_64_3,
@@ -26277,9 +24697,10 @@ static const u8 *const sIsaiah_Chapter64[] = {
     Bible_Text_Isaiah_64_10,
     Bible_Text_Isaiah_64_11,
     Bible_Text_Isaiah_64_12,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter65[] = {
+static const u16 *const sIsaiah_Chapter65[] = {
     Bible_Text_Isaiah_65_1,
     Bible_Text_Isaiah_65_2,
     Bible_Text_Isaiah_65_3,
@@ -26305,9 +24726,10 @@ static const u8 *const sIsaiah_Chapter65[] = {
     Bible_Text_Isaiah_65_23,
     Bible_Text_Isaiah_65_24,
     Bible_Text_Isaiah_65_25,
+    0
 };
 
-static const u8 *const sIsaiah_Chapter66[] = {
+static const u16 *const sIsaiah_Chapter66[] = {
     Bible_Text_Isaiah_66_1,
     Bible_Text_Isaiah_66_2,
     Bible_Text_Isaiah_66_3,
@@ -26332,9 +24754,10 @@ static const u8 *const sIsaiah_Chapter66[] = {
     Bible_Text_Isaiah_66_22,
     Bible_Text_Isaiah_66_23,
     Bible_Text_Isaiah_66_24,
+    0
 };
 
-static const u8 *const *const sBibleText_IsaiahTextPtrs[] = {
+static const u16 *const *const sBibleText_IsaiahTextPtrs[] = {
     sIsaiah_Chapter1,
     sIsaiah_Chapter2,
     sIsaiah_Chapter3,
@@ -26401,9 +24824,10 @@ static const u8 *const *const sBibleText_IsaiahTextPtrs[] = {
     sIsaiah_Chapter64,
     sIsaiah_Chapter65,
     sIsaiah_Chapter66,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter1[] = {
+static const u16 *const sJeremiah_Chapter1[] = {
     Bible_Text_Jeremiah_1_1,
     Bible_Text_Jeremiah_1_2,
     Bible_Text_Jeremiah_1_3,
@@ -26423,9 +24847,10 @@ static const u8 *const sJeremiah_Chapter1[] = {
     Bible_Text_Jeremiah_1_17,
     Bible_Text_Jeremiah_1_18,
     Bible_Text_Jeremiah_1_19,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter2[] = {
+static const u16 *const sJeremiah_Chapter2[] = {
     Bible_Text_Jeremiah_2_1,
     Bible_Text_Jeremiah_2_2,
     Bible_Text_Jeremiah_2_3,
@@ -26463,9 +24888,10 @@ static const u8 *const sJeremiah_Chapter2[] = {
     Bible_Text_Jeremiah_2_35,
     Bible_Text_Jeremiah_2_36,
     Bible_Text_Jeremiah_2_37,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter3[] = {
+static const u16 *const sJeremiah_Chapter3[] = {
     Bible_Text_Jeremiah_3_1,
     Bible_Text_Jeremiah_3_2,
     Bible_Text_Jeremiah_3_3,
@@ -26491,9 +24917,10 @@ static const u8 *const sJeremiah_Chapter3[] = {
     Bible_Text_Jeremiah_3_23,
     Bible_Text_Jeremiah_3_24,
     Bible_Text_Jeremiah_3_25,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter4[] = {
+static const u16 *const sJeremiah_Chapter4[] = {
     Bible_Text_Jeremiah_4_1,
     Bible_Text_Jeremiah_4_2,
     Bible_Text_Jeremiah_4_3,
@@ -26525,9 +24952,10 @@ static const u8 *const sJeremiah_Chapter4[] = {
     Bible_Text_Jeremiah_4_29,
     Bible_Text_Jeremiah_4_30,
     Bible_Text_Jeremiah_4_31,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter5[] = {
+static const u16 *const sJeremiah_Chapter5[] = {
     Bible_Text_Jeremiah_5_1,
     Bible_Text_Jeremiah_5_2,
     Bible_Text_Jeremiah_5_3,
@@ -26559,9 +24987,10 @@ static const u8 *const sJeremiah_Chapter5[] = {
     Bible_Text_Jeremiah_5_29,
     Bible_Text_Jeremiah_5_30,
     Bible_Text_Jeremiah_5_31,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter6[] = {
+static const u16 *const sJeremiah_Chapter6[] = {
     Bible_Text_Jeremiah_6_1,
     Bible_Text_Jeremiah_6_2,
     Bible_Text_Jeremiah_6_3,
@@ -26592,9 +25021,10 @@ static const u8 *const sJeremiah_Chapter6[] = {
     Bible_Text_Jeremiah_6_28,
     Bible_Text_Jeremiah_6_29,
     Bible_Text_Jeremiah_6_30,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter7[] = {
+static const u16 *const sJeremiah_Chapter7[] = {
     Bible_Text_Jeremiah_7_1,
     Bible_Text_Jeremiah_7_2,
     Bible_Text_Jeremiah_7_3,
@@ -26629,9 +25059,10 @@ static const u8 *const sJeremiah_Chapter7[] = {
     Bible_Text_Jeremiah_7_32,
     Bible_Text_Jeremiah_7_33,
     Bible_Text_Jeremiah_7_34,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter8[] = {
+static const u16 *const sJeremiah_Chapter8[] = {
     Bible_Text_Jeremiah_8_1,
     Bible_Text_Jeremiah_8_2,
     Bible_Text_Jeremiah_8_3,
@@ -26654,9 +25085,10 @@ static const u8 *const sJeremiah_Chapter8[] = {
     Bible_Text_Jeremiah_8_20,
     Bible_Text_Jeremiah_8_21,
     Bible_Text_Jeremiah_8_22,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter9[] = {
+static const u16 *const sJeremiah_Chapter9[] = {
     Bible_Text_Jeremiah_9_1,
     Bible_Text_Jeremiah_9_2,
     Bible_Text_Jeremiah_9_3,
@@ -26683,9 +25115,10 @@ static const u8 *const sJeremiah_Chapter9[] = {
     Bible_Text_Jeremiah_9_24,
     Bible_Text_Jeremiah_9_25,
     Bible_Text_Jeremiah_9_26,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter10[] = {
+static const u16 *const sJeremiah_Chapter10[] = {
     Bible_Text_Jeremiah_10_1,
     Bible_Text_Jeremiah_10_2,
     Bible_Text_Jeremiah_10_3,
@@ -26711,9 +25144,10 @@ static const u8 *const sJeremiah_Chapter10[] = {
     Bible_Text_Jeremiah_10_23,
     Bible_Text_Jeremiah_10_24,
     Bible_Text_Jeremiah_10_25,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter11[] = {
+static const u16 *const sJeremiah_Chapter11[] = {
     Bible_Text_Jeremiah_11_1,
     Bible_Text_Jeremiah_11_2,
     Bible_Text_Jeremiah_11_3,
@@ -26737,9 +25171,10 @@ static const u8 *const sJeremiah_Chapter11[] = {
     Bible_Text_Jeremiah_11_21,
     Bible_Text_Jeremiah_11_22,
     Bible_Text_Jeremiah_11_23,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter12[] = {
+static const u16 *const sJeremiah_Chapter12[] = {
     Bible_Text_Jeremiah_12_1,
     Bible_Text_Jeremiah_12_2,
     Bible_Text_Jeremiah_12_3,
@@ -26757,9 +25192,10 @@ static const u8 *const sJeremiah_Chapter12[] = {
     Bible_Text_Jeremiah_12_15,
     Bible_Text_Jeremiah_12_16,
     Bible_Text_Jeremiah_12_17,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter13[] = {
+static const u16 *const sJeremiah_Chapter13[] = {
     Bible_Text_Jeremiah_13_1,
     Bible_Text_Jeremiah_13_2,
     Bible_Text_Jeremiah_13_3,
@@ -26787,9 +25223,10 @@ static const u8 *const sJeremiah_Chapter13[] = {
     Bible_Text_Jeremiah_13_25,
     Bible_Text_Jeremiah_13_26,
     Bible_Text_Jeremiah_13_27,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter14[] = {
+static const u16 *const sJeremiah_Chapter14[] = {
     Bible_Text_Jeremiah_14_1,
     Bible_Text_Jeremiah_14_2,
     Bible_Text_Jeremiah_14_3,
@@ -26812,9 +25249,10 @@ static const u8 *const sJeremiah_Chapter14[] = {
     Bible_Text_Jeremiah_14_20,
     Bible_Text_Jeremiah_14_21,
     Bible_Text_Jeremiah_14_22,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter15[] = {
+static const u16 *const sJeremiah_Chapter15[] = {
     Bible_Text_Jeremiah_15_1,
     Bible_Text_Jeremiah_15_2,
     Bible_Text_Jeremiah_15_3,
@@ -26836,9 +25274,10 @@ static const u8 *const sJeremiah_Chapter15[] = {
     Bible_Text_Jeremiah_15_19,
     Bible_Text_Jeremiah_15_20,
     Bible_Text_Jeremiah_15_21,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter16[] = {
+static const u16 *const sJeremiah_Chapter16[] = {
     Bible_Text_Jeremiah_16_1,
     Bible_Text_Jeremiah_16_2,
     Bible_Text_Jeremiah_16_3,
@@ -26860,9 +25299,10 @@ static const u8 *const sJeremiah_Chapter16[] = {
     Bible_Text_Jeremiah_16_19,
     Bible_Text_Jeremiah_16_20,
     Bible_Text_Jeremiah_16_21,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter17[] = {
+static const u16 *const sJeremiah_Chapter17[] = {
     Bible_Text_Jeremiah_17_1,
     Bible_Text_Jeremiah_17_2,
     Bible_Text_Jeremiah_17_3,
@@ -26890,9 +25330,10 @@ static const u8 *const sJeremiah_Chapter17[] = {
     Bible_Text_Jeremiah_17_25,
     Bible_Text_Jeremiah_17_26,
     Bible_Text_Jeremiah_17_27,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter18[] = {
+static const u16 *const sJeremiah_Chapter18[] = {
     Bible_Text_Jeremiah_18_1,
     Bible_Text_Jeremiah_18_2,
     Bible_Text_Jeremiah_18_3,
@@ -26916,9 +25357,10 @@ static const u8 *const sJeremiah_Chapter18[] = {
     Bible_Text_Jeremiah_18_21,
     Bible_Text_Jeremiah_18_22,
     Bible_Text_Jeremiah_18_23,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter19[] = {
+static const u16 *const sJeremiah_Chapter19[] = {
     Bible_Text_Jeremiah_19_1,
     Bible_Text_Jeremiah_19_2,
     Bible_Text_Jeremiah_19_3,
@@ -26934,9 +25376,10 @@ static const u8 *const sJeremiah_Chapter19[] = {
     Bible_Text_Jeremiah_19_13,
     Bible_Text_Jeremiah_19_14,
     Bible_Text_Jeremiah_19_15,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter20[] = {
+static const u16 *const sJeremiah_Chapter20[] = {
     Bible_Text_Jeremiah_20_1,
     Bible_Text_Jeremiah_20_2,
     Bible_Text_Jeremiah_20_3,
@@ -26955,9 +25398,10 @@ static const u8 *const sJeremiah_Chapter20[] = {
     Bible_Text_Jeremiah_20_16,
     Bible_Text_Jeremiah_20_17,
     Bible_Text_Jeremiah_20_18,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter21[] = {
+static const u16 *const sJeremiah_Chapter21[] = {
     Bible_Text_Jeremiah_21_1,
     Bible_Text_Jeremiah_21_2,
     Bible_Text_Jeremiah_21_3,
@@ -26972,9 +25416,10 @@ static const u8 *const sJeremiah_Chapter21[] = {
     Bible_Text_Jeremiah_21_12,
     Bible_Text_Jeremiah_21_13,
     Bible_Text_Jeremiah_21_14,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter22[] = {
+static const u16 *const sJeremiah_Chapter22[] = {
     Bible_Text_Jeremiah_22_1,
     Bible_Text_Jeremiah_22_2,
     Bible_Text_Jeremiah_22_3,
@@ -27005,9 +25450,10 @@ static const u8 *const sJeremiah_Chapter22[] = {
     Bible_Text_Jeremiah_22_28,
     Bible_Text_Jeremiah_22_29,
     Bible_Text_Jeremiah_22_30,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter23[] = {
+static const u16 *const sJeremiah_Chapter23[] = {
     Bible_Text_Jeremiah_23_1,
     Bible_Text_Jeremiah_23_2,
     Bible_Text_Jeremiah_23_3,
@@ -27048,9 +25494,10 @@ static const u8 *const sJeremiah_Chapter23[] = {
     Bible_Text_Jeremiah_23_38,
     Bible_Text_Jeremiah_23_39,
     Bible_Text_Jeremiah_23_40,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter24[] = {
+static const u16 *const sJeremiah_Chapter24[] = {
     Bible_Text_Jeremiah_24_1,
     Bible_Text_Jeremiah_24_2,
     Bible_Text_Jeremiah_24_3,
@@ -27061,9 +25508,10 @@ static const u8 *const sJeremiah_Chapter24[] = {
     Bible_Text_Jeremiah_24_8,
     Bible_Text_Jeremiah_24_9,
     Bible_Text_Jeremiah_24_10,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter25[] = {
+static const u16 *const sJeremiah_Chapter25[] = {
     Bible_Text_Jeremiah_25_1,
     Bible_Text_Jeremiah_25_2,
     Bible_Text_Jeremiah_25_3,
@@ -27102,9 +25550,10 @@ static const u8 *const sJeremiah_Chapter25[] = {
     Bible_Text_Jeremiah_25_36,
     Bible_Text_Jeremiah_25_37,
     Bible_Text_Jeremiah_25_38,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter26[] = {
+static const u16 *const sJeremiah_Chapter26[] = {
     Bible_Text_Jeremiah_26_1,
     Bible_Text_Jeremiah_26_2,
     Bible_Text_Jeremiah_26_3,
@@ -27129,9 +25578,10 @@ static const u8 *const sJeremiah_Chapter26[] = {
     Bible_Text_Jeremiah_26_22,
     Bible_Text_Jeremiah_26_23,
     Bible_Text_Jeremiah_26_24,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter27[] = {
+static const u16 *const sJeremiah_Chapter27[] = {
     Bible_Text_Jeremiah_27_1,
     Bible_Text_Jeremiah_27_2,
     Bible_Text_Jeremiah_27_3,
@@ -27154,9 +25604,10 @@ static const u8 *const sJeremiah_Chapter27[] = {
     Bible_Text_Jeremiah_27_20,
     Bible_Text_Jeremiah_27_21,
     Bible_Text_Jeremiah_27_22,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter28[] = {
+static const u16 *const sJeremiah_Chapter28[] = {
     Bible_Text_Jeremiah_28_1,
     Bible_Text_Jeremiah_28_2,
     Bible_Text_Jeremiah_28_3,
@@ -27174,9 +25625,10 @@ static const u8 *const sJeremiah_Chapter28[] = {
     Bible_Text_Jeremiah_28_15,
     Bible_Text_Jeremiah_28_16,
     Bible_Text_Jeremiah_28_17,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter29[] = {
+static const u16 *const sJeremiah_Chapter29[] = {
     Bible_Text_Jeremiah_29_1,
     Bible_Text_Jeremiah_29_2,
     Bible_Text_Jeremiah_29_3,
@@ -27209,9 +25661,10 @@ static const u8 *const sJeremiah_Chapter29[] = {
     Bible_Text_Jeremiah_29_30,
     Bible_Text_Jeremiah_29_31,
     Bible_Text_Jeremiah_29_32,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter30[] = {
+static const u16 *const sJeremiah_Chapter30[] = {
     Bible_Text_Jeremiah_30_1,
     Bible_Text_Jeremiah_30_2,
     Bible_Text_Jeremiah_30_3,
@@ -27236,9 +25689,10 @@ static const u8 *const sJeremiah_Chapter30[] = {
     Bible_Text_Jeremiah_30_22,
     Bible_Text_Jeremiah_30_23,
     Bible_Text_Jeremiah_30_24,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter31[] = {
+static const u16 *const sJeremiah_Chapter31[] = {
     Bible_Text_Jeremiah_31_1,
     Bible_Text_Jeremiah_31_2,
     Bible_Text_Jeremiah_31_3,
@@ -27279,9 +25733,10 @@ static const u8 *const sJeremiah_Chapter31[] = {
     Bible_Text_Jeremiah_31_38,
     Bible_Text_Jeremiah_31_39,
     Bible_Text_Jeremiah_31_40,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter32[] = {
+static const u16 *const sJeremiah_Chapter32[] = {
     Bible_Text_Jeremiah_32_1,
     Bible_Text_Jeremiah_32_2,
     Bible_Text_Jeremiah_32_3,
@@ -27326,9 +25781,10 @@ static const u8 *const sJeremiah_Chapter32[] = {
     Bible_Text_Jeremiah_32_42,
     Bible_Text_Jeremiah_32_43,
     Bible_Text_Jeremiah_32_44,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter33[] = {
+static const u16 *const sJeremiah_Chapter33[] = {
     Bible_Text_Jeremiah_33_1,
     Bible_Text_Jeremiah_33_2,
     Bible_Text_Jeremiah_33_3,
@@ -27355,9 +25811,10 @@ static const u8 *const sJeremiah_Chapter33[] = {
     Bible_Text_Jeremiah_33_24,
     Bible_Text_Jeremiah_33_25,
     Bible_Text_Jeremiah_33_26,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter34[] = {
+static const u16 *const sJeremiah_Chapter34[] = {
     Bible_Text_Jeremiah_34_1,
     Bible_Text_Jeremiah_34_2,
     Bible_Text_Jeremiah_34_3,
@@ -27380,9 +25837,10 @@ static const u8 *const sJeremiah_Chapter34[] = {
     Bible_Text_Jeremiah_34_20,
     Bible_Text_Jeremiah_34_21,
     Bible_Text_Jeremiah_34_22,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter35[] = {
+static const u16 *const sJeremiah_Chapter35[] = {
     Bible_Text_Jeremiah_35_1,
     Bible_Text_Jeremiah_35_2,
     Bible_Text_Jeremiah_35_3,
@@ -27402,9 +25860,10 @@ static const u8 *const sJeremiah_Chapter35[] = {
     Bible_Text_Jeremiah_35_17,
     Bible_Text_Jeremiah_35_18,
     Bible_Text_Jeremiah_35_19,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter36[] = {
+static const u16 *const sJeremiah_Chapter36[] = {
     Bible_Text_Jeremiah_36_1,
     Bible_Text_Jeremiah_36_2,
     Bible_Text_Jeremiah_36_3,
@@ -27437,9 +25896,10 @@ static const u8 *const sJeremiah_Chapter36[] = {
     Bible_Text_Jeremiah_36_30,
     Bible_Text_Jeremiah_36_31,
     Bible_Text_Jeremiah_36_32,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter37[] = {
+static const u16 *const sJeremiah_Chapter37[] = {
     Bible_Text_Jeremiah_37_1,
     Bible_Text_Jeremiah_37_2,
     Bible_Text_Jeremiah_37_3,
@@ -27461,9 +25921,10 @@ static const u8 *const sJeremiah_Chapter37[] = {
     Bible_Text_Jeremiah_37_19,
     Bible_Text_Jeremiah_37_20,
     Bible_Text_Jeremiah_37_21,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter38[] = {
+static const u16 *const sJeremiah_Chapter38[] = {
     Bible_Text_Jeremiah_38_1,
     Bible_Text_Jeremiah_38_2,
     Bible_Text_Jeremiah_38_3,
@@ -27492,9 +25953,10 @@ static const u8 *const sJeremiah_Chapter38[] = {
     Bible_Text_Jeremiah_38_26,
     Bible_Text_Jeremiah_38_27,
     Bible_Text_Jeremiah_38_28,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter39[] = {
+static const u16 *const sJeremiah_Chapter39[] = {
     Bible_Text_Jeremiah_39_1,
     Bible_Text_Jeremiah_39_2,
     Bible_Text_Jeremiah_39_3,
@@ -27513,9 +25975,10 @@ static const u8 *const sJeremiah_Chapter39[] = {
     Bible_Text_Jeremiah_39_16,
     Bible_Text_Jeremiah_39_17,
     Bible_Text_Jeremiah_39_18,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter40[] = {
+static const u16 *const sJeremiah_Chapter40[] = {
     Bible_Text_Jeremiah_40_1,
     Bible_Text_Jeremiah_40_2,
     Bible_Text_Jeremiah_40_3,
@@ -27532,9 +25995,10 @@ static const u8 *const sJeremiah_Chapter40[] = {
     Bible_Text_Jeremiah_40_14,
     Bible_Text_Jeremiah_40_15,
     Bible_Text_Jeremiah_40_16,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter41[] = {
+static const u16 *const sJeremiah_Chapter41[] = {
     Bible_Text_Jeremiah_41_1,
     Bible_Text_Jeremiah_41_2,
     Bible_Text_Jeremiah_41_3,
@@ -27553,9 +26017,10 @@ static const u8 *const sJeremiah_Chapter41[] = {
     Bible_Text_Jeremiah_41_16,
     Bible_Text_Jeremiah_41_17,
     Bible_Text_Jeremiah_41_18,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter42[] = {
+static const u16 *const sJeremiah_Chapter42[] = {
     Bible_Text_Jeremiah_42_1,
     Bible_Text_Jeremiah_42_2,
     Bible_Text_Jeremiah_42_3,
@@ -27578,9 +26043,10 @@ static const u8 *const sJeremiah_Chapter42[] = {
     Bible_Text_Jeremiah_42_20,
     Bible_Text_Jeremiah_42_21,
     Bible_Text_Jeremiah_42_22,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter43[] = {
+static const u16 *const sJeremiah_Chapter43[] = {
     Bible_Text_Jeremiah_43_1,
     Bible_Text_Jeremiah_43_2,
     Bible_Text_Jeremiah_43_3,
@@ -27594,9 +26060,10 @@ static const u8 *const sJeremiah_Chapter43[] = {
     Bible_Text_Jeremiah_43_11,
     Bible_Text_Jeremiah_43_12,
     Bible_Text_Jeremiah_43_13,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter44[] = {
+static const u16 *const sJeremiah_Chapter44[] = {
     Bible_Text_Jeremiah_44_1,
     Bible_Text_Jeremiah_44_2,
     Bible_Text_Jeremiah_44_3,
@@ -27627,17 +26094,19 @@ static const u8 *const sJeremiah_Chapter44[] = {
     Bible_Text_Jeremiah_44_28,
     Bible_Text_Jeremiah_44_29,
     Bible_Text_Jeremiah_44_30,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter45[] = {
+static const u16 *const sJeremiah_Chapter45[] = {
     Bible_Text_Jeremiah_45_1,
     Bible_Text_Jeremiah_45_2,
     Bible_Text_Jeremiah_45_3,
     Bible_Text_Jeremiah_45_4,
     Bible_Text_Jeremiah_45_5,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter46[] = {
+static const u16 *const sJeremiah_Chapter46[] = {
     Bible_Text_Jeremiah_46_1,
     Bible_Text_Jeremiah_46_2,
     Bible_Text_Jeremiah_46_3,
@@ -27666,9 +26135,10 @@ static const u8 *const sJeremiah_Chapter46[] = {
     Bible_Text_Jeremiah_46_26,
     Bible_Text_Jeremiah_46_27,
     Bible_Text_Jeremiah_46_28,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter47[] = {
+static const u16 *const sJeremiah_Chapter47[] = {
     Bible_Text_Jeremiah_47_1,
     Bible_Text_Jeremiah_47_2,
     Bible_Text_Jeremiah_47_3,
@@ -27676,9 +26146,10 @@ static const u8 *const sJeremiah_Chapter47[] = {
     Bible_Text_Jeremiah_47_5,
     Bible_Text_Jeremiah_47_6,
     Bible_Text_Jeremiah_47_7,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter48[] = {
+static const u16 *const sJeremiah_Chapter48[] = {
     Bible_Text_Jeremiah_48_1,
     Bible_Text_Jeremiah_48_2,
     Bible_Text_Jeremiah_48_3,
@@ -27726,9 +26197,10 @@ static const u8 *const sJeremiah_Chapter48[] = {
     Bible_Text_Jeremiah_48_45,
     Bible_Text_Jeremiah_48_46,
     Bible_Text_Jeremiah_48_47,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter49[] = {
+static const u16 *const sJeremiah_Chapter49[] = {
     Bible_Text_Jeremiah_49_1,
     Bible_Text_Jeremiah_49_2,
     Bible_Text_Jeremiah_49_3,
@@ -27768,9 +26240,10 @@ static const u8 *const sJeremiah_Chapter49[] = {
     Bible_Text_Jeremiah_49_37,
     Bible_Text_Jeremiah_49_38,
     Bible_Text_Jeremiah_49_39,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter50[] = {
+static const u16 *const sJeremiah_Chapter50[] = {
     Bible_Text_Jeremiah_50_1,
     Bible_Text_Jeremiah_50_2,
     Bible_Text_Jeremiah_50_3,
@@ -27817,9 +26290,10 @@ static const u8 *const sJeremiah_Chapter50[] = {
     Bible_Text_Jeremiah_50_44,
     Bible_Text_Jeremiah_50_45,
     Bible_Text_Jeremiah_50_46,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter51[] = {
+static const u16 *const sJeremiah_Chapter51[] = {
     Bible_Text_Jeremiah_51_1,
     Bible_Text_Jeremiah_51_2,
     Bible_Text_Jeremiah_51_3,
@@ -27884,9 +26358,10 @@ static const u8 *const sJeremiah_Chapter51[] = {
     Bible_Text_Jeremiah_51_62,
     Bible_Text_Jeremiah_51_63,
     Bible_Text_Jeremiah_51_64,
+    0
 };
 
-static const u8 *const sJeremiah_Chapter52[] = {
+static const u16 *const sJeremiah_Chapter52[] = {
     Bible_Text_Jeremiah_52_1,
     Bible_Text_Jeremiah_52_2,
     Bible_Text_Jeremiah_52_3,
@@ -27921,9 +26396,10 @@ static const u8 *const sJeremiah_Chapter52[] = {
     Bible_Text_Jeremiah_52_32,
     Bible_Text_Jeremiah_52_33,
     Bible_Text_Jeremiah_52_34,
+    0
 };
 
-static const u8 *const *const sBibleText_JeremiahTextPtrs[] = {
+static const u16 *const *const sBibleText_JeremiahTextPtrs[] = {
     sJeremiah_Chapter1,
     sJeremiah_Chapter2,
     sJeremiah_Chapter3,
@@ -27976,9 +26452,10 @@ static const u8 *const *const sBibleText_JeremiahTextPtrs[] = {
     sJeremiah_Chapter50,
     sJeremiah_Chapter51,
     sJeremiah_Chapter52,
+    0
 };
 
-static const u8 *const sLamentations_Chapter1[] = {
+static const u16 *const sLamentations_Chapter1[] = {
     Bible_Text_Lamentations_1_1,
     Bible_Text_Lamentations_1_2,
     Bible_Text_Lamentations_1_3,
@@ -28001,9 +26478,10 @@ static const u8 *const sLamentations_Chapter1[] = {
     Bible_Text_Lamentations_1_20,
     Bible_Text_Lamentations_1_21,
     Bible_Text_Lamentations_1_22,
+    0
 };
 
-static const u8 *const sLamentations_Chapter2[] = {
+static const u16 *const sLamentations_Chapter2[] = {
     Bible_Text_Lamentations_2_1,
     Bible_Text_Lamentations_2_2,
     Bible_Text_Lamentations_2_3,
@@ -28026,9 +26504,10 @@ static const u8 *const sLamentations_Chapter2[] = {
     Bible_Text_Lamentations_2_20,
     Bible_Text_Lamentations_2_21,
     Bible_Text_Lamentations_2_22,
+    0
 };
 
-static const u8 *const sLamentations_Chapter3[] = {
+static const u16 *const sLamentations_Chapter3[] = {
     Bible_Text_Lamentations_3_1,
     Bible_Text_Lamentations_3_2,
     Bible_Text_Lamentations_3_3,
@@ -28095,9 +26574,10 @@ static const u8 *const sLamentations_Chapter3[] = {
     Bible_Text_Lamentations_3_64,
     Bible_Text_Lamentations_3_65,
     Bible_Text_Lamentations_3_66,
+    0
 };
 
-static const u8 *const sLamentations_Chapter4[] = {
+static const u16 *const sLamentations_Chapter4[] = {
     Bible_Text_Lamentations_4_1,
     Bible_Text_Lamentations_4_2,
     Bible_Text_Lamentations_4_3,
@@ -28120,9 +26600,10 @@ static const u8 *const sLamentations_Chapter4[] = {
     Bible_Text_Lamentations_4_20,
     Bible_Text_Lamentations_4_21,
     Bible_Text_Lamentations_4_22,
+    0
 };
 
-static const u8 *const sLamentations_Chapter5[] = {
+static const u16 *const sLamentations_Chapter5[] = {
     Bible_Text_Lamentations_5_1,
     Bible_Text_Lamentations_5_2,
     Bible_Text_Lamentations_5_3,
@@ -28145,17 +26626,19 @@ static const u8 *const sLamentations_Chapter5[] = {
     Bible_Text_Lamentations_5_20,
     Bible_Text_Lamentations_5_21,
     Bible_Text_Lamentations_5_22,
+    0
 };
 
-static const u8 *const *const sBibleText_LamentationsTextPtrs[] = {
+static const u16 *const *const sBibleText_LamentationsTextPtrs[] = {
     sLamentations_Chapter1,
     sLamentations_Chapter2,
     sLamentations_Chapter3,
     sLamentations_Chapter4,
     sLamentations_Chapter5,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter1[] = {
+static const u16 *const sEzekiel_Chapter1[] = {
     Bible_Text_Ezekiel_1_1,
     Bible_Text_Ezekiel_1_2,
     Bible_Text_Ezekiel_1_3,
@@ -28184,9 +26667,10 @@ static const u8 *const sEzekiel_Chapter1[] = {
     Bible_Text_Ezekiel_1_26,
     Bible_Text_Ezekiel_1_27,
     Bible_Text_Ezekiel_1_28,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter2[] = {
+static const u16 *const sEzekiel_Chapter2[] = {
     Bible_Text_Ezekiel_2_1,
     Bible_Text_Ezekiel_2_2,
     Bible_Text_Ezekiel_2_3,
@@ -28197,9 +26681,10 @@ static const u8 *const sEzekiel_Chapter2[] = {
     Bible_Text_Ezekiel_2_8,
     Bible_Text_Ezekiel_2_9,
     Bible_Text_Ezekiel_2_10,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter3[] = {
+static const u16 *const sEzekiel_Chapter3[] = {
     Bible_Text_Ezekiel_3_1,
     Bible_Text_Ezekiel_3_2,
     Bible_Text_Ezekiel_3_3,
@@ -28227,9 +26712,10 @@ static const u8 *const sEzekiel_Chapter3[] = {
     Bible_Text_Ezekiel_3_25,
     Bible_Text_Ezekiel_3_26,
     Bible_Text_Ezekiel_3_27,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter4[] = {
+static const u16 *const sEzekiel_Chapter4[] = {
     Bible_Text_Ezekiel_4_1,
     Bible_Text_Ezekiel_4_2,
     Bible_Text_Ezekiel_4_3,
@@ -28247,9 +26733,10 @@ static const u8 *const sEzekiel_Chapter4[] = {
     Bible_Text_Ezekiel_4_15,
     Bible_Text_Ezekiel_4_16,
     Bible_Text_Ezekiel_4_17,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter5[] = {
+static const u16 *const sEzekiel_Chapter5[] = {
     Bible_Text_Ezekiel_5_1,
     Bible_Text_Ezekiel_5_2,
     Bible_Text_Ezekiel_5_3,
@@ -28267,9 +26754,10 @@ static const u8 *const sEzekiel_Chapter5[] = {
     Bible_Text_Ezekiel_5_15,
     Bible_Text_Ezekiel_5_16,
     Bible_Text_Ezekiel_5_17,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter6[] = {
+static const u16 *const sEzekiel_Chapter6[] = {
     Bible_Text_Ezekiel_6_1,
     Bible_Text_Ezekiel_6_2,
     Bible_Text_Ezekiel_6_3,
@@ -28284,9 +26772,10 @@ static const u8 *const sEzekiel_Chapter6[] = {
     Bible_Text_Ezekiel_6_12,
     Bible_Text_Ezekiel_6_13,
     Bible_Text_Ezekiel_6_14,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter7[] = {
+static const u16 *const sEzekiel_Chapter7[] = {
     Bible_Text_Ezekiel_7_1,
     Bible_Text_Ezekiel_7_2,
     Bible_Text_Ezekiel_7_3,
@@ -28314,9 +26803,10 @@ static const u8 *const sEzekiel_Chapter7[] = {
     Bible_Text_Ezekiel_7_25,
     Bible_Text_Ezekiel_7_26,
     Bible_Text_Ezekiel_7_27,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter8[] = {
+static const u16 *const sEzekiel_Chapter8[] = {
     Bible_Text_Ezekiel_8_1,
     Bible_Text_Ezekiel_8_2,
     Bible_Text_Ezekiel_8_3,
@@ -28335,9 +26825,10 @@ static const u8 *const sEzekiel_Chapter8[] = {
     Bible_Text_Ezekiel_8_16,
     Bible_Text_Ezekiel_8_17,
     Bible_Text_Ezekiel_8_18,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter9[] = {
+static const u16 *const sEzekiel_Chapter9[] = {
     Bible_Text_Ezekiel_9_1,
     Bible_Text_Ezekiel_9_2,
     Bible_Text_Ezekiel_9_3,
@@ -28349,9 +26840,10 @@ static const u8 *const sEzekiel_Chapter9[] = {
     Bible_Text_Ezekiel_9_9,
     Bible_Text_Ezekiel_9_10,
     Bible_Text_Ezekiel_9_11,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter10[] = {
+static const u16 *const sEzekiel_Chapter10[] = {
     Bible_Text_Ezekiel_10_1,
     Bible_Text_Ezekiel_10_2,
     Bible_Text_Ezekiel_10_3,
@@ -28374,9 +26866,10 @@ static const u8 *const sEzekiel_Chapter10[] = {
     Bible_Text_Ezekiel_10_20,
     Bible_Text_Ezekiel_10_21,
     Bible_Text_Ezekiel_10_22,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter11[] = {
+static const u16 *const sEzekiel_Chapter11[] = {
     Bible_Text_Ezekiel_11_1,
     Bible_Text_Ezekiel_11_2,
     Bible_Text_Ezekiel_11_3,
@@ -28402,9 +26895,10 @@ static const u8 *const sEzekiel_Chapter11[] = {
     Bible_Text_Ezekiel_11_23,
     Bible_Text_Ezekiel_11_24,
     Bible_Text_Ezekiel_11_25,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter12[] = {
+static const u16 *const sEzekiel_Chapter12[] = {
     Bible_Text_Ezekiel_12_1,
     Bible_Text_Ezekiel_12_2,
     Bible_Text_Ezekiel_12_3,
@@ -28433,9 +26927,10 @@ static const u8 *const sEzekiel_Chapter12[] = {
     Bible_Text_Ezekiel_12_26,
     Bible_Text_Ezekiel_12_27,
     Bible_Text_Ezekiel_12_28,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter13[] = {
+static const u16 *const sEzekiel_Chapter13[] = {
     Bible_Text_Ezekiel_13_1,
     Bible_Text_Ezekiel_13_2,
     Bible_Text_Ezekiel_13_3,
@@ -28459,9 +26954,10 @@ static const u8 *const sEzekiel_Chapter13[] = {
     Bible_Text_Ezekiel_13_21,
     Bible_Text_Ezekiel_13_22,
     Bible_Text_Ezekiel_13_23,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter14[] = {
+static const u16 *const sEzekiel_Chapter14[] = {
     Bible_Text_Ezekiel_14_1,
     Bible_Text_Ezekiel_14_2,
     Bible_Text_Ezekiel_14_3,
@@ -28485,9 +26981,10 @@ static const u8 *const sEzekiel_Chapter14[] = {
     Bible_Text_Ezekiel_14_21,
     Bible_Text_Ezekiel_14_22,
     Bible_Text_Ezekiel_14_23,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter15[] = {
+static const u16 *const sEzekiel_Chapter15[] = {
     Bible_Text_Ezekiel_15_1,
     Bible_Text_Ezekiel_15_2,
     Bible_Text_Ezekiel_15_3,
@@ -28496,9 +26993,10 @@ static const u8 *const sEzekiel_Chapter15[] = {
     Bible_Text_Ezekiel_15_6,
     Bible_Text_Ezekiel_15_7,
     Bible_Text_Ezekiel_15_8,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter16[] = {
+static const u16 *const sEzekiel_Chapter16[] = {
     Bible_Text_Ezekiel_16_1,
     Bible_Text_Ezekiel_16_2,
     Bible_Text_Ezekiel_16_3,
@@ -28562,9 +27060,10 @@ static const u8 *const sEzekiel_Chapter16[] = {
     Bible_Text_Ezekiel_16_61,
     Bible_Text_Ezekiel_16_62,
     Bible_Text_Ezekiel_16_63,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter17[] = {
+static const u16 *const sEzekiel_Chapter17[] = {
     Bible_Text_Ezekiel_17_1,
     Bible_Text_Ezekiel_17_2,
     Bible_Text_Ezekiel_17_3,
@@ -28589,9 +27088,10 @@ static const u8 *const sEzekiel_Chapter17[] = {
     Bible_Text_Ezekiel_17_22,
     Bible_Text_Ezekiel_17_23,
     Bible_Text_Ezekiel_17_24,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter18[] = {
+static const u16 *const sEzekiel_Chapter18[] = {
     Bible_Text_Ezekiel_18_1,
     Bible_Text_Ezekiel_18_2,
     Bible_Text_Ezekiel_18_3,
@@ -28624,9 +27124,10 @@ static const u8 *const sEzekiel_Chapter18[] = {
     Bible_Text_Ezekiel_18_30,
     Bible_Text_Ezekiel_18_31,
     Bible_Text_Ezekiel_18_32,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter19[] = {
+static const u16 *const sEzekiel_Chapter19[] = {
     Bible_Text_Ezekiel_19_1,
     Bible_Text_Ezekiel_19_2,
     Bible_Text_Ezekiel_19_3,
@@ -28641,9 +27142,10 @@ static const u8 *const sEzekiel_Chapter19[] = {
     Bible_Text_Ezekiel_19_12,
     Bible_Text_Ezekiel_19_13,
     Bible_Text_Ezekiel_19_14,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter20[] = {
+static const u16 *const sEzekiel_Chapter20[] = {
     Bible_Text_Ezekiel_20_1,
     Bible_Text_Ezekiel_20_2,
     Bible_Text_Ezekiel_20_3,
@@ -28693,9 +27195,10 @@ static const u8 *const sEzekiel_Chapter20[] = {
     Bible_Text_Ezekiel_20_47,
     Bible_Text_Ezekiel_20_48,
     Bible_Text_Ezekiel_20_49,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter21[] = {
+static const u16 *const sEzekiel_Chapter21[] = {
     Bible_Text_Ezekiel_21_1,
     Bible_Text_Ezekiel_21_2,
     Bible_Text_Ezekiel_21_3,
@@ -28728,9 +27231,10 @@ static const u8 *const sEzekiel_Chapter21[] = {
     Bible_Text_Ezekiel_21_30,
     Bible_Text_Ezekiel_21_31,
     Bible_Text_Ezekiel_21_32,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter22[] = {
+static const u16 *const sEzekiel_Chapter22[] = {
     Bible_Text_Ezekiel_22_1,
     Bible_Text_Ezekiel_22_2,
     Bible_Text_Ezekiel_22_3,
@@ -28762,9 +27266,10 @@ static const u8 *const sEzekiel_Chapter22[] = {
     Bible_Text_Ezekiel_22_29,
     Bible_Text_Ezekiel_22_30,
     Bible_Text_Ezekiel_22_31,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter23[] = {
+static const u16 *const sEzekiel_Chapter23[] = {
     Bible_Text_Ezekiel_23_1,
     Bible_Text_Ezekiel_23_2,
     Bible_Text_Ezekiel_23_3,
@@ -28814,9 +27319,10 @@ static const u8 *const sEzekiel_Chapter23[] = {
     Bible_Text_Ezekiel_23_47,
     Bible_Text_Ezekiel_23_48,
     Bible_Text_Ezekiel_23_49,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter24[] = {
+static const u16 *const sEzekiel_Chapter24[] = {
     Bible_Text_Ezekiel_24_1,
     Bible_Text_Ezekiel_24_2,
     Bible_Text_Ezekiel_24_3,
@@ -28844,9 +27350,10 @@ static const u8 *const sEzekiel_Chapter24[] = {
     Bible_Text_Ezekiel_24_25,
     Bible_Text_Ezekiel_24_26,
     Bible_Text_Ezekiel_24_27,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter25[] = {
+static const u16 *const sEzekiel_Chapter25[] = {
     Bible_Text_Ezekiel_25_1,
     Bible_Text_Ezekiel_25_2,
     Bible_Text_Ezekiel_25_3,
@@ -28864,9 +27371,10 @@ static const u8 *const sEzekiel_Chapter25[] = {
     Bible_Text_Ezekiel_25_15,
     Bible_Text_Ezekiel_25_16,
     Bible_Text_Ezekiel_25_17,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter26[] = {
+static const u16 *const sEzekiel_Chapter26[] = {
     Bible_Text_Ezekiel_26_1,
     Bible_Text_Ezekiel_26_2,
     Bible_Text_Ezekiel_26_3,
@@ -28888,9 +27396,10 @@ static const u8 *const sEzekiel_Chapter26[] = {
     Bible_Text_Ezekiel_26_19,
     Bible_Text_Ezekiel_26_20,
     Bible_Text_Ezekiel_26_21,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter27[] = {
+static const u16 *const sEzekiel_Chapter27[] = {
     Bible_Text_Ezekiel_27_1,
     Bible_Text_Ezekiel_27_2,
     Bible_Text_Ezekiel_27_3,
@@ -28927,9 +27436,10 @@ static const u8 *const sEzekiel_Chapter27[] = {
     Bible_Text_Ezekiel_27_34,
     Bible_Text_Ezekiel_27_35,
     Bible_Text_Ezekiel_27_36,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter28[] = {
+static const u16 *const sEzekiel_Chapter28[] = {
     Bible_Text_Ezekiel_28_1,
     Bible_Text_Ezekiel_28_2,
     Bible_Text_Ezekiel_28_3,
@@ -28956,9 +27466,10 @@ static const u8 *const sEzekiel_Chapter28[] = {
     Bible_Text_Ezekiel_28_24,
     Bible_Text_Ezekiel_28_25,
     Bible_Text_Ezekiel_28_26,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter29[] = {
+static const u16 *const sEzekiel_Chapter29[] = {
     Bible_Text_Ezekiel_29_1,
     Bible_Text_Ezekiel_29_2,
     Bible_Text_Ezekiel_29_3,
@@ -28980,9 +27491,10 @@ static const u8 *const sEzekiel_Chapter29[] = {
     Bible_Text_Ezekiel_29_19,
     Bible_Text_Ezekiel_29_20,
     Bible_Text_Ezekiel_29_21,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter30[] = {
+static const u16 *const sEzekiel_Chapter30[] = {
     Bible_Text_Ezekiel_30_1,
     Bible_Text_Ezekiel_30_2,
     Bible_Text_Ezekiel_30_3,
@@ -29009,9 +27521,10 @@ static const u8 *const sEzekiel_Chapter30[] = {
     Bible_Text_Ezekiel_30_24,
     Bible_Text_Ezekiel_30_25,
     Bible_Text_Ezekiel_30_26,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter31[] = {
+static const u16 *const sEzekiel_Chapter31[] = {
     Bible_Text_Ezekiel_31_1,
     Bible_Text_Ezekiel_31_2,
     Bible_Text_Ezekiel_31_3,
@@ -29030,9 +27543,10 @@ static const u8 *const sEzekiel_Chapter31[] = {
     Bible_Text_Ezekiel_31_16,
     Bible_Text_Ezekiel_31_17,
     Bible_Text_Ezekiel_31_18,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter32[] = {
+static const u16 *const sEzekiel_Chapter32[] = {
     Bible_Text_Ezekiel_32_1,
     Bible_Text_Ezekiel_32_2,
     Bible_Text_Ezekiel_32_3,
@@ -29065,9 +27579,10 @@ static const u8 *const sEzekiel_Chapter32[] = {
     Bible_Text_Ezekiel_32_30,
     Bible_Text_Ezekiel_32_31,
     Bible_Text_Ezekiel_32_32,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter33[] = {
+static const u16 *const sEzekiel_Chapter33[] = {
     Bible_Text_Ezekiel_33_1,
     Bible_Text_Ezekiel_33_2,
     Bible_Text_Ezekiel_33_3,
@@ -29101,9 +27616,10 @@ static const u8 *const sEzekiel_Chapter33[] = {
     Bible_Text_Ezekiel_33_31,
     Bible_Text_Ezekiel_33_32,
     Bible_Text_Ezekiel_33_33,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter34[] = {
+static const u16 *const sEzekiel_Chapter34[] = {
     Bible_Text_Ezekiel_34_1,
     Bible_Text_Ezekiel_34_2,
     Bible_Text_Ezekiel_34_3,
@@ -29135,9 +27651,10 @@ static const u8 *const sEzekiel_Chapter34[] = {
     Bible_Text_Ezekiel_34_29,
     Bible_Text_Ezekiel_34_30,
     Bible_Text_Ezekiel_34_31,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter35[] = {
+static const u16 *const sEzekiel_Chapter35[] = {
     Bible_Text_Ezekiel_35_1,
     Bible_Text_Ezekiel_35_2,
     Bible_Text_Ezekiel_35_3,
@@ -29153,9 +27670,10 @@ static const u8 *const sEzekiel_Chapter35[] = {
     Bible_Text_Ezekiel_35_13,
     Bible_Text_Ezekiel_35_14,
     Bible_Text_Ezekiel_35_15,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter36[] = {
+static const u16 *const sEzekiel_Chapter36[] = {
     Bible_Text_Ezekiel_36_1,
     Bible_Text_Ezekiel_36_2,
     Bible_Text_Ezekiel_36_3,
@@ -29194,9 +27712,10 @@ static const u8 *const sEzekiel_Chapter36[] = {
     Bible_Text_Ezekiel_36_36,
     Bible_Text_Ezekiel_36_37,
     Bible_Text_Ezekiel_36_38,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter37[] = {
+static const u16 *const sEzekiel_Chapter37[] = {
     Bible_Text_Ezekiel_37_1,
     Bible_Text_Ezekiel_37_2,
     Bible_Text_Ezekiel_37_3,
@@ -29225,9 +27744,10 @@ static const u8 *const sEzekiel_Chapter37[] = {
     Bible_Text_Ezekiel_37_26,
     Bible_Text_Ezekiel_37_27,
     Bible_Text_Ezekiel_37_28,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter38[] = {
+static const u16 *const sEzekiel_Chapter38[] = {
     Bible_Text_Ezekiel_38_1,
     Bible_Text_Ezekiel_38_2,
     Bible_Text_Ezekiel_38_3,
@@ -29251,9 +27771,10 @@ static const u8 *const sEzekiel_Chapter38[] = {
     Bible_Text_Ezekiel_38_21,
     Bible_Text_Ezekiel_38_22,
     Bible_Text_Ezekiel_38_23,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter39[] = {
+static const u16 *const sEzekiel_Chapter39[] = {
     Bible_Text_Ezekiel_39_1,
     Bible_Text_Ezekiel_39_2,
     Bible_Text_Ezekiel_39_3,
@@ -29283,9 +27804,10 @@ static const u8 *const sEzekiel_Chapter39[] = {
     Bible_Text_Ezekiel_39_27,
     Bible_Text_Ezekiel_39_28,
     Bible_Text_Ezekiel_39_29,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter40[] = {
+static const u16 *const sEzekiel_Chapter40[] = {
     Bible_Text_Ezekiel_40_1,
     Bible_Text_Ezekiel_40_2,
     Bible_Text_Ezekiel_40_3,
@@ -29335,9 +27857,10 @@ static const u8 *const sEzekiel_Chapter40[] = {
     Bible_Text_Ezekiel_40_47,
     Bible_Text_Ezekiel_40_48,
     Bible_Text_Ezekiel_40_49,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter41[] = {
+static const u16 *const sEzekiel_Chapter41[] = {
     Bible_Text_Ezekiel_41_1,
     Bible_Text_Ezekiel_41_2,
     Bible_Text_Ezekiel_41_3,
@@ -29364,9 +27887,10 @@ static const u8 *const sEzekiel_Chapter41[] = {
     Bible_Text_Ezekiel_41_24,
     Bible_Text_Ezekiel_41_25,
     Bible_Text_Ezekiel_41_26,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter42[] = {
+static const u16 *const sEzekiel_Chapter42[] = {
     Bible_Text_Ezekiel_42_1,
     Bible_Text_Ezekiel_42_2,
     Bible_Text_Ezekiel_42_3,
@@ -29387,9 +27911,10 @@ static const u8 *const sEzekiel_Chapter42[] = {
     Bible_Text_Ezekiel_42_18,
     Bible_Text_Ezekiel_42_19,
     Bible_Text_Ezekiel_42_20,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter43[] = {
+static const u16 *const sEzekiel_Chapter43[] = {
     Bible_Text_Ezekiel_43_1,
     Bible_Text_Ezekiel_43_2,
     Bible_Text_Ezekiel_43_3,
@@ -29417,9 +27942,10 @@ static const u8 *const sEzekiel_Chapter43[] = {
     Bible_Text_Ezekiel_43_25,
     Bible_Text_Ezekiel_43_26,
     Bible_Text_Ezekiel_43_27,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter44[] = {
+static const u16 *const sEzekiel_Chapter44[] = {
     Bible_Text_Ezekiel_44_1,
     Bible_Text_Ezekiel_44_2,
     Bible_Text_Ezekiel_44_3,
@@ -29451,9 +27977,10 @@ static const u8 *const sEzekiel_Chapter44[] = {
     Bible_Text_Ezekiel_44_29,
     Bible_Text_Ezekiel_44_30,
     Bible_Text_Ezekiel_44_31,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter45[] = {
+static const u16 *const sEzekiel_Chapter45[] = {
     Bible_Text_Ezekiel_45_1,
     Bible_Text_Ezekiel_45_2,
     Bible_Text_Ezekiel_45_3,
@@ -29479,9 +28006,10 @@ static const u8 *const sEzekiel_Chapter45[] = {
     Bible_Text_Ezekiel_45_23,
     Bible_Text_Ezekiel_45_24,
     Bible_Text_Ezekiel_45_25,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter46[] = {
+static const u16 *const sEzekiel_Chapter46[] = {
     Bible_Text_Ezekiel_46_1,
     Bible_Text_Ezekiel_46_2,
     Bible_Text_Ezekiel_46_3,
@@ -29506,9 +28034,10 @@ static const u8 *const sEzekiel_Chapter46[] = {
     Bible_Text_Ezekiel_46_22,
     Bible_Text_Ezekiel_46_23,
     Bible_Text_Ezekiel_46_24,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter47[] = {
+static const u16 *const sEzekiel_Chapter47[] = {
     Bible_Text_Ezekiel_47_1,
     Bible_Text_Ezekiel_47_2,
     Bible_Text_Ezekiel_47_3,
@@ -29532,9 +28061,10 @@ static const u8 *const sEzekiel_Chapter47[] = {
     Bible_Text_Ezekiel_47_21,
     Bible_Text_Ezekiel_47_22,
     Bible_Text_Ezekiel_47_23,
+    0
 };
 
-static const u8 *const sEzekiel_Chapter48[] = {
+static const u16 *const sEzekiel_Chapter48[] = {
     Bible_Text_Ezekiel_48_1,
     Bible_Text_Ezekiel_48_2,
     Bible_Text_Ezekiel_48_3,
@@ -29570,9 +28100,10 @@ static const u8 *const sEzekiel_Chapter48[] = {
     Bible_Text_Ezekiel_48_33,
     Bible_Text_Ezekiel_48_34,
     Bible_Text_Ezekiel_48_35,
+    0
 };
 
-static const u8 *const *const sBibleText_EzekielTextPtrs[] = {
+static const u16 *const *const sBibleText_EzekielTextPtrs[] = {
     sEzekiel_Chapter1,
     sEzekiel_Chapter2,
     sEzekiel_Chapter3,
@@ -29621,9 +28152,10 @@ static const u8 *const *const sBibleText_EzekielTextPtrs[] = {
     sEzekiel_Chapter46,
     sEzekiel_Chapter47,
     sEzekiel_Chapter48,
+    0
 };
 
-static const u8 *const sDaniel_Chapter1[] = {
+static const u16 *const sDaniel_Chapter1[] = {
     Bible_Text_Daniel_1_1,
     Bible_Text_Daniel_1_2,
     Bible_Text_Daniel_1_3,
@@ -29645,9 +28177,10 @@ static const u8 *const sDaniel_Chapter1[] = {
     Bible_Text_Daniel_1_19,
     Bible_Text_Daniel_1_20,
     Bible_Text_Daniel_1_21,
+    0
 };
 
-static const u8 *const sDaniel_Chapter2[] = {
+static const u16 *const sDaniel_Chapter2[] = {
     Bible_Text_Daniel_2_1,
     Bible_Text_Daniel_2_2,
     Bible_Text_Daniel_2_3,
@@ -29697,9 +28230,10 @@ static const u8 *const sDaniel_Chapter2[] = {
     Bible_Text_Daniel_2_47,
     Bible_Text_Daniel_2_48,
     Bible_Text_Daniel_2_49,
+    0
 };
 
-static const u8 *const sDaniel_Chapter3[] = {
+static const u16 *const sDaniel_Chapter3[] = {
     Bible_Text_Daniel_3_1,
     Bible_Text_Daniel_3_2,
     Bible_Text_Daniel_3_3,
@@ -29730,9 +28264,10 @@ static const u8 *const sDaniel_Chapter3[] = {
     Bible_Text_Daniel_3_28,
     Bible_Text_Daniel_3_29,
     Bible_Text_Daniel_3_30,
+    0
 };
 
-static const u8 *const sDaniel_Chapter4[] = {
+static const u16 *const sDaniel_Chapter4[] = {
     Bible_Text_Daniel_4_1,
     Bible_Text_Daniel_4_2,
     Bible_Text_Daniel_4_3,
@@ -29770,9 +28305,10 @@ static const u8 *const sDaniel_Chapter4[] = {
     Bible_Text_Daniel_4_35,
     Bible_Text_Daniel_4_36,
     Bible_Text_Daniel_4_37,
+    0
 };
 
-static const u8 *const sDaniel_Chapter5[] = {
+static const u16 *const sDaniel_Chapter5[] = {
     Bible_Text_Daniel_5_1,
     Bible_Text_Daniel_5_2,
     Bible_Text_Daniel_5_3,
@@ -29804,9 +28340,10 @@ static const u8 *const sDaniel_Chapter5[] = {
     Bible_Text_Daniel_5_29,
     Bible_Text_Daniel_5_30,
     Bible_Text_Daniel_5_31,
+    0
 };
 
-static const u8 *const sDaniel_Chapter6[] = {
+static const u16 *const sDaniel_Chapter6[] = {
     Bible_Text_Daniel_6_1,
     Bible_Text_Daniel_6_2,
     Bible_Text_Daniel_6_3,
@@ -29835,9 +28372,10 @@ static const u8 *const sDaniel_Chapter6[] = {
     Bible_Text_Daniel_6_26,
     Bible_Text_Daniel_6_27,
     Bible_Text_Daniel_6_28,
+    0
 };
 
-static const u8 *const sDaniel_Chapter7[] = {
+static const u16 *const sDaniel_Chapter7[] = {
     Bible_Text_Daniel_7_1,
     Bible_Text_Daniel_7_2,
     Bible_Text_Daniel_7_3,
@@ -29866,9 +28404,10 @@ static const u8 *const sDaniel_Chapter7[] = {
     Bible_Text_Daniel_7_26,
     Bible_Text_Daniel_7_27,
     Bible_Text_Daniel_7_28,
+    0
 };
 
-static const u8 *const sDaniel_Chapter8[] = {
+static const u16 *const sDaniel_Chapter8[] = {
     Bible_Text_Daniel_8_1,
     Bible_Text_Daniel_8_2,
     Bible_Text_Daniel_8_3,
@@ -29896,9 +28435,10 @@ static const u8 *const sDaniel_Chapter8[] = {
     Bible_Text_Daniel_8_25,
     Bible_Text_Daniel_8_26,
     Bible_Text_Daniel_8_27,
+    0
 };
 
-static const u8 *const sDaniel_Chapter9[] = {
+static const u16 *const sDaniel_Chapter9[] = {
     Bible_Text_Daniel_9_1,
     Bible_Text_Daniel_9_2,
     Bible_Text_Daniel_9_3,
@@ -29926,9 +28466,10 @@ static const u8 *const sDaniel_Chapter9[] = {
     Bible_Text_Daniel_9_25,
     Bible_Text_Daniel_9_26,
     Bible_Text_Daniel_9_27,
+    0
 };
 
-static const u8 *const sDaniel_Chapter10[] = {
+static const u16 *const sDaniel_Chapter10[] = {
     Bible_Text_Daniel_10_1,
     Bible_Text_Daniel_10_2,
     Bible_Text_Daniel_10_3,
@@ -29950,9 +28491,10 @@ static const u8 *const sDaniel_Chapter10[] = {
     Bible_Text_Daniel_10_19,
     Bible_Text_Daniel_10_20,
     Bible_Text_Daniel_10_21,
+    0
 };
 
-static const u8 *const sDaniel_Chapter11[] = {
+static const u16 *const sDaniel_Chapter11[] = {
     Bible_Text_Daniel_11_1,
     Bible_Text_Daniel_11_2,
     Bible_Text_Daniel_11_3,
@@ -29998,9 +28540,10 @@ static const u8 *const sDaniel_Chapter11[] = {
     Bible_Text_Daniel_11_43,
     Bible_Text_Daniel_11_44,
     Bible_Text_Daniel_11_45,
+    0
 };
 
-static const u8 *const sDaniel_Chapter12[] = {
+static const u16 *const sDaniel_Chapter12[] = {
     Bible_Text_Daniel_12_1,
     Bible_Text_Daniel_12_2,
     Bible_Text_Daniel_12_3,
@@ -30014,9 +28557,10 @@ static const u8 *const sDaniel_Chapter12[] = {
     Bible_Text_Daniel_12_11,
     Bible_Text_Daniel_12_12,
     Bible_Text_Daniel_12_13,
+    0
 };
 
-static const u8 *const *const sBibleText_DanielTextPtrs[] = {
+static const u16 *const *const sBibleText_DanielTextPtrs[] = {
     sDaniel_Chapter1,
     sDaniel_Chapter2,
     sDaniel_Chapter3,
@@ -30029,9 +28573,10 @@ static const u8 *const *const sBibleText_DanielTextPtrs[] = {
     sDaniel_Chapter10,
     sDaniel_Chapter11,
     sDaniel_Chapter12,
+    0
 };
 
-static const u8 *const sHosea_Chapter1[] = {
+static const u16 *const sHosea_Chapter1[] = {
     Bible_Text_Hosea_1_1,
     Bible_Text_Hosea_1_2,
     Bible_Text_Hosea_1_3,
@@ -30043,9 +28588,10 @@ static const u8 *const sHosea_Chapter1[] = {
     Bible_Text_Hosea_1_9,
     Bible_Text_Hosea_1_10,
     Bible_Text_Hosea_1_11,
+    0
 };
 
-static const u8 *const sHosea_Chapter2[] = {
+static const u16 *const sHosea_Chapter2[] = {
     Bible_Text_Hosea_2_1,
     Bible_Text_Hosea_2_2,
     Bible_Text_Hosea_2_3,
@@ -30069,17 +28615,19 @@ static const u8 *const sHosea_Chapter2[] = {
     Bible_Text_Hosea_2_21,
     Bible_Text_Hosea_2_22,
     Bible_Text_Hosea_2_23,
+    0
 };
 
-static const u8 *const sHosea_Chapter3[] = {
+static const u16 *const sHosea_Chapter3[] = {
     Bible_Text_Hosea_3_1,
     Bible_Text_Hosea_3_2,
     Bible_Text_Hosea_3_3,
     Bible_Text_Hosea_3_4,
     Bible_Text_Hosea_3_5,
+    0
 };
 
-static const u8 *const sHosea_Chapter4[] = {
+static const u16 *const sHosea_Chapter4[] = {
     Bible_Text_Hosea_4_1,
     Bible_Text_Hosea_4_2,
     Bible_Text_Hosea_4_3,
@@ -30099,9 +28647,10 @@ static const u8 *const sHosea_Chapter4[] = {
     Bible_Text_Hosea_4_17,
     Bible_Text_Hosea_4_18,
     Bible_Text_Hosea_4_19,
+    0
 };
 
-static const u8 *const sHosea_Chapter5[] = {
+static const u16 *const sHosea_Chapter5[] = {
     Bible_Text_Hosea_5_1,
     Bible_Text_Hosea_5_2,
     Bible_Text_Hosea_5_3,
@@ -30117,9 +28666,10 @@ static const u8 *const sHosea_Chapter5[] = {
     Bible_Text_Hosea_5_13,
     Bible_Text_Hosea_5_14,
     Bible_Text_Hosea_5_15,
+    0
 };
 
-static const u8 *const sHosea_Chapter6[] = {
+static const u16 *const sHosea_Chapter6[] = {
     Bible_Text_Hosea_6_1,
     Bible_Text_Hosea_6_2,
     Bible_Text_Hosea_6_3,
@@ -30131,9 +28681,10 @@ static const u8 *const sHosea_Chapter6[] = {
     Bible_Text_Hosea_6_9,
     Bible_Text_Hosea_6_10,
     Bible_Text_Hosea_6_11,
+    0
 };
 
-static const u8 *const sHosea_Chapter7[] = {
+static const u16 *const sHosea_Chapter7[] = {
     Bible_Text_Hosea_7_1,
     Bible_Text_Hosea_7_2,
     Bible_Text_Hosea_7_3,
@@ -30150,9 +28701,10 @@ static const u8 *const sHosea_Chapter7[] = {
     Bible_Text_Hosea_7_14,
     Bible_Text_Hosea_7_15,
     Bible_Text_Hosea_7_16,
+    0
 };
 
-static const u8 *const sHosea_Chapter8[] = {
+static const u16 *const sHosea_Chapter8[] = {
     Bible_Text_Hosea_8_1,
     Bible_Text_Hosea_8_2,
     Bible_Text_Hosea_8_3,
@@ -30167,9 +28719,10 @@ static const u8 *const sHosea_Chapter8[] = {
     Bible_Text_Hosea_8_12,
     Bible_Text_Hosea_8_13,
     Bible_Text_Hosea_8_14,
+    0
 };
 
-static const u8 *const sHosea_Chapter9[] = {
+static const u16 *const sHosea_Chapter9[] = {
     Bible_Text_Hosea_9_1,
     Bible_Text_Hosea_9_2,
     Bible_Text_Hosea_9_3,
@@ -30187,9 +28740,10 @@ static const u8 *const sHosea_Chapter9[] = {
     Bible_Text_Hosea_9_15,
     Bible_Text_Hosea_9_16,
     Bible_Text_Hosea_9_17,
+    0
 };
 
-static const u8 *const sHosea_Chapter10[] = {
+static const u16 *const sHosea_Chapter10[] = {
     Bible_Text_Hosea_10_1,
     Bible_Text_Hosea_10_2,
     Bible_Text_Hosea_10_3,
@@ -30205,9 +28759,10 @@ static const u8 *const sHosea_Chapter10[] = {
     Bible_Text_Hosea_10_13,
     Bible_Text_Hosea_10_14,
     Bible_Text_Hosea_10_15,
+    0
 };
 
-static const u8 *const sHosea_Chapter11[] = {
+static const u16 *const sHosea_Chapter11[] = {
     Bible_Text_Hosea_11_1,
     Bible_Text_Hosea_11_2,
     Bible_Text_Hosea_11_3,
@@ -30220,9 +28775,10 @@ static const u8 *const sHosea_Chapter11[] = {
     Bible_Text_Hosea_11_10,
     Bible_Text_Hosea_11_11,
     Bible_Text_Hosea_11_12,
+    0
 };
 
-static const u8 *const sHosea_Chapter12[] = {
+static const u16 *const sHosea_Chapter12[] = {
     Bible_Text_Hosea_12_1,
     Bible_Text_Hosea_12_2,
     Bible_Text_Hosea_12_3,
@@ -30237,9 +28793,10 @@ static const u8 *const sHosea_Chapter12[] = {
     Bible_Text_Hosea_12_12,
     Bible_Text_Hosea_12_13,
     Bible_Text_Hosea_12_14,
+    0
 };
 
-static const u8 *const sHosea_Chapter13[] = {
+static const u16 *const sHosea_Chapter13[] = {
     Bible_Text_Hosea_13_1,
     Bible_Text_Hosea_13_2,
     Bible_Text_Hosea_13_3,
@@ -30256,9 +28813,10 @@ static const u8 *const sHosea_Chapter13[] = {
     Bible_Text_Hosea_13_14,
     Bible_Text_Hosea_13_15,
     Bible_Text_Hosea_13_16,
+    0
 };
 
-static const u8 *const sHosea_Chapter14[] = {
+static const u16 *const sHosea_Chapter14[] = {
     Bible_Text_Hosea_14_1,
     Bible_Text_Hosea_14_2,
     Bible_Text_Hosea_14_3,
@@ -30268,9 +28826,10 @@ static const u8 *const sHosea_Chapter14[] = {
     Bible_Text_Hosea_14_7,
     Bible_Text_Hosea_14_8,
     Bible_Text_Hosea_14_9,
+    0
 };
 
-static const u8 *const *const sBibleText_HoseaTextPtrs[] = {
+static const u16 *const *const sBibleText_HoseaTextPtrs[] = {
     sHosea_Chapter1,
     sHosea_Chapter2,
     sHosea_Chapter3,
@@ -30285,9 +28844,10 @@ static const u8 *const *const sBibleText_HoseaTextPtrs[] = {
     sHosea_Chapter12,
     sHosea_Chapter13,
     sHosea_Chapter14,
+    0
 };
 
-static const u8 *const sJoel_Chapter1[] = {
+static const u16 *const sJoel_Chapter1[] = {
     Bible_Text_Joel_1_1,
     Bible_Text_Joel_1_2,
     Bible_Text_Joel_1_3,
@@ -30308,9 +28868,10 @@ static const u8 *const sJoel_Chapter1[] = {
     Bible_Text_Joel_1_18,
     Bible_Text_Joel_1_19,
     Bible_Text_Joel_1_20,
+    0
 };
 
-static const u8 *const sJoel_Chapter2[] = {
+static const u16 *const sJoel_Chapter2[] = {
     Bible_Text_Joel_2_1,
     Bible_Text_Joel_2_2,
     Bible_Text_Joel_2_3,
@@ -30343,9 +28904,10 @@ static const u8 *const sJoel_Chapter2[] = {
     Bible_Text_Joel_2_30,
     Bible_Text_Joel_2_31,
     Bible_Text_Joel_2_32,
+    0
 };
 
-static const u8 *const sJoel_Chapter3[] = {
+static const u16 *const sJoel_Chapter3[] = {
     Bible_Text_Joel_3_1,
     Bible_Text_Joel_3_2,
     Bible_Text_Joel_3_3,
@@ -30367,15 +28929,17 @@ static const u8 *const sJoel_Chapter3[] = {
     Bible_Text_Joel_3_19,
     Bible_Text_Joel_3_20,
     Bible_Text_Joel_3_21,
+    0
 };
 
-static const u8 *const *const sBibleText_JoelTextPtrs[] = {
+static const u16 *const *const sBibleText_JoelTextPtrs[] = {
     sJoel_Chapter1,
     sJoel_Chapter2,
     sJoel_Chapter3,
+    0
 };
 
-static const u8 *const sAmos_Chapter1[] = {
+static const u16 *const sAmos_Chapter1[] = {
     Bible_Text_Amos_1_1,
     Bible_Text_Amos_1_2,
     Bible_Text_Amos_1_3,
@@ -30391,9 +28955,10 @@ static const u8 *const sAmos_Chapter1[] = {
     Bible_Text_Amos_1_13,
     Bible_Text_Amos_1_14,
     Bible_Text_Amos_1_15,
+    0
 };
 
-static const u8 *const sAmos_Chapter2[] = {
+static const u16 *const sAmos_Chapter2[] = {
     Bible_Text_Amos_2_1,
     Bible_Text_Amos_2_2,
     Bible_Text_Amos_2_3,
@@ -30410,9 +28975,10 @@ static const u8 *const sAmos_Chapter2[] = {
     Bible_Text_Amos_2_14,
     Bible_Text_Amos_2_15,
     Bible_Text_Amos_2_16,
+    0
 };
 
-static const u8 *const sAmos_Chapter3[] = {
+static const u16 *const sAmos_Chapter3[] = {
     Bible_Text_Amos_3_1,
     Bible_Text_Amos_3_2,
     Bible_Text_Amos_3_3,
@@ -30428,9 +28994,10 @@ static const u8 *const sAmos_Chapter3[] = {
     Bible_Text_Amos_3_13,
     Bible_Text_Amos_3_14,
     Bible_Text_Amos_3_15,
+    0
 };
 
-static const u8 *const sAmos_Chapter4[] = {
+static const u16 *const sAmos_Chapter4[] = {
     Bible_Text_Amos_4_1,
     Bible_Text_Amos_4_2,
     Bible_Text_Amos_4_3,
@@ -30444,9 +29011,10 @@ static const u8 *const sAmos_Chapter4[] = {
     Bible_Text_Amos_4_11,
     Bible_Text_Amos_4_12,
     Bible_Text_Amos_4_13,
+    0
 };
 
-static const u8 *const sAmos_Chapter5[] = {
+static const u16 *const sAmos_Chapter5[] = {
     Bible_Text_Amos_5_1,
     Bible_Text_Amos_5_2,
     Bible_Text_Amos_5_3,
@@ -30474,9 +29042,10 @@ static const u8 *const sAmos_Chapter5[] = {
     Bible_Text_Amos_5_25,
     Bible_Text_Amos_5_26,
     Bible_Text_Amos_5_27,
+    0
 };
 
-static const u8 *const sAmos_Chapter6[] = {
+static const u16 *const sAmos_Chapter6[] = {
     Bible_Text_Amos_6_1,
     Bible_Text_Amos_6_2,
     Bible_Text_Amos_6_3,
@@ -30491,9 +29060,10 @@ static const u8 *const sAmos_Chapter6[] = {
     Bible_Text_Amos_6_12,
     Bible_Text_Amos_6_13,
     Bible_Text_Amos_6_14,
+    0
 };
 
-static const u8 *const sAmos_Chapter7[] = {
+static const u16 *const sAmos_Chapter7[] = {
     Bible_Text_Amos_7_1,
     Bible_Text_Amos_7_2,
     Bible_Text_Amos_7_3,
@@ -30511,9 +29081,10 @@ static const u8 *const sAmos_Chapter7[] = {
     Bible_Text_Amos_7_15,
     Bible_Text_Amos_7_16,
     Bible_Text_Amos_7_17,
+    0
 };
 
-static const u8 *const sAmos_Chapter8[] = {
+static const u16 *const sAmos_Chapter8[] = {
     Bible_Text_Amos_8_1,
     Bible_Text_Amos_8_2,
     Bible_Text_Amos_8_3,
@@ -30528,9 +29099,10 @@ static const u8 *const sAmos_Chapter8[] = {
     Bible_Text_Amos_8_12,
     Bible_Text_Amos_8_13,
     Bible_Text_Amos_8_14,
+    0
 };
 
-static const u8 *const sAmos_Chapter9[] = {
+static const u16 *const sAmos_Chapter9[] = {
     Bible_Text_Amos_9_1,
     Bible_Text_Amos_9_2,
     Bible_Text_Amos_9_3,
@@ -30546,9 +29118,10 @@ static const u8 *const sAmos_Chapter9[] = {
     Bible_Text_Amos_9_13,
     Bible_Text_Amos_9_14,
     Bible_Text_Amos_9_15,
+    0
 };
 
-static const u8 *const *const sBibleText_AmosTextPtrs[] = {
+static const u16 *const *const sBibleText_AmosTextPtrs[] = {
     sAmos_Chapter1,
     sAmos_Chapter2,
     sAmos_Chapter3,
@@ -30558,9 +29131,10 @@ static const u8 *const *const sBibleText_AmosTextPtrs[] = {
     sAmos_Chapter7,
     sAmos_Chapter8,
     sAmos_Chapter9,
+    0
 };
 
-static const u8 *const sObadiah_Chapter1[] = {
+static const u16 *const sObadiah_Chapter1[] = {
     Bible_Text_Obadiah_1_1,
     Bible_Text_Obadiah_1_2,
     Bible_Text_Obadiah_1_3,
@@ -30582,13 +29156,15 @@ static const u8 *const sObadiah_Chapter1[] = {
     Bible_Text_Obadiah_1_19,
     Bible_Text_Obadiah_1_20,
     Bible_Text_Obadiah_1_21,
+    0
 };
 
-static const u8 *const *const sBibleText_ObadiahTextPtrs[] = {
+static const u16 *const *const sBibleText_ObadiahTextPtrs[] = {
     sObadiah_Chapter1,
+    0
 };
 
-static const u8 *const sJonah_Chapter1[] = {
+static const u16 *const sJonah_Chapter1[] = {
     Bible_Text_Jonah_1_1,
     Bible_Text_Jonah_1_2,
     Bible_Text_Jonah_1_3,
@@ -30606,9 +29182,10 @@ static const u8 *const sJonah_Chapter1[] = {
     Bible_Text_Jonah_1_15,
     Bible_Text_Jonah_1_16,
     Bible_Text_Jonah_1_17,
+    0
 };
 
-static const u8 *const sJonah_Chapter2[] = {
+static const u16 *const sJonah_Chapter2[] = {
     Bible_Text_Jonah_2_1,
     Bible_Text_Jonah_2_2,
     Bible_Text_Jonah_2_3,
@@ -30619,9 +29196,10 @@ static const u8 *const sJonah_Chapter2[] = {
     Bible_Text_Jonah_2_8,
     Bible_Text_Jonah_2_9,
     Bible_Text_Jonah_2_10,
+    0
 };
 
-static const u8 *const sJonah_Chapter3[] = {
+static const u16 *const sJonah_Chapter3[] = {
     Bible_Text_Jonah_3_1,
     Bible_Text_Jonah_3_2,
     Bible_Text_Jonah_3_3,
@@ -30632,9 +29210,10 @@ static const u8 *const sJonah_Chapter3[] = {
     Bible_Text_Jonah_3_8,
     Bible_Text_Jonah_3_9,
     Bible_Text_Jonah_3_10,
+    0
 };
 
-static const u8 *const sJonah_Chapter4[] = {
+static const u16 *const sJonah_Chapter4[] = {
     Bible_Text_Jonah_4_1,
     Bible_Text_Jonah_4_2,
     Bible_Text_Jonah_4_3,
@@ -30646,16 +29225,18 @@ static const u8 *const sJonah_Chapter4[] = {
     Bible_Text_Jonah_4_9,
     Bible_Text_Jonah_4_10,
     Bible_Text_Jonah_4_11,
+    0
 };
 
-static const u8 *const *const sBibleText_JonahTextPtrs[] = {
+static const u16 *const *const sBibleText_JonahTextPtrs[] = {
     sJonah_Chapter1,
     sJonah_Chapter2,
     sJonah_Chapter3,
     sJonah_Chapter4,
+    0
 };
 
-static const u8 *const sMicah_Chapter1[] = {
+static const u16 *const sMicah_Chapter1[] = {
     Bible_Text_Micah_1_1,
     Bible_Text_Micah_1_2,
     Bible_Text_Micah_1_3,
@@ -30672,9 +29253,10 @@ static const u8 *const sMicah_Chapter1[] = {
     Bible_Text_Micah_1_14,
     Bible_Text_Micah_1_15,
     Bible_Text_Micah_1_16,
+    0
 };
 
-static const u8 *const sMicah_Chapter2[] = {
+static const u16 *const sMicah_Chapter2[] = {
     Bible_Text_Micah_2_1,
     Bible_Text_Micah_2_2,
     Bible_Text_Micah_2_3,
@@ -30688,9 +29270,10 @@ static const u8 *const sMicah_Chapter2[] = {
     Bible_Text_Micah_2_11,
     Bible_Text_Micah_2_12,
     Bible_Text_Micah_2_13,
+    0
 };
 
-static const u8 *const sMicah_Chapter3[] = {
+static const u16 *const sMicah_Chapter3[] = {
     Bible_Text_Micah_3_1,
     Bible_Text_Micah_3_2,
     Bible_Text_Micah_3_3,
@@ -30703,9 +29286,10 @@ static const u8 *const sMicah_Chapter3[] = {
     Bible_Text_Micah_3_10,
     Bible_Text_Micah_3_11,
     Bible_Text_Micah_3_12,
+    0
 };
 
-static const u8 *const sMicah_Chapter4[] = {
+static const u16 *const sMicah_Chapter4[] = {
     Bible_Text_Micah_4_1,
     Bible_Text_Micah_4_2,
     Bible_Text_Micah_4_3,
@@ -30719,9 +29303,10 @@ static const u8 *const sMicah_Chapter4[] = {
     Bible_Text_Micah_4_11,
     Bible_Text_Micah_4_12,
     Bible_Text_Micah_4_13,
+    0
 };
 
-static const u8 *const sMicah_Chapter5[] = {
+static const u16 *const sMicah_Chapter5[] = {
     Bible_Text_Micah_5_1,
     Bible_Text_Micah_5_2,
     Bible_Text_Micah_5_3,
@@ -30737,9 +29322,10 @@ static const u8 *const sMicah_Chapter5[] = {
     Bible_Text_Micah_5_13,
     Bible_Text_Micah_5_14,
     Bible_Text_Micah_5_15,
+    0
 };
 
-static const u8 *const sMicah_Chapter6[] = {
+static const u16 *const sMicah_Chapter6[] = {
     Bible_Text_Micah_6_1,
     Bible_Text_Micah_6_2,
     Bible_Text_Micah_6_3,
@@ -30756,9 +29342,10 @@ static const u8 *const sMicah_Chapter6[] = {
     Bible_Text_Micah_6_14,
     Bible_Text_Micah_6_15,
     Bible_Text_Micah_6_16,
+    0
 };
 
-static const u8 *const sMicah_Chapter7[] = {
+static const u16 *const sMicah_Chapter7[] = {
     Bible_Text_Micah_7_1,
     Bible_Text_Micah_7_2,
     Bible_Text_Micah_7_3,
@@ -30779,9 +29366,10 @@ static const u8 *const sMicah_Chapter7[] = {
     Bible_Text_Micah_7_18,
     Bible_Text_Micah_7_19,
     Bible_Text_Micah_7_20,
+    0
 };
 
-static const u8 *const *const sBibleText_MicahTextPtrs[] = {
+static const u16 *const *const sBibleText_MicahTextPtrs[] = {
     sMicah_Chapter1,
     sMicah_Chapter2,
     sMicah_Chapter3,
@@ -30789,9 +29377,10 @@ static const u8 *const *const sBibleText_MicahTextPtrs[] = {
     sMicah_Chapter5,
     sMicah_Chapter6,
     sMicah_Chapter7,
+    0
 };
 
-static const u8 *const sNahum_Chapter1[] = {
+static const u16 *const sNahum_Chapter1[] = {
     Bible_Text_Nahum_1_1,
     Bible_Text_Nahum_1_2,
     Bible_Text_Nahum_1_3,
@@ -30807,9 +29396,10 @@ static const u8 *const sNahum_Chapter1[] = {
     Bible_Text_Nahum_1_13,
     Bible_Text_Nahum_1_14,
     Bible_Text_Nahum_1_15,
+    0
 };
 
-static const u8 *const sNahum_Chapter2[] = {
+static const u16 *const sNahum_Chapter2[] = {
     Bible_Text_Nahum_2_1,
     Bible_Text_Nahum_2_2,
     Bible_Text_Nahum_2_3,
@@ -30823,9 +29413,10 @@ static const u8 *const sNahum_Chapter2[] = {
     Bible_Text_Nahum_2_11,
     Bible_Text_Nahum_2_12,
     Bible_Text_Nahum_2_13,
+    0
 };
 
-static const u8 *const sNahum_Chapter3[] = {
+static const u16 *const sNahum_Chapter3[] = {
     Bible_Text_Nahum_3_1,
     Bible_Text_Nahum_3_2,
     Bible_Text_Nahum_3_3,
@@ -30845,15 +29436,17 @@ static const u8 *const sNahum_Chapter3[] = {
     Bible_Text_Nahum_3_17,
     Bible_Text_Nahum_3_18,
     Bible_Text_Nahum_3_19,
+    0
 };
 
-static const u8 *const *const sBibleText_NahumTextPtrs[] = {
+static const u16 *const *const sBibleText_NahumTextPtrs[] = {
     sNahum_Chapter1,
     sNahum_Chapter2,
     sNahum_Chapter3,
+    0
 };
 
-static const u8 *const sHabakkuk_Chapter1[] = {
+static const u16 *const sHabakkuk_Chapter1[] = {
     Bible_Text_Habakkuk_1_1,
     Bible_Text_Habakkuk_1_2,
     Bible_Text_Habakkuk_1_3,
@@ -30871,9 +29464,10 @@ static const u8 *const sHabakkuk_Chapter1[] = {
     Bible_Text_Habakkuk_1_15,
     Bible_Text_Habakkuk_1_16,
     Bible_Text_Habakkuk_1_17,
+    0
 };
 
-static const u8 *const sHabakkuk_Chapter2[] = {
+static const u16 *const sHabakkuk_Chapter2[] = {
     Bible_Text_Habakkuk_2_1,
     Bible_Text_Habakkuk_2_2,
     Bible_Text_Habakkuk_2_3,
@@ -30894,9 +29488,10 @@ static const u8 *const sHabakkuk_Chapter2[] = {
     Bible_Text_Habakkuk_2_18,
     Bible_Text_Habakkuk_2_19,
     Bible_Text_Habakkuk_2_20,
+    0
 };
 
-static const u8 *const sHabakkuk_Chapter3[] = {
+static const u16 *const sHabakkuk_Chapter3[] = {
     Bible_Text_Habakkuk_3_1,
     Bible_Text_Habakkuk_3_2,
     Bible_Text_Habakkuk_3_3,
@@ -30916,15 +29511,17 @@ static const u8 *const sHabakkuk_Chapter3[] = {
     Bible_Text_Habakkuk_3_17,
     Bible_Text_Habakkuk_3_18,
     Bible_Text_Habakkuk_3_19,
+    0
 };
 
-static const u8 *const *const sBibleText_HabakkukTextPtrs[] = {
+static const u16 *const *const sBibleText_HabakkukTextPtrs[] = {
     sHabakkuk_Chapter1,
     sHabakkuk_Chapter2,
     sHabakkuk_Chapter3,
+    0
 };
 
-static const u8 *const sZephaniah_Chapter1[] = {
+static const u16 *const sZephaniah_Chapter1[] = {
     Bible_Text_Zephaniah_1_1,
     Bible_Text_Zephaniah_1_2,
     Bible_Text_Zephaniah_1_3,
@@ -30943,9 +29540,10 @@ static const u8 *const sZephaniah_Chapter1[] = {
     Bible_Text_Zephaniah_1_16,
     Bible_Text_Zephaniah_1_17,
     Bible_Text_Zephaniah_1_18,
+    0
 };
 
-static const u8 *const sZephaniah_Chapter2[] = {
+static const u16 *const sZephaniah_Chapter2[] = {
     Bible_Text_Zephaniah_2_1,
     Bible_Text_Zephaniah_2_2,
     Bible_Text_Zephaniah_2_3,
@@ -30961,9 +29559,10 @@ static const u8 *const sZephaniah_Chapter2[] = {
     Bible_Text_Zephaniah_2_13,
     Bible_Text_Zephaniah_2_14,
     Bible_Text_Zephaniah_2_15,
+    0
 };
 
-static const u8 *const sZephaniah_Chapter3[] = {
+static const u16 *const sZephaniah_Chapter3[] = {
     Bible_Text_Zephaniah_3_1,
     Bible_Text_Zephaniah_3_2,
     Bible_Text_Zephaniah_3_3,
@@ -30984,15 +29583,17 @@ static const u8 *const sZephaniah_Chapter3[] = {
     Bible_Text_Zephaniah_3_18,
     Bible_Text_Zephaniah_3_19,
     Bible_Text_Zephaniah_3_20,
+    0
 };
 
-static const u8 *const *const sBibleText_ZephaniahTextPtrs[] = {
+static const u16 *const *const sBibleText_ZephaniahTextPtrs[] = {
     sZephaniah_Chapter1,
     sZephaniah_Chapter2,
     sZephaniah_Chapter3,
+    0
 };
 
-static const u8 *const sHaggai_Chapter1[] = {
+static const u16 *const sHaggai_Chapter1[] = {
     Bible_Text_Haggai_1_1,
     Bible_Text_Haggai_1_2,
     Bible_Text_Haggai_1_3,
@@ -31008,9 +29609,10 @@ static const u8 *const sHaggai_Chapter1[] = {
     Bible_Text_Haggai_1_13,
     Bible_Text_Haggai_1_14,
     Bible_Text_Haggai_1_15,
+    0
 };
 
-static const u8 *const sHaggai_Chapter2[] = {
+static const u16 *const sHaggai_Chapter2[] = {
     Bible_Text_Haggai_2_1,
     Bible_Text_Haggai_2_2,
     Bible_Text_Haggai_2_3,
@@ -31034,14 +29636,16 @@ static const u8 *const sHaggai_Chapter2[] = {
     Bible_Text_Haggai_2_21,
     Bible_Text_Haggai_2_22,
     Bible_Text_Haggai_2_23,
+    0
 };
 
-static const u8 *const *const sBibleText_HaggaiTextPtrs[] = {
+static const u16 *const *const sBibleText_HaggaiTextPtrs[] = {
     sHaggai_Chapter1,
     sHaggai_Chapter2,
+    0
 };
 
-static const u8 *const sZechariah_Chapter1[] = {
+static const u16 *const sZechariah_Chapter1[] = {
     Bible_Text_Zechariah_1_1,
     Bible_Text_Zechariah_1_2,
     Bible_Text_Zechariah_1_3,
@@ -31063,9 +29667,10 @@ static const u8 *const sZechariah_Chapter1[] = {
     Bible_Text_Zechariah_1_19,
     Bible_Text_Zechariah_1_20,
     Bible_Text_Zechariah_1_21,
+    0
 };
 
-static const u8 *const sZechariah_Chapter2[] = {
+static const u16 *const sZechariah_Chapter2[] = {
     Bible_Text_Zechariah_2_1,
     Bible_Text_Zechariah_2_2,
     Bible_Text_Zechariah_2_3,
@@ -31079,9 +29684,10 @@ static const u8 *const sZechariah_Chapter2[] = {
     Bible_Text_Zechariah_2_11,
     Bible_Text_Zechariah_2_12,
     Bible_Text_Zechariah_2_13,
+    0
 };
 
-static const u8 *const sZechariah_Chapter3[] = {
+static const u16 *const sZechariah_Chapter3[] = {
     Bible_Text_Zechariah_3_1,
     Bible_Text_Zechariah_3_2,
     Bible_Text_Zechariah_3_3,
@@ -31092,9 +29698,10 @@ static const u8 *const sZechariah_Chapter3[] = {
     Bible_Text_Zechariah_3_8,
     Bible_Text_Zechariah_3_9,
     Bible_Text_Zechariah_3_10,
+    0
 };
 
-static const u8 *const sZechariah_Chapter4[] = {
+static const u16 *const sZechariah_Chapter4[] = {
     Bible_Text_Zechariah_4_1,
     Bible_Text_Zechariah_4_2,
     Bible_Text_Zechariah_4_3,
@@ -31109,9 +29716,10 @@ static const u8 *const sZechariah_Chapter4[] = {
     Bible_Text_Zechariah_4_12,
     Bible_Text_Zechariah_4_13,
     Bible_Text_Zechariah_4_14,
+    0
 };
 
-static const u8 *const sZechariah_Chapter5[] = {
+static const u16 *const sZechariah_Chapter5[] = {
     Bible_Text_Zechariah_5_1,
     Bible_Text_Zechariah_5_2,
     Bible_Text_Zechariah_5_3,
@@ -31123,9 +29731,10 @@ static const u8 *const sZechariah_Chapter5[] = {
     Bible_Text_Zechariah_5_9,
     Bible_Text_Zechariah_5_10,
     Bible_Text_Zechariah_5_11,
+    0
 };
 
-static const u8 *const sZechariah_Chapter6[] = {
+static const u16 *const sZechariah_Chapter6[] = {
     Bible_Text_Zechariah_6_1,
     Bible_Text_Zechariah_6_2,
     Bible_Text_Zechariah_6_3,
@@ -31141,9 +29750,10 @@ static const u8 *const sZechariah_Chapter6[] = {
     Bible_Text_Zechariah_6_13,
     Bible_Text_Zechariah_6_14,
     Bible_Text_Zechariah_6_15,
+    0
 };
 
-static const u8 *const sZechariah_Chapter7[] = {
+static const u16 *const sZechariah_Chapter7[] = {
     Bible_Text_Zechariah_7_1,
     Bible_Text_Zechariah_7_2,
     Bible_Text_Zechariah_7_3,
@@ -31158,9 +29768,10 @@ static const u8 *const sZechariah_Chapter7[] = {
     Bible_Text_Zechariah_7_12,
     Bible_Text_Zechariah_7_13,
     Bible_Text_Zechariah_7_14,
+    0
 };
 
-static const u8 *const sZechariah_Chapter8[] = {
+static const u16 *const sZechariah_Chapter8[] = {
     Bible_Text_Zechariah_8_1,
     Bible_Text_Zechariah_8_2,
     Bible_Text_Zechariah_8_3,
@@ -31184,9 +29795,10 @@ static const u8 *const sZechariah_Chapter8[] = {
     Bible_Text_Zechariah_8_21,
     Bible_Text_Zechariah_8_22,
     Bible_Text_Zechariah_8_23,
+    0
 };
 
-static const u8 *const sZechariah_Chapter9[] = {
+static const u16 *const sZechariah_Chapter9[] = {
     Bible_Text_Zechariah_9_1,
     Bible_Text_Zechariah_9_2,
     Bible_Text_Zechariah_9_3,
@@ -31204,9 +29816,10 @@ static const u8 *const sZechariah_Chapter9[] = {
     Bible_Text_Zechariah_9_15,
     Bible_Text_Zechariah_9_16,
     Bible_Text_Zechariah_9_17,
+    0
 };
 
-static const u8 *const sZechariah_Chapter10[] = {
+static const u16 *const sZechariah_Chapter10[] = {
     Bible_Text_Zechariah_10_1,
     Bible_Text_Zechariah_10_2,
     Bible_Text_Zechariah_10_3,
@@ -31219,9 +29832,10 @@ static const u8 *const sZechariah_Chapter10[] = {
     Bible_Text_Zechariah_10_10,
     Bible_Text_Zechariah_10_11,
     Bible_Text_Zechariah_10_12,
+    0
 };
 
-static const u8 *const sZechariah_Chapter11[] = {
+static const u16 *const sZechariah_Chapter11[] = {
     Bible_Text_Zechariah_11_1,
     Bible_Text_Zechariah_11_2,
     Bible_Text_Zechariah_11_3,
@@ -31239,9 +29853,10 @@ static const u8 *const sZechariah_Chapter11[] = {
     Bible_Text_Zechariah_11_15,
     Bible_Text_Zechariah_11_16,
     Bible_Text_Zechariah_11_17,
+    0
 };
 
-static const u8 *const sZechariah_Chapter12[] = {
+static const u16 *const sZechariah_Chapter12[] = {
     Bible_Text_Zechariah_12_1,
     Bible_Text_Zechariah_12_2,
     Bible_Text_Zechariah_12_3,
@@ -31256,9 +29871,10 @@ static const u8 *const sZechariah_Chapter12[] = {
     Bible_Text_Zechariah_12_12,
     Bible_Text_Zechariah_12_13,
     Bible_Text_Zechariah_12_14,
+    0
 };
 
-static const u8 *const sZechariah_Chapter13[] = {
+static const u16 *const sZechariah_Chapter13[] = {
     Bible_Text_Zechariah_13_1,
     Bible_Text_Zechariah_13_2,
     Bible_Text_Zechariah_13_3,
@@ -31268,9 +29884,10 @@ static const u8 *const sZechariah_Chapter13[] = {
     Bible_Text_Zechariah_13_7,
     Bible_Text_Zechariah_13_8,
     Bible_Text_Zechariah_13_9,
+    0
 };
 
-static const u8 *const sZechariah_Chapter14[] = {
+static const u16 *const sZechariah_Chapter14[] = {
     Bible_Text_Zechariah_14_1,
     Bible_Text_Zechariah_14_2,
     Bible_Text_Zechariah_14_3,
@@ -31292,9 +29909,10 @@ static const u8 *const sZechariah_Chapter14[] = {
     Bible_Text_Zechariah_14_19,
     Bible_Text_Zechariah_14_20,
     Bible_Text_Zechariah_14_21,
+    0
 };
 
-static const u8 *const *const sBibleText_ZechariahTextPtrs[] = {
+static const u16 *const *const sBibleText_ZechariahTextPtrs[] = {
     sZechariah_Chapter1,
     sZechariah_Chapter2,
     sZechariah_Chapter3,
@@ -31309,9 +29927,10 @@ static const u8 *const *const sBibleText_ZechariahTextPtrs[] = {
     sZechariah_Chapter12,
     sZechariah_Chapter13,
     sZechariah_Chapter14,
+    0
 };
 
-static const u8 *const sMalachi_Chapter1[] = {
+static const u16 *const sMalachi_Chapter1[] = {
     Bible_Text_Malachi_1_1,
     Bible_Text_Malachi_1_2,
     Bible_Text_Malachi_1_3,
@@ -31326,9 +29945,10 @@ static const u8 *const sMalachi_Chapter1[] = {
     Bible_Text_Malachi_1_12,
     Bible_Text_Malachi_1_13,
     Bible_Text_Malachi_1_14,
+    0
 };
 
-static const u8 *const sMalachi_Chapter2[] = {
+static const u16 *const sMalachi_Chapter2[] = {
     Bible_Text_Malachi_2_1,
     Bible_Text_Malachi_2_2,
     Bible_Text_Malachi_2_3,
@@ -31346,9 +29966,10 @@ static const u8 *const sMalachi_Chapter2[] = {
     Bible_Text_Malachi_2_15,
     Bible_Text_Malachi_2_16,
     Bible_Text_Malachi_2_17,
+    0
 };
 
-static const u8 *const sMalachi_Chapter3[] = {
+static const u16 *const sMalachi_Chapter3[] = {
     Bible_Text_Malachi_3_1,
     Bible_Text_Malachi_3_2,
     Bible_Text_Malachi_3_3,
@@ -31367,25 +29988,28 @@ static const u8 *const sMalachi_Chapter3[] = {
     Bible_Text_Malachi_3_16,
     Bible_Text_Malachi_3_17,
     Bible_Text_Malachi_3_18,
+    0
 };
 
-static const u8 *const sMalachi_Chapter4[] = {
+static const u16 *const sMalachi_Chapter4[] = {
     Bible_Text_Malachi_4_1,
     Bible_Text_Malachi_4_2,
     Bible_Text_Malachi_4_3,
     Bible_Text_Malachi_4_4,
     Bible_Text_Malachi_4_5,
     Bible_Text_Malachi_4_6,
+    0
 };
 
-static const u8 *const *const sBibleText_MalachiTextPtrs[] = {
+static const u16 *const *const sBibleText_MalachiTextPtrs[] = {
     sMalachi_Chapter1,
     sMalachi_Chapter2,
     sMalachi_Chapter3,
     sMalachi_Chapter4,
+    0
 };
 
-static const u8 *const sMatthew_Chapter1[] = {
+static const u16 *const sMatthew_Chapter1[] = {
     Bible_Text_Matthew_1_1,
     Bible_Text_Matthew_1_2,
     Bible_Text_Matthew_1_3,
@@ -31411,9 +30035,10 @@ static const u8 *const sMatthew_Chapter1[] = {
     Bible_Text_Matthew_1_23,
     Bible_Text_Matthew_1_24,
     Bible_Text_Matthew_1_25,
+    0
 };
 
-static const u8 *const sMatthew_Chapter2[] = {
+static const u16 *const sMatthew_Chapter2[] = {
     Bible_Text_Matthew_2_1,
     Bible_Text_Matthew_2_2,
     Bible_Text_Matthew_2_3,
@@ -31437,9 +30062,10 @@ static const u8 *const sMatthew_Chapter2[] = {
     Bible_Text_Matthew_2_21,
     Bible_Text_Matthew_2_22,
     Bible_Text_Matthew_2_23,
+    0
 };
 
-static const u8 *const sMatthew_Chapter3[] = {
+static const u16 *const sMatthew_Chapter3[] = {
     Bible_Text_Matthew_3_1,
     Bible_Text_Matthew_3_2,
     Bible_Text_Matthew_3_3,
@@ -31457,9 +30083,10 @@ static const u8 *const sMatthew_Chapter3[] = {
     Bible_Text_Matthew_3_15,
     Bible_Text_Matthew_3_16,
     Bible_Text_Matthew_3_17,
+    0
 };
 
-static const u8 *const sMatthew_Chapter4[] = {
+static const u16 *const sMatthew_Chapter4[] = {
     Bible_Text_Matthew_4_1,
     Bible_Text_Matthew_4_2,
     Bible_Text_Matthew_4_3,
@@ -31485,9 +30112,10 @@ static const u8 *const sMatthew_Chapter4[] = {
     Bible_Text_Matthew_4_23,
     Bible_Text_Matthew_4_24,
     Bible_Text_Matthew_4_25,
+    0
 };
 
-static const u8 *const sMatthew_Chapter5[] = {
+static const u16 *const sMatthew_Chapter5[] = {
     Bible_Text_Matthew_5_1,
     Bible_Text_Matthew_5_2,
     Bible_Text_Matthew_5_3,
@@ -31536,9 +30164,10 @@ static const u8 *const sMatthew_Chapter5[] = {
     Bible_Text_Matthew_5_46,
     Bible_Text_Matthew_5_47,
     Bible_Text_Matthew_5_48,
+    0
 };
 
-static const u8 *const sMatthew_Chapter6[] = {
+static const u16 *const sMatthew_Chapter6[] = {
     Bible_Text_Matthew_6_1,
     Bible_Text_Matthew_6_2,
     Bible_Text_Matthew_6_3,
@@ -31573,9 +30202,10 @@ static const u8 *const sMatthew_Chapter6[] = {
     Bible_Text_Matthew_6_32,
     Bible_Text_Matthew_6_33,
     Bible_Text_Matthew_6_34,
+    0
 };
 
-static const u8 *const sMatthew_Chapter7[] = {
+static const u16 *const sMatthew_Chapter7[] = {
     Bible_Text_Matthew_7_1,
     Bible_Text_Matthew_7_2,
     Bible_Text_Matthew_7_3,
@@ -31605,9 +30235,10 @@ static const u8 *const sMatthew_Chapter7[] = {
     Bible_Text_Matthew_7_27,
     Bible_Text_Matthew_7_28,
     Bible_Text_Matthew_7_29,
+    0
 };
 
-static const u8 *const sMatthew_Chapter8[] = {
+static const u16 *const sMatthew_Chapter8[] = {
     Bible_Text_Matthew_8_1,
     Bible_Text_Matthew_8_2,
     Bible_Text_Matthew_8_3,
@@ -31642,9 +30273,10 @@ static const u8 *const sMatthew_Chapter8[] = {
     Bible_Text_Matthew_8_32,
     Bible_Text_Matthew_8_33,
     Bible_Text_Matthew_8_34,
+    0
 };
 
-static const u8 *const sMatthew_Chapter9[] = {
+static const u16 *const sMatthew_Chapter9[] = {
     Bible_Text_Matthew_9_1,
     Bible_Text_Matthew_9_2,
     Bible_Text_Matthew_9_3,
@@ -31683,9 +30315,10 @@ static const u8 *const sMatthew_Chapter9[] = {
     Bible_Text_Matthew_9_36,
     Bible_Text_Matthew_9_37,
     Bible_Text_Matthew_9_38,
+    0
 };
 
-static const u8 *const sMatthew_Chapter10[] = {
+static const u16 *const sMatthew_Chapter10[] = {
     Bible_Text_Matthew_10_1,
     Bible_Text_Matthew_10_2,
     Bible_Text_Matthew_10_3,
@@ -31728,9 +30361,10 @@ static const u8 *const sMatthew_Chapter10[] = {
     Bible_Text_Matthew_10_40,
     Bible_Text_Matthew_10_41,
     Bible_Text_Matthew_10_42,
+    0
 };
 
-static const u8 *const sMatthew_Chapter11[] = {
+static const u16 *const sMatthew_Chapter11[] = {
     Bible_Text_Matthew_11_1,
     Bible_Text_Matthew_11_2,
     Bible_Text_Matthew_11_3,
@@ -31761,9 +30395,10 @@ static const u8 *const sMatthew_Chapter11[] = {
     Bible_Text_Matthew_11_28,
     Bible_Text_Matthew_11_29,
     Bible_Text_Matthew_11_30,
+    0
 };
 
-static const u8 *const sMatthew_Chapter12[] = {
+static const u16 *const sMatthew_Chapter12[] = {
     Bible_Text_Matthew_12_1,
     Bible_Text_Matthew_12_2,
     Bible_Text_Matthew_12_3,
@@ -31814,9 +30449,10 @@ static const u8 *const sMatthew_Chapter12[] = {
     Bible_Text_Matthew_12_48,
     Bible_Text_Matthew_12_49,
     Bible_Text_Matthew_12_50,
+    0
 };
 
-static const u8 *const sMatthew_Chapter13[] = {
+static const u16 *const sMatthew_Chapter13[] = {
     Bible_Text_Matthew_13_1,
     Bible_Text_Matthew_13_2,
     Bible_Text_Matthew_13_3,
@@ -31875,9 +30511,10 @@ static const u8 *const sMatthew_Chapter13[] = {
     Bible_Text_Matthew_13_56,
     Bible_Text_Matthew_13_57,
     Bible_Text_Matthew_13_58,
+    0
 };
 
-static const u8 *const sMatthew_Chapter14[] = {
+static const u16 *const sMatthew_Chapter14[] = {
     Bible_Text_Matthew_14_1,
     Bible_Text_Matthew_14_2,
     Bible_Text_Matthew_14_3,
@@ -31914,9 +30551,10 @@ static const u8 *const sMatthew_Chapter14[] = {
     Bible_Text_Matthew_14_34,
     Bible_Text_Matthew_14_35,
     Bible_Text_Matthew_14_36,
+    0
 };
 
-static const u8 *const sMatthew_Chapter15[] = {
+static const u16 *const sMatthew_Chapter15[] = {
     Bible_Text_Matthew_15_1,
     Bible_Text_Matthew_15_2,
     Bible_Text_Matthew_15_3,
@@ -31956,9 +30594,10 @@ static const u8 *const sMatthew_Chapter15[] = {
     Bible_Text_Matthew_15_37,
     Bible_Text_Matthew_15_38,
     Bible_Text_Matthew_15_39,
+    0
 };
 
-static const u8 *const sMatthew_Chapter16[] = {
+static const u16 *const sMatthew_Chapter16[] = {
     Bible_Text_Matthew_16_1,
     Bible_Text_Matthew_16_2,
     Bible_Text_Matthew_16_3,
@@ -31987,9 +30626,10 @@ static const u8 *const sMatthew_Chapter16[] = {
     Bible_Text_Matthew_16_26,
     Bible_Text_Matthew_16_27,
     Bible_Text_Matthew_16_28,
+    0
 };
 
-static const u8 *const sMatthew_Chapter17[] = {
+static const u16 *const sMatthew_Chapter17[] = {
     Bible_Text_Matthew_17_1,
     Bible_Text_Matthew_17_2,
     Bible_Text_Matthew_17_3,
@@ -32017,9 +30657,10 @@ static const u8 *const sMatthew_Chapter17[] = {
     Bible_Text_Matthew_17_25,
     Bible_Text_Matthew_17_26,
     Bible_Text_Matthew_17_27,
+    0
 };
 
-static const u8 *const sMatthew_Chapter18[] = {
+static const u16 *const sMatthew_Chapter18[] = {
     Bible_Text_Matthew_18_1,
     Bible_Text_Matthew_18_2,
     Bible_Text_Matthew_18_3,
@@ -32055,9 +30696,10 @@ static const u8 *const sMatthew_Chapter18[] = {
     Bible_Text_Matthew_18_33,
     Bible_Text_Matthew_18_34,
     Bible_Text_Matthew_18_35,
+    0
 };
 
-static const u8 *const sMatthew_Chapter19[] = {
+static const u16 *const sMatthew_Chapter19[] = {
     Bible_Text_Matthew_19_1,
     Bible_Text_Matthew_19_2,
     Bible_Text_Matthew_19_3,
@@ -32088,9 +30730,10 @@ static const u8 *const sMatthew_Chapter19[] = {
     Bible_Text_Matthew_19_28,
     Bible_Text_Matthew_19_29,
     Bible_Text_Matthew_19_30,
+    0
 };
 
-static const u8 *const sMatthew_Chapter20[] = {
+static const u16 *const sMatthew_Chapter20[] = {
     Bible_Text_Matthew_20_1,
     Bible_Text_Matthew_20_2,
     Bible_Text_Matthew_20_3,
@@ -32125,9 +30768,10 @@ static const u8 *const sMatthew_Chapter20[] = {
     Bible_Text_Matthew_20_32,
     Bible_Text_Matthew_20_33,
     Bible_Text_Matthew_20_34,
+    0
 };
 
-static const u8 *const sMatthew_Chapter21[] = {
+static const u16 *const sMatthew_Chapter21[] = {
     Bible_Text_Matthew_21_1,
     Bible_Text_Matthew_21_2,
     Bible_Text_Matthew_21_3,
@@ -32174,9 +30818,10 @@ static const u8 *const sMatthew_Chapter21[] = {
     Bible_Text_Matthew_21_44,
     Bible_Text_Matthew_21_45,
     Bible_Text_Matthew_21_46,
+    0
 };
 
-static const u8 *const sMatthew_Chapter22[] = {
+static const u16 *const sMatthew_Chapter22[] = {
     Bible_Text_Matthew_22_1,
     Bible_Text_Matthew_22_2,
     Bible_Text_Matthew_22_3,
@@ -32223,9 +30868,10 @@ static const u8 *const sMatthew_Chapter22[] = {
     Bible_Text_Matthew_22_44,
     Bible_Text_Matthew_22_45,
     Bible_Text_Matthew_22_46,
+    0
 };
 
-static const u8 *const sMatthew_Chapter23[] = {
+static const u16 *const sMatthew_Chapter23[] = {
     Bible_Text_Matthew_23_1,
     Bible_Text_Matthew_23_2,
     Bible_Text_Matthew_23_3,
@@ -32265,9 +30911,10 @@ static const u8 *const sMatthew_Chapter23[] = {
     Bible_Text_Matthew_23_37,
     Bible_Text_Matthew_23_38,
     Bible_Text_Matthew_23_39,
+    0
 };
 
-static const u8 *const sMatthew_Chapter24[] = {
+static const u16 *const sMatthew_Chapter24[] = {
     Bible_Text_Matthew_24_1,
     Bible_Text_Matthew_24_2,
     Bible_Text_Matthew_24_3,
@@ -32319,9 +30966,10 @@ static const u8 *const sMatthew_Chapter24[] = {
     Bible_Text_Matthew_24_49,
     Bible_Text_Matthew_24_50,
     Bible_Text_Matthew_24_51,
+    0
 };
 
-static const u8 *const sMatthew_Chapter25[] = {
+static const u16 *const sMatthew_Chapter25[] = {
     Bible_Text_Matthew_25_1,
     Bible_Text_Matthew_25_2,
     Bible_Text_Matthew_25_3,
@@ -32368,9 +31016,10 @@ static const u8 *const sMatthew_Chapter25[] = {
     Bible_Text_Matthew_25_44,
     Bible_Text_Matthew_25_45,
     Bible_Text_Matthew_25_46,
+    0
 };
 
-static const u8 *const sMatthew_Chapter26[] = {
+static const u16 *const sMatthew_Chapter26[] = {
     Bible_Text_Matthew_26_1,
     Bible_Text_Matthew_26_2,
     Bible_Text_Matthew_26_3,
@@ -32446,9 +31095,10 @@ static const u8 *const sMatthew_Chapter26[] = {
     Bible_Text_Matthew_26_73,
     Bible_Text_Matthew_26_74,
     Bible_Text_Matthew_26_75,
+    0
 };
 
-static const u8 *const sMatthew_Chapter27[] = {
+static const u16 *const sMatthew_Chapter27[] = {
     Bible_Text_Matthew_27_1,
     Bible_Text_Matthew_27_2,
     Bible_Text_Matthew_27_3,
@@ -32515,9 +31165,10 @@ static const u8 *const sMatthew_Chapter27[] = {
     Bible_Text_Matthew_27_64,
     Bible_Text_Matthew_27_65,
     Bible_Text_Matthew_27_66,
+    0
 };
 
-static const u8 *const sMatthew_Chapter28[] = {
+static const u16 *const sMatthew_Chapter28[] = {
     Bible_Text_Matthew_28_1,
     Bible_Text_Matthew_28_2,
     Bible_Text_Matthew_28_3,
@@ -32538,9 +31189,10 @@ static const u8 *const sMatthew_Chapter28[] = {
     Bible_Text_Matthew_28_18,
     Bible_Text_Matthew_28_19,
     Bible_Text_Matthew_28_20,
+    0
 };
 
-static const u8 *const *const sBibleText_MatthewTextPtrs[] = {
+static const u16 *const *const sBibleText_MatthewTextPtrs[] = {
     sMatthew_Chapter1,
     sMatthew_Chapter2,
     sMatthew_Chapter3,
@@ -32569,9 +31221,10 @@ static const u8 *const *const sBibleText_MatthewTextPtrs[] = {
     sMatthew_Chapter26,
     sMatthew_Chapter27,
     sMatthew_Chapter28,
+    0
 };
 
-static const u8 *const sMark_Chapter1[] = {
+static const u16 *const sMark_Chapter1[] = {
     Bible_Text_Mark_1_1,
     Bible_Text_Mark_1_2,
     Bible_Text_Mark_1_3,
@@ -32617,9 +31270,10 @@ static const u8 *const sMark_Chapter1[] = {
     Bible_Text_Mark_1_43,
     Bible_Text_Mark_1_44,
     Bible_Text_Mark_1_45,
+    0
 };
 
-static const u8 *const sMark_Chapter2[] = {
+static const u16 *const sMark_Chapter2[] = {
     Bible_Text_Mark_2_1,
     Bible_Text_Mark_2_2,
     Bible_Text_Mark_2_3,
@@ -32648,9 +31302,10 @@ static const u8 *const sMark_Chapter2[] = {
     Bible_Text_Mark_2_26,
     Bible_Text_Mark_2_27,
     Bible_Text_Mark_2_28,
+    0
 };
 
-static const u8 *const sMark_Chapter3[] = {
+static const u16 *const sMark_Chapter3[] = {
     Bible_Text_Mark_3_1,
     Bible_Text_Mark_3_2,
     Bible_Text_Mark_3_3,
@@ -32686,9 +31341,10 @@ static const u8 *const sMark_Chapter3[] = {
     Bible_Text_Mark_3_33,
     Bible_Text_Mark_3_34,
     Bible_Text_Mark_3_35,
+    0
 };
 
-static const u8 *const sMark_Chapter4[] = {
+static const u16 *const sMark_Chapter4[] = {
     Bible_Text_Mark_4_1,
     Bible_Text_Mark_4_2,
     Bible_Text_Mark_4_3,
@@ -32730,9 +31386,10 @@ static const u8 *const sMark_Chapter4[] = {
     Bible_Text_Mark_4_39,
     Bible_Text_Mark_4_40,
     Bible_Text_Mark_4_41,
+    0
 };
 
-static const u8 *const sMark_Chapter5[] = {
+static const u16 *const sMark_Chapter5[] = {
     Bible_Text_Mark_5_1,
     Bible_Text_Mark_5_2,
     Bible_Text_Mark_5_3,
@@ -32776,9 +31433,10 @@ static const u8 *const sMark_Chapter5[] = {
     Bible_Text_Mark_5_41,
     Bible_Text_Mark_5_42,
     Bible_Text_Mark_5_43,
+    0
 };
 
-static const u8 *const sMark_Chapter6[] = {
+static const u16 *const sMark_Chapter6[] = {
     Bible_Text_Mark_6_1,
     Bible_Text_Mark_6_2,
     Bible_Text_Mark_6_3,
@@ -32835,9 +31493,10 @@ static const u8 *const sMark_Chapter6[] = {
     Bible_Text_Mark_6_54,
     Bible_Text_Mark_6_55,
     Bible_Text_Mark_6_56,
+    0
 };
 
-static const u8 *const sMark_Chapter7[] = {
+static const u16 *const sMark_Chapter7[] = {
     Bible_Text_Mark_7_1,
     Bible_Text_Mark_7_2,
     Bible_Text_Mark_7_3,
@@ -32875,9 +31534,10 @@ static const u8 *const sMark_Chapter7[] = {
     Bible_Text_Mark_7_35,
     Bible_Text_Mark_7_36,
     Bible_Text_Mark_7_37,
+    0
 };
 
-static const u8 *const sMark_Chapter8[] = {
+static const u16 *const sMark_Chapter8[] = {
     Bible_Text_Mark_8_1,
     Bible_Text_Mark_8_2,
     Bible_Text_Mark_8_3,
@@ -32916,9 +31576,10 @@ static const u8 *const sMark_Chapter8[] = {
     Bible_Text_Mark_8_36,
     Bible_Text_Mark_8_37,
     Bible_Text_Mark_8_38,
+    0
 };
 
-static const u8 *const sMark_Chapter9[] = {
+static const u16 *const sMark_Chapter9[] = {
     Bible_Text_Mark_9_1,
     Bible_Text_Mark_9_2,
     Bible_Text_Mark_9_3,
@@ -32969,9 +31630,10 @@ static const u8 *const sMark_Chapter9[] = {
     Bible_Text_Mark_9_48,
     Bible_Text_Mark_9_49,
     Bible_Text_Mark_9_50,
+    0
 };
 
-static const u8 *const sMark_Chapter10[] = {
+static const u16 *const sMark_Chapter10[] = {
     Bible_Text_Mark_10_1,
     Bible_Text_Mark_10_2,
     Bible_Text_Mark_10_3,
@@ -33024,9 +31686,10 @@ static const u8 *const sMark_Chapter10[] = {
     Bible_Text_Mark_10_50,
     Bible_Text_Mark_10_51,
     Bible_Text_Mark_10_52,
+    0
 };
 
-static const u8 *const sMark_Chapter11[] = {
+static const u16 *const sMark_Chapter11[] = {
     Bible_Text_Mark_11_1,
     Bible_Text_Mark_11_2,
     Bible_Text_Mark_11_3,
@@ -33060,9 +31723,10 @@ static const u8 *const sMark_Chapter11[] = {
     Bible_Text_Mark_11_31,
     Bible_Text_Mark_11_32,
     Bible_Text_Mark_11_33,
+    0
 };
 
-static const u8 *const sMark_Chapter12[] = {
+static const u16 *const sMark_Chapter12[] = {
     Bible_Text_Mark_12_1,
     Bible_Text_Mark_12_2,
     Bible_Text_Mark_12_3,
@@ -33107,9 +31771,10 @@ static const u8 *const sMark_Chapter12[] = {
     Bible_Text_Mark_12_42,
     Bible_Text_Mark_12_43,
     Bible_Text_Mark_12_44,
+    0
 };
 
-static const u8 *const sMark_Chapter13[] = {
+static const u16 *const sMark_Chapter13[] = {
     Bible_Text_Mark_13_1,
     Bible_Text_Mark_13_2,
     Bible_Text_Mark_13_3,
@@ -33147,9 +31812,10 @@ static const u8 *const sMark_Chapter13[] = {
     Bible_Text_Mark_13_35,
     Bible_Text_Mark_13_36,
     Bible_Text_Mark_13_37,
+    0
 };
 
-static const u8 *const sMark_Chapter14[] = {
+static const u16 *const sMark_Chapter14[] = {
     Bible_Text_Mark_14_1,
     Bible_Text_Mark_14_2,
     Bible_Text_Mark_14_3,
@@ -33222,9 +31888,10 @@ static const u8 *const sMark_Chapter14[] = {
     Bible_Text_Mark_14_70,
     Bible_Text_Mark_14_71,
     Bible_Text_Mark_14_72,
+    0
 };
 
-static const u8 *const sMark_Chapter15[] = {
+static const u16 *const sMark_Chapter15[] = {
     Bible_Text_Mark_15_1,
     Bible_Text_Mark_15_2,
     Bible_Text_Mark_15_3,
@@ -33272,9 +31939,10 @@ static const u8 *const sMark_Chapter15[] = {
     Bible_Text_Mark_15_45,
     Bible_Text_Mark_15_46,
     Bible_Text_Mark_15_47,
+    0
 };
 
-static const u8 *const sMark_Chapter16[] = {
+static const u16 *const sMark_Chapter16[] = {
     Bible_Text_Mark_16_1,
     Bible_Text_Mark_16_2,
     Bible_Text_Mark_16_3,
@@ -33295,9 +31963,10 @@ static const u8 *const sMark_Chapter16[] = {
     Bible_Text_Mark_16_18,
     Bible_Text_Mark_16_19,
     Bible_Text_Mark_16_20,
+    0
 };
 
-static const u8 *const *const sBibleText_MarkTextPtrs[] = {
+static const u16 *const *const sBibleText_MarkTextPtrs[] = {
     sMark_Chapter1,
     sMark_Chapter2,
     sMark_Chapter3,
@@ -33314,9 +31983,10 @@ static const u8 *const *const sBibleText_MarkTextPtrs[] = {
     sMark_Chapter14,
     sMark_Chapter15,
     sMark_Chapter16,
+    0
 };
 
-static const u8 *const sLuke_Chapter1[] = {
+static const u16 *const sLuke_Chapter1[] = {
     Bible_Text_Luke_1_1,
     Bible_Text_Luke_1_2,
     Bible_Text_Luke_1_3,
@@ -33397,9 +32067,10 @@ static const u8 *const sLuke_Chapter1[] = {
     Bible_Text_Luke_1_78,
     Bible_Text_Luke_1_79,
     Bible_Text_Luke_1_80,
+    0
 };
 
-static const u8 *const sLuke_Chapter2[] = {
+static const u16 *const sLuke_Chapter2[] = {
     Bible_Text_Luke_2_1,
     Bible_Text_Luke_2_2,
     Bible_Text_Luke_2_3,
@@ -33452,9 +32123,10 @@ static const u8 *const sLuke_Chapter2[] = {
     Bible_Text_Luke_2_50,
     Bible_Text_Luke_2_51,
     Bible_Text_Luke_2_52,
+    0
 };
 
-static const u8 *const sLuke_Chapter3[] = {
+static const u16 *const sLuke_Chapter3[] = {
     Bible_Text_Luke_3_1,
     Bible_Text_Luke_3_2,
     Bible_Text_Luke_3_3,
@@ -33493,9 +32165,10 @@ static const u8 *const sLuke_Chapter3[] = {
     Bible_Text_Luke_3_36,
     Bible_Text_Luke_3_37,
     Bible_Text_Luke_3_38,
+    0
 };
 
-static const u8 *const sLuke_Chapter4[] = {
+static const u16 *const sLuke_Chapter4[] = {
     Bible_Text_Luke_4_1,
     Bible_Text_Luke_4_2,
     Bible_Text_Luke_4_3,
@@ -33540,9 +32213,10 @@ static const u8 *const sLuke_Chapter4[] = {
     Bible_Text_Luke_4_42,
     Bible_Text_Luke_4_43,
     Bible_Text_Luke_4_44,
+    0
 };
 
-static const u8 *const sLuke_Chapter5[] = {
+static const u16 *const sLuke_Chapter5[] = {
     Bible_Text_Luke_5_1,
     Bible_Text_Luke_5_2,
     Bible_Text_Luke_5_3,
@@ -33582,9 +32256,10 @@ static const u8 *const sLuke_Chapter5[] = {
     Bible_Text_Luke_5_37,
     Bible_Text_Luke_5_38,
     Bible_Text_Luke_5_39,
+    0
 };
 
-static const u8 *const sLuke_Chapter6[] = {
+static const u16 *const sLuke_Chapter6[] = {
     Bible_Text_Luke_6_1,
     Bible_Text_Luke_6_2,
     Bible_Text_Luke_6_3,
@@ -33634,9 +32309,10 @@ static const u8 *const sLuke_Chapter6[] = {
     Bible_Text_Luke_6_47,
     Bible_Text_Luke_6_48,
     Bible_Text_Luke_6_49,
+    0
 };
 
-static const u8 *const sLuke_Chapter7[] = {
+static const u16 *const sLuke_Chapter7[] = {
     Bible_Text_Luke_7_1,
     Bible_Text_Luke_7_2,
     Bible_Text_Luke_7_3,
@@ -33687,9 +32363,10 @@ static const u8 *const sLuke_Chapter7[] = {
     Bible_Text_Luke_7_48,
     Bible_Text_Luke_7_49,
     Bible_Text_Luke_7_50,
+    0
 };
 
-static const u8 *const sLuke_Chapter8[] = {
+static const u16 *const sLuke_Chapter8[] = {
     Bible_Text_Luke_8_1,
     Bible_Text_Luke_8_2,
     Bible_Text_Luke_8_3,
@@ -33746,9 +32423,10 @@ static const u8 *const sLuke_Chapter8[] = {
     Bible_Text_Luke_8_54,
     Bible_Text_Luke_8_55,
     Bible_Text_Luke_8_56,
+    0
 };
 
-static const u8 *const sLuke_Chapter9[] = {
+static const u16 *const sLuke_Chapter9[] = {
     Bible_Text_Luke_9_1,
     Bible_Text_Luke_9_2,
     Bible_Text_Luke_9_3,
@@ -33811,9 +32489,10 @@ static const u8 *const sLuke_Chapter9[] = {
     Bible_Text_Luke_9_60,
     Bible_Text_Luke_9_61,
     Bible_Text_Luke_9_62,
+    0
 };
 
-static const u8 *const sLuke_Chapter10[] = {
+static const u16 *const sLuke_Chapter10[] = {
     Bible_Text_Luke_10_1,
     Bible_Text_Luke_10_2,
     Bible_Text_Luke_10_3,
@@ -33856,9 +32535,10 @@ static const u8 *const sLuke_Chapter10[] = {
     Bible_Text_Luke_10_40,
     Bible_Text_Luke_10_41,
     Bible_Text_Luke_10_42,
+    0
 };
 
-static const u8 *const sLuke_Chapter11[] = {
+static const u16 *const sLuke_Chapter11[] = {
     Bible_Text_Luke_11_1,
     Bible_Text_Luke_11_2,
     Bible_Text_Luke_11_3,
@@ -33913,9 +32593,10 @@ static const u8 *const sLuke_Chapter11[] = {
     Bible_Text_Luke_11_52,
     Bible_Text_Luke_11_53,
     Bible_Text_Luke_11_54,
+    0
 };
 
-static const u8 *const sLuke_Chapter12[] = {
+static const u16 *const sLuke_Chapter12[] = {
     Bible_Text_Luke_12_1,
     Bible_Text_Luke_12_2,
     Bible_Text_Luke_12_3,
@@ -33975,9 +32656,10 @@ static const u8 *const sLuke_Chapter12[] = {
     Bible_Text_Luke_12_57,
     Bible_Text_Luke_12_58,
     Bible_Text_Luke_12_59,
+    0
 };
 
-static const u8 *const sLuke_Chapter13[] = {
+static const u16 *const sLuke_Chapter13[] = {
     Bible_Text_Luke_13_1,
     Bible_Text_Luke_13_2,
     Bible_Text_Luke_13_3,
@@ -34013,9 +32695,10 @@ static const u8 *const sLuke_Chapter13[] = {
     Bible_Text_Luke_13_33,
     Bible_Text_Luke_13_34,
     Bible_Text_Luke_13_35,
+    0
 };
 
-static const u8 *const sLuke_Chapter14[] = {
+static const u16 *const sLuke_Chapter14[] = {
     Bible_Text_Luke_14_1,
     Bible_Text_Luke_14_2,
     Bible_Text_Luke_14_3,
@@ -34051,9 +32734,10 @@ static const u8 *const sLuke_Chapter14[] = {
     Bible_Text_Luke_14_33,
     Bible_Text_Luke_14_34,
     Bible_Text_Luke_14_35,
+    0
 };
 
-static const u8 *const sLuke_Chapter15[] = {
+static const u16 *const sLuke_Chapter15[] = {
     Bible_Text_Luke_15_1,
     Bible_Text_Luke_15_2,
     Bible_Text_Luke_15_3,
@@ -34086,9 +32770,10 @@ static const u8 *const sLuke_Chapter15[] = {
     Bible_Text_Luke_15_30,
     Bible_Text_Luke_15_31,
     Bible_Text_Luke_15_32,
+    0
 };
 
-static const u8 *const sLuke_Chapter16[] = {
+static const u16 *const sLuke_Chapter16[] = {
     Bible_Text_Luke_16_1,
     Bible_Text_Luke_16_2,
     Bible_Text_Luke_16_3,
@@ -34120,9 +32805,10 @@ static const u8 *const sLuke_Chapter16[] = {
     Bible_Text_Luke_16_29,
     Bible_Text_Luke_16_30,
     Bible_Text_Luke_16_31,
+    0
 };
 
-static const u8 *const sLuke_Chapter17[] = {
+static const u16 *const sLuke_Chapter17[] = {
     Bible_Text_Luke_17_1,
     Bible_Text_Luke_17_2,
     Bible_Text_Luke_17_3,
@@ -34160,9 +32846,10 @@ static const u8 *const sLuke_Chapter17[] = {
     Bible_Text_Luke_17_35,
     Bible_Text_Luke_17_36,
     Bible_Text_Luke_17_37,
+    0
 };
 
-static const u8 *const sLuke_Chapter18[] = {
+static const u16 *const sLuke_Chapter18[] = {
     Bible_Text_Luke_18_1,
     Bible_Text_Luke_18_2,
     Bible_Text_Luke_18_3,
@@ -34206,9 +32893,10 @@ static const u8 *const sLuke_Chapter18[] = {
     Bible_Text_Luke_18_41,
     Bible_Text_Luke_18_42,
     Bible_Text_Luke_18_43,
+    0
 };
 
-static const u8 *const sLuke_Chapter19[] = {
+static const u16 *const sLuke_Chapter19[] = {
     Bible_Text_Luke_19_1,
     Bible_Text_Luke_19_2,
     Bible_Text_Luke_19_3,
@@ -34257,9 +32945,10 @@ static const u8 *const sLuke_Chapter19[] = {
     Bible_Text_Luke_19_46,
     Bible_Text_Luke_19_47,
     Bible_Text_Luke_19_48,
+    0
 };
 
-static const u8 *const sLuke_Chapter20[] = {
+static const u16 *const sLuke_Chapter20[] = {
     Bible_Text_Luke_20_1,
     Bible_Text_Luke_20_2,
     Bible_Text_Luke_20_3,
@@ -34307,9 +32996,10 @@ static const u8 *const sLuke_Chapter20[] = {
     Bible_Text_Luke_20_45,
     Bible_Text_Luke_20_46,
     Bible_Text_Luke_20_47,
+    0
 };
 
-static const u8 *const sLuke_Chapter21[] = {
+static const u16 *const sLuke_Chapter21[] = {
     Bible_Text_Luke_21_1,
     Bible_Text_Luke_21_2,
     Bible_Text_Luke_21_3,
@@ -34348,9 +33038,10 @@ static const u8 *const sLuke_Chapter21[] = {
     Bible_Text_Luke_21_36,
     Bible_Text_Luke_21_37,
     Bible_Text_Luke_21_38,
+    0
 };
 
-static const u8 *const sLuke_Chapter22[] = {
+static const u16 *const sLuke_Chapter22[] = {
     Bible_Text_Luke_22_1,
     Bible_Text_Luke_22_2,
     Bible_Text_Luke_22_3,
@@ -34422,9 +33113,10 @@ static const u8 *const sLuke_Chapter22[] = {
     Bible_Text_Luke_22_69,
     Bible_Text_Luke_22_70,
     Bible_Text_Luke_22_71,
+    0
 };
 
-static const u8 *const sLuke_Chapter23[] = {
+static const u16 *const sLuke_Chapter23[] = {
     Bible_Text_Luke_23_1,
     Bible_Text_Luke_23_2,
     Bible_Text_Luke_23_3,
@@ -34481,9 +33173,10 @@ static const u8 *const sLuke_Chapter23[] = {
     Bible_Text_Luke_23_54,
     Bible_Text_Luke_23_55,
     Bible_Text_Luke_23_56,
+    0
 };
 
-static const u8 *const sLuke_Chapter24[] = {
+static const u16 *const sLuke_Chapter24[] = {
     Bible_Text_Luke_24_1,
     Bible_Text_Luke_24_2,
     Bible_Text_Luke_24_3,
@@ -34537,9 +33230,10 @@ static const u8 *const sLuke_Chapter24[] = {
     Bible_Text_Luke_24_51,
     Bible_Text_Luke_24_52,
     Bible_Text_Luke_24_53,
+    0
 };
 
-static const u8 *const *const sBibleText_LukeTextPtrs[] = {
+static const u16 *const *const sBibleText_LukeTextPtrs[] = {
     sLuke_Chapter1,
     sLuke_Chapter2,
     sLuke_Chapter3,
@@ -34564,9 +33258,10 @@ static const u8 *const *const sBibleText_LukeTextPtrs[] = {
     sLuke_Chapter22,
     sLuke_Chapter23,
     sLuke_Chapter24,
+    0
 };
 
-static const u8 *const sJohn_Chapter1[] = {
+static const u16 *const sJohn_Chapter1[] = {
     Bible_Text_John_1_1,
     Bible_Text_John_1_2,
     Bible_Text_John_1_3,
@@ -34618,9 +33313,10 @@ static const u8 *const sJohn_Chapter1[] = {
     Bible_Text_John_1_49,
     Bible_Text_John_1_50,
     Bible_Text_John_1_51,
+    0
 };
 
-static const u8 *const sJohn_Chapter2[] = {
+static const u16 *const sJohn_Chapter2[] = {
     Bible_Text_John_2_1,
     Bible_Text_John_2_2,
     Bible_Text_John_2_3,
@@ -34646,9 +33342,10 @@ static const u8 *const sJohn_Chapter2[] = {
     Bible_Text_John_2_23,
     Bible_Text_John_2_24,
     Bible_Text_John_2_25,
+    0
 };
 
-static const u8 *const sJohn_Chapter3[] = {
+static const u16 *const sJohn_Chapter3[] = {
     Bible_Text_John_3_1,
     Bible_Text_John_3_2,
     Bible_Text_John_3_3,
@@ -34685,9 +33382,10 @@ static const u8 *const sJohn_Chapter3[] = {
     Bible_Text_John_3_34,
     Bible_Text_John_3_35,
     Bible_Text_John_3_36,
+    0
 };
 
-static const u8 *const sJohn_Chapter4[] = {
+static const u16 *const sJohn_Chapter4[] = {
     Bible_Text_John_4_1,
     Bible_Text_John_4_2,
     Bible_Text_John_4_3,
@@ -34742,9 +33440,10 @@ static const u8 *const sJohn_Chapter4[] = {
     Bible_Text_John_4_52,
     Bible_Text_John_4_53,
     Bible_Text_John_4_54,
+    0
 };
 
-static const u8 *const sJohn_Chapter5[] = {
+static const u16 *const sJohn_Chapter5[] = {
     Bible_Text_John_5_1,
     Bible_Text_John_5_2,
     Bible_Text_John_5_3,
@@ -34792,9 +33491,10 @@ static const u8 *const sJohn_Chapter5[] = {
     Bible_Text_John_5_45,
     Bible_Text_John_5_46,
     Bible_Text_John_5_47,
+    0
 };
 
-static const u8 *const sJohn_Chapter6[] = {
+static const u16 *const sJohn_Chapter6[] = {
     Bible_Text_John_6_1,
     Bible_Text_John_6_2,
     Bible_Text_John_6_3,
@@ -34866,9 +33566,10 @@ static const u8 *const sJohn_Chapter6[] = {
     Bible_Text_John_6_69,
     Bible_Text_John_6_70,
     Bible_Text_John_6_71,
+    0
 };
 
-static const u8 *const sJohn_Chapter7[] = {
+static const u16 *const sJohn_Chapter7[] = {
     Bible_Text_John_7_1,
     Bible_Text_John_7_2,
     Bible_Text_John_7_3,
@@ -34922,9 +33623,10 @@ static const u8 *const sJohn_Chapter7[] = {
     Bible_Text_John_7_51,
     Bible_Text_John_7_52,
     Bible_Text_John_7_53,
+    0
 };
 
-static const u8 *const sJohn_Chapter8[] = {
+static const u16 *const sJohn_Chapter8[] = {
     Bible_Text_John_8_1,
     Bible_Text_John_8_2,
     Bible_Text_John_8_3,
@@ -34984,9 +33686,10 @@ static const u8 *const sJohn_Chapter8[] = {
     Bible_Text_John_8_57,
     Bible_Text_John_8_58,
     Bible_Text_John_8_59,
+    0
 };
 
-static const u8 *const sJohn_Chapter9[] = {
+static const u16 *const sJohn_Chapter9[] = {
     Bible_Text_John_9_1,
     Bible_Text_John_9_2,
     Bible_Text_John_9_3,
@@ -35028,9 +33731,10 @@ static const u8 *const sJohn_Chapter9[] = {
     Bible_Text_John_9_39,
     Bible_Text_John_9_40,
     Bible_Text_John_9_41,
+    0
 };
 
-static const u8 *const sJohn_Chapter10[] = {
+static const u16 *const sJohn_Chapter10[] = {
     Bible_Text_John_10_1,
     Bible_Text_John_10_2,
     Bible_Text_John_10_3,
@@ -35073,9 +33777,10 @@ static const u8 *const sJohn_Chapter10[] = {
     Bible_Text_John_10_40,
     Bible_Text_John_10_41,
     Bible_Text_John_10_42,
+    0
 };
 
-static const u8 *const sJohn_Chapter11[] = {
+static const u16 *const sJohn_Chapter11[] = {
     Bible_Text_John_11_1,
     Bible_Text_John_11_2,
     Bible_Text_John_11_3,
@@ -35133,9 +33838,10 @@ static const u8 *const sJohn_Chapter11[] = {
     Bible_Text_John_11_55,
     Bible_Text_John_11_56,
     Bible_Text_John_11_57,
+    0
 };
 
-static const u8 *const sJohn_Chapter12[] = {
+static const u16 *const sJohn_Chapter12[] = {
     Bible_Text_John_12_1,
     Bible_Text_John_12_2,
     Bible_Text_John_12_3,
@@ -35186,9 +33892,10 @@ static const u8 *const sJohn_Chapter12[] = {
     Bible_Text_John_12_48,
     Bible_Text_John_12_49,
     Bible_Text_John_12_50,
+    0
 };
 
-static const u8 *const sJohn_Chapter13[] = {
+static const u16 *const sJohn_Chapter13[] = {
     Bible_Text_John_13_1,
     Bible_Text_John_13_2,
     Bible_Text_John_13_3,
@@ -35227,9 +33934,10 @@ static const u8 *const sJohn_Chapter13[] = {
     Bible_Text_John_13_36,
     Bible_Text_John_13_37,
     Bible_Text_John_13_38,
+    0
 };
 
-static const u8 *const sJohn_Chapter14[] = {
+static const u16 *const sJohn_Chapter14[] = {
     Bible_Text_John_14_1,
     Bible_Text_John_14_2,
     Bible_Text_John_14_3,
@@ -35261,9 +33969,10 @@ static const u8 *const sJohn_Chapter14[] = {
     Bible_Text_John_14_29,
     Bible_Text_John_14_30,
     Bible_Text_John_14_31,
+    0
 };
 
-static const u8 *const sJohn_Chapter15[] = {
+static const u16 *const sJohn_Chapter15[] = {
     Bible_Text_John_15_1,
     Bible_Text_John_15_2,
     Bible_Text_John_15_3,
@@ -35291,9 +34000,10 @@ static const u8 *const sJohn_Chapter15[] = {
     Bible_Text_John_15_25,
     Bible_Text_John_15_26,
     Bible_Text_John_15_27,
+    0
 };
 
-static const u8 *const sJohn_Chapter16[] = {
+static const u16 *const sJohn_Chapter16[] = {
     Bible_Text_John_16_1,
     Bible_Text_John_16_2,
     Bible_Text_John_16_3,
@@ -35327,9 +34037,10 @@ static const u8 *const sJohn_Chapter16[] = {
     Bible_Text_John_16_31,
     Bible_Text_John_16_32,
     Bible_Text_John_16_33,
+    0
 };
 
-static const u8 *const sJohn_Chapter17[] = {
+static const u16 *const sJohn_Chapter17[] = {
     Bible_Text_John_17_1,
     Bible_Text_John_17_2,
     Bible_Text_John_17_3,
@@ -35356,9 +34067,10 @@ static const u8 *const sJohn_Chapter17[] = {
     Bible_Text_John_17_24,
     Bible_Text_John_17_25,
     Bible_Text_John_17_26,
+    0
 };
 
-static const u8 *const sJohn_Chapter18[] = {
+static const u16 *const sJohn_Chapter18[] = {
     Bible_Text_John_18_1,
     Bible_Text_John_18_2,
     Bible_Text_John_18_3,
@@ -35399,9 +34111,10 @@ static const u8 *const sJohn_Chapter18[] = {
     Bible_Text_John_18_38,
     Bible_Text_John_18_39,
     Bible_Text_John_18_40,
+    0
 };
 
-static const u8 *const sJohn_Chapter19[] = {
+static const u16 *const sJohn_Chapter19[] = {
     Bible_Text_John_19_1,
     Bible_Text_John_19_2,
     Bible_Text_John_19_3,
@@ -35444,9 +34157,10 @@ static const u8 *const sJohn_Chapter19[] = {
     Bible_Text_John_19_40,
     Bible_Text_John_19_41,
     Bible_Text_John_19_42,
+    0
 };
 
-static const u8 *const sJohn_Chapter20[] = {
+static const u16 *const sJohn_Chapter20[] = {
     Bible_Text_John_20_1,
     Bible_Text_John_20_2,
     Bible_Text_John_20_3,
@@ -35478,9 +34192,10 @@ static const u8 *const sJohn_Chapter20[] = {
     Bible_Text_John_20_29,
     Bible_Text_John_20_30,
     Bible_Text_John_20_31,
+    0
 };
 
-static const u8 *const sJohn_Chapter21[] = {
+static const u16 *const sJohn_Chapter21[] = {
     Bible_Text_John_21_1,
     Bible_Text_John_21_2,
     Bible_Text_John_21_3,
@@ -35506,9 +34221,10 @@ static const u8 *const sJohn_Chapter21[] = {
     Bible_Text_John_21_23,
     Bible_Text_John_21_24,
     Bible_Text_John_21_25,
+    0
 };
 
-static const u8 *const *const sBibleText_JohnTextPtrs[] = {
+static const u16 *const *const sBibleText_JohnTextPtrs[] = {
     sJohn_Chapter1,
     sJohn_Chapter2,
     sJohn_Chapter3,
@@ -35530,9 +34246,10 @@ static const u8 *const *const sBibleText_JohnTextPtrs[] = {
     sJohn_Chapter19,
     sJohn_Chapter20,
     sJohn_Chapter21,
+    0
 };
 
-static const u8 *const sActs_Chapter1[] = {
+static const u16 *const sActs_Chapter1[] = {
     Bible_Text_Acts_1_1,
     Bible_Text_Acts_1_2,
     Bible_Text_Acts_1_3,
@@ -35559,9 +34276,10 @@ static const u8 *const sActs_Chapter1[] = {
     Bible_Text_Acts_1_24,
     Bible_Text_Acts_1_25,
     Bible_Text_Acts_1_26,
+    0
 };
 
-static const u8 *const sActs_Chapter2[] = {
+static const u16 *const sActs_Chapter2[] = {
     Bible_Text_Acts_2_1,
     Bible_Text_Acts_2_2,
     Bible_Text_Acts_2_3,
@@ -35609,9 +34327,10 @@ static const u8 *const sActs_Chapter2[] = {
     Bible_Text_Acts_2_45,
     Bible_Text_Acts_2_46,
     Bible_Text_Acts_2_47,
+    0
 };
 
-static const u8 *const sActs_Chapter3[] = {
+static const u16 *const sActs_Chapter3[] = {
     Bible_Text_Acts_3_1,
     Bible_Text_Acts_3_2,
     Bible_Text_Acts_3_3,
@@ -35638,9 +34357,10 @@ static const u8 *const sActs_Chapter3[] = {
     Bible_Text_Acts_3_24,
     Bible_Text_Acts_3_25,
     Bible_Text_Acts_3_26,
+    0
 };
 
-static const u8 *const sActs_Chapter4[] = {
+static const u16 *const sActs_Chapter4[] = {
     Bible_Text_Acts_4_1,
     Bible_Text_Acts_4_2,
     Bible_Text_Acts_4_3,
@@ -35678,9 +34398,10 @@ static const u8 *const sActs_Chapter4[] = {
     Bible_Text_Acts_4_35,
     Bible_Text_Acts_4_36,
     Bible_Text_Acts_4_37,
+    0
 };
 
-static const u8 *const sActs_Chapter5[] = {
+static const u16 *const sActs_Chapter5[] = {
     Bible_Text_Acts_5_1,
     Bible_Text_Acts_5_2,
     Bible_Text_Acts_5_3,
@@ -35723,9 +34444,10 @@ static const u8 *const sActs_Chapter5[] = {
     Bible_Text_Acts_5_40,
     Bible_Text_Acts_5_41,
     Bible_Text_Acts_5_42,
+    0
 };
 
-static const u8 *const sActs_Chapter6[] = {
+static const u16 *const sActs_Chapter6[] = {
     Bible_Text_Acts_6_1,
     Bible_Text_Acts_6_2,
     Bible_Text_Acts_6_3,
@@ -35741,9 +34463,10 @@ static const u8 *const sActs_Chapter6[] = {
     Bible_Text_Acts_6_13,
     Bible_Text_Acts_6_14,
     Bible_Text_Acts_6_15,
+    0
 };
 
-static const u8 *const sActs_Chapter7[] = {
+static const u16 *const sActs_Chapter7[] = {
     Bible_Text_Acts_7_1,
     Bible_Text_Acts_7_2,
     Bible_Text_Acts_7_3,
@@ -35804,9 +34527,10 @@ static const u8 *const sActs_Chapter7[] = {
     Bible_Text_Acts_7_58,
     Bible_Text_Acts_7_59,
     Bible_Text_Acts_7_60,
+    0
 };
 
-static const u8 *const sActs_Chapter8[] = {
+static const u16 *const sActs_Chapter8[] = {
     Bible_Text_Acts_8_1,
     Bible_Text_Acts_8_2,
     Bible_Text_Acts_8_3,
@@ -35847,9 +34571,10 @@ static const u8 *const sActs_Chapter8[] = {
     Bible_Text_Acts_8_38,
     Bible_Text_Acts_8_39,
     Bible_Text_Acts_8_40,
+    0
 };
 
-static const u8 *const sActs_Chapter9[] = {
+static const u16 *const sActs_Chapter9[] = {
     Bible_Text_Acts_9_1,
     Bible_Text_Acts_9_2,
     Bible_Text_Acts_9_3,
@@ -35893,9 +34618,10 @@ static const u8 *const sActs_Chapter9[] = {
     Bible_Text_Acts_9_41,
     Bible_Text_Acts_9_42,
     Bible_Text_Acts_9_43,
+    0
 };
 
-static const u8 *const sActs_Chapter10[] = {
+static const u16 *const sActs_Chapter10[] = {
     Bible_Text_Acts_10_1,
     Bible_Text_Acts_10_2,
     Bible_Text_Acts_10_3,
@@ -35944,9 +34670,10 @@ static const u8 *const sActs_Chapter10[] = {
     Bible_Text_Acts_10_46,
     Bible_Text_Acts_10_47,
     Bible_Text_Acts_10_48,
+    0
 };
 
-static const u8 *const sActs_Chapter11[] = {
+static const u16 *const sActs_Chapter11[] = {
     Bible_Text_Acts_11_1,
     Bible_Text_Acts_11_2,
     Bible_Text_Acts_11_3,
@@ -35977,9 +34704,10 @@ static const u8 *const sActs_Chapter11[] = {
     Bible_Text_Acts_11_28,
     Bible_Text_Acts_11_29,
     Bible_Text_Acts_11_30,
+    0
 };
 
-static const u8 *const sActs_Chapter12[] = {
+static const u16 *const sActs_Chapter12[] = {
     Bible_Text_Acts_12_1,
     Bible_Text_Acts_12_2,
     Bible_Text_Acts_12_3,
@@ -36005,9 +34733,10 @@ static const u8 *const sActs_Chapter12[] = {
     Bible_Text_Acts_12_23,
     Bible_Text_Acts_12_24,
     Bible_Text_Acts_12_25,
+    0
 };
 
-static const u8 *const sActs_Chapter13[] = {
+static const u16 *const sActs_Chapter13[] = {
     Bible_Text_Acts_13_1,
     Bible_Text_Acts_13_2,
     Bible_Text_Acts_13_3,
@@ -36060,9 +34789,10 @@ static const u8 *const sActs_Chapter13[] = {
     Bible_Text_Acts_13_50,
     Bible_Text_Acts_13_51,
     Bible_Text_Acts_13_52,
+    0
 };
 
-static const u8 *const sActs_Chapter14[] = {
+static const u16 *const sActs_Chapter14[] = {
     Bible_Text_Acts_14_1,
     Bible_Text_Acts_14_2,
     Bible_Text_Acts_14_3,
@@ -36091,9 +34821,10 @@ static const u8 *const sActs_Chapter14[] = {
     Bible_Text_Acts_14_26,
     Bible_Text_Acts_14_27,
     Bible_Text_Acts_14_28,
+    0
 };
 
-static const u8 *const sActs_Chapter15[] = {
+static const u16 *const sActs_Chapter15[] = {
     Bible_Text_Acts_15_1,
     Bible_Text_Acts_15_2,
     Bible_Text_Acts_15_3,
@@ -36135,9 +34866,10 @@ static const u8 *const sActs_Chapter15[] = {
     Bible_Text_Acts_15_39,
     Bible_Text_Acts_15_40,
     Bible_Text_Acts_15_41,
+    0
 };
 
-static const u8 *const sActs_Chapter16[] = {
+static const u16 *const sActs_Chapter16[] = {
     Bible_Text_Acts_16_1,
     Bible_Text_Acts_16_2,
     Bible_Text_Acts_16_3,
@@ -36178,9 +34910,10 @@ static const u8 *const sActs_Chapter16[] = {
     Bible_Text_Acts_16_38,
     Bible_Text_Acts_16_39,
     Bible_Text_Acts_16_40,
+    0
 };
 
-static const u8 *const sActs_Chapter17[] = {
+static const u16 *const sActs_Chapter17[] = {
     Bible_Text_Acts_17_1,
     Bible_Text_Acts_17_2,
     Bible_Text_Acts_17_3,
@@ -36215,9 +34948,10 @@ static const u8 *const sActs_Chapter17[] = {
     Bible_Text_Acts_17_32,
     Bible_Text_Acts_17_33,
     Bible_Text_Acts_17_34,
+    0
 };
 
-static const u8 *const sActs_Chapter18[] = {
+static const u16 *const sActs_Chapter18[] = {
     Bible_Text_Acts_18_1,
     Bible_Text_Acts_18_2,
     Bible_Text_Acts_18_3,
@@ -36246,9 +34980,10 @@ static const u8 *const sActs_Chapter18[] = {
     Bible_Text_Acts_18_26,
     Bible_Text_Acts_18_27,
     Bible_Text_Acts_18_28,
+    0
 };
 
-static const u8 *const sActs_Chapter19[] = {
+static const u16 *const sActs_Chapter19[] = {
     Bible_Text_Acts_19_1,
     Bible_Text_Acts_19_2,
     Bible_Text_Acts_19_3,
@@ -36290,9 +35025,10 @@ static const u8 *const sActs_Chapter19[] = {
     Bible_Text_Acts_19_39,
     Bible_Text_Acts_19_40,
     Bible_Text_Acts_19_41,
+    0
 };
 
-static const u8 *const sActs_Chapter20[] = {
+static const u16 *const sActs_Chapter20[] = {
     Bible_Text_Acts_20_1,
     Bible_Text_Acts_20_2,
     Bible_Text_Acts_20_3,
@@ -36331,9 +35067,10 @@ static const u8 *const sActs_Chapter20[] = {
     Bible_Text_Acts_20_36,
     Bible_Text_Acts_20_37,
     Bible_Text_Acts_20_38,
+    0
 };
 
-static const u8 *const sActs_Chapter21[] = {
+static const u16 *const sActs_Chapter21[] = {
     Bible_Text_Acts_21_1,
     Bible_Text_Acts_21_2,
     Bible_Text_Acts_21_3,
@@ -36374,9 +35111,10 @@ static const u8 *const sActs_Chapter21[] = {
     Bible_Text_Acts_21_38,
     Bible_Text_Acts_21_39,
     Bible_Text_Acts_21_40,
+    0
 };
 
-static const u8 *const sActs_Chapter22[] = {
+static const u16 *const sActs_Chapter22[] = {
     Bible_Text_Acts_22_1,
     Bible_Text_Acts_22_2,
     Bible_Text_Acts_22_3,
@@ -36407,9 +35145,10 @@ static const u8 *const sActs_Chapter22[] = {
     Bible_Text_Acts_22_28,
     Bible_Text_Acts_22_29,
     Bible_Text_Acts_22_30,
+    0
 };
 
-static const u8 *const sActs_Chapter23[] = {
+static const u16 *const sActs_Chapter23[] = {
     Bible_Text_Acts_23_1,
     Bible_Text_Acts_23_2,
     Bible_Text_Acts_23_3,
@@ -36445,9 +35184,10 @@ static const u8 *const sActs_Chapter23[] = {
     Bible_Text_Acts_23_33,
     Bible_Text_Acts_23_34,
     Bible_Text_Acts_23_35,
+    0
 };
 
-static const u8 *const sActs_Chapter24[] = {
+static const u16 *const sActs_Chapter24[] = {
     Bible_Text_Acts_24_1,
     Bible_Text_Acts_24_2,
     Bible_Text_Acts_24_3,
@@ -36475,9 +35215,10 @@ static const u8 *const sActs_Chapter24[] = {
     Bible_Text_Acts_24_25,
     Bible_Text_Acts_24_26,
     Bible_Text_Acts_24_27,
+    0
 };
 
-static const u8 *const sActs_Chapter25[] = {
+static const u16 *const sActs_Chapter25[] = {
     Bible_Text_Acts_25_1,
     Bible_Text_Acts_25_2,
     Bible_Text_Acts_25_3,
@@ -36505,9 +35246,10 @@ static const u8 *const sActs_Chapter25[] = {
     Bible_Text_Acts_25_25,
     Bible_Text_Acts_25_26,
     Bible_Text_Acts_25_27,
+    0
 };
 
-static const u8 *const sActs_Chapter26[] = {
+static const u16 *const sActs_Chapter26[] = {
     Bible_Text_Acts_26_1,
     Bible_Text_Acts_26_2,
     Bible_Text_Acts_26_3,
@@ -36540,9 +35282,10 @@ static const u8 *const sActs_Chapter26[] = {
     Bible_Text_Acts_26_30,
     Bible_Text_Acts_26_31,
     Bible_Text_Acts_26_32,
+    0
 };
 
-static const u8 *const sActs_Chapter27[] = {
+static const u16 *const sActs_Chapter27[] = {
     Bible_Text_Acts_27_1,
     Bible_Text_Acts_27_2,
     Bible_Text_Acts_27_3,
@@ -36587,9 +35330,10 @@ static const u8 *const sActs_Chapter27[] = {
     Bible_Text_Acts_27_42,
     Bible_Text_Acts_27_43,
     Bible_Text_Acts_27_44,
+    0
 };
 
-static const u8 *const sActs_Chapter28[] = {
+static const u16 *const sActs_Chapter28[] = {
     Bible_Text_Acts_28_1,
     Bible_Text_Acts_28_2,
     Bible_Text_Acts_28_3,
@@ -36621,9 +35365,10 @@ static const u8 *const sActs_Chapter28[] = {
     Bible_Text_Acts_28_29,
     Bible_Text_Acts_28_30,
     Bible_Text_Acts_28_31,
+    0
 };
 
-static const u8 *const *const sBibleText_ActsTextPtrs[] = {
+static const u16 *const *const sBibleText_ActsTextPtrs[] = {
     sActs_Chapter1,
     sActs_Chapter2,
     sActs_Chapter3,
@@ -36652,9 +35397,10 @@ static const u8 *const *const sBibleText_ActsTextPtrs[] = {
     sActs_Chapter26,
     sActs_Chapter27,
     sActs_Chapter28,
+    0
 };
 
-static const u8 *const sPaul_Chapter1[] = {
+static const u16 *const sPaul_Chapter1[] = {
     Bible_Text_Paul_1_1,
     Bible_Text_Paul_1_2,
     Bible_Text_Paul_1_3,
@@ -36687,9 +35433,10 @@ static const u8 *const sPaul_Chapter1[] = {
     Bible_Text_Paul_1_30,
     Bible_Text_Paul_1_31,
     Bible_Text_Paul_1_32,
+    0
 };
 
-static const u8 *const sPaul_Chapter2[] = {
+static const u16 *const sPaul_Chapter2[] = {
     Bible_Text_Paul_2_1,
     Bible_Text_Paul_2_2,
     Bible_Text_Paul_2_3,
@@ -36719,9 +35466,10 @@ static const u8 *const sPaul_Chapter2[] = {
     Bible_Text_Paul_2_27,
     Bible_Text_Paul_2_28,
     Bible_Text_Paul_2_29,
+    0
 };
 
-static const u8 *const sPaul_Chapter3[] = {
+static const u16 *const sPaul_Chapter3[] = {
     Bible_Text_Paul_3_1,
     Bible_Text_Paul_3_2,
     Bible_Text_Paul_3_3,
@@ -36753,9 +35501,10 @@ static const u8 *const sPaul_Chapter3[] = {
     Bible_Text_Paul_3_29,
     Bible_Text_Paul_3_30,
     Bible_Text_Paul_3_31,
+    0
 };
 
-static const u8 *const sPaul_Chapter4[] = {
+static const u16 *const sPaul_Chapter4[] = {
     Bible_Text_Paul_4_1,
     Bible_Text_Paul_4_2,
     Bible_Text_Paul_4_3,
@@ -36781,9 +35530,10 @@ static const u8 *const sPaul_Chapter4[] = {
     Bible_Text_Paul_4_23,
     Bible_Text_Paul_4_24,
     Bible_Text_Paul_4_25,
+    0
 };
 
-static const u8 *const sPaul_Chapter5[] = {
+static const u16 *const sPaul_Chapter5[] = {
     Bible_Text_Paul_5_1,
     Bible_Text_Paul_5_2,
     Bible_Text_Paul_5_3,
@@ -36805,9 +35555,10 @@ static const u8 *const sPaul_Chapter5[] = {
     Bible_Text_Paul_5_19,
     Bible_Text_Paul_5_20,
     Bible_Text_Paul_5_21,
+    0
 };
 
-static const u8 *const sPaul_Chapter6[] = {
+static const u16 *const sPaul_Chapter6[] = {
     Bible_Text_Paul_6_1,
     Bible_Text_Paul_6_2,
     Bible_Text_Paul_6_3,
@@ -36831,9 +35582,10 @@ static const u8 *const sPaul_Chapter6[] = {
     Bible_Text_Paul_6_21,
     Bible_Text_Paul_6_22,
     Bible_Text_Paul_6_23,
+    0
 };
 
-static const u8 *const sPaul_Chapter7[] = {
+static const u16 *const sPaul_Chapter7[] = {
     Bible_Text_Paul_7_1,
     Bible_Text_Paul_7_2,
     Bible_Text_Paul_7_3,
@@ -36859,9 +35611,10 @@ static const u8 *const sPaul_Chapter7[] = {
     Bible_Text_Paul_7_23,
     Bible_Text_Paul_7_24,
     Bible_Text_Paul_7_25,
+    0
 };
 
-static const u8 *const sPaul_Chapter8[] = {
+static const u16 *const sPaul_Chapter8[] = {
     Bible_Text_Paul_8_1,
     Bible_Text_Paul_8_2,
     Bible_Text_Paul_8_3,
@@ -36901,9 +35654,10 @@ static const u8 *const sPaul_Chapter8[] = {
     Bible_Text_Paul_8_37,
     Bible_Text_Paul_8_38,
     Bible_Text_Paul_8_39,
+    0
 };
 
-static const u8 *const sPaul_Chapter9[] = {
+static const u16 *const sPaul_Chapter9[] = {
     Bible_Text_Paul_9_1,
     Bible_Text_Paul_9_2,
     Bible_Text_Paul_9_3,
@@ -36937,9 +35691,10 @@ static const u8 *const sPaul_Chapter9[] = {
     Bible_Text_Paul_9_31,
     Bible_Text_Paul_9_32,
     Bible_Text_Paul_9_33,
+    0
 };
 
-static const u8 *const sPaul_Chapter10[] = {
+static const u16 *const sPaul_Chapter10[] = {
     Bible_Text_Paul_10_1,
     Bible_Text_Paul_10_2,
     Bible_Text_Paul_10_3,
@@ -36961,9 +35716,10 @@ static const u8 *const sPaul_Chapter10[] = {
     Bible_Text_Paul_10_19,
     Bible_Text_Paul_10_20,
     Bible_Text_Paul_10_21,
+    0
 };
 
-static const u8 *const sPaul_Chapter11[] = {
+static const u16 *const sPaul_Chapter11[] = {
     Bible_Text_Paul_11_1,
     Bible_Text_Paul_11_2,
     Bible_Text_Paul_11_3,
@@ -37000,9 +35756,10 @@ static const u8 *const sPaul_Chapter11[] = {
     Bible_Text_Paul_11_34,
     Bible_Text_Paul_11_35,
     Bible_Text_Paul_11_36,
+    0
 };
 
-static const u8 *const sPaul_Chapter12[] = {
+static const u16 *const sPaul_Chapter12[] = {
     Bible_Text_Paul_12_1,
     Bible_Text_Paul_12_2,
     Bible_Text_Paul_12_3,
@@ -37024,9 +35781,10 @@ static const u8 *const sPaul_Chapter12[] = {
     Bible_Text_Paul_12_19,
     Bible_Text_Paul_12_20,
     Bible_Text_Paul_12_21,
+    0
 };
 
-static const u8 *const sPaul_Chapter13[] = {
+static const u16 *const sPaul_Chapter13[] = {
     Bible_Text_Paul_13_1,
     Bible_Text_Paul_13_2,
     Bible_Text_Paul_13_3,
@@ -37041,9 +35799,10 @@ static const u8 *const sPaul_Chapter13[] = {
     Bible_Text_Paul_13_12,
     Bible_Text_Paul_13_13,
     Bible_Text_Paul_13_14,
+    0
 };
 
-static const u8 *const sPaul_Chapter14[] = {
+static const u16 *const sPaul_Chapter14[] = {
     Bible_Text_Paul_14_1,
     Bible_Text_Paul_14_2,
     Bible_Text_Paul_14_3,
@@ -37067,9 +35826,10 @@ static const u8 *const sPaul_Chapter14[] = {
     Bible_Text_Paul_14_21,
     Bible_Text_Paul_14_22,
     Bible_Text_Paul_14_23,
+    0
 };
 
-static const u8 *const sPaul_Chapter15[] = {
+static const u16 *const sPaul_Chapter15[] = {
     Bible_Text_Paul_15_1,
     Bible_Text_Paul_15_2,
     Bible_Text_Paul_15_3,
@@ -37103,9 +35863,10 @@ static const u8 *const sPaul_Chapter15[] = {
     Bible_Text_Paul_15_31,
     Bible_Text_Paul_15_32,
     Bible_Text_Paul_15_33,
+    0
 };
 
-static const u8 *const sPaul_Chapter16[] = {
+static const u16 *const sPaul_Chapter16[] = {
     Bible_Text_Paul_16_1,
     Bible_Text_Paul_16_2,
     Bible_Text_Paul_16_3,
@@ -37133,9 +35894,10 @@ static const u8 *const sPaul_Chapter16[] = {
     Bible_Text_Paul_16_25,
     Bible_Text_Paul_16_26,
     Bible_Text_Paul_16_27,
+    0
 };
 
-static const u8 *const *const sBibleText_PaulTextPtrs[] = {
+static const u16 *const *const sBibleText_PaulTextPtrs[] = {
     sPaul_Chapter1,
     sPaul_Chapter2,
     sPaul_Chapter3,
@@ -37152,9 +35914,10 @@ static const u8 *const *const sBibleText_PaulTextPtrs[] = {
     sPaul_Chapter14,
     sPaul_Chapter15,
     sPaul_Chapter16,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter1[] = {
+static const u16 *const s1Corinthians_Chapter1[] = {
     Bible_Text_1_Corinthians_1_1,
     Bible_Text_1_Corinthians_1_2,
     Bible_Text_1_Corinthians_1_3,
@@ -37186,9 +35949,10 @@ static const u8 *const s1Corinthians_Chapter1[] = {
     Bible_Text_1_Corinthians_1_29,
     Bible_Text_1_Corinthians_1_30,
     Bible_Text_1_Corinthians_1_31,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter2[] = {
+static const u16 *const s1Corinthians_Chapter2[] = {
     Bible_Text_1_Corinthians_2_1,
     Bible_Text_1_Corinthians_2_2,
     Bible_Text_1_Corinthians_2_3,
@@ -37205,9 +35969,10 @@ static const u8 *const s1Corinthians_Chapter2[] = {
     Bible_Text_1_Corinthians_2_14,
     Bible_Text_1_Corinthians_2_15,
     Bible_Text_1_Corinthians_2_16,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter3[] = {
+static const u16 *const s1Corinthians_Chapter3[] = {
     Bible_Text_1_Corinthians_3_1,
     Bible_Text_1_Corinthians_3_2,
     Bible_Text_1_Corinthians_3_3,
@@ -37231,9 +35996,10 @@ static const u8 *const s1Corinthians_Chapter3[] = {
     Bible_Text_1_Corinthians_3_21,
     Bible_Text_1_Corinthians_3_22,
     Bible_Text_1_Corinthians_3_23,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter4[] = {
+static const u16 *const s1Corinthians_Chapter4[] = {
     Bible_Text_1_Corinthians_4_1,
     Bible_Text_1_Corinthians_4_2,
     Bible_Text_1_Corinthians_4_3,
@@ -37255,9 +36021,10 @@ static const u8 *const s1Corinthians_Chapter4[] = {
     Bible_Text_1_Corinthians_4_19,
     Bible_Text_1_Corinthians_4_20,
     Bible_Text_1_Corinthians_4_21,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter5[] = {
+static const u16 *const s1Corinthians_Chapter5[] = {
     Bible_Text_1_Corinthians_5_1,
     Bible_Text_1_Corinthians_5_2,
     Bible_Text_1_Corinthians_5_3,
@@ -37271,9 +36038,10 @@ static const u8 *const s1Corinthians_Chapter5[] = {
     Bible_Text_1_Corinthians_5_11,
     Bible_Text_1_Corinthians_5_12,
     Bible_Text_1_Corinthians_5_13,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter6[] = {
+static const u16 *const s1Corinthians_Chapter6[] = {
     Bible_Text_1_Corinthians_6_1,
     Bible_Text_1_Corinthians_6_2,
     Bible_Text_1_Corinthians_6_3,
@@ -37294,9 +36062,10 @@ static const u8 *const s1Corinthians_Chapter6[] = {
     Bible_Text_1_Corinthians_6_18,
     Bible_Text_1_Corinthians_6_19,
     Bible_Text_1_Corinthians_6_20,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter7[] = {
+static const u16 *const s1Corinthians_Chapter7[] = {
     Bible_Text_1_Corinthians_7_1,
     Bible_Text_1_Corinthians_7_2,
     Bible_Text_1_Corinthians_7_3,
@@ -37337,9 +36106,10 @@ static const u8 *const s1Corinthians_Chapter7[] = {
     Bible_Text_1_Corinthians_7_38,
     Bible_Text_1_Corinthians_7_39,
     Bible_Text_1_Corinthians_7_40,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter8[] = {
+static const u16 *const s1Corinthians_Chapter8[] = {
     Bible_Text_1_Corinthians_8_1,
     Bible_Text_1_Corinthians_8_2,
     Bible_Text_1_Corinthians_8_3,
@@ -37353,9 +36123,10 @@ static const u8 *const s1Corinthians_Chapter8[] = {
     Bible_Text_1_Corinthians_8_11,
     Bible_Text_1_Corinthians_8_12,
     Bible_Text_1_Corinthians_8_13,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter9[] = {
+static const u16 *const s1Corinthians_Chapter9[] = {
     Bible_Text_1_Corinthians_9_1,
     Bible_Text_1_Corinthians_9_2,
     Bible_Text_1_Corinthians_9_3,
@@ -37383,9 +36154,10 @@ static const u8 *const s1Corinthians_Chapter9[] = {
     Bible_Text_1_Corinthians_9_25,
     Bible_Text_1_Corinthians_9_26,
     Bible_Text_1_Corinthians_9_27,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter10[] = {
+static const u16 *const s1Corinthians_Chapter10[] = {
     Bible_Text_1_Corinthians_10_1,
     Bible_Text_1_Corinthians_10_2,
     Bible_Text_1_Corinthians_10_3,
@@ -37419,9 +36191,10 @@ static const u8 *const s1Corinthians_Chapter10[] = {
     Bible_Text_1_Corinthians_10_31,
     Bible_Text_1_Corinthians_10_32,
     Bible_Text_1_Corinthians_10_33,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter11[] = {
+static const u16 *const s1Corinthians_Chapter11[] = {
     Bible_Text_1_Corinthians_11_1,
     Bible_Text_1_Corinthians_11_2,
     Bible_Text_1_Corinthians_11_3,
@@ -37456,9 +36229,10 @@ static const u8 *const s1Corinthians_Chapter11[] = {
     Bible_Text_1_Corinthians_11_32,
     Bible_Text_1_Corinthians_11_33,
     Bible_Text_1_Corinthians_11_34,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter12[] = {
+static const u16 *const s1Corinthians_Chapter12[] = {
     Bible_Text_1_Corinthians_12_1,
     Bible_Text_1_Corinthians_12_2,
     Bible_Text_1_Corinthians_12_3,
@@ -37490,9 +36264,10 @@ static const u8 *const s1Corinthians_Chapter12[] = {
     Bible_Text_1_Corinthians_12_29,
     Bible_Text_1_Corinthians_12_30,
     Bible_Text_1_Corinthians_12_31,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter13[] = {
+static const u16 *const s1Corinthians_Chapter13[] = {
     Bible_Text_1_Corinthians_13_1,
     Bible_Text_1_Corinthians_13_2,
     Bible_Text_1_Corinthians_13_3,
@@ -37506,9 +36281,10 @@ static const u8 *const s1Corinthians_Chapter13[] = {
     Bible_Text_1_Corinthians_13_11,
     Bible_Text_1_Corinthians_13_12,
     Bible_Text_1_Corinthians_13_13,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter14[] = {
+static const u16 *const s1Corinthians_Chapter14[] = {
     Bible_Text_1_Corinthians_14_1,
     Bible_Text_1_Corinthians_14_2,
     Bible_Text_1_Corinthians_14_3,
@@ -37549,9 +36325,10 @@ static const u8 *const s1Corinthians_Chapter14[] = {
     Bible_Text_1_Corinthians_14_38,
     Bible_Text_1_Corinthians_14_39,
     Bible_Text_1_Corinthians_14_40,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter15[] = {
+static const u16 *const s1Corinthians_Chapter15[] = {
     Bible_Text_1_Corinthians_15_1,
     Bible_Text_1_Corinthians_15_2,
     Bible_Text_1_Corinthians_15_3,
@@ -37610,9 +36387,10 @@ static const u8 *const s1Corinthians_Chapter15[] = {
     Bible_Text_1_Corinthians_15_56,
     Bible_Text_1_Corinthians_15_57,
     Bible_Text_1_Corinthians_15_58,
+    0
 };
 
-static const u8 *const s1Corinthians_Chapter16[] = {
+static const u16 *const s1Corinthians_Chapter16[] = {
     Bible_Text_1_Corinthians_16_1,
     Bible_Text_1_Corinthians_16_2,
     Bible_Text_1_Corinthians_16_3,
@@ -37637,9 +36415,10 @@ static const u8 *const s1Corinthians_Chapter16[] = {
     Bible_Text_1_Corinthians_16_22,
     Bible_Text_1_Corinthians_16_23,
     Bible_Text_1_Corinthians_16_24,
+    0
 };
 
-static const u8 *const *const sBibleText_1CorinthiansTextPtrs[] = {
+static const u16 *const *const sBibleText_1CorinthiansTextPtrs[] = {
     s1Corinthians_Chapter1,
     s1Corinthians_Chapter2,
     s1Corinthians_Chapter3,
@@ -37656,9 +36435,10 @@ static const u8 *const *const sBibleText_1CorinthiansTextPtrs[] = {
     s1Corinthians_Chapter14,
     s1Corinthians_Chapter15,
     s1Corinthians_Chapter16,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter1[] = {
+static const u16 *const s2Corinthians_Chapter1[] = {
     Bible_Text_2_Corinthians_1_1,
     Bible_Text_2_Corinthians_1_2,
     Bible_Text_2_Corinthians_1_3,
@@ -37683,9 +36463,10 @@ static const u8 *const s2Corinthians_Chapter1[] = {
     Bible_Text_2_Corinthians_1_22,
     Bible_Text_2_Corinthians_1_23,
     Bible_Text_2_Corinthians_1_24,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter2[] = {
+static const u16 *const s2Corinthians_Chapter2[] = {
     Bible_Text_2_Corinthians_2_1,
     Bible_Text_2_Corinthians_2_2,
     Bible_Text_2_Corinthians_2_3,
@@ -37703,9 +36484,10 @@ static const u8 *const s2Corinthians_Chapter2[] = {
     Bible_Text_2_Corinthians_2_15,
     Bible_Text_2_Corinthians_2_16,
     Bible_Text_2_Corinthians_2_17,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter3[] = {
+static const u16 *const s2Corinthians_Chapter3[] = {
     Bible_Text_2_Corinthians_3_1,
     Bible_Text_2_Corinthians_3_2,
     Bible_Text_2_Corinthians_3_3,
@@ -37724,9 +36506,10 @@ static const u8 *const s2Corinthians_Chapter3[] = {
     Bible_Text_2_Corinthians_3_16,
     Bible_Text_2_Corinthians_3_17,
     Bible_Text_2_Corinthians_3_18,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter4[] = {
+static const u16 *const s2Corinthians_Chapter4[] = {
     Bible_Text_2_Corinthians_4_1,
     Bible_Text_2_Corinthians_4_2,
     Bible_Text_2_Corinthians_4_3,
@@ -37745,9 +36528,10 @@ static const u8 *const s2Corinthians_Chapter4[] = {
     Bible_Text_2_Corinthians_4_16,
     Bible_Text_2_Corinthians_4_17,
     Bible_Text_2_Corinthians_4_18,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter5[] = {
+static const u16 *const s2Corinthians_Chapter5[] = {
     Bible_Text_2_Corinthians_5_1,
     Bible_Text_2_Corinthians_5_2,
     Bible_Text_2_Corinthians_5_3,
@@ -37769,9 +36553,10 @@ static const u8 *const s2Corinthians_Chapter5[] = {
     Bible_Text_2_Corinthians_5_19,
     Bible_Text_2_Corinthians_5_20,
     Bible_Text_2_Corinthians_5_21,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter6[] = {
+static const u16 *const s2Corinthians_Chapter6[] = {
     Bible_Text_2_Corinthians_6_1,
     Bible_Text_2_Corinthians_6_2,
     Bible_Text_2_Corinthians_6_3,
@@ -37790,9 +36575,10 @@ static const u8 *const s2Corinthians_Chapter6[] = {
     Bible_Text_2_Corinthians_6_16,
     Bible_Text_2_Corinthians_6_17,
     Bible_Text_2_Corinthians_6_18,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter7[] = {
+static const u16 *const s2Corinthians_Chapter7[] = {
     Bible_Text_2_Corinthians_7_1,
     Bible_Text_2_Corinthians_7_2,
     Bible_Text_2_Corinthians_7_3,
@@ -37809,9 +36595,10 @@ static const u8 *const s2Corinthians_Chapter7[] = {
     Bible_Text_2_Corinthians_7_14,
     Bible_Text_2_Corinthians_7_15,
     Bible_Text_2_Corinthians_7_16,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter8[] = {
+static const u16 *const s2Corinthians_Chapter8[] = {
     Bible_Text_2_Corinthians_8_1,
     Bible_Text_2_Corinthians_8_2,
     Bible_Text_2_Corinthians_8_3,
@@ -37836,9 +36623,10 @@ static const u8 *const s2Corinthians_Chapter8[] = {
     Bible_Text_2_Corinthians_8_22,
     Bible_Text_2_Corinthians_8_23,
     Bible_Text_2_Corinthians_8_24,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter9[] = {
+static const u16 *const s2Corinthians_Chapter9[] = {
     Bible_Text_2_Corinthians_9_1,
     Bible_Text_2_Corinthians_9_2,
     Bible_Text_2_Corinthians_9_3,
@@ -37854,9 +36642,10 @@ static const u8 *const s2Corinthians_Chapter9[] = {
     Bible_Text_2_Corinthians_9_13,
     Bible_Text_2_Corinthians_9_14,
     Bible_Text_2_Corinthians_9_15,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter10[] = {
+static const u16 *const s2Corinthians_Chapter10[] = {
     Bible_Text_2_Corinthians_10_1,
     Bible_Text_2_Corinthians_10_2,
     Bible_Text_2_Corinthians_10_3,
@@ -37875,9 +36664,10 @@ static const u8 *const s2Corinthians_Chapter10[] = {
     Bible_Text_2_Corinthians_10_16,
     Bible_Text_2_Corinthians_10_17,
     Bible_Text_2_Corinthians_10_18,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter11[] = {
+static const u16 *const s2Corinthians_Chapter11[] = {
     Bible_Text_2_Corinthians_11_1,
     Bible_Text_2_Corinthians_11_2,
     Bible_Text_2_Corinthians_11_3,
@@ -37911,9 +36701,10 @@ static const u8 *const s2Corinthians_Chapter11[] = {
     Bible_Text_2_Corinthians_11_31,
     Bible_Text_2_Corinthians_11_32,
     Bible_Text_2_Corinthians_11_33,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter12[] = {
+static const u16 *const s2Corinthians_Chapter12[] = {
     Bible_Text_2_Corinthians_12_1,
     Bible_Text_2_Corinthians_12_2,
     Bible_Text_2_Corinthians_12_3,
@@ -37935,9 +36726,10 @@ static const u8 *const s2Corinthians_Chapter12[] = {
     Bible_Text_2_Corinthians_12_19,
     Bible_Text_2_Corinthians_12_20,
     Bible_Text_2_Corinthians_12_21,
+    0
 };
 
-static const u8 *const s2Corinthians_Chapter13[] = {
+static const u16 *const s2Corinthians_Chapter13[] = {
     Bible_Text_2_Corinthians_13_1,
     Bible_Text_2_Corinthians_13_2,
     Bible_Text_2_Corinthians_13_3,
@@ -37952,9 +36744,10 @@ static const u8 *const s2Corinthians_Chapter13[] = {
     Bible_Text_2_Corinthians_13_12,
     Bible_Text_2_Corinthians_13_13,
     Bible_Text_2_Corinthians_13_14,
+    0
 };
 
-static const u8 *const *const sBibleText_2CorinthiansTextPtrs[] = {
+static const u16 *const *const sBibleText_2CorinthiansTextPtrs[] = {
     s2Corinthians_Chapter1,
     s2Corinthians_Chapter2,
     s2Corinthians_Chapter3,
@@ -37968,9 +36761,10 @@ static const u8 *const *const sBibleText_2CorinthiansTextPtrs[] = {
     s2Corinthians_Chapter11,
     s2Corinthians_Chapter12,
     s2Corinthians_Chapter13,
+    0
 };
 
-static const u8 *const sGalatians_Chapter1[] = {
+static const u16 *const sGalatians_Chapter1[] = {
     Bible_Text_Galatians_1_1,
     Bible_Text_Galatians_1_2,
     Bible_Text_Galatians_1_3,
@@ -37995,9 +36789,10 @@ static const u8 *const sGalatians_Chapter1[] = {
     Bible_Text_Galatians_1_22,
     Bible_Text_Galatians_1_23,
     Bible_Text_Galatians_1_24,
+    0
 };
 
-static const u8 *const sGalatians_Chapter2[] = {
+static const u16 *const sGalatians_Chapter2[] = {
     Bible_Text_Galatians_2_1,
     Bible_Text_Galatians_2_2,
     Bible_Text_Galatians_2_3,
@@ -38019,9 +36814,10 @@ static const u8 *const sGalatians_Chapter2[] = {
     Bible_Text_Galatians_2_19,
     Bible_Text_Galatians_2_20,
     Bible_Text_Galatians_2_21,
+    0
 };
 
-static const u8 *const sGalatians_Chapter3[] = {
+static const u16 *const sGalatians_Chapter3[] = {
     Bible_Text_Galatians_3_1,
     Bible_Text_Galatians_3_2,
     Bible_Text_Galatians_3_3,
@@ -38051,9 +36847,10 @@ static const u8 *const sGalatians_Chapter3[] = {
     Bible_Text_Galatians_3_27,
     Bible_Text_Galatians_3_28,
     Bible_Text_Galatians_3_29,
+    0
 };
 
-static const u8 *const sGalatians_Chapter4[] = {
+static const u16 *const sGalatians_Chapter4[] = {
     Bible_Text_Galatians_4_1,
     Bible_Text_Galatians_4_2,
     Bible_Text_Galatians_4_3,
@@ -38085,9 +36882,10 @@ static const u8 *const sGalatians_Chapter4[] = {
     Bible_Text_Galatians_4_29,
     Bible_Text_Galatians_4_30,
     Bible_Text_Galatians_4_31,
+    0
 };
 
-static const u8 *const sGalatians_Chapter5[] = {
+static const u16 *const sGalatians_Chapter5[] = {
     Bible_Text_Galatians_5_1,
     Bible_Text_Galatians_5_2,
     Bible_Text_Galatians_5_3,
@@ -38114,9 +36912,10 @@ static const u8 *const sGalatians_Chapter5[] = {
     Bible_Text_Galatians_5_24,
     Bible_Text_Galatians_5_25,
     Bible_Text_Galatians_5_26,
+    0
 };
 
-static const u8 *const sGalatians_Chapter6[] = {
+static const u16 *const sGalatians_Chapter6[] = {
     Bible_Text_Galatians_6_1,
     Bible_Text_Galatians_6_2,
     Bible_Text_Galatians_6_3,
@@ -38135,18 +36934,20 @@ static const u8 *const sGalatians_Chapter6[] = {
     Bible_Text_Galatians_6_16,
     Bible_Text_Galatians_6_17,
     Bible_Text_Galatians_6_18,
+    0
 };
 
-static const u8 *const *const sBibleText_GalatiansTextPtrs[] = {
+static const u16 *const *const sBibleText_GalatiansTextPtrs[] = {
     sGalatians_Chapter1,
     sGalatians_Chapter2,
     sGalatians_Chapter3,
     sGalatians_Chapter4,
     sGalatians_Chapter5,
     sGalatians_Chapter6,
+    0
 };
 
-static const u8 *const sEphesians_Chapter1[] = {
+static const u16 *const sEphesians_Chapter1[] = {
     Bible_Text_Ephesians_1_1,
     Bible_Text_Ephesians_1_2,
     Bible_Text_Ephesians_1_3,
@@ -38170,9 +36971,10 @@ static const u8 *const sEphesians_Chapter1[] = {
     Bible_Text_Ephesians_1_21,
     Bible_Text_Ephesians_1_22,
     Bible_Text_Ephesians_1_23,
+    0
 };
 
-static const u8 *const sEphesians_Chapter2[] = {
+static const u16 *const sEphesians_Chapter2[] = {
     Bible_Text_Ephesians_2_1,
     Bible_Text_Ephesians_2_2,
     Bible_Text_Ephesians_2_3,
@@ -38195,9 +36997,10 @@ static const u8 *const sEphesians_Chapter2[] = {
     Bible_Text_Ephesians_2_20,
     Bible_Text_Ephesians_2_21,
     Bible_Text_Ephesians_2_22,
+    0
 };
 
-static const u8 *const sEphesians_Chapter3[] = {
+static const u16 *const sEphesians_Chapter3[] = {
     Bible_Text_Ephesians_3_1,
     Bible_Text_Ephesians_3_2,
     Bible_Text_Ephesians_3_3,
@@ -38219,9 +37022,10 @@ static const u8 *const sEphesians_Chapter3[] = {
     Bible_Text_Ephesians_3_19,
     Bible_Text_Ephesians_3_20,
     Bible_Text_Ephesians_3_21,
+    0
 };
 
-static const u8 *const sEphesians_Chapter4[] = {
+static const u16 *const sEphesians_Chapter4[] = {
     Bible_Text_Ephesians_4_1,
     Bible_Text_Ephesians_4_2,
     Bible_Text_Ephesians_4_3,
@@ -38254,9 +37058,10 @@ static const u8 *const sEphesians_Chapter4[] = {
     Bible_Text_Ephesians_4_30,
     Bible_Text_Ephesians_4_31,
     Bible_Text_Ephesians_4_32,
+    0
 };
 
-static const u8 *const sEphesians_Chapter5[] = {
+static const u16 *const sEphesians_Chapter5[] = {
     Bible_Text_Ephesians_5_1,
     Bible_Text_Ephesians_5_2,
     Bible_Text_Ephesians_5_3,
@@ -38290,9 +37095,10 @@ static const u8 *const sEphesians_Chapter5[] = {
     Bible_Text_Ephesians_5_31,
     Bible_Text_Ephesians_5_32,
     Bible_Text_Ephesians_5_33,
+    0
 };
 
-static const u8 *const sEphesians_Chapter6[] = {
+static const u16 *const sEphesians_Chapter6[] = {
     Bible_Text_Ephesians_6_1,
     Bible_Text_Ephesians_6_2,
     Bible_Text_Ephesians_6_3,
@@ -38317,18 +37123,20 @@ static const u8 *const sEphesians_Chapter6[] = {
     Bible_Text_Ephesians_6_22,
     Bible_Text_Ephesians_6_23,
     Bible_Text_Ephesians_6_24,
+    0
 };
 
-static const u8 *const *const sBibleText_EphesiansTextPtrs[] = {
+static const u16 *const *const sBibleText_EphesiansTextPtrs[] = {
     sEphesians_Chapter1,
     sEphesians_Chapter2,
     sEphesians_Chapter3,
     sEphesians_Chapter4,
     sEphesians_Chapter5,
     sEphesians_Chapter6,
+    0
 };
 
-static const u8 *const sPhilippians_Chapter1[] = {
+static const u16 *const sPhilippians_Chapter1[] = {
     Bible_Text_Philippians_1_1,
     Bible_Text_Philippians_1_2,
     Bible_Text_Philippians_1_3,
@@ -38359,9 +37167,10 @@ static const u8 *const sPhilippians_Chapter1[] = {
     Bible_Text_Philippians_1_28,
     Bible_Text_Philippians_1_29,
     Bible_Text_Philippians_1_30,
+    0
 };
 
-static const u8 *const sPhilippians_Chapter2[] = {
+static const u16 *const sPhilippians_Chapter2[] = {
     Bible_Text_Philippians_2_1,
     Bible_Text_Philippians_2_2,
     Bible_Text_Philippians_2_3,
@@ -38392,9 +37201,10 @@ static const u8 *const sPhilippians_Chapter2[] = {
     Bible_Text_Philippians_2_28,
     Bible_Text_Philippians_2_29,
     Bible_Text_Philippians_2_30,
+    0
 };
 
-static const u8 *const sPhilippians_Chapter3[] = {
+static const u16 *const sPhilippians_Chapter3[] = {
     Bible_Text_Philippians_3_1,
     Bible_Text_Philippians_3_2,
     Bible_Text_Philippians_3_3,
@@ -38416,9 +37226,10 @@ static const u8 *const sPhilippians_Chapter3[] = {
     Bible_Text_Philippians_3_19,
     Bible_Text_Philippians_3_20,
     Bible_Text_Philippians_3_21,
+    0
 };
 
-static const u8 *const sPhilippians_Chapter4[] = {
+static const u16 *const sPhilippians_Chapter4[] = {
     Bible_Text_Philippians_4_1,
     Bible_Text_Philippians_4_2,
     Bible_Text_Philippians_4_3,
@@ -38442,16 +37253,18 @@ static const u8 *const sPhilippians_Chapter4[] = {
     Bible_Text_Philippians_4_21,
     Bible_Text_Philippians_4_22,
     Bible_Text_Philippians_4_23,
+    0
 };
 
-static const u8 *const *const sBibleText_PhilippiansTextPtrs[] = {
+static const u16 *const *const sBibleText_PhilippiansTextPtrs[] = {
     sPhilippians_Chapter1,
     sPhilippians_Chapter2,
     sPhilippians_Chapter3,
     sPhilippians_Chapter4,
+    0
 };
 
-static const u8 *const sColossians_Chapter1[] = {
+static const u16 *const sColossians_Chapter1[] = {
     Bible_Text_Colossians_1_1,
     Bible_Text_Colossians_1_2,
     Bible_Text_Colossians_1_3,
@@ -38481,9 +37294,10 @@ static const u8 *const sColossians_Chapter1[] = {
     Bible_Text_Colossians_1_27,
     Bible_Text_Colossians_1_28,
     Bible_Text_Colossians_1_29,
+    0
 };
 
-static const u8 *const sColossians_Chapter2[] = {
+static const u16 *const sColossians_Chapter2[] = {
     Bible_Text_Colossians_2_1,
     Bible_Text_Colossians_2_2,
     Bible_Text_Colossians_2_3,
@@ -38507,9 +37321,10 @@ static const u8 *const sColossians_Chapter2[] = {
     Bible_Text_Colossians_2_21,
     Bible_Text_Colossians_2_22,
     Bible_Text_Colossians_2_23,
+    0
 };
 
-static const u8 *const sColossians_Chapter3[] = {
+static const u16 *const sColossians_Chapter3[] = {
     Bible_Text_Colossians_3_1,
     Bible_Text_Colossians_3_2,
     Bible_Text_Colossians_3_3,
@@ -38535,9 +37350,10 @@ static const u8 *const sColossians_Chapter3[] = {
     Bible_Text_Colossians_3_23,
     Bible_Text_Colossians_3_24,
     Bible_Text_Colossians_3_25,
+    0
 };
 
-static const u8 *const sColossians_Chapter4[] = {
+static const u16 *const sColossians_Chapter4[] = {
     Bible_Text_Colossians_4_1,
     Bible_Text_Colossians_4_2,
     Bible_Text_Colossians_4_3,
@@ -38556,16 +37372,18 @@ static const u8 *const sColossians_Chapter4[] = {
     Bible_Text_Colossians_4_16,
     Bible_Text_Colossians_4_17,
     Bible_Text_Colossians_4_18,
+    0
 };
 
-static const u8 *const *const sBibleText_ColossiansTextPtrs[] = {
+static const u16 *const *const sBibleText_ColossiansTextPtrs[] = {
     sColossians_Chapter1,
     sColossians_Chapter2,
     sColossians_Chapter3,
     sColossians_Chapter4,
+    0
 };
 
-static const u8 *const s1Thessalonians_Chapter1[] = {
+static const u16 *const s1Thessalonians_Chapter1[] = {
     Bible_Text_1_Thessalonians_1_1,
     Bible_Text_1_Thessalonians_1_2,
     Bible_Text_1_Thessalonians_1_3,
@@ -38576,9 +37394,10 @@ static const u8 *const s1Thessalonians_Chapter1[] = {
     Bible_Text_1_Thessalonians_1_8,
     Bible_Text_1_Thessalonians_1_9,
     Bible_Text_1_Thessalonians_1_10,
+    0
 };
 
-static const u8 *const s1Thessalonians_Chapter2[] = {
+static const u16 *const s1Thessalonians_Chapter2[] = {
     Bible_Text_1_Thessalonians_2_1,
     Bible_Text_1_Thessalonians_2_2,
     Bible_Text_1_Thessalonians_2_3,
@@ -38599,9 +37418,10 @@ static const u8 *const s1Thessalonians_Chapter2[] = {
     Bible_Text_1_Thessalonians_2_18,
     Bible_Text_1_Thessalonians_2_19,
     Bible_Text_1_Thessalonians_2_20,
+    0
 };
 
-static const u8 *const s1Thessalonians_Chapter3[] = {
+static const u16 *const s1Thessalonians_Chapter3[] = {
     Bible_Text_1_Thessalonians_3_1,
     Bible_Text_1_Thessalonians_3_2,
     Bible_Text_1_Thessalonians_3_3,
@@ -38615,9 +37435,10 @@ static const u8 *const s1Thessalonians_Chapter3[] = {
     Bible_Text_1_Thessalonians_3_11,
     Bible_Text_1_Thessalonians_3_12,
     Bible_Text_1_Thessalonians_3_13,
+    0
 };
 
-static const u8 *const s1Thessalonians_Chapter4[] = {
+static const u16 *const s1Thessalonians_Chapter4[] = {
     Bible_Text_1_Thessalonians_4_1,
     Bible_Text_1_Thessalonians_4_2,
     Bible_Text_1_Thessalonians_4_3,
@@ -38636,9 +37457,10 @@ static const u8 *const s1Thessalonians_Chapter4[] = {
     Bible_Text_1_Thessalonians_4_16,
     Bible_Text_1_Thessalonians_4_17,
     Bible_Text_1_Thessalonians_4_18,
+    0
 };
 
-static const u8 *const s1Thessalonians_Chapter5[] = {
+static const u16 *const s1Thessalonians_Chapter5[] = {
     Bible_Text_1_Thessalonians_5_1,
     Bible_Text_1_Thessalonians_5_2,
     Bible_Text_1_Thessalonians_5_3,
@@ -38667,17 +37489,19 @@ static const u8 *const s1Thessalonians_Chapter5[] = {
     Bible_Text_1_Thessalonians_5_26,
     Bible_Text_1_Thessalonians_5_27,
     Bible_Text_1_Thessalonians_5_28,
+    0
 };
 
-static const u8 *const *const sBibleText_1ThessaloniansTextPtrs[] = {
+static const u16 *const *const sBibleText_1ThessaloniansTextPtrs[] = {
     s1Thessalonians_Chapter1,
     s1Thessalonians_Chapter2,
     s1Thessalonians_Chapter3,
     s1Thessalonians_Chapter4,
     s1Thessalonians_Chapter5,
+    0
 };
 
-static const u8 *const s2Thessalonians_Chapter1[] = {
+static const u16 *const s2Thessalonians_Chapter1[] = {
     Bible_Text_2_Thessalonians_1_1,
     Bible_Text_2_Thessalonians_1_2,
     Bible_Text_2_Thessalonians_1_3,
@@ -38690,9 +37514,10 @@ static const u8 *const s2Thessalonians_Chapter1[] = {
     Bible_Text_2_Thessalonians_1_10,
     Bible_Text_2_Thessalonians_1_11,
     Bible_Text_2_Thessalonians_1_12,
+    0
 };
 
-static const u8 *const s2Thessalonians_Chapter2[] = {
+static const u16 *const s2Thessalonians_Chapter2[] = {
     Bible_Text_2_Thessalonians_2_1,
     Bible_Text_2_Thessalonians_2_2,
     Bible_Text_2_Thessalonians_2_3,
@@ -38710,9 +37535,10 @@ static const u8 *const s2Thessalonians_Chapter2[] = {
     Bible_Text_2_Thessalonians_2_15,
     Bible_Text_2_Thessalonians_2_16,
     Bible_Text_2_Thessalonians_2_17,
+    0
 };
 
-static const u8 *const s2Thessalonians_Chapter3[] = {
+static const u16 *const s2Thessalonians_Chapter3[] = {
     Bible_Text_2_Thessalonians_3_1,
     Bible_Text_2_Thessalonians_3_2,
     Bible_Text_2_Thessalonians_3_3,
@@ -38731,15 +37557,17 @@ static const u8 *const s2Thessalonians_Chapter3[] = {
     Bible_Text_2_Thessalonians_3_16,
     Bible_Text_2_Thessalonians_3_17,
     Bible_Text_2_Thessalonians_3_18,
+    0
 };
 
-static const u8 *const *const sBibleText_2ThessaloniansTextPtrs[] = {
+static const u16 *const *const sBibleText_2ThessaloniansTextPtrs[] = {
     s2Thessalonians_Chapter1,
     s2Thessalonians_Chapter2,
     s2Thessalonians_Chapter3,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter1[] = {
+static const u16 *const s1Timothy_Chapter1[] = {
     Bible_Text_1_Timothy_1_1,
     Bible_Text_1_Timothy_1_2,
     Bible_Text_1_Timothy_1_3,
@@ -38760,9 +37588,10 @@ static const u8 *const s1Timothy_Chapter1[] = {
     Bible_Text_1_Timothy_1_18,
     Bible_Text_1_Timothy_1_19,
     Bible_Text_1_Timothy_1_20,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter2[] = {
+static const u16 *const s1Timothy_Chapter2[] = {
     Bible_Text_1_Timothy_2_1,
     Bible_Text_1_Timothy_2_2,
     Bible_Text_1_Timothy_2_3,
@@ -38778,9 +37607,10 @@ static const u8 *const s1Timothy_Chapter2[] = {
     Bible_Text_1_Timothy_2_13,
     Bible_Text_1_Timothy_2_14,
     Bible_Text_1_Timothy_2_15,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter3[] = {
+static const u16 *const s1Timothy_Chapter3[] = {
     Bible_Text_1_Timothy_3_1,
     Bible_Text_1_Timothy_3_2,
     Bible_Text_1_Timothy_3_3,
@@ -38797,9 +37627,10 @@ static const u8 *const s1Timothy_Chapter3[] = {
     Bible_Text_1_Timothy_3_14,
     Bible_Text_1_Timothy_3_15,
     Bible_Text_1_Timothy_3_16,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter4[] = {
+static const u16 *const s1Timothy_Chapter4[] = {
     Bible_Text_1_Timothy_4_1,
     Bible_Text_1_Timothy_4_2,
     Bible_Text_1_Timothy_4_3,
@@ -38816,9 +37647,10 @@ static const u8 *const s1Timothy_Chapter4[] = {
     Bible_Text_1_Timothy_4_14,
     Bible_Text_1_Timothy_4_15,
     Bible_Text_1_Timothy_4_16,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter5[] = {
+static const u16 *const s1Timothy_Chapter5[] = {
     Bible_Text_1_Timothy_5_1,
     Bible_Text_1_Timothy_5_2,
     Bible_Text_1_Timothy_5_3,
@@ -38844,9 +37676,10 @@ static const u8 *const s1Timothy_Chapter5[] = {
     Bible_Text_1_Timothy_5_23,
     Bible_Text_1_Timothy_5_24,
     Bible_Text_1_Timothy_5_25,
+    0
 };
 
-static const u8 *const s1Timothy_Chapter6[] = {
+static const u16 *const s1Timothy_Chapter6[] = {
     Bible_Text_1_Timothy_6_1,
     Bible_Text_1_Timothy_6_2,
     Bible_Text_1_Timothy_6_3,
@@ -38868,18 +37701,20 @@ static const u8 *const s1Timothy_Chapter6[] = {
     Bible_Text_1_Timothy_6_19,
     Bible_Text_1_Timothy_6_20,
     Bible_Text_1_Timothy_6_21,
+    0
 };
 
-static const u8 *const *const sBibleText_1TimothyTextPtrs[] = {
+static const u16 *const *const sBibleText_1TimothyTextPtrs[] = {
     s1Timothy_Chapter1,
     s1Timothy_Chapter2,
     s1Timothy_Chapter3,
     s1Timothy_Chapter4,
     s1Timothy_Chapter5,
     s1Timothy_Chapter6,
+    0
 };
 
-static const u8 *const s2Timothy_Chapter1[] = {
+static const u16 *const s2Timothy_Chapter1[] = {
     Bible_Text_2_Timothy_1_1,
     Bible_Text_2_Timothy_1_2,
     Bible_Text_2_Timothy_1_3,
@@ -38898,9 +37733,10 @@ static const u8 *const s2Timothy_Chapter1[] = {
     Bible_Text_2_Timothy_1_16,
     Bible_Text_2_Timothy_1_17,
     Bible_Text_2_Timothy_1_18,
+    0
 };
 
-static const u8 *const s2Timothy_Chapter2[] = {
+static const u16 *const s2Timothy_Chapter2[] = {
     Bible_Text_2_Timothy_2_1,
     Bible_Text_2_Timothy_2_2,
     Bible_Text_2_Timothy_2_3,
@@ -38927,9 +37763,10 @@ static const u8 *const s2Timothy_Chapter2[] = {
     Bible_Text_2_Timothy_2_24,
     Bible_Text_2_Timothy_2_25,
     Bible_Text_2_Timothy_2_26,
+    0
 };
 
-static const u8 *const s2Timothy_Chapter3[] = {
+static const u16 *const s2Timothy_Chapter3[] = {
     Bible_Text_2_Timothy_3_1,
     Bible_Text_2_Timothy_3_2,
     Bible_Text_2_Timothy_3_3,
@@ -38947,9 +37784,10 @@ static const u8 *const s2Timothy_Chapter3[] = {
     Bible_Text_2_Timothy_3_15,
     Bible_Text_2_Timothy_3_16,
     Bible_Text_2_Timothy_3_17,
+    0
 };
 
-static const u8 *const s2Timothy_Chapter4[] = {
+static const u16 *const s2Timothy_Chapter4[] = {
     Bible_Text_2_Timothy_4_1,
     Bible_Text_2_Timothy_4_2,
     Bible_Text_2_Timothy_4_3,
@@ -38972,16 +37810,18 @@ static const u8 *const s2Timothy_Chapter4[] = {
     Bible_Text_2_Timothy_4_20,
     Bible_Text_2_Timothy_4_21,
     Bible_Text_2_Timothy_4_22,
+    0
 };
 
-static const u8 *const *const sBibleText_2TimothyTextPtrs[] = {
+static const u16 *const *const sBibleText_2TimothyTextPtrs[] = {
     s2Timothy_Chapter1,
     s2Timothy_Chapter2,
     s2Timothy_Chapter3,
     s2Timothy_Chapter4,
+    0
 };
 
-static const u8 *const sTitus_Chapter1[] = {
+static const u16 *const sTitus_Chapter1[] = {
     Bible_Text_Titus_1_1,
     Bible_Text_Titus_1_2,
     Bible_Text_Titus_1_3,
@@ -38998,9 +37838,10 @@ static const u8 *const sTitus_Chapter1[] = {
     Bible_Text_Titus_1_14,
     Bible_Text_Titus_1_15,
     Bible_Text_Titus_1_16,
+    0
 };
 
-static const u8 *const sTitus_Chapter2[] = {
+static const u16 *const sTitus_Chapter2[] = {
     Bible_Text_Titus_2_1,
     Bible_Text_Titus_2_2,
     Bible_Text_Titus_2_3,
@@ -39016,9 +37857,10 @@ static const u8 *const sTitus_Chapter2[] = {
     Bible_Text_Titus_2_13,
     Bible_Text_Titus_2_14,
     Bible_Text_Titus_2_15,
+    0
 };
 
-static const u8 *const sTitus_Chapter3[] = {
+static const u16 *const sTitus_Chapter3[] = {
     Bible_Text_Titus_3_1,
     Bible_Text_Titus_3_2,
     Bible_Text_Titus_3_3,
@@ -39034,15 +37876,17 @@ static const u8 *const sTitus_Chapter3[] = {
     Bible_Text_Titus_3_13,
     Bible_Text_Titus_3_14,
     Bible_Text_Titus_3_15,
+    0
 };
 
-static const u8 *const *const sBibleText_TitusTextPtrs[] = {
+static const u16 *const *const sBibleText_TitusTextPtrs[] = {
     sTitus_Chapter1,
     sTitus_Chapter2,
     sTitus_Chapter3,
+    0
 };
 
-static const u8 *const sPhilemon_Chapter1[] = {
+static const u16 *const sPhilemon_Chapter1[] = {
     Bible_Text_Philemon_1_1,
     Bible_Text_Philemon_1_2,
     Bible_Text_Philemon_1_3,
@@ -39068,13 +37912,15 @@ static const u8 *const sPhilemon_Chapter1[] = {
     Bible_Text_Philemon_1_23,
     Bible_Text_Philemon_1_24,
     Bible_Text_Philemon_1_25,
+    0
 };
 
-static const u8 *const *const sBibleText_PhilemonTextPtrs[] = {
+static const u16 *const *const sBibleText_PhilemonTextPtrs[] = {
     sPhilemon_Chapter1,
+    0
 };
 
-static const u8 *const sHebrews_Chapter1[] = {
+static const u16 *const sHebrews_Chapter1[] = {
     Bible_Text_Hebrews_1_1,
     Bible_Text_Hebrews_1_2,
     Bible_Text_Hebrews_1_3,
@@ -39089,9 +37935,10 @@ static const u8 *const sHebrews_Chapter1[] = {
     Bible_Text_Hebrews_1_12,
     Bible_Text_Hebrews_1_13,
     Bible_Text_Hebrews_1_14,
+    0
 };
 
-static const u8 *const sHebrews_Chapter2[] = {
+static const u16 *const sHebrews_Chapter2[] = {
     Bible_Text_Hebrews_2_1,
     Bible_Text_Hebrews_2_2,
     Bible_Text_Hebrews_2_3,
@@ -39110,9 +37957,10 @@ static const u8 *const sHebrews_Chapter2[] = {
     Bible_Text_Hebrews_2_16,
     Bible_Text_Hebrews_2_17,
     Bible_Text_Hebrews_2_18,
+    0
 };
 
-static const u8 *const sHebrews_Chapter3[] = {
+static const u16 *const sHebrews_Chapter3[] = {
     Bible_Text_Hebrews_3_1,
     Bible_Text_Hebrews_3_2,
     Bible_Text_Hebrews_3_3,
@@ -39132,9 +37980,10 @@ static const u8 *const sHebrews_Chapter3[] = {
     Bible_Text_Hebrews_3_17,
     Bible_Text_Hebrews_3_18,
     Bible_Text_Hebrews_3_19,
+    0
 };
 
-static const u8 *const sHebrews_Chapter4[] = {
+static const u16 *const sHebrews_Chapter4[] = {
     Bible_Text_Hebrews_4_1,
     Bible_Text_Hebrews_4_2,
     Bible_Text_Hebrews_4_3,
@@ -39151,9 +38000,10 @@ static const u8 *const sHebrews_Chapter4[] = {
     Bible_Text_Hebrews_4_14,
     Bible_Text_Hebrews_4_15,
     Bible_Text_Hebrews_4_16,
+    0
 };
 
-static const u8 *const sHebrews_Chapter5[] = {
+static const u16 *const sHebrews_Chapter5[] = {
     Bible_Text_Hebrews_5_1,
     Bible_Text_Hebrews_5_2,
     Bible_Text_Hebrews_5_3,
@@ -39168,9 +38018,10 @@ static const u8 *const sHebrews_Chapter5[] = {
     Bible_Text_Hebrews_5_12,
     Bible_Text_Hebrews_5_13,
     Bible_Text_Hebrews_5_14,
+    0
 };
 
-static const u8 *const sHebrews_Chapter6[] = {
+static const u16 *const sHebrews_Chapter6[] = {
     Bible_Text_Hebrews_6_1,
     Bible_Text_Hebrews_6_2,
     Bible_Text_Hebrews_6_3,
@@ -39191,9 +38042,10 @@ static const u8 *const sHebrews_Chapter6[] = {
     Bible_Text_Hebrews_6_18,
     Bible_Text_Hebrews_6_19,
     Bible_Text_Hebrews_6_20,
+    0
 };
 
-static const u8 *const sHebrews_Chapter7[] = {
+static const u16 *const sHebrews_Chapter7[] = {
     Bible_Text_Hebrews_7_1,
     Bible_Text_Hebrews_7_2,
     Bible_Text_Hebrews_7_3,
@@ -39222,9 +38074,10 @@ static const u8 *const sHebrews_Chapter7[] = {
     Bible_Text_Hebrews_7_26,
     Bible_Text_Hebrews_7_27,
     Bible_Text_Hebrews_7_28,
+    0
 };
 
-static const u8 *const sHebrews_Chapter8[] = {
+static const u16 *const sHebrews_Chapter8[] = {
     Bible_Text_Hebrews_8_1,
     Bible_Text_Hebrews_8_2,
     Bible_Text_Hebrews_8_3,
@@ -39238,9 +38091,10 @@ static const u8 *const sHebrews_Chapter8[] = {
     Bible_Text_Hebrews_8_11,
     Bible_Text_Hebrews_8_12,
     Bible_Text_Hebrews_8_13,
+    0
 };
 
-static const u8 *const sHebrews_Chapter9[] = {
+static const u16 *const sHebrews_Chapter9[] = {
     Bible_Text_Hebrews_9_1,
     Bible_Text_Hebrews_9_2,
     Bible_Text_Hebrews_9_3,
@@ -39269,9 +38123,10 @@ static const u8 *const sHebrews_Chapter9[] = {
     Bible_Text_Hebrews_9_26,
     Bible_Text_Hebrews_9_27,
     Bible_Text_Hebrews_9_28,
+    0
 };
 
-static const u8 *const sHebrews_Chapter10[] = {
+static const u16 *const sHebrews_Chapter10[] = {
     Bible_Text_Hebrews_10_1,
     Bible_Text_Hebrews_10_2,
     Bible_Text_Hebrews_10_3,
@@ -39311,9 +38166,10 @@ static const u8 *const sHebrews_Chapter10[] = {
     Bible_Text_Hebrews_10_37,
     Bible_Text_Hebrews_10_38,
     Bible_Text_Hebrews_10_39,
+    0
 };
 
-static const u8 *const sHebrews_Chapter11[] = {
+static const u16 *const sHebrews_Chapter11[] = {
     Bible_Text_Hebrews_11_1,
     Bible_Text_Hebrews_11_2,
     Bible_Text_Hebrews_11_3,
@@ -39354,9 +38210,10 @@ static const u8 *const sHebrews_Chapter11[] = {
     Bible_Text_Hebrews_11_38,
     Bible_Text_Hebrews_11_39,
     Bible_Text_Hebrews_11_40,
+    0
 };
 
-static const u8 *const sHebrews_Chapter12[] = {
+static const u16 *const sHebrews_Chapter12[] = {
     Bible_Text_Hebrews_12_1,
     Bible_Text_Hebrews_12_2,
     Bible_Text_Hebrews_12_3,
@@ -39386,9 +38243,10 @@ static const u8 *const sHebrews_Chapter12[] = {
     Bible_Text_Hebrews_12_27,
     Bible_Text_Hebrews_12_28,
     Bible_Text_Hebrews_12_29,
+    0
 };
 
-static const u8 *const sHebrews_Chapter13[] = {
+static const u16 *const sHebrews_Chapter13[] = {
     Bible_Text_Hebrews_13_1,
     Bible_Text_Hebrews_13_2,
     Bible_Text_Hebrews_13_3,
@@ -39414,9 +38272,10 @@ static const u8 *const sHebrews_Chapter13[] = {
     Bible_Text_Hebrews_13_23,
     Bible_Text_Hebrews_13_24,
     Bible_Text_Hebrews_13_25,
+    0
 };
 
-static const u8 *const *const sBibleText_HebrewsTextPtrs[] = {
+static const u16 *const *const sBibleText_HebrewsTextPtrs[] = {
     sHebrews_Chapter1,
     sHebrews_Chapter2,
     sHebrews_Chapter3,
@@ -39430,9 +38289,10 @@ static const u8 *const *const sBibleText_HebrewsTextPtrs[] = {
     sHebrews_Chapter11,
     sHebrews_Chapter12,
     sHebrews_Chapter13,
+    0
 };
 
-static const u8 *const sJames_Chapter1[] = {
+static const u16 *const sJames_Chapter1[] = {
     Bible_Text_James_1_1,
     Bible_Text_James_1_2,
     Bible_Text_James_1_3,
@@ -39460,9 +38320,10 @@ static const u8 *const sJames_Chapter1[] = {
     Bible_Text_James_1_25,
     Bible_Text_James_1_26,
     Bible_Text_James_1_27,
+    0
 };
 
-static const u8 *const sJames_Chapter2[] = {
+static const u16 *const sJames_Chapter2[] = {
     Bible_Text_James_2_1,
     Bible_Text_James_2_2,
     Bible_Text_James_2_3,
@@ -39489,9 +38350,10 @@ static const u8 *const sJames_Chapter2[] = {
     Bible_Text_James_2_24,
     Bible_Text_James_2_25,
     Bible_Text_James_2_26,
+    0
 };
 
-static const u8 *const sJames_Chapter3[] = {
+static const u16 *const sJames_Chapter3[] = {
     Bible_Text_James_3_1,
     Bible_Text_James_3_2,
     Bible_Text_James_3_3,
@@ -39510,9 +38372,10 @@ static const u8 *const sJames_Chapter3[] = {
     Bible_Text_James_3_16,
     Bible_Text_James_3_17,
     Bible_Text_James_3_18,
+    0
 };
 
-static const u8 *const sJames_Chapter4[] = {
+static const u16 *const sJames_Chapter4[] = {
     Bible_Text_James_4_1,
     Bible_Text_James_4_2,
     Bible_Text_James_4_3,
@@ -39530,9 +38393,10 @@ static const u8 *const sJames_Chapter4[] = {
     Bible_Text_James_4_15,
     Bible_Text_James_4_16,
     Bible_Text_James_4_17,
+    0
 };
 
-static const u8 *const sJames_Chapter5[] = {
+static const u16 *const sJames_Chapter5[] = {
     Bible_Text_James_5_1,
     Bible_Text_James_5_2,
     Bible_Text_James_5_3,
@@ -39553,17 +38417,19 @@ static const u8 *const sJames_Chapter5[] = {
     Bible_Text_James_5_18,
     Bible_Text_James_5_19,
     Bible_Text_James_5_20,
+    0
 };
 
-static const u8 *const *const sBibleText_JamesTextPtrs[] = {
+static const u16 *const *const sBibleText_JamesTextPtrs[] = {
     sJames_Chapter1,
     sJames_Chapter2,
     sJames_Chapter3,
     sJames_Chapter4,
     sJames_Chapter5,
+    0
 };
 
-static const u8 *const s1Peter_Chapter1[] = {
+static const u16 *const s1Peter_Chapter1[] = {
     Bible_Text_1_Peter_1_1,
     Bible_Text_1_Peter_1_2,
     Bible_Text_1_Peter_1_3,
@@ -39589,9 +38455,10 @@ static const u8 *const s1Peter_Chapter1[] = {
     Bible_Text_1_Peter_1_23,
     Bible_Text_1_Peter_1_24,
     Bible_Text_1_Peter_1_25,
+    0
 };
 
-static const u8 *const s1Peter_Chapter2[] = {
+static const u16 *const s1Peter_Chapter2[] = {
     Bible_Text_1_Peter_2_1,
     Bible_Text_1_Peter_2_2,
     Bible_Text_1_Peter_2_3,
@@ -39617,9 +38484,10 @@ static const u8 *const s1Peter_Chapter2[] = {
     Bible_Text_1_Peter_2_23,
     Bible_Text_1_Peter_2_24,
     Bible_Text_1_Peter_2_25,
+    0
 };
 
-static const u8 *const s1Peter_Chapter3[] = {
+static const u16 *const s1Peter_Chapter3[] = {
     Bible_Text_1_Peter_3_1,
     Bible_Text_1_Peter_3_2,
     Bible_Text_1_Peter_3_3,
@@ -39642,9 +38510,10 @@ static const u8 *const s1Peter_Chapter3[] = {
     Bible_Text_1_Peter_3_20,
     Bible_Text_1_Peter_3_21,
     Bible_Text_1_Peter_3_22,
+    0
 };
 
-static const u8 *const s1Peter_Chapter4[] = {
+static const u16 *const s1Peter_Chapter4[] = {
     Bible_Text_1_Peter_4_1,
     Bible_Text_1_Peter_4_2,
     Bible_Text_1_Peter_4_3,
@@ -39664,9 +38533,10 @@ static const u8 *const s1Peter_Chapter4[] = {
     Bible_Text_1_Peter_4_17,
     Bible_Text_1_Peter_4_18,
     Bible_Text_1_Peter_4_19,
+    0
 };
 
-static const u8 *const s1Peter_Chapter5[] = {
+static const u16 *const s1Peter_Chapter5[] = {
     Bible_Text_1_Peter_5_1,
     Bible_Text_1_Peter_5_2,
     Bible_Text_1_Peter_5_3,
@@ -39681,17 +38551,19 @@ static const u8 *const s1Peter_Chapter5[] = {
     Bible_Text_1_Peter_5_12,
     Bible_Text_1_Peter_5_13,
     Bible_Text_1_Peter_5_14,
+    0
 };
 
-static const u8 *const *const sBibleText_1PeterTextPtrs[] = {
+static const u16 *const *const sBibleText_1PeterTextPtrs[] = {
     s1Peter_Chapter1,
     s1Peter_Chapter2,
     s1Peter_Chapter3,
     s1Peter_Chapter4,
     s1Peter_Chapter5,
+    0
 };
 
-static const u8 *const s2Peter_Chapter1[] = {
+static const u16 *const s2Peter_Chapter1[] = {
     Bible_Text_2_Peter_1_1,
     Bible_Text_2_Peter_1_2,
     Bible_Text_2_Peter_1_3,
@@ -39713,9 +38585,10 @@ static const u8 *const s2Peter_Chapter1[] = {
     Bible_Text_2_Peter_1_19,
     Bible_Text_2_Peter_1_20,
     Bible_Text_2_Peter_1_21,
+    0
 };
 
-static const u8 *const s2Peter_Chapter2[] = {
+static const u16 *const s2Peter_Chapter2[] = {
     Bible_Text_2_Peter_2_1,
     Bible_Text_2_Peter_2_2,
     Bible_Text_2_Peter_2_3,
@@ -39738,9 +38611,10 @@ static const u8 *const s2Peter_Chapter2[] = {
     Bible_Text_2_Peter_2_20,
     Bible_Text_2_Peter_2_21,
     Bible_Text_2_Peter_2_22,
+    0
 };
 
-static const u8 *const s2Peter_Chapter3[] = {
+static const u16 *const s2Peter_Chapter3[] = {
     Bible_Text_2_Peter_3_1,
     Bible_Text_2_Peter_3_2,
     Bible_Text_2_Peter_3_3,
@@ -39759,15 +38633,17 @@ static const u8 *const s2Peter_Chapter3[] = {
     Bible_Text_2_Peter_3_16,
     Bible_Text_2_Peter_3_17,
     Bible_Text_2_Peter_3_18,
+    0
 };
 
-static const u8 *const *const sBibleText_2PeterTextPtrs[] = {
+static const u16 *const *const sBibleText_2PeterTextPtrs[] = {
     s2Peter_Chapter1,
     s2Peter_Chapter2,
     s2Peter_Chapter3,
+    0
 };
 
-static const u8 *const s1John_Chapter1[] = {
+static const u16 *const s1John_Chapter1[] = {
     Bible_Text_1_John_1_1,
     Bible_Text_1_John_1_2,
     Bible_Text_1_John_1_3,
@@ -39778,9 +38654,10 @@ static const u8 *const s1John_Chapter1[] = {
     Bible_Text_1_John_1_8,
     Bible_Text_1_John_1_9,
     Bible_Text_1_John_1_10,
+    0
 };
 
-static const u8 *const s1John_Chapter2[] = {
+static const u16 *const s1John_Chapter2[] = {
     Bible_Text_1_John_2_1,
     Bible_Text_1_John_2_2,
     Bible_Text_1_John_2_3,
@@ -39810,9 +38687,10 @@ static const u8 *const s1John_Chapter2[] = {
     Bible_Text_1_John_2_27,
     Bible_Text_1_John_2_28,
     Bible_Text_1_John_2_29,
+    0
 };
 
-static const u8 *const s1John_Chapter3[] = {
+static const u16 *const s1John_Chapter3[] = {
     Bible_Text_1_John_3_1,
     Bible_Text_1_John_3_2,
     Bible_Text_1_John_3_3,
@@ -39837,9 +38715,10 @@ static const u8 *const s1John_Chapter3[] = {
     Bible_Text_1_John_3_22,
     Bible_Text_1_John_3_23,
     Bible_Text_1_John_3_24,
+    0
 };
 
-static const u8 *const s1John_Chapter4[] = {
+static const u16 *const s1John_Chapter4[] = {
     Bible_Text_1_John_4_1,
     Bible_Text_1_John_4_2,
     Bible_Text_1_John_4_3,
@@ -39861,9 +38740,10 @@ static const u8 *const s1John_Chapter4[] = {
     Bible_Text_1_John_4_19,
     Bible_Text_1_John_4_20,
     Bible_Text_1_John_4_21,
+    0
 };
 
-static const u8 *const s1John_Chapter5[] = {
+static const u16 *const s1John_Chapter5[] = {
     Bible_Text_1_John_5_1,
     Bible_Text_1_John_5_2,
     Bible_Text_1_John_5_3,
@@ -39885,17 +38765,19 @@ static const u8 *const s1John_Chapter5[] = {
     Bible_Text_1_John_5_19,
     Bible_Text_1_John_5_20,
     Bible_Text_1_John_5_21,
+    0
 };
 
-static const u8 *const *const sBibleText_1JohnTextPtrs[] = {
+static const u16 *const *const sBibleText_1JohnTextPtrs[] = {
     s1John_Chapter1,
     s1John_Chapter2,
     s1John_Chapter3,
     s1John_Chapter4,
     s1John_Chapter5,
+    0
 };
 
-static const u8 *const s2John_Chapter1[] = {
+static const u16 *const s2John_Chapter1[] = {
     Bible_Text_2_John_1_1,
     Bible_Text_2_John_1_2,
     Bible_Text_2_John_1_3,
@@ -39909,13 +38791,15 @@ static const u8 *const s2John_Chapter1[] = {
     Bible_Text_2_John_1_11,
     Bible_Text_2_John_1_12,
     Bible_Text_2_John_1_13,
+    0
 };
 
-static const u8 *const *const sBibleText_2JohnTextPtrs[] = {
+static const u16 *const *const sBibleText_2JohnTextPtrs[] = {
     s2John_Chapter1,
+    0
 };
 
-static const u8 *const s3John_Chapter1[] = {
+static const u16 *const s3John_Chapter1[] = {
     Bible_Text_3_John_1_1,
     Bible_Text_3_John_1_2,
     Bible_Text_3_John_1_3,
@@ -39930,13 +38814,15 @@ static const u8 *const s3John_Chapter1[] = {
     Bible_Text_3_John_1_12,
     Bible_Text_3_John_1_13,
     Bible_Text_3_John_1_14,
+    0
 };
 
-static const u8 *const *const sBibleText_3JohnTextPtrs[] = {
+static const u16 *const *const sBibleText_3JohnTextPtrs[] = {
     s3John_Chapter1,
+    0
 };
 
-static const u8 *const sJude_Chapter1[] = {
+static const u16 *const sJude_Chapter1[] = {
     Bible_Text_Jude_1_1,
     Bible_Text_Jude_1_2,
     Bible_Text_Jude_1_3,
@@ -39962,13 +38848,15 @@ static const u8 *const sJude_Chapter1[] = {
     Bible_Text_Jude_1_23,
     Bible_Text_Jude_1_24,
     Bible_Text_Jude_1_25,
+    0
 };
 
-static const u8 *const *const sBibleText_JudeTextPtrs[] = {
+static const u16 *const *const sBibleText_JudeTextPtrs[] = {
     sJude_Chapter1,
+    0
 };
 
-static const u8 *const sRevelation_Chapter1[] = {
+static const u16 *const sRevelation_Chapter1[] = {
     Bible_Text_Revelation_1_1,
     Bible_Text_Revelation_1_2,
     Bible_Text_Revelation_1_3,
@@ -39989,9 +38877,10 @@ static const u8 *const sRevelation_Chapter1[] = {
     Bible_Text_Revelation_1_18,
     Bible_Text_Revelation_1_19,
     Bible_Text_Revelation_1_20,
+    0
 };
 
-static const u8 *const sRevelation_Chapter2[] = {
+static const u16 *const sRevelation_Chapter2[] = {
     Bible_Text_Revelation_2_1,
     Bible_Text_Revelation_2_2,
     Bible_Text_Revelation_2_3,
@@ -40021,9 +38910,10 @@ static const u8 *const sRevelation_Chapter2[] = {
     Bible_Text_Revelation_2_27,
     Bible_Text_Revelation_2_28,
     Bible_Text_Revelation_2_29,
+    0
 };
 
-static const u8 *const sRevelation_Chapter3[] = {
+static const u16 *const sRevelation_Chapter3[] = {
     Bible_Text_Revelation_3_1,
     Bible_Text_Revelation_3_2,
     Bible_Text_Revelation_3_3,
@@ -40046,9 +38936,10 @@ static const u8 *const sRevelation_Chapter3[] = {
     Bible_Text_Revelation_3_20,
     Bible_Text_Revelation_3_21,
     Bible_Text_Revelation_3_22,
+    0
 };
 
-static const u8 *const sRevelation_Chapter4[] = {
+static const u16 *const sRevelation_Chapter4[] = {
     Bible_Text_Revelation_4_1,
     Bible_Text_Revelation_4_2,
     Bible_Text_Revelation_4_3,
@@ -40060,9 +38951,10 @@ static const u8 *const sRevelation_Chapter4[] = {
     Bible_Text_Revelation_4_9,
     Bible_Text_Revelation_4_10,
     Bible_Text_Revelation_4_11,
+    0
 };
 
-static const u8 *const sRevelation_Chapter5[] = {
+static const u16 *const sRevelation_Chapter5[] = {
     Bible_Text_Revelation_5_1,
     Bible_Text_Revelation_5_2,
     Bible_Text_Revelation_5_3,
@@ -40077,9 +38969,10 @@ static const u8 *const sRevelation_Chapter5[] = {
     Bible_Text_Revelation_5_12,
     Bible_Text_Revelation_5_13,
     Bible_Text_Revelation_5_14,
+    0
 };
 
-static const u8 *const sRevelation_Chapter6[] = {
+static const u16 *const sRevelation_Chapter6[] = {
     Bible_Text_Revelation_6_1,
     Bible_Text_Revelation_6_2,
     Bible_Text_Revelation_6_3,
@@ -40097,9 +38990,10 @@ static const u8 *const sRevelation_Chapter6[] = {
     Bible_Text_Revelation_6_15,
     Bible_Text_Revelation_6_16,
     Bible_Text_Revelation_6_17,
+    0
 };
 
-static const u8 *const sRevelation_Chapter7[] = {
+static const u16 *const sRevelation_Chapter7[] = {
     Bible_Text_Revelation_7_1,
     Bible_Text_Revelation_7_2,
     Bible_Text_Revelation_7_3,
@@ -40117,9 +39011,10 @@ static const u8 *const sRevelation_Chapter7[] = {
     Bible_Text_Revelation_7_15,
     Bible_Text_Revelation_7_16,
     Bible_Text_Revelation_7_17,
+    0
 };
 
-static const u8 *const sRevelation_Chapter8[] = {
+static const u16 *const sRevelation_Chapter8[] = {
     Bible_Text_Revelation_8_1,
     Bible_Text_Revelation_8_2,
     Bible_Text_Revelation_8_3,
@@ -40133,9 +39028,10 @@ static const u8 *const sRevelation_Chapter8[] = {
     Bible_Text_Revelation_8_11,
     Bible_Text_Revelation_8_12,
     Bible_Text_Revelation_8_13,
+    0
 };
 
-static const u8 *const sRevelation_Chapter9[] = {
+static const u16 *const sRevelation_Chapter9[] = {
     Bible_Text_Revelation_9_1,
     Bible_Text_Revelation_9_2,
     Bible_Text_Revelation_9_3,
@@ -40157,9 +39053,10 @@ static const u8 *const sRevelation_Chapter9[] = {
     Bible_Text_Revelation_9_19,
     Bible_Text_Revelation_9_20,
     Bible_Text_Revelation_9_21,
+    0
 };
 
-static const u8 *const sRevelation_Chapter10[] = {
+static const u16 *const sRevelation_Chapter10[] = {
     Bible_Text_Revelation_10_1,
     Bible_Text_Revelation_10_2,
     Bible_Text_Revelation_10_3,
@@ -40171,9 +39068,10 @@ static const u8 *const sRevelation_Chapter10[] = {
     Bible_Text_Revelation_10_9,
     Bible_Text_Revelation_10_10,
     Bible_Text_Revelation_10_11,
+    0
 };
 
-static const u8 *const sRevelation_Chapter11[] = {
+static const u16 *const sRevelation_Chapter11[] = {
     Bible_Text_Revelation_11_1,
     Bible_Text_Revelation_11_2,
     Bible_Text_Revelation_11_3,
@@ -40193,9 +39091,10 @@ static const u8 *const sRevelation_Chapter11[] = {
     Bible_Text_Revelation_11_17,
     Bible_Text_Revelation_11_18,
     Bible_Text_Revelation_11_19,
+    0
 };
 
-static const u8 *const sRevelation_Chapter12[] = {
+static const u16 *const sRevelation_Chapter12[] = {
     Bible_Text_Revelation_12_1,
     Bible_Text_Revelation_12_2,
     Bible_Text_Revelation_12_3,
@@ -40213,9 +39112,10 @@ static const u8 *const sRevelation_Chapter12[] = {
     Bible_Text_Revelation_12_15,
     Bible_Text_Revelation_12_16,
     Bible_Text_Revelation_12_17,
+    0
 };
 
-static const u8 *const sRevelation_Chapter13[] = {
+static const u16 *const sRevelation_Chapter13[] = {
     Bible_Text_Revelation_13_1,
     Bible_Text_Revelation_13_2,
     Bible_Text_Revelation_13_3,
@@ -40234,9 +39134,10 @@ static const u8 *const sRevelation_Chapter13[] = {
     Bible_Text_Revelation_13_16,
     Bible_Text_Revelation_13_17,
     Bible_Text_Revelation_13_18,
+    0
 };
 
-static const u8 *const sRevelation_Chapter14[] = {
+static const u16 *const sRevelation_Chapter14[] = {
     Bible_Text_Revelation_14_1,
     Bible_Text_Revelation_14_2,
     Bible_Text_Revelation_14_3,
@@ -40257,9 +39158,10 @@ static const u8 *const sRevelation_Chapter14[] = {
     Bible_Text_Revelation_14_18,
     Bible_Text_Revelation_14_19,
     Bible_Text_Revelation_14_20,
+    0
 };
 
-static const u8 *const sRevelation_Chapter15[] = {
+static const u16 *const sRevelation_Chapter15[] = {
     Bible_Text_Revelation_15_1,
     Bible_Text_Revelation_15_2,
     Bible_Text_Revelation_15_3,
@@ -40268,9 +39170,10 @@ static const u8 *const sRevelation_Chapter15[] = {
     Bible_Text_Revelation_15_6,
     Bible_Text_Revelation_15_7,
     Bible_Text_Revelation_15_8,
+    0
 };
 
-static const u8 *const sRevelation_Chapter16[] = {
+static const u16 *const sRevelation_Chapter16[] = {
     Bible_Text_Revelation_16_1,
     Bible_Text_Revelation_16_2,
     Bible_Text_Revelation_16_3,
@@ -40292,9 +39195,10 @@ static const u8 *const sRevelation_Chapter16[] = {
     Bible_Text_Revelation_16_19,
     Bible_Text_Revelation_16_20,
     Bible_Text_Revelation_16_21,
+    0
 };
 
-static const u8 *const sRevelation_Chapter17[] = {
+static const u16 *const sRevelation_Chapter17[] = {
     Bible_Text_Revelation_17_1,
     Bible_Text_Revelation_17_2,
     Bible_Text_Revelation_17_3,
@@ -40313,9 +39217,10 @@ static const u8 *const sRevelation_Chapter17[] = {
     Bible_Text_Revelation_17_16,
     Bible_Text_Revelation_17_17,
     Bible_Text_Revelation_17_18,
+    0
 };
 
-static const u8 *const sRevelation_Chapter18[] = {
+static const u16 *const sRevelation_Chapter18[] = {
     Bible_Text_Revelation_18_1,
     Bible_Text_Revelation_18_2,
     Bible_Text_Revelation_18_3,
@@ -40340,9 +39245,10 @@ static const u8 *const sRevelation_Chapter18[] = {
     Bible_Text_Revelation_18_22,
     Bible_Text_Revelation_18_23,
     Bible_Text_Revelation_18_24,
+    0
 };
 
-static const u8 *const sRevelation_Chapter19[] = {
+static const u16 *const sRevelation_Chapter19[] = {
     Bible_Text_Revelation_19_1,
     Bible_Text_Revelation_19_2,
     Bible_Text_Revelation_19_3,
@@ -40364,9 +39270,10 @@ static const u8 *const sRevelation_Chapter19[] = {
     Bible_Text_Revelation_19_19,
     Bible_Text_Revelation_19_20,
     Bible_Text_Revelation_19_21,
+    0
 };
 
-static const u8 *const sRevelation_Chapter20[] = {
+static const u16 *const sRevelation_Chapter20[] = {
     Bible_Text_Revelation_20_1,
     Bible_Text_Revelation_20_2,
     Bible_Text_Revelation_20_3,
@@ -40382,9 +39289,10 @@ static const u8 *const sRevelation_Chapter20[] = {
     Bible_Text_Revelation_20_13,
     Bible_Text_Revelation_20_14,
     Bible_Text_Revelation_20_15,
+    0
 };
 
-static const u8 *const sRevelation_Chapter21[] = {
+static const u16 *const sRevelation_Chapter21[] = {
     Bible_Text_Revelation_21_1,
     Bible_Text_Revelation_21_2,
     Bible_Text_Revelation_21_3,
@@ -40412,9 +39320,10 @@ static const u8 *const sRevelation_Chapter21[] = {
     Bible_Text_Revelation_21_25,
     Bible_Text_Revelation_21_26,
     Bible_Text_Revelation_21_27,
+    0
 };
 
-static const u8 *const sRevelation_Chapter22[] = {
+static const u16 *const sRevelation_Chapter22[] = {
     Bible_Text_Revelation_22_1,
     Bible_Text_Revelation_22_2,
     Bible_Text_Revelation_22_3,
@@ -40436,9 +39345,10 @@ static const u8 *const sRevelation_Chapter22[] = {
     Bible_Text_Revelation_22_19,
     Bible_Text_Revelation_22_20,
     Bible_Text_Revelation_22_21,
+    0
 };
 
-static const u8 *const *const sBibleText_RevelationTextPtrs[] = {
+static const u16 *const *const sBibleText_RevelationTextPtrs[] = {
     sRevelation_Chapter1,
     sRevelation_Chapter2,
     sRevelation_Chapter3,
@@ -40461,5 +39371,5 @@ static const u8 *const *const sBibleText_RevelationTextPtrs[] = {
     sRevelation_Chapter20,
     sRevelation_Chapter21,
     sRevelation_Chapter22,
+    0
 };
-

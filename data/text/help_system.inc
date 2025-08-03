@@ -1,5 +1,5 @@
 Help_Text_WhatShouldIDo::
-	.string "GENESIS?$"
+	.string "What should I do?$"
 
 Help_Text_HowDoIDoThis::
 	.string "How do I do this?$"
@@ -166770,6 +166770,358 @@ chapter_149::
 chapter_150::
     .string "Chapter 150$"
 
+verse_1::
+   .string "Verse 1$"
+verse_2::
+   .string "Verse 2$"
+verse_3::
+   .string "Verse 3$"
+verse_4::
+   .string "Verse 4$"
+verse_5::
+   .string "Verse 5$"
+verse_6::
+   .string "Verse 6$"
+verse_7::
+   .string "Verse 7$"
+verse_8::
+   .string "Verse 8$"
+verse_9::
+   .string "Verse 9$"
+verse_10::
+   .string "Verse 10$"
+verse_11::
+   .string "Verse 11$"
+verse_12::
+   .string "Verse 12$"
+verse_13::
+   .string "Verse 13$"
+verse_14::
+   .string "Verse 14$"
+verse_15::
+   .string "Verse 15$"
+verse_16::
+   .string "Verse 16$"
+verse_17::
+   .string "Verse 17$"
+verse_18::
+   .string "Verse 18$"
+verse_19::
+   .string "Verse 19$"
+verse_20::
+   .string "Verse 20$"
+verse_21::
+   .string "Verse 21$"
+verse_22::
+   .string "Verse 22$"
+verse_23::
+   .string "Verse 23$"
+verse_24::
+   .string "Verse 24$"
+verse_25::
+   .string "Verse 25$"
+verse_26::
+   .string "Verse 26$"
+verse_27::
+   .string "Verse 27$"
+verse_28::
+   .string "Verse 28$"
+verse_29::
+   .string "Verse 29$"
+verse_30::
+   .string "Verse 30$"
+verse_31::
+   .string "Verse 31$"
+verse_32::
+   .string "Verse 32$"
+verse_33::
+   .string "Verse 33$"
+verse_34::
+   .string "Verse 34$"
+verse_35::
+   .string "Verse 35$"
+verse_36::
+   .string "Verse 36$"
+verse_37::
+   .string "Verse 37$"
+verse_38::
+   .string "Verse 38$"
+verse_39::
+   .string "Verse 39$"
+verse_40::
+   .string "Verse 40$"
+verse_41::
+   .string "Verse 41$"
+verse_42::
+   .string "Verse 42$"
+verse_43::
+   .string "Verse 43$"
+verse_44::
+   .string "Verse 44$"
+verse_45::
+   .string "Verse 45$"
+verse_46::
+   .string "Verse 46$"
+verse_47::
+   .string "Verse 47$"
+verse_48::
+   .string "Verse 48$"
+verse_49::
+   .string "Verse 49$"
+verse_50::
+   .string "Verse 50$"
+verse_51::
+   .string "Verse 51$"
+verse_52::
+   .string "Verse 52$"
+verse_53::
+   .string "Verse 53$"
+verse_54::
+   .string "Verse 54$"
+verse_55::
+   .string "Verse 55$"
+verse_56::
+   .string "Verse 56$"
+verse_57::
+   .string "Verse 57$"
+verse_58::
+   .string "Verse 58$"
+verse_59::
+   .string "Verse 59$"
+verse_60::
+   .string "Verse 60$"
+verse_61::
+   .string "Verse 61$"
+verse_62::
+   .string "Verse 62$"
+verse_63::
+   .string "Verse 63$"
+verse_64::
+   .string "Verse 64$"
+verse_65::
+   .string "Verse 65$"
+verse_66::
+   .string "Verse 66$"
+verse_67::
+   .string "Verse 67$"
+verse_68::
+   .string "Verse 68$"
+verse_69::
+   .string "Verse 69$"
+verse_70::
+   .string "Verse 70$"
+verse_71::
+   .string "Verse 71$"
+verse_72::
+   .string "Verse 72$"
+verse_73::
+   .string "Verse 73$"
+verse_74::
+   .string "Verse 74$"
+verse_75::
+   .string "Verse 75$"
+verse_76::
+   .string "Verse 76$"
+verse_77::
+   .string "Verse 77$"
+verse_78::
+   .string "Verse 78$"
+verse_79::
+   .string "Verse 79$"
+verse_80::
+   .string "Verse 80$"
+verse_81::
+   .string "Verse 81$"
+verse_82::
+   .string "Verse 82$"
+verse_83::
+   .string "Verse 83$"
+verse_84::
+   .string "Verse 84$"
+verse_85::
+   .string "Verse 85$"
+verse_86::
+   .string "Verse 86$"
+verse_87::
+   .string "Verse 87$"
+verse_88::
+   .string "Verse 88$"
+verse_89::
+   .string "Verse 89$"
+verse_90::
+   .string "Verse 90$"
+verse_91::
+   .string "Verse 91$"
+verse_92::
+   .string "Verse 92$"
+verse_93::
+   .string "Verse 93$"
+verse_94::
+   .string "Verse 94$"
+verse_95::
+   .string "Verse 95$"
+verse_96::
+   .string "Verse 96$"
+verse_97::
+   .string "Verse 97$"
+verse_98::
+   .string "Verse 98$"
+verse_99::
+   .string "Verse 99$"
+verse_100::
+   .string "Verse 100$"
+verse_101::
+   .string "Verse 101$"
+verse_102::
+   .string "Verse 102$"
+verse_103::
+   .string "Verse 103$"
+verse_104::
+   .string "Verse 104$"
+verse_105::
+   .string "Verse 105$"
+verse_106::
+   .string "Verse 106$"
+verse_107::
+   .string "Verse 107$"
+verse_108::
+   .string "Verse 108$"
+verse_109::
+   .string "Verse 109$"
+verse_110::
+   .string "Verse 110$"
+verse_111::
+   .string "Verse 111$"
+verse_112::
+   .string "Verse 112$"
+verse_113::
+   .string "Verse 113$"
+verse_114::
+   .string "Verse 114$"
+verse_115::
+   .string "Verse 115$"
+verse_116::
+   .string "Verse 116$"
+verse_117::
+   .string "Verse 117$"
+verse_118::
+   .string "Verse 118$"
+verse_119::
+   .string "Verse 119$"
+verse_120::
+   .string "Verse 120$"
+verse_121::
+   .string "Verse 121$"
+verse_122::
+   .string "Verse 122$"
+verse_123::
+   .string "Verse 123$"
+verse_124::
+   .string "Verse 124$"
+verse_125::
+   .string "Verse 125$"
+verse_126::
+   .string "Verse 126$"
+verse_127::
+   .string "Verse 127$"
+verse_128::
+   .string "Verse 128$"
+verse_129::
+   .string "Verse 129$"
+verse_130::
+   .string "Verse 130$"
+verse_131::
+   .string "Verse 131$"
+verse_132::
+   .string "Verse 132$"
+verse_133::
+   .string "Verse 133$"
+verse_134::
+   .string "Verse 134$"
+verse_135::
+   .string "Verse 135$"
+verse_136::
+   .string "Verse 136$"
+verse_137::
+   .string "Verse 137$"
+verse_138::
+   .string "Verse 138$"
+verse_139::
+   .string "Verse 139$"
+verse_140::
+   .string "Verse 140$"
+verse_141::
+   .string "Verse 141$"
+verse_142::
+   .string "Verse 142$"
+verse_143::
+   .string "Verse 143$"
+verse_144::
+   .string "Verse 144$"
+verse_145::
+   .string "Verse 145$"
+verse_146::
+   .string "Verse 146$"
+verse_147::
+   .string "Verse 147$"
+verse_148::
+   .string "Verse 148$"
+verse_149::
+   .string "Verse 149$"
+verse_150::
+   .string "Verse 150$"
+verse_151::
+   .string "Verse 151$"
+verse_152::
+   .string "Verse 152$"
+verse_153::
+   .string "Verse 153$"
+verse_154::
+   .string "Verse 154$"
+verse_155::
+   .string "Verse 155$"
+verse_156::
+   .string "Verse 156$"
+verse_157::
+   .string "Verse 157$"
+verse_158::
+   .string "Verse 158$"
+verse_159::
+   .string "Verse 159$"
+verse_160::
+   .string "Verse 160$"
+verse_161::
+   .string "Verse 161$"
+verse_162::
+   .string "Verse 162$"
+verse_163::
+   .string "Verse 163$"
+verse_164::
+   .string "Verse 164$"
+verse_165::
+   .string "Verse 165$"
+verse_166::
+   .string "Verse 166$"
+verse_167::
+   .string "Verse 167$"
+verse_168::
+   .string "Verse 168$"
+verse_169::
+   .string "Verse 169$"
+verse_170::
+   .string "Verse 170$"
+verse_171::
+   .string "Verse 171$"
+verse_172::
+   .string "Verse 172$"
+verse_173::
+   .string "Verse 173$"
+verse_174::
+   .string "Verse 174$"
+verse_175::
+   .string "Verse 175$"
+verse_176::
+   .string "Verse 176$"
 
 
 
@@ -166906,7 +167258,7 @@ Bible_Book_Name_Acts::
     .string "ACTS$"
 
 Bible_Book_Name_Paul::
-    .string "ROMANS$"
+    .string "PAUL$"
 
 Bible_Book_Name_1_Corinthians::
     .string "1 CORINTHIANS$"
