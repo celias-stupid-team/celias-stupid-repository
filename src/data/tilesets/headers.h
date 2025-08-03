@@ -976,3 +976,14 @@ const struct Tileset gTileset_PorytilesBuilding =
     .metatileAttributes = gMetatileAttributes_PorytilesBuilding,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Wormhole =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Wormhole,
+    .palettes = gTilesetPalettes_Wormhole,
+    .metatiles = gMetatiles_Wormhole,
+    .metatileAttributes = gMetatileAttributes_Wormhole,
+    .callback = NULL,
+};

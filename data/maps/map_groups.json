@@ -640,7 +640,8 @@
     "FushciaGym_IronCurtainRoom"
   ],
   "gMapGroup_ViridianGym": [
-    "ViridianGym_Entrance"
+    "ViridianGym_Entrance",
+    "ViridianGym_DMCA_Brock"
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North"

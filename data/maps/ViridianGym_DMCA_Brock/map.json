@@ -1,12 +1,12 @@
 {
-  "id": "MAP_VIRIDIAN_GYM_ENTRANCE",
-  "name": "ViridianGym_Entrance",
-  "layout": "LAYOUT_VIRIDIAN_GYM_ENTRANCE",
-  "music": "MUS_GYM",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "id": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
+  "name": "ViridianGym_DMCA_Brock",
+  "layout": "LAYOUT_VIRIDIAN_GYM_DMCA_BROCK",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_INDOOR",
+  "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
@@ -17,30 +17,30 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 3,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_PROTON",
+      "x": 6,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "ViridianGym_Entrance_Trainer",
+      "script": "DMCA_Brock_Wolff",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 6,
-      "y": 14,
+      "x": 9,
+      "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE1",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VIRIDIAN_GYM_ENTRANCE",
+      "dest_warp_id": "1"
     },
     {
-      "x": 6,
-      "y": 5,
+      "x": 9,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
       "dest_warp_id": "0"

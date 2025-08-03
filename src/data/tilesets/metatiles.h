@@ -263,3 +263,6 @@ const u32 gMetatileAttributes_Chapter8[] = INCBIN_U32("data/tilesets/primary/cha
 
 const u16 gMetatiles_PorytilesBuilding[] = INCBIN_U16("data/tilesets/primary/porytiles_building/metatiles.bin");
 const u32 gMetatileAttributes_PorytilesBuilding[] = INCBIN_U32("data/tilesets/primary/porytiles_building/metatile_attributes.bin");
+
+const u16 gMetatiles_Wormhole[] = INCBIN_U16("data/tilesets/secondary/wormhole/metatiles.bin");
+const u32 gMetatileAttributes_Wormhole[] = INCBIN_U32("data/tilesets/secondary/wormhole/metatile_attributes.bin");

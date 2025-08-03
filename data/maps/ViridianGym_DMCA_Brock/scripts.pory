@@ -1,0 +1,9 @@
+mapscripts ViridianGym_DMCA_Brock_MapScripts {
+
+}
+
+script DMCA_Brock_Wolff {
+    trainerbattle_single(TRAINER_DMCA_BROCK, "WOLFF: Grr…\pThat joke was used in a different\nromhack!\lYou'll pay for this!", "lol")
+    release
+    end
+}
