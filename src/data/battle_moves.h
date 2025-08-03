@@ -4034,8 +4034,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CRUSH_CLAW] =
     {
         .effect = EFFECT_ALWAYS_HIT,
-        .power = 250,
-        .type = TYPE_ROCK, //so there's no immunities
+        .power = 255,
+        .type = TYPE_BROCK, //so there's no immunities
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 50,
