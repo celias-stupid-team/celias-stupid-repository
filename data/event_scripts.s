@@ -1593,3 +1593,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianGym_DMCA_Brock/scripts.inc"
 	.include "data/maps/ViridianGym_DMCA_Brock/text.inc"
+
+	.include "data/maps/NationalPark/scripts.inc"
+	.include "data/maps/NationalPark/text.inc"

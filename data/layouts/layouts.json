@@ -5412,6 +5412,18 @@
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/ViridianGym_DMCA_Brock/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_DMCA_Brock/map.bin"
+    },
+    {
+      "id": "LAYOUT_NATIONAL_PARK",
+      "name": "NationalPark_Layout",
+      "width": 42,
+      "height": 59,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/NationalPark/border.bin",
+      "blockdata_filepath": "data/layouts/NationalPark/map.bin"
     }
   ]
 }
