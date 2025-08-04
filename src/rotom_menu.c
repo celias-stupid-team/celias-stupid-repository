@@ -1501,14 +1501,25 @@ static void RotomStartMenu_UpdateMonSprites(void)
 
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
-        for (j = 0; j < MON_ICON_COUNT; j++)
+        gSprites[sRotomStartMenu->spriteIDs[i]].invisible = TRUE;
+        if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
         {
-            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
+            gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].invisible = TRUE;
+        }
+
+        if (sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset] != SPECIES_NONE)
+        {
+            for (j = 0; j < MON_ICON_COUNT; j++)
             {
-                StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
-                if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
+                if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
                 {
-                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]], j);
+                    gSprites[sRotomStartMenu->spriteIDs[i]].invisible = FALSE;
+                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+                    if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
+                    {
+                        gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]].invisible = FALSE;
+                        StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]], j);
+                    }
                 }
             }
         }
@@ -1519,6 +1530,7 @@ static void RotomStartMenu_CreateSprites(void)
 {
     u32 i, j, rotomMoveOffset;
     u32 rotomEyeTopID, rotomEyeBottomID;
+    u32 rotomMove;
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -1545,14 +1557,22 @@ static void RotomStartMenu_CreateSprites(void)
     gSprites[rotomEyeBottomID].spStoredYPos = gSprites[rotomEyeBottomID].y;
 
     rotomMoveOffset = sStoredMoveRow == 1 ? ROTOM_MOVE_ROW_SIZE : 0;
+
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
-        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[i - SPRITE_MON_ICON_0 + rotomMoveOffset].monXPos, 141, 0);
-        for (j = 0; j < MON_ICON_COUNT; j++)
+        rotomMove = i - SPRITE_MON_ICON_0 + rotomMoveOffset;
+        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[rotomMove].monXPos, 141, 0);
+        gSprites[sRotomStartMenu->spriteIDs[i]].invisible = TRUE;
+
+        if (sRotomStartMenu->monSpecies[rotomMove] != SPECIES_NONE)
         {
-            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
+            for (j = 0; j < MON_ICON_COUNT; j++)
             {
-                StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+                if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
+                {
+                    gSprites[sRotomStartMenu->spriteIDs[i]].invisible = FALSE;
+                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+                }
             }
         }
     }
@@ -2537,11 +2557,12 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
 
 #undef tHideTimer
 
-static inline bool32 CheckValidFieldMoveInput(void)
+static bool32 CheckValidFieldMoveInput(void)
 {
     sFieldMoveData = 0;
-    // ravetodo check for eligible mon
+
     if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
+        && sRotomStartMenu->monSpecies != SPECIES_NONE
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
     {
@@ -2744,58 +2765,41 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
 
 static void PopulateMoveMonSpecies(void)
 {
-    u32 move, box, monPos;
-    static const u16 testSpeciesInfo[] = {
-        SPECIES_GHOLDENGO,
-        SPECIES_GOLDEEN,
-        SPECIES_MACHAMP,
-        SPECIES_KRABBY,
-        SPECIES_FARFETCHD,
-        SPECIES_GOLURK,
-        SPECIES_KRABBY,
-        SPECIES_EXEGGUTOR,
-        SPECIES_KANGASKHAN,
-        SPECIES_AMPHAROS_MEGA,
-        SPECIES_MR_MIME,
-        SPECIES_SCYTHER,
-    };
+    u32 move, box, monPos, partySlot;
+    u16 species;
+    // static const u16 testSpeciesInfo[] = {
+    //     SPECIES_GHOLDENGO,
+    //     SPECIES_GOLDEEN,
+    //     SPECIES_MACHAMP,
+    //     SPECIES_KRABBY,
+    //     SPECIES_FARFETCHD,
+    //     SPECIES_GOLURK,
+    //     SPECIES_KRABBY,
+    //     SPECIES_EXEGGUTOR,
+    //     SPECIES_KANGASKHAN,
+    //     SPECIES_AMPHAROS_MEGA,
+    //     SPECIES_MR_MIME,
+    //     SPECIES_SCYTHER,
+    // };
 
     for (move = 0; move < ROTOM_MOVE_COUNT; move++)
     {
-        sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
+        if (FindPartyMonWithMove(sRotomMoves[move].move, &partySlot, &species))
+        {
+            sRotomStartMenu->monSpecies[move] = species;
+        }
+        else if (FindBoxMonWithMove(sRotomMoves[move].move, &box, &monPos, &species))
+        {
+            sRotomStartMenu->monSpecies[move] = species;
+        }
+        else
+        {
+            sRotomStartMenu->monSpecies[move] = SPECIES_NONE;
+        }
+        // sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
     }
-    // for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u", move, sRotomStartMenu->monSpecies[move]);
 
-    // this shit takes well over a minute lmao
-    // struct Pokemon *mon;
-
-    // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
-    // {
-    //     for (monPos = 0; monPos < PARTY_SIZE; monPos++)
-    //     {
-    //         if (MonKnowsMove(&gPlayerParty[monPos], sRotomMoves[move].move))
-    //         {
-    //             sRotomStartMenu->monSpecies[move] = GetMonData(&gPlayerParty[monPos], MON_DATA_SPECIES);
-    //         }
-    //     }
-    // }
-
-    // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
-    // {
-    //     if (sRotomStartMenu->monSpecies[move] != SPECIES_NONE) continue;
-
-    //     for (box = 0; box < TOTAL_BOXES_COUNT; box++)
-    //     {
-    //         for (monPos = 0; monPos < IN_BOX_COUNT; monPos++)
-    //         {
-    //             BoxMonToMon(&gPokemonStoragePtr->boxes[box][monPos], mon);
-    //             if (MonKnowsMove(mon, sRotomMoves[move].move))
-    //             {
-    //                 sRotomStartMenu->monSpecies[move] = GetMonData(mon, MON_DATA_SPECIES);
-    //             }
-    //         }
-    //     }
-    // }
+    for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u", move, sRotomStartMenu->monSpecies[move]);
 }
 
 // Field move functions

@@ -6839,3 +6839,154 @@ bool8 IsMoveHm(u16 move)
     }
     return FALSE;
 }
+
+// MGriffin wizardy below. Read at your own peril
+
+struct SubstructOffsets { const u8 offset0, offset1, offset2, offset3; };
+
+__attribute__((const)) const struct SubstructOffsets *GetSubstructOffsets(u32 personality);
+
+__attribute__((const)) const union PokemonSubstruct *GetConstSubstruct0(const struct BoxPokemon *box, const struct SubstructOffsets *offsets)
+{
+    return (const union PokemonSubstruct *)((uintptr_t)box + offsets->offset0);
+}
+
+__attribute__((const)) const union PokemonSubstruct *GetConstSubstruct1(const struct BoxPokemon *box, const struct SubstructOffsets *offsets)
+{
+    return (const union PokemonSubstruct *)((uintptr_t)box + offsets->offset1);
+}
+
+asm(".thumb\n"
+    ".balign 4\n"
+    ".2byte 0\n"
+"GetSubstructOffsets:\n"
+    "ldr r3, =0xaaaaaaab\n"
+    "bx pc\n"
+    ".arm\n"
+    "umull r2, r3, r0, r3\n"
+    "lsr r3, #4\n"
+    "add r3, r3, r3, lsl #1\n"
+    "sub r0, r0, r3, lsl #3\n"
+    "add r0, pc, r0, lsl #2\n"
+    "bx lr\n"
+    // offsetof(struct BoxPokemon, secure) == 32
+    // sizeof(union PokemonSubstruct) == 12
+    ".byte 32 + 0*12, 32 + 1*12, 32 + 2*12, 32 + 3*12\n"
+    ".byte 32 + 0*12, 32 + 1*12, 32 + 3*12, 32 + 2*12\n"
+    ".byte 32 + 0*12, 32 + 2*12, 32 + 1*12, 32 + 3*12\n"
+    ".byte 32 + 0*12, 32 + 3*12, 32 + 1*12, 32 + 2*12\n"
+    ".byte 32 + 0*12, 32 + 2*12, 32 + 3*12, 32 + 1*12\n"
+    ".byte 32 + 0*12, 32 + 3*12, 32 + 2*12, 32 + 1*12\n"
+    ".byte 32 + 1*12, 32 + 0*12, 32 + 2*12, 32 + 3*12\n"
+    ".byte 32 + 1*12, 32 + 0*12, 32 + 3*12, 32 + 2*12\n"
+    ".byte 32 + 2*12, 32 + 0*12, 32 + 1*12, 32 + 3*12\n"
+    ".byte 32 + 3*12, 32 + 0*12, 32 + 1*12, 32 + 2*12\n"
+    ".byte 32 + 2*12, 32 + 0*12, 32 + 3*12, 32 + 1*12\n"
+    ".byte 32 + 3*12, 32 + 0*12, 32 + 2*12, 32 + 1*12\n"
+    ".byte 32 + 1*12, 32 + 2*12, 32 + 0*12, 32 + 3*12\n"
+    ".byte 32 + 1*12, 32 + 3*12, 32 + 0*12, 32 + 2*12\n"
+    ".byte 32 + 2*12, 32 + 1*12, 32 + 0*12, 32 + 3*12\n"
+    ".byte 32 + 3*12, 32 + 1*12, 32 + 0*12, 32 + 2*12\n"
+    ".byte 32 + 2*12, 32 + 3*12, 32 + 0*12, 32 + 1*12\n"
+    ".byte 32 + 3*12, 32 + 2*12, 32 + 0*12, 32 + 1*12\n"
+    ".byte 32 + 1*12, 32 + 2*12, 32 + 3*12, 32 + 0*12\n"
+    ".byte 32 + 1*12, 32 + 3*12, 32 + 2*12, 32 + 0*12\n"
+    ".byte 32 + 2*12, 32 + 1*12, 32 + 3*12, 32 + 0*12\n"
+    ".byte 32 + 3*12, 32 + 1*12, 32 + 2*12, 32 + 0*12\n"
+    ".byte 32 + 2*12, 32 + 3*12, 32 + 1*12, 32 + 0*12\n"
+    ".byte 32 + 3*12, 32 + 2*12, 32 + 1*12, 32 + 0*12\n"
+    ".pool\n"
+    ".thumb\n");
+
+bool32 CheckBoxMonMovesFast(const struct BoxPokemon *boxMon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies)
+{
+    u32 movesWord1, movesWord2, speciesWord;
+    u16 species;
+    u16 monMoves[MAX_MON_MOVES];
+    u32 i = 0;
+    const struct SubstructOffsets *offsets = GetSubstructOffsets(boxMon->personality);
+    const union PokemonSubstruct *substruct1 = GetConstSubstruct1(boxMon, offsets);
+    const union PokemonSubstruct *substruct0 = GetConstSubstruct0(boxMon, offsets);
+    u32 key = boxMon->personality ^ boxMon->otId;
+    *outSpecies = SPECIES_NONE;
+    
+    movesWord1 = substruct1->raw32[0] ^ key;
+    movesWord2 = substruct1->raw32[1] ^ key;
+    speciesWord = substruct0->raw32[0] ^ key;
+
+    species = LOHALF(speciesWord); 
+    monMoves[0] = LOHALF(movesWord1); 
+    monMoves[1] = HIHALF(movesWord1); 
+    monMoves[2] = LOHALF(movesWord2); 
+    monMoves[3] = HIHALF(movesWord2); 
+
+    *outKnownFlags = 0;
+
+    while (moves[i] != MOVES_COUNT)
+    {
+        if (monMoves[0] == moves[i] 
+            || monMoves[1] == moves[i] 
+            || monMoves[2] == moves[i] 
+            || monMoves[3] == moves[i])
+        {
+            *outKnownFlags |= gBitTable[i];
+        }
+        i++;
+    }
+
+    *outSpecies = species;
+    return *outKnownFlags != 0;
+}
+
+inline bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies)
+{
+    return CheckBoxMonMovesFast(&mon->box, moves, outKnownFlags, outSpecies);
+}
+
+bool32 FindPartyMonWithMove(u16 move, u32 *outIndex, u16 *outSpecies)
+{
+    u32 i;
+    u16 knownMoveFlags;
+    u16 moveList[2];
+    moveList[0] = move;
+    moveList[1] = MOVES_COUNT;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        CheckMonMovesFast(&gPlayerParty[i], moveList, &knownMoveFlags, outSpecies);
+
+        if (knownMoveFlags & 1)
+        {
+            *outIndex = i;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies)
+{
+    u32 box, boxPos;
+    u16 knownMoveFlags;
+    u16 moveList[2];
+    moveList[0] = move;
+    moveList[1] = MOVES_COUNT;
+
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++)
+        {
+            CheckBoxMonMovesFast(&gPokemonStoragePtr->boxes[box][boxPos], moveList, &knownMoveFlags, outSpecies);
+
+            if (knownMoveFlags & 1)
+            {
+                *outBox = box;
+                *outBoxPos = boxPos;
+                return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
