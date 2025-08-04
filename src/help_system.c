@@ -606,6 +606,7 @@ static const u16 *const *const sBibleText_RevelationTextPtrs[];
 static const u16 *const *const *const sLayer3VerseDescTextPtrs[];
 static const u8 *const sLayer2ChapterTextPtrs[];
 static const u8 *const sLayer3VerseCaptionTextPtrs[];
+static const u16 *const sChapter_Three[];
 static u8 sFullLabel[32];
 
 static const u16 sUnused[] = INCBIN_U16("graphics/help_system/unused.bin");
@@ -3799,7 +3800,7 @@ static const u16 *const sGenesis_Chapter50[] = {
 static const u16 *const *const sBibleText_GenesisTextPtrs[] = {
     sGenesis_Chapter1,
     sGenesis_Chapter2,
-    sGenesis_Chapter3,
+    sChapter_Three, //sGenesis_Chapter3,
     sGenesis_Chapter4,
     sGenesis_Chapter5,
     sGenesis_Chapter6,
@@ -5226,7 +5227,7 @@ static const u16 *const sExodus_Chapter40[] = {
 static const u16 *const *const sBibleText_ExodusTextPtrs[] = {
     sExodus_Chapter1,
     sExodus_Chapter2,
-    sExodus_Chapter3,
+    sChapter_Three, //sExodus_Chapter3,
     sExodus_Chapter4,
     sExodus_Chapter5,
     sExodus_Chapter6,
@@ -6237,7 +6238,7 @@ static const u16 *const sLeviticus_Chapter27[] = {
 static const u16 *const *const sBibleText_LeviticusTextPtrs[] = {
     sLeviticus_Chapter1,
     sLeviticus_Chapter2,
-    sLeviticus_Chapter3,
+    sChapter_Three, //sLeviticus_Chapter3,
     sLeviticus_Chapter4,
     sLeviticus_Chapter5,
     sLeviticus_Chapter6,
@@ -7700,7 +7701,7 @@ static const u16 *const sNumbers_Chapter36[] = {
 static const u16 *const *const sBibleText_NumbersTextPtrs[] = {
     sNumbers_Chapter1,
     sNumbers_Chapter2,
-    sNumbers_Chapter3,
+    sChapter_Three, //sNumbers_Chapter3,
     sNumbers_Chapter4,
     sNumbers_Chapter5,
     sNumbers_Chapter6,
@@ -8835,7 +8836,7 @@ static const u16 *const sDeuteronomy_Chapter34[] = {
 static const u16 *const *const sBibleText_DeuteronomyTextPtrs[] = {
     sDeuteronomy_Chapter1,
     sDeuteronomy_Chapter2,
-    sDeuteronomy_Chapter3,
+    sChapter_Three, //sDeuteronomy_Chapter3,
     sDeuteronomy_Chapter4,
     sDeuteronomy_Chapter5,
     sDeuteronomy_Chapter6,
@@ -9627,7 +9628,7 @@ static const u16 *const sJoshua_Chapter24[] = {
 static const u16 *const *const sBibleText_JoshuaTextPtrs[] = {
     sJoshua_Chapter1,
     sJoshua_Chapter2,
-    sJoshua_Chapter3,
+    sChapter_Three, //sJoshua_Chapter3,
     sJoshua_Chapter4,
     sJoshua_Chapter5,
     sJoshua_Chapter6,
@@ -10357,7 +10358,7 @@ static const u16 *const sJudges_Chapter21[] = {
 static const u16 *const *const sBibleText_JudgesTextPtrs[] = {
     sJudges_Chapter1,
     sJudges_Chapter2,
-    sJudges_Chapter3,
+    sChapter_Three, //sJudges_Chapter3,
     sJudges_Chapter4,
     sJudges_Chapter5,
     sJudges_Chapter6,
@@ -10483,7 +10484,7 @@ static const u16 *const sRuth_Chapter4[] = {
 static const u16 *const *const sBibleText_RuthTextPtrs[] = {
     sRuth_Chapter1,
     sRuth_Chapter2,
-    sRuth_Chapter3,
+    sChapter_Three, //sRuth_Chapter3,
     sRuth_Chapter4,
     0
 };
@@ -11425,7 +11426,7 @@ static const u16 *const s1Samuel_Chapter31[] = {
 static const u16 *const *const sBibleText_1SamuelTextPtrs[] = {
     s1Samuel_Chapter1,
     s1Samuel_Chapter2,
-    s1Samuel_Chapter3,
+    sChapter_Three, //s1Samuel_Chapter3,
     s1Samuel_Chapter4,
     s1Samuel_Chapter5,
     s1Samuel_Chapter6,
@@ -12251,7 +12252,7 @@ static const u16 *const s2Samuel_Chapter24[] = {
 static const u16 *const *const sBibleText_2SamuelTextPtrs[] = {
     s2Samuel_Chapter1,
     s2Samuel_Chapter2,
-    s2Samuel_Chapter3,
+    sChapter_Three, //s2Samuel_Chapter3,
     s2Samuel_Chapter4,
     s2Samuel_Chapter5,
     s2Samuel_Chapter6,
@@ -13183,7 +13184,7 @@ static const u16 *const s1Kings_Chapter22[] = {
 static const u16 *const *const sBibleText_1KingsTextPtrs[] = {
     s1Kings_Chapter1,
     s1Kings_Chapter2,
-    s1Kings_Chapter3,
+    sChapter_Three, //s1Kings_Chapter3,
     s1Kings_Chapter4,
     s1Kings_Chapter5,
     s1Kings_Chapter6,
@@ -14028,7 +14029,7 @@ static const u16 *const s2Kings_Chapter25[] = {
 static const u16 *const *const sBibleText_2KingsTextPtrs[] = {
     s2Kings_Chapter1,
     s2Kings_Chapter2,
-    s2Kings_Chapter3,
+    sChapter_Three, //s2Kings_Chapter3,
     s2Kings_Chapter4,
     s2Kings_Chapter5,
     s2Kings_Chapter6,
@@ -15115,7 +15116,7 @@ static const u16 *const s1Chronicles_Chapter29[] = {
 static const u16 *const *const sBibleText_1ChroniclesTextPtrs[] = {
     s1Chronicles_Chapter1,
     s1Chronicles_Chapter2,
-    s1Chronicles_Chapter3,
+    sChapter_Three, //s1Chronicles_Chapter3,
     s1Chronicles_Chapter4,
     s1Chronicles_Chapter5,
     s1Chronicles_Chapter6,
@@ -16114,7 +16115,7 @@ static const u16 *const s2Chronicles_Chapter36[] = {
 static const u16 *const *const sBibleText_2ChroniclesTextPtrs[] = {
     s2Chronicles_Chapter1,
     s2Chronicles_Chapter2,
-    s2Chronicles_Chapter3,
+    sChapter_Three, //s2Chronicles_Chapter3,
     s2Chronicles_Chapter4,
     s2Chronicles_Chapter5,
     s2Chronicles_Chapter6,
@@ -16474,7 +16475,7 @@ static const u16 *const sEzra_Chapter10[] = {
 static const u16 *const *const sBibleText_EzraTextPtrs[] = {
     sEzra_Chapter1,
     sEzra_Chapter2,
-    sEzra_Chapter3,
+    sChapter_Three, //sEzra_Chapter3,
     sEzra_Chapter4,
     sEzra_Chapter5,
     sEzra_Chapter6,
@@ -16946,7 +16947,7 @@ static const u16 *const sNehemiah_Chapter13[] = {
 static const u16 *const *const sBibleText_NehemiahTextPtrs[] = {
     sNehemiah_Chapter1,
     sNehemiah_Chapter2,
-    sNehemiah_Chapter3,
+    sChapter_Three, //sNehemiah_Chapter3,
     sNehemiah_Chapter4,
     sNehemiah_Chapter5,
     sNehemiah_Chapter6,
@@ -17170,7 +17171,7 @@ static const u16 *const sEsther_Chapter10[] = {
 static const u16 *const *const sBibleText_EstherTextPtrs[] = {
     sEsther_Chapter1,
     sEsther_Chapter2,
-    sEsther_Chapter3,
+    sChapter_Three, //sEsther_Chapter3,
     sEsther_Chapter4,
     sEsther_Chapter5,
     sEsther_Chapter6,
@@ -18422,7 +18423,7 @@ static const u16 *const sJob_Chapter42[] = {
 static const u16 *const *const sBibleText_JobTextPtrs[] = {
     sJob_Chapter1,
     sJob_Chapter2,
-    sJob_Chapter3,
+    sChapter_Three, //sJob_Chapter3,
     sJob_Chapter4,
     sJob_Chapter5,
     sJob_Chapter6,
@@ -21529,7 +21530,7 @@ static const u16 *const sPsalms_Chapter150[] = {
 static const u16 *const *const sBibleText_PsalmsTextPtrs[] = {
     sPsalms_Chapter1,
     sPsalms_Chapter2,
-    sPsalms_Chapter3,
+    sChapter_Three, //sPsalms_Chapter3,
     sPsalms_Chapter4,
     sPsalms_Chapter5,
     sPsalms_Chapter6,
@@ -22722,7 +22723,7 @@ static const u16 *const sProverbs_Chapter31[] = {
 static const u16 *const *const sBibleText_ProverbsTextPtrs[] = {
     sProverbs_Chapter1,
     sProverbs_Chapter2,
-    sProverbs_Chapter3,
+    sChapter_Three, //sProverbs_Chapter3,
     sProverbs_Chapter4,
     sProverbs_Chapter5,
     sProverbs_Chapter6,
@@ -23027,7 +23028,7 @@ static const u16 *const sEcclesiastes_Chapter12[] = {
 static const u16 *const *const sBibleText_EcclesiastesTextPtrs[] = {
     sEcclesiastes_Chapter1,
     sEcclesiastes_Chapter2,
-    sEcclesiastes_Chapter3,
+    sChapter_Three, //sEcclesiastes_Chapter3,
     sEcclesiastes_Chapter4,
     sEcclesiastes_Chapter5,
     sEcclesiastes_Chapter6,
@@ -23192,7 +23193,7 @@ static const u16 *const sSongOfSolomon_Chapter8[] = {
 static const u16 *const *const sBibleText_SongOfSolomonTextPtrs[] = {
     sSongOfSolomon_Chapter1,
     sSongOfSolomon_Chapter2,
-    sSongOfSolomon_Chapter3,
+    sChapter_Three, //sSongOfSolomon_Chapter3,
     sSongOfSolomon_Chapter4,
     sSongOfSolomon_Chapter5,
     sSongOfSolomon_Chapter6,
@@ -24760,7 +24761,7 @@ static const u16 *const sIsaiah_Chapter66[] = {
 static const u16 *const *const sBibleText_IsaiahTextPtrs[] = {
     sIsaiah_Chapter1,
     sIsaiah_Chapter2,
-    sIsaiah_Chapter3,
+    sChapter_Three, //sIsaiah_Chapter3,
     sIsaiah_Chapter4,
     sIsaiah_Chapter5,
     sIsaiah_Chapter6,
@@ -26402,7 +26403,7 @@ static const u16 *const sJeremiah_Chapter52[] = {
 static const u16 *const *const sBibleText_JeremiahTextPtrs[] = {
     sJeremiah_Chapter1,
     sJeremiah_Chapter2,
-    sJeremiah_Chapter3,
+    sChapter_Three, //sJeremiah_Chapter3,
     sJeremiah_Chapter4,
     sJeremiah_Chapter5,
     sJeremiah_Chapter6,
@@ -26632,7 +26633,7 @@ static const u16 *const sLamentations_Chapter5[] = {
 static const u16 *const *const sBibleText_LamentationsTextPtrs[] = {
     sLamentations_Chapter1,
     sLamentations_Chapter2,
-    sLamentations_Chapter3,
+    sChapter_Three, //sLamentations_Chapter3,
     sLamentations_Chapter4,
     sLamentations_Chapter5,
     0
@@ -28106,7 +28107,7 @@ static const u16 *const sEzekiel_Chapter48[] = {
 static const u16 *const *const sBibleText_EzekielTextPtrs[] = {
     sEzekiel_Chapter1,
     sEzekiel_Chapter2,
-    sEzekiel_Chapter3,
+    sChapter_Three, //sEzekiel_Chapter3,
     sEzekiel_Chapter4,
     sEzekiel_Chapter5,
     sEzekiel_Chapter6,
@@ -28563,7 +28564,7 @@ static const u16 *const sDaniel_Chapter12[] = {
 static const u16 *const *const sBibleText_DanielTextPtrs[] = {
     sDaniel_Chapter1,
     sDaniel_Chapter2,
-    sDaniel_Chapter3,
+    sChapter_Three, //sDaniel_Chapter3,
     sDaniel_Chapter4,
     sDaniel_Chapter5,
     sDaniel_Chapter6,
@@ -28832,7 +28833,7 @@ static const u16 *const sHosea_Chapter14[] = {
 static const u16 *const *const sBibleText_HoseaTextPtrs[] = {
     sHosea_Chapter1,
     sHosea_Chapter2,
-    sHosea_Chapter3,
+    sChapter_Three, //sHosea_Chapter3,
     sHosea_Chapter4,
     sHosea_Chapter5,
     sHosea_Chapter6,
@@ -28935,7 +28936,7 @@ static const u16 *const sJoel_Chapter3[] = {
 static const u16 *const *const sBibleText_JoelTextPtrs[] = {
     sJoel_Chapter1,
     sJoel_Chapter2,
-    sJoel_Chapter3,
+    sChapter_Three, //sJoel_Chapter3,
     0
 };
 
@@ -29124,7 +29125,7 @@ static const u16 *const sAmos_Chapter9[] = {
 static const u16 *const *const sBibleText_AmosTextPtrs[] = {
     sAmos_Chapter1,
     sAmos_Chapter2,
-    sAmos_Chapter3,
+    sChapter_Three, //sAmos_Chapter3,
     sAmos_Chapter4,
     sAmos_Chapter5,
     sAmos_Chapter6,
@@ -29231,7 +29232,7 @@ static const u16 *const sJonah_Chapter4[] = {
 static const u16 *const *const sBibleText_JonahTextPtrs[] = {
     sJonah_Chapter1,
     sJonah_Chapter2,
-    sJonah_Chapter3,
+    sChapter_Three, //sJonah_Chapter3,
     sJonah_Chapter4,
     0
 };
@@ -29372,7 +29373,7 @@ static const u16 *const sMicah_Chapter7[] = {
 static const u16 *const *const sBibleText_MicahTextPtrs[] = {
     sMicah_Chapter1,
     sMicah_Chapter2,
-    sMicah_Chapter3,
+    sChapter_Three, //sMicah_Chapter3,
     sMicah_Chapter4,
     sMicah_Chapter5,
     sMicah_Chapter6,
@@ -29442,7 +29443,7 @@ static const u16 *const sNahum_Chapter3[] = {
 static const u16 *const *const sBibleText_NahumTextPtrs[] = {
     sNahum_Chapter1,
     sNahum_Chapter2,
-    sNahum_Chapter3,
+    sChapter_Three, //sNahum_Chapter3,
     0
 };
 
@@ -29517,7 +29518,7 @@ static const u16 *const sHabakkuk_Chapter3[] = {
 static const u16 *const *const sBibleText_HabakkukTextPtrs[] = {
     sHabakkuk_Chapter1,
     sHabakkuk_Chapter2,
-    sHabakkuk_Chapter3,
+    sChapter_Three, //sHabakkuk_Chapter3,
     0
 };
 
@@ -29589,7 +29590,7 @@ static const u16 *const sZephaniah_Chapter3[] = {
 static const u16 *const *const sBibleText_ZephaniahTextPtrs[] = {
     sZephaniah_Chapter1,
     sZephaniah_Chapter2,
-    sZephaniah_Chapter3,
+    sChapter_Three, //sZephaniah_Chapter3,
     0
 };
 
@@ -29642,7 +29643,7 @@ static const u16 *const sHaggai_Chapter2[] = {
 static const u16 *const *const sBibleText_HaggaiTextPtrs[] = {
     sHaggai_Chapter1,
     sHaggai_Chapter2,
-    0
+    sChapter_Three, //0
 };
 
 static const u16 *const sZechariah_Chapter1[] = {
@@ -29915,7 +29916,7 @@ static const u16 *const sZechariah_Chapter14[] = {
 static const u16 *const *const sBibleText_ZechariahTextPtrs[] = {
     sZechariah_Chapter1,
     sZechariah_Chapter2,
-    sZechariah_Chapter3,
+    sChapter_Three, //sZechariah_Chapter3,
     sZechariah_Chapter4,
     sZechariah_Chapter5,
     sZechariah_Chapter6,
@@ -30004,7 +30005,7 @@ static const u16 *const sMalachi_Chapter4[] = {
 static const u16 *const *const sBibleText_MalachiTextPtrs[] = {
     sMalachi_Chapter1,
     sMalachi_Chapter2,
-    sMalachi_Chapter3,
+    sChapter_Three, //sMalachi_Chapter3,
     sMalachi_Chapter4,
     0
 };
@@ -31195,7 +31196,7 @@ static const u16 *const sMatthew_Chapter28[] = {
 static const u16 *const *const sBibleText_MatthewTextPtrs[] = {
     sMatthew_Chapter1,
     sMatthew_Chapter2,
-    sMatthew_Chapter3,
+    sChapter_Three, //sMatthew_Chapter3,
     sMatthew_Chapter4,
     sMatthew_Chapter5,
     sMatthew_Chapter6,
@@ -31969,7 +31970,7 @@ static const u16 *const sMark_Chapter16[] = {
 static const u16 *const *const sBibleText_MarkTextPtrs[] = {
     sMark_Chapter1,
     sMark_Chapter2,
-    sMark_Chapter3,
+    sChapter_Three, //sMark_Chapter3,
     sMark_Chapter4,
     sMark_Chapter5,
     sMark_Chapter6,
@@ -33236,7 +33237,7 @@ static const u16 *const sLuke_Chapter24[] = {
 static const u16 *const *const sBibleText_LukeTextPtrs[] = {
     sLuke_Chapter1,
     sLuke_Chapter2,
-    sLuke_Chapter3,
+    sChapter_Three, //sLuke_Chapter3,
     sLuke_Chapter4,
     sLuke_Chapter5,
     sLuke_Chapter6,
@@ -34227,7 +34228,7 @@ static const u16 *const sJohn_Chapter21[] = {
 static const u16 *const *const sBibleText_JohnTextPtrs[] = {
     sJohn_Chapter1,
     sJohn_Chapter2,
-    sJohn_Chapter3,
+    sChapter_Three, //sJohn_Chapter3,
     sJohn_Chapter4,
     sJohn_Chapter5,
     sJohn_Chapter6,
@@ -35371,7 +35372,7 @@ static const u16 *const sActs_Chapter28[] = {
 static const u16 *const *const sBibleText_ActsTextPtrs[] = {
     sActs_Chapter1,
     sActs_Chapter2,
-    sActs_Chapter3,
+    sChapter_Three, //sActs_Chapter3,
     sActs_Chapter4,
     sActs_Chapter5,
     sActs_Chapter6,
@@ -35900,7 +35901,7 @@ static const u16 *const sPaul_Chapter16[] = {
 static const u16 *const *const sBibleText_PaulTextPtrs[] = {
     sPaul_Chapter1,
     sPaul_Chapter2,
-    sPaul_Chapter3,
+    sChapter_Three, //sPaul_Chapter3,
     sPaul_Chapter4,
     sPaul_Chapter5,
     sPaul_Chapter6,
@@ -36421,7 +36422,7 @@ static const u16 *const s1Corinthians_Chapter16[] = {
 static const u16 *const *const sBibleText_1CorinthiansTextPtrs[] = {
     s1Corinthians_Chapter1,
     s1Corinthians_Chapter2,
-    s1Corinthians_Chapter3,
+    sChapter_Three, //s1Corinthians_Chapter3,
     s1Corinthians_Chapter4,
     s1Corinthians_Chapter5,
     s1Corinthians_Chapter6,
@@ -36750,7 +36751,7 @@ static const u16 *const s2Corinthians_Chapter13[] = {
 static const u16 *const *const sBibleText_2CorinthiansTextPtrs[] = {
     s2Corinthians_Chapter1,
     s2Corinthians_Chapter2,
-    s2Corinthians_Chapter3,
+    sChapter_Three, //s2Corinthians_Chapter3,
     s2Corinthians_Chapter4,
     s2Corinthians_Chapter5,
     s2Corinthians_Chapter6,
@@ -36940,7 +36941,7 @@ static const u16 *const sGalatians_Chapter6[] = {
 static const u16 *const *const sBibleText_GalatiansTextPtrs[] = {
     sGalatians_Chapter1,
     sGalatians_Chapter2,
-    sGalatians_Chapter3,
+    sChapter_Three, //sGalatians_Chapter3,
     sGalatians_Chapter4,
     sGalatians_Chapter5,
     sGalatians_Chapter6,
@@ -37129,7 +37130,7 @@ static const u16 *const sEphesians_Chapter6[] = {
 static const u16 *const *const sBibleText_EphesiansTextPtrs[] = {
     sEphesians_Chapter1,
     sEphesians_Chapter2,
-    sEphesians_Chapter3,
+    sChapter_Three, //sEphesians_Chapter3,
     sEphesians_Chapter4,
     sEphesians_Chapter5,
     sEphesians_Chapter6,
@@ -37259,7 +37260,7 @@ static const u16 *const sPhilippians_Chapter4[] = {
 static const u16 *const *const sBibleText_PhilippiansTextPtrs[] = {
     sPhilippians_Chapter1,
     sPhilippians_Chapter2,
-    sPhilippians_Chapter3,
+    sChapter_Three, //sPhilippians_Chapter3,
     sPhilippians_Chapter4,
     0
 };
@@ -37378,7 +37379,7 @@ static const u16 *const sColossians_Chapter4[] = {
 static const u16 *const *const sBibleText_ColossiansTextPtrs[] = {
     sColossians_Chapter1,
     sColossians_Chapter2,
-    sColossians_Chapter3,
+    sChapter_Three, //sColossians_Chapter3,
     sColossians_Chapter4,
     0
 };
@@ -37495,7 +37496,7 @@ static const u16 *const s1Thessalonians_Chapter5[] = {
 static const u16 *const *const sBibleText_1ThessaloniansTextPtrs[] = {
     s1Thessalonians_Chapter1,
     s1Thessalonians_Chapter2,
-    s1Thessalonians_Chapter3,
+    sChapter_Three, //s1Thessalonians_Chapter3,
     s1Thessalonians_Chapter4,
     s1Thessalonians_Chapter5,
     0
@@ -37563,7 +37564,7 @@ static const u16 *const s2Thessalonians_Chapter3[] = {
 static const u16 *const *const sBibleText_2ThessaloniansTextPtrs[] = {
     s2Thessalonians_Chapter1,
     s2Thessalonians_Chapter2,
-    s2Thessalonians_Chapter3,
+    sChapter_Three, //s2Thessalonians_Chapter3,
     0
 };
 
@@ -37707,7 +37708,7 @@ static const u16 *const s1Timothy_Chapter6[] = {
 static const u16 *const *const sBibleText_1TimothyTextPtrs[] = {
     s1Timothy_Chapter1,
     s1Timothy_Chapter2,
-    s1Timothy_Chapter3,
+    sChapter_Three, //s1Timothy_Chapter3,
     s1Timothy_Chapter4,
     s1Timothy_Chapter5,
     s1Timothy_Chapter6,
@@ -37816,7 +37817,7 @@ static const u16 *const s2Timothy_Chapter4[] = {
 static const u16 *const *const sBibleText_2TimothyTextPtrs[] = {
     s2Timothy_Chapter1,
     s2Timothy_Chapter2,
-    s2Timothy_Chapter3,
+    sChapter_Three, //s2Timothy_Chapter3,
     s2Timothy_Chapter4,
     0
 };
@@ -37882,7 +37883,7 @@ static const u16 *const sTitus_Chapter3[] = {
 static const u16 *const *const sBibleText_TitusTextPtrs[] = {
     sTitus_Chapter1,
     sTitus_Chapter2,
-    sTitus_Chapter3,
+    sChapter_Three, //sTitus_Chapter3,
     0
 };
 
@@ -38278,7 +38279,7 @@ static const u16 *const sHebrews_Chapter13[] = {
 static const u16 *const *const sBibleText_HebrewsTextPtrs[] = {
     sHebrews_Chapter1,
     sHebrews_Chapter2,
-    sHebrews_Chapter3,
+    sChapter_Three, //sHebrews_Chapter3,
     sHebrews_Chapter4,
     sHebrews_Chapter5,
     sHebrews_Chapter6,
@@ -38423,7 +38424,7 @@ static const u16 *const sJames_Chapter5[] = {
 static const u16 *const *const sBibleText_JamesTextPtrs[] = {
     sJames_Chapter1,
     sJames_Chapter2,
-    sJames_Chapter3,
+    sChapter_Three, //sJames_Chapter3,
     sJames_Chapter4,
     sJames_Chapter5,
     0
@@ -38557,7 +38558,7 @@ static const u16 *const s1Peter_Chapter5[] = {
 static const u16 *const *const sBibleText_1PeterTextPtrs[] = {
     s1Peter_Chapter1,
     s1Peter_Chapter2,
-    s1Peter_Chapter3,
+    sChapter_Three, //s1Peter_Chapter3,
     s1Peter_Chapter4,
     s1Peter_Chapter5,
     0
@@ -38639,7 +38640,7 @@ static const u16 *const s2Peter_Chapter3[] = {
 static const u16 *const *const sBibleText_2PeterTextPtrs[] = {
     s2Peter_Chapter1,
     s2Peter_Chapter2,
-    s2Peter_Chapter3,
+    sChapter_Three, //s2Peter_Chapter3,
     0
 };
 
@@ -38771,7 +38772,7 @@ static const u16 *const s1John_Chapter5[] = {
 static const u16 *const *const sBibleText_1JohnTextPtrs[] = {
     s1John_Chapter1,
     s1John_Chapter2,
-    s1John_Chapter3,
+    sChapter_Three, //s1John_Chapter3,
     s1John_Chapter4,
     s1John_Chapter5,
     0
@@ -39351,7 +39352,7 @@ static const u16 *const sRevelation_Chapter22[] = {
 static const u16 *const *const sBibleText_RevelationTextPtrs[] = {
     sRevelation_Chapter1,
     sRevelation_Chapter2,
-    sRevelation_Chapter3,
+    sChapter_Three, //sRevelation_Chapter3,
     sRevelation_Chapter4,
     sRevelation_Chapter5,
     sRevelation_Chapter6,
@@ -39371,5 +39372,26 @@ static const u16 *const *const sBibleText_RevelationTextPtrs[] = {
     sRevelation_Chapter20,
     sRevelation_Chapter21,
     sRevelation_Chapter22,
+    0
+};
+
+// chapter three texts
+static const u16 *const sChapter_Three[] = {
+    Text_ChapterThree_1,
+    Text_ChapterThree_2,
+    Text_ChapterThree_3,
+    Text_ChapterThree_4,
+    Text_ChapterThree_5,
+    Text_ChapterThree_6,
+    Text_ChapterThree_7,
+    Text_ChapterThree_8,
+    Text_ChapterThree_9,
+    Text_ChapterThree_10,
+    Text_ChapterThree_11,
+    Text_ChapterThree_12,
+    Text_ChapterThree_13,
+    Text_ChapterThree_14,
+    Text_ChapterThree_15,
+    Text_ChapterThree_16,
     0
 };

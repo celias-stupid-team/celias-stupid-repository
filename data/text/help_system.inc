@@ -167323,3 +167323,47 @@ Bible_Book_Name_Jude::
 Bible_Book_Name_Revelation::
     .string "REVELATION$"
 
+// chapter three texts
+Text_ChapterThree_1::
+	.string "My Secret Life, chapter three.$"
+Text_ChapterThree_2::
+	.string "I was neither a murder suspect, nor\n"
+	.string "a target for an international spy\l"
+	.string "organization.$"
+Text_ChapterThree_3::
+	.string "But I drove a car down the Jersey\n"
+	.string "Turnpike at 88 mph.$"
+Text_ChapterThree_4::
+	.string "…A police officer pulled me over\n"
+	.string "and asked for my driver's license.$"
+Text_ChapterThree_5::
+	.string "He said I was going 20 mph over the\n"
+	.string "speed limit.$"
+Text_ChapterThree_6::
+	.string "I instantly pointed to\n"
+	.string "my wife and said, “I'm in a hurry,\l"
+	.string "my wife is in labor.”$"
+Text_ChapterThree_7::
+	.string "Fortunately, my wife actually had a\n"
+	.string "big stomach.$"
+Text_ChapterThree_8::
+	.string "I hoped he'd let me go with this\n"
+	.string "excuse.$"
+Text_ChapterThree_9::
+	.string "“Oh, since it's an emergency, I'll\n"
+	.string "lead you to the hospital with my\l"
+	.string "police car,” he said.$"
+Text_ChapterThree_10::
+	.string "“No, it's not necessary.”$"
+Text_ChapterThree_11::
+	.string "“Why not?” asked the officer.$"
+Text_ChapterThree_12::
+	.string "“Uh…”$"
+Text_ChapterThree_13::
+	.string "“Well…”$"
+Text_ChapterThree_14::
+	.string "“Let's get going,” said the officer.$"
+Text_ChapterThree_15::
+	.string "“No, no! We can't!”$"
+Text_ChapterThree_16::
+	.string "“This baby is a demon child!”$"

@@ -32775,4 +32775,22 @@ extern const u16 Bible_Text_Revelation_22_19[];
 extern const u16 Bible_Text_Revelation_22_20[];
 extern const u16 Bible_Text_Revelation_22_21[];
 
+// chapter three text
+extern const u16 Text_ChapterThree_1[];
+extern const u16 Text_ChapterThree_2[];
+extern const u16 Text_ChapterThree_3[];
+extern const u16 Text_ChapterThree_4[];
+extern const u16 Text_ChapterThree_5[];
+extern const u16 Text_ChapterThree_6[];
+extern const u16 Text_ChapterThree_7[];
+extern const u16 Text_ChapterThree_8[];
+extern const u16 Text_ChapterThree_9[];
+extern const u16 Text_ChapterThree_10[];
+extern const u16 Text_ChapterThree_11[];
+extern const u16 Text_ChapterThree_12[];
+extern const u16 Text_ChapterThree_13[];
+extern const u16 Text_ChapterThree_14[];
+extern const u16 Text_ChapterThree_15[];
+extern const u16 Text_ChapterThree_16[];
+
 extern const u8 EventScript_ObjectApproachPlayer[];
