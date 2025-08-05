@@ -266,7 +266,7 @@ const u8 gMoveDescription_WillOWisp[] = _("A sinister, bluish\nwhite flame is sh
 const u8 gMoveDescription_Memento[] = _("The user faints,\nbut sharply lowers\nthe foe's ATTACK\nand SP. ATK.");
 const u8 gMoveDescription_Facade[] = _("An attack that is\nboosted if user is\nburned, poisoned,\nor paralyzed.");
 const u8 gMoveDescription_FocusPunch[] = _("An attack that is\nexecuted last.\nThe user flinches\nif hit beforehand.");
-const u8 gMoveDescription_SmellingSalt[] = _("Low-tech\nalarm clock");
+const u8 gMoveDescription_SmellingSalt[] = _("Just like VITAL\nTHROW, this move\nnever misses!");
 const u8 gMoveDescription_FollowMe[] = _("The user draws\nattention to itself,\nmaking foes attack\nonly the user.");
 const u8 gMoveDescription_NaturePower[] = _("An attack that\nchanges type\ndepending on the\nuser's location.");
 const u8 gMoveDescription_Charge[] = _("The user charges\npower to boost the\nELECTRIC move it\nuses next.");
@@ -628,6 +628,7 @@ const u8 gMoveDescription_LionLadder[] = _("Dummy");
 const u8 gMoveDescription_StrangeSteam[] = _("Dummy");
 const u8 gMoveDescription_FlareBlitz[] = _("Dummy");
 const u8 gMoveDescription_MagnetRise[] = _("Dummy");
+const u8 gMoveDescription_Shoot[] = _("bang");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1261,4 +1262,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_ELECTRIFY - 1] = gMoveDescription_Electrify,
     [MOVE_FLARE_BLITZ - 1] = gMoveDescription_FlareBlitz,
     [MOVE_MAGNET_RISE     -1 ] = gMoveDescription_MagnetRise,
+    [MOVE_SHOOT     -1 ] = gMoveDescription_Shoot,
+    
 };

@@ -388,6 +388,9 @@ gSongTable::
 	song mus_korok_seed, 0, 0
 	song mus_trick_house, 0, 0
 	song mus_chapter_8, 0, 0
+	song mus_delivery, 0, 0
+	song mus_megalovania, 0, 0
+	song mus_four_island, 0, 0
 
 
 

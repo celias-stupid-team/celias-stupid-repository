@@ -395,12 +395,15 @@
 #define MUS_KOROK_SEED            386
 #define MUS_TRICK_HOUSE            387
 #define MUS_CHAPTER_8            388
+#define MUS_DELIVERY            389
+#define MUS_MEGALOVANIA            390
+#define MUS_FOUR_ISLAND            391
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CHAPTER_8
+#define END_MUS                     MUS_FOUR_ISLAND
 
 #endif  // GUARD_CONSTANTS_SONGS_H
