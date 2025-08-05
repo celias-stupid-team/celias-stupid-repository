@@ -749,11 +749,6 @@ script ViridianCity_EventScript_TryUnlockGym {
 	goto_if_unset(FLAG_BADGE06_GET, EventScript_Return)
 	goto_if_unset(FLAG_BADGE07_GET, EventScript_Return)
 	//goto_if_unset(FLAG_BADGE07_GET, EventScript_Return) Falkner Badge
-	if(var(VAR_CURRENT_CHAPTER) == 8) {
-		setdynamicwarp(MAP_VIRIDIAN_GYM_ENTRANCE)
-	} else {
-		setdynamicwarp(MAP_CHAPTER8)
-	}
 	setvar(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 1)
 	return
 }
