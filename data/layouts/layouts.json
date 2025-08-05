@@ -5424,6 +5424,18 @@
       "secondary_tileset": "gTileset_SeviiIslands45",
       "border_filepath": "data/layouts/Great_Sea_1/border.bin",
       "blockdata_filepath": "data/layouts/Great_Sea_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_JOHTO_NATIONAL_PARK",
+      "name": "Johto_National_Park_Layout",
+      "width": 54,
+      "height": 68,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_J_National_Park",
+      "border_filepath": "data/layouts/Johto_National_Park/border.bin",
+      "blockdata_filepath": "data/layouts/Johto_National_Park/map.bin"
     }
   ]
 }

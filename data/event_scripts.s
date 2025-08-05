@@ -1596,3 +1596,6 @@ Text_TestMsg::
 
 	.include "data/maps/Zero_Island/scripts.inc"
 	.include "data/maps/Zero_Island/text.inc"
+
+	.include "data/maps/Johto_National_Park/scripts.inc"
+	.include "data/maps/Johto_National_Park/text.inc"
