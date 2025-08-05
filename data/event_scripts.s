@@ -1596,3 +1596,27 @@ Text_TestMsg::
 
 	.include "data/maps/NationalPark/scripts.inc"
 	.include "data/maps/NationalPark/text.inc"
+
+	.include "data/maps/ViridianGym_Giovanni/scripts.inc"
+	.include "data/maps/ViridianGym_Giovanni/text.inc"
+
+	.include "data/maps/ViridianGym_Falkner/scripts.inc"
+	.include "data/maps/ViridianGym_Falkner/text.inc"
+
+	.include "data/maps/ViridianGym_Blaine/scripts.inc"
+	.include "data/maps/ViridianGym_Blaine/text.inc"
+
+	.include "data/maps/ViridianGym_Sabrina/scripts.inc"
+	.include "data/maps/ViridianGym_Sabrina/text.inc"
+
+	.include "data/maps/ViridianGym_Koga/scripts.inc"
+	.include "data/maps/ViridianGym_Koga/text.inc"
+
+	.include "data/maps/ViridianGym_Erika/scripts.inc"
+	.include "data/maps/ViridianGym_Erika/text.inc"
+
+	.include "data/maps/ViridianGym_Surge/scripts.inc"
+	.include "data/maps/ViridianGym_Surge/text.inc"
+
+	.include "data/maps/ViridianGym_Misty/scripts.inc"
+	.include "data/maps/ViridianGym_Misty/text.inc"

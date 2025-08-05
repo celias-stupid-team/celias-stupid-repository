@@ -642,7 +642,15 @@
   ],
   "gMapGroup_ViridianGym": [
     "ViridianGym_Entrance",
-    "ViridianGym_DMCA_Brock"
+    "ViridianGym_DMCA_Brock",
+    "ViridianGym_Misty",
+    "ViridianGym_Surge",
+    "ViridianGym_Erika",
+    "ViridianGym_Koga",
+    "ViridianGym_Sabrina",
+    "ViridianGym_Blaine",
+    "ViridianGym_Falkner",
+    "ViridianGym_Giovanni"
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North"

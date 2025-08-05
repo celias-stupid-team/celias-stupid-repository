@@ -5424,6 +5424,102 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/NationalPark/border.bin",
       "blockdata_filepath": "data/layouts/NationalPark/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_GIOVANNI",
+      "name": "ViridianGym_Giovanni_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_Giovanni/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Giovanni/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_FALKNER",
+      "name": "ViridianGym_Falkner_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Falkner/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Falkner/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_BLAINE",
+      "name": "ViridianGym_Blaine_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Blaine/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Blaine/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_SABRINA",
+      "name": "ViridianGym_Sabrina_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Sabrina/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Sabrina/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_KOGA",
+      "name": "ViridianGym_Koga_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Koga/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Koga/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_ERIKA",
+      "name": "ViridianGym_Erika_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Erika/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Erika/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_SURGE",
+      "name": "ViridianGym_Surge_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Surge/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Surge/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_MISTY",
+      "name": "ViridianGym_Misty_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_CeruleanGym",
+      "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
     }
   ]
 }
