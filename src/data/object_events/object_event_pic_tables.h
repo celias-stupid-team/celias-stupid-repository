@@ -3500,3 +3500,14 @@ const struct SpriteFrameImage gObjectEventPicTable_Teamsky[] = {
     overworld_frame(gObjectEventPic_Teamsky, 2, 4, 7),
     overworld_frame(gObjectEventPic_Teamsky, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Vulpixdead[] = {
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Vulpixdead, 4, 4, 8),
+};

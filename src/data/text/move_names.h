@@ -631,6 +631,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
 
     [MOVE_AGILITY_DUMB]       = _("AGILITY"),
     [MOVE_MAGNET_RISE]     = _("MAGNET RISE"),
+    [MOVE_SHOOT]     = _("SHOOT"),
 };
 
 
@@ -1267,5 +1268,6 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
 [MOVE_FLARE_BLITZ]    = _("FLARE BLITZ"),
     [MOVE_AGILITY_DUMB]       = _("AGILITY"),
     [MOVE_MAGNET_RISE]     = _("MAGNET RISE"),
+    [MOVE_SHOOT]     = _("SHOOT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

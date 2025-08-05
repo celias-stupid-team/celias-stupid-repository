@@ -96,11 +96,14 @@ script PokemonTower_6F_EventScript_MarowakGhost {
 	setwildbattle(SPECIES_MAROWAK, 30)
 	special(StartMarowakBattle)
 	delay(65)
-	addobject(LITTLEGIRL)
-	clearflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
-	if(!flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL)) {
-		addobject(CLEFAIRY)
-		clearflag(FLAG_TEMP_8)
+	if(flag(FLAG_CSR_SUPER_SCOPE)) {
+		addobject(LITTLEGIRL)
+		clearflag(FLAG_HIDE_CLEFAIRY_DOLL_GIRL)
+		if(!flag(FLAG_TOOK_TOWER_CLEFAIRY_DOLL)) {
+			addobject(CLEFAIRY)
+			clearflag(FLAG_TEMP_8)
+
+		}
 
 	}
 	waitstate

@@ -632,8 +632,9 @@
 #define MOVE_FLARE_BLITZ 627
 #define MOVE_AGILITY_DUMB 628
 #define MOVE_MAGNET_RISE 629
+#define MOVE_SHOOT 630
 
-#define MOVES_COUNT 630
+#define MOVES_COUNT 631
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

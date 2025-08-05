@@ -35,6 +35,7 @@ script FushciaGym_ToxicDusclops {
     lock
     faceplayer
     if(var(VAR_TEMP_1) == 1) {
+            setflag(FLAG_TEMP_2)
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
             msgbox("DUSCLOPS: Cloooops!\n", MSGBOX_DEFAULT)
             waitmoncry
@@ -53,6 +54,11 @@ script FushciaGym_ToxicDusclops {
 }
 
 script FushciaGym_ToxicDusclopsMan {
-	msgbox("Mwahaha!\nIt's me!\pI'm the one POISONING everyone!", MSGBOX_NPC)
+    if(flag(FLAG_TEMP_2)) {
+        msgbox("This POISON is even more potent\nthan usual!\pYour HP will drain ten times as\nfast in the overworld\lMwahaha!", MSGBOX_NPC)
+    } else {
+	    msgbox("Mwahaha!\nIt's me!\pI'm the one POISONING everyone!", MSGBOX_NPC)
+
+    }
 	end
 }

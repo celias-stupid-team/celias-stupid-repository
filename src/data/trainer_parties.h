@@ -10133,7 +10133,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_DRAGONITE,
-        .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_REFLECT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

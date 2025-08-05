@@ -4033,10 +4033,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CRUSH_CLAW] =
     {
-        .effect = EFFECT_ALWAYS_HIT,
+        .effect = EFFECT_MULTI_HIT,
         .power = 255,
-        .type = TYPE_BROCK, //so there's no immunities
-        .accuracy = 100,
+        .type = TYPE_ROCK, //so there's no immunities
+        .accuracy = 200,
         .pp = 10,
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_BOTH,
@@ -5249,10 +5249,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
     [MOVE_DOUBLE_JUMP] =    {
-        .effect = EFFECT_SEMI_INVULNERABLE,
+        .effect = EFFECT_HIT,
         .power = 90,
-        .type = TYPE_FAIRY,
-        .accuracy = 90,
+        .type = TYPE_FAIRY_TRANS,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -7978,5 +7978,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED,
         .stringId = B_MSG_MAGNET_RISE,
+    },
+    
+    [MOVE_SHOOT] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 };
