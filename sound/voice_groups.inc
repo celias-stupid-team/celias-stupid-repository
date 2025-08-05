@@ -8734,7 +8734,7 @@ voicegroup195::
 voicegroup196::
 	voice_keysplit_all voicegroup002
 	voice_keysplit voicegroup003, KeySplitTable1
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_keysplit voicegroup003, KeySplitTable1
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_2 60, 0, 2, 0, 2, 6, 1
 	voice_square_1 60, 0, 0, 2, 0, 2, 6, 1
