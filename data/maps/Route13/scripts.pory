@@ -609,3 +609,39 @@ script CeliaSecrets_Bonus_StickerStar {
 	msgbox("I'd like to thank Paper Mario\nSticker Star for the door puzzle.\pYou're a shit-ass awful waste of\na game, but that doesn't mean\lnothing in you has value.", MSGBOX_NPC)
 }
 
+script CeliaSecrets_Bonus_FireCurtain {
+	msgbox("If you try putting the curtain on\nthis door, you won't be able to\lwalk through because it won't\lbe aligned with the tile grid.\pA silly consequence of how we\nmade the tiles!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_LassScrollRoom {
+	msgbox("This is probably the most creative\npuzzle in the gym.\pYou need to think about how every\nroom connects to each other and\lremember what you've seen.\p…Or you could stumble into the\nanswer by accident.\lEither works!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_CleaningLadyRoom {
+	msgbox("The statues in here are to make\nsure you know that you need to\lbring water from the other side.\pAfter you've done the puzzle, they\ndon't serve a purpose anymore so\lI removed them.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_ThePitRoom {
+	msgbox("I get a shocking amount of milage\nfrom the pit.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_PokemonOrLion {
+	msgbox("Obviously the pokemon would win.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_IcePuzzleCelia {
+	msgbox("Good job talking to me!\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_DoubleBattelROom {
+	msgbox("This puzzle wound up being much\nharder than I wanted.\pIt's hard to communicate what you\nneed to do if you aren't used to\lsolving escape rooms.\pBTW! This double battle behavior\nis only in Emerald!\pWe had to port it over, and it was\nfucking HARD.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_CrashedIntoWall {
+	msgbox("I came up with the whole Regi\nCrashed Into A Wall schtick like\l8 hours before the game launched.\pI had to build this whole second\nroom, add new tiles, add the Regi\loverworld sprite, etc hella fast.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_KogaNinjaTrick {
+	msgbox("If you know you know.\n", MSGBOX_NPC)
+}
+
