@@ -529,7 +529,7 @@ script CeliaSecrets_Bonus_GoldTeethHint {
 	msgbox("People struggled with the gold\nteeth quest, so I put the sign\land the NPC beside each other.\pI hoped that the proximity would\nclue people in that they're\lrelated.", MSGBOX_NPC)
 }
 
-script CeliaSecrets_Bonus_GoldTeethHint {
+script CeliaSecrets_Bonus_SafariZoneGrass {
 	msgbox("No grass in the safari zone!\nToo bad!", MSGBOX_NPC)
 }
 
