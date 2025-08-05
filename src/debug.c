@@ -3748,6 +3748,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_KOROK_SEED) \
     X(MUS_TRICK_HOUSE) \
     X(MUS_CHAPTER_8) \
+    X(MUS_DELIVERY) \
+
 
 
 #define SOUND_LIST_SE \
