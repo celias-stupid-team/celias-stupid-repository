@@ -5261,7 +5261,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_LUMINEON] =
+    [NATIONAL_DEX_SOLACEON] =
     {
         .categoryName = _("SHINY"),
         .height = 12,

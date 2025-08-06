@@ -1234,6 +1234,7 @@ gCryTable::
 	cry Cry_AlakazamTCG
 	cry Cry_REGIEYES
 	cry Cry_REGIFILSAMIE
+	cry Cry_SOLACEON
 
 
 
@@ -2478,6 +2479,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_AlakazamTCG
 	cry_reverse Cry_REGIEYES
 	cry_reverse Cry_REGIFILSAMIE
+	cry_reverse Cry_SOLACEON
 
 
 

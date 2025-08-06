@@ -90,7 +90,7 @@
 #define SPECIES_SEEL 86
 #define SPECIES_PLUG_OINK 87
 #define SPECIES_EEVEE 88
-#define SPECIES_LUMINEON 89
+#define SPECIES_SOLACEON 89
 #define SPECIES_SYLVEON 90
 #define SPECIES_LATIAS 91
 #define SPECIES_EXEGGCUTE 92
@@ -1322,7 +1322,9 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_REGIFILSAMIE 1260
 
-#define SPECIES_EGG 1261
+#define SPECIES_LUMINEON 1261
+
+#define SPECIES_EGG 1262
 
 #define NUM_SPECIES SPECIES_EGG
 
