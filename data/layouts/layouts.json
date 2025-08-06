@@ -1865,7 +1865,7 @@
       "id": "LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL",
       "name": "UndergroundPath_EastWestTunnel_Layout",
       "width": 80,
-      "height": 7,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -5520,6 +5520,18 @@
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL_LAYOUT_2",
+      "name": "UndergroundPath_EastWestTunnel_Layout_2",
+      "width": 80,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_EastWestTunnel_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_EastWestTunnel_Layout_2/map.bin"
     }
   ]
 }
