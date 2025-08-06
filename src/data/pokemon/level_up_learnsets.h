@@ -10013,3 +10013,8 @@ static const struct LevelUpMove sREGIFILSAMIELevelUpLearnset[] = {
 	LEVEL_UP_END
 };
 
+static const struct LevelUpMove sSOLACEONLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+

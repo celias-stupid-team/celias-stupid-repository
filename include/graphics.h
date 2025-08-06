@@ -12459,3 +12459,11 @@ extern const u32 gTrainerPalette_TeamSky[];
 
 extern const u32 gTrainerFrontPic_Falkner[];
 extern const u32 gTrainerPalette_Falkner[];
+// SOLACEON
+extern const u32 gMonFrontPic_SOLACEON[];
+extern const u32 gMonPalette_SOLACEON[];
+extern const u32 gMonBackPic_SOLACEON[];
+extern const u32 gMonShinyPalette_SOLACEON[];
+extern const u8 gMonFootprint_SOLACEON[];
+extern const u8 gMonIcon_SOLACEON[];
+

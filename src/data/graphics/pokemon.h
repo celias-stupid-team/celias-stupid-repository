@@ -9620,3 +9620,11 @@ const u32 gMonShinyPalette_REGIFILSAMIE[] = INCBIN_U32("graphics/pokemon/regifil
 const u8 gMonIcon_REGIFILSAMIE[] = INCBIN_U8("graphics/pokemon/regifilsamie/icon.4bpp");
 const u8 gMonFootprint_REGIFILSAMIE[] = INCBIN_U8("graphics/pokemon/regifilsamie/footprint.1bpp");
 
+// SOLACEON
+const u32 gMonFrontPic_SOLACEON[] = INCBIN_U32("graphics/pokemon/solaceon/front.4bpp.lz");
+const u32 gMonPalette_SOLACEON[] = INCBIN_U32("graphics/pokemon/solaceon/normal.gbapal.lz");
+const u32 gMonBackPic_SOLACEON[] = INCBIN_U32("graphics/pokemon/solaceon/back.4bpp.lz");
+const u32 gMonShinyPalette_SOLACEON[] = INCBIN_U32("graphics/pokemon/solaceon/shiny.gbapal.lz");
+const u8 gMonIcon_SOLACEON[] = INCBIN_U8("graphics/pokemon/solaceon/icon.4bpp");
+const u8 gMonFootprint_SOLACEON[] = INCBIN_U8("graphics/pokemon/solaceon/footprint.1bpp");
+
