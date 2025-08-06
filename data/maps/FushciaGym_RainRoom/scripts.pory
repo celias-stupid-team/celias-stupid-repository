@@ -3,7 +3,7 @@ mapscripts FushciaGym_RainRoom_MapScripts {
         if(flag(FLAG_SET_FUSHCIA_DOOR)) {
             call(FushciaGym_RainRoom_OpenDoor)
         }
-        if(flag(FLAG_CHASED_VULPIX)) {
+        if(flag(FLAG_CHASED_VULPIX) && !(flag(FLAG_GOT_POISONED_ONCE))) {
             setweather(WEATHER_RAIN)
 
         } else {
@@ -17,6 +17,8 @@ mapscripts FushciaGym_RainRoom_MapScripts {
             setflag(FLAG_TEMP_2)
             
         } else {
+            setflag(FLAG_TEMP_3)
+            
             setvar(VAR_0x8005, 0)
             setflag(FLAG_DRAW_STATUE_IN_LION_ROOM)
         }

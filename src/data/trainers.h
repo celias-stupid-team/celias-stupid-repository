@@ -3755,7 +3755,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_DMCAGrunt34),
     },
-    [TRAINER_DMCA_GRUNT_35] = {
+    [TRAINER_DMCA_GRUNT_35] = { //Viridian Gym
         .trainerClass = TRAINER_CLASS_DMCA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
@@ -6509,6 +6509,18 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_LeaderFalkner),
+    },
+
+    
+    [TRAINER_DMCA_BROCK] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("WOLFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCABrock),
     },
 
 };

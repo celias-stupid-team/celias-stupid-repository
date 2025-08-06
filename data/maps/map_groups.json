@@ -259,7 +259,8 @@
     "OneIsland_KindleRoad_EmberSpa",
     "BirthIsland_Harbor",
     "NavelRock_Harbor",
-    "FestivalPlaza"
+    "FestivalPlaza",
+    "NationalPark"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PalletTown",
@@ -643,7 +644,16 @@
     "FushciaGym_IronCurtainRoom"
   ],
   "gMapGroup_ViridianGym": [
-    "ViridianGym_Entrance"
+    "ViridianGym_Entrance",
+    "ViridianGym_DMCA_Brock",
+    "ViridianGym_Misty",
+    "ViridianGym_Surge",
+    "ViridianGym_Erika",
+    "ViridianGym_Koga",
+    "ViridianGym_Sabrina",
+    "ViridianGym_Blaine",
+    "ViridianGym_Falkner",
+    "ViridianGym_Giovanni"
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North"

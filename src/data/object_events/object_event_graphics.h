@@ -453,3 +453,4 @@ const u32 gObjectEventPic_Primeape2[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Dewgong[] = INCBIN_U32("graphics/object_events/pics/stupid/Dewgong.4bpp");
 const u32 gObjectEventPic_Deadlass[] = INCBIN_U32("graphics/object_events/pics/stupid/Deadlass.4bpp");
 const u32 gObjectEventPic_Teamsky[] = INCBIN_U32("graphics/object_events/pics/stupid/Teamsky.4bpp");
+const u32 gObjectEventPic_Vulpixdead[] = INCBIN_U32("graphics/object_events/pics/stupid/Vulpixdead.4bpp");

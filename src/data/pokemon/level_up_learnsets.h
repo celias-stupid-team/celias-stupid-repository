@@ -1569,7 +1569,6 @@ static const struct LevelUpMove sChanseyLevelUpLearnset[] = {
 static const struct LevelUpMove sTangelaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_POUND),
     LEVEL_UP_MOVE(1, MOVE_POUND),
-    LEVEL_UP_MOVE(1, MOVE_POISON_GAS),
     LEVEL_UP_MOVE(1, MOVE_RECYCLE),
     LEVEL_UP_MOVE(12, MOVE_ACID_SPRAY),
     LEVEL_UP_MOVE(14, MOVE_DOUBLE_SLAP),
@@ -3015,14 +3014,7 @@ static const struct LevelUpMove sCorsolaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sRemoraidLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE(11, MOVE_LOCK_ON),
-    LEVEL_UP_MOVE(22, MOVE_PSY_WIND),
-    LEVEL_UP_MOVE(22, MOVE_AURORA_BEAM),
-    LEVEL_UP_MOVE(22, MOVE_BUBBLE_BEAM),
-    LEVEL_UP_MOVE(33, MOVE_FOCUS_ENERGY),
-    LEVEL_UP_MOVE(44, MOVE_ICEBEAM),
-    LEVEL_UP_MOVE(55, MOVE_HYPER_BEAM),
+    LEVEL_UP_MOVE(1, MOVE_SHOOT),
     LEVEL_UP_END
 };
 
