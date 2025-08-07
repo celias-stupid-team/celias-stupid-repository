@@ -1821,11 +1821,27 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     {
         u32 shinyValue;
-        do
+
+        if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
         {
+            u8 nature = Random() % NUM_NATURES;
+
             value = Random32();
-            shinyValue = GET_SHINY_VALUE(value, personality);
-        } while (shinyValue < SHINY_ODDS);
+
+            do
+            {
+                personality = Random32();
+                personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+            } while (nature != GetNatureFromPersonality(personality));
+        }
+        else // force no-shininess
+        {
+            do
+            {
+                value = Random32();
+                shinyValue = GET_SHINY_VALUE(value, personality);
+            } while (shinyValue < SHINY_ODDS);
+        }
     }
     else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
     {
@@ -1838,13 +1854,23 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
-        if (FlagGet(FLAG_SHINY_CREATION))
+        if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
         {
             u8 nature = personality % NUM_NATURES;  // keep current nature
             do {
                 personality = Random32();
                 personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
             } while (nature != GetNatureFromPersonality(personality));
+        }
+        else // force no-shininess
+        {
+            u8 shinyValue;
+            u8 nature = personality % NUM_NATURES;  // keep current nature
+            do
+            {
+                personality = Random32();
+                shinyValue = GET_SHINY_VALUE(value, personality);
+            } while (shinyValue < SHINY_ODDS && nature != GetNatureFromPersonality(personality));
         }
     }
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
