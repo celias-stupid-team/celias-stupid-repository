@@ -56,5 +56,6 @@ bool8 FldEff_SweetScent(void);
 // retreat
 bool8 SetUpFieldMove_Retreat(void);
 bool8 FldEff_UseRetreat(void);
+void FieldCallback_Retreat(void);
 
 #endif // GUARD_FLDEFF_H

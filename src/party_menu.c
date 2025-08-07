@@ -4015,6 +4015,8 @@ static void CursorCB_FieldMove(u8 taskId)
             case FIELD_MOVE_RETREAT:
                 if(gSaveBlock1Ptr->lastBenchLocation.mapGroup > 0)
                 {
+                    gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
+                    gPostMenuFieldCallback = FieldCallback_Retreat;
                     mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastBenchLocation.mapGroup, gSaveBlock1Ptr->lastBenchLocation.mapNum);
                     GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId);
                     StringExpandPlaceholders(gStringVar4, gText_ReturnToBench);
