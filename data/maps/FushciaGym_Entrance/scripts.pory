@@ -2,7 +2,7 @@
 const ATTENDANT = 1
 mapscripts FushciaGym_Entrance_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_IN_FUSHCIA_GYM) || flag(FLAG_REVEALED_DAD)) {
+        if(flag(FLAG_IN_FUSHCIA_GYM) || flag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)) {
             setflag(FLAG_TEMP_1)
             setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
             if(!flag(FLAG_REVEALED_DAD)) {
@@ -21,7 +21,7 @@ mapscripts FushciaGym_Entrance_MapScripts {
             setflag(FLAG_TEMP_7)
 
         }
-        if(flag(FLAG_REVEALED_DAD)) {
+        if(flag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)) {
             setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
         }
     }

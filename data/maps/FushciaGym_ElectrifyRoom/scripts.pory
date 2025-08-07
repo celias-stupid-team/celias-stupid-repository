@@ -42,7 +42,7 @@ script FushciaGym_ElectrifyRoom_Lance {
             msgbox("{PLAYER} obtained the\nGYARADOS!", MSGBOX_DEFAULT)
             setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GYARADOS)
             setflag(FLAG_SHINY_CREATION)
-            call(Common_Script_Gift_Pokemon)
+            call(Common_Script_GiftPokemon)
         } else {
             textcolor(NPC_TEXT_COLOR_MALE)
             msgbox("LANCE: Ah…\nAhem.", MSGBOX_DEFAULT)

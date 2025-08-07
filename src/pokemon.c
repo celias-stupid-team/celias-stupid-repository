@@ -3801,7 +3801,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
             break;
     }
     
-    if (i >= PARTY_SIZE || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM)))
+    if (i >= PARTY_SIZE || FlagGet(FLAG_IN_FUSHCIA_GYM))
         return SendMonToPC(mon);
 
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));

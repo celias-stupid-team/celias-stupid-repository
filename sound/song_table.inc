@@ -385,7 +385,7 @@ gSongTable::
 	song mus_iki_town_test, 0, 0
 	song mus_thundering_dynamo, 0, 0
 	song mus_secret_house, 0, 0
-	song mus_korok_seed, 0, 0
+	song mus_korok_seed, 2, 2
 	song mus_trick_house, 0, 0
 	song mus_chapter_8, 0, 0
 	song mus_delivery, 0, 0
