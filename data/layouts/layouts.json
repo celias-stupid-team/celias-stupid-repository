@@ -5556,6 +5556,18 @@
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
+    },
+    {
+      "id": "LAYOUT_THIRTY_EIGHT_ISLAND",
+      "name": "Thirty_Eight_Island_Layout",
+      "width": 100,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Thirty_Eight_Island",
+      "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
+      "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
     }
   ]
 }

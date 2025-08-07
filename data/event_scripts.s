@@ -1628,3 +1628,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianGym_Misty/scripts.inc"
 	.include "data/maps/ViridianGym_Misty/text.inc"
+
+	.include "data/maps/Thirty_Eight_Island/scripts.inc"
+	.include "data/maps/Thirty_Eight_Island/text.inc"
