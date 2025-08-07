@@ -18,6 +18,11 @@
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
       "offset": 18,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 21,
+      "direction": "down"
     }
   ],
   "object_events": [

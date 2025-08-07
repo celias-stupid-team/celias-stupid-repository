@@ -1787,6 +1787,24 @@ const u16 gTilesetPalettes_Chapter8[][16] =
 
 const u32 gTilesetTiles_Chapter8[] = INCBIN_U32("data/tilesets/primary/chapter_8/tiles.4bpp.lz");
 
+const u16 gTilesetPalettes_J_National_Park[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/j_national_park/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_J_National_Park[] = INCBIN_U32("data/tilesets/secondary/j_national_park/tiles.4bpp.lz");
 const u16 gTilesetPalettes_PorytilesBuilding[][16] =
 {
     INCBIN_U16("data/tilesets/primary/porytiles_building/palettes/00.gbapal"),

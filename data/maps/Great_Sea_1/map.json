@@ -1,9 +1,9 @@
 {
-  "id": "MAP_GREAT_BAY_NORTH",
-  "name": "GreatBay_North",
-  "layout": "LAYOUT_GREAT_BAY_NORTH",
-  "music": "MUS_ROUTE11",
-  "region_map_section": "MAPSEC_GREAT_BAY",
+  "id": "MAP_GREAT_SEA_1",
+  "name": "Great_Sea_1",
+  "layout": "LAYOUT_GREAT_SEA_1",
+  "music": "MUS_ROUTE3",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -15,19 +15,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FIVE_ISLAND",
+      "map": "MAP_ROUTE18",
       "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
-      "offset": 0,
+      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
+      "offset": 35,
       "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE17",
-      "offset": -22,
-      "direction": "left"
     }
   ],
   "object_events": [],

@@ -966,6 +966,17 @@ const struct Tileset gTileset_Chapter8 =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_J_National_Park =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_J_National_Park,
+    .palettes = gTilesetPalettes_J_National_Park,
+    .metatiles = gMetatiles_J_National_Park,
+    .metatileAttributes = gMetatileAttributes_J_National_Park,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_PorytilesBuilding =
 {
     .isCompressed = TRUE,

@@ -18,13 +18,18 @@
       "map": "MAP_TWO_ISLAND",
       "offset": -18,
       "direction": "down"
+    },
+    {
+      "map": "MAP_GREAT_SEA_1",
+      "offset": -35,
+      "direction": "up"
     }
   ],
   "object_events": [],
   "warp_events": [
     {
       "x": 12,
-      "y": 16,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_CAPE_BRINK_HOUSE",
       "dest_warp_id": "0"
@@ -45,7 +50,7 @@
     {
       "type": "hidden_item",
       "x": 15,
-      "y": 13,
+      "y": 7,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_TWO_ISLAND_CAPE_BRINK_RARE_CANDY",

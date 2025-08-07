@@ -261,6 +261,8 @@ const u32 gMetatileAttributes_GlitchCity[] = INCBIN_U32("data/tilesets/secondary
 const u16 gMetatiles_Chapter8[] = INCBIN_U16("data/tilesets/primary/chapter_8/metatiles.bin");
 const u32 gMetatileAttributes_Chapter8[] = INCBIN_U32("data/tilesets/primary/chapter_8/metatile_attributes.bin");
 
+const u16 gMetatiles_J_National_Park[] = INCBIN_U16("data/tilesets/secondary/j_national_park/metatiles.bin");
+const u32 gMetatileAttributes_J_National_Park[] = INCBIN_U32("data/tilesets/secondary/j_national_park/metatile_attributes.bin");
 const u16 gMetatiles_PorytilesBuilding[] = INCBIN_U16("data/tilesets/primary/porytiles_building/metatiles.bin");
 const u32 gMetatileAttributes_PorytilesBuilding[] = INCBIN_U32("data/tilesets/primary/porytiles_building/metatile_attributes.bin");
 
