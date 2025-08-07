@@ -624,6 +624,8 @@ static void Task_ExitPartyMenu(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        if (gUsingRegisteredPartyMenuItem)
+            gUsingRegisteredPartyMenuItem = FALSE;
         SetMainCallback2(gPartyMenu.exitCallback);
         FreePartyPointers();
         DestroyTask(taskId);
@@ -1107,6 +1109,8 @@ static void Task_ClosePartyMenuAndSetCB2(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
+        if (gUsingRegisteredPartyMenuItem)
+            gUsingRegisteredPartyMenuItem = FALSE;
         if (gPartyMenu.menuType == PARTY_MENU_TYPE_IN_BATTLE)
             UpdatePartyToFieldOrder();
         if (sPartyMenuInternal->exitCallback != NULL)
@@ -4297,7 +4301,6 @@ void CB2_ShowPartyMenuForItemUse(void)
     if (gUsingRegisteredPartyMenuItem)
     {
         callback = CB2_ReturnToField;
-        gUsingRegisteredPartyMenuItem = FALSE;
     }
 
     if (gMain.inBattle)
@@ -5019,7 +5022,9 @@ static void CB2_ReturnToPartyMenuWhileLearningMove(void)
         gItemUseCB = ItemUseCB_ReplaceMoveWithTMHM;
         gPartyMenu.action = PARTY_ACTION_CHOOSE_MON;
     }
-    else if (gSpecialVar_ItemId == ITEM_RARE_CANDY && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+    else if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER)
+            && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
+            && CheckBagHasItem(gSpecialVar_ItemId, 1))
         InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
     else
         InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
@@ -5141,6 +5146,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     u16 item = gSpecialVar_ItemId;
     bool8 noEffect;
+    u16 targetSpecies = SPECIES_NONE;
 
     if (GetMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL && GetMonData(mon, MON_DATA_LEVEL) < GetCurrentLevelCap(GetMonData(mon, MON_DATA_SPECIES, NULL)))
         noEffect = PokemonItemUseNoEffect(mon, item, gPartyMenu.slotId, 0);
@@ -5149,10 +5155,30 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     //PlaySE(SE_SELECT);
     if (noEffect)
     {
-        gPartyMenuUseExitCallback = FALSE;
-        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
-        ScheduleBgCopyTilemapToVram(2);
-        gTasks[taskId].func = func;
+        targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+        if (targetSpecies != SPECIES_NONE)
+        {
+            if(gSpecialVar_ItemId != ITEM_CANDY_DISPENSER)
+                RemoveBagItem(gSpecialVar_ItemId, 1);
+ 
+            FreePartyPointers();
+            if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER) 
+                && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
+                && CheckBagHasItem(gSpecialVar_ItemId, 1))
+                gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
+            else
+                gCB2_AfterEvolution = gPartyMenu.exitCallback;
+                
+            BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
+            DestroyTask(taskId);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = func;
+        }
     }
     else
         ItemUseCB_RareCandyStep(taskId, func);
@@ -5300,7 +5326,9 @@ static void PartyMenuTryEvolution(u8 taskId)
     if (targetSpecies != SPECIES_NONE)
     {
         FreePartyPointers();
-        if (gSpecialVar_ItemId == ITEM_RARE_CANDY && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_DISPENSER) 
+            && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD 
+            && CheckBagHasItem(gSpecialVar_ItemId, 1))
             gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
         else
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
