@@ -652,9 +652,9 @@ PokedexRating_Text_HintDragonite::
 PokedexRating_Text_HintYoshi::
 	.string "The DMCA said they'd kept an ITEM\n"
 	.string "that induced an illegal evolution.\p"
-	.string "Did you find something in CELADON\n"
-	.string "that might fit the bill?\l"
-	.string "I bet it'll chase them out!$"
+	.string "I'd bet that SUPER SCOPE of\n"
+	.string "yours would fit the bill.\l"
+	.string "Maybe it'll chase them out!$"
 
 PokedexRating_Text_HintZygarde::
 	.string "Placeholder!$"
@@ -767,7 +767,7 @@ PokedexRating_Text_HintSeaking::
 
 PokedexRating_Text_HintGun::
 	.string "People often lose things in the\n"
-	.string "darkness of the UNDERGROUND PATH.$"
+	.string "shortness of the UNDERGROUND PATH.$"
 
 PokedexRating_Text_HintArcanine::
 	.string "Placeholder!$"
