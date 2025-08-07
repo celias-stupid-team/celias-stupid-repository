@@ -6735,6 +6735,7 @@ u32 GetCurrentLevelCap(u16 species)
     return MAX_LEVEL;
 }
 
+
 void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 {
     struct PokemonSubstruct0 *old0, *new0;
