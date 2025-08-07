@@ -169,7 +169,7 @@ void StartWeather(void)
     {
         u8 index = AllocSpritePalette(0x1200);
         if(gSaveBlock1Ptr->weather == WEATHER_TRICK_ROOM) {
-            DebugPrintf("Trick Weater");
+            //DebugPrintf("Trick Weater");
             CpuCopy32(gTrickRoomWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
 
         } else {
