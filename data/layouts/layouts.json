@@ -5436,6 +5436,8 @@
       "secondary_tileset": "gTileset_J_National_Park",
       "border_filepath": "data/layouts/Johto_National_Park/border.bin",
       "blockdata_filepath": "data/layouts/Johto_National_Park/map.bin"
+    },
+    {
       "id": "LAYOUT_VIRIDIAN_GYM_DMCA_BROCK",
       "name": "ViridianGym_DMCA_Brock_Layout",
       "width": 20,
