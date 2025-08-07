@@ -253,6 +253,11 @@ static const u8 sContextMenuItems_Open[] = {
     ITEMMENUACTION_CANCEL
 };
 
+static const u8 sContextMenuItems_PayDay[] = {
+    ITEMMENUACTION_USE,
+    ITEMMENUACTION_CANCEL
+};
+
 static const u8 sContextMenuItems_BattleUse[] = {
     ITEMMENUACTION_BATTLE_USE,
     ITEMMENUACTION_CANCEL
@@ -1376,8 +1381,7 @@ static void OpenContextMenu(u8 taskId)
             {
                 sContextMenuItemsPtr = sContextMenuItems_Open;
                 sContextMenuNumItems = 2;
-            }
-            else
+            }  else
             {
                 if (gBagMenuState.pocket == POCKET_KEY_ITEMS - 1)
                     sContextMenuNumItems = 1;
@@ -1391,11 +1395,18 @@ static void OpenContextMenu(u8 taskId)
             switch (gBagMenuState.pocket)
             {
             case OPEN_BAG_ITEMS:
-                sContextMenuNumItems = 4;
-                if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
-                    sContextMenuItemsPtr = sContextMenuItems_CheckGiveTossCancel;
-                else
-                    sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
+                if (gSpecialVar_ItemId == ITEM_TM16)
+                {
+                    sContextMenuItemsPtr = sContextMenuItems_PayDay;
+                    sContextMenuNumItems = 2;
+                } else {
+                    sContextMenuNumItems = 4;
+                    if (ItemIsMail(gSpecialVar_ItemId) == TRUE)
+                        sContextMenuItemsPtr = sContextMenuItems_CheckGiveTossCancel;
+                    else
+                        sContextMenuItemsPtr = sContextMenuItems_Field[gBagMenuState.pocket];
+
+                }
                 break;
             case OPEN_BAG_KEYITEMS:
                 sContextMenuItemsPtr = sContextMenuItemsBuffer;

@@ -1261,6 +1261,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_ALAKAZAMTCG] = sAlakazamTCGLevelUpLearnset,
 	[SPECIES_REGIEYES] = sREGIEYESLevelUpLearnset,
 	[SPECIES_REGIFILSAMIE] = sREGIFILSAMIELevelUpLearnset,
+	[SPECIES_SOLACEON] = sSOLACEONLevelUpLearnset,
 
 
 };

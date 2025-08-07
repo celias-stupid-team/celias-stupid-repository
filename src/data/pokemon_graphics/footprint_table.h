@@ -1265,4 +1265,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_ALAKAZAMTCG]    = gMonFootprint_AlakazamTCG,
 	[SPECIES_REGIEYES]    = gMonFootprint_REGIEYES,
 	[SPECIES_REGIFILSAMIE]    = gMonFootprint_REGIFILSAMIE,
+	[SPECIES_SOLACEON]    = gMonFootprint_SOLACEON,
 };

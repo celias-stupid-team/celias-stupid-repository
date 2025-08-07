@@ -805,8 +805,7 @@ static const struct LevelUpMove sArcanineLevelUpLearnset[] = {
 
 static const struct LevelUpMove sPoliwagLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DIZZY_PUNCH),
-    LEVEL_UP_MOVE(1, MOVE_MEGA_PUNCH),
-    LEVEL_UP_MOVE(6, MOVE_MACH_PUNCH),
+    LEVEL_UP_MOVE(6, MOVE_MEGA_PUNCH),
     LEVEL_UP_MOVE(10, MOVE_DYNAMIC_PUNCH),
     LEVEL_UP_MOVE(13, MOVE_FOCUS_PUNCH),
     LEVEL_UP_MOVE(16, MOVE_PSYCHIC_PUNCH),
@@ -893,7 +892,7 @@ static const struct LevelUpMove sMachopLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMachokeLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_MACH_PUNCH),
+    LEVEL_UP_MOVE(1, MOVE_SUBMISSION),
     LEVEL_UP_MOVE(1, MOVE_FOCUS_PUNCH),
     LEVEL_UP_MOVE(1, MOVE_FOCUS_ENERGY),
     LEVEL_UP_END
@@ -10010,6 +10009,11 @@ static const struct LevelUpMove sREGIEYESLevelUpLearnset[] = {
 
 static const struct LevelUpMove sREGIFILSAMIELevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_BODY_SLAM),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sSOLACEONLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };
 

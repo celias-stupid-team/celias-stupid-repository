@@ -954,7 +954,7 @@
 #define FLAG_0x36D               0x36D
 #define FLAG_0x36E               0x36E
 #define FLAG_0x36F               0x36F
-#define FLAG_0x370               0x370
+#define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
 #define FLAG_CSR_SPEEDRUN_CAVE               0x372
 #define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373

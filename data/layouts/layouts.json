@@ -820,8 +820,8 @@
     {
       "id": "LAYOUT_CINNABAR_ISLAND",
       "name": "CinnabarIsland_Layout",
-      "width": 24,
-      "height": 20,
+      "width": 37,
+      "height": 25,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1865,7 +1865,7 @@
       "id": "LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL",
       "name": "UndergroundPath_EastWestTunnel_Layout",
       "width": 80,
-      "height": 7,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -5556,6 +5556,30 @@
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL_LAYOUT_2",
+      "name": "UndergroundPath_EastWestTunnel_Layout_2",
+      "width": 80,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_UndergroundPath",
+      "border_filepath": "data/layouts/UndergroundPath_EastWestTunnel_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath_EastWestTunnel_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_LAYOUT_VOLCANO",
+      "name": "CinnabarIsland_Layout_Volcano",
+      "width": 37,
+      "height": 25,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/CinnabarIsland_Layout_Volcano/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_Layout_Volcano/map.bin"
     }
   ]
 }

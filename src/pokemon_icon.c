@@ -1264,6 +1264,7 @@ const u8 *const gMonIconTable[] = {
 	[SPECIES_DRAGONAIR_POKERAP]   = gMonIcon_Dragonair_POKERAP,
 	[SPECIES_DRAGONITE_POKERAP]   = gMonIcon_Dragonite_POKERAP,
 	[SPECIES_MEWTWO_POKERAP]   = gMonIcon_Mewtwo_POKERAP,
+	[SPECIES_SOLACEON]   = gMonIcon_SOLACEON,
 
 
 
@@ -1775,7 +1776,8 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_PIKABLU]   = 2,
     [SPECIES_TOEDSCOOL]   = 2,
     [SPECIES_MELMETAL]   = 2,
-    [SPECIES_TENTAQUIL] = 0
+    [SPECIES_TENTAQUIL] = 0,
+    [SPECIES_SOLACEON] = 0
 
 };
 

@@ -1702,11 +1702,11 @@ bool8 SocialSecurityCheck(void) {
 static void SocialSecurity_CB(void) {
     ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEADING_ZEROS, 5);
     if(!StringCompare(gText_Leekd, gStringVar1)) {
-        DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, 2);
 
     } else {
-        DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, !StringCompare(gStringVar2, gStringVar1));
 
     }

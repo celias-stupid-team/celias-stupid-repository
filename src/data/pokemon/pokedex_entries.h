@@ -1833,18 +1833,6 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
-    [NATIONAL_DEX_KABUTOPS] =
-    {
-        .categoryName = _("SHELLFISH"),
-        .height = 13,
-        .weight = 405,
-        .description = gKabutopsPokedexText,
-        .unusedDescription = gKabutopsPokedexTextUnused,
-        .pokemonScale = 271,
-        .pokemonOffset = 1,
-        .trainerScale = 256,
-        .trainerOffset = -2,
-    },
 
     [NATIONAL_DEX_AERODACTYL] =
     {
@@ -5261,7 +5249,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_LUMINEON] =
+    [NATIONAL_DEX_SOLACEON] =
     {
         .categoryName = _("SHINY"),
         .height = 12,
@@ -5394,18 +5382,6 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 317,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_GENESECT] =
-    {
-        .categoryName = _("MODERN"),
-        .height = 15,
-        .weight = 82.5,
-        .description = gGenesectPokedexText,
-        .unusedDescription = gDummyPokedexTextUnused,
-        .pokemonScale = 271,  
-        .pokemonOffset = 0,
-        .trainerScale = 317,
-        .trainerOffset = 1,
-    },
     [NATIONAL_DEX_PHIONE] =
     {
         .categoryName = _("INBRED"),
@@ -5484,6 +5460,30 @@ const struct PokedexEntry gPokedexEntries[] =
         .height = 50,
         .weight = 620,
         .description = gOrthwormPokedexText,
+        .unusedDescription = gDummyPokedexTextUnused,
+        .pokemonScale = 100,
+        .pokemonOffset = 0,
+        .trainerScale = 359,
+        .trainerOffset = 1,
+    },
+    [NATIONAL_DEX_MIMIKYU] =
+    {
+        .categoryName = _("TITAN"),
+        .height = 50,
+        .weight = 620,
+        .description = gMimikyuPokedexText,
+        .unusedDescription = gDummyPokedexTextUnused,
+        .pokemonScale = 100,
+        .pokemonOffset = 0,
+        .trainerScale = 359,
+        .trainerOffset = 1,
+    },
+    [NATIONAL_DEX_HOOPA] =
+    {
+        .categoryName = _("TITAN"),
+        .height = 50,
+        .weight = 620,
+        .description = gHoopaPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 100,
         .pokemonOffset = 0,

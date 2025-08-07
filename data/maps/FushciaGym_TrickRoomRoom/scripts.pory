@@ -207,7 +207,10 @@ script FushciaGym_TrickRoomRoom_Trainer {
         setflag(FLAG_CAN_DRILL_TRICK_WALL)
     } else {
 	    msgbox("LUCY: Hmph.\nRunning out of steam yet?\pI am LUCY of the BATTLE PIKE.\nWelcome to the TRICK ROOM!\lThink you can get past?", MSGBOX_DEFAULT)
-        call(FushciaGym_TrickRoomRoom_DrawSmallHole)
+        if(!flag(FLAG_DRILLED_TRICK_WALL)) {
+            call(FushciaGym_TrickRoomRoom_DrawSmallHole)
+
+        }
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_LUCY, "Urk…\n")
         setflag(FLAG_CAN_DRILL_TRICK_WALL)
         call(FushciaGym_TrickRoomRoom_DrawTireTreadsAndDeadSlowpoke)

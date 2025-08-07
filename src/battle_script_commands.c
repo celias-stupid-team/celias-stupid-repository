@@ -3046,7 +3046,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
                 {
                     u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
-                    DebugPrintf("you have basci berry");
+                    //DebugPrintf("you have basci berry");
                     gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
 
