@@ -922,6 +922,7 @@ bool8 ScrCmd_getpartysize(struct ScriptContext * ctx)
 
 bool8 ScrCmd_playse(struct ScriptContext * ctx)
 {
+    
     PlaySE(ScriptReadHalfword(ctx));
     return FALSE;
 }

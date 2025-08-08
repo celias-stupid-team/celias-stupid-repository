@@ -1628,3 +1628,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianGym_Misty/scripts.inc"
 	.include "data/maps/ViridianGym_Misty/text.inc"
+
+	.include "data/maps/IndigoPlateauUsed/scripts.inc"
+	.include "data/maps/IndigoPlateauUsed/text.inc"

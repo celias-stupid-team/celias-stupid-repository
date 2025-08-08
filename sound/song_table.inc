@@ -391,6 +391,7 @@ gSongTable::
 	song mus_delivery, 0, 0
 	song mus_megalovania, 0, 0
 	song mus_four_island, 0, 0
+	song mus_stupid_credits, 0, 0
 
 
 
