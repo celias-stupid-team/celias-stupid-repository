@@ -5604,6 +5604,78 @@
       "secondary_tileset": "gTileset_ViridianCity",
       "border_filepath": "data/layouts/IndigoPlateau_Exterior_Layout_Johto/border.bin",
       "blockdata_filepath": "data/layouts/IndigoPlateau_Exterior_Layout_Johto/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_Frame1",
+      "name": "Credits_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits/border.bin",
+      "blockdata_filepath": "data/layouts/Credits/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME6",
+      "name": "Credits_Frame6",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame6/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame6/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME5",
+      "name": "Credits_Frame5",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame5/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame5/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME4",
+      "name": "Credits_Frame4",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame4/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame4/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME3",
+      "name": "Credits_Frame3",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame3/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame3/map.bin"
+    },
+    {
+      "id": "LAYOUT_CREDITS_FRAME2",
+      "name": "Credits_Frame2",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Credits",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Credits_Frame2/border.bin",
+      "blockdata_filepath": "data/layouts/Credits_Frame2/map.bin"
     }
   ]
 }
