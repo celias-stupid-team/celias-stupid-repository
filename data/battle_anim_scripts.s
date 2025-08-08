@@ -700,6 +700,7 @@ gBattleAnims_General::
 	.4byte General_HangedOn                 @ B_ANIM_HANGED_ON
 	.4byte General_TeraCharge               @ B_ANIM_TERA_CHARGE
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
+	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
 
 	.align 2
 gBattleAnims_Special::
@@ -11314,6 +11315,22 @@ General_TeraActivate::
 	clearmonbg ANIM_ATK_PARTNER
 	blendoff
 	end
+
+General_TrickRoom::
+	@ call InitRoomAnimation
+@ gBattleAnimGeneral_TrickRoom::
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
+	end
+InitRoomAnimation:
+	setalpha 8, 8
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
+	return
 
 Move_DARK_VOID::
 	loadspritegfx ANIM_TAG_WHITE_SHADOW @Destiny Bond

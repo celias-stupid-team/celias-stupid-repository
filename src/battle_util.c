@@ -1799,6 +1799,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                     */
+                case WEATHER_TRICK_ROOM:
+                    gBattleScripting.animArg1 = B_ANIM_TRICK_ROOM_CONTINUES;
+                    gBattleScripting.battler = battler;
+                    effect++;
+                    break;
                 }
                 if (effect != 0)
                 {
