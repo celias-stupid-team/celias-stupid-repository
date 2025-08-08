@@ -345,7 +345,7 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	callnative(EnableSEDuringCredits)
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(LOCALID_CAMERA)
-	delay(80)
+	delay(70)
 	addobject(LOCALID_CREDITS_GOLD)
 	applymovement(LOCALID_CREDITS_GOLD, moves(
 		walk_fast_right * 4
