@@ -2613,6 +2613,22 @@ u16 ScriptGetPartyMonSpecies(void)
 }
 
 
+void ScriptPartyContainsSpecies(void)
+{
+    s16 PartyContainsMon = 0;
+    s16 i;
+
+    for(i = 0; i < PARTY_SIZE; i++) {
+        if(gSpecialVar_0x8004 == GetMonData(i, MON_DATA_SPECIES_OR_EGG, NULL)) {
+            PartyContainsMon++;
+        }
+    }
+    if(PartyContainsMon > 0) {
+        gSpecialVar_Result = TRUE;
+    }
+    
+}
+
 void GetUnownCount(void) {
     gSpecialVar_Result = GetGameStat(GAME_STAT_UNOWNS_CAUGHT);
 }

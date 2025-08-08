@@ -920,7 +920,7 @@
 #define FLAG_GOT_SHINY_SLOWPOKE               0x34B
 #define FLAG_GOT_HOUSE_VOUCHER               0x34C
 #define FLAG_TEAM_SKY_FALLS_DOWN               0x34D
-#define FLAG_0x34E               0x34E
+#define FLAG_GOT_BRENDAN_HAT               0x34E
 #define FLAG_0x34F               0x34F
 #define FLAG_0x350               0x350
 #define FLAG_0x351               0x351

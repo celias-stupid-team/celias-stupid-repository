@@ -12467,3 +12467,6 @@ extern const u32 gMonShinyPalette_SOLACEON[];
 extern const u8 gMonFootprint_SOLACEON[];
 extern const u8 gMonIcon_SOLACEON[];
 
+
+extern const u32 gItemIcon_Hat[];
+extern const u32 gItemIconPalette_Hat[];

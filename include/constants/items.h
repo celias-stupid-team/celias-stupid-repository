@@ -506,7 +506,8 @@
 #define ITEM_HISTORY_BOOK 422
 #define ITEM_HOUSEVOUCHER 423
 #define ITEM_SPARE_DOOR 424
-#define ITEMS_COUNT 425
+#define ITEM_HAT 425
+#define ITEMS_COUNT 426
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
