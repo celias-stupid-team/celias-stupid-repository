@@ -251,11 +251,11 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 		delay_8
 		face_down
 	))
-	delay(180)
+	delay(210)
 	applymovement(LOCALID_PLAYER, moves(
 		face_up
 	))
-	delay(85)
+	delay(95)
 	removeobject(LOCALID_CREDITS_RIVAL)
 	removeobject(LOCALID_CREDITS_RIVAL2)
 	removeobject(LOCALID_CREDITS_RIVAL3)
@@ -271,27 +271,28 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slower_down * 5
 	))
-	delay(60)
+	delay(100)
 	fadescreen(FADE_TO_BLACK)
 	waitmovement(LOCALID_CAMERA)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_fastest_down * 13
+		walk_fastest_down * 17
 	))
 	waitmovement(LOCALID_CAMERA)
 
 	//Scene 2
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 9
+		walk_slow_down * 7
 	))
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 5
+		walk_slow_down * 2
 	))
+	delay(20)
 	fadescreen(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_fastest_down * 13
+		walk_fastest_down * 10
 	))
 	//setlayouttiles(LAYOUT_INDIGO_PLATEAU_EXTERIOR_LAYOUT_JOHTO, 0, 0, 0, 0, 96, 74)
 	waitmovement(0)
@@ -299,13 +300,13 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 
 	//Scene 3
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 8
+		walk_slow_down * 4
 		walk_slow_left * 3
 	))
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_left * 4
+		walk_slow_left * 10
 	))
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
@@ -314,45 +315,50 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	fadescreen(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_fastest_left * 13
+		walk_fastest_left * 10
 	))
 	waitmovement(0)
 
 	// Scene 4
 	
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_left * 9
+		walk_slow_left * 10
 	))
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_left * 5
+		walk_slow_left 
 	))
 	fadescreen(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_fastest_left * 13
+		walk_fastest_left * 16
 	))
 
 	waitmovement(0)
+
+
+	// Scene 5
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_left * 12
+		walk_slow_left * 16
 	))
 	callnative(EnableSEDuringCredits)
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(LOCALID_CAMERA)
-	delay(70)
+	delay(80)
 	addobject(LOCALID_CREDITS_GOLD)
 	applymovement(LOCALID_CREDITS_GOLD, moves(
-		walk_fast_right * 8
-		walk_fast_down * 2
+		walk_fast_right * 4
+		walk_fast_down
+		walk_fast_right * 4
+		walk_fast_down
 	))
 	waitmovement(LOCALID_CREDITS_GOLD)
 	playse(SE_LEDGE)
 	applymovement(LOCALID_CREDITS_GOLD, moves(
 		jump_2_down
 	))
-	delay(31)
+	delay(30)
 	fadescreeninstant(FADE_TO_BLACK)
 	delay(60)
 	playbgm(MUS_TITLE, TRUE)
