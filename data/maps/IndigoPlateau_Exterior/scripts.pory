@@ -281,12 +281,12 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 
 	//Scene 2
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 7
+		walk_slow_down * 6
 	))
 	fadescreen(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 2
+		walk_slow_down * 3
 	))
 	delay(20)
 	fadescreen(FADE_TO_BLACK)
@@ -360,11 +360,9 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	))
 	delay(30)
 	fadescreeninstant(FADE_TO_BLACK)
-	delay(60)
-	playbgm(MUS_TITLE, TRUE)
+	delay(45)
+	setflag(FLAG_SYS_IS_CREDITS)
+	warpsilent(MAP_CREDITS, 0)
+	release
 	
-	setvar(VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0)
-	waitstate
-	releaseall
-	end
 }

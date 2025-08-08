@@ -25,6 +25,8 @@
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
 #include "constants/field_weather.h"
+#include "constants/flags.h"
+#include "event_data.h"
 
 static void ExitWarpFadeInScreen(u8 playerNotMoving);
 static void Task_ExitDoor(u8 taskId);
@@ -545,7 +547,10 @@ void DoDiveWarp(void)
 {
     LockPlayerFieldControls();
     TryFadeOutOldMapMusic();
-    WarpFadeOutScreen();
+    if(!FlagGet(FLAG_SYS_IS_CREDITS)) {
+        WarpFadeOutScreen();
+
+    }
     PlayRainStoppingSoundEffect();
     gFieldCallback = FieldCB_DefaultWarpExit;
     CreateTask(Task_Teleport2Warp, 10);
