@@ -2250,6 +2250,12 @@ static void BattleStartClearSetData(void)
         gBattleResults.caughtMonNick[i] = 0;
     }
 
+    //save player items for potentially restoring them after battle
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        gBattleStruct->itemLost[i] = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+    }
+
     gSelectedMonPartyId = PARTY_SIZE; // Revival Blessing
 }
 
@@ -3904,6 +3910,7 @@ static void HandleEndTurn_FinishBattle(void)
         if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
             FadeOutMapMusic(5);
         }
+        TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;
     }

@@ -3549,3 +3549,21 @@ bool32 IsBattlerAlive(u32 battler)
     else
         return TRUE;
 }
+
+void TryRestoreHeldItems(void)
+{
+    u32 i;
+    
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 lostItem = gBattleStruct->itemLost[i];
+
+        // Check if the lost item is a berry and the mon is not holding it
+        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) != lostItem)
+            lostItem = ITEM_NONE; // berries can't restore
+
+        // Check if the lost item should be restored
+        if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
+    }
+}

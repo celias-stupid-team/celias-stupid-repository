@@ -2278,7 +2278,10 @@ static void Cmd_resultmessage(void)
             gPotentialItemEffectBattler = gBattlerTarget;
             gMoveResultFlags &= ~(MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
             BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+            if (gLastUsedItem == ITEM_FOCUS_BAND)
+                gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+            else if (gLastUsedItem == ITEM_FOCUS_SASH)
+                gBattlescriptCurrInstr = BattleScript_FocusSashActivates;
             return;
         default:
             if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
@@ -2315,7 +2318,10 @@ static void Cmd_resultmessage(void)
                 gPotentialItemEffectBattler = gBattlerTarget;
                 gMoveResultFlags &= ~(MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+                if (gLastUsedItem == ITEM_FOCUS_BAND)
+                    gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+                else if (gLastUsedItem == ITEM_FOCUS_SASH)
+                    gBattlescriptCurrInstr = BattleScript_FocusSashActivates;
                 return;
             }
             else if (gMoveResultFlags & MOVE_RESULT_FAILED)
