@@ -10,7 +10,7 @@ IndigoPlateau_Exterior_OnTransition::
 	end
 
 IndigoPlateau_Exterior_EventScript_PlayCreditsMusic::
-	playbgm MUS_CREDITS, 0
+	playbgm MUS_STUPID_CREDITS, 0
 	return
 
 IndigoPlateau_Exterior_OnFrame::
@@ -22,66 +22,6 @@ IndigoPlateau_Exterior_OnFrame::
 @ entrance of Indigo Plateau. This script starts running
 @ immediately after your walking animation.
 @ The script is timed to the music.
-IndigoPlateau_Exterior_EventScript_Credits::
-	lockall
-	delay 105
-
-	@ Rival exits building. Spawn a dummy object to lock the camera.
-	opendoor 11, 6
-	waitdooranim
-	special SpawnCameraObject
-	addobject LOCALID_CREDITS_RIVAL
-	applymovement LOCALID_CREDITS_RIVAL, IndigoPlateau_Exterior_Movement_RivalExitBuilding
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PushPlayerOutOfWay
-	waitmovement 0
-	closedoor 11, 6
-	waitdooranim
-
-	@ Rival runs off
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerWatchRivalLeave
-	applymovement LOCALID_CREDITS_RIVAL, IndigoPlateau_Exterior_Movement_RivalLeave
-	waitmovement 0
-	delay 100
-
-	@ Oak exits building
-	opendoor 11, 6
-	waitdooranim
-	addobject LOCALID_CREDITS_PROF_OAK
-	applymovement LOCALID_CREDITS_PROF_OAK, IndigoPlateau_Exterior_Movement_OakExitBuilding
-	waitmovement 0
-	closedoor 11, 6
-	waitdooranim
-	delay 160
-
-	@ Oak looks at player, then walks off
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerWatchOakLeave
-	applymovement LOCALID_CREDITS_PROF_OAK, IndigoPlateau_Exterior_Movement_OakLeave
-	waitmovement 0
-	delay 100
-
-	@ Player begin to leave
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerBeginLeave
-	waitmovement 0
-	delay 155
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerFaceLeague
-	waitmovement 0
-	delay 90
-
-	@ Player runs off
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerTurnAround
-	waitmovement 0
-	applymovement LOCALID_PLAYER, IndigoPlateau_Exterior_Movement_PlayerLeave
-	waitmovement 0
-
-	@ Reset the map state and roll the credits
-	special RemoveCameraObject
-	setvar VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0
-	removeobject LOCALID_CREDITS_RIVAL
-	removeobject LOCALID_CREDITS_PROF_OAK
-	special DoCredits
-	waitstate
-	releaseall
-	end
 
 IndigoPlateau_Exterior_Movement_PlayerLeave::
 	player_run_down
@@ -186,3 +126,239 @@ IndigoPlateau_Exterior_Movement_OakExitBuilding::
 	walk_down
 	step_end
 `
+script IndigoPlateau_Exterior_EventScript_Credits {
+	lockall
+	special(SpawnCameraObject)
+	
+
+	//Rival exits building. Spawn a dummy object to lock the camera.
+	//opendoor(11, 6)
+	//waitdooranim
+	delay(20)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_down * 2
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down * 2
+		face_down
+		delay_16
+		delay_8
+		face_up
+	))
+	delay(16)
+	//closedoor(11, 6)
+	waitmovement(0)
+	delay(40)
+	
+	// Rivals all exit
+	opendoor(84, 6)
+	waitdooranim
+	addobject(LOCALID_CREDITS_RIVAL)
+	applymovement(LOCALID_CREDITS_RIVAL, moves(
+		set_visible
+		walk_slow_down
+		face_down
+		delay_16 * 2
+		delay_8
+		walk_slow_down
+		walk_slow_left
+		walk_slow_down * 9
+	))
+	delay(92)
+	addobject(LOCALID_CREDITS_RIVAL2)
+	applymovement(LOCALID_CREDITS_RIVAL2, moves(
+		set_visible
+		walk_slow_down * 2
+		walk_slow_right
+		walk_slow_down * 9
+	))
+	delay(60)
+	addobject(LOCALID_CREDITS_RIVAL3)
+	applymovement(LOCALID_CREDITS_RIVAL3, moves(
+		set_visible
+		walk_slow_down * 2
+		walk_slow_left
+		walk_slow_down * 9
+	))
+	delay(60)
+	addobject(LOCALID_CREDITS_RIVAL4)
+	applymovement(LOCALID_CREDITS_RIVAL4, moves(
+		set_visible
+		walk_slow_down * 2
+		walk_slow_right
+		walk_slow_down * 9
+	))
+	delay(60)
+	addobject(LOCALID_CREDITS_RIVAL5)
+	applymovement(LOCALID_CREDITS_RIVAL5, moves(
+		set_visible
+		walk_slow_down * 2
+		walk_slow_left
+		walk_slow_down * 9
+	))
+	delay(60)
+	addobject(LOCALID_CREDITS_RIVAL6)
+	applymovement(LOCALID_CREDITS_RIVAL6, moves(
+		set_visible
+		walk_slow_down * 2
+		walk_slow_right
+		walk_slow_down * 9
+	))
+	waitmovement(LOCALID_CREDITS_RIVAL3)
+	closedoor(84, 6)
+	waitdooranim
+	delay(140)
+
+	// Lass comes out
+	applymovement(LOCALID_PLAYER, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(96)
+	opendoor(84, 6)
+	waitdooranim
+	delay(64)
+	addobject(LOCALID_CREDITS_LASS)
+	applymovement(LOCALID_CREDITS_LASS, moves( //Keep this timing perfectly here.
+		set_visible
+		walk_slow_down
+		face_down
+		delay_16 * 5
+		walk_slower_down
+		delay_16 * 6
+		walk_slower_left
+	))
+	delay(45)
+	closedoor(84, 6)
+	waitmovement(LOCALID_CREDITS_LASS)
+	applymovement(LOCALID_CREDITS_LASS, moves(
+		walk_slower_down * 2
+		
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16
+		delay_8
+		face_left
+	))
+	waitmovement(LOCALID_CREDITS_LASS)
+	applymovement(LOCALID_CREDITS_LASS, moves(
+		walk_slower_right
+		walk_slower_down * 6
+		
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16
+		delay_8
+		face_down
+	))
+	delay(180)
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	delay(85)
+	removeobject(LOCALID_CREDITS_RIVAL)
+	removeobject(LOCALID_CREDITS_RIVAL2)
+	removeobject(LOCALID_CREDITS_RIVAL3)
+	removeobject(LOCALID_CREDITS_RIVAL4)
+	removeobject(LOCALID_CREDITS_RIVAL5)
+	removeobject(LOCALID_CREDITS_RIVAL6)
+	removeobject(LOCALID_CREDITS_LASS)
+
+
+
+	
+	// Slowly pan down
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slower_down * 5
+	))
+	delay(60)
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(LOCALID_CAMERA)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_down * 13
+	))
+	waitmovement(LOCALID_CAMERA)
+
+	//Scene 2
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_down * 9
+	))
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_down * 5
+	))
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_down * 13
+	))
+	//setlayouttiles(LAYOUT_INDIGO_PLATEAU_EXTERIOR_LAYOUT_JOHTO, 0, 0, 0, 0, 96, 74)
+	waitmovement(0)
+
+
+	//Scene 3
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_down * 8
+		walk_slow_left * 3
+	))
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_left * 4
+	))
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_left * 4
+	))
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_left * 13
+	))
+	waitmovement(0)
+
+	// Scene 4
+	
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_left * 9
+	))
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_left * 5
+	))
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_left * 13
+	))
+
+	waitmovement(0)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_left * 12
+	))
+	callnative(EnableSEDuringCredits)
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(LOCALID_CAMERA)
+	delay(60)
+	addobject(LOCALID_CREDITS_GOLD)
+	applymovement(LOCALID_CREDITS_GOLD, moves(
+		walk_fast_right * 8
+		walk_fast_down
+	))
+	waitmovement(LOCALID_CREDITS_GOLD)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_CREDITS_GOLD, moves(
+		jump_2_down
+	))
+	delay(35)
+	fadescreeninstant(FADE_TO_BLACK)
+	delay(60)
+	playbgm(MUS_TITLE, TRUE)
+	
+	setvar(VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 0)
+	waitstate
+	releaseall
+	end
+}

@@ -3742,7 +3742,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scott = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gold = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GOLD,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,

@@ -3751,6 +3751,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_DELIVERY) \
     X(MUS_MEGALOVANIA) \
     X(MUS_FOUR_ISLAND) \
+    X(MUS_STUPID_CREDITS) \
 
 
 

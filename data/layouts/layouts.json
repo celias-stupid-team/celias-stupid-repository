@@ -832,8 +832,8 @@
     {
       "id": "LAYOUT_INDIGO_PLATEAU_EXTERIOR",
       "name": "IndigoPlateau_Exterior_Layout",
-      "width": 24,
-      "height": 20,
+      "width": 97,
+      "height": 75,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5580,6 +5580,30 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/CinnabarIsland_Layout_Volcano/border.bin",
       "blockdata_filepath": "data/layouts/CinnabarIsland_Layout_Volcano/map.bin"
+    },
+    {
+      "id": "LAYOUT_INDIGO_PLATEAU_USED",
+      "name": "IndigoPlateauUsed_Layout",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IndigoPlateau",
+      "border_filepath": "data/layouts/IndigoPlateauUsed/border.bin",
+      "blockdata_filepath": "data/layouts/IndigoPlateauUsed/map.bin"
+    },
+    {
+      "id": "LAYOUT_INDIGO_PLATEAU_EXTERIOR_LAYOUT_JOHTO",
+      "name": "IndigoPlateau_Exterior_Layout_Johto",
+      "width": 97,
+      "height": 76,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ViridianCity",
+      "border_filepath": "data/layouts/IndigoPlateau_Exterior_Layout_Johto/border.bin",
+      "blockdata_filepath": "data/layouts/IndigoPlateau_Exterior_Layout_Johto/map.bin"
     }
   ]
 }
