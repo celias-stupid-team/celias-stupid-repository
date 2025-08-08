@@ -212,6 +212,7 @@ extern const u8 BattleScript_ItemHealHP_End2[];
 extern const u8 BattleScript_ItemHealHP_Ret[];
 extern const u8 BattleScript_SelectingNotAllowedMoveChoiceItem[];
 extern const u8 BattleScript_FocusBandActivates[];
+extern const u8 BattleScript_FocusSashActivates[];
 extern const u8 BattleScript_BerryConfuseHealEnd2[];
 extern const u8 BattleScript_BerryStatRaiseEnd2[];
 extern const u8 BattleScript_BerryFocusEnergyEnd2[];

@@ -3387,7 +3387,7 @@ BattleScript_SunlightFaded::
 BattleScript_TrickRoomContinues::
 	printstring STRINGID_DIMENSIONSARETWISTED
 	waitmessage B_WAIT_TIME_LONG
-	@ playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
+	playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
 	end2
 
 BattleScript_OverworldWeatherStarts::
@@ -4626,6 +4626,13 @@ BattleScript_FocusBandActivates::
 	playanimation BS_TARGET, B_ANIM_FOCUS_BAND
 	printstring STRINGID_PKMNHUNGONWITHX
 	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_FocusSashActivates::
+	playanimation BS_TARGET, B_ANIM_FOCUS_BAND
+	printstring STRINGID_PKMNHUNGONWITHX
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_TARGET
 	return
 
 BattleScript_BerryConfuseHealEnd2::

@@ -28,7 +28,7 @@ static struct {
     {WEATHER_FOG_HORIZONTAL,    WeatherCoordEvent_FogHorizontal   },
     {WEATHER_VOLCANIC_ASH,      WeatherCoordEvent_VolcanicAsh     },
     {WEATHER_SANDSTORM,         WeatherCoordEvent_Sandstorm       },
-    {WEATHER_TRICK_ROOM,      WeatherCoordEvent_FogDiagonal     },
+    {WEATHER_TRICK_ROOM,        WeatherCoordEvent_FogDiagonal     },
     {WEATHER_UNDERWATER,        WeatherCoordEvent_Underwater      },
     {WEATHER_SHADE,             WeatherCoordEvent_Shade           },
     {WEATHER_ROUTE119_CYCLE,    WeatherCoordEvent_Route119Cycle   },

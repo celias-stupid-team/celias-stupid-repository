@@ -486,7 +486,8 @@ struct BattleStruct
     u8 savedBattlerAttacker[5];
     u8 savedTargetCount:4;
     u8 savedAttackerCount:4;
-    u8 padding_1E4[0x11];
+    u16 itemLost[PARTY_SIZE];
+    u8 padding_1E4[5];
 }; // size == 0x200 bytes
 
 extern struct BattleStruct *gBattleStruct;
