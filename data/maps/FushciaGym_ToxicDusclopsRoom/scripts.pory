@@ -25,6 +25,9 @@ mapscripts FushciaGym_ToxicDusclopsRoom_MapScripts {
             msgbox("DUSCLOPS used TOXIC!\n", MSGBOX_DEFAULT)
             setstatus1(STATUS1_POISON, 0)
             setflag(FLAG_GOT_POISONED_ONCE)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was poisoned}!\n", MSGBOX_DEFAULT)
             release
         }
     ]
@@ -43,6 +46,9 @@ script FushciaGym_ToxicDusclops {
             msgbox("DUSCLOPS used TOXIC!\n", MSGBOX_DEFAULT)
             setstatus1(STATUS1_POISON, 0)
             setflag(FLAG_GOT_POISONED_ONCE)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was poisoned}!\n", MSGBOX_DEFAULT)
 
     } else {
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)

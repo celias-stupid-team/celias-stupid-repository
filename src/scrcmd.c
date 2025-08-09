@@ -2481,11 +2481,12 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
     u32 status1 = VarGet(ScriptReadByte(ctx));
     u32 slot = VarGet(ScriptReadByte(ctx));
     u16 species = SPECIES_NONE;
+    u32 name = 0;
     if (slot == 0) {
         bool8 randomPoison = FALSE;
         u8 failsafe = 0;
         u8 timesCheckedFirst = 0;
-        while(!(randomPoison || failsafe > 40)) {
+        while(!(randomPoison || failsafe > 80)) {
             slot = Random() %  PARTY_SIZE;
             species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
             if (species != SPECIES_NONE
@@ -2496,12 +2497,17 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
                     timesCheckedFirst++;
                 } else {
                     SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
+                    StringCopy(sScriptStringVars[0], GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES));
+                    StringCopy(sScriptStringVars[1], GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES));
                     randomPoison = TRUE;
 
                 }
             }
             failsafe++;
         }
+        
+        
+        
 
     }
 

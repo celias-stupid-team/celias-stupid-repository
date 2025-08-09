@@ -25,6 +25,10 @@ mapscripts FushciaGym_BurnDusclopsRoom_MapScripts {
             msgbox("DUSCLOPS used WILL-O-WISP!\n", MSGBOX_DEFAULT)
             setstatus1(STATUS1_BURN, 0)
             setflag(FLAG_GOT_BURNED_ONCE)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was burned}!\n", MSGBOX_DEFAULT)
+
             release
         }
     ]
@@ -50,6 +54,9 @@ script FushciaGym_BurnDusclops {
             setstatus1(STATUS1_BURN, 0)
             setflag(FLAG_GOT_BURNED_ONCE)
             setvar(VAR_TEMP_1, 2)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was burned}!\n", MSGBOX_DEFAULT)
 
     } else {
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)
