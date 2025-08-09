@@ -293,7 +293,7 @@
 #define ANIM_STD_GO_FASTEST_NORTH 17
 #define ANIM_STD_GO_FASTEST_WEST  18
 #define ANIM_STD_GO_FASTEST_EAST  19
-#define ANIM_STD_COUNT            20
+#define ANIM_STD_COUNT            21
 
 #define ANIM_RUN_SOUTH                   (ANIM_STD_COUNT + 0)
 #define ANIM_RUN_NORTH                   (ANIM_STD_COUNT + 1)
@@ -340,7 +340,7 @@
 #define ANIM_VS_SEEKER  0
 
 #define ANIM_STAY_STILL      0
-#define ANIM_REMOVE_OBSTACLE 1
+#define ANIM_REMOVE_OBSTACLE 20
 
 #define ANIM_TAKE_OUT_ROD_SOUTH   0
 #define ANIM_TAKE_OUT_ROD_NORTH   1

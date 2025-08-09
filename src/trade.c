@@ -210,6 +210,7 @@ static void ComputePartyHPBarLevels(u8 side);
 static void SetTradePartyHPBarSprites(void);
 static void SaveTradeGiftRibbons(void);
 static u32 CanTradeSelectedMon(struct Pokemon * party, int partyCount, int cursorPos);
+void CheckIfMarkHasMarks(void);
 
 static const size_t sSizesAndOffsets[] = {
     sizeof(struct SaveBlock2),
@@ -2953,9 +2954,6 @@ int CanRegisterMonForTradingBoard(struct RfuGameCompatibilityData player, u16 sp
 
     return CAN_REGISTER_MON;
 }
-
-
-
 
 
 
