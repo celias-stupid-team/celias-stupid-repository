@@ -597,6 +597,12 @@ script CeliaSecrets_Bonus_LassMaze {
 	msgbox("I wanted this to be a proper\nstealth section with all the bells\land whistles, but it didn't work.\pOh well, this is still cute enough.\n", MSGBOX_NPC)
 }
 
+script CeliaSecrets_Bonus_AronPuzzle {
+	msgbox("It's a shame how easy this puzzle\nis to cheese, cuz it's honestly\lvery clever.\pThe fact that there's two parallel\npuzzles which have an interlinked\lsolution (Aron and Shedinja) is\lso fun.\pToo bad most players can cheese\nit for free.", MSGBOX_NPC)
+}
+
+
+
 script CeliaSecrets_Bonus_LassMazeHeal {
 	msgbox("“Oh god getting healed is actually\na problem!” was a genius bit.", MSGBOX_NPC)
 }

@@ -6421,7 +6421,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainNoland),
     },
     [TRAINER_BATTLE_FRONTIER_CAITLIN] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_CAITLYN,
         .trainerName = _("CAITLIN"),
