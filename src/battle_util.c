@@ -3563,7 +3563,7 @@ void TryRestoreHeldItems(void)
             lostItem = ITEM_NONE; // berries can't restore
 
         // Check if the lost item should be restored
-        if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
+        if (lostItem == ITEM_FOCUS_SASH)//(lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
     }
 }
