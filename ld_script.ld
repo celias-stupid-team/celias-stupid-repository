@@ -1014,6 +1014,7 @@ SECTIONS {
         sound/songs/midi/mus_megalovania.o(.rodata);
         sound/songs/midi/mus_four_island.o(.rodata);
         sound/songs/midi/mus_stupid_credits.o(.rodata);
+        sound/songs/midi/mus_gen4_lass.o(.rodata);
 
     } > ROM =0
 

@@ -2497,8 +2497,8 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
                     timesCheckedFirst++;
                 } else {
                     SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
-                    StringCopy(sScriptStringVars[0], GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES));
-                    StringCopy(sScriptStringVars[1], GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES));
+                    StringCopy(sScriptStringVars[0], gSpeciesNames[GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES)]);
+                    StringCopy(sScriptStringVars[1], gSpeciesNames[GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES)]);
                     randomPoison = TRUE;
 
                 }

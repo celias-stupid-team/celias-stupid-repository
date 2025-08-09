@@ -399,12 +399,13 @@
 #define MUS_MEGALOVANIA            390
 #define MUS_FOUR_ISLAND            391
 #define MUS_STUPID_CREDITS            392
+#define MUS_GEN4_LASS            393
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_STUPID_CREDITS
+#define END_MUS                     MUS_GEN4_LASS
 
 #endif  // GUARD_CONSTANTS_SONGS_H
