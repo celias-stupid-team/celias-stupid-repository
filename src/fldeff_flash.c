@@ -173,9 +173,7 @@ bool8 SetUpFieldMove_Flash(void)
     if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
         return FALSE;
 
-    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 
-        && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROCK_TUNNEL_1F) 
-        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROCK_TUNNEL_1F))
+    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
         return FALSE;
 
     gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
