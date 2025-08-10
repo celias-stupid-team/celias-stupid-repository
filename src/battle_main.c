@@ -2818,6 +2818,14 @@ static void TryDoEventsBeforeFirstTurn(void)
         gBattleStruct->overworldWeatherDone = TRUE;
         return;
     }
+    // show early slow start message
+    if (!gBattleStruct->introMessagesDone
+        && AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART, 0, 0, 0, 0) != 0)
+    {
+        gBattleStruct->introMessagesDone = TRUE;
+        return;
+    }
+    // show early NG message
     if (AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, 0, 0, 0, 0) != 0)
         return;
     // Check all switch in abilities happening from the fastest mon to slowest.

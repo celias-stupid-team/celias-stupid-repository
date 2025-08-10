@@ -2517,7 +2517,34 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
-        case ABILITYEFFECT_NEUTRALIZINGGAS: // 20
+        case ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART: // 20
+            // Prints message only. needs to be checked before ABILITYEFFECT_NEUTRALIZINGGAS
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleMons[i].ability == ABILITY_NEUTRALIZING_GAS && !gDisableStructs[i].neutralizingGas && !gSpecialStatuses[i].neutralizingGasRemoved)
+                {
+                    // still force a Slow Start related message at the start of the NG battle
+                    if (gBattleResults.battleTurnCounter == 0)
+                    {
+                        u8 j = 0;
+
+                        for (j = 0; j < gBattlersCount; j++)
+                        {
+                            if (gBattleMons[j].ability == ABILITY_SLOW_START)
+                            {
+                                gBattlerAttacker = j;
+                                BattleScriptPushCursorAndCallback(BattleScript_SlowStartBeforeNeutralizingGas);
+                                effect++;
+                            }
+                        }
+                    }
+                }
+
+                if (effect != 0)
+                    break;
+            }
+            break;
+        case ABILITYEFFECT_NEUTRALIZINGGAS: // 21
             // Prints message only. separate from ABILITYEFFECT_ON_SWITCHIN bc activates before entry hazards
             for (i = 0; i < gBattlersCount; i++)
             {
