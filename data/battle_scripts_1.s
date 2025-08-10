@@ -263,6 +263,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
 	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
 	.4byte BattleScript_EffectSemiInvulnerableHaunter       @ EFFECT_SEMI_INVULNERABLE_CANCEL
+	.4byte BattleScript_EffectRazorWindHaunter              @ EFFECT_RAZOR_WIND_CANCEL
 
 
 BattleScript_EffectReflect2::
@@ -5112,19 +5113,15 @@ BattleScript_EffectAgilityDumb::
 BattleScript_EffectSemiInvulnerableHaunter::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerableHaunter
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerableHaunter
-	jumpifmove MOVE_DIVE_CANCEL, BattleScript_FirstTurnDiveCancel
+	jumpifmove MOVE_DIVE_CANCEL, BattleScript_FirstTurnDive
+	jumpifmove MOVE_SHADOW_FORCE_CANCEL, BattleScript_FirstTurnShadowForce
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
-	goto BattleScript_FirstTurnSemiInvulnerableHaunter
-
-BattleScript_FirstTurnDiveCancel::
-	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIVE
-	goto BattleScript_FirstTurnSemiInvulnerableHaunter
+	goto BattleScript_FirstTurnSemiInvulnerable
 
 
-BattleScript_FirstTurnSemiInvulnerableHaunter::
-	call BattleScriptFirstChargingTurn
-	setsemiinvulnerablebit
-	goto BattleScript_MoveEnd
+BattleScript_FirstTurnShadowForce::
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_SHADOW_FORCE
+	goto BattleScript_FirstTurnSemiInvulnerable
 
 BattleScript_SecondTurnSemiInvulnerableHaunter::
 	attackcanceler
@@ -5133,9 +5130,30 @@ BattleScript_SecondTurnSemiInvulnerableHaunter::
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	clearsemiinvulnerablebit
-	goto BattleScript_PrintMoveMissed
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_LONG
 	printstring STRINGID_IT_WAS_CANCELLED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_SemiInvulnerableMissHaunter::
+
+BattleScript_EffectRazorWindHaunter::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurnCancel
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurnCancel
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_RAZOR_WIND
+	call BattleScriptFirstChargingTurn
+	goto BattleScript_MoveEnd
+
+BattleScript_TwoTurnMovesSecondTurnCancel::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_IT_WAS_CANCELLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

@@ -345,7 +345,7 @@ script CeliaSecrets_Bonus_SeashoreJesus {
 }
 
 script CeliaSecrets_Bonus_Route15Pretty {
-	msgbox("I'm very happy wtih how this\nroute turned out.\pAll the jokes and bits are paced\nout wonderfully, and it's very\lpretty too.", MSGBOX_NPC)
+	msgbox("I'm very happy with how this\nroute turned out.\pAll the jokes and bits are paced\nout wonderfully, and it's very\lpretty too.", MSGBOX_NPC)
 	end
 }
 

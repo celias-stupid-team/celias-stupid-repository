@@ -9320,12 +9320,15 @@ static void Cmd_setsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
+    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
+    case MOVE_DIG_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_UNDERGROUND;
         break;
     case MOVE_DIVE:
+    case MOVE_DIVE_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_UNDERWATER;
         break;
     }
@@ -9340,12 +9343,15 @@ static void Cmd_clearsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
+    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
+    case MOVE_DIG_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_UNDERGROUND;
         break;
     case MOVE_DIVE:
+    case MOVE_DIVE_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_UNDERWATER;
         break;
     }

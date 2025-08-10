@@ -611,8 +611,8 @@ gBattleAnims_Moves::
 	.4byte Move_LICK_RELIC_SONG
 	.4byte Move_DIVE_CANCEL
 	.4byte Move_DIG_CANCEL
-	.4byte Move_SOLAR_BEAM_CANCEL
-	.4byte Move_FUTURE_SIGHT_CANCEL
+	.4byte Move_SHADOW_FORCE_CANCEL
+	.4byte Move_RAZOR_WIND_CANCEL
 	.4byte Move_CLANGAROUS_SOUL_CANCEL
 	.4byte Move_CONFUSEON
 	.4byte Move_FRUSTRATEON
@@ -15994,48 +15994,46 @@ Move_DIVE_CANCEL:
 
 
 Move_DIG_CANCEL:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	choosetwoturnanim DigSetUp, DigUnleash
 	end
 
 
-Move_SOLAR_BEAM_CANCEL:
-	loadspritegfx ANIM_TAG_IMPACT
+Move_SHADOW_FORCE_CANCEL:
+	
+	choosetwoturnanim ShadowForceSetUp, ShadowForceSetUp
+	end
+	
+ShadowForceSetUp:
+	monbg ANIM_ATTACKER
+	fadetobg BG_DARK
+	waitbgfadein
+	delay 0
+	playsewithpan SE_M_FAINT_ATTACK, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 18, 6, 1, 3
+	createvisualtask AnimTask_AttackerFadeToInvisible, 2, 1
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	invisible ANIM_ATTACKER
+	delay 1
+	createvisualtask AnimTask_SetAttackerInvisibleWaitForSignal, 2
 	monbg ANIM_TARGET
 	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	delay 1
+	setarg 7, 0x1000
+	delay 10
+	clearmonbg ANIM_ATTACKER
+	delay 1
+	restorebg
+	waitbgfadein
 	end
 
 
-Move_FUTURE_SIGHT_CANCEL:
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
-	end
+Move_RAZOR_WIND_CANCEL:
+	choosetwoturnanim RazorWindSetUp, RazorWindUnleash
 
 
 Move_CLANGAROUS_SOUL_CANCEL:

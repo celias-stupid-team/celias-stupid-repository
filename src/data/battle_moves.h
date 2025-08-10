@@ -7414,9 +7414,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DIG_CANCEL] =   
     {
-        .effect = EFFECT_HIT,
-        .power = 35,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_SEMI_INVULNERABLE_CANCEL,
+        .power = 100,
+        .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -7425,11 +7425,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
 },
 
-    [MOVE_SOLAR_BEAM_CANCEL] =   
+    [MOVE_SHADOW_FORCE_CANCEL] =   
     {
-        .effect = EFFECT_HIT,
-        .power = 35,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_SEMI_INVULNERABLE_CANCEL,
+        .power = 100,
+        .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,
@@ -7438,10 +7438,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
 },
 
-    [MOVE_FUTURE_SIGHT_CANCEL] =   
+    [MOVE_RAZOR_WIND_CANCEL] =   
     {
-        .effect = EFFECT_HIT,
-        .power = 35,
+        .effect = EFFECT_RAZOR_WIND_CANCEL,
+        .power = 80,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -7453,7 +7453,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CLANGAROUS_SOUL_CANCEL] =   
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_RAZOR_WIND_CANCEL,
         .power = 35,
         .type = TYPE_NORMAL,
         .accuracy = 100,
