@@ -10151,7 +10151,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = 
         .iv = 0,
         .lvl = 50,
         .species = SPECIES_REGIGIGAS,
-        .moves = {MOVE_CRUSH_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_STRENGTH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

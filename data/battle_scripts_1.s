@@ -262,6 +262,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
 	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
+	.4byte BattleScript_EffectSemiInvulnerableHaunter       @ EFFECT_SEMI_INVULNERABLE_CANCEL
 
 
 BattleScript_EffectReflect2::
@@ -5105,3 +5106,36 @@ BattleScript_EffectAgilityDumb::
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
+
+
+
+BattleScript_EffectSemiInvulnerableHaunter::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerableHaunter
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerableHaunter
+	jumpifmove MOVE_DIVE_CANCEL, BattleScript_FirstTurnDiveCancel
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
+	goto BattleScript_FirstTurnSemiInvulnerableHaunter
+
+BattleScript_FirstTurnDiveCancel::
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIVE
+	goto BattleScript_FirstTurnSemiInvulnerableHaunter
+
+
+BattleScript_FirstTurnSemiInvulnerableHaunter::
+	call BattleScriptFirstChargingTurn
+	setsemiinvulnerablebit
+	goto BattleScript_MoveEnd
+
+BattleScript_SecondTurnSemiInvulnerableHaunter::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	clearsemiinvulnerablebit
+	goto BattleScript_PrintMoveMissed
+	printstring STRINGID_IT_WAS_CANCELLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_SemiInvulnerableMissHaunter::

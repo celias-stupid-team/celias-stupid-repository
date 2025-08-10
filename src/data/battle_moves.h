@@ -861,7 +861,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PECK] =
     {
         .effect = EFFECT_HIT,
-        .power = 35,
+        .power = 50,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
@@ -4040,7 +4040,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 50,
         .target = MOVE_TARGET_BOTH,
-        .priority = 0,
+        .priority = 3,
         .flags = 0,
     },
 
@@ -7401,9 +7401,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DIVE_CANCEL] =   
     {
-        .effect = EFFECT_HIT,
-        .power = 35,
-        .type = TYPE_NORMAL,
+        .effect = EFFECT_SEMI_INVULNERABLE_CANCEL,
+        .power = 80,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 100,

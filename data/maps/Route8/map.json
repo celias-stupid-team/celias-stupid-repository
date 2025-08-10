@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route8_EventScript_Leslie",
-      "flag": "0"
+      "flag": "FLAG_CSR_GOT_PAY_DAY"
     },
     {
       "type": "object",
@@ -94,7 +94,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route8_EventScript_Andrea",
-      "flag": "0"
+      "flag": "FLAG_CSR_GOT_PAY_DAY"
     },
     {
       "type": "object",
@@ -108,7 +108,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route8_EventScript_Megan",
-      "flag": "0"
+      "flag": "FLAG_CSR_GOT_PAY_DAY"
     },
     {
       "type": "object",
