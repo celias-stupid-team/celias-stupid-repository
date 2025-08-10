@@ -372,8 +372,9 @@ void BattleAI_SetupAIData(void)
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            //always use CBM and CV for trainers
-            AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
+            AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+            //always add CBM and CV for trainers
+            AI_THINKING_STRUCT->aiFlags |= (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
             return;
         }
     }
