@@ -5020,6 +5020,11 @@ BattleScript_SlowStartEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_SlowStartBeforeNeutralizingGas::
+	printstring STRINGID_SLOWSTARTEARLY
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_AirBalloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
