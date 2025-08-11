@@ -162,7 +162,7 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_FUSHCIA_OUTSIDE,
         HEAL_LOCATION_ROUTE12,
         HEAL_LOCATION_SAFARI_ZONE,
-        HEAL_LOCATION_NONE,
+        // HEAL_LOCATION_NONE,
     };
     u32 i;
     for (i = 0; i < ARRAY_COUNT(HealLocationsWithoutCutscene); i++)
