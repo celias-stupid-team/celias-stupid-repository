@@ -216,3 +216,13 @@ TwoIsland_EventScript_FastCurrentSign::
 	msgbox TwoIsland_Text_DangerFastCurrent, MSGBOX_SIGN
 	end
 `
+script TwoIsland_EventScript_SansTest {
+	lock
+	faceplayer
+	fadenewbgm(MUS_NONE)
+	msgbox("{FONT_COMIC_SANS}hello .\ni am a character .\pthe quick brown fox jumps over\nthe lazy dog .\pTHE QUICK BROWN FOX JUMPS OVER\nTHE LAZY DOG .", MSGBOX_DEFAULT)
+	playbgm(MUS_MEGALOVANIA, TRUE)
+	release
+	end
+}
+

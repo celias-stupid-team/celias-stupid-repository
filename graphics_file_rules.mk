@@ -79,6 +79,10 @@ $(FONTGFXDIR)/japanese_normal.fwjpnfont: $(FONTGFXDIR)/japanese_normal.png
 $(FONTGFXDIR)/latin_male.latfont: $(FONTGFXDIR)/latin_male.png
 	$(GFX) $< $@
 
+	
+$(FONTGFXDIR)/comic_sans.latfont: $(FONTGFXDIR)/comic_sans.png
+	$(GFX) $< $@
+
 $(FONTGFXDIR)/japanese_male.fwjpnfont: $(FONTGFXDIR)/japanese_male.png
 	$(GFX) $< $@
 
