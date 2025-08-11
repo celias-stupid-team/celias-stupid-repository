@@ -2459,12 +2459,27 @@ static void BufferInGameTradeMonName(void)
 static void CreateInGameTradePokemonInternal(u8 playerSlot, u8 inGameTradeIdx)
 {
     const struct InGameTrade * inGameTrade = &sInGameTrades[inGameTradeIdx];
+    u32 markings = GetMonData(&gPlayerParty[playerSlot], MON_DATA_MARKINGS);
+
     u8 level = GetMonData(&gPlayerParty[playerSlot], MON_DATA_LEVEL);
     struct Mail mail;
     u8 metLocation = METLOC_IN_GAME_TRADE;
     struct Pokemon * tradeMon = &gEnemyParty[0];
     u8 mailNum;
-    CreateMon(tradeMon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, TRUE, inGameTrade->otId);
+
+
+    
+
+    if(inGameTradeIdx == INGAME_TRADE_LICKITUNG && markings != 0) {
+        DebugPrintf("Markings Not Zero"); //Shiny Lickitung Debug
+        FlagSet(FLAG_SHINY_CREATION);
+        CreateMon(tradeMon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, 0x0, TRUE, 0);
+        
+    } else {
+        DebugPrintf("Markings: %d", markings);
+        CreateMon(tradeMon, inGameTrade->species, level, USE_RANDOM_IVS, TRUE, inGameTrade->personality, TRUE, inGameTrade->otId);
+
+    }
     SetMonData(tradeMon, MON_DATA_HP_IV, &inGameTrade->ivs[0]);
     SetMonData(tradeMon, MON_DATA_ATK_IV, &inGameTrade->ivs[1]);
     SetMonData(tradeMon, MON_DATA_DEF_IV, &inGameTrade->ivs[2]);

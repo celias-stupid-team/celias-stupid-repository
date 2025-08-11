@@ -6746,6 +6746,9 @@ u32 GetCurrentLevelCap(u16 species)
 
     u32 i;
 
+    if(FlagGet(FLAG_IN_FUSHCIA_GYM)) {
+        return 1;
+    }
     for (i = 0; i < ARRAY_COUNT(sSpeciesImmuneToCap); i++) // Check if the Pokemon ignores the cap, and if they don't then check the current cap based on badges
         {
             if(species == sSpeciesImmuneToCap[i])

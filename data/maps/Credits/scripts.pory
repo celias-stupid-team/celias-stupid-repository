@@ -1,0 +1,30 @@
+mapscripts Credits_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0 {
+            lock
+            setlayouttiles(LAYOUT_CREDITS_FRAME2, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            delay(50)
+            setlayouttiles(LAYOUT_CREDITS_FRAME3, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            delay(45)
+            setlayouttiles(LAYOUT_CREDITS_FRAME4, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            delay(20)
+            setlayouttiles(LAYOUT_CREDITS_FRAME5, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            delay(20)
+            setlayouttiles(LAYOUT_CREDITS_FRAME6, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            delay(20)
+            setlayouttiles(LAYOUT_CREDITS_Frame1, 0, 0, 0, 0, 14, 10)
+            special(DrawWholeMapView)
+            setvar(VAR_TEMP_0, 1)
+        }
+    ]
+}
+
+script CreditsDummy {
+    msgbox("hi")
+    release
+}

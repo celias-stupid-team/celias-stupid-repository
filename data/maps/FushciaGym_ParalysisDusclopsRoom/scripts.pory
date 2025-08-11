@@ -26,6 +26,9 @@ mapscripts FushciaGym_ParalysisDusclopsRoom_MapScripts {
             msgbox("DUSCLOPS used THUNDER WAVE!\n", MSGBOX_DEFAULT)
             setstatus1(STATUS1_PARALYSIS, 0)
             setflag(FLAG_GOT_PARALYZED_ONCE)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was paralyzed!\n", MSGBOX_DEFAULT)
             release
         }
     ]
@@ -55,6 +58,9 @@ script FushciaGym_ParalysisDusclops {
             setstatus1(STATUS1_PARALYSIS, 0)
             setflag(FLAG_GOT_PARALYZED_ONCE)
             setvar(VAR_TEMP_1, 2)
+            closemessage
+            delay(20)
+            msgbox("{STR_VAR_1} was paralyzed!\n", MSGBOX_DEFAULT)
 
     } else {
             playmoncry(SPECIES_DUSCLOPS, CRY_MODE_DEFAULT)

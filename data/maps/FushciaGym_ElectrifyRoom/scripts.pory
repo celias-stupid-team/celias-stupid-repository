@@ -1,10 +1,14 @@
 mapscripts FushciaGym_ElectrifyRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE)) {
+        if(checktrainerflag(TRAINER_FUSHCIA_GYM_LANCE) || flag(FLAG_MURDERED_LANCE)) {
             call(FushciaGym_ElectrifyRoom_OpenDoor)
 
         } else {
             setflag(FLAG_TEMP_4)
+        }
+        if(flag(FLAG_MURDERED_LANCE)) {
+            setflag(FLAG_TEMP_4)
+
         }
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ELECTRIFY_ROOM)
     }
@@ -20,30 +24,38 @@ script FushciaGym_ElectrifyRoom_Lance {
     lock
     faceplayer
 
-    setvar(VAR_0x8004, 0)
-    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-    if(var(VAR_RESULT) == SPECIES_TAUROS) {
-        msgbox("I am LANCE of the ELITE FOUR!\n…Wait-!\lNo! Don't!", MSGBOX_DEFAULT)
+    
+    
+    if(!(checkpartymove(MOVE_HYPER_BEAM) == PARTY_SIZE)) {
+        msgbox("I am LANCE of the ELITE FOUR!\n{PAUSE 30}…Wait-! No!\lDon't!", MSGBOX_DEFAULT)
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            fadenewbgm(MUS_NONE)
         msgbox("Your TAUROS looks excited.\pWould you like to use\nHYPER BEAM?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             // Hyper Beam Happens
+            closemessage
             fadescreen(FADE_TO_BLACK)
-            playse(SE_M_HYPER_BEAM)
-            waitse
-            playse(SE_M_HYPER_BEAM2)
-            waitse
+            delay(30)
+            playmoncry(SPECIES_TAUROS, CRY_MODE_DEFAULT)
+            waitmoncry
             setflag(FLAG_MURDERED_LANCE)
             removeobject(VAR_LAST_TALKED)
             settrainerflag(TRAINER_FUSHCIA_GYM_LANCE)
             call(FushciaGym_ElectrifyRoom_OpenDoor)
             special(DrawWholeMapView)
+            fadedefaultbgm
             fadescreen(FADE_FROM_BLACK)
-            msgbox("{PLAYER} obtained the\nGYARADOS!", MSGBOX_DEFAULT)
+            delay(30)
+            playfanfare(MUS_LEVEL_UP)
+            msgbox("{PLAYER} obtained the\nleftover GYARADOS!", MSGBOX_DEFAULT)
+
             setvar(VAR_CSR_GIFT_POKEMON, SPECIES_GYARADOS)
             setflag(FLAG_SHINY_CREATION)
             call(Common_Script_GiftPokemon)
+            release
+            end
         } else {
+            fadedefaultbgm
             textcolor(NPC_TEXT_COLOR_MALE)
             msgbox("LANCE: Ah…\nAhem.", MSGBOX_DEFAULT)
 

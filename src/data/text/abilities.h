@@ -176,6 +176,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BAD_DREAMS] = COMPOUND_STRING("Faints sleeping Pokémon."),
     [ABILITY_SLOW_START] = COMPOUND_STRING("Takes a while to get going."),
     [ABILITY_NEUTRALIZING_GAS] = COMPOUND_STRING("All Abilities are nullified."),
+    [ABILITY_HTML5] = COMPOUND_STRING("Unaffected by Adobe FLASH."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -270,4 +271,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BAD_DREAMS] = _("BAD DREAMS"),
     [ABILITY_SLOW_START] = _("SLOW START"),
     [ABILITY_NEUTRALIZING_GAS] = _("NEUTRAL. GAS"),
+    [ABILITY_HTML5] = _("HTML5"),
 };

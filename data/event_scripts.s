@@ -1631,3 +1631,6 @@ Text_TestMsg::
 
 	.include "data/maps/IndigoPlateauUsed/scripts.inc"
 	.include "data/maps/IndigoPlateauUsed/text.inc"
+
+	.include "data/maps/Credits/scripts.inc"
+	.include "data/maps/Credits/text.inc"
