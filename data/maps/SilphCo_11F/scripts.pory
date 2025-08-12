@@ -4,7 +4,6 @@ SilphCo_11F_MapScripts::
 	.byte 0
 
 SilphCo_11F_OnLoad::
-	call_if_unset FLAG_SILPH_11F_DOOR, EventScript_Close11FDoor
 	end
 
 SilphCo_11F_EventScript_President::

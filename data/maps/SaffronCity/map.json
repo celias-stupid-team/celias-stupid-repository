@@ -118,8 +118,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_DoorGuardGrunt",
-      "flag": "FLAG_HIDE_SAFFRON_ROCKETS"
+      "script": "SaffronCity_CardboardCutout",
+      "flag": "FLAG_PUSHED_CARDBOARD_CUTOUT"
     },
     {
       "type": "object",

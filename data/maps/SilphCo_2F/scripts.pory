@@ -26,13 +26,17 @@ SilphCo_2F_EventScript_Jerry::
 	msgbox SilphCo_2F_Text_JerryPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-SilphCo_2F_EventScript_Grunt1::
-	trainerbattle_single TRAINER_DMCA_GRUNT_23, SilphCo_2F_Text_Grunt1Intro, SilphCo_2F_Text_Grunt1Defeat
-	msgbox SilphCo_2F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
-	end
 
-SilphCo_2F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_DMCA_GRUNT_24, SilphCo_2F_Text_Grunt2Intro, SilphCo_2F_Text_Grunt2Defeat
-	msgbox SilphCo_2F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
-	end
+
+
 `
+
+script SilphCo_2F_EventScript_Grunt2 {
+	trainerbattle_single(TRAINER_DMCA_GRUNT_24, "Grr!\pAll these staircases were identical\ncopies of each other.\pI did this place a favor by taking\nthem out!", "You'll never get through!\n")
+	msgbox("We're staging an executive\ntakeover of SILPH CO!\pAll copyrighted materials are\ngetting deleted.\lIncluding stairs!", MSGBOX_NPC)
+}
+
+script SilphCo_2F_EventScript_Grunt1 {
+	trainerbattle_single(TRAINER_DMCA_GRUNT_23, "Nyehehe!\pWithout the stairs, this place has\nturned into a warp tile labyrinth!\pYou'll never make it through!\n", "Impossible!")
+	msgbox("It's no worry.\nYou'll never make it to the BOSS!\pCopyright law is sacred!\nYou've got no chance against us!", MSGBOX_NPC)
+}
