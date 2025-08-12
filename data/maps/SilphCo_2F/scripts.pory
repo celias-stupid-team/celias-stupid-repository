@@ -47,7 +47,7 @@ script SilphCo_2F_EventScript_MissingStaircase {
 }
 
 script SilphCo_2F_EventScript_ElevatorDoor {
-	msgbox("Rats!\pThe elevator door's been stapled\nshut!", MSGBOX_SIGN)
+	msgbox("Rats!\nThe door's been stapled shut!", MSGBOX_SIGN)
 
 }
 

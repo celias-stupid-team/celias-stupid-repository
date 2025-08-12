@@ -133,7 +133,7 @@ SilphCo_11F_EventScript_Grunt2::
 	end
 `
 script SilphCo_11F_EventScript_ElevatorDoor {
-	msgbox("Rats!\pThe elevator door's been glued\nshut!", MSGBOX_SIGN)
+	msgbox("Rats!\nThe elevator door's been glued shut!", MSGBOX_SIGN)
 
 }
 

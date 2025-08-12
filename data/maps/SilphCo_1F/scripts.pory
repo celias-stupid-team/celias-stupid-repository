@@ -27,7 +27,7 @@ script SilphCo_Roadblock {
 }
 
 script SilphCo_1F_EventScript_ElevatorDoor {
-	msgbox("Rats!\pThe elevator door's been welded\nshut!", MSGBOX_SIGN)
+	msgbox("Rats!\nThe door's been welded shut!", MSGBOX_SIGN)
 
 }
 
