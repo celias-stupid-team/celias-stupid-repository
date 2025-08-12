@@ -4445,7 +4445,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Riley = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DmcaDad = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,

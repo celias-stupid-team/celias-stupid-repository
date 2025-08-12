@@ -25,3 +25,9 @@ script SilphCo_Roadblock {
 	msgbox("Sorry, but this teleport pad\nis out of service.\pCome back next update!\n", MSGBOX_NPC)
 	end
 }
+
+script SilphCo_1F_EventScript_ElevatorDoor {
+	msgbox("Rats!\pThe elevator door's been welded\nshut!", MSGBOX_SIGN)
+
+}
+

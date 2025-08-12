@@ -132,3 +132,8 @@ SilphCo_11F_EventScript_Grunt2::
 	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script SilphCo_11F_EventScript_ElevatorDoor {
+	msgbox("Rats!\pThe elevator door's been glued\nshut!", MSGBOX_SIGN)
+
+}
+

@@ -215,15 +215,18 @@ script SaffronCity_CardboardCutout {
 		
 		msgbox("It seems this DMCA GRUNT is simply\na detailed cardboard cut-out.\pYou push it aside.\n", MSGBOX_DEFAULT)
 		closemessage
+		delay(10)
 		playse(SE_LEDGE)
 		applymovement(VAR_LAST_TALKED, moves(
 			jump_down
-			delay_16
 			set_invisible
 		))
+		waitmovement(0)
 		playse(SE_M_WATERFALL)
 		removeobject(VAR_LAST_TALKED)
 		setflag(FLAG_PUSHED_CARDBOARD_CUTOUT)
+		release
+		end
 		
 
 	}
