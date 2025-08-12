@@ -4171,7 +4171,7 @@
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_EvoItem",
+      "fieldUseFunc": "FieldUseFunc_CoinCase",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -6872,6 +6872,38 @@
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "CASTELIACONE",
+      "itemId": "ITEM_CASTELIACONE",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "CASTELIA CITY's local ice cream.\\nIt heals all the status problems of\\none POKéMON.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_Medicine",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Medicine",
+      "secondaryId": 0
+    },
+    {
+      "english": "OLD GATEAU",
+      "itemId": "ITEM_OLD_GATEAU",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "The OLD CHATEAU's hidden treat.\\nIt heals all the status problems of\\none POKéMON.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_Medicine",
+      "battleUsage": 1,
+      "battleUseFunc": "BattleUseFunc_Medicine",
       "secondaryId": 0
     }
   ]
