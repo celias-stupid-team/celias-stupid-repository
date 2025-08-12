@@ -454,5 +454,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_HOUSEVOUCHER]      =  {gItemIcon_HOUSEVOUCHER, gItemIconPalette_HOUSEVOUCHER},
     [ITEM_SPARE_DOOR]      =  {gItemIcon_SPAREDOOR, gItemIconPalette_SPAREDOOR},
     [ITEM_HAT]      =  {gItemIcon_Hat, gItemIconPalette_Hat},
+    [ITEM_CASTELIACONE]      =  {gItemIcon_CASTELIACONE, gItemIconPalette_CASTELIACONE},
+    [ITEM_OLD_GATEAU]      =  {gItemIcon_OldGateau, gItemIconPalette_OldGateau},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

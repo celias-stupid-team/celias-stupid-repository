@@ -12473,3 +12473,9 @@ extern const u8 gMonIcon_SOLACEON[];
 
 extern const u32 gItemIcon_Hat[];
 extern const u32 gItemIconPalette_Hat[];
+
+extern const u32 gItemIcon_CASTELIACONE[];
+extern const u32 gItemIconPalette_CASTELIACONE[];
+
+extern const u32 gItemIcon_OldGateau[];
+extern const u32 gItemIconPalette_OldGateau[];
