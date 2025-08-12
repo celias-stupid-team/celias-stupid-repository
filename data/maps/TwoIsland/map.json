@@ -16,20 +16,20 @@
   "connections": [
     {
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
-      "offset": 18,
+      "offset": 24,
       "direction": "up"
     },
     {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 21,
-      "direction": "down"
+      "map": "MAP_TWO_ISLAND_NORTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 22,
+      "x": 33,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -43,7 +43,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 25,
+      "x": 36,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -57,7 +57,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 24,
+      "x": 35,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -71,7 +71,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 20,
+      "x": 31,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -85,7 +85,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 21,
+      "x": 32,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -99,7 +99,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 24,
+      "x": 35,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -113,7 +113,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 33,
+      "x": 44,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -127,7 +127,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 31,
+      "x": 42,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -141,7 +141,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 18,
+      "x": 29,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -155,28 +155,28 @@
   ],
   "warp_events": [
     {
-      "x": 33,
+      "x": 44,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
+      "x": 38,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 26,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 4,
+      "x": 15,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_TWO_ISLAND_HARBOR",
@@ -187,7 +187,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 23,
+      "x": 34,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -195,7 +195,7 @@
     },
     {
       "type": "sign",
-      "x": 34,
+      "x": 45,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -203,7 +203,7 @@
     },
     {
       "type": "sign",
-      "x": 2,
+      "x": 13,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

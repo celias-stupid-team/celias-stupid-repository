@@ -1631,3 +1631,9 @@ Text_TestMsg::
 
 	.include "data/maps/Thirty_Eight_Island/scripts.inc"
 	.include "data/maps/Thirty_Eight_Island/text.inc"
+
+	.include "data/maps/Minnesota/scripts.inc"
+	.include "data/maps/Minnesota/text.inc"
+
+	.include "data/maps/TwoIsland_North/scripts.inc"
+	.include "data/maps/TwoIsland_North/text.inc"

@@ -330,7 +330,8 @@
     "SevenIsland_SevaultCanyon_Entrance",
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
-    "Route10_Again"
+    "Route10_Again",
+    "TwoIsland_North"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -657,6 +658,7 @@
     "ViridianGym_Giovanni"
   ],
   "gMapGroup_GreatSea": [
-    "GreatBay_North"
+    "GreatBay_North",
+    "Minnesota"
   ]
 }

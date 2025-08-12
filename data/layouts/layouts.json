@@ -2548,8 +2548,8 @@
     {
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
-      "width": 52,
-      "height": 20,
+      "width": 69,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2644,7 +2644,7 @@
     {
       "id": "LAYOUT_TWO_ISLAND_CAPE_BRINK",
       "name": "TwoIsland_CapeBrink_Layout",
-      "width": 24,
+      "width": 45,
       "height": 34,
       "border_width": 2,
       "border_height": 2,
@@ -5568,6 +5568,30 @@
       "secondary_tileset": "gTileset_Thirty_Eight_Island",
       "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
       "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
+    },
+    {
+      "id": "LAYOUT_MINNESOTA",
+      "name": "Minnesota_Layout",
+      "width": 73,
+      "height": 80,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Minnesota/border.bin",
+      "blockdata_filepath": "data/layouts/Minnesota/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_NORTH",
+      "name": "TwoIsland_North_Layout",
+      "width": 24,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
+      "border_filepath": "data/layouts/TwoIsland_North/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_North/map.bin"
     }
   ]
 }
