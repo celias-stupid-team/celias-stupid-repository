@@ -105,6 +105,10 @@ void HandleIntroSlide(u8 terrain)
         terrain = BATTLE_TERRAIN_UNDERWATER;
         taskId = CreateTask(BattleIntroSlide2, 0);
     }
+    else if ((gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA))
+    {
+        taskId = CreateTask(BattleIntroSlide3, 0);
+    }
     else
     {
         taskId = CreateTask(sBattleIntroSlideFuncs[terrain], 0);

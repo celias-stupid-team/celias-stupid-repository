@@ -571,6 +571,14 @@ const struct BattleBackground sBattleTerrainTable[] = {
         .entryTileset = sBattleTerrainAnimTiles_Building,
         .entryTilemap = sBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Champion
+    },
+    [BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA] =
+    {
+        .tileset = gBattleTerrainTiles_Zapmolticunoohgia,
+        .tilemap = gBattleTerrainTilemap_Zapmolticunoohgia,
+        .entryTileset = sBattleTerrainAnimTiles_Building,
+        .entryTilemap = sBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Zapmolticunoohgia
     }
 };
 
@@ -621,9 +629,18 @@ static void LoadBattleTerrainGfx(u16 terrain)
     if (terrain >= NELEMS(sBattleTerrainTable))
         terrain = BATTLE_TERRAIN_PLAIN;
     // Copy to bg3
-    LZDecompressVram(sBattleTerrainTable[terrain].tileset, (void *)BG_CHAR_ADDR(2));
-    LZDecompressVram(sBattleTerrainTable[terrain].tilemap, (void *)BG_SCREEN_ADDR(26));
-    LoadCompressedPalette(sBattleTerrainTable[terrain].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+    if (terrain == BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA)
+    {
+        LZDecompressVram(gBattleTerrainTiles_Zapmolticunoohgia, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Zapmolticunoohgia, (void*)(BG_SCREEN_ADDR(26)));
+        LoadCompressedPalette(gBattleTerrainPalette_Zapmolticunoohgia, 10 * 16, 5* PLTT_SIZE_4BPP);
+    }
+    else
+    {
+        LZDecompressVram(sBattleTerrainTable[terrain].tileset, (void *)BG_CHAR_ADDR(2));
+        LZDecompressVram(sBattleTerrainTable[terrain].tilemap, (void *)BG_SCREEN_ADDR(26));
+        LoadCompressedPalette(sBattleTerrainTable[terrain].palette, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+    }
 }
 
 static void LoadBattleTerrainEntryGfx(u16 terrain)
@@ -992,6 +1009,10 @@ void DrawBattleEntryBackground(void)
             LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_WATER);
         }
     }
+    else if (gBattleTypeFlags & (BATTLE_TYPE_ZAPMOLTICUNOOHGIA))
+    {
+        LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA);
+    }
     else
     {
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -1031,6 +1052,11 @@ static u8 GetBattleTerrainOverride(void)
     {
         gBattleTerrain = BATTLE_TERRAIN_GRASS;
         return BATTLE_TERRAIN_GRASS;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_ZAPMOLTICUNOOHGIA)
+    {
+        gBattleTerrain = BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA;
+        return BATTLE_TERRAIN_ZAPMOLTICUNOOHGIA;
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {

@@ -39,6 +39,7 @@
 #define MAP_BATTLE_SCENE_AGATHA       8
 #define MAP_BATTLE_SCENE_LANCE        9
 #define MAP_BATTLE_SCENE_CHAMPION     10
+#define MAP_BATTLE_SCENE_ZAPMOLTI     11
 
 // enable debug menu
 #ifdef RELEASE

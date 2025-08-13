@@ -1,6 +1,9 @@
 const u32 gBattleTerrainPalette_Building[] = INCBIN_U32("graphics/battle_terrain/building/terrain.gbapal.lz");
 const u32 gBattleTerrainTiles_Building[] = INCBIN_U32("graphics/battle_terrain/building/terrain.4bpp.lz");
 const u32 gBattleTerrainTilemap_Building[] = INCBIN_U32("graphics/battle_terrain/building/terrain.bin.lz");
+const u32 gBattleTerrainPalette_Zapmolticunoohgia[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia/terrain.gbapal.lz");
+const u32 gBattleTerrainTiles_Zapmolticunoohgia[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia/terrain.4bpp.lz");
+const u32 gBattleTerrainTilemap_Zapmolticunoohgia[] = INCBIN_U32("graphics/battle_terrain/zapmolticunoohgia/terrain.bin.lz");
 
 const u32 gBattleTerrainPalette_Link[] = INCBIN_U32("graphics/battle_terrain/indoor/link.gbapal.lz");
 const u32 gBattleTerrainPalette_Gym[] = INCBIN_U32("graphics/battle_terrain/indoor/gym.gbapal.lz");
