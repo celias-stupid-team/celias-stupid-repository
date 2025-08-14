@@ -854,3 +854,6 @@ const u32 gItemIconPalette_CASTELIACONE[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_OldGateau[] = INCBIN_U32("graphics/items/icons/old_gateau.4bpp.lz");
 const u32 gItemIconPalette_OldGateau[] = INCBIN_U32("graphics/items/icon_palettes/old_gateau.gbapal.lz");
+
+const u32 gItemIcon_PENCILERASER[] = INCBIN_U32("graphics/items/icons/pencil_eraser.4bpp.lz");
+const u32 gItemIconPalette_PENCILERASER[] = INCBIN_U32("graphics/items/icon_palettes/pencil_eraser.gbapal.lz");
