@@ -62,7 +62,7 @@ script Route2_North_Sign {
 	lock
 	setflag(FLAG_SHINY_CREATION) //Mime
 	setvar(VAR_ROUTE2_SHINY_MIME, 1)
-	setwildbattle(SPECIES_MR_MIME, 4, ITEM_NONE)
+	setwildbattle(SPECIES_MR_MIME, 14, ITEM_NONE)
 	clearflag(FLAG_SHINY_CREATION)
 	dowildbattle
 	release
