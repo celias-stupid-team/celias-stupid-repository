@@ -271,3 +271,6 @@ const u32 gMetatileAttributes_Wormhole[] = INCBIN_U32("data/tilesets/secondary/w
 
 const u16 gMetatiles_Credits[] = INCBIN_U16("data/tilesets/primary/credits/metatiles.bin");
 const u32 gMetatileAttributes_Credits[] = INCBIN_U32("data/tilesets/primary/credits/metatile_attributes.bin");
+
+const u16 gMetatiles_BlaineFurnaceFun[] = INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/metatiles.bin");
+const u32 gMetatileAttributes_BlaineFurnaceFun[] = INCBIN_U32("data/tilesets/secondary/blaine_furnace_fun/metatile_attributes.bin");
