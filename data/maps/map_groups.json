@@ -47,7 +47,8 @@
     "gMapGroup_KantoLighthouse",
     "gMapGroup_FushciaGym",
     "gMapGroup_ViridianGym",
-    "gMapGroup_GreatSea"
+    "gMapGroup_GreatSea",
+    "gMapGroup_AetherParadise"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -659,5 +660,9 @@
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North"
+  ],
+  "gMapGroup_AetherParadise": [
+    "AetherParadise_Entrance",
+    "AetherParadise_NebbyRoom"
   ]
 }
