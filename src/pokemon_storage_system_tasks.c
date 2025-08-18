@@ -4,6 +4,8 @@
 #include "decompress.h"
 #include "dynamic_placeholder_text_util.h"
 #include "event_data.h"
+#include "field_fadetransition.h"
+#include "field_weather.h"
 #include "graphics.h"
 #include "help_system.h"
 #include "item.h"
@@ -12,8 +14,11 @@
 #include "menu.h"
 #include "naming_screen.h"
 #include "new_menu_helpers.h"
+#include "overworld.h"
+#include "party_menu.h"
 #include "pc_screen_effect.h"
 #include "pokemon_icon.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
 #include "quest_log.h"
@@ -22,6 +27,9 @@
 #include "text_window.h"
 #include "tilemap_util.h"
 #include "trig.h"
+#include "battle.h"
+#include "battle_controllers.h"
+#include "reshow_battle_screen.h"
 #include "constants/items.h"
 #include "constants/help_system.h"
 #include "constants/songs.h"
@@ -104,6 +112,8 @@ static void AddWallpapersMenu(u8 wallpaperSet);
 static void InitCursorItemIcon(void);
 static void SetPokeStorageQuestLogEvent(u8 species);
 static void UpdateBoxToSendMons(void);
+static void Task_WithdrawMonInBackground(u8 taskId);
+static void Task_ShutDownImmediately(u8 taskId);
 
 enum {
     TILEMAP_PKMN_DATA, // The "Pkmn Data" text at the top of the display
@@ -805,6 +815,10 @@ static void Task_PokeStorageMain(u8 taskId)
         case INPUT_MULTIMOVE_UNABLE:
             PlaySE(SE_FAILURE);
             break;
+        case INPUT_SWITCHIN: // WIP
+            PlaySE(SE_SELECT);
+            SetPokeStorageTask(Task_WithdrawMonInBackground);
+            break;
         }
         break;
     case 1:
@@ -929,7 +943,10 @@ static void Task_HidePartyPokemon(u8 taskId)
         {
             if (gStorage->setMosaic)
                 StartDisplayMonMosaic();
-            SetPokeStorageTask(Task_PokeStorageMain);
+            if (gMain.inBattle) // WIP --> working correctly?
+                SetPokeStorageTask(Task_ShutDownImmediately);
+            else
+                SetPokeStorageTask(Task_PokeStorageMain);
         }
         break;
     }
@@ -1048,6 +1065,12 @@ static void Task_OnSelectedMon(u8 taskId)
             break;
         case MENU_TEXT_INFO:
             SetPokeStorageTask(Task_ShowItemInfo);
+            break;
+        case MENU_TEXT_SWITCHIN: // WIP
+            PlaySE(SE_SELECT);
+            ClearBottomWindow();
+            //SetPokeStorageTask(Task_WithdrawMon);
+            SetPokeStorageTask(Task_WithdrawMonInBackground);
             break;
         }
         break;
@@ -2098,6 +2121,54 @@ static void Task_OnBPressed(u8 taskId)
     }
 }
 
+static void Task_ShutDownImmediately(u8 taskId)
+{
+    //DebugPrintf("Task_ShutDownImmediately - case: %d", gStorage->state);
+    switch (gStorage->state)
+    {
+    case 0:
+        if (IsMonBeingMoved())
+        {
+            PlaySE(SE_FAILURE);
+            PrintStorageMessage(MSG_HOLDING_POKE);
+            gStorage->state = 1;
+        }
+        else if (IsActiveItemMoving())
+            SetPokeStorageTask(Task_CloseBoxWhileHoldingItem);
+        else
+        {
+            //PlaySE(SE_SELECT);
+            //PrintStorageMessage(MSG_CONTINUE_BOX);
+            //ShowYesNoWindow(0);
+            PlaySE(SE_PC_OFF);
+            ClearBottomWindow();
+            gStorage->state = 3;
+        }
+        break;
+    case 1:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
+            SetPokeStorageTask(Task_PokeStorageMain);
+        }
+        break;
+    case 3:
+        BeginPCScreenEffect_TurnOff(20, 0, 0);
+        gStorage->state++;
+        break;
+    case 4:
+        if (!IsPCScreenEffectRunning_TurnOff())
+        {
+            UpdateBoxToSendMons();
+            gPlayerPartyCount = CalculatePlayerPartyCount();
+            gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
+            SetPokeStorageTask(Task_ChangeScreen);
+            //gBattleCommunication[gActiveBattler] = 0; //reset for HandleTurnActionSelectionState handling
+        }
+        break;
+    }
+}
+
 static void Task_ChangeScreen(u8 taskId)
 {
     struct Pokemon *party;
@@ -2826,5 +2897,98 @@ static void UpdateBoxToSendMons(void)
     {
         FlagClear(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
         VarSet(VAR_PC_BOX_TO_SEND_MON, StorageGetCurrentBox());
+    }
+}
+
+void ExternalLoadPC(void)
+{
+    int i;
+    DebugPrintf("ExternalLoadPC");
+
+    //Free memory
+    DebugPrintf("FreeAllWindowBuffers");
+    FreeAllWindowBuffers();
+    DebugPrintf("ResetSpriteData");
+    ResetSpriteData();
+    DebugPrintf("FreeAllSpritePalettes");
+    FreeAllSpritePalettes();
+    DebugPrintf("FreeMonSpritesGfx");
+    FreeMonSpritesGfx();
+    DebugPrintf("FreeBattleSpritesData");
+    FreeBattleSpritesData();
+    DebugPrintf("FreeBattleResources");
+    FreeBattleResources();
+
+    DebugPrintf("EnterPokeStorage");
+    EnterPokeStorage(OPTION_SWITCHIN);
+
+    // WIP - below is based on legacy code
+    ReshowBattleScreenDummy();
+    UpdatePartyToBattleOrder();
+    //Test
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+}
+
+static void Task_WithdrawMonInBackground(u8 taskId)
+{
+    int i; //Test WIP
+    //DebugPrintf("Task_WithdrawMonInBackground - case: %d", gStorage->state);
+    switch (gStorage->state)
+    {
+    case 0:
+        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+        {
+            PrintStorageMessage(MSG_PARTY_FULL);
+            gStorage->state = 1;
+        }
+        else
+        {
+            SaveCursorPos();
+            InitMonPlaceChange(CHANGE_SWITCHIN_TAKE); //set up correct function for DoMonPlaceChange()
+            gStorage->state = 2;
+        }
+        break;
+    case 1: //cancel
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            ClearBottomWindow();
+            SetPokeStorageTask(Task_PokeStorageMain);
+        }
+        break;
+    case 2:
+        if (!DoMonPlaceChange())
+        {
+            SetMovingMonPriority(1);
+            SetUpDoShowPartyMenu();
+            gStorage->state++;
+        }
+        break;
+    case 3:
+        if (!DoShowPartyMenu())
+        {
+            //SetPokeStorageQuestLogEvent(1);
+            InitMonPlaceChange(CHANGE_SWITCHIN_PLACE);
+            gStorage->state++;
+        }
+        break;
+    case 4:
+        if (!DoMonPlaceChange())
+        {
+            UpdatePartySlotColors();
+            gStorage->state++;
+        }
+        break;
+    case 5:
+        // WIP
+        TrySwitchInPokemonFromPSS();
+        //log current party order
+        DebugPrintf("After TrySwitchInPokemonFromPSS()");
+        UpdatePartyToFieldOrder();
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        SetPokeStorageTask(Task_HidePartyPokemon);
+        break;
     }
 }

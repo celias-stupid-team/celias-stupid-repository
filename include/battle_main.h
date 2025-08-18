@@ -55,6 +55,7 @@ extern const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT];
 extern const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
 
 void CB2_InitBattle(void);
+void BattleMainCB1(void);
 void BattleMainCB2(void);
 void FreeRestoreBattleData(void);
 void VBlankCB_Battle(void);

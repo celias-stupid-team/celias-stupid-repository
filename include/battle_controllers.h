@@ -197,6 +197,7 @@ enum
     /*new controllers should go here*/
     CONTROLLER_TERMINATOR_NOP,
     CONTROLLER_YESNOBOX,
+    CONTROLLER_POKESTORAGE,
     CONTROLLER_CMDS_COUNT
 };
 
@@ -208,6 +209,7 @@ void SetUpBattleVars(void);
 void InitBattleControllers(void);
 void TryReceiveLinkBattleData(void);
 void PrepareBufferDataTransferLink(u8 bufferId, u16 size, u8 *data);
+void SetBattlePartyIds(void);
 
 // emitters
 void BtlController_EmitGetMonData(u8 bufferId, u8 requestId, u8 monToCheck);

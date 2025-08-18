@@ -85,5 +85,9 @@ void ChooseMonForDaycare(void);
 void ChoosePartyMonByMenuType(u8 menuType);
 void LoadPartyMenuAilmentGfx(void);
 void ChooseMonForMoveRelearnerItem(void);
+void UpdatePartyToBattleOrder(void);
+bool8 TrySwitchInPokemonFromPSS(void);
+void UpdatePartyToFieldOrder(void);
+void ResetBattleSlots(void);
 
 #endif // GUARD_PARTY_MENU_H

@@ -44,6 +44,7 @@
 #include "pokemon_icon.h"
 #include "pokemon_jump.h"
 #include "pokemon_special_anim.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "quest_log.h"
 #include "region_map.h"
@@ -227,7 +228,6 @@ static u8 GetPartyBoxPaletteFlags(u8 slot, u8 animNum);
 static void AnimateSelectedPartyIcon(u8 spriteId, u8 animNum);
 static void PartyMenuStartSpriteAnim(u8 spriteId, u8 animNum);
 static void Task_ClosePartyMenuAndSetCB2(u8 taskId);
-static void UpdatePartyToFieldOrder(void);
 static s8 *GetCurrentPartySlotPtr(void);
 static u16 PartyMenuButtonHandler(s8 *slotPtr);
 static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr);
@@ -281,7 +281,6 @@ static u8 GetPartySlotEntryStatus(s8 slot);
 static void Task_HandleSelectionMenuInput(u8 taskId);
 static void CB2_ShowPokemonSummaryScreen(void);
 static void CB2_ReturnToPartyMenuFromSummaryScreen(void);
-static void UpdatePartyToBattleOrder(void);
 static void SlidePartyMenuBoxOneStep(u8 taskId);
 static void Task_SlideSelectedSlotsOffscreen(u8 taskId);
 static void SwitchPartyMon(void);
@@ -6092,6 +6091,20 @@ static bool8 TrySwitchInPokemon(void)
     u8 newSlot;
     u8 i;
 
+    DebugPrintf("\n\n--------TrySwitchInPokemon--------");
+    //input data logging
+    DebugPrintf("gActiveBattler = %d", gActiveBattler);
+    for (i = 0; i < gBattlersCount; i++)
+        DebugPrintf("gBattlerPartyIndexes[%d] = %d", i, gBattlerPartyIndexes[i]);
+    //check BattleSlots
+    for (i = 0; i < PARTY_SIZE; ++i)
+        GetPartyIdFromBattleSlot(i);
+    DebugPrintf("slot = %d", slot);
+    DebugPrintf("newSlot = %d", GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]));
+    //log current party order
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
     // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
     {
@@ -6142,7 +6155,17 @@ static bool8 TrySwitchInPokemon(void)
     gPartyMenuUseExitCallback = TRUE;
     newSlot = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]);
     SwitchPartyMonSlots(newSlot, slot);
+    DebugPrintf("After SwitchPartyMonSlots()");
+    //check BattleSlots
+    for (i = 0; i < PARTY_SIZE; ++i)
+        GetPartyIdFromBattleSlot(i);
+
     SwapPartyPokemon(&gPlayerParty[newSlot], &gPlayerParty[slot]);
+    DebugPrintf("After SwapPartyPokemon()");
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+    DebugPrintf("--------RETURN TRUE--------\n");
+
     return TRUE;
 }
 
@@ -6207,6 +6230,7 @@ static void BufferBattlePartyOrder(u8 *partyBattleOrder, u8 flankId)
 
 void BufferBattlePartyCurrentOrderBySide(u8 battlerId, u8 flankId)
 {
+    DebugPrintf("BufferBattlePartyCurrentOrderBySide");
     BufferBattlePartyOrderBySide(gBattleStruct->battlerPartyOrders[battlerId], flankId, battlerId);
 }
 
@@ -6316,28 +6340,40 @@ static u8 GetPartyIdFromBattleSlot(u8 slot)
 {
     u8 modResult = slot & 1;
     u8 retVal;
+    u8 slot_origin; //used for debugprinting only
+
+    slot_origin = slot;
 
     slot /= 2;
     if (modResult != 0)
         retVal = gBattlePartyCurrentOrder[slot] & 0xF;
     else
         retVal = gBattlePartyCurrentOrder[slot] >> 4;
+    DebugPrintf("GetPartyIdFromBattleSlot %d returns %d", slot_origin, retVal);
     return retVal;
 }
 
 static void SetPartyIdAtBattleSlot(u8 slot, u8 setVal)
 {
     bool32 modResult = slot & 1;
+    u8 slot_origin; //used for debugprinting only
+
+    slot_origin = slot;
 
     slot /= 2;
-    if (modResult != 0)
+    if (modResult != 0) {
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF0) | setVal;
-    else
+        DebugPrintf("SetPartyIdAtBattleSlot - gBattlePartyCurrentOrder[%d] = %d", slot_origin, gBattlePartyCurrentOrder[slot] & 0xF);
+    }
+    else {
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF) | (setVal << 4);
+        DebugPrintf("SetPartyIdAtBattleSlot - gBattlePartyCurrentOrder[%d] = %d", slot_origin, gBattlePartyCurrentOrder[slot] >> 4);
+    }
 }
 
 void SwitchPartyMonSlots(u8 slot, u8 slot2)
 {
+    DebugPrintf("SwitchPartyMonSlots");
     u8 partyId = GetPartyIdFromBattleSlot(slot);
 
     SetPartyIdAtBattleSlot(slot, GetPartyIdFromBattleSlot(slot2));
@@ -6364,7 +6400,7 @@ u8 GetPartyIdFromBattlePartyId(u8 battlePartyId)
     return 0;
 }
 
-static void UpdatePartyToBattleOrder(void)
+void UpdatePartyToBattleOrder(void)
 {
     struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
     u8 i;
@@ -6375,7 +6411,39 @@ static void UpdatePartyToBattleOrder(void)
     Free(partyBuffer);
 }
 
-static void UpdatePartyToFieldOrder(void)
+// void UpdatePartyToBattleOrder(void)
+// {
+//     struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
+//     u8 i;
+//     u8 j = 0;
+
+//     DebugPrintf("UpdatePartyToBattleOrder Start");
+//     for (i = 0; i < PARTY_SIZE; i++)
+//         DebugPrintf("party slot %d, BPI: %d, species: %S", i, GetPartyIdFromBattlePartyId(i), gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+//     memcpy(partyBuffer, gPlayerParty, sizeof(gPlayerParty));
+//     DebugPrintf("--------");
+//     for (i = 0; i < PARTY_SIZE; ++i)
+//     {
+//         // if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+//         // {
+//         //     SetPartyIdAtBattleSlot(i, 0xFF); // Set empty slots to 0xFF
+//         // }
+//         // else
+//         // {
+//             memcpy(&gPlayerParty[GetPartyIdFromBattlePartyId(i)], &partyBuffer[i], sizeof(struct Pokemon));
+//             DebugPrintf("memcpy(&gPlayerParty[%d], &partyBuffer[%d], species: %S", GetPartyIdFromBattlePartyId(i), i, gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(i)], MON_DATA_SPECIES, NULL)]);
+//             j++;
+//         // }
+//     }
+//     Free(partyBuffer);
+
+//     DebugPrintf("UpdatePartyToBattleOrder End");
+//     for (i = 0; i < PARTY_SIZE; i++)
+//         DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+// }
+
+void UpdatePartyToFieldOrder(void)
 {
     struct Pokemon *partyBuffer = Alloc(sizeof(gPlayerParty));
     u8 i;
@@ -6512,4 +6580,117 @@ static void Task_PartyMenuWaitForFade(u8 taskId)
         UnlockPlayerFieldControls();
         ScriptContext_Enable();
     }
+}
+
+bool8 TrySwitchInPokemonFromPSS(void)
+{
+    // WIP: always use slot 1 for withdrewn mons and slot 0 for the active mon
+    u8 slot = 1; // withdrewn mon
+    u8 newSlot = 0; // activeBattler slot
+    u8 i;
+    bool8 switchSuccessful = TRUE;
+
+    DebugPrintf("\n\n--------TrySwitchInPokemonFromPSS--------");
+    //data resets after withdrawing from PC
+    //*(&gBattleStruct->playerPartyIdx) = 1;
+
+    //input data logging
+    DebugPrintf("gActiveBattler = %d", gActiveBattler);
+    for (i = 0; i < gBattlersCount; i++)
+        DebugPrintf("gBattlerPartyIndexes[%d] = %d", i, gBattlerPartyIndexes[i]);
+    //check BattleSlots
+    for (i = 0; i < PARTY_SIZE; ++i)
+        GetPartyIdFromBattleSlot(i);
+    DebugPrintf("slot = %d", slot);
+    DebugPrintf("newSlot = %d", newSlot);
+    //log current party order
+    for (i = 0; i < PARTY_SIZE; i++)
+        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+    // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
+    if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
+    {
+        StringCopy(gStringVar1, GetTrainerPartnerName());
+        StringExpandPlaceholders(gStringVar4, gText_CantSwitchWithAlly);
+        switchSuccessful = FALSE;
+    }
+    if (GetMonData(&gPlayerParty[slot], MON_DATA_HP) == 0)
+    {
+        GetMonNickname(&gPlayerParty[slot], gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnHasNoEnergy);
+        switchSuccessful = FALSE;
+    }
+    for (i = 0; i < gBattlersCount; ++i)
+    {
+        if (GetBattlerSide(i) == B_SIDE_PLAYER && GetPartyIdFromBattleSlot(slot) == gBattlerPartyIndexes[i])
+        {
+            DebugPrintf("TrySwitchInPokemon for Already in Battle");
+            GetMonNickname(&gPlayerParty[slot], gStringVar1);
+            StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadyInBattle);
+            switchSuccessful = FALSE;
+        }
+    }
+    if (GetMonData(&gPlayerParty[slot], MON_DATA_IS_EGG))
+    {
+        StringExpandPlaceholders(gStringVar4, gText_EggCantBattle);
+        switchSuccessful = FALSE;
+    }
+    if (GetPartyIdFromBattleSlot(slot) == gBattleStruct->playerPartyIdx)
+    {
+        DebugPrintf("TrySwitchInPokemon if Already Selected");
+        GetMonNickname(&gPlayerParty[slot], gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnAlreadySelected);
+        switchSuccessful = FALSE;
+    }
+    if (gPartyMenu.action == PARTY_ACTION_ABILITY_PREVENTS)
+    {
+        SetMonPreventsSwitchingString();
+        switchSuccessful = FALSE;
+    }
+    if (gPartyMenu.action == PARTY_ACTION_CANT_SWITCH)
+    {
+        u8 currBattler = gBattlerInMenuId;
+
+        GetMonNickname(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[currBattler])], gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnCantSwitchOut);
+        switchSuccessful = FALSE;
+    }
+
+    if (switchSuccessful)
+    {
+        DebugPrintf("Set gSelectedMonPartyId = %d", GetPartyIdFromBattleSlot(slot));
+        gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
+        gPartyMenuUseExitCallback = TRUE;
+        //newSlot = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]);
+        SwitchPartyMonSlots(newSlot, slot);
+        DebugPrintf("After SwitchPartyMonSlots()");
+        //check BattleSlots
+        for (i = 0; i < PARTY_SIZE; ++i)
+            GetPartyIdFromBattleSlot(i);
+
+        SwapPartyPokemon(&gPlayerParty[newSlot], &gPlayerParty[slot]);
+        DebugPrintf("After SwapPartyPokemon()");
+        for (i = 0; i < PARTY_SIZE; i++)
+            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+        //check BattleSlots
+        // for (i = 0; i < PARTY_SIZE; ++i)
+        //     GetPartyIdFromBattleSlot(i);
+        DebugPrintf("--------RETURN TRUE--------\n");
+        return TRUE;
+    }
+    else
+    {
+        // WIP ToDo!
+        BtlController_EmitChosenMonReturnValue(1, 6, NULL); //Resets BUFFER_B for HandleTurnActionSelectionState
+        DebugPrintf("RETURN FALSE");
+        return FALSE;
+    }
+}
+
+void ResetBattleSlots(void)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        SetPartyIdAtBattleSlot(i,i);
 }

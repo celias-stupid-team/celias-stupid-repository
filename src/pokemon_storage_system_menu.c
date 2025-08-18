@@ -14,6 +14,9 @@
 #include "constants/songs.h"
 #include "constants/field_weather.h"
 #include "constants/help_system.h"
+#include "battle.h"
+#include "battle_controllers.h"
+#include "reshow_battle_screen.h"
 
 static EWRAM_DATA u8 sPreviousBoxOption = 0;
 static EWRAM_DATA struct ChooseBoxMenu *sChooseBoxMenu = NULL;
@@ -395,9 +398,28 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void)
 {
+    DebugPrintf("CB2_ExitPokeStorage");
+    // WIP
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
-    SetMainCallback2(CB2_ReturnToField);
+    if (gMain.inBattle)
+    {
+        // WIP Alloc - reallocate battle sprite data before returning
+        DebugPrintf("AllocateBattleResources");
+        AllocateBattleResources();
+        DebugPrintf("AllocateBattleSpritesData");
+        AllocateBattleSpritesData();
+        DebugPrintf("AllocateMonSpritesGfx");
+        AllocateMonSpritesGfx(); // --> gives a malloc 174
+        DebugPrintf("End of reallocation");
+
+        gMain.callback1 = BattleMainCB1;
+        SetMainCallback2(ReshowBattleScreenAfterMenu);
+    }
+    else
+    {
+        gFieldCallback = FieldTask_ReturnToPcMenu;
+        SetMainCallback2(CB2_ReturnToField);
+    }
 }
 
 void ResetPokemonStorageSystem(void)
