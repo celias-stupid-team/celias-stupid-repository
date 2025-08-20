@@ -1,0 +1,2 @@
+mapscripts Minnesota_MapScripts {
+}
