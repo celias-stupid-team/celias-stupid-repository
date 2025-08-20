@@ -67,15 +67,15 @@
     {
       "id": "HEAL_LOCATION_CINNABAR_ISLAND",
       "map": "MAP_CINNABAR_ISLAND",
-      "x": 14,
-      "y": 12,
+      "x": 27,
+      "y": 17,
       "respawn_map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_CINNABAR_NURSE"
     },
     {
       "id": "HEAL_LOCATION_INDIGO_PLATEAU",
       "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "x": 11,
+      "x": 84,
       "y": 7,
       "respawn_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LEAGUE_NURSE"

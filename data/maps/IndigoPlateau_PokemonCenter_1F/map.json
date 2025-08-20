@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -135,7 +135,7 @@
       "x": 11,
       "y": 16,
       "elevation": 3,
-      "dest_map": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "dest_map": "MAP_INDIGO_PLATEAU_USED",
       "dest_warp_id": "0"
     },
     {
@@ -153,10 +153,6 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

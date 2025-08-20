@@ -1702,11 +1702,11 @@ bool8 SocialSecurityCheck(void) {
 static void SocialSecurity_CB(void) {
     ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEADING_ZEROS, 5);
     if(!StringCompare(gText_Leekd, gStringVar1)) {
-        DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, 2);
 
     } else {
-        DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, !StringCompare(gStringVar2, gStringVar1));
 
     }
@@ -2612,6 +2612,22 @@ u16 ScriptGetPartyMonSpecies(void)
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
 
+
+void ScriptPartyContainsSpecies(void)
+{
+    s16 PartyContainsMon = 0;
+    s16 i;
+
+    for(i = 0; i < PARTY_SIZE; i++) {
+        if(gSpecialVar_0x8004 == GetMonData(i, MON_DATA_SPECIES_OR_EGG, NULL)) {
+            PartyContainsMon++;
+        }
+    }
+    if(PartyContainsMon > 0) {
+        gSpecialVar_Result = TRUE;
+    }
+    
+}
 
 void GetUnownCount(void) {
     gSpecialVar_Result = GetGameStat(GAME_STAT_UNOWNS_CAUGHT);

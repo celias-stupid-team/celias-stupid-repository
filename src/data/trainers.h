@@ -3250,7 +3250,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("JERRY"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_RivalCeruleanSquirtle),
     },
     [TRAINER_RIVAL_CERULEAN_CHARMANDER] = {
@@ -3260,7 +3260,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("JERRY"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SWITCH_IN_ORDER,
         .party = ITEM_CUSTOM_MOVES(sParty_RivalCeruleanSquirtle),
     },
     [TRAINER_SCIENTIST_TED] = {
@@ -6421,7 +6421,7 @@ const struct Trainer gTrainers[] = {
         .party = NO_ITEM_CUSTOM_MOVES(sParty_FrontierBrainNoland),
     },
     [TRAINER_BATTLE_FRONTIER_CAITLIN] = {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
+        .trainerClass = TRAINER_CLASS_FRONTIER_BRAIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_CAITLYN,
         .trainerName = _("CAITLIN"),

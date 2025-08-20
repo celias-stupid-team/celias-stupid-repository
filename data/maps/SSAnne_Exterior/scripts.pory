@@ -66,7 +66,7 @@ SSAnne_Exterior_Movement_WalkDown::
 	step_end
 `
 script VermillionHarbor_PaintedMew {
-	msgbox("A POKéMON is painted onto the side\nof this truck!\lNeat!", MSGBOX_SIGN)
+	msgbox("A POKéMON is painted onto the side\nof this truck.\lNeat!", MSGBOX_SIGN)
 }
 
 script VermillionHarbor_DollMew {
@@ -80,11 +80,7 @@ script VermillionHarbor_RealFakeMew {
 	lock
 	faceplayer
 	setwildbattle(SPECIES_DITTO_MEW, 34)
-	msgbox("And wow!\nOver in this truck, it's…!", MSGBOX_DEFAULT)
-	closemessage
-	delay(20)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	waitse
 	playmoncry(SPECIES_DITTO_MEW, CRY_MODE_ENCOUNTER)
 	msgbox("Mew?\n", MSGBOX_DEFAULT)
 	waitmoncry
@@ -96,6 +92,66 @@ script VermillionHarbor_RealFakeMew {
 	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
 	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
 	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	release
+	end
+}
+
+script VermilionHarbor_Item {
+	lock
+	switch(var(VAR_LAVA_COOKIE)) {
+		case 0:
+			applymovement(VAR_LAST_TALKED, moves(
+				set_invisible
+			))
+			giveitem_msg("{PLAYER} found one LAVA COOKIE!\n", ITEM_LAVA_COOKIE)
+		case 1:
+			applymovement(VAR_LAST_TALKED, moves(
+				set_invisible
+			))
+			giveitem_msg("{PLAYER} found one OLD GATEAU!\n", ITEM_OLD_GATEAU)
+		case 2:
+			applymovement(VAR_LAST_TALKED, moves(
+				set_invisible
+			))
+			giveitem_msg("{PLAYER} found one CASTELIACONE!\n", ITEM_CASTELIACONE)
+		case 3:
+			goto(VermilionHarbor_FuckingFuck)
+	}
+	closemessage
+	addvar(VAR_LAVA_COOKIE, 1)
+	setobjectxy(VAR_LAST_TALKED, 58, 5)
+	delay(30)
+	playse(SE_FALL)
+	applymovement(VAR_LAST_TALKED, moves(
+		set_visible
+		slide_down * 7
+	))
+	waitmovement(0)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	playse(SE_BANG)
+	special(ShakeScreen)
+	release
+	end
+}
+
+script VermilionHarbor_FuckingFuck {
+	setwildbattle(SPECIES_JIGGLYPUFF, 30)
+	waitse
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PowerPlant_EventScript_FoughtElectrode1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PowerPlant_EventScript_FoughtElectrode1)
+	setflag(FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE)
 	release
 	end
 }

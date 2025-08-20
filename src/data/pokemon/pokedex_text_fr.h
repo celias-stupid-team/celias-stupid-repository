@@ -2703,3 +2703,11 @@ const u8 gAmpharosMPokedexText[] = _(
 const u8 gVictiniPokedexText[] = _(
 	"All good programmers will\n"
 	"index starting at 0!");
+
+
+const u8 gMimikyuPokedexText[] = _(
+	"I wonder how much this one sells for");
+
+const u8 gHoopaPokedexText[] = _(
+	"Sounds like a lot of HOOPA\n"
+	"for one little KRABBY PATTY.");

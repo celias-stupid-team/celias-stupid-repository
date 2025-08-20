@@ -1861,3 +1861,21 @@ const u16 gTilesetPalettes_Thirty_Eight_Island[][16] =
 };
 
 const u32 gTilesetTiles_Thirty_Eight_Island[] = INCBIN_U32("data/tilesets/secondary/thirty_eight_island/tiles.4bpp.lz");
+const u16 gTilesetPalettes_Credits[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/credits/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/credits/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Credits[] = INCBIN_U32("data/tilesets/primary/credits/tiles.4bpp.lz");

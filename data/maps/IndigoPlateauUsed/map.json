@@ -1,0 +1,35 @@
+{
+  "id": "MAP_INDIGO_PLATEAU_USED",
+  "name": "IndigoPlateauUsed",
+  "layout": "LAYOUT_INDIGO_PLATEAU_USED",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE23",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

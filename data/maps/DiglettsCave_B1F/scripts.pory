@@ -18,6 +18,16 @@ mapscripts DiglettsCave_B1F_MapScripts {
 }
 
 
+script DiglettsCave_Digletts {
+	lock
+	setvar(VAR_DIGLETTS_CAVE_DIGLETTS, 1)
+	setwildbattle(SPECIES_DUGTRIO, 29, ITEM_NONE)
+	dowildbattle
+	release
+}
+
+
+
 script DiglettsCave_WallHole {
 	if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
 		lock

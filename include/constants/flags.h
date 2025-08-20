@@ -920,9 +920,9 @@
 #define FLAG_GOT_SHINY_SLOWPOKE               0x34B
 #define FLAG_GOT_HOUSE_VOUCHER               0x34C
 #define FLAG_TEAM_SKY_FALLS_DOWN               0x34D
-#define FLAG_0x34E               0x34E
-#define FLAG_0x34F               0x34F
-#define FLAG_0x350               0x350
+#define FLAG_GOT_BRENDAN_HAT               0x34E
+#define FLAG_CUT_MUSEUM_ASSOCIATE               0x34F
+#define FLAG_PUSHED_CARDBOARD_CUTOUT               0x350
 #define FLAG_0x351               0x351
 #define FLAG_0x352               0x352
 #define FLAG_0x353               0x353
@@ -954,7 +954,7 @@
 #define FLAG_0x36D               0x36D
 #define FLAG_0x36E               0x36E
 #define FLAG_0x36F               0x36F
-#define FLAG_0x370               0x370
+#define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
 #define FLAG_CSR_SPEEDRUN_CAVE               0x372
 #define FLAG_CSR_HINT_CLEFABLE_SHADOW               0x373
@@ -1376,7 +1376,7 @@
 #define FLAG_0x4FE               0x4FE
 #define FLAG_0x4FF               0x4FF
 
-#define TRAINER_FLAGS_START      (FLAG_0x4FF + 1)
+#define TRAINER_FLAGS_START      (FLAG_0x4FF + 1) //wiz1989 Trainer Flags
 #define TRAINER_FLAGS_END        (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x7FF
 
 // SYSTEM FLAGS
@@ -1434,7 +1434,7 @@
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
 #define FLAG_SYS_IS_FULL_RELEASE                                                  (SYS_FLAGS + 0x2A) //For locking surf out of demo 3
-#define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
+#define FLAG_SYS_IS_CREDITS                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)

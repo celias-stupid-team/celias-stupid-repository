@@ -98,7 +98,7 @@ script SaffronGym_ClosedSign {
 }
 
 script SaffronGym_SetShiny {
-	setflag(FLAG_SHINY_CREATION) //Abra
+	//setflag(FLAG_SHINY_CREATION) //Not Abra
 	release
 }
 

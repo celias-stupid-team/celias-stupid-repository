@@ -271,3 +271,6 @@ const u32 gMetatileAttributes_Wormhole[] = INCBIN_U32("data/tilesets/secondary/w
 
 const u16 gMetatiles_Thirty_Eight_Island[] = INCBIN_U16("data/tilesets/secondary/thirty_eight_island/metatiles.bin");
 const u32 gMetatileAttributes_Thirty_Eight_Island[] = INCBIN_U32("data/tilesets/secondary/thirty_eight_island/metatile_attributes.bin");
+
+const u16 gMetatiles_Credits[] = INCBIN_U16("data/tilesets/primary/credits/metatiles.bin");
+const u32 gMetatileAttributes_Credits[] = INCBIN_U32("data/tilesets/primary/credits/metatile_attributes.bin");

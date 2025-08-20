@@ -288,6 +288,6 @@ script MtMoonCelia_PC {
 }
 
 script MtMoon_1F_ExitSign {
-	msgbox("MT MOON\nExit {UP_ARROW}\lEntrance {DOWN_ARROW}", MSGBOX_SIGN)
+	msgbox("MT MOON\nShortcut {DOWN_ARROW}", MSGBOX_SIGN)
 	end
 }

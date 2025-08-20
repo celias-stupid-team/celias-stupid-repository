@@ -31,7 +31,8 @@
 #define ABILITYEFFECT_COUNT_BATTLER_SIDE         17
 #define ABILITYEFFECT_COUNT_ON_FIELD             18
 #define ABILITYEFFECT_CHECK_ON_FIELD             19
-#define ABILITYEFFECT_NEUTRALIZINGGAS            20
+#define ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART  20
+#define ABILITYEFFECT_NEUTRALIZINGGAS            21
 #define ABILITYEFFECT_MUD_SPORT                  253
 #define ABILITYEFFECT_WATER_SPORT                254
 #define ABILITYEFFECT_SWITCH_IN_WEATHER          255
@@ -101,5 +102,6 @@ s32 GetStealthHazardDamage(u8 hazardType, u32 battler);
 s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 maxHp);
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType);
 bool32 IsNeutralizingGasOnField(void);
+void TryRestoreHeldItems(void);
 
 #endif // GUARD_BATTLE_UTIL_H

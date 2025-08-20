@@ -4,6 +4,12 @@ mapscripts LostTower_MapScripts {
 }
 
 script LostTower_Gravestone {
-	msgbox("something\n", MSGBOX_SIGN)
+
+	if(checkitem(ITEM_PSYCHIC_KEY)) {
+		msgbox("I see you have the PSYCHIC KEY.\nBut…\p\nThis it not implemented yet.\pStay tuned!\n", MSGBOX_SIGN)
+
+	} else {
+		msgbox("It appears to have been built\nlast Tuesday…", MSGBOX_SIGN)
+	}
 	end
 }

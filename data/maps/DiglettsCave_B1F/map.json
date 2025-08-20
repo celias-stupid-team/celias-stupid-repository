@@ -60,7 +60,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 55,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Digletts"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 54,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Digletts"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_DIGLETTS_CAVE_DIGLETTS",
+      "var_value": "0",
+      "script": "DiglettsCave_Digletts"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

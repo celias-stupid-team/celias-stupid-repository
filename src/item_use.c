@@ -96,6 +96,7 @@ static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
 static void Task_InitPartyMenuFromRegisteredItem(u8 taskId);
+void PrintKorokDebug(void);
 
 
 // unknown unused data.
@@ -1034,7 +1035,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
         /*
         How I want this to work:
-        You use the TM. A message prints that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
+        You use the TM. A message prints in the bag that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
         Upon pressing A, Gimmieghoul's Cry plays (the text stays on screen)
         After the cry is finished, then the game returns to the field and prints the "{PLAYER} recieved a GIMMIEGHOUL!" line
         
@@ -1042,6 +1043,8 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
         //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PayDayTM, Task_ReturnToBagFromContextMenu);
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+        
+        
     }
     else
     {
@@ -1375,4 +1378,9 @@ static void Task_UseMoveRelearnerOnField(u8 taskId)
 {
     ChooseMonForMoveRelearnerItem();
     DestroyTask(taskId);
+}
+
+
+void PrintKorokDebug(void) {
+    DebugPrintf("Current value: %d", VarGet(VAR_ITEM_ID));
 }

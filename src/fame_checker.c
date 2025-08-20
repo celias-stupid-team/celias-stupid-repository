@@ -1052,52 +1052,39 @@ static void Task_DestroyAssetsAndCloseFameChecker(u8 taskId)
     {
         if (sFameCheckerData->inPickMode)
         {
-            DebugPrintf("in pick mode check");
+            //DebugPrintf("in pick mode check");
             DestroyPersonPicSprite(taskId, FameCheckerGetCursorY());
             FreeSpriteOamMatrix(&gSprites[gTasks[taskId].data[3]]);
             DestroySprite(&gSprites[gTasks[taskId].data[3]]);
         }
         for (i = 0; i < 6; i++)
         {
-            DebugPrintf("Destroy the sprites on close");
+            //DebugPrintf("Destroy the sprites on close");
             DestroySprite(&gSprites[sFameCheckerData->spriteIds[i]]);
             DestroySprite(&gSprites[sFameCheckerData->spriteIds[i + 6]]);// <- I added 6 more objects when the fame checker opens. I destroy them here, but I don't think it's enough
         }
-            DebugPrintf("Step 2");
+            //DebugPrintf("Step 2");
         FreeNonTrainerPicTiles();
-            DebugPrintf("Step 3");
+            //DebugPrintf("Step 3");
         FreeSpinningPokeballSpriteResources();
             DebugPrintf("Step 4");
         FreeSelectionCursorSpriteResources();
-            DebugPrintf("Step 5");
+            //DebugPrintf("Step 5");
         FreeQuestionMarkSpriteResources();
             DebugPrintf("Step 6");
         FreeListMenuSelectorArrowPairResources();
-            DebugPrintf("Step 7");
         SetMainCallback2(sFameCheckerData->savedCallback);
-            DebugPrintf("Step 8");
         DestroyListMenuTask(sFameCheckerData->listMenuTaskId, NULL, NULL);
-            DebugPrintf("Step 9");
         Free(sBg3TilemapBuffer);
-            DebugPrintf("Step 10");
         Free(sBg1TilemapBuffer);
-            DebugPrintf("Step 11");
         Free(sBg2TilemapBuffer);
-            DebugPrintf("Step 12");
         Free(sFameCheckerData);
-            DebugPrintf("Step 13");
         Free(sListMenuItems);
-            DebugPrintf("Step 14");
         FC_DestroyWindow(FCWINDOWID_LIST);
-            DebugPrintf("Step 15");
         FC_DestroyWindow(FCWINDOWID_UIHELP);
-            DebugPrintf("Step 16");
         FC_DestroyWindow(FCWINDOWID_MSGBOX);
-            DebugPrintf("Step 17");
         FC_DestroyWindow(FCWINDOWID_ICONDESC);
-            DebugPrintf("Step 18");
         FreeAllWindowBuffers();
-            DebugPrintf("Step 19");
         DestroyTask(taskId);
     }
 }

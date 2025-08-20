@@ -1596,6 +1596,12 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
 
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
+    if(species == SPECIES_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
+        seen = FALSE;
+        caught = FALSE;
+        obtainable = FALSE;
+        shinyFound = FALSE;
+    }
 
     
     DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
@@ -2381,8 +2387,14 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     u8 mask;
     s8 retVal;
 
+
+
     if (indexIsSpecies)
         nationalDexNo = SpeciesToNationalPokedexNum(nationalDexNo);
+
+    if(nationalDexNo == NATIONAL_DEX_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
+        return 0;
+    }
 
     if (nationalDexNo > KANTO_DEX_COUNT)
         return 0;
@@ -3557,6 +3569,13 @@ u8 DexScreen_RegisterMonToPokedex(u16 species)
 {
     DexScreen_GetSetPokedexFlag(species, FLAG_SET_SEEN, TRUE);
     DexScreen_GetSetPokedexFlag(species, FLAG_SET_CAUGHT, TRUE);
+    if(species == SPECIES_RATTATA_SHINY) {
+        DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SEEN, TRUE);
+        DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_CAUGHT, TRUE);
+        DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SHINY_FOUND, TRUE);
+        
+
+    }
 
     if (!IsNationalPokedexEnabled() && SpeciesToNationalPokedexNum(species) > KANTO_DEX_COUNT)
         return CreateTask(Task_DexScreen_RegisterNonKantoMonBeforeNationalDex, 0);

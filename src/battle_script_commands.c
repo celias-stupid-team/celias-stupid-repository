@@ -2278,7 +2278,10 @@ static void Cmd_resultmessage(void)
             gPotentialItemEffectBattler = gBattlerTarget;
             gMoveResultFlags &= ~(MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
             BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+            if (gLastUsedItem == ITEM_FOCUS_BAND)
+                gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+            else if (gLastUsedItem == ITEM_FOCUS_SASH)
+                gBattlescriptCurrInstr = BattleScript_FocusSashActivates;
             return;
         default:
             if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
@@ -2315,7 +2318,10 @@ static void Cmd_resultmessage(void)
                 gPotentialItemEffectBattler = gBattlerTarget;
                 gMoveResultFlags &= ~(MOVE_RESULT_FOE_ENDURED | MOVE_RESULT_FOE_HUNG_ON);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+                if (gLastUsedItem == ITEM_FOCUS_BAND)
+                    gBattlescriptCurrInstr = BattleScript_FocusBandActivates;
+                else if (gLastUsedItem == ITEM_FOCUS_SASH)
+                    gBattlescriptCurrInstr = BattleScript_FocusSashActivates;
                 return;
             }
             else if (gMoveResultFlags & MOVE_RESULT_FAILED)
@@ -3046,7 +3052,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 if (gBattleMons[gEffectBattler].item == ITEM_BASCI_BERRY_WHITE) //bookmarked
                 {
                     u16 *changedItem = &gBattleStruct->changedItems[gEffectBattler];
-                    DebugPrintf("you have basci berry");
+                    //DebugPrintf("you have basci berry");
                     gBattleMons[gEffectBattler].item = ITEM_BERRYLEGION;
                     gLastUsedItem = gBattleMons[gEffectBattler].item;
 
@@ -9314,12 +9320,15 @@ static void Cmd_setsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
+    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
+    case MOVE_DIG_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_UNDERGROUND;
         break;
     case MOVE_DIVE:
+    case MOVE_DIVE_CANCEL:
         gStatuses3[gBattlerAttacker] |= STATUS3_UNDERWATER;
         break;
     }
@@ -9334,12 +9343,15 @@ static void Cmd_clearsemiinvulnerablebit(void)
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
+    case MOVE_SHADOW_FORCE_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_ON_AIR;
         break;
     case MOVE_DIG:
+    case MOVE_DIG_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_UNDERGROUND;
         break;
     case MOVE_DIVE:
+    case MOVE_DIVE_CANCEL:
         gStatuses3[gBattlerAttacker] &= ~STATUS3_UNDERWATER;
         break;
     }

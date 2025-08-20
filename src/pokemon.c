@@ -606,10 +606,10 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SLOWPOKE), // 82
     SPECIES_TO_NATIONAL(SHELLDER), // 83
     SPECIES_TO_NATIONAL(SLOWBRO), // 84
-    SPECIES_TO_NATIONAL(SEEL), // 85
+    SPECIES_TO_NATIONAL(MIMIKYU), // 85
     SPECIES_TO_NATIONAL(PLUG_OINK), // 86 NOT IN YET
     SPECIES_TO_NATIONAL(EEVEE), // 87
-    SPECIES_TO_NATIONAL(LUMINEON), // 88
+    SPECIES_TO_NATIONAL(SOLACEON), // 88
     SPECIES_TO_NATIONAL(SYLVEON), // 89
     SPECIES_TO_NATIONAL(LATIAS), // 90
     SPECIES_TO_NATIONAL(EXEGGCUTE), // 91
@@ -654,8 +654,8 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(OMANYTE), // 130
     SPECIES_TO_NATIONAL(TYRANASTAR), // 131 NOT IN YET
     SPECIES_TO_NATIONAL(YANMEGA), // 132
-    SPECIES_TO_NATIONAL(KABUTOPS), // 133
-    SPECIES_TO_NATIONAL(GENESECT), // 134
+    SPECIES_TO_NATIONAL(SEEL), // 133
+    SPECIES_TO_NATIONAL(HOOPA), // 134
     SPECIES_TO_NATIONAL(JIRACHI), // 135
     SPECIES_TO_NATIONAL(ARTICUNO), // 136
     SPECIES_TO_NATIONAL(VAPOREON), // 137
@@ -1263,7 +1263,6 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(OMANYTE),
     HOENN_TO_NATIONAL(OMASTAR),
     HOENN_TO_NATIONAL(KABUTO),
-    HOENN_TO_NATIONAL(KABUTOPS),
     HOENN_TO_NATIONAL(AERODACTYL),
     HOENN_TO_NATIONAL(SNORLAX),
     HOENN_TO_NATIONAL(ARTICUNO),
@@ -1821,11 +1820,27 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     {
         u32 shinyValue;
-        do
+
+        if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
         {
+            u8 nature = Random() % NUM_NATURES;
+
             value = Random32();
-            shinyValue = GET_SHINY_VALUE(value, personality);
-        } while (shinyValue < SHINY_ODDS);
+
+            do
+            {
+                personality = Random32();
+                personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+            } while (nature != GetNatureFromPersonality(personality));
+        }
+        else // force no-shininess
+        {
+            do
+            {
+                value = Random32();
+                shinyValue = GET_SHINY_VALUE(value, personality);
+            } while (shinyValue < SHINY_ODDS);
+        }
     }
     else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
     {
@@ -1838,13 +1853,23 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
-        if (FlagGet(FLAG_SHINY_CREATION))
+        if (FlagGet(FLAG_SHINY_CREATION) || species == SPECIES_GYARADOS_LANCE)
         {
             u8 nature = personality % NUM_NATURES;  // keep current nature
             do {
                 personality = Random32();
                 personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
             } while (nature != GetNatureFromPersonality(personality));
+        }
+        else // force no-shininess
+        {
+            u8 shinyValue;
+            u8 nature = personality % NUM_NATURES;  // keep current nature
+            do
+            {
+                personality = Random32();
+                shinyValue = GET_SHINY_VALUE(value, personality);
+            } while (shinyValue < SHINY_ODDS && nature != GetNatureFromPersonality(personality));
         }
     }
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
@@ -3802,7 +3827,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
             break;
     }
     
-    if (i >= PARTY_SIZE || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_TRICK_ROOM_ROOM)))
+    if (i >= PARTY_SIZE || FlagGet(FLAG_IN_FUSHCIA_GYM))
         return SendMonToPC(mon);
 
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
@@ -6721,6 +6746,9 @@ u32 GetCurrentLevelCap(u16 species)
 
     u32 i;
 
+    if(FlagGet(FLAG_IN_FUSHCIA_GYM)) {
+        return 1;
+    }
     for (i = 0; i < ARRAY_COUNT(sSpeciesImmuneToCap); i++) // Check if the Pokemon ignores the cap, and if they don't then check the current cap based on badges
         {
             if(species == sSpeciesImmuneToCap[i])
@@ -6735,6 +6763,7 @@ u32 GetCurrentLevelCap(u16 species)
 
     return MAX_LEVEL;
 }
+
 
 void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 {

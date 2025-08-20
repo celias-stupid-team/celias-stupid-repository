@@ -261,9 +261,9 @@ It is reset after every battle.
 
 
 #define VAR_FESTIVAL_PLAZA_MAP_SCENE                 0x40A4
-#define VAR_0x40A5                 0x40A5
-#define VAR_0x40A6                 0x40A6
-#define VAR_0x40A7                 0x40A7
+#define VAR_CANT_FIND_TEETH                 0x40A5
+#define VAR_CANT_FIGURE_OUT_DARACH                 0x40A6
+#define VAR_LAVA_COOKIE                 0x40A7
 #define VAR_0x40A8                 0x40A8
 #define VAR_0x40A9                 0x40A9
 
@@ -318,7 +318,7 @@ It is reset after every battle.
 #define VAR_FUSHCIA_GYM_CHALLENGE                 0x40DA
 #define VAR_FUSHCIA_GYM_PIT_STATE                 0x40DB
 #define VAR_FUSHCIA_GYM_SHEDINJA_STATE                 0x40DC
-#define VAR_0x40DD                 0x40DD
+#define VAR_DIGLETTS_CAVE_DIGLETTS                 0x40DD
 #define VAR_0x40DE                 0x40DE
 #define VAR_0x40DF                 0x40DF
 #define VAR_0x40E0                 0x40E0

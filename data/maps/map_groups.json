@@ -65,10 +65,7 @@
     "GlitchCity",
     "LostTower",
     "Chapter8",
-    "Zero_Island",
-    "Great_Sea_1",
-    "Johto_National_Park",
-    "Thirty_Eight_Island"
+    "Credits"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -331,7 +328,7 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
     "Route10_Again",
-    "TwoIsland_North"
+    "IndigoPlateauUsed"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -659,6 +656,12 @@
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North",
-    "Minnesota"
+    "Minnesota",
+    "Zero_Island",
+    "Great_Sea_1",
+    "Johto_National_Park",
+    "Thirty_Eight_Island",
+    "TwoIsland_North"
+
   ]
 }

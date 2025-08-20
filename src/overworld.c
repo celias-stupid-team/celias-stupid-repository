@@ -3609,3 +3609,8 @@ void Task_ReloadMap(u8 taskId)
   WarpIntoMap();
   SetMainCallback2(CB2_LoadMap);
 }
+
+bool32 inline IsCurrentMap(u16 map)
+{
+    return gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(map) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(map);
+}

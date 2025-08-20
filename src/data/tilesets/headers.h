@@ -1007,5 +1007,15 @@ const struct Tileset gTileset_Thirty_Eight_Island =
     .palettes = gTilesetPalettes_Thirty_Eight_Island,
     .metatiles = gMetatiles_Thirty_Eight_Island,
     .metatileAttributes = gMetatileAttributes_Thirty_Eight_Island,
+};
+
+const struct Tileset gTileset_Credits =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Credits,
+    .palettes = gTilesetPalettes_Credits,
+    .metatiles = gMetatiles_Credits,
+    .metatileAttributes = gMetatileAttributes_Credits,
     .callback = NULL,
 };

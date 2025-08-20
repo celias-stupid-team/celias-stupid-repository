@@ -446,7 +446,7 @@ struct BattleStruct
     u8 field_8D; // unused
     u8 stringMoveType;
     u8 expGetterBattlerId;
-    u8 field_90; // unused
+    u8 introMessagesDone;
     u8 absentBattlerFlags;
     u8 AI_monToSwitchIntoId[2];
     u8 simulatedInputState[4];  // used by Oak/Old Man/Pokedude controllers
@@ -486,7 +486,8 @@ struct BattleStruct
     u8 savedBattlerAttacker[5];
     u8 savedTargetCount:4;
     u8 savedAttackerCount:4;
-    u8 padding_1E4[0x11];
+    u16 itemLost[PARTY_SIZE];
+    u8 padding_1E4[5];
 }; // size == 0x200 bytes
 
 extern struct BattleStruct *gBattleStruct;

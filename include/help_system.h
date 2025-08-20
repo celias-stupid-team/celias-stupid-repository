@@ -6,6 +6,79 @@
 #include "blit.h"
 #include "constants/help_system.h"
 
+#define MENU_INPUT_IDLE -1
+#define MENU_INPUT_B    -2
+#define MENU_INPUT_LR   -6
+#define MENU_INPUT_UP   -4
+#define MENU_INPUT_DOWN -5
+
+#define NUM_CHAPTERS_GENESIS 50
+#define NUM_CHAPTERS_EXODUS 40
+#define NUM_CHAPTERS_LEVITICUS 27
+#define NUM_CHAPTERS_NUMBERS 36
+#define NUM_CHAPTERS_DEUTERONOMY 34
+#define NUM_CHAPTERS_JOSHUA 24
+#define NUM_CHAPTERS_JUDGES 21
+#define NUM_CHAPTERS_RUTH 4
+#define NUM_CHAPTERS_1_SAMUEL 31
+#define NUM_CHAPTERS_2_SAMUEL 24
+#define NUM_CHAPTERS_1_KINGS 22
+#define NUM_CHAPTERS_2_KINGS 25
+#define NUM_CHAPTERS_1_CHRONICLES 29
+#define NUM_CHAPTERS_2_CHRONICLES 36
+#define NUM_CHAPTERS_EZRA 10
+#define NUM_CHAPTERS_NEHEMIAH 13
+#define NUM_CHAPTERS_ESTHER 10
+#define NUM_CHAPTERS_JOB 42
+#define NUM_CHAPTERS_PSALMS 150
+#define NUM_CHAPTERS_PROVERBS 31
+#define NUM_CHAPTERS_ECCLESIASTES 12
+#define NUM_CHAPTERS_SONG_OF_SOLOMON 8
+#define NUM_CHAPTERS_ISAIAH 66
+#define NUM_CHAPTERS_JEREMIAH 52
+#define NUM_CHAPTERS_LAMENTATIONS 5
+#define NUM_CHAPTERS_EZEKIEL 48
+#define NUM_CHAPTERS_DANIEL 12
+#define NUM_CHAPTERS_HOSEA 14
+#define NUM_CHAPTERS_JOEL 3
+#define NUM_CHAPTERS_AMOS 9
+#define NUM_CHAPTERS_OBADIAH 1
+#define NUM_CHAPTERS_JONAH 4
+#define NUM_CHAPTERS_MICAH 7
+#define NUM_CHAPTERS_NAHUM 3
+#define NUM_CHAPTERS_HABAKKUK 3
+#define NUM_CHAPTERS_ZEPHANIAH 3
+#define NUM_CHAPTERS_HAGGAI 2
+#define NUM_CHAPTERS_ZECHARIAH 14
+#define NUM_CHAPTERS_MALACHI 4
+#define NUM_CHAPTERS_MATTHEW 28
+#define NUM_CHAPTERS_MARK 16
+#define NUM_CHAPTERS_LUKE 24
+#define NUM_CHAPTERS_JOHN 21
+#define NUM_CHAPTERS_ACTS 28
+#define NUM_CHAPTERS_PAUL 16
+#define NUM_CHAPTERS_1_CORINTHIANS 16
+#define NUM_CHAPTERS_2_CORINTHIANS 13
+#define NUM_CHAPTERS_GALATIANS 6
+#define NUM_CHAPTERS_EPHESIANS 6
+#define NUM_CHAPTERS_PHILIPPIANS 4
+#define NUM_CHAPTERS_COLOSSIANS 4
+#define NUM_CHAPTERS_1_THESSALONIANS 5
+#define NUM_CHAPTERS_2_THESSALONIANS 3
+#define NUM_CHAPTERS_1_TIMOTHY 6
+#define NUM_CHAPTERS_2_TIMOTHY 4
+#define NUM_CHAPTERS_TITUS 3
+#define NUM_CHAPTERS_PHILEMON 1
+#define NUM_CHAPTERS_HEBREWS 13
+#define NUM_CHAPTERS_JAMES 5
+#define NUM_CHAPTERS_1_PETER 5
+#define NUM_CHAPTERS_2_PETER 3
+#define NUM_CHAPTERS_1_JOHN 5
+#define NUM_CHAPTERS_2_JOHN 1
+#define NUM_CHAPTERS_3_JOHN 1
+#define NUM_CHAPTERS_JUDE 1
+#define NUM_CHAPTERS_REVELATION 22
+
 struct HelpSystemListMenu_sub
 {
     struct ListMenuItem * items;
@@ -47,14 +120,18 @@ bool8 HelpSystemSubroutine_WelcomeWaitButton(struct HelpSystemListMenu * helpLis
 bool8 HelpSystemSubroutine_SecondWelcomeWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
 
 bool8 HelpSystemSubroutine_WelcomeEndGotoMenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpSystemSubroutine_MenuInputHandlerMain(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpMenuSubroutine_InitSubmenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpMenuSubroutine_ReturnFromSubmenu(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpMenuSubroutine_SubmenuInputHandler(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpSystemSubroutine_MenuInputHandlerLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_InitLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_InitLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_ReturnToLayer0(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_ReturnToLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_ReturnToLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_SubmenuInputHandlerLayer1(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_SubmenuInputHandlerLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
 void HelpSystem_PrintTopicLabel(void);
-bool8 HelpMenuSubroutine_HelpItemPrint(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpMenuSubroutine_ReturnFromHelpItem(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
-bool8 HelpMenuSubroutine_HelpItemWaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_HelpItemPrintLayer2(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_HelpItemPrintLayer3(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
+bool8 HelpMenuSubroutine_VerseDetails_WaitButton(struct HelpSystemListMenu * helpListMenu, struct ListMenuItem * listMenuItemsBuffer);
 bool8 GetHelpSystemMenuLevel(void);
 
 // help_system
@@ -100,5 +177,7 @@ void BackupHelpContext(void);
 void RestoreHelpContext(void);
 void HelpSystemRenderText(u8 fontId, u8 * dest, const u8 * src, u8 x, u8 y, u8 width, u8 height);
 void HelpSystem_DisableToggleWithRButton(void);
+
+u8 GetHelpSystemStateLevel(void);
 
 #endif //GUARD_HELP_SYSTEM_H
