@@ -1030,3 +1030,14 @@ const struct Tileset gTileset_BlaineFurnaceFun =
     .metatileAttributes = gMetatileAttributes_BlaineFurnaceFun,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FourIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FourIsland,
+    .palettes = gTilesetPalettes_FourIsland,
+    .metatiles = gMetatiles_FourIsland,
+    .metatileAttributes = gMetatileAttributes_FourIsland,
+    .callback = NULL,
+};
