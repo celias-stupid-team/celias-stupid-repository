@@ -277,3 +277,6 @@ const u32 gMetatileAttributes_Credits[] = INCBIN_U32("data/tilesets/primary/cred
 
 const u16 gMetatiles_BlaineFurnaceFun[] = INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/metatiles.bin");
 const u32 gMetatileAttributes_BlaineFurnaceFun[] = INCBIN_U32("data/tilesets/secondary/blaine_furnace_fun/metatile_attributes.bin");
+
+const u16 gMetatiles_FourIsland[] = INCBIN_U16("data/tilesets/secondary/four_island/metatiles.bin");
+const u32 gMetatileAttributes_FourIsland[] = INCBIN_U32("data/tilesets/secondary/four_island/metatile_attributes.bin");

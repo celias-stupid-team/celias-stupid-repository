@@ -2577,7 +2577,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "secondary_tileset": "gTileset_FourIsland",
       "border_filepath": "data/layouts/FourIsland/border.bin",
       "blockdata_filepath": "data/layouts/FourIsland/map.bin"
     },
