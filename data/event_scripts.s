@@ -1629,6 +1629,14 @@ Text_TestMsg::
 	.include "data/maps/ViridianGym_Misty/scripts.inc"
 	.include "data/maps/ViridianGym_Misty/text.inc"
 
+	.include "data/maps/Thirty_Eight_Island/scripts.inc"
+	.include "data/maps/Thirty_Eight_Island/text.inc"
+
+	.include "data/maps/Minnesota/scripts.inc"
+	.include "data/maps/Minnesota/text.inc"
+
+	.include "data/maps/TwoIsland_North/scripts.inc"
+	.include "data/maps/TwoIsland_North/text.inc"
 	.include "data/maps/IndigoPlateauUsed/scripts.inc"
 	.include "data/maps/IndigoPlateauUsed/text.inc"
 

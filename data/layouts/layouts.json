@@ -2548,8 +2548,8 @@
     {
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
-      "width": 52,
-      "height": 20,
+      "width": 65,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2572,8 +2572,8 @@
     {
       "id": "LAYOUT_FOUR_ISLAND",
       "name": "FourIsland_Layout",
-      "width": 48,
-      "height": 40,
+      "width": 75,
+      "height": 58,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2644,8 +2644,8 @@
     {
       "id": "LAYOUT_TWO_ISLAND_CAPE_BRINK",
       "name": "TwoIsland_CapeBrink_Layout",
-      "width": 24,
-      "height": 34,
+      "width": 39,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5556,6 +5556,42 @@
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
+    },
+    {
+      "id": "LAYOUT_THIRTY_EIGHT_ISLAND",
+      "name": "Thirty_Eight_Island_Layout",
+      "width": 100,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Thirty_Eight_Island",
+      "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
+      "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
+    },
+    {
+      "id": "LAYOUT_MINNESOTA",
+      "name": "Minnesota_Layout",
+      "width": 44,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Minnesota/border.bin",
+      "blockdata_filepath": "data/layouts/Minnesota/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_NORTH",
+      "name": "TwoIsland_North_Layout",
+      "width": 26,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
+      "border_filepath": "data/layouts/TwoIsland_North/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_North/map.bin"
     },
     {
       "id": "LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL_LAYOUT_2",
