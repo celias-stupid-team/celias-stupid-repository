@@ -1831,7 +1831,7 @@
           "map": "MAP_DIGLETTS_CAVE_B1F",
           "base_label": "sDiglettsCaveB1F_FireRed",
           "land_mons": {
-            "encounter_rate": 5,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 18,

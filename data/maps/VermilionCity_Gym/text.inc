@@ -132,7 +132,7 @@ VermilionCity_Gym_Text_GymGuyAdvice::
     .string "That means that America is, in fact,\n"
     .string "canonically part of this world.\p"
     .string "Despite this, his POKéMON has never\n"
-    .string "ever been seen in America!\l"
+    .string "even been seen in America!\l"
     .string "It was deemed too dangerous there!\p"
     .string "If you're gonna go up against him,\n"
     .string "be careful!\p"

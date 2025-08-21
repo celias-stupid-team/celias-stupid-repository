@@ -1879,3 +1879,22 @@ const u16 gTilesetPalettes_Credits[][16] =
 };
 
 const u32 gTilesetTiles_Credits[] = INCBIN_U32("data/tilesets/primary/credits/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_BlaineFurnaceFun[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_BlaineFurnaceFun[] = INCBIN_U32("data/tilesets/secondary/blaine_furnace_fun/tiles.4bpp.lz");

@@ -388,12 +388,12 @@
     {
       "id": "LAYOUT_CINNABAR_ISLAND_GYM",
       "name": "CinnabarIsland_Gym_Layout",
-      "width": 30,
-      "height": 25,
+      "width": 15,
+      "height": 42,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_CinnabarGym",
+      "primary_tileset": "gTileset_PorytilesBuilding",
+      "secondary_tileset": "gTileset_BlaineFurnaceFun",
       "border_filepath": "data/layouts/CinnabarIsland_Gym/border.bin",
       "blockdata_filepath": "data/layouts/CinnabarIsland_Gym/map.bin"
     },
@@ -5712,6 +5712,30 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Credits_Frame2/border.bin",
       "blockdata_filepath": "data/layouts/Credits_Frame2/map.bin"
+    },
+    {
+      "id": "LAYOUT_AETHER_PARADISE_ENTRANCE",
+      "name": "AetherParadise_Entrance_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/AetherParadise_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/AetherParadise_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_AETHER_PARADISE_NEBBY_ROOM",
+      "name": "AetherParadise_NebbyRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/AetherParadise_NebbyRoom/border.bin",
+      "blockdata_filepath": "data/layouts/AetherParadise_NebbyRoom/map.bin"
     }
   ]
 }

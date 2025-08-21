@@ -12479,3 +12479,6 @@ extern const u32 gItemIconPalette_CASTELIACONE[];
 
 extern const u32 gItemIcon_OldGateau[];
 extern const u32 gItemIconPalette_OldGateau[];
+
+extern const u32 gItemIcon_PENCILERASER[];
+extern const u32 gItemIconPalette_PENCILERASER[];

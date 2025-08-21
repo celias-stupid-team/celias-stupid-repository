@@ -1642,3 +1642,9 @@ Text_TestMsg::
 
 	.include "data/maps/Credits/scripts.inc"
 	.include "data/maps/Credits/text.inc"
+
+	.include "data/maps/AetherParadise_Entrance/scripts.inc"
+	.include "data/maps/AetherParadise_Entrance/text.inc"
+
+	.include "data/maps/AetherParadise_NebbyRoom/scripts.inc"
+	.include "data/maps/AetherParadise_NebbyRoom/text.inc"

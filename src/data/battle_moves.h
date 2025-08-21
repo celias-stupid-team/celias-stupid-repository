@@ -5809,7 +5809,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 1,
+        .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
     },
 
