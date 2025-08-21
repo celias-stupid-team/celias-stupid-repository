@@ -66,9 +66,6 @@
     "GlitchCity",
     "LostTower",
     "Chapter8",
-    "Zero_Island",
-    "Great_Sea_1",
-    "Johto_National_Park",
     "Credits"
   ],
   "gMapGroup_Dungeons": [
@@ -659,8 +656,15 @@
     "ViridianGym_Giovanni"
   ],
   "gMapGroup_GreatSea": [
-    "GreatBay_North"
+    "GreatBay_North",
+    "Minnesota",
+    "Zero_Island",
+    "Great_Sea_1",
+    "Johto_National_Park",
+    "Thirty_Eight_Island",
+    "TwoIsland_North"
   ],
+  
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom"

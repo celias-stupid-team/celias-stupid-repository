@@ -999,6 +999,16 @@ const struct Tileset gTileset_Wormhole =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_Thirty_Eight_Island =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Thirty_Eight_Island,
+    .palettes = gTilesetPalettes_Thirty_Eight_Island,
+    .metatiles = gMetatiles_Thirty_Eight_Island,
+    .metatileAttributes = gMetatileAttributes_Thirty_Eight_Island,
+};
+
 const struct Tileset gTileset_Credits =
 {
     .isCompressed = TRUE,
