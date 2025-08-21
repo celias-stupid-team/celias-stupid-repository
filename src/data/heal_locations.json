@@ -131,8 +131,8 @@
     {
       "id": "HEAL_LOCATION_FOUR_ISLAND",
       "map": "MAP_FOUR_ISLAND",
-      "x": 21,
-      "y": 31,
+      "x": 24,
+      "y": 34,
       "respawn_map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FOUR_ISLAND_NURSE"
     },

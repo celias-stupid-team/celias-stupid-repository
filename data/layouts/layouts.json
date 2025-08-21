@@ -2572,8 +2572,8 @@
     {
       "id": "LAYOUT_FOUR_ISLAND",
       "name": "FourIsland_Layout",
-      "width": 80,
-      "height": 53,
+      "width": 75,
+      "height": 58,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5710,7 +5710,8 @@
       "border_height": 2,
       "primary_tileset": "gTileset_Credits",
       "secondary_tileset": "gTileset_PalletTown",
-      "border_filepath": "data/layouts/Credits_Frame2/border.bin"
+      "border_filepath": "data/layouts/Credits_Frame2/border.bin",
+      "blockdata_filepath": ""
     }
   ]
 }
