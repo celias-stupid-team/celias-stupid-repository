@@ -5711,7 +5711,7 @@
       "primary_tileset": "gTileset_Credits",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Credits_Frame2/border.bin",
-      "blockdata_filepath": ""
+      "blockdata_filepath": "data/layouts/Credits_Frame2/map.bin"
     }
   ]
 }
