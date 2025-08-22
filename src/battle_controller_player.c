@@ -2605,7 +2605,8 @@ static void PlayerHandleChoosePokemon(void)
         DebugPrintf("gActiveBattler = %d", gActiveBattler);
 
         // WIP (new code for PSS)
-        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && TRUE) // WIP wiz1989 !!! TRUE = PSS, FALSE = party
+        gBattleSwitchFromPSS = TRUE;
+        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS) // WIP wiz1989 !!! TRUE = PSS, FALSE = party
         {
             //send all mons except the first to the PC
             //ToDo WIP: handle double battles
@@ -2632,14 +2633,6 @@ static void PlayerHandleChoosePokemon(void)
             CompactPartySlots();
             CalculatePlayerPartyCount();
             gActiveBattler = 0;
-            // DebugPrintf("D reset gBattlerPartyIndexes[]");
-            // for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-            // {
-            //     gBattlerPartyIndexes[i] = i;
-            //     // gBattleControllerData[i] = 0;
-            //     // gBattlerControllerFuncs[i] = NULL;
-            // }
-            //set inital BattleSlots
             ResetBattleSlots();
 
             DebugPrintf("After SendMonToPC - gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);

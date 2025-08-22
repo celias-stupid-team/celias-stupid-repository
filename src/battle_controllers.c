@@ -79,6 +79,8 @@ void InitBattleControllers(void)
         for (i = 0; i < gBattlersCount; i++)
             BufferBattlePartyCurrentOrderBySide(i, 0);
     }
+
+    DebugPrintBattlePartyData();
 }
 
 static void InitSinglePlayerBtlControllers(void)
@@ -290,7 +292,7 @@ static void InitLinkBtlControllers(void)
 void SetBattlePartyIds(void)
 {
     s32 i, j;
-    DebugPrintf("E");
+    DebugPrintf("SetBattlePartyIds");
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
@@ -353,9 +355,6 @@ void SetBattlePartyIds(void)
             }
         }
     }
-    for (u8 i = 0; i < MAX_BATTLERS_COUNT; i++)
-            DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
-    
 }
 
 static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)

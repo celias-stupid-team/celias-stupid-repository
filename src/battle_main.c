@@ -25,6 +25,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokedex.h"
+#include "pokemon_storage_system.h"
 #include "quest_log.h"
 #include "random.h"
 #include "roamer.h"
@@ -157,6 +158,7 @@ EWRAM_DATA u16 gCurrentMove = 0;
 EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
+EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
 EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gTakenDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
@@ -2950,6 +2952,35 @@ void BattleTurnPassed(void)
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
     *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
+
+    //reset party data
+    if (gBattleSwitchFromPSS)
+    {
+        struct Pokemon savedMon;
+        CompactPartySlots();
+        if (CalculatePlayerPartyCount() > 1)
+        {
+            savedMon = gPlayerParty[0];
+            gPlayerParty[0] = gPlayerParty[1];
+            gPlayerParty[1] = savedMon;
+        }
+
+        for (i = 0; i < MAX_BATTLERS_COUNT; ++i)
+            gBattlerPartyIndexes[i] = 0;
+
+        gActiveBattler = 0;
+        ResetBattleSlots();
+
+        for (i = 0; i < 3; i++)
+        {
+            *(gActiveBattler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+            *(BATTLE_PARTNER(gActiveBattler) * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+        }
+
+        DebugPrintBattlePartyData();
+
+        gBattleSwitchFromPSS = FALSE;
+    }
     gBattleMainFunc = HandleTurnActionSelectionState;
     gRandomTurnNumber = Random();
 }
@@ -3019,50 +3050,10 @@ void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler)
     s32 i;
     u8 r4, r1;
     
-    for (i = 0; i < PARTY_SIZE; i++)
-        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        bool32 modResult = i & 1;
-        u8 slot = i;
-
-        slot /= 2;
-        if (modResult != 0) {
-            DebugPrintf("###0 gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] & 0xF);
-        }
-        else {
-            DebugPrintf("###0 gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] >> 4);
-        }
-    }
-
-    // for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    // {
-    //     for (u8 j = 0; j < 3; j++)
-    //     {
-    //         DebugPrintf("gBattleStruct->battlerPartyOrders[%d][%d] = %d", i, j, *(i * 3 + j + (u8 *)(gBattleStruct->battlerPartyOrders)));
-    //     } 
-    // }
-    
     for (i = 0; i < 3; i++)
         gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
 
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        bool32 modResult = i & 1;
-        u8 slot = i;
-
-        slot /= 2;
-        if (modResult != 0) {
-            DebugPrintf("### gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] & 0xF);
-        }
-        else {
-            DebugPrintf("### gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] >> 4);
-        }
-    }
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-        DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
+    DebugPrintBattlePartyData();
     
     DebugPrintf("gBattleStruct->monToSwitchIntoId + %d = %d", battler, *(gBattleStruct->monToSwitchIntoId + battler));
     r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
@@ -4634,4 +4625,49 @@ static void HandleAction_ActionFinished(void)
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
+}
+
+void DebugPrintBattlePartyData(void)
+{
+    u8 i;
+
+    DebugPrintf(" ### PARTY DATA ###");
+    DebugPrintf("gActiveBattler = %d", gActiveBattler);
+    DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
+
+    for (i = 0; i < PARTY_SIZE; i++)
+                DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        bool32 modResult = i & 1;
+        u8 slot = i;
+
+        slot /= 2;
+        if (modResult != 0) {
+            DebugPrintf("gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] & 0xF);
+        }
+        else {
+            DebugPrintf("gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] >> 4);
+        }
+    }
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        bool32 modResult = i & 1;
+        u8 slot = i;
+
+        slot /= 2;
+        if (modResult != 0) {
+            DebugPrintf("battlerPartyOrders[%d] = %d", i, gBattleStruct->battlerPartyOrders[0][slot] & 0xF);
+        }
+        else {
+            DebugPrintf("battlerPartyOrders[%d] = %d", i, gBattleStruct->battlerPartyOrders[0][slot] >> 4);
+        }
+    }
+
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
+    
+    DebugPrintf(" ### PARTY DATA END ###");
 }
