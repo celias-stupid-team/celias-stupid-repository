@@ -1041,3 +1041,14 @@ const struct Tileset gTileset_FourIsland =
     .metatileAttributes = gMetatileAttributes_FourIsland,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PokemonCenterFourIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokemonCenterFourIsland,
+    .palettes = gTilesetPalettes_PokemonCenterFourIsland,
+    .metatiles = gMetatiles_PokemonCenterFourIsland,
+    .metatileAttributes = gMetatileAttributes_PokemonCenterFourIsland,
+    .callback = NULL,
+};
