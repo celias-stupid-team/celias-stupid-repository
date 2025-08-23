@@ -87,7 +87,6 @@ static void PlayerHandleLinkStandbyMsg(void);
 static void PlayerHandleResetActionMoveSelection(void);
 static void PlayerHandleCmd55(void);
 static void PlayerHandleBattleDebug(void);
-static void PlayerHandleLoadPokemonStorage(void);
 static void PlayerCmdEnd(void);
 
 static void PlayerBufferRunCommand(void);
@@ -177,7 +176,6 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_RESETACTIONMOVESELECTION] = PlayerHandleResetActionMoveSelection,
     [CONTROLLER_ENDLINKBATTLE]            = PlayerHandleCmd55,
     [CONTROLLER_DEBUGMENU]                = PlayerHandleBattleDebug,
-    [CONTROLLER_POKESTORAGE]              = PlayerHandleLoadPokemonStorage,
     [CONTROLLER_TERMINATOR_NOP]           = PlayerCmdEnd,
 };
 
@@ -1327,8 +1325,6 @@ static void OpenPCToWithdrawMon(void)
     //gBattlerControllerFuncs[gActiveBattler]() runs everytime in BattleMainCB1
     if (!gPaletteFade.active)
     {
-        DebugPrintf("OpenPCToWithdrawMon");
-        // WIP
         gBattlerControllerFuncs[gActiveBattler] = WaitForPSSMonSelection;
         DestroyTask(gBattleControllerData[gActiveBattler]);
         ExternalLoadPC(); //sets the new CB2 and and resets memory
@@ -1339,7 +1335,6 @@ static void WaitForMonSelection(void)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        DebugPrintf("WaitForMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
         if (gPartyMenuUseExitCallback == TRUE)
             BtlController_EmitChosenMonReturnValue(BUFFER_B, gSelectedMonPartyId, gBattlePartyCurrentOrder);
         else
@@ -1352,21 +1347,14 @@ static void WaitForMonSelection(void)
 
 static void WaitForPSSMonSelection(void)
 {
-    //DebugPrintf("WaitForPSSMonSelection");
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        DebugPrintf("WaitForPSSMonSelection - gSelectedMonPartyId: %d", gSelectedMonPartyId);
-
         // recalc the BattlePartyCurrentOrder after returning from the PSS
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
         {
             for (u8 i = 0; i < gBattlersCount; i++)
                 BufferBattlePartyCurrentOrderBySide(i, 0);
         }
-
-        for (u8 i = 0; i < MAX_BATTLERS_COUNT; i++)
-            DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
-    
         if (gPartyMenuUseExitCallback == TRUE) //TRUE = Mon has been chosen
             BtlController_EmitChosenMonReturnValue(BUFFER_B, gSelectedMonPartyId, gBattlePartyCurrentOrder);
         else
@@ -2151,7 +2139,6 @@ static void PlayerHandleSwitchInAnim(void)
 {
     ClearTemporarySpeciesSpriteData(gActiveBattler, gBattleBufferA[gActiveBattler][2]);
     gBattlerPartyIndexes[gActiveBattler] = gBattleBufferA[gActiveBattler][1];
-    DebugPrintf("B = %d", gBattleBufferA[gActiveBattler][1]);
     BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
     gActionSelectionCursor[gActiveBattler] = 0;
     gMoveSelectionCursor[gActiveBattler] = 0;
@@ -2165,7 +2152,6 @@ static void StartSendOutAnim(u8 battlerId, bool8 dontClearSubstituteBit)
 
     ClearTemporarySpeciesSpriteData(battlerId, dontClearSubstituteBit);
     gBattlerPartyIndexes[battlerId] = gBattleBufferA[battlerId][1];
-    DebugPrintf("C = %d", gBattleBufferA[battlerId][1]);
     species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
     gBattleControllerData[battlerId] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
     SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battlerId));
@@ -2580,8 +2566,6 @@ static void PlayerHandleChoosePokemon(void)
     int sentToPc;
     u8 taskId;
 
-    DebugPrintf("\n\n--------PlayerHandleChoosePokemon--------");
-
     for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
 
@@ -2608,17 +2592,12 @@ static void PlayerHandleChoosePokemon(void)
             //send all mons except the first to the PC
             //ToDo WIP: handle double battles
 
-            DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
-            for (i = 0; i < PARTY_SIZE; i++)
-                DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-
             for (i = 0; i < PARTY_SIZE; i++)
             {
                 if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
                     break;
                 else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send activeBattler to PC
                 {
-                    DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
                     sentToPc = SendMonToPC(&gPlayerParty[i]);
                     if (sentToPc == TRUE) {
                         ZeroMonData(&gPlayerParty[i]);
@@ -2632,22 +2611,14 @@ static void PlayerHandleChoosePokemon(void)
             gActiveBattler = 0;
             ResetBattleSlots();
 
-            DebugPrintf("After SendMonToPC - gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
-            for (i = 0; i < PARTY_SIZE; i++)
-                DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-
             //load PC to withdraw mon WIP
             gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;
             gBattlerInMenuId = gActiveBattler;
         }
         else
         {
-            DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
-            for (i = 0; i < PARTY_SIZE; i++)
-                DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
             gBattlerControllerFuncs[gActiveBattler] = OpenPartyMenuToChooseMon;
             gBattlerInMenuId = gActiveBattler;
-            DebugPrintf("gBattlerInMenuId: %d", gBattlerInMenuId);
         }
     }
 }
@@ -3161,22 +3132,8 @@ static void PlayerHandleBattleDebug(void)
 
 static void WaitForLoadPokemonStorage(void)
 {
-    DebugPrintf("WaitForLoadPokemonStorage");
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
         PlayerBufferExecCompleted();
     }
-}
-
-static void PlayerHandleLoadPokemonStorage(void) //not used rn - WIP
-{
-    DebugPrintf("PlayerHandleLoadPokemonStorage");
-    //TilemapUtil_Free();
-    //MultiMove_Free();
-    BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
-    DestroyTask(gBattleControllerData[gActiveBattler]);
-    FreeAllWindowBuffers();
-    ExternalLoadPC();
-    //SetMainCallback2(CB2_PokeStorage);
-    //gBattlerControllerFuncs[gActiveBattler] = WaitForLoadPokemonStorage;
 }

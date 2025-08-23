@@ -1380,7 +1380,6 @@ static void Task_UseMoveRelearnerOnField(u8 taskId)
     DestroyTask(taskId);
 }
 
-
 void PrintKorokDebug(void) {
     DebugPrintf("Current value: %d", VarGet(VAR_ITEM_ID));
 }

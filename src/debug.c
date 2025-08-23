@@ -1807,7 +1807,6 @@ static void DebugAction_Util_Script_8(u8 taskId)
 		gBattleSwitchFromPSS = FALSE;
 	else
 		gBattleSwitchFromPSS = TRUE;
-    DebugPrintf("gBattleSwitchFromPSS=%d\n", gBattleSwitchFromPSS);
     Debug_DestroyMenu_Full_Script(taskId, Debug_EventScript_Script_8);
 }
 

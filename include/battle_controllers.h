@@ -197,7 +197,6 @@ enum
     /*new controllers should go here*/
     CONTROLLER_TERMINATOR_NOP,
     CONTROLLER_YESNOBOX,
-    CONTROLLER_POKESTORAGE,
     CONTROLLER_CMDS_COUNT
 };
 

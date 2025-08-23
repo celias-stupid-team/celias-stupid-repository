@@ -292,7 +292,6 @@ static void InitLinkBtlControllers(void)
 void SetBattlePartyIds(void)
 {
     s32 i, j;
-    DebugPrintf("SetBattlePartyIds");
 
     if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
     {
@@ -379,7 +378,6 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
             break;
         }
     }
-    //DebugPrintf("current BattleController = %d", gBattleBufferA[gActiveBattler][0]);
 }
 
 static void CreateTasksForSendRecvLinkBuffers(void)
@@ -1220,12 +1218,6 @@ void BtlController_EmitEndLinkBattle(u8 bufferId, u8 battleOutcome)
 void BtlController_EmitDebugMenu(u8 bufferId)
 {
     sBattleBuffersTransferData[0] = CONTROLLER_DEBUGMENU;
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 1);
-}
-
-void BtlController_EmitPokeStorageMenu(u8 bufferId) //not used rn
-{
-    sBattleBuffersTransferData[0] = CONTROLLER_POKESTORAGE;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 1);
 }
 

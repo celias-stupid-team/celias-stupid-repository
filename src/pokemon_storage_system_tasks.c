@@ -2122,7 +2122,6 @@ static void Task_OnBPressed(u8 taskId)
 
 static void Task_ShutDownImmediately(u8 taskId)
 {
-    //DebugPrintf("Task_ShutDownImmediately - case: %d", gStorage->state);
     switch (gStorage->state)
     {
     case 0:
@@ -2907,32 +2906,20 @@ static void UpdateBoxToSendMons(void)
 void ExternalLoadPC(void)
 {
     int i;
-    DebugPrintf("ExternalLoadPC");
 
     //Free memory
-    DebugPrintf("FreeAllWindowBuffers");
     FreeAllWindowBuffers();
-    DebugPrintf("ResetSpriteData");
     ResetSpriteData();
-    DebugPrintf("FreeAllSpritePalettes");
     FreeAllSpritePalettes();
-    DebugPrintf("FreeMonSpritesGfx");
     FreeMonSpritesGfx();
-    DebugPrintf("FreeBattleSpritesData");
     FreeBattleSpritesData();
-    DebugPrintf("FreeBattleResources");
     FreeBattleResources();
 
-    DebugPrintf("EnterPokeStorage");
     EnterPokeStorage(OPTION_SWITCHIN);
 
     // WIP - below is based on legacy code
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
-    //Test
-    for (i = 0; i < PARTY_SIZE; i++)
-        DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-
 }
 
 static void Task_WithdrawMonInBackground(u8 taskId)
@@ -2987,13 +2974,9 @@ static void Task_WithdrawMonInBackground(u8 taskId)
     case 5:
         // WIP
         TrySwitchInPokemonFromPSS();
-        //log current party order
-        DebugPrintf("After TrySwitchInPokemonFromPSS()");
         UpdatePartyToFieldOrder();
-        
+
         gMadeAPSSSwitch = TRUE;
-        for (i = 0; i < PARTY_SIZE; i++)
-            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
         if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
             SetPokeStorageTask(Task_ShutDownImmediately);
         else

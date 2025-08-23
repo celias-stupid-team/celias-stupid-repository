@@ -3047,19 +3047,16 @@ u8 IsRunningFromBattleImpossible(void)
 
 void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler)
 {
-    DebugPrintf("+++UpdatePartyOwnerOnSwitch_NonMulti+++");
     s32 i;
     u8 r4, r1;
     
     for (i = 0; i < 3; i++)
         gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
 
-    DebugPrintBattlePartyData();
+    DebugPrintBattlePartyData(); //WIP
     
-    DebugPrintf("gBattleStruct->monToSwitchIntoId + %d = %d", battler, *(gBattleStruct->monToSwitchIntoId + battler));
     r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
     r1 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler));
-    DebugPrintf("slots: %d, %d", r4, r1);
     SwitchPartyMonSlots(r4, r1);
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
@@ -3324,7 +3321,6 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SWITCH:
-                    DebugPrintf("B_ACTION_SWITCH");
                     gChosenActionByBattler[gActiveBattler] = B_ACTION_SWITCH; // WIP - only for testing purposes
                     if (gBattleBufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
@@ -3332,18 +3328,10 @@ static void HandleTurnActionSelectionState(void)
                     }
                     else
                     {
-                        //log current party order
-                        for (i = 0; i < PARTY_SIZE; i++)
-                            DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-
                         *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = gBattleBufferB[gActiveBattler][1];
 
-                        DebugPrintf("Mon to switch into: %d", gBattleBufferB[gActiveBattler][1]);
-                        DebugPrintf("species: %S", gSpeciesNames[GetMonData(&gPlayerParty[gBattleBufferB[gActiveBattler][1]], MON_DATA_SPECIES, NULL)]);
-                        
                         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
                         {
-                            DebugPrintf("Multi Battle");
                             *(gActiveBattler * 3 + (u8 *)(gBattleStruct->battlerPartyOrders) + 0) &= 0xF;
                             *(gActiveBattler * 3 + (u8 *)(gBattleStruct->battlerPartyOrders) + 0) |= (gBattleBufferB[gActiveBattler][2] & 0xF0);
                             *(gActiveBattler * 3 + (u8 *)(gBattleStruct->battlerPartyOrders) + 1) = gBattleBufferB[gActiveBattler][3];
