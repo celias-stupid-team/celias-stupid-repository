@@ -2663,15 +2663,22 @@ AI_CV_KnockOff_End::
 	end
 
 AI_CV_Endeavor::
+	if_hp_equal AI_USER, 100, AI_CV_Endeavor_FocusSash
+AI_CV_Endeavor_Continue:
 	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
 	if_target_faster AI_CV_Endeavor2
 	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1
+AI_CV_Endeavor_ScoreUp1:
 	score +1
 	goto AI_CV_Endeavor_End
 
 AI_CV_Endeavor2::
 	if_hp_more_than AI_USER, 50, AI_CV_Endeavor_ScoreDown1
 	score +1
+	goto AI_CV_Endeavor_End
+
+AI_CV_Endeavor_FocusSash::
+	if_held_item_equal AI_USER, ITEM_FOCUS_SASH, AI_CV_Endeavor_ScoreUp1
 	goto AI_CV_Endeavor_End
 
 AI_CV_Endeavor_ScoreDown1::
