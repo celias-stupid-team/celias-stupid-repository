@@ -2602,10 +2602,7 @@ static void PlayerHandleChoosePokemon(void)
             gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
-        DebugPrintf("gActiveBattler = %d", gActiveBattler);
-
-        // WIP (new code for PSS)
-        gBattleSwitchFromPSS = TRUE;
+        // ### PSS battle switches ###
         if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS) // WIP wiz1989 !!! TRUE = PSS, FALSE = party
         {
             //send all mons except the first to the PC

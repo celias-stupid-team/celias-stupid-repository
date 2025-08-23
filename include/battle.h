@@ -695,6 +695,7 @@ extern u8 gBattlersCount;
 extern u16 gBattlerPartyIndexes[MAX_BATTLERS_COUNT];
 extern s32 gBattleMoveDamage;
 extern u8 gBattleSwitchFromPSS;
+extern u8 gMadeAPSSSwitch;
 extern u16 gIntroSlideFlags;
 extern u32 gTransformedPersonalities[MAX_BATTLERS_COUNT];
 extern u8 gBattlerPositions[MAX_BATTLERS_COUNT];

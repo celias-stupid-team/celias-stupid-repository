@@ -2990,6 +2990,8 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         //log current party order
         DebugPrintf("After TrySwitchInPokemonFromPSS()");
         UpdatePartyToFieldOrder();
+        
+        gMadeAPSSSwitch = TRUE;
         for (i = 0; i < PARTY_SIZE; i++)
             DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
         if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)

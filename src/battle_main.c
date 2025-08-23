@@ -159,6 +159,7 @@ EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
+EWRAM_DATA u8 gMadeAPSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gTakenDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
@@ -2954,7 +2955,7 @@ void BattleTurnPassed(void)
     *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
 
     //reset party data
-    if (gBattleSwitchFromPSS)
+    if (gMadeAPSSSwitch)
     {
         struct Pokemon savedMon;
         CompactPartySlots();
@@ -2979,7 +2980,7 @@ void BattleTurnPassed(void)
 
         DebugPrintBattlePartyData();
 
-        gBattleSwitchFromPSS = FALSE;
+        gMadeAPSSSwitch = FALSE;
     }
     gBattleMainFunc = HandleTurnActionSelectionState;
     gRandomTurnNumber = Random();
