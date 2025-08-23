@@ -796,6 +796,7 @@ AI_CheckViability::
 	if_effect EFFECT_SUBSTITUTE_2, AI_CV_Substitute_2
 	if_effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	if_effect EFFECT_FOLLOW_HIM, AI_CV_FollowHim
+	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
 	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
 	end
@@ -2849,6 +2850,10 @@ AI_CV_WaterShuriken:: @ special AI behavior for Nugget Bridge Rival
 
 AI_CV_CometPunch:: @ special AI behavior for Kangashkan Teacher fight
 	if_species AI_USER, SPECIES_KANGASKHANTEACHER, Score_Plus1
+	end
+
+AI_CV_QuickAttack::
+	if_can_faint Score_Plus5
 	end
 
 AI_TryToFaint::
