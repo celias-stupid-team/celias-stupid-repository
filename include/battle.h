@@ -21,6 +21,9 @@
     0x2 bit is responsible for the id of sent out pokemon. 0 means it's the first sent out pokemon, 1 it's the second one. (Triple battle didn't exist at the time yet.)
 */
 
+// config
+#define CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS TRUE
+
 #define GET_BATTLER_POSITION(battler)((gBattlerPositions[battler]))
 #define GET_BATTLER_SIDE(battler)((GetBattlerPosition(battler) & BIT_SIDE))
 #define GET_BATTLER_SIDE2(battler)((GET_BATTLER_POSITION(battler) & BIT_SIDE))

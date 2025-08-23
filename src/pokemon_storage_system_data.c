@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "battle.h"
 #include "data.h"
 #include "item.h"
 #include "mail_data.h"
@@ -530,7 +531,12 @@ static bool8 MonPlaceChange_Shift(void)
 
 static bool8 MonPlaceChange_SwitchInTake(void)
 {
-    //DebugPrintf("MonPlaceChange_SwitchInTake - case = %d", gStorage->monPlaceChangeState);
+    if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS)
+    {
+        MoveMon();
+        return FALSE;
+    }
+
     switch (gStorage->monPlaceChangeState)
     {
     case 0:
@@ -562,15 +568,18 @@ static bool8 MonPlaceChange_SwitchInTake(void)
 static bool8 MonPlaceChange_SwitchInPlace(void)
 {
     int i;
-    DebugPrintf("MonPlaceChange_SwitchInPlace - case = %d", gStorage->monPlaceChangeState);
+    if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS)
+    {
+        PlaceMon();
+        gStorage->monPlaceChangeState = 2;
+    }
+
     switch (gStorage->monPlaceChangeState)
     {
     case 0:
         if (!MonPlaceChange_MoveCursorDown())
         {
             StartSpriteAnim(gStorage->cursorSprite, 2);
-            //sCursorPosition = 1; // WIP
-            DebugPrintf("sCursorPosition = %d", sCursorPosition);
             PlaceMon();
             gStorage->monPlaceChangeState++;
         }
@@ -583,13 +592,6 @@ static bool8 MonPlaceChange_SwitchInPlace(void)
         }
         break;
     case 2:
-        //gPartyMenu.slotId = gStorage->;
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            DebugPrintf("gPlayerParty[%d], species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-            DebugPrintf("corresponding gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[i]);
-        }
-        //CalculatePlayerPartyCount();
         return FALSE;
     }
 

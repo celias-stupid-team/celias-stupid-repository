@@ -943,7 +943,7 @@ static void Task_HidePartyPokemon(u8 taskId)
         {
             if (gStorage->setMosaic)
                 StartDisplayMonMosaic();
-            if (gMain.inBattle) // WIP --> working correctly?
+            if (gMain.inBattle)
                 SetPokeStorageTask(Task_ShutDownImmediately);
             else
                 SetPokeStorageTask(Task_PokeStorageMain);
@@ -1069,7 +1069,6 @@ static void Task_OnSelectedMon(u8 taskId)
         case MENU_TEXT_SWITCHIN: // WIP
             PlaySE(SE_SELECT);
             ClearBottomWindow();
-            //SetPokeStorageTask(Task_WithdrawMon);
             SetPokeStorageTask(Task_WithdrawMonInBackground);
             break;
         }
@@ -2647,7 +2646,12 @@ static bool8 DoShowPartyMenu(void)
     switch (gStorage->showPartyMenuState)
     {
     case 0:
-        if (!ShowPartyMenu())
+        if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS)
+        {
+            SetCursorInParty();
+            gStorage->showPartyMenuState++;
+        }
+        else if (!ShowPartyMenu())
         {
             SetCursorInParty();
             gStorage->showPartyMenuState++;
@@ -2934,7 +2938,6 @@ void ExternalLoadPC(void)
 static void Task_WithdrawMonInBackground(u8 taskId)
 {
     int i; //Test WIP
-    //DebugPrintf("Task_WithdrawMonInBackground - case: %d", gStorage->state);
     switch (gStorage->state)
     {
     case 0:
@@ -2976,7 +2979,8 @@ static void Task_WithdrawMonInBackground(u8 taskId)
     case 4:
         if (!DoMonPlaceChange())
         {
-            UpdatePartySlotColors();
+            if (!(CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS))
+                UpdatePartySlotColors();
             gStorage->state++;
         }
         break;
@@ -2988,7 +2992,10 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         UpdatePartyToFieldOrder();
         for (i = 0; i < PARTY_SIZE; i++)
             DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
-        SetPokeStorageTask(Task_HidePartyPokemon);
+        if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
+            SetPokeStorageTask(Task_ShutDownImmediately);
+        else
+            SetPokeStorageTask(Task_HidePartyPokemon);
         break;
     }
 }
