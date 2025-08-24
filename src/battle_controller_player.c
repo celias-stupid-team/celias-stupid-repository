@@ -2587,29 +2587,10 @@ static void PlayerHandleChoosePokemon(void)
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
         // ### PSS battle switches ###
-        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS) // WIP wiz1989 !!! TRUE = PSS, FALSE = party
+        if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS)
         {
-            //send all mons except the first to the PC
-            //ToDo WIP: handle double battles
-
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
-                    break;
-                else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send activeBattler to PC
-                {
-                    sentToPc = SendMonToPC(&gPlayerParty[i]);
-                    if (sentToPc == TRUE) {
-                        ZeroMonData(&gPlayerParty[i]);
-                        gPlayerPartyCount = gPlayerPartyCount - 1;
-                    }
-                }
-            }
-            //reset party data
             CompactPartySlots();
             CalculatePlayerPartyCount();
-            gActiveBattler = 0;
-            ResetBattleSlots();
 
             //load PC to withdraw mon WIP
             gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;

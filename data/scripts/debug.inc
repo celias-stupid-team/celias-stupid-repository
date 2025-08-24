@@ -94,6 +94,8 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	trainerbattle_double TRAINER_CRUSH_KIN_RON_MYA, Route16_Text_LeaIntro, Route16_Text_LeaDefeat, Route16_Text_LeaNotEnoughMons
+	msgbox Route16_Text_LeaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_EventScript_Script_3::

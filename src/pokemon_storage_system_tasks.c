@@ -2924,21 +2924,35 @@ void ExternalLoadPC(void)
 
 static void Task_WithdrawMonInBackground(u8 taskId)
 {
-    int i; //Test WIP
     switch (gStorage->state)
     {
     case 0:
-        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+        //ToDo WIP: handle double battles
+
+        //send all mons except the active one to the PC
+        for (u8 i = 0; i < PARTY_SIZE; i++)
         {
-            PrintStorageMessage(MSG_PARTY_FULL);
-            gStorage->state = 1;
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+                break;
+            else if (gBattlerPartyIndexes[gActiveBattler] != i) //don't send activeBattler to PC
+            {
+                if (SendMonToPC(&gPlayerParty[i]))
+                {
+                    ZeroMonData(&gPlayerParty[i]);
+                    gPlayerPartyCount = gPlayerPartyCount - 1;
+                }
+            }
         }
-        else
-        {
-            SaveCursorPos();
-            InitMonPlaceChange(CHANGE_SWITCHIN_TAKE); //set up correct function for DoMonPlaceChange()
-            gStorage->state = 2;
-        }
+        //reset party data
+        CompactPartySlots();
+        CalculatePlayerPartyCount();
+        gActiveBattler = 0;
+        ResetBattleSlots();
+
+        //continue with PSS handling
+        SaveCursorPos();
+        InitMonPlaceChange(CHANGE_SWITCHIN_TAKE); //set up correct function for DoMonPlaceChange()
+        gStorage->state = 2;
         break;
     case 1: //cancel
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
@@ -2958,7 +2972,6 @@ static void Task_WithdrawMonInBackground(u8 taskId)
     case 3:
         if (!DoShowPartyMenu())
         {
-            //SetPokeStorageQuestLogEvent(1);
             InitMonPlaceChange(CHANGE_SWITCHIN_PLACE);
             gStorage->state++;
         }
@@ -2973,14 +2986,16 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         break;
     case 5:
         // WIP
-        TrySwitchInPokemonFromPSS();
-        UpdatePartyToFieldOrder();
+        if (TrySwitchInPokemonFromPSS())
+        {
+            UpdatePartyToFieldOrder();
 
-        gMadeAPSSSwitch = TRUE;
-        if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
-            SetPokeStorageTask(Task_ShutDownImmediately);
-        else
-            SetPokeStorageTask(Task_HidePartyPokemon);
+            gMadeAPSSSwitch = TRUE;
+            if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
+                SetPokeStorageTask(Task_ShutDownImmediately);
+            else
+                SetPokeStorageTask(Task_HidePartyPokemon);
+        }
         break;
     }
 }

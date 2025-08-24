@@ -388,7 +388,7 @@ static const u8 sDebugText_Sound[] =            _("Sound…{CLEAR_TEXT_TO 110}{R
 static const u8 sDebugText_Cancel[] =           _("Cancel");
 // Script menu
 static const u8 sDebugText_Util_Script_1[] =               _("Summon the Pit");
-static const u8 sDebugText_Util_Script_2[] =               _("Script 2");
+static const u8 sDebugText_Util_Script_2[] =               _("Start Double Battle");
 static const u8 sDebugText_Util_Script_3[] =               _("Script 3");
 static const u8 sDebugText_Util_Script_4[] =               _("Script 4");
 static const u8 sDebugText_Util_Script_5[] =               _("Script 5");

@@ -3321,7 +3321,7 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SWITCH:
-                    gChosenActionByBattler[gActiveBattler] = B_ACTION_SWITCH; // WIP - only for testing purposes
+                    // gChosenActionByBattler[gActiveBattler] = B_ACTION_SWITCH; // WIP - only for testing purposes
                     if (gBattleBufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
                         gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
