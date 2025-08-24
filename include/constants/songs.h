@@ -401,12 +401,13 @@
 #define MUS_STUPID_CREDITS            392
 #define MUS_GEN4_LASS            393
 #define MUS_BLAINE_GYM            394
+#define MUS_TCG_ISLAND            395
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_BLAINE_GYM
+#define END_MUS                     MUS_TCG_ISLAND
 
 #endif  // GUARD_CONSTANTS_SONGS_H

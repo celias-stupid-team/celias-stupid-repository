@@ -3754,6 +3754,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_STUPID_CREDITS) \
     X(MUS_GEN4_LASS) \
     X(MUS_BLAINE_GYM) \
+    X(MUS_TCG_ISLAND) \
 
 
 
