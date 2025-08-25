@@ -1320,6 +1320,7 @@ static void OpenPartyMenuToChooseMon(void)
     }
 }
 
+// ### PSS battle switches - step 2 ###
 static void OpenPCToWithdrawMon(void)
 {
     //gBattlerControllerFuncs[gActiveBattler]() runs everytime in BattleMainCB1
@@ -2563,8 +2564,6 @@ static void PlayerHandleChooseItem(void)
 static void PlayerHandleChoosePokemon(void)
 {
     s32 i;
-    int sentToPc;
-    u8 taskId;
 
     for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
@@ -2586,13 +2585,13 @@ static void PlayerHandleChoosePokemon(void)
             gBattlePartyCurrentOrder[i] = gBattleBufferA[gActiveBattler][4 + i];
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
 
-        // ### PSS battle switches ###
+        // ### PSS battle switches - step 1 ###
         if (gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH && gBattleSwitchFromPSS)
         {
             CompactPartySlots();
             CalculatePlayerPartyCount();
 
-            //load PC to withdraw mon WIP
+            //load PC to withdraw mon
             gBattlerControllerFuncs[gActiveBattler] = OpenPCToWithdrawMon;
             gBattlerInMenuId = gActiveBattler;
         }

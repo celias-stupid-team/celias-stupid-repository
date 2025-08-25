@@ -815,7 +815,7 @@ static void Task_PokeStorageMain(u8 taskId)
         case INPUT_MULTIMOVE_UNABLE:
             PlaySE(SE_FAILURE);
             break;
-        case INPUT_SWITCHIN: // WIP
+        case INPUT_SWITCHIN:
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_WithdrawMonInBackground);
             break;
@@ -1066,7 +1066,7 @@ static void Task_OnSelectedMon(u8 taskId)
         case MENU_TEXT_INFO:
             SetPokeStorageTask(Task_ShowItemInfo);
             break;
-        case MENU_TEXT_SWITCHIN: // WIP
+        case MENU_TEXT_SWITCHIN:
             PlaySE(SE_SELECT);
             ClearBottomWindow();
             SetPokeStorageTask(Task_WithdrawMonInBackground);
@@ -2120,6 +2120,7 @@ static void Task_OnBPressed(u8 taskId)
     }
 }
 
+// ### PSS battle switches - step 5 ###
 static void Task_ShutDownImmediately(u8 taskId)
 {
     switch (gStorage->state)
@@ -2135,9 +2136,6 @@ static void Task_ShutDownImmediately(u8 taskId)
             SetPokeStorageTask(Task_CloseBoxWhileHoldingItem);
         else
         {
-            //PlaySE(SE_SELECT);
-            //PrintStorageMessage(MSG_CONTINUE_BOX);
-            //ShowYesNoWindow(0);
             PlaySE(SE_PC_OFF);
             ClearBottomWindow();
             gStorage->state = 3;
@@ -2161,7 +2159,6 @@ static void Task_ShutDownImmediately(u8 taskId)
             gPlayerPartyCount = CalculatePlayerPartyCount();
             gStorage->screenChangeType = SCREEN_CHANGE_EXIT_BOX;
             SetPokeStorageTask(Task_ChangeScreen);
-            //gBattleCommunication[gActiveBattler] = 0; //reset for HandleTurnActionSelectionState handling
         }
         break;
     }
@@ -2903,6 +2900,7 @@ static void UpdateBoxToSendMons(void)
     }
 }
 
+// ### PSS battle switches - step 3 ###
 void ExternalLoadPC(void)
 {
     int i;
@@ -2917,17 +2915,17 @@ void ExternalLoadPC(void)
 
     EnterPokeStorage(OPTION_SWITCHIN);
 
-    // WIP - below is based on legacy code
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
 }
 
+// ### PSS battle switches - step 4 ###
 static void Task_WithdrawMonInBackground(u8 taskId)
 {
     switch (gStorage->state)
     {
     case 0:
-        //ToDo WIP: handle double battles
+        //WIP ToDo: handle double battles
 
         //send all mons except the active one to the PC
         for (u8 i = 0; i < PARTY_SIZE; i++)
@@ -2982,7 +2980,6 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         }
         break;
     case 5:
-        // WIP
         if (TrySwitchInPokemonFromPSS())
         {
             UpdatePartyToFieldOrder();

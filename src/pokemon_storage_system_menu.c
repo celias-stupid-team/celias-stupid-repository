@@ -398,11 +398,10 @@ static void CreatePCMainMenu(u8 whichMenu, s16 *windowIdPtr)
 
 void CB2_ExitPokeStorage(void)
 {
-    // WIP
     sPreviousBoxOption = GetCurrentBoxOption();
     if (gMain.inBattle)
     {
-        // WIP Alloc - reallocate battle sprite data before returning
+        // reallocate battle sprite data before returning
         AllocateBattleResources();
         AllocateBattleSpritesData();
         AllocateMonSpritesGfx(); // --> gives a malloc 174

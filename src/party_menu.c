@@ -6322,9 +6322,6 @@ static u8 GetPartyIdFromBattleSlot(u8 slot)
 {
     u8 modResult = slot & 1;
     u8 retVal;
-    u8 slot_origin; //used for debugprinting only
-
-    slot_origin = slot;
 
     slot /= 2;
     if (modResult != 0)
@@ -6337,17 +6334,12 @@ static u8 GetPartyIdFromBattleSlot(u8 slot)
 static void SetPartyIdAtBattleSlot(u8 slot, u8 setVal)
 {
     bool32 modResult = slot & 1;
-    u8 slot_origin; //used for debugprinting only
-
-    slot_origin = slot;
 
     slot /= 2;
-    if (modResult != 0) {
+    if (modResult != 0)
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF0) | setVal;
-    }
-    else {
+    else
         gBattlePartyCurrentOrder[slot] = (gBattlePartyCurrentOrder[slot] & 0xF) | (setVal << 4);
-    }
 }
 
 void SwitchPartyMonSlots(u8 slot, u8 slot2)
@@ -6530,7 +6522,7 @@ static void Task_PartyMenuWaitForFade(u8 taskId)
 
 bool8 TrySwitchInPokemonFromPSS(void)
 {
-    // WIP: always use slot 1 for withdrewn mons and slot 0 for the active mon
+    // always use slot 1 for withdrewn mons and slot 0 for the active mon
     u8 slot = 1; // withdrewn mon
     u8 newSlot = 0; // activeBattler slot
     u8 i;
@@ -6600,8 +6592,7 @@ bool8 TrySwitchInPokemonFromPSS(void)
     }
     else
     {
-        // WIP ToDo!
-        BtlController_EmitChosenMonReturnValue(1, 6, NULL); //Resets BUFFER_B for HandleTurnActionSelectionState
+        BtlController_EmitChosenMonReturnValue(1, 6, NULL);
         return FALSE;
     }
 }

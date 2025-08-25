@@ -2953,7 +2953,6 @@ void BattleTurnPassed(void)
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
     *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
-
     gBattleMainFunc = HandleTurnActionSelectionState;
     gRandomTurnNumber = Random();
 }
@@ -3021,10 +3020,9 @@ void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler)
 {
     s32 i;
     u8 r4, r1;
-    
+
     for (i = 0; i < 3; i++)
         gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
-    
     r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
     r1 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler));
     SwitchPartyMonSlots(r4, r1);
@@ -3162,7 +3160,7 @@ static void HandleTurnActionSelectionState(void)
                         MarkBattlerForControllerExec(gActiveBattler);
                     }
                     break;
-                case B_ACTION_SWITCH: //WIP improve handling here!
+                case B_ACTION_SWITCH:
                     *(gBattleStruct->battlerPartyIndexes + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
                     if (gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION) || gStatuses3[gActiveBattler] & STATUS3_ROOTED)
                     {
@@ -3291,7 +3289,6 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SWITCH:
-                    // gChosenActionByBattler[gActiveBattler] = B_ACTION_SWITCH; // WIP - only for testing purposes
                     if (gBattleBufferB[gActiveBattler][1] == PARTY_SIZE)
                     {
                         gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
@@ -3299,7 +3296,6 @@ static void HandleTurnActionSelectionState(void)
                     else
                     {
                         *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = gBattleBufferB[gActiveBattler][1];
-
                         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
                         {
                             *(gActiveBattler * 3 + (u8 *)(gBattleStruct->battlerPartyOrders) + 0) &= 0xF;
@@ -4585,6 +4581,7 @@ static void HandleAction_ActionFinished(void)
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
 
+    // ### PSS battle switches - step 6 ###
     //reset party data after a PSS switch
     if (gMadePSSSwitch)
     {

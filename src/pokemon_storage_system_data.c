@@ -549,7 +549,6 @@ static bool8 MonPlaceChange_SwitchInTake(void)
         if (!MonPlaceChange_MoveCursorDown())
         {
             StartSpriteAnim(gStorage->cursorSprite, 3);
-            //sCursorPosition = 0; // WIP
             MoveMon();
             gStorage->monPlaceChangeState++;
         }
