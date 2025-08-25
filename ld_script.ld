@@ -1017,6 +1017,8 @@ SECTIONS {
         sound/songs/midi/mus_gen4_lass.o(.rodata);
         sound/songs/midi/mus_blaine_gym.o(.rodata);
         sound/songs/midi/mus_tcg_island.o(.rodata);
+        sound/songs/midi/mus_four_island_center.o(.rodata);
+        sound/songs/midi/mus_four_island_mart.o(.rodata);
 
     } > ROM =0
 
