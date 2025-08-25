@@ -2944,10 +2944,7 @@ static void Task_WithdrawMonInBackground(u8 taskId)
             }
         }
         //reset party data
-        CompactPartySlots();
-        CalculatePlayerPartyCount();
-        gActiveBattler = 0;
-        ResetBattleSlots();
+        ResetPartyData(RESET_OPTION_WITHOUT_PARTY_SLOTS);
 
         //continue with PSS handling
         SaveCursorPos();

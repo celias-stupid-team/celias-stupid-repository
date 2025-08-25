@@ -2957,29 +2957,7 @@ void BattleTurnPassed(void)
     //reset party data
     if (gMadeAPSSSwitch)
     {
-        struct Pokemon savedMon;
-        CompactPartySlots();
-        if (CalculatePlayerPartyCount() > 1)
-        {
-            savedMon = gPlayerParty[0];
-            gPlayerParty[0] = gPlayerParty[1];
-            gPlayerParty[1] = savedMon;
-        }
-
-        for (i = 0; i < MAX_BATTLERS_COUNT; ++i)
-            gBattlerPartyIndexes[i] = 0;
-
-        gActiveBattler = 0;
-        ResetBattleSlots();
-
-        for (i = 0; i < 3; i++)
-        {
-            *(gActiveBattler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
-            *(BATTLE_PARTNER(gActiveBattler) * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
-        }
-
-        DebugPrintBattlePartyData();
-
+        ResetPartyData(RESET_OPTION_ALL);
         gMadeAPSSSwitch = FALSE;
     }
     gBattleMainFunc = HandleTurnActionSelectionState;
@@ -3052,8 +3030,6 @@ void UpdatePartyOwnerOnSwitch_NonMulti(u8 battler)
     
     for (i = 0; i < 3; i++)
         gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
-
-    DebugPrintBattlePartyData(); //WIP
     
     r4 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
     r1 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler));

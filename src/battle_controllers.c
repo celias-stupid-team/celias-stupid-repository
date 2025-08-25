@@ -79,8 +79,6 @@ void InitBattleControllers(void)
         for (i = 0; i < gBattlersCount; i++)
             BufferBattlePartyCurrentOrderBySide(i, 0);
     }
-
-    DebugPrintBattlePartyData();
 }
 
 static void InitSinglePlayerBtlControllers(void)

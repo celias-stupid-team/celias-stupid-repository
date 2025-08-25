@@ -3118,3 +3118,33 @@ static void WaitForLoadPokemonStorage(void)
         PlayerBufferExecCompleted();
     }
 }
+
+void ResetPartyData(u8 option)
+{
+    if (option == RESET_OPTION_ALL)
+    {
+        struct Pokemon savedMon;
+        //reset gPlayerParty slots
+        CompactPartySlots();
+        if (CalculatePlayerPartyCount() > 1)
+        {
+            savedMon = gPlayerParty[0];
+            gPlayerParty[0] = gPlayerParty[1];
+            gPlayerParty[1] = savedMon;
+        }
+    }
+
+    for (u8 i = 0; i < MAX_BATTLERS_COUNT; ++i)
+        gBattlerPartyIndexes[i] = 0;
+
+    gActiveBattler = 0;
+    ResetBattleSlots();
+
+    for (u8 i = 0; i < 3; i++)
+    {
+        *(gActiveBattler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+        *(BATTLE_PARTNER(gActiveBattler) * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+    }
+
+    // DebugPrintBattlePartyData();
+}

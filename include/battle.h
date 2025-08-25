@@ -61,6 +61,9 @@ enum {
     BATTLER_AFFINE_RETURN,
 };
 
+#define RESET_OPTION_ALL                 0
+#define RESET_OPTION_WITHOUT_PARTY_SLOTS 1
+
 #define MOVE_TARGET_SELECTED            0
 #define MOVE_TARGET_DEPENDS             (1 << 0)
 #define MOVE_TARGET_USER_OR_SELECTED    (1 << 1)
@@ -767,6 +770,7 @@ struct Pokemon *GetBattlerParty(u8 battler);
 u32 IsOnPlayerSide(u8 battler);
 bool32 IsBattlerTurnDamaged(u32 battler);
 bool32 IsBattlerAlive(u32 battler);
+void ResetPartyData(u8 option);
 
 #endif // GUARD_BATTLE_H
 
