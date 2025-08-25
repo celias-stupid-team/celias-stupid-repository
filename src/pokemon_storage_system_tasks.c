@@ -2987,7 +2987,7 @@ static void Task_WithdrawMonInBackground(u8 taskId)
         {
             UpdatePartyToFieldOrder();
 
-            gMadeAPSSSwitch = TRUE;
+            gMadePSSSwitch = TRUE;
             if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS)
                 SetPokeStorageTask(Task_ShutDownImmediately);
             else

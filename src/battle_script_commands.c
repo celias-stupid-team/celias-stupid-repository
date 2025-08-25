@@ -5297,7 +5297,6 @@ static void Cmd_openpartyscreen(void)
 
 static void Cmd_switchhandleorder(void)
 {
-    DebugPrintf("Cmd_switchhandleorder");
     s32 i;
     if (gBattleControllerExecFlags)
         return;

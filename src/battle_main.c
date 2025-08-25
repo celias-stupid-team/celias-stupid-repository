@@ -159,7 +159,7 @@ EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
-EWRAM_DATA u8 gMadeAPSSSwitch = 0;
+EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gTakenDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
@@ -2954,12 +2954,6 @@ void BattleTurnPassed(void)
         *(gBattleStruct->monToSwitchIntoId + i) = PARTY_SIZE;
     *(&gBattleStruct->absentBattlerFlags) = gAbsentBattlerFlags;
 
-    //reset party data
-    if (gMadeAPSSSwitch)
-    {
-        ResetPartyData(RESET_OPTION_ALL);
-        gMadeAPSSSwitch = FALSE;
-    }
     gBattleMainFunc = HandleTurnActionSelectionState;
     gRandomTurnNumber = Random();
 }
@@ -4590,6 +4584,13 @@ static void HandleAction_ActionFinished(void)
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
+
+    //reset party data after a PSS switch
+    if (gMadePSSSwitch)
+    {
+        ResetPartyData(RESET_OPTION_ALL);
+        gMadePSSSwitch = FALSE;
+    }
 }
 
 void DebugPrintBattlePartyData(void)
