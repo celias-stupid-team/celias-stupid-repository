@@ -5273,6 +5273,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 if (gEvolutionTable[species][i].param <= beauty)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_LEVEL_ON_FOUR_ISLAND:
+                if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FOUR_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FOUR_ISLAND))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_PARTY: //Have Gun in party
+                if (gEvolutionTable[species][i].param <= level)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             }
         }
         break;
@@ -6729,8 +6737,8 @@ u32 GetCurrentLevelCap(u16 species)
     {
         {FLAG_BADGE01_GET, 15}, 
         {FLAG_BADGE02_GET, 25}, 
-        {FLAG_BADGE03_GET, 60}, 
-        {FLAG_BADGE04_GET, MAX_LEVEL},
+        {FLAG_BADGE04_GET, 60}, 
+        {FLAG_BADGE05_GET, MAX_LEVEL},
     };
    
     static const u16 sSpeciesImmuneToCap[] = // Anything else immune to the cap goes here

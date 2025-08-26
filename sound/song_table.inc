@@ -394,6 +394,11 @@ gSongTable::
 	song mus_stupid_credits, 0, 0
 	song mus_gen4_lass, 0, 0
 	song mus_blaine_gym, 0, 0
+	song mus_tcg_island, 0, 0
+	song mus_four_island_center, 0, 0
+	song mus_four_island_mart, 0, 0
+	song mus_two_island_center, 0, 0
+	song mus_two_island_mart, 0, 0
 
 
 

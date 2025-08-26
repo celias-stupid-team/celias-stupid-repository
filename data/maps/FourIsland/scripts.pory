@@ -21,7 +21,6 @@ FourIsland_EventScript_EndSetDayCareManPos::
 	return
 
 FourIsland_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_25, 0, FourIsland_EventScript_RivalScene
 	.2byte 0
 
 FourIsland_EventScript_RivalScene::

@@ -280,3 +280,6 @@ const u32 gMetatileAttributes_BlaineFurnaceFun[] = INCBIN_U32("data/tilesets/sec
 
 const u16 gMetatiles_FourIsland[] = INCBIN_U16("data/tilesets/secondary/four_island/metatiles.bin");
 const u32 gMetatileAttributes_FourIsland[] = INCBIN_U32("data/tilesets/secondary/four_island/metatile_attributes.bin");
+
+const u16 gMetatiles_PokemonCenterFourIsland[] = INCBIN_U16("data/tilesets/secondary/pokemon_center_four_island/metatiles.bin");
+const u32 gMetatileAttributes_PokemonCenterFourIsland[] = INCBIN_U32("data/tilesets/secondary/pokemon_center_four_island/metatile_attributes.bin");

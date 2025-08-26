@@ -369,7 +369,7 @@ script CeruleanCity_BerryPowderMan {
 script CeruleanCity_PlayCeruleanMusic {
 	if(flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
 		clearflag(FLAG_CSR_CERULEAN_GOING_NORTH)
-		fadenewbgm(MUS_FUSHCIA)
+		fadenewbgm(MUS_TCG_ISLAND)
 	}
 	release
 }
