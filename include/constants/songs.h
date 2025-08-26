@@ -404,12 +404,14 @@
 #define MUS_TCG_ISLAND            395
 #define MUS_FOUR_ISLAND_CENTER            396
 #define MUS_FOUR_ISLAND_MART            397
+#define MUS_TWO_ISLAND_CENTER            398
+#define MUS_TWO_ISLAND_MART            399
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_FOUR_ISLAND_MART
+#define END_MUS                     MUS_TWO_ISLAND_MART
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -397,6 +397,8 @@ gSongTable::
 	song mus_tcg_island, 0, 0
 	song mus_four_island_center, 0, 0
 	song mus_four_island_mart, 0, 0
+	song mus_two_island_center, 0, 0
+	song mus_two_island_mart, 0, 0
 
 
 

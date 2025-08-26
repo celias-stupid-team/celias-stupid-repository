@@ -93,7 +93,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenterFourIsland",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/PokemonCenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonCenter_1F/map.bin"
     },
@@ -5736,6 +5736,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/AetherParadise_NebbyRoom/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_NebbyRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_CENTER_1F_FOUR_ISLAND",
+      "name": "PokemonCenter_1F_FourIsland",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenterFourIsland",
+      "border_filepath": "data/layouts/PokemonCenter_1F_FourIsland/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonCenter_1F_FourIsland/map.bin"
     }
   ]
 }
