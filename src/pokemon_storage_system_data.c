@@ -796,6 +796,7 @@ s8 RunCanReleaseMon(void)
 {
     u16 i;
     u16 species;
+    u8 box, boxPos;
 
     if (gStorage->releaseMonStatusResolved)
         return gStorage->releaseMonStatus;
@@ -848,9 +849,9 @@ s8 RunCanReleaseMon(void)
         }
         break;
     case 2: // check for duplicate in PSS
-        for (u8 box = 0; box < TOTAL_BOXES_COUNT; box++)
+        for (box = 0; box < TOTAL_BOXES_COUNT; box++)
         {
-            for (u8 boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++ )
+            for (boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++ )
             {
                 // don't compare against the release candidate
                 if (!(gStorage->releaseBoxId == box && gStorage->releaseBoxPos == boxPos))
