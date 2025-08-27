@@ -5124,7 +5124,7 @@
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "The foe is attacked with a shadowy\\nlump. It may lower the target's\\nSP. DEF stat.",
-      "importance": 1,
+      "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_TM_CASE",
       "type": "ITEM_TYPE_PARTY_MENU",
