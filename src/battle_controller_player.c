@@ -1348,12 +1348,14 @@ static void WaitForMonSelection(void)
 
 static void WaitForPSSMonSelection(void)
 {
+    u8 i;
+    
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
         // recalc the BattlePartyCurrentOrder after returning from the PSS
         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
         {
-            for (u8 i = 0; i < gBattlersCount; i++)
+            for (i = 0; i < gBattlersCount; i++)
                 BufferBattlePartyCurrentOrderBySide(i, 0);
         }
         if (gPartyMenuUseExitCallback == TRUE) //TRUE = Mon has been chosen
@@ -3120,6 +3122,8 @@ static void WaitForLoadPokemonStorage(void)
 
 void ResetPartyData(u8 option)
 {
+    u8 i;
+
     if (option == RESET_OPTION_ALL)
     {
         struct Pokemon savedMon;
@@ -3133,13 +3137,13 @@ void ResetPartyData(u8 option)
         }
     }
 
-    for (u8 i = 0; i < MAX_BATTLERS_COUNT; ++i)
+    for (i = 0; i < MAX_BATTLERS_COUNT; ++i)
         gBattlerPartyIndexes[i] = 0;
 
     gActiveBattler = 0;
     ResetBattleSlots();
 
-    for (u8 i = 0; i < 3; i++)
+    for (i = 0; i < 3; i++)
     {
         *(gActiveBattler * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
         *(BATTLE_PARTNER(gActiveBattler) * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];

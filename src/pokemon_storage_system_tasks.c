@@ -2922,13 +2922,15 @@ void ExternalLoadPC(void)
 // ### PSS battle switches - step 4 ###
 static void Task_WithdrawMonInBackground(u8 taskId)
 {
+    u8 i;
+
     switch (gStorage->state)
     {
     case 0:
         //WIP ToDo: handle double battles
 
         //send all mons except the active one to the PC
-        for (u8 i = 0; i < PARTY_SIZE; i++)
+        for (i = 0; i < PARTY_SIZE; i++)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
                 break;
