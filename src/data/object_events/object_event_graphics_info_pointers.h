@@ -335,6 +335,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pencil;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Phonedad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mushroomman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dadjr;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Present;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -671,4 +672,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PHONEDAD] = &gObjectEventGraphicsInfo_Phonedad,
     [OBJ_EVENT_GFX_MUSHROOMMAN] = &gObjectEventGraphicsInfo_Mushroomman,
     [OBJ_EVENT_GFX_DADJR] = &gObjectEventGraphicsInfo_Dadjr,
+    [OBJ_EVENT_GFX_PRESENT] = &gObjectEventGraphicsInfo_Present,
 };
