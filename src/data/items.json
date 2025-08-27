@@ -4882,7 +4882,7 @@
     {
       "english": "TM16",
       "itemId": "ITEM_TM16",
-      "price": 3000,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "Hey, why didn't this go into\\nthe TM CASE?",
