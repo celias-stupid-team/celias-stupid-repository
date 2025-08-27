@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "data.h"
+#include "daycare.h"
 #include "item.h"
 #include "mail_data.h"
 #include "menu.h"
@@ -766,7 +767,6 @@ void TrySetCursorFistAnim(void)
 
 void InitCanReleaseMonVars(void)
 {
-    u16 knownMoveFlags;
     if (sIsMonBeingMoved)
     {
         gStorage->tempMon = gStorage->movingMon;
@@ -788,87 +788,87 @@ void InitCanReleaseMonVars(void)
         gStorage->releaseBoxPos = sCursorPosition;
     }
 
-    gStorage->isSurfMon = FALSE;
-    gStorage->isDiveMon = FALSE;
-    gStorage->restrictedMoveList[0] = MOVE_SURF;
-    gStorage->restrictedMoveList[1] = MOVE_DIVE;
-    gStorage->restrictedMoveList[2] = MOVES_COUNT;
-    knownMoveFlags = GetMonData(&gStorage->tempMon, MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
-    gStorage->isSurfMon = knownMoveFlags & 1;
-    gStorage->isDiveMon = (knownMoveFlags >> 1) & 1;
-    if (gStorage->isSurfMon || gStorage->isDiveMon)
-        gStorage->releaseMonStatusResolved = FALSE;
-    else
-    {
-        gStorage->releaseMonStatusResolved = TRUE;
-        gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
-    }
-
     gStorage->releaseCheckState = 0;
+    gStorage->releaseMonStatusResolved = FALSE;
 }
 
 s8 RunCanReleaseMon(void)
 {
     u16 i;
-    u16 knownMoveFlags;
+    u16 species;
 
     if (gStorage->releaseMonStatusResolved)
         return gStorage->releaseMonStatus;
+    
+    species = GetMonData(&gStorage->tempMon, MON_DATA_SPECIES);
+    if (species == SPECIES_NONE || species == SPECIES_EGG)
+    {
+        gStorage->releaseMonStatusResolved = TRUE;
+        gStorage->releaseMonStatus = RELEASE_MON_NOT_ALLOWED;
+        return RELEASE_MON_NOT_ALLOWED;
+    }
 
+    // only allow release if it is a duplicate species
     switch (gStorage->releaseCheckState)
     {
-    case 0:
+    case 0: // check for duplicate in party
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (gStorage->releaseBoxId != TOTAL_BOXES_COUNT || gStorage->releaseBoxPos != i)
             {
-                knownMoveFlags = GetMonData(&gPlayerParty[i], MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
-                if (knownMoveFlags & 1)
-                    gStorage->isSurfMon = FALSE;
-                if (knownMoveFlags & 2)
-                    gStorage->isDiveMon = FALSE;
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == species)
+                {
+                    gStorage->releaseMonStatusResolved = TRUE;
+                    gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+                }
             }
         }
-        if (!(gStorage->isSurfMon || gStorage->isDiveMon))
+
+        if (!gStorage->releaseMonStatusResolved)
+            gStorage->releaseCheckState++;
+        break;
+    case 1: // check for duplicate in day care
+        for (i = 0; i < DAYCARE_MON_COUNT; i++)
         {
-            gStorage->releaseMonStatusResolved = TRUE;
-            gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+            if (gStorage->releaseBoxId != TOTAL_BOXES_COUNT || gStorage->releaseBoxPos != i)
+            {
+                if (GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SPECIES) == species)
+                {
+                    gStorage->releaseMonStatusResolved = TRUE;
+                    gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+                }
+            }
         }
-        else
+
+        if (!gStorage->releaseMonStatusResolved)
         {
             gStorage->releaseCheckBoxId = 0;
             gStorage->releaseCheckBoxPos = 0;
             gStorage->releaseCheckState++;
         }
         break;
-    case 1:
-        // for some reason, check only 5 mons in box each time this function is called
-        for (i = 0; i < 5; i++)
+    case 2: // check for duplicate in PSS
+        for (u8 box = 0; box < TOTAL_BOXES_COUNT; box++)
         {
-            knownMoveFlags = GetAndCopyBoxMonDataAt(gStorage->releaseCheckBoxId, gStorage->releaseCheckBoxPos, MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
-            if (knownMoveFlags != 0
-                && !(gStorage->releaseBoxId == gStorage->releaseCheckBoxId && gStorage->releaseBoxPos == gStorage->releaseCheckBoxPos))
+            for (u8 boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++ )
             {
-                if (knownMoveFlags & 1)
-                    gStorage->isSurfMon = FALSE;
-                if (knownMoveFlags & 2)
-                    gStorage->isDiveMon = FALSE;
-            }
-            if (++gStorage->releaseCheckBoxPos >= IN_BOX_COUNT)
-            {
-                gStorage->releaseCheckBoxPos = 0;
-                if (++gStorage->releaseCheckBoxId >= TOTAL_BOXES_COUNT)
+                // don't compare against the release candidate
+                if (!(gStorage->releaseBoxId == box && gStorage->releaseBoxPos == boxPos))
                 {
-                    gStorage->releaseMonStatusResolved = TRUE;
-                    gStorage->releaseMonStatus = RELEASE_MON_NOT_ALLOWED;
-                    break;
+                    if (GetBoxMonDataAt(box, boxPos, MON_DATA_SPECIES) == species)
+                    {
+                        gStorage->releaseMonStatusResolved = TRUE;
+                        gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+                        goto found_duplicate;
+                    }
                 }
             }
         }
-        if (!(gStorage->isSurfMon || gStorage->isDiveMon))
+        found_duplicate:
+        if (!gStorage->releaseMonStatusResolved)
         {
             gStorage->releaseMonStatusResolved = TRUE;
-            gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+            gStorage->releaseMonStatus = RELEASE_MON_NOT_ALLOWED;
         }
         break;
     }
