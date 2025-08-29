@@ -1574,12 +1574,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_PSYDUCK] = //YELLOW
     {
-        .baseHP = 80,
-        .baseAttack = 82,
-        .baseDefense = 78,
-        .baseSpeed = 85,
-        .baseSpAttack = 95,
-        .baseSpDefense = 80,
+        .baseHP = 50,
+        .baseAttack = 52,
+        .baseDefense = 48,
+        .baseSpeed = 55,
+        .baseSpAttack = 70,
+        .baseSpDefense = 50,
         .types = {TYPE_PSYCHIC, TYPE_PSYCHIC},
         .catchRate = 255,
         .expYield = 80,
@@ -3169,9 +3169,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_KOFFING] =
     {
-        .baseHP = 10,
+        .baseHP = 2,
         .baseAttack = 95,
-        .baseDefense = 10,
+        .baseDefense = 2,
         .baseSpeed = 15,
         .baseSpAttack = 90,
         .baseSpDefense = 2,

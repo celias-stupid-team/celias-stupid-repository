@@ -1251,13 +1251,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CONFUSION_PSYDUCK] =
     {
         .effect = EFFECT_DOUBLE_EDGE,
-        .power = 250,
+        .power = 170,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 25,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -7744,7 +7744,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_POISON_TAIL,
         .power = 50,
         .type = TYPE_POISON,
-        .accuracy = 100,
+        .accuracy = 101,
         .pp = 25,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
