@@ -2,6 +2,7 @@
 #include "bike.h"
 #include "field_player_avatar.h"
 #include "metatile_behavior.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "fieldmap.h"
 #include "field_camera.h"
@@ -266,7 +267,13 @@ bool8 RS_IsRunningDisallowed(u8 r0)
 bool32 IsRunningDisallowed(u8 metatileBehavior)
 {
     if (!gMapHeader.allowRunning)
-        return TRUE;
+    {
+        // allow indoor running after receiving the running shoes item
+        if (!(VarGet(VAR_MAP_SCENE_PEWTER_CITY) == 2 && gMapHeader.mapType == MAP_TYPE_INDOOR))
+            return TRUE;
+    }
+        
+
     if (MetatileBehaviorForbidsBiking(metatileBehavior) != TRUE)
         return FALSE;
     else

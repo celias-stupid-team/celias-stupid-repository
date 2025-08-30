@@ -4829,35 +4829,6 @@ u16 ItemIdToBattleMoveId(u16 item)
     return sTMHMMoves[tmNumber];
 }
 
-bool8 IsMoveHm(u16 move)
-{
-    u8 i;
-    static const u32 MovesCannotBeDeleted[] = {
-        MOVE_CUT,
-        MOVE_STRENGTH,
-        MOVE_FLY,
-        MOVE_TAIL_GLOW,
-        MOVE_GROWL_CHARMANDER,
-        MOVE_GUILLOTINE,
-        MOVE_ROCK_PUNCH,
-        MOVE_ROCK_CLIMB,
-        MOVE_ROCK_SMASH,
-        MOVE_WATERFALL,
-        MOVE_RETREAT,
-        MOVE_SURF,
-        MOVE_GULP,
-        MOVE_WHIRLPOOL,
-        MOVE_MAGICAL_LEAF,
-        MOVE_BRICK_BREAK,
-
-    };
-
-    for (i = 0; i < ARRAY_COUNT(MovesCannotBeDeleted) - 1; ++i) // no dive
-        if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
-            return TRUE;
-    return FALSE;
-}
-
 bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
 {
     u8 i;

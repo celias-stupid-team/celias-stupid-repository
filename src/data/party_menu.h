@@ -1218,8 +1218,6 @@ static const u8 *const sUnionRoomTradeMessages[] =
 
 static const u16 sTMHMMoves[] =
 {
-    
-    
     MOVE_WHIRLWIND,
     MOVE_CSR_DUMMY,
     MOVE_SECRET_POWER,

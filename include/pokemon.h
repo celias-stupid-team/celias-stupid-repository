@@ -304,6 +304,7 @@ extern const u8 gFacilityClassToTrainerClass[];
 extern const struct SpriteTemplate gSpriteTemplates_Battlers[];
 extern const u8 gPPUpGetMask[];
 extern const u8 *const gMonFootprintTable[];
+extern const u32 gProtectedMoves[];
 
 void ZeroBoxMonData(struct BoxPokemon *boxMon);
 void ZeroMonData(struct Pokemon *mon);
@@ -409,7 +410,6 @@ const u32 *GetMonFrontSpritePal(struct Pokemon *mon);
 const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 personality);
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon);
 const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u16 species, u32 otId , u32 personality);
-bool32 IsHMMove2(u16 move);
 bool8 IsMonSpriteNotFlipped(u16 species);
 s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor);
 bool8 IsTradedMon(struct Pokemon *mon);
@@ -441,6 +441,7 @@ void SetMonLockedAbility(struct Pokemon *mon, u8 ability);
 void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability);
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove);
 void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
+bool8 IsMoveHm(u16 move);
 
 u32 GetCurrentLevelCap(u16 species);
 

@@ -394,14 +394,11 @@ struct PokemonStorageSystemData
     struct Pokemon tempMon;
     s8 releaseMonStatus;
     bool8 releaseMonStatusResolved;
-    bool8 isSurfMon;
-    bool8 isDiveMon;
     s8 releaseCheckBoxId;
     s8 releaseCheckBoxPos;
     s8 releaseBoxId;
     s8 releaseBoxPos;
     u16 releaseCheckState;
-    u16 restrictedMoveList[3];
     u8 summaryLastIndex;
     u8 summaryCursorPos;
     u8 summaryScreenMode;
