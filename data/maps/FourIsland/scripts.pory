@@ -186,3 +186,13 @@ script FourIsland_RockClimb {
 
 }
 
+script FourIsland_Rock {
+	msgbox("It's a rock.\n", MSGBOX_SIGN)
+
+}
+
+script FourIsland_AmitySquareSign {
+	msgbox("AMITY SQUARE\nCute POKéMON only!\lWe're extremely strict.", MSGBOX_SIGN)
+
+}
+

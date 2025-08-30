@@ -22168,6 +22168,71 @@
         {
           "map": "MAP_FOUR_ISLAND",
           "base_label": "sFourIsland_FireRed",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_TENTACOOL"
+              }
+            ]
+          },
           "water_mons": {
             "encounter_rate": 0,
             "mons": [
