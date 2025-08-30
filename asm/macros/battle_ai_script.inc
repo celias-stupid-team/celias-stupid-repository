@@ -577,6 +577,13 @@
 	.4byte \ptr
 	.endm
 
+	.macro if_held_item_equal battler:req, item:req, ptr:req
+	.byte 0x62
+	.byte \battler
+	.2byte \item
+	.4byte \ptr
+	.endm
+
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE

@@ -796,6 +796,7 @@ AI_CheckViability::
 	if_effect EFFECT_SUBSTITUTE_2, AI_CV_Substitute_2
 	if_effect EFFECT_REVIVAL_BLESSING, AI_CV_RevivalBlessing
 	if_effect EFFECT_FOLLOW_HIM, AI_CV_FollowHim
+	if_effect EFFECT_QUICK_ATTACK, AI_CV_QuickAttack
 	if_move MOVE_WATER_SHURIKEN, AI_CV_WaterShuriken
 	if_move MOVE_COMET_PUNCH, AI_CV_CometPunch
 	end
@@ -2663,15 +2664,22 @@ AI_CV_KnockOff_End::
 	end
 
 AI_CV_Endeavor::
+	if_hp_equal AI_USER, 100, AI_CV_Endeavor_FocusSash
+AI_CV_Endeavor_Continue:
 	if_hp_less_than AI_TARGET, 70, AI_CV_Endeavor_ScoreDown1
 	if_target_faster AI_CV_Endeavor2
 	if_hp_more_than AI_USER, 40, AI_CV_Endeavor_ScoreDown1
+AI_CV_Endeavor_ScoreUp1:
 	score +1
 	goto AI_CV_Endeavor_End
 
 AI_CV_Endeavor2::
 	if_hp_more_than AI_USER, 50, AI_CV_Endeavor_ScoreDown1
 	score +1
+	goto AI_CV_Endeavor_End
+
+AI_CV_Endeavor_FocusSash::
+	if_held_item_equal AI_USER, ITEM_FOCUS_SASH, AI_CV_Endeavor_ScoreUp1
 	goto AI_CV_Endeavor_End
 
 AI_CV_Endeavor_ScoreDown1::
@@ -2842,6 +2850,10 @@ AI_CV_WaterShuriken:: @ special AI behavior for Nugget Bridge Rival
 
 AI_CV_CometPunch:: @ special AI behavior for Kangashkan Teacher fight
 	if_species AI_USER, SPECIES_KANGASKHANTEACHER, Score_Plus1
+	end
+
+AI_CV_QuickAttack::
+	if_can_faint Score_Plus5
 	end
 
 AI_TryToFaint::

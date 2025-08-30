@@ -99,6 +99,26 @@ static const struct CombinedMove sCombinedMoves[2] =
     {0xFFFF, 0xFFFF, 0xFFFF}
 };
 
+#define PROTECTED_MOVES_COUNT ARRAY_COUNT(gProtectedMoves)
+const u32 gProtectedMoves[] = {
+    MOVE_CUT,
+    MOVE_STRENGTH,
+    MOVE_FLY,
+    MOVE_TAIL_GLOW,
+    MOVE_GROWL_CHARMANDER,
+    MOVE_GUILLOTINE,
+    MOVE_ROCK_PUNCH,
+    MOVE_ROCK_CLIMB,
+    MOVE_ROCK_SMASH,
+    MOVE_WATERFALL,
+    MOVE_RETREAT,
+    MOVE_SURF,
+    MOVE_GULP,
+    MOVE_WHIRLPOOL,
+    MOVE_MAGICAL_LEAF,
+    MOVE_BRICK_BREAK
+};
+
 // NOTE: The order of the elements in the 3 arrays below is irrelevant.
 // To reorder the pokedex, see the values in include/constants/pokedex.h.
 
@@ -1663,14 +1683,6 @@ static const s8 sFriendshipEventDeltas[][3] =
 };
 
 #define HM_MOVES_END 0xFFFF
-
-static const u16 sHMMoves[] = // The HM moves that prevent you from releasing a Pokemon
-{
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_TAIL_GLOW,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, MOVE_GROWL_CHARMANDER, MOVE_ODOR_SLEUTH, MOVE_GUILLOTINE, MOVE_ROCK_PUNCH,
-    MOVE_BRICK_BREAK,
-    HM_MOVES_END
-};
 
 #if defined(FIRERED)
 // Attack forme
@@ -6146,17 +6158,6 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
         return &gMonPaletteTable[species];
 }
 
-bool32 IsHMMove2(u16 move)
-{
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i++] == move)
-            return TRUE;
-    }
-    return FALSE;
-}
-
 bool8 IsMonSpriteNotFlipped(u16 species)
 {
     return gSpeciesInfo[species].noFlip;
@@ -6800,4 +6801,16 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     *new3 = *old3;
     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
     EncryptBoxMon(boxMon);
+}
+
+bool8 IsMoveHm(u16 move)
+{
+    u8 i;
+    
+    for (i = 0; i < PROTECTED_MOVES_COUNT; i++)
+    {
+        if (gProtectedMoves[i] == move)
+            return TRUE;
+    }
+    return FALSE;
 }

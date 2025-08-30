@@ -103,5 +103,6 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 uq4_12_t GetTypeModifier(u32 atkType, u32 defType);
 bool32 IsNeutralizingGasOnField(void);
 void TryRestoreHeldItems(void);
+bool32 IsSingleWildRattata(void);
 
 #endif // GUARD_BATTLE_UTIL_H

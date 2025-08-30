@@ -3594,3 +3594,35 @@ void TryRestoreHeldItems(void)
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
     }
 }
+
+bool32 IsSingleWildRattata(void)
+{
+    // Not a trainer battle → wild.
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        return FALSE;
+
+    // Exclude odd battle types where “wild” isn’t a normal wild encounter.
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI
+                          | BATTLE_TYPE_OLD_MAN_TUTORIAL
+                          | BATTLE_TYPE_POKEDUDE
+                          | BATTLE_TYPE_GHOST
+                          | BATTLE_TYPE_LINK
+                          | BATTLE_TYPE_EREADER_TRAINER))
+        return FALSE;
+
+    // Ensure not a double/multi/etc.
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+        return FALSE;
+
+    // Check species in the enemy party’s lead slot.
+    if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_RATTATA
+        && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_RATTATA_SHINY)
+        return FALSE;
+
+    // Make sure there isn't a second opponent being used.
+    // (Party slot 1 exists in memory, but in a normal single wild it’s empty/unused.)
+    if (GetMonData(&gEnemyParty[1], MON_DATA_SPECIES) != SPECIES_NONE)
+        return FALSE;
+
+    return TRUE;
+}
