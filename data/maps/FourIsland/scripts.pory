@@ -160,3 +160,29 @@ FourIsland_EventScript_LoreleisHouseSign::
 	msgbox FourIsland_Text_LoreleisHouse, MSGBOX_SIGN
 	end
 `
+
+script FourIsland_LaidPsyduck {
+	msgbox("I'm getting LAID as\nPROF. OAK's POKéMON.", MSGBOX_SIGN)
+
+}
+
+script FourIsland_Sign {
+	msgbox("PLACEHOLDER\nSIGN", MSGBOX_SIGN)
+
+}
+
+script FourIsland_PalParkSign {
+	msgbox("PAL PARK\n", MSGBOX_SIGN)
+
+}
+
+script FourIsland_PalParkDMCA {
+	msgbox("palworld grr\n(placeholder)", MSGBOX_SIGN)
+
+}
+
+script FourIsland_RockClimb {
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_SIGN)
+
+}
+

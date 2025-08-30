@@ -2572,7 +2572,7 @@
     {
       "id": "LAYOUT_FOUR_ISLAND",
       "name": "FourIsland_Layout",
-      "width": 75,
+      "width": 74,
       "height": 58,
       "border_width": 2,
       "border_height": 2,
@@ -3561,7 +3561,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_IslandHarbor",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Island_Harbor/border.bin",
       "blockdata_filepath": "data/layouts/Island_Harbor/map.bin"
     },

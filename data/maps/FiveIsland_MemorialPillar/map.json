@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE19",
       "offset": -15,
       "direction": "left"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": -12,
+      "direction": "right"
     }
   ],
   "object_events": [
