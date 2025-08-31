@@ -923,7 +923,7 @@
 #define FLAG_GOT_BRENDAN_HAT               0x34E
 #define FLAG_CUT_MUSEUM_ASSOCIATE               0x34F
 #define FLAG_PUSHED_CARDBOARD_CUTOUT               0x350
-#define FLAG_0x351               0x351
+#define FLAG_FROSLASS_ENCOUNTER               0x351
 #define FLAG_0x352               0x352
 #define FLAG_0x353               0x353
 #define FLAG_0x354               0x354

@@ -462,3 +462,4 @@ const u32 gObjectEventPic_Dadjr[] = INCBIN_U32("graphics/object_events/pics/stup
 const u32 gObjectEventPic_Present[] = INCBIN_U32("graphics/object_events/pics/stupid/Present.4bpp");
 const u32 gObjectEventPic_Chuck[] = INCBIN_U32("graphics/object_events/pics/stupid/Chuck.4bpp");
 const u32 gObjectEventPic_Saturn[] = INCBIN_U32("graphics/object_events/pics/stupid/Saturn.4bpp");
+const u32 gObjectEventPic_Froslass[] = INCBIN_U32("graphics/object_events/pics/stupid/Froslass.4bpp");
