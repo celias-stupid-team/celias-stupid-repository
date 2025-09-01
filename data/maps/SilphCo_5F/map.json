@@ -97,7 +97,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_5F_EventScript_ItemProtein",
-      "flag": "FLAG_HIDE_SILPH_CO_5F_PROTEIN"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_5F_EventScript_ItemTM01",
-      "flag": "FLAG_HIDE_SILPH_CO_5F_TM01"
+      "flag": "NULL"
     },
     {
       "type": "object",

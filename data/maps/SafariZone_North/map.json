@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SafariZone_North_EventScript_ItemQuickClaw",
-      "flag": "FLAG_HIDE_SAFARI_ZONE_NORTH_QUICK_CLAW"
+      "flag": "NULL"
     },
     {
       "type": "object",

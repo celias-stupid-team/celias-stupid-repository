@@ -104,7 +104,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FiveIsland_Meadow_EventScript_ItemMaxPotion",
-      "flag": "FLAG_HIDE_FIVE_ISLAND_MEADOW_MAX_POTION"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -118,7 +118,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FiveIsland_Meadow_EventScript_ItemPPUp",
-      "flag": "FLAG_HIDE_FIVE_ISLAND_MEADOW_PP_UP"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

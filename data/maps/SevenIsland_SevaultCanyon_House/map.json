@@ -56,7 +56,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SevenIsland_SevaultCanyon_House_EventScript_ItemLuckyPunch",
-      "flag": "FLAG_HIDE_SEVEN_ISLAND_SEVAULT_CANYON_HOUSE_LUCKY_PUNCH"
+      "flag": "NULL"
     }
   ],
   "warp_events": [
