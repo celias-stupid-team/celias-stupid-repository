@@ -125,7 +125,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_6F_EventScript_ItemHPUp",
-      "flag": "FLAG_HIDE_SILPH_CO_6F_HP_UP"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -139,7 +139,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_6F_EventScript_ItemXSpecial",
-      "flag": "FLAG_HIDE_SILPH_CO_6F_X_SPECIAL"
+      "flag": "NULL"
     },
     {
       "type": "object",

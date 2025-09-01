@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_3F_EventScript_ItemMaxPotion",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_3F_MAX_POTION"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -69,7 +69,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_3F_EventScript_ItemIron",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_3F_IRON"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

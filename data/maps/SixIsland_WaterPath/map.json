@@ -141,7 +141,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SixIsland_WaterPath_EventScript_ItemElixir",
-      "flag": "FLAG_HIDE_SIX_ISLAND_WATER_PATH_ELIXIR"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SixIsland_WaterPath_EventScript_ItemDragonScale",
-      "flag": "FLAG_HIDE_SIX_ISLAND_WATER_PATH_DRAGON_SCALE"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

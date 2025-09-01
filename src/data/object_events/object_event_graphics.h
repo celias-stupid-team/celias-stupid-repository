@@ -459,3 +459,7 @@ const u32 gObjectEventPic_Pencil[] = INCBIN_U32("graphics/object_events/pics/stu
 const u32 gObjectEventPic_Phonedad[] = INCBIN_U32("graphics/object_events/pics/stupid/Phonedad.4bpp");
 const u32 gObjectEventPic_Mushroomman[] = INCBIN_U32("graphics/object_events/pics/stupid/Mushroomman.4bpp");
 const u32 gObjectEventPic_Dadjr[] = INCBIN_U32("graphics/object_events/pics/stupid/Dadjr.4bpp");
+const u32 gObjectEventPic_Present[] = INCBIN_U32("graphics/object_events/pics/stupid/Present.4bpp");
+const u32 gObjectEventPic_Chuck[] = INCBIN_U32("graphics/object_events/pics/stupid/Chuck.4bpp");
+const u32 gObjectEventPic_Saturn[] = INCBIN_U32("graphics/object_events/pics/stupid/Saturn.4bpp");
+const u32 gObjectEventPic_Froslass[] = INCBIN_U32("graphics/object_events/pics/stupid/Froslass.4bpp");

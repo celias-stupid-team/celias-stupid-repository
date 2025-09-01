@@ -153,7 +153,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RockTunnel_B1F_EventScript_ItemRevive",
-      "flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_REVIVE"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -167,7 +167,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RockTunnel_B1F_EventScript_ItemMaxEther",
-      "flag": "FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER"
+      "flag": "NULL"
     },
     {
       "type": "object",

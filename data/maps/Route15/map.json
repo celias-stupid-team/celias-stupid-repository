@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route15_EventScript_ItemTM18",
-      "flag": "FLAG_HIDE_ROUTE15_TM18"
+      "flag": "NULL"
     },
     {
       "type": "object",
