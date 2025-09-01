@@ -16,8 +16,13 @@
   "connections": [
     {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 12,
+      "offset": 7,
       "direction": "left"
+    },
+    {
+      "map": "MAP_MINNESOTA",
+      "offset": -7,
+      "direction": "right"
     }
   ],
   "object_events": [
