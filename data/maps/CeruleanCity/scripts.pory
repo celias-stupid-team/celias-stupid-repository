@@ -439,6 +439,20 @@ script CeruleanCity_Celia_Bike {
 	end
 }
 
+script CeruleanCity_DontStrayFromThePit1 {
+	msgbox(format("You hear a voice coming from your\nBible.\p“You REALLY don't wanna go here, probably.”"), MSGBOX_NPC)
+	applymovement(LOCALID_PLAYER, moves(walk_right))
+	waitmovement(0)
+	end
+}
+
+script CeruleanCity_DontStrayFromThePit2 {
+	msgbox(format("You hear a voice coming from your\nBible.\p“You REALLY don't wanna go here, probably.”"), MSGBOX_NPC)
+	applymovement(LOCALID_PLAYER, moves(walk_left))
+	waitmovement(0)
+	end
+}
+
 script CeruleanCity_SummonThePit2{
 	setlayouttiles(
 		LAYOUT_CERULEAN_CITY_THE_PIT, 
