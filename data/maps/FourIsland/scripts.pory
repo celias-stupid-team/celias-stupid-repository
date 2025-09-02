@@ -228,7 +228,7 @@ script FourIsland_AmitySquareSign {
 }
 
 script FourIsland_CenterOfTown {
-	msgbox("Believe it or not, where I'm\nstanding is smack dab on the\lCENTER of town.", MSGBOX_NPC)
+	msgbox("Believe it or not, where I'm standing\nis smack dab on the CENTER of town.", MSGBOX_NPC)
 }
 
 script FourIsland_CombeeSign {

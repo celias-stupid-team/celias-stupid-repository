@@ -857,3 +857,9 @@ const u32 gItemIconPalette_OldGateau[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_PENCILERASER[] = INCBIN_U32("graphics/items/icons/pencil_eraser.4bpp.lz");
 const u32 gItemIconPalette_PENCILERASER[] = INCBIN_U32("graphics/items/icon_palettes/pencil_eraser.gbapal.lz");
+
+const u32 gItemIcon_SEALCASE[] = INCBIN_U32("graphics/items/icons/seal_case.4bpp.lz");
+const u32 gItemIconPalette_SEALCASE[] = INCBIN_U32("graphics/items/icon_palettes/seal_case.gbapal.lz");
+
+const u32 gItemIcon_LETTERW[] = INCBIN_U32("graphics/items/icons/letter_w.4bpp.lz");
+const u32 gItemIconPalette_LETTERW[] = INCBIN_U32("graphics/items/icon_palettes/letter_w.gbapal.lz");
