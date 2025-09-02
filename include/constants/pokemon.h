@@ -304,10 +304,11 @@
 #define EVO_ALONE            20 // Pokemon is alone :(
 #define EVO_STONE_EXEGGUTOR  21
 #define EVO_STONE_SHEDINJA   22
+#define EVO_LEVEL_ON_FOUR_ISLAND   23
 
 
 
-#define EVOS_PER_MON 6          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
+#define EVOS_PER_MON 8          // 6 to allow for Eevee's nonsense. I really hope this doesn't break anything
 
 #define EVO_MODE_NORMAL     0
 #define EVO_MODE_TRADE      1

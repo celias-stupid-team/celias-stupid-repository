@@ -345,7 +345,7 @@ script CeliaSecrets_Bonus_SeashoreJesus {
 }
 
 script CeliaSecrets_Bonus_Route15Pretty {
-	msgbox("I'm very happy wtih how this\nroute turned out.\pAll the jokes and bits are paced\nout wonderfully, and it's very\lpretty too.", MSGBOX_NPC)
+	msgbox("I'm very happy with how this\nroute turned out.\pAll the jokes and bits are paced\nout wonderfully, and it's very\lpretty too.", MSGBOX_NPC)
 	end
 }
 
@@ -403,3 +403,251 @@ script CeliaSecrets_Bonus_SwimFurret {
 	msgbox("Normally it's impossible to talk\nto NPCs in the water while you're\lon land.\pI had to do some actual fuckery\nin the game's code to let this\lroom work.", MSGBOX_NPC)
 	end
 }
+
+
+script CeliaSecrets_Bonus_BlendyCandy {
+	msgbox("I'm so, so sorry to any colorblind\nplayers.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_Crabhammer {
+	msgbox("Crabhammer is supposed to tell you\nwhich of your Pokemon can evolve.\pIf they evolve into krabby, they\ncan't evolve using other methods.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_BirdCultistStatue {
+	msgbox("Ooh, I wonder what this is about!\n", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_FloatStoneGuy {
+	msgbox("I'm kinda sad that most people\ngrab the float stone before\ltalking to this kid.\pFor what it's worth, he doesn't\nsay anything interesting.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_InaccessibleCelias {
+	msgbox("I'll often put CELIAS in areas\nyou can't actually reach.\pI think it's funny to fuck with\npeople", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_BlackSeed {
+	msgbox("I put the sesame seed directly in\nthe path between Dad and the sign\pThis is to force the player to\nbump into it in case they don't\lsee the black pixel.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_BookOfMario {
+	msgbox("This line was ripped from Book\nof Mario 64!\pIt's a google translate version of\nPM64, and it's a great time.\l(the discord server sucks tho)", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_Fishinggurubrother {
+	msgbox("I can't tell if anyone besides me\nthinks the fishing guru's brother\lbit is actually funny.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_RockScientist {
+	msgbox("Full disclosure: I don't actually\nknow what this guy will do.\pIn the first draft of the game he\ngave you moon stones, and you'd\levolve Nidoking here to get Surf.\pThings have changed quite a bit\nsince then, progression-wise.\pBut I still think it's funny to\nkeep some dude trapped by a rock.\lSo for now, he's staying.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_CutsceneSilence {
+	msgbox("Fading music out during the scene\nwhere he pulls a gun at you was\lactually really tricky.\pThe game does NOT like warping you\nwhile the music is faded out.\pSo I had to create a distinct music\ntrack of pure silence to use, as\lopposed to just pausing the BGM.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_BrickWall {
+	msgbox("What will the Brick Pieces be used\nfor?\lStay tuned!", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_TwoFridge {
+	msgbox("While designing this map, I just\nspammed decorations everywhere.\pI happened to land on two fridges\nfor no real reason, and I thought\lit was funny enough to keep.", MSGBOX_NPC)
+
+}
+
+script CeliaSecrets_Bonus_WhosPoisoning {
+	msgbox("The “Who's poisoning everyone”\nbit from Viridian was never really\lplanned to go anywhere.\pBut! I wanted to be sure every joke\nwas followed-up on.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_Buffalo {
+	msgbox("Buffalo buffalo Buffalo buffalo\nbuffalo buffalo Buffalo buffalo!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_Tails {
+	msgbox("Slowpoke is a strong contender for\nmy favorite learnset in the hack.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_Slowpoketail {
+	msgbox("Let's be real:\nThese guys are actually right!\lSlowpoketail WILL cost a ton!\pSurely this means you should spend\nyour life savings on a png!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_Wallpaper {
+	msgbox("“Put your Pokemon in the PC with\na very specific wallpaper” is\lone hell of an evolution method.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_FushciaPokemonCenter {
+	msgbox("The NPCs here are to prepare you\nfor the rest of the game.\pThis is when the puzzle aspects of\nthe design are emphasized, so I\lgave a reminder of the hint systems", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_StepOnTheKid {
+	msgbox("Every time I fly here, I shout\n“Step on the kid!”", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_MoveDeleter {
+	msgbox("As if I'd give you a move deleter\nin a game where vital field moves\lare restricted to certain Pokemon.\pI'm not letting you get softlocked\nTHAT easily!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_BrendanDad {
+	msgbox("Yeah, Dad is everyone's Dad.\pWhat, you thought you were special?\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_MachopBrick {
+	msgbox("In gen 2, a machop you traded from\nRBY will always be holding the item\lBRICK PIECE.\pIt doesn't do anything, and it\nsells for only ¥25\pWhat the fuck.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_JirachiScene {
+	msgbox("I'm gonna put a cutscene here at\nsome point.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_WallStairs {
+	msgbox("These doors are a bit fucky because\nthe warp wall behavior is only in\lEmerald.\pI could port it in, but I'm lazy.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_PokemonUCatch {
+	msgbox("This slogan is in vanilla!\p\n…for some reason.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_TaurosKid {
+	msgbox("I love how this guy will fuck with\nyou if you try arranging your box\lby Pokedex number.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_WhiteSesameSeed {
+	msgbox("The white sesame seed walks back\nand forth on the ground here,\lto make sure you don't miss her.\pI tried my hardest to make “look\nfor one single off color pixel”\lnot as annoying as it coulda been.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_GoldTeethHint {
+	msgbox("People struggled with the gold\nteeth quest, so I put the sign\land the NPC beside each other.\pI hoped that the proximity would\nclue people in that they're\lrelated.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_SafariZoneGrass {
+	msgbox("No grass in the safari zone!\nToo bad!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_EvoMusic {
+	msgbox("The joke is that the starters in\nthe cage are causing the evo music.\pApparently that one goes over\nsome people's heads.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_WaterStone {
+	msgbox("I put a Water Stone here so you\ncould evolve your Shellder without\lneeding to backtrack to Celadon.\pAlas, some people do that anyway.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_ChucksterHole {
+	msgbox("Nope!\nThere's nothing back here.\lIt's just for the Chuckster.\pI probably could add something,\nbut idk what.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_SecretHouseMusic {
+	msgbox("Have you activated the secret\nmusic in this room?", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_PayDayTM {
+	msgbox("The fact that you need to do the\nwhole quest to get your TM Case\land when you get the TM, it just\lappears with your normal items?\pGenius.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_ShinyGun {
+	msgbox("In retrospect, this shiny was\nprobably a little too easy.\pOh well.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_TauntTM {
+	msgbox("What, you didn't seriously think\nI was gonna give you TAUNT, right?\pThat's the single most Breaks\nPuzzles move in the game!\ltsk tsk.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_FightingGuruBrotherSisterCousin {
+	msgbox("The age-old question of “When\nyou're done with the quest, what\lshould the NPC say?”\pIt plagues every game dev because\nno one actually checks anyway.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_BreloomLuigi {
+	msgbox("“Kill the CEOs by shooting them”\nwas actually already written into\lthe plot long before Luigi came.\pIt's pure coincidence that I got\nto make a joke about him! :)", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_OzoneFinest {
+	msgbox("If you approach the arena with\nYoshi knowing Gulp in your party,\lthe music changes.\pThe song is Ozone's Finest from\nPokemon Pisces!\lOne of the tracks I wrote for them.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_GymDeletePokemon {
+	msgbox("It was shockingly hard to not get\nyour Pokemon deleted permanently.\pI had to disable Saving while you\nexplore the main gym challenge.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_BrandonSpenser {
+	msgbox("No matter which door you choose,\nyour first opponent is Brandon\land your second is Spenser.\pThe illusion of free choice!\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_DadBadgeWall {
+	msgbox("If you're looking carefully, you\ncan see the DAD BADGE on the wall.\pForeshadowing!\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_FastNurseHeal {
+	msgbox("The nurses in this gym don't do\nthe full “fade out screen play\ljingle fade back in messagebox”\lthing.\pIf you had to sit through that each\ntime you walked into this room,\lyou'd go insane.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_ElectricShedinja {
+	msgbox("I was content with just a simple\nfade in-out for the Tera animation\lbut my programmer Wiz1989 decided\lto go all out!\pIt's very fun that we could port\nthe whole thing from expansion!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_LassMaze {
+	msgbox("I wanted this to be a proper\nstealth section with all the bells\land whistles, but it didn't work.\pOh well, this is still cute enough.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_AronPuzzle {
+	msgbox("It's a shame how easy this puzzle\nis to cheese, cuz it's honestly\lvery clever.\pThe fact that there's two parallel\npuzzles which have an interlinked\lsolution (Aron and Shedinja) is\lso fun.\pToo bad most players can cheese\nit for free.", MSGBOX_NPC)
+}
+
+
+
+script CeliaSecrets_Bonus_LassMazeHeal {
+	msgbox("“Oh god getting healed is actually\na problem!” was a genius bit.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_JanineDad {
+	msgbox("Yup, Dad is her dad too.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_StickerStar {
+	msgbox("I'd like to thank Paper Mario\nSticker Star for the door puzzle.\pYou're a shit-ass awful waste of\na game, but that doesn't mean\lnothing in you has value.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_FireCurtain {
+	msgbox("If you try putting the curtain on\nthis door, you won't be able to\lwalk through because it won't\lbe aligned with the tile grid.\pA silly consequence of how we\nmade the tiles!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_LassScrollRoom {
+	msgbox("This is probably the most creative\npuzzle in the gym.\pYou need to think about how every\nroom connects to each other and\lremember what you've seen.\p…Or you could stumble into the\nanswer by accident.\lEither works!", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_CleaningLadyRoom {
+	msgbox("The statues in here are to make\nsure you know that you need to\lbring water from the other side.\pAfter you've done the puzzle, they\ndon't serve a purpose anymore so\lI removed them.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_ThePitRoom {
+	msgbox("I get a shocking amount of milage\nfrom the pit.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_PokemonOrLion {
+	msgbox("Obviously the pokemon would win.\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_IcePuzzleCelia {
+	msgbox("Good job talking to me!\n", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_DoubleBattelROom {
+	msgbox("This puzzle wound up being much\nharder than I wanted.\pIt's hard to communicate what you\nneed to do if you aren't used to\lsolving escape rooms.\pBTW! This double battle behavior\nis only in Emerald!\pWe had to port it over, and it was\nfucking HARD.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_CrashedIntoWall {
+	msgbox("I came up with the whole Regi\nCrashed Into A Wall schtick like\l8 hours before the game launched.\pI had to build this whole second\nroom, add new tiles, add the Regi\loverworld sprite, etc hella fast.", MSGBOX_NPC)
+}
+
+script CeliaSecrets_Bonus_KogaNinjaTrick {
+	msgbox("If you know you know.\n", MSGBOX_NPC)
+}
+

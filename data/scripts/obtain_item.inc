@@ -25,6 +25,7 @@ EventScript_ObtainItemMessage::
 	return
 
 EventScript_BufferPocketNameTryFanfare::
+	copyvar VAR_ITEM_ID, VAR_0x8000
 	switch VAR_RESULT
 	case POCKET_ITEMS, EventScript_BufferItemsPocket
 	case POCKET_KEY_ITEMS, EventScript_BufferKeyItemsPocket
@@ -38,10 +39,7 @@ EventScript_BufferItemsPocket::
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
-EventScript_BufferKeyItemsPocket::
-	bufferstdstring STR_VAR_3, STDSTRING_KEY_ITEMS_POCKET
-	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
-	return
+
 
 EventScript_BufferPokeBallsPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_POKEBALLS_POCKET

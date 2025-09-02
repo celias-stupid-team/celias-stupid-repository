@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_2F_Room4_EventScript_ItemXAttack",
-      "flag": "FLAG_HIDE_SSANNE_2F_ROOM4_X_ATTACK"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

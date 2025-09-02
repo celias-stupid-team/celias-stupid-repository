@@ -89,7 +89,7 @@
     },
     {
       "x": 22,
-      "y": 3,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_ELEVATOR",
       "dest_warp_id": "0"
@@ -118,6 +118,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_1F_EventScript_FloorSign"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_1F_EventScript_ElevatorDoor"
     }
   ]
 }

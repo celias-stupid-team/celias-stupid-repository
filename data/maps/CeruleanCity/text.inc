@@ -76,7 +76,7 @@ CeruleanCity_Text_MakeRoomForThisCantRun::
 
 CeruleanCity_Text_TrainerLifeIsToughIsntIt::
 	.string "CERULEAN is known for its competitive\n"
-	.string "scene!\p"
+	.string "scene.\p"
 	.string "Whether it's battling to the north\n"
 	.string "or playing the TCG here in town!$"
 

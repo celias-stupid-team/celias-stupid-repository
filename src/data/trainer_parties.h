@@ -243,12 +243,6 @@ static const struct TrainerMonItemDefaultMoves sParty_YoungsterYasu[] = {
         .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_RATTATA,
     },
-    {
-        .iv = 0,
-        .lvl = 17,
-        .heldItem = ITEM_FOCUS_SASH,
-        .species = SPECIES_RATTATA,
-    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDave[] = {
@@ -260,7 +254,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDave[] = {
     {
         .iv = 0,
         .lvl = 18,
-        .species = SPECIES_NIDORINO,
+        .species = SPECIES_NIDORAN_F,
     },
 };
 
@@ -2600,11 +2594,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GamerDarian[] = {
         .lvl = 18,
         .species = SPECIES_GROWLITHE,
     },
-    {
-        .iv = 0,
-        .lvl = 18,
-        .species = SPECIES_VULPIX,
-    },
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_GamerStan[] = {
@@ -4166,26 +4155,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt10[] = {
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt11[] = {
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_RATTATA,
-    },
+
     {
         .iv = 0,
         .lvl = 19,
         .species = SPECIES_RATICATE_ALOLA,
     },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_RATICATE_ALOLA,
-    },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_RATTATA,
-    },
+
 };
 
 static const struct TrainerMonNoItemCustomMoves sParty_DMCAGrunt12[] = {
@@ -4390,11 +4366,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt23[] = {
     {
         .iv = 0,
         .lvl = 29,
-        .species = SPECIES_CUBONE,
-    },
-    {
-        .iv = 0,
-        .lvl = 29,
         .species = SPECIES_ZUBAT,
     },
 };
@@ -4403,27 +4374,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt24[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_GOLBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_ZUBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_ZUBAT,
-    },
-    {
-        .iv = 0,
-        .lvl = 25,
         .species = SPECIES_RATICATE_ALOLA,
-    },
-    {
-        .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_ZUBAT,
     },
 };
 
@@ -5472,7 +5423,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderKoga[] = {
     {
         .iv = 0,
         .lvl = 43,
-        .species = SPECIES_WEEZING,
+        .species = SPECIES_WEEZING_ALOLA,
         .moves = {MOVE_SELF_DESTRUCT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
@@ -10103,6 +10054,12 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainAnabel[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_ShadowTriad[] = {
     {
         .iv = 0,
+        .lvl = 50,
+        .species = SPECIES_GRENINJA,
+        .moves = {MOVE_CURSE_GRENINJA, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
         .lvl = 30,
         .species = SPECIES_SIMISEAR,
         .moves = {MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE}
@@ -10112,12 +10069,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_ShadowTriad[] = {
         .lvl = 30,
         .species = SPECIES_SHEDINJA,
         .moves = {MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 50,
-        .species = SPECIES_GRENINJA,
-        .moves = {MOVE_CURSE_GRENINJA, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     
 
@@ -10133,7 +10084,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FushciaGymLance[] = {
         .iv = 0,
         .lvl = 30,
         .species = SPECIES_DRAGONITE,
-        .moves = {MOVE_ELECTRIFY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_REFLECT, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };
@@ -10151,7 +10102,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlin[] = 
         .iv = 0,
         .lvl = 50,
         .species = SPECIES_REGIGIGAS,
-        .moves = {MOVE_CRUSH_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_STRENGTH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

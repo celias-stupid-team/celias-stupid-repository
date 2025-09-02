@@ -10,6 +10,9 @@
 #include "script.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
+#include "constants/map_groups.h"
+#include "constants/maps.h"
+#include "constants/region_map_sections.h"
 
 struct FlashStruct
 {
@@ -168,6 +171,9 @@ bool8 SetUpFieldMove_Flash(void)
         return FALSE;
 
     if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
+        return FALSE;
+
+    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
         return FALSE;
 
     gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;

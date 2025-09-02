@@ -43,7 +43,7 @@ mapscripts ThreeIsland_DunsparceTunnel_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setworldmapflag(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL)
 		callnative(GetUnownCount)
-		if(var(VAR_RESULT) >= 25) {
+		if(var(VAR_RESULT) >= 10) {
 			call(ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut)
 
 		} else {

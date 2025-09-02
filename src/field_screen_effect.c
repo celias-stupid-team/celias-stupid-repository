@@ -15,6 +15,7 @@
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
 #include "event_data.h"
+#include "heal_location.h"
 
 static const u16 sFlashLevelToRadius[] = { 200, 72, 56, 40, 24 };
 const s32 gMaxFlashLevel = ARRAY_COUNT(sFlashLevelToRadius) - 1;
@@ -34,7 +35,6 @@ static const u8 sWhiteoutTextColors[] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHI
 
 static void Task_EnableScriptAfterMusicFade(u8 taskId);
 static void Task_BarnDoorWipeChild(u8 taskId);
-bool8 DoesHealLocationSkipCutscene(void);
 
 static void SetFlashScanlineEffectWindowBoundary(u16 *dest, u32 y, s32 left, s32 right)
 {

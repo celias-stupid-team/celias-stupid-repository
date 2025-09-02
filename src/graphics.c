@@ -1097,6 +1097,10 @@ const u32 gBattleAnimBgImage_Waterfall[] = INCBIN_U32("graphics/battle_anims/bac
 const u32 gBattleAnimBgPalette_Waterfall[] = INCBIN_U32("graphics/battle_anims/backgrounds/waterfall.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Waterfall[] = INCBIN_U32("graphics/battle_anims/backgrounds/waterfall.bin.lz");
 
+const u32 gBattleAnimBgImage_TrickRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/trick_room.4bpp.lz");
+const u32 gBattleAnimBgPalette_TrickRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/trick_room.gbapal.lz");
+const u32 gBattleAnimBgTilemap_TrickRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/trick_room.bin.lz");
+
 const u32 gBattleAnimBgPalette_DarkVoid[] = INCBIN_U32("graphics/battle_anims/backgrounds/dark_void.gbapal.lz");
 const u32 gBattleAnimBgTilemap_DarkVoid[] = INCBIN_U32("graphics/battle_anims/backgrounds/dark_void.bin.lz");
 

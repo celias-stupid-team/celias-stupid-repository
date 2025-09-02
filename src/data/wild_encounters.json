@@ -1831,7 +1831,7 @@
           "map": "MAP_DIGLETTS_CAVE_B1F",
           "base_label": "sDiglettsCaveB1F_FireRed",
           "land_mons": {
-            "encounter_rate": 5,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 18,
@@ -22168,6 +22168,71 @@
         {
           "map": "MAP_FOUR_ISLAND",
           "base_label": "sFourIsland_FireRed",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_TENTACOOL"
+              }
+            ]
+          },
           "water_mons": {
             "encounter_rate": 0,
             "mons": [
@@ -24517,6 +24582,75 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_POLIWAG"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_JOHTO_NATIONAL_PARK",
+          "base_label": "gJohto_National_Park",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 52,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 52,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 25,
+                "max_level": 25,
+                "species": "SPECIES_PINSIR"
               }
             ]
           }

@@ -1,8 +1,8 @@
 {
   "id": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
   "name": "FourIsland_PokemonCenter_1F",
-  "layout": "LAYOUT_POKEMON_CENTER_1F",
-  "music": "MUS_POKE_CENTER",
+  "layout": "LAYOUT_POKEMON_CENTER_1F_FOUR_ISLAND",
+  "music": "MUS_FOUR_ISLAND_CENTER",
   "region_map_section": "MAPSEC_FOUR_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

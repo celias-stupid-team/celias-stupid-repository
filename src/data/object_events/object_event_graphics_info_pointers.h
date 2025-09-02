@@ -330,6 +330,15 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dewgong;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadlass;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teamsky;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Vulpixdead;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pencil;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Phonedad;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mushroomman;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dadjr;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Present;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chuck;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Saturn;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Froslass;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -661,4 +670,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEWGONG] = &gObjectEventGraphicsInfo_Dewgong,
     [OBJ_EVENT_GFX_DEADLASS] = &gObjectEventGraphicsInfo_Deadlass,
     [OBJ_EVENT_GFX_TEAMSKY] = &gObjectEventGraphicsInfo_Teamsky,
+    [OBJ_EVENT_GFX_VULPIXDEAD] = &gObjectEventGraphicsInfo_Vulpixdead,
+    [OBJ_EVENT_GFX_PENCIL] = &gObjectEventGraphicsInfo_Pencil,
+    [OBJ_EVENT_GFX_PHONEDAD] = &gObjectEventGraphicsInfo_Phonedad,
+    [OBJ_EVENT_GFX_MUSHROOMMAN] = &gObjectEventGraphicsInfo_Mushroomman,
+    [OBJ_EVENT_GFX_DADJR] = &gObjectEventGraphicsInfo_Dadjr,
+    [OBJ_EVENT_GFX_PRESENT] = &gObjectEventGraphicsInfo_Present,
+    [OBJ_EVENT_GFX_CHUCK] = &gObjectEventGraphicsInfo_Chuck,
+    [OBJ_EVENT_GFX_SATURN] = &gObjectEventGraphicsInfo_Saturn,
+    [OBJ_EVENT_GFX_FROSLASS] = &gObjectEventGraphicsInfo_Froslass,
 };

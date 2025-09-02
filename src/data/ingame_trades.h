@@ -122,7 +122,7 @@ static const struct InGameTrade sInGameTrades[] = {
         .personality = 0x451308ab,
         .heldItem = ITEM_NONE,
         .mailNum = 255,
-        .otName = _("HADEN"),
+        .otName = _("MARK"),
         .otGender = MALE,
         .sheen = 10,
 #if defined(FIRERED)

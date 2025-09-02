@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_B1F_EventScript_ItemTM22",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_B1F_TM22"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -69,7 +69,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_B1F_EventScript_ItemTM14",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_B1F_TM14"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -83,7 +83,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_B1F_EventScript_ItemFullRestore",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -97,7 +97,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonMansion_B1F_EventScript_ItemSecretKey",
-      "flag": "FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

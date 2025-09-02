@@ -417,14 +417,8 @@ PokedexRating_Text_HintPlugOink::
 	.string "Looking for sandwich ingredients,\n"
 	.string "you say?\l"
 	.string "How tricky!\p"
-	.string "Maybe you can… … …\n"
-	.string "…Huh? Who are you?\p"
-	.string "MASTERFOF: Hey guys, I'm MASTER\n"
-	.string "FOF!\l"
-	.string "I helped CELIA with this game!\p"
-	.string "If you wanna get my FAVORITE gen 1\n"
-	.string "Pokemon, come talk to me!\l"
-	.string "I have a present!$"
+	.string "Wasn't there a trainer near\n"
+	.string "FUSHCIA who wanted to trade?$"
 
 PokedexRating_Text_HintMachoke::
 	.string "Placeholder!$"
@@ -652,9 +646,9 @@ PokedexRating_Text_HintDragonite::
 PokedexRating_Text_HintYoshi::
 	.string "The DMCA said they'd kept an ITEM\n"
 	.string "that induced an illegal evolution.\p"
-	.string "Did you find something in CELADON\n"
-	.string "that might fit the bill?\l"
-	.string "I bet it'll chase them out!$"
+	.string "I'd bet that SUPER SCOPE of\n"
+	.string "yours would fit the bill.\l"
+	.string "Maybe it'll chase them out!$"
 
 PokedexRating_Text_HintZygarde::
 	.string "Placeholder!$"
@@ -767,7 +761,7 @@ PokedexRating_Text_HintSeaking::
 
 PokedexRating_Text_HintGun::
 	.string "People often lose things in the\n"
-	.string "darkness of the UNDERGROUND PATH.$"
+	.string "shortness of the UNDERGROUND PATH.$"
 
 PokedexRating_Text_HintArcanine::
 	.string "Placeholder!$"

@@ -685,3 +685,21 @@ script PalletTown_TV_Outside {
 	msgbox("Ohohoho!\nOut-side!", MSGBOX_SIGN)
 	end
 }
+
+
+
+script EventScript_BufferKeyItemsPocket {
+	bufferstdstring(STR_VAR_3, STDSTRING_KEY_ITEMS_POCKET)
+	
+	if(var(VAR_0x8007)) { //please don't make me write this logic in .inc :(
+		if(var(VAR_ITEM_ID) == ITEM_ODD_CANDY) {
+			call(EventScript_PlayFanfareObtainedKorok)
+		} else {
+			
+			call(EventScript_PlayFanfareObtainedItem)
+		}
+
+	}
+}
+
+

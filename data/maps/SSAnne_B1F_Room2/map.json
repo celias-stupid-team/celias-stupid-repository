@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_B1F_Room2_EventScript_ItemTM44",
-      "flag": "FLAG_HIDE_SSANNE_B1F_ROOM2_TM44"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

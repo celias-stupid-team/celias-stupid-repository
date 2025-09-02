@@ -3,9 +3,7 @@ PokemonTower_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PokemonTower_1F_OnTransition
 	.byte 0
 
-PokemonTower_1F_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_POKEMON_TOWER_1F
-	end
+
 
 PokemonTower_1F_EventScript_Channeler::
 	msgbox PokemonTower_1F_Text_SenseSpiritsUpToMischief, MSGBOX_NPC
@@ -37,6 +35,13 @@ PokemonTower_1F_EventScript_WorkerF::
 	msgbox PokemonTower_1F_Text_ErectedInMemoryOfDeadMons, MSGBOX_NPC
 	end
 `
+script PokemonTower_1F_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_POKEMON_TOWER_1F)
+	if(var(VAR_CSR_GHOST_FIGHT) != 0) {
+		setflag(FLAG_TEMP_5)
+	}
+}
+
 script PokemonTower_BlackMarket { //Clean up this dialogue; it's a little weak
 	lock
 	faceplayer
@@ -83,3 +88,17 @@ script PokemonTower_ShortcutBlockerCelia {
 	msgbox("Very sneaky of you to find here!\pDon't worry about this - you'll\nunderstand eventually.", MSGBOX_NPC)
 	end
 }
+
+
+script PokemonTower_ShortcutCelia {
+	msgbox("Two of my all-time favorite games,\nTUNIC and OUTER WILDS, hide\lshortcuts like this.\pThat feeling of “Was this always\nthere???” is great.", MSGBOX_NPC)
+}
+
+script PokemonTower_LostTower {
+	msgbox("Don't worry about this yet.\pWe'll get there when we get there.\n", MSGBOX_NPC)
+}
+
+script PokemonTower_LostTowerBit {
+	msgbox("Stay tuned!\n", MSGBOX_NPC)
+}
+

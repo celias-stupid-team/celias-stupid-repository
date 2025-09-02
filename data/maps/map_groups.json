@@ -47,7 +47,8 @@
     "gMapGroup_KantoLighthouse",
     "gMapGroup_FushciaGym",
     "gMapGroup_ViridianGym",
-    "gMapGroup_GreatSea"
+    "gMapGroup_GreatSea",
+    "gMapGroup_AetherParadise"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -64,7 +65,8 @@
     "Chapter3",
     "GlitchCity",
     "LostTower",
-    "Chapter8"
+    "Chapter8",
+    "Credits"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -256,7 +258,8 @@
     "OneIsland_KindleRoad_EmberSpa",
     "BirthIsland_Harbor",
     "NavelRock_Harbor",
-    "FestivalPlaza"
+    "FestivalPlaza",
+    "NationalPark"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PalletTown",
@@ -325,7 +328,8 @@
     "SevenIsland_SevaultCanyon_Entrance",
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
-    "Route10_Again"
+    "Route10_Again",
+    "IndigoPlateauUsed"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -641,9 +645,27 @@
   ],
   "gMapGroup_ViridianGym": [
     "ViridianGym_Entrance",
-    "ViridianGym_DMCA_Brock"
+    "ViridianGym_DMCA_Brock",
+    "ViridianGym_Misty",
+    "ViridianGym_Surge",
+    "ViridianGym_Erika",
+    "ViridianGym_Koga",
+    "ViridianGym_Sabrina",
+    "ViridianGym_Blaine",
+    "ViridianGym_Falkner",
+    "ViridianGym_Giovanni"
   ],
   "gMapGroup_GreatSea": [
-    "GreatBay_North"
+    "GreatBay_North",
+    "Minnesota",
+    "Zero_Island",
+    "Great_Sea_1",
+    "Johto_National_Park",
+    "Thirty_Eight_Island",
+    "TwoIsland_North"
+  ],
+  "gMapGroup_AetherParadise": [
+    "AetherParadise_Entrance",
+    "AetherParadise_NebbyRoom"
   ]
 }

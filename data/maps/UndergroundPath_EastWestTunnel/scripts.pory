@@ -1,12 +1,23 @@
 raw `
-UndergroundPath_EastWestTunnel_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, UndergroundPath_EastWestTunnel_OnTransition
-	.byte 0
 
-UndergroundPath_EastWestTunnel_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_UNDERGROUND_PATH_EAST_WEST_TUNNEL
-	end
 `
+
+mapscripts UndergroundPath_EastWestTunnel_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_UNDERGROUND_PATH_EAST_WEST_TUNNEL)
+		setflag(FLAG_TEMP_2)
+		if(flag(FLAG_CSR_HINT_GOLD_TEETH) && !flag(FLAG_GOT_GOLD_TEETH)) {
+			addvar(VAR_CANT_FIND_TEETH, 1)
+		}
+		if(var(VAR_CANT_FIND_TEETH) > 1) {
+			setmaplayoutindex(LAYOUT_UNDERGROUND_PATH_EAST_WEST_TUNNEL_LAYOUT_2)
+			if(flag(FLAG_GOT_GOLD_TEETH)) {
+				clearflag(FLAG_TEMP_2)
+			}
+		}
+
+	}
+}
 
 script UndergroundPath_GoldTeeth {
 	if(!flag(FLAG_GOT_GOLD_TEETH)) {
@@ -18,3 +29,12 @@ script UndergroundPath_GoldTeeth {
 		release
 	}
 }
+
+script UndergroundPath_Lass {
+	msgbox("…\pThis disturbs me.\n", MSGBOX_NPC)
+}
+
+script UndergroundPath_CeliaSecret {
+	msgbox("People had a LOT of trouble\nfinding the gold teeth.\pIf you keep coming in here and\nnot finding them, a giant sign\lappears pointing at them.", MSGBOX_NPC)
+}
+

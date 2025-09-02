@@ -4,11 +4,6 @@ FourIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, FourIsland_OnFrame
 	.byte 0
 
-FourIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FOUR_ISLAND
-	call_if_eq VAR_CSR_DUMMY_25, 0, FourIsland_EventScript_ShowRival
-	call FourIsland_EventScript_TrySetDayCareManPos
-	end
 
 FourIsland_EventScript_ShowRival::
 	clearflag FLAG_HIDE_FOUR_ISLAND_RIVAL
@@ -21,7 +16,6 @@ FourIsland_EventScript_EndSetDayCareManPos::
 	return
 
 FourIsland_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_25, 0, FourIsland_EventScript_RivalScene
 	.2byte 0
 
 FourIsland_EventScript_RivalScene::
@@ -161,3 +155,134 @@ FourIsland_EventScript_LoreleisHouseSign::
 	msgbox FourIsland_Text_LoreleisHouse, MSGBOX_SIGN
 	end
 `
+
+script FourIsland_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_FOUR_ISLAND)
+	if(flag(FLAG_FROSLASS_ENCOUNTER)) {
+		setvar(VAR_TEMP_0, 1)
+	}
+}
+
+
+script FourIsland_LaidPsyduck {
+	msgbox("I'm getting LAID as\nPROF. OAK's POKéMON.", MSGBOX_SIGN)
+
+}
+
+script FourIsland_Sign {
+	msgbox("PLACEHOLDER\nSIGN", MSGBOX_SIGN)
+
+}
+
+script FourIsland_PalParkSign {
+	msgbox("PAL PARK\n", MSGBOX_SIGN)
+
+}
+
+script FourIsland_PalParkDMCA {
+	msgbox("palworld grr\n(placeholder)", MSGBOX_SIGN)
+
+}
+
+script FourIsland_RockClimbUp {
+	lock
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_up * 3
+				jump_up
+			))
+			waitmovement(0)
+		}
+	}
+
+}
+script FourIsland_RockClimbDown {
+	lock
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_down * 3
+				jump_down
+			))
+			waitmovement(0)
+		}
+	}
+
+}
+
+script FourIsland_Rock {
+	msgbox("It's a rock.\n", MSGBOX_SIGN)
+
+}
+
+script FourIsland_AmitySquareSign {
+	msgbox("AMITY SQUARE\nCute POKéMON only!\lWe're extremely strict.", MSGBOX_SIGN)
+
+}
+
+script FourIsland_CenterOfTown {
+	msgbox("Believe it or not, where I'm\nstanding is smack dab on the\lCENTER of town.", MSGBOX_NPC)
+}
+
+script FourIsland_CombeeSign {
+	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evovles into a bee!", MSGBOX_SIGN)
+}
+
+script FourIsland_HoneyTree {
+	lock
+	if(checkitem(ITEM_HONEY)) {
+		msgbox("The tree has been hastily covered\nwith a coat of cheap paint.\lSlather the bark with HONEY?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} slathered the bark with\nHONEY…", MSGBOX_DEFAULT)
+			closemessage
+			playmoncry(SPECIES_SMEARGLE, CRY_MODE_ENCOUNTER)
+			waitmoncry
+			removeitem(ITEM_HONEY, 1)
+			setwildbattle(SPECIES_SMEARGLE, 30, ITEM_NONE)
+			dowildbattle
+			delay(60)
+			release
+			end
+		}
+	} else {
+		
+		msgbox("The tree has been hastily covered\nwith a coat of cheap paint.", MSGBOX_DEFAULT)
+	}
+}
+
+script FourIsland_Froslass {
+	lock
+	playbgm(MUS_GEN4_LASS, TRUE)
+	setflag(FLAG_FROSLASS_ENCOUNTER)
+	setvar(VAR_TEMP_0, 1)
+	applymovement(LOCALID_FROSLASS, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 3
+		walk_right * 3
+	))
+	waitmovement(0)
+	playmoncry(SPECIES_FROSLASS, CRY_MODE_DEFAULT)
+	msgbox("FROSLASS: Hey!\nDon't look at me!", MSGBOX_DEFAULT)
+	//trainer battle
+	removeobject(LOCALID_FROSLASS)
+	release
+	end
+}
+
+script FourIsland_DadJr {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox("DAD JR.: {PLAYER}!\nWhat are you doing out here?\pWow, this island sure is lovely.\nIt's bringing out my inner child!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

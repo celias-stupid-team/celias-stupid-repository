@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_7F_EventScript_ItemCalcium",
-      "flag": "FLAG_HIDE_SILPH_CO_7F_CALCIUM"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -169,7 +169,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SilphCo_7F_EventScript_ItemTM08",
-      "flag": "FLAG_HIDE_SILPH_CO_7F_TM08"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

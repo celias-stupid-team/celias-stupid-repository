@@ -966,6 +966,17 @@ const struct Tileset gTileset_Chapter8 =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_J_National_Park =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_J_National_Park,
+    .palettes = gTilesetPalettes_J_National_Park,
+    .metatiles = gMetatiles_J_National_Park,
+    .metatileAttributes = gMetatileAttributes_J_National_Park,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_PorytilesBuilding =
 {
     .isCompressed = TRUE,
@@ -985,5 +996,59 @@ const struct Tileset gTileset_Wormhole =
     .palettes = gTilesetPalettes_Wormhole,
     .metatiles = gMetatiles_Wormhole,
     .metatileAttributes = gMetatileAttributes_Wormhole,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Thirty_Eight_Island =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Thirty_Eight_Island,
+    .palettes = gTilesetPalettes_Thirty_Eight_Island,
+    .metatiles = gMetatiles_Thirty_Eight_Island,
+    .metatileAttributes = gMetatileAttributes_Thirty_Eight_Island,
+};
+
+const struct Tileset gTileset_Credits =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Credits,
+    .palettes = gTilesetPalettes_Credits,
+    .metatiles = gMetatiles_Credits,
+    .metatileAttributes = gMetatileAttributes_Credits,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BlaineFurnaceFun =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BlaineFurnaceFun,
+    .palettes = gTilesetPalettes_BlaineFurnaceFun,
+    .metatiles = gMetatiles_BlaineFurnaceFun,
+    .metatileAttributes = gMetatileAttributes_BlaineFurnaceFun,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_FourIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FourIsland,
+    .palettes = gTilesetPalettes_FourIsland,
+    .metatiles = gMetatiles_FourIsland,
+    .metatileAttributes = gMetatileAttributes_FourIsland,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PokemonCenterFourIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokemonCenterFourIsland,
+    .palettes = gTilesetPalettes_PokemonCenterFourIsland,
+    .metatiles = gMetatiles_PokemonCenterFourIsland,
+    .metatileAttributes = gMetatileAttributes_PokemonCenterFourIsland,
     .callback = NULL,
 };

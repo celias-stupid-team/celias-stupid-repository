@@ -618,6 +618,7 @@ void PlayBGM(u16 songNum)
 
 void PlaySE(u16 songNum)
 {
+    
     if (gDisableMapMusicChangeOnMapLoad == 0 && gQuestLogState != QL_STATE_PLAYBACK)
         m4aSongNumStart(songNum);
 }

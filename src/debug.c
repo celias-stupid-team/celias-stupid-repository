@@ -1635,7 +1635,7 @@ static const u8 sWeatherNames[22][24] = {
     [WEATHER_FOG_HORIZONTAL]     = _("FOG HORIZONTAL"),
     [WEATHER_VOLCANIC_ASH]       = _("VOLCANIC ASH"),
     [WEATHER_SANDSTORM]          = _("SANDSTORM"),
-    [WEATHER_TRICK_ROOM]       = _("FOG DIAGONAL"),
+    [WEATHER_TRICK_ROOM]         = _("FOG DIAGONAL"),
     [WEATHER_UNDERWATER]         = _("UNDERWATER"),
     [WEATHER_SHADE]              = _("SHADE"),
     [WEATHER_DROUGHT]            = _("DROUGHT"),
@@ -3748,6 +3748,18 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_KOROK_SEED) \
     X(MUS_TRICK_HOUSE) \
     X(MUS_CHAPTER_8) \
+    X(MUS_DELIVERY) \
+    X(MUS_MEGALOVANIA) \
+    X(MUS_FOUR_ISLAND) \
+    X(MUS_STUPID_CREDITS) \
+    X(MUS_GEN4_LASS) \
+    X(MUS_BLAINE_GYM) \
+    X(MUS_TCG_ISLAND) \
+    X(MUS_FOUR_ISLAND_CENTER) \
+    X(MUS_FOUR_ISLAND_MART) \
+    X(MUS_TWO_ISLAND_CENTER) \
+    X(MUS_TWO_ISLAND_MART) \
+
 
 
 #define SOUND_LIST_SE \

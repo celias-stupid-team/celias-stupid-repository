@@ -338,7 +338,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_PSYCHIC_PHYSICAL]  = _("PSYCHC"),
     [TYPE_FAIRY_TRANS] = _("FAIRY"),
     [TYPE_SOUND] = _("SOUND"),
-    [TYPE_GRASS_TCG] = _("GRASS"),
+    [TYPE_GRASS_TCG] = _("{TCG_GRASS_1}{TCG_GRASS_2}"),
     [TYPE_FIGHTING_SPECIAL] = _("FIGHT"),
 
 };
@@ -2250,6 +2250,12 @@ static void BattleStartClearSetData(void)
         gBattleResults.caughtMonNick[i] = 0;
     }
 
+    //save player items for potentially restoring them after battle
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        gBattleStruct->itemLost[i] = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+    }
+
     gSelectedMonPartyId = PARTY_SIZE; // Revival Blessing
 }
 
@@ -2812,6 +2818,14 @@ static void TryDoEventsBeforeFirstTurn(void)
         gBattleStruct->overworldWeatherDone = TRUE;
         return;
     }
+    // show early slow start message
+    if (!gBattleStruct->introMessagesDone
+        && AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART, 0, 0, 0, 0) != 0)
+    {
+        gBattleStruct->introMessagesDone = TRUE;
+        return;
+    }
+    // show early NG message
     if (AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, 0, 0, 0, 0) != 0)
         return;
     // Check all switch in abilities happening from the fastest mon to slowest.
@@ -3909,6 +3923,7 @@ static void HandleEndTurn_FinishBattle(void)
         if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
             FadeOutMapMusic(5);
         }
+        TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;
     }

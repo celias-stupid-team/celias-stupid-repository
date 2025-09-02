@@ -602,7 +602,7 @@ static bool8 IsWildLevelAllowedByRepel(u8 wildLevel)
 {
     u8 i;
 
-    if (!VarGet(VAR_REPEL_STEP_COUNT) || !FlagGet(FLAG_SYS_MAX_REPEL))
+    if (!VarGet(VAR_REPEL_STEP_COUNT) || FlagGet(FLAG_SYS_MAX_REPEL))
         return TRUE;
 
     for (i = 0; i < PARTY_SIZE; i++)

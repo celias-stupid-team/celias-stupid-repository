@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_B1F_Room5_EventScript_ItemSuperPotion",
-      "flag": "FLAG_HIDE_SSANNE_B1F_ROOM5_SUPER_POTION"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

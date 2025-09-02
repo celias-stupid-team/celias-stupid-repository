@@ -85,10 +85,10 @@ gCryTable::
 	cry Cry_Slowpoke
 	cry Cry_Shellder
 	cry Cry_Slowbro
-	cry Cry_Seel
+	cry Cry_Mimikyu
 	cry Cry_Plug_Oink
 	cry Cry_Eevee
-	cry Cry_Lumineon
+	cry Cry_SOLACEON
 	cry Cry_Sylveon
 	cry Cry_Latias
 	cry Cry_Exeggcute
@@ -133,8 +133,8 @@ gCryTable::
 	cry Cry_Omanyte
 	cry Cry_Tyranastar
 	cry Cry_Omastar
-	cry Cry_Kabutops
-	cry Cry_Genesect
+	cry Cry_Seel
+	cry Cry_Hoopa
 	cry Cry_Jirachi
 	cry Cry_Articuno
 	cry Cry_Vaporeon
@@ -719,7 +719,7 @@ gCryTable::
 	cry Cry_Yveltal
 	cry Cry_Dragonair
 	cry Cry_Diancie
-	cry Cry_Hoopa
+	cry Cry_Genesect
 	cry Cry_Volcanion
 	cry Cry_Wigglytuff
 	cry Cry_Gloom
@@ -777,7 +777,7 @@ gCryTable::
 	cry Cry_Komala
 	cry Cry_Turtonator
 	cry Cry_Togedemaru
-	cry Cry_Mimikyu
+	cry Cry_Kabutops
 	cry Cry_Bruxish
 	cry Cry_Drampa
 	cry Cry_Dhelmise
@@ -1234,6 +1234,7 @@ gCryTable::
 	cry Cry_AlakazamTCG
 	cry Cry_REGIEYES
 	cry Cry_REGIFILSAMIE
+	cry Cry_Lumineon
 
 
 
@@ -1329,10 +1330,10 @@ gCryTable_Reverse::
 	cry_reverse Cry_Slowpoke
 	cry_reverse Cry_Shellder
 	cry_reverse Cry_Slowbro
-	cry_reverse Cry_Seel
+	cry_reverse Cry_Mimikyu
 	cry_reverse Cry_Plug_Oink
 	cry_reverse Cry_Eevee
-	cry_reverse Cry_Lumineon
+	cry_reverse Cry_SOLACEON
 	cry_reverse Cry_Sylveon
 	cry_reverse Cry_Latias
 	cry_reverse Cry_Exeggcute
@@ -1377,8 +1378,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Omanyte
 	cry_reverse Cry_Tyranastar
 	cry_reverse Cry_Omastar
-	cry_reverse Cry_Kabutops
-	cry_reverse Cry_Genesect
+	cry_reverse Cry_Seel
+	cry_reverse Cry_Hoopa
 	cry_reverse Cry_Jirachi
 	cry_reverse Cry_Articuno
 	cry_reverse Cry_Vaporeon
@@ -1963,7 +1964,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Yveltal
 	cry_reverse Cry_Dragonair
 	cry_reverse Cry_Diancie
-	cry_reverse Cry_Hoopa
+	cry_reverse Cry_Genesect
 	cry_reverse Cry_Volcanion
 	cry_reverse Cry_Wigglytuff
 	cry_reverse Cry_Gloom
@@ -2021,7 +2022,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Komala
 	cry_reverse Cry_Turtonator
 	cry_reverse Cry_Togedemaru
-	cry_reverse Cry_Mimikyu
+	cry_reverse Cry_Kabutops
 	cry_reverse Cry_Bruxish
 	cry_reverse Cry_Drampa
 	cry_reverse Cry_Dhelmise
@@ -2478,6 +2479,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_AlakazamTCG
 	cry_reverse Cry_REGIEYES
 	cry_reverse Cry_REGIFILSAMIE
+	cry_reverse Cry_Lumineon
 
 
 

@@ -67,15 +67,15 @@
     {
       "id": "HEAL_LOCATION_CINNABAR_ISLAND",
       "map": "MAP_CINNABAR_ISLAND",
-      "x": 14,
-      "y": 12,
+      "x": 27,
+      "y": 17,
       "respawn_map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_CINNABAR_NURSE"
     },
     {
       "id": "HEAL_LOCATION_INDIGO_PLATEAU",
       "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
-      "x": 11,
+      "x": 84,
       "y": 7,
       "respawn_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LEAGUE_NURSE"
@@ -115,8 +115,8 @@
     {
       "id": "HEAL_LOCATION_TWO_ISLAND",
       "map": "MAP_TWO_ISLAND",
-      "x": 15,
-      "y": 8,
+      "x": 26,
+      "y": 15,
       "respawn_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_TWO_ISLAND_NURSE"
     },
@@ -131,8 +131,8 @@
     {
       "id": "HEAL_LOCATION_FOUR_ISLAND",
       "map": "MAP_FOUR_ISLAND",
-      "x": 18,
-      "y": 21,
+      "x": 35,
+      "y": 32,
       "respawn_map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FOUR_ISLAND_NURSE"
     },

@@ -249,7 +249,7 @@ static const u8 sText_PkmnSealedOpponentMove[] = _("{B_ATK_NAME_WITH_PREFIX} sea
 static const u8 sText_PkmnWantsGrudge[] = _("{B_ATK_NAME_WITH_PREFIX} wants the\nopponent to bear a GRUDGE!");
 static const u8 sText_PkmnLostPPGrudge[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} lost\nall its PP due to the GRUDGE!");
 static const u8 sText_PkmnShroudedItself[] = _("{B_ATK_NAME_WITH_PREFIX} shrouded\nitself in {B_CURRENT_MOVE}!");
-static const u8 sText_PkmnMoveBounced[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nwas bounced back by MAGIC COAT!");
+static const u8 sText_PkmnMoveBounced[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nwas bounced back by REFLECT!");
 static const u8 sText_PkmnWaitsForTarget[] = _("{B_ATK_NAME_WITH_PREFIX} waits for its foe\nto make a move!");
 static const u8 sText_PkmnSnatchedMove[] = _("{B_DEF_NAME_WITH_PREFIX} SNATCHED\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s move!");
 static const u8 sText_ElectricityWeakened[] = _("Electricity's power was\nweakened!");
@@ -975,7 +975,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_DEFTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} terastallized into the\nELECTRIC type!"),
     [STRINGID_BADDREAMSDMG - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is tormented by\n{B_ATK_NAME_WITH_PREFIX}'s BAD DREAMS!"),
     [STRINGID_SLOWSTARTENTERS - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s SLOW START\ncut its stats!"),
-    [STRINGID_SLOWSTARTEND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("!"), //dummy for now, trust
+    [STRINGID_SLOWSTARTEND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} got its act together!"),
+    [STRINGID_SLOWSTARTEARLY - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} SLOW START\ncut its stats."),
     [STRINGID_NEUTRALIZINGGASENTERS - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("WEEZING's NEUTRALIZING GAS\nnullified all ABILITIES!"),
     [STRINGID_NEUTRALIZINGGASOVER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("The effects of the NEUTRALIZING GAS\nwore off!"),
     [STRINGID_AIRBALLOONFLOAT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} floats in the air with\nits AIR BALLOON!"),
@@ -988,8 +989,10 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_DIMENSIONSARETWISTED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!"),
     [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
     [STRINGID_HIT_A_WALL - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("Oh no! {PAUSE 30}\n{B_ATK_NAME_WITH_PREFIX} hit a wall!"), //dummy
-    [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!\nSlower POKéMON will move first!"),
+    [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!\n{PAUSE 20}Slower POKéMON will move first!"),
     [STRINGID_MAGNET_RISE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is floating\neven harder!"),
+    [STRINGID_IT_WAS_CANCELLED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("But it was cancelled!"),
+    [STRINGID_SHADOW_FORCE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} disappeared!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1139,7 +1142,8 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_FLY]        = STRINGID_PKMNFLEWHIGH,
     [B_MSG_TURN1_DIG]        = STRINGID_PKMNDUGHOLE,
     [B_MSG_TURN1_DIVE]       = STRINGID_PKMNHIDUNDERWATER,
-    [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP
+    [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
+    [B_MSG_TURN1_SHADOW_FORCE]     = STRINGID_SHADOW_FORCE, 
 };
 
 // Index copied from move's index in gTrappingMoves
@@ -1281,13 +1285,13 @@ const u16 gWeatherStartsStringIds[] =
     [WEATHER_FOG_HORIZONTAL]     = STRINGID_ITISRAINING,
     [WEATHER_VOLCANIC_ASH]       = STRINGID_ITISRAINING,
     [WEATHER_SANDSTORM]          = STRINGID_SANDSTORMISRAGING,
+    [WEATHER_TRICK_ROOM]         = STRINGID_TWISTED_DIMENSIONS_START,
     [WEATHER_UNDERWATER]         = STRINGID_ITISRAINING,
     [WEATHER_SHADE]              = STRINGID_ITISRAINING,
     [WEATHER_DROUGHT]            = STRINGID_SUNLIGHTSTRONG,
     [WEATHER_DOWNPOUR]           = STRINGID_ITISRAINING,
     [WEATHER_UNDERWATER_BUBBLES] = STRINGID_ITISRAINING,
     [WEATHER_ABNORMAL]           = STRINGID_ITISRAINING,
-    [WEATHER_TRICK_ROOM]         = STRINGID_TWISTED_DIMENSIONS_START
 };
 
 const u16 gInobedientStringIds[] =

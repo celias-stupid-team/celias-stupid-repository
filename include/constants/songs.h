@@ -395,12 +395,23 @@
 #define MUS_KOROK_SEED            386
 #define MUS_TRICK_HOUSE            387
 #define MUS_CHAPTER_8            388
+#define MUS_DELIVERY            389
+#define MUS_MEGALOVANIA            390
+#define MUS_FOUR_ISLAND            391
+#define MUS_STUPID_CREDITS            392
+#define MUS_GEN4_LASS            393
+#define MUS_BLAINE_GYM            394
+#define MUS_TCG_ISLAND            395
+#define MUS_FOUR_ISLAND_CENTER            396
+#define MUS_FOUR_ISLAND_MART            397
+#define MUS_TWO_ISLAND_CENTER            398
+#define MUS_TWO_ISLAND_MART            399
 
 
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_CHAPTER_8
+#define END_MUS                     MUS_TWO_ISLAND_MART
 
 #endif  // GUARD_CONSTANTS_SONGS_H

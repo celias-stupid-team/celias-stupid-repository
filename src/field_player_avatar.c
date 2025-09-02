@@ -1257,13 +1257,13 @@ bool8 IsPlayerFacingSurfableFishableWater(void)
     MoveCoords(playerObjEvent->facingDirection, &x, &y);
     // Debug code block
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(27)) {
-        DebugPrintf("Map Group 27");
+        //DebugPrintf("Map Group 27");
     }
     if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(0)) {
-        DebugPrintf("Map num 1");
+        //DebugPrintf("Map num 1");
     }
     if(MetatileAtCoordsIsWaterTile(x, y)) {
-        DebugPrintf("Facing Water Tile");
+        //ebugPrintf("Facing Water Tile");
     }
     //
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE19_UNUSED_HOUSE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE19_UNUSED_HOUSE) //It didn't like me not using magic numbers :(

@@ -125,7 +125,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_Kitchen_EventScript_ItemGreatBall",
-      "flag": "FLAG_HIDE_SSANNE_KITCHEN_GREAT_BALL"
+      "flag": "NULL"
     }
   ],
   "warp_events": [

@@ -15,7 +15,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_INDIGO_PLATEAU_EXTERIOR",
+      "map": "MAP_INDIGO_PLATEAU_USED",
       "offset": 0,
       "direction": "up"
     },

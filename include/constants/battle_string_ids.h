@@ -439,10 +439,13 @@
 #define STRINGID_HIT_A_WALL 438
 #define STRINGID_TWISTED_DIMENSIONS_START 439
 #define STRINGID_MAGNET_RISE 440
-#define STRINGID_NONE 441 
-
-
-#define BATTLESTRINGS_COUNT     STRINGID_NONE + 1 //Plus 2 from final one
+#define STRINGID_IT_WAS_CANCELLED 441
+#define STRINGID_SHADOW_FORCE 442
+#define STRINGID_SLOWSTARTEARLY 443
+#define STRINGID_NONE 444
+// #define STRINGID_NONE 
+// ^ for easier copypaste
+#define BATTLESTRINGS_COUNT     STRINGID_NONE + 1
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -496,6 +499,7 @@
 #define B_MSG_TURN1_DIG         5
 #define B_MSG_TURN1_DIVE        6
 #define B_MSG_TURN1_BOUNCE      7
+#define B_MSG_TURN1_SHADOW_FORCE      8
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
