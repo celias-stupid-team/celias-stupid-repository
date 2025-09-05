@@ -1936,3 +1936,22 @@ const u16 gTilesetPalettes_PokemonCenterFourIsland[][16] =
 };
 
 const u32 gTilesetTiles_PokemonCenterFourIsland[] = INCBIN_U32("data/tilesets/secondary/pokemon_center_four_island/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_38island[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/38island/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_38island[] = INCBIN_U32("data/tilesets/secondary/38island/tiles.4bpp.lz");
