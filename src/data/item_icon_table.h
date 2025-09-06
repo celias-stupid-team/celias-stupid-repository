@@ -459,5 +459,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_PENCIL_ERASER]      =  {gItemIcon_PENCILERASER, gItemIconPalette_PENCILERASER},
     [ITEM_SEAL_CASE]      =  {gItemIcon_SEALCASE, gItemIconPalette_SEALCASE},
     [ITEM_LETTER_W]      =  {gItemIcon_LETTERW, gItemIconPalette_LETTERW},
+    [ITEM_NEBBY]      =  {gItemIcon_Nebby, gItemIconPalette_Nebby},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

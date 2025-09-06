@@ -512,7 +512,8 @@
 #define ITEM_PENCIL_ERASER 428
 #define ITEM_SEAL_CASE 429
 #define ITEM_LETTER_W 430
-#define ITEMS_COUNT 431
+#define ITEM_NEBBY 431
+#define ITEMS_COUNT 432
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

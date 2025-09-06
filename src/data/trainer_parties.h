@@ -6914,7 +6914,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BikerRicardo[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BikerJaren[] = {
     {
         .iv = 0,
-        .lvl = 24,
+        .lvl = 22,
         .species = SPECIES_EXEGGUTOR,
     },
 };

@@ -74,7 +74,7 @@ script FushciaGym_ParalysisDusclops {
 script FushciaGym_ParalysisDusclopsMan {
     lock
     if(var(VAR_TEMP_1) == 2) {
-	    msgbox("Oh, no…\nI do beg your pardon.\pI only recently taught that attack\nto my DUSCLOPS.\lHe's been eager to try it, see.\pI hope your POKéMON don't mind\nbeing a touch sluggish for a while.", MSGBOX_DEFAULT)
+	    msgbox("Oh, no…\nI do beg your pardon.\pI only recently taught that attack\nto my DUSCLOPS.\lHe's been eager to try it, see.\pI hope your POKéMON don't mind\nbeing a touch sluggish for a while.", MSGBOX_NPC)
 
     } else {
         lock

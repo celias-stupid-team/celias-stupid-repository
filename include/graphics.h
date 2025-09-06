@@ -12488,3 +12488,6 @@ extern const u32 gItemIconPalette_SEALCASE[];
 
 extern const u32 gItemIcon_LETTERW[];
 extern const u32 gItemIconPalette_LETTERW[];
+
+extern const u32 gItemIcon_Nebby[];
+extern const u32 gItemIconPalette_Nebby[];

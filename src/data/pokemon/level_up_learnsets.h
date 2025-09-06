@@ -1384,9 +1384,9 @@ static const struct LevelUpMove sExeggcuteLevelUpLearnset[] = {
 
 static const struct LevelUpMove sExeggutorLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_GUILLOTINE),
+    LEVEL_UP_MOVE(1, MOVE_SOFT_BOILED),
     LEVEL_UP_MOVE(1, MOVE_FICKLE_BEAM),
     LEVEL_UP_MOVE(1, MOVE_GIGA_DRAIN),
-    LEVEL_UP_MOVE(1, MOVE_SOFT_BOILED),
     LEVEL_UP_MOVE(1, MOVE_SLEEP_POWDER),
     LEVEL_UP_MOVE(22, MOVE_THROAT_CHOP),
     LEVEL_UP_MOVE(25, MOVE_DRAGON_HAMMER),

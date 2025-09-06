@@ -863,3 +863,6 @@ const u32 gItemIconPalette_SEALCASE[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_LETTERW[] = INCBIN_U32("graphics/items/icons/letter_w.4bpp.lz");
 const u32 gItemIconPalette_LETTERW[] = INCBIN_U32("graphics/items/icon_palettes/letter_w.gbapal.lz");
+
+const u32 gItemIcon_Nebby[] = INCBIN_U32("graphics/items/icons/nebby.4bpp.lz");
+const u32 gItemIconPalette_Nebby[] = INCBIN_U32("graphics/items/icon_palettes/nebby.gbapal.lz");
