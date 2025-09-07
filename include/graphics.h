@@ -12491,3 +12491,6 @@ extern const u32 gItemIconPalette_LETTERW[];
 
 extern const u32 gItemIcon_Nebby[];
 extern const u32 gItemIconPalette_Nebby[];
+
+extern const u32 gTrainerFrontPic_Territorialoak[];
+extern const u32 gTrainerPalette_Territorialoak[];

@@ -852,3 +852,17 @@ $(OBJEVENTGFXDIR)/stupid/Saturn.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/Froslass.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Sans_anim.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Stufful.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Hippie.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Hospital_lady.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Paula.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Mr_t.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/Panpour.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

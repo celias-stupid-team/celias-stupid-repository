@@ -194,6 +194,7 @@
 #define TRAINER_PIC_KAREN   172
 #define TRAINER_PIC_TEAM_SKY   173
 #define TRAINER_PIC_FALKNER   174
+#define TRAINER_PIC_TERRITORIALOAK   175
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
