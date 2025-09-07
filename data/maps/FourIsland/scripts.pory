@@ -235,6 +235,16 @@ script FourIsland_CombeeSign {
 	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evovles into a bee!", MSGBOX_SIGN)
 }
 
+script FourIsland_OldLady {
+	msgbox("Four island establishing dialogue\nPLACEHOLDER", MSGBOX_NPC)
+}
+
+script FourIsland_BenchGuy {
+	msgbox("Complaining about HMs dialogue\nPLACEHOLDER", MSGBOX_NPC)
+}
+
+
+
 script FourIsland_HoneyTree {
 	lock
 	if(checkitem(ITEM_HONEY)) {
@@ -257,7 +267,7 @@ script FourIsland_HoneyTree {
 	}
 }
 
-script FourIsland_Froslass {
+script FourIsland_Froslass { //PLACEHOLDER
 	lock
 	playbgm(MUS_GEN4_LASS, TRUE)
 	setflag(FLAG_FROSLASS_ENCOUNTER)
@@ -277,7 +287,7 @@ script FourIsland_Froslass {
 	end
 }
 
-script FourIsland_DadJr {
+script FourIsland_DadJr { //PLACEHOLDER
 	lock
 	faceplayer
 	textcolor(0)

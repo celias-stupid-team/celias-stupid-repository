@@ -64,7 +64,7 @@ script DepartmentStore_GameShop_DifferentGamecube { //simplify this script so I 
 	lock
 	switch(var(VAR_CSR_JIRACHI_STATUS)) {
 		case 0:
-			msgbox("It's a very fancy GAMECUBE!\pBut this one seems... different.\n", MSGBOX_DEFAULT)
+			msgbox("Hmm, this GAMECUBE seems\ndifferent.\lLet's come back to it later.", MSGBOX_DEFAULT)
 			break
 		case 1:
 			specialvar(VAR_RESULT, CalculatePlayerPartyCount)
