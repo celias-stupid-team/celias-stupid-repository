@@ -132,6 +132,16 @@ static const struct FontInfo gFontInfos[] =
         .fgColor = 1,
         .bgColor = 2,
         .shadowColor = 15,
+    },
+    [FONT_COMIC_SANS] = {
+        .fontFunction = FontFunc_Normal,
+        .maxLetterWidth = 10,
+        .maxLetterHeight = 14,
+        .letterSpacing = 1,
+        .lineSpacing = 0,
+        .fgColor = 2,
+        .bgColor = 1,
+        .shadowColor = 3,
     }
 };
 
@@ -144,7 +154,8 @@ static const u8 gMenuCursorDimensions[][2] =
     [FONT_MALE]          = { 8,  14 },
     [FONT_FEMALE]        = { 8,  14 },
     [FONT_BRAILLE]       = { 8,  16 },
-    [FONT_BOLD]          = {}
+    [FONT_BOLD]          = {},
+    [FONT_COMIC_SANS]        = { 8,  14 }
 };
 
 static u16 CopyDecompressedTileDataToVram(u8 bgId, const void *src, u16 size, u16 offset, u8 mode);

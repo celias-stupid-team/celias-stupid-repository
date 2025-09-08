@@ -381,6 +381,50 @@ static const u8 sFontFemaleJapaneseGlyphWidths[] =
     10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0
 };
 
+
+static const u16 sFontComicSansGlyphs[] = INCBIN_U16("graphics/fonts/comic_sans.latfont");
+static const u8 sFontComicSansGlyphWidths[] =
+{
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  8,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  8,  6,  6,  6,  6,
+     6,  6,  9,  8,  8,  6,  6,  6,  6,  6, 10,  8,  5,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  8,
+     8,  8,  8,  8,  8,  4,  6,  8,  5,  5,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6, 12, 12, 12, 12,  6,
+     6,  6,  6,  6,  6,  6,  8,  8,  8,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  8,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  5,  6,  5,  6,  6,  6,  3,  3,  6,
+     6,  8,  5,  9,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  5,  6,  6,  4,  6,  5,
+     5,  6,  5,  6,  6,  6,  5,  5,  5,  6,  6,  6,  6,  6,
+     6,  8,  5,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6, 12, 12, 12, 12,  8, 10, 10, 10, 10, 10,
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
+     6,  6,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
+     8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
+     8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
+     8,  8,  8,  8,  8,  8,  8,  6
+};
+
+
 static const u16 sFontBoldJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_bold.fwjpnfont");
 
 u16 FontFunc_Small(struct TextPrinter *textPrinter)
@@ -838,6 +882,9 @@ u16 RenderText(struct TextPrinter *textPrinter)
             break;
         case FONT_FEMALE:
             DecompressGlyph_Female(currChar, textPrinter->japanese);
+            break;
+        case FONT_COMIC_SANS:
+            DecompressGlyph_ComicSans(currChar, textPrinter->japanese);
             break;
         }
 
@@ -1488,6 +1535,74 @@ void DecompressGlyph_Normal(u16 glyphId, bool32 isJapanese)
             DecompressGlyphTile(glyphs + 0x10, (u16 *)(gGlyphInfo.pixels + 0x40));
             DecompressGlyphTile(glyphs + 0x18, (u16 *)(gGlyphInfo.pixels + 0x60));
             gGlyphInfo.width = sFontNormalLatinGlyphWidths[glyphId];
+            gGlyphInfo.height = 14;
+        }
+    }
+}
+
+// Comic Sans
+
+static s32 GetGlyphWidth_ComicSans(u16 glyphId, bool32 isJapanese)
+{
+    if (isJapanese == TRUE)
+        return 8;
+    else
+        return sFontComicSansGlyphWidths[glyphId];
+}
+
+void DecompressGlyph_ComicSans(u16 glyphId, bool32 isJapanese)
+{
+    const u16 *glyphs;
+    int i;
+    u8 lastColor;
+
+    if (isJapanese == TRUE)
+    {
+        if (glyphId == 0)
+        {
+            lastColor = GetLastTextColor(2);
+
+            for(i = 0; i < 0x80; i++)
+            {
+                gGlyphInfo.pixels[i] = lastColor | lastColor << 4;
+                // Game Freak, please. writing the same values over and over...
+                gGlyphInfo.width = 10;
+                gGlyphInfo.height = 12;
+            }
+        }
+        else
+        {
+            glyphs = sFontNormalJapaneseGlyphs + (0x100 * (glyphId >> 0x3)) + (0x10 * (glyphId & 0x7));
+            DecompressGlyphTile(glyphs, (u16 *)gGlyphInfo.pixels);
+            DecompressGlyphTile(glyphs + 0x8, (u16 *)(gGlyphInfo.pixels + 0x20));
+            DecompressGlyphTile(glyphs + 0x80, (u16 *)(gGlyphInfo.pixels + 0x40));
+            DecompressGlyphTile(glyphs + 0x88, (u16 *)(gGlyphInfo.pixels + 0x60));
+            gGlyphInfo.width = sFontNormalJapaneseGlyphWidths[glyphId];
+            gGlyphInfo.height = 12;
+        }
+    }
+    else
+    {
+        if (glyphId == 0)
+        {
+            lastColor = GetLastTextColor(2);
+
+            for(i = 0; i < 0x80; i++)
+            {
+                gGlyphInfo.pixels[i] = lastColor | lastColor << 4;
+                // but why
+                gGlyphInfo.width = sFontComicSansGlyphWidths[0];
+                gGlyphInfo.height = 14;
+            }
+        }
+        else
+        {
+            glyphs = sFontComicSansGlyphs + (0x20 * glyphId);
+            DecompressGlyphTile(glyphs, (u16 *)gGlyphInfo.pixels);
+            DecompressGlyphTile(glyphs + 0x8, (u16 *)(gGlyphInfo.pixels + 0x20));
+            DecompressGlyphTile(glyphs + 0x10, (u16 *)(gGlyphInfo.pixels + 0x40));
+            DecompressGlyphTile(glyphs + 0x18, (u16 *)(gGlyphInfo.pixels + 0x60));
+            gGlyphInfo.width = sFontComicSansGlyphWidths[glyphId];
             gGlyphInfo.height = 14;
         }
     }
