@@ -266,12 +266,14 @@ script TwoIsland_PsyduckSeller {
 }
 
 script TwoIsland_GluedGuy {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox("He's glued to a tree.\n", MSGBOX_SIGN)
 
 }
 
 script TwoIsland_MrT {
-	msgbox("PLACEHOLDER\ntwo island into", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("PLACEHOLDER\ntwo island intro", MSGBOX_NPC)
 }
 
 script TwoIsland_SmallChild {
@@ -296,6 +298,7 @@ script TwoIsland_MartAttendant {
 }
 
 script TwoIsland_MonkeyGuy {
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox("This MONKEY came free with a\npack of gum I bought.\pSadly, he doesn't actually seem to\nbe useful for anything.\lWhat a pity!", MSGBOX_NPC)
 }
 
@@ -335,3 +338,29 @@ script TwoIsland_PencilHippie {
 	msgbox("PLACEHOLDER\nI sell pencils", MSGBOX_NPC)
 }
 
+script TwoIsland_EventScript_SansTest {
+	lock
+	faceplayer
+	fadenewbgm(MUS_NONE)
+	msgbox("{FONT_COMIC_SANS}hello .\peat shit thief", MSGBOX_DEFAULT)
+	playbgm(MUS_MEGALOVANIA, TRUE)
+	delay(60)
+	release
+	end
+}
+
+script TwoIsland_HamburgerGuy {
+	lock
+	faceplayer
+	//logic here
+		msgbox("Uh, hi!\pI work at the DRUGSTORE, and I was\nsupposed to be handing out free\lHAMBURGERS\pHowever, it seems this is the last\nHAMBURGER in the known universe.\pUh, I guess you can have it.\n", MSGBOX_DEFAULT)
+		//give item
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox("{PLAYER} obtained the\nHAMBURGER.", MSGBOX_DEFAULT)
+		waitfanfare
+		//set flag
+	//else
+	msgbox("Come visit us if you need, uh,\nnot HAMBURGERS.", MSGBOX_DEFAULT)
+	release
+	end
+}
