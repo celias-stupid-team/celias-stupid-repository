@@ -1648,3 +1648,9 @@ Text_TestMsg::
 
 	.include "data/maps/AetherParadise_NebbyRoom/scripts.inc"
 	.include "data/maps/AetherParadise_NebbyRoom/text.inc"
+
+	.include "data/maps/TwoIsland_PaulaHouse/scripts.inc"
+	.include "data/maps/TwoIsland_PaulaHouse/text.inc"
+
+	.include "data/maps/TwoIsland_Drugstore/scripts.inc"
+	.include "data/maps/TwoIsland_Drugstore/text.inc"

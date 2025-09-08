@@ -3045,7 +3045,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GameCorner",
+      "secondary_tileset": "gTileset_FanClubDaycare",
       "border_filepath": "data/layouts/TwoIsland_JoyfulGameCorner/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_JoyfulGameCorner/map.bin"
     },
@@ -5748,6 +5748,18 @@
       "secondary_tileset": "gTileset_PokemonCenterFourIsland",
       "border_filepath": "data/layouts/PokemonCenter_1F_FourIsland/border.bin",
       "blockdata_filepath": "data/layouts/PokemonCenter_1F_FourIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_PAULA_HOUSE",
+      "name": "TwoIsland_PaulaHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SafariZoneBuilding",
+      "border_filepath": "data/layouts/TwoIsland_PaulaHouse/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_PaulaHouse/map.bin"
     }
   ]
 }

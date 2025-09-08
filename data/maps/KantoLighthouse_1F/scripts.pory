@@ -27,6 +27,12 @@ mapscripts KantoLighthouse_1F_MapScripts {
     ]
 }
 
+script KantoLighthouse_TradePsyduck {
+	msgbox("I'm doing TRADES as PROF. OAK's\nPOKéMON.", MSGBOX_NPC)
+}
+
+
+
 script CeliaSecret_TradeGuys {
 	msgbox("Fun fact: These guys function\nusing the Day Care system!\pWhen you give one of them a mon,\nit deposits it into the day care.\pThen when you walk to the other guy\nthe mon you give is also put into\lthe day care, and the other mon is\ltaken out!\pThis gives the impression of them\nswapping a mon between each other.", MSGBOX_NPC)
 	end

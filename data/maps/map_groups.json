@@ -546,7 +546,9 @@
     "TwoIsland_House",
     "TwoIsland_PokemonCenter_1F",
     "TwoIsland_PokemonCenter_2F",
-    "TwoIsland_Harbor"
+    "TwoIsland_Harbor",
+    "TwoIsland_PaulaHouse",
+    "TwoIsland_Drugstore"
   ],
   "gMapGroup_IndoorThreeIsland": [
     "ThreeIsland_House1",

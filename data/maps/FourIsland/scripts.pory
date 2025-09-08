@@ -243,6 +243,10 @@ script FourIsland_BenchGuy {
 	msgbox("Complaining about HMs dialogue\nPLACEHOLDER", MSGBOX_NPC)
 }
 
+script FourIsland_CeliaDAWN {
+	msgbox("Joke about Celia Dawn\nPLACEHOLDER", MSGBOX_NPC)
+}
+
 
 
 script FourIsland_HoneyTree {

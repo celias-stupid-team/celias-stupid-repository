@@ -5680,7 +5680,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Phonedad = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mushroomman = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -5824,7 +5824,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Stufful = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hippie = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -5842,7 +5842,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hippie = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hospital_lady = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -5860,7 +5860,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hospital_lady = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paula = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -5878,7 +5878,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paula = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mr_t = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
