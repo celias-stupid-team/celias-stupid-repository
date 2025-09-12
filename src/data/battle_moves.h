@@ -561,7 +561,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PIN_MISSILE] =
     {
-        .effect = EFFECT_MULTI_HIT,
+        .effect = EFFECT_TWINEEDLE,
         .power = 14,
         .type = TYPE_BUG,
         .accuracy = 85,

@@ -364,3 +364,37 @@ script TwoIsland_HamburgerGuy {
 	release
 	end
 }
+
+script TwoIsland_IslandSign {
+	msgbox("TWO ISLAND\nThis ISLAND stinks!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_GenevaConvention {
+	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_DadPhone {
+	lock
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI've deposited ¥5000 into your\nbank account.\lWould you like to SAVE your game?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script TwoIsland_ThreeIslandKid {
+	msgbox("Oh man, TWO ISLAND is great.\nTalk about a cult classic!\lWhen's THREE ISLAND coming out?", MSGBOX_NPC)
+}
+
+script TwoIsland_Hooker {
+	lock
+	faceplayer
+	msgbox("No problem here.\n", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	release
+	end
+}
+

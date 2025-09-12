@@ -1777,7 +1777,9 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_TOEDSCOOL]   = 2,
     [SPECIES_MELMETAL]   = 2,
     [SPECIES_TENTAQUIL] = 0,
-    [SPECIES_SOLACEON] = 0
+    [SPECIES_SOLACEON] = 0,
+    [SPECIES_MIMIKYU]         = 0,
+    [SPECIES_HOOPA]         = 0,
 
 };
 
