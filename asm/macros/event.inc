@@ -1977,3 +1977,18 @@
 	setvar VAR_0x8006, \item
 	special CreateEnemyEventMon
 	.endm
+
+	@ Draws metatiles from a layout to a map. 
+	@ Starting X/Y is where on the current map to begin drawing. 
+	@ X1/Y1 are the starting coordinates of the target layout to starting drawing from
+	@ X2/Y2 are the ending coordinates of the target layout to draw from.
+	.macro setlayouttiles layout:req, startingX:req, startingY:req, x1:req, y1:req, x2:req, y2:req
+	.byte 0xe2
+    .2byte \layout
+    .2byte \startingX
+    .2byte \startingY
+    .2byte \x1
+    .2byte \y1
+    .2byte \x2
+    .2byte \y2
+	.endm

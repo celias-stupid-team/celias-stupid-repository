@@ -1158,30 +1158,30 @@ static void Task_SelectedTMHM_Sell(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
-    if (ItemId_GetPrice(gSpecialVar_ItemId) == 0)
-    {
-        // Can't sell TM/HMs with no price (by default this is just the HMs)
+    // if (ItemId_GetPrice(gSpecialVar_ItemId) == 0)
+    // {
+        // Can't sell TM/HMs
         CopyItemName(gSpecialVar_ItemId, gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_OhNoICantBuyThat);
         PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, CloseMessageAndReturnToList);
-    }
-    else
-    {
-        tQuantitySelected = 1;
-        if (tQuantityOwned == 1)
-        {
-            PrintPlayersMoney();
-            Task_AskConfirmSaleWithAmount(taskId);
-        }
-        else
-        {
-            if (tQuantityOwned > 99)
-                tQuantityOwned = 99;
-            CopyItemName(gSpecialVar_ItemId, gStringVar1);
-            StringExpandPlaceholders(gStringVar4, gText_HowManyWouldYouLikeToSell);
-            PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, Task_InitQuantitySelectUI);
-        }
-    }
+    // }
+    // else
+    // {
+    //     tQuantitySelected = 1;
+    //     if (tQuantityOwned == 1)
+    //     {
+    //         PrintPlayersMoney();
+    //         Task_AskConfirmSaleWithAmount(taskId);
+    //     }
+    //     else
+    //     {
+    //         if (tQuantityOwned > 99)
+    //             tQuantityOwned = 99;
+    //         CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    //         StringExpandPlaceholders(gStringVar4, gText_HowManyWouldYouLikeToSell);
+    //         PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, Task_InitQuantitySelectUI);
+    //     }
+    // }
 }
 
 static void Task_AskConfirmSaleWithAmount(u8 taskId)

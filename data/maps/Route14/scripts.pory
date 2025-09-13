@@ -621,7 +621,7 @@ script Route15_PokeRap_Trainer36 {
         textcolor(NPC_TEXT_COLOR_NEUTRAL)
         playfanfare(MUS_LEVEL_UP)
         setflag(FLAG_GOT_SHINY_CUBONE)
-        msgbox("{PLAYER} obtained the forgotten\nPINSIR!", MSGBOX_DEFAULT)
+        msgbox("{PLAYER} obtained the forgotten\nCUBONE!", MSGBOX_DEFAULT)
         waitfanfare
 		call(Common_Script_GiftPokemon)
         msgbox("My bad!\n", MSGBOX_DEFAULT)

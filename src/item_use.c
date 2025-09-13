@@ -46,6 +46,7 @@
 #include "constants/field_weather.h"
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
+EWRAM_DATA bool8 gUsingRegisteredPartyMenuItem = FALSE;
 
 static void FieldCB_FadeInFromBlack(void);
 static void Task_WaitFadeIn_CallItemUseOnFieldCB(u8 taskId);
@@ -94,6 +95,8 @@ static void TransTheNidotrans(u16 nidoFIdx, u16 nidoMIdx);
 static u16 FindSpeciesInParty(u16 species);
 static void ItemUseOnFieldCB_MoveRelearner(u8 taskId);
 static void Task_UseMoveRelearnerOnField(u8 taskId);
+static void Task_InitPartyMenuFromRegisteredItem(u8 taskId);
+void PrintKorokDebug(void);
 
 
 // unknown unused data.
@@ -177,10 +180,33 @@ static void SetUpItemUseCallback(u8 taskId)
     }
     else
     {
-        ItemMenu_SetExitCallback(sExitCallbackByItemType[itemType]);
-        if (itemType == ITEM_TYPE_FIELD - 1)
-            Bag_BeginCloseWin0Animation();
-        ItemMenu_StartFadeToExitCallback(taskId);
+        // yeah I know this is kinda silly, but I don't want a redundant call to get the item type
+        // blame GF for their silly array indexing
+        if (gTasks[taskId].tUsingRegisteredKeyItem && itemType == (ITEM_TYPE_PARTY_MENU - 1))
+        {
+            StopPokemonLeagueLightingEffectTask();
+            FadeScreen(FADE_TO_BLACK, 0);
+            gUsingRegisteredPartyMenuItem = TRUE;
+            gTasks[taskId].func = Task_InitPartyMenuFromRegisteredItem;
+        }
+        else
+        {
+            ItemMenu_SetExitCallback(sExitCallbackByItemType[itemType]);
+            if (itemType == ITEM_TYPE_FIELD - 1)
+                Bag_BeginCloseWin0Animation();
+            
+            ItemMenu_StartFadeToExitCallback(taskId);
+        }
+    }
+}
+
+static void Task_InitPartyMenuFromRegisteredItem(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetMainCallback2(CB2_ShowPartyMenuForItemUse);
+        DestroyTask(taskId);
     }
 }
 
@@ -463,15 +489,8 @@ void FieldUseFunc_RareCandy(u8 taskId)
 
 void FieldUseFunc_EvoItem(u8 taskId)
 {
-    if (!gTasks[taskId].tUsingRegisteredKeyItem)
-    {
-        gItemUseCB = ItemUseCB_EvolutionStone;
-        DoSetUpItemUseCallback(taskId);
-    }
-    else
-    {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-    }
+    gItemUseCB = ItemUseCB_EvolutionStone;
+    DoSetUpItemUseCallback(taskId);
 }
 
 void FieldUseFunc_SacredAsh(u8 taskId)
@@ -1016,7 +1035,7 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
         /*
         How I want this to work:
-        You use the TM. A message prints that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
+        You use the TM. A message prints in the bag that says "{PLAYER} booted up the TM!{PAUSE_UNTIL_PRESS}"
         Upon pressing A, Gimmieghoul's Cry plays (the text stays on screen)
         After the cry is finished, then the game returns to the field and prints the "{PLAYER} recieved a GIMMIEGHOUL!" line
         
@@ -1024,6 +1043,8 @@ void FieldUseFunc_PayDayTM(u8 taskId)
 
         //DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_PayDayTM, Task_ReturnToBagFromContextMenu);
         gSpecialVar_Result = ScriptGiveMon(species, 19, ITEM_NONE, 0, 0, 0);
+        
+        
     }
     else
     {
@@ -1357,4 +1378,9 @@ static void Task_UseMoveRelearnerOnField(u8 taskId)
 {
     ChooseMonForMoveRelearnerItem();
     DestroyTask(taskId);
+}
+
+
+void PrintKorokDebug(void) {
+    DebugPrintf("Current value: %d", VarGet(VAR_ITEM_ID));
 }

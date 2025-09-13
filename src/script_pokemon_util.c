@@ -253,7 +253,7 @@ void ReducePlayerPartyToThree(void)
 {
     struct Pokemon * party = AllocZeroed(3 * sizeof(struct Pokemon));
     int i;
-
+    FlagSet(FLAG_SYS_DISABLE_SAVE);
     // copy the selected pokemon according to the order.
     for (i = 0; i < 3; i++)
         if (gSelectedOrderFromParty[i]) // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop

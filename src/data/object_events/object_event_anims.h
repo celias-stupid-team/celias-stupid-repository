@@ -1047,6 +1047,7 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
     [ANIM_RAISE_HAND] = sAnim_RaiseHand,
+    [ANIM_REMOVE_OBSTACLE] = sAnim_TreeCut,
 };
 
 static const union AnimCmd *const sAnimTable_Seagallop[] = {

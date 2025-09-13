@@ -1,6 +1,4 @@
 raw `
-Route2_ViridianForest_NorthEntrance_MapScripts::
-	.byte 0
 
 Route2_ViridianForest_NorthEntrance_EventScript_Youngster::
 	msgbox Route2_ViridianForest_NorthEntrance_Text_ManyMonsOnlyInForests, MSGBOX_NPC
@@ -14,6 +12,14 @@ Route2_ViridianForest_NorthEntrance_EventScript_CooltrainerF::
 	msgbox Route2_ViridianForest_NorthEntrance_Text_CanCancelEvolution, MSGBOX_NPC
 	end
 `
+mapscripts Route2_ViridianForest_NorthEntrance_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}
+
 script Route2_EventScript_NorthGirl {
 	msgbox("TRAINER TIPS!\pAfter you've beaten a TRAINER,\ndon't forget to talk to them again.\pOftentimes, they'll have something\nuseful or interesting to say!", MSGBOX_SIGN)
 	end

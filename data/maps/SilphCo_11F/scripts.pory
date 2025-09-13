@@ -4,7 +4,6 @@ SilphCo_11F_MapScripts::
 	.byte 0
 
 SilphCo_11F_OnLoad::
-	call_if_unset FLAG_SILPH_11F_DOOR, EventScript_Close11FDoor
 	end
 
 SilphCo_11F_EventScript_President::
@@ -133,3 +132,8 @@ SilphCo_11F_EventScript_Grunt2::
 	msgbox SilphCo_11F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script SilphCo_11F_EventScript_ElevatorDoor {
+	msgbox("Rats!\nThe elevator door's been glued shut!", MSGBOX_SIGN)
+
+}
+

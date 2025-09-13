@@ -34,7 +34,7 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
 {//                   Defender -->                                                                                                                                                                                                                                                                                                                                                                                          GrassTCG's resists are 0.2x
 	// Attacker  	NORMAL 	FIGHTING 	FLYING 	POISON 	STEEL 	ROCK 	BUG 	GHOST 	WATER_PHYSICAL 	ELECTRIC_PHYSICAL 	PSYCHIC_PHYSICAL 	GRASS_TCG 	MYSTERY 	GROUND 	FIRE 	WATER 	GRASS 	ELECTRIC 	PSYCHIC 	ICE 	DRAGON 	DARK 	FAIRY 	BROCK 	WEIRD 	DAD 	CHOCOLATE 	SHADOW 	LARGE 	BIRD 	SHIT 	FAIRY_TRANS 	SOUND 	FIGHTING_SPECIAL 	
 	[TYPE_NORMAL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.0), 	______, 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______ 	},
-	[TYPE_FIGHTING]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
+	[TYPE_FIGHTING]   = {	X(2.0), 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	______, 	X(0.5), 	X(0.2), 	______, 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	X(2.0), 	X(0.5), 	X(0.0), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	X(0.5), 	______, 	______ 	},
 	[TYPE_FLYING]   = {	______, 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0) 	},
 	[TYPE_POISON]   = {	______, 	______, 	______, 	X(0.5), 	X(0.0), 	X(0.5), 	X(2.0), 	X(0.5), 	______, 	______, 	______, 	______, 	______, 	X(0.5), 	______, 	______, 	X(2.0), 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
 	[TYPE_STEEL]   = {	______, 	______, 	______, 	______, 	X(0.5), 	X(2.0), 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	______, 	______, 	______, 	X(0.5), 	X(0.5), 	______, 	X(0.5), 	______, 	X(2.0), 	______, 	______, 	X(2.0), 	X(0.0), 	______, 	______, 	______, 	______, 	______, 	______, 	______, 	X(2.0), 	______, 	______ 	},
@@ -506,6 +506,7 @@ enum
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
     ENDTURN_HAIL,
+    ENDTURN_TRICK_ROOM,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -750,6 +751,15 @@ u8 DoFieldEndTurnEffects(void)
 
                 gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_HAIL;
+                BattleScriptExecute(gBattlescriptCurrInstr);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_TRICK_ROOM:
+            if (GetCurrentWeather() == WEATHER_TRICK_ROOM)
+            {
+                gBattlescriptCurrInstr = BattleScript_TrickRoomContinues;
                 BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
@@ -1483,7 +1493,7 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_PARALYSED: // paralysis
-            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0)
+            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
             {
                 gProtectStructs[gBattlerAttacker].prlzImmobility = 1;
                 // This is removed in FRLG and Emerald for some reason
@@ -1789,6 +1799,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                     */
+                case WEATHER_TRICK_ROOM:
+                    gBattleScripting.animArg1 = B_ANIM_TRICK_ROOM_CONTINUES;
+                    gBattleScripting.battler = battler;
+                    effect++;
+                    break;
                 }
                 if (effect != 0)
                 {
@@ -2502,7 +2517,34 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
             }
             break;
-        case ABILITYEFFECT_NEUTRALIZINGGAS: // 20
+        case ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART: // 20
+            // Prints message only. needs to be checked before ABILITYEFFECT_NEUTRALIZINGGAS
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleMons[i].ability == ABILITY_NEUTRALIZING_GAS && !gDisableStructs[i].neutralizingGas && !gSpecialStatuses[i].neutralizingGasRemoved)
+                {
+                    // still force a Slow Start related message at the start of the NG battle
+                    if (gBattleResults.battleTurnCounter == 0)
+                    {
+                        u8 j = 0;
+
+                        for (j = 0; j < gBattlersCount; j++)
+                        {
+                            if (gBattleMons[j].ability == ABILITY_SLOW_START)
+                            {
+                                gBattlerAttacker = j;
+                                BattleScriptPushCursorAndCallback(BattleScript_SlowStartBeforeNeutralizingGas);
+                                effect++;
+                            }
+                        }
+                    }
+                }
+
+                if (effect != 0)
+                    break;
+            }
+            break;
+        case ABILITYEFFECT_NEUTRALIZINGGAS: // 21
             // Prints message only. separate from ABILITYEFFECT_ON_SWITCHIN bc activates before entry hazards
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -3533,4 +3575,54 @@ bool32 IsBattlerAlive(u32 battler)
         return FALSE;
     else
         return TRUE;
+}
+
+void TryRestoreHeldItems(void)
+{
+    u32 i;
+    
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 lostItem = gBattleStruct->itemLost[i];
+
+        // Check if the lost item is a berry and the mon is not holding it
+        if (ItemId_GetPocket(lostItem) == POCKET_BERRY_POUCH && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) != lostItem)
+            lostItem = ITEM_NONE; // berries can't restore
+
+        // Check if the lost item should be restored
+        if (lostItem == ITEM_FOCUS_SASH)//(lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRY_POUCH)
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
+    }
+}
+
+bool32 IsSingleWildRattata(void)
+{
+    // Not a trainer battle → wild.
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        return FALSE;
+
+    // Exclude odd battle types where “wild” isn’t a normal wild encounter.
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI
+                          | BATTLE_TYPE_OLD_MAN_TUTORIAL
+                          | BATTLE_TYPE_POKEDUDE
+                          | BATTLE_TYPE_GHOST
+                          | BATTLE_TYPE_LINK
+                          | BATTLE_TYPE_EREADER_TRAINER))
+        return FALSE;
+
+    // Ensure not a double/multi/etc.
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+        return FALSE;
+
+    // Check species in the enemy party’s lead slot.
+    if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_RATTATA
+        && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_RATTATA_SHINY)
+        return FALSE;
+
+    // Make sure there isn't a second opponent being used.
+    // (Party slot 1 exists in memory, but in a normal single wild it’s empty/unused.)
+    if (GetMonData(&gEnemyParty[1], MON_DATA_SPECIES) != SPECIES_NONE)
+        return FALSE;
+
+    return TRUE;
 }

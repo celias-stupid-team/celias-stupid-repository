@@ -48,5 +48,6 @@ script Route9_SetBenchCerulean {
 
 script Route9_SetBenchRoute9 {
 	setbench(BENCH_ROUTE9)
+	setvar(VAR_TEMP_0, 1)
 	release
 }

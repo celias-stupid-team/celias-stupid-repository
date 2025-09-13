@@ -10,6 +10,7 @@
 #include "quest_log.h"
 #include "map_preview_screen.h"
 #include "fieldmap.h"
+#include "field_camera.h"
 #include "field_weather.h"
 #include "field_tasks.h"
 #include "field_fadetransition.h"
@@ -43,6 +44,7 @@
 #include "constants/event_objects.h"
 #include "constants/maps.h"
 #include "constants/sound.h"
+#include "constants/layouts.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -920,6 +922,7 @@ bool8 ScrCmd_getpartysize(struct ScriptContext * ctx)
 
 bool8 ScrCmd_playse(struct ScriptContext * ctx)
 {
+    
     PlaySE(ScriptReadHalfword(ctx));
     return FALSE;
 }
@@ -2478,11 +2481,12 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
     u32 status1 = VarGet(ScriptReadByte(ctx));
     u32 slot = VarGet(ScriptReadByte(ctx));
     u16 species = SPECIES_NONE;
+    u32 name = 0;
     if (slot == 0) {
         bool8 randomPoison = FALSE;
         u8 failsafe = 0;
         u8 timesCheckedFirst = 0;
-        while(!(randomPoison || failsafe > 40)) {
+        while(!(randomPoison || failsafe > 80)) {
             slot = Random() %  PARTY_SIZE;
             species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
             if (species != SPECIES_NONE
@@ -2493,12 +2497,17 @@ void ScrCmd_setstatus1(struct ScriptContext *ctx)
                     timesCheckedFirst++;
                 } else {
                     SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
+                    StringCopy(sScriptStringVars[0], gSpeciesNames[GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES)]);
+                    StringCopy(sScriptStringVars[1], gSpeciesNames[GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES)]);
                     randomPoison = TRUE;
 
                 }
             }
             failsafe++;
         }
+        
+        
+        
 
     }
 
@@ -2534,3 +2543,34 @@ bool8 ScrCmd_lockfortrainer(struct ScriptContext *ctx)
     }
     return TRUE;
 }
+
+void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
+{    
+    u16 targetLayout = VarGet(ScriptReadHalfword(ctx)); //the layout you want to print on the map
+    s16 startingX = VarGet(ScriptReadHalfword(ctx));
+    s16 startingY = VarGet(ScriptReadHalfword(ctx));
+    s16 x1 = VarGet(ScriptReadHalfword(ctx));
+    s16 y1 = VarGet(ScriptReadHalfword(ctx));
+    s16 x2 = VarGet(ScriptReadHalfword(ctx));
+    s16 y2 = VarGet(ScriptReadHalfword(ctx));
+
+    s16 i;
+    s16 j;
+
+    const struct MapLayout *mapLayout = gMapLayouts[targetLayout - 1];
+    
+    for (i = x1; i <= x2; i++)
+    {
+        for (j = y1; j <= y2; j++)
+        {
+            u16 metatile = mapLayout->map[j * mapLayout->width + i];
+
+            s16 destX = i + startingX + MAP_OFFSET;
+            s16 destY = j + startingY + MAP_OFFSET;
+            
+            MapGridSetMetatileEntryAt(destX, destY, metatile);// thank you for this bit griffin
+        }
+    }   
+    DrawWholeMapView();
+}
+

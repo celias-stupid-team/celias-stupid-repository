@@ -1009,6 +1009,18 @@ SECTIONS {
         sound/songs/midi/mus_secret_house.o(.rodata);
         sound/songs/midi/mus_korok_seed.o(.rodata);
         sound/songs/midi/mus_trick_house.o(.rodata);
+        sound/songs/midi/mus_chapter_8.o(.rodata);
+        sound/songs/midi/mus_delivery.o(.rodata);
+        sound/songs/midi/mus_megalovania.o(.rodata);
+        sound/songs/midi/mus_four_island.o(.rodata);
+        sound/songs/midi/mus_stupid_credits.o(.rodata);
+        sound/songs/midi/mus_gen4_lass.o(.rodata);
+        sound/songs/midi/mus_blaine_gym.o(.rodata);
+        sound/songs/midi/mus_tcg_island.o(.rodata);
+        sound/songs/midi/mus_four_island_center.o(.rodata);
+        sound/songs/midi/mus_four_island_mart.o(.rodata);
+        sound/songs/midi/mus_two_island_center.o(.rodata);
+        sound/songs/midi/mus_two_island_mart.o(.rodata);
 
     } > ROM =0
 

@@ -162,23 +162,25 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_FUSHCIA_OUTSIDE,
         HEAL_LOCATION_ROUTE12,
         HEAL_LOCATION_SAFARI_ZONE,
-        HEAL_LOCATION_NONE,
+        // HEAL_LOCATION_NONE,
     };
     u32 i;
     for (i = 0; i < ARRAY_COUNT(HealLocationsWithoutCutscene); i++)
     {
         loc = GetHealLocation(HealLocationsWithoutCutscene[i]);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
-        && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
-        && gSaveBlock1Ptr->lastHealLocation.x == loc->x
-        && gSaveBlock1Ptr->lastHealLocation.y == loc->y) {
-            DebugPrintf("Should not have cutscene, case %d", i);
+          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
+          && gSaveBlock1Ptr->lastHealLocation.x == loc->x
+          && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
+        {
+            // DebugPrintf("Should not have cutscene, case %d", i);
             return TRUE;
-        } else {
-            
-            DebugPrintf("Compared %d to %d not equal", gSaveBlock1Ptr->lastHealLocation.mapGroup, loc->mapGroup);
         }
+        // else {
+            
+        //     DebugPrintf("Compared %d to %d not equal", gSaveBlock1Ptr->lastHealLocation.mapGroup, loc->mapGroup);
+        // }
     }
-    DebugPrintf("Should have cutscene");
+    // DebugPrintf("Should have cutscene");
     return FALSE;
 }

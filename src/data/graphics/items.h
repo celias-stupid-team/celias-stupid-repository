@@ -842,3 +842,18 @@ const u32 gItemIconPalette_HISTORYBOOK[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icons/housevoucher.4bpp.lz");
 const u32 gItemIconPalette_HOUSEVOUCHER[] = INCBIN_U32("graphics/items/icon_palettes/housevoucher.gbapal.lz");
+
+const u32 gItemIcon_SPAREDOOR[] = INCBIN_U32("graphics/items/icons/spare_door.4bpp.lz");
+const u32 gItemIconPalette_SPAREDOOR[] = INCBIN_U32("graphics/items/icon_palettes/spare_door.gbapal.lz");
+
+const u32 gItemIcon_Hat[] = INCBIN_U32("graphics/items/icons/hat.4bpp.lz");
+const u32 gItemIconPalette_Hat[] = INCBIN_U32("graphics/items/icon_palettes/hat.gbapal.lz");
+
+const u32 gItemIcon_CASTELIACONE[] = INCBIN_U32("graphics/items/icons/casteliacone.4bpp.lz");
+const u32 gItemIconPalette_CASTELIACONE[] = INCBIN_U32("graphics/items/icon_palettes/casteliacone.gbapal.lz");
+
+const u32 gItemIcon_OldGateau[] = INCBIN_U32("graphics/items/icons/old_gateau.4bpp.lz");
+const u32 gItemIconPalette_OldGateau[] = INCBIN_U32("graphics/items/icon_palettes/old_gateau.gbapal.lz");
+
+const u32 gItemIcon_PENCILERASER[] = INCBIN_U32("graphics/items/icons/pencil_eraser.4bpp.lz");
+const u32 gItemIconPalette_PENCILERASER[] = INCBIN_U32("graphics/items/icon_palettes/pencil_eraser.gbapal.lz");

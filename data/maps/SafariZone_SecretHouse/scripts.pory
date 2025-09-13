@@ -68,7 +68,7 @@ script SafariZone_SecretHouse_EventScript_Prize {
 		//Handle Bag issues I guess?
 		famechecker(FAMECHECKER_FUSHCIA, 5)
 		setflag(FLAG_CSR_GOT_PAY_DAY)
-		giveitem_msg("{PLAYER} received the\nTM16 (PAY DAY)!", ITEM_TM16)
+		giveitem_msg("{PLAYER} received the TM16!\nIt contains PAY DAY!", ITEM_TM16)
 		msgbox(("Okay, look.\nI know what you're thinking:\p“Isn't that supposed to be an\nHM03 SURF?”\lYeah, well… funny story about that."), MSGBOX_DEFAULT)
 		msgbox(SafariZone_SecretHouse_Text_ExplainSurf)
 		release

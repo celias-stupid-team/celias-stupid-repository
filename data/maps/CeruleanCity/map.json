@@ -2,7 +2,7 @@
   "id": "MAP_CERULEAN_CITY",
   "name": "CeruleanCity",
   "layout": "LAYOUT_CERULEAN_CITY",
-  "music": "MUS_FUSHCIA",
+  "music": "MUS_TCG_ISLAND",
   "region_map_section": "MAPSEC_CERULEAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -502,20 +502,47 @@
     {
       "type": "trigger",
       "x": 26,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_SummonThePit2"
     },
     {
       "type": "trigger",
       "x": 27,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_SummonThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_SummonThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
       "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_EscapeThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_EscapeThePit2"
     },
     {
       "type": "trigger",
@@ -524,79 +551,25 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_SummonThePit"
+      "script": "CeruleanCity_EscapeThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_EscapeThePit2"
     },
     {
       "type": "trigger",
       "x": 26,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 29,
       "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 26,
-      "y": 3,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit"
+      "script": "CeruleanCity_EscapeThePit2"
     },
     {
       "type": "trigger",
@@ -651,6 +624,33 @@
       "var": "VAR_TEMP_3",
       "var_value": "0",
       "script": "CeruleanCity_PlayRoute24Music"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_EscapeThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_EscapeThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_EscapeThePit2"
     }
   ],
   "bg_events": [

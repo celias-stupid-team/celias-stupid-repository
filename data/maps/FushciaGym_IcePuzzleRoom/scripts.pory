@@ -41,7 +41,7 @@ script FushciaGym_IcePuzzleRoom_ResetButton {
 }
 
 script FushciaGym_IcePuzzleRoom_TrickRoomSign {
-	msgbox("TRICK ROOM\p(It's a trick!)\n", MSGBOX_SIGN)
+	msgbox("TRICK ROOM Room\p(It's a trick!)\n", MSGBOX_SIGN)
 	end
 }
 

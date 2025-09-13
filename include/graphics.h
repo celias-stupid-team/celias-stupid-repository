@@ -8989,6 +8989,7 @@ extern const u32 gBattleAnimBgImage_Aurora[];
 extern const u32 gBattleAnimBgImage_Fissure[];
 extern const u32 gBattleAnimBgImage_Surf[];
 extern const u32 gBattleAnimBgImage_Waterfall[];
+extern const u32 gBattleAnimBgImage_TrickRoom[];
 
 extern const u32 gBattleAnimBgPalette_Dark[];
 extern const u32 gBattleAnimBgPalette_Ghost[];
@@ -9010,6 +9011,7 @@ extern const u32 gBattleAnimBgPalette_SolarBeam[];
 extern const u32 gBattleAnimBgPalette_Surf[];
 extern const u32 gBattleAnimBgPalette_Waterfall[];
 extern const u32 gBattleAnimBgPalette_DarkVoid[];
+extern const u32 gBattleAnimBgPalette_TrickRoom[];
 
 extern const u32 gBattleAnimBgTilemap_Dark[];
 extern const u32 gBattleAnimBgTilemap_Ghost[];
@@ -9035,6 +9037,7 @@ extern const u32 gBattleAnimBgTilemap_SurfPlayer[];
 extern const u32 gBattleAnimBgTilemap_SurfContest[];
 extern const u32 gBattleAnimBgTilemap_Waterfall[];
 extern const u32 gBattleAnimBgTilemap_DarkVoid[];
+extern const u32 gBattleAnimBgTilemap_TrickRoom[];
 
 // dark
 extern const u32 gMetalShineGfx[];
@@ -12450,3 +12453,32 @@ extern const u32 gMonShinyPalette_REGIFILSAMIE[];
 extern const u8 gMonFootprint_REGIFILSAMIE[];
 extern const u8 gMonIcon_REGIFILSAMIE[];
 
+
+extern const u32 gItemIcon_SPAREDOOR[];
+extern const u32 gItemIconPalette_SPAREDOOR[];
+
+extern const u32 gTrainerFrontPic_TeamSky[];
+extern const u32 gTrainerPalette_TeamSky[];
+
+extern const u32 gTrainerFrontPic_Falkner[];
+extern const u32 gTrainerPalette_Falkner[];
+// SOLACEON
+extern const u32 gMonFrontPic_SOLACEON[];
+extern const u32 gMonPalette_SOLACEON[];
+extern const u32 gMonBackPic_SOLACEON[];
+extern const u32 gMonShinyPalette_SOLACEON[];
+extern const u8 gMonFootprint_SOLACEON[];
+extern const u8 gMonIcon_SOLACEON[];
+
+
+extern const u32 gItemIcon_Hat[];
+extern const u32 gItemIconPalette_Hat[];
+
+extern const u32 gItemIcon_CASTELIACONE[];
+extern const u32 gItemIconPalette_CASTELIACONE[];
+
+extern const u32 gItemIcon_OldGateau[];
+extern const u32 gItemIconPalette_OldGateau[];
+
+extern const u32 gItemIcon_PENCILERASER[];
+extern const u32 gItemIconPalette_PENCILERASER[];

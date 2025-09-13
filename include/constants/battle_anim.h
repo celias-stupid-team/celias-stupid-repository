@@ -357,6 +357,7 @@
 #define BG_SOLAR_BEAM_PLAYER 25
 #define BG_SOLAR_BEAM_CONTESTS 26
 #define BG_DARK_VOID 27
+#define BG_TRICK_ROOM 28
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0
@@ -391,6 +392,7 @@
 #define B_ANIM_HANGED_ON                29
 #define B_ANIM_TERA_CHARGE              30
 #define B_ANIM_TERA_ACTIVATE            31
+#define B_ANIM_TRICK_ROOM_CONTINUES     32
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

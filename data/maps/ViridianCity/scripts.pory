@@ -22,15 +22,7 @@ ViridianCity_EventScript_SetOldManBlockingRoad::
 	setobjectmovementtype LOCALID_TUTORIAL_MAN, MOVEMENT_TYPE_FACE_DOWN
 	return
 
-ViridianCity_EventScript_TryUnlockGym::
-	goto_if_unset FLAG_BADGE02_GET, EventScript_Return
-	goto_if_unset FLAG_BADGE03_GET, EventScript_Return
-	goto_if_unset FLAG_BADGE04_GET, EventScript_Return
-	goto_if_unset FLAG_BADGE05_GET, EventScript_Return
-	goto_if_unset FLAG_BADGE06_GET, EventScript_Return
-	goto_if_unset FLAG_BADGE07_GET, EventScript_Return
-	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 1
-	return
+
 
 ViridianCity_EventScript_GymDoorLocked::
 	lockall
@@ -740,9 +732,23 @@ script ViridianCity_EventScript_Woman {
 	faceplayer
 	if(flag(FLAG_TEMP_4)) {
 		msgbox(ViridianCity_Text_WeakenMonsFirstToCatch)
+		release
+		end
 
 	}
 	goto_if_eq(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 0, ViridianCity_EventScript_WomanRoadBlocked)
 	msgbox(ViridianCity_Text_GoShoppingInPewterOccasionally)
 	release
+}
+
+script ViridianCity_EventScript_TryUnlockGym {
+	goto_if_unset(FLAG_BADGE02_GET, EventScript_Return)
+	goto_if_unset(FLAG_BADGE03_GET, EventScript_Return)
+	goto_if_unset(FLAG_BADGE04_GET, EventScript_Return)
+	goto_if_unset(FLAG_BADGE05_GET, EventScript_Return)
+	goto_if_unset(FLAG_BADGE06_GET, EventScript_Return)
+	goto_if_unset(FLAG_BADGE07_GET, EventScript_Return)
+	//goto_if_unset(FLAG_BADGE07_GET, EventScript_Return) Falkner Badge
+	setvar(VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR, 1)
+	return
 }

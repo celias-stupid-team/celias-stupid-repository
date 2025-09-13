@@ -109,9 +109,9 @@ mapscripts CeladonCity_MapScripts {
 
 	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_BADGE04_GET) && !(checkmoncaught(SPECIES_NIDOQUEEN) || checkmoncaught(SPECIES_NIDOKING)) && !flag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)) {
-			setobjectxyperm(CELIA, 35, 15)
-			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
-			setvar(VAR_TEMP_1, 1)
+			//setobjectxyperm(CELIA, 35, 15)
+			//setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
+			//setvar(VAR_TEMP_1, 1)
 		}
 	}
 
@@ -157,7 +157,7 @@ mapscripts CeladonCity_MapScripts {
 			msgbox("{PLAYER} recieved the trans-supporting\nMANKEY!", MSGBOX_DEFAULT)
 			waitfanfare
 			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MANKEY)
-			setflag(FLAG_SHINY_CREATION) //Mankey
+			setflag(FLAG_SHINY_CREATION) 
 			call(Common_Script_GiftPokemon)
 			setflag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
@@ -184,6 +184,8 @@ movement Celadon_CeliaAppearsForMankey {
 
 script CeliaSecrets_CeliaTellsYouNextHint {
 	call(CeliaSecrets_GetNextHint)
+	setflag(FLAG_CSR_OLD_CELIA_BONUS)
+
 	switch(var(VAR_CSR_CELIA_SECRET_NEXT_HINT)) {
 		case CELIA_SECRET_VIRIDIAN: //implemented!
 			msgbox("I hear there's someone in KANTO\nwho lost the keys to his house.\lAllegedly, he really liked gambling!", MSGBOX_DEFAULT)

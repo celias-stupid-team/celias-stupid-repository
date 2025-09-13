@@ -2607,7 +2607,7 @@ const u8 gHitmonchanShitPokedexText[] = _(
 	"FIRE PUNCH should be really strong now!");
 
 const u8 gJigglypuffAbovePokedexText[] = _(
-	"Haha, gottem!");
+	"A circle has no beginning.");
 
 const u8 gKenyaPokedexText[] = _(
 	"No, I will not be taking a side on\n"
@@ -2703,3 +2703,11 @@ const u8 gAmpharosMPokedexText[] = _(
 const u8 gVictiniPokedexText[] = _(
 	"All good programmers will\n"
 	"index starting at 0!");
+
+
+const u8 gMimikyuPokedexText[] = _(
+	"I wonder how much this one sells for");
+
+const u8 gHoopaPokedexText[] = _(
+	"Sounds like a lot of HOOPA\n"
+	"for one little KRABBY PATTY.");

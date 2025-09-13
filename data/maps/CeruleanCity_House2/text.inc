@@ -3,7 +3,7 @@ CeruleanCity_House2_Text_RocketsStoleTMForDig::
     .string "Look what they've done to my\n"
     .string "house!\p"
     .string "I was inspired by a TM to teach\n"
-    .string "POKéMON how to throw rocks!\p"
+    .string "POKéMON how to throw rocks.\p"
     .string "I was going to use it on a\n"
     .string "GEODUDE or an ONIX…\p"
     .string "Now I'm gonna get sued!$"

@@ -5326,3 +5326,7 @@ Cry_REGIFILSAMIE::
 	.incbin "sound/direct_sound_samples/cries/regifilsamie.bin"
 
 	.align 2
+Cry_SOLACEON::
+	.incbin "sound/direct_sound_samples/cries/solaceon.bin"
+
+	.align 2

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
+#include "battle_util.h"
 #include "util.h"
 #include "item.h"
 #include "random.h"
@@ -140,6 +141,7 @@ static void Cmd_get_number_of_sub_layers(void);
 static void Cmd_if_species(void);
 static void Cmd_get_battler_id(void);
 static void Cmd_if_last_used_move(void);
+static void Cmd_if_held_item_equal(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -248,11 +250,11 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_species,                       // 0x5F
     Cmd_get_battler_id,                   // 0x60
     Cmd_if_last_used_move,                // 0x61
+    Cmd_if_held_item_equal,               // 0x62
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
 {
-    EFFECT_EXPLOSION,
     EFFECT_DREAM_EATER,
     EFFECT_RAZOR_WIND,
     EFFECT_SKY_ATTACK,
@@ -360,7 +362,7 @@ void BattleAI_SetupAIData(void)
     }
     else if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_BATTLE_TOWER)) && (gTrainerBattleOpponent_A != TRAINER_SECRET_BASE))
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_WILD_SCRIPTED)
+        if ((gBattleTypeFlags & BATTLE_TYPE_WILD_SCRIPTED) || IsSingleWildRattata())
         {
             AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
             return;
@@ -372,8 +374,9 @@ void BattleAI_SetupAIData(void)
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            //always use CBM and CV for trainers
-            AI_THINKING_STRUCT->aiFlags = (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
+            AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+            //always add CBM and CV for trainers
+            AI_THINKING_STRUCT->aiFlags |= (AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY);
             return;
         }
     }
@@ -431,7 +434,7 @@ u8 BattleAI_ChooseMoveOrAction(void)
         }
     }
 
-    // AI score logging
+    //AI score logging @wiz1989
     // for (i = 0; i < MAX_MON_MOVES; i++)
     //     DebugPrintf("battler %d move %d score %d", gActiveBattler, i, AI_THINKING_STRUCT->score[i]);
 
@@ -2048,4 +2051,20 @@ static bool8 AIStackPop(void)
     }
     else
         return FALSE;
+}
+
+static void Cmd_if_held_item_equal(void)
+{
+    u8 battlerId;
+    u16 item = T1_READ_16(sAIScriptPtr + 2);
+
+    if (sAIScriptPtr[1] == AI_USER)
+        battlerId = gBattlerAttacker;
+    else
+        battlerId = gBattlerTarget;
+
+    if (gBattleMons[battlerId].item == item)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+    else
+        sAIScriptPtr += 8;
 }

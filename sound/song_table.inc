@@ -385,8 +385,20 @@ gSongTable::
 	song mus_iki_town_test, 0, 0
 	song mus_thundering_dynamo, 0, 0
 	song mus_secret_house, 0, 0
-	song mus_korok_seed, 0, 0
+	song mus_korok_seed, 2, 2
 	song mus_trick_house, 0, 0
+	song mus_chapter_8, 0, 0
+	song mus_delivery, 0, 0
+	song mus_megalovania, 0, 0
+	song mus_four_island, 0, 0
+	song mus_stupid_credits, 0, 0
+	song mus_gen4_lass, 0, 0
+	song mus_blaine_gym, 0, 0
+	song mus_tcg_island, 0, 0
+	song mus_four_island_center, 0, 0
+	song mus_four_island_mart, 0, 0
+	song mus_two_island_center, 0, 0
+	song mus_two_island_mart, 0, 0
 
 
 

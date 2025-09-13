@@ -74,7 +74,7 @@ static const u8 sText_TargetFainted[] = _("{B_DEF_NAME_WITH_PREFIX}\nfainted!\p"
 static const u8 sText_PlayerGotMoney[] = _("{B_PLAYER_NAME} got ¥{B_BUFF1}\nfor winning!\p");
 static const u8 sText_PlayerWhiteout[] = _("{B_PLAYER_NAME} is out of\nusable POKéMON!\p");
 static const u8 sText_PlayerPanicked[] = _("{B_PLAYER_NAME} panicked and lost ¥{B_BUFF1}…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_PlayerWhiteoutAgainstTrainer[] = _("{B_PLAYER_NAME} is out of\nusable POKéMON!\pPlayer lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerWhiteoutAgainstTrainer[] = _("{B_PLAYER_NAME} is out of\nusable POKéMON!\p{B_PLAYER_NAME} lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayerPaidAsPrizeMoney[] = _("{B_PLAYER_NAME} paid ¥{B_BUFF1} as the prize\nmoney…\p… … … …\p{B_PLAYER_NAME} fucking died!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} fucking died!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PreventsEscape[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} prevents\nescape with {B_SCR_ACTIVE_ABILITY}!\p");
@@ -249,7 +249,7 @@ static const u8 sText_PkmnSealedOpponentMove[] = _("{B_ATK_NAME_WITH_PREFIX} sea
 static const u8 sText_PkmnWantsGrudge[] = _("{B_ATK_NAME_WITH_PREFIX} wants the\nopponent to bear a GRUDGE!");
 static const u8 sText_PkmnLostPPGrudge[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} lost\nall its PP due to the GRUDGE!");
 static const u8 sText_PkmnShroudedItself[] = _("{B_ATK_NAME_WITH_PREFIX} shrouded\nitself in {B_CURRENT_MOVE}!");
-static const u8 sText_PkmnMoveBounced[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nwas bounced back by MAGIC COAT!");
+static const u8 sText_PkmnMoveBounced[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE}\nwas bounced back by REFLECT!");
 static const u8 sText_PkmnWaitsForTarget[] = _("{B_ATK_NAME_WITH_PREFIX} waits for its foe\nto make a move!");
 static const u8 sText_PkmnSnatchedMove[] = _("{B_DEF_NAME_WITH_PREFIX} SNATCHED\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s move!");
 static const u8 sText_ElectricityWeakened[] = _("Electricity's power was\nweakened!");
@@ -332,10 +332,10 @@ static const u8 sText_PkmnFledUsing[] = _("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_PRE
 static const u8 sText_WildPkmnFled[] = _("{PLAY_SE SE_FLEE}Wild {B_BUFF1} fled!");
 static const u8 sText_PlayerDefeatedLinkTrainer[] = _("Player defeated\n{B_LINK_OPPONENT1_NAME}!");
 static const u8 sText_TwoLinkTrainersDefeated[] = _("Player beat {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
-static const u8 sText_PlayerLostAgainstLinkTrainer[] = _("Player lost against\n{B_LINK_OPPONENT1_NAME}!");
-static const u8 sText_PlayerLostToTwo[] = _("Player lost to {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
-static const u8 sText_PlayerBattledToDrawLinkTrainer[] = _("Player battled to a draw against\n{B_LINK_OPPONENT1_NAME}!");
-static const u8 sText_PlayerBattledToDrawVsTwo[] = _("Player battled to a draw against\n{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}!");
+static const u8 sText_PlayerLostAgainstLinkTrainer[] = _("{B_PLAYER_NAME} lost against\n{B_LINK_OPPONENT1_NAME}!");
+static const u8 sText_PlayerLostToTwo[] = _("{B_PLAYER_NAME} lost to {B_LINK_OPPONENT1_NAME}\nand {B_LINK_OPPONENT2_NAME}!");
+static const u8 sText_PlayerBattledToDrawLinkTrainer[] = _("{B_PLAYER_NAME} battled to a draw against\n{B_LINK_OPPONENT1_NAME}!");
+static const u8 sText_PlayerBattledToDrawVsTwo[] = _("{B_PLAYER_NAME} battled to a draw against\n{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}!");
 static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} fled!");
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and\n{B_LINK_OPPONENT2_NAME} fled!");
 static const u8 sText_NoRunningFromTrainers[] = _("No! There's no running\nfrom a TRAINER battle!\p");
@@ -975,17 +975,24 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_DEFTERASTALLIZEDINTO - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} terastallized into the\nELECTRIC type!"),
     [STRINGID_BADDREAMSDMG - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is tormented by\n{B_ATK_NAME_WITH_PREFIX}'s BAD DREAMS!"),
     [STRINGID_SLOWSTARTENTERS - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s SLOW START\ncut its stats!"),
-    [STRINGID_SLOWSTARTEND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} finally got its act together!"),
+    [STRINGID_SLOWSTARTEND - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} got its act together!"),
+    [STRINGID_SLOWSTARTEARLY - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} SLOW START\ncut its stats."),
     [STRINGID_NEUTRALIZINGGASENTERS - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("WEEZING's NEUTRALIZING GAS\nnullified all ABILITIES!"),
-    [STRINGID_NEUTRALIZINGGASOVER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("The effects of the neutralizing gas wore off!"),
+    [STRINGID_NEUTRALIZINGGASOVER - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("The effects of the NEUTRALIZING GAS\nwore off!"),
     [STRINGID_AIRBALLOONFLOAT - BATTLESTRINGS_TABLE_START]               = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} floats in the air with\nits AIR BALLOON!"),
     [STRINGID_AIRBALLOONPOP - BATTLESTRINGS_TABLE_START]                 = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s AIR BALLOON popped!"),
-    [STRINGID_TARGETELECTRIFIED - BATTLESTRINGS_TABLE_START]             COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s moves have been\nelectrified!"),
-    [STRINGID_WONDER_SEED - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s ABILITY became\nWONDER GUARD!"),   
-    [STRINGID_PROTEAN - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s PROTEAN made it\nGHOST-TYPE!"),   
-    [STRINGID_MEMENTO - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} asks to be\nremembered!"),  
-    [STRINGID_MISSED_FROM_AIR_BALLOON - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} avoided damage\nwith its AIR BALLOON!"),  
-
+    [STRINGID_TARGETELECTRIFIED - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s moves have been\nelectrified!"),
+    [STRINGID_WONDER_SEED - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s ABILITY became\nWONDER GUARD!"),   
+    [STRINGID_PROTEAN - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s PROTEAN made it\nGHOST-TYPE!"),   
+    [STRINGID_MEMENTO - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} asks to be\nremembered!"),  
+    [STRINGID_MISSED_FROM_AIR_BALLOON - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} avoided damage\nwith its AIR BALLOON!"),
+    [STRINGID_DIMENSIONSARETWISTED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!"),
+    [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
+    [STRINGID_HIT_A_WALL - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("Oh no! {PAUSE 30}\n{B_ATK_NAME_WITH_PREFIX} hit a wall!"), //dummy
+    [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!\n{PAUSE 20}Slower POKéMON will move first!"),
+    [STRINGID_MAGNET_RISE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is floating\neven harder!"),
+    [STRINGID_IT_WAS_CANCELLED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("But it was cancelled!"),
+    [STRINGID_SHADOW_FORCE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} disappeared!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1135,7 +1142,8 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_FLY]        = STRINGID_PKMNFLEWHIGH,
     [B_MSG_TURN1_DIG]        = STRINGID_PKMNDUGHOLE,
     [B_MSG_TURN1_DIVE]       = STRINGID_PKMNHIDUNDERWATER,
-    [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP
+    [B_MSG_TURN1_BOUNCE]     = STRINGID_PKMNSPRANGUP, 
+    [B_MSG_TURN1_SHADOW_FORCE]     = STRINGID_SHADOW_FORCE, 
 };
 
 // Index copied from move's index in gTrappingMoves
@@ -1277,13 +1285,13 @@ const u16 gWeatherStartsStringIds[] =
     [WEATHER_FOG_HORIZONTAL]     = STRINGID_ITISRAINING,
     [WEATHER_VOLCANIC_ASH]       = STRINGID_ITISRAINING,
     [WEATHER_SANDSTORM]          = STRINGID_SANDSTORMISRAGING,
-    [WEATHER_TRICK_ROOM]       = STRINGID_ITISRAINING, //Add the Trick Room string here
+    [WEATHER_TRICK_ROOM]         = STRINGID_TWISTED_DIMENSIONS_START,
     [WEATHER_UNDERWATER]         = STRINGID_ITISRAINING,
     [WEATHER_SHADE]              = STRINGID_ITISRAINING,
     [WEATHER_DROUGHT]            = STRINGID_SUNLIGHTSTRONG,
     [WEATHER_DOWNPOUR]           = STRINGID_ITISRAINING,
     [WEATHER_UNDERWATER_BUBBLES] = STRINGID_ITISRAINING,
-    [WEATHER_ABNORMAL]           = STRINGID_ITISRAINING
+    [WEATHER_ABNORMAL]           = STRINGID_ITISRAINING,
 };
 
 const u16 gInobedientStringIds[] =
@@ -1403,6 +1411,7 @@ const u16 gDoNothingStringIds[] =
     [B_MSG_VEEVEE_VOLLEY] = STRINGID_VEEVEE_VOLLEY,
     [B_MSG_FICKLE_BEAM] = STRINGID_FICKLE_BEAM,
     [B_MSG_MIST] = STRINGID_IT_MIST,
+    [B_MSG_MAGNET_RISE] = STRINGID_MAGNET_RISE,
 };
 
 const u16 gSwitchInAbilityStringIds[] =
@@ -1518,8 +1527,8 @@ const u8 *const gTrainerTowerChallengeTypeTexts[NUM_TOWER_CHALLENGE_TYPES] =
 };
 
 static const u8 sText_Trainer1Fled[] = _("{PLAY_SE SE_FLEE}{B_TRAINER1_CLASS} {B_TRAINER1_NAME} fled!");
-static const u8 sText_PlayerLostAgainstTrainer1[] = _("Player lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!");
-static const u8 sText_PlayerBattledToDrawTrainer1[] = _("Player battled to a draw against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!");
+static const u8 sText_PlayerLostAgainstTrainer1[] = _("{B_PLAYER_NAME} lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!");
+static const u8 sText_PlayerBattledToDrawTrainer1[] = _("{B_PLAYER_NAME} battled to a draw against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!");
 
 static const u8 *const sATypeMove_Table[NUMBER_OF_MON_TYPES] =
 {

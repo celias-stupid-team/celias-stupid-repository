@@ -1,17 +1,32 @@
 raw `
-DiglettsCave_B1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DiglettsCave_B1F_OnTransition
-	.byte 0
 
 
 `
 
-script DiglettsCave_B1F_OnTransition {
-	setworldmapflag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)
-	if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
-		call(DiglettsCave_DrawHole)
+mapscripts DiglettsCave_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F)
+	}
+	
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
+			call(DiglettsCave_DrawHole)
+		}
+	
+
 	}
 }
+
+
+script DiglettsCave_Digletts {
+	lock
+	setvar(VAR_DIGLETTS_CAVE_DIGLETTS, 1)
+	setwildbattle(SPECIES_DUGTRIO, 29, ITEM_NONE)
+	dowildbattle
+	release
+}
+
+
 
 script DiglettsCave_WallHole {
 	if(flag(FLAG_DUG_IN_DIGLETTS_CAVE)) {
@@ -39,7 +54,9 @@ script DiglettsCave_WallHole {
 			release
 			end
 
-
+		
+		} else {
+			release
 		}
 	} else {
 		msgbox("There is a small hole in the wall.\n", MSGBOX_SIGN)
@@ -58,21 +75,21 @@ script DiglettsCave_DrawHole {
 	setmetatile(80, 57, 0x299, TRUE)
 
 	
-	setmetatile(74, 57, 0x281, FALSE)
-	setmetatile(75, 57, 0x281, FALSE)
-	setmetatile(76, 57, 0x281, FALSE)
-	setmetatile(77, 57, 0x281, FALSE)
-	setmetatile(78, 57, 0x281, FALSE)
-	setmetatile(79, 57, 0x281, FALSE)
-	setmetatile(80, 57, 0x281, FALSE)
+	setmetatile(74, 58, 0x281, FALSE)
+	setmetatile(75, 58, 0x281, FALSE)
+	setmetatile(76, 58, 0x281, FALSE)
+	setmetatile(77, 58, 0x281, FALSE)
+	setmetatile(78, 58, 0x281, FALSE)
+	setmetatile(79, 58, 0x281, FALSE)
+	setmetatile(80, 58, 0x281, FALSE)
 
 	
-	setmetatile(74, 57, 0x288, TRUE)
-	setmetatile(75, 57, 0x289, TRUE)
-	setmetatile(76, 57, 0x289, TRUE)
-	setmetatile(77, 57, 0x289, TRUE)
-	setmetatile(78, 57, 0x289, TRUE)
-	setmetatile(79, 57, 0x289, TRUE)
-	setmetatile(80, 57, 0x289, TRUE)
+	setmetatile(74, 59, 0x288, TRUE)
+	setmetatile(75, 59, 0x289, TRUE)
+	setmetatile(76, 59, 0x289, TRUE)
+	setmetatile(77, 59, 0x289, TRUE)
+	setmetatile(78, 59, 0x289, TRUE)
+	setmetatile(79, 59, 0x289, TRUE)
+	setmetatile(80, 59, 0x289, TRUE)
 	return
 }

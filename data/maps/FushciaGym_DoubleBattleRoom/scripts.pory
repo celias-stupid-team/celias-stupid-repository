@@ -2,6 +2,12 @@ mapscripts FushciaGym_DoubleBattleRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
         
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_DOUBLE_BATTLE_ROOM)
+        if(flag(FLAG_GOT_POISONED_ONCE)) {
+            addvar(VAR_CANT_FIGURE_OUT_DARACH, 1)
+        }
+        if(var(VAR_CANT_FIGURE_OUT_DARACH) < 4 || checktrainerflag(TRAINER_BATTLE_FRONTIER_CAITLIN)) {
+            setflag(FLAG_TEMP_5)
+        }
     }
 }
 
@@ -66,7 +72,7 @@ script FushciaGym_DoubleBattleRoom_CheeseScript {
         waitmovement(0)
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
         textcolor(NPC_TEXT_COLOR_MALE)
-        msgbox("DARACH: Ah, I see you're\nchallenging my lady?\lAha!\pWell if you're capable, then I\nshall add myself to the fray.\pWhen my lady and I fight, nothing\ncan ever defeat us!", MSGBOX_DEFAULT)
+        msgbox("DARACH: Ah, I see you're\nchallenging my lady?\lAha!\pWell if you're capable, then I\nshall add myself to the fray.\pWhen my lady and I fight together,\nnothing can ever defeat us!", MSGBOX_DEFAULT)
         playbgm(MUS_BATTLE_FRONTIER, TRUE)
         trainerbattle_no_intro(TRAINER_BATTLE_FRONTIER_CAITLIN_DARACH, "lol")
         delay(30)
@@ -107,4 +113,17 @@ script FushciaGym_DoubleBattleRoom_CheeseScript {
 script FushciaGym_DoubleBattleRoom_PotionDoorSign {
 	msgbox("POTION ROOM\pThis room contains our backup\nsupply of POTIONS.\lFor emergency use only!", MSGBOX_SIGN)
 	end
+}
+
+script FushciaGym_DoubleBattleRoom_CeliaHint {
+    lock
+    faceplayer
+    msgbox("Hiya!\nYou seem to be struggling here.\lWould you like to have a hint?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox("Your goal is to prevent being\nchallenged by both trainers.\pI gave you access to the POISON\nroom at the same time as this one.\pThink about how this room is\nlaid out, and think about the\lproperties of double battles.\pThen, think about the unique\nproperties of POISON as a status.\pGood luck!\nI believe in you!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("Okay, no worries.\pGood luck!\nI believe in you!", MSGBOX_DEFAULT)
+    }
+    release
+    end
 }

@@ -232,7 +232,7 @@
 #define OBJ_EVENT_GFX_ORTHWORM                        220          //Placeholder
 #define OBJ_EVENT_GFX_ETERNATUS                        221          //Placeholder
 #define OBJ_EVENT_GFX_PRIMEAPE                        222          //Placeholder
-#define OBJ_EVENT_GFX_DEWGONG                        223          //Placeholder
+#define OBJ_EVENT_GFX_DEWGONG_1                        223          //Placeholder
 #define OBJ_EVENT_GFX_CASTFORM                        224          //Placeholder
 #define OBJ_EVENT_GFX_ZYGARDE                        225          //Placeholder
 #define OBJ_EVENT_GFX_ZUBAT                        226          //Placeholder
@@ -304,7 +304,23 @@
 #define OBJ_EVENT_GFX_BLANK 290
 #define OBJ_EVENT_GFX_DEADNURSE 291
 #define OBJ_EVENT_GFX_GRAY_CELIA 292
-#define NUM_OBJ_EVENT_GFX 293
+#define OBJ_EVENT_GFX_REGIELEKI 293
+#define OBJ_EVENT_GFX_DEADPOKE 294
+#define OBJ_EVENT_GFX_REGIDRAGO 295
+#define OBJ_EVENT_GFX_PRIMEAPE2 296
+#define OBJ_EVENT_GFX_DEWGONG 297
+#define OBJ_EVENT_GFX_DEADLASS 298
+#define OBJ_EVENT_GFX_TEAMSKY 299
+#define OBJ_EVENT_GFX_VULPIXDEAD 300
+#define OBJ_EVENT_GFX_PENCIL 301
+#define OBJ_EVENT_GFX_PHONEDAD 302
+#define OBJ_EVENT_GFX_MUSHROOMMAN 303
+#define OBJ_EVENT_GFX_DADJR 304
+#define OBJ_EVENT_GFX_PRESENT 305
+#define OBJ_EVENT_GFX_CHUCK 306
+#define OBJ_EVENT_GFX_SATURN 307
+#define OBJ_EVENT_GFX_FROSLASS 308
+#define NUM_OBJ_EVENT_GFX 309
 
 
 

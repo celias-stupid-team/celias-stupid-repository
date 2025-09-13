@@ -14,6 +14,7 @@
 #include "decompress.h"
 #include "event_data.h"
 #include "evolution_scene.h"
+#include "field_weather.h"
 #include "graphics.h"
 #include "help_system.h"
 #include "item.h"
@@ -42,6 +43,7 @@
 #include "constants/pokemon.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/weather.h"
 
 static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
 static void HandleAction_UseMove(void);
@@ -336,7 +338,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_PSYCHIC_PHYSICAL]  = _("PSYCHC"),
     [TYPE_FAIRY_TRANS] = _("FAIRY"),
     [TYPE_SOUND] = _("SOUND"),
-    [TYPE_GRASS_TCG] = _("GRASS"),
+    [TYPE_GRASS_TCG] = _("{TCG_GRASS_1}{TCG_GRASS_2}"),
     [TYPE_FIGHTING_SPECIAL] = _("FIGHT"),
 
 };
@@ -415,7 +417,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RS_TUBER_F, 1},
     {TRAINER_CLASS_HEX_MANIAC, 6},
     {TRAINER_CLASS_RS_PKMN_BREEDER, 10},
-    {TRAINER_CLASS_TEAM_MAGMA, 5},
+    {TRAINER_CLASS_TEAM_SKY, 5},
     {TRAINER_CLASS_INTERVIEWER, 12},
     {TRAINER_CLASS_RS_TUBER_M, 1},
     {TRAINER_CLASS_RS_YOUNG_COUPLE, 8},
@@ -2248,6 +2250,12 @@ static void BattleStartClearSetData(void)
         gBattleResults.caughtMonNick[i] = 0;
     }
 
+    //save player items for potentially restoring them after battle
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        gBattleStruct->itemLost[i] = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+    }
+
     gSelectedMonPartyId = PARTY_SIZE; // Revival Blessing
 }
 
@@ -2810,6 +2818,14 @@ static void TryDoEventsBeforeFirstTurn(void)
         gBattleStruct->overworldWeatherDone = TRUE;
         return;
     }
+    // show early slow start message
+    if (!gBattleStruct->introMessagesDone
+        && AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS_SLOWSTART, 0, 0, 0, 0) != 0)
+    {
+        gBattleStruct->introMessagesDone = TRUE;
+        return;
+    }
+    // show early NG message
     if (AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, 0, 0, 0, 0) != 0)
         return;
     // Check all switch in abilities happening from the fastest mon to slowest.
@@ -3433,7 +3449,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler1].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
+    {
+        DebugPrintf("Cut Speed from Slow Start");
         speedBattler1 = speedBattler1 / 100;
+        }
     
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -3445,10 +3464,11 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
     if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
-        speedBattler1 /= 4;
+        speedBattler1 = 5; // Guaranteed outslow Trick Room
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler1 = UINT_MAX;
-    // check second battlerId's speed
+
+    // ### check second battlerId's speed ###
     speedBattler2 = (gBattleMons[battler2].speed * speedMultiplierBattler2)
                     * (gStatStageRatios[gBattleMons[battler2].statStages[STAT_SPEED]][0])
                     / (gStatStageRatios[gBattleMons[battler2].statStages[STAT_SPEED]][1]);
@@ -3465,8 +3485,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 
     // abilities
     if (gBattleMons[battler2].ability == ABILITY_SLOW_START && gDisableStructs[battler1].slowStartTimer > gBattleResults.battleTurnCounter)
-        speedBattler2 = speedBattler2 / 100;
-
+            {
+        DebugPrintf("Cut Speed from Slow Start");
+        speedBattler1 = speedBattler1 / 100;
+        }
     // badge boost
     if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
      && FlagGet(FLAG_BADGE03_GET)
@@ -3477,9 +3499,13 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler2 /= 2;
     if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)
-        speedBattler2 /= 4;
+        speedBattler2 = 5;
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler2 = UINT_MAX;
+
+    // ### speed calcs completed ###
+
+    // get chosen move
     if (ignoreChosenMoves)
     {
         moveBattler1 = MOVE_NONE;
@@ -3487,6 +3513,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     }
     else
     {
+        //battler1
         if (gChosenActionByBattler[battler1] == B_ACTION_USE_MOVE)
         {
             if (gProtectStructs[battler1].noValidMoves)
@@ -3496,6 +3523,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         }
         else
             moveBattler1 = MOVE_NONE;
+        //battler2
         if (gChosenActionByBattler[battler2] == B_ACTION_USE_MOVE)
         {
             if (gProtectStructs[battler2].noValidMoves)
@@ -3506,6 +3534,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         else
             moveBattler2 = MOVE_NONE;
     }
+
     // both move priorities are different than 0
     if (gBattleMoves[moveBattler1].priority != 0 || gBattleMoves[moveBattler2].priority != 0)
     {
@@ -3515,8 +3544,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
             else if (speedBattler1 < speedBattler2)
-                strikesFirst = 1; // battler2 has more speed
-            // else battler1 has more speed
+            {
+                if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                    strikesFirst = 1; // battler2 has more speed
+                else
+                    strikesFirst = 0; // else battler1 has more speed
+            }
+            else
+            {
+                if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                    strikesFirst = 0; // battler1 has more speed
+                else
+                    strikesFirst = 1; // else battler2 has more speed
+            }
         }
         else if (gBattleMoves[moveBattler1].priority < gBattleMoves[moveBattler2].priority)
             strikesFirst = 1; // battler2's move has greater priority
@@ -3528,8 +3568,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         if (speedBattler1 == speedBattler2 && Random() & 1)
             strikesFirst = 2; // same speeds, same priorities
         else if (speedBattler1 < speedBattler2)
-            strikesFirst = 1; // battler2 has more speed
-        // else battler1 has more speed
+        {
+            if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                strikesFirst = 1; // battler2 has more speed
+            else
+                strikesFirst = 0; // else battler1 has more speed
+        }
+        else
+        {
+            if (!(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+                strikesFirst = 0; // battler1 has more speed
+            else
+                strikesFirst = 1; // else battler2 has more speed
+        }    
     }
     return strikesFirst;
 }
@@ -3872,6 +3923,7 @@ static void HandleEndTurn_FinishBattle(void)
         if(gTrainers[gTrainerBattleOpponent_A].trainerClass != TRAINER_CLASS_RAPPER) {
             FadeOutMapMusic(5);
         }
+        TryRestoreHeldItems();
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
         gCB2_AfterEvolution = BattleMainCB2;
     }

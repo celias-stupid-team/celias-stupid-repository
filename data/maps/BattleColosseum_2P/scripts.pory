@@ -606,7 +606,6 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintOnix)
 		case SPECIES_LICKITUNG: 
 			 msgbox(PokedexRating_Text_HintPlugOink)
-			 setflag(FLAG_CHRIS_GIVES_LICKITUNG)
 		case SPECIES_BELLSPROUT: 
 			 msgbox(PokedexRating_Text_HintBellsprout)
 		case SPECIES_CHERUBI: 

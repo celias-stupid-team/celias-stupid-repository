@@ -3,11 +3,7 @@ TwoIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TwoIsland_OnTransition
 	.byte 0
 
-TwoIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_TWO_ISLAND
-	setflag FLAG_VISITED_TWO_ISLAND
-	call TwoIsland_EventScript_SetShopState
-	end
+
 
 TwoIsland_EventScript_SetShopState::
 	goto_if_set FLAG_SYS_CAN_LINK_WITH_RS, TwoIsland_EventScript_SetShopStateAfterHoennLink
@@ -216,3 +212,50 @@ TwoIsland_EventScript_FastCurrentSign::
 	msgbox TwoIsland_Text_DangerFastCurrent, MSGBOX_SIGN
 	end
 `
+script TwoIsland_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_TWO_ISLAND)
+	setflag(FLAG_VISITED_TWO_ISLAND)
+	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
+		setobjectmovementtype(LOCALID_DRAGONITE_PRESENT, MOVEMENT_TYPE_FACE_LEFT)
+	}
+}
+
+script TwoIsland_PencilStatue {
+	lock
+	if(!checkitem(ITEM_PENCIL_ERASER)) {
+		msgbox("A large statue of a PENCIL blocks\nthe way.", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox("A large statue of a PENCIL blocks\nthe way.\pWould you like to use the PENCIL\nERASER?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			msgbox("{PLAYER} used the PENCIL ERASER.\n", MSGBOX_DEFAULT)
+			// sound effect
+			closemessage
+			setflag(FLAG_TWO_ISLAND_PENCIL)
+			//animation?
+			removeobject(VAR_LAST_TALKED)
+			removeitem(ITEM_PENCIL_ERASER)
+			release
+			end
+		} else {
+			release
+			end
+		}
+	}
+}
+
+script TwoIsland_DragonitePresent {
+	lock
+	if(flag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)) {
+		msgbox("The present is empty.\n", MSGBOX_DEFAULT)
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_LEFT)
+	msgbox("{PLAYER} opened the present.\n", MSGBOX_DEFAULT)
+	setflag(FLAG_TWO_ISLAND_DRAGONITE_PRESENT)
+	release
+	end
+}

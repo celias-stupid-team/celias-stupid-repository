@@ -32,7 +32,7 @@ static EWRAM_DATA u8 sDelayTimer = 0;
 static EWRAM_DATA u8 sInHelpSystem = 0;
 static EWRAM_DATA struct HelpSystemVideoState sVideoState = {0};
 EWRAM_DATA struct HelpSystemListMenu gHelpSystemListMenu = {0};
-EWRAM_DATA struct ListMenuItem gHelpSystemListMenuItems[52] = {0};
+EWRAM_DATA struct ListMenuItem gHelpSystemListMenuItems[200] = {0};
 
 static const u16 sTiles[] = INCBIN_U16("graphics/help_system/bg_tiles.4bpp");
 static const u16 sPals[] = INCBIN_U16("graphics/help_system/bg_tiles.gbapal");
@@ -649,7 +649,7 @@ s32 HelpSystem_GetMenuInput(void)
     if (sDelayTimer != 0)
     {
         sDelayTimer--;
-        return -1;
+        return MENU_INPUT_IDLE;
     }
     else if (JOY_NEW(A_BUTTON))
     {
@@ -659,44 +659,53 @@ s32 HelpSystem_GetMenuInput(void)
     else if (JOY_NEW(B_BUTTON))
     {
         PlaySE(SE_SELECT);
-        return -2;
+        return MENU_INPUT_B;
     }
     else if (JOY_NEW(L_BUTTON | R_BUTTON))
     {
-        return -6;
+        return MENU_INPUT_LR;
     }
     else if (JOY_REPT(DPAD_UP))
     {
         if (!MoveCursor(1, 0))
             PlaySE(SE_SELECT);
-        return -4;
+        return MENU_INPUT_UP;
     }
     else if (JOY_REPT(DPAD_DOWN))
     {
         if (!MoveCursor(1, 1))
             PlaySE(SE_SELECT);
-        return -5;
+        return MENU_INPUT_DOWN;
     }
     else if (JOY_REPT(DPAD_LEFT))
     {
         if (!MoveCursor(7, 0))
             PlaySE(SE_SELECT);
-        return -4;
+        return MENU_INPUT_UP;
     }
     else if (JOY_REPT(DPAD_RIGHT))
     {
         if (!MoveCursor(7, 1))
             PlaySE(SE_SELECT);
-        return -5;
+        return MENU_INPUT_DOWN;
     }
     else
-        return -1;
+        return MENU_INPUT_IDLE;
 }
 
 void HS_UpdateMenuScrollArrows(void)
 {
-    u8 topItemIdx = gHelpSystemListMenu.sub.totalItems - 7;
-    if (gHelpSystemListMenu.sub.totalItems > 7)
+    u8 topItemIdx;
+    u8 maxItems;
+
+    if (GetHelpSystemStateLevel() == 0)
+        maxItems = MAX_ITEMS_SHOWED_MAIN;
+    else
+        maxItems = MAX_ITEMS_SHOWED;
+    
+    topItemIdx = gHelpSystemListMenu.sub.totalItems - maxItems;
+
+    if (gHelpSystemListMenu.sub.totalItems > maxItems)
     {
         s32 cursorPos = gHelpSystemListMenu.itemsAbove + gHelpSystemListMenu.cursorPos;
         HS_ShowOrHideScrollArrows(0, 0); // Hide both
@@ -810,6 +819,7 @@ bool8 MoveCursor(u8 by, u8 dirn)
     u8 r7 = gHelpSystemListMenu.cursorPos;
     u8 flags = 0;
     s32 i;
+
     for (i = 0; i < by; i++)
         flags |= TryMoveCursor1(dirn);
 
@@ -828,7 +838,7 @@ bool8 MoveCursor(u8 by, u8 dirn)
     case 2:
     case 3:
         // changed itemsAbove
-        if (GetHelpSystemMenuLevel() == 1)
+        if (GetHelpSystemMenuLevel() > 0)
         {
             HelpSystem_SetInputDelay(2);
             HelpSystem_FillPanel1();
@@ -839,11 +849,17 @@ bool8 MoveCursor(u8 by, u8 dirn)
         }
         else
         {
-            HS_ShowOrHideMainWindowText(0);
+            HelpSystem_SetInputDelay(2);
             HelpSystem_FillPanel1();
             PrintListMenuItems();
             PlaceListMenuCursor();
-            HS_ShowOrHideMainWindowText(1);
+            HS_UpdateMenuScrollArrows();
+
+            // HS_ShowOrHideMainWindowText(0);
+            // HelpSystem_FillPanel1();
+            // PrintListMenuItems();
+            // PlaceListMenuCursor();
+            // HS_ShowOrHideMainWindowText(1);
         }
         CommitTilemap();
         break;

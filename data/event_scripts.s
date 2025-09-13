@@ -1578,3 +1578,73 @@ Text_TestMsg::
 
 	.include "data/maps/LostTower/scripts.inc"
 	.include "data/maps/LostTower/text.inc"
+
+	.include "data/maps/Chapter8/scripts.inc"
+	.include "data/maps/Chapter8/text.inc"
+
+	.include "data/maps/ViridianGym_Entrance/scripts.inc"
+	.include "data/maps/ViridianGym_Entrance/text.inc"
+
+	.include "data/maps/GreatBay_North/scripts.inc"
+	.include "data/maps/GreatBay_North/text.inc"
+
+	.include "data/maps/FalknerGym/scripts.inc"
+	.include "data/maps/FalknerGym/text.inc"
+
+	.include "data/maps/Great_Sea_1/scripts.inc"
+	.include "data/maps/Great_Sea_1/text.inc"
+
+	.include "data/maps/Zero_Island/scripts.inc"
+	.include "data/maps/Zero_Island/text.inc"
+
+	.include "data/maps/Johto_National_Park/scripts.inc"
+	.include "data/maps/Johto_National_Park/text.inc"
+	.include "data/maps/ViridianGym_DMCA_Brock/scripts.inc"
+	.include "data/maps/ViridianGym_DMCA_Brock/text.inc"
+
+	.include "data/maps/NationalPark/scripts.inc"
+	.include "data/maps/NationalPark/text.inc"
+
+	.include "data/maps/ViridianGym_Giovanni/scripts.inc"
+	.include "data/maps/ViridianGym_Giovanni/text.inc"
+
+	.include "data/maps/ViridianGym_Falkner/scripts.inc"
+	.include "data/maps/ViridianGym_Falkner/text.inc"
+
+	.include "data/maps/ViridianGym_Blaine/scripts.inc"
+	.include "data/maps/ViridianGym_Blaine/text.inc"
+
+	.include "data/maps/ViridianGym_Sabrina/scripts.inc"
+	.include "data/maps/ViridianGym_Sabrina/text.inc"
+
+	.include "data/maps/ViridianGym_Koga/scripts.inc"
+	.include "data/maps/ViridianGym_Koga/text.inc"
+
+	.include "data/maps/ViridianGym_Erika/scripts.inc"
+	.include "data/maps/ViridianGym_Erika/text.inc"
+
+	.include "data/maps/ViridianGym_Surge/scripts.inc"
+	.include "data/maps/ViridianGym_Surge/text.inc"
+
+	.include "data/maps/ViridianGym_Misty/scripts.inc"
+	.include "data/maps/ViridianGym_Misty/text.inc"
+
+	.include "data/maps/Thirty_Eight_Island/scripts.inc"
+	.include "data/maps/Thirty_Eight_Island/text.inc"
+
+	.include "data/maps/Minnesota/scripts.inc"
+	.include "data/maps/Minnesota/text.inc"
+
+	.include "data/maps/TwoIsland_North/scripts.inc"
+	.include "data/maps/TwoIsland_North/text.inc"
+	.include "data/maps/IndigoPlateauUsed/scripts.inc"
+	.include "data/maps/IndigoPlateauUsed/text.inc"
+
+	.include "data/maps/Credits/scripts.inc"
+	.include "data/maps/Credits/text.inc"
+
+	.include "data/maps/AetherParadise_Entrance/scripts.inc"
+	.include "data/maps/AetherParadise_Entrance/text.inc"
+
+	.include "data/maps/AetherParadise_NebbyRoom/scripts.inc"
+	.include "data/maps/AetherParadise_NebbyRoom/text.inc"

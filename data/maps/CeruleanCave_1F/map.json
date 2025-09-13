@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCave_1F_EventScript_ItemNugget",
-      "flag": "FLAG_HIDE_CERULEAN_CAVE_1F_NUGGET"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -41,7 +41,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCave_1F_EventScript_ItemFullRestore",
-      "flag": "FLAG_HIDE_CERULEAN_CAVE_1F_FULL_RESTORE"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -55,7 +55,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCave_1F_EventScript_ItemMaxElixir",
-      "flag": "FLAG_HIDE_CERULEAN_CAVE_1F_MAX_ELIXIR"
+      "flag": "NULL"
     },
     {
       "type": "object",

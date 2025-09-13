@@ -105,9 +105,33 @@ script PowerPlant_MagnemiteMan {
 	lock
 	faceplayer
 	if(checkmoncaught(SPECIES_MAGNEMITE)) {
-		//check player party. If No magnemite, then do his original speeches, but slightly different. 
-		//If yes, then if you already talked to him he'll say "Too bad!"
-		//If you hadn't talked to him, he'll introduce the problem but still evolve your magnemite. 
+		//This actually needs to be more complicated
+		//If it's the first time talking to him AND you haven't left the map since getting magnemite, it should do something different 
+		if(!flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)) {
+			setflag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)
+			msgbox("Here, there!\nDo you happen to have a MAGNEMITE?\pI actually have two MAGNEMITE here\nwith me right now.\lWe're just one away from evolving!\pOh!\nYou have one with you!\pGreat news!\nThat means we can… … …", MSGBOX_DEFAULT)
+			closemessage
+			playse(SE_PIN)
+			applymovement(VAR_LAST_TALKED, moves(
+				face_up
+				emote_exclamation_mark
+			))
+			delay(48)
+			//A magnemite appears
+			msgbox("Oh, hey!\nA wild MAGNEMITE!\lPerfect!", MSGBOX_DEFAULT)
+			closemessage
+			faceplayer
+			msgbox("Looks like I didn't need any help\nafter all.\lSorry!\pHope you're able to find someone\nelse someday!", MSGBOX_DEFAULT)
+			applymovement(VAR_LAST_TALKED, moves(
+				face_up
+			))
+			msgbox("Aight boys, let's get to it!\n", MSGBOX_DEFAULT)
+		} else {
+			msgbox("Oh, uhh hey!\nHow's it been?\pYou, uh… found MAGNEMITE, I see.\nUhhh, funny story about that.\pWe {PAUSE 30}actually found one already.\nWe don't need yours anymore…\lSorry!\pUhh, see ya later!\nHope you find someone else!", MSGBOX_DEFAULT)
+		}
+
+
+		//evolve magnemite
 
 	} else {
 		if(flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY)) {
@@ -140,6 +164,7 @@ script PowerPlant_Dazzle {
 				msgbox("DAZZLE: Ooh!\nYou have a STAR PIECE!\pWould you like to trade it for a\nBADGE?", MSGBOX_YESNO)
 				setflag(FLAG_CSR_TALKED_TO_DAZZLE)
 				if(var(VAR_RESULT)) {
+					removeitem(ITEM_STAR_PIECE)
 					msgbox("DAZZLE: Yes!\nLet's trade!", MSGBOX_DEFAULT)
 					closemessage
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)

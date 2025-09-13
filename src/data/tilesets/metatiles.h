@@ -257,3 +257,29 @@ const u32 gMetatileAttributes_SurfHouse[] = INCBIN_U32("data/tilesets/secondary/
 
 const u16 gMetatiles_GlitchCity[] = INCBIN_U16("data/tilesets/secondary/glitch_city/metatiles.bin");
 const u32 gMetatileAttributes_GlitchCity[] = INCBIN_U32("data/tilesets/secondary/glitch_city/metatile_attributes.bin");
+
+const u16 gMetatiles_Chapter8[] = INCBIN_U16("data/tilesets/primary/chapter_8/metatiles.bin");
+const u32 gMetatileAttributes_Chapter8[] = INCBIN_U32("data/tilesets/primary/chapter_8/metatile_attributes.bin");
+
+const u16 gMetatiles_J_National_Park[] = INCBIN_U16("data/tilesets/secondary/j_national_park/metatiles.bin");
+const u32 gMetatileAttributes_J_National_Park[] = INCBIN_U32("data/tilesets/secondary/j_national_park/metatile_attributes.bin");
+const u16 gMetatiles_PorytilesBuilding[] = INCBIN_U16("data/tilesets/primary/porytiles_building/metatiles.bin");
+const u32 gMetatileAttributes_PorytilesBuilding[] = INCBIN_U32("data/tilesets/primary/porytiles_building/metatile_attributes.bin");
+
+const u16 gMetatiles_Wormhole[] = INCBIN_U16("data/tilesets/secondary/wormhole/metatiles.bin");
+const u32 gMetatileAttributes_Wormhole[] = INCBIN_U32("data/tilesets/secondary/wormhole/metatile_attributes.bin");
+
+const u16 gMetatiles_Thirty_Eight_Island[] = INCBIN_U16("data/tilesets/secondary/thirty_eight_island/metatiles.bin");
+const u32 gMetatileAttributes_Thirty_Eight_Island[] = INCBIN_U32("data/tilesets/secondary/thirty_eight_island/metatile_attributes.bin");
+
+const u16 gMetatiles_Credits[] = INCBIN_U16("data/tilesets/primary/credits/metatiles.bin");
+const u32 gMetatileAttributes_Credits[] = INCBIN_U32("data/tilesets/primary/credits/metatile_attributes.bin");
+
+const u16 gMetatiles_BlaineFurnaceFun[] = INCBIN_U16("data/tilesets/secondary/blaine_furnace_fun/metatiles.bin");
+const u32 gMetatileAttributes_BlaineFurnaceFun[] = INCBIN_U32("data/tilesets/secondary/blaine_furnace_fun/metatile_attributes.bin");
+
+const u16 gMetatiles_FourIsland[] = INCBIN_U16("data/tilesets/secondary/four_island/metatiles.bin");
+const u32 gMetatileAttributes_FourIsland[] = INCBIN_U32("data/tilesets/secondary/four_island/metatile_attributes.bin");
+
+const u16 gMetatiles_PokemonCenterFourIsland[] = INCBIN_U16("data/tilesets/secondary/pokemon_center_four_island/metatiles.bin");
+const u32 gMetatileAttributes_PokemonCenterFourIsland[] = INCBIN_U32("data/tilesets/secondary/pokemon_center_four_island/metatile_attributes.bin");

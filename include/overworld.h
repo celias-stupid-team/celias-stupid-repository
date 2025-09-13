@@ -139,6 +139,7 @@ bool32 Overworld_IsBikingAllowed(void);
 void Overworld_ResetStateAfterDigEscRope(void);
 bool32 Overworld_LinkRecvQueueLengthMoreThan2(void);
 u8 GetCurrentMapType(void);
+bool32 IsCurrentMap(u16 map);
 
 u8 GetLastUsedWarpMapType(void);
 const struct MapHeader *const GetDestinationWarpMapHeader(void);
@@ -182,9 +183,13 @@ void UpdateEscapeWarp(s16 x, s16 y);
 bool8 SetDiveWarpEmerge(u16 x, u16 y);
 bool8 SetDiveWarpDive(u16 x, u16 y);
 
+const struct MapLayout *GetMapLayout(void);
+
 extern u16 *gBGTilemapBuffers1;
 extern u16 *gBGTilemapBuffers2;
 extern u16 *gBGTilemapBuffers3;
 extern u16 gHeldKeyCodeToSend;
+
+extern const struct MapLayout * gMapLayouts[];
 
 #endif //GUARD_OVERWORLD_H

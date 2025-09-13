@@ -261,6 +261,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
 	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
 	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
+	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
+	.4byte BattleScript_EffectSemiInvulnerableHaunter       @ EFFECT_SEMI_INVULNERABLE_CANCEL
+	.4byte BattleScript_EffectRazorWindHaunter              @ EFFECT_RAZOR_WIND_CANCEL
+
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -1684,6 +1688,7 @@ BattleScript_EffectForesight::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
 	setforesight
 	attackanimation
 	waitanimation
@@ -3381,6 +3386,12 @@ BattleScript_SunlightFaded::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TrickRoomContinues::
+	printstring STRINGID_DIMENSIONSARETWISTED
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
+	end2
+
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -4619,6 +4630,13 @@ BattleScript_FocusBandActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_FocusSashActivates::
+	playanimation BS_TARGET, B_ANIM_FOCUS_BAND
+	printstring STRINGID_PKMNHUNGONWITHX
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_TARGET
+	return
+
 BattleScript_BerryConfuseHealEnd2::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
@@ -4730,24 +4748,10 @@ BattleScript_ExplosionUselessDoAnimStartLoop:
 	attackanimation
 	waitanimation
 BattleScript_ExplosionUselessLoop:
-	movevaluescleanup
-	critcalc
-	damagecalc
-	typecalc
-	adjustnormaldamage
-	accuracycheck BattleScript_ExplosionUselessMissed, ACC_CURR_MOVE
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-	moveendto MOVEEND_NEXT_TARGET
-	jumpifnexttargetvalid BattleScript_ExplosionUselessLoop
+	pause B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	end
 BattleScript_ExplosionUselessMissed:
@@ -5016,6 +5020,11 @@ BattleScript_SlowStartEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_SlowStartBeforeNeutralizingGas::
+	printstring STRINGID_SLOWSTARTEARLY
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_AirBalloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
@@ -5080,3 +5089,76 @@ BattleScript_NeutralizingGasExitsLoopIncrement:
 	restoreattacker
 	restoretarget
 	return
+
+
+BattleScript_EffectAgilityDumb::
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_GOING_TOO_FAST
+	waitmessage B_WAIT_TIME_LONG
+	attackanimation
+	waitanimation
+	setatkhptozero
+	waitstate
+	effectivenesssound
+	hitanimation BS_ATTACKER
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+	printstring STRINGID_HIT_A_WALL
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
+
+
+BattleScript_EffectSemiInvulnerableHaunter::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerableHaunter
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerableHaunter
+	jumpifmove MOVE_DIVE_CANCEL, BattleScript_FirstTurnDive
+	jumpifmove MOVE_SHADOW_FORCE_CANCEL, BattleScript_FirstTurnShadowForce
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DIG
+	goto BattleScript_FirstTurnSemiInvulnerable
+
+
+BattleScript_FirstTurnShadowForce::
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_SHADOW_FORCE
+	goto BattleScript_FirstTurnSemiInvulnerable
+
+BattleScript_SecondTurnSemiInvulnerableHaunter::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	clearsemiinvulnerablebit
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_IT_WAS_CANCELLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectRazorWindHaunter::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurnCancel
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurnCancel
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_RAZOR_WIND
+	call BattleScriptFirstChargingTurn
+	goto BattleScript_MoveEnd
+
+BattleScript_TwoTurnMovesSecondTurnCancel::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_IT_WAS_CANCELLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

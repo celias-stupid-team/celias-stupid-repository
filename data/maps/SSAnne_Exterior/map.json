@@ -13,13 +13,13 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_SS_ANNE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 48,
+      "x": 57,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -33,7 +33,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 66,
+      "x": 48,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -47,7 +47,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 66,
+      "x": 58,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -55,14 +55,14 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "VermilionHarbor_Item",
+      "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 57,
-      "y": 3,
+      "x": 69,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -110,14 +110,12 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 61,
-      "y": 15,
+      "x": 68,
+      "y": 4,
       "elevation": 3,
       "item": "ITEM_LAVA_COOKIE",
       "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE",

@@ -267,7 +267,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtEmber_Exterior_EventScript_ItemUltraBall",
-      "flag": "FLAG_HIDE_MT_EMBER_EXTERIOR_ULTRA_BALL"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -281,7 +281,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtEmber_Exterior_EventScript_ItemFireStone",
-      "flag": "FLAG_HIDE_MT_EMBER_EXTERIOR_FIRE_STONE"
+      "flag": "NULL"
     },
     {
       "type": "object",
@@ -295,7 +295,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MtEmber_Exterior_EventScript_ItemDireHit",
-      "flag": "FLAG_HIDE_MT_EMBER_EXTERIOR_DIRE_HIT"
+      "flag": "NULL"
     }
   ],
   "warp_events": [
