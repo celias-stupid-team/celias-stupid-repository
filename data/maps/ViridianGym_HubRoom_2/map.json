@@ -1,0 +1,36 @@
+{
+  "id": "MAP_VIRIDIAN_GYM_HUB_ROOM_2",
+  "name": "ViridianGym_HubRoom_2",
+  "layout": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_2",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 12,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_HUB_ROOM",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

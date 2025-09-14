@@ -655,7 +655,17 @@
     "ViridianGym_Sabrina",
     "ViridianGym_Blaine",
     "ViridianGym_Falkner",
-    "ViridianGym_Giovanni"
+    "ViridianGym_Giovanni",
+    "ViridianGym_HubRoom",
+    "ViridianGym_HubRoom_2",
+    "ViridianGym_HubRoom_3",
+    "ViridianGym_HubRoom_4",
+    "ViridianGym_HubRoom_5",
+    "ViridianGym_HubRoom_6",
+    "ViridianGym_HubRoom_7",
+    "ViridianGym_HubRoom_8",
+    "ViridianGym_HubRoom_9",
+    "ViridianGym_HubRoom_A"
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North",

@@ -5760,6 +5760,126 @@
       "secondary_tileset": "gTileset_SafariZoneBuilding",
       "border_filepath": "data/layouts/TwoIsland_PaulaHouse/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_PaulaHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM",
+      "name": "ViridianGym_HubRoom_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_A",
+      "name": "ViridianGym_HubRoom_A_Layout",
+      "width": 44,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_A/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_A/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_6",
+      "name": "ViridianGym_HubRoom_6_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_6/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_6/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_3",
+      "name": "ViridianGym_HubRoom_3_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_3/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_7",
+      "name": "ViridianGym_HubRoom_7_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_7/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_7/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_9",
+      "name": "ViridianGym_HubRoom_9_Layout",
+      "width": 41,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_9/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_9/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_5",
+      "name": "ViridianGym_HubRoom_5_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_5/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_5/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_8",
+      "name": "ViridianGym_HubRoom_8_Layout",
+      "width": 30,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_8/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_8/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_2",
+      "name": "ViridianGym_HubRoom_2_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_2/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_4",
+      "name": "ViridianGym_HubRoom_4_Layout",
+      "width": 26,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ViridianGym",
+      "border_filepath": "data/layouts/ViridianGym_HubRoom_4/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_4/map.bin"
     }
   ]
 }

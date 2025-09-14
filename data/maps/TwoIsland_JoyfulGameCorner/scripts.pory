@@ -188,8 +188,4 @@ script TwoIsland_Saturn {
 	msgbox("SATURN: Mwahaha!\nTEAM GALACTIC cannot be stopped!\lBoing!", MSGBOX_NPC)
 }
 
-script TwoIsland_IslandSign {
-	msgbox("TWO ISLAND\nThis ISLAND stinks!", MSGBOX_SIGN)
-
-}
 
