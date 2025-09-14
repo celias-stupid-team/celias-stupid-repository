@@ -20,14 +20,35 @@
       "x": 12,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_ENTRANCE",
+      "dest_map": "MAP_ROUTE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 25,
+      "x": 7,
+      "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_HUB_ROOM",
+      "dest_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_MISTY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_SURGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_ERIKA",
       "dest_warp_id": "0"
     }
   ],
