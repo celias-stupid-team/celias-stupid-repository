@@ -347,6 +347,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paula;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mr_t;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Panpour;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadovanni;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hint_man;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucas;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -695,4 +697,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MR_T] = &gObjectEventGraphicsInfo_Mr_t,
     [OBJ_EVENT_GFX_PANPOUR] = &gObjectEventGraphicsInfo_Panpour,
     [OBJ_EVENT_GFX_DEADOVANNI] = &gObjectEventGraphicsInfo_Deadovanni,
+    [OBJ_EVENT_GFX_HINT_MAN] = &gObjectEventGraphicsInfo_Hint_man,
+    [OBJ_EVENT_GFX_LUCAS] = &gObjectEventGraphicsInfo_Lucas,
 };

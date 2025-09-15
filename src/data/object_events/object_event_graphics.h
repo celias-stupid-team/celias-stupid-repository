@@ -471,3 +471,5 @@ const u32 gObjectEventPic_Paula[] = INCBIN_U32("graphics/object_events/pics/stup
 const u32 gObjectEventPic_Mr_t[] = INCBIN_U32("graphics/object_events/pics/stupid/Mr_t.4bpp");
 const u32 gObjectEventPic_Panpour[] = INCBIN_U32("graphics/object_events/pics/stupid/Panpour.4bpp");
 const u32 gObjectEventPic_Deadovanni[] = INCBIN_U32("graphics/object_events/pics/stupid/Deadovanni.4bpp");
+const u32 gObjectEventPic_Hint_man[] = INCBIN_U32("graphics/object_events/pics/stupid/Hint_man.4bpp");
+const u32 gObjectEventPic_Lucas[] = INCBIN_U32("graphics/object_events/pics/stupid/Lucas.4bpp");

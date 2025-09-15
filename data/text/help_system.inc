@@ -167332,7 +167332,7 @@ Text_ChapterThree_2::
 	.string "organization.$"
 Text_ChapterThree_3::
 	.string "But I drove a car down the Jersey\n"
-	.string "Turnpike at 88 mph.$"
+	.string "Turnpike at 80 mph.$"
 Text_ChapterThree_4::
 	.string "…A police officer pulled me over\n"
 	.string "and asked for my driver's license.$"

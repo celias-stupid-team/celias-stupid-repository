@@ -5880,6 +5880,18 @@
       "secondary_tileset": "gTileset_ViridianGym",
       "border_filepath": "data/layouts/ViridianGym_HubRoom_4/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_HubRoom_4/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOUR_ISLAND_FINNEON_HOUSE",
+      "name": "FourIsland_FinneonHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FourIsland",
+      "border_filepath": "data/layouts/FourIsland_FinneonHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FourIsland_FinneonHouse/map.bin"
     }
   ]
 }

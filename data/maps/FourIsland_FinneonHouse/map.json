@@ -1,7 +1,7 @@
 {
-  "id": "MAP_VIRIDIAN_GYM_HUB_ROOM",
-  "name": "ViridianGym_HubRoom",
-  "layout": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM",
+  "id": "MAP_FOUR_ISLAND_FINNEON_HOUSE",
+  "name": "FourIsland_FinneonHouse",
+  "layout": "LAYOUT_FOUR_ISLAND_FINNEON_HOUSE",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -17,13 +17,13 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_HINT_MAN",
-      "x": 15,
-      "y": 16,
+      "graphics_id": "OBJ_EVENT_GFX_LUCAS",
+      "x": 2,
+      "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
@@ -32,18 +32,11 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 20,
+      "x": 4,
+      "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE1",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 12,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FOUR_ISLAND",
+      "dest_warp_id": "10"
     }
   ],
   "coord_events": [],

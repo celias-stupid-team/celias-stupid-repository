@@ -1684,3 +1684,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianGym_HubRoom_9/scripts.inc"
 	.include "data/maps/ViridianGym_HubRoom_9/text.inc"
+
+	.include "data/maps/FourIsland_FinneonHouse/scripts.inc"
+	.include "data/maps/FourIsland_FinneonHouse/text.inc"

@@ -6,7 +6,7 @@ Text_Bookshelf::
 	.string "a target for an international spy\l"
 	.string "organization.\p"
 	.string "But I drove a car down the Jersey\n"
-	.string "Turnpike at 88 mph.\p"
+	.string "Turnpike at 80 mph.\p"
 	.string "…A police officer pulled me over\n"
 	.string "and asked for my driver's license.\p"
 	.string "He said I was going 20 mph over the\n"
