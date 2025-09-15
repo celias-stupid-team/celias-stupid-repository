@@ -528,24 +528,6 @@
     },
     {
       "type": "trigger",
-      "x": 30,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit2"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "CeruleanCity_EscapeThePit2"
-    },
-    {
-      "type": "trigger",
       "x": 28,
       "y": 4,
       "elevation": 0,
@@ -651,6 +633,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "CeruleanCity_EscapeThePit2"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CeruleanCity_DontStrayFromThePit1"
     }
   ],
   "bg_events": [
