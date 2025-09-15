@@ -23,6 +23,11 @@
       "map": "MAP_SIX_ISLAND_PATTERN_BUSH",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 62,
+      "direction": "up"
     }
   ],
   "object_events": [

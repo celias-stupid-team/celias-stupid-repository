@@ -1687,3 +1687,6 @@ Text_TestMsg::
 
 	.include "data/maps/FourIsland_FinneonHouse/scripts.inc"
 	.include "data/maps/FourIsland_FinneonHouse/text.inc"
+
+	.include "data/maps/Route20_SeafoamIslands/scripts.inc"
+	.include "data/maps/Route20_SeafoamIslands/text.inc"

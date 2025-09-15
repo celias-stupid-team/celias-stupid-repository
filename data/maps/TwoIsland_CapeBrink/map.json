@@ -21,8 +21,13 @@
     },
     {
       "map": "MAP_TWO_ISLAND_NORTH",
-      "offset": 13,
+      "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE17",
+      "offset": -88,
+      "direction": "right"
     }
   ],
   "object_events": [

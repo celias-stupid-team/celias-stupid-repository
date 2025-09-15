@@ -1084,7 +1084,7 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 132,
+      "width": 88,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -1144,7 +1144,7 @@
     {
       "id": "LAYOUT_ROUTE25",
       "name": "Route25_Layout",
-      "width": 72,
+      "width": 84,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -2585,11 +2585,11 @@
       "id": "LAYOUT_FIVE_ISLAND",
       "name": "FiveIsland_Layout",
       "width": 24,
-      "height": 22,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/FiveIsland/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland/map.bin"
     },
@@ -2757,7 +2757,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands45",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/FiveIsland_Meadow/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_Meadow/map.bin"
     },
@@ -3581,7 +3581,7 @@
       "id": "LAYOUT_SIX_ISLAND_PATTERN_BUSH",
       "name": "SixIsland_PatternBush_Layout",
       "width": 60,
-      "height": 32,
+      "height": 3,
       "border_width": 3,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5381,7 +5381,7 @@
       "id": "LAYOUT_GREAT_BAY_NORTH",
       "name": "GreatBay_North_Layout",
       "width": 24,
-      "height": 58,
+      "height": 34,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5585,7 +5585,7 @@
       "id": "LAYOUT_TWO_ISLAND_NORTH",
       "name": "TwoIsland_North_Layout",
       "width": 26,
-      "height": 9,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5892,6 +5892,18 @@
       "secondary_tileset": "gTileset_FourIsland",
       "border_filepath": "data/layouts/FourIsland_FinneonHouse/border.bin",
       "blockdata_filepath": "data/layouts/FourIsland_FinneonHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE20_SEAFOAM_ISLANDS",
+      "name": "Route20_SeafoamIslands_Layout",
+      "width": 44,
+      "height": 23,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/Route20_SeafoamIslands/border.bin",
+      "blockdata_filepath": "data/layouts/Route20_SeafoamIslands/map.bin"
     }
   ]
 }
