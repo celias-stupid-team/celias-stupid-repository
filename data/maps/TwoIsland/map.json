@@ -23,6 +23,11 @@
       "map": "MAP_TWO_ISLAND_NORTH",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE18",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -30,62 +35,62 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
       "x": 25,
-      "y": 3,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_Clerk",
+      "script": "TwoIsland_ForSaleMan",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 32,
-      "y": 4,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_Woman",
+      "script": "TwoIsland_PsyduckSeller",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 32,
-      "y": 13,
+      "graphics_id": "OBJ_EVENT_GFX_CLERK",
+      "x": 15,
+      "y": 14,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_Beauty",
+      "script": "TwoIsland_HamburgerGuy",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "graphics_id": "OBJ_EVENT_GFX_HIPPIE",
       "x": 23,
-      "y": 9,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_Sailor",
+      "script": "TwoIsland_PencilHippie",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 17,
+      "graphics_id": "OBJ_EVENT_GFX_SANS",
+      "x": 16,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -93,22 +98,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_SuperNerd",
-      "flag": "FLAG_HIDE_TWO_ISLAND_SUPER_NERD"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 35,
-      "y": 23,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_12"
+      "script": "TwoIsland_EventScript_SansTest",
+      "flag": "NULL"
     },
     {
       "local_id": "LOCALID_DRAGONITE_PRESENT",
@@ -129,28 +120,28 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
       "x": 45,
-      "y": 21,
+      "y": 20,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_LittleBoy",
+      "script": "TwoIsland_SmallChild",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 29,
-      "y": 19,
+      "graphics_id": "OBJ_EVENT_GFX_MR_T",
+      "x": 32,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TwoIsland_EventScript_Boy",
+      "script": "TwoIsland_MrT",
       "flag": "0"
     },
     {
@@ -170,7 +161,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 16,
+      "x": 17,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -208,35 +199,71 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_EventScript_ItemRevive",
       "flag": "FLAG_HIDE_TWO_ISLAND_REVIVE"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "x": 31,
+      "y": -5,
+      "target_local_id": "1",
+      "target_map": "MAP_TWO_ISLAND_CAPE_BRINK"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOY",
+      "x": 53,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 1,
-      "y": 0,
+      "x": 53,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
       "dest_warp_id": "0"
     },
     {
-      "x": 2,
-      "y": 0,
+      "x": 49,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 3,
+      "x": 21,
       "y": 0,
       "elevation": 3,
       "dest_map": "MAP_TWO_ISLAND_HARBOR",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND_DRUGSTORE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND_PAULA_HOUSE",
       "dest_warp_id": "0"
     }
   ],
@@ -261,10 +288,26 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 10,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "TwoIsland_EventScript_FastCurrentSign"
+      "script": "TwoIsland_IslandSign"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_ForSaleSign1"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TwoIsland_ForSaleSign2"
     }
   ]
 }

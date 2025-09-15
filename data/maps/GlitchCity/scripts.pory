@@ -85,3 +85,9 @@ script GlitchCity_DrawNoItem {
     setmetatile(17, 25, 0x280, FALSE)
     return
 }
+
+
+script GlitchCity_CeliaSecret {
+	msgbox("The reason I stutter a bunch in the\ncutscene is because I worked rlly\lhard on all the different sprites,\land wanted to be sure to use 'em!", MSGBOX_NPC)
+}
+

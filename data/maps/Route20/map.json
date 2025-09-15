@@ -20,8 +20,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE19",
-      "offset": -35,
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 0,
       "direction": "right"
     }
   ],
@@ -99,8 +99,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 73,
-      "y": 16,
+      "x": 74,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -113,8 +113,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 111,
-      "y": 9,
+      "x": 70,
+      "y": 7,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
       "movement_range_x": 5,
@@ -127,7 +127,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 106,
+      "x": 67,
       "y": 11,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
@@ -141,7 +141,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
-      "x": 93,
+      "x": 73,
       "y": 10,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",

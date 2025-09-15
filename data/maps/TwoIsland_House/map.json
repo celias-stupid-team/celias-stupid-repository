@@ -2,7 +2,7 @@
   "id": "MAP_TWO_ISLAND_HOUSE",
   "name": "TwoIsland_House",
   "layout": "LAYOUT_HOUSE3",
-  "music": "MUS_SEVII_123",
+  "music": "MUS_CSR_TWOSON",
   "region_map_section": "MAPSEC_TWO_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -17,9 +17,9 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_MUSHROOMMAN",
       "x": 7,
-      "y": 5,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,

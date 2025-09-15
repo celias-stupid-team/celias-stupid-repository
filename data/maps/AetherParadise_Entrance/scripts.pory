@@ -1,3 +1,16 @@
 mapscripts AetherParadise_Entrance_MapScripts {
     
 }
+
+script Script_Name {
+	msgbox("
+TRAINER TIPS\p
+
+Some POKéMON have not had their\n
+types altered in this hack.\p
+
+SKUNTANK, for instance, is\n
+DARK/POISON-TYPE.", MSGBOX_SIGN)
+
+}
+

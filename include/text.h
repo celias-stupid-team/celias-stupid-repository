@@ -21,6 +21,7 @@ enum {
     FONT_FEMALE,
     FONT_BRAILLE,
     FONT_BOLD,
+    FONT_COMIC_SANS,
 };
 
 // Return values for font functions
@@ -188,6 +189,7 @@ u8 GetFontAttribute(u8 fontId, u8 attributeId);
 u8 GetMenuCursorDimensionByFont(u8 fontId, u8 whichDimension);
 void DecompressGlyph_Small(u16 glyphId, bool32 isJapanese);
 void DecompressGlyph_Normal(u16 glyphId, bool32 isJapanese);
+void DecompressGlyph_ComicSans(u16 glyphId, bool32 isJapanese);
 void DecompressGlyph_Female(u16 glyphId, bool32 isJapanese);
 s32 GetGlyphWidth_Braille(u16 font_type, bool32 isJapanese);
 u8 CreateTextCursorSprite(u8 sheetId, u16 x, u16 y, u8 priority, u8 subpriority);

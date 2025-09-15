@@ -228,12 +228,26 @@ script FourIsland_AmitySquareSign {
 }
 
 script FourIsland_CenterOfTown {
-	msgbox("Believe it or not, where I'm\nstanding is smack dab on the\lCENTER of town.", MSGBOX_NPC)
+	msgbox("Believe it or not, where I'm standing\nis smack dab on the CENTER of town.", MSGBOX_NPC)
 }
 
 script FourIsland_CombeeSign {
 	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evovles into a bee!", MSGBOX_SIGN)
 }
+
+script FourIsland_OldLady {
+	msgbox("Four island establishing dialogue\nPLACEHOLDER", MSGBOX_NPC)
+}
+
+script FourIsland_BenchGuy {
+	msgbox("Complaining about HMs dialogue\nPLACEHOLDER", MSGBOX_NPC)
+}
+
+script FourIsland_CeliaDAWN {
+	msgbox("Joke about Celia Dawn\nPLACEHOLDER", MSGBOX_NPC)
+}
+
+
 
 script FourIsland_HoneyTree {
 	lock
@@ -257,7 +271,7 @@ script FourIsland_HoneyTree {
 	}
 }
 
-script FourIsland_Froslass {
+script FourIsland_Froslass { //PLACEHOLDER
 	lock
 	playbgm(MUS_GEN4_LASS, TRUE)
 	setflag(FLAG_FROSLASS_ENCOUNTER)
@@ -277,7 +291,7 @@ script FourIsland_Froslass {
 	end
 }
 
-script FourIsland_DadJr {
+script FourIsland_DadJr { //PLACEHOLDER
 	lock
 	faceplayer
 	textcolor(0)

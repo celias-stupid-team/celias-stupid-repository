@@ -1648,3 +1648,45 @@ Text_TestMsg::
 
 	.include "data/maps/AetherParadise_NebbyRoom/scripts.inc"
 	.include "data/maps/AetherParadise_NebbyRoom/text.inc"
+
+	.include "data/maps/TwoIsland_PaulaHouse/scripts.inc"
+	.include "data/maps/TwoIsland_PaulaHouse/text.inc"
+
+	.include "data/maps/TwoIsland_Drugstore/scripts.inc"
+	.include "data/maps/TwoIsland_Drugstore/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_A/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_A/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_6/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_6/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_5/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_5/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_8/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_8/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_4/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_4/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_3/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_3/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_7/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_7/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_2/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_2/text.inc"
+
+	.include "data/maps/ViridianGym_HubRoom_9/scripts.inc"
+	.include "data/maps/ViridianGym_HubRoom_9/text.inc"
+
+	.include "data/maps/FourIsland_FinneonHouse/scripts.inc"
+	.include "data/maps/FourIsland_FinneonHouse/text.inc"
+
+	.include "data/maps/Route20_SeafoamIslands/scripts.inc"
+	.include "data/maps/Route20_SeafoamIslands/text.inc"

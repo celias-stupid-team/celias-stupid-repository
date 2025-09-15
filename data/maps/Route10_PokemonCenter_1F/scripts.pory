@@ -111,6 +111,12 @@ script Route10_PokemonCenter_EverstoneCop {
 
 
 script Route10_CeliaMindy {
-	msgbox("Mindy's gonna be moved next\nupdate.\pShe's supposed to be in Cinnabar\nLab, but right now she's here for…\lreasons.", MSGBOX_NPC)
-	end
+	msgbox("Fuck you mindy.\n", MSGBOX_NPC)
 }
+
+
+
+script Route10_CeliaOldMindy {
+	msgbox("In the DEMO 3 release, I put Mindy\nhere so that players would be able\lto do her trade early.\pThat way, they'd have access to\nall the Power Plant content that'd\lotherwise be locked til later.", MSGBOX_NPC)
+}
+

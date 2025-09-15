@@ -568,3 +568,6 @@ const u32 gTrainerPalette_TeamSky[] = INCBIN_U32("graphics/trainers/palettes/tea
 
 const u32 gTrainerFrontPic_Falkner[] = INCBIN_U32("graphics/trainers/front_pics/falkner_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Falkner[] = INCBIN_U32("graphics/trainers/palettes/falkner.gbapal.lz");
+
+const u32 gTrainerFrontPic_Territorialoak[] = INCBIN_U32("graphics/trainers/front_pics/territorialoak_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Territorialoak[] = INCBIN_U32("graphics/trainers/palettes/territorialoak.gbapal.lz");

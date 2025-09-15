@@ -148,6 +148,7 @@ const LASS = 1
 
 script Route13_LassAttack {
 	lock
+	clearflag(FLAG_SHINY_CREATION)
 	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
 	setflag(FLAG_ROUTE13_HIDE_DAD)
 	delay(60)
@@ -187,6 +188,7 @@ script Route13_LassAttack {
 	setobjectxyperm(LASS, 35, 9)
 	setvar(VAR_ROUTE13_LASS_ATTACK, 1)
 	setflag(FLAG_ROUTE13_LASSATTACK)
+	setflag(FLAG_SHINY_CREATION)
 	release
 	end
 }

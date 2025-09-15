@@ -546,7 +546,9 @@
     "TwoIsland_House",
     "TwoIsland_PokemonCenter_1F",
     "TwoIsland_PokemonCenter_2F",
-    "TwoIsland_Harbor"
+    "TwoIsland_Harbor",
+    "TwoIsland_PaulaHouse",
+    "TwoIsland_Drugstore"
   ],
   "gMapGroup_IndoorThreeIsland": [
     "ThreeIsland_House1",
@@ -566,7 +568,8 @@
     "FourIsland_LoreleisHouse",
     "FourIsland_Harbor",
     "FourIsland_House2",
-    "FourIsland_Mart"
+    "FourIsland_Mart",
+    "FourIsland_FinneonHouse"
   ],
   "gMapGroup_IndoorFiveIsland": [
     "FiveIsland_PokemonCenter_1F",
@@ -653,7 +656,17 @@
     "ViridianGym_Sabrina",
     "ViridianGym_Blaine",
     "ViridianGym_Falkner",
-    "ViridianGym_Giovanni"
+    "ViridianGym_Giovanni",
+    "ViridianGym_HubRoom",
+    "ViridianGym_HubRoom_2",
+    "ViridianGym_HubRoom_3",
+    "ViridianGym_HubRoom_4",
+    "ViridianGym_HubRoom_5",
+    "ViridianGym_HubRoom_6",
+    "ViridianGym_HubRoom_7",
+    "ViridianGym_HubRoom_8",
+    "ViridianGym_HubRoom_9",
+    "ViridianGym_HubRoom_A"
   ],
   "gMapGroup_GreatSea": [
     "GreatBay_North",
@@ -662,7 +675,8 @@
     "Great_Sea_1",
     "Johto_National_Park",
     "Thirty_Eight_Island",
-    "TwoIsland_North"
+    "TwoIsland_North",
+    "Route20_SeafoamIslands"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",

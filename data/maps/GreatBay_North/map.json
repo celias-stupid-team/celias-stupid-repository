@@ -28,6 +28,11 @@
       "map": "MAP_ROUTE17",
       "offset": -22,
       "direction": "left"
+    },
+    {
+      "map": "MAP_FIVE_ISLAND_MEADOW",
+      "offset": -22,
+      "direction": "right"
     }
   ],
   "object_events": [],

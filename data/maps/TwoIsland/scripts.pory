@@ -259,3 +259,142 @@ script TwoIsland_DragonitePresent {
 	release
 	end
 }
+
+script TwoIsland_PsyduckSeller {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox("I'm selling LEMONADE as PROF.\nOAK's POKéMON.", MSGBOX_NPC)
+}
+
+script TwoIsland_GluedGuy {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("He's glued to a tree.\n", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_MrT {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("PLACEHOLDER\ntwo island intro", MSGBOX_NPC)
+}
+
+script TwoIsland_SmallChild {
+	msgbox("PLACEHOLDER\nwow pencil statue", MSGBOX_NPC)
+}
+
+script TwoIsland_Paula {
+	msgbox("PLACEHOLDER\npaula", MSGBOX_NPC)
+}
+
+script TwoIsland_Stufful {
+	lock
+	faceplayer
+	playmoncry(SPECIES_STUFFUL, CRY_MODE_DEFAULT)
+	msgbox("PLACEHOLDER\nStufful", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
+
+script TwoIsland_MartAttendant {
+	msgbox("PLACEHOLDER\nneed money dollars", MSGBOX_NPC)
+}
+
+script TwoIsland_MonkeyGuy {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("This MONKEY came free with a\npack of gum I bought.\pSadly, he doesn't actually seem to\nbe useful for anything.\lWhat a pity!", MSGBOX_NPC)
+}
+
+script TwoIsland_Panpour {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PANPOUR, CRY_MODE_DEFAULT)
+	msgbox("PANPOUR: Pa-padah!\n", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	msgbox("PANPOUR used BUBBLE!\n", MSGBOX_DEFAULT)
+	release
+}
+
+script TwoIsland_MartHippie {
+	msgbox("PLACEHOLDER\nif only I had a way to find the\llength of things easily", MSGBOX_NPC)
+}
+
+script TwoIsland_ForSaleMan {
+	lock
+	faceplayer
+	msgbox("PLACEHOLDER\nfor sale gag", MSGBOX_DEFAULT)
+	release
+}
+
+script TwoIsland_ForSaleSign1 {
+	msgbox("FOR SALE!{PAUSE 30}\n“FOR SALE” Sign!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_ForSaleSign2 {
+	msgbox("“FOR SALE” Sign!{PAUSE 30}\nFOR SALE!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_PencilHippie {
+	msgbox("PLACEHOLDER\nI sell pencils", MSGBOX_NPC)
+}
+
+script TwoIsland_EventScript_SansTest {
+	lock
+	faceplayer
+	fadenewbgm(MUS_NONE)
+	msgbox("{FONT_COMIC_SANS}hello .\peat shit thief", MSGBOX_DEFAULT)
+	playbgm(MUS_MEGALOVANIA, TRUE)
+	delay(60)
+	release
+	end
+}
+
+script TwoIsland_HamburgerGuy {
+	lock
+	faceplayer
+	//logic here
+		msgbox("Uh, hi!\pI work at the DRUGSTORE, and I was\nsupposed to be handing out free\lHAMBURGERS\pHowever, it seems this is the last\nHAMBURGER in the known universe.\pUh, I guess you can have it.\n", MSGBOX_DEFAULT)
+		//give item
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox("{PLAYER} obtained the\nHAMBURGER.", MSGBOX_DEFAULT)
+		waitfanfare
+		//set flag
+	//else
+	msgbox("Come visit us if you need, uh,\nnot HAMBURGERS.", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script TwoIsland_IslandSign {
+	msgbox("TWO ISLAND\nThis ISLAND stinks!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_GenevaConvention {
+	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_DadPhone {
+	lock
+	textcolor(0)
+	msgbox("DAD: {PLAYER}!\nWhat are you doing out here?\pI've deposited ¥5000 into your\nbank account.\lWould you like to SAVE your game?\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script TwoIsland_ThreeIslandKid {
+	msgbox("Oh man, TWO ISLAND is great.\nTalk about a cult classic!\lWhen's THREE ISLAND coming out?", MSGBOX_NPC)
+}
+
+script TwoIsland_Hooker {
+	lock
+	faceplayer
+	msgbox("No problem here.\n", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	release
+	end
+}
+

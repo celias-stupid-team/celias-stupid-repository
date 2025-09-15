@@ -339,6 +339,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Present;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chuck;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Saturn;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Froslass;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sans_anim;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Stufful;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hippie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hospital_lady;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Paula;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mr_t;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Panpour;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadovanni;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hint_man;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucas;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -679,4 +689,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CHUCK] = &gObjectEventGraphicsInfo_Chuck,
     [OBJ_EVENT_GFX_SATURN] = &gObjectEventGraphicsInfo_Saturn,
     [OBJ_EVENT_GFX_FROSLASS] = &gObjectEventGraphicsInfo_Froslass,
+    [OBJ_EVENT_GFX_SANS_ANIM] = &gObjectEventGraphicsInfo_Sans_anim,
+    [OBJ_EVENT_GFX_STUFFUL] = &gObjectEventGraphicsInfo_Stufful,
+    [OBJ_EVENT_GFX_HIPPIE] = &gObjectEventGraphicsInfo_Hippie,
+    [OBJ_EVENT_GFX_HOSPITAL_LADY] = &gObjectEventGraphicsInfo_Hospital_lady,
+    [OBJ_EVENT_GFX_PAULA] = &gObjectEventGraphicsInfo_Paula,
+    [OBJ_EVENT_GFX_MR_T] = &gObjectEventGraphicsInfo_Mr_t,
+    [OBJ_EVENT_GFX_PANPOUR] = &gObjectEventGraphicsInfo_Panpour,
+    [OBJ_EVENT_GFX_DEADOVANNI] = &gObjectEventGraphicsInfo_Deadovanni,
+    [OBJ_EVENT_GFX_HINT_MAN] = &gObjectEventGraphicsInfo_Hint_man,
+    [OBJ_EVENT_GFX_LUCAS] = &gObjectEventGraphicsInfo_Lucas,
 };
