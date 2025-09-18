@@ -13,13 +13,29 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -9,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE20",
+      "offset": -50,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 32,
+      "direction": "down"
+    }
+  ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_STAR",
-      "x": 10,
-      "y": 11,
+      "x": 17,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

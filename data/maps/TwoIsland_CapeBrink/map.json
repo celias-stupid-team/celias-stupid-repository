@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_TWO_ISLAND",
-      "offset": -26,
+      "offset": -21,
       "direction": "down"
     },
     {
@@ -25,8 +25,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE17",
-      "offset": -88,
+      "map": "MAP_ROUTE18",
+      "offset": 15,
       "direction": "right"
     }
   ],
