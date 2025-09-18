@@ -23,6 +23,11 @@
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": -12,
+      "direction": "left"
     }
   ],
   "object_events": [],
