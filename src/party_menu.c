@@ -6091,9 +6091,6 @@ static bool8 TrySwitchInPokemon(void)
     u8 newSlot;
     u8 i;
 
-    //check BattleSlots
-    for (i = 0; i < PARTY_SIZE; ++i)
-        GetPartyIdFromBattleSlot(i);
     // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
     {
@@ -6144,9 +6141,6 @@ static bool8 TrySwitchInPokemon(void)
     gPartyMenuUseExitCallback = TRUE;
     newSlot = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]);
     SwitchPartyMonSlots(newSlot, slot);
-    //check BattleSlots
-    for (i = 0; i < PARTY_SIZE; ++i)
-        GetPartyIdFromBattleSlot(i);
     SwapPartyPokemon(&gPlayerParty[newSlot], &gPlayerParty[slot]);
    
     return TRUE;
@@ -6528,9 +6522,6 @@ bool8 TrySwitchInPokemonFromPSS(void)
     u8 i;
     bool8 switchSuccessful = TRUE;
 
-    //check BattleSlots
-    for (i = 0; i < PARTY_SIZE; ++i)
-        GetPartyIdFromBattleSlot(i);
     // In a multi battle, slots 1, 4, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE && (slot == 1 || slot == 4 || slot == 5))
     {
@@ -6583,10 +6574,6 @@ bool8 TrySwitchInPokemonFromPSS(void)
         gSelectedMonPartyId = GetPartyIdFromBattleSlot(slot);
         gPartyMenuUseExitCallback = TRUE;
         SwitchPartyMonSlots(newSlot, slot);
-        //check BattleSlots
-        for (i = 0; i < PARTY_SIZE; ++i)
-            GetPartyIdFromBattleSlot(i);
-
         SwapPartyPokemon(&gPlayerParty[newSlot], &gPlayerParty[slot]);
         return TRUE;
     }
