@@ -21,6 +21,9 @@
     0x2 bit is responsible for the id of sent out pokemon. 0 means it's the first sent out pokemon, 1 it's the second one. (Triple battle didn't exist at the time yet.)
 */
 
+// config
+#define CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS TRUE
+
 #define GET_BATTLER_POSITION(battler)((gBattlerPositions[battler]))
 #define GET_BATTLER_SIDE(battler)((GetBattlerPosition(battler) & BIT_SIDE))
 #define GET_BATTLER_SIDE2(battler)((GET_BATTLER_POSITION(battler) & BIT_SIDE))
@@ -57,6 +60,9 @@ enum {
     BATTLER_AFFINE_EMERGE,
     BATTLER_AFFINE_RETURN,
 };
+
+#define RESET_OPTION_ALL                 0
+#define RESET_OPTION_WITHOUT_PARTY_SLOTS 1
 
 #define MOVE_TARGET_SELECTED            0
 #define MOVE_TARGET_DEPENDS             (1 << 0)
@@ -691,6 +697,8 @@ extern u8 gPotentialItemEffectBattler;
 extern u8 gBattlersCount;
 extern u16 gBattlerPartyIndexes[MAX_BATTLERS_COUNT];
 extern s32 gBattleMoveDamage;
+extern u8 gBattleSwitchFromPSS;
+extern u8 gMadePSSSwitch;
 extern u16 gIntroSlideFlags;
 extern u32 gTransformedPersonalities[MAX_BATTLERS_COUNT];
 extern u8 gBattlerPositions[MAX_BATTLERS_COUNT];
@@ -762,6 +770,7 @@ struct Pokemon *GetBattlerParty(u8 battler);
 u32 IsOnPlayerSide(u8 battler);
 bool32 IsBattlerTurnDamaged(u32 battler);
 bool32 IsBattlerAlive(u32 battler);
+void ResetPartyData(u8 option);
 
 #endif // GUARD_BATTLE_H
 

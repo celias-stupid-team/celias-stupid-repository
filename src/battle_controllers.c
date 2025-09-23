@@ -21,7 +21,6 @@ static EWRAM_DATA u8 sBattleBuffersTransferData[0x100] = {};
 static void CreateTasksForSendRecvLinkBuffers(void);
 static void InitLinkBtlControllers(void);
 static void InitSinglePlayerBtlControllers(void);
-static void SetBattlePartyIds(void);
 static void Task_HandleSendLinkBuffersData(u8 taskId);
 static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId);
 
@@ -288,7 +287,7 @@ static void InitLinkBtlControllers(void)
     }
 }
 
-static void SetBattlePartyIds(void)
+void SetBattlePartyIds(void)
 {
     s32 i, j;
 
@@ -377,7 +376,6 @@ static void PrepareBufferDataTransfer(u8 bufferId, u8 *data, u16 size)
             break;
         }
     }
-    //DebugPrintf("current BattleController = %d", gBattleBufferA[gActiveBattler][0]);
 }
 
 static void CreateTasksForSendRecvLinkBuffers(void)

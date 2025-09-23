@@ -25,6 +25,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokedex.h"
+#include "pokemon_storage_system.h"
 #include "quest_log.h"
 #include "random.h"
 #include "roamer.h"
@@ -71,7 +72,6 @@ static void CB2_HandleStartMultiBattle(void);
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum);
 static void CB2_HandleStartBattle(void);
 static void TryCorrectShedinjaLanguage(struct Pokemon *mon);
-static void BattleMainCB1(void);
 static void CB2_QuitPokedudeBattle(void);
 static void SpriteCB_UnusedDebugSprite_Step(struct Sprite *sprite);
 static void CB2_EndLinkBattle(void);
@@ -158,6 +158,8 @@ EWRAM_DATA u16 gCurrentMove = 0;
 EWRAM_DATA u16 gChosenMove = 0;
 EWRAM_DATA u16 gCalledMove = 0;
 EWRAM_DATA s32 gBattleMoveDamage = 0;
+EWRAM_DATA u8 gBattleSwitchFromPSS = 0;
+EWRAM_DATA u8 gMadePSSSwitch = 0;
 EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gTakenDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
@@ -2124,7 +2126,7 @@ void BeginBattleIntro(void)
     gBattleMainFunc = BattleIntroGetMonsData;
 }
 
-static void BattleMainCB1(void)
+void BattleMainCB1(void)
 {
     gBattleMainFunc();
 
@@ -4578,4 +4580,57 @@ static void HandleAction_ActionFinished(void)
     gBattleCommunication[ACTIONS_CONFIRMED_COUNT] = 0;
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
+
+    // ### PSS battle switches - step 6 ###
+    //reset party data after a PSS switch
+    if (gMadePSSSwitch)
+    {
+        ResetPartyData(RESET_OPTION_ALL);
+        gMadePSSSwitch = FALSE;
+    }
+}
+
+void DebugPrintBattlePartyData(void)
+{
+    u8 i;
+
+    DebugPrintf(" ### PARTY DATA ###");
+    DebugPrintf("gActiveBattler = %d", gActiveBattler);
+    DebugPrintf("gActiveBattler Position = %d", gBattlerPartyIndexes[gActiveBattler]);
+
+    for (i = 0; i < PARTY_SIZE; i++)
+                DebugPrintf("party slot %d, species: %S", i, gSpeciesNames[GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL)]);
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        bool32 modResult = i & 1;
+        u8 slot = i;
+
+        slot /= 2;
+        if (modResult != 0) {
+            DebugPrintf("gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] & 0xF);
+        }
+        else {
+            DebugPrintf("gBattlePartyCurrentOrder[%d] = %d", i, gBattlePartyCurrentOrder[slot] >> 4);
+        }
+    }
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        bool32 modResult = i & 1;
+        u8 slot = i;
+
+        slot /= 2;
+        if (modResult != 0) {
+            DebugPrintf("battlerPartyOrders[%d] = %d", i, gBattleStruct->battlerPartyOrders[0][slot] & 0xF);
+        }
+        else {
+            DebugPrintf("battlerPartyOrders[%d] = %d", i, gBattleStruct->battlerPartyOrders[0][slot] >> 4);
+        }
+    }
+
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+        DebugPrintf("gBattlerPartyIndexes[battler %d] = %d is %S", i, gBattlerPartyIndexes[i], gSpeciesNames[GetMonData(&gPlayerParty[GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[i])], MON_DATA_SPECIES, NULL)]);
+    
+    DebugPrintf(" ### PARTY DATA END ###");
 }
