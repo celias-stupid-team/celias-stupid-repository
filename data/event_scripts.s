@@ -1648,3 +1648,6 @@ Text_TestMsg::
 
 	.include "data/maps/AetherParadise_NebbyRoom/scripts.inc"
 	.include "data/maps/AetherParadise_NebbyRoom/text.inc"
+
+	.include "data/maps/Pokemon_Island/scripts.inc"
+	.include "data/maps/Pokemon_Island/text.inc"
