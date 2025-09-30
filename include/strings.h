@@ -1517,6 +1517,7 @@ extern const u8 gPCText_PopupScam[];
 extern const u8 gPCText_PornAd[];
 extern const u8 gPCText_BlueScreen[];
 extern const u8 gPCText_ThePit[];
+extern const u8 gPCText_SwitchIn[];
 
 // pokemon_special_anim
 extern const u8 gText_Counting_1[];

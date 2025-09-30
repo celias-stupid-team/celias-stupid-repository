@@ -55,6 +55,7 @@ extern const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT];
 extern const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1];
 
 void CB2_InitBattle(void);
+void BattleMainCB1(void);
 void BattleMainCB2(void);
 void FreeRestoreBattleData(void);
 void VBlankCB_Battle(void);
@@ -86,5 +87,6 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves);
 void RunBattleScriptCommands_PopCallbacksStack(void);
 void RunBattleScriptCommands(void);
 bool8 TryRunFromBattle(u8 battler);
+void DebugPrintBattlePartyData(void);
 
 #endif // GUARD_BATTLE_MAIN_H

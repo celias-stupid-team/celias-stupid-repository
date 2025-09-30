@@ -699,6 +699,7 @@ const u8 gPCText_PopupScam[] = _("CONGRATULATIONS!");
 const u8 gPCText_PornAd[] = _("ONE CLICK AWAY!");
 const u8 gPCText_BlueScreen[] = _("FREE! POTION GIVAWAY!");
 const u8 gPCText_ThePit[] = _("YOU'LL NEVER GO BACK!");
+const u8 gPCText_SwitchIn[] = _("SWITCH IN");
 const u8 gText_PC_WhatWouldYouLikeToDo[] = _("なにを しますか?");
 const u8 gText_WithdrawPokemon[] = _("WITHDRAW POKéMON");
 const u8 gText_DepositPokemon[] = _("DEPOSIT POKéMON");

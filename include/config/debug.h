@@ -12,4 +12,7 @@
 #define DEBUG_OVERWORLD_TRIGGER_EVENT   pressedStartButton  // The event that opens the menu when holding the key(s) defined in DEBUG_OVERWORLD_HELD_KEYS.
 #define DEBUG_OVERWORLD_IN_MENU         TRUE                // Replaces the overworld debug menu button combination with a start menu entry (above Pokédex)
 
+// Memory usage logging
+#define DEBUG_PRINT_HEAP_USAGE          FALSE               // activates/deactivates the DebugPrintf logging of Free() and Alloc() functions to monitor heap usage
+
 #endif // GUARD_CONFIG_DEBUG_H

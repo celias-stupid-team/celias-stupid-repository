@@ -1,11 +1,13 @@
 #include "global.h"
 #include "gflib.h"
+#include "battle.h"
 #include "data.h"
 #include "daycare.h"
 #include "item.h"
 #include "mail_data.h"
 #include "menu.h"
 #include "new_menu_helpers.h"
+#include "party_menu.h" //only for debugprint reasons
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_summary_screen.h"
 #include "pokedex.h"
@@ -28,12 +30,15 @@ static void DoCursorNewPosUpdate(void);
 static bool8 MonPlaceChange_Grab(void);
 static bool8 MonPlaceChange_Place(void);
 static bool8 MonPlaceChange_Shift(void);
+static bool8 MonPlaceChange_SwitchInTake(void);
+static bool8 MonPlaceChange_SwitchInPlace(void);
 static bool8 MonPlaceChange_DoMoveCursorDown(void);
 static bool8 MonPlaceChange_DoMoveCursorUp(void);
 static bool8 MonPlaceChange_MoveCursorDown(void);
 static bool8 MonPlaceChange_MoveCursorUp(void);
 static void MoveMon(void);
 static void PlaceMon(void);
+static void SwitchMon(void);
 static void SetMovedMonData(u8 boxId, u8 cursorPos);
 static void SetPlacedMonData(u8 boxId, u8 cursorPos);
 static void PurgeMonOrBoxMon(u8 boxId, u8 cursorPos);
@@ -412,6 +417,8 @@ void InitMonPlaceChange(u8 type)
         [CHANGE_GRAB]  = MonPlaceChange_Grab,
         [CHANGE_PLACE] = MonPlaceChange_Place,
         [CHANGE_SHIFT] = MonPlaceChange_Shift,
+        [CHANGE_SWITCHIN_TAKE] = MonPlaceChange_SwitchInTake,
+        [CHANGE_SWITCHIN_PLACE] = MonPlaceChange_SwitchInPlace,
     };
 
     gStorage->monPlaceChangeFunc = placeChangeFuncs[type];
@@ -513,6 +520,74 @@ static bool8 MonPlaceChange_Shift(void)
         {
             StartSpriteAnim(gStorage->cursorSprite, 3);
             SetShiftedMonData(gStorage->shiftBoxId, sCursorPosition);
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 2:
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 MonPlaceChange_SwitchInTake(void)
+{
+    if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS)
+    {
+        MoveMon();
+        return FALSE;
+    }
+
+    switch (gStorage->monPlaceChangeState)
+    {
+    case 0:
+        if (sIsMonBeingMoved)
+            return FALSE;
+        StartSpriteAnim(gStorage->cursorSprite, 2);
+        gStorage->monPlaceChangeState++;
+        break;
+    case 1:
+        if (!MonPlaceChange_MoveCursorDown())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 3);
+            MoveMon();
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 2:
+        if (!MonPlaceChange_MoveCursorUp())
+            gStorage->monPlaceChangeState++;
+        break;
+    case 3:
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 MonPlaceChange_SwitchInPlace(void)
+{
+    int i;
+    if (CONFIG_PC_SWITCH_DONT_GRAB_IN_PSS && gBattleSwitchFromPSS)
+    {
+        PlaceMon();
+        gStorage->monPlaceChangeState = 2;
+    }
+
+    switch (gStorage->monPlaceChangeState)
+    {
+    case 0:
+        if (!MonPlaceChange_MoveCursorDown())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 2);
+            PlaceMon();
+            gStorage->monPlaceChangeState++;
+        }
+        break;
+    case 1:
+        if (!MonPlaceChange_MoveCursorUp())
+        {
+            StartSpriteAnim(gStorage->cursorSprite, 0);
             gStorage->monPlaceChangeState++;
         }
         break;
@@ -1301,6 +1376,8 @@ static u8 HandleInput_InBox_Normal(void)
                     return INPUT_GIVE_ITEM;
                 case MENU_TEXT_SWITCH:
                     return INPUT_SWITCH_ITEMS;
+                case MENU_TEXT_SWITCHIN:
+                    return INPUT_SWITCHIN;
                 }
             }
             else
@@ -1813,6 +1890,12 @@ static bool8 SetMenuTextsForMon(void)
                 return FALSE;
         }
         break;
+    case OPTION_SWITCHIN:
+        if (species != SPECIES_NONE)
+            SetMenuText(MENU_TEXT_SWITCHIN);
+        else
+            return FALSE;
+        break;
     case OPTION_MOVE_ITEMS:
     default:
         return FALSE;
@@ -1827,8 +1910,12 @@ static bool8 SetMenuTextsForMon(void)
             SetMenuText(MENU_TEXT_STORE);
     }
 
-    SetMenuText(MENU_TEXT_MARK);
+    if (gStorage->boxOption != OPTION_SWITCHIN)
     SetMenuText(MENU_TEXT_RELEASE);
+    {
+        SetMenuText(MENU_TEXT_MARK);
+        SetMenuText(MENU_TEXT_RELEASE);
+    }
     SetMenuText(MENU_TEXT_CANCEL);
     return TRUE;
 }
@@ -2090,6 +2177,7 @@ static const u8 *const sMenuTexts[] = {
     [MENU_TEXT_PORN_AD] = gPCText_PornAd,
     [MENU_TEXT_BLUESCREEN]    = gPCText_BlueScreen,
     [MENU_TEXT_THE_PIT]     = gPCText_ThePit,
+    [MENU_TEXT_SWITCHIN]   = gPCText_SwitchIn,
 };
 
 void InitMenu(void)

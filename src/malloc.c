@@ -2,6 +2,7 @@
 
 static void *sHeapStart;
 static u32 sHeapSize;
+static u32 sAllocatedHeap;
 
 static EWRAM_DATA struct MemBlock *head = NULL;
 static EWRAM_DATA struct MemBlock *pos = NULL;
@@ -67,6 +68,12 @@ void *AllocInternal(void *heapStart, u32 size)
                     // The block isn't much bigger than the requested size,
                     // so just use it.
                     pos->flag = TRUE;
+
+                    #if DEBUG_PRINT_HEAP_USAGE == TRUE
+                        DebugPrintf("AllocInternal - mem = %d", pos->data);
+                        sAllocatedHeap = sAllocatedHeap + pos->size;    
+                        DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
+                    #endif
                     return pos->data;
                 } else {
                     // The block is significantly bigger than the requested
@@ -86,6 +93,12 @@ void *AllocInternal(void *heapStart, u32 size)
 
                     if (splitBlock->next != head)
                         splitBlock->next->prev = splitBlock;
+
+                    #if DEBUG_PRINT_HEAP_USAGE == TRUE
+                        DebugPrintf("AllocInternal - mem = %d", pos->data);
+                        sAllocatedHeap = sAllocatedHeap + pos->size;    
+                        DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
+                    #endif
                     return pos->data;
                 }
             }
@@ -93,6 +106,9 @@ void *AllocInternal(void *heapStart, u32 size)
 
         if (pos->next == head)
         {
+            #if DEBUG_PRINT_HEAP_USAGE == TRUE
+                DebugPrintf("sAllocatedHeap overflow = %d", sAllocatedHeap + pos->size);
+            #endif
             AGB_ASSERT_EX(0, ABSPATH("gflib/malloc.c"), 174);
             return NULL;
         }
@@ -108,6 +124,13 @@ void FreeInternal(void *heapStart, void *p)
     if (p) {
         struct MemBlock *head = (struct MemBlock *)heapStart;
         struct MemBlock *pos = (struct MemBlock *)((u8 *)p - sizeof(struct MemBlock));
+
+        #if DEBUG_PRINT_HEAP_USAGE == TRUE
+            DebugPrintf("Free - mem = %d", pos->data);
+            sAllocatedHeap = sAllocatedHeap - pos->size;    
+            DebugPrintf("sAllocatedHeap = %d", sAllocatedHeap);
+        #endif
+
         AGB_ASSERT_EX(pos->magic_number == MALLOC_SYSTEM_ID, ABSPATH("gflib/malloc.c"), 204);
         AGB_ASSERT_EX(pos->flag == TRUE, ABSPATH("gflib/malloc.c"), 205);
         pos->flag = FALSE;
@@ -187,6 +210,13 @@ void InitHeap(void *heapStart, u32 heapSize)
 {
     sHeapStart = heapStart;
     sHeapSize = heapSize;
+
+    #if DEBUG_PRINT_HEAP_USAGE == TRUE
+        DebugPrintf("sHeapSize = %d", sHeapSize);
+        DebugPrintf("sHeapStart = %d", sHeapStart);
+        sAllocatedHeap = 0;
+    #endif
+
     PutFirstMemBlockHeader(heapStart, heapSize);
 }
 
