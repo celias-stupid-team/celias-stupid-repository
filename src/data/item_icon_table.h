@@ -460,5 +460,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SEAL_CASE]      =  {gItemIcon_SEALCASE, gItemIconPalette_SEALCASE},
     [ITEM_LETTER_W]      =  {gItemIcon_LETTERW, gItemIconPalette_LETTERW},
     [ITEM_NEBBY]      =  {gItemIcon_Nebby, gItemIconPalette_Nebby},
+    [ITEM_CRMPLED_PAGE]      =  {gItemIcon_CRMPLEDPAGE, gItemIconPalette_CRMPLEDPAGE},
     [ITEMS_COUNT]         = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

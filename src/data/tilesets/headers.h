@@ -1053,13 +1053,23 @@ const struct Tileset gTileset_PokemonCenterFourIsland =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_TwoIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TwoIsland,
+    .palettes = gTilesetPalettes_TwoIsland,
+    .metatiles = gMetatiles_TwoIsland,
+    .metatileAttributes = gMetatileAttributes_TwoIsland,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_38island =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
     .tiles = gTilesetTiles_38island,
     .palettes = gTilesetPalettes_38island,
-    .metatiles = gMetatiles_38island,
     .metatileAttributes = gMetatileAttributes_38island,
     .callback = NULL,
 };

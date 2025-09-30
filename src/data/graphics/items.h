@@ -866,3 +866,6 @@ const u32 gItemIconPalette_LETTERW[] = INCBIN_U32("graphics/items/icon_palettes/
 
 const u32 gItemIcon_Nebby[] = INCBIN_U32("graphics/items/icons/nebby.4bpp.lz");
 const u32 gItemIconPalette_Nebby[] = INCBIN_U32("graphics/items/icon_palettes/nebby.gbapal.lz");
+
+const u32 gItemIcon_CRMPLEDPAGE[] = INCBIN_U32("graphics/items/icons/crmpled_page.4bpp.lz");
+const u32 gItemIconPalette_CRMPLEDPAGE[] = INCBIN_U32("graphics/items/icon_palettes/crmpled_page.gbapal.lz");

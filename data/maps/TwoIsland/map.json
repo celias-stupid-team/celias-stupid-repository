@@ -231,7 +231,7 @@
   "warp_events": [
     {
       "x": 48,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
       "dest_warp_id": "0"
@@ -251,8 +251,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 0,
+      "x": 12,
+      "y": -4,
       "elevation": 3,
       "dest_map": "MAP_TWO_ISLAND_HARBOR",
       "dest_warp_id": "0"

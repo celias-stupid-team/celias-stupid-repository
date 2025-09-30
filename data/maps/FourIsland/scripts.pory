@@ -169,20 +169,57 @@ script FourIsland_LaidPsyduck {
 
 }
 
+
 script FourIsland_Sign {
-	msgbox("PLACEHOLDER\nSIGN", MSGBOX_SIGN)
+	msgbox(
+	"FOUR ISLAND\n"
+	"Slavery Capital of the world!", MSGBOX_SIGN)
 
 }
 
+script FourIsland_MagikarpFisher {
+	msgbox(
+	"Nobody believes me, but something\n"
+	"lurks here on FOUR ISLAND.\p"
+
+	"It's the hidden ruler of the ISLE!\n"
+	"You have to believe me!\p"
+
+	"If you believe me, whip out your\n"
+	"ROD and go fishing!\p"
+
+	"Who knows, you may just catch the\n"
+	"mind-blowing ruler!", MSGBOX_NPC)
+}
+
+
+script FourIsland_BenchGuy {
+	msgbox(
+	"I stopped getting around when they\n"
+	"added the newfangled RIDE POKéMON.\p"
+
+	"Back in my day we had four seperate\n"
+	"HM SLAVES, and we liked it!", MSGBOX_NPC)
+}
+
+
+
 script FourIsland_PalParkSign {
-	msgbox("PAL PARK\n", MSGBOX_SIGN)
+	msgbox(
+	"PAL PARK\n"
+	"Get your PALS here!", MSGBOX_SIGN)
 
 }
 
 script FourIsland_PalParkDMCA {
-	msgbox("palworld grr\n(placeholder)", MSGBOX_SIGN)
+	msgbox(
+	"Grr, this place has you throw BALLS\n"
+	"and catch creatures with 'em!\p"
 
+	"Don't worry, though.\n"
+	"We, the DMCA, are on the case!", MSGBOX_NPC)
 }
+
 
 script FourIsland_RockClimbUp {
 	lock
@@ -239,9 +276,7 @@ script FourIsland_OldLady {
 	msgbox("Four island establishing dialogue\nPLACEHOLDER", MSGBOX_NPC)
 }
 
-script FourIsland_BenchGuy {
-	msgbox("Complaining about HMs dialogue\nPLACEHOLDER", MSGBOX_NPC)
-}
+
 
 script FourIsland_CeliaDAWN {
 	msgbox("Joke about Celia Dawn\nPLACEHOLDER", MSGBOX_NPC)
@@ -297,6 +332,8 @@ script FourIsland_DadJr { //PLACEHOLDER
 	textcolor(0)
 	msgbox("DAD JR.: {PLAYER}!\nWhat are you doing out here?\pWow, this island sure is lovely.\nIt's bringing out my inner child!\pWell, never mind that.\nHow about you take a rest?", MSGBOX_DEFAULT)
 	call(EventScript_DadHeal)
+	
 	release
 	end
 }
+

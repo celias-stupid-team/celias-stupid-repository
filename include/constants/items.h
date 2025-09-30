@@ -513,7 +513,8 @@
 #define ITEM_SEAL_CASE 429
 #define ITEM_LETTER_W 430
 #define ITEM_NEBBY 431
-#define ITEMS_COUNT 432
+#define ITEM_CRMPLED_PAGE 432
+#define ITEMS_COUNT 433
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

@@ -2553,7 +2553,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland/map.bin"
     },
@@ -2649,7 +2649,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland_CapeBrink/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_CapeBrink/map.bin"
     },
@@ -5565,7 +5565,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_38island",
+      "secondary_tileset": "gTileset_Thirty_Eight_Island",
       "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
       "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
     },
@@ -5589,7 +5589,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland_North/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_North/map.bin"
     },
