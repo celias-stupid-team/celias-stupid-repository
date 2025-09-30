@@ -23,6 +23,16 @@
       "map": "MAP_ROUTE21_SOUTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_TWO_ISLAND",
+      "offset": 34,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_NORTH",
+      "offset": 12,
+      "direction": "right"
     }
   ],
   "object_events": [

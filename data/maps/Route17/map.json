@@ -38,11 +38,6 @@
       "map": "MAP_GREAT_BAY_NORTH",
       "offset": 22,
       "direction": "right"
-    },
-    {
-      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
-      "offset": 88,
-      "direction": "left"
     }
   ],
   "object_events": [

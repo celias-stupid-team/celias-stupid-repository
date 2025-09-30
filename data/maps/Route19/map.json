@@ -21,13 +21,13 @@
     },
     {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 15,
-      "direction": "right"
+      "offset": 0,
+      "direction": "down"
     },
     {
-      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 35,
-      "direction": "left"
+      "map": "MAP_FOUR_ISLAND",
+      "offset": 16,
+      "direction": "right"
     }
   ],
   "object_events": [
