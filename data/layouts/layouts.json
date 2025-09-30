@@ -2553,7 +2553,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_TwoIsland",
       "border_filepath": "data/layouts/TwoIsland/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland/map.bin"
     },
