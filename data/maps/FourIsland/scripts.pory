@@ -276,7 +276,8 @@ script FourIsland_OldLady {
 	"Here, we honor our culture's myths.\p"
 
 	"For example, the myth of this\n"
-	"so-called {PAUSE 10}“FIRE-TYPE.”", MSGBOX_NPC)
+	"so-called {PAUSE 10}“FIRE-TYPE\l"
+	"What a fun legend!", MSGBOX_NPC)
 }
 
 
@@ -357,6 +358,7 @@ script FourIsland_Froslass { //PLACEHOLDER
 	msgbox(
 	"The FROSLASS is upset that\n"
 	"you looked at it.", MSGBOX_DEFAULT)
+	playbgm(MUS_FOUR_ISLAND, TRUE)
 	//trainer battle
 	removeobject(LOCALID_FROSLASS)
 	release

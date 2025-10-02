@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_CORNN_BERRY",
       "script": "EventScript_FindItem",
-      "flag": "NULL"
+      "flag": "FLAG_FOUR_ISLAND_WEAST_BERRY"
     },
     {
       "type": "object",
@@ -156,7 +156,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TAMATO_BERRY",
       "script": "EventScript_FindItem",
-      "flag": "NULL"
+      "flag": "FLAG_FOUR_ISLAND_EAST_BERRY"
     },
     {
       "local_id": "LOCALID_FOUR_ISLAND_RIVAL",
