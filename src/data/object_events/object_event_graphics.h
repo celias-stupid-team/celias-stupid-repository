@@ -473,3 +473,7 @@ const u32 gObjectEventPic_Panpour[] = INCBIN_U32("graphics/object_events/pics/st
 const u32 gObjectEventPic_Deadovanni[] = INCBIN_U32("graphics/object_events/pics/stupid/Deadovanni.4bpp");
 const u32 gObjectEventPic_Hint_man[] = INCBIN_U32("graphics/object_events/pics/stupid/Hint_man.4bpp");
 const u32 gObjectEventPic_Lucas[] = INCBIN_U32("graphics/object_events/pics/stupid/Lucas.4bpp");
+const u32 gObjectEventPic_Heracross[] = INCBIN_U32("graphics/object_events/pics/stupid/Heracross.4bpp");
+const u32 gObjectEventPic_Blissey[] = INCBIN_U32("graphics/object_events/pics/stupid/Blissey.4bpp");
+const u32 gObjectEventPic_Chatot[] = INCBIN_U32("graphics/object_events/pics/stupid/Chatot.4bpp");
+const u32 gObjectEventPic_Dawn[] = INCBIN_U32("graphics/object_events/pics/stupid/Dawn.4bpp");

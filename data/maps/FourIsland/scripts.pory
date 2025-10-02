@@ -158,9 +158,7 @@ FourIsland_EventScript_LoreleisHouseSign::
 
 script FourIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FOUR_ISLAND)
-	if(flag(FLAG_FROSLASS_ENCOUNTER)) {
-		setvar(VAR_TEMP_0, 1)
-	}
+	setbench(BENCH_FOUR_ISLAND)
 }
 
 
@@ -176,6 +174,8 @@ script FourIsland_Sign {
 	"Slavery Capital of the world!", MSGBOX_SIGN)
 
 }
+
+
 
 script FourIsland_MagikarpFisher {
 	msgbox(
@@ -214,10 +214,8 @@ script FourIsland_PalParkSign {
 script FourIsland_PalParkDMCA {
 	msgbox(
 	"Grr, this place has you throw BALLS\n"
-	"and catch creatures with 'em!\p"
-
-	"Don't worry, though.\n"
-	"We, the DMCA, are on the case!", MSGBOX_NPC)
+	"and catch creatures with 'em!\l"
+	"What horror!\n", MSGBOX_NPC)
 }
 
 
@@ -273,13 +271,24 @@ script FourIsland_CombeeSign {
 }
 
 script FourIsland_OldLady {
-	msgbox("Four island establishing dialogue\nPLACEHOLDER", MSGBOX_NPC)
+	msgbox(
+	"Welcome to FOUR ISLAND, dearie.\n"
+	"Here, we honor our culture's myths.\p"
+
+	"For example, the myth of this\n"
+	"so-called {PAUSE 10}“FIRE-TYPE.”", MSGBOX_NPC)
 }
 
 
 
-script FourIsland_CeliaDAWN {
-	msgbox("Joke about Celia Dawn\nPLACEHOLDER", MSGBOX_NPC)
+script FourIsland_CeliaDawn {
+	msgbox(
+	"Hiya! I'm DAWN, the crea-{PAUSE 30} uh\n"
+	"I mean a very regular person!\p"
+
+	"I hope you've been filling up your\n"
+	"POKéDEX!\l"
+	"haha", MSGBOX_NPC)
 }
 
 
@@ -309,17 +318,45 @@ script FourIsland_HoneyTree {
 script FourIsland_Froslass { //PLACEHOLDER
 	lock
 	playbgm(MUS_GEN4_LASS, TRUE)
-	setflag(FLAG_FROSLASS_ENCOUNTER)
+	setvar(VAR_FROSLASS_SCENE, 1)
 	setvar(VAR_TEMP_0, 1)
 	applymovement(LOCALID_FROSLASS, moves(
-		face_right
+		face_up
 		emote_exclamation_mark
-		delay_16 * 3
-		walk_right * 3
 	))
 	waitmovement(0)
+	delay(30)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_down * 2
+	))
+	waitmovement(0)
+	delay(10)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_FROSLASS, moves(
+		jump_up
+	))
+	waitmovement(0)
+	delay(20)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_up * 2
+	))
+	applymovement(LOCALID_FROSLASS, moves(
+		walk_up
+		face_up
+	))
+	//switch statement for player's XY
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
+
 	playmoncry(SPECIES_FROSLASS, CRY_MODE_DEFAULT)
-	msgbox("FROSLASS: Hey!\nDon't look at me!", MSGBOX_DEFAULT)
+	msgbox("FROSLASS: Fraaah!", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"The FROSLASS is upset that\n"
+	"you looked at it.", MSGBOX_DEFAULT)
 	//trainer battle
 	removeobject(LOCALID_FROSLASS)
 	release
@@ -337,3 +374,193 @@ script FourIsland_DadJr { //PLACEHOLDER
 	end
 }
 
+script FourIsland_Heracross {
+	lock
+	playmoncry(SPECIES_HERACROSS, CRY_MODE_DEFAULT)
+	msgbox(
+	"HERACROSS: Hrrah!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"HERACROSS used\n"
+	"CLOSE COMBAT!\l"
+	"{PAUSE 30}…A few weeks ago.", MSGBOX_DEFAULT)
+	release
+}
+
+script FourIsland_Blissey {
+	lock
+	playmoncry(SPECIES_BLISSEY, CRY_MODE_FAINT)
+	msgbox(
+	"BLISSEY: Bliss! Bliss!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"BLISSEY has approximately\n"
+	"65% HP remaining!\l"
+	"{PAUSE 30}…64% {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}…63%…", MSGBOX_DEFAULT)
+	release
+}
+
+script FourIsland_CutInHalf {
+	msgbox(
+	"They say this mountain divides\n"
+	"FOUR ISLAND in half.\p"
+
+	"Looking at our local BERRIES, I\n"
+	"think I understand.\p"
+	
+	"And also looking at, y'know…\n"
+	"{PAUSE 10}the mountain.",MSGBOX_NPC)
+}
+
+
+//House 1
+script FourIsland_DrFootstep {
+	lock
+	faceplayer
+	msgbox(
+	"Hello, young one.\n"
+	"I am DR. FOOTSTEP.\p"
+
+	"I need only to see the footprints\n"
+	"of your POKéMON to understand\l"
+	"their true nature.\p"
+
+	"Would you like me to tell you about\n"
+	"your POKéMON?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Good, good.\p"
+
+		"Now, let's have your POKéMON walk\n"
+		"in front of me…", MSGBOX_DEFAULT)
+		fadescreen(FADE_TO_BLACK)
+		//re-adjust NPCs
+		delay(30)
+		fadescreen(FADE_FROM_BLACK)
+		//walk back and forth
+		msgbox(
+		"Hmm, yes.\n"
+		"I see.\p"
+
+		"I can confidently declare that\n"
+		"your POKéMON {PAUSE 30}has feet.\p"
+
+		"{PAUSE 30}Thank you for your time.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox(
+		"Ah… Scared of the truth, eh?\n"
+		"I understand.\p"
+
+		"Well, you're always welcome back.\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+}
+
+script FourIsland_SealCase {
+	lock
+	faceplayer
+	if(flag(FLAG_GOT_SEAL_CASE)) {
+		msgbox(
+		"after message\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	} else {
+		msgbox(
+		"Hey, you!\p"
+
+		"Have you ever wanted to call your\n"
+		"opponent a FUCKHEAD?\p"
+
+		"Take this!\n"
+		"", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} got the SEAL CASE!\n", ITEM_SEAL_CASE)
+		setflag(FLAG_GOT_SEAL_CASE)
+		release
+		end
+	}
+}
+
+script FourIsland_Chatot {
+	lock
+	faceplayer
+	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
+	msgbox(
+	"CHATOT: {PAUSE 20}FUCKING FUCK!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"CHATOT used CHATTER!\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script FourIsland_FiveIslandMart {
+	msgbox(
+	"placeholder\n"
+	"joke about the FIVE ISLAND mart", MSGBOX_NPC)
+}
+
+
+script FourIsland_BarryHater {
+	msgbox(
+	"There's one troublemaker here on\n"
+	"FOUR ISLAND that everyone knows.\p"
+
+	"He'd ram into folks and run off,\n"
+	"barely letting you get a word in.\p"
+
+	"I think he went off to an ISLAND\n"
+	"east of here.\l"
+	"I say good riddance!", MSGBOX_NPC)
+}
+
+
+script FourIsland_BidoofHint {
+	msgbox(
+	"They say there's a POKéMON made to\n"
+	"help traverse across the world.\p"
+
+	"A specimen is being kept safe in\n"
+	"SILPH CO. right now, in fact.", MSGBOX_NPC)
+}
+
+script FourIsland_PewterMuseumHint {
+	msgbox(
+	"placeholder\n"
+	"pewter museum", MSGBOX_NPC)
+}
+
+
+script FourIsland_HumansFuckPokemon {
+	msgbox(
+	"Oh?\n"
+	"Don't mind me.\p"
+
+	"I've been reading up on the secret\n"
+	"FOUR ISLAND lore for…{PAUSE 30} reasons.", MSGBOX_NPC)
+}
+
+script FourIsland_Bookshelf {
+	msgbox(
+	"My Wife is a WHAT?\n"
+	"{PAUSE 30}Chapter 3\p"
+
+	"I was neither a murder suspect, nor\n"
+	"a-… … …", MSGBOX_SIGN)
+
+}
