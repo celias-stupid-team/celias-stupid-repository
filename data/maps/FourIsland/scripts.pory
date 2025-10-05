@@ -185,11 +185,9 @@ script FourIsland_MagikarpFisher {
 	"It's the hidden ruler of the ISLE!\n"
 	"You have to believe me!\p"
 
-	"If you believe me, whip out your\n"
-	"ROD and go fishing!\p"
-
-	"Who knows, you may just catch the\n"
-	"mind-blowing ruler!", MSGBOX_NPC)
+	"There's something here that's\n"
+	"crazy high-leveled!\l"
+	"Try looking for yourself!", MSGBOX_NPC)
 }
 
 
@@ -215,7 +213,7 @@ script FourIsland_PalParkDMCA {
 	msgbox(
 	"Grr, this place has you throw BALLS\n"
 	"and catch creatures with 'em!\l"
-	"What horror!\n", MSGBOX_NPC)
+	"That idea belongs to someone else!\n", MSGBOX_NPC)
 }
 
 
@@ -233,6 +231,7 @@ script FourIsland_RockClimbUp {
 			waitmovement(0)
 		}
 	}
+	release
 
 }
 script FourIsland_RockClimbDown {
@@ -249,6 +248,7 @@ script FourIsland_RockClimbDown {
 			waitmovement(0)
 		}
 	}
+	release
 
 }
 
@@ -276,8 +276,8 @@ script FourIsland_OldLady {
 	"Here, we honor our culture's myths.\p"
 
 	"For example, the myth of this\n"
-	"so-called {PAUSE 10}“FIRE-TYPE\l"
-	"What a fun legend!", MSGBOX_NPC)
+	"so-called {PAUSE 10}“FIRE-TYPE.”\l"
+	"Ah, what a fun legend!", MSGBOX_NPC)
 }
 
 
@@ -314,6 +314,7 @@ script FourIsland_HoneyTree {
 		
 		msgbox("The tree has been hastily covered\nwith a coat of cheap paint.", MSGBOX_DEFAULT)
 	}
+	release
 }
 
 script FourIsland_Froslass { //PLACEHOLDER
@@ -404,7 +405,7 @@ script FourIsland_Blissey {
 	msgbox(
 	"BLISSEY has approximately\n"
 	"65% HP remaining!\l"
-	"{PAUSE 30}…64% {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}…63%…", MSGBOX_DEFAULT)
+	"{PAUSE 30}…64% {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}… {PAUSE 30}…63%… {PAUSE 30}… {PAUSE 30}…", MSGBOX_DEFAULT)
 	release
 }
 
@@ -442,6 +443,7 @@ script FourIsland_DrFootstep {
 		"Now, let's have your POKéMON walk\n"
 		"in front of me…", MSGBOX_DEFAULT)
 		fadescreen(FADE_TO_BLACK)
+		closemessage
 		//re-adjust NPCs
 		delay(30)
 		fadescreen(FADE_FROM_BLACK)
@@ -499,7 +501,7 @@ script FourIsland_Chatot {
 	faceplayer
 	playmoncry(SPECIES_JIGGLYPUFF, CRY_MODE_DEFAULT)
 	msgbox(
-	"CHATOT: {PAUSE 20}FUCKING FUCK!\n"
+	"CHATOT: {PAUSE 10}FUCKING FUCK!\n"
 	"", MSGBOX_DEFAULT)
 	waitmoncry
 	closemessage
@@ -513,8 +515,13 @@ script FourIsland_Chatot {
 
 script FourIsland_FiveIslandMart {
 	msgbox(
-	"placeholder\n"
-	"joke about the FIVE ISLAND mart", MSGBOX_NPC)
+	"My old bones can't make the climb\n"
+	"up to the POKéMON CENTER anymore.\p"
+
+	
+	"Maybe we should look into one of\n"
+	"those fancy MART{PAUSE 10}-CENTER combos.\l"
+	"They have one on FIVE ISLAND!", MSGBOX_NPC)
 }
 
 
@@ -565,4 +572,63 @@ script FourIsland_Bookshelf {
 	"I was neither a murder suspect, nor\n"
 	"a-… … …", MSGBOX_SIGN)
 
+}
+
+
+
+script FourIsland_LostTower {
+	msgbox(
+	"LOST TOWER\p"
+
+	"Notice!\n{PAUSE 20}"
+	"LOST TOWER {PAUSE 10}is currently lost.", MSGBOX_SIGN)
+
+}
+
+script FourIsland_TurnbackCaveSign {
+	msgbox(
+	"TURNBACK CAVE\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script FourIsland_AmitySquareLady {
+	lock
+	faceplayer
+	msgbox(
+	"Hello!\n"
+	"Welcome to AMITY SQUARE.\p"
+
+	"Here, you can go on a stroll with\n"
+	"a cute POKéMON.\l"
+	"{PAUSE 30}But only if it's cute.\l"
+	"We're extremely strict.", MSGBOX_DEFAULT)
+	//logic
+	msgbox(
+	"Let's see…{PAUSE 20}\n"
+	"Ewww.\l"
+	"Nothing in your party is cute.\p"
+
+	"The permitted POKéMON are PIKACHU,\n"
+	"{PAUSE 10}PACHIRISU, {PAUSE 10}EMOLGA,{PAUSE 20} and TRUBBISH.\p"
+
+	"Come back when you've gotten your\n"
+	"life together, you ugly bitch.\l"
+	"Cheers!", MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script FourIsland_PsyduckBlocking {
+	lock
+	msgbox(
+	"… … …\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox(
+	"The POKéMON seem to be struggling.\n"
+	"", MSGBOX_DEFAULT)
+	release
 }

@@ -316,8 +316,8 @@
     {
       "id": "LAYOUT_FOUR_ISLAND_LORELEIS_HOUSE",
       "name": "FourIsland_LoreleisHouse_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 9,
+      "height": 11,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
