@@ -5577,7 +5577,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_Minnesota",
       "border_filepath": "data/layouts/Minnesota/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota/map.bin"
     },
