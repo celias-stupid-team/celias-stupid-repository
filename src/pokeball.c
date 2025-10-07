@@ -70,6 +70,7 @@ const struct CompressedSpriteSheet gBallSpriteSheets[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallGfx_Timer,   384, GFX_TAG_TIMER_BALL},
     [BALL_LUXURY]  = {gBallGfx_Luxury,  384, GFX_TAG_LUXURY_BALL},
     [BALL_PREMIER] = {gBallGfx_Premier, 384, GFX_TAG_PREMIER_BALL},
+    [BALL_SEAL] = {gBallGfx_Dive, 384, GFX_TAG_DIVE_BALL},
 };
 
 const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
@@ -86,6 +87,7 @@ const struct CompressedSpritePalette gBallSpritePalettes[POKEBALL_COUNT] =
     [BALL_TIMER]   = {gBallPal_Timer,   GFX_TAG_TIMER_BALL},
     [BALL_LUXURY]  = {gBallPal_Luxury,  GFX_TAG_LUXURY_BALL},
     [BALL_PREMIER] = {gBallPal_Premier, GFX_TAG_PREMIER_BALL},
+    [BALL_SEAL]    = {gBallPal_Dive,    GFX_TAG_DIVE_BALL},
 };
 
 static const struct OamData sBallOamData =
@@ -315,6 +317,16 @@ const struct SpriteTemplate gBallSpriteTemplates[POKEBALL_COUNT] =
     {
         .tileTag = GFX_TAG_PREMIER_BALL,
         .paletteTag = GFX_TAG_PREMIER_BALL,
+        .oam = &sBallOamData,
+        .anims = sBallAnimSequences,
+        .images = NULL,
+        .affineAnims = sAffineAnim_BallRotate,
+        .callback = SpriteCB_BallThrow,
+    },
+    [BALL_SEAL] =
+    {
+        .tileTag = GFX_TAG_DIVE_BALL,
+        .paletteTag = GFX_TAG_DIVE_BALL,
         .oam = &sBallOamData,
         .anims = sBallAnimSequences,
         .images = NULL,
@@ -1310,6 +1322,7 @@ void LoadBallGfx(u8 ballId)
     case BALL_DIVE:
     case BALL_LUXURY:
     case BALL_PREMIER:
+    case BALL_SEAL:
         break;
     default:
         var = GetSpriteTileStartByTag(gBallSpriteSheets[ballId].tag);

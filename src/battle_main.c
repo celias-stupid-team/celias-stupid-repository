@@ -109,6 +109,7 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void);
 static void ReturnFromBattleToOverworld(void);
 static void TryEvolvePokemon(void);
 static void WaitForEvoSceneToFinish(void);
+bool8 Item_IsBall(u16 item);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -4243,6 +4244,8 @@ static void HandleAction_Switch(void)
         ++gBattleResults.playerSwitchesCounter;
 }
 
+ 
+
 static void HandleAction_UseItem(void)
 {
     gBattlerAttacker = gBattlerTarget = gBattlerByTurnOrder[gCurrentTurnActionNumber];
@@ -4250,7 +4253,7 @@ static void HandleAction_UseItem(void)
     gBattle_BG0_Y = 0;
     ClearFuryCutterDestinyBondGrudge(gBattlerAttacker);
     gLastUsedItem = gBattleBufferB[gBattlerAttacker][1] | (gBattleBufferB[gBattlerAttacker][2] << 8);
-    if (gLastUsedItem <= ITEM_PREMIER_BALL) // is ball
+    if (Item_IsBall(gLastUsedItem)) // is ball
     {
         gBattlescriptCurrInstr = gBattlescriptsForBallThrow[gLastUsedItem];
     }

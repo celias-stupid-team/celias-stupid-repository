@@ -10286,6 +10286,13 @@ static void Cmd_handleballthrow(void)
                 if (ballMultiplier > 40)
                     ballMultiplier = 40;
                 break;
+            case ITEM_SEAL_CASE:
+                if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+                    ballMultiplier = 100; //check if opponent is Seal
+
+                } else {
+                    ballMultiplier = 0;
+                }
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
                 ballMultiplier = 10;
