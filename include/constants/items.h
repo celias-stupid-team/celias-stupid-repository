@@ -540,4 +540,19 @@
                                 || (item == ITEM_SOUL_DEW))
 // rave - yeah this shit's hacky but we can come up with a more robust solution later
 
+// SDH: Secondary IDs for Poké Balls
+#define MASTER_BALL 1
+#define ULTRA_BALL 2
+#define GREAT_BALL 3
+#define POKE_BALL 4
+#define SAFARI_BALL 5
+#define NET_BALL 6
+#define DIVE_BALL 7
+#define NEST_BALL 8
+#define REPEAT_BALL 9
+#define TIMER_BALL 10
+#define LUXURY_BALL 11
+#define PREMIER_BALL 12
+#define SEAL_CASE_BALL 13
+
 #endif  // GUARD_CONSTANTS_ITEMS_H

@@ -4253,9 +4253,16 @@ static void HandleAction_UseItem(void)
     gBattle_BG0_Y = 0;
     ClearFuryCutterDestinyBondGrudge(gBattlerAttacker);
     gLastUsedItem = gBattleBufferB[gBattlerAttacker][1] | (gBattleBufferB[gBattlerAttacker][2] << 8);
-    if (Item_IsBall(gLastUsedItem)) // is ball
+    // SDH: Instead of checking for the item, check if it is in the Ball pocket.
+    // This should allow any item in that pocket to work correctly (not skipping the turn).
+    // The only requirement is that the item should have a secondaryId set.
+    if (ItemId_GetPocket(gLastUsedItem) == POCKET_POKE_BALLS) // is ball
     {
-        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[gLastUsedItem];
+        // SDH: Each Ball (Except Safari) use the same battle script so it just made sense
+        // to use the script pointer directly instead of getting the respective entry from the table.
+        // This has the added benefit of being able to add new Balls without needing
+        // to update the aforementioned table, which has been removed.
+        gBattlescriptCurrInstr = BattleScript_ThrowBall;
     }
     else if (gLastUsedItem == ITEM_POKE_DOLL || gLastUsedItem == ITEM_FLUFFY_TAIL)
     {
@@ -4484,7 +4491,9 @@ static void HandleAction_SafariZoneBallThrow(void)
     gBattle_BG0_Y = 0;
     --gNumSafariBalls;
     gLastUsedItem = ITEM_SAFARI_BALL;
-    gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_SAFARI_BALL];
+    // SDH: Previously used a table of battle scripts with only the Safari Ball being different so the battle script
+    // is used directly here as this function is only called in the Safari Zone when the Safari game is active.
+    gBattlescriptCurrInstr = BattleScript_ThrowSafariBall;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 

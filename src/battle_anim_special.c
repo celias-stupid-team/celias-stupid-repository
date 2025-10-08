@@ -8,6 +8,7 @@
 #include "battle_interface.h"
 #include "decompress.h"
 #include "graphics.h"
+#include "item.h"
 #include "m4a.h"
 #include "pokeball.h"
 #include "task.h"
@@ -647,19 +648,13 @@ void AnimTask_SwitchOutShrinkMon(u8 taskId)
 void AnimTask_SwitchOutBallEffect(u8 taskId)
 {
     u8 spriteId;
-    u16 ball;
-    u8 ballId;
+    u16 ballId;
     u8 x, y;
     u8 priority, subpriority;
     u32 selectedPalettes;
 
     spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
-    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
-        ball = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_POKEBALL);
-    else
-        ball = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_POKEBALL);
-
-    ballId = ItemIdToBallId(ball);
+    ballId = GetBattlerPokeballItemId(gBattleAnimAttacker);
     switch (gTasks[taskId].data[0])
     {
     case 0:
@@ -679,9 +674,15 @@ void AnimTask_SwitchOutBallEffect(u8 taskId)
     }
 }
 
+// SDH: This has been added so it's easier to make modifications if required.
+static u16 GetThrownPokeballItemId(void)
+{
+    return ItemIdToBallId(ItemId_GetSecondaryId(gLastUsedItem));
+}
+
 void AnimTask_LoadBallGfx(u8 taskId)
 {
-    u8 ballId = ItemIdToBallId(gLastUsedItem);
+    u16 ballId = GetThrownPokeballItemId();
 
     LoadBallGfx(ballId);
     DestroyAnimVisualTask(taskId);
@@ -689,7 +690,7 @@ void AnimTask_LoadBallGfx(u8 taskId)
 
 void AnimTask_FreeBallGfx(u8 taskId)
 {
-    u8 ballId = ItemIdToBallId(gLastUsedItem);
+    u16 ballId = GetThrownPokeballItemId();
 
     FreeBallGfx(ballId);
     DestroyAnimVisualTask(taskId);
@@ -717,31 +718,31 @@ u8 ItemIdToBallId(u16 ballItem)
 {
     switch (ballItem)
     {
-    case ITEM_MASTER_BALL:
+    case MASTER_BALL:
         return BALL_MASTER;
-    case ITEM_ULTRA_BALL:
+    case ULTRA_BALL:
         return BALL_ULTRA;
-    case ITEM_GREAT_BALL:
+    case GREAT_BALL:
         return BALL_GREAT;
-    case ITEM_SAFARI_BALL:
+    case SAFARI_BALL:
         return BALL_SAFARI;
-    case ITEM_NET_BALL:
+    case NET_BALL:
         return BALL_NET;
-    case ITEM_DIVE_BALL:
+    case DIVE_BALL:
         return BALL_DIVE;
-    case ITEM_NEST_BALL:
+    case NEST_BALL:
         return BALL_NEST;
-    case ITEM_REPEAT_BALL:
+    case REPEAT_BALL:
         return BALL_REPEAT;
-    case ITEM_TIMER_BALL:
+    case TIMER_BALL:
         return BALL_TIMER;
-    case ITEM_LUXURY_BALL:
+    case LUXURY_BALL:
         return BALL_LUXURY;
-    case ITEM_PREMIER_BALL:
+    case PREMIER_BALL:
         return BALL_PREMIER;
-    case ITEM_SEAL_CASE:
+    case SEAL_CASE_BALL:
         return BALL_SEAL;
-    case ITEM_POKE_BALL:
+    case POKE_BALL:
     default:
         return BALL_POKE;
     }
@@ -749,10 +750,10 @@ u8 ItemIdToBallId(u16 ballItem)
 
 void AnimTask_ThrowBall(u8 taskId)
 {
-    u8 ballId;
+    u16 ballId;
     u8 spriteId;
 
-    ballId = ItemIdToBallId(gLastUsedItem);
+    ballId = GetThrownPokeballItemId();
     spriteId = CreateSprite(&gBallSpriteTemplates[ballId], 32, 80, 29);
     gSprites[spriteId].data[0] = 34;
     gSprites[spriteId].data[1] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
@@ -774,7 +775,7 @@ static void AnimTask_ThrowBall_WaitAnimObjComplete(u8 taskId)
 void AnimTask_ThrowBallSpecial(u8 taskId)
 {
     int x, y;
-    u8 ballId;
+    u16 ballId;
     u8 subpriority;
     u8 spriteId;
 
@@ -791,7 +792,7 @@ void AnimTask_ThrowBallSpecial(u8 taskId)
             y = 13;
     }
 
-    ballId = ItemIdToBallId(gLastUsedItem);
+    ballId = GetThrownPokeballItemId();
     subpriority = GetBattlerSpriteSubpriority(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)) + 1;
     spriteId = CreateSprite(&gBallSpriteTemplates[ballId], x | 32, y | 80, subpriority);
     gSprites[spriteId].data[0] = 34;
@@ -840,7 +841,7 @@ static void SpriteCB_ThrowBall_Init(struct Sprite *sprite)
 static void SpriteCB_ThrowBall_ArcFlight(struct Sprite *sprite)
 {
     int i;
-    u8 ballId;
+    u16 ballId;
 
     if (TranslateAnimHorizontalArc(sprite))
     {
@@ -866,14 +867,9 @@ static void SpriteCB_ThrowBall_ArcFlight(struct Sprite *sprite)
             sprite->data[5] = 0;
             sprite->callback = SpriteCB_ThrowBall_TenFrameDelay;
 
-            ballId = ItemIdToBallId(gLastUsedItem);
-            switch (ballId)
-            {
-            case 0 ... POKEBALL_COUNT - 1:
-                AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
-                LaunchBallFadeMonTask(0, gBattleAnimTarget, 14, ballId);
-                break;
-            }
+            ballId = GetThrownPokeballItemId();
+            AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
+            LaunchBallFadeMonTask(0, gBattleAnimTarget, 14, ballId);
         }
     }
 }
@@ -1320,19 +1316,14 @@ static void SpriteCB_BallCaptureSuccessStar(struct Sprite *sprite)
 
 static void SpriteCB_ThrowBall_BeginBreakOut(struct Sprite *sprite)
 {
-    u8 ballId;
+    u16 ballId;
 
     StartSpriteAnim(sprite, 1);
     StartSpriteAffineAnim(sprite, 0);
     sprite->callback = SpriteCB_ThrowBall_RunBreakOut;
-    ballId = ItemIdToBallId(gLastUsedItem);
-    switch (ballId)
-    {
-    case 0 ... POKEBALL_COUNT - 1:
-        AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
-        LaunchBallFadeMonTask(1, gBattleAnimTarget, 14, ballId);
-        break;
-    }
+    ballId = GetThrownPokeballItemId();
+    AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
+    LaunchBallFadeMonTask(1, gBattleAnimTarget, 14, ballId);
 
     gSprites[gBattlerSpriteIds[gBattleAnimTarget]].invisible = FALSE;
     StartSpriteAffineAnim(&gSprites[gBattlerSpriteIds[gBattleAnimTarget]], 1);

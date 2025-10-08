@@ -905,10 +905,10 @@ static const u8 sTerrainToType[] =
 // - ITEM_ULTRA_BALL skips Master Ball and ITEM_NONE
 static const u8 sBallCatchBonuses[] =
 {
-    [ITEM_ULTRA_BALL - ITEM_ULTRA_BALL]  = 20,
-    [ITEM_GREAT_BALL - ITEM_ULTRA_BALL]  = 15,
-    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 10,
-    [ITEM_SAFARI_BALL - ITEM_ULTRA_BALL] = 15
+    [ULTRA_BALL - ULTRA_BALL]  = 20,
+    [GREAT_BALL - ULTRA_BALL]  = 15,
+    [POKE_BALL - ULTRA_BALL]   = 10,
+    [SAFARI_BALL - ULTRA_BALL] = 15
 };
 
 // unused
@@ -10241,29 +10241,32 @@ static void Cmd_handleballthrow(void)
     {
         u32 odds;
         u8 catchRate;
+        // SDH: The ball the player chose from the bag.
+        // Also gets set to the target mon's "MON_DATA_POKEBALL" data if the catch was successful.
+        u16 thrownBall = ItemId_GetSecondaryId(gLastUsedItem);
 
-        if (gLastUsedItem == ITEM_SAFARI_BALL)
+        if (thrownBall == SAFARI_BALL)
             catchRate = gBattleStruct->safariCatchFactor * 1275 / 100;
         else
             catchRate = gSpeciesInfo[gBattleMons[gBattlerTarget].species].catchRate;
 
-        if (gLastUsedItem > ITEM_SAFARI_BALL)
+        if (thrownBall > SAFARI_BALL)
         {
-            switch (gLastUsedItem)
+            switch (thrownBall)
             {
-            case ITEM_NET_BALL:
+            case NET_BALL:
                 if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_BUG))
                     ballMultiplier = 30;
                 else
                     ballMultiplier = 10;
                 break;
-            case ITEM_DIVE_BALL:
+            case DIVE_BALL:
                 if (GetCurrentMapType() == MAP_TYPE_UNDERWATER)
                     ballMultiplier = 35;
                 else
                     ballMultiplier = 10;
                 break;
-            case ITEM_NEST_BALL:
+            case NEST_BALL:
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 40 - gBattleMons[gBattlerTarget].level;
@@ -10275,32 +10278,32 @@ static void Cmd_handleballthrow(void)
                     ballMultiplier = 10;
                 }
                 break;
-            case ITEM_REPEAT_BALL:
+            case REPEAT_BALL:
                 if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), FLAG_GET_CAUGHT))
                     ballMultiplier = 30;
                 else
                     ballMultiplier = 10;
                 break;
-            case ITEM_TIMER_BALL:
+            case TIMER_BALL:
                 ballMultiplier = gBattleResults.battleTurnCounter + 10;
                 if (ballMultiplier > 40)
                     ballMultiplier = 40;
                 break;
-            case ITEM_SEAL_CASE:
+            case SEAL_CASE_BALL:
                 if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
                     ballMultiplier = 100; //check if opponent is Seal
 
                 } else {
                     ballMultiplier = 0;
                 }
-            case ITEM_LUXURY_BALL:
-            case ITEM_PREMIER_BALL:
+            case LUXURY_BALL:
+            case PREMIER_BALL:
                 ballMultiplier = 10;
                 break;
             }
         }
         else
-            ballMultiplier = sBallCatchBonuses[gLastUsedItem - ITEM_ULTRA_BALL];
+            ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
 
         odds = catchRate;
 
@@ -10309,16 +10312,16 @@ static void Cmd_handleballthrow(void)
         if (gBattleMons[gBattlerTarget].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON))
             odds = (odds * 15) / 10;
 
-        if (gLastUsedItem != ITEM_SAFARI_BALL)
+        if (thrownBall != SAFARI_BALL)
         {
-            if (gLastUsedItem == ITEM_MASTER_BALL)
+            if (thrownBall == MASTER_BALL)
             {
                 gBattleResults.usedMasterBall = TRUE;
             }
             else
             {
-                if (gBattleResults.catchAttempts[gLastUsedItem - ITEM_ULTRA_BALL] < 255)
-                    gBattleResults.catchAttempts[gLastUsedItem - ITEM_ULTRA_BALL]++;
+                if (gBattleResults.catchAttempts[thrownBall - ULTRA_BALL] < 255)
+                    gBattleResults.catchAttempts[thrownBall - ULTRA_BALL]++;
             }
         }
 
@@ -10327,7 +10330,7 @@ static void Cmd_handleballthrow(void)
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
             gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-            SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
+            SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
@@ -10343,7 +10346,7 @@ static void Cmd_handleballthrow(void)
 
             for (shakes = 0; shakes < BALL_3_SHAKES_SUCCESS && Random() < odds; shakes++);
 
-            if (gLastUsedItem == ITEM_MASTER_BALL)
+            if (thrownBall == MASTER_BALL)
                 shakes = BALL_3_SHAKES_SUCCESS; // why calculate the shakes before that check?
 
             BtlController_EmitBallThrowAnim(BUFFER_A, shakes);
@@ -10352,7 +10355,7 @@ static void Cmd_handleballthrow(void)
             if (shakes == BALL_3_SHAKES_SUCCESS) // mon caught, copy of the code above
             {
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
+                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &thrownBall);
 
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = 0;

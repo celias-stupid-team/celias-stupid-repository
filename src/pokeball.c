@@ -39,7 +39,6 @@ static void SpriteCB_TradePokeballEnd(struct Sprite *sprite);
 static void SpriteCB_HealthboxSlideInDelayed(struct Sprite *sprite);
 static void SpriteCB_HealthboxSlideIn(struct Sprite *sprite);
 static void SpriteCB_HitAnimHealthoxEffect(struct Sprite *sprite);
-static u16 GetBattlerPokeballItemId(u8 battlerId);
 
 // rom const data
 
@@ -377,12 +376,7 @@ static void Task_DoPokeballSendOutAnim(u8 taskId)
     throwCaseId = gTasks[taskId].tThrowId;
     battlerId = gTasks[taskId].tBattler;
 
-    if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-        itemId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL);
-    else
-        itemId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL);
-
-    ballId = ItemIdToBallId(itemId);
+    ballId = GetBattlerPokeballItemId(battlerId);
     LoadBallGfx(ballId);
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
@@ -778,7 +772,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
     u32 ballId;
 
     StartSpriteAnim(sprite, 1);
-    ballId = ItemIdToBallId(GetBattlerPokeballItemId(battlerId));
+    ballId = GetBattlerPokeballItemId(battlerId);
     AnimateBallOpenParticles(sprite->x, sprite->y - 5, 1, 28, ballId);
     sprite->data[0] = LaunchBallFadeMonTask(TRUE, sprite->sBattler, 14, ballId);
     sprite->callback = HandleBallAnimEnd;
@@ -1337,11 +1331,13 @@ void FreeBallGfx(u8 ballId)
     FreeSpritePaletteByTag(gBallSpritePalettes[ballId].tag);
 }
 
-static u16 GetBattlerPokeballItemId(u8 battlerId)
+u16 GetBattlerPokeballItemId(u8 battlerId)
 {
+    struct Pokemon *party;
     if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
-        return GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL);
+        party = gPlayerParty;
     else
-        return GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL);
+        party = gEnemyParty;
+    return ItemIdToBallId(GetMonData(&party[gBattlerPartyIndexes[battlerId]], MON_DATA_POKEBALL));
 }
 

@@ -30,7 +30,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 0
+      "secondaryId": "MASTER_BALL"
     },
     {
       "english": "ULTRA BALL",
@@ -46,7 +46,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 1
+      "secondaryId": "ULTRA_BALL"
     },
     {
       "english": "GREAT BALL",
@@ -62,7 +62,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 2
+      "secondaryId": "GREAT_BALL"
     },
     {
       "english": "POKé BALL",
@@ -78,7 +78,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 3
+      "secondaryId": "POKE_BALL"
     },
     {
       "english": "SAFARI BALL",
@@ -94,7 +94,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 4
+      "secondaryId": "SAFARI_BALL"
     },
     {
       "english": "NET BALL",
@@ -110,7 +110,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 5
+      "secondaryId": "NET_BALL"
     },
     {
       "english": "DIVE BALL",
@@ -126,7 +126,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 6
+      "secondaryId": "DIVE_BALL"
     },
     {
       "english": "NEST BALL",
@@ -142,7 +142,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 7
+      "secondaryId": "NEST_BALL"
     },
     {
       "english": "REPEAT BALL",
@@ -158,7 +158,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 8
+      "secondaryId": "REPEAT_BALL"
     },
     {
       "english": "TIMER BALL",
@@ -174,7 +174,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 9
+      "secondaryId": "TIMER_BALL"
     },
     {
       "english": "LUXURY BALL",
@@ -190,7 +190,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 10
+      "secondaryId": "LUXURY_BALL"
     },
     {
       "english": "PREMIER BALL",
@@ -206,7 +206,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 11
+      "secondaryId": "PREMIER_BALL"
     },
     {
       "english": "POTION",
@@ -6936,7 +6936,7 @@
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 0
+      "secondaryId": "SEAL_CASE_BALL"
     },
     {
       "english": "LETTER W",
