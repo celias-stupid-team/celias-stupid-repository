@@ -1690,3 +1690,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route20_SeafoamIslands/scripts.inc"
 	.include "data/maps/Route20_SeafoamIslands/text.inc"
+	
+	.include "data/maps/Pokemon_Island/scripts.inc"
+	.include "data/maps/Pokemon_Island/text.inc"

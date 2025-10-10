@@ -5916,6 +5916,18 @@
       "secondary_tileset": "gTileset_Mart",
       "border_filepath": "data/layouts/WalMart_Layout/border.bin",
       "blockdata_filepath": "data/layouts/WalMart_Layout/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_ISLAND",
+      "name": "Pokemon_Island_Layout",
+      "width": 60,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BerryForest",
+      "border_filepath": "data/layouts/Pokemon_Island/border.bin",
+      "blockdata_filepath": "data/layouts/Pokemon_Island/map.bin"
     }
   ]
 }
