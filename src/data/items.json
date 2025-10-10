@@ -7067,8 +7067,8 @@
       "secondaryId": 0
     },
     {
-      "english": "PESTER BALL",
-      "itemId": "ITEM_PESTER_BALL",
+      "english": "DUMMY BALL",
+      "itemId": "ITEM_DUMMY_BALL",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,

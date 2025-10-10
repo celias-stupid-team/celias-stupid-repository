@@ -12513,8 +12513,6 @@ extern const u32 gItemIconPalette_QUEUEBALL[];
 extern const u32 gItemIcon_SPORTSBALL[];
 extern const u32 gItemIconPalette_SPORTSBALL[];
 
-extern const u32 gItemIcon_PESTERBALL[];
-extern const u32 gItemIconPalette_PESTERBALL[];
 
 extern const u32 gItemIcon_APPLESAUCE[];
 extern const u32 gItemIconPalette_APPLESAUCE[];
