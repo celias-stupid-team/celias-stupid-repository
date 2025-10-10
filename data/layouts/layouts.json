@@ -5757,7 +5757,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_BerryForest",
       "border_filepath": "data/layouts/Pokemon_Island/border.bin",
       "blockdata_filepath": "data/layouts/Pokemon_Island/map.bin"
     }
