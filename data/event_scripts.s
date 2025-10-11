@@ -1693,3 +1693,60 @@ Text_TestMsg::
 	
 	.include "data/maps/Pokemon_Island/scripts.inc"
 	.include "data/maps/Pokemon_Island/text.inc"
+
+	.include "data/maps/Minnesota_House1/scripts.inc"
+	.include "data/maps/Minnesota_House1/text.inc"
+
+	.include "data/maps/Minnesota_Gym/scripts.inc"
+	.include "data/maps/Minnesota_Gym/text.inc"
+
+	.include "data/maps/Minnesota_House2/scripts.inc"
+	.include "data/maps/Minnesota_House2/text.inc"
+
+	.include "data/maps/Minnesota_Hospital/scripts.inc"
+	.include "data/maps/Minnesota_Hospital/text.inc"
+
+	.include "data/maps/Silph_HubRoom/scripts.inc"
+	.include "data/maps/Silph_HubRoom/text.inc"
+
+	.include "data/maps/Silph_UnfinishedFloor/scripts.inc"
+	.include "data/maps/Silph_UnfinishedFloor/text.inc"
+
+	.include "data/maps/Silph_Backrooms/scripts.inc"
+	.include "data/maps/Silph_Backrooms/text.inc"
+
+	.include "data/maps/Silph_ClothesStore/scripts.inc"
+	.include "data/maps/Silph_ClothesStore/text.inc"
+
+	.include "data/maps/Silph_HostageRoom/scripts.inc"
+	.include "data/maps/Silph_HostageRoom/text.inc"
+
+	.include "data/maps/Silph_BallShop/scripts.inc"
+	.include "data/maps/Silph_BallShop/text.inc"
+
+	.include "data/maps/Silph_CallCenter/scripts.inc"
+	.include "data/maps/Silph_CallCenter/text.inc"
+
+	.include "data/maps/Silph_RD/scripts.inc"
+	.include "data/maps/Silph_RD/text.inc"
+
+	.include "data/maps/ZeroIsland_LibertyGarden/scripts.inc"
+	.include "data/maps/ZeroIsland_LibertyGarden/text.inc"
+
+	.include "data/maps/PokemonIsland_Lab/scripts.inc"
+	.include "data/maps/PokemonIsland_Lab/text.inc"
+
+	.include "data/maps/TwoIsland_WaterfallCave/scripts.inc"
+	.include "data/maps/TwoIsland_WaterfallCave/text.inc"
+
+	.include "data/maps/FourIsland_SixIslandCave/scripts.inc"
+	.include "data/maps/FourIsland_SixIslandCave/text.inc"
+
+	.include "data/maps/SkyTower_MonsterHouse/scripts.inc"
+	.include "data/maps/SkyTower_MonsterHouse/text.inc"
+
+	.include "data/maps/CaveOfOrigin_2F/scripts.inc"
+	.include "data/maps/CaveOfOrigin_2F/text.inc"
+
+	.include "data/maps/GreatSea_PirateBay/scripts.inc"
+	.include "data/maps/GreatSea_PirateBay/text.inc"

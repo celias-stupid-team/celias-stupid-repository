@@ -414,7 +414,8 @@
     "NewMap1",
     "CeladonCity_InfiniteStaircase",
     "SecretRoom",
-    "FalknerGym"
+    "FalknerGym",
+    "CaveOfOrigin_2F"
   ],
   "gMapGroup_IndoorFushcia": [
     "FushciaCity_SafariZone_Entrance",
@@ -548,7 +549,8 @@
     "TwoIsland_PokemonCenter_2F",
     "TwoIsland_Harbor",
     "TwoIsland_PaulaHouse",
-    "TwoIsland_Drugstore"
+    "TwoIsland_Drugstore",
+    "TwoIsland_WaterfallCave"
   ],
   "gMapGroup_IndoorThreeIsland": [
     "ThreeIsland_House1",
@@ -569,7 +571,8 @@
     "FourIsland_Harbor",
     "FourIsland_House2",
     "FourIsland_Mart",
-    "FourIsland_FinneonHouse"
+    "FourIsland_FinneonHouse",
+    "FourIsland_SixIslandCave"
   ],
   "gMapGroup_IndoorFiveIsland": [
     "FiveIsland_PokemonCenter_1F",
@@ -677,7 +680,23 @@
     "Thirty_Eight_Island",
     "TwoIsland_North",
     "Route20_SeafoamIslands",
-    "Pokemon_Island"
+    "Pokemon_Island",
+    "Minnesota_Hospital",
+    "Minnesota_House2",
+    "Minnesota_House1",
+    "Minnesota_Gym",
+    "Silph_HubRoom",
+    "Silph_HostageRoom",
+    "Silph_BallShop",
+    "Silph_ClothesStore",
+    "Silph_CallCenter",
+    "Silph_RD",
+    "Silph_UnfinishedFloor",
+    "Silph_Backrooms",
+    "ZeroIsland_LibertyGarden",
+    "PokemonIsland_Lab",
+    "SkyTower_MonsterHouse",
+    "GreatSea_PirateBay"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
