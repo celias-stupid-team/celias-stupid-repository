@@ -1750,3 +1750,18 @@ Text_TestMsg::
 
 	.include "data/maps/GreatSea_PirateBay/scripts.inc"
 	.include "data/maps/GreatSea_PirateBay/text.inc"
+
+	.include "data/maps/SkyTower_3F/scripts.inc"
+	.include "data/maps/SkyTower_3F/text.inc"
+
+	.include "data/maps/SkyTower_2F/scripts.inc"
+	.include "data/maps/SkyTower_2F/text.inc"
+
+	.include "data/maps/CaveOfOrigin_1F/scripts.inc"
+	.include "data/maps/CaveOfOrigin_1F/text.inc"
+
+	.include "data/maps/FourIsland_AmitySquare/scripts.inc"
+	.include "data/maps/FourIsland_AmitySquare/text.inc"
+
+	.include "data/maps/SkyTower_1F/scripts.inc"
+	.include "data/maps/SkyTower_1F/text.inc"

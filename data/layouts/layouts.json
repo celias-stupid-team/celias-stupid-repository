@@ -6156,6 +6156,66 @@
       "secondary_tileset": "gTileset_SeviiIslands67",
       "border_filepath": "data/layouts/GreatSea_PirateBay/border.bin",
       "blockdata_filepath": "data/layouts/GreatSea_PirateBay/map.bin"
+    },
+    {
+      "id": "LAYOUT_CAVE_OF_ORIGIN_1F",
+      "name": "CaveOfOrigin_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/CaveOfOrigin_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CaveOfOrigin_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_TOWER_1F",
+      "name": "SkyTower_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/SkyTower_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_TOWER_2F",
+      "name": "SkyTower_2F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/SkyTower_2F/border.bin",
+      "blockdata_filepath": "data/layouts/SkyTower_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOUR_ISLAND_AMITY_SQUARE",
+      "name": "FourIsland_AmitySquare_Layout",
+      "width": 30,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FourIsland",
+      "border_filepath": "data/layouts/FourIsland_AmitySquare/border.bin",
+      "blockdata_filepath": "data/layouts/FourIsland_AmitySquare/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_TOWER_3F",
+      "name": "SkyTower_3F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "border_filepath": "data/layouts/SkyTower_3F/border.bin",
+      "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
     }
   ]
 }

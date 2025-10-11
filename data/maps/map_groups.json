@@ -415,6 +415,7 @@
     "CeladonCity_InfiniteStaircase",
     "SecretRoom",
     "FalknerGym",
+    "CaveOfOrigin_1F",
     "CaveOfOrigin_2F"
   ],
   "gMapGroup_IndoorFushcia": [
@@ -572,6 +573,7 @@
     "FourIsland_House2",
     "FourIsland_Mart",
     "FourIsland_FinneonHouse",
+    "FourIsland_AmitySquare",
     "FourIsland_SixIslandCave"
   ],
   "gMapGroup_IndoorFiveIsland": [
@@ -695,6 +697,9 @@
     "Silph_Backrooms",
     "ZeroIsland_LibertyGarden",
     "PokemonIsland_Lab",
+    "SkyTower_1F",
+    "SkyTower_2F",
+    "SkyTower_3F",
     "SkyTower_MonsterHouse",
     "GreatSea_PirateBay"
   ],

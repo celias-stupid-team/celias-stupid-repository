@@ -217,7 +217,8 @@
       "id": "MAPSEC_MIRAGE_ISLAND"
     },
     {
-      "id": "MAPSEC_CAVE_OF_ORIGIN"
+      "id": "MAPSEC_CAVE_OF_ORIGIN",
+      "name": "CAVE OF ORIGIN"
     },
     {
       "id": "MAPSEC_SOUTHERN_ISLAND"
