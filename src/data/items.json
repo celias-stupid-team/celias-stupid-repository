@@ -7120,7 +7120,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "An item for GUN.\\nBoosts the power of SHOOT.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
