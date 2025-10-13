@@ -3709,3 +3709,47 @@ const struct SpriteFrameImage gObjectEventPicTable_Lucas[] = {
     overworld_frame(gObjectEventPic_Lucas, 2, 4, 7),
     overworld_frame(gObjectEventPic_Lucas, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_Heracross[] = {
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Heracross, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_Blissey[] = {
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Blissey, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_Chatot[] = {
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Chatot, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_Dawn[] = {
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Dawn, 2, 4, 8),
+};

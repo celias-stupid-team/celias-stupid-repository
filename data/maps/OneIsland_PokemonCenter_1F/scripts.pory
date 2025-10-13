@@ -345,7 +345,6 @@ OneIsland_PokemonCenter_1F_EventScript_CelioRequestRuby::
 	applymovement LOCALID_CELIO, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox OneIsland_PokemonCenter_1F_Text_NeedsSpecialGemstone
-	setvar VAR_CSR_DUMMY_20, 1
 	setvar VAR_CSR_DUMMY_15, 4
 	release
 	end

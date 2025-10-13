@@ -367,7 +367,7 @@
 #define FLAG_DRILLED_LION_HOLE               0x141
 #define FLAG_CHASED_VULPIX               0x142
 #define FLAG_GOT_WAKE_UP_SLAP               0x143
-#define FLAG_0x144               0x144
+#define FLAG_GOT_SEAL_CASE               0x144
 #define FLAG_0x145               0x145
 #define FLAG_0x146               0x146
 #define FLAG_0x147               0x147
@@ -404,8 +404,8 @@
 #define FLAG_HIDE_ROUTE4_TM05                                   0x161
 #define FLAG_HIDE_ROUTE24_TM45                                  0x162
 #define FLAG_HIDE_ROUTE25_TM43                                  0x163
-#define FLAG_0x164                          0x164
-#define FLAG_0x165                      0x165
+#define FLAG_FOUR_ISLAND_EAST_BERRY                          0x164
+#define FLAG_FOUR_ISLAND_WEAST_BERRY                      0x165
 #define FLAG_0x166                      0x166
 #define FLAG_0x167                         0x167
 #define FLAG_0x168                        0x168

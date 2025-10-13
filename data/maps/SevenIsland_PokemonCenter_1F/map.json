@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_SEVEN_ISLAND_NURSE",
@@ -106,21 +106,17 @@
       "x": 7,
       "y": 8,
       "elevation": 3,
-      "dest_map": "MAP_SEVEN_ISLAND",
+      "dest_map": "MAP_MINNESOTA",
       "dest_warp_id": "2"
     },
     {
       "x": 1,
       "y": 6,
       "elevation": 4,
-      "dest_map": "MAP_SEVEN_ISLAND_POKEMON_CENTER_2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SEVEN_ISLAND_POKEMON_CENTER_1F",
+      "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

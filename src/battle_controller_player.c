@@ -304,7 +304,9 @@ static void HandleInputChooseAction(void)
             if (gBattleBufferA[gActiveBattler][1] == B_ACTION_USE_ITEM)
             {
                 // Add item to bag if it is a ball
-                if (itemId <= ITEM_PREMIER_BALL)
+                // SDH: Check for the ball pocket so if in a double battle,
+                // the item can be added back if the action to throw a ball was cancelled.
+                if (ItemId_GetPocket(itemId) == POCKET_POKE_BALLS)
                     AddBagItem(itemId, 1);
                 else
                     return;

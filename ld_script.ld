@@ -1021,6 +1021,7 @@ SECTIONS {
         sound/songs/midi/mus_four_island_mart.o(.rodata);
         sound/songs/midi/mus_two_island_center.o(.rodata);
         sound/songs/midi/mus_two_island_mart.o(.rodata);
+        sound/songs/midi/mus_clothes_shop.o(.rodata);
 
     } > ROM =0
 

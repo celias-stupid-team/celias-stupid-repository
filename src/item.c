@@ -261,6 +261,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
     return TRUE;
 }
 
+
 bool8 RemoveBagItem(u16 itemId, u16 count)
 {
     u8 i;
@@ -682,4 +683,12 @@ u8 ItemId_GetSecondaryId(u16 itemId)
 void ItemId_GetHoldEffectParam_Script()
 {
     VarSet(VAR_RESULT, ItemId_GetHoldEffectParam(VarGet(VAR_0x8004)));
+}
+
+bool8 Item_IsBall(u16 item) {
+    if (item <= ITEM_PREMIER_BALL ||
+    item == ITEM_SEAL_CASE) {
+        return TRUE;
+    }
+    return FALSE;
 }

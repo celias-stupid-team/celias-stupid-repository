@@ -349,6 +349,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Panpour;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Deadovanni;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hint_man;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lucas;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Heracross;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blissey;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chatot;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dawn;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -699,4 +703,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEADOVANNI] = &gObjectEventGraphicsInfo_Deadovanni,
     [OBJ_EVENT_GFX_HINT_MAN] = &gObjectEventGraphicsInfo_Hint_man,
     [OBJ_EVENT_GFX_LUCAS] = &gObjectEventGraphicsInfo_Lucas,
+    [OBJ_EVENT_GFX_HERACROSS] = &gObjectEventGraphicsInfo_Heracross,
+    [OBJ_EVENT_GFX_BLISSEY] = &gObjectEventGraphicsInfo_Blissey,
+    [OBJ_EVENT_GFX_CHATOT] = &gObjectEventGraphicsInfo_Chatot,
+    [OBJ_EVENT_GFX_DAWN] = &gObjectEventGraphicsInfo_Dawn,
 };

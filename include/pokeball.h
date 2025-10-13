@@ -17,6 +17,7 @@ enum
     BALL_TIMER,
     BALL_LUXURY,
     BALL_PREMIER,
+    BALL_SEAL,
     POKEBALL_COUNT
 };
 
@@ -43,5 +44,6 @@ void LoadBallGfx(u8 ballId);
 void FreeBallGfx(u8 ballId);
 void StartHealthboxSlideIn(u8 battler);
 void DestroySpriteAndFreeResources_Ball(struct Sprite *sprite);
+u16 GetBattlerPokeballItemId(u8 battlerId);
 
 #endif // GUARD_POKEBALL_H

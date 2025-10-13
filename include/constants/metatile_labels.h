@@ -35,6 +35,9 @@
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
+// gTileset_FourIsland
+#define METATILE_FourIsland_FourIslandDoor  0x351
+
 // gTileset_FushciaCity
 #define METATILE_FushciaCity_Door                           0x2BF
 #define METATILE_FushciaCity_SafariZoneDoor                 0x2D2

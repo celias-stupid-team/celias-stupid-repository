@@ -12497,3 +12497,34 @@ extern const u32 gTrainerPalette_Territorialoak[];
 
 extern const u32 gItemIcon_CRMPLEDPAGE[];
 extern const u32 gItemIconPalette_CRMPLEDPAGE[];
+
+extern const u32 gItemIcon_PESTERBALL[];
+extern const u32 gItemIconPalette_PESTERBALL[];
+
+extern const u32 gItemIcon_BURNBALL[];
+extern const u32 gItemIconPalette_BURNBALL[];
+
+extern const u32 gItemIcon_LOVEBALL[];
+extern const u32 gItemIconPalette_LOVEBALL[];
+
+extern const u32 gItemIcon_QUEUEBALL[];
+extern const u32 gItemIconPalette_QUEUEBALL[];
+
+extern const u32 gItemIcon_SPORTSBALL[];
+extern const u32 gItemIconPalette_SPORTSBALL[];
+
+
+extern const u32 gItemIcon_APPLESAUCE[];
+extern const u32 gItemIconPalette_APPLESAUCE[];
+
+extern const u32 gItemIcon_CIGARETTES[];
+extern const u32 gItemIconPalette_CIGARETTES[];
+
+extern const u32 gItemIcon_GUN[];
+extern const u32 gItemIconPalette_GUN[];
+
+extern const u32 gItemIcon_OddMulch[];
+extern const u32 gItemIconPalette_OddMulch[];
+
+extern const u32 gItemIcon_Hamburger[];
+extern const u32 gItemIconPalette_Hamburger[];

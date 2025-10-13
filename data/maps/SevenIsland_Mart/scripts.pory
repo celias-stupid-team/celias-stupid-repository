@@ -2,16 +2,6 @@ raw `
 SevenIsland_Mart_MapScripts::
 	.byte 0
 
-SevenIsland_Mart_EventScript_Clerk::
-	goto_if_questlog EventScript_ReleaseEnd
-	lock
-	faceplayer
-	message Text_MayIHelpYou
-	waitmessage
-	pokemart SevenIsland_Mart_Items
-	msgbox Text_PleaseComeAgain
-	release
-	end
 
 	.align 2
 SevenIsland_Mart_Items::
@@ -40,3 +30,54 @@ SevenIsland_Mart_EventScript_Fisher::
 	msgbox SevenIsland_Mart_Text_NeedToFishOnSevenIsland, MSGBOX_NPC
 	end
 `
+script SevenIsland_Mart_EventScript_Clerk {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	msgbox(
+	"Hi, welcome to WAL-MART.\n"
+	"What do you want?", MSGBOX_DEFAULT)
+	waitmessage
+	pokemart(Walmart_Mart)
+	msgbox(
+	"I make minimum wage.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script WalMart_LightYears {
+	specialvar(VAR_FACING, GetPlayerFacingDirection)
+	if(var(VAR_FACING) == DIR_NORTH) {
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkUp2)
+	} elif(var(VAR_FACING) == DIR_SOUTH) {
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
+	}
+	fadescreen(FADE_TO_BLACK)
+	waitmovement(0)
+	lock
+	msgbox("58,786,253,730,000,000 miles\nlater…", MSGBOX_DEFAULT)
+	closemessage
+		if(var(VAR_FACING) == DIR_NORTH) {
+		applymovement(LOCALID_PLAYER, Common_Movement_WalkUp2)
+	} elif(var(VAR_FACING) == DIR_SOUTH) {
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
+	}
+	fadescreen(FADE_FROM_BLACK)
+	waitmovement(0)
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+			setvar(VAR_TEMP_0, 1)
+			break
+		case 1:
+			setvar(VAR_TEMP_0, 0)
+			break
+	}
+	release
+	
+}
+
+mart Walmart_Mart {
+	ITEM_CIGARETTES
+	ITEM_GUN
+	ITEM_APPLESAUCE
+}

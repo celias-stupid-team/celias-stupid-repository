@@ -1,0 +1,21 @@
+{
+  "id": "MAP_SKY_TOWER_3F",
+  "name": "SkyTower_3F",
+  "layout": "LAYOUT_SKY_TOWER_3F",
+  "music": "MUS_CSR_SKY_TOWER",
+  "region_map_section": "MAPSEC_SKY_TOWER",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

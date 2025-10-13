@@ -30,7 +30,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 0
+      "secondaryId": "MASTER_BALL"
     },
     {
       "english": "ULTRA BALL",
@@ -46,7 +46,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 1
+      "secondaryId": "ULTRA_BALL"
     },
     {
       "english": "GREAT BALL",
@@ -62,7 +62,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 2
+      "secondaryId": "GREAT_BALL"
     },
     {
       "english": "POKé BALL",
@@ -78,7 +78,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 3
+      "secondaryId": "POKE_BALL"
     },
     {
       "english": "SAFARI BALL",
@@ -94,7 +94,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 4
+      "secondaryId": "SAFARI_BALL"
     },
     {
       "english": "NET BALL",
@@ -110,7 +110,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 5
+      "secondaryId": "NET_BALL"
     },
     {
       "english": "DIVE BALL",
@@ -126,7 +126,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 6
+      "secondaryId": "DIVE_BALL"
     },
     {
       "english": "NEST BALL",
@@ -142,7 +142,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 7
+      "secondaryId": "NEST_BALL"
     },
     {
       "english": "REPEAT BALL",
@@ -158,7 +158,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 8
+      "secondaryId": "REPEAT_BALL"
     },
     {
       "english": "TIMER BALL",
@@ -174,7 +174,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 9
+      "secondaryId": "TIMER_BALL"
     },
     {
       "english": "LUXURY BALL",
@@ -190,7 +190,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 10
+      "secondaryId": "LUXURY_BALL"
     },
     {
       "english": "PREMIER BALL",
@@ -206,7 +206,7 @@
       "fieldUseFunc": "NULL",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 11
+      "secondaryId": "PREMIER_BALL"
     },
     {
       "english": "POTION",
@@ -2529,12 +2529,12 @@
       "secondaryId": 0
     },
     {
-      "english": "TAMATO BERRY",
+      "english": "EAST BERRY",
       "itemId": "ITEM_TAMATO_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "A BERRY native to east FOUR ISLAND.\\nIt moves very slowly.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -2545,12 +2545,12 @@
       "secondaryId": 0
     },
     {
-      "english": "CORNN BERRY",
+      "english": "WEAST BERRY",
       "itemId": "ITEM_CORNN_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Can be ground up into a powder as\\nan ingredient for medicine.",
+      "description_english": "Ohh, EAST?\\nI thought you said WEAST!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
@@ -6936,7 +6936,7 @@
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 2,
       "battleUseFunc": "BattleUseFunc_PokeBallEtc",
-      "secondaryId": 0
+      "secondaryId": "SEAL_CASE_BALL"
     },
     {
       "english": "LETTER W",
@@ -6955,7 +6955,7 @@
       "secondaryId": 0
     },
     {
-      "english": "Nebby",
+      "english": "NEBBY",
       "itemId": "ITEM_NEBBY",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6978,6 +6978,182 @@
       "holdEffectParam": 0,
       "description_english": "A sheet of paper discarded by\\nsomeone. It reads:\\nGUY IN HOUSE WANTS A TRADE",
       "importance": 1,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "PESTER BALL",
+      "itemId": "ITEM_PESTER_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "BURN BALL",
+      "itemId": "ITEM_BURN_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "LOVE BALL",
+      "itemId": "ITEM_LOVE_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "QUEUE BALL",
+      "itemId": "ITEM_QUEUE_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "SPORTS BALL",
+      "itemId": "ITEM_SPORTS_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "DUMMY BALL",
+      "itemId": "ITEM_DUMMY_BALL",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_POKE_BALLS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "APPLESAUCE",
+      "itemId": "ITEM_APPLESAUCE",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "CIGARETTES",
+      "itemId": "ITEM_CIGARETTES",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "GUN",
+      "itemId": "ITEM_GUN",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "An item for GUN.\\nBoosts the power of SHOOT.",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "ODD MULCH",
+      "itemId": "ITEM_ODD_MULCH",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
+      "registrability": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "HAMBURGER",
+      "itemId": "ITEM_HAMBURGER",
+      "price": 200,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "DUMMY DESCRIPTION",
+      "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
