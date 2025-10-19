@@ -820,8 +820,8 @@
     {
       "id": "LAYOUT_CINNABAR_ISLAND",
       "name": "CinnabarIsland_Layout",
-      "width": 43,
-      "height": 31,
+      "width": 44,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5904,6 +5904,30 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Route20_SeafoamIslands/border.bin",
       "blockdata_filepath": "data/layouts/Route20_SeafoamIslands/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_CRASHED",
+      "name": "CinnabarIsland_Crashed_Layout",
+      "width": 63,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/CinnabarIsland_Crashed/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_Crashed/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_LAYOUT_2",
+      "name": "CinnabarIsland_Layout_2",
+      "width": 44,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/CinnabarIsland_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_Layout_2/map.bin"
     }
   ]
 }

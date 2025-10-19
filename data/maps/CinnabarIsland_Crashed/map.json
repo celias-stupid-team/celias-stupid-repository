@@ -1,7 +1,7 @@
 {
-  "id": "MAP_CINNABAR_ISLAND",
-  "name": "CinnabarIsland",
-  "layout": "LAYOUT_CINNABAR_ISLAND",
+  "id": "MAP_CINNABAR_ISLAND_CRASHED",
+  "name": "CinnabarIsland_Crashed",
+  "layout": "LAYOUT_CINNABAR_ISLAND_CRASHED",
   "music": "MUS_CINNABAR",
   "region_map_section": "MAPSEC_CINNABAR_ISLAND",
   "requires_flash": false,
@@ -13,18 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE20",
-      "offset": 0,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",
