@@ -399,6 +399,7 @@ gSongTable::
 	song mus_four_island_mart, 0, 0
 	song mus_two_island_center, 0, 0
 	song mus_two_island_mart, 0, 0
+	song mus_clothes_shop, 0, 0
 
 
 

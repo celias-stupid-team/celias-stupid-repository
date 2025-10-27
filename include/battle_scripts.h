@@ -262,9 +262,10 @@ extern const u8 BattleScript_NeutralizingGasExits[];
 extern const u8 BattleScript_SlowStartBeforeNeutralizingGas[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
-extern const u8 *const gBattlescriptsForBallThrow[];
 extern const u8 *const gBattlescriptsForRunningByItem[];
 extern const u8 *const gBattlescriptsForUsingItem[];
 extern const u8 *const gBattlescriptsForSafariActions[];
+extern const u8 BattleScript_ThrowSafariBall[];
+extern const u8 BattleScript_ThrowBall[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

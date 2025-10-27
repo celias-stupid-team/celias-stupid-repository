@@ -289,3 +289,6 @@ const u32 gMetatileAttributes_TwoIsland[] = INCBIN_U32("data/tilesets/secondary/
 
 const u16 gMetatiles_38island[] = INCBIN_U16("data/tilesets/secondary/38island/metatiles.bin");
 const u32 gMetatileAttributes_38island[] = INCBIN_U32("data/tilesets/secondary/38island/metatile_attributes.bin");
+
+const u16 gMetatiles_Minnesota[] = INCBIN_U16("data/tilesets/secondary/minnesota/metatiles.bin");
+const u32 gMetatileAttributes_Minnesota[] = INCBIN_U32("data/tilesets/secondary/minnesota/metatile_attributes.bin");

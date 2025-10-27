@@ -343,33 +343,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 37,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_CSR_DUMMY_20",
-      "var_value": "1",
-      "script": "MtEmber_Exterior_EventScript_RocketPasswordScene"
-    },
-    {
-      "type": "trigger",
-      "x": 38,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_CSR_DUMMY_20",
-      "var_value": "1",
-      "script": "MtEmber_Exterior_EventScript_RocketPasswordScene"
-    },
-    {
-      "type": "trigger",
-      "x": 39,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_CSR_DUMMY_20",
-      "var_value": "1",
-      "script": "MtEmber_Exterior_EventScript_RocketPasswordScene"
-    }
+
   ],
   "bg_events": [
     {

@@ -19,7 +19,7 @@
 //       Several places expect the ball IDs to be first and contiguous (e.g. MON_DATA_POKEBALL)
 //       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs
 #define FIRST_BALL ITEM_MASTER_BALL
-#define LAST_BALL  ITEM_PREMIER_BALL
+#define LAST_BALL ITEM_PREMIER_BALL
 
 #define ITEM_POTION 13
 #define ITEM_ANTIDOTE 14
@@ -186,9 +186,8 @@
 #define ITEM_ENIGMA_BERRY 175
 #define ITEM_LIBERRY 176
 
-
 #define FIRST_BERRY_INDEX ITEM_CHERI_BERRY
-#define LAST_BERRY_INDEX  ITEM_LIBERRY
+#define LAST_BERRY_INDEX ITEM_LIBERRY
 
 #define ITEM_UNUSED_BERRY_1 177
 #define ITEM_UNUSED_BERRY_2 178
@@ -453,16 +452,16 @@
 #define ITEM_RUBY 373
 #define ITEM_SAPPHIRE 374
 
-//CSR items
+// CSR items
 #define ITEM_FOCUS_SASH 375
-#define ITEM_CSR_START  ITEM_FOCUS_SASH
+#define ITEM_CSR_START ITEM_FOCUS_SASH
 #define ITEM_MATH_CLUB 376
 #define ITEM_ODD_CANDY 377
 #define ITEM_RUNNING_SHOES 378
 #define ITEM_MIN_REPEL 379
 #define ITEM_DAWN_STONE 380
 #define ITEM_HONEY 381
-//#define ITEM_LIGMA Replacing Big Pearl
+// #define ITEM_LIGMA Replacing Big Pearl
 #define ITEM_WADDED_NOTE_METAPOD 382
 #define ITEM_TORN_PAPER_GEODUDE 383
 #define ITEM_CREAM_DROP 384
@@ -514,30 +513,53 @@
 #define ITEM_LETTER_W 430
 #define ITEM_NEBBY 431
 #define ITEM_CRMPLED_PAGE 432
-#define ITEMS_COUNT 433
+#define ITEM_PESTER_BALL 433
+#define ITEM_BURN_BALL 434
+#define ITEM_LOVE_BALL 435
+#define ITEM_QUEUE_BALL 436
+#define ITEM_SPORTS_BALL 437
+#define ITEM_DUMMY_BALL 438
+#define ITEM_APPLESAUCE 439
+#define ITEM_CIGARETTES 440
+#define ITEM_GUN 441
+#define ITEM_ODD_MULCH 442
+#define ITEM_HAMBURGER 443
+#define ITEMS_COUNT 444
 
-#define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
+#define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
 
 #define NUM_TECHNICAL_MACHINES 50
-#define NUM_HIDDEN_MACHINES     8
+#define NUM_HIDDEN_MACHINES 8
 
 // changing this doesn't actually do anything
 // outside of the debug menu
-#define MAX_BAG_ITEM_CAPACITY  999
-#define MAX_PC_ITEM_CAPACITY   999
-#define MAX_BERRY_CAPACITY     999
+#define MAX_BAG_ITEM_CAPACITY 999
+#define MAX_PC_ITEM_CAPACITY 999
+#define MAX_BERRY_CAPACITY 999
 
 // Secondary IDs for rods
-#define OLD_ROD   0
-#define GOOD_ROD  1
+#define OLD_ROD 0
+#define GOOD_ROD 1
 #define SUPER_ROD 2
 
 // Check if the item is one that can be used on a Pokemon.
-#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)     \
-                                || (item >= ITEM_CSR_START && item < ITEMS_COUNT)       \
-                                || (item == ITEM_SUPER_SCOPE)                           \
-                                || (item == ITEM_SOUL_DEW))
+#define IS_POKEMON_ITEM(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item >= ITEM_CSR_START && item < ITEMS_COUNT) || (item == ITEM_SUPER_SCOPE) || (item == ITEM_SOUL_DEW))
 // rave - yeah this shit's hacky but we can come up with a more robust solution later
 
-#endif  // GUARD_CONSTANTS_ITEMS_H
+// SDH: Secondary IDs for Poké Balls
+#define MASTER_BALL 1
+#define ULTRA_BALL 2
+#define GREAT_BALL 3
+#define POKE_BALL 4
+#define SAFARI_BALL 5
+#define NET_BALL 6
+#define DIVE_BALL 7
+#define NEST_BALL 8
+#define REPEAT_BALL 9
+#define TIMER_BALL 10
+#define LUXURY_BALL 11
+#define PREMIER_BALL 12
+#define SEAL_CASE_BALL 13
+
+#endif // GUARD_CONSTANTS_ITEMS_H
