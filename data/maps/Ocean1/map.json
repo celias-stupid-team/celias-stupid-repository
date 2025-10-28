@@ -1,0 +1,42 @@
+{
+  "id": "MAP_OCEAN1",
+  "name": "Ocean1",
+  "layout": "LAYOUT_OCEAN1",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": -11,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_FUSHCIA_CITY",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE19",
+      "offset": 0,
+      "direction": "right"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

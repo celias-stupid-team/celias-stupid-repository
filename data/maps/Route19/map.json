@@ -28,6 +28,11 @@
       "map": "MAP_FOUR_ISLAND",
       "offset": 16,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

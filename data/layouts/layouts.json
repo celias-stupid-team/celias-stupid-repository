@@ -1061,7 +1061,7 @@
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
       "width": 65,
-      "height": 33,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2536,8 +2536,8 @@
     {
       "id": "LAYOUT_ONE_ISLAND",
       "name": "OneIsland_Layout",
-      "width": 24,
-      "height": 20,
+      "width": 31,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5404,8 +5404,8 @@
     {
       "id": "LAYOUT_ZERO_ISLAND",
       "name": "Zero_Island_Layout",
-      "width": 37,
-      "height": 34,
+      "width": 35,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5565,7 +5565,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Thirty_Eight_Island",
+      "secondary_tileset": "gTileset_38island",
       "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
       "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
     },
@@ -6216,6 +6216,18 @@
       "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/SkyTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN1",
+      "name": "Ocean1_Layout",
+      "width": 20,
+      "height": 7,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Ocean1/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean1/map.bin"
     }
   ]
 }

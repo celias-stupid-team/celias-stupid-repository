@@ -48,7 +48,8 @@
     "gMapGroup_FushciaGym",
     "gMapGroup_ViridianGym",
     "gMapGroup_GreatSea",
-    "gMapGroup_AetherParadise"
+    "gMapGroup_AetherParadise",
+    "gMapGroup_Ocean"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -706,5 +707,8 @@
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
     "AetherParadise_NebbyRoom"
+  ],
+  "gMapGroup_Ocean": [
+    "Ocean1"
   ]
 }

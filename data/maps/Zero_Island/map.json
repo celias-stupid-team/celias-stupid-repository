@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE18",
-      "offset": -9,
+      "offset": -8,
       "direction": "up"
     },
     {
@@ -28,6 +28,11 @@
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "offset": 32,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

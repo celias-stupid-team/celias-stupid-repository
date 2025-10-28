@@ -1765,3 +1765,6 @@ Text_TestMsg::
 
 	.include "data/maps/SkyTower_1F/scripts.inc"
 	.include "data/maps/SkyTower_1F/text.inc"
+
+	.include "data/maps/Ocean1/scripts.inc"
+	.include "data/maps/Ocean1/text.inc"
