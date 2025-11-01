@@ -6045,7 +6045,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_RestaurantHotel",
       "border_filepath": "data/layouts/Silph_ClothesStore/border.bin",
       "blockdata_filepath": "data/layouts/Silph_ClothesStore/map.bin"
     },

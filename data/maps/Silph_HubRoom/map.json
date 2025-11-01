@@ -15,7 +15,32 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "WARP_ID_SILPH_HOSTAGES_HUB",
+      "x": 10,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_2F",
+      "dest_warp_id": "WARP_ID_SILPH_HOSTAGES_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_EXIT",
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_1F",
+      "dest_warp_id": "WARP_ID_SILPH_EXIT_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_PRESIDENT",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_11F",
+      "dest_warp_id": "WARP_ID_SILPH_PRESIDENT_HUB"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

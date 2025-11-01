@@ -124,6 +124,14 @@
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_ELEVATOR",
       "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_PRESIDENT_HUB",
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_PRESIDENT"
     }
   ],
   "coord_events": [
