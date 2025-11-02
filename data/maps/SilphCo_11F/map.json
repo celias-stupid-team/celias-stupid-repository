@@ -119,19 +119,27 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 13,
-      "y": 3,
+      "x": 10,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_ELEVATOR",
       "dest_warp_id": "0"
     },
     {
       "warp_id": "WARP_ID_SILPH_PRESIDENT_HUB",
-      "x": 14,
+      "x": 15,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_PRESIDENT"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_PRESIDENT_RD",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_RD",
+      "dest_warp_id": "WARP_ID_SILPH_RD_PRESIDENT"
     }
   ],
   "coord_events": [
@@ -161,6 +169,42 @@
       "var": "VAR_CSR_DUMMY_3",
       "var_value": "0",
       "script": "SilphCo_11F_EventScript_GiovanniTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
     }
   ],
   "bg_events": [

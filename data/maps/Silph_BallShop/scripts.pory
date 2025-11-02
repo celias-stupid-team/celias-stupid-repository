@@ -1,3 +1,17 @@
 mapscripts Silph_BallShop_MapScripts {
 
 }
+
+
+script SilphCo_BallShop_Kurt {
+	msgbox(
+	"KURT: buy my balls\n"
+	"", MSGBOX_NPC)
+}
+
+script SilphCo_BallShop_Sign {
+	msgbox(
+	"SILPH CO\n"
+	"POKéBALL SHOP", MSGBOX_SIGN)
+
+}

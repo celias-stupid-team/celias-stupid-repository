@@ -2,7 +2,7 @@
   "id": "MAP_SILPH_HUB_ROOM",
   "name": "Silph_HubRoom",
   "layout": "LAYOUT_SILPH_HUB_ROOM",
-  "music": "MUS_PEWTER",
+  "music": "MUS_SILPH",
   "region_map_section": "MAPSEC_SAFFRON_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -17,7 +17,7 @@
   "object_events": [],
   "warp_events": [
     {
-      "warp_id": "WARP_ID_SILPH_HOSTAGES_HUB",
+      "warp_id": "WARP_ID_SILPH_HUB_HOSTAGES",
       "x": 10,
       "y": 7,
       "elevation": 0,
@@ -39,6 +39,46 @@
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_11F",
       "dest_warp_id": "WARP_ID_SILPH_PRESIDENT_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_CALLCENTER",
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_RD",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_RD",
+      "dest_warp_id": "WARP_ID_SILPH_RD_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_BALLS",
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_BALL_SHOP",
+      "dest_warp_id": "WARP_ID_SILPH_BALLS_HUB"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_HUB_LARRY",
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_7F",
+      "dest_warp_id": "WARP_ID_SILPH_LARRY_HUB"
     }
   ],
   "coord_events": [],

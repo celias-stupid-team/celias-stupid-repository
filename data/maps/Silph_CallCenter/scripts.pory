@@ -1,3 +1,10 @@
 mapscripts Silph_CallCenter_MapScripts {
 
 }
+
+script Silph_CallCenter_Sign {
+	msgbox(
+	"SILPH CO\n"
+	"CALL CENTER", MSGBOX_SIGN)
+
+}

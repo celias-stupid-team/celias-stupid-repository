@@ -315,6 +315,7 @@
 #define METATILE_SilphCo_HorizontalBarrier_BottomRight  0x3B9
 #define METATILE_SilphCo_HorizontalBarrier_TopLeft      0x3B0
 #define METATILE_SilphCo_HorizontalBarrier_TopRight     0x3B1
+#define METATILE_SilphCo_SilphWarp                      0x390
 #define METATILE_SilphCo_VerticalBarrier_BottomLeft     0x3C4
 #define METATILE_SilphCo_VerticalBarrier_BottomRight    0x3C5
 #define METATILE_SilphCo_VerticalBarrier_MidLeft        0x3C2

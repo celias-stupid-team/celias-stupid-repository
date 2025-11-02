@@ -1,3 +1,67 @@
 mapscripts Silph_HubRoom_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_SILPH_WARP_CALLCENTER)) {
+            setmetatile(6, 5, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_RD)) {
+            setmetatile(14, 5, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_HOSTAGES)) {
+            setmetatile(10, 7, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_PRESIDENT)) {
+            setmetatile(6, 8, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_BALLS)) {
+            setmetatile(14, 8, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_LARRY)) {
+            setmetatile(8, 11, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
+            setmetatile(12, 11, METATILE_SilphCo_SilphWarp, TRUE)
+        }
+        
+        if(flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
+            playbgm(MUS_PEWTER, TRUE)
+        }
+        
+    }
+}
 
+script SilphCo_Activate_Warp_Callcenter {
+    setflag(FLAG_SILPH_WARP_CALLCENTER)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+
+script SilphCo_Activate_Warp_RD {
+    setflag(FLAG_SILPH_WARP_RD)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+script SilphCo_Activate_Warp_Hostages {
+    setflag(FLAG_SILPH_WARP_HOSTAGES)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+script SilphCo_Activate_Warp_President {
+    setflag(FLAG_SILPH_WARP_PRESIDENT)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+script SilphCo_Activate_Warp_Balls {
+    setflag(FLAG_SILPH_WARP_BALLS)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+script SilphCo_Activate_Warp_Larry {
+    setflag(FLAG_SILPH_WARP_LARRY)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
+script SilphCo_Activate_Warp_ThreeIsland {
+    setflag(FLAG_SILPH_WARP_THREE_ISLAND)
+    setvar(VAR_TEMP_0, 1)
+    release
 }

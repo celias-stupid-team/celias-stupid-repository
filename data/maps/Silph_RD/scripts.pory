@@ -1,3 +1,10 @@
 mapscripts Silph_RD_MapScripts {
 
 }
+
+script SilphCo_RD_Sign {
+	msgbox(
+	"SILPH CO\n"
+	"R & D", MSGBOX_SIGN)
+
+}
