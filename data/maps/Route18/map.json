@@ -35,24 +35,9 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 8,
-      "direction": "down"
-    },
-    {
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
       "offset": -15,
       "direction": "left"
-    },
-    {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 54,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_OCEAN1",
-      "offset": 32,
-      "direction": "right"
     }
   ],
   "object_events": [

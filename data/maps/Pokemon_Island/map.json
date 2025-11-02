@@ -13,7 +13,33 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE20",
+      "offset": 19,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -24,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE21_SOUTH",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": -50,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_TWO_ISLAND",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

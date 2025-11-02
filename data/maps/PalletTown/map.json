@@ -28,6 +28,11 @@
       "map": "MAP_PALLET_TOWN_WEST_FIELD",
       "offset": -3,
       "direction": "left"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_NORTH",
+      "offset": 16,
+      "direction": "right"
     }
   ],
   "object_events": [

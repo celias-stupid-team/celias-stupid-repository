@@ -15,19 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE18",
-      "offset": -54,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_OCEAN1",
-      "offset": 11,
-      "direction": "up"
+      "map": "MAP_ROUTE19",
+      "offset": -7,
+      "direction": "right"
     }
   ],
   "object_events": [

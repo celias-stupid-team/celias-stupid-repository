@@ -31,8 +31,18 @@
     },
     {
       "map": "MAP_ROUTE21_NORTH",
-      "offset": -34,
+      "offset": -18,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE21_SOUTH",
+      "offset": 32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [

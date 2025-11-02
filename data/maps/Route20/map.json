@@ -25,6 +25,11 @@
       "direction": "right"
     },
     {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": -19,
+      "direction": "up"
+    },
+    {
       "map": "MAP_ZERO_ISLAND",
       "offset": 50,
       "direction": "up"

@@ -26,7 +26,12 @@
     },
     {
       "map": "MAP_ROUTE21_NORTH",
-      "offset": -12,
+      "offset": 4,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_PALLET_TOWN",
+      "offset": -16,
       "direction": "left"
     }
   ],

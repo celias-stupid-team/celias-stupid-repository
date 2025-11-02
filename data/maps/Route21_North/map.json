@@ -26,12 +26,17 @@
     },
     {
       "map": "MAP_TWO_ISLAND",
-      "offset": 34,
+      "offset": 18,
       "direction": "right"
     },
     {
       "map": "MAP_TWO_ISLAND_NORTH",
-      "offset": 12,
+      "offset": -4,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": 50,
       "direction": "right"
     }
   ],

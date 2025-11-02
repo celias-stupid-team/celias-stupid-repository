@@ -30,8 +30,8 @@
       "direction": "right"
     },
     {
-      "map": "MAP_OCEAN1",
-      "offset": 0,
+      "map": "MAP_ONE_ISLAND",
+      "offset": 7,
       "direction": "left"
     }
   ],
