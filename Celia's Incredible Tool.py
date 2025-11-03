@@ -211,7 +211,7 @@ def load_dropdown_data():
                 # Read file lines (if present)
                 file_values = []
                 try:
-                    with open(filename, "r", encoding="utf-8", newline="\r\n") as fp:
+                    with open(filename, "r", encoding="utf-8") as fp:
                         file_values = [line.strip() for line in fp if line.strip()]
                 except FileNotFoundError:
                     log(f"[WARN] Missing dropdown file: {filename} (continuing with defaults)")
@@ -335,17 +335,19 @@ for name in tabs:
     elif name == "Sound":
         tk.Button(frame, text="Browse Audio", command=browse_audio).pack(pady=5)
     elif name == "Music":
+        # Browse button
         tk.Button(frame, text="Browse MIDI", command=lambda e=name_entry: browse_midi(name_entry=e)).pack(pady=5)
 
+        # Insert status message (starts empty)
         status_label = tk.Label(frame, text="", fg="lime")
-        status_label.pack(pady=2)
+        status_label.pack(pady=(0, 5))
 
+        # Single Insert button
         tk.Button(
             frame,
             text="Insert",
             command=lambda e=name_entry, fv=field_vars, sl=status_label: handle_music_insert(e, fv, sl)
         ).pack(pady=5)
-
 
 
 
@@ -450,7 +452,7 @@ def update_songs_header(name, mus_constant):
         return
 
     try:
-        with open(path, "r", encoding="utf-8", newline="\r\n") as f:
+        with open(path, "r", encoding="utf-8",) as f:
             lines = f.readlines()
 
         # Locate the last MUS_ entry before MUS_NONE
@@ -497,7 +499,7 @@ def update_songs_header(name, mus_constant):
                 log(f"Updated END_MUS to {mus_constant}")
                 break
 
-        with open(path, "w", encoding="utf-8", newline="\r\n") as f:
+        with open(path, "w", encoding="utf-8",) as f:
             f.writelines(lines)
 
         log(f"Updated {path} successfully.")
