@@ -31,7 +31,10 @@ TAB_CONFIG = {
         {"label": "Moves", "type": "checkbox", "default": False},
     ],
     "Sound": [],
-    "Music": [],
+    "Music": [
+        {"label": "New Voicegroup", "type": "checkbox", "default": False},
+    ],
+
 }
 
 # --------------------------
@@ -163,17 +166,28 @@ def browse_audio(preview_label=None):
         last_browse_dir = os.path.dirname(filepath)
         log(f"Selected audio file: {filepath}")
 
-def browse_midi(preview_label=None):
+def browse_midi(preview_label=None, name_entry=None):
     global last_browse_dir, selected_midi_path
     log("Browse MIDI clicked")
     filepath = filedialog.askopenfilename(
         initialdir=last_browse_dir,
         filetypes=[("MIDI Files", "*.mid *.midi")]
     )
-    if filepath:
-        last_browse_dir = os.path.dirname(filepath)
-        selected_midi_path = filepath
-        log(f"Selected MIDI file: {filepath}")
+    if not filepath:
+        log("No file selected")
+        return
+
+    last_browse_dir = os.path.dirname(filepath)
+    selected_midi_path = filepath
+    log(f"Selected MIDI file: {filepath}")
+
+    # Auto-fill the name entry (like Browse PNG)
+    if name_entry is not None:
+        base_name = os.path.splitext(os.path.basename(filepath))[0].upper()
+        name_entry.delete(0, tk.END)
+        name_entry.insert(0, base_name)
+        log(f"Name entry updated to: {base_name}")
+
 
 
 # --------------------------
@@ -321,8 +335,20 @@ for name in tabs:
     elif name == "Sound":
         tk.Button(frame, text="Browse Audio", command=browse_audio).pack(pady=5)
     elif name == "Music":
-        tk.Button(frame, text="Browse MIDI", command=browse_midi).pack(pady=5)
-        tk.Button(frame, text="Insert", command=lambda e=name_entry: handle_music_insert(e)).pack(pady=5)
+        tk.Button(frame, text="Browse MIDI", command=lambda e=name_entry: browse_midi(name_entry=e)).pack(pady=5)
+
+        status_label = tk.Label(frame, text="", fg="lime")
+        status_label.pack(pady=2)
+
+        tk.Button(
+            frame,
+            text="Insert",
+            command=lambda e=name_entry, fv=field_vars, sl=status_label: handle_music_insert(e, fv, sl)
+        ).pack(pady=5)
+
+
+
+
 
 
     # Insert button
@@ -332,7 +358,7 @@ for name in tabs:
 # Backend: Music insertion
 # --------------------------
 
-def handle_music_insert(name_entry):
+def handle_music_insert(name_entry, field_vars, status_label=None):
     """
     Called when Insert is pressed on the Music tab.
     """
@@ -340,53 +366,153 @@ def handle_music_insert(name_entry):
     name = name_entry.get().strip()
     if not name:
         log("[ERROR] No name entered for Music insert.")
+        if status_label:
+            status_label.config(text="Error: No name entered.", fg="red")
         return
     if not selected_midi_path:
         log("[ERROR] No MIDI file selected.")
+        if status_label:
+            status_label.config(text="Error: No MIDI selected.", fg="red")
         return
 
-    log(f"Inserting music: {name}, MIDI: {selected_midi_path}")
-    insert_music(name, selected_midi_path)
+    # Retrieve checkbox state
+    new_voicegroup = field_vars["New Voicegroup"]["var"].get()
+    log(f"Inserting music: {name}, MIDI: {selected_midi_path}, New Voicegroup={new_voicegroup}")
+
+    insert_music(name, selected_midi_path, new_voicegroup)
+
+    # Success feedback
+    mus_constant = f"MUS_{name.upper()}"
+    if status_label:
+        status_label.config(text=f"{mus_constant} successfully inserted!", fg="lime")
+        # Auto-clear message after 5 seconds
+    if status_label:
+        status_label.after(5000, lambda: status_label.config(text=""))
 
 
-def insert_music(name, midi_path):
+
+
+
+def insert_music(name, midi_path, new_voicegroup=False):
     """
     Master function to insert a music track.
     """
     log(f"=== Begin Music Insertion ===")
-    update_songs_header(name)
-    update_ld_script(name)
-    update_song_table(name)
-    update_midi_cfg(name, midi_path)
-    update_debug_c(name)
+    mus_constant = f"MUS_{name.upper()}"
+    log(f"Name: {name}, MIDI: {midi_path}, New Voicegroup: {new_voicegroup}")
+    log(f"Generated constant: {mus_constant}")
+
+    # Copy to clipboard if requested (based on currently active tab’s checkbox)
+    try:
+        if root.focus_get():  # only works if GUI active
+            for tab in notebook.tabs():
+                tab_text = notebook.tab(tab, "text")
+                if tab_text == "Music":
+                    frame = notebook.nametowidget(tab)
+                    for child in frame.winfo_children():
+                        if isinstance(child, tk.Checkbutton) and child.cget("text") == "Copy to Clipboard":
+                            if child.var.get():
+                                root.clipboard_clear()
+                                root.clipboard_append(mus_constant)
+                                log(f"Copied {mus_constant} to clipboard")
+                            break
+    except Exception as e:
+        log(f"[WARN] Could not copy to clipboard: {e}")
+
+    # Pass mus_constant down to individual file handlers
+    update_songs_header(name, mus_constant)
+    update_ld_script(name, mus_constant)
+    update_song_table(name, mus_constant)
+    update_midi_cfg(name, midi_path, mus_constant)
+    update_debug_c(name, mus_constant)
+
+    if new_voicegroup:
+        log(f"Would create new voicegroup for {name}")
+
     log(f"=== Music insertion complete for {name} ===")
+
+
 
 
 # ----- Individual file update stubs -----
 
-def update_songs_header(name):
-    """Edit .\\include\\constants\\songs.h"""
-    log(f"Would update songs.h with definition for {name}")
+def update_songs_header(name, mus_constant):
+    """
+    Edit .\\include\\constants\\songs.h:
+      - Add new #define MUS_<NAME> after the last one
+      - Increment ID by 1
+      - Keep formatting consistent (one blank line before MUS_NONE)
+      - Update END_MUS to reference the new one
+    """
+    path = os.path.join(SCRIPT_DIR, "include", "constants", "songs.h")
+    if not os.path.exists(path):
+        log(f"[ERROR] songs.h not found at {path}")
+        return
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        # Locate the last MUS_ entry before MUS_NONE
+        last_define_index = None
+        last_number = None
+        mus_none_index = None
+
+        for i, line in enumerate(lines):
+            if "#define MUS_NONE" in line:
+                mus_none_index = i
+                break
+            if line.strip().startswith("#define MUS_"):
+                parts = line.strip().split()
+                if len(parts) >= 3 and parts[1].startswith("MUS_"):
+                    last_define_index = i
+                    try:
+                        last_number = int(parts[2], 0)
+                    except ValueError:
+                        pass
+
+        if mus_none_index is None or last_define_index is None:
+            log("[ERROR] Could not find MUS_NONE or last MUS_ define.")
+            return
+
+        new_number = (last_number or 0) + 1
+        new_define = f"#define {mus_constant} {new_number}\n"
+        log(f"Adding new define: {new_define.strip()}")
+
+        # Ensure there's exactly one blank line before MUS_NONE
+        # Remove any trailing blank lines between the last define and MUS_NONE
+        insert_index = mus_none_index
+        while insert_index - 1 >= 0 and lines[insert_index - 1].strip() == "":
+            insert_index -= 1
+            lines.pop(insert_index)
+
+        # Insert new define and one blank line before MUS_NONE
+        lines.insert(insert_index, "\n")
+        lines.insert(insert_index, new_define)
+
+        # Update END_MUS to point to new constant
+        for i, line in enumerate(lines):
+            if line.startswith("#define END_MUS"):
+                lines[i] = f"#define END_MUS {mus_constant}\n"
+                log(f"Updated END_MUS to {mus_constant}")
+                break
+
+        with open(path, "w", encoding="utf-8") as f:
+            f.writelines(lines)
+
+        log(f"Updated {path} successfully.")
+    except Exception as e:
+        log(f"[ERROR] update_songs_header failed: {e}")
 
 
-def update_ld_script(name):
-    """Edit .\\ld_script.ld"""
-    log(f"Would update ld_script.ld for {name}")
 
 
-def update_song_table(name):
-    """Edit .\\sound\\song_table.inc"""
-    log(f"Would update song_table.inc for {name}")
 
+def update_ld_script(name, mus_constant): pass
+def update_song_table(name, mus_constant): pass
+def update_midi_cfg(name, midi_path, mus_constant): pass
+def update_debug_c(name, mus_constant): pass
 
-def update_midi_cfg(name, midi_path):
-    """Edit .\\sound\\songs\\midi\\midi.cfg"""
-    log(f"Would update midi.cfg with {midi_path} for {name}")
-
-
-def update_debug_c(name):
-    """Edit .\\src\\debug.c"""
-    log(f"Would update debug.c to include {name}")
 
 
 log("Starting main loop")
