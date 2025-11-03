@@ -65,3 +65,100 @@ script SilphCo_Activate_Warp_ThreeIsland {
     setvar(VAR_TEMP_0, 1)
     release
 }
+
+script SilphCo_Warp_Callcenter_Label {
+    if(flag(FLAG_SILPH_WARP_CALLCENTER)) {
+        msgbox(
+        "SILPH CO\n"
+        "Call Center", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_RD_Label {
+    if(flag(FLAG_SILPH_WARP_RD)) {
+        msgbox(
+        "SILPH CO\n"
+        "R & D", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_Hostages_Label {
+    if(flag(FLAG_SILPH_WARP_HOSTAGES)) {
+        msgbox(
+        "SILPH CO\n"
+        "Conference Room", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_President_Label {
+    if(flag(FLAG_SILPH_WARP_PRESIDENT)) {
+        msgbox(
+        "SILPH CO\n"
+        "President's Office", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_Balls_Label {
+    if(flag(FLAG_SILPH_WARP_BALLS)) {
+        msgbox(
+        "SILPH CO\n"
+        "POKéBALL Shop", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_Larry_Label {
+    if(flag(FLAG_SILPH_WARP_LARRY)) {
+        msgbox(
+        "SILPH CO\n"
+        "Random Hallway", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_Three_Island_Label {
+    if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
+        msgbox(
+        "SILPH CO\n"
+        "Potion Shop", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "This warp is dead.\p"
+
+        "Someone killed it.\n"
+        "", MSGBOX_SIGN)
+    }
+}
+script SilphCo_Warp_Exit_Label {
+    msgbox(
+	"SILPH CO\n"
+	"Welcome Desk", MSGBOX_SIGN)
+}

@@ -8729,8 +8729,8 @@ voicegroup195::
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
-	.align 2
 
+	.align 2
 voicegroup196::
 	voice_keysplit_all voicegroup002
 	voice_keysplit voicegroup003, KeySplitTable1

@@ -211,7 +211,7 @@ def load_dropdown_data():
                 # Read file lines (if present)
                 file_values = []
                 try:
-                    with open(filename, "r", encoding="utf-8") as fp:
+                    with open(filename, "r", encoding="utf-8", newline="\r\n") as fp:
                         file_values = [line.strip() for line in fp if line.strip()]
                 except FileNotFoundError:
                     log(f"[WARN] Missing dropdown file: {filename} (continuing with defaults)")
@@ -450,7 +450,7 @@ def update_songs_header(name, mus_constant):
         return
 
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8", newline="\r\n") as f:
             lines = f.readlines()
 
         # Locate the last MUS_ entry before MUS_NONE
@@ -497,7 +497,7 @@ def update_songs_header(name, mus_constant):
                 log(f"Updated END_MUS to {mus_constant}")
                 break
 
-        with open(path, "w", encoding="utf-8") as f:
+        with open(path, "w", encoding="utf-8", newline="\r\n") as f:
             f.writelines(lines)
 
         log(f"Updated {path} successfully.")
