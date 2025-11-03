@@ -85,7 +85,7 @@ def browse_png_with_preview(preview_label, name_entry=None):
         log(f"Selected file: {filepath}")
         last_browse_dir = os.path.dirname(filepath)
 
-        img = Image.open(filepath)
+        img = Image.open(filepath, newline="")
         log(f"Opened image: {filepath}, size={img.size}, mode={img.mode}")
         img.thumbnail((100, 100))
         tk_img = ImageTk.PhotoImage(img)
@@ -211,7 +211,7 @@ def load_dropdown_data():
                 # Read file lines (if present)
                 file_values = []
                 try:
-                    with open(filename, "r", encoding="utf-8") as fp:
+                    with open(filename, "r", encoding="utf-8",newline="") as fp:
                         file_values = [line.strip() for line in fp if line.strip()]
                 except FileNotFoundError:
                     log(f"[WARN] Missing dropdown file: {filename} (continuing with defaults)")
@@ -452,7 +452,7 @@ def update_songs_header(name, mus_constant):
         return
 
     try:
-        with open(path, "r", encoding="utf-8",) as f:
+        with open(path, "r", encoding="utf-8", newline="") as f:
             lines = f.readlines()
 
         # Locate the last MUS_ entry before MUS_NONE
@@ -499,7 +499,7 @@ def update_songs_header(name, mus_constant):
                 log(f"Updated END_MUS to {mus_constant}")
                 break
 
-        with open(path, "w", encoding="utf-8",) as f:
+        with open(path, "w", encoding="utf-8",newline="") as f:
             f.writelines(lines)
 
         log(f"Updated {path} successfully.")
