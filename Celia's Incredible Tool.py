@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog
 import os
 import ctypes
+import re
 
 # --------------------------
 # Field configuration
@@ -392,6 +393,20 @@ def handle_music_insert(name_entry, field_vars, status_label=None):
         status_label.after(5000, lambda: status_label.config(text=""))
 
 
+def make_mus_constant(name: str) -> str:
+    """
+    Create a safe C identifier like MUS_MY_SONG from a display name.
+    - Converts to uppercase
+    - Replaces spaces/hyphens with underscores
+    - Removes non-alphanumeric characters
+    - Collapses multiple underscores
+    """
+    cleaned = name.upper()
+    cleaned = re.sub(r"[^\w\s-]", "", cleaned)     # remove non-alphanumeric (except space/hyphen)
+    cleaned = re.sub(r"[\s-]+", "_", cleaned)      # replace spaces/hyphens with underscore
+    cleaned = re.sub(r"_+", "_", cleaned)          # collapse multiple underscores
+    cleaned = cleaned.strip("_")                   # remove leading/trailing underscores
+    return f"MUS_{cleaned}"
 
 
 
@@ -400,7 +415,7 @@ def insert_music(name, midi_path, new_voicegroup=False):
     Master function to insert a music track.
     """
     log(f"=== Begin Music Insertion ===")
-    mus_constant = f"MUS_{name.upper()}"
+    mus_constant = make_mus_constant(name)
     log(f"Name: {name}, MIDI: {midi_path}, New Voicegroup: {new_voicegroup}")
     log(f"Generated constant: {mus_constant}")
 
@@ -420,16 +435,23 @@ def insert_music(name, midi_path, new_voicegroup=False):
                             break
     except Exception as e:
         log(f"[WARN] Could not copy to clipboard: {e}")
+    # Handle optional new voicegroup creation
+    if new_voicegroup:
+        voicegroup_id = update_voice_groups(name, mus_constant)
+    else:
+        voicegroup_id = -1  # dummy value
+
+    # Now include voicegroup_id in midi config update
+    update_midi_cfg(name, midi_path, mus_constant, voicegroup_id)
+
 
     # Pass mus_constant down to individual file handlers
     update_songs_header(name, mus_constant)
     update_ld_script(name, mus_constant)
     update_song_table(name, mus_constant)
-    update_midi_cfg(name, midi_path, mus_constant)
+    update_midi_cfg(name, midi_path, mus_constant, voicegroup_id)
     update_debug_c(name, mus_constant)
 
-    if new_voicegroup:
-        log(f"Would create new voicegroup for {name}")
 
     log(f"=== Music insertion complete for {name} ===")
 
@@ -507,12 +529,57 @@ def update_songs_header(name, mus_constant):
         log(f"[ERROR] update_songs_header failed: {e}")
 
 
+def update_voice_groups(name, mus_constant):
+    """
+    Edit .\\sound\\voice_groups.inc if 'New Voicegroup' is checked.
+    - Finds the highest voicegroup number
+    - Appends a new placeholder entry for this track
+    - Returns the new voicegroup ID (int)
+    """
+    path = os.path.join(SCRIPT_DIR, "sound", "voice_groups.inc")
+    if not os.path.exists(path):
+        log(f"[ERROR] voice_groups.inc not found at {path}")
+        return None
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        highest_number = -1
+        for line in lines:
+            match = re.search(r"Voicegroup(\d+)", line)
+            if match:
+                num = int(match.group(1))
+                highest_number = max(highest_number, num)
+
+        new_number = highest_number + 1
+        new_entry_name = f"Voicegroup{new_number}"
+        log(f"Detected highest voicegroup = {highest_number}, creating {new_entry_name}")
+
+        # Append a new entry at the end of the file
+        new_lines = [
+            "\n",
+            f"\t.global {new_entry_name}\n",
+            f"{new_entry_name}:\n",
+            f"\t.incbin \"sound/voicegroups/{new_entry_name}.bin\"\n"
+        ]
+        lines.extend(new_lines)
+
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            f.writelines(lines)
+
+        log(f"Added {new_entry_name} to {path}")
+        return new_number
+
+    except Exception as e:
+        log(f"[ERROR] update_voice_groups failed: {e}")
+        return None
 
 
 
 def update_ld_script(name, mus_constant): pass
 def update_song_table(name, mus_constant): pass
-def update_midi_cfg(name, midi_path, mus_constant): pass
+def update_midi_cfg(name, midi_path, mus_constant, voicegroup_id): pass
 def update_debug_c(name, mus_constant): pass
 
 
