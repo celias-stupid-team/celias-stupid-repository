@@ -3963,6 +3963,16 @@ static const struct TrainerMonNoItemCustomMoves sParty_BossGiovanni[] = {
 
 
 
+static const struct TrainerMonItemCustomMoves sParty_BossGiovanni2[] = {
+    {
+        .iv = 250,
+        .lvl = 30,
+        .heldItem = ITEM_MACHO_BRACE,
+        .species = SPECIES_GENESECT,
+        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+};
+
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderGiovanni[] = {
     {
         .iv = 0,
@@ -5661,84 +5671,39 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalPokemonTowerCharman
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphSquirtle[] = {
     {
         .iv = 100,
-        .lvl = 37,
-        .species = SPECIES_PIDGEOT,
+        .lvl = 20,
+        .species = SPECIES_LUGIA,
     },
     {
         .iv = 100,
-        .lvl = 38,
-        .species = SPECIES_GROWLITHE,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_EXEGGCUTE,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_ALAKAZAM,
-    },
-    {
-        .iv = 150,
-        .lvl = 40,
-        .species = SPECIES_BLASTOISE,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphBulbasaur[] = {
     {
         .iv = 100,
-        .lvl = 37,
-        .species = SPECIES_PIDGEOT,
+        .lvl = 20,
+        .species = SPECIES_LUGIA,
     },
     {
         .iv = 100,
-        .lvl = 38,
-        .species = SPECIES_GYARADOS,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_GROWLITHE,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_ALAKAZAM,
-    },
-    {
-        .iv = 150,
-        .lvl = 40,
-        .species = SPECIES_VENUSAUR,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphCharmander[] = {
     {
         .iv = 100,
-        .lvl = 37,
-        .species = SPECIES_PIDGEOT,
+        .lvl = 20,
+        .species = SPECIES_LUGIA,
     },
     {
         .iv = 100,
-        .lvl = 38,
-        .species = SPECIES_EXEGGCUTE,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_GYARADOS,
-    },
-    {
-        .iv = 100,
-        .lvl = 35,
-        .species = SPECIES_ALAKAZAM,
-    },
-    {
-        .iv = 150,
-        .lvl = 40,
-        .species = SPECIES_CHARIZARD,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 

@@ -1492,7 +1492,7 @@
     {
       "id": "LAYOUT_SILPH_CO_11F",
       "name": "SilphCo_11F_Layout",
-      "width": 17,
+      "width": 18,
       "height": 21,
       "border_width": 2,
       "border_height": 2,
@@ -6045,7 +6045,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_RestaurantHotel",
       "border_filepath": "data/layouts/Silph_ClothesStore/border.bin",
       "blockdata_filepath": "data/layouts/Silph_ClothesStore/map.bin"
     },

@@ -31,3 +31,24 @@ CinnabarIsland_PokemonLab_Entrance_EventScript_TestingRoomSign::
 	msgbox CinnabarIsland_PokemonLab_Entrance_Text_TestingRoomSign, MSGBOX_SIGN
 	end
 `
+script PokemonLab_BlockingTree {
+	msgbox(
+	"Hello!\n"
+	"This is a very important room.\p"
+
+	"…What?\n"
+	"Of course you can't go in!\l"
+	"What made you think you could?", MSGBOX_NPC)
+}
+
+script PokemonLab_WelcomeTree {
+	msgbox(
+	"Welcome to the CINNABAR ISLAND\n"
+	"POKéMON LAB!\p"
+
+	"We're on the cutting edge of\n"
+	"research.\l"
+	"I hope you enjoy your visit!", MSGBOX_NPC)
+}
+
+

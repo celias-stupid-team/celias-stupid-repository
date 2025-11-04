@@ -4209,12 +4209,12 @@
       "secondaryId": "OLD_ROD"
     },
     {
-      "english": "OLD ROD",
+      "english": "GOLDEN ROD",
       "itemId": "ITEM_GOOD_ROD",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A new, good-quality fishing rod.\\nUse it by any body of water to \\nfish for wild POKéMON.",
+      "description_english": "A shiny, good-quality fishing rod.\\nUse it by any body of water to \\nfish for wild POKéMON.",
       "importance": 1,
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",

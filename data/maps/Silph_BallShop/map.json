@@ -14,8 +14,99 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "x": 14,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SilphCo_BallShop_Kurt",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SilphCo_BallShop_Sign",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "warp_id": "WARP_ID_SILPH_BALLS_HUB",
+      "x": 14,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_BALLS"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_BALLS_CALLCENTER",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BALLS"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_BALLS_RD",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_RD",
+      "dest_warp_id": "WARP_ID_SILPH_RD_BALLS"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Balls"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Balls"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Balls"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Balls"
+    }
+  ],
   "bg_events": []
 }
