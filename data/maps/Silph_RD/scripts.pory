@@ -8,3 +8,32 @@ script SilphCo_RD_Sign {
 	"R & D", MSGBOX_SIGN)
 
 }
+
+
+script SilphCo_RD_ApplinKid {
+	lock
+	faceplayer
+	if(flag(FLAG_GOT_PENCIL_ERASER)) {
+		msgbox(
+		"I am applin kid\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"I am applin kid\p"
+
+		"here\n"
+		"", MSGBOX_DEFAULT)
+		giveitem_msg(
+		"{PLAYER} obtained the\n"
+		"PENCIL ERASER!",
+		ITEM_PENCIL_ERASER, 1)
+		setflag(FLAG_GOT_PENCIL_ERASER)
+
+	}
+}
+
+script SilphCo_RD_OranKid {
+	msgbox(
+	"I am oran kid\n"
+	"", MSGBOX_NPC)
+}

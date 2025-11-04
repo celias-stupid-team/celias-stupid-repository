@@ -119,3 +119,73 @@ TwoIsland_House_EventScript_SetHasBothMushrooms::
 	setflag HAS_BOTH_MUSHROOMS
 	return
 `
+
+
+script TwoIsland_MushroomManiac {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	if(flag(FLAG_GOT_ODDISH)) {
+		msgbox(
+		"I spend my days looking out this\n"
+		"window.\p"
+
+		"The view helps put me at ease.\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Oho! Hello, young one.\n"
+		"I am the MUSHROOM MANIAC.\p"
+
+		"Say, have you heard of my good\n"
+		"friend the BERRY POWDER MAN?\l"
+		"I haven't seen him in a while.", MSGBOX_DEFAULT)
+		if(flag(FLAG_CSR_BERRY_POWDER_MAN)) {
+			msgbox(
+			"Oh, you know him?\n"
+			"Could you tell me how he is?", MSGBOX_DEFAULT)
+			closemessage
+			// Tell him Dead
+			msgbox(
+			"He's…\n"
+			"…Gracious me.\p"
+
+			"He was such a close friend.\n"
+			"I'm sad to hear of his passing.\p"
+
+			"Thank you for telling me.\n"
+			"Let me give you a gift.", MSGBOX_DEFAULT)
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ODDISH)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} obtained the\n"
+			"heavily-used ODDISH!", MSGBOX_DEFAULT)
+			setflag(FLAG_GOT_ODDISH)
+			waitfanfare
+			call(CommonScript_GiftPokemon)
+			msgbox(
+			"That POKéMON was always one of\n"
+			"our favorites.\l"
+			"I just can't believe he's gone…", MSGBOX_DEFAULT)
+		}
+
+	}
+	
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script TwoIsland_Window {
+	msgbox(
+	"Directly outside the window is the\n"
+	"wall of a cliff.\p"
+
+	"You feel at ease.\n"
+	"", MSGBOX_SIGN)
+
+}

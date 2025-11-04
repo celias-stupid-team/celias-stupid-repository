@@ -1,6 +1,5 @@
 raw `
-CinnabarIsland_PokemonLab_ResearchRoom_MapScripts::
-	.byte 0
+
 
 CinnabarIsland_PokemonLab_ResearchRoom_EventScript_MetronomeTutor::
 	goto EventScript_MetronomeTutor
@@ -18,3 +17,84 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 	msgbox CinnabarIsland_PokemonLab_ResearchRoom_Text_AnAmberPipe, MSGBOX_SIGN
 	end
 `
+script CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_HIDE_CINNABAR_YANMEGA)
+		if(FLAG_REVIVED_YANMEGA && !checkmoncaught(SPECIES_YANMEGA)) {
+			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
+		} 
+	}
+}
+
+script PokemonLab_Yanmega {
+	lock
+	playfanfare(MUS_LEVEL_UP)
+	removeobject(VAR_LAST_TALKED)
+	msgbox(
+	"{PLAYER} obtained the\n"
+	"YANMEGA!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_YANMEGA)
+	waitfanfare
+	call(CommonScript_GiftPokemon)
+	setflag(FLAG_HIDE_CINNABAR_YANMEGA)
+	release
+	end
+}
+
+script PokemonLab_AmberGuardian {
+	lock
+	faceplayer
+	if(flag(FLAG_REVIVED_YANMEGA)) {
+		msgbox(
+		"It was a success!\n"
+		"The fossil contained a POKéMON!\p"
+
+		"…What?\n"
+		"Of course you can't take it!\l"
+		"What made you think you could?", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"revive amber\n"
+		"", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_OLD_AMBER)) {
+			msgbox(
+			"Yes?\n"
+			"", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				msgbox(
+				"let's revive\n"
+				"", MSGBOX_DEFAULT)
+				closemessage
+
+				setflag(FLAG_REVIVED_YANMEGA)
+				removeitem(ITEM_OLD_AMBER)
+				fadescreen(FADE_TO_BLACK)
+				delay(30)
+				clearflag(FLAG_TEMP_1)
+				addobject(LOCALID_YANMEGABALL)
+				fadescreen(FADE_FROM_BLACK)
+				msgbox(
+				"Oh, golly!\n"
+				"The experiment was successful!\p"
+
+				"We've revived a POKéMON from the\n"
+				"fossil!\p"
+
+				"Thank you for this valuable\n"
+				"experience!\l"
+				"You've been a gift to science!", MSGBOX_DEFAULT)
+				release
+				end
+
+			} else {	
+				release
+				end
+			}
+		} else {
+			msgbox(
+			"go to pewter\n"
+			"", MSGBOX_DEFAULT)
+		}
+	}
+	release
+}

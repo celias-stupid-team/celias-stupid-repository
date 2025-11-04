@@ -358,19 +358,14 @@ for name in tabs:
     tk.Button(frame, text="Insert", command=lambda n=name: log(f"Insert clicked on {n} tab")).pack(pady=5)
 
 
-
 def write_text(path, lines):
     """Writes text with strict Windows CRLF line endings (Git-safe)."""
-    normalized = []
-    for l in lines:
-        # 1. Remove any existing CR/LF variations
-        l = l.replace("\r\n", "\n").replace("\r", "\n")
-        # 2. Ensure exactly one CRLF at end
-        l = l.rstrip("\n") + "\r\n"
-        normalized.append(l)
-
+    text = "".join(lines)                     # flatten into one string
+    text = text.replace("\r\n", "\n").replace("\r", "\n")  # normalize all line endings
+    text = text.replace("\n", "\r\n")         # enforce CRLF
     with open(path, "w", encoding="utf-8", newline="") as f:
-        f.writelines(normalized)
+        f.write(text)
+
 
 
 
@@ -619,7 +614,7 @@ def update_ld_script(name, mus_constant):
     """
     path = os.path.join(SCRIPT_DIR, "ld_script.ld")
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8", newline="") as f:
             lines = f.readlines()
 
         # Find the start and end of the song_data section
@@ -662,7 +657,7 @@ def update_song_table(name, mus_constant):
     """
     path = os.path.join(SCRIPT_DIR, "sound", "song_table.inc")
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8",newline="") as f:
             lines = f.readlines()
 
         start_idx = None
@@ -746,7 +741,7 @@ def update_debug_c(name, mus_constant):
     """
     path = os.path.join(SCRIPT_DIR, "src", "debug.c")
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8", newline="") as f:
             lines = f.readlines()
 
         bgm_start = None

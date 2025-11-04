@@ -5674,6 +5674,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphSquirtle[] = {
         .lvl = 20,
         .species = SPECIES_LUGIA,
     },
+    {
+        .iv = 100,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphBulbasaur[] = {
@@ -5682,6 +5687,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphBulbasaur[] = 
         .lvl = 20,
         .species = SPECIES_LUGIA,
     },
+    {
+        .iv = 100,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
+    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphCharmander[] = {
@@ -5689,6 +5699,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalSilphCharmander[] =
         .iv = 100,
         .lvl = 20,
         .species = SPECIES_LUGIA,
+    },
+    {
+        .iv = 100,
+        .lvl = 6,
+        .species = SPECIES_WARTORTLE,
     },
 };
 
