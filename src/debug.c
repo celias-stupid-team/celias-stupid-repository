@@ -3760,7 +3760,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_FOUR_ISLAND_MART)     \
     X(MUS_TWO_ISLAND_CENTER)    \
     X(MUS_TWO_ISLAND_MART)      \
-    X(MUS_CLOTHES_SHOP)         
+    X(MUS_CLOTHES_SHOP)         \
+    X(MUS_CYBER_WORLD)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \
