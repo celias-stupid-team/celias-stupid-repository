@@ -162,7 +162,7 @@ script TwoIsland_MushroomManiac {
 			"heavily-used ODDISH!", MSGBOX_DEFAULT)
 			setflag(FLAG_GOT_ODDISH)
 			waitfanfare
-			call(CommonScript_GiftPokemon)
+			call(Common_Script_GiftPokemon)
 			msgbox(
 			"That POKéMON was always one of\n"
 			"our favorites.\l"

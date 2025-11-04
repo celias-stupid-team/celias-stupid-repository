@@ -17,10 +17,10 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 	msgbox CinnabarIsland_PokemonLab_ResearchRoom_Text_AnAmberPipe, MSGBOX_SIGN
 	end
 `
-script CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
+mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_HIDE_CINNABAR_YANMEGA)
-		if(FLAG_REVIVED_YANMEGA && !checkmoncaught(SPECIES_YANMEGA)) {
+		if(flag(FLAG_REVIVED_YANMEGA) && !checkmoncaught(SPECIES_YANMEGA)) {
 			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
 		} 
 	}
@@ -35,7 +35,7 @@ script PokemonLab_Yanmega {
 	"YANMEGA!", MSGBOX_DEFAULT)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_YANMEGA)
 	waitfanfare
-	call(CommonScript_GiftPokemon)
+	call(Common_Script_GiftPokemon)
 	setflag(FLAG_HIDE_CINNABAR_YANMEGA)
 	release
 	end

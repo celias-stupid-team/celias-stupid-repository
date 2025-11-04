@@ -328,7 +328,7 @@ script CinnabarIsland_ReviveFossils {
 		"TYRANASTAR!", MSGBOX_DEFAULT)
 		waitfanfare
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_TYRANASTAR)
-		call(CommonScript_GiftPokemon)
+		call(Common_Script_GiftPokemon)
 		setflag(FLAG_REVIVED_TYRANASTAR)
 
 	} else {
