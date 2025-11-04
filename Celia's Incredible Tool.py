@@ -357,6 +357,23 @@ for name in tabs:
     # Insert button
     tk.Button(frame, text="Insert", command=lambda n=name: log(f"Insert clicked on {n} tab")).pack(pady=5)
 
+
+
+def write_text(path, lines):
+    """Writes text with strict Windows CRLF line endings (Git-safe)."""
+    normalized = []
+    for l in lines:
+        # 1. Remove any existing CR/LF variations
+        l = l.replace("\r\n", "\n").replace("\r", "\n")
+        # 2. Ensure exactly one CRLF at end
+        l = l.rstrip("\n") + "\r\n"
+        normalized.append(l)
+
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.writelines(normalized)
+
+
+
 # --------------------------
 # Backend: Music insertion
 # --------------------------
@@ -408,6 +425,17 @@ def make_mus_constant(name: str) -> str:
     cleaned = cleaned.strip("_")                   # remove leading/trailing underscores
     return f"MUS_{cleaned}"
 
+def save_midi_to_repo(midi_path, mus_constant):
+    """Copies MIDI file to sound/songs/midi/ as mus_x.mid."""
+    dest_dir = os.path.join(SCRIPT_DIR, "sound", "songs", "midi")
+    os.makedirs(dest_dir, exist_ok=True)
+    dest_path = os.path.join(dest_dir, f"{mus_constant.lower()}.mid")
+    try:
+        import shutil
+        shutil.copy2(midi_path, dest_path)
+        log(f"Copied MIDI to {dest_path}")
+    except Exception as e:
+        log(f"[ERROR] Could not copy MIDI: {e}")
 
 
 def insert_music(name, midi_path, new_voicegroup=False):
@@ -416,6 +444,7 @@ def insert_music(name, midi_path, new_voicegroup=False):
     """
     log(f"=== Begin Music Insertion ===")
     mus_constant = make_mus_constant(name)
+    save_midi_to_repo(midi_path, mus_constant)
     log(f"Name: {name}, MIDI: {midi_path}, New Voicegroup: {new_voicegroup}")
     log(f"Generated constant: {mus_constant}")
 
@@ -531,56 +560,228 @@ def update_songs_header(name, mus_constant):
 
 def update_voice_groups(name, mus_constant):
     """
-    Edit .\\sound\\voice_groups.inc if 'New Voicegroup' is checked.
-    - Finds the highest voicegroup number
-    - Appends a new placeholder entry for this track
-    - Returns the new voicegroup ID (int)
+    Duplicates last baseline voicegroup block and appends it with next number.
+    Returns the new voicegroup number.
     """
     path = os.path.join(SCRIPT_DIR, "sound", "voice_groups.inc")
     if not os.path.exists(path):
         log(f"[ERROR] voice_groups.inc not found at {path}")
         return None
-
     try:
         with open(path, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
-        highest_number = -1
-        for line in lines:
-            match = re.search(r"Voicegroup(\d+)", line)
-            if match:
-                num = int(match.group(1))
-                highest_number = max(highest_number, num)
+        # find last voicegroup number
+        last_index = None
+        last_num = None
+        for i in reversed(range(len(lines))):
+            m = re.search(r"voicegroup(\d+)::", lines[i])
+            if m:
+                last_index = i
+                last_num = int(m.group(1))
+                break
+        if last_index is None:
+            log("[ERROR] No voicegroup found.")
+            return None
 
-        new_number = highest_number + 1
-        new_entry_name = f"Voicegroup{new_number}"
-        log(f"Detected highest voicegroup = {highest_number}, creating {new_entry_name}")
+        new_num = last_num + 1
+        baseline_num = max(0, new_num - 6)  # baseline block guess
+        baseline_start = None
+        baseline_end = None
 
-        # Append a new entry at the end of the file
-        new_lines = [
-            "\n",
-            f"\t.global {new_entry_name}\n",
-            f"{new_entry_name}:\n",
-            f"\t.incbin \"sound/voicegroups/{new_entry_name}.bin\"\n"
-        ]
-        lines.extend(new_lines)
+        # find baseline start/end
+        for i, line in enumerate(lines):
+            if re.match(fr"\s*voicegroup{baseline_num}::", line):
+                baseline_start = i - 1  # include .align 2
+            elif baseline_start is not None and re.match(r"\s*\.align 2", line):
+                baseline_end = i
+                break
+        if baseline_start is None or baseline_end is None:
+            log("[WARN] Could not locate full baseline block; using last block only.")
+            baseline_start = last_index - 1
+            baseline_end = len(lines)
 
-        with open(path, "w", encoding="utf-8", newline="") as f:
-            f.writelines(lines)
-
-        log(f"Added {new_entry_name} to {path}")
-        return new_number
-
+        block = lines[baseline_start:baseline_end]
+        block = [re.sub(r"voicegroup\d+::", f"voicegroup{new_num}::", l) for l in block]
+        lines.extend(["\n"] + block)
+        write_text(path, lines)
+        log(f"Appended voicegroup{new_num} to voice_groups.inc")
+        return new_num
     except Exception as e:
         log(f"[ERROR] update_voice_groups failed: {e}")
         return None
 
 
 
-def update_ld_script(name, mus_constant): pass
-def update_song_table(name, mus_constant): pass
-def update_midi_cfg(name, midi_path, mus_constant, voicegroup_id): pass
-def update_debug_c(name, mus_constant): pass
+def update_ld_script(name, mus_constant):
+    """
+    Dynamically insert new .o(.rodata) line at the end of the song_data section in ld_script.ld.
+    """
+    path = os.path.join(SCRIPT_DIR, "ld_script.ld")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        # Find the start and end of the song_data section
+        start_idx = None
+        end_idx = None
+        for i, line in enumerate(lines):
+            if re.match(r"\s*song_data\s*:", line):
+                start_idx = i
+            elif start_idx is not None and re.match(r"\s*\}\s*>\s*ROM", line):
+                end_idx = i
+                break
+
+        if start_idx is None or end_idx is None:
+            log("[ERROR] Could not locate song_data block in ld_script.ld")
+            return
+
+        # Walk upward from end_idx to find the last .rodata entry
+        insert_index = None
+        for i in range(end_idx - 1, start_idx, -1):
+            if re.search(r"sound/songs/midi/.*\.o\(\.rodata\);", lines[i]):
+                insert_index = i + 1
+                break
+
+        if insert_index is None:
+            log("[ERROR] Could not find any .rodata entries in song_data block.")
+            return
+
+        new_line = f"        sound/songs/midi/{mus_constant.lower()}.o(.rodata);\n"
+        lines.insert(insert_index, new_line)
+
+        write_text(path, lines)
+        log(f"Appended {new_line.strip()} to ld_script.ld")
+    except Exception as e:
+        log(f"[ERROR] update_ld_script failed: {e}")
+
+
+def update_song_table(name, mus_constant):
+    """
+    Append new song entry right before dummy_song_header: (at the bottom of the song list).
+    """
+    path = os.path.join(SCRIPT_DIR, "sound", "song_table.inc")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        start_idx = None
+        dummy_idx = None
+        for i, line in enumerate(lines):
+            if line.strip().startswith("gSongTable::"):
+                start_idx = i
+            elif line.strip().startswith("dummy_song_header:"):
+                dummy_idx = i
+                break
+
+        if start_idx is None or dummy_idx is None:
+            log("[ERROR] Could not find song table block in song_table.inc")
+            return
+
+        # Find last 'song ' entry before dummy header
+        last_song_idx = None
+        for i in range(dummy_idx - 1, start_idx, -1):
+            if lines[i].strip().startswith("song "):
+                last_song_idx = i
+                break
+
+        if last_song_idx is None:
+            log("[ERROR] Could not find last song entry in song_table.inc")
+            return
+
+        # Insert after the final song entry
+        insert_index = last_song_idx + 1
+        new_line = f"\tsong {mus_constant.lower()}, 0, 0\n"
+        lines.insert(insert_index, new_line)
+
+        # Ensure one blank line before dummy_song_header:
+        if lines[dummy_idx - 1].strip() != "":
+            lines.insert(dummy_idx, "\n")
+
+        write_text(path, lines)
+        log(f"Appended {new_line.strip()} to song_table.inc")
+    except Exception as e:
+        log(f"[ERROR] update_song_table failed: {e}")
+
+
+
+def update_midi_cfg(name, midi_path, mus_constant, voicegroup_id):
+    """
+    Inserts alphabetically sorted entry into midi.cfg.
+    - If voicegroup_id == -1, defaults to 196.
+    - Skips insertion if entry already exists.
+    """
+    path = os.path.join(SCRIPT_DIR, "sound", "songs", "midi", "midi.cfg")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        entry_name = f"{mus_constant.lower()}.mid"
+        target_line = f"{entry_name}: -E -R50 -G{voicegroup_id if voicegroup_id != -1 else 196} -V090\n"
+
+        # Skip if entry already exists
+        for line in lines:
+            if line.strip().startswith(f"{entry_name}:"):
+                log(f"[INFO] {entry_name} already exists in midi.cfg — skipping duplicate insertion.")
+                return
+
+        # find alphabetical position
+        insert_index = len(lines)
+        for i, line in enumerate(lines):
+            if line.strip() and line.lower() > entry_name:
+                insert_index = i
+                break
+
+        lines.insert(insert_index, target_line)
+        write_text(path, lines)
+        log(f"Inserted {target_line.strip()} into midi.cfg")
+    except Exception as e:
+        log(f"[ERROR] update_midi_cfg failed: {e}")
+
+
+def update_debug_c(name, mus_constant):
+    """
+    Append new X(MUS_...) entry to SOUND_LIST_BGM in debug.c.
+    Dynamically finds the bottom of the list.
+    """
+    path = os.path.join(SCRIPT_DIR, "src", "debug.c")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        bgm_start = None
+        bgm_end = None
+        for i, line in enumerate(lines):
+            if "#define SOUND_LIST_BGM" in line:
+                bgm_start = i
+            elif bgm_start is not None and "#define SOUND_LIST_SE" in line:
+                bgm_end = i
+                break
+
+        if bgm_start is None or bgm_end is None:
+            log("[ERROR] Could not locate SOUND_LIST_BGM block in debug.c")
+            return
+
+        # find last X(MUS_...) line before SOUND_LIST_SE
+        insert_index = None
+        for i in range(bgm_end - 1, bgm_start, -1):
+            if re.search(r"X\(MUS_", lines[i]):
+                # ensure trailing backslash on previous last entry
+                if "\\" not in lines[i].rstrip():
+                    lines[i] = lines[i].rstrip() + " \\\n"
+                insert_index = i + 1
+                break
+
+        if insert_index is None:
+            log("[ERROR] Could not find last X(MUS_...) entry in SOUND_LIST_BGM")
+            return
+
+        new_line = f"    X({mus_constant})\n"
+        lines.insert(insert_index, new_line)
+        write_text(path, lines)
+        log(f"Appended {new_line.strip()} to SOUND_LIST_BGM in debug.c")
+    except Exception as e:
+        log(f"[ERROR] update_debug_c failed: {e}")
 
 
 
