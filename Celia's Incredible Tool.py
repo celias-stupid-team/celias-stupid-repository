@@ -3,6 +3,8 @@ from tkinter import ttk, filedialog
 import os
 import ctypes
 import re
+import re, shutil
+from PIL import Image
 
 # --------------------------
 # Field configuration
@@ -332,6 +334,15 @@ for name in tabs:
             command=lambda p=preview_label, e=name_entry: browse_png_with_preview(p, e)
         ).pack(pady=5)
         preview_label.field_vars = field_vars
+    if name == "Item":
+        status_label = tk.Label(frame, text="", fg="lime")
+        status_label.pack(pady=(0, 5))
+
+        tk.Button(
+            frame,
+            text="Insert",
+            command=lambda e=name_entry, fv=field_vars, sl=status_label, pl=preview_label: handle_item_insert(e, fv, sl, pl)
+        ).pack(pady=5)
 
     elif name == "Sound":
         tk.Button(frame, text="Browse Audio", command=browse_audio).pack(pady=5)
@@ -777,6 +788,221 @@ def update_debug_c(name, mus_constant):
         log(f"Appended {new_line.strip()} to SOUND_LIST_BGM in debug.c")
     except Exception as e:
         log(f"[ERROR] update_debug_c failed: {e}")
+
+
+
+## Insert Items!
+# --------------------------
+# Backend: Item insertion
+# --------------------------
+
+def handle_item_insert(name_entry, field_vars, status_label=None, preview_label=None):
+    """
+    Called when Insert is pressed on the Item tab.
+    """
+    name = name_entry.get().strip()
+    if not name:
+        log("[ERROR] No name entered for Item insert.")
+        if status_label:
+            status_label.config(text="Error: No name entered.", fg="red")
+        return
+
+    # Get PNG path (from preview)
+    if not preview_label or not getattr(preview_label, "image", None):
+        log("[ERROR] No PNG selected.")
+        if status_label:
+            status_label.config(text="Error: No PNG selected.", fg="red")
+        return
+
+    # Find last_browse_dir PNG path again (browse_png_with_preview updates it globally)
+    global last_browse_dir
+    selected_png = None
+    try:
+        # Try to rederive from preview_label.image (not directly stored, so use global)
+        # browse_png_with_preview updates last_browse_dir each time
+        for f in os.listdir(last_browse_dir):
+            if f.lower().endswith(".png"):
+                selected_png = os.path.join(last_browse_dir, f)
+                break
+    except Exception:
+        pass
+
+    if not selected_png or not os.path.exists(selected_png):
+        if status_label:
+            status_label.config(text="Error: Could not locate PNG path.", fg="red")
+        return
+
+    # Collect any contextual fields (Price, Key Item)
+    pocket = field_vars.get("Price", {}).get("var").get() if "Price" in field_vars else "500"
+    copy_flag = False
+    for child in name_entry.master.master.winfo_children():
+        if isinstance(child, tk.Checkbutton) and child.cget("text") == "Copy to Clipboard":
+            copy_flag = child.var.get()
+            break
+
+    log(f"Inserting item: {name}, PNG: {selected_png}, Pocket/Price={pocket}")
+
+    insert_item_backend(name, selected_png, pocket, copy_flag)
+
+    # Success feedback
+    item_constant = make_item_constant(name)
+    if status_label:
+        status_label.config(text=f"{item_constant} successfully inserted!", fg="lime")
+        status_label.after(5000, lambda: status_label.config(text=""))
+
+def insert_item_backend(name, png_path, pocket, copy_flag):
+    """Handles file edits and icon saving for item insertion."""
+    item_constant = make_item_constant(name)
+    log(f"=== Begin Item Insertion ===")
+    log(f"Generated constant: {item_constant}")
+
+    try:
+        save_item_icon_and_palette(png_path, name)
+        update_items_constants(item_constant)
+        update_items_json(name, pocket)
+        update_item_icon_table(item_constant)
+        update_item_graphics_data(item_constant)
+        update_item_graphics_header(item_constant)
+
+        if copy_flag:
+            root.clipboard_clear()
+            root.clipboard_append(item_constant)
+            log(f"Copied {item_constant} to clipboard")
+
+        log(f"=== Item insertion complete for {item_constant} ===")
+
+    except Exception as e:
+        log(f"[ERROR] Item insertion failed: {e}")
+
+def make_item_constant(name: str) -> str:
+    """Sanitize name into valid ITEM_ constant."""
+    cleaned = name.upper()
+    cleaned = re.sub(r"[^\w\s-]", "", cleaned)
+    cleaned = re.sub(r"[\s-]+", "_", cleaned)
+    cleaned = re.sub(r"_+", "_", cleaned).strip("_")
+    return f"ITEM_{cleaned}"
+
+
+def save_item_icon_and_palette(png_path, name):
+    """Saves item PNG and generates its palette inside graphics folders."""
+    item_filename = f"{name.lower().replace(' ', '_')}.png"
+    dest_img = os.path.join(SCRIPT_DIR, "graphics", "items", item_filename)
+    os.makedirs(os.path.dirname(dest_img), exist_ok=True)
+    shutil.copy2(png_path, dest_img)
+
+    # Generate palette image (.pal) for reference
+    image = Image.open(png_path).convert("RGBA")
+    palette = image.getcolors(maxcolors=256)
+    if palette:
+        pal_filename = item_filename.replace(".png", ".pal")
+        pal_path = os.path.join(SCRIPT_DIR, "graphics", "items", pal_filename)
+        with open(pal_path, "w", encoding="utf-8", newline="") as f:
+            for _, color in palette:
+                f.write(f"{color[0]} {color[1]} {color[2]}\r\n")
+    return dest_img
+
+def update_items_constants(item_constant):
+    """Append to include/constants/items.h before #define ITEM_NONE."""
+    path = os.path.join(SCRIPT_DIR, "include", "constants", "items.h")
+    with open(path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    insert_index = None
+    for i, line in enumerate(lines):
+        if line.strip().startswith("#define ITEM_NONE"):
+            insert_index = i
+            break
+
+    if insert_index is None:
+        log("[ERROR] ITEM_NONE not found in items.h")
+        return
+
+    # Find last defined item to continue numbering
+    last_define = None
+    for i in range(insert_index - 1, -1, -1):
+        match = re.match(r"#define\s+ITEM_\w+\s+(\d+)", lines[i])
+        if match:
+            last_define = int(match.group(1))
+            break
+    new_num = (last_define + 1) if last_define is not None else 1
+
+    new_line = f"#define {item_constant} {new_num}\r\n"
+    lines.insert(insert_index, new_line)
+    write_text(path, lines)
+    log(f"Inserted {item_constant} into items.h")
+
+
+def update_items_json(name, pocket):
+    """Append new entry to src/data/items.json just before closing bracket."""
+    path = os.path.join(SCRIPT_DIR, "src", "data", "items.json")
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read().rstrip()
+
+    if content.endswith("]}"):
+        content = content[:-2].rstrip()
+        if not content.endswith(","):
+            content += ","
+        entry = f'\n  {{ "name": "{name}", "pocket": "{pocket}" }}\n]'
+        content += entry
+    write_text(path, [content])
+    log(f"Inserted {name} into items.json")
+
+
+def update_item_icon_table(item_constant):
+    """Append to src/data/item_icon_table.h at end of gItemIconTable list."""
+    path = os.path.join(SCRIPT_DIR, "src", "data", "item_icon_table.h")
+    with open(path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    insert_index = None
+    for i, line in enumerate(lines):
+        if "gItemIconTable" in line:
+            insert_index = i
+        elif insert_index and line.strip().startswith("};"):
+            insert_index = i
+            break
+
+    if insert_index:
+        new_line = f"    [ {item_constant} ] = {{ .icon = gItemIcon_{item_constant[5:].lower()}, .palette = gItemIconPalette_{item_constant[5:].lower()} }},\r\n"
+        lines.insert(insert_index, new_line)
+        write_text(path, lines)
+        log(f"Inserted {item_constant} into item_icon_table.h")
+
+
+def update_item_graphics_data(item_constant):
+    """Append new extern definitions to src/data/graphics/items.h."""
+    path = os.path.join(SCRIPT_DIR, "src", "data", "graphics", "items.h")
+    new_block = [
+        f"extern const u32 gItemIcon_{item_constant[5:].lower()}[];\r\n",
+        f"extern const u32 gItemIconPalette_{item_constant[5:].lower()}[];\r\n"
+    ]
+    with open(path, "a", encoding="utf-8", newline="") as f:
+        f.writelines(new_block)
+    log(f"Appended graphics externs for {item_constant}")
+
+
+def update_item_graphics_header(item_constant):
+    """Append new defines to include/graphics.h near end of item section."""
+    path = os.path.join(SCRIPT_DIR, "include", "graphics.h")
+    with open(path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    insert_index = None
+    for i, line in enumerate(lines):
+        if "#endif" in line:
+            insert_index = i
+            break
+
+    new_lines = [
+        f"extern const u32 gItemIcon_{item_constant[5:].lower()}[];\r\n",
+        f"extern const u32 gItemIconPalette_{item_constant[5:].lower()}[];\r\n"
+    ]
+    if insert_index:
+        for l in reversed(new_lines):
+            lines.insert(insert_index, l)
+
+    write_text(path, lines)
+    log(f"Inserted {item_constant} externs into graphics.h")
 
 
 

@@ -2,15 +2,116 @@ mapscripts AetherParadise_Entrance_MapScripts {
     
 }
 
-script Script_Name {
+script AetherParadise_SkuntankHint {
 	msgbox("
-TRAINER TIPS\p
+	TRAINER TIPS\p
 
-Some POKéMON have not had their\n
-types altered in this hack.\p
+	Some POKéMON have not had their\n
+	types altered in this hack.\p
 
-SKUNTANK, for instance, is\n
-DARK/POISON-TYPE.", MSGBOX_SIGN)
+	SKUNTANK, for instance, is\n
+	DARK/POISON-TYPE.", MSGBOX_SIGN)
 
 }
 
+script AetherParadise_Guzma {
+	msgbox(
+	"GUZMA: Those phoney TEAM SKULL\n"
+	"guys are rough!\p"
+
+	"Ever since the Gen 1 TYPE CHART,\n"
+	"things have been real rough.\p"
+
+	"My BUG-TYPES haven't been able to\n"
+	"stand up to those POISON-TYPES.\l"
+	"We're weak to their attacks now!\p"
+
+	"I wish there was something we could\n"
+	"do to turn the tables on them…", MSGBOX_NPC)
+}
+
+script AetherParadise_SkullGruntHint {
+	msgbox(
+	"Man!\n"
+	"That SKUNTANK is real nasty, yo!\p"
+
+	"He has WONDER GUARD like his crony\n"
+	"KOFFING, but that's not all!\p"
+
+	"He's got an item that lets him\n"
+	"float in the air!\l"
+	"Now GROUND moves won't do jack!\p"
+
+	"Man, what're we supposed to do?\n"
+	"", MSGBOX_NPC)
+}
+
+script AetherParadise_DMCA_StopsYou {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	//cutscene stuff
+	msgbox(
+	"Stop in the name of the DMCA!\n"
+	"", MSGBOX_DEFAULT)
+	//cutscene stuff
+	msgbox(
+	"team skull is a ripoff\p"
+
+	"here's the real one\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_ZUBAT, moves(
+		walk_down * 3
+		walk_right
+		walk_down
+	))
+	applymovement(LOCALID_KOFFING, moves(
+		walk_down * 3
+		walk_left
+		walk_down
+
+	))
+	waitmovement(0)
+	msgbox(
+	"we're team skull hahaha\n"
+	"", MSGBOX_DEFAULT)
+	// battle
+	msgbox(
+	"oh no we lose\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_ZUBAT, moves(
+		walk_fast_up * 4
+		walk_fast_left
+		face_down
+	))
+	applymovement(LOCALID_KOFFING, moves(
+		walk_fast_up * 4
+		walk_fast_left
+		face_down
+	))
+	waitmovement
+	release
+
+}
+
+script AetherParadise_SkuntankBattle {
+	lock
+	applymovement(LOCALID_SKUNTANK, moves(
+		walk_down * 2
+		walk_left * 3
+		walk_down
+
+	))
+	msgbox(
+	"I am skuntank\n"
+	"fuck you", MSGBOX_DEFAULT)
+	release
+}
+
+
+script AetherParadise_SkullGruntDmca {
+	msgbox(
+	"be careful the dmca is here\n"
+	"", MSGBOX_NPC)
+}
