@@ -270,7 +270,7 @@ It is reset after every battle.
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
 #define VAR_QLBAK_MAP_LAYOUT        0x40AE
 
-#define VAR_0x40AF                 0x40AF
+#define VAR_NEBBY_COUNTER                 0x40AF
 #define VAR_0x40B0                 0x40B0
 #define VAR_0x40B1                 0x40B1
 #define VAR_0x40B2                 0x40B2

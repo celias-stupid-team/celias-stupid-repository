@@ -1,3 +1,36 @@
 mapscripts AetherParadise_NebbyRoom_MapScripts {
+
+}
+
+
+script AetherParadise_Nebby {
+    finditem(ITEM_NEBBY)
+    lock
+    waitfanfare
+    playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
+    msgbox(
+	"NEBBY: Pew! Pew!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
     
+}
+
+script AetherParadise_NebbyEscapes {
+    lock
+    playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
+    msgbox(
+	"NEBBY: Pew! Pew!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    msgbox(
+	"Wha-?\p"
+
+	"NEBBY escaped from your bag!\n"
+	"", MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_9, 0)
+    removeitem(ITEM_NEBBY)
+    closemessage
+    release
 }

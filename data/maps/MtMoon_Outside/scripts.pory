@@ -2,6 +2,9 @@
 mapscripts MtMoon_Outside_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_CSR_MAP_ALTAR_OF_MOONE)
+		if(!flag(FLAG_PUT_NEBBY_IN_ALTAR)) {
+			setflag(FLAG_TEMP_5)
+		}
     }
 }
 
@@ -15,6 +18,41 @@ script MoonAltar_TentacoolWater {
 script MoonAltar_CameraPan {
     lock
     special(SpawnCameraObject)
+	if(checkitem(ITEM_NEBBY)) {
+		fadenewbgm(MUS_NONE)
+		applymovement(LOCALID_CAMERA, MtMoon_CameraGoesUp)
+		delay(30)
+		playse(SE_M_EARTHQUAKE)
+		setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+		setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+		setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
+		setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+		special(ShakeScreen)
+		waitmovement(0)
+		delay(90)
+		playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
+		msgbox(
+		"nebby happens\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		fadescreeninstant(FADE_TO_WHITE)
+		setflag(FLAG_PUT_NEBBY_IN_ALTAR)
+		clearflag(FLAG_TEMP_5)
+		addobject(LOCALID_MOON_WORMHOLE)
+		delay(5)
+		fadescreeninstant(FADE_FROM_WHITE)
+		removeitem(ITEM_NEBBY)
+		msgbox(
+		"you get sucked\n"
+		"", MSGBOX_DEFAULT)
+		//Scene of you getting sucked in
+		// Warp to wormhole
+		release
+		end
+
+
+
+	}
     applymovement(LOCALID_CAMERA, MtMoon_CameraGoesUp)
     waitmovement(0)
     delay(60)

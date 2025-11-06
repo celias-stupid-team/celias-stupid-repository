@@ -153,9 +153,9 @@
       "x": 7,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
     },
     {
       "type": "trigger",
@@ -174,6 +174,60 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "AetherParadise_SkuntankBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_9",
+      "var_value": "1",
+      "script": "AetherParadise_NebbyEscapes"
     }
   ],
   "bg_events": []

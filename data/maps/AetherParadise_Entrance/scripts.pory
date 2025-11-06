@@ -1,5 +1,9 @@
 mapscripts AetherParadise_Entrance_MapScripts {
-    
+        MAP_SCRIPT_ON_TRANSITION {
+        if(checkitem(ITEM_NEBBY) && var(VAR_NEBBY_COUNTER) > 2) { // Outside of Aether, make On Frame Table script for Nebby, then after two failed attempts do early nebby
+            setvar(VAR_TEMP_9, 1)
+        }
+    }
 }
 
 script AetherParadise_SkuntankHint {
