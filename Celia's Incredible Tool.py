@@ -637,7 +637,7 @@ def update_songs_header(name, mus_constant):
                 break
 
         with open(path, "w", encoding="utf-8",newline="") as f:
-            f.writelines(lines)
+            f.write_text(lines)
 
         log(f"Updated {path} successfully.")
     except Exception as e:
@@ -916,35 +916,46 @@ def handle_item_insert(name_entry, field_vars, status_label=None, preview_label=
         status_label.config(text=f"{item_constant} successfully inserted!", fg="lime")
         status_label.after(5000, lambda: status_label.config(text=""))
 
-def insert_item_backend(name, png_path, pocket, copy_flag):
-    """Handles file edits and icon saving for item insertion."""
+def insert_item_backend(name, png_path, pocket, copy_flag, price=None, is_key_item=False):
+    """Handles all file edits, palette generation, and icon saving for item insertion."""
+    log(f"=== Begin Item Insertion for {name} ===")
+
+    # Build formatted constant
     item_constant = make_item_constant(name)
-    log(f"=== Begin Item Insertion ===")
     log(f"Generated constant: {item_constant}")
 
-
+    # Ensure directories exist
     icon_dir = Path(SCRIPT_DIR) / "graphics" / "items" / "icons"
     pal_dir = Path(SCRIPT_DIR) / "graphics" / "items" / "icon_palettes"
     icon_dir.mkdir(parents=True, exist_ok=True)
     pal_dir.mkdir(parents=True, exist_ok=True)
 
-    icon_path = icon_dir / f"{name.lower().replace(' ', '_')}.png"
-    pal_path = pal_dir / f"{name.lower().replace(' ', '_')}.pal"
+    # Define paths
+    formatted_name = name.lower().replace(" ", "_")
+    icon_path = icon_dir / f"{formatted_name}.png"
+    pal_path = pal_dir / f"{formatted_name}.pal"
 
-    generate_and_save_palette(Path(png_path), name, pal_path)
-
+    # Generate .pal and save icon (writes with CRLF in .pal)
+    try:
+        generate_and_save_palette(Path(png_path), name, pal_path)
+        log(f"Saved icon and palette for {formatted_name}")
+    except Exception as e:
+        log(f"[ERROR] Palette generation failed: {e}")
+        return
 
     try:
-        generate_and_save_palette(png_path, name, pal_path)
-        update_items_constants(item_constant)
-        update_items_json(name, pocket)
-        update_item_icon_table(item_constant)
-        update_item_graphics_data(item_constant)
-        update_item_graphics_header(item_constant)
+        # === Core File Updates ===
+        update_items_constants(name)                         # handles items.h
+        update_items_json(name, price or 200, is_key_item)    # handles items.json
+        update_item_icon_table(item_constant)                 # table includes icons
+        update_item_graphics_data(item_constant)              # updates graphics data
+        update_item_graphics_header(item_constant)            # updates graphics header
 
+        # === Clipboard Copy ===
         if copy_flag:
             root.clipboard_clear()
             root.clipboard_append(item_constant)
+            root.update()
             log(f"Copied {item_constant} to clipboard")
 
         log(f"=== Item insertion complete for {item_constant} ===")
@@ -962,51 +973,114 @@ def make_item_constant(name: str) -> str:
 
 
 
-def update_items_constants(item_constant):
-    """Append to include/constants/items.h before #define ITEM_NONE."""
+import re
+
+def update_items_constants(name):
+    """
+    Updates include/constants/items.h:
+    - Inserts a new ITEM_[NAME] define
+    - Updates ITEMS_COUNT accordingly
+    """
     path = os.path.join(SCRIPT_DIR, "include", "constants", "items.h")
-    with open(path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
 
-    insert_index = None
-    for i, line in enumerate(lines):
-        if line.strip().startswith("#define ITEM_NONE"):
-            insert_index = i
-            break
+        # Find last ITEM define and ITEMS_COUNT line
+        last_item_idx = None
+        items_count_idx = None
+        last_number = None
 
-    if insert_index is None:
-        log("[ERROR] ITEM_NONE not found in items.h")
-        return
+        for i, line in enumerate(lines):
+            if re.match(r"#define\s+ITEM_[A-Z0-9_]+\s+\d+", line):
+                last_item_idx = i
+                match = re.search(r"(\d+)", line)
+                if match:
+                    last_number = int(match.group(1))
+            elif line.strip().startswith("#define ITEMS_COUNT"):
+                items_count_idx = i
 
-    # Find last defined item to continue numbering
-    last_define = None
-    for i in range(insert_index - 1, -1, -1):
-        match = re.match(r"#define\s+ITEM_\w+\s+(\d+)", lines[i])
-        if match:
-            last_define = int(match.group(1))
-            break
-    new_num = (last_define + 1) if last_define is not None else 1
+        if last_item_idx is None or items_count_idx is None:
+            log("[ERROR] Could not locate items section in items.h")
+            return
 
-    new_line = f"#define {item_constant} {new_num}\r\n"
-    lines.insert(insert_index, new_line)
-    write_text(path, lines)
-    log(f"Inserted {item_constant} into items.h")
+        new_number = last_number + 1
+        item_constant = f"ITEM_{name.upper().replace(' ', '_')}"
+        new_define_line = f"#define {item_constant} {new_number}\n"
+        new_count_line = f"#define ITEMS_COUNT {new_number + 1}\n"
+
+        # Replace the old ITEMS_COUNT and insert before it
+        lines.insert(items_count_idx, new_define_line)
+        lines[items_count_idx + 1] = new_count_line  # overwrite old count
+
+        write_text(path, lines)
+        log(f"Inserted {item_constant} = {new_number} and updated ITEMS_COUNT to {new_number + 1}")
+        return item_constant
+
+    except Exception as e:
+        log(f"[ERROR] update_items_constants failed: {e}")
+        return None
 
 
-def update_items_json(name, pocket):
-    """Append new entry to src/data/items.json just before closing bracket."""
+def update_items_json(name, price, is_key_item):
+    """
+    Appends a new JSON block to src/data/items.json.
+    - Adds a comma to the previous block.
+    - Appends a properly formatted new item entry.
+    """
     path = os.path.join(SCRIPT_DIR, "src", "data", "items.json")
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.read().rstrip()
+    item_constant = f"ITEM_{name.upper().replace(' ', '_')}"
 
-    if content.endswith("]}"):
-        content = content[:-2].rstrip()
-        if not content.endswith(","):
-            content += ","
-        entry = f'\n  {{ "name": "{name}", "pocket": "{pocket}" }}\n]'
-        content += entry
-    write_text(path, [content])
-    log(f"Inserted {name} into items.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        # Find the position of the final closing brace ']'
+        end_idx = None
+        for i, line in enumerate(reversed(lines)):
+            if line.strip().startswith("]"):
+                end_idx = len(lines) - i - 1
+                break
+        if end_idx is None:
+            log("[ERROR] Could not locate JSON array end")
+            return
+
+        # Insert a comma before closing
+        prev_line = lines[end_idx - 1]
+        if not prev_line.strip().endswith(","):
+            lines[end_idx - 1] = prev_line.rstrip() + ",\n"
+
+        pocket = "POCKET_KEY_ITEMS" if is_key_item else "POCKET_ITEMS"
+        importance = 1 if is_key_item else 0
+
+        # Build new JSON block
+        new_block = [
+            "    {\r\n",
+            f'      "english": "{name.upper()}",\r\n',
+            f'      "itemId": "{item_constant}",\r\n',
+            f'      "price": {price},\r\n',
+            '      "holdEffect": "HOLD_EFFECT_NONE",\r\n',
+            '      "holdEffectParam": 0,\r\n',
+            '      "description_english": "DUMMY DESCRIPTION",\r\n',
+            f'      "importance": {importance},\r\n',
+            '      "registrability": 0,\r\n',
+            f'      "pocket": "{pocket}",\r\n',
+            '      "type": "ITEM_TYPE_BAG_MENU",\r\n',
+            '      "fieldUseFunc": "FieldUseFunc_OakStopsYou",\r\n',
+            '      "battleUsage": 0,\r\n',
+            '      "battleUseFunc": "NULL",\r\n',
+            '      "secondaryId": 0\r\n',
+            "    }\r\n"
+        ]
+
+        # Insert before final closing
+        lines[end_idx:end_idx] = new_block
+
+        write_text(path, lines)
+        log(f"Inserted {item_constant} into items.json")
+    except Exception as e:
+        log(f"[ERROR] update_items_json failed: {e}")
+
 
 
 def update_item_icon_table(item_constant):
@@ -1038,7 +1112,7 @@ def update_item_graphics_data(item_constant):
         f"extern const u32 gItemIconPalette_{item_constant[5:].lower()}[];\r\n"
     ]
     with open(path, "a", encoding="utf-8", newline="") as f:
-        f.writelines(new_block)
+        f.write_text(new_block)
     log(f"Appended graphics externs for {item_constant}")
 
 

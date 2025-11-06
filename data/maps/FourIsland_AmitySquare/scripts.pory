@@ -1,3 +1,33 @@
 mapscripts FourIsland_AmitySquare_MapScripts {
 
 }
+
+
+
+script FourIsland_AmitySquare_Bows {
+	msgbox(
+	"BOWS: Hello, yes!\p"
+
+	"This is my partner, PIKACHU!\n"
+	"He's, uh...\l"
+	"He's very yellow, as you can see!\p"
+
+	"Uh, yup!\n"
+	"Perfectly normal PIKACHU.\l"
+	"Nothing to see here :3", MSGBOX_NPC)
+}
+
+
+script FourIsland_AmitySquare_Trapinch {
+    lock
+    faceplayer
+    msgbox(
+	"PIKACHU?: Prrah!\n"
+	"", MSGBOX_DEFAULT)
+    showmonpic(SPECIES_TRAPINCH, 10, 3)
+    waitbuttonpress
+    hidemonpic
+    release
+    end
+    
+}

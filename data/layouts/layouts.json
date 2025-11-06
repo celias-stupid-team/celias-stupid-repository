@@ -6196,8 +6196,8 @@
     {
       "id": "LAYOUT_FOUR_ISLAND_AMITY_SQUARE",
       "name": "FourIsland_AmitySquare_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 26,
+      "height": 26,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
