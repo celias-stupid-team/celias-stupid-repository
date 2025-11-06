@@ -52,6 +52,7 @@ def log(msg):
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 last_browse_dir = SCRIPT_DIR  # global
 selected_midi_path = None
+selected_png_path = None
 log(f"Script directory: {SCRIPT_DIR}")
 
 # Minimize console window
@@ -87,8 +88,55 @@ def browse_png_with_preview(preview_label, name_entry=None):
             return
         log(f"Selected file: {filepath}")
         last_browse_dir = os.path.dirname(filepath)
+        global selected_png_path
+        selected_png_path = filepath
 
-        img = Image.open(filepath, newline="")
+        try:
+            with Image.open(filepath) as img:
+                log(f"[DEBUG] Loaded image: {filepath}")
+                # Enforce 16-color indexed PNG (mode 'P')
+                if img.mode != "P":
+                    log("[WARN] Image must be 16-color indexed (mode 'P'). Load aborted.")
+                    preview_label.configure(text="⚠️ Image must be 16-color indexed (mode 'P').", image="")
+                    preview_label.image = None
+                    return
+
+                # Resize and show preview
+                preview_img = ImageTk.PhotoImage(img.resize((64, 64)))
+                preview_label.configure(image=preview_img, text="")
+                preview_label.image = preview_img
+                log("[DEBUG] Image preview displayed successfully.")
+
+                # Auto-fill contextual fields if defaults are callable or default_list exists
+                if hasattr(preview_label, "field_vars"):
+                    for label, info in preview_label.field_vars.items():
+                        default = info.get("default")
+                        default_list = info.get("default_list")
+                        var = info.get("var")
+                        file_for_dropdown = info.get("file")
+
+                        if callable(default):
+                            try:
+                                value = default(filepath)
+                                var.set(value)
+                                log(f"[DEBUG] Auto-filled {label} with: {value}")
+                            except Exception as e:
+                                log(f"[ERROR] Error auto-filling {label}: {e}")
+
+                        elif default_list:
+                            try:
+                                var.set(default_list[0])
+                                log(f"[DEBUG] Set {label} to default_list[0]: {default_list[0]}")
+                            except Exception as e:
+                                log(f"[ERROR] Error setting default_list for {label}: {e}")
+
+        except Exception as e:
+            log(f"[ERROR] Error loading image: {e}")
+            preview_label.configure(text=f"❌ Failed to load image: {e}", image="")
+            preview_label.image = None
+
+
+
         log(f"Opened image: {filepath}, size={img.size}, mode={img.mode}")
         img.thumbnail((100, 100))
         tk_img = ImageTk.PhotoImage(img)
@@ -154,6 +202,37 @@ def browse_png_with_preview(preview_label, name_entry=None):
     except Exception as e:
         log(f"Error loading image: {e}")
         preview_label.config(text="No image loaded")
+
+from PIL import Image
+from pathlib import Path
+
+def generate_and_save_palette(image_path: Path, name: str, pal_path: Path) -> tuple[Path, Path]:
+    """Generate .pal file and save icon in indexed mode."""
+    formatted_name = name.lower().replace(" ", "_")
+
+    pal_path.parent.mkdir(parents=True, exist_ok=True)
+    icon_path = pal_path.parent.parent / "icons" / f"{formatted_name}.png"
+    icon_path.parent.mkdir(parents=True, exist_ok=True)
+
+    img = Image.open(image_path)
+    if img.mode != "P":
+        raise ValueError("Image must be in indexed (P) mode.")
+
+    # Save the icon copy
+    img.save(icon_path)
+
+    # Extract first 16 colors
+    raw_palette = img.getpalette()[:16 * 3]
+    palette_rgb = [raw_palette[i:i+3] for i in range(0, len(raw_palette), 3)]
+
+    # Write JASC-PAL file
+    with open(pal_path, "w", encoding="utf-8", newline="") as f:
+        f.write("JASC-PAL\r\n0100\r\n16\r\n")
+        for rgb in palette_rgb:
+            f.write(f"{rgb[0]} {rgb[1]} {rgb[2]}\r\n")
+
+    return icon_path, pal_path
+
 
 # --------------------------
 # Browse Audio / MIDI
@@ -308,12 +387,15 @@ for name in tabs:
     frame = ttk.Frame(notebook)
     notebook.add(frame, text=name)
 
+    # Initialize dictionary for this tab's field variables
+    field_vars = {}
+
     # Top-left checkboxes
     tk.Checkbutton(frame, text="Always On Top", variable=always_on_top_var,
                    command=toggle_always_on_top).pack(anchor="nw")
     copy_to_clipboard_var = tk.BooleanVar()
-    tk.Checkbutton(frame, text="Copy to Clipboard", variable=copy_to_clipboard_var,
-                   command=lambda: log(f"Copy to Clipboard set to {copy_to_clipboard_var.get()}")).pack(anchor="nw")
+    tk.Checkbutton(frame, text="Copy to Clipboard", variable=copy_to_clipboard_var).pack()
+    field_vars["Copy to Clipboard"] = {"var": copy_to_clipboard_var}
 
     # Name entry
     tk.Label(frame, text="Name:").pack(pady=(10, 0))
@@ -321,8 +403,8 @@ for name in tabs:
     name_entry.pack(pady=5)
 
     # Contextual fields
-    field_vars = {}
     build_tab_fields(frame, name, field_vars, dropdown_data)
+
 
     # Browse buttons
     if name in ["Item", "Trainer Pic", "Object"]:
@@ -365,8 +447,6 @@ for name in tabs:
 
 
 
-    # Insert button
-    tk.Button(frame, text="Insert", command=lambda n=name: log(f"Insert clicked on {n} tab")).pack(pady=5)
 
 
 def write_text(path, lines):
@@ -791,7 +871,6 @@ def update_debug_c(name, mus_constant):
 
 
 
-## Insert Items!
 # --------------------------
 # Backend: Item insertion
 # --------------------------
@@ -814,18 +893,9 @@ def handle_item_insert(name_entry, field_vars, status_label=None, preview_label=
             status_label.config(text="Error: No PNG selected.", fg="red")
         return
 
-    # Find last_browse_dir PNG path again (browse_png_with_preview updates it globally)
-    global last_browse_dir
-    selected_png = None
-    try:
-        # Try to rederive from preview_label.image (not directly stored, so use global)
-        # browse_png_with_preview updates last_browse_dir each time
-        for f in os.listdir(last_browse_dir):
-            if f.lower().endswith(".png"):
-                selected_png = os.path.join(last_browse_dir, f)
-                break
-    except Exception:
-        pass
+    global selected_png_path
+    selected_png = selected_png_path
+
 
     if not selected_png or not os.path.exists(selected_png):
         if status_label:
@@ -834,11 +904,7 @@ def handle_item_insert(name_entry, field_vars, status_label=None, preview_label=
 
     # Collect any contextual fields (Price, Key Item)
     pocket = field_vars.get("Price", {}).get("var").get() if "Price" in field_vars else "500"
-    copy_flag = False
-    for child in name_entry.master.master.winfo_children():
-        if isinstance(child, tk.Checkbutton) and child.cget("text") == "Copy to Clipboard":
-            copy_flag = child.var.get()
-            break
+    copy_flag = field_vars.get("Copy to Clipboard", {}).get("var", tk.BooleanVar()).get()
 
     log(f"Inserting item: {name}, PNG: {selected_png}, Pocket/Price={pocket}")
 
@@ -856,8 +922,20 @@ def insert_item_backend(name, png_path, pocket, copy_flag):
     log(f"=== Begin Item Insertion ===")
     log(f"Generated constant: {item_constant}")
 
+
+    icon_dir = Path(SCRIPT_DIR) / "graphics" / "items" / "icons"
+    pal_dir = Path(SCRIPT_DIR) / "graphics" / "items" / "icon_palettes"
+    icon_dir.mkdir(parents=True, exist_ok=True)
+    pal_dir.mkdir(parents=True, exist_ok=True)
+
+    icon_path = icon_dir / f"{name.lower().replace(' ', '_')}.png"
+    pal_path = pal_dir / f"{name.lower().replace(' ', '_')}.pal"
+
+    generate_and_save_palette(Path(png_path), name, pal_path)
+
+
     try:
-        save_item_icon_and_palette(png_path, name)
+        generate_and_save_palette(png_path, name, pal_path)
         update_items_constants(item_constant)
         update_items_json(name, pocket)
         update_item_icon_table(item_constant)
@@ -883,23 +961,6 @@ def make_item_constant(name: str) -> str:
     return f"ITEM_{cleaned}"
 
 
-def save_item_icon_and_palette(png_path, name):
-    """Saves item PNG and generates its palette inside graphics folders."""
-    item_filename = f"{name.lower().replace(' ', '_')}.png"
-    dest_img = os.path.join(SCRIPT_DIR, "graphics", "items", item_filename)
-    os.makedirs(os.path.dirname(dest_img), exist_ok=True)
-    shutil.copy2(png_path, dest_img)
-
-    # Generate palette image (.pal) for reference
-    image = Image.open(png_path).convert("RGBA")
-    palette = image.getcolors(maxcolors=256)
-    if palette:
-        pal_filename = item_filename.replace(".png", ".pal")
-        pal_path = os.path.join(SCRIPT_DIR, "graphics", "items", pal_filename)
-        with open(pal_path, "w", encoding="utf-8", newline="") as f:
-            for _, color in palette:
-                f.write(f"{color[0]} {color[1]} {color[2]}\r\n")
-    return dest_img
 
 def update_items_constants(item_constant):
     """Append to include/constants/items.h before #define ITEM_NONE."""
