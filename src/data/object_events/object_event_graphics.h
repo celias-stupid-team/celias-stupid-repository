@@ -477,3 +477,4 @@ const u32 gObjectEventPic_Heracross[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Blissey[] = INCBIN_U32("graphics/object_events/pics/stupid/Blissey.4bpp");
 const u32 gObjectEventPic_Chatot[] = INCBIN_U32("graphics/object_events/pics/stupid/Chatot.4bpp");
 const u32 gObjectEventPic_Dawn[] = INCBIN_U32("graphics/object_events/pics/stupid/Dawn.4bpp");
+const u32 gObjectEventPic_Arcanine[] = INCBIN_U32("graphics/object_events/pics/stupid/Arcanine.4bpp");
