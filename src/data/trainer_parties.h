@@ -5328,38 +5328,24 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
 static const struct TrainerMonItemCustomMoves sParty_EliteFourLance[] = {
     {
         .iv = 250,
-        .lvl = 56,
-        .species = SPECIES_GYARADOS,
+        .lvl = 18,
+        .species = SPECIES_WINGULL,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_HYPER_BEAM, MOVE_DRAGON_RAGE, MOVE_TWISTER, MOVE_BITE},
+        .moves = {MOVE_SUPERSONIC, MOVE_WATER_GUN, MOVE_WING_ATTACK, MOVE_NONE},
     },
     {
         .iv = 250,
-        .lvl = 54,
-        .species = SPECIES_DRAGONAIR,
+        .lvl = 18,
+        .species = SPECIES_SLUGMA,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_HYPER_BEAM, MOVE_SAFEGUARD, MOVE_DRAGON_RAGE, MOVE_OUTRAGE},
+        .moves = {MOVE_ROCK_THROW, MOVE_EMBER, MOVE_SMOG, MOVE_NONE},
     },
     {
         .iv = 250,
-        .lvl = 54,
-        .species = SPECIES_DRAGONAIR,
+        .lvl = 20,
+        .species = SPECIES_GROVYLE,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_HYPER_BEAM, MOVE_SAFEGUARD, MOVE_THUNDER_WAVE, MOVE_OUTRAGE},
-    },
-    {
-        .iv = 250,
-        .lvl = 58,
-        .species = SPECIES_AERODACTYL,
-        .heldItem = ITEM_NONE,
-        .moves = {MOVE_HYPER_BEAM, MOVE_ANCIENT_POWER, MOVE_WING_ATTACK, MOVE_SCARY_FACE},
-    },
-    {
-        .iv = 250,
-        .lvl = 60,
-        .species = SPECIES_DRAGONITE,
-        .heldItem = ITEM_SITRUS_BERRY,
-        .moves = {MOVE_HYPER_BEAM, MOVE_SAFEGUARD, MOVE_OUTRAGE, MOVE_WING_ATTACK},
+        .moves = {MOVE_PURSUIT, MOVE_FURY_CUTTER, MOVE_QUICK_ATTACK, MOVE_ABSORB},
     },
 };
 

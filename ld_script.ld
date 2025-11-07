@@ -1023,6 +1023,8 @@ SECTIONS {
         sound/songs/midi/mus_two_island_mart.o(.rodata);
         sound/songs/midi/mus_clothes_shop.o(.rodata);
         sound/songs/midi/mus_cyber_world.o(.rodata);
+        sound/songs/midi/mus_encounter_may.o(.rodata);
+        sound/songs/midi/mus_battle_may.o(.rodata);
 
     } > ROM =0
 
