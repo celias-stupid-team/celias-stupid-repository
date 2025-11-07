@@ -403,6 +403,8 @@ gSongTable::
 	song mus_cyber_world, 0, 0
 	song mus_encounter_may, 0, 0
 	song mus_battle_may, 0, 0
+	song mus_pokemon_island, 0, 0
+	song mus_pokemon_island_lab, 0, 0
 
 
 

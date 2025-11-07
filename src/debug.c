@@ -3763,7 +3763,9 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CLOTHES_SHOP)         \
     X(MUS_CYBER_WORLD) \
     X(MUS_ENCOUNTER_MAY) \
-    X(MUS_BATTLE_MAY)
+    X(MUS_BATTLE_MAY) \
+    X(MUS_POKEMON_ISLAND) \
+    X(MUS_POKEMON_ISLAND_LAB) \
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \
