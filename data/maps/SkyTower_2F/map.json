@@ -15,7 +15,22 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_TOWER_3F",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

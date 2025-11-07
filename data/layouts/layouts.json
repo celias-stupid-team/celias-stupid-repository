@@ -6177,7 +6177,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
     },
@@ -6189,7 +6189,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_2F/map.bin"
     },
@@ -6213,7 +6213,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
     }

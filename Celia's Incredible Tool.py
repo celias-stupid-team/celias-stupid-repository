@@ -451,11 +451,14 @@ for name in tabs:
 
 def write_text(path, lines):
     """Writes text with strict Windows CRLF line endings (Git-safe)."""
-    text = "".join(lines)                     # flatten into one string
-    text = text.replace("\r\n", "\n").replace("\r", "\n")  # normalize all line endings
-    text = text.replace("\n", "\r\n")         # enforce CRLF
+    # Combine all lines into one string, normalize, then enforce CRLF
+    text = "".join(lines)
+    text = text.replace("\r\n", "\n").replace("\r", "\n")  # normalize
+    text = re.sub(r"(?<!\r)\n", "\r\n", text)              # enforce CRLF for all newlines
+
     with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(text)
+
 
 
 
@@ -637,7 +640,7 @@ def update_songs_header(name, mus_constant):
                 break
 
         with open(path, "w", encoding="utf-8",newline="") as f:
-            f.write_text(lines)
+            write_text(path, lines)
 
         log(f"Updated {path} successfully.")
     except Exception as e:
@@ -963,6 +966,7 @@ def insert_item_backend(name, png_path, pocket, copy_flag, price=None, is_key_it
     except Exception as e:
         log(f"[ERROR] Item insertion failed: {e}")
 
+
 def make_item_constant(name: str) -> str:
     """Sanitize name into valid ITEM_ constant."""
     cleaned = name.upper()
@@ -1112,7 +1116,7 @@ def update_item_graphics_data(item_constant):
         f"extern const u32 gItemIconPalette_{item_constant[5:].lower()}[];\r\n"
     ]
     with open(path, "a", encoding="utf-8", newline="") as f:
-        f.write_text(new_block)
+        write_text(path, new_block)
     log(f"Appended graphics externs for {item_constant}")
 
 

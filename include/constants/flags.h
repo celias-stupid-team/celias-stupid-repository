@@ -376,7 +376,7 @@
 #define FLAG_REVIVED_TYRANASTAR               0x14A
 #define FLAG_HIDE_NEBBY               0x14B
 #define FLAG_PUT_NEBBY_IN_ALTAR               0x14C
-#define FLAG_0x14D               0x14D
+#define FLAG_FOUGHT_FALKNER               0x14D
 #define FLAG_0x14E               0x14E
 #define FLAG_0x14F               0x14F
 #define FLAG_0x150               0x150
