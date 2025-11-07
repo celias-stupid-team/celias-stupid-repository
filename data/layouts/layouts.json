@@ -6228,6 +6228,42 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Ocean1/border.bin",
       "blockdata_filepath": "data/layouts/Ocean1/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN2",
+      "name": "Ocean2_Layout",
+      "width": 9,
+      "height": 51,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/Ocean2/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean2/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN3",
+      "name": "Ocean3_Layout",
+      "width": 45,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/Ocean3/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean3/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN4",
+      "name": "Ocean4_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/Ocean4/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean4/map.bin"
     }
   ]
 }

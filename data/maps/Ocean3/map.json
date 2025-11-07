@@ -1,7 +1,7 @@
 {
-  "id": "MAP_POKEMON_ISLAND",
-  "name": "Pokemon_Island",
-  "layout": "LAYOUT_POKEMON_ISLAND",
+  "id": "MAP_OCEAN3",
+  "name": "Ocean3",
+  "layout": "LAYOUT_OCEAN3",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
@@ -15,34 +15,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE20",
-      "offset": 19,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": -24,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE21_SOUTH",
+      "map": "MAP_OCEAN2",
       "offset": 0,
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE21_NORTH",
-      "offset": -50,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": 0,
+      "map": "MAP_FUSHCIA_CITY",
+      "offset": 56,
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN2",
+      "map": "MAP_ROUTE18",
       "offset": -7,
-      "direction": "right"
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [],

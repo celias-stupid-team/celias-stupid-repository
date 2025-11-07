@@ -1768,3 +1768,12 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean1/scripts.inc"
 	.include "data/maps/Ocean1/text.inc"
+
+	.include "data/maps/Ocean2/scripts.inc"
+	.include "data/maps/Ocean2/text.inc"
+
+	.include "data/maps/Ocean4/scripts.inc"
+	.include "data/maps/Ocean4/text.inc"
+
+	.include "data/maps/Ocean3/scripts.inc"
+	.include "data/maps/Ocean3/text.inc"

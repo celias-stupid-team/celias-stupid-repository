@@ -33,6 +33,11 @@
       "map": "MAP_ZERO_ISLAND",
       "offset": 50,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": 41,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -15,9 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE19",
-      "offset": -7,
-      "direction": "right"
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": -8,
+      "direction": "down"
     }
   ],
   "object_events": [

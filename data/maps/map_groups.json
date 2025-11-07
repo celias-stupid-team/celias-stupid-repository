@@ -709,6 +709,9 @@
     "AetherParadise_NebbyRoom"
   ],
   "gMapGroup_Ocean": [
-    "Ocean1"
+    "Ocean1",
+    "Ocean2",
+    "Ocean3",
+    "Ocean4"
   ]
 }
