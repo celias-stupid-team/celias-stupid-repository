@@ -508,8 +508,8 @@ script VermilionCity_OnixSign {
 				closemessage
 				playfanfare(MUS_SLOTS_WIN)
 				msgbox(
-				"{PLAYER} discovered a\n"
-				"POKéMON SIGN!", MSGBOX_DEFAULT)
+				"{PLAYER} discovered the rest\n"
+				"of the POKéMON SIGN!", MSGBOX_DEFAULT)
 				waitfanfare
 			}
 		}

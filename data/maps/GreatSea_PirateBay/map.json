@@ -2,7 +2,7 @@
   "id": "MAP_GREAT_SEA_PIRATE_BAY",
   "name": "GreatSea_PirateBay",
   "layout": "LAYOUT_GREAT_SEA_PIRATE_BAY",
-  "music": "MUS_ROUTE11",
+  "music": "MUS_BINKS_SAKE",
   "region_map_section": "MAPSEC_GREAT_BAY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
