@@ -377,7 +377,7 @@
 #define FLAG_HIDE_NEBBY               0x14B
 #define FLAG_PUT_NEBBY_IN_ALTAR               0x14C
 #define FLAG_FOUGHT_FALKNER               0x14D
-#define FLAG_0x14E               0x14E
+#define FLAG_SPAWN_VERMILION_ONIX               0x14E
 #define FLAG_0x14F               0x14F
 #define FLAG_0x150               0x150
 #define FLAG_0x151               0x151

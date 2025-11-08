@@ -1027,6 +1027,7 @@ SECTIONS {
         sound/songs/midi/mus_battle_may.o(.rodata);
         sound/songs/midi/mus_pokemon_island.o(.rodata);
         sound/songs/midi/mus_pokemon_island_lab.o(.rodata);
+        sound/songs/midi/mus_binks_sake.o(.rodata);
 
     } > ROM =0
 
