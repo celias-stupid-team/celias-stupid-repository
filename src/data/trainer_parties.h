@@ -539,7 +539,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BugCatcherElijah[] = {
         .iv = 0,
         .lvl = 27,
         .species = SPECIES_BUTTERFREE_FEMALE,
-        .moves = {MOVE_CONFUSION, MOVE_SLEEP_POWDER, MOVE_POISON_POWDER, MOVE_GUST}
+        .moves = {MOVE_CONFUSION, MOVE_GUST, MOVE_POISON_POWDER, MOVE_NONE}
     },
 };
 
@@ -6249,12 +6249,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperFlint[] = {
         .lvl = 17,
         .species = SPECIES_WYNAUT,
         .moves = {MOVE_ENCORE, MOVE_MIRROR_COAT, MOVE_NONE, MOVE_NONE},
-    },
-    {
-        .iv = 0,
-        .lvl = 14,
-        .species = SPECIES_FROSLASS,
-        .moves = {MOVE_ICEBEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

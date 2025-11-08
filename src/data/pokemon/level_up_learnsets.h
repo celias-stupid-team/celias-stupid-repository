@@ -1794,13 +1794,12 @@ static const struct LevelUpMove sVaporeonLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sJolteonLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_PIN_MISSILE),
+    LEVEL_UP_MOVE(0, MOVE_LIGHTNING),
     LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_TWINEEDLE),
     LEVEL_UP_MOVE(1, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE(1, MOVE_AGILITY),
-    LEVEL_UP_MOVE(55, MOVE_THUNDER),
-    LEVEL_UP_MOVE(55, MOVE_RAIN_DANCE),
+    LEVEL_UP_MOVE(55, MOVE_VICE_GRIP),
     LEVEL_UP_END
 };
 
