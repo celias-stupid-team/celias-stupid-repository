@@ -450,14 +450,12 @@ for name in tabs:
 
 
 def write_text(path, lines):
-    """Writes text with strict Windows CRLF line endings (Git-safe)."""
-    # Combine all lines into one string, normalize, then enforce CRLF
+    """Writes text with strict LF line endings (Git-safe for repo convention)."""
     text = "".join(lines)
-    text = text.replace("\r\n", "\n").replace("\r", "\n")  # normalize
-    text = re.sub(r"(?<!\r)\n", "\r\n", text)              # enforce CRLF for all newlines
-
-    with open(path, "w", encoding="utf-8", newline="") as f:
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(text)
+
 
 
 
