@@ -219,11 +219,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterEddie[] = {
     {
         .iv = 0,
         .lvl = 21,
-        .species = SPECIES_POLIWAG,
-    },
-    {
-        .iv = 0,
-        .lvl = 21,
         .species = SPECIES_HORSEA,
     },
 };
@@ -249,12 +244,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDave[] = {
     {
         .iv = 0,
         .lvl = 18,
-        .species = SPECIES_NIDORAN_M,
-    },
-    {
-        .iv = 0,
-        .lvl = 18,
-        .species = SPECIES_NIDORAN_F,
+        .species = SPECIES_ODDISH,
     },
 };
 

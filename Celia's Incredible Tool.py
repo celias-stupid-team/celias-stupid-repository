@@ -150,6 +150,18 @@ def browse_png_with_preview(preview_label, name_entry=None):
             name_entry.delete(0, tk.END)
             name_entry.insert(0, base_name)
             log(f"Name entry updated to: {base_name}")
+        
+        if preview_label.master.master.tab(notebook.select(), "text") == "Object":
+            palettes = load_object_palettes()
+            field_vars = preview_label.field_vars
+            palette_info = field_vars.get("Palette", {})
+            if palette_info:
+                var = palette_info["var"]
+                var.set(palettes[0])
+                for child in preview_label.master.winfo_children():
+                    if isinstance(child, ttk.Combobox) and str(child.cget("textvariable")) == str(var):
+                        child["values"] = palettes
+
 
         # Auto-fill contextual fields if defaults are callable or default_list exists
         if hasattr(preview_label, "field_vars"):
@@ -443,6 +455,14 @@ for name in tabs:
             command=lambda e=name_entry, fv=field_vars, sl=status_label: handle_music_insert(e, fv, sl)
         ).pack(pady=5)
 
+    elif name == "Object":
+        status_label = tk.Label(frame, text="", fg="lime")
+        status_label.pack(pady=(0, 5))
+        tk.Button(
+            frame,
+            text="Insert",
+            command=lambda e=name_entry, fv=field_vars, sl=status_label, pl=preview_label: handle_overworld_insertion(e, fv, sl, pl)
+        ).pack(pady=5)
 
 
 
@@ -1107,15 +1127,36 @@ def update_item_icon_table(item_constant):
 
 
 def update_item_graphics_data(item_constant):
-    """Append new extern definitions to src/data/graphics/items.h."""
+    """
+    Append new graphics INCBIN entries to src/data/graphics/items.h.
+    Example:
+        const u32 gItemIcon_Hamburger[] = INCBIN_U32("graphics/items/icons/hamburger.4bpp.lz");
+        const u32 gItemIconPalette_Hamburger[] = INCBIN_U32("graphics/items/icon_palettes/hamburger.gbapal.lz");
+    """
     path = os.path.join(SCRIPT_DIR, "src", "data", "graphics", "items.h")
-    new_block = [
-        f"extern const u32 gItemIcon_{item_constant[5:].lower()}[];\r\n",
-        f"extern const u32 gItemIconPalette_{item_constant[5:].lower()}[];\r\n"
-    ]
-    with open(path, "a", encoding="utf-8", newline="") as f:
-        write_text(path, new_block)
-    log(f"Appended graphics externs for {item_constant}")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        # Build the lines to add
+        base_name = item_constant[5:].lower()
+        new_lines = [
+            f'const u32 gItemIcon_{base_name}[] = INCBIN_U32("graphics/items/icons/{base_name}.4bpp.lz");\n',
+            f'const u32 gItemIconPalette_{base_name}[] = INCBIN_U32("graphics/items/icon_palettes/{base_name}.gbapal.lz");\n'
+        ]
+
+        # Ensure there's a blank line before appending for readability
+        if not lines[-1].endswith("\n"):
+            lines[-1] += "\n"
+        lines.extend(new_lines)
+
+        # Write back with safe LF or CRLF normalization (depending on repo standard)
+        write_text(path, lines)
+        log(f"Appended graphics INCBINs for {item_constant}")
+
+    except Exception as e:
+        log(f"[ERROR] update_item_graphics_data failed: {e}")
+
 
 
 def update_item_graphics_header(item_constant):
@@ -1141,7 +1182,76 @@ def update_item_graphics_header(item_constant):
     write_text(path, lines)
     log(f"Inserted {item_constant} externs into graphics.h")
 
+## Overworld Objects!
 
+def load_object_palettes():
+    path = os.path.join(SCRIPT_DIR, "src", "event_object_movement.c")
+    if not os.path.exists(path):
+        log(f"[ERROR] Missing event_object_movement.c")
+        return ["New Palette"]
+
+    with open(path, "r", encoding="utf-8", newline="") as f:
+        lines = f.readlines()
+
+    in_block = False
+    palettes = []
+    for line in lines:
+        if "#define OBJ_EVENT_PAL_TAG_PLAYER_RED" in line:
+            in_block = True
+            continue
+        if "#define OBJ_EVENT_PAL_TAG_NONE" in line:
+            break
+        if in_block and line.strip().startswith("#define OBJ_EVENT_PAL_TAG_"):
+            name = line.split("OBJ_EVENT_PAL_TAG_")[1].split()[0]
+            palettes.append(name)
+    return palettes or ["New Palette"]
+
+def handle_overworld_insertion(name_entry, field_vars, status_label=None, preview_label=None):
+    name = name_entry.get().strip()
+    if not name:
+        if status_label: status_label.config(text="Error: No name entered.", fg="red")
+        return
+    global selected_png_path
+    if not selected_png_path or not os.path.exists(selected_png_path):
+        if status_label: status_label.config(text="Error: No PNG selected.", fg="red")
+        return
+
+    width = field_vars.get("Width", {}).get("var").get()
+    walking = field_vars.get("Walking", {}).get("var").get()
+    palette = field_vars.get("Palette", {}).get("var").get()
+
+    log(f"Inserting overworld object: {name}, Width={width}, Walking={walking}, Palette={palette}")
+    handle_overworld_backend(name, selected_png_path, width, walking, palette)
+
+    obj_constant = f"OBJ_EVENT_GFX_{name.upper()}"
+    if status_label:
+        status_label.config(text=f"{obj_constant} successfully inserted!", fg="lime")
+        status_label.after(5000, lambda: status_label.config(text=""))
+
+def handle_overworld_backend(name, png_path, width, walking, palette):
+    obj_constant = f"OBJ_EVENT_GFX_{name.upper()}"
+    log(f"=== Begin Overworld Insertion ===")
+    log(f"Generated constant: {obj_constant}")
+
+    save_object_image(name, png_path)
+    save_object_palette(name, palette)
+    update_event_objects_header(obj_constant)
+    update_object_event_graphics(obj_constant)
+    update_object_event_pic_tables(obj_constant)
+    update_object_event_graphics_info_pointers(obj_constant)
+    update_spritesheet_rules(obj_constant)
+    update_object_event_graphics_info(obj_constant)
+
+    log(f"=== Overworld insertion complete for {obj_constant} ===")
+
+def save_object_image(name, png_path): pass
+def save_object_palette(name, palette): pass
+def update_event_objects_header(obj_constant): pass
+def update_object_event_graphics(obj_constant): pass
+def update_object_event_pic_tables(obj_constant): pass
+def update_object_event_graphics_info_pointers(obj_constant): pass
+def update_spritesheet_rules(obj_constant): pass
+def update_object_event_graphics_info(obj_constant): pass
 
 log("Starting main loop")
 toggle_always_on_top()

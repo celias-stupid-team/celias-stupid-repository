@@ -29384,10 +29384,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 [SPECIES_KENYA] =
 {
     .baseHP = 65,
-    .baseAttack = 90,
+    .baseAttack = 125,
     .baseDefense = 65,
     .baseSpeed = 100,
-    .baseSpAttack = 61,
+    .baseSpAttack = 93,
     .baseSpDefense = 61,
     .types = {TYPE_NORMAL, TYPE_NORMAL},
     .catchRate = 255,

@@ -1928,12 +1928,10 @@ static const struct LevelUpMove sArticunoLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sZapdosLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_DRILL_PECK),
     LEVEL_UP_MOVE(1, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE(1, MOVE_DUAL_WINGBEAT),
-    LEVEL_UP_MOVE(51, MOVE_AGILITY),
-    LEVEL_UP_MOVE(52, MOVE_THUNDER),
+    LEVEL_UP_MOVE(51, MOVE_THUNDER),
     LEVEL_UP_END
 };
 

@@ -99,7 +99,7 @@ script MemorialPillar_OnixSign {
 	"the ground.", MSGBOX_DEFAULT)
 
 	if(!flag(FLAG_SPAWN_VERMILION_ONIX)) {
-		playfanfare(MUS_SLOTS_WIN)
+		playfanfare(MUS_HALF_SIGN)
 		setflag(FLAG_SPAWN_VERMILION_ONIX)
 		msgbox(
 		"{PLAYER} discovered the bottom\n"

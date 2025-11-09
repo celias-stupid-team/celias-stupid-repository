@@ -501,7 +501,7 @@ script VermilionCity_OnixSign {
 				"There's his head!", MSGBOX_DEFAULT)
 
 		} else {
-			setflag(FLAG_ONIX_TAIL_SIGN) {
+			setflag(FLAG_ONIX_TAIL_SIGN)
 				msgbox(
 				"Oh, hey!\n"
 				"There's his head!", MSGBOX_DEFAULT)
@@ -511,7 +511,7 @@ script VermilionCity_OnixSign {
 				"{PLAYER} discovered the rest\n"
 				"of the POKéMON SIGN!", MSGBOX_DEFAULT)
 				waitfanfare
-			}
+			
 		}
 	}
 	release
