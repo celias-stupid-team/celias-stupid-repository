@@ -33,11 +33,6 @@
       "map": "MAP_TWO_ISLAND_NORTH",
       "offset": -4,
       "direction": "right"
-    },
-    {
-      "map": "MAP_POKEMON_ISLAND",
-      "offset": 50,
-      "direction": "right"
     }
   ],
   "object_events": [

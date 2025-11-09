@@ -33,6 +33,16 @@
       "map": "MAP_OCEAN3",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": -15,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": 23,
+      "direction": "left"
     }
   ],
   "object_events": [

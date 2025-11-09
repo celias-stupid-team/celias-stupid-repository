@@ -26,13 +26,18 @@
     },
     {
       "map": "MAP_ROUTE18",
-      "offset": -7,
+      "offset": -9,
       "direction": "up"
     },
     {
       "map": "MAP_ZERO_ISLAND",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": 7,
+      "direction": "left"
     }
   ],
   "object_events": [],

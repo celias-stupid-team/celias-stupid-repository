@@ -15,19 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "offset": 0,
       "direction": "right"
-    },
-    {
-      "map": "MAP_POKEMON_ISLAND",
-      "offset": -19,
-      "direction": "up"
     },
     {
       "map": "MAP_ZERO_ISLAND",
@@ -35,9 +25,14 @@
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN2",
-      "offset": 41,
+      "map": "MAP_OCEAN1",
+      "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -12,
+      "direction": "left"
     }
   ],
   "object_events": [
