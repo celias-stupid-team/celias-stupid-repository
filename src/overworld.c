@@ -911,7 +911,9 @@ struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
 
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
 {
-    if (mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE))
+    if ((mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE)) ||
+        (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CELADON_CITY_CONDOMINIUMS_1F)
+          && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CELADON_CITY_CONDOMINIUMS_1F)))
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (mapType == MAP_TYPE_UNDERWATER)
         return PLAYER_AVATAR_FLAG_UNDERWATER;

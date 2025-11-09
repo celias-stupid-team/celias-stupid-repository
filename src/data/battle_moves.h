@@ -4308,7 +4308,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_SKY_UPPERCUT,
         .power = 85,
-        .type = TYPE_FIGHTING,
+        .type = TYPE_FIGHTING_SPECIAL,
         .accuracy = 90,
         .pp = 15,
         .secondaryEffectChance = 0,
@@ -5911,7 +5911,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPECIALPUNCH] =    {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 70,
         .type = TYPE_FIGHTING_SPECIAL,
         .accuracy = 100,
         .pp = 35,

@@ -1037,7 +1037,7 @@
       "id": "LAYOUT_ROUTE16",
       "name": "Route16_Layout",
       "width": 48,
-      "height": 20,
+      "height": 21,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2104,7 +2104,7 @@
     {
       "id": "LAYOUT_CELADON_CITY_DEPARTMENT_STORE_3F",
       "name": "CeladonCity_DepartmentStore_3F_Layout",
-      "width": 13,
+      "width": 14,
       "height": 15,
       "border_width": 2,
       "border_height": 2,
