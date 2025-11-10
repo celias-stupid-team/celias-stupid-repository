@@ -151,16 +151,23 @@ def browse_png_with_preview(preview_label, name_entry=None):
             name_entry.insert(0, base_name)
             log(f"Name entry updated to: {base_name}")
         
-        if preview_label.master.master.tab(notebook.select(), "text") == "Object":
-            palettes = load_object_palettes()
-            field_vars = preview_label.field_vars
-            palette_info = field_vars.get("Palette", {})
-            if palette_info:
-                var = palette_info["var"]
-                var.set(palettes[0])
-                for child in preview_label.master.winfo_children():
-                    if isinstance(child, ttk.Combobox) and str(child.cget("textvariable")) == str(var):
-                        child["values"] = palettes
+        # If we're in the Object tab, populate palette dropdown
+        try:
+            current_tab = preview_label.master.master.tab(preview_label.master.master.select(), "text")
+            if current_tab == "Object":
+                palettes = load_object_palettes()
+                field_vars = preview_label.field_vars
+                palette_info = field_vars.get("Palette", {})
+                if palette_info:
+                    var = palette_info["var"]
+                    var.set(palettes[0])
+                    for child in preview_label.master.winfo_children():
+                        if isinstance(child, ttk.Combobox) and str(child.cget("textvariable")) == str(var):
+                            child["values"] = palettes
+                    log(f"Loaded {len(palettes)} object palettes into dropdown")
+        except Exception as e:
+            log(f"[WARN] Could not load object palettes: {e}")
+
 
 
         # Auto-fill contextual fields if defaults are callable or default_list exists
@@ -373,7 +380,7 @@ def build_tab_fields(parent_frame, tab_name, field_vars, dropdown_data):
 log("Creating main window")
 root = tk.Tk()
 root.title("Celia's Incredible Tool")
-root.geometry("400x350")
+root.geometry("400x400")
 
 log("Creating notebook (tabs)")
 notebook = ttk.Notebook(root)
@@ -1244,14 +1251,22 @@ def handle_overworld_backend(name, png_path, width, walking, palette):
 
     log(f"=== Overworld insertion complete for {obj_constant} ===")
 
-def save_object_image(name, png_path): pass
-def save_object_palette(name, palette): pass
-def update_event_objects_header(obj_constant): pass
-def update_object_event_graphics(obj_constant): pass
-def update_object_event_pic_tables(obj_constant): pass
-def update_object_event_graphics_info_pointers(obj_constant): pass
-def update_spritesheet_rules(obj_constant): pass
-def update_object_event_graphics_info(obj_constant): pass
+def save_object_image(name, png_path): 
+    log(f"=== Save object image ===")
+def save_object_palette(name, palette): 
+    log(f"=== Save object palette ===")
+def update_event_objects_header(obj_constant): 
+    log(f"=== Update object event header ===")
+def update_object_event_graphics(obj_constant): 
+    log(f"=== Update object event graphics  ===")
+def update_object_event_pic_tables(obj_constant): 
+    log(f"=== Update pic tables ===")
+def update_object_event_graphics_info_pointers(obj_constant): 
+    log(f"=== Update obj event graphics info pointers ===")
+def update_spritesheet_rules(obj_constant): 
+    log(f"=== Update spritesheet rultes ===")
+def update_object_event_graphics_info(obj_constant): 
+    log(f"=== Update object event graphics info ===")
 
 log("Starting main loop")
 toggle_always_on_top()

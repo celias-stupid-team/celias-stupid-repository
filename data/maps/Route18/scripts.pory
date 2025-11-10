@@ -214,3 +214,23 @@ script Route18_BirdCultistBottom {
 	msgbox("Have you come to pray at the\naltar of the LIGHTNING ARCHBIRD?\pThey say that one who encounters\nall three is holy and blessed.\lFor the GLORY of the SKIES!\pI pray calm for you, o traveler.\n", MSGBOX_NPC)
 	end
 }
+
+
+script Route18_FindShellder {
+	lock
+	if(flag(FLAG_TEMP_2)) {
+		msgbox(
+		"I wonder how much these\n"
+		"sell for…", MSGBOX_DEFAULT)
+		release
+	}
+	setmetatile(35, 22, 0x115, FALSE)
+	special(DrawWholeMapView)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox("{PLAYER} picked up a SHELLDER!\n", MSGBOX_DEFAULT)
+	waitfanfare
+	call(Common_Script_GiftPokemon)
+	setflag(FLAG_TEMP_2)
+	release
+}

@@ -7649,7 +7649,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FLYING_PRESS] =   
     {
         .effect = EFFECT_HIT,
-        .power = 35,
+        .power = 85,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 35,
