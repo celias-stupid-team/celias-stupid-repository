@@ -30,9 +30,8 @@ SilphCo_2F_EventScript_Jerry::
 
 script SilphCo_2F_OnLoad {
 	call_if_unset(FLAG_SILPH_2F_DOOR_1, EventScript_Close2FDoor1)
-	call_if_unset(FLAG_SILPH_2F_DOOR_2, EventScript_Close2FDoor2)
-	if(flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
-		playbgm(MUS_PEWTER, TRUE)
+	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
+		setvar(VAR_START_SILPH_MUSIC, 1)
 	}
 }
 
@@ -87,4 +86,17 @@ script SilphCo_2F_EventScript_FireMove {
 	"first line\p"
 	"If only MR. FLAMETHROWER was here…\n"
 	"He'd know what to do!", MSGBOX_NPC)
+}
+
+script SilphCo_2F_EventScript_BlockedSign {
+	msgbox(
+	"This sign was once blocked, and\n"
+	"now it is not.\p"
+
+	"Alas, it doesn't actually say\n"
+	"anything worthwhile.\p"
+
+	"Oh well.\n"
+	"", MSGBOX_SIGN)
+
 }

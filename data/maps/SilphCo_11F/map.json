@@ -2,13 +2,13 @@
   "id": "MAP_SILPH_CO_11F",
   "name": "SilphCo_11F",
   "layout": "LAYOUT_SILPH_CO_11F",
-  "music": "MUS_SILPH",
+  "music": "MUS_CYBER_WORLD",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": false,
   "floor_number": 11,
@@ -48,7 +48,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
       "x": 6,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -205,6 +205,51 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
     }
   ],
   "bg_events": [

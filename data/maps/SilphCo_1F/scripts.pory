@@ -17,9 +17,7 @@ SilphCo_1F_EventScript_FloorSign::
 	end
 `
 script SilphCo_1F_OnLoad {
-	if(flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
-		playbgm(MUS_PEWTER, TRUE)
-	}
+	
 }
 
 script SilphCo_BackDoorSign {

@@ -1026,6 +1026,13 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 static u16 GetLocationMusic(struct WarpData * warp)
 {
+    if(!FlagGet(FLAG_SILPH_DMCA_DEFEATED) // don't make fun of me
+    && ((warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_1F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_1F))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_2F))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_HUB_ROOM) && warp->mapNum == MAP_NUM(MAP_SILPH_HUB_ROOM))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_11F)))) {
+        return MUS_SILPH;
+    }
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 
