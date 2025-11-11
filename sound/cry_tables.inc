@@ -1235,6 +1235,8 @@ gCryTable::
 	cry Cry_REGIEYES
 	cry Cry_REGIFILSAMIE
 	cry Cry_Lumineon
+	cry Cry_PORYGON64
+	cry Cry_PORYGON32
 
 
 
@@ -2480,6 +2482,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_REGIEYES
 	cry_reverse Cry_REGIFILSAMIE
 	cry_reverse Cry_Lumineon
+	cry_reverse Cry_PORYGON64
+	cry_reverse Cry_PORYGON32
 
 
 

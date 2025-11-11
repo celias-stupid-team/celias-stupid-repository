@@ -379,7 +379,7 @@ def build_tab_fields(parent_frame, tab_name, field_vars, dropdown_data):
 # --------------------------
 log("Creating main window")
 root = tk.Tk()
-root.title("Celia's Incredible Tool")
+root.title("Celia's Legitimately Incredible Tool")
 root.geometry("400x400")
 
 log("Creating notebook (tabs)")

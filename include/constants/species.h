@@ -1324,7 +1324,11 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_LUMINEON 1261
 
-#define SPECIES_EGG 1262
+#define SPECIES_PORYGON64 1262
+
+#define SPECIES_PORYGON32 1263
+
+#define SPECIES_EGG 1264
 
 #define NUM_SPECIES SPECIES_EGG
 

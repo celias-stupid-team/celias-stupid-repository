@@ -1266,4 +1266,6 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_REGIEYES]    = gMonFootprint_REGIEYES,
 	[SPECIES_REGIFILSAMIE]    = gMonFootprint_REGIFILSAMIE,
 	[SPECIES_SOLACEON]    = gMonFootprint_SOLACEON,
+	[SPECIES_PORYGON64]    = gMonFootprint_PORYGON64,
+	[SPECIES_PORYGON32]    = gMonFootprint_PORYGON32,
 };
