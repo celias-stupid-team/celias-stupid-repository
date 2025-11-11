@@ -189,7 +189,7 @@ def browse_png_with_preview(preview_label, name_entry=None):
 
                 # If this field has a default_list (e.g. Palette: ["New Palette", ...]),
                 # set the dropdown to the first default element (e.g. "New Palette")
-                elif default_list:
+                elif default_list and field != "Palette":
                     # If it's a dropdown, ensure the combobox values include the defaults + file-values
                     if file_for_dropdown:
                         # combine existing stored values in dropdown_data (already loaded) and ensure default_list[0] is first
@@ -413,7 +413,7 @@ for name in tabs:
     tk.Checkbutton(frame, text="Always On Top", variable=always_on_top_var,
                    command=toggle_always_on_top).pack(anchor="nw")
     copy_to_clipboard_var = tk.BooleanVar()
-    tk.Checkbutton(frame, text="Copy to Clipboard", variable=copy_to_clipboard_var).pack()
+    tk.Checkbutton(frame, text="Copy to Clipboard", variable=copy_to_clipboard_var).pack(anchor="nw")
     field_vars["Copy to Clipboard"] = {"var": copy_to_clipboard_var}
 
     # Name entry
