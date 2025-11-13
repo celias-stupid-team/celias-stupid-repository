@@ -1029,6 +1029,7 @@ SECTIONS {
         sound/songs/midi/mus_pokemon_island_lab.o(.rodata);
         sound/songs/midi/mus_binks_sake.o(.rodata);
         sound/songs/midi/mus_half_sign.o(.rodata);
+        sound/songs/midi/mus_rainbow_castle.o(.rodata);
 
     } > ROM =0
 

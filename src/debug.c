@@ -3767,7 +3767,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_POKEMON_ISLAND) \
     X(MUS_POKEMON_ISLAND_LAB) \
     X(MUS_BINKS_SAKE) \
-    X(MUS_HALF_SIGN)
+    X(MUS_HALF_SIGN) \
+    X(MUS_RAINBOW_CASTLE)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

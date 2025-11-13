@@ -407,6 +407,7 @@ gSongTable::
 	song mus_pokemon_island_lab, 0, 0
 	song mus_binks_sake, 0, 0
 	song mus_half_sign, 2, 2
+	song mus_rainbow_castle, 0, 0
 
 
 
