@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk, filedialog
 import os
 import ctypes
-import re
 import re, shutil
 from PIL import Image
 
@@ -152,6 +151,7 @@ def browse_png_with_preview(preview_label, name_entry=None):
             log(f"Name entry updated to: {base_name}")
         
         # If we're in the Object tab, populate palette dropdown
+# If we're in the Object tab, populate palette dropdown
         try:
             current_tab = preview_label.master.master.tab(preview_label.master.master.select(), "text")
             if current_tab == "Object":
@@ -161,9 +161,9 @@ def browse_png_with_preview(preview_label, name_entry=None):
                 if palette_info:
                     var = palette_info["var"]
                     var.set(palettes[0])
-                    for child in preview_label.master.winfo_children():
-                        if isinstance(child, ttk.Combobox) and str(child.cget("textvariable")) == str(var):
-                            child["values"] = palettes
+                    widget = palette_info.get("widget")
+                    if widget:
+                        widget["values"] = palettes
                     log(f"Loaded {len(palettes)} object palettes into dropdown")
         except Exception as e:
             log(f"[WARN] Could not load object palettes: {e}")
@@ -189,7 +189,7 @@ def browse_png_with_preview(preview_label, name_entry=None):
 
                 # If this field has a default_list (e.g. Palette: ["New Palette", ...]),
                 # set the dropdown to the first default element (e.g. "New Palette")
-                elif default_list and field != "Palette":
+                elif default_list and label != "Palette":
                     # If it's a dropdown, ensure the combobox values include the defaults + file-values
                     if file_for_dropdown:
                         # combine existing stored values in dropdown_data (already loaded) and ensure default_list[0] is first
@@ -364,7 +364,14 @@ def build_tab_fields(parent_frame, tab_name, field_vars, dropdown_data):
             # If a default_list is specified and the combo has at least one entry,
             # we won't set the selection now (we defer setting selection until file load),
             # but we still store default_list metadata.
-            field_vars[label_text] = {"var": var, "default": default, "default_list": default_list, "file": filename}
+            field_vars[label_text] = {
+                "var": var,
+                "default": default,
+                "default_list": default_list,
+                "file": filename,
+                "widget": combo,   # <-- this is the key addition
+            }
+
 
         row += 1
 
@@ -1240,33 +1247,318 @@ def handle_overworld_backend(name, png_path, width, walking, palette):
     log(f"=== Begin Overworld Insertion ===")
     log(f"Generated constant: {obj_constant}")
 
+    # 1️⃣ Copy and palette
     save_object_image(name, png_path)
     save_object_palette(name, palette)
-    update_event_objects_header(obj_constant)
-    update_object_event_graphics(obj_constant)
-    update_object_event_pic_tables(obj_constant)
-    update_object_event_graphics_info_pointers(obj_constant)
-    update_spritesheet_rules(obj_constant)
-    update_object_event_graphics_info(obj_constant)
 
+    # 2️⃣ C header updates
+    update_event_objects_header(obj_constant)
+    update_object_event_graphics(name, palette)
+    update_object_event_pic_tables(png_path, name, width, walking)
+    update_object_event_graphics_info_pointers(name, obj_constant)
+    update_spritesheet_rules(png_path, name)
+    update_object_event_graphics_info(png_path, palette, name, width, obj_constant)
+
+    if palette == "New Palette":
+        update_event_object_movement(name)
     log(f"=== Overworld insertion complete for {obj_constant} ===")
 
-def save_object_image(name, png_path): 
-    log(f"=== Save object image ===")
-def save_object_palette(name, palette): 
-    log(f"=== Save object palette ===")
-def update_event_objects_header(obj_constant): 
-    log(f"=== Update object event header ===")
-def update_object_event_graphics(obj_constant): 
-    log(f"=== Update object event graphics  ===")
-def update_object_event_pic_tables(obj_constant): 
-    log(f"=== Update pic tables ===")
-def update_object_event_graphics_info_pointers(obj_constant): 
-    log(f"=== Update obj event graphics info pointers ===")
-def update_spritesheet_rules(obj_constant): 
-    log(f"=== Update spritesheet rultes ===")
-def update_object_event_graphics_info(obj_constant): 
-    log(f"=== Update object event graphics info ===")
+def save_object_image(name, png_path):
+    """Save a copy of the selected PNG into graphics/object_events/pics/stupid/[name].png"""
+    try:
+        dest_dir = os.path.join(SCRIPT_DIR, "graphics", "object_events", "pics", "stupid")
+        os.makedirs(dest_dir, exist_ok=True)
+
+        dest_path = os.path.join(dest_dir, f"{name}.png")
+        shutil.copyfile(png_path, dest_path)
+        log(f"[DEBUG] Copied {png_path} -> {dest_path}")
+
+    except Exception as e:
+        log(f"[ERROR] save_object_image failed: {e}")
+
+def save_object_palette(name, palette):
+    """
+    If the palette dropdown says 'New Palette', generate a new palette
+    using generate_and_save_palette() and save it in graphics/object_events/palettes/[name].pal
+    """
+    try:
+        if palette != "New Palette":
+            log(f"[DEBUG] Existing palette selected ({palette}); skipping palette generation.")
+            return
+
+        src_image = os.path.join(SCRIPT_DIR, "graphics", "object_events", "pics", "stupid", f"{name}.png")
+        dest_dir = os.path.join(SCRIPT_DIR, "graphics", "object_events", "palettes")
+        os.makedirs(dest_dir, exist_ok=True)
+
+        dest_path = os.path.join(dest_dir, f"{name}.pal")
+
+        if not os.path.exists(src_image):
+            log(f"[ERROR] Palette source image not found: {src_image}")
+            return
+
+        # The palette generation function should already exist in your codebase
+        generate_and_save_palette(src_image, dest_path)
+        log(f"[DEBUG] Generated and saved palette: {dest_path}")
+
+    except Exception as e:
+        log(f"[ERROR] save_object_palette failed: {e}")
+
+def update_event_objects_header(obj_constant):
+    """
+    include/constants/event_objects.h
+    Replaces the final NUM_OBJ_EVENT_GFX line with a new object constant,
+    then appends a new NUM_OBJ_EVENT_GFX incremented by one.
+    """
+    try:
+        path = os.path.join(SCRIPT_DIR, "include", "constants", "event_objects.h")
+        lines = read_text(path).splitlines()
+        new_lines = []
+        inserted = False
+
+        for i, line in enumerate(lines):
+            if line.strip().startswith("#define NUM_OBJ_EVENT_GFX"):
+                try:
+                    # Extract previous value (e.g. "#define NUM_OBJ_EVENT_GFX 324")
+                    prev_value = int(line.strip().split()[-1])
+                    new_val = prev_value + 1
+                    new_lines.append(f"#define {obj_constant} {prev_value}")
+                    new_lines.append(f"#define NUM_OBJ_EVENT_GFX {new_val}")
+                    inserted = True
+                    log(f"[DEBUG] Inserted {obj_constant}={prev_value}, NUM_OBJ_EVENT_GFX={new_val}")
+                except Exception as e:
+                    log(f"[ERROR] Failed parsing NUM_OBJ_EVENT_GFX: {e}")
+                continue
+            new_lines.append(line)
+
+        if inserted:
+            write_text(path, "\n".join(new_lines) + "\n")
+        else:
+            log(f"[WARN] Could not find NUM_OBJ_EVENT_GFX line in {path}")
+
+    except Exception as e:
+        log(f"[ERROR] update_event_objects_header failed: {e}")
+
+
+def update_object_event_graphics(name, palette):
+    """
+    src/data/object_events/object_event_graphics.h
+    Adds INCBIN_U32 line for .4bpp image, and if palette is 'New Palette',
+    also adds the INCBIN_U16 line for the palette.
+    """
+    try:
+        path = os.path.join(SCRIPT_DIR, "src", "data", "object_events", "object_event_graphics.h")
+        append_lines = [
+            f'const u32 gObjectEventPic_{name}[] = INCBIN_U32("graphics/object_events/pics/stupid/{name}.4bpp");'
+        ]
+        if palette == "New Palette":
+            append_lines.append(
+                f'const u16 gObjectEventPal_{name}[] = INCBIN_U16("graphics/object_events/palettes/{name}.gbapal");'
+            )
+
+        write_text(path, "\n".join(read_text(path).splitlines() + append_lines) + "\n")
+        log(f"[DEBUG] Appended object graphics lines for {name}")
+
+    except Exception as e:
+        log(f"[ERROR] update_object_event_graphics failed: {e}")
+
+
+def update_object_event_pic_tables(png_path, name, width, walking):
+    """
+    src/data/object_events/object_event_pic_tables.h
+    Appends a new gObjectEventPicTable_[name] struct with calculated frame data.
+    """
+    try:
+        from PIL import Image
+        path = os.path.join(SCRIPT_DIR, "src", "data", "object_events", "object_event_pic_tables.h")
+
+        # Calculate height in tiles (pixels ÷ 8)
+        with Image.open(png_path) as img:
+            y_tiles = img.height // 8
+
+        frames = []
+        if walking:
+            frame_indices = list(range(9))  # 0–8
+        else:
+            frame_indices = [0, 1, 2, 0, 0, 1, 1, 2, 2]
+
+        frames.append(f"const struct SpriteFrameImage gObjectEventPicTable_{name}[] = {{")
+        for idx in frame_indices:
+            frames.append(f"    overworld_frame(gObjectEventPic_{name}, {width}, {y_tiles}, {idx}),")
+        frames.append("};")
+
+        write_text(path, "\n".join(read_text(path).splitlines() + frames) + "\n")
+        log(f"[DEBUG] Added gObjectEventPicTable_{name} with width={width}, y_tiles={y_tiles}, walking={walking}")
+
+    except Exception as e:
+        log(f"[ERROR] update_object_event_pic_tables failed: {e}")
+
+
+def update_object_event_graphics_info_pointers(name, obj_constant):
+    """
+    ./src/data/object_events/object_event_graphics_info_pointers.h
+
+    Adds a forward declaration:
+        const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_[name];
+    And adds a pointer mapping:
+        [OBJ_EVENT_GFX_[name]] = &gObjectEventGraphicsInfo_[name],
+    immediately before the final closing brace of gObjectEventGraphicsInfoPointers.
+    """
+    try:
+        path = os.path.join(
+            SCRIPT_DIR, "src", "data", "object_events", "object_event_graphics_info_pointers.h"
+        )
+        text = read_text(path)
+        lines = text.splitlines()
+
+        # 1️⃣ Insert forward declaration before pointer array
+        decl_line = f"const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{name};"
+        inserted_decl = False
+        for i, line in enumerate(lines):
+            if "const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers" in line:
+                lines.insert(i, decl_line)
+                inserted_decl = True
+                break
+
+        # 2️⃣ Insert pointer mapping before final "};"
+        inserted_pointer = False
+        for i in range(len(lines) - 1, -1, -1):
+            if lines[i].strip() == "};":
+                lines.insert(i, f"    [{obj_constant}] = &gObjectEventGraphicsInfo_{name},")
+                inserted_pointer = True
+                break
+
+        if inserted_decl and inserted_pointer:
+            write_text(path, "\n".join(lines) + "\n")
+            log(f"[DEBUG] Added declaration and pointer mapping for {name} in object_event_graphics_info_pointers.h")
+        else:
+            log(f"[WARN] Could not fully insert entries for {name} (decl={inserted_decl}, ptr={inserted_pointer})")
+
+    except Exception as e:
+        log(f"[ERROR] update_object_event_graphics_info_pointers failed: {e}")
+
+
+def update_spritesheet_rules(png_path, name):
+    """
+    ./spritesheet_rules.mk
+    Appends new make rule for building the .4bpp from the .png.
+    """
+    try:
+        from PIL import Image
+        path = os.path.join(SCRIPT_DIR, "spritesheet_rules.mk")
+
+        with Image.open(png_path) as img:
+            height_tiles = img.height // 8
+
+        width_guess = "?"  # we’ll rely on passed-in width elsewhere if needed
+        # Extract width automatically if your tool tracks it globally later
+
+        append_lines = [
+            f"$(OBJEVENTGFXDIR)/stupid/{name}.4bpp: %.4bpp: %.png",
+            f"\t$(GFX) $< $@ -mwidth {width_guess} -mheight {height_tiles}",
+        ]
+
+        write_text(path, "\n".join(read_text(path).splitlines() + append_lines) + "\n")
+        log(f"[DEBUG] Added spritesheet rule for {name} (height_tiles={height_tiles})")
+
+    except Exception as e:
+        log(f"[ERROR] update_spritesheet_rules failed: {e}")
+
+
+def update_object_event_graphics_info(png_path, palette, name, width, obj_constant):
+    """
+    ./src/data/object_events/object_event_graphics_info.h
+    Appends a new ObjectEventGraphicsInfo struct for this sprite.
+    """
+    try:
+        from PIL import Image
+        path = os.path.join(
+            SCRIPT_DIR, "src", "data", "object_events", "object_event_graphics_info.h"
+        )
+
+        with Image.open(png_path) as img:
+            height_px = img.height
+            height_tiles = height_px // 8
+
+        # Determine palette tag
+        pal_tag = name.upper() if palette == "New Palette" else palette.upper()
+
+        # Compute numeric and text dimensions
+        size_val = height_px * int(width) * 4
+        width_px = int(width) * 8
+
+        # OAM/subsprite labels
+        oam_label = f"gObjectEventBaseOam_{width_px}x{height_px}"
+        subsprite_label = f"gObjectEventSpriteOamTables_{width_px}x{height_px}"
+
+        block = f"""
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_{name} = {{
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_{pal_tag},
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = {size_val},
+    .width = {width_px},
+    .height = {height_px},
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &{oam_label},
+    .subspriteTables = {subsprite_label},
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_{name},
+    .affineAnims = gDummySpriteAffineAnimTable,
+}};
+""".strip("\n") + "\n"
+
+        write_text(path, read_text(path) + "\n" + block + "\n")
+        log(f"[DEBUG] Added gObjectEventGraphicsInfo_{name} to object_event_graphics_info.h")
+
+    except Exception as e:
+        log(f"[ERROR] update_object_event_graphics_info failed: {e}")
+
+
+def update_event_object_movement(name):
+    """
+    ./src/event_object_movement.c
+    Adds a new OBJ_EVENT_PAL_TAG_[NAME] constant and palette entry.
+    Only used when 'New Palette' is selected.
+    """
+    try:
+        path = os.path.join(SCRIPT_DIR, "src", "event_object_movement.c")
+        lines = read_text(path).splitlines()
+
+        # === 1️⃣ Insert palette constant above OBJ_EVENT_PAL_TAG_NONE ===
+        inserted_define = False
+        for i, line in enumerate(lines):
+            if "#define OBJ_EVENT_PAL_TAG_NONE" in line:
+                # Get previous line’s constant value and increment
+                prev_line = lines[i - 1].strip()
+                prev_val = int(prev_line.split()[-1], 16)
+                new_val = f"0x{prev_val + 1:X}"
+                lines.insert(i, f"#define OBJ_EVENT_PAL_TAG_{name.upper()}  {new_val}")
+                inserted_define = True
+                log(f"[DEBUG] Added palette define OBJ_EVENT_PAL_TAG_{name.upper()} = {new_val}")
+                break
+
+        # === 2️⃣ Insert into sObjectEventSpritePalettes[] array ===
+        inserted_palette_entry = False
+        for i in range(len(lines) - 1, -1, -1):
+            line = lines[i].strip()
+            if line == "{NULL,                                    OBJ_EVENT_PAL_TAG_NONE},":
+                lines.insert(i, f"    {{gObjectEventPal_{name},             OBJ_EVENT_PAL_TAG_{name.upper()}}},")
+                inserted_palette_entry = True
+                log(f"[DEBUG] Added palette mapping for {name} to sObjectEventSpritePalettes[]")
+                break
+
+        write_text(path, "\n".join(lines) + "\n")
+
+        if not inserted_define or not inserted_palette_entry:
+            log(f"[WARN] update_event_object_movement incomplete: define={inserted_define}, palette={inserted_palette_entry}")
+
+    except Exception as e:
+        log(f"[ERROR] update_event_object_movement failed: {e}")
+
 
 log("Starting main loop")
 toggle_always_on_top()

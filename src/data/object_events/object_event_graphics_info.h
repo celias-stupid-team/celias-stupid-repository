@@ -6040,7 +6040,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dawn = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Arcanine = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 1024,
     .width = 32,
