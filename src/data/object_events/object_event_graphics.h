@@ -478,3 +478,5 @@ const u32 gObjectEventPic_Blissey[] = INCBIN_U32("graphics/object_events/pics/st
 const u32 gObjectEventPic_Chatot[] = INCBIN_U32("graphics/object_events/pics/stupid/Chatot.4bpp");
 const u32 gObjectEventPic_Dawn[] = INCBIN_U32("graphics/object_events/pics/stupid/Dawn.4bpp");
 const u32 gObjectEventPic_Arcanine[] = INCBIN_U32("graphics/object_events/pics/stupid/Arcanine.4bpp");
+const u32 gObjectEventPic_Nord_Viking[] = INCBIN_U32("graphics/object_events/pics/stupid/Nord_Viking.4bpp");
+const u32 gObjectEventPic_Football_Viking[] = INCBIN_U32("graphics/object_events/pics/stupid/Football_Viking.4bpp");

@@ -482,6 +482,10 @@ for name in tabs:
 
 
 
+def read_text(path):
+    with open(path, "r", encoding="utf-8", newline="\n") as f:
+        return f.read()
+
 
 def write_text(path, lines):
     """Writes text with strict LF line endings (Git-safe for repo convention)."""
@@ -1218,7 +1222,9 @@ def load_object_palettes():
         if in_block and line.strip().startswith("#define OBJ_EVENT_PAL_TAG_"):
             name = line.split("OBJ_EVENT_PAL_TAG_")[1].split()[0]
             palettes.append(name)
-    return palettes or ["New Palette"]
+    palettes = ["New Palette"] + palettes
+    return palettes
+
 
 def handle_overworld_insertion(name_entry, field_vars, status_label=None, preview_label=None):
     name = name_entry.get().strip()
@@ -1256,7 +1262,7 @@ def handle_overworld_backend(name, png_path, width, walking, palette):
     update_object_event_graphics(name, palette)
     update_object_event_pic_tables(png_path, name, width, walking)
     update_object_event_graphics_info_pointers(name, obj_constant)
-    update_spritesheet_rules(png_path, name)
+    update_spritesheet_rules(png_path, width, name)
     update_object_event_graphics_info(png_path, palette, name, width, obj_constant)
 
     if palette == "New Palette":
@@ -1297,7 +1303,7 @@ def save_object_palette(name, palette):
             return
 
         # The palette generation function should already exist in your codebase
-        generate_and_save_palette(src_image, dest_path)
+        generate_and_save_palette(Path(src_image), name, Path(dest_path))
         log(f"[DEBUG] Generated and saved palette: {dest_path}")
 
     except Exception as e:
@@ -1437,7 +1443,7 @@ def update_object_event_graphics_info_pointers(name, obj_constant):
         log(f"[ERROR] update_object_event_graphics_info_pointers failed: {e}")
 
 
-def update_spritesheet_rules(png_path, name):
+def update_spritesheet_rules(png_path, width, name):
     """
     ./spritesheet_rules.mk
     Appends new make rule for building the .4bpp from the .png.
@@ -1449,12 +1455,9 @@ def update_spritesheet_rules(png_path, name):
         with Image.open(png_path) as img:
             height_tiles = img.height // 8
 
-        width_guess = "?"  # we’ll rely on passed-in width elsewhere if needed
-        # Extract width automatically if your tool tracks it globally later
-
         append_lines = [
             f"$(OBJEVENTGFXDIR)/stupid/{name}.4bpp: %.4bpp: %.png",
-            f"\t$(GFX) $< $@ -mwidth {width_guess} -mheight {height_tiles}",
+            f"\t$(GFX) $< $@ -mwidth {width} -mheight {height_tiles}",
         ]
 
         write_text(path, "\n".join(read_text(path).splitlines() + append_lines) + "\n")
@@ -1532,14 +1535,27 @@ def update_event_object_movement(name):
         inserted_define = False
         for i, line in enumerate(lines):
             if "#define OBJ_EVENT_PAL_TAG_NONE" in line:
-                # Get previous line’s constant value and increment
-                prev_line = lines[i - 1].strip()
-                prev_val = int(prev_line.split()[-1], 16)
+                # Find the last valid palette define above this line
+                prev_val = None
+                for j in range(i - 1, -1, -1):
+                    prev_line = lines[j].strip()
+                    if prev_line.startswith("#define OBJ_EVENT_PAL_TAG_"):
+                        try:
+                            prev_val = int(prev_line.split()[-1], 16)
+                            break
+                        except Exception:
+                            continue
+
+                if prev_val is None:
+                    log("[WARN] Could not find previous OBJ_EVENT_PAL_TAG_ value; defaulting to 0x1100")
+                    prev_val = 0x1100
+
                 new_val = f"0x{prev_val + 1:X}"
                 lines.insert(i, f"#define OBJ_EVENT_PAL_TAG_{name.upper()}  {new_val}")
                 inserted_define = True
                 log(f"[DEBUG] Added palette define OBJ_EVENT_PAL_TAG_{name.upper()} = {new_val}")
                 break
+
 
         # === 2️⃣ Insert into sObjectEventSpritePalettes[] array ===
         inserted_palette_entry = False
