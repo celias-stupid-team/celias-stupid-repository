@@ -13,7 +13,18 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": -35,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_MINNESOTA",
+      "offset": 40,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

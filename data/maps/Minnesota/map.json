@@ -16,8 +16,13 @@
   "connections": [
     {
       "map": "MAP_FOUR_ISLAND",
-      "offset": 7,
+      "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "offset": -40,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -21,13 +21,18 @@
     },
     {
       "map": "MAP_MINNESOTA",
-      "offset": -7,
+      "offset": 0,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE19",
       "offset": -16,
       "direction": "left"
+    },
+    {
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "offset": 35,
+      "direction": "up"
     }
   ],
   "object_events": [
