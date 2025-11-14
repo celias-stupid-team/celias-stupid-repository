@@ -1633,18 +1633,13 @@ def trainer_pic_insert_backend(name, image_path):
         dest_png = os.path.join(
             SCRIPT_DIR,
             "graphics", "trainers", "front_pics",
-            f"{name.lower}_front_pic.png"
+            f"{name.lower()}_front_pic.png"
         )
-        shutil.copy2(image_path, dest_png)
-        log(f"[DEBUG] Copied {image_path} -> {dest_png}")
 
-        # ======================
-        # 2. Generate palette file
-        # ======================
         dest_pal = os.path.join(
             SCRIPT_DIR,
             "graphics", "trainers", "palettes",
-            f"{name.lower}.pal"
+            f"{name.lower()}.pal"
         )
 
         from pathlib import Path

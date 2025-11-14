@@ -575,4 +575,6 @@ const u32 gTrainerFrontPic_JEANS[] = INCBIN_U32("graphics/trainers/front_pics/JE
 const u32 gTrainerPalette_JEANS[] = INCBIN_U32("graphics/trainers/palettes/jeans.gbapal.lz");
 const u32 gTrainerFrontPic_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/palettes/cynthia.gbapal.lz");
+const u32 gTrainerFrontPic_Backpack_Swimmer[] = INCBIN_U32("graphics/trainers/front_pics/backpack_swimmer_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Backpack_Swimmer[] = INCBIN_U32("graphics/trainers/palettes/backpack_swimmer.gbapal.lz");
 

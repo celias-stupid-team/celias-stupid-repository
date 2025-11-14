@@ -12547,4 +12547,6 @@ extern const u32 gTrainerFrontPic_JEANS[];
 extern const u32 gTrainerPalette_JEANS[];
 extern const u32 gTrainerFrontPic_Cynthia[];
 extern const u32 gTrainerPalette_Cynthia[];
+extern const u32 gTrainerFrontPic_Backpack_Swimmer[];
+extern const u32 gTrainerPalette_Backpack_Swimmer[];
 
