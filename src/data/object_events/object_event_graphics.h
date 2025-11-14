@@ -488,3 +488,5 @@ const u32 gObjectEventPic_Todd[] = INCBIN_U32("graphics/object_events/pics/stupi
 const u32 gObjectEventPic_DawnCelia[] = INCBIN_U32("graphics/object_events/pics/stupid/DawnCelia.4bpp");
 const u16 gObjectEventPal_DawnCelia[] = INCBIN_U16("graphics/object_events/palettes/DawnCelia.gbapal");
 const u32 gObjectEventPic_Shorts_Dad[] = INCBIN_U32("graphics/object_events/pics/stupid/Shorts_Dad.4bpp");
+const u32 gObjectEventPic_SHELGON[] = INCBIN_U32("graphics/object_events/pics/stupid/SHELGON.4bpp");
+const u16 gObjectEventPal_SHELGON[] = INCBIN_U16("graphics/object_events/palettes/SHELGON.gbapal");
