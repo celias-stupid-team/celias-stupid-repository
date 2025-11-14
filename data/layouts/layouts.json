@@ -1168,12 +1168,12 @@
     {
       "id": "LAYOUT_MT_MOON_B1F",
       "name": "MtMoon_B1F_Layout",
-      "width": 49,
+      "width": 63,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/MtMoon_B1F/border.bin",
       "blockdata_filepath": "data/layouts/MtMoon_B1F/map.bin"
     },
@@ -6216,6 +6216,18 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED",
+      "name": "MtMoon_B1F_Layout_Drilled",
+      "width": 63,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/MtMoon_B1F_Layout_Drilled/border.bin",
+      "blockdata_filepath": "data/layouts/MtMoon_B1F_Layout_Drilled/map.bin"
     }
   ]
 }
