@@ -478,6 +478,15 @@ for name in tabs:
             command=lambda e=name_entry, fv=field_vars, sl=status_label, pl=preview_label: handle_overworld_insertion(e, fv, sl, pl)
         ).pack(pady=5)
 
+    elif name == "Trainer Pic":
+        status_label = tk.Label(frame, text="", fg="lime")
+        status_label.pack(pady=(0, 5))
+        tk.Button(
+            frame,
+            text="Insert",
+            command=lambda e=name_entry, fv=field_vars, sl=status_label: handle_trainer_pic_insert(e, fv, sl)
+        ).pack(pady=5)
+
 
 
 
@@ -1574,6 +1583,332 @@ def update_event_object_movement(name):
 
     except Exception as e:
         log(f"[ERROR] update_event_object_movement failed: {e}")
+
+# ==== Trainer Pic Insertion ====
+
+def handle_trainer_pic_insert(name_entry, field_vars, status_label=None, preview_label=None):
+    try:
+        global selected_png_path
+
+        if not selected_png_path:
+            raise ValueError("Error", "Please browse for a PNG first.")
+            return
+
+        name = name_entry.get().strip()
+        if not name:
+            raise ValueError("Error", "Please enter a Name.")
+            return
+
+        const_name = f"TRAINER_PIC_{name.upper()}"
+
+        trainer_pic_insert_backend(name, selected_png_path)
+
+        # Copy constant to clipboard if requested
+        if copy_to_clipboard_var.get():
+            pyperclip.copy(const_name)
+
+        print(f"[DEBUG] Trainer pic inserted successfully: {name}")
+        return  # exits the handler cleanly
+
+
+    except Exception as e:
+        log(f"[ERROR] handle_trainer_pic_insert failed: {e}")
+        raise ValueError("Error", f"Trainer pic insertion failed:\n{e}")
+
+
+def trainer_pic_insert_backend(name, image_path):
+    """
+    Handles trainer pic insertion workflow.
+    """
+    log(f"[DEBUG] === Begin Trainer Pic Insertion ===")
+    log(f"[DEBUG] Inserting trainer pic: {name}")
+
+    # Standardize name
+    const_name = name.upper()
+
+    try:
+        # ======================
+        # 1. Copy PNG to front_pics/
+        # ======================
+        dest_png = os.path.join(
+            SCRIPT_DIR,
+            "graphics", "trainers", "front_pics",
+            f"{name.lower}_front_pic.png"
+        )
+        shutil.copy2(image_path, dest_png)
+        log(f"[DEBUG] Copied {image_path} -> {dest_png}")
+
+        # ======================
+        # 2. Generate palette file
+        # ======================
+        dest_pal = os.path.join(
+            SCRIPT_DIR,
+            "graphics", "trainers", "palettes",
+            f"{name.lower}.pal"
+        )
+
+        from pathlib import Path
+        generate_and_save_palette(Path(image_path), name, Path(dest_pal))
+        log(f"[DEBUG] Generated palette: {dest_pal}")
+
+        # ======================
+        # 3. Call backend editing functions
+        # ======================
+        update_trainers_h(name)
+        update_front_pic_anims_h(name)
+        update_graphics_trainers_h(name)
+        update_graphics_h(name)
+        update_front_pic_tables_h(name)
+
+    except Exception as e:
+        log(f"[ERROR] trainer_pic_insert_backend failed: {e}")
+
+    log(f"[DEBUG] === Trainer Pic insertion complete for {const_name} ===")
+
+def update_trainers_h(name):
+    path = os.path.join(SCRIPT_DIR, "include", "constants", "trainers.h")
+    text = read_text(path)
+    lines = text.splitlines()
+    upper = name.upper()
+
+    insert_index = None
+    last_val = None
+
+    # Find TRAINER_PIC_END
+    for i, line in enumerate(lines):
+        if "TRAINER_PIC_END" in line:
+            insert_index = i
+            break
+
+    if insert_index is None:
+        raise Exception("TRAINER_PIC_END not found in trainers.h")
+
+    # Find last TRAINER_PIC_<NAME> before TRAINER_PIC_END
+    for j in range(insert_index - 1, -1, -1):
+        if "#define TRAINER_PIC_" in lines[j]:
+            try:
+                last_val = int(lines[j].split()[-1])
+                break
+            except:
+                continue
+
+    if last_val is None:
+        raise Exception("Failed to find last TRAINER_PIC value")
+
+    new_val = last_val + 1
+
+    new_define = f"#define TRAINER_PIC_{upper}   {new_val}"
+    lines.insert(insert_index, new_define)
+
+    write_text(path, "\n".join(lines) + "\n")
+    log(f"[DEBUG] Added TRAINER_PIC_{upper} = {new_val}")
+
+def update_front_pic_anims_h(name):
+    path = os.path.join(SCRIPT_DIR, "src", "data", "trainer_graphics", "front_pic_anims.h")
+
+    upper = name.upper()
+    lower = name
+
+    text = read_text(path)
+    lines = text.splitlines()
+
+    # -----------------------------
+    # 1. INSERT STATIC ANIM ARRAY
+    # -----------------------------
+    anim_table_index = None
+    for i, line in enumerate(lines):
+        if "gTrainerFrontAnimsPtrTable" in line:
+            anim_table_index = i
+            break
+
+    if anim_table_index is None:
+        raise Exception("gTrainerFrontAnimsPtrTable not found in front_pic_anims.h")
+
+    new_anim_block = [
+        f"static const union AnimCmd *const sAnims_{lower}[] =",
+        "{",
+        "    sAnim_GeneralFrame0,",
+        "};",
+        ""
+    ]
+
+    for offset, block_line in enumerate(new_anim_block):
+        lines.insert(anim_table_index + offset, block_line)
+
+    # Adjust index for newly inserted lines
+    anim_table_index += len(new_anim_block)
+
+    # -----------------------------
+    # 2. ADD ENTRY TO POINTER TABLE
+    # -----------------------------
+    # Find closing brace of the pointer table
+    end_index = None
+    for i in range(anim_table_index, len(lines)):
+        if lines[i].strip().startswith("};"):
+            end_index = i
+            break
+
+    if end_index is None:
+        raise Exception("End of gTrainerFrontAnimsPtrTable not found")
+
+    # Find last assignment before the closing brace
+    last_assign_index = end_index - 1
+    while last_assign_index > 0 and "]" not in lines[last_assign_index]:
+        last_assign_index -= 1
+
+    # Ensure trailing comma exists
+    if not lines[last_assign_index].strip().endswith(","):
+        lines[last_assign_index] = lines[last_assign_index] + ","
+
+    new_entry = f"    [TRAINER_PIC_{upper}] = sAnims_{lower},"
+    lines.insert(end_index, new_entry)
+
+    write_text(path, "\n".join(lines) + "\n")
+    log(f"[DEBUG] Added trainer anims for {name}")
+
+
+def update_graphics_trainers_h(name):
+    path = os.path.join(SCRIPT_DIR, "src", "data", "graphics", "trainers.h")
+    lower = name.lower()
+
+    append_block = (
+        f"const u32 gTrainerFrontPic_{name}[] = INCBIN_U32(\"graphics/trainers/front_pics/{lower}_front_pic.4bpp.lz\");\n"
+        f"const u32 gTrainerPalette_{name}[] = INCBIN_U32(\"graphics/trainers/palettes/{lower}.gbapal.lz\");\n"
+    )
+
+    old = read_text(path)
+    new = old.rstrip() + "\n" + append_block + "\n"
+    write_text(path, new)
+
+    log(f"[DEBUG] Added graphics declarations for trainer {name}")
+
+def update_graphics_h(name):
+    path = os.path.join(SCRIPT_DIR, "include", "graphics.h")
+
+    append_block = (
+        f"extern const u32 gTrainerFrontPic_{name}[];\n"
+        f"extern const u32 gTrainerPalette_{name}[];\n"
+    )
+
+    old = read_text(path)
+    new = old.rstrip() + "\n" + append_block + "\n"
+    write_text(path, new)
+
+    log(f"[DEBUG] Added extern graphics declarations for trainer {name}")
+
+def update_front_pic_tables_h(name):
+    path = os.path.join(SCRIPT_DIR, "src", "data", "trainer_graphics", "front_pic_tables.h")
+
+    upper = name.upper()
+    lower = name
+
+    text = read_text(path)
+    lines = text.splitlines()
+
+    # -----------------------------
+    # Find gTrainerFrontPicCoords table (very robust) (this ai is very extra)
+    # -----------------------------
+    coords_start = None
+    coords_open_brace = None
+    coords_end = None
+
+    # 1. Find the line that *declares* the table
+    for idx, line in enumerate(lines):
+        normalized = line.replace(" ", "").replace("\t", "")
+        if normalized.startswith("conststructMonCoordsgTrainerFrontPicCoords") and normalized.endswith("[]={"):
+            coords_start = idx
+            coords_open_brace = idx
+            break
+
+        # Also allow formats like:
+        # const struct MonCoords gTrainerFrontPicCoords[] =
+        # {
+        if "gTrainerFrontPicCoords" in line and "=" in line:
+            coords_start = idx
+            # brace may be on next line
+            # find '{'
+            for j in range(idx, idx+4):
+                if "{" in lines[j]:
+                    coords_open_brace = j
+                    break
+            break
+
+    if coords_start is None or coords_open_brace is None:
+        raise Exception("Could not locate gTrainerFrontPicCoords table start")
+
+    # 2. Find the closing brace
+    for idx in range(coords_open_brace + 1, len(lines)):
+        if lines[idx].strip().startswith("};"):
+            coords_end = idx
+            break
+
+    if coords_end is None:
+        raise Exception("Could not locate end of gTrainerFrontPicCoords table")
+
+
+    # -----------------------------
+    # 2. UPDATE gTrainerFrontPicTable[]
+    # -----------------------------
+    table_start = None
+    table_end = None
+
+    for i, line in enumerate(lines):
+        if "gTrainerFrontPicTable" in line:
+            table_start = i
+        if table_start and line.strip().startswith("};"):
+            table_end = i
+            break
+
+    if table_start is None or table_end is None:
+        raise Exception("Could not locate gTrainerFrontPicTable")
+
+    new_sprite_line = f"    TRAINER_SPRITE({upper}, gTrainerFrontPic_{lower}, 0x800),"
+    lines.insert(table_end, new_sprite_line)
+
+    write_text(path, "\n".join(lines) + "\n")
+    log(f"[DEBUG] Updated front_pic_tables for trainer {name}")
+
+    # ---------------------------------------------------------
+    # 3. Update gTrainerFrontPicPaletteTable (Palette Table)
+    # ---------------------------------------------------------
+    pal_start = None
+    pal_open_brace = None
+    pal_end = None
+
+    # Locate the declaration line
+    for idx, line in enumerate(lines):
+        if "gTrainerFrontPicPaletteTable" in line and "=" in line:
+            pal_start = idx
+            # find the '{'
+            for j in range(idx, idx + 4):
+                if "{" in lines[j]:
+                    pal_open_brace = j
+                    break
+            break
+
+    if pal_start is None or pal_open_brace is None:
+        raise Exception("Could not locate gTrainerFrontPicPaletteTable")
+
+    # Locate the closing brace `};`
+    for idx in range(pal_open_brace + 1, len(lines)):
+        if lines[idx].strip().startswith("};"):
+            pal_end = idx
+            break
+
+    if pal_end is None:
+        raise Exception("Could not locate end of gTrainerFrontPicPaletteTable")
+
+    # Insert new palette entry (add comma to previous line if needed)
+    if not lines[pal_end - 1].strip().endswith(","):
+        lines[pal_end - 1] = lines[pal_end - 1].rstrip() + ",\n"
+
+    new_pal_line = f"    TRAINER_PAL({upper}, gTrainerPalette_{name}),\n"
+    lines.insert(pal_end, new_pal_line)
+
+    print(f"[DEBUG] Added trainer palette entry for {upper}")
+
+
+
 
 
 log("Starting main loop")

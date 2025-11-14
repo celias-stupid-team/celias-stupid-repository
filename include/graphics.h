@@ -12543,4 +12543,8 @@ extern const u32 gMonBackPic_PORYGON32[];
 extern const u32 gMonShinyPalette_PORYGON32[];
 extern const u8 gMonFootprint_PORYGON32[];
 extern const u8 gMonIcon_PORYGON32[];
+extern const u32 gTrainerFrontPic_JEANS[];
+extern const u32 gTrainerPalette_JEANS[];
+extern const u32 gTrainerFrontPic_Cynthia[];
+extern const u32 gTrainerPalette_Cynthia[];
 

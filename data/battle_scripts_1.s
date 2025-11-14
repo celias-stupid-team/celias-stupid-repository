@@ -5162,3 +5162,4 @@ BattleScript_TwoTurnMovesSecondTurnCancel::
 	printstring STRINGID_IT_WAS_CANCELLED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+

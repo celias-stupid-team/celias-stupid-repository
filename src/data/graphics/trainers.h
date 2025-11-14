@@ -571,3 +571,8 @@ const u32 gTrainerPalette_Falkner[] = INCBIN_U32("graphics/trainers/palettes/fal
 
 const u32 gTrainerFrontPic_Territorialoak[] = INCBIN_U32("graphics/trainers/front_pics/territorialoak_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Territorialoak[] = INCBIN_U32("graphics/trainers/palettes/territorialoak.gbapal.lz");
+const u32 gTrainerFrontPic_JEANS[] = INCBIN_U32("graphics/trainers/front_pics/JEANS_front_pic.4bpp.lz");
+const u32 gTrainerPalette_JEANS[] = INCBIN_U32("graphics/trainers/palettes/jeans.gbapal.lz");
+const u32 gTrainerFrontPic_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/palettes/cynthia.gbapal.lz");
+
