@@ -1116,7 +1116,7 @@ script PewterCity_EventScript_FatMan {
 	famechecker(FAMECHECKER_PEWTER, 2)
 	call(SetPlayerPokedexValues)
 	if(checkmoncaught(SPECIES_GRIMER)) {
-		msgbox("Ah, you found a POKéMON in the\ngrass?\lNicely done!\pA GRIMER, eh?\nHmmm…\pI've heard there's someone out\nthere looking for one of those.\pKeep an eye out for her!\n", MSGBOX_NPC)
+		msgbox("Ah, you found a POKéMON in the\ngrass?\lNicely done!", MSGBOX_NPC)
 	} else {
 		msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 
