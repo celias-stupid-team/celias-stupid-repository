@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE13",
       "offset": -8,
       "direction": "up"
+    },
+    {
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "offset": 24,
+      "direction": "right"
     }
   ],
   "object_events": [

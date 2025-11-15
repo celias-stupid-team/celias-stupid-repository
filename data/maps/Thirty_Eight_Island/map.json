@@ -15,14 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": -35,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_MINNESOTA",
-      "offset": 40,
-      "direction": "down"
+      "map": "MAP_ROUTE14",
+      "offset": -24,
+      "direction": "left"
     }
   ],
   "object_events": [],

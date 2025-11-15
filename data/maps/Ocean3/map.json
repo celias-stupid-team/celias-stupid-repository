@@ -13,33 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_OCEAN2",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": 56,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE18",
-      "offset": -9,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_POKEMON_ISLAND",
-      "offset": 7,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

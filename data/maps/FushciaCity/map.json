@@ -28,11 +28,6 @@
       "map": "MAP_ROUTE15",
       "offset": 10,
       "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN3",
-      "offset": -56,
-      "direction": "down"
     }
   ],
   "object_events": [

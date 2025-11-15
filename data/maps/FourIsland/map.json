@@ -26,13 +26,8 @@
     },
     {
       "map": "MAP_ROUTE19",
-      "offset": -16,
+      "offset": -52,
       "direction": "left"
-    },
-    {
-      "map": "MAP_THIRTY_EIGHT_ISLAND",
-      "offset": 35,
-      "direction": "up"
     }
   ],
   "object_events": [

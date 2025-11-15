@@ -20,18 +20,8 @@
       "direction": "up"
     },
     {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_TWO_ISLAND",
       "offset": -32,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN4",
-      "offset": 0,
       "direction": "right"
     }
   ],

@@ -26,12 +26,12 @@
     },
     {
       "map": "MAP_FOUR_ISLAND",
-      "offset": 16,
+      "offset": 52,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 36,
+      "offset": 50,
       "direction": "left"
     }
   ],
