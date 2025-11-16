@@ -472,5 +472,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
         [ITEM_GUN] = {gItemIcon_GUN, gItemIconPalette_GUN},
         [ITEM_ODD_MULCH] = {gItemIcon_OddMulch, gItemIconPalette_OddMulch},
         [ITEM_HAMBURGER] = {gItemIcon_Hamburger, gItemIconPalette_Hamburger},
+    [ITEM_GROWTH_MULCH]      =  {gItemIcon_GROWTHMULCH, gItemIconPalette_GROWTHMULCH},
+    [ITEM_RICH_MULCH]      =  {gItemIcon_RICHMULCH, gItemIconPalette_RICHMULCH},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

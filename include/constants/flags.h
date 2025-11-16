@@ -1021,17 +1021,17 @@
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
 #define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
-#define FLAG_SILPH_CO_CANDY              0x3AF
+#define FLAG_SILPH_CO_CANDY              0x3AF //Behind the ball shop counter
 #define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2
-#define FLAG_SKY_PILLAR_CANDY            0x3B4
+#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
-#define FLAG_CERULEAN_CAVE_CANDY           0x3B7 
+#define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
 #define FLAG_ONE_ISLAND_CANDY            0x3B8 
 #define FLAG_TWO_ISLAND_CANDY            0x3B9 //Behind Territorial Oak
 #define FLAG_THREE_ISLAND_CANDY          0x3BA
-#define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Amity Square
+#define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC
-#define FLAG_POKEMON_ISLAND_CANDY        0x3BD
+#define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Up the waterfall
 #define FLAG_MINNESOTA_CANDY             0x3BF  //placed
 #define FLAG_ROUTE_1_CANDY               0x3C0 //placed
 #define FLAG_ROUTE_2_CANDY               0x3C1 //placed

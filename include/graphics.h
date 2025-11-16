@@ -12550,3 +12550,9 @@ extern const u32 gTrainerPalette_Cynthia[];
 extern const u32 gTrainerFrontPic_Backpack_Swimmer[];
 extern const u32 gTrainerPalette_Backpack_Swimmer[];
 
+
+extern const u32 gItemIcon_GROWTHMULCH[];
+extern const u32 gItemIconPalette_GROWTHMULCH[];
+
+extern const u32 gItemIcon_RICHMULCH[];
+extern const u32 gItemIconPalette_RICHMULCH[];

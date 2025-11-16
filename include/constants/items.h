@@ -524,7 +524,9 @@
 #define ITEM_GUN 441
 #define ITEM_ODD_MULCH 442
 #define ITEM_HAMBURGER 443
-#define ITEMS_COUNT 444
+#define ITEM_GROWTH_MULCH 444
+#define ITEM_RICH_MULCH 445
+#define ITEMS_COUNT 446
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF
