@@ -411,6 +411,7 @@ gSongTable::
 	song mus_cynthia_battle, 0, 0
 	song mus_the_game_is_afoot, 0, 0
 	song mus_sv_elite_four, 0, 0
+	song mus_yugioh, 0, 0
 
 
 

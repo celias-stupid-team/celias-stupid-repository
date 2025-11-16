@@ -1033,6 +1033,7 @@ SECTIONS {
         sound/songs/midi/mus_cynthia_battle.o(.rodata);
         sound/songs/midi/mus_the_game_is_afoot.o(.rodata);
         sound/songs/midi/mus_sv_elite_four.o(.rodata);
+        sound/songs/midi/mus_yugioh.o(.rodata);
 
     } > ROM =0
 
