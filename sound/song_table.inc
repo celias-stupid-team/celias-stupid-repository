@@ -409,6 +409,8 @@ gSongTable::
 	song mus_half_sign, 2, 2
 	song mus_rainbow_castle, 0, 0
 	song mus_cynthia_battle, 0, 0
+	song mus_the_game_is_afoot, 0, 0
+	song mus_sv_elite_four, 0, 0
 
 
 

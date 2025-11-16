@@ -217,7 +217,13 @@ voicegroup002::
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
-
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 
 	.align 2
 voicegroup003::
@@ -8828,7 +8834,7 @@ voicegroup196::
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_1, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_2, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_3, 0, 7, 15, 0
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 7, 15, 0
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_5, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_6, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_7, 0, 7, 15, 0

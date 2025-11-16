@@ -1031,6 +1031,8 @@ SECTIONS {
         sound/songs/midi/mus_half_sign.o(.rodata);
         sound/songs/midi/mus_rainbow_castle.o(.rodata);
         sound/songs/midi/mus_cynthia_battle.o(.rodata);
+        sound/songs/midi/mus_the_game_is_afoot.o(.rodata);
+        sound/songs/midi/mus_sv_elite_four.o(.rodata);
 
     } > ROM =0
 
