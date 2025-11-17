@@ -6076,12 +6076,12 @@
     {
       "id": "LAYOUT_ZERO_ISLAND_LIBERTY_GARDEN",
       "name": "ZeroIsland_LibertyGarden_Layout",
-      "width": 37,
-      "height": 34,
+      "width": 47,
+      "height": 38,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/ZeroIsland_LibertyGarden/border.bin",
       "blockdata_filepath": "data/layouts/ZeroIsland_LibertyGarden/map.bin"
     },
