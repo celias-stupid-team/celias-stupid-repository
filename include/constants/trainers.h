@@ -198,6 +198,7 @@
 #define TRAINER_PIC_JEANS   176
 #define TRAINER_PIC_CYNTHIA   177
 #define TRAINER_PIC_BACKPACK_SWIMMER   178
+#define TRAINER_PIC_OAK_TREE   179
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

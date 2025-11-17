@@ -360,6 +360,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(JEANS, gTrainerFrontPic_JEANS, 0x800),
     TRAINER_SPRITE(CYNTHIA, gTrainerFrontPic_Cynthia, 0x800),
     TRAINER_SPRITE(BACKPACK_SWIMMER, gTrainerFrontPic_Backpack_Swimmer, 0x800),
+    TRAINER_SPRITE(OAK_TREE, gTrainerFrontPic_OAK_TREE, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
