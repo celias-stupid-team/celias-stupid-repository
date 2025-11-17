@@ -1035,6 +1035,7 @@ SECTIONS {
         sound/songs/midi/mus_sv_elite_four.o(.rodata);
         sound/songs/midi/mus_yugioh.o(.rodata);
         sound/songs/midi/mus_mus_ringside.o(.rodata);
+        sound/songs/midi/mus_yes.o(.rodata);
 
     } > ROM =0
 

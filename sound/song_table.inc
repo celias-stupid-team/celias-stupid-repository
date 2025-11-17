@@ -413,6 +413,7 @@ gSongTable::
 	song mus_sv_elite_four, 0, 0
 	song mus_yugioh, 0, 0
 	song mus_mus_ringside, 0, 0
+	song mus_yes, 0, 0
 
 
 

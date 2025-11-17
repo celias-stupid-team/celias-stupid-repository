@@ -3184,7 +3184,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 2048,
     .width = 64,
@@ -4463,7 +4463,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DmcaDad = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_N = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
