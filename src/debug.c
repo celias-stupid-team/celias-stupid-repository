@@ -3774,7 +3774,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_SV_ELITE_FOUR) \
     X(MUS_YUGIOH) \
     X(MUS_MUS_RINGSIDE) \
-    X(MUS_YES)
+    X(MUS_YES) \
+    X(MUS_LEDER_SONG)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

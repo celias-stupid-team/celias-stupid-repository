@@ -414,6 +414,7 @@ gSongTable::
 	song mus_yugioh, 0, 0
 	song mus_mus_ringside, 0, 0
 	song mus_yes, 0, 0
+	song mus_leder_song, 0, 0
 
 
 

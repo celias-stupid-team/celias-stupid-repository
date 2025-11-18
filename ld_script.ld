@@ -1036,6 +1036,7 @@ SECTIONS {
         sound/songs/midi/mus_yugioh.o(.rodata);
         sound/songs/midi/mus_mus_ringside.o(.rodata);
         sound/songs/midi/mus_yes.o(.rodata);
+        sound/songs/midi/mus_leder_song.o(.rodata);
 
     } > ROM =0
 
