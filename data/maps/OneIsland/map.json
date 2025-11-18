@@ -16,8 +16,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": -8,
+      "offset": -13,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE19",
+      "offset": -6,
+      "direction": "right"
     }
   ],
   "object_events": [

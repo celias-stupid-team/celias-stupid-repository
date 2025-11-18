@@ -20,13 +20,8 @@
       "direction": "up"
     },
     {
-      "map": "MAP_TWO_ISLAND_NORTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE18",
-      "offset": -7,
+      "offset": -1,
       "direction": "right"
     },
     {
@@ -35,9 +30,9 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 32,
-      "direction": "left"
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": 10,
+      "direction": "down"
     }
   ],
   "object_events": [

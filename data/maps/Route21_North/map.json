@@ -20,19 +20,14 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_TWO_ISLAND",
       "offset": 18,
       "direction": "right"
     },
     {
-      "map": "MAP_TWO_ISLAND_NORTH",
-      "offset": -4,
-      "direction": "right"
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -24,
+      "direction": "down"
     }
   ],
   "object_events": [

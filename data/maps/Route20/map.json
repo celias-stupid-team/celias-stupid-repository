@@ -13,23 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 50,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": -12,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",

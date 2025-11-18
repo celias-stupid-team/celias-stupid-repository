@@ -25,13 +25,13 @@
       "direction": "down"
     },
     {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": 52,
-      "direction": "right"
+      "map": "MAP_ONE_ISLAND",
+      "offset": 6,
+      "direction": "left"
     },
     {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 50,
+      "offset": 35,
       "direction": "left"
     }
   ],

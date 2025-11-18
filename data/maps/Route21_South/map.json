@@ -13,18 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE21_NORTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": -32,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -71,8 +60,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
-      "x": 15,
-      "y": 38,
+      "x": 20,
+      "y": 27,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,

@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE1",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE21_NORTH",
       "offset": 0,
       "direction": "down"
@@ -28,11 +23,6 @@
       "map": "MAP_PALLET_TOWN_WEST_FIELD",
       "offset": -3,
       "direction": "left"
-    },
-    {
-      "map": "MAP_TWO_ISLAND_NORTH",
-      "offset": 16,
-      "direction": "right"
     }
   ],
   "object_events": [

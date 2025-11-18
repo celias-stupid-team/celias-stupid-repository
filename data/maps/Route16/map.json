@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE17",
-      "offset": -4,
-      "direction": "down"
-    },
-    {
       "map": "MAP_CELADON_CITY",
       "offset": -9,
       "direction": "right"
