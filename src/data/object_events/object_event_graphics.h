@@ -492,3 +492,7 @@ const u32 gObjectEventPic_SHELGON[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_SHELGON[] = INCBIN_U16("graphics/object_events/palettes/SHELGON.gbapal");
 const u32 gObjectEventPic_victini_new[] = INCBIN_U32("graphics/object_events/pics/stupid/victini_new.4bpp");
 const u16 gObjectEventPal_victini_new[] = INCBIN_U16("graphics/object_events/palettes/victini_new.gbapal");
+const u32 gObjectEventPic_orthworm_rises[] = INCBIN_U32("graphics/object_events/pics/stupid/orthworm_rises.4bpp");
+const u16 gObjectEventPal_orthworm_rises[] = INCBIN_U16("graphics/object_events/palettes/orthworm_rises.gbapal");
+const u32 gObjectEventPic_applin_kid[] = INCBIN_U32("graphics/object_events/pics/stupid/applin_kid.4bpp");
+const u32 gObjectEventPic_oran_kid[] = INCBIN_U32("graphics/object_events/pics/stupid/oran_kid.4bpp");
