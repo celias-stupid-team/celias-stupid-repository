@@ -1037,6 +1037,7 @@ SECTIONS {
         sound/songs/midi/mus_mus_ringside.o(.rodata);
         sound/songs/midi/mus_yes.o(.rodata);
         sound/songs/midi/mus_leder_song.o(.rodata);
+        sound/songs/midi/mus_prelude_to_finale.o(.rodata);
 
     } > ROM =0
 

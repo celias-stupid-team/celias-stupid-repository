@@ -53,6 +53,7 @@ ALIGNED(4) const u8 gText_UPDOWNPick_ABUTTONBBUTTONCancel[] = _("{DPAD_UPDOWN}PI
 ALIGNED(4) const u8 gText_ABUTTONExit[] = _("{A_BUTTON}EXIT");
 const u8 gText_Boy[] = _("BOY");
 const u8 gText_Girl[] = _("GIRL");
+const u8 gText_Cut[] = _("CUT");
 const u8 gText_PokedexTableOfContents[] = _("POKéDEX   TABLE OF CONTENTS");
 const u8 gText_PickOK[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}OK");
 const u8 gText_Seen[] = _("Seen:");
