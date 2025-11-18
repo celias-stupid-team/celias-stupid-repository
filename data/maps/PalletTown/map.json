@@ -23,6 +23,11 @@
       "map": "MAP_PALLET_TOWN_WEST_FIELD",
       "offset": -3,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE1",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

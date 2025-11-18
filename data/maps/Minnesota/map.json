@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_FOUR_ISLAND",
-      "offset": 0,
+      "offset": -3,
       "direction": "left"
     },
     {

@@ -18,6 +18,11 @@
       "map": "MAP_CELADON_CITY",
       "offset": -9,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE17",
+      "offset": -4,
+      "direction": "down"
     }
   ],
   "object_events": [
