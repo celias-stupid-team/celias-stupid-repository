@@ -1,6 +1,7 @@
 raw `
 SilphCo_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SilphCo_1F_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, SilphCo_1F_OnLoad
 	.byte 0
 
 SilphCo_1F_OnTransition::
@@ -15,6 +16,9 @@ SilphCo_1F_EventScript_FloorSign::
 	msgbox SilphCo_1F_Text_FloorSign, MSGBOX_SIGN
 	end
 `
+script SilphCo_1F_OnLoad {
+	
+}
 
 script SilphCo_BackDoorSign {
 	msgbox("SILPH CO.\nBack Door", MSGBOX_SIGN)

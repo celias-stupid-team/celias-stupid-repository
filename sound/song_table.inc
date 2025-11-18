@@ -400,6 +400,22 @@ gSongTable::
 	song mus_two_island_center, 0, 0
 	song mus_two_island_mart, 0, 0
 	song mus_clothes_shop, 0, 0
+	song mus_cyber_world, 0, 0
+	song mus_encounter_may, 0, 0
+	song mus_battle_may, 0, 0
+	song mus_pokemon_island, 0, 0
+	song mus_pokemon_island_lab, 0, 0
+	song mus_binks_sake, 0, 0
+	song mus_half_sign, 2, 2
+	song mus_rainbow_castle, 0, 0
+	song mus_cynthia_battle, 0, 0
+	song mus_the_game_is_afoot, 0, 0
+	song mus_sv_elite_four, 0, 0
+	song mus_yugioh, 0, 0
+	song mus_mus_ringside, 0, 0
+	song mus_yes, 0, 0
+	song mus_leder_song, 0, 0
+	song mus_prelude_to_finale, 0, 0
 
 
 

@@ -70,7 +70,7 @@ script FushciaGym_GymLeaderRoom_AferBattle {
 script FushciaGym_GymLeaderRoom_Dad_Defeat {
 	setflag(FLAG_DEFEATED_KOGA)
 	setflag(FLAG_BADGE05_GET)
-    msgbox("DAD: The DAD BADGE will allow\nyou to use SURF outside of battle.\pNow you can explore the KANTO\nGREAT SEA!\l(…in the next demo. Sorry!)\pBut never mind that.\nHow about you take REST?", MSGBOX_DEFAULT)
+    msgbox("DAD: The DAD BADGE will allow\nyou to use SURF outside of battle.\pNow you can explore the KANTO\nGREAT SEA!\pBut never mind that.\nHow about you take REST?", MSGBOX_DEFAULT)
     giveitem_msg("Obtained the TM44!\n", ITEM_TM44, 1)
     msgbox("DAD: There you are!\nGood luck on your adventure!", MSGBOX_DEFAULT)
     

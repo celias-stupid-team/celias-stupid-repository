@@ -130,7 +130,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     //[SPECIES_GENESECT]  = {{EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_KABUTOPS}},              //TODO - Add Ancientpower evolution
 
-    //[SPECIES_ARCANINE]  = {{EVO_PARTY, SPECIES_REMORAID, SPECIES_POKEMON_GUN}},              //TODO - Add Party evolution
+    [SPECIES_ARCANINE]  = {{EVO_PARTY, SPECIES_REMORAID, SPECIES_POKEMON_GUN}},              //TODO - Add Party evolution
 
 
     [SPECIES_CHIKORITA]  = {{EVO_LEVEL, 16, SPECIES_BAYLEEF}},

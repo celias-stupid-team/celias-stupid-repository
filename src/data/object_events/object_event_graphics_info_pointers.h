@@ -353,6 +353,20 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Heracross;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blissey;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chatot;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dawn;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Arcanine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nord_Viking;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Football_Viking;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lillie;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_New_Guzma;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skull_Grunt_Female;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Todd;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DawnCelia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Shorts_Dad;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHELGON;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_victini_new;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_orthworm_rises;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_applin_kid;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_oran_kid;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -707,4 +721,18 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BLISSEY] = &gObjectEventGraphicsInfo_Blissey,
     [OBJ_EVENT_GFX_CHATOT] = &gObjectEventGraphicsInfo_Chatot,
     [OBJ_EVENT_GFX_DAWN] = &gObjectEventGraphicsInfo_Dawn,
+    [OBJ_EVENT_GFX_ARCANINE] = &gObjectEventGraphicsInfo_Arcanine,
+    [OBJ_EVENT_GFX_NORD_VIKING] = &gObjectEventGraphicsInfo_Nord_Viking,
+    [OBJ_EVENT_GFX_FOOTBALL_VIKING] = &gObjectEventGraphicsInfo_Football_Viking,
+    [OBJ_EVENT_GFX_LILLIE] = &gObjectEventGraphicsInfo_Lillie,
+    [OBJ_EVENT_GFX_NEW_GUZMA] = &gObjectEventGraphicsInfo_New_Guzma,
+    [OBJ_EVENT_GFX_SKULL_GRUNT_FEMALE] = &gObjectEventGraphicsInfo_Skull_Grunt_Female,
+    [OBJ_EVENT_GFX_TODD] = &gObjectEventGraphicsInfo_Todd,
+    [OBJ_EVENT_GFX_DAWNCELIA] = &gObjectEventGraphicsInfo_DawnCelia,
+    [OBJ_EVENT_GFX_SHORTS_DAD] = &gObjectEventGraphicsInfo_Shorts_Dad,
+    [OBJ_EVENT_GFX_SHELGON] = &gObjectEventGraphicsInfo_SHELGON,
+    [OBJ_EVENT_GFX_VICTINI_NEW] = &gObjectEventGraphicsInfo_victini_new,
+    [OBJ_EVENT_GFX_ORTHWORM_RISES] = &gObjectEventGraphicsInfo_orthworm_rises,
+    [OBJ_EVENT_GFX_APPLIN_KID] = &gObjectEventGraphicsInfo_applin_kid,
+    [OBJ_EVENT_GFX_ORAN_KID] = &gObjectEventGraphicsInfo_oran_kid,
 };

@@ -1037,7 +1037,7 @@
       "id": "LAYOUT_ROUTE16",
       "name": "Route16_Layout",
       "width": 48,
-      "height": 20,
+      "height": 21,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -1168,12 +1168,12 @@
     {
       "id": "LAYOUT_MT_MOON_B1F",
       "name": "MtMoon_B1F_Layout",
-      "width": 49,
+      "width": 63,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/MtMoon_B1F/border.bin",
       "blockdata_filepath": "data/layouts/MtMoon_B1F/map.bin"
     },
@@ -1492,7 +1492,7 @@
     {
       "id": "LAYOUT_SILPH_CO_11F",
       "name": "SilphCo_11F_Layout",
-      "width": 17,
+      "width": 18,
       "height": 21,
       "border_width": 2,
       "border_height": 2,
@@ -1624,7 +1624,7 @@
     {
       "id": "LAYOUT_CERULEAN_CAVE_B1F",
       "name": "CeruleanCave_B1F_Layout",
-      "width": 40,
+      "width": 42,
       "height": 23,
       "border_width": 2,
       "border_height": 2,
@@ -2104,7 +2104,7 @@
     {
       "id": "LAYOUT_CELADON_CITY_DEPARTMENT_STORE_3F",
       "name": "CeladonCity_DepartmentStore_3F_Layout",
-      "width": 13,
+      "width": 14,
       "height": 15,
       "border_width": 2,
       "border_height": 2,
@@ -5720,7 +5720,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/AetherParadise_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_Entrance/map.bin"
@@ -5732,7 +5732,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/AetherParadise_NebbyRoom/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_NebbyRoom/map.bin"
@@ -5973,7 +5973,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Minnesota_Hospital/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_Hospital/map.bin"
     },
@@ -6045,7 +6045,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SilphCo",
+      "secondary_tileset": "gTileset_RestaurantHotel",
       "border_filepath": "data/layouts/Silph_ClothesStore/border.bin",
       "blockdata_filepath": "data/layouts/Silph_ClothesStore/map.bin"
     },
@@ -6076,12 +6076,12 @@
     {
       "id": "LAYOUT_ZERO_ISLAND_LIBERTY_GARDEN",
       "name": "ZeroIsland_LibertyGarden_Layout",
-      "width": 37,
-      "height": 34,
+      "width": 47,
+      "height": 38,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_MoonAltar",
       "border_filepath": "data/layouts/ZeroIsland_LibertyGarden/border.bin",
       "blockdata_filepath": "data/layouts/ZeroIsland_LibertyGarden/map.bin"
     },
@@ -6153,7 +6153,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_Route12",
       "border_filepath": "data/layouts/GreatSea_PirateBay/border.bin",
       "blockdata_filepath": "data/layouts/GreatSea_PirateBay/map.bin"
     },
@@ -6165,7 +6165,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/CaveOfOrigin_1F/border.bin",
       "blockdata_filepath": "data/layouts/CaveOfOrigin_1F/map.bin"
     },
@@ -6177,7 +6177,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
     },
@@ -6189,15 +6189,15 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_2F/map.bin"
     },
     {
       "id": "LAYOUT_FOUR_ISLAND_AMITY_SQUARE",
       "name": "FourIsland_AmitySquare_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 26,
+      "height": 26,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6213,7 +6213,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route18_SkyPillar",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SkyTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
     },
@@ -6264,6 +6264,18 @@
       "secondary_tileset": "gTileset_SeviiIslands67",
       "border_filepath": "data/layouts/Ocean4/border.bin",
       "blockdata_filepath": "data/layouts/Ocean4/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED",
+      "name": "MtMoon_B1F_Layout_Drilled",
+      "width": 63,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MoonAltar",
+      "border_filepath": "data/layouts/MtMoon_B1F_Layout_Drilled/border.bin",
+      "blockdata_filepath": "data/layouts/MtMoon_B1F_Layout_Drilled/map.bin"
     }
   ]
 }

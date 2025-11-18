@@ -9628,3 +9628,19 @@ const u32 gMonShinyPalette_SOLACEON[] = INCBIN_U32("graphics/pokemon/solaceon/sh
 const u8 gMonIcon_SOLACEON[] = INCBIN_U8("graphics/pokemon/solaceon/icon.4bpp");
 const u8 gMonFootprint_SOLACEON[] = INCBIN_U8("graphics/pokemon/solaceon/footprint.1bpp");
 
+// PORYGON64
+const u32 gMonFrontPic_PORYGON64[] = INCBIN_U32("graphics/pokemon/porygon64/front.4bpp.lz");
+const u32 gMonPalette_PORYGON64[] = INCBIN_U32("graphics/pokemon/porygon64/normal.gbapal.lz");
+const u32 gMonBackPic_PORYGON64[] = INCBIN_U32("graphics/pokemon/porygon64/back.4bpp.lz");
+const u32 gMonShinyPalette_PORYGON64[] = INCBIN_U32("graphics/pokemon/porygon64/shiny.gbapal.lz");
+const u8 gMonIcon_PORYGON64[] = INCBIN_U8("graphics/pokemon/porygon64/icon.4bpp");
+const u8 gMonFootprint_PORYGON64[] = INCBIN_U8("graphics/pokemon/porygon64/footprint.1bpp");
+
+// PORYGON32
+const u32 gMonFrontPic_PORYGON32[] = INCBIN_U32("graphics/pokemon/porygon32/front.4bpp.lz");
+const u32 gMonPalette_PORYGON32[] = INCBIN_U32("graphics/pokemon/porygon32/normal.gbapal.lz");
+const u32 gMonBackPic_PORYGON32[] = INCBIN_U32("graphics/pokemon/porygon32/back.4bpp.lz");
+const u32 gMonShinyPalette_PORYGON32[] = INCBIN_U32("graphics/pokemon/porygon32/shiny.gbapal.lz");
+const u8 gMonIcon_PORYGON32[] = INCBIN_U8("graphics/pokemon/porygon32/icon.4bpp");
+const u8 gMonFootprint_PORYGON32[] = INCBIN_U8("graphics/pokemon/porygon32/footprint.1bpp");
+

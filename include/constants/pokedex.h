@@ -95,8 +95,8 @@ enum
     NATIONAL_DEX_MIMIKYU,          // 86
     NATIONAL_DEX_EEVEE,            // 87
     NATIONAL_DEX_SOLACEON,         // 88
-    NATIONAL_DEX_SYLVEON,          // 89
-    NATIONAL_DEX_LATIAS,           // 90
+    NATIONAL_DEX_LATIAS,          // 89
+    NATIONAL_DEX_SYLVEON,           // 90
     NATIONAL_DEX_EXEGGCUTE,        // 91
     NATIONAL_DEX_SPEAROW,          // 92
     NATIONAL_DEX_EXEGGUTOR,        // 93

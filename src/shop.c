@@ -1010,9 +1010,17 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 
 static void BuyMenuSubtractMoney(u8 taskId)
 {
+    s16 *data = gTasks[taskId].data;
+
     IncrementGameStat(GAME_STAT_SHOPPED);
     RemoveMoney(&gSaveBlock1Ptr->money, sShopData.itemPrice);
-    PlaySE(SE_SHOP);
+    if(tItemId == ITEM_ODD_MULCH) {
+        PlayFanfare(MUS_KOROK_SEED);
+
+    } else {
+        PlaySE(SE_SHOP);
+
+    }
     PrintMoneyAmountInMoneyBox(0, GetMoney(&gSaveBlock1Ptr->money), 0);
     gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
 }

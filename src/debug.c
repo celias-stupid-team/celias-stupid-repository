@@ -3760,7 +3760,23 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_FOUR_ISLAND_MART)     \
     X(MUS_TWO_ISLAND_CENTER)    \
     X(MUS_TWO_ISLAND_MART)      \
-    X(MUS_CLOTHES_SHOP)
+    X(MUS_CLOTHES_SHOP)         \
+    X(MUS_CYBER_WORLD) \
+    X(MUS_ENCOUNTER_MAY) \
+    X(MUS_BATTLE_MAY) \
+    X(MUS_POKEMON_ISLAND) \
+    X(MUS_POKEMON_ISLAND_LAB) \
+    X(MUS_BINKS_SAKE) \
+    X(MUS_HALF_SIGN) \
+    X(MUS_RAINBOW_CASTLE) \
+    X(MUS_CYNTHIA_BATTLE) \
+    X(MUS_THE_GAME_IS_AFOOT) \
+    X(MUS_SV_ELITE_FOUR) \
+    X(MUS_YUGIOH) \
+    X(MUS_MUS_RINGSIDE) \
+    X(MUS_YES) \
+    X(MUS_LEDER_SONG) \
+    X(MUS_PRELUDE_TO_FINALE)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

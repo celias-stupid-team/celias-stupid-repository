@@ -1,45 +1,35 @@
 SilphCo_11F_Text_ThanksForSavingMeDearBoy::
-    .string "PRESIDENT: Oh, dear boy!\n"
-    .string "Thank you for saving SILPH.\p"
-    .string "I will never forget you saved us in\n"
-    .string "our moment of peril.\p"
-    .string "I have to thank you in some way.\p"
-    .string "Because I am rich, I can give you\n"
-    .string "anything.\p"
-    .string "Here, maybe this will do.$"
+	.string "PRESIDENT: thank you\n"
+	.string "take this$"
 
 SilphCo_11F_Text_ThanksForSavingMeDearGirl::
-    .string "PRESIDENT: Oh, dear girl!\n"
-    .string "Thank you for saving SILPH.\p"
-    .string "I will never forget you saved us in\n"
-    .string "our moment of peril.\p"
-    .string "I have to thank you in some way.\p"
-    .string "Because I am rich, I can give you\n"
-    .string "anything.\p"
-    .string "Here, maybe this will do.$"
+	.string "PRESIDENT: thank you\n"
+	.string "take this$"
 
 SilphCo_11F_Text_ObtainedMasterBallFromPresident::
-    .string "{PLAYER} obtained a MASTER BALL\n"
+    .string "{PLAYER} obtained a MISTER BALL\n"
     .string "from the PRESIDENT!$"
 
 SilphCo_11F_Text_ThatsOurSecretPrototype::
     .string "PRESIDENT: You can't buy that\n"
     .string "anywhere.\p"
-    .string "It's our secret prototype MASTER\n"
+    .string "It's our secret prototype MISTER\n"
     .string "BALL.\p"
-    .string "It will catch any POKéMON without\n"
-    .string "fail!\p"
-    .string "You should be quiet about using it,\n"
-    .string "though.$"
+    .string "It will catch any MISTER without\n"
+	.string "fail!\l"
+	.string "Quite an extraordinary invention.$"
 
 SilphCo_11F_Text_YouHaveNoRoomForThis::
     .string "You have no room for this.$"
 
 SilphCo_11F_Text_ThanksForRescuingUs::
-    .string "SECRETARY: Thank you for rescuing\n"
-    .string "all of us.\p"
-    .string "We, from the PRESIDENT down,\n"
-    .string "are indebted to you.$"
+	.string "SECRETARY: Thank you for rescuing\n"
+	.string "us!\p"
+	.string "Feel free to explore the rest of\n"
+	.string "the building.\l"
+	.string "There's plenty to see!\p"
+	.string "Maybe you'll come across our\n"
+	.string "facility for POKéBALL development!$"
 
 SilphCo_11F_Text_GiovanniIntro::
     .string "Ah, {PLAYER}!\n"

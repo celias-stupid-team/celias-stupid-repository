@@ -28,14 +28,14 @@ CeruleanCave_B1F_EventScript_Mewtwo::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_MEWTWO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ARCANINE, CRY_MODE_ENCOUNTER
 	message CeruleanCave_B1F_Text_Mew
 	waitmessage
 	waitmoncry
 	delay 20
 	playbgm MUS_ENCOUNTER_GYM_LEADER, 0
 	waitbuttonpress
-	setwildbattle SPECIES_MEWTWO, 70
+	setwildbattle SPECIES_ARCANINE, 70
 	setflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	special StartLegendaryBattle
 	waitstate
@@ -54,7 +54,116 @@ CeruleanCave_B1F_EventScript_DefeatedMewtwo::
 	end
 
 CeruleanCave_B1F_EventScript_RanFromMewtwo::
-	setvar VAR_0x8004, SPECIES_MEWTWO
+	setvar VAR_0x8004, SPECIES_ARCANINE
 	goto EventScript_MonFlewAway
 	end
 `
+
+
+script CeruleanCave_ShortsGang1 {
+	trainerbattle_single(TRAINER_NONE,
+	"Hey!\n"
+	"This is our hideout!\l"
+	"You can't be in here!",
+
+	"Darn you!\n")
+	msgbox(
+	"Grr…\n"
+	"We're the SHORTS GANG!\p"
+
+	"Don't mess with us, or we'll\n"
+	"take you down!", MSGBOX_NPC)
+}
+
+script CeruleanCave_ShortsGang2 {
+	trainerbattle_single(TRAINER_NONE,
+	"We're the SHORTS GANG, and don't\n"
+	"you forget it!\p",
+	//
+	"I bet you think I'm weak,\n"
+	"don't you?")
+
+	msgbox(
+	"We've been after the LEGENDARY\n"
+	"POKéMON in this cave.\p"
+
+	"You'll have to take down our\n"
+	"LEADER if you want it!", MSGBOX_NPC)
+}
+
+
+script CeruleanCave_ShortsGang3 {
+	trainerbattle_single(TRAINER_NONE,
+	"You're trying to mess with us?\p"
+
+	"You'd better be ready for our\n"
+	"LEADER!",
+	//
+	"No!\n"
+	"LEADER! I let you down!")
+
+
+	msgbox(
+	"The LEADER of the SHORTS GANG is\n"
+	"way tougher than me!\p"
+
+	"When he gets whipped into a frenzy,\n"
+	"there's no stopping him!", MSGBOX_NPC)
+}
+
+
+script CeruleanCave_BerserkGene {
+	trainerbattle_single(TRAINER_NONE,
+	"GRAAAAAAH!\p"
+
+	"I am the leader of the SHORTS GANG!\n"
+	"How dare you mess with us!\p"
+
+	"BAH!\n"
+	"This makes me FURIOUS!\l"
+	"I'm gonna go BERSERK on you!",
+
+	///defeat
+	"No!\n"
+	"I hit myself in my confusion!")
+
+	//After battle
+	msgbox(
+	"GRAAAH!\n"
+	"I-…{PAUSE 30} I-…\p"
+
+	"… … …\p"
+
+	"I heard{PAUSE 30} they're not inviting\n"
+	"me back for Gen 3.\p"
+
+	"Sniff…\n"
+	"{PAUSE 30}How could this happen to me…?", MSGBOX_NPC)
+}
+
+script CeruleanCave_Shortcut {
+	msgbox(
+	"Shortcut\n"
+	"{LEFT_ARROW}", MSGBOX_SIGN)
+
+}
+
+
+script CeruleanCave_ShortsDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: Yo, {PLAYER}!\n"
+	"What're you doing out here?\p"
+
+	"Didn't you know I'm a proud member\n"
+	"of the SHORTS GANG!\l"
+	"I'm comfy and easy to wear!\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

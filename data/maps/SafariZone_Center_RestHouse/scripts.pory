@@ -37,7 +37,13 @@ script SafariZone_RestDad2 {
 }
 
 script SafariZone_Rest_Scientist {
-	msgbox("The SAFARI ZONE doesn't have any\nwild POKéMON anymore.\pYou'd think it's the DMCA's fault,\nbut they actually didn't do it.\pSome kid caught tons and tons of one\nsingle POKéMON.\lThat threw off the whole ecosystem.\pHopefully it'll recover someday…\n", MSGBOX_NPC)
+	msgbox(
+	"The KANTO LAWN MAINTENANCE SERVICE\n"
+	"is out of control!\p"
+
+	"They've gotten rid of all the\n"
+	"grass in the SAFARI ZONE!\l"
+	"How awful!", MSGBOX_NPC)
 	end
 }
 

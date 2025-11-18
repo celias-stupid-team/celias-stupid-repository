@@ -63,7 +63,9 @@ static const struct Fanfare sFanfares[] = {
     [FANFARE_KEY_ITEM]      = { MUS_OBTAIN_KEY_ITEM, 170 },
     [FANFARE_DEX_EVAL]      = { MUS_DEX_RATING,      196 },
     [FANFARE_CLEFAIRY_DANCE] = { MUS_CSR_CLEFAIRY_DANCE,   1000 },
-    [FANFARE_KOROK_SEED]  = { MUS_KOROK_SEED,    120 }
+    [FANFARE_KOROK_SEED]  = { MUS_KOROK_SEED,    120 },
+    [FANFARE_HALF_SIGN]  = { MUS_HALF_SIGN,    150 }
+    
 };
 
 void InitMapMusic(void)

@@ -368,16 +368,16 @@
 #define FLAG_CHASED_VULPIX               0x142
 #define FLAG_GOT_WAKE_UP_SLAP               0x143
 #define FLAG_GOT_SEAL_CASE               0x144
-#define FLAG_0x145               0x145
-#define FLAG_0x146               0x146
-#define FLAG_0x147               0x147
-#define FLAG_0x148               0x148
-#define FLAG_0x149               0x149
-#define FLAG_0x14A               0x14A
-#define FLAG_0x14B               0x14B
-#define FLAG_0x14C               0x14C
-#define FLAG_0x14D               0x14D
-#define FLAG_0x14E               0x14E
+#define FLAG_REMOVED_CINNABAR_TREE               0x145
+#define FLAG_REMOVED_CINNABAR_SCIENTIST               0x146
+#define FLAG_GOT_YANMEGA               0x147
+#define FLAG_REVIVED_YANMEGA               0x148
+#define FLAG_HIDE_CINNABAR_YANMEGA               0x149
+#define FLAG_REVIVED_TYRANASTAR               0x14A
+#define FLAG_HIDE_NEBBY               0x14B
+#define FLAG_PUT_NEBBY_IN_ALTAR               0x14C
+#define FLAG_FOUGHT_FALKNER               0x14D
+#define FLAG_SPAWN_VERMILION_ONIX               0x14E
 #define FLAG_0x14F               0x14F
 #define FLAG_0x150               0x150
 #define FLAG_0x151               0x151
@@ -928,15 +928,15 @@
 #define FLAG_TWO_ISLAND_DRAGONITE_PRESENT               0x353
 #define FLAG_TWO_ISLAND_FUCK_PRESENT               0x354
 #define FLAG_TWO_ISLAND_OTHER_PRESENT               0x355
-#define FLAG_0x356               0x356
-#define FLAG_0x357               0x357
-#define FLAG_0x358               0x358
-#define FLAG_0x359               0x359
-#define FLAG_0x35A               0x35A
-#define FLAG_0x35B               0x35B
-#define FLAG_0x35C               0x35C
-#define FLAG_0x35D               0x35D
-#define FLAG_0x35E               0x35E
+#define FLAG_SILPH_WARP_CALLCENTER               0x356
+#define FLAG_SILPH_WARP_RD               0x357
+#define FLAG_SILPH_WARP_HOSTAGES               0x358
+#define FLAG_SILPH_WARP_PRESIDENT               0x359
+#define FLAG_SILPH_WARP_BALLS               0x35A
+#define FLAG_SILPH_WARP_LARRY               0x35B
+#define FLAG_SILPH_WARP_THREE_ISLAND               0x35C
+#define FLAG_GOT_PENCIL_ERASER               0x35D
+#define FLAG_GOT_ODDISH               0x35E
 #define FLAG_0x35F               0x35F
 #define FLAG_0x360               0x360
 #define FLAG_0x361               0x361
@@ -1009,64 +1009,64 @@
 //Odd Candy Quest
 #define FLAG_PALLET_CANDY                0x39F //placed
 #define FLAG_VIRIDIAN_CANDY              0x3A0 //placed
-#define FLAG_PEWTER_CANDY                0x3A1 
+#define FLAG_PEWTER_CANDY                0x3A1 //placed 
 #define FLAG_CERULEAN_CANDY              0x3A2 //placed
-#define FLAG_VERMILLION_CANDY            0x3A3
-#define FLAG_LAVENDER_CANDY              0x3A4
-#define FLAG_CELADON_CANDY               0x3A5
-#define FLAG_FUSHCIA_CANDY               0x3A6
-#define FLAG_SAFFRON_CITY_CANDY          0x3A7
-#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8
-#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9
-#define FLAG_MT_MOON_CANDY               0x3AA
-#define FLAG_UNDERGROUND_PATH_CANDY      0x3AB
-#define FLAG_POKEMON_TOWER_CANDY         0x3AC
-#define FLAG_SAFARI_ZONE_CANDY           0x3AD
-#define FLAG_DIGLETTS_CAVE_CANDY         0x3AE // placed
-#define FLAG_SILPH_CO_CANDY              0x3AF
-#define FLAG_SECRET_GARDEN_CANDY         0x3B0
-#define FLAG_POWER_PLANT_CANDY           0x3B1
+#define FLAG_VERMILLION_CANDY            0x3A3 //placed
+#define FLAG_LAVENDER_CANDY              0x3A4 //placed
+#define FLAG_CELADON_CANDY               0x3A5 //placed
+#define FLAG_FUSHCIA_CANDY               0x3A6 //placed
+#define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // Revealed after island crashed through
+#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // 
+#define FLAG_MT_MOON_CANDY               0x3AA //placed
+#define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
+#define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
+#define FLAG_SAFARI_ZONE_CANDY           0x3AD //placed
+#define FLAG_SILPH_CO_CANDY              0x3AF //Behind the ball shop counter
 #define FLAG_SEAFOAM_ISLANDS_CANDY       0x3B2
-#define FLAG_CINNABAR_MANSION_CANDY      0x3B3
-#define FLAG_SKY_PILLAR_CANDY            0x3B4
-#define FLAG_AETHER_PARADISE_CANDY       0x3B5
-#define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6
-#define FLAG_ZERO_ISLAND_CANDY           0x3B7
-#define FLAG_ONE_ISLAND_CANDY            0x3B8
-#define FLAG_TWO_ISLAND_CANDY            0x3B9
+#define FLAG_SKY_PILLAR_CANDY            0x3B4 //Dumb bike puzzle maybe
+#define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
+#define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
+#define FLAG_ONE_ISLAND_CANDY            0x3B8 
+#define FLAG_TWO_ISLAND_CANDY            0x3B9 //Behind Territorial Oak
 #define FLAG_THREE_ISLAND_CANDY          0x3BA
-#define FLAG_FOUR_ISLAND_CANDY           0x3BB
+#define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC
-#define FLAG_POKEMON_ISLAND_CANDY        0x3BD
-#define FLAG_YES_CANDY                   0x3BE
-#define FLAG_MINNESOTA_CANDY             0x3BF
+#define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Up the waterfall
+#define FLAG_MINNESOTA_CANDY             0x3BF  //placed
 #define FLAG_ROUTE_1_CANDY               0x3C0 //placed
 #define FLAG_ROUTE_2_CANDY               0x3C1 //placed
-#define FLAG_ROUTE_3_CANDY               0x3C2
-#define FLAG_ROUTE_4_CANDY               0x3C3
-#define FLAG_ROUTE_5_CANDY               0x3C4
-#define FLAG_ROUTE_6_CANDY               0x3C5
-#define FLAG_ROUTE_7_CANDY               0x3C6
-#define FLAG_ROUTE_8_CANDY               0x3C7
-#define FLAG_ROUTE_9_CANDY               0x3C8
-#define FLAG_ROUTE_10_CANDY              0x3C9
-#define FLAG_ROUTE_11_CANDY              0x3CA
-#define FLAG_ROUTE_12_CANDY              0x3CB
-#define FLAG_ROUTE_13_CANDY              0x3CC
-#define FLAG_ROUTE_14_CANDY              0x3CD
-#define FLAG_ROUTE_15_CANDY              0x3CE
-#define FLAG_ROUTE_16_CANDY              0x3CF
-#define FLAG_ROUTE_17_CANDY              0x3D0
-#define FLAG_ROUTE_18_CANDY              0x3D1
-#define FLAG_ROUTE_21_CANDY              0x3D2
+#define FLAG_ROUTE_3_CANDY               0x3C2 //placed
+#define FLAG_ROUTE_4_CANDY               0x3C3 //placed
+#define FLAG_ROUTE_5_CANDY               0x3C4 //placed
+#define FLAG_ROUTE_6_CANDY               0x3C5 //placed
+#define FLAG_ROUTE_8_CANDY               0x3C7 //placed
+#define FLAG_ROUTE_9_CANDY               0x3C8 //placed
+#define FLAG_ROUTE_10_CANDY              0x3C9 //placed
+#define FLAG_ROUTE_11_CANDY              0x3CA //placed
+#define FLAG_ROUTE_12_CANDY              0x3CB //placed
+#define FLAG_ROUTE_13_CANDY              0x3CC //placed
+#define FLAG_ROUTE_14_CANDY              0x3CD //placed
+#define FLAG_ROUTE_16_CANDY              0x3CF //placed
+#define FLAG_ROUTE_17_CANDY              0x3D0 //placed
+#define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
-#define FLAG_ROUTE_24_CANDY              0x3D4
-#define FLAG_ROUTE_25_CANDY              0x3D5
-
-//Unused
+#define FLAG_ROUTE_24_CANDY              0x3D4 //placed
+#define FLAG_ROUTE_25_CANDY              0x3D5 //placed
 #define FLAG_VIRIDIAN_FOREST_CANDY               0x3D6 //placed
-#define FLAG_0x3D7               0x3D7
 
+
+
+#define FLAG_UNUSED_CANDY_1          0x3A7 // REPURPOSE
+#define FLAG_UNUSED_CANDY_2         0x3AE // REPURPOSE
+#define FLAG_UNUSED_CANDY_3         0x3B0 // REPURPOSE
+#define FLAG_UNUSED_CANDY_4           0x3B1 // REPURPOSE
+#define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
+#define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
+#define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE
+#define FLAG_ROUTE_21_CANDY              0x3D2 //REPURPOSE
+#define FLAG_YES_CANDY                   0x3BE
+#define FLAG_AETHER_PARADISE_CANDY       0x3B5
+#define FLAG_0x3D7               0x3D7
 
 //Mystery Gift Stuff
 #define FLAG_MYSTERY_GIFT_DONE   0x3D8

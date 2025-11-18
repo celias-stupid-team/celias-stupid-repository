@@ -571,3 +571,12 @@ const u32 gTrainerPalette_Falkner[] = INCBIN_U32("graphics/trainers/palettes/fal
 
 const u32 gTrainerFrontPic_Territorialoak[] = INCBIN_U32("graphics/trainers/front_pics/territorialoak_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Territorialoak[] = INCBIN_U32("graphics/trainers/palettes/territorialoak.gbapal.lz");
+const u32 gTrainerFrontPic_JEANS[] = INCBIN_U32("graphics/trainers/front_pics/JEANS_front_pic.4bpp.lz");
+const u32 gTrainerPalette_JEANS[] = INCBIN_U32("graphics/trainers/palettes/jeans.gbapal.lz");
+const u32 gTrainerFrontPic_Cynthia[] = INCBIN_U32("graphics/trainers/front_pics/cynthia_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Cynthia[] = INCBIN_U32("graphics/trainers/palettes/cynthia.gbapal.lz");
+const u32 gTrainerFrontPic_Backpack_Swimmer[] = INCBIN_U32("graphics/trainers/front_pics/backpack_swimmer_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Backpack_Swimmer[] = INCBIN_U32("graphics/trainers/palettes/backpack_swimmer.gbapal.lz");
+const u32 gTrainerFrontPic_OAK_TREE[] = INCBIN_U32("graphics/trainers/front_pics/oak_tree_front_pic.4bpp.lz");
+const u32 gTrainerPalette_OAK_TREE[] = INCBIN_U32("graphics/trainers/palettes/oak_tree.gbapal.lz");
+

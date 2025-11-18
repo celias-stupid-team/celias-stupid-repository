@@ -217,7 +217,13 @@ voicegroup002::
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
-
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 
 	.align 2
 voicegroup003::
@@ -8729,14 +8735,14 @@ voicegroup195::
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
-	.align 2
 
+	.align 2
 voicegroup196::
 	voice_keysplit_all voicegroup002
 	voice_keysplit voicegroup003, KeySplitTable1
 	voice_keysplit voicegroup003, KeySplitTable1
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 128, 204, 51, 242
-	voice_square_2 60, 0, 2, 0, 2, 6, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_piano1_48, 255, 252, 0, 239
 	voice_square_1 60, 0, 0, 2, 0, 2, 6, 1
 	voice_square_2 60, 0, 3, 0, 2, 4, 1
 	voice_square_1 60, 0, 0, 3, 0, 2, 4, 1
@@ -8787,9 +8793,9 @@ voicegroup196::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 85, 0, 154, 165
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
 	voice_keysplit voicegroup005, KeySplitTable3
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_keysplit voicegroup006, KeySplitTable4
 	voice_keysplit voicegroup006, KeySplitTable4
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_keysplit voicegroup007, KeySplitTable5
@@ -8828,7 +8834,7 @@ voicegroup196::
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_1, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_2, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_3, 0, 7, 15, 0
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 7, 15, 0
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_5, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_6, 0, 7, 15, 0
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_7, 0, 7, 15, 0

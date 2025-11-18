@@ -4,7 +4,7 @@ raw `
 
 mapscripts Route19_UnusedHouse_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		setflag(FLAG_SHINY_CREATION) // Tentacool
+		// setflag(FLAG_SHINY_CREATION) // Tentacool
 	}
 }
 script Route19_Furrets {

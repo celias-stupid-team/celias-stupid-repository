@@ -4,7 +4,7 @@ import re
 import os
 from PIL import Image
 import wave
-import aifc
+# import aifc
 import shutil
 
 def sanitize_string(value):

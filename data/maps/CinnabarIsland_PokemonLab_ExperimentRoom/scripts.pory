@@ -285,3 +285,59 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckRevivedDome::
 	setvar VAR_RESULT, TRUE
 	return
 `
+
+
+script CinnabarIsland_ReviveFossils {
+	lock
+	faceplayer
+	if(flag(FLAG_REVIVED_TYRANASTAR)) {
+		msgbox(
+		"As a child, my favorite game was\n"
+		"(insert funny joke here)", MSGBOX_DEFAULT)
+		release
+	}
+	msgbox(
+	"I revive fossils.\n"
+	"Give me one", MSGBOX_DEFAULT)
+	closemessage
+	//fancy script with selection box
+	msgbox(
+	"actually this is only half\n"
+	"of a fossil.\p"
+
+	"You need the other half.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	if(checkitem(ITEM_HELIX_FOSSIL)) {
+		msgbox(
+		"let's make fossil\n"
+		"", MSGBOX_DEFAULT)
+		removeitem(ITEM_HELIX_FOSSIL)
+		removeitem(ITEM_JAW_FOSSIL)
+		closemessage
+		fadescreen(FADE_TO_BLACK)
+		delay(30)
+		// Terrifying sound effects
+		fadescreen(FADE_FROM_BLACK)
+		msgbox(
+		"fossil for you\n"
+		"", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} obtained the\n"
+		"TYRANASTAR!", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_TYRANASTAR)
+		call(Common_Script_GiftPokemon)
+		setflag(FLAG_REVIVED_TYRANASTAR)
+
+	} else {
+		msgbox(
+		"no other fossil\p"
+
+		"leave\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}

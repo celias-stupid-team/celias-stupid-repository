@@ -1022,6 +1022,22 @@ SECTIONS {
         sound/songs/midi/mus_two_island_center.o(.rodata);
         sound/songs/midi/mus_two_island_mart.o(.rodata);
         sound/songs/midi/mus_clothes_shop.o(.rodata);
+        sound/songs/midi/mus_cyber_world.o(.rodata);
+        sound/songs/midi/mus_encounter_may.o(.rodata);
+        sound/songs/midi/mus_battle_may.o(.rodata);
+        sound/songs/midi/mus_pokemon_island.o(.rodata);
+        sound/songs/midi/mus_pokemon_island_lab.o(.rodata);
+        sound/songs/midi/mus_binks_sake.o(.rodata);
+        sound/songs/midi/mus_half_sign.o(.rodata);
+        sound/songs/midi/mus_rainbow_castle.o(.rodata);
+        sound/songs/midi/mus_cynthia_battle.o(.rodata);
+        sound/songs/midi/mus_the_game_is_afoot.o(.rodata);
+        sound/songs/midi/mus_sv_elite_four.o(.rodata);
+        sound/songs/midi/mus_yugioh.o(.rodata);
+        sound/songs/midi/mus_mus_ringside.o(.rodata);
+        sound/songs/midi/mus_yes.o(.rodata);
+        sound/songs/midi/mus_leder_song.o(.rodata);
+        sound/songs/midi/mus_prelude_to_finale.o(.rodata);
 
     } > ROM =0
 

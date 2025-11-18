@@ -273,6 +273,28 @@ script VermilionCity_OnLoad {
 	} else {
 		setflag(FLAG_HIDE_VERMILION_CITY_OAKS_AIDE)
 	}
+	if(flag(FLAG_SPAWN_VERMILION_ONIX)) {
+		//I'm not doing labels fuck that shit
+		setmetatile(25, 8, 0x348, FALSE)
+		setmetatile(26, 8, 0x349, TRUE)
+		setmetatile(27, 8, 0x34A, TRUE)
+		setmetatile(28, 8, 0x34B, TRUE)
+		
+		setmetatile(25, 9, 0x350, TRUE)
+		setmetatile(26, 9, 0x351, TRUE)
+		setmetatile(27, 9, 0x352, TRUE)
+		setmetatile(28, 9, 0x353, TRUE)
+		
+		setmetatile(25, 10, 0x358, TRUE)
+		setmetatile(26, 10, 0x359, TRUE)
+		setmetatile(27, 10, 0x35A, TRUE)
+		setmetatile(28, 10, 0x35B, TRUE)
+		
+		setmetatile(25, 11, 0x360, TRUE)
+		setmetatile(26, 11, 0x361, TRUE)
+		setmetatile(27, 11, 0x362, FALSE)
+		setmetatile(28, 11, 0x363, FALSE)
+	}
 
 }
 
@@ -461,4 +483,37 @@ script VermilionCity_Steamroller {
 
 script VermilionCity_Bulldoze {
 	finditem(ITEM_TM10)
+}
+
+script VermilionCity_OnixSign {
+	lock
+	if(!flag(FLAG_SPAWN_VERMILION_ONIX)) {
+		msgbox(
+	"A suspiciously plain patch of\n"
+	"grass.\p"
+
+	"Putting your ear to it, you hear\n"
+	"digging deep within the earth.", MSGBOX_DEFAULT)
+	} else {
+		if(flag(FLAG_ONIX_TAIL_SIGN)) {
+				msgbox(
+				"Oh, hey!\n"
+				"There's his head!", MSGBOX_DEFAULT)
+
+		} else {
+			setflag(FLAG_ONIX_TAIL_SIGN)
+				msgbox(
+				"Oh, hey!\n"
+				"There's his head!", MSGBOX_DEFAULT)
+				closemessage
+				playfanfare(MUS_SLOTS_WIN)
+				msgbox(
+				"{PLAYER} discovered the rest\n"
+				"of the POKéMON SIGN!", MSGBOX_DEFAULT)
+				waitfanfare
+			
+		}
+	}
+	release
+	end
 }

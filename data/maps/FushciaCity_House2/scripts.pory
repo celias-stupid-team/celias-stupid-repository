@@ -54,7 +54,7 @@ script FushciaCity_FishingGuru {
 		closemessage
 		giveitem_msg("{PLAYER} obtained the OLD ROD!", ITEM_CHARCOAL, 1)
 		waitfanfare
-		msgbox("FISHING GURU'S BROTHER: That OLD\nROD is a family heirloom.\pIt's been passed down since my\nbrother's father's sister's husband's\nson's brother's cousin.\pTake good care of it, y'hear?\n", MSGBOX_DEFAULT)
+		msgbox("FISHING GURU'S BROTHER: That OLD\nROD is a family heirloom.\pIt's been passed down since my\nbrother's father's sister's husband's\lson's brother's cousin.\pTake good care of it, y'hear?\n", MSGBOX_DEFAULT)
 	}
 	release
 	end

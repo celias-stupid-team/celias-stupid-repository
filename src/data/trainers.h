@@ -3403,6 +3403,16 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_CUSTOM_MOVES(sParty_BossGiovanni),
     },
+    [TRAINER_BOSS_GIOVANNI_2] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+        .trainerPic = TRAINER_PIC_LEADER_GIOVANNI,
+        .trainerName = _("GIOVANNI"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_BossGiovanni2),
+    },
     
 
     [TRAINER_LEADER_GIOVANNI] = {
@@ -4018,9 +4028,9 @@ const struct Trainer gTrainers[] = {
     [TRAINER_ELITE_FOUR_BRUNO] = {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .trainerPic = TRAINER_PIC_ELITE_FOUR_BRUNO,
-        .trainerName = _("BRUNO"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+        .trainerPic = TRAINER_PIC_OAK_TREE,
+        .trainerName = _("OAK"),
+        .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourBruno),
@@ -4036,11 +4046,11 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourAgatha),
     },
     [TRAINER_ELITE_FOUR_LANCE] = {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .trainerPic = TRAINER_PIC_ELITE_FOUR_LANCE,
-        .trainerName = _("LANCE"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+        .trainerClass = TRAINER_CLASS_RIVAL_EARLY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_RS_MAY_2,
+        .trainerName = _("MAY"),
+        .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourLance),

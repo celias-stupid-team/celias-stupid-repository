@@ -328,7 +328,7 @@ script PewterCity_Museum_DrawEmptyKabutops {
 script PewterCity_Museum_1F_EventScript_KabutopsFossil {
 	lockall
 	if(flag(FLAG_NERD_TOOK_KABUTOPS)) {
-		msgbox("The average age in this room has\nincreased by 4.7 years.", MSGBOX_DEFAULT)
+		msgbox("The average age in this room has\ndecreased by 4.7 years.", MSGBOX_DEFAULT)
 		releaseall
 		end
 	}

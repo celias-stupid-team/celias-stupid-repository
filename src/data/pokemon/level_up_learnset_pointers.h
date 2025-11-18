@@ -1262,6 +1262,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
 	[SPECIES_REGIEYES] = sREGIEYESLevelUpLearnset,
 	[SPECIES_REGIFILSAMIE] = sREGIFILSAMIELevelUpLearnset,
 	[SPECIES_SOLACEON] = sSOLACEONLevelUpLearnset,
+	[SPECIES_PORYGON64] = sPORYGON64LevelUpLearnset,
+	[SPECIES_PORYGON32] = sPORYGON32LevelUpLearnset,
 
 
 };

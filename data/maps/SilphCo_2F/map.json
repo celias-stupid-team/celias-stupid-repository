@@ -2,7 +2,7 @@
   "id": "MAP_SILPH_CO_2F",
   "name": "SilphCo_2F",
   "layout": "LAYOUT_SILPH_CO_2F",
-  "music": "MUS_SILPH",
+  "music": "MUS_CYBER_WORLD",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 2,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
@@ -31,8 +31,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 26,
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 31,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DMCADAD",
-      "x": 4,
-      "y": 5,
+      "x": 15,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -88,30 +88,58 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 32,
-      "y": 19,
+      "x": 16,
+      "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "SilphCo_2F_EventScript_TruckLady",
+      "flag": "FLAG_SILPH_DMCA_DEFEATED"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 26,
-      "y": 18,
+      "x": 11,
+      "y": 6,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "SilphCo_2F_EventScript_FireMove",
+      "flag": "FLAG_SILPH_DMCA_DEFEATED"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SilphCo_2F_EventScript_JohnCage",
+      "flag": "FLAG_SILPH_DMCA_DEFEATED"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
+      "x": 10,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SilphCo_2F_EventScript_LunchSign",
+      "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     }
   ],
   "warp_events": [
@@ -130,11 +158,12 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 13,
-      "y": 1,
+      "warp_id": "WARP_ID_SILPH_HOSTAGES_HUB",
+      "x": 6,
+      "y": 3,
       "elevation": 3,
-      "dest_map": "MAP_SILPH_CO_8F",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_HOSTAGES"
     },
     {
       "x": 30,
@@ -144,14 +173,14 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 15,
+      "x": 21,
       "y": 1,
       "elevation": 3,
       "dest_map": "MAP_SILPH_CO_6F",
       "dest_warp_id": "1"
     },
     {
-      "x": 14,
+      "x": 22,
       "y": 1,
       "elevation": 3,
       "dest_map": "MAP_SILPH_CO_8F",
@@ -165,7 +194,44 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Hostages"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Hostages"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Hostages"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_Hostages"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -202,7 +268,7 @@
     {
       "type": "sign",
       "x": 5,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
@@ -210,7 +276,7 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_2F_EventScript_Door2"
@@ -247,7 +313,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_2F_EventScript_FloorSign"
+      "script": "SilphCo_2F_EventScript_BlockedSign"
     },
     {
       "type": "sign",

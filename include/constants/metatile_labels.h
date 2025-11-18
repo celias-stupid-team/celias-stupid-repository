@@ -315,6 +315,7 @@
 #define METATILE_SilphCo_HorizontalBarrier_BottomRight  0x3B9
 #define METATILE_SilphCo_HorizontalBarrier_TopLeft      0x3B0
 #define METATILE_SilphCo_HorizontalBarrier_TopRight     0x3B1
+#define METATILE_SilphCo_SilphWarp                      0x390
 #define METATILE_SilphCo_VerticalBarrier_BottomLeft     0x3C4
 #define METATILE_SilphCo_VerticalBarrier_BottomRight    0x3C5
 #define METATILE_SilphCo_VerticalBarrier_MidLeft        0x3C2
@@ -331,8 +332,12 @@
 #define METATILE_TrainerTower_RoofElevatorDoor       0x356
 
 // gTileset_VermilionCity
-#define METATILE_VermilionCity_Door        0x29E
-#define METATILE_VermilionCity_SSAnneWarp  0x2E1
+#define METATILE_VermilionCity_Door                   0x29E
+#define METATILE_VermilionCity_ONIX_BOTTOM_LEFT       0x358
+#define METATILE_VermilionCity_ONIX_BOTTOM_LEFT_MID   0x359
+#define METATILE_VermilionCity_ONIX_BOTTOM_RIGHT      0x35B
+#define METATILE_VermilionCity_ONIX_BOTTOM_RIGHT_MID  0x35A
+#define METATILE_VermilionCity_SSAnneWarp             0x2E1
 
 // gTileset_VermilionGym
 #define METATILE_VermilionGym_Beam_MidBottom                     0x28D

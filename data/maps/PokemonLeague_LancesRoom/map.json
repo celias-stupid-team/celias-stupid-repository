@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_LEAGUE_LANCES_ROOM",
   "name": "PokemonLeague_LancesRoom",
   "layout": "LAYOUT_POKEMON_LEAGUE_LANCES_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_NONE",
   "region_map_section": "MAPSEC_POKEMON_LEAGUE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -20,7 +20,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RS_MAY",
       "x": 6,
-      "y": 9,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -33,8 +33,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 10,
-      "y": 25,
+      "x": 3,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -45,10 +45,11 @@
       "flag": "0"
     },
     {
+      "local_id": "LANCE_LASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 2,
-      "y": 22,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
@@ -75,6 +76,34 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_LANCE_LASS_ATTACK",
+      "var_value": "1",
+      "script": "MayRoom_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_LANCE_LASS_ATTACK",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_LANCE_LASS_ATTACK",
+      "var_value": "0",
+      "script": "NULL"
+    }
+  ],
   "bg_events": []
 }

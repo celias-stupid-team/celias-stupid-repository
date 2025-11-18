@@ -911,7 +911,9 @@ struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
 
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
 {
-    if (mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE))
+    if ((mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE)) ||
+        (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CELADON_CITY_CONDOMINIUMS_1F)
+          && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CELADON_CITY_CONDOMINIUMS_1F)))
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (mapType == MAP_TYPE_UNDERWATER)
         return PLAYER_AVATAR_FLAG_UNDERWATER;
@@ -1024,6 +1026,13 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 static u16 GetLocationMusic(struct WarpData * warp)
 {
+    if(!FlagGet(FLAG_SILPH_DMCA_DEFEATED) // don't make fun of me
+    && ((warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_1F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_1F))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_2F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_2F))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_HUB_ROOM) && warp->mapNum == MAP_NUM(MAP_SILPH_HUB_ROOM))
+    || (warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_11F)))) {
+        return MUS_SILPH;
+    }
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 

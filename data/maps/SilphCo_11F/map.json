@@ -2,13 +2,13 @@
   "id": "MAP_SILPH_CO_11F",
   "name": "SilphCo_11F",
   "layout": "LAYOUT_SILPH_CO_11F",
-  "music": "MUS_SILPH",
+  "music": "MUS_CYBER_WORLD",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": false,
   "floor_number": 11,
@@ -48,7 +48,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
       "x": 6,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -62,8 +62,8 @@
       "local_id": "LOCALID_SILPH_CO_11F_GRUNT1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 16,
-      "y": 12,
+      "x": 8,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -119,11 +119,27 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 13,
-      "y": 3,
+      "x": 10,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_ELEVATOR",
       "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_PRESIDENT_HUB",
+      "x": 15,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_PRESIDENT"
+    },
+    {
+      "warp_id": "WARP_ID_SILPH_PRESIDENT_RD",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_RD",
+      "dest_warp_id": "WARP_ID_SILPH_RD_PRESIDENT"
     }
   ],
   "coord_events": [
@@ -153,6 +169,87 @@
       "var": "VAR_CSR_DUMMY_3",
       "var_value": "0",
       "script": "SilphCo_11F_EventScript_GiovanniTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_President"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_START_SILPH_MUSIC",
+      "var_value": "1",
+      "script": "SilphCo_StartSilphMusic"
     }
   ],
   "bg_events": [

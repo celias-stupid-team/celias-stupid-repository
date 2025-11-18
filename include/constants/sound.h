@@ -17,6 +17,7 @@
 #define FANFARE_DEX_EVAL            13
 #define FANFARE_CLEFAIRY_DANCE            14
 #define FANFARE_KOROK_SEED            15
+#define FANFARE_HALF_SIGN            16
 
 #define CRY_MODE_NORMAL        0 // Default
 #define CRY_MODE_DOUBLES       1 // Shortened cry for double battles

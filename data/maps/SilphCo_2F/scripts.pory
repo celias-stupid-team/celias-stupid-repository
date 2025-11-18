@@ -3,10 +3,7 @@ SilphCo_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, SilphCo_2F_OnLoad
 	.byte 0
 
-SilphCo_2F_OnLoad::
-	call_if_unset FLAG_SILPH_2F_DOOR_1, EventScript_Close2FDoor1
-	call_if_unset FLAG_SILPH_2F_DOOR_2, EventScript_Close2FDoor2
-	end
+
 
 SilphCo_2F_EventScript_ThunderWaveTutor::
 	goto EventScript_ThunderWaveTutor
@@ -31,6 +28,13 @@ SilphCo_2F_EventScript_Jerry::
 
 `
 
+script SilphCo_2F_OnLoad {
+	call_if_unset(FLAG_SILPH_2F_DOOR_1, EventScript_Close2FDoor1)
+	if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
+		setvar(VAR_START_SILPH_MUSIC, 1)
+	}
+}
+
 script SilphCo_2F_EventScript_Grunt2 {
 	trainerbattle_single(TRAINER_DMCA_GRUNT_24, "Grr!\pAll these staircases were identical\ncopies of each other.\pI did this place a favor by taking\nthem out!", "You'll never get through!\n")
 	msgbox("We're staging an executive\ntakeover of SILPH CO!\pAll copyrighted materials are\ngetting deleted.\lIncluding stairs!", MSGBOX_NPC)
@@ -51,3 +55,48 @@ script SilphCo_2F_EventScript_ElevatorDoor {
 
 }
 
+script SilphCo_2F_EventScript_TruckLady {
+	msgbox(
+	"Hey, you!\n"
+	"I met you in VERMILION CITY.\p"
+
+	"Y'know, I never did find where I\n"
+	"parked my TRUCK.\l"
+	"Did you look around for it?", MSGBOX_NPC)
+}
+
+script SilphCo_2F_EventScript_LunchSign {
+	msgbox(
+	"OUT TO LUNCH\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script SilphCo_2F_EventScript_JohnCage {
+	msgbox(
+	"JOHN CAGE: Oh, dearie…\n"
+	"The DMCA stole my music!\p"
+
+	"And now they're playing it\n"
+	"outside, at full volume!", MSGBOX_NPC)
+}
+
+script SilphCo_2F_EventScript_FireMove {
+	msgbox(
+	"first line\p"
+	"If only MR. FLAMETHROWER was here…\n"
+	"He'd know what to do!", MSGBOX_NPC)
+}
+
+script SilphCo_2F_EventScript_BlockedSign {
+	msgbox(
+	"This sign was once blocked, and\n"
+	"now it is not.\p"
+
+	"Alas, it doesn't actually say\n"
+	"anything worthwhile.\p"
+
+	"Oh well.\n"
+	"", MSGBOX_SIGN)
+
+}

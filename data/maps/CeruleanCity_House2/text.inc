@@ -1,7 +1,6 @@
 CeruleanCity_House2_Text_RocketsStoleTMForDig::
     .string "Those miserable DMCAs!\p"
-    .string "Look what they've done to my\n"
-    .string "house!\p"
+    .string "Look what they've done to my house!\p"
     .string "I was inspired by a TM to teach\n"
     .string "POKéMON how to throw rocks.\p"
     .string "I was going to use it on a\n"
