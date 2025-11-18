@@ -34,15 +34,15 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_PRESIDENT",
-      "x": 6,
-      "y": 8,
+      "x": 7,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_11F",
       "dest_warp_id": "WARP_ID_SILPH_PRESIDENT_HUB"
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_CALLCENTER",
-      "x": 6,
+      "x": 1,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CALL_CENTER",
@@ -50,7 +50,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_RD",
-      "x": 14,
+      "x": 19,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SILPH_RD",
@@ -59,7 +59,7 @@
     {
       "warp_id": "WARP_ID_SILPH_HUB_BALLS",
       "x": 14,
-      "y": 8,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_HUB"
@@ -67,15 +67,15 @@
     {
       "warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND",
       "x": 12,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_LARRY",
-      "x": 8,
-      "y": 11,
+      "x": 6,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_7F",
       "dest_warp_id": "WARP_ID_SILPH_LARRY_HUB"
@@ -85,7 +85,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 6,
+      "x": 0,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -101,7 +101,7 @@
     },
     {
       "type": "sign",
-      "x": 14,
+      "x": 18,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -117,8 +117,8 @@
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 8,
+      "x": 7,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_President_Label"
@@ -126,15 +126,15 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 8,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Balls_Label"
     },
     {
       "type": "sign",
-      "x": 8,
-      "y": 11,
+      "x": 6,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Larry_Label"
@@ -142,7 +142,7 @@
     {
       "type": "sign",
       "x": 12,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Three_Island_Label"

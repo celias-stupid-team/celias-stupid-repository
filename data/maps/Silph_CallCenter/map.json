@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 9,
-      "y": 2,
+      "x": 8,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -89,8 +89,8 @@
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_HUB",
-      "x": 6,
-      "y": 3,
+      "x": 14,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_CALLCENTER"
@@ -123,8 +123,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 6,
-      "y": 4,
+      "x": 14,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -132,8 +132,8 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 3,
+      "x": 15,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -141,8 +141,8 @@
     },
     {
       "type": "trigger",
-      "x": 6,
-      "y": 2,
+      "x": 14,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -150,8 +150,8 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 3,
+      "x": 13,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

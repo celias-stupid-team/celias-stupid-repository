@@ -1,25 +1,19 @@
 mapscripts Silph_HubRoom_MapScripts {
     MAP_SCRIPT_ON_LOAD {
-        if(flag(FLAG_SILPH_WARP_CALLCENTER)) {
-            setmetatile(6, 5, METATILE_SilphCo_SilphWarp, FALSE)
-        }
-        if(flag(FLAG_SILPH_WARP_RD)) {
-            setmetatile(14, 5, METATILE_SilphCo_SilphWarp, FALSE)
-        }
         if(flag(FLAG_SILPH_WARP_HOSTAGES)) {
             setmetatile(10, 7, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_PRESIDENT)) {
-            setmetatile(6, 8, METATILE_SilphCo_SilphWarp, FALSE)
+            setmetatile(7, 10, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_BALLS)) {
-            setmetatile(14, 8, METATILE_SilphCo_SilphWarp, FALSE)
+            setmetatile(14, 5, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_LARRY)) {
-            setmetatile(8, 11, METATILE_SilphCo_SilphWarp, FALSE)
+            setmetatile(6, 5, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
-            setmetatile(12, 11, METATILE_SilphCo_SilphWarp, FALSE)
+            setmetatile(12, 10, METATILE_SilphCo_SilphWarp, FALSE)
         }
         
         
