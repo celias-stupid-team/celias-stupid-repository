@@ -31,7 +31,7 @@
     },
     {
       "map": "MAP_POKEMON_ISLAND",
-      "offset": 10,
+      "offset": 12,
       "direction": "down"
     }
   ],

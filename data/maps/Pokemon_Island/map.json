@@ -16,8 +16,18 @@
   "connections": [
     {
       "map": "MAP_TWO_ISLAND",
-      "offset": -10,
+      "offset": -12,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE18",
+      "offset": 48,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],

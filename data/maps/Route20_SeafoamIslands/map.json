@@ -20,11 +20,6 @@
       "direction": "right"
     },
     {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": -32,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ONE_ISLAND",
       "offset": 13,
       "direction": "up"
@@ -33,6 +28,11 @@
       "map": "MAP_ROUTE19",
       "offset": -35,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE25",
+      "offset": -62,
+      "direction": "down"
     }
   ],
   "object_events": [],

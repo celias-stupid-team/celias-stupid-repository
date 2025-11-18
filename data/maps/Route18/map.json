@@ -38,6 +38,16 @@
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
       "offset": -21,
       "direction": "left"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND",
+      "offset": -48,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 5,
+      "direction": "down"
     }
   ],
   "object_events": [
