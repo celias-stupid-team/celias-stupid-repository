@@ -111,7 +111,7 @@ script PewterCity_EventScript_Dad {
 }
 
 script PewterGym_CheckForButterfree {
-	if(!checkmoncaught(SPECIES_BUTTERFREE)) {
+	if(!checkpartymove(MOVE_CONFUSION)) {
 		setvar(VAR_PEWTER_CELIA_SCENE, 1)
 	}
 	return

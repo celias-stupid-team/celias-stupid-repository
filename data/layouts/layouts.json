@@ -821,7 +821,7 @@
       "id": "LAYOUT_CINNABAR_ISLAND",
       "name": "CinnabarIsland_Layout",
       "width": 55,
-      "height": 48,
+      "height": 38,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2404,8 +2404,8 @@
     {
       "id": "LAYOUT_ROUTE21_SOUTH",
       "name": "Route21_South_Layout",
-      "width": 24,
-      "height": 32,
+      "width": 55,
+      "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2536,7 +2536,7 @@
     {
       "id": "LAYOUT_ONE_ISLAND",
       "name": "OneIsland_Layout",
-      "width": 31,
+      "width": 41,
       "height": 29,
       "border_width": 2,
       "border_height": 2,
@@ -2549,7 +2549,7 @@
       "id": "LAYOUT_TWO_ISLAND",
       "name": "TwoIsland_Layout",
       "width": 69,
-      "height": 36,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5404,7 +5404,7 @@
     {
       "id": "LAYOUT_ZERO_ISLAND",
       "name": "Zero_Island_Layout",
-      "width": 43,
+      "width": 39,
       "height": 32,
       "border_width": 2,
       "border_height": 2,
@@ -5896,7 +5896,7 @@
     {
       "id": "LAYOUT_ROUTE20_SEAFOAM_ISLANDS",
       "name": "Route20_SeafoamIslands_Layout",
-      "width": 44,
+      "width": 50,
       "height": 32,
       "border_width": 2,
       "border_height": 2,
@@ -5920,8 +5920,8 @@
     {
       "id": "LAYOUT_POKEMON_ISLAND",
       "name": "Pokemon_Island_Layout",
-      "width": 53,
-      "height": 41,
+      "width": 36,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6408,6 +6408,18 @@
       "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/ThreeIsland_Core/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland_Core/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_ISLAND_SOUTH",
+      "name": "PokemonIsland_South_Layout",
+      "width": 53,
+      "height": 29,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/PokemonIsland_South/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonIsland_South/map.bin"
     }
   ]
 }

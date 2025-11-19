@@ -1810,3 +1810,6 @@ Text_TestMsg::
 
 	.include "data/maps/ThreeIsland_Core/scripts.inc"
 	.include "data/maps/ThreeIsland_Core/text.inc"
+
+	.include "data/maps/PokemonIsland_South/scripts.inc"
+	.include "data/maps/PokemonIsland_South/text.inc"
