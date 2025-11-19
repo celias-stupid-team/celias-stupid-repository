@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE14",
       "offset": -21,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": -7,
+      "direction": "right"
     }
   ],
   "object_events": [],
