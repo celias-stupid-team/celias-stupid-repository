@@ -16,22 +16,22 @@
   "connections": [
     {
       "map": "MAP_TWO_ISLAND_CAPE_BRINK",
-      "offset": 21,
+      "offset": 24,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE18",
-      "offset": -1,
+      "offset": 3,
       "direction": "right"
     },
     {
       "map": "MAP_ROUTE21_NORTH",
-      "offset": -18,
+      "offset": -14,
       "direction": "left"
     },
     {
       "map": "MAP_POKEMON_ISLAND",
-      "offset": 12,
+      "offset": 21,
       "direction": "down"
     }
   ],
@@ -39,7 +39,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 20,
+      "x": 23,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -53,7 +53,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 27,
+      "x": 30,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -67,7 +67,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 10,
+      "x": 13,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -81,7 +81,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIPPIE",
-      "x": 18,
+      "x": 21,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -95,7 +95,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SANS",
-      "x": 11,
+      "x": 14,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -110,7 +110,7 @@
       "local_id": "LOCALID_DRAGONITE_PRESENT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PRESENT",
-      "x": 54,
+      "x": 57,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -124,7 +124,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 40,
+      "x": 43,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
@@ -138,7 +138,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MR_T",
-      "x": 27,
+      "x": 30,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -152,7 +152,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PENCIL",
-      "x": 41,
+      "x": 44,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -166,7 +166,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 12,
+      "x": 15,
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -180,7 +180,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PRESENT",
-      "x": 42,
+      "x": 45,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -194,7 +194,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PRESENT",
-      "x": 17,
+      "x": 20,
       "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -208,7 +208,7 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 26,
+      "x": 29,
       "y": -5,
       "target_local_id": "1",
       "target_map": "MAP_TWO_ISLAND_CAPE_BRINK"
@@ -216,7 +216,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 48,
+      "x": 51,
       "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -230,42 +230,42 @@
   ],
   "warp_events": [
     {
-      "x": 48,
+      "x": 51,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
       "dest_warp_id": "0"
     },
     {
-      "x": 44,
+      "x": 47,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 21,
+      "x": 24,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
+      "x": 15,
       "y": -4,
       "elevation": 3,
       "dest_map": "MAP_TWO_ISLAND_HARBOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 33,
+      "x": 36,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_DRUGSTORE",
       "dest_warp_id": "0"
     },
     {
-      "x": 33,
+      "x": 36,
       "y": 17,
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_PAULA_HOUSE",
@@ -276,7 +276,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 29,
+      "x": 32,
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -284,7 +284,7 @@
     },
     {
       "type": "sign",
-      "x": -5,
+      "x": -2,
       "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -292,7 +292,7 @@
     },
     {
       "type": "sign",
-      "x": 8,
+      "x": 11,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -300,7 +300,7 @@
     },
     {
       "type": "sign",
-      "x": 19,
+      "x": 22,
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -308,7 +308,7 @@
     },
     {
       "type": "sign",
-      "x": 22,
+      "x": 25,
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

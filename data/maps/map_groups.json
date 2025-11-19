@@ -260,7 +260,12 @@
     "BirthIsland_Harbor",
     "NavelRock_Harbor",
     "FestivalPlaza",
-    "NationalPark"
+    "NationalPark",
+    "Wormhole_Entrance",
+    "Wormhole_OrthwormRoom",
+    "Wormhole_Exit",
+    "RainbowCloud_Transition",
+    "RainbowCloud"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PalletTown",
@@ -389,7 +394,8 @@
     "VermilionCity_House2",
     "VermilionCity_Mart",
     "VermilionCity_Gym",
-    "VermilionCity_House3"
+    "VermilionCity_House3",
+    "VermilionCity_FanClubBasement"
   ],
   "gMapGroup_IndoorCeladon": [
     "CeladonCity_DepartmentStore_1F",
@@ -444,7 +450,9 @@
     "CinnabarIsland_PokemonLab_ExperimentRoom",
     "CinnabarIsland_PokemonCenter_1F",
     "CinnabarIsland_PokemonCenter_2F",
-    "CinnabarIsland_Mart"
+    "CinnabarIsland_Mart",
+    "ThreeIsland_Outside",
+    "ThreeIsland_Core"
   ],
   "gMapGroup_IndoorIndigoPlateau": [
     "IndigoPlateau_PokemonCenter_1F",
@@ -526,7 +534,8 @@
     "Route23_UnusedHouse"
   ],
   "gMapGroup_IndoorRoute25": [
-    "Route25_SeaCottage"
+    "Route25_SeaCottage",
+    "Route25_BillsSecretGarden"
   ],
   "gMapGroup_IndoorSevenIsland": [
     "SevenIsland_House_Room1",
@@ -702,11 +711,13 @@
     "SkyTower_2F",
     "SkyTower_3F",
     "SkyTower_MonsterHouse",
-    "GreatSea_PirateBay"
+    "GreatSea_PirateBay",
+    "PokemonIsland_LabBackRoom"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",
-    "AetherParadise_NebbyRoom"
+    "AetherParadise_NebbyRoom",
+    "AetherParadise_SkullRoom"
   ],
   "gMapGroup_Ocean": [
     "Ocean1",

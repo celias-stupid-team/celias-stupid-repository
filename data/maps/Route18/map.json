@@ -31,12 +31,7 @@
     },
     {
       "map": "MAP_TWO_ISLAND",
-      "offset": 1,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
-      "offset": -21,
+      "offset": -3,
       "direction": "left"
     },
     {

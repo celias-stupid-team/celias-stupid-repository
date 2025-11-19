@@ -16,12 +16,12 @@
   "connections": [
     {
       "map": "MAP_MINNESOTA",
-      "offset": 7,
+      "offset": 4,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE21_NORTH",
-      "offset": 24,
+      "offset": 17,
       "direction": "up"
     }
   ],
