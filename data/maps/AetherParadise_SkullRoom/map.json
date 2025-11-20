@@ -14,8 +14,59 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
-  "warp_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AetherParadise_SkuntankHint",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NEW_GUZMA",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AetherParadise_Guzma",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SKULL_GRUNT_FEMALE",
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AetherParadise_SkullGruntHint",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ENTRANCE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
