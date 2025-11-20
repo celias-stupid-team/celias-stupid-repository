@@ -378,3 +378,57 @@ can't fool me!\p
 I know that GYARADOS is BLUE, and\n
 nothing can change that!", MSGBOX_NPC)
 }
+
+
+script CinnabarIsland_MirageIslandMan {
+	lock
+	faceplayer
+	if(!flag(FLAG_BADGE07_GET)) {
+		msgbox(
+		"Hmm…\p"
+
+		"I don't see the MIRAGE ISLAND\n"
+		"today.", MSGBOX_DEFAULT)
+
+	} else {
+		msgbox(
+		"Oh!\n"
+		"It's the MIRAGE ISLAND!\p"
+
+		"Hm, it seems to have appeared quite\n"
+		"a bit closer today than normal.\l"
+		"How odd!", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+
+script CinnabarIsland_AbsolInfestation {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_3)) {
+		msgbox(
+		"Keeping the ISLAND safe.\n"
+		"All in a day's work.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"There's been an infestation of\n"
+	"this weird POKéMON lately.\l"
+	"Dunno where they're coming from.", MSGBOX_DEFAULT)
+	// Absol appears
+	msgbox(
+	"Hey!\n"
+	"There's one of 'em!\l"
+	"C'mere, you!", MSGBOX_DEFAULT)
+	//guy takes it 
+	msgbox(
+	"I'm a CHUCKSTER!\n"
+	"", MSGBOX_DEFAULT)
+	//guy throws it; returns
+
+	setflag(FLAG_TEMP_3)
+	release
+
+}

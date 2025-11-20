@@ -1120,8 +1120,8 @@
     {
       "id": "LAYOUT_ROUTE23",
       "name": "Route23_Layout",
-      "width": 24,
-      "height": 160,
+      "width": 30,
+      "height": 92,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6364,8 +6364,8 @@
     {
       "id": "LAYOUT_ROUTE25_BILLS_SECRET_GARDEN",
       "name": "Route25_BillsSecretGarden_Layout",
-      "width": 14,
-      "height": 10,
+      "width": 33,
+      "height": 35,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

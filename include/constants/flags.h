@@ -937,7 +937,7 @@
 #define FLAG_SILPH_WARP_THREE_ISLAND               0x35C
 #define FLAG_GOT_PENCIL_ERASER               0x35D
 #define FLAG_GOT_ODDISH               0x35E
-#define FLAG_0x35F               0x35F
+#define FLAG_HELPED_MILTANK               0x35F
 #define FLAG_0x360               0x360
 #define FLAG_0x361               0x361
 #define FLAG_0x362               0x362
@@ -1400,8 +1400,8 @@
 #define FLAG_SYS_KANGA_FIGHT                                                  (SYS_FLAGS + 0xC)
 #define FLAG_SYS_MAX_REPEL                                                  (SYS_FLAGS + 0xD)
 #define FLAG_SYS_DISABLE_SAVE                                                  (SYS_FLAGS + 0xE)
-#define FLAG_0x80F                                                  (SYS_FLAGS + 0xF)
-#define FLAG_0x810                                                  (SYS_FLAGS + 0x10)
+#define FLAG_SYS_CARRYING_BOX                                                  (SYS_FLAGS + 0xF)
+#define FLAG_SYS_BILL_GARDEN                                                  (SYS_FLAGS + 0x10)
 #define FLAG_0x811                                                  (SYS_FLAGS + 0x11)
 #define FLAG_0x812                                                  (SYS_FLAGS + 0x12)
 #define FLAG_0x813                                                  (SYS_FLAGS + 0x13)

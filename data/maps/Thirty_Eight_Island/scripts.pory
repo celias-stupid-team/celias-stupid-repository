@@ -4,3 +4,168 @@ mapscripts Thirty_Eight_Island_MapScripts {
     }
 }
 
+script ThirtyEightIsland_FirstChuckster {
+    lock
+    faceplayer
+    msgbox(
+	"I'm a CHUCKSTER!\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script ThirtyEightIsland_SecondChuckster {
+    lock
+    faceplayer
+    msgbox(
+	"I'm a CHUCKSTER!\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script ThirtyEightIsland_Chuck {
+    lock
+    faceplayer
+    msgbox(
+	"I'm   {PAUSE 20}CHUCK    !\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+script ThirtyEightIsland_NationalParkGuy {
+	msgbox(
+	"This island is great, but I really\n"
+	"miss being home in JOHTO.\p"
+
+	"I'd visit the NATIONAL PARK just\n"
+	"to relax on the BENCHES all day.\p"
+
+	"Ah…\n"
+	"If only I could go there now!", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_DarnBarn {
+	msgbox(
+	"Wha-\n"
+	"Hey!\p"
+
+	"This darn barn's made of yarn!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script ThirtyEightIsland_HelpMiltank {
+	msgbox(
+	"Help milank\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_MommyMilkers {
+    lock
+    faceplayer
+	msgbox(
+	"Would you like some\n"
+	"MOOMOO MILK?", MSGBOX_YESNO)
+    release
+}
+
+script ThirtyEightIsland_Miltank {
+
+    if(flag(FLAG_HELPED_MILTANK)) {
+        goto(ThirtyEightIsland_MiltankPhilosophy)
+
+    } else {
+        lock
+        faceplayer
+        playmoncry(SPECIES_MILTANK, CRY_MODE_FAINT)
+        msgbox(
+        "MILTANK: Moo...\n"
+        "", MSGBOX_DEFAULT)
+        waitmoncry
+
+    }
+    release
+    end
+}
+
+script ThirtyEightIsland_MiltankPhilosophy {
+    lock
+    textcolor(NPC_TEXT_COLOR_RED)
+    //Little girl walks right
+    switch(var(VAR_TEMP_1)) {
+        case 0:
+            msgbox(
+            "Hey, MILTANK!\p"
+
+            "What's a word that rhymes with\n"
+            "“Shoe?”", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
+            msgbox(
+            "MILTANK: Moo!\n"
+            "", MSGBOX_DEFAULT)
+        case 1:
+            msgbox(
+            "Hey, MILTANK!\p"
+
+            "What's the acronym for Minimalist\n"
+            "Object Orientation?", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
+            msgbox(
+            "MILTANK: MOO!\n"
+            "", MSGBOX_DEFAULT)
+        
+        case 2:
+            msgbox(
+            "Hey, MITANK!\p"
+
+            "What Greek symbol represents the\n"
+            "mean in statistical analysis?", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
+            msgbox(
+            "MILTANK: Mu!\n"
+            "", MSGBOX_DEFAULT)
+        case 3:
+            msgbox(
+            "Hey, MILTANK!\p"
+
+            "What do you get for after 1,000\n"
+            "transfers into MY POKéMON RANCH?", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            playmoncry(SPECIES_MEW, CRY_MODE_DEFAULT)
+            msgbox(
+            "MILTANK: Mew!\n"
+            "", MSGBOX_DEFAULT)
+        case 4:
+            msgbox(
+            "Hey, MITANK!\p"
+
+            "What do cows say?\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
+            msgbox(
+            "MILTANK: What the fuck is a cow?\n"
+            "", MSGBOX_DEFAULT)
+        
+    }    
+    waitmoncry
+    addvar(VAR_TEMP_1, 1)
+    if(var(VAR_TEMP_1) >= 5) {
+        setvar(VAR_TEMP_1, 0)
+    }
+    release
+}
