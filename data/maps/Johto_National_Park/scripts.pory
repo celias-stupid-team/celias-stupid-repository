@@ -1,2 +1,252 @@
 mapscripts Johto_National_Park_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_NATIONAL_PARK)
+    }
+}
+
+
+script NationalPark_Sign {
+	msgbox(
+	"JOHTO NATIONAL PARK\n"
+	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
+
+}
+
+script NationalPark_JohtoLawnMaintenance {
+	msgbox(
+	"Wow!\n"
+	"Look at this lovely grass!\p"
+
+	"I sure am impressed with the\n"
+	"JOHTO LAWN MAINTENANCE SERVICE!", MSGBOX_NPC)
+}
+
+script NationalPark_EvolvingLedyba {
+	msgbox(
+	"I'm evolving my LEDYBA to beat\n"
+	"FALKNER!\p"
+
+	"I'm already Level 15, but{PAUSE 30} frankly\n"
+	"I think I'm wasting my time.", MSGBOX_NPC)
+}
+
+script NationalPark_Printer {
+	msgbox(
+	"Cool!\p"
+
+	"I'm making stickers with my\n"
+	"GAME BOY PRINTER!", MSGBOX_NPC)
+}
+
+script NationalPark_Camera {
+	msgbox(
+	"Wowie!\p"
+
+	"I'm taking pictures with my\n"
+	"GAME BOY CAMERA!", MSGBOX_NPC)
+}
+
+script NationalPark_FaxMachine {
+	msgbox(
+	"Neato!\p"
+
+	"I'm sending business reports with\n"
+	"my GAME BOY FAX MACHINE!", MSGBOX_NPC)
+}
+
+script NationalPark_BugCatchingContest {
+	msgbox(
+	"And the winner is…{PAUSE 60}\p"
+
+	"COOLTRAINER NICK with his Level 6\n"
+	"CATERPIE!", MSGBOX_NPC)
+}
+
+
+script NationalPark_BugCatchingContest_ThirdPlace {
+	msgbox(
+	"Damn!\n"
+	"Third place!\p"
+
+	"I coulda sworn my Perfect IV max-\n"
+	"level Shiny SCYTHER could do it!", MSGBOX_NPC)
+}
+
+script NationalPark_BugCatchingContest_SecondPlace {
+	msgbox(
+	"Aww, man!\n"
+	"I really wanted that SUN STONE!\p"
+
+	"What am I supposed to do with this\n"
+	"stupid PARAS now?", MSGBOX_NPC)
+}
+
+
+script NationalPark_BugCatchingContest_FirstPlace {
+	msgbox(
+	"Yes!\n"
+	"I knew this CATERPIE was special!\p"
+
+	"I can't wait to raise him all the\n"
+	"way until he's a BUTTERFREE!", MSGBOX_NPC)
+}
+
+script NationalPark_BugCatchingContest_FourthPlace {
+	msgbox(
+	"Yay!\n"
+	"I love the BUG CATCHING CONTEST!\p"
+
+	"It's a good thing there's no\n"
+	"in-game clock around here.\l"
+	"Now it can be TUESDAY forever!", MSGBOX_NPC)
+}
+
+script NationalPark_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"I've just been enjoying a nice\n"
+	"retreat out to JOHTO!\l"
+	"It's good to take some time away.\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script NationalPark_LostCandy {
+	msgbox(
+	"Hello, can you help me?\p"
+
+	"I dropped some CANDY on the ground,\n"
+	"but I can't find it.", MSGBOX_NPC)
+}
+
+script NationalPark_FakeOddCandy {
+    lock
+    removeobject(VAR_LAST_TALKED)
+
+    playfanfare(MUS_KOROK_SEED)
+    msgbox(
+	"{PLAYER} found the ODD CANDY!\n"
+	"", MSGBOX_DEFAULT)
+    waitfanfare
+    //nerd walks over  
+    addobject(LOCALID_CANDY_NERD)
+    setobjectxy(LOCALID_CANDY_NERD, 16, 14)
+    applymovement(LOCALID_CANDY_NERD, moves(
+        walk_fast_left * 7
+        face_left
+    ))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_PLAYER, moves(
+        face_right
+        emote_exclamation_mark
+        delay_16 * 3
+    ))
+    waitmovement(0)
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Hey!\n"
+	"That's my CANDY!\l"
+	"Thanks for finding it!\p"
+
+	"…Um, why'd you put it in your\n"
+	"BAG?\p"
+
+	"… … …\n"
+	"… … …\p"
+
+	"Oh, you're collecting CANDY for\n"
+	"an old guy who dropped them all?\p"
+
+	"Well, don't worry.\n"
+	"This isn't one of his.\p"
+
+	"His scattered across KANTO, see.\n"
+	"We're in JOHTO right now!", MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"{PLAYER} returned the ODD CANDY\n"
+	"to its rightful owner.", MSGBOX_DEFAULT)
+    closemessage
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Thanks a bunch!\n"
+	"", MSGBOX_DEFAULT)
+    fadescreen(FADE_TO_BLACK)
+    removeobject(LOCALID_CANDY_NERD)
+    delay(10)
+    fadescreen(FADE_FROM_BLACK)
+
+}
+
+script NationalPark_FirstSteps {
+    lock
+    playse(SE_PIN)
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    switch(var(VAR_RESULT)) {
+        case DIR_WEST:
+            applymovement(LOCALID_JOHTO_HIKER, moves(
+                emote_exclamation_mark
+                delay_16 * 3
+                jump_down
+                walk_fast_left
+                face_left
+                walk_fast_left * 2
+                face_up
+            ))
+            break
+        case DIR_SOUTH:
+            applymovement(LOCALID_JOHTO_HIKER, moves(
+                emote_exclamation_mark
+                delay_16 * 3
+                jump_down
+                walk_fast_left
+                face_left
+                walk_fast_left * 2
+                face_up
+            ))
+            break
+
+        default:
+            applymovement(LOCALID_JOHTO_HIKER, moves(
+                face_left
+                emote_exclamation_mark
+                delay_16 * 3
+            ))
+            break
+
+
+    }
+    waitmovement(0)
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Hey, you!\n"
+	"Do you know what you just did?\p"
+
+	"You've taken your first step\n"
+	"into JOHTO!\p"
+
+	"… … …\p"
+
+	"I get really excited about people\n"
+	"going to new regions.\l"
+	"Please don't make fun of me.", MSGBOX_DEFAULT)
+}
+
+script NationalPark_ExcitedHiker {
+	msgbox(
+	"I get really excited about people\n"
+	"going to new regions.\p"
+	"Please don't make fun of me.", MSGBOX_NPC)
 }

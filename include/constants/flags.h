@@ -1066,7 +1066,7 @@
 #define FLAG_ROUTE_21_CANDY              0x3D2 //REPURPOSE
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_AETHER_PARADISE_CANDY       0x3B5
-#define FLAG_0x3D7               0x3D7
+#define FLAG_NATIONAL_PARK_CANDY               0x3D7
 
 //Mystery Gift Stuff
 #define FLAG_MYSTERY_GIFT_DONE   0x3D8

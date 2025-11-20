@@ -28,5 +28,6 @@
 #define BENCH_LAVENDER_TOWER                25
 #define BENCH_FUSHCIA                26
 #define BENCH_FOUR_ISLAND                27
+#define BENCH_NATIONAL_PARK                28
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

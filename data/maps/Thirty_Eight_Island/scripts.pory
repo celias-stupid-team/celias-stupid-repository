@@ -1,3 +1,6 @@
 mapscripts Thirty_Eight_Island_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_NATIONAL_PARK)
+    }
 }
+
