@@ -12528,3 +12528,34 @@ extern const u32 gItemIconPalette_OddMulch[];
 
 extern const u32 gItemIcon_Hamburger[];
 extern const u32 gItemIconPalette_Hamburger[];
+// PORYGON64
+extern const u32 gMonFrontPic_PORYGON64[];
+extern const u32 gMonPalette_PORYGON64[];
+extern const u32 gMonBackPic_PORYGON64[];
+extern const u32 gMonShinyPalette_PORYGON64[];
+extern const u8 gMonFootprint_PORYGON64[];
+extern const u8 gMonIcon_PORYGON64[];
+
+// PORYGON32
+extern const u32 gMonFrontPic_PORYGON32[];
+extern const u32 gMonPalette_PORYGON32[];
+extern const u32 gMonBackPic_PORYGON32[];
+extern const u32 gMonShinyPalette_PORYGON32[];
+extern const u8 gMonFootprint_PORYGON32[];
+extern const u8 gMonIcon_PORYGON32[];
+extern const u32 gTrainerFrontPic_JEANS[];
+extern const u32 gTrainerPalette_JEANS[];
+extern const u32 gTrainerFrontPic_Cynthia[];
+extern const u32 gTrainerPalette_Cynthia[];
+extern const u32 gTrainerFrontPic_Backpack_Swimmer[];
+extern const u32 gTrainerPalette_Backpack_Swimmer[];
+
+
+extern const u32 gItemIcon_GROWTHMULCH[];
+extern const u32 gItemIconPalette_GROWTHMULCH[];
+
+extern const u32 gItemIcon_RICHMULCH[];
+extern const u32 gItemIconPalette_RICHMULCH[];
+extern const u32 gTrainerFrontPic_OAK_TREE[];
+extern const u32 gTrainerPalette_OAK_TREE[];
+

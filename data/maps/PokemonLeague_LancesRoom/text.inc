@@ -1,18 +1,9 @@
 PokemonLeague_LancesRoom_Text_Intro::
-    .string "Ah! I've heard about you,\n"
-    .string "{PLAYER}!\p"
-    .string "I lead the ELITE FOUR.\p"
-    .string "You can call me LANCE the dragon\n"
-    .string "TRAINER.\p"
-    .string "You know that dragons are\n"
-    .string "mythical POKéMON.\p"
-    .string "They're hard to catch and raise,\n"
-    .string "but their powers are superior.\p"
-    .string "They're virtually indestructible.\n"
-    .string "There's no being clever with them.\p"
-    .string "Well, are you ready to lose?\p"
-    .string "Your LEAGUE challenge ends with\n"
-    .string "me, {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+	.string "MAY: Hi, {PLAYER}, long time no see!\p"
+	.string "While I was searching for other\n"
+	.string "POKéMON, my POKéMON grew stronger.\p"
+	.string "So…\n"
+	.string "How about a little battle?{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 PokemonLeague_LancesRoom_Text_RematchIntro::
     .string "Ah!\n"
@@ -31,22 +22,12 @@ PokemonLeague_LancesRoom_Text_RematchIntro::
     .string "me, {PLAYER}!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 PokemonLeague_LancesRoom_Text_Defeat::
-    .string "That's it!\p"
-    .string "I hate to admit it, but you are a\n"
-    .string "POKéMON master!$"
+	.string "Yikes!\n"
+	.string "You're better than I expected!$"
 
 PokemonLeague_LancesRoom_Text_PostBattle::
-    .string "I still can't believe my dragons\n"
-    .string "lost to you, {PLAYER}.\p"
-    .string "You are now the POKéMON LEAGUE\n"
-    .string "CHAMPION!\p"
-    .string "…Or, you would have been, but\n"
-    .string "you have one more challenge left.\p"
-    .string "There is one more TRAINER to face!\n"
-    .string "His name is…\p"
-    .string "{RIVAL}!\p"
-    .string "He beat the ELITE FOUR before\n"
-    .string "you.\p"
-    .string "He is the real POKéMON LEAGUE\n"
-    .string "CHAMPION.$"
+	.string "MAY: {PLAYER}, you've been busy\n"
+	.string "training, too, haven't you?\p"
+	.string "I think you deserve a reward!\n"
+	.string "This is from me!$"
 

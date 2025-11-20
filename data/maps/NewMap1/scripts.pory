@@ -38,7 +38,7 @@ script Sootopolis_EventScript_Kiri {
 		msgbox("{PLAYER} obtained the\nPSYDUCK!", MSGBOX_DEFAULT)
 		waitfanfare
 		setvar(VAR_TEMP_1, SPECIES_GOLDUCK)
-			givemon(SPECIES_GOLDUCK, 25)
+			givemon(SPECIES_GOLDUCK, 19)
 			switch(var(VAR_RESULT)) {
 				case 0: //Mon goes to party
 					bufferspeciesname(STR_VAR_1, SPECIES_GOLDUCK)

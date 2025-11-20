@@ -67,7 +67,7 @@
     {
       "id": "HEAL_LOCATION_CINNABAR_ISLAND",
       "map": "MAP_CINNABAR_ISLAND",
-      "x": 27,
+      "x": 30,
       "y": 23,
       "respawn_map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_CINNABAR_NURSE"
@@ -107,15 +107,15 @@
     {
       "id": "HEAL_LOCATION_ONE_ISLAND",
       "map": "MAP_ONE_ISLAND",
-      "x": 14,
-      "y": 6,
+      "x": 10,
+      "y": 0,
       "respawn_map": "MAP_ONE_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_ONE_ISLAND_NURSE"
     },
     {
       "id": "HEAL_LOCATION_TWO_ISLAND",
       "map": "MAP_TWO_ISLAND",
-      "x": 21,
+      "x": 24,
       "y": 16,
       "respawn_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_TWO_ISLAND_NURSE"

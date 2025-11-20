@@ -295,7 +295,7 @@ static u16 GenerateFishingEncounter(const struct WildPokemonInfo * info, u8 rod)
 {
     u8 slot = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&info->wildPokemon[slot]);
-    if(rod == GOOD_ROD) {
+    if(rod != GOOD_ROD) {
         GenerateWildMon(info->wildPokemon[slot].species, level, slot);
     } else {
         GenerateWildMon(SPECIES_GOLDEEN, level, slot);

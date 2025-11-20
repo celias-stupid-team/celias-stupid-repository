@@ -15,24 +15,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE20",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE25",
-      "offset": -62,
-      "direction": "down"
-    },
-    {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
       "offset": 0,
       "direction": "right"
     },
     {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": -32,
+      "map": "MAP_ONE_ISLAND",
+      "offset": 9,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE19",
+      "offset": -35,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE25",
+      "offset": -62,
+      "direction": "down"
     }
   ],
   "object_events": [],

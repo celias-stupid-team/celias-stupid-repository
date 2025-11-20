@@ -896,3 +896,9 @@ const u32 gItemIconPalette_OddMulch[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_Hamburger[] = INCBIN_U32("graphics/items/icons/hamburger.4bpp.lz");
 const u32 gItemIconPalette_Hamburger[] = INCBIN_U32("graphics/items/icon_palettes/hamburger.gbapal.lz");
+
+const u32 gItemIcon_GROWTHMULCH[] = INCBIN_U32("graphics/items/icons/growth_mulch.4bpp.lz");
+const u32 gItemIconPalette_GROWTHMULCH[] = INCBIN_U32("graphics/items/icon_palettes/growth_mulch.gbapal.lz");
+
+const u32 gItemIcon_RICHMULCH[] = INCBIN_U32("graphics/items/icons/rich_mulch.4bpp.lz");
+const u32 gItemIconPalette_RICHMULCH[] = INCBIN_U32("graphics/items/icon_palettes/rich_mulch.gbapal.lz");

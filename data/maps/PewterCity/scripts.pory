@@ -854,16 +854,12 @@ mapscripts PewterCity_MapScripts {
 			msgbox("Hiya!\nI'm CELIA, the creator!\pWow, you sure did beat that fight\nwithout getting BUTTERFREE!\lThat, uh… impressive?\pY'know, there was an easier way to\ndo it.\lOne that doesn't involve grinding.\pOh, who am I kidding.\nYou already knew that, didn't you?\pWell, if you're so insistent on\ngetting through via levels, here!\lI have a gift for you!", MSGBOX_DEFAULT)
 			setflag(FLAG_SHINY_CREATION) //Butterfree
 			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			playfanfare(MUS_LEVEL_UP)
 			msgbox("{PLAYER} obtained a comically-strong\nCATERPIE!", MSGBOX_DEFAULT)
+			waitfanfare
 			//gift pokemon
 			call(PewterCity_OntainedCaterpie)
-			clearflag(FLAG_SHINY_CREATION)
-			textcolor(NPC_TEXT_COLOR_FEMALE)
-			msgbox("There!\nThat should do you for now.\pWith all those levels, I'm sure\nyou'll be able to get through!\pAnyway, good luck!\nRemember to fill in your POKéDEX!", MSGBOX_DEFAULT)
-			closemessage
-			applymovement(CELIA, CeliaLeavesAfterBrock)
-			removeobject(CELIA)
-			release
+			
 		}
 	]
 }
@@ -881,28 +877,42 @@ script PewterCity_OntainedCaterpie {
 			bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE)
 			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
 			if(!var(VAR_RESULT)) {
-				return
+				goto(PewterCity_CeliaCaterpieEnd)
 			}
 			call(EventScript_GetGiftMonPartySlot)
 			call(EventScript_ChangePokemonNickname)
-			return
+			goto(PewterCity_CeliaCaterpieEnd)
 		case 1: //Mon goes to PC
-				bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE)
+				bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE) //Breaks here??
 				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
 				if(var(VAR_RESULT) == 0) {
 					call(EventScript_TransferredToPC)
-					return
+					goto(PewterCity_CeliaCaterpieEnd)
 				} else {
 					call(EventScript_NameReceivedBoxMon)
 					call(EventScript_TransferredToPC)
-					return //This can be simplified; I'll deal with it later
+					goto(PewterCity_CeliaCaterpieEnd) //This can be simplified; I'll deal with it later
 				}
 				
-				return
+				goto(PewterCity_CeliaCaterpieEnd)
 		case 2:
 			goto(EventScript_NoMoreRoomForPokemon)
-			break
+			goto(PewterCity_CeliaCaterpieEnd)
 	}
+	return
+}
+
+script PewterCity_CeliaCaterpieEnd {
+	clearflag(FLAG_SHINY_CREATION)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("There!\nThat should do you for now.\pWith all those levels, I'm sure\nyou'll be able to get through!\pAnyway, good luck!\nRemember to fill in your POKéDEX!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(CELIA, CeliaLeavesAfterBrock)
+	waitmovement(0)
+	copyobjectxytoperm(CELIA)
+	removeobject(CELIA)
+	release
+
 }
 
 script PewterCity_MapScript_SetObtainable {
@@ -1116,7 +1126,7 @@ script PewterCity_EventScript_FatMan {
 	famechecker(FAMECHECKER_PEWTER, 2)
 	call(SetPlayerPokedexValues)
 	if(checkmoncaught(SPECIES_GRIMER)) {
-		msgbox("Ah, you found a POKéMON in the\ngrass?\lNicely done!\pA GRIMER, eh?\nHmmm…\pI've heard there's someone out\nthere looking for one of those.\pKeep an eye out for her!\n", MSGBOX_NPC)
+		msgbox("Ah, you found a POKéMON in the\ngrass?\lNicely done!", MSGBOX_NPC)
 	} else {
 		msgbox("There's supposed to be an extremely\nrare POKéMON in that grass.\pI'd really love to find it, but that\nguy keeps spraying REPEL everywhere!", MSGBOX_NPC)
 

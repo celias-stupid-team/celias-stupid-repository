@@ -272,7 +272,7 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 		walk_slower_down * 5
 	))
 	delay(100)
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	waitmovement(LOCALID_CAMERA)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_fastest_down * 17
@@ -283,13 +283,13 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_down * 6
 	))
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_down * 3
 	))
 	delay(20)
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_fastest_down * 10
@@ -303,7 +303,7 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 		walk_slow_down * 4
 		walk_slow_left * 3
 	))
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_left * 10
@@ -312,7 +312,7 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_left * 4
 	))
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_fastest_left * 10
@@ -324,12 +324,12 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_left * 10
 	))
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_slow_left 
 	))
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	waitmovement(0)
 	applymovement(LOCALID_CAMERA, moves(
 		walk_fastest_left * 16
@@ -343,7 +343,7 @@ script IndigoPlateau_Exterior_EventScript_Credits {
 		walk_slow_left * 16
 	))
 	callnative(EnableSEDuringCredits)
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	waitmovement(LOCALID_CAMERA)
 	delay(70)
 	addobject(LOCALID_CREDITS_GOLD)

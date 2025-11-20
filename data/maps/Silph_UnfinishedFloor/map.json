@@ -3,7 +3,7 @@
   "name": "Silph_UnfinishedFloor",
   "layout": "LAYOUT_SILPH_UNFINISHED_FLOOR",
   "music": "MUS_PEWTER",
-  "region_map_section": "MAPSEC_SAFFRON_CITY",
+  "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

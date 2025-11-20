@@ -1,3 +1,43 @@
 mapscripts Minnesota_Hospital_MapScripts {
 
 }
+
+
+script MinnesotaHospital_Billionaires {
+	msgbox(
+	"America has universal healthcare\n"
+	"for billionaires, but POKéMON\l"
+	"can only figure it out for animals!", MSGBOX_NPC)
+}
+
+script MinnesotaHospital_Nurse {
+    lock
+    msgbox(
+	"Welcome to the MINNESOTA Hospital.\n"
+	"Would you like an appointment?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox(
+        "Are you sure?\n"
+        "", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox(
+            "Are you REALLY sure?\n"
+            "", MSGBOX_YESNO)
+            if(var(VAR_RESULT)) {
+                msgbox(
+                "All right, if you insist.\p"
+
+                "That'll be ¥2,000,000.\n"
+                "{PAUSE 30}Cash or card?", MSGBOX_DEFAULT)
+                release
+                end
+            }
+        }
+    }
+    
+	msgbox(
+	"As an American healthcare worker,\n"
+	"I fucking hate your guts.\l"
+	"Good bye.", MSGBOX_DEFAULT)
+    release
+}

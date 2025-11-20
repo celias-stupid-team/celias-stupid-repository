@@ -87,12 +87,32 @@ FiveIsland_MemorialPillar_EventScript_MemorialLemonadeAlreadyPlaced::
 
 script MemorialPillar_OnixSign {
 	lock
-	msgbox("it's onix")
-	playfanfare(MUS_SLOTS_WIN)
-	setflag(FLAG_ONIX_TAIL_SIGN)
-	msgbox("pokemon sign")
-	waitfanfare
-	msgbox("here")
-	msgreceiveditem("metal coat", ITEM_METAL_COAT, 1)
+	if(flag(FLAG_ONIX_TAIL_SIGN)) {
+		msgbox(
+		"The butt of an extraordinarily\n"
+		"large ONIX.", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"A POKéMON is buried deep into\n"
+	"the ground.", MSGBOX_DEFAULT)
+
+	if(!flag(FLAG_SPAWN_VERMILION_ONIX)) {
+		playfanfare(MUS_HALF_SIGN)
+		setflag(FLAG_SPAWN_VERMILION_ONIX)
+		msgbox(
+		"{PLAYER} discovered the bottom\n"
+		"half of a POKéMON SIGN!", MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		delay(10)
+	}
+	msgbox(
+	"Hmm, I wonder where the rest of\n"
+	"him wound up.", MSGBOX_DEFAULT)
+	
 	release
 }
+
+

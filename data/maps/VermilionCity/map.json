@@ -142,10 +142,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 24,
+      "x": 20,
       "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -341,6 +341,134 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VermilionCity_Psyduck"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermilionCity_OnixSign"
     }
   ]
 }

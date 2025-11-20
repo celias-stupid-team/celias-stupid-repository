@@ -16,16 +16,21 @@
   "connections": [
     {
       "map": "MAP_FOUR_ISLAND",
-      "offset": 7,
+      "offset": 1,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": 6,
+      "direction": "right"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OMANYTE",
-      "x": 21,
-      "y": 10,
+      "x": 28,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -38,8 +43,78 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 20,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NORD_VIKING",
       "x": 13,
-      "y": 4,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FOOTBALL_VIKING",
+      "x": 33,
+      "y": 30,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FOOTBALL_VIKING",
+      "x": 34,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NORD_VIKING",
+      "x": 14,
+      "y": 30,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 24,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -52,36 +127,36 @@
   ],
   "warp_events": [
     {
-      "x": 27,
-      "y": 18,
+      "x": 34,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_SEVEN_ISLAND_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
-      "y": 19,
+      "x": 19,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_MINNESOTA",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 32,
+      "x": 22,
+      "y": 35,
       "elevation": 0,
       "dest_map": "MAP_SEVEN_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 24,
-      "y": 36,
+      "x": 31,
+      "y": 39,
       "elevation": 0,
       "dest_map": "MAP_MINNESOTA",
       "dest_warp_id": "0"
     },
     {
-      "x": 20,
-      "y": 41,
+      "x": 27,
+      "y": 44,
       "elevation": 0,
       "dest_map": "MAP_MINNESOTA",
       "dest_warp_id": "0"

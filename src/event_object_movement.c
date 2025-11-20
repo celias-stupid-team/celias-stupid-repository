@@ -481,6 +481,11 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_MAY                0x1137
 #define OBJ_EVENT_PAL_TAG_GOLD                0x1138
 
+#define OBJ_EVENT_PAL_TAG_NEW_GUZMA  0x1139
+#define OBJ_EVENT_PAL_TAG_DAWNCELIA  0x113A
+#define OBJ_EVENT_PAL_TAG_SHELGON  0x113B
+#define OBJ_EVENT_PAL_TAG_VICTINI_NEW  0x113C
+#define OBJ_EVENT_PAL_TAG_ORTHWORM_RISES  0x113D
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -535,6 +540,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_BuffOak,             OBJ_EVENT_PAL_TAG_BUFF_OAK},
     {gObjectEventPal_May,             OBJ_EVENT_PAL_TAG_MAY},
     {gObjectEventPal_Gold,             OBJ_EVENT_PAL_TAG_GOLD},
+    {gObjectEventPal_New_Guzma,             OBJ_EVENT_PAL_TAG_NEW_GUZMA},
+    {gObjectEventPal_DawnCelia,             OBJ_EVENT_PAL_TAG_DAWNCELIA},
+    {gObjectEventPal_SHELGON,             OBJ_EVENT_PAL_TAG_SHELGON},
+    {gObjectEventPal_victini_new,             OBJ_EVENT_PAL_TAG_VICTINI_NEW},
+    {gObjectEventPal_orthworm_rises,             OBJ_EVENT_PAL_TAG_ORTHWORM_RISES},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

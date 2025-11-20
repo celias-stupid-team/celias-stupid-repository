@@ -13,13 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 0,
-      "direction": "up"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -50,12 +44,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",

@@ -270,8 +270,8 @@ It is reset after every battle.
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
 #define VAR_QLBAK_MAP_LAYOUT        0x40AE
 
-#define VAR_0x40AF                 0x40AF
-#define VAR_0x40B0                 0x40B0
+#define VAR_NEBBY_COUNTER                 0x40AF
+#define VAR_START_SILPH_MUSIC                 0x40B0
 #define VAR_0x40B1                 0x40B1
 #define VAR_0x40B2                 0x40B2
 #define VAR_0x40B3                 0x40B3
@@ -319,7 +319,7 @@ It is reset after every battle.
 #define VAR_FUSHCIA_GYM_PIT_STATE                 0x40DB
 #define VAR_FUSHCIA_GYM_SHEDINJA_STATE                 0x40DC
 #define VAR_DIGLETTS_CAVE_DIGLETTS                 0x40DD
-#define VAR_0x40DE                 0x40DE
+#define VAR_LANCE_LASS_ATTACK                 0x40DE
 #define VAR_0x40DF                 0x40DF
 #define VAR_0x40E0                 0x40E0
 #define VAR_0x40E1                 0x40E1

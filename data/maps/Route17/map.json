@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE16",
-      "offset": 4,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE18",
       "offset": 0,
       "direction": "down"
@@ -38,6 +33,11 @@
       "map": "MAP_GREAT_BAY_NORTH",
       "offset": 22,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE16",
+      "offset": 4,
+      "direction": "up"
     }
   ],
   "object_events": [

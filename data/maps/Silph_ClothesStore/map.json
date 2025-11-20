@@ -3,7 +3,7 @@
   "name": "Silph_ClothesStore",
   "layout": "LAYOUT_SILPH_CLOTHES_STORE",
   "music": "MUS_CLOTHES_SHOP",
-  "region_map_section": "MAPSEC_SAFFRON_CITY",
+  "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

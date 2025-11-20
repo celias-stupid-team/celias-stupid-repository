@@ -20,6 +20,11 @@
       "direction": "left"
     },
     {
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "offset": 21,
+      "direction": "right"
+    },
+    {
       "map": "MAP_ROUTE13",
       "offset": -8,
       "direction": "up"

@@ -2,8 +2,8 @@
   "id": "MAP_SILPH_RD",
   "name": "Silph_RD",
   "layout": "LAYOUT_SILPH_RD",
-  "music": "MUS_PEWTER",
-  "region_map_section": "MAPSEC_SAFFRON_CITY",
+  "music": "MUS_CYBER_WORLD",
+  "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 10,
-      "y": 12,
+      "x": 6,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
+      "graphics_id": "OBJ_EVENT_GFX_ORAN_KID",
       "x": 14,
       "y": 7,
       "elevation": 0,
@@ -45,8 +45,8 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 2,
+      "graphics_id": "OBJ_EVENT_GFX_APPLIN_KID",
+      "x": 6,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -61,15 +61,15 @@
   "warp_events": [
     {
       "warp_id": "WARP_ID_SILPH_RD_HUB",
-      "x": 12,
-      "y": 13,
+      "x": 13,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_RD"
     },
     {
       "warp_id": "WARP_ID_SILPH_RD_PRESIDENT",
-      "x": 5,
+      "x": 8,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_11F",
@@ -95,8 +95,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 12,
-      "y": 12,
+      "x": 15,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -104,8 +104,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 13,
+      "x": 14,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -113,8 +113,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 14,
+      "x": 15,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -122,8 +122,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 13,
+      "x": 16,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

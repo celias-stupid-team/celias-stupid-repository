@@ -2,7 +2,7 @@
   "id": "MAP_SILPH_CO_2F",
   "name": "SilphCo_2F",
   "layout": "LAYOUT_SILPH_CO_2F",
-  "music": "MUS_SILPH",
+  "music": "MUS_CYBER_WORLD",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 2,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
@@ -313,7 +313,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SilphCo_2F_EventScript_FloorSign"
+      "script": "SilphCo_2F_EventScript_BlockedSign"
     },
     {
       "type": "sign",

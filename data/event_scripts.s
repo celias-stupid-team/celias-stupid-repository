@@ -1765,3 +1765,51 @@ Text_TestMsg::
 
 	.include "data/maps/SkyTower_1F/scripts.inc"
 	.include "data/maps/SkyTower_1F/text.inc"
+
+	.include "data/maps/Ocean1/scripts.inc"
+	.include "data/maps/Ocean1/text.inc"
+
+	.include "data/maps/Ocean2/scripts.inc"
+	.include "data/maps/Ocean2/text.inc"
+
+	.include "data/maps/Ocean4/scripts.inc"
+	.include "data/maps/Ocean4/text.inc"
+
+	.include "data/maps/Ocean3/scripts.inc"
+	.include "data/maps/Ocean3/text.inc"
+
+	.include "data/maps/AetherParadise_SkullRoom/scripts.inc"
+	.include "data/maps/AetherParadise_SkullRoom/text.inc"
+
+	.include "data/maps/Wormhole_Entrance/scripts.inc"
+	.include "data/maps/Wormhole_Entrance/text.inc"
+
+	.include "data/maps/Wormhole_OrthwormRoom/scripts.inc"
+	.include "data/maps/Wormhole_OrthwormRoom/text.inc"
+
+	.include "data/maps/Wormhole_Exit/scripts.inc"
+	.include "data/maps/Wormhole_Exit/text.inc"
+
+	.include "data/maps/PokemonIsland_LabBackRoom/scripts.inc"
+	.include "data/maps/PokemonIsland_LabBackRoom/text.inc"
+
+	.include "data/maps/RainbowCloud_Transition/scripts.inc"
+	.include "data/maps/RainbowCloud_Transition/text.inc"
+
+	.include "data/maps/RainbowCloud/scripts.inc"
+	.include "data/maps/RainbowCloud/text.inc"
+
+	.include "data/maps/Route25_BillsSecretGarden/scripts.inc"
+	.include "data/maps/Route25_BillsSecretGarden/text.inc"
+
+	.include "data/maps/VermilionCity_FanClubBasement/scripts.inc"
+	.include "data/maps/VermilionCity_FanClubBasement/text.inc"
+
+	.include "data/maps/ThreeIsland_Outside/scripts.inc"
+	.include "data/maps/ThreeIsland_Outside/text.inc"
+
+	.include "data/maps/ThreeIsland_Core/scripts.inc"
+	.include "data/maps/ThreeIsland_Core/text.inc"
+
+	.include "data/maps/PokemonIsland_South/scripts.inc"
+	.include "data/maps/PokemonIsland_South/text.inc"

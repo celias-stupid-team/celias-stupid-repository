@@ -5330,3 +5330,11 @@ Cry_SOLACEON::
 	.incbin "sound/direct_sound_samples/cries/solaceon.bin"
 
 	.align 2
+Cry_PORYGON64::
+	.incbin "sound/direct_sound_samples/cries/porygon64.bin"
+
+	.align 2
+Cry_PORYGON32::
+	.incbin "sound/direct_sound_samples/cries/porygon32.bin"
+
+	.align 2

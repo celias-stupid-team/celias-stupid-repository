@@ -91,13 +91,13 @@ script DanceTheater_ShortKid {
             if(flag(FLAG_DANCE_THEATER_KID_READY_TO_GIVE)) {
                 msgbox("…\pYou moved the girl out of the\nway\land then you-\p…{PAUSE 20}C'mon, man…\n", MSGBOX_DEFAULT)
                 closemessage
-                fadescreen(FADE_TO_BLACK)
+                fadescreenswapbuffers(FADE_TO_BLACK)
                 removeobject(VAR_LAST_TALKED)
                 setflag(FLAG_SHORT_KID_RAN_OFF)
                 clearflag(FLAG_TEMP_5)
                 addobject(SHORT_KID_BALL)
                 delay(30)
-                fadescreen(FADE_FROM_BLACK)
+                fadescreenswapbuffers(FADE_FROM_BLACK)
                 delay(10)
                 release
                 end
@@ -117,8 +117,8 @@ script DanceTheater_ShortKidBall {
     msgbox("The short kid left this here.\n", MSGBOX_DEFAULT)
     removeobject(VAR_LAST_TALKED)
     setflag(FLAG_SHINY_CREATION) //Ekans
+    additem(ITEM_CANDY_DISPENSER)
     playfanfare(MUS_LEVEL_UP)
-    giveitem(ITEM_CANDY_DISPENSER)
     msgbox("{PLAYER} stole a small child's\nEKANS!", MSGBOX_DEFAULT)
     setvar(VAR_CSR_GIFT_POKEMON, SPECIES_EKANS)
     call(Common_Script_GiftPokemon)

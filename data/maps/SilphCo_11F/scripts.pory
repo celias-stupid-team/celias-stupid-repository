@@ -67,12 +67,10 @@ SilphCo_11F_Movement_GiovanniApproachLeft::
 	walk_down
 	walk_down
 	walk_down
-	walk_down
 	walk_in_place_faster_left
 	step_end
 
 SilphCo_11F_Movement_GiovanniApproachRight::
-	walk_down
 	walk_down
 	walk_down
 	step_end
@@ -107,9 +105,7 @@ SilphCo_11F_EventScript_Grunt2::
 `
 
 script SilphCo_11F_OnLoad {
-	if(flag(FLAG_HIDE_SAFFRON_ROCKETS)) {
-		playbgm(MUS_PEWTER, TRUE)
-	}
+
 }
 script SilphCo_11F_EventScript_ElevatorDoor {
 	msgbox("Rats!\nThe elevator door's been glued shut!", MSGBOX_SIGN)
@@ -141,8 +137,8 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 	removeobject(LOCALID_SILPH_CO_11F_GRUNT1)
 	removeobject(LOCALID_SILPH_CO_11F_GRUNT2)
 	fadescreen(FADE_FROM_BLACK)
-	playbgm(MUS_PEWTER, TRUE)
 	setvar(VAR_CSR_DUMMY_3, 1)
+	setflag(FLAG_SILPH_DMCA_DEFEATED)
 	setflag(FLAG_HIDE_SAFFRON_ROCKETS)
 	clearflag(FLAG_HIDE_SAFFRON_CIVILIANS)
 	releaseall
@@ -153,4 +149,9 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 script SilphCo_11F_EventScript_AlreadyGotMasterBall {
 	msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
 	release
+}
+
+script SilphCo_StartSilphMusic {
+	setvar(VAR_START_SILPH_MUSIC, 2)
+	playbgm(MUS_CYBER_WORLD, TRUE)
 }
