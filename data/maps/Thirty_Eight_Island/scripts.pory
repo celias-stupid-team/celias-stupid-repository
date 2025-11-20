@@ -109,20 +109,6 @@ script ThirtyEightIsland_MiltankPhilosophy {
             "", MSGBOX_DEFAULT)
         case 1:
             msgbox(
-            "Hey, MILTANK!\p"
-
-            "What's the acronym for Minimalist\n"
-            "Object Orientation?", MSGBOX_DEFAULT)
-            closemessage
-            delay(60)
-            textcolor(NPC_TEXT_COLOR_NEUTRAL)
-            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
-            msgbox(
-            "MILTANK: MOO!\n"
-            "", MSGBOX_DEFAULT)
-        
-        case 2:
-            msgbox(
             "Hey, MITANK!\p"
 
             "What Greek symbol represents the\n"
@@ -134,24 +120,25 @@ script ThirtyEightIsland_MiltankPhilosophy {
             msgbox(
             "MILTANK: Mu!\n"
             "", MSGBOX_DEFAULT)
-        case 3:
+        
+        case 2:
             msgbox(
             "Hey, MILTANK!\p"
 
-            "What do you get for after 1,000\n"
-            "transfers into MY POKéMON RANCH?", MSGBOX_DEFAULT)
+            "How do you say “Radish” in\n"
+            "Korean?", MSGBOX_DEFAULT)
             closemessage
             delay(60)
             textcolor(NPC_TEXT_COLOR_NEUTRAL)
-            playmoncry(SPECIES_MEW, CRY_MODE_DEFAULT)
+            playmoncry(SPECIES_MILTANK, CRY_MODE_DEFAULT)
             msgbox(
-            "MILTANK: Mew!\n"
+            "MILTANK: {MU}!\n"
             "", MSGBOX_DEFAULT)
         case 4:
             msgbox(
             "Hey, MITANK!\p"
 
-            "What do cows say?\n"
+            "What sound does a cow make?\n"
             "", MSGBOX_DEFAULT)
             closemessage
             delay(60)
@@ -164,7 +151,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
     }    
     waitmoncry
     addvar(VAR_TEMP_1, 1)
-    if(var(VAR_TEMP_1) >= 5) {
+    if(var(VAR_TEMP_1) >= 4) {
         setvar(VAR_TEMP_1, 0)
     }
     release
