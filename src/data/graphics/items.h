@@ -902,3 +902,6 @@ const u32 gItemIconPalette_GROWTHMULCH[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_RICHMULCH[] = INCBIN_U32("graphics/items/icons/rich_mulch.4bpp.lz");
 const u32 gItemIconPalette_RICHMULCH[] = INCBIN_U32("graphics/items/icon_palettes/rich_mulch.gbapal.lz");
+
+const u32 gItemIcon_SlugmaBall[] = INCBIN_U32("graphics/items/icons/slugma_ball.4bpp.lz");
+const u32 gItemIconPalette_SlugmaBall[] = INCBIN_U32("graphics/items/icon_palettes/slugma_ball.gbapal.lz");

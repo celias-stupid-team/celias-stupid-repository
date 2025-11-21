@@ -20,18 +20,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_SIX_ISLAND_PATTERN_BUSH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 62,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
-      "offset": 44,
+      "offset": 55,
       "direction": "up"
     }
   ],

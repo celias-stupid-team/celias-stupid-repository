@@ -16,13 +16,18 @@
   "connections": [
     {
       "map": "MAP_INDIGO_PLATEAU_USED",
-      "offset": 0,
+      "offset": 8,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE22",
-      "offset": 0,
+      "offset": 6,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE12",
+      "offset": 49,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -30,8 +35,8 @@
       "local_id": "LOCALID_CASCADE_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 15,
-      "y": 149,
+      "x": 21,
+      "y": 81,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -45,8 +50,8 @@
       "local_id": "LOCALID_THUNDER_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 8,
-      "y": 140,
+      "x": 14,
+      "y": 72,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -60,10 +65,10 @@
       "local_id": "LOCALID_RAINBOW_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 14,
-      "y": 123,
+      "x": 20,
+      "y": 62,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -75,10 +80,10 @@
       "local_id": "LOCALID_SOUL_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 16,
-      "y": 112,
+      "x": 20,
+      "y": 61,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -90,10 +95,10 @@
       "local_id": "LOCALID_MARSH_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 10,
-      "y": 94,
+      "x": 20,
+      "y": 60,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -104,11 +109,11 @@
     {
       "local_id": "LOCALID_VOLCANO_BADGE_GUARD",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 14,
-      "y": 61,
+      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "x": 20,
+      "y": 58,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -120,10 +125,10 @@
       "local_id": "LOCALID_EARTH_BADGE_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 6,
-      "y": 35,
+      "x": 20,
+      "y": 59,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -134,8 +139,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZAPDOS",
-      "x": 10,
-      "y": 150,
+      "x": 16,
+      "y": 82,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -148,8 +153,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 18,
-      "y": 151,
+      "x": 24,
+      "y": 83,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -162,8 +167,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 12,
-      "y": 151,
+      "x": 18,
+      "y": 83,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -172,33 +177,61 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route23_EventScript_CeliaZapdos",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 20,
+      "y": 57,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route23_EventScript_EarthBadgeGuard",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 20,
+      "y": 56,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route23_EventScript_EarthBadgeGuard",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 28,
+      "x": 11,
+      "y": -40,
       "elevation": 3,
       "dest_map": "MAP_VICTORY_ROAD_1F",
       "dest_warp_id": "1"
     },
     {
-      "x": 18,
-      "y": 28,
+      "x": 24,
+      "y": -40,
       "elevation": 3,
       "dest_map": "MAP_VICTORY_ROAD_2F",
       "dest_warp_id": "6"
     },
     {
-      "x": 8,
-      "y": 153,
+      "x": 14,
+      "y": 85,
       "elevation": 3,
       "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
-      "y": 154,
+      "x": 15,
+      "y": 86,
       "elevation": 0,
       "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
       "dest_warp_id": "0"
@@ -207,8 +240,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 13,
-      "y": 149,
+      "x": 19,
+      "y": 81,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
@@ -216,8 +249,8 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 140,
+      "x": 13,
+      "y": 72,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
@@ -225,8 +258,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 123,
+      "x": 19,
+      "y": 62,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
@@ -234,8 +267,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 111,
+      "x": 17,
+      "y": 43,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
@@ -243,8 +276,8 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 94,
+      "x": 18,
+      "y": 60,
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
@@ -252,8 +285,8 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 61,
+      "x": 19,
+      "y": 59,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
@@ -261,8 +294,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 35,
+      "x": 7,
+      "y": -33,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -270,8 +303,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 34,
+      "x": 7,
+      "y": -34,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -279,8 +312,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 32,
+      "x": 7,
+      "y": -36,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -288,8 +321,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 33,
+      "x": 7,
+      "y": -35,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -297,8 +330,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 31,
+      "x": 7,
+      "y": -37,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -306,8 +339,8 @@
     },
     {
       "type": "trigger",
-      "x": 1,
-      "y": 36,
+      "x": 7,
+      "y": -32,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -315,17 +348,8 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 35,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 35,
+      "x": 11,
+      "y": -33,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
@@ -334,7 +358,16 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 60,
+      "y": -33,
+      "elevation": 3,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "7",
+      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": -8,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
@@ -342,8 +375,8 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 61,
+      "x": 18,
+      "y": 59,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
@@ -351,8 +384,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 60,
+      "x": 17,
+      "y": -8,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
@@ -360,8 +393,53 @@
     },
     {
       "type": "trigger",
+      "x": 19,
+      "y": 60,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "5",
+      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 24,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "5",
+      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 26,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "5",
+      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 24,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "5",
+      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 24,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "5",
+      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
       "x": 8,
-      "y": 94,
+      "y": 24,
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
@@ -369,53 +447,8 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 92,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 94,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 92,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 92,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 92,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 139,
+      "x": 10,
+      "y": 71,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
@@ -423,9 +456,18 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 139,
+      "x": 11,
+      "y": 71,
       "elevation": 0,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "2",
+      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 72,
+      "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
       "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
@@ -433,16 +475,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 140,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "2",
-      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 122,
+      "y": 53,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
@@ -450,8 +483,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 122,
+      "x": 6,
+      "y": 52,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
@@ -459,80 +492,17 @@
     },
     {
       "type": "trigger",
-      "x": 13,
-      "y": 123,
+      "x": 18,
+      "y": 62,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
       "script": "Route23_EventScript_RainbowBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 109,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 109,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 109,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 109,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 109,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 111,
-      "elevation": 0,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
     },
     {
       "type": "trigger",
       "x": 14,
-      "y": 112,
-      "elevation": 1,
-      "var": "VAR_MAP_SCENE_ROUTE23",
-      "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 112,
+      "y": 41,
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
@@ -541,7 +511,7 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 112,
+      "y": 41,
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
@@ -549,8 +519,71 @@
     },
     {
       "type": "trigger",
-      "x": 12,
-      "y": 148,
+      "x": 16,
+      "y": 41,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 41,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 41,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 61,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 61,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 44,
+      "elevation": 1,
+      "var": "VAR_MAP_SCENE_ROUTE23",
+      "var_value": "4",
+      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 80,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
@@ -558,8 +591,8 @@
     },
     {
       "type": "trigger",
-      "x": 11,
-      "y": 148,
+      "x": 17,
+      "y": 80,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
@@ -567,8 +600,8 @@
     },
     {
       "type": "trigger",
-      "x": 14,
-      "y": 149,
+      "x": 20,
+      "y": 81,
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
@@ -576,8 +609,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 148,
+      "x": 16,
+      "y": 80,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
@@ -587,8 +620,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 19,
-      "y": 42,
+      "x": 25,
+      "y": -26,
       "elevation": 0,
       "item": "ITEM_FULL_RESTORE",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_26",
@@ -597,8 +630,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 20,
-      "y": 72,
+      "x": 26,
+      "y": 4,
       "elevation": 0,
       "item": "ITEM_ULTRA_BALL",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_27",
@@ -607,8 +640,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 11,
-      "y": 101,
+      "x": 17,
+      "y": 33,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_28",
@@ -617,8 +650,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 18,
+      "x": 9,
+      "y": -50,
       "elevation": 3,
       "item": "ITEM_LUM_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LUM_BERRY",
@@ -627,8 +660,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 2,
-      "y": 29,
+      "x": 8,
+      "y": -39,
       "elevation": 3,
       "item": "ITEM_SITRUS_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_SITRUS_BERRY",
@@ -637,8 +670,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 10,
-      "y": 67,
+      "x": 16,
+      "y": -1,
       "elevation": 3,
       "item": "ITEM_ASPEAR_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_ASPEAR_BERRY",
@@ -647,8 +680,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 128,
+      "x": 9,
+      "y": 60,
       "elevation": 3,
       "item": "ITEM_LEPPA_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_LEPPA_BERRY",
@@ -657,8 +690,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 9,
-      "y": 8,
+      "x": 15,
+      "y": -60,
       "elevation": 3,
       "item": "ITEM_MAX_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE23_MAX_ELIXIR",
@@ -667,8 +700,8 @@
     },
     {
       "type": "sign",
-      "x": 3,
-      "y": 31,
+      "x": 9,
+      "y": -37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route23_EventScript_VictoryRoadGateSign"

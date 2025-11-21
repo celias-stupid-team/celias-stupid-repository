@@ -170,3 +170,12 @@ FiveIsland_RocketWarehouse_Movement_AdminWalkToSwitch::
 	walk_in_place_faster_up
 	step_end
 `
+
+
+script DMCAWarehouse_LetterY {
+	finditem(ITEM_LETTER_Y)
+}
+
+script DMCAWarehouse_LetterW {
+	finditem(ITEM_LETTER_W)
+}
