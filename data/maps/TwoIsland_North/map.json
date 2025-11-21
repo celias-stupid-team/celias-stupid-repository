@@ -13,7 +13,23 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_TWO_ISLAND",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": 1,
+      "direction": "left"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

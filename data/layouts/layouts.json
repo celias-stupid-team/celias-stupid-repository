@@ -5584,7 +5584,7 @@
     {
       "id": "LAYOUT_TWO_ISLAND_NORTH",
       "name": "TwoIsland_North_Layout",
-      "width": 21,
+      "width": 23,
       "height": 22,
       "border_width": 2,
       "border_height": 2,
@@ -6364,7 +6364,7 @@
     {
       "id": "LAYOUT_ROUTE25_BILLS_SECRET_GARDEN",
       "name": "Route25_BillsSecretGarden_Layout",
-      "width": 33,
+      "width": 32,
       "height": 35,
       "border_width": 2,
       "border_height": 2,
@@ -6420,6 +6420,18 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/PokemonIsland_South/border.bin",
       "blockdata_filepath": "data/layouts/PokemonIsland_South/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLEH",
+      "name": "bleh",
+      "width": 112,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/bleh/border.bin",
+      "blockdata_filepath": "data/layouts/bleh/map.bin"
     }
   ]
 }

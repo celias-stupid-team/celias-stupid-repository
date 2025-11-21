@@ -37,7 +37,7 @@
       "x": 32,
       "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLEE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",

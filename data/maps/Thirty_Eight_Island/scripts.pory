@@ -164,7 +164,7 @@ script ThirtyEightIsland_GoldenRod {
     msgbox(
 	"gift\n"
 	"", MSGBOX_DEFAULT)
-    giveitem_msg("[player] obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
+    giveitem_msg("{PLAYER} obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
     waitfanfare
     release
 }

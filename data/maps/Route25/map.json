@@ -21,12 +21,7 @@
     },
     {
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 62,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
-      "offset": 32,
+      "offset": 55,
       "direction": "up"
     }
   ],

@@ -31,13 +31,18 @@
     },
     {
       "map": "MAP_ZERO_ISLAND",
-      "offset": 62,
+      "offset": 55,
       "direction": "down"
     },
     {
       "map": "MAP_ROUTE21_SOUTH",
       "offset": -41,
       "direction": "down"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_NORTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

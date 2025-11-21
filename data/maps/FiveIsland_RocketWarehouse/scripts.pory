@@ -176,6 +176,6 @@ script DMCAWarehouse_LetterY {
 	finditem(ITEM_LETTER_Y)
 }
 
-script DMCAWarehouse_LetterY {
+script DMCAWarehouse_LetterW {
 	finditem(ITEM_LETTER_W)
 }

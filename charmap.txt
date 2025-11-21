@@ -893,7 +893,7 @@ TCG_GRASS_1       = F9 1B
 TCG_GRASS_2       = F9 1C
 TCG_NORMAL_1       = F9 1D
 TCG_NORMAL_2       = F9 1E
-MU       = F9 1F
+MU                  = F9 1F
 
 
 EMOJI_UNDERSCORE = F9 D0
