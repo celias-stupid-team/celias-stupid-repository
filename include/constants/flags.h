@@ -1030,8 +1030,8 @@
 #define FLAG_TWO_ISLAND_CANDY            0x3B9 //Behind Territorial Oak
 #define FLAG_THREE_ISLAND_CANDY          0x3BA
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
-#define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC
-#define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Up the waterfall
+#define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed
+#define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Placed
 #define FLAG_MINNESOTA_CANDY             0x3BF  //placed
 #define FLAG_ROUTE_1_CANDY               0x3C0 //placed
 #define FLAG_ROUTE_2_CANDY               0x3C1 //placed

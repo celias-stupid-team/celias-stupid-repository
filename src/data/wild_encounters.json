@@ -21846,52 +21846,52 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 5,
-                "max_level": 15,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 5,
-                "max_level": 15,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 5,
-                "max_level": 15,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 15,
-                "max_level": 25,
-                "species": "SPECIES_MISSINGNO"
-              },
-              {
-                "min_level": 20,
+                "min_level": 30,
                 "max_level": 30,
                 "species": "SPECIES_MISSINGNO"
               },
               {
-                "min_level": 15,
-                "max_level": 25,
+                "min_level": 30,
+                "max_level": 30,
                 "species": "SPECIES_MISSINGNO"
               },
               {
-                "min_level": 15,
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_MISSINGNO"
+              },
+              {
+                "min_level": 30,
                 "max_level": 35,
                 "species": "SPECIES_MISSINGNO"
               },
               {
-                "min_level": 25,
+                "min_level": 30,
                 "max_level": 35,
                 "species": "SPECIES_MISSINGNO"
               }
@@ -24843,6 +24843,75 @@
               {
                 "min_level": 30,
                 "max_level": 30,
+                "species": "SPECIES_TENTACOOL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
+          "base_label": "gRoute25_BillsSecretGarden",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_BULBASAUR"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_BULBASAUR"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_BULBASAUR"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_SQUIRTLE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_SQUIRTLE"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHARMANDER"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_SQUIRTLE"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHARMANDER"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHARMANDER"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHARMANDER"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHARMANDER"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_TENTACOOL"
               }
             ]
