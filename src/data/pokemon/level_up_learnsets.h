@@ -152,12 +152,11 @@ static const struct LevelUpMove sButterfreeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(10, MOVE_GUST),
     LEVEL_UP_MOVE(12, MOVE_ATTRACT),
     LEVEL_UP_MOVE(14, MOVE_SLEEP_POWDER),
-    LEVEL_UP_MOVE(16, MOVE_MEGA_DRAIN),
+    LEVEL_UP_MOVE(16, MOVE_GIGA_DRAIN),
     LEVEL_UP_MOVE(18, MOVE_AIR_CUTTER),
-    LEVEL_UP_MOVE(21, MOVE_CALM_MIND),
     LEVEL_UP_MOVE(23, MOVE_PSY_WIND),
     LEVEL_UP_MOVE(26, MOVE_SIGNAL_BEAM),
-    LEVEL_UP_MOVE(28, MOVE_GIGA_DRAIN),
+    LEVEL_UP_MOVE(28, MOVE_PSY_BEAM),
     LEVEL_UP_MOVE(30, MOVE_HURRICANE),
     LEVEL_UP_END
 };
@@ -1794,7 +1793,7 @@ static const struct LevelUpMove sVaporeonLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sJolteonLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(0, MOVE_LIGHTNING),
+    LEVEL_UP_MOVE(0, MOVE_TWINEEDLE),
     LEVEL_UP_MOVE(1, MOVE_THUNDERBOLT),
     LEVEL_UP_MOVE(1, MOVE_TWINEEDLE),
     LEVEL_UP_MOVE(1, MOVE_THUNDER_WAVE),
@@ -1929,9 +1928,10 @@ static const struct LevelUpMove sArticunoLevelUpLearnset[] = {
 
 static const struct LevelUpMove sZapdosLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_DRILL_PECK),
+    LEVEL_UP_MOVE(1, MOVE_THUNDER),
     LEVEL_UP_MOVE(1, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE(1, MOVE_DUAL_WINGBEAT),
-    LEVEL_UP_MOVE(51, MOVE_THUNDER),
+    LEVEL_UP_MOVE(51, MOVE_LIGHTNING),
     LEVEL_UP_END
 };
 
