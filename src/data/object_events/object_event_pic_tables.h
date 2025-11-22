@@ -3907,3 +3907,36 @@ const struct SpriteFrameImage gObjectEventPicTable_oran_kid[] = {
     overworld_frame(gObjectEventPic_oran_kid, 2, 4, 2),
     overworld_frame(gObjectEventPic_oran_kid, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_SPHEAL[] = {
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 4),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 5),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 6),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 7),
+    overworld_frame(gObjectEventPic_SPHEAL, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_Sphealia[] = {
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Sphealia, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_spheal_swimming[] = {
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 0),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 1),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 2),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 3),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 4),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 5),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 6),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 7),
+    overworld_frame(gObjectEventPic_spheal_swimming, 4, 4, 8),
+};

@@ -18,11 +18,6 @@
       "map": "MAP_FIVE_ISLAND",
       "offset": -8,
       "direction": "left"
-    },
-    {
-      "map": "MAP_GREAT_BAY_NORTH",
-      "offset": 22,
-      "direction": "left"
     }
   ],
   "object_events": [

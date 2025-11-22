@@ -496,3 +496,6 @@ const u32 gObjectEventPic_orthworm_rises[] = INCBIN_U32("graphics/object_events/
 const u16 gObjectEventPal_orthworm_rises[] = INCBIN_U16("graphics/object_events/palettes/orthworm_rises.gbapal");
 const u32 gObjectEventPic_applin_kid[] = INCBIN_U32("graphics/object_events/pics/stupid/applin_kid.4bpp");
 const u32 gObjectEventPic_oran_kid[] = INCBIN_U32("graphics/object_events/pics/stupid/oran_kid.4bpp");
+const u32 gObjectEventPic_SPHEAL[] = INCBIN_U32("graphics/object_events/pics/stupid/SPHEAL.4bpp");
+const u32 gObjectEventPic_Sphealia[] = INCBIN_U32("graphics/object_events/pics/stupid/Sphealia.4bpp");
+const u32 gObjectEventPic_spheal_swimming[] = INCBIN_U32("graphics/object_events/pics/stupid/spheal_swimming.4bpp");

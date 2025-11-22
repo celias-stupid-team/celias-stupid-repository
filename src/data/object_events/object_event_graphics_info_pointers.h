@@ -367,6 +367,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_victini_new;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_orthworm_rises;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_applin_kid;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_oran_kid;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPHEAL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sphealia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spheal_swimming;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -735,4 +738,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ORTHWORM_RISES] = &gObjectEventGraphicsInfo_orthworm_rises,
     [OBJ_EVENT_GFX_APPLIN_KID] = &gObjectEventGraphicsInfo_applin_kid,
     [OBJ_EVENT_GFX_ORAN_KID] = &gObjectEventGraphicsInfo_oran_kid,
+    [OBJ_EVENT_GFX_SPHEAL] = &gObjectEventGraphicsInfo_SPHEAL,
+    [OBJ_EVENT_GFX_SPHEALIA] = &gObjectEventGraphicsInfo_Sphealia,
+    [OBJ_EVENT_GFX_SPHEAL_SWIMMING] = &gObjectEventGraphicsInfo_spheal_swimming,
 };
