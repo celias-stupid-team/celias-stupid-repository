@@ -2,14 +2,14 @@
   "id": "MAP_JOHTO_NATIONAL_PARK",
   "name": "Johto_National_Park",
   "layout": "LAYOUT_JOHTO_NATIONAL_PARK",
-  "music": "MUS_DUMMY",
+  "music": "MUS_NATIONAL_PARK",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
-  "allow_cycling": false,
+  "allow_cycling": true,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 22,
+      "x": 29,
       "y": 30,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -60,7 +60,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 29,
+      "x": 22,
       "y": 30,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -102,7 +102,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 23,
+      "x": 25,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -153,13 +153,13 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "NationalPark_EvolvingLedyba",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 24,
+      "x": 26,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -173,8 +173,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GBA_KID",
-      "x": 21,
-      "y": 8,
+      "x": 26,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -250,18 +250,27 @@
       "x": 35,
       "y": 45,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_NATIONAL_PARK_ENTRANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "NationalPark_FirstSteps"
     },
     {
       "type": "trigger",
       "x": 34,
       "y": 44,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_NATIONAL_PARK_ENTRANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "NationalPark_FirstSteps"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_NATIONAL_PARK_ENTRANCE",
+      "var_value": "0",
+      "script": "NationalPark_FirstSteps"
     }
   ],
   "bg_events": [

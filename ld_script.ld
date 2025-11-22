@@ -1038,6 +1038,7 @@ SECTIONS {
         sound/songs/midi/mus_yes.o(.rodata);
         sound/songs/midi/mus_leder_song.o(.rodata);
         sound/songs/midi/mus_prelude_to_finale.o(.rodata);
+        sound/songs/midi/mus_national_park.o(.rodata);
 
     } > ROM =0
 
