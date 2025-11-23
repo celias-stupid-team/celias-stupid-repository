@@ -295,3 +295,15 @@ const u32 gMetatileAttributes_Minnesota[] = INCBIN_U32("data/tilesets/secondary/
 
 const u16 gMetatiles_MinnesotaGym[] = INCBIN_U16("data/tilesets/secondary/minnesota_gym/metatiles.bin");
 const u32 gMetatileAttributes_MinnesotaGym[] = INCBIN_U32("data/tilesets/secondary/minnesota_gym/metatile_attributes.bin");
+
+const u16 gMetatiles_Hospital[] = INCBIN_U16("data/tilesets/secondary/hospital/metatiles.bin");
+const u32 gMetatileAttributes_Hospital[] = INCBIN_U32("data/tilesets/secondary/hospital/metatile_attributes.bin");
+
+const u16 gMetatiles_TwoIslandHotel[] = INCBIN_U16("data/tilesets/secondary/two_island_hotel/metatiles.bin");
+const u32 gMetatileAttributes_TwoIslandHotel[] = INCBIN_U32("data/tilesets/secondary/two_island_hotel/metatile_attributes.bin");
+
+const u16 gMetatiles_TwoIsland_Drugstore[] = INCBIN_U16("data/tilesets/secondary/two_island_drugstore/metatiles.bin");
+const u32 gMetatileAttributes_TwoIsland_Drugstore[] = INCBIN_U32("data/tilesets/secondary/two_island_drugstore/metatile_attributes.bin");
+
+const u16 gMetatiles_RainbowCloud[] = INCBIN_U16("data/tilesets/secondary/rainbow_cloud/metatiles.bin");
+const u32 gMetatileAttributes_RainbowCloud[] = INCBIN_U32("data/tilesets/secondary/rainbow_cloud/metatile_attributes.bin");

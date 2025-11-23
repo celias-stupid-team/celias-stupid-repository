@@ -6357,7 +6357,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BerryForest",
+      "secondary_tileset": "gTileset_RainbowCloud",
       "border_filepath": "data/layouts/RainbowCloud/border.bin",
       "blockdata_filepath": "data/layouts/RainbowCloud/map.bin"
     },
@@ -6432,6 +6432,30 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/bleh/border.bin",
       "blockdata_filepath": "data/layouts/bleh/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_DRUGSTORE",
+      "name": "TwoIslandDrugstore",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Mart",
+      "border_filepath": "data/layouts/TwoIslandDrugstore/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIslandDrugstore/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_HOTEL",
+      "name": "TwoIsland_Hotel",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/TwoIsland_Hotel/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_Hotel/map.bin"
     }
   ]
 }

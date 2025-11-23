@@ -2012,3 +2012,79 @@ const u16 gTilesetPalettes_MinnesotaGym[][16] =
 };
 
 const u32 gTilesetTiles_MinnesotaGym[] = INCBIN_U32("data/tilesets/secondary/minnesota_gym/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Hospital[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/hospital/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Hospital[] = INCBIN_U32("data/tilesets/secondary/hospital/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_TwoIslandHotel[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_hotel/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_TwoIslandHotel[] = INCBIN_U32("data/tilesets/secondary/two_island_hotel/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_TwoIsland_Drugstore[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/two_island_drugstore/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_TwoIsland_Drugstore[] = INCBIN_U32("data/tilesets/secondary/two_island_drugstore/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_RainbowCloud[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/rainbow_cloud/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_RainbowCloud[] = INCBIN_U32("data/tilesets/secondary/rainbow_cloud/tiles.4bpp.lz");
