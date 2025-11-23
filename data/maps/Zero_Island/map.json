@@ -28,6 +28,36 @@
       "map": "MAP_TWO_ISLAND",
       "offset": -55,
       "direction": "up"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND_SOUTH",
+      "offset": -36,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN4",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": 5,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN7",
+      "offset": 17,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 34,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN11",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

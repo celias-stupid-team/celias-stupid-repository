@@ -21,8 +21,28 @@
     },
     {
       "map": "MAP_MINNESOTA",
-      "offset": -1,
+      "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE15",
+      "offset": -3,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": -12,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": 49,
+      "direction": "up"
     }
   ],
   "object_events": [

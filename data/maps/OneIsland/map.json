@@ -23,6 +23,21 @@
       "map": "MAP_ROUTE19",
       "offset": -6,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN3",
+      "offset": 21,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN4",
+      "offset": -19,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

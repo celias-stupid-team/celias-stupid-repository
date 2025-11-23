@@ -23,6 +23,26 @@
       "map": "MAP_ROUTE14",
       "offset": -31,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": 32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": 3,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": -9,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": 26,
+      "direction": "right"
     }
   ],
   "object_events": [

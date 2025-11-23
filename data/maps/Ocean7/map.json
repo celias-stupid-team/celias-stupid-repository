@@ -1,0 +1,52 @@
+{
+  "id": "MAP_OCEAN7",
+  "name": "Ocean7",
+  "layout": "LAYOUT_OCEAN7",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": -17,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": -27,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 2,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_POKEMON_ISLAND_SOUTH",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE25",
+      "offset": -23,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN8",
+      "offset": 29,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}
