@@ -38,7 +38,6 @@ SixIsland_PokemonCenter_1F_EventScript_RivalScene::
 	playse SE_EXIT
 	delay 35
 	removeobject LOCALID_SIX_ISLAND_RIVAL
-	setvar VAR_CSR_DUMMY_25, 1
 	releaseall
 	end
 

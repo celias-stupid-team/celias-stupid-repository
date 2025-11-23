@@ -580,3 +580,6 @@ const u32 gTrainerPalette_Backpack_Swimmer[] = INCBIN_U32("graphics/trainers/pal
 const u32 gTrainerFrontPic_OAK_TREE[] = INCBIN_U32("graphics/trainers/front_pics/oak_tree_front_pic.4bpp.lz");
 const u32 gTrainerPalette_OAK_TREE[] = INCBIN_U32("graphics/trainers/palettes/oak_tree.gbapal.lz");
 
+
+const u32 gTrainerFrontPic_Barry[] = INCBIN_U32("graphics/trainers/front_pics/barry_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Barry[] = INCBIN_U32("graphics/trainers/palettes/barry.gbapal.lz");

@@ -1229,7 +1229,7 @@
       "id": "LAYOUT_SSANNE_2F_CORRIDOR",
       "name": "SSAnne_2F_Corridor_Layout",
       "width": 34,
-      "height": 16,
+      "height": 23,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

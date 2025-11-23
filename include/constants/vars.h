@@ -144,7 +144,7 @@
 //When I need these later, I'll just manually re-set them.
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
-#define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
+#define VAR_IDK_BUT_IT_IS_1_AT_LAVENDER                                     0x405B //This one apparently gets set to 1 at lavender
 #define VAR_CSR_LARRY_2_FIGHT                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
 #define VAR_MAP_SCENE_ROUTE16                                                  0x405E
@@ -187,7 +187,7 @@
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083
 #define VAR_CSR_DUMMY_24                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
-#define VAR_CSR_DUMMY_25                                              0x4086
+#define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
 #define VAR_JUMPING_FROM_PALLET_ROOF                                         0x4088
 #define VAR_CELIA_DEV_CREW                             0x4089

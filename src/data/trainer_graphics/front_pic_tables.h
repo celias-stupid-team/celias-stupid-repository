@@ -175,7 +175,8 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1}, // Karen,
     {.size = 8, .y_offset = 1}, // Team Sky,
     {.size = 8, .y_offset = 1}, // Falkner,
-    {.size = 8, .y_offset = 1}, // Territorialoak
+    {.size = 8, .y_offset = 1}, // Territorialoak,
+    {.size = 8, .y_offset = 1}, // Barry
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -361,6 +362,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(CYNTHIA, gTrainerFrontPic_Cynthia, 0x800),
     TRAINER_SPRITE(BACKPACK_SWIMMER, gTrainerFrontPic_Backpack_Swimmer, 0x800),
     TRAINER_SPRITE(OAK_TREE, gTrainerFrontPic_OAK_TREE, 0x800),
+    TRAINER_SPRITE(BARRY, gTrainerFrontPic_Barry, 0x800),
 };
 
 const u32* const gOutfitToFrontPicPalette[OUTFIT_COUNT][GENDER_COUNT] = {
@@ -552,4 +554,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(TEAM_SKY, gTrainerPalette_TeamSky),
     TRAINER_PAL(FALKNER, gTrainerPalette_Falkner),
     TRAINER_PAL(TERRITORIALOAK, gTrainerPalette_Territorialoak),
+    TRAINER_PAL(BARRY, gTrainerPalette_Barry),
 };

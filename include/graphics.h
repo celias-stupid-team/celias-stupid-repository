@@ -12562,3 +12562,6 @@ extern const u32 gTrainerPalette_OAK_TREE[];
 
 extern const u32 gItemIcon_SlugmaBall[];
 extern const u32 gItemIconPalette_SlugmaBall[];
+
+extern const u32 gTrainerFrontPic_Barry[];
+extern const u32 gTrainerPalette_Barry[];
