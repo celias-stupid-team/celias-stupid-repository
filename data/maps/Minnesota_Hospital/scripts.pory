@@ -5,9 +5,9 @@ mapscripts Minnesota_Hospital_MapScripts {
 
 script MinnesotaHospital_Billionaires {
 	msgbox(
-	"America has universal healthcare\n"
-	"for billionaires, but POKéMON\l"
-	"can only figure it out for animals!", MSGBOX_NPC)
+	"The POKéMON world has universal\n"
+	"healthcare for animals, but America\l"
+	"only has it for billionaires!", MSGBOX_NPC)
 }
 
 script MinnesotaHospital_Nurse {
@@ -97,7 +97,7 @@ script Hospital_AshDreams {
 
 script Hospital_AshComa {
 	msgbox(
-	"He's in a coma.\n"
+	"He's in a coma…\n"
 	"", MSGBOX_SIGN)
 
 }
