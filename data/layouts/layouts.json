@@ -5973,7 +5973,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_Hospital",
       "border_filepath": "data/layouts/Minnesota_Hospital/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_Hospital/map.bin"
     },
