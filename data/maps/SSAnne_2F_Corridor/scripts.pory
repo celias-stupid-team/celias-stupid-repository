@@ -1,6 +1,5 @@
 raw `
-SSAnne_2F_Corridor_MapScripts::
-	.byte 0
+
 
 SSAnne_2F_Corridor_EventScript_RivalTriggerLeft::
 	lockall
@@ -115,8 +114,9 @@ SSAnne_2F_Corridor_Movement_RivalExitLeft::
 	walk_faster_left
 	walk_faster_left
 	walk_faster_left
-	walk_faster_down
-	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
 	step_end
 
 SSAnne_2F_Corridor_Movement_RivalExitMid::
@@ -128,8 +128,9 @@ SSAnne_2F_Corridor_Movement_RivalExitMid::
 	walk_faster_left
 	walk_faster_left
 	walk_faster_left
-	walk_faster_down
-	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
 	step_end
 
 SSAnne_2F_Corridor_Movement_RivalExitRight::
@@ -141,15 +142,22 @@ SSAnne_2F_Corridor_Movement_RivalExitRight::
 	walk_faster_left
 	walk_faster_left
 	walk_faster_left
-	walk_faster_down
-	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
 	step_end
 
 SSAnne_2F_Corridor_EventScript_Sailor::
 	msgbox SSAnne_2F_Corridor_Text_ThisShipIsLuxuryLiner, MSGBOX_NPC
 	end
 `
-
+mapscripts SSAnne_2F_Corridor_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_HIDE_HARRY_RAT)) {
+			setvar(VAR_TEMP_0, 1)
+		}
+	}
+}
 
 script SS_Anne_Harry {
 	if(flag(FLAG_HIDE_HARRY_RAT)) {
@@ -207,9 +215,11 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	applymovement(LOCALID_SS_ANNE_RIVAL, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)
 	delay(20)
+	//change this so that the player gets bumpted
 	call_if_eq(VAR_TEMP_1, 0, SSAnne_2F_Corridor_EventScript_RivalApproachLeft)
 	call_if_eq(VAR_TEMP_1, 1, SSAnne_2F_Corridor_EventScript_RivalApproachMid)
 	call_if_eq(VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalApproachRight)
+
 	msgbox(SSAnne_2F_Corridor_Text_RivalIntro)
 	setvar(VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL)
 	call(SSAnne_2F_Corridor_EventScript_RivalCharmander)
@@ -233,6 +243,6 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	removeobject(LOCALID_HARRY_RAT)
 	setflag(FLAG_HIDE_HARRY_RAT)
 	setobjectmovementtype(LOCALID_SS_ANNE_HARRY, MOVEMENT_TYPE_FACE_LEFT)
-	setvar(VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1)
+	setvar(VAR_TEMP_0, 1)
 	releaseall
 }

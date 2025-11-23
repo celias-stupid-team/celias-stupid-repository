@@ -144,27 +144,27 @@
     {
       "type": "trigger",
       "x": 30,
-      "y": 6,
+      "y": 7,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerLeft"
     },
     {
       "type": "trigger",
       "x": 31,
-      "y": 6,
+      "y": 7,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerMid"
     },
     {
       "type": "trigger",
       "x": 32,
-      "y": 6,
+      "y": 7,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR",
+      "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "SSAnne_2F_Corridor_EventScript_RivalTriggerRight"
     }
