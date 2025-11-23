@@ -58,6 +58,13 @@
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_FOUR_ISLAND_SIX_ISLAND_CAVE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

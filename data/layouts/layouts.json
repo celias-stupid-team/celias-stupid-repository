@@ -6112,12 +6112,12 @@
     {
       "id": "LAYOUT_FOUR_ISLAND_SIX_ISLAND_CAVE",
       "name": "FourIsland_SixIslandCave_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 13,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_FourIsland",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/FourIsland_SixIslandCave/border.bin",
       "blockdata_filepath": "data/layouts/FourIsland_SixIslandCave/map.bin"
     },
