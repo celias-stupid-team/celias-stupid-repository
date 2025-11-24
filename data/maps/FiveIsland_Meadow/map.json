@@ -13,13 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_FIVE_ISLAND",
-      "offset": -8,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",

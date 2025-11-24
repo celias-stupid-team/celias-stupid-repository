@@ -4083,3 +4083,25 @@ const struct SpriteFrameImage gObjectEventPicTable_mesprit_3[] = {
     overworld_frame(gObjectEventPic_mesprit_3, 4, 4, 7),
     overworld_frame(gObjectEventPic_mesprit_3, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_dung_beetle[] = {
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 5),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 6),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 7),
+    overworld_frame(gObjectEventPic_dung_beetle, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_dungless_beetle[] = {
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 0),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 1),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 2),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 3),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 4),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 5),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 6),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 7),
+    overworld_frame(gObjectEventPic_dungless_beetle, 4, 4, 8),
+};

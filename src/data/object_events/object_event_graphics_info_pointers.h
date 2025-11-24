@@ -383,6 +383,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_gen4_statue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_3;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_dung_beetle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_dungless_beetle;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -767,4 +769,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MESPRIT] = &gObjectEventGraphicsInfo_mesprit,
     [OBJ_EVENT_GFX_MESPRIT_2] = &gObjectEventGraphicsInfo_mesprit_2,
     [OBJ_EVENT_GFX_MESPRIT_3] = &gObjectEventGraphicsInfo_mesprit_3,
+    [OBJ_EVENT_GFX_DUNG_BEETLE] = &gObjectEventGraphicsInfo_dung_beetle,
+    [OBJ_EVENT_GFX_DUNGLESS_BEETLE] = &gObjectEventGraphicsInfo_dungless_beetle,
 };

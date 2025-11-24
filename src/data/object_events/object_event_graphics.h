@@ -517,3 +517,6 @@ const u16 gObjectEventPal_mesprit[] = INCBIN_U16("graphics/object_events/palette
 const u32 gObjectEventPic_mesprit_2[] = INCBIN_U32("graphics/object_events/pics/stupid/mesprit_2.4bpp");
 const u16 gObjectEventPal_mesprit_2[] = INCBIN_U16("graphics/object_events/palettes/mesprit_2.gbapal");
 const u32 gObjectEventPic_mesprit_3[] = INCBIN_U32("graphics/object_events/pics/stupid/mesprit_3.4bpp");
+const u32 gObjectEventPic_dung_beetle[] = INCBIN_U32("graphics/object_events/pics/stupid/dung_beetle.4bpp");
+const u16 gObjectEventPal_dung_beetle[] = INCBIN_U16("graphics/object_events/palettes/dung_beetle.gbapal");
+const u32 gObjectEventPic_dungless_beetle[] = INCBIN_U32("graphics/object_events/pics/stupid/dungless_beetle.4bpp");
