@@ -12565,3 +12565,9 @@ extern const u32 gItemIconPalette_SlugmaBall[];
 
 extern const u32 gTrainerFrontPic_Barry[];
 extern const u32 gTrainerPalette_Barry[];
+
+extern const u32 gItemIcon_XSpdef[];
+extern const u32 gItemIconPalette_XSpdef[];
+
+extern const u32 gItemIcon_RatStone[];
+extern const u32 gItemIconPalette_RatStone[];

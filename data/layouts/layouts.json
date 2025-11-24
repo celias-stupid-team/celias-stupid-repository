@@ -6088,12 +6088,12 @@
     {
       "id": "LAYOUT_POKEMON_ISLAND_LAB",
       "name": "PokemonIsland_Lab_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 38,
+      "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BerryForest",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/PokemonIsland_Lab/border.bin",
       "blockdata_filepath": "data/layouts/PokemonIsland_Lab/map.bin"
     },
@@ -6441,7 +6441,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Mart",
+      "secondary_tileset": "gTileset_TwoIslandHotel",
       "border_filepath": "data/layouts/TwoIslandDrugstore/border.bin",
       "blockdata_filepath": "data/layouts/TwoIslandDrugstore/map.bin"
     },
@@ -6453,7 +6453,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_TwoIslandHotel",
       "border_filepath": "data/layouts/TwoIsland_Hotel/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_Hotel/map.bin"
     }

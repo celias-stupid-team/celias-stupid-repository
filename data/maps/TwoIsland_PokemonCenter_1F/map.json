@@ -1,7 +1,7 @@
 {
   "id": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
   "name": "TwoIsland_PokemonCenter_1F",
-  "layout": "LAYOUT_POKEMON_CENTER_1F",
+  "layout": "LAYOUT_TWO_ISLAND_HOTEL",
   "music": "MUS_TWO_ISLAND_CENTER",
   "region_map_section": "MAPSEC_TWO_ISLAND",
   "requires_flash": false,

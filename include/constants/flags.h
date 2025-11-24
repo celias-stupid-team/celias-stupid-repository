@@ -987,8 +987,8 @@
 #define FLAG_SENT_BIKER_FLYING               0x38E
 #define FLAG_READ_SAFE_CODE               0x38F
 #define FLAG_GOT_SHINY_MACHOKE               0x390
-#define FLAG_0x391               0x391
-#define FLAG_0x392               0x392
+#define FLAG_TALKED_TO_IVY               0x391
+#define FLAG_TALKED_TO_TODD               0x392
 #define FLAG_0x393               0x393
 #define FLAG_0x394               0x394
 #define FLAG_0x395               0x395

@@ -487,6 +487,10 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_VICTINI_NEW  0x113C
 #define OBJ_EVENT_PAL_TAG_ORTHWORM_RISES  0x113D
 #define OBJ_EVENT_PAL_TAG_RATICATE  0x113E
+#define OBJ_EVENT_PAL_TAG_SHRINE  0x113F
+#define OBJ_EVENT_PAL_TAG_GEN4_STATUE  0x1140
+#define OBJ_EVENT_PAL_TAG_MESPRIT  0x1141
+#define OBJ_EVENT_PAL_TAG_MESPRIT_2  0x1142
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -547,6 +551,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_victini_new,             OBJ_EVENT_PAL_TAG_VICTINI_NEW},
     {gObjectEventPal_orthworm_rises,             OBJ_EVENT_PAL_TAG_ORTHWORM_RISES},
     {gObjectEventPal_raticate,             OBJ_EVENT_PAL_TAG_RATICATE},
+    {gObjectEventPal_shrine,             OBJ_EVENT_PAL_TAG_SHRINE},
+    {gObjectEventPal_gen4_statue,             OBJ_EVENT_PAL_TAG_GEN4_STATUE},
+    {gObjectEventPal_mesprit,             OBJ_EVENT_PAL_TAG_MESPRIT},
+    {gObjectEventPal_mesprit_2,             OBJ_EVENT_PAL_TAG_MESPRIT_2},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

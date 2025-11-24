@@ -377,6 +377,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_box_open;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_rattata;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shiny_rat;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_raticate;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_cameron;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shrine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_gen4_statue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_3;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -755,4 +761,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RATTATA] = &gObjectEventGraphicsInfo_rattata,
     [OBJ_EVENT_GFX_SHINY_RAT] = &gObjectEventGraphicsInfo_shiny_rat,
     [OBJ_EVENT_GFX_RATICATE] = &gObjectEventGraphicsInfo_raticate,
+    [OBJ_EVENT_GFX_CAMERON] = &gObjectEventGraphicsInfo_cameron,
+    [OBJ_EVENT_GFX_SHRINE] = &gObjectEventGraphicsInfo_shrine,
+    [OBJ_EVENT_GFX_GEN4_STATUE] = &gObjectEventGraphicsInfo_gen4_statue,
+    [OBJ_EVENT_GFX_MESPRIT] = &gObjectEventGraphicsInfo_mesprit,
+    [OBJ_EVENT_GFX_MESPRIT_2] = &gObjectEventGraphicsInfo_mesprit_2,
+    [OBJ_EVENT_GFX_MESPRIT_3] = &gObjectEventGraphicsInfo_mesprit_3,
 };

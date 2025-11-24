@@ -475,5 +475,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_GROWTH_MULCH]      =  {gItemIcon_GROWTHMULCH, gItemIconPalette_GROWTHMULCH},
     [ITEM_RICH_MULCH]      =  {gItemIcon_RICHMULCH, gItemIconPalette_RICHMULCH},
     [ITEM_SLUGMA_BALL]      =  {gItemIcon_SlugmaBall, gItemIconPalette_SlugmaBall},
+    [ITEM_X_SPDEF]      =  {gItemIcon_XSpdef, gItemIconPalette_XSpdef},
+    [ITEM_RAT_STONE]      =  {gItemIcon_RatStone, gItemIconPalette_RatStone},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -905,3 +905,9 @@ const u32 gItemIconPalette_RICHMULCH[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_SlugmaBall[] = INCBIN_U32("graphics/items/icons/slugma_ball.4bpp.lz");
 const u32 gItemIconPalette_SlugmaBall[] = INCBIN_U32("graphics/items/icon_palettes/slugma_ball.gbapal.lz");
+
+const u32 gItemIcon_XSpdef[] = INCBIN_U32("graphics/items/icons/x_spdef.4bpp.lz");
+const u32 gItemIconPalette_XSpdef[] = INCBIN_U32("graphics/items/icon_palettes/x_spdef.gbapal.lz");
+
+const u32 gItemIcon_RatStone[] = INCBIN_U32("graphics/items/icons/rat_stone.4bpp.lz");
+const u32 gItemIconPalette_RatStone[] = INCBIN_U32("graphics/items/icon_palettes/rat_stone.gbapal.lz");
