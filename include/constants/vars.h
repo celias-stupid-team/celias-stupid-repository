@@ -321,7 +321,7 @@ It is reset after every battle.
 #define VAR_DIGLETTS_CAVE_DIGLETTS                 0x40DD
 #define VAR_LANCE_LASS_ATTACK                 0x40DE
 #define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
-#define VAR_0x40E0                 0x40E0
+#define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_0x40E1                 0x40E1
 #define VAR_0x40E2                 0x40E2
 #define VAR_0x40E3                 0x40E3

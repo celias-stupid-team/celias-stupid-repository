@@ -984,9 +984,9 @@
 #define FLAG_FED_SANDWICH               0x38B
 #define FLAG_GOT_SANDWICH_CASE               0x38C
 #define FLAG_HIDE_HARRY_RAT               0x38D
-#define FLAG_0x38E               0x38E
-#define FLAG_0x38F               0x38F
-#define FLAG_0x390               0x390
+#define FLAG_SENT_BIKER_FLYING               0x38E
+#define FLAG_READ_SAFE_CODE               0x38F
+#define FLAG_GOT_SHINY_MACHOKE               0x390
 #define FLAG_0x391               0x391
 #define FLAG_0x392               0x392
 #define FLAG_0x393               0x393
