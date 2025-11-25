@@ -16,23 +16,38 @@
   "connections": [
     {
       "map": "MAP_MINNESOTA",
-      "offset": -5,
+      "offset": 5,
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_OCEAN11",
-      "offset": -10,
+      "offset": 0,
       "direction": "right"
     },
     {
       "map": "MAP_OCEAN12",
-      "offset": 10,
+      "offset": 20,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": -7,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN10",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE21_NORTH",
+      "offset": 17,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_TWO_ISLAND",
+      "offset": 41,
+      "direction": "up"
     }
   ],
   "object_events": [

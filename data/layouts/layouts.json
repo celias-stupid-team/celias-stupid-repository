@@ -821,7 +821,7 @@
       "id": "LAYOUT_CINNABAR_ISLAND",
       "name": "CinnabarIsland_Layout",
       "width": 55,
-      "height": 38,
+      "height": 48,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

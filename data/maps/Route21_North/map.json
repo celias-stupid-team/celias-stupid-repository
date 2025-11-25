@@ -25,11 +25,6 @@
       "direction": "right"
     },
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": -17,
-      "direction": "down"
-    },
-    {
       "map": "MAP_THIRTY_EIGHT_ISLAND",
       "offset": 7,
       "direction": "left"
@@ -48,6 +43,11 @@
       "map": "MAP_OCEAN10",
       "offset": 43,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -17,
+      "direction": "down"
     }
   ],
   "object_events": [

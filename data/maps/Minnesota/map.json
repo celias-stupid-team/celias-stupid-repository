@@ -21,11 +21,6 @@
     },
     {
       "map": "MAP_CINNABAR_ISLAND",
-      "offset": 5,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE21_SOUTH",
       "offset": -5,
       "direction": "right"
     },
