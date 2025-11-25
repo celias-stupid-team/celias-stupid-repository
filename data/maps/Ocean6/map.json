@@ -33,11 +33,6 @@
       "map": "MAP_ZERO_ISLAND",
       "offset": -34,
       "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE25",
-      "offset": -45,
-      "direction": "down"
     }
   ],
   "object_events": [],

@@ -38,6 +38,11 @@
       "map": "MAP_OCEAN5",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": 29,
+      "direction": "right"
     }
   ],
   "object_events": [

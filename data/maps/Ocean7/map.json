@@ -35,11 +35,6 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE25",
-      "offset": -23,
-      "direction": "down"
-    },
-    {
       "map": "MAP_OCEAN8",
       "offset": 29,
       "direction": "left"
