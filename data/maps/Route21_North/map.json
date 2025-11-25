@@ -40,13 +40,13 @@
       "direction": "right"
     },
     {
-      "map": "MAP_OCEAN10",
-      "offset": 43,
+      "map": "MAP_OCEAN13",
+      "offset": -14,
       "direction": "left"
     },
     {
-      "map": "MAP_OCEAN13",
-      "offset": -14,
+      "map": "MAP_OCEAN10",
+      "offset": 43,
       "direction": "left"
     }
   ],

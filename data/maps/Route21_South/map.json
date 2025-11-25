@@ -30,6 +30,16 @@
       "direction": "up"
     },
     {
+      "map": "MAP_MINNESOTA",
+      "offset": 5,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN11",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
       "map": "MAP_OCEAN10",
       "offset": 0,
       "direction": "up"
@@ -38,16 +48,6 @@
       "map": "MAP_OCEAN9",
       "offset": -7,
       "direction": "left"
-    },
-    {
-      "map": "MAP_MINNESOTA",
-      "offset": 4,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN11",
-      "offset": 0,
-      "direction": "right"
     }
   ],
   "object_events": [

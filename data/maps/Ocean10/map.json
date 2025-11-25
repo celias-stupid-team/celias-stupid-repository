@@ -33,11 +33,6 @@
       "map": "MAP_OCEAN9",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_MINNESOTA",
-      "offset": 11,
-      "direction": "left"
     }
   ],
   "object_events": [],

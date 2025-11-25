@@ -520,3 +520,5 @@ const u32 gObjectEventPic_mesprit_3[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_dung_beetle[] = INCBIN_U32("graphics/object_events/pics/stupid/dung_beetle.4bpp");
 const u16 gObjectEventPal_dung_beetle[] = INCBIN_U16("graphics/object_events/palettes/dung_beetle.gbapal");
 const u32 gObjectEventPic_dungless_beetle[] = INCBIN_U32("graphics/object_events/pics/stupid/dungless_beetle.4bpp");
+const u32 gObjectEventPic_absol_2[] = INCBIN_U32("graphics/object_events/pics/stupid/absol_2.4bpp");
+const u16 gObjectEventPal_absol_2[] = INCBIN_U16("graphics/object_events/palettes/absol_2.gbapal");

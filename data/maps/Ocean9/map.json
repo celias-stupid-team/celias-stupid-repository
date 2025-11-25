@@ -15,29 +15,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE14",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE15",
       "offset": -26,
       "direction": "left"
     },
     {
-      "map": "MAP_THIRTY_EIGHT_ISLAND",
-      "offset": 29,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_OCEAN10",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 7,
-      "direction": "right"
+      "map": "MAP_FOUR_ISLAND",
+      "offset": -49,
+      "direction": "down"
     },
     {
       "map": "MAP_MINNESOTA",
@@ -45,9 +30,24 @@
       "direction": "down"
     },
     {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": -49,
-      "direction": "down"
+      "map": "MAP_ROUTE21_SOUTH",
+      "offset": 7,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN10",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_THIRTY_EIGHT_ISLAND",
+      "offset": 29,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE14",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [],
