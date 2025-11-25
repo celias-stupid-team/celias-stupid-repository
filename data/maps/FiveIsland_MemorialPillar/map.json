@@ -33,6 +33,11 @@
       "map": "MAP_OCEAN2",
       "offset": 35,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": -29,
+      "direction": "left"
     }
   ],
   "object_events": [

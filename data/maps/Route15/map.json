@@ -316,13 +316,6 @@
   ],
   "warp_events": [
     {
-      "x": 1,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 8,
       "y": 11,
       "elevation": 3,
@@ -348,6 +341,13 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE18_SANDWICH_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
       "dest_warp_id": "0"
     }
   ],
