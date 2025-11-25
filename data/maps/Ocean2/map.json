@@ -13,7 +13,33 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE19",
+      "offset": -6,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE15",
+      "offset": 9,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": -35,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

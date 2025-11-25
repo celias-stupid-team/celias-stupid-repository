@@ -18,6 +18,26 @@
       "map": "MAP_POKEMON_ISLAND",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 36,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN7",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN8",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN12",
+      "offset": -12,
+      "direction": "left"
     }
   ],
   "object_events": [

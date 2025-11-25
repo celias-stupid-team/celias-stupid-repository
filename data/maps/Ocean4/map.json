@@ -13,7 +13,38 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_OCEAN3",
+      "offset": -1,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -25,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_FUSHCIA_CITY",
+      "offset": -43,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": 19,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

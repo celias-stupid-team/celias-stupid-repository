@@ -1,0 +1,52 @@
+{
+  "id": "MAP_OCEAN5",
+  "name": "Ocean5",
+  "layout": "LAYOUT_OCEAN5",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_OCEAN4",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": -5,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 10,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN7",
+      "offset": 27,
+      "direction": "left"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}
