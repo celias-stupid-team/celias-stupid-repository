@@ -1,3 +1,12 @@
 mapscripts Minnesota_MapScripts {
 
 }
+
+script Minnesota_CantSeeFar {
+	msgbox(
+	"Out to the EAST, there's naught\n"
+	"but ocean, far as the eye can see.\p"
+
+	"Granted, I can't see very far.{PAUSE 30}\n"
+	"But still!", MSGBOX_NPC)
+}

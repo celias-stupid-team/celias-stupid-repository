@@ -1813,3 +1813,30 @@ Text_TestMsg::
 
 	.include "data/maps/PokemonIsland_South/scripts.inc"
 	.include "data/maps/PokemonIsland_South/text.inc"
+
+	.include "data/maps/Ocean6/scripts.inc"
+	.include "data/maps/Ocean6/text.inc"
+
+	.include "data/maps/Ocean9/scripts.inc"
+	.include "data/maps/Ocean9/text.inc"
+
+	.include "data/maps/Ocean5/scripts.inc"
+	.include "data/maps/Ocean5/text.inc"
+
+	.include "data/maps/Ocean10/scripts.inc"
+	.include "data/maps/Ocean10/text.inc"
+
+	.include "data/maps/Ocean8/scripts.inc"
+	.include "data/maps/Ocean8/text.inc"
+
+	.include "data/maps/Ocean7/scripts.inc"
+	.include "data/maps/Ocean7/text.inc"
+
+	.include "data/maps/Ocean11/scripts.inc"
+	.include "data/maps/Ocean11/text.inc"
+
+	.include "data/maps/Ocean12/scripts.inc"
+	.include "data/maps/Ocean12/text.inc"
+
+	.include "data/maps/Ocean13/scripts.inc"
+	.include "data/maps/Ocean13/text.inc"

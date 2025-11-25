@@ -144,7 +144,7 @@
 //When I need these later, I'll just manually re-set them.
 //Manually navigating this block of text is too much brainpower for me.
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
-#define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B
+#define VAR_IDK_BUT_IT_IS_1_AT_LAVENDER                                     0x405B //This one apparently gets set to 1 at lavender
 #define VAR_CSR_LARRY_2_FIGHT                                              0x405C
 #define VAR_MAP_SCENE_POKEMON_TOWER_2F                                         0x405D
 #define VAR_MAP_SCENE_ROUTE16                                                  0x405E
@@ -187,7 +187,7 @@
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083
 #define VAR_CSR_DUMMY_24                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
-#define VAR_CSR_DUMMY_25                                              0x4086
+#define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
 #define VAR_JUMPING_FROM_PALLET_ROOF                                         0x4088
 #define VAR_CELIA_DEV_CREW                             0x4089
@@ -320,8 +320,8 @@ It is reset after every battle.
 #define VAR_FUSHCIA_GYM_SHEDINJA_STATE                 0x40DC
 #define VAR_DIGLETTS_CAVE_DIGLETTS                 0x40DD
 #define VAR_LANCE_LASS_ATTACK                 0x40DE
-#define VAR_0x40DF                 0x40DF
-#define VAR_0x40E0                 0x40E0
+#define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
+#define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_0x40E1                 0x40E1
 #define VAR_0x40E2                 0x40E2
 #define VAR_0x40E3                 0x40E3

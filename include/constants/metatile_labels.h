@@ -104,6 +104,10 @@
 #define METATILE_Mart_CounterMid_Bottom  0x2C0
 #define METATILE_Mart_CounterMid_Top     0x2BF
 
+// gTileset_MinnesotaGym
+#define METATILE_MinnesotaGym_UpdatedGymSignBottom  0x2D3
+#define METATILE_MinnesotaGym_UpdatedGymSignTop     0x2CB
+
 // gTileset_MtEmber
 #define METATILE_MtEmber_CaveEntrance  0x346
 

@@ -367,6 +367,25 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_victini_new;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_orthworm_rises;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_applin_kid;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_oran_kid;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPHEAL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sphealia;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spheal_swimming;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_zygarde_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pika;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_box_closed;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_box_open;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_rattata;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shiny_rat;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_raticate;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_cameron;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shrine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_gen4_statue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mesprit_3;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_dung_beetle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_dungless_beetle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_absol_2;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -735,4 +754,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ORTHWORM_RISES] = &gObjectEventGraphicsInfo_orthworm_rises,
     [OBJ_EVENT_GFX_APPLIN_KID] = &gObjectEventGraphicsInfo_applin_kid,
     [OBJ_EVENT_GFX_ORAN_KID] = &gObjectEventGraphicsInfo_oran_kid,
+    [OBJ_EVENT_GFX_SPHEAL] = &gObjectEventGraphicsInfo_SPHEAL,
+    [OBJ_EVENT_GFX_SPHEALIA] = &gObjectEventGraphicsInfo_Sphealia,
+    [OBJ_EVENT_GFX_SPHEAL_SWIMMING] = &gObjectEventGraphicsInfo_spheal_swimming,
+    [OBJ_EVENT_GFX_ZYGARDE_2] = &gObjectEventGraphicsInfo_zygarde_2,
+    [OBJ_EVENT_GFX_PIKA] = &gObjectEventGraphicsInfo_pika,
+    [OBJ_EVENT_GFX_BOX_CLOSED] = &gObjectEventGraphicsInfo_box_closed,
+    [OBJ_EVENT_GFX_BOX_OPEN] = &gObjectEventGraphicsInfo_box_open,
+    [OBJ_EVENT_GFX_RATTATA] = &gObjectEventGraphicsInfo_rattata,
+    [OBJ_EVENT_GFX_SHINY_RAT] = &gObjectEventGraphicsInfo_shiny_rat,
+    [OBJ_EVENT_GFX_RATICATE] = &gObjectEventGraphicsInfo_raticate,
+    [OBJ_EVENT_GFX_CAMERON] = &gObjectEventGraphicsInfo_cameron,
+    [OBJ_EVENT_GFX_SHRINE] = &gObjectEventGraphicsInfo_shrine,
+    [OBJ_EVENT_GFX_GEN4_STATUE] = &gObjectEventGraphicsInfo_gen4_statue,
+    [OBJ_EVENT_GFX_MESPRIT] = &gObjectEventGraphicsInfo_mesprit,
+    [OBJ_EVENT_GFX_MESPRIT_2] = &gObjectEventGraphicsInfo_mesprit_2,
+    [OBJ_EVENT_GFX_MESPRIT_3] = &gObjectEventGraphicsInfo_mesprit_3,
+    [OBJ_EVENT_GFX_DUNG_BEETLE] = &gObjectEventGraphicsInfo_dung_beetle,
+    [OBJ_EVENT_GFX_DUNGLESS_BEETLE] = &gObjectEventGraphicsInfo_dungless_beetle,
+    [OBJ_EVENT_GFX_ABSOL_2] = &gObjectEventGraphicsInfo_absol_2,
 };

@@ -1,3 +1,78 @@
 mapscripts PokemonIsland_Lab_MapScripts {
 
 }
+
+
+script PokemonIslandLab_Ivy {
+    lock
+    if(flag(FLAG_TALKED_TO_IVY)) {
+        msgbox(
+        "I heard PROFESSOR OAK received a\n"
+        "G.S. BALL recently.\l"
+        "We need one for our work.\p"
+
+        "Could you visit him and see if you\n"
+        "can pursuade him to help out?", MSGBOX_DEFAULT)
+    } else {
+        setflag(FLAG_TALKED_TO_IVY)
+        msgbox(
+        "PROFESSOR IVY: Ah, hello!\n"
+        "You must be {PLAYER}!\l"
+        "My colleague OAK mentioned you.\p"
+
+        "I'm IVY, the world's leading\n"
+	    "researcher on POKéMON SIGNS.\p" 
+
+        "In fact, I think I've located\n"
+        "one right here on this island!\l"
+        "It's in the back room there.\p"
+
+        "But…{PAUSE 30} We can't get it yet.\n"
+        "We still need one more thing.\p"
+
+        "We're missing a G.S. BALL.\n"
+        "Have you heard of it?\p"
+
+        "I think PROFESSOR OAK ordered one\n"
+        "in the mail recently.\l"
+        "Maybe we can ask him, but…\p"
+
+        "He's a bit prickly, that one.\n"
+        "I don't think he'll donate it.\p"
+
+        "Do you think you could go pursuade\n"
+        "him to contribute to our cause?", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script PokemonIslandLab_Todd {
+    lock
+    faceplayer
+    if(flag(FLAG_TALKED_TO_TODD)) {
+        msgbox(
+        "TODD: find signs\p"
+
+        "placeholder\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        setflag(FLAG_TALKED_TO_TODD)
+        msgbox(
+        "TODD: we're looking for signs\p"
+
+        "talk to partner in other room\n"
+        "", MSGBOX_DEFAULT)
+
+    }
+    applymovement(LOCALID_TODD, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+}
+
+script PokemonIslandLab_IvyLeagueSchool {
+	msgbox(
+	"A DIPLOMA hangs on the wall.\p"
+
+	"Wow!\n"
+	"It's from an IVY LEAGUE school!", MSGBOX_SIGN)
+
+}

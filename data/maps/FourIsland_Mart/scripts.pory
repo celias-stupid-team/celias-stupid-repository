@@ -18,7 +18,7 @@ FourIsland_Mart_Items::
 
 FourIsland_Mart_Items_NoOddMulch::
 	.2byte ITEM_POKE_BALL
-	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_X_SPDEF
 	.2byte ITEM_GROWTH_MULCH
 	.2byte ITEM_RICH_MULCH
 	.2byte ITEM_FULL_HEAL

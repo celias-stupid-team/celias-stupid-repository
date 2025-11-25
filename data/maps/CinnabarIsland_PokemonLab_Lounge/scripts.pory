@@ -94,6 +94,8 @@ script CinnabarIslandLab_Shelgon {
 	waitmovement(0)
 	delay(60)
 	applymovement(LOCALID_SHELGON, moves(
+		face_left
+		delay_2
 		face_up
 	))
 	delay(90)

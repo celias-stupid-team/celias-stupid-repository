@@ -100,6 +100,13 @@
       "elevation": 0,
       "dest_map": "MAP_CAVE_OF_ORIGIN_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_MANSION_1F",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [],

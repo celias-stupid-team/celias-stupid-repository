@@ -8,7 +8,6 @@ SeafoamIslands_B3F_MapScripts::
 
 SeafoamIslands_B3F_OnTransition::
 	call_if_unset FLAG_STOPPED_SEAFOAM_B3F_CURRENT, SeafoamIslands_B3F_EventScript_CheckStoppedCurrent
-	call_if_set FLAG_STOPPED_SEAFOAM_B3F_CURRENT, SeafoamIslands_B3F_EventScript_SetNoCurrentLayout
 	end
 
 SeafoamIslands_B3F_EventScript_CheckStoppedCurrent::
@@ -94,3 +93,107 @@ SeafoamIslands_B3F_Movement_RideCurrentClose::
 	walk_fast_down
 	step_end
 `
+
+
+script SeafoamIslands_SphealBounce_1 { //these need other direction too, eventually
+	lock
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_2 {
+	lock
+	applymovement(LOCALID_SPHEAL_1, moves(face_left))
+	waitmovement(0)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_3 {
+	lock
+	applymovement(LOCALID_SPHEAL_2, moves(face_left))
+	waitmovement(0)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_4 {
+	lock
+	applymovement(LOCALID_SPHEAL_3, moves(face_left))
+	waitmovement(0)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_5 {
+	lock
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_6 {
+	lock
+	applymovement(LOCALID_SPHEAL_5, moves(face_left))
+	waitmovement(0)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	delay(20)
+	release
+}
+
+
+script SeafoamIslands_SphealBounce_7 {
+	lock
+	applymovement(LOCALID_SPHEAL_6, moves(face_left))
+	applymovement(LOCALID_SPHEAL_5, moves(face_left))
+	applymovement(LOCALID_SPHEAL_4, moves(face_left))
+	applymovement(LOCALID_SPHEAL_3, moves(face_left))
+	waitmovement(0)
+	delay(30)
+	applymovement(LOCALID_SPHEAL_6, SphealsDance)
+	applymovement(LOCALID_SPHEAL_5, SphealsDance)
+	applymovement(LOCALID_SPHEAL_4, SphealsDance)
+	applymovement(LOCALID_SPHEAL_3, SphealsDance)
+	waitmovement(0)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_ROAR_1)
+	waitmoncry
+	applymovement(LOCALID_SPHEAL_6, moves(face_down))
+	applymovement(LOCALID_SPHEAL_5, moves(face_down))
+	applymovement(LOCALID_SPHEAL_4, moves(face_down))
+	applymovement(LOCALID_SPHEAL_3, moves(face_down))
+	waitmovement(0)
+	release
+}
+
+movement SphealsDance {
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_4
+	face_left
+	delay_16
+
+}

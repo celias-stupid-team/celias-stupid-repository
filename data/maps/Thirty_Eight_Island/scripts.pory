@@ -41,8 +41,8 @@ script ThirtyEightIsland_NationalParkGuy {
 	"I'd visit the NATIONAL PARK just\n"
 	"to relax on the BENCHES all day.\p"
 
-	"Ah…\n"
-	"If only I could go there now!", MSGBOX_NPC)
+	"Ah, if only I could take a\n"
+	"RETREAT back there now…", MSGBOX_NPC)
 }
 
 script ThirtyEightIsland_DarnBarn {

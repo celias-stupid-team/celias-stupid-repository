@@ -5,9 +5,9 @@ mapscripts Minnesota_Hospital_MapScripts {
 
 script MinnesotaHospital_Billionaires {
 	msgbox(
-	"America has universal healthcare\n"
-	"for billionaires, but POKéMON\l"
-	"can only figure it out for animals!", MSGBOX_NPC)
+	"The POKéMON world has universal\n"
+	"healthcare for animals, but America\l"
+	"only has it for billionaires!", MSGBOX_NPC)
 }
 
 script MinnesotaHospital_Nurse {
@@ -40,4 +40,91 @@ script MinnesotaHospital_Nurse {
 	"I fucking hate your guts.\l"
 	"Good bye.", MSGBOX_DEFAULT)
     release
+}
+
+
+script Hospital_ColorTheory {
+	msgbox(
+	"A meaningful application of\n"
+	"color theory!", MSGBOX_SIGN)
+
+}
+
+script Hospital_BudgetCuts {
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"Due to budget cuts, we've moved\n"
+	"all patients to the waiting room.\p"
+
+	"I know you may be concerned, but\n"
+	"don't worry.\p"
+
+	"This is all done for the health\n"
+	"and safety of our shareholders!", MSGBOX_NPC)
+}
+
+script Hospital_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!{PAUSE 30} cough…\n"
+	"What are you doing here?\p"
+
+	"It seems I caught the flu.\n"
+	"cough…\l"
+	"I need some time to recover.\p"
+
+	"But never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script Hospital_AshDreams {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    msgbox(
+	"I swear, this patient has\n"
+	"the wildest dreams-!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
+
+script Hospital_AshComa {
+	msgbox(
+	"He's in a coma…\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Hospital_BedSniff {
+	msgbox(
+	"{PLAYER} laid in the bed…\p"
+
+	"Mmm…\n"
+	"Smells like antiseptic!\p"
+
+	"That'll be ¥100,000.\n"
+	"Pay up.", MSGBOX_SIGN)
+
+}
+
+script Hospital_IV_Drip {
+	msgbox(
+	"This one's an IV Drip!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Hospital_EV_Drip {
+	msgbox(
+	"This one's an EV Drip!\n"
+	"", MSGBOX_SIGN)
+
 }

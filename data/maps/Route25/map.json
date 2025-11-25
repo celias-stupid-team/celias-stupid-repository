@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "offset": 55,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN8",
+      "offset": -30,
+      "direction": "up"
     }
   ],
   "object_events": [

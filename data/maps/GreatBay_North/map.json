@@ -30,8 +30,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_FIVE_ISLAND_MEADOW",
-      "offset": -22,
+      "map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "offset": 0,
       "direction": "right"
     }
   ],

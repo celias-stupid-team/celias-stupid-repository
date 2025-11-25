@@ -15,14 +15,29 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE14",
-      "offset": -21,
-      "direction": "left"
-    },
-    {
       "map": "MAP_ROUTE21_NORTH",
       "offset": -7,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN13",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN10",
+      "offset": 55,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": -29,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE14",
+      "offset": -21,
+      "direction": "left"
     }
   ],
   "object_events": [

@@ -6533,4 +6533,16 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_DMCABrock),
     },
 
+    
+    [TRAINER_RIVAL_BARRY] = {
+        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_BARRY,
+        .trainerName = _("BARRY"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_RivalBarry),
+    },
+
 };

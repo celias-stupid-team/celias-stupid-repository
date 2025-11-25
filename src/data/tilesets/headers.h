@@ -1095,3 +1095,47 @@ const struct Tileset gTileset_MinnesotaGym =
     .metatileAttributes = gMetatileAttributes_MinnesotaGym,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Hospital =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Hospital,
+    .palettes = gTilesetPalettes_Hospital,
+    .metatiles = gMetatiles_Hospital,
+    .metatileAttributes = gMetatileAttributes_Hospital,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_TwoIslandHotel =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TwoIslandHotel,
+    .palettes = gTilesetPalettes_TwoIslandHotel,
+    .metatiles = gMetatiles_TwoIslandHotel,
+    .metatileAttributes = gMetatileAttributes_TwoIslandHotel,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_TwoIsland_Drugstore =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TwoIsland_Drugstore,
+    .palettes = gTilesetPalettes_TwoIsland_Drugstore,
+    .metatiles = gMetatiles_TwoIsland_Drugstore,
+    .metatileAttributes = gMetatileAttributes_TwoIsland_Drugstore,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_RainbowCloud =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_RainbowCloud,
+    .palettes = gTilesetPalettes_RainbowCloud,
+    .metatiles = gMetatiles_RainbowCloud,
+    .metatileAttributes = gMetatileAttributes_RainbowCloud,
+    .callback = NULL,
+};

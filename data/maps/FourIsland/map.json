@@ -21,8 +21,28 @@
     },
     {
       "map": "MAP_MINNESOTA",
-      "offset": -1,
+      "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE15",
+      "offset": -3,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": -12,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": 49,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -31,7 +51,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 31,
-      "y": 40,
+      "y": 43,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -45,7 +65,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DODUO",
       "x": 44,
-      "y": 14,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -59,7 +79,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NIDORAN_F",
       "x": 46,
-      "y": 14,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -73,7 +93,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NIDORAN_M",
       "x": 47,
-      "y": 14,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -87,7 +107,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 50,
-      "y": 16,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -101,7 +121,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 18,
-      "y": 32,
+      "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 1,
@@ -115,7 +135,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH_ROCK",
       "x": 43,
-      "y": 15,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -129,7 +149,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 40,
-      "y": 48,
+      "y": 51,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -143,7 +163,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 33,
-      "y": 49,
+      "y": 52,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -158,7 +178,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DADJR",
       "x": 46,
-      "y": 23,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -172,7 +192,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 36,
-      "y": 29,
+      "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -186,7 +206,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 45,
-      "y": 30,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -200,7 +220,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 57,
-      "y": 25,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -214,7 +234,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 49,
-      "y": 16,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -229,7 +249,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FROSLASS",
       "x": 35,
-      "y": 39,
+      "y": 42,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -243,7 +263,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
       "x": 46,
-      "y": 49,
+      "y": 52,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -257,7 +277,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLISSEY",
       "x": 36,
-      "y": 5,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -271,7 +291,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HERACROSS",
       "x": 38,
-      "y": 5,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 0,
@@ -285,7 +305,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 11,
-      "y": 18,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -299,7 +319,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 10,
-      "y": 18,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -313,7 +333,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 10,
-      "y": 20,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -327,7 +347,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
       "x": 11,
-      "y": 19,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -341,98 +361,98 @@
   "warp_events": [
     {
       "x": 35,
-      "y": 31,
+      "y": 34,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 45,
-      "y": 19,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_POKEMON_DAY_CARE",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
-      "y": 30,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 45,
-      "y": 40,
+      "y": 43,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 22,
-      "y": 33,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 45,
-      "y": 42,
+      "y": 45,
       "elevation": 3,
       "dest_map": "MAP_FOUR_ISLAND_HARBOR",
       "dest_warp_id": "0"
     },
     {
       "x": 29,
-      "y": 39,
+      "y": 42,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
-      "y": 29,
+      "y": 32,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND",
       "dest_warp_id": "9"
     },
     {
       "x": 43,
-      "y": 28,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND",
       "dest_warp_id": "8"
     },
     {
       "x": 62,
-      "y": 42,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_FINNEON_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 15,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 33,
-      "y": 46,
+      "y": 49,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND",
       "dest_warp_id": "13"
@@ -442,7 +462,7 @@
     {
       "type": "trigger",
       "x": 35,
-      "y": 36,
+      "y": 39,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",
@@ -451,7 +471,7 @@
     {
       "type": "trigger",
       "x": 36,
-      "y": 36,
+      "y": 39,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",
@@ -460,7 +480,7 @@
     {
       "type": "trigger",
       "x": 34,
-      "y": 36,
+      "y": 39,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",
@@ -471,7 +491,7 @@
     {
       "type": "sign",
       "x": 48,
-      "y": 19,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_EventScript_IslandSign"
@@ -479,7 +499,7 @@
     {
       "type": "sign",
       "x": 51,
-      "y": 16,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_LaidPsyduck"
@@ -487,7 +507,7 @@
     {
       "type": "sign",
       "x": 27,
-      "y": 32,
+      "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_Sign"
@@ -495,7 +515,7 @@
     {
       "type": "sign",
       "x": 59,
-      "y": 25,
+      "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_PalParkSign"
@@ -503,7 +523,7 @@
     {
       "type": "sign",
       "x": 26,
-      "y": 21,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_RockClimbUp"
@@ -511,7 +531,7 @@
     {
       "type": "sign",
       "x": 28,
-      "y": 14,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_Rock"
@@ -519,7 +539,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_AmitySquareSign"
@@ -527,7 +547,7 @@
     {
       "type": "sign",
       "x": 26,
-      "y": 19,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_RockClimbDown"
@@ -535,7 +555,7 @@
     {
       "type": "sign",
       "x": 28,
-      "y": 8,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_CombeeSign"
@@ -543,7 +563,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_HoneyTree"
@@ -551,7 +571,7 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_HoneyTree"
@@ -559,7 +579,7 @@
     {
       "type": "sign",
       "x": 26,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_HoneyTree"
@@ -567,7 +587,7 @@
     {
       "type": "sign",
       "x": 27,
-      "y": 9,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_HoneyTree"
@@ -575,7 +595,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 46,
+      "y": 49,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_LostTower"
@@ -583,7 +603,7 @@
     {
       "type": "sign",
       "x": 34,
-      "y": 47,
+      "y": 50,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_TurnbackCaveSign"

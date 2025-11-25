@@ -38,6 +38,16 @@
       "map": "MAP_TWO_ISLAND_NORTH",
       "offset": -1,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN13",
+      "offset": -14,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN10",
+      "offset": 43,
+      "direction": "left"
     }
   ],
   "object_events": [

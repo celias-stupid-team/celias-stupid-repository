@@ -1,3 +1,255 @@
 mapscripts Minnesota_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        // if some condition
+        setflag(FLAG_TEMP_1)
+        release
+        if(flag(FLAG_SENT_BIKER_FLYING)) {
+            setmetatile(19, 14, METATILE_MinnesotaGym_UpdatedGymSignTop, TRUE)
+            setmetatile(19, 15, METATILE_MinnesotaGym_UpdatedGymSignBottom, TRUE)
+        }
+    }
+    
+}
+
+script MinnesotaGym_SafetySign {
+    if(flag(FLAG_SENT_BIKER_FLYING)) {
+        msgbox( 
+        "Days since last injury:{PAUSE 30}\n"
+        "0\l"
+        ":(", MSGBOX_SIGN)
+    } else {
+        msgbox(
+        "Days since last injury:{PAUSE 30}\n"
+        "4", MSGBOX_SIGN)
+    }
+}
+
+
+script MinnesotaGym_WeightLine {
+    lock
+    faceplayer
+    msgbox(
+	"Line starts back there, bub.\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
+
+script MinnesotaGym_BikingKid {
+    lock
+    msgbox(
+	"I keep…{PAUSE 30} huff{PAUSE 30}\n"
+	"…pedaling…{PAUSE 30} huff\p"
+
+	"But I never…{PAUSE 30} huff{PAUSE 30}\n"
+	"…get…{PAUSE 30} huff{PAUSE 30} …anywhere!…{PAUSE 30} huff", MSGBOX_DEFAULT)
+    closemessage
+    //sound effect
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_in_place_faster_right * 20
+    ))
+    delay(60)
+    playse(SE_M_TAKE_DOWN)
+    waitmovement(0)
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_faster_right * 9
+    ))
+    waitmovement(0)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    delay(60)
+    setflag(FLAG_SENT_BIKER_FLYING)
+    
+    setmetatile(19, 14, METATILE_MinnesotaGym_UpdatedGymSignTop, TRUE)
+    setmetatile(19, 15, METATILE_MinnesotaGym_UpdatedGymSignBottom, TRUE)
+    special(DrawWholeMapView)
+    release
+}
+
+script MinnesotaGym_BikingWall {
+    if(flag(FLAG_SENT_BIKER_FLYING)) {
+        msgbox(
+        "There is a hole in the wall.\p"
+
+        "Surrounding this hole are seven\n"
+        "identical holes.", MSGBOX_SIGN)
+
+    } else {
+        setflag(FLAG_READ_SAFE_CODE)
+        msgbox(
+        "Seven identical holes line the\n"
+        "wall.\p"
+
+        "In the spot immediately in front\n"
+        "of the middle bike, there is a\l"
+        "safe combination written.\p"
+
+        "It says{PAUSE 30} “999”.\n"
+        "", MSGBOX_SIGN)
+    }
+
+}
+
+
+
+script MinnesotaGym_Biker {
+    lock
+    faceplayer
+    msgbox(
+	"Pff.\p"
+
+	"Ameteur.\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+}
+
+script MinnesotaGym_Attendant {
+    lock
+    faceplayer
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_EAST) {
+        msgbox(
+        "Listen, man.\n"
+        "I make minimum wage.\p"
+
+        "I don't have the energy to tell\n"
+        "you to fuck off.\l"
+        "Please go away.", MSGBOX_DEFAULT)
+        release
+    } else {
+        msgbox(
+        "Hello!\n"
+        "Welcome to PLANET FITNESS!", MSGBOX_DEFAULT)
+        release
+
+    }
+}
+
+script MinnesotaGym_Rattata {
+    lock
+    playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
+    msgbox(
+	"RATTATA: Ra-ta!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(10)
+    msgbox(
+	"He's trying to get gold.\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script MinnesotaGym_ShinyRattata {
+    lock
+    playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
+    msgbox(
+	"RATTATA: Ra-ta!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    delay(10)
+    msgbox(
+	"He's gotten gold.\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+script MinnesotaGym_LockerCombinations {
+    lock
+    if(flag(FLAG_GOT_SHINY_MACHOKE)) {
+        msgbox(
+        "Let's not attempt another heist.\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
+    msgbox(
+	"It's a locker.\p"
+
+	"Try a combination?\n"
+	"", MSGBOX_YESNO)
+    while(var(VAR_RESULT)) {
+        if(flag(FLAG_READ_SAFE_CODE)) {
+            goto(MinnesotaGym_OpenLocker)
+        }
+        addvar(VAR_CURRENT_SAFE_ATTEMPT, 1)
+        switch(var(VAR_CURRENT_SAFE_ATTEMPT)) {
+            case 1:
+            msgbox(
+            "{PLAYER} entered the code\n"
+            "001.", MSGBOX_DEFAULT)
+            case 2:
+            msgbox(
+            "{PLAYER} entered the code\n"
+            "002.", MSGBOX_DEFAULT)
+            case 3:
+            msgbox(
+            "{PLAYER} entered the code\n"
+            "003.", MSGBOX_DEFAULT)
+        }
+        closemessage
+        delay(30)
+        playse(SE_BOO)
+        msgbox(
+        "It didn't work.\n"
+        "", MSGBOX_DEFAULT)
+        msgbox(
+        "Try another combination?\n"
+        "", MSGBOX_YESNO)
+    }        
+    msgbox(
+    "Yeah, that's ethical.\n"
+    "", MSGBOX_DEFAULT)
+    release
+    end
+    
+}
+
+script MinnesotaGym_OpenLocker {
+    msgbox(
+	"{PLAYER} entered the code\n"
+	"999.", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    playse(SE_UNLOCK)
+    delay(60)
+    msgbox(
+	"The safe opened!\p"
+
+	"Inside, there was a POKéMON!\n"
+	"", MSGBOX_DEFAULT)
+    playfanfare(MUS_LEVEL_UP)
+    setflag(FLAG_SHINY_CREATION)
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MACHOKE)
+    msgbox(
+	"{PLAYER} stole the MACHOKE!\n"
+	"", MSGBOX_DEFAULT)
+    waitfanfare
+    call(Common_Script_GiftPokemon)
+    if(flag(FLAG_READ_SAFE_CODE)) {
+        msgbox(
+        "Phew, good thing you weren't\n"
+        "trying to brute force it.\p"
+
+        "Could you imagine?\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "I wonder if there was a better\n"
+        "way than brute force.", MSGBOX_DEFAULT)
+    }
+    setflag(FLAG_GOT_SHINY_MACHOKE)
+    release
+    end
 
 }

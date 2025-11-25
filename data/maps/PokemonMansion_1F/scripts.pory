@@ -32,3 +32,13 @@ PokemonMansion_1F_EventScript_Johnson::
 	msgbox PokemonMansion_1F_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonMansion_DoorConfusion {
+	msgbox(
+	"Wait, we're in the very back\n"
+	"of the MANSION right now.\p"
+
+	"So then why does that door take\n"
+	"you…{PAUSE 30} there?", MSGBOX_NPC)
+}

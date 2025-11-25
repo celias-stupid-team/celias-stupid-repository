@@ -23,6 +23,26 @@
       "map": "MAP_ROUTE14",
       "offset": -31,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN1",
+      "offset": 32,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": 3,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN2",
+      "offset": -9,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN9",
+      "offset": 26,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -296,13 +316,6 @@
   ],
   "warp_events": [
     {
-      "x": 1,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 8,
       "y": 11,
       "elevation": 3,
@@ -328,6 +341,13 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE18_SANDWICH_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE15_WEST_ENTRANCE_1F",
       "dest_warp_id": "0"
     }
   ],

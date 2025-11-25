@@ -23,6 +23,16 @@
       "map": "MAP_POKEMON_ISLAND_SOUTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN11",
+      "offset": -5,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN12",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [],
