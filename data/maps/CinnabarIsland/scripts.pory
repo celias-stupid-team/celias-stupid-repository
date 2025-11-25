@@ -37,8 +37,6 @@ CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands::
 	setobjectmovementtype LOCALID_CINNABAR_BILL, MOVEMENT_TYPE_FACE_UP
 	return
 
-CinnabarIsland_EventScript_CheckUnlockGym::
-	return
 
 CinnabarIsland_EventScript_UnlockGym::
 	setvar VAR_TEMP_1, 1
@@ -345,38 +343,68 @@ CinnabarIsland_EventScript_GymSign::
 `
 
 
+script CinnabarIsland_GymDoor {
+	lock
+	msgbox(
+	"The door is locked.\p"
+
+	"The keyhole is shaped remarkably\n"
+	"like a BURN HEAL…", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_BURN_HEAL)) {
+		msgbox(
+		"{PLAYER} inserted the BURN HEAL\n"
+		"into the GYM door.", MSGBOX_DEFAULT)
+		closemessage
+		playse(SE_UNLOCK)
+		waitse
+		while(checkitem(ITEM_BURN_HEAL)) {
+			removeitem(ITEM_BURN_HEAL, 1)
+		}
+		setvar(VAR_TEMP_1, 1)
+		setflag(FLAG_UNLOCKED_CINNABAR_GYM)
+	}
+	release
+}
+
+script CinnabarIsland_EventScript_CheckUnlockGym {
+	if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
+		setvar(VAR_TEMP_1, 1)
+	}
+}
+
+
 script CinnabarIsland_ColorblindNPC {
 	msgbox("
-Ugh, kids these days.\p
+	Ugh, kids these days.\p
 
-All I wanted was for someone\n
-to bring me a GREEN POKéMON.\p
+	All I wanted was for someone\n
+	to bring me a GREEN POKéMON.\p
 
-Day after day, they give me\n
-GARDEVOIRS or SEWADDLES.\p
+	Day after day, they give me\n
+	GARDEVOIRS or SEWADDLES.\p
 
-Not ONCE have they given me a\n
-BRONZOR, or a GOLURK, or even\l
-a DRAGAPULT!\p
+	Not ONCE have they given me a\n
+	BRONZOR, or a GOLURK, or even\l
+	a DRAGAPULT!\p
 
-I guess that's just the price\n
-of colorblindness…", MSGBOX_NPC)
+	I guess that's just the price\n
+	of colorblindness…", MSGBOX_NPC)
 }
 
 script CinnabarIsland_ColorblindNPC_2 {
 	msgbox("
-I've always wanted to see a RED\n
-POKéMON.\p
+	I've always wanted to see a RED\n
+	POKéMON.\p
 
-There was one kid who tried to show\n
-me a GYARADOS he caught in a LAKE.\l
-Pah!\p
+	There was one kid who tried to show\n
+	me a GYARADOS he caught in a LAKE.\l
+	Pah!\p
 
-He said it's special, but he\n
-can't fool me!\p
+	He said it's special, but he\n
+	can't fool me!\p
 
-I know that GYARADOS is BLUE, and\n
-nothing can change that!", MSGBOX_NPC)
+	I know that GYARADOS is BLUE, and\n
+	nothing can change that!", MSGBOX_NPC)
 }
 
 

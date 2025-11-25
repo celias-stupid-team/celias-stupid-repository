@@ -989,7 +989,7 @@
 #define FLAG_GOT_SHINY_MACHOKE               0x390
 #define FLAG_TALKED_TO_IVY               0x391
 #define FLAG_TALKED_TO_TODD               0x392
-#define FLAG_0x393               0x393
+#define FLAG_UNLOCKED_CINNABAR_GYM               0x393
 #define FLAG_0x394               0x394
 #define FLAG_0x395               0x395
 #define FLAG_0x396               0x396

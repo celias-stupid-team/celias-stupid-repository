@@ -303,7 +303,7 @@
       "x": 39,
       "y": 15,
       "elevation": 3,
-      "var": "VAR_TEMP_1",
+      "var": "CinnabarIsland_GymDoor",
       "var_value": "0",
       "script": "CinnabarIsland_EventScript_GymDoorLocked"
     }

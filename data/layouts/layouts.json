@@ -6293,10 +6293,10 @@
       "id": "LAYOUT_WORMHOLE_ENTRANCE",
       "name": "Wormhole_Entrance_Layout",
       "width": 20,
-      "height": 30,
+      "height": 21,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_PorytilesBuilding",
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_Entrance/map.bin"
@@ -6308,7 +6308,7 @@
       "height": 30,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_PorytilesBuilding",
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_OrthwormRoom/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_OrthwormRoom/map.bin"
