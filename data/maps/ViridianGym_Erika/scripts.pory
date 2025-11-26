@@ -1,3 +1,27 @@
 mapscripts ViridianGym_Erika_MapScripts {
-    
+        MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 4) {
+            setvar(VAR_CURRENT_DMCA_PHASE, 4)
+        }
+        switch(var(VAR_CURRENT_DMCA_PHASE)) {
+            case 1:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 4)
+            case 2:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 4)
+            case 3:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 4)
+            case 4:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 4)
+            case 5:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 4)
+            case 6:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 4)
+            case 7:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 4)
+            case 8:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 4)
+            case 9:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 4)
+        }
+    }
 }

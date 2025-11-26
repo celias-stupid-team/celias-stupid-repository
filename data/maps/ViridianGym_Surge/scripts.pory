@@ -1,3 +1,48 @@
 mapscripts ViridianGym_Surge_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 3) {
+            setvar(VAR_CURRENT_DMCA_PHASE, 3)
+        }
+        switch(var(VAR_CURRENT_DMCA_PHASE)) {
+            case 1:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 3)
+            case 2:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 3)
+            case 3:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 3)
+            case 4:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 3)
+            case 5:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 3)
+            case 6:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 3)
+            case 7:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 3)
+            case 8:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 3)
+            case 9:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 3)
+        }
+    }
 }
+
+
+script ViridianGym_Surge_Grunt {
+	msgbox(
+	"These trash cans are all copies\n"
+	"of each other!", MSGBOX_NPC)
+}
+
+
+script ViridianGym_Surge_TrashCan {
+    lock
+    msgbox(
+    "Hey!\n"
+    "There's a secret switch!\p"
+
+    "…Well, maybe it's not THAT secret.\n"
+    "", MSGBOX_DEFAULT)
+    //unlock stuff
+    release
+}
+

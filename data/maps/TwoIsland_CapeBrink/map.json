@@ -46,7 +46,14 @@
       "x": 13,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_TWO_ISLAND_CAPE_BRINK_HOUSE",
+      "dest_map": "MAP_TWO_ISLAND_WATERFALL_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND_WATERFALL_CAVE",
       "dest_warp_id": "0"
     }
   ],

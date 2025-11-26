@@ -1,3 +1,27 @@
 mapscripts ViridianGym_Blaine_MapScripts {
-    
+        MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 7) {
+            setvar(VAR_CURRENT_DMCA_PHASE, 7)
+        }
+        switch(var(VAR_CURRENT_DMCA_PHASE)) {
+            case 1:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 7)
+            case 2:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 7)
+            case 3:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 7)
+            case 4:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 7)
+            case 5:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 7)
+            case 6:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 7)
+            case 7:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 7)
+            case 8:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 7)
+            case 9:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 7)
+        }
+    }
 }

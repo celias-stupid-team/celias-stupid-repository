@@ -5536,12 +5536,12 @@
     {
       "id": "LAYOUT_VIRIDIAN_GYM_SURGE",
       "name": "ViridianGym_Surge_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 13,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_VermilionGym",
       "border_filepath": "data/layouts/ViridianGym_Surge/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Surge/map.bin"
     },
@@ -5552,7 +5552,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_CeruleanGym",
       "border_filepath": "data/layouts/ViridianGym_Misty/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Misty/map.bin"
@@ -6576,6 +6576,30 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/HouseOfOldManWhoTeachesTrendySayings/border.bin",
       "blockdata_filepath": "data/layouts/HouseOfOldManWhoTeachesTrendySayings/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_HOUSE1",
+      "name": "CinnabarIsland_House1_Layout",
+      "width": 11,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/CinnabarIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_TWO_ISLAND_WATERFALL_HOUSE",
+      "name": "TwoIsland_WaterfallHouse_Layout",
+      "width": 12,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/TwoIsland_WaterfallHouse/border.bin",
+      "blockdata_filepath": "data/layouts/TwoIsland_WaterfallHouse/map.bin"
     }
   ]
 }

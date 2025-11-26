@@ -1,4 +1,29 @@
 mapscripts ViridianGym_DMCA_Brock_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 1) {
+            setvar(VAR_CURRENT_DMCA_PHASE, 1)
+        }
+        switch(var(VAR_CURRENT_DMCA_PHASE)) {
+            case 1:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 1)
+            case 2:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 1)
+            case 3:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 1)
+            case 4:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 1)
+            case 5:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 1)
+            case 6:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 1)
+            case 7:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 1)
+            case 8:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 1)
+            case 9:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 1)
+        }
+    }
 
 }
 

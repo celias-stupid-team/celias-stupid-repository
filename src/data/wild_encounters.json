@@ -21783,32 +21783,32 @@
           "map": "MAP_CINNABAR_ISLAND",
           "base_label": "sCinnabarIsland_FireRed",
           "water_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_TAUROS"
               },
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_KANGASKHAN"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_SCYTHER"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_SCYTHER"
               },
               {
                 "min_level": 35,
                 "max_level": 40,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_SCYTHER"
               }
             ]
           },

@@ -453,7 +453,8 @@
     "CinnabarIsland_PokemonCenter_2F",
     "CinnabarIsland_Mart",
     "ThreeIsland_Outside",
-    "ThreeIsland_Core"
+    "ThreeIsland_Core",
+    "CinnabarIsland_House1"
   ],
   "gMapGroup_IndoorIndigoPlateau": [
     "IndigoPlateau_PokemonCenter_1F",
@@ -562,7 +563,8 @@
     "TwoIsland_Harbor",
     "TwoIsland_PaulaHouse",
     "TwoIsland_Drugstore",
-    "TwoIsland_WaterfallCave"
+    "TwoIsland_WaterfallCave",
+    "TwoIsland_WaterfallHouse"
   ],
   "gMapGroup_IndoorThreeIsland": [
     "ThreeIsland_House1",

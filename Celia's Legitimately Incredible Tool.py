@@ -406,7 +406,7 @@ dropdown_data = load_dropdown_data()
 # --------------------------
 # Tabs
 # --------------------------
-tabs = ["Item", "Trainer Pic", "Object", "Trainer", "Sound", "Music"]
+tabs = ["Object", "Trainer Pic", "Item", "Trainer", "Sound", "Music"]
 
 for name in tabs:
     log(f"Adding tab: {name}")
