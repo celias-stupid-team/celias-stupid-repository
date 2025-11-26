@@ -6564,6 +6564,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Ocean13/border.bin",
       "blockdata_filepath": "data/layouts/Ocean13/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
+      "name": "HouseOfOldManWhoTeachesTrendySayings_Layout",
+      "width": 11,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/HouseOfOldManWhoTeachesTrendySayings/border.bin",
+      "blockdata_filepath": "data/layouts/HouseOfOldManWhoTeachesTrendySayings/map.bin"
     }
   ]
 }

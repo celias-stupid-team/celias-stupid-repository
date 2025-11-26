@@ -456,6 +456,13 @@
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND",
       "dest_warp_id": "13"
+    },
+    {
+      "x": 66,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -607,6 +614,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_TurnbackCaveSign"
+    },
+    {
+      "type": "sign",
+      "x": 68,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourIsland_TrendySayingHouse"
     }
   ]
 }

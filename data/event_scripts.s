@@ -1840,3 +1840,6 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean13/scripts.inc"
 	.include "data/maps/Ocean13/text.inc"
+
+	.include "data/maps/HouseOfOldManWhoTeachesTrendySayings/scripts.inc"
+	.include "data/maps/HouseOfOldManWhoTeachesTrendySayings/text.inc"

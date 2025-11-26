@@ -316,6 +316,14 @@ script FourIsland_HoneyTree {
 	release
 }
 
+script FourIsland_TrendySayingHouse {
+	msgbox(
+	"HOUSE of an OLD MAN who\n"
+	"TEACHES you TRENDY SAYINGS.", MSGBOX_SIGN)
+
+}
+
+
 script FourIsland_Froslass { //PLACEHOLDER
 	lock
 	playbgm(MUS_GEN4_LASS, TRUE)
