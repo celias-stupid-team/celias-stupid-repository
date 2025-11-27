@@ -28,11 +28,12 @@ mapscripts ViridianGym_Giovanni_MapScripts {
 
 
 script ViridianGym_GiovanniBody {
+    lock
     if(flag(FLAG_BADGE08_GET)) {
         
         msgbox(
-        "He's not moving…\n"
-        "", MSGBOX_DEFAULT)
+        "Looking closer at the body, it\n"
+        "appears that he is lemons.", MSGBOX_DEFAULT)
     } else {
         setflag(FLAG_BADGE08_GET)
         msgbox(
@@ -41,6 +42,8 @@ script ViridianGym_GiovanniBody {
         "{PLAY_BGM}{MUS_OBTAIN_BADGE}{PLAYER} took the EARTHBADGE\n"
         "from GIOVANNI's body!{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
     }
+    release
+    end
 }
 
 script ViridianGym_Mewtwo {

@@ -4098,7 +4098,7 @@
           "map": "MAP_CERULEAN_CAVE_B1F",
           "base_label": "sCeruleanCaveB1F_FireRed",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 58,

@@ -282,6 +282,7 @@ script FourIsland_OldLady {
 
 
 script FourIsland_CeliaDawn {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"Hiya! I'm DAWN, the crea-{PAUSE 30} uh\n"
 	"I mean a very regular person!\p"
@@ -541,7 +542,7 @@ script FourIsland_BarryHater {
 	"barely letting you get a word in.\p"
 
 	"I think he went off to an ISLAND\n"
-	"east of here.\l"
+	"west of here.\l"
 	"I say good riddance!", MSGBOX_NPC)
 }
 

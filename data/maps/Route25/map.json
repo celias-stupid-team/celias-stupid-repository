@@ -25,8 +25,8 @@
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN8",
-      "offset": -30,
+      "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
+      "offset": 32,
       "direction": "up"
     }
   ],

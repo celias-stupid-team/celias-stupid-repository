@@ -275,25 +275,25 @@ script VermilionCity_OnLoad {
 	}
 	if(flag(FLAG_SPAWN_VERMILION_ONIX)) {
 		//I'm not doing labels fuck that shit
-		setmetatile(25, 8, 0x348, FALSE)
-		setmetatile(26, 8, 0x349, TRUE)
-		setmetatile(27, 8, 0x34A, TRUE)
-		setmetatile(28, 8, 0x34B, TRUE)
+		setmetatile(25, 9, 0x348, FALSE)
+		setmetatile(26, 9, 0x349, TRUE)
+		setmetatile(27, 9, 0x34A, TRUE)
+		setmetatile(28, 9, 0x34B, TRUE)
 		
-		setmetatile(25, 9, 0x350, TRUE)
-		setmetatile(26, 9, 0x351, TRUE)
-		setmetatile(27, 9, 0x352, TRUE)
-		setmetatile(28, 9, 0x353, TRUE)
+		setmetatile(25, 10, 0x350, TRUE)
+		setmetatile(26, 10, 0x351, TRUE)
+		setmetatile(27, 10, 0x352, TRUE)
+		setmetatile(28, 10, 0x353, TRUE)
 		
-		setmetatile(25, 10, 0x358, TRUE)
-		setmetatile(26, 10, 0x359, TRUE)
-		setmetatile(27, 10, 0x35A, TRUE)
-		setmetatile(28, 10, 0x35B, TRUE)
+		setmetatile(25, 11, 0x358, TRUE)
+		setmetatile(26, 11, 0x359, TRUE)
+		setmetatile(27, 11, 0x35A, TRUE)
+		setmetatile(28, 11, 0x35B, TRUE)
 		
-		setmetatile(25, 11, 0x360, TRUE)
-		setmetatile(26, 11, 0x361, TRUE)
-		setmetatile(27, 11, 0x362, FALSE)
-		setmetatile(28, 11, 0x363, FALSE)
+		setmetatile(25, 12, 0x360, TRUE)
+		setmetatile(26, 12, 0x361, TRUE)
+		setmetatile(27, 12, 0x362, FALSE)
+		setmetatile(28, 12, 0x363, FALSE)
 	}
 
 }

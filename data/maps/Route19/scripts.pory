@@ -26,3 +26,15 @@ script Route19_DestroyThePit {
 	setvar(VAR_TEMP_0, 0)
 }
 
+script Route19_ChapterConfusion {
+	msgbox(
+	"You might be asking yourself,\n"
+	"“What about Chapters 4, 5, and 6?”\p"
+
+	"Well, actually! Our Chapter 2 was\n"
+	"the Japanese Chapter 4, and our\l"
+	"3 was the Japanese Chapter 6!\p"
+
+	"Now that we're on Chapter 7, they\n"
+	"finally lined the numbers back up!", MSGBOX_NPC)
+}

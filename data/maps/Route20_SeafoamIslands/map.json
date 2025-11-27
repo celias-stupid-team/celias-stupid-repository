@@ -20,23 +20,13 @@
       "direction": "right"
     },
     {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 9,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE19",
-      "offset": -35,
-      "direction": "right"
-    },
-    {
       "map": "MAP_ROUTE25",
       "offset": -55,
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN5",
-      "offset": -10,
+      "map": "MAP_ONE_ISLAND",
+      "offset": 3,
       "direction": "up"
     },
     {
@@ -61,7 +51,22 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {

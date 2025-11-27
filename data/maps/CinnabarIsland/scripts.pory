@@ -437,17 +437,87 @@ script CinnabarIsland_AbsolInfestation {
 	"this weird POKéMON lately.\l"
 	"Dunno where they're coming from.", MSGBOX_DEFAULT)
 	// Absol appears
+	closemessage
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_up * 4
+	))
+	addobject(LOCALID_ABSOL)
+	applymovement(LOCALID_ABSOL, moves(
+		delay_16
+		walk_slow_down * 2
+		face_down
+	))
+	delay(30)
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		emote_exclamation_mark
+	))
+	waitmovement(VAR_LAST_TALKED)
+	delay(60)
+	playmoncry(SPECIES_ABSOL, CRY_MODE_DEFAULT)
+	waitmovement(LOCALID_CAMERA)
+	waitmovement(LOCALID_ABSOL)
+	waitmoncry
+	delay(30)
 	msgbox(
 	"Hey!\n"
 	"There's one of 'em!\l"
 	"C'mere, you!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_fast_up * 3
+		face_up
+		delay_16
+	))
+	waitmovement(0)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		face_left
+	))
+	applymovement(LOCALID_ABSOL, moves(
+		face_left
+	))
+	delay(40)
 	//guy takes it 
 	msgbox(
 	"I'm a CHUCKSTER!\n"
 	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_fast_left
+		face_left
+	))
+	applymovement(LOCALID_ABSOL, moves(
+		walk_fast_left
+		jump_2_left
+	))
+	waitmovement(LOCALID_ABSOL_HUNTER)
+	playse(SE_LEDGE)
+	waitmovement(LOCALID_ABSOL)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_ABSOL)
 	//guy throws it; returns
-
+	delay(60)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_right
+	))
+	waitmovement(0)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_down * 3
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_down * 4
+	))
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
 	setflag(FLAG_TEMP_3)
+	delay(10)
+	msgbox(
+	"Keeping the ISLAND safe.\n"
+	"All in a day's work.", MSGBOX_DEFAULT)
 	release
 
 }

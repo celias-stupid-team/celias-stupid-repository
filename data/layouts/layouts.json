@@ -5573,7 +5573,7 @@
       "id": "LAYOUT_MINNESOTA",
       "name": "Minnesota_Layout",
       "width": 58,
-      "height": 52,
+      "height": 55,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5896,7 +5896,7 @@
     {
       "id": "LAYOUT_ROUTE20_SEAFOAM_ISLANDS",
       "name": "Route20_SeafoamIslands_Layout",
-      "width": 50,
+      "width": 44,
       "height": 32,
       "border_width": 2,
       "border_height": 2,
@@ -6472,7 +6472,7 @@
     {
       "id": "LAYOUT_OCEAN6",
       "name": "Ocean6_Layout",
-      "width": 10,
+      "width": 16,
       "height": 32,
       "border_width": 2,
       "border_height": 2,

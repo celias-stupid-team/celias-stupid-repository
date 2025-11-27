@@ -524,3 +524,5 @@ const u32 gObjectEventPic_absol_2[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_absol_2[] = INCBIN_U16("graphics/object_events/palettes/absol_2.gbapal");
 const u32 gObjectEventPic_petrel_2[] = INCBIN_U32("graphics/object_events/pics/stupid/petrel_2.4bpp");
 const u16 gObjectEventPal_petrel_2[] = INCBIN_U16("graphics/object_events/palettes/petrel_2.gbapal");
+const u32 gObjectEventPic_brick_wall[] = INCBIN_U32("graphics/object_events/pics/stupid/brick_wall.4bpp");
+const u16 gObjectEventPal_brick_wall[] = INCBIN_U16("graphics/object_events/palettes/brick_wall.gbapal");

@@ -116,3 +116,8 @@ script MemorialPillar_OnixSign {
 }
 
 
+script MemorialPillar_Guy {
+	msgbox(
+	"dead pokemon\n"
+	"", MSGBOX_NPC)
+}

@@ -4127,3 +4127,14 @@ const struct SpriteFrameImage gObjectEventPicTable_petrel_2[] = {
     overworld_frame(gObjectEventPic_petrel_2, 2, 4, 7),
     overworld_frame(gObjectEventPic_petrel_2, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_brick_wall[] = {
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
+    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
+};

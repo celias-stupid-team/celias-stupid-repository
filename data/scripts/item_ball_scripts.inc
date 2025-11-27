@@ -87,7 +87,7 @@ SSAnne_B1F_Room5_EventScript_ItemSuperPotion::
 	end
 
 SSAnne_Kitchen_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_ASPEAR_BERRY
 	end
 
 Route9_EventScript_ItemTM20::

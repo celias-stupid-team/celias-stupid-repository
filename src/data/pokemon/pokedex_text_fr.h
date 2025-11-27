@@ -92,8 +92,7 @@ const u8 gBeedrillPokedexText[] = _(
 const u8 gBeedrillPokedexTextUnused[] = _("");
 
 const u8 gPidgeyPokedexText[] = _(
-	"      Earlygame bird?\n"
-	"What are you talking about?");
+	"Ohhh, there's PIDGEY!");
 
 const u8 gPidgeyPokedexTextUnused[] = _("");
 
@@ -202,8 +201,8 @@ const u8 gNidokingPokedexText[] = _(
 const u8 gNidokingPokedexTextUnused[] = _("");
 
 const u8 gClefairyPokedexText[] = _(
-	"The solution to every puzzle in\n"
-	"the game!\n"
+	"The solution to every\n"
+	"puzzle in the game!\n"
 	"(technically)");
 
 const u8 gClefairyPokedexTextUnused[] = _("");
@@ -249,7 +248,8 @@ const u8 gGolbatPokedexText[] = _(
 const u8 gGolbatPokedexTextUnused[] = _("");
 
 const u8 gOddishPokedexText[] = _(
-	"blaze it.");
+	"Hey, what was that TM you\n"
+	"got from ERIKA?");
 
 const u8 gOddishPokedexTextUnused[] = _("");
 
@@ -675,14 +675,13 @@ const u8 gRhyhornPokedexText[] = _(
 const u8 gRhyhornPokedexTextUnused[] = _("");
 
 const u8 gRhydonPokedexText[] = _(
-	"Apply directly to the forehead");
+	"rhydon this dick");
 
 const u8 gRhydonPokedexTextUnused[] = _("");
 
 const u8 gChanseyPokedexText[] = _(
-	"Balanced Hackmons taught me that\n"
-	"STURDY and 1 HP is a really\n"
-	"strong combination!");
+	"Yes, nah.\n"
+	"Chansey.");
 
 const u8 gChanseyPokedexTextUnused[] = _("");
 
@@ -871,9 +870,7 @@ const u8 gSnorlaxPokedexText[] = _(
 const u8 gSnorlaxPokedexTextUnused[] = _("");
 
 const u8 gArticunoPokedexText[] = _(
-    "One of the legendary bird POKéMON.\n"
-    "With its long tail trailing behind, its\n"
-    "flying form is magnificent.");
+	"Go Team MYSTIC!");
 
 const u8 gArticunoPokedexTextUnused[] = _("");
 
@@ -883,9 +880,7 @@ const u8 gZapdosPokedexText[] = _(
 const u8 gZapdosPokedexTextUnused[] = _("");
 
 const u8 gMoltresPokedexText[] = _(
-    "One of the legendary bird POKéMON.\n"
-    "Those seeing it are overwhelmed by its\n"
-    "orange wings that seem to be on fire.");
+	"Go Team VALOR!");
 
 const u8 gMoltresPokedexTextUnused[] = _("");
 
@@ -2463,9 +2458,9 @@ const u8 gLuvdiscPokedexText[] = _(
 const u8 gLuvdiscPokedexTextUnused[] = _("");
 
 const u8 gAlomomolaPokedexText[] = _(
-	"I'm glad LUVDISC finally got an evolution.\n"
-	"Thanks you, Serebii, for always keeping us\n"
-	"up to date on the newest leaks for Gen V!");
+	"Thank you, SEREBII, for keeping\n"
+	"us up-to-date on the newest leaks\n"
+	"for GEN V!");
 
 const u8 gBagonPokedexText[] = _(
     "Its steel-hard head can shatter boulders.\n"
@@ -2711,3 +2706,20 @@ const u8 gMimikyuPokedexText[] = _(
 const u8 gHoopaPokedexText[] = _(
 	"Sounds like a lot of HOOPA\n"
 	"for one little KRABBY PATTY.");
+
+
+const u8 gZygardePokedexText[] = _(
+	"Hmm, it seems like this is\n"
+	"the wrong generation for him.");
+
+    
+const u8 gMelmanurePokedexText[] = _(
+	"A gift of friendship for\n"
+	"finding all the ODD CANDIES!\n"
+	"It smells pretty bad.");
+
+    
+const u8 gPokemonGunPokedexText[] = _(
+	"Fun fact:\n"
+	"This joke pre-dates PALWORLD by\n"
+	"over a year.");
