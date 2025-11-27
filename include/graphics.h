@@ -12571,3 +12571,6 @@ extern const u32 gItemIconPalette_XSpdef[];
 
 extern const u32 gItemIcon_RatStone[];
 extern const u32 gItemIconPalette_RatStone[];
+
+extern const u32 gItemIcon_PremierCandy[];
+extern const u32 gItemIconPalette_PremierCandy[];
