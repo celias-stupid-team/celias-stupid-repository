@@ -4138,3 +4138,25 @@ const struct SpriteFrameImage gObjectEventPicTable_brick_wall[] = {
     overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
     overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_tirtouga[] = {
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 0),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 1),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 2),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 0),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 0),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 1),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 1),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 2),
+    overworld_frame(gObjectEventPic_tirtouga, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_chinchou[] = {
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 0),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 1),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 2),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 0),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 0),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 1),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 1),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 2),
+    overworld_frame(gObjectEventPic_chinchou, 4, 4, 2),
+};
