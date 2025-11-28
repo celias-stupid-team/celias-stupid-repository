@@ -396,6 +396,12 @@ script CinnabarIsland_EventScript_CheckUnlockGym {
 }
 
 
+script Cinnabar_WestSign {
+	msgbox(
+	"WEST {LEFT_ARROW}\n"
+	"{PAUSE 30}EAST", MSGBOX_SIGN)
+
+}
 
 
 

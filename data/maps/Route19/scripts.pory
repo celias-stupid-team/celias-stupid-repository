@@ -66,3 +66,13 @@ script GreatSea_LoveTirtouga {
 	"It's forbidden!", MSGBOX_DEFAULT)
 	release
 }
+
+
+script GreatSea_FontTest {
+	msgbox(
+	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"
+	"STRENGTH CUT FLY\p"
+
+	"WHIRLPOOL GUILLOTINE BRICK BREAK\n"
+	"TAIL GLOW REST RETREAT", MSGBOX_NPC)
+}

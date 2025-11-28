@@ -12,3 +12,46 @@ script Minnesota_CantSeeFar {
 	"Granted, I can't see very far.{PAUSE 30}\n"
 	"But still!", MSGBOX_NPC)
 }
+
+script Minnesota_EastSign {
+	msgbox(
+	"EAST {RIGHT_ARROW}\n"
+	"{PAUSE 30}WEST", MSGBOX_SIGN)
+
+}
+
+script Minnesota_SanDiegoZooGirl {
+	msgbox(
+	"Ah, I love visitng MINNESOTA's\n"
+	"famous SAN DIEGO ZOO!\l"
+	"It's such a gift to live here!", MSGBOX_NPC)
+}
+
+
+script Minnesota_SanDiegoZoo {
+	msgbox(
+	"SAN DIEGO ZOO\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_SanDiegoZoo_SealSign {
+	msgbox(
+	"WARNING!\p"
+
+	"A dangerous wild ANIMAL has\n"
+	"escaped its cage!\p"
+
+	"Patrons are advised to run in\n"
+	"circles while screaming.\l"
+	"Preferably with arms in the air!", MSGBOX_SIGN)
+
+}
+
+script Minnesota_SanDiegoZoo_SealCage {
+	msgbox(
+	"Hmm, it seems the cage has been\n"
+	"unsealed.", MSGBOX_SIGN)
+
+}

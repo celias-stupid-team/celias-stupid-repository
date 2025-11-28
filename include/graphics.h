@@ -12574,3 +12574,6 @@ extern const u32 gItemIconPalette_RatStone[];
 
 extern const u32 gItemIcon_PremierCandy[];
 extern const u32 gItemIconPalette_PremierCandy[];
+
+extern const u32 gTrainerFrontPic_Cookie[];
+extern const u32 gTrainerPalette_Cookie[];
