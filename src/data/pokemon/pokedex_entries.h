@@ -5375,13 +5375,29 @@ const struct PokedexEntry gPokedexEntries[] =
         .categoryName = _("PLACEHOLDER"),
         .height = 19,
         .weight = 151.5,
-        .description = gDummyPokedexTextUnused,
+        .description = gYanmegaPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 271,  
         .pokemonOffset = 0,
         .trainerScale = 317,
         .trainerOffset = 1,
     },
+
+    
+    [NATIONAL_DEX_BUZZWOLE] =
+    {
+        .categoryName = _("PLACEHOLDER"),
+        .height = 19,
+        .weight = 151.5,
+        .description = gYanmegaPokedexText,
+        .unusedDescription = gDummyPokedexTextUnused,
+        .pokemonScale = 271,  
+        .pokemonOffset = 0,
+        .trainerScale = 317,
+        .trainerOffset = 1,
+    },
+
+
     [NATIONAL_DEX_PHIONE] =
     {
         .categoryName = _("INBRED"),

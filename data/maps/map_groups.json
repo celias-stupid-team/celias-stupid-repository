@@ -716,7 +716,8 @@
     "SkyTower_MonsterHouse",
     "GreatSea_PirateBay",
     "PokemonIsland_LabBackRoom",
-    "PokemonIsland_South"
+    "PokemonIsland_South",
+    "AetherParadise_Island"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",

@@ -48,6 +48,11 @@
       "map": "MAP_OCEAN4",
       "offset": 25,
       "direction": "down"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
+      "offset": -26,
+      "direction": "left"
     }
   ],
   "object_events": [

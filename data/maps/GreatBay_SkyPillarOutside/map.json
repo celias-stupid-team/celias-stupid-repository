@@ -28,6 +28,11 @@
       "map": "MAP_GREAT_BAY_NORTH",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "offset": -19,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -91,7 +96,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 11,
+      "x": 12,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",

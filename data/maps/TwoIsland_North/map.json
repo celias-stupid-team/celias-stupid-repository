@@ -26,8 +26,13 @@
     },
     {
       "map": "MAP_ROUTE21_NORTH",
-      "offset": 1,
+      "offset": 9,
       "direction": "left"
+    },
+    {
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -35,7 +40,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DUNG_BEETLE",
       "x": 8,
-      "y": 14,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 5,

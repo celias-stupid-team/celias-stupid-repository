@@ -1215,6 +1215,11 @@ const u8 gYanmaPokedexText[] = _(
 
 const u8 gYanmaPokedexTextUnused[] = _("");
 
+const u8 gYanmegaPokedexText[] = _(
+	"What, you thought that bug\n"
+	"was gonna turn into a bird?");
+
+
 const u8 gWooperPokedexText[] = _(
     "When it walks around on the ground,\n"
     "it coats its body with a slimy, poisonous\n"
@@ -2458,9 +2463,7 @@ const u8 gLuvdiscPokedexText[] = _(
 const u8 gLuvdiscPokedexTextUnused[] = _("");
 
 const u8 gAlomomolaPokedexText[] = _(
-	"Thank you, SEREBII, for keeping\n"
-	"us up-to-date on the newest leaks\n"
-	"for GEN V!");
+	"A circle has no beginning.");
 
 const u8 gBagonPokedexText[] = _(
     "Its steel-hard head can shatter boulders.\n"

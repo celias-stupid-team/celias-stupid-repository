@@ -21,15 +21,20 @@
     },
     {
       "map": "MAP_ROUTE17",
-      "offset": -4,
+      "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "offset": -4,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 7,
+      "x": 11,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -43,7 +48,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 13,
+      "x": 17,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -57,7 +62,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 2,
+      "x": 6,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -71,7 +76,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 15,
+      "x": 19,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -85,7 +90,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 7,
+      "x": 11,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -99,7 +104,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 6,
+      "x": 10,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -114,7 +119,7 @@
       "local_id": "LOCALID_ROUTE16_CUT_TREE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 38,
+      "x": 42,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -128,7 +133,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 37,
+      "x": 41,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -142,7 +147,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN",
-      "x": 32,
+      "x": 36,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -156,7 +161,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 18,
+      "x": 22,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -170,7 +175,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 38,
+      "x": 42,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -184,7 +189,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BIKER",
-      "x": 18,
+      "x": 22,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -198,7 +203,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 40,
+      "x": 44,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -213,7 +218,7 @@
       "local_id": "LOCALID_ROUTE16_BATTLE_GIRL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 7,
+      "x": 11,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -227,7 +232,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 2,
+      "x": 6,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -241,7 +246,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 6,
+      "x": 10,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -255,42 +260,42 @@
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 14,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROUTE16_HOUSE",
       "dest_warp_id": "1"
     },
     {
-      "x": 20,
+      "x": 24,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_CELADON_CITY",
       "dest_warp_id": "17"
     },
     {
-      "x": 27,
+      "x": 31,
       "y": 7,
       "elevation": 3,
       "dest_map": "MAP_ROUTE16",
       "dest_warp_id": "4"
     },
     {
-      "x": 20,
+      "x": 24,
       "y": 14,
       "elevation": 3,
       "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_2F",
       "dest_warp_id": "2"
     },
     {
-      "x": 27,
+      "x": 31,
       "y": 14,
       "elevation": 3,
       "dest_map": "MAP_ROUTE16",
       "dest_warp_id": "2"
     },
     {
-      "x": 8,
+      "x": 12,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROUTE16",
@@ -301,7 +306,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 17,
+      "x": 21,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -309,7 +314,7 @@
     },
     {
       "type": "sign",
-      "x": 33,
+      "x": 37,
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -317,7 +322,7 @@
     },
     {
       "type": "sign",
-      "x": 7,
+      "x": 11,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

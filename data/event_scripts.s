@@ -1849,3 +1849,6 @@ Text_TestMsg::
 
 	.include "data/maps/TwoIsland_WaterfallHouse/scripts.inc"
 	.include "data/maps/TwoIsland_WaterfallHouse/text.inc"
+
+	.include "data/maps/AetherParadise_Island/scripts.inc"
+	.include "data/maps/AetherParadise_Island/text.inc"

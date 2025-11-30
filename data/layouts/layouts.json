@@ -1036,7 +1036,7 @@
     {
       "id": "LAYOUT_ROUTE16",
       "name": "Route16_Layout",
-      "width": 48,
+      "width": 52,
       "height": 21,
       "border_width": 2,
       "border_height": 2,
@@ -2644,8 +2644,8 @@
     {
       "id": "LAYOUT_TWO_ISLAND_CAPE_BRINK",
       "name": "TwoIsland_CapeBrink_Layout",
-      "width": 39,
-      "height": 22,
+      "width": 45,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4696,7 +4696,7 @@
     {
       "id": "LAYOUT_GREAT_BAY_SKY_PILLAR_OUTSIDE",
       "name": "GreatBay_SkyPillarOutside_Layout",
-      "width": 44,
+      "width": 34,
       "height": 30,
       "border_width": 2,
       "border_height": 2,
@@ -5585,7 +5585,7 @@
       "id": "LAYOUT_TWO_ISLAND_NORTH",
       "name": "TwoIsland_North_Layout",
       "width": 24,
-      "height": 22,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6148,8 +6148,8 @@
     {
       "id": "LAYOUT_GREAT_SEA_PIRATE_BAY",
       "name": "GreatSea_PirateBay_Layout",
-      "width": 37,
-      "height": 34,
+      "width": 48,
+      "height": 48,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6600,6 +6600,30 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/TwoIsland_WaterfallHouse/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_WaterfallHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_AETHER_PARADISE_ISLAND",
+      "name": "AetherParadise_Island_Layout",
+      "width": 69,
+      "height": 61,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeladonCity",
+      "border_filepath": "data/layouts/AetherParadise_Island/border.bin",
+      "blockdata_filepath": "data/layouts/AetherParadise_Island/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_CRASHED",
+      "name": "CinnabarIsland_Crashed",
+      "width": 55,
+      "height": 48,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CinnabarIsland",
+      "border_filepath": "data/layouts/CinnabarIsland_Crashed/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_Crashed/map.bin"
     }
   ]
 }

@@ -1027,7 +1027,7 @@
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
 #define FLAG_ONE_ISLAND_CANDY            0x3B8 
-#define FLAG_TWO_ISLAND_CANDY            0x3B9 //Behind Territorial Oak
+#define FLAG_TWO_ISLAND_CANDY            0x3B9 // Dung Beetle
 #define FLAG_THREE_ISLAND_CANDY          0x3BA
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed

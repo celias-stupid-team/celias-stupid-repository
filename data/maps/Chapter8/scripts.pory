@@ -2,7 +2,32 @@ mapscripts Chapter8_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_0, 0 {
             if(var(VAR_CURRENT_CHAPTER) == 8) {
-                warp(MAP_VIRIDIAN_GYM_ENTRANCE, 0)
+                setvar(VAR_TEMP_0, 1)
+                switch(var(VAR_CURRENT_DMCA_PHASE)) {
+                    case 0:
+                        warp(MAP_VIRIDIAN_GYM_ENTRANCE, 0)
+                    case 1:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM, 0)
+                    case 2:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 0)
+                    case 3:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 0)
+                    case 4:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 0)
+                    case 5:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 0)
+                    case 6:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 0)
+                    case 7:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 0)
+                    case 8:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 0)
+                    case 9:
+                        warp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 0)
+                }
+
+                
+                
 
             } else {
             setvar(VAR_CURRENT_CHAPTER, 8)
