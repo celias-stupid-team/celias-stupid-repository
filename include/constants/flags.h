@@ -994,7 +994,7 @@
 #define FLAG_0x395               0x395
 #define FLAG_0x396               0x396
 #define FLAG_0x397               0x397
-#define FLAG_0x398               0x398
+#define FLAG_FOUGHT_CASTFORM               0x398
 
 #define FLAG_DUGTRIO_SIGN               0x399
 #define FLAG_GROWLITHE_SIGN               0x39A
