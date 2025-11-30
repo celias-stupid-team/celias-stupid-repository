@@ -13,43 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE21_NORTH",
-      "offset": 17,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_TWO_ISLAND",
-      "offset": 41,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_MINNESOTA",
-      "offset": 5,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN11",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN10",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_OCEAN9",
-      "offset": -7,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",

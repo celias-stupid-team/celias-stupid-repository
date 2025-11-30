@@ -583,3 +583,6 @@ const u32 gTrainerPalette_OAK_TREE[] = INCBIN_U32("graphics/trainers/palettes/oa
 
 const u32 gTrainerFrontPic_Barry[] = INCBIN_U32("graphics/trainers/front_pics/barry_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Barry[] = INCBIN_U32("graphics/trainers/palettes/barry.gbapal.lz");
+
+const u32 gTrainerFrontPic_Cookie[] = INCBIN_U32("graphics/trainers/front_pics/cookie_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Cookie[] = INCBIN_U32("graphics/trainers/palettes/cookie.gbapal.lz");

@@ -3,7 +3,7 @@
   "name": "Ocean6",
   "layout": "LAYOUT_OCEAN6",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -14,11 +14,6 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
-    {
-      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 0,
-      "direction": "right"
-    },
     {
       "map": "MAP_OCEAN5",
       "offset": 0,
@@ -33,6 +28,11 @@
       "map": "MAP_ZERO_ISLAND",
       "offset": -34,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],

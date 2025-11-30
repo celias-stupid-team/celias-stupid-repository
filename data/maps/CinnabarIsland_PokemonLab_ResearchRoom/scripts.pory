@@ -68,11 +68,11 @@ script PokemonLab_AmberGuardian {
 
 				setflag(FLAG_REVIVED_YANMEGA)
 				removeitem(ITEM_OLD_AMBER)
-				fadescreen(FADE_TO_BLACK)
+				fadescreenswapbuffers(FADE_TO_BLACK)
 				delay(30)
 				clearflag(FLAG_TEMP_1)
 				addobject(LOCALID_YANMEGABALL)
-				fadescreen(FADE_FROM_BLACK)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
 				msgbox(
 				"Oh, golly!\n"
 				"The experiment was successful!\p"

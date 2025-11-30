@@ -1,3 +1,57 @@
 mapscripts ViridianGym_Giovanni_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(var(VAR_CURRENT_DMCA_PHASE) < 9) {
+            setvar(VAR_CURRENT_DMCA_PHASE, 9)
+        }
+        switch(var(VAR_CURRENT_DMCA_PHASE)) {
+            case 1:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 9)
+            case 2:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_2, 9)
+            case 3:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_3, 9)
+            case 4:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_4, 9)
+            case 5:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_5, 9)
+            case 6:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_6, 9)
+            case 7:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_7, 9)
+            case 8:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_8, 9)
+            case 9:
+                setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 9)
+        }
+    }
+}
+
+
+script ViridianGym_GiovanniBody {
+    lock
+    if(flag(FLAG_BADGE08_GET)) {
+        
+        msgbox(
+        "Looking closer at the body, it\n"
+        "appears that he is lemons.", MSGBOX_DEFAULT)
+    } else {
+        setflag(FLAG_BADGE08_GET)
+        msgbox(
+        "He's not moving…\p"
+
+        "{PLAY_BGM}{MUS_OBTAIN_BADGE}{PLAYER} took the EARTHBADGE\n"
+        "from GIOVANNI's body!{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
+    }
+    release
+    end
+}
+
+script ViridianGym_Mewtwo {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MEWTWO, CRY_MODE_ENCOUNTER)
+    msgbox(
+	"Mew!\n"
+	"{PAUSE 120}…two.", MSGBOX_DEFAULT)
+    setflag(FLAG_SHINY_CREATION)
 }

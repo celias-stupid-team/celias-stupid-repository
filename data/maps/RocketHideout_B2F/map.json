@@ -138,14 +138,14 @@
     },
     {
       "x": 28,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
       "dest_warp_id": "1"
     },
     {
       "x": 29,
-      "y": 16,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
       "dest_warp_id": "1"

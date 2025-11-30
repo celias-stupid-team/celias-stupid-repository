@@ -4,12 +4,18 @@ mapscripts Silph_BallShop_MapScripts {
 
 
 script SilphCo_BallShop_Kurt {
+	lock
 	msgbox(
 	"KURT: buy my balls\n"
-	"", MSGBOX_NPC)
+	"", MSGBOX_DEFAULT)
+	waitmessage
+	pokemart(SilphCo_BallShop_Mart)
+	msgbox(Text_PleaseComeAgain)
+	release
 }
 
 script SilphCo_BallShop_Sign {
+	lock
 	msgbox(
 	"SILPH CO\n"
 	"POKéBALL SHOP", MSGBOX_SIGN)

@@ -4,12 +4,7 @@ CinnabarIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CinnabarIsland_OnFrame
 	.byte 0
 
-CinnabarIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_CINNABAR_ISLAND
-	call CinnabarIsland_EventScript_CheckUnlockGym
-	call_if_eq VAR_CSR_DUMMY_11, 1, CinnabarIsland_EventScript_ReadyObjectsSailToOneIsland
-	call_if_eq VAR_CSR_DUMMY_11, 3, CinnabarIsland_EventScript_ReadyObjectsReturnFromSeviiIslands
-	end
+
 
 CinnabarIsland_EventScript_ReadyObjectsSailToOneIslandFromPokeCenter::
 	savebgm MUS_FOLLOW_ME
@@ -342,6 +337,34 @@ CinnabarIsland_EventScript_GymSign::
 	end
 `
 
+script CinnabarIsland_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_CINNABAR_ISLAND)
+	call(CinnabarIsland_EventScript_CheckUnlockGym)
+	setflag(FLAG_TEMP_2)
+}
+
+
+script CinnabarIsland_MansionImprint {
+	msgbox(
+	"There is a suspiciously POKéMON\n"
+	"MANSION-shaped imprint in the dirt.", MSGBOX_SIGN)
+
+}
+
+script CinnabarIsland_Fisherman {
+	lock
+	faceplayer
+	msgbox(
+	"Hmm.\p"
+
+	"I think {PAUSE 30}I put the RARE CANDY\n"
+	"in the wrong slot.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+}
+
 
 script CinnabarIsland_GymDoor {
 	lock
@@ -373,39 +396,13 @@ script CinnabarIsland_EventScript_CheckUnlockGym {
 }
 
 
-script CinnabarIsland_ColorblindNPC {
-	msgbox("
-	Ugh, kids these days.\p
+script Cinnabar_WestSign {
+	msgbox(
+	"WEST {LEFT_ARROW}\n"
+	"{PAUSE 30}EAST", MSGBOX_SIGN)
 
-	All I wanted was for someone\n
-	to bring me a GREEN POKéMON.\p
-
-	Day after day, they give me\n
-	GARDEVOIRS or SEWADDLES.\p
-
-	Not ONCE have they given me a\n
-	BRONZOR, or a GOLURK, or even\l
-	a DRAGAPULT!\p
-
-	I guess that's just the price\n
-	of colorblindness…", MSGBOX_NPC)
 }
 
-script CinnabarIsland_ColorblindNPC_2 {
-	msgbox("
-	I've always wanted to see a RED\n
-	POKéMON.\p
-
-	There was one kid who tried to show\n
-	me a GYARADOS he caught in a LAKE.\l
-	Pah!\p
-
-	He said it's special, but he\n
-	can't fool me!\p
-
-	I know that GYARADOS is BLUE, and\n
-	nothing can change that!", MSGBOX_NPC)
-}
 
 
 script CinnabarIsland_MirageIslandMan {
@@ -446,17 +443,110 @@ script CinnabarIsland_AbsolInfestation {
 	"this weird POKéMON lately.\l"
 	"Dunno where they're coming from.", MSGBOX_DEFAULT)
 	// Absol appears
+	closemessage
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_up * 4
+	))
+	addobject(LOCALID_ABSOL)
+	applymovement(LOCALID_ABSOL, moves(
+		delay_16
+		walk_slow_down * 2
+		face_down
+	))
+	delay(30)
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		emote_exclamation_mark
+	))
+	waitmovement(VAR_LAST_TALKED)
+	delay(60)
+	playmoncry(SPECIES_ABSOL, CRY_MODE_DEFAULT)
+	waitmovement(LOCALID_CAMERA)
+	waitmovement(LOCALID_ABSOL)
+	waitmoncry
+	delay(30)
 	msgbox(
 	"Hey!\n"
 	"There's one of 'em!\l"
 	"C'mere, you!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_fast_up * 3
+		face_up
+		delay_16
+	))
+	waitmovement(0)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		face_left
+	))
+	applymovement(LOCALID_ABSOL, moves(
+		face_left
+	))
+	delay(40)
 	//guy takes it 
 	msgbox(
 	"I'm a CHUCKSTER!\n"
 	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_fast_left
+		face_left
+	))
+	applymovement(LOCALID_ABSOL, moves(
+		walk_fast_left
+		jump_2_left
+	))
+	waitmovement(LOCALID_ABSOL_HUNTER)
+	playse(SE_LEDGE)
+	waitmovement(LOCALID_ABSOL)
+	playse(SE_M_WATERFALL)
+	removeobject(LOCALID_ABSOL)
 	//guy throws it; returns
-
+	delay(60)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_right
+	))
+	waitmovement(0)
+	applymovement(LOCALID_ABSOL_HUNTER, moves(
+		walk_down * 3
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_down * 4
+	))
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
 	setflag(FLAG_TEMP_3)
+	delay(10)
+	msgbox(
+	"Keeping the ISLAND safe.\n"
+	"All in a day's work.", MSGBOX_DEFAULT)
 	release
 
+}
+
+script CinnabarIsland_Softlocked {
+	msgbox(
+	"Ahahahah!\n"
+	"I did it!\p"
+
+	"I released all my SURF and FLY\n"
+	"POKéMON!\l"
+	"Now I'm stuck here forever!\p"
+
+	"Take that, game designers!\p"
+
+	"… … …\p"
+
+	"So, uh…\n"
+	"What do I do now?", MSGBOX_NPC)
+}
+
+script CinnabarIsland_NoItemsWhileSurfing {
+	msgbox(
+	"Man, isn't it annoying that you\n"
+	"can't grab ITEMS while SURFING?", MSGBOX_NPC)
 }

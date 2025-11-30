@@ -202,6 +202,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BRICK_WALL",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -209,8 +223,8 @@
       "x": 8,
       "y": 14,
       "elevation": 4,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "dest_warp_id": "1"
     },
     {
       "x": 31,
@@ -224,7 +238,7 @@
       "y": 16,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
-      "dest_warp_id": "2"
+      "dest_warp_id": "11"
     },
     {
       "x": 12,

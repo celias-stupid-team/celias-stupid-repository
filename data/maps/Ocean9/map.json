@@ -3,7 +3,7 @@
   "name": "Ocean9",
   "layout": "LAYOUT_OCEAN9",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -30,11 +30,6 @@
       "direction": "down"
     },
     {
-      "map": "MAP_ROUTE21_SOUTH",
-      "offset": 7,
-      "direction": "right"
-    },
-    {
       "map": "MAP_OCEAN10",
       "offset": 0,
       "direction": "right"
@@ -48,6 +43,11 @@
       "map": "MAP_ROUTE14",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": 7,
+      "direction": "right"
     }
   ],
   "object_events": [],

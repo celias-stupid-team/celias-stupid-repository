@@ -299,7 +299,7 @@ It is reset after every battle.
 #define VAR_0x40C9                 0x40C9
 #define VAR_0x40CA                 0x40CA
 #define VAR_0x40CB                 0x40CB
-#define VAR_0x40CC                 0x40CC
+#define VAR_CURRENT_DMCA_PHASE                 0x40CC
 #define VAR_CSR_SEPIA                 0x40CD
 #define VAR_CURRENT_CHAPTER                 0x40CE
 #define VAR_FRONTIER_FACILITY      0x40CF

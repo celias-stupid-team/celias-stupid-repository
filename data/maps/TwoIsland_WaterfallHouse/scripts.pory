@@ -1,0 +1,15 @@
+mapscripts TwoIsland_WaterfallHouse_MapScripts {
+
+}
+
+
+script TwoIsland_WaterfallHouse_Message {
+	msgbox(
+	"If you'd like to learn my secret\n"
+	"Moves, find me under the WATERFALL.\p"
+
+	"To enter, you must stand behind the\n"
+	"falls for 3 Minutes without moving.\l"
+	"Good luck!", MSGBOX_SIGN)
+
+} //Add sussy Eaerthbound music here

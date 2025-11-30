@@ -35,12 +35,12 @@
       "x": 7,
       "y": 4,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Scientist",
+      "script": "PokemonLab_AmberGuardian",
       "flag": "FLAG_REMOVED_CINNABAR_SCIENTIST"
     },
     {

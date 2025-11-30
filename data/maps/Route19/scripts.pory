@@ -26,3 +26,55 @@ script Route19_DestroyThePit {
 	setvar(VAR_TEMP_0, 0)
 }
 
+script Route19_ChapterConfusion {
+	msgbox(
+	"You might be asking yourself,\n"
+	"“What about Chapters 4, 5, and 6?”\p"
+
+	"Well, actually! Our Chapter 2 was\n"
+	"the Japanese Chapter 4, and our\l"
+	"3 was the Japanese Chapter 6!\p"
+
+	"Now that we're on Chapter 7, they\n"
+	"finally lined the numbers back up!", MSGBOX_NPC)
+}
+
+
+script GreatSea_LoveChinchou {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	playmoncry(SPECIES_CHINCHOU, CRY_MODE_DEFAULT)
+	msgbox(
+	"I don't care what they say!\p"
+
+	"I love you, and we were meant\n"
+	"for each other!", MSGBOX_DEFAULT)
+	release
+}
+
+
+script GreatSea_LoveTirtouga {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playmoncry(SPECIES_TIRTOUGA, CRY_MODE_DEFAULT)
+	msgbox(
+	"No!\n"
+	"We can't be together!\p"
+
+	"I'm WATER 1 and WATER 3, but\n"
+	"you're just WATER 2!\l"
+	"It's forbidden!", MSGBOX_DEFAULT)
+	release
+}
+
+
+script GreatSea_FontTest {
+	msgbox(
+	"{FONT_SMALL}SURF WATERFALL ROCK CLIMB\n"
+	"STRENGTH CUT FLY\p"
+
+	"WHIRLPOOL GUILLOTINE BRICK BREAK\n"
+	"TAIL GLOW REST RETREAT\p"
+	
+	"999/999", MSGBOX_NPC)
+}

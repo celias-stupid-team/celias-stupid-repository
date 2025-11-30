@@ -911,3 +911,6 @@ const u32 gItemIconPalette_XSpdef[] = INCBIN_U32("graphics/items/icon_palettes/x
 
 const u32 gItemIcon_RatStone[] = INCBIN_U32("graphics/items/icons/rat_stone.4bpp.lz");
 const u32 gItemIconPalette_RatStone[] = INCBIN_U32("graphics/items/icon_palettes/rat_stone.gbapal.lz");
+
+const u32 gItemIcon_PremierCandy[] = INCBIN_U32("graphics/items/icons/premier_candy.4bpp.lz");
+const u32 gItemIconPalette_PremierCandy[] = INCBIN_U32("graphics/items/icon_palettes/premier_candy.gbapal.lz");

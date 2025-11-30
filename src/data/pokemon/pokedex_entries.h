@@ -41,7 +41,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_VENUSAUR] =
     {
-        .categoryName = _("SEED"),
+        .categoryName = _("LAST"),
         .height = 20,
         .weight = 1000,
         .description = gVenusaurPokedexText,
@@ -1185,7 +1185,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_CLOYSTER] =
     {
-        .categoryName = _("BIVALVE"),
+        .categoryName = _("EXPLICIT"),
         .height = 15,
         .weight = 1325,
         .description = gCloysterPokedexText,
@@ -1940,7 +1940,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MEWTWO] =
     {
-        .categoryName = _("GENETIC"),
+        .categoryName = _("MURDER"),
         .height = 20,
         .weight = 1220,
         .description = gMewtwoPokedexText,
@@ -5058,7 +5058,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_PIKABLU] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("TRANS"),
         .height = 4,
         .weight = 8.5,
         .description = gPikabluPokedexText,
@@ -5155,7 +5155,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_AMOONGUSS] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("SUS"),
         .height = 6,
         .weight = 10.5,
         .description = gDummyPokedexTextUnused,
@@ -5312,7 +5312,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_GHOLDENGO] =
     {
-        .categoryName = _("SURFER"),
+        .categoryName = _("CHICKEN"),
         .height = 12,
         .weight = 30,
         .description = gGholdengoPokedexText,
@@ -5370,18 +5370,23 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 317,
         .trainerOffset = 1,
     },
-    [NATIONAL_DEX_YANMEGA] =
+
+
+    
+    [NATIONAL_DEX_BUZZWOLE] =
     {
         .categoryName = _("PLACEHOLDER"),
         .height = 19,
         .weight = 151.5,
-        .description = gDummyPokedexTextUnused,
+        .description = gYanmegaPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 271,  
         .pokemonOffset = 0,
         .trainerScale = 317,
         .trainerOffset = 1,
     },
+
+
     [NATIONAL_DEX_PHIONE] =
     {
         .categoryName = _("INBRED"),
@@ -5408,10 +5413,10 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_ZYGARDE] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("GEN-6"),
         .height = 50,
         .weight = 305,
-        .description = gDummyPokedexTextUnused,
+        .description = gZygardePokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 256,
         .pokemonOffset = 0,
@@ -5423,7 +5428,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .categoryName = _("PLACEHOLDER"),
         .height = 25,
         .weight = 800,
-        .description = gDummyPokedexTextUnused,
+        .description = gMelmanurePokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 256,
         .pokemonOffset = 0,
@@ -5432,10 +5437,10 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_POKEMON_GUN] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("PAL"),
         .height = 20,
         .weight = 168,
-        .description = gDummyPokedexTextUnused,
+        .description = gPokemonGunPokedexText,
         .unusedDescription = gDummyPokedexTextUnused,
         .pokemonScale = 1,
         .pokemonOffset = 0,
@@ -5468,7 +5473,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_MIMIKYU] =
     {
-        .categoryName = _("TITAN"),
+        .categoryName = _("HIDING"),
         .height = 50,
         .weight = 620,
         .description = gMimikyuPokedexText,
@@ -5480,7 +5485,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_HOOPA] =
     {
-        .categoryName = _("TITAN"),
+        .categoryName = _("RELEASED"),
         .height = 50,
         .weight = 620,
         .description = gHoopaPokedexText,

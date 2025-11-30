@@ -108,7 +108,7 @@
       "x": 18,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_ISLAND",
+      "dest_map": "MAP_POKEMON_ISLAND_SOUTH",
       "dest_warp_id": "0"
     },
     {

@@ -17,9 +17,9 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 22,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 15,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -31,9 +31,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 30,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 14,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -46,8 +46,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 18,
-      "y": 15,
+      "x": 14,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -56,14 +56,42 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeafoamIslands_B2F_EventScript_ItemBigPearl",
       "flag": "NULL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 14,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 15,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "FLAG_HIDE_SEAFOAM_B3F_BOULDER_2",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_HIDE_SEAFOAM_B2F_BOULDER_2"
     }
   ],
   "warp_events": [
     {
-      "x": 7,
+      "x": 6,
       "y": 17,
       "elevation": 3,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "dest_warp_id": "0"
     },
     {
@@ -95,11 +123,11 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 25,
-      "y": 19,
+      "x": 22,
+      "y": 15,
       "elevation": 3,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_SSANNE_KITCHEN",
+      "dest_warp_id": "1"
     },
     {
       "x": 32,
@@ -135,6 +163,13 @@
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "6"
+    },
+    {
+      "x": 18,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

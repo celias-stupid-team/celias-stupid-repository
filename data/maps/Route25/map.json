@@ -25,8 +25,8 @@
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN8",
-      "offset": -30,
+      "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
+      "offset": 32,
       "direction": "up"
     }
   ],
@@ -202,8 +202,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 59,
-      "y": 13,
+      "x": 60,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,

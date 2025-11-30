@@ -16,7 +16,12 @@
   "connections": [
     {
       "map": "MAP_GREAT_BAY_NORTH",
-      "offset": 0,
+      "offset": -15,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
+      "offset": 19,
       "direction": "left"
     }
   ],

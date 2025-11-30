@@ -1840,3 +1840,15 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean13/scripts.inc"
 	.include "data/maps/Ocean13/text.inc"
+
+	.include "data/maps/HouseOfOldManWhoTeachesTrendySayings/scripts.inc"
+	.include "data/maps/HouseOfOldManWhoTeachesTrendySayings/text.inc"
+
+	.include "data/maps/CinnabarIsland_House1/scripts.inc"
+	.include "data/maps/CinnabarIsland_House1/text.inc"
+
+	.include "data/maps/TwoIsland_WaterfallHouse/scripts.inc"
+	.include "data/maps/TwoIsland_WaterfallHouse/text.inc"
+
+	.include "data/maps/AetherParadise_Island/scripts.inc"
+	.include "data/maps/AetherParadise_Island/text.inc"

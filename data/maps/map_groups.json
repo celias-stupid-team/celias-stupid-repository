@@ -67,7 +67,8 @@
     "GlitchCity",
     "LostTower",
     "Chapter8",
-    "Credits"
+    "Credits",
+    "HouseOfOldManWhoTeachesTrendySayings"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -452,7 +453,8 @@
     "CinnabarIsland_PokemonCenter_2F",
     "CinnabarIsland_Mart",
     "ThreeIsland_Outside",
-    "ThreeIsland_Core"
+    "ThreeIsland_Core",
+    "CinnabarIsland_House1"
   ],
   "gMapGroup_IndoorIndigoPlateau": [
     "IndigoPlateau_PokemonCenter_1F",
@@ -561,7 +563,8 @@
     "TwoIsland_Harbor",
     "TwoIsland_PaulaHouse",
     "TwoIsland_Drugstore",
-    "TwoIsland_WaterfallCave"
+    "TwoIsland_WaterfallCave",
+    "TwoIsland_WaterfallHouse"
   ],
   "gMapGroup_IndoorThreeIsland": [
     "ThreeIsland_House1",
@@ -713,7 +716,8 @@
     "SkyTower_MonsterHouse",
     "GreatSea_PirateBay",
     "PokemonIsland_LabBackRoom",
-    "PokemonIsland_South"
+    "PokemonIsland_South",
+    "AetherParadise_Island"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",

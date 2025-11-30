@@ -107,6 +107,9 @@ void InitMapLayoutData(struct MapHeader * mapHeader)
     VMap.Xsize = mapLayout->width + MAP_OFFSET_W;
     VMap.Ysize = mapLayout->height + MAP_OFFSET_H;
     AGB_ASSERT_EX(VMap.Xsize * VMap.Ysize <= VIRTUAL_MAP_SIZE, ABSPATH("fieldmap.c"), 158);
+
+    // Conditional here that swaps the old layout into new layout?
+
     InitBackupMapLayoutData(mapLayout->map, mapLayout->width, mapLayout->height);
     InitBackupMapLayoutConnections(mapHeader);
 }
@@ -116,6 +119,7 @@ static void InitBackupMapLayoutData(const u16 *map, u16 width, u16 height)
     s32 y;
     u16 *dest = VMap.map;
     dest += VMap.Xsize * 7 + MAP_OFFSET;
+    
 
     for (y = 0; y < height; y++)
     {

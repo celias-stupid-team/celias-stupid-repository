@@ -36,8 +36,18 @@
     },
     {
       "map": "MAP_ROUTE16",
-      "offset": 4,
+      "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
+      "offset": 84,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_AETHER_PARADISE_ISLAND",
+      "offset": -25,
+      "direction": "left"
     }
   ],
   "object_events": [

@@ -3,7 +3,7 @@
   "name": "Ocean5",
   "layout": "LAYOUT_OCEAN5",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -28,11 +28,6 @@
       "map": "MAP_ZERO_ISLAND",
       "offset": -5,
       "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
-      "offset": 10,
-      "direction": "down"
     },
     {
       "map": "MAP_OCEAN6",
