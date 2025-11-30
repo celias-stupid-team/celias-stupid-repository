@@ -409,6 +409,11 @@ void CB2_ExitPokeStorage(void)
         gMain.callback1 = BattleMainCB1;
         SetMainCallback2(ReshowBattleScreenAfterMenu);
     }
+    else if (gOpenedPCFromRotomMenu)
+    {
+        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        gOpenedPCFromRotomMenu = FALSE;
+    }
     else
     {
         gFieldCallback = FieldTask_ReturnToPcMenu;

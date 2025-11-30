@@ -1403,7 +1403,7 @@
 #define FLAG_SYS_CARRYING_BOX                                                  (SYS_FLAGS + 0xF)
 #define FLAG_SYS_BILL_GARDEN                                                  (SYS_FLAGS + 0x10)
 #define FLAG_SYS_SKUNTANK_FIGHT                                                  (SYS_FLAGS + 0x11)
-#define FLAG_0x812                                                  (SYS_FLAGS + 0x12)
+#define FLAG_SYS_ROTOM_MENU                                         (SYS_FLAGS + 0x12)
 #define FLAG_0x813                                                  (SYS_FLAGS + 0x13)
 #define FLAG_0x814                                                  (SYS_FLAGS + 0x14)
 #define FLAG_0x815                                                  (SYS_FLAGS + 0x15)

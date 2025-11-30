@@ -13,6 +13,7 @@
 #include "save_location.h"
 #include "strings.h"
 #include "string_util.h"
+#include "config/debug.h"
 #include "constants/items.h"
 #include "constants/maps.h"
 #include "constants/songs.h"
@@ -1568,7 +1569,7 @@ bool8 HelpMenuSubroutine_VerseDetails_WaitButton(struct HelpSystemListMenu * hel
         helpListMenu->state = HELP_MENU_FOURTH_MENU_GOTO_THIRD;
         return TRUE;
     }
-    if (JOY_NEW(L_BUTTON | R_BUTTON))
+    if (JOY_NEW(HELP_KEYS))
         return FALSE;
     return TRUE;
 }

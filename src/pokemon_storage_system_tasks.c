@@ -36,6 +36,7 @@
 #include "event_data.h"
 
 EWRAM_DATA struct PokemonStorageSystemData *gStorage = NULL;
+EWRAM_DATA bool8 gOpenedPCFromRotomMenu = 0;
 static EWRAM_DATA bool8 sInPartyMenu = 0;
 static EWRAM_DATA u8 sCurrentBoxOption = 0;
 static EWRAM_DATA u8 sDepositBoxId = 0;
