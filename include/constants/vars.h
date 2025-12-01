@@ -220,7 +220,7 @@ It is reset after every battle.
 #define EVENT_BATTLE_ARCHER  10
 #define EVENT_BATTLE_DAD  11
 
-
+#define VAR_VIEWING_PC VAR_TEMP_5
 
 
 #define VAR_TEMP_START_EVENT_BATTLE    0x408C

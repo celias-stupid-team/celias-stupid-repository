@@ -1,3 +1,61 @@
 mapscripts ZeroIsland_LibertyGarden_MapScripts {
 
 }
+
+script ZeroIsland_Victini {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+	setwildbattle(SPECIES_VICTINI, 30)
+	waitse
+	playmoncry(SPECIES_VICTINI, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, ZeroIsland_VictiniEnd)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, ZeroIsland_VictiniEnd)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, ZeroIsland_VictiniEnd)
+	setflag(FLAG_TEMP_1)
+	release
+	end
+}
+
+
+script ZeroIsland_VictiniEnd {
+	setflag(FLAG_TEMP_1)
+	goto(EventScript_RemoveStaticMon)
+}
+
+
+script ZeroIsland_ShinyVictini {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+    setflag(FLAG_SHINY_CREATION)
+	faceplayer
+	setwildbattle(SPECIES_VICTINI, 30)
+	waitse
+	playmoncry(SPECIES_VICTINI, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, ZeroIsland_VictiniEnd)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, ZeroIsland_VictiniEnd)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, ZeroIsland_VictiniEnd)
+	setflag(FLAG_TEMP_2)
+	release
+	end
+}
+
+
+script ZeroIsland_ShinyVictiniEnd {
+	setflag(FLAG_TEMP_2)
+	goto(EventScript_RemoveStaticMon)
+}

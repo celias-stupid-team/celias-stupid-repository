@@ -47,3 +47,45 @@ SaffronCity_CopycatsHouse_2F_EventScript_Game::
 	msgbox SaffronCity_CopycatsHouse_2F_Text_MarioWearingABucket, MSGBOX_SIGN
 	end
 `
+
+
+
+script CopycatHouse_GiveMimikyuPlaceholder {
+    lock
+    playfanfare(MUS_LEVEL_UP)
+    msgbox(
+	"{PLAYER} found the\n"
+	"MIMIKYU!", MSGBOX_DEFAULT)
+    waitfanfare
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_MIMIKYU)
+    call(Common_Script_GiftPokemon)
+    removeobject(VAR_LAST_TALKED)
+    release
+}
+
+
+script CopycatHouse_Dad {
+	msgbox(
+	"placeholder dialogue\n"
+	"", MSGBOX_NPC)
+}
+
+script CopycatHouse_Mom {
+	msgbox(
+	"placeholder dialogue\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CopycatHouse_Child {
+	msgbox(
+	"placeholder dialogue\n"
+	"", MSGBOX_NPC)
+}
+
+script CopycatHouse_Game {
+	msgbox(
+	"placeholder dialogue\n"
+	"", MSGBOX_SIGN)
+
+}

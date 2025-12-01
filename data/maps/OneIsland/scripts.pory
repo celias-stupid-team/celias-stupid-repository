@@ -111,3 +111,81 @@ OneIsland_EventScript_PokemonNetCenterSign::
 
 
 
+
+
+script OneIsland_MysticCrestPedestal {
+	lock
+	if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
+		msgbox("The MYSTIC SEAL has been\ninserted.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("The pedestal is engraved with\nthe number one.", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_MYSTIC_SEAL)) {
+			msgbox("Would you like to insert the\nVALOR SEAL?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_INSERTED_MYSTIC_SEAL)
+				removeitem(ITEM_MYSTIC_SEAL)
+				msgbox("{PLAYER} inserted the\nMYSTIC SEAL…", MSGBOX_DEFAULT)
+				closemessage
+				fadeoutbgm(1)
+				playse(SE_SWITCH)
+				delay(30)
+				playse(SE_M_EARTHQUAKE)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+				special(ShakeScreen)
+				waitse
+				delay(20)
+				//call(Route18_SetZapdosStatue) Change the thingy
+				special(DrawWholeMapView)
+				playmoncry(SPECIES_ARTICUNO, CRY_MODE_NORMAL)
+				fadeinbgm(1)
+				waitmoncry
+			}
+		}
+	}
+	release
+}
+
+
+script OneIsland_Whirlpool {
+	lock
+	checkpartymove(MOVE_WHIRLPOOL)
+	if(var(VAR_RESULT) >= PARTY_SIZE) {
+		msgbox(
+		"it's a whirlpool\n"
+		"", MSGBOX_SIGN)
+
+	} else {
+		msgbox(
+		"it's a whirlpool?\n"
+		"", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			special(GetPlayerFacingDirection)
+			msgbox(
+			"zoom\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			switch(var(VAR_RESULT)) {
+				case DIR_NORTH: 
+					applymovement(LOCALID_PLAYER, moves(
+						walk_fast_up * 2
+					))
+				case DIR_SOUTH: 
+					applymovement(LOCALID_PLAYER, moves(
+						walk_fast_down * 2
+					))
+				case DIR_EAST: 
+					applymovement(LOCALID_PLAYER, moves(
+						walk_fast_left * 2
+					))
+				case DIR_WEST: 
+					applymovement(LOCALID_PLAYER, moves(
+						walk_fast_right * 2
+					))
+			}
+			waitmovement(0)
+		}
+	}
+}

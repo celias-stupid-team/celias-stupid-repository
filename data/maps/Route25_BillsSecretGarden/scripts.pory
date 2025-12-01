@@ -1,3 +1,162 @@
 mapscripts Route25_BillsSecretGarden_MapScripts {
 
 }
+
+
+script SecretGarden_GivePikabluPlaceholder {
+    lock
+    playfanfare(MUS_LEVEL_UP)
+    msgbox(
+	"{PLAYER} withdrew the\n"
+	"PIKABLU!", MSGBOX_DEFAULT)
+    waitfanfare
+    setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PIKABLU)
+    call(Common_Script_GiftPokemon)
+    removeobject(VAR_LAST_TALKED)
+    release
+}
+
+script SecretGarden_PCTerminal {
+    lock
+    if(flag(FLAG_SYS_BILL_GARDEN)) {
+        msgbox(
+        "PC On.\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        fadenewbgm(MUS_DUMMY)
+        msgbox(
+        "Kick the PC?\n"
+        "", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            playse(SE_PC_ON)
+            msgbox(
+            "{PLAYER} kicked the PC!\n"
+            "", MSGBOX_DEFAULT)
+            playbgm(MUS_DELIVERY, TRUE)
+            
+        } else {
+            fadedefaultbgm  
+
+        }
+        setflag(FLAG_SYS_BILL_GARDEN)
+        release
+        end 
+    }
+}
+
+
+script SecretGarden_RetrievalChute {
+    lock
+	msgbox(
+	"Box Retrieval Chute\n"
+	"", MSGBOX_DEFAULT)
+    release
+
+}
+
+ 
+script SecretGarden_PCMonitor {
+    lock
+	msgbox(
+	"PC Monitor\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    if(var(VAR_VIEWING_PC) == 0) {
+        special(SpawnCameraObject)
+        applymovement(LOCALID_CAMERA, moves(
+            walk_up * 5
+        ))
+        waitmovement(0)
+        delay(30)
+        showmonpic(SPECIES_ABRA, 10, 3)
+        waitmoncry
+        hidemonpic
+        setvar(VAR_VIEWING_PC, 1)
+
+    }
+    release
+}
+
+script SecretGarden_LeavePC {
+    lock
+    setvar(VAR_VIEWING_PC, 0)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_fast_down * 5
+    ))
+    waitmovement(0)
+    special(RemoveCameraObject)
+    release
+}
+
+script SecretGarden_PCRightButton {
+    lock
+	msgbox(
+	"PC Scroll Right\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script SecretGarden_PCLeftButton {
+    lock
+	msgbox(
+	"PC Scroll Left\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+script SecretGarden_PCBoxDock {
+    lock
+	msgbox(
+	"PC Box Dock\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script SecretGarden_ExportBoxDock {
+    lock
+	msgbox(
+	"Export Box Dock\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+script SecretGarden_PCBoxPallet {
+    lock
+	msgbox(
+	"PC Box Pallette\p"
+	"We spelled the name wrong\n"
+    "on purpose!", MSGBOX_DEFAULT)
+    release
+}
+
+
+script SecretGarden_BoxCrimper {
+    lock
+	msgbox(
+	"Box Crimper\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+
+script SecretGarden_BoxCrimperControl {
+    lock
+	msgbox(
+	"Box Crimper Controls\n"
+	"", MSGBOX_DEFAULT)
+    release
+}
+
+script SecretGarden_BillDiary {
+	msgbox(
+	"dear diary\p"
+
+	"there is something good in a box\p"
+
+	"love bill\n"
+	"", MSGBOX_SIGN)
+
+}

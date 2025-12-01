@@ -378,8 +378,8 @@
 #define FLAG_PUT_NEBBY_IN_ALTAR               0x14C
 #define FLAG_FOUGHT_FALKNER               0x14D
 #define FLAG_SPAWN_VERMILION_ONIX               0x14E
-#define FLAG_0x14F               0x14F
-#define FLAG_0x150               0x150
+#define FLAG_INSERTED_VALOR_SEAL               0x14F
+#define FLAG_INSERTED_MYSTIC_SEAL               0x150
 #define FLAG_0x151               0x151
 #define FLAG_0x152               0x152
 #define FLAG_0x153               0x153
