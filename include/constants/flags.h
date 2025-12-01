@@ -380,7 +380,7 @@
 #define FLAG_SPAWN_VERMILION_ONIX               0x14E
 #define FLAG_INSERTED_VALOR_SEAL               0x14F
 #define FLAG_INSERTED_MYSTIC_SEAL               0x150
-#define FLAG_0x151               0x151
+#define FLAG_ORTHWORM_POTION               0x151
 #define FLAG_0x152               0x152
 #define FLAG_0x153               0x153
 
@@ -938,11 +938,11 @@
 #define FLAG_GOT_PENCIL_ERASER               0x35D
 #define FLAG_GOT_ODDISH               0x35E
 #define FLAG_HELPED_MILTANK               0x35F
-#define FLAG_0x360               0x360
-#define FLAG_0x361               0x361
-#define FLAG_0x362               0x362
-#define FLAG_0x363               0x363
-#define FLAG_0x364               0x364
+#define FLAG_TRUCK_PUT_IN_HOLE               0x360
+#define FLAG_GIRL_PUT_IN_HOLE               0x361
+#define FLAG_BOULDER_PUT_IN_HOLE               0x362
+#define FLAG_TRIANGLE_PUT_IN_HOLE               0x363
+#define FLAG_OPENED_SKY_TOWER               0x364
 #define FLAG_0x365               0x365
 #define FLAG_0x366               0x366
 #define FLAG_0x367               0x367

@@ -1,5 +1,9 @@
 mapscripts GreatBay_SkyPillarOutside_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }
 
 script GreatBay_SkyPillarOutside_LookingOut {
@@ -53,4 +57,48 @@ movement GreatBay_CameraGoesUp {
 
 movement GreatBay_CameraComesDown {
     walk_fast_down * 18
+}
+
+
+script GreatBay_TruckGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_TRUCK_PUT_IN_HOLE)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+
+script GreatBay_GirlGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_GIRL_PUT_IN_HOLE)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+
+script GreatBay_TriangleGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_TRIANGLE_PUT_IN_HOLE)
+    setflag(FLAG_TEMP_1)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+script GreatBay_OpenDoor {
+    if(flag(FLAG_TRIANGLE_PUT_IN_HOLE) && flag(FLAG_GIRL_PUT_IN_HOLE) && flag(FLAG_TRUCK_PUT_IN_HOLE)) {
+        msgbox(
+        "the door opens\n"
+        "", MSGBOX_DEFAULT)
+        setflag(FLAG_OPENED_SKY_TOWER)
+    }
+    return
 }

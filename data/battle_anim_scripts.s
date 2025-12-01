@@ -168,7 +168,7 @@ gBattleAnims_Moves::
 	.4byte Move_LOVELY_KISS
 	.4byte Move_SKY_ATTACK
 	.4byte Move_TRANSFORM
-	.4byte Move_BUBBLE
+	.4byte Move_HEART_SWAP
 	.4byte Move_DIZZY_PUNCH
 	.4byte Move_SPORE
 	.4byte Move_FLASH
@@ -379,7 +379,7 @@ gBattleAnims_Moves::
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_SLUSH_RUSH
 	@@@@@@@@@@@@ additional moves for CSR @@@@@@@@@@@@
-	.4byte Move_HEART_SWAP
+	.4byte Move_BUBBLE
 	.4byte Move_RETREAT
 	.4byte Move_SUBSTITUTE_TEACHER
 	.4byte Move_EXPLOSION_USELESS

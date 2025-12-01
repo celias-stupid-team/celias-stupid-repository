@@ -4138,7 +4138,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ampharos = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Orthworm = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ORTHWORM_RISES,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 4096,
     .width = 64,

@@ -19,3 +19,52 @@ FiveIsland_EventScript_Fisher::
 	msgbox FiveIsland_Text_BeenGettingBusierAroundHere, MSGBOX_NPC
 	end
 `
+
+
+script Yes_WhereAreYouFrom {
+	lock
+	faceplayer
+	msgbox(
+	"Hey, kid!\n"
+	"Where are you from?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Really?\n"
+		"You don't strike me as a local.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Oh, yeah?\n"
+		"I've heard about that place.\p"
+
+		"They say it's got beautiful\n"
+		"beaches!", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script Yes_ChanseyNPC {
+	lock
+	faceplayer
+	msgbox(
+	"do you want a chansey?\n"
+	"", MSGBOX_DEFAULT)
+	if(flag(FLAG_FOUND_Y)) {
+		msgbox(
+		"here\n"
+		"", MSGBOX_DEFAULT)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} was gifted a CHANSEY!\n"
+		"Yes!", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CHANSEY)
+		call(Common_Script_GiftPokemon)
+		release
+		end
+	} else {
+		msgbox(
+		"you do not have the letter y\p"
+
+		"you cannot say yes\n"
+		"", MSGBOX_DEFAULT)
+	}
+}

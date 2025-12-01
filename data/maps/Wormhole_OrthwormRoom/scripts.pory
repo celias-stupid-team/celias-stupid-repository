@@ -1,3 +1,91 @@
 mapscripts Wormhole_OrthwormRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        additem(ITEM_POKE_BALL)
+    }
+}
 
+script Wormhole_OrthwormRises {
+    lock
+    setvar(VAR_TEMP_0, 1)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_slow_up * 2
+    ))
+    waitmovement(0)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_slow_up * 6
+    ))
+    playse(SE_M_EARTHQUAKE)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 70)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    delay(220)
+    waitmovement(0)
+    applymovement(LOCALID_ORTHWORM_RISING, moves(
+        walk_slow_up * 4
+    ))
+    applymovement(LOCALID_ORTHWORM_ATTACKING, moves(
+        face_left
+    ))
+    waitmovement(LOCALID_ORTHWORM_RISING)
+    delay(60)
+    fadescreeninstant(FADE_TO_WHITE)
+    delay(5)
+    
+    applymovement(LOCALID_ORTHWORM_RISING, moves(
+        set_invisible
+    ))
+    applymovement(LOCALID_ORTHWORM_ATTACKING, moves(
+        face_up
+        set_visible
+    ))
+    fadescreeninstant(FADE_FROM_WHITE)
+    playmoncry(SPECIES_ORTHWORM, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_ORTHWORM_ATTACKING, moves(
+        walk_in_place_up * 8
+        face_up
+    ))
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 20)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+    waitmovement(LOCALID_ORTHWORM_RISING)
+    waitmoncry
+    applymovement(LOCALID_ORTHWORM_ATTACKING, moves(
+        face_down
+        delay_8
+        face_left
+    ))
+    waitmovement(0)
+    setwildbattle(SPECIES_ORTHWORM, 30)
+    dowildbattle //Celia comes in if you don't have a ball
+    waitstate
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA,moves(
+        walk_down * 8
+    ))
+    waitmovement(0)
+    applymovement(LOCALID_ORTHWORM_POTION, moves(
+        set_visible
+        slide_down * 7
+    ))
+    delay(20)
+    playse(SE_FALL)
+    waitmovement(0)
+    release
+
+}
+
+script Wormhole_Falling {
+    lock
+    msgbox(
+	"it is implied that you fall\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    setobjectxy(LOCALID_PLAYER, 23, 30)
+    warphole(MAP_SAFARI_ZONE_NORTH)
+    release
 }
