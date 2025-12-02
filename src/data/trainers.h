@@ -6545,4 +6545,5 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_RivalBarry),
     },
 
+
 };

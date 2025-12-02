@@ -10133,7 +10133,8 @@ static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
         .lvl = 1,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ARTICUNO,
-        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };
+

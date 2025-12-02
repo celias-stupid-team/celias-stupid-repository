@@ -381,8 +381,8 @@
 #define FLAG_INSERTED_VALOR_SEAL               0x14F
 #define FLAG_INSERTED_MYSTIC_SEAL               0x150
 #define FLAG_ORTHWORM_POTION               0x151
-#define FLAG_0x152               0x152
-#define FLAG_0x153               0x153
+#define FLAG_OBTAINED_ZEPHYRBADGE               0x152
+#define FLAG_EVOLVED_MAGNEMITE               0x153
 
 // Item ball hide/show
 

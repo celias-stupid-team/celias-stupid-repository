@@ -189,3 +189,52 @@ script OneIsland_Whirlpool {
 		}
 	}
 }
+
+
+script OneIsland_Kaylee {
+	lock
+	faceplayer
+	msgbox(
+	"KAYLEE: hello\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	msgbox(
+	"KAILEE: hello\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	msgbox(
+	"KAILIE: hello\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	msgbox(
+	"KAYLEIGH: hello\n"
+	"", MSGBOX_DEFAULT)
+	if(checkpartymon(SPECIES_JYNX)) {
+		msgbox(
+		"our friend!\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		msgbox(
+		"We dance.\p"
+
+		"It is implied that the egg\n"
+		"hatches.", MSGBOX_DEFAULT)
+		setwildbattle(SPECIES_ARTICUNO, 50, ITEM_MYSTIC_SEAL)
+		dowildbattle
+		delay(120)
+		release
+		end
+	} else {
+		msgbox(
+		"we need another friend\n"
+		"", MSGBOX_DEFAULT)
+	}
+
+}
+
+script OneIsland_ArticunoEgg {
+	msgbox(
+	"it's an egg\n"
+	"", MSGBOX_SIGN)
+
+}

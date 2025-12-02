@@ -62,7 +62,9 @@ script Wormhole_OrthwormRises {
     waitmovement(0)
     setwildbattle(SPECIES_ORTHWORM, 30)
     dowildbattle //Celia comes in if you don't have a ball
-    waitstate
+    delay(60)
+    removeobject(LOCALID_ORTHWORM_ATTACKING)
+    delay(60)
     special(SpawnCameraObject)
     applymovement(LOCALID_CAMERA,moves(
         walk_down * 8

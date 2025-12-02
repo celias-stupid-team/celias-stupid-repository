@@ -1,6 +1,6 @@
 mapscripts Wormhole_Entrance_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        if(flag(POTION)) {
+        if(flag(FLAG_ORTHWORM_POTION)) {
             setmaplayoutindex(LAYOUT_WORMHOLE_ENTRANCE_LAYOUT_2)
         }
     }

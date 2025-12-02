@@ -68,3 +68,47 @@ script FalknerGym_TeamSkyGrunt2 {
         end
     }
 }
+
+script FalknerGym_Falkner {
+    lock
+    faceplayer
+    if(flag(FLAG_FOUGHT_FALKNER)) {
+        if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
+            msgbox(
+            "birds\n"
+            "", MSGBOX_DEFAULT)
+        } else {
+            msgbox(
+            "I refuse to believe this!\p"
+
+            "Go to the cave behind the city.\n"
+            "something something start a quest", MSGBOX_DEFAULT)
+
+
+        }
+    }
+    msgbox(
+	"FALKNER: words\p"
+
+	"I've found the secret to making\n"
+	"my POKéMON more powerful:\l"
+	"Actually evolving them!", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_LEADER_FALKNER, "damn")
+    msgbox(
+	"I refuse to believe this!\p"
+
+	"Go to the cave behind the city.\n"
+	"something something start a quest", MSGBOX_DEFAULT)
+    setflag(FLAG_FOUGHT_FALKNER)
+    if(checkmoncaught(SPECIES_PIDGEY)) {
+        msgbox(
+        "Darn you did it already\n"
+        "", MSGBOX_DEFAULT)
+        playfanfare(MUS_OBTAIN_BADGE)
+        msgbox(
+        "{PLAYER} obtained the\n"
+        "ZEPHYRBADGE!", MSGBOX_DEFAULT)
+        waitfanfare
+        setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+    }
+}

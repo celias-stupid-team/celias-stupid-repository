@@ -1992,3 +1992,9 @@
     .2byte \x2
     .2byte \y2
 	.endm
+
+
+	.macro checkpartymon mon:req
+	.byte 0x7c
+	.2byte \mon
+	.endm
