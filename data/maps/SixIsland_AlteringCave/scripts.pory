@@ -8,22 +8,22 @@ SixIsland_AlteringCave_OnTransition::
 	end
 `
 
-script AlteringCave_Braille_ABC {
+script AlteringCave_ABC {
 	lockall
 	braillemessage(Braille_Text_ABC)
 	waitbuttonpress
 	releaseall
 }
 
-script AlteringCave_Braille_DEFGHI {
+script AlteringCave_DEFGHI {
 	lockall
-	braillemessage(Braille_Text_DEFGHI)
+	braillemessage(AlteringCave_Braille_DEFGHI)
 	waitbuttonpress
 	releaseall
 }
 
 
-script AlteringCave_Braille_JKLMNO {
+script AlteringCave_JKLMNO {
 	lockall
 	braillemessage(Braille_Text_JKLMNO)
 	waitbuttonpress
@@ -31,16 +31,16 @@ script AlteringCave_Braille_JKLMNO {
 }
 
 
-script AlteringCave_Braille_PQRSTU {
+script AlteringCave_PQRSTU {
 	lockall
 	braillemessage(Braille_Text_PQRSTU)
 	waitbuttonpress
 	releaseall
 }
 
-script AlteringCave_Braille_V_XYZ {
+script AlteringCave_V_XYZ {
 	lockall
-	braillemessage(Braille_Text_V_XYZ)
+	braillemessage(AlteringCave_Braille_V_XYZ)
 	waitbuttonpress
 	releaseall
 }

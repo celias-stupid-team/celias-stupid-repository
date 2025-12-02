@@ -28,35 +28,35 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 18,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AlteringCave_Braille_V_XYZ"
-    },
-    {
-      "type": "sign",
       "x": 22,
-      "y": 14,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AlteringCave_Braille_PQRSTU"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AlteringCave_Braille_JKLMNO"
+      "script": "AlteringCave_V_XYZ"
     },
     {
       "type": "sign",
       "x": 14,
-      "y": 14,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AlteringCave_Braille_DEFGHI"
+      "script": "AlteringCave_PQRSTU"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_JKLMNO"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_DEFGHI"
     },
     {
       "type": "sign",
@@ -64,7 +64,7 @@
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AlteringCave_Braille_ABC"
+      "script": "AlteringCave_ABC"
     }
   ]
 }

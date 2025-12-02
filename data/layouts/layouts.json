@@ -1065,7 +1065,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },

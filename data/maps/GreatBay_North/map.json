@@ -38,12 +38,12 @@
   "object_events": [],
   "warp_events": [
     {
-      "warp_id": "WARPID_SKY_TOWER_DOOR",
+      "warp_id": "WARPID_SKY_TOWER_OUTSIDE",
       "x": 17,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_SKY_TOWER_1F",
-      "dest_warp_id": "1"
+      "dest_warp_id": "WARPID_SKY_TOWER_INSIDE"
     }
   ],
   "coord_events": [],

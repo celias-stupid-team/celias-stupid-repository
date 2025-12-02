@@ -15,6 +15,16 @@ script GreatBay_SkyPillarOutside_LookingOut {
         delay(30)
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
 
+    } elif(var(VAR_RESULT) == DIR_SOUTH) {
+        applymovement(LOCALID_PLAYER, moves(
+            walk_right
+            walk_down
+            face_left
+        ))
+        waitmovement(0)
+        delay(30)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+
     } else {
         faceplayer
     }
@@ -25,19 +35,34 @@ script GreatBay_SkyPillarOutside_LookingOut {
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
     delay(20)
     special(SpawnCameraObject)
-    applymovement(LOCALID_CAMERA, GreatBay_CameraGoesUp)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_up * 8
+        walk_fastest_up * 20
+        walk_up * 5
+    ))
+    delay(60)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    delay(90)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     waitmovement(0)
-    delay(30)
+    delay(60)
     msgbox("They say that atop the TOWER awaits\na powerful BIRD POKéMON.\lIt comes to roost once a lifetime.", MSGBOX_DEFAULT)
     closemessage
-    applymovement(LOCALID_CAMERA, GreatBay_CameraComesDown)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_fastest_down * 33
+    ))
     waitmovement(0)
+    special(DrawWholeMapView)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     if(var(VAR_RESULT) == DIR_SOUTH) {
-        applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
     } else {
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
-        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+        applymovement(LOCALID_GREAT_BAY_SKY_PILLAR_OUTSIDE_OLD_MAN_1, Common_Movement_FaceRight)
     }
+    textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("The TOWER has been sealed away\nall my life.\lNo one knows what lies inside.\pPerhaps one day, a brave soul will\nventure within.", MSGBOX_DEFAULT)
     special(RemoveCameraObject)
     release

@@ -24,12 +24,12 @@
       "dest_warp_id": "0"
     },
     {
-      "warp_id": "WARPID_SKY_TOWER_DOOR",
+      "warp_id": "WARPID_SKY_TOWER_INSIDE",
       "x": 8,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GREAT_BAY_NORTH",
+      "dest_warp_id": "WARPID_SKY_TOWER_OUTSIDE"
     }
   ],
   "coord_events": [],
