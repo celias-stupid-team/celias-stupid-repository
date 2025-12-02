@@ -36,7 +36,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
                             {EVO_LEVEL_SHEDINJA, 20, SPECIES_GENGAR}},
     [SPECIES_VULPIX]     = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_NINETALES}},
 
-    //[SPECIES_ZUBAT]      = {{EVO_LEVEL, 22, SPECIES_GOLBAT}}, Zubat evolves from the Seafoam Island quest
+    [SPECIES_ZUBAT]      = {{EVO_ITEM, ITEM_LETTER_W, SPECIES_WOOBAT}}, //Zubat evolves from the Seafoam Island quest
 
     [SPECIES_RAICHU]     = {{EVO_TRADE, 0, SPECIES_MEOWTH}},
 

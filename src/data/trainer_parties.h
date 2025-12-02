@@ -10126,6 +10126,93 @@ static const struct TrainerMonItemCustomMoves sParty_DMCABrock[] = {
 
 };
 
+static const struct TrainerMonItemCustomMoves sParty_DMCAMisty[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_HYDREIGON,
+        .moves = {MOVE_DRAGON_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCASurge[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PORYGON2,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCAErika[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PORYGON2,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCAKoga[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCASabrina[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCABlaine[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCAFalkner[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
+static const struct TrainerMonItemCustomMoves sParty_DMCASilver[] = {
+    {
+        .iv = 0,
+        .lvl = 80,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STEELIX,
+        .moves = {MOVE_FISSURE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};
 
 static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
     {
@@ -10138,3 +10225,14 @@ static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
 
 };
 
+
+static const struct TrainerMonItemCustomMoves sParty_DMCAThievul[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_THIEVUL,
+        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};

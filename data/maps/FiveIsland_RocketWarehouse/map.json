@@ -134,29 +134,29 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 19,
-      "y": 3,
+      "x": 21,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FiveIsland_RocketWarehouse_EventScript_ItemPearl",
+      "script": "DMCAWarehouse_LetterW",
       "flag": "NULL"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 15,
-      "y": 3,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FiveIsland_RocketWarehouse_EventScript_ItemUpGrade",
+      "script": "DMCAWarehouse_LetterY",
       "flag": "FLAG_FOUND_Y"
     },
     {
@@ -170,7 +170,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "DMCAWarehouse_AZStory",
       "flag": "0"
     },
     {
@@ -190,16 +190,16 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 17,
-      "y": 5,
+      "x": 18,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "DMCAWarehouse_ThievulFight",
+      "flag": "FLAG_DEFEATED_WAREHOUSE_ADMIN"
     }
   ],
   "warp_events": [

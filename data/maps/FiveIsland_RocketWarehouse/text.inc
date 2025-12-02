@@ -45,10 +45,7 @@ FiveIsland_RocketWarehouse_Text_Grunt3PostBattle::
     .string "you jumped-up pip-squeak!$"
 
 FiveIsland_RocketWarehouse_Text_Admin1Intro::
-    .string "I don't know or care if what I'm\n"
-    .string "doing is right or wrong…\p"
-    .string "I just put my faith in GIOVANNI\n"
-    .string "and do as I am told.$"
+	.string "copyright\n$"
 
 FiveIsland_RocketWarehouse_Text_Admin1Defeat::
     .string "I…\n"

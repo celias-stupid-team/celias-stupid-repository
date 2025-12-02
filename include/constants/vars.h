@@ -23,6 +23,8 @@
 #define VAR_TEMP_F                 (TEMP_VARS_START + 0xF)
 #define TEMP_VARS_END              VAR_TEMP_F
 
+#define VAR_CURRENT_BLAINE_ANSWER VAR_TEMP_A
+#define VAR_CURRENT_BLAINE_SECRET VAR_TEMP_B
 
 
 // Object event graphics IDs which can be changed by
@@ -322,7 +324,7 @@ It is reset after every battle.
 #define VAR_LANCE_LASS_ATTACK                 0x40DE
 #define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
-#define VAR_0x40E1                 0x40E1
+#define VAR_CINNABAR_GYM_PHASE                 0x40E1
 #define VAR_0x40E2                 0x40E2
 #define VAR_0x40E3                 0x40E3
 #define VAR_0x40E4                 0x40E4

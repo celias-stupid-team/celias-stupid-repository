@@ -5504,8 +5504,8 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SaffronGym",
       "border_filepath": "data/layouts/ViridianGym_Sabrina/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Sabrina/map.bin"
     },

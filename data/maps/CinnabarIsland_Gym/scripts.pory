@@ -707,3 +707,80 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 	setmetatile  7, 10, METATILE_CinnabarGym_Floor_ShadeDiagonal, 0
 	return
 `
+script CinnabarGym_Blaine {
+	lock
+	faceplayer
+	if(!flag(FLAG_TALKED_TO_BLAINE)) {
+		setflag(FLAG_TALKED_TO_BLAINE)
+		msgbox(
+		"Welcome to the gym\p"
+
+		"here's a quiz\n"
+	"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Ready for quiz\n"
+		"", MSGBOX_DEFAULT)
+	}
+	switch(var(VAR_CINNABAR_GYM_PHASE)) {
+		case 0:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 1)
+		
+		case 1:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 2:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 3:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 4:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 5:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 6:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+		
+		case 7:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+	}
+	// Go into party
+	// Compare party mon against Blaine Answer / Secret
+	// Keep track of if you've been secret the whole time
+	// Do the battle
+	// If you win, increment your current question
+	setflag(FLAG_BADGE07_GET)
+	setvar(VAR_TEMP_C, 1) //For the shakey ground
+	release
+}
+
+script CinnabarGym_IslandAppears {
+	lock
+	playbgm(MUS_NONE, FALSE)
+	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 20)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+	special(ShakeScreen)
+	delay(120)
+	fadedefaultbgm
+	setvar(VAR_TEMP_C, 0)
+	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
+	setmetatile(4, 2, 0x16B, TRUE)
+	release
+}
+
+script CinnabarGym_BackDoor {
+	if(flag(FLAG_MIRAGE_ISLAND_APPEARS)) {
+		msgbox(
+		"For some reason, the door is\n"
+		"blocked.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"A back door!\n"
+		"Neat!", MSGBOX_DEFAULT)
+	}
+}

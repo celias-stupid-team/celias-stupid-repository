@@ -25,3 +25,21 @@ mapscripts ViridianGym_Erika_MapScripts {
         }
     }
 }
+
+
+script ViridianGym_ErikaBattle {
+    trainerbattle_single(TRAINER_DMCA_ERIKA, ViridianGym_ErikaBattle_Start, ViridianGym_ErikaBattle_End)
+    msgbox(
+	"i'm dead\n"
+	"", MSGBOX_DEFAULT)
+}
+
+text ViridianGym_ErikaBattle_Start {
+    "straight people\n"
+}
+
+
+text ViridianGym_ErikaBattle_End {
+   "oh no\n"
+	"gay"
+}

@@ -114,3 +114,17 @@ Braille_Text_WorldWaits::
 
 Braille_Text_ForYou::
 	.braille "FOR YOU.$"
+
+
+
+AlteringCave_Braille_DEFGHI::
+	.braille "DEFGHI$"
+
+Braille_Text_JKLMNO::
+	.braille "JKLMNO$"
+
+Braille_Text_PQRSTU::
+	.braille "PQRSTU$"
+
+AlteringCave_Braille_V_XYZ::
+	.braille "V XYZ$"

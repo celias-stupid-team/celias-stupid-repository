@@ -6532,6 +6532,109 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_DMCABrock),
     },
+ 
+    [TRAINER_DMCA_MISTY] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("ARIANA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAMisty),
+    },
+
+    
+    [TRAINER_DMCA_SURGE] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("PETREL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASurge),
+    },
+
+
+    
+    [TRAINER_DMCA_ERIKA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_IMPOSTER,
+        .trainerName = _("EVIL OAK"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAErika),
+    },
+
+
+    
+    [TRAINER_DMCA_KOGA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("UNCLE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAKoga),
+    },
+
+
+    
+    [TRAINER_DMCA_SABRINA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("WOLFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASabrina),
+    },
+
+
+    
+    [TRAINER_DMCA_BLAINE] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("PAUL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCABlaine),
+    },
+
+
+    
+    [TRAINER_DMCA_FALKNER] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("WOLFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAFalkner),
+    },
+
+
+    
+    [TRAINER_DMCA_SILVER] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("SILVER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASilver),
+    },
+
+
 
     
     [TRAINER_RIVAL_BARRY] = {
@@ -6543,6 +6646,18 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_RivalBarry),
+    },
+    
+    
+    [TRAINER_DMCA_THIEVUL] = {
+        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerName = _("LUCIAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAThievul),
     },
 
 

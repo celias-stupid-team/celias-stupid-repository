@@ -25,3 +25,22 @@ mapscripts ViridianGym_Blaine_MapScripts {
         }
     }
 }
+
+
+
+script ViridianGym_BlaineBattle {
+    trainerbattle_single(TRAINER_DMCA_BLAINE, ViridianGym_BlaineBattle_Start, ViridianGym_BlaineBattle_End)
+    msgbox(
+	"i'm dead\n"
+	"", MSGBOX_DEFAULT)
+}
+
+text ViridianGym_BlaineBattle_Start {
+    "they killed my gym\n"
+}
+
+
+text ViridianGym_BlaineBattle_End {
+   "oh no\n"
+	"death"
+}
