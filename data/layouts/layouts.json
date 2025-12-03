@@ -2541,7 +2541,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/OneIsland/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland/map.bin"
     },
@@ -5409,7 +5409,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Zero_Island/border.bin",
       "blockdata_filepath": "data/layouts/Zero_Island/map.bin"
     },
@@ -5925,7 +5925,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Pokemon_Island/border.bin",
       "blockdata_filepath": "data/layouts/Pokemon_Island/map.bin"
     },
@@ -6261,7 +6261,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean4/border.bin",
       "blockdata_filepath": "data/layouts/Ocean4/map.bin"
     },
@@ -6417,7 +6417,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/PokemonIsland_South/border.bin",
       "blockdata_filepath": "data/layouts/PokemonIsland_South/map.bin"
     },
@@ -6465,7 +6465,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean5/border.bin",
       "blockdata_filepath": "data/layouts/Ocean5/map.bin"
     },
@@ -6477,7 +6477,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean6/border.bin",
       "blockdata_filepath": "data/layouts/Ocean6/map.bin"
     },
@@ -6489,7 +6489,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_38island",
       "border_filepath": "data/layouts/Ocean9/border.bin",
       "blockdata_filepath": "data/layouts/Ocean9/map.bin"
     },
@@ -6501,7 +6501,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean7/border.bin",
       "blockdata_filepath": "data/layouts/Ocean7/map.bin"
     },
@@ -6525,7 +6525,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean8/border.bin",
       "blockdata_filepath": "data/layouts/Ocean8/map.bin"
     },
@@ -6537,7 +6537,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean11/border.bin",
       "blockdata_filepath": "data/layouts/Ocean11/map.bin"
     },
@@ -6549,7 +6549,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_pkmnzeroisland",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean12/border.bin",
       "blockdata_filepath": "data/layouts/Ocean12/map.bin"
     },
