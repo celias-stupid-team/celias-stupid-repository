@@ -1,12 +1,55 @@
 raw `
-Route19_MapScripts::
-	.byte 0
+
 
 Route19_EventScript_RouteSign::
 	msgbox Route19_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+mapscripts Route19_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_1)
+	}
+}
 
+script Route19_LookerScene {
+	lock
+	fadenewbgm(MUS_DUMMY)
+	//player walks to right side
+	delay(60)
+	//he's unconscious
+	//slowly wakes up
+	playbgm(MUS_LOOKER_THEME, FALSE)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"I'm looker\n"  // I'm a secret agent, and I've been trying to keep this secret. Here!
+	"", MSGBOX_DEFAULT)
+	//Player obtained the Rotom Pokedex
+	// You can now access the Box
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+		face_left
+		delay_16 * 2
+		face_right
+		delay_16 * 2
+		face_left
+		delay_16 * 2
+		face_up
+		delay_16 * 2
+	))
+	waitmovement(0)
+	fadenewbgm(MUS_DUMMY)
+	msgbox(
+	"N-no!\n"
+	"She's coming-!", MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_LASS_INTRO, TRUE)
+	//Lasses attack; looker runs away
+	removeobject(VAR_LAST_TALKED)
+	fadedefaultbgm
+
+}
 
 script Route19_Sailor {
     trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
@@ -15,14 +58,13 @@ script Route19_Sailor {
 }
 
 script Route19_DrawThePit {
-	setmaplayoutindex(LAYOUT_ROUTE19_LAYOUT_PIT)
-	callnative(ReloadMap)
+	setlayouttiles(LAYOUT_ROUTE19_LAYOUT_PIT, 0, 0, 0, 0, 34, 34)
+
 	setvar(VAR_TEMP_0, 1)
 }
 
 script Route19_DestroyThePit {
-	setmaplayoutindex(LAYOUT_ROUTE19)
-	callnative(ReloadMap)
+	setlayouttiles(LAYOUT_ROUTE19_LAYOUT, 0, 0, 0, 0, 34, 34)
 	setvar(VAR_TEMP_0, 0)
 }
 

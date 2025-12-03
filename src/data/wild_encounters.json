@@ -19847,18 +19847,18 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 7,
-                "max_level": 7,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 7,
-                "max_level": 7,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 11,
-                "max_level": 11,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
@@ -19867,8 +19867,8 @@
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
@@ -19882,18 +19882,18 @@
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
@@ -20155,18 +20155,18 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 8,
-                "max_level": 8,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_EKANS"
               },
               {
@@ -20175,8 +20175,8 @@
                 "species": "SPECIES_SANDSHREW"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
@@ -20185,8 +20185,8 @@
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 11,
-                "max_level": 11,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
@@ -20195,18 +20195,18 @@
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 9,
-                "max_level": 9,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 9,
-                "max_level": 9,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 9,
-                "max_level": 9,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_BELLSPROUT"
               },
               {

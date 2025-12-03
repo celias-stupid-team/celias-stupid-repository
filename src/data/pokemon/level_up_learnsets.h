@@ -915,10 +915,9 @@ static const struct LevelUpMove sMachampLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sBellsproutLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_VINE_WHIP),
-    LEVEL_UP_MOVE(1, MOVE_WRAP),
-    LEVEL_UP_MOVE(7, MOVE_GROWTH),
-    LEVEL_UP_MOVE(14, MOVE_SLEEP_POWDER),
+    LEVEL_UP_MOVE(16, MOVE_VINE_WHIP),
+    LEVEL_UP_MOVE(16, MOVE_WRAP),
+    LEVEL_UP_MOVE(16, MOVE_GROWTH),
     LEVEL_UP_MOVE(17, MOVE_MEGA_DRAIN),
     LEVEL_UP_MOVE(18, MOVE_RAZOR_LEAF),
     LEVEL_UP_MOVE(19, MOVE_SOLAR_BEAM),
@@ -5823,7 +5822,9 @@ static const struct LevelUpMove sStunkyLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSkuntankLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_SLUDGE_BOMB),
+	LEVEL_UP_MOVE(1, MOVE_FLAMETHROWER),
+	LEVEL_UP_MOVE(1, MOVE_POISON_GAS),
 	LEVEL_UP_END
 };
 

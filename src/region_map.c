@@ -722,6 +722,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_PRIZE_EXCHANGE,
         .name = sMapsecName_PRIZE_EXCHANGE,
         .desc = gText_RegionMap_AreaDesc_DottedHole
+    }, {
+        .id = MAPSEC_WATER_PATH,
+        .name = sMapsecName_WATER_LABYRINTH,
+        .desc = gText_RegionMap_AreaDesc_DottedHole
     }
 };
 
@@ -3143,6 +3147,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     case MAPSEC_SECRET_TUNNEL:
         return FlagGet(FLAG_CSR_MAP_SECRET_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_YES:
+        return FlagGet(FLAG_CSR_MAP_YES) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_WATER_PATH:
         return FlagGet(FLAG_CSR_MAP_YES) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
 
 

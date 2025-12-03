@@ -569,7 +569,9 @@ const u8 gGengarPokedexText[] = _(
 const u8 gGengarPokedexTextUnused[] = _("");
 
 const u8 gOnixPokedexText[] = _(
-	"The original early-game boss.");
+	"Full immunity to physical attacks.\n"
+	"Utterly fucked by everything else.\n"
+	"(ps Ground is special)");
 
 const u8 gOnixPokedexTextUnused[] = _("");
 

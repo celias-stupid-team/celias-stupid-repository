@@ -20,6 +20,18 @@ mapscripts Credits_MapScripts {
             setlayouttiles(LAYOUT_CREDITS_Frame1, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
             setvar(VAR_TEMP_0, 1)
+            if(var(VAR_MAP_SCENE_ROUTE24) == 0) {
+                playbgm(MUS_DUMMY, TRUE)
+                msgbox(
+                "(jk)\n"
+                "", MSGBOX_DEFAULT)
+                setvar(VAR_MAP_SCENE_ROUTE24, 1)
+                setflag(FLAG_CSR_MAP_ROUTE_24_FAR)
+                call(SetPlayerPokedexValues)
+                warpsilent(MAP_CERULEAN_CITY, 3)
+                release
+                end
+            }
         }
     ]
 }

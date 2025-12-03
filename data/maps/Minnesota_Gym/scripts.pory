@@ -1,6 +1,7 @@
 mapscripts Minnesota_Gym_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         // if some condition
+        setbench(BENCH_MINNESOTA_GYM)
         setflag(FLAG_TEMP_1)
         release
         if(flag(FLAG_SENT_BIKER_FLYING)) {

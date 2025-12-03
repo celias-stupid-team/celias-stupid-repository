@@ -390,6 +390,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_petrel_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_brick_wall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_tirtouga;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchou;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kalos_bench;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -781,4 +782,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BRICK_WALL] = &gObjectEventGraphicsInfo_brick_wall,
     [OBJ_EVENT_GFX_TIRTOUGA] = &gObjectEventGraphicsInfo_tirtouga,
     [OBJ_EVENT_GFX_CHINCHOU] = &gObjectEventGraphicsInfo_chinchou,
+    [OBJ_EVENT_GFX_KALOS_BENCH] = &gObjectEventGraphicsInfo_kalos_bench,
 };
