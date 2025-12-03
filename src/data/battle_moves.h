@@ -4817,7 +4817,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FUSION_BOLT] =    {
         .effect = EFFECT_HIT,
         .power = 100,
-        .type = TYPE_ELECTRIC,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5911,7 +5911,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPECIALPUNCH] =    {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 90,
         .type = TYPE_FIGHTING_SPECIAL,
         .accuracy = 100,
         .pp = 35,
