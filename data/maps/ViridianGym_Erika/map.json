@@ -2,7 +2,7 @@
   "id": "MAP_VIRIDIAN_GYM_ERIKA",
   "name": "ViridianGym_Erika",
   "layout": "LAYOUT_VIRIDIAN_GYM_ERIKA",
-  "music": "MUS_GYM",
+  "music": "MUS_MUS_STRAIGHT_PEOPLE",
   "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

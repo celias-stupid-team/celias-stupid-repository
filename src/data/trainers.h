@@ -6626,7 +6626,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_DMCA_SILVER] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerPic = TRAINER_PIC_SILVER,
         .trainerName = _("SILVER"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6660,5 +6660,48 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_DMCAThievul),
     },
 
+    [TRAINER_SHORTS_GANG_1] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("NIKE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang1),
+    },
+
+    [TRAINER_SHORTS_GANG_2] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("CAL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang2),
+    },
+
+    [TRAINER_SHORTS_GANG_3] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("ZARA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang3),
+    },
+
+    [TRAINER_BERSERK_JEANS] = {
+        .trainerClass = TRAINER_CLASS_BERSERK,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_JEANS,
+        .trainerName = _("JEANS"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_BerserkJeans),
+    },
 
 };

@@ -12577,3 +12577,6 @@ extern const u32 gItemIconPalette_PremierCandy[];
 
 extern const u32 gTrainerFrontPic_Cookie[];
 extern const u32 gTrainerPalette_Cookie[];
+
+extern const u32 gTrainerFrontPic_Silver[];
+extern const u32 gTrainerPalette_Silver[];

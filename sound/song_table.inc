@@ -418,6 +418,8 @@ gSongTable::
 	song mus_prelude_to_finale, 0, 0
 	song mus_national_park, 0, 0
 	song mus_abandoned_ship, 0, 0
+	song mus_mus_straight_people, 0, 0
+	song mus_pyrite_town, 0, 0
 
 
 

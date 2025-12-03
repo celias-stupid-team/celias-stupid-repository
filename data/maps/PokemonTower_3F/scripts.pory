@@ -16,6 +16,13 @@ PokemonTower_3F_EventScript_Hope::
 	msgbox PokemonTower_3F_Text_HopePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+script PokemonTower_3F_LostSilver {
+	msgbox(
+	"SILVER: Uh, hey.\n"
+	"Could you give me some directions?\l"
+	"I'm lost.", MSGBOX_NPC)
+}
+
 
 mapscripts PokemonTower_3F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {

@@ -1040,6 +1040,8 @@ SECTIONS {
         sound/songs/midi/mus_prelude_to_finale.o(.rodata);
         sound/songs/midi/mus_national_park.o(.rodata);
         sound/songs/midi/mus_abandoned_ship.o(.rodata);
+        sound/songs/midi/mus_mus_straight_people.o(.rodata);
+        sound/songs/midi/mus_pyrite_town.o(.rodata);
 
     } > ROM =0
 

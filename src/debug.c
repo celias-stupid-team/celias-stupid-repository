@@ -3778,7 +3778,9 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_LEDER_SONG) \
     X(MUS_PRELUDE_TO_FINALE) \
     X(MUS_NATIONAL_PARK) \
-    X(MUS_ABANDONED_SHIP)
+    X(MUS_ABANDONED_SHIP) \
+    X(MUS_MUS_STRAIGHT_PEOPLE) \
+    X(MUS_PYRITE_TOWN)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \

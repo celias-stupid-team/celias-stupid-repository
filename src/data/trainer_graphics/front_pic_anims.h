@@ -904,6 +904,11 @@ static const union AnimCmd *const sAnims_Cookie[] =
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Silver[] =
+{
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_AQUA_LEADER_ARCHIE]    = sAnims_AquaLeaderArchie,
@@ -1089,5 +1094,6 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_BACKPACK_SWIMMER] = sAnims_Backpack_Swimmer,
     [TRAINER_PIC_OAK_TREE] = sAnims_OAK_TREE,
     [TRAINER_PIC_BARRY]             = sAnims_Barry,
-    [TRAINER_PIC_COOKIE]             = sAnims_Cookie
+    [TRAINER_PIC_COOKIE]             = sAnims_Cookie,
+    [TRAINER_PIC_SILVER]             = sAnims_Silver
 };
