@@ -12580,3 +12580,9 @@ extern const u32 gTrainerPalette_Cookie[];
 
 extern const u32 gTrainerFrontPic_Silver[];
 extern const u32 gTrainerPalette_Silver[];
+
+extern const u32 gTrainerFrontPic_BabyBug[];
+extern const u32 gTrainerPalette_BabyBug[];
+
+extern const u32 gTrainerFrontPic_TransBug[];
+extern const u32 gTrainerPalette_TransBug[];

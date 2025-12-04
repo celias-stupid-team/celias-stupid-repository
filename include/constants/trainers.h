@@ -202,6 +202,8 @@
 #define TRAINER_PIC_BARRY   180
 #define TRAINER_PIC_COOKIE   181
 #define TRAINER_PIC_SILVER   182
+#define TRAINER_PIC_BABY_BUG   183
+#define TRAINER_PIC_TRANS_BUG   184
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

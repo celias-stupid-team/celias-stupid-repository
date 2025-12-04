@@ -6704,4 +6704,14 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_BerserkJeans),
     },
 
+    [TRAINER_TRANS_BUGS] = {
+        .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BABY_BUG,
+        .trainerName = _("JAY&MAX"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_TransBugs),
+    },
 };

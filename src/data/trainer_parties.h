@@ -10280,3 +10280,23 @@ static const struct TrainerMonItemCustomMoves sParty_BerserkJeans[] = {
     }
 
 };
+
+
+static const struct TrainerMonItemCustomMoves sParty_TransBugs[] = {
+    {
+        .iv = 0,
+        .lvl = 15,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_METAPOD,
+        .moves = {MOVE_HARDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    
+    {
+        .iv = 0,
+        .lvl = 15,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_KAKUNA,
+        .moves = {MOVE_HARDEN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+
+};

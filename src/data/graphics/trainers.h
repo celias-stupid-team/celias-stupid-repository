@@ -589,3 +589,9 @@ const u32 gTrainerPalette_Cookie[] = INCBIN_U32("graphics/trainers/palettes/cook
 
 const u32 gTrainerFrontPic_Silver[] = INCBIN_U32("graphics/trainers/front_pics/silver_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Silver[] = INCBIN_U32("graphics/trainers/palettes/silver.gbapal.lz");
+
+const u32 gTrainerFrontPic_BabyBug[] = INCBIN_U32("graphics/trainers/front_pics/baby_bug_front_pic.4bpp.lz");
+const u32 gTrainerPalette_BabyBug[] = INCBIN_U32("graphics/trainers/palettes/baby_bug.gbapal.lz");
+
+const u32 gTrainerFrontPic_TransBug[] = INCBIN_U32("graphics/trainers/front_pics/trans_bug_front_pic.4bpp.lz");
+const u32 gTrainerPalette_TransBug[] = INCBIN_U32("graphics/trainers/palettes/trans_bug.gbapal.lz");
