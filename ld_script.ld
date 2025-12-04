@@ -1042,6 +1042,7 @@ SECTIONS {
         sound/songs/midi/mus_abandoned_ship.o(.rodata);
         sound/songs/midi/mus_mus_straight_people.o(.rodata);
         sound/songs/midi/mus_pyrite_town.o(.rodata);
+        sound/songs/midi/mus_cerulean_center.o(.rodata);
 
     } > ROM =0
 

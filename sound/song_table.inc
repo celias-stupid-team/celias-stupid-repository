@@ -420,6 +420,7 @@ gSongTable::
 	song mus_abandoned_ship, 0, 0
 	song mus_mus_straight_people, 0, 0
 	song mus_pyrite_town, 0, 0
+	song mus_cerulean_center, 0, 0
 
 
 
