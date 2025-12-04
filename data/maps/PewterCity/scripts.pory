@@ -836,7 +836,9 @@ PewterCity_Movement_WalkInPlaceLeft::
 const CELIA = 11
 mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(var(VAR_PEWTER_CELIA_SCENE) == 1) {
+		if(flag(FLAG_BADGE01_GET) && !checkmoncaught(SPECIES_BUTTERFREE)) { //Make it check for grindy butterfree
+		//or checkaprty move > 6
+			setvar(VAR_PEWTER_CELIA_SCENE, 1)
 			setobjectxyperm(CELIA, 15, 19)
 			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
 		}
@@ -875,25 +877,9 @@ script PewterCity_OntainedCaterpie {
 	switch(var(VAR_RESULT)) {
 		case 0: //Mon goes to party
 			bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE)
-			msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
-			if(!var(VAR_RESULT)) {
-				goto(PewterCity_CeliaCaterpieEnd)
-			}
-			call(EventScript_GetGiftMonPartySlot)
-			call(EventScript_ChangePokemonNickname)
 			goto(PewterCity_CeliaCaterpieEnd)
 		case 1: //Mon goes to PC
 				bufferspeciesname(STR_VAR_1, SPECIES_CATERPIE) //Breaks here??
-				msgbox(Text_GiveNicknameToThisMon, MSGBOX_YESNO)
-				if(var(VAR_RESULT) == 0) {
-					call(EventScript_TransferredToPC)
-					goto(PewterCity_CeliaCaterpieEnd)
-				} else {
-					call(EventScript_NameReceivedBoxMon)
-					call(EventScript_TransferredToPC)
-					goto(PewterCity_CeliaCaterpieEnd) //This can be simplified; I'll deal with it later
-				}
-				
 				goto(PewterCity_CeliaCaterpieEnd)
 		case 2:
 			goto(EventScript_NoMoreRoomForPokemon)

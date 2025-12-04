@@ -250,18 +250,20 @@ static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterDave[] = {
 
 
 
-static const struct TrainerMonItemDefaultMoves sParty_BugCatcherRick[] = {
+static const struct TrainerMonItemCustomMoves sParty_BugCatcherRick[] = {
     {
         .iv = 0,
         .lvl = 6,
         .heldItem = ITEM_FOCUS_SASH,
         .species = SPECIES_WEEDLE,
+        .moves = {MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 6,
         .heldItem = ITEM_NONE,
         .species = SPECIES_CATERPIE,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
 
