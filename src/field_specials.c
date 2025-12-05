@@ -2615,7 +2615,8 @@ u16 ScriptGetPartyMonSpecies(void)
 
 void ScriptPartyContainsSpecies(void)
 {
-    s16 PartyContainsMon = 0;
+    // sorry celia this code has an issue and it appears unused so I'm commenting it out for now
+/*     s16 PartyContainsMon = 0;
     s16 i;
 
     for(i = 0; i < PARTY_SIZE; i++) {
@@ -2626,7 +2627,7 @@ void ScriptPartyContainsSpecies(void)
     if(PartyContainsMon > 0) {
         gSpecialVar_Result = TRUE;
     }
-    
+    */ 
 }
 
 void GetUnownCount(void) {
