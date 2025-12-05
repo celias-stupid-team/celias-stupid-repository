@@ -1024,13 +1024,14 @@ static u8 SaveYesNoCallback(void) {
     return SAVE_IN_PROGRESS;
 }
 
+static ALIGNED(2) const u8 sTextColor_StatName[] = { 1, 2, 3 };
+static ALIGNED(2) const u8 sTextColor_StatValue[] = { 1, 4, 5 };
+static ALIGNED(2) const u8 sTextColor_LocationHeader[] = { 1, 6, 7 };
 
 static void ShowSaveInfoWindow(void) {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
-    u8 gender;
-    u8 color;
-    u32 xOffset;
-    u32 yOffset;
+    u8 gender, color;
+    u32 x, y;
     const u8 *suffix;
     u8 *alignedSuffix = gStringVar3;
 
@@ -1040,52 +1041,34 @@ static void ShowSaveInfoWindow(void) {
     }
 
     sSaveInfoWindowId = AddWindow(&saveInfoWindow);
-    DrawStdWindowFrame(sSaveInfoWindowId, FALSE);
+    LoadStdWindowGfx(sSaveInfoWindowId, 0x21D, BG_PLTT_ID(13));
+    DrawStdFrameWithCustomTileAndPalette(sSaveInfoWindowId, FALSE, 0x21D, 13);
 
-    gender = gSaveBlock2Ptr->playerGender;
-    color = TEXT_COLOR_RED;  // Red when female, blue when male.
+    SaveStatToString(SAVE_STAT_LOCATION, gStringVar4, 8);
+    x = (u32)(112 - GetStringWidth(FONT_NORMAL, gStringVar4, -1)) / 2;
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_NORMAL, x, 0, sTextColor_LocationHeader, -1, gStringVar4);
 
-    if (gender == MALE)
+    x = (u32)(112 - GetStringWidth(FONT_NORMAL, gStringVar4, -1)) / 2;
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, 14, sTextColor_StatName, -1, gSaveStatName_Player);
+
+    SaveStatToString(SAVE_STAT_NAME, gStringVar4, 2);
+    Menu_PrintFormatIntlPlayerName(sSaveInfoWindowId, gStringVar4, 60, 14);
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, 28, sTextColor_StatName, -1, gSaveStatName_Badges);
+
+    SaveStatToString(SAVE_STAT_BADGES, gStringVar4, 2);
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, 28, sTextColor_StatValue, -1, gStringVar4);
+    y = 42;
+    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
-        color = TEXT_COLOR_BLUE;
+        AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, 42, sTextColor_StatName, -1, gSaveStatName_Pokedex);
+        SaveStatToString(SAVE_STAT_POKEDEX, gStringVar4, 2);
+        AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, 42, sTextColor_StatValue, -1, gStringVar4);
+        y = 56;
     }
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Time);
 
-    // Print region name
-    yOffset = 1;
-    SaveStatToString(SAVE_STAT_LOCATION, gStringVar4, TEXT_COLOR_GREEN);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-
-    // Print player name
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gSaveStatName_Player, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    SaveStatToString(SAVE_STAT_NAME, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    Menu_PrintFormatIntlPlayerName(sSaveInfoWindowId, gStringVar4, xOffset, yOffset);
-
-    // Print badge count
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gSaveStatName_Badges, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    SaveStatToString(SAVE_STAT_BADGES, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
-
-    if (FlagGet(FLAG_SYS_POKEDEX_GET))
-    {
-        // Print pokedex count
-        yOffset += 16;
-        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gSaveStatName_Pokedex, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-        SaveStatToString(SAVE_STAT_POKEDEX, gStringVar4, color);
-        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-        AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
-    }
-
-    // Print play time
-    yOffset += 16;
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gSaveStatName_Time, 0, yOffset, TEXT_SKIP_DRAW, NULL);
-    SaveStatToString(SAVE_STAT_TIME, gStringVar4, color);
-    xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
-    AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
-
+    SaveStatToString(SAVE_STAT_TIME, gStringVar4, 2);
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, y, sTextColor_StatValue, -1, gStringVar4);
     CopyWindowToVram(sSaveInfoWindowId, COPYWIN_GFX);
 }
 
@@ -1107,13 +1090,18 @@ static void Task_HandleSave(u8 taskId) {
     switch (RunSaveCallback()) {
     case SAVE_IN_PROGRESS:
         break;
-    case SAVE_SUCCESS:
     case SAVE_CANCELED: // Back to start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
-        ClearPlayerHeldMovementAndUnfreezeObjectEvents();
-        UnlockPlayerFieldControls();
+        // ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+        // UnlockPlayerFieldControls();
+        // FieldClearVBlankHBlankCallbacks();
+        RotomStartMenu_Init();
+        // CB2_ReturnToField();
+        // SetMainCallback2(CB2_ReturnToField);
+        // CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
         DestroyTask(taskId);
         break;
+    case SAVE_SUCCESS:
     case SAVE_ERROR:    // Close start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ClearPlayerHeldMovementAndUnfreezeObjectEvents();
