@@ -12586,3 +12586,6 @@ extern const u32 gTrainerPalette_BabyBug[];
 
 extern const u32 gTrainerFrontPic_TransBug[];
 extern const u32 gTrainerPalette_TransBug[];
+
+extern const u32 gItemIcon_BalmMushroom[];
+extern const u32 gItemIconPalette_BalmMushroom[];

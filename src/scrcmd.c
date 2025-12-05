@@ -2580,7 +2580,7 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
     u8 i;
     u16 speciesId = ScriptReadHalfword(ctx);
 
-    gSpecialVar_Result = PARTY_SIZE;
+    gSpecialVar_Result = FALSE;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
@@ -2588,7 +2588,7 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
             break;
         if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
         {
-            gSpecialVar_Result = i;
+            gSpecialVar_Result = TRUE;
             gSpecialVar_0x8004 = species;
             break;
         }

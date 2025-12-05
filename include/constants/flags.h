@@ -945,7 +945,7 @@
 #define FLAG_OPENED_SKY_TOWER               0x364
 #define FLAG_GOT_CATERPIE               0x365
 #define FLAG_CREDITS_FAKEOUT               0x366
-#define FLAG_0x367               0x367
+#define FLAG_GOT_BALM_MUSHROOM               0x367
 #define FLAG_0x368               0x368
 #define FLAG_0x369               0x369
 #define FLAG_0x36A               0x36A
