@@ -1133,7 +1133,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDERBOLT] =
     {
-        .effect = EFFECT_PARALYZE_HIT,
+        .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,

@@ -3572,7 +3572,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalRoute22EarlySquirtle
         .iv = 50,
         .lvl = 50,
         .species = SPECIES_ZAPDOS,
-        .moves = {MOVE_DRILL_PECK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_THUNDERBOLT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 50,
