@@ -41,10 +41,10 @@ script SetPlayerPokedexValues {
 	if(var(VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN) == 2) {
 		setobtainable(SPECIES_WEEDLE) // 10
 	}
-	if(flag(FLAG_CSR_HINT_FOREST_CANDIES) && checkmoncaught(SPECIES_WEEDLE) || checkmoncaught(SPECIES_KAKUNA)) {
+	if((flag(FLAG_CSR_HINT_FOREST_CANDIES) || flag(FLAG_WORLD_MAP_PEWTER_CITY)) && checkmoncaught(SPECIES_WEEDLE) || checkmoncaught(SPECIES_KAKUNA)) {
 		setobtainable(SPECIES_KAKUNA) // 11
 	}
-	if((flag(FLAG_WORLD_MAP_PEWTER_CITY) || checkmoncaught(SPECIES_KAKUNA)) || checkmoncaught(SPECIES_COMBEE)) {
+	if((flag(FLAG_WORLD_MAP_PEWTER_CITY) && checkmoncaught(SPECIES_KAKUNA)) || checkmoncaught(SPECIES_COMBEE)) {
 		setobtainable(SPECIES_COMBEE) // 12
 	}
 	if(flag(FLAG_CSR_MAP_SKY_TOWER)) {
@@ -225,7 +225,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_ZUBAT) // 72
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
-		setobtainable(SPECIES_GOLBAT) // 73
+		setobtainable(SPECIES_WOOBAT) // 73
 	}
 	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA)) {
 		setobtainable(SPECIES_HORSEA) // 74
@@ -271,7 +271,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_EEVEE) // 87
 	}
 	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_EEVEE)) { // and Got Eevee
-		setobtainable(SPECIES_LUMINEON) // 88
+		setobtainable(SPECIES_SOLACEON) // 88
 	}
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_EEVEE)) { // and if Eevee
 		setobtainable(SPECIES_SYLVEON) // 89
@@ -403,13 +403,13 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_TYRANASTAR) // 131
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_YANMEGA) // 132
+		setobtainable(SPECIES_BUZZWOLE) // 132
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_KABUTOPS) // 133
+		setobtainable(SPECIES_MIMIKYU) // 133
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_GENESECT) // 134
+		setobtainable(SPECIES_HOOPA) // 134
 	}
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {
 		setobtainable(SPECIES_JIRACHI) // 135
@@ -614,8 +614,8 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintOddish)
 		case SPECIES_ZUBAT: 
 			 msgbox(PokedexRating_Text_HintZubat)
-		case SPECIES_GOLBAT: 
-			 msgbox(PokedexRating_Text_HintGolbat)
+		case SPECIES_WOOBAT: 
+			 msgbox(PokedexRating_Text_HintWoobat)
 		case SPECIES_HORSEA: 
 			 msgbox(PokedexRating_Text_HintHorsea)
 		case SPECIES_DRAGONITE: 
@@ -644,8 +644,8 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintSeal)
 		case SPECIES_EEVEE: 
 			 msgbox(PokedexRating_Text_HintEevee)
-		case SPECIES_LUMINEON: 
-			 msgbox(PokedexRating_Text_HintLumineon)
+		case SPECIES_SOLACEON: 
+			 msgbox(PokedexRating_Text_HintSolaceon)
 		case SPECIES_SYLVEON: 
 			 msgbox(PokedexRating_Text_HintSylveon)
 		case SPECIES_LATIAS: 
@@ -724,8 +724,8 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintOmanyte)
 		case SPECIES_TYRANASTAR: 
 			 msgbox(PokedexRating_Text_HintTyranastar)
-		case SPECIES_YANMEGA: 
-			 msgbox(PokedexRating_Text_HintYanmega)
+		case SPECIES_BUZZWOLE: 
+			 msgbox(PokedexRating_Text_HintBuzzwole)
 		case SPECIES_LUVDISC: 
 			 msgbox(PokedexRating_Text_HintLuvdisc)
 		case SPECIES_ALOMOMOLA: 
@@ -734,10 +734,10 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintDitto)
 		case SPECIES_ORTHWORM: 
 			 msgbox(PokedexRating_Text_HintOrthworm)
-		case SPECIES_KABUTOPS: 
-			 msgbox(PokedexRating_Text_HintKabutops)
-		case SPECIES_GENESECT: 
-			 msgbox(PokedexRating_Text_HintGenesect)
+		case SPECIES_MIMIKYU: 
+			 msgbox(PokedexRating_Text_HintMimikyu)
+		case SPECIES_HOOPA: 
+			 msgbox(PokedexRating_Text_HintHoopa)
 		case SPECIES_JIRACHI: 
 			 msgbox(PokedexRating_Text_HintJirachi)
 		case SPECIES_ARTICUNO: 

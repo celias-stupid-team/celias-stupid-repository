@@ -154,14 +154,24 @@ script SodaShop_Sailor {
 }
 
 script SodaShop_TransBugs_F {
-    trainerbattle_double(TRAINER_TRANS_BUGS, "start", "end", "no", SodaShop_SwitchBugs)
+    trainerbattle_double(TRAINER_TRANS_BUGS,
+    "KAT: Did you know POKéMON\n"
+	"evolve?\p"
+
+	"{COLOR BLUE}BEE: That's why our parents didn't\n"
+	"let us play it.",
+    
+    "Woah!\n"
+	"What a change!", "have more pokemon", SodaShop_SwitchBugs)
     setflag(FLAG_TEMP_5)
     clearflag(FLAG_TEMP_6)
     removeobject(LOCALID_SODASHOP_KID_F)
     removeobject(LOCALID_SODASHOP_KID_M)
     addobject(LOCALID_SODASHOP_GROWN_F)
     addobject(LOCALID_SODASHOP_GROWN_M)
-    msgbox("After F", MSGBOX_NPC)
+    msgbox(
+	"KAT: Look at me!\n"
+	"I'm finally free of my shell!", MSGBOX_NPC)
 
 }
 
@@ -177,14 +187,24 @@ script SodaShop_SwitchBugs {
 }
 
 script SodaShop_TransBugs_M {
-    trainerbattle_double(TRAINER_TRANS_BUGS, "start", "end", "no", SodaShop_SwitchBugs)
+    trainerbattle_double(TRAINER_TRANS_BUGS,
+    "BEE: Did you know POKéMON\n"
+	"evolve?\p"
+
+	"{COLOR RED}KAT: That's why our parents didn't\n"
+	"let us play it.",
+    
+    "Woah!\n"
+	"What a change!", "have more pokemon", SodaShop_SwitchBugs)
     setflag(FLAG_TEMP_5)
     clearflag(FLAG_TEMP_6)
     removeobject(LOCALID_SODASHOP_KID_F)
     removeobject(LOCALID_SODASHOP_KID_M)
     addobject(LOCALID_SODASHOP_GROWN_F)
     addobject(LOCALID_SODASHOP_GROWN_M)
-    msgbox("After M", MSGBOX_NPC)
+    msgbox(
+    "BEE: I think I'm technically\n"
+	"a COMBEE.", MSGBOX_NPC)
 
 }
 script SodaShop_RichKid {

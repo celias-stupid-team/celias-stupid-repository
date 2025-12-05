@@ -239,13 +239,18 @@ script Route24_EventScript_BattleRocket {
 		"fan content to get a paycheck.", MSGBOX_DEFAULT)
 		closemessage
 		delay(60)
+		setflag(FLAG_CREDITS_FAKEOUT)
 		msgbox(
-		"the end\n"
+		"The End\n"
 		"", MSGBOX_DEFAULT)
 		closemessage
-		setvar(VAR_MAP_SCENE_ROUTE24, 0)
+		setvar(VAR_MAP_SCENE_ROUTE24, 1)
 		warpsilent(MAP_CREDITS, 0)
 		//credits?
+	} else {
+		msgbox(
+		"No? C'mon!\n"
+		"Think of the opportunity!", MSGBOX_DEFAULT)
 	}
 	setvar(VAR_MAP_SCENE_ROUTE24, 1)
 	setflag(FLAG_CSR_MAP_ROUTE_24_FAR)

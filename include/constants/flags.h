@@ -943,8 +943,8 @@
 #define FLAG_BOULDER_PUT_IN_HOLE               0x362
 #define FLAG_TRIANGLE_PUT_IN_HOLE               0x363
 #define FLAG_OPENED_SKY_TOWER               0x364
-#define FLAG_0x365               0x365
-#define FLAG_0x366               0x366
+#define FLAG_GOT_CATERPIE               0x365
+#define FLAG_CREDITS_FAKEOUT               0x366
 #define FLAG_0x367               0x367
 #define FLAG_0x368               0x368
 #define FLAG_0x369               0x369

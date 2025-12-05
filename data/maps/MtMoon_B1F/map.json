@@ -58,6 +58,7 @@
       "flag": "FLAG_MT_MOON_CANDY"
     },
     {
+      "local_id": "LOCALID_MOON_LASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 53,

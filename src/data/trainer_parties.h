@@ -199,12 +199,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_AngryNerdLavos[] = {
         .species = SPECIES_GYARADOS,
         .moves = {MOVE_WATERFALL, MOVE_SURF, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 13,
-        .species = SPECIES_BRELOOM,
-        .moves = {MOVE_BULLET_SEED, MOVE_SWIFT, MOVE_NONE, MOVE_NONE}
-    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_YoungsterTyler[] = {

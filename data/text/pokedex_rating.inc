@@ -319,7 +319,7 @@ PokedexRating_Text_HintVenonat::
 PokedexRating_Text_HintZubat::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintGolbat::
+PokedexRating_Text_HintWoobat::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintOddish::
@@ -714,13 +714,13 @@ PokedexRating_Text_HintLatias::
 	.string "What POKéMON normally holds it?\n"
 	.string "Your POKéDEX might give a clue.$"
 
-PokedexRating_Text_HintLumineon::
+PokedexRating_Text_HintSolaceon::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintGenesect::
+PokedexRating_Text_HintHoopa::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintKabutops::
+PokedexRating_Text_HintMimikyu::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintOmanyte::
@@ -731,7 +731,7 @@ PokedexRating_Text_HintOmanyte::
 PokedexRating_Text_HintTyranastar::
 	.string "Placeholder!$"
 
-PokedexRating_Text_HintYanmega::
+PokedexRating_Text_HintBuzzwole::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintArticuno::

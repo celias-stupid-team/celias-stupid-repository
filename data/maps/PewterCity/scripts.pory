@@ -831,16 +831,22 @@ PewterCity_Movement_WalkInPlaceLeft::
 	walk_in_place_left
 	step_end
 `
+script PewterCity_CeliaFuckup {
+	msgbox(
+	"I'm tired.\n"
+	"", MSGBOX_NPC)
+}
 
 
 const CELIA = 11
 mapscripts PewterCity_MapScripts {
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_BADGE01_GET) && !checkmoncaught(SPECIES_BUTTERFREE)) { //Make it check for grindy butterfree
+		if(flag(FLAG_BADGE01_GET) && !checkmoncaught(SPECIES_BUTTERFREE) && !flag(FLAG_GOT_CATERPIE)) { //Make it check for grindy butterfree
 		//or checkaprty move > 6
 			setvar(VAR_PEWTER_CELIA_SCENE, 1)
 			setobjectxyperm(CELIA, 15, 19)
 			setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
+			setflag(FLAG_GOT_CATERPIE)
 		}
 	}
 	MAP_SCRIPT_ON_TRANSITION: PewterCity_OnTransition
