@@ -340,6 +340,7 @@
 #define TRAINER_CLASS_SKIRT             118
 #define TRAINER_CLASS_NINJAS             119
 #define TRAINER_CLASS_BERSERK             120
+#define TRAINER_CLASS_TRANS_BUGS             121
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

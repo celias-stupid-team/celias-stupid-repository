@@ -20,7 +20,12 @@ Route4_EventScript_RouteSign::
 `
 const CAMPER = 14
 script Route4_TransitionScripts {
-	setbench(BENCH_ROUTE4_EAST)
+	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+	if(var(VAR_TEMP_A) <= 25) {
+		setbench(BENCH_ROUTE4)
+	} else {
+		setbench(BENCH_ROUTE4_EAST)
+	}
 	call(SetPlayerPokedexValues)
 
 	if(var(VAR_CURRENT_CHAPTER) == 1) {

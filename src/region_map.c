@@ -726,6 +726,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_WATER_PATH,
         .name = sMapsecName_WATER_LABYRINTH,
         .desc = gText_RegionMap_AreaDesc_DottedHole
+    }, {
+        .id = MAPSEC_BIKE_GATE,
+        .name = sMapsecName_WATER_LABYRINTH,
+        .desc = gText_RegionMap_AreaDesc_DottedHole
     }
 };
 
@@ -1048,8 +1052,8 @@ static void InitRegionMapType(void)
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
-    /*
-    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
+    
+    if (gMapHeader.regionMapSectionId == MAPSEC_POKEMON_CENTER) //This is hilariously inefficient but I'm too dumb to think of anything better!
     {
         // Mapsec is in Sevii Islands, determine which map to use
         while (region == REGIONMAP_KANTO)
@@ -1065,7 +1069,7 @@ static void InitRegionMapType(void)
             j++;
         }
     }
-    */
+    
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
 }
@@ -3149,7 +3153,9 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     case MAPSEC_YES:
         return FlagGet(FLAG_CSR_MAP_YES) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_WATER_PATH:
-        return FlagGet(FLAG_CSR_MAP_YES) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+        return FlagGet(FLAG_WORLD_MAP_CELADON_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_BIKE_GATE:
+        return FlagGet(FLAG_WORLD_MAP_CELADON_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
 
 
     default:

@@ -1437,6 +1437,7 @@ static void Cmd_typecalc(void)
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+
     else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
     {
         gLastUsedItem = gBattleMons[gBattlerTarget].item;

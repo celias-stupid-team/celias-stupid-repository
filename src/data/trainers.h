@@ -6705,10 +6705,10 @@ const struct Trainer gTrainers[] = {
     },
 
     [TRAINER_TRANS_BUGS] = {
-        .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
+        .trainerClass = TRAINER_CLASS_TRANS_BUGS,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_BABY_BUG,
-        .trainerName = _("BEE&KAT"),
+        .trainerName = _("KAT&BEE"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,

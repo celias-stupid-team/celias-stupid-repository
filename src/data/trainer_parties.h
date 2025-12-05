@@ -5310,15 +5310,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_LeaderBrock[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_LeaderMisty[] = {
     {
         .iv = 0,
-        .lvl = 25,
-        .species = SPECIES_KYOGRE,
-        .moves = {MOVE_WATER_SPORT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .lvl = 27,
+        .species = SPECIES_WOOPER,
+        .moves = {MOVE_ICE_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,
         .lvl = 27,
-        .species = SPECIES_WOOPER,
-        .moves = {MOVE_ICE_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .species = SPECIES_MAREANIE,
+        .moves = {MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+        .iv = 0,
+        .lvl = 27,
+        .species = SPECIES_HITMONCHAN,
+        .moves = {MOVE_JAB, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 0,

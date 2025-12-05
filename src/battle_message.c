@@ -2286,6 +2286,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 toCpy = gAbilityNames[sBattlerAbilities[gEffectBattler]];
                 break;
             case B_TXT_TRAINER1_CLASS: // trainer class name
+                //DebugPrintf("Setting trainer class name %d", gBattleOutcome);
+                //DebugPrintf("%d", B_OUTCOME_WON);
                 if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
                     toCpy = gTrainerClassNames[GetSecretBaseTrainerNameIndex()];
                 else if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
@@ -2296,6 +2298,11 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gTrainerClassNames[GetTrainerTowerOpponentClass()];
                 else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
                     toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
+                else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TRANS_BUGS && (gBattleOutcome == B_OUTCOME_WON)) {
+                    toCpy = gTrainerClassNames[TRAINER_CLASS_SIS_AND_BRO];
+                    //DebugPrintf("Setting trainer class name to sis and bro");
+
+                }
                 else
                     toCpy = gTrainerClassNames[gTrainers[gTrainerBattleOpponent_A].trainerClass];
                 break;

@@ -257,3 +257,8 @@ script Route24_EventScript_BattleRocket {
 	call(SetPlayerPokedexValues)
 	return
 }
+
+script Route24_SneakilyHealParty {
+	special(HealPlayerParty)
+	release
+}

@@ -158,7 +158,7 @@ script SodaShop_TransBugs_F {
     "KAT: Did you know POKéMON\n"
 	"evolve?\p"
 
-	"{COLOR BLUE}BEE: That's why our parents didn't\n"
+	"{COLOR RED}BEE: That's why our parents didn't\n"
 	"let us play it.",
     
     "Woah!\n"
@@ -191,7 +191,7 @@ script SodaShop_TransBugs_M {
     "BEE: Did you know POKéMON\n"
 	"evolve?\p"
 
-	"{COLOR RED}KAT: That's why our parents didn't\n"
+	"{COLOR BLUE}KAT: That's why our parents didn't\n"
 	"let us play it.",
     
     "Woah!\n"
