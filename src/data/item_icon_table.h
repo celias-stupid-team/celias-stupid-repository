@@ -478,5 +478,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_X_SPDEF]      =  {gItemIcon_XSpdef, gItemIconPalette_XSpdef},
     [ITEM_RAT_STONE]      =  {gItemIcon_RatStone, gItemIconPalette_RatStone},
     [ITEM_PREMIER_CANDY]      =  {gItemIcon_PremierCandy, gItemIconPalette_PremierCandy},
+    [ITEM_BALM_MUSHROOM]      =  {gItemIcon_BalmMushroom, gItemIconPalette_BalmMushroom},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

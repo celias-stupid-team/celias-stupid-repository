@@ -43,7 +43,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PLAYFIRE",
-      "x": 58,
+      "x": 60,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
@@ -85,13 +85,13 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 41,
-      "y": 3,
+      "x": 42,
+      "y": -2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route9_EventScript_Conner",
       "flag": "0"
@@ -113,10 +113,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 62,
-      "y": 9,
+      "x": 68,
+      "y": 1,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -278,6 +278,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Route9_Digrat",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FLAREON",
+      "x": 38,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DROWZEE",
+      "x": 38,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route9_Drowzee",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -292,8 +320,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 22,
-      "y": 1,
+      "x": 67,
+      "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -301,8 +329,8 @@
     },
     {
       "type": "trigger",
-      "x": 22,
-      "y": 2,
+      "x": 58,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
@@ -310,7 +338,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 5,
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -319,7 +347,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 5,
       "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -357,6 +385,15 @@
       "type": "trigger",
       "x": 69,
       "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

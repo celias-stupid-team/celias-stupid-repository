@@ -2,3 +2,13 @@ raw `
 NavelRock_SummitPath_4F_MapScripts::
 	.byte 0
 `
+
+
+script SkyTower_LightYears {
+	lock
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	setvar(VAR_TEMP_0, 1)
+	msgbox("58,786,253,730,000,000 floors\nlater…", MSGBOX_DEFAULT)
+	closemessage
+	release
+}

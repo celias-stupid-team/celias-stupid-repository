@@ -35,11 +35,10 @@ script MtMoon_EventScript_BasementSign {
 }
 
 
-const LASS = 4
 script MtMoon_EventScript_MoveLass {
 	if(!defeated(TRAINER_CSR_MT_MOON_END_LASS)) {
-		addobject(LASS)
-		setobjectxy(LASS, 39, 19)
+		addobject(LOCALID_MOON_LASS)
+		setobjectxy(LOCALID_MOON_LASS, 53, 19)
 	}
 	setvar(VAR_TEMP_1, 1)
 }

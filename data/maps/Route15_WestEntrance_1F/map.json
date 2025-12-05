@@ -50,7 +50,7 @@
       "y": 6,
       "elevation": 3,
       "dest_map": "MAP_ROUTE15",
-      "dest_warp_id": "0"
+      "dest_warp_id": "WARP_ROUTE15_GATE_LEFT"
     },
     {
       "x": 1,
@@ -64,7 +64,7 @@
       "y": 6,
       "elevation": 3,
       "dest_map": "MAP_ROUTE15",
-      "dest_warp_id": "1"
+      "dest_warp_id": "WARP_ROUTE15_GATE_RIGHT"
     },
     {
       "x": 11,

@@ -84,7 +84,8 @@ script Route25_Funbro {
 	msgbox("SLOWBRO: Bruuuuuuh!", MSGBOX_DEFAULT)
 	waitmoncry
 	msgbox("It looks like it's been sitting here\nfor several weeks.", MSGBOX_DEFAULT)
-	applymovement(12, Common_Movement_FaceRight)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+	waitmovement(0)
 	release
 }
 

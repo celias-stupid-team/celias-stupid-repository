@@ -23,19 +23,33 @@ mapscripts ViridianGym_Surge_MapScripts {
             case 9:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM_9, 3)
         }
+        if(flag(FLAG_DMCA_SURGE_FIRST_GATE)) {
+            call(ViridianGym_Surge_DrawFirstGateOpen)
+        }
+        if(flag(FLAG_DMCA_SURGE_SECOND_GATE)) {
+            call(ViridianGym_Surge_DrawSecondGateOpen)
+
+        }
     }
 }
 
 
 script ViridianGym_Surge_Grunt {
 	msgbox(
-	"These trash cans are all copies\n"
+	"Those trash cans were all copies\n"
 	"of each other!", MSGBOX_NPC)
 }
 
 
 script ViridianGym_Surge_TrashCan {
     lock
+    if(flag(FLAG_DMCA_SURGE_FIRST_GATE)) {
+        msgbox(
+        "trash\n"
+        "", MSGBOX_DEFAULT)
+        release
+        end
+    }
     msgbox(
     "Hey!\n"
     "There's a secret switch!\p"
@@ -43,6 +57,60 @@ script ViridianGym_Surge_TrashCan {
     "…Well, maybe it's not THAT secret.\n"
     "", MSGBOX_DEFAULT)
     //unlock stuff
+    playse(SE_UNLOCK)
+    setflag(FLAG_DMCA_SURGE_FIRST_GATE)
+    call(ViridianGym_Surge_DrawFirstGateOpen)
     release
 }
 
+
+
+
+script ViridianGym_SurgeBattle {
+    trainerbattle_single(TRAINER_DMCA_SURGE, ViridianGym_SurgeBattle_Start, ViridianGym_SurgeBattle_End, ViridianGym_Surge_DrawSecondGateOpen)
+    msgbox(
+	"i'm dead\n"
+	"", MSGBOX_DEFAULT)
+}
+
+text ViridianGym_SurgeBattle_Start {
+    "seizure\n"
+}
+
+
+text ViridianGym_SurgeBattle_End {
+   "oh no\n"
+	"dead"
+}
+
+script ViridianGym_Surge_DrawFirstGateOpen {
+    setmetatile(4, 14, METATILE_VermilionGym_Beam_Node_TopLeft_Off, FALSE)
+    setmetatile(4, 15, METATILE_VermilionGym_Beam_Node_BottomLeft_Off, FALSE)
+    setmetatile(5, 14, METATILE_VermilionGym_Beam_Node_TopLeft_Edge_Off, FALSE)
+    setmetatile(5, 15, METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_Off, FALSE)
+    setmetatile(6, 14, METATILE_VermilionGym_Floor, FALSE)
+    setmetatile(6, 15, METATILE_VermilionGym_Floor, FALSE)
+    setmetatile(7, 14, METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off, FALSE)
+    setmetatile(7, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off, FALSE)
+    setmetatile(7, 14, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
+    setmetatile(7, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
+    special(DrawWholeMapView)
+    return
+}
+
+
+script ViridianGym_Surge_DrawSecondGateOpen {
+    setflag(FLAG_DMCA_SURGE_SECOND_GATE)
+    setmetatile(4, 6, METATILE_VermilionGym_Beam_Node_TopLeft_Off, FALSE)
+    setmetatile(4, 7, METATILE_VermilionGym_Beam_Node_BottomLeft_Off, FALSE)
+    setmetatile(5, 6, METATILE_VermilionGym_Beam_Node_TopLeft_Edge_Off, FALSE)
+    setmetatile(5, 7, METATILE_VermilionGym_Beam_Node_BottomLeft_Edge_Off, FALSE)
+    setmetatile(6, 6, METATILE_VermilionGym_Floor, FALSE)
+    setmetatile(6, 7, METATILE_VermilionGym_Floor, FALSE)
+    setmetatile(7, 6, METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off, FALSE)
+    setmetatile(7, 7, METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off, FALSE)
+    setmetatile(7, 6, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
+    setmetatile(7, 7, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
+    special(DrawWholeMapView)
+    return
+}

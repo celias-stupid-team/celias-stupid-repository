@@ -182,6 +182,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonTower_ScaryDad",
       "flag": "FLAG_TEMP_10"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SILVER_2",
+      "x": 18,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PokemonTower_3F_LostSilver",
+      "flag": "0"
     }
   ],
   "warp_events": [

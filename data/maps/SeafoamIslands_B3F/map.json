@@ -204,6 +204,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ZUBAT_WALL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BRICKWALL",
       "x": 8,
@@ -214,8 +215,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "SeafoamIslands_ZubatWall",
+      "flag": "FLAG_RELEASED_ZUBAT"
     }
   ],
   "warp_events": [
@@ -241,10 +242,10 @@
       "dest_warp_id": "11"
     },
     {
-      "x": 12,
-      "y": 9,
+      "x": 8,
+      "y": 2,
       "elevation": 3,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
+      "dest_map": "MAP_SIX_ISLAND_ALTERING_CAVE",
       "dest_warp_id": "0"
     },
     {

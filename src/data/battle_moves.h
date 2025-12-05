@@ -1133,7 +1133,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDERBOLT] =
     {
-        .effect = EFFECT_PARALYZE_HIT,
+        .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -1582,7 +1582,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_DEPENDS,
-        .priority = 0,
+        .priority = 1,
         .flags = 0,
     },
 
@@ -1608,7 +1608,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_FOES_AND_ALLY,
-        .priority = 0,
+        .priority = 1,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
@@ -3766,7 +3766,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 2,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -4505,7 +4505,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 50,
         .type = TYPE_POISON,
         .accuracy = 100,
-        .pp = 25,
+        .pp = 16,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -4817,7 +4817,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FUSION_BOLT] =    {
         .effect = EFFECT_HIT,
         .power = 100,
-        .type = TYPE_ELECTRIC,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5097,7 +5097,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 83,
         .type = TYPE_FIGHTING,
         .accuracy = 97,
-        .pp = 35,
+        .pp = 41,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -5492,7 +5492,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FAIRY_FANG] =    {
         .effect = EFFECT_HIT,
         .power = 65,
-        .type = TYPE_FAIRY,
+        .type = TYPE_FAIRY_TRANS,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
@@ -5911,7 +5911,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SPECIALPUNCH] =    {
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = 90,
         .type = TYPE_FIGHTING_SPECIAL,
         .accuracy = 100,
         .pp = 35,

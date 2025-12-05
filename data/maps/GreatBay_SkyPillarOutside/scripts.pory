@@ -1,5 +1,9 @@
 mapscripts GreatBay_SkyPillarOutside_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(!flag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)) {
+            setflag(FLAG_TEMP_1)
+        }
+    }
 }
 
 script GreatBay_SkyPillarOutside_LookingOut {
@@ -7,6 +11,16 @@ script GreatBay_SkyPillarOutside_LookingOut {
     specialvar(VAR_RESULT, GetPlayerFacingDirection)
     if(var(VAR_RESULT) == DIR_NORTH) {
         applymovement(LOCALID_PLAYER, GreatBay_PlayerMovesIntoPosition)
+        waitmovement(0)
+        delay(30)
+        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+
+    } elif(var(VAR_RESULT) == DIR_SOUTH) {
+        applymovement(LOCALID_PLAYER, moves(
+            walk_right
+            walk_down
+            face_left
+        ))
         waitmovement(0)
         delay(30)
         applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
@@ -21,19 +35,34 @@ script GreatBay_SkyPillarOutside_LookingOut {
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
     delay(20)
     special(SpawnCameraObject)
-    applymovement(LOCALID_CAMERA, GreatBay_CameraGoesUp)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_up * 8
+        walk_fastest_up * 20
+        walk_up * 5
+    ))
+    delay(60)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    delay(90)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     waitmovement(0)
-    delay(30)
+    delay(60)
     msgbox("They say that atop the TOWER awaits\na powerful BIRD POKéMON.\lIt comes to roost once a lifetime.", MSGBOX_DEFAULT)
     closemessage
-    applymovement(LOCALID_CAMERA, GreatBay_CameraComesDown)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_fastest_down * 33
+    ))
     waitmovement(0)
+    special(DrawWholeMapView)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     if(var(VAR_RESULT) == DIR_SOUTH) {
-        applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+        applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
     } else {
         applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
-        applymovement(VAR_LAST_TALKED, Common_Movement_FaceRight)
+        applymovement(LOCALID_GREAT_BAY_SKY_PILLAR_OUTSIDE_OLD_MAN_1, Common_Movement_FaceRight)
     }
+    textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("The TOWER has been sealed away\nall my life.\lNo one knows what lies inside.\pPerhaps one day, a brave soul will\nventure within.", MSGBOX_DEFAULT)
     special(RemoveCameraObject)
     release
@@ -53,4 +82,48 @@ movement GreatBay_CameraGoesUp {
 
 movement GreatBay_CameraComesDown {
     walk_fast_down * 18
+}
+
+
+script GreatBay_TruckGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_TRUCK_PUT_IN_HOLE)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+
+script GreatBay_GirlGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_GIRL_PUT_IN_HOLE)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+
+script GreatBay_TriangleGoesInHole {
+    lock
+    msgbox(
+	"it goes in the square hole\n"
+	"", MSGBOX_DEFAULT)
+    setflag(FLAG_TRIANGLE_PUT_IN_HOLE)
+    setflag(FLAG_TEMP_1)
+    call(GreatBay_OpenDoor)
+    release
+}
+
+script GreatBay_OpenDoor {
+    if(flag(FLAG_TRIANGLE_PUT_IN_HOLE) && flag(FLAG_GIRL_PUT_IN_HOLE) && flag(FLAG_TRUCK_PUT_IN_HOLE)) {
+        msgbox(
+        "the door opens\n"
+        "", MSGBOX_DEFAULT)
+        setflag(FLAG_OPENED_SKY_TOWER)
+    }
+    return
 }

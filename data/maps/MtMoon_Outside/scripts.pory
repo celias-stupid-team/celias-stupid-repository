@@ -48,7 +48,7 @@ script MoonAltar_CameraPan {
 		//Scene of you getting sucked in
 		// Warp to wormhole
 		setobjectxy(LOCALID_PLAYER, 9, 12)
-		warphole(MAP_WORMHOLE_ENTRANCE)
+		warp(MAP_WORMHOLE_ENTRANCE, 1)
 		release
 		end
 

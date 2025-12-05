@@ -206,7 +206,7 @@
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_ROUTE15",
-      "dest_warp_id": "2"
+      "dest_warp_id": "WARP_ROUTE15_LIGHTHOUSE"
     },
     {
       "x": 8,

@@ -1139,3 +1139,14 @@ const struct Tileset gTileset_RainbowCloud =
     .metatileAttributes = gMetatileAttributes_RainbowCloud,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_pkmnzeroisland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_pkmnzeroisland,
+    .palettes = gTilesetPalettes_pkmnzeroisland,
+    .metatiles = gMetatiles_pkmnzeroisland,
+    .metatileAttributes = gMetatileAttributes_pkmnzeroisland,
+    .callback = NULL,
+};

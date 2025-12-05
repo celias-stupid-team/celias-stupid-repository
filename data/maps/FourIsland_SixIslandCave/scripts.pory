@@ -1,3 +1,23 @@
 mapscripts FourIsland_SixIslandCave_MapScripts {
 
 }
+
+script SixIslandCave_Bench {
+	msgbox(
+	"It's an anti-RETREAT Bench.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SixIsland_Zygarde {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZYGARDE, CRY_MODE_ENCOUNTER)
+    setwildbattle(SPECIES_ZYGARDE, 50)
+    dowildbattle
+    delay(120)
+    removeobject(VAR_LAST_TALKED)
+    release
+
+}

@@ -1437,6 +1437,7 @@ static void Cmd_typecalc(void)
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+
     else if (gBattleMons[gBattlerTarget].item == ITEM_AIR_BALLOON && moveType == TYPE_GROUND)
     {
         gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -8924,11 +8925,9 @@ static void Cmd_presentdamagecalculation(void)
 {
     s32 rand = Random() & 0xFF;
 
-    if (rand < 102)
+    if (rand < 82)
         gDynamicBasePower = 40;
     else if (rand < 178)
-        gDynamicBasePower = 80;
-    else if (rand < 204)
         gDynamicBasePower = 120;
     else //Heal target
     {

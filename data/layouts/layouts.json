@@ -2541,7 +2541,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/OneIsland/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland/map.bin"
     },
@@ -5409,7 +5409,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Zero_Island/border.bin",
       "blockdata_filepath": "data/layouts/Zero_Island/map.bin"
     },
@@ -5504,8 +5504,8 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
-      "secondary_tileset": "gTileset_CeruleanGym",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SaffronGym",
       "border_filepath": "data/layouts/ViridianGym_Sabrina/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_Sabrina/map.bin"
     },
@@ -5620,8 +5620,8 @@
     {
       "id": "LAYOUT_INDIGO_PLATEAU_USED",
       "name": "IndigoPlateauUsed_Layout",
-      "width": 24,
-      "height": 20,
+      "width": 25,
+      "height": 52,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -5925,7 +5925,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BerryForest",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Pokemon_Island/border.bin",
       "blockdata_filepath": "data/layouts/Pokemon_Island/map.bin"
     },
@@ -6261,7 +6261,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands67",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean4/border.bin",
       "blockdata_filepath": "data/layouts/Ocean4/map.bin"
     },
@@ -6292,11 +6292,11 @@
     {
       "id": "LAYOUT_WORMHOLE_ENTRANCE",
       "name": "Wormhole_Entrance_Layout",
-      "width": 20,
-      "height": 21,
+      "width": 23,
+      "height": 22,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_Entrance/map.bin"
@@ -6308,7 +6308,7 @@
       "height": 30,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_OrthwormRoom/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_OrthwormRoom/map.bin"
@@ -6465,7 +6465,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean5/border.bin",
       "blockdata_filepath": "data/layouts/Ocean5/map.bin"
     },
@@ -6477,7 +6477,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean6/border.bin",
       "blockdata_filepath": "data/layouts/Ocean6/map.bin"
     },
@@ -6489,7 +6489,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_38island",
       "border_filepath": "data/layouts/Ocean9/border.bin",
       "blockdata_filepath": "data/layouts/Ocean9/map.bin"
     },
@@ -6501,7 +6501,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean7/border.bin",
       "blockdata_filepath": "data/layouts/Ocean7/map.bin"
     },
@@ -6525,7 +6525,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean8/border.bin",
       "blockdata_filepath": "data/layouts/Ocean8/map.bin"
     },
@@ -6537,7 +6537,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean11/border.bin",
       "blockdata_filepath": "data/layouts/Ocean11/map.bin"
     },
@@ -6549,7 +6549,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Ocean12/border.bin",
       "blockdata_filepath": "data/layouts/Ocean12/map.bin"
     },
@@ -6624,6 +6624,18 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/CinnabarIsland_Crashed/border.bin",
       "blockdata_filepath": "data/layouts/CinnabarIsland_Crashed/map.bin"
+    },
+    {
+      "id": "LAYOUT_WORMHOLE_ENTRANCE_LAYOUT_2",
+      "name": "Wormhole_Entrance_Layout_2",
+      "width": 23,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Wormhole",
+      "border_filepath": "data/layouts/Wormhole_Entrance_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/Wormhole_Entrance_Layout_2/map.bin"
     }
   ]
 }

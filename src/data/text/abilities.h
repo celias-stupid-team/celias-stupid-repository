@@ -178,7 +178,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_NEUTRALIZING_GAS] = COMPOUND_STRING("All Abilities are nullified."),
     [ABILITY_HTML5] = COMPOUND_STRING("Outdated as of 2014."),
     [ABILITY_BLIND_AS_A_BAT] = COMPOUND_STRING("Full immunity to LIGHT."),
-    [ABILITY_FRIED_CHICKEN] = COMPOUND_STRING("Can be dipped in ketchup."),
+    [ABILITY_FRIED_CHICKEN] = COMPOUND_STRING("Delicious when dipped in ketchup."),
+    [ABILITY_IMPECKABLE] = COMPOUND_STRING("Immunity to the move PECK."),
+    [ABILITY_BIG_PECKS] = COMPOUND_STRING("User's PECK is stronger."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -276,4 +278,6 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_HTML5] = _("HTML4"),
     [ABILITY_BLIND_AS_A_BAT] = _("BLIND AS BAT"),
     [ABILITY_FRIED_CHICKEN] = _("GHOLDENBROWN"),
+    [ABILITY_IMPECKABLE] = _("IMPECKABLE"),
+    [ABILITY_BIG_PECKS] = _("BIG PECKS"),
 };

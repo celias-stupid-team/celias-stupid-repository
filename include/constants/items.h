@@ -529,7 +529,8 @@
 #define ITEM_X_SPDEF 447
 #define ITEM_RAT_STONE 448
 #define ITEM_PREMIER_CANDY 449
-#define ITEMS_COUNT 450
+#define ITEM_BALM_MUSHROOM 450
+#define ITEMS_COUNT 451
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

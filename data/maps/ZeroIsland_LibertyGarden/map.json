@@ -26,8 +26,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ZeroIsland_Victini",
+      "flag": "FLAG_TEMP_1"
     },
     {
       "type": "object",
@@ -40,11 +40,19 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ZeroIsland_ShinyVictini",
+      "flag": "FLAG_TEMP_2"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 36,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_ZERO_ISLAND",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

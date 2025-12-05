@@ -413,6 +413,7 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	end
 `
 script PalletTown_OnTransition {
+	setbench(BENCH_ROUTE1)
 	if(var(VAR_JUMPING_FROM_PALLET_ROOF) > 0) {
 		applymovement(LOCALID_PLAYER, Common_Movement_FaceLeft)
 		playbgm(MUS_NONE, TRUE)

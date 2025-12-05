@@ -975,7 +975,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = ITEM_DEFAULT_MOVES(sParty_BugCatcherRick),
+        .party = ITEM_CUSTOM_MOVES(sParty_BugCatcherRick),
     },
     [TRAINER_BUG_CATCHER_DOUG] = {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -1699,10 +1699,10 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_PROTON,
-        .trainerName = _("WOLFF"),
+        .trainerName = _("WOLFE"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_PREFER_STRONGEST_MOVE | AI_SCRIPT_HP_AWARE,
+        .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_HP_AWARE,
         .party = ITEM_CUSTOM_MOVES(sParty_SuperNerdMiguel),
     },
     [TRAINER_SUPER_NERD_AIDAN] = {
@@ -6532,6 +6532,109 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_DMCABrock),
     },
+ 
+    [TRAINER_DMCA_MISTY] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("ARIANA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAMisty),
+    },
+
+    
+    [TRAINER_DMCA_SURGE] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("PETREL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASurge),
+    },
+
+
+    
+    [TRAINER_DMCA_ERIKA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_IMPOSTER,
+        .trainerName = _("EVIL OAK"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAErika),
+    },
+
+
+    
+    [TRAINER_DMCA_KOGA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("UNCLE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAKoga),
+    },
+
+
+    
+    [TRAINER_DMCA_SABRINA] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("WOLFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASabrina),
+    },
+
+
+    
+    [TRAINER_DMCA_BLAINE] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("PAUL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCABlaine),
+    },
+
+
+    
+    [TRAINER_DMCA_FALKNER] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_PROTON,
+        .trainerName = _("WOLFF"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAFalkner),
+    },
+
+
+    
+    [TRAINER_DMCA_SILVER] = {
+        .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_SILVER,
+        .trainerName = _("SILVER"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCASilver),
+    },
+
+
 
     
     [TRAINER_RIVAL_BARRY] = {
@@ -6544,5 +6647,71 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_RivalBarry),
     },
+    
+    
+    [TRAINER_DMCA_THIEVUL] = {
+        .trainerClass = TRAINER_CLASS_RIVAL_LATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M,
+        .trainerName = _("LUCIAN"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_DMCAThievul),
+    },
 
+    [TRAINER_SHORTS_GANG_1] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("NIKE"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang1),
+    },
+
+    [TRAINER_SHORTS_GANG_2] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("CAL"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang2),
+    },
+
+    [TRAINER_SHORTS_GANG_3] = {
+        .trainerClass = TRAINER_CLASS_SHORTS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerName = _("ZARA"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ShortsGang3),
+    },
+
+    [TRAINER_BERSERK_JEANS] = {
+        .trainerClass = TRAINER_CLASS_BERSERK,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_JEANS,
+        .trainerName = _("JEANS"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_BerserkJeans),
+    },
+
+    [TRAINER_TRANS_BUGS] = {
+        .trainerClass = TRAINER_CLASS_TRANS_BUGS,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BABY_BUG,
+        .trainerName = _("KAT&BEE"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_TransBugs),
+    },
 };

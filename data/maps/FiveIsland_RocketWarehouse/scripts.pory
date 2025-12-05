@@ -179,3 +179,46 @@ script DMCAWarehouse_LetterY {
 script DMCAWarehouse_LetterW {
 	finditem(ITEM_LETTER_W)
 }
+
+
+script DMCAWarehouse_ThievulFight {
+	lock
+	faceplayer
+	trainerbattle_single(TRAINER_DMCA_THIEVUL, FiveIsland_RocketWarehouse_Text_Admin1Intro, FiveIsland_RocketWarehouse_Text_Admin1Defeat, DMCAWarehouse_AdminLeaves)
+	msgbox(FiveIsland_RocketWarehouse_Text_MadeItSoYouCanComeBackThrough, MSGBOX_AUTOCLOSE)
+	end
+
+}
+
+script DMCAWarehouse_AdminLeaves {
+	msgbox(
+	"We took the letter Y because it\n"
+	"was infriging the copyright of\l"
+	"both E and I!", MSGBOX_DEFAULT)
+	closemessage
+	playse(SE_M_EXPLOSION)
+	removeobject(VAR_LAST_TALKED)
+	delay(30)
+	release
+}
+
+
+script DMCAWarehouse_AZStory {
+	lock
+	faceplayer
+	msgbox(
+	"Please, listen to my tragic\n"
+	"tale.", MSGBOX_DEFAULT)
+	playbgm(MUS_LEDER_SONG, FALSE)
+	msgbox(
+	"A long time ago,{PAUSE 60} I killed a bunch\n"
+	"of POKéMON.\p"
+
+	"This made me very sad.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_NONE, TRUE)
+	delay(60)
+	fadedefaultbgm
+	release
+}

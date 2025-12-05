@@ -125,3 +125,32 @@ script DMCAHideout_SuperScope {
 	closemessage
 	finditem(ITEM_SUPER_SCOPE)
 }
+
+
+script DMCAHideout_Vent {
+	lock
+	msgbox(
+	"There's a vent in the wall.\p"
+
+	"Perhaps a POKéMON could fit\n"
+	"through…", MSGBOX_DEFAULT)
+	if(checkpartymon(SPECIES_AMOONGUSS) && !flag(FLAG_GOT_BALM_MUSHROOM)) {
+		msgbox(
+		"Your AMOONGUSS is acting a bit\n"
+		"sus…", MSGBOX_DEFAULT)
+		closemessage
+		playmoncry(SPECIES_AMOONGUSS, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"It went through the vent!\p"
+
+		"…{PAUSE 30} …{PAUSE 30} …{PAUSE 30}\p"
+
+		"And now it's back!\n"
+		"", MSGBOX_DEFAULT)
+		setflag(FLAG_GOT_BALM_MUSHROOM)
+		giveitem_msg("AMOONGUSS returned with a\nBALM MUSHROOM!", ITEM_BALM_MUSHROOM, 1)
+		waitfanfare
+		release
+	}
+}
