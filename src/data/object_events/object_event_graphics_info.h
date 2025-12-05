@@ -3202,18 +3202,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolaOak = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrickWall = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRICKWALL,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 1024,
-    .width = 32,
-    .height = 32,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
     .paletteSlot = PALSLOT_NPC_2,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .disableReflectionPaletteLoad = FALSE,
     .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = gObjectEventSpriteOamTables_64x64,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_BrickWall,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -6713,26 +6713,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_petrel_2 = {
     .subspriteTables = gObjectEventSpriteOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_petrel_2,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_brick_wall = {
-    .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRICK_WALL,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 2048,
-    .width = 64,
-    .height = 64,
-    .paletteSlot = PALSLOT_NPC_2,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_64x64,
-    .subspriteTables = gObjectEventSpriteOamTables_64x64,
-    .anims = sAnimTable_Standard,
-    .images = gObjectEventPicTable_brick_wall,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
