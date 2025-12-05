@@ -14915,8 +14915,8 @@
                 "species": "SPECIES_RATTATA"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 2,
+                "max_level": 2,
                 "species": "SPECIES_RATTATA"
               },
               {

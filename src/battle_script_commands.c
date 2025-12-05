@@ -8924,11 +8924,9 @@ static void Cmd_presentdamagecalculation(void)
 {
     s32 rand = Random() & 0xFF;
 
-    if (rand < 102)
+    if (rand < 82)
         gDynamicBasePower = 40;
     else if (rand < 178)
-        gDynamicBasePower = 80;
-    else if (rand < 204)
         gDynamicBasePower = 120;
     else //Heal target
     {

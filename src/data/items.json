@@ -4678,7 +4678,7 @@
     {
       "english": "TM04",
       "itemId": "ITEM_TM04",
-      "price": 3000,
+      "price": 4,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "The user calms its spirit and\\nfocuses its mind to raise its\\nSP. ATK and SP. DEF stats.",

@@ -55,18 +55,7 @@ PewterCity_Museum_1F_EventScript_EntranceTriggerRight::
 	goto PewterCity_Museum_1F_EventScript_EntranceTrigger
 	end
 
-PewterCity_Museum_1F_EventScript_EntranceTrigger::
-	textcolor NPC_TEXT_COLOR_MALE
-	showmoneybox 0, 0
-	msgbox PewterCity_Museum_1F_Text_Its50YForChildsTicket, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PewterCity_Museum_1F_EventScript_TryPayForTicket
-	msgbox PewterCity_Museum_1F_Text_ComeAgain
-	closemessage
-	hidemoneybox
-	applymovement LOCALID_PLAYER, PewterCity_Museum_1F_Movement_ForcePlayerExit
-	waitmovement 0
-	releaseall
-	end
+
 
 PewterCity_Museum_1F_EventScript_TryPayForTicket::
 	checkmoney 50
@@ -221,7 +210,7 @@ script PewterCity_Museum_1F_EventScript_Receptionist {
 					break
 			case 2: msgbox("W-wait!\nHold on!\pWhat are you doing!?")
 					break
-			case 3: msgbox("...\p...\nHow could you...?")
+			case 3: msgbox("...\p...\nAm I next...?")
 					break
 		}
 	}
@@ -338,5 +327,27 @@ script PewterCity_Museum_1F_EventScript_KabutopsFossil {
 	special(OpenMuseumFossilPic)
 	msgbox(PewterCity_Museum_1F_Text_KabutopsFossil)
 	special(CloseMuseumFossilPic)
+	releaseall
+}
+
+
+script PewterCity_Museum_1F_EventScript_EntranceTrigger {
+	if(flag(FLAG_CUT_MUSEUM_ASSOCIATE)) {
+		fadenewbgm(MUS_NONE)
+		msgbox(
+		"…But nobody came.\n"
+		"", MSGBOX_DEFAULT)
+		releaseall
+		end
+	}
+	textcolor(NPC_TEXT_COLOR_MALE)
+	showmoneybox(0, 0)
+	msgbox(PewterCity_Museum_1F_Text_Its50YForChildsTicket, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, PewterCity_Museum_1F_EventScript_TryPayForTicket)
+	msgbox(PewterCity_Museum_1F_Text_ComeAgain)
+	closemessage
+	hidemoneybox
+	applymovement(LOCALID_PLAYER, PewterCity_Museum_1F_Movement_ForcePlayerExit)
+	waitmovement(0)
 	releaseall
 }

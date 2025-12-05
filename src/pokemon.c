@@ -2537,8 +2537,11 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     else
         gBattleMovePower = powerOverride;
 
-    if (!typeOverride)
+    if (!typeOverride) {
         type = gBattleMoves[move].type;
+        if(attacker->ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
+            type = TYPE_NORMAL;
+    }
     else
         type = typeOverride & DYNAMIC_TYPE_MASK;
 

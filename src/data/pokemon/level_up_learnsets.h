@@ -9000,8 +9000,7 @@ static const struct LevelUpMove sPorist_GamesLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMiscarriage_KangaLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_FAKE_TEARS),
-	LEVEL_UP_MOVE(1, MOVE_BITE),
+	LEVEL_UP_MOVE(1, MOVE_REAL_TEARS),
 	LEVEL_UP_END
 };
 

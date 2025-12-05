@@ -1582,7 +1582,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_DEPENDS,
-        .priority = 0,
+        .priority = 1,
         .flags = 0,
     },
 
@@ -5097,7 +5097,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .power = 83,
         .type = TYPE_FIGHTING,
         .accuracy = 97,
-        .pp = 35,
+        .pp = 41,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -5492,7 +5492,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FAIRY_FANG] =    {
         .effect = EFFECT_HIT,
         .power = 65,
-        .type = TYPE_FAIRY,
+        .type = TYPE_FAIRY_TRANS,
         .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,

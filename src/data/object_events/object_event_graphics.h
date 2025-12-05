@@ -534,3 +534,5 @@ const u32 gObjectEventPic_kalos_bench[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_kalos_bench[] = INCBIN_U16("graphics/object_events/palettes/kalos_bench.gbapal");
 const u32 gObjectEventPic_silver_2[] = INCBIN_U32("graphics/object_events/pics/stupid/silver_2.4bpp");
 const u16 gObjectEventPal_silver_2[] = INCBIN_U16("graphics/object_events/palettes/silver_2.gbapal");
+const u32 gObjectEventPic_flareon[] = INCBIN_U32("graphics/object_events/pics/stupid/flareon.4bpp");
+const u32 gObjectEventPic_drowzee[] = INCBIN_U32("graphics/object_events/pics/stupid/drowzee.4bpp");
