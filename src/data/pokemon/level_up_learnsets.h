@@ -6170,7 +6170,7 @@ static const struct LevelUpMove sEmboarLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sOshawottLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_MEGA_DRAIN),
 	LEVEL_UP_END
 };
 

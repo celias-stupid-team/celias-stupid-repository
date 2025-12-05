@@ -8793,7 +8793,7 @@ voicegroup196::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 85, 0, 154, 165
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 246, 0, 226
+	voice_directsound 60, 0, DirectSoundWaveData_orchestral_hits, 255, 255, 0, 255
 	voice_keysplit voicegroup005, KeySplitTable3
 	voice_keysplit voicegroup006, KeySplitTable4
 	voice_keysplit voicegroup006, KeySplitTable4
