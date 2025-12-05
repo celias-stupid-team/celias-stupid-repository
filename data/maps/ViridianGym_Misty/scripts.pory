@@ -25,3 +25,20 @@ mapscripts ViridianGym_Misty_MapScripts {
         }
     }
 }
+
+script ViridianGym_MistyBattle {
+    trainerbattle_single(TRAINER_DMCA_MISTY, ViridianGym_MistyBattle_Start, ViridianGym_MistyBattle_End)
+    msgbox(
+	"i'm dead\n"
+	"", MSGBOX_DEFAULT)
+}
+
+text ViridianGym_MistyBattle_Start {
+    "yugioh me\n"
+}
+
+
+text ViridianGym_MistyBattle_End {
+   "oh no\n"
+	"exodia"
+}

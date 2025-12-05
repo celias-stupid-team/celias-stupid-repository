@@ -2537,8 +2537,11 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     else
         gBattleMovePower = powerOverride;
 
-    if (!typeOverride)
+    if (!typeOverride) {
         type = gBattleMoves[move].type;
+        if(attacker->ability == ABILITY_NORMALIZE) //couldn't figure out how typeOverride works
+            type = TYPE_NORMAL;
+    }
     else
         type = typeOverride & DYNAMIC_TYPE_MASK;
 
@@ -2643,6 +2646,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (type == TYPE_BUG && attacker->ability == ABILITY_SWARM && attacker->hp <= (attacker->maxHP / 3))
         gBattleMovePower = (150 * gBattleMovePower) / 100;
+    if (move == MOVE_PECK && attacker->ability == ABILITY_BIG_PECKS)
+        gBattleMovePower = (200 * gBattleMovePower) / 100;
 
     // Self-destruct / Explosion cut defense in half
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)

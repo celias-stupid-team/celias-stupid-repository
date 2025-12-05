@@ -104,8 +104,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "GreatBay_TruckGoesInHole",
+      "flag": "FLAG_TRUCK_PUT_IN_HOLE"
     },
     {
       "type": "clone",
@@ -114,6 +114,34 @@
       "y": 32,
       "target_local_id": "5",
       "target_map": "MAP_ROUTE18"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_METEORITE",
+      "x": 17,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatBay_TriangleGoesInHole",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 21,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatBay_GirlGoesInHole",
+      "flag": "FLAG_GIRL_PUT_IN_HOLE"
     }
   ],
   "warp_events": [],

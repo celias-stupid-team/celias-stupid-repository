@@ -49,19 +49,6 @@ Route24_EventScript_RocketTrigger::
 	releaseall
 	end
 
-Route24_EventScript_BattleRocket::
-	giveitem_msg Route24_Text_ReceivedNuggetFromMysteryTrainer, ITEM_NUGGET
-	message Route24_Text_JoinTeamRocket
-	waitmessage
-	playbgm MUS_ENCOUNTER_ROCKET, 0
-	waitbuttonpress
-	setvar VAR_LAST_TALKED, LOCALID_ROUTE24_ROCKET
-	trainerbattle_no_intro TRAINER_DMCA_GRUNT_6, Route24_Text_RocketDefeat
-	msgbox Route24_Text_YoudBecomeTopRocketLeader
-	setvar VAR_MAP_SCENE_ROUTE24, 1
-	setflag FLAG_CSR_MAP_ROUTE_24_FAR
-	call SetPlayerPokedexValues
-	return
 
 Route24_EventScript_RocketApproachPlayer::
 	applymovement LOCALID_ROUTE24_ROCKET, Route24_Movement_RocketApproachPlayer
@@ -227,4 +214,51 @@ script Route24_EventScript_Dad {
 	setflag(FLAG_DAD_ROUTE24)
 	release
 	end
+}
+
+
+script Route24_EventScript_BattleRocket {
+	giveitem_msg(Route24_Text_ReceivedNuggetFromMysteryTrainer, ITEM_NUGGET)
+	message(Route24_Text_JoinTeamRocket)
+	waitmessage
+	playbgm(MUS_ENCOUNTER_ROCKET, 0)
+	waitbuttonpress
+	setvar(VAR_LAST_TALKED, LOCALID_ROUTE24_ROCKET)
+	trainerbattle_no_intro(TRAINER_DMCA_GRUNT_6, Route24_Text_RocketDefeat)
+	msgbox(Route24_Text_YoudBecomeTopRocketLeader, MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Excellent!\n"
+		"That's great to hear!\l"
+		"Let's get the paperwork set up.", MSGBOX_DEFAULT)
+		closemessage
+		fadescreenswapbuffers(FADE_TO_BLACK)
+		msgbox(
+		"And so {PLAYER} became a corporate\n"
+		"goon, spending their life hunting\l"
+		"fan content to get a paycheck.", MSGBOX_DEFAULT)
+		closemessage
+		delay(60)
+		setflag(FLAG_CREDITS_FAKEOUT)
+		msgbox(
+		"The End\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		setvar(VAR_MAP_SCENE_ROUTE24, 1)
+		warpsilent(MAP_CREDITS, 0)
+		//credits?
+	} else {
+		msgbox(
+		"No? C'mon!\n"
+		"Think of the opportunity!", MSGBOX_DEFAULT)
+	}
+	setvar(VAR_MAP_SCENE_ROUTE24, 1)
+	setflag(FLAG_CSR_MAP_ROUTE_24_FAR)
+	call(SetPlayerPokedexValues)
+	return
+}
+
+script Route24_SneakilyHealParty {
+	special(HealPlayerParty)
+	release
 }

@@ -199,7 +199,53 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_C",
+      "var_value": "1",
+      "script": "CinnabarGym_IslandAppears"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -320,6 +366,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CinnabarIsland_Gym_EventScript_BlaineFujiPhoto"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CinnabarGym_BackDoor"
     }
   ]
 }

@@ -1971,6 +1971,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             }
             break;
         case ABILITYEFFECT_MOVES_BLOCK: // 2
+            if (gLastUsedAbility == ABILITY_IMPECKABLE)
+            {
+                if(move == MOVE_PECK) {
+                    if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
+                        gHitMarker |= HITMARKER_NO_PPDEDUCT;
+                    gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
+                    effect = 1;
+                    
+                }
+            }
             if (gLastUsedAbility == ABILITY_SOUNDPROOF)
             {
                 for (i = 0; sSoundMovesTable[i] != SOUND_MOVES_END; i++)

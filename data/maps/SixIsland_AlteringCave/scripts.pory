@@ -7,3 +7,40 @@ SixIsland_AlteringCave_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE
 	end
 `
+
+script AlteringCave_ABC {
+	lockall
+	braillemessage(Braille_Text_ABC)
+	waitbuttonpress
+	releaseall
+}
+
+script AlteringCave_DEFGHI {
+	lockall
+	braillemessage(AlteringCave_Braille_DEFGHI)
+	waitbuttonpress
+	releaseall
+}
+
+
+script AlteringCave_JKLMNO {
+	lockall
+	braillemessage(Braille_Text_JKLMNO)
+	waitbuttonpress
+	releaseall
+}
+
+
+script AlteringCave_PQRSTU {
+	lockall
+	braillemessage(Braille_Text_PQRSTU)
+	waitbuttonpress
+	releaseall
+}
+
+script AlteringCave_V_XYZ {
+	lockall
+	braillemessage(AlteringCave_Braille_V_XYZ)
+	waitbuttonpress
+	releaseall
+}

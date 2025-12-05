@@ -1,6 +1,7 @@
 mapscripts Credits_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_0, 0 {
+            setvar(VAR_TEMP_0, 1)
             lock
             setlayouttiles(LAYOUT_CREDITS_FRAME2, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
@@ -19,7 +20,19 @@ mapscripts Credits_MapScripts {
             delay(20)
             setlayouttiles(LAYOUT_CREDITS_Frame1, 0, 0, 0, 0, 14, 10)
             special(DrawWholeMapView)
-            setvar(VAR_TEMP_0, 1)
+            if(flag(FLAG_CREDITS_FAKEOUT)) { 
+                playbgm(MUS_DUMMY, TRUE)
+                msgbox(
+                "(jk)\n"
+                "", MSGBOX_DEFAULT)
+                clearflag(FLAG_CREDITS_FAKEOUT)
+                setvar(VAR_MAP_SCENE_ROUTE24, 1)
+                setflag(FLAG_CSR_MAP_ROUTE_24_FAR)
+                call(SetPlayerPokedexValues)
+                warpsilent(MAP_CERULEAN_CITY, 3)
+                release
+                end
+            }
         }
     ]
 }

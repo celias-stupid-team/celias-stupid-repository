@@ -1,5 +1,7 @@
 mapscripts AetherParadise_NebbyRoom_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_AETHER_PARADISE)
+    }
 }
 
 
@@ -18,12 +20,6 @@ script AetherParadise_Nebby {
 
 script AetherParadise_NebbyEscapes {
     lock
-    playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
-    msgbox(
-	"NEBBY: Pew! Pew!\n"
-	"", MSGBOX_DEFAULT)
-    waitmoncry
-    closemessage
     msgbox(
 	"Wha-?\p"
 
@@ -31,6 +27,13 @@ script AetherParadise_NebbyEscapes {
 	"", MSGBOX_DEFAULT)
     setvar(VAR_TEMP_9, 0)
     removeitem(ITEM_NEBBY)
+    clearflag(FLAG_HIDE_NEBBY)
+    waitbuttonpress
+    playmoncry(SPECIES_COSMOG, CRY_MODE_DEFAULT)
+    msgbox(
+	"NEBBY: Pew! Pew!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
     closemessage
     release
 }

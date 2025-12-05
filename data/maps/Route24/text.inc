@@ -32,7 +32,7 @@ Route24_Text_YoudBecomeTopRocketLeader::
     .string "With your ability, you'd become\n"
     .string "a top leader in DMCA.\p"
     .string "Come on, think of the opportunity!\n"
-    .string "Don't let this chance go to waste.$"
+    .string "What do you say?$"
 
 Route24_Text_ShaneIntro::
     .string "I saw your feet from the grass!\p"

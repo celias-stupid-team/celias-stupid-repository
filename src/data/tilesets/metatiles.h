@@ -307,3 +307,6 @@ const u32 gMetatileAttributes_TwoIsland_Drugstore[] = INCBIN_U32("data/tilesets/
 
 const u16 gMetatiles_RainbowCloud[] = INCBIN_U16("data/tilesets/secondary/rainbow_cloud/metatiles.bin");
 const u32 gMetatileAttributes_RainbowCloud[] = INCBIN_U32("data/tilesets/secondary/rainbow_cloud/metatile_attributes.bin");
+
+const u16 gMetatiles_pkmnzeroisland[] = INCBIN_U16("data/tilesets/secondary/pkmnzeroisland/metatiles.bin");
+const u32 gMetatileAttributes_pkmnzeroisland[] = INCBIN_U32("data/tilesets/secondary/pkmnzeroisland/metatile_attributes.bin");

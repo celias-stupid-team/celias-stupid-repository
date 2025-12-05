@@ -2,6 +2,11 @@ mapscripts Route15_SodaShop_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_TEMP_2)
         setbench(BENCH_SODA_SHOP)
+        setflag(FLAG_TEMP_6)
+        if(checktrainerflag(TRAINER_TRANS_BUGS)) {
+            clearflag(FLAG_TEMP_6)
+            setflag(FLAG_TEMP_5)
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_1, 0 {
@@ -56,7 +61,7 @@ const FEMALE_OWNER = 5
 script SodaShop_Owner {
     lock
     faceplayer
-    if(!(checktrainerflag(TRAINER_SODASHOP_SAILOR) && checktrainerflag(TRAINER_SODASHOP_SHORTS) && checktrainerflag(TRAINER_SODASHOP_RICHKID))) {
+    if(!(checktrainerflag(TRAINER_SODASHOP_SAILOR) && checktrainerflag(TRAINER_SODASHOP_SHORTS) && checktrainerflag(TRAINER_TRANS_BUGS))) {
         msgbox("I'm the owner of the SEASIDE HOUSE.\nYou can call me Mx. SEA!\pWe got a special drink in from\nCELADON GYM.\lThey say it's a real doozy!\pIf you can defeat all the TRAINERS\nhere, I'll reward your efforts!", MSGBOX_DEFAULT)
     } else {
         if(checkitem(ITEM_GENDER_FLUID)) {
@@ -148,8 +153,60 @@ script SodaShop_Sailor {
 
 }
 
+script SodaShop_TransBugs_F {
+    trainerbattle_double(TRAINER_TRANS_BUGS,
+    "KAT: Did you know POKéMON\n"
+	"evolve?\p"
 
+	"{COLOR RED}BEE: That's why our parents didn't\n"
+	"let us play it.",
+    
+    "Woah!\n"
+	"What a change!", "have more pokemon", SodaShop_SwitchBugs)
+    setflag(FLAG_TEMP_5)
+    clearflag(FLAG_TEMP_6)
+    removeobject(LOCALID_SODASHOP_KID_F)
+    removeobject(LOCALID_SODASHOP_KID_M)
+    addobject(LOCALID_SODASHOP_GROWN_F)
+    addobject(LOCALID_SODASHOP_GROWN_M)
+    msgbox(
+	"KAT: Look at me!\n"
+	"I'm finally free of my shell!", MSGBOX_NPC)
 
+}
+
+script SodaShop_SwitchBugs {
+    setflag(FLAG_TEMP_5)
+    clearflag(FLAG_TEMP_6)
+    removeobject(LOCALID_SODASHOP_KID_F)
+    removeobject(LOCALID_SODASHOP_KID_M)
+    addobject(LOCALID_SODASHOP_GROWN_F)
+    addobject(LOCALID_SODASHOP_GROWN_M)
+    release
+
+}
+
+script SodaShop_TransBugs_M {
+    trainerbattle_double(TRAINER_TRANS_BUGS,
+    "BEE: Did you know POKéMON\n"
+	"evolve?\p"
+
+	"{COLOR BLUE}KAT: That's why our parents didn't\n"
+	"let us play it.",
+    
+    "Woah!\n"
+	"What a change!", "have more pokemon", SodaShop_SwitchBugs)
+    setflag(FLAG_TEMP_5)
+    clearflag(FLAG_TEMP_6)
+    removeobject(LOCALID_SODASHOP_KID_F)
+    removeobject(LOCALID_SODASHOP_KID_M)
+    addobject(LOCALID_SODASHOP_GROWN_F)
+    addobject(LOCALID_SODASHOP_GROWN_M)
+    msgbox(
+    "BEE: I think I'm technically\n"
+	"a COMBEE.", MSGBOX_NPC)
+
+}
 script SodaShop_RichKid {
     trainerbattle_single(TRAINER_SODASHOP_RICHKID, "Sure, I'll accept your challenge.\nI have a lot of money.", "It's…\nIt's just not the same.\n")
     msgbox("I don't understand.\nWhy couldn't I win?\pI purchased all the CELIA'S STUPID\nROMHACK DLC and bonus content.\lI should've won!", MSGBOX_NPC)

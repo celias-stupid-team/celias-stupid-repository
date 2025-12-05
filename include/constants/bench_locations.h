@@ -29,5 +29,7 @@
 #define BENCH_FUSHCIA                26
 #define BENCH_FOUR_ISLAND                27
 #define BENCH_NATIONAL_PARK                28
+#define BENCH_MINNESOTA_GYM                29
+#define BENCH_AETHER_PARADISE                30
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

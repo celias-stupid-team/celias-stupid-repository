@@ -119,4 +119,6 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_COP]             = _("COP"),
     [TRAINER_CLASS_SKIRT]             = _("SKIRT"),
     [TRAINER_CLASS_NINJAS]             = _("THE SHADOW"),
+    [TRAINER_CLASS_BERSERK]             = _("BERSERK"),
+    [TRAINER_CLASS_TRANS_BUGS]             = _("BRO AND SIS"),
 };

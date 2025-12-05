@@ -45,24 +45,25 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SODASHOP_KID_F",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 4,
-      "y": 7,
+      "x": 9,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "SodaShop_RichKid",
-      "flag": "0"
+      "script": "SodaShop_TransBugs_F",
+      "flag": "FLAG_TEMP_5"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 2,
-      "y": 5,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -103,7 +104,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 9,
+      "x": 11,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -129,18 +130,49 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
+      "local_id": "LOCALID_SODASHOP_KID_M",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 3,
-      "y": 7,
+      "x": 10,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "SodaShop_RichKid",
-      "flag": "0"
+      "script": "SodaShop_TransBugs_M",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "local_id": "LOCALID_SODASHOP_GROWN_M",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SodaShop_TransBugs_M",
+      "flag": "FLAG_TEMP_6"
+    },
+    {
+      "local_id": "LOCALID_SODASHOP_GROWN_F",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SodaShop_TransBugs_F",
+      "flag": "FLAG_TEMP_6"
     }
   ],
   "warp_events": [
@@ -149,14 +181,14 @@
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE15",
-      "dest_warp_id": "3"
+      "dest_warp_id": "WARP_ROUTE15_SODASHOP"
     },
     {
       "x": 6,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ROUTE15",
-      "dest_warp_id": "3"
+      "dest_warp_id": "WARP_ROUTE15_SODASHOP"
     }
   ],
   "coord_events": [],

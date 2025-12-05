@@ -6,11 +6,8 @@ Route3_Text_TunnelFromCeruleanTiring::
 	.string "and then into DIGLETTS' CAVE over\l"
 	.string "to ROUTE 2, up through PEWTER and\l"
 	.string "now onto ROUTE 3.\p"
-	.string "It was one heck of a journey, but\n"
-	.string "alas!\l"
-	.string "I had to get back from CERULEAN.\p"
-	.string "Too bad there's no other way here!\n"
-	.string "Darn ledges…$"
+	.string "Too bad that's the only way back\n"
+	.string "from CERULEAN!$"
 
 Route3_Text_ColtonIntro::
     .string "Hey!\n"

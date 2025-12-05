@@ -25,3 +25,22 @@ mapscripts ViridianGym_Sabrina_MapScripts {
         }
     }
 }
+
+
+
+script ViridianGym_SabrinaBattle {
+    trainerbattle_single(TRAINER_DMCA_SABRINA, ViridianGym_SabrinaBattle_Start, ViridianGym_SabrinaBattle_End)
+    msgbox(
+	"i'm dead\n"
+	"", MSGBOX_DEFAULT)
+}
+
+text ViridianGym_SabrinaBattle_Start {
+    "they killed my gym\n"
+}
+
+
+text ViridianGym_SabrinaBattle_End {
+   "oh no\n"
+	"death"
+}

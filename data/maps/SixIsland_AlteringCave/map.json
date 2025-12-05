@@ -3,14 +3,14 @@
   "name": "SixIsland_AlteringCave",
   "layout": "LAYOUT_SIX_ISLAND_ALTERING_CAVE",
   "music": "MUS_SEVII_CAVE",
-  "region_map_section": "MAPSEC_YES",
+  "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
@@ -20,10 +20,51 @@
       "x": 18,
       "y": 22,
       "elevation": 3,
-      "dest_map": "MAP_SIX_ISLAND_OUTCAST_ISLAND",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_V_XYZ"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_PQRSTU"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_JKLMNO"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_DEFGHI"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AlteringCave_ABC"
+    }
+  ]
 }

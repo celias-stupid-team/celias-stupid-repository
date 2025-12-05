@@ -378,11 +378,11 @@
 #define FLAG_PUT_NEBBY_IN_ALTAR               0x14C
 #define FLAG_FOUGHT_FALKNER               0x14D
 #define FLAG_SPAWN_VERMILION_ONIX               0x14E
-#define FLAG_0x14F               0x14F
-#define FLAG_0x150               0x150
-#define FLAG_0x151               0x151
-#define FLAG_0x152               0x152
-#define FLAG_0x153               0x153
+#define FLAG_INSERTED_VALOR_SEAL               0x14F
+#define FLAG_INSERTED_MYSTIC_SEAL               0x150
+#define FLAG_ORTHWORM_POTION               0x151
+#define FLAG_OBTAINED_ZEPHYRBADGE               0x152
+#define FLAG_EVOLVED_MAGNEMITE               0x153
 
 // Item ball hide/show
 
@@ -406,8 +406,8 @@
 #define FLAG_HIDE_ROUTE25_TM43                                  0x163
 #define FLAG_FOUR_ISLAND_EAST_BERRY                          0x164
 #define FLAG_FOUR_ISLAND_WEAST_BERRY                      0x165
-#define FLAG_0x166                      0x166
-#define FLAG_0x167                         0x167
+#define FLAG_DMCA_SURGE_FIRST_GATE                      0x166
+#define FLAG_DMCA_SURGE_SECOND_GATE                         0x167
 #define FLAG_0x168                        0x168
 #define FLAG_0x169                 0x169
 #define FLAG_0x16A                     0x16A
@@ -418,13 +418,13 @@
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_MOON_STONE                 0x16F
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_TM12                       0x170
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_SUPER_POTION               0x171
-#define FLAG_0x172                 0x172
-#define FLAG_0x173                       0x173
+#define FLAG_RELEASED_ZUBAT                 0x172
+#define FLAG_DEFEATED_WAREHOUSE_ADMIN                       0x173
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_TM49                       0x174
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_MAX_ETHER                  0x175
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM                    0x176
-#define FLAG_0x177                  0x177
-#define FLAG_0x178                       0x178
+#define FLAG_TALKED_TO_BLAINE                  0x177
+#define FLAG_MIRAGE_ISLAND_APPEARS                       0x178
 #define FLAG_0x179                    0x179
 #define FLAG_0x17A                   0x17A
 #define FLAG_0x17B                       0x17B
@@ -938,14 +938,14 @@
 #define FLAG_GOT_PENCIL_ERASER               0x35D
 #define FLAG_GOT_ODDISH               0x35E
 #define FLAG_HELPED_MILTANK               0x35F
-#define FLAG_0x360               0x360
-#define FLAG_0x361               0x361
-#define FLAG_0x362               0x362
-#define FLAG_0x363               0x363
-#define FLAG_0x364               0x364
-#define FLAG_0x365               0x365
-#define FLAG_0x366               0x366
-#define FLAG_0x367               0x367
+#define FLAG_TRUCK_PUT_IN_HOLE               0x360
+#define FLAG_GIRL_PUT_IN_HOLE               0x361
+#define FLAG_BOULDER_PUT_IN_HOLE               0x362
+#define FLAG_TRIANGLE_PUT_IN_HOLE               0x363
+#define FLAG_OPENED_SKY_TOWER               0x364
+#define FLAG_GOT_CATERPIE               0x365
+#define FLAG_CREDITS_FAKEOUT               0x366
+#define FLAG_GOT_BALM_MUSHROOM               0x367
 #define FLAG_0x368               0x368
 #define FLAG_0x369               0x369
 #define FLAG_0x36A               0x36A
@@ -1402,7 +1402,7 @@
 #define FLAG_SYS_DISABLE_SAVE                                                  (SYS_FLAGS + 0xE)
 #define FLAG_SYS_CARRYING_BOX                                                  (SYS_FLAGS + 0xF)
 #define FLAG_SYS_BILL_GARDEN                                                  (SYS_FLAGS + 0x10)
-#define FLAG_0x811                                                  (SYS_FLAGS + 0x11)
+#define FLAG_SYS_SKUNTANK_FIGHT                                                  (SYS_FLAGS + 0x11)
 #define FLAG_0x812                                                  (SYS_FLAGS + 0x12)
 #define FLAG_0x813                                                  (SYS_FLAGS + 0x13)
 #define FLAG_0x814                                                  (SYS_FLAGS + 0x14)

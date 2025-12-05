@@ -1,2 +1,88 @@
 mapscripts Zero_Island_MapScripts {
 }
+
+
+script ZeroIsland_InstinctPillar {
+    lock
+    if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
+        msgbox(
+        "it's a instinct thing\p"
+
+        "it's yellow\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "it's a instinct thing\n"
+        "", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+
+script ZeroIsland_ValorPillar {
+    lock
+    if(flag(FLAG_INSERTED_VALOR_SEAL)) {
+        msgbox(
+        "it's a valor thing\p"
+
+        "it's red\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "it's a valor thing\n"
+        "", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+
+script ZeroIsland_MysticPillar {
+    lock
+    if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
+        msgbox(
+        "it's a mystic thing\p"
+
+        "it's purple\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "it's a mystic thing\n"
+        "", MSGBOX_DEFAULT)
+    }
+    release
+}
+
+script ZeroIsland_OpenDoor {
+    lock
+    if(!(flag(FLAG_INSERTED_MYSTIC_SEAL) && flag(FLAG_INSERTED_INSTINCT_SEAL) && flag(FLAG_INSERTED_VALOR_SEAL))) {
+        msgbox(
+        "it's a door\p"
+
+        "it is locked\n"
+        "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+        "it's a door\p"
+
+        "it is locked\n"
+        "but it can stop being locked", MSGBOX_DEFAULT)
+        closemessage
+        delay(30)
+        msgbox(
+        "something cool happens\n"
+        "", MSGBOX_DEFAULT)
+        closemessage
+        playmoncry(SPECIES_MOLTRES, CRY_MODE_DEFAULT)
+        waitmoncry
+        playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
+        waitmoncry
+        playmoncry(SPECIES_ARTICUNO, CRY_MODE_DEFAULT)
+        waitmoncry
+        delay(30)
+        msgbox(
+        "the door is open\n"
+        "", MSGBOX_DEFAULT)
+        //setmetatile
+    }
+    release
+}

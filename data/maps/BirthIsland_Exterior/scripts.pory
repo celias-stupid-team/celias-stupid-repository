@@ -112,3 +112,14 @@ Movement_DeoxysApproach:
 	walk_slower_down
 	step_end
 `
+
+script BirthIsland_StoneFlewAway {
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_faster_up * 8
+	))
+	removeobject(VAR_LAST_TALKED)
+	setflag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)
+	msgbox(
+	"It flew away…\n"
+	"", MSGBOX_DEFAULT)
+}

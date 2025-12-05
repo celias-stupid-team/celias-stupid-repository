@@ -20,6 +20,19 @@ script Route9_SetMap {
 }
 
 
+script Route9_Drowzee {
+	lock
+	playmoncry(SPECIES_DROWZEE, CRY_MODE_DEFAULT)
+	msgbox(
+	"DROWZEE: Drowoww!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox(
+	"He's guarding a dangerous\n"
+	"criminal.", MSGBOX_DEFAULT)
+	release
+}
 
 script CeliaSecrets_Route9_Ledge {
 	msgbox("I had to put a second ledge blocking\nthe way here cuz people kept trying\lto explore the bottom first.\pThe joke doesn't land right when\nyou don't take the top path.\lThus, I had to block it.", MSGBOX_NPC)

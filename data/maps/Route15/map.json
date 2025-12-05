@@ -316,6 +316,7 @@
   ],
   "warp_events": [
     {
+      "warp_id": "WARP_ROUTE15_GATE_RIGHT",
       "x": 8,
       "y": 11,
       "elevation": 3,
@@ -323,6 +324,7 @@
       "dest_warp_id": "2"
     },
     {
+      "warp_id": "WARP_ROUTE15_LIGHTHOUSE",
       "x": 42,
       "y": 23,
       "elevation": 0,
@@ -330,6 +332,7 @@
       "dest_warp_id": "0"
     },
     {
+      "warp_id": "WARP_ROUTE15_SODASHOP",
       "x": 18,
       "y": 23,
       "elevation": 0,
@@ -337,6 +340,7 @@
       "dest_warp_id": "0"
     },
     {
+      "warp_id": "WARP_ROUTE15_SANDWICHSHOP",
       "x": 16,
       "y": 9,
       "elevation": 0,
@@ -344,6 +348,7 @@
       "dest_warp_id": "0"
     },
     {
+      "warp_id": "WARP_ROUTE15_GATE_LEFT",
       "x": 1,
       "y": 11,
       "elevation": 3,

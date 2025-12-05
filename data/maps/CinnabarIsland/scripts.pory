@@ -550,3 +550,39 @@ script CinnabarIsland_NoItemsWhileSurfing {
 	"Man, isn't it annoying that you\n"
 	"can't grab ITEMS while SURFING?", MSGBOX_NPC)
 }
+
+
+script CinnabarIsland_ValorCrestPedestal {
+	lock
+	if(flag(FLAG_INSERTED_VALOR_SEAL)) {
+		msgbox("The VALOR SEAL has been\ninserted.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("The pedestal is engraved with\nthe number three.", MSGBOX_DEFAULT)
+		if(checkitem(ITEM_VALOR_SEAL)) {
+			msgbox("Would you like to insert the\nVALOR SEAL?", MSGBOX_YESNO)
+			if(var(VAR_RESULT)) {
+				setflag(FLAG_INSERTED_VALOR_SEAL)
+				removeitem(ITEM_VALOR_SEAL)
+				msgbox("{PLAYER} inserted the\nVALOR SEAL…", MSGBOX_DEFAULT)
+				closemessage
+				fadeoutbgm(1)
+				playse(SE_SWITCH)
+				delay(30)
+				playse(SE_M_EARTHQUAKE)
+				setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 30)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+				special(ShakeScreen)
+				waitse
+				delay(20)
+				//call(Route18_SetZapdosStatue) Change the thingy
+				special(DrawWholeMapView)
+				playmoncry(SPECIES_MOLTRES, CRY_MODE_NORMAL)
+				fadeinbgm(1)
+				waitmoncry
+			}
+		}
+	}
+	release
+}

@@ -22,6 +22,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "party_menu.h"
+#include "event_data.h"
 
 static void OpponentHandleGetMonData(void);
 static void OpponentHandleGetRawMonData(void);
@@ -1142,6 +1143,9 @@ static void OpponentHandleDrawTrainerPic(void)
         trainerPicId = GetEreaderTrainerFrontSpriteId();
     else
         trainerPicId = gTrainers[gTrainerBattleOpponent_A].trainerPic;
+        if((trainerPicId == TRAINER_PIC_BABY_BUG && (gBattleOutcome == B_OUTCOME_WON))) { //What is rest of conditional??
+            trainerPicId = TRAINER_PIC_TRANS_BUG;
+        }
     DecompressTrainerFrontPic(trainerPicId, gActiveBattler);
     SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(gActiveBattler));
     gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate,
@@ -1172,6 +1176,11 @@ static void OpponentHandleTrainerSlide(void)
         trainerPicId = GetEreaderTrainerFrontSpriteId();
     else
         trainerPicId = gTrainers[gTrainerBattleOpponent_A].trainerPic;
+        if((trainerPicId == TRAINER_PIC_BABY_BUG && (gBattleOutcome == B_OUTCOME_WON))) { //What is rest of conditional??
+            trainerPicId = TRAINER_PIC_TRANS_BUG;
+            FlagSet(FLAG_TEMP_5);
+            FlagClear(FLAG_TEMP_6);
+        }
     DecompressTrainerFrontPic(trainerPicId, gActiveBattler);
     SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, GetBattlerPosition(gActiveBattler));
     gBattlerSpriteIds[gActiveBattler] = CreateSprite(&gMultiuseSpriteTemplate,

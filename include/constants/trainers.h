@@ -201,6 +201,9 @@
 #define TRAINER_PIC_OAK_TREE   179
 #define TRAINER_PIC_BARRY   180
 #define TRAINER_PIC_COOKIE   181
+#define TRAINER_PIC_SILVER   182
+#define TRAINER_PIC_BABY_BUG   183
+#define TRAINER_PIC_TRANS_BUG   184
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -336,6 +339,8 @@
 #define TRAINER_CLASS_COP             117
 #define TRAINER_CLASS_SKIRT             118
 #define TRAINER_CLASS_NINJAS             119
+#define TRAINER_CLASS_BERSERK             120
+#define TRAINER_CLASS_TRANS_BUGS             121
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

@@ -1,3 +1,44 @@
 mapscripts GreatSea_PirateBay_MapScripts {
 
 }
+
+script PirateBay_BuyItOrDie {
+	msgbox(
+	"Hello! If you like this game,\n"
+	"buy it or die.", MSGBOX_NPC) //Buy or Die message box appears
+}
+
+script PirateBay_PokeharborSign {
+	msgbox(
+	"POKéHARBOR\p"
+
+	"We steal from you.\n"
+	"Thanks!", MSGBOX_SIGN)
+
+}
+
+script PirateBay_PrePatchedPirate {
+	msgbox(
+	"Arr…\n"
+	"What happened to me eye, ye ask?\p"
+
+	"Ahaha!\n"
+	"Actually, I came pre-patched!", MSGBOX_NPC)
+}
+
+script PirateBay_BreakTheSealHint {
+	msgbox(
+	"There was a powerful POKéMON that\n"
+	"once something something\l"
+	"However, it has been SEALED away.\p"
+
+	"To find it something something\n"
+	"you must break the SEAL!", MSGBOX_NPC)
+}
+
+
+//Potion Shop
+
+//Burn Drive Shop
+
+//One Piece shop

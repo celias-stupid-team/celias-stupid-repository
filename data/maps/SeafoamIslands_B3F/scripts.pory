@@ -94,6 +94,45 @@ SeafoamIslands_B3F_Movement_RideCurrentClose::
 	step_end
 `
 
+script SeafoamIslands_ZubatWall {
+	lock
+	msgbox(
+	"There is a brick wall in the way.\n"
+	"", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"Breaking this wall will release\n"
+	"whatever is behind it.", MSGBOX_DEFAULT)
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+	delay(20)
+	playmoncry(SPECIES_ZUBAT, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"Would you like to break it, even\n"
+	"despite knowing the consequences?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"wall breaks\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		removeobject(LOCALID_ZUBAT_WALL)
+		delay(30)
+		msgbox(
+		"it is implied that zubat comes out\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		playmoncry(SPECIES_ZUBAT, CRY_MODE_ENCOUNTER)
+		setwildbattle(SPECIES_ZUBAT, 30)
+		dowildbattle
+		release
+		end
+	} else {
+		release
+		end
+	}
+}
+
 
 script SeafoamIslands_SphealBounce_1 { //these need other direction too, eventually
 	lock

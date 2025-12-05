@@ -110,6 +110,24 @@ script AetherParadise_SkuntankBattle {
 	msgbox(
 	"I am skuntank\n"
 	"fuck you", MSGBOX_DEFAULT)
+	setflag(FLAG_SYS_KANGA_FIGHT)
+	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
+	playbgm(MUS_DUMMY, TRUE)
+	setflag(FLAG_SYS_KANGA_FIGHT)
+	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_WON:
+			msgbox(
+			"you win\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_PLAYER_TELEPORTED:
+			break
+	}
 	release
 }
 
@@ -118,4 +136,37 @@ script AetherParadise_SkullGruntDmca {
 	msgbox(
 	"be careful the dmca is here\n"
 	"", MSGBOX_NPC)
+}
+
+ script AetherParadise_EmergencyExit {
+	msgbox(
+	"It's labeled “EMERGENCY EXIT.”\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script AetherParadise_WimpOut {
+	msgbox(
+	"It's labeled “Door for WIMPS!”\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script AetherParadise_PotionLady {
+	msgbox(
+	"There's a legend in my home\n"
+	"region of a cave hidden somewhere.\p"
+
+	"POKéMON inside grow to be TITANS\n"
+	"by feeding on a rare medicine…", MSGBOX_NPC)
+}
+
+script AetherParadise_NebbyGuy {
+	msgbox(
+	"Somewhere in KANTO, there exists\n"
+	"the ALTAR OF THE MOONE.\p"
+
+	"Legends say if you bring this\n"
+	"POKéMON there and hold it up,\l"
+	"something incredible may happen.", MSGBOX_NPC)
 }

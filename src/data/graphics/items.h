@@ -914,3 +914,6 @@ const u32 gItemIconPalette_RatStone[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_PremierCandy[] = INCBIN_U32("graphics/items/icons/premier_candy.4bpp.lz");
 const u32 gItemIconPalette_PremierCandy[] = INCBIN_U32("graphics/items/icon_palettes/premier_candy.gbapal.lz");
+
+const u32 gItemIcon_BalmMushroom[] = INCBIN_U32("graphics/items/icons/balm_mushroom.4bpp.lz");
+const u32 gItemIconPalette_BalmMushroom[] = INCBIN_U32("graphics/items/icon_palettes/balm_mushroom.gbapal.lz");
