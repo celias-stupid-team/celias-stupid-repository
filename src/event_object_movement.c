@@ -499,6 +499,10 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_CHINCHOU  0x1148
 #define OBJ_EVENT_PAL_TAG_KALOS_BENCH  0x1149
 #define OBJ_EVENT_PAL_TAG_SILVER_2  0x114A
+#define OBJ_EVENT_PAL_TAG_SNOVER  0x114B
+#define OBJ_EVENT_PAL_TAG_SENTRET  0x114C
+#define OBJ_EVENT_PAL_TAG_PI  0x114D
+#define OBJ_EVENT_PAL_TAG_TABITHA  0x114E
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -571,6 +575,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_chinchou,             OBJ_EVENT_PAL_TAG_CHINCHOU},
     {gObjectEventPal_kalos_bench,             OBJ_EVENT_PAL_TAG_KALOS_BENCH},
     {gObjectEventPal_silver_2,             OBJ_EVENT_PAL_TAG_SILVER_2},
+    {gObjectEventPal_snover,             OBJ_EVENT_PAL_TAG_SNOVER},
+    {gObjectEventPal_SENTRET,             OBJ_EVENT_PAL_TAG_SENTRET},
+    {gObjectEventPal_pi,             OBJ_EVENT_PAL_TAG_PI},
+    {gObjectEventPal_tabitha,             OBJ_EVENT_PAL_TAG_TABITHA},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

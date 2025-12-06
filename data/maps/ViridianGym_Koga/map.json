@@ -17,7 +17,7 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_DAD",
+      "graphics_id": "OBJ_EVENT_GFX_UNCLE",
       "x": 5,
       "y": 5,
       "elevation": 0,
@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SNORLAX",
+      "graphics_id": "OBJ_EVENT_GFX_SNOVER",
       "x": 9,
       "y": 4,
       "elevation": 0,
