@@ -1044,6 +1044,7 @@ SECTIONS {
         sound/songs/midi/mus_pyrite_town.o(.rodata);
         sound/songs/midi/mus_cerulean_center.o(.rodata);
         sound/songs/midi/mus_koopa_bros.o(.rodata);
+        sound/songs/midi/mus_grand_finale.o(.rodata);
 
     } > ROM =0
 

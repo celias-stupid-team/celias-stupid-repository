@@ -534,6 +534,7 @@ script SafariZone_Center_Chuckster {
 	waitmovement(0)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
 	delay(30)
+	release
 
 }
 

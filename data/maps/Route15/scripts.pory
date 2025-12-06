@@ -426,3 +426,49 @@ movement Route15_Lighthouse_FatGuy3 {
 movement Route15_Lighthouse_WalkDown {
 	walk_down
 }
+
+script Route15_Chuckster {
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
+}

@@ -3782,7 +3782,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_MUS_STRAIGHT_PEOPLE) \
     X(MUS_PYRITE_TOWN) \
     X(MUS_CERULEAN_CENTER) \
-    X(MUS_KOOPA_BROS)
+    X(MUS_KOOPA_BROS) \
+    X(MUS_GRAND_FINALE)
 
 #define SOUND_LIST_SE            \
     X(SE_USE_ITEM)               \
