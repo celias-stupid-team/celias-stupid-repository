@@ -50,7 +50,7 @@ script ThirtyEightIsland_DarnBarn {
 	"Wha-\n"
 	"Hey!\p"
 
-	"This darn barn's made of yarn!\n"
+	"This darn barn's made a' yarn!\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -64,10 +64,28 @@ script ThirtyEightIsland_HelpMiltank {
 script ThirtyEightIsland_MommyMilkers {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    if(flag(FLAG_GOT_CREAM_DROP)) {
+        msgbox(
+        "The MOOMOO MILK…{PAUSE 30}\n"
+        "Has all sold out.", MSGBOX_DEFAULT)
+        }
+        release
+        end
 	msgbox(
-	"Would you like some\n"
-	"MOOMOO MILK?", MSGBOX_YESNO)
-    release
+	"Hello… … …\n"
+	"Would you like some MOOMOO MILK?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox(
+        "We are unfortunately…\n"
+        "{PAUSE 30}Out of MOOMOO MILK.\p"
+
+        "Here…{PAUSE 30}\n"
+        "Take this instead.", MSGBOX_DEFAULT)
+        giveitem_msg("{PLAYER} got the mysterious\nCREAM DROP!", ITEM_CREAM_DROP)
+        waitfanfare
+        setflag(FLAG_GOT_CREAM_DROP)
+    }
 }
 
 script ThirtyEightIsland_Miltank {
@@ -167,4 +185,11 @@ script ThirtyEightIsland_GoldenRod {
     giveitem_msg("{PLAYER} obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
     waitfanfare
     release
+}
+
+script ThirtyEightIsland_RouteSign {
+	msgbox(
+	"THIRTY EIGHT ISLAND\n"
+	"New Wild POKéMON: 1", MSGBOX_SIGN)
+
 }
