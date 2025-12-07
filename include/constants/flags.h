@@ -425,7 +425,7 @@
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM                    0x176
 #define FLAG_TALKED_TO_BLAINE                  0x177
 #define FLAG_MIRAGE_ISLAND_APPEARS                       0x178
-#define FLAG_0x179                    0x179
+#define FLAG_SAW_CELIA_ROUTE15                    0x179
 #define FLAG_0x17A                   0x17A
 #define FLAG_0x17B                       0x17B
 #define FLAG_0x17C                   0x17C
