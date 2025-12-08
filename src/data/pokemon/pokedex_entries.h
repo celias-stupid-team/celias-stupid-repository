@@ -5373,9 +5373,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
 
     
-    [NATIONAL_DEX_BUZZWOLE] =
+    [NATIONAL_DEX_SUDOWOODO] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("AUTHORITY"),
         .height = 19,
         .weight = 151.5,
         .description = gYanmegaPokedexText,

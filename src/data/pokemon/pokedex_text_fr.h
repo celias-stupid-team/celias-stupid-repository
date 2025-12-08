@@ -1218,7 +1218,7 @@ const u8 gYanmaPokedexText[] = _(
 const u8 gYanmaPokedexTextUnused[] = _("");
 
 const u8 gYanmegaPokedexText[] = _(
-	"What, you thought that bug\n"
+	"What, you thought that sap\n"
 	"was gonna turn into a bird?");
 
 

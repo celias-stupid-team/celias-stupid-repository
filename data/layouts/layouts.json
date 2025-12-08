@@ -2525,7 +2525,7 @@
       "id": "LAYOUT_SILPH_CO_ELEVATOR",
       "name": "SilphCo_Elevator_Layout",
       "width": 5,
-      "height": 7,
+      "height": 9,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",

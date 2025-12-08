@@ -403,7 +403,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_TYRANASTAR) // 131
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_BUZZWOLE) // 132
+		setobtainable(SPECIES_SUDOWOODO) // 132
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
@@ -724,7 +724,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintOmanyte)
 		case SPECIES_TYRANASTAR: 
 			 msgbox(PokedexRating_Text_HintTyranastar)
-		case SPECIES_BUZZWOLE: 
+		case SPECIES_SUDOWOODO: 
 			 msgbox(PokedexRating_Text_HintBuzzwole)
 		case SPECIES_LUVDISC: 
 			 msgbox(PokedexRating_Text_HintLuvdisc)

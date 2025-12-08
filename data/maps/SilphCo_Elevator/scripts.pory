@@ -143,3 +143,18 @@ SilphCo_Elevator_EventScript_MoveElevator::
 	setflag FLAG_TEMP_2
 	return
 `
+
+
+script SilphCo_Elevator_Rat {
+	lock
+	msgbox(
+	"…{PAUSE 60}Rats.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script SilphCo_Elevator_RavePossum {
+	msgbox(
+	"Well technically, I'm a possum.\n"
+	"", MSGBOX_NPC)
+}
