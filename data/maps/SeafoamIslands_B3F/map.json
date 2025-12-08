@@ -206,7 +206,7 @@
     {
       "local_id": "LOCALID_ZUBAT_WALL",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BRICK_WALL",
+      "graphics_id": "OBJ_EVENT_GFX_BRICKWALL",
       "x": 8,
       "y": 2,
       "elevation": 0,

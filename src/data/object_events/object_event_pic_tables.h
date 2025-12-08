@@ -1912,15 +1912,15 @@ overworld_frame(gObjectEventPic_Alola_oak, 4, 8, 8),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_BrickWall[] = {
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 0),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 1),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 2),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 3),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 4),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 5),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 6),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 7),
-overworld_frame(gObjectEventPic_Brick_wall, 4, 4, 8),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 1),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 2),
+    overworld_frame(gObjectEventPic_Brick_wall, 8, 8, 2),
 };
 
 const struct SpriteFrameImage gObjectEventPicTable_Karen[] = {
@@ -4104,17 +4104,6 @@ const struct SpriteFrameImage gObjectEventPicTable_petrel_2[] = {
     overworld_frame(gObjectEventPic_petrel_2, 2, 4, 6),
     overworld_frame(gObjectEventPic_petrel_2, 2, 4, 7),
     overworld_frame(gObjectEventPic_petrel_2, 2, 4, 8),
-};
-const struct SpriteFrameImage gObjectEventPicTable_brick_wall[] = {
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 0),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 1),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
-    overworld_frame(gObjectEventPic_brick_wall, 8, 8, 2),
 };
 const struct SpriteFrameImage gObjectEventPicTable_tirtouga[] = {
     overworld_frame(gObjectEventPic_tirtouga, 4, 4, 0),
