@@ -296,8 +296,7 @@ const u32 gObjectEventPic_Rotom_dex[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_Mario_star[] = INCBIN_U32("graphics/object_events/pics/stupid/Mario_Star.4bpp");
 const u32 gObjectEventPic_Chain_chomp[] = INCBIN_U32("graphics/object_events/pics/stupid/Chain_Chomp.4bpp");
 const u32 gObjectEventPic_Bobomb_buddy[] = INCBIN_U32("graphics/object_events/pics/stupid/BobOmb_Buddy.4bpp");
-const u32 gObjectEventPic_Moltres_egg[] = INCBIN_U32("graphics/object_events/pics/stupid/Moltres_Egg.4bpp");
-const u32 gObjectEventPic_Articuno_egg[] = INCBIN_U32("graphics/object_events/pics/stupid/Articuno_Egg.4bpp");
+
 const u32 gObjectEventPic_Trash_dad[] = INCBIN_U32("graphics/object_events/pics/stupid/Trash_Dad.4bpp");
 const u32 gObjectEventPic_Snake[] = INCBIN_U32("graphics/object_events/pics/stupid/Snake.4bpp");
 const u32 gObjectEventPic_Nebby[] = INCBIN_U32("graphics/object_events/pics/stupid/Nebby.4bpp");

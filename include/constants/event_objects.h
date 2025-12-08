@@ -170,8 +170,8 @@
 #define OBJ_EVENT_GFX_MARIOSTAR                        158          //Placeholder
 #define OBJ_EVENT_GFX_CHAINCHOMP                        159          //Placeholder
 #define OBJ_EVENT_GFX_BOBOMBBUDDY                        160
-#define OBJ_EVENT_GFX_MOLTRESEGG                        161          //Placeholder
-#define OBJ_EVENT_GFX_ARTICUNOEGG                        162          //Placeholder
+#define OBJ_EVENT_GFX_DUMMY_2                        161          //Placeholder
+#define OBJ_EVENT_GFX_DUMMY_3                        162          //Placeholder
 #define OBJ_EVENT_GFX_TRASHDAD                        163          //Placeholder
 #define OBJ_EVENT_GFX_SNAKE                        164          //Placeholder
 #define OBJ_EVENT_GFX_NEBBY                        165          //Placeholder

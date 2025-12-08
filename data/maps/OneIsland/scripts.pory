@@ -274,3 +274,65 @@ script OneIsland_RockClimbDown {
 	releaseall
 
 }
+
+script OneIsland_ClamperlTrainer {
+	lock
+	faceplayer
+	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE)) {
+		msgbox(
+		"JACK: What, did you think I was\n"
+		"gonna let you LEARN the move?\l"
+		"Pfft, nope!\p"
+
+		"But c'mon, let's go again.\n"
+		"I want you to really savor it.", MSGBOX_DEFAULT)
+	} else {
+		setflag(FLAG_TRIED_WHIRLPOOL_BATTLE)
+		msgbox(
+		"Ahahaha!\n"
+		"Sup, loser!\p"
+
+		"That's right: I know how to\n"
+		"get past those WHIRLPOOLS!\p"
+
+		"How about you take a look?\n"
+		"", MSGBOX_DEFAULT)
+
+	}
+	if(checkpartymon(SPECIES_SMEARGLE)) {
+		trainerbattle_no_intro(TRAINER_WHIRLPOOL_GUY, "Wha-\nHey!")
+		msgbox(
+		"JACK: Wait-!\n"
+		"Did you just…?", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+		release
+		end
+
+	} else {
+		trainerbattle_no_intro(TRAINER_WHIRLPOOL_GUY, "Haha!\pIsn't that cool?")
+		msgbox(
+		"JACK: Heh.\n"
+		"Pretty cool, right?\p"
+
+		"I'll happily let you watch the\n"
+		"technique anytime you want.", MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+		release
+		end
+	}
+}
+
+script OneIsland_ClamperlGirl {
+	msgbox(
+	"That guy up there's a real\n"
+	"jerk!\p"
+
+	"He knows how to cross WHIRLPOOLS,\n"
+	"but he won't tell anyone else how!", MSGBOX_NPC)
+}

@@ -6714,4 +6714,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_TransBugs),
     },
+    
+    [TRAINER_WHIRLPOOL_GUY] = {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("JACK"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ClamperlGuy),
+    },
 };

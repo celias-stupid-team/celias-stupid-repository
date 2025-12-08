@@ -427,7 +427,7 @@
 #define FLAG_MIRAGE_ISLAND_APPEARS                       0x178
 #define FLAG_SAW_CELIA_ROUTE15                    0x179
 #define FLAG_GOT_CREAM_DROP                   0x17A
-#define FLAG_0x17B                       0x17B
+#define FLAG_TRIED_WHIRLPOOL_BATTLE                       0x17B
 #define FLAG_0x17C                   0x17C
 #define FLAG_0x17D                   0x17D
 #define FLAG_0x17E                                  0x17E

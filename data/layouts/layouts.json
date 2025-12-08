@@ -2620,12 +2620,12 @@
     {
       "id": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
       "name": "OneIsland_KindleRoad_Layout",
-      "width": 24,
-      "height": 140,
+      "width": 18,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_SeafoamIslands",
       "border_filepath": "data/layouts/OneIsland_KindleRoad/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad/map.bin"
     },

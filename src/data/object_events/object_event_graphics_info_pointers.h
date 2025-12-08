@@ -160,8 +160,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotomDex;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarioStar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChainChomp;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BobombBuddy;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MoltresEgg;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ArticunoEgg;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrashDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby;
@@ -569,8 +567,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MARIOSTAR] =         &gObjectEventGraphicsInfo_MarioStar,
     [OBJ_EVENT_GFX_CHAINCHOMP] =         &gObjectEventGraphicsInfo_ChainChomp,
     [OBJ_EVENT_GFX_BOBOMBBUDDY] =         &gObjectEventGraphicsInfo_BobombBuddy,
-    [OBJ_EVENT_GFX_MOLTRESEGG] =         &gObjectEventGraphicsInfo_MoltresEgg,
-    [OBJ_EVENT_GFX_ARTICUNOEGG] =         &gObjectEventGraphicsInfo_ArticunoEgg,
     [OBJ_EVENT_GFX_TRASHDAD] =         &gObjectEventGraphicsInfo_TrashDad,
     [OBJ_EVENT_GFX_SNAKE] =         &gObjectEventGraphicsInfo_Snake,
     [OBJ_EVENT_GFX_NEBBY] =         &gObjectEventGraphicsInfo_Nebby,

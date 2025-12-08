@@ -2393,18 +2393,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
-    [NATIONAL_DEX_SUDOWOODO] =
-    {
-        .categoryName = _("IMITATION"),
-        .height = 12,
-        .weight = 380,
-        .description = gSudowoodoPokedexText,
-        .unusedDescription = gSudowoodoPokedexTextUnused,
-        .pokemonScale = 305,
-        .pokemonOffset = 7,
-        .trainerScale = 256,
-        .trainerOffset = -2,
-    },
+
 
     [NATIONAL_DEX_POLITOED] =
     {

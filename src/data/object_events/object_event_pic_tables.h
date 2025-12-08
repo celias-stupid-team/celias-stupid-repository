@@ -1861,29 +1861,7 @@ overworld_frame(gObjectEventPic_Bobomb_buddy, 2, 2, 7),
 overworld_frame(gObjectEventPic_Bobomb_buddy, 2, 2, 8),
 };
 
-const struct SpriteFrameImage gObjectEventPicTable_MoltresEgg[] = {
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 0),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 1),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 2),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 3),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 4),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 5),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 6),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 7),
-overworld_frame(gObjectEventPic_Moltres_egg, 4, 4, 8),
-};
 
-const struct SpriteFrameImage gObjectEventPicTable_ArticunoEgg[] = {
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 0),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 1),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 2),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 3),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 4),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 5),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 6),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 7),
-overworld_frame(gObjectEventPic_Articuno_egg, 4, 4, 8),
-};
 
 const struct SpriteFrameImage gObjectEventPicTable_TrashDad[] = {
 overworld_frame(gObjectEventPic_Trash_dad, 4, 2, 0),
