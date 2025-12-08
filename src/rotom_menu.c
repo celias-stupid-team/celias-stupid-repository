@@ -133,10 +133,10 @@ static EWRAM_DATA u8 sSaveDialogTimer = 0;
 static EWRAM_DATA u8 sSaveInfoWindowId = 0;
 
 // --BG-GFX--
-static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/bg.4bpp.lz");
-static const u32 sStartMenuTilemap[] = INCBIN_U32("graphics/rotom_menu/bg.bin.lz");
+static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/rotom_new.4bpp.lz");
+static const u32 sStartMenuTilemap[] = INCBIN_U32("graphics/rotom_menu/rotom_new.bin.lz");
 static const u32 sStartMenuTilemapSafari[] = INCBIN_U32("graphics/rotom_menu/bg_safari.bin.lz");
-static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/bg.gbapal");
+static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
 //--SPRITE-GFX--
@@ -678,36 +678,36 @@ static const u8 sText_Options[] = _("   Options");
 static const u8 sText_Retire[]    = _("   Retire");
 
 static void RotomStartMenu_UpdateMenuName(void) {
-    FillWindowPixelBuffer(sRotomStartMenu->sMenuNameWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    PutWindowTilemap(sRotomStartMenu->sMenuNameWindowId);
+    // FillWindowPixelBuffer(sRotomStartMenu->sMenuNameWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
+    // PutWindowTilemap(sRotomStartMenu->sMenuNameWindowId);
 
-    switch(sMenuSelected) {
-    case MENU_POKEDEX:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Pokedex, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_PARTY:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Party, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_PC:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_PC, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_BAG:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Bag, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_TRAINER_CARD:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Trainer, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_SAVE:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Save, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_OPTIONS:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Options, 1, 0, 0xFF, NULL);
-        break;
-    case MENU_RETIRE:
-        AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Retire, 1, 0, 0xFF, NULL);
-        break;
-    }
-    CopyWindowToVram(sRotomStartMenu->sMenuNameWindowId, COPYWIN_GFX);
+    // switch(sMenuSelected) {
+    // case MENU_POKEDEX:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Pokedex, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_PARTY:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Party, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_PC:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_PC, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_BAG:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Bag, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_TRAINER_CARD:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Trainer, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_SAVE:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Save, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_OPTIONS:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Options, 1, 0, 0xFF, NULL);
+    //     break;
+    // case MENU_RETIRE:
+    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Retire, 1, 0, 0xFF, NULL);
+    //     break;
+    // }
+    // CopyWindowToVram(sRotomStartMenu->sMenuNameWindowId, COPYWIN_GFX);
 }
 
 static void RotomStartMenu_ExitAndClearTilemap(void) {
