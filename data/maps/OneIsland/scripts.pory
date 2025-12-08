@@ -150,7 +150,7 @@ script OneIsland_MysticCrestPedestal {
 
 
 script OneIsland_Whirlpool {
-	lock
+	lockall
 	checkpartymove(MOVE_WHIRLPOOL)
 	if(var(VAR_RESULT) >= PARTY_SIZE) {
 		msgbox(
@@ -162,7 +162,7 @@ script OneIsland_Whirlpool {
 		"it's a whirlpool?\n"
 		"", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			special(GetPlayerFacingDirection)
+			specialvar(VAR_RESULT, GetPlayerFacingDirection)
 			msgbox(
 			"zoom\n"
 			"", MSGBOX_DEFAULT)
@@ -170,24 +170,25 @@ script OneIsland_Whirlpool {
 			switch(var(VAR_RESULT)) {
 				case DIR_NORTH: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_fast_up * 2
+						walk_faster_up * 4
 					))
 				case DIR_SOUTH: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_fast_down * 2
+						walk_faster_down * 4
 					))
 				case DIR_EAST: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_fast_left * 2
+						walk_faster_left * 4
 					))
 				case DIR_WEST: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_fast_right * 2
+						walk_faster_right * 4
 					))
 			}
 			waitmovement(0)
 		}
 	}
+	releaseall
 }
 
 
@@ -236,5 +237,40 @@ script OneIsland_ArticunoEgg {
 	msgbox(
 	"it's an egg\n"
 	"", MSGBOX_SIGN)
+
+}
+
+script OneIsland_RockClimbUp {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_up * 2
+				jump_up
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
+
+}
+script OneIsland_RockClimbDown {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_down * 2
+				jump_down
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
 
 }

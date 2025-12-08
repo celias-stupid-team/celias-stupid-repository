@@ -2587,10 +2587,12 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
         if (!species)
             break;
         if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
-        {
+        {   
+            //DebugPrintf("Yes the pokemon");
             gSpecialVar_Result = TRUE;
-            gSpecialVar_0x8004 = species;
             break;
+        } else {
+            //DebugPrintf("Not the pokemon");
         }
     }
     return FALSE;

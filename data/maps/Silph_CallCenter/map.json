@@ -19,9 +19,9 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 1,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -32,10 +32,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 10,
-      "y": 7,
+      "x": 11,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -47,9 +47,9 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 1,
-      "y": 13,
+      "y": 15,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -60,10 +60,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 10,
+      "x": 11,
       "y": 13,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -74,7 +74,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRAINER_TIPS",
-      "x": 8,
+      "x": 6,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -97,7 +97,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_CLOTHES",
-      "x": 6,
+      "x": 4,
       "y": 17,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CLOTHES_STORE",
@@ -105,16 +105,16 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1",
-      "x": 10,
-      "y": 8,
+      "x": 6,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_7F",
       "dest_warp_id": "WARP_ID_SILPH_BACKROOMS1_CALLCENTER"
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BALLS",
-      "x": 2,
-      "y": 8,
+      "x": 8,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_SILPH_BALL_SHOP",
       "dest_warp_id": "WARP_ID_SILPH_BALLS_CALLCENTER"
@@ -158,5 +158,14 @@
       "script": "SilphCo_Activate_Warp_Callcenter"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    }
+  ]
 }

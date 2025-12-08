@@ -1995,6 +1995,6 @@
 
 
 	.macro checkpartymon mon:req
-	.byte 0x7c
+	.byte 0xe3
 	.2byte \mon
 	.endm

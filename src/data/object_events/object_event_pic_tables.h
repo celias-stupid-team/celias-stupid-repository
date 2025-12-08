@@ -4325,3 +4325,14 @@ const struct SpriteFrameImage gObjectEventPicTable_HEX_MANIAC[] = {
     overworld_frame(gObjectEventPic_HEX_MANIAC, 2, 4, 7),
     overworld_frame(gObjectEventPic_HEX_MANIAC, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_whirlpool[] = {
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 0),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 1),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 2),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 3),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 4),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 5),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 6),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 7),
+    overworld_frame(gObjectEventPic_whirlpool, 6, 6, 8),
+};

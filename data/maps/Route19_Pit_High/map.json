@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ROUTE19",
-  "name": "Route19",
-  "layout": "LAYOUT_ROUTE19",
+  "id": "MAP_ROUTE19_PIT_HIGH",
+  "name": "Route19_Pit_High",
+  "layout": "LAYOUT_ROUTE19_PIT_HIGH",
   "music": "MUS_ROUTE3",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
@@ -13,44 +13,13 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": -20,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 6,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN1",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN2",
-      "offset": 6,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN3",
-      "offset": 0,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
       "x": 11,
-      "y": 49,
+      "y": 47,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -64,7 +33,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 14,
-      "y": 50,
+      "y": 48,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -78,7 +47,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 12,
-      "y": 51,
+      "y": 49,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -92,7 +61,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 9,
-      "y": 50,
+      "y": 48,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -106,7 +75,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 8,
-      "y": 43,
+      "y": 41,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -120,7 +89,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M_WATER",
       "x": 9,
-      "y": 43,
+      "y": 41,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -134,7 +103,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LOOKER",
       "x": 10,
-      "y": 18,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -149,7 +118,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 7,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -164,7 +133,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 10,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -179,7 +148,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 5,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -207,7 +176,7 @@
   "warp_events": [
     {
       "x": 6,
-      "y": 13,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROUTE19_UNUSED_HOUSE",
       "dest_warp_id": "0"
@@ -217,7 +186,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 8,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -226,115 +195,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
       "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -346,8 +207,8 @@
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
     },
     {
       "type": "trigger",
@@ -355,8 +216,8 @@
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
     },
     {
       "type": "trigger",
@@ -364,8 +225,8 @@
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
     },
     {
       "type": "trigger",
@@ -373,8 +234,8 @@
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
     },
     {
       "type": "trigger",
@@ -382,94 +243,13 @@
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
     },
     {
       "type": "trigger",
       "x": 9,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 4,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePitHigh"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 2,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -478,7 +258,34 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 2,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -489,7 +296,7 @@
     {
       "type": "sign",
       "x": 9,
-      "y": 13,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route19_EventScript_RouteSign"
@@ -497,7 +304,7 @@
     {
       "type": "hidden_item",
       "x": 12,
-      "y": 16,
+      "y": 14,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
       "flag": "FLAG_ROUTE19_DOLL_1",
@@ -507,7 +314,7 @@
     {
       "type": "hidden_item",
       "x": 17,
-      "y": 12,
+      "y": 10,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
       "flag": "FLAG_ROUTE19_DOLL_2",

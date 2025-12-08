@@ -6636,6 +6636,30 @@
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_Entrance_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_Entrance_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_PIT_HIGH",
+      "name": "Route19_Pit_High_Layout",
+      "width": 35,
+      "height": 35,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route15",
+      "border_filepath": "data/layouts/Route19_Pit_High/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_Pit_High/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_PIT_LOW",
+      "name": "Route19_Pit_Low",
+      "width": 35,
+      "height": 35,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route15",
+      "border_filepath": "data/layouts/Route19_Pit_Low/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_Pit_Low/map.bin"
     }
   ]
 }
