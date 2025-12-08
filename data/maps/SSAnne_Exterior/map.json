@@ -108,6 +108,34 @@
       "elevation": 0,
       "dest_map": "MAP_VERMILION_CITY",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 1,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [],

@@ -2451,7 +2451,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Moltres = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Articuno = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,

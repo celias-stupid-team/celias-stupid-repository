@@ -220,9 +220,19 @@ script OneIsland_Kaylee {
 
 		"It is implied that the egg\n"
 		"hatches.", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		applymovement(LOCALID_ONE_ISLAND_ARTICUNO_EGG, moves(
+			set_invisible
+		))
+		applymovement(LOCALID_ONE_ISLAND_ARTICUNO, moves(
+			set_visible
+		))
+		playmoncry(SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER)
 		setwildbattle(SPECIES_ARTICUNO, 50, ITEM_MYSTIC_SEAL)
 		dowildbattle
 		delay(120)
+		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
 		release
 		end
 	} else {

@@ -12589,3 +12589,6 @@ extern const u32 gTrainerPalette_TransBug[];
 
 extern const u32 gItemIcon_BalmMushroom[];
 extern const u32 gItemIconPalette_BalmMushroom[];
+
+extern const u32 gItemIcon_BurnDrive[];
+extern const u32 gItemIconPalette_BurnDrive[];
