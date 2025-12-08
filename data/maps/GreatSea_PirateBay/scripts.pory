@@ -41,4 +41,43 @@ script PirateBay_BreakTheSealHint {
 
 //Burn Drive Shop
 
+script PirateBay_BurnDriveGuy {
+	lock
+	faceplayer
+	msgbox(
+	"Take this\n"
+	"", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} obtained the\nBURN DRIVE!", ITEM_BURN_DRIVE)
+	waitfanfare
+	release
+}
+
 //One Piece shop
+
+script PirateBay_PotionShop {
+	lock
+	faceplayer
+	msgbox(
+	"I am a merchant\n"
+	"", MSGBOX_DEFAULT)
+	pokemart(PirateBay_Potions)
+	release
+}
+
+mart PirateBay_Potions {
+	ITEM_NONE
+}
+
+script PirateBay_WarehouseGuard {
+	msgbox(
+	"you can't go here\n"
+	"", MSGBOX_NPC)
+}
+
+script PirateBay_SkyTower {
+	lock
+	msgbox(
+	"sky tower\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

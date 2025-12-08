@@ -341,6 +341,9 @@ script CinnabarIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_CINNABAR_ISLAND)
 	call(CinnabarIsland_EventScript_CheckUnlockGym)
 	setflag(FLAG_TEMP_2)
+	if(flag(FLAG_BADGE07_GET)) {
+		setmaplayoutindex(LAYOUT_CINNABAR_ISLAND_CRASHED)
+	}
 }
 
 

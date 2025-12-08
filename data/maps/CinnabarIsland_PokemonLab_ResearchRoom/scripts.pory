@@ -20,7 +20,7 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_HIDE_CINNABAR_YANMEGA)
-		if(flag(FLAG_REVIVED_YANMEGA) && !checkmoncaught(SPECIES_YANMEGA)) {
+		if(flag(FLAG_REVIVED_YANMEGA) && !checkmoncaught(SPECIES_SUDOWOODO)) {
 			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
 		} 
 	}

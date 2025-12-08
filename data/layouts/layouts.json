@@ -1025,7 +1025,7 @@
       "id": "LAYOUT_ROUTE15",
       "name": "Route15_Layout",
       "width": 52,
-      "height": 38,
+      "height": 40,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -2525,7 +2525,7 @@
       "id": "LAYOUT_SILPH_CO_ELEVATOR",
       "name": "SilphCo_Elevator_Layout",
       "width": 5,
-      "height": 7,
+      "height": 9,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -2620,12 +2620,12 @@
     {
       "id": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
       "name": "OneIsland_KindleRoad_Layout",
-      "width": 24,
-      "height": 140,
+      "width": 18,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_SeafoamIslands",
       "border_filepath": "data/layouts/OneIsland_KindleRoad/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad/map.bin"
     },
@@ -4433,7 +4433,7 @@
       "id": "LAYOUT_LAVENDER_TOWN_DANCE_THEATER",
       "name": "LavenderTown_DanceTheater_Layout",
       "width": 11,
-      "height": 26,
+      "height": 29,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -6636,6 +6636,30 @@
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/Wormhole_Entrance_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/Wormhole_Entrance_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_PIT_HIGH",
+      "name": "Route19_Pit_High_Layout",
+      "width": 35,
+      "height": 35,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route15",
+      "border_filepath": "data/layouts/Route19_Pit_High/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_Pit_High/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE19_PIT_LOW",
+      "name": "Route19_Pit_Low",
+      "width": 35,
+      "height": 35,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Route15",
+      "border_filepath": "data/layouts/Route19_Pit_Low/border.bin",
+      "blockdata_filepath": "data/layouts/Route19_Pit_Low/map.bin"
     }
   ]
 }

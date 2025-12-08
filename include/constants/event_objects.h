@@ -170,8 +170,8 @@
 #define OBJ_EVENT_GFX_MARIOSTAR                        158          //Placeholder
 #define OBJ_EVENT_GFX_CHAINCHOMP                        159          //Placeholder
 #define OBJ_EVENT_GFX_BOBOMBBUDDY                        160
-#define OBJ_EVENT_GFX_MOLTRESEGG                        161          //Placeholder
-#define OBJ_EVENT_GFX_ARTICUNOEGG                        162          //Placeholder
+#define OBJ_EVENT_GFX_DUMMY_2                        161          //Placeholder
+#define OBJ_EVENT_GFX_DUMMY_3                        162          //Placeholder
 #define OBJ_EVENT_GFX_TRASHDAD                        163          //Placeholder
 #define OBJ_EVENT_GFX_SNAKE                        164          //Placeholder
 #define OBJ_EVENT_GFX_NEBBY                        165          //Placeholder
@@ -368,13 +368,26 @@
 #define OBJ_EVENT_GFX_DUNGLESS_BEETLE 354
 #define OBJ_EVENT_GFX_ABSOL_2 355
 #define OBJ_EVENT_GFX_PETREL_2 356
-#define OBJ_EVENT_GFX_TIRTOUGA 357
-#define OBJ_EVENT_GFX_CHINCHOU 358
-#define OBJ_EVENT_GFX_KALOS_BENCH 359
-#define OBJ_EVENT_GFX_SILVER_2 360
-#define OBJ_EVENT_GFX_FLAREON 361
-#define OBJ_EVENT_GFX_DROWZEE 362
-#define NUM_OBJ_EVENT_GFX 363
+#define OBJ_EVENT_GFX_DUMMY_5 357
+#define OBJ_EVENT_GFX_TIRTOUGA 358
+#define OBJ_EVENT_GFX_CHINCHOU 359
+#define OBJ_EVENT_GFX_KALOS_BENCH 360
+#define OBJ_EVENT_GFX_SILVER_2 361
+#define OBJ_EVENT_GFX_FLAREON 362
+#define OBJ_EVENT_GFX_DROWZEE 363
+#define OBJ_EVENT_GFX_HALF_SHORTS 364
+#define OBJ_EVENT_GFX_MIRROR_B 365
+#define OBJ_EVENT_GFX_UNCLE 366
+#define OBJ_EVENT_GFX_SNOVER 367
+#define OBJ_EVENT_GFX_SENTRET 368
+#define OBJ_EVENT_GFX_BLUE_BLUE 369
+#define OBJ_EVENT_GFX_PI 370
+#define OBJ_EVENT_GFX_MOLTRES_EGG 371
+#define OBJ_EVENT_GFX_ARTICUNO_EGG 372
+#define OBJ_EVENT_GFX_TABITHA 373
+#define OBJ_EVENT_GFX_HEX_MANIAC 374
+#define OBJ_EVENT_GFX_WHIRLPOOL 375
+#define NUM_OBJ_EVENT_GFX 376
 
 
 

@@ -19,7 +19,7 @@
       "local_id": "LOCALID_SILPH_CO_RIVAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LARRY",
-      "x": 2,
+      "x": 3,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -182,7 +182,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_LARRY_HUB",
-      "x": 5,
+      "x": 6,
       "y": 11,
       "elevation": 3,
       "dest_map": "MAP_SILPH_HUB_ROOM",
@@ -204,7 +204,7 @@
     },
     {
       "warp_id": "WARP_ID_SILPH_BACKROOMS1_CALLCENTER",
-      "x": 5,
+      "x": 6,
       "y": 4,
       "elevation": 3,
       "dest_map": "MAP_SILPH_CALL_CENTER",
@@ -216,12 +216,20 @@
       "elevation": 0,
       "dest_map": "MAP_SILPH_CO_ELEVATOR",
       "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_ID_LARRY_FIGHT",
+      "x": 1,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_ELEVATOR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
-      "x": 2,
+      "x": 3,
       "y": 5,
       "elevation": 3,
       "var": "VAR_CSR_LARRY_2_FIGHT",
@@ -230,7 +238,7 @@
     },
     {
       "type": "trigger",
-      "x": 2,
+      "x": 3,
       "y": 6,
       "elevation": 3,
       "var": "VAR_CSR_LARRY_2_FIGHT",
@@ -239,7 +247,7 @@
     },
     {
       "type": "trigger",
-      "x": 5,
+      "x": 6,
       "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -248,7 +256,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -257,7 +265,7 @@
     },
     {
       "type": "trigger",
-      "x": 5,
+      "x": 6,
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",

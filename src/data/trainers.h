@@ -1699,7 +1699,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_DMCA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_PROTON,
-        .trainerName = _("WOLFE"),
+        .trainerName = _("WOLFF"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_RISKY | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_HP_AWARE,
@@ -6713,5 +6713,16 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = TRUE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_TransBugs),
+    },
+    
+    [TRAINER_WHIRLPOOL_GUY] = {
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("JACK"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_ClamperlGuy),
     },
 };

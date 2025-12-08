@@ -47,7 +47,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_APPLIN_KID",
       "x": 6,
-      "y": 7,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -78,7 +78,7 @@
     {
       "warp_id": "WARP_ID_SILPH_RD_CLOTHES",
       "x": 4,
-      "y": 7,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_SILPH_CLOTHES_STORE",
       "dest_warp_id": "WARP_ID_SILPH_CLOTHES_RD"

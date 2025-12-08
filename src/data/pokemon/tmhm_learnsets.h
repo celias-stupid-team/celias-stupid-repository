@@ -9086,7 +9086,15 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_COPYCAT)
+                                        | TMHM(HM01_CUT)
+                                        | TMHM(HM02_FLY)
+                                        | TMHM(HM03_SURF)
+                                        | TMHM(HM04_STRENGTH)
+                                        | TMHM(HM05_FLASH)
+                                        | TMHM(HM06_ROCK_SMASH)
+                                        | TMHM(HM07_WATERFALL)
+                                        | TMHM(HM08_DIVE)),
 	[SPECIES_BIBAREL]    = TMHM_LEARNSET(0),
 	[SPECIES_KRICKETOT]    = TMHM_LEARNSET(0),
 	[SPECIES_KRICKETUNE]    = TMHM_LEARNSET(0),

@@ -160,8 +160,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotomDex;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarioStar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChainChomp;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BobombBuddy;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MoltresEgg;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ArticunoEgg;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrashDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby;
@@ -393,6 +391,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kalos_bench;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_silver_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_flareon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_drowzee;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_half_shorts;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mirror_b;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_uncle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_snover;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SENTRET;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_blue_blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pi;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_egg;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_egg;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_tabitha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HEX_MANIAC;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_whirlpool;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -556,8 +566,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MARIOSTAR] =         &gObjectEventGraphicsInfo_MarioStar,
     [OBJ_EVENT_GFX_CHAINCHOMP] =         &gObjectEventGraphicsInfo_ChainChomp,
     [OBJ_EVENT_GFX_BOBOMBBUDDY] =         &gObjectEventGraphicsInfo_BobombBuddy,
-    [OBJ_EVENT_GFX_MOLTRESEGG] =         &gObjectEventGraphicsInfo_MoltresEgg,
-    [OBJ_EVENT_GFX_ARTICUNOEGG] =         &gObjectEventGraphicsInfo_ArticunoEgg,
     [OBJ_EVENT_GFX_TRASHDAD] =         &gObjectEventGraphicsInfo_TrashDad,
     [OBJ_EVENT_GFX_SNAKE] =         &gObjectEventGraphicsInfo_Snake,
     [OBJ_EVENT_GFX_NEBBY] =         &gObjectEventGraphicsInfo_Nebby,
@@ -787,4 +795,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SILVER_2] = &gObjectEventGraphicsInfo_silver_2,
     [OBJ_EVENT_GFX_FLAREON] = &gObjectEventGraphicsInfo_flareon,
     [OBJ_EVENT_GFX_DROWZEE] = &gObjectEventGraphicsInfo_drowzee,
+    [OBJ_EVENT_GFX_HALF_SHORTS] = &gObjectEventGraphicsInfo_half_shorts,
+    [OBJ_EVENT_GFX_MIRROR_B] = &gObjectEventGraphicsInfo_mirror_b,
+    [OBJ_EVENT_GFX_UNCLE] = &gObjectEventGraphicsInfo_uncle,
+    [OBJ_EVENT_GFX_SNOVER] = &gObjectEventGraphicsInfo_snover,
+    [OBJ_EVENT_GFX_SENTRET] = &gObjectEventGraphicsInfo_SENTRET,
+    [OBJ_EVENT_GFX_BLUE_BLUE] = &gObjectEventGraphicsInfo_blue_blue,
+    [OBJ_EVENT_GFX_PI] = &gObjectEventGraphicsInfo_pi,
+    [OBJ_EVENT_GFX_MOLTRES_EGG] = &gObjectEventGraphicsInfo_moltres_egg,
+    [OBJ_EVENT_GFX_ARTICUNO_EGG] = &gObjectEventGraphicsInfo_articuno_egg,
+    [OBJ_EVENT_GFX_TABITHA] = &gObjectEventGraphicsInfo_tabitha,
+    [OBJ_EVENT_GFX_HEX_MANIAC] = &gObjectEventGraphicsInfo_HEX_MANIAC,
+    [OBJ_EVENT_GFX_WHIRLPOOL] = &gObjectEventGraphicsInfo_whirlpool,
 };

@@ -16,7 +16,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_POUND] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 35,
@@ -2018,9 +2018,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CRABHAMMER] =
     {
         .effect = EFFECT_HIGH_CRITICAL,
-        .power = 90,
+        .power = 110,
         .type = TYPE_WATER,
-        .accuracy = 85,
+        .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -5238,9 +5238,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FAIRY_TAIL] =    {
         .effect = EFFECT_FLINCH_HIT, // Placeholder Effect
-        .power = 110,
+        .power = 100,
         .type = TYPE_FAIRY,
-        .accuracy = 80,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -6864,10 +6864,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     },
 
 [MOVE_BLOOD_MOON] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .type = TYPE_DARK,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,

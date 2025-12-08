@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_ROUTE15",
-      "offset": 10,
+      "offset": 8,
       "direction": "right"
     },
     {
@@ -131,18 +131,19 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_FUSHCIA_GRANDPA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 21,
-      "y": 1,
+      "x": 9,
+      "y": 40,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 3,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_OldMan",
-      "flag": "0"
+      "script": "FushciaCity_OldChuckster",
+      "flag": "FLAG_TEMP_4"
     },
     {
       "type": "object",
@@ -437,6 +438,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Bonus_PokemonUCatch",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "local_id": "LOCALID_FUSHCIA_GRANDPA_DEAD",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN",
+      "x": 9,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FushciaCity_GrandpaDead",
+      "flag": "FLAG_TEMP_6"
     }
   ],
   "warp_events": [
@@ -613,6 +629,51 @@
       "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "FushciaCity_Splat"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "FushciaCity_PrepareDeadGrandpa"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "FushciaCity_UnPrepareDeadGrandpa"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "FushciaCity_UnPrepareDeadGrandpa"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "FushciaCity_UnPrepareDeadGrandpa"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 39,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "FushciaCity_KillGrandpa"
     }
   ],
   "bg_events": [

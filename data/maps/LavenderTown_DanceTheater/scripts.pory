@@ -62,7 +62,7 @@ script DanceTheater_ShortKid {
             }
         } else {
             getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
-            if(var(VAR_TEMP_4) == 17 && var(VAR_TEMP_3) == 8) {
+            if(var(VAR_TEMP_4) == 18 && var(VAR_TEMP_3) == 8) {
                 msgbox("Hey!\nGet out of the way!\pThanks for moving that girl in front\nof me, but I still can't see!", MSGBOX_DEFAULT)
                 release
                 end

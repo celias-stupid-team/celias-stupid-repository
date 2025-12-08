@@ -168,6 +168,10 @@ script FushciaCity_OnTransition {
 	if(!flag(FLAG_BADGE05_GET)) {
 		setflag(FLAG_TEMP_3)
 	}
+	if(!flag(FLAG_MADE_A_SANDWICH)) {
+		setflag(FLAG_TEMP_4)
+	}
+	setflag(FLAG_TEMP_6)
 }
 
 script FuschiaCity_BrickBreak {
@@ -485,4 +489,111 @@ script FushciaCity_OakTree {
 script FushciaCity_CeliaEndDemo3 {
 	msgbox("Hiya!\nI'm CELIA, the creator!\pThis is the end of DEMO 3!\nThank you for playing!\pSurf will be unusable until the\nfull release of the game.\lStay tuned!\pIn the meantime, try to fill out\nyour POKéDEX!\pI recommend that you have 87\nPOKéMON caught right now.\lThe most you can have is 103!\pPlus, there's plenty of secrets\nto find if you know where to look!\pTry everything you can think of -\nYou're likely to be rewarded!\pAnyway, thank you so much for\nplaying!\lI hope you had fun!", MSGBOX_NPC)
 	end
+}
+
+
+script FushciaCity_OldChuckster {
+	lock
+	if(flag(FLAG_TEMP_5)) {
+		msgbox(
+		"Oww-…", MSGBOX_DEFAULT)
+		release
+		end
+		}
+		
+	faceplayer
+	msgbox(
+	"Ah, in my youth I was once\n"
+	"a CHUCKSTER!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_fast_up
+		face_up
+	))
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_fast_up
+		face_up
+	))
+	waitmovement(0)
+	playse(SE_M_BRICK_BREAK)
+	delay(90)
+	msgbox(
+	"Gah-!\p"
+	"My…{PAUSE 30} back…!", MSGBOX_DEFAULT)
+	closemessage
+	setflag(FLAG_TEMP_5)
+	setvar(VAR_TEMP_4, 1)
+	release
+}
+
+script FushciaCity_GrandpaDead {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Oh no!\p"
+	"Grandpa's dead!", MSGBOX_SIGN)
+
+}
+
+script FushciaCity_PrepareDeadGrandpa {
+	setvar(VAR_TEMP_5, 1)
+	release
+}
+
+script FushciaCity_UnPrepareDeadGrandpa {
+	setvar(VAR_TEMP_5, 0)
+	release
+}
+
+script FushciaCity_KillGrandpa {
+	playse(SE_BANG)
+	setvar(VAR_TEMP_5, 2)
+	setvar(VAR_TEMP_4, 2)
+	removeobject(LOCALID_FUSHCIA_GRANDPA)
+	setflag(FLAG_TEMP_4)
+	addobject(LOCALID_FUSHCIA_GRANDPA_DEAD)
+	waitse
+	release
+}
+
+
+script FushciaCity_TestScript {
+	lock
+	if(flag(FLAG_TEMP_5)) {
+		msgbox(
+		"Ahh-!{PAUSE 60}\n"
+		"My…{PAUSE 30} back…", MSGBOX_DEFAULT)
+		}
+		release
+		end
+	faceplayer
+	msgbox(
+	"Ah, in my youth I was once\n"
+	"a CHUCKSTER!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
 }

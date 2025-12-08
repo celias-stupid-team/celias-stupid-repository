@@ -64,7 +64,7 @@ script SecretGarden_PCMonitor {
     if(var(VAR_VIEWING_PC) == 0) {
         special(SpawnCameraObject)
         applymovement(LOCALID_CAMERA, moves(
-            walk_up * 5
+            walk_up * 4
         ))
         waitmovement(0)
         delay(30)
@@ -82,7 +82,7 @@ script SecretGarden_LeavePC {
     setvar(VAR_VIEWING_PC, 0)
     special(SpawnCameraObject)
     applymovement(LOCALID_CAMERA, moves(
-        walk_fast_down * 5
+        walk_fast_down * 4
     ))
     waitmovement(0)
     special(RemoveCameraObject)

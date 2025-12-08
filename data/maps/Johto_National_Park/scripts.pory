@@ -64,7 +64,7 @@ script NationalPark_BugCatchingContest_ThirdPlace {
 	"Third place!\p"
 
 	"I coulda sworn my Perfect IV max-\n"
-	"level Shiny SCYTHER could do it!", MSGBOX_NPC)
+	"level Shiny PINSIR could do it!", MSGBOX_NPC)
 }
 
 script NationalPark_BugCatchingContest_SecondPlace {

@@ -58,7 +58,14 @@ script Route19_Sailor {
 }
 
 script Route19_DrawThePit {
-	setlayouttiles(LAYOUT_ROUTE19_LAYOUT_PIT, 0, 0, 0, 0, 34, 34)
+	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 34, 34)
+
+	setvar(VAR_TEMP_0, 1)
+}
+
+
+script Route19_DrawThePitHigh {
+	setlayouttiles(LAYOUT_ROUTE19_PIT_HIGH, 0, 0, 0, 0, 34, 34)
 
 	setvar(VAR_TEMP_0, 1)
 }

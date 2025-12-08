@@ -672,7 +672,7 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page5[] = {
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page6[] = {
-    SPECIES_YANMEGA,
+    SPECIES_SUDOWOODO,
     SPECIES_TYRANASTAR,
     SPECIES_MISSINGNO,
 };

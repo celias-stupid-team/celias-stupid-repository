@@ -50,7 +50,7 @@ script FushciaGym_LionsRoom_Vulpix {
     closemessage
     msgbox("The VULPIX seems very content.\n", MSGBOX_DEFAULT)
     if(flag(FLAG_DRILLED_LION_HOLE)) {
-        msgbox("Would you like to put it through\nthe wall hole?", MSGBOX_YESNO)
+        msgbox("Would you like to punt it through\nthe wall hole?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             msgbox("{PLAYER} picked up the\nVULPIX!", MSGBOX_DEFAULT)
             closemessage

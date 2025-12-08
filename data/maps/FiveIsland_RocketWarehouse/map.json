@@ -162,7 +162,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_AZ",
-      "x": 6,
+      "x": 5,
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -200,6 +200,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DMCAWarehouse_ThievulFight",
       "flag": "FLAG_DEFEATED_WAREHOUSE_ADMIN"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MIRROR_B",
+      "x": 9,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -207,8 +221,8 @@
       "x": 22,
       "y": 25,
       "elevation": 3,
-      "dest_map": "MAP_FIVE_ISLAND_MEADOW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

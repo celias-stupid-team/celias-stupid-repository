@@ -277,7 +277,10 @@ script TwoIsland_MrT {
 }
 
 script TwoIsland_SmallChild {
-	msgbox("PLACEHOLDER\nwow pencil statue", MSGBOX_NPC)
+	msgbox(
+	"PLACEHOLDER\n"
+	"go to silph co\l"
+	"it has pencil eraser", MSGBOX_NPC)
 }
 
 script TwoIsland_Paula {
@@ -345,6 +348,11 @@ script TwoIsland_EventScript_SansTest {
 	msgbox("{FONT_COMIC_SANS}hello .\peat shit thief", MSGBOX_DEFAULT)
 	playbgm(MUS_MEGALOVANIA, TRUE)
 	delay(60)
+	if(flag(FLAG_GOT_ODDISH)) {
+		fadedefaultbgm
+		giveitem_msg("burn heal", ITEM_BURN_HEAL)
+		waitfanfare
+	}
 	release
 	end
 }

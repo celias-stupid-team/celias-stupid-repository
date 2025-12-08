@@ -917,3 +917,6 @@ const u32 gItemIconPalette_PremierCandy[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_BalmMushroom[] = INCBIN_U32("graphics/items/icons/balm_mushroom.4bpp.lz");
 const u32 gItemIconPalette_BalmMushroom[] = INCBIN_U32("graphics/items/icon_palettes/balm_mushroom.gbapal.lz");
+
+const u32 gItemIcon_BurnDrive[] = INCBIN_U32("graphics/items/icons/burn_drive.4bpp.lz");
+const u32 gItemIconPalette_BurnDrive[] = INCBIN_U32("graphics/items/icon_palettes/burn_drive.gbapal.lz");

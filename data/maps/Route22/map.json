@@ -209,6 +209,15 @@
       "var": "VAR_ROUTE22_NIDOM",
       "var_value": "0",
       "script": "Route22_NidotranMSpot"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ROUTE22_MANKEY",
+      "var_value": "0",
+      "script": "Route22_MankeySpot"
     }
   ],
   "bg_events": [

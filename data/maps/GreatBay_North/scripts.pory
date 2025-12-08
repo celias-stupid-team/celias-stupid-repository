@@ -1,3 +1,20 @@
 mapscripts GreatBay_North_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_OPENED_SKY_TOWER)) {
+            setmetatile(17, 26, 0x2EC, FALSE)
+        }
+        
+    }
+}
+
+script SkyTower_Door {
+    if(flag(FLAG_OPENED_SKY_TOWER)) {
+        msgbox(
+            "The door is open.\n"
+            "", MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+            "The door is locked.\n"
+            "", MSGBOX_DEFAULT)
+    }
 }

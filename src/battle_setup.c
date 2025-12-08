@@ -226,11 +226,7 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
     if (mapGroup == MAP_GROUP(MAP_POKEMON_TOWER_1F)
      && (mapNum == MAP_NUM(MAP_POKEMON_TOWER_1F)
       || mapNum == MAP_NUM(MAP_POKEMON_TOWER_2F)
-      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_3F)
-      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_4F)
-      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_5F)
-      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_6F)
-      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_7F))
+      || mapNum == MAP_NUM(MAP_POKEMON_TOWER_3F))
      && !(FlagGet(FLAG_CSR_SUPER_SCOPE))) //do this via flag instead
         return TRUE;
     else

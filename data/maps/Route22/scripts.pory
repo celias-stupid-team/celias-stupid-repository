@@ -61,9 +61,7 @@ Route22_EventScript_EarlyRivalApproachBottom::
 	waitmovement 0
 	return
 
-Route22_EventScript_EarlyRivalSquirtle::
-	trainerbattle_single TRAINER_RIVAL_LARRY, 0, Route22_Text_EarlyRivalDefeat, Route22_Text_LarryVictory
-	return
+
 
 Route22_EventScript_EarlyRivalBulbasaur::
 	trainerbattle_single TRAINER_RIVAL_LARRY, 0, Route22_Text_EarlyRivalDefeat, Route22_Text_LarryVictory
@@ -312,4 +310,9 @@ script Route22_NidotranFSpot {
 		}
 	}
 	release
+}
+
+script Route22_EventScript_EarlyRivalSquirtle {
+	trainerbattle_no_intro(TRAINER_RIVAL_LARRY, Route22_Text_EarlyRivalDefeat)
+	return
 }

@@ -102,7 +102,6 @@ const BENCH = 15
 
 script Route8_PushBench {
 	lock
-	faceplayer
 	textcolor(NPC_TEXT_COLOR_DEFAULT)
 	msgbox("A lone bench is floating adrift\nin the waters.\pWould you like to push it?\n", MSGBOX_YESNO)
 	if(!var(VAR_RESULT)) {
