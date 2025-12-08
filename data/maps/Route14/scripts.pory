@@ -714,7 +714,3 @@ script Route15_Pokerap_Dad {
 
 
 
-script Route15_CeliaSandwich {
-	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_NPC)
-	end
-}
