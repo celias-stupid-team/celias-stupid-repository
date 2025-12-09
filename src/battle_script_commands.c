@@ -10310,7 +10310,7 @@ static void Cmd_handleballthrow(void)
         }
         else
             if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
-                
+                //DebugPrintf("Species is seel");
                 ballMultiplier = 0;
             } else {
                 ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
@@ -10335,7 +10335,14 @@ static void Cmd_handleballthrow(void)
                     gBattleResults.catchAttempts[thrownBall - ULTRA_BALL]++;
             }
         }
-
+        if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+            if (thrownBall == SEAL_CASE_BALL) {
+                odds = 255;
+            } else {
+                odds = 0;
+            }
+        }
+        //DebugPrintf("Before catch check %d", odds);
         if (odds > 254) // mon caught
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
