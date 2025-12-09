@@ -551,3 +551,4 @@ const u16 gObjectEventPal_tabitha[] = INCBIN_U16("graphics/object_events/palette
 const u32 gObjectEventPic_HEX_MANIAC[] = INCBIN_U32("graphics/object_events/pics/stupid/HEX_MANIAC.4bpp");
 const u16 gObjectEventPal_HEX_MANIAC[] = INCBIN_U16("graphics/object_events/palettes/HEX_MANIAC.gbapal");
 const u32 gObjectEventPic_whirlpool[] = INCBIN_U32("graphics/object_events/pics/stupid/whirlpool.4bpp");
+const u32 gObjectEventPic_starman[] = INCBIN_U32("graphics/object_events/pics/stupid/starman.4bpp");

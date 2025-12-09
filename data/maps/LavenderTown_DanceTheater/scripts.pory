@@ -1078,6 +1078,21 @@ script DanceTheater_PlayerDance {
     applymovement(GUY, GuyAscends)
     waitmovement(0)
     removeobject(GUY)
+    if(checkitem(ITEM_CREAM_DROP)) {
+        removeitem(ITEM_CREAM_DROP, 1)
+        setvar(VAR_SYS_GIVE_ALCREMIE, 0)
+        delay(30)
+        playfanfare(MUS_LEVEL_UP)
+        msgbox(
+        "{PLAYER}'s CREAM DROP evolved\n"
+        "into ALCREMIE!", MSGBOX_DEFAULT)
+        waitfanfare
+        setflag(FLAG_SHINY_CREATION)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ALCREMIE)
+        call(Common_Script_GiftPokemon)
+    }
+    			
+
     release
     end
 }

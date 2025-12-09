@@ -9644,3 +9644,11 @@ const u32 gMonShinyPalette_PORYGON32[] = INCBIN_U32("graphics/pokemon/porygon32/
 const u8 gMonIcon_PORYGON32[] = INCBIN_U8("graphics/pokemon/porygon32/icon.4bpp");
 const u8 gMonFootprint_PORYGON32[] = INCBIN_U8("graphics/pokemon/porygon32/footprint.1bpp");
 
+// STARMIE_MEGA
+const u32 gMonFrontPic_STARMIEMEGA[] = INCBIN_U32("graphics/pokemon/starmiemega/front.4bpp.lz");
+const u32 gMonPalette_STARMIEMEGA[] = INCBIN_U32("graphics/pokemon/starmiemega/normal.gbapal.lz");
+const u32 gMonBackPic_STARMIEMEGA[] = INCBIN_U32("graphics/pokemon/starmiemega/back.4bpp.lz");
+const u32 gMonShinyPalette_STARMIEMEGA[] = INCBIN_U32("graphics/pokemon/starmiemega/shiny.gbapal.lz");
+const u8 gMonIcon_STARMIEMEGA[] = INCBIN_U8("graphics/pokemon/starmiemega/icon.4bpp");
+const u8 gMonFootprint_STARMIEMEGA[] = INCBIN_U8("graphics/pokemon/starmiemega/footprint.1bpp");
+

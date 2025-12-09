@@ -10019,7 +10019,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainCaitlynDarac
     },
     {
         .iv = 0,
-        .lvl = 50,
+        .lvl = 100,
         .species = SPECIES_REGIGIGAS,
         .moves = {MOVE_CRUSH_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -10306,6 +10306,18 @@ static const struct TrainerMonItemCustomMoves sParty_ClamperlGuy[] = {
         .heldItem = ITEM_NONE,
         .species = SPECIES_CLAMPERL,
         .moves = {MOVE_WHIRLPOOL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_Starman[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_STARMIEMEGA,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

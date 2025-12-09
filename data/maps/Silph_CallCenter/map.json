@@ -108,8 +108,8 @@
       "x": 6,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_SILPH_CO_7F",
-      "dest_warp_id": "WARP_ID_SILPH_BACKROOMS1_CALLCENTER"
+      "dest_map": "MAP_SAFFRON_CITY_GYM",
+      "dest_warp_id": "WARP_ID_SAFFRON_GYM_SILPH"
     },
     {
       "warp_id": "WARP_ID_SILPH_CALLCENTER_BALLS",

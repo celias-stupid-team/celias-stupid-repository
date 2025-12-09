@@ -137,25 +137,26 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 28,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
-      "dest_warp_id": "1"
-    },
-    {
       "x": 29,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
       "dest_warp_id": "1"
     },
     {
+      "x": 27,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_BACKROOMS",
+      "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_ID_DMCA_HIDEOUT",
       "x": 11,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SAFFRON_CITY_GYM",
+      "dest_warp_id": "WARP_ID_SAFFRON_GYM_DMCA"
     }
   ],
   "coord_events": [],

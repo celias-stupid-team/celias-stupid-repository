@@ -1328,7 +1328,9 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_PORYGON32 1263
 
-#define SPECIES_EGG 1264
+#define SPECIES_STARMIEMEGA 1264
+
+#define SPECIES_EGG 1265
 
 #define NUM_SPECIES SPECIES_EGG
 

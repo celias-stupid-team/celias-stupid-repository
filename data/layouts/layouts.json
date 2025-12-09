@@ -6561,7 +6561,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_Route12",
       "border_filepath": "data/layouts/Ocean13/border.bin",
       "blockdata_filepath": "data/layouts/Ocean13/map.bin"
     },
@@ -6660,6 +6660,18 @@
       "secondary_tileset": "gTileset_Route15",
       "border_filepath": "data/layouts/Route19_Pit_Low/border.bin",
       "blockdata_filepath": "data/layouts/Route19_Pit_Low/map.bin"
+    },
+    {
+      "id": "LAYOUT_THIRTY_EIGHT_ISLAND_LAYOUT_WORKING",
+      "name": "Thirty_Eight_Island_Layout_Working",
+      "width": 72,
+      "height": 36,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_38island",
+      "border_filepath": "data/layouts/Thirty_Eight_Island_Layout_Working/border.bin",
+      "blockdata_filepath": "data/layouts/Thirty_Eight_Island_Layout_Working/map.bin"
     }
   ]
 }

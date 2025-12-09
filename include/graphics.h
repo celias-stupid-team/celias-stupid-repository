@@ -12592,3 +12592,17 @@ extern const u32 gItemIconPalette_BalmMushroom[];
 
 extern const u32 gItemIcon_BurnDrive[];
 extern const u32 gItemIconPalette_BurnDrive[];
+
+extern const u32 gTrainerFrontPic_Starman[];
+extern const u32 gTrainerPalette_Starman[];
+
+extern const u32 gItemIcon_SwordOfKings[];
+extern const u32 gItemIconPalette_SwordOfKings[];
+// STARMIE_MEGA
+extern const u32 gMonFrontPic_STARMIEMEGA[];
+extern const u32 gMonPalette_STARMIEMEGA[];
+extern const u32 gMonBackPic_STARMIEMEGA[];
+extern const u32 gMonShinyPalette_STARMIEMEGA[];
+extern const u8 gMonFootprint_STARMIEMEGA[];
+extern const u8 gMonIcon_STARMIEMEGA[];
+

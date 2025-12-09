@@ -60,8 +60,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHANNELER",
-      "x": 14,
-      "y": 2,
+      "x": 29,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -102,8 +102,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SABRINA",
-      "x": 15,
-      "y": 6,
+      "x": 29,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -284,29 +284,31 @@
       "dest_warp_id": "13"
     },
     {
-      "x": 12,
-      "y": 4,
+      "warp_id": "WARP_ID_SAFFRON_GYM_SILPH",
+      "x": 11,
+      "y": 5,
       "elevation": 3,
-      "dest_map": "MAP_SAFFRON_CITY_GYM",
-      "dest_warp_id": "24"
+      "dest_map": "MAP_SILPH_CALL_CENTER",
+      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
     },
     {
-      "x": 12,
-      "y": 7,
+      "x": 10,
+      "y": 11,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "12"
     },
     {
-      "x": 16,
-      "y": 4,
+      "warp_id": "WARP_ID_SAFFRON_GYM_DMCA",
+      "x": 17,
+      "y": 5,
       "elevation": 3,
-      "dest_map": "MAP_SAFFRON_CITY_GYM",
-      "dest_warp_id": "10"
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
+      "dest_warp_id": "WARP_ID_DMCA_HIDEOUT"
     },
     {
-      "x": 16,
-      "y": 7,
+      "x": 18,
+      "y": 12,
       "elevation": 3,
       "dest_map": "MAP_SAFFRON_CITY_GYM",
       "dest_warp_id": "9"

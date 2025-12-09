@@ -207,8 +207,8 @@
       "x": 6,
       "y": 4,
       "elevation": 3,
-      "dest_map": "MAP_SILPH_CALL_CENTER",
-      "dest_warp_id": "WARP_ID_SILPH_CALLCENTER_BACKROOMS1"
+      "dest_map": "MAP_SILPH_BACKROOMS",
+      "dest_warp_id": "WARP_ID_BACKROOMS_END"
     },
     {
       "x": 23,

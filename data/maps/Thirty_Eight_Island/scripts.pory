@@ -5,32 +5,148 @@ mapscripts Thirty_Eight_Island_MapScripts {
 }
 
 script ThirtyEightIsland_FirstChuckster {
-    lock
-    faceplayer
-    msgbox(
-	"I'm a CHUCKSTER!\n"
-	"", MSGBOX_DEFAULT)
-    release
+    	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
 }
 
 
+
 script ThirtyEightIsland_SecondChuckster {
-    lock
-    faceplayer
-    msgbox(
-	"I'm a CHUCKSTER!\n"
-	"", MSGBOX_DEFAULT)
-    release
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
 }
 
 
 script ThirtyEightIsland_Chuck {
     lock
     faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"I'm   {PAUSE 20}CHUCK    !\n"
+	"I'm      {PAUSE 30}CHUCK    {PAUSE 20}!\n"
 	"", MSGBOX_DEFAULT)
-    release
+    	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_left
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_FALL)
+	applymovement(LOCALID_PLAYER, moves(
+        slide_up * 17
+    ))
+	waitmovement(0)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+	delay(30)
+	release
 }
 
 script ThirtyEightIsland_NationalParkGuy {
@@ -69,9 +185,9 @@ script ThirtyEightIsland_MommyMilkers {
         msgbox(
         "The MOOMOO MILK…{PAUSE 30}\n"
         "Has all sold out.", MSGBOX_DEFAULT)
-        }
         release
         end
+        }
 	msgbox(
 	"Hello… … …\n"
 	"Would you like some MOOMOO MILK?", MSGBOX_YESNO)
@@ -110,7 +226,11 @@ script ThirtyEightIsland_Miltank {
 script ThirtyEightIsland_MiltankPhilosophy {
     lock
     textcolor(NPC_TEXT_COLOR_RED)
-    //Little girl walks right
+    applymovement(LOCALID_38ISLAND_GIRL, moves(
+		walk_in_place_left * 2
+		face_left
+	))
+	waitmovement(0)
     switch(var(VAR_TEMP_1)) {
         case 0:
             msgbox(
@@ -152,7 +272,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             msgbox(
             "MILTANK: {MU}!\n"
             "", MSGBOX_DEFAULT)
-        case 4:
+        case 3:
             msgbox(
             "Hey, MITANK!\p"
 

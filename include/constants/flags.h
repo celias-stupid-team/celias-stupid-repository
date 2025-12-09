@@ -946,7 +946,7 @@
 #define FLAG_GOT_CATERPIE               0x365
 #define FLAG_CREDITS_FAKEOUT               0x366
 #define FLAG_GOT_BALM_MUSHROOM               0x367
-#define FLAG_0x368               0x368
+#define FLAG_FUCKING_FURRET               0x368
 #define FLAG_0x369               0x369
 #define FLAG_0x36A               0x36A
 #define FLAG_0x36B               0x36B
@@ -1016,7 +1016,7 @@
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
 #define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // Revealed after island crashed through
-#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // 
+#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // Maybe put this elsewhere?
 #define FLAG_MT_MOON_CANDY               0x3AA //placed
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
@@ -1027,8 +1027,8 @@
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
 #define FLAG_ONE_ISLAND_CANDY            0x3B8 
-#define FLAG_TWO_ISLAND_CANDY            0x3B9 // Dung Beetle
-#define FLAG_THREE_ISLAND_CANDY          0x3BA
+#define FLAG_TWO_ISLAND_CANDY            0x3B9 // placed
+#define FLAG_THREE_ISLAND_CANDY          0x3BA // Inside the mansion somewhere
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed
 #define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Placed
