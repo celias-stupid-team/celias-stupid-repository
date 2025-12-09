@@ -28,7 +28,7 @@ script ThirtyEightIsland_Chuck {
     lock
     faceplayer
     msgbox(
-	"I'm   {PAUSE 20}CHUCK    !\n"
+	"I'm      {PAUSE 50}CHUCK    {PAUSE 20}!\n"
 	"", MSGBOX_DEFAULT)
     release
 }

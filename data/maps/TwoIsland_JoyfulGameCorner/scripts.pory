@@ -185,6 +185,7 @@ TwoIsland_JoyfulGameCorner_EventScript_Lostelle::
 	end
 `
 script TwoIsland_Saturn {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox("SATURN: Mwahaha!\nTEAM GALACTIC cannot be stopped!\lBoing!", MSGBOX_NPC)
 }
 

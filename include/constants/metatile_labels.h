@@ -335,6 +335,13 @@
 #define METATILE_TrainerTower_LobbyElevatorDoor      0x2C3
 #define METATILE_TrainerTower_RoofElevatorDoor       0x356
 
+// gTileset_TwoIsland
+#define METATILE_TwoIsland_DrugstoreDoor    0x36A
+#define METATILE_TwoIsland_HotelDoor        0x392
+#define METATILE_TwoIsland_SaturnDoor       0x34A
+#define METATILE_TwoIsland_TwoIslandDoor    0x301
+#define METATILE_TwoIsland_TwoIslandDoor_2  0x2E1
+
 // gTileset_VermilionCity
 #define METATILE_VermilionCity_Door                   0x29E
 #define METATILE_VermilionCity_ONIX_BOTTOM_LEFT       0x358
