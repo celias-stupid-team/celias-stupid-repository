@@ -15,7 +15,23 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 1,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
+      "dest_warp_id": "4"
+    },
+    {
+      "warp_id": "WARP_ID_BACKROOMS_END",
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_CO_7F",
+      "dest_warp_id": "WARP_ID_SILPH_BACKROOMS1_CALLCENTER"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

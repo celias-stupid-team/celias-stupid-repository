@@ -28,6 +28,8 @@
 #include "constants/moves.h"
 #include "constants/trainer_types.h"
 #include "constants/maps.h"
+#include "constants/items.h"
+#include "item.h"
 
 static EWRAM_DATA struct ObjectEvent * sPlayerObjectPtr = NULL;
 static EWRAM_DATA u8 sTeleportSavedFacingDirection = DIR_NONE;
@@ -214,6 +216,10 @@ static bool8 TryUpdatePlayerSpinDirection(void)
         {
             if (MetatileBehavior_IsStopSpinning(sPlayerObjectPtr->currentMetatileBehavior))
             {
+                if(CheckBagHasItem(ITEM_CREAM_DROP, 1)) {
+                    VarSet(VAR_SYS_GIVE_ALCREMIE, 1);
+                }
+                //Add Alcremie logic here
                 return FALSE;
             }
             if (MetatileBehavior_IsSpinTile(sPlayerObjectPtr->currentMetatileBehavior))

@@ -1,6 +1,5 @@
 raw `
-RocketHideout_B2F_MapScripts::
-	.byte 0
+
 
 RocketHideout_B2F_EventScript_Grunt::
 	trainerbattle_single TRAINER_DMCA_GRUNT_13, RocketHideout_B2F_Text_GruntIntro, RocketHideout_B2F_Text_GruntDefeat
@@ -10,4 +9,27 @@ RocketHideout_B2F_EventScript_Grunt::
 script RocketHideout_FractalDMCA {
 	msgbox("That pattern in the tiles there...\pSomething about it is off-puttting\nto me.\pAlmost as though at its very core,\nit embodies copying and repeating.", MSGBOX_NPC)
 	end
+}
+mapscripts RocketHideout_B2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
+			setmetatile(27, 11, 0x390, FALSE)
+		}
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_SYS_GIVE_ALCREMIE, 1 {
+			removeitem(ITEM_CREAM_DROP, 1)
+			setvar(VAR_SYS_GIVE_ALCREMIE, 0)
+			delay(30)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER}'s CREAM DROP evolved\n"
+			"into ALCREMIE!", MSGBOX_DEFAULT)
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ALCREMIE)
+			call(Common_Script_GiftPokemon)
+			release
+			end
+		}
+	]
 }
