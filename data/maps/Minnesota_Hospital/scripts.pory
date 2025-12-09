@@ -128,3 +128,11 @@ script Hospital_EV_Drip {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script Hospital_XRay {
+	msgbox(
+	"It's a MOON STONE-powered\n"
+	"X-Ray machine!", MSGBOX_SIGN)
+
+}
