@@ -102,6 +102,7 @@ script ThirtyEightIsland_SecondChuckster {
 script ThirtyEightIsland_Chuck {
     lock
     faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
 	"I'm      {PAUSE 30}CHUCK    {PAUSE 20}!\n"
 	"", MSGBOX_DEFAULT)
@@ -184,9 +185,9 @@ script ThirtyEightIsland_MommyMilkers {
         msgbox(
         "The MOOMOO MILK…{PAUSE 30}\n"
         "Has all sold out.", MSGBOX_DEFAULT)
-        }
         release
         end
+        }
 	msgbox(
 	"Hello… … …\n"
 	"Would you like some MOOMOO MILK?", MSGBOX_YESNO)
@@ -225,7 +226,11 @@ script ThirtyEightIsland_Miltank {
 script ThirtyEightIsland_MiltankPhilosophy {
     lock
     textcolor(NPC_TEXT_COLOR_RED)
-    //Little girl walks right
+    applymovement(LOCALID_38ISLAND_GIRL, moves(
+		walk_in_place_left * 2
+		face_left
+	))
+	waitmovement(0)
     switch(var(VAR_TEMP_1)) {
         case 0:
             msgbox(
