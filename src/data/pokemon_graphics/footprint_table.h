@@ -1268,4 +1268,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_SOLACEON]    = gMonFootprint_SOLACEON,
 	[SPECIES_PORYGON64]    = gMonFootprint_PORYGON64,
 	[SPECIES_PORYGON32]    = gMonFootprint_PORYGON32,
+	[SPECIES_STARMIEMEGA]    = gMonFootprint_STARMIEMEGA,
 };

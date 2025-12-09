@@ -5338,3 +5338,7 @@ Cry_PORYGON32::
 	.incbin "sound/direct_sound_samples/cries/porygon32.bin"
 
 	.align 2
+Cry_STARMIEMEGA::
+	.incbin "sound/direct_sound_samples/cries/starmiemega.bin"
+
+	.align 2

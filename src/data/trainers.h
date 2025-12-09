@@ -6732,7 +6732,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_STARMAN,
         .trainerName = _(""),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_Starman),
     },

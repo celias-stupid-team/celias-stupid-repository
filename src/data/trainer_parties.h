@@ -10316,7 +10316,7 @@ static const struct TrainerMonItemCustomMoves sParty_Starman[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_STARMIE,
+        .species = SPECIES_STARMIEMEGA,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
