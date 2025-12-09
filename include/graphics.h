@@ -12592,3 +12592,9 @@ extern const u32 gItemIconPalette_BalmMushroom[];
 
 extern const u32 gItemIcon_BurnDrive[];
 extern const u32 gItemIconPalette_BurnDrive[];
+
+extern const u32 gTrainerFrontPic_Starman[];
+extern const u32 gTrainerPalette_Starman[];
+
+extern const u32 gItemIcon_SwordOfKings[];
+extern const u32 gItemIconPalette_SwordOfKings[];

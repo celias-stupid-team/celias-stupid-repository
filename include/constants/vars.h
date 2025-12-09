@@ -274,7 +274,7 @@ It is reset after every battle.
 
 #define VAR_NEBBY_COUNTER                 0x40AF
 #define VAR_START_SILPH_MUSIC                 0x40B0
-#define VAR_0x40B1                 0x40B1
+#define VAR_TWO_ISLAND_STARMAN                 0x40B1
 #define VAR_0x40B2                 0x40B2
 #define VAR_0x40B3                 0x40B3
 #define VAR_PORTHOLE               0x40B4

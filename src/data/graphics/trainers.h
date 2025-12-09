@@ -595,3 +595,6 @@ const u32 gTrainerPalette_BabyBug[] = INCBIN_U32("graphics/trainers/palettes/bab
 
 const u32 gTrainerFrontPic_TransBug[] = INCBIN_U32("graphics/trainers/front_pics/trans_bug_front_pic.4bpp.lz");
 const u32 gTrainerPalette_TransBug[] = INCBIN_U32("graphics/trainers/palettes/trans_bug.gbapal.lz");
+
+const u32 gTrainerFrontPic_Starman[] = INCBIN_U32("graphics/trainers/front_pics/starman_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Starman[] = INCBIN_U32("graphics/trainers/palettes/starman.gbapal.lz");

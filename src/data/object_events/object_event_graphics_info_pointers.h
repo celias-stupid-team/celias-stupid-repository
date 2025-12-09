@@ -403,6 +403,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_egg;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_tabitha;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HEX_MANIAC;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_whirlpool;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starman;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -807,4 +808,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TABITHA] = &gObjectEventGraphicsInfo_tabitha,
     [OBJ_EVENT_GFX_HEX_MANIAC] = &gObjectEventGraphicsInfo_HEX_MANIAC,
     [OBJ_EVENT_GFX_WHIRLPOOL] = &gObjectEventGraphicsInfo_whirlpool,
+    [OBJ_EVENT_GFX_STARMAN] = &gObjectEventGraphicsInfo_starman,
 };
