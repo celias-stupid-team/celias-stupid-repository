@@ -10295,6 +10295,13 @@ static void Cmd_handleballthrow(void)
                 } else {
                     ballMultiplier = 0;
                 }
+            case MASTER_BALL:
+                if(gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME) {
+                    ballMultiplier = 100; //check if opponent is Mister
+
+                } else {
+                    ballMultiplier = 0;
+                }
             case LUXURY_BALL:
             case PREMIER_BALL:
                 ballMultiplier = 10;
@@ -10302,7 +10309,12 @@ static void Cmd_handleballthrow(void)
             }
         }
         else
-            ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
+            if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+                
+                ballMultiplier = 0;
+            } else {
+                ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
+            }
 
         odds = catchRate;
 
@@ -10313,7 +10325,7 @@ static void Cmd_handleballthrow(void)
 
         if (thrownBall != SAFARI_BALL)
         {
-            if (thrownBall == MASTER_BALL)
+            if (thrownBall == MASTER_BALL && gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME)
             {
                 gBattleResults.usedMasterBall = TRUE;
             }
@@ -10345,7 +10357,7 @@ static void Cmd_handleballthrow(void)
 
             for (shakes = 0; shakes < BALL_3_SHAKES_SUCCESS && Random() < odds; shakes++);
 
-            if (thrownBall == MASTER_BALL)
+            if (thrownBall == MASTER_BALL && gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME)
                 shakes = BALL_3_SHAKES_SUCCESS; // why calculate the shakes before that check?
 
             BtlController_EmitBallThrowAnim(BUFFER_A, shakes);
