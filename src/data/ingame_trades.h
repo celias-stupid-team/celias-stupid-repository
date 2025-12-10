@@ -149,7 +149,7 @@ static const struct InGameTrade sInGameTrades[] = {
     }, 
     [INGAME_TRADE_MEWTWO] = 
     {
-        .nickname = _("TOP PERCENT"),
+        .nickname = _("1 PERCENT?"),
         .species = SPECIES_RATICATE,
         .ivs = {31, 31, 31, 31, 31, 31},
         .abilityNum = 0,
@@ -158,7 +158,7 @@ static const struct InGameTrade sInGameTrades[] = {
         .personality = 0x5c77ecfa,
         .heldItem = ITEM_STARDUST,
         .mailNum = 255,
-        .otName = _("NORMA"),
+        .otName = _("JOEY"),
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_MEWTWO
