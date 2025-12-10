@@ -595,7 +595,7 @@ script CinnabarIsland_ThatsGrandpa {
 	lock
 	faceplayer
 	msgbox(
-	"That's old man [name] up there.\p"
+	"That's old man CHESTER up there.\p"
 
 	"He likes heights.\n"
 	"", MSGBOX_DEFAULT)
