@@ -119,7 +119,7 @@
     },
     {
       "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 12,
       "y": 21,
       "target_local_id": "45",
