@@ -34,8 +34,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OMANYTE",
-      "x": 28,
-      "y": 12,
+      "x": 21,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -118,8 +118,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 23,
-      "y": 12,
+      "x": 25,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -128,6 +128,42 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Minnesota_SanDiegoZooGirl",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Minnesota_SanDiegoZoo_BillionLionsGirl",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 25,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 63,
+      "y": 30,
+      "target_local_id": "5",
+      "target_map": "MAP_CINNABAR_ISLAND"
     }
   ],
   "warp_events": [
@@ -160,7 +196,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
+      "x": 33,
       "y": 43,
       "elevation": 0,
       "dest_map": "MAP_MINNESOTA",
@@ -171,7 +207,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 53,
+      "x": 51,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -187,8 +223,8 @@
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 12,
+      "x": 17,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Minnesota_SanDiegoZoo_SealSign"
@@ -216,6 +252,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Minnesota_SanDiegoZoo_SealCage"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

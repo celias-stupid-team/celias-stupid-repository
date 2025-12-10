@@ -1047,7 +1047,7 @@
 #define FLAG_ROUTE_13_CANDY              0x3CC //placed
 #define FLAG_ROUTE_14_CANDY              0x3CD //placed
 #define FLAG_ROUTE_16_CANDY              0x3CF //placed
-#define FLAG_ROUTE_17_CANDY              0x3D0 //placed
+#define FLAG_ROUTE_21_CANDY              0x3D0 // idk
 #define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4 //placed
@@ -1063,7 +1063,7 @@
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
 #define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE
-#define FLAG_ROUTE_21_CANDY              0x3D2 //REPURPOSE
+#define FLAG_PIRATE_BAY_CANDY              0x3D2 //REPURPOSE
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_AETHER_PARADISE_CANDY       0x3B5
 #define FLAG_NATIONAL_PARK_CANDY               0x3D7

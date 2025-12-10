@@ -111,3 +111,15 @@ script CinnabarIslandLab_Shelgon {
 	waitmovement(0)
 	release
 }
+
+script CinnabarIslandLab_StevenStone {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hello, there!\n"
+	"My name is STEVEN STONE.\p"
+
+	"It's a pleasure to meet you.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

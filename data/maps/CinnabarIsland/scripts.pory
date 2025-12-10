@@ -589,3 +589,19 @@ script CinnabarIsland_ValorCrestPedestal {
 	}
 	release
 }
+
+
+script CinnabarIsland_ThatsGrandpa {
+	lock
+	faceplayer
+	msgbox(
+	"That's old man [name] up there.\p"
+
+	"He likes heights.\n"
+	"", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	waitmovement(0)
+	release
+}
