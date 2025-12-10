@@ -149,9 +149,9 @@ static const struct InGameTrade sInGameTrades[] = {
     }, 
     [INGAME_TRADE_MEWTWO] = 
     {
-        .nickname = _("TANGENY"),
-        .species = SPECIES_RATTATA,
-        .ivs = {22, 17, 25, 16, 23, 20},
+        .nickname = _("TOP PERCENT"),
+        .species = SPECIES_RATICATE,
+        .ivs = {31, 31, 31, 31, 31, 31},
         .abilityNum = 0,
         .otId = 60042,
         .conditions = {5, 5, 30, 5, 5},

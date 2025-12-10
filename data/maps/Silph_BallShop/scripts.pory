@@ -11,6 +11,19 @@ script SilphCo_BallShop_Kurt {
 	waitmessage
 	pokemart(SilphCo_BallShop_Mart)
 	msgbox(Text_PleaseComeAgain)
+	if(checkitem(ITEM_BIG_MUSHROOM)) {
+		while(checkitem(ITEM_BIG_MUSHROOM)) {
+			removeitem(ITEM_BIG_MUSHROOM)
+		}
+		closemessage
+		playmoncry(SPECIES_AMOONGUSS, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"{PLAYER} bought an AMOONGUSS!\n"
+		"", MSGBOX_DEFAULT)
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_AMOONGUSS)
+		call(Common_Script_GiftPokemon)
+	}
 	release
 }
 

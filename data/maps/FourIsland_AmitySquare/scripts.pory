@@ -31,3 +31,26 @@ script FourIsland_AmitySquare_Trapinch {
     end
     
 }
+
+
+
+script AmitySquare_PokemonStatue {
+	lock
+	msgbox(
+	"It's a statue resembling a…\n"
+	"POKéMON.\l"
+	"You know the one.\p"
+
+	"Y'know, it's that one.\n"
+	"The one with the, uh…", MSGBOX_DEFAULT)
+	if(!flag(FLAG_AMBIGUOUS_STATUE_SIGN)) {
+		closemessage
+		delay(10)
+		playfanfare(MUS_SLOTS_WIN)
+		msgbox("{PLAYER} discovered a\nPOKéMON SIGN!", MSGBOX_DEFAULT)
+		waitfanfare
+		delay(10)
+		setflag(FLAG_AMBIGUOUS_STATUE_SIGN)
+	}
+	release
+}

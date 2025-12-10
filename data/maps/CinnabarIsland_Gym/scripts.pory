@@ -753,6 +753,11 @@ script CinnabarGym_Blaine {
 	// Do the battle
 	// If you win, increment your current question
 	setflag(FLAG_BADGE07_GET)
+	msgbox(
+	"temp\n"
+	"You get the badge yay", MSGBOX_DEFAULT)
+	playfanfare(MUS_OBTAIN_BADGE)
+	waitfanfare
 	setvar(VAR_TEMP_C, 1) //For the shakey ground
 	release
 }
