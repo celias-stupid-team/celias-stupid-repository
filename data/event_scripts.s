@@ -1855,3 +1855,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route19_Pit_High/scripts.inc"
 	.include "data/maps/Route19_Pit_High/text.inc"
+
+	.include "data/maps/Ocean14/scripts.inc"
+	.include "data/maps/Ocean14/text.inc"

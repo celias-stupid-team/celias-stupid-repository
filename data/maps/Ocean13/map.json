@@ -33,6 +33,11 @@
       "map": "MAP_ROUTE21_NORTH",
       "offset": 14,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN14",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],
