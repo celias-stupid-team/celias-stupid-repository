@@ -82,3 +82,23 @@ script PirateBay_SkyTower {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+script PirateBay_Copperajah {
+	lock
+	msgbox(
+	"A COPPERAJAH is on sale.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	playmoncry(SPECIES_COPPERAJAH, CRY_MODE_DEFAULT)
+	msgbox(
+	"COPPERAJAH: Cruh, cah-rah?\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(40)
+	msgbox(
+	"It appears to be low-quality.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
