@@ -74,8 +74,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 33,
-      "y": 10,
+      "x": 34,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -98,6 +98,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_SS_ANNE",
+      "x": 22,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -110,14 +124,14 @@
     },
     {
       "x": 32,
-      "y": 4,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "1"
     },
     {
       "x": 31,
-      "y": 9,
+      "y": 3,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "2"
@@ -131,7 +145,7 @@
     },
     {
       "x": 33,
-      "y": 8,
+      "y": 3,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "4"
@@ -144,36 +158,36 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 31,
-      "y": 7,
+      "x": 30,
+      "y": 3,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "6"
     },
     {
       "x": 30,
-      "y": 5,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "7"
     },
     {
-      "x": 34,
-      "y": 6,
+      "x": 33,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "8"
     },
     {
       "x": 31,
-      "y": 5,
+      "y": 2,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "5"
     },
     {
       "x": 32,
-      "y": 6,
+      "y": 3,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "6"

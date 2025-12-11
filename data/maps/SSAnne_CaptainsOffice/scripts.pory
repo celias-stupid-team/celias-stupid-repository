@@ -47,3 +47,33 @@ SSAnne_CaptainsOffice_EventScript_Book::
 	msgbox SSAnne_CaptainsOffice_Text_HowToConquerSeasickness, MSGBOX_SIGN
 	end
 `
+
+script SSAnne_Captain {
+	lock
+	faceplayer
+	msgbox(
+	"crashes make me throw up\p"
+
+	"but I will help you\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	setvar(VAR_SEAFOAM_ISLANDS_CURRENT_SCENE, 1)
+	removeobject(VAR_LAST_TALKED)
+	release
+
+}
+
+script SSAnne_TrashCan {
+	msgbox(
+	"insert joke here\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SSAnne_CaptainLog {
+	msgbox(
+	"insert joke here\n"
+	"", MSGBOX_SIGN)
+
+}
