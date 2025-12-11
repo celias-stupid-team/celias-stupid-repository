@@ -65,6 +65,7 @@ script PirateBay_PotionShop {
 }
 
 mart PirateBay_Potions {
+	ITEM_POTION_EXE
 	ITEM_NONE
 }
 

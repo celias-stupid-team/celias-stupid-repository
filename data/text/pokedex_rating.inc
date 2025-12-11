@@ -150,8 +150,9 @@ PokedexRating_Text_HintSquirtle::
 	.string "that…$"
 
 PokedexRating_Text_HintIvysaur::
-	.string "Your SQUIRTLE can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "Oh? It seems that your STARTER\n"
+	.string "is ready to evolve again!\p"
+	.string "I wonder why…\n$"
 
 PokedexRating_Text_HintHitmonchin::
 	.string "Placeholder!$"

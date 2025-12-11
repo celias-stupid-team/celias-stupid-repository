@@ -325,7 +325,7 @@ It is reset after every battle.
 #define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
-#define VAR_0x40E2                 0x40E2
+#define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
 #define VAR_0x40E3                 0x40E3
 #define VAR_0x40E4                 0x40E4
 #define VAR_0x40E5                 0x40E5

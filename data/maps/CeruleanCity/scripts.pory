@@ -39,6 +39,7 @@ CeruleanCity_EventScript_RivalTriggerRight::
 CeruleanCity_EventScript_Rival::
 	famechecker FAMECHECKER_CERULEAN, 2
 	textcolor NPC_TEXT_COLOR_MALE
+	setrespawn HEAL_LOCATION_CERULEAN_CITY
 	setvar VAR_MAP_SCENE_ROUTE22, 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	addobject LOCALID_CERULEAN_RIVAL

@@ -127,14 +127,14 @@
     },
     {
       "x": 22,
-      "y": 8,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_2F_ROOM5",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
-      "y": 8,
+      "x": 25,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_2F_ROOM6",
       "dest_warp_id": "0"

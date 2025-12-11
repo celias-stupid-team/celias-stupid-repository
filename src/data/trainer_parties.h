@@ -9751,9 +9751,9 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer37[] = {
     },
     {
         .iv = 0,
-        .lvl = 15,
+        .lvl = 6,
         .species = SPECIES_WARTORTLE_POKERAP,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
 };

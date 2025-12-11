@@ -329,7 +329,7 @@
     },
     {
       "type": "trigger",
-      "x": 58,
+      "x": 60,
       "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_1",
@@ -340,6 +340,51 @@
       "type": "trigger",
       "x": 5,
       "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route9_SetBenchRoute9"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -376,24 +421,6 @@
       "type": "trigger",
       "x": 69,
       "y": 10,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route9_SetBenchRoute9"
-    },
-    {
-      "type": "trigger",
-      "x": 69,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route9_SetBenchRoute9"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
