@@ -267,14 +267,15 @@ bool8 RS_IsRunningDisallowed(u8 r0)
 
 bool32 IsRunningDisallowed(u8 metatileBehavior)
 {
+    if(FlagGet(FLAG_CSR_MAP_ROUTE_9_FAR) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE9) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE9))) {
+            return FALSE;
+    }
     if (!gMapHeader.allowRunning)
     {
         // allow indoor running after receiving the running shoes item
         if (!(VarGet(VAR_MAP_SCENE_PEWTER_CITY) == 2 && gMapHeader.mapType == MAP_TYPE_INDOOR))
             return TRUE;
-        if(FlagGet(FLAG_CSR_MAP_ROUTE_9_FAR) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE9) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE9))) {
-            return TRUE;
-        }
+        
     }
         
 

@@ -79,7 +79,7 @@ enum
     NATIONAL_DEX_CHERUBI,          // 70
     NATIONAL_DEX_ODDISH,           // 71
     NATIONAL_DEX_ZUBAT,            // 72
-    NATIONAL_DEX_GOLBAT,           // 73
+    NATIONAL_DEX_WOOBAT,           // 73
     NATIONAL_DEX_HORSEA,           // 74
     NATIONAL_DEX_DRAGONITE,        // 75
     NATIONAL_DEX_YOSHI,            // 76

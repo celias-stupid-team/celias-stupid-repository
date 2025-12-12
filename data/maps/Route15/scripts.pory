@@ -13,12 +13,13 @@ mapscripts Route15_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_FED_SANDWICH)) {
             //I accidentally did the logic backwards but this is more sensible anyway LOL 
-        } else {
-            setflag(FLAG_TEMP_A)
 			if(!flag(FLAG_SAW_CELIA_ROUTE15)) {
 				setvar(VAR_TEMP_A, 1)
 
 			}
+        } else {
+            setflag(FLAG_TEMP_A)
+			
         }
 
 		if(flag(FLAG_CSR_TALKED_TO_TUBER) && !flag(FLAG_GOLURK_SANDWICH)) {
@@ -47,6 +48,8 @@ mapscripts Route15_MapScripts {
 
 script Route15_CeliaStopsYou {
 	lock
+	setflag(FLAG_SAW_CELIA_ROUTE15)
+	setvar(VAR_TEMP_A, 0)
 	playse(SE_PIN)
 	applymovement(LOCALID_ROUTE15_CELIA, moves(
 		emote_exclamation_mark
@@ -56,16 +59,16 @@ script Route15_CeliaStopsYou {
 	applymovement(LOCALID_PLAYER, moves(
 		face_up
 	))
+	waitmovement(0)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	goto(Route15_CeliaSandwich)
-	setflag(FLAG_SAW_CELIA_ROUTE15)
-	setvar(VAR_TEMP_A, 0)
 	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_DEFAULT)
 	release
 }
 
 script Route15_CeliaSandwich {
 	setflag(FLAG_SAW_CELIA_ROUTE15)
+	setvar(VAR_TEMP_A, 0)
 	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_NPC)
 	end
 }

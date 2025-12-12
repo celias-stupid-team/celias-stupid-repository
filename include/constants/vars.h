@@ -266,7 +266,7 @@ It is reset after every battle.
 #define VAR_CANT_FIND_TEETH                 0x40A5
 #define VAR_CANT_FIGURE_OUT_DARACH                 0x40A6
 #define VAR_LAVA_COOKIE                 0x40A7
-#define VAR_0x40A8                 0x40A8
+#define VAR_SEAFOAM_ISLANDS_CURRENT_SCENE                 0x40A8
 #define VAR_0x40A9                 0x40A9
 
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
@@ -325,7 +325,7 @@ It is reset after every battle.
 #define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
-#define VAR_0x40E2                 0x40E2
+#define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
 #define VAR_0x40E3                 0x40E3
 #define VAR_0x40E4                 0x40E4
 #define VAR_0x40E5                 0x40E5

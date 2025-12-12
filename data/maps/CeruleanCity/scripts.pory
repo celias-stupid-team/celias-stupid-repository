@@ -3,12 +3,7 @@ CeruleanCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeruleanCity_OnTransition
 	.byte 0
 
-CeruleanCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_CERULEAN_CITY
-	setbench BENCH_CERULEAN
-	call SetPlayerPokedexValues
-	call_if_unset FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits
-	end
+
 
 CeruleanCity_EventScript_BlockExits::
 	setobjectxyperm LOCALID_CERULEAN_POLICEMAN, 30, 17
@@ -39,6 +34,7 @@ CeruleanCity_EventScript_RivalTriggerRight::
 CeruleanCity_EventScript_Rival::
 	famechecker FAMECHECKER_CERULEAN, 2
 	textcolor NPC_TEXT_COLOR_MALE
+	setrespawn HEAL_LOCATION_CERULEAN_CITY
 	setvar VAR_MAP_SCENE_ROUTE22, 2
 	playbgm MUS_ENCOUNTER_RIVAL, 0
 	addobject LOCALID_CERULEAN_RIVAL
@@ -352,6 +348,18 @@ CeruleanCity_EventScript_GymSign::
 	releaseall
 	end
 `
+
+script CeruleanCity_OnTransition {
+	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK)) {
+		setflag(FLAG_TEMP_5)
+	}
+	setworldmapflag(FLAG_WORLD_MAP_CERULEAN_CITY)
+	setbench(BENCH_CERULEAN)
+	call(SetPlayerPokedexValues)
+	call_if_unset(FLAG_CSR_GOT_BILL, CeruleanCity_EventScript_BlockExits)
+}
+
+
 script CeruleanCity_PlayRoute24Music {
 	if(!flag(FLAG_CSR_CERULEAN_GOING_NORTH)) {
 		setflag(FLAG_CSR_CERULEAN_GOING_NORTH)
@@ -538,4 +546,14 @@ movement PhotoMan_Ascends {
 	spin_up
 	spin_up
 	spin_up
+}
+
+
+script CeruleanCity_RockTunnelSetup {
+	msgbox(
+	"Hey, you!\n"
+	"Any chance you have some POTIONS?\p"
+
+	"I tried stocking up before ROCK\n"
+	"TUNNEL, but I can't seem to buy any.", MSGBOX_NPC)
 }
