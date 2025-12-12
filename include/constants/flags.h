@@ -408,8 +408,8 @@
 #define FLAG_FOUR_ISLAND_WEAST_BERRY                      0x165
 #define FLAG_DMCA_SURGE_FIRST_GATE                      0x166
 #define FLAG_DMCA_SURGE_SECOND_GATE                         0x167
-#define FLAG_0x168                        0x168
-#define FLAG_0x169                 0x169
+#define FLAG_CUT_SAMSON_OAK                        0x168
+#define FLAG_OPENED_ZERO_ISLAND                 0x169
 #define FLAG_0x16A                     0x16A
 #define FLAG_HIDE_ROUTE9_TM40                                   0x16B
 #define FLAG_HIDE_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE                0x16C
@@ -990,18 +990,18 @@
 #define FLAG_TALKED_TO_IVY               0x391
 #define FLAG_TALKED_TO_TODD               0x392
 #define FLAG_UNLOCKED_CINNABAR_GYM               0x393
-#define FLAG_0x394               0x394
+#define FLAG_FOUGHT_CASTFORM               0x394
 #define FLAG_0x395               0x395
 #define FLAG_0x396               0x396
 #define FLAG_0x397               0x397
-#define FLAG_FOUGHT_CASTFORM               0x398
 
+#define FLAG_KINGLER_SIGN               0x398
 #define FLAG_DUGTRIO_SIGN               0x399
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
 #define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
 #define FLAG_ONIX_TAIL_SIGN               0x39D
-#define FLAG_CSR_SIGN_2               0x39E
+#define FLAG_IVY_SIGN               0x39E
 
 
 
@@ -1047,7 +1047,7 @@
 #define FLAG_ROUTE_13_CANDY              0x3CC //placed
 #define FLAG_ROUTE_14_CANDY              0x3CD //placed
 #define FLAG_ROUTE_16_CANDY              0x3CF //placed
-#define FLAG_ROUTE_17_CANDY              0x3D0 //placed
+#define FLAG_ROUTE_21_CANDY              0x3D0 // idk
 #define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4 //placed
@@ -1063,7 +1063,9 @@
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
 #define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE
-#define FLAG_ROUTE_21_CANDY              0x3D2 //REPURPOSE
+
+
+#define FLAG_PIRATE_BAY_CANDY              0x3D2 
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_AETHER_PARADISE_CANDY       0x3B5
 #define FLAG_NATIONAL_PARK_CANDY               0x3D7

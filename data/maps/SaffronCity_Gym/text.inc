@@ -1,43 +1,39 @@
 SaffronCity_Gym_Text_SabrinaIntro::
-    .string "I had a vision of your arrival.\p"
-    .string "I have had psychic powers since\n"
-    .string "I was a child.\p"
-    .string "It started when a spoon I\n"
-    .string "carelessly tossed, bent.\p"
-    .string "I dislike battling, but if you wish,\n"
-    .string "I will show you my powers!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
+	.string "Grraaaah!\n"
+	.string "This is unacceptable!!\p"
+	.string "How could I, BRUNO of the ELITE\n"
+	.string "FOUR, be demoted from my position?\l"
+	.string "And to a lowly GYM LEADER, no less!\p"
+	.string "Grr… Challenger!\n"
+	.string "I will prove my place at the top!\p"
+	.string "You'll never defeat my unbeatable\n"
+	.string "team!\l"
+	.string "Wanna know why?\p"
+	.string "All my POKéMON…{PAUSE 30} are immune\n"
+	.string "to PHYSICAL damage!!!\p"
+	.string "Come!\n"
+	.string "Let's battle!{PLAY_BGM}{MUS_ENCOUNTER_GYM_LEADER}$"
 
 SaffronCity_Gym_Text_SabrinaDefeat::
-    .string "This loss shocks me!\n"
-    .string "But, a loss is a loss.\p"
-    .string "I admit, I didn't work hard enough\n"
-    .string "to win.\p"
-    .string "Your victory has earned you the\n"
-    .string "MARSHBADGE.$"
+	.string "What!?\n"
+	.string "You've done that puzzle before!?$"
 
 SaffronCity_Gym_Text_SabrinaPostBattle::
-    .string "Psychic power isn't something that\n"
-    .string "only a few people have.\p"
-    .string "Everyone has psychic power.\n"
-    .string "People just don't realize it.$"
+	.string "Maybe…{PAUSE 30}\n"
+	.string "Maybe I am a nerd.$"
 
 SaffronCity_Gym_Text_ExplainMarshBadgeTakeThis::
-    .string "The MARSHBADGE makes POKéMON up\n"
-    .string "to Lv. 70 obey you.\p"
-    .string "Stronger POKéMON will become wild,\n"
-    .string "ignoring your orders in battle.\p"
-    .string "Just don't raise your POKéMON too\n"
-    .string "much to avoid that problem.\p"
-    .string "Wait, please take this TM with you.$"
+	.string "Hmph. Fine.\p"
+	.string "Take this TM, then.\n$"
 
 SaffronCity_Gym_Text_ReceivedTM04FromSabrina::
-    .string "{PLAYER} received TM04 from\n"
-    .string "SABRINA.$"
+    .string "{PLAYER} received TM34 from\n"
+    .string "the big NERD.$"
 
 SaffronCity_Gym_Text_ExplainTM04::
-    .string "TM04 is CALM MIND.\p"
-    .string "It makes the POKéMON concentrate\n"
-    .string "to raise both SP. ATK and SP. DEF.$"
+	.string "TM39 contains…{PAUSE 30} BIDE.\p"
+	.string "It is a move that definitely\n"
+	.string "exists.$"
 
 SaffronCity_Gym_Text_BagFullOfOtherItems::
     .string "Your BAG is full of other items.$"

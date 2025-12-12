@@ -51,6 +51,8 @@ Trade_Text_RattataTrade::
 	.string "Want to trade it for my\n"
 	.string "RATTATA?$"
 
+
+
 Trade_Text_ThatsTooBad::
 	.string "That's too bad.$"
 

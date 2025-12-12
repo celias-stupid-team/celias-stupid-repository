@@ -1527,3 +1527,111 @@ static void SpriteCB_BerryPouchWaitWobbleAnim(struct Sprite *sprite)
         sprite->callback = SpriteCallbackDummy;
     }
 }
+
+
+
+// I'm going to hijack the Berry Pouch for the Candy Counter
+
+
+static const u8 sCandyLocation_PalletTown[] = _("PALLET TOWN");
+static const u8 sCandyLocation_ViridianCity[] = _("VIRIDIAN CITY");
+static const u8 sCandyLocation_PewterCity[] = _("PEWTER CITY");
+static const u8 sCandyLocation_CeruleanCity[] = _("CERULEAN cITY");
+static const u8 sCandyLocation_VermilionCity[] = _("VERMILION CITY");
+static const u8 sCandyLocation_LavenderTown[] = _("LAVENDER TOWN");
+static const u8 sCandyLocation_CeladonCity[] = _("CELADON CITY");
+static const u8 sCandyLocation_FushciaCity[] = _("FUSHCIA CITY");
+static const u8 sCandyLocation_CinnabarIsland[] = _("CINNABAR ISLAND");
+static const u8 sCandyLocation_SootopolisCity[] = _("SOOTOPOLIS CITY");
+static const u8 sCandyLocation_MtMoon[] = _("MT. MOON");
+static const u8 sCandyLocation_UndergroundPath[] = _("UNDERGROUND PATH");
+static const u8 sCandyLocation_PokemonTower[] = _("POKéMON TOWER");
+static const u8 sCandyLocation_SafariZone[] = _("SAFARI ZONE");
+static const u8 sCandyLocation_SilphCo[] = _("SILPH CO");
+static const u8 sCandyLocation_SeafoamIslands[] = _("SEAFORM ISLANDS");
+static const u8 sCandyLocation_SkyTower[] = _("SKY TOWER");
+static const u8 sCandyLocation_KantoLighthouse[] = _("KANTO LIGHTHOUSE");
+static const u8 sCandyLocation_CeruleanCave[] = _("CERULEAN CAVE");
+static const u8 sCandyLocation_OneIsland[] = _("ONE ISLAND");
+static const u8 sCandyLocation_TwoIsland[] = _("TWO ISLAND");
+static const u8 sCandyLocation_PokemonMansion[] = _("POKéMON MANSION");
+static const u8 sCandyLocation_FourIsland[] = _("FOUR ISLAND");
+static const u8 sCandyLocation_ThirtyEightIsland[] = _("THIRTY EIGHT ISLAND");
+static const u8 sCandyLocation_PokemonIsland[] = _("POKéMON ISLAND");
+static const u8 sCandyLocation_Minnesota[] = _("MINNESOTA");
+static const u8 sCandyLocation_Route1[] = _("ROUTE 1");
+static const u8 sCandyLocation_Route2[] = _("ROUTE 2");
+static const u8 sCandyLocation_Route3[] = _("ROUTE 3");
+static const u8 sCandyLocation_Route4[] = _("ROUTE 4");
+static const u8 sCandyLocation_Route5[] = _("ROUTE 5");
+static const u8 sCandyLocation_Route6[] = _("ROUTE 6");
+static const u8 sCandyLocation_Route8[] = _("ROUTE 8");
+static const u8 sCandyLocation_Route9[] = _("ROUTE 9");
+static const u8 sCandyLocation_Route10[] = _("ROUTE 10");
+static const u8 sCandyLocation_Route11[] = _("ROUTE 11");
+static const u8 sCandyLocation_Route12[] = _("ROUTE 12");
+static const u8 sCandyLocation_Route13[] = _("ROUTE 13");
+static const u8 sCandyLocation_Route14[] = _("ROUTE 14");
+static const u8 sCandyLocation_Route16[] = _("ROUTE 16");
+static const u8 sCandyLocation_Route18[] = _("ROUTE 18");
+static const u8 sCandyLocation_Route21[] = _("ROUTE 21");
+static const u8 sCandyLocation_Route22[] = _("ROUTE 22");
+static const u8 sCandyLocation_Route24[] = _("ROUTE 24");
+static const u8 sCandyLocation_Route25[] = _("ROUTE 25");
+static const u8 sCandyLocation_ViridianForest[] = _("VIRIDIAN FOREST");
+static const u8 sCandyLocation_Yes[] = _("YES");
+static const u8 sCandyLocation_AetherParadise[] = _("AETHER PARADISE");
+static const u8 sCandyLocation_NationalPark[] = _("NATIONAL PARK");
+static const u8 sCandyLocation_PirateBay[] = _("PIRATE BAY");
+
+static u16 sCandyFlags[] = {
+    FLAG_PALLET_CANDY,
+    FLAG_VIRIDIAN_CANDY,
+    FLAG_PEWTER_CANDY,
+    FLAG_CERULEAN_CANDY,
+    FLAG_VERMILLION_CANDY  ,
+    FLAG_LAVENDER_CANDY,
+    FLAG_CELADON_CANDY,
+    FLAG_FUSHCIA_CANDY,
+    FLAG_CINNABAR_ISLAND_CANDY,       
+    FLAG_SOOTOPOLIS_CITY_CANDY,
+    FLAG_MINNESOTA_CANDY,
+    FLAG_POKEMON_ISLAND_CANDY,
+    FLAG_ONE_ISLAND_CANDY,
+    FLAG_TWO_ISLAND_CANDY,
+    FLAG_THREE_ISLAND_CANDY,
+    FLAG_FOUR_ISLAND_CANDY,
+    FLAG_THIRTY_EIGHT_ISLAND_CANDY,
+    FLAG_NATIONAL_PARK_CANDY,
+    FLAG_VIRIDIAN_FOREST_CANDY,
+    FLAG_MT_MOON_CANDY,
+    FLAG_UNDERGROUND_PATH_CANDY,
+    FLAG_POKEMON_TOWER_CANDY,
+    FLAG_SAFARI_ZONE_CANDY,
+    FLAG_SILPH_CO_CANDY,
+    FLAG_KANTO_LIGHTHOUSE_CANDY,
+    FLAG_CERULEAN_CAVE_CANDY,
+    FLAG_SEAFOAM_ISLANDS_CANDY,
+    FLAG_SKY_PILLAR_CANDY,
+    FLAG_PIRATE_BAY_CANDY,
+    FLAG_YES_CANDY,
+    FLAG_AETHER_PARADISE_CANDY,
+    FLAG_ROUTE_1_CANDY,
+    FLAG_ROUTE_2_CANDY,
+    FLAG_ROUTE_3_CANDY,
+    FLAG_ROUTE_4_CANDY,
+    FLAG_ROUTE_5_CANDY,
+    FLAG_ROUTE_6_CANDY,
+    FLAG_ROUTE_8_CANDY,
+    FLAG_ROUTE_9_CANDY,
+    FLAG_ROUTE_10_CANDY,
+    FLAG_ROUTE_11_CANDY,
+    FLAG_ROUTE_12_CANDY,
+    FLAG_ROUTE_13_CANDY,
+    FLAG_ROUTE_14_CANDY,
+    FLAG_ROUTE_16_CANDY,
+    FLAG_ROUTE_18_CANDY,
+    FLAG_ROUTE_22_CANDY,
+    FLAG_ROUTE_24_CANDY,
+    FLAG_ROUTE_25_CANDY,
+};

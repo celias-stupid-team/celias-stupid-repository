@@ -55,3 +55,11 @@ script Minnesota_SanDiegoZoo_SealCage {
 	"unsealed.", MSGBOX_SIGN)
 
 }
+
+
+script Minnesota_SanDiegoZoo_BillionLionsGirl {
+	msgbox(
+	"Between this and the billion lions\n"
+	"that got stolen last week, this zoo\l"
+	"really needs to get better locks.", MSGBOX_NPC)
+}
