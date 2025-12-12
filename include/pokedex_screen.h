@@ -29,5 +29,6 @@ void CB2_OpenPokedexFromStartMenu(void);
 s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecies);
 u16 GetRandomUnobtainedSpecies(void);
 void GetRandomUnobtainedSpecies_ToResult(void);
+u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex);
 
 #endif //GUARD_POKEDEX_SCREEN_H

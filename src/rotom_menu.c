@@ -73,7 +73,7 @@ static void RotomStartMenu_LoadSprites(void);
 static void RotomStartMenu_CreateSprites(void);
 static void RotomStartMenu_SafariZone_CreateSprites(void);
 static void RotomStartMenu_LoadBgGfx(void);
-static void RotomStartMenu_UpdateMenuName(void);
+static void RotomStartMenu_PrintDexNumbers(void);
 static u8 RunSaveCallback(void);
 static u8 SaveDoSaveCallback(void);
 static void HideSaveInfoWindow(void);
@@ -111,10 +111,10 @@ enum SaveStates {
 
 /* STRUCTs */
 struct RotomStartMenu {
-    u8 optionSelected;
-    u8 iconAnimStarted;
-    u16 sMenuNameWindowId;
+    u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
+    u8 iconAnimStarted;
+    u8 optionSelected;
 
     u8 spriteIdPokedex;
     u8 spriteIdParty;
@@ -156,11 +156,11 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .baseBlock = 8
 };
 
-static const struct WindowTemplate sWindowTemplate_MenuName = {
+static const struct WindowTemplate sWindowTemplate_DexNumbers = {
     .bg = 0,
-    .tilemapLeft = 16,
-    .tilemapTop = 17,
-    .width = 7,
+    .tilemapLeft = 22,
+    .tilemapTop = 0,
+    .width = 4,
     .height = 2,
     .paletteNum = 15,
     .baseBlock = 0x30 + (12*2)
@@ -173,7 +173,7 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .width = 7,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = (0x30 + (12*2)) + (7*2)
+    .baseBlock = (0x30 + (12*2)) + (4*2)
 };
 
 static const struct SpritePalette sSpritePal_Icon[] =
@@ -577,8 +577,7 @@ void RotomStartMenu_Init(void) {
         RotomStartMenu_LoadSprites();
         RotomStartMenu_CreateSprites();
         RotomStartMenu_LoadBgGfx();
-        sRotomStartMenu->sMenuNameWindowId = AddWindow(&sWindowTemplate_MenuName);
-        RotomStartMenu_UpdateMenuName();
+        sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
         CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
     } else {
         if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE) {
@@ -589,10 +588,10 @@ void RotomStartMenu_Init(void) {
         RotomStartMenu_SafariZone_CreateSprites();
         RotomStartMenu_LoadBgGfx();
         ShowSafariBallsWindow();
-        sRotomStartMenu->sMenuNameWindowId = AddWindow(&sWindowTemplate_MenuName);
-        RotomStartMenu_UpdateMenuName();
+        sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
         CreateTask(Task_RotomStartMenu_SafariZone_HandleMainInput, 0);
     }
+    RotomStartMenu_PrintDexNumbers();
 }
 
 static void RotomStartMenu_LoadSprites(void) {
@@ -668,56 +667,34 @@ static void RotomStartMenu_LoadBgGfx(void) {
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static const u8 sText_Pokedex[] = _("  Pokédex");
-static const u8 sText_Party[]   = _("    Party ");
-static const u8 sText_Bag[]     = _("      Bag  ");
-static const u8 sText_PC[]      = _("       PC  ");
-static const u8 sText_Trainer[] = _("   Trainer");
-static const u8 sText_Save[]    = _("     Save  ");
-static const u8 sText_Options[] = _("   Options");
-static const u8 sText_Retire[]    = _("   Retire");
+static const u8 sDexNumTextColor[3] = {1, 2, 3};
 
-static void RotomStartMenu_UpdateMenuName(void) {
-    // FillWindowPixelBuffer(sRotomStartMenu->sMenuNameWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    // PutWindowTilemap(sRotomStartMenu->sMenuNameWindowId);
+static void RotomStartMenu_PrintDexNumbers(void) {
+    u8 printStr[8];
+    u8 obtainableStr[4];
+    u16 caught = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
+    u16 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
+    
+    FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_WHITE));
+    PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
 
-    // switch(sMenuSelected) {
-    // case MENU_POKEDEX:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Pokedex, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_PARTY:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Party, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_PC:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_PC, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_BAG:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Bag, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_TRAINER_CARD:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Trainer, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_SAVE:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Save, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_OPTIONS:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Options, 1, 0, 0xFF, NULL);
-    //     break;
-    // case MENU_RETIRE:
-    //     AddTextPrinterParameterized(sRotomStartMenu->sMenuNameWindowId, 1, sText_Retire, 1, 0, 0xFF, NULL);
-    //     break;
-    // }
-    // CopyWindowToVram(sRotomStartMenu->sMenuNameWindowId, COPYWIN_GFX);
+    ConvertIntToDecimalStringN(printStr, caught, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(obtainableStr, obtainable, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(printStr, gText_Slash);
+    StringAppend(printStr, obtainableStr);
+
+    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 0, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
+    CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
 static void RotomStartMenu_ExitAndClearTilemap(void) {
     u32 i;
     u8 *buf = GetBgTilemapBuffer(0);
 
-    FillWindowPixelBuffer(sRotomStartMenu->sMenuNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
-    ClearWindowTilemap(sRotomStartMenu->sMenuNameWindowId);
-    CopyWindowToVram(sRotomStartMenu->sMenuNameWindowId, COPYWIN_GFX);
-    RemoveWindow(sRotomStartMenu->sMenuNameWindowId);
+    FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    ClearWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
+    CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
+    RemoveWindow(sRotomStartMenu->sDexNumbersWindowID);
 
     if (GetSafariZoneFlag()) {
         FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
@@ -1189,8 +1166,6 @@ static void RotomStartMenu_HandleInput_DPadDown(void) {
       }
       break;
     }
-
-    RotomStartMenu_UpdateMenuName();
 }
 
 static void RotomStartMenu_HandleInput_DPadUp(void) {
@@ -1212,8 +1187,6 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
         }
         break;
     }
-
-    RotomStartMenu_UpdateMenuName();
 }
 
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
@@ -1263,8 +1236,6 @@ static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void) {
         }
         break;
     }
-
-    RotomStartMenu_UpdateMenuName();
 }
 
 static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void) {
@@ -1287,8 +1258,6 @@ static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void) {
         }
         break;
     }
-
-    RotomStartMenu_UpdateMenuName();
 }
 
 static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
