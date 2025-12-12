@@ -983,12 +983,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CamperDrew[] = {
         .species = SPECIES_RATTATA,
         .moves = {MOVE_DIG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
-    {
-        .iv = 0,
-        .lvl = 19,
-        .species = SPECIES_RATTATA,
-        .moves = {MOVE_DIG, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_PicnickerDiana[] = {
@@ -3941,7 +3935,7 @@ static const struct TrainerMonItemCustomMoves sParty_BossGiovanni2[] = {
         .lvl = 30,
         .heldItem = ITEM_MACHO_BRACE,
         .species = SPECIES_GENESECT,
-        .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        .moves = {MOVE_OVERHEAT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
 };
 
