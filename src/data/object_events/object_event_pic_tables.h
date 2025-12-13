@@ -4347,3 +4347,25 @@ const struct SpriteFrameImage gObjectEventPicTable_starlight[] = {
     overworld_frame(gObjectEventPic_starlight, 2, 4, 7),
     overworld_frame(gObjectEventPic_starlight, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_pigmask[] = {
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 2),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 2),
+    overworld_frame(gObjectEventPic_pigmask, 2, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_pokey[] = {
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 2),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 0),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 1),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 2),
+    overworld_frame(gObjectEventPic_pokey, 2, 4, 2),
+};

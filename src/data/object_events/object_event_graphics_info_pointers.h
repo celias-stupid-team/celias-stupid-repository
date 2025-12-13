@@ -407,6 +407,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_swim_barry;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_copperajah;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starlight;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pigmask;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pokey;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -815,4 +817,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SWIM_BARRY] = &gObjectEventGraphicsInfo_swim_barry,
     [OBJ_EVENT_GFX_COPPERAJAH] = &gObjectEventGraphicsInfo_copperajah,
     [OBJ_EVENT_GFX_STARLIGHT] = &gObjectEventGraphicsInfo_starlight,
+    [OBJ_EVENT_GFX_PIGMASK] = &gObjectEventGraphicsInfo_pigmask,
+    [OBJ_EVENT_GFX_POKEY] = &gObjectEventGraphicsInfo_pokey,
 };
