@@ -555,3 +555,5 @@ const u32 gObjectEventPic_starman[] = INCBIN_U32("graphics/object_events/pics/st
 const u32 gObjectEventPic_swim_barry[] = INCBIN_U32("graphics/object_events/pics/stupid/swim_barry.4bpp");
 const u32 gObjectEventPic_copperajah[] = INCBIN_U32("graphics/object_events/pics/stupid/copperajah.4bpp");
 const u16 gObjectEventPal_copperajah[] = INCBIN_U16("graphics/object_events/palettes/copperajah.gbapal");
+const u32 gObjectEventPic_starlight[] = INCBIN_U32("graphics/object_events/pics/stupid/starlight.4bpp");
+const u16 gObjectEventPal_starlight[] = INCBIN_U16("graphics/object_events/palettes/starlight.gbapal");

@@ -43,8 +43,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(30)
             message(
-            "          Celia Dawn{PAUSE 30}\n"
-            "    Creative Lead and Writer")
+            "            Celia Dawn{PAUSE 30}\n"
+            "      Creative Lead and Writer")
             waitmovement(LOCALID_CREDITS_CELIA)
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 delay_16
@@ -73,8 +73,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(60)
             message(
-            "          Wiz1989{PAUSE 30}\n"
-            "    Code work, Battle Mechanics")
+            "              wiz1989{PAUSE 30}\n"
+            "      Code work, Battle Mechanics")
             waitmovement(LOCALID_CREDITS_WIZ)
             closemessage
             applymovement(LOCALID_CREDITS_WIZ, moves(
@@ -94,8 +94,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(60)
             message(
-	        "          Lichen{PAUSE 30}\n"
-	        "   Spritework and Tilesets")
+	        "               lichen{PAUSE 30}\n"
+	        "        Spritework and Tilesets")
             waitmovement(LOCALID_CREDITS_LICHEN)
             applymovement(LOCALID_CREDITS_LICHEN_2, moves(
                 walk_fast_right * 2
@@ -122,8 +122,8 @@ mapscripts Credits_MapScripts {
             
             delay(60)
             message(
-            "          RavePossum{PAUSE 30}\n"
-            "        Overworld Coding")
+            "             RavePossum{PAUSE 30}\n"
+            "           Overworld Coding")
             waitmovement(LOCALID_CREDITS_RAVE)
             applymovement(LOCALID_CREDITS_WIZ, moves(
                 face_left
@@ -158,9 +158,9 @@ mapscripts Credits_MapScripts {
             ))
             delay(70)
             message(
-            "          Plasto{PAUSE 30}\n"
-            "        Story Consultation")
-            delay(270)
+            "               Plasto{PAUSE 30}\n"
+            "          Story Consultation")
+            delay(300)
             closemessage
             applymovement(LOCALID_CREDITS_SWI, moves(
                 slide_down * 5
@@ -168,11 +168,11 @@ mapscripts Credits_MapScripts {
             waitmovement(LOCALID_CREDITS_SWI)
             delay(60)
             message(
-            "          Swiwious{PAUSE 30}\n"
-            "            Music")
+            "             Swiwious{PAUSE 30}\n"
+            "              Music")
             delay(180)
             closemessage
-            delay(100)
+            delay(90)
             applymovement(LOCALID_CREDITS_STARLIGHT, moves(
                 walk_down * 4
                 face_down
@@ -188,8 +188,8 @@ mapscripts Credits_MapScripts {
             delay(30)
             
             message(
-            "        KaizanStarlight{PAUSE 30}\n"
-            "          Map Design")
+            "           KaizanStarlight{PAUSE 30}\n"
+            "             Map Design")
             waitmovement(LOCALID_CREDITS_STARLIGHT)
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 face_right
@@ -243,8 +243,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(30)
             message(
-            "          MasterFoF{PAUSE 30}\n"
-            "      Closing the Parade!")
+            "            MasterFoF{PAUSE 30}\n"
+            "        Closing the Parade!")
             waitmovement(LOCALID_CREDITS_CHRIS)
             closemessage
             applymovement(LOCALID_CREDITS_CHRIS, moves(
@@ -278,7 +278,7 @@ mapscripts Credits_MapScripts {
             textcolor(NPC_TEXT_COLOR_FEMALE)
             message(
             "Indulge your inner childlike glee!\n"
-            "{PAUSE 30}Unshakle yourself from irony!")
+            "{PAUSE 30}Unshackle yourself from irony!")
             delay(180)
             message(
             "Celia's Stupid Romhack!{PAUSE 50}\n"

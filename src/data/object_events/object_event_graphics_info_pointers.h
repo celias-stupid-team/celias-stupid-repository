@@ -406,6 +406,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_whirlpool;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_swim_barry;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_copperajah;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starlight;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -813,4 +814,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_STARMAN] = &gObjectEventGraphicsInfo_starman,
     [OBJ_EVENT_GFX_SWIM_BARRY] = &gObjectEventGraphicsInfo_swim_barry,
     [OBJ_EVENT_GFX_COPPERAJAH] = &gObjectEventGraphicsInfo_copperajah,
+    [OBJ_EVENT_GFX_STARLIGHT] = &gObjectEventGraphicsInfo_starlight,
 };
