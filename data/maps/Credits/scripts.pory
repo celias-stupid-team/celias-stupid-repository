@@ -94,8 +94,8 @@ mapscripts Credits_MapScripts {
             ))
             delay(60)
             message(
-	        "               lichen{PAUSE 30}\n"
-	        "        Spritework and Tilesets")
+	        "             lichen{PAUSE 30}\n"
+	        "      Spritework and Tilesets")
             waitmovement(LOCALID_CREDITS_LICHEN)
             applymovement(LOCALID_CREDITS_LICHEN_2, moves(
                 walk_fast_right * 2
@@ -188,7 +188,7 @@ mapscripts Credits_MapScripts {
             delay(30)
             
             message(
-            "           KaizanStarlight{PAUSE 30}\n"
+            "           KaizenStarlight{PAUSE 30}\n"
             "             Map Design")
             waitmovement(LOCALID_CREDITS_STARLIGHT)
             applymovement(LOCALID_CREDITS_CELIA, moves(
