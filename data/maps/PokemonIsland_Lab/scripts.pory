@@ -5,7 +5,20 @@ mapscripts PokemonIsland_Lab_MapScripts {
 
 script PokemonIslandLab_Ivy {
     lock
+    if(flag(FLAG_IVY_SIGN)) {
+        msgbox(
+        "IVY: Thank you so much for that\n"
+        "GS BALL!\p"
+
+        "Without it, I never would have seen\n"
+        "something so extraordinary myself!", MSGBOX_DEFAULT)
+        release
+        end
+    }
     if(flag(FLAG_TALKED_TO_IVY)) {
+        if(checkitem(ITEM_GS_BALL)) {
+            goto(PokemonIslandLab_GSBallCutscene)
+        }
         msgbox(
         "I heard PROFESSOR OAK received a\n"
         "G.S. BALL recently.\l"
@@ -42,13 +55,66 @@ script PokemonIslandLab_Ivy {
 
         "Do you think you could go pursuade\n"
         "him to contribute to our cause?", MSGBOX_DEFAULT)
+        if(checkitem(ITEM_GS_BALL)) {
+            goto(PokemonIslandLab_GSBallCutscene)
+        }
     }
     release
+}
+
+script PokemonIslandLab_GSBallCutscene {
+    msgbox(
+	"Ah!\n"
+	"That's the GS BALL!\l"
+	"Excellent work!", MSGBOX_DEFAULT)
+    msgbox(
+	"There is a cool cutscene\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    removeobject(VAR_LAST_TALKED)
+    fadenewbgm(MUS_NONE)
+    delay(60)
+    msgbox(
+	"I am in the other room\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    special(ShakeScreen)
+    delay(30)
+    playfanfare(MUS_SLOTS_WIN)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"PROFESSOR IVY discovered a\n"
+	"POKéMON SIGN!", MSGBOX_DEFAULT)
+    setflag(FLAG_IVY_SIGN)
+    textcolor(NPC_TEXT_COLOR_TREE)
+    addobject(VAR_LAST_TALKED)
+    msgbox(
+	"And I'm done!\p"
+
+	"Thanks!\n"
+	"", MSGBOX_DEFAULT)
+    fadedefaultbgm
+    release
+    end
+
 }
 
 script PokemonIslandLab_Todd {
     lock
     faceplayer
+    if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) {
+        msgbox(
+        "There will be a cutscene here\n"
+        "", MSGBOX_DEFAULT)
+        msgbox(
+        "We go to rainbow cloud\n"
+        "", MSGBOX_DEFAULT)
+        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CASTFORM)
+        call(Common_Script_GiftPokemon)
+        release
+        end
+    }
+
     if(flag(FLAG_TALKED_TO_TODD)) {
         msgbox(
         "TODD: find signs\p"

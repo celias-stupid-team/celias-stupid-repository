@@ -546,18 +546,6 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
-    [NATIONAL_DEX_GOLBAT] =
-    {
-        .categoryName = _("SENSORY"),
-        .height = 16,
-        .weight = 550,
-        .description = gGolbatPokedexText,
-        .unusedDescription = gGolbatPokedexTextUnused,
-        .pokemonScale = 291,
-        .pokemonOffset = 0,
-        .trainerScale = 296,
-        .trainerOffset = 2,
-    },
 
     [NATIONAL_DEX_ODDISH] =
     {

@@ -136,9 +136,6 @@ script Route10_LassAttack {
 	setvar(VAR_ROUTE10_LASS, 1)
 	msgbox("A whole bunch of guys dressed\nas POKéMON ran into that cave!\pI didn't mind, though.\nNone of them looked at me.", MSGBOX_DEFAULT)
 	closemessage
-	delay(20)
-	msgbox("Maybe I should just go back in\nthere…", MSGBOX_DEFAULT)
-	closemessage
 	delay(30)
 	applymovement(LASS, LassAbsconds)
 	waitmovement(0)

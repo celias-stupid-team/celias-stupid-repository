@@ -481,5 +481,8 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BALM_MUSHROOM]      =  {gItemIcon_BalmMushroom, gItemIconPalette_BalmMushroom},
     [ITEM_BURN_DRIVE]      =  {gItemIcon_BurnDrive, gItemIconPalette_BurnDrive},
     [ITEM_SWORD_OF_KINGS]      =  {gItemIcon_SwordOfKings, gItemIconPalette_SwordOfKings},
+    [ITEM_PEPSI]      =  {gItemIcon_PEPSI, gItemIconPalette_PEPSI},
+    [ITEM_POTION_EXE]      =  {gItemIcon_PotionExe, gItemIconPalette_PotionExe},
+    [ITEM_MAGIC_MUFFLER]      =  {gItemIcon_MagicMuffler, gItemIconPalette_MagicMuffler},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

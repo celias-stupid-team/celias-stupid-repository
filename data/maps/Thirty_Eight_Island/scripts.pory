@@ -155,10 +155,8 @@ script ThirtyEightIsland_NationalParkGuy {
 	"miss being home in JOHTO.\p"
 
 	"I'd visit the NATIONAL PARK just\n"
-	"to relax on the BENCHES all day.\p"
-
-	"Ah, if only I could take a\n"
-	"RETREAT back there now…", MSGBOX_NPC)
+	"to relax on the BENCHES all day.\l"
+	"Ah, if only I could go back…!\n", MSGBOX_NPC)
 }
 
 script ThirtyEightIsland_DarnBarn {
@@ -201,6 +199,7 @@ script ThirtyEightIsland_MommyMilkers {
         giveitem_msg("{PLAYER} got the mysterious\nCREAM DROP!", ITEM_CREAM_DROP)
         waitfanfare
         setflag(FLAG_GOT_CREAM_DROP)
+		release
     }
 }
 

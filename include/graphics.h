@@ -12606,3 +12606,12 @@ extern const u32 gMonShinyPalette_STARMIEMEGA[];
 extern const u8 gMonFootprint_STARMIEMEGA[];
 extern const u8 gMonIcon_STARMIEMEGA[];
 
+
+extern const u32 gItemIcon_PEPSI[];
+extern const u32 gItemIconPalette_PEPSI[];
+
+extern const u32 gItemIcon_PotionExe[];
+extern const u32 gItemIconPalette_PotionExe[];
+
+extern const u32 gItemIcon_MagicMuffler[];
+extern const u32 gItemIconPalette_MagicMuffler[];

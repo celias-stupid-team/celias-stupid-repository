@@ -31,7 +31,7 @@ enum
     NATIONAL_DEX_EKANS,            // 22
     NATIONAL_DEX_ARBOK,            // 23
     NATIONAL_DEX_SEVIPER,          // 24
-    NATIONAL_DEX_PIKABLU,          // 25
+    NATIONAL_DEX_PIKACHU,          // 25
     NATIONAL_DEX_VOLTORB,          // 26
     NATIONAL_DEX_JIGGLYPUFF_ABOVE, // 27
     NATIONAL_DEX_JIGGLYPUFF,       // 28
@@ -79,7 +79,7 @@ enum
     NATIONAL_DEX_CHERUBI,          // 70
     NATIONAL_DEX_ODDISH,           // 71
     NATIONAL_DEX_ZUBAT,            // 72
-    NATIONAL_DEX_GOLBAT,           // 73
+    NATIONAL_DEX_WOOBAT,           // 73
     NATIONAL_DEX_HORSEA,           // 74
     NATIONAL_DEX_DRAGONITE,        // 75
     NATIONAL_DEX_YOSHI,            // 76
@@ -118,7 +118,7 @@ enum
     NATIONAL_DEX_GRAVELER,         // 109
     NATIONAL_DEX_GOLEM,            // 110
     NATIONAL_DEX_STARMIE,          // 111
-    NATIONAL_DEX_PIKACHU,          // 112
+    NATIONAL_DEX_PIKABLU,          // 112
     NATIONAL_DEX_RAICHU,           // 113
     NATIONAL_DEX_MEOWTH,           // 114
     NATIONAL_DEX_TANGELA,          // 115

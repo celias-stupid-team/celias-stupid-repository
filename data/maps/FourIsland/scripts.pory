@@ -613,6 +613,20 @@ script FourIsland_AmitySquareLady {
 	"{PAUSE 30}But only if it's cute.\l"
 	"We're extremely strict.", MSGBOX_DEFAULT)
 	//logic
+	if(checkpartymon(SPECIES_TRUBBISH_HAIRCUT)) {
+		msgbox(
+		"Ah!\n"
+		"I see you have a TRUBBISH.\l"
+		"He's perfectly cute!\p"
+
+		"Right this way, then.\n"
+		"You're a welcome guest!", MSGBOX_DEFAULT)
+		closemessage
+		//movement
+		warp(MAP_FOUR_ISLAND_AMITY_SQUARE, 12, 18)
+		release
+		end
+	}
 	msgbox(
 	"Let's see…{PAUSE 20}\n"
 	"Ewww.\l"

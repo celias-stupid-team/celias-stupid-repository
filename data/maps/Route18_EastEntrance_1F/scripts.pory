@@ -109,8 +109,26 @@ Route18_EastEntrance_1F_Movement_WalkRight::
 `
 
 script Route18_EastEntrance_1F_OnTransition {
+	setflag(FLAG_TEMP_5)
 	clearflag(FLAG_SYS_ON_CYCLING_ROAD)
+
+	
+	if(!flag(FLAG_TALKED_TO_LICKITUNG_TRADE) && var(VAR_ROUTE18_UPSTAIRS_HINT) < 10) {
+		addvar(VAR_ROUTE18_UPSTAIRS_HINT, 1)
+	}
+	if(var(VAR_ROUTE18_UPSTAIRS_HINT) >= 4) {
+		clearflag(FLAG_TEMP_5)
+	}
 	if(checkitem(ITEM_BICYCLE) || checkitem(ITEM_SHINY_BIKE)) {
 		goto(Route16_NorthEntrance_1F_EventScript_DisableNeedBikeTrigger)
 	}
+}
+
+script Route18_UpstairsHint {
+	msgbox(
+	"TRAINER TIPS!\p"
+
+	"Try going upstairs!\n"
+	"", MSGBOX_SIGN)
+
 }

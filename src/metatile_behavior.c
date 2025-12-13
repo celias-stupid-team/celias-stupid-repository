@@ -2,6 +2,7 @@
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
 #include "event_data.h"
+#include "constants/maps.h"
 
 static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_POND_WATER]         = TRUE,
@@ -745,6 +746,9 @@ bool8 MetatileBehavior_IsSeaweed(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
 {
+    if(FlagGet(FLAG_CSR_MAP_ROUTE_9_FAR) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE9) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE9))) {
+            return FALSE;
+    }
     if (metatileBehavior == MB_RUNNING_DISALLOWED || metatileBehavior == MB_LONG_GRASS) //No running
         return TRUE;
     else

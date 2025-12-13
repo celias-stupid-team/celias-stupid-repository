@@ -923,3 +923,12 @@ const u32 gItemIconPalette_BurnDrive[] = INCBIN_U32("graphics/items/icon_palette
 
 const u32 gItemIcon_SwordOfKings[] = INCBIN_U32("graphics/items/icons/sword_of_kings.4bpp.lz");
 const u32 gItemIconPalette_SwordOfKings[] = INCBIN_U32("graphics/items/icon_palettes/sword_of_kings.gbapal.lz");
+
+const u32 gItemIcon_PEPSI[] = INCBIN_U32("graphics/items/icons/pepsi.4bpp.lz");
+const u32 gItemIconPalette_PEPSI[] = INCBIN_U32("graphics/items/icon_palettes/pepsi.gbapal.lz");
+
+const u32 gItemIcon_PotionExe[] = INCBIN_U32("graphics/items/icons/potion_exe.4bpp.lz");
+const u32 gItemIconPalette_PotionExe[] = INCBIN_U32("graphics/items/icon_palettes/potion_exe.gbapal.lz");
+
+const u32 gItemIcon_MagicMuffler[] = INCBIN_U32("graphics/items/icons/magic_muffler.4bpp.lz");
+const u32 gItemIconPalette_MagicMuffler[] = INCBIN_U32("graphics/items/icon_palettes/magic_muffler.gbapal.lz");

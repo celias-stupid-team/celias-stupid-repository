@@ -48,7 +48,7 @@ script SafariZone_North_GrandDad {
 }
 
 script SafariZone_North_ShowdownSign {
-	msgbox("SAFARI ZONE\nMAIN STADIUM\pRemember to savestate frequently!\n- SAFARI ZONE, LLC.", MSGBOX_SIGN)
+	msgbox("SAFARI ZONE\nMAIN STADIUM", MSGBOX_SIGN)
 	end
 }
 

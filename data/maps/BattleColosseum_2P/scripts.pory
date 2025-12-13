@@ -23,10 +23,10 @@ script SetPlayerPokedexValues {
 	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_CHARIZARD)) { 
 		setobtainable(SPECIES_CHARIZARD) // 4
 	}
-	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_SQUIRTLE)) { 
+	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARIZARD)) || checkmoncaught(SPECIES_SQUIRTLE)) { 
 		setobtainable(SPECIES_SQUIRTLE) // 5
 	}
-	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_CHARMELEON)) || checkmoncaught(SPECIES_IVYSAUR)) { 
+	if((flag(FLAG_CSR_GOT_BILL) && checkmoncaught(SPECIES_SQUIRTLE)) || checkmoncaught(SPECIES_IVYSAUR)) { 
 		setobtainable(SPECIES_IVYSAUR) // 6
 	}
 	if(flag(FLAG_WORLD_MAP_VIRIDIAN_FOREST)) {
@@ -254,10 +254,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) { //TODO figure out this logic
 		setobtainable(SPECIES_SLOWPOKE) // 82
 	}
-	if(flag(FLAG_SHE_SELLS_SEASHELLS) && flag(FLAG_GOT_OLD_ROD)) {
+	if(flag(FLAG_SHE_SELLS_SEASHELLS) || checkmoncaught(SPECIES_SHELLDER)) {
 		setobtainable(SPECIES_SHELLDER) // 83
 	}
-	if(flag(FLAG_SHE_SELLS_SEASHELLS) && checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
+	if(checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
 		setobtainable(SPECIES_SLOWBRO) // 84
 	}
 	if(flag(FLAG_CSR_MAP_MINNESOTA)) {

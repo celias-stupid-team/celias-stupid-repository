@@ -32,6 +32,10 @@
 // gTileset_CinnabarIsland
 #define METATILE_CinnabarIsland_LabDoor  0x2AD
 
+// gTileset_Credits
+#define METATILE_Credits_CreditsAbovePlayer  0x0A7
+#define METATILE_Credits_CreditsTransparent  0x09F
+
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 

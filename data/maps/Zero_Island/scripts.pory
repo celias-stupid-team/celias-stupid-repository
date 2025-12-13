@@ -1,4 +1,13 @@
 mapscripts Zero_Island_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_OPENED_ZERO_ISLAND)) {
+            setmetatile(19, 18, 0x0A9, FALSE)
+        } else {
+            if(flag(FLAG_INSERTED_MYSTIC_SEAL) && flag(FLAG_INSERTED_INSTINCT_SEAL) && flag(FLAG_INSERTED_VALOR_SEAL)) {
+                setvar(VAR_TEMP_0, 1)
+            }
+        }
+    }
 }
 
 
@@ -68,10 +77,24 @@ script ZeroIsland_OpenDoor {
         "but it can stop being locked", MSGBOX_DEFAULT)
         closemessage
         delay(30)
+    }
+    release
+}
+
+script ZeroIsland_TryOpenDoor {
+            setflag(FLAG_OPENED_ZERO_ISLAND)
+            setvar(VAR_TEMP_0, 0)
         msgbox(
         "something cool happens\n"
         "", MSGBOX_DEFAULT)
         closemessage
+        delay(30)
+        setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+        setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+        setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+        setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+
+        special(ShakeScreen)
         playmoncry(SPECIES_MOLTRES, CRY_MODE_DEFAULT)
         waitmoncry
         playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
@@ -79,10 +102,10 @@ script ZeroIsland_OpenDoor {
         playmoncry(SPECIES_ARTICUNO, CRY_MODE_DEFAULT)
         waitmoncry
         delay(30)
-        msgbox(
-        "the door is open\n"
-        "", MSGBOX_DEFAULT)
+        playse(SE_UNLOCK)
+        setmetatile(19, 18, 0x0A9, FALSE)
+        special(DrawWholeMapView)
         //setmetatile
-    }
-    release
+        release
+
 }

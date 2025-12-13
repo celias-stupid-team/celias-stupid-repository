@@ -51,7 +51,7 @@
       "x": 19,
       "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -127,14 +127,14 @@
     },
     {
       "x": 22,
-      "y": 8,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_2F_ROOM5",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
-      "y": 8,
+      "x": 25,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_2F_ROOM6",
       "dest_warp_id": "0"

@@ -90,7 +90,8 @@ Route9_Text_AlanIntro::
 	.string "...\n$"
 
 Route9_Text_AlanDefeat::
-	.string "...\n$"
+	.string "...\n"
+	.string "START9...$"
 
 Route9_Text_AlanPostBattle::
 	.string "... ... ...\n$"
