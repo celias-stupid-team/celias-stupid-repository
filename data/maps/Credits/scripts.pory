@@ -160,7 +160,7 @@ mapscripts Credits_MapScripts {
             message(
             "               Plasto{PAUSE 30}\n"
             "          Story Consultation")
-            delay(300)
+            delay(330)
             closemessage
             applymovement(LOCALID_CREDITS_SWI, moves(
                 slide_down * 5
@@ -170,9 +170,9 @@ mapscripts Credits_MapScripts {
             message(
             "             Swiwious{PAUSE 30}\n"
             "              Music")
-            delay(180)
+            delay(200)
             closemessage
-            delay(90)
+            delay(60)
             applymovement(LOCALID_CREDITS_STARLIGHT, moves(
                 walk_down * 4
                 face_down
@@ -279,11 +279,12 @@ mapscripts Credits_MapScripts {
             message(
             "Indulge your inner childlike glee!\n"
             "{PAUSE 30}Unshackle yourself from irony!")
-            delay(180)
+            delay(200)
             message(
-            "Celia's Stupid Romhack!{PAUSE 50}\n"
-            "Thank you for playing!")
-            delay(190)            
+            "Celia's Stupid Romhack!\n")
+            delay(120)
+            message("Thank you for playing!")
+            delay(120)            
             fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
             fadenewbgm(MUS_NONE)
             //goto title screen

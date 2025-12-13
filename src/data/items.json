@@ -1491,7 +1491,7 @@
     {
       "english": "SUN STONE",
       "itemId": "ITEM_SUN_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt has the power of the sun.",
@@ -1523,7 +1523,7 @@
     {
       "english": "FIRE STONE",
       "itemId": "ITEM_FIRE_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt is colored orange.",
@@ -1539,7 +1539,7 @@
     {
       "english": "THUNDERSTONE",
       "itemId": "ITEM_THUNDER_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt has a thunderbolt pattern.",
@@ -1555,7 +1555,7 @@
     {
       "english": "WATER STONE",
       "itemId": "ITEM_WATER_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt is a clear light blue.",
@@ -1571,7 +1571,7 @@
     {
       "english": "LEAF STONE",
       "itemId": "ITEM_LEAF_STONE",
-      "price": 2100,
+      "price": 500,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A peculiar stone that makes certain\\nspecies of POKéMON evolve.\\nIt has a leaf pattern.",
