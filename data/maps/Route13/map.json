@@ -28,6 +28,11 @@
       "map": "MAP_OCEAN13",
       "offset": 37,
       "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN15",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

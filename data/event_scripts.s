@@ -1858,3 +1858,6 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean14/scripts.inc"
 	.include "data/maps/Ocean14/text.inc"
+
+	.include "data/maps/Ocean15/scripts.inc"
+	.include "data/maps/Ocean15/text.inc"

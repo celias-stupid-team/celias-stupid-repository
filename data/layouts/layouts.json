@@ -6684,6 +6684,18 @@
       "secondary_tileset": "gTileset_Route12",
       "border_filepath": "data/layouts/Ocean14/border.bin",
       "blockdata_filepath": "data/layouts/Ocean14/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN15",
+      "name": "Ocean15_Layout",
+      "width": 9,
+      "height": 27,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Ocean15/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean15/map.bin"
     }
   ]
 }
