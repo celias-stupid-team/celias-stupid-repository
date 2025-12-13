@@ -13,7 +13,7 @@ mapscripts Silph_HubRoom_MapScripts {
             setmetatile(6, 5, METATILE_SilphCo_SilphWarp, FALSE)
         }
         if(flag(FLAG_SILPH_WARP_THREE_ISLAND)) {
-            setmetatile(12, 10, METATILE_SilphCo_SilphWarp, FALSE)
+            setmetatile(13, 10, METATILE_SilphCo_SilphWarp, FALSE)
         }
         
         
