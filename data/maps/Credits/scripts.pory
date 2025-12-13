@@ -33,6 +33,261 @@ mapscripts Credits_MapScripts {
                 release
                 end
             }
+            delay(30)
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                walk_down * 4
+                face_down
+                delay_16 * 6
+                walk_left * 3
+                jump_2_left
+            ))
+            delay(30)
+            message(
+            "            Celia Dawn{PAUSE 30}\n"
+            "      Creative Lead and Writer")
+            waitmovement(LOCALID_CREDITS_CELIA)
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                delay_16
+                walk_up
+                face_down
+            ))
+            closemessage
+            waitmovement(LOCALID_CREDITS_CELIA)
+            delay(60)
+            applymovement(LOCALID_CREDITS_WIZ, moves(
+                walk_down * 4
+                face_down
+                delay_16 * 6
+                walk_left * 2
+                face_left
+                emote_exclamation_mark
+                delay_16 * 2
+                face_up
+                delay_16
+                face_down
+                delay_16
+                face_up
+                delay_16
+                face_down
+                delay_16          
+            ))
+            delay(60)
+            message(
+            "              wiz1989{PAUSE 30}\n"
+            "      Code work, Battle Mechanics")
+            waitmovement(LOCALID_CREDITS_WIZ)
+            closemessage
+            applymovement(LOCALID_CREDITS_WIZ, moves(
+                walk_faster_right * 7
+                jump_up
+                delay_16
+                face_down  
+
+            ))
+            waitmovement(LOCALID_CREDITS_WIZ)
+            delay(30)
+            applymovement(LOCALID_CREDITS_LICHEN, moves(
+                walk_down * 4
+                face_down
+                delay_16 * 6
+                walk_fast_right * 8
+            ))
+            delay(60)
+            message(
+	        "             lichen{PAUSE 30}\n"
+	        "      Spritework and Tilesets")
+            waitmovement(LOCALID_CREDITS_LICHEN)
+            applymovement(LOCALID_CREDITS_LICHEN_2, moves(
+                walk_fast_right * 2
+
+            ))
+            waitmovement(LOCALID_CREDITS_LICHEN_2)
+            closemessage
+            applymovement(LOCALID_CREDITS_LICHEN_2, moves(
+                walk_fast_right * 4
+                walk_fast_up
+                face_down
+
+            ))
+            waitmovement(LOCALID_CREDITS_LICHEN_2)
+            delay(40)
+            applymovement(LOCALID_CREDITS_RAVE, moves(
+                walk_down * 4
+                face_down
+                delay_16 * 6
+                walk_up
+                walk_right * 4
+                face_right     
+            ))
+            
+            delay(60)
+            message(
+            "             RavePossum{PAUSE 30}\n"
+            "           Overworld Coding")
+            waitmovement(LOCALID_CREDITS_RAVE)
+            applymovement(LOCALID_CREDITS_WIZ, moves(
+                face_left
+                delay_16 * 3
+                walk_in_place_left * 3
+                delay_16 * 3
+                face_down
+            ))
+            applymovement(LOCALID_CREDITS_RAVE, moves(
+                face_right
+                walk_in_place_right * 3
+                delay_16
+                walk_in_place_right * 3
+                face_right
+            ))
+            waitmovement(LOCALID_CREDITS_RAVE)
+            closemessage
+            applymovement(LOCALID_CREDITS_RAVE, moves(
+                
+                delay_16
+                walk_left * 2
+                face_down
+            ))            
+            waitmovement(LOCALID_CREDITS_RAVE)
+            closemessage
+            applymovement(LOCALID_CREDITS_PLASTO, moves(
+                walk_slowest_down * 4
+                walk_slowest_right * 3
+                walk_slowest_down
+                walk_slowest_right * 2
+                face_down
+            ))
+            delay(70)
+            message(
+            "               Plasto{PAUSE 30}\n"
+            "          Story Consultation")
+            delay(300)
+            closemessage
+            applymovement(LOCALID_CREDITS_SWI, moves(
+                slide_down * 5
+            ))
+            waitmovement(LOCALID_CREDITS_SWI)
+            delay(60)
+            message(
+            "             Swiwious{PAUSE 30}\n"
+            "              Music")
+            delay(180)
+            closemessage
+            delay(90)
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                walk_down * 4
+                face_down
+                delay_16 * 6
+                walk_left
+                face_left
+                delay_16
+                face_right
+                delay_16 * 2
+                emote_question_mark
+                delay_16
+            ))
+            delay(30)
+            
+            message(
+            "           KaizenStarlight{PAUSE 30}\n"
+            "             Map Design")
+            waitmovement(LOCALID_CREDITS_STARLIGHT)
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                face_right
+                emote_exclamation_mark
+                delay_16 * 2
+                walk_fast_right
+                walk_fast_down
+                walk_fast_right * 2
+            ))
+            waitmovement(LOCALID_CREDITS_CELIA)
+            closemessage
+            applymovement(LOCALID_CREDITS_STARLIGHT, moves(
+                face_left
+                delay_16 * 2
+                delay_4
+                walk_left
+                walk_down
+                face_left
+                delay_16 * 2
+                face_down
+            ))
+            applymovement(LOCALID_CREDITS_CELIA, moves(
+                delay_16
+                walk_down
+                walk_left
+                face_right
+                delay_16 * 4
+                walk_fast_left
+                walk_fast_up * 2
+                walk_fast_left
+                face_down
+            ))
+            waitmovement(LOCALID_CREDITS_CELIA)
+            delay(60)
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                walk_down * 4
+                delay_16 * 6
+                face_left
+                lock_facing_direction
+                walk_right
+                delay_16
+                walk_right
+                delay_16
+                unlock_facing_direction
+                face_up
+                lock_facing_direction
+                walk_down
+                delay_16
+                unlock_facing_direction
+
+            ))
+            delay(30)
+            message(
+            "            MasterFoF{PAUSE 30}\n"
+            "        Closing the Parade!")
+            waitmovement(LOCALID_CREDITS_CHRIS)
+            closemessage
+            applymovement(LOCALID_CREDITS_CHRIS, moves(
+                face_left
+                delay_4
+                face_up
+                delay_4
+                face_right
+                delay_4
+                face_down
+                delay_4
+                face_left
+                delay_4
+                face_up
+                delay_4
+                face_right
+                delay_4
+                face_down
+                delay_4
+                face_left
+                delay_4
+                face_up
+                delay_4
+                face_right
+                delay_4
+                jump_in_place_down
+
+            ))
+            waitmovement(LOCALID_CREDITS_CHRIS)
+            delay(60)
+            textcolor(NPC_TEXT_COLOR_FEMALE)
+            message(
+            "Indulge your inner childlike glee!\n"
+            "{PAUSE 30}Unshackle yourself from irony!")
+            delay(180)
+            message(
+            "Celia's Stupid Romhack!{PAUSE 50}\n"
+            "Thank you for playing!")
+            delay(190)            
+            fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
+            fadenewbgm(MUS_NONE)
+            //goto title screen
+
         }
     ]
 }
