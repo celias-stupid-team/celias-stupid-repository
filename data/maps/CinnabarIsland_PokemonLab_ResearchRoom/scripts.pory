@@ -32,8 +32,8 @@ script PokemonLab_Yanmega {
 	removeobject(VAR_LAST_TALKED)
 	msgbox(
 	"{PLAYER} obtained the\n"
-	"BUZZWOLE!", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_BUZZWOLE)
+	"SUDOWOODO!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SUDOWOODO)
 	waitfanfare
 	call(Common_Script_GiftPokemon)
 	setflag(FLAG_HIDE_CINNABAR_YANMEGA)
