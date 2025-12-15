@@ -4391,3 +4391,25 @@ const struct SpriteFrameImage gObjectEventPicTable_galar_oak[] = {
     overworld_frame(gObjectEventPic_galar_oak, 4, 4, 7),
     overworld_frame(gObjectEventPic_galar_oak, 4, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_moltres_statue[] = {
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 2),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 2),
+    overworld_frame(gObjectEventPic_moltres_statue, 6, 6, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_moltres_statue_activated[] = {
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 2),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 2),
+    overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 2),
+};

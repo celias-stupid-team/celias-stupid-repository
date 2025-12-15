@@ -563,3 +563,6 @@ const u32 gObjectEventPic_lichen[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_lichen[] = INCBIN_U16("graphics/object_events/palettes/lichen.gbapal");
 const u32 gObjectEventPic_galar_oak[] = INCBIN_U32("graphics/object_events/pics/stupid/galar_oak.4bpp");
 const u16 gObjectEventPal_galar_oak[] = INCBIN_U16("graphics/object_events/palettes/galar_oak.gbapal");
+const u32 gObjectEventPic_moltres_statue[] = INCBIN_U32("graphics/object_events/pics/stupid/moltres_statue.4bpp");
+const u16 gObjectEventPal_moltres_statue[] = INCBIN_U16("graphics/object_events/palettes/moltres_statue.gbapal");
+const u32 gObjectEventPic_moltres_statue_activated[] = INCBIN_U32("graphics/object_events/pics/stupid/moltres_statue_activated.4bpp");

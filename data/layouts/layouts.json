@@ -2541,7 +2541,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Route15",
+      "secondary_tileset": "gTileset_Route18_SkyPillar",
       "border_filepath": "data/layouts/OneIsland/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland/map.bin"
     },
