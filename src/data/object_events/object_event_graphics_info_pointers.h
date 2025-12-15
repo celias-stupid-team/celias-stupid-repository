@@ -409,6 +409,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_copperajah;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starlight;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pigmask;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pokey;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_lichen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_galar_oak;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -819,4 +821,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_STARLIGHT] = &gObjectEventGraphicsInfo_starlight,
     [OBJ_EVENT_GFX_PIGMASK] = &gObjectEventGraphicsInfo_pigmask,
     [OBJ_EVENT_GFX_POKEY] = &gObjectEventGraphicsInfo_pokey,
+    [OBJ_EVENT_GFX_LICHEN] = &gObjectEventGraphicsInfo_lichen,
+    [OBJ_EVENT_GFX_GALAR_OAK] = &gObjectEventGraphicsInfo_galar_oak,
 };

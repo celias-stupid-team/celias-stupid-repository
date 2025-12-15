@@ -289,40 +289,104 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckRevivedDome::
 
 script CinnabarIsland_ReviveFossils {
 	lock
-	faceplayer
+	textcolor(NPC_TEXT_COLOR_GREEN)
 	if(flag(FLAG_REVIVED_TYRANASTAR)) {
 		msgbox(
-		"As a child, my favorite game was\n"
-		"(insert funny joke here)", MSGBOX_DEFAULT)
+		"My favorite game is The Sims.\n"
+		"", MSGBOX_DEFAULT)
 		release
+		end
 	}
 	msgbox(
-	"I revive fossils.\n"
-	"Give me one", MSGBOX_DEFAULT)
-	closemessage
-	//fancy script with selection box
-	msgbox(
-	"actually this is only half\n"
-	"of a fossil.\p"
+	"Ah, um, hello.\p"
 
-	"You need the other half.\n"
-	"", MSGBOX_DEFAULT)
+	"I come from land far, far away.\n"
+	"I have not much time to spare.\p"
+
+	"Are you looking to revive one of\n"
+	"your FOSSILS?", MSGBOX_DEFAULT)
+	closemessage
+	multichoice(0, 0, MULTICHOICE_DOME_AMBER, FALSE)
+	switch(var(VAR_RESULT)) {
+		case 0: //dome
+		case 1: //helix
+			copyvar(VAR_RESULT, VAR_TEMP_9)
+		default:
+			msgbox(
+			"What?\n"
+			"No reviving for you?\p"
+
+			"Pah, don't waste my time!\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+	}
+	closemessage
+	msgbox(
+	"Bah, this is only half of\n"
+	"POKéMON FOSSIL.\p"
+
+	"You'll need other half if you\n"
+	"wish to revive it.", MSGBOX_DEFAULT)
 	closemessage
 	if(checkitem(ITEM_HELIX_FOSSIL)) {
+		switch(var(VAR_TEMP_9)) {
+			case 0:
+				multichoice(0,0, MULTICHOICE_HELIX, FALSE)
+			case 1:
+				multichoice(0,0, MULTICHOICE_DOME, FALSE)
+		}
+		if(var(VAR_RESULT) != 0) {
+			msgbox(
+			"What?\n"
+			"No reviving for you?\p"
+
+			"Pah, don't waste my time!\n"
+			"", MSGBOX_DEFAULT)
+			release
+			end
+		}
 		msgbox(
-		"let's make fossil\n"
-		"", MSGBOX_DEFAULT)
+		"Ah, there's the rest of it!\p"
+
+		"With this, I should be able to\n"
+		"revive ancient POKéMON!\p"
+
+		"Now, looking at parts I think JAW\n"
+		"goes here, and TAIL goes there, and…", MSGBOX_DEFAULT)
 		removeitem(ITEM_HELIX_FOSSIL)
 		removeitem(ITEM_JAW_FOSSIL)
 		closemessage
 		fadescreen(FADE_TO_BLACK)
 		delay(30)
+		playse(SE_M_TAKE_DOWN)
+		waitse
+		playse(SE_M_BRICK_BREAK)
+		delay(10)
+		playse(SE_M_BRICK_BREAK)
+		delay(10)
+		playse(SE_M_BRICK_BREAK)
+		delay(20)
+		playse(SE_M_STRENGTH)
+		delay(10)
+		playse(SE_M_STRENGTH)
+		delay(40)
+		playse(SE_M_STRENGTH)
 		// Terrifying sound effects
+		playse(SE_M_LEER)
+		delay(20)
+		playse(SE_M_REVERSAL)
+		waitse
+		playse(SE_EGG_HATCH)
+		waitse
+		
+		delay(30)
 		fadescreen(FADE_FROM_BLACK)
 		msgbox(
-		"fossil for you\n"
-		"", MSGBOX_DEFAULT)
+		"Here you are!\n"
+		"Your fossil is finished!", MSGBOX_DEFAULT)
 		playfanfare(MUS_LEVEL_UP)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox(
 		"{PLAYER} obtained the\n"
 		"TYRANASTAR!", MSGBOX_DEFAULT)
@@ -330,13 +394,22 @@ script CinnabarIsland_ReviveFossils {
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_TYRANASTAR)
 		call(Common_Script_GiftPokemon)
 		setflag(FLAG_REVIVED_TYRANASTAR)
+		textcolor(NPC_TEXT_COLOR_GREEN)
+		msgbox(
+		"Very very good.\n"
+		"Now, go away.\p"
+
+		"I need to finish next fossil before\n"
+		"extremely tight deadline.", MSGBOX_DEFAULT)
 
 	} else {
 		msgbox(
-		"no other fossil\p"
+		"You have only one FOSSIL?\n"
+		"Pah, don't waste my time then!\p"
 
-		"leave\n"
-		"", MSGBOX_DEFAULT)
+		"I hear east of CERULEAN there's\n"
+		"acolytes who worship a FOSSIL.\l"
+		"Try looking better next time!", MSGBOX_DEFAULT)
 	}
 	release
 	end

@@ -1616,7 +1616,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 80,
-        .type = TYPE_DRAGON,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -4949,7 +4949,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_ASCENT] =    {
         .effect = EFFECT_SUPERPOWER,
-        .power = 120,
+        .power = 70,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,

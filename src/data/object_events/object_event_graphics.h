@@ -559,3 +559,7 @@ const u32 gObjectEventPic_starlight[] = INCBIN_U32("graphics/object_events/pics/
 const u16 gObjectEventPal_starlight[] = INCBIN_U16("graphics/object_events/palettes/starlight.gbapal");
 const u32 gObjectEventPic_pigmask[] = INCBIN_U32("graphics/object_events/pics/stupid/pigmask.4bpp");
 const u32 gObjectEventPic_pokey[] = INCBIN_U32("graphics/object_events/pics/stupid/pokey.4bpp");
+const u32 gObjectEventPic_lichen[] = INCBIN_U32("graphics/object_events/pics/stupid/lichen.4bpp");
+const u16 gObjectEventPal_lichen[] = INCBIN_U16("graphics/object_events/palettes/lichen.gbapal");
+const u32 gObjectEventPic_galar_oak[] = INCBIN_U32("graphics/object_events/pics/stupid/galar_oak.4bpp");
+const u16 gObjectEventPal_galar_oak[] = INCBIN_U16("graphics/object_events/palettes/galar_oak.gbapal");
