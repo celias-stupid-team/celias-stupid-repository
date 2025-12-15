@@ -4413,3 +4413,14 @@ const struct SpriteFrameImage gObjectEventPicTable_moltres_statue_activated[] = 
     overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 2),
     overworld_frame(gObjectEventPic_moltres_statue_activated, 6, 6, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_regice_swim[] = {
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 0),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 1),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 2),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 0),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 0),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 1),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 1),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 2),
+    overworld_frame(gObjectEventPic_regice_swim, 4, 4, 2),
+};

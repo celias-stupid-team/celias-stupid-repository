@@ -74,3 +74,41 @@ script Sootopolis_EventScript_Kiri {
 		release
 		end
 }
+
+
+script Sootopolis_GymSign {
+	msgbox(
+	"SOOTOPOLIS CITY GYM\n"
+	"LEADER: WALLACE\p"
+
+	"Or like, maybe it's JUAN.{PAUSE 30}\n"
+	"It kinda depends.", MSGBOX_SIGN)
+
+}
+
+
+script Sootopolis_LeaveTown {
+	msgbox(
+	"If you want to leave town, we need\n"
+	"to DIVE underwater.\p"
+
+	"In order to use DIVE, you must\n"
+	"defeat the MOSSDEEP CITY GYM.\p"
+
+	"To get to MOSSDEEP, you must first\n"
+	"leave this town.\p"
+
+	"…{PAUSE 30}Yeah this city is basically a\n"
+	"prison.", MSGBOX_NPC)
+}
+
+script Sootopolis_LuvdiscClue {
+	lock
+	msgbox(
+	"Hmm, I could've sworn my friend\n"
+	"told me he was right here!\p"
+
+	"Maybe I'm not understanding…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

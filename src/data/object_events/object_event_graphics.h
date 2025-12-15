@@ -566,3 +566,5 @@ const u16 gObjectEventPal_galar_oak[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_moltres_statue[] = INCBIN_U32("graphics/object_events/pics/stupid/moltres_statue.4bpp");
 const u16 gObjectEventPal_moltres_statue[] = INCBIN_U16("graphics/object_events/palettes/moltres_statue.gbapal");
 const u32 gObjectEventPic_moltres_statue_activated[] = INCBIN_U32("graphics/object_events/pics/stupid/moltres_statue_activated.4bpp");
+const u32 gObjectEventPic_regice_swim[] = INCBIN_U32("graphics/object_events/pics/stupid/regice_swim.4bpp");
+const u16 gObjectEventPal_regice_swim[] = INCBIN_U16("graphics/object_events/palettes/regice_swim.gbapal");

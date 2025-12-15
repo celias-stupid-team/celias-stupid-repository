@@ -41,8 +41,8 @@ RocketHideout_B1F_Text_Grunt3PostBattle::
 RocketHideout_B1F_Text_Grunt4Intro::
 	.string "Grrah!\n"
 	.string "Another one?\p"
-	.string "So many civilians have been breaking\n"
-	.string "into our LAW OFFICES recently!$"
+	.string "How are so many civilians breaking\n"
+	.string "into our LAW OFFICES!?$"
 
 RocketHideout_B1F_Text_Grunt4Defeat::
     .string "This won't do!$"
