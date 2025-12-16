@@ -406,3 +406,26 @@ script TwoIsland_Hooker {
 	end
 }
 
+script TwoIsland_Intro {
+	msgbox(
+	"Welcome to TWO ISLAND!\p"
+
+	"We got this name cuz we weren't\n"
+	"first!", MSGBOX_NPC)
+}
+
+
+
+script TwoIsland_ShittyRoom {
+	msgbox(
+	"ECONOMY CLASS\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_BrokenPot {
+	msgbox(
+	"Environmental storytelling.\n"
+	"", MSGBOX_SIGN)
+
+}
