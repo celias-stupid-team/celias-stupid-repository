@@ -414,6 +414,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_galar_oak;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue_activated;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_regice_swim;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_pillar;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -829,4 +830,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MOLTRES_STATUE] = &gObjectEventGraphicsInfo_moltres_statue,
     [OBJ_EVENT_GFX_MOLTRES_STATUE_ACTIVATED] = &gObjectEventGraphicsInfo_moltres_statue_activated,
     [OBJ_EVENT_GFX_REGICE_SWIM] = &gObjectEventGraphicsInfo_regice_swim,
+    [OBJ_EVENT_GFX_MOLTRES_PILLAR] = &gObjectEventGraphicsInfo_moltres_pillar,
 };

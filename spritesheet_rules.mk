@@ -1001,3 +1001,5 @@ $(OBJEVENTGFXDIR)/stupid/moltres_statue_activated.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
 $(OBJEVENTGFXDIR)/stupid/regice_swim.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/moltres_pillar.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 6 -mheight 6

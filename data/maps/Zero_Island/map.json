@@ -60,7 +60,22 @@
       "direction": "left"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES_PILLAR",
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
   "warp_events": [
     {
       "x": 19,
@@ -126,16 +141,16 @@
     },
     {
       "type": "sign",
-      "x": 9,
-      "y": 21,
+      "x": 8,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_ValorPillar"
     },
     {
       "type": "sign",
-      "x": 10,
-      "y": 21,
+      "x": 9,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_ValorPillar"
@@ -163,6 +178,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_OpenDoor"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ZeroIsland_ValorPillar"
     }
   ]
 }

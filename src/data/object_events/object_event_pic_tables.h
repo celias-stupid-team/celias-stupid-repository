@@ -4424,3 +4424,14 @@ const struct SpriteFrameImage gObjectEventPicTable_regice_swim[] = {
     overworld_frame(gObjectEventPic_regice_swim, 4, 4, 2),
     overworld_frame(gObjectEventPic_regice_swim, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_moltres_pillar[] = {
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 0),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 1),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 2),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 3),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 4),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 5),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 6),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 7),
+    overworld_frame(gObjectEventPic_moltres_pillar, 6, 6, 8),
+};

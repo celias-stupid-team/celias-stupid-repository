@@ -305,7 +305,6 @@ script CinnabarIsland_ReviveFossils {
 
 	"Are you looking to revive one of\n"
 	"your FOSSILS?", MSGBOX_DEFAULT)
-	closemessage
 	multichoice(0, 0, MULTICHOICE_DOME_AMBER, FALSE)
 	switch(var(VAR_RESULT)) {
 		case 0: //dome
@@ -328,13 +327,12 @@ script CinnabarIsland_ReviveFossils {
 
 	"You'll need other half if you\n"
 	"wish to revive it.", MSGBOX_DEFAULT)
-	closemessage
 	if(checkitem(ITEM_HELIX_FOSSIL)) {
 		switch(var(VAR_TEMP_9)) {
 			case 0:
 				multichoice(0,0, MULTICHOICE_HELIX, FALSE)
 			case 1:
-				multichoice(0,0, MULTICHOICE_DOME, FALSE)
+				multichoice(0,0, MULTICHOICE_AMBER, FALSE)
 		}
 		if(var(VAR_RESULT) != 0) {
 			msgbox(
@@ -361,6 +359,8 @@ script CinnabarIsland_ReviveFossils {
 		delay(30)
 		playse(SE_M_TAKE_DOWN)
 		waitse
+		playse(SE_M_LEER)
+		delay(40)
 		playse(SE_M_BRICK_BREAK)
 		delay(10)
 		playse(SE_M_BRICK_BREAK)
@@ -373,8 +373,7 @@ script CinnabarIsland_ReviveFossils {
 		delay(40)
 		playse(SE_M_STRENGTH)
 		// Terrifying sound effects
-		playse(SE_M_LEER)
-		delay(20)
+		delay(30)
 		playse(SE_M_REVERSAL)
 		waitse
 		playse(SE_EGG_HATCH)
