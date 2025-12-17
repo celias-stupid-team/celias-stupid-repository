@@ -3,7 +3,7 @@
   "name": "Johto_National_Park",
   "layout": "LAYOUT_JOHTO_NATIONAL_PARK",
   "music": "MUS_NATIONAL_PARK",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

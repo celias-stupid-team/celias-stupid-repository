@@ -2,7 +2,7 @@
   "id": "MAP_OCEAN4",
   "name": "Ocean4",
   "layout": "LAYOUT_OCEAN4",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -569,3 +569,7 @@ const u32 gObjectEventPic_moltres_statue_activated[] = INCBIN_U32("graphics/obje
 const u32 gObjectEventPic_regice_swim[] = INCBIN_U32("graphics/object_events/pics/stupid/regice_swim.4bpp");
 const u16 gObjectEventPal_regice_swim[] = INCBIN_U16("graphics/object_events/palettes/regice_swim.gbapal");
 const u32 gObjectEventPic_moltres_pillar[] = INCBIN_U32("graphics/object_events/pics/stupid/moltres_pillar.4bpp");
+const u32 gObjectEventPic_zapdos_pillar[] = INCBIN_U32("graphics/object_events/pics/stupid/zapdos_pillar.4bpp");
+const u16 gObjectEventPal_zapdos_pillar[] = INCBIN_U16("graphics/object_events/palettes/zapdos_pillar.gbapal");
+const u32 gObjectEventPic_articuno_pillar[] = INCBIN_U32("graphics/object_events/pics/stupid/articuno_pillar.4bpp");
+const u16 gObjectEventPal_articuno_pillar[] = INCBIN_U16("graphics/object_events/palettes/articuno_pillar.gbapal");
