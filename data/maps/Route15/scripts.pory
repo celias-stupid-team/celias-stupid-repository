@@ -361,7 +361,7 @@ script Route15_NoHMBoat {
 
 script Route15_FindShellder_Left {
 	lock
-	setmetatile(16, 25, 0x115, FALSE)
+	setmetatile(16, 27, 0x115, FALSE)
 	special(DrawWholeMapView)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
 	playfanfare(MUS_LEVEL_UP)
@@ -373,7 +373,7 @@ script Route15_FindShellder_Left {
 
 script Route15_FindShellder_Right {
 	lock
-	setmetatile(32, 30, 0x115, FALSE)
+	setmetatile(32, 32, 0x115, FALSE)
 	special(DrawWholeMapView)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
 	playfanfare(MUS_LEVEL_UP)

@@ -1,17 +1,35 @@
 mapscripts PokemonIsland_Lab_MapScripts {
-
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PROFESSOR_IVY_CUT, 1 {
+            delay(30)
+            playse(SE_FALL)
+            applymovement(LOCALID_IVY_2, moves(
+                set_visible
+                slide_down * 7
+            ))
+            waitmovement(0)
+            addobject(LOCALID_IVY)
+            setobjectxy(LOCALID_IVY_2, 13, 0)
+            setvar(VAR_PROFESSOR_IVY_CUT, 0)
+            release
+        }
+    ]
+    MAP_SCRIPT_ON_TRANSITION {
+        setvar(VAR_PROFESSOR_IVY_CUT, 0)
+    }
 }
 
 
 script PokemonIslandLab_Ivy {
     lock
+    faceplayer
     if(flag(FLAG_IVY_SIGN)) {
         msgbox(
         "IVY: Thank you so much for that\n"
         "GS BALL!\p"
 
         "Without it, I never would have seen\n"
-        "something so extraordinary myself!", MSGBOX_DEFAULT)
+        "something so extraordinary!", MSGBOX_DEFAULT)
         release
         end
     }
@@ -66,34 +84,100 @@ script PokemonIslandLab_GSBallCutscene {
     msgbox(
 	"Ah!\n"
 	"That's the GS BALL!\l"
-	"Excellent work!", MSGBOX_DEFAULT)
-    msgbox(
-	"There is a cool cutscene\n"
+	"Excellent work!\p"
+
+	"I can finally finish my research!\n"
 	"", MSGBOX_DEFAULT)
     closemessage
-    removeobject(VAR_LAST_TALKED)
+    delay(20)
+    specialvar(VAR_RESULT, GetPlayerFacingDirection)
+    if(var(VAR_RESULT) == DIR_WEST) {
+        applymovement(LOCALID_PLAYER, moves(
+            lock_facing_direction
+            walk_right
+            unlock_facing_direction
+        ))
+    }
+    applymovement(VAR_LAST_TALKED, moves(
+        delay_16
+        walk_right
+        walk_up * 3
+        delay_16
+        set_invisible
+    ))
+    waitmovement(LOCALID_PLAYER)
+    applymovement(LOCALID_PLAYER, moves(
+        delay_16 * 2
+        face_up
+    ))
+    waitmovement(VAR_LAST_TALKED)
+    playse(SE_EXIT)
     fadenewbgm(MUS_NONE)
     delay(60)
+
     msgbox(
-	"I am in the other room\n"
-	"", MSGBOX_DEFAULT)
+	"Okay, let's see…\n"
+	"All I have to do is-!", MSGBOX_DEFAULT)
     closemessage
+    delay(30)
+    playse(SE_CLICK)
+    waitse
+    delay(30)
+    playse(SE_M_TAKE_DOWN)
+    waitse
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 15)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
     special(ShakeScreen)
+    delay(90)
+    playmoncry(SPECIES_CELEBI, CRY_MODE_DEFAULT)
+    waitmoncry
+    msgbox(
+	"Wow!\n"
+	"Incredible!", MSGBOX_DEFAULT)
+    closemessage
     delay(30)
     playfanfare(MUS_SLOTS_WIN)
     textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
 	"PROFESSOR IVY discovered a\n"
 	"POKéMON SIGN!", MSGBOX_DEFAULT)
+    waitfanfare
+    closemessage
+    delay(30)
+    playse(SE_FLEE)
+    waitse
+    delay(30)
+    fadedefaultbgm
     setflag(FLAG_IVY_SIGN)
     textcolor(NPC_TEXT_COLOR_TREE)
-    addobject(VAR_LAST_TALKED)
+    delay(60)
+    playse(SE_EXIT)
+    applymovement(VAR_LAST_TALKED, moves(
+        set_visible
+        walk_down
+        delay_16 * 2
+        walk_down
+        face_player
+    ))
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(
+        face_original_direction
+    ))
     msgbox(
-	"And I'm done!\p"
+	"Aaaaaand I'm done!\n"
+	"Wow!\p"
 
-	"Thanks!\n"
-	"", MSGBOX_DEFAULT)
-    fadedefaultbgm
+	"I witnessed something truly\n"
+	"amazing today!\l"
+	"Thanks so much for the help!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_down
+        walk_left
+    ))
+    waitmovement(0)
     release
     end
 
