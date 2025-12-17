@@ -4457,3 +4457,14 @@ const struct SpriteFrameImage gObjectEventPicTable_articuno_pillar[] = {
     overworld_frame(gObjectEventPic_articuno_pillar, 6, 6, 7),
     overworld_frame(gObjectEventPic_articuno_pillar, 6, 6, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_for_sale[] = {
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 0),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 1),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 2),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 0),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 0),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 1),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 1),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 2),
+    overworld_frame(gObjectEventPic_for_sale, 4, 4, 2),
+};

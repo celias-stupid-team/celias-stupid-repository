@@ -573,3 +573,5 @@ const u32 gObjectEventPic_zapdos_pillar[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPal_zapdos_pillar[] = INCBIN_U16("graphics/object_events/palettes/zapdos_pillar.gbapal");
 const u32 gObjectEventPic_articuno_pillar[] = INCBIN_U32("graphics/object_events/pics/stupid/articuno_pillar.4bpp");
 const u16 gObjectEventPal_articuno_pillar[] = INCBIN_U16("graphics/object_events/palettes/articuno_pillar.gbapal");
+const u32 gObjectEventPic_for_sale[] = INCBIN_U32("graphics/object_events/pics/stupid/for_sale.4bpp");
+const u16 gObjectEventPal_for_sale[] = INCBIN_U16("graphics/object_events/palettes/for_sale.gbapal");

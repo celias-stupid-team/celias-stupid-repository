@@ -323,17 +323,155 @@ script TwoIsland_MartHippie {
 script TwoIsland_ForSaleMan {
 	lock
 	faceplayer
-	msgbox("PLACEHOLDER\nfor sale gag", MSGBOX_DEFAULT)
+	if(flag(FLAG_TEMP_1)) {
+	msgbox(
+		"Hello, again!\n"
+		"Business has been booming!\p"
+
+		"Are you interested in buying\n"
+		"my other FOR SALE sign?", MSGBOX_YESNO)
+	} else {
+		msgbox(
+		"Hello!\n"
+		"I'm a very successful businessman.\p"
+
+		"In fact, all I have left to sell is\n"
+		"my FOR SALE sign.\l"
+		"Would you like to buy it?", MSGBOX_YESNO)
+
+	}
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Wonderful!\n"
+		"Here you are!", MSGBOX_DEFAULT)
+		if(flag(FLAG_TEMP_1)) {
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				set_invisible
+			))
+
+		} else {
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				set_invisible
+			))
+
+		}
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} purchased the\n"
+		"FOR SALE sign!", MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		delay(30)
+		msgbox(
+		"Excellent!\n"
+		"It was a pleasure doing business!\p"
+
+		"Now, let me just…\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_NORTH) {
+			applymovement(LOCALID_PLAYER, moves(
+				lock_facing_direction
+				walk_down
+				unlock_facing_direction
+			))
+		}
+		applymovement(VAR_LAST_TALKED, moves(
+			delay_16
+			walk_down
+		))
+		waitmovement(VAR_LAST_TALKED)
+		if(!flag(FLAG_TEMP_1)) {
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_left
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_CLICK)
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				face_up
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_LEFT, MOVEMENT_TYPE_FACE_UP)
+			applymovement(VAR_LAST_TALKED, moves(
+				delay_16 * 2
+				walk_right
+				face_right
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_BANG)
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				face_left
+				set_visible
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_RIGHT, MOVEMENT_TYPE_FACE_LEFT)
+			delay(30)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_up
+				face_down
+			))
+			waitmovement(0)
+			setflag(FLAG_TEMP_1)
+			delay(30)
+		} else {
+
+
+			applymovement(VAR_LAST_TALKED, moves(
+				face_right
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_CLICK)
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				face_up
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_RIGHT, MOVEMENT_TYPE_FACE_UP)
+			applymovement(VAR_LAST_TALKED, moves(
+				delay_16 * 2
+				walk_left
+				face_left
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_BANG)
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				face_down
+				set_visible
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_LEFT, MOVEMENT_TYPE_FACE_DOWN)
+			delay(30)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				walk_up
+				face_down
+			))
+			waitmovement(0)
+			clearflag(FLAG_TEMP_1)
+			delay(30)
+
+		}
+
+
+
+	} else {
+		msgbox(
+		"I see.\p"
+
+		"Thank you for your time!\n"
+		"", MSGBOX_DEFAULT)
+	}
 	release
 }
 
 script TwoIsland_ForSaleSign1 {
-	msgbox("FOR SALE!{PAUSE 30}\n“FOR SALE” Sign!", MSGBOX_SIGN)
+	msgbox("For sale!{PAUSE 30}\n“FOR SALE” Sign!", MSGBOX_SIGN)
 
 }
 
 script TwoIsland_ForSaleSign2 {
-	msgbox("“FOR SALE” Sign!{PAUSE 30}\nFOR SALE!", MSGBOX_SIGN)
+	msgbox("“FOR SALE” Sign!{PAUSE 30}\nFor sale!", MSGBOX_SIGN)
 
 }
 
