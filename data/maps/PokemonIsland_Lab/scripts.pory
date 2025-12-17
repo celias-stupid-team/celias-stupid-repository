@@ -43,7 +43,7 @@ script PokemonIslandLab_Ivy {
         "We need one for our work.\p"
 
         "Could you visit him and see if you\n"
-        "can pursuade him to help out?", MSGBOX_DEFAULT)
+        "can persuade him to help out?", MSGBOX_DEFAULT)
     } else {
         setflag(FLAG_TALKED_TO_IVY)
         msgbox(
