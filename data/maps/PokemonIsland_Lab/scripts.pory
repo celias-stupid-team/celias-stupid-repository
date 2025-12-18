@@ -16,7 +16,63 @@ mapscripts PokemonIsland_Lab_MapScripts {
     ]
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_PROFESSOR_IVY_CUT, 0)
+        if(flag(FLAG_KINGLER_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_DUGTRIO_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_GROWLITHE_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_ELECTIVIRE_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_AMBIGUOUS_STATUE_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_ONIX_TAIL_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        if(flag(FLAG_IVY_SIGN)) {
+            addvar(VAR_TEMP_5, 1)
+        }
+        call(PokemonIslandLab_AddSignsBasedOnSigns)
+
     }
+}
+
+script PokemonIslandLab_AddSignsBasedOnSigns {
+    clearflag(FLAG_TEMP_1)
+    clearflag(FLAG_TEMP_2)
+    clearflag(FLAG_TEMP_3)
+    clearflag(FLAG_TEMP_4)
+    clearflag(FLAG_TEMP_5)
+    clearflag(FLAG_TEMP_6)
+    clearflag(FLAG_TEMP_7)
+    if(var(VAR_TEMP_5) < 1) {
+        setflag(FLAG_TEMP_1)
+    }
+    if(var(VAR_TEMP_5) < 2) {
+        setflag(FLAG_TEMP_2)
+    }
+    if(var(VAR_TEMP_5) < 3) {
+        setflag(FLAG_TEMP_3)
+    }
+    if(var(VAR_TEMP_5) < 4) {
+        setflag(FLAG_TEMP_4)
+    }
+    if(var(VAR_TEMP_5) < 5) {
+        setflag(FLAG_TEMP_5)
+    }
+    if(var(VAR_TEMP_5) < 6) {
+        setflag(FLAG_TEMP_6)
+    }
+    if(var(VAR_TEMP_5) < 7) {
+        setflag(FLAG_TEMP_7)
+    }
+    
+    return
 }
 
 
@@ -174,6 +230,8 @@ script PokemonIslandLab_GSBallCutscene {
         walk_down
         walk_left
     ))
+    addvar(VAR_TEMP_5, 1)
+    call(PokemonIslandLab_AddSignsBasedOnSigns)
     waitmovement(0)
     release
     end

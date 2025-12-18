@@ -8,46 +8,231 @@ Route19_EventScript_RouteSign::
 mapscripts Route19_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_1)
+		if(flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) && !flag(FLAG_LOOKER_SCENE)) {
+			clearflag(FLAG_TEMP_1)
+		}
 	}
 }
 
 script Route19_LookerScene {
 	lock
-	fadenewbgm(MUS_DUMMY)
+	fadenewbgm(MUS_NONE)
 	//player walks to right side
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_left
+			))
+			waitmovement(LOCALID_PLAYER)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_up
+				walk_right * 2
+				walk_down
+				face_left
+			))
+			waitmovement(LOCALID_PLAYER)
+	}
 	delay(60)
-	//he's unconscious
-	//slowly wakes up
-	playbgm(MUS_LOOKER_THEME, FALSE)
-	textcolor(NPC_TEXT_COLOR_MALE)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"I'm looker\n"  // I'm a secret agent, and I've been trying to keep this secret. Here!
-	"", MSGBOX_DEFAULT)
-	//Player obtained the Rotom Pokedex
-	// You can now access the Box
-	playse(SE_PIN)
-	applymovement(VAR_LAST_TALKED, moves(
-		emote_exclamation_mark
+	"A man has washed up on the\n"
+	"shore.\l"
+	"He's unconscious…", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	playse(SE_PC_LOGIN)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_left
+	))
+	msgbox(
+	"{PLAYER} kicked the man.", MSGBOX_DEFAULT)
+	closemessage
+	playse(SE_M_TAKE_DOWN)
+	fadescreen(FADE_TO_WHITE)
+	delay(30)
+	applymovement(LOCALID_LOOKER_LAYING, moves(
+		set_invisible
+	))
+	applymovement(LOCALID_LOOKER_UP, moves(
+		set_visible
+	))
+	waitmovement(LOCALID_LOOKER_UP)
+	fadescreeninstant(FADE_FROM_WHITE)
+	playbgm(MUS_LOOKER_THEME, FALSE)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_LOOKER_UP, moves(
+		jump_in_place_down
 		delay_16 * 3
 		face_left
-		delay_16 * 2
-		face_right
-		delay_16 * 2
-		face_left
-		delay_16 * 2
+		delay_16 * 3
 		face_up
 		delay_16 * 2
+		face_down
+		delay_16 * 4
+		face_right
+	))
+	
+	waitmovement(LOCALID_LOOKER_UP)
+	playse(SE_PIN)
+	applymovement(LOCALID_LOOKER_UP, moves(
+		emote_exclamation_mark
+	))
+	delay(60)
+	waitmovement(LOCALID_LOOKER_UP)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"I'm looker\p"
+
+	"take this\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	delay(20)
+	applymovement(LOCALID_PLAYER, moves(
+		lock_facing_direction
+		walk_right
+		face_left
+		unlock_facing_direction
+
+	))
+	applymovement(LOCALID_ROUTE19_ROTOM, moves(
+		walk_right
+		set_visible
+	))
+	waitmovement(LOCALID_PLAYER)
+	fadescreeninstant(FADE_FROM_WHITE)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"it's the rotom pokedex\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_ROUTE19_ROTOM, moves(
+		walk_right
+		set_invisible
 	))
 	waitmovement(0)
-	fadenewbgm(MUS_DUMMY)
+	delay(20)
+	playfanfare(MUS_SLOTS_JACKPOT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
-	"N-no!\n"
-	"She's coming-!", MSGBOX_DEFAULT)
+	"{PLAYER} obtained the\n"
+	"ROTOM POKéDEX!", MSGBOX_DEFAULT)
+	waitfanfare
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"You can now access field moves\n"
+	"directly from the PC BOX!", MSGBOX_DEFAULT)
+	waitfanfare
 	closemessage
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"i hope that's helpful\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadenewbgm(MUS_DUMMY)
+	delay(60)
+	playse(SE_PIN)
+	applymovement(LOCALID_LOOKER_UP, moves(
+		face_down
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(40)
+	applymovement(LOCALID_LOOKER_UP, moves(
+		lock_facing_direction
+		walk_slow_up
+		face_down
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16 * 2
+		face_up
+	))
+	delay(30)
+	msgbox(
+	"N-no…!\n"
+	"", MSGBOX_DEFAULT)
+	waitmovement(LOCALID_LOOKER_UP)
+	closemessage
+	applymovement(LOCALID_LOOKER_UP, moves(
+		unlock_facing_direction
+		face_left
+		delay_16
+		face_right
+		delay_16
+		face_left
+		delay_16
+		face_down
+	))
+	delay(20)
+	
+	msgbox(
+	"She's coming!\n"
+	"", MSGBOX_DEFAULT)
+	waitmovement(LOCALID_LOOKER_UP)
+	closemessage
+	delay(30)
 	playbgm(MUS_LASS_INTRO, TRUE)
-	//Lasses attack; looker runs away
-	removeobject(VAR_LAST_TALKED)
+	delay(50)
+	applymovement(LOCALID_LOOKER_UP, moves(
+		delay_16
+		walk_fast_up * 2
+		walk_fast_right * 5
+		walk_fast_up * 6
+	))
+	applymovement(LOCALID_ROUTE19_LASS_1, moves(
+		delay_16 * 2
+		walk_fast_up * 9
+		walk_fast_right * 5
+		walk_fast_up * 6
+	))
+	applymovement(LOCALID_ROUTE19_LASS_3, moves(
+		delay_16 * 2
+		delay_16 * 2
+		walk_fast_up * 5
+		walk_fast_right * 2
+		walk_fast_up * 4
+		walk_fast_right * 2
+		walk_fast_up * 3
+		walk_fast_right * 4
+		walk_fast_up * 6
+	))
+	applymovement(LOCALID_ROUTE19_LASS_2, moves(
+		delay_16 * 2
+		delay_16 * 2
+		walk_fast_up * 3
+		walk_fast_right * 5
+		walk_fast_up * 6
+		walk_fast_right * 3
+		walk_fast_up * 3
+		walk_fast_right * 4
+		walk_fast_up * 6
+	))
+	delay(16)
+	playse(SE_FLEE)
+	delay(50)
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Don't…{PAUSE 30} look…{PAUSE 30} at…{PAUSE 30} us!\n"
+	"", MSGBOX_DEFAULT)
+	waitmovement(LOCALID_ROUTE19_LASS_2)
+	closemessage
+	removeobject(LOCALID_ROUTE19_LASS_1)
+	removeobject(LOCALID_ROUTE19_LASS_2)
+	removeobject(LOCALID_ROUTE19_LASS_3)
+	removeobject(LOCALID_ROUTE19_ROTOM)
+	removeobject(LOCALID_LOOKER_UP)
+	removeobject(LOCALID_LOOKER_LAYING)
 	fadedefaultbgm
+	setflag(FLAG_LOOKER_SCENE)
+	release
+
+
+	//Lasses attack; looker runs away
 
 }
 

@@ -290,17 +290,18 @@
       "flag": "FLAG_FUSCHIA_CUT_TREE"
     },
     {
+      "local_id": "LOCALID_FUSHCIA_LEFT_CELIA",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CELIA",
-      "x": 9,
-      "y": 35,
+      "x": 4,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FushciaCity_CeliaEndDemo3",
+      "script": "FushciaCity_BlockingCelia",
       "flag": "FLAG_TEMP_3"
     },
     {
@@ -445,6 +446,7 @@
       "flag": "FLAG_TEMP_6"
     },
     {
+      "local_id": "LOCALID_FUSHCIA_GIRL_LOW",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 14,
@@ -455,7 +457,37 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FushciaCity_ShoreGirl",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "local_id": "LOCALID_FUSHCIA_GIRL_HIGH",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 33,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FushciaCity_ShoreGirl",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "local_id": "LOCALID_FUSHCIA_RIGHT_CELIA",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 56,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FushciaCity_BlockingCelia",
       "flag": "FLAG_TEMP_3"
     }
   ],
@@ -678,6 +710,42 @@
       "var": "VAR_TEMP_5",
       "var_value": "1",
       "script": "FushciaCity_KillGrandpa"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "2",
+      "script": "FushciaCity_LeftCelia"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "2",
+      "script": "FushciaCity_LeftCelia"
+    },
+    {
+      "type": "trigger",
+      "x": 56,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "2",
+      "script": "FushciaCity_RightCelia"
+    },
+    {
+      "type": "trigger",
+      "x": 56,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "2",
+      "script": "FushciaCity_RightCelia"
     }
   ],
   "bg_events": [

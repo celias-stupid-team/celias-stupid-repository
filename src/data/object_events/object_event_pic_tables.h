@@ -4534,3 +4534,25 @@ const struct SpriteFrameImage gObjectEventPicTable_sign_down_right[] = {
     overworld_frame(gObjectEventPic_sign_down_right, 2, 2, 7),
     overworld_frame(gObjectEventPic_sign_down_right, 2, 2, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_flames[] = {
+    overworld_frame(gObjectEventPic_flames, 4, 4, 0),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 1),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 2),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 3),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 4),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 5),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 6),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 7),
+    overworld_frame(gObjectEventPic_flames, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_looker_dead[] = {
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 0),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 1),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 2),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 0),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 0),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 1),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 1),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 2),
+    overworld_frame(gObjectEventPic_looker_dead, 4, 4, 2),
+};

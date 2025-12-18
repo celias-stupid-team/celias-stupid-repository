@@ -947,8 +947,8 @@
 #define FLAG_CREDITS_FAKEOUT               0x366
 #define FLAG_GOT_BALM_MUSHROOM               0x367
 #define FLAG_FUCKING_FURRET               0x368
-#define FLAG_0x369               0x369
-#define FLAG_0x36A               0x36A
+#define FLAG_LOOKER_SCENE               0x369
+#define FLAG_FUSHCIA_GO_TO_SHORE_SCENE               0x36A
 #define FLAG_0x36B               0x36B
 #define FLAG_0x36C               0x36C
 #define FLAG_0x36D               0x36D
@@ -1439,7 +1439,7 @@
 #define FLAG_SYS_IS_CREDITS                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
-#define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
+#define FLAG_SYS_FUSHCIA_DISABLE_FLY                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_0x831                                                  (SYS_FLAGS + 0x31)

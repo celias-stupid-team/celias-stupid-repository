@@ -103,6 +103,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SIGN_DOWN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN_DOWN",
       "x": 18,
@@ -114,9 +115,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
+      "local_id": "LOCALID_SIGN_RIGHT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN_RIGHT",
       "x": 16,
@@ -128,9 +130,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
+      "local_id": "LOCALID_SIGN_LEFT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN_LEFT",
       "x": 20,
@@ -142,9 +145,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     },
     {
+      "local_id": "LOCALID_SIGN_DOWN_LEFT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN_DOWN_LEFT",
       "x": 20,
@@ -156,9 +160,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
+      "local_id": "LOCALID_SIGN_DOWN_RIGHT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SIGN_DOWN_RIGHT",
       "x": 16,
@@ -170,7 +175,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [

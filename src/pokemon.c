@@ -6763,7 +6763,7 @@ u32 GetCurrentLevelCap(u16 species)
     {
         {FLAG_BADGE01_GET, 15}, 
         {FLAG_BADGE02_GET, 25}, 
-        {FLAG_BADGE04_GET, 60}, 
+        {FLAG_BADGE04_GET, MAX_LEVEL}, 
         {FLAG_BADGE05_GET, MAX_LEVEL},
     };
    
