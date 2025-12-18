@@ -6736,4 +6736,17 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_Starman),
     },
+
+    
+    
+    [TRAINER_RADICAL_RED] = {
+        .trainerClass = TRAINER_CLASS_RADICAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RADICAL_RED,
+        .trainerName = _("RED"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_RadicalRed),
+    },
 };

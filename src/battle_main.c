@@ -470,6 +470,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_BERSERK, 50},
     {TRAINER_CLASS_TRANS_BUGS, 50},
     {TRAINER_CLASS_STARMAN, 50},
+    {TRAINER_CLASS_RADICAL, 50},
     { 0xFF, 5},
 };
 

@@ -418,6 +418,12 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_pillar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_zapdos_pillar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_pillar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_for_sale;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_radical_red;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down_left;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_right;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_left;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down_right;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -837,4 +843,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ZAPDOS_PILLAR] = &gObjectEventGraphicsInfo_zapdos_pillar,
     [OBJ_EVENT_GFX_ARTICUNO_PILLAR] = &gObjectEventGraphicsInfo_articuno_pillar,
     [OBJ_EVENT_GFX_FOR_SALE] = &gObjectEventGraphicsInfo_for_sale,
+    [OBJ_EVENT_GFX_RADICAL_RED] = &gObjectEventGraphicsInfo_radical_red,
+    [OBJ_EVENT_GFX_SIGN_DOWN] = &gObjectEventGraphicsInfo_sign_down,
+    [OBJ_EVENT_GFX_SIGN_DOWN_LEFT] = &gObjectEventGraphicsInfo_sign_down_left,
+    [OBJ_EVENT_GFX_SIGN_RIGHT] = &gObjectEventGraphicsInfo_sign_right,
+    [OBJ_EVENT_GFX_SIGN_LEFT] = &gObjectEventGraphicsInfo_sign_left,
+    [OBJ_EVENT_GFX_SIGN_DOWN_RIGHT] = &gObjectEventGraphicsInfo_sign_down_right,
 };

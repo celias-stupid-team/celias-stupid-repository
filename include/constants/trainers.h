@@ -205,6 +205,7 @@
 #define TRAINER_PIC_BABY_BUG   183
 #define TRAINER_PIC_TRANS_BUG   184
 #define TRAINER_PIC_STARMAN   185
+#define TRAINER_PIC_RADICAL_RED   186
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
@@ -343,6 +344,7 @@
 #define TRAINER_CLASS_BERSERK             120
 #define TRAINER_CLASS_TRANS_BUGS             121
 #define TRAINER_CLASS_STARMAN             122
+#define TRAINER_CLASS_RADICAL             123
 
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0

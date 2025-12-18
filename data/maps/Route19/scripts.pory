@@ -128,3 +128,11 @@ script GreatSea_FontTest {
 	"999/999\n"
 	"1234567890/", MSGBOX_NPC)
 }
+
+
+script GreatSea_RadicalRed {
+	trainerbattle_single(TRAINER_RADICAL_RED, "...", "...\p…!!!")
+	msgbox(
+	"…!!!\n"
+	"", MSGBOX_NPC)
+}

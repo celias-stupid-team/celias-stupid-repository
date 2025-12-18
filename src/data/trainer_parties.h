@@ -10299,3 +10299,15 @@ static const struct TrainerMonItemCustomMoves sParty_Starman[] = {
     },
 
 };
+
+
+static const struct TrainerMonItemCustomMoves sParty_RadicalRed[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PIKACHU_SNAP_SURF,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};

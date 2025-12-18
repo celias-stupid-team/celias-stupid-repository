@@ -12615,3 +12615,6 @@ extern const u32 gItemIconPalette_PotionExe[];
 
 extern const u32 gItemIcon_MagicMuffler[];
 extern const u32 gItemIconPalette_MagicMuffler[];
+
+extern const u32 gTrainerFrontPic_RadicalRed[];
+extern const u32 gTrainerPalette_RadicalRed[];

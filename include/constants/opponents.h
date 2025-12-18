@@ -177,7 +177,7 @@
 #define TRAINER_SUPER_NERD_AIDAN                 171
 #define TRAINER_SUPER_NERD_GLENN                 172
 #define TRAINER_SUPER_NERD_LESLIE                173
-#define TRAINER_CSR_DUMMY_9 174
+#define TRAINER_RADICAL_RED 174
 #define TRAINER_CSR_DUMMY_10 175
 #define TRAINER_CSR_DUMMY_11 176
 #define TRAINER_SUPER_NERD_ERIK                  177
