@@ -5565,7 +5565,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_38island",
+      "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Thirty_Eight_Island/border.bin",
       "blockdata_filepath": "data/layouts/Thirty_Eight_Island/map.bin"
     },
