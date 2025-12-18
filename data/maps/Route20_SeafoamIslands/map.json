@@ -33,6 +33,16 @@
       "map": "MAP_OCEAN6",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": -16,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE19",
+      "offset": 44,
+      "direction": "up"
     }
   ],
   "object_events": [

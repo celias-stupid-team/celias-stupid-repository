@@ -162,9 +162,6 @@ script PokemonIslandLab_GSBallCutscene {
         face_player
     ))
     waitmovement(0)
-    applymovement(LOCALID_PLAYER, moves(
-        face_original_direction
-    ))
     msgbox(
 	"Aaaaaand I'm done!\n"
 	"Wow!\p"
@@ -216,6 +213,7 @@ script PokemonIslandLab_Todd {
     }
     applymovement(LOCALID_TODD, Common_Movement_FaceOriginalDirection)
     waitmovement(0)
+    release
 }
 
 script PokemonIslandLab_IvyLeagueSchool {

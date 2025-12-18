@@ -35,13 +35,8 @@
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN4",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
       "map": "MAP_OCEAN5",
-      "offset": 5,
+      "offset": 0,
       "direction": "right"
     },
     {

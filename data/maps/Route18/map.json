@@ -40,19 +40,19 @@
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN3",
-      "offset": 32,
-      "direction": "right"
+      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
+      "offset": -26,
+      "direction": "left"
     },
     {
-      "map": "MAP_OCEAN4",
+      "map": "MAP_OCEAN5",
       "offset": 25,
       "direction": "down"
     },
     {
-      "map": "MAP_TWO_ISLAND_CAPE_BRINK",
-      "offset": -26,
-      "direction": "left"
+      "map": "MAP_ONE_ISLAND",
+      "offset": 44,
+      "direction": "down"
     }
   ],
   "object_events": [
