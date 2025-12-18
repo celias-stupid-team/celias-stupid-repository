@@ -33,16 +33,6 @@
       "map": "MAP_OCEAN1",
       "offset": 55,
       "direction": "down"
-    },
-    {
-      "map": "MAP_OCEAN3",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_OCEAN4",
-      "offset": 43,
-      "direction": "left"
     }
   ],
   "object_events": [
@@ -453,6 +443,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FushciaCity_GrandpaDead",
       "flag": "FLAG_TEMP_6"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+      "x": 14,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_3"
     }
   ],
   "warp_events": [

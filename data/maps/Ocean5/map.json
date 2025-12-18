@@ -2,7 +2,7 @@
   "id": "MAP_OCEAN5",
   "name": "Ocean5",
   "layout": "LAYOUT_OCEAN5",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,18 +15,13 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_OCEAN4",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ONE_ISLAND",
       "offset": 0,
       "direction": "right"
     },
     {
       "map": "MAP_ZERO_ISLAND",
-      "offset": -5,
+      "offset": 0,
       "direction": "left"
     },
     {
@@ -36,8 +31,18 @@
     },
     {
       "map": "MAP_OCEAN7",
-      "offset": 27,
+      "offset": 32,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -25,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 16,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -45,7 +50,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HALF_SHORTS",
       "x": 12,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

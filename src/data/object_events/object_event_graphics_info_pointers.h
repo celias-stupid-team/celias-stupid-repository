@@ -409,6 +409,15 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_copperajah;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starlight;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pigmask;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pokey;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_lichen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_galar_oak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue_activated;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_regice_swim;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_zapdos_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_for_sale;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -819,4 +828,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_STARLIGHT] = &gObjectEventGraphicsInfo_starlight,
     [OBJ_EVENT_GFX_PIGMASK] = &gObjectEventGraphicsInfo_pigmask,
     [OBJ_EVENT_GFX_POKEY] = &gObjectEventGraphicsInfo_pokey,
+    [OBJ_EVENT_GFX_LICHEN] = &gObjectEventGraphicsInfo_lichen,
+    [OBJ_EVENT_GFX_GALAR_OAK] = &gObjectEventGraphicsInfo_galar_oak,
+    [OBJ_EVENT_GFX_MOLTRES_STATUE] = &gObjectEventGraphicsInfo_moltres_statue,
+    [OBJ_EVENT_GFX_MOLTRES_STATUE_ACTIVATED] = &gObjectEventGraphicsInfo_moltres_statue_activated,
+    [OBJ_EVENT_GFX_REGICE_SWIM] = &gObjectEventGraphicsInfo_regice_swim,
+    [OBJ_EVENT_GFX_MOLTRES_PILLAR] = &gObjectEventGraphicsInfo_moltres_pillar,
+    [OBJ_EVENT_GFX_ZAPDOS_PILLAR] = &gObjectEventGraphicsInfo_zapdos_pillar,
+    [OBJ_EVENT_GFX_ARTICUNO_PILLAR] = &gObjectEventGraphicsInfo_articuno_pillar,
+    [OBJ_EVENT_GFX_FOR_SALE] = &gObjectEventGraphicsInfo_for_sale,
 };

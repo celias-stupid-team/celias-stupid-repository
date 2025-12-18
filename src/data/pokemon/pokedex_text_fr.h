@@ -2594,7 +2594,8 @@ const u8 gTentaquilPokedexText[] = _(
 	"its a tentaquil");
 
 const u8 gMissingnoPokedexText[] = _(
-	"comment to be written");
+	"Sorry but this hack is\n"
+	"strictly non-binary.");
 
 const u8 gCherubiPokedexText[] = _(
 	"Google “Cherubi pokedex number”");

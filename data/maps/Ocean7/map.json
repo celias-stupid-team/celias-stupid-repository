@@ -2,7 +2,7 @@
   "id": "MAP_OCEAN7",
   "name": "Ocean7",
   "layout": "LAYOUT_OCEAN7",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -21,7 +21,7 @@
     },
     {
       "map": "MAP_OCEAN5",
-      "offset": -27,
+      "offset": -32,
       "direction": "right"
     },
     {

@@ -2,7 +2,7 @@
   "id": "MAP_OCEAN4",
   "name": "Ocean4",
   "layout": "LAYOUT_OCEAN4",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -13,38 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_OCEAN3",
-      "offset": -1,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE18",
-      "offset": -25,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": -43,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 19,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ZERO_ISLAND",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN5",
-      "offset": 0,
-      "direction": "down"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

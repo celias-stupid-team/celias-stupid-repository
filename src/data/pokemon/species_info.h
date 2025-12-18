@@ -824,7 +824,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseAttack = 110,
         .baseDefense = 110,
         .baseSpeed = 65,
-        .baseSpAttack = 85,
+        .baseSpAttack = 95,
         .baseSpDefense = 55,
         .types = {TYPE_GROUND, TYPE_GROUND},
         .catchRate = 255,
@@ -3111,9 +3111,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_HITMONCHAN] =
     {
-        .baseHP = 50,
+        .baseHP = 45,
         .baseAttack = 105,
-        .baseDefense = 79,
+        .baseDefense = 60,
         .baseSpeed = 76,
         .baseSpAttack = 35,
         .baseSpDefense = 110,

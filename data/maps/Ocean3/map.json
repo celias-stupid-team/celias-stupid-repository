@@ -2,7 +2,7 @@
   "id": "MAP_OCEAN3",
   "name": "Ocean3",
   "layout": "LAYOUT_OCEAN3",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -13,33 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_FUSHCIA_CITY",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE19",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ONE_ISLAND",
-      "offset": -21,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE18",
-      "offset": -32,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN4",
-      "offset": 1,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

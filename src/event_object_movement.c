@@ -506,6 +506,13 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_HEX_MANIAC  0x114F
 #define OBJ_EVENT_PAL_TAG_COPPERAJAH  0x1150
 #define OBJ_EVENT_PAL_TAG_STARLIGHT  0x1151
+#define OBJ_EVENT_PAL_TAG_LICHEN  0x1152
+#define OBJ_EVENT_PAL_TAG_GALAR_OAK  0x1153
+#define OBJ_EVENT_PAL_TAG_MOLTRES_STATUE  0x1154
+#define OBJ_EVENT_PAL_TAG_REGICE_SWIM  0x1155
+#define OBJ_EVENT_PAL_TAG_ZAPDOS_PILLAR  0x1156
+#define OBJ_EVENT_PAL_TAG_ARTICUNO_PILLAR  0x1157
+#define OBJ_EVENT_PAL_TAG_FOR_SALE  0x1158
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -585,6 +592,13 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_HEX_MANIAC,             OBJ_EVENT_PAL_TAG_HEX_MANIAC},
     {gObjectEventPal_copperajah,             OBJ_EVENT_PAL_TAG_COPPERAJAH},
     {gObjectEventPal_starlight,             OBJ_EVENT_PAL_TAG_STARLIGHT},
+    {gObjectEventPal_lichen,             OBJ_EVENT_PAL_TAG_LICHEN},
+    {gObjectEventPal_galar_oak,             OBJ_EVENT_PAL_TAG_GALAR_OAK},
+    {gObjectEventPal_moltres_statue,             OBJ_EVENT_PAL_TAG_MOLTRES_STATUE},
+    {gObjectEventPal_regice_swim,             OBJ_EVENT_PAL_TAG_REGICE_SWIM},
+    {gObjectEventPal_zapdos_pillar,             OBJ_EVENT_PAL_TAG_ZAPDOS_PILLAR},
+    {gObjectEventPal_articuno_pillar,             OBJ_EVENT_PAL_TAG_ARTICUNO_PILLAR},
+    {gObjectEventPal_for_sale,             OBJ_EVENT_PAL_TAG_FOR_SALE},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

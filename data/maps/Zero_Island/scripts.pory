@@ -1,27 +1,43 @@
 mapscripts Zero_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         if(flag(FLAG_OPENED_ZERO_ISLAND)) {
-            setmetatile(19, 18, 0x0A9, FALSE)
+            setmetatile(19, 17, 0x0A9, FALSE)
         } else {
             if(flag(FLAG_INSERTED_MYSTIC_SEAL) && flag(FLAG_INSERTED_INSTINCT_SEAL) && flag(FLAG_INSERTED_VALOR_SEAL)) {
                 setvar(VAR_TEMP_0, 1)
             }
         }
+        if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
+            setobjectmovementtype(LOCALID_MYSTIC_PILLAR, MOVEMENT_TYPE_WALK_IN_PLACE_UP)
+        }
+        if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
+            setobjectmovementtype(LOCALID_INSTINCT_PILLAR, MOVEMENT_TYPE_WALK_IN_PLACE_UP)
+            
+        }
+        if(flag(FLAG_INSERTED_VALOR_SEAL)) {
+            setobjectmovementtype(LOCALID_VALOR_PILLAR, MOVEMENT_TYPE_WALK_IN_PLACE_UP)
+            
+        }
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_OPENED_ZERO_ISLAND)) {
+            setmetatile(19, 17, 0x0A9, FALSE)
+        }
+
     }
 }
 
 
 script ZeroIsland_InstinctPillar {
     lock
+    msgbox(
+	"There's an inscription…\p"
+
+	"“THE PILLAR OF INSTINCT”\n"
+	"", MSGBOX_DEFAULT)
     if(flag(FLAG_INSERTED_INSTINCT_SEAL)) {
         msgbox(
-        "it's a instinct thing\p"
-
-        "it's yellow\n"
-        "", MSGBOX_DEFAULT)
-    } else {
-        msgbox(
-        "it's a instinct thing\n"
+        "It glows a bright gold.\n"
         "", MSGBOX_DEFAULT)
     }
     release
@@ -30,15 +46,14 @@ script ZeroIsland_InstinctPillar {
 
 script ZeroIsland_ValorPillar {
     lock
+    msgbox(
+	"There's an inscription…\p"
+
+	"“THE PILLAR OF VALOR”\n"
+	"", MSGBOX_DEFAULT)
     if(flag(FLAG_INSERTED_VALOR_SEAL)) {
         msgbox(
-        "it's a valor thing\p"
-
-        "it's red\n"
-        "", MSGBOX_DEFAULT)
-    } else {
-        msgbox(
-        "it's a valor thing\n"
+        "It glows a bright scarlet.\n"
         "", MSGBOX_DEFAULT)
     }
     release
@@ -47,15 +62,14 @@ script ZeroIsland_ValorPillar {
 
 script ZeroIsland_MysticPillar {
     lock
+    msgbox(
+	"There's an inscription…\p"
+
+	"“THE PILLAR OF MYSTIC”\n"
+	"", MSGBOX_DEFAULT)
     if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
         msgbox(
-        "it's a mystic thing\p"
-
-        "it's purple\n"
-        "", MSGBOX_DEFAULT)
-    } else {
-        msgbox(
-        "it's a mystic thing\n"
+        "It glows a bright violet.\n"
         "", MSGBOX_DEFAULT)
     }
     release
@@ -65,47 +79,47 @@ script ZeroIsland_OpenDoor {
     lock
     if(!(flag(FLAG_INSERTED_MYSTIC_SEAL) && flag(FLAG_INSERTED_INSTINCT_SEAL) && flag(FLAG_INSERTED_VALOR_SEAL))) {
         msgbox(
-        "it's a door\p"
-
-        "it is locked\n"
-        "", MSGBOX_DEFAULT)
+        "You feel the presence of a room\n"
+        "behind the wall.", MSGBOX_DEFAULT)
     } else {
         msgbox(
-        "it's a door\p"
+        "You feel the presence of a room\n"
+        "behind the opening.\p"
 
-        "it is locked\n"
-        "but it can stop being locked", MSGBOX_DEFAULT)
+        "This is because you can see it.\n"
+        "{PAUSE 30}With your eyes.", MSGBOX_DEFAULT)
         closemessage
-        delay(30)
     }
     release
 }
 
 script ZeroIsland_TryOpenDoor {
-            setflag(FLAG_OPENED_ZERO_ISLAND)
-            setvar(VAR_TEMP_0, 0)
-        msgbox(
-        "something cool happens\n"
-        "", MSGBOX_DEFAULT)
+        setflag(FLAG_OPENED_ZERO_ISLAND)
+        setvar(VAR_TEMP_0, 0)
+        
         closemessage
-        delay(30)
+        fadeoutbgm(0)
         setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
         setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
-        setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+        setvar(VAR_SHAKESCREEN_NUM_SHAKES, 20)
         setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
 
         special(ShakeScreen)
+        delay(90)
+        fadescreeninstant(FADE_TO_WHITE)
         playmoncry(SPECIES_MOLTRES, CRY_MODE_DEFAULT)
-        waitmoncry
+        delay(20)
         playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
-        waitmoncry
+        delay(20)
         playmoncry(SPECIES_ARTICUNO, CRY_MODE_DEFAULT)
-        waitmoncry
+        delay(50)
+        setmetatile(19, 17, 0x0A9, FALSE)
+        fadescreeninstant(FADE_FROM_WHITE)
         delay(30)
-        playse(SE_UNLOCK)
-        setmetatile(19, 18, 0x0A9, FALSE)
         special(DrawWholeMapView)
+        playse(SE_UNLOCK)
         //setmetatile
+        fadeinbgm(1)
         release
 
 }

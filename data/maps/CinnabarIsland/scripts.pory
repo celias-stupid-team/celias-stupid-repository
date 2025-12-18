@@ -579,7 +579,10 @@ script CinnabarIsland_ValorCrestPedestal {
 				special(ShakeScreen)
 				waitse
 				delay(20)
-				//call(Route18_SetZapdosStatue) Change the thingy
+				applymovement(LOCALID_MOLTRES_STATUE, moves(
+					face_up
+				))
+				setobjectmovementtype(LOCALID_MOLTRES_STATUE, MOVEMENT_TYPE_FACE_UP)
 				special(DrawWholeMapView)
 				playmoncry(SPECIES_MOLTRES, CRY_MODE_NORMAL)
 				fadeinbgm(1)
