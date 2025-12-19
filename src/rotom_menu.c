@@ -100,6 +100,8 @@ enum MenuOption {
     MENU_SAVE,
     MENU_OPTIONS,
     MENU_RETIRE,
+    // add new options here
+    MENU_NONE,
 };
 
 enum SaveStates {
@@ -109,13 +111,36 @@ enum SaveStates {
     SAVE_ERROR
 };
 
+enum RotomMove {
+    ROTOM_MOVE_SURF,
+    ROTOM_MOVE_WATERFALL,
+    ROTOM_MOVE_ROCK_CLIMB,
+    ROTOM_MOVE_STRENGTH,
+    ROTOM_MOVE_CUT,
+    ROTOM_MOVE_FLY,
+    ROTOM_MOVE_TOP_ROW_MAX = ROTOM_MOVE_FLY,
+    ROTOM_MOVE_WHIRLPOOL,
+    ROTOM_MOVE_GUILLOTINE,
+    ROTOM_MOVE_BRICK_BREAK,
+    ROTOM_MOVE_TAIL_GLOW,
+    ROTOM_MOVE_REST,
+    ROTOM_MOVE_RETREAT,
+    ROTOM_MOVE_BOTTOM_ROW_MAX = ROTOM_MOVE_RETREAT,
+    ROTOM_MOVE_NONE,
+};
+
+#define ROTOM_MOVE_ROW_SIZE (ROTOM_MOVE_TOP_ROW_MAX + 1)
+
 /* STRUCTs */
 struct RotomStartMenu {
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u8 iconAnimStarted;
     u8 optionSelected;
-
+    u8 fieldMoveCursor:4;
+    u8 storedMenuOption:4;
+    u8 spriteIdMoveSelectorLeft;
+    u8 spriteIdMoveSelectorRight;
     u8 spriteIdPokedex;
     u8 spriteIdParty;
     u8 spriteIdBag;
@@ -140,11 +165,15 @@ static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/rotom_new
 static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
 //--SPRITE-GFX--
-#define TAG_ICON_GFX 1234
-#define TAG_ICON_PAL 0x4654
+#define TAG_ICON_GFX          1234
+#define TAG_ICON_PAL          0x4654
+#define TAG_MOVE_SELECTOR_GFX 1235
+#define TAG_MOVE_SELECTOR_PAL 0x4655
 
 static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
+static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
+static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
@@ -200,6 +229,57 @@ static const struct OamData gOamIcon = {
     .tileNum = 0,
     .priority = 0,
     .paletteNum = 0,
+};
+
+static const struct SpritePalette sSpritePal_MoveSelector[] =
+{
+    {sIconPal, TAG_MOVE_SELECTOR_PAL},
+    {NULL},
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_MoveSelector[] =
+{
+    {sMoveSelectorGfx, 64*64/4 , TAG_MOVE_SELECTOR_GFX},
+    {NULL},
+};
+
+static const struct OamData sOamMoveSelector = {
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(64x32),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
+// static const union AnimCmd sAnimCmd_MoveSelector_Left[] = {
+//     ANIMCMD_FRAME(0, 0),
+//     ANIMCMD_JUMP(0),
+// };
+
+// static const union AnimCmd sAnimCmd_MoveSelector_Right[] = {
+//     ANIMCMD_FRAME(32, 0),
+//     ANIMCMD_JUMP(0),
+// };
+
+// static const union AnimCmd *const sMoveSelectorAnim[] = {
+//     sAnimCmd_MoveSelector_Left,
+//     sAnimCmd_MoveSelector_Right,
+// };
+
+static const struct SpriteTemplate sSpriteMoveSelector = {
+    .tileTag = TAG_MOVE_SELECTOR_GFX,
+    .paletteTag = TAG_MOVE_SELECTOR_PAL,
+    .oam = &sOamMoveSelector,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 static const union AnimCmd gAnimCmdPokedex_NotSelected[] = {
@@ -523,6 +603,38 @@ static void SpriteCB_IconFlag(struct Sprite* sprite) {
     }
 }
 
+static const u32 sMoveSelectorXPositions[] = {
+    [ROTOM_MOVE_SURF] = 6,
+    [ROTOM_MOVE_WATERFALL] = 39,
+    [ROTOM_MOVE_ROCK_CLIMB] = 72,
+    [ROTOM_MOVE_STRENGTH] = 105,
+    [ROTOM_MOVE_CUT] = 138,
+    [ROTOM_MOVE_FLY] = 171,
+    [ROTOM_MOVE_WHIRLPOOL] = 6,
+    [ROTOM_MOVE_GUILLOTINE] = 39,
+    [ROTOM_MOVE_BRICK_BREAK] = 72,
+    [ROTOM_MOVE_TAIL_GLOW] = 105,
+    [ROTOM_MOVE_REST] = 138,
+    [ROTOM_MOVE_RETREAT] = 171,
+};
+
+static void SetMoveSelectorPos(void)
+{
+    if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
+    {
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = FALSE;
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = FALSE;
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor];
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].x = gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x + 22;
+    }
+    else
+    {
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = TRUE;
+        gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = TRUE;
+    }
+}
+
+
 static void SetSelectedMenu(void) {
     if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
         sMenuSelected = MENU_POKEDEX;
@@ -564,6 +676,7 @@ void RotomStartMenu_Init(void) {
 
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
+    sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
 
     if (!GetSafariZoneFlag()) {
         if (sMenuSelected == MENU_RETIRE) {
@@ -600,6 +713,11 @@ static void RotomStartMenu_LoadSprites(void) {
     index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
     LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_Icon);
+
+    LoadSpritePalette(sSpritePal_MoveSelector);
+    index = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
+    LoadPalette(sMoveSelectorPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
+    LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
 }
 
 static void RotomStartMenu_CreateSprites(void) {
@@ -611,6 +729,11 @@ static void RotomStartMenu_CreateSprites(void) {
     u32 y5 = 109;
     u32 y6 = 130;
     u32 y7 = 150;
+    
+    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, 171, 113, 0);
+    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, 193, 113, 0);
+    // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].hFlip ^= 1;
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
         sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y1-2, 0);
@@ -734,9 +857,12 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdBag]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdTrainerCard]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdOptions]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight]);
 
     if (sRotomStartMenu != NULL) {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
+        FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
@@ -1158,6 +1284,13 @@ static void RotomStartMenu_HandleInput_DPadDown(void) {
             sMenuSelected = MENU_BAG;
         }
         break;
+    case MENU_NONE:
+        PlaySE(SE_SELECT);
+        if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
+        {
+            sRotomStartMenu->fieldMoveCursor += ROTOM_MOVE_ROW_SIZE;
+        }
+        break;
     default:
         sMenuSelected++;
         PlaySE(SE_SELECT);
@@ -1176,6 +1309,13 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
         PlaySE(SE_SELECT);
         sMenuSelected = MENU_OPTIONS;
         break;
+    case MENU_NONE:
+        PlaySE(SE_SELECT);
+        if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
+        {
+            sRotomStartMenu->fieldMoveCursor -= ROTOM_MOVE_ROW_SIZE;
+        }
+        break;
     default:
         PlaySE(SE_SELECT);
         if ((!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_BAG)
@@ -1189,6 +1329,38 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
     }
 }
 
+static void RotomStartMenu_HandleInput_DPadLeft(void) {
+    sRotomStartMenu->iconAnimStarted = FALSE;
+    PlaySE(SE_SELECT);
+
+    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
+    {
+        sRotomStartMenu->storedMenuOption = sMenuSelected;
+        sMenuSelected = MENU_NONE;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
+    }
+    else if (sRotomStartMenu->fieldMoveCursor > 0)
+    {
+        sRotomStartMenu->fieldMoveCursor--;
+    }
+}
+
+static void RotomStartMenu_HandleInput_DPadRight(void) {
+    sRotomStartMenu->iconAnimStarted = FALSE;
+    PlaySE(SE_SELECT);
+
+    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
+        || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
+    {
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+    }
+    else
+    {
+        sRotomStartMenu->fieldMoveCursor++;
+    }
+}
+
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
     u32 index;
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
@@ -1196,7 +1368,12 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
         LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     }
 
-    if (JOY_NEW(A_BUTTON)) {
+    // if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
+    //     DebugPrintf("move cursor: %u", sRotomStartMenu->fieldMoveCursor);
+    SetMoveSelectorPos();
+
+
+    if (JOY_NEW(A_BUTTON) && sMenuSelected != MENU_NONE) {
         if (!sRotomStartMenu->optionSelected) {
             if (sMenuSelected != MENU_SAVE) {
                 FadeScreen(FADE_TO_BLACK, 0);
@@ -1211,6 +1388,10 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
         RotomStartMenu_HandleInput_DPadDown();
     } else if (JOY_NEW(DPAD_UP) && !sRotomStartMenu->optionSelected) {
         RotomStartMenu_HandleInput_DPadUp();
+    } else if (JOY_NEW(DPAD_LEFT) && !sRotomStartMenu->optionSelected) {
+        RotomStartMenu_HandleInput_DPadLeft();
+    } else if (JOY_NEW(DPAD_RIGHT) && !sRotomStartMenu->optionSelected) {
+        RotomStartMenu_HandleInput_DPadRight();
     } else if (sRotomStartMenu->optionSelected) {
         RotomStartMenu_OpenMenu();
     }
