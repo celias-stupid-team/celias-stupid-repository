@@ -4,6 +4,7 @@
 #include "global.h"
 #include "bg.h"
 #include "battle_message.h"
+#include "comfy_anim.h"
 #include "data.h"
 #include "decompress.h"
 #include "event_data.h"
@@ -113,6 +114,12 @@ enum SaveStates {
     SAVE_ERROR
 };
 
+enum ComfyAnimStatus {
+    COMFY_ANIM_NONE,
+    COMFY_ANIM_STARTED,
+    COMFY_ANIM_COMPLETED,
+};
+
 enum RotomMove {
     ROTOM_MOVE_SURF,
     ROTOM_MOVE_WATERFALL,
@@ -133,12 +140,14 @@ enum RotomMove {
 };
 
 #define ROTOM_MOVE_ROW_SIZE (ROTOM_MOVE_TOP_ROW_MAX + 1)
+#define MOVE_SELECTOR_R_OFFSET 32
 
 /* STRUCTs */
 struct RotomStartMenu {
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u8 comfyAnimStatus;
     u8 iconAnimStarted;
     u8 optionSelected;
     u8 fieldMoveCursor:4;
@@ -640,18 +649,10 @@ static const u32 sMoveSelectorXPositions[][XPOS_COUNT] = {
 
 static void UpdateMoveSelectorPos(void)
 {
-    // if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
-    // {
-        gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = FALSE;
-        gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = FALSE;
-        gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE];
-        gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].x = gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x + 32;
-    // }
-    // else
-    // {
-        // gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = TRUE;
-        // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = TRUE;
-    // }
+    // gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = FALSE;
+    // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = FALSE;
+    gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE];
+    gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].x = gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x + MOVE_SELECTOR_R_OFFSET;
 }
 
 static const u8 sMoveTextColor[3] = {0, 2, 3};
@@ -659,6 +660,14 @@ static const u8 sMoveTextColor[3] = {0, 2, 3};
 #define ROTOM_MOVE_PRINT(name, x)                                                                                    \
 {                                                                                                                       \
     AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId, FONT_SMALL, x, 0, sMoveTextColor, TEXT_SKIP_DRAW, name);      \
+}
+
+static void ClearMoveSelectorText(void)
+{
+    FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    ClearWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
+    CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
+    ScheduleBgCopyTilemapToVram(0);
 }
 
 static void UpdateMoveSelectorText(void)
@@ -812,7 +821,7 @@ static void RotomStartMenu_CreateSprites(void) {
     u32 y7 = 150;
     
     sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sMoveSelectorXPositions[ROTOM_MOVE_NONE][XPOS_SPRITE], 105, 0);
-    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sMoveSelectorXPositions[ROTOM_MOVE_NONE][XPOS_SPRITE] + 32, 105, 0);
+    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sMoveSelectorXPositions[ROTOM_MOVE_NONE][XPOS_SPRITE] + MOVE_SELECTOR_R_OFFSET, 105, 0);
     // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].hFlip ^= 1;
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
     // gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = TRUE;
@@ -896,6 +905,12 @@ static void RotomStartMenu_PrintDexNumbers(void) {
 static void RotomStartMenu_ExitAndClearTilemap(void) {
     u32 i;
     u8 *buf = GetBgTilemapBuffer(0);
+
+    ReleaseComfyAnims();
+    if (sMenuSelected == MENU_NONE && sRotomStartMenu->storedMenuOption != MENU_NONE)
+    {
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+    }
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     ClearWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
@@ -1352,6 +1367,80 @@ static void RotomStartMenu_OpenMenu(void) {
     }
 }
 
+static void SpriteCB_MoveSelectorAnimLeft(struct Sprite *sprite)
+{
+    int animId = sprite->data[0];
+
+    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
+    {
+        sprite->callback = SpriteCallbackDummy;
+    }
+    else if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_COMPLETED)
+    {
+        sprite->x = ReadComfyAnimValueSmooth(&gComfyAnims[animId]);
+        ReleaseComfyAnim(animId);
+        sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_NONE;
+        UpdateMoveSelectorText();
+    }
+    else
+    {
+        sprite->x = ReadComfyAnimValueSmooth(&gComfyAnims[animId]);
+        if (gComfyAnims[animId].completed)
+        {
+            sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_COMPLETED;
+        }
+    }
+}
+
+static void SpriteCB_MoveSelectorAnimRight(struct Sprite *sprite)
+{
+    int animId = sprite->data[0];
+
+    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
+    {
+        sprite->callback = SpriteCallbackDummy;
+    }
+    else if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_COMPLETED)
+    {
+        sprite->x = ReadComfyAnimValueSmooth(&gComfyAnims[animId]) + MOVE_SELECTOR_R_OFFSET;
+        ReleaseComfyAnim(animId);
+        sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_NONE;
+        UpdateMoveSelectorText();
+    }
+    else
+    {
+        sprite->x = ReadComfyAnimValueSmooth(&gComfyAnims[animId]) + MOVE_SELECTOR_R_OFFSET;
+        if (gComfyAnims[animId].completed)
+        {
+            sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_COMPLETED;
+        }
+    }
+}
+
+
+static void MoveSelector_StartComfyAnims(void)
+{
+    struct ComfyAnimEasingConfig config;
+    u32 animID;
+    u32 spriteIDL = sRotomStartMenu->spriteIdMoveSelectorLeft;
+    u32 spriteIDR = sRotomStartMenu->spriteIdMoveSelectorRight;
+    sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_STARTED;
+    
+    ClearMoveSelectorText();
+     
+    InitComfyAnimConfig_Easing(&config);
+    config.durationFrames = 10;
+    config.from = Q_24_8(gSprites[spriteIDL].x);
+    config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
+    config.easingFunc = ComfyAnimEasing_EaseOutCubic;
+    gSprites[spriteIDL].callback = SpriteCB_MoveSelectorAnimLeft;
+    gSprites[spriteIDR].callback = SpriteCB_MoveSelectorAnimRight;
+
+    animID = CreateComfyAnim_Easing(&config);
+    gSprites[spriteIDL].data[0] = animID;
+    gSprites[spriteIDR].data[0] = animID;
+}
+
 static void RotomStartMenu_HandleInput_DPadDown(void) {
     // Needs to be set to 0 so that the selected icons change in the frontend
     sRotomStartMenu->iconAnimStarted = FALSE;
@@ -1368,9 +1457,9 @@ static void RotomStartMenu_HandleInput_DPadDown(void) {
         }
         break;
     case MENU_NONE:
-        PlaySE(SE_SELECT);
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
         {
+            PlaySE(SE_SELECT);
             sRotomStartMenu->fieldMoveCursor += ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
         }
@@ -1394,9 +1483,9 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
         sMenuSelected = MENU_OPTIONS;
         break;
     case MENU_NONE:
-        PlaySE(SE_SELECT);
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
         {
+            PlaySE(SE_SELECT);
             sRotomStartMenu->fieldMoveCursor -= ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
         }
@@ -1416,45 +1505,54 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
 
 static void RotomStartMenu_HandleInput_DPadLeft(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
-    PlaySE(SE_SELECT);
 
-    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
+    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
     {
-        sRotomStartMenu->storedMenuOption = sMenuSelected;
-        sMenuSelected = MENU_NONE;
-        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
-    }
-    else if (sRotomStartMenu->fieldMoveCursor > 0 
-            && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
-    {
-        sRotomStartMenu->fieldMoveCursor--;
-    }
-
-    UpdateMoveSelectorPos();
-    UpdateMoveSelectorText();
+        if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
+        {
+            PlaySE(SE_SELECT);
+            sRotomStartMenu->storedMenuOption = sMenuSelected;
+            sMenuSelected = MENU_NONE;
+            sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
+            MoveSelector_StartComfyAnims();
+            
+        }
+        else if (sRotomStartMenu->fieldMoveCursor > 0 
+                && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
+        {
+            PlaySE(SE_SELECT);
+            sRotomStartMenu->fieldMoveCursor--;
+            MoveSelector_StartComfyAnims();
+        }
+    }   
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
-    PlaySE(SE_SELECT);
 
-    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
-        || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
+    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
     {
-        sMenuSelected = sRotomStartMenu->storedMenuOption;
-        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+        PlaySE(SE_SELECT);
+        if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
+            || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
+        {
+            sMenuSelected = sRotomStartMenu->storedMenuOption;
+            sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+            MoveSelector_StartComfyAnims();
+        }
+        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
+        {
+            sRotomStartMenu->fieldMoveCursor++;
+            MoveSelector_StartComfyAnims();
+        }
     }
-    else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
-    {
-        sRotomStartMenu->fieldMoveCursor++;
-    }
-
-    UpdateMoveSelectorPos();
-    UpdateMoveSelectorText();
 }
 
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
     u32 index;
+    
+    AdvanceComfyAnimations();
+
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
         index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
         LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
