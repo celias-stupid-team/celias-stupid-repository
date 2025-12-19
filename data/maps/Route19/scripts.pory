@@ -176,16 +176,20 @@ script Route19_LookerScene {
 	waitmovement(LOCALID_LOOKER_UP)
 	closemessage
 	delay(30)
-	playbgm(MUS_LASS_INTRO, TRUE)
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
 	delay(50)
 	applymovement(LOCALID_LOOKER_UP, moves(
+		lock_facing_direction
+		walk_up
 		delay_16
+		unlock_facing_direction
 		walk_fast_up * 2
 		walk_fast_right * 5
-		walk_fast_up * 6
+		walk_fast_up * 5
 	))
 	applymovement(LOCALID_ROUTE19_LASS_1, moves(
 		delay_16 * 2
+		delay_16 * 1
 		walk_fast_up * 9
 		walk_fast_right * 5
 		walk_fast_up * 6
@@ -193,6 +197,7 @@ script Route19_LookerScene {
 	applymovement(LOCALID_ROUTE19_LASS_3, moves(
 		delay_16 * 2
 		delay_16 * 2
+		delay_16 * 1
 		walk_fast_up * 5
 		walk_fast_right * 2
 		walk_fast_up * 4
@@ -204,22 +209,24 @@ script Route19_LookerScene {
 	applymovement(LOCALID_ROUTE19_LASS_2, moves(
 		delay_16 * 2
 		delay_16 * 2
-		walk_fast_up * 3
-		walk_fast_right * 5
+		delay_16 * 1
 		walk_fast_up * 6
-		walk_fast_right * 3
+		walk_fast_right * 5
 		walk_fast_up * 3
-		walk_fast_right * 4
+		walk_fast_right * 8
+		walk_fast_up * 3
 		walk_fast_up * 6
 	))
-	delay(16)
-	playse(SE_FLEE)
 	delay(50)
+	playse(SE_FLEE)
+	delay(70)
 	textcolor(NPC_TEXT_COLOR_RED)
-	msgbox(
+	message(
 	"Don't…{PAUSE 30} look…{PAUSE 30} at…{PAUSE 30} us!\n"
-	"", MSGBOX_DEFAULT)
+	"")
 	waitmovement(LOCALID_ROUTE19_LASS_2)
+	fadedefaultbgm
+	delay(20)
 	closemessage
 	removeobject(LOCALID_ROUTE19_LASS_1)
 	removeobject(LOCALID_ROUTE19_LASS_2)
@@ -227,7 +234,6 @@ script Route19_LookerScene {
 	removeobject(LOCALID_ROUTE19_ROTOM)
 	removeobject(LOCALID_LOOKER_UP)
 	removeobject(LOCALID_LOOKER_LAYING)
-	fadedefaultbgm
 	setflag(FLAG_LOOKER_SCENE)
 	release
 

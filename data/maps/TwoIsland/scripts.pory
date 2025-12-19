@@ -277,14 +277,24 @@ script TwoIsland_MrT {
 }
 
 script TwoIsland_SmallChild {
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"PLACEHOLDER\n"
-	"go to silph co\l"
-	"it has pencil eraser", MSGBOX_NPC)
+	"Oh no-!\n"
+	"I have a MUSHROOM stuck to my head!\p"
+
+	"I usually go to the MUSHROOM MANIAC\n"
+	"to get it removed, but there's\l"
+	"something blocking the way!", MSGBOX_NPC)
 }
 
 script TwoIsland_Paula {
-	msgbox("PLACEHOLDER\npaula", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"Hello.\n"
+	"My name is PAULA.\p"
+
+	"Have you met my friend NESS?\n"
+	"He looks like a fancy toaster.", MSGBOX_NPC)
 }
 
 script TwoIsland_Stufful {
@@ -476,24 +486,25 @@ script TwoIsland_ForSaleSign2 {
 }
 
 script TwoIsland_PencilHippie {
-	msgbox("PLACEHOLDER\nI sell pencils", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_TWO_ISLAND_PENCIL)) {
+		msgbox(
+		"Uhhh…\n"
+		"Where'd my PENCILS go?", MSGBOX_NPC)
+		end
+	}
+	msgbox(
+	"Hey, hey!\n"
+	"I'm selling PENCILS!\p"
+
+	"A good friend of mine working at\n"
+	"SILPH CO just placed a huge order.\p"
+
+	"Apparently he needed them to test\n"
+	"a cool invention he's making.\l"
+	"I can't wait to see what he made!", MSGBOX_NPC)
 }
 
-script TwoIsland_EventScript_SansTest {
-	lock
-	faceplayer
-	fadenewbgm(MUS_NONE)
-	msgbox("{FONT_COMIC_SANS}hello .\peat shit thief", MSGBOX_DEFAULT)
-	playbgm(MUS_MEGALOVANIA, TRUE)
-	delay(60)
-	if(flag(FLAG_GOT_ODDISH)) {
-		fadedefaultbgm
-		giveitem_msg("burn heal", ITEM_BURN_HEAL)
-		waitfanfare
-	}
-	release
-	end
-}
 
 script TwoIsland_HamburgerGuy {
 	lock
@@ -517,6 +528,7 @@ script TwoIsland_IslandSign {
 }
 
 script TwoIsland_GenevaConvention {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_SIGN)
 
 }
@@ -537,6 +549,7 @@ script TwoIsland_ThreeIslandKid {
 script TwoIsland_Hooker {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("No problem here.\n", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
@@ -571,6 +584,7 @@ script TwoIsland_BrokenPot {
 
 script TwoIsland_BlueBlue {
 	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
 	"Blue, blue…\n"
 	"", MSGBOX_DEFAULT)
@@ -588,4 +602,112 @@ script TwoIsland_BlueBlue {
 	"Blue, blue…\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+script TwoIsland_BurnHeal {
+	lock
+	playfanfare(MUS_LEVEL_UP)
+	applymovement(VAR_LAST_TALKED, moves(
+		set_invisible
+	))
+	msgbox(
+	"{PLAYER} found a\n"
+	"BURN HEAL!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	fadenewbgm(MUS_NONE)
+	delay(60)
+	applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+		walk_slower_right
+		face_down
+	))
+	waitmovement(LOCALID_TWO_ISLAND_SANS)
+	delay(60)
+	msgbox(
+	"{FONT_COMIC_SANS}hey.\p"
+
+	"that burn heal costs 300 dollars\p"
+
+	"is that acceptable to you?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"{FONT_COMIC_SANS}okay{PAUSE 50}\n"
+		"one small problem\p"
+
+		"you dont seem to have any\n"
+		"dollars\p"
+
+		"do you want to take it anyway?\n"
+		"", MSGBOX_YESNO)
+	} else {
+		msgbox(
+		"{FONT_COMIC_SANS}well\p"
+
+		"if you can't afford it…\p"
+
+		"…why did you pick it up?\p"
+
+		"are you gonna take it anyway?\n"
+		"", MSGBOX_YESNO)
+	}
+	if(var(VAR_RESULT)) {
+		msgbox(
+			"{FONT_COMIC_SANS}oh\n"
+			"{PAUSE 60}i see\p"
+
+			"i think{PAUSE 30} that kids like you{PAUSE 60}\p"
+
+			"{PAUSE 30}should be burning in hell.\n"
+			"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		msgbox(
+		"{FONT_COMIC_SANS}eat shit and die, thief\n"
+		"", MSGBOX_DEFAULT)
+		playbgm(MUS_MEGALOVANIA, TRUE)
+		release
+		end
+	} else {
+		msgbox(
+		"{FONT_COMIC_SANS}okay\p"
+
+		"put it back then\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+			walk_slower_left
+			face_down
+		))
+		waitmovement(LOCALID_TWO_ISLAND_SANS)
+		delay(30)
+		playse(SE_BALL)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		applymovement(LOCALID_PLAYER, moves(
+			walk_in_place_up
+		))
+		delay(60)
+		msgbox(
+		"{FONT_COMIC_SANS}thanks\n"
+		"", MSGBOX_DEFAULT)
+		fadedefaultbgm
+		release
+	}
+}
+
+
+script TwoIsland_EventScript_SansTest {
+	lock
+	faceplayer
+	fadenewbgm(MUS_NONE)
+	msgbox(
+	"{FONT_COMIC_SANS}sup\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadedefaultbgm
+	release
+	end
 }

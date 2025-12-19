@@ -19530,8 +19530,8 @@ Bible_Text_Leviticus_18_21::
     .string "Molech, neither shalt thou profane\l"
     .string "the name of thy God: I am the LORD.$"
 Bible_Text_Leviticus_18_22::
-    .string "Thou shalt not lie with mankind, as\n"
-    .string "with womankind: it is abomination.$"
+	.string "I really fucking hate gay people.\n$"
+
 Bible_Text_Leviticus_18_23::
     .string "Neither shalt thou lie with any\n"
     .string "beast to defile thyself therewith:\l"
@@ -102219,13 +102219,13 @@ Bible_Text_Jeremiah_1_3::
     .string "month.$"
 Bible_Text_Jeremiah_1_4::
     .string "Then the word of the LORD came unto\n"
-    .string "me, saying,"
+    .string "me, saying,$"
+
 Bible_Text_Jeremiah_1_5::
-    .string "Before I formed thee in the belly I\n"
-    .string "knew thee; and before thou camest\l"
-    .string "forth out of the womb I sanctified\l"
-    .string "thee, and I ordained thee a prophet\l"
-    .string "unto the nations$"
+	.string "This verse has literally nothing\n"
+	.string "to do with abortion.$"
+
+
 Bible_Text_Jeremiah_1_6::
     .string "Then said I, Ah, Lord GOD! behold, I\n"
     .string "cannot speak: for I am a child.$"
