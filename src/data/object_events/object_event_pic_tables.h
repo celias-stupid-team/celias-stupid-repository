@@ -4556,3 +4556,14 @@ const struct SpriteFrameImage gObjectEventPicTable_looker_dead[] = {
     overworld_frame(gObjectEventPic_looker_dead, 4, 4, 2),
     overworld_frame(gObjectEventPic_looker_dead, 4, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_territorial_oak[] = {
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 0),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 1),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 2),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 0),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 0),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 1),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 1),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 2),
+    overworld_frame(gObjectEventPic_territorial_oak, 8, 8, 2),
+};

@@ -153,6 +153,7 @@ script Lighthouse_3F_Window {
 		special(DrawWholeMapView)
 		delay(120)
 		setflag(FLAG_JUMPED_FROM_LIGHTHOUSE)
+		setobjectxy(LOCALID_PLAYER, 42, 33)
 		warphole(MAP_ROUTE15)
 
 

@@ -991,9 +991,9 @@
 #define FLAG_TALKED_TO_TODD               0x392
 #define FLAG_UNLOCKED_CINNABAR_GYM               0x393
 #define FLAG_FOUGHT_CASTFORM               0x394
-#define FLAG_0x395               0x395
-#define FLAG_0x396               0x396
-#define FLAG_0x397               0x397
+#define FLAG_BOUGHT_A_HOUSE               0x395
+#define FLAG_TWO_ISLAND_TERRITORIAL_OAK               0x396
+#define FLAG_GOT_HAMBURGER               0x397
 
 #define FLAG_KINGLER_SIGN               0x398
 #define FLAG_DUGTRIO_SIGN               0x399

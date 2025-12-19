@@ -583,3 +583,5 @@ const u32 gObjectEventPic_sign_left[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_sign_down_right[] = INCBIN_U32("graphics/object_events/pics/stupid/sign_down_right.4bpp");
 const u32 gObjectEventPic_flames[] = INCBIN_U32("graphics/object_events/pics/stupid/flames.4bpp");
 const u32 gObjectEventPic_looker_dead[] = INCBIN_U32("graphics/object_events/pics/stupid/looker_dead.4bpp");
+const u32 gObjectEventPic_territorial_oak[] = INCBIN_U32("graphics/object_events/pics/stupid/territorial_oak.4bpp");
+const u16 gObjectEventPal_territorial_oak[] = INCBIN_U16("graphics/object_events/palettes/territorial_oak.gbapal");

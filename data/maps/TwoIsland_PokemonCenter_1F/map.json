@@ -64,7 +64,7 @@
       "x": 10,
       "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -103,18 +103,32 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 13,
-      "elevation": 3,
-      "dest_map": "MAP_TWO_ISLAND",
-      "dest_warp_id": "2"
-    },
-    {
       "x": 2,
       "y": 6,
+      "elevation": 3,
+      "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 5,
       "elevation": 4,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 4,
+      "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],
@@ -122,10 +136,18 @@
     {
       "type": "sign",
       "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
+      "script": "TwoIsland_DrawnBed"
+    },
+    {
+      "type": "sign",
+      "x": 13,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "TwoIsland_DrawnBed"
     }
   ]
 }
