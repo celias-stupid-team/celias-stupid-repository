@@ -178,7 +178,7 @@
       "x": 19,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_MINNESOTA",
+      "dest_map": "MAP_MINNESOTA_HOUSE1",
       "dest_warp_id": "0"
     },
     {
@@ -199,7 +199,7 @@
       "x": 33,
       "y": 43,
       "elevation": 0,
-      "dest_map": "MAP_MINNESOTA",
+      "dest_map": "MAP_MINNESOTA_HOUSE2",
       "dest_warp_id": "0"
     }
   ],

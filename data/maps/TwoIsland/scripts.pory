@@ -737,7 +737,7 @@ script TwoIsland_StinkyBed {
 	"{PLAYER} laid in the bed.\p"
 
 	"Mmm…\n"
-	"This bed stinks!", MSGBOX_SIGN)
+	"It's pizza-scented!", MSGBOX_SIGN)
 
 }
 

@@ -6,7 +6,7 @@ Route5_PokemonDayCare_MapScripts::
 `
 script AbandonedHouse_Bed {
 	lock
-	msgbox("{PLAYER} laid in the bed.\pMmm…\nSmells like a bargain!", MSGBOX_DEFAULT)
+	msgbox("{PLAYER} laid in the bed.\pMmm…\nThis bed stinks!", MSGBOX_DEFAULT)
 	release
 }
 
