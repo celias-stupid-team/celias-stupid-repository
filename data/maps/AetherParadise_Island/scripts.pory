@@ -20,3 +20,11 @@ script AetherParadise_LargeOak {
 	"day on this beautiful island!", MSGBOX_DEFAULT)
     release
 }
+
+
+script AetherParadise_LocationSign {
+	msgbox(
+	"AETHER PARADISE\n"
+	"", MSGBOX_SIGN)
+
+}
