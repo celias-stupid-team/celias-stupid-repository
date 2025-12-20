@@ -26,18 +26,13 @@
     },
     {
       "map": "MAP_POKEMON_ISLAND",
-      "offset": 5,
+      "offset": 0,
       "direction": "down"
     },
     {
       "map": "MAP_CINNABAR_ISLAND",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN12",
-      "offset": 0,
-      "direction": "down"
     }
   ],
   "object_events": [

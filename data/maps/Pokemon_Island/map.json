@@ -26,12 +26,12 @@
     },
     {
       "map": "MAP_OCEAN11",
-      "offset": -5,
+      "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN12",
-      "offset": 0,
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -20,
       "direction": "left"
     }
   ],

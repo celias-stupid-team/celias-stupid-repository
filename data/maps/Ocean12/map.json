@@ -13,28 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_CINNABAR_ISLAND",
-      "offset": -20,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN11",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_POKEMON_ISLAND",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_POKEMON_ISLAND_SOUTH",
-      "offset": 12,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],

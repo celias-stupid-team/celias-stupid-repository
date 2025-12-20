@@ -13,18 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_POKEMON_ISLAND_SOUTH",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_OCEAN7",
-      "offset": -29,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
