@@ -1635,6 +1635,7 @@ static inline bool32 CheckValidFieldMoveInput(void)
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
     {
+        gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
         return TRUE;
     }
     else
@@ -1822,8 +1823,6 @@ static bool32 SetupFunc_Cut(void)
 
 static void FieldMoveFunc_Cut(void)
 {
-    gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
-
     if (sFieldMoveData == CUT_TYPE_GRASS)
     {
         FieldEffectStart(FLDEFF_USE_CUT_ON_GRASS);
@@ -1841,7 +1840,6 @@ static bool32 SetupFunc_Fly(void)
 
 static void FieldMoveFunc_Fly(void)
 {
-    gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
     gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
     SetMainCallback2(CB2_OpenFlyMap);
 }
