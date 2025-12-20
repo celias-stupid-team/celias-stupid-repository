@@ -120,7 +120,7 @@ enum ComfyAnimStatus {
     COMFY_ANIM_COMPLETED,
 };
 
-enum RotomMove {
+enum RotomMoveID {
     ROTOM_MOVE_SURF,
     ROTOM_MOVE_WATERFALL,
     ROTOM_MOVE_ROCK_CLIMB,
@@ -141,6 +141,94 @@ enum RotomMove {
 
 #define ROTOM_MOVE_ROW_SIZE (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
+
+struct RotomMove {
+    u32 move;
+    u32 spriteXPos;
+    u32 textXPos;
+    const u8 *name;
+};
+
+static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
+    [ROTOM_MOVE_SURF] = {
+        .move = MOVE_SURF,
+        .spriteXPos = 6,
+        .textXPos = 10,
+        .name = gLongMoveNames[MOVE_SURF],
+    },
+    [ROTOM_MOVE_WATERFALL] = {
+        .move = MOVE_WATERFALL,
+        .spriteXPos = 38,
+        .textXPos = 33,
+        .name = gLongMoveNames[MOVE_WATERFALL],
+    },
+    [ROTOM_MOVE_ROCK_CLIMB] = {
+        .move = MOVE_ROCK_CLIMB,
+        .spriteXPos = 70,
+        .textXPos = 62,
+        .name = gLongMoveNames[MOVE_ROCK_CLIMB],
+    },
+    [ROTOM_MOVE_STRENGTH] = {
+        .move = MOVE_STRENGTH,
+        .spriteXPos = 102,
+        .textXPos = 99,
+        .name = gLongMoveNames[MOVE_STRENGTH],
+    },
+    [ROTOM_MOVE_CUT] = {
+        .move = MOVE_CUT,
+        .spriteXPos = 134,
+        .textXPos = 143,
+        .name = gLongMoveNames[MOVE_CUT],
+    },
+    [ROTOM_MOVE_FLY] = {
+        .move = MOVE_FLY,
+        .spriteXPos = 166,
+        .textXPos = 176,
+        .name = gLongMoveNames[MOVE_FLY],
+    },
+    [ROTOM_MOVE_WHIRLPOOL] = {
+        .move = MOVE_WHIRLPOOL,
+        .spriteXPos = 6,
+        .textXPos = 1,
+        .name = gLongMoveNames[MOVE_WHIRLPOOL],
+    },
+    [ROTOM_MOVE_GUILLOTINE] = {
+        .move = MOVE_GUILLOTINE,
+        .spriteXPos = 38,
+        .textXPos = 31,
+        .name = gLongMoveNames[MOVE_GUILLOTINE],
+    },
+    [ROTOM_MOVE_BRICK_BREAK] = {
+        .move = MOVE_BRICK_BREAK,
+        .spriteXPos = 70,
+        .textXPos = 59,
+        .name = gLongMoveNames[MOVE_BRICK_BREAK],
+    },
+    [ROTOM_MOVE_TAIL_GLOW] = {
+        .move = MOVE_TAIL_GLOW,
+        .spriteXPos = 102,
+        .textXPos = 97,
+        .name = gLongMoveNames[MOVE_TAIL_GLOW],
+    },
+    [ROTOM_MOVE_REST] = {
+        .move = MOVE_REST,
+        .spriteXPos = 134,
+        .textXPos = 141,
+        .name = gLongMoveNames[MOVE_REST],
+    },
+    [ROTOM_MOVE_RETREAT] = {
+        .move = MOVE_RETREAT,
+        .spriteXPos = 166,
+        .textXPos = 166,
+        .name = gLongMoveNames[MOVE_RETREAT],
+    },
+    [ROTOM_MOVE_NONE] = {
+        .move = MOVE_NONE,
+        .spriteXPos = 218,
+        .textXPos = 213,
+        .name = gText_EmptyString3,
+    },
+};
 
 /* STRUCTs */
 struct RotomStartMenu {
@@ -279,21 +367,6 @@ static const struct OamData sOamMoveSelector = {
     .priority = 1,
     .paletteNum = 0,
 };
-
-// static const union AnimCmd sAnimCmd_MoveSelector_Left[] = {
-//     ANIMCMD_FRAME(0, 0),
-//     ANIMCMD_JUMP(0),
-// };
-
-// static const union AnimCmd sAnimCmd_MoveSelector_Right[] = {
-//     ANIMCMD_FRAME(32, 0),
-//     ANIMCMD_JUMP(0),
-// };
-
-// static const union AnimCmd *const sMoveSelectorAnim[] = {
-//     sAnimCmd_MoveSelector_Left,
-//     sAnimCmd_MoveSelector_Right,
-// };
 
 static const struct SpriteTemplate sSpriteMoveSelector = {
     .tileTag = TAG_MOVE_SELECTOR_GFX,
@@ -625,41 +698,11 @@ static void SpriteCB_IconFlag(struct Sprite* sprite) {
         StartSpriteAffineAnim(sprite, 0);
     }
 }
-enum RotomMenuXPos {
-    XPOS_SPRITE,
-    XPOS_TEXT,
-    XPOS_COUNT,
-}; 
-
-static const u32 sMoveSelectorXPositions[][XPOS_COUNT] = {
-    [ROTOM_MOVE_SURF] = {6, 10},
-    [ROTOM_MOVE_WATERFALL] = {38, 33},
-    [ROTOM_MOVE_ROCK_CLIMB] = {70, 62},
-    [ROTOM_MOVE_STRENGTH] = {102, 99},
-    [ROTOM_MOVE_CUT] = {134, 143},
-    [ROTOM_MOVE_FLY] = {166, 176},
-    [ROTOM_MOVE_WHIRLPOOL] = {6, 1},
-    [ROTOM_MOVE_GUILLOTINE] = {38, 31},
-    [ROTOM_MOVE_BRICK_BREAK] = {70, 59},
-    [ROTOM_MOVE_TAIL_GLOW] = {102, 97},
-    [ROTOM_MOVE_REST] = {134, 141},
-    [ROTOM_MOVE_RETREAT] = {166, 166},
-    [ROTOM_MOVE_NONE] = {218, 213},
-};
 
 static void UpdateMoveSelectorPos(void)
 {
-    // gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = FALSE;
-    // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = FALSE;
-    gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE];
+    gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos;
     gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].x = gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x + MOVE_SELECTOR_R_OFFSET;
-}
-
-static const u8 sMoveTextColor[3] = {0, 2, 3};
-
-#define ROTOM_MOVE_PRINT(name, x)                                                                                    \
-{                                                                                                                       \
-    AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId, FONT_SMALL, x, 0, sMoveTextColor, TEXT_SKIP_DRAW, name);      \
 }
 
 static void ClearMoveSelectorText(void)
@@ -670,52 +713,27 @@ static void ClearMoveSelectorText(void)
     ScheduleBgCopyTilemapToVram(0);
 }
 
+static const u8 sMoveTextColor[3] = {0, 2, 3};
+
 static void UpdateMoveSelectorText(void)
 {
     FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
 
-    switch (sRotomStartMenu->fieldMoveCursor)
+    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
-    case ROTOM_MOVE_SURF:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_SURF], sMoveSelectorXPositions[ROTOM_MOVE_SURF][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_WATERFALL:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_WATERFALL], sMoveSelectorXPositions[ROTOM_MOVE_WATERFALL][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_ROCK_CLIMB:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_ROCK_CLIMB], sMoveSelectorXPositions[ROTOM_MOVE_ROCK_CLIMB][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_STRENGTH:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_STRENGTH], sMoveSelectorXPositions[ROTOM_MOVE_STRENGTH][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_CUT:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_CUT], sMoveSelectorXPositions[ROTOM_MOVE_CUT][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_FLY:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_FLY], sMoveSelectorXPositions[ROTOM_MOVE_FLY][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_WHIRLPOOL:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_WHIRLPOOL], sMoveSelectorXPositions[ROTOM_MOVE_WHIRLPOOL][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_GUILLOTINE:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_GUILLOTINE], sMoveSelectorXPositions[ROTOM_MOVE_GUILLOTINE][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_BRICK_BREAK:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_BRICK_BREAK], sMoveSelectorXPositions[ROTOM_MOVE_BRICK_BREAK][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_TAIL_GLOW:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_TAIL_GLOW], sMoveSelectorXPositions[ROTOM_MOVE_TAIL_GLOW][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_REST:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_REST], sMoveSelectorXPositions[ROTOM_MOVE_REST][XPOS_TEXT])
-        break;
-    case ROTOM_MOVE_RETREAT:
-        ROTOM_MOVE_PRINT(gLongMoveNames[MOVE_RETREAT], sMoveSelectorXPositions[ROTOM_MOVE_RETREAT][XPOS_TEXT])
-        break;
-    default:
         ClearWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
-        break;
+    }
+    else
+    {
+        AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId, 
+            FONT_SMALL, 
+            sRotomMoves[sRotomStartMenu->fieldMoveCursor].textXPos, 
+            0, 
+            sMoveTextColor, 
+            TEXT_SKIP_DRAW, 
+            sRotomMoves[sRotomStartMenu->fieldMoveCursor].name
+        );
     }
 
     CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
@@ -820,12 +838,9 @@ static void RotomStartMenu_CreateSprites(void) {
     u32 y6 = 130;
     u32 y7 = 150;
     
-    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sMoveSelectorXPositions[ROTOM_MOVE_NONE][XPOS_SPRITE], 105, 0);
-    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sMoveSelectorXPositions[ROTOM_MOVE_NONE][XPOS_SPRITE] + MOVE_SELECTOR_R_OFFSET, 105, 0);
-    // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].hFlip ^= 1;
+    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 105, 0);
+    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 105, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
-    // gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].invisible = TRUE;
-    // gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].invisible = TRUE;
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
         sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y1-2, 0);
@@ -1431,7 +1446,7 @@ static void MoveSelector_StartComfyAnims(void)
         InitComfyAnimConfig_Easing(&config);
         config.durationFrames = 10;
         config.from = Q_24_8(gSprites[spriteIDL].x);
-        config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
+        config.to = Q_24_8(sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos);
         config.easingFunc = ComfyAnimEasing_EaseOutCubic;
         animID = CreateComfyAnim_Easing(&config);
         gSprites[spriteIDL].data[0] = animID;
@@ -1446,7 +1461,7 @@ static void MoveSelector_StartComfyAnims(void)
         InitComfyAnimConfig_Easing(&config);
         config.durationFrames = 20;
         config.from = Q_24_8(gSprites[spriteIDL].x);
-        config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
+        config.to = Q_24_8(sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos);
         config.easingFunc = ComfyAnimEasing_EaseOutCubic;
         gSprites[spriteIDL].callback = SpriteCB_MoveSelectorAnimLeft;
         gSprites[spriteIDR].callback = SpriteCB_MoveSelectorAnimRight;
@@ -1520,8 +1535,6 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
 }
 
 static void RotomStartMenu_HandleInput_DPadLeft(void) {
-    sRotomStartMenu->iconAnimStarted = FALSE;
-
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
         PlaySE(SE_SELECT);
@@ -1541,18 +1554,18 @@ static void RotomStartMenu_HandleInput_DPadLeft(void) {
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void) {
-    sRotomStartMenu->iconAnimStarted = FALSE;
-
-    PlaySE(SE_SELECT);
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
         || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
+        PlaySE(SE_SELECT);
+        sRotomStartMenu->iconAnimStarted = FALSE;
         sMenuSelected = sRotomStartMenu->storedMenuOption;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
         MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
     {
+        PlaySE(SE_SELECT);
         sRotomStartMenu->fieldMoveCursor++;
         MoveSelector_StartComfyAnims();
     }
