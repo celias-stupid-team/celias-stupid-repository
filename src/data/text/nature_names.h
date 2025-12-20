@@ -21,7 +21,7 @@ static const u8 sRashNatureName[] = _("PIMPLED");
 static const u8 sCalmNatureName[] = _("CLAM");
 static const u8 sGentleNatureName[] = _("CUDDLY");
 static const u8 sSassyNatureName[] = _("SASSAFRAS");
-static const u8 sCarefulNatureName[] = _("BUBBLEWRAP");
+static const u8 sCarefulNatureName[] = _("MOTHER");
 static const u8 sQuirkyNatureName[] = _("CAPRICORN");
 
 const u8 *const gNatureNamePointers[NUM_NATURES] = {

@@ -85,10 +85,21 @@ script Route19_LookerScene {
 	waitmovement(LOCALID_LOOKER_UP)
 	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"I'm looker\p"
+	"LOOKER: Wha-!\n"
+	"I've been found!\p"
 
-	"take this\n"
-	"", MSGBOX_DEFAULT)
+	"You, there!\n"
+	"You can call me LOOKER.\l"
+	"I'm an INTERNATIONAL POLICE AGENT.\p"
+
+	"I was tasked with delivering vital\n"
+	"cargo, but I was attacked!\p"
+
+	"My position has been compromised.\n"
+	"I can't maintain this any longer!\p"
+
+	"Here, take this.\n"
+	"It'll be safer in your hands!", MSGBOX_DEFAULT)
 	closemessage
 	fadescreen(FADE_TO_WHITE)
 	delay(20)
@@ -108,8 +119,8 @@ script Route19_LookerScene {
 	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
 	waitmoncry
 	msgbox(
-	"it's the rotom pokedex\n"
-	"", MSGBOX_DEFAULT)
+	"Wow!\n"
+	"It's a special ROTOM!", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(LOCALID_ROUTE19_ROTOM, moves(
 		walk_right
@@ -131,8 +142,12 @@ script Route19_LookerScene {
 	closemessage
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"i hope that's helpful\n"
-	"", MSGBOX_DEFAULT)
+	"That ROTOM is the result of decades\n"
+	"of research.\l"
+	"I hope you'll find it helpful.\p"
+
+	"Now, I need to get out of here\n"
+	"before-", MSGBOX_DEFAULT)
 	closemessage
 	fadenewbgm(MUS_DUMMY)
 	delay(60)
@@ -222,7 +237,7 @@ script Route19_LookerScene {
 	delay(70)
 	textcolor(NPC_TEXT_COLOR_RED)
 	message(
-	"Don't…{PAUSE 30} look…{PAUSE 30} at…{PAUSE 30} us!\n"
+	"Don't…{PAUSE 30} look…{PAUSE 30} at…{PAUSE 30} me!\n"
 	"")
 	waitmovement(LOCALID_ROUTE19_LASS_2)
 	fadedefaultbgm
@@ -242,11 +257,6 @@ script Route19_LookerScene {
 
 }
 
-script Route19_Sailor {
-    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
-    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
-
-}
 
 script Route19_DrawThePit {
 	setlayouttiles(LAYOUT_ROUTE19_PIT_LOW, 0, 0, 0, 0, 34, 34)

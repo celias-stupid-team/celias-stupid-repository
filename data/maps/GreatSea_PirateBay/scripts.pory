@@ -102,3 +102,11 @@ script PirateBay_Copperajah {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+
+
+script PirateBay_Sailor {
+    trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
+    msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
+
+}

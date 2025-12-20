@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarIsland_AbsolInfestation",
-      "flag": "0"
+      "flag": "FLAG_TEMP_6"
     },
     {
       "type": "object",
@@ -121,7 +121,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CinnabarIsland_WhatsAcrossTheSea",
       "flag": "0"
     },
     {
@@ -305,7 +305,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_6"
     },
     {
       "type": "object",
@@ -389,7 +389,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "type": "object",
@@ -403,7 +403,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "type": "object",
@@ -417,16 +417,16 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 19,
+      "x": 35,
+      "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_MANSION_1F",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CINNABAR_ISLAND_HOUSE1",
+      "dest_warp_id": "0"
     },
     {
       "x": 37,
@@ -471,8 +471,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 29,
-      "y": 13,
+      "x": 28,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_MANSION_1F",
       "dest_warp_id": "0"
@@ -761,6 +761,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Cinnabar_WestSign"
+    },
+    {
+      "type": "sign",
+      "x": 44,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CinnabarIsland_EventScript_IslandSign"
     }
   ]
 }

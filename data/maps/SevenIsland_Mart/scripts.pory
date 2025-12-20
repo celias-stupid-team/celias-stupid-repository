@@ -52,7 +52,7 @@ script WalMart_LightYears {
 	} elif(var(VAR_FACING) == DIR_SOUTH) {
 			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
 	}
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	waitmovement(0)
 	lock
 	msgbox("58,786,253,730,000,000 miles\nlater…", MSGBOX_DEFAULT)
@@ -62,7 +62,7 @@ script WalMart_LightYears {
 	} elif(var(VAR_FACING) == DIR_SOUTH) {
 			applymovement(LOCALID_PLAYER, Common_Movement_WalkDown2)
 	}
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	waitmovement(0)
 	switch(var(VAR_TEMP_0)) {
 		case 0:
@@ -78,6 +78,50 @@ script WalMart_LightYears {
 
 mart Walmart_Mart {
 	ITEM_CIGARETTES
+	ITEM_PEPSI
 	ITEM_GUN
-	ITEM_APPLESAUCE
+}
+
+
+script Walmart_HamburgerGuy {
+	msgbox(
+	"I've been trying to stock up on\n"
+	"HAMBURGERS since I ran out, but…\p"
+
+	"I think there's been some sort\n"
+	"of supply issue?\l"
+	"I can't find them anywhere!", MSGBOX_NPC)
+}
+
+script Walmart_GunClue {
+	msgbox(
+	"If you ask me, second amendment\n"
+	"rights aren't going far enough!\p"
+
+	"If I had it my way, even my dog\n"
+	"would be armed with a GUN!", MSGBOX_NPC)
+}
+
+script Walmart_WeightLoss {
+	msgbox(
+	"I've been trying to lose weight,\n"
+	"so I visit WALMART every day.", MSGBOX_NPC)
+}
+
+
+script Walmart_NPC1 {
+	lock
+	msgbox(
+	"Oh, wow!\n"
+	"My favorite shirt!\p"
+
+	"Let me buy twelve!\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script Walmart_NPC2 {
+	msgbox(
+	"walmart placeholder npc 2\n"
+	"", MSGBOX_NPC)
 }

@@ -42,7 +42,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MinnesotaZoo_FirstCage",
       "flag": "0"
     },
     {
@@ -56,7 +56,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MinnesotaZoo_CagedDad",
       "flag": "0"
     },
     {
@@ -65,12 +65,12 @@
       "x": 13,
       "y": 33,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MinnesotaZoo_FirstViking",
       "flag": "0"
     },
     {
@@ -79,47 +79,47 @@
       "x": 33,
       "y": 29,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Minnesota_FootballPlayer",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FOOTBALL_VIKING",
-      "x": 34,
-      "y": 25,
+      "x": 39,
+      "y": 16,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Minnesota_FootballPlayer",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NORD_VIKING",
-      "x": 14,
-      "y": 29,
+      "x": 17,
+      "y": 40,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MinnesotaZoo_NoHorns",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 25,
-      "y": 14,
+      "x": 22,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Minnesota_NPC",
       "flag": "0"
     },
     {
@@ -164,6 +164,20 @@
       "y": 30,
       "target_local_id": "5",
       "target_map": "MAP_CINNABAR_ISLAND"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
+      "x": 43,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Minnesota_CantSeeFar",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -207,7 +221,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 51,
+      "x": 46,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -291,7 +305,23 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Minnesota_SanDiegoZoo_IndianElephantSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MinnesotaZoo_IndianElephantCage"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 39,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_Townsign"
     }
   ]
 }

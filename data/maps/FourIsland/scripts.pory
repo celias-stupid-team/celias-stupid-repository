@@ -654,3 +654,31 @@ script FourIsland_PsyduckBlocking {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+script FourIsland_LuxrayGirl {
+	msgbox(
+	"I'm so glad this region has\n"
+	"DARK-TYPES available!\p"
+
+	"…Huh?\n"
+	"How did I find them?\p"
+
+	"Easy! I just had to play literally\n"
+	"any other romhack!", MSGBOX_NPC)
+}
+
+script FourIsland_Luxray {
+	lock
+	faceplayer
+	playmoncry(SPECIES_LUXRAY, CRY_MODE_DEFAULT)
+	msgbox(
+	"LUXRAY: Lrrah!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(30)
+	msgbox(
+	"LUXRAY used its strongest move:\n"
+	"{PAUSE 30}THUNDER FANG!", MSGBOX_DEFAULT)
+	release
+}

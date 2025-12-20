@@ -5937,7 +5937,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
+      "secondary_tileset": "gTileset_VermilionGym",
       "border_filepath": "data/layouts/Minnesota_House1/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_House1/map.bin"
     },
@@ -6113,7 +6113,7 @@
       "id": "LAYOUT_FOUR_ISLAND_SIX_ISLAND_CAVE",
       "name": "FourIsland_SixIslandCave_Layout",
       "width": 13,
-      "height": 12,
+      "height": 20,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

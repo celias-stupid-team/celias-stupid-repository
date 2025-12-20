@@ -32,15 +32,15 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 4,
-      "y": 26,
+      "x": 12,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SevenIsland_Mart_EventScript_Lass",
+      "script": "Walmart_NPC2",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SevenIsland_Mart_EventScript_Fisher",
+      "script": "Walmart_NPC1",
       "flag": "0"
     },
     {
@@ -68,13 +68,13 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SevenIsland_Mart_EventScript_Hiker",
+      "script": "Walmart_WeightLoss",
       "flag": "0"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 0,
+      "x": 4,
       "y": 30,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -82,7 +82,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SevenIsland_Mart_EventScript_Lass",
+      "script": "Walmart_HamburgerGuy",
       "flag": "0"
     },
     {
@@ -96,7 +96,21 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SevenIsland_Mart_EventScript_Lass",
+      "script": "Walmart_GunClue",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 18,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
