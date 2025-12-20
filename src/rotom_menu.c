@@ -35,6 +35,7 @@
 #include "pokedex_screen.h"
 #include "pokemon_storage_system_internal.h"
 #include "pokemon_storage_system.h"
+#include "region_map.h"
 #include "safari_zone.h"
 #include "save.h"
 #include "save_menu_util.h"
@@ -100,6 +101,8 @@ static void InitSave(void);
 /* Field move funcs */
 static bool32 SetupFunc_Cut(void);
 static void FieldMoveFunc_Cut(void);
+static bool32 SetupFunc_Fly(void);
+static void FieldMoveFunc_Fly(void);
 
 /* ENUMs */
 enum MenuOption {
@@ -205,8 +208,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 166,
         .textXPos = 176,
         .name = gLongMoveNames[MOVE_FLY],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Fly,
+        .fieldMoveFunc = FieldMoveFunc_Fly,
     },
     [ROTOM_MOVE_WHIRLPOOL] = {
         .move = MOVE_WHIRLPOOL,
@@ -1053,11 +1056,19 @@ static void DoCleanUpAndOpenPC(void) {
     }
 }
 
-static void DoCleanUpAndExecuteFieldMove(enum RotomMoveID rotomMove) {
+#define tRotomMove data[0]
+
+static void Task_DoCleanUpAndExecuteFieldMove(u8 taskId) {
     if (!gPaletteFade.active) {
+        if (gTasks[taskId].tRotomMove == ROTOM_MOVE_FLY)
+        {
+            PlayRainStoppingSoundEffect();
+            CleanupOverworldWindowsAndTilemaps();
+        }
         DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
         RotomStartMenu_ExitAndClearTilemap();
-        sRotomMoves[rotomMove].fieldMoveFunc();
+        sRotomMoves[gTasks[taskId].tRotomMove].fieldMoveFunc();
+        DestroyTask(taskId);
     }
 }
 
@@ -1636,7 +1647,7 @@ static inline bool32 CheckValidFieldMoveInput(void)
 }
 
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
-    u32 index;
+    u32 index, fieldMoveTask;
     AdvanceComfyAnimations();
 
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
@@ -1656,7 +1667,9 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
         else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE 
                 && CheckValidFieldMoveInput())
         {
-            DoCleanUpAndExecuteFieldMove(sRotomStartMenu->fieldMoveCursor);
+            if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY) FadeScreen(FADE_TO_BLACK, 0);
+            fieldMoveTask = CreateTask(Task_DoCleanUpAndExecuteFieldMove, 0);
+            gTasks[fieldMoveTask].tRotomMove = sRotomStartMenu->fieldMoveCursor;
         }
     } else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected) {
         PlaySE(SE_SELECT);
@@ -1674,6 +1687,8 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
         RotomStartMenu_OpenMenu();
     }
 }
+
+#undef tRotomMove
 
 static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
@@ -1817,4 +1832,16 @@ static void FieldMoveFunc_Cut(void)
     {
         ScriptContext_SetupScript(EventScript_FldEffCut);
     } 
+}
+
+static bool32 SetupFunc_Fly(void)
+{
+    return Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType);
+}
+
+static void FieldMoveFunc_Fly(void)
+{
+    gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
+    gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
+    SetMainCallback2(CB2_OpenFlyMap);
 }

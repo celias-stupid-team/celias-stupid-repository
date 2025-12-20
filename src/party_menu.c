@@ -4015,6 +4015,7 @@ static void CursorCB_FieldMove(u8 taskId)
                 break;
             case FIELD_MOVE_FLY:
                 gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                gMain.savedCallback = CB2_ReturnToPartyMenuFromFlyMap;
                 Task_ClosePartyMenu(taskId);
                 break;
             case FIELD_MOVE_RETREAT:
