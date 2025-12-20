@@ -62,7 +62,7 @@ const struct HealLocation * GetHealLocation(u32 idx)
 void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
 {
     u32 healLocationIdx;
-    /*
+
     if (VarGet(VAR_CSR_DUMMY_22) == 1)
     {
         if (!gSaveBlock1Ptr->trainerTower[gSaveBlock1Ptr->towerChallengeId].spokeToOwner)
@@ -76,7 +76,6 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
     }
     else
     {
-    */
         healLocationIdx = GetHealLocationIndexFromMapGroupAndNum(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
 #ifdef BUGFIX
         // Avoid out of bounds read
@@ -109,7 +108,7 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
         {
             warp->x = 4;
             warp->y = 11;
-            //VarSet(VAR_CSR_DUMMY_22, 0);
+            VarSet(VAR_CSR_DUMMY_22, 0);
         }
         else
         {

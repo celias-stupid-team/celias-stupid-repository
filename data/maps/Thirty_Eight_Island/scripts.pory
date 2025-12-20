@@ -312,3 +312,143 @@ script ThirtyEightIsland_RouteSign {
 	"New Wild POKéMON: 1", MSGBOX_SIGN)
 
 }
+
+
+script ThirtyEightIsland_Intro {
+	msgbox(
+	"Thirty eight island intro\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_Saltcureberry {
+	msgbox(
+	"I am a berry\n"
+	"", MSGBOX_NPC)
+}
+script ThirtyEightIsland_otherberry {
+	msgbox(
+	"I am a berry\n"
+	"", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_HeadbuttMan {
+	lock
+	msgbox(
+	"headbutt joke\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_SOUTH || var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_right
+			face_left
+		))
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		lock_facing_direction
+		walk_slow_down
+		delay_16 * 3
+		walk_fast_up
+		jump_2_up
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_WALL_HIT)
+	special(ShakeScreen)
+	applymovement(VAR_LAST_TALKED, moves(
+		delay_16 * 4
+		slide_down
+		unlock_facing_direction
+		delay_16 * 4
+		walk_slow_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+	end
+
+}
+
+
+script ThirtyEightIsland_PokeGearGuy {
+	msgbox(
+	"pokégear joke\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"I'm just out here grazing in\n"
+	"the pasture.\l"
+	"The grass here is delicious!\p"
+
+	"But never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script ThirtyEightIsland_LassMaze {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	delay(60)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_faster_right * 57
+	))
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+	}
+	applymovement(LOCALID_CAMERA, moves(
+		walk_faster_up * 1
+	))
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		walk_down * 4
+		face_left
+		lock_facing_direction
+		delay_16 * 2
+		walk_slow_right
+		face_left
+		delay_16 * 3
+		walk_fast_left
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		walk_fast_left * 2
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_left * 2
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		jump_2_left
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	playse(SE_M_WATERFALL)
+	playbgm(MUS_NONE, TRUE)
+	removeobject(LOCALID_OCEAN13_LASS)
+	delay(120)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_left * 53
+		walk_fastest_down * 3
+	))
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
+	release
+	end
+
+
+}

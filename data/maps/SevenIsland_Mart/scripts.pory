@@ -78,8 +78,8 @@ script WalMart_LightYears {
 
 mart Walmart_Mart {
 	ITEM_CIGARETTES
-	ITEM_PEPSI
 	ITEM_GUN
+	ITEM_PEPSI
 }
 
 

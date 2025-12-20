@@ -118,6 +118,7 @@ script Route19_LookerScene {
 	fadescreeninstant(FADE_FROM_WHITE)
 	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
 	waitmoncry
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"Wow!\n"
 	"It's a special ROTOM!", MSGBOX_DEFAULT)
@@ -140,11 +141,12 @@ script Route19_LookerScene {
 	"directly from the PC BOX!", MSGBOX_DEFAULT)
 	waitfanfare
 	closemessage
+	delay(20)
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"That ROTOM is the result of decades\n"
 	"of research.\l"
-	"I hope you'll find it helpful.\p"
+	"I know you'll find it useful.\p"
 
 	"Now, I need to get out of here\n"
 	"before-", MSGBOX_DEFAULT)
