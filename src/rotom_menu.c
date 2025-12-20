@@ -1424,21 +1424,37 @@ static void MoveSelector_StartComfyAnims(void)
     u32 animID;
     u32 spriteIDL = sRotomStartMenu->spriteIdMoveSelectorLeft;
     u32 spriteIDR = sRotomStartMenu->spriteIdMoveSelectorRight;
-    sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_STARTED;
-    
-    ClearMoveSelectorText();
-     
-    InitComfyAnimConfig_Easing(&config);
-    config.durationFrames = 10;
-    config.from = Q_24_8(gSprites[spriteIDL].x);
-    config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
-    config.easingFunc = ComfyAnimEasing_EaseOutCubic;
-    gSprites[spriteIDL].callback = SpriteCB_MoveSelectorAnimLeft;
-    gSprites[spriteIDR].callback = SpriteCB_MoveSelectorAnimRight;
 
-    animID = CreateComfyAnim_Easing(&config);
-    gSprites[spriteIDL].data[0] = animID;
-    gSprites[spriteIDR].data[0] = animID;
+    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_STARTED)
+    {
+        ReleaseComfyAnim(gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].data[0]);
+        InitComfyAnimConfig_Easing(&config);
+        config.durationFrames = 10;
+        config.from = Q_24_8(gSprites[spriteIDL].x);
+        config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
+        config.easingFunc = ComfyAnimEasing_EaseOutCubic;
+        animID = CreateComfyAnim_Easing(&config);
+        gSprites[spriteIDL].data[0] = animID;
+        gSprites[spriteIDR].data[0] = animID;
+    }
+    else
+    {
+        sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_STARTED;
+
+        ClearMoveSelectorText();
+         
+        InitComfyAnimConfig_Easing(&config);
+        config.durationFrames = 20;
+        config.from = Q_24_8(gSprites[spriteIDL].x);
+        config.to = Q_24_8(sMoveSelectorXPositions[sRotomStartMenu->fieldMoveCursor][XPOS_SPRITE]);
+        config.easingFunc = ComfyAnimEasing_EaseOutCubic;
+        gSprites[spriteIDL].callback = SpriteCB_MoveSelectorAnimLeft;
+        gSprites[spriteIDR].callback = SpriteCB_MoveSelectorAnimRight;
+
+        animID = CreateComfyAnim_Easing(&config);
+        gSprites[spriteIDL].data[0] = animID;
+        gSprites[spriteIDR].data[0] = animID;
+    }
 }
 
 static void RotomStartMenu_HandleInput_DPadDown(void) {
@@ -1506,45 +1522,39 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
 static void RotomStartMenu_HandleInput_DPadLeft(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
+    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
-        if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
-        {
-            PlaySE(SE_SELECT);
-            sRotomStartMenu->storedMenuOption = sMenuSelected;
-            sMenuSelected = MENU_NONE;
-            sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
-            MoveSelector_StartComfyAnims();
-            
-        }
-        else if (sRotomStartMenu->fieldMoveCursor > 0 
-                && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
-        {
-            PlaySE(SE_SELECT);
-            sRotomStartMenu->fieldMoveCursor--;
-            MoveSelector_StartComfyAnims();
-        }
-    }   
+        PlaySE(SE_SELECT);
+        sRotomStartMenu->storedMenuOption = sMenuSelected;
+        sMenuSelected = MENU_NONE;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
+        MoveSelector_StartComfyAnims();
+        
+    }
+    else if (sRotomStartMenu->fieldMoveCursor > 0 
+            && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
+    {
+        PlaySE(SE_SELECT);
+        sRotomStartMenu->fieldMoveCursor--;
+        MoveSelector_StartComfyAnims();
+    }
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE)
+    PlaySE(SE_SELECT);
+    if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
+        || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
-        PlaySE(SE_SELECT);
-        if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
-            || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
-        {
-            sMenuSelected = sRotomStartMenu->storedMenuOption;
-            sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
-            MoveSelector_StartComfyAnims();
-        }
-        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
-        {
-            sRotomStartMenu->fieldMoveCursor++;
-            MoveSelector_StartComfyAnims();
-        }
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+        MoveSelector_StartComfyAnims();
+    }
+    else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
+    {
+        sRotomStartMenu->fieldMoveCursor++;
+        MoveSelector_StartComfyAnims();
     }
 }
 
@@ -1574,13 +1584,13 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
         PlaySE(SE_SELECT);
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
-    } else if (JOY_NEW(DPAD_DOWN) && !sRotomStartMenu->optionSelected) {
+    } else if (JOY_REPT(DPAD_DOWN) && !sRotomStartMenu->optionSelected) {
         RotomStartMenu_HandleInput_DPadDown();
-    } else if (JOY_NEW(DPAD_UP) && !sRotomStartMenu->optionSelected) {
+    } else if (JOY_REPT(DPAD_UP) && !sRotomStartMenu->optionSelected) {
         RotomStartMenu_HandleInput_DPadUp();
-    } else if (JOY_NEW(DPAD_LEFT) && !sRotomStartMenu->optionSelected) {
+    } else if (JOY_REPT(DPAD_LEFT) && !sRotomStartMenu->optionSelected) {
         RotomStartMenu_HandleInput_DPadLeft();
-    } else if (JOY_NEW(DPAD_RIGHT) && !sRotomStartMenu->optionSelected) {
+    } else if (JOY_REPT(DPAD_RIGHT) && !sRotomStartMenu->optionSelected) {
         RotomStartMenu_HandleInput_DPadRight();
     } else if (sRotomStartMenu->optionSelected) {
         RotomStartMenu_OpenMenu();
