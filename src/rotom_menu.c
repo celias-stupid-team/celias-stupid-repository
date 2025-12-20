@@ -99,12 +99,22 @@ static u8 SaveConfirmSaveCallback(void);
 static void InitSave(void);
 
 /* Field move funcs */
+static bool32 SetupFunc_RockClimb(void); // placeholder
+static void FieldMoveFunc_RockClimb(void); // placeholder
+static bool32 SetupFunc_Strength(void);
+static void FieldMoveFunc_Strength(void);
 static bool32 SetupFunc_Cut(void);
 static void FieldMoveFunc_Cut(void);
 static bool32 SetupFunc_Fly(void);
 static void FieldMoveFunc_Fly(void);
-static bool32 SetupFunc_Strength(void);
-static void FieldMoveFunc_Strength(void);
+static bool32 SetupFunc_Whirlpool(void); // placeholder
+static void FieldMoveFunc_Whirlpool(void); // placeholder
+static bool32 SetupFunc_Guillotine(void); // placeholder
+static void FieldMoveFunc_Guillotine(void); // placeholder
+static bool32 SetupFunc_BrickBreak(void); // placeholder
+static void FieldMoveFunc_BrickBreak(void); // placeholder
+static bool32 SetupFunc_Rest(void); // placeholder
+static void FieldMoveFunc_Rest(void); // placeholder
 
 /* ENUMs */
 enum MenuOption {
@@ -186,8 +196,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 70,
         .textXPos = 62,
         .name = gLongMoveNames[MOVE_ROCK_CLIMB],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_RockClimb,
+        .fieldMoveFunc = FieldMoveFunc_RockClimb,
     },
     [ROTOM_MOVE_STRENGTH] = {
         .move = MOVE_STRENGTH,
@@ -218,24 +228,24 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 6,
         .textXPos = 1,
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Whirlpool,
+        .fieldMoveFunc = FieldMoveFunc_Whirlpool,
     },
     [ROTOM_MOVE_GUILLOTINE] = {
         .move = MOVE_GUILLOTINE,
         .spriteXPos = 38,
         .textXPos = 31,
         .name = gLongMoveNames[MOVE_GUILLOTINE],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Guillotine,
+        .fieldMoveFunc = FieldMoveFunc_Guillotine,
     },
     [ROTOM_MOVE_BRICK_BREAK] = {
         .move = MOVE_BRICK_BREAK,
         .spriteXPos = 70,
         .textXPos = 59,
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_BrickBreak,
+        .fieldMoveFunc = FieldMoveFunc_BrickBreak,
     },
     [ROTOM_MOVE_TAIL_GLOW] = {
         .move = MOVE_TAIL_GLOW,
@@ -250,8 +260,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 134,
         .textXPos = 141,
         .name = gLongMoveNames[MOVE_REST],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Rest,
+        .fieldMoveFunc = FieldMoveFunc_Rest,
     },
     [ROTOM_MOVE_RETREAT] = {
         .move = MOVE_RETREAT,
@@ -1768,6 +1778,28 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
     }
 }
 
+static bool32 SetupFunc_RockClimb(void)
+{
+    return FALSE;
+}
+
+static void FieldMoveFunc_RockClimb(void)
+{
+    return;
+}
+
+static bool32 SetupFunc_Strength(void)
+{
+    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) 
+            && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            && !FlagGet(FLAG_SYS_USE_STRENGTH);
+}
+
+static void FieldMoveFunc_Strength(void)
+{
+    ScriptContext_SetupScript(EventScript_FldEffStrength);
+}
+
 enum CutType {
     CUT_TYPE_NONE,
     CUT_TYPE_TREE,
@@ -1845,14 +1877,42 @@ static void FieldMoveFunc_Fly(void)
     SetMainCallback2(CB2_OpenFlyMap);
 }
 
-static bool32 SetupFunc_Strength(void)
+static bool32 SetupFunc_Whirlpool(void)
 {
-    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) 
-            && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
-            && !FlagGet(FLAG_SYS_USE_STRENGTH);
+    return FALSE;
 }
 
-static void FieldMoveFunc_Strength(void)
+static void FieldMoveFunc_Whirlpool(void)
 {
-    ScriptContext_SetupScript(EventScript_FldEffStrength);
+    return;
+}
+
+static bool32 SetupFunc_Guillotine(void)
+{
+    return FALSE;
+}
+
+static void FieldMoveFunc_Guillotine(void)
+{
+    return;
+}
+
+static bool32 SetupFunc_BrickBreak(void)
+{
+    return FALSE;
+}
+
+static void FieldMoveFunc_BrickBreak(void)
+{
+    return;
+}
+
+static bool32 SetupFunc_Rest(void)
+{
+    return FALSE;
+}
+
+static void FieldMoveFunc_Rest(void)
+{
+    return;
 }
