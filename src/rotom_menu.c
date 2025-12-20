@@ -17,6 +17,7 @@
 #include "field_specials.h"
 #include "field_weather.h"
 #include "field_screen_effect.h"
+#include "fldeff.h"
 #include "gpu_regs.h"
 #include "item_menu.h"
 #include "link.h"
@@ -50,6 +51,9 @@
 #include "trainer_card.h"
 #include "window.h"
 #include "union_room.h"
+#include "constants/event_objects.h"
+#include "constants/map_groups.h"
+#include "constants/maps.h"
 #include "constants/moves.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -92,6 +96,10 @@ static u8 SaveYesNoCallback(void);
 static void ShowSaveInfoWindow(void);
 static u8 SaveConfirmSaveCallback(void);
 static void InitSave(void);
+
+/* Field move funcs */
+static bool32 SetupFunc_Cut(void);
+static void FieldMoveFunc_Cut(void);
 
 /* ENUMs */
 enum MenuOption {
@@ -147,6 +155,8 @@ struct RotomMove {
     u32 spriteXPos;
     u32 textXPos;
     const u8 *name;
+    bool32 (*setupFunc)(void);
+    void (*fieldMoveFunc)(void);
 };
 
 static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
@@ -155,78 +165,104 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 6,
         .textXPos = 10,
         .name = gLongMoveNames[MOVE_SURF],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_WATERFALL] = {
         .move = MOVE_WATERFALL,
         .spriteXPos = 38,
         .textXPos = 33,
         .name = gLongMoveNames[MOVE_WATERFALL],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_ROCK_CLIMB] = {
         .move = MOVE_ROCK_CLIMB,
         .spriteXPos = 70,
         .textXPos = 62,
         .name = gLongMoveNames[MOVE_ROCK_CLIMB],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_STRENGTH] = {
         .move = MOVE_STRENGTH,
         .spriteXPos = 102,
         .textXPos = 99,
         .name = gLongMoveNames[MOVE_STRENGTH],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_CUT] = {
         .move = MOVE_CUT,
         .spriteXPos = 134,
         .textXPos = 143,
         .name = gLongMoveNames[MOVE_CUT],
+        .setupFunc = SetupFunc_Cut,
+        .fieldMoveFunc = FieldMoveFunc_Cut,
     },
     [ROTOM_MOVE_FLY] = {
         .move = MOVE_FLY,
         .spriteXPos = 166,
         .textXPos = 176,
         .name = gLongMoveNames[MOVE_FLY],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_WHIRLPOOL] = {
         .move = MOVE_WHIRLPOOL,
         .spriteXPos = 6,
         .textXPos = 1,
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_GUILLOTINE] = {
         .move = MOVE_GUILLOTINE,
         .spriteXPos = 38,
         .textXPos = 31,
         .name = gLongMoveNames[MOVE_GUILLOTINE],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_BRICK_BREAK] = {
         .move = MOVE_BRICK_BREAK,
         .spriteXPos = 70,
         .textXPos = 59,
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_TAIL_GLOW] = {
         .move = MOVE_TAIL_GLOW,
         .spriteXPos = 102,
         .textXPos = 97,
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_REST] = {
         .move = MOVE_REST,
         .spriteXPos = 134,
         .textXPos = 141,
         .name = gLongMoveNames[MOVE_REST],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_RETREAT] = {
         .move = MOVE_RETREAT,
         .spriteXPos = 166,
         .textXPos = 166,
         .name = gLongMoveNames[MOVE_RETREAT],
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
     [ROTOM_MOVE_NONE] = {
         .move = MOVE_NONE,
         .spriteXPos = 218,
         .textXPos = 213,
         .name = gText_EmptyString3,
+        .setupFunc = NULL,
+        .fieldMoveFunc = NULL,
     },
 };
 
@@ -253,6 +289,7 @@ struct RotomStartMenu {
 };
 
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
+static EWRAM_DATA u8 sFieldMoveData = 0;
 static EWRAM_DATA u8 sMenuSelected = 0;
 static EWRAM_DATA u8 (*sSaveDialogCallback)(void) = NULL;
 static EWRAM_DATA u8 sSaveDialogTimer = 0;
@@ -1016,6 +1053,14 @@ static void DoCleanUpAndOpenPC(void) {
     }
 }
 
+static void DoCleanUpAndExecuteFieldMove(enum RotomMoveID rotomMove) {
+    if (!gPaletteFade.active) {
+        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
+        RotomStartMenu_ExitAndClearTilemap();
+        sRotomMoves[rotomMove].fieldMoveFunc();
+    }
+}
+
 static u8 RunSaveCallback(void)
 {
     // True if text is still printing
@@ -1571,27 +1616,47 @@ static void RotomStartMenu_HandleInput_DPadRight(void) {
     }
 }
 
+static inline bool32 CheckValidFieldMoveInput(void)
+{
+    sFieldMoveData = 0;
+    // ravetodo check for eligible mon
+    if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
+        && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
+        && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
+    {
+        return TRUE;
+    }
+    else
+    {
+        // ravetodo add another indicator?
+        PlaySE(SE_BOO);
+        return FALSE;
+    }
+
+}
+
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
     u32 index;
-    
     AdvanceComfyAnimations();
 
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
         index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
         LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     }
-
-    // if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
-    //     DebugPrintf("move cursor: %u", sRotomStartMenu->fieldMoveCursor);
-    // UpdateMoveSelectorPos();
-
-
-    if (JOY_NEW(A_BUTTON) && sMenuSelected != MENU_NONE) {
-        if (!sRotomStartMenu->optionSelected) {
-            if (sMenuSelected != MENU_SAVE) {
-                FadeScreen(FADE_TO_BLACK, 0);
+    if (JOY_NEW(A_BUTTON)) {
+        if (sMenuSelected != MENU_NONE)
+        {
+            if (!sRotomStartMenu->optionSelected) {
+                if (sMenuSelected != MENU_SAVE) {
+                    FadeScreen(FADE_TO_BLACK, 0);
+                }
+                sRotomStartMenu->optionSelected = TRUE;
             }
-            sRotomStartMenu->optionSelected = TRUE;
+        }
+        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE 
+                && CheckValidFieldMoveInput())
+        {
+            DoCleanUpAndExecuteFieldMove(sRotomStartMenu->fieldMoveCursor);
         }
     } else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected) {
         PlaySE(SE_SELECT);
@@ -1683,4 +1748,73 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
             DoCleanUpAndStartSafariZoneRetire();
         }
     }
+}
+
+// CUT
+enum CutType {
+    CUT_TYPE_NONE,
+    CUT_TYPE_TREE,
+    CUT_TYPE_GRASS,
+};
+
+#define CUT_SIDE 3 // same as in fldeff_cut.c
+
+static bool32 SetupFunc_Cut(void)
+{
+    s16 x, y;
+    u8 i, j;
+    gScheduleOpenDottedHole = FALSE;
+    if (CutMoveRuinValleyCheck() == TRUE)
+    {
+        gScheduleOpenDottedHole = TRUE;
+        sFieldMoveData = CUT_TYPE_GRASS;
+        return TRUE;
+    }
+
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE ||
+        (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE &&
+        ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
+        (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
+        )))
+    {
+        sFieldMoveData = CUT_TYPE_TREE;
+        return TRUE;
+    }
+    
+    else
+    {
+        PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
+    
+        for (i = 0; i < CUT_SIDE; i++)
+        {
+            y = gPlayerFacingPosition.y - 1 + i;
+            for (j = 0; j < CUT_SIDE; j++)
+            {
+                x = gPlayerFacingPosition.x - 1 + j;
+                if (MapGridGetElevationAt(x, y) == gPlayerFacingPosition.elevation)
+                {
+                    if (MetatileAtCoordsIsGrassTile(x, y) == TRUE)
+                    {
+                        sFieldMoveData = CUT_TYPE_GRASS;
+                        return TRUE;
+                    }
+                }
+            }
+        }
+        return FALSE;
+    }
+}
+
+static void FieldMoveFunc_Cut(void)
+{
+    gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
+
+    if (sFieldMoveData == CUT_TYPE_GRASS)
+    {
+        FieldEffectStart(FLDEFF_USE_CUT_ON_GRASS);
+    }
+    else
+    {
+        ScriptContext_SetupScript(EventScript_FldEffCut);
+    } 
 }
