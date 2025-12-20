@@ -103,6 +103,8 @@ static bool32 SetupFunc_Cut(void);
 static void FieldMoveFunc_Cut(void);
 static bool32 SetupFunc_Fly(void);
 static void FieldMoveFunc_Fly(void);
+static bool32 SetupFunc_Strength(void);
+static void FieldMoveFunc_Strength(void);
 
 /* ENUMs */
 enum MenuOption {
@@ -192,8 +194,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 102,
         .textXPos = 99,
         .name = gLongMoveNames[MOVE_STRENGTH],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Strength,
+        .fieldMoveFunc = FieldMoveFunc_Strength,
     },
     [ROTOM_MOVE_CUT] = {
         .move = MOVE_CUT,
@@ -1766,7 +1768,6 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
     }
 }
 
-// CUT
 enum CutType {
     CUT_TYPE_NONE,
     CUT_TYPE_TREE,
@@ -1842,4 +1843,16 @@ static void FieldMoveFunc_Fly(void)
 {
     gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
     SetMainCallback2(CB2_OpenFlyMap);
+}
+
+static bool32 SetupFunc_Strength(void)
+{
+    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) 
+            && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            && !FlagGet(FLAG_SYS_USE_STRENGTH);
+}
+
+static void FieldMoveFunc_Strength(void)
+{
+    ScriptContext_SetupScript(EventScript_FldEffStrength);
 }
