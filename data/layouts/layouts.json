@@ -6609,7 +6609,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CeladonCity",
+      "secondary_tileset": "gTileset_SeviiIslands67",
       "border_filepath": "data/layouts/AetherParadise_Island/border.bin",
       "blockdata_filepath": "data/layouts/AetherParadise_Island/map.bin"
     },
