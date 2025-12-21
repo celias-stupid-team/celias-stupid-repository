@@ -103,6 +103,8 @@ static void InitSave(void);
 /* Field move funcs */
 static bool32 SetupFunc_Surf(void);
 static void FieldMoveFunc_Surf(void);
+static bool32 SetupFunc_Waterfall(void);
+static void FieldMoveFunc_Waterfall(void);
 static bool32 SetupFunc_RockClimb(void); // placeholder
 static void FieldMoveFunc_RockClimb(void); // placeholder
 static bool32 SetupFunc_Strength(void);
@@ -192,8 +194,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 38,
         .textXPos = 33,
         .name = gLongMoveNames[MOVE_WATERFALL],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Waterfall,
+        .fieldMoveFunc = FieldMoveFunc_Waterfall,
     },
     [ROTOM_MOVE_ROCK_CLIMB] = {
         .move = MOVE_ROCK_CLIMB,
@@ -1848,6 +1850,20 @@ static bool32 SetupFunc_Surf(void)
 static void FieldMoveFunc_Surf(void)
 {
     FieldEffectStart(FLDEFF_USE_SURF);
+}
+
+static bool32 SetupFunc_Waterfall(void)
+{
+    s16 x, y;
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    return (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y))
+            && IsPlayerSurfingNorth());
+}
+
+static void FieldMoveFunc_Waterfall(void)
+{
+    FieldEffectStart(FLDEFF_USE_WATERFALL);
 }
 
 static bool32 SetupFunc_RockClimb(void)
