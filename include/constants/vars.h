@@ -187,7 +187,7 @@
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_CSR_DUMMY_22                                            0x4082
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083
-#define VAR_CSR_DUMMY_24                              0x4084
+#define VAR_CSR_OCEAN_LASS_MAZE                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087

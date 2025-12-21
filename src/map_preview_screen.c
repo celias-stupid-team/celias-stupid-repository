@@ -292,14 +292,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_VIAPOIS_CHAMBER] = {
-        .mapsec = MAPSEC_MINNESOTA,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    }
+
 };
 
 static const struct WindowTemplate sMapNameWindow = {

@@ -78,7 +78,7 @@
       "x": 9,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
       "var_value": "0",
       "script": "ThirtyEightIsland_LassMaze"
     },
@@ -87,7 +87,7 @@
       "x": 10,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
       "var_value": "0",
       "script": "ThirtyEightIsland_LassMaze"
     },
@@ -96,7 +96,7 @@
       "x": 11,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
       "var_value": "0",
       "script": "ThirtyEightIsland_LassMaze"
     }

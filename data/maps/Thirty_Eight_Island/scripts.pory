@@ -400,20 +400,33 @@ script ThirtyEightIsland_LassMaze {
 	lock
 	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	delay(60)
+	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
 	special(SpawnCameraObject)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_faster_right * 57
+		walk_faster_right * 2
+		walk_fastest_right * 50
 	))
 	waitmovement(0)
-	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
 	switch(var(VAR_TEMP_0)) {
-		case 0:
+		case 10:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_right * 1
+		))
+		waitmovement(0)
+
+		case 9:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_right * 2
+		))
+		waitmovement(0)
+
 	}
 	applymovement(LOCALID_CAMERA, moves(
-		walk_faster_up * 1
+		walk_fastest_right * 2
+		walk_faster_right * 3
 	))
 	applymovement(LOCALID_OCEAN13_LASS, moves(
-		walk_down * 4
+		walk_down * 5
 		face_left
 		lock_facing_direction
 		delay_16 * 2
@@ -441,12 +454,29 @@ script ThirtyEightIsland_LassMaze {
 	playbgm(MUS_NONE, TRUE)
 	removeobject(LOCALID_OCEAN13_LASS)
 	delay(120)
+	
+	switch(var(VAR_TEMP_0)) {
+		case 10:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_left * 1
+		))
+		waitmovement(0)
+
+		case 9:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_left * 2
+		))
+		waitmovement(0)
+
+	}
 	applymovement(LOCALID_CAMERA, moves(
 		walk_fastest_left * 53
-		walk_fastest_down * 3
 	))
+	delay(40)
+	fadedefaultbgm
 	waitmovement(LOCALID_CAMERA)
 	special(RemoveCameraObject)
+	setvar(VAR_CSR_OCEAN_LASS_MAZE, 1)
 	release
 	end
 

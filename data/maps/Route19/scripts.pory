@@ -96,7 +96,7 @@ script Route19_LookerScene {
 	"cargo, but I was attacked!\p"
 
 	"My position has been compromised.\n"
-	"I can't maintain this any longer!\p"
+	"I can't maintain this any longer.\p"
 
 	"Here, take this.\n"
 	"It'll be safer in your hands!", MSGBOX_DEFAULT)
@@ -338,4 +338,19 @@ script GreatSea_RadicalRed {
 	msgbox(
 	"…!!!\n"
 	"", MSGBOX_NPC)
+}
+
+
+script GreatSea_Chapter7 {
+	lock
+	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
+	fadescreen(FADE_TO_BLACK)
+	delay(30)
+	message("Chapter 7{PAUSE 120}\nToo Much Water")
+	delay(270)
+	closemessage
+
+	fadescreen(FADE_FROM_BLACK)
+	setvar(VAR_CURRENT_CHAPTER, 7)
+	release
 }
