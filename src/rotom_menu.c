@@ -291,6 +291,7 @@ struct RotomStartMenu {
     u8 optionSelected;
     u8 fieldMoveCursor:4;
     u8 storedMenuOption:4;
+    u8 spriteIdDexNumbers;
     u8 spriteIdMoveSelectorLeft;
     u8 spriteIdMoveSelectorRight;
     u8 spriteIdPokedex;
@@ -340,7 +341,7 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
 
 static const struct WindowTemplate sWindowTemplate_DexNumbers = {
     .bg = 0,
-    .tilemapLeft = 22,
+    .tilemapLeft = 21,
     .tilemapTop = 0,
     .width = 4,
     .height = 2,
@@ -781,7 +782,7 @@ static void UpdateMoveSelectorText(void)
         AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId, 
             FONT_SMALL, 
             sRotomMoves[sRotomStartMenu->fieldMoveCursor].textXPos, 
-            0, 
+            2, 
             sMoveTextColor, 
             TEXT_SKIP_DRAW, 
             sRotomMoves[sRotomStartMenu->fieldMoveCursor].name
@@ -890,9 +891,12 @@ static void RotomStartMenu_CreateSprites(void) {
     u32 y6 = 130;
     u32 y7 = 150;
     
-    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 105, 0);
-    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 105, 0);
+    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 107, 0);
+    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
+
+    sRotomStartMenu->spriteIdDexNumbers = CreateSprite(&sSpriteMoveSelector, 189, 14, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbers], 0, 1);
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
         sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y1-2, 0);
@@ -949,7 +953,7 @@ static void RotomStartMenu_LoadBgGfx(void) {
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static const u8 sDexNumTextColor[3] = {1, 2, 3};
+static const u8 sDexNumTextColor[3] = {0, 2, 3};
 
 static void RotomStartMenu_PrintDexNumbers(void) {
     u8 printStr[8];
@@ -957,7 +961,7 @@ static void RotomStartMenu_PrintDexNumbers(void) {
     u16 caught = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
     u16 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
     
-    FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_WHITE));
+    FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
 
     ConvertIntToDecimalStringN(printStr, caught, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -965,7 +969,7 @@ static void RotomStartMenu_PrintDexNumbers(void) {
     StringAppend(printStr, gText_Slash);
     StringAppend(printStr, obtainableStr);
 
-    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 0, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
+    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 10, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
@@ -1024,6 +1028,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdOptions]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbers]);
 
     if (sRotomStartMenu != NULL) {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
