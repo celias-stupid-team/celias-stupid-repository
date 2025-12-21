@@ -119,6 +119,8 @@ static bool32 SetupFunc_Guillotine(void); // placeholder
 static void FieldMoveFunc_Guillotine(void); // placeholder
 static bool32 SetupFunc_BrickBreak(void); // placeholder
 static void FieldMoveFunc_BrickBreak(void); // placeholder
+static bool32 SetupFunc_TailGlow(void);
+static void FieldMoveFunc_TailGlow(void);
 static bool32 SetupFunc_Rest(void); // placeholder
 static void FieldMoveFunc_Rest(void); // placeholder
 static bool32 SetupFunc_Retreat(void);
@@ -260,8 +262,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 102,
         .textXPos = 97,
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_TailGlow,
+        .fieldMoveFunc = FieldMoveFunc_TailGlow,
     },
     [ROTOM_MOVE_REST] = {
         .move = MOVE_REST,
@@ -1995,6 +1997,26 @@ static bool32 SetupFunc_BrickBreak(void)
 static void FieldMoveFunc_BrickBreak(void)
 {
     return;
+}
+
+static bool32 SetupFunc_TailGlow(void)
+{
+    if (gMapHeader.cave != TRUE)
+        return FALSE;
+
+    if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
+        return FALSE;
+
+    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
+        return FALSE;
+
+    return TRUE;
+}
+
+static void FieldMoveFunc_TailGlow(void)
+{
+    u8 taskId = CreateFieldEffectShowMon();
+    FLDEFF_SET_FUNC_TO_DATA(FldEff_UseFlash);
 }
 
 static bool32 SetupFunc_Rest(void)
