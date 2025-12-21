@@ -70,6 +70,7 @@ static void SpriteCB_IconTrainerCard(struct Sprite* sprite);
 static void SpriteCB_IconSave(struct Sprite* sprite);
 static void SpriteCB_IconOptions(struct Sprite* sprite);
 static void SpriteCB_IconFlag(struct Sprite* sprite);
+static void SpriteCB_RotomEyes(struct Sprite* sprite);
 
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
@@ -286,11 +287,13 @@ struct RotomStartMenu {
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u8 blinkTimer;
     u8 comfyAnimStatus;
     u8 iconAnimStarted;
     u8 optionSelected;
     u8 fieldMoveCursor:4;
     u8 storedMenuOption:4;
+    u8 spriteIdRotomEyes;
     u8 spriteIdDexNumbers;
     u8 spriteIdMoveSelectorLeft;
     u8 spriteIdMoveSelectorRight;
@@ -323,11 +326,13 @@ static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_men
 #define TAG_ICON_PAL          0x4654
 #define TAG_MOVE_SELECTOR_GFX 1235
 #define TAG_MOVE_SELECTOR_PAL 0x4655
+#define TAG_ROTOM_EYES_GFX    1236
 
 static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
 static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
 static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
+static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
@@ -429,6 +434,36 @@ static const struct SpriteTemplate sSpriteMoveSelector = {
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy,
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] =
+{
+    {sRotomEyesGfx, (32*32)/2, TAG_ROTOM_EYES_GFX},
+    {NULL},
+};
+
+static const struct OamData sOamRotomEyes = {
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
+static const struct SpriteTemplate sSpriteRotomEyes = {
+    .tileTag = TAG_ROTOM_EYES_GFX,
+    .paletteTag = TAG_MOVE_SELECTOR_PAL,
+    .oam = &sOamRotomEyes,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_RotomEyes,
 };
 
 static const union AnimCmd gAnimCmdPokedex_NotSelected[] = {
@@ -664,6 +699,11 @@ static const struct SpriteTemplate gSpriteIconFlag = {
     .callback = SpriteCB_IconFlag,
 };
 
+static void SpriteCB_RotomEyes(struct Sprite* sprite)
+{
+    sprite->invisible = sRotomStartMenu->blinkTimer < 5;
+}
+
 static void SpriteCB_IconPokedex(struct Sprite* sprite) {
     if (sMenuSelected == MENU_POKEDEX && !sRotomStartMenu->iconAnimStarted) {
         sRotomStartMenu->iconAnimStarted = TRUE;
@@ -836,6 +876,8 @@ void RotomStartMenu_Init(void) {
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
 
+    sFieldMoveData = 0;
+    sRotomStartMenu->blinkTimer = 100;
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
     // CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
 
@@ -879,6 +921,8 @@ static void RotomStartMenu_LoadSprites(void) {
     index = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
     LoadPalette(sMoveSelectorPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
+
+    LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 }
 
 static void RotomStartMenu_CreateSprites(void) {
@@ -897,6 +941,8 @@ static void RotomStartMenu_CreateSprites(void) {
 
     sRotomStartMenu->spriteIdDexNumbers = CreateSprite(&sSpriteMoveSelector, 189, 14, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbers], 0, 1);
+
+    sRotomStartMenu->spriteIdRotomEyes = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
         sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y1-2, 0);
@@ -1029,6 +1075,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbers]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdRotomEyes]);
 
     if (sRotomStartMenu != NULL) {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
@@ -1666,6 +1713,7 @@ static inline bool32 CheckValidFieldMoveInput(void)
 
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
     u32 index, fieldMoveTask;
+    sRotomStartMenu->blinkTimer--;
     AdvanceComfyAnimations();
 
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
