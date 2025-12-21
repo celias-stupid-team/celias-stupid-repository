@@ -73,6 +73,7 @@ static void SpriteCB_IconSave(struct Sprite *sprite);
 static void SpriteCB_IconOptions(struct Sprite *sprite);
 static void SpriteCB_IconFlag(struct Sprite *sprite);
 static void SpriteCB_RotomEyes(struct Sprite *sprite);
+static void SpriteCB_MoveSelectorMask(struct Sprite *sprite);
 
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
@@ -82,9 +83,11 @@ static void Task_HandleSave(u8 taskId);
 /* OTHER FUNCTIONS */
 static void RotomStartMenu_LoadSprites(void);
 static void RotomStartMenu_CreateSprites(void);
+static void RotomStartMenu_CreateSpriteMasks(void);
 static void RotomStartMenu_SafariZone_CreateSprites(void);
 static void RotomStartMenu_LoadBgGfx(void);
 static void RotomStartMenu_PrintDexNumbers(void);
+static void RotomStartMenu_DestroySprites(void);
 static u8 RunSaveCallback(void);
 static u8 SaveDoSaveCallback(void);
 static void HideSaveInfoWindow(void);
@@ -156,6 +159,28 @@ enum ComfyAnimStatus
     COMFY_ANIM_STARTED,
     COMFY_ANIM_COMPLETED,
 };
+
+enum RotomSpriteID
+{
+   SPRITE_ROTOM_EYES,
+   SPRITE_DEX_NUM_WIN_L,
+   SPRITE_DEX_NUM_WIN_R,
+   SPRITE_MOVE_SELECTOR_L,
+   SPRITE_MOVE_SELECTOR_R,
+   ROTOM_SPRITE_AFFINE_START,
+   SPRITE_POKEDEX = ROTOM_SPRITE_AFFINE_START,
+   SPRITE_PARTY,
+   SPRITE_BAG,
+   SPRITE_PC,
+   SPRITE_TRAINER_CARD,
+   SPRITE_SAVE,
+   SPRITE_OPTIONS,
+   SPRITE_FLAG,
+   ROTOM_SPRITE_COUNT,
+   ROTOM_SPRITE_MASKS_START = ROTOM_SPRITE_COUNT,
+};
+
+#define ROTOM_SPRITE_COUNT_WITH_MASKS (ROTOM_SPRITE_COUNT * 2)
 
 enum RotomMoveID
 {
@@ -303,25 +328,13 @@ struct RotomStartMenu
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
     u8 comfyAnimStatus;
     u8 iconAnimStarted;
     u8 optionSelected;
     u8 fieldMoveCursor:4;
     u8 storedMenuOption:4;
-    u8 spriteIdRotomEyes;
-    u8 spriteIdDexNumbersLeft;
-    u8 spriteIdDexNumbersRight;
-    u8 spriteIdMoveSelectorLeft;
-    u8 spriteIdMoveSelectorRight;
-    u8 spriteIdPokedex;
-    u8 spriteIdParty;
-    u8 spriteIdBag;
-    u8 spriteIdPC;
-    u8 spriteIdTrainerCard;
-    u8 spriteIdSave;
-    u8 spriteIdOptions;
-    u8 spriteIdFlag;
 };
 
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
@@ -833,12 +846,6 @@ static void SpriteCB_IconFlag(struct Sprite *sprite)
     }
 }
 
-static void UpdateMoveSelectorPos(void)
-{
-    gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos;
-    gSprites[sRotomStartMenu->spriteIdMoveSelectorRight].x = gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].x + MOVE_SELECTOR_R_OFFSET;
-}
-
 static void ClearMoveSelectorText(void)
 {
     FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
@@ -929,7 +936,6 @@ void RotomStartMenu_Init(void)
     sFieldMoveData = 0;
     sRotomStartMenu->blinkTimer = 100;
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
-    // CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
 
     if (!GetSafariZoneFlag())
     {
@@ -944,7 +950,9 @@ void RotomStartMenu_Init(void)
         }
 
         RotomStartMenu_LoadSprites();
+        memset(sRotomStartMenu->spriteIDs, SPRITE_NONE, ROTOM_SPRITE_COUNT_WITH_MASKS);
         RotomStartMenu_CreateSprites();
+        if (Overworld_GetFlashLevel()) RotomStartMenu_CreateSpriteMasks();
         RotomStartMenu_LoadBgGfx();
         sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
         CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
@@ -993,44 +1001,82 @@ static void RotomStartMenu_CreateSprites(void)
     u32 y6 = 130;
     u32 y7 = 150;
 
-    sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 107, 0);
-    sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
-    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 107, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]], 1, 0);
 
-    sRotomStartMenu->spriteIdDexNumbersLeft = CreateSprite(&sSpriteMoveSelector, 176, 14, 0);
-    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbersLeft], 0, 1);
-    sRotomStartMenu->spriteIdDexNumbersRight = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
-    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbersRight], 1, 1);
+    sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_L] = CreateSprite(&sSpriteMoveSelector, 176, 14, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_L]], 0, 1);
+    sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R] = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
-    sRotomStartMenu->spriteIdRotomEyes = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYES] = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET))
     {
-        sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
-        sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y2 - 3, 0);
-        sRotomStartMenu->spriteIdPC = CreateSprite(&gSpriteIconPC, x, y3, 0);
-        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y4 + 1, 0);
-        sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
-        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y6, 0);
-        sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y7, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 3, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y3, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
         return;
     }
     else if (FlagGet(FLAG_SYS_POKEMON_GET))
     {
-        sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y1, 0);
-        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y2 + 1, 0);
-        sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y3 + 3, 0);
-        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
-        sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y5 - 4, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y2 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y3 + 3, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y5 - 4, 0);
         return;
     }
     else
     {
-        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y1, 0);
-        sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y2 + 1, 0);
-        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y3 + 3, 0);
-        sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y2 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y3 + 3, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y4 + 1, 0);
     }
+}
+
+static void RotomStartMenu_CreateSpriteMasks(void)
+{
+    u32 i, spriteID, maskSpriteID;
+
+    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+    SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+
+    for (i = 0; i < ROTOM_SPRITE_COUNT; i++)
+    {   
+        spriteID = sRotomStartMenu->spriteIDs[i];
+        if (spriteID != SPRITE_NONE)
+        {
+            maskSpriteID = CreateSprite(gSprites[spriteID].template, 
+                                        gSprites[spriteID].x, 
+                                        gSprites[spriteID].y, 
+                                        gSprites[spriteID].subpriority);
+
+            sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = maskSpriteID; 
+            
+            // preserve the flip bits set for non-affine sprites
+            if (!(gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_ON_MASK))
+            {
+                gSprites[maskSpriteID].oam.matrixNum = gSprites[spriteID].oam.matrixNum;
+            }
+            
+            if (i == SPRITE_MOVE_SELECTOR_L || i == SPRITE_MOVE_SELECTOR_R)
+            {
+                gSprites[maskSpriteID].callback = SpriteCB_MoveSelectorMask;
+            }
+
+            gSprites[maskSpriteID].oam.objMode = ST_OAM_OBJ_WINDOW;
+        }
+    }
+
+    SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
+    SetGpuRegBits(REG_OFFSET_WINOUT, 0);
 }
 
 static void RotomStartMenu_SafariZone_CreateSprites(void)
@@ -1043,12 +1089,12 @@ static void RotomStartMenu_SafariZone_CreateSprites(void)
     u32 y5 = 109;
     u32 y6 = 130;
 
-    sRotomStartMenu->spriteIdFlag = CreateSprite(&gSpriteIconFlag, x, y1, 0);
-    sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x - 1, y2, 0);
-    sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y3, 0);
-    sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y4, 0);
-    sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
-    sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y6, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_FLAG] = CreateSprite(&gSpriteIconFlag, x, y1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y2, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y3, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y4, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y6, 0);
 }
 
 static void RotomStartMenu_LoadBgGfx(void)
@@ -1090,6 +1136,23 @@ static void RotomStartMenu_PrintDexNumbers(void)
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
+static void RotomStartMenu_DestroySprites(void)
+{
+    u32 i, spriteID;
+    for (i = 0; i < ROTOM_SPRITE_COUNT_WITH_MASKS; i++)
+    {
+        spriteID = sRotomStartMenu->spriteIDs[i];
+        if (spriteID != SPRITE_NONE)
+        {
+            if (gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_ON_MASK)
+            {
+               FreeSpriteOamMatrix(&gSprites[spriteID]); 
+            }
+            DestroySprite(&gSprites[spriteID]);
+        }
+    }
+}
+
 static void RotomStartMenu_ExitAndClearTilemap(void)
 {
     u32 i;
@@ -1121,41 +1184,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
 
     ScheduleBgCopyTilemapToVram(0);
 
-    if (FlagGet(FLAG_SYS_POKEDEX_GET))
-    {
-        FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdPokedex]);
-        DestroySprite(&gSprites[sRotomStartMenu->spriteIdPokedex]);
-    }
-    if (FlagGet(FLAG_SYS_POKEMON_GET))
-    {
-        FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdParty]);
-        DestroySprite(&gSprites[sRotomStartMenu->spriteIdParty]);
-    }
-
-    if (!GetSafariZoneFlag())
-    {
-        FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdSave]);
-        DestroySprite(&gSprites[sRotomStartMenu->spriteIdSave]);
-        FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdPC]);
-        DestroySprite(&gSprites[sRotomStartMenu->spriteIdPC]);
-    }
-    else
-    {
-        FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdFlag]);
-        DestroySprite(&gSprites[sRotomStartMenu->spriteIdFlag]);
-    }
-
-    FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdBag]);
-    FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdTrainerCard]);
-    FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdOptions]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdBag]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdTrainerCard]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdOptions]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbersLeft]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbersRight]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdRotomEyes]);
+    RotomStartMenu_DestroySprites();
 
     if (sRotomStartMenu != NULL)
     {
@@ -1608,6 +1637,24 @@ static void RotomStartMenu_OpenMenu(void)
     }
 }
 
+static void SpriteCB_MoveSelectorMask(struct Sprite *sprite)
+{
+    u32 spriteID;
+    if (sprite->oam.matrixNum & ST_OAM_HFLIP)
+    {
+        spriteID = sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R];
+    }
+    else
+    {
+        spriteID = sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L];
+    }
+
+    if (spriteID != SPRITE_NONE)
+    {
+        sprite->x = gSprites[spriteID].x;
+    }    
+}
+
 static void SpriteCB_MoveSelectorAnimLeft(struct Sprite *sprite)
 {
     int animId = sprite->data[0];
@@ -1662,12 +1709,12 @@ static void MoveSelector_StartComfyAnims(void)
 {
     struct ComfyAnimEasingConfig config;
     u32 animID;
-    u32 spriteIDL = sRotomStartMenu->spriteIdMoveSelectorLeft;
-    u32 spriteIDR = sRotomStartMenu->spriteIdMoveSelectorRight;
+    u32 spriteIDL = sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L];
+    u32 spriteIDR = sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R];
 
     if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_STARTED)
     {
-        ReleaseComfyAnim(gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft].data[0]);
+        ReleaseComfyAnim(gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].data[0]);
         InitComfyAnimConfig_Easing(&config);
         config.durationFrames = 10;
         config.from = Q_24_8(gSprites[spriteIDL].x);
