@@ -1,23 +1,32 @@
 // Based on vol's heat start menu, credits to him (Voluptua) and Pawkkie
-#include "option_menu.h"
 #include "rotom_menu.h"
-#include "global.h"
-#include "bg.h"
+
+#include "constants/event_objects.h"
+#include "constants/map_groups.h"
+#include "constants/maps.h"
+#include "constants/moves.h"
+#include "constants/rgb.h"
+#include "constants/songs.h"
+
+#include "gba/isagbprint.h"
+
 #include "battle_message.h"
+#include "bg.h"
 #include "comfy_anim.h"
 #include "data.h"
 #include "decompress.h"
 #include "event_data.h"
-#include "event_object_movement.h"
 #include "event_object_lock.h"
+#include "event_object_movement.h"
 #include "event_scripts.h"
-#include "fieldmap.h"
 #include "field_effect.h"
 #include "field_player_avatar.h"
+#include "field_screen_effect.h"
 #include "field_specials.h"
 #include "field_weather.h"
-#include "field_screen_effect.h"
+#include "fieldmap.h"
 #include "fldeff.h"
+#include "global.h"
 #include "gpu_regs.h"
 #include "item_menu.h"
 #include "link.h"
@@ -34,44 +43,36 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokedex_screen.h"
-#include "pokemon_storage_system_internal.h"
 #include "pokemon_storage_system.h"
+#include "pokemon_storage_system_internal.h"
 #include "region_map.h"
 #include "safari_zone.h"
 #include "save.h"
 #include "save_menu_util.h"
 #include "scanline_effect.h"
 #include "script.h"
-#include "sprite.h"
 #include "sound.h"
+#include "sprite.h"
 #include "start_menu.h"
-#include "strings.h"
 #include "string_util.h"
+#include "strings.h"
 #include "task.h"
 #include "text.h"
 #include "text_window.h"
 #include "trainer_card.h"
-#include "window.h"
 #include "union_room.h"
-#include "constants/event_objects.h"
-#include "constants/map_groups.h"
-#include "constants/maps.h"
-#include "constants/moves.h"
-#include "constants/rgb.h"
-#include "constants/songs.h"
-#include "event_object_movement.h"
-#include "gba/isagbprint.h"
+#include "window.h"
 
 /* CALLBACKS */
-static void SpriteCB_IconPokedex(struct Sprite* sprite);
-static void SpriteCB_IconParty(struct Sprite* sprite);
-static void SpriteCB_IconPC(struct Sprite* sprite);
-static void SpriteCB_IconBag(struct Sprite* sprite);
-static void SpriteCB_IconTrainerCard(struct Sprite* sprite);
-static void SpriteCB_IconSave(struct Sprite* sprite);
-static void SpriteCB_IconOptions(struct Sprite* sprite);
-static void SpriteCB_IconFlag(struct Sprite* sprite);
-static void SpriteCB_RotomEyes(struct Sprite* sprite);
+static void SpriteCB_IconPokedex(struct Sprite *sprite);
+static void SpriteCB_IconParty(struct Sprite *sprite);
+static void SpriteCB_IconPC(struct Sprite *sprite);
+static void SpriteCB_IconBag(struct Sprite *sprite);
+static void SpriteCB_IconTrainerCard(struct Sprite *sprite);
+static void SpriteCB_IconSave(struct Sprite *sprite);
+static void SpriteCB_IconOptions(struct Sprite *sprite);
+static void SpriteCB_IconFlag(struct Sprite *sprite);
+static void SpriteCB_RotomEyes(struct Sprite *sprite);
 
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
@@ -127,7 +128,8 @@ static bool32 SetupFunc_Retreat(void);
 static void FieldMoveFunc_Retreat(void);
 
 /* ENUMs */
-enum MenuOption {
+enum MenuOption
+{
     MENU_POKEDEX,
     MENU_PARTY,
     MENU_PC,
@@ -140,20 +142,23 @@ enum MenuOption {
     MENU_NONE,
 };
 
-enum SaveStates {
+enum SaveStates
+{
     SAVE_IN_PROGRESS,
     SAVE_SUCCESS,
     SAVE_CANCELED,
     SAVE_ERROR
 };
 
-enum ComfyAnimStatus {
+enum ComfyAnimStatus
+{
     COMFY_ANIM_NONE,
     COMFY_ANIM_STARTED,
     COMFY_ANIM_COMPLETED,
 };
 
-enum RotomMoveID {
+enum RotomMoveID
+{
     ROTOM_MOVE_SURF,
     ROTOM_MOVE_WATERFALL,
     ROTOM_MOVE_ROCK_CLIMB,
@@ -172,10 +177,11 @@ enum RotomMoveID {
     ROTOM_MOVE_NONE = ROTOM_MOVE_COUNT,
 };
 
-#define ROTOM_MOVE_ROW_SIZE (ROTOM_MOVE_TOP_ROW_MAX + 1)
+#define ROTOM_MOVE_ROW_SIZE    (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
 
-struct RotomMove {
+struct RotomMove
+{
     u32 move;
     u32 spriteXPos;
     u32 textXPos;
@@ -292,7 +298,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
 };
 
 /* STRUCTs */
-struct RotomStartMenu {
+struct RotomStartMenu
+{
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
@@ -384,16 +391,14 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .baseBlock = 286
 };
 
-static const struct SpritePalette sSpritePal_Icon[] =
-{
-    {sIconPal, TAG_ICON_PAL},
-    {NULL},
+static const struct SpritePalette sSpritePal_Icon[] = {
+    { sIconPal, TAG_ICON_PAL },
+    { NULL },
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_Icon[] =
-{
-    {sIconGfx, 32*512/2 , TAG_ICON_GFX},
-    {NULL},
+static const struct CompressedSpriteSheet sSpriteSheet_Icon[] = {
+    { sIconGfx, 32 * 512 / 2, TAG_ICON_GFX },
+    { NULL },
 };
 
 static const struct OamData gOamIcon = {
@@ -410,16 +415,14 @@ static const struct OamData gOamIcon = {
     .paletteNum = 0,
 };
 
-static const struct SpritePalette sSpritePal_MoveSelector[] =
-{
-    {sIconPal, TAG_MOVE_SELECTOR_PAL},
-    {NULL},
+static const struct SpritePalette sSpritePal_MoveSelector[] = {
+    { sIconPal, TAG_MOVE_SELECTOR_PAL },
+    { NULL },
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_MoveSelector[] =
-{
-    {sMoveSelectorGfx, 64*64/4 , TAG_MOVE_SELECTOR_GFX},
-    {NULL},
+static const struct CompressedSpriteSheet sSpriteSheet_MoveSelector[] = {
+    { sMoveSelectorGfx, 64 * 64 / 4, TAG_MOVE_SELECTOR_GFX },
+    { NULL },
 };
 
 static const struct OamData sOamMoveSelector = {
@@ -446,10 +449,9 @@ static const struct SpriteTemplate sSpriteMoveSelector = {
     .callback = SpriteCallbackDummy,
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] =
-{
-    {sRotomEyesGfx, (32*32)/2, TAG_ROTOM_EYES_GFX},
-    {NULL},
+static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] = {
+    { sRotomEyesGfx, (32 * 32) / 2, TAG_ROTOM_EYES_GFX },
+    { NULL },
 };
 
 static const struct OamData sOamRotomEyes = {
@@ -596,25 +598,23 @@ static const union AnimCmd *const gIconFlagAnim[] = {
     gAnimCmdFlag_Selected,
 };
 
-static const union AffineAnimCmd sAffineAnimIcon_NoAnim[] =
-{
-    AFFINEANIMCMD_FRAME(0,0, 0, 60),
+static const union AffineAnimCmd sAffineAnimIcon_NoAnim[] = {
+    AFFINEANIMCMD_FRAME(0, 0, 0, 60),
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd sAffineAnimIcon_Anim[] =
-{
-    AFFINEANIMCMD_FRAME(20, 20, 0, 5),    // Scale big
+static const union AffineAnimCmd sAffineAnimIcon_Anim[] = {
+    AFFINEANIMCMD_FRAME(20, 20, 0, 5), // Scale big
     AFFINEANIMCMD_FRAME(-10, -10, 0, 10), // Scale smol
-    AFFINEANIMCMD_FRAME(0, 0, 1, 4),      // Begin rotating
+    AFFINEANIMCMD_FRAME(0, 0, 1, 4), // Begin rotating
 
-    AFFINEANIMCMD_FRAME(0, 0, -1, 4),     // Loop starts from here ; Rotate/Tilt left
+    AFFINEANIMCMD_FRAME(0, 0, -1, 4), // Loop starts from here ; Rotate/Tilt left
     AFFINEANIMCMD_FRAME(0, 0, 0, 2),
     AFFINEANIMCMD_FRAME(0, 0, -1, 4),
     AFFINEANIMCMD_FRAME(0, 0, 0, 2),
     AFFINEANIMCMD_FRAME(0, 0, -1, 4),
 
-    AFFINEANIMCMD_FRAME(0, 0, 1, 4),      // Rotate/Tilt Right
+    AFFINEANIMCMD_FRAME(0, 0, 1, 4), // Rotate/Tilt Right
     AFFINEANIMCMD_FRAME(0, 0, 0, 2),
     AFFINEANIMCMD_FRAME(0, 0, 1, 4),
     AFFINEANIMCMD_FRAME(0, 0, 0, 2),
@@ -623,8 +623,7 @@ static const union AffineAnimCmd sAffineAnimIcon_Anim[] =
     AFFINEANIMCMD_JUMP(3),
 };
 
-static const union AffineAnimCmd *const sAffineAnimsIcon[] =
-{
+static const union AffineAnimCmd *const sAffineAnimsIcon[] = {
     sAffineAnimIcon_NoAnim,
     sAffineAnimIcon_Anim,
 };
@@ -709,94 +708,126 @@ static const struct SpriteTemplate gSpriteIconFlag = {
     .callback = SpriteCB_IconFlag,
 };
 
-static void SpriteCB_RotomEyes(struct Sprite* sprite)
+static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
     sprite->invisible = sRotomStartMenu->blinkTimer < 5;
 }
 
-static void SpriteCB_IconPokedex(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_POKEDEX && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconPokedex(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_POKEDEX && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_POKEDEX) {
+    }
+    else if (sMenuSelected != MENU_POKEDEX)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconParty(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_PARTY && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconParty(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_PARTY && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_PARTY) {
+    }
+    else if (sMenuSelected != MENU_PARTY)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconPC(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_PC && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconPC(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_PC && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_PC) {
+    }
+    else if (sMenuSelected != MENU_PC)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconBag(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_BAG && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconBag(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_BAG && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_BAG) {
+    }
+    else if (sMenuSelected != MENU_BAG)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconTrainerCard(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_TRAINER_CARD && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconTrainerCard(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_TRAINER_CARD && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_TRAINER_CARD) {
+    }
+    else if (sMenuSelected != MENU_TRAINER_CARD)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconSave(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_SAVE && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconSave(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_SAVE && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_SAVE) {
+    }
+    else if (sMenuSelected != MENU_SAVE)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconOptions(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_OPTIONS && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconOptions(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_OPTIONS && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_OPTIONS) {
+    }
+    else if (sMenuSelected != MENU_OPTIONS)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
 }
 
-static void SpriteCB_IconFlag(struct Sprite* sprite) {
-    if (sMenuSelected == MENU_RETIRE && !sRotomStartMenu->iconAnimStarted) {
+static void SpriteCB_IconFlag(struct Sprite *sprite)
+{
+    if (sMenuSelected == MENU_RETIRE && !sRotomStartMenu->iconAnimStarted)
+    {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
-    } else if (sMenuSelected != MENU_RETIRE) {
+    }
+    else if (sMenuSelected != MENU_RETIRE)
+    {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
     }
@@ -816,7 +847,7 @@ static void ClearMoveSelectorText(void)
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static const u8 sMoveTextColor[3] = {0, 2, 3};
+static const u8 sMoveTextColor[3] = { 0, 2, 3 };
 
 static void UpdateMoveSelectorText(void)
 {
@@ -829,26 +860,31 @@ static void UpdateMoveSelectorText(void)
     }
     else
     {
-        AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId, 
-            FONT_SMALL, 
-            sRotomMoves[sRotomStartMenu->fieldMoveCursor].textXPos, 
-            2, 
-            sMoveTextColor, 
-            TEXT_SKIP_DRAW, 
-            sRotomMoves[sRotomStartMenu->fieldMoveCursor].name
-        );
+        AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
+                                     FONT_SMALL,
+                                     sRotomMoves[sRotomStartMenu->fieldMoveCursor].textXPos,
+                                     2,
+                                     sMoveTextColor,
+                                     TEXT_SKIP_DRAW,
+                                     sRotomMoves[sRotomStartMenu->fieldMoveCursor].name);
     }
 
     CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static void SetSelectedMenu(void) {
-    if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
+static void SetSelectedMenu(void)
+{
+    if (FlagGet(FLAG_SYS_POKEDEX_GET))
+    {
         sMenuSelected = MENU_POKEDEX;
-    } else if (FlagGet(FLAG_SYS_POKEMON_GET)) {
+    }
+    else if (FlagGet(FLAG_SYS_POKEMON_GET))
+    {
         sMenuSelected = MENU_PARTY;
-    } else {
+    }
+    else
+    {
         sMenuSelected = MENU_BAG;
     }
 }
@@ -864,8 +900,10 @@ static void ShowSafariBallsWindow(void)
     CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
 }
 
-void RotomStartMenu_Init(void) {
-    if (!IsUpdateLinkStateCBActive()) {
+void RotomStartMenu_Init(void)
+{
+    if (!IsUpdateLinkStateCBActive())
+    {
         FreezeObjectEvents();
         HandleEnforcedLookDirectionOnPlayerStopMoving();
         StopPlayerAvatar();
@@ -873,11 +911,13 @@ void RotomStartMenu_Init(void) {
 
     LockPlayerFieldControls();
 
-    if (sRotomStartMenu == NULL) {
+    if (sRotomStartMenu == NULL)
+    {
         sRotomStartMenu = AllocZeroed(sizeof(struct RotomStartMenu));
     }
 
-    if (sRotomStartMenu == NULL) {
+    if (sRotomStartMenu == NULL)
+    {
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         return;
     }
@@ -891,12 +931,15 @@ void RotomStartMenu_Init(void) {
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
     // CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
 
-    if (!GetSafariZoneFlag()) {
-        if (sMenuSelected == MENU_RETIRE) {
+    if (!GetSafariZoneFlag())
+    {
+        if (sMenuSelected == MENU_RETIRE)
+        {
             sMenuSelected = MENU_POKEDEX;
         }
 
-        if (sMenuSelected == 255) {
+        if (sMenuSelected == 255)
+        {
             SetSelectedMenu();
         }
 
@@ -905,8 +948,11 @@ void RotomStartMenu_Init(void) {
         RotomStartMenu_LoadBgGfx();
         sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
         CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
-    } else {
-        if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE) {
+    }
+    else
+    {
+        if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE)
+        {
             sMenuSelected = MENU_RETIRE;
         }
 
@@ -920,7 +966,8 @@ void RotomStartMenu_Init(void) {
     RotomStartMenu_PrintDexNumbers();
 }
 
-static void RotomStartMenu_LoadSprites(void) {
+static void RotomStartMenu_LoadSprites(void)
+{
     u32 index;
     LoadSpritePalette(sSpritePal_Icon);
     index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
@@ -935,7 +982,8 @@ static void RotomStartMenu_LoadSprites(void) {
     LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 }
 
-static void RotomStartMenu_CreateSprites(void) {
+static void RotomStartMenu_CreateSprites(void)
+{
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -944,7 +992,7 @@ static void RotomStartMenu_CreateSprites(void) {
     u32 y5 = 109;
     u32 y6 = 130;
     u32 y7 = 150;
-    
+
     sRotomStartMenu->spriteIdMoveSelectorLeft = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 107, 0);
     sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
@@ -956,31 +1004,37 @@ static void RotomStartMenu_CreateSprites(void) {
 
     sRotomStartMenu->spriteIdRotomEyes = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
 
-    if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
-        sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y1-2, 0);
-        sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y2-3, 0);
+    if (FlagGet(FLAG_SYS_POKEDEX_GET))
+    {
+        sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
+        sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y2 - 3, 0);
         sRotomStartMenu->spriteIdPC = CreateSprite(&gSpriteIconPC, x, y3, 0);
-        sRotomStartMenu->spriteIdBag     = CreateSprite(&gSpriteIconBag, x, y4+1, 0);
+        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y4 + 1, 0);
         sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
-        sRotomStartMenu->spriteIdSave    = CreateSprite(&gSpriteIconSave, x, y6, 0);
+        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y6, 0);
         sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y7, 0);
         return;
-    } else if (FlagGet(FLAG_SYS_POKEMON_GET)) {
+    }
+    else if (FlagGet(FLAG_SYS_POKEMON_GET))
+    {
         sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y1, 0);
-        sRotomStartMenu->spriteIdBag     = CreateSprite(&gSpriteIconBag, x, y2 + 1, 0);
+        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y2 + 1, 0);
         sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y3 + 3, 0);
-        sRotomStartMenu->spriteIdSave    = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
         sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y5 - 4, 0);
         return;
-    } else {
-        sRotomStartMenu->spriteIdBag     = CreateSprite(&gSpriteIconBag, x, y1, 0);
+    }
+    else
+    {
+        sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y1, 0);
         sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y2 + 1, 0);
-        sRotomStartMenu->spriteIdSave    = CreateSprite(&gSpriteIconSave, x, y3 + 3, 0);
+        sRotomStartMenu->spriteIdSave = CreateSprite(&gSpriteIconSave, x, y3 + 3, 0);
         sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y4 + 1, 0);
     }
 }
 
-static void RotomStartMenu_SafariZone_CreateSprites(void) {
+static void RotomStartMenu_SafariZone_CreateSprites(void)
+{
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -990,20 +1044,24 @@ static void RotomStartMenu_SafariZone_CreateSprites(void) {
     u32 y6 = 130;
 
     sRotomStartMenu->spriteIdFlag = CreateSprite(&gSpriteIconFlag, x, y1, 0);
-    sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x-1, y2, 0);
-    sRotomStartMenu->spriteIdParty   = CreateSprite(&gSpriteIconParty, x, y3, 0);
-    sRotomStartMenu->spriteIdBag     = CreateSprite(&gSpriteIconBag, x, y4, 0);
+    sRotomStartMenu->spriteIdPokedex = CreateSprite(&gSpriteIconPokedex, x - 1, y2, 0);
+    sRotomStartMenu->spriteIdParty = CreateSprite(&gSpriteIconParty, x, y3, 0);
+    sRotomStartMenu->spriteIdBag = CreateSprite(&gSpriteIconBag, x, y4, 0);
     sRotomStartMenu->spriteIdTrainerCard = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
     sRotomStartMenu->spriteIdOptions = CreateSprite(&gSpriteIconOptions, x, y6, 0);
 }
 
-static void RotomStartMenu_LoadBgGfx(void) {
-    u8* buf = GetBgTilemapBuffer(0);
+static void RotomStartMenu_LoadBgGfx(void)
+{
+    u8 *buf = GetBgTilemapBuffer(0);
     LoadBgTilemap(0, 0, 0, 0);
     DecompressAndCopyTileDataToVram(0, sStartMenuTiles, 0, 0, 0);
-    if (!GetSafariZoneFlag()) {
+    if (!GetSafariZoneFlag())
+    {
         LZDecompressWram(sStartMenuTilemap, buf);
-    } else {
+    }
+    else
+    {
         LZDecompressWram(sStartMenuTilemapSafari, buf);
     }
     LoadPalette(sStandardMenuPalette, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
@@ -1011,14 +1069,15 @@ static void RotomStartMenu_LoadBgGfx(void) {
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static const u8 sDexNumTextColor[3] = {0, 2, 3};
+static const u8 sDexNumTextColor[3] = { 0, 2, 3 };
 
-static void RotomStartMenu_PrintDexNumbers(void) {
+static void RotomStartMenu_PrintDexNumbers(void)
+{
     u8 printStr[8];
     u8 obtainableStr[4];
     u16 caught = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
     u16 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
-    
+
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
 
@@ -1031,7 +1090,8 @@ static void RotomStartMenu_PrintDexNumbers(void) {
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
-static void RotomStartMenu_ExitAndClearTilemap(void) {
+static void RotomStartMenu_ExitAndClearTilemap(void)
+{
     u32 i;
     u8 *buf = GetBgTilemapBuffer(0);
 
@@ -1046,34 +1106,41 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
     RemoveWindow(sRotomStartMenu->sDexNumbersWindowID);
 
-    if (GetSafariZoneFlag()) {
+    if (GetSafariZoneFlag())
+    {
         FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
         ClearWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
         CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
         RemoveWindow(sRotomStartMenu->sSafariBallsWindowId);
     }
 
-    for(i=0; i<2048; i++) {
+    for (i = 0; i < 2048; i++)
+    {
         buf[i] = 0;
     }
 
     ScheduleBgCopyTilemapToVram(0);
 
-    if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
+    if (FlagGet(FLAG_SYS_POKEDEX_GET))
+    {
         FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdPokedex]);
         DestroySprite(&gSprites[sRotomStartMenu->spriteIdPokedex]);
     }
-    if (FlagGet(FLAG_SYS_POKEMON_GET)) {
+    if (FlagGet(FLAG_SYS_POKEMON_GET))
+    {
         FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdParty]);
         DestroySprite(&gSprites[sRotomStartMenu->spriteIdParty]);
     }
 
-    if (!GetSafariZoneFlag()) {
+    if (!GetSafariZoneFlag())
+    {
         FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdSave]);
         DestroySprite(&gSprites[sRotomStartMenu->spriteIdSave]);
         FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdPC]);
         DestroySprite(&gSprites[sRotomStartMenu->spriteIdPC]);
-    } else {
+    }
+    else
+    {
         FreeSpriteOamMatrix(&gSprites[sRotomStartMenu->spriteIdFlag]);
         DestroySprite(&gSprites[sRotomStartMenu->spriteIdFlag]);
     }
@@ -1090,7 +1157,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbersRight]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdRotomEyes]);
 
-    if (sRotomStartMenu != NULL) {
+    if (sRotomStartMenu != NULL)
+    {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
         Free(sRotomStartMenu);
@@ -1101,8 +1169,10 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     UnlockPlayerFieldControls();
 }
 
-static void DoCleanUpAndChangeCallback(MainCallback callback) {
-    if (!gPaletteFade.active) {
+static void DoCleanUpAndChangeCallback(MainCallback callback)
+{
+    if (!gPaletteFade.active)
+    {
         DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
         PlayRainStoppingSoundEffect();
         RotomStartMenu_ExitAndClearTilemap();
@@ -1112,8 +1182,10 @@ static void DoCleanUpAndChangeCallback(MainCallback callback) {
     }
 }
 
-static void DoCleanUpAndOpenTrainerCard(void) {
-    if (!gPaletteFade.active) {
+static void DoCleanUpAndOpenTrainerCard(void)
+{
+    if (!gPaletteFade.active)
+    {
         PlayRainStoppingSoundEffect();
         RotomStartMenu_ExitAndClearTilemap();
         CleanupOverworldWindowsAndTilemaps();
@@ -1122,8 +1194,10 @@ static void DoCleanUpAndOpenTrainerCard(void) {
     }
 }
 
-static void DoCleanUpAndOpenPC(void) {
-    if (!gPaletteFade.active) {
+static void DoCleanUpAndOpenPC(void)
+{
+    if (!gPaletteFade.active)
+    {
         PlayRainStoppingSoundEffect();
         RotomStartMenu_ExitAndClearTilemap();
         CleanupOverworldWindowsAndTilemaps();
@@ -1135,8 +1209,10 @@ static void DoCleanUpAndOpenPC(void) {
 
 #define tRotomMove data[0]
 
-static void Task_DoCleanUpAndExecuteFieldMove(u8 taskId) {
-    if (!gPaletteFade.active) {
+static void Task_DoCleanUpAndExecuteFieldMove(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
         if (gTasks[taskId].tRotomMove == ROTOM_MOVE_FLY)
         {
             PlayRainStoppingSoundEffect();
@@ -1168,7 +1244,6 @@ static void SaveStartTimer(void)
 static bool8 SaveSuccesTimer(void)
 {
     sSaveDialogTimer--;
-
 
     if (JOY_HELD(A_BUTTON) || JOY_HELD(B_BUTTON))
     {
@@ -1262,20 +1337,26 @@ static u8 SaveDoSaveCallback(void)
     }
 
     if (saveStatus == SAVE_STATUS_OK)
+    {
         ShowSaveMessage(gText_PlayerSavedTheGame, SaveSuccessCallback);
+    }
     else
+    {
         ShowSaveMessage(gText_SaveError_PleaseExchangeBackupMemory, SaveErrorCallback);
+    }
 
     SaveStartTimer();
     return SAVE_IN_PROGRESS;
 }
 
-static void HideSaveInfoWindow(void) {
+static void HideSaveInfoWindow(void)
+{
     ClearStdWindowAndFrame(sSaveInfoWindowId, FALSE);
     RemoveWindow(sSaveInfoWindowId);
 }
 
-static void HideSaveMessageWindow(void) {
+static void HideSaveMessageWindow(void)
+{
     ClearDialogWindowAndFrame(0, TRUE);
 }
 
@@ -1310,7 +1391,8 @@ static u8 SaveConfirmOverwriteCallback(void)
     return SAVE_IN_PROGRESS;
 }
 
-static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void)) {
+static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void))
+{
     StringExpandPlaceholders(gStringVar4, message);
     LoadMessageBoxAndFrameGfx(0, TRUE);
     AddTextPrinterForMessage(TRUE);
@@ -1331,7 +1413,8 @@ static u8 SaveFileExistsCallback(void)
     return SAVE_IN_PROGRESS;
 }
 
-static u8 SaveSavingMessageCallback(void) {
+static u8 SaveSavingMessageCallback(void)
+{
     ShowSaveMessage(gText_SavingDontTurnOffThePower, SaveDoSaveCallback);
     return SAVE_IN_PROGRESS;
 }
@@ -1367,7 +1450,8 @@ static u8 SaveConfirmInputCallback(void)
     return SAVE_IN_PROGRESS;
 }
 
-static u8 SaveYesNoCallback(void) {
+static u8 SaveYesNoCallback(void)
+{
     DisplayYesNoMenuDefaultYes(); // Show Yes/No menu
     sSaveDialogCallback = SaveConfirmInputCallback;
     return SAVE_IN_PROGRESS;
@@ -1377,7 +1461,8 @@ static ALIGNED(2) const u8 sTextColor_StatName[] = { 1, 2, 3 };
 static ALIGNED(2) const u8 sTextColor_StatValue[] = { 1, 4, 5 };
 static ALIGNED(2) const u8 sTextColor_LocationHeader[] = { 1, 6, 7 };
 
-static void ShowSaveInfoWindow(void) {
+static void ShowSaveInfoWindow(void)
+{
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
     u8 gender, color;
     u32 x, y;
@@ -1421,7 +1506,8 @@ static void ShowSaveInfoWindow(void) {
     CopyWindowToVram(sSaveInfoWindowId, COPYWIN_GFX);
 }
 
-static u8 SaveConfirmSaveCallback(void) {
+static u8 SaveConfirmSaveCallback(void)
+{
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     ShowSaveInfoWindow();
 
@@ -1435,8 +1521,10 @@ static void InitSave(void)
     sSaveDialogCallback = SaveConfirmSaveCallback;
 }
 
-static void Task_HandleSave(u8 taskId) {
-    switch (RunSaveCallback()) {
+static void Task_HandleSave(u8 taskId)
+{
+    switch (RunSaveCallback())
+    {
     case SAVE_IN_PROGRESS:
         break;
     case SAVE_CANCELED: // Back to start menu
@@ -1451,7 +1539,7 @@ static void Task_HandleSave(u8 taskId) {
         DestroyTask(taskId);
         break;
     case SAVE_SUCCESS:
-    case SAVE_ERROR:    // Close start menu
+    case SAVE_ERROR: // Close start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ClearPlayerHeldMovementAndUnfreezeObjectEvents();
         UnlockPlayerFieldControls();
@@ -1460,7 +1548,8 @@ static void Task_HandleSave(u8 taskId) {
     }
 }
 
-static void DoCleanUpAndStartSaveMenu(void) {
+static void DoCleanUpAndStartSaveMenu(void)
+{
     // if (!gPaletteFade.active) {
     //     RotomStartMenu_ExitAndClearTilemap();
     //     FreezeObjectEvents();
@@ -1479,8 +1568,10 @@ static void DoCleanUpAndStartSaveMenu(void) {
     CreateTask(Task_HandleSave, 0x80);
 }
 
-static void DoCleanUpAndStartSafariZoneRetire(void) {
-    if (!gPaletteFade.active) {
+static void DoCleanUpAndStartSafariZoneRetire(void)
+{
+    if (!gPaletteFade.active)
+    {
         RotomStartMenu_ExitAndClearTilemap();
         FreezeObjectEvents();
         LockPlayerFieldControls();
@@ -1489,8 +1580,10 @@ static void DoCleanUpAndStartSafariZoneRetire(void) {
     }
 }
 
-static void RotomStartMenu_OpenMenu(void) {
-    switch (sMenuSelected) {
+static void RotomStartMenu_OpenMenu(void)
+{
+    switch (sMenuSelected)
+    {
     case MENU_POKEDEX:
         DoCleanUpAndChangeCallback(CB2_OpenPokedexFromStartMenu);
         break;
@@ -1565,7 +1658,6 @@ static void SpriteCB_MoveSelectorAnimRight(struct Sprite *sprite)
     }
 }
 
-
 static void MoveSelector_StartComfyAnims(void)
 {
     struct ComfyAnimEasingConfig config;
@@ -1590,7 +1682,7 @@ static void MoveSelector_StartComfyAnims(void)
         sRotomStartMenu->comfyAnimStatus = COMFY_ANIM_STARTED;
 
         ClearMoveSelectorText();
-         
+
         InitComfyAnimConfig_Easing(&config);
         config.durationFrames = 20;
         config.from = Q_24_8(gSprites[spriteIDL].x);
@@ -1605,18 +1697,25 @@ static void MoveSelector_StartComfyAnims(void)
     }
 }
 
-static void RotomStartMenu_HandleInput_DPadDown(void) {
+static void RotomStartMenu_HandleInput_DPadDown(void)
+{
     // Needs to be set to 0 so that the selected icons change in the frontend
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    switch (sMenuSelected) {
+    switch (sMenuSelected)
+    {
     case MENU_OPTIONS:
         PlaySE(SE_SELECT);
-        if (FlagGet(FLAG_SYS_POKEDEX_GET)) {
+        if (FlagGet(FLAG_SYS_POKEDEX_GET))
+        {
             sMenuSelected = MENU_POKEDEX;
-        } else if (FlagGet(FLAG_SYS_POKEMON_GET)) {
+        }
+        else if (FlagGet(FLAG_SYS_POKEMON_GET))
+        {
             sMenuSelected = MENU_PARTY;
-        } else {
+        }
+        else
+        {
             sMenuSelected = MENU_BAG;
         }
         break;
@@ -1631,17 +1730,20 @@ static void RotomStartMenu_HandleInput_DPadDown(void) {
     default:
         sMenuSelected++;
         PlaySE(SE_SELECT);
-        if (!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_PARTY) {
+        if (!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_PARTY)
+        {
             sMenuSelected++;
-      }
-      break;
+        }
+        break;
     }
 }
 
-static void RotomStartMenu_HandleInput_DPadUp(void) {
+static void RotomStartMenu_HandleInput_DPadUp(void)
+{
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    switch (sMenuSelected) {
+    switch (sMenuSelected)
+    {
     case MENU_POKEDEX:
         PlaySE(SE_SELECT);
         sMenuSelected = MENU_OPTIONS;
@@ -1657,17 +1759,21 @@ static void RotomStartMenu_HandleInput_DPadUp(void) {
     default:
         PlaySE(SE_SELECT);
         if ((!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_BAG)
-            || (!FlagGet(FLAG_SYS_POKEDEX_GET) && sMenuSelected == MENU_PARTY)) {
+            || (!FlagGet(FLAG_SYS_POKEDEX_GET) && sMenuSelected == MENU_PARTY))
+        {
             sMenuSelected = MENU_OPTIONS;
             break;
-        } else {
+        }
+        else
+        {
             sMenuSelected--;
         }
         break;
     }
 }
 
-static void RotomStartMenu_HandleInput_DPadLeft(void) {
+static void RotomStartMenu_HandleInput_DPadLeft(void)
+{
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
         PlaySE(SE_SELECT);
@@ -1675,10 +1781,9 @@ static void RotomStartMenu_HandleInput_DPadLeft(void) {
         sMenuSelected = MENU_NONE;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
         MoveSelector_StartComfyAnims();
-        
     }
-    else if (sRotomStartMenu->fieldMoveCursor > 0 
-            && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
+    else if (sRotomStartMenu->fieldMoveCursor > 0
+             && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
     {
         PlaySE(SE_SELECT);
         sRotomStartMenu->fieldMoveCursor--;
@@ -1686,7 +1791,8 @@ static void RotomStartMenu_HandleInput_DPadLeft(void) {
     }
 }
 
-static void RotomStartMenu_HandleInput_DPadRight(void) {
+static void RotomStartMenu_HandleInput_DPadRight(void)
+{
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
         || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
@@ -1712,7 +1818,7 @@ static inline bool32 CheckValidFieldMoveInput(void)
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
     {
-        gFieldEffectArguments[0] = 0; //ravetodo get actual party or PC mon
+        gFieldEffectArguments[0] = 0; // ravetodo get actual party or PC mon
         return TRUE;
     }
     else
@@ -1721,124 +1827,177 @@ static inline bool32 CheckValidFieldMoveInput(void)
         PlaySE(SE_BOO);
         return FALSE;
     }
-
 }
 
-static void Task_RotomStartMenu_HandleMainInput(u8 taskId) {
+static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
+{
     u32 index, fieldMoveTask;
     sRotomStartMenu->blinkTimer--;
     AdvanceComfyAnimations();
 
-    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
+    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
+    {
         index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
         LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     }
-    if (JOY_NEW(A_BUTTON)) {
+    if (JOY_NEW(A_BUTTON))
+    {
         if (sMenuSelected != MENU_NONE)
         {
-            if (!sRotomStartMenu->optionSelected) {
-                if (sMenuSelected != MENU_SAVE) {
+            if (!sRotomStartMenu->optionSelected)
+            {
+                if (sMenuSelected != MENU_SAVE)
+                {
                     FadeScreen(FADE_TO_BLACK, 0);
                 }
                 sRotomStartMenu->optionSelected = TRUE;
             }
         }
-        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE 
-                && CheckValidFieldMoveInput())
+        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
+                 && CheckValidFieldMoveInput())
         {
-            if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY) FadeScreen(FADE_TO_BLACK, 0);
+            if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY)
+            {
+                FadeScreen(FADE_TO_BLACK, 0);
+            }
             fieldMoveTask = CreateTask(Task_DoCleanUpAndExecuteFieldMove, 0);
             gTasks[fieldMoveTask].tRotomMove = sRotomStartMenu->fieldMoveCursor;
         }
-    } else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
+    {
         PlaySE(SE_SELECT);
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
-    } else if (JOY_REPT(DPAD_DOWN) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_REPT(DPAD_DOWN) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_HandleInput_DPadDown();
-    } else if (JOY_REPT(DPAD_UP) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_REPT(DPAD_UP) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_HandleInput_DPadUp();
-    } else if (JOY_REPT(DPAD_LEFT) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_REPT(DPAD_LEFT) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_HandleInput_DPadLeft();
-    } else if (JOY_REPT(DPAD_RIGHT) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_REPT(DPAD_RIGHT) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_HandleInput_DPadRight();
-    } else if (sRotomStartMenu->optionSelected) {
+    }
+    else if (sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_OpenMenu();
     }
 }
 
 #undef tRotomMove
 
-static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void) {
+static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void)
+{
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    switch (sMenuSelected) {
+    switch (sMenuSelected)
+    {
     case MENU_OPTIONS:
         sMenuSelected = MENU_RETIRE;
         break;
     default:
         PlaySE(SE_SELECT);
-        if (sMenuSelected == MENU_RETIRE) {
+        if (sMenuSelected == MENU_RETIRE)
+        {
             sMenuSelected = MENU_POKEDEX;
-        } else if (sMenuSelected == MENU_BAG) {
+        }
+        else if (sMenuSelected == MENU_BAG)
+        {
             sMenuSelected = MENU_TRAINER_CARD;
-        } else if (sMenuSelected == MENU_TRAINER_CARD) {
+        }
+        else if (sMenuSelected == MENU_TRAINER_CARD)
+        {
             sMenuSelected = MENU_OPTIONS;
-        } else {
+        }
+        else
+        {
             sMenuSelected++;
         }
         break;
     }
 }
 
-static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void) {
+static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void)
+{
     sRotomStartMenu->iconAnimStarted = FALSE;
 
-    switch (sMenuSelected) {
+    switch (sMenuSelected)
+    {
     case MENU_RETIRE:
         sMenuSelected = MENU_OPTIONS;
         break;
     default:
         PlaySE(SE_SELECT);
-        if (sMenuSelected == MENU_POKEDEX) {
+        if (sMenuSelected == MENU_POKEDEX)
+        {
             sMenuSelected = MENU_RETIRE;
-        } else if (sMenuSelected == MENU_OPTIONS) {
+        }
+        else if (sMenuSelected == MENU_OPTIONS)
+        {
             sMenuSelected = MENU_TRAINER_CARD;
-        } else if (sMenuSelected == MENU_TRAINER_CARD) {
+        }
+        else if (sMenuSelected == MENU_TRAINER_CARD)
+        {
             sMenuSelected = MENU_BAG;
-        } else {
+        }
+        else
+        {
             sMenuSelected--;
         }
         break;
     }
 }
 
-static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
+static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
+{
     u32 index;
-    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active) {
+    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
+    {
         index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
         LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     }
 
-    if (JOY_NEW(A_BUTTON)) {
-        if (!sRotomStartMenu->optionSelected) {
-            if (sMenuSelected != MENU_RETIRE) {
+    if (JOY_NEW(A_BUTTON))
+    {
+        if (!sRotomStartMenu->optionSelected)
+        {
+            if (sMenuSelected != MENU_RETIRE)
+            {
                 FadeScreen(FADE_TO_BLACK, 0);
             }
             sRotomStartMenu->optionSelected = TRUE;
         }
-    } else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
+    {
         PlaySE(SE_SELECT);
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
-    } else if (JOY_NEW(DPAD_DOWN) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_NEW(DPAD_DOWN) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_SafariZone_HandleInput_DPadDown();
-    } else if (JOY_NEW(DPAD_UP) && !sRotomStartMenu->optionSelected) {
+    }
+    else if (JOY_NEW(DPAD_UP) && !sRotomStartMenu->optionSelected)
+    {
         RotomStartMenu_SafariZone_HandleInput_DPadUp();
-    } else if (sRotomStartMenu->optionSelected) {
-        if (sMenuSelected != MENU_RETIRE) {
+    }
+    else if (sRotomStartMenu->optionSelected)
+    {
+        if (sMenuSelected != MENU_RETIRE)
+        {
             RotomStartMenu_OpenMenu();
-        } else {
+        }
+        else
+        {
             DoCleanUpAndStartSafariZoneRetire();
         }
     }
@@ -1851,8 +2010,8 @@ static bool32 SetupFunc_Surf(void)
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
-    return (!MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y))
-             && IsPlayerFacingSurfableFishableWater());
+    return !MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y))
+        && IsPlayerFacingSurfableFishableWater();
 }
 
 static void FieldMoveFunc_Surf(void)
@@ -1865,8 +2024,8 @@ static bool32 SetupFunc_Waterfall(void)
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
-    return (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y))
-            && IsPlayerSurfingNorth());
+    return MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y))
+        && IsPlayerSurfingNorth();
 }
 
 static void FieldMoveFunc_Waterfall(void)
@@ -1886,9 +2045,9 @@ static void FieldMoveFunc_RockClimb(void)
 
 static bool32 SetupFunc_Strength(void)
 {
-    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) 
-            && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
-            && !FlagGet(FLAG_SYS_USE_STRENGTH);
+    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING)
+        && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+        && !FlagGet(FLAG_SYS_USE_STRENGTH);
 }
 
 static void FieldMoveFunc_Strength(void)
@@ -1896,7 +2055,8 @@ static void FieldMoveFunc_Strength(void)
     ScriptContext_SetupScript(EventScript_FldEffStrength);
 }
 
-enum CutType {
+enum CutType
+{
     CUT_TYPE_NONE,
     CUT_TYPE_TREE,
     CUT_TYPE_GRASS,
@@ -1916,20 +2076,16 @@ static bool32 SetupFunc_Cut(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE ||
-        (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE &&
-        ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
-        (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
-        )))
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE || (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE && ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM)))))
     {
         sFieldMoveData = CUT_TYPE_TREE;
         return TRUE;
     }
-    
+
     else
     {
         PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
-    
+
         for (i = 0; i < CUT_SIDE; i++)
         {
             y = gPlayerFacingPosition.y - 1 + i;
@@ -1959,7 +2115,7 @@ static void FieldMoveFunc_Cut(void)
     else
     {
         ScriptContext_SetupScript(EventScript_FldEffCut);
-    } 
+    }
 }
 
 static bool32 SetupFunc_Fly(void)
@@ -2005,14 +2161,11 @@ static void FieldMoveFunc_BrickBreak(void)
 
 static bool32 SetupFunc_TailGlow(void)
 {
-    if (gMapHeader.cave != TRUE)
-        return FALSE;
+    if (gMapHeader.cave != TRUE) return FALSE;
 
-    if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
-        return FALSE;
+    if (FlagGet(FLAG_SYS_FLASH_ACTIVE)) return FALSE;
 
-    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
-        return FALSE;
+    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F)) return FALSE;
 
     return TRUE;
 }
