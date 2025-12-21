@@ -1330,7 +1330,15 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_STARMIEMEGA 1264
 
-#define SPECIES_EGG 1265
+#define SPECIES_GIRAFARIGBOTTOM 1265
+
+#define SPECIES_GIRAFARIGBUTT 1266
+
+#define SPECIES_MEWTWOW 1267
+
+#define SPECIES_CHARIZARDQ 1268
+
+#define SPECIES_EGG 1269
 
 #define NUM_SPECIES SPECIES_EGG
 
