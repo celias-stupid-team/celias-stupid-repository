@@ -121,6 +121,8 @@ static bool32 SetupFunc_BrickBreak(void); // placeholder
 static void FieldMoveFunc_BrickBreak(void); // placeholder
 static bool32 SetupFunc_Rest(void); // placeholder
 static void FieldMoveFunc_Rest(void); // placeholder
+static bool32 SetupFunc_Retreat(void);
+static void FieldMoveFunc_Retreat(void);
 
 /* ENUMs */
 enum MenuOption {
@@ -274,8 +276,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 166,
         .textXPos = 166,
         .name = gLongMoveNames[MOVE_RETREAT],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Retreat,
+        .fieldMoveFunc = FieldMoveFunc_Retreat,
     },
     [ROTOM_MOVE_NONE] = {
         .move = MOVE_NONE,
@@ -2003,4 +2005,15 @@ static bool32 SetupFunc_Rest(void)
 static void FieldMoveFunc_Rest(void)
 {
     return;
+}
+
+static bool32 SetupFunc_Retreat(void)
+{
+    return TRUE;
+}
+
+static void FieldMoveFunc_Retreat(void)
+{
+    Overworld_ResetStateAfterTeleport();
+    FieldEffectStart(FLDEFF_USE_RETREAT);
 }
