@@ -303,7 +303,8 @@ struct RotomStartMenu {
     u8 fieldMoveCursor:4;
     u8 storedMenuOption:4;
     u8 spriteIdRotomEyes;
-    u8 spriteIdDexNumbers;
+    u8 spriteIdDexNumbersLeft;
+    u8 spriteIdDexNumbersRight;
     u8 spriteIdMoveSelectorLeft;
     u8 spriteIdMoveSelectorRight;
     u8 spriteIdPokedex;
@@ -355,9 +356,9 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
 
 static const struct WindowTemplate sWindowTemplate_DexNumbers = {
     .bg = 0,
-    .tilemapLeft = 21,
+    .tilemapLeft = 20,
     .tilemapTop = 0,
-    .width = 4,
+    .width = 5,
     .height = 2,
     .paletteNum = 15,
     .baseBlock = 248
@@ -370,7 +371,7 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .width = 7,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 256
+    .baseBlock = 258
 };
 
 static const struct WindowTemplate sWindowTemplate_MoveNames = {
@@ -380,7 +381,7 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .width = 25,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 284
+    .baseBlock = 286
 };
 
 static const struct SpritePalette sSpritePal_Icon[] =
@@ -948,8 +949,10 @@ static void RotomStartMenu_CreateSprites(void) {
     sRotomStartMenu->spriteIdMoveSelectorRight = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight], 1, 0);
 
-    sRotomStartMenu->spriteIdDexNumbers = CreateSprite(&sSpriteMoveSelector, 189, 14, 0);
-    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbers], 0, 1);
+    sRotomStartMenu->spriteIdDexNumbersLeft = CreateSprite(&sSpriteMoveSelector, 176, 14, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbersLeft], 0, 1);
+    sRotomStartMenu->spriteIdDexNumbersRight = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
+    SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIdDexNumbersRight], 1, 1);
 
     sRotomStartMenu->spriteIdRotomEyes = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
 
@@ -1024,7 +1027,7 @@ static void RotomStartMenu_PrintDexNumbers(void) {
     StringAppend(printStr, gText_Slash);
     StringAppend(printStr, obtainableStr);
 
-    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 10, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
+    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 5, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
@@ -1083,7 +1086,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void) {
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdOptions]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorLeft]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdMoveSelectorRight]);
-    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbers]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbersLeft]);
+    DestroySprite(&gSprites[sRotomStartMenu->spriteIdDexNumbersRight]);
     DestroySprite(&gSprites[sRotomStartMenu->spriteIdRotomEyes]);
 
     if (sRotomStartMenu != NULL) {
