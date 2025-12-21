@@ -1169,6 +1169,11 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
     RemoveWindow(sRotomStartMenu->sDexNumbersWindowID);
 
+    FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    ClearWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
+    CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
+    RemoveWindow(sRotomStartMenu->sMoveNameWindowId);
+
     if (GetSafariZoneFlag())
     {
         FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
