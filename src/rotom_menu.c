@@ -25,6 +25,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "menu.h"
+#include "metatile_behavior.h"
 #include "new_game.h"
 #include "new_menu_helpers.h"
 #include "option_menu.h"
@@ -100,6 +101,8 @@ static u8 SaveConfirmSaveCallback(void);
 static void InitSave(void);
 
 /* Field move funcs */
+static bool32 SetupFunc_Surf(void);
+static void FieldMoveFunc_Surf(void);
 static bool32 SetupFunc_RockClimb(void); // placeholder
 static void FieldMoveFunc_RockClimb(void); // placeholder
 static bool32 SetupFunc_Strength(void);
@@ -181,8 +184,8 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .spriteXPos = 6,
         .textXPos = 10,
         .name = gLongMoveNames[MOVE_SURF],
-        .setupFunc = NULL,
-        .fieldMoveFunc = NULL,
+        .setupFunc = SetupFunc_Surf,
+        .fieldMoveFunc = FieldMoveFunc_Surf,
     },
     [ROTOM_MOVE_WATERFALL] = {
         .move = MOVE_WATERFALL,
@@ -1829,6 +1832,22 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId) {
             DoCleanUpAndStartSafariZoneRetire();
         }
     }
+}
+
+// Field move functions
+
+static bool32 SetupFunc_Surf(void)
+{
+    s16 x, y;
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    return (!MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y))
+             && IsPlayerFacingSurfableFishableWater());
+}
+
+static void FieldMoveFunc_Surf(void)
+{
+    FieldEffectStart(FLDEFF_USE_SURF);
 }
 
 static bool32 SetupFunc_RockClimb(void)
