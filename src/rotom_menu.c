@@ -242,6 +242,7 @@ enum RotomMoveID
 #define ROTOMSE_MOVE_PAGE    SE_CONTEST_ICON_CLEAR
 #define ROTOMSE_MENU_CLOSE   SE_POKENAV_OFF
 
+#define ROTOM_MENU_REPEAT_DELAY 25
 struct RotomMove
 {
     u32 move;
@@ -379,6 +380,7 @@ struct RotomStartMenu
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
@@ -1070,7 +1072,9 @@ void RotomStartMenu_Init(void)
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         return;
     }
-
+    sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
+    gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
+ 
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
@@ -1371,6 +1375,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         sMenuSelected = sRotomStartMenu->storedMenuOption;
     }
+    
+    gKeyRepeatStartDelay = sRotomStartMenu->keyRepeatStartDelayBackup;
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     ClearWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
