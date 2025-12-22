@@ -312,7 +312,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_WHIRLPOOL,
         .spriteXPos = 6,
         .textXPos = 1,
-        .monXPos = 0,
+        .monXPos = 21,
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
         .setupFunc = SetupFunc_Whirlpool,
         .fieldMoveFunc = FieldMoveFunc_Whirlpool,
@@ -321,7 +321,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_GUILLOTINE,
         .spriteXPos = 38,
         .textXPos = 31,
-        .monXPos = 0,
+        .monXPos = 53,
         .name = gLongMoveNames[MOVE_GUILLOTINE],
         .setupFunc = SetupFunc_Guillotine,
         .fieldMoveFunc = FieldMoveFunc_Guillotine,
@@ -330,7 +330,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_BRICK_BREAK,
         .spriteXPos = 70,
         .textXPos = 59,
-        .monXPos = 0,
+        .monXPos = 85,
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
         .setupFunc = SetupFunc_BrickBreak,
         .fieldMoveFunc = FieldMoveFunc_BrickBreak,
@@ -339,7 +339,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_TAIL_GLOW,
         .spriteXPos = 102,
         .textXPos = 97,
-        .monXPos = 0,
+        .monXPos = 117,
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
         .setupFunc = SetupFunc_TailGlow,
         .fieldMoveFunc = FieldMoveFunc_TailGlow,
@@ -348,7 +348,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_REST,
         .spriteXPos = 134,
         .textXPos = 141,
-        .monXPos = 0,
+        .monXPos = 149,
         .name = gLongMoveNames[MOVE_REST],
         .setupFunc = SetupFunc_Rest,
         .fieldMoveFunc = FieldMoveFunc_Rest,
@@ -357,7 +357,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_RETREAT,
         .spriteXPos = 166,
         .textXPos = 166,
-        .monXPos = 0,
+        .monXPos = 181,
         .name = gLongMoveNames[MOVE_RETREAT],
         .setupFunc = SetupFunc_Retreat,
         .fieldMoveFunc = FieldMoveFunc_Retreat,
@@ -409,6 +409,7 @@ static const u16 sRotomMonIconToSpecies[] = {
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
 static EWRAM_DATA u8 sFieldMoveData = 0;
 static EWRAM_DATA u8 sMenuSelected = 0;
+static EWRAM_DATA u8 sStoredMoveRow = 0;
 static EWRAM_DATA u8 (*sSaveDialogCallback)(void) = NULL;
 static EWRAM_DATA u8 sSaveDialogTimer = 0;
 static EWRAM_DATA u8 sSaveInfoWindowId = 0;
@@ -1162,7 +1163,7 @@ static void RotomStartMenu_UpdateMonSprites(void)
 
 static void RotomStartMenu_CreateSprites(void)
 {
-    u32 i, j;
+    u32 i, j, rotomMoveOffset;
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -1183,12 +1184,13 @@ static void RotomStartMenu_CreateSprites(void)
 
     sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYES] = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
     
+    rotomMoveOffset = sStoredMoveRow == 1 ? ROTOM_MOVE_ROW_SIZE : 0;
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
-        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[i - SPRITE_MON_ICON_0].monXPos, 141, 0);
+        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[i - SPRITE_MON_ICON_0 + rotomMoveOffset].monXPos, 141, 0);
         for (j = 0; j < MON_ICON_COUNT; j++)
         {
-            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0]) 
+            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset]) 
             {
                 StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
             }
@@ -1984,6 +1986,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
         {
             PlaySE(ROTOMSE_MOVE_PAGE);
             sRotomStartMenu->fieldMoveCursor += ROTOM_MOVE_ROW_SIZE;
+            sStoredMoveRow = 1;
             UpdateMoveSelectorText();
             RotomStartMenu_UpdateMonSprites();
         }
@@ -2014,6 +2017,7 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
         {
             PlaySE(ROTOMSE_MOVE_PAGE);
             sRotomStartMenu->fieldMoveCursor -= ROTOM_MOVE_ROW_SIZE;
+            sStoredMoveRow = 0;
             UpdateMoveSelectorText();
             RotomStartMenu_UpdateMonSprites();
         }
@@ -2041,7 +2045,7 @@ static void RotomStartMenu_HandleInput_DPadLeft(void)
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->storedMenuOption = sMenuSelected;
         sMenuSelected = MENU_NONE;
-        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
+        sRotomStartMenu->fieldMoveCursor = sStoredMoveRow == 1 ? ROTOM_MOVE_BOTTOM_ROW_MAX : ROTOM_MOVE_TOP_ROW_MAX;
         MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor > 0
