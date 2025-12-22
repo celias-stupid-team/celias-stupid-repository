@@ -576,7 +576,7 @@ static const struct SpritePalette sSpritePal_MoveSelector[] = {
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_MoveSelector[] = {
-    { sMoveSelectorGfx, 64 * 64 / 4, TAG_MOVE_SELECTOR_GFX },
+    { sMoveSelectorGfx, (64 * 32) / 2, TAG_MOVE_SELECTOR_GFX },
     { NULL },
 };
 
@@ -1791,24 +1791,29 @@ static void Task_HandleSave(u8 taskId)
     }
 }
 
+#define tWaitFrames data[0]
+
+static void Task_WaitForPreSaveCleanup(u8 taskId)
+{
+    if (gTasks[taskId].tWaitFrames <= 0)
+    {
+        LoadUserWindowGfx(sSaveInfoWindowId, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
+        InitSave();
+        CreateTask(Task_HandleSave, 0x80);
+        DestroyTask(taskId);
+    }
+    gTasks[taskId].tWaitFrames--;
+}
+
 static void DoCleanUpAndStartSaveMenu(void)
 {
-    // if (!gPaletteFade.active) {
-    //     RotomStartMenu_ExitAndClearTilemap();
-    //     FreezeObjectEvents();
-    //     LoadUserWindowGfx(sSaveInfoWindowId, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
-    //     LockPlayerFieldControls();
-    //     DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
-    //     InitSave();
-    //     CreateTask(Task_HandleSave, 0x80);
-    // }
+    u8 taskId;
+    DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
     RotomStartMenu_ExitAndClearTilemap();
     FreezeObjectEvents();
-    LoadUserWindowGfx(sSaveInfoWindowId, STD_WINDOW_BASE_TILE_NUM, BG_PLTT_ID(STD_WINDOW_PALETTE_NUM));
     LockPlayerFieldControls();
-    DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
-    InitSave();
-    CreateTask(Task_HandleSave, 0x80);
+    taskId = CreateTask(Task_WaitForPreSaveCleanup, 0x80);
+    gTasks[taskId].tWaitFrames = 5;
 }
 
 static void DoCleanUpAndStartSafariZoneRetire(void)
