@@ -1319,22 +1319,26 @@ static void RotomStartMenu_LoadBgGfx(void)
 
 static const u8 sDexNumTextColor[3] = { 0, 2, 3 };
 
+#define DEX_NUM_TEXT_BASE_OFFSET 6
+
 static void RotomStartMenu_PrintDexNumbers(void)
 {
     u8 printStr[8];
     u8 obtainableStr[4];
+    u32 xOffset;
     u16 caught = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
     u16 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
 
-    ConvertIntToDecimalStringN(printStr, caught, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(printStr, caught, STR_CONV_MODE_RIGHT_ALIGN, 3);
     ConvertIntToDecimalStringN(obtainableStr, obtainable, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringAppend(printStr, gText_Slash);
     StringAppend(printStr, obtainableStr);
 
-    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, 5, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
+    xOffset = GetStringRightAlignXOffset(FONT_SMALL, printStr, (sWindowTemplate_DexNumbers.width * 8 - DEX_NUM_TEXT_BASE_OFFSET));
+    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, xOffset + DEX_NUM_TEXT_BASE_OFFSET, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
 
