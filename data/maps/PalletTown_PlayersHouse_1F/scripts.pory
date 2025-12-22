@@ -53,9 +53,7 @@ PalletTown_PlayersHouse_1F_EventScript_WTFBackSide::
 	msgbox PalletTown_PlayersHouse_1F_Text_WTFBackSide
 	return
 
-PalletTown_PlayersHouse_1F_EventScript_YayRightSide::
-	msgbox PalletTown_PlayersHouse_1F_Text_YayRightSide
-	return
+
 
 PalletTown_PlayersHouse_1F_EventScript_TVScreen::
 	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVFourBoysOnRailroad
@@ -137,4 +135,28 @@ script PalletTown_PlayersHouse_1F_EventScript_CeliaWrongSide {
 script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
 	msgbox("Dad is by far my favorite character\nto write for this hack.\pEveryone expects it to be some gross\nsexual joke or whatever, but no.\lIt's just Dad.\pAll he needs to do is show up and\nsay something kinda silly.\pHe's already conceptually so funny,\nthat almost anything I write works.", MSGBOX_NPC)
 	end
+}
+
+
+
+script PalletTown_PlayersHouse_1F_EventScript_YayRightSide {
+	msgbox(PalletTown_PlayersHouse_1F_Text_YayRightSide)
+	if(flag(FLAG_SYS_POKEDEX_GET) && !flag(FLAG_SYS_ROTOM_MENU)) {
+		msgbox(
+		"…Oh, hey!\n"
+		"Inside the TV…", MSGBOX_DEFAULT)
+		playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+		waitmoncry
+		msgbox(
+		"There's a ROTOM hiding!\n"
+		"", MSGBOX_DEFAULT)
+		playfanfare(MUS_SLOTS_JACKPOT)
+		msgbox(
+		"ROTOM entered {PLAYER}'s\n"
+		"POKéDEX!", MSGBOX_DEFAULT)
+		setflag(FLAG_SYS_ROTOM_MENU)
+		release
+		end
+
+	}
 }
