@@ -84,6 +84,7 @@ static void Task_HandleSave(u8 taskId);
 static void RotomStartMenu_LoadSprites(void);
 static void RotomStartMenu_CreateSprites(void);
 static void RotomStartMenu_CreateSpriteMasks(void);
+static void RotomStartMenu_DisableSpriteAffineModes(void);
 static void RotomStartMenu_SafariZone_CreateSprites(void);
 static void RotomStartMenu_LoadBgGfx(void);
 static void RotomStartMenu_PrintDexNumbers(void);
@@ -413,6 +414,8 @@ static const struct CompressedSpriteSheet sSpriteSheet_Icon[] = {
     { sIconGfx, 32 * 512 / 2, TAG_ICON_GFX },
     { NULL },
 };
+
+#define ROTOM_ICON_SIZE 32
 
 static const struct OamData gOamIcon = {
     .y = 0,
@@ -952,7 +955,12 @@ void RotomStartMenu_Init(void)
         RotomStartMenu_LoadSprites();
         memset(sRotomStartMenu->spriteIDs, SPRITE_NONE, ROTOM_SPRITE_COUNT_WITH_MASKS);
         RotomStartMenu_CreateSprites();
-        if (Overworld_GetFlashLevel()) RotomStartMenu_CreateSpriteMasks();
+        if (Overworld_GetFlashLevel())
+        {
+            RotomStartMenu_CreateSpriteMasks();           
+            RotomStartMenu_DisableSpriteAffineModes();
+        }
+
         RotomStartMenu_LoadBgGfx();
         sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
         CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
@@ -1021,7 +1029,6 @@ static void RotomStartMenu_CreateSprites(void)
         sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
         sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
         sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
-        return;
     }
     else if (FlagGet(FLAG_SYS_POKEMON_GET))
     {
@@ -1030,7 +1037,6 @@ static void RotomStartMenu_CreateSprites(void)
         sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y3 + 3, 0);
         sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
         sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y5 - 4, 0);
-        return;
     }
     else
     {
@@ -1077,6 +1083,27 @@ static void RotomStartMenu_CreateSpriteMasks(void)
 
     SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
     SetGpuRegBits(REG_OFFSET_WINOUT, 0);
+}
+
+static void RotomStartMenu_DisableSpriteAffineModes(void)
+{
+    u32 i, spriteID;
+    for (i = 0; i < ROTOM_SPRITE_COUNT_WITH_MASKS; i++)
+    {
+        spriteID = sRotomStartMenu->spriteIDs[i];
+        if (spriteID != SPRITE_NONE)
+        {
+            // this is hardcoded to ensure the double size sprites stay in the same place
+            // even after disabling that mode
+            if (gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_DOUBLE)
+            {
+                gSprites[spriteID].x += (ROTOM_ICON_SIZE / 2);
+                gSprites[spriteID].y += (ROTOM_ICON_SIZE / 2);
+            }
+
+            gSprites[spriteID].oam.affineMode = ST_OAM_AFFINE_OFF;
+        }
+    }
 }
 
 static void RotomStartMenu_SafariZone_CreateSprites(void)
@@ -1660,6 +1687,7 @@ static void SpriteCB_MoveSelectorMask(struct Sprite *sprite)
     }    
 }
 
+// ravetodo collapse into one func
 static void SpriteCB_MoveSelectorAnimLeft(struct Sprite *sprite)
 {
     int animId = sprite->data[0];
