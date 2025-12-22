@@ -514,6 +514,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_ARTICUNO_PILLAR  0x1157
 #define OBJ_EVENT_PAL_TAG_FOR_SALE  0x1158
 #define OBJ_EVENT_PAL_TAG_TERRITORIAL_OAK  0x1159
+#define OBJ_EVENT_PAL_TAG_RAVEPOSSUM  0x115A
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -601,6 +602,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_articuno_pillar,             OBJ_EVENT_PAL_TAG_ARTICUNO_PILLAR},
     {gObjectEventPal_for_sale,             OBJ_EVENT_PAL_TAG_FOR_SALE},
     {gObjectEventPal_territorial_oak,             OBJ_EVENT_PAL_TAG_TERRITORIAL_OAK},
+    {gObjectEventPal_ravepossum,             OBJ_EVENT_PAL_TAG_RAVEPOSSUM},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

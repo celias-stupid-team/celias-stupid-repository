@@ -154,6 +154,7 @@ script SilphCo_Elevator_Rat {
 }
 
 script SilphCo_Elevator_RavePossum {
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
 	"Well technically, I'm a possum.\n"
 	"", MSGBOX_NPC)
