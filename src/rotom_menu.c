@@ -237,10 +237,11 @@ enum RotomMoveID
 #define BLINK_TIMER_START_VALUE     100
 #define BLINK_TIMER_FRAMES_ACTIVE   5
 
-#define ROTOMSE_MENU_CURSOR  SE_SELECT
+#define ROTOMSE_MENU_CURSOR  SE_DEX_SCROLL
 #define ROTOMSE_MOVE_CURSOR  SE_DEX_SCROLL
-#define ROTOMSE_MOVE_PAGE    SE_CONTEST_ICON_CLEAR
+#define ROTOMSE_MOVE_PAGE    SE_DEX_PAGE
 #define ROTOMSE_MENU_CLOSE   SE_POKENAV_OFF
+#define ROTOMSE_MENU_SELECTION  SE_SELECT
 
 #define ROTOM_MENU_REPEAT_DELAY 25
 struct RotomMove
@@ -1942,7 +1943,7 @@ static void MoveSelector_StartComfyAnims(void)
     {
         ReleaseComfyAnim(gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].data[0]);
         InitComfyAnimConfig_Easing(&config);
-        config.durationFrames = 10;
+        config.durationFrames = 7;
         config.from = Q_24_8(gSprites[spriteIDL].x);
         config.to = Q_24_8(sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos);
         config.easingFunc = ComfyAnimEasing_EaseOutCubic;
