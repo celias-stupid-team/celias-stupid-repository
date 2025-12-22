@@ -43,6 +43,8 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokedex_screen.h"
+#include "pokemon.h"
+#include "pokedex_screen.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "region_map.h"
@@ -104,6 +106,7 @@ static u8 SaveYesNoCallback(void);
 static void ShowSaveInfoWindow(void);
 static u8 SaveConfirmSaveCallback(void);
 static void InitSave(void);
+static void PopulateMoveMonSpecies(void);
 
 /* Field move funcs */
 static bool32 SetupFunc_Surf(void);
@@ -161,6 +164,25 @@ enum ComfyAnimStatus
     COMFY_ANIM_COMPLETED,
 };
 
+enum RotomMonIcon
+{
+    ICON_GHOLDENGO,
+    ICON_GOLDEEN,
+    ICON_MACHAMP,
+    ICON_BIDOOF,
+    ICON_FARFETCHD,
+    ICON_GOLURK,
+    ICON_SMEARGLE,
+    ICON_EXEGGUTOR,
+    ICON_KANGASKHAN,
+    ICON_AMPHAROS_MEGA,
+    ICON_MR_MIME,
+    ICON_SCYTHER,
+    ICON_KRABBY,
+    ICON_AMPHAROS,
+    MON_ICON_COUNT,
+};
+
 enum RotomSpriteID
 {
    SPRITE_ROTOM_EYES,
@@ -168,6 +190,12 @@ enum RotomSpriteID
    SPRITE_DEX_NUM_WIN_R,
    SPRITE_MOVE_SELECTOR_L,
    SPRITE_MOVE_SELECTOR_R,
+   SPRITE_MON_ICON_0,
+   SPRITE_MON_ICON_1,
+   SPRITE_MON_ICON_2,
+   SPRITE_MON_ICON_3,
+   SPRITE_MON_ICON_4,
+   SPRITE_MON_ICON_5,
    ROTOM_SPRITE_AFFINE_START,
    SPRITE_POKEDEX = ROTOM_SPRITE_AFFINE_START,
    SPRITE_PARTY,
@@ -214,6 +242,7 @@ struct RotomMove
     u32 move;
     u32 spriteXPos;
     u32 textXPos;
+    u32 monXPos;
     const u8 *name;
     bool32 (*setupFunc)(void);
     void (*fieldMoveFunc)(void);
@@ -224,6 +253,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_SURF,
         .spriteXPos = 6,
         .textXPos = 10,
+        .monXPos = 21,
         .name = gLongMoveNames[MOVE_SURF],
         .setupFunc = SetupFunc_Surf,
         .fieldMoveFunc = FieldMoveFunc_Surf,
@@ -232,6 +262,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_WATERFALL,
         .spriteXPos = 38,
         .textXPos = 33,
+        .monXPos = 53,
         .name = gLongMoveNames[MOVE_WATERFALL],
         .setupFunc = SetupFunc_Waterfall,
         .fieldMoveFunc = FieldMoveFunc_Waterfall,
@@ -240,6 +271,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_ROCK_CLIMB,
         .spriteXPos = 70,
         .textXPos = 62,
+        .monXPos = 85,
         .name = gLongMoveNames[MOVE_ROCK_CLIMB],
         .setupFunc = SetupFunc_RockClimb,
         .fieldMoveFunc = FieldMoveFunc_RockClimb,
@@ -248,6 +280,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_STRENGTH,
         .spriteXPos = 102,
         .textXPos = 99,
+        .monXPos = 117,
         .name = gLongMoveNames[MOVE_STRENGTH],
         .setupFunc = SetupFunc_Strength,
         .fieldMoveFunc = FieldMoveFunc_Strength,
@@ -256,6 +289,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_CUT,
         .spriteXPos = 134,
         .textXPos = 143,
+        .monXPos = 149,
         .name = gLongMoveNames[MOVE_CUT],
         .setupFunc = SetupFunc_Cut,
         .fieldMoveFunc = FieldMoveFunc_Cut,
@@ -264,6 +298,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_FLY,
         .spriteXPos = 166,
         .textXPos = 176,
+        .monXPos = 181,
         .name = gLongMoveNames[MOVE_FLY],
         .setupFunc = SetupFunc_Fly,
         .fieldMoveFunc = FieldMoveFunc_Fly,
@@ -272,6 +307,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_WHIRLPOOL,
         .spriteXPos = 6,
         .textXPos = 1,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
         .setupFunc = SetupFunc_Whirlpool,
         .fieldMoveFunc = FieldMoveFunc_Whirlpool,
@@ -280,6 +316,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_GUILLOTINE,
         .spriteXPos = 38,
         .textXPos = 31,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_GUILLOTINE],
         .setupFunc = SetupFunc_Guillotine,
         .fieldMoveFunc = FieldMoveFunc_Guillotine,
@@ -288,6 +325,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_BRICK_BREAK,
         .spriteXPos = 70,
         .textXPos = 59,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
         .setupFunc = SetupFunc_BrickBreak,
         .fieldMoveFunc = FieldMoveFunc_BrickBreak,
@@ -296,6 +334,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_TAIL_GLOW,
         .spriteXPos = 102,
         .textXPos = 97,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
         .setupFunc = SetupFunc_TailGlow,
         .fieldMoveFunc = FieldMoveFunc_TailGlow,
@@ -304,6 +343,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_REST,
         .spriteXPos = 134,
         .textXPos = 141,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_REST],
         .setupFunc = SetupFunc_Rest,
         .fieldMoveFunc = FieldMoveFunc_Rest,
@@ -312,6 +352,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_RETREAT,
         .spriteXPos = 166,
         .textXPos = 166,
+        .monXPos = 0,
         .name = gLongMoveNames[MOVE_RETREAT],
         .setupFunc = SetupFunc_Retreat,
         .fieldMoveFunc = FieldMoveFunc_Retreat,
@@ -320,6 +361,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
         .move = MOVE_NONE,
         .spriteXPos = 218,
         .textXPos = 213,
+        .monXPos = 0,
         .name = gText_EmptyString3,
         .setupFunc = NULL,
         .fieldMoveFunc = NULL,
@@ -332,13 +374,31 @@ struct RotomStartMenu
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u16 monSpecies[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
-    u8 comfyAnimStatus;
-    u8 iconAnimStarted;
-    u8 optionSelected;
-    u8 fieldMoveCursor:4;
+    u8 fieldMoveCursor;
+    u8 comfyAnimStatus:2;
+    u8 iconAnimStarted:1;
+    u8 optionSelected:1;
     u8 storedMenuOption:4;
+};
+
+static const u16 sRotomMonIconToSpecies[] = {
+    [ICON_GHOLDENGO] = SPECIES_GHOLDENGO,
+    [ICON_GOLDEEN] = SPECIES_GOLDEEN,
+    [ICON_MACHAMP] = SPECIES_MACHAMP,
+    [ICON_BIDOOF] = SPECIES_BIDOOF,
+    [ICON_FARFETCHD] = SPECIES_FARFETCHD,
+    [ICON_GOLURK] = SPECIES_GOLURK,
+    [ICON_SMEARGLE] = SPECIES_SMEARGLE,
+    [ICON_EXEGGUTOR] = SPECIES_EXEGGUTOR,
+    [ICON_KANGASKHAN] = SPECIES_KANGASKHAN,
+    [ICON_AMPHAROS_MEGA] = SPECIES_AMPHAROS_MEGA,
+    [ICON_MR_MIME] = SPECIES_MR_MIME,
+    [ICON_SCYTHER] = SPECIES_SCYTHER,
+    [ICON_KRABBY] = SPECIES_KRABBY,
+    [ICON_AMPHAROS] = SPECIES_AMPHAROS,
 };
 
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
@@ -361,12 +421,16 @@ static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_men
 #define TAG_MOVE_SELECTOR_GFX 1235
 #define TAG_MOVE_SELECTOR_PAL 0x4655
 #define TAG_ROTOM_EYES_GFX    1236
+#define TAG_MON_ICON_GFX      1237
+#define TAG_MON_ICON_PAL      0x4656
 
 static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
 static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
 static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
+static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
+static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
@@ -406,6 +470,72 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .height = 2,
     .paletteNum = 15,
     .baseBlock = 286
+};
+
+static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = { ANIMCMD_FRAME((ICON_GHOLDENGO * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Goldeen[] = { ANIMCMD_FRAME((ICON_GOLDEEN * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = { ANIMCMD_FRAME((ICON_MACHAMP * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Bidoof[] = { ANIMCMD_FRAME((ICON_BIDOOF * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Farfetchd[] = { ANIMCMD_FRAME((ICON_FARFETCHD * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Golurk[] = { ANIMCMD_FRAME((ICON_GOLURK * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Smeargle[] = { ANIMCMD_FRAME((ICON_SMEARGLE * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Exeggutor[] = { ANIMCMD_FRAME((ICON_EXEGGUTOR * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Kangaskhan[] = { ANIMCMD_FRAME((ICON_KANGASKHAN * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_AmpharosMega[] = { ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_MrMime[] = { ANIMCMD_FRAME((ICON_MR_MIME * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Scyther[] = { ANIMCMD_FRAME((ICON_SCYTHER * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Krabby[] = { ANIMCMD_FRAME((ICON_KRABBY * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = { ANIMCMD_FRAME((ICON_AMPHAROS * 16), 0), ANIMCMD_JUMP(0), };
+
+static const union AnimCmd *const sMonIconAnimTable[MON_ICON_COUNT] = {
+    [ICON_GHOLDENGO] = sAnimCmd_MonIcon_Gholdengo,
+    [ICON_GOLDEEN] = sAnimCmd_MonIcon_Goldeen,
+    [ICON_MACHAMP] = sAnimCmd_MonIcon_Machamp,
+    [ICON_BIDOOF] = sAnimCmd_MonIcon_Bidoof,
+    [ICON_FARFETCHD] = sAnimCmd_MonIcon_Farfetchd,
+    [ICON_GOLURK] = sAnimCmd_MonIcon_Golurk,
+    [ICON_SMEARGLE] = sAnimCmd_MonIcon_Smeargle,
+    [ICON_EXEGGUTOR] = sAnimCmd_MonIcon_Exeggutor,
+    [ICON_KANGASKHAN] = sAnimCmd_MonIcon_Kangaskhan,
+    [ICON_AMPHAROS_MEGA] = sAnimCmd_MonIcon_AmpharosMega,
+    [ICON_MR_MIME] = sAnimCmd_MonIcon_MrMime,
+    [ICON_SCYTHER] = sAnimCmd_MonIcon_Scyther,
+    [ICON_KRABBY] = sAnimCmd_MonIcon_Krabby,
+    [ICON_AMPHAROS] = sAnimCmd_MonIcon_Ampharos,
+};
+
+static const struct SpritePalette sSpritePal_MonIcon[] = {
+    { sMonIconPal, TAG_MON_ICON_PAL },
+    { NULL },
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_MonIcon[] = {
+    { sMonIconGfx, 32 * 448 / 2, TAG_MON_ICON_GFX },
+    { NULL },
+};
+
+static const struct OamData sOamMonIcon = {
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
+static const struct SpriteTemplate sSpriteMonIcon = {
+    .tileTag = TAG_MON_ICON_GFX,
+    .paletteTag = TAG_MON_ICON_PAL,
+    .oam = &sOamMonIcon,
+    .anims = sMonIconAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 static const struct SpritePalette sSpritePal_Icon[] = {
@@ -943,6 +1073,8 @@ void RotomStartMenu_Init(void)
     sRotomStartMenu->blinkTimer = BLINK_TIMER_START_VALUE;
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
 
+    PopulateMoveMonSpecies();
+
     if (!GetSafariZoneFlag())
     {
         if (sMenuSelected == MENU_RETIRE)
@@ -999,10 +1131,33 @@ static void RotomStartMenu_LoadSprites(void)
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
 
     LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
+
+    LoadSpritePalette(sSpritePal_MonIcon);
+    index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
+    LoadPalette(sMonIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
+    LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
+}
+
+static void RotomStartMenu_UpdateMonSprites(void)
+{
+    u32 i, j;
+    u32 rotomMoveOffset = (sRotomStartMenu->fieldMoveCursor > ROTOM_MOVE_TOP_ROW_MAX) ? ROTOM_MOVE_ROW_SIZE : 0;
+
+    for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
+    {
+        for (j = 0; j < MON_ICON_COUNT; j++)
+        {
+            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset]) 
+            {
+                StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+            }
+        } 
+    }
 }
 
 static void RotomStartMenu_CreateSprites(void)
 {
+    u32 i, j;
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -1022,6 +1177,18 @@ static void RotomStartMenu_CreateSprites(void)
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
     sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYES] = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
+    
+    for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
+    {
+        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[i - SPRITE_MON_ICON_0].monXPos, 141, 0);
+        for (j = 0; j < MON_ICON_COUNT; j++)
+        {
+            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0]) 
+            {
+                StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+            }
+        } 
+    }
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET))
     {
@@ -1808,6 +1975,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
             PlaySE(SE_SELECT);
             sRotomStartMenu->fieldMoveCursor += ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
+            RotomStartMenu_UpdateMonSprites();
         }
         break;
     default:
@@ -1837,6 +2005,7 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
             PlaySE(SE_SELECT);
             sRotomStartMenu->fieldMoveCursor -= ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
+            RotomStartMenu_UpdateMonSprites();
         }
         break;
     default:
@@ -2084,6 +2253,59 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
             DoCleanUpAndStartSafariZoneRetire();
         }
     }
+}
+
+static void PopulateMoveMonSpecies(void)
+{
+    u32 move, box, monPos;
+    static const u16 testSpeciesInfo[] = {
+        SPECIES_GHOLDENGO,
+        SPECIES_GOLDEEN,
+        SPECIES_MACHAMP,
+        SPECIES_BIDOOF,
+        SPECIES_FARFETCHD,
+        SPECIES_GOLURK,
+        SPECIES_SMEARGLE,
+        SPECIES_KANGASKHAN,
+        SPECIES_AMPHAROS,
+        SPECIES_MR_MIME,
+        SPECIES_SCYTHER,
+        SPECIES_KRABBY,
+    };
+    
+    for (move = 0; move < ROTOM_MOVE_COUNT; move++) sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
+    // for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u", move, sRotomStartMenu->monSpecies[move]);
+
+    // this shit takes well over a minute lmao
+    // struct Pokemon *mon;
+    
+    // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
+    // {
+    //     for (monPos = 0; monPos < PARTY_SIZE; monPos++)
+    //     {
+    //         if (MonKnowsMove(&gPlayerParty[monPos], sRotomMoves[move].move))
+    //         {
+    //             sRotomStartMenu->monSpecies[move] = GetMonData(&gPlayerParty[monPos], MON_DATA_SPECIES);
+    //         }
+    //     }
+    // }
+
+    // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
+    // {
+    //     if (sRotomStartMenu->monSpecies[move] != SPECIES_NONE) continue;
+        
+    //     for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    //     {
+    //         for (monPos = 0; monPos < IN_BOX_COUNT; monPos++)
+    //         {
+    //             BoxMonToMon(&gPokemonStoragePtr->boxes[box][monPos], mon);
+    //             if (MonKnowsMove(mon, sRotomMoves[move].move))
+    //             {
+    //                 sRotomStartMenu->monSpecies[move] = GetMonData(mon, MON_DATA_SPECIES);
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 // Field move functions
