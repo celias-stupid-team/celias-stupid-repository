@@ -206,6 +206,9 @@ enum RotomMoveID
 #define ROTOM_MOVE_ROW_SIZE    (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
 
+#define BLINK_TIMER_START_VALUE     100
+#define BLINK_TIMER_FRAMES_ACTIVE   5
+
 struct RotomMove
 {
     u32 move;
@@ -726,7 +729,7 @@ static const struct SpriteTemplate gSpriteIconFlag = {
 
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
-    sprite->invisible = sRotomStartMenu->blinkTimer < 5;
+    sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE;
 }
 
 static void SpriteCB_IconPokedex(struct Sprite *sprite)
@@ -937,7 +940,7 @@ void RotomStartMenu_Init(void)
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
 
     sFieldMoveData = 0;
-    sRotomStartMenu->blinkTimer = 100;
+    sRotomStartMenu->blinkTimer = BLINK_TIMER_START_VALUE;
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
 
     if (!GetSafariZoneFlag())
