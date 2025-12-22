@@ -99,6 +99,16 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	goto_if_set FLAG_SYS_ROTOM_MENU, Debug_ClearRotomMenu	
+	goto Debug_SetRotomMenu
+	end
+
+Debug_SetRotomMenu:
+	setflag FLAG_SYS_ROTOM_MENU
+	end
+
+Debug_ClearRotomMenu:
+	clearflag FLAG_SYS_ROTOM_MENU
 	end
 
 Debug_EventScript_Script_4::

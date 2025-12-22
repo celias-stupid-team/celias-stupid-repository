@@ -61,4 +61,6 @@ u8 StorageGetCurrentBox(void);
 void DrawTextWindowAndBufferTiles(const u8 *string, void *dst, u8 zero1, u8 zero2, u8 *buffer, s32 bytesToBuffer);
 void ExternalLoadPC(void);
 
+extern bool8 gOpenedPCFromRotomMenu;
+
 #endif // GUARD_POKEMON_STORAGE_SYSTEM_H
