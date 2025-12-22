@@ -237,6 +237,11 @@ enum RotomMoveID
 #define BLINK_TIMER_START_VALUE     100
 #define BLINK_TIMER_FRAMES_ACTIVE   5
 
+#define ROTOMSE_MENU_CURSOR  SE_SELECT
+#define ROTOMSE_MOVE_CURSOR  SE_DEX_SCROLL
+#define ROTOMSE_MOVE_PAGE    SE_CONTEST_ICON_CLEAR
+#define ROTOMSE_MENU_CLOSE   SE_POKENAV_OFF
+
 struct RotomMove
 {
     u32 move;
@@ -1955,7 +1960,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
     switch (sMenuSelected)
     {
     case MENU_OPTIONS:
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         if (FlagGet(FLAG_SYS_POKEDEX_GET))
         {
             sMenuSelected = MENU_POKEDEX;
@@ -1972,7 +1977,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
         {
-            PlaySE(SE_SELECT);
+            PlaySE(ROTOMSE_MOVE_PAGE);
             sRotomStartMenu->fieldMoveCursor += ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
             RotomStartMenu_UpdateMonSprites();
@@ -1980,7 +1985,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
         break;
     default:
         sMenuSelected++;
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         if (!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_PARTY)
         {
             sMenuSelected++;
@@ -1996,20 +2001,20 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     switch (sMenuSelected)
     {
     case MENU_POKEDEX:
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         sMenuSelected = MENU_OPTIONS;
         break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
         {
-            PlaySE(SE_SELECT);
+            PlaySE(ROTOMSE_MOVE_PAGE);
             sRotomStartMenu->fieldMoveCursor -= ROTOM_MOVE_ROW_SIZE;
             UpdateMoveSelectorText();
             RotomStartMenu_UpdateMonSprites();
         }
         break;
     default:
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         if ((!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_BAG)
             || (!FlagGet(FLAG_SYS_POKEDEX_GET) && sMenuSelected == MENU_PARTY))
         {
@@ -2028,7 +2033,7 @@ static void RotomStartMenu_HandleInput_DPadLeft(void)
 {
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->storedMenuOption = sMenuSelected;
         sMenuSelected = MENU_NONE;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_TOP_ROW_MAX;
@@ -2037,7 +2042,7 @@ static void RotomStartMenu_HandleInput_DPadLeft(void)
     else if (sRotomStartMenu->fieldMoveCursor > 0
              && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor--;
         MoveSelector_StartComfyAnims();
     }
@@ -2048,7 +2053,7 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
         || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->iconAnimStarted = FALSE;
         sMenuSelected = sRotomStartMenu->storedMenuOption;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
@@ -2056,7 +2061,7 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
     }
     else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor++;
         MoveSelector_StartComfyAnims();
     }
@@ -2118,7 +2123,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CLOSE);
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
     }
@@ -2156,7 +2161,7 @@ static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void)
         sMenuSelected = MENU_RETIRE;
         break;
     default:
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         if (sMenuSelected == MENU_RETIRE)
         {
             sMenuSelected = MENU_POKEDEX;
@@ -2187,7 +2192,7 @@ static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void)
         sMenuSelected = MENU_OPTIONS;
         break;
     default:
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CURSOR);
         if (sMenuSelected == MENU_POKEDEX)
         {
             sMenuSelected = MENU_RETIRE;
@@ -2230,7 +2235,7 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
     {
-        PlaySE(SE_SELECT);
+        PlaySE(ROTOMSE_MENU_CLOSE);
         RotomStartMenu_ExitAndClearTilemap();
         DestroyTask(taskId);
     }

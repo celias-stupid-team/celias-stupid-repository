@@ -301,9 +301,14 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
         if (FlagGet(FLAG_SYS_ROTOM_MENU))
+        {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
             RotomStartMenu_Init();
+        }
         else
+        {
             ShowStartMenu();
+        }
         return TRUE;
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
