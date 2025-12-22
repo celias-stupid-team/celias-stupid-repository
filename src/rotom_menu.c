@@ -2138,6 +2138,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     {
         if (sMenuSelected != MENU_NONE)
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (!sRotomStartMenu->optionSelected)
             {
                 if (sMenuSelected != MENU_SAVE)
@@ -2150,6 +2151,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
         else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
                  && CheckValidFieldMoveInput())
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY)
             {
                 FadeScreen(FADE_TO_BLACK, 0);
