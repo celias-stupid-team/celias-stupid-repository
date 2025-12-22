@@ -1198,7 +1198,7 @@ static void RotomStartMenu_CreateSprites(void)
     if (FlagGet(FLAG_SYS_POKEDEX_GET))
     {
         sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 3, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 2, 0);
         sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y3, 0);
         sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y4 + 1, 0);
         sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
