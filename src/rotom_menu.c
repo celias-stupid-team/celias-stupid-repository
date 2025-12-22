@@ -2066,6 +2066,14 @@ static void RotomStartMenu_HandleInput_DPadLeft(void)
         sRotomStartMenu->fieldMoveCursor--;
         MoveSelector_StartComfyAnims();
     }
+    else // cursor is on far left of bottom or top row of field moves
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->iconAnimStarted = FALSE;
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+        MoveSelector_StartComfyAnims();
+    }
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void)
@@ -2083,6 +2091,14 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor++;
+        MoveSelector_StartComfyAnims();
+    }
+    else  // cursor is on the menu icons
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->storedMenuOption = sMenuSelected;
+        sMenuSelected = MENU_NONE;
+        sRotomStartMenu->fieldMoveCursor =  sStoredMoveRow == 1 ? ROTOM_MOVE_WHIRLPOOL : ROTOM_MOVE_SURF;
         MoveSelector_StartComfyAnims();
     }
 }
