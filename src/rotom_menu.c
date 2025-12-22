@@ -1401,6 +1401,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
+        FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
