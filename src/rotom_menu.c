@@ -188,7 +188,8 @@ enum RotomMonIcon
 
 enum RotomSpriteID
 {
-    SPRITE_ROTOM_EYES,
+    SPRITE_ROTOM_EYE_TOP,
+    SPRITE_ROTOM_EYE_BOTTOM,
     SPRITE_DEX_NUM_WIN_L,
     SPRITE_DEX_NUM_WIN_R,
     SPRITE_MOVE_SELECTOR_L,
@@ -664,8 +665,8 @@ static const struct SpriteTemplate sSpriteMoveSelector = {
     .callback = SpriteCallbackDummy,
 };
 
-#define ROTOM_EYES_FRAME_SIZE      32
-#define ROTOM_EYES_TILES_PER_FRAME 16
+#define ROTOM_EYES_FRAME_SIZE      16
+#define ROTOM_EYES_TILES_PER_FRAME 4
 
 enum RotomEyesStates
 {
@@ -706,10 +707,10 @@ static const struct OamData sOamRotomEyes = {
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = 0,
     .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
+    .shape = SPRITE_SHAPE(16x16),
     .x = 0,
     .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
+    .size = SPRITE_SIZE(16x16),
     .tileNum = 0,
     .priority = 0,
     .paletteNum = 0,
@@ -1481,7 +1482,8 @@ static void RotomStartMenu_CreateSprites(void)
     sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R] = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
-    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYES] = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_TOP] = CreateSprite(&sSpriteRotomEyes, 205, 29, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_BOTTOM] = CreateSprite(&sSpriteRotomEyes, 205, 42, 0);
 
     rotomMoveOffset = sStoredMoveRow == 1 ? ROTOM_MOVE_ROW_SIZE : 0;
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
