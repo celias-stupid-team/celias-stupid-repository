@@ -3131,7 +3131,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -4247,7 +4247,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PartyDad = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Koffing = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,

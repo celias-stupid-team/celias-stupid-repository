@@ -950,8 +950,8 @@
 #define FLAG_LOOKER_SCENE               0x369
 #define FLAG_FUSHCIA_GO_TO_SHORE_SCENE               0x36A
 #define FLAG_MESPRIT_RAN_AWAY               0x36B
-#define FLAG_0x36C               0x36C
-#define FLAG_0x36D               0x36D
+#define FLAG_DMCA_SKULL_FIGHT_1               0x36C
+#define FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED               0x36D
 #define FLAG_0x36E               0x36E
 #define FLAG_0x36F               0x36F
 #define FLAG_MURDERED_LANCE               0x370
