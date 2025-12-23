@@ -238,7 +238,7 @@ enum RotomMoveID
 #define BLINK_TIMER_FRAMES_ACTIVE   5
 #define LOOK_TIMER_FRAMES           40
 #define NUM_DIZZY_LOOPS             3 //Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
-#define DIZZY_CLOSE_EYE_TIMER       40 // How long the rotom's eyes will be closed before 
+#define DIZZY_CLOSE_EYE_TIMER       30 // How long the rotom's eyes will be closed before 
 #define DIZZY_END_TIMER             90
 
 #define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
@@ -397,7 +397,7 @@ struct RotomStartMenu
     u8 rotomEyesLookingTimer; //I hope I don't break anything by allocating 2 bytes
     u8 rotomEyesState:2;
     u8 screenWraparoundCounter:2;
-    u8 wizToldMeToAddThis:3; //Yes if I was a good programmer I would've called this "Padding" or "Dummy"
+    u8 wizToldMeToAddThis:4; //Yes if I was a good programmer I would've called this "Padding" or "Dummy"
 };
 
 static const u16 sRotomMonIconToSpecies[] = {
@@ -983,10 +983,10 @@ static const struct SpriteTemplate gSpriteIconFlag = {
 };
 
 enum RotomEyesStates {
-    EYE_STATE_NONE,
     EYE_STATE_NORMAL,
     EYE_STATE_TRACKING,
     EYE_STATE_DIZZY,
+    EYE_STATE_DIZZY_2,
 };
 
 enum RotomEyes {
@@ -1011,23 +1011,19 @@ enum RotomEyes {
 
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
-    if(sRotomStartMenu->rotomEyesState == EYE_STATE_NONE) //Eye state none is only here cuz I misunderstood how your other stuff worked oops
-    {                                                                                   //Rave I'm doing ur dumb "put a newline before the bracket" formatting I hope you're happy 
-        sRotomStartMenu->rotomEyesState - EYE_STATE_NORMAL;
-        
-        
-        StartSpriteAnim(sprite, ROTOM_EYES_DEFAULT);
-    }
-    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL)
+
+    if(sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL)
     {
         
         StartSpriteAnim(sprite, ROTOM_EYES_DEFAULT);
+        sRotomStartMenu->screenWraparoundCounter = 0;
         sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE;    //Translates to "The sprite's invisibility is set to the result of that inequality" (don't judge me for commenting this :( -Celia <3)
 
     }
     else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)                      
-    {
-        switch(sMenuSelected) { //I guess we need a conditional to see if it's 
+    {  
+        if(sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE) {
+        switch(sMenuSelected) {
             case MENU_POKEDEX:
                 StartSpriteAnim(sprite, ROTOM_EYES_POKEDEX);
                 break;
@@ -1055,6 +1051,38 @@ static void SpriteCB_RotomEyes(struct Sprite *sprite)
                 break;
                 
 
+            }
+        } else {
+            switch(sRotomStartMenu->fieldMoveCursor) {
+                case ROTOM_MOVE_SURF:
+                case ROTOM_MOVE_WHIRLPOOL:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_0);
+                    break;
+                case ROTOM_MOVE_WATERFALL:
+                case ROTOM_MOVE_GUILLOTINE:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_1);
+                    break;
+                case ROTOM_MOVE_ROCK_CLIMB:
+                case ROTOM_MOVE_BRICK_BREAK:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_2);
+                    break;
+                case ROTOM_MOVE_STRENGTH:
+                case ROTOM_MOVE_TAIL_GLOW:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_3);
+                    break;
+                case ROTOM_MOVE_CUT:
+                case ROTOM_MOVE_REST:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_4);
+                    break;
+                case ROTOM_MOVE_FLY:
+                case ROTOM_MOVE_RETREAT:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_5);
+                    break;
+                default:
+                    break;
+
+            }
+
         }
         sRotomStartMenu->rotomEyesLookingTimer--;
         
@@ -1068,22 +1096,50 @@ static void SpriteCB_RotomEyes(struct Sprite *sprite)
     }
     else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY) {
         // if not scrolling
+        StartSpriteAnim(sprite, ROTOM_EYES_CLOSED);
+        sRotomStartMenu->rotomEyesLookingTimer--;
+        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
+            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY_2;
+            sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
+        }
+        
+    }
+    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+        StartSpriteAnim(sprite, ROTOM_EYES_DIZZY);
         sRotomStartMenu->rotomEyesLookingTimer--;
         if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
             sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
+            sRotomStartMenu->screenWraparoundCounter = 0;
         }
+
     }
 
 }
 
 static void RotomMenu_HandleUpdateEyes() {                                  //I have no clue where you'd want be to slap this helper function
-    if(sRotomStartMenu->rotomEyesLookingTimer != EYE_STATE_DIZZY)
+    if(sRotomStartMenu->rotomEyesLookingTimer < EYE_STATE_DIZZY)
     {
         sRotomStartMenu->rotomEyesLookingTimer = LOOK_TIMER_FRAMES;
         
         sRotomStartMenu->rotomEyesState = EYE_STATE_TRACKING;
     }
+    if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+        sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
+
+
+    }
+    
     return;
+}
+
+static void RotomMenu_TryMakeDizzy() {
+    if(sRotomStartMenu->screenWraparoundCounter < NUM_DIZZY_LOOPS) {
+        sRotomStartMenu->screenWraparoundCounter++;
+    } else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING) {
+        sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY;
+        sRotomStartMenu->rotomEyesLookingTimer = DIZZY_CLOSE_EYE_TIMER;
+    }
 }
 
 static void SpriteCB_IconPokedex(struct Sprite *sprite)
@@ -2207,6 +2263,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
         {
             sMenuSelected = MENU_BAG;
         }
+        RotomMenu_TryMakeDizzy();
         break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
@@ -2238,6 +2295,7 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     case MENU_POKEDEX:
         PlaySE(ROTOMSE_MENU_CURSOR);
         sMenuSelected = MENU_OPTIONS;
+        RotomMenu_TryMakeDizzy();
         break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
@@ -2309,6 +2367,7 @@ static void RotomStartMenu_HandleInput_DPadLeft(void)
         // hide temporarily to create a wrapping effect
         taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
         gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+        RotomMenu_TryMakeDizzy();
     }
 
     MoveSelector_StartComfyAnims();
@@ -2340,6 +2399,7 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
         // hide temporarily to create a wrapping effect
         taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
         gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+        RotomMenu_TryMakeDizzy();
     }
 
     MoveSelector_StartComfyAnims();
@@ -2553,15 +2613,15 @@ static void PopulateMoveMonSpecies(void)
         SPECIES_GHOLDENGO,
         SPECIES_GOLDEEN,
         SPECIES_MACHAMP,
-        SPECIES_BIDOOF,
+        SPECIES_KRABBY,
         SPECIES_FARFETCHD,
         SPECIES_GOLURK,
-        SPECIES_SMEARGLE,
+        SPECIES_KRABBY,
+        SPECIES_EXEGGUTOR,
         SPECIES_KANGASKHAN,
-        SPECIES_AMPHAROS,
+        SPECIES_AMPHAROS_MEGA,
         SPECIES_MR_MIME,
         SPECIES_SCYTHER,
-        SPECIES_KRABBY,
     };
     
     for (move = 0; move < ROTOM_MOVE_COUNT; move++) sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
