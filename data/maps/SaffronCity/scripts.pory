@@ -251,3 +251,10 @@ script SaffronCity_CarDad {
 	release
 	end
 }
+
+script SaffronCity_TheLeek {
+	msgbox(
+	"THE LEEK\n"
+	"{PAUSE 30}Publishing House", MSGBOX_SIGN)
+
+}

@@ -510,7 +510,7 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SaffronCity_EventScript_TrainerFanClubSign"
+      "script": "SaffronCity_TheLeek"
     }
   ],
   "connections_no_include": true

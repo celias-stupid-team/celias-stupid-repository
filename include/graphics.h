@@ -12650,3 +12650,9 @@ extern const u32 gMonShinyPalette_CHARIZARDQ[];
 extern const u8 gMonFootprint_CHARIZARDQ[];
 extern const u8 gMonIcon_CHARIZARDQ[];
 
+
+extern const u32 gTrainerFrontPic_Boarder[];
+extern const u32 gTrainerPalette_Boarder[];
+
+extern const u32 gTrainerFrontPic_Flint[];
+extern const u32 gTrainerPalette_Flint[];

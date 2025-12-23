@@ -589,3 +589,7 @@ const u32 gObjectEventPic_ravepossum[] = INCBIN_U32("graphics/object_events/pics
 const u16 gObjectEventPal_ravepossum[] = INCBIN_U16("graphics/object_events/palettes/ravepossum.gbapal");
 const u32 gObjectEventPic_car_dad[] = INCBIN_U32("graphics/object_events/pics/stupid/car_dad.4bpp");
 const u16 gObjectEventPal_car_dad[] = INCBIN_U16("graphics/object_events/palettes/car_dad.gbapal");
+const u32 gObjectEventPic_JUMPLUFF[] = INCBIN_U32("graphics/object_events/pics/stupid/JUMPLUFF.4bpp");
+const u16 gObjectEventPal_JUMPLUFF[] = INCBIN_U16("graphics/object_events/palettes/JUMPLUFF.gbapal");
+const u32 gObjectEventPic_bill_board[] = INCBIN_U32("graphics/object_events/pics/stupid/bill_board.4bpp");
+const u16 gObjectEventPal_bill_board[] = INCBIN_U16("graphics/object_events/palettes/bill_board.gbapal");

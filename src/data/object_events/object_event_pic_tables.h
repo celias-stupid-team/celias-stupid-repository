@@ -4589,3 +4589,25 @@ const struct SpriteFrameImage gObjectEventPicTable_car_dad[] = {
     overworld_frame(gObjectEventPic_car_dad, 2, 4, 7),
     overworld_frame(gObjectEventPic_car_dad, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_JUMPLUFF[] = {
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 0),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 1),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 2),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 0),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 0),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 1),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 1),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 2),
+    overworld_frame(gObjectEventPic_JUMPLUFF, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_bill_board[] = {
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 0),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 1),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 2),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 0),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 0),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 1),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 1),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 2),
+    overworld_frame(gObjectEventPic_bill_board, 6, 6, 2),
+};

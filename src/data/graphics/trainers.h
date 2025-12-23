@@ -601,3 +601,9 @@ const u32 gTrainerPalette_Starman[] = INCBIN_U32("graphics/trainers/palettes/sta
 
 const u32 gTrainerFrontPic_RadicalRed[] = INCBIN_U32("graphics/trainers/front_pics/radical_red_front_pic.4bpp.lz");
 const u32 gTrainerPalette_RadicalRed[] = INCBIN_U32("graphics/trainers/palettes/radical_red.gbapal.lz");
+
+const u32 gTrainerFrontPic_Boarder[] = INCBIN_U32("graphics/trainers/front_pics/boarder_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Boarder[] = INCBIN_U32("graphics/trainers/palettes/boarder.gbapal.lz");
+
+const u32 gTrainerFrontPic_Flint[] = INCBIN_U32("graphics/trainers/front_pics/flint_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Flint[] = INCBIN_U32("graphics/trainers/palettes/flint.gbapal.lz");
