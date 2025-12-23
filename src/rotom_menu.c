@@ -1,6 +1,8 @@
 // Based on vol's heat start menu, credits to him (Voluptua) and Pawkkie
 #include "rotom_menu.h"
 
+#include "global.h"
+
 #include "constants/event_objects.h"
 #include "constants/map_groups.h"
 #include "constants/maps.h"
@@ -26,7 +28,6 @@
 #include "field_weather.h"
 #include "fieldmap.h"
 #include "fldeff.h"
-#include "global.h"
 #include "gpu_regs.h"
 #include "item_menu.h"
 #include "link.h"
@@ -44,7 +45,6 @@
 #include "pokedex.h"
 #include "pokedex_screen.h"
 #include "pokemon.h"
-#include "pokedex_screen.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "region_map.h"
@@ -185,28 +185,28 @@ enum RotomMonIcon
 
 enum RotomSpriteID
 {
-   SPRITE_ROTOM_EYES,
-   SPRITE_DEX_NUM_WIN_L,
-   SPRITE_DEX_NUM_WIN_R,
-   SPRITE_MOVE_SELECTOR_L,
-   SPRITE_MOVE_SELECTOR_R,
-   SPRITE_MON_ICON_0,
-   SPRITE_MON_ICON_1,
-   SPRITE_MON_ICON_2,
-   SPRITE_MON_ICON_3,
-   SPRITE_MON_ICON_4,
-   SPRITE_MON_ICON_5,
-   ROTOM_SPRITE_AFFINE_START,
-   SPRITE_POKEDEX = ROTOM_SPRITE_AFFINE_START,
-   SPRITE_PARTY,
-   SPRITE_BAG,
-   SPRITE_PC,
-   SPRITE_TRAINER_CARD,
-   SPRITE_SAVE,
-   SPRITE_OPTIONS,
-   SPRITE_FLAG,
-   ROTOM_SPRITE_COUNT,
-   ROTOM_SPRITE_MASKS_START = ROTOM_SPRITE_COUNT,
+    SPRITE_ROTOM_EYES,
+    SPRITE_DEX_NUM_WIN_L,
+    SPRITE_DEX_NUM_WIN_R,
+    SPRITE_MOVE_SELECTOR_L,
+    SPRITE_MOVE_SELECTOR_R,
+    SPRITE_MON_ICON_0,
+    SPRITE_MON_ICON_1,
+    SPRITE_MON_ICON_2,
+    SPRITE_MON_ICON_3,
+    SPRITE_MON_ICON_4,
+    SPRITE_MON_ICON_5,
+    ROTOM_SPRITE_AFFINE_START,
+    SPRITE_POKEDEX = ROTOM_SPRITE_AFFINE_START,
+    SPRITE_PARTY,
+    SPRITE_BAG,
+    SPRITE_PC,
+    SPRITE_TRAINER_CARD,
+    SPRITE_SAVE,
+    SPRITE_OPTIONS,
+    SPRITE_FLAG,
+    ROTOM_SPRITE_COUNT,
+    ROTOM_SPRITE_MASKS_START = ROTOM_SPRITE_COUNT,
 };
 
 #define ROTOM_SPRITE_COUNT_WITH_MASKS (ROTOM_SPRITE_COUNT * 2)
@@ -234,12 +234,12 @@ enum RotomMoveID
 #define ROTOM_MOVE_ROW_SIZE    (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
 
-#define BLINK_TIMER_START_VALUE     100
-#define BLINK_TIMER_FRAMES_ACTIVE   5
-#define LOOK_TIMER_FRAMES           40
-#define NUM_DIZZY_LOOPS             3 //Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
-#define DIZZY_CLOSE_EYE_TIMER       30 // How long the rotom's eyes will be closed before 
-#define DIZZY_END_TIMER             90
+#define BLINK_TIMER_START_VALUE   100
+#define BLINK_TIMER_FRAMES_ACTIVE 5
+#define LOOK_TIMER_FRAMES         40
+#define NUM_DIZZY_LOOPS           3 // Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
+#define DIZZY_CLOSE_EYE_TIMER     30 // How long the rotom's eyes will be closed before
+#define DIZZY_END_TIMER           90
 
 #define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
 #define ROTOMSE_MOVE_CURSOR    SE_DEX_SCROLL
@@ -394,10 +394,10 @@ struct RotomStartMenu
     u8 iconAnimStarted:1;
     u8 optionSelected:1;
     u8 storedMenuOption:4;
-    u8 rotomEyesLookingTimer; //I hope I don't break anything by allocating 2 bytes
+    u8 rotomEyesLookingTimer; // I hope I don't break anything by allocating 2 bytes
     u8 rotomEyesState:2;
     u8 screenWraparoundCounter:2;
-    u8 wizToldMeToAddThis:4; //Yes if I was a good programmer I would've called this "Padding" or "Dummy"
+    u8 wizToldMeToAddThis:4; // Yes if I was a good programmer I would've called this "Padding" or "Dummy"
 };
 
 static const u16 sRotomMonIconToSpecies[] = {
@@ -489,20 +489,62 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .baseBlock = 286
 };
 
-static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = { ANIMCMD_FRAME((ICON_GHOLDENGO * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Goldeen[] = { ANIMCMD_FRAME((ICON_GOLDEEN * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = { ANIMCMD_FRAME((ICON_MACHAMP * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Bidoof[] = { ANIMCMD_FRAME((ICON_BIDOOF * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Farfetchd[] = { ANIMCMD_FRAME((ICON_FARFETCHD * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Golurk[] = { ANIMCMD_FRAME((ICON_GOLURK * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Smeargle[] = { ANIMCMD_FRAME((ICON_SMEARGLE * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Exeggutor[] = { ANIMCMD_FRAME((ICON_EXEGGUTOR * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Kangaskhan[] = { ANIMCMD_FRAME((ICON_KANGASKHAN * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_AmpharosMega[] = { ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_MrMime[] = { ANIMCMD_FRAME((ICON_MR_MIME * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Scyther[] = { ANIMCMD_FRAME((ICON_SCYTHER * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Krabby[] = { ANIMCMD_FRAME((ICON_KRABBY * 16), 0), ANIMCMD_JUMP(0), };
-static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = { ANIMCMD_FRAME((ICON_AMPHAROS * 16), 0), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = {
+    ANIMCMD_FRAME((ICON_GHOLDENGO * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Goldeen[] = {
+    ANIMCMD_FRAME((ICON_GOLDEEN * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = {
+    ANIMCMD_FRAME((ICON_MACHAMP * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Bidoof[] = {
+    ANIMCMD_FRAME((ICON_BIDOOF * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Farfetchd[] = {
+    ANIMCMD_FRAME((ICON_FARFETCHD * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Golurk[] = {
+    ANIMCMD_FRAME((ICON_GOLURK * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Smeargle[] = {
+    ANIMCMD_FRAME((ICON_SMEARGLE * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Exeggutor[] = {
+    ANIMCMD_FRAME((ICON_EXEGGUTOR * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Kangaskhan[] = {
+    ANIMCMD_FRAME((ICON_KANGASKHAN * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_AmpharosMega[] = {
+    ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_MrMime[] = {
+    ANIMCMD_FRAME((ICON_MR_MIME * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Scyther[] = {
+    ANIMCMD_FRAME((ICON_SCYTHER * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Krabby[] = {
+    ANIMCMD_FRAME((ICON_KRABBY * 16), 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = {
+    ANIMCMD_FRAME((ICON_AMPHAROS * 16), 0),
+    ANIMCMD_JUMP(0),
+};
 
 static const union AnimCmd *const sMonIconAnimTable[MON_ICON_COUNT] = {
     [ICON_GHOLDENGO] = sAnimCmd_MonIcon_Gholdengo,
@@ -713,7 +755,6 @@ static const union AnimCmd sAnimCmdRotomEyes_Dizzy[] = {
     ANIMCMD_JUMP(0),
 };
 
-
 static const union AnimCmd *const sRotomEyesAnim[] = {
     sAnimCmdRotomEyes_Default,
     sAnimCmdRotomEyes_Pokedex,
@@ -743,7 +784,6 @@ static const struct SpriteTemplate sSpriteRotomEyes = {
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_RotomEyes,
 };
-
 
 static const union AnimCmd gAnimCmdPokedex_NotSelected[] = {
     ANIMCMD_FRAME(128, 0),
@@ -975,14 +1015,16 @@ static const struct SpriteTemplate gSpriteIconFlag = {
     .callback = SpriteCB_IconFlag,
 };
 
-enum RotomEyesStates {
+enum RotomEyesStates
+{
     EYE_STATE_NORMAL,
     EYE_STATE_TRACKING,
     EYE_STATE_DIZZY,
     EYE_STATE_DIZZY_2,
 };
 
-enum RotomEyes {
+enum RotomEyes
+{
     ROTOM_EYES_DEFAULT,
     ROTOM_EYES_POKEDEX,
     ROTOM_EYES_PARTY,
@@ -999,24 +1041,24 @@ enum RotomEyes {
     ROTOM_EYES_FIELD_MOVE_5,
     ROTOM_EYES_CLOSED,
     ROTOM_EYES_DIZZY,
-
 };
 
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
 
-    if(sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL)
+    if (sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL)
     {
-        
+
         StartSpriteAnim(sprite, ROTOM_EYES_DEFAULT);
         sRotomStartMenu->screenWraparoundCounter = 0;
-        sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE;    //Translates to "The sprite's invisibility is set to the result of that inequality" (don't judge me for commenting this :( -Celia <3)
-
+        sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE; // Translates to "The sprite's invisibility is set to the result of that inequality" (don't judge me for commenting this :( -Celia <3)
     }
-    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)                      
-    {  
-        if(sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE) {
-        switch(sMenuSelected) {
+    else if (sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)
+    {
+        if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
+        {
+            switch (sMenuSelected)
+            {
             case MENU_POKEDEX:
                 StartSpriteAnim(sprite, ROTOM_EYES_POKEDEX);
                 break;
@@ -1042,94 +1084,96 @@ static void SpriteCB_RotomEyes(struct Sprite *sprite)
 
                 StartSpriteAnim(sprite, ROTOM_EYES_POKEDEX);
                 break;
-                
-
             }
-        } else {
-            switch(sRotomStartMenu->fieldMoveCursor) {
-                case ROTOM_MOVE_SURF:
-                case ROTOM_MOVE_WHIRLPOOL:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_0);
-                    break;
-                case ROTOM_MOVE_WATERFALL:
-                case ROTOM_MOVE_GUILLOTINE:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_1);
-                    break;
-                case ROTOM_MOVE_ROCK_CLIMB:
-                case ROTOM_MOVE_BRICK_BREAK:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_2);
-                    break;
-                case ROTOM_MOVE_STRENGTH:
-                case ROTOM_MOVE_TAIL_GLOW:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_3);
-                    break;
-                case ROTOM_MOVE_CUT:
-                case ROTOM_MOVE_REST:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_4);
-                    break;
-                case ROTOM_MOVE_FLY:
-                case ROTOM_MOVE_RETREAT:
-                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_5);
-                    break;
-                default:
-                    break;
-
+        }
+        else
+        {
+            switch (sRotomStartMenu->fieldMoveCursor)
+            {
+            case ROTOM_MOVE_SURF:
+            case ROTOM_MOVE_WHIRLPOOL:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_0);
+                break;
+            case ROTOM_MOVE_WATERFALL:
+            case ROTOM_MOVE_GUILLOTINE:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_1);
+                break;
+            case ROTOM_MOVE_ROCK_CLIMB:
+            case ROTOM_MOVE_BRICK_BREAK:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_2);
+                break;
+            case ROTOM_MOVE_STRENGTH:
+            case ROTOM_MOVE_TAIL_GLOW:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_3);
+                break;
+            case ROTOM_MOVE_CUT:
+            case ROTOM_MOVE_REST:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_4);
+                break;
+            case ROTOM_MOVE_FLY:
+            case ROTOM_MOVE_RETREAT:
+                StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_5);
+                break;
+            default:
+                break;
             }
-
         }
         sRotomStartMenu->rotomEyesLookingTimer--;
-        
-        
-        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
-            
-            
+
+        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
+        {
+
             sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
         }
-
     }
-    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY) {
+    else if (sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY)
+    {
         // if not scrolling
         StartSpriteAnim(sprite, ROTOM_EYES_CLOSED);
         sRotomStartMenu->rotomEyesLookingTimer--;
-        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
+        {
             PlayCry_Normal(SPECIES_ROTOM, 0);
             sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY_2;
             sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
         }
-        
     }
-    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+    else if (sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2)
+    {
         StartSpriteAnim(sprite, ROTOM_EYES_DIZZY);
         sRotomStartMenu->rotomEyesLookingTimer--;
-        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
+        {
             sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
             sRotomStartMenu->screenWraparoundCounter = 0;
         }
-
     }
-
 }
 
-static void RotomMenu_HandleUpdateEyes() {                                  //I have no clue where you'd want be to slap this helper function
-    if(sRotomStartMenu->rotomEyesLookingTimer < EYE_STATE_DIZZY)
+static void RotomMenu_HandleUpdateEyes()
+{ // I have no clue where you'd want be to slap this helper function
+    if (sRotomStartMenu->rotomEyesLookingTimer < EYE_STATE_DIZZY)
     {
         sRotomStartMenu->rotomEyesLookingTimer = LOOK_TIMER_FRAMES;
-        
+
         sRotomStartMenu->rotomEyesState = EYE_STATE_TRACKING;
     }
-    if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+    if (sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2)
+    {
         sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
-
-
     }
-    
+
     return;
 }
 
-static void RotomMenu_TryMakeDizzy() {
-    if(sRotomStartMenu->screenWraparoundCounter < NUM_DIZZY_LOOPS) {
+static void RotomMenu_TryMakeDizzy()
+{
+    if (sRotomStartMenu->screenWraparoundCounter < NUM_DIZZY_LOOPS)
+    {
         sRotomStartMenu->screenWraparoundCounter++;
-    } else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING) {
+    }
+    else if (sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)
+    {
         sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY;
         sRotomStartMenu->rotomEyesLookingTimer = DIZZY_CLOSE_EYE_TIMER;
     }
@@ -1339,7 +1383,7 @@ void RotomStartMenu_Init(void)
     }
     sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
     gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
- 
+
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
@@ -1367,7 +1411,7 @@ void RotomStartMenu_Init(void)
         RotomStartMenu_CreateSprites();
         if (Overworld_GetFlashLevel())
         {
-            RotomStartMenu_CreateSpriteMasks();           
+            RotomStartMenu_CreateSpriteMasks();
             RotomStartMenu_DisableSpriteAffineModes();
         }
 
@@ -1423,11 +1467,11 @@ static void RotomStartMenu_UpdateMonSprites(void)
     {
         for (j = 0; j < MON_ICON_COUNT; j++)
         {
-            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset]) 
+            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
             {
                 StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
             }
-        } 
+        }
     }
 }
 
@@ -1453,18 +1497,18 @@ static void RotomStartMenu_CreateSprites(void)
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
     sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYES] = CreateSprite(&sSpriteRotomEyes, 214, 37, 0);
-    
+
     rotomMoveOffset = sStoredMoveRow == 1 ? ROTOM_MOVE_ROW_SIZE : 0;
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
         sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[i - SPRITE_MON_ICON_0 + rotomMoveOffset].monXPos, 141, 0);
         for (j = 0; j < MON_ICON_COUNT; j++)
         {
-            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset]) 
+            if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
             {
                 StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
             }
-        } 
+        }
     }
 
     if (FlagGet(FLAG_SYS_POKEDEX_GET))
@@ -1502,23 +1546,23 @@ static void RotomStartMenu_CreateSpriteMasks(void)
     SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
 
     for (i = 0; i < ROTOM_SPRITE_COUNT; i++)
-    {   
+    {
         spriteID = sRotomStartMenu->spriteIDs[i];
         if (spriteID != SPRITE_NONE)
         {
-            maskSpriteID = CreateSprite(gSprites[spriteID].template, 
-                                        gSprites[spriteID].x, 
-                                        gSprites[spriteID].y, 
+            maskSpriteID = CreateSprite(gSprites[spriteID].template,
+                                        gSprites[spriteID].x,
+                                        gSprites[spriteID].y,
                                         gSprites[spriteID].subpriority);
 
-            sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = maskSpriteID; 
-            
+            sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] = maskSpriteID;
+
             // preserve the flip bits set for non-affine sprites
             if (!(gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_ON_MASK))
             {
                 gSprites[maskSpriteID].oam.matrixNum = gSprites[spriteID].oam.matrixNum;
             }
-            
+
             if (i == SPRITE_MOVE_SELECTOR_L || i == SPRITE_MOVE_SELECTOR_R)
             {
                 gSprites[maskSpriteID].callback = SpriteCB_MoveSelectorMask;
@@ -1624,7 +1668,7 @@ static void RotomStartMenu_DestroySprites(void)
         {
             if (gSprites[spriteID].oam.affineMode & ST_OAM_AFFINE_ON_MASK)
             {
-               FreeSpriteOamMatrix(&gSprites[spriteID]); 
+                FreeSpriteOamMatrix(&gSprites[spriteID]);
             }
             DestroySprite(&gSprites[spriteID]);
         }
@@ -1641,7 +1685,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         sMenuSelected = sRotomStartMenu->storedMenuOption;
     }
-    
+
     gKeyRepeatStartDelay = sRotomStartMenu->keyRepeatStartDelayBackup;
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
@@ -2144,7 +2188,7 @@ static void SpriteCB_MoveSelectorMask(struct Sprite *sprite)
     if (spriteID != SPRITE_NONE)
     {
         sprite->x = gSprites[spriteID].x;
-    }    
+    }
 }
 
 // ravetodo collapse into one func
@@ -2384,12 +2428,12 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor++;
     }
-    else  // cursor is on the menu icons
+    else // cursor is on the menu icons
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->storedMenuOption = sMenuSelected;
         sMenuSelected = MENU_NONE;
-        sRotomStartMenu->fieldMoveCursor =  sStoredMoveRow == 1 ? ROTOM_MOVE_WHIRLPOOL : ROTOM_MOVE_SURF;
+        sRotomStartMenu->fieldMoveCursor = sStoredMoveRow == 1 ? ROTOM_MOVE_WHIRLPOOL : ROTOM_MOVE_SURF;
 
         // hide temporarily to create a wrapping effect
         taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
@@ -2618,13 +2662,16 @@ static void PopulateMoveMonSpecies(void)
         SPECIES_MR_MIME,
         SPECIES_SCYTHER,
     };
-    
-    for (move = 0; move < ROTOM_MOVE_COUNT; move++) sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
+
+    for (move = 0; move < ROTOM_MOVE_COUNT; move++)
+    {
+        sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
+    }
     // for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u", move, sRotomStartMenu->monSpecies[move]);
 
     // this shit takes well over a minute lmao
     // struct Pokemon *mon;
-    
+
     // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
     // {
     //     for (monPos = 0; monPos < PARTY_SIZE; monPos++)
@@ -2639,7 +2686,7 @@ static void PopulateMoveMonSpecies(void)
     // for (move = 0; move < ROTOM_MOVE_COUNT; move++)
     // {
     //     if (sRotomStartMenu->monSpecies[move] != SPECIES_NONE) continue;
-        
+
     //     for (box = 0; box < TOTAL_BOXES_COUNT; box++)
     //     {
     //         for (monPos = 0; monPos < IN_BOX_COUNT; monPos++)
@@ -2812,11 +2859,20 @@ static void FieldMoveFunc_BrickBreak(void)
 
 static bool32 SetupFunc_TailGlow(void)
 {
-    if (gMapHeader.cave != TRUE) return FALSE;
+    if (gMapHeader.cave != TRUE)
+    {
+        return FALSE;
+    }
 
-    if (FlagGet(FLAG_SYS_FLASH_ACTIVE)) return FALSE;
+    if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
+    {
+        return FALSE;
+    }
 
-    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F)) return FALSE;
+    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
+    {
+        return FALSE;
+    }
 
     return TRUE;
 }
