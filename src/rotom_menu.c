@@ -236,13 +236,18 @@ enum RotomMoveID
 
 #define BLINK_TIMER_START_VALUE     100
 #define BLINK_TIMER_FRAMES_ACTIVE   5
+#define LOOK_TIMER_FRAMES           40
+#define NUM_DIZZY_LOOPS             3 //Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
+#define DIZZY_CLOSE_EYE_TIMER       30 // How long the rotom's eyes will be closed before 
+#define DIZZY_END_TIMER             90
 
-#define ROTOMSE_MENU_CURSOR  SE_DEX_SCROLL
-#define ROTOMSE_MOVE_CURSOR  SE_DEX_SCROLL
-#define ROTOMSE_MOVE_PAGE    SE_DEX_PAGE
-#define ROTOMSE_MENU_CLOSE   SE_POKENAV_OFF
-#define ROTOMSE_MENU_SELECTION  SE_SELECT
+#define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
+#define ROTOMSE_MOVE_CURSOR    SE_DEX_SCROLL
+#define ROTOMSE_MOVE_PAGE      SE_DEX_PAGE
+#define ROTOMSE_MENU_CLOSE     SE_POKENAV_OFF
+#define ROTOMSE_MENU_SELECTION SE_SELECT
 
+#define ROTOM_MENU_REPEAT_DELAY 25
 struct RotomMove
 {
     u32 move;
@@ -380,6 +385,7 @@ struct RotomStartMenu
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
@@ -388,6 +394,10 @@ struct RotomStartMenu
     u8 iconAnimStarted:1;
     u8 optionSelected:1;
     u8 storedMenuOption:4;
+    u8 rotomEyesLookingTimer; //I hope I don't break anything by allocating 2 bytes
+    u8 rotomEyesState:2;
+    u8 screenWraparoundCounter:2;
+    u8 wizToldMeToAddThis:4; //Yes if I was a good programmer I would've called this "Padding" or "Dummy"
 };
 
 static const u16 sRotomMonIconToSpecies[] = {
@@ -438,6 +448,8 @@ static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
 static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
 static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
+
+
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
@@ -606,9 +618,12 @@ static const struct SpriteTemplate sSpriteMoveSelector = {
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] = {
-    { sRotomEyesGfx, (32 * 32) / 2, TAG_ROTOM_EYES_GFX },
+    { sRotomEyesGfx, 32 * 512 / 2, TAG_ROTOM_EYES_GFX },
     { NULL },
 };
+
+
+
 
 static const struct OamData sOamRotomEyes = {
     .y = 0,
@@ -624,15 +639,118 @@ static const struct OamData sOamRotomEyes = {
     .paletteNum = 0,
 };
 
+
+
+static const union AnimCmd sAnimCmdRotomEyes_Default[] = {
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Pokedex[] = {
+    ANIMCMD_FRAME(16, 0),
+    ANIMCMD_JUMP(0),
+};
+static const union AnimCmd sAnimCmdRotomEyes_Party[] = {
+    ANIMCMD_FRAME(32, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_PC[] = {
+    ANIMCMD_FRAME(48, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Bag[] = {
+    ANIMCMD_FRAME(64, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_TrainerCard[] = {
+    ANIMCMD_FRAME(80, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Save[] = {
+    ANIMCMD_FRAME(96, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Options[] = {
+    ANIMCMD_FRAME(112, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove0[] = {
+    ANIMCMD_FRAME(128, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove1[] = {
+    ANIMCMD_FRAME(144, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove2[] = {
+    ANIMCMD_FRAME(160, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove3[] = {
+    ANIMCMD_FRAME(176, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove4[] = {
+    ANIMCMD_FRAME(192, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_FieldMove5[] = {
+    ANIMCMD_FRAME(208, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Closed[] = {
+    ANIMCMD_FRAME(224, 0),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnimCmdRotomEyes_Dizzy[] = {
+    ANIMCMD_FRAME(240, 0),
+    ANIMCMD_JUMP(0),
+};
+
+
+static const union AnimCmd *const sRotomEyesAnim[] = {
+    sAnimCmdRotomEyes_Default,
+    sAnimCmdRotomEyes_Pokedex,
+    sAnimCmdRotomEyes_Party,
+    sAnimCmdRotomEyes_PC,
+    sAnimCmdRotomEyes_Bag,
+    sAnimCmdRotomEyes_TrainerCard,
+    sAnimCmdRotomEyes_Save,
+    sAnimCmdRotomEyes_Options,
+    sAnimCmdRotomEyes_FieldMove0,
+    sAnimCmdRotomEyes_FieldMove1,
+    sAnimCmdRotomEyes_FieldMove2,
+    sAnimCmdRotomEyes_FieldMove3,
+    sAnimCmdRotomEyes_FieldMove4,
+    sAnimCmdRotomEyes_FieldMove5,
+    sAnimCmdRotomEyes_Closed,
+    sAnimCmdRotomEyes_Dizzy,
+
+};
+
 static const struct SpriteTemplate sSpriteRotomEyes = {
     .tileTag = TAG_ROTOM_EYES_GFX,
     .paletteTag = TAG_MOVE_SELECTOR_PAL,
     .oam = &sOamRotomEyes,
-    .anims = gDummySpriteAnimTable,
+    .anims = sRotomEyesAnim,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_RotomEyes,
 };
+
 
 static const union AnimCmd gAnimCmdPokedex_NotSelected[] = {
     ANIMCMD_FRAME(128, 0),
@@ -864,9 +982,164 @@ static const struct SpriteTemplate gSpriteIconFlag = {
     .callback = SpriteCB_IconFlag,
 };
 
+enum RotomEyesStates {
+    EYE_STATE_NORMAL,
+    EYE_STATE_TRACKING,
+    EYE_STATE_DIZZY,
+    EYE_STATE_DIZZY_2,
+};
+
+enum RotomEyes {
+    ROTOM_EYES_DEFAULT,
+    ROTOM_EYES_POKEDEX,
+    ROTOM_EYES_PARTY,
+    ROTOM_EYES_PC,
+    ROTOM_EYES_BAG,
+    ROTOM_EYES_TRAINER_CARD,
+    ROTOM_EYES_SAVE,
+    ROTOM_EYES_OPTIONS,
+    ROTOM_EYES_FIELD_MOVE_0,
+    ROTOM_EYES_FIELD_MOVE_1,
+    ROTOM_EYES_FIELD_MOVE_2,
+    ROTOM_EYES_FIELD_MOVE_3,
+    ROTOM_EYES_FIELD_MOVE_4,
+    ROTOM_EYES_FIELD_MOVE_5,
+    ROTOM_EYES_CLOSED,
+    ROTOM_EYES_DIZZY,
+
+};
+
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
-    sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE;
+
+    if(sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL)
+    {
+        
+        StartSpriteAnim(sprite, ROTOM_EYES_DEFAULT);
+        sRotomStartMenu->screenWraparoundCounter = 0;
+        sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE;    //Translates to "The sprite's invisibility is set to the result of that inequality" (don't judge me for commenting this :( -Celia <3)
+
+    }
+    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)                      
+    {  
+        if(sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE) {
+        switch(sMenuSelected) {
+            case MENU_POKEDEX:
+                StartSpriteAnim(sprite, ROTOM_EYES_POKEDEX);
+                break;
+            case MENU_PARTY:
+                StartSpriteAnim(sprite, ROTOM_EYES_PARTY);
+                break;
+            case MENU_PC:
+                StartSpriteAnim(sprite, ROTOM_EYES_PC);
+                break;
+            case MENU_BAG:
+                StartSpriteAnim(sprite, ROTOM_EYES_BAG);
+                break;
+            case MENU_TRAINER_CARD:
+                StartSpriteAnim(sprite, ROTOM_EYES_TRAINER_CARD);
+                break;
+            case MENU_SAVE:
+                StartSpriteAnim(sprite, ROTOM_EYES_SAVE);
+                break;
+            case MENU_OPTIONS:
+                StartSpriteAnim(sprite, ROTOM_EYES_OPTIONS);
+                break;
+            default:
+
+                StartSpriteAnim(sprite, ROTOM_EYES_POKEDEX);
+                break;
+                
+
+            }
+        } else {
+            switch(sRotomStartMenu->fieldMoveCursor) {
+                case ROTOM_MOVE_SURF:
+                case ROTOM_MOVE_WHIRLPOOL:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_0);
+                    break;
+                case ROTOM_MOVE_WATERFALL:
+                case ROTOM_MOVE_GUILLOTINE:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_1);
+                    break;
+                case ROTOM_MOVE_ROCK_CLIMB:
+                case ROTOM_MOVE_BRICK_BREAK:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_2);
+                    break;
+                case ROTOM_MOVE_STRENGTH:
+                case ROTOM_MOVE_TAIL_GLOW:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_3);
+                    break;
+                case ROTOM_MOVE_CUT:
+                case ROTOM_MOVE_REST:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_4);
+                    break;
+                case ROTOM_MOVE_FLY:
+                case ROTOM_MOVE_RETREAT:
+                    StartSpriteAnim(sprite, ROTOM_EYES_FIELD_MOVE_5);
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
+        sRotomStartMenu->rotomEyesLookingTimer--;
+        
+        
+        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+            
+            
+            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
+        }
+
+    }
+    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY) {
+        // if not scrolling
+        StartSpriteAnim(sprite, ROTOM_EYES_CLOSED);
+        sRotomStartMenu->rotomEyesLookingTimer--;
+        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
+            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY_2;
+            sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
+        }
+        
+    }
+    else if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+        StartSpriteAnim(sprite, ROTOM_EYES_DIZZY);
+        sRotomStartMenu->rotomEyesLookingTimer--;
+        if(sRotomStartMenu->rotomEyesLookingTimer == 0) {
+            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
+            sRotomStartMenu->screenWraparoundCounter = 0;
+        }
+
+    }
+
+}
+
+static void RotomMenu_HandleUpdateEyes() {                                  //I have no clue where you'd want be to slap this helper function
+    if(sRotomStartMenu->rotomEyesLookingTimer < EYE_STATE_DIZZY)
+    {
+        sRotomStartMenu->rotomEyesLookingTimer = LOOK_TIMER_FRAMES;
+        
+        sRotomStartMenu->rotomEyesState = EYE_STATE_TRACKING;
+    }
+    if(sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_2) {
+        sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
+
+
+    }
+    
+    return;
+}
+
+static void RotomMenu_TryMakeDizzy() {
+    if(sRotomStartMenu->screenWraparoundCounter < NUM_DIZZY_LOOPS) {
+        sRotomStartMenu->screenWraparoundCounter++;
+    } else if(sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING) {
+        sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY;
+        sRotomStartMenu->rotomEyesLookingTimer = DIZZY_CLOSE_EYE_TIMER;
+    }
 }
 
 static void SpriteCB_IconPokedex(struct Sprite *sprite)
@@ -1071,7 +1344,9 @@ void RotomStartMenu_Init(void)
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         return;
     }
-
+    sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
+    gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
+ 
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
@@ -1372,6 +1647,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         sMenuSelected = sRotomStartMenu->storedMenuOption;
     }
+    
+    gKeyRepeatStartDelay = sRotomStartMenu->keyRepeatStartDelayBackup;
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     ClearWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
@@ -1986,6 +2263,7 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
         {
             sMenuSelected = MENU_BAG;
         }
+        RotomMenu_TryMakeDizzy();
         break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
@@ -2017,6 +2295,7 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     case MENU_POKEDEX:
         PlaySE(ROTOMSE_MENU_CURSOR);
         sMenuSelected = MENU_OPTIONS;
+        RotomMenu_TryMakeDizzy();
         break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
@@ -2044,27 +2323,59 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     }
 }
 
+#define tHideTimer data[0]
+
+static void Task_HideMoveSelectorTmp(u8 taskId)
+{
+    if (gTasks[taskId].tHideTimer == 0)
+    {
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].invisible = FALSE;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].invisible = FALSE;
+        DestroyTask(taskId);
+    }
+    else
+    {
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].invisible = TRUE;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].invisible = TRUE;
+        gTasks[taskId].tHideTimer--;
+    }
+}
+
 static void RotomStartMenu_HandleInput_DPadLeft(void)
 {
+    u32 taskId;
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->storedMenuOption = sMenuSelected;
         sMenuSelected = MENU_NONE;
         sRotomStartMenu->fieldMoveCursor = sStoredMoveRow == 1 ? ROTOM_MOVE_BOTTOM_ROW_MAX : ROTOM_MOVE_TOP_ROW_MAX;
-        MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor > 0
              && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor--;
-        MoveSelector_StartComfyAnims();
     }
+    else // cursor is on far left of bottom or top row of field moves
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->iconAnimStarted = FALSE;
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+
+        // hide temporarily to create a wrapping effect
+        taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
+        gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+        RotomMenu_TryMakeDizzy();
+    }
+
+    MoveSelector_StartComfyAnims();
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void)
 {
+    u32 taskId;
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
         || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
@@ -2072,15 +2383,29 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
         sRotomStartMenu->iconAnimStarted = FALSE;
         sMenuSelected = sRotomStartMenu->storedMenuOption;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
-        MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor++;
-        MoveSelector_StartComfyAnims();
     }
+    else  // cursor is on the menu icons
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->storedMenuOption = sMenuSelected;
+        sMenuSelected = MENU_NONE;
+        sRotomStartMenu->fieldMoveCursor =  sStoredMoveRow == 1 ? ROTOM_MOVE_WHIRLPOOL : ROTOM_MOVE_SURF;
+
+        // hide temporarily to create a wrapping effect
+        taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
+        gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+        RotomMenu_TryMakeDizzy();
+    }
+
+    MoveSelector_StartComfyAnims();
 }
+
+#undef tHideTimer
 
 static inline bool32 CheckValidFieldMoveInput(void)
 {
@@ -2116,6 +2441,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     {
         if (sMenuSelected != MENU_NONE)
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (!sRotomStartMenu->optionSelected)
             {
                 if (sMenuSelected != MENU_SAVE)
@@ -2128,6 +2454,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
         else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
                  && CheckValidFieldMoveInput())
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY)
             {
                 FadeScreen(FADE_TO_BLACK, 0);
@@ -2145,18 +2472,22 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     else if (JOY_REPT(DPAD_DOWN) && !sRotomStartMenu->optionSelected)
     {
         RotomStartMenu_HandleInput_DPadDown();
+        RotomMenu_HandleUpdateEyes();
     }
     else if (JOY_REPT(DPAD_UP) && !sRotomStartMenu->optionSelected)
     {
         RotomStartMenu_HandleInput_DPadUp();
+        RotomMenu_HandleUpdateEyes();
     }
     else if (JOY_REPT(DPAD_LEFT) && !sRotomStartMenu->optionSelected)
     {
         RotomStartMenu_HandleInput_DPadLeft();
+        RotomMenu_HandleUpdateEyes();
     }
     else if (JOY_REPT(DPAD_RIGHT) && !sRotomStartMenu->optionSelected)
     {
         RotomStartMenu_HandleInput_DPadRight();
+        RotomMenu_HandleUpdateEyes();
     }
     else if (sRotomStartMenu->optionSelected)
     {
@@ -2282,15 +2613,15 @@ static void PopulateMoveMonSpecies(void)
         SPECIES_GHOLDENGO,
         SPECIES_GOLDEEN,
         SPECIES_MACHAMP,
-        SPECIES_BIDOOF,
+        SPECIES_KRABBY,
         SPECIES_FARFETCHD,
         SPECIES_GOLURK,
-        SPECIES_SMEARGLE,
+        SPECIES_KRABBY,
+        SPECIES_EXEGGUTOR,
         SPECIES_KANGASKHAN,
-        SPECIES_AMPHAROS,
+        SPECIES_AMPHAROS_MEGA,
         SPECIES_MR_MIME,
         SPECIES_SCYTHER,
-        SPECIES_KRABBY,
     };
     
     for (move = 0; move < ROTOM_MOVE_COUNT; move++) sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
