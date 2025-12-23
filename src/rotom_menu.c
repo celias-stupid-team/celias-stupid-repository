@@ -241,12 +241,13 @@ enum RotomMoveID
 #define DIZZY_CLOSE_EYE_TIMER       40 // How long the rotom's eyes will be closed before 
 #define DIZZY_END_TIMER             90
 
-#define ROTOMSE_MENU_CURSOR  SE_DEX_SCROLL
-#define ROTOMSE_MOVE_CURSOR  SE_DEX_SCROLL
-#define ROTOMSE_MOVE_PAGE    SE_DEX_PAGE
-#define ROTOMSE_MENU_CLOSE   SE_POKENAV_OFF
-#define ROTOMSE_MENU_SELECTION  SE_SELECT
+#define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
+#define ROTOMSE_MOVE_CURSOR    SE_DEX_SCROLL
+#define ROTOMSE_MOVE_PAGE      SE_DEX_PAGE
+#define ROTOMSE_MENU_CLOSE     SE_POKENAV_OFF
+#define ROTOMSE_MENU_SELECTION SE_SELECT
 
+#define ROTOM_MENU_REPEAT_DELAY 25
 struct RotomMove
 {
     u32 move;
@@ -384,6 +385,7 @@ struct RotomStartMenu
     u16 sDexNumbersWindowID;
     u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
+    u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
@@ -1286,7 +1288,9 @@ void RotomStartMenu_Init(void)
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         return;
     }
-
+    sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
+    gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
+ 
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
@@ -1587,6 +1591,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         sMenuSelected = sRotomStartMenu->storedMenuOption;
     }
+    
+    gKeyRepeatStartDelay = sRotomStartMenu->keyRepeatStartDelayBackup;
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     ClearWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
@@ -2259,27 +2265,58 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     }
 }
 
+#define tHideTimer data[0]
+
+static void Task_HideMoveSelectorTmp(u8 taskId)
+{
+    if (gTasks[taskId].tHideTimer == 0)
+    {
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].invisible = FALSE;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].invisible = FALSE;
+        DestroyTask(taskId);
+    }
+    else
+    {
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].invisible = TRUE;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].invisible = TRUE;
+        gTasks[taskId].tHideTimer--;
+    }
+}
+
 static void RotomStartMenu_HandleInput_DPadLeft(void)
 {
+    u32 taskId;
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_NONE)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->storedMenuOption = sMenuSelected;
         sMenuSelected = MENU_NONE;
         sRotomStartMenu->fieldMoveCursor = sStoredMoveRow == 1 ? ROTOM_MOVE_BOTTOM_ROW_MAX : ROTOM_MOVE_TOP_ROW_MAX;
-        MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor > 0
              && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_TOP_ROW_MAX + 1)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor--;
-        MoveSelector_StartComfyAnims();
     }
+    else // cursor is on far left of bottom or top row of field moves
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->iconAnimStarted = FALSE;
+        sMenuSelected = sRotomStartMenu->storedMenuOption;
+        sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+
+        // hide temporarily to create a wrapping effect
+        taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
+        gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+    }
+
+    MoveSelector_StartComfyAnims();
 }
 
 static void RotomStartMenu_HandleInput_DPadRight(void)
 {
+    u32 taskId;
     if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_TOP_ROW_MAX
         || sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_BOTTOM_ROW_MAX)
     {
@@ -2287,15 +2324,28 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
         sRotomStartMenu->iconAnimStarted = FALSE;
         sMenuSelected = sRotomStartMenu->storedMenuOption;
         sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
-        MoveSelector_StartComfyAnims();
     }
     else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE)
     {
         PlaySE(ROTOMSE_MOVE_CURSOR);
         sRotomStartMenu->fieldMoveCursor++;
-        MoveSelector_StartComfyAnims();
     }
+    else  // cursor is on the menu icons
+    {
+        PlaySE(ROTOMSE_MOVE_CURSOR);
+        sRotomStartMenu->storedMenuOption = sMenuSelected;
+        sMenuSelected = MENU_NONE;
+        sRotomStartMenu->fieldMoveCursor =  sStoredMoveRow == 1 ? ROTOM_MOVE_WHIRLPOOL : ROTOM_MOVE_SURF;
+
+        // hide temporarily to create a wrapping effect
+        taskId = CreateTask(Task_HideMoveSelectorTmp, 0);
+        gTasks[taskId].tHideTimer = sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE ? 15 : 5;
+    }
+
+    MoveSelector_StartComfyAnims();
 }
+
+#undef tHideTimer
 
 static inline bool32 CheckValidFieldMoveInput(void)
 {
@@ -2331,6 +2381,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     {
         if (sMenuSelected != MENU_NONE)
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (!sRotomStartMenu->optionSelected)
             {
                 if (sMenuSelected != MENU_SAVE)
@@ -2343,6 +2394,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
         else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
                  && CheckValidFieldMoveInput())
         {
+            PlaySE(ROTOMSE_MENU_SELECTION);
             if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY)
             {
                 FadeScreen(FADE_TO_BLACK, 0);
