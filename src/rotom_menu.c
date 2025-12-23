@@ -449,8 +449,6 @@ static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4b
 static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
 static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
 
-
-
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
     .tilemapLeft = 1,
@@ -622,9 +620,6 @@ static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] = {
     { NULL },
 };
 
-
-
-
 static const struct OamData sOamRotomEyes = {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -638,8 +633,6 @@ static const struct OamData sOamRotomEyes = {
     .priority = 0,
     .paletteNum = 0,
 };
-
-
 
 static const union AnimCmd sAnimCmdRotomEyes_Default[] = {
     ANIMCMD_FRAME(0, 0),
@@ -1412,12 +1405,13 @@ static void RotomStartMenu_LoadSprites(void)
     LoadPalette(sMoveSelectorPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
 
-    LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
-
     LoadSpritePalette(sSpritePal_MonIcon);
     index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
     LoadPalette(sMonIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
+
+    index = IndexOfSpritePaletteTag(TAG_ROTOM_EYES_GFX);
+    LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 }
 
 static void RotomStartMenu_UpdateMonSprites(void)
@@ -1682,6 +1676,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
         FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
+        FreeSpritePaletteByTag(TAG_ROTOM_EYES_GFX);
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
