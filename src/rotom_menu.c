@@ -493,60 +493,63 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .baseBlock = 286
 };
 
+#define MON_ICON_FRAME_SIZE      32
+#define MON_ICON_TILES_PER_FRAME 16
+
 static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = {
-    ANIMCMD_FRAME((ICON_GHOLDENGO * 16), 0),
+    ANIMCMD_FRAME((ICON_GHOLDENGO * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Goldeen[] = {
-    ANIMCMD_FRAME((ICON_GOLDEEN * 16), 0),
+    ANIMCMD_FRAME((ICON_GOLDEEN * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = {
-    ANIMCMD_FRAME((ICON_MACHAMP * 16), 0),
+    ANIMCMD_FRAME((ICON_MACHAMP * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Bidoof[] = {
-    ANIMCMD_FRAME((ICON_BIDOOF * 16), 0),
+    ANIMCMD_FRAME((ICON_BIDOOF * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Farfetchd[] = {
-    ANIMCMD_FRAME((ICON_FARFETCHD * 16), 0),
+    ANIMCMD_FRAME((ICON_FARFETCHD * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Golurk[] = {
-    ANIMCMD_FRAME((ICON_GOLURK * 16), 0),
+    ANIMCMD_FRAME((ICON_GOLURK * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Smeargle[] = {
-    ANIMCMD_FRAME((ICON_SMEARGLE * 16), 0),
+    ANIMCMD_FRAME((ICON_SMEARGLE * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Exeggutor[] = {
-    ANIMCMD_FRAME((ICON_EXEGGUTOR * 16), 0),
+    ANIMCMD_FRAME((ICON_EXEGGUTOR * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Kangaskhan[] = {
-    ANIMCMD_FRAME((ICON_KANGASKHAN * 16), 0),
+    ANIMCMD_FRAME((ICON_KANGASKHAN * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_AmpharosMega[] = {
-    ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * 16), 0),
+    ANIMCMD_FRAME((ICON_AMPHAROS_MEGA * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_MrMime[] = {
-    ANIMCMD_FRAME((ICON_MR_MIME * 16), 0),
+    ANIMCMD_FRAME((ICON_MR_MIME * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Scyther[] = {
-    ANIMCMD_FRAME((ICON_SCYTHER * 16), 0),
+    ANIMCMD_FRAME((ICON_SCYTHER * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Krabby[] = {
-    ANIMCMD_FRAME((ICON_KRABBY * 16), 0),
+    ANIMCMD_FRAME((ICON_KRABBY * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = {
-    ANIMCMD_FRAME((ICON_AMPHAROS * 16), 0),
+    ANIMCMD_FRAME((ICON_AMPHAROS * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 
@@ -573,7 +576,7 @@ static const struct SpritePalette sSpritePal_MonIcon[] = {
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_MonIcon[] = {
-    { sMonIconGfx, 32 * 448 / 2, TAG_MON_ICON_GFX },
+    { sMonIconGfx, (MON_ICON_FRAME_SIZE * MON_ICON_FRAME_SIZE * MON_ICON_COUNT) / 2, TAG_MON_ICON_GFX },
     { NULL },
 };
 
@@ -606,12 +609,12 @@ static const struct SpritePalette sSpritePal_Icon[] = {
     { NULL },
 };
 
+#define ROTOM_ICON_SIZE 32
+
 static const struct CompressedSpriteSheet sSpriteSheet_Icon[] = {
-    { sIconGfx, 32 * 512 / 2, TAG_ICON_GFX },
+    { sIconGfx, (ROTOM_ICON_SIZE * ROTOM_ICON_SIZE * 16) / 2, TAG_ICON_GFX },
     { NULL },
 };
-
-#define ROTOM_ICON_SIZE 32
 
 static const struct OamData gOamIcon = {
     .y = 0,
