@@ -175,7 +175,7 @@ script OneIsland_SetArticunoStatue {
 script OneIsland_Whirlpool {
 	lockall
 	checkpartymove(MOVE_WHIRLPOOL)
-	if(var(VAR_RESULT) >= PARTY_SIZE) {
+	if(var(VAR_RESULT) == PARTY_SIZE) {
 		msgbox(
 		"it's a whirlpool\n"
 		"", MSGBOX_SIGN)
@@ -254,16 +254,21 @@ script OneIsland_Kaylee {
 		playmoncry(SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER)
 		setwildbattle(SPECIES_ARTICUNO, 50, ITEM_MYSTIC_SEAL)
 		dowildbattle
-		delay(120)
+		delay(60)
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
-		release
-		end
+		msgbox(
+		"Wow articuno!\p"
+
+		"Take this\n"
+		"", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
+		waitfanfare
 	} else {
 		msgbox(
 		"we need another friend\n"
 		"", MSGBOX_DEFAULT)
 	}
-
+	release
 }
 
 script OneIsland_ArticunoEgg {
