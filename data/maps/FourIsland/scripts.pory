@@ -162,6 +162,7 @@ script FourIsland_OnTransition {
 
 
 script FourIsland_LaidPsyduck {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox("I'm getting LAID as\nPROF. OAK's POKéMON.", MSGBOX_SIGN)
 
 }

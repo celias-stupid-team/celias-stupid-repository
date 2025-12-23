@@ -258,3 +258,35 @@ script SaffronCity_TheLeek {
 	"{PAUSE 30}Publishing House", MSGBOX_SIGN)
 
 }
+
+
+script SaffronCity_ExistentialDude {
+	lock
+	faceplayer
+	msgbox(
+	"Y'know, sometimes I wonder if\n"
+	"my whole life is a lie.\p"
+
+	"Like, we think we're in a big city\n"
+	"connected to the outside world.\p"
+
+	"But what if we're actually enclosed\n"
+	"in our own map, cut off from KANTO.\p"
+
+	"What if in the “real” world,\n"
+	"there's an identical copy of\l"
+	"SAFFRON right here, but empty?\p"
+
+	"What if those gates just serve as\n"
+	"convenient loading zones to stop\l"
+	"you from noticing the difference?\p"
+
+	"Ah, well.\n"
+	"Maybe I'm just being silly.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}

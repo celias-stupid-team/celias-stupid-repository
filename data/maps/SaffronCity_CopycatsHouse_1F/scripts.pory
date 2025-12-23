@@ -162,6 +162,9 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			"Let's get you back upstairs.", MSGBOX_DEFAULT)
 			closemessage
 			textcolor(NPC_TEXT_COLOR_RED)
+			applymovement(LOCALID_COPYCAT_DOWNSTAIRS, moves(
+				face_right
+			))
 			msgbox(
 			"COPYCAT: Back upstairs!\n"
 			"", MSGBOX_DEFAULT)

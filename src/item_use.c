@@ -641,6 +641,10 @@ void FieldUseFunc_CopycatTM(u8 taskId)
     if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F)) {
         PlaySE(SE_PC_LOGIN);
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu); // ???
+
+        sItemUseOnFieldCB = Task_ItemUse_CloseMessageBoxAndReturnToField; //I don't udnerstand which part of this CB puts you back in the field
+        SetUpItemUseOnFieldCallback(taskId);
+
         // Attempts:
         
         // DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ItemUse_CloseMessageBoxAndReturnToField); No, because I want the message in the bag
@@ -649,8 +653,6 @@ void FieldUseFunc_CopycatTM(u8 taskId)
         
         /*
         DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
-        sItemUseOnFieldCB = ItemUseOnFieldCB_PayDayTM; //I don't udnerstand which part of this CB puts you back in the field
-        SetUpItemUseOnFieldCallback(taskId);
         */
 
 

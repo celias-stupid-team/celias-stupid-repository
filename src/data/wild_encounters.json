@@ -24594,7 +24594,7 @@
           "map": "MAP_MINNESOTA",
           "base_label": "gMinnesota",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 30,
