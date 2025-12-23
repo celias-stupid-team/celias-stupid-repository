@@ -166,8 +166,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WORKER_M",
-      "x": 21,
-      "y": 23,
+      "x": 18,
+      "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -287,7 +287,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_EventScript_HiddenDad",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SAFFRON_ROCKETS"
     },
     {
       "type": "object",
@@ -316,6 +316,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_EventScript_SneakyGuy",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CAR_DAD",
+      "x": 24,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronCity_CarDad",
+      "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     }
   ],
   "warp_events": [

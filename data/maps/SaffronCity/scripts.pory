@@ -233,3 +233,21 @@ script SaffronCity_CardboardCutout {
 
 }
 
+script SaffronCity_CarDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Say, wanna come with me for a\n"
+	"ride in the car?\l"
+	"I have room for five more!\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

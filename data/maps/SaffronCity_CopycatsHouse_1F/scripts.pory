@@ -161,6 +161,12 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			"Come, darling.\n"
 			"Let's get you back upstairs.", MSGBOX_DEFAULT)
 			closemessage
+			textcolor(NPC_TEXT_COLOR_RED)
+			msgbox(
+			"COPYCAT: Back upstairs!\n"
+			"", MSGBOX_DEFAULT)
+			closemessage
+			delay(20)
 			applymovement(LOCALID_COPYCAT_DAD, moves(
 				walk_right * 2 
 				walk_up
@@ -302,3 +308,4 @@ script CopycatHouse_NotOak {
 	"It's copying OAK!", MSGBOX_SIGN)
 
 }
+

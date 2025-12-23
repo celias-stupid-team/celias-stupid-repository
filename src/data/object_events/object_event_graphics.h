@@ -587,3 +587,5 @@ const u32 gObjectEventPic_territorial_oak[] = INCBIN_U32("graphics/object_events
 const u16 gObjectEventPal_territorial_oak[] = INCBIN_U16("graphics/object_events/palettes/territorial_oak.gbapal");
 const u32 gObjectEventPic_ravepossum[] = INCBIN_U32("graphics/object_events/pics/stupid/ravepossum.4bpp");
 const u16 gObjectEventPal_ravepossum[] = INCBIN_U16("graphics/object_events/palettes/ravepossum.gbapal");
+const u32 gObjectEventPic_car_dad[] = INCBIN_U32("graphics/object_events/pics/stupid/car_dad.4bpp");
+const u16 gObjectEventPal_car_dad[] = INCBIN_U16("graphics/object_events/palettes/car_dad.gbapal");
