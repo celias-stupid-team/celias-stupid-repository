@@ -484,5 +484,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_PEPSI]      =  {gItemIcon_PEPSI, gItemIconPalette_PEPSI},
     [ITEM_POTION_EXE]      =  {gItemIcon_PotionExe, gItemIconPalette_PotionExe},
     [ITEM_MAGIC_MUFFLER]      =  {gItemIcon_MagicMuffler, gItemIconPalette_MagicMuffler},
+    [ITEM_COPYCAT_TM]      =  {gItemIcon_CopycatTm, gItemIconPalette_CopycatTm},
         [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

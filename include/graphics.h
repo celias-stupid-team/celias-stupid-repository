@@ -12656,3 +12656,6 @@ extern const u32 gTrainerPalette_Boarder[];
 
 extern const u32 gTrainerFrontPic_Flint[];
 extern const u32 gTrainerPalette_Flint[];
+
+extern const u32 gItemIcon_CopycatTm[];
+extern const u32 gItemIconPalette_CopycatTm[];

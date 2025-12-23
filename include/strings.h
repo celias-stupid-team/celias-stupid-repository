@@ -196,6 +196,8 @@ extern const u8 gText_RepelEffectsLingered[];
 extern const u8 gText_MaxRepelDoesntWork[];
 extern const u8 gText_PayDayTM[];
 extern const u8 gText_MaxRepelTurnedOff[];
+extern const u8 gText_TMContainedCopycat[];
+
 extern const u8 gText_MaxRepelWorks[];
 extern const u8 gText_UsedVar2WildLured[];
 extern const u8 gText_UsedVar2WildRepelled[];

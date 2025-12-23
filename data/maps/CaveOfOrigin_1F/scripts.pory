@@ -1,3 +1,11 @@
 mapscripts CaveOfOrigin_1F_MapScripts {
 
 }
+
+
+script CaveOfOrigin_1F_Sign {
+	msgbox(
+	"CAVE OF ORIGIN OF LIFE\n"
+	"NEW WILD POKéMON: 2", MSGBOX_SIGN)
+
+}
