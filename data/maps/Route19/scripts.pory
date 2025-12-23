@@ -129,6 +129,7 @@ script Route19_LookerScene {
 	))
 	waitmovement(0)
 	delay(20)
+	setflag(FLAG_SYS_ROTOM_MENU)
 	playfanfare(MUS_SLOTS_JACKPOT)
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
@@ -193,7 +194,7 @@ script Route19_LookerScene {
 	waitmovement(LOCALID_LOOKER_UP)
 	closemessage
 	delay(30)
-	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	delay(50)
 	applymovement(LOCALID_LOOKER_UP, moves(
 		lock_facing_direction
