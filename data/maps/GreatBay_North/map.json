@@ -33,6 +33,11 @@
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "offset": 15,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN17",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],

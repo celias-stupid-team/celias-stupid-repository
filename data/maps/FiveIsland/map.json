@@ -23,14 +23,24 @@
       "map": "MAP_GREAT_BAY_NORTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN17",
+      "offset": 34,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN16",
+      "offset": 5,
+      "direction": "right"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 10,
-      "y": 24,
+      "x": 0,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -43,8 +53,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 11,
-      "y": 13,
+      "x": 1,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -57,37 +67,37 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 32,
-      "y": 22,
+      "x": 2,
+      "y": 0,
       "target_local_id": "LOCALID_FIVE_ISLAND_MEADOW_BORDER_TREE",
       "target_map": "MAP_FIVE_ISLAND_MEADOW"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 27,
+      "x": 2,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_FIVE_ISLAND_HARBOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
-      "y": 19,
+      "x": 0,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
-      "y": 19,
+      "x": 1,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
-      "y": 22,
+      "x": 3,
+      "y": 1,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_HOUSE2",
       "dest_warp_id": "0"
@@ -97,8 +107,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 20,
-      "y": 21,
+      "x": 5,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FiveIsland_EventScript_IslandSign"
