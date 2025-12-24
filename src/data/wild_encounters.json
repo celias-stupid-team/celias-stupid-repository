@@ -16820,23 +16820,8 @@
             "encounter_rate": 21,
             "mons": [
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 15,
-                "max_level": 15,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_CUBONE"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
@@ -16845,33 +16830,48 @@
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 17,
-                "max_level": 17,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CUBONE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
                 "species": "SPECIES_CUBONE"
               },
               {

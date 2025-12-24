@@ -3054,10 +3054,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_MAROWAK] =
     {
         .baseHP = 60,
-        .baseAttack = 80,
+        .baseAttack = 110,
         .baseDefense = 110,
         .baseSpeed = 45,
-        .baseSpAttack = 50,
+        .baseSpAttack = 90,
         .baseSpDefense = 80,
         .types = {TYPE_GROUND, TYPE_GHOST},
         .catchRate = 255,
