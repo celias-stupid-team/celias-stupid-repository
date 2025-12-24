@@ -244,8 +244,8 @@ enum RotomMoveID
 #define BLINK_TIMER_FRAMES_ACTIVE 5
 #define LOOK_TIMER_FRAMES         40
 #define NUM_DIZZY_LOOPS           3 // Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
-#define DIZZY_CLOSE_EYE_TIMER     30 // How long the rotom's eyes will be closed before
-#define DIZZY_END_TIMER           90
+#define DIZZY_CLOSE_EYE_TIMER     30 // How long the rotom's eyes will be closed before turning dizzy
+#define DIZZY_EYES_TIMER          90 // How long rotom's eyes stay dizzy
 
 #define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
 #define ROTOMSE_MOVE_CURSOR    SE_DEX_SCROLL
@@ -395,7 +395,7 @@ struct RotomStartMenu
     u16 monSpecies[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
-    u8 rotomEyesLookingTimer;
+    u8 rotomEyesStateTimer;
     u8 rotomEyesState:2;
     u8 iconAnimStarted:1;
     u8 optionSelected:1;
@@ -672,8 +672,8 @@ enum RotomEyesStates
 {
     EYE_STATE_NORMAL,
     EYE_STATE_TRACKING,
+    EYE_STATE_DIZZY_CLOSED,
     EYE_STATE_DIZZY,
-    EYE_STATE_DIZZY_END,
 };
 
 enum RotomEyesFrame
@@ -1079,18 +1079,55 @@ static const u32 sRotomMoveCursorToEyeState[] = {
     [ROTOM_MOVE_RETREAT] = ROTOM_EYES_FIELD_MOVE_5,
 };
 
+static void Task_RotomEyeController(u8 taskId)
+{
+    if (sRotomStartMenu->rotomEyesState != EYE_STATE_NORMAL 
+        && sRotomStartMenu->rotomEyesStateTimer > 0)
+    {
+        sRotomStartMenu->rotomEyesStateTimer--;
+    }
+
+    sRotomStartMenu->blinkTimer--;
+
+    switch (sRotomStartMenu->rotomEyesState)
+    {
+    case EYE_STATE_NORMAL:
+        sRotomStartMenu->screenWraparoundCounter = 0;
+        break;
+    case EYE_STATE_TRACKING:
+        if (sRotomStartMenu->rotomEyesStateTimer == 0)
+        {
+            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
+        }
+        break;
+    case EYE_STATE_DIZZY_CLOSED:
+        if (sRotomStartMenu->rotomEyesStateTimer == 0)
+        {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
+            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY;
+            sRotomStartMenu->rotomEyesStateTimer = DIZZY_EYES_TIMER;
+        }
+        break;
+    case EYE_STATE_DIZZY:
+        if (sRotomStartMenu->rotomEyesStateTimer == 0)
+        {
+            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
+            sRotomStartMenu->screenWraparoundCounter = 0;
+        }
+        break;
+    }
+}
+
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
-    if (sRotomStartMenu->rotomEyesState != EYE_STATE_NORMAL)
-    {
-        sRotomStartMenu->rotomEyesLookingTimer--;
-    }
+    // avoids getting sprite stuck invisible if you happen to
+    // input during blink frames
+    sprite->invisible = FALSE;
 
     switch (sRotomStartMenu->rotomEyesState)
     {
     case EYE_STATE_NORMAL:
         StartSpriteAnim(sprite, ROTOM_EYES_DEFAULT);
-        sRotomStartMenu->screenWraparoundCounter = 0;
         sprite->invisible = sRotomStartMenu->blinkTimer < BLINK_TIMER_FRAMES_ACTIVE; // Translates to "The sprite's invisibility is set to the result of that inequality" (don't judge me for commenting this :( -Celia <3)
         break;
     case EYE_STATE_TRACKING:
@@ -1102,45 +1139,23 @@ static void SpriteCB_RotomEyes(struct Sprite *sprite)
         {
             StartSpriteAnim(sprite, sRotomMoveCursorToEyeState[sRotomStartMenu->fieldMoveCursor]);
         }
-
-        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
-        {
-            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
-        }
+        break;
+    case EYE_STATE_DIZZY_CLOSED:
+        StartSpriteAnim(sprite, ROTOM_EYES_CLOSED);
         break;
     case EYE_STATE_DIZZY:
-        // if not scrolling
-        StartSpriteAnim(sprite, ROTOM_EYES_CLOSED);
-
-        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
-        {
-            PlayCry_Normal(SPECIES_ROTOM, 0);
-            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY_END;
-            sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
-        }
-        break;
-    case EYE_STATE_DIZZY_END:
         StartSpriteAnim(sprite, ROTOM_EYES_DIZZY);
-
-        if (sRotomStartMenu->rotomEyesLookingTimer == 0)
-        {
-            sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
-            sRotomStartMenu->screenWraparoundCounter = 0;
-        }
         break;
     }
 }
 
-static void RotomMenu_TryResetEyesLookTimer(void)
+static void RotomMenu_TryStartEyesLook(void)
 {
-    if (sRotomStartMenu->rotomEyesLookingTimer == 0)
+    if (sRotomStartMenu->rotomEyesState == EYE_STATE_NORMAL
+        ||  sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)
     {
-        sRotomStartMenu->rotomEyesLookingTimer = LOOK_TIMER_FRAMES;
+        sRotomStartMenu->rotomEyesStateTimer = LOOK_TIMER_FRAMES;
         sRotomStartMenu->rotomEyesState = EYE_STATE_TRACKING;
-    }
-    else if (sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY_END)
-    {
-        sRotomStartMenu->rotomEyesLookingTimer = DIZZY_END_TIMER;
     }
 }
 
@@ -1159,8 +1174,13 @@ static void RotomMenu_TryMakeDizzy(void)
         }
         else if (sRotomStartMenu->rotomEyesState == EYE_STATE_TRACKING)
         {
-            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY;
-            sRotomStartMenu->rotomEyesLookingTimer = DIZZY_CLOSE_EYE_TIMER;
+            sRotomStartMenu->rotomEyesState = EYE_STATE_DIZZY_CLOSED;
+            sRotomStartMenu->rotomEyesStateTimer = DIZZY_CLOSE_EYE_TIMER;
+        }
+        else if (sRotomStartMenu->rotomEyesState == EYE_STATE_DIZZY)
+        {
+            // if rotom is already dizzy, just extend the timer
+            sRotomStartMenu->rotomEyesStateTimer = DIZZY_EYES_TIMER;
         }
     }
 }
@@ -1367,15 +1387,18 @@ void RotomStartMenu_Init(void)
         SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
         return;
     }
+
     sRotomStartMenu->keyRepeatStartDelayBackup = gKeyRepeatStartDelay;
     gKeyRepeatStartDelay = ROTOM_MENU_REPEAT_DELAY;
-
+    sFieldMoveData = 0;
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
 
-    sFieldMoveData = 0;
+    sRotomStartMenu->rotomEyesStateTimer = LOOK_TIMER_FRAMES;
     sRotomStartMenu->blinkTimer = BLINK_TIMER_START_VALUE;
+    CreateTask(Task_RotomEyeController, 1);
+
     sRotomStartMenu->sMoveNameWindowId = AddWindow(&sWindowTemplate_MoveNames);
 
     PopulateMoveMonSpecies();
@@ -1699,6 +1722,8 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     }
 
     ScheduleBgCopyTilemapToVram(0);
+
+    DestroyTask(FindTaskIdByFunc(Task_RotomEyeController));
 
     RotomStartMenu_DestroySprites();
 
@@ -2451,7 +2476,7 @@ static inline bool32 CheckValidFieldMoveInput(void)
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
 {
     u32 index, fieldMoveTask;
-    sRotomStartMenu->blinkTimer--;
+
     AdvanceComfyAnimations();
 
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
@@ -2516,7 +2541,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     if (JOY_REPT(DPAD_ANY))
     {
         RotomMenu_TryMakeDizzy();
-        RotomMenu_TryResetEyesLookTimer();
+        RotomMenu_TryStartEyesLook();
     }
 }
 
