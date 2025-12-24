@@ -1506,6 +1506,10 @@ static void RotomStartMenu_UpdateMonSprites(void)
             if (sRotomMonIconToSpecies[j] == sRotomStartMenu->monSpecies[i - SPRITE_MON_ICON_0 + rotomMoveOffset])
             {
                 StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i]], j);
+                if (Overworld_GetFlashLevel() && sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START] != SPRITE_NONE)
+                {
+                    StartSpriteAnim(&gSprites[sRotomStartMenu->spriteIDs[i + ROTOM_SPRITE_MASKS_START]], j);
+                }
             }
         }
     }
@@ -1614,7 +1618,8 @@ static void RotomStartMenu_CreateSpriteMasks(void)
             {
                 gSprites[maskSpriteID].spStoredYPos = gSprites[maskSpriteID].y;
             }
-
+            
+            StartSpriteAnim(&gSprites[maskSpriteID], gSprites[spriteID].animNum);
             gSprites[maskSpriteID].oam.objMode = ST_OAM_OBJ_WINDOW;
         }
     }
