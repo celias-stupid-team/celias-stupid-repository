@@ -253,6 +253,8 @@ script Route19_LookerScene {
 	removeobject(LOCALID_LOOKER_UP)
 	removeobject(LOCALID_LOOKER_LAYING)
 	setflag(FLAG_LOOKER_SCENE)
+	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE) //TEMPORARY
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)	  //TEMPORARY
 	release
 
 
@@ -345,6 +347,7 @@ script GreatSea_RadicalRed {
 script GreatSea_Chapter7 {
 	lock
 	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
+	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
 	fadescreen(FADE_TO_BLACK)
 	delay(30)
 	message("Chapter 7{PAUSE 120}\nToo Much Water")

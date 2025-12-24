@@ -264,6 +264,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
 	.4byte BattleScript_EffectSemiInvulnerableHaunter       @ EFFECT_SEMI_INVULNERABLE_CANCEL
 	.4byte BattleScript_EffectRazorWindHaunter              @ EFFECT_RAZOR_WIND_CANCEL
+	.4byte BattleScript_EffectMultiHitFive              @ EFFECT_MULTI_HIT_FIVE
 
 
 BattleScript_EffectReflect2::
@@ -5163,3 +5164,12 @@ BattleScript_TwoTurnMovesSecondTurnCancel::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectMultiHitFive::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setbyte sMULTIHIT_EFFECT, MOVE_EFFECT_POISON
+	attackstring
+	ppreduce
+	setmultihitcounter 10
+	initmultihitstring
+	goto BattleScript_MultiHitLoop
