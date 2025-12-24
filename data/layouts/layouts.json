@@ -6148,8 +6148,8 @@
     {
       "id": "LAYOUT_GREAT_SEA_PIRATE_BAY",
       "name": "GreatSea_PirateBay_Layout",
-      "width": 48,
-      "height": 48,
+      "width": 56,
+      "height": 56,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
