@@ -1580,8 +1580,6 @@ static void RotomStartMenu_CreateSprites(void)
     }
 }
 
-#undef spStoredYPos
-
 static void RotomStartMenu_CreateSpriteMasks(void)
 {
     u32 i, spriteID, maskSpriteID;
@@ -1612,6 +1610,11 @@ static void RotomStartMenu_CreateSpriteMasks(void)
                 gSprites[maskSpriteID].callback = SpriteCB_MoveSelectorMask;
             }
 
+            if (i == SPRITE_ROTOM_EYE_TOP || i == SPRITE_ROTOM_EYE_BOTTOM)
+            {
+                gSprites[maskSpriteID].spStoredYPos = gSprites[maskSpriteID].y;
+            }
+
             gSprites[maskSpriteID].oam.objMode = ST_OAM_OBJ_WINDOW;
         }
     }
@@ -1619,6 +1622,8 @@ static void RotomStartMenu_CreateSpriteMasks(void)
     SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
     SetGpuRegBits(REG_OFFSET_WINOUT, 0);
 }
+
+#undef spStoredYPos
 
 static void RotomStartMenu_DisableSpriteAffineModes(void)
 {
