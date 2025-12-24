@@ -2636,16 +2636,16 @@ static void PopulateMoveMonSpecies(void)
     u32 move, box, monPos;
     static const u16 testSpeciesInfo[] = {
         SPECIES_GHOLDENGO,
-        SPECIES_GOLDEEN,
-        SPECIES_MACHAMP,
+        SPECIES_KRABBY,
+        SPECIES_KRABBY,
         SPECIES_KRABBY,
         SPECIES_FARFETCHD,
         SPECIES_GOLURK,
         SPECIES_KRABBY,
         SPECIES_EXEGGUTOR,
         SPECIES_KANGASKHAN,
-        SPECIES_AMPHAROS_MEGA,
-        SPECIES_MR_MIME,
+        SPECIES_KRABBY,
+        SPECIES_KRABBY,
         SPECIES_SCYTHER,
     };
 

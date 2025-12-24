@@ -4218,8 +4218,8 @@
       "importance": 1,
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_Rod",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": "GOOD_ROD"

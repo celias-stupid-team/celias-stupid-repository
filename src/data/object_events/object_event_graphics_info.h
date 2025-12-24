@@ -7601,3 +7601,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bill_board = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SAMSON_OAK = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 2048,
+    .width = 64,
+    .height = 64,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_64x64,
+    .subspriteTables = gObjectEventSpriteOamTables_64x64,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_SAMSON_OAK,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

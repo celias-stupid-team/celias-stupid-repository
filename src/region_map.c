@@ -532,25 +532,11 @@ static const u8 *const sTextColorTable[] = {
 static const u8 sSeviiMapsecs[3][30] = {
     [REGIONMAP_SEVII123 - 1] =
     {
-        MAPSEC_ONE_ISLAND,
-        MAPSEC_TWO_ISLAND,
-        MAPSEC_THREE_ISLAND,
-        MAPSEC_KINDLE_ROAD,
-        MAPSEC_TREASURE_BEACH,
-        MAPSEC_CAPE_BRINK,
-        MAPSEC_BOND_BRIDGE,
-        MAPSEC_THREE_ISLE_PORT,
-        MAPSEC_GAME_CORNER,
-        MAPSEC_BERRY_FOREST,
-        MAPSEC_THREE_ISLE_PATH,
-        MAPSEC_EMBER_SPA,
-        MAPSEC_CSR_DUMMY_02,
         MAPSEC_POKEMON_CENTER,
         MAPSEC_NONE
     }, 
     [REGIONMAP_SEVII45 - 1] =
     {
-        MAPSEC_FOUR_ISLAND,
         MAPSEC_CELADON_MANSION,
         MAPSEC_DECAMARK,
         MAPSEC_SEVII_ISLE_7,
@@ -3649,7 +3635,7 @@ static void CreateFlyIcons(void)
     u8 numIcons = 0;
     if (GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
     {
-        for (i = 0; i < REGIONMAP_COUNT; i++)
+        for (i = 0; i < REGIONMAP_COUNT; i++) //i counts region maps??
         {
             for (y = 0; y < MAP_HEIGHT; y++)
             {

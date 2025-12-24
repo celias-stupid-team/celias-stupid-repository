@@ -145,7 +145,7 @@ script Route19_LookerScene {
 	delay(20)
 	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
-	"That ROTOM is the result of decades\n"
+	"That ROTOM is the result of years\n"
 	"of research.\l"
 	"I know you'll find it useful.\p"
 

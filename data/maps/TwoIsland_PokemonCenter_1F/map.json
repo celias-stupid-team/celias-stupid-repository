@@ -110,18 +110,18 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
-      "y": 5,
+      "x": 2,
+      "y": 6,
       "elevation": 4,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
-      "dest_warp_id": "1"
+      "dest_warp_id": "0"
     },
     {
-      "x": 6,
-      "y": 5,
+      "x": 2,
+      "y": 6,
       "elevation": 4,
       "dest_map": "MAP_TWO_ISLAND_POKEMON_CENTER_1F",
-      "dest_warp_id": "1"
+      "dest_warp_id": "0"
     },
     {
       "x": 7,

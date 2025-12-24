@@ -16,6 +16,6 @@ script Route7_EventScript_Ann { //needs the actual trainer
 }
 
 script Route7_RouteSign {
-	msgbox("ROUTE 7\nNEW WILD POKéMON: 1\lNEW WILD POKéMON at night: 2", MSGBOX_SIGN)
+	msgbox("ROUTE 9\nNEW WILD POKéMON: 1\lNEW WILD POKéMON at night: 2", MSGBOX_SIGN)
 	end
 }

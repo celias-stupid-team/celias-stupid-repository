@@ -593,3 +593,4 @@ const u32 gObjectEventPic_JUMPLUFF[] = INCBIN_U32("graphics/object_events/pics/s
 const u16 gObjectEventPal_JUMPLUFF[] = INCBIN_U16("graphics/object_events/palettes/JUMPLUFF.gbapal");
 const u32 gObjectEventPic_bill_board[] = INCBIN_U32("graphics/object_events/pics/stupid/bill_board.4bpp");
 const u16 gObjectEventPal_bill_board[] = INCBIN_U16("graphics/object_events/palettes/bill_board.gbapal");
+const u32 gObjectEventPic_SAMSON_OAK[] = INCBIN_U32("graphics/object_events/pics/stupid/SAMSON_OAK.4bpp");

@@ -2,7 +2,7 @@
   "id": "MAP_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
   "name": "HouseOfOldManWhoTeachesTrendySayings",
   "layout": "LAYOUT_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
-  "music": "MUS_FOUR_ISLAND",
+  "music": "MUS_CELADON",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
