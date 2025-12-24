@@ -824,7 +824,8 @@ struct SaveBlock1
     /*0x3D34*/ u32 towerChallengeId;
     /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
     /*0x3D50*/ struct WarpData lastBenchLocation;
-               u8 spaceReserveCSR[1920];
+               u16 rotomMenuLastObtainableCount;
+               u8 spaceReserveCSR[1918];
 }; // size: 0x3D68
 
 struct MapPosition

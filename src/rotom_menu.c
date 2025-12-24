@@ -9,6 +9,7 @@
 #include "constants/moves.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/sound.h"
 
 #include "gba/isagbprint.h"
 
@@ -246,12 +247,15 @@ enum RotomMoveID
 #define NUM_DIZZY_LOOPS           3 // Number of times to wraparound while in autoscroll mode before transitioning to Dizzy state
 #define DIZZY_CLOSE_EYE_TIMER     30 // How long the rotom's eyes will be closed before turning dizzy
 #define DIZZY_EYES_TIMER          90 // How long rotom's eyes stay dizzy
+#define OBTAINABLE_EYES_TIMER     90 // How long rotom's eyes look at new obtainable number
+#define OBTAINABLE_LOOK_DELAY     60 // How long to wait after opening to look at new obtainable number
 
 #define ROTOMSE_MENU_CURSOR    SE_DEX_SCROLL
 #define ROTOMSE_MOVE_CURSOR    SE_DEX_SCROLL
 #define ROTOMSE_MOVE_PAGE      SE_DEX_PAGE
 #define ROTOMSE_MENU_CLOSE     SE_POKENAV_OFF
 #define ROTOMSE_MENU_SELECTION SE_SELECT
+#define ROTOMSE_NEW_OBTAINABLE SE_PIN
 
 #define ROTOM_MENU_REPEAT_DELAY 25
 struct RotomMove
@@ -396,10 +400,11 @@ struct RotomStartMenu
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
     u8 rotomEyesStateTimer;
-    u8 rotomEyesState:2;
+    u8 rotomEyesState;
     u8 iconAnimStarted:1;
     u8 optionSelected:1;
     u8 storedMenuOption:4;
+    u8 filler:2;
     u8 fieldMoveCursor:4;
     u8 comfyAnimStatus:2;
     u8 screenWraparoundCounter:2;
@@ -674,6 +679,7 @@ enum RotomEyesStates
     EYE_STATE_TRACKING,
     EYE_STATE_DIZZY_CLOSED,
     EYE_STATE_DIZZY,
+    EYE_STATE_NEW_OBTAINABLE,
 };
 
 enum RotomEyesFrame
@@ -695,6 +701,9 @@ enum RotomEyesFrame
     ROTOM_EYES_CLOSED,
     ROTOM_EYES_DIZZY,
     ROTOM_EYES_FRAME_COUNT,
+    // the obtainable eyes are the field move 0 eyes flipped vertically
+    ROTOM_EYES_OBTAINABLE = ROTOM_EYES_FRAME_COUNT,
+    ROTOM_EYES_ANIM_COUNT,
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_RotomEyes[] = {
@@ -795,7 +804,12 @@ static const union AnimCmd sAnimCmdRotomEyes_Dizzy[] = {
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const sRotomEyesAnim[] = {
+static const union AnimCmd sAnimCmdRotomEyes_Obtainable[] = {
+    ANIMCMD_FRAME(ROTOM_EYES_FIELD_MOVE_0 * ROTOM_EYES_TILES_PER_FRAME, 0, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sRotomEyesAnim[ROTOM_EYES_ANIM_COUNT] = {
     [ROTOM_EYES_DEFAULT] = sAnimCmdRotomEyes_Default,
     [ROTOM_EYES_POKEDEX] = sAnimCmdRotomEyes_Pokedex,
     [ROTOM_EYES_PARTY] = sAnimCmdRotomEyes_Party,
@@ -812,6 +826,7 @@ static const union AnimCmd *const sRotomEyesAnim[] = {
     [ROTOM_EYES_FIELD_MOVE_5] = sAnimCmdRotomEyes_FieldMove5,
     [ROTOM_EYES_CLOSED] = sAnimCmdRotomEyes_Closed,
     [ROTOM_EYES_DIZZY] = sAnimCmdRotomEyes_Dizzy,
+    [ROTOM_EYES_OBTAINABLE] = sAnimCmdRotomEyes_Obtainable,
 };
 
 static const struct SpriteTemplate sSpriteRotomEyes = {
@@ -1095,6 +1110,7 @@ static void Task_RotomEyeController(u8 taskId)
         sRotomStartMenu->screenWraparoundCounter = 0;
         break;
     case EYE_STATE_TRACKING:
+    case EYE_STATE_NEW_OBTAINABLE:
         if (sRotomStartMenu->rotomEyesStateTimer == 0)
         {
             sRotomStartMenu->rotomEyesState = EYE_STATE_NORMAL;
@@ -1118,11 +1134,16 @@ static void Task_RotomEyeController(u8 taskId)
     }
 }
 
+#define spStoredYPos data[1]
+
 static void SpriteCB_RotomEyes(struct Sprite *sprite)
 {
     // avoids getting sprite stuck invisible if you happen to
     // input during blink frames
     sprite->invisible = FALSE;
+    
+    // the original Y pos has to be restored after the obtainable state
+    sprite->y = sprite->spStoredYPos;
 
     switch (sRotomStartMenu->rotomEyesState)
     {
@@ -1145,6 +1166,10 @@ static void SpriteCB_RotomEyes(struct Sprite *sprite)
         break;
     case EYE_STATE_DIZZY:
         StartSpriteAnim(sprite, ROTOM_EYES_DIZZY);
+        break;
+    case EYE_STATE_NEW_OBTAINABLE:
+        StartSpriteAnim(sprite, ROTOM_EYES_OBTAINABLE);
+        sprite->y -= 6; // the sprites are offset after being v-flipped
         break;
     }
 }
@@ -1489,6 +1514,7 @@ static void RotomStartMenu_UpdateMonSprites(void)
 static void RotomStartMenu_CreateSprites(void)
 {
     u32 i, j, rotomMoveOffset;
+    u32 rotomEyeTopID, rotomEyeBottomID;
     u32 x = 224;
     u32 y1 = 14;
     u32 y2 = 38;
@@ -1507,8 +1533,12 @@ static void RotomStartMenu_CreateSprites(void)
     sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R] = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
-    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_TOP] = CreateSprite(&sSpriteRotomEyes, 205, 29, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_BOTTOM] = CreateSprite(&sSpriteRotomEyes, 205, 42, 0);
+    rotomEyeTopID = CreateSprite(&sSpriteRotomEyes, 205, 29, 0);
+    rotomEyeBottomID = CreateSprite(&sSpriteRotomEyes, 205, 42, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_TOP] = rotomEyeTopID;
+    sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_BOTTOM] = rotomEyeBottomID;
+    gSprites[rotomEyeTopID].spStoredYPos = gSprites[rotomEyeTopID].y;
+    gSprites[rotomEyeBottomID].spStoredYPos = gSprites[rotomEyeBottomID].y;
 
     rotomMoveOffset = sStoredMoveRow == 1 ? ROTOM_MOVE_ROW_SIZE : 0;
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
@@ -1549,6 +1579,8 @@ static void RotomStartMenu_CreateSprites(void)
         sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y4 + 1, 0);
     }
 }
+
+#undef spStoredYPos
 
 static void RotomStartMenu_CreateSpriteMasks(void)
 {
@@ -1645,7 +1677,26 @@ static void RotomStartMenu_LoadBgGfx(void)
     ScheduleBgCopyTilemapToVram(0);
 }
 
+#define tSoundEffect data[0]
+#define tDelay data[1]
+
+static void Task_PlaySEAndLookAfterFrames(u8 taskId)
+{
+    if (gTasks[taskId].tDelay <= 0)
+    {
+        sRotomStartMenu->rotomEyesState = EYE_STATE_NEW_OBTAINABLE;
+        sRotomStartMenu->rotomEyesStateTimer = OBTAINABLE_EYES_TIMER;
+        PlaySE(gTasks[taskId].tSoundEffect);
+        DestroyTask(taskId);
+    }
+    else
+    {
+        gTasks[taskId].tDelay--;
+    }
+}
+
 static const u8 sDexNumTextColor[3] = { 0, 2, 3 };
+static const u8 sDexNumBlueTextColor[3] = { 0, 8, 9 };
 
 #define DEX_NUM_TEXT_BASE_OFFSET 6
 
@@ -1653,9 +1704,19 @@ static void RotomStartMenu_PrintDexNumbers(void)
 {
     u8 printStr[8];
     u8 obtainableStr[4];
-    u32 xOffset;
+    u32 xOffset, taskId;
+    const u8 *color = sDexNumTextColor;
     u32 caught = GetCaughtAndObtainableSpeciesCount();
     u32 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
+
+    if (obtainable > gSaveBlock1Ptr->rotomMenuLastObtainableCount)
+    {
+        color = sDexNumBlueTextColor;
+        gSaveBlock1Ptr->rotomMenuLastObtainableCount = obtainable;
+        taskId = CreateTask(Task_PlaySEAndLookAfterFrames, 0);
+        gTasks[taskId].tSoundEffect = ROTOMSE_NEW_OBTAINABLE;
+        gTasks[taskId].tDelay = OBTAINABLE_LOOK_DELAY;
+    }
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
@@ -1666,9 +1727,12 @@ static void RotomStartMenu_PrintDexNumbers(void)
     StringAppend(printStr, obtainableStr);
 
     xOffset = GetStringRightAlignXOffset(FONT_SMALL, printStr, (sWindowTemplate_DexNumbers.width * 8 - DEX_NUM_TEXT_BASE_OFFSET));
-    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, xOffset + DEX_NUM_TEXT_BASE_OFFSET, 0, sDexNumTextColor, TEXT_SKIP_DRAW, printStr);
+    AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, xOffset + DEX_NUM_TEXT_BASE_OFFSET, 0, color, TEXT_SKIP_DRAW, printStr);
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
+
+#undef tSoundEffect
+#undef tDelay
 
 static void RotomStartMenu_DestroySprites(void)
 {
