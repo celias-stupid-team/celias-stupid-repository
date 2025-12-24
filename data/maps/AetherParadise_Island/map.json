@@ -33,6 +33,11 @@
       "map": "MAP_TWO_ISLAND_NORTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_STARLIGHTS_ISLAND",
+      "offset": 47,
+      "direction": "up"
     }
   ],
   "object_events": [
