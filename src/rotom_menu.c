@@ -1654,8 +1654,8 @@ static void RotomStartMenu_PrintDexNumbers(void)
     u8 printStr[8];
     u8 obtainableStr[4];
     u32 xOffset;
-    u16 caught = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
-    u16 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
+    u32 caught = GetCaughtAndObtainableSpeciesCount();
+    u32 obtainable = DexScreen_GetDexCount(FLAG_GET_OBTAINABLE, 0);
 
     FillWindowPixelBuffer(sRotomStartMenu->sDexNumbersWindowID, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     PutWindowTilemap(sRotomStartMenu->sDexNumbersWindowID);
