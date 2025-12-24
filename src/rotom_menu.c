@@ -389,7 +389,7 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
 struct RotomStartMenu
 {
     u16 sDexNumbersWindowID;
-    u16 sSafariBallsWindowId;
+    // u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
     u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
@@ -1357,13 +1357,13 @@ static void SetSelectedMenu(void)
 
 static void ShowSafariBallsWindow(void)
 {
-    sRotomStartMenu->sSafariBallsWindowId = AddWindow(&sWindowTemplate_SafariBalls);
-    FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    PutWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
-    ConvertIntToDecimalStringN(gStringVar1, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar4, gText_SafariBalls);
-    AddTextPrinterParameterized(sRotomStartMenu->sSafariBallsWindowId, FONT_SMALL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
-    CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
+    // sRotomStartMenu->sSafariBallsWindowId = AddWindow(&sWindowTemplate_SafariBalls);
+    // FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
+    // PutWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
+    // ConvertIntToDecimalStringN(gStringVar1, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    // StringExpandPlaceholders(gStringVar4, gText_SafariBalls);
+    // AddTextPrinterParameterized(sRotomStartMenu->sSafariBallsWindowId, FONT_SMALL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
+    // CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
 }
 
 void RotomStartMenu_Init(void)
@@ -1403,45 +1403,47 @@ void RotomStartMenu_Init(void)
 
     PopulateMoveMonSpecies();
 
-    if (!GetSafariZoneFlag())
+    // ravenote: we can restore the safari zone stuff later if need be
+    // for now use the regular menu in safari zone
+    // if (!GetSafariZoneFlag())
+    // {
+    if (sMenuSelected == MENU_RETIRE)
     {
-        if (sMenuSelected == MENU_RETIRE)
-        {
-            sMenuSelected = MENU_POKEDEX;
-        }
-
-        if (sMenuSelected == 255)
-        {
-            SetSelectedMenu();
-        }
-
-        RotomStartMenu_LoadSprites();
-        memset(sRotomStartMenu->spriteIDs, SPRITE_NONE, ROTOM_SPRITE_COUNT_WITH_MASKS);
-        RotomStartMenu_CreateSprites();
-        if (Overworld_GetFlashLevel())
-        {
-            RotomStartMenu_CreateSpriteMasks();
-            RotomStartMenu_DisableSpriteAffineModes();
-        }
-
-        RotomStartMenu_LoadBgGfx();
-        sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
-        CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
+        sMenuSelected = MENU_POKEDEX;
     }
-    else
+
+    if (sMenuSelected == 255)
     {
-        if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE)
-        {
-            sMenuSelected = MENU_RETIRE;
-        }
-
-        RotomStartMenu_LoadSprites();
-        RotomStartMenu_SafariZone_CreateSprites();
-        RotomStartMenu_LoadBgGfx();
-        ShowSafariBallsWindow();
-        sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
-        CreateTask(Task_RotomStartMenu_SafariZone_HandleMainInput, 0);
+        SetSelectedMenu();
     }
+
+    RotomStartMenu_LoadSprites();
+    memset(sRotomStartMenu->spriteIDs, SPRITE_NONE, ROTOM_SPRITE_COUNT_WITH_MASKS);
+    RotomStartMenu_CreateSprites();
+    if (Overworld_GetFlashLevel())
+    {
+        RotomStartMenu_CreateSpriteMasks();
+        RotomStartMenu_DisableSpriteAffineModes();
+    }
+
+    RotomStartMenu_LoadBgGfx();
+    sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
+    CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
+    // }
+    // else
+    // {
+    //     if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE)
+    //     {
+    //         sMenuSelected = MENU_RETIRE;
+    //     }
+
+    //     RotomStartMenu_LoadSprites();
+    //     RotomStartMenu_SafariZone_CreateSprites();
+    //     RotomStartMenu_LoadBgGfx();
+    //     ShowSafariBallsWindow();
+    //     sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
+    //     CreateTask(Task_RotomStartMenu_SafariZone_HandleMainInput, 0);
+    // }
     RotomStartMenu_PrintDexNumbers();
 }
 
@@ -1630,14 +1632,14 @@ static void RotomStartMenu_LoadBgGfx(void)
     u8 *buf = GetBgTilemapBuffer(0);
     LoadBgTilemap(0, 0, 0, 0);
     DecompressAndCopyTileDataToVram(0, sStartMenuTiles, 0, 0, 0);
-    if (!GetSafariZoneFlag())
-    {
-        LZDecompressWram(sStartMenuTilemap, buf);
-    }
-    else
-    {
-        LZDecompressWram(sStartMenuTilemapSafari, buf);
-    }
+    // if (!GetSafariZoneFlag())
+    // {
+    LZDecompressWram(sStartMenuTilemap, buf);
+    // }
+    // else
+    // {
+    //     LZDecompressWram(sStartMenuTilemapSafari, buf);
+    // }
     LoadPalette(sStandardMenuPalette, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     LoadPalette(sStartMenuPalette, BG_PLTT_ID(14), PLTT_SIZE_4BPP);
     ScheduleBgCopyTilemapToVram(0);
@@ -1708,13 +1710,13 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
     RemoveWindow(sRotomStartMenu->sMoveNameWindowId);
 
-    if (GetSafariZoneFlag())
-    {
-        FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
-        ClearWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
-        CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
-        RemoveWindow(sRotomStartMenu->sSafariBallsWindowId);
-    }
+    // if (GetSafariZoneFlag())
+    // {
+    //     FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    //     ClearWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
+    //     CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
+    //     RemoveWindow(sRotomStartMenu->sSafariBallsWindowId);
+    // }
 
     for (i = 0; i < 2048; i++)
     {
