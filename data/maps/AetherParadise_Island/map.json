@@ -70,6 +70,13 @@
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_ENTRANCE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 49,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

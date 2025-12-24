@@ -427,6 +427,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down_right;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_flames;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_looker_dead;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_territorial_oak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ravepossum;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_car_dad;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JUMPLUFF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bill_board;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -855,4 +859,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FLAMES] = &gObjectEventGraphicsInfo_flames,
     [OBJ_EVENT_GFX_LOOKER_DEAD] = &gObjectEventGraphicsInfo_looker_dead,
     [OBJ_EVENT_GFX_TERRITORIAL_OAK] = &gObjectEventGraphicsInfo_territorial_oak,
+    [OBJ_EVENT_GFX_RAVEPOSSUM] = &gObjectEventGraphicsInfo_ravepossum,
+    [OBJ_EVENT_GFX_CAR_DAD] = &gObjectEventGraphicsInfo_car_dad,
+    [OBJ_EVENT_GFX_JUMPLUFF] = &gObjectEventGraphicsInfo_JUMPLUFF,
+    [OBJ_EVENT_GFX_BILL_BOARD] = &gObjectEventGraphicsInfo_bill_board,
 };

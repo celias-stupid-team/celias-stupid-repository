@@ -24594,7 +24594,7 @@
           "map": "MAP_MINNESOTA",
           "base_label": "gMinnesota",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 30,
@@ -24848,6 +24848,75 @@
                 "min_level": 19,
                 "max_level": 19,
                 "species": "SPECIES_TENTACOOL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_CAVE_OF_ORIGIN_1F",
+          "base_label": "gCaveOfOrigin_1F",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_CLOYSTER"
               }
             ]
           }

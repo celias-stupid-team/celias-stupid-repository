@@ -4101,10 +4101,23 @@ static void FreeFlyMap(u8 taskId)
     FreeRegionMapForFlyMap();
     DestroyTask(taskId);
     FreeAllWindowBuffers();
+
     if (sFlyMap->selectedDestination == TRUE)
+    {
         SetMainCallback2(CB2_ReturnToField);
+    }
     else
-        SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+    {
+        if (gMain.savedCallback == NULL)
+        {
+            SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+        }    
+        else
+        {
+            SetMainCallback2(gMain.savedCallback);
+        }
+    }
+
     FREE_IF_NOT_NULL(sFlyMap);
 }
 

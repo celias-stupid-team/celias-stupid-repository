@@ -354,6 +354,10 @@ script ThirtyEightIsland_HeadbuttMan {
 	))
 	waitmovement(VAR_LAST_TALKED)
 	playse(SE_WALL_HIT)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
 	special(ShakeScreen)
 	applymovement(VAR_LAST_TALKED, moves(
 		delay_16 * 4
@@ -482,3 +486,5 @@ script ThirtyEightIsland_LassMaze {
 
 
 }
+
+

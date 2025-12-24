@@ -74,14 +74,14 @@
   ],
   "warp_events": [
     {
-      "x": 11,
+      "x": 9,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_ENTRANCE",
       "dest_warp_id": "1"
     },
     {
-      "x": 7,
+      "x": 10,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_ENTRANCE",

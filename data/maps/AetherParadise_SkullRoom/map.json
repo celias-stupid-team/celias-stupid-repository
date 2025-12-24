@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
-      "x": 7,
-      "y": 5,
+      "x": 5,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -32,7 +32,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NEW_GUZMA",
-      "x": 5,
+      "x": 7,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -65,8 +65,39 @@
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_ENTRANCE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_WimpOut"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_EmergencyExit"
+    }
+  ]
 }

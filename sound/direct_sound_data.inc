@@ -5342,3 +5342,19 @@ Cry_STARMIEMEGA::
 	.incbin "sound/direct_sound_samples/cries/starmiemega.bin"
 
 	.align 2
+Cry_GIRAFARIGBOTTOM::
+	.incbin "sound/direct_sound_samples/cries/girafarigbottom.bin"
+
+	.align 2
+Cry_GIRAFARIGBUTT::
+	.incbin "sound/direct_sound_samples/cries/girafarigbutt.bin"
+
+	.align 2
+Cry_MEWTWOW::
+	.incbin "sound/direct_sound_samples/cries/mewtwow.bin"
+
+	.align 2
+Cry_CHARIZARDQ::
+	.incbin "sound/direct_sound_samples/cries/charizardq.bin"
+
+	.align 2

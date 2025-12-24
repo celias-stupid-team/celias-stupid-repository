@@ -291,7 +291,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
-    },
+    }
 
 };
 

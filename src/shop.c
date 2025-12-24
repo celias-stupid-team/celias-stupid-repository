@@ -989,13 +989,11 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 
     PutWindowTilemap(4);
     if(tItemId == ITEM_POKE_DOLL) {
-            PlaySE(MUS_LEVEL_UP);
-            VarSet(VAR_TEMP_3, 1);
             BuyMenuDisplayMessage(taskId, gText_PlayerObtainedClefairy, BuyMenuSubtractMoney);
+            DebugFunc_PrintPurchaseDetails(taskId);
+            RecordItemTransaction(tItemId, tItemCount, QL_EVENT_BOUGHT_ITEM - QL_EVENT_USED_POKEMART);
 
-        }
-        
-    if (AddBagItem(tItemId, tItemCount) == TRUE)
+    } else if (AddBagItem(tItemId, tItemCount) == TRUE)
     {
         
         BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
@@ -1014,12 +1012,20 @@ static void BuyMenuSubtractMoney(u8 taskId)
 
     IncrementGameStat(GAME_STAT_SHOPPED);
     RemoveMoney(&gSaveBlock1Ptr->money, sShopData.itemPrice);
-    if(tItemId == ITEM_ODD_MULCH) {
-        PlayFanfare(MUS_KOROK_SEED);
-
-    } else {
-        PlaySE(SE_SHOP);
-
+    switch(tItemId) {
+        case ITEM_ODD_MULCH:
+            PlayFanfare(MUS_KOROK_SEED);
+            break;
+        case ITEM_BIG_MUSHROOM:
+            PlayCry_Normal(SPECIES_AMOONGUSS, 0);
+            break;
+        case ITEM_POKE_DOLL:
+            PlayCry_Normal(SPECIES_CLEFAIRY, 0);
+            VarSet(VAR_TEMP_3, 1);
+            break;
+        default:
+            PlaySE(SE_SHOP);
+            break;
     }
     PrintMoneyAmountInMoneyBox(0, GetMoney(&gSaveBlock1Ptr->money), 0);
     gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;

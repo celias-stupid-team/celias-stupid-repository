@@ -8,6 +8,7 @@ gTasks[taskId].data[8] = (u32)func >> 16;                 \
 gTasks[taskId].data[9] = (u32)func;
 
 extern struct MapPosition gPlayerFacingPosition;
+extern bool8 gScheduleOpenDottedHole;
 
 bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId);
 u8 CreateFieldEffectShowMon(void);
@@ -17,9 +18,11 @@ u8 MapTransitionIsExit(u8 lightLevel, u8 mapType);
 u8 MapTransitionIsEnter(u8 mapType1, u8 mapType2);
 bool8 SetUpFieldMove_Flash(void);
 void CB2_DoChangeMap(void);
+void FldEff_UseFlash(void);
 
 // cut
 bool8 SetUpFieldMove_Cut(void);
+u8 MetatileAtCoordsIsGrassTile(s16 x, s16 y);
 
 // dig
 bool8 SetUpFieldMove_Dig(void);

@@ -175,6 +175,8 @@ script FushciaGym_InvisibleLass {
             delay(30)
             msgbox("You spot a small compartment on the\nfloor under the LASS.\lLet's see what's inside…", MSGBOX_DEFAULT)
             playfanfare(MUS_LEVEL_UP)
+            special(LoadPlayerParty)
+
             msgbox("It's the rest of your POKéMON!\nNice!", MSGBOX_DEFAULT)
             waitfanfare
             release

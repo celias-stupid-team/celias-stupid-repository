@@ -3131,7 +3131,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -4247,7 +4247,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PartyDad = {
 };
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Koffing = { 
     .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_BLUE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 16,
@@ -7518,6 +7518,86 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_territorial_oak = 
     .subspriteTables = gObjectEventSpriteOamTables_64x64,
     .anims = sAnimTable_Standard,
     .images = gObjectEventPicTable_territorial_oak,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ravepossum = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RAVEPOSSUM,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_ravepossum,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_car_dad = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_CAR_DAD,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = gObjectEventSpriteOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_car_dad,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JUMPLUFF = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_JUMPLUFF,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = gObjectEventSpriteOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_JUMPLUFF,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bill_board = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BILL_BOARD,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 1152,
+    .width = 48,
+    .height = 48,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_48x48,
+    .subspriteTables = gObjectEventSpriteOamTables_48x48,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_bill_board,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 

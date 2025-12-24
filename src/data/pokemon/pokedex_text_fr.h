@@ -1241,9 +1241,9 @@ const u8 gQuagsirePokedexText[] = _(
 const u8 gQuagsirePokedexTextUnused[] = _("");
 
 const u8 gEspeonPokedexText[] = _(
-    "By reading air currents, it can predict\n"
-    "things such as the weather or its foe's\n"
-    "next move.");
+	"Hey guys did you know that in terms\n"
+	"of human companionship, ESPEON is\n"
+	"objectively the friendliest POKéMON?");
 
 const u8 gEspeonPokedexTextUnused[] = _("");
 

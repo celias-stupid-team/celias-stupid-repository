@@ -4020,6 +4020,7 @@ static void CursorCB_FieldMove(u8 taskId)
                     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
                 } else {
                     gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                    gMain.savedCallback = CB2_ReturnToPartyMenuFromFlyMap;
                     Task_ClosePartyMenu(taskId);
 
                 }

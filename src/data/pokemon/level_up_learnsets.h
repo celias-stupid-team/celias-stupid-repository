@@ -10018,3 +10018,23 @@ static const struct LevelUpMove sSTARMIEMEGALevelUpLearnset[] = {
 	LEVEL_UP_END
 };
 
+static const struct LevelUpMove sGIRAFARIGBOTTOMLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sGIRAFARIGBUTTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMEWTWOWLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sCHARIZARDQLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+

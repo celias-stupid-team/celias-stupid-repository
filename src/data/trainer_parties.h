@@ -10231,7 +10231,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang3[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GIRAFARIG,
+        .species = SPECIES_GIRAFARIGBOTTOM,
         .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     
@@ -10239,7 +10239,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang3[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GIRAFARIG,
+        .species = SPECIES_GIRAFARIGBUTT,
         .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
@@ -10250,7 +10250,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerserkJeans[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_THIEVUL,
+        .species = SPECIES_SPINDA,
         .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 

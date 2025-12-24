@@ -12618,3 +12618,44 @@ extern const u32 gItemIconPalette_MagicMuffler[];
 
 extern const u32 gTrainerFrontPic_RadicalRed[];
 extern const u32 gTrainerPalette_RadicalRed[];
+// GIRAFARIG_BOTTOM
+extern const u32 gMonFrontPic_GIRAFARIGBOTTOM[];
+extern const u32 gMonPalette_GIRAFARIGBOTTOM[];
+extern const u32 gMonBackPic_GIRAFARIGBOTTOM[];
+extern const u32 gMonShinyPalette_GIRAFARIGBOTTOM[];
+extern const u8 gMonFootprint_GIRAFARIGBOTTOM[];
+extern const u8 gMonIcon_GIRAFARIGBOTTOM[];
+
+// GIRAFARIG_BUTT
+extern const u32 gMonFrontPic_GIRAFARIGBUTT[];
+extern const u32 gMonPalette_GIRAFARIGBUTT[];
+extern const u32 gMonBackPic_GIRAFARIGBUTT[];
+extern const u32 gMonShinyPalette_GIRAFARIGBUTT[];
+extern const u8 gMonFootprint_GIRAFARIGBUTT[];
+extern const u8 gMonIcon_GIRAFARIGBUTT[];
+
+// MEWTWO_W
+extern const u32 gMonFrontPic_MEWTWOW[];
+extern const u32 gMonPalette_MEWTWOW[];
+extern const u32 gMonBackPic_MEWTWOW[];
+extern const u32 gMonShinyPalette_MEWTWOW[];
+extern const u8 gMonFootprint_MEWTWOW[];
+extern const u8 gMonIcon_MEWTWOW[];
+
+// CHARIZARD_Q
+extern const u32 gMonFrontPic_CHARIZARDQ[];
+extern const u32 gMonPalette_CHARIZARDQ[];
+extern const u32 gMonBackPic_CHARIZARDQ[];
+extern const u32 gMonShinyPalette_CHARIZARDQ[];
+extern const u8 gMonFootprint_CHARIZARDQ[];
+extern const u8 gMonIcon_CHARIZARDQ[];
+
+
+extern const u32 gTrainerFrontPic_Boarder[];
+extern const u32 gTrainerPalette_Boarder[];
+
+extern const u32 gTrainerFrontPic_Flint[];
+extern const u32 gTrainerPalette_Flint[];
+
+extern const u32 gItemIcon_CopycatTm[];
+extern const u32 gItemIconPalette_CopycatTm[];

@@ -72,7 +72,7 @@ static void AffineAnimCmd_end(u8 matrixNum, struct Sprite *sprite);
 static void AffineAnimCmd_frame(u8 matrixNum, struct Sprite *sprite);
 static void CopyOamMatrix(u8 destMatrixIndex, struct OamMatrix *srcMatrix);
 static u8 GetSpriteMatrixNum(struct Sprite *sprite);
-static void SetSpriteOamFlipBits(struct Sprite *sprite, u8 hFlip, u8 vFlip);
+// static void SetSpriteOamFlipBits(struct Sprite *sprite, u8 hFlip, u8 vFlip);
 static void AffineAnimStateRestartAnim(u8 matrixNum);
 static void AffineAnimStateStartAnim(u8 matrixNum, u8 animNum);
 static void AffineAnimStateReset(u8 matrixNum);

@@ -125,3 +125,22 @@ script Walmart_NPC2 {
 	"walmart placeholder npc 2\n"
 	"", MSGBOX_NPC)
 }
+
+script Walmart_Jumpluff {
+	lock
+	faceplayer
+	playmoncry(SPECIES_JUMPLUFF, CRY_MODE_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"JUMPLUFF: Plaa!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"It's a funny JUMPLUFF!\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}

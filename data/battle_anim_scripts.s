@@ -13193,22 +13193,14 @@ Move_LIQUIDADTION:
 	
 Move_CHATTER:
 	loadspritegfx ANIM_TAG_NOISE_LINE
-	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_ATTACKER
-	splitbgprio ANIM_ATTACKER
-	setalpha 8, 8
-	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_ROAR
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 10, ANIM_ATTACKER, 1
+	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_GROWL
 	call RoarEffect
-	delay 20
-	createvisualtask SoundTask_WaitForCry, 5
-	
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	delay 10
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 9, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 9, 1
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	createvisualtask SoundTask_WaitForCry, 5
+	waitforvisualfinish
 	end
 	
 Move_FURY_SWIPE_1:
