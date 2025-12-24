@@ -1861,3 +1861,10 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean15/scripts.inc"
 	.include "data/maps/Ocean15/text.inc"
+
+
+	.include "data/maps/Ocean16/scripts.inc"
+	.include "data/maps/Ocean16/text.inc"
+
+	.include "data/maps/Ocean17/scripts.inc"
+	.include "data/maps/Ocean17/text.inc"

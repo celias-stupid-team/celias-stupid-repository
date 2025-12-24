@@ -21,16 +21,26 @@
     },
     {
       "map": "MAP_GREAT_BAY_SKY_PILLAR_OUTSIDE",
-      "offset": 19,
+      "offset": 30,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN16",
+      "offset": 8,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN17",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 45,
-      "y": 22,
+      "x": 54,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -43,8 +53,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 20,
-      "y": 14,
+      "x": 52,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -57,8 +67,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 27,
-      "y": 8,
+      "x": 53,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -71,8 +81,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 31,
-      "y": 9,
+      "x": 54,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -85,8 +95,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKER",
-      "x": 32,
-      "y": 5,
+      "x": 53,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -99,8 +109,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CLERK",
-      "x": 17,
-      "y": 5,
+      "x": 52,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -113,8 +123,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 9,
-      "y": 22,
+      "x": 52,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -127,8 +137,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COPPERAJAH",
-      "x": 19,
-      "y": 5,
+      "x": 51,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -141,8 +151,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKEY",
-      "x": 26,
-      "y": 14,
+      "x": 54,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 0,
@@ -155,8 +165,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
-      "x": 14,
-      "y": 3,
+      "x": 51,
+      "y": 48,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -169,8 +179,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 14,
-      "y": 1,
+      "x": 52,
+      "y": 48,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -183,8 +193,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 21,
-      "y": 23,
+      "x": 53,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -197,36 +207,36 @@
   ],
   "warp_events": [
     {
-      "x": 47,
-      "y": 24,
+      "x": 55,
+      "y": 35,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_EXTERIOR",
       "dest_warp_id": "3"
     },
     {
-      "x": 47,
-      "y": 25,
+      "x": 55,
+      "y": 36,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_EXTERIOR",
       "dest_warp_id": "4"
     },
     {
-      "x": 47,
-      "y": 26,
+      "x": 55,
+      "y": 37,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_EXTERIOR",
       "dest_warp_id": "5"
     },
     {
-      "x": 47,
-      "y": 27,
+      "x": 55,
+      "y": 38,
       "elevation": 0,
       "dest_map": "MAP_SSANNE_EXTERIOR",
       "dest_warp_id": "6"
     },
     {
-      "x": 33,
-      "y": 4,
+      "x": 45,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_ROCKET_WAREHOUSE",
       "dest_warp_id": "0"
@@ -236,8 +246,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 27,
-      "y": 14,
+      "x": 45,
+      "y": 46,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_PokeharborSign"

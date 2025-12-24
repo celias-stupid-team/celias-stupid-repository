@@ -2584,7 +2584,7 @@
     {
       "id": "LAYOUT_FIVE_ISLAND",
       "name": "FiveIsland_Layout",
-      "width": 41,
+      "width": 42,
       "height": 30,
       "border_width": 2,
       "border_height": 2,
@@ -6148,8 +6148,8 @@
     {
       "id": "LAYOUT_GREAT_SEA_PIRATE_BAY",
       "name": "GreatSea_PirateBay_Layout",
-      "width": 48,
-      "height": 48,
+      "width": 64,
+      "height": 56,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6696,6 +6696,30 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Ocean15/border.bin",
       "blockdata_filepath": "data/layouts/Ocean15/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN16",
+      "name": "Ocean16_Layout",
+      "width": 56,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Ocean16/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean16/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN17",
+      "name": "Ocean17_Layout",
+      "width": 8,
+      "height": 15,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Ocean17/border.bin",
+      "blockdata_filepath": "data/layouts/Ocean17/map.bin"
     }
   ]
 }
