@@ -266,10 +266,7 @@
     "Wormhole_OrthwormRoom",
     "Wormhole_Exit",
     "RainbowCloud_Transition",
-    "RainbowCloud",
-    "Starlights_Island",
-    "Starlights_Island_Interior",
-    "Starlights_Island_Dissapeared"
+    "RainbowCloud"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PalletTown",

@@ -1861,12 +1861,3 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean15/scripts.inc"
 	.include "data/maps/Ocean15/text.inc"
-
-	.include "data/maps/Starlights_Island_Dissapeared/scripts.inc"
-	.include "data/maps/Starlights_Island_Dissapeared/text.inc"
-
-	.include "data/maps/Starlights_Island/scripts.inc"
-	.include "data/maps/Starlights_Island/text.inc"
-
-	.include "data/maps/Starlights_Island_Interior/scripts.inc"
-	.include "data/maps/Starlights_Island_Interior/text.inc"

@@ -6696,30 +6696,6 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Ocean15/border.bin",
       "blockdata_filepath": "data/layouts/Ocean15/map.bin"
-    },
-    {
-      "id": "LAYOUT_STARLIGHTS_ISLAND_INTERIOR",
-      "name": "Starlights_Island_Interior_Layout",
-      "width": 20,
-      "height": 20,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
-      "border_filepath": "data/layouts/Starlights_Island_Interior/border.bin",
-      "blockdata_filepath": "data/layouts/Starlights_Island_Interior/map.bin"
-    },
-    {
-      "id": "LAYOUT_STARLIGHTS_ISLAND",
-      "name": "Starlights_Island_Layout",
-      "width": 20,
-      "height": 20,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
-      "border_filepath": "data/layouts/Starlights_Island/border.bin",
-      "blockdata_filepath": "data/layouts/Starlights_Island/map.bin"
     }
   ]
 }
