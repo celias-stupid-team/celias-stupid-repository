@@ -1,6 +1,6 @@
 mapscripts Minnesota_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setflag(FLAG_CSR_MAP_MINNESOTA)
+		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
 	}
 }
 

@@ -3,5 +3,52 @@ mapscripts Ocean11_MapScripts {
         if(flag(FLAG_INSERTED_VALOR_SEAL)) {
             setobjectmovementtype(LOCALID_MOLTRES_STATUE, MOVEMENT_TYPE_FACE_UP)
         }
+        if(!checkmoncaught(SPECIES_LUVDISC)) {
+            setflag(FLAG_TEMP_1)
+        }
     }
+}
+
+script Route21_StartAlomomolaBattle {
+	lock
+	special(StartAlomomolaBattle)
+	release
+}
+
+script GreatSea_LuvdiscHint {
+	setflag(FLAG_LUVDISC_HINT)
+	lock
+	faceplayer
+    if(checkmoncaught(SPECIES_LUVDISC)) {
+        msgbox(
+        "Oh, man.\n"
+        "THAT'S what was lurking here?\p"
+
+        "Too bad you couldn't swap that\n"
+        "encounter out for a different one.", MSGBOX_DEFAULT)
+        release
+        end
+    }
+	msgbox(
+	"I've heard there's a rare POKéMON\n"
+	"somewhere in the GREAT SEA, but only\l"
+	"by fishing in one, single tile.\p"
+
+	"I wonder where that might be…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script GreatSea_EggDeliveryHint {
+	setflag(FLAG_HEART_SWAP_HINT)
+	msgbox(
+	"Hi! I'm a representative for the\n"
+	"KANTO EGG DELIVERY SERVICE.\p"
+
+	"Say, one of our deliverymen got\n"
+	"stuck in CELADON CITY a while back.\l"
+	"I hear one of his eggs was ODD?\p"
+
+	"That's sad to hear.\n"
+	"We strive for the highest quality!", MSGBOX_NPC)
 }

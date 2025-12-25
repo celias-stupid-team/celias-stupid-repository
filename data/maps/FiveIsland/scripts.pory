@@ -4,7 +4,7 @@ FiveIsland_MapScripts::
 	.byte 0
 
 FiveIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FIVE_ISLAND
+	setworldmapflag FLAG_CSR_MAP_YES
 	end
 
 FiveIsland_EventScript_IslandSign::
@@ -48,7 +48,10 @@ script Yes_ChanseyNPC {
 	msgbox(
 	"do you want a chansey?\n"
 	"", MSGBOX_DEFAULT)
-	if(flag(FLAG_FOUND_Y)) {
+	fadescreen(FADE_TO_BLACK)
+	callnative(BerryPowderManCheck)
+	waitstate
+	if(var(VAR_RESULT)) {
 		msgbox(
 		"here\n"
 		"", MSGBOX_DEFAULT)

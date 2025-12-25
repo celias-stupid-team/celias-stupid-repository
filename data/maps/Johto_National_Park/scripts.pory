@@ -1,6 +1,7 @@
 mapscripts Johto_National_Park_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_NATIONAL_PARK)
+		setflag(FLAG_CSR_MAP_NATIONAL_PARK)
     }
 }
 

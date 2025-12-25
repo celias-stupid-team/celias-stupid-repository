@@ -116,6 +116,7 @@ script SeafoamIslands_ZubatWall {
 		"wall breaks\n"
 		"", MSGBOX_DEFAULT)
 		closemessage
+		
 		removeobject(LOCALID_ZUBAT_WALL)
 		delay(30)
 		msgbox(

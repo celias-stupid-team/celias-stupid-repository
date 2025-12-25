@@ -1699,6 +1699,20 @@ bool8 SocialSecurityCheck(void) {
     return FALSE;
 }
 
+
+bool8 BerryPowderManCheck(void) {
+    
+    DoNamingScreen(NAMING_SCREEN_BERRY_POWDER, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, BerryPowderManDeath_CB);
+    return FALSE;
+}
+
+
+bool8 SayYesForChansey(void) {
+    
+    DoNamingScreen(NAMING_SCREEN_YES, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, SayYes_CB);
+    return FALSE;
+}
+
 static void SocialSecurity_CB(void) {
     ConvertIntToDecimalStringN(gStringVar2, GetPlayerTrainerId() & 0xffff, STR_CONV_MODE_LEADING_ZEROS, 5);
     if(!StringCompare(gText_Leekd, gStringVar1)) {
@@ -1712,6 +1726,32 @@ static void SocialSecurity_CB(void) {
     }
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
+
+
+static void BerryPowderManDeath_CB(void) {
+    if(!StringCompare(gText_DEAD, gStringVar1) ||
+        !StringCompare(gText_DeadLower, gStringVar1) ||
+        !StringCompare(gText_DIED, gStringVar1) ||
+        !StringCompare(gText_DiedLower, gStringVar1)) {
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        VarSet(VAR_RESULT, 1);
+
+    }
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+static void SayYes_CB(void) {
+    if(!StringCompare(gText_Yes, gStringVar1) ||
+        !StringCompare(gText_YesLower, gStringVar1) ||
+        !StringCompare(gText_YUP, gStringVar1) ||
+        !StringCompare(gText_YupLower, gStringVar1)) {
+        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
+        VarSet(VAR_RESULT, 1);
+
+    }
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
 
 static void ChangePokemonNickname_CB(void)
 {

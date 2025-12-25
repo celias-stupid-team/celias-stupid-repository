@@ -1,5 +1,8 @@
 mapscripts CaveOfOrigin_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_CSR_MAP_CAVE_OF_ORIGIN)
 
+	}
 }
 
 

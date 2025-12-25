@@ -1,5 +1,6 @@
 mapscripts ViridianGym_Giovanni_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM)
         if(var(VAR_CURRENT_DMCA_PHASE) < 9) {
             setvar(VAR_CURRENT_DMCA_PHASE, 9)
         }

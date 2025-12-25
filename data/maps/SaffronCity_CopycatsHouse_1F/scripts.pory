@@ -25,6 +25,7 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			setvar(VAR_COPYCAT_USED, 0)
 			
 		}
+		setflag(FLAG_ENTERED_COPYCAT_HOUSE)
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_COPYCAT_USED, 1 {

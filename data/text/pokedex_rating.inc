@@ -525,13 +525,17 @@ PokedexRating_Text_HintSlowbro::
 	.string "it?$"
 
 PokedexRating_Text_HintCastform::
-	.string "Placeholder!$"
+	.string "It looks like you've found all the\n"
+	.string "POKéMON SIGNS across KANTO!\l"
+	.string "Well done!\p"
+	.string "Go back to the POKéMON ISLAND LAB\n"
+	.string "and see what they'll tell us.$"
 
 PokedexRating_Text_HintHaunter::
-	.string "Good job on catching a RAICHU for\n"
-	.string "yourself!\p"
-	.string "Wasn't there a woman somewhere who\n"
-	.string "wanted to trade for one?$"
+	.string "There was a woman in CINNABAR who\n"
+	.string "wanted to trade for a RAICHU.\p"
+	.string "I wonder where you might find one\n"
+	.string "you can keep.$"
 
 PokedexRating_Text_HintCloyster::
 	.string "The CAVE OF ORIGIN has a POKéMON\n"
@@ -733,7 +737,14 @@ PokedexRating_Text_HintTyranastar::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintBuzzwole::
-	.string "Placeholder!$"
+	.string "Scientists found a sample of OLD\n"
+	.string "AMBER at the PEWTER MUSEUM?\l"
+	.string "How exciting!\p"
+	.string "Of course they won't simply let\n"
+	.string "you take it.\p"
+	.string "…Why do I get the feeling you'll\n"
+	.string "do something…{PAUSE 30} unethical to get it?$"
+
 
 PokedexRating_Text_HintArticuno::
 	.string "Placeholder!$"
@@ -765,8 +776,11 @@ PokedexRating_Text_HintGun::
 	.string "shortness of the UNDERGROUND PATH.$"
 
 PokedexRating_Text_HintArcanine::
-	.string "Placeholder!$"
-
+	.string "I hear there's a legendary POKéMON\n"
+	.string "hiding deep within CERULEAN CAVE.\p"
+	.string "Now that you have a POKéMON that\n"
+	.string "can climb WATERFALLS, have a look!$"
+	
 PokedexRating_Text_HintPokemonGun::
 	.string "Placeholder!$"
 
