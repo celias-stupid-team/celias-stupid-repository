@@ -212,7 +212,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Furret;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrowlitheSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drifloon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wailord;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CarDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skitty;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sudowoodo;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ampharos;
@@ -648,7 +647,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GROWLITHESIGN] =         &gObjectEventGraphicsInfo_GrowlitheSign,
     [OBJ_EVENT_GFX_DRIFLOON] =         &gObjectEventGraphicsInfo_Drifloon,
     [OBJ_EVENT_GFX_WAILORD] =         &gObjectEventGraphicsInfo_Wailord,
-    [OBJ_EVENT_GFX_CARDAD] =         &gObjectEventGraphicsInfo_CarDad,
     [OBJ_EVENT_GFX_SKITTY] =         &gObjectEventGraphicsInfo_Skitty,
     [OBJ_EVENT_GFX_SUDOWOODO] =         &gObjectEventGraphicsInfo_Sudowoodo,
     [OBJ_EVENT_GFX_AMPHAROS] =         &gObjectEventGraphicsInfo_Ampharos,

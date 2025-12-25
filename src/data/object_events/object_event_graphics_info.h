@@ -4029,24 +4029,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wailord = {
     .images = gObjectEventPicTable_Wailord,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CarDad = { 
-    .tileTag = 0xFFFF,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 1024,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_2,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = gObjectEventSpriteOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = gObjectEventPicTable_CarDad,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
+
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skitty = { 
     .tileTag = 0xFFFF,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_PINK,

@@ -2492,18 +2492,6 @@ overworld_frame(gObjectEventPic_Wailord, 4, 4, 7),
 overworld_frame(gObjectEventPic_Wailord, 4, 4, 8),
 };
 
-const struct SpriteFrameImage gObjectEventPicTable_CarDad[] = {
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 0),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 1),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 2),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 3),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 4),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 5),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 6),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 7),
-overworld_frame(gObjectEventPic_Car_dad, 4, 4, 8),
-};
-
 const struct SpriteFrameImage gObjectEventPicTable_Skitty[] = {
 overworld_frame(gObjectEventPic_Skitty, 2, 2, 0),
 overworld_frame(gObjectEventPic_Skitty, 2, 2, 1),
