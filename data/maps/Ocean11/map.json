@@ -2,11 +2,11 @@
   "id": "MAP_OCEAN11",
   "name": "Ocean11",
   "layout": "LAYOUT_OCEAN11",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -26,28 +26,67 @@
     },
     {
       "map": "MAP_POKEMON_ISLAND",
-      "offset": 5,
+      "offset": 0,
       "direction": "down"
     },
     {
       "map": "MAP_CINNABAR_ISLAND",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN12",
-      "offset": 0,
-      "direction": "down"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_MOLTRES_STATUE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES_STATUE",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FISHER",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLERK",
+      "x": 35,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
   "warp_events": [],
   "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
       "x": 7,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CinnabarIsland_ValorCrestPedestal"
@@ -55,7 +94,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CinnabarIsland_ValorCrestPedestal"
@@ -63,10 +102,18 @@
     {
       "type": "sign",
       "x": 6,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CinnabarIsland_ValorCrestPedestal"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route21_StartAlomomolaBattle"
     }
   ]
 }

@@ -6,7 +6,7 @@ mapscripts FourIsland_FinneonHouse_MapScripts {
 script FourIsland_LucasTrade {
     lock
     faceplayer
-
+    textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("LUCAS: Oh!\nHey, there!\pBy chance do you happen to have\na FINNEON?\pWould you be willing to, uh, trade\nit for my MAGIKARP?", MSGBOX_DEFAULT)
     release
     end

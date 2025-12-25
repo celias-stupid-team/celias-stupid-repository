@@ -32,8 +32,8 @@ script PokemonLab_Yanmega {
 	removeobject(VAR_LAST_TALKED)
 	msgbox(
 	"{PLAYER} obtained the\n"
-	"BUZZWOLE!", MSGBOX_DEFAULT)
-	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_BUZZWOLE)
+	"SUDOWOODO!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SUDOWOODO)
 	waitfanfare
 	call(Common_Script_GiftPokemon)
 	setflag(FLAG_HIDE_CINNABAR_YANMEGA)
@@ -97,4 +97,82 @@ script PokemonLab_AmberGuardian {
 		}
 	}
 	release
+}
+
+script PokemonLab_Gadaffi {
+	lock
+	faceplayer
+	msgbox(
+	"MUTASSIM GADAFFI: Hrrm…\p"
+
+	"I've taken an interest in the\n"
+	"sciences, and I've been trying to\l"
+	"give away my massive fortune.\p"
+
+	"Sadly, no one's responding to my\n"
+	"emails…", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script PokemonLab_GadaffiEmail {
+	lock
+	msgbox(
+	"A draft of an email is left open…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(5)
+	msgbox(
+	"Greetings, friend!\p"
+
+	"It is indeed my pleasure to write\n"
+	"to you this letter!", MSGBOX_DEFAULT)
+	closemessage
+}
+
+script PokemonLab_HobbyistReactorMan {
+	msgbox(
+	"Y'know, I think it's really cool\n"
+	"that the lab converted to NUCLEAR.\l"
+	"But…\p"
+
+	"Maybe they should've invested in\n"
+	"a reactor that's not for hobbyists…", MSGBOX_NPC)
+}
+
+script PokemonLab_AidsResearch {
+	msgbox(
+	"AIDS Research Committee\n"
+	"{PAUSE 30}Now hiring!\p"
+
+	"Looking for POKéMON with 3-5\n"
+	"years experience!\l"
+	"Apply now!", MSGBOX_SIGN)
+
+}
+
+
+script PokemonLab_Keyboard {
+	msgbox(
+	"It's a particularly innovative\n"
+	"keyboard.", MSGBOX_SIGN)
+
+}
+
+script PokemonLab_BackupReactor {
+	msgbox(
+	"It's a backup nuclear reactor.\n"
+	"{PAUSE 30}Hobbyist-grade.", MSGBOX_SIGN)
+
+}
+
+script PokemonLab_BusyResearcher {
+	msgbox(
+	"This researcher looks busy.\n"
+	"It's best not to bother him.", MSGBOX_SIGN)
+
 }

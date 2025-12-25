@@ -28,7 +28,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
 
     [SPECIES_IVYSAUR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -55,7 +55,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_VENUSAUR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -72,7 +72,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     
 
@@ -97,7 +97,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
 
     [SPECIES_CHARMELEON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -121,7 +121,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_CHARIZARD]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -148,7 +148,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_SQUIRTLE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -175,7 +175,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_WARTORTLE]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -259,7 +259,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_WEEDLE]      = TMHM_LEARNSET(0),
 
@@ -306,7 +306,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PIDGEOTTO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -329,7 +329,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PIDGEOT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -352,7 +352,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_RATTATA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -369,7 +369,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_RATICATE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -388,7 +388,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_SPEAROW]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -409,7 +409,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_FEAROW]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -448,7 +448,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ARBOK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -468,7 +468,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PIKACHU]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_TOXIC)
@@ -512,7 +512,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_SANDSHREW]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -534,7 +534,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_SANDSLASH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -562,7 +562,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDORAN_F]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -592,7 +592,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDORINA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -621,7 +621,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDOQUEEN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -651,7 +651,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDORAN_M]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -679,7 +679,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDORINO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -709,7 +709,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NIDOKING]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -742,7 +742,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_CLEFAIRY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -787,7 +787,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_NINETALES]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -815,7 +815,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_JIGGLYPUFF]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -842,7 +842,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_WIGGLYTUFF]  = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -875,7 +875,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)),
 
@@ -914,7 +914,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ODDISH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -933,7 +933,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_GLOOM]       = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM09_BULLDOZE)
@@ -991,7 +991,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PARASECT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -1017,7 +1017,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_VENONAT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1036,7 +1036,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_VENOMOTH]    = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -1075,7 +1075,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DUGTRIO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -1094,7 +1094,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_MEOWTH]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1118,7 +1118,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PERSIAN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1139,7 +1139,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PSYDUCK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -1166,7 +1166,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_GOLDUCK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1194,7 +1194,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MANKEY]   = TMHM_LEARNSET(TMHM(TM02_CSR_DUMMY) |
@@ -1291,7 +1291,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_POLIWAG]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1313,7 +1313,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_POLIWHIRL]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -1391,7 +1391,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_KADABRA]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -1419,7 +1419,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_ALAKAZAM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1444,7 +1444,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MACHOP]      = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -1489,7 +1489,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MACHAMP]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1511,7 +1511,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_BELLSPROUT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1530,7 +1530,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_WEEPINBELL]  = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM09_BULLDOZE)
@@ -1592,7 +1592,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_TENTACRUEL]  = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -1633,7 +1633,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_GRAVELER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -1652,7 +1652,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_GOLEM]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1670,7 +1670,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PONYTA]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1731,7 +1731,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_SLOWBRO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1757,7 +1757,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MAGNEMITE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -1778,7 +1778,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MAGNETON]    = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -1816,7 +1816,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DODUO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1835,7 +1835,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DODRIO]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1860,7 +1860,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM15_SPLASH) |
                                         TMHM(TM42_CRABHAMMER) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DEWGONG]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -1902,7 +1902,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_MUK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1923,7 +1923,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_SHELLDER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1944,7 +1944,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_CLOYSTER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -1965,7 +1965,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_GASTLY]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_STEAMROLLER)
@@ -1988,7 +1988,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)),
+                                        | TMHM(TM49_MIMIC)),
 
     [SPECIES_HAUNTER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2011,7 +2011,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_GENGAR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2036,7 +2036,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_ONIX]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2056,7 +2056,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DROWZEE]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM04_FOURSIGHT)
@@ -2082,7 +2082,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_HYPNO]       = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -2110,7 +2110,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_KRABBY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2132,7 +2132,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_KINGLER]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -2174,7 +2174,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ELECTRODE]   = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM10_STEAMROLLER)
@@ -2255,7 +2255,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_MAROWAK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2275,7 +2275,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_HITMONLEE]   = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_TOXIC)
@@ -2454,7 +2454,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
 
     [SPECIES_CHANSEY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2476,7 +2476,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_TANGELA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2497,7 +2497,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_KANGASKHAN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2521,7 +2521,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_HORSEA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2542,7 +2542,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_SEADRA]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -2578,7 +2578,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_SEAKING]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2599,7 +2599,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_STARYU]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -2648,7 +2648,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MR_MIME]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2673,7 +2673,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_SCYTHER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -2691,7 +2691,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_JYNX]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2713,7 +2713,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ELECTABUZZ]  = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM06_TOXIC)
@@ -2778,7 +2778,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_TAUROS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2795,7 +2795,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_MAGIKARP]   = TMHM_LEARNSET(TMHM(TM15_SPLASH) |
                                         TMHM(TM23_WONDER_SEED) |
@@ -2830,7 +2830,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_LAPRAS]      = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM05_MEAN_LOOK)
@@ -2877,7 +2877,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_VAPOREON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2900,7 +2900,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_JOLTEON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -2923,7 +2923,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
 
@@ -2944,7 +2944,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
    [SPECIES_PORYGON]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -2966,7 +2966,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_OMANYTE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -2987,7 +2987,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_OMASTAR]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -3055,7 +3055,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_AERODACTYL]  = TMHM_LEARNSET(TMHM(TM02_CSR_DUMMY)
                                         | TMHM(TM05_MEAN_LOOK)
@@ -3138,7 +3138,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ZAPDOS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -3159,7 +3159,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MOLTRES]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -3178,7 +3178,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_DRATINI]     = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -3254,7 +3254,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_MEWTWO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -3277,7 +3277,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_MEW]         = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -3328,7 +3328,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM47_MUD_SPOUT)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(TM50_COUNTER)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
@@ -3767,7 +3767,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM47_MUD_SPOUT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_CHINCHOU]    = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
@@ -4054,7 +4054,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_BELLOSSOM]   = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -4256,7 +4256,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -4422,7 +4422,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)),
 
@@ -4445,7 +4445,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM47_MUD_SPOUT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM02_FLY)),
 
     [SPECIES_SLOWKING]    = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -4506,7 +4506,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_UNOWN]       = TMHM_LEARNSET(0),
@@ -4848,7 +4848,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM03_SURF)
                                         | TMHM(HM04_STRENGTH)
@@ -5051,7 +5051,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_OCTILLERY]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
@@ -5164,7 +5164,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(TM50_COUNTER)
                                         | TMHM(HM06_ROCK_SMASH)),
 
@@ -5190,7 +5190,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(TM50_COUNTER)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -5481,7 +5481,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -6051,7 +6051,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM06_ROCK_SMASH)),
 
     [SPECIES_MIGHTYENA]   = TMHM_LEARNSET(TMHM(TM05_MEAN_LOOK)
@@ -6074,7 +6074,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
@@ -6448,7 +6448,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_BRELOOM]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -6472,7 +6472,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
@@ -6502,7 +6502,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -6729,7 +6729,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
@@ -6852,7 +6852,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -6919,7 +6919,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_CORPHISH]    = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER)
                                         | TMHM(TM06_TOXIC)
@@ -7521,7 +7521,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_GRUMPIG]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -7549,7 +7549,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_PLUSLE]      = TMHM_LEARNSET(TMHM(TM06_TOXIC)
@@ -7737,7 +7737,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_DUSCLOPS]    = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -7765,7 +7765,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
                                         | TMHM(HM06_ROCK_SMASH)),
@@ -7906,7 +7906,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
@@ -7931,7 +7931,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM06_ROCK_SMASH)),
 
@@ -8078,7 +8078,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM03_SURF)
                                         | TMHM(HM07_WATERFALL)
                                         | TMHM(HM08_DIVE)),
@@ -8136,7 +8136,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
@@ -8164,7 +8164,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_BANETTE]     = TMHM_LEARNSET(TMHM(TM04_FOURSIGHT)
@@ -8190,7 +8190,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_SEVIPER]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -8214,7 +8214,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_ZANGOOSE]    = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8385,7 +8385,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_VOLBEAT]     = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
                                         | TMHM(TM03_SECRET_POWER)
@@ -8546,7 +8546,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_KIRLIA]      = TMHM_LEARNSET(TMHM(TM04_FOURSIGHT)
@@ -8573,7 +8573,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_GARDEVOIR]   = TMHM_LEARNSET(TMHM(TM04_FOURSIGHT)
@@ -8601,7 +8601,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM46_TAKE_DOWN)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
     [SPECIES_BAGON]       = TMHM_LEARNSET(TMHM(TM02_CSR_DUMMY)
@@ -8930,7 +8930,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_LATIOS]      = TMHM_LEARNSET(TMHM(TM02_CSR_DUMMY)
@@ -8993,7 +8993,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_DEOXYS]      = TMHM_LEARNSET(TMHM(TM01_WHIRLWIND)
@@ -9027,7 +9027,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM43_FOCUS_MISS)
                                         | TMHM(TM44_REST)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM04_STRENGTH)
                                         | TMHM(HM05_FLASH)
@@ -9055,7 +9055,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(TM44_REST)
                                         | TMHM(TM45_ATTRACT)
                                         | TMHM(TM48_TRY_ATTACK)
-                                        | TMHM(TM49_COPYCAT)
+                                        | TMHM(TM49_MIMIC)
                                         | TMHM(HM05_FLASH)),
 
 	[SPECIES_TURTWIG]    = TMHM_LEARNSET(0),
@@ -9086,7 +9086,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)
+                                        TMHM(TM49_MIMIC)
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM02_FLY)
                                         | TMHM(HM03_SURF)
@@ -9132,7 +9132,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_CHERRIM]    = TMHM_LEARNSET(0),
 	[SPECIES_SHELLOS]    = TMHM_LEARNSET(0),
 	[SPECIES_GASTRODON]    = TMHM_LEARNSET(0),
@@ -9190,7 +9190,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_MANTYKE]    = TMHM_LEARNSET(0),
 	[SPECIES_SNOVER]    = TMHM_LEARNSET(0),
 	[SPECIES_ABOMASNOW]    = TMHM_LEARNSET(0),
@@ -9218,7 +9218,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_LEAFEON]    = TMHM_LEARNSET(0),
 	[SPECIES_GLACEON]    = TMHM_LEARNSET(0),
@@ -9249,7 +9249,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_GALLADE]    = TMHM_LEARNSET(0),
 	[SPECIES_PROBOPASS]    = TMHM_LEARNSET(0),
@@ -9288,7 +9288,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_MANAPHY]    = TMHM_LEARNSET(0),
 	[SPECIES_DARKRAI]    = TMHM_LEARNSET(0),
 	[SPECIES_SHAYMIN]    = TMHM_LEARNSET(0),
@@ -9318,7 +9318,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_SNIVY]    = TMHM_LEARNSET(0),
 	[SPECIES_SERVINE]    = TMHM_LEARNSET(0),
@@ -9437,7 +9437,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_FRILLISH]    = TMHM_LEARNSET(0),
 	[SPECIES_JELLICENT]    = TMHM_LEARNSET(0),
     [SPECIES_ALOMOMOLA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -9457,7 +9457,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_JOLTIK]    = TMHM_LEARNSET(0),
 	[SPECIES_GALVANTULA]    = TMHM_LEARNSET(0),
 	[SPECIES_FERROSEED]    = TMHM_LEARNSET(0),
@@ -9506,7 +9506,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER) |
                                         TMHM(HM02_FLY)),
 	[SPECIES_PAWNIARD]    = TMHM_LEARNSET(0),
@@ -9555,7 +9555,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_CHESPIN]    = TMHM_LEARNSET(0),
 	[SPECIES_QUILLADIN]    = TMHM_LEARNSET(0),
@@ -9628,7 +9628,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_HAWLUCHA]    = TMHM_LEARNSET(0),
 	[SPECIES_DEDENNE]    = TMHM_LEARNSET(0),
@@ -9664,7 +9664,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_DIANCIE]    = TMHM_LEARNSET(0),
 	[SPECIES_HOOPA]    = TMHM_LEARNSET(0),
 	[SPECIES_VOLCANION]    = TMHM_LEARNSET(0),
@@ -9772,7 +9772,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_GROOKEY]    = TMHM_LEARNSET(0),
 	[SPECIES_THWACKEY]    = TMHM_LEARNSET(0),
 	[SPECIES_RILLABOOM]    = TMHM_LEARNSET(0),
@@ -9851,7 +9851,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_FALINKS]    = TMHM_LEARNSET(0),
 	[SPECIES_PINCURCHIN]    = TMHM_LEARNSET(0),
 	[SPECIES_SNOM]    = TMHM_LEARNSET(0),
@@ -9894,7 +9894,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 	[SPECIES_KUBFU]    = TMHM_LEARNSET(0),
 	[SPECIES_URSHIFU]    = TMHM_LEARNSET(0),
@@ -9951,7 +9951,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_SMOLIV]    = TMHM_LEARNSET(0),
 	[SPECIES_DOLLIV]    = TMHM_LEARNSET(0),
 	[SPECIES_ARBOLIVA]    = TMHM_LEARNSET(0),
@@ -9996,7 +9996,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_TOEDSCRUEL]    = TMHM_LEARNSET(0),
 	[SPECIES_KLAWF]    = TMHM_LEARNSET(0),
 	[SPECIES_CAPSAKID]    = TMHM_LEARNSET(0),
@@ -10032,7 +10032,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_GLIMMET]    = TMHM_LEARNSET(0),
 	[SPECIES_GLIMMORA]    = TMHM_LEARNSET(0),
 	[SPECIES_GREAVARD]    = TMHM_LEARNSET(0),
@@ -10087,7 +10087,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_GHOLDENGO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -10116,7 +10116,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
 	[SPECIES_WO_CHIEN]    = TMHM_LEARNSET(0),
@@ -10149,7 +10149,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_TENTAQUIL]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -10177,7 +10177,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
     [SPECIES_MISSINGNO]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
                                         TMHM(TM07_TM07) |
@@ -10196,7 +10196,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
     [SPECIES_KENYA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
                                         TMHM(TM06_TOXIC) |
@@ -10216,7 +10216,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
     [SPECIES_HITMONCHAN_SHIT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10240,7 +10240,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM47_MUD_SPOUT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
     [SPECIES_HITMONCHIN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -10263,7 +10263,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
 
     [SPECIES_TRUBBISH_HAIRCUT]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
@@ -10287,7 +10287,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
     [SPECIES_AMPHAROS_MEGA]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
                                         TMHM(TM06_TOXIC) |
@@ -10308,7 +10308,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
     [SPECIES_YOSHI]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10332,7 +10332,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM46_TAKE_DOWN) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_DITTO_MEW]    = TMHM_LEARNSET(0),
     [SPECIES_UNOWN_LOSS]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10349,7 +10349,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
     [SPECIES_MAGNALONE]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
                                         TMHM(TM06_TOXIC) |
@@ -10372,7 +10372,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
     [SPECIES_TYRANASTAR]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10399,7 +10399,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
     [SPECIES_POKEMON_GUN]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM04_FOURSIGHT) |
@@ -10421,7 +10421,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT) |
+                                        TMHM(TM49_MIMIC) |
                                         TMHM(TM50_COUNTER)),
     [SPECIES_PLUG_OINK]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10442,7 +10442,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 
     [SPECIES_PIKABLU]   = TMHM_LEARNSET(TMHM(TM03_SECRET_POWER) |
                                         TMHM(TM05_MEAN_LOOK) |
@@ -10463,7 +10463,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         TMHM(TM44_REST) |
                                         TMHM(TM45_ATTRACT) |
                                         TMHM(TM48_TRY_ATTACK) |
-                                        TMHM(TM49_COPYCAT)),
+                                        TMHM(TM49_MIMIC)),
 	[SPECIES_RATTATA_SHINY]    = TMHM_LEARNSET(0),
 
     	[SPECIES_PIKACHU_BIRTHDAY]    = TMHM_LEARNSET(0),
@@ -10682,4 +10682,8 @@ static const u32 sTMHMLearnsets[][2] =
 	[SPECIES_PORYGON64]    = TMHM_LEARNSET(0),
 	[SPECIES_PORYGON32]    = TMHM_LEARNSET(0),
 	[SPECIES_STARMIEMEGA]    = TMHM_LEARNSET(0),
+	[SPECIES_GIRAFARIGBOTTOM]    = TMHM_LEARNSET(0),
+	[SPECIES_GIRAFARIGBUTT]    = TMHM_LEARNSET(0),
+	[SPECIES_MEWTWOW]    = TMHM_LEARNSET(0),
+	[SPECIES_CHARIZARDQ]    = TMHM_LEARNSET(0),
 };

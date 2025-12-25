@@ -45,20 +45,6 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ARTICUNO",
-      "x": 9,
-      "y": 2,
-      "elevation": 4,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SeafoamIslands_B4F_EventScript_Articuno",
-      "flag": "FLAG_HIDE_ARTICUNO"
-    },
-    {
-      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 22,
       "y": 19,
@@ -70,22 +56,37 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SeafoamIslands_B4F_EventScript_ItemUltraBall",
       "flag": "NULL"
+    },
+    {
+      "local_id": "LOCALID_ZUBAT_WALL",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BRICKWALL",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeafoamIslands_ZubatWall",
+      "flag": "FLAG_RELEASED_ZUBAT"
     }
   ],
   "warp_events": [
     {
-      "x": 15,
-      "y": 9,
+      "x": 19,
+      "y": 15,
       "elevation": 4,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "dest_warp_id": "1"
     },
     {
-      "x": 32,
-      "y": 5,
+      "x": 30,
+      "y": 4,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
-      "dest_warp_id": "4"
+      "dest_warp_id": "0"
     },
     {
       "x": 8,
@@ -100,14 +101,21 @@
       "elevation": 1,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "8"
+    },
+    {
+      "x": 10,
+      "y": 1,
+      "elevation": 3,
+      "dest_map": "MAP_SIX_ISLAND_ALTERING_CAVE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 13,
-      "y": 8,
+      "x": 27,
+      "y": 0,
       "elevation": 0,
       "item": "ITEM_WATER_STONE",
       "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_22",
@@ -117,7 +125,7 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 2,
+      "y": 0,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SeafoamIslands_B4F_EventScript_FastCurrentSign"

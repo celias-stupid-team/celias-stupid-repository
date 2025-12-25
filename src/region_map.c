@@ -532,69 +532,16 @@ static const u8 *const sTextColorTable[] = {
 static const u8 sSeviiMapsecs[3][30] = {
     [REGIONMAP_SEVII123 - 1] =
     {
-        MAPSEC_ONE_ISLAND,
-        MAPSEC_TWO_ISLAND,
-        MAPSEC_THREE_ISLAND,
-        MAPSEC_KINDLE_ROAD,
-        MAPSEC_TREASURE_BEACH,
-        MAPSEC_CAPE_BRINK,
-        MAPSEC_BOND_BRIDGE,
-        MAPSEC_THREE_ISLE_PORT,
-        MAPSEC_GAME_CORNER,
-        MAPSEC_BERRY_FOREST,
-        MAPSEC_THREE_ISLE_PATH,
-        MAPSEC_EMBER_SPA,
-        MAPSEC_CSR_DUMMY_02,
         MAPSEC_POKEMON_CENTER,
         MAPSEC_NONE
     }, 
     [REGIONMAP_SEVII45 - 1] =
     {
-        MAPSEC_FOUR_ISLAND,
-        MAPSEC_CELADON_MANSION,
-        MAPSEC_DECAMARK,
-        MAPSEC_SEVII_ISLE_7,
-        MAPSEC_SEVII_ISLE_8,
-        MAPSEC_SEVII_ISLE_9,
-        MAPSEC_RESORT_GORGEOUS,
-        MAPSEC_WATER_LABYRINTH,
-        MAPSEC_FIVE_ISLE_MEADOW,
-        MAPSEC_MEMORIAL_PILLAR,
-        MAPSEC_NAVEL_ROCK,
-        MAPSEC_SKY_TOWER,
-        MAPSEC_ROCKET_WAREHOUSE,
         MAPSEC_POKEMON_CENTER,
         MAPSEC_NONE
     }, 
     [REGIONMAP_SEVII67 - 1] = 
     {
-        MAPSEC_SEVEN_ISLAND,
-        MAPSEC_SIX_ISLAND,
-        MAPSEC_OUTCAST_ISLAND,
-        MAPSEC_GREEN_PATH,
-        MAPSEC_WATER_PATH,
-        MAPSEC_RUIN_VALLEY,
-        MAPSEC_TRAINER_TOWER,
-        MAPSEC_CANYON_ENTRANCE,
-        MAPSEC_SEVAULT_CANYON,
-        MAPSEC_BIKE_GATE,
-        MAPSEC_SEVII_ISLE_22,
-        MAPSEC_SEVII_ISLE_23,
-        MAPSEC_SOOTOPOLIS_CITY,
-        MAPSEC_TRAINER_TOWER_2,
-        MAPSEC_PRIZE_EXCHANGE,
-        MAPSEC_ZERO_ISLAND,
-        MAPSEC_YES,
-        MAPSEC_SECRET_TUNNEL,
-        MAPSEC_ALTAR_OF_MOONE,
-        MAPSEC_BIRTH_ISLAND,
-        MAPSEC_THIRTY_EIGHT_ISLAND,
-        MAPSEC_SECRET_GARDEN,
-        MAPSEC_AMITY_SQUARE,
-        MAPSEC_POKEMON_ISLAND,
-        MAPSEC_AETHER_PARADISE,
-        MAPSEC_KANTO_LIGHTHOUSE,
-        MAPSEC_MINNESOTA,
         MAPSEC_CSR_DUMMY_02,
         MAPSEC_NONE
     }
@@ -3649,7 +3596,7 @@ static void CreateFlyIcons(void)
     u8 numIcons = 0;
     if (GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
     {
-        for (i = 0; i < REGIONMAP_COUNT; i++)
+        for (i = 0; i < REGIONMAP_COUNT; i++) //i counts region maps??
         {
             for (y = 0; y < MAP_HEIGHT; y++)
             {
@@ -3657,6 +3604,7 @@ static void CreateFlyIcons(void)
                 {
                     if (GetMapsecType(GetSelectedMapSection(i, LAYER_MAP, y, x)) == MAPSECTYPE_VISITED)
                     {
+                        DebugPrintf("Printing %d", GetSelectedMapSection(i, LAYER_MAP, y, x));
                         CreateFlyIconSprite(i, numIcons, x, y, numIcons + 10, 10);
                         numIcons++;
                     }
@@ -4101,10 +4049,23 @@ static void FreeFlyMap(u8 taskId)
     FreeRegionMapForFlyMap();
     DestroyTask(taskId);
     FreeAllWindowBuffers();
+
     if (sFlyMap->selectedDestination == TRUE)
+    {
         SetMainCallback2(CB2_ReturnToField);
+    }
     else
-        SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+    {
+        if (gMain.savedCallback == NULL)
+        {
+            SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+        }    
+        else
+        {
+            SetMainCallback2(gMain.savedCallback);
+        }
+    }
+
     FREE_IF_NOT_NULL(sFlyMap);
 }
 

@@ -9,7 +9,7 @@ script Minnesota_CantSeeFar {
 	"Out to the EAST, there's naught\n"
 	"but ocean, far as the eye can see.\p"
 
-	"Granted, I can't see very far.{PAUSE 30}\n"
+	"Granted,{PAUSE 30} I can't see very far.{PAUSE 30}\n"
 	"But still!", MSGBOX_NPC)
 }
 
@@ -60,6 +60,113 @@ script Minnesota_SanDiegoZoo_SealCage {
 script Minnesota_SanDiegoZoo_BillionLionsGirl {
 	msgbox(
 	"Between this and the billion lions\n"
-	"that got stolen last week, this zoo\l"
-	"really needs to get better locks.", MSGBOX_NPC)
+	"that got stolen last week?\l"
+	"We really need to get better locks.", MSGBOX_NPC)
+}
+
+
+script Minnesota_SanDiegoZoo_IndianElephantSign {
+	msgbox(
+	"Warning!\p"
+
+	"This animal was found guilty of\n"
+	"heinous crimes, and as such was\l"
+	"sentenced to death.", MSGBOX_SIGN)
+
+}
+
+script MinnesotaZoo_IndianElephantCage {
+	lock
+	msgbox(
+	"INDIAN ELEPHANT\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	msgbox(
+	"The cage is empty…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script MinnesotaZoo_CagedDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"After a part-time gig at the\n"
+	"FUSHCIA CITY ZOO, I found a new one.\l"
+	"This cage is much smaller, though…\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script MinnesotaZoo_FirstCage {
+	msgbox(
+	"SOME ANIMAL\n"
+	"(placeholder)", MSGBOX_SIGN)
+
+}
+
+
+script MinnesotaZoo_FirstViking {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"Welcome to MINNESOTA.\n"
+	"We're the VIKINGS!\p"
+
+	"We aim to explore and conquer\n"
+	"far-off lands!\l"
+	"SKOL!", MSGBOX_NPC)
+}
+
+script MinnesotaZoo_NoHorns {
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"…What's that?\n"
+	"The HORNS are anachronistic?\p"
+
+	"Oh c'mon, man!\n"
+	"Just let us have some fun!", MSGBOX_NPC)
+}
+
+script Minnesota_FootballPlayer {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"Welcome to MINNESOTA.\n"
+	"I'm a FOOTBALL PLAYER!\p"
+
+	"…What's that?\n"
+	"The VIKINGS?\l"
+	"Nah, we're the GOLDEN GOPHERS.\p"
+
+	"The VIKINGS are on the other side\n"
+	"of town!", MSGBOX_NPC)
+}
+
+script Minnesota_Townsign {
+	msgbox(
+	"MINNESOTA\n"
+	"One fiftyith of the freest country!\l"
+	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
+
+}
+
+script Minnesota_NPC {
+	msgbox(
+	"Minnesota town\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script Minnesota_Pittsburg {
+	msgbox(
+	"Welcome to PITTSBURG!\n"
+	"", MSGBOX_SIGN)
+
 }

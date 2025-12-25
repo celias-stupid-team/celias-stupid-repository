@@ -955,7 +955,6 @@ script CinnabarGym_IslandAppears {
     setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
 	special(ShakeScreen)
 	delay(120)
-	fadedefaultbgm
 	setvar(VAR_TEMP_C, 0)
 	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
 	setmetatile(4, 2, 0x16B, TRUE)

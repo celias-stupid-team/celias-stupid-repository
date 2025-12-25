@@ -202,21 +202,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_ZUBAT_WALL",
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BRICKWALL",
-      "x": 8,
-      "y": 2,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SeafoamIslands_ZubatWall",
-      "flag": "FLAG_RELEASED_ZUBAT"
     }
   ],
   "warp_events": [
@@ -224,7 +209,7 @@
       "x": 8,
       "y": 14,
       "elevation": 4,
-      "dest_map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
       "dest_warp_id": "1"
     },
     {

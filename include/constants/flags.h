@@ -947,12 +947,12 @@
 #define FLAG_CREDITS_FAKEOUT               0x366
 #define FLAG_GOT_BALM_MUSHROOM               0x367
 #define FLAG_FUCKING_FURRET               0x368
-#define FLAG_0x369               0x369
-#define FLAG_0x36A               0x36A
-#define FLAG_0x36B               0x36B
-#define FLAG_0x36C               0x36C
-#define FLAG_0x36D               0x36D
-#define FLAG_0x36E               0x36E
+#define FLAG_LOOKER_SCENE               0x369
+#define FLAG_FUSHCIA_GO_TO_SHORE_SCENE               0x36A
+#define FLAG_MESPRIT_RAN_AWAY               0x36B
+#define FLAG_DMCA_SKULL_FIGHT_1               0x36C
+#define FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED               0x36D
+#define FLAG_DRILLED_MT_MOON_HOLE               0x36E
 #define FLAG_0x36F               0x36F
 #define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
@@ -991,9 +991,9 @@
 #define FLAG_TALKED_TO_TODD               0x392
 #define FLAG_UNLOCKED_CINNABAR_GYM               0x393
 #define FLAG_FOUGHT_CASTFORM               0x394
-#define FLAG_0x395               0x395
-#define FLAG_0x396               0x396
-#define FLAG_0x397               0x397
+#define FLAG_BOUGHT_A_HOUSE               0x395
+#define FLAG_TWO_ISLAND_TERRITORIAL_OAK               0x396
+#define FLAG_GOT_HAMBURGER               0x397
 
 #define FLAG_KINGLER_SIGN               0x398
 #define FLAG_DUGTRIO_SIGN               0x399
@@ -1405,7 +1405,7 @@
 #define FLAG_SYS_CARRYING_BOX                                                  (SYS_FLAGS + 0xF)
 #define FLAG_SYS_BILL_GARDEN                                                  (SYS_FLAGS + 0x10)
 #define FLAG_SYS_SKUNTANK_FIGHT                                                  (SYS_FLAGS + 0x11)
-#define FLAG_0x812                                                  (SYS_FLAGS + 0x12)
+#define FLAG_SYS_ROTOM_MENU                                         (SYS_FLAGS + 0x12)
 #define FLAG_0x813                                                  (SYS_FLAGS + 0x13)
 #define FLAG_0x814                                                  (SYS_FLAGS + 0x14)
 #define FLAG_0x815                                                  (SYS_FLAGS + 0x15)
@@ -1439,7 +1439,7 @@
 #define FLAG_SYS_IS_CREDITS                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
-#define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
+#define FLAG_SYS_FUSHCIA_DISABLE_FLY                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_0x831                                                  (SYS_FLAGS + 0x31)

@@ -6,6 +6,7 @@
 #include "help_system.h"
 #include "list_menu.h"
 #include "strings.h"
+#include "config/debug.h"
 #include "constants/songs.h"
 
 #define ZERO 0
@@ -49,7 +50,7 @@ u8 RunHelpSystemCallback(void)
             return 0;
         if (JOY_NEW(R_BUTTON) && gHelpSystemToggleWithRButtonDisabled == TRUE)
             return 0;
-        if (JOY_NEW(L_BUTTON | R_BUTTON))
+        if (JOY_NEW(HELP_KEYS))
         {
             if (!HelpSystem_IsSinglePlayer() || !gHelpSystemEnabled)
             {
@@ -661,7 +662,7 @@ s32 HelpSystem_GetMenuInput(void)
         PlaySE(SE_SELECT);
         return MENU_INPUT_B;
     }
-    else if (JOY_NEW(L_BUTTON | R_BUTTON))
+    else if (JOY_NEW(HELP_KEYS))
     {
         return MENU_INPUT_LR;
     }

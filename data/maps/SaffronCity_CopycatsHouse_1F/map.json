@@ -16,12 +16,13 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_COPYCAT_DAD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 8,
-      "y": 4,
+      "x": 9,
+      "y": 2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -30,13 +31,14 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_COPYCAT_MOM",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
-      "x": 3,
-      "y": 3,
+      "x": 8,
+      "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 3,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -44,9 +46,10 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_COPYCAT_DOWNSTAIRS",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CHANSEY",
-      "x": 2,
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 4,
       "y": -1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -55,6 +58,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_CopycatsHouse_1F_EventScript_Chansey",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CLIPBOARD",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronCity_CopycatHouse_Newspaper",
       "flag": "0"
     }
   ],
@@ -88,15 +105,75 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_COPYCAT_USED",
+      "var_value": "0",
+      "script": "SaffronCity_CopycatHouse_DontGoUpstairs"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "var": "VAR_COPYCAT_USED",
+      "var_value": "0",
+      "script": "SaffronCity_CopycatHouse_DontGoUpstairs"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_COPYCAT_USED",
+      "var_value": "0",
+      "script": "SaffronCity_CopycatHouse_DontGoUpstairs"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 6,
-      "y": -1,
+      "x": 3,
+      "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SaffronCity_CopycatHouse_EventScript_Picture"
+      "script": "CopycatHouse_PlaceholderScriptStarter"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CopycatHouse_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CopycatHouse_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CopycatHouse_NotOak"
+    },
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CopycatHouse_NotOak"
     }
   ]
 }

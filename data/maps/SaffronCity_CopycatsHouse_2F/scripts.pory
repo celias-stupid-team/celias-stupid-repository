@@ -53,6 +53,7 @@ SaffronCity_CopycatsHouse_2F_EventScript_Game::
 script CopycatHouse_GiveMimikyuPlaceholder {
     lock
     playfanfare(MUS_LEVEL_UP)
+	removeobject(VAR_LAST_TALKED)
     msgbox(
 	"{PLAYER} found the\n"
 	"MIMIKYU!", MSGBOX_DEFAULT)
@@ -71,6 +72,17 @@ script CopycatHouse_Dad {
 }
 
 script CopycatHouse_Mom {
+	if(var(VAR_COPYCAT_USED) < 2) {
+		msgbox(
+		"Oh no, no, no-!\p"
+
+		"The DMCA kidnapped our precious\n"
+		"daughter, and she's still missing!\p"
+
+		"She must be so, so, so scared…\n"
+		"Whatever should we do?", MSGBOX_NPC)
+		end
+	}
 	msgbox(
 	"placeholder dialogue\n"
 	"", MSGBOX_NPC)
@@ -78,9 +90,42 @@ script CopycatHouse_Mom {
 
 
 script CopycatHouse_Child {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_1F) &&
+	flag(FLAG_TEMP_1)  && 
+	flag(FLAG_TEMP_2) && 
+	flag(FLAG_TEMP_3) && 
+	flag(FLAG_TEMP_4) && 
+	flag(FLAG_TEMP_5) && 
+	flag(FLAG_TEMP_6) && 
+	flag(FLAG_TEMP_7) && 
+	flag(FLAG_TEMP_8) && 
+	flag(FLAG_TEMP_9) && 
+	flag(FLAG_TEMP_A) && 
+	flag(FLAG_TEMP_B) && 
+	flag(FLAG_TEMP_C) && 
+	flag(FLAG_TEMP_D)) {
+		msgbox(
+		"COPYCAT: Wha- Hey!\p"
+
+		"Where'd my dolls go?\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
-	"placeholder dialogue\n"
-	"", MSGBOX_NPC)
+	"{PLAYER}: Say something stupid!\p"
+
+	"{PLAYER}: Uh, no, I just asked you.\n"
+	"{PAUSE 30}Quit copying me!", MSGBOX_DEFAULT)
+	closemessage
+	delay(60)
+	msgbox(
+	"COPYCAT: Do you really say that\n"
+	"to everyone you meet?", MSGBOX_DEFAULT)
+	release
+
 }
 
 script CopycatHouse_Game {

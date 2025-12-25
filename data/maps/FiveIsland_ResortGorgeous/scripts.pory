@@ -5,7 +5,6 @@ FiveIsland_ResortGorgeous_MapScripts::
 	.byte 0
 
 FiveIsland_ResortGorgeous_OnWarp::
-	map_script_2 VAR_CSR_DUMMY_24, 1, FiveIsland_ResortGorgeous_EventScript_TurnPlayerNorth
 	.2byte 0
 
 FiveIsland_ResortGorgeous_EventScript_TurnPlayerNorth::
@@ -13,7 +12,6 @@ FiveIsland_ResortGorgeous_EventScript_TurnPlayerNorth::
 	end
 
 FiveIsland_ResortGorgeous_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_24, 1, FiveIsland_ResortGorgeous_EventScript_SelphyReturnHomeScene
 	.2byte 0
 
 FiveIsland_ResortGorgeous_EventScript_SelphyReturnHomeScene::
@@ -31,7 +29,6 @@ FiveIsland_ResortGorgeous_EventScript_SelphyReturnHomeScene::
 	waitdooranim
 	removeobject LOCALID_RESORT_GORGEOUS_SELPHY
 	clearflag FLAG_HIDE_RESORT_GORGEOUS_INSIDE_SELPHY
-	setvar VAR_CSR_DUMMY_24, 2
 	releaseall
 	end
 

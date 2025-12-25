@@ -2515,7 +2515,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ESPEON] =
     {
-        .categoryName = _("SUN"),
+        .categoryName = _("FRIENDLY"),
         .height = 9,
         .weight = 265,
         .description = gEspeonPokedexText,

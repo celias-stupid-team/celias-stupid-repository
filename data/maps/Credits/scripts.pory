@@ -123,7 +123,7 @@ mapscripts Credits_MapScripts {
             delay(60)
             message(
             "             RavePossum{PAUSE 30}\n"
-            "           Overworld Coding")
+            "         UI and General Coding")
             waitmovement(LOCALID_CREDITS_RAVE)
             applymovement(LOCALID_CREDITS_WIZ, moves(
                 face_left
@@ -288,6 +288,8 @@ mapscripts Credits_MapScripts {
             fadescreenspeed(FADE_TO_BLACK, 10) //Make this fade music too
             fadenewbgm(MUS_NONE)
             //goto title screen
+            delay(120)
+            special(DoSoftReset)
 
         }
     ]

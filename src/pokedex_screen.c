@@ -115,7 +115,6 @@ static void DexScreen_AddTextPrinterParameterized(u8 windowId, u8 fontId, const 
 static void DexScreen_PrintNum3RightAlign(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintObtainable(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u8 y);
-static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex);
 static void DexScreen_PrintControlInfo(const u8 *src);
 static void DexScreen_DestroyCategoryPageMonIconAndInfoWindows(void);
 static bool8 DexScreen_CreateCategoryListGfx(bool8 justRegistered);
@@ -2442,7 +2441,7 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     return retVal;
 }
 
-static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex)
+u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex)
 {
     u16 count = 0;
     u16 i;

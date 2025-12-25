@@ -1,8 +1,15 @@
 mapscripts AetherParadise_Entrance_MapScripts {
         MAP_SCRIPT_ON_TRANSITION {
-        if(checkitem(ITEM_NEBBY) && var(VAR_NEBBY_COUNTER) > 2) { // Outside of Aether, make On Frame Table script for Nebby, then after two failed attempts do early nebby
+        if(checkitem(ITEM_NEBBY)) { // Outside of Aether, make On Frame Table script for Nebby, then after two failed attempts do early nebby
             setvar(VAR_TEMP_9, 1)
         }
+		if(flag(FLAG_DMCA_SKULL_FIGHT_1)) {
+			setvar(VAR_TEMP_0, 1)
+		}
+		if(flag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) {
+			setvar(VAR_TEMP_0, 2)
+		}
+		setbench(BENCH_AETHER_PARADISE)
     }
 }
 
@@ -64,7 +71,7 @@ script AetherParadise_DMCA_StopsYou {
 	"here's the real one\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(LOCALID_ZUBAT, moves(
+	applymovement(LOCALID_AETHER_ZUBAT, moves(
 		walk_down * 3
 		walk_right
 		walk_down
@@ -83,8 +90,10 @@ script AetherParadise_DMCA_StopsYou {
 	msgbox(
 	"oh no we lose\n"
 	"", MSGBOX_DEFAULT)
+	setflag(FLAG_DMCA_SKULL_FIGHT_1)
+	setvar(VAR_TEMP_0, 1)
 	closemessage
-	applymovement(LOCALID_ZUBAT, moves(
+	applymovement(LOCALID_AETHER_ZUBAT, moves(
 		walk_fast_up * 4
 		walk_fast_left
 		face_down
@@ -114,7 +123,7 @@ script AetherParadise_SkuntankBattle {
 	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
 	playbgm(MUS_DUMMY, TRUE)
 	setflag(FLAG_SYS_KANGA_FIGHT)
-	setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
+	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
 	dowildbattle
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
@@ -122,6 +131,11 @@ script AetherParadise_SkuntankBattle {
 			msgbox(
 			"you win\n"
 			"", MSGBOX_DEFAULT)
+			setflag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)
+			removeobject(LOCALID_SKUNTANK)
+			removeobject(LOCALID_KOFFING)
+			removeobject(LOCALID_AETHER_ZUBAT)
+			setvar(VAR_TEMP_0, 2)
 			release
 			end
 		case B_OUTCOME_RAN:
@@ -154,8 +168,8 @@ script AetherParadise_WimpOut {
 
 script AetherParadise_PotionLady {
 	msgbox(
-	"There's a legend in my home\n"
-	"region of a cave hidden somewhere.\p"
+	"There's a legend in my home region\n"
+	"of a hidden cave.\p"
 
 	"POKéMON inside grow to be TITANS\n"
 	"by feeding on a rare medicine…", MSGBOX_NPC)

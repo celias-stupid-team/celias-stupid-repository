@@ -718,7 +718,7 @@ static const u16 sDexCategory_FinalBadgePkmn_Page2[] = {
 };
 
 static const u16 sDexCategory_FinalBadgePkmn_Page3[] = {
-    SPECIES_VAPOREON,
+    SPECIES_ESPEON,
     SPECIES_JOLTEON,
     SPECIES_FLAREON,
 };

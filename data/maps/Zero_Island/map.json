@@ -2,14 +2,14 @@
   "id": "MAP_ZERO_ISLAND",
   "name": "Zero_Island",
   "layout": "LAYOUT_ZERO_ISLAND",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_CSR_MT_MOON_SQUARE",
+  "region_map_section": "MAPSEC_ZERO_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
-  "allow_cycling": false,
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -31,17 +31,12 @@
     },
     {
       "map": "MAP_POKEMON_ISLAND_SOUTH",
-      "offset": -36,
+      "offset": -41,
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN4",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
       "map": "MAP_OCEAN5",
-      "offset": 5,
+      "offset": 0,
       "direction": "right"
     },
     {
@@ -60,11 +55,57 @@
       "direction": "left"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_VALOR_PILLAR",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES_PILLAR",
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_INSTINCT_PILLAR",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ZAPDOS_PILLAR",
+      "x": 19,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_MYSTIC_PILLAR",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ARTICUNO_PILLAR",
+      "x": 29,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
   "warp_events": [
     {
       "x": 19,
-      "y": 18,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_ZERO_ISLAND_LIBERTY_GARDEN",
       "dest_warp_id": "0"
@@ -74,7 +115,7 @@
     {
       "type": "trigger",
       "x": 18,
-      "y": 21,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -83,7 +124,16 @@
     {
       "type": "trigger",
       "x": 19,
-      "y": 21,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "ZeroIsland_TryOpenDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -91,8 +141,35 @@
     },
     {
       "type": "trigger",
-      "x": 20,
-      "y": 21,
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "ZeroIsland_OpenDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "ZeroIsland_OpenDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "ZeroIsland_OpenDoor"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 18,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -126,16 +203,16 @@
     },
     {
       "type": "sign",
-      "x": 9,
-      "y": 21,
+      "x": 8,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_ValorPillar"
     },
     {
       "type": "sign",
-      "x": 10,
-      "y": 21,
+      "x": 9,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_ValorPillar"
@@ -143,7 +220,7 @@
     {
       "type": "sign",
       "x": 28,
-      "y": 21,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_MysticPillar"
@@ -151,7 +228,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 21,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_MysticPillar"
@@ -159,10 +236,26 @@
     {
       "type": "sign",
       "x": 19,
-      "y": 18,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ZeroIsland_OpenDoor"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ZeroIsland_ValorPillar"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ZeroIsland_MysticPillar"
     }
   ]
 }

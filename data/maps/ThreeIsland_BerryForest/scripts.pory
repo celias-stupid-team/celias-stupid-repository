@@ -78,6 +78,12 @@ script BerryForest_Nidorino {
 script ThreeIsland_BerryForest_EventScript_Lostelle{
 	lock
 	faceplayer
+	if(flag(FLAG_RESCUED_LOSTELLE)) {
+		msgbox(ThreeIsland_BerryForest_Text_LetsGoHome)
+
+		release
+		end
+	}
 	msgbox(ThreeIsland_BerryForest_Text_HelpScaryPokemon)
 	playse(SE_PIN)
 	applymovement(LOCALID_BERRY_FOREST_LOSTELLE, Common_Movement_ExclamationMark)

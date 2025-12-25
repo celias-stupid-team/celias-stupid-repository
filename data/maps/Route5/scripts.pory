@@ -1,6 +1,7 @@
 raw `
 Route5_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION Route5_TransitionScripts
+	map_script MAP_SCRIPT_ON_LOAD Route5_OnLoad
 	.byte 0
 
 Route5_EventScript_UndergroundPathSign::
@@ -15,6 +16,12 @@ script Route5_RouteSign {
 script Route5_ForSale {
 	msgbox("House for sale...\nNobody lives here!", MSGBOX_SIGN)
 	end
+}
+
+script Route5_OnLoad {
+	if(flag(FLAG_BOUGHT_A_HOUSE)) {
+		setmetatile(22, 26, 0x298, TRUE)
+	}
 }
 
 script Route5_TransitionScripts {

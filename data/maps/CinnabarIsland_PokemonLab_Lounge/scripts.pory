@@ -96,3 +96,26 @@ script CinnabarIslandLab_StevenStone {
 	"", MSGBOX_DEFAULT)
 	release
 }
+
+
+script CinnabarIslandLab_AmberTree {
+	msgbox(
+	"Have you heard of OLD AMBER?\n"
+	"PEWTER MUSEUM has some.\p"
+
+	"It's made of the same sap our\n"
+	"ancient ancesters once had.\p"
+
+	"In the next room over, they're\n"
+	"researching it.\l"
+	"No one's allowed in, though.", MSGBOX_NPC)
+}
+
+
+script CinnabarIslandLab_FujiPainting {
+	msgbox(
+	"Hey!\n"
+	"That's a funny-lookin' tree!", MSGBOX_SIGN)
+
+}
+

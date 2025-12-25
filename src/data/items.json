@@ -2193,7 +2193,7 @@
       "secondaryId": 0
     },
     {
-      "english": "VERY BERRY",
+      "english": "ASPEAR BERRY",
       "itemId": "ITEM_ASPEAR_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_FRZ",
@@ -2945,7 +2945,7 @@
       "secondaryId": 0
     },
     {
-      "english": "SOOTHE BELL",
+      "english": "TIDAL BELL",
       "itemId": "ITEM_SOOTHE_BELL",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_FRIENDSHIP_UP",
@@ -4218,8 +4218,8 @@
       "importance": 1,
       "registrability": 1,
       "pocket": "POCKET_KEY_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_Rod",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": "GOOD_ROD"
@@ -5455,7 +5455,7 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0,
-      "moveId": "Copycat"
+      "moveId": "Mimic"
     },
     {
       "english": "TM50",
@@ -6989,10 +6989,10 @@
     {
       "english": "PESTER BALL",
       "itemId": "ITEM_PESTER_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "Trust me guys, this is ethical.",
+      "description_english": "An extremely ethical POKé BALL\\nthat releases an awful irritant.\\nIt's great for the environment too!",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_POKE_BALLS",
@@ -7005,7 +7005,7 @@
     {
       "english": "BURN BALL",
       "itemId": "ITEM_BURN_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A special BALL that works\\nespecially well on POKéMON that\\nevolve with BURN HEAL.",
@@ -7021,7 +7021,7 @@
     {
       "english": "LOVE BALL",
       "itemId": "ITEM_LOVE_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A special BALL that works\\nespecially well on POKéMON of\\nthe same gender and species.",
@@ -7037,7 +7037,7 @@
     {
       "english": "QUEUE BALL",
       "itemId": "ITEM_QUEUE_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A special BALL that works well\\non POKéMON whose names start\\nwith the letter Q.",
@@ -7053,7 +7053,7 @@
     {
       "english": "SPORTS BALL",
       "itemId": "ITEM_SPORTS_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A ball used for the national\\nAMERICAN pasttime:\\nBankruptcy.",
@@ -7067,12 +7067,12 @@
       "secondaryId": 0
     },
     {
-      "english": "DUMMY BALL",
+      "english": "BLUE BALL",
       "itemId": "ITEM_DUMMY_BALL",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "DUMMY DESCRIPTION",
+      "description_english": "A POKé BALL that always shakes\\nexactly three times before the\\nwild POKéMON breaks free.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_POKE_BALLS",
@@ -7197,7 +7197,7 @@
     {
       "english": "SLUGMA BALL",
       "itemId": "ITEM_SLUGMA_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "gottem",
@@ -7350,6 +7350,22 @@
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
+    },
+    {
+      "english": "TM49",
+      "itemId": "ITEM_COPYCAT_TM",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 0,
+      "description_english": "The user copies the last move\\nmade by the foe for the rest\\nof the battle.",
+      "importance": 1,
+      "registrability": 0,
+      "pocket": "POCKET_ITEMS",
+      "type": "ITEM_TYPE_BAG_MENU",
+      "fieldUseFunc": "FieldUseFunc_CopycatTM",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

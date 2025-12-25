@@ -678,7 +678,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(HOOPA), // 134
     SPECIES_TO_NATIONAL(JIRACHI), // 135
     SPECIES_TO_NATIONAL(ARTICUNO), // 136
-    SPECIES_TO_NATIONAL(VAPOREON), // 137
+    SPECIES_TO_NATIONAL(ESPEON), // 137
     SPECIES_TO_NATIONAL(ZAPDOS), // 138
     SPECIES_TO_NATIONAL(JOLTEON), // 139
     SPECIES_TO_NATIONAL(MOLTRES), // 140 
@@ -744,7 +744,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(YANMA),
     SPECIES_TO_NATIONAL(WOOPER),
     SPECIES_TO_NATIONAL(QUAGSIRE),
-    SPECIES_TO_NATIONAL(ESPEON),
+    SPECIES_TO_NATIONAL(VAPOREON),
     SPECIES_TO_NATIONAL(UMBREON),
     SPECIES_TO_NATIONAL(MURKROW),
     SPECIES_TO_NATIONAL(SLOWKING),
@@ -4174,7 +4174,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendshipChange = itemEffect[idx];                                                             \
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
-            friendship += 150 * friendshipChange / 100;                                                 \
+            friendship = MAX_FRIENDSHIP;                                                 \
         else                                                                                            \
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
@@ -6763,7 +6763,7 @@ u32 GetCurrentLevelCap(u16 species)
     {
         {FLAG_BADGE01_GET, 15}, 
         {FLAG_BADGE02_GET, 25}, 
-        {FLAG_BADGE04_GET, 60}, 
+        {FLAG_BADGE04_GET, MAX_LEVEL}, 
         {FLAG_BADGE05_GET, MAX_LEVEL},
     };
    

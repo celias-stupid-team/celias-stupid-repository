@@ -1413,12 +1413,14 @@ static void Cmd_typecalc(void)
     u32 defType1, defType2;
     u32 mult;
 
+    /*
     if (gCurrentMove == MOVE_STRUGGLE)
     {
         gBattlescriptCurrInstr++;
         return;
     }
-
+    */
+   
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
     // check stab

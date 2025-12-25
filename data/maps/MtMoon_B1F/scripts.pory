@@ -6,11 +6,39 @@ mapscripts MtMoon_B1F_MapScripts {
 		setbench(BENCH_MT_MOON_BASEMENT)
 		setflag(FLAG_CSR_MAP_MT_MOON_BASEMENT)
 		call(SetPlayerPokedexValues)
+		if(flag(FLAG_DRILLED_MT_MOON_HOLE)) {
+			setmaplayoutindex(LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED)
+		}
 	}
 }
 	
 
+script MtMoon_Basement_DrillWall {
+	lock
+	msgbox(
+	"There's a hole in the wall…\n"
+	"Would you like to DRILL it?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+					fadescreen(FADE_TO_BLACK)
+					setflag(FLAG_DRILLED_MT_MOON_HOLE)
+					setlayouttiles(LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED, 0, 0, 0, 0, 62, 39)
+					special(DrawWholeMapView)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(10)
+					playse(SE_M_HORN_ATTACK)
+					delay(30)
+					fadescreen(FADE_FROM_BLACK)
+					release
+					end
 
+	}
+}
 
 script MtMoon_EventScript_DadWeather {
 	lock

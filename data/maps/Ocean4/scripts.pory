@@ -1,3 +1,11 @@
 mapscripts Ocean4_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 0 {
+            
+            special(DrawWholeMapView)
+            setvar(VAR_TEMP_0, 1)
+        }
+    ]
 }

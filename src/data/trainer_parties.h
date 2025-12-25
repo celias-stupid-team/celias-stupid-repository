@@ -1021,12 +1021,6 @@ static const struct TrainerMonNoItemCustomMoves sParty_CooltrainerBKC[] = {
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_TYRANITAR,
-        .moves = {MOVE_SANDSTORM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
-    },
-    {
-        .iv = 0,
-        .lvl = 15,
         .species = SPECIES_SKARMORY,
         .moves = {MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
@@ -6180,7 +6174,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_BikerVirgil[] = {
 static const struct TrainerMonNoItemCustomMoves sParty_CamperFlint[] = {
     {
         .iv = 0,
-        .lvl = 17,
+        .lvl = 5,
         .species = SPECIES_WYNAUT,
         .moves = {MOVE_ENCORE, MOVE_MIRROR_COAT, MOVE_NONE, MOVE_NONE},
     },
@@ -10237,7 +10231,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang3[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GIRAFARIG,
+        .species = SPECIES_GIRAFARIGBOTTOM,
         .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     
@@ -10245,7 +10239,7 @@ static const struct TrainerMonItemCustomMoves sParty_ShortsGang3[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_GIRAFARIG,
+        .species = SPECIES_GIRAFARIGBUTT,
         .moves = {MOVE_PSY_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
@@ -10256,7 +10250,7 @@ static const struct TrainerMonItemCustomMoves sParty_BerserkJeans[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_THIEVUL,
+        .species = SPECIES_SPINDA,
         .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
@@ -10301,6 +10295,18 @@ static const struct TrainerMonItemCustomMoves sParty_Starman[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_STARMIEMEGA,
+        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_RadicalRed[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_PIKACHU_SNAP_SURF,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 

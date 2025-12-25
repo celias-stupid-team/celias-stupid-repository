@@ -33,6 +33,7 @@
 #include "pokedex_screen.h"
 #include "trainer_card.h"
 #include "option_menu.h"
+#include "rotom_menu.h"
 #include "save_menu_util.h"
 #include "help_system.h"
 #include "config/debug.h"
@@ -404,8 +405,16 @@ static void OpenStartMenuWithFollowupFunc(TaskFunc func)
 
 static bool8 FieldCB2_DrawStartMenu(void)
 {
-    if (!DoDrawStartMenu())
-        return FALSE;
+    if (!FlagGet(FLAG_SYS_ROTOM_MENU))
+    {
+        if (!DoDrawStartMenu())
+            return FALSE;
+    }
+    else
+    {
+        RotomStartMenu_Init();
+    }
+    
     FadeTransition_FadeInOnReturnToStartMenu();
     return TRUE;
 }

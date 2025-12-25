@@ -1,12 +1,11 @@
 raw `
 OneIsland_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OneIsland_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, OneIsland_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, OneIsland_OnFrame
 	.byte 0
 
-OneIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_ONE_ISLAND
-	end
+
 
 OneIsland_OnFrame::
 	map_script_2 VAR_CSR_DUMMY_14, 2, OneIsland_EventScript_EnterOneIslandFirstTime
@@ -110,7 +109,16 @@ OneIsland_EventScript_PokemonNetCenterSign::
 //PLACEHOLDER Remember to remove later!!
 
 
+script OneIsland_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_ONE_ISLAND)
+}
 
+script OneIsland_OnLoad {
+	
+	if(flag(FLAG_INSERTED_MYSTIC_SEAL)) {
+		call(OneIsland_SetArticunoStatue)
+	}
+}
 
 
 script OneIsland_MysticCrestPedestal {
@@ -120,7 +128,7 @@ script OneIsland_MysticCrestPedestal {
 	} else {
 		msgbox("The pedestal is engraved with\nthe number one.", MSGBOX_DEFAULT)
 		if(checkitem(ITEM_MYSTIC_SEAL)) {
-			msgbox("Would you like to insert the\nVALOR SEAL?", MSGBOX_YESNO)
+			msgbox("Would you like to insert the\nMYSTIC SEAL?", MSGBOX_YESNO)
 			if(var(VAR_RESULT)) {
 				setflag(FLAG_INSERTED_MYSTIC_SEAL)
 				removeitem(ITEM_MYSTIC_SEAL)
@@ -138,6 +146,7 @@ script OneIsland_MysticCrestPedestal {
 				waitse
 				delay(20)
 				//call(Route18_SetZapdosStatue) Change the thingy
+				call(OneIsland_SetArticunoStatue)
 				special(DrawWholeMapView)
 				playmoncry(SPECIES_ARTICUNO, CRY_MODE_NORMAL)
 				fadeinbgm(1)
@@ -148,11 +157,25 @@ script OneIsland_MysticCrestPedestal {
 	release
 }
 
+script OneIsland_SetArticunoStatue {
+	setmetatile(25, 4, 0x394, FALSE)
+	setmetatile(26, 4, 0x395, FALSE)
+	setmetatile(27, 4, 0x396, FALSE)
+	
+	setmetatile(25, 5, 0x39C, FALSE)
+	setmetatile(26, 5, 0x39D, FALSE)
+	setmetatile(27, 5, 0x39E, FALSE)
+	
+	setmetatile(25, 6, 0x3A4, FALSE)
+	setmetatile(26, 6, 0x3A5, FALSE)
+	setmetatile(27, 6, 0x3A6, FALSE)
+	return
+}
 
 script OneIsland_Whirlpool {
 	lockall
 	checkpartymove(MOVE_WHIRLPOOL)
-	if(var(VAR_RESULT) >= PARTY_SIZE) {
+	if(var(VAR_RESULT) == PARTY_SIZE) {
 		msgbox(
 		"it's a whirlpool\n"
 		"", MSGBOX_SIGN)
@@ -231,16 +254,21 @@ script OneIsland_Kaylee {
 		playmoncry(SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER)
 		setwildbattle(SPECIES_ARTICUNO, 50, ITEM_MYSTIC_SEAL)
 		dowildbattle
-		delay(120)
+		delay(60)
 		removeobject(LOCALID_ONE_ISLAND_ARTICUNO)
-		release
-		end
+		msgbox(
+		"Wow articuno!\p"
+
+		"Take this\n"
+		"", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} received the\nTIDAL BELL!", ITEM_SOOTHE_BELL)
+		waitfanfare
 	} else {
 		msgbox(
 		"we need another friend\n"
 		"", MSGBOX_DEFAULT)
 	}
-
+	release
 }
 
 script OneIsland_ArticunoEgg {

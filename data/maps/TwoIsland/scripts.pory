@@ -277,14 +277,24 @@ script TwoIsland_MrT {
 }
 
 script TwoIsland_SmallChild {
+	textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"PLACEHOLDER\n"
-	"go to silph co\l"
-	"it has pencil eraser", MSGBOX_NPC)
+	"Oh no-!\n"
+	"I have a MUSHROOM stuck to my head!  \p"
+
+	"I usually go to the MUSHROOM\n"
+	"MANIAC to get it removed, but\l"
+	"something's blocking the way!", MSGBOX_NPC)
 }
 
 script TwoIsland_Paula {
-	msgbox("PLACEHOLDER\npaula", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"Hello.\n"
+	"My name is PAULA.\p"
+
+	"Have you met my friend NESS?\p"
+	"He looks like a fancy toaster.", MSGBOX_NPC)
 }
 
 script TwoIsland_Stufful {
@@ -323,52 +333,195 @@ script TwoIsland_MartHippie {
 script TwoIsland_ForSaleMan {
 	lock
 	faceplayer
-	msgbox("PLACEHOLDER\nfor sale gag", MSGBOX_DEFAULT)
+	if(flag(FLAG_TEMP_1)) {
+	msgbox(
+		"Hello, again!\n"
+		"Business has been booming!\p"
+
+		"Are you interested in buying\n"
+		"my other FOR SALE sign?", MSGBOX_YESNO)
+	} else {
+		msgbox(
+		"Hello!\n"
+		"I'm a very successful businessman.\p"
+
+		"In fact, all I have left to sell is\n"
+		"my FOR SALE sign.\l"
+		"Would you like to buy it?", MSGBOX_YESNO)
+
+	}
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Wonderful!\n"
+		"Here you are!", MSGBOX_DEFAULT)
+		if(flag(FLAG_TEMP_1)) {
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				set_invisible
+			))
+
+		} else {
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				set_invisible
+			))
+
+		}
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} purchased the\n"
+		"FOR SALE sign!", MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		delay(30)
+		msgbox(
+		"Excellent!\n"
+		"It was a pleasure doing business!\p"
+
+		"Now, let me just…\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		specialvar(VAR_RESULT, GetPlayerFacingDirection)
+		if(var(VAR_RESULT) == DIR_NORTH) {
+			applymovement(LOCALID_PLAYER, moves(
+				lock_facing_direction
+				walk_down
+				unlock_facing_direction
+			))
+		}
+		applymovement(VAR_LAST_TALKED, moves(
+			delay_16
+			walk_down
+		))
+		waitmovement(VAR_LAST_TALKED)
+		if(!flag(FLAG_TEMP_1)) {
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_left
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_CLICK)
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				face_up
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_LEFT, MOVEMENT_TYPE_FACE_UP)
+			applymovement(VAR_LAST_TALKED, moves(
+				delay_16 * 2
+				walk_right
+				face_right
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_BANG)
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				face_left
+				set_visible
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_RIGHT, MOVEMENT_TYPE_FACE_LEFT)
+			delay(30)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_up
+				face_down
+			))
+			waitmovement(0)
+			setflag(FLAG_TEMP_1)
+			delay(30)
+		} else {
+
+
+			applymovement(VAR_LAST_TALKED, moves(
+				face_right
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_CLICK)
+			applymovement(LOCALID_FOR_SALE_RIGHT, moves(
+				face_up
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_RIGHT, MOVEMENT_TYPE_FACE_UP)
+			applymovement(VAR_LAST_TALKED, moves(
+				delay_16 * 2
+				walk_left
+				face_left
+				delay_16 * 2
+			))
+			waitmovement(VAR_LAST_TALKED)
+			playse(SE_BANG)
+			applymovement(LOCALID_FOR_SALE_LEFT, moves(
+				face_down
+				set_visible
+			))
+			setobjectmovementtype(LOCALID_FOR_SALE_LEFT, MOVEMENT_TYPE_FACE_DOWN)
+			delay(30)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				walk_up
+				face_down
+			))
+			waitmovement(0)
+			clearflag(FLAG_TEMP_1)
+			delay(30)
+
+		}
+
+
+
+	} else {
+		msgbox(
+		"I see.\p"
+
+		"Thank you for your time!\n"
+		"", MSGBOX_DEFAULT)
+	}
 	release
 }
 
 script TwoIsland_ForSaleSign1 {
-	msgbox("FOR SALE!{PAUSE 30}\n“FOR SALE” Sign!", MSGBOX_SIGN)
+	msgbox("For sale!{PAUSE 30}\n“FOR SALE” Sign!", MSGBOX_SIGN)
 
 }
 
 script TwoIsland_ForSaleSign2 {
-	msgbox("“FOR SALE” Sign!{PAUSE 30}\nFOR SALE!", MSGBOX_SIGN)
+	msgbox("“FOR SALE” Sign!{PAUSE 30}\nFor sale!", MSGBOX_SIGN)
 
 }
 
 script TwoIsland_PencilHippie {
-	msgbox("PLACEHOLDER\nI sell pencils", MSGBOX_NPC)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_TWO_ISLAND_PENCIL)) {
+		msgbox(
+		"Uhhh…\n"
+		"Where'd my PENCILS go?", MSGBOX_NPC)
+		end
+	}
+	msgbox(
+	"Hey, hey!\n"
+	"I'm selling PENCILS!\p"
+
+	"A good friend of mine working at\n"
+	"SILPH CO just placed a huge order.\p"
+
+	"Apparently he needed them to test\n"
+	"a cool invention he's making.\l"
+	"I can't wait to see what he made!", MSGBOX_NPC)
 }
 
-script TwoIsland_EventScript_SansTest {
-	lock
-	faceplayer
-	fadenewbgm(MUS_NONE)
-	msgbox("{FONT_COMIC_SANS}hello .\peat shit thief", MSGBOX_DEFAULT)
-	playbgm(MUS_MEGALOVANIA, TRUE)
-	delay(60)
-	if(flag(FLAG_GOT_ODDISH)) {
-		fadedefaultbgm
-		giveitem_msg("burn heal", ITEM_BURN_HEAL)
-		waitfanfare
-	}
-	release
-	end
-}
 
 script TwoIsland_HamburgerGuy {
 	lock
 	faceplayer
 	//logic here
-		msgbox("Uh, hi!\pI work at the DRUGSTORE, and I was\nsupposed to be handing out free\lHAMBURGERS\pHowever, it seems this is the last\nHAMBURGER in the known universe.\pUh, I guess you can have it.\n", MSGBOX_DEFAULT)
+	if(flag(FLAG_GOT_HAMBURGER)) {
+
+	
+		msgbox("Uh, hi!\pI work at the DRUGSTORE, and I was\nsupposed to be handing out free\lHAMBURGERS.\pHowever, it seems this is the last\nHAMBURGER in the known universe.\pUh, I guess you can have it.\n", MSGBOX_DEFAULT)
 		//give item
-		playfanfare(MUS_OBTAIN_ITEM)
-		msgbox("{PLAYER} obtained the\nHAMBURGER.", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} obtained the\nHAMBURGER.", ITEM_HAMBURGER)
 		waitfanfare
+		setflag(FLAG_GOT_HAMBURGER)
 		//set flag
-	//else
-	msgbox("Come visit us if you need, uh,\nnot HAMBURGERS.", MSGBOX_DEFAULT)
+	} else {
+		msgbox("Come visit us if you need, uh,\nnot HAMBURGERS.", MSGBOX_DEFAULT)
+	}
 	release
 	end
 }
@@ -379,7 +532,8 @@ script TwoIsland_IslandSign {
 }
 
 script TwoIsland_GenevaConvention {
-	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_SIGN)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_NPC)
 
 }
 
@@ -393,12 +547,13 @@ script TwoIsland_DadPhone {
 }
 
 script TwoIsland_ThreeIslandKid {
-	msgbox("Oh man, TWO ISLAND is great.\nTalk about a cult classic!\lWhen's THREE ISLAND coming out?", MSGBOX_NPC)
+	msgbox("Oh man, TWO ISLAND is great.\nTalk about a cult classic!\pWhen's THREE ISLAND coming out?", MSGBOX_NPC)
 }
 
 script TwoIsland_Hooker {
 	lock
 	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("No problem here.\n", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
@@ -406,3 +561,241 @@ script TwoIsland_Hooker {
 	end
 }
 
+script TwoIsland_Intro {
+	msgbox(
+	"Welcome to TWO ISLAND!\p"
+
+	"We got this name cuz we weren't\n"
+	"first!", MSGBOX_NPC)
+}
+
+
+
+script TwoIsland_ShittyRoom {
+	msgbox(
+	"ECONOMY CLASS\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_BrokenPot {
+	msgbox(
+	"Environmental storytelling.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script TwoIsland_BlueBlue {
+	lock
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"Blue, blue…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	msgbox(
+	"That's the color I'm painting\n"
+	"the OCEAN.\p"
+	"It's dyed a deep blue…", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	msgbox(
+	"Blue, blue…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script TwoIsland_BurnHeal {
+	lock
+	playfanfare(MUS_LEVEL_UP)
+	applymovement(VAR_LAST_TALKED, moves(
+		set_invisible
+	))
+	msgbox(
+	"{PLAYER} found a\n"
+	"BURN HEAL!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	fadenewbgm(MUS_NONE)
+	delay(60)
+	applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+		walk_slower_right
+		face_down
+	))
+	waitmovement(LOCALID_TWO_ISLAND_SANS)
+	delay(60)
+	msgbox(
+	"{FONT_COMIC_SANS}hey.\p"
+
+	"that burn heal costs 300 dollars\p"
+
+	"is that acceptable to you?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"{FONT_COMIC_SANS}okay{PAUSE 50}\n"
+		"one small problem\p"
+
+		"you dont seem to have any\n"
+		"dollars\p"
+
+		"do you want to take it anyway?\n"
+		"", MSGBOX_YESNO)
+	} else {
+		msgbox(
+		"{FONT_COMIC_SANS}well\p"
+
+		"if you can't afford it…\p"
+
+		"…why did you pick it up?\p"
+
+		"are you gonna take it anyway?\n"
+		"", MSGBOX_YESNO)
+	}
+	if(var(VAR_RESULT)) {
+		msgbox(
+			"{FONT_COMIC_SANS}oh\n"
+			"{PAUSE 60}i see\p"
+
+			"i think{PAUSE 30} that kids like you{PAUSE 60}\p"
+
+			"{PAUSE 30}should be burning in hell.\n"
+			"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		msgbox(
+		"{FONT_COMIC_SANS}eat shit and die, thief\n"
+		"", MSGBOX_DEFAULT)
+		playbgm(MUS_MEGALOVANIA, TRUE)
+		release
+		end
+	} else {
+		msgbox(
+		"{FONT_COMIC_SANS}okay\p"
+
+		"put it back then\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		delay(30)
+		applymovement(LOCALID_TWO_ISLAND_SANS, moves(
+			walk_slower_left
+			face_down
+		))
+		waitmovement(LOCALID_TWO_ISLAND_SANS)
+		delay(30)
+		playse(SE_BALL)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_visible
+		))
+		applymovement(LOCALID_PLAYER, moves(
+			walk_in_place_up
+		))
+		delay(60)
+		msgbox(
+		"{FONT_COMIC_SANS}thanks\n"
+		"", MSGBOX_DEFAULT)
+		fadedefaultbgm
+		release
+	}
+}
+
+
+script TwoIsland_EventScript_SansTest {
+	lock
+	faceplayer
+	fadenewbgm(MUS_NONE)
+	msgbox(
+	"{FONT_COMIC_SANS}sup\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadedefaultbgm
+	release
+	end
+}
+
+
+script TwoIsland_RibbonDrawer {
+	msgbox(
+	"Twelve identical copies of her\n"
+	"favorite ribbon!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_PaulaBakemeat {
+	msgbox(
+	"An adept arranging for\n"
+	"PAULA.\l"
+	"Volcano Bakemeat!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_StinkyBed {
+	msgbox(
+	"{PLAYER} laid in the bed.\p"
+
+	"Mmm…\n"
+	"Smells like pizza-scented\l"
+	"air fresheners!", MSGBOX_SIGN)
+
+}
+
+script TwoIsland_DrawnBed {
+	msgbox(
+	"It seems the bed is merely painted\n"
+	"onto the floor.\p"
+
+	"At least the pillow drawn onto it\n"
+	"seems comfy!", MSGBOX_SIGN)
+
+}
+
+
+script TwoIsland_TerritorialOak {
+	lock
+	applymovement(LOCALID_TWOISLAND_TERRITORIALOAK, moves(
+		face_up
+	))
+	textcolor(NPC_TEXT_COLOR_TREE)
+	delay(60)
+	msgbox(
+	"territorial oak\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	removeobject(LOCALID_TWOISLAND_TERRITORIALOAK)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_1)
+	removeobject(LOCALID_TWO_ISLAND_FAKE_KID_2)
+	release
+}
+
+script TwoIsland_HouseSalesman {
+	lock
+	faceplayer
+	if(flag(FLAG_BOUGHT_A_HOUSE)) {
+		msgbox(
+		"I think I'm homeless\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"I'm selling a house\n"
+	"", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_HOUSEVOUCHER)) {
+		msgbox(
+		"Buy a house!\n"
+		"", MSGBOX_DEFAULT)
+		removeitem(ITEM_HOUSEVOUCHER)
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} became a homeowner!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		setflag(FLAG_BOUGHT_A_HOUSE)
+	}
+	release
+	end
+}

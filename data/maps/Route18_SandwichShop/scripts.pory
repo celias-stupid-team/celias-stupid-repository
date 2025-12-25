@@ -13,6 +13,12 @@ mapscripts Route18_SandwichShop_MapScripts {
 }
 
 
+script SandwichShop_Eggs {
+	msgbox(
+	"A plate of traditional AMERICAN\n"
+	"scrambled eggs!", MSGBOX_SIGN)
+
+}
 
 
 script SandwichShop_Dad {

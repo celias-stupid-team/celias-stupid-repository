@@ -1616,7 +1616,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 80,
-        .type = TYPE_DRAGON,
+        .type = TYPE_NORMAL,
         .accuracy = 80,
         .pp = 10,
         .secondaryEffectChance = 0,
@@ -2205,7 +2205,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .accuracy = 100,
         .pp = 1,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
@@ -4033,7 +4033,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CRUSH_CLAW] =
     {
-        .effect = EFFECT_TRIPLE_KICK,
+        .effect = EFFECT_MULTI_HIT_FIVE,
         .power = 255,
         .type = TYPE_ROCK, //so there's no immunities
         .accuracy = 200,
@@ -4949,7 +4949,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_ASCENT] =    {
         .effect = EFFECT_SUPERPOWER,
-        .power = 120,
+        .power = 70,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,

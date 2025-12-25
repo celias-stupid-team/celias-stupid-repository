@@ -418,7 +418,7 @@ script SetPlayerPokedexValues {
 		setobtainable(SPECIES_ARTICUNO) // 136
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
-		setobtainable(SPECIES_VAPOREON) // 137
+		setobtainable(SPECIES_ESPEON) // 137
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_ZAPDOS) // 138
@@ -742,7 +742,7 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintJirachi)
 		case SPECIES_ARTICUNO: 
 			 msgbox(PokedexRating_Text_HintArticuno)
-		case SPECIES_VAPOREON: 
+		case SPECIES_ESPEON: 
 			 msgbox(PokedexRating_Text_HintVaporeon)
 		case SPECIES_ZAPDOS: 
 			 msgbox(PokedexRating_Text_HintZapdos)

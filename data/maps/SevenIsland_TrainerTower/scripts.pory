@@ -4,7 +4,6 @@ SevenIsland_TrainerTower_MapScripts::
 	.byte 0
 
 SevenIsland_TrainerTower_OnTransition::
-	setvar VAR_CSR_DUMMY_22, 0
 	end
 
 SevenIsland_TrainerTower_EventScript_TrainerTowerSign::

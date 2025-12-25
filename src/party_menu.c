@@ -4014,8 +4014,16 @@ static void CursorCB_FieldMove(u8 taskId)
                 sPartyMenuInternal->data[0] = fieldMove;
                 break;
             case FIELD_MOVE_FLY:
-                gPartyMenu.exitCallback = CB2_OpenFlyMap;
-                Task_ClosePartyMenu(taskId);
+                if(FlagGet(FLAG_SYS_FUSHCIA_DISABLE_FLY)) {
+                    
+                    DisplayPartyMenuMessage(gText_GoCheckOutTheShore, TRUE);
+                    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+                } else {
+                    gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                    gMain.savedCallback = CB2_ReturnToPartyMenuFromFlyMap;
+                    Task_ClosePartyMenu(taskId);
+
+                }
                 break;
             case FIELD_MOVE_RETREAT:
                 if(gSaveBlock1Ptr->lastBenchLocation.mapGroup > 0)

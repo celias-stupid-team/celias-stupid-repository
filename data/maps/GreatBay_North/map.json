@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_GREAT_BAY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -32,6 +32,11 @@
     {
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "offset": 15,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN17",
+      "offset": 0,
       "direction": "right"
     }
   ],

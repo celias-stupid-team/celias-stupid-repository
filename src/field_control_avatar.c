@@ -20,6 +20,7 @@
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "renewable_hidden_items.h"
+#include "rotom_menu.h"
 #include "quest_log.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -27,6 +28,7 @@
 #include "trainer_see.h"
 #include "vs_seeker.h"
 #include "wild_encounter.h"
+#include "config/debug.h"
 #include "config/overworld.h"
 #include "constants/songs.h"
 #include "constants/event_bg.h"
@@ -298,7 +300,15 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         gFieldInputRecord.pressedStartButton = TRUE;
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
-        ShowStartMenu();
+        if (FlagGet(FLAG_SYS_ROTOM_MENU))
+        {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
+            RotomStartMenu_Init();
+        }
+        else
+        {
+            ShowStartMenu();
+        }
         return TRUE;
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)

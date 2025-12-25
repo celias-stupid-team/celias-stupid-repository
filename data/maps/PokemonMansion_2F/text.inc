@@ -27,5 +27,5 @@ PokemonMansion_1F_Text_NewMonDiscoveredInGuyanaJungle::
     .string "in the jungle.$"
 
 PokemonMansion_1F_Text_ChristenedDiscoveredMonMew::
-	.string "Diary: May 6th\n"
-	.string "MEW had sex.$"
+	.string "Diary: June 6th\n"
+	.string "MEW is pregnant!$"

@@ -19,12 +19,14 @@
 #include "constants/metatile_labels.h"
 #include "constants/metatile_labels.h"
 #include "constants/maps.h"
+#include "constants/vars.h"
+#include "event_data.h"
 
 #define CUT_GRASS_SPRITE_COUNT 8
 #define CUT_SIDE 3
 
 static EWRAM_DATA u8 *sCutGrassSpriteArrayPtr = NULL;
-static EWRAM_DATA bool8 sScheduleOpenDottedHole = FALSE;
+EWRAM_DATA bool8 gScheduleOpenDottedHole = FALSE;
 
 static void FieldCallback_CutGrass(void);
 static void FieldCallback_CutTree(void);
@@ -112,7 +114,7 @@ static const struct SpriteTemplate sSpriteTemplate_FldEff_CutGrass = {
     .callback = SpriteCallback_CutGrass_Init
 };
 
-static u8 MetatileAtCoordsIsGrassTile(s16 x, s16 y)
+u8 MetatileAtCoordsIsGrassTile(s16 x, s16 y)
 {
     return TestMetatileAttributeBit(MapGridGetMetatileAttributeAt(x, y, METATILE_ATTRIBUTE_TERRAIN), TILE_TERRAIN_GRASS);
 }
@@ -121,21 +123,24 @@ bool8 SetUpFieldMove_Cut(void)
 {
     s16 x, y;
     u8 i, j;
-    sScheduleOpenDottedHole = FALSE;
+    gScheduleOpenDottedHole = FALSE;
     if (CutMoveRuinValleyCheck() == TRUE)
     {
-        sScheduleOpenDottedHole = TRUE;
+        gScheduleOpenDottedHole = TRUE;
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_CutGrass;
         return TRUE;
     }
 
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE ||
+    CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_GALAR_OAK) == TRUE ||
+    CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PROFESSORIVY) == TRUE ||
     (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE &&
     ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
     (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
     )))
     {
+        VarSet(VAR_PROFESSOR_IVY_CUT, 1);
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_CutTree;
         return TRUE;
@@ -197,7 +202,7 @@ bool8 FldEff_UseCutOnTree(void)
 static void FieldMoveCallback_CutGrass(void)
 {
     FieldEffectActiveListRemove(FLDEFF_USE_CUT_ON_GRASS);
-    if (sScheduleOpenDottedHole == TRUE)
+    if (gScheduleOpenDottedHole == TRUE)
         CutMoveOpenDottedHoleDoor();
     else
         FieldEffectStart(FLDEFF_CUT_GRASS);

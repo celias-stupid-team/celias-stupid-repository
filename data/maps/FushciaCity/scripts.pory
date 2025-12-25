@@ -149,7 +149,125 @@ mapscripts FushciaCity_MapScripts {
 			call(FuschiaCity_RemoveErik)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_6, 1 {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down * 2
+				face_down
+			))
+			waitmovement(LOCALID_PLAYER)
+			playse(SE_PIN)
+			applymovement(LOCALID_FUSHCIA_GIRL_LOW, moves(
+				face_left
+				emote_exclamation_mark
+				delay_16 * 2
+				walk_left
+				face_left
+
+			))
+			applymovement(LOCALID_FUSHCIA_GIRL_HIGH, moves(
+				face_up
+				emote_exclamation_mark
+				delay_16 * 2
+				walk_up
+				face_left
+
+			))
+			waitmovement(LOCALID_FUSHCIA_GIRL_LOW)
+			waitmovement(LOCALID_FUSHCIA_GIRL_HIGH)
+			applymovement(LOCALID_PLAYER, moves(
+				face_right
+			))
+			delay(30)
+			textcolor(NPC_TEXT_COLOR_RED)
+			msgbox(
+			"Hey!\n"
+			"You there!\p"
+
+			"Looks like something's happening\n"
+			"down at the shore.\l"
+			"It might be an emergency…\p"
+
+			"Why don't you go check it out?\n"
+			"", MSGBOX_DEFAULT)
+			setflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
+
+			setvar(VAR_TEMP_6, 2)
+			release
+		}
+	]
 }
+
+script FushciaCity_ShoreGirl {
+	msgbox(
+	"There's something happening at the\n"
+	"shore.\l"
+	"Just go SOUTH of town.\p"
+
+			"Let's ignore all other impulses\n"
+			"check it out right now.", MSGBOX_NPC)
+}
+
+script FushciaCity_BlockingCelia {
+	lock
+	faceplayer
+	call(FushciaCity_CeliaMessage)
+	release
+}
+
+script FushciaCity_CeliaMessage {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"Hey!\p"
+
+	"I know you want to do other things,\n"
+	"but trust me.\p"
+
+	"It is absolutely in your best\n"
+	"interest to go down to the shore.", MSGBOX_DEFAULT)
+	return
+
+}
+
+script FushciaCity_LeftCelia {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_FUSHCIA_LEFT_CELIA, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(60)
+	call(FushciaCity_CeliaMessage)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_right
+	))
+	waitmovement(0)
+	release
+
+}
+
+
+script FushciaCity_RightCelia {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_FUSHCIA_RIGHT_CELIA, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(60)
+	call(FushciaCity_CeliaMessage)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_left
+	))
+	waitmovement(0)
+	release
+
+}
+
 
 script FushciaCity_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_FUSHCIA_CITY)
@@ -165,13 +283,29 @@ script FushciaCity_OnTransition {
 		clearflag(FLAG_FUSCHIA_CUT_TREE)
 	}
 
-	if(!flag(FLAG_BADGE05_GET)) {
+	if(flag(FLAG_LOOKER_SCENE) || !flag(FLAG_BADGE05_GET) || !flag(FLAG_CSR_GOT_PAY_DAY)) {
 		setflag(FLAG_TEMP_3)
+	} else {
+		setflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
+		if(!flag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)) {
+			setvar(VAR_TEMP_6, 1)
+			//Put the girl in the right spot
+		} else {
+			setvar(VAR_TEMP_6, 2)
+		}
 	}
 	if(!flag(FLAG_MADE_A_SANDWICH)) {
 		setflag(FLAG_TEMP_4)
 	}
 	setflag(FLAG_TEMP_6)
+
+
+	// Set Celia Flag if: 
+	// You haven't gotten Badge 5
+	// You have gotten badge 5 but not Pay Day
+	// You have seen the Looker Scene
+
+	// Not Badge 5 Flag or Not Surf
 }
 
 script FuschiaCity_BrickBreak {
@@ -596,4 +730,9 @@ script FushciaCity_TestScript {
 	"a CHUCKSTER!", MSGBOX_DEFAULT)
 	closemessage
 	delay(30)
+}
+
+
+script FushciaCity_CeliaWallLeft {
+
 }

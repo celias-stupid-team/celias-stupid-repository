@@ -1241,9 +1241,9 @@ const u8 gQuagsirePokedexText[] = _(
 const u8 gQuagsirePokedexTextUnused[] = _("");
 
 const u8 gEspeonPokedexText[] = _(
-    "By reading air currents, it can predict\n"
-    "things such as the weather or its foe's\n"
-    "next move.");
+	"Hey guys did you know that in terms\n"
+	"of human companionship, ESPEON is\n"
+	"objectively the friendliest POKéMON?");
 
 const u8 gEspeonPokedexTextUnused[] = _("");
 
@@ -2594,7 +2594,8 @@ const u8 gTentaquilPokedexText[] = _(
 	"its a tentaquil");
 
 const u8 gMissingnoPokedexText[] = _(
-	"comment to be written");
+	"Sorry but this hack is\n"
+	"strictly non-binary.");
 
 const u8 gCherubiPokedexText[] = _(
 	"Google “Cherubi pokedex number”");

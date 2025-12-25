@@ -4,7 +4,6 @@ PokemonMansion_B1F_MapScripts::
 	.byte 0
 
 PokemonMansion_B1F_OnLoad::
-	call_if_set FLAG_POKEMON_MANSION_SWITCH_STATE, PokemonMansion_EventScript_PressSwitch_B1F
 	end
 
 PokemonMansion_B1F_EventScript_Statue::
@@ -31,3 +30,34 @@ PokemonMansion_B1F_EventScript_Ivan::
 	msgbox PokemonMansion_B1F_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonMansion_Regice {
+	lock
+	faceplayer
+	playmoncry(SPECIES_REGICE, CRY_MODE_DEFAULT)
+	msgbox(
+	"REGICE: Regiiiii!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(10)
+	msgbox(
+	"He's enjoying a warm bath.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script PokemonMansion_CoolLava {
+	msgbox(
+	"The lava here is pleasantly cool\n"
+	"to the touch.", MSGBOX_SIGN)
+
+}
+
+
+script PokemonMansion_ResearcherTree {
+	msgbox(
+	"I want to research but I can't\n"
+	"PLACEHOLDER", MSGBOX_NPC)
+}
