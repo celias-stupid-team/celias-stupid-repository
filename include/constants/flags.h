@@ -953,7 +953,7 @@
 #define FLAG_DMCA_SKULL_FIGHT_1               0x36C
 #define FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED               0x36D
 #define FLAG_DRILLED_MT_MOON_HOLE               0x36E
-#define FLAG_0x36F               0x36F
+#define FLAG_SHINY_SCYTHER_FROM_BUGSY               0x36F
 #define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
 #define FLAG_CSR_SPEEDRUN_CAVE               0x372

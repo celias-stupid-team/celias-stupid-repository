@@ -227,16 +227,16 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
 		setobtainable(SPECIES_WOOBAT) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA)) {
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA) && checkmoncaught(SPECIES_GOLURK)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) { 
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
 	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
-	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH)) {
+	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) {
 		setobtainable(SPECIES_REMORAID) // 77
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) {
@@ -390,7 +390,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
 		setobtainable(SPECIES_CHANSEY) // 127
 	}
-	if(flag(FLAG_BAKED_DONUT_HINT) || checkmoncaught(SPECIES_DACHSBUN)) { //TODO figure out logic
+	if((flag(FLAG_BAKED_DONUT_HINT) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_DACHSBUN)) { //TODO figure out logic
 		setobtainable(SPECIES_DACHSBUN) // 128
 	}
 	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
@@ -466,6 +466,7 @@ return
 }
 
 script GetOakPCPokedexMessage {
+    call(SetPlayerPokedexValues)
 	callnative(GetRandomUnobtainedSpecies_ToResult)
 	switch(var(VAR_RESULT)) {
 		case SPECIES_VICTINI: 
