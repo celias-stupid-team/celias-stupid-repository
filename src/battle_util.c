@@ -1199,8 +1199,35 @@ bool8 HandleWishPerishSongOnTurnEnd(void)
 
 bool8 HandleFaintedMonActions(void)
 {
+    u8 cynthia_state = 0;
+    u8 cynthia_membersCount = 0;
+    u8 cynthia_membersCountAlive = 0;
+    u8 i = 0;
+
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return FALSE;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA)
+    {
+        cynthia_state = VarGet(VAR_CSR_CYNTHIA_BATTLE);
+        
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            u16 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
+            if (!species)
+                continue;
+            if (!GetMonData(&gEnemyParty[i], MON_DATA_IS_EGG))
+            {
+                cynthia_membersCount++;
+                if (GetMonData(&gEnemyParty[i], MON_DATA_HP, NULL) > 0)
+                    cynthia_membersCountAlive++;
+            }
+        }
+        
+        if (cynthia_membersCountAlive < (cynthia_membersCount - cynthia_state))
+            VarSet(VAR_CSR_CYNTHIA_BATTLE, cynthia_state + 1);
+    }
+
     do
     {
         s32 i;

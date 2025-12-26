@@ -1561,6 +1561,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                     break;
                 }
             }
+
+            // update HP for Cynthia Battle phases
+            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && i < VarGet(VAR_CSR_CYNTHIA_BATTLE))
+            {
+                u32 hp = 0;
+                SetMonData(&party[i], MON_DATA_HP, &hp);
+            }
         }
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;

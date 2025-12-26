@@ -47,7 +47,7 @@
 #define AI_SCRIPT_SWITCH_IN_ORDER (1 << 10)
 #define AI_SCRIPT_PROTON (1 << 11)
 #define AI_SCRIPT_NO_SWITCHING (1 << 12)
-// 10 - 28 are not used
+// 13 - 28 are not used
 #define AI_SCRIPT_ROAMING (1 << 29)
 #define AI_SCRIPT_SAFARI (1 << 30)
 #define AI_SCRIPT_FIRST_BATTLE (1 << 31)

@@ -299,7 +299,7 @@ It is reset after every battle.
 #define VAR_0x40C7                 0x40C7
 #define VAR_0x40C8                 0x40C8
 #define VAR_0x40C9                 0x40C9
-#define VAR_0x40CA                 0x40CA
+#define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon
 #define VAR_COPYCAT_USED                 0x40CB
 #define VAR_CURRENT_DMCA_PHASE                 0x40CC
 #define VAR_CSR_SEPIA                 0x40CD
