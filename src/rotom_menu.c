@@ -1834,11 +1834,18 @@ static void DoCleanUpAndOpenTrainerCard(void)
 {
     if (!gPaletteFade.active)
     {
-        PlayRainStoppingSoundEffect();
         RotomStartMenu_ExitAndClearTilemap();
-        CleanupOverworldWindowsAndTilemaps();
-        ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
         DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_HandleMainInput));
+        if (Overworld_GetFlashLevel())
+        {
+            ScriptContext_SetupScript(EventScript_TooDarkToSee);
+        }
+        else
+        {
+            PlayRainStoppingSoundEffect();
+            CleanupOverworldWindowsAndTilemaps();
+            ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
+        }
     }
 }
 
@@ -2568,7 +2575,10 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
             PlaySE(ROTOMSE_MENU_SELECTION);
             if (!sRotomStartMenu->optionSelected)
             {
-                if (sMenuSelected != MENU_SAVE)
+                // don't fade when selecting trainer card in flash cave for
+                // not able to see bit
+                if (sMenuSelected != MENU_SAVE
+                    && (sMenuSelected != MENU_TRAINER_CARD || !Overworld_GetFlashLevel()))
                 {
                     FadeScreen(FADE_TO_BLACK, 0);
                 }
