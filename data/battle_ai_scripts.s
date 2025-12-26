@@ -29,8 +29,8 @@ gBattleAI_ScriptsTable::
 	.4byte AI_HPAware
 	.4byte AI_Unknown
 	.4byte AI_Ret // AI_SCRIPT_SWITCH_IN_ORDER, has no actual script. Only used in GetMostSuitableMonToSwitchInto()
-	.4byte AI_Ret
-	.4byte AI_Ret
+	.4byte AI_Ret // AI_SCRIPT_PROTON
+	.4byte AI_Ret // AI_SCRIPT_NO_SWITCHING, has no actual script. Only used in ShouldSwitch()
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
