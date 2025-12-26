@@ -25,6 +25,7 @@
 #include "field_message_box.h"
 #include "vs_seeker.h"
 #include "battle.h"
+#include "battle_setup.h"
 #include "battle_transition.h"
 #include "battle_controllers.h"
 #include "constants/battle_setup.h"
@@ -83,6 +84,7 @@ static EWRAM_DATA u8 *sTrainerCannotBattleSpeech = NULL;
 static EWRAM_DATA u8 *sTrainerBattleEndScript = NULL;
 static EWRAM_DATA u8 *sTrainerABattleScriptRetAddr = NULL;
 static EWRAM_DATA u16 sRivalBattleFlags = 0;
+static EWRAM_DATA u16 sBattleParameterFlags = 0;
 
 // The first transition is used if the enemy pokemon are lower level than our pokemon.
 // Otherwise, the second transition is used.
@@ -162,6 +164,19 @@ static const struct TrainerBattleParameter sEarlyRivalBattleParams[] =
     {&sTrainerAIntroSpeech,         TRAINER_PARAM_CLEAR_VAL_32BIT},
     {&sTrainerADefeatSpeech,        TRAINER_PARAM_LOAD_VAL_32BIT},
     {&sTrainerVictorySpeech,        TRAINER_PARAM_LOAD_VAL_32BIT},
+    {&sTrainerCannotBattleSpeech,   TRAINER_PARAM_CLEAR_VAL_32BIT},
+    {&sTrainerABattleScriptRetAddr, TRAINER_PARAM_CLEAR_VAL_32BIT},
+    {&sTrainerBattleEndScript,      TRAINER_PARAM_LOAD_SCRIPT_RET_ADDR},
+};
+
+static const struct TrainerBattleParameter sBattletypeBattleParams[] =
+{
+    {&sTrainerBattleMode,           TRAINER_PARAM_LOAD_VAL_8BIT},
+    {&gTrainerBattleOpponent_A,     TRAINER_PARAM_LOAD_VAL_16BIT},
+    {&sBattleParameterFlags,        TRAINER_PARAM_LOAD_VAL_16BIT},
+    {&sTrainerAIntroSpeech,         TRAINER_PARAM_CLEAR_VAL_32BIT},
+    {&sTrainerADefeatSpeech,        TRAINER_PARAM_LOAD_VAL_32BIT},
+    {&sTrainerVictorySpeech,        TRAINER_PARAM_CLEAR_VAL_32BIT},
     {&sTrainerCannotBattleSpeech,   TRAINER_PARAM_CLEAR_VAL_32BIT},
     {&sTrainerABattleScriptRetAddr, TRAINER_PARAM_CLEAR_VAL_32BIT},
     {&sTrainerBattleEndScript,      TRAINER_PARAM_LOAD_SCRIPT_RET_ADDR},
@@ -792,6 +807,7 @@ static void InitTrainerBattleVariables(void)
     sTrainerBattleEndScript = NULL;
     sTrainerABattleScriptRetAddr = NULL;
     sRivalBattleFlags = 0;
+    sBattleParameterFlags = 0;
 }
 
 static inline void SetU8(void *ptr, u8 value)
@@ -896,6 +912,9 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     case TRAINER_BATTLE_EARLY_RIVAL:
         TrainerBattleLoadArgs(sEarlyRivalBattleParams, data);
         return EventScript_DoNoIntroTrainerBattle;
+    case TRAINER_BATTLE_SINGLE_NO_INTRO_BATTLETYPE:
+        TrainerBattleLoadArgs(sBattletypeBattleParams, data);
+        return EventScript_DoNoIntroTrainerBattle;
     default:
         TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
         SetMapVarsToTrainer();
@@ -987,6 +1006,8 @@ void StartTrainerBattle(void)
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
         gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
+    if (GetTrainerBattleMode() == TRAINER_BATTLE_SINGLE_NO_INTRO_BATTLETYPE)
+        AddBattletypeFlags();
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
       && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FUSHCIA_GYM_SHEDINJA_ROOM)
       && VarGet(VAR_FUSHCIA_GYM_SHEDINJA_STATE) == START_SHEDINJA_BATTLE)
@@ -1176,4 +1197,16 @@ const u8 *GetTrainerWonSpeech(void)
 static const u8 *GetTrainerCantBattleSpeech(void)
 {
     return ReturnEmptyStringIfNull(sTrainerCannotBattleSpeech);
+}
+
+void AddBattletypeFlags(void)
+{
+    switch (sBattleParameterFlags)
+    {
+    case SPECIAL_BATTLE_TYPE_CYNTHIA:
+        gBattleTypeFlags |= BATTLE_TYPE_CYNTHIA;
+        break;
+    default:
+        break;
+    }
 }

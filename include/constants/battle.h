@@ -72,12 +72,16 @@
 #define BATTLE_TYPE_SNORLAX            (1 << 24)
 #define BATTLE_TYPE_KANGA              (1 << 25)
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
+#define BATTLE_TYPE_CYNTHIA            (1 << 27)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
 
 #define RIVAL_BATTLE_HEAL_AFTER  1
 #define RIVAL_BATTLE_TUTORIAL    3
+
+// special battle type IDs for trainerbattle_no_intro_battletype macro
+#define SPECIAL_BATTLE_TYPE_CYNTHIA       1
 
 // Battle Outcome defines
 #define B_OUTCOME_WON                  1

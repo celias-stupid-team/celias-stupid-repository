@@ -37,5 +37,6 @@ const u8 *GetTrainerAIntroSpeechFromScriptPointer(const u8 *trainerScript);
 const u8 *GetTrainerALoseText(void);
 const u8 *GetTrainerWonSpeech(void);
 void ResetTrainerOpponentIds(void);
+void AddBattletypeFlags(void);
 
 #endif // GUARD_BATTLE_SETUP_H
