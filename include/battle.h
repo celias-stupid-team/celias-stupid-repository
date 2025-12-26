@@ -192,7 +192,8 @@ struct DisableStruct
              u8 substitute2Layers : 2; // Unused, was replaced with substitute2CurrentLayer
              u8 substitute2CurrentLayer : 2;
              u8 neutralizingGas : 1;
-             u8 padding : 3 ;
+             u8 used108TupleTeam : 1;
+             u8 padding : 2;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];

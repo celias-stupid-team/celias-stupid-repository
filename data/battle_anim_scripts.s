@@ -655,6 +655,7 @@ gBattleAnims_Moves::
 	.4byte Move_AGILITY_DUMB
 	.4byte Move_MAGNET_RISE
 	.4byte Move_SHOOT
+	.4byte Move_108_TUPLE_TEAM
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -3147,6 +3148,7 @@ Move_RETREAT:
 	end
 
 Move_DOUBLE_TEAM:
+Move_108_TUPLE_TEAM:
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_DoubleTeam, 2
@@ -16788,7 +16790,6 @@ Move_FLARE_BLITZ:
 
 	Move_SHOOT::
 	loadspritegfx ANIM_TAG_IMPACT
-
 	loadspritegfx ANIM_TAG_LOCK_ON
 	createsprite gLockOnTargetSpriteTemplate, ANIM_ATTACKER, 40
 	createsprite gLockOnMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 1
@@ -16799,7 +16800,6 @@ Move_FLARE_BLITZ:
 	setarg 7, 0xFFFF  @ Signal target to flash/disappear
 	waitforvisualfinish
 	waitsound
-
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask SoundTask_PlayCryHighPitch, 5
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1

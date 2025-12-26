@@ -629,6 +629,7 @@ const u8 gMoveDescription_StrangeSteam[] = _("Dummy");
 const u8 gMoveDescription_FlareBlitz[] = _("Dummy");
 const u8 gMoveDescription_MagnetRise[] = _("Dummy");
 const u8 gMoveDescription_Shoot[] = _("bang");
+const u8 gMoveDescription_108TupleTeam[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1263,5 +1264,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FLARE_BLITZ - 1] = gMoveDescription_FlareBlitz,
     [MOVE_MAGNET_RISE     -1 ] = gMoveDescription_MagnetRise,
     [MOVE_SHOOT     -1 ] = gMoveDescription_Shoot,
+    [MOVE_108_TUPLE_TEAM     -1 ] = gMoveDescription_108TupleTeam,
     
 };

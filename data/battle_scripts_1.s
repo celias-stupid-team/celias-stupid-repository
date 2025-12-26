@@ -259,12 +259,13 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectReflect2               @ EFFECT_REFLECT_2
 	.4byte BattleScript_EffectSleep                  @ EFFECT_DARK_VOID
 	.4byte BattleScript_EffectElectrify				 @ EFFECT_ELECTRIFY
-	.4byte BattleScript_EffectWonderSeed              @ EFFECT_WONDER_SEED
-	.4byte BattleScript_EffectGhostCurse              @ EFFECT_CURSE_GHOST
-	.4byte BattleScript_EffectAgilityDumb              @ EFFECT_AGILITY_DUMB
-	.4byte BattleScript_EffectSemiInvulnerableHaunter       @ EFFECT_SEMI_INVULNERABLE_CANCEL
-	.4byte BattleScript_EffectRazorWindHaunter              @ EFFECT_RAZOR_WIND_CANCEL
-	.4byte BattleScript_EffectMultiHitFive              @ EFFECT_MULTI_HIT_FIVE
+	.4byte BattleScript_EffectWonderSeed             @ EFFECT_WONDER_SEED
+	.4byte BattleScript_EffectGhostCurse             @ EFFECT_CURSE_GHOST
+	.4byte BattleScript_EffectAgilityDumb            @ EFFECT_AGILITY_DUMB
+	.4byte BattleScript_EffectSemiInvulnerableHaunter @ EFFECT_SEMI_INVULNERABLE_CANCEL
+	.4byte BattleScript_EffectRazorWindHaunter       @ EFFECT_RAZOR_WIND_CANCEL
+	.4byte BattleScript_EffectMultiHitFive           @ EFFECT_MULTI_HIT_FIVE
+	.4byte BattleScript_EffectEvasionMax             @ EFFECT_EVASION_MAX
 
 
 BattleScript_EffectReflect2::
@@ -629,6 +630,17 @@ BattleScript_StatUpPrintString::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_StatUpEnd::
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectEvasionMax::
+	setstatchanger STAT_EVASION, 6, FALSE
+	attackcanceler
+	attackstring
+	ppreduce
+	setused108tupleteam
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_StatUpEnd
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnim
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatUpPrintString
 
 BattleScript_StatUp::
 	playanimation BS_EFFECT_BATTLER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1

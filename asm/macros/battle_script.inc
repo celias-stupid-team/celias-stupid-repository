@@ -1588,3 +1588,7 @@
 	.macro restoreattacker
 	callnative BS_RestoreAttacker
 	.endm
+
+	.macro setused108tupleteam
+	callnative BS_SetUsed108TupleTeam
+	.endm

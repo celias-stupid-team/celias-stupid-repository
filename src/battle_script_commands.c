@@ -1207,7 +1207,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * (100 - param)) / 100;
 
         // final calculation
-        if ((Random() % 100 + 1) > calc && moveAcc)
+        if (((Random() % 100 + 1) > calc && moveAcc) || gDisableStructs[gBattlerTarget].used108TupleTeam)
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
@@ -5357,6 +5357,7 @@ static void Cmd_switchineffects(void)
 
     gHitMarker &= ~HITMARKER_FAINTED(gActiveBattler);
     gSpecialStatuses[gActiveBattler].faintedHasReplacement = FALSE;
+    gDisableStructs[gActiveBattler].used108TupleTeam = FALSE;
 
     // Neutralizing Gas announces itself before hazards
     if (gBattleMons[gActiveBattler].ability == ABILITY_NEUTRALIZING_GAS && gSpecialStatuses[gActiveBattler].announceNeutralizingGas == 0)
@@ -11042,8 +11043,16 @@ void BS_SetStealthRock(void)
 
 void BS_SetBattleStringId(void)
 {
-    CMD_ARGS();
+    NATIVE_ARGS();
 
     gBattleCommunication[MULTISTRING_CHOOSER] = gBattleMoves[gCurrentMove].stringId;
-    gBattlescriptCurrInstr +=4;;
+    gBattlescriptCurrInstr +=4;
+}
+
+void BS_SetUsed108TupleTeam(void)
+{
+    NATIVE_ARGS();
+    
+    gDisableStructs[gBattlerAttacker].used108TupleTeam = TRUE;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
