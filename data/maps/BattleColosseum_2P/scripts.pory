@@ -369,7 +369,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_LUVDISC) || flag(FLAG_LUVDISC_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_LUVDISC) // 120
 	}
-	if(checkmoncaught(SPECIES_LUVDISC) && checkmoncaught(SPECIES_PHIONE) &&) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_LUVDISC) && checkmoncaught(SPECIES_PHIONE) && flag(FLAG_HEART_SWAP_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_ALOMOMOLA) // 121
 	}
 	if(flag(FLAG_GOT_MASTER_BALL_FROM_SILPH)) { //TODO figure out logic
@@ -408,13 +408,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_COPYCAT_TM) && flag(FLAG_ENTERED_COPYCAT_HOUSE)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
 	}
-	if(flag(FLAG_CSR_MAP_MINNESOTATA) && flag(FLAG_HOOPA_HINT)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_HOOPA) // 134
 	}
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {
 		setobtainable(SPECIES_JIRACHI) // 135
 	}
-	if(checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
 		setobtainable(SPECIES_ARTICUNO) // 136
 	}
 	if(checkmoncaught(SPECIES_ARTICUNO) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic

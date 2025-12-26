@@ -78,6 +78,8 @@ static u16 GetStarterSpeciesById(u16 starterIdx);
 static void ChangeBoxPokemonNickname_CB(void);
 static void ChangePokemonNickname_CB(void);
 static void SocialSecurity_CB(void);
+static void BerryPowderManDeath_CB(void);
+static void SayYes_CB(void);
 static void Task_RunPokemonLeagueLightingEffect(u8 taskId);
 static void Task_CancelPokemonLeagueLightingEffect(u8 taskId);
 static void Task_DoDeoxysTriangleInteraction(u8 taskId);
