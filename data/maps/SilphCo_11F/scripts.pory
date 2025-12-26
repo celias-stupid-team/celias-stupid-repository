@@ -147,7 +147,12 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 
 
 script SilphCo_11F_EventScript_AlreadyGotMasterBall {
-	msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
+	if(!checkmoncaught(SPECIES_MR_MIME) && !checkitem(ITEM_MASTER_BALL)) { // and not victory road
+
+	} else {
+		msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
+
+	}
 	release
 }
 

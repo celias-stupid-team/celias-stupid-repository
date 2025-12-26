@@ -360,6 +360,7 @@ script CinnabarIsland_MansionImprint {
 script CinnabarIsland_Fisherman {
 	lock
 	faceplayer
+	setflag(FLAG_CSR_HINT_MISSINGNO)
 	msgbox(
 	"Hmm.\p"
 

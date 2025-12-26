@@ -1,6 +1,7 @@
 mapscripts Thirty_Eight_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_NATIONAL_PARK)
+		setworldmapflag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)
     }
 }
 

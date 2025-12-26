@@ -3,8 +3,3 @@ Route21_North_MapScripts::
 	.byte 0
 `
 
-script Route21_StartAlomomolaBattle {
-	lock
-	special(StartAlomomolaBattle)
-	release
-}

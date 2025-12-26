@@ -125,6 +125,7 @@ script TwoIsland_MushroomManiac {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	setflag(FLAG_CSR_HINT_MOVE_REMINDER)
 	if(flag(FLAG_GOT_ODDISH)) {
 		msgbox(
 		"I spend my days looking out this\n"
@@ -144,8 +145,21 @@ script TwoIsland_MushroomManiac {
 			msgbox(
 			"Oh, you know him?\n"
 			"Could you tell me how he is?", MSGBOX_DEFAULT)
-			closemessage
-			// Tell him Dead
+			fadescreen(FADE_TO_BLACK)
+			callnative(SayYesForChansey)
+			waitstate
+			if(!var(VAR_RESULT)) {
+				textcolor(NPC_TEXT_COLOR_MALE)
+				msgbox(
+				"Oh…\n"
+				"You don't want to tell me?\p"
+
+				"I…{PAUSE 30} I understand.\n"
+				"I just…\l"
+				"I hope he's okay.", MSGBOX_DEFAULT)
+				release
+				end
+			}
 			msgbox(
 			"He's…\n"
 			"…Gracious me.\p"

@@ -9905,7 +9905,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_FrontierBrainLucy[] = {
         .iv = 0,
         .lvl = 70,
         .species = SPECIES_STAKATAKA,
-        .moves = {MOVE_ROCK_BLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_GYRO_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,

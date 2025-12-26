@@ -332,7 +332,10 @@ script GreatSea_FontTest {
 	"TAIL GLOW REST RETREAT\p"
 	
 	"999/999\n"
-	"1234567890/", MSGBOX_NPC)
+	"1234567890/\p"
+	
+	"There is no bench nearby!\n"
+	"FALINKS used NO RETREAT!", MSGBOX_NPC)
 }
 
 

@@ -8,14 +8,14 @@ NavelRock_Summit_MapScripts::
 
 NavelRock_Summit_EventScript_HideHoOh::
 	setvar VAR_TEMP_1, 1
-	setflag FLAG_TEMP_2
+	setflag FLAG_HIDE_HO_OH
 	return
 
 NavelRock_Summit_EventScript_TryShowHoOh::
 	setvar VAR_TEMP_1, 1
 	goto_if_set FLAG_HO_OH_FLEW_AWAY, EventScript_Return
 	setvar VAR_TEMP_1, 0
-	clearflag FLAG_TEMP_2
+	clearflag FLAG_HIDE_HO_OH
 	return
 
 NavelRock_Summit_OnResume::
@@ -72,12 +72,12 @@ NavelRock_Summit_EventScript_HoOh::
 NavelRock_Summit_EventScript_DefeatedHoOh::
 	setflag FLAG_HO_OH_FLEW_AWAY
 	setvar VAR_0x8004, SPECIES_PIDGEY
-	goto Pidgey_MonFlewAway
+	goto EventScript_MonFlewAway
 	end
 
 NavelRock_Summit_EventScript_RanFromHoOh::
 	setvar VAR_0x8004, SPECIES_PIDGEY
-	goto Pidgey_MonFlewAway
+	goto EventScript_MonFlewAway
 	end
 
 Movement_CameraPanUp:
@@ -116,55 +116,8 @@ Movement_HoOhAppear:
 `
 
 script NavelRock_Summit_OnTransition {
-	//call_if_set(FLAG_FOUGHT_HO_OH, NavelRock_Summit_EventScript_HideHoOh)
+	call_if_set(FLAG_FOUGHT_HO_OH, NavelRock_Summit_EventScript_HideHoOh)
 	call_if_unset(FLAG_FOUGHT_HO_OH, NavelRock_Summit_EventScript_TryShowHoOh)
-	if(!flag(FLAG_FOUGHT_HO_OH)) {
-		setflag(FLAG_TEMP_1)
-	}
-}
-
-script Pidgey_MonFlewAway {
-    fadescreen(FADE_TO_BLACK)
-    removeobject(VAR_LAST_TALKED)
-	clearflag(FLAG_TEMP_1)
-	addobject(LOCALID_SKY_TOWER_CHUCKSTER)
-    fadescreen(FADE_FROM_BLACK)
-    bufferspeciesname(STR_VAR_1, VAR_0x8004)
-    msgbox(Text_MonFlewAway)
-    release
-}
-
-script SkyTower_Chuckster {
-	lock
-	faceplayer
-	msgbox(
-	"I'm a CHUCKSTER!\n"
-	"", MSGBOX_DEFAULT)
-	closemessage
-	applymovement(LOCALID_PLAYER, moves(
-		walk_left
-		face_right
-	))
-	applymovement(LOCALID_SKY_TOWER_CHUCKSTER, moves(
-		walk_left
-		face_right
-	))
-	waitmovement(LOCALID_PLAYER)
-	delay(60)
-	special(SpawnCameraObject)
-	applymovement(LOCALID_PLAYER, moves(
-		walk_fast_right * 6
-		jump_2_right
-	))
-	applymovement(LOCALID_SKY_TOWER_CHUCKSTER, moves(
-		walk_fast_right * 6
-		face_right
-	))
-	waitmovement(LOCALID_SKY_TOWER_CHUCKSTER)
-	playse(SE_LEDGE)
-	delay(60)
-	setobjectxy(LOCALID_PLAYER, 29, 35)
-	warphole(MAP_NEW_MAP1)
-	release
-
+	setflag(FLAG_TEMP_1)
+	setflag(FLAG_CSR_MAP_SKY_TOWER)
 }

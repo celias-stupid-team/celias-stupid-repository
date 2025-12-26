@@ -1722,6 +1722,8 @@ static void (*const sDrawTextEntryBoxFuncs[])(void) =
     [NAMING_SCREEN_NICKNAME]   = DrawMonTextEntryBox,
     [NAMING_SCREEN_RIVAL]      = DrawNormalTextEntryBox,
     [NAMING_SCREEN_SOCIAL]     = DrawNormalTextEntryBox,
+    [NAMING_SCREEN_BERRY_POWDER]     = DrawNormalTextEntryBox,
+    [NAMING_SCREEN_YES]     = DrawNormalTextEntryBox,
 };
 
 static void DrawTextEntryBox(void)
@@ -2109,6 +2111,24 @@ static const struct NamingScreenTemplate sSocialSecurityNamingScreenTemplate = {
     .title = gText_YourSSN,
 };
 
+static const struct NamingScreenTemplate sBerryPowderNamingScreenTemplate = {
+    .copyExistingString = FALSE,
+    .maxChars = 4,
+    .iconFunction = 1,
+    .addGenderIcon = 0,
+    .initialPage = KBPAGE_LETTERS_UPPER, // rave: this does nothing for now, but I would like to fix it
+    .title = gText_YourSSN,
+};
+
+static const struct NamingScreenTemplate sSayYesNamingScreenTemplate = {
+    .copyExistingString = FALSE,
+    .maxChars = 5,
+    .iconFunction = 1,
+    .addGenderIcon = 0,
+    .initialPage = KBPAGE_LETTERS_UPPER, // rave: this does nothing for now, but I would like to fix it
+    .title = gText_YourSSN,
+};
+
 static const struct NamingScreenTemplate sPcBoxNamingScreenTemplate = {
     .copyExistingString = FALSE,
     .maxChars = BOX_NAME_LENGTH,
@@ -2144,6 +2164,8 @@ static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
     [NAMING_SCREEN_NICKNAME]   = &sMonNamingScreenTemplate,
     [NAMING_SCREEN_RIVAL]      = &sRivalNamingScreenTemplate,
     [NAMING_SCREEN_SOCIAL]     = &sSocialSecurityNamingScreenTemplate,
+    [NAMING_SCREEN_BERRY_POWDER]     = &sBerryPowderNamingScreenTemplate,
+    [NAMING_SCREEN_YES]     = &sSayYesNamingScreenTemplate,
 };
 
 static const struct OamData sOam_8x8 = {

@@ -59,7 +59,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_PALLET_TOWN)) {
 		setobtainable(SPECIES_RATTATA) // 16
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_MEWTWO)) { //add flag for talking to the kid
+	if(checkmoncaught(SPECIES_MEWTWO)) { //add flag for talking to the kid
 		setobtainable(SPECIES_RATICATE) // 17
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_22) && flag(FLAG_SYS_POKEDEX_GET)|| flag(FLAG_WORLD_MAP_PEWTER_CITY)) {
@@ -116,10 +116,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_CLEFAIRY) // 35
 	}
-	if(flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) { 
+	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && flag(FLAG_CSR_HINT_GYM_STATUES))) { 
 		setobtainable(SPECIES_CLEFABLE) // 36
 	}
-	if(flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) { 
+	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && flag(FLAG_CSR_HINT_GYM_STATUES))) { 
 		setobtainable(SPECIES_GENGAR) // 37
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
@@ -179,7 +179,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_24_FAR)) {
 		setobtainable(SPECIES_ABRA) // 56
 	}
-	if(flag(FLAG_CSR_HINT_MISSINGNO)) {
+	if(flag(FLAG_CSR_HINT_MISSINGNO) || checkmoncaught(SPECIES_MISSINGNO)) {
 		setobtainable(SPECIES_MISSINGNO) // 57
 	}
 	if(flag(FLAG_CSR_HINT_ABRA_TRADE) && checkmoncaught(SPECIES_MR_MIME)) {
@@ -215,40 +215,40 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_ROUTE_24_FAR)) {
 		setobtainable(SPECIES_BELLSPROUT) // 69
 	}
-	if(checkmoncaught(SPECIES_CHERUBI) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_BELLSPROUT)) { //and got Bellsprout
+	if(checkmoncaught(SPECIES_CHERUBI) || (flag(FLAG_CSR_GOT_BILL)) && checkmoncaught(SPECIES_BELLSPROUT)) {
 		setobtainable(SPECIES_CHERUBI) // 70
 	}
 	if(flag(FLAG_CSR_HINT_MOVE_REMINDER)) {
 		setobtainable(SPECIES_ODDISH) // 71
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) {
+	if(flag(FLAG_RELEASED_ZUBAT)) {
 		setobtainable(SPECIES_ZUBAT) // 72
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) {
+	if(flag(FLAG_FOUND_W) && checkmoncaught(SPECIES_ZUBAT)) {
 		setobtainable(SPECIES_WOOBAT) // 73
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA)) {
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && checkmoncaught(SPECIES_HORSEA) && checkmoncaught(SPECIES_GOLURK)) {
 		setobtainable(SPECIES_HORSEA) // 74
 	}
-	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD)) { 
+	if(flag(FLAG_CSR_HINT_DRAGONITE) && flag(FLAG_GOT_OLD_ROD) && checkmoncaught(SPECIES_GOLURK)) { 
 		setobtainable(SPECIES_DRAGONITE) // 75
 	}
 	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
-	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH)) {
+	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) {
 		setobtainable(SPECIES_REMORAID) // 77
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) {
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_RAICHU) && flag(FLAG_CSR_TALKED_TO_MINDY)) {
 		setobtainable(SPECIES_HAUNTER) // 78 
 	}
 	if(flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) {
 		setobtainable(SPECIES_MAGNEMITE)  // 79
 	}
-	if(flag(FLAG_CSR_HINT_MAGNALONE) && checkmoncaught(SPECIES_MAGNEMITE)) { //and if Magnemite
+	if(flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY) && checkmoncaught(SPECIES_MAGNEMITE)) { 
 		setobtainable(SPECIES_MAGNALONE) // 80
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(flag(FLAG_GOT_CREAM_DROP) && flag(FLAG_BACK_OF_ARROW_MAZE) || checkmoncaught(SPECIES_ALCREMIE)) { 
 		setobtainable(SPECIES_ALCREMIE) // 81
 	}
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) { //TODO figure out this logic
@@ -260,7 +260,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_SHELLDER)) { //And if Shellder
 		setobtainable(SPECIES_SLOWBRO) // 84
 	}
-	if(flag(FLAG_CSR_MAP_MINNESOTA)) {
+	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_GOT_SEAL_CASE)) {
 		setobtainable(SPECIES_SEEL) // 85
 	}
 	if(flag(FLAG_TALKED_TO_LICKITUNG_TRADE) && checkitem(ITEM_SANDWICH_CASE) && checkmoncaught(SPECIES_SLOWBRO)) {
@@ -270,7 +270,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_EEVEE_ROOM)) {
 		setobtainable(SPECIES_EEVEE) // 87
 	}
-	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_EEVEE)) { // and Got Eevee
+	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_EEVEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { // and Got Eevee
 		setobtainable(SPECIES_SOLACEON) // 88
 	}
 	if(flag(FLAG_CSR_MAP_STONE_EMPORIUM) && checkmoncaught(SPECIES_EEVEE)) { // and if Eevee
@@ -300,7 +300,7 @@ script SetPlayerPokedexValues {
 	if((flag(FLAG_CSR_HINT_PEWTER_GRASS) && checkmoncaught(SPECIES_COMBEE)) || flag(FLAG_WORLD_MAP_CERULEAN_CITY) || checkmoncaught(SPECIES_GRIMER)) { //and if Combee
 		setobtainable(SPECIES_GRIMER) // 97
 	}
-	if(flag(FLAG_CSR_HINT_REVEAL_GLASS)) { //and if Grimer
+	if(var(VAR_TWO_ISLAND_STARMAN) > 1 && checkmoncaught(SPECIES_GRIMER)) { //and if Grimer
 		setobtainable(SPECIES_MUK) // 98
 	}
 	if(flag(FLAG_CSR_GOT_PAY_DAY)) {
@@ -309,13 +309,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_GOT_PAY_DAY) && checkmoncaught(SPECIES_GIMMIGHOUL)) {
 		setobtainable(SPECIES_GHOLDENGO) // 100
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(flag(FLAG_CSR_MAP_KANTO_LIGHTHOUSE) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS_MEGA) // 101
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS) // 102
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { //TODO figure out this logic
 		setobtainable(SPECIES_SMEARGLE) // 103
 	}
 	if(flag(FLAG_CSR_GOT_GOLDEN_ROD) && flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) { 
@@ -327,7 +327,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_BRENDANMAY)) {
 		setobtainable(SPECIES_MACHOKE) // 106
 	}
-	if(flag(FLAG_CSR_HINT_ARMS_TRADE) && checkmoncaught(SPECIES_MACHOKE)) { 
+	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && flag(FLAG_CSR_HINT_GYM_STATUES)) { 
 		setobtainable(SPECIES_MACHAMP) // 107
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { 
@@ -336,7 +336,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_GEODUDE)) { 
 		setobtainable(SPECIES_GRAVELER) // 109
 	}
-	if(flag(FLAG_CSR_HINT_GYM_STATUES) && flag(FLAG_CSR_HINT_ARMS_TRADE) && checkmoncaught(SPECIES_GRAVELER) && checkmoncaught(SPECIES_MACHAMP)) { 
+	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && flag(FLAG_CSR_HINT_GYM_STATUES)) { 
 		setobtainable(SPECIES_GOLEM) // 110
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
@@ -351,7 +351,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
 		setobtainable(SPECIES_TANGELA) // 114
 	}
-	if(flag(FLAG_CSR_HINT_GYM_STATUES) && flag(FLAG_CSR_HINT_TANGELA_HAIRCUT) && checkmoncaught(SPECIES_TANGELA)) { //and if Tangela
+	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS_MEGA)) { //and if Tangela
 		setobtainable(SPECIES_TRUBBISH_HAIRCUT) // 115
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
@@ -366,13 +366,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES)) {
 		setobtainable(SPECIES_PERSIAN) // 119
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_LUVDISC) || flag(FLAG_LUVDISC_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_LUVDISC) // 120
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_LUVDISC) && checkmoncaught(SPECIES_PHIONE) && flag(FLAG_HEART_SWAP_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_ALOMOMOLA) // 121
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_GOT_MASTER_BALL_FROM_SILPH)) { //TODO figure out logic
 		setobtainable(SPECIES_MR_MIME) // 122
 	}
 	if(flag(FLAG_CSR_MAP_CERULEAN_GYM)) {
@@ -381,91 +381,92 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_TALKED_TO_JYNX_GUY) && checkmoncaught(SPECIES_POLIWAG)) {
 		setobtainable(SPECIES_JYNX) // 124
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_NATIONAL_PARK)) { //TODO figure out logic
 		setobtainable(SPECIES_PINSIR) // 125
 	}
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
 		setobtainable(SPECIES_TAUROS) // 126
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_FOUND_Y) && flag(FLAG_CSR_MAP_YES)) { 
 		setobtainable(SPECIES_CHANSEY) // 127
 	}
-	if(flag(FLAG_BAKED_DONUT_HINT) || checkmoncaught(SPECIES_DACHSBUN)) { //TODO figure out logic
+	if((flag(FLAG_BAKED_DONUT_HINT) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_DACHSBUN)) { 
 		setobtainable(SPECIES_DACHSBUN) // 128
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_ALTAR_OF_MOONE) && flag(FLAG_GOT_NEBBY_ONCE)) { //TODO figure out logic
 		setobtainable(SPECIES_ORTHWORM) // 129
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_9_FAR)) {
 		setobtainable(SPECIES_OMANYTE) // 130
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_HIDE_ROUTE9_BURN_HEAL) && flag(FLAG_WORLD_MAP_CINNABAR_ISLAND)) { 
 		setobtainable(SPECIES_TYRANASTAR) // 131
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_CINNABAR_ISLAND)) { //TODO figure out logic
 		setobtainable(SPECIES_SUDOWOODO) // 132
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_COPYCAT_TM) && flag(FLAG_ENTERED_COPYCAT_HOUSE)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_HOOPA) // 134
 	}
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {
 		setobtainable(SPECIES_JIRACHI) // 135
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
 		setobtainable(SPECIES_ARTICUNO) // 136
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_ARTICUNO) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_ESPEON) // 137
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
 		setobtainable(SPECIES_ZAPDOS) // 138
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_BADGE08_GET) && checkmoncaught(SPECIES_ZAPDOS)) { //TODO figure out logic
 		setobtainable(SPECIES_JOLTEON) // 139
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_MOLTRES)) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {
 		setobtainable(SPECIES_PHIONE) // 142
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_HAUNTER) && flag(FLAG_WORLD_MAP_POWER_PLANT) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_ETERNATUS) // 143
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_ZYGARDE) // 144
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
 		setobtainable(SPECIES_MELMETAL) // 145
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
 	}
-	if(flag(FLAG_WARDENS_TEETH)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_ARCANINE) && flag(FLAG_POKEMON_GUN_HINT)) { //I need to figure out which one is THE hint. Probably multiple.
 		setobtainable(SPECIES_POKEMON_GUN) // 147
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_DITTO_MEW_HINT) || checkmoncaught(SPECIES_DITTO_MEW)) { //TODO figure out logic
 		setobtainable(SPECIES_DITTO_MEW) // 148
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM)) { //TODO figure out logic
 		setobtainable(SPECIES_MEWTWO) // 150
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) { //TODO figure out logic
 		setobtainable(SPECIES_CASTFORM) // 152
 	}
-	if(flag(FLAG_CSR_DEX_DUMMY)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_BULBASAUR)) { //TODO figure out logic
 		setobtainable(SPECIES_VENUSAUR) // 151
 	}
 return
 }
 
 script GetOakPCPokedexMessage {
+    call(SetPlayerPokedexValues)
 	callnative(GetRandomUnobtainedSpecies_ToResult)
 	switch(var(VAR_RESULT)) {
 		case SPECIES_VICTINI: 

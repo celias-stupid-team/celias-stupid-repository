@@ -683,3 +683,8 @@ script FourIsland_Luxray {
 	"{PAUSE 30}THUNDER FANG!", MSGBOX_DEFAULT)
 	release
 }
+
+script FourIsland_SetRockClimbTop {
+	setflag(FLAG_FOUR_ISLAND_ROCK_CLIMB)
+	setvar(VAR_TEMP_2, 1)
+}

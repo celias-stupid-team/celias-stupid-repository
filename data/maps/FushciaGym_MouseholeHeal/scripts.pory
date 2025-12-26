@@ -81,7 +81,7 @@ script FushciaGym_HippoMiddle {
 script FushciaGym_CrackedWallMiddleRight {
     lock
     if(flag(FLAG_DRILLED_RIGHT_HOLE)) {
-        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+        msgbox("The hole is too small for you\nto walk through.", MSGBOX_DEFAULT)
         release
         end
     }
@@ -137,7 +137,7 @@ movement DrillDozesRight {
 script FushciaGym_CrackedWallMiddleLeft {
     lock
     if(flag(FLAG_DRILLED_LEFT_HOLE)) {
-        msgbox("The hole is too small to walk\nthrough.", MSGBOX_DEFAULT)
+        msgbox("The hole is too small for you\nto walk through.", MSGBOX_DEFAULT)
         release
         end
     }

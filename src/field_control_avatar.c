@@ -302,6 +302,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         PlaySE(SE_WIN_OPEN);
         if (FlagGet(FLAG_SYS_ROTOM_MENU))
         {
+            
+            RunScriptImmediately(SetPlayerPokedexValues);
             PlayCry_Normal(SPECIES_ROTOM, 0);
             RotomStartMenu_Init();
         }

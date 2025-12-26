@@ -27,6 +27,7 @@ script PirateBay_PrePatchedPirate {
 }
 
 script PirateBay_BreakTheSealHint {
+	setflag(FLAG_HOOPA_HINT)
 	msgbox(
 	"There was a powerful POKéMON that\n"
 	"once something something\l"

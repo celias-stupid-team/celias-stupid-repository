@@ -212,6 +212,13 @@ extern const u8 gText_Berry[];
 extern const u8 gText_Ghost[];
 extern const u8 gText_Luvdisc[];
 extern const u8 gText_Leekd[];
+extern const u8 gText_DEAD[];
+extern const u8 gText_DeadLower[];
+extern const u8 gText_DIED[];
+extern const u8 gText_DiedLower[];
+extern const u8 gText_YesLower[];
+extern const u8 gText_YupLower[];
+extern const u8 gText_YUP[];
 
 // pokemon
 extern const u8 gBattleText_Rose[];

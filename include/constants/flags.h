@@ -410,14 +410,14 @@
 #define FLAG_DMCA_SURGE_SECOND_GATE                         0x167
 #define FLAG_CUT_SAMSON_OAK                        0x168
 #define FLAG_OPENED_ZERO_ISLAND                 0x169
-#define FLAG_0x16A                     0x16A
+#define FLAG_LUVDISC_HINT                     0x16A
 #define FLAG_HIDE_ROUTE9_TM40                                   0x16B
 #define FLAG_HIDE_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE                0x16C
 #define FLAG_HIDE_ROCKET_HIDEOUT_B1F_HYPER_POTION               0x16D
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_X_SPEED                    0x16E
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_MOON_STONE                 0x16F
 #define FLAG_HIDE_ROCKET_HIDEOUT_B2F_TM12                       0x170
-#define FLAG_HIDE_ROCKET_HIDEOUT_B2F_SUPER_POTION               0x171
+#define FLAG_COPYCAT_TM               0x171
 #define FLAG_RELEASED_ZUBAT                 0x172
 #define FLAG_DEFEATED_WAREHOUSE_ADMIN                       0x173
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_TM49                       0x174
@@ -428,10 +428,10 @@
 #define FLAG_SAW_CELIA_ROUTE15                    0x179
 #define FLAG_GOT_CREAM_DROP                   0x17A
 #define FLAG_TRIED_WHIRLPOOL_BATTLE                       0x17B
-#define FLAG_0x17C                   0x17C
-#define FLAG_0x17D                   0x17D
-#define FLAG_0x17E                                  0x17E
-#define FLAG_0x17F                                  0x17F
+#define FLAG_ENTERED_COPYCAT_HOUSE                   0x17C
+#define FLAG_HEART_SWAP_HINT                   0x17D
+#define FLAG_DITTO_MEW_HINT                                  0x17E
+#define FLAG_GOT_NEBBY_ONCE                                  0x17F
 #define FLAG_0x180                                  0x180
 #define FLAG_HIDE_SAFARI_ZONE_CENTER_TM32                     0x181
 #define FLAG_HIDE_SAFARI_ZONE_EAST_MAX_POTION                   0x182
@@ -500,7 +500,7 @@
 #define FLAG_HIDE_ROUTE11_X_DEFEND                              0x1C1
 #define FLAG_HIDE_ROUTE9_BURN_HEAL                              0x1C2
 #define FLAG_HIDE_ROCK_TUNNEL_1F_REPEL                          0x1C3
-#define FLAG_0x1C4                          0x1C4
+#define FLAG_FOUND_W                          0x1C4
 #define FLAG_0x1C5                    0x1C5
 #define FLAG_0x1C6                        0x1C6
 #define FLAG_0x1C7                     0x1C7
@@ -589,8 +589,8 @@
 #define FLAG_GOT_HISTORY_BOOK               0x217
 #define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_ICE               0x218
 #define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS               0x219
-#define FLAG_0x21A               0x21A
-#define FLAG_0x21B               0x21B
+#define FLAG_HOOPA_HINT               0x21A
+#define FLAG_FOUR_ISLAND_ROCK_CLIMB               0x21B
 #define FLAG_0x21C               0x21C
 #define FLAG_0x21D               0x21D
 #define FLAG_0x21E               0x21E
@@ -953,7 +953,7 @@
 #define FLAG_DMCA_SKULL_FIGHT_1               0x36C
 #define FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED               0x36D
 #define FLAG_DRILLED_MT_MOON_HOLE               0x36E
-#define FLAG_0x36F               0x36F
+#define FLAG_SHINY_SCYTHER_FROM_BUGSY               0x36F
 #define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
 #define FLAG_CSR_SPEEDRUN_CAVE               0x372
@@ -966,7 +966,7 @@
 #define FLAG_CSR_HINT_PHISHING               0x379
 #define FLAG_CSR_HINT_LICKITUNG               0x37A
 #define FLAG_CSR_HINT_MOVE_REMINDER               0x37B
-#define FLAG_CSR_HINT_MAGNALONE               0x37C
+#define FLAG_BACK_OF_ARROW_MAZE               0x37C
 #define FLAG_CSR_HINT_DRAGONITE               0x37D
 #define FLAG_CSR_HINT_SPEAROW               0x37E
 #define FLAG_CSR_HINT_PEWTER_GRASS               0x37F
@@ -974,7 +974,7 @@
 #define FLAG_CSR_HINT_REVEAL_GLASS               0x381
 #define FLAG_CSR_HINT_GYM_STATUES               0x382
 #define FLAG_CSR_HINT_ARMS_TRADE               0x383
-#define FLAG_CSR_HINT_TANGELA_HAIRCUT               0x384
+#define FLAG_POKEMON_GUN_HINT               0x384
 #define FLAG_CSR_HINT_FOREST_CANDIES               0x385
 #define FLAG_CSR_HINT_SPAM               0x386
 #define FLAG_CSR_TALKED_TO_RAICHU_GIRL               0x387
@@ -1543,9 +1543,9 @@
 #define FLAG_CSR_MAP_SECRET_GARDEN                                                  (SYS_FLAGS + 0xD4)
 #define FLAG_CSR_MAP_SKY_TOWER                                                (SYS_FLAGS + 0xD5)
 #define FLAG_CSR_MAP_BRENDANMAY                                                  (SYS_FLAGS + 0xD6)
-#define FLAG_CSR_MAP_DUMMY_3                                                  (SYS_FLAGS + 0xD7)
+#define FLAG_CSR_MAP_NATIONAL_PARK                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
-#define FLAG_CSR_MAP_DUMMY_4                                                  (SYS_FLAGS + 0xD9)
+#define FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM                                                  (SYS_FLAGS + 0xD9)
 #define FLAG_CSR_MAP_DUMMY_5                                                  (SYS_FLAGS + 0xDA)
 #define FLAG_CSR_MAP_DUMMY_6                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)

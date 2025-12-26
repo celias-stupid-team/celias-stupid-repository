@@ -938,6 +938,13 @@ const u8 gText_NoSaveFileCantSetTime[] = _("レポ-トが ないので\nじか�
 const u8 gText_InGameClockUsable[] = _("ゲ-ムない じかんの しゅうせい システムが\nつかえる ように なりました!");
 const u8 gText_SavingDontTurnOffThePower2[] = _("SAVING…\nDON'T TURN OFF THE POWER.");
 const u8 gText_Leekd[] = _("LEEKD");
+const u8 gText_DEAD[] = _("DEAD");
+const u8 gText_DeadLower[] = _("Dead");
+const u8 gText_DIED[] = _("DIED");
+const u8 gText_DiedLower[] = _("Died");
+const u8 gText_YesLower[] = _("Yes");
+const u8 gText_YUP[] = _("YUP");
+const u8 gText_YupLower[] = _("Yup");
 
 // Start menu option descriptions
 const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");
