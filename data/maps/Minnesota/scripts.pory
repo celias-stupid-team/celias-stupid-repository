@@ -224,3 +224,10 @@ script Minnesota_LookedThroughTrubbish {
 	release
 	end
 }
+
+script Minnesota_LookedThroughTrash {
+	msgbox(
+	"Nope!\n"
+	"Nothing but trash!", MSGBOX_SIGN)
+
+}

@@ -599,3 +599,5 @@ const u32 gObjectEventPic_LUXRAY[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_LUXRAY[] = INCBIN_U16("graphics/object_events/palettes/LUXRAY.gbapal");
 const u32 gObjectEventPic_TRUBBISH_2[] = INCBIN_U32("graphics/object_events/pics/stupid/TRUBBISH_2.4bpp");
 const u16 gObjectEventPal_TRUBBISH_2[] = INCBIN_U16("graphics/object_events/palettes/TRUBBISH.gbapal");
+const u32 gObjectEventPic_LAST_SLOWBRO[] = INCBIN_U32("graphics/object_events/pics/stupid/LAST_SLOWBRO.4bpp");
+const u32 gObjectEventPic_shiny_rat_2[] = INCBIN_U32("graphics/object_events/pics/stupid/shiny_rat_2.4bpp");
