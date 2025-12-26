@@ -25,6 +25,15 @@ mapscripts FushciaGym_Entrance_MapScripts {
             setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
         }
     }
+    MAP_SCRIPT_ON_TRANSITION {
+        if(flag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)) {
+            clearflag(FLAG_IN_FUSHCIA_GYM)
+            setflag(FLAG_TEMP_1)
+            setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
+            setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
+
+        }
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_4, 1 {
             setvar(VAR_TEMP_4, 0)

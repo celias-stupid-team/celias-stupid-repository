@@ -518,6 +518,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_CAR_DAD  0x115B
 #define OBJ_EVENT_PAL_TAG_JUMPLUFF  0x115C
 #define OBJ_EVENT_PAL_TAG_BILL_BOARD  0x115D
+#define OBJ_EVENT_PAL_TAG_HERDIER  0x115E
+#define OBJ_EVENT_PAL_TAG_LUXRAY  0x115F
+#define OBJ_EVENT_PAL_TAG_TRUBBISH_2  0x1160
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -609,6 +612,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_car_dad,             OBJ_EVENT_PAL_TAG_CAR_DAD},
     {gObjectEventPal_JUMPLUFF,             OBJ_EVENT_PAL_TAG_JUMPLUFF},
     {gObjectEventPal_bill_board,             OBJ_EVENT_PAL_TAG_BILL_BOARD},
+    {gObjectEventPal_HERDIER,             OBJ_EVENT_PAL_TAG_HERDIER},
+    {gObjectEventPal_LUXRAY,             OBJ_EVENT_PAL_TAG_LUXRAY},
+    {gObjectEventPal_TRUBBISH_2,             OBJ_EVENT_PAL_TAG_TRUBBISH_2},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

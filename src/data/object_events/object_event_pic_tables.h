@@ -4610,3 +4610,36 @@ const struct SpriteFrameImage gObjectEventPicTable_SAMSON_OAK[] = {
     overworld_frame(gObjectEventPic_SAMSON_OAK, 8, 8, 7),
     overworld_frame(gObjectEventPic_SAMSON_OAK, 8, 8, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_HERDIER[] = {
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 2),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 2),
+    overworld_frame(gObjectEventPic_HERDIER, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_LUXRAY[] = {
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 0),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 1),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 2),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 3),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 4),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 5),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 6),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 7),
+    overworld_frame(gObjectEventPic_LUXRAY, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_TRUBBISH_2[] = {
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 0),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 1),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 2),
+    overworld_frame(gObjectEventPic_TRUBBISH_2, 4, 4, 2),
+};

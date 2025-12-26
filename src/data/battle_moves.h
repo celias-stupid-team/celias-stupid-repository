@@ -7843,9 +7843,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GYRO_BALL] =
     {
-        .effect = EFFECT_HIT,
-        .power = 200,
-        .type = TYPE_STEEL,
+        .effect = EFFECT_MULTI_HIT_FIVE,
+        .power = 250,
+        .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 25,
         .secondaryEffectChance = 10,

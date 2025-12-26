@@ -6720,6 +6720,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Ocean17/border.bin",
       "blockdata_filepath": "data/layouts/Ocean17/map.bin"
+    },
+    {
+      "id": "LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF",
+      "name": "Minnesota_House1_BeamOff",
+      "width": 24,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_VermilionGym",
+      "border_filepath": "data/layouts/Minnesota_House1_BeamOff/border.bin",
+      "blockdata_filepath": "data/layouts/Minnesota_House1_BeamOff/map.bin"
     }
   ]
 }

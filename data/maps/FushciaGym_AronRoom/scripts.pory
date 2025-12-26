@@ -80,7 +80,7 @@ const DRILL = 3
 script FushciaGym_CrackedWallLeft {
     lock
     if(flag(FLAG_DRILLED_LEFT_HOLE)) {
-        msgbox("The hole is too small for you\n to walk through.", MSGBOX_DEFAULT)
+        msgbox("The hole is too small for you\nto walk through.", MSGBOX_DEFAULT)
         release
         end
     }
