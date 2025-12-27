@@ -179,8 +179,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 14,
-      "y": 13,
+      "x": 13,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -207,7 +207,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
-      "x": 10,
+      "x": 9,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
