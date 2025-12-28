@@ -5232,7 +5232,7 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
         .lvl = 54,
         .species = SPECIES_LUCARIO,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_CONFUSE_RAY, MOVE_POISON_FANG, MOVE_AIR_CUTTER, MOVE_BITE},
+        .moves = {MOVE_AURA_SPHERE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,
