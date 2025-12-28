@@ -2721,7 +2721,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
         }
         return;
     }
-    else
+    else // secondary effects
     {
         if (gBattleMons[gEffectBattler].status2 & sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]])
         {
@@ -2763,7 +2763,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 else
                 {
                     if (GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
-                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]];
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]]; // sets STATUS2_FLINCHED
                     gBattlescriptCurrInstr++;
                 }
                 break;
@@ -3147,6 +3147,9 @@ static void Cmd_seteffectwithchance(void)
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance * 2;
     else
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
+        percentChance = 100;
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_CERTAIN
         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
