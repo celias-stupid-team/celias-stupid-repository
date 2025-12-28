@@ -1053,3 +1053,5 @@ $(OBJEVENTGFXDIR)/stupid/GIRAFFE_CAGE.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
 $(OBJEVENTGFXDIR)/stupid/FARIG.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/FLAMES_BETTER.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

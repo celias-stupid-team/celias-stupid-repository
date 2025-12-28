@@ -6400,12 +6400,12 @@
     {
       "id": "LAYOUT_THREE_ISLAND_CORE",
       "name": "ThreeIsland_Core_Layout",
-      "width": 24,
-      "height": 40,
+      "width": 29,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RockTunnel",
       "border_filepath": "data/layouts/ThreeIsland_Core/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland_Core/map.bin"
     },
@@ -6732,6 +6732,18 @@
       "secondary_tileset": "gTileset_VermilionGym",
       "border_filepath": "data/layouts/Minnesota_House1_BeamOff/border.bin",
       "blockdata_filepath": "data/layouts/Minnesota_House1_BeamOff/map.bin"
+    },
+    {
+      "id": "LAYOUT_THREE_ISLAND_CORE_DESTROYED",
+      "name": "ThreeIsland_Core_DESTROYED",
+      "width": 29,
+      "height": 32,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RockTunnel",
+      "border_filepath": "data/layouts/ThreeIsland_Core_DESTROYED/border.bin",
+      "blockdata_filepath": "data/layouts/ThreeIsland_Core_DESTROYED/map.bin"
     }
   ]
 }

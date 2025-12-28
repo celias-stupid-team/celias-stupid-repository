@@ -384,7 +384,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FLAMES",
+      "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
       "x": 32,
       "y": 27,
       "elevation": 0,
@@ -398,7 +398,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FLAMES",
+      "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
       "x": 40,
       "y": 26,
       "elevation": 0,
@@ -412,7 +412,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FLAMES",
+      "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
       "x": 39,
       "y": 21,
       "elevation": 0,
@@ -437,6 +437,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
+      "x": 24,
+      "y": 30,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -444,7 +472,7 @@
       "x": 35,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_CINNABAR_ISLAND_HOUSE1",
+      "dest_map": "MAP_THREE_ISLAND_CORE",
       "dest_warp_id": "0"
     },
     {

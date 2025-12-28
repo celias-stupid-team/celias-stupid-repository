@@ -20,7 +20,7 @@ script RainbowCloud_Thesis {
 	"worth hearing regardless of skill!\p"
 
 	"I believe in the intrinsic value\n"
-	"of expression, and I want to\l"
+	"of ingenuity, and I want to\l"
 	"empower others to feel the same!", MSGBOX_SIGN)
 
 }

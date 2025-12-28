@@ -608,3 +608,5 @@ const u32 gObjectEventPic_GIRAFFE_CAGE[] = INCBIN_U32("graphics/object_events/pi
 const u16 gObjectEventPal_GIRAFFE_CAGE[] = INCBIN_U16("graphics/object_events/palettes/GIRAFFE_CAGE.gbapal");
 const u32 gObjectEventPic_FARIG[] = INCBIN_U32("graphics/object_events/pics/stupid/FARIG.4bpp");
 const u16 gObjectEventPal_FARIG[] = INCBIN_U16("graphics/object_events/palettes/FARIG.gbapal");
+const u32 gObjectEventPic_FLAMES_BETTER[] = INCBIN_U32("graphics/object_events/pics/stupid/FLAMES_BETTER.4bpp");
+const u16 gObjectEventPal_FLAMES_BETTER[] = INCBIN_U16("graphics/object_events/palettes/FLAMES_BETTER.gbapal");

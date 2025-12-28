@@ -4709,3 +4709,14 @@ const struct SpriteFrameImage gObjectEventPicTable_FARIG[] = {
     overworld_frame(gObjectEventPic_FARIG, 8, 8, 2),
     overworld_frame(gObjectEventPic_FARIG, 8, 8, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_FLAMES_BETTER[] = {
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 0),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 1),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 2),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 3),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 4),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 5),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 6),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 7),
+    overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 8),
+};
