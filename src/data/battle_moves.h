@@ -7995,13 +7995,26 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_108_TUPLE_TEAM] =
     {
-        .effect = EFFECT_EVASION_MAX,//MAX
+        .effect = EFFECT_EVASION_MAX,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
+        .priority = 5,
+        .flags = 0,
+    },
+
+    [MOVE_THUNDER_WAVE_CYNTHIA] =
+    {
+        .effect = EFFECT_PARALYZE,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 5,
         .flags = 0,
     },

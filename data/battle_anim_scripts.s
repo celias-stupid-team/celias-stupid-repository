@@ -656,6 +656,7 @@ gBattleAnims_Moves::
 	.4byte Move_MAGNET_RISE
 	.4byte Move_SHOOT
 	.4byte Move_108_TUPLE_TEAM
+	.4byte Move_THUNDER_WAVE_CYNTHIA
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -1434,6 +1435,7 @@ Move_THUNDERBOLT:
 	end
 
 Move_THUNDER_WAVE:
+Move_THUNDER_WAVE_CYNTHIA:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SPARK_2
 	loadspritegfx ANIM_TAG_SPARK_H

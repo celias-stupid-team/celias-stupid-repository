@@ -634,8 +634,9 @@
 #define MOVE_MAGNET_RISE 629
 #define MOVE_SHOOT 630
 #define MOVE_108_TUPLE_TEAM 631
+#define MOVE_THUNDER_WAVE_CYNTHIA 632 // always goes first
 
-#define MOVES_COUNT 632
+#define MOVES_COUNT 633
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

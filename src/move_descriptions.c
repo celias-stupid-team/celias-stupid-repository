@@ -1265,5 +1265,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_MAGNET_RISE     -1 ] = gMoveDescription_MagnetRise,
     [MOVE_SHOOT     -1 ] = gMoveDescription_Shoot,
     [MOVE_108_TUPLE_TEAM     -1 ] = gMoveDescription_108TupleTeam,
-    
+    [MOVE_THUNDER_WAVE_CYNTHIA - 1] = gMoveDescription_ThunderWave,
 };

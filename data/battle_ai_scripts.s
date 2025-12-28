@@ -1647,6 +1647,7 @@ AI_CV_Poison_End::
 	end
 
 AI_CV_Paralyze::
+	if_move MOVE_THUNDER_WAVE_CYNTHIA, AI_CV_Paralyze3
 	if_target_faster AI_CV_Paralyze2
 	if_hp_more_than AI_USER, 70, AI_CV_Paralyze_End
 	score -1
@@ -1657,6 +1658,10 @@ AI_CV_Paralyze2::
 	score +3
 
 AI_CV_Paralyze_End::
+	end
+
+AI_CV_Paralyze3::
+	score +5
 	end
 
 AI_CV_VitalThrow::
