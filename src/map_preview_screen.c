@@ -244,22 +244,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sLostCaveMapPreviewPalette
     },
     */
-    [MPS_ALTERING_CAVE] = {
-        .mapsec = MAPSEC_YES,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE,
-        .tilesptr = sAlteringCaveMapPreviewTiles,
-        .tilemapptr = sAlteringCaveMapPreviewTilemap,
-        .palptr = sAlteringCaveMapPreviewPalette
-    },
-    [MPS_PATTERN_BUSH] = {
-        .mapsec = MAPSEC_ZERO_ISLAND,
-        .type = MPS_TYPE_FOREST,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH,
-        .tilesptr = sViridianForestMapPreviewTiles,
-        .tilemapptr = sViridianForestMapPreviewTilemap,
-        .palptr = sViridianForestMapPreviewPalette
-    },
 
 };
 
