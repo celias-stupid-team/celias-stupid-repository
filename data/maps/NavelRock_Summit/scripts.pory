@@ -13,7 +13,6 @@ NavelRock_Summit_EventScript_HideHoOh::
 
 NavelRock_Summit_EventScript_TryShowHoOh::
 	setvar VAR_TEMP_1, 1
-	goto_if_set FLAG_HO_OH_FLEW_AWAY, EventScript_Return
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_HO_OH
 	return
@@ -70,7 +69,6 @@ NavelRock_Summit_EventScript_HoOh::
 	end
 
 NavelRock_Summit_EventScript_DefeatedHoOh::
-	setflag FLAG_HO_OH_FLEW_AWAY
 	setvar VAR_0x8004, SPECIES_PIDGEY
 	goto EventScript_MonFlewAway
 	end

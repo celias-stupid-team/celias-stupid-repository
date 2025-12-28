@@ -827,7 +827,7 @@
 #define FLAG_FOUGHT_HO_OH                                0x2F3
 #define FLAG_OAK_SAW_DEX_COMPLETION                      0x2F4
 #define FLAG_LUGIA_FLEW_AWAY                             0x2F5
-#define FLAG_HO_OH_FLEW_AWAY                             0x2F6
+#define FLAG_TURNED_IN_POKEMON_SIGNS                             0x2F6
 #define FLAG_DEOXYS_FLEW_AWAY                            0x2F7
 #define FLAG_TALKED_TO_TEA_LADY_AFTER_HOF                0x2F8
 #define FLAG_TALKED_TO_OAKS_AIDE_IN_VERMILION            0x2F9
