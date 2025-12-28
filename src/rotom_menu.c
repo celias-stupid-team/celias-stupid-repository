@@ -2562,7 +2562,7 @@ static bool32 CheckValidFieldMoveInput(void)
     sFieldMoveData = 0;
 
     if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
-        && sRotomStartMenu->monSpecies != SPECIES_NONE
+        && sRotomStartMenu->monSpecies[sRotomStartMenu->fieldMoveCursor] != SPECIES_NONE
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
     {
