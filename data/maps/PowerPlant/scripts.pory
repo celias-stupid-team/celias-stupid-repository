@@ -145,9 +145,10 @@ script PowerPlant_MagnemiteMan {
 			copyvar(VAR_0x8000, VAR_RESULT)
             setvar(VAR_0x8001, 0)
             setvar(VAR_0x8002, FALSE)
+			callnative(EvolvePartyMon)
 		}
 
-
+		
 		//evolve magnemite
 
 	} else {
