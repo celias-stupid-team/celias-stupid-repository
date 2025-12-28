@@ -1134,7 +1134,9 @@ static void Cmd_accuracycheck(void)
         JumpIfMoveFailed(7, move);
         return;
     }
-    if (move == NO_ACC_CALC || move == NO_ACC_CALC_CHECK_LOCK_ON)
+    if (move == NO_ACC_CALC || move == NO_ACC_CALC_CHECK_LOCK_ON
+      || (gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD
+        || gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD))
     {
         if (gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && move == NO_ACC_CALC_CHECK_LOCK_ON && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
             gBattlescriptCurrInstr += 7;
@@ -1207,9 +1209,7 @@ static void Cmd_accuracycheck(void)
             calc = (calc * (100 - param)) / 100;
 
         // final calculation
-        if (((Random() % 100 + 1) > calc && moveAcc)
-          || (gDisableStructs[gBattlerTarget].used108TupleTeam && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
-            && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD))
+        if (((Random() % 100 + 1) > calc && moveAcc) || gDisableStructs[gBattlerTarget].used108TupleTeam)
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
