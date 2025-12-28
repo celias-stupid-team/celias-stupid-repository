@@ -1726,6 +1726,10 @@ u8 CastformDataTypeChange(u8 battler)
     return formChange;
 }
 
+#define ABILITY_EFFECT_NONE    0
+#define ABILITY_EFFECT_ABSORB  1
+#define ABILITY_EFFECT_NULLIFY 2
+
 u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveArg)
 {
     u8 effect = 0;
@@ -2029,6 +2033,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             {
                 switch (gLastUsedAbility)
                 {
+                case ABILITY_LIGHTNING_ROD:
+                    if (moveType == TYPE_ELECTRIC)
+                    {
+                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
+
+                        effect = ABILITY_EFFECT_ABSORB;
+                    }
+                    break;
                 case ABILITY_VOLT_ABSORB:
                     if (moveType == TYPE_ELECTRIC && gBattleMoves[move].power != 0)
                     {
@@ -2037,7 +2052,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         else
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
 
-                        effect = 1;
+                        effect = ABILITY_EFFECT_ABSORB;
                     }
                     break;
                 case ABILITY_WATER_ABSORB:
@@ -2048,7 +2063,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         else
                             gBattlescriptCurrInstr = BattleScript_MoveHPDrain_PPLoss;
 
-                        effect = 1;
+                        effect = ABILITY_EFFECT_ABSORB;
                     }
                     break;
                 case ABILITY_FLASH_FIRE:
@@ -2063,7 +2078,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                                 gBattlescriptCurrInstr = BattleScript_FlashFireBoost_PPLoss;
 
                             gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_FLASH_FIRE;
-                            effect = 2;
+                            effect = ABILITY_EFFECT_NULLIFY;
                         }
                         else
                         {
@@ -2073,12 +2088,12 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             else
                                 gBattlescriptCurrInstr = BattleScript_FlashFireBoost_PPLoss;
 
-                            effect = 2;
+                            effect = ABILITY_EFFECT_NULLIFY;
                         }
                     }
                     break;
                 }
-                if (effect == 1)
+                if (effect == ABILITY_EFFECT_ABSORB)
                 {
                     if (gBattleMons[battler].maxHP == gBattleMons[battler].hp)
                     {
@@ -2094,6 +2109,13 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
                     }
+                }
+                else if (gLastUsedAbility == ABILITY_LIGHTNING_ROD)
+                {
+                    if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
                 }
             }
             break;
@@ -2605,6 +2627,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 
     return effect;
 }
+
+#undef ABILITY_EFFECT_NONE
+#undef ABILITY_EFFECT_ABSORB
+#undef ABILITY_EFFECT_NULLIFY
 
 void BattleScriptExecute(const u8 *BS_ptr)
 {

@@ -54,13 +54,13 @@ gBattleAI_ScriptsTable::
 AI_CheckBadMove::
 @	if_move MOVE_FISSURE, AI_CBM_CheckIfNegatesType  @ Improvement in Emerald
 @	if_move MOVE_HORN_DRILL, AI_CBM_CheckIfNegatesType
-	get_how_powerful_move_is
-	if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSoundproof
-
+	@ get_how_powerful_move_is
+	@ if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSoundproof
 AI_CBM_CheckIfNegatesType::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
+	if_equal ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
 	if_equal ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
 	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
