@@ -346,6 +346,9 @@ script CinnabarIsland_OnTransition {
 		setflag(FLAG_TEMP_6)
 	} else {
 		setflag(FLAG_TEMP_5)
+		if(flag(FLAG_UNLOCKED_CINNABAR_GYM)) {
+			setmetatile(37, 20, 0x283, FALSE)
+		}
 	}
 }
 
@@ -392,6 +395,14 @@ script CinnabarIsland_GymDoor {
 		}
 		setvar(VAR_TEMP_1, 1)
 		setflag(FLAG_UNLOCKED_CINNABAR_GYM)
+		setmetatile(37, 20, 0x283, FALSE)
+	} else {
+		closemessage
+		delay(30)
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
 	}
 	release
 }

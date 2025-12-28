@@ -1,5 +1,9 @@
 mapscripts RainbowCloud_MapScripts {
-
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_TEMP_1, 0 {
+			turnobject(LOCALID_PLAYER, DIR_NORTH)
+		}
+	]
 }
 
 script RainbowCloud_Thesis {
@@ -20,7 +24,7 @@ script RainbowCloud_Thesis {
 	"is worth hearing regardless of skill!\p"
 
 	"I believe in the intrinsic value of\n"
-	"of the audacity of creation, and I\l"
+	"the audacity of creation, and I\l"
 	"will empower others to feel the same!", MSGBOX_SIGN)
 
 }
@@ -46,7 +50,7 @@ script RainbowCloud_JourneysEnd {
 
 	"Read the message on the sign, and\n"
 	"copy it verbatim into a message on\l"
-	"my discord server and ping me.\p"
+	"my Discord server.\p"
 
 	"You've reached the end now.\n"
 	"Be proud of yourself!", MSGBOX_NPC)

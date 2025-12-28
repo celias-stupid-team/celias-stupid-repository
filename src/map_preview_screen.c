@@ -260,38 +260,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sViridianForestMapPreviewTilemap,
         .palptr = sViridianForestMapPreviewPalette
     },
-    [MPS_LIPTOO_CHAMBER] = {
-        .mapsec = MAPSEC_SECRET_GARDEN,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_WEEPTH_CHAMBER] = {
-        .mapsec = MAPSEC_AMITY_SQUARE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_TDILFORD_CHAMBER] = {
-        .mapsec = MAPSEC_POKEMON_ISLAND,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_SCUFIB_CHAMBER] = {
-        .mapsec = MAPSEC_AETHER_PARADISE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    }
 
 };
 

@@ -62,7 +62,8 @@ script RainbowCloud_GoUp {
         walk_faster_up * 8
         walk_fastest_up * 2
     ))
-    applymovement(LOCALID_PLAYER, moves( 
+    applymovement(LOCALID_PLAYER, moves(
+        unlock_facing_direction
         walk_fast_up * 15 // Player kept just off screen of camera for start of movement
         walk_up * 6 // Camera catches up to player
         walk_fast_up * 12 // Hold on player for a few seconds
