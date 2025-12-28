@@ -23,6 +23,7 @@ mapscripts Minnesota_Gym_MapScripts {
             setvar(VAR_TEMP_2, 1)
             clearflag(FLAG_TEMP_1)
             setflag(FLAG_TEMP_4)
+            removeobject(LOCALID_PURPLE_RAT)
             msgbox(
             "Wow!\n"
             "A BENCH press!\p"
