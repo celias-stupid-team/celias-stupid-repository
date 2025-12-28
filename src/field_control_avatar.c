@@ -17,6 +17,7 @@
 #include "item_menu.h"
 #include "link.h"
 #include "wonder_news.h"
+#include "map_name_popup.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "renewable_hidden_items.h"
@@ -304,6 +305,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         {
             
             RunScriptImmediately(SetPlayerPokedexValues);
+            DismissMapNamePopup();
             PlayCry_Normal(SPECIES_ROTOM, 0);
             RotomStartMenu_Init();
         }

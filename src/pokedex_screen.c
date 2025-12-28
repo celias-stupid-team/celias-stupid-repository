@@ -2379,6 +2379,23 @@ static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u
     DexScreen_PrintNum3LeadingZeroes(windowId, fontId, dexNum, x + 9, y, 0);
 }
 
+u32 GetCaughtAndObtainableSpeciesCount(void)
+{
+    u32 count = 0;
+    u32 i;
+
+    for (i = 0; i < KANTO_DEX_COUNT; i++)
+    {
+        if (DexScreen_GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT, FALSE)
+            && DexScreen_GetSetPokedexFlag(i + 1, FLAG_GET_OBTAINABLE, FALSE))
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+
 s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecies)
 {
     u8 index;
