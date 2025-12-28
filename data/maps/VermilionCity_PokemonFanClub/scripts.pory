@@ -2,8 +2,6 @@ raw `
 .set SPOKE_TO_WOMAN_LAST,   FLAG_TEMP_2
 .set SPOKE_TO_FAT_MAN_LAST, FLAG_TEMP_3
 
-VermilionCity_PokemonFanClub_MapScripts::
-	.byte 0
 
 VermilionCity_PokemonFanClub_EventScript_Chairman::
 	lock
@@ -123,4 +121,10 @@ script VermilionCity_FanClub_SealGirl {
 
 script VermilionCity_FanClub_RaichuGuy {
 	msgbox(VermilionCity_PokemonFanClub_Text_PikachuTwiceAsCute, MSGBOX_NPC)
+}
+
+mapscripts VermilionCity_PokemonFanClub_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setescapewarp(MAP_VERMILION_CITY_FAN_CLUB_BASEMENT, 0)
+	}
 }

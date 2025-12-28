@@ -6376,12 +6376,12 @@
     {
       "id": "LAYOUT_VERMILION_CITY_FAN_CLUB_BASEMENT",
       "name": "VermilionCity_FanClubBasement_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 13,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_FanClubDaycare",
+      "secondary_tileset": "gTileset_DiglettsCave",
       "border_filepath": "data/layouts/VermilionCity_FanClubBasement/border.bin",
       "blockdata_filepath": "data/layouts/VermilionCity_FanClubBasement/map.bin"
     },

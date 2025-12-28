@@ -436,6 +436,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LUXRAY;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TRUBBISH_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LAST_SLOWBRO;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shiny_rat_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DIGLETT;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -873,4 +874,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TRUBBISH_2] = &gObjectEventGraphicsInfo_TRUBBISH_2,
     [OBJ_EVENT_GFX_LAST_SLOWBRO] = &gObjectEventGraphicsInfo_LAST_SLOWBRO,
     [OBJ_EVENT_GFX_SHINY_RAT_2] = &gObjectEventGraphicsInfo_shiny_rat_2,
+    [OBJ_EVENT_GFX_DIGLETT] = &gObjectEventGraphicsInfo_DIGLETT,
 };
