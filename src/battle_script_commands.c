@@ -1207,7 +1207,9 @@ static void Cmd_accuracycheck(void)
             calc = (calc * (100 - param)) / 100;
 
         // final calculation
-        if (((Random() % 100 + 1) > calc && moveAcc) || gDisableStructs[gBattlerTarget].used108TupleTeam)
+        if (((Random() % 100 + 1) > calc && moveAcc)
+          || (gDisableStructs[gBattlerTarget].used108TupleTeam && gBattleMons[gBattlerAttacker].ability != ABILITY_NO_GUARD
+            && gBattleMons[gBattlerTarget].ability != ABILITY_NO_GUARD))
         {
             gMoveResultFlags |= MOVE_RESULT_MISSED;
             if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
@@ -7783,6 +7785,9 @@ static void Cmd_tryKO(void)
     {
         chance = TRUE;
     }
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD
+      || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
+        chance = TRUE;
     else
     {
         chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
