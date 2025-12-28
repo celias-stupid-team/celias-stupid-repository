@@ -1828,7 +1828,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
         FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
-        FreeSpritePaletteByTag(TAG_ROTOM_EYES_GFX);
+        FreeSpriteTilesByTag(TAG_ROTOM_EYES_GFX);
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
