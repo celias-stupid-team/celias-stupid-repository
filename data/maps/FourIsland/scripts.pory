@@ -645,14 +645,10 @@ script FourIsland_AmitySquareLady {
 
 script FourIsland_PsyduckBlocking {
 	lock
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
-	"… … …\n"
-	"", MSGBOX_DEFAULT)
-	closemessage
-	delay(10)
-	msgbox(
-	"The POKéMON seem to be struggling.\n"
-	"", MSGBOX_DEFAULT)
+	"We're forming a BLOCKADE as\n"
+	"PROF. OAK's POKéMON.", MSGBOX_DEFAULT)
 	release
 }
 

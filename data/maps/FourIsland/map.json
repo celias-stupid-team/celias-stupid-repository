@@ -388,8 +388,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
-      "x": 5,
-      "y": 40,
+      "x": 3,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

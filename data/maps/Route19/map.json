@@ -110,7 +110,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 17,
-      "y": 30,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -448,7 +448,7 @@
     {
       "type": "trigger",
       "x": 12,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -457,7 +457,7 @@
     {
       "type": "trigger",
       "x": 13,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -466,7 +466,7 @@
     {
       "type": "trigger",
       "x": 14,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -475,7 +475,7 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -484,7 +484,7 @@
     {
       "type": "trigger",
       "x": 16,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -493,7 +493,7 @@
     {
       "type": "trigger",
       "x": 17,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -502,7 +502,7 @@
     {
       "type": "trigger",
       "x": 18,
-      "y": 18,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -511,7 +511,7 @@
     {
       "type": "trigger",
       "x": 19,
-      "y": 17,
+      "y": 18,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
@@ -520,105 +520,6 @@
     {
       "type": "trigger",
       "x": 20,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
       "y": 17,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
@@ -627,7 +528,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 21,
       "y": 16,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
@@ -636,7 +537,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 22,
       "y": 15,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
@@ -645,7 +546,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 22,
       "y": 14,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
@@ -654,7 +555,133 @@
     },
     {
       "type": "trigger",
+      "x": 11,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
       "x": 3,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
       "y": 13,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
@@ -664,16 +691,7 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_CURRENT_CHAPTER",
-      "var_value": "3",
-      "script": "GreatSea_Chapter7"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 11,
+      "y": 16,
       "elevation": 0,
       "var": "VAR_CURRENT_CHAPTER",
       "var_value": "3",
