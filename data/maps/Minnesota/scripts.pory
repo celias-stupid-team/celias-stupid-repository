@@ -96,8 +96,8 @@ script MinnesotaZoo_CagedDad {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"After a part-time gig at the\n"
-	"FUSHCIA CITY ZOO, I found a new one.\l"
+	"After a part-time gig at the FUSHCIA\n"
+	"CITY ZOO, I found this new one.\l"
 	"This cage is much smaller, though…\p"
 
 	"Well, never mind that.\n"
@@ -115,6 +115,7 @@ script MinnesotaZoo_FirstCage {
 }
 
 script MinnesotaZoo_ZooBat {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"Oh, cool!\n"
 	"It's a Zoo Bat!", MSGBOX_NPC)
@@ -236,5 +237,21 @@ script Minnesota_LookedThroughTrash {
 	msgbox(
 	"Nope!\n"
 	"Nothing but trash!", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_LaundromatSign {
+	msgbox(
+	"MINNESOTA LAUNDROMAT\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_GouldenSam {
+	msgbox(
+	"GOULDEN SAM\n"
+	"placeholder", MSGBOX_SIGN)
 
 }

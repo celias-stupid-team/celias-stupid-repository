@@ -591,7 +591,7 @@
 #define FLAG_FUSHCIA_GYM_LOOK_GIRL_TO_LIONS               0x219
 #define FLAG_HOOPA_HINT               0x21A
 #define FLAG_FOUR_ISLAND_ROCK_CLIMB               0x21B
-#define FLAG_0x21C               0x21C
+#define FLAG_GOT_GYM_MEMBERSHIP_BADGE               0x21C
 #define FLAG_0x21D               0x21D
 #define FLAG_0x21E               0x21E
 #define FLAG_0x21F               0x21F

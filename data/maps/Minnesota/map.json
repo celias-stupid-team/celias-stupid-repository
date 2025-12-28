@@ -329,7 +329,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Minnesota_GouldenSam"
     },
     {
       "type": "sign",
@@ -337,7 +337,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Minnesota_GouldenSam"
     },
     {
       "type": "sign",
@@ -345,7 +345,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Minnesota_GouldenSam"
     },
     {
       "type": "sign",
@@ -353,12 +353,12 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Minnesota_GouldenSam"
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 13,
+      "x": 30,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Minnesota_SanDiegoZoo_IndianElephantSign"
@@ -394,6 +394,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Minnesota_SurgeHouseSign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MinnesotaZoo_FirstCage"
     }
   ]
 }

@@ -4,10 +4,6 @@ mapscripts Minnesota_Gym_MapScripts {
         setbench(BENCH_MINNESOTA_GYM)
         setflag(FLAG_TEMP_1)
         release
-        if(flag(FLAG_SENT_BIKER_FLYING)) {
-            setmetatile(19, 14, METATILE_MinnesotaGym_UpdatedGymSignTop, TRUE)
-            setmetatile(19, 15, METATILE_MinnesotaGym_UpdatedGymSignBottom, TRUE)
-        }
         if(!checkitem(ITEM_HM04)) {
             getplayerxy(VAR_TEMP_4, VAR_TEMP_5)
 
@@ -16,6 +12,13 @@ mapscripts Minnesota_Gym_MapScripts {
             setflag(FLAG_TEMP_4)
         }
         
+    }
+    MAP_SCRIPT_ON_LOAD {
+        if(flag(FLAG_SENT_BIKER_FLYING)) {
+            setmetatile(19, 14, METATILE_MinnesotaGym_UpdatedGymSignTop, TRUE)
+            setmetatile(19, 15, METATILE_MinnesotaGym_UpdatedGymSignBottom, TRUE)
+        }
+
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_5, 4 {
@@ -103,8 +106,9 @@ script MinnesotaGym_BenchClue {
 	"is how crowded it gets.\p"
 
 	"Everyone's hoping to get their\n"
-	"turn using the BENCH press.\l"
-	"Too bad there's only one machine!", MSGBOX_NPC)
+	"turn using the BENCH press.\p"
+
+	"Why's there only one setup anyway?", MSGBOX_NPC)
 }
 
 
@@ -204,15 +208,89 @@ script MinnesotaGym_Attendant {
         "Listen, man.\n"
         "I make minimum wage.\p"
 
-        "I don't have the energy to tell\n"
-        "you to fuck off.\l"
+        "I don't have the energy to tell you\n"
+        "not to talk to me from here.\l"
         "Please go away.", MSGBOX_DEFAULT)
+        closemessage
+        applymovement(VAR_LAST_TALKED, moves(
+            face_original_direction
+        ))
+        waitmovement(0)
         release
     } else {
+        if(flag(FLAG_GOT_GYM_MEMBERSHIP_BADGE)) {
+            msgbox(
+            "Hello!\n"
+            "Welcome to PLANET FITNESS!\p"
+
+            "We have an exclusive business deal\n"
+            "with the HOSPITAL down the road.\p"
+
+            "We provide an endless supply of new\n"
+            "patients for them.\l"
+            "I hope you enjoy our services!", MSGBOX_DEFAULT)
+            release
+            end
+        }
         msgbox(
         "Hello!\n"
-        "Welcome to PLANET FITNESS!", MSGBOX_DEFAULT)
-        release
+        "Welcome to PLANET FITNESS!\p"
+
+        "Would you like to sign up for a\n"
+        "free MEMBERSHIP?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox(
+            "All righty, then!\p"
+
+            "I just need you to sign a few\n"
+            "waivers and releases, and we'll be\l"
+            "good to go!", MSGBOX_DEFAULT)
+            closemessage
+            fadescreen(FADE_TO_BLACK)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+            delay(30)
+            msgbox(
+            "{PLAYER} signed their name upwards\n"
+            "of 74 times.", MSGBOX_DEFAULT)
+            closemessage
+            fadescreen(FADE_FROM_BLACK)
+            textcolor(NPC_TEXT_COLOR_RED)
+            msgbox(
+            "Excellent!\n"
+            "Thank you for your patronage.\p"
+
+            "Here's your membership badge to\n"
+            "show you're welcome here.", MSGBOX_DEFAULT)
+            closemessage
+            delay(10)
+            textcolor(NPC_TEXT_COLOR_NEUTRAL)
+
+            msgbox(
+            "{PLAYER} obtained the\n"
+            "GYM MEMBERSHIP BADGE!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}", MSGBOX_DEFAULT)
+            waitfanfare
+            closemessage
+            delay(30)
+            textcolor(NPC_TEXT_COLOR_RED)
+            msgbox(
+            "Our facilities are over to the\n"
+            "left.\p"
+
+            "Feel free to use them however\n"
+            "you'd like!", MSGBOX_DEFAULT)
+            setflag(FLAG_GOT_GYM_MEMBERSHIP_BADGE)
+            release
+            end
+
+        } else {
+            msgbox(
+            "Oh, uh…\n"
+            "Okay.\p"
+
+            "Goodbye, then?\n"
+            "", MSGBOX_DEFAULT)
+            release
+        }
 
     }
 }
@@ -336,5 +414,164 @@ script MinnesotaGym_OpenLocker {
     setflag(FLAG_GOT_SHINY_MACHOKE)
     release
     end
+
+}
+
+script MinnesotaGym_Tire {
+	msgbox(
+	"The remnants of a big car.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script MinnesotaGym_TopBike {
+    lock
+    playmoncry(SPECIES_KORAIDON, CRY_MODE_DEFAULT)
+    waitmoncry
+    release
+}
+script MinnesotaGym_MiddleBike {
+    lock
+    playmoncry(SPECIES_CYCLIZAR, CRY_MODE_DEFAULT)
+    waitmoncry
+    release
+}
+script MinnesotaGym_BottomBike {
+    lock
+    playmoncry(SPECIES_KORAIDON, CRY_MODE_DEFAULT)
+    waitmoncry
+    release
+}
+
+script MinnesotaGym_Treadmill {
+    lock
+    applymovement(LOCALID_PLAYER, moves(
+        face_left
+        delay_16 * 2
+        walk_in_place_left * 5
+        walk_in_place_fast_left * 5
+        walk_in_place_faster_left * 10
+    ))
+    delay(60)
+    playse(SE_M_TAKE_DOWN)
+    waitse
+    waitmovement(LOCALID_PLAYER)
+    if(!flag(FLAG_TEMP_2)) {
+        applymovement(LOCALID_PLAYER, moves(
+            walk_in_place_faster_left * 70
+        ))
+        applymovement(LOCALID_GYM_COP, moves(
+            set_visible
+            walk_down
+            walk_left * 6
+            face_left
+        ))
+        waitmovement(LOCALID_GYM_COP)
+
+        //cop moves
+        textcolor(NPC_TEXT_COLOR_BLUE)
+        setflag(FLAG_TEMP_2)
+        message(
+        "Hey, kid!\n"
+        "Stop right there!")
+        delay(80)
+        message(
+        "Where's your goddamn\n"
+        "RUNNING SHOES!?")
+
+    } else {
+        setflag(FLAG_TEMP_3)
+        applymovement(LOCALID_PLAYER, moves(
+            walk_in_place_faster_left * 20
+        ))
+        applymovement(LOCALID_GYM_COP, moves(
+            set_visible
+            walk_down
+            walk_left * 4
+            face_left
+        ))
+        waitmovement(LOCALID_GYM_COP)
+
+    }
+    waitmovement(LOCALID_PLAYER)
+    closemessage
+    if(!flag(FLAG_TEMP_3)) {
+        applymovement(LOCALID_PLAYER, moves(
+            walk_in_place_fast_left * 5
+            walk_in_place_left * 5
+            face_left
+            delay_16 * 3
+            face_up
+            delay_16 *2
+            face_down
+            delay_16 *2
+            face_up
+            delay_16 *2
+            face_down
+            delay_16 *2
+            face_left * 4
+        ))
+
+    } else {
+        applymovement(LOCALID_PLAYER, moves(
+            walk_in_place_fast_left * 5
+            walk_in_place_left * 5
+            face_left
+            delay_16 *3
+            face_left * 4
+        ))
+
+    }
+    waitmovement(LOCALID_PLAYER)
+    applymovement(LOCALID_PLAYER, moves(
+        walk_slow_right
+        walk_slow_down
+        face_down
+    ))
+    if(!flag(FLAG_TEMP_3)) {
+        applymovement(LOCALID_GYM_COP, moves(
+            delay_16 * 2
+            walk_right * 4
+            walk_down * 2
+            walk_right * 3
+            walk_fastest_up * 3
+            walk_fastest_right
+            set_invisible
+        ))
+
+    } else {
+        clearflag(FLAG_TEMP_3)
+        applymovement(LOCALID_GYM_COP, moves(
+            delay_16 * 2
+            walk_right * 4
+            walk_fastest_up * 1
+            set_invisible
+        ))
+
+    }
+    waitmovement(LOCALID_GYM_COP)
+    release
+
+
+}
+
+script MinnesotaGym_SecretCop {
+	msgbox(
+	"Shh!\n"
+	"I'm undercover as wallpaper!", MSGBOX_NPC)
+}
+
+
+script MinnesotaGym_CrackedGround {
+	msgbox(
+	"Hey, look!\n"
+	"It's the ground!", MSGBOX_SIGN)
+
+}
+
+script MinnesotaGym_WaitWeight {
+	msgbox(
+	"Wait wait wait!\n"
+	"{PAUSE 30}It's a weight.", MSGBOX_SIGN)
 
 }
