@@ -26,12 +26,16 @@ mapscripts FushciaGym_Entrance_MapScripts {
         }
     }
     MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_TEMP_2)
         if(flag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)) {
             clearflag(FLAG_IN_FUSHCIA_GYM)
             setflag(FLAG_TEMP_1)
             setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
             setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
 
+        }
+        if(flag(FLAG_BADGE05_GET)) {
+            clearflag(FLAG_TEMP_2)
         }
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
@@ -43,10 +47,29 @@ mapscripts FushciaGym_Entrance_MapScripts {
     ]
 }
 
-script FushciaGym_Entrance_Celia {
+script FushciaGym_Old_Celia {
 	msgbox("Hi!\nI'm CELIA, the creator.\lThis is the end of the preview!\pI hope you had fun!\pSee if you can catch all 103\nPOKéMON available.\lYou made it this far. You can do it!\pThe full demo will contain this\ngym, so look forward to it!", MSGBOX_NPC)
 	end
 }
+
+script FushciaGym_Entrance_Celia {
+	msgbox(
+	"Hiya!\n"
+	"I'm CELIA, the creator.\l"
+	"Nice job beating the GYM!\p"
+
+	"I'm here for one last check-up\n"
+	"on your POKéDEX.\l"
+	"You should have 87 caught now.\p"
+
+	"The highest at this point is around\n"
+	"100 or so, but it's not a big deal.\l"
+	"The real show is about to begin!\p"
+
+	"Anyway, good luck!\n"
+	"I hope you enjoy what's coming up!", MSGBOX_NPC)
+}
+
 
 script FushciaGym_Entrance_Koga {
     lock

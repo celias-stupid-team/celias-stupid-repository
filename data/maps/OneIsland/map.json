@@ -3,7 +3,7 @@
   "name": "OneIsland",
   "layout": "LAYOUT_ONE_ISLAND",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_WATER_PATH",
+  "region_map_section": "MAPSEC_ONE_ISLAND_NAMED",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",

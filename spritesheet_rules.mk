@@ -1045,3 +1045,11 @@ $(OBJEVENTGFXDIR)/stupid/LAST_SLOWBRO.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 $(OBJEVENTGFXDIR)/stupid/shiny_rat_2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/DIGLETT.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/MONGOOSE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+$(OBJEVENTGFXDIR)/stupid/GIRAFFE_CAGE.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/FARIG.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8

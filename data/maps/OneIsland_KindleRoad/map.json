@@ -3,7 +3,7 @@
   "name": "OneIsland_KindleRoad",
   "layout": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
   "music": "MUS_CSR_MT_MOON_SQUARE",
-  "region_map_section": "MAPSEC_WATER_PATH",
+  "region_map_section": "MAPSEC_ONE_ISLAND_NAMED",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

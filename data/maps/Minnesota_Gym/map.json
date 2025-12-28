@@ -114,6 +114,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PURPLE_RAT",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RATTATA",
       "x": 7,
@@ -199,7 +200,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_SHINY_RAT",
+      "graphics_id": "OBJ_EVENT_GFX_SHINY_RAT_2",
       "x": 7,
       "y": 12,
       "elevation": 0,

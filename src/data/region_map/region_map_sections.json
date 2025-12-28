@@ -809,19 +809,19 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_SEVII_ISLE_7",
-      "name": "SEVII ISLE 7",
+      "id": "MAPSEC_RAINBOW_CLOUD",
+      "name": "RAINBOW CLOUD",
       "x": 5,
       "y": 4,
       "width": 1,
       "height": 1
     },
     {
-      "id": "MAPSEC_SEVII_ISLE_8",
-      "name": "SEVII ISLE 8",
+      "id": "MAPSEC_PIRATE_BAY",
+      "name": "PIRATE BAY",
       "x": 1,
       "y": 4,
-      "width": 3,
+      "width": 1,
       "height": 1
     },
     {
@@ -881,7 +881,7 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_WATER_PATH",
+      "id": "MAPSEC_ONE_ISLAND_NAMED",
       "name": "ONE ISLAND",
       "x": 18,
       "y": 3,

@@ -72,7 +72,7 @@ RocketHideout_B4F_Text_Grunt1PostBattle::
 	.string "“BUTTERFINGERS” is copyrighted!$"
 
 DMCA_LawOffices_PetrelIntro::
-	.string "What...?\n"
+	.string "{COLOR BLUE}What...?\n"
 	.string "Who are you?\p"
 	.string "My name is LARS.\n"
 	.string "I'm an admin of the DMCA!\p"
@@ -84,7 +84,7 @@ DMCA_LawOffices_PetrelDefeat::
 	.string "My POKéMON were all copies!$"
 
 DMCA_LawOffices_PetrelAfter::
-	.string "Grr…\p"
+	.string "{COLOR BLUE}Grr…\p"
 	.string "The SCOPE on the table there was a\n"
 	.string "clear copy of the NES ZAPPER.\l"
 	.string "How dare you take it!\p"

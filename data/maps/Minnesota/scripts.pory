@@ -109,10 +109,17 @@ script MinnesotaZoo_CagedDad {
 
 script MinnesotaZoo_FirstCage {
 	msgbox(
-	"SOME ANIMAL\n"
-	"(placeholder)", MSGBOX_SIGN)
+	"MONGOOSE\n"
+	"{PAUSE 30}The sworn enemy of VIPER", MSGBOX_SIGN)
 
 }
+
+script MinnesotaZoo_ZooBat {
+	msgbox(
+	"Oh, cool!\n"
+	"It's a Zoo Bat!", MSGBOX_NPC)
+}
+
 
 
 script MinnesotaZoo_FirstViking {

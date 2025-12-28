@@ -6515,7 +6515,7 @@
       "description_english": "A fully-formed sandwich.\\nThe perfect snack for any long\\nbiking trip!",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,

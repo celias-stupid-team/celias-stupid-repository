@@ -38,6 +38,9 @@ mapscripts PokemonIsland_Lab_MapScripts {
             addvar(VAR_TEMP_5, 1)
         }
         call(PokemonIslandLab_AddSignsBasedOnSigns)
+        if(flag(FLAG_TURNED_IN_POKEMON_SIGNS)) {
+            setobjectxyperm(LOCALID_TODD, 17, 3)
+        }
 
     }
 }
@@ -245,11 +248,13 @@ script PokemonIslandLab_Todd {
         msgbox(
         "There will be a cutscene here\n"
         "", MSGBOX_DEFAULT)
-        msgbox(
-        "We go to rainbow cloud\n"
-        "", MSGBOX_DEFAULT)
-        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CASTFORM)
-        call(Common_Script_GiftPokemon)
+        closemessage
+        applymovement(VAR_LAST_TALKED, moves(
+            walk_left
+            face_down
+        ))
+        waitmovement(0)
+        setflag(FLAG_TURNED_IN_POKEMON_SIGNS)
         release
         end
     }
