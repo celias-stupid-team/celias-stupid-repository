@@ -8,6 +8,7 @@ PokemonLeague_AgathasRoom_MapScripts::
 
 PokemonLeague_AgathasRoom_OnResume::
 	setvar VAR_0x8004, 2
+	setrespawn(HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM)
 	call PokemonLeague_EventScript_DoLightingEffect
 	end
 

@@ -423,6 +423,14 @@
       "y": 12,
       "respawn_map": "MAP_SAFARI_ZONE_NORTH",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "x": 6,
+      "y": 11,
+      "respawn_map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
+      "respawn_npc": "1"
     }
   ]
 }
