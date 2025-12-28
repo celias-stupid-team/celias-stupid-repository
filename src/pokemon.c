@@ -6977,13 +6977,16 @@ bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies
     {
         for (boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++)
         {
-            CheckBoxMonMovesFast(&gPokemonStoragePtr->boxes[box][boxPos], moveList, &knownMoveFlags, outSpecies);
-
-            if (knownMoveFlags & 1)
+            if (gPokemonStoragePtr->boxes[box][boxPos].hasSpecies)
             {
-                *outBox = box;
-                *outBoxPos = boxPos;
-                return TRUE;
+                CheckBoxMonMovesFast(&gPokemonStoragePtr->boxes[box][boxPos], moveList, &knownMoveFlags, outSpecies);
+
+                if (knownMoveFlags & 1)
+                {
+                    *outBox = box;
+                    *outBoxPos = boxPos;
+                    return TRUE;
+                }
             }
         }
     }
