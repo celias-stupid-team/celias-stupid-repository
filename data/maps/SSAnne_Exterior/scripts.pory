@@ -1,5 +1,5 @@
 raw `
-SSAnne_Exterior_MapScripts::
+::
 	map_script MAP_SCRIPT_ON_TRANSITION, SSAnne_Exterior_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SSAnne_Exterior_OnFrame
 	.byte 0
@@ -7,7 +7,6 @@ SSAnne_Exterior_MapScripts::
 
 
 SSAnne_Exterior_OnFrame::
-	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 1, SSAnne_Exterior_ExitSSAnne
 	.2byte 0
 
 SSAnne_Exterior_ExitSSAnne::
@@ -63,11 +62,29 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	step_end
 `
-script SSAnne_Exterior_OnTransition {
-	setworldmapflag(FLAG_WORLD_MAP_SSANNE_EXTERIOR)
-	if(!checkmoncaught(SPECIES_DITTO_MEW)) {
-		setflag(FLAG_TEMP_5)
+
+mapscripts SSAnne_Exterior_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		
+		setworldmapflag(FLAG_WORLD_MAP_SSANNE_EXTERIOR)
+		if(!checkmoncaught(SPECIES_DITTO_MEW)) {
+			setflag(FLAG_TEMP_5)
+		}
+		
 	}
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_TEMP_0, 0 {
+			getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+			if(var(VAR_TEMP_1) < 3) {
+				special(ForcePlayerToStartSurfing)
+
+			}
+		}
+	]
+
+}
+
+script SSAnne_Exterior_OnTransition {
 }
 
 

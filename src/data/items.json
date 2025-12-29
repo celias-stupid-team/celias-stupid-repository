@@ -7280,7 +7280,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A bootleg CD with someone's\\nentire mixtape downloaded onto it.\\nMakes TECHNO BLAST into FIRE-TYPE",
+      "description_english": "A bootleg CD with someone's\\nentire mixtape downloaded onto it.\\nMakes TECHNO BLAST into FIRE-TYPE.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -7355,7 +7355,7 @@
       "secondaryId": 0
     },
     {
-      "english": "TM49",
+      "english": "TM41",
       "itemId": "ITEM_COPYCAT_TM",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",

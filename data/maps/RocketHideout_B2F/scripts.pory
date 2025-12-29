@@ -11,7 +11,7 @@ script RocketHideout_FractalDMCA {
 	end
 }
 mapscripts RocketHideout_B2F_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
+	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
 			setflag(FLAG_BACK_OF_ARROW_MAZE)
 			setmetatile(27, 11, 0x390, FALSE)
