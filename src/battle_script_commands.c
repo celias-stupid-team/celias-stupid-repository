@@ -4931,32 +4931,45 @@ static void Cmd_switchinanim(void)
 static void Cmd_jumpifcantswitch(void)
 {
     s32 i;
+    u32 battler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~SWITCH_IGNORE_ESCAPE_PREVENTION);
+
+    i = CanBattlerSwitch(battler);
+
+    if (i == PARTY_SIZE)
+        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
+    else
+        gBattlescriptCurrInstr += 6;
+}
+
+bool32 CanBattlerSwitch(u32 battler)
+{
+    bool32 ret = FALSE;
+    s32 i;
     s32 lastMonId;
     struct Pokemon *party;
-
-    gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1] & ~SWITCH_IGNORE_ESCAPE_PREVENTION);
+    
     if (!(gBattlescriptCurrInstr[1] & SWITCH_IGNORE_ESCAPE_PREVENTION)
-        && ((gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
-            || (gStatuses3[gActiveBattler] & STATUS3_ROOTED)))
+        && ((gBattleMons[battler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
+            || (gStatuses3[battler] & STATUS3_ROOTED)))
     {
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
-        if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
             party = gEnemyParty;
         else
             party = gPlayerParty;
 
         i = 0;
-        if (GetLinkTrainerFlankId(GetBattlerMultiplayerId(gActiveBattler)) == TRUE)
+        if (GetLinkTrainerFlankId(GetBattlerMultiplayerId(battler)) == TRUE)
             i = 3;
         for (lastMonId = i + 3; i < lastMonId; i++)
         {
             if (GetMonData(&party[i], MON_DATA_SPECIES) != SPECIES_NONE
              && !GetMonData(&party[i], MON_DATA_IS_EGG)
              && GetMonData(&party[i], MON_DATA_HP) != 0
-             && gBattlerPartyIndexes[gActiveBattler] != i)
+             && gBattlerPartyIndexes[battler] != i)
                 break;
         }
 
@@ -4969,7 +4982,7 @@ static void Cmd_jumpifcantswitch(void)
     {
         u8 battlerIn1, battlerIn2;
 
-        if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
         {
             battlerIn1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
 
@@ -5001,11 +5014,9 @@ static void Cmd_jumpifcantswitch(void)
                 break;
         }
 
-        if (i == PARTY_SIZE)
-            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
-        else
-            gBattlescriptCurrInstr += 6;
+        ret = (i != PARTY_SIZE);
     }
+    return ret;
 }
 
 // Opens the party screen to choose a new Pokémon to send out.

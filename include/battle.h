@@ -13,6 +13,7 @@
 #include "battle_util2.h"
 #include "battle_bg.h"
 #include "battle_anim.h"
+#include "trainer_slide.h"
 
 /*
     Banks are a name given to what could be called a 'battlerId' or 'monControllerId'.
@@ -447,7 +448,8 @@ struct BattleStruct
     u8 formToChangeInto;
     u8 chosenMovePositions[MAX_BATTLERS_COUNT];
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
-    u8 field_88; // unused
+    const u8 *trainerSlideMsg;
+    struct MessageStatus slideMessageStatus;
     u8 field_89; // unused
     u8 field_8A; // unused
     u8 playerPartyIdx;
