@@ -1567,7 +1567,7 @@
 #define FLAG_CSR_MAP_DUMMY_17                                                  (SYS_FLAGS + 0xEC)
 #define FLAG_CSR_MAP_DUMMY_18                                                  (SYS_FLAGS + 0xED)
 #define FLAG_CSR_MAP_DUMMY_19  /*Set*/                                                (SYS_FLAGS + 0xEE)
-#define FLAG_CSR_MAP_DUMMY_20                                                  (SYS_FLAGS + 0xEF)
+#define FLAG_WORLD_MAP_POKEMON_LEAGUE_GAUNTLET                                                  (SYS_FLAGS + 0xEF)
 #define FLAG_CSR_MAP_MT_MOON_SQUARE                                                  (SYS_FLAGS + 0xF0)
 #define FLAG_CSR_MAP_YES                                                  (SYS_FLAGS + 0xF1)
 #define FLAG_CSR_MAP_AMITY_SQUARE                                                  (SYS_FLAGS + 0xF2)

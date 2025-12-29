@@ -5444,7 +5444,7 @@
       "height": 24,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_PorytilesBuilding",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Wormhole",
       "border_filepath": "data/layouts/ViridianGym_DMCA_Brock/border.bin",
       "blockdata_filepath": "data/layouts/ViridianGym_DMCA_Brock/map.bin"
@@ -5621,7 +5621,7 @@
       "id": "LAYOUT_INDIGO_PLATEAU_USED",
       "name": "IndigoPlateauUsed_Layout",
       "width": 25,
-      "height": 52,
+      "height": 44,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6744,6 +6744,18 @@
       "secondary_tileset": "gTileset_RockTunnel",
       "border_filepath": "data/layouts/ThreeIsland_Core_DESTROYED/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland_Core_DESTROYED/map.bin"
+    },
+    {
+      "id": "LAYOUT_INDIGO_PLATEAU_EXERIOR",
+      "name": "IndigoPlateau_Exerior_Layout",
+      "width": 25,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IndigoPlateau",
+      "border_filepath": "data/layouts/IndigoPlateau_Exerior/border.bin",
+      "blockdata_filepath": "data/layouts/IndigoPlateau_Exerior/map.bin"
     }
   ]
 }

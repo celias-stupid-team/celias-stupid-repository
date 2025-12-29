@@ -1868,3 +1868,6 @@ Text_TestMsg::
 
 	.include "data/maps/Ocean17/scripts.inc"
 	.include "data/maps/Ocean17/text.inc"
+
+	.include "data/maps/IndigoPlateau_Exerior/scripts.inc"
+	.include "data/maps/IndigoPlateau_Exerior/text.inc"

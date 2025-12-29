@@ -1,3 +1,45 @@
 mapscripts IndigoPlateauUsed_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION {
+        setworldmapflag(FLAG_WORLD_MAP_POKEMON_LEAGUE_GAUNTLET) //Tie to fly location eventually
+    }    
+}
+
+script IndigoPlateau_FieldMovesNeededSign {
+	msgbox(
+	"HM MOVES NEEDED:\p"
+
+	"FLY\n"
+	"SURF\l"
+	"WATERFALL\l"
+	"STRENGTH\l"
+	"CUT\l"
+	"ROCK SMASH\l"
+	"ROCK CLIMB\l"
+	"RETREAT\l"
+	"GROWL", MSGBOX_SIGN)
+
+}
+
+script IndigoPlateau_CharmanderGrowl {
+    lock
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
+    msgbox(
+	"A small girl is in the way.\n"
+	"She looks like she's afraid of\l"
+	"dragons and lizard-like creatures.", MSGBOX_DEFAULT)
+    if(checkpartymove(MOVE_GROWL_CHARMANDER) != PARTY_SIZE) {
+        msgbox(
+        "Would you like to scare her away\n"
+        "with GROWL?", MSGBOX_YESNO)
+        if(var(VAR_RESULT)) {
+            msgbox(
+            "used growl\n"
+            "", MSGBOX_DEFAULT)
+            playmoncry(SPECIES_CHARIZARD, CRY_MODE_DEFAULT)
+            waitmoncry
+            closemessage
+            removeobject(VAR_LAST_TALKED)
+        }
+    }
+    release
 }

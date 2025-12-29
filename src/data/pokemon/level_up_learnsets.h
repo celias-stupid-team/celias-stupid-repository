@@ -5611,11 +5611,9 @@ static const struct LevelUpMove sStaraptorLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sBidoofLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_STRENGTH),
-    LEVEL_UP_MOVE(2, MOVE_SURF),
-    LEVEL_UP_MOVE(2, MOVE_CUT),
-    LEVEL_UP_MOVE(2, MOVE_FLY),
-    LEVEL_UP_MOVE(2, MOVE_DIVE),
+    LEVEL_UP_MOVE(1, MOVE_CUT),
+    LEVEL_UP_MOVE(1, MOVE_FLY),
+    LEVEL_UP_MOVE(1, MOVE_DIVE),
 	LEVEL_UP_END
 };
 

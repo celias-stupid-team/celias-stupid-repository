@@ -31,5 +31,6 @@
 #define BENCH_NATIONAL_PARK                28
 #define BENCH_MINNESOTA_GYM                29
 #define BENCH_AETHER_PARADISE                30
+#define BENCH_POKEMON_LEAGUE                31
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

@@ -555,10 +555,11 @@ PokedexRating_Text_HintPorygon::
 	.string "the COINS to buy a PORYGON…$"
 
 PokedexRating_Text_HintPorygonZ::
-	.string "The PC WALLPAPERS you foolishly\n"
-	.string "installed are rife with viruses.\p"
-	.string "Hopefully they don't infect any of\n"
-	.string "your POKéMON!$"
+	.string "Oh dear, {PLAYER}…\n"
+	.string "I think your TRAINER ID got leaked.\l"
+	.string "It's showing up everywhere online.\p"
+	.string "I hope those PC WALLPAPERS you\n"
+	.string "foolishly installed were worth it!$"
 
 PokedexRating_Text_HintKrabby::
 	.string "I hear that all evolutionary trees\n"

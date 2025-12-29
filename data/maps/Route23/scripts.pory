@@ -168,3 +168,137 @@ script PowerPlant_EventScript_Zapdos {
 	release
 	end
 }
+
+
+script Route23_GetNationalDexRotomLeaves {
+	//walk into explicit frame
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	fadenewbgm(MUS_NONE)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_right
+				walk_slow_up
+				face_left
+
+			))
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_right
+				walk_slow_down
+				face_left
+
+			))
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_down
+				walk_slow_right * 2
+				walk_slow_up
+				face_left
+
+			))
+	}
+	waitmovement(LOCALID_PLAYER)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_right
+	))
+
+	msgbox(
+	"And also, I have one more surprise\n"
+	"for you!\p"
+
+	"Because you've caught every single\n"
+	"POKéMON in the KANTO region, your\l"
+	"POKéDEX can now be upgraded!\p"
+
+	"Let me see it for a moment, and I\n"
+	"can install the NATIONAL DEX!", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"{PLAYER} gave away the POKéDEX\n"
+	"for an upgrade…", MSGBOX_DEFAULT)
+	closemessage
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	delay(30)
+	msgbox(
+	"…{PAUSE 30}Aha! Excellent!\n"
+	"The upgrade was successful!\l"
+	"Here you are!", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	playfanfare(MUS_SLOTS_JACKPOT)
+	msgbox(
+	"{PLAYER} obtained the\n"
+	"NATIONAL POKéDEX!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	delay(20)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+	waitmoncry
+	msgbox(
+	"… … …?\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	clearflag(FLAG_SYS_ROTOM_MENU)
+	setflag(FLAG_SYS_NATIONAL_DEX)
+	//rotom moves out of the dex
+	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+	msgbox(
+	"Oh no!\p"
+
+	"ROTOM isn't compatible with the\n"
+	"new firmware!\l"
+	"He's been uninstalled!", MSGBOX_DEFAULT)
+	closemessage
+	//rotom runs away
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Ah, looks like there's a few apps\n"
+	"that don't work anymore.\l"
+	"Sorry about that!\p"
+
+	"Oh, well.\n"
+	"I'm sure it wasn't that important!", MSGBOX_DEFAULT)
+	fadedefaultbgm
+	release
+	end
+}
+
+
+script IndigoPlateau_RockClimbUp {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_up * 4
+				jump_up
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
+
+}
+script IndigoPlateau_RockClimbDown {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_down * 4
+				jump_down
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
+
+}
