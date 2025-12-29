@@ -4,8 +4,9 @@ mapscripts GreatSea_PirateBay_MapScripts {
 
 script PirateBay_BuyItOrDie {
 	msgbox(
-	"Hello! If you like this game,\n"
-	"buy it or die.", MSGBOX_NPC) //Buy or Die message box appears
+	"But hey! If you like this game,\n"
+	"maybe you should buy it!\l"
+	"{PAUSE 30}…From us, of course.", MSGBOX_NPC)
 }
 
 script PirateBay_PokeharborSign {
@@ -16,6 +17,14 @@ script PirateBay_PokeharborSign {
 	"Thanks!", MSGBOX_SIGN)
 
 }
+
+script PirateBay_Pokey {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Nye heh heh…\n"
+	"This HARBOR belongs to me!", MSGBOX_NPC)
+}
+
 
 script PirateBay_PrePatchedPirate {
 	msgbox(
@@ -29,12 +38,18 @@ script PirateBay_PrePatchedPirate {
 script PirateBay_BreakTheSealHint {
 	setflag(FLAG_HOOPA_HINT)
 	msgbox(
-	"There was a powerful POKéMON that\n"
-	"once something something\l"
-	"However, it has been SEALED away.\p"
+	"Hello, dearie.\n"
+	"Let me tell you a story.\p"
 
-	"To find it something something\n"
-	"you must break the SEAL!", MSGBOX_NPC)
+	"There was once a POKéMON so greedy\n"
+	"and powerful, we humans had to\l"
+	"Seal it away for our own safety.\p"
+
+	"Now it is hidden somewhere in the\n"
+	"world, and no one knows where.\p"
+
+	"Some day, someone may come along\n"
+	"and Break the Seal themselves…", MSGBOX_NPC)
 }
 
 
@@ -45,11 +60,26 @@ script PirateBay_BreakTheSealHint {
 script PirateBay_BurnDriveGuy {
 	lock
 	faceplayer
+	if(flag(FLAG_GOT_BURN_DRIVE)) {
+		msgbox(
+		"I put that disk together myself!\p"
+
+		"No need to worry about any corpos\n"
+		"getting in the way of my art!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	msgbox(
-	"Take this\n"
+	"Hey, there!\n"
+	"Welcome to PIRATE BAY!\p"
+
+	"Here, take this!\n"
 	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	giveitem_msg("{PLAYER} obtained the\nBURN DRIVE!", ITEM_BURN_DRIVE)
 	waitfanfare
+	setflag(FLAG_GOT_BURN_DRIVE)
+
 	release
 }
 
@@ -71,9 +101,11 @@ mart PirateBay_Potions {
 }
 
 script PirateBay_WarehouseGuard {
+	lock
 	msgbox(
-	"you can't go here\n"
-	"", MSGBOX_NPC)
+	"Ha!\nHe's asleep!"
+	"", MSGBOX_DEFAULT)
+	release
 }
 
 script PirateBay_SkyTower {
@@ -86,6 +118,7 @@ script PirateBay_SkyTower {
 
 script PirateBay_Copperajah {
 	lock
+	faceplayer
 	msgbox(
 	"A COPPERAJAH is on sale.\n"
 	"", MSGBOX_DEFAULT)
@@ -110,4 +143,163 @@ script PirateBay_Sailor {
     trainerbattle_single(TRAINER_SODASHOP_SAILOR, "PLACEHOLDER", "PLACEHOLDER")
     msgbox("Yarrrgh.\nYe can't be using words like that!\pThis be a fucking kids' game, after\nall!", MSGBOX_NPC)
 
+}
+
+
+script PirateBay_Entrance {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_PIRATEBAY_SAILOR, moves(
+		emote_exclamation_mark
+		delay_16 * 2
+	))
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hey, you! If you like this game…\n"
+	"{PAUSE 30}Buy it or die.", MSGBOX_DEFAULT)
+	closemessage
+	fadenewbgm(MUS_NONE)
+	delay(60)
+	msgbox(
+	"Bahahaha!\n"
+	"Just kidding!\p"
+
+	"Welcome aboard, friend!\n"
+	"", MSGBOX_DEFAULT)
+	playbgm(MUS_BINKS_SAKE, TRUE)
+	setvar(VAR_PIRATE_BAY_SCENE, 1)
+	release
+
+}
+
+script PirateBay_PhishingGuru {
+	msgbox(
+	"Why, hello!\n"
+	"I am the PHISHING GURU's BROTHER!\p"
+
+	"Say, would you be interested in\n"
+	"a fancy GOOD ROD?", MSGBOX_NPC)
+}
+
+
+script PirateBay_MessageBottle {
+	lock
+	msgbox(
+	"It's a message in a bottle.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	msgbox(
+	"Greetings, friend!\n"
+	"It is indeed my pleasure to write\l"
+	"to you this letter.\p"
+
+	"My name is Mutassim Gaddafi, and I\n"
+	"am a prince of Nigeria.\p"
+
+	"Recently my father has passed away\n"
+	"and left me with a large sum.\p"
+
+	"MR. KUKUI, please send us a\n"
+	"small fee…", MSGBOX_DEFAULT)
+	release
+}
+
+
+script PirateBay_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"dad text\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script PirateBay_DontGoToWarehouse {
+	msgbox(
+	"See that building up there?\n"
+	"It's the DMCA's WAREHOUSE.\p"
+
+	"We need to keep a low profile\n"
+	"down here in the BAY.\l"
+	"Otherwise, they might notice us!\p"
+
+	"Thankfully they're usually busy\n"
+	"dealing with real issues, such as\l"
+	"Youtubers using 10 seconds of music.", MSGBOX_NPC)
+}
+
+
+script PirateBay_RockClimbUp {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_up * 1
+				jump_up
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
+
+}
+script PirateBay_RockClimbDown {
+	lockall
+	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
+	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
+		closemessage
+		if(var(VAR_RESULT)) {
+			applymovement(LOCALID_PLAYER, moves(
+				walk_fast_down * 1
+				jump_down
+			))
+			waitmovement(0)
+		}
+	}
+	releaseall
+
+}
+
+
+script PirateBay_SpamMail {
+	msgbox(
+	"Five hundred and forty-six pieces\n"
+	"of mail fill the mailbox.\p"
+
+	"All of them are spam.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script PirateBay_MailLady {
+	lock
+	faceplayer
+	msgbox(
+	"I love getting mail.\p"
+
+	"It always makes me feel popular\n"
+	"and loved.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
 }

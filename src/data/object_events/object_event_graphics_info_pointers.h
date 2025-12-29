@@ -441,6 +441,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MONGOOSE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRAFFE_CAGE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FARIG;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FLAMES_BETTER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE_SIGN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MESSAGE_BOTTLE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -883,4 +886,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GIRAFFE_CAGE] = &gObjectEventGraphicsInfo_GIRAFFE_CAGE,
     [OBJ_EVENT_GFX_FARIG] = &gObjectEventGraphicsInfo_FARIG,
     [OBJ_EVENT_GFX_FLAMES_BETTER] = &gObjectEventGraphicsInfo_FLAMES_BETTER,
+    [OBJ_EVENT_GFX_PIRATE_SIGN] = &gObjectEventGraphicsInfo_PIRATE_SIGN,
+    [OBJ_EVENT_GFX_PIRATE] = &gObjectEventGraphicsInfo_PIRATE,
+    [OBJ_EVENT_GFX_MESSAGE_BOTTLE] = &gObjectEventGraphicsInfo_MESSAGE_BOTTLE,
 };

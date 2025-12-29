@@ -4720,3 +4720,36 @@ const struct SpriteFrameImage gObjectEventPicTable_FLAMES_BETTER[] = {
     overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 7),
     overworld_frame(gObjectEventPic_FLAMES_BETTER, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_PIRATE_SIGN[] = {
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 2),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 0),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 1),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 2),
+    overworld_frame(gObjectEventPic_PIRATE_SIGN, 4, 4, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_PIRATE[] = {
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 3),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 4),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 5),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 6),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 7),
+    overworld_frame(gObjectEventPic_PIRATE, 2, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_MESSAGE_BOTTLE[] = {
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 0),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 1),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 2),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 3),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 4),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 5),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 6),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 7),
+    overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 8),
+};

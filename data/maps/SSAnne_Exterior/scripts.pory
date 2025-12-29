@@ -4,9 +4,7 @@ SSAnne_Exterior_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SSAnne_Exterior_OnFrame
 	.byte 0
 
-SSAnne_Exterior_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SSANNE_EXTERIOR
-	end
+
 
 SSAnne_Exterior_OnFrame::
 	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 1, SSAnne_Exterior_ExitSSAnne
@@ -65,6 +63,14 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	step_end
 `
+script SSAnne_Exterior_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_SSANNE_EXTERIOR)
+	if(!checkmoncaught(SPECIES_DITTO_MEW)) {
+		setflag(FLAG_TEMP_5)
+	}
+}
+
+
 script VermillionHarbor_PaintedMew {
 	msgbox("A POKéMON is painted onto the side\nof this truck.\lNeat!", MSGBOX_SIGN)
 }
@@ -82,6 +88,8 @@ script VermillionHarbor_RealFakeMew {
 	setwildbattle(SPECIES_DITTO_MEW, 34)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	playmoncry(SPECIES_DITTO_MEW, CRY_MODE_ENCOUNTER)
+	addobject(LOCALID_PIRATE_SIGN)
+	clearflag(FLAG_TEMP_5)
 	msgbox("Mew?\n", MSGBOX_DEFAULT)
 	waitmoncry
 	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
@@ -154,4 +162,11 @@ script VermilionHarbor_FuckingFuck {
 	setflag(FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE)
 	release
 	end
+}
+
+script VermilionHarbor_LeftArrow {
+	msgbox(
+	"{LEFT_ARROW}\n"
+	"", MSGBOX_SIGN)
+
 }

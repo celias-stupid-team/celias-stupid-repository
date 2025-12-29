@@ -160,8 +160,8 @@
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
 #define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
-#define VAR_CSR_DUMMY_10                                            0x4069
-#define VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
+#define VAR_PIRATE_BAY_SCENE                                            0x4069
+#define VAR_CSR_DUMMY_10 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
 #define VAR_MAP_SCENE_CSR_LASS_2                                               0x406D
