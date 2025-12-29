@@ -4753,3 +4753,14 @@ const struct SpriteFrameImage gObjectEventPicTable_MESSAGE_BOTTLE[] = {
     overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 7),
     overworld_frame(gObjectEventPic_MESSAGE_BOTTLE, 2, 2, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_CYNTHIA_BETTER[] = {
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 2),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 0),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 1),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 2),
+    overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 2),
+};

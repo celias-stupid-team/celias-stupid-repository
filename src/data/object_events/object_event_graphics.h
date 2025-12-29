@@ -613,3 +613,5 @@ const u16 gObjectEventPal_FLAMES_BETTER[] = INCBIN_U16("graphics/object_events/p
 const u32 gObjectEventPic_PIRATE_SIGN[] = INCBIN_U32("graphics/object_events/pics/stupid/PIRATE_SIGN.4bpp");
 const u32 gObjectEventPic_PIRATE[] = INCBIN_U32("graphics/object_events/pics/stupid/PIRATE.4bpp");
 const u32 gObjectEventPic_MESSAGE_BOTTLE[] = INCBIN_U32("graphics/object_events/pics/stupid/MESSAGE_BOTTLE.4bpp");
+const u32 gObjectEventPic_CYNTHIA_BETTER[] = INCBIN_U32("graphics/object_events/pics/stupid/CYNTHIA_BETTER.4bpp");
+const u16 gObjectEventPal_CYNTHIA_BETTER[] = INCBIN_U16("graphics/object_events/palettes/CYNTHIA_BETTER.gbapal");
