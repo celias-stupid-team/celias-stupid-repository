@@ -11,6 +11,7 @@ mapscripts Ocean11_MapScripts {
 
 script Route21_StartAlomomolaBattle {
 	lock
+	setwildbattle(SPECIES_LUVDISC, 30)
 	special(StartAlomomolaBattle)
 	release
 }

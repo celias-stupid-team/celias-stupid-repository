@@ -61,7 +61,7 @@ CeruleanCave_B1F_EventScript_RanFromMewtwo::
 
 
 script CeruleanCave_ShortsGang1 {
-	trainerbattle_single(TRAINER_NONE,
+	trainerbattle_single(TRAINER_SHORTS_GANG_1,
 	"Hey!\n"
 	"This is our hideout!\l"
 	"You can't be in here!",
@@ -76,7 +76,7 @@ script CeruleanCave_ShortsGang1 {
 }
 
 script CeruleanCave_ShortsGang2 {
-	trainerbattle_single(TRAINER_NONE,
+	trainerbattle_single(TRAINER_SHORTS_GANG_2,
 	"We're the SHORTS GANG, and don't\n"
 	"you forget it!\p",
 	//
@@ -93,7 +93,7 @@ script CeruleanCave_ShortsGang2 {
 
 
 script CeruleanCave_ShortsGang3 {
-	trainerbattle_single(TRAINER_NONE,
+	trainerbattle_single(TRAINER_SHORTS_GANG_3,
 	"You're trying to mess with us?\p"
 
 	"You'd better be ready for our\n"
@@ -113,7 +113,7 @@ script CeruleanCave_ShortsGang3 {
 
 
 script CeruleanCave_BerserkGene {
-	trainerbattle_single(TRAINER_NONE,
+	trainerbattle_single(TRAINER_BERSERK_JEANS,
 	"GRAAAAAAH!\p"
 
 	"I am the leader of the SHORTS GANG!\n"
@@ -158,7 +158,7 @@ script CeruleanCave_ShortsDad {
 	"What're you doing out here?\p"
 
 	"Didn't you know I'm a proud member\n"
-	"of the SHORTS GANG!\l"
+	"of the SHORTS GANG?\l"
 	"I'm comfy and easy to wear!\p"
 
 	"Well, never mind that.\n"

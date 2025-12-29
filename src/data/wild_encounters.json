@@ -24832,7 +24832,7 @@
           "map": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
           "base_label": "gRoute25_BillsSecretGarden",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 19,

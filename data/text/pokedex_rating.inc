@@ -407,10 +407,10 @@ PokedexRating_Text_HintMissingno::
 
 PokedexRating_Text_HintKangaskhan::
 	.string "There was a poor POKéMON in the\n"
-	.string "SAFARI ZONE locked away by the DMCA.\p"
-	.string "Maybe now you can go back and help\n"
-	.string "it!$"
-
+	.string "SAFARI ZONE imprisoned by the DMCA.\p"
+	.string "Maybe now you can help it!\n"
+	.string "What did that TM say?$"
+	
 PokedexRating_Text_HintAlakazam::
 	.string "Placeholder!$"
 

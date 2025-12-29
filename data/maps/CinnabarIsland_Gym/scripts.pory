@@ -741,7 +741,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 1!\p"
 
-			"\n"
 			"Who is{PAUSE 30} the first POKéMON?", MSGBOX_DEFAULT)
 		
 		case 2:
@@ -749,7 +748,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 2!\p"
 
-			"\n"
 			"This POKéMON shares part of its\l"
 			"name with a famous Martial Artist.", MSGBOX_DEFAULT)
 		
@@ -758,7 +756,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 3!\p"
 
-			"\n"
 			"This POKéMON's name is the same\l"
 			"both forwards and backwards.", MSGBOX_DEFAULT)
 		
@@ -767,7 +764,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 4!\p"
 
-			"\n"
 			"According to the 2023 Census, this\l"
 			"POKéMON has a population of over\l"
 			"23 Million!", MSGBOX_DEFAULT)
@@ -776,7 +772,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 5!\p"
 
-			"\n"
 			"The winner of Smash Summit 7 Semi-\l"
 			"Finals featuring Zain was…?", MSGBOX_DEFAULT)
 		
@@ -785,7 +780,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 6!\p"
 
-			"\n"
 			"What is the fifth word of Proverbs\l"
 			"Chapter 1 Verse 14 (KJV, 1638)?", MSGBOX_DEFAULT)
 		
@@ -797,7 +791,6 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 8!\p"
 
-			"\n"
 			"Who is the last POKéMON?", MSGBOX_DEFAULT)
 	}
 	special(ChoosePartyMon)
@@ -828,7 +821,7 @@ script CinnabarGym_GymQuestionLoop {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 2:
-			if(var(VAR_RESULT) == SPECIES_HITMONCHAN || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_RHYDON) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 

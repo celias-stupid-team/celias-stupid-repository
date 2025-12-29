@@ -127,6 +127,8 @@ script SafariZone_North_Mother {
 		faceplayer
 		
 		msgbox("Whelp.\n{PAUSE 30}I warned her.", MSGBOX_DEFAULT)
+		release
+		end
 
 	}
 	addobject(LOCALID_NORTH_CHUCKSTER)

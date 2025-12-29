@@ -55,4 +55,8 @@ script ViridianGym_Mewtwo {
 	"Mew!\n"
 	"{PAUSE 120}…two.", MSGBOX_DEFAULT)
     setflag(FLAG_SHINY_CREATION)
+    setwildbattle(SPECIES_MEWTWO, 70)
+    dowildbattle
+    release
+    end
 }

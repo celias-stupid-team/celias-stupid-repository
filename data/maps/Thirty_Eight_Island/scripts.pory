@@ -299,6 +299,14 @@ script ThirtyEightIsland_MiltankPhilosophy {
 script ThirtyEightIsland_GoldenRod {
     lock
     faceplayer
+	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) {
+		msgbox(
+		"goldenrod\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	setflag(FLAG_CSR_GOT_GOLDEN_ROD)
     msgbox(
 	"gift\n"
 	"", MSGBOX_DEFAULT)
