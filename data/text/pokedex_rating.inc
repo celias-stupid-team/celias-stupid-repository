@@ -621,10 +621,15 @@ PokedexRating_Text_HintTrubbish_Trash::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintAmpharos_Mega::
-	.string "Placeholder!$"
+	.string "You turned the POWER PLANT back\n"
+	.string "on?\l"
+	.string "Wonderful!\p"
+	.string "That means the KANTO LIGHTHOUSE\n"
+	.string "should be back in service!$"
 
 PokedexRating_Text_HintAmpharos::
-	.string "Placeholder!$"
+	.string "People often do things in the\n"
+	.string "darkness of the UNDERGROUND PATH.$"
 
 PokedexRating_Text_HintAmoongus::
 	.string "Placeholder!$"

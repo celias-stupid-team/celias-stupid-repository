@@ -2219,7 +2219,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 1,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = -1,
         .flags = 0,
     },
 

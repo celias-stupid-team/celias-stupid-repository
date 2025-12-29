@@ -206,6 +206,7 @@ script DMCAWarehouse_AdminLeaves {
 script DMCAWarehouse_AZStory {
 	lock
 	faceplayer
+	fadenewbgm(MUS_NONE)
 	msgbox(
 	"Please, listen to my tragic\n"
 	"tale.", MSGBOX_DEFAULT)

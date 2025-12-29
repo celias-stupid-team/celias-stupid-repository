@@ -27133,6 +27133,124 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_SAFFRON_CITY_DOJO",
+          "base_label": "gSaffronCity_Dojo",
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_HITMONCHIN"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_CINNABAR_ISLAND_GYM",
+          "base_label": "gCinnabarIsland_Gym",
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_RHYDON"
+              }
+            ]
+          }
         }
       ]
     }

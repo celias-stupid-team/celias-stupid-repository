@@ -172,6 +172,7 @@ script PowerPlant_EventScript_Zapdos {
 
 script Route23_GetNationalDexRotomLeaves {
 	//walk into explicit frame
+	closemessage
 	specialvar(VAR_RESULT, GetPlayerFacingDirection)
 	fadenewbgm(MUS_NONE)
 	switch(var(VAR_RESULT)) {
@@ -182,6 +183,7 @@ script Route23_GetNationalDexRotomLeaves {
 				face_left
 
 			))
+			waitmovement(LOCALID_PLAYER)
 		case DIR_SOUTH:
 			applymovement(LOCALID_PLAYER, moves(
 				walk_slow_right
@@ -189,6 +191,7 @@ script Route23_GetNationalDexRotomLeaves {
 				face_left
 
 			))
+			waitmovement(LOCALID_PLAYER)
 		case DIR_EAST:
 			applymovement(LOCALID_PLAYER, moves(
 				walk_slow_down
@@ -197,8 +200,8 @@ script Route23_GetNationalDexRotomLeaves {
 				face_left
 
 			))
+			waitmovement(LOCALID_PLAYER)
 	}
-	waitmovement(LOCALID_PLAYER)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_right
 	))
@@ -208,8 +211,8 @@ script Route23_GetNationalDexRotomLeaves {
 	"for you!\p"
 
 	"Because you've caught every single\n"
-	"POKéMON in the KANTO region, your\l"
-	"POKéDEX can now be upgraded!\p"
+	"POKéMON found in the KANTO region,\l"
+	"your POKéDEX can now be upgraded!\p"
 
 	"Let me see it for a moment, and I\n"
 	"can install the NATIONAL DEX!", MSGBOX_DEFAULT)

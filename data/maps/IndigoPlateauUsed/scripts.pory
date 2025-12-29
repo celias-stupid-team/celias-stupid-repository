@@ -1,6 +1,6 @@
 mapscripts IndigoPlateauUsed_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        setworldmapflag(FLAG_WORLD_MAP_POKEMON_LEAGUE_GAUNTLET) //Tie to fly location eventually
+        setworldmapflag(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) //Tie to fly location eventually
     }    
 }
 
@@ -42,4 +42,11 @@ script IndigoPlateau_CharmanderGrowl {
         }
     }
     release
+}
+
+script IndigoPlateau_FlySign {
+	msgbox(
+	"Fly, you fool!\n"
+	"", MSGBOX_SIGN)
+
 }

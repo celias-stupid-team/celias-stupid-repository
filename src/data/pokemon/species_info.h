@@ -10125,12 +10125,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_CLAMPERL] =
     {
-        .baseHP = 35,
+        .baseHP = 1,
         .baseAttack = 64,
-        .baseDefense = 85,
+        .baseDefense = 1,
         .baseSpeed = 32,
         .baseSpAttack = 74,
-        .baseSpDefense = 55,
+        .baseSpDefense = 1,
         .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
         .expYield = 142,

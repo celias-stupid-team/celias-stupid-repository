@@ -54,3 +54,10 @@ script AmitySquare_PokemonStatue {
 	}
 	release
 }
+
+script AmitySquare_CaveSign {
+	msgbox(
+	"SIX ISLAND CAVE\n"
+	"", MSGBOX_SIGN)
+
+}

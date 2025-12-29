@@ -8,7 +8,7 @@ script FadeSongAndPlayVictory {
 }
 
 script SetPlayerPokedexValues {
-	if(flag(FLAG_CSR_DEX_DUMMY)) {
+	if(checkmoncaught(SPECIES_ZAPDOS) && checkmoncaught(SPECIES_MOLTRES) && checkmoncaught(SPECIES_ARTICUNO) && flag(FLAG_CSR_HINT_GYM_STATUES)) {
     setobtainable(SPECIES_VICTINI)
 	}
 	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
@@ -309,7 +309,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_GOT_PAY_DAY) && checkmoncaught(SPECIES_GIMMIGHOUL)) {
 		setobtainable(SPECIES_GHOLDENGO) // 100
 	}
-	if(flag(FLAG_CSR_MAP_KANTO_LIGHTHOUSE) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_ETERNATUS) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS_MEGA) // 101
 	}
 	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
@@ -369,7 +369,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_LUVDISC) || flag(FLAG_LUVDISC_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_LUVDISC) // 120
 	}
-	if(checkmoncaught(SPECIES_LUVDISC) && checkmoncaught(SPECIES_PHIONE) && flag(FLAG_HEART_SWAP_HINT)) { //TODO figure out logic
+	if((checkmoncaught(SPECIES_LUVDISC) && checkmoncaught(SPECIES_PHIONE) && flag(FLAG_HEART_SWAP_HINT)) || checkmoncaught(SPECIES_ALOMOMOLA)) { //TODO figure out logic
 		setobtainable(SPECIES_ALOMOMOLA) // 121
 	}
 	if(flag(FLAG_GOT_MASTER_BALL_FROM_SILPH)) { //TODO figure out logic
@@ -408,7 +408,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_COPYCAT_TM) && flag(FLAG_ENTERED_COPYCAT_HOUSE)) { //TODO figure out logic
 		setobtainable(SPECIES_MIMIKYU) // 133
 	}
-	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_MINNESOTA) && flag(FLAG_HOOPA_HINT) || flag(FLAG_BADGE08_GET)) { //TODO figure out logic
 		setobtainable(SPECIES_HOOPA) // 134
 	}
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {

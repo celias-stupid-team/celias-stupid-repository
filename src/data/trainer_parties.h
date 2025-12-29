@@ -10280,7 +10280,7 @@ static const struct TrainerMonItemCustomMoves sParty_TransBugs[] = {
 static const struct TrainerMonItemCustomMoves sParty_ClamperlGuy[] = {
     {
         .iv = 0,
-        .lvl = 1,
+        .lvl = 20,
         .heldItem = ITEM_NONE,
         .species = SPECIES_CLAMPERL,
         .moves = {MOVE_WHIRLPOOL, MOVE_NONE, MOVE_NONE, MOVE_NONE}

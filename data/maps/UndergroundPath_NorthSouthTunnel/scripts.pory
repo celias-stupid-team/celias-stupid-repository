@@ -102,6 +102,7 @@ mapscripts UndergroundPath_NorthSouthTunnel_MapScripts {
 		VAR_TEMP_1, TRUBBISH_EVOLUTION {
 			applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_BLUE)
 			msgbox("Wahaha!\nThat beast was no match for me!\pAhem… Yes.\nI'm sure your POKéMON is pleased.\pThank you for the opportunity to\ntest my mettle.\lI'll forever cherish the memory.", MSGBOX_DEFAULT)
 			setvar(VAR_TEMP_1, 0)
 			release
@@ -216,7 +217,7 @@ script UndergroundPath_OlderBrother {
 			case SPECIES_AMPHAROS_MEGA:
 		}
 		// if not tangela:
-		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly TANGLED beyond repair!", MSGBOX_DEFAULT)
+		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly tangled beyond repair!", MSGBOX_DEFAULT)
 	}
 	release
 }

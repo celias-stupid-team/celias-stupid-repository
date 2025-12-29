@@ -18,7 +18,9 @@ const u8 gIvysaurPokedexText[] = _(
 const u8 gIvysaurPokedexTextUnused[] = _("");
 
 const u8 gVenusaurPokedexText[] = _(
-    	"Oops, we skipped a few.");
+	"Hm. I feel like we skipped something.\n"
+	"\n"
+	"Oh well, I'm sure it wasn't important.");
 
 const u8 gVenusaurPokedexTextUnused[] = _("");
 
@@ -309,8 +311,8 @@ const u8 gMeowthPokedexText[] = _(
 const u8 gMeowthPokedexTextUnused[] = _("");
 
 const u8 gPersianPokedexText[] = _(
-	"Wait, if this guy is here, what about\n"
-	"the other statues...?");
+	"Wait if this guy is here, what about\n"
+	"the other statues?");
 
 const u8 gPersianPokedexTextUnused[] = _("");
 
@@ -681,7 +683,7 @@ const u8 gRhyhornPokedexText[] = _(
 const u8 gRhyhornPokedexTextUnused[] = _("");
 
 const u8 gRhydonPokedexText[] = _(
-	"slugma balls");
+	"Wait, who's Steve Jobs?");
 
 const u8 gRhydonPokedexTextUnused[] = _("");
 
