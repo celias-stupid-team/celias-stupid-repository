@@ -6689,7 +6689,7 @@
       "id": "LAYOUT_OCEAN15",
       "name": "Ocean15_Layout",
       "width": 9,
-      "height": 27,
+      "height": 17,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
