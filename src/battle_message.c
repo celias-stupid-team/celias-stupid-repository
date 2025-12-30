@@ -2006,6 +2006,10 @@ void BufferStringBattle(u16 stringId)
             }
         }
         break;
+    case STRINGID_TRAINERSLIDE:
+        DebugPrintf("STRINGID_TRAINERSLIDE");
+        stringPtr = gBattleStruct->trainerSlideMsg;
+        break;
     default: // load a string from the table
         if (stringId >= BATTLESTRINGS_COUNT)
         {
@@ -2020,6 +2024,7 @@ void BufferStringBattle(u16 stringId)
     }
 
     BattleStringExpandPlaceholdersToDisplayedString(stringPtr);
+    DebugPrintf("eoF: %S\n", gDisplayedStringBattle);
 }
 
 u32 BattleStringExpandPlaceholdersToDisplayedString(const u8 *src)

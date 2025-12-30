@@ -2894,6 +2894,12 @@ static void TryDoEventsBeforeFirstTurn(void)
     gBattleStruct->turnCountersTracker = 0;
     gMoveResultFlags = 0;
     gRandomTurnNumber = Random();
+
+    DebugPrintf("Trainer Slide Check");
+    DebugTrainerSlides();
+    if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN)
+      || ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_AFTER_SWITCHIN))
+        BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 }
 
 static void HandleEndTurn_ContinueBattle(void)

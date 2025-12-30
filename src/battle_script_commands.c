@@ -61,6 +61,8 @@
 #include "constants/pokemon.h"
 #include "event_scripts.h"
 #include "script.h"
+#include "trainer_slide.h"
+#include "battle_gfx_sfx_util.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -5491,6 +5493,7 @@ static void Cmd_switchineffects(void)
 
 static void Cmd_trainerslidein(void)
 {
+    DebugPrintf("Cmd_trainerslidein");
     if (!gBattlescriptCurrInstr[1])
         gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
     else
@@ -11074,4 +11077,82 @@ void BS_SetUsed108TupleTeam(void)
     
     gDisableStructs[gBattlerAttacker].used108TupleTeam = TRUE;
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_HandleTrainerSlideMsg(void)
+{
+    NATIVE_ARGS();
+    DebugPrintf("BS_HandleTrainerSlideMsg");
+
+    if (gBattleControllerExecFlags == 0)
+    {
+        PrepareStringBattle(STRINGID_TRAINERSLIDE, gBattlerAttacker);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattleCommunication[MSG_DISPLAY] = 1;
+    }
+}
+
+void BS_TryTrainerSlideMsgFirstOff(void)
+{
+    NATIVE_ARGS(u8 battler);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    u32 shouldDoTrainerSlide = 0;
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
+    {
+        gBattleScripting.battler = battler;
+        BattleScriptPush(cmd->nextInstr);
+        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_TryTrainerSlideMsgLastOn(void)
+{
+    NATIVE_ARGS(u8 battler);
+    u32 shouldDoTrainerSlide = 0;
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    DebugPrintf("BS_TryTrainerSlideMsgLastOn for battler %d", battler);
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_LAST_SWITCHIN)))
+    {
+        gBattleScripting.battler = battler;
+        BattleScriptPush(cmd->nextInstr);
+        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_TrainerSlideOut(void)
+{
+    if (!gBattlescriptCurrInstr[1])
+        gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    else
+        gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    BtlController_EmitTrainerSlideBack(BUFFER_A);
+    MarkBattlerForControllerExec(gActiveBattler);
+
+    gBattlescriptCurrInstr += 2;
+}
+
+void BS_TryTrainerSlideMsgSwitchIn(void)
+{
+    NATIVE_ARGS(u8 battler);
+    u32 shouldDoTrainerSlide = 0;
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    DebugPrintf("BS_TryTrainerSlideMsgSwitchIn for battler %d", battler);
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_SWITCHIN)))
+    {
+        gBattleScripting.battler = battler;
+        BattleScriptPush(cmd->nextInstr);
+        gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }

@@ -1,13 +1,13 @@
 #ifndef GUARD_BATTLE_STRING_IDS_H
 #define GUARD_BATTLE_STRING_IDS_H
 
-#define STRINGID_INTROMSG   0
-#define STRINGID_INTROSENDOUT   1
-#define STRINGID_RETURNMON  2
-#define STRINGID_SWITCHINMON    3
-#define STRINGID_USEDMOVE   4
-#define STRINGID_BATTLEEND  5
-
+#define STRINGID_INTROMSG     0
+#define STRINGID_INTROSENDOUT 1
+#define STRINGID_RETURNMON    2
+#define STRINGID_SWITCHINMON  3
+#define STRINGID_USEDMOVE     4
+#define STRINGID_BATTLEEND    5
+#define STRINGID_TRAINERSLIDE 6
 
 // todo: make some of those names less vague: attacker/target vs pkmn, etc.
 #define STRINGID_TRAINER1LOSETEXT 12

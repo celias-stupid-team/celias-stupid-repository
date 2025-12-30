@@ -2998,6 +2998,8 @@ BattleScript_FaintTarget::
 	cleareffectsonfaint BS_TARGET
 	printstring STRINGID_TARGETFAINTED
 	printstring STRINGID_EMPTYSTRING3
+	waitanimation
+	trytrainerslidemsgfirstoff BS_TARGET
 	return
 
 BattleScript_VanishedFromExistence::
@@ -3083,6 +3085,8 @@ BattleScript_FaintedMonSendOutNew::
 	switchinanim BS_FAINTED, FALSE
 	waitstate
 	resetplayerfainted
+	trytrainerslidemsglaston BS_FAINTED
+	trytrainerslidemsgswitchin BS_FAINTED
 	switchineffects BS_FAINTED
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonEnd
 	cancelallactions

@@ -3,7 +3,6 @@
 
 #include "constants/trainer_slide.h"
 
-
 struct MessageStatus
 {
     u8 messageInitalized[TRAINER_SLIDE_ARRAY_SIZE];
@@ -21,5 +20,6 @@ bool32 IsTrainerSlideInitialized(enum TrainerSlideType slideId);
 bool32 IsTrainerSlidePlayed(enum TrainerSlideType slideId);
 void InitalizeTrainerSlide(enum TrainerSlideType slideId);
 void MarkTrainerSlideAsPlayed(enum TrainerSlideType slideId);
+void DebugTrainerSlides(void);
 
 #endif // GUARD_TRAINER_SLIDE_H
