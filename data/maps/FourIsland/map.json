@@ -412,6 +412,21 @@
       "trainer_sight_or_berry_tree_id": "ITEM_POKE_DOLL",
       "script": "EventScript_FindItem",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "local_id": "LOCALID_GEN_4_LASS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 29,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -531,30 +546,12 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 35,
-      "y": 33,
+      "x": 37,
+      "y": 24,
       "elevation": 0,
-      "var": "VAR_FROSLASS_SCENE",
-      "var_value": "0",
-      "script": "FourIsland_Froslass"
-    },
-    {
-      "type": "trigger",
-      "x": 35,
-      "y": 33,
-      "elevation": 0,
-      "var": "VAR_FROSLASS_SCENE",
-      "var_value": "0",
-      "script": "FourIsland_Froslass"
-    },
-    {
-      "type": "trigger",
-      "x": 35,
-      "y": 33,
-      "elevation": 0,
-      "var": "VAR_FROSLASS_SCENE",
-      "var_value": "0",
-      "script": "FourIsland_Froslass"
+      "var": "VAR_FOUR_ISLAND_LASS",
+      "var_value": "1",
+      "script": "FourIsland_LassAttack"
     },
     {
       "type": "trigger",
@@ -582,6 +579,33 @@
       "var": "VAR_TEMP_2",
       "var_value": "0",
       "script": "FourIsland_SetRockClimbTop"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_FOUR_ISLAND_LASS",
+      "var_value": "0",
+      "script": "FourIsland_LassAttack_PrepareAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_FOUR_ISLAND_LASS",
+      "var_value": "0",
+      "script": "FourIsland_LassAttack_PrepareAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_FOUR_ISLAND_LASS",
+      "var_value": "0",
+      "script": "FourIsland_LassAttack_PrepareAttack"
     }
   ],
   "bg_events": [

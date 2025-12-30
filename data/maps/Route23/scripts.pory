@@ -246,7 +246,7 @@ script Route23_GetNationalDexRotomLeaves {
 	"", MSGBOX_DEFAULT)
 	closemessage
 	clearflag(FLAG_SYS_ROTOM_MENU)
-	setflag(FLAG_SYS_NATIONAL_DEX)
+	special(EnableNationalPokedex)
 	//rotom moves out of the dex
 	playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
 	msgbox(

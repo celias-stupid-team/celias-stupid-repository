@@ -447,7 +447,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
 	}
-	if(checkmoncaught(SPECIES_ARCANINE) && flag(FLAG_POKEMON_GUN_HINT)) { //I need to figure out which one is THE hint. Probably multiple.
+	if(checkmoncaught(SPECIES_ARCANINE) && flag(FLAG_POKEMON_GUN_HINT) || checkmoncaught(SPECIES_POKEMON_GUN)) { //I need to figure out which one is THE hint. Probably multiple.
 		setobtainable(SPECIES_POKEMON_GUN) // 147
 	}
 	if(flag(FLAG_DITTO_MEW_HINT) || checkmoncaught(SPECIES_DITTO_MEW)) { //TODO figure out logic

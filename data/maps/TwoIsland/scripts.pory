@@ -510,7 +510,7 @@ script TwoIsland_HamburgerGuy {
 	lock
 	faceplayer
 	//logic here
-	if(flag(FLAG_GOT_HAMBURGER)) {
+	if(!flag(FLAG_GOT_HAMBURGER)) {
 
 	
 		msgbox("Uh, hi!\pI work at the DRUGSTORE, and I was\nsupposed to be handing out free\lHAMBURGERS.\pHowever, it seems this is the last\nHAMBURGER in the known universe.\pUh, I guess you can have it.\n", MSGBOX_DEFAULT)

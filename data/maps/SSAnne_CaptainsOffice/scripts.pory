@@ -2,26 +2,7 @@ raw `
 SSAnne_CaptainsOffice_MapScripts::
 	.byte 0
 
-SSAnne_CaptainsOffice_EventScript_Captain::
-	lock
-	goto_if_set FLAG_GOT_HM01, SSAnne_CaptainsOffice_EventScript_AlreadyGotCut
-	msgbox SSAnne_CaptainsOffice_Text_CaptainIFeelSeasick
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	message SSAnne_CaptainsOffice_Text_RubbedCaptainsBack
-	waitmessage
-	playfanfare MUS_HEAL
-	waitfanfare
-	call EventScript_RestorePrevTextColor
-	delay 50
-	applymovement LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SSAnne_CaptainsOffice_Text_ThankYouHaveHMForCut
-	giveitem_msg SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM
-	msgbox SSAnne_CaptainsOffice_Text_ExplainCut
-	setflag FLAG_GOT_HM01
-	setvar VAR_MAP_SCENE_VERMILION_CITY, 1
-	release
-	end
+
 
 @ Unused
 SSAnne_CaptainsOffice_EventScript_NoRoomForCut::
@@ -70,10 +51,56 @@ script SSAnne_TrashCan {
 
 }
 
+script SSAnne_Bookshelf {
+	msgbox(
+	"A collection of foreign literature.\p"
+
+	"“Mi Vida Secreta, capítulo tres”,\n"
+	"“Ma vie secrète, chapitre trois”,\l"
+	"“ワタシノヒミツノセイカツ, ダイサンショウ”…", MSGBOX_SIGN)
+
+}
+
 
 script SSAnne_CaptainLog {
-	msgbox(
-	"insert joke here\n"
-	"", MSGBOX_SIGN)
+	lock
+	braillemessage(Braille_Text_MySecretLife)
+	waitbuttonpress
+	braillemessage(Braille_Text_ChapterThree)
+	waitbuttonpress
+	release
+}
 
+
+script SSAnne_CaptainsOffice_EventScript_Captain {
+	lock
+	goto_if_set(FLAG_GOT_HM01, SSAnne_CaptainsOffice_EventScript_AlreadyGotCut)
+	msgbox(
+	"hello I am blind\n"
+	"", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	message(SSAnne_CaptainsOffice_Text_RubbedCaptainsBack)
+	waitmessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	call(EventScript_RestorePrevTextColor)
+	delay(50)
+	applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
+	waitmovement(0)
+	msgbox(
+	"take this hm\n"
+	"", MSGBOX_DEFAULT)
+	giveitem_msg(SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM)
+	msgbox(
+	"i'm going to go outside\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_slow_down * 3
+		walk_slow_left * 3
+	))
+	waitmovement(0)
+	removeobject(VAR_LAST_TALKED)
+	setflag(FLAG_GOT_HM01)
+	release
 }

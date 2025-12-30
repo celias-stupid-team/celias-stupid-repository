@@ -4,7 +4,6 @@ FourIsland_IcefallCave_Back_MapScripts::
 	.byte 0
 
 FourIsland_IcefallCave_Back_OnTransition::
-	call_if_eq VAR_CSR_DUMMY_21, 1, FourIsland_IcefallCave_Back_EventScript_HideLorelei
 	end
 
 FourIsland_IcefallCave_Back_EventScript_HideLorelei::
@@ -83,7 +82,6 @@ FourIsland_IcefallCave_Back_EventScript_LoreleiRocketsScene::
 	msgbox FourIsland_IcefallCave_Back_Text_ThankYouThisIsAwful
 	setflag FLAG_HIDE_RUIN_VALLEY_SCIENTIST
 	clearflag FLAG_HIDE_LORELEI_IN_HER_HOUSE
-	setvar VAR_CSR_DUMMY_21, 1
 	releaseall
 	end
 

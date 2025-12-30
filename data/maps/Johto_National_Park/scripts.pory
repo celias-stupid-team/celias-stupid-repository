@@ -89,7 +89,7 @@ script NationalPark_BugCatchingContest_FirstPlace {
 
 script NationalPark_BugCatchingContest_FourthPlace {
 	msgbox(
-	"Yay!\n"
+	"TUSCANY: Yay!\n"
 	"I love the BUG CATCHING CONTEST!\p"
 
 	"It's a good thing there's no\n"

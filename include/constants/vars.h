@@ -183,7 +183,7 @@
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
 #define VAR_MAP_SCENE_VERMILION_CITY                                           0x407E
 #define VAR_FROSLASS_SCENE                                        0x407F
-#define VAR_CSR_DUMMY_21                                        0x4080
+#define VAR_FOUR_ISLAND_LASS                                        0x4080
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_CSR_DUMMY_22                                            0x4082
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083

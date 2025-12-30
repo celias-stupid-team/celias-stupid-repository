@@ -132,13 +132,7 @@ bool8 SetUpFieldMove_Cut(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE ||
-    CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_GALAR_OAK) == TRUE ||
-    CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PROFESSORIVY) == TRUE ||
-    (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE &&
-    ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
-    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
-    )))
+    if (IsObjectInFrontOfPlayerCuttable())
     {
         VarSet(VAR_PROFESSOR_IVY_CUT, 1);
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;

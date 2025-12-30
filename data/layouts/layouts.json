@@ -3861,7 +3861,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_RockTunnel",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SixIsland_AlteringCave/border.bin",
       "blockdata_filepath": "data/layouts/SixIsland_AlteringCave/map.bin"
     },
@@ -6756,6 +6756,18 @@
       "secondary_tileset": "gTileset_IndigoPlateau",
       "border_filepath": "data/layouts/IndigoPlateau_Exerior/border.bin",
       "blockdata_filepath": "data/layouts/IndigoPlateau_Exerior/map.bin"
+    },
+    {
+      "id": "LAYOUT_SURF_FURRET_2",
+      "name": "Surf_Furret_2",
+      "width": 11,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SurfHouse",
+      "border_filepath": "data/layouts/Surf_Furret_2/border.bin",
+      "blockdata_filepath": "data/layouts/Surf_Furret_2/map.bin"
     }
   ]
 }

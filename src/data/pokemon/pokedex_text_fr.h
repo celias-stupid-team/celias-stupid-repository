@@ -18,9 +18,7 @@ const u8 gIvysaurPokedexText[] = _(
 const u8 gIvysaurPokedexTextUnused[] = _("");
 
 const u8 gVenusaurPokedexText[] = _(
-	"Hm. I feel like we skipped something.\n"
-	"\n"
-	"Oh well, I'm sure it wasn't important.");
+	"We skipped a few.");
 
 const u8 gVenusaurPokedexTextUnused[] = _("");
 
@@ -888,8 +886,11 @@ const u8 gZapdosPokedexText[] = _(
 const u8 gZapdosPokedexTextUnused[] = _("");
 
 const u8 gMoltresPokedexText[] = _(
-	"Go Team VALOR!");
-
+	"Mi Vida Secreta, capítulo tres\n"
+	"No era sospechoso de asesinato ni\n"
+	"objetivo de una organización de\n"
+	"espías internacionales. Pero manejaba");
+    
 const u8 gMoltresPokedexTextUnused[] = _("");
 
 const u8 gDratiniPokedexText[] = _(

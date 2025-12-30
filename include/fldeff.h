@@ -11,6 +11,7 @@ extern struct MapPosition gPlayerFacingPosition;
 extern bool8 gScheduleOpenDottedHole;
 
 bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId);
+bool8 IsObjectInFrontOfPlayerCuttable();
 u8 CreateFieldEffectShowMon(void);
 
 // flash

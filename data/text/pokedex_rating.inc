@@ -181,16 +181,24 @@ PokedexRating_Text_HintWeedle::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintKakuna::
-	.string "Don't forget to evolve the POKéMON\n"
-	.string "you've caught!\p"
-	.string "It seems EXP yields are increased,\n"
-	.string "so gaining levels will go quickly.$"
+	.string "If you look at the POKéDEX listing,\n"
+	.string "an icon will appear by species\l"
+	.string "you're able to obtain.\p"
+	.string "Keep an eye on the list to know\n"
+	.string "what you should have!\p"
+	.string "It seems like your WEEDLE can\n"
+	.string "still evolve.\l"
+	.string "Try leveling it up!$"
 
 PokedexRating_Text_HintCombee::
-	.string "Don't forget to evolve the POKéMON\n"
-	.string "you've caught!\p"
-	.string "It seems EXP yields are increased,\n"
-	.string "so gaining levels will go quickly.$"
+	.string "If you look at the POKéDEX listing,\n"
+	.string "an icon will appear by species\l"
+	.string "you're able to obtain.\p"
+	.string "Keep an eye on the list to know\n"
+	.string "what you should have!\p"
+	.string "It seems like your KAKUNA can\n"
+	.string "still evolve.\l"
+	.string "Try leveling it up!$"
 
 PokedexRating_Text_HintPidgey::
 	.string "Placeholder!$"

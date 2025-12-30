@@ -28,32 +28,32 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 22,
-      "y": 16,
+      "x": 28,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AlteringCave_V_XYZ"
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 16,
+      "x": 8,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AlteringCave_PQRSTU"
     },
     {
       "type": "sign",
-      "x": 22,
-      "y": 13,
+      "x": 27,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AlteringCave_JKLMNO"
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 13,
+      "x": 9,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AlteringCave_DEFGHI"
@@ -61,7 +61,7 @@
     {
       "type": "sign",
       "x": 18,
-      "y": 11,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AlteringCave_ABC"

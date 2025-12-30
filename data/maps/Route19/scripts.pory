@@ -361,3 +361,22 @@ script GreatSea_Chapter7 {
 	setvar(VAR_CURRENT_CHAPTER, 7)
 	release
 }
+
+
+script GreatSea_WheresZubat {
+	msgbox(
+	"Hey, you! Have you seen any\n"
+	"ZUBAT on your journey?\p"
+
+	"I really want one, but I can't seem\n"
+	"to find any in the water…", MSGBOX_NPC)
+}
+
+script GreatSea_GoodNoTentacool {
+	msgbox(
+	"Oh, boy!\n"
+	"It's time for WATER Routes!\p"
+
+	"Thank goodness there's no wild\n"
+	"TENTACOOL anywhere!", MSGBOX_NPC)
+}

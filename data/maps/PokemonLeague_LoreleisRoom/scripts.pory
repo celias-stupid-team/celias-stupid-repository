@@ -41,12 +41,7 @@ PokemonLeague_LoreleisRoom_OnFrame::
 	map_script_2 VAR_CSR_DUMMY_9, 0, PokemonLeague_LoreleisRoom_EventScript_EnterRoom
 	.2byte 0
 
-PokemonLeague_LoreleisRoom_EventScript_EnterRoom::
-	lockall
-	call PokemonLeague_EventScript_EnterRoom
-	setvar VAR_CSR_DUMMY_9, 1
-	releaseall
-	end
+
 
 PokemonLeague_LoreleisRoom_EventScript_Lorelei::
 	lock
@@ -90,3 +85,17 @@ PokemonLeague_LoreleisRoom_EventScript_DefeatedLorelei::
 	release
 	end
 `
+script PokemonLeague_LoreleisRoom_EventScript_EnterRoom {
+	lockall
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up
+	))
+	waitmovement(0)
+	setflag(FLAG_TEMP_2)
+	playse(SE_UNLOCK)
+	call(PokemonLeague_EventScript_CloseEntry)
+	special(DrawWholeMapView)
+	return
+	setvar(VAR_CSR_DUMMY_9, 1)
+	releaseall
+}

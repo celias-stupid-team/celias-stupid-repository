@@ -1,4 +1,21 @@
 raw `
-SeafoamIslands_B2F_MapScripts::
-	.byte 0
+
 `
+
+mapscripts SeafoamIslands_B2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_GOT_HM01)) {
+			setflag(FLAG_TEMP_1)
+
+		}
+	}
+}
+
+script Seafoam_B2F_Captain {
+	msgbox(
+	"i'm the cut master, not the\n"
+	"strength master\p"
+
+	"I don't know where to find a\n"
+	"pokemon with strength", MSGBOX_NPC)
+}
