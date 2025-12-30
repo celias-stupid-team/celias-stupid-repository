@@ -22,7 +22,10 @@ mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 		setflag(FLAG_HIDE_CINNABAR_YANMEGA)
 		if(flag(FLAG_REVIVED_YANMEGA) && !checkmoncaught(SPECIES_SUDOWOODO)) {
 			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
-		} 
+		}
+		if(!flag(FLAG_REVIVED_YANMEGA)) {
+			clearflag(FLAG_REMOVED_CINNABAR_SCIENTIST)
+		}
 	}
 }
 
