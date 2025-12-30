@@ -329,7 +329,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 31,
+      "x": 33,
       "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -343,7 +343,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH_ROCK",
-      "x": 30,
+      "x": 32,
       "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -357,7 +357,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 32,
+      "x": 34,
       "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -399,8 +399,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FLAMES_BETTER",
-      "x": 40,
-      "y": 26,
+      "x": 41,
+      "y": 27,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
