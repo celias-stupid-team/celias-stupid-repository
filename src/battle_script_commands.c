@@ -10292,9 +10292,12 @@ static void Cmd_handleballthrow(void)
                 break;
             case SEAL_CASE_BALL:
                 if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+                    DebugPrintf("Species is seel");
                     ballMultiplier = 100; //check if opponent is Seal
 
                 } else {
+                    DebugPrintf("Species is not seel");
+                    AddBagItem(ITEM_SEAL_CASE, 1);
                     ballMultiplier = 0;
                 }
             case MASTER_BALL:
@@ -10337,16 +10340,18 @@ static void Cmd_handleballthrow(void)
                     gBattleResults.catchAttempts[thrownBall - ULTRA_BALL]++;
             }
         }
-        if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
-            if (thrownBall == SEAL_CASE_BALL) {
+        if(thrownBall == SEAL_CASE_BALL) {
+            if (gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
                 odds = 255;
             } else {
+                DebugPrintf("Species is not seel; odds are zero");
                 odds = 0;
             }
         }
         //DebugPrintf("Before catch check %d", odds);
         if (odds > 254) // mon caught
         {
+            //DebugPrintf("Odds are above 255 for some reason");
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
             gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
