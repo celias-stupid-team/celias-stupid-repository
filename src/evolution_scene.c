@@ -646,7 +646,7 @@ static void Task_EvolutionScene(u8 taskId)
     // yet unlocked, such as Crobat.
     if (!IsNationalPokedexEnabled()
         && gTasks[taskId].tState == EVOSTATE_WAIT_CYCLE_MON_SPRITE
-        && gTasks[taskId].tPostEvoSpecies > SPECIES_MEW)
+        && gTasks[taskId].tPostEvoSpecies > SPECIES_WOOBAT) //ARE YOU FUCKING KIDDING ME THEY JUST HARD CODED IT IN????? ARE YOU FUCKING INSANE?????
     {
         gTasks[taskId].tState = EVOSTATE_CANCEL;
         gTasks[taskId].tEvoWasStopped = TRUE;

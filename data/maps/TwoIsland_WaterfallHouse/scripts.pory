@@ -28,7 +28,7 @@ script TwoIsland_WaterfallStarwalker {
 	"these {COLOR DYNAMIC_COLOR5}new megas "
 	"{COLOR DARK_GRAY}are {COLOR DYNAMIC_COLOR5}pissing {COLOR DARK_GRAY}me off...\p"
 
-	"{COLOR DARK_GRAY}I am the original\n"
+	"{COLOR DARK_GRAY}I'm the original\n"
 	"                 {COLOR DYNAMIC_COLOR5}water-psychic type", MSGBOX_DEFAULT)
 	release
 }

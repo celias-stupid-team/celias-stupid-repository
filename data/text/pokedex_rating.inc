@@ -181,12 +181,16 @@ PokedexRating_Text_HintWeedle::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintKakuna::
-	.string "Your WEEDLE can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "Don't forget to evolve the POKéMON\n"
+	.string "you've caught!\p"
+	.string "It seems EXP yields are increased,\n"
+	.string "so gaining levels will go quickly.$"
 
 PokedexRating_Text_HintCombee::
-	.string "Your KAKUNA can still evolve.\n"
-	.string "Try leveling it up!$"
+	.string "Don't forget to evolve the POKéMON\n"
+	.string "you've caught!\p"
+	.string "It seems EXP yields are increased,\n"
+	.string "so gaining levels will go quickly.$"
 
 PokedexRating_Text_HintPidgey::
 	.string "Placeholder!$"
