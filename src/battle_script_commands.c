@@ -5493,7 +5493,6 @@ static void Cmd_switchineffects(void)
 
 static void Cmd_trainerslidein(void)
 {
-    DebugPrintf("Cmd_trainerslidein");
     if (!gBattlescriptCurrInstr[1])
         gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
     else
@@ -11082,7 +11081,6 @@ void BS_SetUsed108TupleTeam(void)
 void BS_HandleTrainerSlideMsg(void)
 {
     NATIVE_ARGS();
-    DebugPrintf("BS_HandleTrainerSlideMsg");
 
     if (gBattleControllerExecFlags == 0)
     {
@@ -11114,7 +11112,6 @@ void BS_TryTrainerSlideMsgLastOn(void)
     NATIVE_ARGS(u8 battler);
     u32 shouldDoTrainerSlide = 0;
     u32 battler = GetBattlerForBattleScript(cmd->battler);
-    DebugPrintf("BS_TryTrainerSlideMsgLastOn for battler %d", battler);
     if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_LAST_SWITCHIN)))
     {
         gBattleScripting.battler = battler;
@@ -11129,14 +11126,16 @@ void BS_TryTrainerSlideMsgLastOn(void)
 
 void BS_TrainerSlideOut(void)
 {
-    if (!gBattlescriptCurrInstr[1])
+    NATIVE_ARGS(u8 position);
+    if (!cmd->position)
         gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
     else
         gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
     BtlController_EmitTrainerSlideBack(BUFFER_A);
     MarkBattlerForControllerExec(gActiveBattler);
 
-    gBattlescriptCurrInstr += 2;
+    // gBattlescriptCurrInstr += 2;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_TryTrainerSlideMsgSwitchIn(void)
@@ -11144,7 +11143,6 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
     NATIVE_ARGS(u8 battler);
     u32 shouldDoTrainerSlide = 0;
     u32 battler = GetBattlerForBattleScript(cmd->battler);
-    DebugPrintf("BS_TryTrainerSlideMsgSwitchIn for battler %d", battler);
     if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_SWITCHIN)))
     {
         gBattleScripting.battler = battler;
