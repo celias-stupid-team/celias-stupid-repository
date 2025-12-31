@@ -1404,6 +1404,9 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
             for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
                 ndex_num = i + 1;
+                if(ndex_num >= NATIONAL_DEX_PIKACHU) {
+                    ndex_num++;
+                }
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
@@ -1425,7 +1428,11 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
             //start Pokedex list at 001
             for (i = 0; i < KANTO_DEX_COUNT; i++)
             {
+                
                 ndex_num = i + 2;
+                if(ndex_num >= NATIONAL_DEX_PIKACHU) {
+                    ndex_num++;
+                }
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
                 if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
