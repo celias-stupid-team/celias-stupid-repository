@@ -5358,3 +5358,7 @@ Cry_CHARIZARDQ::
 	.incbin "sound/direct_sound_samples/cries/charizardq.bin"
 
 	.align 2
+Cry_HOOT::
+	.incbin "sound/direct_sound_samples/cries/hoot.bin"
+
+	.align 2

@@ -1270,4 +1270,5 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_GIRAFARIGBUTT] = _("GIRAFARIG"),
     [SPECIES_MEWTWOW] = _("MEWTWO"),
     [SPECIES_CHARIZARDQ] = _("CHARIZARD"),
+    [SPECIES_HOOT] = _("HOOT"),
 };

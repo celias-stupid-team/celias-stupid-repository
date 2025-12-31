@@ -12659,3 +12659,11 @@ extern const u32 gTrainerPalette_Flint[];
 
 extern const u32 gItemIcon_CopycatTm[];
 extern const u32 gItemIconPalette_CopycatTm[];
+// HOOT
+extern const u32 gMonFrontPic_HOOT[];
+extern const u32 gMonPalette_HOOT[];
+extern const u32 gMonBackPic_HOOT[];
+extern const u32 gMonShinyPalette_HOOT[];
+extern const u8 gMonFootprint_HOOT[];
+extern const u8 gMonIcon_HOOT[];
+
