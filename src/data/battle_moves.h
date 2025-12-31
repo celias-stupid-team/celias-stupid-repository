@@ -4332,14 +4332,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHEER_COLD] =
     {
-        .effect = EFFECT_OHKO,
-        .power = 1,
+        .effect = EFFECT_FREEZE_HIT,
+        .power = 100,
         .type = TYPE_ICE,
         .accuracy = 30,
         .pp = 5,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 

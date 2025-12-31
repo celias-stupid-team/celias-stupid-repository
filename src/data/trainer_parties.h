@@ -10183,10 +10183,18 @@ static const struct TrainerMonItemCustomMoves sParty_DMCASilver[] = {
 static const struct TrainerMonItemCustomMoves sParty_RivalBarry[] = {
     {
         .iv = 0,
-        .lvl = 1,
+        .lvl = 70,
         .heldItem = ITEM_NONE,
         .species = SPECIES_ARTICUNO,
-        .moves = {MOVE_ICE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SHEER_COLD, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    
+    {
+        .iv = 0,
+        .lvl = 6,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_WARTORTLE,
+        .moves = {MOVE_HYPER_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 
 };

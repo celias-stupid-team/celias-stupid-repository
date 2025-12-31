@@ -40,8 +40,192 @@
       "direction": "up"
     }
   ],
-  "object_events": [],
+  "object_events": [
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_StrandedMan",
+      "flag": "0"
+    }
+  ],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_PitIslandSign"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_UndyedBlue"
+    }
+  ]
 }

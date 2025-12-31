@@ -1399,6 +1399,10 @@ static void OpenContextMenu(u8 taskId)
                 {
                     sContextMenuItemsPtr = sContextMenuItems_PayDay;
                     sContextMenuNumItems = 2;
+                } else if (gSpecialVar_ItemId == ITEM_NEBBY) {
+                    sContextMenuItemsPtr = sContextMenuItems_Cancel;
+                    sContextMenuNumItems = 1;
+                    
                 } else {
                     sContextMenuNumItems = 4;
                     if (ItemIsMail(gSpecialVar_ItemId) == TRUE)

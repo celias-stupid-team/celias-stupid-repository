@@ -245,6 +245,7 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 		lock_facing_direction
 		jump_down
 	))
+	setflag(FLAG_SHINY_CREATION)
 	textcolor(NPC_TEXT_COLOR_MALE)
 	waitmovement(LOCALID_PLAYER)
 	delay(30)
