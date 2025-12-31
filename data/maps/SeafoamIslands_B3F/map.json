@@ -213,8 +213,8 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 31,
-      "y": 3,
+      "x": 26,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
       "dest_warp_id": "1"
@@ -234,8 +234,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 29,
-      "y": 3,
+      "x": 27,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
       "dest_warp_id": "1"
