@@ -4764,3 +4764,14 @@ const struct SpriteFrameImage gObjectEventPicTable_CYNTHIA_BETTER[] = {
     overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 2),
     overworld_frame(gObjectEventPic_CYNTHIA_BETTER, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_kingler_rock[] = {
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 0),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 1),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 2),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 0),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 0),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 1),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 1),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 2),
+    overworld_frame(gObjectEventPic_kingler_rock, 6, 6, 2),
+};
