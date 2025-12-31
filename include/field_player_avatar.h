@@ -66,6 +66,7 @@ u16 GetRSAvatarGraphicsIdByGender(u8 gender);
 //sideways stairs
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);
+bool8 IsObjectPushable(u8 objectEventId);
 
 void StartPowerplantGame(void);
 

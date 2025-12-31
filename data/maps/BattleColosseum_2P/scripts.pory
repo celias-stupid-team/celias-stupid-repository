@@ -414,10 +414,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {
 		setobtainable(SPECIES_JIRACHI) // 135
 	}
-	if(checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
+	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE) && checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
 		setobtainable(SPECIES_ARTICUNO) // 136
 	}
-	if(checkmoncaught(SPECIES_ARTICUNO) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_FLAREON) && checkmoncaught(SPECIES_ARTICUNO)) || checkmoncaught(SPECIES_ESPEON)) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_ESPEON) // 137
 	}
 	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
@@ -429,13 +429,13 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(checkmoncaught(SPECIES_MOLTRES)) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || checkmoncaught(SPECIES_FLAREON)) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {
 		setobtainable(SPECIES_PHIONE) // 142
 	}
-	if(checkmoncaught(SPECIES_HAUNTER) && flag(FLAG_WORLD_MAP_POWER_PLANT) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_HAUNTER) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
 		setobtainable(SPECIES_ETERNATUS) // 143
 	}
 	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
@@ -713,12 +713,42 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintChansey)
 		case SPECIES_MR_MIME: 
 			 msgbox(PokedexRating_Text_HintMrMime)
+			 closemessage
+			 textcolor(NPC_TEXT_COLOR_BLUE)
+			 delay(20)
+			 msgbox(
+			"DAD: {PLAYER}!\n"
+			"What are you doing out there?\p"
+
+			"Don't you know I'm one of PROF\n"
+			"OAK's AIDES?\l"
+			"Come visit me on ROUTE 2!\p"
+
+			"But never mind that.\n"
+			"Why don't you take a rest?", MSGBOX_DEFAULT)
+			closemessage
+			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			closemessage
+			playfanfare(MUS_HEAL)
+			waitfanfare
+			special(HealPlayerParty)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
+			msgbox(("DAD: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
 		case SPECIES_SCYTHER: 
 			 msgbox(PokedexRating_Text_HintScyther)
 		case SPECIES_JYNX: 
 			 msgbox(PokedexRating_Text_HintJynx)
 		case SPECIES_PINSIR: 
 			 msgbox(PokedexRating_Text_HintPinsir)
+			 closemessage
+			 textcolor(NPC_TEXT_COLOR_RED)
+			 msgbox(
+			"Hiya, I'm BOWS! :3\p"
+
+			"Come find me somewhere.\n"
+			"I have a gift for you!", MSGBOX_DEFAULT)
+			setflag(FLAG_BOWS_GIVES_SHINY_PINSIR)
 		case SPECIES_TAUROS: 
 			 msgbox(PokedexRating_Text_HintTauros)
 		case SPECIES_OMANYTE: 

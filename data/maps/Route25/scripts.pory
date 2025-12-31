@@ -104,3 +104,13 @@ script Route25_Dad_Bench {
 	end
 }
 
+script Route25_EventScript_Dan {
+	trainerbattle_single(TRAINER_YOUNGSTER_CHINO, Route25_Text_DanIntro, Route25_Text_DanDefeat, Route25_AddMewToSeen)
+	msgbox(Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE)
+}
+
+script Route25_AddMewToSeen {
+    setvar(VAR_0x8004, SPECIES_MEW)
+    special(SetSeenMon)
+    release
+}

@@ -2845,7 +2845,7 @@ static void FieldMoveFunc_RockClimb(void)
 static bool32 SetupFunc_Strength(void)
 {
     return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING)
-        && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+        && CheckObjectGraphicsInFrontOfPlayerPushable()
         && !FlagGet(FLAG_SYS_USE_STRENGTH);
 }
 

@@ -672,7 +672,7 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return FALSE;
 
-    if (gObjectEvents[objectEventId].graphicsId != OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+    if (!IsObjectPushable(gObjectEvents[objectEventId].graphicsId))
         return FALSE;
 
     x = gObjectEvents[objectEventId].currentCoords.x;
@@ -687,6 +687,16 @@ static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
     {
         return FALSE;
     }
+}
+
+bool8 IsObjectPushable(u8 objectEventId) {
+    if(objectEventId == OBJ_EVENT_GFX_PUSHABLE_BOULDER) {
+        return TRUE;
+    }
+    if(objectEventId == OBJ_EVENT_GFX_CAPTAIN) {
+        return TRUE;
+    }
+    return FALSE;
 }
 
 static bool8 (*const sAcroBikeTrickMetatiles[])(u8) = {

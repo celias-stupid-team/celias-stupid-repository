@@ -59,8 +59,9 @@ script RainbowCloud_JourneysEnd {
 script RainbowCloud_CastformFight {
     lock
     faceplayer
+	setflag(FLAG_FOUGHT_CASTFORM)
     msgbox(
-	"(castform fight)\n"
+	"(fight starts)\n"
 	"", MSGBOX_DEFAULT)
 	setwildbattle(SPECIES_CASTFORM, 50)
 	dowildbattle

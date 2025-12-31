@@ -7718,12 +7718,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_WURMPLE] =
     {
-        .baseHP = 45,
-        .baseAttack = 25,
-        .baseDefense = 35,
+        .baseHP = 15,
+        .baseAttack = 35,
+        .baseDefense = 15,
         .baseSpeed = 20,
-        .baseSpAttack = 20,
-        .baseSpDefense = 30,
+        .baseSpAttack = 35,
+        .baseSpDefense = 15,
         .types = {TYPE_BUG, TYPE_BUG},
         .catchRate = 255,
         .expYield = 54,

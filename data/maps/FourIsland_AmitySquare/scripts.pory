@@ -5,6 +5,22 @@ mapscripts FourIsland_AmitySquare_MapScripts {
 
 
 script FourIsland_AmitySquare_Bows {
+	textcolor(NPC_TEXT_COLOR_RED)
+	if(flag(FLAG_BOWS_GIVES_SHINY_PINSIR)) {
+		clearflag(FLAG_BOWS_GIVES_SHINY_PINSIR)
+		setflag(FLAG_SHINY_CREATION)
+		msgbox(
+		"BOWS: Hey!\n"
+		"I saw you on the computer!\p"
+
+		"This is one of my favorite bugs.\n"
+		"You can have him as a gift!", MSGBOX_DEFAULT)
+		closemessage
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
+		call(Common_Script_GiftPokemon)
+		release
+		end
+	}
 	msgbox(
 	"BOWS: Hello, yes!\p"
 
