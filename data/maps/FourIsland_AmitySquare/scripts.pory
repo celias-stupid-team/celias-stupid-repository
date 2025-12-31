@@ -17,7 +17,7 @@ script FourIsland_AmitySquare_Bows {
 		"You can have him as a gift!", MSGBOX_DEFAULT)
 		closemessage
 		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_PINSIR)
-		call(EventScript_GiftPokemon)
+		call(Common_Script_GiftPokemon)
 		release
 		end
 	}

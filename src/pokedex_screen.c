@@ -1406,6 +1406,9 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 ndex_num = i + 1;
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+                if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
+                    ndex_num = NATIONAL_DEX_MEW;
+                }
                 if (seen)
                 {
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
@@ -1425,6 +1428,9 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
                 ndex_num = i + 2;
                 seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
                 caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+                if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
+                    ndex_num = NATIONAL_DEX_MEW;
+                }
                 if (seen)
                 {
                     sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
@@ -1595,6 +1601,10 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
 
     bool8 caught = (itemId >> 17) & 1;
     u8 type1;
+    if(species == SPECIES_PIKACHU) {
+        return;
+    }
+
     if(species == SPECIES_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
         seen = FALSE;
         caught = FALSE;
@@ -1602,8 +1612,12 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
         shinyFound = FALSE;
     }
 
-    
-    DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
+    if(species == SPECIES_MEW) {
+        DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, SPECIES_CASTFORM, 12, y);
+    } else {
+        DexScreen_PrintMonDexNo(sPokedexScreenData->numericalOrderWindowId, FONT_SMALL, species, 12, y);
+
+    }
 
     
     if (caught) // Print ball and types if it's caught; otherwise nothing

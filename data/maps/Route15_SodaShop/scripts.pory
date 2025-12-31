@@ -170,8 +170,8 @@ script SodaShop_TransBugs_F {
     addobject(LOCALID_SODASHOP_GROWN_F)
     addobject(LOCALID_SODASHOP_GROWN_M)
     msgbox(
-	"KAT: Look at me!\n"
-	"I'm finally free of my shell!", MSGBOX_NPC)
+	"KAT: Medical technology is\n"
+	"incredible!", MSGBOX_NPC)
 
 }
 

@@ -5490,7 +5490,7 @@ static void QuestLogObjectEventExecHeldMovementAction(struct ObjectEvent *object
     if (sMovementActionFuncs[objectEvent->movementActionId][sprite->data[2]](objectEvent, sprite))
     {
         objectEvent->heldMovementFinished = TRUE;
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+        if (IsObjectPushable(objectEvent->graphicsId))
             HandleBoulderFallThroughHole(objectEvent);
     }
 }

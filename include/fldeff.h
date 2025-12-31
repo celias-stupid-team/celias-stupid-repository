@@ -43,6 +43,7 @@ bool32 FldEffPoison_IsActive(void);
 // strength
 bool8 SetUpFieldMove_Strength(void);
 bool8 FldEff_UseStrength(void);
+bool8 CheckObjectGraphicsInFrontOfPlayerPushable(void);
 
 // teleport
 bool8 SetUpFieldMove_Teleport(void);
