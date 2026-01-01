@@ -218,7 +218,10 @@ script CeliaSecrets_Bonus_EarthboundHouse {
 }
 
 script CeliaSecrets_Bonus_LeafStone {
-	msgbox("I wonder why there's a LEAF STONE\nhere!\lHow bizarre!", MSGBOX_NPC)
+	msgbox(
+	"There used to be a LEAF STONE here\n"
+	"so you could get exeggutor in the\l"
+	"nuzlocke route.", MSGBOX_NPC)
 	end
 }
 

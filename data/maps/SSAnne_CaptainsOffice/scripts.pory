@@ -91,6 +91,7 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	waitfanfare
 	call(EventScript_RestorePrevTextColor)
 	delay(50)
+	closemessage
 	applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
 	waitmovement(0)
 	delay(60)
@@ -149,11 +150,25 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	"Follow along, if you'd like!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-	applymovement(VAR_LAST_TALKED, moves(
-		walk_slow_down * 3
-		walk_slow_left * 1
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_slow_left * 1
+			walk_slow_down * 3
+			walk_slow_left * 1
+			face_left
 	))
+
+	} else {
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_slow_down * 3
+			walk_slow_left * 2
+			face_left
+		))
+
+	}
 	waitmovement(0)
+	delay(20)
 	playse(SE_EXIT)
 	removeobject(VAR_LAST_TALKED)
 	setflag(FLAG_GOT_HM01)

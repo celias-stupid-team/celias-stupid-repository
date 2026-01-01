@@ -640,9 +640,23 @@ bool8 ScrCmd_fadescreen(struct ScriptContext * ctx)
 
 bool8 ScrCmd_fadescreeninstant(struct ScriptContext * ctx)
 {
+    u8 mode = ScriptReadByte(ctx);
     gFadeScreenInstant = TRUE;
-    FadeScreen(ScriptReadByte(ctx), 0);
-    SetupNativeScript(ctx, IsPaletteNotActive);
+    switch (mode)
+    {
+    case FADE_TO_BLACK:
+    case FADE_TO_WHITE:
+    default:
+        CpuCopy32(gPlttBufferUnfaded, gPaletteDecompressionBuffer, PLTT_SIZE);
+        FadeScreen(mode, 0);
+        break;
+    case FADE_FROM_BLACK:
+    case FADE_FROM_WHITE:
+        CpuCopy32(gPaletteDecompressionBuffer, gPlttBufferUnfaded, PLTT_SIZE);
+        FadeScreen(mode, 0);
+        break;
+    }
+    SetupNativeScript(ctx, IsPaletteNotActive); //idk what this does
     gFadeScreenInstant = FALSE;
     return TRUE;
 }
@@ -650,7 +664,7 @@ bool8 ScrCmd_fadescreeninstant(struct ScriptContext * ctx)
 bool8 ScrCmd_fadescreenswapbuffers(struct ScriptContext *ctx)
 {
     u8 mode = ScriptReadByte(ctx);
-
+    
     switch (mode)
     {
     case FADE_TO_BLACK:

@@ -1,10 +1,7 @@
 raw `
 .equ NUM_BOULDERS_PRESENT, VAR_TEMP_2
 
-SeafoamIslands_B3F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SeafoamIslands_B3F_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SeafoamIslands_B3F_OnFrame
-	.byte 0
+
 
 SeafoamIslands_B3F_OnTransition::
 	call_if_unset FLAG_STOPPED_SEAFOAM_B3F_CURRENT, SeafoamIslands_B3F_EventScript_CheckStoppedCurrent
@@ -93,6 +90,306 @@ SeafoamIslands_B3F_Movement_RideCurrentClose::
 	walk_fast_down
 	step_end
 `
+
+
+mapscripts SeafoamIslands_B3F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_2)
+		if(!flag(FLAG_CAPTAIN_DIRECTS_SPHEALS)) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}
+
+script SeafoamIslands_B3F_CaptainGetsTheSpheals {
+	lock
+	msgbox(
+	"Ah, there we go.\n"
+	"It seems the cave is just up there.", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	faceplayer
+	delay(30)
+	msgbox(
+	"Thank you for getting me this far.\p"
+
+	"I can take it from here.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_right
+				walk_slow_up
+				walk_slow_right
+				face_left
+			))
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_right
+				walk_slow_down
+				walk_slow_right
+				face_left
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_right
+				face_left
+			))
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_slow_down
+				walk_slow_right * 2
+				walk_slow_up
+				walk_slow_right
+				face_left
+			))
+	}
+	fadenewbgm(MUS_NONE)
+	waitmovement(LOCALID_PLAYER)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		delay_16 * 3
+		face_up
+	))
+	waitmovement(LOCALID_B3F_CAPTAIN)
+	delay(30)
+	msgbox(
+	"My crew!\n"
+	"{PAUSE 30}I let you down as your captain!\p"
+
+	"But now it's time that I make it\n"
+	"right!\l"
+	"Come on!", MSGBOX_DEFAULT)
+	closemessage
+	special(SpawnCameraObject)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		lock_facing_direction
+		walk_slower_down
+		face_up
+		unlock_facing_direction
+		delay_16 * 4
+		walk_fast_up * 2
+	))
+	fadenewbgm(MUS_NONE)
+	waitmovement(LOCALID_B3F_CAPTAIN)
+	fadescreeninstant(FADE_TO_WHITE)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		jump_2_up
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_up
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	waitmovement(LOCALID_CAMERA)
+	
+	fadescreeninstant(FADE_FROM_WHITE)
+	waitmovement(LOCALID_B3F_CAPTAIN)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 3)
+	special(ShakeScreen)
+	delay(90)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		walk_right
+		face_up
+	))
+	waitmovement(LOCALID_B3F_CAPTAIN)
+	msgbox(
+	"Wahaha!\p"
+
+	"So that's where you rascals have\n"
+	"been hiding!\p"
+
+	"Come on, now!\n"
+	"There's no time to play!", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		walk_up * 2
+		delay_8
+		set_invisible
+	))
+	waitmovement(LOCALID_B3F_CAPTAIN)
+	playse(SE_EXIT)
+	waitse
+	delay(30)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	waitmoncry
+	delay(20)
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	waitmoncry
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_DEFAULT)
+	waitmoncry
+	delay(20)
+	playse(SE_EXIT)
+	playbgm(MUS_SEVII_ROUTE, TRUE)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		face_down
+		set_visible
+		delay_8
+		walk_down
+		delay_16 * 2
+		walk_left
+		face_right
+	))
+	waitmovement(LOCALID_B3F_CAPTAIN)
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		delay_16
+		delay_8
+		walk_left
+		walk_down
+		face_right
+	))
+	applymovement(LOCALID_SPHEAL_LAND_1, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_1)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_1, moves(
+		jump_2_down
+		delay_8
+		walk_down
+		walk_left
+		jump_2_down
+		walk_down * 2
+		walk_left * 2
+
+	))
+	applymovement(LOCALID_B3F_CAPTAIN, moves(
+		delay_16 * 4
+		jump_2_down
+		delay_16 * 3
+		walk_down * 2
+		walk_left * 2
+		face_right
+
+		
+	))
+	
+	applymovement(LOCALID_CAMERA, moves(
+		delay_16 * 3
+		walk_slow_down * 2
+		walk_slow_left * 2
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		delay_16 * 2
+		face_left
+	))
+	
+	applymovement(LOCALID_SPHEAL_LAND_2, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_2)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_2, moves(
+		jump_2_down
+		delay_8
+		walk_down * 2
+		jump_2_down
+		walk_down * 2
+		walk_left * 2
+
+	))
+	applymovement(LOCALID_SPHEAL_LAND_3, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_3)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_3, moves(
+		jump_2_down
+		delay_8
+		walk_down * 2
+		jump_2_down
+		walk_down * 2
+		walk_left * 2
+
+	))
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_4)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_4, moves(
+		jump_2_down
+		delay_8
+		walk_down 
+		walk_right
+		walk_in_place_right * 3
+		face_up
+		delay_16
+		face_down
+		delay_16 * 2
+		face_left
+		emote_exclamation_mark
+		delay_16 * 2
+		walk_fast_down
+		jump_2_down
+		walk_fast_down * 2
+		walk_left * 2
+
+	))
+	applymovement(LOCALID_SPHEAL_LAND_5, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_5)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_5, moves(
+		jump_2_down
+		delay_8
+		walk_down * 2
+		jump_2_down
+		walk_down * 2
+		walk_left * 2
+
+	))
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		set_visible
+		delay_8
+		walk_down
+		walk_left
+		walk_down
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_SPHEAL_LAND_6, moves(
+		jump_2_down
+		delay_8
+		walk_down * 2
+		jump_2_down
+		walk_down * 2
+		walk_left * 2
+
+	))
+	waitmovement(LOCALID_SPHEAL_LAND_6)
+	fadedefaultbgm
+	special(RemoveCameraObject)
+	setflag(FLAG_CAPTAIN_DIRECTS_SPHEALS)
+	release
+}
 
 script SeafoamIslands_ZubatWall {
 	lock

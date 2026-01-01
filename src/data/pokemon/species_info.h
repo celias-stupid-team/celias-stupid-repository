@@ -4242,9 +4242,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_MOLTRES] =
     {
-        .baseHP = 15, //Low defense and HP for the Jerry fight in Cerulean
+        .baseHP = 5, //Low defense and HP for the Jerry fight in Cerulean
         .baseAttack = 100,
-        .baseDefense = 15,
+        .baseDefense = 5,
         .baseSpeed = 90,
         .baseSpAttack = 220,
         .baseSpDefense = 85,
