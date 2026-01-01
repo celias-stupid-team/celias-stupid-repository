@@ -67,7 +67,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DEOXYS_A",
-      "x": 17,
+      "x": 18,
       "y": 53,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",

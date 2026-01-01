@@ -35,13 +35,13 @@
       "direction": "left"
     },
     {
-      "map": "MAP_OCEAN5",
-      "offset": -16,
+      "map": "MAP_ROUTE19",
+      "offset": 44,
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE19",
-      "offset": 44,
+      "map": "MAP_OCEAN3",
+      "offset": -16,
       "direction": "up"
     }
   ],

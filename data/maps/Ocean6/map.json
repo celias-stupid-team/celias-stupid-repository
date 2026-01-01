@@ -15,18 +15,13 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_OCEAN5",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_OCEAN7",
       "offset": -2,
       "direction": "left"
     },
     {
       "map": "MAP_ZERO_ISLAND",
-      "offset": -34,
+      "offset": -32,
       "direction": "left"
     },
     {
@@ -37,6 +32,11 @@
     {
       "map": "MAP_ONE_ISLAND",
       "offset": 19,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN3",
+      "offset": 0,
       "direction": "up"
     }
   ],
