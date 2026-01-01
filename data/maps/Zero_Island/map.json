@@ -46,13 +46,18 @@
     },
     {
       "map": "MAP_OCEAN6",
-      "offset": 34,
+      "offset": 32,
       "direction": "right"
     },
     {
       "map": "MAP_OCEAN11",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN3",
+      "offset": 17,
+      "direction": "right"
     }
   ],
   "object_events": [

@@ -13,7 +13,38 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_OCEAN5",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ZERO_ISLAND",
+      "offset": -17,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 1,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_OCEAN7",
+      "offset": 15,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": -17,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": 16,
+      "direction": "down"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
