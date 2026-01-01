@@ -12,10 +12,9 @@ mapscripts SeafoamIslands_B2F_MapScripts {
 }
 
 script Seafoam_B2F_Captain {
+	lock
 	msgbox(
-	"i'm the cut master, not the\n"
-	"strength master\p"
-
-	"I don't know where to find a\n"
-	"pokemon with strength", MSGBOX_NPC)
+	"Hmm, I know there's a ladder\n"
+	"around here somewhere…", MSGBOX_DEFAULT)
+	release
 }

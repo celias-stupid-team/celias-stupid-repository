@@ -25,9 +25,9 @@ SSAnne_2F_Corridor_Text_RivalVictory::
 SSAnne_2F_Corridor_Text_RivalPostBattle::
 	.string "BARRY: This ship was supposed to\n"
 	.string "be going to VERMILION CITY.\p"
-	.string "But uhhh, I persuaded the captain\n"
-	.string "to try taking a shortcut.\l"
-	.string "Oops!\p"
+	.string "I heard the CAPTAIN has tons of\n"
+	.string "experience out at SEA.\l"
+	.string "I wonder why he crashed…\p"
 	.string "Anyway, I gotta go.\n"
 	.string "Bump into ya later!$"
 
