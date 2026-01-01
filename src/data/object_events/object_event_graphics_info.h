@@ -7904,3 +7904,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kingler_rock = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mudkip = {
+    .tileTag = 0xFFFF,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MUDKIP,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_2,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = gObjectEventSpriteOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = gObjectEventPicTable_mudkip,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+

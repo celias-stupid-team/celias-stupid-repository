@@ -527,6 +527,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_FLAMES_BETTER  0x1164
 #define OBJ_EVENT_PAL_TAG_CYNTHIA_BETTER  0x1165
 #define OBJ_EVENT_PAL_TAG_KINGLER_ROCK  0x1166
+#define OBJ_EVENT_PAL_TAG_MUDKIP  0x1167
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -627,6 +628,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_FLAMES_BETTER,             OBJ_EVENT_PAL_TAG_FLAMES_BETTER},
     {gObjectEventPal_CYNTHIA_BETTER,             OBJ_EVENT_PAL_TAG_CYNTHIA_BETTER},
     {gObjectEventPal_kingler_rock,             OBJ_EVENT_PAL_TAG_KINGLER_ROCK},
+    {gObjectEventPal_mudkip,             OBJ_EVENT_PAL_TAG_MUDKIP},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

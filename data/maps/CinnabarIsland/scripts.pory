@@ -350,6 +350,13 @@ script CinnabarIsland_OnTransition {
 			setmetatile(37, 20, 0x283, FALSE)
 		}
 	}
+	
+	if(flag(FLAG_INSERTED_VALOR_SEAL)) {
+		setobjectmovementtype(LOCALID_MOLTRES_STATUE, MOVEMENT_TYPE_FACE_UP)
+	}
+	if(!checkmoncaught(SPECIES_LUVDISC)) {
+		setflag(FLAG_TEMP_1)
+	}
 }
 
 

@@ -617,3 +617,5 @@ const u32 gObjectEventPic_CYNTHIA_BETTER[] = INCBIN_U32("graphics/object_events/
 const u16 gObjectEventPal_CYNTHIA_BETTER[] = INCBIN_U16("graphics/object_events/palettes/CYNTHIA_BETTER.gbapal");
 const u32 gObjectEventPic_kingler_rock[] = INCBIN_U32("graphics/object_events/pics/stupid/kingler_rock.4bpp");
 const u16 gObjectEventPal_kingler_rock[] = INCBIN_U16("graphics/object_events/palettes/kingler_rock.gbapal");
+const u32 gObjectEventPic_mudkip[] = INCBIN_U32("graphics/object_events/pics/stupid/mudkip.4bpp");
+const u16 gObjectEventPal_mudkip[] = INCBIN_U16("graphics/object_events/palettes/mudkip.gbapal");

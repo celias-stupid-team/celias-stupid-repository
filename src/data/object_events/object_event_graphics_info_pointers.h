@@ -446,6 +446,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MESSAGE_BOTTLE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CYNTHIA_BETTER;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kingler_rock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mudkip;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -893,4 +894,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MESSAGE_BOTTLE] = &gObjectEventGraphicsInfo_MESSAGE_BOTTLE,
     [OBJ_EVENT_GFX_CYNTHIA_BETTER] = &gObjectEventGraphicsInfo_CYNTHIA_BETTER,
     [OBJ_EVENT_GFX_KINGLER_ROCK] = &gObjectEventGraphicsInfo_kingler_rock,
+    [OBJ_EVENT_GFX_MUDKIP] = &gObjectEventGraphicsInfo_mudkip,
 };

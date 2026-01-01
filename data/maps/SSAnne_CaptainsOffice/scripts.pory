@@ -129,7 +129,7 @@ script SSAnne_CaptainsOffice_EventScript_Captain {
 	"Were you a passenger?\l"
 	"Or perhaps one of the crew?\p"
 
-	"…{PAUSE 30}No?\n"
+	"…No?{PAUSE 30}\n"
 	"Just a trainer passing through?\p"
 
 	"Well met!\n"

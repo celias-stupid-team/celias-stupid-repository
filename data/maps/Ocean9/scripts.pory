@@ -1,3 +1,74 @@
 mapscripts Ocean9_MapScripts {
 
 }
+
+
+
+script GreatSea_MudkipA {
+    call(GreatSea_CountFlags)
+    if(flag(FLAG_TEMP_3)) {
+
+    } else {
+        
+    }
+
+
+}
+
+script GreatSea_MudkipB {
+    setflag(FLAG_TEMP_1)
+
+}
+
+script GreatSea_MudkipC {
+    setflag(FLAG_TEMP_2)
+
+}
+
+script GreatSea_CountFlags {
+    setvar(VAR_TEMP_0, 0)
+    if(flag(FLAG_TEMP_3)) {
+        addvar(VAR_TEMP_0, 1)
+    }
+    if(flag(FLAG_TEMP_1)) {
+        addvar(VAR_TEMP_0, 1)
+    }
+    if(flag(FLAG_TEMP_2)) {
+        addvar(VAR_TEMP_0, 1)
+    }
+    return
+}
+
+script GreatSea_Mudkip_1 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_DEFAULT)
+    msgbox(
+	"Mud!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+}
+script GreatSea_Mudkip_2 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_RED)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_DEFAULT)
+    msgbox(
+	"Kip!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+}
+script GreatSea_Mudkip_3 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_GREEN)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_DEFAULT)
+    msgbox(
+	"Thomas Jefferson.\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+}
