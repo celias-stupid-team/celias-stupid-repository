@@ -1817,7 +1817,7 @@ static void RotomStartMenu_PrintDexNumbers(void)
     StringAppend(printStr, gText_Slash);
     StringAppend(printStr, obtainableStr);
 
-    xOffset = GetStringRightAlignXOffset(FONT_SMALL, printStr, (sWindowTemplate_DexNumbers.width * 8 - DEX_NUM_TEXT_BASE_OFFSET));
+    xOffset = GetStringCenterAlignXOffset(FONT_SMALL, printStr, (sWindowTemplate_DexNumbers.width * 8 - DEX_NUM_TEXT_BASE_OFFSET));
     AddTextPrinterParameterized3(sRotomStartMenu->sDexNumbersWindowID, FONT_SMALL, xOffset + DEX_NUM_TEXT_BASE_OFFSET, 0, color, TEXT_SKIP_DRAW, printStr);
     CopyWindowToVram(sRotomStartMenu->sDexNumbersWindowID, COPYWIN_GFX);
 }
@@ -2673,7 +2673,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
     case MSGSTATE_PRINT_MSG:
         AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
                                      FONT_SMALL,
-                                     GetStringRightAlignXOffset(FONT_SMALL, sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID], 152) + 26,
+                                     GetStringCenterAlignXOffset(FONT_SMALL, sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID], 152) + 26,
                                      3,
                                      sMoveTextColor,
                                      TEXT_SKIP_DRAW,
