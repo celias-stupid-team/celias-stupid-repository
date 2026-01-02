@@ -254,6 +254,7 @@ enum RotomMoveID
 
 #define ROTOM_MOVE_ROW_SIZE    (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
+#define MOVE_SELECTOR_Y_POS    107
 
 #define BLINK_TIMER_START_VALUE   100
 #define BLINK_TIMER_FRAMES_ACTIVE 5
@@ -1601,8 +1602,8 @@ static void RotomStartMenu_CreateSprites(void)
     u32 y6 = 130;
     u32 y7 = 150;
 
-    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, 107, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, 107, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos, MOVE_SELECTOR_Y_POS, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R] = CreateSprite(&sSpriteMoveSelector, sRotomMoves[ROTOM_MOVE_NONE].spriteXPos + MOVE_SELECTOR_R_OFFSET, MOVE_SELECTOR_Y_POS, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]], 1, 0);
 
     sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_L] = CreateSprite(&sSpriteMoveSelector, 176, 14, 0);
@@ -2635,7 +2636,11 @@ enum InvalidMsgState
 #define tMaskSpriteID2 data[5]
 #define tMaskSpriteID3 data[6]
 
-#define MOVE_SEL_MIDDLE_POS(num) (70 + 32 * num)
+#define MESSAGE_WINDOW_WIDTH  152
+#define MESSAGE_WINDOW_OFFSET 26
+#define MOVE_SEL_MIDDLE_WIDTH 32
+
+#define MOVE_SEL_MIDDLE_POS(num) (70 + MOVE_SEL_MIDDLE_WIDTH * num)
 
 
 static void Task_ShowInvalidMoveMessage(u8 taskId)
@@ -2647,21 +2652,24 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
         PutWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
         CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
         ScheduleBgCopyTilemapToVram(0);
-        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].x = MOVE_SEL_MIDDLE_POS(0) - 32;
-        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].x = MOVE_SEL_MIDDLE_POS(2) + 32;
-        gTasks[taskId].tSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), 107, 0);
-        gTasks[taskId].tSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), 107, 0);
-        gTasks[taskId].tSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), 107, 0);
+        
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].x = MOVE_SEL_MIDDLE_POS(0) - MOVE_SEL_MIDDLE_WIDTH;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].x = MOVE_SEL_MIDDLE_POS(2) + MOVE_SEL_MIDDLE_WIDTH;
+
+        gTasks[taskId].tSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), MOVE_SELECTOR_Y_POS, 0);
+        gTasks[taskId].tSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), MOVE_SELECTOR_Y_POS, 0);
+        gTasks[taskId].tSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), MOVE_SELECTOR_Y_POS, 0);
+
         if (Overworld_GetFlashLevel())
         {
             SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
             SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
 
-            gTasks[taskId].tMaskSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), 107, 0);
+            gTasks[taskId].tMaskSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), MOVE_SELECTOR_Y_POS, 0);
             gSprites[gTasks[taskId].tMaskSpriteID1].oam.objMode = ST_OAM_OBJ_WINDOW;
-            gTasks[taskId].tMaskSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), 107, 0);
+            gTasks[taskId].tMaskSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), MOVE_SELECTOR_Y_POS, 0);
             gSprites[gTasks[taskId].tMaskSpriteID2].oam.objMode = ST_OAM_OBJ_WINDOW;
-            gTasks[taskId].tMaskSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), 107, 0);
+            gTasks[taskId].tMaskSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), MOVE_SELECTOR_Y_POS, 0);
             gSprites[gTasks[taskId].tMaskSpriteID3].oam.objMode = ST_OAM_OBJ_WINDOW;
             
             SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
@@ -2673,7 +2681,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
     case MSGSTATE_PRINT_MSG:
         AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
                                      FONT_SMALL,
-                                     GetStringCenterAlignXOffset(FONT_SMALL, sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID], 152) + 26,
+                                     GetStringCenterAlignXOffset(FONT_SMALL, sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID], MESSAGE_WINDOW_WIDTH) + MESSAGE_WINDOW_OFFSET,
                                      3,
                                      sMoveTextColor,
                                      TEXT_SKIP_DRAW,
@@ -2681,6 +2689,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
 
         CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
         ScheduleBgCopyTilemapToVram(0);
+
         gTasks[taskId].tTaskState++;
         break;
     case MSGSTATE_WAIT_INPUT:
@@ -2694,6 +2703,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
         DestroySprite(&gSprites[gTasks[taskId].tSpriteID1]);
         DestroySprite(&gSprites[gTasks[taskId].tSpriteID2]);
         DestroySprite(&gSprites[gTasks[taskId].tSpriteID3]);
+
         if (Overworld_GetFlashLevel())
         {
             DestroySprite(&gSprites[gTasks[taskId].tMaskSpriteID1]);
@@ -2704,6 +2714,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
         UpdateMoveSelectorText();
         gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos;
         gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos + MOVE_SELECTOR_R_OFFSET;
+        
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NONE;
         DestroyTask(taskId);
         break;
