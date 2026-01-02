@@ -8022,7 +8022,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THORN_WHIP] =
     {
         .effect = EFFECT_TOXIC_SEED,
-        .power = 40,
+        .power = 20,
         .type = TYPE_GRASS,
         .accuracy = 0,
         .pp = 10,

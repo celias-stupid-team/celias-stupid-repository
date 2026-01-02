@@ -5227,5 +5227,4 @@ BattleScript_DoToxic::
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
-	resultmessage
 	goto BattleScript_MoveEnd
