@@ -2877,6 +2877,7 @@ static bool32 SetupFunc_Cut(void)
 
     if (IsObjectInFrontOfPlayerCuttable())
     {
+        VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;
         return TRUE;
     }

@@ -69,6 +69,7 @@ void ClearTempData_CSR(void)
     FlagClear(FLAG_SYS_SNORLAX_FIGHT);
     FlagClear(FLAG_SYS_KANGA_FIGHT);
     FlagClear(FLAG_SYS_CSR_VICTORY);
+    VarSet(VAR_USED_CUT, 0);
     RunScriptImmediately(SetPlayerPokedexValues);
 }
 

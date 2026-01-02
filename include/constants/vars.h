@@ -326,7 +326,7 @@ It is reset after every battle.
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
 #define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
-#define VAR_PROFESSOR_IVY_CUT                 0x40E3
+#define VAR_USED_CUT                 0x40E3
 #define VAR_AROUND_THE_WORLD_LASS                 0x40E4
 #define VAR_0x40E5                 0x40E5
 #define VAR_DAILY_SLOTS            0x40E6

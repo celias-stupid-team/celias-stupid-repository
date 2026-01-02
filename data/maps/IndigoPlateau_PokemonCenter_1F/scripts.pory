@@ -70,3 +70,72 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Nurse::
 	release
 	end
 `
+
+
+script PokemonLeague_GiveHistoryBook {
+	lock
+	faceplayer
+	if(checkitem(ITEM_HISTORY_BOOK)) {
+		msgbox(
+		"Remember to read that HISTORY BOOK\n"
+		"you have.\p"
+
+		"Looking into the past is the best\n"
+		"way to move forward.\p"
+
+		"Remember all that you've learned,\n"
+		"and the next step will come easily.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Take this\n"
+		"placeholder", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} recieved the\nHISTORY BOOK!", ITEM_HISTORY_BOOK)
+		msgbox(
+		"Looking into the past is the best\n"
+		"way to move forward.\p"
+
+		"Remember all that you've learned,\n"
+		"and the next step will come easily.", MSGBOX_DEFAULT)
+	}
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+
+script PokemonLeague_GiveCandyDispenser {
+	lock
+	faceplayer
+	if(checkitem(ITEM_CANDY_DISPENSER)) {
+		msgbox(
+		"That CANDY DISPENSER will help\n"
+		"your POKéMON grow.\p"
+
+		"If you ever feel that you aren't\n"
+		"up to a challenge, take a few\l"
+		"steps back and re-evaluate.\p"
+
+		"Oftentimes, you'll find that you\n"
+		"have what it takes all along.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Take this\n"
+		"placeholder", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} recieved the\nCANDY DISPENSER!", ITEM_CANDY_DISPENSER)
+		msgbox(
+		"That CANDY DISPENSER will help\n"
+		"your POKéMON grow.\p"
+
+		"If you ever feel that you aren't\n"
+		"up to a challenge, take a few\l"
+		"steps back and re-evaluate.\p"
+
+		"Oftentimes, you'll find that you\n"
+		"have what it takes all along.", MSGBOX_DEFAULT)
+	}
+	closemessage
+	release
+}

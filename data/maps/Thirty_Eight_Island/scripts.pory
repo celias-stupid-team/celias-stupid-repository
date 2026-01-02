@@ -315,6 +315,7 @@ script ThirtyEightIsland_GoldenRod {
 	"", MSGBOX_DEFAULT)
     giveitem_msg("{PLAYER} obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
     waitfanfare
+	
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))
