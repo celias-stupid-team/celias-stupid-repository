@@ -658,7 +658,7 @@ script FourIsland_LuxrayGirl {
 	"DARK-TYPES available!\p"
 
 	"…Huh?\n"
-	"How did I find them?\p"
+	"How did I find it?\p"
 
 	"Easy! I just had to play literally\n"
 	"any other romhack!", MSGBOX_NPC)

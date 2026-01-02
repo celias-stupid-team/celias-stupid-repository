@@ -10315,7 +10315,29 @@ static const struct TrainerMonItemCustomMoves sParty_RadicalRed[] = {
         .lvl = 30,
         .heldItem = ITEM_NONE,
         .species = SPECIES_PIKACHU_SNAP_SURF,
-        .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+        .moves = {MOVE_SURF, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_Short[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_HOOT,
+        .moves = {MOVE_RAZOR_WIND_CANCEL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+};
+
+
+static const struct TrainerMonItemCustomMoves sParty_FuckPirate[] = {
+    {
+        .iv = 0,
+        .lvl = 30,
+        .heldItem = ITEM_NONE,
+        .species = SPECIES_COFAGRIGUS,
+        .moves = {MOVE_RAZOR_WIND_CANCEL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
 };

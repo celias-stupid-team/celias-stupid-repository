@@ -2209,7 +2209,7 @@
       "secondaryId": 0
     },
     {
-      "english": "DAIRI BERRY",
+      "english": "LEPPA BERRY",
       "itemId": "ITEM_LEPPA_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_RESTORE_PP",
@@ -2257,7 +2257,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LIE BRERRY",
+      "english": "DAIRI BERRY",
       "itemId": "ITEM_LUM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_STATUS",
@@ -2401,7 +2401,7 @@
       "secondaryId": 0
     },
     {
-      "english": "NANAB BERRY",
+      "english": "LIE BRERRY",
       "itemId": "ITEM_NANAB_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",

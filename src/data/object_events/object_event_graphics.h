@@ -621,3 +621,5 @@ const u32 gObjectEventPic_mudkip[] = INCBIN_U32("graphics/object_events/pics/stu
 const u16 gObjectEventPal_mudkip[] = INCBIN_U16("graphics/object_events/palettes/mudkip.gbapal");
 const u32 gObjectEventPic_groudon_hidden[] = INCBIN_U32("graphics/object_events/pics/stupid/groudon_hidden.4bpp");
 const u16 gObjectEventPal_groudon_hidden[] = INCBIN_U16("graphics/object_events/palettes/groudon_hidden.gbapal");
+const u32 gObjectEventPic_HOOTHOOT[] = INCBIN_U32("graphics/object_events/pics/stupid/HOOTHOOT.4bpp");
+const u16 gObjectEventPal_HOOTHOOT[] = INCBIN_U16("graphics/object_events/palettes/HOOTHOOT.gbapal");

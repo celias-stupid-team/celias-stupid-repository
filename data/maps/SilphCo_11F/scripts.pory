@@ -141,6 +141,7 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 	setflag(FLAG_SILPH_DMCA_DEFEATED)
 	setflag(FLAG_HIDE_SAFFRON_ROCKETS)
 	clearflag(FLAG_HIDE_SAFFRON_CIVILIANS)
+	playbgm(MUS_CYBER_WORLD, TRUE)
 	releaseall
 	end
 }

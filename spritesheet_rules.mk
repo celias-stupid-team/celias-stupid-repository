@@ -1069,3 +1069,5 @@ $(OBJEVENTGFXDIR)/stupid/mudkip.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2
 $(OBJEVENTGFXDIR)/stupid/groudon_hidden.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+$(OBJEVENTGFXDIR)/stupid/HOOTHOOT.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4

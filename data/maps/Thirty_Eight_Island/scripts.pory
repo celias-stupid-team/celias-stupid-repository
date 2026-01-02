@@ -505,7 +505,7 @@ script ThirtyEightIsland_TalkingOnPhone {
 	closemessage
 	faceplayer
 	msgbox(
-	"I'm talking on the phone with my\n"
+	"I'm talking on the POKéGEAR with my\n"
 	"friend.\p"
 
 	"She's playing POKéMON DIAMOND!\n"
@@ -518,5 +518,37 @@ script ThirtyEightIsland_TalkingOnPhone {
 	msgbox(
 	"So anyway like I was saying…\n"
 	"", MSGBOX_DEFAULT)
+	release
+}
+
+script ThirtyEightIsland_CalmHoothoot {
+	lock
+	msgbox(
+	"HOOTHOOT: Hoo?\n"
+	"", MSGBOX_DEFAULT)
+	showmonpic(SPECIES_HOOTHOOT, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	delay(30)
+	msgbox(
+	"HOOTHOOT's SP. ATK and SP. DEF\n"
+	"rose!", MSGBOX_DEFAULT)
+	release
+}
+
+script ThirtyEightIsland_HoothootWoman {
+	lock
+	faceplayer
+	msgbox(
+	"Wow!\n"
+	"A POKéMON's resting in that tree!\p"
+
+	"Look at how calm she is!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
 	release
 }
