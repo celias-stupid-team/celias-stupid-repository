@@ -619,3 +619,5 @@ const u32 gObjectEventPic_kingler_rock[] = INCBIN_U32("graphics/object_events/pi
 const u16 gObjectEventPal_kingler_rock[] = INCBIN_U16("graphics/object_events/palettes/kingler_rock.gbapal");
 const u32 gObjectEventPic_mudkip[] = INCBIN_U32("graphics/object_events/pics/stupid/mudkip.4bpp");
 const u16 gObjectEventPal_mudkip[] = INCBIN_U16("graphics/object_events/palettes/mudkip.gbapal");
+const u32 gObjectEventPic_groudon_hidden[] = INCBIN_U32("graphics/object_events/pics/stupid/groudon_hidden.4bpp");
+const u16 gObjectEventPal_groudon_hidden[] = INCBIN_U16("graphics/object_events/palettes/groudon_hidden.gbapal");

@@ -1,3 +1,53 @@
 mapscripts Ocean3_MapScripts {
 
 }
+
+
+script GreatSea_ShrineIslandSign {
+	msgbox(
+	"SHRINE ISLAND\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script GreatSea_SkittyBitty {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SKITTY, CRY_MODE_DEFAULT)
+    textcolor(NPC_TEXT_COLOR_RED)
+    msgbox(
+	"SKITTY: Skiiii!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(
+        face_up
+    ))
+    applymovement(VAR_LAST_TALKED, moves(
+        face_up
+    ))
+    waitmovement(0)
+    delay(60)
+    msgbox(
+	"The POKéMON seems thoroughly\n"
+	"disappointed.", MSGBOX_DEFAULT)
+    release
+    
+
+}
+
+script GreatSea_ShrineIsland {
+    lock
+    msgbox(
+	"There is no shrine here.\p"
+
+	"On SHRINE ISLAND.\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    msgbox(
+	"This is fucking bullshit.\n"
+	"", MSGBOX_DEFAULT)
+    release
+}

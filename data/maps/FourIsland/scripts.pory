@@ -841,3 +841,29 @@ script FourIsland_LassAttack {
 	release
 
 }
+
+
+
+script FourIsland_TalkingOnPhone {
+	lock
+	msgbox(
+	"…and then I-\n"
+	"{PAUSE 30}…wait, one second.", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	msgbox(
+	"I'm talking on the phone with my\n"
+	"friend.\p"
+
+	"She's playing POKéMON JADE!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	msgbox(
+	"So anyway like I was saying…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

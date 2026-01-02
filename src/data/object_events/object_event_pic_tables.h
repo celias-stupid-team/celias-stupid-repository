@@ -4786,3 +4786,14 @@ const struct SpriteFrameImage gObjectEventPicTable_mudkip[] = {
     overworld_frame(gObjectEventPic_mudkip, 2, 2, 7),
     overworld_frame(gObjectEventPic_mudkip, 2, 2, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_groudon_hidden[] = {
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 0),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 1),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 2),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 0),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 0),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 1),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 1),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 2),
+    overworld_frame(gObjectEventPic_groudon_hidden, 8, 8, 2),
+};
