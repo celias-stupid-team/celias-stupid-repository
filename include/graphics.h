@@ -12667,3 +12667,6 @@ extern const u32 gMonShinyPalette_HOOT[];
 extern const u8 gMonFootprint_HOOT[];
 extern const u8 gMonIcon_HOOT[];
 
+
+extern const u32 gTrainerFrontPic_Short[];
+extern const u32 gTrainerPalette_Short[];

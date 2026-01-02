@@ -595,7 +595,7 @@
 #define FLAG_GOT_BURN_DRIVE               0x21D
 #define FLAG_BOWS_GIVES_SHINY_PINSIR               0x21E
 #define FLAG_CAPTAIN_DIRECTS_SPHEALS               0x21F
-#define FLAG_0x220               0x220
+#define FLAG_HALF_ISLAND_SHORT               0x220
 #define FLAG_0x221               0x221
 #define FLAG_0x222               0x222
 #define FLAG_0x223               0x223

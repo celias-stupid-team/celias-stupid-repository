@@ -228,16 +228,6 @@
       "script": "SilphCo_6F_EventScript_Door"
     },
     {
-      "type": "hidden_item",
-      "x": 1,
-      "y": 8,
-      "elevation": 0,
-      "item": "ITEM_CARBOS",
-      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_6F_CARBOS",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 25,
       "y": 1,

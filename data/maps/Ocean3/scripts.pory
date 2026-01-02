@@ -21,6 +21,7 @@ script GreatSea_SkittyBitty {
 	"", MSGBOX_DEFAULT)
     waitmoncry
     closemessage
+    delay(10)
     applymovement(LOCALID_PLAYER, moves(
         face_up
     ))
@@ -29,6 +30,7 @@ script GreatSea_SkittyBitty {
     ))
     waitmovement(0)
     delay(60)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox(
 	"The POKéMON seems thoroughly\n"
 	"disappointed.", MSGBOX_DEFAULT)
@@ -42,7 +44,7 @@ script GreatSea_ShrineIsland {
     msgbox(
 	"There is no shrine here.\p"
 
-	"On SHRINE ISLAND.\n"
+	"On Shrine Island.\n"
 	"", MSGBOX_DEFAULT)
     closemessage
     delay(60)

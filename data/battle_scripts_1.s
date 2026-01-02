@@ -5173,3 +5173,4 @@ BattleScript_EffectMultiHitFive::
 	setmultihitcounter 10
 	initmultihitstring
 	goto BattleScript_MultiHitLoop
+	
