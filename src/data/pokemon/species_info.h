@@ -6845,7 +6845,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 70,
         .growthRate = GROWTH_FAST,
         .eggGroups = {EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_NONE},
+        .abilities = {ABILITY_LIMBER, ABILITY_LIMBER},
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
@@ -12940,10 +12940,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GARCHOMP] =
     {
-        .baseHP = 108,
-        .baseAttack = 130,
+        .baseHP = 80,
+        .baseAttack = 255,
         .baseDefense = 95,
-        .baseSpeed = 102,
+        .baseSpeed = 255,
         .baseSpAttack = 80,
         .baseSpDefense = 85,
         .types = {TYPE_DRAGON, TYPE_GROUND},
@@ -13028,9 +13028,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_LUCARIO] =
     {
         .baseHP = 70,
-        .baseAttack = 110,
+        .baseAttack = 255,
         .baseDefense = 70,
-        .baseSpeed = 90,
+        .baseSpeed = 255,
         .baseSpAttack = 115,
         .baseSpDefense = 70,
         .types = {TYPE_FIGHTING, TYPE_STEEL},
@@ -18856,12 +18856,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_GENESECT] = //Dex mon
     {
-        .baseHP = 71,
+        .baseHP = 20,
         .baseAttack = 120,
         .baseDefense = 95,
-        .baseSpeed = 99,
+        .baseSpeed = 255,
         .baseSpAttack = 120,
-        .baseSpDefense = 95,
+        .baseSpDefense = 20,
         .types = {TYPE_BUG, TYPE_STEEL},
         .catchRate = 255,
         .expYield = 150,

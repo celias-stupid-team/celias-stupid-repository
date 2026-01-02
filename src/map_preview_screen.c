@@ -11,6 +11,7 @@
 #include "event_data.h"
 #include "map_preview_screen.h"
 #include "constants/region_map_sections.h"
+#include "constants/maps.h"
 
 static EWRAM_DATA bool8 sHasVisitedMapBefore = FALSE;
 static EWRAM_DATA bool8 sAllocedBg0TilemapBuffer = FALSE;
@@ -282,6 +283,9 @@ bool8 MapHasPreviewScreen(u8 mapsec, u8 type)
     u8 idx;
 
     idx = GetMapPreviewScreenIdx(mapsec);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFARI_ZONE_NORTH) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFARI_ZONE_NORTH)) {
+        return FALSE;
+    }
     if (idx != MPS_COUNT)
     {
         if (type == MPS_TYPE_ANY)

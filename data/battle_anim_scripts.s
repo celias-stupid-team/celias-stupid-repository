@@ -643,7 +643,7 @@ gBattleAnims_Moves::
 	.4byte Move_REFLECT_2
 	.4byte Move_QWICK_ATTACK
 	.4byte Move_WHISH
-	.4byte Move_MULTI_ATTACK
+	.4byte Move_AURA_SPHERE_2
 	.4byte Move_GYRO_BALL
 	.4byte Move_SYHNCRHONOZHE
 	.4byte Move_CURSE_GRENINJA
@@ -16579,11 +16579,26 @@ Move_WHISH:
 	waitforvisualfinish
 	end
 
-Move_MULTI_ATTACK:
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HORN_HIT
-	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 4, 256, ANIM_ATTACKER, 2
-	choosetwoturnanim FuryAttackRight, FuryAttackLeft
+Move_AURA_SPHERE_2:
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSuperpowerOrbSpriteTemplate, ANIM_TARGET, 2, ANIM_ATTACKER
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	delay 20
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 4, 1, 180, 1
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_EARTHQUAKE, 0
+	delay 40
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	delay 16
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 16, 1
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	delay 1
+	end
 
 
 Move_GYRO_BALL:

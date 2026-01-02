@@ -105,6 +105,7 @@ script PowerPlant_MagnemiteMan {
 	lock
 	faceplayer
 	if(checkpartymon(SPECIES_MAGNEMITE)) {
+		copyvar(VAR_0x8000, VAR_RESULT)
 		//This actually needs to be more complicated
 		//If it's the first time talking to him AND you haven't left the map since getting magnemite, it should do something different 
 		if(!flag(FLAG_CSR_TALKED_TO_MAGNEMITE_GUY) && !flag(FLAG_TEMP_10)) {
