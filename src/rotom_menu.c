@@ -141,8 +141,8 @@ enum MenuOption
     MENU_OPTION_TOP,
     MENU_POKEDEX = MENU_OPTION_TOP,
     MENU_PARTY,
-    MENU_PC,
     MENU_BAG,
+    MENU_PC,
     MENU_TRAINER_CARD,
     MENU_SAVE,
     MENU_OPTIONS,
@@ -736,8 +736,8 @@ enum RotomEyesFrame
     ROTOM_EYES_DEFAULT,
     ROTOM_EYES_POKEDEX,
     ROTOM_EYES_PARTY,
-    ROTOM_EYES_PC,
     ROTOM_EYES_BAG,
+    ROTOM_EYES_PC,
     ROTOM_EYES_TRAINER_CARD,
     ROTOM_EYES_SAVE,
     ROTOM_EYES_OPTIONS,
@@ -862,8 +862,8 @@ static const union AnimCmd *const sRotomEyesAnim[ROTOM_EYES_ANIM_COUNT] = {
     [ROTOM_EYES_DEFAULT] = sAnimCmdRotomEyes_Default,
     [ROTOM_EYES_POKEDEX] = sAnimCmdRotomEyes_Pokedex,
     [ROTOM_EYES_PARTY] = sAnimCmdRotomEyes_Party,
-    [ROTOM_EYES_PC] = sAnimCmdRotomEyes_PC,
     [ROTOM_EYES_BAG] = sAnimCmdRotomEyes_Bag,
+    [ROTOM_EYES_PC] = sAnimCmdRotomEyes_PC,
     [ROTOM_EYES_TRAINER_CARD] = sAnimCmdRotomEyes_TrainerCard,
     [ROTOM_EYES_SAVE] = sAnimCmdRotomEyes_Save,
     [ROTOM_EYES_OPTIONS] = sAnimCmdRotomEyes_Options,
@@ -1121,8 +1121,8 @@ static const struct SpriteTemplate gSpriteIconFlag = {
 static const u32 sRotomMenuCursorToEyeState[] = {
     [MENU_POKEDEX] = ROTOM_EYES_POKEDEX,
     [MENU_PARTY] = ROTOM_EYES_PARTY,
-    [MENU_PC] = ROTOM_EYES_PC,
     [MENU_BAG] = ROTOM_EYES_BAG,
+    [MENU_PC] = ROTOM_EYES_PC,
     [MENU_TRAINER_CARD] = ROTOM_EYES_TRAINER_CARD,
     [MENU_SAVE] = ROTOM_EYES_SAVE,
     [MENU_OPTIONS] = ROTOM_EYES_OPTIONS,
@@ -1646,8 +1646,8 @@ static void RotomStartMenu_CreateSprites(void)
     {
         sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
         sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 2, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y3, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y3 - 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y4 + 1, 0);
         sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
         sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
         sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
@@ -2336,11 +2336,11 @@ static void RotomStartMenu_OpenMenu(void)
     case MENU_PARTY:
         DoCleanUpAndChangeCallback(CB2_PartyMenuFromStartMenu);
         break;
-    case MENU_PC:
-        DoCleanUpAndOpenPC();
-        break;
     case MENU_BAG:
         DoCleanUpAndChangeCallback(CB2_BagMenuFromStartMenu);
+        break;
+    case MENU_PC:
+        DoCleanUpAndOpenPC();
         break;
     case MENU_TRAINER_CARD:
         DoCleanUpAndOpenTrainerCard();
