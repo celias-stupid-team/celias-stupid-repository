@@ -2681,8 +2681,6 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
 
 #undef tRotomMove
 
-#define SET_HIGH_BIT(num) (num | (1 << 15))
-
 static void PopulateMoveMonSpecies(void)
 {
     u32 move, box, monPos, partySlot;

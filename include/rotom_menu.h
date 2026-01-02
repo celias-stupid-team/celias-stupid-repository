@@ -8,6 +8,8 @@ extern u16 gRotomMoveSlotOrBoxPos;
 
 #define ROTOM_SLOT_POS_NONE 0xFFFF
 
+#define SET_HIGH_BIT(num) (num | (1 << 15))
+
 // this indicates that gRotomMoveSlotOrBoxPos is using a pair of PC box and slot indices
 #define IS_HIGH_BIT_SET(num) (num & (1 << 15))
 

@@ -418,6 +418,8 @@ It is reset after every battle.
 
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
 
+#define FIELD_MOVE_USE_PC_MON 0xFFFF
+
 #endif // GUARD_CONSTANTS_VARS_H
 
 #define VAR_PARTY_SLOT VAR_0x8000
