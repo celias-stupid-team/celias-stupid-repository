@@ -49,7 +49,6 @@
 #include "pokemon_storage_system.h"
 #include "pokemon_storage_system_internal.h"
 #include "region_map.h"
-#include "safari_zone.h"
 #include "save.h"
 #include "save_menu_util.h"
 #include "scanline_effect.h"
@@ -74,13 +73,12 @@ static void SpriteCB_IconBag(struct Sprite *sprite);
 static void SpriteCB_IconTrainerCard(struct Sprite *sprite);
 static void SpriteCB_IconSave(struct Sprite *sprite);
 static void SpriteCB_IconOptions(struct Sprite *sprite);
-static void SpriteCB_IconFlag(struct Sprite *sprite);
+static void SpriteCB_IconBagF(struct Sprite *sprite);
 static void SpriteCB_RotomEyes(struct Sprite *sprite);
 static void SpriteCB_MoveSelectorMask(struct Sprite *sprite);
 
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
-static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId);
 static void Task_HandleSave(u8 taskId);
 
 /* OTHER FUNCTIONS */
@@ -88,7 +86,6 @@ static void RotomStartMenu_LoadSprites(void);
 static void RotomStartMenu_CreateSprites(void);
 static void RotomStartMenu_CreateSpriteMasks(void);
 static void RotomStartMenu_DisableSpriteAffineModes(void);
-static void RotomStartMenu_SafariZone_CreateSprites(void);
 static void RotomStartMenu_LoadBgGfx(void);
 static void RotomStartMenu_PrintDexNumbers(void);
 static void RotomStartMenu_DestroySprites(void);
@@ -147,8 +144,6 @@ enum MenuOption
     MENU_SAVE,
     MENU_OPTIONS,
     MENU_OPTION_BOTTOM = MENU_OPTIONS,
-    // unused for now
-    MENU_RETIRE,
     // add new options here
     MENU_NONE,
 };
@@ -223,7 +218,6 @@ enum RotomSpriteID
     SPRITE_TRAINER_CARD,
     SPRITE_SAVE,
     SPRITE_OPTIONS,
-    SPRITE_FLAG,
     ROTOM_SPRITE_COUNT,
     ROTOM_SPRITE_MASKS_START = ROTOM_SPRITE_COUNT,
 };
@@ -407,7 +401,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
 struct RotomStartMenu
 {
     u16 sDexNumbersWindowID;
-    // u16 sSafariBallsWindowId;
     u16 sMoveNameWindowId;
     u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
@@ -456,7 +449,6 @@ static EWRAM_DATA u8 sSaveInfoWindowId = 0;
 // --BG-GFX--
 static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/rotom_new.4bpp.lz");
 static const u32 sStartMenuTilemap[] = INCBIN_U32("graphics/rotom_menu/rotom_new.bin.lz");
-static const u32 sStartMenuTilemapSafari[] = INCBIN_U32("graphics/rotom_menu/bg_safari.bin.lz");
 static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
@@ -499,16 +491,6 @@ static const struct WindowTemplate sWindowTemplate_DexNumbers = {
     .baseBlock = 248
 };
 
-static const struct WindowTemplate sWindowTemplate_SafariBalls = {
-    .bg = 0,
-    .tilemapLeft = 2,
-    .tilemapTop = 1,
-    .width = 7,
-    .height = 4,
-    .paletteNum = 15,
-    .baseBlock = 258
-};
-
 static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .bg = 0,
     .tilemapLeft = 0,
@@ -516,7 +498,7 @@ static const struct WindowTemplate sWindowTemplate_MoveNames = {
     .width = 25,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 286
+    .baseBlock = 258
 };
 
 #define MON_ICON_FRAME_SIZE      32
@@ -993,19 +975,19 @@ static const union AnimCmd *const gIconOptionsAnim[] = {
     gAnimCmdOptions_Selected,
 };
 
-static const union AnimCmd gAnimCmdFlag_NotSelected[] = {
+static const union AnimCmd gAnimCmdBagF_NotSelected[] = {
     ANIMCMD_FRAME(240, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdFlag_Selected[] = {
+static const union AnimCmd gAnimCmdBagF_Selected[] = {
     ANIMCMD_FRAME(224, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconFlagAnim[] = {
-    gAnimCmdFlag_NotSelected,
-    gAnimCmdFlag_Selected,
+static const union AnimCmd *const gIconBagFAnim[] = {
+    gAnimCmdBagF_NotSelected,
+    gAnimCmdBagF_Selected,
 };
 
 static const union AffineAnimCmd sAffineAnimIcon_NoAnim[] = {
@@ -1108,14 +1090,14 @@ static const struct SpriteTemplate gSpriteIconOptions = {
     .callback = SpriteCB_IconOptions,
 };
 
-static const struct SpriteTemplate gSpriteIconFlag = {
+static const struct SpriteTemplate gSpriteIconBagF = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
     .oam = &gOamIcon,
-    .anims = gIconFlagAnim,
+    .anims = gIconBagFAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
-    .callback = SpriteCB_IconFlag,
+    .callback = SpriteCB_IconBagF,
 };
 
 static const u32 sRotomMenuCursorToEyeState[] = {
@@ -1364,15 +1346,15 @@ static void SpriteCB_IconOptions(struct Sprite *sprite)
     }
 }
 
-static void SpriteCB_IconFlag(struct Sprite *sprite)
+static void SpriteCB_IconBagF(struct Sprite *sprite)
 {
-    if (sMenuSelected == MENU_RETIRE && !sRotomStartMenu->iconAnimStarted)
+    if (sMenuSelected == MENU_BAG && !sRotomStartMenu->iconAnimStarted)
     {
         sRotomStartMenu->iconAnimStarted = TRUE;
         StartSpriteAnim(sprite, 1);
         StartSpriteAffineAnim(sprite, 1);
     }
-    else if (sMenuSelected != MENU_RETIRE)
+    else if (sMenuSelected != MENU_BAG)
     {
         StartSpriteAnim(sprite, 0);
         StartSpriteAffineAnim(sprite, 0);
@@ -1427,33 +1409,6 @@ static void UpdateMoveSelectorText(void)
     ScheduleBgCopyTilemapToVram(0);
 }
 
-static void SetSelectedMenu(void)
-{
-    if (FlagGet(FLAG_SYS_POKEDEX_GET))
-    {
-        sMenuSelected = MENU_POKEDEX;
-    }
-    else if (FlagGet(FLAG_SYS_POKEMON_GET))
-    {
-        sMenuSelected = MENU_PARTY;
-    }
-    else
-    {
-        sMenuSelected = MENU_BAG;
-    }
-}
-
-static void ShowSafariBallsWindow(void)
-{
-    // sRotomStartMenu->sSafariBallsWindowId = AddWindow(&sWindowTemplate_SafariBalls);
-    // FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
-    // PutWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
-    // ConvertIntToDecimalStringN(gStringVar1, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    // StringExpandPlaceholders(gStringVar4, gText_SafariBalls);
-    // AddTextPrinterParameterized(sRotomStartMenu->sSafariBallsWindowId, FONT_SMALL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
-    // CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
-}
-
 void RotomStartMenu_Init(void)
 {
     if (!IsUpdateLinkStateCBActive())
@@ -1492,20 +1447,6 @@ void RotomStartMenu_Init(void)
 
     PopulateMoveMonSpecies();
 
-    // ravenote: we can restore the safari zone stuff later if need be
-    // for now use the regular menu in safari zone
-    // if (!GetSafariZoneFlag())
-    // {
-    if (sMenuSelected == MENU_RETIRE)
-    {
-        sMenuSelected = MENU_POKEDEX;
-    }
-
-    if (sMenuSelected == 255)
-    {
-        SetSelectedMenu();
-    }
-
     RotomStartMenu_LoadSprites();
     memset(sRotomStartMenu->spriteIDs, SPRITE_NONE, ROTOM_SPRITE_COUNT_WITH_MASKS);
     RotomStartMenu_CreateSprites();
@@ -1518,21 +1459,6 @@ void RotomStartMenu_Init(void)
     RotomStartMenu_LoadBgGfx();
     sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
     CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
-    // }
-    // else
-    // {
-    //     if (sMenuSelected == 255 || sMenuSelected == MENU_SAVE)
-    //     {
-    //         sMenuSelected = MENU_RETIRE;
-    //     }
-
-    //     RotomStartMenu_LoadSprites();
-    //     RotomStartMenu_SafariZone_CreateSprites();
-    //     RotomStartMenu_LoadBgGfx();
-    //     ShowSafariBallsWindow();
-    //     sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
-    //     CreateTask(Task_RotomStartMenu_SafariZone_HandleMainInput, 0);
-    // }
     RotomStartMenu_PrintDexNumbers();
 }
 
@@ -1642,31 +1568,20 @@ static void RotomStartMenu_CreateSprites(void)
         }
     }
 
-    if (FlagGet(FLAG_SYS_POKEDEX_GET))
+    sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 2, 0);
+    if (gSaveBlock2Ptr->playerGender == FEMALE)
     {
-        sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 2, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y3 - 1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y4 + 1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
-    }
-    else if (FlagGet(FLAG_SYS_POKEMON_GET))
-    {
-        sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y2 + 1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y3 + 3, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y4 + 1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y5 - 4, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBagF, x, y3 + 1, 0);
     }
     else
     {
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y2 + 1, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y3 + 3, 0);
-        sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y4 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y3 - 1, 0);
     }
+    sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y4 + 1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5 - 1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
 }
 
 static void RotomStartMenu_CreateSpriteMasks(void)
@@ -1736,37 +1651,12 @@ static void RotomStartMenu_DisableSpriteAffineModes(void)
     }
 }
 
-static void RotomStartMenu_SafariZone_CreateSprites(void)
-{
-    u32 x = 224;
-    u32 y1 = 14;
-    u32 y2 = 38;
-    u32 y3 = 60;
-    u32 y4 = 84;
-    u32 y5 = 109;
-    u32 y6 = 130;
-
-    sRotomStartMenu->spriteIDs[SPRITE_FLAG] = CreateSprite(&gSpriteIconFlag, x, y1, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y2, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y3, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y4, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y6, 0);
-}
-
 static void RotomStartMenu_LoadBgGfx(void)
 {
     u8 *buf = GetBgTilemapBuffer(0);
     LoadBgTilemap(0, 0, 0, 0);
     DecompressAndCopyTileDataToVram(0, sStartMenuTiles, 0, 0, 0);
-    // if (!GetSafariZoneFlag())
-    // {
     LZDecompressWram(sStartMenuTilemap, buf);
-    // }
-    // else
-    // {
-    //     LZDecompressWram(sStartMenuTilemapSafari, buf);
-    // }
     LoadPalette(sStandardMenuPalette, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
     LoadPalette(sStartMenuPalette, BG_PLTT_ID(14), PLTT_SIZE_4BPP);
     ScheduleBgCopyTilemapToVram(0);
@@ -1868,14 +1758,6 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     ClearWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
     CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
     RemoveWindow(sRotomStartMenu->sMoveNameWindowId);
-
-    // if (GetSafariZoneFlag())
-    // {
-    //     FillWindowPixelBuffer(sRotomStartMenu->sSafariBallsWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
-    //     ClearWindowTilemap(sRotomStartMenu->sSafariBallsWindowId);
-    //     CopyWindowToVram(sRotomStartMenu->sSafariBallsWindowId, COPYWIN_GFX);
-    //     RemoveWindow(sRotomStartMenu->sSafariBallsWindowId);
-    // }
 
     for (i = 0; i < 2048; i++)
     {
@@ -2210,11 +2092,6 @@ static void ShowSaveInfoWindow(void)
     const u8 *suffix;
     u8 *alignedSuffix = gStringVar3;
 
-    if (!FlagGet(FLAG_SYS_POKEDEX_GET))
-    {
-        saveInfoWindow.height -= 2;
-    }
-
     sSaveInfoWindowId = AddWindow(&saveInfoWindow);
     LoadStdWindowGfx(sSaveInfoWindowId, 0x21D, BG_PLTT_ID(13));
     DrawStdFrameWithCustomTileAndPalette(sSaveInfoWindowId, FALSE, 0x21D, 13);
@@ -2233,13 +2110,12 @@ static void ShowSaveInfoWindow(void)
     SaveStatToString(SAVE_STAT_BADGES, gStringVar4, 2);
     AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, 28, sTextColor_StatValue, -1, gStringVar4);
     y = 42;
-    if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
-    {
-        AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, 42, sTextColor_StatName, -1, gSaveStatName_Pokedex);
-        SaveStatToString(SAVE_STAT_POKEDEX, gStringVar4, 2);
-        AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, 42, sTextColor_StatValue, -1, gStringVar4);
-        y = 56;
-    }
+
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, 42, sTextColor_StatName, -1, gSaveStatName_Pokedex);
+    SaveStatToString(SAVE_STAT_POKEDEX, gStringVar4, 2);
+    AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 60, 42, sTextColor_StatValue, -1, gStringVar4);
+    y = 56;
+
     AddTextPrinterParameterized3(sSaveInfoWindowId, FONT_SMALL, 2, y, sTextColor_StatName, -1, gSaveStatName_Time);
 
     SaveStatToString(SAVE_STAT_TIME, gStringVar4, 2);
@@ -2312,18 +2188,6 @@ static void DoCleanUpAndStartSaveMenu(void)
     LockPlayerFieldControls();
     taskId = CreateTask(Task_WaitForPreSaveCleanup, 0x80);
     gTasks[taskId].tWaitFrames = 5;
-}
-
-static void DoCleanUpAndStartSafariZoneRetire(void)
-{
-    if (!gPaletteFade.active)
-    {
-        RotomStartMenu_ExitAndClearTilemap();
-        FreezeObjectEvents();
-        LockPlayerFieldControls();
-        DestroyTask(FindTaskIdByFunc(Task_RotomStartMenu_SafariZone_HandleMainInput));
-        SafariZoneRetirePrompt();
-    }
 }
 
 static void RotomStartMenu_OpenMenu(void)
@@ -2469,21 +2333,6 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
 
     switch (sMenuSelected)
     {
-    case MENU_OPTIONS:
-        PlaySE(ROTOMSE_MENU_CURSOR);
-        if (FlagGet(FLAG_SYS_POKEDEX_GET))
-        {
-            sMenuSelected = MENU_POKEDEX;
-        }
-        else if (FlagGet(FLAG_SYS_POKEMON_GET))
-        {
-            sMenuSelected = MENU_PARTY;
-        }
-        else
-        {
-            sMenuSelected = MENU_BAG;
-        }
-        break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
         {
@@ -2494,13 +2343,13 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
             RotomStartMenu_UpdateMonSprites();
         }
         break;
-    default:
-        sMenuSelected++;
+    case MENU_OPTIONS:
         PlaySE(ROTOMSE_MENU_CURSOR);
-        if (!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_PARTY)
-        {
-            sMenuSelected++;
-        }
+        sMenuSelected = MENU_POKEDEX;
+        break;
+    default:
+        PlaySE(ROTOMSE_MENU_CURSOR);
+        sMenuSelected++;
         break;
     }
 }
@@ -2511,10 +2360,6 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
 
     switch (sMenuSelected)
     {
-    case MENU_POKEDEX:
-        PlaySE(ROTOMSE_MENU_CURSOR);
-        sMenuSelected = MENU_OPTIONS;
-        break;
     case MENU_NONE:
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
         {
@@ -2525,18 +2370,13 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
             RotomStartMenu_UpdateMonSprites();
         }
         break;
+    case MENU_POKEDEX:
+        PlaySE(ROTOMSE_MENU_CURSOR);
+        sMenuSelected = MENU_OPTIONS;
+        break;
     default:
         PlaySE(ROTOMSE_MENU_CURSOR);
-        if ((!FlagGet(FLAG_SYS_POKEMON_GET) && sMenuSelected == MENU_BAG)
-            || (!FlagGet(FLAG_SYS_POKEDEX_GET) && sMenuSelected == MENU_PARTY))
-        {
-            sMenuSelected = MENU_OPTIONS;
-            break;
-        }
-        else
-        {
-            sMenuSelected--;
-        }
+        sMenuSelected--;
         break;
     }
 }
@@ -2834,115 +2674,6 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
 }
 
 #undef tRotomMove
-
-static void RotomStartMenu_SafariZone_HandleInput_DPadDown(void)
-{
-    sRotomStartMenu->iconAnimStarted = FALSE;
-
-    switch (sMenuSelected)
-    {
-    case MENU_OPTIONS:
-        sMenuSelected = MENU_RETIRE;
-        break;
-    default:
-        PlaySE(ROTOMSE_MENU_CURSOR);
-        if (sMenuSelected == MENU_RETIRE)
-        {
-            sMenuSelected = MENU_POKEDEX;
-        }
-        else if (sMenuSelected == MENU_BAG)
-        {
-            sMenuSelected = MENU_TRAINER_CARD;
-        }
-        else if (sMenuSelected == MENU_TRAINER_CARD)
-        {
-            sMenuSelected = MENU_OPTIONS;
-        }
-        else
-        {
-            sMenuSelected++;
-        }
-        break;
-    }
-}
-
-static void RotomStartMenu_SafariZone_HandleInput_DPadUp(void)
-{
-    sRotomStartMenu->iconAnimStarted = FALSE;
-
-    switch (sMenuSelected)
-    {
-    case MENU_RETIRE:
-        sMenuSelected = MENU_OPTIONS;
-        break;
-    default:
-        PlaySE(ROTOMSE_MENU_CURSOR);
-        if (sMenuSelected == MENU_POKEDEX)
-        {
-            sMenuSelected = MENU_RETIRE;
-        }
-        else if (sMenuSelected == MENU_OPTIONS)
-        {
-            sMenuSelected = MENU_TRAINER_CARD;
-        }
-        else if (sMenuSelected == MENU_TRAINER_CARD)
-        {
-            sMenuSelected = MENU_BAG;
-        }
-        else
-        {
-            sMenuSelected--;
-        }
-        break;
-    }
-}
-
-static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
-{
-    u32 index;
-    if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
-    {
-        index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
-        LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
-    }
-
-    if (JOY_NEW(A_BUTTON))
-    {
-        if (!sRotomStartMenu->optionSelected)
-        {
-            if (sMenuSelected != MENU_RETIRE)
-            {
-                FadeScreen(FADE_TO_BLACK, 0);
-            }
-            sRotomStartMenu->optionSelected = TRUE;
-        }
-    }
-    else if (JOY_NEW(B_BUTTON) && !sRotomStartMenu->optionSelected)
-    {
-        PlaySE(ROTOMSE_MENU_CLOSE);
-        RotomStartMenu_ExitAndClearTilemap();
-        DestroyTask(taskId);
-    }
-    else if (JOY_NEW(DPAD_DOWN) && !sRotomStartMenu->optionSelected)
-    {
-        RotomStartMenu_SafariZone_HandleInput_DPadDown();
-    }
-    else if (JOY_NEW(DPAD_UP) && !sRotomStartMenu->optionSelected)
-    {
-        RotomStartMenu_SafariZone_HandleInput_DPadUp();
-    }
-    else if (sRotomStartMenu->optionSelected)
-    {
-        if (sMenuSelected != MENU_RETIRE)
-        {
-            RotomStartMenu_OpenMenu();
-        }
-        else
-        {
-            DoCleanUpAndStartSafariZoneRetire();
-        }
-    }
-}
 
 #define SET_HIGH_BIT(num) (num | (1 << 15))
 
