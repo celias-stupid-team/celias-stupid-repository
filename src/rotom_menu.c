@@ -624,7 +624,7 @@ static const struct CompressedSpriteSheet sSpriteSheet_Icon[] = {
     { NULL },
 };
 
-static const struct OamData gOamIcon = {
+static const struct OamData sOamIcon = {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_DOUBLE,
     .objMode = 0,
@@ -870,124 +870,124 @@ static const struct SpriteTemplate sSpriteRotomEyes = {
     .callback = SpriteCB_RotomEyes,
 };
 
-static const union AnimCmd gAnimCmdPokedex_NotSelected[] = {
+static const union AnimCmd sAnimCmdPokedex_NotSelected[] = {
     ANIMCMD_FRAME(128, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdPokedex_Selected[] = {
+static const union AnimCmd sAnimCmdPokedex_Selected[] = {
     ANIMCMD_FRAME(16, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconPokedexAnim[] = {
-    gAnimCmdPokedex_NotSelected,
-    gAnimCmdPokedex_Selected,
+static const union AnimCmd *const sIconPokedexAnim[] = {
+    sAnimCmdPokedex_NotSelected,
+    sAnimCmdPokedex_Selected,
 };
 
-static const union AnimCmd gAnimCmdParty_NotSelected[] = {
+static const union AnimCmd sAnimCmdParty_NotSelected[] = {
     ANIMCMD_FRAME(144, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdParty_Selected[] = {
+static const union AnimCmd sAnimCmdParty_Selected[] = {
     ANIMCMD_FRAME(32, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconPartyAnim[] = {
-    gAnimCmdParty_NotSelected,
-    gAnimCmdParty_Selected,
+static const union AnimCmd *const sIconPartyAnim[] = {
+    sAnimCmdParty_NotSelected,
+    sAnimCmdParty_Selected,
 };
 
-static const union AnimCmd gAnimCmdPC_NotSelected[] = {
+static const union AnimCmd sAnimCmdPC_NotSelected[] = {
     ANIMCMD_FRAME(112, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdPC_Selected[] = {
+static const union AnimCmd sAnimCmdPC_Selected[] = {
     ANIMCMD_FRAME(0, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconPCAnim[] = {
-    gAnimCmdPC_NotSelected,
-    gAnimCmdPC_Selected,
+static const union AnimCmd *const sIconPCAnim[] = {
+    sAnimCmdPC_NotSelected,
+    sAnimCmdPC_Selected,
 };
 
-static const union AnimCmd gAnimCmdBag_NotSelected[] = {
+static const union AnimCmd sAnimCmdBag_NotSelected[] = {
     ANIMCMD_FRAME(160, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdBag_Selected[] = {
+static const union AnimCmd sAnimCmdBag_Selected[] = {
     ANIMCMD_FRAME(48, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconBagAnim[] = {
-    gAnimCmdBag_NotSelected,
-    gAnimCmdBag_Selected,
+static const union AnimCmd *const sIconBagAnim[] = {
+    sAnimCmdBag_NotSelected,
+    sAnimCmdBag_Selected,
 };
 
-static const union AnimCmd gAnimCmdTrainerCard_NotSelected[] = {
+static const union AnimCmd sAnimCmdTrainerCard_NotSelected[] = {
     ANIMCMD_FRAME(176, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdTrainerCard_Selected[] = {
+static const union AnimCmd sAnimCmdTrainerCard_Selected[] = {
     ANIMCMD_FRAME(64, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconTrainerCardAnim[] = {
-    gAnimCmdTrainerCard_NotSelected,
-    gAnimCmdTrainerCard_Selected,
+static const union AnimCmd *const sIconTrainerCardAnim[] = {
+    sAnimCmdTrainerCard_NotSelected,
+    sAnimCmdTrainerCard_Selected,
 };
 
-static const union AnimCmd gAnimCmdSave_NotSelected[] = {
+static const union AnimCmd sAnimCmdSave_NotSelected[] = {
     ANIMCMD_FRAME(192, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdSave_Selected[] = {
+static const union AnimCmd sAnimCmdSave_Selected[] = {
     ANIMCMD_FRAME(80, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconSaveAnim[] = {
-    gAnimCmdSave_NotSelected,
-    gAnimCmdSave_Selected,
+static const union AnimCmd *const sIconSaveAnim[] = {
+    sAnimCmdSave_NotSelected,
+    sAnimCmdSave_Selected,
 };
 
-static const union AnimCmd gAnimCmdOptions_NotSelected[] = {
+static const union AnimCmd sAnimCmdOptions_NotSelected[] = {
     ANIMCMD_FRAME(208, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdOptions_Selected[] = {
+static const union AnimCmd sAnimCmdOptions_Selected[] = {
     ANIMCMD_FRAME(96, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconOptionsAnim[] = {
-    gAnimCmdOptions_NotSelected,
-    gAnimCmdOptions_Selected,
+static const union AnimCmd *const sIconOptionsAnim[] = {
+    sAnimCmdOptions_NotSelected,
+    sAnimCmdOptions_Selected,
 };
 
-static const union AnimCmd gAnimCmdBagF_NotSelected[] = {
+static const union AnimCmd sAnimCmdBagF_NotSelected[] = {
     ANIMCMD_FRAME(240, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd gAnimCmdBagF_Selected[] = {
+static const union AnimCmd sAnimCmdBagF_Selected[] = {
     ANIMCMD_FRAME(224, 0),
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd *const gIconBagFAnim[] = {
-    gAnimCmdBagF_NotSelected,
-    gAnimCmdBagF_Selected,
+static const union AnimCmd *const sIconBagFAnim[] = {
+    sAnimCmdBagF_NotSelected,
+    sAnimCmdBagF_Selected,
 };
 
 static const union AffineAnimCmd sAffineAnimIcon_NoAnim[] = {
@@ -1020,81 +1020,81 @@ static const union AffineAnimCmd *const sAffineAnimsIcon[] = {
     sAffineAnimIcon_Anim,
 };
 
-static const struct SpriteTemplate gSpriteIconPokedex = {
+static const struct SpriteTemplate sSpriteIconPokedex = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconPokedexAnim,
+    .oam = &sOamIcon,
+    .anims = sIconPokedexAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconPokedex,
 };
 
-static const struct SpriteTemplate gSpriteIconParty = {
+static const struct SpriteTemplate sSpriteIconParty = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconPartyAnim,
+    .oam = &sOamIcon,
+    .anims = sIconPartyAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconParty,
 };
 
-static const struct SpriteTemplate gSpriteIconPC = {
+static const struct SpriteTemplate sSpriteIconPC = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconPCAnim,
+    .oam = &sOamIcon,
+    .anims = sIconPCAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconPC,
 };
 
-static const struct SpriteTemplate gSpriteIconBag = {
+static const struct SpriteTemplate sSpriteIconBag = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconBagAnim,
+    .oam = &sOamIcon,
+    .anims = sIconBagAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconBag,
 };
 
-static const struct SpriteTemplate gSpriteIconTrainerCard = {
+static const struct SpriteTemplate sSpriteIconTrainerCard = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconTrainerCardAnim,
+    .oam = &sOamIcon,
+    .anims = sIconTrainerCardAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconTrainerCard,
 };
 
-static const struct SpriteTemplate gSpriteIconSave = {
+static const struct SpriteTemplate sSpriteIconSave = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconSaveAnim,
+    .oam = &sOamIcon,
+    .anims = sIconSaveAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconSave,
 };
 
-static const struct SpriteTemplate gSpriteIconOptions = {
+static const struct SpriteTemplate sSpriteIconOptions = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconOptionsAnim,
+    .oam = &sOamIcon,
+    .anims = sIconOptionsAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconOptions,
 };
 
-static const struct SpriteTemplate gSpriteIconBagF = {
+static const struct SpriteTemplate sSpriteIconBagF = {
     .tileTag = TAG_ICON_GFX,
     .paletteTag = TAG_ICON_PAL,
-    .oam = &gOamIcon,
-    .anims = gIconBagFAnim,
+    .oam = &sOamIcon,
+    .anims = sIconBagFAnim,
     .images = NULL,
     .affineAnims = sAffineAnimsIcon,
     .callback = SpriteCB_IconBagF,
@@ -1568,20 +1568,20 @@ static void RotomStartMenu_CreateSprites(void)
         }
     }
 
-    sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&gSpriteIconPokedex, x - 1, y1 - 2, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&gSpriteIconParty, x, y2 - 2, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_POKEDEX] = CreateSprite(&sSpriteIconPokedex, x - 1, y1 - 2, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_PARTY] = CreateSprite(&sSpriteIconParty, x, y2 - 2, 0);
     if (gSaveBlock2Ptr->playerGender == FEMALE)
     {
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBagF, x, y3 + 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&sSpriteIconBagF, x, y3 + 1, 0);
     }
     else
     {
-        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&gSpriteIconBag, x, y3 - 1, 0);
+        sRotomStartMenu->spriteIDs[SPRITE_BAG] = CreateSprite(&sSpriteIconBag, x, y3 - 1, 0);
     }
-    sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&gSpriteIconPC, x, y4 + 1, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&gSpriteIconTrainerCard, x, y5 - 1, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&gSpriteIconSave, x, y6, 0);
-    sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&gSpriteIconOptions, x, y7, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_PC] = CreateSprite(&sSpriteIconPC, x, y4 + 1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_TRAINER_CARD] = CreateSprite(&sSpriteIconTrainerCard, x, y5 - 1, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_SAVE] = CreateSprite(&sSpriteIconSave, x, y6, 0);
+    sRotomStartMenu->spriteIDs[SPRITE_OPTIONS] = CreateSprite(&sSpriteIconOptions, x, y7, 0);
 }
 
 static void RotomStartMenu_CreateSpriteMasks(void)
