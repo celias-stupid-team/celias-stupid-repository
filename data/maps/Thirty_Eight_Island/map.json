@@ -309,12 +309,20 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_THIRTY_EIGHT_ISLAND",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
-      "x": 18,
+      "x": 19,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -343,6 +351,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "ThirtyEightIsland_CalmHoothoot"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThirtyEightIsland_DarnBarn"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThirtyEightIsland_DarnBarn"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThirtyEightIsland_DarnBarn"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ThirtyEightIsland_DarnBarn"
     }
   ]
 }

@@ -13,6 +13,27 @@ script NationalPark_Sign {
 
 }
 
+script NationalPark_TrashCan {
+	msgbox(
+	"trash can flavor text\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script NationalPark_Woman {
+	msgbox(
+	"National Park\n"
+	"Placeholder NPC", MSGBOX_NPC)
+}
+
+script NationalPark_ContestNPC {
+	msgbox(
+	"Bug catching contest\n"
+	"placeholder NPC", MSGBOX_NPC)
+}
+
+
+
 script NationalPark_JohtoLawnMaintenance {
 	msgbox(
 	"I heard the PARK hired a fancy\n"
