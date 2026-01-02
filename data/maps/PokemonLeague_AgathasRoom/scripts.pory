@@ -8,6 +8,7 @@ PokemonLeague_AgathasRoom_MapScripts::
 
 PokemonLeague_AgathasRoom_OnResume::
 	setvar VAR_0x8004, 2
+	setrespawn(HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM)
 	call PokemonLeague_EventScript_DoLightingEffect
 	end
 
@@ -66,7 +67,7 @@ PokemonLeague_AgathasRoom_EventScript_RematchIntro::
 	return
 
 PokemonLeague_AgathasRoom_EventScript_Battle::
-	trainerbattle_no_intro TRAINER_ELITE_FOUR_AGATHA, PokemonLeague_AgathasRoom_Text_Defeat
+	trainerbattle_no_intro_battletype TRAINER_ELITE_FOUR_AGATHA, SPECIAL_BATTLE_TYPE_CYNTHIA, PokemonLeague_AgathasRoom_Text_Defeat
 	return
 
 PokemonLeague_AgathasRoom_EventScript_Rematch::

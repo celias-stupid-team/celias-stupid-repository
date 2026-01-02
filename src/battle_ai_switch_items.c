@@ -111,7 +111,12 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
     else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_WATER)
         absorbingTypeAbility = ABILITY_WATER_ABSORB;
     else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
-        absorbingTypeAbility = ABILITY_VOLT_ABSORB;
+    {
+        if (gBattleMons[gActiveBattler].ability == ABILITY_VOLT_ABSORB)
+            absorbingTypeAbility = ABILITY_VOLT_ABSORB;
+        if (gBattleMons[gActiveBattler].ability == ABILITY_LIGHTNING_ROD)
+            absorbingTypeAbility = ABILITY_LIGHTNING_ROD;
+    }
     else
         return FALSE;
     if (gBattleMons[gActiveBattler].ability == absorbingTypeAbility)
@@ -306,6 +311,9 @@ static bool8 ShouldSwitch(void)
     u8 battlerIn1, battlerIn2;
     s32 i;
     s32 availableToSwitch;
+
+    if ((gBattleResources->ai->aiFlags & AI_SCRIPT_NO_SWITCHING))
+        return FALSE;
 
     if ((gBattleMons[gActiveBattler].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
      || (gStatuses3[gActiveBattler] & STATUS3_ROOTED)

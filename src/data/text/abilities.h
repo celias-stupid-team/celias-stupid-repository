@@ -183,6 +183,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BIG_PECKS] = COMPOUND_STRING("User's PECK is stronger."),
     [ABILITY_RESTLESS] = COMPOUND_STRING("Foe cannot restore HP."),
     [ABILITY_MAGIC_SHELL] = COMPOUND_STRING("Cannot be pierced with a SPOON."),
+    [ABILITY_NO_GUARD] = COMPOUND_STRING("Ensures that all moves hit."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -284,4 +285,5 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BIG_PECKS] = _("BIG PECKS"),
     [ABILITY_RESTLESS] = _("RESTLESS"),
     [ABILITY_MAGIC_SHELL] = _("MAGIC SHELL"),
+    [ABILITY_NO_GUARD] = _("NO GUARD"),
 };
