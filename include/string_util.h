@@ -39,6 +39,6 @@ u8 GetExtCtrlCodeLength(u8 code);
 s32 StringCompareWithoutExtCtrlCodes(const u8 *str1, const u8 *str2);
 void ConvertInternationalString(u8 *s, u8 language);
 void StripExtCtrlCodes(u8 *str);
-int GetStringRightAlignXOffset(int fontId, const u8* str, int totalWidth);
+int GetStringCenterAlignXOffset(int fontId, const u8* str, int totalWidth);
 
 #endif // GUARD_STRING_UTIL_H

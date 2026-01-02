@@ -31,6 +31,7 @@
 #include "money.h"
 #include "coins.h"
 #include "battle_setup.h"
+#include "rotom_menu.h"
 #include "shop.h"
 #include "slot_machine.h"
 #include "field_effect.h"
@@ -2609,5 +2610,49 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
             //DebugPrintf("Not the pokemon");
         }
     }
+    return FALSE;
+}
+
+bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
+{
+    u32 i, box, monPos, partySlot;
+    u16 species;
+    u16 moveId = ScriptReadHalfword(ctx);
+    gSpecialVar_Result = PARTY_SIZE;
+
+    if (!FlagGet(FLAG_SYS_ROTOM_MENU))
+    {
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+            if (!species)
+                break;
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonKnowsMove(&gPlayerParty[i], moveId) == TRUE)
+            {
+                gSpecialVar_Result = i;
+                gSpecialVar_0x8004 = species;
+                break;
+            }
+        }
+    }
+    else
+    {
+        if (FindPartyMonWithMove(moveId, &partySlot, &species))
+        {
+            gSpecialVar_Result = partySlot;
+            gSpecialVar_0x8004 = species;
+        }
+        else if (FindBoxMonWithMove(moveId, &box, &monPos, &species))
+        {
+            PlayCry_Normal(SPECIES_ROTOM, 0);
+            gSpecialVar_Result = FIELD_MOVE_USE_PC_MON;
+            gUsingRotomMenuMove = TRUE;
+            gRotomMoveSlotOrBoxPos = (u16)SET_HIGH_BIT(((box << 8) | monPos));
+            // go ahead and buffer mon nickname while we're at it
+            GetBoxMonData(&gPokemonStoragePtr->boxes[box][monPos], MON_DATA_NICKNAME, sScriptStringVars[0]);
+            StringGet_Nickname(sScriptStringVars[0]);
+        }
+    }
+
     return FALSE;
 }

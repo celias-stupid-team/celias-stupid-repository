@@ -4,6 +4,8 @@
 #include "party_menu.h"
 #include "event_data.h"
 #include "script.h"
+#include "rotom_menu.h"
+#include "pokemon_storage_system.h"
 #include "fldeff.h"
 #include "event_scripts.h"
 #include "constants/event_objects.h"
@@ -42,9 +44,15 @@ static void FieldCB_UseStrength(void)
 
 bool8 FldEff_UseStrength(void)
 {
+    u8 box, monPos;
     u8 taskId = CreateFieldEffectShowMon();
     FLDEFF_SET_FUNC_TO_DATA(ShowMonCB_UseStrength);
-    GetMonNickname(&gPlayerParty[gFieldEffectArguments[0]], gStringVar1);
+    // rotom menu already buffered name in ScrCmd_checkfieldmove
+    if (!gUsingRotomMenuMove || gRotomMoveSlotOrBoxPos == ROTOM_SLOT_POS_NONE)
+    {
+        GetMonNickname(&gPlayerParty[gFieldEffectArguments[0]], gStringVar1);
+    }
+
     return FALSE;
 }
 
