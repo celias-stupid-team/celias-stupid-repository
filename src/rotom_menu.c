@@ -76,6 +76,7 @@ static void SpriteCB_IconOptions(struct Sprite *sprite);
 static void SpriteCB_IconBagF(struct Sprite *sprite);
 static void SpriteCB_RotomEyes(struct Sprite *sprite);
 static void SpriteCB_MoveSelectorMask(struct Sprite *sprite);
+static void SpriteCB_Arrow(struct Sprite *sprite);
 
 /* TASKs */
 static void Task_RotomStartMenu_HandleMainInput(u8 taskId);
@@ -201,6 +202,7 @@ enum RotomSpriteID
 {
     SPRITE_ROTOM_EYE_TOP,
     SPRITE_ROTOM_EYE_BOTTOM,
+    SPRITE_ROW_ARROW,
     SPRITE_DEX_NUM_WIN_L,
     SPRITE_DEX_NUM_WIN_R,
     SPRITE_MOVE_SELECTOR_L,
@@ -457,6 +459,7 @@ static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_men
 #define TAG_MON_ICON_GFX             1237
 #define TAG_MON_ICON_PAL             0x4656
 #define TAG_MOVE_SELECTOR_MIDDLE_GFX 1238
+#define TAG_ARROW_GFX                1239
 
 static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
@@ -465,6 +468,7 @@ static const u32 sMoveSelectorMiddleGfx[] = INCBIN_U32("graphics/rotom_menu/move
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
 static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
 static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
+static const u32 sArrowGfx[] = INCBIN_U32("graphics/rotom_menu/arrow.4bpp.lz");
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0,
@@ -605,6 +609,37 @@ static const struct SpriteTemplate sSpriteMonIcon = {
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy,
+};
+
+#define ROW_ARROW_FRAME_SIZE 8
+
+static const struct CompressedSpriteSheet sSpriteSheet_RowArrow[] = {
+    { sArrowGfx, (ROW_ARROW_FRAME_SIZE * ROW_ARROW_FRAME_SIZE) / 2, TAG_ARROW_GFX },
+    { NULL },
+};
+
+static const struct OamData sOamRowArrow = {
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(8x8),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(8x8),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+};
+
+static const struct SpriteTemplate sSpriteRowArrow = {
+    .tileTag = TAG_ARROW_GFX,
+    .paletteTag = TAG_MOVE_SELECTOR_PAL,
+    .oam = &sOamRowArrow,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_Arrow,
 };
 
 static const struct SpritePalette sSpritePal_Icon[] = {
@@ -1356,6 +1391,38 @@ static void SpriteCB_IconBagF(struct Sprite *sprite)
     }
 }
 
+#define spArrowBounceTimer data[0]
+
+#define ROW_ARROW_INIT_Y_POS         142
+#define ROW_ARROW_BOUNCE_TIMER_START 30
+
+static void SpriteCB_Arrow(struct Sprite *sprite)
+{
+    // Vflip the arrow when on the second row
+    if (sStoredMoveRow == 1)
+    {
+       SetSpriteOamFlipBits(sprite, 0, 1); 
+    }
+    else
+    {
+       SetSpriteOamFlipBits(sprite, 0, 0); 
+    }
+
+    if (sprite->spArrowBounceTimer <= 0)
+    {
+        if (sprite->y > ROW_ARROW_INIT_Y_POS)
+            sprite->y--;
+        else
+            sprite->y++;
+
+        sprite->spArrowBounceTimer = ROW_ARROW_BOUNCE_TIMER_START;        
+    }
+    else
+    {
+        sprite->spArrowBounceTimer--;
+    }
+}
+
 static void ClearMoveSelectorText(void)
 {
     FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
@@ -1471,14 +1538,13 @@ static void RotomStartMenu_LoadSprites(void)
     LoadPalette(sStartMenuPalette, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelectorMiddle);
+    LoadCompressedSpriteSheet(sSpriteSheet_RowArrow);
+    LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 
     LoadSpritePalette(sSpritePal_MonIcon);
     index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
     LoadPalette(sMonIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
-
-    index = IndexOfSpritePaletteTag(TAG_ROTOM_EYES_GFX);
-    LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
 }
 
 #define MON_SQUARE_SIZE 4
@@ -1609,6 +1675,9 @@ static void RotomStartMenu_CreateSprites(void)
     sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R] = CreateSprite(&sSpriteMoveSelector, 176 + MOVE_SELECTOR_R_OFFSET, 14, 0);
     SetSpriteOamFlipBits(&gSprites[sRotomStartMenu->spriteIDs[SPRITE_DEX_NUM_WIN_R]], 1, 1);
 
+    sRotomStartMenu->spriteIDs[SPRITE_ROW_ARROW] = CreateSprite(&sSpriteRowArrow, 4, ROW_ARROW_INIT_Y_POS, 0);
+    gSprites[sRotomStartMenu->spriteIDs[SPRITE_ROW_ARROW]].spArrowBounceTimer = ROW_ARROW_BOUNCE_TIMER_START;
+    
     rotomEyeTopID = CreateSprite(&sSpriteRotomEyes, 205, 29, 0);
     rotomEyeBottomID = CreateSprite(&sSpriteRotomEyes, 205, 42, 0);
     sRotomStartMenu->spriteIDs[SPRITE_ROTOM_EYE_TOP] = rotomEyeTopID;
@@ -1687,6 +1756,11 @@ static void RotomStartMenu_CreateSpriteMasks(void)
             {
                 gSprites[maskSpriteID].spStoredYPos = gSprites[maskSpriteID].y;
             }
+
+            if (i == SPRITE_ROW_ARROW)
+            {
+                gSprites[maskSpriteID].spArrowBounceTimer = ROW_ARROW_BOUNCE_TIMER_START;
+            }
             
             StartSpriteAnim(&gSprites[maskSpriteID], gSprites[spriteID].animNum);
             gSprites[maskSpriteID].oam.objMode = ST_OAM_OBJ_WINDOW;
@@ -1698,6 +1772,7 @@ static void RotomStartMenu_CreateSpriteMasks(void)
 }
 
 #undef spStoredYPos
+#undef spArrowBounceTimer
 
 static void RotomStartMenu_DisableSpriteAffineModes(void)
 {
@@ -1846,6 +1921,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_MIDDLE_GFX);
         FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
         FreeSpriteTilesByTag(TAG_ROTOM_EYES_GFX);
+        FreeSpriteTilesByTag(TAG_ARROW_GFX);
         Free(sRotomStartMenu);
         sRotomStartMenu = NULL;
     }
