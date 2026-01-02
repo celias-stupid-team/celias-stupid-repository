@@ -168,6 +168,20 @@ enum ComfyAnimStatus
     COMFY_ANIM_COMPLETED,
 };
 
+enum RotomMoveMessage
+{
+    ROTOM_MSG_NONE,
+    ROTOM_MSG_NOTHING_TO_CUT,
+    ROTOM_MSG_CANT_SURF_HERE,
+    ROTOM_MSG_ALREADY_SURFING,
+    ROTOM_MSG_CURRENT_TOO_FAST,
+    ROTOM_MSG_ALREADY_IN_USE,
+    ROTOM_MSG_CANT_USE_HERE,
+    ROTOM_MSG_CANT_USE_RETREAT,
+    ROTOM_MSG_NO_RETREAT,
+    ROTOM_MSG_COUNT,
+};
+
 enum RotomMonIcon
 {
     ICON_GHOLDENGO,
@@ -258,6 +272,19 @@ enum RotomMoveID
 #define ROTOMSE_NEW_OBTAINABLE SE_PIN
 
 #define ROTOM_MENU_REPEAT_DELAY 25
+
+static const u8 *const sRotomMoveMessages[ROTOM_MSG_COUNT] = {
+    [ROTOM_MSG_NONE] = gText_EmptyString3,
+    [ROTOM_MSG_NOTHING_TO_CUT] = gText_NothingToCut,
+    [ROTOM_MSG_CANT_SURF_HERE] = gText_CantSurfHere,
+    [ROTOM_MSG_ALREADY_SURFING] = gText_AlreadySurfing,
+    [ROTOM_MSG_CURRENT_TOO_FAST] = gText_CurrentIsTooFast,
+    [ROTOM_MSG_ALREADY_IN_USE] = gText_InUseAlready_PM,
+    [ROTOM_MSG_CANT_USE_HERE] = gText_CantUseHere,
+    [ROTOM_MSG_CANT_USE_RETREAT] = gText_CantUseRetreat,
+    [ROTOM_MSG_NO_RETREAT] = gText_NoRetreat,
+};
+
 struct RotomMove
 {
     u32 move;
@@ -401,6 +428,7 @@ struct RotomStartMenu
     u8 blinkTimer;
     u8 rotomEyesStateTimer;
     u8 rotomEyesState;
+    u8 rotomMoveMsgID;
     u8 iconAnimStarted:1;
     u8 optionSelected:1;
     u8 storedMenuOption:4;
@@ -443,17 +471,19 @@ static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/rotom_new
 static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
 //--SPRITE-GFX--
-#define TAG_ICON_GFX          1234
-#define TAG_ICON_PAL          0x4654
-#define TAG_MOVE_SELECTOR_GFX 1235
-#define TAG_MOVE_SELECTOR_PAL 0x4655
-#define TAG_ROTOM_EYES_GFX    1236
-#define TAG_MON_ICON_GFX      1237
-#define TAG_MON_ICON_PAL      0x4656
+#define TAG_ICON_GFX                 1234
+#define TAG_ICON_PAL                 0x4654
+#define TAG_MOVE_SELECTOR_GFX        1235
+#define TAG_MOVE_SELECTOR_PAL        0x4655
+#define TAG_ROTOM_EYES_GFX           1236
+#define TAG_MON_ICON_GFX             1237
+#define TAG_MON_ICON_PAL             0x4656
+#define TAG_MOVE_SELECTOR_MIDDLE_GFX 1238
 
 static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
 static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
+static const u32 sMoveSelectorMiddleGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector_middle.4bpp.lz");
 static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
 static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
@@ -664,6 +694,35 @@ static const struct SpriteTemplate sSpriteMoveSelector = {
     .tileTag = TAG_MOVE_SELECTOR_GFX,
     .paletteTag = TAG_MOVE_SELECTOR_PAL,
     .oam = &sOamMoveSelector,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_MoveSelectorMiddle[] = {
+    { sMoveSelectorMiddleGfx, (32 * 32) / 2, TAG_MOVE_SELECTOR_MIDDLE_GFX },
+    { NULL },
+};
+
+static const struct OamData sOamMoveSelectorMiddle = {
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+};
+
+static const struct SpriteTemplate sSpriteMoveSelectorMiddle = {
+    .tileTag = TAG_MOVE_SELECTOR_MIDDLE_GFX,
+    .paletteTag = TAG_MOVE_SELECTOR_PAL,
+    .oam = &sOamMoveSelectorMiddle,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -1419,6 +1478,7 @@ void RotomStartMenu_Init(void)
     sRotomStartMenu->optionSelected = FALSE;
     sRotomStartMenu->iconAnimStarted = FALSE;
     sRotomStartMenu->fieldMoveCursor = ROTOM_MOVE_NONE;
+    sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NONE;
 
     sRotomStartMenu->rotomEyesStateTimer = LOOK_TIMER_FRAMES;
     sRotomStartMenu->blinkTimer = BLINK_TIMER_START_VALUE;
@@ -1484,6 +1544,7 @@ static void RotomStartMenu_LoadSprites(void)
     index = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
     LoadPalette(sMoveSelectorPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
+    LoadCompressedSpriteSheet(sSpriteSheet_MoveSelectorMiddle);
 
     LoadSpritePalette(sSpritePal_MonIcon);
     index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
@@ -1827,6 +1888,7 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
     {
         FreeSpriteTilesByTag(TAG_ICON_GFX);
         FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_GFX);
+        FreeSpriteTilesByTag(TAG_MOVE_SELECTOR_MIDDLE_GFX);
         FreeSpriteTilesByTag(TAG_MON_ICON_GFX);
         FreeSpriteTilesByTag(TAG_ROTOM_EYES_GFX);
         Free(sRotomStartMenu);
@@ -2557,6 +2619,102 @@ static void RotomStartMenu_HandleInput_DPadRight(void)
 
 #undef tHideTimer
 
+enum InvalidMsgState
+{
+    MSGSTATE_INIT,
+    MSGSTATE_PRINT_MSG,
+    MSGSTATE_WAIT_INPUT,
+    MSGSTATE_CLOSE,
+};
+
+#define tTaskState data[0]
+#define tSpriteID1 data[1]
+#define tSpriteID2 data[2]
+#define tSpriteID3 data[3]
+#define tMaskSpriteID1 data[4]
+#define tMaskSpriteID2 data[5]
+#define tMaskSpriteID3 data[6]
+
+#define MOVE_SEL_MIDDLE_POS(num) (70 + 32 * num)
+
+
+static void Task_ShowInvalidMoveMessage(u8 taskId)
+{
+    switch(gTasks[taskId].tTaskState)
+    {
+    case MSGSTATE_INIT:
+        FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+        PutWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
+        CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
+        ScheduleBgCopyTilemapToVram(0);
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].x = MOVE_SEL_MIDDLE_POS(0) - 32;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].x = MOVE_SEL_MIDDLE_POS(2) + 32;
+        gTasks[taskId].tSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), 107, 0);
+        gTasks[taskId].tSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), 107, 0);
+        gTasks[taskId].tSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), 107, 0);
+        if (Overworld_GetFlashLevel())
+        {
+            SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+            SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+
+            gTasks[taskId].tMaskSpriteID1 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(0), 107, 0);
+            gSprites[gTasks[taskId].tMaskSpriteID1].oam.objMode = ST_OAM_OBJ_WINDOW;
+            gTasks[taskId].tMaskSpriteID2 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(1), 107, 0);
+            gSprites[gTasks[taskId].tMaskSpriteID2].oam.objMode = ST_OAM_OBJ_WINDOW;
+            gTasks[taskId].tMaskSpriteID3 = CreateSprite(&sSpriteMoveSelectorMiddle, MOVE_SEL_MIDDLE_POS(2), 107, 0);
+            gSprites[gTasks[taskId].tMaskSpriteID3].oam.objMode = ST_OAM_OBJ_WINDOW;
+            
+            SetGpuRegBits(REG_OFFSET_DISPCNT, 0);
+            SetGpuRegBits(REG_OFFSET_WINOUT, 0);
+        }
+        
+        gTasks[taskId].tTaskState++;
+        break;
+    case MSGSTATE_PRINT_MSG:
+        AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
+                                     FONT_SMALL,
+                                     GetStringRightAlignXOffset(FONT_SMALL, sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID], 152) + 26,
+                                     3,
+                                     sMoveTextColor,
+                                     TEXT_SKIP_DRAW,
+                                     sRotomMoveMessages[sRotomStartMenu->rotomMoveMsgID]);
+
+        CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
+        ScheduleBgCopyTilemapToVram(0);
+        gTasks[taskId].tTaskState++;
+        break;
+    case MSGSTATE_WAIT_INPUT:
+        if (JOY_NEW(A_BUTTON))
+        {
+            PlaySE(ROTOMSE_MENU_SELECTION);
+            gTasks[taskId].tTaskState++;
+        }
+        break;
+    case MSGSTATE_CLOSE:
+        DestroySprite(&gSprites[gTasks[taskId].tSpriteID1]);
+        DestroySprite(&gSprites[gTasks[taskId].tSpriteID2]);
+        DestroySprite(&gSprites[gTasks[taskId].tSpriteID3]);
+        if (Overworld_GetFlashLevel())
+        {
+            DestroySprite(&gSprites[gTasks[taskId].tMaskSpriteID1]);
+            DestroySprite(&gSprites[gTasks[taskId].tMaskSpriteID2]);
+            DestroySprite(&gSprites[gTasks[taskId].tMaskSpriteID3]);
+        }
+
+        UpdateMoveSelectorText();
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_L]].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos;
+        gSprites[sRotomStartMenu->spriteIDs[SPRITE_MOVE_SELECTOR_R]].x = sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos + MOVE_SELECTOR_R_OFFSET;
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NONE;
+        DestroyTask(taskId);
+        break;
+    } 
+}
+
+#undef tTaskState
+#undef tSpriteID1
+#undef tSpriteID2
+#undef tSpriteID3
+
 static bool32 CheckValidFieldMoveInput(void)
 {
     sFieldMoveData = 0;
@@ -2571,8 +2729,11 @@ static bool32 CheckValidFieldMoveInput(void)
     }
     else
     {
-        // ravetodo add another indicator?
         PlaySE(SE_BOO);
+        if (sRotomStartMenu->rotomMoveMsgID != ROTOM_MSG_NONE)
+        {
+            CreateTask(Task_ShowInvalidMoveMessage, 0);
+        }
         return FALSE;
     }
 }
@@ -2582,6 +2743,9 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
     u32 index, fieldMoveTask;
 
     AdvanceComfyAnimations();
+    
+    // stifle all input while invalid message is showing, which handles A press to close
+    if (FindTaskIdByFunc(Task_ShowInvalidMoveMessage) != TASK_NONE) return;
 
     if (!sRotomStartMenu->optionSelected && !gPaletteFade.active)
     {
@@ -2606,7 +2770,8 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
                 sRotomStartMenu->optionSelected = TRUE;
             }
         }
-        else if (sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
+        else if (sRotomStartMenu->comfyAnimStatus == COMFY_ANIM_NONE // wait for move selector anims to finish 
+                 && sRotomStartMenu->fieldMoveCursor != ROTOM_MOVE_NONE
                  && CheckValidFieldMoveInput())
         {
             PlaySE(ROTOMSE_MENU_SELECTION);
@@ -2809,8 +2974,25 @@ static bool32 SetupFunc_Surf(void)
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
-    return !MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y))
-        && IsPlayerFacingSurfableFishableWater();
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_ALREADY_SURFING;
+        return FALSE;
+    }
+
+    if (MetatileBehavior_IsFastWater(MapGridGetMetatileBehaviorAt(x, y)))
+    { 
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CURRENT_TOO_FAST;
+        return FALSE;
+    }
+
+    if (!IsPlayerFacingSurfableFishableWater())
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_SURF_HERE;
+        return FALSE;
+    }
+
+    return TRUE;
 }
 
 static void FieldMoveFunc_Surf(void)
@@ -2823,8 +3005,16 @@ static bool32 SetupFunc_Waterfall(void)
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
-    return MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y))
-        && IsPlayerSurfingNorth();
+    if (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y))
+        && IsPlayerSurfingNorth())
+    {
+        return TRUE;
+    }
+    else
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
+        return FALSE; 
+    }        
 }
 
 static void FieldMoveFunc_Waterfall(void)
@@ -2844,9 +3034,21 @@ static void FieldMoveFunc_RockClimb(void)
 
 static bool32 SetupFunc_Strength(void)
 {
-    return !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING)
-        && CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER)
-        && !FlagGet(FLAG_SYS_USE_STRENGTH);
+    if (FlagGet(FLAG_SYS_USE_STRENGTH))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_ALREADY_IN_USE;
+        return FALSE; 
+    }
+
+
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING)
+        || !CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
+        return FALSE; 
+    }
+
+    return TRUE;    
 }
 
 static void FieldMoveFunc_Strength(void)
@@ -2901,6 +3103,8 @@ static bool32 SetupFunc_Cut(void)
                 }
             }
         }
+
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NOTHING_TO_CUT;
         return FALSE;
     }
 }
@@ -2919,7 +3123,15 @@ static void FieldMoveFunc_Cut(void)
 
 static bool32 SetupFunc_Fly(void)
 {
-    return Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType);
+    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType))
+    {
+        return TRUE;
+    }
+    else
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
+        return FALSE;
+    }
 }
 
 static void FieldMoveFunc_Fly(void)
@@ -2960,18 +3172,16 @@ static void FieldMoveFunc_BrickBreak(void)
 
 static bool32 SetupFunc_TailGlow(void)
 {
-    if (gMapHeader.cave != TRUE)
-    {
-        return FALSE;
-    }
-
     if (FlagGet(FLAG_SYS_FLASH_ACTIVE))
     {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_ALREADY_IN_USE;
         return FALSE;
     }
 
-    if (VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
+    if ((VarGet(VAR_CSR_TURNED_ON_POWER) == 1 && IsCurrentMap(MAP_ROCK_TUNNEL_1F))
+        || gMapHeader.cave != TRUE)
     {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
         return FALSE;
     }
 
@@ -2996,7 +3206,25 @@ static void FieldMoveFunc_Rest(void)
 
 static bool32 SetupFunc_Retreat(void)
 {
-    return TRUE;
+    if (gSaveBlock1Ptr->lastBenchLocation.mapGroup > 0)
+    {
+        return TRUE;
+    }
+    else
+    {
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))
+        {
+            sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_RETREAT;
+        }
+        else
+        {
+            sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_RETREAT;
+        }
+
+        return FALSE;    
+    }
+
+    return FALSE; // just a failsafe
 }
 
 static void FieldMoveFunc_Retreat(void)
