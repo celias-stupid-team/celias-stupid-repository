@@ -290,7 +290,6 @@ struct RotomMove
 {
     u32 move;
     u32 spriteXPos;
-    u32 textXPos;
     u32 monXPos;
     const u8 *name;
     bool32 (*setupFunc)(void);
@@ -301,7 +300,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_SURF] = {
         .move = MOVE_SURF,
         .spriteXPos = 6,
-        .textXPos = 10,
         .monXPos = 21,
         .name = gLongMoveNames[MOVE_SURF],
         .setupFunc = SetupFunc_Surf,
@@ -310,7 +308,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_WATERFALL] = {
         .move = MOVE_WATERFALL,
         .spriteXPos = 38,
-        .textXPos = 33,
         .monXPos = 53,
         .name = gLongMoveNames[MOVE_WATERFALL],
         .setupFunc = SetupFunc_Waterfall,
@@ -319,7 +316,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_ROCK_CLIMB] = {
         .move = MOVE_ROCK_CLIMB,
         .spriteXPos = 70,
-        .textXPos = 62,
         .monXPos = 85,
         .name = gLongMoveNames[MOVE_ROCK_CLIMB],
         .setupFunc = SetupFunc_RockClimb,
@@ -328,7 +324,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_STRENGTH] = {
         .move = MOVE_STRENGTH,
         .spriteXPos = 102,
-        .textXPos = 99,
         .monXPos = 117,
         .name = gLongMoveNames[MOVE_STRENGTH],
         .setupFunc = SetupFunc_Strength,
@@ -337,7 +332,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_CUT] = {
         .move = MOVE_CUT,
         .spriteXPos = 134,
-        .textXPos = 143,
         .monXPos = 149,
         .name = gLongMoveNames[MOVE_CUT],
         .setupFunc = SetupFunc_Cut,
@@ -346,7 +340,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_FLY] = {
         .move = MOVE_FLY,
         .spriteXPos = 166,
-        .textXPos = 176,
         .monXPos = 181,
         .name = gLongMoveNames[MOVE_FLY],
         .setupFunc = SetupFunc_Fly,
@@ -355,7 +348,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_WHIRLPOOL] = {
         .move = MOVE_WHIRLPOOL,
         .spriteXPos = 6,
-        .textXPos = 1,
         .monXPos = 21,
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
         .setupFunc = SetupFunc_Whirlpool,
@@ -364,7 +356,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_GUILLOTINE] = {
         .move = MOVE_GUILLOTINE,
         .spriteXPos = 38,
-        .textXPos = 31,
         .monXPos = 53,
         .name = gLongMoveNames[MOVE_GUILLOTINE],
         .setupFunc = SetupFunc_Guillotine,
@@ -373,7 +364,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_BRICK_BREAK] = {
         .move = MOVE_BRICK_BREAK,
         .spriteXPos = 70,
-        .textXPos = 59,
         .monXPos = 85,
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
         .setupFunc = SetupFunc_BrickBreak,
@@ -382,7 +372,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_TAIL_GLOW] = {
         .move = MOVE_TAIL_GLOW,
         .spriteXPos = 102,
-        .textXPos = 97,
         .monXPos = 117,
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
         .setupFunc = SetupFunc_TailGlow,
@@ -391,7 +380,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_REST] = {
         .move = MOVE_REST,
         .spriteXPos = 134,
-        .textXPos = 141,
         .monXPos = 149,
         .name = gLongMoveNames[MOVE_REST],
         .setupFunc = SetupFunc_Rest,
@@ -400,7 +388,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_RETREAT] = {
         .move = MOVE_RETREAT,
         .spriteXPos = 166,
-        .textXPos = 166,
         .monXPos = 181,
         .name = gLongMoveNames[MOVE_RETREAT],
         .setupFunc = SetupFunc_Retreat,
@@ -409,7 +396,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_NONE] = {
         .move = MOVE_NONE,
         .spriteXPos = 218,
-        .textXPos = 213,
         .monXPos = 0,
         .name = gText_EmptyString3,
         .setupFunc = NULL,
@@ -1403,6 +1389,22 @@ static void ClearMoveSelectorText(void)
 
 static const u8 sMoveTextColor[3] = { 0, 2, 3 };
 
+#define MOVE_SELECTOR_WIDTH       56
+// yeah I know this shit's hella janky
+// the gist is just "offset ONLY the whirlpool text by one pixel otherwise it looks weird"
+#define MOVE_SELECTOR_TEXT_OFFSET ((sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_WHIRLPOOL && sRotomStartMenu->monSpecies[sRotomStartMenu->fieldMoveCursor] != SPECIES_NONE) ? 11 : 12)
+
+static inline void PrintStringToMoveSelector(const u8 *str)
+{
+    AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
+                                 FONT_SMALL,
+                                 GetStringCenterAlignXOffset(FONT_SMALL, str, MOVE_SELECTOR_WIDTH) + sRotomMoves[sRotomStartMenu->fieldMoveCursor].spriteXPos - MOVE_SELECTOR_TEXT_OFFSET,
+                                 2,
+                                 sMoveTextColor,
+                                 TEXT_SKIP_DRAW,
+                                 str);
+}
+
 static void UpdateMoveSelectorText(void)
 {
     FillWindowPixelBuffer(sRotomStartMenu->sMoveNameWindowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
@@ -1412,15 +1414,13 @@ static void UpdateMoveSelectorText(void)
     {
         ClearWindowTilemap(sRotomStartMenu->sMoveNameWindowId);
     }
+    else if (sRotomStartMenu->monSpecies[sRotomStartMenu->fieldMoveCursor] == SPECIES_NONE)
+    {
+        PrintStringToMoveSelector(gText_ThreeHyphens);
+    }
     else
     {
-        AddTextPrinterParameterized3(sRotomStartMenu->sMoveNameWindowId,
-                                     FONT_SMALL,
-                                     sRotomMoves[sRotomStartMenu->fieldMoveCursor].textXPos,
-                                     2,
-                                     sMoveTextColor,
-                                     TEXT_SKIP_DRAW,
-                                     sRotomMoves[sRotomStartMenu->fieldMoveCursor].name);
+        PrintStringToMoveSelector(sRotomMoves[sRotomStartMenu->fieldMoveCursor].name);
     }
 
     CopyWindowToVram(sRotomStartMenu->sMoveNameWindowId, COPYWIN_GFX);
