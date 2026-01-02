@@ -425,6 +425,7 @@ struct RotomStartMenu
     u16 sMoveNameWindowId;
     u16 keyRepeatStartDelayBackup;
     u16 monSpecies[ROTOM_MOVE_COUNT];
+    u16 monSlotOrBoxPos[ROTOM_MOVE_COUNT];
     u8 spriteIDs[ROTOM_SPRITE_COUNT_WITH_MASKS];
     u8 blinkTimer;
     u8 rotomEyesStateTimer;
@@ -456,6 +457,8 @@ static const u16 sRotomMonIconToSpecies[] = {
     [ICON_AMPHAROS] = SPECIES_AMPHAROS,
 };
 
+EWRAM_DATA bool8 gUsingRotomMenuMove = 0;
+EWRAM_DATA u16 gRotomMoveSlotOrBoxPos = 0;
 static EWRAM_DATA struct RotomStartMenu *sRotomStartMenu = NULL;
 static EWRAM_DATA u8 sFieldMoveData = 0;
 static EWRAM_DATA u8 sMenuSelected = 0;
@@ -2735,7 +2738,6 @@ static bool32 CheckValidFieldMoveInput(void)
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc != NULL
         && sRotomMoves[sRotomStartMenu->fieldMoveCursor].setupFunc())
     {
-        gFieldEffectArguments[0] = 0; // ravetodo get actual party or PC mon
         return TRUE;
     }
     else
@@ -2786,6 +2788,9 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
                  && CheckValidFieldMoveInput())
         {
             PlaySE(ROTOMSE_MENU_SELECTION);
+            gUsingRotomMenuMove = TRUE;
+            gRotomMoveSlotOrBoxPos = sRotomStartMenu->monSlotOrBoxPos[sRotomStartMenu->fieldMoveCursor];
+           
             if (sRotomStartMenu->fieldMoveCursor == ROTOM_MOVE_FLY)
             {
                 FadeScreen(FADE_TO_BLACK, 0);
@@ -2939,6 +2944,8 @@ static void Task_RotomStartMenu_SafariZone_HandleMainInput(u8 taskId)
     }
 }
 
+#define SET_HIGH_BIT(num) (num | (1 << 15))
+
 static void PopulateMoveMonSpecies(void)
 {
     u32 move, box, monPos, partySlot;
@@ -2963,19 +2970,22 @@ static void PopulateMoveMonSpecies(void)
         if (FindPartyMonWithMove(sRotomMoves[move].move, &partySlot, &species))
         {
             sRotomStartMenu->monSpecies[move] = species;
+            sRotomStartMenu->monSlotOrBoxPos[move] = partySlot;
         }
         else if (FindBoxMonWithMove(sRotomMoves[move].move, &box, &monPos, &species))
         {
             sRotomStartMenu->monSpecies[move] = species;
+            sRotomStartMenu->monSlotOrBoxPos[move] = (u16)SET_HIGH_BIT(((box << 8) | monPos));
         }
         else
         {
             sRotomStartMenu->monSpecies[move] = SPECIES_NONE;
+            sRotomStartMenu->monSlotOrBoxPos[move] = ROTOM_SLOT_POS_NONE;
         }
         // sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
     }
 
-    for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u", move, sRotomStartMenu->monSpecies[move]);
+    for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u, slotorpos: %x", move, sRotomStartMenu->monSpecies[move], sRotomStartMenu->monSlotOrBoxPos[move]);
 }
 
 // Field move functions
