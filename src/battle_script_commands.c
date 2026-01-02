@@ -2278,7 +2278,10 @@ static void Cmd_resultmessage(void)
             stringId = STRINGID_BUTITFAILED;
             break;
         case MOVE_RESULT_DOESNT_AFFECT_FOE:
-            stringId = STRINGID_ITDOESNTAFFECT;
+            if (gCurrentMove == MOVE_THORN_WHIP)
+                stringId = STRINGID_PKMNIMMUNETOPOISON;
+            else
+                stringId = STRINGID_ITDOESNTAFFECT;
             break;
         case MOVE_RESULT_FOE_HUNG_ON:
             gLastUsedItem = gBattleMons[gBattlerTarget].item;
@@ -2293,7 +2296,10 @@ static void Cmd_resultmessage(void)
         default:
             if (gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE)
             {
-                stringId = STRINGID_ITDOESNTAFFECT;
+                if (gCurrentMove == MOVE_THORN_WHIP)
+                    stringId = STRINGID_PKMNIMMUNETOPOISON;
+                else
+                    stringId = STRINGID_ITDOESNTAFFECT;
             }
             else if (gMoveResultFlags & MOVE_RESULT_ONE_HIT_KO)
             {
@@ -2333,7 +2339,10 @@ static void Cmd_resultmessage(void)
             }
             else if (gMoveResultFlags & MOVE_RESULT_FAILED)
             {
-                stringId = STRINGID_BUTITFAILED;
+                if (gCurrentMove == MOVE_THORN_WHIP)
+                    stringId = STRINGID_PKMNALREADYSTATUSED;
+                else
+                    stringId = STRINGID_BUTITFAILED;
             }
             else
             {
@@ -2671,6 +2680,12 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 // It's redundant, because at this point we know the status1 value is 0.
                 gBattleMons[gEffectBattler].status1 &= ~STATUS1_TOXIC_POISON;
                 gBattleMons[gEffectBattler].status1 &= ~STATUS1_POISON;
+
+                if (gCurrentMove == MOVE_THORN_WHIP)
+                {
+	                gStatuses3[gBattlerTarget] |= STATUS3_TOXIC_SEED;
+                }
+
                 statusChanged = TRUE;
                 break;
             }
@@ -7090,20 +7105,32 @@ static void Cmd_setreflect(void)
 
 static void Cmd_setseeded(void)
 {
-    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED)
+    if ((gMoveResultFlags & MOVE_RESULT_NO_EFFECT) || (gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED) || (gBattleMons[gBattlerTarget].status2 & STATUS2_SUBSTITUTE))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_MISS;
+
+        if (gCurrentMove == MOVE_THORN_WHIP)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_THORN_WHIP_MISS;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_MISS;
     }
     else if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_FAIL;
+
+        if (gCurrentMove == MOVE_THORN_WHIP)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_THORN_WHIP_FAIL;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_FAIL;
     }
     else
     {
         gStatuses3[gBattlerTarget] |= gBattlerAttacker;
         gStatuses3[gBattlerTarget] |= STATUS3_LEECHSEED;
+
+        if (gCurrentMove == MOVE_THORN_WHIP)
+            gStatuses3[gBattlerTarget] |= STATUS3_TOXIC_SEED;
+            
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
     }
 

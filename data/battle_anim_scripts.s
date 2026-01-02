@@ -657,6 +657,7 @@ gBattleAnims_Moves::
 	.4byte Move_SHOOT
 	.4byte Move_108_TUPLE_TEAM
 	.4byte Move_THUNDER_WAVE_CYNTHIA
+	.4byte Move_THORN_WHIP
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -16655,7 +16656,6 @@ Move_CURSE_GRENINJA:
 	end
 
 Move_LION_LADDER:
-
 	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
 	loadspritegfx ANIM_TAG_CLAW_SLASH
 	loadspritegfx ANIM_TAG_TORN_METAL
@@ -16678,7 +16678,6 @@ Move_LION_LADDER:
 	end
 
 Move_STRANGE_STEAM:
-
 	loadspritegfx ANIM_TAG_PURPLE_GAS_CLOUD
 	monbg ANIM_DEF_PARTNER
 	splitbgprio_all
@@ -16754,7 +16753,7 @@ Move_FLARE_BLITZ:
 	end
 
 
-	Move_MAGNET_RISE::
+Move_MAGNET_RISE:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_ELECTRICITY
@@ -16790,7 +16789,7 @@ Move_FLARE_BLITZ:
 	end
 
 
-	Move_SHOOT::
+Move_SHOOT:
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_LOCK_ON
 	createsprite gLockOnTargetSpriteTemplate, ANIM_ATTACKER, 40
@@ -16807,4 +16806,35 @@ Move_FLARE_BLITZ:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	waitforvisualfinish
 	delay 20
+	end
+
+Move_THORN_WHIP:
+	loadspritegfx ANIM_TAG_PUNISHMENT_BLADES
+	loadspritegfx ANIM_TAG_LEAF @green color
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 10
+	delay 6
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_TARGET
+	createsprite gSpinningVineSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 25
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpretfalse PowerWhipOnOpponent
+	goto PowerWhipOnPlayer
+PowerWhipOnOpponent:
+	fadetobg BG_IMPACT_OPPONENT
+	goto PowerWhipContinue
+PowerWhipOnPlayer:
+	fadetobg BG_IMPACT_PLAYER
+	goto PowerWhipContinue
+PowerWhipContinue:
+	waitbgfadeout
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	playsewithpan SE_BANG, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 20
+	restorebg
+	waitbgfadein
+	waitforvisualfinish
 	end

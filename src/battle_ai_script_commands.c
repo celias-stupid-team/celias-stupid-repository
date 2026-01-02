@@ -435,8 +435,8 @@ u8 BattleAI_ChooseMoveOrAction(void)
     }
 
     //AI score logging @wiz1989
-    for (i = 0; i < MAX_MON_MOVES; i++)
-        DebugPrintf("battler %d move %d score %d", gActiveBattler, i, AI_THINKING_STRUCT->score[i]);
+    // for (i = 0; i < MAX_MON_MOVES; i++)
+    //     DebugPrintf("battler %d move %d score %d", gActiveBattler, i, AI_THINKING_STRUCT->score[i]);
 
     return consideredMoveArray[Random() % numOfBestMoves]; // break any ties that exist.
 }

@@ -161,6 +161,7 @@ static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off
 static const u8 sText_PkmnSeeded[] = _("{B_DEF_NAME_WITH_PREFIX} was seeded!");
 static const u8 sText_PkmnEvadedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} evaded\nthe attack!");
 static const u8 sText_PkmnSappedByLeechSeed[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\nsapped by LEECH SEED!");
+static const u8 sText_PkmnSappedByThornWhip[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\nsapped by THORN WHIP!");
 static const u8 sText_PkmnFastAsleep[] = _("{B_ATK_NAME_WITH_PREFIX} is fast\nasleep.");
 static const u8 sText_PkmnWokeUp[] = _("{B_ATK_NAME_WITH_PREFIX} woke up!");
 static const u8 sText_PkmnUproarKeptAwake[] = _("But {B_SCR_ACTIVE_NAME_WITH_PREFIX}'s UPROAR\nkept it awake!");
@@ -986,13 +987,18 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PROTEAN - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s PROTEAN made it\nGHOST-TYPE!"),   
     [STRINGID_MEMENTO - BATTLESTRINGS_TABLE_START]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} asks to be\nremembered!"),  
     [STRINGID_MISSED_FROM_AIR_BALLOON - BATTLESTRINGS_TABLE_START]       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} avoided damage\nwith its AIR BALLOON!"),
-    [STRINGID_DIMENSIONSARETWISTED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!"),
-    [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
-    [STRINGID_HIT_A_WALL - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("Oh no! {PAUSE 30}\n{B_ATK_NAME_WITH_PREFIX} hit a wall!"), //dummy
-    [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("The dimensions are twisted!\n{PAUSE 20}Slower POKéMON will move first!"),
-    [STRINGID_MAGNET_RISE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is floating\neven harder!"),
-    [STRINGID_IT_WAS_CANCELLED - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("But it was cancelled!"),
-    [STRINGID_SHADOW_FORCE - BATTLESTRINGS_TABLE_START]         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} disappeared!"),
+    [STRINGID_DIMENSIONSARETWISTED - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The dimensions are twisted!"),
+    [STRINGID_GOING_TOO_FAST - BATTLESTRINGS_TABLE_START]                = COMPOUND_STRING("It's going too fast!\n{PAUSE 30}The TRICK ROOM can't contain it!"),
+    [STRINGID_HIT_A_WALL - BATTLESTRINGS_TABLE_START]                    = COMPOUND_STRING("Oh no! {PAUSE 30}\n{B_ATK_NAME_WITH_PREFIX} hit a wall!"), //dummy
+    [STRINGID_TWISTED_DIMENSIONS_START - BATTLESTRINGS_TABLE_START]      = COMPOUND_STRING("The dimensions are twisted!\n{PAUSE 20}Slower POKéMON will move first!"),
+    [STRINGID_MAGNET_RISE - BATTLESTRINGS_TABLE_START]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is floating\neven harder!"),
+    [STRINGID_IT_WAS_CANCELLED - BATTLESTRINGS_TABLE_START]              = COMPOUND_STRING("But it was cancelled!"),
+    [STRINGID_SHADOW_FORCE - BATTLESTRINGS_TABLE_START]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} disappeared!"),
+    [STRINGID_PKMNSAPPEDBYTHORNWHIP - BATTLESTRINGS_TABLE_START]         = sText_PkmnSappedByThornWhip,
+    [STRINGID_PKMNEVADEDSEEDING - BATTLESTRINGS_TABLE_START]             = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} evaded\nthe seeding!"),
+    [STRINGID_NOTAFFECTEDBYSEEDING - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The seeds don't affect\n{B_DEF_NAME_WITH_PREFIX}…"),
+    [STRINGID_PKMNIMMUNETOPOISON - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is immune to\nbeing poisoned!"),
+    [STRINGID_PKMNALREADYSTATUSED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is already\nstatused!"),
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
@@ -1074,7 +1080,10 @@ const u16 gLeechSeedStringIds[] =
     [B_MSG_LEECH_SEED_MISS]  = STRINGID_PKMNEVADEDATTACK,
     [B_MSG_LEECH_SEED_FAIL]  = STRINGID_ITDOESNTAFFECT,
     [B_MSG_LEECH_SEED_DRAIN] = STRINGID_PKMNSAPPEDBYLEECHSEED,
-    [B_MSG_LEECH_SEED_OOZE]  = STRINGID_ITSUCKEDLIQUIDOOZE
+    [B_MSG_LEECH_SEED_OOZE]  = STRINGID_ITSUCKEDLIQUIDOOZE,
+    [B_MSG_THORN_WHIP_DRAIN] = STRINGID_PKMNSAPPEDBYTHORNWHIP,
+    [B_MSG_THORN_WHIP_MISS]  = STRINGID_PKMNEVADEDSEEDING,
+    [B_MSG_THORN_WHIP_FAIL]  = STRINGID_NOTAFFECTEDBYSEEDING
 };
 
 const u16 gRestUsedStringIds[] =

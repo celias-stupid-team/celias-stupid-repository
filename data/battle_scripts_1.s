@@ -266,7 +266,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRazorWindHaunter       @ EFFECT_RAZOR_WIND_CANCEL
 	.4byte BattleScript_EffectMultiHitFive           @ EFFECT_MULTI_HIT_FIVE
 	.4byte BattleScript_EffectEvasionMax             @ EFFECT_EVASION_MAX
-
+	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -3440,7 +3440,11 @@ BattleScript_LeechSeedTurnDrain::
 	copyword gBattleMoveDamage, gHpDealt
 	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_LeechSeedLiquidOoze
 	manipulatedamage 0
+	jumpifstatus3 BS_ATTACKER, STATUS3_TOXIC_SEED, BattleScript_ThornWhipMessage
 	setbyte cMULTISTRING_CHOOSER, 3
+	goto BattleScript_LeechSeedTurnPrintAndUpdateHp
+BattleScript_ThornWhipMessage::
+	setbyte cMULTISTRING_CHOOSER, 5 @ B_MSG_THORN_WHIP_DRAIN
 	goto BattleScript_LeechSeedTurnPrintAndUpdateHp
 
 BattleScript_LeechSeedLiquidOoze::
@@ -5189,3 +5193,39 @@ BattleScript_EffectMultiHitFive::
 	setmultihitcounter 10
 	initmultihitstring
 	goto BattleScript_MultiHitLoop
+
+BattleScript_EffectToxicSeed::
+	attackcanceler
+	attackstring
+	ppreduce
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DoSeeding::
+	setseeded
+	printfromtable gLeechSeedStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DoToxic::
+	jumpifability BS_TARGET, ABILITY_IMMUNITY, BattleScript_ImmunityProtected
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_POISON, BattleScript_AlreadyPoisoned
+	jumpifstatus BS_TARGET, STATUS1_TOXIC_POISON, BattleScript_AlreadyPoisoned
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	setmoveeffect MOVE_EFFECT_TOXIC
+	seteffectprimary
+	resultmessage
+	goto BattleScript_MoveEnd

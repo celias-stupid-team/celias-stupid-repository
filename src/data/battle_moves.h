@@ -8018,4 +8018,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 5,
         .flags = 0,
     },
+
+    [MOVE_THORN_WHIP] =
+    {
+        .effect = EFFECT_TOXIC_SEED,
+        .power = 40,
+        .type = TYPE_GRASS,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 3,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
 };

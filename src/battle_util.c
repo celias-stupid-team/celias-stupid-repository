@@ -848,7 +848,10 @@ u8 DoBattlerEndTurnEffects(void)
                  && gBattleMons[gActiveBattler].hp != 0)
                 {
                     gBattlerTarget = gStatuses3[gActiveBattler] & STATUS3_LEECHSEED_BATTLER; // Notice gBattlerTarget is actually the HP receiver.
-                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                    if (gStatuses3[gActiveBattler] & STATUS3_TOXIC_SEED)
+                        gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP * 6 + 9) / 10; // does 60% max HP damage, rounded up
+                    else
+                        gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     gBattleScripting.animArg1 = gBattlerTarget;
@@ -878,6 +881,10 @@ u8 DoBattlerEndTurnEffects(void)
                     if ((gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_COUNTER) != STATUS1_TOXIC_TURN(15)) // not 16 turns
                         gBattleMons[gActiveBattler].status1 += STATUS1_TOXIC_TURN(1);
                     gBattleMoveDamage *= (gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_COUNTER) >> 8;
+
+                    if (gStatuses3[gActiveBattler] & STATUS3_TOXIC_SEED)
+                        gBattleMoveDamage = (gBattleMons[gActiveBattler].maxHP * 4 + 9) / 10; // does 40% max HP damage, rounded up
+
                     BattleScriptExecute(BattleScript_PoisonTurnDmg);
                     effect++;
                 }

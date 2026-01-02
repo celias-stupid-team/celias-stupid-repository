@@ -5246,21 +5246,21 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
         .lvl = 56,
         .species = SPECIES_MILOTIC,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_SLUDGE_BOMB, MOVE_SCREECH, MOVE_IRON_TAIL, MOVE_BITE},
+        .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,
         .lvl = 58,
         .species = SPECIES_ROSERADE,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_HYPNOSIS, MOVE_NIGHTMARE},
+        .moves = {MOVE_THORN_WHIP, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
         .iv = 250,
         .lvl = 58,
         .species = SPECIES_GARCHOMP,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_SHADOW_BALL, MOVE_SLUDGE_BOMB, MOVE_HYPNOSIS, MOVE_NIGHTMARE},
+        .moves = {MOVE_SHADOW_BALL, MOVE_NONE, MOVE_HYPNOSIS, MOVE_NIGHTMARE},
     },
 };
 
