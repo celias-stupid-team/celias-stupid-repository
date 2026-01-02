@@ -2334,6 +2334,9 @@ static void RotomStartMenu_HandleInput_DPadDown(void)
     switch (sMenuSelected)
     {
     case MENU_NONE:
+        // stifle input while anim is running
+        if (sRotomStartMenu->comfyAnimStatus != COMFY_ANIM_NONE) return;
+
         if (sRotomStartMenu->fieldMoveCursor < ROTOM_MOVE_ROW_SIZE)
         {
             PlaySE(ROTOMSE_MOVE_PAGE);
@@ -2361,6 +2364,9 @@ static void RotomStartMenu_HandleInput_DPadUp(void)
     switch (sMenuSelected)
     {
     case MENU_NONE:
+        // stifle input while anim is running
+        if (sRotomStartMenu->comfyAnimStatus != COMFY_ANIM_NONE) return;
+
         if (sRotomStartMenu->fieldMoveCursor >= ROTOM_MOVE_ROW_SIZE)
         {
             PlaySE(ROTOMSE_MOVE_PAGE);
