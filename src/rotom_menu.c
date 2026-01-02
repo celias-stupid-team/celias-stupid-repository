@@ -105,6 +105,7 @@ static void ShowSaveInfoWindow(void);
 static u8 SaveConfirmSaveCallback(void);
 static void InitSave(void);
 static void PopulateMoveMonSpecies(void);
+static void UpdateMonTilemaps(void);
 
 /* Field move funcs */
 static bool32 SetupFunc_Surf(void);
@@ -248,7 +249,6 @@ enum RotomMoveID
 
 #define ROTOM_MOVE_ROW_SIZE    (ROTOM_MOVE_TOP_ROW_MAX + 1)
 #define MOVE_SELECTOR_R_OFFSET 32
-#define MOVE_SELECTOR_Y_POS    107
 
 #define BLINK_TIMER_START_VALUE   100
 #define BLINK_TIMER_FRAMES_ACTIVE 5
@@ -284,105 +284,98 @@ struct RotomMove
 {
     u32 move;
     u32 spriteXPos;
-    u32 monXPos;
     const u8 *name;
     bool32 (*setupFunc)(void);
     void (*fieldMoveFunc)(void);
 };
 
+#define ROTOM_MON_ICON_X_POS(move) (sRotomMoves[move].spriteXPos + 14)
+#define ROTOM_MON_ICON_Y_POS       143
+
+#define MOVE_SELECTOR_X_POS(move)  (((move >= ROTOM_MOVE_ROW_SIZE ? (move - ROTOM_MOVE_ROW_SIZE) : move) * 32) + 9)
+#define MOVE_SELECTOR_Y_POS        107
+
 static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_SURF] = {
         .move = MOVE_SURF,
-        .spriteXPos = 6,
-        .monXPos = 21,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_SURF),
         .name = gLongMoveNames[MOVE_SURF],
         .setupFunc = SetupFunc_Surf,
         .fieldMoveFunc = FieldMoveFunc_Surf,
     },
     [ROTOM_MOVE_WATERFALL] = {
         .move = MOVE_WATERFALL,
-        .spriteXPos = 38,
-        .monXPos = 53,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_WATERFALL),
         .name = gLongMoveNames[MOVE_WATERFALL],
         .setupFunc = SetupFunc_Waterfall,
         .fieldMoveFunc = FieldMoveFunc_Waterfall,
     },
     [ROTOM_MOVE_ROCK_CLIMB] = {
         .move = MOVE_ROCK_CLIMB,
-        .spriteXPos = 70,
-        .monXPos = 85,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_ROCK_CLIMB),
         .name = gLongMoveNames[MOVE_ROCK_CLIMB],
         .setupFunc = SetupFunc_RockClimb,
         .fieldMoveFunc = FieldMoveFunc_RockClimb,
     },
     [ROTOM_MOVE_STRENGTH] = {
         .move = MOVE_STRENGTH,
-        .spriteXPos = 102,
-        .monXPos = 117,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_STRENGTH),
         .name = gLongMoveNames[MOVE_STRENGTH],
         .setupFunc = SetupFunc_Strength,
         .fieldMoveFunc = FieldMoveFunc_Strength,
     },
     [ROTOM_MOVE_CUT] = {
         .move = MOVE_CUT,
-        .spriteXPos = 134,
-        .monXPos = 149,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_CUT),
         .name = gLongMoveNames[MOVE_CUT],
         .setupFunc = SetupFunc_Cut,
         .fieldMoveFunc = FieldMoveFunc_Cut,
     },
     [ROTOM_MOVE_FLY] = {
         .move = MOVE_FLY,
-        .spriteXPos = 166,
-        .monXPos = 181,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_FLY),
         .name = gLongMoveNames[MOVE_FLY],
         .setupFunc = SetupFunc_Fly,
         .fieldMoveFunc = FieldMoveFunc_Fly,
     },
     [ROTOM_MOVE_WHIRLPOOL] = {
         .move = MOVE_WHIRLPOOL,
-        .spriteXPos = 6,
-        .monXPos = 21,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_WHIRLPOOL),
         .name = gLongMoveNames[MOVE_WHIRLPOOL],
         .setupFunc = SetupFunc_Whirlpool,
         .fieldMoveFunc = FieldMoveFunc_Whirlpool,
     },
     [ROTOM_MOVE_GUILLOTINE] = {
         .move = MOVE_GUILLOTINE,
-        .spriteXPos = 38,
-        .monXPos = 53,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_GUILLOTINE),
         .name = gLongMoveNames[MOVE_GUILLOTINE],
         .setupFunc = SetupFunc_Guillotine,
         .fieldMoveFunc = FieldMoveFunc_Guillotine,
     },
     [ROTOM_MOVE_BRICK_BREAK] = {
         .move = MOVE_BRICK_BREAK,
-        .spriteXPos = 70,
-        .monXPos = 85,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_BRICK_BREAK),
         .name = gLongMoveNames[MOVE_BRICK_BREAK],
         .setupFunc = SetupFunc_BrickBreak,
         .fieldMoveFunc = FieldMoveFunc_BrickBreak,
     },
     [ROTOM_MOVE_TAIL_GLOW] = {
         .move = MOVE_TAIL_GLOW,
-        .spriteXPos = 102,
-        .monXPos = 117,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_TAIL_GLOW),
         .name = gLongMoveNames[MOVE_TAIL_GLOW],
         .setupFunc = SetupFunc_TailGlow,
         .fieldMoveFunc = FieldMoveFunc_TailGlow,
     },
     [ROTOM_MOVE_REST] = {
         .move = MOVE_REST,
-        .spriteXPos = 134,
-        .monXPos = 149,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_REST),
         .name = gLongMoveNames[MOVE_REST],
         .setupFunc = SetupFunc_Rest,
         .fieldMoveFunc = FieldMoveFunc_Rest,
     },
     [ROTOM_MOVE_RETREAT] = {
         .move = MOVE_RETREAT,
-        .spriteXPos = 166,
-        .monXPos = 181,
+        .spriteXPos = MOVE_SELECTOR_X_POS(ROTOM_MOVE_RETREAT),
         .name = gLongMoveNames[MOVE_RETREAT],
         .setupFunc = SetupFunc_Retreat,
         .fieldMoveFunc = FieldMoveFunc_Retreat,
@@ -390,7 +383,6 @@ static const struct RotomMove sRotomMoves[ROTOM_MOVE_COUNT + 1] = {
     [ROTOM_MOVE_NONE] = {
         .move = MOVE_NONE,
         .spriteXPos = 218,
-        .monXPos = 0,
         .name = gText_EmptyString3,
         .setupFunc = NULL,
         .fieldMoveFunc = NULL,
@@ -447,9 +439,13 @@ static EWRAM_DATA u8 sSaveDialogTimer = 0;
 static EWRAM_DATA u8 sSaveInfoWindowId = 0;
 
 // --BG-GFX--
-static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/rotom_new.4bpp.lz");
-static const u32 sStartMenuTilemap[] = INCBIN_U32("graphics/rotom_menu/rotom_new.bin.lz");
-static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
+static const u32 sStartMenuTiles[] = INCBIN_U32("graphics/rotom_menu/bg.4bpp.lz");
+static const u32 sStartMenuTilemap[] = INCBIN_U32("graphics/rotom_menu/bg.bin.lz");
+static const u32 sNoMonTilemap[] = INCBIN_U32("graphics/rotom_menu/mon_tilemap_no_mon.bin");
+static const u32 sHasMonTilemap[] = INCBIN_U32("graphics/rotom_menu/mon_tilemap_has_mon.bin");
+static const u32 sNoMonSelectedTilemap[] = INCBIN_U32("graphics/rotom_menu/mon_tilemap_no_mon_selected.bin");
+static const u32 sHasMonSelectedTilemap[] = INCBIN_U32("graphics/rotom_menu/mon_tilemap_has_mon_selected.bin");
+static const u16 sStartMenuPalette[] = INCBIN_U16("graphics/rotom_menu/bg.gbapal");
 static const u16 sStandardMenuPalette[] = INCBIN_U16("graphics/interface/std_menu.gbapal");
 
 //--SPRITE-GFX--
@@ -466,7 +462,6 @@ static const u32 sIconGfx[] = INCBIN_U32("graphics/rotom_menu/icons.4bpp.lz");
 static const u16 sIconPal[] = INCBIN_U16("graphics/rotom_menu/icons.gbapal");
 static const u32 sMoveSelectorGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector.4bpp.lz");
 static const u32 sMoveSelectorMiddleGfx[] = INCBIN_U32("graphics/rotom_menu/move_selector_middle.4bpp.lz");
-static const u16 sMoveSelectorPal[] = INCBIN_U16("graphics/rotom_menu/rotom_new.gbapal");
 static const u32 sRotomEyesGfx[] = INCBIN_U32("graphics/rotom_menu/rotom_eyes.4bpp.lz");
 static const u32 sMonIconGfx[] = INCBIN_U32("graphics/rotom_menu/mon_icons.4bpp.lz");
 static const u16 sMonIconPal[] = INCBIN_U16("graphics/rotom_menu/mon_icons.gbapal");
@@ -1457,6 +1452,7 @@ void RotomStartMenu_Init(void)
     }
 
     RotomStartMenu_LoadBgGfx();
+    UpdateMonTilemaps();
     sRotomStartMenu->sDexNumbersWindowID = AddWindow(&sWindowTemplate_DexNumbers);
     CreateTask(Task_RotomStartMenu_HandleMainInput, 0);
     RotomStartMenu_PrintDexNumbers();
@@ -1472,7 +1468,7 @@ static void RotomStartMenu_LoadSprites(void)
 
     LoadSpritePalette(sSpritePal_MoveSelector);
     index = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
-    LoadPalette(sMoveSelectorPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
+    LoadPalette(sStartMenuPalette, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelectorMiddle);
 
@@ -1483,6 +1479,79 @@ static void RotomStartMenu_LoadSprites(void)
 
     index = IndexOfSpritePaletteTag(TAG_ROTOM_EYES_GFX);
     LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
+}
+
+#define MON_SQUARE_SIZE 4
+
+enum MonTileState
+{
+    TILE_STATE_NO_MON,
+    TILE_STATE_HAS_MON,
+    TILE_STATE_NO_MON_SELECTED,
+    TILE_STATE_HAS_MON_SELECTED,
+    TILE_STATE_COUNT,
+};
+
+static const u32* const sMonTileStateToTileMap[TILE_STATE_COUNT] = {
+    [TILE_STATE_NO_MON] = sNoMonTilemap,
+    [TILE_STATE_HAS_MON] = sHasMonTilemap,
+    [TILE_STATE_NO_MON_SELECTED] = sNoMonSelectedTilemap,
+    [TILE_STATE_HAS_MON_SELECTED] = sHasMonSelectedTilemap,
+};
+
+static void DrawMonTilemapState(u32 slot, u32 state)
+{
+    CopyRectToBgTilemapBufferRect(
+        0, 
+        sMonTileStateToTileMap[state], 
+        0, 
+        0, 
+        MON_SQUARE_SIZE, 
+        MON_SQUARE_SIZE, 
+        (slot * MON_SQUARE_SIZE + 1), 
+        16, 
+        MON_SQUARE_SIZE, 
+        MON_SQUARE_SIZE, 
+        0xE, 
+        0, 
+        0
+    );
+}
+
+static void UpdateMonTilemaps(void)
+{
+    u32 i, state;
+    u32 rotomMoveOffset = (sStoredMoveRow == 1) ? ROTOM_MOVE_ROW_SIZE : 0;
+
+    for (i = 0; i < ROTOM_MOVE_ROW_SIZE; i++)
+    {
+        if (sRotomStartMenu->fieldMoveCursor == i + rotomMoveOffset)
+        {
+            if (sRotomStartMenu->monSpecies[i + rotomMoveOffset] == SPECIES_NONE)
+            {
+               state = TILE_STATE_NO_MON_SELECTED; 
+            }
+            else
+            {
+               state = TILE_STATE_HAS_MON_SELECTED; 
+            }
+        }
+        else
+        {
+            if (sRotomStartMenu->monSpecies[i + rotomMoveOffset] == SPECIES_NONE)
+            {
+               state = TILE_STATE_NO_MON; 
+            }
+            else
+            {
+               state = TILE_STATE_HAS_MON; 
+            }
+        }
+        
+        DrawMonTilemapState(i, state);
+    }
+
+    CopyBgTilemapBufferToVram(0);
 }
 
 static void RotomStartMenu_UpdateMonSprites(void)
@@ -1552,7 +1621,7 @@ static void RotomStartMenu_CreateSprites(void)
     for (i = SPRITE_MON_ICON_0; i <= SPRITE_MON_ICON_5; i++)
     {
         rotomMove = i - SPRITE_MON_ICON_0 + rotomMoveOffset;
-        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, sRotomMoves[rotomMove].monXPos, 141, 0);
+        sRotomStartMenu->spriteIDs[i] = CreateSprite(&sSpriteMonIcon, ROTOM_MON_ICON_X_POS(rotomMove), ROTOM_MON_ICON_Y_POS, 0);
         gSprites[sRotomStartMenu->spriteIDs[i]].invisible = TRUE;
 
         if (sRotomStartMenu->monSpecies[rotomMove] != SPECIES_NONE)
@@ -2674,6 +2743,7 @@ static void Task_RotomStartMenu_HandleMainInput(u8 taskId)
 
     if (JOY_REPT(DPAD_ANY))
     {
+        UpdateMonTilemaps();
         RotomMenu_TryMakeDizzy();
         RotomMenu_TryStartEyesLook();
     }
