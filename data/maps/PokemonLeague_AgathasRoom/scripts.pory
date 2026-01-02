@@ -47,6 +47,7 @@ PokemonLeague_AgathasRoom_EventScript_EnterRoom::
 PokemonLeague_AgathasRoom_EventScript_Agatha::
 	lock
 	faceplayer
+	textcolor NPC_TEXT_COLOR_RED
 	goto_if_set FLAG_DEFEATED_AGATHA, PokemonLeague_AgathasRoom_EventScript_PostBattle
 	call_if_unset FLAG_SYS_GAME_CLEAR, PokemonLeague_AgathasRoom_EventScript_Intro
 	call_if_set FLAG_SYS_GAME_CLEAR, PokemonLeague_AgathasRoom_EventScript_RematchIntro

@@ -2009,3 +2009,8 @@
 	.byte 0xe4
 	.2byte \move
 	.endm
+
+	.macro checkpartymonslot mon:req
+	.byte 0xe5
+	.2byte \mon
+	.endm

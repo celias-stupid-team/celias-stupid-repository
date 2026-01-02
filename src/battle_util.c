@@ -1344,6 +1344,7 @@ u8 AtkCanceller_UnableToUseMove(void)
 {
     u8 effect = 0;
     s32 *bideDmg = &gBattleScripting.bideDmg;
+    u8 paralysisChange = 4;
     do
     {
         switch (gBattleStruct->atkCancellerTracker)
@@ -1527,7 +1528,10 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_PARALYSED: // paralysis
-            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) {
+                paralysisChange = 1;
+            }
+            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % paralysisChange) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
             {
                 gProtectStructs[gBattlerAttacker].prlzImmobility = 1;
                 // This is removed in FRLG and Emerald for some reason

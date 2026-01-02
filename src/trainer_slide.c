@@ -44,12 +44,12 @@ static bool32 IsSlideInitalizedOrPlayed(enum TrainerSlideType slideId);
 static const u8 *GetSlideMessage(void);    
 
 // define the trainer slide messages here
-static const u8 sText_SwitchInSlidePhase1[] = _("This is a test 1!{B_OPPONENT_MON1_NAME}");
-static const u8 sText_SwitchInSlidePhase2[] = _("This is a test 2!{B_OPPONENT_MON1_NAME}");
-static const u8 sText_SwitchInSlidePhase3[] = _("This is a test 3!{B_OPPONENT_MON1_NAME}");
-static const u8 sText_SwitchInSlidePhase4[] = _("This is a test 4!{B_OPPONENT_MON1_NAME}");
-static const u8 sText_SwitchInSlidePhase5[] = _("This is a test 5!{B_OPPONENT_MON1_NAME}");
-static const u8 sText_SwitchInSlidePhase6[] = _("This is a test 6!{B_OPPONENT_MON1_NAME}");
+static const u8 sText_SwitchInSlidePhase1[] = _("I will not pull punches.\nI hope you're prepared.");
+static const u8 sText_SwitchInSlidePhase2[] = _("One down.\nI admire your tenacity.\pDo you have the will to break\nthrough?");
+static const u8 sText_SwitchInSlidePhase3[] = _("Another round.\nAre you beginning to see?\pThe only thing standing in your way\nis the limit of your creativity!");
+static const u8 sText_SwitchInSlidePhase4[] = _("Everything you needed, you've had all\nalong.\pTake a moment to collect yourself, and\ntake on the challenge anew!");
+static const u8 sText_SwitchInSlidePhase5[] = _("Your victory won't come easily.\nI won't let you through for free.\pRemember all that you've learned.\nThink clearly and act decisively!");
+static const u8 sText_SwitchInSlidePhase6[] = _("It all comes down to this.\pYou've made it this far.\nI know you can taste the end.\pStep up, {PLAYER}!\nIt's time to end it!");
 
 const u8 *const sTrainerSlides[TRAINER_SLIDE_COUNT] =
 {

@@ -1024,6 +1024,10 @@ static void BuyMenuSubtractMoney(u8 taskId)
             PlayCry_Normal(SPECIES_CLEFAIRY, 0);
             VarSet(VAR_TEMP_3, 1);
             break;
+        case ITEM_GUN:
+            PlayCry_Normal(SPECIES_REMORAID, 0);
+            VarSet(VAR_TEMP_3, 1);
+            break;
         default:
             PlaySE(SE_SHOP);
             break;

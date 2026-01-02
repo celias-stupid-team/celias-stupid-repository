@@ -472,6 +472,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_STARMAN, 50},
     {TRAINER_CLASS_RADICAL, 50},
     {TRAINER_CLASS_SHORT, 50},
+    {TRAINER_CLASS_ELITE_FOUR_CYNTHIA, 50},
+    
     { 0xFF, 5},
 };
 
@@ -2896,8 +2898,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     gMoveResultFlags = 0;
     gRandomTurnNumber = Random();
 
-    if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN)
-      || ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_AFTER_SWITCHIN))
+    if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
         BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 }
 

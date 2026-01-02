@@ -2613,6 +2613,26 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkpartymonslot(struct ScriptContext * ctx)
+{
+    u8 i;
+    u16 speciesId = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = PARTY_SIZE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
+        {
+            gSpecialVar_Result = i;
+            break;
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
 {
     u32 i, box, monPos, partySlot;

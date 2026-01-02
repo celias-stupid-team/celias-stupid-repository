@@ -3150,8 +3150,8 @@ Move_RETREAT:
 	delay 1
 	end
 
+Move_108_TUPLE_TEAM: 
 Move_DOUBLE_TEAM:
-Move_108_TUPLE_TEAM:
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_DoubleTeam, 2
@@ -3177,6 +3177,10 @@ Move_108_TUPLE_TEAM:
 	blendoff
 	delay 1
 	end
+
+
+
+
 
 Move_MINIMIZE:
 	setalpha 10, 8
