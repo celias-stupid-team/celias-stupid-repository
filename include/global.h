@@ -158,6 +158,30 @@ extern u8 gStringVar4[];
 
 #define FEATURE_FLAG_ASSERT(flag, id) STATIC_ASSERT(flag > TEMP_FLAGS_END || flag == 0, id)
 
+// NOTE: This uses hardware timers 2 and 3; this will not work during active link connections or with the eReader
+static inline void CycleCountStart()
+{
+    REG_TM2CNT_H = 0;
+    REG_TM3CNT_H = 0;
+
+    REG_TM2CNT_L = 0;
+    REG_TM3CNT_L = 0;
+
+    // init timers (tim3 count up mode, tim2 every clock cycle)
+    REG_TM3CNT_H = TIMER_ENABLE | TIMER_COUNTUP;
+    REG_TM2CNT_H = TIMER_1CLK | TIMER_ENABLE;
+}
+
+static inline u32 CycleCountEnd()
+{
+    // stop timers
+    REG_TM2CNT_H = 0;
+    REG_TM3CNT_H = 0;
+
+    // return result
+    return REG_TM2CNT_L | (REG_TM3CNT_L << 16u);
+}
+
 struct Coords8
 {
     s8 x;
@@ -824,7 +848,8 @@ struct SaveBlock1
     /*0x3D34*/ u32 towerChallengeId;
     /*0x3D38*/ struct TrainerTower trainerTower[NUM_TOWER_CHALLENGE_TYPES];
     /*0x3D50*/ struct WarpData lastBenchLocation;
-               u8 spaceReserveCSR[1920];
+               u16 rotomMenuLastObtainableCount;
+               u8 spaceReserveCSR[1918];
 }; // size: 0x3D68
 
 struct MapPosition

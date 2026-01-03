@@ -30,5 +30,6 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
 u16 GetRandomUnobtainedSpecies(void);
 void GetRandomUnobtainedSpecies_ToResult(void);
 u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex);
+u32 GetCaughtAndObtainableSpeciesCount(void);
 
 #endif //GUARD_POKEDEX_SCREEN_H

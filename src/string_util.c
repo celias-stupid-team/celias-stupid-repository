@@ -733,7 +733,7 @@ void StripExtCtrlCodes(u8 *str)
     str[destIndex] = 0xFF;
 }
 
-int GetStringRightAlignXOffset(int fontId, const u8* str, int totalWidth)
+int GetStringCenterAlignXOffset(int fontId, const u8* str, int totalWidth)
 {
     int stringWidth = GetStringWidth(fontId, str, 0);
     if (totalWidth > stringWidth)

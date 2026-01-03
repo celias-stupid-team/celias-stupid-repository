@@ -104,6 +104,7 @@ union PokemonSubstruct
     struct PokemonSubstruct2 type2;
     struct PokemonSubstruct3 type3;
     u16 raw[NUM_SUBSTRUCT_BYTES / 2]; // /2 because it's u16, not u8
+    u32 raw32[NUM_SUBSTRUCT_BYTES / 4]; // /4 because it's u32, not u8
 };
 
 struct BoxPokemon
@@ -443,5 +444,9 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 bool8 IsMoveHm(u16 move);
 
 u32 GetCurrentLevelCap(u16 species);
+bool32 FindPartyMonWithMove(u16 move, u32 *outIndex, u16 *outSpecies);
+bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies);
+bool32 CheckBoxMonMovesFast(const struct BoxPokemon *boxMon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
+bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
 
 #endif // GUARD_POKEMON_H

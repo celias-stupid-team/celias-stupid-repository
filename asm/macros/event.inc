@@ -1993,8 +1993,12 @@
     .2byte \y2
 	.endm
 
-
 	.macro checkpartymon mon:req
 	.byte 0xe3
 	.2byte \mon
+	.endm
+
+	.macro checkfieldmove move:req
+	.byte 0xe4
+	.2byte \move
 	.endm

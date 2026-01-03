@@ -32794,3 +32794,5 @@ extern const u16 Text_ChapterThree_15[];
 extern const u16 Text_ChapterThree_16[];
 
 extern const u8 EventScript_ObjectApproachPlayer[];
+
+extern const u8 EventScript_TooDarkToSee[];
