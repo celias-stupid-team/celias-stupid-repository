@@ -197,7 +197,7 @@ script UndergroundPath_OlderBrother {
 		waitstate
 		if(var(VAR_0x8004) >= PARTY_SIZE) {
 			msgbox("Oh…\nThat's okay, I understand.")
-			goto(UndergroudnPath_YoungerBrotherEnd)
+			goto(UndergroudnPath_OlderBrotherEnd)
 		}
 		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 		switch(var(VAR_RESULT)) {
@@ -220,6 +220,14 @@ script UndergroundPath_OlderBrother {
 		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly tangled beyond repair!", MSGBOX_DEFAULT)
 	}
 	release
+}
+
+
+script UndergroudnPath_OlderBrotherEnd { //I just realized that I typo'd this but I don't have it in me to fix it everywhere :(
+	msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly tangled beyond repair!", MSGBOX_DEFAULT)
+	
+	release
+	end
 }
 
 script UndergroundPath_Celia {

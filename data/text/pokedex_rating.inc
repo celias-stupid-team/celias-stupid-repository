@@ -456,7 +456,12 @@ PokedexRating_Text_HintMachoke::
 	.string "POKéMON!$"
 
 PokedexRating_Text_HintMachamp::
-	.string "Placeholder!$"
+	.string "You're looking for your last\n"
+	.string "evolutions?\l"
+	.string "Good luck!\p"
+	.string "Remember to keep a close eye on\n"
+	.string "your POKéDEX.\l"
+	.string "It may have useful information.$"
 
 PokedexRating_Text_HintSlowpoke::
 	.string "Have you talked to everyone in\n"
@@ -506,10 +511,19 @@ PokedexRating_Text_HintGraveler::
 	.string "Try leveling it up!$"
 
 PokedexRating_Text_HintGolem::
-	.string "Placeholder!$"
+	.string "You're looking for your last\n"
+	.string "evolutions?\l"
+	.string "Good luck!\p"
+	.string "Remember to keep a close eye on\n"
+	.string "your POKéDEX.\l"
+	.string "It may have useful information.$"
+
 
 PokedexRating_Text_HintDitto::
-	.string "Placeholder!$"
+	.string "Now that you have SURF, you can\n"
+	.string "explore many places you couldn't!\p"
+	.string "Wasn't there someone looking for\n"
+	.string "their TRUCK in VERMILION CITY?$"
 
 PokedexRating_Text_HintUnown::
 	.string "Oh no! A man on ROUTE 11 says that\n"

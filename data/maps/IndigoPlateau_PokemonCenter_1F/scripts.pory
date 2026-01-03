@@ -139,3 +139,61 @@ script PokemonLeague_GiveCandyDispenser {
 	closemessage
 	release
 }
+
+script PokemonLeague_DadHeal {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Wow! You've made it all the way\n"
+	"to the POKéMON LEAGUE!\p"
+
+	"As your father, I couldn't be more\n"
+	"proud of you.\p"
+
+	"Now, come along.\n"
+	"Let's take one final rest.", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script EventScript_FinalCutTree {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lockall
+	goto_if_unset(FLAG_BADGE02_GET, EventScript_CantCutTree)
+	checkfieldmove(MOVE_CUT)
+	goto_if_eq(VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_FinalCutTreeAfterBuffer)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+}
+
+script EventScript_FinalCutTreeAfterBuffer {
+	buffermovename(STR_VAR_2, MOVE_CUT)
+	msgbox(Text_CutTreeDown, MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"A lone tree stands in the path.\p"
+
+	"Would you like to use CUT?\n"
+	"", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, EventScript_DontCutTree)
+	msgbox(Text_MonUsedMove)
+	closemessage
+	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
+	waitstate
+	goto(EventScript_CutTreeDown)
+	end
+}
+
+script EventScript_CantCutFinalTree {
+	msgbox(
+	"A lone tree stands in the path.\n"
+	"", MSGBOX_SIGN)
+	releaseall
+}

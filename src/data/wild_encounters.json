@@ -23903,53 +23903,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ABRA"
               }
             ]
@@ -23962,53 +23962,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               },
               {
-                "min_level": 15,
-                "max_level": 15,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_GEODUDE"
               }
             ]
@@ -24080,53 +24080,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_RAICHU"
               }
             ]
@@ -24139,53 +24139,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_TANGELA"
               }
             ]
@@ -24198,53 +24198,53 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 19,
+                "max_level": 19,
                 "species": "SPECIES_VENONAT"
               }
             ]

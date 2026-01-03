@@ -972,6 +972,60 @@
       "var": "VAR_ROUTE8_LASS",
       "var_value": "0",
       "script": "Route8_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route8_StartSunning"
     }
   ],
   "bg_events": [

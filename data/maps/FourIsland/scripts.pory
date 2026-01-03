@@ -253,7 +253,11 @@ script FourIsland_RockClimbDown {
 }
 
 script FourIsland_Rock {
-	msgbox("It's a rock.\n", MSGBOX_SIGN)
+	msgbox(
+	"It's a rock.\p"
+
+	"It feels normal to the touch.\n"
+	"", MSGBOX_SIGN)
 
 }
 

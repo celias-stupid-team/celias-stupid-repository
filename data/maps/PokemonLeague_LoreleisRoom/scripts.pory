@@ -1,10 +1,5 @@
 raw `
-PokemonLeague_LoreleisRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_LoreleisRoom_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_LoreleisRoom_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, PokemonLeague_LoreleisRoom_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_LoreleisRoom_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_LoreleisRoom_OnFrame
+
 	.byte 0
 
 PokemonLeague_LoreleisRoom_OnResume::
@@ -85,6 +80,21 @@ PokemonLeague_LoreleisRoom_EventScript_DefeatedLorelei::
 	release
 	end
 `
+
+mapscripts PokemonLeague_LoreleisRoom_MapScripts {
+	MAP_SCRIPT_ON_RESUME: PokemonLeague_LoreleisRoom_OnResume
+	MAP_SCRIPT_ON_LOAD: PokemonLeague_LoreleisRoom_OnLoad
+	MAP_SCRIPT_ON_TRANSITION: PokemonLeague_LoreleisRoom_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PokemonLeague_LoreleisRoom_OnWarp
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 0 {
+			setvar(VAR_TEMP_1, 0)
+			goto(PokemonLeague_LoreleisRoom_EventScript_EnterRoom)
+		}
+
+	]
+}
+
 script PokemonLeague_LoreleisRoom_EventScript_EnterRoom {
 	lockall
 	applymovement(LOCALID_PLAYER, moves(
