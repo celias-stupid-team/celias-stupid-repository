@@ -2687,7 +2687,7 @@ static void Task_ShowInvalidMoveMessage(u8 taskId)
         gTasks[taskId].tTaskState++;
         break;
     case MSGSTATE_WAIT_INPUT:
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PlaySE(ROTOMSE_MENU_SELECTION);
             gTasks[taskId].tTaskState++;
