@@ -152,5 +152,7 @@ script DMCAHideout_Vent {
 		giveitem_msg("AMOONGUSS returned with a\nBALM MUSHROOM!", ITEM_BALM_MUSHROOM, 1)
 		waitfanfare
 		release
+	} else {
+		release
 	}
 }

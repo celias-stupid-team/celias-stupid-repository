@@ -160,8 +160,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotomDex;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MarioStar;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ChainChomp;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BobombBuddy;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MoltresEgg;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ArticunoEgg;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrashDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snake;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nebby;
@@ -214,7 +212,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Furret;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrowlitheSign;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drifloon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wailord;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CarDad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skitty;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sudowoodo;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ampharos;
@@ -393,6 +390,47 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kalos_bench;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_silver_2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_flareon;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_drowzee;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_half_shorts;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mirror_b;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_uncle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_snover;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SENTRET;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_blue_blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pi;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_egg;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_egg;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_tabitha;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HEX_MANIAC;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_whirlpool;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starman;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_swim_barry;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_copperajah;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_starlight;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pigmask;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_pokey;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_lichen;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_galar_oak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_statue_activated;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_regice_swim;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_moltres_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_zapdos_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_articuno_pillar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_for_sale;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_radical_red;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down_left;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_right;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_left;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sign_down_right;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_flames;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_looker_dead;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_territorial_oak;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ravepossum;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_car_dad;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JUMPLUFF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bill_board;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SAMSON_OAK;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -556,8 +594,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MARIOSTAR] =         &gObjectEventGraphicsInfo_MarioStar,
     [OBJ_EVENT_GFX_CHAINCHOMP] =         &gObjectEventGraphicsInfo_ChainChomp,
     [OBJ_EVENT_GFX_BOBOMBBUDDY] =         &gObjectEventGraphicsInfo_BobombBuddy,
-    [OBJ_EVENT_GFX_MOLTRESEGG] =         &gObjectEventGraphicsInfo_MoltresEgg,
-    [OBJ_EVENT_GFX_ARTICUNOEGG] =         &gObjectEventGraphicsInfo_ArticunoEgg,
     [OBJ_EVENT_GFX_TRASHDAD] =         &gObjectEventGraphicsInfo_TrashDad,
     [OBJ_EVENT_GFX_SNAKE] =         &gObjectEventGraphicsInfo_Snake,
     [OBJ_EVENT_GFX_NEBBY] =         &gObjectEventGraphicsInfo_Nebby,
@@ -611,7 +647,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GROWLITHESIGN] =         &gObjectEventGraphicsInfo_GrowlitheSign,
     [OBJ_EVENT_GFX_DRIFLOON] =         &gObjectEventGraphicsInfo_Drifloon,
     [OBJ_EVENT_GFX_WAILORD] =         &gObjectEventGraphicsInfo_Wailord,
-    [OBJ_EVENT_GFX_CARDAD] =         &gObjectEventGraphicsInfo_CarDad,
     [OBJ_EVENT_GFX_SKITTY] =         &gObjectEventGraphicsInfo_Skitty,
     [OBJ_EVENT_GFX_SUDOWOODO] =         &gObjectEventGraphicsInfo_Sudowoodo,
     [OBJ_EVENT_GFX_AMPHAROS] =         &gObjectEventGraphicsInfo_Ampharos,
@@ -787,4 +822,45 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SILVER_2] = &gObjectEventGraphicsInfo_silver_2,
     [OBJ_EVENT_GFX_FLAREON] = &gObjectEventGraphicsInfo_flareon,
     [OBJ_EVENT_GFX_DROWZEE] = &gObjectEventGraphicsInfo_drowzee,
+    [OBJ_EVENT_GFX_HALF_SHORTS] = &gObjectEventGraphicsInfo_half_shorts,
+    [OBJ_EVENT_GFX_MIRROR_B] = &gObjectEventGraphicsInfo_mirror_b,
+    [OBJ_EVENT_GFX_UNCLE] = &gObjectEventGraphicsInfo_uncle,
+    [OBJ_EVENT_GFX_SNOVER] = &gObjectEventGraphicsInfo_snover,
+    [OBJ_EVENT_GFX_SENTRET] = &gObjectEventGraphicsInfo_SENTRET,
+    [OBJ_EVENT_GFX_BLUE_BLUE] = &gObjectEventGraphicsInfo_blue_blue,
+    [OBJ_EVENT_GFX_PI] = &gObjectEventGraphicsInfo_pi,
+    [OBJ_EVENT_GFX_MOLTRES_EGG] = &gObjectEventGraphicsInfo_moltres_egg,
+    [OBJ_EVENT_GFX_ARTICUNO_EGG] = &gObjectEventGraphicsInfo_articuno_egg,
+    [OBJ_EVENT_GFX_TABITHA] = &gObjectEventGraphicsInfo_tabitha,
+    [OBJ_EVENT_GFX_HEX_MANIAC] = &gObjectEventGraphicsInfo_HEX_MANIAC,
+    [OBJ_EVENT_GFX_WHIRLPOOL] = &gObjectEventGraphicsInfo_whirlpool,
+    [OBJ_EVENT_GFX_STARMAN] = &gObjectEventGraphicsInfo_starman,
+    [OBJ_EVENT_GFX_SWIM_BARRY] = &gObjectEventGraphicsInfo_swim_barry,
+    [OBJ_EVENT_GFX_COPPERAJAH] = &gObjectEventGraphicsInfo_copperajah,
+    [OBJ_EVENT_GFX_STARLIGHT] = &gObjectEventGraphicsInfo_starlight,
+    [OBJ_EVENT_GFX_PIGMASK] = &gObjectEventGraphicsInfo_pigmask,
+    [OBJ_EVENT_GFX_POKEY] = &gObjectEventGraphicsInfo_pokey,
+    [OBJ_EVENT_GFX_LICHEN] = &gObjectEventGraphicsInfo_lichen,
+    [OBJ_EVENT_GFX_GALAR_OAK] = &gObjectEventGraphicsInfo_galar_oak,
+    [OBJ_EVENT_GFX_MOLTRES_STATUE] = &gObjectEventGraphicsInfo_moltres_statue,
+    [OBJ_EVENT_GFX_MOLTRES_STATUE_ACTIVATED] = &gObjectEventGraphicsInfo_moltres_statue_activated,
+    [OBJ_EVENT_GFX_REGICE_SWIM] = &gObjectEventGraphicsInfo_regice_swim,
+    [OBJ_EVENT_GFX_MOLTRES_PILLAR] = &gObjectEventGraphicsInfo_moltres_pillar,
+    [OBJ_EVENT_GFX_ZAPDOS_PILLAR] = &gObjectEventGraphicsInfo_zapdos_pillar,
+    [OBJ_EVENT_GFX_ARTICUNO_PILLAR] = &gObjectEventGraphicsInfo_articuno_pillar,
+    [OBJ_EVENT_GFX_FOR_SALE] = &gObjectEventGraphicsInfo_for_sale,
+    [OBJ_EVENT_GFX_RADICAL_RED] = &gObjectEventGraphicsInfo_radical_red,
+    [OBJ_EVENT_GFX_SIGN_DOWN] = &gObjectEventGraphicsInfo_sign_down,
+    [OBJ_EVENT_GFX_SIGN_DOWN_LEFT] = &gObjectEventGraphicsInfo_sign_down_left,
+    [OBJ_EVENT_GFX_SIGN_RIGHT] = &gObjectEventGraphicsInfo_sign_right,
+    [OBJ_EVENT_GFX_SIGN_LEFT] = &gObjectEventGraphicsInfo_sign_left,
+    [OBJ_EVENT_GFX_SIGN_DOWN_RIGHT] = &gObjectEventGraphicsInfo_sign_down_right,
+    [OBJ_EVENT_GFX_FLAMES] = &gObjectEventGraphicsInfo_flames,
+    [OBJ_EVENT_GFX_LOOKER_DEAD] = &gObjectEventGraphicsInfo_looker_dead,
+    [OBJ_EVENT_GFX_TERRITORIAL_OAK] = &gObjectEventGraphicsInfo_territorial_oak,
+    [OBJ_EVENT_GFX_RAVEPOSSUM] = &gObjectEventGraphicsInfo_ravepossum,
+    [OBJ_EVENT_GFX_CAR_DAD] = &gObjectEventGraphicsInfo_car_dad,
+    [OBJ_EVENT_GFX_JUMPLUFF] = &gObjectEventGraphicsInfo_JUMPLUFF,
+    [OBJ_EVENT_GFX_BILL_BOARD] = &gObjectEventGraphicsInfo_bill_board,
+    [OBJ_EVENT_GFX_SAMSON_OAK] = &gObjectEventGraphicsInfo_SAMSON_OAK,
 };

@@ -105,7 +105,8 @@ Text_AdvertisingPoster::
 
 Text_TastyFood::
 	.string "Oh, that smells tasty!\n"
-	.string "It might get the stomach growling!$"
+	.string "Your stomach is growling!\p"
+	.string "{PAUSE 30}{PLAYER}'s DEFENSE fell!\n$"
 
 Text_TrashBin::
 	.string "Inside this…\n"

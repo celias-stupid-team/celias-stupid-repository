@@ -260,7 +260,19 @@ script PowerPlant_StarmieHint {
 		if(checkitem(ITEM_EVERSTONE)) {
 			msgbox("Oh, hey!\nIs that a B BUTTON?\pI think that's what our reactor\nneeds to get started again!\lLet's give it a shot!", MSGBOX_NPC)
 		} else {
-			msgbox("I see the problem.\nThe reactor got flipped off.\pAccording to our protocols, to get\nit back on we just need someone to\lplay a fun mini-game!\pBut…\nThe control console is really old.\lI think it's broken, actually.\pUhh… let's try it anyway, maybe?\nNot like we can break it harder!", MSGBOX_NPC)		
+			msgbox(
+			"I see the problem.\n"
+			"The reactor got flipped off.\p"
+
+			"No worries!\n"
+			"According to our protocol, we just\l"
+			"need to play a fun mini-game!\p"
+
+			"Only problem is, I think the\n"
+			"control console is broken.\p"
+
+			"We'll need to replace some buttons\n"
+			"before it'll work again!", MSGBOX_DEFAULT)
 		}
 	}
 }

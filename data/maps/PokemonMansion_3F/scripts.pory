@@ -31,3 +31,10 @@ PokemonMansion_3F_EventScript_Braydon::
 	msgbox PokemonMansion_1F_Text_BraydonPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+
+script PokemonMansion_3F_SoftlockGuy {
+	msgbox(
+	"dialogue\n"
+	"", MSGBOX_NPC)
+}

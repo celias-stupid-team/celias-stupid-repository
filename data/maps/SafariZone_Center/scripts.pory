@@ -133,7 +133,6 @@ script SafariZone_KangaskahnCage {
 	if(checkitem(ITEM_TM_CASE)) {
 		msgbox("She's staring intently at your\nTM CASE.\pWould you like to give her a\nTM?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
-			msgbox("Which TM would you like to give?\n", MSGBOX_DEFAULT)
 			if(var(VAR_RESULT)) {
 				setflag(FLAG_FREED_KANGA)
 				removeitem(ITEM_TM32)
@@ -534,6 +533,7 @@ script SafariZone_Center_Chuckster {
 	waitmovement(0)
 	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
 	delay(30)
+	release
 
 }
 

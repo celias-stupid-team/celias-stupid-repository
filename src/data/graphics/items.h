@@ -917,3 +917,21 @@ const u32 gItemIconPalette_PremierCandy[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_BalmMushroom[] = INCBIN_U32("graphics/items/icons/balm_mushroom.4bpp.lz");
 const u32 gItemIconPalette_BalmMushroom[] = INCBIN_U32("graphics/items/icon_palettes/balm_mushroom.gbapal.lz");
+
+const u32 gItemIcon_BurnDrive[] = INCBIN_U32("graphics/items/icons/burn_drive.4bpp.lz");
+const u32 gItemIconPalette_BurnDrive[] = INCBIN_U32("graphics/items/icon_palettes/burn_drive.gbapal.lz");
+
+const u32 gItemIcon_SwordOfKings[] = INCBIN_U32("graphics/items/icons/sword_of_kings.4bpp.lz");
+const u32 gItemIconPalette_SwordOfKings[] = INCBIN_U32("graphics/items/icon_palettes/sword_of_kings.gbapal.lz");
+
+const u32 gItemIcon_PEPSI[] = INCBIN_U32("graphics/items/icons/pepsi.4bpp.lz");
+const u32 gItemIconPalette_PEPSI[] = INCBIN_U32("graphics/items/icon_palettes/pepsi.gbapal.lz");
+
+const u32 gItemIcon_PotionExe[] = INCBIN_U32("graphics/items/icons/potion_exe.4bpp.lz");
+const u32 gItemIconPalette_PotionExe[] = INCBIN_U32("graphics/items/icon_palettes/potion_exe.gbapal.lz");
+
+const u32 gItemIcon_MagicMuffler[] = INCBIN_U32("graphics/items/icons/magic_muffler.4bpp.lz");
+const u32 gItemIconPalette_MagicMuffler[] = INCBIN_U32("graphics/items/icon_palettes/magic_muffler.gbapal.lz");
+
+const u32 gItemIcon_CopycatTm[] = INCBIN_U32("graphics/items/icons/copycat_tm.4bpp.lz");
+const u32 gItemIconPalette_CopycatTm[] = INCBIN_U32("graphics/items/icon_palettes/copycat_tm.gbapal.lz");

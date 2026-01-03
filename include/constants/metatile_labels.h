@@ -32,6 +32,10 @@
 // gTileset_CinnabarIsland
 #define METATILE_CinnabarIsland_LabDoor  0x2AD
 
+// gTileset_Credits
+#define METATILE_Credits_CreditsAbovePlayer  0x0A7
+#define METATILE_Credits_CreditsTransparent  0x09F
+
 // gTileset_DepartmentStore
 #define METATILE_DepartmentStore_ElevatorDoor  0x28D
 
@@ -334,6 +338,13 @@
 #define METATILE_TrainerTower_Floor_ShadeBottomLeft  0x287
 #define METATILE_TrainerTower_LobbyElevatorDoor      0x2C3
 #define METATILE_TrainerTower_RoofElevatorDoor       0x356
+
+// gTileset_TwoIsland
+#define METATILE_TwoIsland_DrugstoreDoor    0x36A
+#define METATILE_TwoIsland_HotelDoor        0x392
+#define METATILE_TwoIsland_SaturnDoor       0x34A
+#define METATILE_TwoIsland_TwoIslandDoor    0x301
+#define METATILE_TwoIsland_TwoIslandDoor_2  0x2E1
 
 // gTileset_VermilionCity
 #define METATILE_VermilionCity_Door                   0x29E

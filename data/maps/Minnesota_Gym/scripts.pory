@@ -8,9 +8,80 @@ mapscripts Minnesota_Gym_MapScripts {
             setmetatile(19, 14, METATILE_MinnesotaGym_UpdatedGymSignTop, TRUE)
             setmetatile(19, 15, METATILE_MinnesotaGym_UpdatedGymSignBottom, TRUE)
         }
+        if(!checkitem(ITEM_HM04)) {
+            getplayerxy(VAR_TEMP_4, VAR_TEMP_5)
+
+        } else {
+            clearflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_4)
+        }
+        
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_5, 4 {
+            setvar(VAR_TEMP_5, 0)
+            setvar(VAR_TEMP_2, 1)
+            clearflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_4)
+            msgbox(
+            "Wow!\n"
+            "A BENCH press!\p"
+
+            "Let's get strong!\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            delay(20)
+            msgbox(
+            "Huff…\n"
+            "Puff…", MSGBOX_DEFAULT)
+            closemessage
+            delay(20)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            msgbox(
+            "Wow!\n"
+            "What a workout!", MSGBOX_DEFAULT)
+            giveitem_msg("{PLAYER} built up some HM04\n"
+            "STRENGTH from the workout session!", ITEM_HM04_STRENGTH)
+            waitfanfare
+            release
+
+        }
+    ]
     
 }
+
+script MinnesotaGym_NoCuttingLeft {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Hey!\n"
+	"No Cutting!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    applymovement(LOCALID_PLAYER, moves(
+        walk_left
+    ))
+    waitmovement(0)
+    release
+}
+
+
+script MinnesotaGym_NoCuttingRight {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"Hey!\n"
+	"No Cutting!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+    applymovement(LOCALID_PLAYER, moves(
+        walk_right
+    ))
+    waitmovement(0)
+    release
+}
+
 
 script MinnesotaGym_SafetySign {
     if(flag(FLAG_SENT_BIKER_FLYING)) {
@@ -24,6 +95,17 @@ script MinnesotaGym_SafetySign {
         "4", MSGBOX_SIGN)
     }
 }
+
+script MinnesotaGym_BenchClue {
+	msgbox(
+	"One thing I hate about this gym\n"
+	"is how crowded it gets.\p"
+
+	"Everyone's hoping to get their\n"
+	"turn using the BENCH press.\l"
+	"Too bad there's only one machine!", MSGBOX_NPC)
+}
+
 
 
 script MinnesotaGym_WeightLine {
@@ -160,7 +242,8 @@ script MinnesotaGym_ShinyRattata {
     closemessage
     delay(10)
     msgbox(
-	"He's gotten gold.\n"
+	"Wow!\n"
+    "He's gotten gold!\n"
 	"", MSGBOX_DEFAULT)
     release
 }

@@ -1413,12 +1413,14 @@ static void Cmd_typecalc(void)
     u32 defType1, defType2;
     u32 mult;
 
+    /*
     if (gCurrentMove == MOVE_STRUGGLE)
     {
         gBattlescriptCurrInstr++;
         return;
     }
-
+    */
+   
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
     // check stab
@@ -10295,6 +10297,13 @@ static void Cmd_handleballthrow(void)
                 } else {
                     ballMultiplier = 0;
                 }
+            case MASTER_BALL:
+                if(gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME) {
+                    ballMultiplier = 100; //check if opponent is Mister
+
+                } else {
+                    ballMultiplier = 0;
+                }
             case LUXURY_BALL:
             case PREMIER_BALL:
                 ballMultiplier = 10;
@@ -10302,7 +10311,12 @@ static void Cmd_handleballthrow(void)
             }
         }
         else
-            ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
+            if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+                //DebugPrintf("Species is seel");
+                ballMultiplier = 0;
+            } else {
+                ballMultiplier = sBallCatchBonuses[thrownBall - ULTRA_BALL];
+            }
 
         odds = catchRate;
 
@@ -10313,7 +10327,7 @@ static void Cmd_handleballthrow(void)
 
         if (thrownBall != SAFARI_BALL)
         {
-            if (thrownBall == MASTER_BALL)
+            if (thrownBall == MASTER_BALL && gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME)
             {
                 gBattleResults.usedMasterBall = TRUE;
             }
@@ -10323,7 +10337,14 @@ static void Cmd_handleballthrow(void)
                     gBattleResults.catchAttempts[thrownBall - ULTRA_BALL]++;
             }
         }
-
+        if(gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+            if (thrownBall == SEAL_CASE_BALL) {
+                odds = 255;
+            } else {
+                odds = 0;
+            }
+        }
+        //DebugPrintf("Before catch check %d", odds);
         if (odds > 254) // mon caught
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
@@ -10345,7 +10366,7 @@ static void Cmd_handleballthrow(void)
 
             for (shakes = 0; shakes < BALL_3_SHAKES_SUCCESS && Random() < odds; shakes++);
 
-            if (thrownBall == MASTER_BALL)
+            if (thrownBall == MASTER_BALL && gBattleMons[gBattlerTarget].species == SPECIES_MR_MIME)
                 shakes = BALL_3_SHAKES_SUCCESS; // why calculate the shakes before that check?
 
             BtlController_EmitBallThrowAnim(BUFFER_A, shakes);

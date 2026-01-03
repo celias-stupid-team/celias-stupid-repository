@@ -32,20 +32,6 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 6,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_FindItem",
-      "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_X_SPEED"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 7,
       "y": 4,
       "elevation": 3,
@@ -53,35 +39,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_FindItem",
-      "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_MOON_STONE"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 8,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_FindItem",
-      "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_TM12"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_COPYCAT_TM",
       "script": "EventScript_FindItem",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B2F_SUPER_POTION"
     },
@@ -137,25 +95,26 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 28,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
-      "dest_warp_id": "1"
-    },
-    {
       "x": 29,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROCKET_HIDEOUT_ELEVATOR",
       "dest_warp_id": "1"
     },
     {
+      "x": 27,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_BACKROOMS",
+      "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "WARP_ID_DMCA_HIDEOUT",
       "x": 11,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_ROCKET_HIDEOUT_B2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SAFFRON_CITY_GYM",
+      "dest_warp_id": "WARP_ID_SAFFRON_GYM_DMCA"
     }
   ],
   "coord_events": [],

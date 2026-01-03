@@ -341,6 +341,12 @@ script CinnabarIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_CINNABAR_ISLAND)
 	call(CinnabarIsland_EventScript_CheckUnlockGym)
 	setflag(FLAG_TEMP_2)
+	if(flag(FLAG_BADGE07_GET)) {
+		setmaplayoutindex(LAYOUT_CINNABAR_ISLAND_CRASHED)
+		setflag(FLAG_TEMP_6)
+	} else {
+		setflag(FLAG_TEMP_5)
+	}
 }
 
 
@@ -576,7 +582,10 @@ script CinnabarIsland_ValorCrestPedestal {
 				special(ShakeScreen)
 				waitse
 				delay(20)
-				//call(Route18_SetZapdosStatue) Change the thingy
+				applymovement(LOCALID_MOLTRES_STATUE, moves(
+					face_up
+				))
+				setobjectmovementtype(LOCALID_MOLTRES_STATUE, MOVEMENT_TYPE_FACE_UP)
 				special(DrawWholeMapView)
 				playmoncry(SPECIES_MOLTRES, CRY_MODE_NORMAL)
 				fadeinbgm(1)
@@ -584,5 +593,45 @@ script CinnabarIsland_ValorCrestPedestal {
 			}
 		}
 	}
+	release
+}
+
+
+script CinnabarIsland_ThatsGrandpa {
+	lock
+	faceplayer
+	msgbox(
+	"That's old man CHESTER up there.\p"
+
+	"He likes heights.\n"
+	"", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_left
+	))
+	waitmovement(0)
+	release
+}
+
+
+script CinnabarIsland_WhatsAcrossTheSea {
+	lock
+	faceplayer
+	msgbox(
+	"I've always wondered what awaits\n"
+	"far across the sea.\p"
+
+	"Ah, to travel across the great\n"
+	"expanse - into lands unknown!\p"
+
+	"…{PAUSE 30}What's that?{PAUSE 30}\n"
+	"It's just MINNESOTA?\p"
+
+	"Darn.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
 	release
 }

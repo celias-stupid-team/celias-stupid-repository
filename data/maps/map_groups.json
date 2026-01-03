@@ -336,7 +336,8 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
     "Route10_Again",
-    "IndigoPlateauUsed"
+    "IndigoPlateauUsed",
+    "Route19_Pit_High"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -737,6 +738,10 @@
     "Ocean10",
     "Ocean11",
     "Ocean12",
-    "Ocean13"
+    "Ocean13",
+    "Ocean14",
+    "Ocean15",
+    "Ocean16",
+    "Ocean17"
   ]
 }

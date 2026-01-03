@@ -3,14 +3,14 @@
   "name": "Route20_SeafoamIslands",
   "layout": "LAYOUT_ROUTE20_SEAFOAM_ISLANDS",
   "music": "MUS_ROUTE3",
-  "region_map_section": "MAPSEC_ROUTE_20",
+  "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
@@ -33,6 +33,16 @@
       "map": "MAP_OCEAN6",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN5",
+      "offset": -16,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE19",
+      "offset": 44,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -40,7 +50,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SS_ANNE",
       "x": 25,
-      "y": 16,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -54,16 +64,16 @@
   "warp_events": [
     {
       "x": 11,
-      "y": 15,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B2F",
       "dest_warp_id": "0"
     },
     {
       "x": 23,
-      "y": 19,
+      "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
+      "dest_map": "MAP_SEAFOAM_ISLANDS_B4F",
       "dest_warp_id": "0"
     }
   ],
@@ -72,10 +82,10 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 15,
+      "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route20_SeafoamIslands_Sign"
     }
   ]
 }

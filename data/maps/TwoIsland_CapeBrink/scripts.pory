@@ -1,4 +1,65 @@
 raw `
-TwoIsland_CapeBrink_MapScripts::
-	.byte 0
+
 `
+
+mapscripts TwoIsland_CapeBrink_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_TEMP_3)
+	}
+}
+
+script TwoIsland_StarmanEncounter {
+	lock
+	playse(SE_M_CONFUSE_RAY)
+	addobject(LOCALID_TWO_ISLAND_STARMAN)
+	applymovement(LOCALID_TWO_ISLAND_STARMAN, moves(
+		delay_8
+		face_left
+		delay_8
+		face_down
+	))
+	waitmovement(0)
+	delay(20)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				face_up
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, moves(
+				face_right
+			))
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				face_left
+			))
+	}
+	waitmovement(0)
+	msgbox(
+	"you're really            pissing\n"
+	"                         me off", MSGBOX_DEFAULT)
+
+	trainerbattle_no_intro(TRAINER_STARMAN, "heck")
+	msgbox(
+	"Hmph.\p"
+
+	"Take this.\n"
+	"", MSGBOX_DEFAULT)
+	giveitem_msg("{PLAYER} was given the\nMOON STONE!", ITEM_MOON_STONE)
+	waitfanfare
+	msgbox(
+	"Farewell.\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_TWO_ISLAND_STARMAN, moves(
+		face_left
+		delay_8
+		face_up
+		delay_8
+	))
+	waitmovement(0)
+	removeobject(LOCALID_TWO_ISLAND_STARMAN)
+	setvar(VAR_TWO_ISLAND_STARMAN, 2)
+	release
+}

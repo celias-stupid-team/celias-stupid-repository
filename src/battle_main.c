@@ -45,6 +45,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/weather.h"
+#include "constants/maps.h"
 
 static void SpriteCB_UnusedDebugSprite(struct Sprite *sprite);
 static void HandleAction_UseMove(void);
@@ -468,6 +469,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_NINJAS, 50},
     {TRAINER_CLASS_BERSERK, 50},
     {TRAINER_CLASS_TRANS_BUGS, 50},
+    {TRAINER_CLASS_STARMAN, 50},
+    {TRAINER_CLASS_RADICAL, 50},
     { 0xFF, 5},
 };
 
@@ -2185,7 +2188,7 @@ static void BattleStartClearSetData(void)
 
     gHitMarker = 0;
 
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_POKEDUDE)) && gSaveBlock2Ptr->optionsBattleSceneOff)
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_POKEDUDE)) && (gSaveBlock2Ptr->optionsBattleSceneOff || (MAP_GROUP(MAP_ROUTE14) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE14))))
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
 
     gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;

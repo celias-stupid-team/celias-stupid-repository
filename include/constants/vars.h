@@ -160,7 +160,7 @@
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
 #define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
 #define VAR_CSR_DUMMY_9                                           0x4068
-#define VAR_CSR_DUMMY_10 0x4069
+#define VAR_CSR_DUMMY_10                                            0x4069
 #define VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
@@ -187,7 +187,7 @@
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_CSR_DUMMY_22                                            0x4082
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083
-#define VAR_CSR_DUMMY_24                              0x4084
+#define VAR_CSR_OCEAN_LASS_MAZE                              0x4084
 #define VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  0x4085
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                              0x4086
 #define VAR_MAP_SCENE_CLEFAIRY_DANCE                                                             0x4087
@@ -266,7 +266,7 @@ It is reset after every battle.
 #define VAR_CANT_FIND_TEETH                 0x40A5
 #define VAR_CANT_FIGURE_OUT_DARACH                 0x40A6
 #define VAR_LAVA_COOKIE                 0x40A7
-#define VAR_0x40A8                 0x40A8
+#define VAR_SEAFOAM_ISLANDS_CURRENT_SCENE                 0x40A8
 #define VAR_0x40A9                 0x40A9
 
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
@@ -274,7 +274,7 @@ It is reset after every battle.
 
 #define VAR_NEBBY_COUNTER                 0x40AF
 #define VAR_START_SILPH_MUSIC                 0x40B0
-#define VAR_0x40B1                 0x40B1
+#define VAR_TWO_ISLAND_STARMAN                 0x40B1
 #define VAR_0x40B2                 0x40B2
 #define VAR_0x40B3                 0x40B3
 #define VAR_PORTHOLE               0x40B4
@@ -300,7 +300,7 @@ It is reset after every battle.
 #define VAR_0x40C8                 0x40C8
 #define VAR_0x40C9                 0x40C9
 #define VAR_0x40CA                 0x40CA
-#define VAR_0x40CB                 0x40CB
+#define VAR_COPYCAT_USED                 0x40CB
 #define VAR_CURRENT_DMCA_PHASE                 0x40CC
 #define VAR_CSR_SEPIA                 0x40CD
 #define VAR_CURRENT_CHAPTER                 0x40CE
@@ -325,8 +325,8 @@ It is reset after every battle.
 #define VAR_NATIONAL_PARK_ENTRANCE                 0x40DF
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
-#define VAR_0x40E2                 0x40E2
-#define VAR_0x40E3                 0x40E3
+#define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
+#define VAR_PROFESSOR_IVY_CUT                 0x40E3
 #define VAR_0x40E4                 0x40E4
 #define VAR_0x40E5                 0x40E5
 #define VAR_DAILY_SLOTS            0x40E6
@@ -353,7 +353,7 @@ It is reset after every battle.
 #define VAR_0x40FB                 0x40FB
 #define VAR_0x40FC                 0x40FC
 #define VAR_0x40FD                 0x40FD
-#define VAR_0x40FE                 0x40FE
+#define VAR_SYS_GIVE_ALCREMIE                 0x40FE
 #define VAR_FIRST_TRADED_MON_SPECIES                 0x40FF
 
 #define VARS_END                   0x40FF

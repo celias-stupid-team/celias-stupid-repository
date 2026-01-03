@@ -97,7 +97,7 @@ mapscripts FushciaCity_WardensHouse_MapScripts {
 					msgbox("{PLAYER} fucking died!\n", MSGBOX_DEFAULT)
 					setvar(VAR_TEMP_1, 1)
 					closemessage
-					warp(MAP_ROUTE15, 0)
+					warp(MAP_ROUTE15, WARP_ROUTE15_GATE_LEFT)
 					release
 					end
 

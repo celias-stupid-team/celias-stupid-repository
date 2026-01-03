@@ -408,8 +408,8 @@
 #define FLAG_FOUR_ISLAND_WEAST_BERRY                      0x165
 #define FLAG_DMCA_SURGE_FIRST_GATE                      0x166
 #define FLAG_DMCA_SURGE_SECOND_GATE                         0x167
-#define FLAG_0x168                        0x168
-#define FLAG_0x169                 0x169
+#define FLAG_CUT_SAMSON_OAK                        0x168
+#define FLAG_OPENED_ZERO_ISLAND                 0x169
 #define FLAG_0x16A                     0x16A
 #define FLAG_HIDE_ROUTE9_TM40                                   0x16B
 #define FLAG_HIDE_ROCKET_HIDEOUT_B1F_ESCAPE_ROPE                0x16C
@@ -425,9 +425,9 @@
 #define FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM                    0x176
 #define FLAG_TALKED_TO_BLAINE                  0x177
 #define FLAG_MIRAGE_ISLAND_APPEARS                       0x178
-#define FLAG_0x179                    0x179
-#define FLAG_0x17A                   0x17A
-#define FLAG_0x17B                       0x17B
+#define FLAG_SAW_CELIA_ROUTE15                    0x179
+#define FLAG_GOT_CREAM_DROP                   0x17A
+#define FLAG_TRIED_WHIRLPOOL_BATTLE                       0x17B
 #define FLAG_0x17C                   0x17C
 #define FLAG_0x17D                   0x17D
 #define FLAG_0x17E                                  0x17E
@@ -946,13 +946,13 @@
 #define FLAG_GOT_CATERPIE               0x365
 #define FLAG_CREDITS_FAKEOUT               0x366
 #define FLAG_GOT_BALM_MUSHROOM               0x367
-#define FLAG_0x368               0x368
-#define FLAG_0x369               0x369
-#define FLAG_0x36A               0x36A
-#define FLAG_0x36B               0x36B
-#define FLAG_0x36C               0x36C
-#define FLAG_0x36D               0x36D
-#define FLAG_0x36E               0x36E
+#define FLAG_FUCKING_FURRET               0x368
+#define FLAG_LOOKER_SCENE               0x369
+#define FLAG_FUSHCIA_GO_TO_SHORE_SCENE               0x36A
+#define FLAG_MESPRIT_RAN_AWAY               0x36B
+#define FLAG_DMCA_SKULL_FIGHT_1               0x36C
+#define FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED               0x36D
+#define FLAG_DRILLED_MT_MOON_HOLE               0x36E
 #define FLAG_0x36F               0x36F
 #define FLAG_MURDERED_LANCE               0x370
 #define FLAG_CSR_HINT_GOLD_TEETH               0x371
@@ -990,18 +990,18 @@
 #define FLAG_TALKED_TO_IVY               0x391
 #define FLAG_TALKED_TO_TODD               0x392
 #define FLAG_UNLOCKED_CINNABAR_GYM               0x393
-#define FLAG_0x394               0x394
-#define FLAG_0x395               0x395
-#define FLAG_0x396               0x396
-#define FLAG_0x397               0x397
-#define FLAG_FOUGHT_CASTFORM               0x398
+#define FLAG_FOUGHT_CASTFORM               0x394
+#define FLAG_BOUGHT_A_HOUSE               0x395
+#define FLAG_TWO_ISLAND_TERRITORIAL_OAK               0x396
+#define FLAG_GOT_HAMBURGER               0x397
 
+#define FLAG_KINGLER_SIGN               0x398
 #define FLAG_DUGTRIO_SIGN               0x399
 #define FLAG_GROWLITHE_SIGN               0x39A
 #define FLAG_ELECTIVIRE_SIGN               0x39B
 #define FLAG_AMBIGUOUS_STATUE_SIGN               0x39C
 #define FLAG_ONIX_TAIL_SIGN               0x39D
-#define FLAG_CSR_SIGN_2               0x39E
+#define FLAG_IVY_SIGN               0x39E
 
 
 
@@ -1016,7 +1016,7 @@
 #define FLAG_CELADON_CANDY               0x3A5 //placed
 #define FLAG_FUSHCIA_CANDY               0x3A6 //placed
 #define FLAG_CINNABAR_ISLAND_CANDY       0x3A8 // Revealed after island crashed through
-#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // 
+#define FLAG_SOOTOPOLIS_CITY_CANDY       0x3A9 // Maybe put this elsewhere?
 #define FLAG_MT_MOON_CANDY               0x3AA //placed
 #define FLAG_UNDERGROUND_PATH_CANDY      0x3AB //placed
 #define FLAG_POKEMON_TOWER_CANDY         0x3AC //placed
@@ -1027,8 +1027,8 @@
 #define FLAG_KANTO_LIGHTHOUSE_CANDY      0x3B6 //placed
 #define FLAG_CERULEAN_CAVE_CANDY           0x3B7  //placed
 #define FLAG_ONE_ISLAND_CANDY            0x3B8 
-#define FLAG_TWO_ISLAND_CANDY            0x3B9 // Dung Beetle
-#define FLAG_THREE_ISLAND_CANDY          0x3BA
+#define FLAG_TWO_ISLAND_CANDY            0x3B9 // placed
+#define FLAG_THREE_ISLAND_CANDY          0x3BA // Inside the mansion somewhere
 #define FLAG_FOUR_ISLAND_CANDY           0x3BB //In Mart
 #define FLAG_THIRTY_EIGHT_ISLAND_CANDY   0x3BC //Placed
 #define FLAG_POKEMON_ISLAND_CANDY        0x3BD //Placed
@@ -1047,7 +1047,7 @@
 #define FLAG_ROUTE_13_CANDY              0x3CC //placed
 #define FLAG_ROUTE_14_CANDY              0x3CD //placed
 #define FLAG_ROUTE_16_CANDY              0x3CF //placed
-#define FLAG_ROUTE_17_CANDY              0x3D0 //placed
+#define FLAG_ROUTE_21_CANDY              0x3D0 // idk
 #define FLAG_ROUTE_18_CANDY              0x3D1 //placed
 #define FLAG_ROUTE_22_CANDY              0x3D3 //placed
 #define FLAG_ROUTE_24_CANDY              0x3D4 //placed
@@ -1063,7 +1063,9 @@
 #define FLAG_UNUSED_CANDY_5      0x3B3 // REPURPOSE
 #define FLAG_UNUSED_CANDY_6               0x3C6 //REPURPOSE
 #define FLAG_UNUSED_CANDY_7              0x3CE //REPURPOSE
-#define FLAG_ROUTE_21_CANDY              0x3D2 //REPURPOSE
+
+
+#define FLAG_PIRATE_BAY_CANDY              0x3D2 
 #define FLAG_YES_CANDY                   0x3BE
 #define FLAG_AETHER_PARADISE_CANDY       0x3B5
 #define FLAG_NATIONAL_PARK_CANDY               0x3D7
@@ -1437,7 +1439,7 @@
 #define FLAG_SYS_IS_CREDITS                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
-#define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
+#define FLAG_SYS_FUSHCIA_DISABLE_FLY                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_0x831                                                  (SYS_FLAGS + 0x31)

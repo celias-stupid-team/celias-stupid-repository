@@ -11,6 +11,23 @@ mapscripts Route9_MapScripts {
 		setflag(FLAG_CSR_MAP_ROUTE_9)
 		call(SetPlayerPokedexValues)
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_SYS_GIVE_ALCREMIE, 1 {
+			removeitem(ITEM_CREAM_DROP, 1)
+			setvar(VAR_SYS_GIVE_ALCREMIE, 0)
+			delay(30)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER}'s CREAM DROP evolved\n"
+			"into ALCREMIE!", MSGBOX_DEFAULT)
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_ALCREMIE)
+			call(Common_Script_GiftPokemon)
+			release
+			end
+		}
+	]
+
 }
 
 
@@ -61,6 +78,7 @@ script Route9_SetBenchCerulean {
 
 script Route9_SetBenchRoute9 {
 	setbench(BENCH_ROUTE9)
+	setflag(FLAG_CSR_MAP_ROUTE_9_FAR)
 	setvar(VAR_TEMP_0, 1)
 	release
 }

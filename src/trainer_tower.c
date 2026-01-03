@@ -952,7 +952,7 @@ static void TrainerTowerGetNumFloors(void)
 // If it were to return TRUE the player would be warped back to the lobby
 static void ShouldWarpToCounter(void)
 {
-    if (gMapHeader.mapLayoutId == LAYOUT_TRAINER_TOWER_LOBBY && VarGet(VAR_CSR_DUMMY_22) == 0)
+    if (gMapHeader.mapLayoutId == LAYOUT_TRAINER_TOWER_LOBBY)
         gSpecialVar_Result = FALSE;
     else
         gSpecialVar_Result = FALSE;

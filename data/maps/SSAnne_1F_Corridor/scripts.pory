@@ -1,6 +1,5 @@
 raw `
-SSAnne_1F_Corridor_MapScripts::
-	.byte 0
+
 
 SSAnne_1F_Corridor_EventScript_WorkerM::
 	msgbox SSAnne_1F_Corridor_Text_LeStrongSilentType, MSGBOX_NPC
@@ -10,3 +9,13 @@ SSAnne_1F_Corridor_EventScript_Sailor::
 	msgbox SSAnne_1F_Corridor_Text_PassengersAreRestless, MSGBOX_NPC
 	end
 `
+
+
+
+mapscripts SSAnne_1F_Corridor_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDE_HARRY_RAT)) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}

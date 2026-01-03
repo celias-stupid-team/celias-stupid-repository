@@ -232,7 +232,7 @@ static const struct MenuAction sMultichoiceList_HelixAmber[] = {
 
 static const struct MenuAction sMultichoiceList_DomeAmber[] = {
     { gText_DomeFossil },
-    { gText_OldAmber },
+    { gText_HelixFossil },
     { gOtherText_Exit }
 };
 

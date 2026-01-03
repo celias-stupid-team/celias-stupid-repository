@@ -1033,6 +1033,10 @@ static u16 GetLocationMusic(struct WarpData * warp)
     || (warp->mapGroup == MAP_GROUP(MAP_SILPH_CO_11F) && warp->mapNum == MAP_NUM(MAP_SILPH_CO_11F)))) {
         return MUS_SILPH;
     }
+    if(FlagGet(FLAG_SILPH_DMCA_DEFEATED) // don't make fun of me
+    && ((warp->mapGroup == MAP_GROUP(MAP_SAFFRON_CITY) && warp->mapNum == MAP_NUM(MAP_SAFFRON_CITY)))) {
+        return MUS_PEWTER;
+    }
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 

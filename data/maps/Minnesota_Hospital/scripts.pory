@@ -45,8 +45,10 @@ script MinnesotaHospital_Nurse {
 
 script Hospital_ColorTheory {
 	msgbox(
-	"A meaningful application of\n"
-	"color theory!", MSGBOX_SIGN)
+	"Wow!\p"
+
+	"The color in this corner is giving\n"
+	"plenty of positive associations!", MSGBOX_SIGN)
 
 }
 
@@ -126,5 +128,13 @@ script Hospital_EV_Drip {
 	msgbox(
 	"This one's an EV Drip!\n"
 	"", MSGBOX_SIGN)
+
+}
+
+
+script Hospital_XRay {
+	msgbox(
+	"It's a MOON STONE-powered\n"
+	"X-Ray machine!", MSGBOX_SIGN)
 
 }

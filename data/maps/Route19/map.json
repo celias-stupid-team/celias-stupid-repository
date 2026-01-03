@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE19",
   "name": "Route19",
   "layout": "LAYOUT_ROUTE19",
-  "music": "MUS_ROUTE3",
+  "music": "MUS_ROUTE11",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_ONE_ISLAND",
-      "offset": 6,
+      "offset": 1,
       "direction": "left"
     },
     {
@@ -40,9 +40,9 @@
       "direction": "right"
     },
     {
-      "map": "MAP_OCEAN3",
-      "offset": 0,
-      "direction": "left"
+      "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
+      "offset": -44,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -50,7 +50,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_WATER",
       "x": 11,
-      "y": 47,
+      "y": 49,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -64,7 +64,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 14,
-      "y": 48,
+      "y": 50,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -78,7 +78,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 12,
-      "y": 49,
+      "y": 51,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -92,7 +92,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 9,
-      "y": 48,
+      "y": 50,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -106,7 +106,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_WATER",
       "x": 8,
-      "y": 41,
+      "y": 43,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -120,7 +120,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M_WATER",
       "x": 9,
-      "y": 41,
+      "y": 43,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -131,12 +131,13 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_LOOKER_UP",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LOOKER",
       "x": 10,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -149,7 +150,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 7,
-      "y": 22,
+      "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -163,8 +164,8 @@
       "local_id": "LOCALID_ROUTE19_LASS_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 10,
-      "y": 22,
+      "x": 3,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -178,8 +179,8 @@
       "local_id": "LOCALID_ROUTE19_LASS_1",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 5,
-      "y": 22,
+      "x": 9,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -193,7 +194,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
       "x": 17,
-      "y": 26,
+      "y": 30,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -202,12 +203,56 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route19_ChapterConfusion",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RADICAL_RED",
+      "x": 26,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
+      "movement_range_x": 2,
+      "movement_range_y": 5,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "GreatSea_RadicalRed",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LOOKER_LAYING",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LOOKER_DEAD",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route19_LookerScene",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "local_id": "LOCALID_ROUTE19_ROTOM",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POKEDEX",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
     {
       "x": 6,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_ROUTE19_UNUSED_HOUSE",
       "dest_warp_id": "0"
@@ -217,7 +262,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 6,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -226,61 +271,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "1",
-      "script": "Route19_DestroyThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Route19_DrawThePit"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -292,13 +283,67 @@
       "y": 8,
       "elevation": 0,
       "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
       "var_value": "1",
       "script": "Route19_DestroyThePit"
     },
     {
       "type": "trigger",
       "x": 10,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -307,7 +352,7 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
@@ -316,18 +361,414 @@
     {
       "type": "trigger",
       "x": 12,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
       "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Route19_DrawThePitHigh"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "Route19_DestroyThePit"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_CURRENT_CHAPTER",
+      "var_value": "3",
+      "script": "GreatSea_Chapter7"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
       "x": 9,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route19_EventScript_RouteSign"
@@ -335,7 +776,7 @@
     {
       "type": "hidden_item",
       "x": 12,
-      "y": 14,
+      "y": 16,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
       "flag": "FLAG_ROUTE19_DOLL_1",
@@ -345,12 +786,20 @@
     {
       "type": "hidden_item",
       "x": 17,
-      "y": 10,
+      "y": 12,
       "elevation": 0,
       "item": "ITEM_POKE_DOLL",
       "flag": "FLAG_ROUTE19_DOLL_2",
       "quantity": 1,
       "underfoot": false
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "GreatSea_FontTest"
     }
   ]
 }

@@ -193,7 +193,7 @@ script CeruleanCity_Gym_EventScript_GrassTrainer {
 script CeruleanCity_Gym_EventScript_GivesScyther {
 	msgbox("Here, how about you learn the\npower of RETREAT for yourself?", MSGBOX_DEFAULT)
 	if(getpartysize <= 5) {
-		givemon(SPECIES_SCYTHER, 18, ITEM_NONE)
+		givemon(SPECIES_SCYTHER, 18, ITEM_GRASS_ENERGY)
 		goto_if_eq(VAR_RESULT, 2, EventScript_NoMoreRoomForPokemon) //literally copying this from vanilla code don't be mad at me for magic numbers pls <3
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		playfanfare(MUS_LEVEL_UP)

@@ -1,6 +1,5 @@
 raw `
-RockTunnel_B1F_MapScripts::
-	.byte 0
+
 
 RockTunnel_B1F_EventScript_Sofia::
 	trainerbattle_single TRAINER_PICNICKER_SOFIA, RockTunnel_B1F_Text_SofiaIntro, RockTunnel_B1F_Text_SofiaDefeat
@@ -33,6 +32,7 @@ RockTunnel_B1F_EventScript_Cooper::
 	end
 
 RockTunnel_B1F_EventScript_Steve::
+	clearflag FLAG_SHINY_CREATION
 	trainerbattle_single TRAINER_POKEMANIAC_STEVE, RockTunnel_B1F_Text_SteveIntro, RockTunnel_B1F_Text_SteveDefeat
 	msgbox RockTunnel_B1F_Text_StevePostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -42,3 +42,15 @@ RockTunnel_B1F_EventScript_Winston::
 	msgbox RockTunnel_B1F_Text_WinstonPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+mapscripts RockTunnel_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		setflag(FLAG_SHINY_CREATION)
+	}
+}
+
+script RockTunnel_UwUSign {
+	msgbox(
+	"                {UWU}.{UWU}\n"
+	"", MSGBOX_SIGN)
+
+}

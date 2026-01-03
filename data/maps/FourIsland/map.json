@@ -50,10 +50,10 @@
       "local_id": "LOCALID_FOUR_ISLAND_DAYCARE_MAN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 31,
-      "y": 43,
+      "x": 33,
+      "y": 11,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -248,10 +248,10 @@
       "local_id": "LOCALID_FROSLASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FROSLASS",
-      "x": 35,
-      "y": 42,
+      "x": 46,
+      "y": 37,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -361,7 +361,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CHINCHOU",
       "x": 63,
-      "y": 5,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -374,8 +374,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TIRTOUGA",
-      "x": 67,
-      "y": 5,
+      "x": 66,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -383,6 +383,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_LoveTirtouga",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BILL_BOARD",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -423,8 +437,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
-      "y": 36,
+      "x": 33,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_HOUSE2",
       "dest_warp_id": "0"
@@ -491,13 +505,20 @@
       "elevation": 0,
       "dest_map": "MAP_HOUSE_OF_OLD_MAN_WHO_TEACHES_TRENDY_SAYINGS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE6_UNUSED_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
     {
       "type": "trigger",
       "x": 35,
-      "y": 39,
+      "y": 33,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",
@@ -505,8 +526,8 @@
     },
     {
       "type": "trigger",
-      "x": 36,
-      "y": 39,
+      "x": 35,
+      "y": 33,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",
@@ -514,8 +535,8 @@
     },
     {
       "type": "trigger",
-      "x": 34,
-      "y": 39,
+      "x": 35,
+      "y": 33,
       "elevation": 0,
       "var": "VAR_FROSLASS_SCENE",
       "var_value": "0",

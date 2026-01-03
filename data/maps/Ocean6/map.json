@@ -2,15 +2,15 @@
   "id": "MAP_OCEAN6",
   "name": "Ocean6",
   "layout": "LAYOUT_OCEAN6",
-  "music": "MUS_DUMMY",
+  "music": "MUS_SEVII_ROUTE",
   "region_map_section": "MAPSEC_GREAT_SEA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
-  "allow_cycling": false,
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
   "allow_escaping": false,
-  "allow_running": false,
-  "show_map_name": true,
+  "allow_running": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
@@ -33,6 +33,11 @@
       "map": "MAP_ROUTE20_SEAFOAM_ISLANDS",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ONE_ISLAND",
+      "offset": 19,
+      "direction": "up"
     }
   ],
   "object_events": [],

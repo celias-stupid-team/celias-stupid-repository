@@ -1852,3 +1852,19 @@ Text_TestMsg::
 
 	.include "data/maps/AetherParadise_Island/scripts.inc"
 	.include "data/maps/AetherParadise_Island/text.inc"
+
+	.include "data/maps/Route19_Pit_High/scripts.inc"
+	.include "data/maps/Route19_Pit_High/text.inc"
+
+	.include "data/maps/Ocean14/scripts.inc"
+	.include "data/maps/Ocean14/text.inc"
+
+	.include "data/maps/Ocean15/scripts.inc"
+	.include "data/maps/Ocean15/text.inc"
+
+
+	.include "data/maps/Ocean16/scripts.inc"
+	.include "data/maps/Ocean16/text.inc"
+
+	.include "data/maps/Ocean17/scripts.inc"
+	.include "data/maps/Ocean17/text.inc"

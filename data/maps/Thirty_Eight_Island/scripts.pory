@@ -5,32 +5,148 @@ mapscripts Thirty_Eight_Island_MapScripts {
 }
 
 script ThirtyEightIsland_FirstChuckster {
-    lock
-    faceplayer
-    msgbox(
-	"I'm a CHUCKSTER!\n"
-	"", MSGBOX_DEFAULT)
-    release
+    	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
 }
 
 
+
 script ThirtyEightIsland_SecondChuckster {
-    lock
-    faceplayer
-    msgbox(
-	"I'm a CHUCKSTER!\n"
-	"", MSGBOX_DEFAULT)
-    release
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
 }
 
 
 script ThirtyEightIsland_Chuck {
     lock
     faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox(
-	"I'm   {PAUSE 20}CHUCK    !\n"
+	"I'm      {PAUSE 30}CHUCK    {PAUSE 20}!\n"
 	"", MSGBOX_DEFAULT)
-    release
+    	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_left
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_FALL)
+	applymovement(LOCALID_PLAYER, moves(
+        slide_up * 17
+    ))
+	waitmovement(0)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+    special(ShakeScreen)
+	delay(30)
+	release
 }
 
 script ThirtyEightIsland_NationalParkGuy {
@@ -39,10 +155,8 @@ script ThirtyEightIsland_NationalParkGuy {
 	"miss being home in JOHTO.\p"
 
 	"I'd visit the NATIONAL PARK just\n"
-	"to relax on the BENCHES all day.\p"
-
-	"Ah, if only I could take a\n"
-	"RETREAT back there now…", MSGBOX_NPC)
+	"to relax on the BENCHES all day.\l"
+	"Ah, if only I could go back…!\n", MSGBOX_NPC)
 }
 
 script ThirtyEightIsland_DarnBarn {
@@ -50,7 +164,7 @@ script ThirtyEightIsland_DarnBarn {
 	"Wha-\n"
 	"Hey!\p"
 
-	"This darn barn's made of yarn!\n"
+	"This darn barn's made a' yarn!\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -64,10 +178,29 @@ script ThirtyEightIsland_HelpMiltank {
 script ThirtyEightIsland_MommyMilkers {
     lock
     faceplayer
+    textcolor(NPC_TEXT_COLOR_FEMALE)
+    if(flag(FLAG_GOT_CREAM_DROP)) {
+        msgbox(
+        "The MOOMOO MILK…{PAUSE 30}\n"
+        "Has all sold out.", MSGBOX_DEFAULT)
+        release
+        end
+        }
 	msgbox(
-	"Would you like some\n"
-	"MOOMOO MILK?", MSGBOX_YESNO)
-    release
+	"Hello… … …\n"
+	"Would you like some MOOMOO MILK?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox(
+        "We are unfortunately…\n"
+        "{PAUSE 30}Out of MOOMOO MILK.\p"
+
+        "Here…{PAUSE 30}\n"
+        "Take this instead.", MSGBOX_DEFAULT)
+        giveitem_msg("{PLAYER} got the mysterious\nCREAM DROP!", ITEM_CREAM_DROP)
+        waitfanfare
+        setflag(FLAG_GOT_CREAM_DROP)
+		release
+    }
 }
 
 script ThirtyEightIsland_Miltank {
@@ -92,7 +225,11 @@ script ThirtyEightIsland_Miltank {
 script ThirtyEightIsland_MiltankPhilosophy {
     lock
     textcolor(NPC_TEXT_COLOR_RED)
-    //Little girl walks right
+    applymovement(LOCALID_38ISLAND_GIRL, moves(
+		walk_in_place_left * 2
+		face_left
+	))
+	waitmovement(0)
     switch(var(VAR_TEMP_1)) {
         case 0:
             msgbox(
@@ -134,7 +271,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             msgbox(
             "MILTANK: {MU}!\n"
             "", MSGBOX_DEFAULT)
-        case 4:
+        case 3:
             msgbox(
             "Hey, MITANK!\p"
 
@@ -168,3 +305,186 @@ script ThirtyEightIsland_GoldenRod {
     waitfanfare
     release
 }
+
+script ThirtyEightIsland_RouteSign {
+	msgbox(
+	"THIRTY EIGHT ISLAND\n"
+	"New Wild POKéMON: 1", MSGBOX_SIGN)
+
+}
+
+
+script ThirtyEightIsland_Intro {
+	msgbox(
+	"Thirty eight island intro\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_Saltcureberry {
+	msgbox(
+	"I am a berry\n"
+	"", MSGBOX_NPC)
+}
+script ThirtyEightIsland_otherberry {
+	msgbox(
+	"I am a berry\n"
+	"", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_HeadbuttMan {
+	lock
+	msgbox(
+	"headbutt joke\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_SOUTH || var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_right
+			face_left
+		))
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		lock_facing_direction
+		walk_slow_down
+		delay_16 * 3
+		walk_fast_up
+		jump_2_up
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_WALL_HIT)
+    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+    setvar(VAR_SHAKESCREEN_NUM_SHAKES, 6)
+    setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+	special(ShakeScreen)
+	applymovement(VAR_LAST_TALKED, moves(
+		delay_16 * 4
+		slide_down
+		unlock_facing_direction
+		delay_16 * 4
+		walk_slow_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+	end
+
+}
+
+
+script ThirtyEightIsland_PokeGearGuy {
+	msgbox(
+	"pokégear joke\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+script ThirtyEightIsland_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"I'm just out here grazing in\n"
+	"the pasture.\l"
+	"The grass here is delicious!\p"
+
+	"But never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script ThirtyEightIsland_LassMaze {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	delay(60)
+	getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_faster_right * 2
+		walk_fastest_right * 50
+	))
+	waitmovement(0)
+	switch(var(VAR_TEMP_0)) {
+		case 10:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_right * 1
+		))
+		waitmovement(0)
+
+		case 9:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_right * 2
+		))
+		waitmovement(0)
+
+	}
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_right * 2
+		walk_faster_right * 3
+	))
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		walk_down * 5
+		face_left
+		lock_facing_direction
+		delay_16 * 2
+		walk_slow_right
+		face_left
+		delay_16 * 3
+		walk_fast_left
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		walk_fast_left * 2
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fast_left * 2
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	applymovement(LOCALID_OCEAN13_LASS, moves(
+		jump_2_left
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		jump_2_left
+	))
+	waitmovement(LOCALID_OCEAN13_LASS)
+	playse(SE_M_WATERFALL)
+	playbgm(MUS_NONE, TRUE)
+	removeobject(LOCALID_OCEAN13_LASS)
+	delay(120)
+	
+	switch(var(VAR_TEMP_0)) {
+		case 10:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_left * 1
+		))
+		waitmovement(0)
+
+		case 9:
+		applymovement(LOCALID_CAMERA, moves(
+			walk_faster_left * 2
+		))
+		waitmovement(0)
+
+	}
+	applymovement(LOCALID_CAMERA, moves(
+		walk_fastest_left * 53
+	))
+	delay(40)
+	fadedefaultbgm
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
+	setvar(VAR_CSR_OCEAN_LASS_MAZE, 1)
+	release
+	end
+
+
+}
+
+

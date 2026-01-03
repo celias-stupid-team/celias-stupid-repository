@@ -118,6 +118,12 @@ script MemorialPillar_OnixSign {
 
 script MemorialPillar_Guy {
 	msgbox(
-	"dead pokemon\n"
-	"", MSGBOX_NPC)
+	"This is where I buried my ONIX.\p"
+
+	"Some kid snuck up on us with a\n"
+	"BUTTERFREE.\l"
+	"He stood no chance…\p"
+
+	"I think I did an excellent job\n"
+	"burying him.", MSGBOX_NPC)
 }

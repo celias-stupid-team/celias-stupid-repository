@@ -31,7 +31,7 @@
     },
     {
       "map": "MAP_ONE_ISLAND",
-      "offset": -29,
+      "offset": -34,
       "direction": "left"
     },
     {
@@ -105,7 +105,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "MemorialPillar_OnixSign"
@@ -133,7 +133,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "MemorialPillar_OnixSign"

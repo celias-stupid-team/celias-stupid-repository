@@ -22,7 +22,7 @@ SSAnne_2F_Corridor_EventScript_RivalTriggerRight::
 
 
 SSAnne_2F_Corridor_EventScript_RivalApproachLeft::
-	applymovement LOCALID_SS_ANNE_RIVAL, SSAnne_2F_Corridor_Movement_RivalApproachLeft
+	
 	waitmovement 0
 	return
 
@@ -179,7 +179,7 @@ script SS_Anne_Harry {
 		"He's such a great partner!\p"
 
 		"We're just chilling, precariously\n"
-		"hovering next to this giant cliff.\p"
+		"hovering next to this giant ledge.\p"
 
 		"It sure is a long way down, haha!\p"
 
@@ -216,10 +216,38 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	waitmovement(0)
 	delay(20)
 	//change this so that the player gets bumpted
-	call_if_eq(VAR_TEMP_1, 0, SSAnne_2F_Corridor_EventScript_RivalApproachLeft)
-	call_if_eq(VAR_TEMP_1, 1, SSAnne_2F_Corridor_EventScript_RivalApproachMid)
-	call_if_eq(VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalApproachRight)
+	switch(var(VAR_TEMP_1)) {
+		case 0:
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //left
+				walk_fast_down * 4
+			))
+		case 1: 
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //mid
+				walk_fast_down * 3
+				walk_fast_right
+				walk_fast_down * 1
 
+			))
+		case 2:
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //right
+				walk_fast_down * 2
+				walk_fast_right * 2
+				walk_fast_down * 2
+			))
+	}
+	waitmovement(0)
+
+	playse(SE_WALL_HIT)
+	applymovement(LOCALID_SS_ANNE_RIVAL, moves(
+		walk_down
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		lock_facing_direction
+		jump_down
+	))
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
 	msgbox(SSAnne_2F_Corridor_Text_RivalIntro)
 	setvar(VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL)
 	call(SSAnne_2F_Corridor_EventScript_RivalCharmander)
@@ -227,9 +255,32 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	closemessage
 	delay(10)
 	playbgm(MUS_RIVAL_EXIT, 0) //idk
-	call_if_eq(VAR_TEMP_1, 0, SSAnne_2F_Corridor_EventScript_RivalExitLeft)
-	call_if_eq(VAR_TEMP_1, 1, SSAnne_2F_Corridor_EventScript_RivalExitMid)
-	call_if_eq(VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalExitRight)
+		switch(var(VAR_TEMP_1)) {
+		case 0:
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //left
+				walk_fast_left
+				walk_fast_down * 4
+				walk_fast_left * 8
+			))
+		case 1: 
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //mid
+				walk_fast_left
+				walk_fast_down * 4
+				walk_fast_left * 8
+
+			))
+		case 2:
+			applymovement(LOCALID_SS_ANNE_RIVAL, moves( //right
+				walk_fast_left
+				walk_fast_down * 4
+				walk_fast_left * 8
+			))
+	}
+	waitmovement(0)
+
+
+
+
 	fadenewbgm(MUS_NONE)
 	delay(60)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)

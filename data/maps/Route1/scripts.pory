@@ -223,3 +223,10 @@ script Route1_CeliaCrew_Sphyralg {
 	msgbox("SPHYRALG: I should've known better\nthan to help create this hack.\pNow I'm stick in the pit with no way\nout…", MSGBOX_NPC)
 	end
 }
+
+script Route1_CeliaCrew_Starlight {
+	msgbox(
+	"STARLIGHT: I tried to modify this\n"
+	"map to escape, but the PIT is too\l"
+	"powerful to leave…", MSGBOX_NPC)
+}

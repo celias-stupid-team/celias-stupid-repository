@@ -185,6 +185,11 @@ static const u16 sDoorNullPalette65[16] = {};
 static const u8 sDoorAnimTiles_FushciaGym[] = INCBIN_U8("graphics/door_anims/fushcia_gym.4bpp");
 static const u8 sDoorAnimTiles_FourIslandDoor2[] = INCBIN_U8("graphics/door_anims/four_island_door.4bpp");
 
+static const u8 sDoorAnimTiles_TwoIsland[] = INCBIN_U8("graphics/door_anims/two_island.4bpp");
+static const u8 sDoorAnimTiles_TwoIslandSaturn[] = INCBIN_U8("graphics/door_anims/two_island_saturn.4bpp");
+static const u8 sDoorAnimTiles_TwoIslandDrugstore[] = INCBIN_U8("graphics/door_anims/two_island_drug.4bpp");
+static const u8 sDoorAnimTiles_TwoIslandHotel[] = INCBIN_U8("graphics/door_anims/two_island_hotel.4bpp");
+
 #define CLOSED_DOOR_TILES_OFFSET 0xFFFF
 
 static const struct DoorAnimFrame sDoorAnimFrames_OpenSmall[] = {
@@ -254,6 +259,10 @@ static const u8 sDoorAnimPalettes_TrainerTowerRoofElevator[] = {11, 11, 2, 2, 2,
 static const u8 sDoorAnimPalettes_FushciaGym[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_Lighthouse[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_FourIslandDoor2[] = {11, 11, 11, 11, 11, 11, 11, 11};
+static const u8 sDoorAnimPalettes_TwoIsland[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_TwoIslandSaturn[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_TwoIslandDrugstore[] = {9, 9, 9, 9, 9, 9, 9, 9};
+static const u8 sDoorAnimPalettes_TwoIslandHotel[] = {10, 10, 10, 10, 10, 10, 10, 10};
 
 static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_General_Door,                                DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_General, sDoorAnimPalettes_General},
@@ -295,6 +304,10 @@ static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_NewFuchsiaGym_FushciaDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_FushciaGym, sDoorAnimPalettes_FushciaGym},
     {METATILE_Route15_LIGHTHOUSE_DOOR,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_Lighthouse, sDoorAnimPalettes_Lighthouse},
     {METATILE_FourIsland_FourIslandDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_FourIslandDoor2, sDoorAnimPalettes_FourIslandDoor2},
+    {METATILE_TwoIsland_TwoIslandDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIsland, sDoorAnimPalettes_TwoIsland},
+    {METATILE_TwoIsland_SaturnDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x2, sDoorAnimTiles_TwoIslandSaturn, sDoorAnimPalettes_TwoIslandSaturn},
+    {METATILE_TwoIsland_DrugstoreDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandDrugstore, sDoorAnimPalettes_TwoIslandDrugstore},
+    {METATILE_TwoIsland_HotelDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandHotel, sDoorAnimPalettes_TwoIslandHotel},
     
 };
 

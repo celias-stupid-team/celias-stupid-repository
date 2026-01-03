@@ -40,33 +40,6 @@ CinnabarIsland_PokemonLab_Lounge_EventScript_CliftonAlreadyTraded::
 	release
 	end
 
-CinnabarIsland_PokemonLab_Lounge_EventScript_Norma::
-	lock
-	faceplayer
-	setvar VAR_0x8008, INGAME_TRADE_MEWTWO
-	copyvar VAR_0x8004, VAR_0x8008
-	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
-	copyvar VAR_0x8009, VAR_RESULT
-	goto_if_set FLAG_DID_TANGENY_TRADE, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaAlreadyTraded
-	msgbox Trade_Text_RattataTrade, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaDeclineTrade
-	special ChoosePartyMon
-	waitstate
-	copyvar VAR_0x800A, VAR_0x8004
-	goto_if_ge VAR_0x8004, PARTY_SIZE, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaDeclineTrade
-	copyvar VAR_0x8005, VAR_0x800A
-	specialvar VAR_RESULT, GetTradeSpecies
-	copyvar VAR_0x800B, VAR_RESULT
-	goto_if_ne VAR_RESULT, VAR_0x8009, CinnabarIsland_PokemonLab_Lounge_EventScript_NormaNotRequestedMon
-	copyvar VAR_0x8004, VAR_0x8008
-	copyvar VAR_0x8005, VAR_0x800A
-	special CreateInGameTradePokemon
-	special DoInGameTradeScene
-	waitstate
-	msgbox Trade_Text_ThanksYoureAPal
-	setflag FLAG_DID_TANGENY_TRADE
-	release
-	end
 
 CinnabarIsland_PokemonLab_Lounge_EventScript_NormaDeclineTrade::
 	msgbox Trade_Text_ThatsTooBad
@@ -111,3 +84,38 @@ script CinnabarIslandLab_Shelgon {
 	waitmovement(0)
 	release
 }
+
+script CinnabarIslandLab_StevenStone {
+	lock
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Hello, there!\n"
+	"My name is STEVEN STONE.\p"
+
+	"It's a pleasure to meet you.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+
+script CinnabarIslandLab_AmberTree {
+	msgbox(
+	"Have you heard of OLD AMBER?\n"
+	"PEWTER MUSEUM has some.\p"
+
+	"It's made of the same sap our\n"
+	"ancient ancesters once had.\p"
+
+	"In the next room over, they're\n"
+	"researching it.\l"
+	"No one's allowed in, though.", MSGBOX_NPC)
+}
+
+
+script CinnabarIslandLab_FujiPainting {
+	msgbox(
+	"Hey!\n"
+	"That's a funny-lookin' tree!", MSGBOX_SIGN)
+
+}
+

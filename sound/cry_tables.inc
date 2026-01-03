@@ -1237,6 +1237,11 @@ gCryTable::
 	cry Cry_Lumineon
 	cry Cry_PORYGON64
 	cry Cry_PORYGON32
+	cry Cry_STARMIEMEGA
+	cry Cry_GIRAFARIGBOTTOM
+	cry Cry_GIRAFARIGBUTT
+	cry Cry_MEWTWOW
+	cry Cry_CHARIZARDQ
 
 
 
@@ -2484,6 +2489,11 @@ gCryTable_Reverse::
 	cry_reverse Cry_Lumineon
 	cry_reverse Cry_PORYGON64
 	cry_reverse Cry_PORYGON32
+	cry_reverse Cry_STARMIEMEGA
+	cry_reverse Cry_GIRAFARIGBOTTOM
+	cry_reverse Cry_GIRAFARIGBUTT
+	cry_reverse Cry_MEWTWOW
+	cry_reverse Cry_CHARIZARDQ
 
 
 

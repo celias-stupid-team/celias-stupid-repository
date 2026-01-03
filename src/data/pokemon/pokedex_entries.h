@@ -546,18 +546,6 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
-    [NATIONAL_DEX_GOLBAT] =
-    {
-        .categoryName = _("SENSORY"),
-        .height = 16,
-        .weight = 550,
-        .description = gGolbatPokedexText,
-        .unusedDescription = gGolbatPokedexTextUnused,
-        .pokemonScale = 291,
-        .pokemonOffset = 0,
-        .trainerScale = 296,
-        .trainerOffset = 2,
-    },
 
     [NATIONAL_DEX_ODDISH] =
     {
@@ -2393,18 +2381,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = -2,
     },
 
-    [NATIONAL_DEX_SUDOWOODO] =
-    {
-        .categoryName = _("IMITATION"),
-        .height = 12,
-        .weight = 380,
-        .description = gSudowoodoPokedexText,
-        .unusedDescription = gSudowoodoPokedexTextUnused,
-        .pokemonScale = 305,
-        .pokemonOffset = 7,
-        .trainerScale = 256,
-        .trainerOffset = -2,
-    },
+
 
     [NATIONAL_DEX_POLITOED] =
     {
@@ -2538,7 +2515,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ESPEON] =
     {
-        .categoryName = _("SUN"),
+        .categoryName = _("FRIENDLY"),
         .height = 9,
         .weight = 265,
         .description = gEspeonPokedexText,
@@ -5373,9 +5350,9 @@ const struct PokedexEntry gPokedexEntries[] =
 
 
     
-    [NATIONAL_DEX_BUZZWOLE] =
+    [NATIONAL_DEX_SUDOWOODO] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("AUTHORITY"),
         .height = 19,
         .weight = 151.5,
         .description = gYanmegaPokedexText,

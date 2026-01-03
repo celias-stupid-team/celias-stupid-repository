@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_GREAT_BAY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -33,6 +33,11 @@
       "map": "MAP_GREAT_SEA_PIRATE_BAY",
       "offset": 15,
       "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN17",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],
@@ -47,5 +52,14 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SkyTower_Door"
+    }
+  ]
 }

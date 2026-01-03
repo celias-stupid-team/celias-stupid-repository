@@ -14,7 +14,7 @@ enum {
 #define KANTO_MAPSEC_START   MAPSEC_PALLET_TOWN
 
 // Values starting from SEVII_MAPSEC_START are assumed to have data in sSeviiMapsecs.
-#define SEVII_MAPSEC_START   MAPSEC_ONE_ISLAND
+#define SEVII_MAPSEC_START   MAPSEC_
 
 // Special location IDs that use the same value space as MAPSECs.
 #define METLOC_SPECIAL_EGG         0xFD

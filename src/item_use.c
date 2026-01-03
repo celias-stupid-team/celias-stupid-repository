@@ -634,6 +634,40 @@ void FieldUseFunc_Repel(u8 taskId)
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_RepelEffectsLingered, Task_ReturnToBagFromContextMenu);
 }
 
+
+void FieldUseFunc_CopycatTM(u8 taskId)
+{
+    VarSet(VAR_COPYCAT_USED, 1);
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFFRON_CITY_COPYCATS_HOUSE_1F)) {
+        PlaySE(SE_PC_LOGIN);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu); // ???
+
+        sItemUseOnFieldCB = Task_ItemUse_CloseMessageBoxAndReturnToField; //I don't udnerstand which part of this CB puts you back in the field
+        SetUpItemUseOnFieldCallback(taskId);
+
+        // Attempts:
+        
+        // DisplayItemMessageOnField(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ItemUse_CloseMessageBoxAndReturnToField); No, because I want the message in the bag
+        
+        //DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_TMContainedCopycat); This one doesn't have a callback argument
+        
+        /*
+        DisplayItemMessageInCurrentContext(taskId, FALSE, FONT_NORMAL, gText_GimmieghoulTMUsed);
+        */
+
+
+        RemoveUsedItem();
+
+
+
+    } else {
+        PlaySE(SE_PC_LOGIN);
+        DisplayItemMessageInBag(taskId, FONT_NORMAL, gText_TMContainedCopycat, Task_ReturnToBagFromContextMenu);
+
+    }
+
+}
+
 static void Task_UseRepel(u8 taskId)
 {
     if (!IsSEPlaying())

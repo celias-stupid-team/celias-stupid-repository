@@ -3,14 +3,14 @@
   "name": "SSAnne_CaptainsOffice",
   "layout": "LAYOUT_SSANNE_CAPTAINS_OFFICE",
   "music": "MUS_SS_ANNE",
-  "region_map_section": "MAPSEC_S_S_ANNE",
+  "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
@@ -28,7 +28,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSAnne_CaptainsOffice_EventScript_Captain",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -48,7 +48,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SSAnne_CaptainsOffice_EventScript_Book"
+      "script": "SSAnne_CaptainLog"
     },
     {
       "type": "sign",
@@ -56,7 +56,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SSAnne_CaptainsOffice_EventScript_TrashCan"
+      "script": "SSAnne_TrashCan"
     },
     {
       "type": "sign",
@@ -64,7 +64,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SSAnne_CaptainsOffice_EventScript_Book"
+      "script": "SSAnne_CaptainLog"
     }
   ]
 }

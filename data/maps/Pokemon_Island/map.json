@@ -2,15 +2,15 @@
   "id": "MAP_POKEMON_ISLAND",
   "name": "Pokemon_Island",
   "layout": "LAYOUT_POKEMON_ISLAND",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_GREAT_SEA",
+  "music": "MUS_POKEMON_ISLAND",
+  "region_map_section": "MAPSEC_POKEMON_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
-  "allow_cycling": false,
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
   "allow_escaping": false,
-  "allow_running": false,
-  "show_map_name": true,
+  "allow_running": true,
+  "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
@@ -26,12 +26,12 @@
     },
     {
       "map": "MAP_OCEAN11",
-      "offset": -5,
+      "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN12",
-      "offset": 0,
+      "map": "MAP_CINNABAR_ISLAND",
+      "offset": -20,
       "direction": "left"
     }
   ],

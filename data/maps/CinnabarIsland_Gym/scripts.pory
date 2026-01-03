@@ -710,6 +710,13 @@ CinnabarIsland_Gym_EventScript_OpenDoor6::
 script CinnabarGym_Blaine {
 	lock
 	faceplayer
+	if(flag(FLAG_BADGE07_GET)) {
+		msgbox(
+		"You beat me\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(!flag(FLAG_TALKED_TO_BLAINE)) {
 		setflag(FLAG_TALKED_TO_BLAINE)
 		msgbox(
@@ -717,45 +724,227 @@ script CinnabarGym_Blaine {
 
 		"here's a quiz\n"
 	"", MSGBOX_DEFAULT)
+		addvar(VAR_CINNABAR_GYM_PHASE, 1)
 	} else {
 		msgbox(
 		"Ready for quiz\n"
 		"", MSGBOX_DEFAULT)
 	}
+	goto(CinnabarGym_GymQuestionLoop)
+}
+
+
+script CinnabarGym_GymQuestionLoop {
 	switch(var(VAR_CINNABAR_GYM_PHASE)) {
-		case 0:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 1)
-		
 		case 1:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 1) // Bulbasaur or 
+			msgbox(
+			"QUESTION 1!\p"
+
+			"\n"
+			"Who is{PAUSE 30} the first POKéMON?", MSGBOX_DEFAULT)
 		
 		case 2:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 2) // Hitmonchan or Hitmonchin?
+			msgbox(
+			"QUESTION 2!\p"
+
+			"\n"
+			"This POKéMON shares part of its\l"
+			"name with a famous Martial Artist.", MSGBOX_DEFAULT)
 		
 		case 3:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 3)
+			msgbox(
+			"QUESTION 3!\p"
+
+			"\n"
+			"This POKéMON's name is the same\l"
+			"both forwards and backwards.", MSGBOX_DEFAULT)
 		
 		case 4:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
-		
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 4)
+			msgbox(
+			"QUESTION 4!\p"
+
+			"\n"
+			"According to the 2023 Census, this\l"
+			"POKéMON has a population of over\l"
+			"23 Million!", MSGBOX_DEFAULT)
 		case 5:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 5)
+			msgbox(
+			"QUESTION 5!\p"
+
+			"\n"
+			"The winner of Smash Summit 7 Semi-\l"
+			"Finals featuring Zain was…?", MSGBOX_DEFAULT)
 		
 		case 6:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 6)
+			msgbox(
+			"QUESTION 6!\p"
+
+			"\n"
+			"What is the fifth word of Proverbs\l"
+			"Chapter 1 Verse 14 (KJV, 1638)?", MSGBOX_DEFAULT)
 		
 		case 7:
-			setvar(VAR_CURRENT_BLAINE_ANSWER, 2)
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 7)
+		
+		case 8:
+			setvar(VAR_CURRENT_BLAINE_ANSWER, 8)
+			msgbox(
+			"QUESTION 8!\p"
+
+			"\n"
+			"Who is the last POKéMON?", MSGBOX_DEFAULT)
 	}
-	// Go into party
-	// Compare party mon against Blaine Answer / Secret
+	special(ChoosePartyMon)
+	closemessage
+	waitstate
+    if(var(VAR_0x8004) >= PARTY_SIZE) {
+        msgbox(
+		"What's that?\n"
+		"You don't know the answer?\p"
+
+		"All righty, folks!\n"
+		"We'll be back after a short break!", MSGBOX_DEFAULT)
+		release
+		end
+    }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	switch(var(VAR_CINNABAR_GYM_PHASE)) {
+		case 1:
+			if(var(VAR_RESULT) == SPECIES_BULBASAUR || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 2:
+			if(var(VAR_RESULT) == SPECIES_HITMONCHAN || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 3:
+			if(var(VAR_RESULT) == SPECIES_ALOMOMOLA || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 4:
+			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 5:
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 6:
+			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_RHYDON) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
+		case 7:
+		case 8:
+	}
+
 	// Keep track of if you've been secret the whole time
 	// Do the battle
 	// If you win, increment your current question
-	setflag(FLAG_BADGE07_GET)
-	setvar(VAR_TEMP_C, 1) //For the shakey ground
-	release
 }
+
+script CinnabarGym_CheckBattleOutcome {
+	specialvar(VAR_TEMP_F, GetBattleOutcome)
+	if(var(VAR_TEMP_F) == B_OUTCOME_WON) {
+		playse(SE_SUCCESS)
+		waitse
+		addvar(VAR_CINNABAR_GYM_PHASE, 1)
+		if(var(VAR_CINNABAR_GYM_PHASE) == 7) {
+			msgbox(
+			"That's absolutely CORRECT!\n"
+			"Nicely done!", MSGBOX_DEFAULT)
+			msgbox(
+			"{PLAYER} obtained the\n"
+			"VOLCANOBAKEMEAT BADGE!", MSGBOX_DEFAULT)
+			setflag(FLAG_BADGE07_GET)
+			waitfanfare
+			setvar(VAR_TEMP_C, 1) //For the shakey ground
+			release
+			end
+		}
+		playse(SE_SUCCESS)
+		waitse
+		msgbox(
+		"That's absolutely CORRECT!\n"
+		"Nicely done!\p"
+
+		"Are you ready for your next\n"
+		"challenge?\l"
+		"Let's go!", MSGBOX_DEFAULT)
+		goto(CinnabarGym_GymQuestionLoop)
+
+	} else {
+		goto(CinnabarGym_IncorrectAnswer)
+	}
+}
+
+
+script CinnabarGym_IncorrectAnswer {
+	playse(SE_BOO)
+	waitse
+	msgbox(
+	"I'm so sorry, but that answer\n"
+	"is INCORRECT!\p"
+
+	"But not to worry!\n"
+	"Take a pause and try again!", MSGBOX_DEFAULT)
+	release
+	end
+}
+
 
 script CinnabarGym_IslandAppears {
 	lock
@@ -766,7 +955,6 @@ script CinnabarGym_IslandAppears {
     setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
 	special(ShakeScreen)
 	delay(120)
-	fadedefaultbgm
 	setvar(VAR_TEMP_C, 0)
 	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
 	setmetatile(4, 2, 0x16B, TRUE)

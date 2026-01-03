@@ -11,6 +11,17 @@ const OldMan = 11
 const Woman = 12
 mapscripts Route15_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
+		if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY) && !flag(FLAG_FED_SANDWICH)) {
+            //I accidentally did the logic backwards but this is more sensible anyway LOL 
+			if(!flag(FLAG_SAW_CELIA_ROUTE15)) {
+				setvar(VAR_TEMP_A, 1)
+
+			}
+        } else {
+            setflag(FLAG_TEMP_A)
+			
+        }
+
 		if(flag(FLAG_CSR_TALKED_TO_TUBER) && !flag(FLAG_GOLURK_SANDWICH)) {
 			setflag(FLAG_CSR_TUBER_EATEN)
 			removeobject(TUBER)
@@ -33,6 +44,33 @@ mapscripts Route15_MapScripts {
 		clearflag(FLAG_LIGHTHOUSE_FALLING_FROM_ABOVE)
 	}
 	
+}
+
+script Route15_CeliaStopsYou {
+	lock
+	setflag(FLAG_SAW_CELIA_ROUTE15)
+	setvar(VAR_TEMP_A, 0)
+	playse(SE_PIN)
+	applymovement(LOCALID_ROUTE15_CELIA, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	delay(40)
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	goto(Route15_CeliaSandwich)
+	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_DEFAULT)
+	release
+}
+
+script Route15_CeliaSandwich {
+	setflag(FLAG_SAW_CELIA_ROUTE15)
+	setvar(VAR_TEMP_A, 0)
+	msgbox("Looking for SANDWICH ingredients?\nDon't worry!\lYou don't have to go back for any.\pLook around and pay attention!\n", MSGBOX_NPC)
+	end
 }
 
 script CeliaSecrets_LighthouseSign {
@@ -164,15 +202,15 @@ script Route15_NoPower {
 	switch(var(VAR_TEMP_1)) { //Man walks up - This decides where he starts
 		case FAR_LEFT: //Yeah yeah I should've just used default case 
 		case FAR_RIGHT:
-			setobjectxy(FATGUY, MID_RIGHT, 29)
+			setobjectxy(FATGUY, MID_RIGHT, 31)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy1)
 			break
 		case MID_RIGHT:
-			setobjectxy(FATGUY, MID_LEFT, 29)
+			setobjectxy(FATGUY, MID_LEFT, 31)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy2)
 			break
 		case MID_LEFT:
-			setobjectxy(FATGUY, FAR_RIGHT, 29)
+			setobjectxy(FATGUY, FAR_RIGHT, 31)
 			applymovement(FATGUY, Route15_Lighthouse_FatGuy3)
 			break
 		
@@ -182,7 +220,7 @@ script Route15_NoPower {
 	msgbox("I'm sorry, but rules are rules.\nNobody's allowed to go inside.", MSGBOX_DEFAULT)
 	waitmovement(0)
 	closemessage
-	setobjectxy(FATGUY, 47, 26)
+	setobjectxy(FATGUY, 47, 28)
 	special(RemoveCameraObject)
 	return
 }
@@ -323,7 +361,7 @@ script Route15_NoHMBoat {
 
 script Route15_FindShellder_Left {
 	lock
-	setmetatile(16, 25, 0x115, FALSE)
+	setmetatile(16, 27, 0x115, FALSE)
 	special(DrawWholeMapView)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
 	playfanfare(MUS_LEVEL_UP)
@@ -335,7 +373,7 @@ script Route15_FindShellder_Left {
 
 script Route15_FindShellder_Right {
 	lock
-	setmetatile(32, 30, 0x115, FALSE)
+	setmetatile(32, 32, 0x115, FALSE)
 	special(DrawWholeMapView)
 	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SHELLDER)
 	playfanfare(MUS_LEVEL_UP)
@@ -425,4 +463,50 @@ movement Route15_Lighthouse_FatGuy3 {
 
 movement Route15_Lighthouse_WalkDown {
 	walk_down
+}
+
+script Route15_Chuckster {
+	lock
+	faceplayer
+	msgbox("I'm a CHUCKSTER!\n", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	switch(var(VAR_RESULT)) {
+		case DIR_NORTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_up
+				face_up
+
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+				walk_down
+				face_up
+
+			))
+	}
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceUp)
+	waitmovement(LOCALID_PLAYER)
+	delay(30)
+	applymovement(LOCALID_PLAYER, WalkFastUp)
+	applymovement(VAR_LAST_TALKED, WalkFastUp)
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_PLAYER, Jump2Up)
+	waitmovement(0)
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_down
+		face_up
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+
 }
