@@ -182,7 +182,7 @@ enum RotomMoveMessage
 enum RotomMonIcon
 {
     ICON_GHOLDENGO,
-    ICON_GOLDEEN,
+    ICON_SEAKING,
     ICON_MACHAMP,
     ICON_BIDOOF,
     ICON_FARFETCHD,
@@ -415,7 +415,7 @@ struct RotomStartMenu
 
 static const u16 sRotomMonIconToSpecies[] = {
     [ICON_GHOLDENGO] = SPECIES_GHOLDENGO,
-    [ICON_GOLDEEN] = SPECIES_GOLDEEN,
+    [ICON_SEAKING] = SPECIES_SEAKING,
     [ICON_MACHAMP] = SPECIES_MACHAMP,
     [ICON_BIDOOF] = SPECIES_BIDOOF,
     [ICON_FARFETCHD] = SPECIES_FARFETCHD,
@@ -507,8 +507,8 @@ static const union AnimCmd sAnimCmd_MonIcon_Gholdengo[] = {
     ANIMCMD_FRAME((ICON_GHOLDENGO * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
-static const union AnimCmd sAnimCmd_MonIcon_Goldeen[] = {
-    ANIMCMD_FRAME((ICON_GOLDEEN * MON_ICON_TILES_PER_FRAME), 0),
+static const union AnimCmd sAnimCmd_MonIcon_Seaking[] = {
+    ANIMCMD_FRAME((ICON_SEAKING * MON_ICON_TILES_PER_FRAME), 0),
     ANIMCMD_JUMP(0),
 };
 static const union AnimCmd sAnimCmd_MonIcon_Machamp[] = {
@@ -562,7 +562,7 @@ static const union AnimCmd sAnimCmd_MonIcon_Ampharos[] = {
 
 static const union AnimCmd *const sMonIconAnimTable[MON_ICON_COUNT] = {
     [ICON_GHOLDENGO] = sAnimCmd_MonIcon_Gholdengo,
-    [ICON_GOLDEEN] = sAnimCmd_MonIcon_Goldeen,
+    [ICON_SEAKING] = sAnimCmd_MonIcon_Seaking,
     [ICON_MACHAMP] = sAnimCmd_MonIcon_Machamp,
     [ICON_BIDOOF] = sAnimCmd_MonIcon_Bidoof,
     [ICON_FARFETCHD] = sAnimCmd_MonIcon_Farfetchd,
@@ -2833,7 +2833,7 @@ static void PopulateMoveMonSpecies(void)
     u16 species;
     // static const u16 testSpeciesInfo[] = {
     //     SPECIES_GHOLDENGO,
-    //     SPECIES_GOLDEEN,
+    //     SPECIES_SEAKING,
     //     SPECIES_MACHAMP,
     //     SPECIES_KRABBY,
     //     SPECIES_FARFETCHD,
