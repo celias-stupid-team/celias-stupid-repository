@@ -17,7 +17,9 @@
 #include "new_menu_helpers.h"
 #include "overworld.h"
 #include "party_menu.h"
+#include "pokemon_storage_system.h"
 #include "quest_log.h"
+#include "rotom_menu.h"
 #include "script.h"
 #include "special_field_anim.h"
 #include "task.h"
@@ -2812,9 +2814,35 @@ u32 FldEff_FieldMoveShowMonInit(void)
 {
     u32 r6 = gFieldEffectArguments[0] & 0x80000000;
     u8 partyIdx = gFieldEffectArguments[0];
-    gFieldEffectArguments[0] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_SPECIES);
-    gFieldEffectArguments[1] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_OT_ID);
-    gFieldEffectArguments[2] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_PERSONALITY);
+    u8 box, monPos;
+
+    if (gUsingRotomMenuMove && gRotomMoveSlotOrBoxPos != ROTOM_SLOT_POS_NONE)
+    {
+        if (IS_HIGH_BIT_SET(gRotomMoveSlotOrBoxPos))
+        {
+            box = GET_ROTOM_MON_BOX(gRotomMoveSlotOrBoxPos);
+            monPos = GET_ROTOM_MON_POS(gRotomMoveSlotOrBoxPos);
+            gFieldEffectArguments[0] = GetBoxMonData(&gPokemonStoragePtr->boxes[box][monPos], MON_DATA_SPECIES);
+            gFieldEffectArguments[1] = GetBoxMonData(&gPokemonStoragePtr->boxes[box][monPos], MON_DATA_OT_ID);
+            gFieldEffectArguments[2] = GetBoxMonData(&gPokemonStoragePtr->boxes[box][monPos], MON_DATA_PERSONALITY);
+        }
+        else
+        {
+            gFieldEffectArguments[0] = GetMonData(&gPlayerParty[gRotomMoveSlotOrBoxPos], MON_DATA_SPECIES);
+            gFieldEffectArguments[1] = GetMonData(&gPlayerParty[gRotomMoveSlotOrBoxPos], MON_DATA_OT_ID);
+            gFieldEffectArguments[2] = GetMonData(&gPlayerParty[gRotomMoveSlotOrBoxPos], MON_DATA_PERSONALITY);
+        }
+
+        gUsingRotomMenuMove = FALSE;
+        gRotomMoveSlotOrBoxPos = ROTOM_SLOT_POS_NONE;
+    }
+    else
+    {
+        gFieldEffectArguments[0] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_SPECIES);
+        gFieldEffectArguments[1] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_OT_ID);
+        gFieldEffectArguments[2] = GetMonData(&gPlayerParty[partyIdx], MON_DATA_PERSONALITY);
+    }
+
     gFieldEffectArguments[0] |= r6;
     FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON);
     FieldEffectActiveListRemove(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);

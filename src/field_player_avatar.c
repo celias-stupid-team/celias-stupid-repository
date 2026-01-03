@@ -1242,17 +1242,28 @@ u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
 bool8 PartyHasMonWithSurf(void)
 {
     u8 i;
+    u32 outBox, outMonPos, outSlot;
+    u16 outSpecies;
 
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
-        for (i = 0; i < PARTY_SIZE; i++)
+        if (!FlagGet(FLAG_SYS_ROTOM_MENU))
         {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
-                break;
-            if (MonKnowsMove(&gPlayerParty[i], MOVE_SURF))
-                return TRUE;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
+                    break;
+                if (MonKnowsMove(&gPlayerParty[i], MOVE_SURF))
+                    return TRUE;
+            }
+        }
+        else
+        {
+            return FindPartyMonWithMove(MOVE_SURF, &outSlot, &outSpecies) 
+                    || FindBoxMonWithMove(MOVE_SURF, &outBox, &outMonPos, &outSpecies);        
         }
     }
+
     return FALSE;
 }
 

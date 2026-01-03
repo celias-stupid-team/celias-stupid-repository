@@ -299,7 +299,7 @@ It is reset after every battle.
 #define VAR_0x40C7                 0x40C7
 #define VAR_0x40C8                 0x40C8
 #define VAR_0x40C9                 0x40C9
-#define VAR_0x40CA                 0x40CA
+#define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon
 #define VAR_COPYCAT_USED                 0x40CB
 #define VAR_CURRENT_DMCA_PHASE                 0x40CC
 #define VAR_CSR_SEPIA                 0x40CD
@@ -326,7 +326,7 @@ It is reset after every battle.
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
 #define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
-#define VAR_PROFESSOR_IVY_CUT                 0x40E3
+#define VAR_USED_CUT                 0x40E3
 #define VAR_AROUND_THE_WORLD_LASS                 0x40E4
 #define VAR_0x40E5                 0x40E5
 #define VAR_DAILY_SLOTS            0x40E6
@@ -417,6 +417,8 @@ It is reset after every battle.
 
 
 #define NPC_TEXT_COLOR_DEFAULT 255 // If an NPC is selected, use the color specified by GetColorFromTextColorTable, otherwise use Neutral.
+
+#define FIELD_MOVE_USE_PC_MON 0xFFFF
 
 #endif // GUARD_CONSTANTS_VARS_H
 

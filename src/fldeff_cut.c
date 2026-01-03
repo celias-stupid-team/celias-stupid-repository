@@ -134,7 +134,7 @@ bool8 SetUpFieldMove_Cut(void)
 
     if (IsObjectInFrontOfPlayerCuttable())
     {
-        VarSet(VAR_PROFESSOR_IVY_CUT, 1);
+        VarSet(VAR_USED_CUT, 1);
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_CutTree;
         return TRUE;

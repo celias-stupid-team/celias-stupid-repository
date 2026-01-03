@@ -263,3 +263,16 @@ BattleScript_LeftoverWallyPrepToThrow::
 	printstring STRINGID_YOUTHROWABALLNOWRIGHT
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+BattleScript_TrainerASlideMsgRet::
+	trainerslidein BS_OPPONENT1
+	waitstate
+	handletrainerslidemsg
+	waitmessage B_WAIT_TIME_LONGEST
+	trainerslideout BS_OPPONENT1
+	waitstate
+	return
+
+BattleScript_TrainerASlideMsgEnd2::
+	call BattleScript_TrainerASlideMsgRet
+	end2

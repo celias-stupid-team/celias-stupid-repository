@@ -2,10 +2,13 @@ EventScript_CutTree::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CantCutTree
-	checkpartymove MOVE_CUT
+	checkfieldmove MOVE_CUT
+	goto_if_eq VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_CutTreeAfterBuffer
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
+@ fallthrough
+EventScript_CutTreeAfterBuffer::
 	buffermovename STR_VAR_2, MOVE_CUT
 	msgbox Text_CutTreeDown, MSGBOX_DEFAULT
 	textcolor NPC_TEXT_COLOR_NEUTRAL
@@ -69,10 +72,13 @@ EventScript_RockSmash::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
 	goto_if_unset FLAG_BADGE06_GET, EventScript_CantSmashRock
-	checkpartymove MOVE_ROCK_SMASH
+	checkfieldmove MOVE_ROCK_SMASH
+	goto_if_eq VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_RockSmashAfterBuffer
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
+@ fallthrough
+EventScript_RockSmashAfterBuffer::
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
 	msgbox Text_UseRockSmash, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_DontSmashRock
@@ -123,10 +129,13 @@ EventScript_DontSmashRock::
 EventScript_BrickBreak::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
-	checkpartymove MOVE_BRICK_BREAK
+	checkfieldmove MOVE_BRICK_BREAK
+	goto_if_eq VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_BrickBreakAfterBuffer
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantBreakBrick
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
+@ fallthrough
+EventScript_BrickBreakAfterBuffer::
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
 	msgbox Text_UseBrickBreak, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_DontSmashRock
@@ -181,7 +190,8 @@ EventScript_StrengthBoulder::
 	lockall
 	goto_if_unset FLAG_BADGE04_GET, EventScript_CantMoveBoulder
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_AlreadyUsedStrength
-	checkpartymove MOVE_STRENGTH
+	checkfieldmove MOVE_STRENGTH
+@ strength buffers the mon name in FldEff_UseStrength
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantMoveBoulder
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_UseStrength, MSGBOX_YESNO
@@ -238,9 +248,12 @@ Text_StrengthMadeMovingBouldersPossible::
 EventScript_Waterfall::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
-	checkpartymove MOVE_WATERFALL
+	checkfieldmove MOVE_WATERFALL
+	goto_if_eq VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_WaterfallAfterBuffer
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_WaterCrashingDown
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
+@ fallthrough
+EventScript_WaterfallAfterBuffer::
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_UseWaterfall, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall

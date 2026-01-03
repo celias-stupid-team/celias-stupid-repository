@@ -99,3 +99,65 @@ script PokemonLeague_LoreleisRoom_EventScript_EnterRoom {
 	setvar(VAR_CSR_DUMMY_9, 1)
 	releaseall
 }
+
+script LoreleiRoom_Red {
+	lock
+	msgbox(
+	"...\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+
+script LoreleiRoom_Primeape {
+	lock
+	playmoncry(SPECIES_PRIMEAPE, CRY_MODE_DEFAULT)
+	msgbox(
+	"PRIMEAPE: Prraaa!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"PRIMEAPE used RAGE!\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+
+script LoreleiRoom_Dewgong {
+	lock
+	playmoncry(SPECIES_DEWGONG, CRY_MODE_DEFAULT)
+	msgbox(
+	"DEWGONG: Dwaaah!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"DEWGONG used REST!\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+
+script LoreleiRoom_Lorelei {
+	lock
+	msgbox(
+	"LORELEI: Hmph.\n"
+	"You think you can stand up to me?\l"
+	"No matter.\p"
+
+	"Go, DEWGONG!\n"
+	"Use your SUPER-EFFECTIVE attack!", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"It looks like they've been at this\n"
+	"for a few hours.\p"
+
+	"You should probably just leave.\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

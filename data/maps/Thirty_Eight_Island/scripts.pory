@@ -308,10 +308,18 @@ script ThirtyEightIsland_GoldenRod {
 	}
 	setflag(FLAG_CSR_GOT_GOLDEN_ROD)
     msgbox(
-	"gift\n"
+	"I may be a fisherman by trade, but\n"
+	"I yearn for the big city.\p"
+
+	"Here, take this.\n"
 	"", MSGBOX_DEFAULT)
     giveitem_msg("{PLAYER} obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
     waitfanfare
+	
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement
     release
 }
 
@@ -551,4 +559,10 @@ script ThirtyEightIsland_HoothootWoman {
 	))
 	waitmovement(0)
 	release
+}
+
+script ThirtyEightIsland_GoldenRodPointer {
+	msgbox(
+	"Down by shore\n"
+	"placeholder", MSGBOX_NPC)
 }

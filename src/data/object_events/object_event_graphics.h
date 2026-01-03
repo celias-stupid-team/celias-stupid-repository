@@ -623,3 +623,5 @@ const u32 gObjectEventPic_groudon_hidden[] = INCBIN_U32("graphics/object_events/
 const u16 gObjectEventPal_groudon_hidden[] = INCBIN_U16("graphics/object_events/palettes/groudon_hidden.gbapal");
 const u32 gObjectEventPic_HOOTHOOT[] = INCBIN_U32("graphics/object_events/pics/stupid/HOOTHOOT.4bpp");
 const u16 gObjectEventPal_HOOTHOOT[] = INCBIN_U16("graphics/object_events/palettes/HOOTHOOT.gbapal");
+const u32 gObjectEventPic_MAGNEMITE[] = INCBIN_U32("graphics/object_events/pics/stupid/MAGNEMITE.4bpp");
+const u16 gObjectEventPal_MAGNEMITE[] = INCBIN_U16("graphics/object_events/palettes/MAGNEMITE.gbapal");

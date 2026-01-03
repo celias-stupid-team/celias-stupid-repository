@@ -1,6 +1,6 @@
 mapscripts PokemonIsland_Lab_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PROFESSOR_IVY_CUT, 1 {
+        VAR_USED_CUT, 1 {
             delay(30)
             playse(SE_FALL)
             applymovement(LOCALID_IVY_2, moves(
@@ -10,12 +10,12 @@ mapscripts PokemonIsland_Lab_MapScripts {
             waitmovement(0)
             addobject(LOCALID_IVY)
             setobjectxy(LOCALID_IVY_2, 13, 0)
-            setvar(VAR_PROFESSOR_IVY_CUT, 0)
+            setvar(VAR_USED_CUT, 0)
             release
         }
     ]
     MAP_SCRIPT_ON_TRANSITION {
-        setvar(VAR_PROFESSOR_IVY_CUT, 0)
+        setvar(VAR_USED_CUT, 0)
         if(flag(FLAG_KINGLER_SIGN)) {
             addvar(VAR_TEMP_5, 1)
         }

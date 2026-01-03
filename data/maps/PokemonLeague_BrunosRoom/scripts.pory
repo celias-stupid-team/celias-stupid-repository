@@ -34,6 +34,7 @@ PokemonLeague_BrunosRoom_EventScript_TurnPlayerNorth::
 
 PokemonLeague_BrunosRoom_OnFrame::
 	map_script_2 VAR_CSR_DUMMY_9, 1, PokemonLeague_BrunosRoom_EventScript_EnterRoom
+	map_script_2 VAR_USED_CUT, 1, BrunosRoom_OpenDoor
 	.2byte 0
 
 PokemonLeague_BrunosRoom_EventScript_EnterRoom::
@@ -104,6 +105,14 @@ PokemonLeague_BrunosRoom_EventScript_BrunoLookAwayDown::
 `
 
 
+script BrunosRoom_OpenDoor {
+	playbgm(MUS_NONE, TRUE)
+	delay(30)
+	call(PokemonLeague_EventScript_OpenDoor)
+	setvar(VAR_USED_CUT, 0)
+	setflag(FLAG_DEFEATED_BRUNO)
+}
+
 script PokemonLeague_BrunosRoom_EventScript_PostBattle {
 	lock
 	textcolor(NPC_TEXT_COLOR_TREE)
@@ -126,4 +135,18 @@ script PokemonLeague_BrunosRoom_EventScript_PostBattle {
 	"I've had enough!", MSGBOX_DEFAULT)
 	release
 	end
+}
+
+script BrunoRoom_Oak {
+	msgbox(
+	"OAK: Hello, {PLAYER}!\n"
+	"Fancy seeing you here!\p"
+
+	"I heard you completed your whole\n"
+	"POKéDEX!\l"
+	"Well done!\p"
+
+	"I'm so proud of you!\n"
+	"", MSGBOX_SIGN)
+
 }

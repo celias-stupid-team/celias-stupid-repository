@@ -1588,3 +1588,31 @@
 	.macro restoreattacker
 	callnative BS_RestoreAttacker
 	.endm
+
+	.macro setused108tupleteam
+	callnative BS_SetUsed108TupleTeam
+	.endm
+
+	.macro handletrainerslidemsg
+	callnative BS_HandleTrainerSlideMsg
+	.endm
+
+	.macro trytrainerslidemsgfirstoff battler:req
+	callnative BS_TryTrainerSlideMsgFirstOff
+	.byte \battler
+	.endm
+
+	.macro trytrainerslidemsglaston battler:req
+	callnative BS_TryTrainerSlideMsgLastOn
+	.byte \battler
+	.endm
+	
+	.macro trainerslideout position:req
+	callnative BS_TrainerSlideOut
+	.byte \position
+	.endm
+
+	.macro trytrainerslidemsgswitchin battler:req
+	callnative BS_TryTrainerSlideMsgSwitchIn
+	.byte \battler
+	.endm

@@ -6105,6 +6105,8 @@ static u16 GetBattleBGM(void)
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_BOSS:
             return MUS_CSR_DMCA_BATTLE;
+        case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
+            return MUS_CYNTHIA_BATTLE;
 
             
         case TRAINER_CLASS_DMCA:
