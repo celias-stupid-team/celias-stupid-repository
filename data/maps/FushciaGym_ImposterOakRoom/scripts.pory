@@ -89,13 +89,13 @@ script FushciaGym_ImposterOakRoom_ImposterOak{
 			trainerbattle_no_intro(TRAINER_IMPOSTER_OAK_FUSHCIA, "{FONT_SMALL}Hey!\n")
 			msgbox("{FONT_SMALL}Just when I thought I had a nice\n{FONT_SMALL}place to myself!\p{FONT_SMALL}Later, kid.\n{FONT_SMALL}I got better things to do!", MSGBOX_DEFAULT)
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			playse(SE_EXIT)
 			fadedefaultbgm
 			removeobject(VAR_LAST_TALKED)
 			waitse
 			setflag(FLAG_FUSHCIA_IMPOSTER_OAK)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			release
 
 		}

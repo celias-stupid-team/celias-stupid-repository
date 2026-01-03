@@ -2418,7 +2418,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP = 52,
         .baseAttack = 110,
         .baseDefense = 55,
-        .baseSpeed = 60,
+        .baseSpeed = 90,
         .baseSpAttack = 200,
         .baseSpDefense = 62,
         .types = {TYPE_NORMAL, TYPE_FLYING},
@@ -16246,9 +16246,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_SCRAGGY] =
     {
-        .baseHP = 50,
-        .baseAttack = 40,
-        .baseDefense = 50,
+        .baseHP = 35,
+        .baseAttack = 20,
+        .baseDefense = 35,
         .baseSpeed = 48,
         .baseSpAttack = 35,
         .baseSpDefense = 70,

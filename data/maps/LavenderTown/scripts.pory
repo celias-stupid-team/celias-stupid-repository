@@ -152,13 +152,13 @@ movement LavenderCameraDown {
 script LavenderTown_RemoveTree {
 	msgbox("{FONT_SMALL}Geez, what a lousy neighborhood.\nI'm outta here!\pStay dry, ya jerk!\n", MSGBOX_DEFAULT)
 	closemessage
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	playse(SE_EXIT)
 	fadedefaultbgm
 	removeobject(IMPOSTER_OAK)
 	waitse
 	setflag(FLAG_CSR_IMPOSTEROAK1)
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	release
 }
 

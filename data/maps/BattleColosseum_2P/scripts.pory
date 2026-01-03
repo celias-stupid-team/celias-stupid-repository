@@ -146,7 +146,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_MT_MOON_BASEMENT)) {
 		setobtainable(SPECIES_PARAS) // 45
 	}
-	if((flag(FLAG_CSR_SUN_STONE_FOUND) || flag(FLAG_CSR_MAP_STONE_EMPORIUM) || flag(FLAG_CSR_HIDDEN_ITEM_MT_MOON_B2F_SUN_STONE)) && checkmoncaught(SPECIES_PARAS)) {
+	if((flag(FLAG_CSR_SUN_STONE_FOUND) || flag(FLAG_CSR_MAP_STONE_EMPORIUM) || flag(FLAG_CSR_HIDDEN_ITEM_MT_MOON_B2F_SUN_STONE)) && checkmoncaught(SPECIES_PARAS) && flag(FLAG_WORLD_MAP_CERULEAN_CITY)) {
 		setobtainable(SPECIES_PARASECT) // 46
 	}
 	if(flag(FLAG_CSR_MAP_BALL_SHOP)) {
@@ -727,7 +727,6 @@ script GetOakPCPokedexMessage {
 			"But never mind that.\n"
 			"Why don't you take a rest?", MSGBOX_DEFAULT)
 			closemessage
-			fadescreen(FADE_TO_BLACK)
 			fadescreenswapbuffers(FADE_TO_BLACK)
 			closemessage
 			playfanfare(MUS_HEAL)

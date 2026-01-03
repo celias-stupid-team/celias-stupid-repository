@@ -67,3 +67,21 @@ script Route11_Route11 {
 script Route11_RouteLoss {
 	msgbox("ROUTE 1_\pNEW WILD POKéMON: 1", MSGBOX_SIGN)
 }
+
+
+script Route11_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Man.\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

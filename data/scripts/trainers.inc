@@ -286,7 +286,6 @@ Route8_EventScript_Megan::
 	end
 
 Route8_EventScript_Julia::
-	trainerbattle_single TRAINER_PICNICKER_NIGHT, Route8_Text_JuliaIntro, Route8_Text_JuliaDefeat
 	msgbox Route8_Text_JuliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

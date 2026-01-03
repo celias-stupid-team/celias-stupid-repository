@@ -27,10 +27,10 @@ mapscripts FestivalPlaza_MapScripts {
             //Some movement shit
                 
             }
-            fadescreen(FADE_TO_BLACK)
+            fadescreenswapbuffers(FADE_TO_BLACK)
             msgbox("Several hours later…\n", MSGBOX_DEFAULT)
             closemessage
-            fadescreen(FADE_FROM_BLACK)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
             msgbox("SOPHOCLES: …And that's just the\ntip of the iceberg!", MSGBOX_DEFAULT)
             release
             end

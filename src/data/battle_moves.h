@@ -758,7 +758,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_HIT,
         .power = 120,
-        .type = TYPE_WATER,
+        .type = TYPE_FIRE,
         .accuracy = 80,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -5118,7 +5118,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_RAGE_SNOUT] =    {
         .effect = EFFECT_HIT, // Placeholder Effect
-        .power = 50,
+        .power = 90,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 35,

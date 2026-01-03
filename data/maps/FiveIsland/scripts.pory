@@ -48,7 +48,7 @@ script Yes_ChanseyNPC {
 	msgbox(
 	"do you want a chansey?\n"
 	"", MSGBOX_DEFAULT)
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	callnative(BerryPowderManCheck)
 	waitstate
 	if(var(VAR_RESULT)) {

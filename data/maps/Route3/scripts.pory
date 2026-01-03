@@ -306,9 +306,9 @@ script Route3_Blackglasses {
 		msgbox("Uh, thanks.\p...\pGoodbye.\n", MSGBOX_DEFAULT)
 		closemessage
 		playse(SE_EXIT)
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		removeobject(Nerd)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 		release
 	}
 }

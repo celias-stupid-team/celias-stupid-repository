@@ -34,7 +34,7 @@ script FushciaGym_ElectrifyRoom_Lance {
         if(var(VAR_RESULT)) {
             // Hyper Beam Happens
             closemessage
-            fadescreen(FADE_TO_BLACK)
+            fadescreenswapbuffers(FADE_TO_BLACK)
             delay(30)
             playmoncry(SPECIES_TAUROS, CRY_MODE_DEFAULT)
             waitmoncry
@@ -44,7 +44,7 @@ script FushciaGym_ElectrifyRoom_Lance {
             call(FushciaGym_ElectrifyRoom_OpenDoor)
             special(DrawWholeMapView)
             fadedefaultbgm
-            fadescreen(FADE_FROM_BLACK)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
             delay(30)
             playfanfare(MUS_LEVEL_UP)
             msgbox("{PLAYER} obtained the\nleftover GYARADOS!", MSGBOX_DEFAULT)

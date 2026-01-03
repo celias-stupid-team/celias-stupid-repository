@@ -1415,12 +1415,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_HikerNob[] = {
     {
         .iv = 0,
         .lvl = 13,
-        .species = SPECIES_GEODUDE,
+        .species = SPECIES_SOBBLE,
     },
     {
         .iv = 0,
         .lvl = 13,
-        .species = SPECIES_ONIX,
+        .species = SPECIES_OBSTAGOON,
     },
 
 };

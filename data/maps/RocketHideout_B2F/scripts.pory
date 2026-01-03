@@ -34,3 +34,11 @@ mapscripts RocketHideout_B2F_MapScripts {
 		}
 	]
 }
+
+
+script RocketHideout_ElevatorDoor {
+	msgbox(
+	"Rats!\n"
+	"The elevator seems to not exist!", MSGBOX_SIGN)
+
+}

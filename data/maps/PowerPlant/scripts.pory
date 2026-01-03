@@ -291,11 +291,11 @@ script PowerPlant_Max {
 		waitmovement(0)
 		msgbox("Forget this-!\nI can't stand it anymore!", MSGBOX_DEFAULT)
 		closemessage
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		delay(30)
 		setflag(FLAG_REPELLED_MAX)
 		removeobject(VAR_LAST_TALKED)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 	}
 	release
 }
@@ -318,7 +318,14 @@ movement PowerPlant_MaxFlustered {
 
 script PowerPlant_StarmieHint {
 	if(flag(FLAG_CSR_POWER_IS_ON)) {
+		msgbox(
+		"Oh, hey!\n"
+		"The power's back on!\p"
 
+		"Thanks!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
 	} else {
 		if(checkitem(ITEM_EVERSTONE)) {
 			msgbox("Oh, hey!\nIs that a B BUTTON?\pI think that's what our reactor\nneeds to get started again!\lLet's give it a shot!", MSGBOX_NPC)
@@ -336,6 +343,7 @@ script PowerPlant_StarmieHint {
 
 			"We'll need to replace some buttons\n"
 			"before it'll work again!", MSGBOX_DEFAULT)
+			release
 		}
 	}
 }

@@ -2989,7 +2989,7 @@ u8 IsRunningFromBattleImpossible(void)
     gPotentialItemEffectBattler = gActiveBattler;
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN
      || (gBattleTypeFlags & BATTLE_TYPE_LINK)
-     || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE)
+     || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
         return BATTLE_RUN_SUCCESS;
     side = GetBattlerSide(gActiveBattler);
     for (i = 0; i < gBattlersCount; i++)
@@ -4377,6 +4377,12 @@ bool8 TryRunFromBattle(u8 battler)
     else if (gBattleMons[battler].ability == ABILITY_LEAF_RIDE)
     {
         gLastUsedAbility = ABILITY_LEAF_RIDE;
+        gProtectStructs[battler].fleeType = FLEE_ABILITY;
+        effect++;
+    }
+    else if (gBattleMons[battler].ability == ABILITY_FREE_SHINY)
+    {
+        gLastUsedAbility = ABILITY_FREE_SHINY;
         gProtectStructs[battler].fleeType = FLEE_ABILITY;
         effect++;
     }

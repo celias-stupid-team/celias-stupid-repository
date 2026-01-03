@@ -42,7 +42,7 @@ script RainbowCloud_GoUp {
     ))
     delay(30)
     playse(SE_WARP_OUT)
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     waitse
     waitmovement(LOCALID_PLAYER)
     applymovement(LOCALID_CAMERA, moves( // Camera flies to the sky area on black screen
@@ -70,7 +70,7 @@ script RainbowCloud_GoUp {
         walk_up * 7
         walk_fast_up * 6
     ))
-    fadescreen(FADE_FROM_BLACK)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     waitmovement(LOCALID_CAMERA) // wait for camera movement to catch up to time the next fadeout
     applymovement(LOCALID_CAMERA, moves(
         walk_fastest_up * 32
@@ -79,7 +79,7 @@ script RainbowCloud_GoUp {
         walk_fastest_up * 32
     ))
     delay(29)
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     delay(35)
     special(RemoveCameraObject)
     warp(MAP_RAINBOW_CLOUD, 0)

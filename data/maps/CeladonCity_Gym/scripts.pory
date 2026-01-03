@@ -116,7 +116,7 @@ script CeladonCity_Gym_EventScript_Erika {
 				//Cutscene Skip
 				setweather(WEATHER_NONE)
 				doweather
-				fadescreen(FADE_TO_BLACK)
+				fadescreenswapbuffers(FADE_TO_BLACK)
 				fadeoutbgm(1)
 				applymovement(LOCALID_PLAYER, PlayerGetsInPosition)
 				addobject(TopLeftTrainer)
@@ -146,7 +146,7 @@ script CeladonCity_Gym_EventScript_Erika {
 				waitmovement(0)
 				delay(10)
 				special(SpawnCameraObject)
-				fadescreen(FADE_FROM_BLACK)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
 				goto(CeladonGym_GiovanniBattles)
 			} 
 		}

@@ -19,6 +19,11 @@ script GreatSea_ShortFight {
 }
 
 script GreatSea_ShortEnding {
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"half short end\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
     //playerxy switch
     applymovement(LOCALID_SHORT, moves(
         walk_slower_up * 2
@@ -32,10 +37,10 @@ script GreatSea_ShortEnding {
         walk_slower_left * 2
     ))
     delay(30)
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     waitmovement(LOCALID_SHORT)
     removeobject(LOCALID_SHORT)
-    fadescreen(FADE_FROM_BLACK)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     release
     end
 }

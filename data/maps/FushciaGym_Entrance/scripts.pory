@@ -85,7 +85,7 @@ script FushciaGym_Entrance_Koga {
         msgbox("Excellent!\nI welcome your tenacity.\pWhich POKéMON would you like to\nbring? Choose wisely…", MSGBOX_DEFAULT)
         special(SavePlayerParty)
         //select three Pokemon
-        fadescreen(FADE_TO_BLACK)
+        fadescreenswapbuffers(FADE_TO_BLACK)
         special(ChooseHalfPartyForBattle)
         //Only use three pokemon
         waitstate
@@ -100,13 +100,13 @@ script FushciaGym_Entrance_Koga {
         special(ReducePlayerPartyToThree)
         msgbox("I shall await you at your final\ngoal.\lShow me all that you've learned!\pBut first, you must take a rest.\nI'll be gone when you arise.", MSGBOX_DEFAULT)
         closemessage
-        fadescreen(FADE_TO_BLACK)
+        fadescreenswapbuffers(FADE_TO_BLACK)
         special(HealPlayerParty)
         playfanfare(MUS_HEAL)
         waitfanfare
         setflag(FLAG_IN_FUSHCIA_GYM)
         removeobject(VAR_LAST_TALKED)
-        fadescreen(FADE_FROM_BLACK)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
         delay(30)
         setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
         setrespawn(HEAL_LOCATION_FUSHCIA_GYM_ENTRANCE)
@@ -162,9 +162,9 @@ script FushciaGym_LeaveChallenge {
     } else {
         msgbox("That's what I thought.\nThen return to the challenge!", MSGBOX_DEFAULT)
         closemessage
-        fadescreen(FADE_TO_BLACK)
+        fadescreenswapbuffers(FADE_TO_BLACK)
         removeobject(ATTENDANT)
-        fadescreen(FADE_FROM_BLACK)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
         delay(30)
         setvar(VAR_FUSHCIA_GYM_CHALLENGE, 1)
         applymovement(LOCALID_PLAYER, FushciaGym_PlayerWalksUp)
@@ -200,9 +200,9 @@ script FushciaGym_InvisibleLass {
             special(LoadPlayerParty)
             setvar(VAR_FUSHCIA_GYM_CHALLENGE, 3)
             clearflag(FLAG_IN_FUSHCIA_GYM)
-            fadescreen(FADE_TO_BLACK)
+            fadescreenswapbuffers(FADE_TO_BLACK)
             removeobject(VAR_LAST_TALKED)
-            fadescreen(FADE_FROM_BLACK)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
             setflag(FLAG_FUSHCIA_GYM_INVISIBLE_LASS)
             delay(30)
             msgbox("You spot a small compartment on the\nfloor under the LASS.\lLet's see what's inside…", MSGBOX_DEFAULT)

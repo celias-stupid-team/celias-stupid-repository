@@ -20,9 +20,9 @@ script FanClubBasement_ShinyDiglett {
 	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
 	special(QuestLog_CutRecording)
 	specialvar(VAR_RESULT, GetBattleOutcome)
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(VAR_LAST_TALKED)
-    fadescreen(FADE_FROM_BLACK)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
 	release
 	end
 }

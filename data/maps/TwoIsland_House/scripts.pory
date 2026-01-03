@@ -145,7 +145,7 @@ script TwoIsland_MushroomManiac {
 			msgbox(
 			"Oh, you know him?\n"
 			"Could you tell me how he is?", MSGBOX_DEFAULT)
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			callnative(SayYesForChansey)
 			waitstate
 			if(!var(VAR_RESULT)) {
