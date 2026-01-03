@@ -1527,24 +1527,28 @@ void RotomStartMenu_Init(void)
 
 static void RotomStartMenu_LoadSprites(void)
 {
-    u32 index;
+    u32 index1, index2, index3;
+
     LoadSpritePalette(sSpritePal_Icon);
-    index = IndexOfSpritePaletteTag(TAG_ICON_PAL);
-    LoadPalette(sIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
-    LoadCompressedSpriteSheet(sSpriteSheet_Icon);
+    index1 = IndexOfSpritePaletteTag(TAG_ICON_PAL);
+    LoadPalette(sIconPal, OBJ_PLTT_ID(index1), PLTT_SIZE_4BPP);
 
     LoadSpritePalette(sSpritePal_MoveSelector);
-    index = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
-    LoadPalette(sStartMenuPalette, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
+    index2 = IndexOfSpritePaletteTag(TAG_MOVE_SELECTOR_PAL);
+    LoadPalette(sStartMenuPalette, OBJ_PLTT_ID(index2), PLTT_SIZE_4BPP);
+
+    LoadSpritePalette(sSpritePal_MonIcon);
+    index3 = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
+    LoadPalette(sMonIconPal, OBJ_PLTT_ID(index3), PLTT_SIZE_4BPP);
+    
+    Preserve3SpritePalettesInWeather(index1, index2, index3);
+
+    LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
+    LoadCompressedSpriteSheet(sSpriteSheet_Icon);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelector);
     LoadCompressedSpriteSheet(sSpriteSheet_MoveSelectorMiddle);
     LoadCompressedSpriteSheet(sSpriteSheet_RowArrow);
     LoadCompressedSpriteSheet(sSpriteSheet_RotomEyes);
-
-    LoadSpritePalette(sSpritePal_MonIcon);
-    index = IndexOfSpritePaletteTag(TAG_MON_ICON_PAL);
-    LoadPalette(sMonIconPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP);
-    LoadCompressedSpriteSheet(sSpriteSheet_MonIcon);
 }
 
 #define MON_SQUARE_SIZE 4
@@ -1926,6 +1930,11 @@ static void RotomStartMenu_ExitAndClearTilemap(void)
         sRotomStartMenu = NULL;
     }
 
+    ResetPreservedPalettesInWeather();
+    FreeSpritePaletteByTag(TAG_ICON_PAL);
+    FreeSpritePaletteByTag(TAG_MOVE_SELECTOR_PAL);
+    FreeSpritePaletteByTag(TAG_MON_ICON_PAL);
+    
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
 }

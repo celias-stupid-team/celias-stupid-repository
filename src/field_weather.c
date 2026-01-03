@@ -1197,6 +1197,22 @@ void PreservePaletteInWeather(u8 preservedPalIndex)
     sPaletteGammaTypes = sFieldEffectPaletteGammaTypes;
 }
 
+// yeah, I could write this less specific
+// but fuck it
+void Preserve3SpritePalettesInWeather(u8 index1, u8 index2, u8 index3)
+{
+    // sprite palettes are the top 16
+    index1 += 16;
+    index2 += 16;
+    index3 += 16;
+
+    CpuCopy16(sBasePaletteGammaTypes, sFieldEffectPaletteGammaTypes, 32);
+    sFieldEffectPaletteGammaTypes[index1] = GAMMA_NONE;
+    sFieldEffectPaletteGammaTypes[index2] = GAMMA_NONE;
+    sFieldEffectPaletteGammaTypes[index3] = GAMMA_NONE;
+    sPaletteGammaTypes = sFieldEffectPaletteGammaTypes;
+}
+
 void ResetPreservedPalettesInWeather(void)
 {
     sPaletteGammaTypes = sBasePaletteGammaTypes;

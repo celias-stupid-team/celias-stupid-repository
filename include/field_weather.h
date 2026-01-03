@@ -141,6 +141,7 @@ u8 GetCurrentWeather(void);
 void delay(u8, u8, u32);
 void UpdateSpritePaletteWithWeather(u8 palIdx);
 void ResetPreservedPalettesInWeather(void);
+void Preserve3SpritePalettesInWeather(u8 index1, u8 index2, u8 index3);
 void PreservePaletteInWeather(u8 palIdx);
 
 void SetNextWeather(u8 weather);
