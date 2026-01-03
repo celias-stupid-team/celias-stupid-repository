@@ -963,7 +963,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                  FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) &&
                  FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) &&
                  FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) &&
-                 FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND) &&
+                //  FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND) &&
                  FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) &&
                  FlagGet(FLAG_WORLD_MAP_SIX_ISLAND) &&
                  FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) &&
@@ -2185,7 +2185,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_WORLD_MAP_TWO_ISLAND);
         FlagClear(FLAG_WORLD_MAP_THREE_ISLAND);
         FlagClear(FLAG_WORLD_MAP_FOUR_ISLAND);
-        FlagClear(FLAG_WORLD_MAP_FIVE_ISLAND);
+        // FlagClear(FLAG_WORLD_MAP_FIVE_ISLAND);
         FlagClear(FLAG_WORLD_MAP_SEVEN_ISLAND);
         FlagClear(FLAG_WORLD_MAP_SIX_ISLAND);
         FlagClear(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F);
@@ -2209,7 +2209,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_WORLD_MAP_TWO_ISLAND);
         FlagSet(FLAG_WORLD_MAP_THREE_ISLAND);
         FlagSet(FLAG_WORLD_MAP_FOUR_ISLAND);
-        FlagSet(FLAG_WORLD_MAP_FIVE_ISLAND);
+        // FlagSet(FLAG_WORLD_MAP_FIVE_ISLAND);
         FlagSet(FLAG_WORLD_MAP_SEVEN_ISLAND);
         FlagSet(FLAG_WORLD_MAP_SIX_ISLAND);
         FlagSet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F);
