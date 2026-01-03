@@ -2866,7 +2866,7 @@ static void PopulateMoveMonSpecies(void)
         // sRotomStartMenu->monSpecies[move] = testSpeciesInfo[move];
     }
 
-    for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u, slotorpos: %x", move, sRotomStartMenu->monSpecies[move], sRotomStartMenu->monSlotOrBoxPos[move]);
+    // for (move = 0; move < ROTOM_MOVE_COUNT; move++) DebugPrintf("move %u species: %u, slotorpos: %x", move, sRotomStartMenu->monSpecies[move], sRotomStartMenu->monSlotOrBoxPos[move]);
 }
 
 // Field move functions
