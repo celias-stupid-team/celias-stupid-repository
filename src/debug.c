@@ -1332,6 +1332,7 @@ static void DebugAction_OpenSoundMenu(u8 taskId)
 static void DebugAction_Util_Fly(u8 taskId)
 {
     Debug_DestroyMenu_Full(taskId);
+    gMain.savedCallback = CB2_ReturnToField;
     SetMainCallback2(CB2_OpenFlyMap);
 }
 

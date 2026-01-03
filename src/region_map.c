@@ -97,7 +97,7 @@ struct RegionMap
     u8 dungeonName[19];
     u16 layouts[REGIONMAP_COUNT + 1][600];
     // Inefficiency: these should be u8 or have half the elements each
-    u16 bgTilemapBuffers[3][BG_SCREEN_SIZE];
+    u16 bgTilemapBuffers[3][BG_SCREEN_SIZE / 2]; // ravenote: I cut these in half as the comment suggests to free up some heap space
     u8 type; // REGIONMAP_TYPE_*
     bool8 permissions[MAPPERM_COUNT];
     u8 selectedRegion; // REGIONMAP_KANTO, REGIONMAP_SEVII*
@@ -237,7 +237,6 @@ struct PlayerIcon
 
 struct MapIconSprite
 {
-    u32 unused;
     u8 region;
     struct Sprite *sprite;
     u16 tileTag;
@@ -249,13 +248,11 @@ struct MapIcons
     u8 dungeonIconTiles[0x40];
     u8 flyIconTiles[0x100];
     struct MapIconSprite dungeonIcons[25];
-    struct MapIconSprite flyIcons[25];
+    struct MapIconSprite flyIcons[MAPSEC_COUNT]; // this is overkill but should be more durable and I don't think it'll blow up the heap
     u8 region; // Never read
-    u8 unused_1[2];
     u8 state;
-    u32 unused_2;
     TaskFunc exitTask;
-}; // size = 0x46C
+};
 
 struct RegionMapGpuRegs
 {
@@ -3604,7 +3601,7 @@ static void CreateFlyIcons(void)
                 {
                     if (GetMapsecType(GetSelectedMapSection(i, LAYER_MAP, y, x)) == MAPSECTYPE_VISITED)
                     {
-                        DebugPrintf("Printing %d", GetSelectedMapSection(i, LAYER_MAP, y, x));
+                        // DebugPrintf("Creating icon for mapsec: %u", GetSelectedMapSection(i, LAYER_MAP, y, x));
                         CreateFlyIconSprite(i, numIcons, x, y, numIcons + 10, 10);
                         numIcons++;
                     }
@@ -3612,6 +3609,8 @@ static void CreateFlyIcons(void)
             }
         }
     }
+
+    // DebugPrintf("Num icons was: %u", numIcons);
 }
 
 static void CreateDungeonIcons(void)
