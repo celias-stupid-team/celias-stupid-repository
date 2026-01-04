@@ -1407,3 +1407,4 @@ const u8 gText_ReceivedPokemon[] = _("You received {STR_VAR_1}!{PAUSE_UNTIL_PRES
 const u8 gText_AllBoxesFull[] = _("There's no more room for POKéMON!\pThe PC BOXES are full and\ncan't accept any more!{PAUSE_UNTIL_PRESS}");
 const u8 gText_GimmieghoulTMUsed[] = _("Oh?{PAUSE_UNTIL_PRESS}");
 const u8 gText_SentToPC[] = _("{STR_VAR_1} was sent to the PC!{PAUSE_UNTIL_PRESS}");
+const u8 gText_WEmblemEvolve[] = _("{PLAY_SE SE_BALL_OPEN}{WAIT_SE}Oh?{PAUSE_UNTIL_PRESS}");

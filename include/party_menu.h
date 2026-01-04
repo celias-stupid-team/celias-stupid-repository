@@ -88,5 +88,6 @@ void UpdatePartyToBattleOrder(void);
 bool8 TrySwitchInPokemonFromPSS(void);
 void UpdatePartyToFieldOrder(void);
 void ResetBattleSlots(void);
+void CB2_UseEvolutionStone(void);
 
 #endif // GUARD_PARTY_MENU_H

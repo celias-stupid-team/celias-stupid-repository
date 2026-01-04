@@ -400,7 +400,6 @@ static void TryUsePPItemOutsideBattle(u8 taskId);
 static void ItemUseCB_RestorePP(u8 taskId, TaskFunc func);
 static void ItemUseCB_ReplaceMoveWithTMHM(u8 taskId, TaskFunc func);
 static void Task_ReplaceMoveWithTMHM(u8 taskId);
-static void CB2_UseEvolutionStone(void);
 static bool8 MonCanEvolve(void);
 static void Task_WaitRareCandyMessage(u8 taskId);
 
@@ -5460,12 +5459,24 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc func)
         Task_DoUseItemAnim(taskId);
 }
 
-static void CB2_UseEvolutionStone(void)
+void CB2_UseEvolutionStone(void)
 {
-    gCB2_AfterEvolution = gPartyMenu.exitCallback;
+    if (gSpecialVar_ItemId == ITEM_W_EMBLEM) // w emblem evolves zubat, but is not a party menu item
+    {
+        gCB2_AfterEvolution = CB2_ReturnToField;
+    }
+    else
+    {
+        gCB2_AfterEvolution = gPartyMenu.exitCallback;
+    }
+
     ExecuteTableBasedItemEffect_(gPartyMenu.slotId, gSpecialVar_ItemId, 0);
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, &gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId, 0xFFFF);
-    RemoveBagItem(gSpecialVar_ItemId, 1);
+    
+    if (gSpecialVar_ItemId != ITEM_W_EMBLEM)
+    {
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+    }
 }
 
 static bool8 MonCanEvolve(void)

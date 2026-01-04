@@ -448,5 +448,6 @@ bool32 FindPartyMonWithMove(u16 move, u32 *outIndex, u16 *outSpecies);
 bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies);
 bool32 CheckBoxMonMovesFast(const struct BoxPokemon *boxMon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
 bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
+u32 PartyHasMon(u16 species);
 
 #endif // GUARD_POKEMON_H

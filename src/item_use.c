@@ -47,6 +47,7 @@
 
 static EWRAM_DATA void (*sItemUseOnFieldCB)(u8 taskId) = NULL;
 EWRAM_DATA bool8 gUsingRegisteredPartyMenuItem = FALSE;
+static EWRAM_DATA bool8 sTriggerZubatEvo = FALSE;
 
 static void FieldCB_FadeInFromBlack(void);
 static void Task_WaitFadeIn_CallItemUseOnFieldCB(u8 taskId);
@@ -80,6 +81,7 @@ static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
 static void LWPEmblem_EquipOutfit(void);
 static void ItemUseOnFieldCB_LWPEmblem(u8 taskId);
 static void Task_UseLWPEmblemOnField(u8 taskId);
+static void Task_UseWEmblemEvolveOnField(u8 taskId);
 static void StartLWPEmblemFieldEffect(void);
 static void Task_LWPEmblemWarpOut(u8 taskId);
 static void LWPEmblemWarpOutEffect_Init(struct Task *task);
@@ -259,7 +261,7 @@ u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId)
 {
     if (ItemId_GetPocket(itemId) == POCKET_TM_CASE)
         return 1;
-    else if (ItemId_GetFieldFunc(itemId) == FieldUseFunc_EvoItem)
+    else if (ItemId_GetFieldFunc(itemId) == FieldUseFunc_EvoItem || itemId == ITEM_W_EMBLEM) // zubat evolves when in party and using W emblem
         return 2;
     else
         return 0;
@@ -1124,6 +1126,14 @@ static void LWPEmblem_EquipOutfit(void)
 
 void FieldUseFunc_LWPEmblem(u8 taskId)
 {
+    u32 zubatIndex;
+    zubatIndex = PartyHasMon(SPECIES_ZUBAT);
+    if (gSpecialVar_ItemId == ITEM_W_EMBLEM && zubatIndex != PARTY_SIZE)
+    {
+        gPartyMenu.slotId = zubatIndex;
+        sTriggerZubatEvo = TRUE;
+    }    
+    
     PlaySE(SE_SELECT);
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_UsedTheItem);
@@ -1136,6 +1146,12 @@ static void ItemUseOnFieldCB_LWPEmblem(u8 taskId)
 {
     LWPEmblem_EquipOutfit();
     DisplayItemMessageOnField(taskId, FONT_NORMAL, gStringVar4, Task_UseLWPEmblemOnField);
+}
+
+static void Task_UseWEmblemEvolveOnField(u8 taskId)
+{
+    SetMainCallback2(CB2_UseEvolutionStone);
+    DestroyTask(taskId);
 }
 
 static void Task_UseLWPEmblemOnField(u8 taskId)
@@ -1200,8 +1216,17 @@ static void LWPEmblemWarpOutEffect_Spin(struct Task *task)
     }
     else if (tSpinEnded && tTimer >= LWP_SHOW_MESSAGE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_LWPEmblemEnd);
-        DisplayItemMessageOnField(FindTaskIdByFunc(Task_LWPEmblemWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        if (sTriggerZubatEvo)
+        {
+            sTriggerZubatEvo = FALSE;
+            StringExpandPlaceholders(gStringVar4, gText_WEmblemEvolve);
+            DisplayItemMessageOnField(FindTaskIdByFunc(Task_LWPEmblemWarpOut), FONT_NORMAL, gStringVar4, Task_UseWEmblemEvolveOnField);
+        }
+        else
+        {
+            StringExpandPlaceholders(gStringVar4, gText_LWPEmblemEnd);
+            DisplayItemMessageOnField(FindTaskIdByFunc(Task_LWPEmblemWarpOut), FONT_NORMAL, gStringVar4, Task_ItemUse_CloseMessageBoxAndReturnToField);
+        }
     }
 
     if (!tSpinEnded)
