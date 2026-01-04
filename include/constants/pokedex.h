@@ -66,8 +66,8 @@ enum
     NATIONAL_DEX_MISSINGNO,        // 57
     NATIONAL_DEX_ALAKAZAM,         // 58
     NATIONAL_DEX_KANGASKHAN,       // 59
-    NATIONAL_DEX_UNOWN_LOSS,       // 60
-    NATIONAL_DEX_KENYA,            // 61
+    NATIONAL_DEX_KENYA,       // 60
+    NATIONAL_DEX_UNOWN_LOSS,            // 61
     NATIONAL_DEX_DODUO,            // 62
     NATIONAL_DEX_HITMONCHAN_SHIT,  // 63
     NATIONAL_DEX_PORYGON,          // 64
