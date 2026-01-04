@@ -159,7 +159,7 @@
 #define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
 #define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
-#define VAR_CSR_DUMMY_9                                           0x4068
+#define VAR_POKEMON_LEAGUE_PHASE                                           0x4068
 #define VAR_PIRATE_BAY_SCENE                                            0x4069
 #define VAR_CSR_DUMMY_10                        0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B

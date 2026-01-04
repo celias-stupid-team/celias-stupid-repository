@@ -6780,6 +6780,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Hi/border.bin",
       "blockdata_filepath": "data/layouts/Hi/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM_LAYOUT_2",
+      "name": "PokemonLeague_LoreleisRoom_Layout_2",
+      "width": 13,
+      "height": 13,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokemonLeague",
+      "border_filepath": "data/layouts/PokemonLeague_LoreleisRoom_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLeague_LoreleisRoom_Layout_2/map.bin"
     }
   ]
 }

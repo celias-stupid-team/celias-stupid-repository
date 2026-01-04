@@ -432,7 +432,7 @@
 #define FLAG_HEART_SWAP_HINT                   0x17D
 #define FLAG_DITTO_MEW_HINT                                  0x17E
 #define FLAG_GOT_NEBBY_ONCE                                  0x17F
-#define FLAG_0x180                                  0x180
+#define FLAG_KILLED_E4_OAK                                  0x180
 #define FLAG_HIDE_SAFARI_ZONE_CENTER_TM32                     0x181
 #define FLAG_HIDE_SAFARI_ZONE_EAST_MAX_POTION                   0x182
 #define FLAG_HIDE_SAFARI_ZONE_EAST_FULL_RESTORE                 0x183
