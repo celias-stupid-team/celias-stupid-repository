@@ -318,6 +318,16 @@ DirectSoundWaveData_Rollout::
 
 
 	.align 2
+DirectSoundWaveData_Deskslam::
+	.incbin "sound/direct_sound_samples/rollout.bin"
+
+
+	.align 2
+DirectSoundWaveData_Guilty::
+	.incbin "sound/direct_sound_samples/rollout.bin"
+
+
+	.align 2
 DirectSoundWaveData_MakeItRain::
 	.incbin "sound/direct_sound_samples/make_it_rain.bin"
 

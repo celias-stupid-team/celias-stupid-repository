@@ -1735,10 +1735,10 @@ static void BerryPowderManDeath_CB(void) {
         !StringCompare(gText_DeadLower, gStringVar1) ||
         !StringCompare(gText_DIED, gStringVar1) ||
         !StringCompare(gText_DiedLower, gStringVar1)) {
-        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, 1);
 
-    }
+    } else 
+        VarSet(VAR_RESULT, 0);
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 
@@ -1747,10 +1747,11 @@ static void SayYes_CB(void) {
         !StringCompare(gText_YesLower, gStringVar1) ||
         !StringCompare(gText_YUP, gStringVar1) ||
         !StringCompare(gText_YupLower, gStringVar1)) {
-        //DebugPrintf("Compared %S with %S", gText_Leekd, gStringVar1);
         VarSet(VAR_RESULT, 1);
 
-    }
+    } else 
+        
+        VarSet(VAR_RESULT, 0);
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
 }
 

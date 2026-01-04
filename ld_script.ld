@@ -1048,6 +1048,8 @@ SECTIONS {
         sound/songs/midi/mus_koopa_bros.o(.rodata);
         sound/songs/midi/mus_grand_finale.o(.rodata);
         sound/songs/midi/mus_stupid_ending.o(.rodata);
+        sound/songs/midi/mus_se_deskslam.o(.rodata);
+        sound/songs/midi/mus_se_guilty.o(.rodata);
 
     } > ROM =0
 

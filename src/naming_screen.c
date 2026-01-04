@@ -2116,17 +2116,17 @@ static const struct NamingScreenTemplate sBerryPowderNamingScreenTemplate = {
     .maxChars = 4,
     .iconFunction = 1,
     .addGenderIcon = 0,
-    .initialPage = KBPAGE_LETTERS_UPPER, // rave: this does nothing for now, but I would like to fix it
-    .title = gText_YourSSN,
+    .initialPage = KBPAGE_LETTERS_UPPER, 
+    .title = gText_BerryPowderManFate,
 };
 
 static const struct NamingScreenTemplate sSayYesNamingScreenTemplate = {
     .copyExistingString = FALSE,
-    .maxChars = 5,
+    .maxChars = 3,
     .iconFunction = 1,
     .addGenderIcon = 0,
-    .initialPage = KBPAGE_LETTERS_UPPER, // rave: this does nothing for now, but I would like to fix it
-    .title = gText_YourSSN,
+    .initialPage = KBPAGE_LETTERS_UPPER, 
+    .title = gText_GetAChansey,
 };
 
 static const struct NamingScreenTemplate sPcBoxNamingScreenTemplate = {

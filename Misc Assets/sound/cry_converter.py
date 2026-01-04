@@ -36,9 +36,9 @@ def convert_audio_to_aifc(input_folder):
                 print(f"Error converting {filename}: {e}")
 
 def main():
-    # Automatically use the current working directory
-    current_directory = os.getcwd()
-    convert_audio_to_aifc(current_directory)
+    script_directory = os.path.dirname(os.path.abspath(__file__))
+    convert_audio_to_aifc(script_directory)
+
 
 if __name__ == "__main__":
     main()

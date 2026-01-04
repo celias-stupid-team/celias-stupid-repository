@@ -146,7 +146,7 @@ script TwoIsland_MushroomManiac {
 			"Oh, you know him?\n"
 			"Could you tell me how he is?", MSGBOX_DEFAULT)
 			fadescreenswapbuffers(FADE_TO_BLACK)
-			callnative(SayYesForChansey)
+			callnative(BerryPowderManCheck)
 			waitstate
 			if(!var(VAR_RESULT)) {
 				textcolor(NPC_TEXT_COLOR_MALE)
