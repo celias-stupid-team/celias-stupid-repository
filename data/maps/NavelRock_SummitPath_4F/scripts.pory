@@ -9,6 +9,7 @@ script SkyTower_LightYears {
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	setvar(VAR_TEMP_0, 1)
 	msgbox("58,786,253,730,000,000 floors\nlater…", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	closemessage
 	release
 }

@@ -22,7 +22,10 @@ mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 		setflag(FLAG_HIDE_CINNABAR_YANMEGA)
 		if(flag(FLAG_REVIVED_YANMEGA) && !checkmoncaught(SPECIES_SUDOWOODO)) {
 			clearflag(FLAG_HIDE_CINNABAR_YANMEGA)
-		} 
+		}
+		if(!flag(FLAG_REVIVED_YANMEGA)) {
+			clearflag(FLAG_REMOVED_CINNABAR_SCIENTIST)
+		}
 	}
 }
 
@@ -54,16 +57,30 @@ script PokemonLab_AmberGuardian {
 		"What made you think you could?", MSGBOX_DEFAULT)
 	} else {
 		msgbox(
-		"revive amber\n"
-		"", MSGBOX_DEFAULT)
+		"Heya, there!\n"
+		"Welcome to the lab.\l"
+		"I'm a new intern here.\p"
+
+		"My capstone project has been to\n"
+		"make a device that can revive life\l"
+		"from a sample of OLD AMBER.", MSGBOX_DEFAULT)
 		if(checkitem(ITEM_OLD_AMBER)) {
 			msgbox(
-			"Yes?\n"
-			"", MSGBOX_YESNO)
+			"I know it sounds ambitious, but I\n"
+			"believe I can do it.\l"
+			"I've been working my whole life!\p"
+
+			"Hey!\n"
+			"You have some OLD AMBER with you!\l"
+			"Wanna try to revive it?", MSGBOX_YESNO)
 			if(var(VAR_RESULT)) {
 				msgbox(
-				"let's revive\n"
-				"", MSGBOX_DEFAULT)
+				"Yes!\n"
+				"Oh boy!\p"
+
+				"I can't wait to put my theories to\n"
+				"the test!\l"
+				"Now, let's begin.", MSGBOX_DEFAULT)
 				closemessage
 
 				setflag(FLAG_REVIVED_YANMEGA)
@@ -78,7 +95,7 @@ script PokemonLab_AmberGuardian {
 				"The experiment was successful!\p"
 
 				"We've revived a POKéMON from the\n"
-				"fossil!\p"
+				"AMBER!\p"
 
 				"Thank you for this valuable\n"
 				"experience!\l"
@@ -92,8 +109,14 @@ script PokemonLab_AmberGuardian {
 			}
 		} else {
 			msgbox(
-			"go to pewter\n"
-			"", MSGBOX_DEFAULT)
+			"I know it sounds ambitious, but I\n"
+			"believe I can do it.\p"
+
+			"I think the MUSEUM in PEWTER CITY\n"
+			"has some.\p"
+
+			"Could you go ask if they'll let us\n"
+			"use it?", MSGBOX_DEFAULT)
 		}
 	}
 	release

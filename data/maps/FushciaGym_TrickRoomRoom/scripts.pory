@@ -57,7 +57,7 @@ script FushciaGym_TrickRoomRoom_WallHole {
             if(var(VAR_RESULT)) {
                 msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
                 closemessage
-                fadescreen(FADE_TO_BLACK)
+                fadescreenswapbuffers(FADE_TO_BLACK)
                 call(FushciaGym_TrickRoomRoom_DrawBigHole)
                 special(DrawWholeMapView)
                 
@@ -72,7 +72,7 @@ script FushciaGym_TrickRoomRoom_WallHole {
                 playse(SE_M_HORN_ATTACK)
                 delay(30)
                 setflag(FLAG_DRILLED_TRICK_WALL)
-                fadescreen(FADE_FROM_BLACK)
+                fadescreenswapbuffers(FADE_FROM_BLACK)
                 release
                 end
             } else {
@@ -87,7 +87,7 @@ script FushciaGym_TrickRoomRoom_WallHole {
                 if(var(VAR_RESULT)) {
                     msgbox("{PLAYER} used the DRILL DOZER!\n", MSGBOX_DEFAULT)
                     closemessage
-                    fadescreen(FADE_TO_BLACK)
+                    fadescreenswapbuffers(FADE_TO_BLACK)
                     call(FushciaGym_TrickRoomRoom_DrawBigHole)
                     special(DrawWholeMapView)
                     
@@ -102,7 +102,7 @@ script FushciaGym_TrickRoomRoom_WallHole {
                     playse(SE_M_HORN_ATTACK)
                     delay(30)
                     setflag(FLAG_DRILLED_TRICK_WALL)
-                    fadescreen(FADE_FROM_BLACK)
+                    fadescreenswapbuffers(FADE_FROM_BLACK)
                 } else {
                     release
                     end

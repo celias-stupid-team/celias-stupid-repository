@@ -102,6 +102,7 @@ mapscripts UndergroundPath_NorthSouthTunnel_MapScripts {
 		VAR_TEMP_1, TRUBBISH_EVOLUTION {
 			applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
 			waitmovement(0)
+			textcolor(NPC_TEXT_COLOR_BLUE)
 			msgbox("Wahaha!\nThat beast was no match for me!\pAhem… Yes.\nI'm sure your POKéMON is pleased.\pThank you for the opportunity to\ntest my mettle.\lI'll forever cherish the memory.", MSGBOX_DEFAULT)
 			setvar(VAR_TEMP_1, 0)
 			release
@@ -196,7 +197,7 @@ script UndergroundPath_OlderBrother {
 		waitstate
 		if(var(VAR_0x8004) >= PARTY_SIZE) {
 			msgbox("Oh…\nThat's okay, I understand.")
-			goto(UndergroudnPath_YoungerBrotherEnd)
+			goto(UndergroudnPath_OlderBrotherEnd)
 		}
 		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 		switch(var(VAR_RESULT)) {
@@ -216,9 +217,17 @@ script UndergroundPath_OlderBrother {
 			case SPECIES_AMPHAROS_MEGA:
 		}
 		// if not tangela:
-		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly TANGLED beyond repair!", MSGBOX_DEFAULT)
+		msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly tangled beyond repair!", MSGBOX_DEFAULT)
 	}
 	release
+}
+
+
+script UndergroudnPath_OlderBrotherEnd { //I just realized that I typo'd this but I don't have it in me to fix it everywhere :(
+	msgbox("Bah!\nThis POKéMON won't do!\lI need a true test of my ability.\pBring me a POKéMON whose hair is\ntruly tangled beyond repair!", MSGBOX_DEFAULT)
+	
+	release
+	end
 }
 
 script UndergroundPath_Celia {

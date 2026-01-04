@@ -56,7 +56,7 @@ const u8 gMoveDescription_Ember[] = _("Ah, lovely!\nA FIRE move!");
 const u8 gMoveDescription_Flamethrower[] = _("The foe is scorched\nwith intense flames.\nThe foe may suffer\na burn.");
 const u8 gMoveDescription_Mist[] = _("The ally party is\nprotected by a\nmist that prevents\nstat reductions.");
 const u8 gMoveDescription_WaterGun[] = _("Ah, excellent!\nBROCK should be\nvery easy now!");
-const u8 gMoveDescription_HydroPump[] = _("A high volume of\nwater is blasted at\nthe foe under great\npressure.");
+const u8 gMoveDescription_HydroPump[] = _("Ah, lovely!\nA FIRE move!");
 const u8 gMoveDescription_Surf[] = _("A big wave crashes\ndown on the foe.\nCan also be used\nfor crossing water.");
 const u8 gMoveDescription_IceBeam[] = _("fwoowoowoo\nting ting ting\nting ting ting");
 const u8 gMoveDescription_Ice[] = _("The foe is blasted\nwith a blizzard.\nIt may freeze the\nfoe solid.");
@@ -70,7 +70,7 @@ const u8 gMoveDescription_Submission[] = _("The worst best\nmove of all time.");
 const u8 gMoveDescription_LowKick[] = _("A low, tripping kick\nthat can cause the\nfoe to flinch.\nJust like Gen 1!");
 const u8 gMoveDescription_Counter[] = _("A retaliation move\nthat counters any\nphysical hit with\ndouble the damage.");
 const u8 gMoveDescription_SeismicToss[] = _("If you throw\nsomeone over the\nmoon, it should\ndo more than 17 HP");
-const u8 gMoveDescription_Strength[] = _("The foe is slugged\nat maximum power.\nCan also be used\nto move boulders.");
+const u8 gMoveDescription_Strength[] = _("A move for a\nPOKéMON that's\nspecialized for\nHMs.");
 const u8 gMoveDescription_Absorb[] = _("Damn I wish it was\nVine Whip");
 const u8 gMoveDescription_MegaDrain[] = _("Hey, at least\nit's not VINE\nWHIP!");
 const u8 gMoveDescription_LeechSeed[] = _("A seed is planted\non the foe to steal\nsome HP for the \nuser on every turn.");
@@ -629,6 +629,8 @@ const u8 gMoveDescription_StrangeSteam[] = _("Dummy");
 const u8 gMoveDescription_FlareBlitz[] = _("Dummy");
 const u8 gMoveDescription_MagnetRise[] = _("Dummy");
 const u8 gMoveDescription_Shoot[] = _("bang");
+const u8 gMoveDescription_108TupleTeam[] = _("Dummy");
+const u8 gMoveDescription_ThornWhip[] = _("Dummy");
 
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
@@ -1252,7 +1254,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_REFLECT_2    - 1] = gMoveDescription_Reflect,
     [MOVE_QWICK_ATTACK     -1 ] = gMoveDescription_QwickAttack,
     [MOVE_WHISH     -1 ] = gMoveDescription_Whish,
-    [MOVE_MULTI_ATTACK     -1 ] = gMoveDescription_MultiAttack,
+    [MOVE_AURA_SPHERE_2     -1 ] = gMoveDescription_MultiAttack,
     [MOVE_GYRO_BALL     -1 ] = gMoveDescription_GyroBall,
     [MOVE_SYHNCRHONOZHE     -1 ] = gMoveDescription_Syhncrhonozhe,
     [MOVE_CURSE_GRENINJA     -1 ] = gMoveDescription_CurseGreninja,
@@ -1263,5 +1265,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_FLARE_BLITZ - 1] = gMoveDescription_FlareBlitz,
     [MOVE_MAGNET_RISE     -1 ] = gMoveDescription_MagnetRise,
     [MOVE_SHOOT     -1 ] = gMoveDescription_Shoot,
-    
+    [MOVE_108_TUPLE_TEAM     -1 ] = gMoveDescription_108TupleTeam,
+    [MOVE_THUNDER_WAVE_CYNTHIA - 1] = gMoveDescription_ThunderWave,
+    [MOVE_THORN_WHIP - 1] = gMoveDescription_ThornWhip,
 };

@@ -13,6 +13,7 @@
 #include "battle_util2.h"
 #include "battle_bg.h"
 #include "battle_anim.h"
+#include "trainer_slide.h"
 
 /*
     Banks are a name given to what could be called a 'battlerId' or 'monControllerId'.
@@ -72,6 +73,8 @@ enum {
 #define MOVE_TARGET_USER                (1 << 4)
 #define MOVE_TARGET_FOES_AND_ALLY       (1 << 5)
 #define MOVE_TARGET_OPPONENTS_FIELD     (1 << 6)
+#define MOVE_TARGET_ALLY                (1 << 7)
+#define MOVE_TARGET_ALL_BATTLERS        ((1 << 8) | MOVE_TARGET_USER) // No functionality for status moves
 
 // For the second argument of GetMoveTarget, when no target override is needed
 #define NO_TARGET_OVERRIDE 0
@@ -192,7 +195,8 @@ struct DisableStruct
              u8 substitute2Layers : 2; // Unused, was replaced with substitute2CurrentLayer
              u8 substitute2CurrentLayer : 2;
              u8 neutralizingGas : 1;
-             u8 padding : 3 ;
+             u8 used108TupleTeam : 1;
+             u8 padding : 2;
 };
 
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];
@@ -444,7 +448,8 @@ struct BattleStruct
     u8 formToChangeInto;
     u8 chosenMovePositions[MAX_BATTLERS_COUNT];
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
-    u8 field_88; // unused
+    const u8 *trainerSlideMsg;
+    struct MessageStatus slideMessageStatus;
     u8 field_89; // unused
     u8 field_8A; // unused
     u8 playerPartyIdx;

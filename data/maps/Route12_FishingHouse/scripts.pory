@@ -106,7 +106,7 @@ script AwakeningShop_Bed {
 	lock
 	msgbox("{PLAYER} laid in the bed…\n", MSGBOX_DEFAULT)
 	closemessage
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	fadeoutbgm(0)
 	msgbox("… … …\n… … …", MSGBOX_DEFAULT)
 	closemessage

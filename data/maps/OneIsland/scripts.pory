@@ -201,11 +201,11 @@ script OneIsland_Whirlpool {
 					))
 				case DIR_EAST: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_faster_left * 4
+						walk_faster_right * 4
 					))
 				case DIR_WEST: 
 					applymovement(LOCALID_PLAYER, moves(
-						walk_faster_right * 4
+						walk_faster_left * 4
 					))
 			}
 			waitmovement(0)
@@ -339,9 +339,20 @@ script OneIsland_ClamperlTrainer {
 	}
 	if(checkpartymon(SPECIES_SMEARGLE)) {
 		trainerbattle_no_intro(TRAINER_WHIRLPOOL_GUY, "Wha-\nHey!")
-		msgbox(
-		"JACK: Wait-!\n"
-		"Did you just…?", MSGBOX_DEFAULT)
+		if(checkpartymove(MOVE_WHIRLPOOL) == PARTY_SIZE) {
+			msgbox(
+			"JACK: Heh.\n"
+			"Pretty cool, right?\p"
+
+			"I'll happily let you watch the\n"
+			"technique anytime you want.", MSGBOX_DEFAULT)
+
+		} else {
+			msgbox(
+			"JACK: Wait-!\n"
+			"Did you just…?", MSGBOX_DEFAULT)
+
+		}
 		applymovement(VAR_LAST_TALKED, moves(
 			face_original_direction
 		))

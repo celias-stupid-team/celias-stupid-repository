@@ -1,3 +1,29 @@
 mapscripts VermilionCity_FanClubBasement_MapScripts {
 
 }
+
+
+script FanClubBasement_ShinyDiglett {
+    lock
+    goto_if_questlog(EventScript_ReleaseEnd)
+	lock
+	faceplayer
+    setflag(FLAG_SHINY_CREATION)
+    callnative(GetObjectEventTrainerRangeFromTemplate)
+	setwildbattle(VAR_RESULT, 19)
+	waitse
+	playmoncry(VAR_RESULT, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	dowildbattle
+	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	special(QuestLog_CutRecording)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(VAR_LAST_TALKED)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+	release
+	end
+}
+

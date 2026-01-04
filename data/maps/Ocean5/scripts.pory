@@ -1,3 +1,46 @@
 mapscripts Ocean5_MapScripts {
 
 }
+
+
+script GreatSea_HalfIslandSign {
+	msgbox(
+	"HALF\n"
+	"ISLAND\p"
+
+	"POPULATION:\n"
+	"ONE HALF", MSGBOX_SIGN)
+
+}
+
+
+script GreatSea_ShortFight {
+    trainerbattle_single(TRAINER_SHORT, "Hey!\nI'm SHORT!\pI'm comfy and\neasy to wear!", "I've been\nripped!", GreatSea_ShortEnding)
+}
+
+script GreatSea_ShortEnding {
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"half short end\n"
+	"", MSGBOX_DEFAULT)
+    closemessage
+    //playerxy switch
+    applymovement(LOCALID_SHORT, moves(
+        walk_slower_up * 2
+        delay_16
+        walk_slower_left
+    ))
+    waitmovement(LOCALID_SHORT)
+    playse(SE_LEDGE)
+    applymovement(LOCALID_SHORT, moves(
+        jump_2_left
+        walk_slower_left * 2
+    ))
+    delay(30)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    waitmovement(LOCALID_SHORT)
+    removeobject(LOCALID_SHORT)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    release
+    end
+}

@@ -643,7 +643,7 @@ gBattleAnims_Moves::
 	.4byte Move_REFLECT_2
 	.4byte Move_QWICK_ATTACK
 	.4byte Move_WHISH
-	.4byte Move_MULTI_ATTACK
+	.4byte Move_AURA_SPHERE_2
 	.4byte Move_GYRO_BALL
 	.4byte Move_SYHNCRHONOZHE
 	.4byte Move_CURSE_GRENINJA
@@ -655,6 +655,9 @@ gBattleAnims_Moves::
 	.4byte Move_AGILITY_DUMB
 	.4byte Move_MAGNET_RISE
 	.4byte Move_SHOOT
+	.4byte Move_108_TUPLE_TEAM
+	.4byte Move_THUNDER_WAVE_CYNTHIA
+	.4byte Move_THORN_WHIP
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -1433,6 +1436,7 @@ Move_THUNDERBOLT:
 	end
 
 Move_THUNDER_WAVE:
+Move_THUNDER_WAVE_CYNTHIA:
 	loadspritegfx ANIM_TAG_SPARK
 	loadspritegfx ANIM_TAG_SPARK_2
 	loadspritegfx ANIM_TAG_SPARK_H
@@ -3146,6 +3150,7 @@ Move_RETREAT:
 	delay 1
 	end
 
+Move_108_TUPLE_TEAM: 
 Move_DOUBLE_TEAM:
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
@@ -3172,6 +3177,10 @@ Move_DOUBLE_TEAM:
 	blendoff
 	delay 1
 	end
+
+
+
+
 
 Move_MINIMIZE:
 	setalpha 10, 8
@@ -16579,11 +16588,26 @@ Move_WHISH:
 	waitforvisualfinish
 	end
 
-Move_MULTI_ATTACK:
-	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HORN_HIT
-	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 4, 256, ANIM_ATTACKER, 2
-	choosetwoturnanim FuryAttackRight, FuryAttackLeft
+Move_AURA_SPHERE_2:
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSuperpowerOrbSpriteTemplate, ANIM_TARGET, 2, ANIM_ATTACKER
+	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
+	delay 20
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 4, 1, 180, 1
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, SE_M_EARTHQUAKE, 0
+	delay 40
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER
+	delay 16
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 8, 0, 16, 1
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	delay 1
+	end
 
 
 Move_GYRO_BALL:
@@ -16651,7 +16675,6 @@ Move_CURSE_GRENINJA:
 	end
 
 Move_LION_LADDER:
-
 	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
 	loadspritegfx ANIM_TAG_CLAW_SLASH
 	loadspritegfx ANIM_TAG_TORN_METAL
@@ -16674,7 +16697,6 @@ Move_LION_LADDER:
 	end
 
 Move_STRANGE_STEAM:
-
 	loadspritegfx ANIM_TAG_PURPLE_GAS_CLOUD
 	monbg ANIM_DEF_PARTNER
 	splitbgprio_all
@@ -16750,7 +16772,7 @@ Move_FLARE_BLITZ:
 	end
 
 
-	Move_MAGNET_RISE::
+Move_MAGNET_RISE:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	loadspritegfx ANIM_TAG_ELECTRICITY
@@ -16786,9 +16808,8 @@ Move_FLARE_BLITZ:
 	end
 
 
-	Move_SHOOT::
+Move_SHOOT:
 	loadspritegfx ANIM_TAG_IMPACT
-
 	loadspritegfx ANIM_TAG_LOCK_ON
 	createsprite gLockOnTargetSpriteTemplate, ANIM_ATTACKER, 40
 	createsprite gLockOnMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 1
@@ -16799,10 +16820,40 @@ Move_FLARE_BLITZ:
 	setarg 7, 0xFFFF  @ Signal target to flash/disappear
 	waitforvisualfinish
 	waitsound
-
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask SoundTask_PlayCryHighPitch, 5
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	waitforvisualfinish
 	delay 20
+	end
+
+Move_THORN_WHIP:
+	loadspritegfx ANIM_TAG_PUNISHMENT_BLADES
+	loadspritegfx ANIM_TAG_LEAF @green color
+	loadspritegfx ANIM_TAG_IMPACT
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 10
+	delay 6
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_TARGET
+	createsprite gSpinningVineSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 25
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpretfalse PowerWhipOnOpponent
+	goto PowerWhipOnPlayer
+PowerWhipOnOpponent:
+	fadetobg BG_IMPACT_OPPONENT
+	goto PowerWhipContinue
+PowerWhipOnPlayer:
+	fadetobg BG_IMPACT_PLAYER
+	goto PowerWhipContinue
+PowerWhipContinue:
+	waitbgfadeout
+	delay 5
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	playsewithpan SE_BANG, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 20
+	restorebg
+	waitbgfadein
+	waitforvisualfinish
 	end

@@ -142,7 +142,15 @@ script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
 script PalletTown_PlayersHouse_1F_EventScript_YayRightSide {
 	msgbox(PalletTown_PlayersHouse_1F_Text_YayRightSide)
 	if(flag(FLAG_SYS_POKEDEX_GET) && !flag(FLAG_SYS_ROTOM_MENU)) {
-		msgbox(
+		goto(PalletTown_PlayersHouse_GiveRotom)
+
+	}
+	release
+	end
+}
+
+script PalletTown_PlayersHouse_GiveRotom {
+	msgbox(
 		"…Oh, hey!\n"
 		"Inside the TV…", MSGBOX_DEFAULT)
 		playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
@@ -157,6 +165,4 @@ script PalletTown_PlayersHouse_1F_EventScript_YayRightSide {
 		setflag(FLAG_SYS_ROTOM_MENU)
 		release
 		end
-
-	}
 }

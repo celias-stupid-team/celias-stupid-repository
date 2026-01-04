@@ -36,6 +36,26 @@ bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId)
     return TRUE;
 }
 
+bool8 IsObjectInFrontOfPlayerCuttable() {
+
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE))
+        return TRUE;
+
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_GALAR_OAK))
+        return TRUE;
+
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PROFESSORIVY))
+        return TRUE;
+    
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE &&
+    ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || 
+    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM))
+    ))
+        return TRUE;
+    
+    return FALSE;
+}
+
 u8 CreateFieldEffectShowMon(void)
 {
     GetXYCoordsOneStepInFrontOfPlayer(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);

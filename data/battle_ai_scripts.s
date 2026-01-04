@@ -29,8 +29,8 @@ gBattleAI_ScriptsTable::
 	.4byte AI_HPAware
 	.4byte AI_Unknown
 	.4byte AI_Ret // AI_SCRIPT_SWITCH_IN_ORDER, has no actual script. Only used in GetMostSuitableMonToSwitchInto()
-	.4byte AI_Ret
-	.4byte AI_Ret
+	.4byte AI_Ret // AI_SCRIPT_PROTON
+	.4byte AI_Ret // AI_SCRIPT_NO_SWITCHING, has no actual script. Only used in ShouldSwitch()
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
@@ -54,13 +54,13 @@ gBattleAI_ScriptsTable::
 AI_CheckBadMove::
 @	if_move MOVE_FISSURE, AI_CBM_CheckIfNegatesType  @ Improvement in Emerald
 @	if_move MOVE_HORN_DRILL, AI_CBM_CheckIfNegatesType
-	get_how_powerful_move_is
-	if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSoundproof
-
+	@ get_how_powerful_move_is
+	@ if_equal MOVE_POWER_DISCOURAGED, AI_CheckBadMove_CheckSoundproof
 AI_CBM_CheckIfNegatesType::
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_VOLT_ABSORB, CheckIfVoltAbsorbCancelsElectric
+	if_equal ABILITY_LIGHTNING_ROD, CheckIfVoltAbsorbCancelsElectric
 	if_equal ABILITY_WATER_ABSORB, CheckIfWaterAbsorbCancelsWater
 	if_equal ABILITY_FLASH_FIRE, CheckIfFlashFireCancelsFire
 	if_equal ABILITY_WONDER_GUARD, CheckIfWonderGuardCancelsMove
@@ -1647,6 +1647,7 @@ AI_CV_Poison_End::
 	end
 
 AI_CV_Paralyze::
+	if_move MOVE_THUNDER_WAVE_CYNTHIA, AI_CV_Paralyze3
 	if_target_faster AI_CV_Paralyze2
 	if_hp_more_than AI_USER, 70, AI_CV_Paralyze_End
 	score -1
@@ -1657,6 +1658,10 @@ AI_CV_Paralyze2::
 	score +3
 
 AI_CV_Paralyze_End::
+	end
+
+AI_CV_Paralyze3::
+	score +5
 	end
 
 AI_CV_VitalThrow::

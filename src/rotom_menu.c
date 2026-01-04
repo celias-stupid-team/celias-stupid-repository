@@ -2944,7 +2944,7 @@ static bool32 SetupFunc_Strength(void)
 
 
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING)
-        || !CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER))
+        || !CheckObjectGraphicsInFrontOfPlayerPushable())
     {
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_CANT_USE_HERE;
         return FALSE; 
@@ -2979,8 +2979,9 @@ static bool32 SetupFunc_Cut(void)
         return TRUE;
     }
 
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE || (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_WORKER_M) == TRUE && ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PEWTER_CITY_MUSEUM_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PEWTER_CITY_MUSEUM_1F)) || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM)))))
+    if (IsObjectInFrontOfPlayerCuttable())
     {
+        VarSet(VAR_USED_CUT, 1);
         sFieldMoveData = CUT_TYPE_TREE;
         return TRUE;
     }

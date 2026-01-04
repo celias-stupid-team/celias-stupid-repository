@@ -1,12 +1,53 @@
 mapscripts Wormhole_OrthwormRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        additem(ITEM_POKE_BALL)
+        if(checkmoncaught(SPECIES_ORTHWORM)) {
+            setvar(VAR_TEMP_0, 2)
+        }
+        if(!flag(FLAG_ORTHWORM_POTION) && checkmoncaught(SPECIES_ORTHWORM)) {
+            setobjectxyperm(LOCALID_ORTHWORM_POTION, 9, 12)
+        }
     }
+    MAP_SCRIPT_ON_LOAD {
+        if(!flag(FLAG_ORTHWORM_POTION) && checkmoncaught(SPECIES_ORTHWORM)) {
+            setobjectxyperm(LOCALID_ORTHWORM_POTION, 9, 12)
+            setobjectmovementtype(LOCALID_ORTHWORM_POTION, MOVEMENT_TYPE_FACE_DOWN)
+        }
+
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 1 {
+        
+        removeobject(LOCALID_ORTHWORM_ATTACKING)
+        delay(60)
+        special(SpawnCameraObject)
+        applymovement(LOCALID_CAMERA, moves(
+            walk_down * 8
+        ))
+        waitmovement(LOCALID_CAMERA)
+        addobject(LOCALID_ORTHWORM_POTION)
+        playse(SE_FALL)
+        applymovement(LOCALID_ORTHWORM_POTION, moves(
+            set_visible
+            walk_down * 5
+        ))
+        waitmovement(LOCALID_ORTHWORM_POTION)
+        //copyobjectxytoperm(LOCALID_ORTHWORM_POTION)
+        special(RemoveCameraObject)
+        delay(20)
+        waitmovement(0)
+        setvar(VAR_TEMP_0, 2)
+        release
+    }
+    ]
+}
+
+script FixTheCamera {
+
 }
 
 script Wormhole_OrthwormRises {
     lock
-    setvar(VAR_TEMP_0, 1)
+    setvar(VAR_TEMP_0, 2)
     special(SpawnCameraObject)
     applymovement(LOCALID_CAMERA, moves(
         walk_slow_up * 2
@@ -59,24 +100,35 @@ script Wormhole_OrthwormRises {
         delay_8
         face_left
     ))
-    waitmovement(0)
-    setwildbattle(SPECIES_ORTHWORM, 30)
+    special(RemoveCameraObject)
+    waitmovement(LOCALID_ORTHWORM_ATTACKING)
+    setwildbattle(SPECIES_ORTHWORM, 50)
     dowildbattle //Celia comes in if you don't have a ball
-    delay(60)
+    delay(30)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(LOCALID_ORTHWORM_ATTACKING)
-    delay(60)
-    special(SpawnCameraObject)
-    applymovement(LOCALID_CAMERA,moves(
-        walk_down * 8
-    ))
-    waitmovement(0)
-    applymovement(LOCALID_ORTHWORM_POTION, moves(
-        set_visible
-        slide_down * 7
-    ))
-    delay(20)
-    playse(SE_FALL)
-    waitmovement(0)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+        removeobject(LOCALID_ORTHWORM_ATTACKING)
+        delay(60)
+        special(SpawnCameraObject)
+        applymovement(LOCALID_CAMERA, moves(
+            walk_down * 8
+        ))
+        waitmovement(LOCALID_CAMERA)
+        delay(30)
+        applymovement(LOCALID_ORTHWORM_POTION, moves(
+            set_visible
+            walk_fast_down * 5
+        ))
+        delay(20)
+        
+        playse(SE_FALL)
+        waitmovement(LOCALID_ORTHWORM_POTION)
+        special(RemoveCameraObject)
+        delay(20)
+        waitmovement(0)
+        setvar(VAR_TEMP_0, 2)
+        release
     release
 
 }

@@ -8959,6 +8959,8 @@ extern const u32 gBattleAnimSpritePal_WaterShuriken[];
 extern const u32 gBattleAnimSpriteGfx_WaterShuriken[];
 extern const u32 gBattleAnimSpritePal_Weed[];
 extern const u32 gBattleAnimSpriteGfx_Weed[];
+extern const u32 gBattleAnimSpriteGfx_Punishment[];
+extern const u32 gBattleAnimSpritePal_Punishment[];
 
 // battle anim task
 extern const u32 gUnusedLevelupAnimationGfx[];
@@ -12501,6 +12503,10 @@ extern const u32 gItemIconPalette_CRMPLEDPAGE[];
 extern const u32 gItemIcon_PESTERBALL[];
 extern const u32 gItemIconPalette_PESTERBALL[];
 
+extern const u32 gItemIcon_BlueBall[];
+extern const u32 gItemIconPalette_BlueBall[];
+
+
 extern const u32 gItemIcon_BURNBALL[];
 extern const u32 gItemIconPalette_BURNBALL[];
 
@@ -12659,3 +12665,14 @@ extern const u32 gTrainerPalette_Flint[];
 
 extern const u32 gItemIcon_CopycatTm[];
 extern const u32 gItemIconPalette_CopycatTm[];
+// HOOT
+extern const u32 gMonFrontPic_HOOT[];
+extern const u32 gMonPalette_HOOT[];
+extern const u32 gMonBackPic_HOOT[];
+extern const u32 gMonShinyPalette_HOOT[];
+extern const u8 gMonFootprint_HOOT[];
+extern const u8 gMonIcon_HOOT[];
+
+
+extern const u32 gTrainerFrontPic_Short[];
+extern const u32 gTrainerPalette_Short[];

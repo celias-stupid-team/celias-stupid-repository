@@ -353,6 +353,9 @@ script CeruleanCity_OnTransition {
 	if(!flag(FLAG_CSR_VERMILLION_GYM_TALKED_TO_PSYDUCK)) {
 		setflag(FLAG_TEMP_5)
 	}
+	if(!flag(FLAG_WORLD_MAP_CERULEAN_CITY)) {
+		setrespawn(HEAL_LOCATION_CERULEAN_CITY)
+	}
 	setworldmapflag(FLAG_WORLD_MAP_CERULEAN_CITY)
 	setbench(BENCH_CERULEAN)
 	call(SetPlayerPokedexValues)
@@ -509,9 +512,9 @@ script CeruleanCity_PhotoMan {
 	msgbox(PhotoMan_Enters, MSGBOX_DEFAULT)
 	closemessage
 	//Do Camera Stuff
-	fadescreen(FADE_TO_WHITE)
+	fadescreenswapbuffers(FADE_TO_WHITE)
 	playse(SE_PIN)
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	delay(30)
 	msgbox(PhotoMan_Leaves)
 	closemessage

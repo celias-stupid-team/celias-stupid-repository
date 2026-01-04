@@ -1,5 +1,9 @@
 mapscripts ViridianGym_Giovanni_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        if(checkmoncaught(SPECIES_MEWTWO)) {
+            setflag(FLAG_TEMP_5)
+        }
+        setflag(FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM)
         if(var(VAR_CURRENT_DMCA_PHASE) < 9) {
             setvar(VAR_CURRENT_DMCA_PHASE, 9)
         }
@@ -53,5 +57,10 @@ script ViridianGym_Mewtwo {
     msgbox(
 	"Mew!\n"
 	"{PAUSE 120}…two.", MSGBOX_DEFAULT)
-    setflag(FLAG_SHINY_CREATION)
+
+    setwildbattle(SPECIES_MEWTWO, 70)
+    dowildbattle
+    removeobject(VAR_LAST_TALKED)
+    release
+    end
 }

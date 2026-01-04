@@ -1,3 +1,147 @@
 mapscripts Ocean9_MapScripts {
 
 }
+
+
+
+script GreatSea_MudkipA {
+    if(flag(FLAG_TEMP_1)) {
+        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_1)
+        }
+        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_2)
+        }
+        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_1)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_3)
+        }
+    }
+
+
+}
+
+script GreatSea_MudkipB {
+    if(flag(FLAG_TEMP_2)) {
+        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_1)
+        }
+        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_2)
+        }
+        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_2)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_3)
+        }
+    }
+
+}
+
+script GreatSea_MudkipC {
+    if(flag(FLAG_TEMP_3)) {
+        compare_var_to_var(VAR_TEMP_1, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_1)
+        }
+        compare_var_to_var(VAR_TEMP_2, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_2)
+        }
+        compare_var_to_var(VAR_TEMP_3, VAR_LAST_TALKED)
+        if(var(VAR_RESULT)) {
+            goto(GreatSea_Mudkip_3)
+        }
+
+    } else {
+        setflag(FLAG_TEMP_3)
+        addvar(VAR_TEMP_0, 1)
+        switch(var(VAR_TEMP_0)) {
+            case 1:
+                copyvar(VAR_TEMP_1, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_1)
+            case 2:
+                copyvar(VAR_TEMP_2, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_2)
+            case 3:
+                copyvar(VAR_TEMP_3, VAR_LAST_TALKED)
+                goto(GreatSea_Mudkip_3)
+        }
+    }
+
+
+}
+
+script GreatSea_Mudkip_1 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_DEFAULT)
+    msgbox(
+	"Mud!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+}
+script GreatSea_Mudkip_2 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_RED)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_ENCOUNTER)
+    msgbox(
+	"Kip!\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+}
+script GreatSea_Mudkip_3 {
+    lock
+    faceplayer
+    textcolor(NPC_TEXT_COLOR_GREEN)
+    playmoncry(SPECIES_MUDKIP, CRY_MODE_FAINT)
+    msgbox(
+	"Thomas Jefferson.\n"
+	"", MSGBOX_DEFAULT)
+    waitmoncry
+    clearflag(FLAG_TEMP_1)
+    clearflag(FLAG_TEMP_2)
+    clearflag(FLAG_TEMP_3)
+    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_2, 0)
+    setvar(VAR_TEMP_3, 0)
+    setvar(VAR_TEMP_0, 0)
+    release
+}

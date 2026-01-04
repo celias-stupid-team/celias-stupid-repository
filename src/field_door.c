@@ -189,6 +189,7 @@ static const u8 sDoorAnimTiles_TwoIsland[] = INCBIN_U8("graphics/door_anims/two_
 static const u8 sDoorAnimTiles_TwoIslandSaturn[] = INCBIN_U8("graphics/door_anims/two_island_saturn.4bpp");
 static const u8 sDoorAnimTiles_TwoIslandDrugstore[] = INCBIN_U8("graphics/door_anims/two_island_drug.4bpp");
 static const u8 sDoorAnimTiles_TwoIslandHotel[] = INCBIN_U8("graphics/door_anims/two_island_hotel.4bpp");
+static const u8 sDoorAnimTiles_TwoIslandHotelInterior[] = INCBIN_U8("graphics/door_anims/two_island_hotel_interior.4bpp");
 
 #define CLOSED_DOOR_TILES_OFFSET 0xFFFF
 
@@ -263,6 +264,7 @@ static const u8 sDoorAnimPalettes_TwoIsland[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_TwoIslandSaturn[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_TwoIslandDrugstore[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_TwoIslandHotel[] = {10, 10, 10, 10, 10, 10, 10, 10};
+static const u8 sDoorAnimPalettes_TwoIslandHotelInterior[] = {7, 7, 7, 7, 7, 7, 7, 7};
 
 static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_General_Door,                                DOOR_SOUND_NORMAL,  DOOR_SIZE_1x1, sDoorAnimTiles_General, sDoorAnimPalettes_General},
@@ -308,6 +310,7 @@ static const struct DoorGraphics sDoorGraphics[] = {
     {METATILE_TwoIsland_SaturnDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x2, sDoorAnimTiles_TwoIslandSaturn, sDoorAnimPalettes_TwoIslandSaturn},
     {METATILE_TwoIsland_DrugstoreDoor,               DOOR_SOUND_SLIDING, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandDrugstore, sDoorAnimPalettes_TwoIslandDrugstore},
     {METATILE_TwoIsland_HotelDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandHotel, sDoorAnimPalettes_TwoIslandHotel},
+    {METATILE_TwoIslandHotel_HotelDoor,               DOOR_SOUND_NORMAL, DOOR_SIZE_1x1, sDoorAnimTiles_TwoIslandHotelInterior, sDoorAnimPalettes_TwoIslandHotelInterior},
     
 };
 

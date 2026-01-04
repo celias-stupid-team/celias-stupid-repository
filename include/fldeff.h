@@ -11,6 +11,7 @@ extern struct MapPosition gPlayerFacingPosition;
 extern bool8 gScheduleOpenDottedHole;
 
 bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId);
+bool8 IsObjectInFrontOfPlayerCuttable();
 u8 CreateFieldEffectShowMon(void);
 
 // flash
@@ -42,6 +43,7 @@ bool32 FldEffPoison_IsActive(void);
 // strength
 bool8 SetUpFieldMove_Strength(void);
 bool8 FldEff_UseStrength(void);
+bool8 CheckObjectGraphicsInFrontOfPlayerPushable(void);
 
 // teleport
 bool8 SetUpFieldMove_Teleport(void);

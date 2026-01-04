@@ -136,7 +136,7 @@ script BobOmbBattlefield_EventScript_Cannon {
         applymovement(OBJ_EVENT_ID_PLAYER, BoB_PlayerIsLaunched)
         waitmovement(0)
 		
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 
 		//player faces down
 		//spawn camera

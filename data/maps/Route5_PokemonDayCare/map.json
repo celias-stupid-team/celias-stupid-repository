@@ -114,7 +114,7 @@
     {
       "type": "hidden_item",
       "x": 2,
-      "y": 3,
+      "y": -2,
       "elevation": 0,
       "item": "ITEM_LEAF_STONE",
       "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
@@ -124,7 +124,7 @@
     {
       "type": "hidden_item",
       "x": 3,
-      "y": 3,
+      "y": -2,
       "elevation": 0,
       "item": "ITEM_LEAF_STONE",
       "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
@@ -133,8 +133,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 2,
+      "x": 0,
+      "y": -2,
       "elevation": 0,
       "item": "ITEM_LEAF_STONE",
       "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",
@@ -143,8 +143,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": -2,
       "elevation": 0,
       "item": "ITEM_LEAF_STONE",
       "flag": "FLAG_HIDDEN_ITEM_LEAF_STONE_HOUSE",

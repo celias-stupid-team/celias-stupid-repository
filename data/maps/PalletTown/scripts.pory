@@ -663,7 +663,7 @@ script PalletTown_ImposterOak {
 			textcolor(NPC_TEXT_COLOR_TREE)
 			msgbox("{FONT_SMALL}OAK?: Wha-… Hey!\nWhat's the big idea?\pThis spot here is mine!\nI've been here since the beginning.\pAh forget it.\nI don't need to take this.", MSGBOX_DEFAULT)
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			setflag(FLAG_PALLET_IMPOSTER_OAK)
 			removeobject(IMPOSTER_OAK)
 			removeobject(INVISIBLE_OAK)
@@ -672,7 +672,7 @@ script PalletTown_ImposterOak {
 			setmetatile(1, 4, 0x009, FALSE)
 			setmetatile(1, 5, 0x00F, FALSE)
 			waitse
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(90)
 			fadedefaultbgm
 			

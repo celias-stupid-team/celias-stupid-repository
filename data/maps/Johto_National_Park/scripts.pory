@@ -1,6 +1,7 @@
 mapscripts Johto_National_Park_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_NATIONAL_PARK)
+		setflag(FLAG_CSR_MAP_NATIONAL_PARK)
     }
 }
 
@@ -11,6 +12,27 @@ script NationalPark_Sign {
 	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
 
 }
+
+script NationalPark_TrashCan {
+	msgbox(
+	"trash can flavor text\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script NationalPark_Woman {
+	msgbox(
+	"National Park\n"
+	"Placeholder NPC", MSGBOX_NPC)
+}
+
+script NationalPark_ContestNPC {
+	msgbox(
+	"Bug catching contest\n"
+	"placeholder NPC", MSGBOX_NPC)
+}
+
+
 
 script NationalPark_JohtoLawnMaintenance {
 	msgbox(
@@ -88,7 +110,7 @@ script NationalPark_BugCatchingContest_FirstPlace {
 
 script NationalPark_BugCatchingContest_FourthPlace {
 	msgbox(
-	"Yay!\n"
+	"TUSCANY: Yay!\n"
 	"I love the BUG CATCHING CONTEST!\p"
 
 	"It's a good thing there's no\n"
@@ -181,10 +203,10 @@ script NationalPark_FakeOddCandy {
 	"Thanks a bunch!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(LOCALID_CANDY_NERD)
     delay(10)
-    fadescreen(FADE_FROM_BLACK)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
 	release
 }
 

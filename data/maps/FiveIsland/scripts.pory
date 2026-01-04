@@ -4,7 +4,7 @@ FiveIsland_MapScripts::
 	.byte 0
 
 FiveIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FIVE_ISLAND
+	setworldmapflag FLAG_CSR_MAP_YES
 	end
 
 FiveIsland_EventScript_IslandSign::
@@ -46,9 +46,13 @@ script Yes_ChanseyNPC {
 	lock
 	faceplayer
 	msgbox(
-	"do you want a chansey?\n"
-	"", MSGBOX_DEFAULT)
-	if(flag(FLAG_FOUND_Y)) {
+	"Hi, there!\n"
+	"I'm giving away a free CHANSEY!\l"
+	"Would you like it?", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	callnative(SayYesForChansey)
+	waitstate
+	if(var(VAR_RESULT)) {
 		msgbox(
 		"here\n"
 		"", MSGBOX_DEFAULT)
@@ -62,9 +66,11 @@ script Yes_ChanseyNPC {
 		end
 	} else {
 		msgbox(
-		"you do not have the letter y\p"
+		"…What was that?\n"
+		"I couldn't quite understand you.\p"
 
-		"you cannot say yes\n"
-		"", MSGBOX_DEFAULT)
+		"I'll wait here until you're ready\n"
+		"to give a proper answer.", MSGBOX_DEFAULT)
+		release
 	}
 }

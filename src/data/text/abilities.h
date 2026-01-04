@@ -176,11 +176,14 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_BAD_DREAMS] = COMPOUND_STRING("Faints sleeping Pokémon."),
     [ABILITY_SLOW_START] = COMPOUND_STRING("Takes a while to get going."),
     [ABILITY_NEUTRALIZING_GAS] = COMPOUND_STRING("All Abilities are nullified."),
-    [ABILITY_HTML5] = COMPOUND_STRING("Outdated as of 2014."),
-    [ABILITY_BLIND_AS_A_BAT] = COMPOUND_STRING("Full immunity to LIGHT."),
+    [ABILITY_HTML5] = COMPOUND_STRING("Unaffected by ADOBE FLASH."),
+    [ABILITY_BLIND_AS_A_BAT] = COMPOUND_STRING("The user always WINS."),
     [ABILITY_FRIED_CHICKEN] = COMPOUND_STRING("Delicious when dipped in ketchup."),
     [ABILITY_IMPECKABLE] = COMPOUND_STRING("Immunity to the move PECK."),
     [ABILITY_BIG_PECKS] = COMPOUND_STRING("User's PECK is stronger."),
+    [ABILITY_RESTLESS] = COMPOUND_STRING("Foe cannot restore HP."),
+    [ABILITY_MAGIC_SHELL] = COMPOUND_STRING("Cannot be pierced with a SPOON."),
+    [ABILITY_NO_GUARD] = COMPOUND_STRING("Ensures that all moves hit."),
 };
 
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -275,9 +278,12 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_BAD_DREAMS] = _("BAD DREAMS"),
     [ABILITY_SLOW_START] = _("SLOW START"),
     [ABILITY_NEUTRALIZING_GAS] = _("NEUTRAL. GAS"),
-    [ABILITY_HTML5] = _("HTML4"),
-    [ABILITY_BLIND_AS_A_BAT] = _("BLIND AS BAT"),
+    [ABILITY_HTML5] = _("HTML5"),
+    [ABILITY_BLIND_AS_A_BAT] = _("WICTORY STAR"),
     [ABILITY_FRIED_CHICKEN] = _("GHOLDENBROWN"),
     [ABILITY_IMPECKABLE] = _("IMPECKABLE"),
     [ABILITY_BIG_PECKS] = _("BIG PECKS"),
+    [ABILITY_RESTLESS] = _("RESTLESS"),
+    [ABILITY_MAGIC_SHELL] = _("MAGIC SHELL"),
+    [ABILITY_NO_GUARD] = _("NO GUARD"),
 };

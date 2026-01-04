@@ -607,3 +607,6 @@ const u32 gTrainerPalette_Boarder[] = INCBIN_U32("graphics/trainers/palettes/boa
 
 const u32 gTrainerFrontPic_Flint[] = INCBIN_U32("graphics/trainers/front_pics/flint_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Flint[] = INCBIN_U32("graphics/trainers/palettes/flint.gbapal.lz");
+
+const u32 gTrainerFrontPic_Short[] = INCBIN_U32("graphics/trainers/front_pics/short_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Short[] = INCBIN_U32("graphics/trainers/palettes/short.gbapal.lz");

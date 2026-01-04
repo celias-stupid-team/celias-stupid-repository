@@ -28,3 +28,31 @@ script AetherParadise_LocationSign {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script AetherParadise_FindGroudon {
+	msgbox(
+	"Hmmm…\n"
+	"Can you help me find GROUDON?", MSGBOX_NPC)
+}
+
+
+script AetherParadise_FoundGroudon {
+    lock
+	msgbox(
+	"Oh!\n"
+	"", MSGBOX_DEFAULT)
+    playmoncry(SPECIES_GROUDON, CRY_MODE_DEFAULT)
+    waitmoncry
+    msgbox(
+	"It's GROUDON!\n"
+	"", MSGBOX_DEFAULT)
+    release
+    end
+
+}
+
+
+script AetherParadise_Groudon {
+    release
+}

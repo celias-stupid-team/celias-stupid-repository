@@ -860,6 +860,9 @@ void BattleUseFunc_PokeBallEtc(u8 taskId)
 {
     if (!IsPlayerPartyAndPokemonStorageFull())
     {
+        if(gSpecialVar_ItemId == ITEM_SEAL_CASE && gBattleMons[gBattlerTarget].species == SPECIES_SEEL) {
+            
+        }
         RemoveBagItem(gSpecialVar_ItemId, 1);
         Bag_BeginCloseWin0Animation();
         ItemMenu_StartFadeToExitCallback(taskId);

@@ -71,7 +71,7 @@ script FushciaGym_TrioRoom_NinjasAppear {
         msgbox("You may have defeated us, but\nthat is but one step of your quest.\pOur LEADER is a master ninja!\nHe is as swift as the wind!\pDo you truly believe you can\ntake him down?", MSGBOX_DEFAULT)
         setflag(FLAG_DEFEATED_NINJAS)
         closemessage
-        fadescreen(FADE_TO_BLACK)
+        fadescreenswapbuffers(FADE_TO_BLACK)
         playse(SE_M_DOUBLE_TEAM)
         waitse
         playse(SE_M_DOUBLE_TEAM)
@@ -82,7 +82,7 @@ script FushciaGym_TrioRoom_NinjasAppear {
         removeobject(LOCALID_RED)
         removeobject(LOCALID_GREEN)
         setvar(VAR_TEMP_0, 1)
-        fadescreen(FADE_FROM_BLACK)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
         release
 
 

@@ -431,6 +431,25 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_car_dad;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_JUMPLUFF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bill_board;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SAMSON_OAK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HERDIER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LUXRAY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TRUBBISH_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LAST_SLOWBRO;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_shiny_rat_2;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DIGLETT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MONGOOSE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GIRAFFE_CAGE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FARIG;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FLAMES_BETTER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE_SIGN;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PIRATE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MESSAGE_BOTTLE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CYNTHIA_BETTER;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_kingler_rock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mudkip;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_groudon_hidden;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HOOTHOOT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAGNEMITE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -863,4 +882,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JUMPLUFF] = &gObjectEventGraphicsInfo_JUMPLUFF,
     [OBJ_EVENT_GFX_BILL_BOARD] = &gObjectEventGraphicsInfo_bill_board,
     [OBJ_EVENT_GFX_SAMSON_OAK] = &gObjectEventGraphicsInfo_SAMSON_OAK,
+    [OBJ_EVENT_GFX_HERDIER] = &gObjectEventGraphicsInfo_HERDIER,
+    [OBJ_EVENT_GFX_LUXRAY] = &gObjectEventGraphicsInfo_LUXRAY,
+    [OBJ_EVENT_GFX_TRUBBISH_2] = &gObjectEventGraphicsInfo_TRUBBISH_2,
+    [OBJ_EVENT_GFX_LAST_SLOWBRO] = &gObjectEventGraphicsInfo_LAST_SLOWBRO,
+    [OBJ_EVENT_GFX_SHINY_RAT_2] = &gObjectEventGraphicsInfo_shiny_rat_2,
+    [OBJ_EVENT_GFX_DIGLETT] = &gObjectEventGraphicsInfo_DIGLETT,
+    [OBJ_EVENT_GFX_MONGOOSE] = &gObjectEventGraphicsInfo_MONGOOSE,
+    [OBJ_EVENT_GFX_GIRAFFE_CAGE] = &gObjectEventGraphicsInfo_GIRAFFE_CAGE,
+    [OBJ_EVENT_GFX_FARIG] = &gObjectEventGraphicsInfo_FARIG,
+    [OBJ_EVENT_GFX_FLAMES_BETTER] = &gObjectEventGraphicsInfo_FLAMES_BETTER,
+    [OBJ_EVENT_GFX_PIRATE_SIGN] = &gObjectEventGraphicsInfo_PIRATE_SIGN,
+    [OBJ_EVENT_GFX_PIRATE] = &gObjectEventGraphicsInfo_PIRATE,
+    [OBJ_EVENT_GFX_MESSAGE_BOTTLE] = &gObjectEventGraphicsInfo_MESSAGE_BOTTLE,
+    [OBJ_EVENT_GFX_CYNTHIA_BETTER] = &gObjectEventGraphicsInfo_CYNTHIA_BETTER,
+    [OBJ_EVENT_GFX_KINGLER_ROCK] = &gObjectEventGraphicsInfo_kingler_rock,
+    [OBJ_EVENT_GFX_MUDKIP] = &gObjectEventGraphicsInfo_mudkip,
+    [OBJ_EVENT_GFX_GROUDON_HIDDEN] = &gObjectEventGraphicsInfo_groudon_hidden,
+    [OBJ_EVENT_GFX_HOOTHOOT] = &gObjectEventGraphicsInfo_HOOTHOOT,
+    [OBJ_EVENT_GFX_MAGNEMITE] = &gObjectEventGraphicsInfo_MAGNEMITE,
 };

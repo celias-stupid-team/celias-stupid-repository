@@ -19,7 +19,7 @@ script MtMoon_Basement_DrillWall {
 	"There's a hole in the wall…\n"
 	"Would you like to DRILL it?", MSGBOX_YESNO)
 	if(var(VAR_RESULT)) {
-					fadescreen(FADE_TO_BLACK)
+					fadescreenswapbuffers(FADE_TO_BLACK)
 					setflag(FLAG_DRILLED_MT_MOON_HOLE)
 					setlayouttiles(LAYOUT_MT_MOON_B1F_LAYOUT_DRILLED, 0, 0, 0, 0, 62, 39)
 					special(DrawWholeMapView)
@@ -33,7 +33,7 @@ script MtMoon_Basement_DrillWall {
 					delay(10)
 					playse(SE_M_HORN_ATTACK)
 					delay(30)
-					fadescreen(FADE_FROM_BLACK)
+					fadescreenswapbuffers(FADE_FROM_BLACK)
 					release
 					end
 
@@ -71,3 +71,16 @@ script MtMoon_EventScript_MoveLass {
 	setvar(VAR_TEMP_1, 1)
 }
 
+script MtMoon_EventScript_AetherShortcut {
+	msgbox(
+	"MT. MOON\n"
+	"Shortcut {UP_ARROW}", MSGBOX_SIGN)
+
+}
+
+
+script MtMoon_EventScript_HyperDrill {
+	msgbox(
+	"porygon22\n"
+	"", MSGBOX_NPC)
+}

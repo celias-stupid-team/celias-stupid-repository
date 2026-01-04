@@ -64,14 +64,14 @@ mapscripts SafariZone_Center_MapScripts {
 			msgbox("Hey!\nHow'd you get your TM CASE back?\pGrr…\nGive it here!", MSGBOX_DEFAULT)
 			closemessage
 			delay(30)
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			removeobject(DMCA_Lead)
 			removeobject(DMCA_Right)
 			removeobject(DMCA_Left)
 			setflag(FLAG_TEMP_2)
 			removeitem(ITEM_TM_CASE)
 			setflag(FLAG_NO_TM_CASE)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			release
 			end
 		}
@@ -161,11 +161,11 @@ script SafariZone_KangaskahnCage {
 				applymovement(BIG_KANGA, SafariZone_KangaAttackWall2)
 				waitmovement(0)
 				playse(SE_M_EXPLOSION)
-				fadescreen(FADE_TO_WHITE)
+				fadescreenswapbuffers(FADE_TO_WHITE)
 				call(SafariZone_Center_BreakMiddleWall)
 				special(DrawWholeMapView)
 				playbgm(MUS_SEVII_ROUTE, TRUE)
-				fadescreen(FADE_FROM_WHITE)
+				fadescreenswapbuffers(FADE_FROM_WHITE)
 				delay(60)
 				applymovement(SMALL_KANGA, Common_Movement_FaceLeft)
 				waitmovement(0)
@@ -183,10 +183,10 @@ script SafariZone_KangaskahnCage {
 				applymovement(BIG_KANGA, SafariZone_KangaWalksOverToYou)
 				waitmovement(0)
 				playse(SE_M_EXPLOSION)
-				fadescreen(FADE_TO_WHITE)
+				fadescreenswapbuffers(FADE_TO_WHITE)
 				call(SafariZone_Center_BreakLeftWall)
 				special(DrawWholeMapView)
-				fadescreen(FADE_FROM_WHITE)
+				fadescreenswapbuffers(FADE_FROM_WHITE)
 				delay(60)
 				playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
 				waitmoncry
@@ -476,11 +476,11 @@ script SafariZone_LaprasMeatSalesman {
 			msgbox("{PLAYER} purchased the (allegedly)\nethically-sourced MEAT!", MSGBOX_DEFAULT)
 			waitfanfare
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			setflag(FLAG_SANDWICH_GOT_MEAT)
 			delay(20)
 			removeobject(LAPRAS)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(20)
 			textcolor(NPC_TEXT_COLOR_MALE)
 			msgbox("Thanks for doing business!\n", MSGBOX_DEFAULT)

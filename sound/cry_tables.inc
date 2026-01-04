@@ -1242,6 +1242,7 @@ gCryTable::
 	cry Cry_GIRAFARIGBUTT
 	cry Cry_MEWTWOW
 	cry Cry_CHARIZARDQ
+	cry Cry_HOOT
 
 
 
@@ -2494,6 +2495,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_GIRAFARIGBUTT
 	cry_reverse Cry_MEWTWOW
 	cry_reverse Cry_CHARIZARDQ
+	cry_reverse Cry_HOOT
 
 
 

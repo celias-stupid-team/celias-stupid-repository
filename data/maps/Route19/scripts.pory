@@ -52,7 +52,7 @@ script Route19_LookerScene {
 	"{PLAYER} kicked the man.", MSGBOX_DEFAULT)
 	closemessage
 	playse(SE_M_TAKE_DOWN)
-	fadescreen(FADE_TO_WHITE)
+	fadescreenswapbuffers(FADE_TO_WHITE)
 	delay(30)
 	applymovement(LOCALID_LOOKER_LAYING, moves(
 		set_invisible
@@ -101,7 +101,7 @@ script Route19_LookerScene {
 	"Here, take this.\n"
 	"It'll be safer in your hands!", MSGBOX_DEFAULT)
 	closemessage
-	fadescreen(FADE_TO_WHITE)
+	fadescreenswapbuffers(FADE_TO_WHITE)
 	delay(20)
 	applymovement(LOCALID_PLAYER, moves(
 		lock_facing_direction
@@ -332,7 +332,10 @@ script GreatSea_FontTest {
 	"TAIL GLOW REST RETREAT\p"
 	
 	"999/999\n"
-	"1234567890/", MSGBOX_NPC)
+	"1234567890/\p"
+	
+	"There is no bench nearby!\n"
+	"FALINKS used NO RETREAT!", MSGBOX_NPC)
 }
 
 
@@ -348,13 +351,32 @@ script GreatSea_Chapter7 {
 	lock
 	clearflag(FLAG_FUSHCIA_GO_TO_SHORE_SCENE)
 	clearflag(FLAG_SYS_FUSHCIA_DISABLE_FLY)
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	delay(30)
 	message("Chapter 7{PAUSE 120}\nToo Much Water")
 	delay(270)
 	closemessage
 
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	setvar(VAR_CURRENT_CHAPTER, 7)
 	release
+}
+
+
+script GreatSea_WheresZubat {
+	msgbox(
+	"Hey, you! Have you seen any\n"
+	"ZUBAT on your journey?\p"
+
+	"I really want one, but I can't seem\n"
+	"to find any in the water…", MSGBOX_NPC)
+}
+
+script GreatSea_GoodNoTentacool {
+	msgbox(
+	"Oh, boy!\n"
+	"It's time for WATER Routes!\p"
+
+	"Thank goodness there's no wild\n"
+	"TENTACOOL anywhere!", MSGBOX_NPC)
 }

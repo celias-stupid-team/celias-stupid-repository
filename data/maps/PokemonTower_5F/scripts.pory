@@ -100,9 +100,9 @@ const Y2 = 9
 const Y3 = 10
 script PokemonTower_5F_EventScript_PurifiedZone {
 	lockall
-	fadescreen(FADE_TO_WHITE)
+	fadescreenswapbuffers(FADE_TO_WHITE)
 	special(HealPlayerParty)
-	fadescreen(FADE_FROM_WHITE)
+	fadescreenswapbuffers(FADE_FROM_WHITE)
 	
 	setvar(VAR_TEMP_1, 1)
 	switch(var(VAR_TEMP_3)) {

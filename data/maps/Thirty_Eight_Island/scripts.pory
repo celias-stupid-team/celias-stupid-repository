@@ -1,6 +1,7 @@
 mapscripts Thirty_Eight_Island_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setbench(BENCH_NATIONAL_PARK)
+		setworldmapflag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)
     }
 }
 
@@ -298,11 +299,27 @@ script ThirtyEightIsland_MiltankPhilosophy {
 script ThirtyEightIsland_GoldenRod {
     lock
     faceplayer
+	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) {
+		msgbox(
+		"goldenrod\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	setflag(FLAG_CSR_GOT_GOLDEN_ROD)
     msgbox(
-	"gift\n"
+	"I may be a fisherman by trade, but\n"
+	"I yearn for the big city.\p"
+
+	"Here, take this.\n"
 	"", MSGBOX_DEFAULT)
     giveitem_msg("{PLAYER} obtained the\nGOLDEN ROD!", ITEM_GOOD_ROD)
     waitfanfare
+	
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement
     release
 }
 
@@ -488,3 +505,64 @@ script ThirtyEightIsland_LassMaze {
 }
 
 
+script ThirtyEightIsland_TalkingOnPhone {
+	lock
+	msgbox(
+	"…and then I-\n"
+	"{PAUSE 30}…wait, one second.", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	msgbox(
+	"I'm talking on the POKéGEAR with my\n"
+	"friend.\p"
+
+	"She's playing POKéMON DIAMOND!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	msgbox(
+	"So anyway like I was saying…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}
+
+script ThirtyEightIsland_CalmHoothoot {
+	lock
+	msgbox(
+	"HOOTHOOT: Hoo?\n"
+	"", MSGBOX_DEFAULT)
+	showmonpic(SPECIES_HOOTHOOT, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	delay(30)
+	msgbox(
+	"HOOTHOOT's SP. ATK and SP. DEF\n"
+	"rose!", MSGBOX_DEFAULT)
+	release
+}
+
+script ThirtyEightIsland_HoothootWoman {
+	lock
+	faceplayer
+	msgbox(
+	"Wow!\n"
+	"A POKéMON's resting in that tree!\p"
+
+	"Look at how calm she is!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script ThirtyEightIsland_GoldenRodPointer {
+	msgbox(
+	"Down by shore\n"
+	"placeholder", MSGBOX_NPC)
+}

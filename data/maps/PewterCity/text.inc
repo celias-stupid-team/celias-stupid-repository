@@ -131,7 +131,7 @@ PewterCity_Text_OhPlayer::
 PewterCity_Text_AskedToDeliverThis::
     .string "I'm glad I caught up to you.\n"
     .string "I'm PROF. OAK's AIDE.\p"
-    .string "I've supposed to give you the\n"
+    .string "I'm supposed to give you the\n"
     .string "RUNNING SHOES.\p"
     .string "…What's that?\p"
     .string "You can already run without\n"

@@ -424,6 +424,8 @@ gSongTable::
 	song mus_koopa_bros, 0, 0
 	song mus_grand_finale, 0, 0
 	song mus_stupid_ending, 0, 0
+	song mus_se_deskslam, 0, 0
+	song mus_se_guilty, 0, 0
 
 
 

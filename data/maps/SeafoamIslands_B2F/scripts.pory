@@ -1,4 +1,20 @@
 raw `
-SeafoamIslands_B2F_MapScripts::
-	.byte 0
+
 `
+
+mapscripts SeafoamIslands_B2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_GOT_HM01)) {
+			setflag(FLAG_TEMP_1)
+
+		}
+	}
+}
+
+script Seafoam_B2F_Captain {
+	lock
+	msgbox(
+	"Hmm, I know there's a ladder\n"
+	"around here somewhere…", MSGBOX_DEFAULT)
+	release
+}

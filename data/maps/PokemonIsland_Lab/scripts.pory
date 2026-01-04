@@ -1,6 +1,6 @@
 mapscripts PokemonIsland_Lab_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PROFESSOR_IVY_CUT, 1 {
+        VAR_USED_CUT, 1 {
             delay(30)
             playse(SE_FALL)
             applymovement(LOCALID_IVY_2, moves(
@@ -10,12 +10,12 @@ mapscripts PokemonIsland_Lab_MapScripts {
             waitmovement(0)
             addobject(LOCALID_IVY)
             setobjectxy(LOCALID_IVY_2, 13, 0)
-            setvar(VAR_PROFESSOR_IVY_CUT, 0)
+            setvar(VAR_USED_CUT, 0)
             release
         }
     ]
     MAP_SCRIPT_ON_TRANSITION {
-        setvar(VAR_PROFESSOR_IVY_CUT, 0)
+        setvar(VAR_USED_CUT, 0)
         if(flag(FLAG_KINGLER_SIGN)) {
             addvar(VAR_TEMP_5, 1)
         }
@@ -38,6 +38,9 @@ mapscripts PokemonIsland_Lab_MapScripts {
             addvar(VAR_TEMP_5, 1)
         }
         call(PokemonIslandLab_AddSignsBasedOnSigns)
+        if(flag(FLAG_TURNED_IN_POKEMON_SIGNS)) {
+            setobjectxyperm(LOCALID_TODD, 17, 3)
+        }
 
     }
 }
@@ -245,11 +248,13 @@ script PokemonIslandLab_Todd {
         msgbox(
         "There will be a cutscene here\n"
         "", MSGBOX_DEFAULT)
-        msgbox(
-        "We go to rainbow cloud\n"
-        "", MSGBOX_DEFAULT)
-        setvar(VAR_CSR_GIFT_POKEMON, SPECIES_CASTFORM)
-        call(Common_Script_GiftPokemon)
+        closemessage
+        applymovement(VAR_LAST_TALKED, moves(
+            walk_left
+            face_down
+        ))
+        waitmovement(0)
+        setflag(FLAG_TURNED_IN_POKEMON_SIGNS)
         release
         end
     }

@@ -1,5 +1,9 @@
 mapscripts TwoIsland_WaterfallHouse_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		if(var(VAR_TWO_ISLAND_STARMAN) != 2) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
 }
 
 
@@ -16,3 +20,15 @@ script TwoIsland_WaterfallHouse_Message {
 	"Good luck!", MSGBOX_SIGN)
 
 } //Add sussy Eaerthbound music here
+
+
+script TwoIsland_WaterfallStarwalker {
+	lock
+	msgbox(
+	"these {COLOR DYNAMIC_COLOR5}new megas "
+	"{COLOR DARK_GRAY}are {COLOR DYNAMIC_COLOR5}pissing {COLOR DARK_GRAY}me off...\p"
+
+	"{COLOR DARK_GRAY}I'm the original\n"
+	"                 {COLOR DYNAMIC_COLOR5}water-psychic type", MSGBOX_DEFAULT)
+	release
+}

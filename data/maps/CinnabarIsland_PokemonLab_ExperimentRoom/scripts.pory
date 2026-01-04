@@ -46,8 +46,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_FossilScientist::
 	setvar VAR_RESULT, FALSE
 	call_if_set FLAG_REVIVED_AMBER, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckRevivedMtMoonFossil
 	goto_if_eq VAR_RESULT, TRUE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_RevivedAllFossils
-	goto_if_eq VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 2, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveRevivedMon
-	goto_if_eq VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_FossilStillReviving
 	call CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckAddHelixFossilToList
 	goto_if_eq VAR_RESULT, TRUE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilHelix
 	call CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckAddDomeFossilToList
@@ -146,8 +144,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowHelixFossil::
 	textcolor NPC_TEXT_COLOR_MALE
 	removeitem ITEM_HELIX_FOSSIL
 	msgbox CinnabarIsland_PokemonLab_ExperimentRoom_Text_TakesTimeGoForWalk
-	setvar VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 1
-	setvar VAR_CSR_DUMMY_10, HELIX_FOSSIL
 	release
 	end
 
@@ -160,8 +156,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowDomeFossil::
 	textcolor NPC_TEXT_COLOR_MALE
 	removeitem ITEM_JAW_FOSSIL
 	msgbox CinnabarIsland_PokemonLab_ExperimentRoom_Text_TakesTimeGoForWalk
-	setvar VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 1
-	setvar VAR_CSR_DUMMY_10, DOME_FOSSIL
 	release
 	end
 
@@ -174,8 +168,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowOldAmber::
 	textcolor NPC_TEXT_COLOR_MALE
 	removeitem ITEM_OLD_AMBER
 	msgbox CinnabarIsland_PokemonLab_ExperimentRoom_Text_TakesTimeGoForWalk
-	setvar VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 1
-	setvar VAR_CSR_DUMMY_10, OLD_AMBER
 	release
 	end
 
@@ -190,9 +182,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_FossilStillReviving::
 	end
 
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveRevivedMon::
-	goto_if_eq VAR_CSR_DUMMY_10, HELIX_FOSSIL, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveOmanyte
-	goto_if_eq VAR_CSR_DUMMY_10, DOME_FOSSIL, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveKabuto
-	goto_if_eq VAR_CSR_DUMMY_10, OLD_AMBER, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveAerodactyl
 	end
 
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_GiveOmanyte::
@@ -234,7 +223,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_NicknameMonParty::
 	message CinnabarIsland_PokemonLab_ExperimentRoom_Text_ReceivedMonFromDoctor
 	waitmessage
 	waitfanfare
-	setvar VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 0
 	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_EndGiveMon
 	call EventScript_GetGiftMonPartySlot
@@ -248,7 +236,6 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_NicknameMonPC::
 	message CinnabarIsland_PokemonLab_ExperimentRoom_Text_ReceivedMonFromDoctor
 	waitmessage
 	waitfanfare
-	setvar VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE, 0
 	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_MonSentToPC
 	call EventScript_NameReceivedBoxMon
@@ -355,7 +342,7 @@ script CinnabarIsland_ReviveFossils {
 		removeitem(ITEM_HELIX_FOSSIL)
 		removeitem(ITEM_JAW_FOSSIL)
 		closemessage
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		delay(30)
 		playse(SE_M_TAKE_DOWN)
 		waitse
@@ -380,7 +367,7 @@ script CinnabarIsland_ReviveFossils {
 		waitse
 		
 		delay(30)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 		msgbox(
 		"Here you are!\n"
 		"Your fossil is finished!", MSGBOX_DEFAULT)
@@ -412,4 +399,13 @@ script CinnabarIsland_ReviveFossils {
 	}
 	release
 	end
+}
+
+
+
+script CinnabarIsland_Pigmask {
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"yeah I love putting stuff together\n"
+	"placeholder", MSGBOX_NPC)
 }

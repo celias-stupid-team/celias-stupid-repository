@@ -267,5 +267,7 @@ extern const u8 *const gBattlescriptsForUsingItem[];
 extern const u8 *const gBattlescriptsForSafariActions[];
 extern const u8 BattleScript_ThrowSafariBall[];
 extern const u8 BattleScript_ThrowBall[];
+extern const u8 BattleScript_TrainerASlideMsgRet[];
+extern const u8 BattleScript_TrainerASlideMsgEnd2[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

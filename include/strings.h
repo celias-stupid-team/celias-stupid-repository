@@ -212,6 +212,13 @@ extern const u8 gText_Berry[];
 extern const u8 gText_Ghost[];
 extern const u8 gText_Luvdisc[];
 extern const u8 gText_Leekd[];
+extern const u8 gText_DEAD[];
+extern const u8 gText_DeadLower[];
+extern const u8 gText_DIED[];
+extern const u8 gText_DiedLower[];
+extern const u8 gText_YesLower[];
+extern const u8 gText_YupLower[];
+extern const u8 gText_YUP[];
 
 // pokemon
 extern const u8 gBattleText_Rose[];
@@ -1433,6 +1440,8 @@ extern const u8 gText_MoveOkBack[];
 extern const u8 gText_AlphabetUpperLower[];
 extern const u8 gText_YourName[];
 extern const u8 gText_YourSSN[];
+extern const u8 gText_GetAChansey[];
+extern const u8 gText_BerryPowderManFate[];
 extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_RivalsName[];

@@ -652,7 +652,7 @@ script ViridianCity_KenyaMan {
 			release
 			end
 		} else {
-			switch(givemon(SPECIES_KENYA, 15, ITEM_NONE)) {
+			switch(givemon(SPECIES_KENYA, 20, ITEM_NONE)) {
 				case MON_GIVEN_TO_PARTY:
 					textcolor(NPC_TEXT_COLOR_NEUTRAL)
 					playfanfare(MUS_LEVEL_UP)

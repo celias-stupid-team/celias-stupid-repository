@@ -78,10 +78,6 @@ Route25_EventScript_Joey::
 	msgbox Route25_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route25_EventScript_Dan::
-	trainerbattle_single TRAINER_YOUNGSTER_CHINO, Route25_Text_DanIntro, Route25_Text_DanDefeat
-	msgbox Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE
-	end
 
 Route25_EventScript_Chad::
 	trainerbattle_single TRAINER_ANGRY_NERD_LAVOS, Route25_Text_ChadIntro, Route25_Text_ChadDefeat
@@ -290,12 +286,11 @@ Route8_EventScript_Megan::
 	end
 
 Route8_EventScript_Julia::
-	trainerbattle_single TRAINER_PICNICKER_NIGHT, Route8_Text_JuliaIntro, Route8_Text_JuliaDefeat
 	msgbox Route8_Text_JuliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route8_EventScript_Aidan::
-	trainerbattle_single TRAINER_SUPER_NERD_AIDAN, Route8_Text_AidanIntro, Route8_Text_AidanDefeat
+	trainerbattle_single TRAINER_SUPER_NERD_AIDAN, Route8_Text_AidanIntro, Route8_Text_AidanDefeat, Route25_AddMewToSeen
 	msgbox Route8_Text_AidanPostBattle, MSGBOX_AUTOCLOSE
 	end
 

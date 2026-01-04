@@ -94,10 +94,10 @@ script CeruleanClub_CeliaReward {
 		setflag(FLAG_CSR_OLD_CELIA_BONUS)
 		clearflag(FLAG_CELIA_SECRETS_FINISHED)
 		call(CeliaSecrets_GetNextHint)
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		removeobject(VAR_LAST_TALKED)
 		special(DrawWholeMapView)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 		release
 		end
 	}

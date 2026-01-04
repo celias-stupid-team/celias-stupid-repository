@@ -44,7 +44,7 @@ mapscripts Credits_MapScripts {
             delay(30)
             message(
             "            Celia Dawn{PAUSE 30}\n"
-            "      Creative Lead and Writer")
+            "           Creative Lead")
             waitmovement(LOCALID_CREDITS_CELIA)
             applymovement(LOCALID_CREDITS_CELIA, moves(
                 delay_16

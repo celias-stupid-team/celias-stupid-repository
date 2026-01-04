@@ -207,7 +207,7 @@ script SaffronCity_CopycatHouse_EventScript_Picture {
 		playse(SE_LEDGE)
 		applymovement(LOCALID_PLAYER, JumpUp)
 		waitmovement(0)
-		fadescreen(FADE_TO_WHITE)
+		fadescreenswapbuffers(FADE_TO_WHITE)
 		delay(30)
 		setobjectxy(LOCALID_PLAYER, 31, 40)
 		warphole(MAP_PALLET_TOWN_BOB_OMB_BATTLEFIELD)

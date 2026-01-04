@@ -312,6 +312,7 @@ SECTIONS {
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
         src/mugshot.o(.text);
+        src/trainer_slide.o(.text);
 
     } > ROM =0
 
@@ -611,6 +612,7 @@ SECTIONS {
         src/debug.o(.rodata);
         src/mugshot.o(.rodata);
         src/field_special_scene.o(.rodata);
+        src/trainer_slide.o(.rodata);
 
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);
@@ -1046,6 +1048,8 @@ SECTIONS {
         sound/songs/midi/mus_koopa_bros.o(.rodata);
         sound/songs/midi/mus_grand_finale.o(.rodata);
         sound/songs/midi/mus_stupid_ending.o(.rodata);
+        sound/songs/midi/mus_se_deskslam.o(.rodata);
+        sound/songs/midi/mus_se_guilty.o(.rodata);
 
     } > ROM =0
 

@@ -11,6 +11,7 @@
 #include "event_data.h"
 #include "map_preview_screen.h"
 #include "constants/region_map_sections.h"
+#include "constants/maps.h"
 
 static EWRAM_DATA bool8 sHasVisitedMapBefore = FALSE;
 static EWRAM_DATA bool8 sAllocedBg0TilemapBuffer = FALSE;
@@ -244,54 +245,6 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sLostCaveMapPreviewPalette
     },
     */
-    [MPS_ALTERING_CAVE] = {
-        .mapsec = MAPSEC_YES,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE,
-        .tilesptr = sAlteringCaveMapPreviewTiles,
-        .tilemapptr = sAlteringCaveMapPreviewTilemap,
-        .palptr = sAlteringCaveMapPreviewPalette
-    },
-    [MPS_PATTERN_BUSH] = {
-        .mapsec = MAPSEC_ZERO_ISLAND,
-        .type = MPS_TYPE_FOREST,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH,
-        .tilesptr = sViridianForestMapPreviewTiles,
-        .tilemapptr = sViridianForestMapPreviewTilemap,
-        .palptr = sViridianForestMapPreviewPalette
-    },
-    [MPS_LIPTOO_CHAMBER] = {
-        .mapsec = MAPSEC_SECRET_GARDEN,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_WEEPTH_CHAMBER] = {
-        .mapsec = MAPSEC_AMITY_SQUARE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_TDILFORD_CHAMBER] = {
-        .mapsec = MAPSEC_POKEMON_ISLAND,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    },
-    [MPS_SCUFIB_CHAMBER] = {
-        .mapsec = MAPSEC_AETHER_PARADISE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    }
 
 };
 
@@ -330,6 +283,9 @@ bool8 MapHasPreviewScreen(u8 mapsec, u8 type)
     u8 idx;
 
     idx = GetMapPreviewScreenIdx(mapsec);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SAFARI_ZONE_NORTH) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SAFARI_ZONE_NORTH)) {
+        return FALSE;
+    }
     if (idx != MPS_COUNT)
     {
         if (type == MPS_TYPE_ANY)
