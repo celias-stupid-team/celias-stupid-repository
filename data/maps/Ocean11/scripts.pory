@@ -47,3 +47,34 @@ script GreatSea_EggDeliveryHint {
 	"That's sad to hear.\n"
 	"We strive for the highest quality!", MSGBOX_NPC)
 }
+
+
+script GreatSea_EggDeliveryBattle {
+	trainerbattle_single(
+		TRAINER_PICNICKER_MARCY,
+		"I got some eggs from the EGG\n"
+	"DELIVERY SERVICE, but…\l"
+	"I think they all hatched.",
+
+	"Whoops!"
+	)
+	lock
+	faceplayer
+	msgbox(
+	"Honestly, the EGG DELIVERY service\n"
+	"has been dipping in quality.\p"
+
+	"There's a different place up in\n"
+	"GREAT BAY with some better eggs.\l"
+	"Have you heard of it?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Exactly!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Hmm…\n"
+		"That's not quite it.", MSGBOX_DEFAULT)
+	}
+	release
+}

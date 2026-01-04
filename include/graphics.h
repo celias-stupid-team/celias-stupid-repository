@@ -12503,6 +12503,10 @@ extern const u32 gItemIconPalette_CRMPLEDPAGE[];
 extern const u32 gItemIcon_PESTERBALL[];
 extern const u32 gItemIconPalette_PESTERBALL[];
 
+extern const u32 gItemIcon_BlueBall[];
+extern const u32 gItemIconPalette_BlueBall[];
+
+
 extern const u32 gItemIcon_BURNBALL[];
 extern const u32 gItemIconPalette_BURNBALL[];
 

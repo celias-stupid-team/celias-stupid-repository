@@ -57,10 +57,7 @@ script ViridianGym_Mewtwo {
     msgbox(
 	"Mew!\n"
 	"{PAUSE 120}…two.", MSGBOX_DEFAULT)
-    if(!checkmoncaught(SPECIES_MEWTWO)) {
-        setflag(FLAG_SHINY_CREATION)
 
-    }
     setwildbattle(SPECIES_MEWTWO, 70)
     dowildbattle
     removeobject(VAR_LAST_TALKED)

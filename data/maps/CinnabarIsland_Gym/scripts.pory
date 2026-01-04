@@ -748,7 +748,7 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 2!\p"
 
-			"This POKéMON shares part of its\l"
+			"This POKéMON shares part of its\n"
 			"name with a famous Martial Artist.", MSGBOX_DEFAULT)
 		
 		case 3:
@@ -756,7 +756,7 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 3!\p"
 
-			"This POKéMON's name is the same\l"
+			"This POKéMON's name is the same\n"
 			"both forwards and backwards.", MSGBOX_DEFAULT)
 		
 		case 4:
@@ -764,7 +764,7 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 4!\p"
 
-			"According to the 2023 Census, this\l"
+			"According to the 2023 Census, this\n"
 			"POKéMON has a population of over\l"
 			"23 Million!", MSGBOX_DEFAULT)
 		case 5:
@@ -772,7 +772,7 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 5!\p"
 
-			"The winner of Smash Summit 7 Semi-\l"
+			"The winner of Smash Summit 7 Semi-\n"
 			"Finals featuring Zain was…?", MSGBOX_DEFAULT)
 		
 		case 6:
@@ -780,7 +780,7 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 6!\p"
 
-			"What is the fifth word of Proverbs\l"
+			"What is the fifth word of Proverbs\n"
 			"Chapter 1 Verse 14 (KJV, 1638)?", MSGBOX_DEFAULT)
 		
 		case 7:

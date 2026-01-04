@@ -142,7 +142,7 @@ script PalletTown_PlayersHouse_1F_EventScript_CeliaDad {
 script PalletTown_PlayersHouse_1F_EventScript_YayRightSide {
 	msgbox(PalletTown_PlayersHouse_1F_Text_YayRightSide)
 	if(flag(FLAG_SYS_POKEDEX_GET) && !flag(FLAG_SYS_ROTOM_MENU)) {
-		//goto(PalletTown_PlayersHouse_GiveRotom)
+		goto(PalletTown_PlayersHouse_GiveRotom)
 
 	}
 	release

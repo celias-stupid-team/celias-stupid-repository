@@ -450,6 +450,21 @@ script SeafoamIslands_B3F_CaptainGetsTheSpheals {
 		walk_left * 3
 	))
 	waitmovement(LOCALID_PLAYER)
+	removeobject(LOCALID_SPHEAL_LAND_1)
+	removeobject(LOCALID_SPHEAL_LAND_2)
+	removeobject(LOCALID_SPHEAL_LAND_3)
+	removeobject(LOCALID_SPHEAL_LAND_4)
+	removeobject(LOCALID_SPHEAL_LAND_5)
+	removeobject(LOCALID_SPHEAL_LAND_6)
+	removeobject(LOCALID_SPHEAL_LAND_6)
+	removeobject(LOCALID_B3F_CAPTAIN)
+	clearflag(FLAG_TEMP_1)
+	addobject(LOCALID_SPHEAL_1)
+	addobject(LOCALID_SPHEAL_2)
+	addobject(LOCALID_SPHEAL_3)
+	addobject(LOCALID_SPHEAL_4)
+	addobject(LOCALID_SPHEAL_5)
+	addobject(LOCALID_SPHEAL_6)
 	special(RemoveCameraObject)
 	setflag(FLAG_CAPTAIN_DIRECTS_SPHEALS)
 	release
@@ -597,4 +612,15 @@ movement SphealsDance {
 	face_left
 	delay_16
 
+}
+
+script Seafoam3F_DummyWarp1 {
+	lock
+	warp(MAP_SEAFOAM_ISLANDS_B1F, 6)
+}
+
+
+script Seafoam3F_DummyWarp2 {
+	lock
+	warp(MAP_SEAFOAM_ISLANDS_B4F, 1)
 }

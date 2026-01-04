@@ -22,7 +22,7 @@ script Minnesota_EastSign {
 
 script Minnesota_SanDiegoZooGirl {
 	msgbox(
-	"Ah, I love visitng MINNESOTA's\n"
+	"Ah, I love visiting MINNESOTA's\n"
 	"famous SAN DIEGO ZOO!\l"
 	"It's such a gift to live here!", MSGBOX_NPC)
 }

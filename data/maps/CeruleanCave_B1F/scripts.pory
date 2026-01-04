@@ -143,7 +143,7 @@ script CeruleanCave_BerserkGene {
 
 script CeruleanCave_Shortcut {
 	msgbox(
-	"Shortcut\n"
+	"Shorts Cut\n"
 	"{LEFT_ARROW}", MSGBOX_SIGN)
 
 }

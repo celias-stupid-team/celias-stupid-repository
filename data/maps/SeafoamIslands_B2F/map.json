@@ -123,15 +123,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 42,
-      "y": 2,
+      "x": 20,
+      "y": 15,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "1"
     },
     {
-      "x": 41,
-      "y": 3,
+      "x": 21,
+      "y": 15,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "2"
@@ -144,8 +144,8 @@
       "dest_warp_id": "3"
     },
     {
-      "x": 43,
-      "y": 3,
+      "x": 22,
+      "y": 15,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "4"
@@ -158,36 +158,36 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 40,
-      "y": 3,
+      "x": 23,
+      "y": 15,
       "elevation": 4,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "6"
     },
     {
-      "x": 40,
-      "y": 2,
+      "x": 23,
+      "y": 14,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "7"
     },
     {
-      "x": 43,
-      "y": 1,
+      "x": 22,
+      "y": 14,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B1F",
       "dest_warp_id": "8"
     },
     {
-      "x": 41,
-      "y": 2,
+      "x": 21,
+      "y": 14,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "5"
     },
     {
-      "x": 42,
-      "y": 3,
+      "x": 20,
+      "y": 14,
       "elevation": 3,
       "dest_map": "MAP_SEAFOAM_ISLANDS_B3F",
       "dest_warp_id": "6"

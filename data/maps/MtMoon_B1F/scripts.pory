@@ -71,3 +71,16 @@ script MtMoon_EventScript_MoveLass {
 	setvar(VAR_TEMP_1, 1)
 }
 
+script MtMoon_EventScript_AetherShortcut {
+	msgbox(
+	"MT. MOON\n"
+	"Shortcut {UP_ARROW}", MSGBOX_SIGN)
+
+}
+
+
+script MtMoon_EventScript_HyperDrill {
+	msgbox(
+	"porygon22\n"
+	"", MSGBOX_NPC)
+}

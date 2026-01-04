@@ -342,8 +342,12 @@ PokedexRating_Text_HintZubat::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintWoobat::
-	.string "Placeholder!$"
+	.string "When you released ZUBAT across the\n"
+	.string "waters, they were locked in a cave.\p"
+	.string "What did that inscription read?\n"
+	.string "What do you have that might match?$"
 
+	
 PokedexRating_Text_HintOddish::
 	.string "The MUSHROOM MANIAC on TWO ISLAND\n"
 	.string "wants to know how his good friend\l"
@@ -858,8 +862,12 @@ PokedexRating_Text_HintOmanyte::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintTyranastar::
-	.string "Placeholder!$"
+	.string "Wasn't there a man in the POWER\n"
+	.string "PLANT who was waiting for a third\l"
+	.string "MAGNEMITE?\p"
+	.string "You should bring yours over!\n$"
 
+	
 PokedexRating_Text_HintBuzzwole::
 	.string "Scientists found a sample of OLD\n"
 	.string "AMBER at the PEWTER MUSEUM?\l"

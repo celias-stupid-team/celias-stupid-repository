@@ -3304,10 +3304,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WHIRLPOOL] =
     {
-        .effect = EFFECT_TRAP,
-        .power = 15,
+        .effect = EFFECT_HIT,
+        .power = 40,
         .type = TYPE_WATER,
-        .accuracy = 70,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -4333,9 +4333,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_SHEER_COLD] =
     {
         .effect = EFFECT_FREEZE_HIT,
-        .power = 100,
+        .power = 40,
         .type = TYPE_ICE,
-        .accuracy = 30,
+        .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,

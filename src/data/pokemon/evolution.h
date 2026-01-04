@@ -73,7 +73,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
  
 
 
-    [SPECIES_MAGNEMITE]  = {{EVO_LEVEL, 30, SPECIES_MAGNALONE}},                       //TODO The Magnalone event in the Power Plant
+    [SPECIES_MAGNEMITE]  = {{EVO_BEAUTY, 1, SPECIES_MAGNALONE}},                       //TODO The Magnalone event in the Power Plant
     
     [SPECIES_DODUO]      = {{EVO_LEVEL, 20, SPECIES_HITMONCHAN_SHIT}},                
 
@@ -255,7 +255,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_MAGIKARP]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_MAROWAK]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_TENTAQUIL]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
-    [SPECIES_ALAKAZAM]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
+    [SPECIES_ALAKAZAM]     = {{EVO_TRADE, 0, SPECIES_MR_MIME}},
     [SPECIES_KANGASKHAN]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_UNOWN]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     //[SPECIES_KENYA]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
