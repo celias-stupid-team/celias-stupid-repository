@@ -7069,7 +7069,7 @@
     {
       "english": "BLUE BALL",
       "itemId": "ITEM_DUMMY_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A POKé BALL that always shakes\\nexactly three times before the\\nwild POKéMON breaks free.",
