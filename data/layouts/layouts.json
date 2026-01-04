@@ -6768,6 +6768,18 @@
       "secondary_tileset": "gTileset_SurfHouse",
       "border_filepath": "data/layouts/Surf_Furret_2/border.bin",
       "blockdata_filepath": "data/layouts/Surf_Furret_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_HI",
+      "name": "Hi_Layout",
+      "width": 29,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Hi/border.bin",
+      "blockdata_filepath": "data/layouts/Hi/map.bin"
     }
   ]
 }

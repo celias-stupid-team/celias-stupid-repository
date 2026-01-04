@@ -1871,3 +1871,6 @@ Text_TestMsg::
 
 	.include "data/maps/IndigoPlateau_Exerior/scripts.inc"
 	.include "data/maps/IndigoPlateau_Exerior/text.inc"
+
+	.include "data/maps/Hi/scripts.inc"
+	.include "data/maps/Hi/text.inc"

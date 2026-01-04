@@ -28,6 +28,11 @@
       "map": "MAP_OCEAN9",
       "offset": -26,
       "direction": "up"
+    },
+    {
+      "map": "MAP_HI",
+      "offset": 30,
+      "direction": "down"
     }
   ],
   "object_events": [
