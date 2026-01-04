@@ -122,7 +122,7 @@ script MemorialPillar_Guy {
 
 	"Some kid snuck up on us with a\n"
 	"BUTTERFREE.\l"
-	"He stood no chance…\p"
+	"He didn't even stand a chance…\p"
 
 	"I think I did an excellent job\n"
 	"burying him.", MSGBOX_NPC)

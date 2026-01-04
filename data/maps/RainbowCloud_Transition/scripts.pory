@@ -1,3 +1,88 @@
 mapscripts RainbowCloud_Transition_MapScripts {
 
 }
+
+
+script RainbowCloud_LeftTrigger {
+    lock
+    applymovement(LOCALID_PLAYER, moves(
+        walk_right
+    ))
+    waitmovement(0)
+    call(RainbowCloud_GoUp)
+}
+
+script RainbowCloud_MiddleTrigger {
+    lock
+    call(RainbowCloud_GoUp)
+}
+
+script RainbowCloud_RightTrigger {
+    lock
+    applymovement(LOCALID_PLAYER, moves(
+        walk_left
+    ))
+    waitmovement(0)
+    call(RainbowCloud_GoUp)
+    
+}
+
+script RainbowCloud_GoUp {
+    applymovement(LOCALID_PLAYER, moves(
+        walk_up
+        delay_16
+        face_down
+        delay_16 * 2
+    ))
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_PLAYER, moves(
+        lock_facing_direction
+        walk_up * 5
+    ))
+    delay(30)
+    playse(SE_WARP_OUT)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    waitse
+    waitmovement(LOCALID_PLAYER)
+    applymovement(LOCALID_CAMERA, moves( // Camera flies to the sky area on black screen
+        walk_fastest_up * 14
+    ))
+    applymovement(LOCALID_PLAYER, moves( //concurrent with camera move
+        walk_fastest_up * 15
+    ))
+    waitmovement(LOCALID_PLAYER) //Whichever happens first; player movement finishing or 1 second delay
+    playbgm(MUS_RAINBOW_CASTLE, TRUE)
+    delay(45)
+    applymovement(LOCALID_CAMERA, moves( // Movement starts before screen is fading in, so it'll fade in on motion
+        walk_fast_up * 15
+        walk_fast_up * 6
+        walk_fast_up * 12
+        walk_fast_up * 3
+        walk_faster_up * 8
+        walk_fastest_up * 2
+    ))
+    applymovement(LOCALID_PLAYER, moves(
+        unlock_facing_direction
+        walk_fast_up * 15 // Player kept just off screen of camera for start of movement
+        walk_up * 6 // Camera catches up to player
+        walk_fast_up * 12 // Hold on player for a few seconds
+        walk_up * 7
+        walk_fast_up * 6
+    ))
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    waitmovement(LOCALID_CAMERA) // wait for camera movement to catch up to time the next fadeout
+    applymovement(LOCALID_CAMERA, moves(
+        walk_fastest_up * 32
+    ))
+    applymovement(LOCALID_PLAYER, moves(
+        walk_fastest_up * 32
+    ))
+    delay(29)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    delay(35)
+    special(RemoveCameraObject)
+    warp(MAP_RAINBOW_CLOUD, 0)
+    release
+    
+}

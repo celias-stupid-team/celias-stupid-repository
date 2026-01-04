@@ -104,6 +104,19 @@ const ELECTRODE_4 = 4
 script PowerPlant_MagnemiteMan {
 	lock
 	faceplayer
+	if(checkmoncaught(SPECIES_MAGNALONE)) {
+		msgbox(
+		"Hey, man!\n"
+		"Sorry about that!\p"
+
+		"Don't worry, though.\n"
+		"There's plenty of fish in the sea!\p"
+
+		"Just, uh…\n"
+		"Not around here.", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(checkpartymon(SPECIES_MAGNEMITE)) {
 		//This actually needs to be more complicated
 		//If it's the first time talking to him AND you haven't left the map since getting magnemite, it should do something different 
@@ -118,8 +131,19 @@ script PowerPlant_MagnemiteMan {
 				emote_exclamation_mark
 			))
 			delay(48)
+			addobject(LOCALID_POWER_PLANT_MAGNEMITE)
+			setobjectxy(LOCALID_POWER_PLANT_MAGNEMITE, 35, 10)
+			applymovement(LOCALID_POWER_PLANT_MAGNEMITE, moves(
+				set_visible
+				walk_down * 4
+			))
 			//A magnemite appears
-			msgbox("Oh, hey!\nA wild MAGNEMITE!\lPerfect!", MSGBOX_DEFAULT)
+			msgbox(
+			"Oh, hey!\n"
+			"A wild MAGNEMITE!\p"
+
+			"Looks like there were still some\n"
+			"here after all!", MSGBOX_DEFAULT)
 			closemessage
 			faceplayer
 			msgbox("Looks like I didn't need any help\nafter all.\lSorry!\pHope you're able to find someone\nelse someday!", MSGBOX_DEFAULT)
@@ -127,27 +151,66 @@ script PowerPlant_MagnemiteMan {
 				face_up
 			))
 			msgbox("Aight boys, let's get to it!\n", MSGBOX_DEFAULT)
+			closemessage
 			setflag(FLAG_EVOLVED_MAGNEMITE)
-			checkpartymon(SPECIES_MAGNEMITE)
+			checkpartymonslot(SPECIES_MAGNEMITE)
 			copyvar(VAR_0x8000, VAR_RESULT)
             setvar(VAR_0x8001, 0)
             setvar(VAR_0x8002, FALSE)
+			callnative(EvolvePartyMon)
 
 		} else {
 			if(flag(FLAG_TEMP_10)) {
-				//he is excited to trade
-				//then he finds a magnemite
-				//then he fucks off
+				msgbox(
+				"Hey, look!\n"
+				"You've got a MAGNEMITE on-hand!\p"
+
+				"Awesome, let's get to it!\n"
+				"", MSGBOX_DEFAULT)
+				closemessage
+				playse(SE_PIN)
+				applymovement(VAR_LAST_TALKED, moves(
+					face_up
+					emote_exclamation_mark
+				))
+				delay(48)
+				addobject(LOCALID_POWER_PLANT_MAGNEMITE)
+				setobjectxy(LOCALID_POWER_PLANT_MAGNEMITE, 35, 10)
+				applymovement(LOCALID_POWER_PLANT_MAGNEMITE, moves(
+					set_visible
+					walk_down * 4
+				))
+				msgbox(
+				"Oh, hey!\n"
+				"A wild MAGNEMITE!\p"
+
+				"Looks like there were still some\n"
+				"here after all!", MSGBOX_DEFAULT)
+				closemessage
+				faceplayer
+				msgbox("Looks like I didn't need any help\nafter all.\lSorry!\pHope you're able to find someone\nelse someday!", MSGBOX_DEFAULT)
+				applymovement(VAR_LAST_TALKED, moves(
+					face_up
+				))
+				msgbox("Aight boys, let's get to it!\n", MSGBOX_DEFAULT)
+				closemessage
+				setflag(FLAG_EVOLVED_MAGNEMITE)
+				checkpartymonslot(SPECIES_MAGNEMITE)
+				copyvar(VAR_0x8000, VAR_RESULT)
+				setvar(VAR_0x8001, 0)
+				setvar(VAR_0x8002, FALSE)
+				callnative(EvolvePartyMon)
 			}
 			msgbox("Oh, uhh hey!\nHow's it been?\pYou, uh… found MAGNEMITE, I see.\nUhhh, funny story about that.\pWe {PAUSE 30}actually found one already.\nWe don't need yours anymore…\lSorry!\pUhh, see ya later!\nHope you find someone else!", MSGBOX_DEFAULT)
-			checkpartymon(SPECIES_MAGNEMITE)
+			checkpartymonslot(SPECIES_MAGNEMITE)
 			setflag(FLAG_EVOLVED_MAGNEMITE)
 			copyvar(VAR_0x8000, VAR_RESULT)
             setvar(VAR_0x8001, 0)
             setvar(VAR_0x8002, FALSE)
+			callnative(EvolvePartyMon)
 		}
 
-
+		
 		//evolve magnemite
 
 	} else {
@@ -228,11 +291,11 @@ script PowerPlant_Max {
 		waitmovement(0)
 		msgbox("Forget this-!\nI can't stand it anymore!", MSGBOX_DEFAULT)
 		closemessage
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		delay(30)
 		setflag(FLAG_REPELLED_MAX)
 		removeobject(VAR_LAST_TALKED)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 	}
 	release
 }
@@ -255,7 +318,14 @@ movement PowerPlant_MaxFlustered {
 
 script PowerPlant_StarmieHint {
 	if(flag(FLAG_CSR_POWER_IS_ON)) {
+		msgbox(
+		"Oh, hey!\n"
+		"The power's back on!\p"
 
+		"Thanks!\n"
+		"", MSGBOX_DEFAULT)
+		release
+		end
 	} else {
 		if(checkitem(ITEM_EVERSTONE)) {
 			msgbox("Oh, hey!\nIs that a B BUTTON?\pI think that's what our reactor\nneeds to get started again!\lLet's give it a shot!", MSGBOX_NPC)
@@ -273,6 +343,7 @@ script PowerPlant_StarmieHint {
 
 			"We'll need to replace some buttons\n"
 			"before it'll work again!", MSGBOX_DEFAULT)
+			release
 		}
 	}
 }
@@ -492,3 +563,10 @@ script PowerPlant_Minigame {
 	end
 }
 
+
+script PowerPlant_Magnemite {
+	msgbox(
+	"shhh\n"
+	"you can't see me", MSGBOX_SIGN)
+
+}

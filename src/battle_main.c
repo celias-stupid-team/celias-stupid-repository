@@ -471,6 +471,9 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TRANS_BUGS, 50},
     {TRAINER_CLASS_STARMAN, 50},
     {TRAINER_CLASS_RADICAL, 50},
+    {TRAINER_CLASS_SHORT, 50},
+    {TRAINER_CLASS_ELITE_FOUR_CYNTHIA, 50},
+    
     { 0xFF, 5},
 };
 
@@ -1561,6 +1564,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                     break;
                 }
             }
+
+            // update HP for Cynthia Battle phases
+            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && i < VarGet(VAR_CSR_CYNTHIA_BATTLE))
+            {
+                u32 hp = 0;
+                SetMonData(&party[i], MON_DATA_HP, &hp);
+            }
         }
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
@@ -2291,7 +2301,7 @@ void SwitchInClearSetData(void)
     if (gBattleMoves[gCurrentMove].effect == EFFECT_BATON_PASS)
     {
         gBattleMons[gActiveBattler].status2 &= (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_ESCAPE_PREVENTION | STATUS2_CURSED);
-        gStatuses3[gActiveBattler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED | STATUS3_MUDSPORT | STATUS3_WATERSPORT);
+        gStatuses3[gActiveBattler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED | STATUS3_MUDSPORT | STATUS3_WATERSPORT | STATUS3_TOXIC_SEED);
         for (i = 0; i < gBattlersCount; i++)
         {
             if (GetBattlerSide(gActiveBattler) != GetBattlerSide(i)
@@ -2887,6 +2897,9 @@ static void TryDoEventsBeforeFirstTurn(void)
     gBattleStruct->turnCountersTracker = 0;
     gMoveResultFlags = 0;
     gRandomTurnNumber = Random();
+
+    if (ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN))
+        BattleScriptExecute(BattleScript_TrainerASlideMsgEnd2);
 }
 
 static void HandleEndTurn_ContinueBattle(void)
@@ -2976,7 +2989,7 @@ u8 IsRunningFromBattleImpossible(void)
     gPotentialItemEffectBattler = gActiveBattler;
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN
      || (gBattleTypeFlags & BATTLE_TYPE_LINK)
-     || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE)
+     || gBattleMons[gActiveBattler].ability == ABILITY_RUN_AWAY || gBattleMons[gActiveBattler].ability == ABILITY_LEAF_RIDE || gBattleMons[gActiveBattler].ability == ABILITY_FREE_SHINY)
         return BATTLE_RUN_SUCCESS;
     side = GetBattlerSide(gActiveBattler);
     for (i = 0; i < gBattlersCount; i++)
@@ -4364,6 +4377,12 @@ bool8 TryRunFromBattle(u8 battler)
     else if (gBattleMons[battler].ability == ABILITY_LEAF_RIDE)
     {
         gLastUsedAbility = ABILITY_LEAF_RIDE;
+        gProtectStructs[battler].fleeType = FLEE_ABILITY;
+        effect++;
+    }
+    else if (gBattleMons[battler].ability == ABILITY_FREE_SHINY)
+    {
+        gLastUsedAbility = ABILITY_FREE_SHINY;
         gProtectStructs[battler].fleeType = FLEE_ABILITY;
         effect++;
     }

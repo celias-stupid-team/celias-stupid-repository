@@ -459,7 +459,8 @@
   ],
   "gMapGroup_IndoorIndigoPlateau": [
     "IndigoPlateau_PokemonCenter_1F",
-    "IndigoPlateau_PokemonCenter_2F"
+    "IndigoPlateau_PokemonCenter_2F",
+    "IndigoPlateau_Exerior"
   ],
   "gMapGroup_IndoorSaffron": [
     "SaffronCity_CopycatsHouse_1F",
@@ -718,7 +719,8 @@
     "GreatSea_PirateBay",
     "PokemonIsland_LabBackRoom",
     "PokemonIsland_South",
-    "AetherParadise_Island"
+    "AetherParadise_Island",
+    "Hi"
   ],
   "gMapGroup_AetherParadise": [
     "AetherParadise_Entrance",

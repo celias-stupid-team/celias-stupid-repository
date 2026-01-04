@@ -690,7 +690,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(ARCANINE), // 146
     SPECIES_TO_NATIONAL(POKEMON_GUN), // 147 NOT IN YET
     SPECIES_TO_NATIONAL(DITTO_MEW), // 148 NOT IN YET
-    SPECIES_TO_NATIONAL(MEW), // 149
+    SPECIES_TO_NATIONAL(CASTFORM), // 149
     SPECIES_TO_NATIONAL(MEWTWO), // 150
     SPECIES_TO_NATIONAL(VENUSAUR), // 151
     // Post-National Dex
@@ -900,7 +900,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(ARMALDO),
     SPECIES_TO_NATIONAL(FEEBAS),
     SPECIES_TO_NATIONAL(MILOTIC),
-    //SPECIES_TO_NATIONAL(CASTFORM),
+    SPECIES_TO_NATIONAL(MEW),
     SPECIES_TO_NATIONAL(KECLEON),
     SPECIES_TO_NATIONAL(SHUPPET),
     SPECIES_TO_NATIONAL(BANETTE),
@@ -973,7 +973,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(STARYU),
     SPECIES_TO_NATIONAL(TENTACRUEL),
     SPECIES_TO_NATIONAL(VENOMOTH),
-    SPECIES_TO_NATIONAL(CASTFORM),
+    //SPECIES_TO_NATIONAL(CASTFORM),
     SPECIES_TO_NATIONAL(VICTREEBEL),
     SPECIES_TO_NATIONAL(VILEPLUME),
     SPECIES_TO_NATIONAL(WARTORTLE),
@@ -5731,7 +5731,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         delta = sFriendshipEventDeltas[event][friendshipLevel];
         if (delta > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
             // 50% increase, rounding down
-            delta = (150 * delta) / 100;
+            delta = MAX_FRIENDSHIP;
 
         friendship += delta;
         if (delta > 0)
@@ -6105,6 +6105,8 @@ static u16 GetBattleBGM(void)
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_BOSS:
             return MUS_CSR_DMCA_BATTLE;
+        case TRAINER_CLASS_ELITE_FOUR_CYNTHIA:
+            return MUS_CYNTHIA_BATTLE;
 
             
         case TRAINER_CLASS_DMCA:

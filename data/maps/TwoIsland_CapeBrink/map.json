@@ -85,6 +85,13 @@
       "elevation": 0,
       "dest_map": "MAP_TWO_ISLAND_WATERFALL_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

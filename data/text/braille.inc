@@ -118,13 +118,20 @@ Braille_Text_ForYou::
 
 
 AlteringCave_Braille_DEFGHI::
-	.braille "DEFGHI$"
+	.braille "ABCDEFGHIJKLM$"
 
 Braille_Text_JKLMNO::
-	.braille "JKLMNO$"
+	.braille "NOPQRSTUV XYZ$"
 
 Braille_Text_PQRSTU::
 	.braille "PQRSTU$"
 
 AlteringCave_Braille_V_XYZ::
 	.braille "V XYZ$"
+
+
+Braille_Text_MySecretLife::
+	.braille "MY SECRET LIFE$"
+
+Braille_Text_ChapterThree::
+	.braille "CHAPTER THREE.$"

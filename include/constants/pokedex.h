@@ -66,8 +66,8 @@ enum
     NATIONAL_DEX_MISSINGNO,        // 57
     NATIONAL_DEX_ALAKAZAM,         // 58
     NATIONAL_DEX_KANGASKHAN,       // 59
-    NATIONAL_DEX_UNOWN_LOSS,       // 60
-    NATIONAL_DEX_KENYA,            // 61
+    NATIONAL_DEX_KENYA,       // 60
+    NATIONAL_DEX_UNOWN_LOSS,            // 61
     NATIONAL_DEX_DODUO,            // 62
     NATIONAL_DEX_HITMONCHAN_SHIT,  // 63
     NATIONAL_DEX_PORYGON,          // 64
@@ -156,7 +156,7 @@ enum
     NATIONAL_DEX_ARCANINE,    // 146
     NATIONAL_DEX_POKEMON_GUN, // 147
                               // 148
-    NATIONAL_DEX_MEW,         // 149 Make this Castform
+    NATIONAL_DEX_CASTFORM,         // 149 Make this Castform
     NATIONAL_DEX_MEWTWO,      // 150
     NATIONAL_DEX_VENUSAUR,    // 151
     // Post-National Dex
@@ -365,7 +365,7 @@ enum
     NATIONAL_DEX_ARMALDO,
     NATIONAL_DEX_FEEBAS,
     NATIONAL_DEX_MILOTIC,
-    NATIONAL_DEX_CASTFORM,
+    NATIONAL_DEX_MEW,
     NATIONAL_DEX_KECLEON,
     NATIONAL_DEX_SHUPPET,
     NATIONAL_DEX_BANETTE,

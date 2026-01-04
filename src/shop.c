@@ -1015,12 +1015,17 @@ static void BuyMenuSubtractMoney(u8 taskId)
     switch(tItemId) {
         case ITEM_ODD_MULCH:
             PlayFanfare(MUS_KOROK_SEED);
+            FlagSet(FLAG_FOUR_ISLAND_CANDY);
             break;
         case ITEM_BIG_MUSHROOM:
             PlayCry_Normal(SPECIES_AMOONGUSS, 0);
             break;
         case ITEM_POKE_DOLL:
             PlayCry_Normal(SPECIES_CLEFAIRY, 0);
+            VarSet(VAR_TEMP_3, 1);
+            break;
+        case ITEM_GUN:
+            PlayCry_Normal(SPECIES_REMORAID, 0);
             VarSet(VAR_TEMP_3, 1);
             break;
         default:

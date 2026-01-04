@@ -326,16 +326,6 @@
       "script": "SilphCo_5F_EventScript_PokemonReport1"
     },
     {
-      "type": "hidden_item",
-      "x": 32,
-      "y": 9,
-      "elevation": 0,
-      "item": "ITEM_PP_UP",
-      "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_5F_PP_UP",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 29,
       "y": 1,

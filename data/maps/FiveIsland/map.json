@@ -39,8 +39,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 0,
-      "y": 0,
+      "x": 12,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -53,10 +53,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 1,
-      "y": 0,
+      "x": 11,
+      "y": 14,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -71,19 +71,33 @@
       "y": 0,
       "target_local_id": "LOCALID_FIVE_ISLAND_MEADOW_BORDER_TREE",
       "target_map": "MAP_FIVE_ISLAND_MEADOW"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_STARLIGHT",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 2,
-      "y": 1,
+      "y": 3,
       "elevation": 3,
       "dest_map": "MAP_FIVE_ISLAND_HARBOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 0,
-      "y": 1,
+      "x": 9,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
@@ -96,8 +110,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 3,
-      "y": 1,
+      "x": 7,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_FIVE_ISLAND_HOUSE2",
       "dest_warp_id": "0"
@@ -107,8 +121,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 5,
-      "y": 1,
+      "x": 20,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FiveIsland_EventScript_IslandSign"

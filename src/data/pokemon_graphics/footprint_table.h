@@ -1273,4 +1273,5 @@ const u8 *const gMonFootprintTable[] =
 	[SPECIES_GIRAFARIGBUTT]    = gMonFootprint_GIRAFARIGBUTT,
 	[SPECIES_MEWTWOW]    = gMonFootprint_MEWTWOW,
 	[SPECIES_CHARIZARDQ]    = gMonFootprint_CHARIZARDQ,
+	[SPECIES_HOOT]    = gMonFootprint_HOOT,
 };

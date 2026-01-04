@@ -46,13 +46,18 @@
     },
     {
       "map": "MAP_OCEAN6",
-      "offset": 34,
+      "offset": 32,
       "direction": "right"
     },
     {
       "map": "MAP_OCEAN11",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN3",
+      "offset": 17,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -119,7 +124,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     },
     {
       "type": "trigger",
@@ -137,7 +142,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     },
     {
       "type": "trigger",
@@ -146,7 +151,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     },
     {
       "type": "trigger",
@@ -155,7 +160,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     },
     {
       "type": "trigger",
@@ -164,7 +169,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     },
     {
       "type": "trigger",
@@ -173,7 +178,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "1",
-      "script": "ZeroIsland_OpenDoor"
+      "script": "ZeroIsland_TryOpenDoor"
     }
   ],
   "bg_events": [

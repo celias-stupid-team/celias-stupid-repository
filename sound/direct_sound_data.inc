@@ -318,6 +318,16 @@ DirectSoundWaveData_Rollout::
 
 
 	.align 2
+DirectSoundWaveData_Deskslam::
+	.incbin "sound/direct_sound_samples/rollout.bin"
+
+
+	.align 2
+DirectSoundWaveData_Guilty::
+	.incbin "sound/direct_sound_samples/rollout.bin"
+
+
+	.align 2
 DirectSoundWaveData_MakeItRain::
 	.incbin "sound/direct_sound_samples/make_it_rain.bin"
 
@@ -5356,5 +5366,9 @@ Cry_MEWTWOW::
 	.align 2
 Cry_CHARIZARDQ::
 	.incbin "sound/direct_sound_samples/cries/charizardq.bin"
+
+	.align 2
+Cry_HOOT::
+	.incbin "sound/direct_sound_samples/cries/hoot.bin"
 
 	.align 2

@@ -99,8 +99,8 @@
       "x": 1,
       "y": 6,
       "elevation": 4,
-      "dest_map": "MAP_FIVE_ISLAND_POKEMON_CENTER_2F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FIVE_ISLAND_POKEMON_CENTER_1F",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

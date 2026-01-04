@@ -128,7 +128,7 @@
     {
       "warp_id": "WARP_ID_SILPH_PRESIDENT_HUB",
       "x": 15,
-      "y": 10,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
       "dest_warp_id": "WARP_ID_SILPH_HUB_PRESIDENT"
@@ -136,7 +136,7 @@
     {
       "warp_id": "WARP_ID_SILPH_PRESIDENT_RD",
       "x": 15,
-      "y": 6,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SILPH_RD",
       "dest_warp_id": "WARP_ID_SILPH_RD_PRESIDENT"
@@ -173,7 +173,7 @@
     {
       "type": "trigger",
       "x": 14,
-      "y": 10,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -182,7 +182,7 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 9,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -191,7 +191,7 @@
     {
       "type": "trigger",
       "x": 16,
-      "y": 10,
+      "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -200,7 +200,7 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 11,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

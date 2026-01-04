@@ -1,0 +1,24 @@
+mapscripts IndigoPlateau_Exerior_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_POKEMON_LEAGUE)
+    }
+}
+
+
+script IndigoPlateau_Bed {
+	msgbox(
+	"{PLAYER} laid in the bed…\p"
+
+	"Despite everything, it still\n"
+	"smells like you.", MSGBOX_SIGN)
+
+}
+
+script IndigoPlateau_LockedDoor {
+	msgbox(
+	"The door is locked.\p"
+
+	"Looking through the glass, you see\n"
+	"a bench inside.", MSGBOX_SIGN)
+
+}

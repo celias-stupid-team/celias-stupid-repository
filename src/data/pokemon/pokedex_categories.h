@@ -163,6 +163,7 @@ static const u16 sDexCategory_SecondBadgePkmn_Page1[] = {
 };
 
 static const u16 sDexCategory_SecondBadgePkmn_Page2[] = {
+    SPECIES_JIGGLYPUFF,
     SPECIES_PIDGEOTTO,
     SPECIES_PIDGEOT,
 };
@@ -520,8 +521,9 @@ SPECIES_DACHSBUN,
 };
 
 static const u16 sDexCategory_FifthBadgePkmn_Page6[] = {
-SPECIES_MACHOKE,
-SPECIES_LICKITUNG,
+    SPECIES_MACHOKE,
+    SPECIES_LICKITUNG,
+    SPECIES_KRABBY,
 };
 
 //UNUSED
@@ -570,8 +572,8 @@ static const u16 sDexCategory_SixthBadgePkmn_Page3[] = {
 
 static const u16 sDexCategory_SixthBadgePkmn_Page4[] = {
     SPECIES_BIDOOF,
-    SPECIES_PLUG_OINK,
-    SPECIES_DITTO,
+    SPECIES_MIMIKYU,
+    SPECIES_DITTO_MEW,
 };
 
 static const u16 sDexCategory_SixthBadgePkmn_Page5[] = {
@@ -656,7 +658,7 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page2[] = {
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page3[] = {
     SPECIES_GOLDEEN,
-SPECIES_SEAKING,
+    SPECIES_SEAKING,
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page4[] = {
@@ -666,8 +668,8 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page4[] = {
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page5[] = {
-    SPECIES_KABUTOPS,
-    SPECIES_GENESECT,
+    SPECIES_SEEL,
+    SPECIES_HOOPA,
     SPECIES_ORTHWORM,
 };
 
@@ -680,7 +682,7 @@ static const u16 sDexCategory_SeventhBadgePkmn_Page6[] = {
 static const u16 sDexCategory_SeventhBadgePkmn_Page7[] = {
     SPECIES_CHANSEY,
     SPECIES_PINSIR,
-    SPECIES_SEEL,
+    SPECIES_SUDOWOODO,
 };
 
 static const u16 sDexCategory_SeventhBadgePkmn_Page8[] = {
@@ -725,7 +727,7 @@ static const u16 sDexCategory_FinalBadgePkmn_Page3[] = {
 
 static const u16 sDexCategory_FinalBadgePkmn_Page4[] = {
     SPECIES_VICTINI,
-    SPECIES_GOLBAT,
+    SPECIES_WOOBAT,
     SPECIES_MELMETAL,
 };
 
@@ -745,21 +747,22 @@ static const u16 sDexCategory_FinalBadgePkmn_Page6[] = {
 
 static const u16 sDexCategory_FinalBadgePkmn_Page7[] = {
     SPECIES_CLEFABLE,
-SPECIES_GENGAR,
-SPECIES_SMEARGLE,
-};
+    SPECIES_GENGAR,
+    SPECIES_SMEARGLE,
+    };
 
 static const u16 sDexCategory_FinalBadgePkmn_Page8[] = {
     SPECIES_TANGELA,
     SPECIES_TRUBBISH_HAIRCUT,
     SPECIES_ZYGARDE,
+    SPECIES_HAUNTER,
 };
 
 static const u16 sDexCategory_FinalBadgePkmn_Page9[] = {
     SPECIES_AMPHAROS_MEGA,
     SPECIES_AMPHAROS,
-    SPECIES_HAUNTER,
     SPECIES_ETERNATUS,
+    SPECIES_CASTFORM
 };
 
 /*

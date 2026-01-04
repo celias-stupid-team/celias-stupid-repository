@@ -15,7 +15,7 @@ static void ShowMonCB_UseStrength(void);
 
 bool8 SetUpFieldMove_Strength(void)
 {
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) || CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER) != TRUE)
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) || CheckObjectGraphicsInFrontOfPlayerPushable() != TRUE)
     {
         return FALSE;
     }
@@ -27,6 +27,15 @@ bool8 SetUpFieldMove_Strength(void)
         return TRUE;
     }
 }
+
+bool8 CheckObjectGraphicsInFrontOfPlayerPushable(void) {
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_PUSHABLE_BOULDER))
+        return TRUE;
+    if(CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CAPTAIN))
+        return TRUE;
+    return FALSE;
+}
+
 static void FieldCB_UseStrength(void)
 {
     gFieldEffectArguments[0] = GetCursorSelectionMonId();

@@ -159,9 +159,9 @@
 #define VAR_CSR_BIRD_CULTISTS_TRUST_YOU                                 0x4065
 #define VAR_SAFARI_ZONE_ENTRANCE                                 0x4066
 #define VAR_DEFEATED_DARACH_AND_CAIT                                          0x4067
-#define VAR_CSR_DUMMY_9                                           0x4068
-#define VAR_CSR_DUMMY_10                                            0x4069
-#define VAR_CSR_DUMMY_11_POKEMON_LAB_EXPERIMENT_ROOM_REVIVE_STATE 0x406A
+#define VAR_POKEMON_LEAGUE_PHASE                                           0x4068
+#define VAR_PIRATE_BAY_SCENE                                            0x4069
+#define VAR_CSR_DUMMY_10                        0x406A
 #define VAR_MAP_SCENE_ROUTE24                                                  0x406B
 #define VAR_MAP_SCENE_PEWTER_CITY                                              0x406C
 #define VAR_MAP_SCENE_CSR_LASS_2                                               0x406D
@@ -183,7 +183,7 @@
 #define VAR_MAP_SCENE_CERULEAN_CITY_ROCKET                                     0x407D
 #define VAR_MAP_SCENE_VERMILION_CITY                                           0x407E
 #define VAR_FROSLASS_SCENE                                        0x407F
-#define VAR_CSR_DUMMY_21                                        0x4080
+#define VAR_FOUR_ISLAND_LASS                                        0x4080
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_CSR_DUMMY_22                                            0x4082
 #define VAR_CSR_CELIA_IN_FOREST                             0x4083
@@ -299,7 +299,7 @@ It is reset after every battle.
 #define VAR_0x40C7                 0x40C7
 #define VAR_0x40C8                 0x40C8
 #define VAR_0x40C9                 0x40C9
-#define VAR_0x40CA                 0x40CA
+#define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon
 #define VAR_COPYCAT_USED                 0x40CB
 #define VAR_CURRENT_DMCA_PHASE                 0x40CC
 #define VAR_CSR_SEPIA                 0x40CD
@@ -326,8 +326,8 @@ It is reset after every battle.
 #define VAR_CURRENT_SAFE_ATTEMPT                 0x40E0
 #define VAR_CINNABAR_GYM_PHASE                 0x40E1
 #define VAR_ROUTE18_UPSTAIRS_HINT                 0x40E2
-#define VAR_PROFESSOR_IVY_CUT                 0x40E3
-#define VAR_0x40E4                 0x40E4
+#define VAR_USED_CUT                 0x40E3
+#define VAR_AROUND_THE_WORLD_LASS                 0x40E4
 #define VAR_0x40E5                 0x40E5
 #define VAR_DAILY_SLOTS            0x40E6
 #define VAR_DAILY_WILDS            0x40E7

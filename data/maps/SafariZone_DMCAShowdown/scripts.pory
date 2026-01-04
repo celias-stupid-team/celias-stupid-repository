@@ -151,7 +151,7 @@ script SafariZone_IronCleftBattle {
     if(var(VAR_RESULT) == SPECIES_REMORAID) {
         playbgm(MUS_NONE, TRUE)
         delay(20)
-        fadescreen(FADE_TO_BLACK)
+        fadescreenswapbuffers(FADE_TO_BLACK)
         delay(20)
         playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
         delay(60)
@@ -164,7 +164,7 @@ script SafariZone_IronCleftBattle {
         removeobject(DMCA_3)
         setflag(FLAG_HIDE_DMCA_IN_SAFARI_ZONE)
         playbgm(MUS_FUSHCIA, TRUE)
-        fadescreen(FADE_FROM_BLACK)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
         additem(ITEM_TM_CASE, 1)
         clearflag(FLAG_NO_TM_CASE)
         delay(120)

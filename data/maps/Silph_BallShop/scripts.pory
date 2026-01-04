@@ -5,6 +5,7 @@ mapscripts Silph_BallShop_MapScripts {
 
 script SilphCo_BallShop_Kurt {
 	lock
+	setflag(FLAG_CSR_MAP_BALL_SHOP)
 	msgbox(
 	"KURT: buy my balls\n"
 	"", MSGBOX_DEFAULT)

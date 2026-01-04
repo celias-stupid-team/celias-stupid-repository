@@ -230,6 +230,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_DrawTiles						 @ 0xe2
 	.4byte ScrCmd_checkpartymon					 @ 0xe3
 	.4byte ScrCmd_checkfieldmove				 @ 0xe4
+	.4byte ScrCmd_checkpartymonslot				 @ 0xe5
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

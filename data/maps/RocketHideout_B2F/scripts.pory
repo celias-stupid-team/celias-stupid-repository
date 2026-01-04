@@ -11,9 +11,10 @@ script RocketHideout_FractalDMCA {
 	end
 }
 mapscripts RocketHideout_B2F_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION {
+	MAP_SCRIPT_ON_LOAD {
 		if(flag(FLAG_SILPH_DMCA_DEFEATED)) {
-			setmetatile(27, 11, 0x390, FALSE)
+			setflag(FLAG_BACK_OF_ARROW_MAZE)
+			setmetatile(27, 17, 0x390, FALSE)
 		}
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
@@ -32,4 +33,12 @@ mapscripts RocketHideout_B2F_MapScripts {
 			end
 		}
 	]
+}
+
+
+script RocketHideout_ElevatorDoor {
+	msgbox(
+	"Rats!\n"
+	"The elevator seems to not exist!", MSGBOX_SIGN)
+
 }

@@ -1,3 +1,11 @@
 mapscripts Minnesota_House1_MapScripts {
 
 }
+
+
+script Minnesota_House1_Oak {
+	msgbox(
+	"Nope!\n"
+	"Nothing but OAK!", MSGBOX_SIGN)
+
+}

@@ -73,7 +73,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
  
 
 
-    [SPECIES_MAGNEMITE]  = {{EVO_LEVEL, 30, SPECIES_MAGNALONE}},                       //TODO The Magnalone event in the Power Plant
+    [SPECIES_MAGNEMITE]  = {{EVO_BEAUTY, 1, SPECIES_MAGNALONE}},                       //TODO The Magnalone event in the Power Plant
     
     [SPECIES_DODUO]      = {{EVO_LEVEL, 20, SPECIES_HITMONCHAN_SHIT}},                
 
@@ -104,7 +104,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_GOLDEEN]    = {{EVO_LEVEL, 20, SPECIES_SEAKING}},
     
     
-    [SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!
+    //[SPECIES_SCYTHER]    = {{EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR}}, //Solution for Cynthia!
     [SPECIES_GYARADOS]   = {{EVO_LEVEL, 15, SPECIES_MAGIKARP}},
     [SPECIES_EEVEE]      = {{EVO_ITEM, ITEM_WATER_STONE, SPECIES_EEVEE},
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EEVEE},
@@ -255,7 +255,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_MAGIKARP]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_MAROWAK]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_TENTAQUIL]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
-    [SPECIES_ALAKAZAM]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
+    [SPECIES_ALAKAZAM]     = {{EVO_TRADE, 0, SPECIES_MR_MIME}},
     [SPECIES_KANGASKHAN]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_UNOWN]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     //[SPECIES_KENYA]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
@@ -299,7 +299,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_DITTO]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_KABUTOPS]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_JIRACHI]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
-    [SPECIES_VAPOREON]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
+    [SPECIES_ESPEON]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_JOLTEON]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_FLAREON]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_PHIONE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},

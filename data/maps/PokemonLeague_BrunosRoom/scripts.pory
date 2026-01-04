@@ -1,10 +1,5 @@
 raw `
-PokemonLeague_BrunosRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, PokemonLeague_BrunosRoom_OnResume
-	map_script MAP_SCRIPT_ON_LOAD, PokemonLeague_BrunosRoom_OnLoad
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonLeague_BrunosRoom_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonLeague_BrunosRoom_OnFrame
-	.byte 0
+
 
 PokemonLeague_BrunosRoom_OnResume::
 	setvar VAR_0x8004, 1
@@ -13,7 +8,7 @@ PokemonLeague_BrunosRoom_OnResume::
 
 PokemonLeague_BrunosRoom_OnLoad::
 	call_if_set FLAG_DEFEATED_BRUNO, PokemonLeague_BrunosRoom_EventScript_SetDoorOpen
-	call_if_eq VAR_CSR_DUMMY_9, 2, PokemonLeague_BrunosRoom_EventScript_CloseEntry
+	call_if_eq VAR_POKEMON_LEAGUE_PHASE, 2, PokemonLeague_BrunosRoom_EventScript_CloseEntry
 	end
 
 PokemonLeague_BrunosRoom_EventScript_CloseEntry::
@@ -33,13 +28,14 @@ PokemonLeague_BrunosRoom_EventScript_TurnPlayerNorth::
 	end
 
 PokemonLeague_BrunosRoom_OnFrame::
-	map_script_2 VAR_CSR_DUMMY_9, 1, PokemonLeague_BrunosRoom_EventScript_EnterRoom
+	map_script_2 VAR_POKEMON_LEAGUE_PHASE, 1, PokemonLeague_BrunosRoom_EventScript_EnterRoom
+	map_script_2 VAR_USED_CUT, 1, BrunosRoom_OpenDoor
 	.2byte 0
 
 PokemonLeague_BrunosRoom_EventScript_EnterRoom::
 	lockall
 	call PokemonLeague_EventScript_EnterRoom
-	setvar VAR_CSR_DUMMY_9, 2
+	setvar VAR_POKEMON_LEAGUE_PHASE, 2
 	releaseall
 	end
 
@@ -103,6 +99,48 @@ PokemonLeague_BrunosRoom_EventScript_BrunoLookAwayDown::
 	return
 `
 
+mapscripts PokemonLeague_BrunosRoom_MapScripts {
+	MAP_SCRIPT_ON_RESUME: PokemonLeague_BrunosRoom_OnResume
+	MAP_SCRIPT_ON_LOAD {
+		if(var(VAR_LANCE_LASS_ATTACK) == 2) {
+			setvar(VAR_TEMP_1, 1)
+		}
+		if(flag(FLAG_DEFEATED_BRUNO)) {
+			call(PokemonLeague_BrunosRoom_EventScript_SetDoorOpen)
+		}
+	} 
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: PokemonLeague_BrunosRoom_OnWarp
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_USED_CUT, 1: BrunosRoom_OpenDoor
+		VAR_TEMP_1, 0 {
+			setvar(VAR_TEMP_1, 1)
+			if(!flag(FLAG_DEFEATED_BRUNO)) {
+					lockall
+					applymovement(LOCALID_PLAYER, moves(
+						walk_up * 3
+					))
+					waitmovement(0)
+					delay(30)
+					setflag(FLAG_TEMP_2)
+					playse(SE_UNLOCK)
+					call(PokemonLeague_EventScript_CloseEntry)
+					special(DrawWholeMapView)
+					return
+					releaseall
+			}
+		}
+
+	]
+}
+
+
+script BrunosRoom_OpenDoor {
+	playbgm(MUS_NONE, TRUE)
+	delay(30)
+	call(PokemonLeague_EventScript_OpenDoor)
+	setvar(VAR_USED_CUT, 0)
+	setflag(FLAG_DEFEATED_BRUNO)
+}
 
 script PokemonLeague_BrunosRoom_EventScript_PostBattle {
 	lock
@@ -126,4 +164,18 @@ script PokemonLeague_BrunosRoom_EventScript_PostBattle {
 	"I've had enough!", MSGBOX_DEFAULT)
 	release
 	end
+}
+
+script BrunoRoom_Oak {
+	msgbox(
+	"OAK: Hello, {PLAYER}!\n"
+	"Fancy seeing you here!\p"
+
+	"I heard you completed your whole\n"
+	"POKéDEX!\l"
+	"Well done!\p"
+
+	"I'm so proud of you!\n"
+	"", MSGBOX_SIGN)
+
 }

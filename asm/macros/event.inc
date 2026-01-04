@@ -732,6 +732,8 @@
 		.elseif \type == TRAINER_BATTLE_EARLY_RIVAL
 			.4byte \pointer1 @ text
 			.4byte \pointer2 @ text
+		.elseif \type == TRAINER_BATTLE_SINGLE_NO_INTRO_BATTLETYPE
+			.4byte \pointer1 @ text
 		.endif
 	.endm
 
@@ -779,6 +781,11 @@
 	@ Starts a trainer battle with victory text if the player loses. If flags is nonzero, the player will be healed after battle (and its assumed to be the tutorial battle)
 	.macro trainerbattle_earlyrival trainer:req, flags:req, defeat_text:req, victory_text:req
 	trainerbattle TRAINER_BATTLE_EARLY_RIVAL, \trainer, \flags, \defeat_text, \victory_text
+	.endm
+
+	@ Starts a trainer battle, skipping intro text. A special battle type is given for custom handling.
+	.macro trainerbattle_no_intro_battletype trainer:req, flags:req, lose_text:req
+	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_BATTLETYPE, \trainer, \flags, \lose_text
 	.endm
 
 	@ Starts a trainer battle using the battle information stored in RAM (usually by the scripts in trainer_battle.inc, which
@@ -2001,4 +2008,9 @@
 	.macro checkfieldmove move:req
 	.byte 0xe4
 	.2byte \move
+	.endm
+
+	.macro checkpartymonslot mon:req
+	.byte 0xe5
+	.2byte \mon
 	.endm

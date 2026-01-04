@@ -253,7 +253,11 @@ script FourIsland_RockClimbDown {
 }
 
 script FourIsland_Rock {
-	msgbox("It's a rock.\n", MSGBOX_SIGN)
+	msgbox(
+	"It's a rock.\p"
+
+	"It feels normal to the touch.\n"
+	"", MSGBOX_SIGN)
 
 }
 
@@ -451,11 +455,11 @@ script FourIsland_DrFootstep {
 
 		"Now, let's have your POKéMON walk\n"
 		"in front of me…", MSGBOX_DEFAULT)
-		fadescreen(FADE_TO_BLACK)
+		fadescreenswapbuffers(FADE_TO_BLACK)
 		closemessage
 		//re-adjust NPCs
 		delay(30)
-		fadescreen(FADE_FROM_BLACK)
+		fadescreenswapbuffers(FADE_FROM_BLACK)
 		//walk back and forth
 		msgbox(
 		"Hmm, yes.\n"
@@ -645,14 +649,10 @@ script FourIsland_AmitySquareLady {
 
 script FourIsland_PsyduckBlocking {
 	lock
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
-	"… … …\n"
-	"", MSGBOX_DEFAULT)
-	closemessage
-	delay(10)
-	msgbox(
-	"The POKéMON seem to be struggling.\n"
-	"", MSGBOX_DEFAULT)
+	"We're forming a BLOCKADE as\n"
+	"PROF. OAK's POKéMON.", MSGBOX_DEFAULT)
 	release
 }
 
@@ -662,7 +662,7 @@ script FourIsland_LuxrayGirl {
 	"DARK-TYPES available!\p"
 
 	"…Huh?\n"
-	"How did I find them?\p"
+	"How did I find it?\p"
 
 	"Easy! I just had to play literally\n"
 	"any other romhack!", MSGBOX_NPC)
@@ -681,5 +681,193 @@ script FourIsland_Luxray {
 	msgbox(
 	"LUXRAY used its strongest move:\n"
 	"{PAUSE 30}THUNDER FANG!", MSGBOX_DEFAULT)
+	release
+}
+
+script FourIsland_SetRockClimbTop {
+	setflag(FLAG_FOUR_ISLAND_ROCK_CLIMB)
+	setvar(VAR_TEMP_2, 1)
+}
+
+script FourIsland_LassAttack_PrepareAttack {
+	setvar(VAR_FOUR_ISLAND_LASS, 1)
+	release
+}
+
+script FourIsland_LassAttack {
+	lock
+	setvar(VAR_FOUR_ISLAND_LASS, 2)
+	playbgm(MUS_GEN4_LASS, TRUE)
+	delay(60)
+	setobjectxy(LOCALID_GEN_4_LASS, 44, 30)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		set_visible
+		walk_up
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_2_up
+		delay_16
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_left
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_2_up
+		delay_16
+		walk_up
+		face_left
+		lock_facing_direction
+		walk_right
+		delay_16 * 2
+		walk_fast_left
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_2_left
+		delay_16 * 2
+		unlock_facing_direction
+		walk_slow_up
+		face_left
+		delay_16 * 2
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_left
+		delay_16
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+
+		jump_left
+		walk_in_place_fast_left * 3
+		walk_slow_left
+		face_left
+		delay_16 * 3
+		walk_slow_left
+		face_down
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	delay(30)
+	msgbox(
+	"Huff…{PAUSE 30} Don't…{PAUSE 30} Puff…{PAUSE 30} Look…{PAUSE 30}\n"
+	"Huff…{PAUSE 30} At…{PAUSE 30} Puff…{PAUSE 30} Me!", MSGBOX_DEFAULT)
+	playbgm(MUS_FOUR_ISLAND, TRUE)
+	//battle
+	closemessage
+	delay(60)
+	closemessage
+	msgbox(
+	"Say, how do you get to the\n"
+	"POKéMON CENTER anyway?", MSGBOX_DEFAULT)
+	closemessage
+	delay(30)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		walk_slow_left * 2
+
+	))
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+		walk_in_place_fast_right * 5
+		lock_facing_direction
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_2_left
+		unlock_facing_direction
+		delay_16
+		face_up
+		lock_facing_direction
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_left
+		walk_in_place_fast_up * 4
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_left
+		unlock_facing_direction
+		face_left
+		lock_facing_direction
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_down
+		unlock_facing_direction
+		face_right
+		lock_facing_direction
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_down
+		unlock_facing_direction
+		face_up
+		lock_facing_direction
+
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	applymovement(LOCALID_GEN_4_LASS, moves(
+		jump_2_left
+
+	))
+	waitmovement(0)
+	delay(60)
+	removeobject(LOCALID_GEN_4_LASS)
+	release
+
+}
+
+
+
+script FourIsland_TalkingOnPhone {
+	lock
+	msgbox(
+	"…and then I-\n"
+	"{PAUSE 30}…wait, one second.", MSGBOX_DEFAULT)
+	closemessage
+	faceplayer
+	msgbox(
+	"I'm talking on the phone with my\n"
+	"friend.\p"
+
+	"She's playing POKéMON JADE!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(20)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	msgbox(
+	"So anyway like I was saying…\n"
+	"", MSGBOX_DEFAULT)
 	release
 }

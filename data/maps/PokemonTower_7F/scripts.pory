@@ -294,12 +294,12 @@ script PokemonTower_Trailer {
 		msgbox("Hey!\nYou've already seen this cutscene.\lWould you like to skip it?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			applymovement(ARIANA, Common_Movement_WalkLeft)
 			applymovement(KANGA, PokemonTower_FastKangaAppraoch)
 			waitmovement(KANGA)
 			applymovement(ARIANA, Common_Movement_FaceDown)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(20)
 
 
@@ -437,12 +437,12 @@ script PokemonTower7F_KangaBattleAndAfter {
 			setvar(VAR_0x8007, 2)
 			special(ShakeScreen)
 			delay(20)
-			fadescreen(FADE_TO_WHITE)
+			fadescreenswapbuffers(FADE_TO_WHITE)
 			delay(30)
 			applymovement(KANGA, Common_Movement_SetInvisible)
 			applymovement(PURE_KANGA, Common_Movement_SetVisible)
 			playmoncry(SPECIES_KANGASKHAN, CRY_MODE_DEFAULT)
-			fadescreen(FADE_FROM_WHITE)
+			fadescreenswapbuffers(FADE_FROM_WHITE)
 			delay(10)
 			playbgm(MUS_SEVII_ROUTE, TRUE)
 			textcolor(NPC_TEXT_COLOR_FEMALE)
@@ -481,7 +481,7 @@ script PokemonTower7F_KangaBattleAndAfter {
 			waitmovement(0)
 			msgbox("SUSAN: Grr…\nEveryone!\pWe need to RETREAT!\nLet's get out of here!", MSGBOX_DEFAULT)
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			fadedefaultbgm
 			playse(SE_WARP_OUT)
 			removeobject(ARIANA)
@@ -490,7 +490,7 @@ script PokemonTower7F_KangaBattleAndAfter {
 			applymovement(LOCALID_CAMERA, Common_Movement_WalkLeft)
 			waitmovement(0)
 			applymovement(PURE_KANGA, Common_Movement_FaceDown)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(60)
 			addobject(FUJI)
 			setobjectxy(FUJI, 11, 14)

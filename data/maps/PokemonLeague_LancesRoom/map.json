@@ -88,21 +88,21 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_LANCE_LASS_ATTACK",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
       "x": 7,
       "y": 8,
       "elevation": 0,
       "var": "VAR_LANCE_LASS_ATTACK",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "1",
+      "script": "MayRoom_LassAttack"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_LANCE_LASS_ATTACK",
+      "var_value": "1",
+      "script": "MayRoom_LassAttack"
     }
   ],
   "bg_events": []

@@ -132,22 +132,28 @@ script SilphCo_11F_EventScript_BattleGiovanni {
 	"damn", MSGBOX_DEFAULT)
 	closemessage
 	fadenewbgm(MUS_NONE)
-	fadescreen(FADE_TO_BLACK)
+	fadescreenswapbuffers(FADE_TO_BLACK)
 	removeobject(LOCALID_SILPH_CO_GIOVANNI)
 	removeobject(LOCALID_SILPH_CO_11F_GRUNT1)
 	removeobject(LOCALID_SILPH_CO_11F_GRUNT2)
-	fadescreen(FADE_FROM_BLACK)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
 	setvar(VAR_CSR_DUMMY_3, 1)
 	setflag(FLAG_SILPH_DMCA_DEFEATED)
 	setflag(FLAG_HIDE_SAFFRON_ROCKETS)
 	clearflag(FLAG_HIDE_SAFFRON_CIVILIANS)
+	playbgm(MUS_CYBER_WORLD, TRUE)
 	releaseall
 	end
 }
 
 
 script SilphCo_11F_EventScript_AlreadyGotMasterBall {
-	msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
+	if(!checkmoncaught(SPECIES_MR_MIME) && !checkitem(ITEM_MASTER_BALL)) { // and not victory road
+
+	} else {
+		msgbox(SilphCo_11F_Text_ThatsOurSecretPrototype) //Add logic if you wasted the Mister Ball
+
+	}
 	release
 }
 

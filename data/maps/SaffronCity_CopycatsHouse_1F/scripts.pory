@@ -25,6 +25,7 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			setvar(VAR_COPYCAT_USED, 0)
 			
 		}
+		setflag(FLAG_ENTERED_COPYCAT_HOUSE)
 	}
 	MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_COPYCAT_USED, 1 {
@@ -33,7 +34,7 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			applymovement(LOCALID_COPYCAT_MOM, moves(
 				walk_left
 			))
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			delay(60)
 			addobject(LOCALID_COPYCAT_DAD)
 			addobject(LOCALID_COPYCAT_MOM)
@@ -85,7 +86,7 @@ mapscripts SaffronCity_CopycatsHouse_1F_MapScripts {
 			setobjectxy(LOCALID_COPYCAT_DAD, 8, 6)
 			setobjectxy(LOCALID_COPYCAT_MOM, 8, 7)
 			setobjectxy(LOCALID_COPYCAT_DOWNSTAIRS, 4, 6)
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(30)
 			playse(SE_LEDGE)
 			applymovement(LOCALID_COPYCAT_DOWNSTAIRS, moves(

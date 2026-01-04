@@ -1,3 +1,70 @@
 mapscripts RainbowCloud_MapScripts {
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+		VAR_TEMP_1, 0 {
+			turnobject(LOCALID_PLAYER, DIR_NORTH)
+		}
+	]
+}
 
+script RainbowCloud_Thesis {
+	msgbox(
+	"Creativity is the spark of the\n"
+	"human soul!\p"
+
+	"Break past the flimsy walls of your\n"
+	"expectations!\l"
+	"Abandon your fear of taking a risk!\p"
+
+	"Train yourself to see the world not\n"
+	"for what you think it is, but for\l"
+	"what you believe it can become!\p"
+
+	"All art is an extension of your own\n"
+	"unique perspective, and your voice\l"
+	"is worth hearing regardless of skill!\p"
+
+	"I believe in the intrinsic value of\n"
+	"the audacity of creation, and I\l"
+	"will empower others to feel the same!", MSGBOX_SIGN)
+
+}
+
+
+script RainbowCloud_FindTheShinies {
+	msgbox(
+	"find the rest of the shinies\n"
+	"(poem here)", MSGBOX_SIGN)
+
+}
+
+script RainbowCloud_JourneysEnd {
+	msgbox(
+	"Hi!\n"
+	"I'm CELIA, the creator.\p"
+
+	"Congratulations - You've finally\n"
+	"found the last secret in the game!\p"
+
+	"The reward for you - and for all\n"
+	"who love this game - waits ahead.\p"
+
+	"Read the message on the sign, and\n"
+	"copy it verbatim into a message on\l"
+	"my Discord server.\p"
+
+	"You've reached the end now.\n"
+	"Be proud of yourself!", MSGBOX_NPC)
+}
+
+script RainbowCloud_CastformFight {
+    lock
+    faceplayer
+	setflag(FLAG_FOUGHT_CASTFORM)
+    msgbox(
+	"(fight starts)\n"
+	"", MSGBOX_DEFAULT)
+	setwildbattle(SPECIES_CASTFORM, 50)
+	dowildbattle
+    release
+    end
 }

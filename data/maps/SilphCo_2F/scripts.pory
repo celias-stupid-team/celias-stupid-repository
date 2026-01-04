@@ -56,6 +56,7 @@ script SilphCo_2F_EventScript_ElevatorDoor {
 }
 
 script SilphCo_2F_EventScript_TruckLady {
+	setflag(FLAG_DITTO_MEW_HINT)
 	msgbox(
 	"Hey, you!\n"
 	"I met you in VERMILION CITY.\p"

@@ -137,7 +137,7 @@ script FushciaGym_LionRoom_WallHole {
         msgbox("Would you like to DRILL through\nit?", MSGBOX_YESNO)
         if(var(VAR_RESULT)) {
             setflag(FLAG_DRILLED_LION_HOLE)
-            fadescreen(FADE_TO_BLACK)
+            fadescreenswapbuffers(FADE_TO_BLACK)
             playse(SE_M_HORN_ATTACK)
             delay(10)
             playse(SE_M_HORN_ATTACK)
@@ -150,7 +150,7 @@ script FushciaGym_LionRoom_WallHole {
             delay(30)
             call(FushciaGym_LionRoom_DrawHole)
             special(DrawWholeMapView)
-            fadescreen(FADE_FROM_BLACK)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
 
         }
     }

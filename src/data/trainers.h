@@ -4036,13 +4036,13 @@ const struct Trainer gTrainers[] = {
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourBruno),
     },
     [TRAINER_ELITE_FOUR_AGATHA] = {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_ELITE_FOUR_CYNTHIA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR | F_TRAINER_FEMALE,
-        .trainerPic = TRAINER_PIC_ELITE_FOUR_AGATHA,
-        .trainerName = _("AGATHA"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+        .trainerPic = TRAINER_PIC_CYNTHIA,
+        .trainerName = _("CYNTHIA"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SWITCH_IN_ORDER | AI_SCRIPT_NO_SWITCHING,
         .party = ITEM_CUSTOM_MOVES(sParty_EliteFourAgatha),
     },
     [TRAINER_ELITE_FOUR_LANCE] = {
@@ -6721,7 +6721,7 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("JACK"),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_ClamperlGuy),
     },
@@ -6749,4 +6749,17 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = ITEM_CUSTOM_MOVES(sParty_RadicalRed),
     },
+
+    [TRAINER_SHORT] = {
+        .trainerClass = TRAINER_CLASS_SHORT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SHORT,
+        .trainerName = _(""),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .party = ITEM_CUSTOM_MOVES(sParty_Short),
+    },
+
+
 };

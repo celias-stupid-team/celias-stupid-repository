@@ -72,12 +72,16 @@
 #define BATTLE_TYPE_SNORLAX            (1 << 24)
 #define BATTLE_TYPE_KANGA              (1 << 25)
 #define BATTLE_TYPE_SHEDINJA_TERA      (1 << 26)
+#define BATTLE_TYPE_CYNTHIA            (1 << 27)
 
 #define IS_BATTLE_TYPE_GHOST_WITHOUT_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && !((flags) & BATTLE_TYPE_GHOST_UNVEILED))
 #define IS_BATTLE_TYPE_GHOST_WITH_SCOPE(flags) ((flags) & BATTLE_TYPE_GHOST && (flags) & BATTLE_TYPE_GHOST_UNVEILED)
 
 #define RIVAL_BATTLE_HEAL_AFTER  1
 #define RIVAL_BATTLE_TUTORIAL    3
+
+// special battle type IDs for trainerbattle_no_intro_battletype macro
+#define SPECIAL_BATTLE_TYPE_CYNTHIA       1
 
 // Battle Outcome defines
 #define B_OUTCOME_WON                  1
@@ -160,6 +164,7 @@
 #define STATUS3_TRACE                   (1 << 20)
 #define STATUS3_SEMI_INVULNERABLE       (STATUS3_UNDERGROUND | STATUS3_ON_AIR | STATUS3_UNDERWATER)
 #define STATUS3_ELECTRIFIED             (1 << 21)
+#define STATUS3_TOXIC_SEED              (1 << 22)
 
 // Not really sure what a "hitmarker" is.
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
@@ -319,9 +324,10 @@
 #define BATTLE_TERRAIN_LANCE       18
 #define BATTLE_TERRAIN_CHAMPION    19
 
-#define B_WAIT_TIME_LONG  64
-#define B_WAIT_TIME_MED   48
-#define B_WAIT_TIME_SHORT 32
+#define B_WAIT_TIME_LONGEST  96
+#define B_WAIT_TIME_LONG     64
+#define B_WAIT_TIME_MED      48
+#define B_WAIT_TIME_SHORT    32
 
 #define CASTFORM_NORMAL     0
 #define CASTFORM_FIRE       1

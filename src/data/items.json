@@ -2177,7 +2177,7 @@
       "secondaryId": 0
     },
     {
-      "english": "HAIRY BERRY",
+      "english": "HAIRI BERRY",
       "itemId": "ITEM_RAWST_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_BRN",
@@ -2193,13 +2193,13 @@
       "secondaryId": 0
     },
     {
-      "english": "ASPEAR BERRY",
+      "english": "BARRI BERRY",
       "itemId": "ITEM_ASPEAR_BERRY",
-      "price": 20,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_CURE_FRZ",
       "holdEffectParam": 0,
       "description_english": "When held by a POKéMON, it will be\\nused in battle for defrosting.",
-      "importance": 0,
+      "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_BERRY_POUCH",
       "type": "ITEM_TYPE_PARTY_MENU",
@@ -2241,7 +2241,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LIE BRERRY",
+      "english": "VERI BRERRY",
       "itemId": "ITEM_PERSIM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_CONFUSION",
@@ -2257,7 +2257,7 @@
       "secondaryId": 0
     },
     {
-      "english": "LUM BERRY",
+      "english": "DAIRI BERRY",
       "itemId": "ITEM_LUM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_STATUS",
@@ -2401,7 +2401,7 @@
       "secondaryId": 0
     },
     {
-      "english": "NANAB BERRY",
+      "english": "LIE BRERRY",
       "itemId": "ITEM_NANAB_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6515,7 +6515,7 @@
       "description_english": "A fully-formed sandwich.\\nThe perfect snack for any long\\nbiking trip!",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
+      "pocket": "POCKET_KEY_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
       "fieldUseFunc": "FieldUseFunc_OakStopsYou",
       "battleUsage": 0,
@@ -6957,11 +6957,11 @@
     {
       "english": "NEBBY",
       "itemId": "ITEM_NEBBY",
-      "price": 200,
+      "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A troublesome rascal who hates\\nbeing in bags. They say bringing\\nhim to MT MOON awakens him.",
-      "importance": 0,
+      "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
       "type": "ITEM_TYPE_BAG_MENU",
@@ -7069,7 +7069,7 @@
     {
       "english": "BLUE BALL",
       "itemId": "ITEM_DUMMY_BALL",
-      "price": 200,
+      "price": 1000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
       "description_english": "A POKé BALL that always shakes\\nexactly three times before the\\nwild POKéMON breaks free.",
@@ -7280,7 +7280,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A bootleg CD with someone's\\nentire mixtap downloaded onto it.\\nMakes TECHNO BLAST into FIRE-TYPE",
+      "description_english": "A bootleg CD with someone's\\nentire mixtape downloaded onto it.\\nMakes TECHNO BLAST into FIRE-TYPE.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -7355,7 +7355,7 @@
       "secondaryId": 0
     },
     {
-      "english": "TM49",
+      "english": "TM41",
       "itemId": "ITEM_COPYCAT_TM",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",

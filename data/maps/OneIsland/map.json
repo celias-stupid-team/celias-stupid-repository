@@ -3,7 +3,7 @@
   "name": "OneIsland",
   "layout": "LAYOUT_ONE_ISLAND",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_WATER_PATH",
+  "region_map_section": "MAPSEC_ONE_ISLAND_NAMED",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
@@ -43,6 +43,11 @@
       "map": "MAP_ROUTE18",
       "offset": -44,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN3",
+      "offset": 17,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -78,7 +83,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 29,
+      "x": 28,
       "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -187,16 +192,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 28,
-      "y": 27,
+      "x": 18,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OneIsland_RockClimbDown"
     },
     {
       "type": "sign",
-      "x": 28,
-      "y": 28,
+      "x": 19,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OneIsland_RockClimbUp"

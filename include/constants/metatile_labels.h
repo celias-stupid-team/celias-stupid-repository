@@ -346,6 +346,9 @@
 #define METATILE_TwoIsland_TwoIslandDoor    0x301
 #define METATILE_TwoIsland_TwoIslandDoor_2  0x2E1
 
+// gTileset_TwoIslandHotel
+#define METATILE_TwoIslandHotel_HotelDoor  0x293
+
 // gTileset_VermilionCity
 #define METATILE_VermilionCity_Door                   0x29E
 #define METATILE_VermilionCity_ONIX_BOTTOM_LEFT       0x358

@@ -9684,3 +9684,11 @@ const u32 gMonShinyPalette_CHARIZARDQ[] = INCBIN_U32("graphics/pokemon/charizard
 const u8 gMonIcon_CHARIZARDQ[] = INCBIN_U8("graphics/pokemon/charizardq/icon.4bpp");
 const u8 gMonFootprint_CHARIZARDQ[] = INCBIN_U8("graphics/pokemon/charizardq/footprint.1bpp");
 
+// HOOT
+const u32 gMonFrontPic_HOOT[] = INCBIN_U32("graphics/pokemon/hoot/front.4bpp.lz");
+const u32 gMonPalette_HOOT[] = INCBIN_U32("graphics/pokemon/hoot/normal.gbapal.lz");
+const u32 gMonBackPic_HOOT[] = INCBIN_U32("graphics/pokemon/hoot/back.4bpp.lz");
+const u32 gMonShinyPalette_HOOT[] = INCBIN_U32("graphics/pokemon/hoot/shiny.gbapal.lz");
+const u8 gMonIcon_HOOT[] = INCBIN_U8("graphics/pokemon/hoot/icon.4bpp");
+const u8 gMonFootprint_HOOT[] = INCBIN_U8("graphics/pokemon/hoot/footprint.1bpp");
+

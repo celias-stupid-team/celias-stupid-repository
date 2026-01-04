@@ -1,6 +1,6 @@
 mapscripts Minnesota_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
-		setflag(FLAG_CSR_MAP_MINNESOTA)
+		setworldmapflag(FLAG_CSR_MAP_MINNESOTA)
 	}
 }
 
@@ -22,7 +22,7 @@ script Minnesota_EastSign {
 
 script Minnesota_SanDiegoZooGirl {
 	msgbox(
-	"Ah, I love visitng MINNESOTA's\n"
+	"Ah, I love visiting MINNESOTA's\n"
 	"famous SAN DIEGO ZOO!\l"
 	"It's such a gift to live here!", MSGBOX_NPC)
 }
@@ -43,9 +43,9 @@ script Minnesota_SanDiegoZoo_SealSign {
 	"A dangerous wild ANIMAL has\n"
 	"escaped its cage!\p"
 
-	"Patrons are advised to run in\n"
-	"circles while screaming.\l"
-	"Preferably with arms in the air!", MSGBOX_SIGN)
+	"Patrons are advised to scream\n"
+	"while running in circles.\l"
+	"Raising your arms will also help.", MSGBOX_SIGN)
 
 }
 
@@ -96,8 +96,8 @@ script MinnesotaZoo_CagedDad {
 	"DAD: {PLAYER}!\n"
 	"What are you doing out here?\p"
 
-	"After a part-time gig at the\n"
-	"FUSHCIA CITY ZOO, I found a new one.\l"
+	"After a part-time gig at the FUSHCIA\n"
+	"CITY ZOO, I found this new one.\l"
 	"This cage is much smaller, though…\p"
 
 	"Well, never mind that.\n"
@@ -109,10 +109,18 @@ script MinnesotaZoo_CagedDad {
 
 script MinnesotaZoo_FirstCage {
 	msgbox(
-	"SOME ANIMAL\n"
-	"(placeholder)", MSGBOX_SIGN)
+	"MONGOOSE\n"
+	"{PAUSE 30}The sworn enemy of VIPER", MSGBOX_SIGN)
 
 }
+
+script MinnesotaZoo_ZooBat {
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"Oh, cool!\n"
+	"It's a Zoo Bat!", MSGBOX_NPC)
+}
+
 
 
 script MinnesotaZoo_FirstViking {
@@ -158,15 +166,92 @@ script Minnesota_Townsign {
 
 }
 
-script Minnesota_NPC {
-	msgbox(
-	"Minnesota town\n"
-	"placeholder", MSGBOX_NPC)
-}
-
 script Minnesota_Pittsburg {
 	msgbox(
 	"Welcome to PITTSBURG!\n"
 	"", MSGBOX_SIGN)
+
+}
+
+script Minnesota_NPC {
+	msgbox(
+	"Hey, neighbor!\p"
+
+	"I'm just out here for a walk with\n"
+	"my mom's dog.\l"
+	"He's such a good boy!", MSGBOX_NPC)
+}
+
+script Minnesota_MomsDog {
+	lock
+	faceplayer
+	msgbox(
+	"Marron: Rrrruh!\n"
+	"", MSGBOX_DEFAULT)
+	showmonpic(SPECIES_HERDIER, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	closemessage
+	delay(30)
+	msgbox(
+	"Wow!\n"
+	"He's outstanding!", MSGBOX_DEFAULT)
+	release
+}
+
+script Minnesota_SurgeHouseSign {
+	msgbox(
+	"LT. SURGE'S House\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_LookedThroughTrubbish {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"Nope!\n"
+		"Nothing but trash!", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"{PLAYER} looked through the\n"
+	"trash…\p"
+
+	"Hey!\n"
+	"There's a secret switch!\l"
+	"Let's press it!", MSGBOX_DEFAULT)
+	playse(SE_CLICK)
+	setflag(FLAG_TEMP_1)
+	setlayouttiles(LAYOUT_MINNESOTA_HOUSE1_BEAM_OFF, 0, 0, 0, 0, 23, 19)
+	waitse
+	closemessage
+	release
+	end
+}
+
+script Minnesota_LookedThroughTrash {
+	msgbox(
+	"Nope!\n"
+	"Nothing but trash!", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_LaundromatSign {
+	msgbox(
+	"MINNESOTA LAUNDROMAT\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Minnesota_GouldenSam {
+	msgbox(
+	"GOULDEN SAM\n"
+	"placeholder", MSGBOX_SIGN)
 
 }

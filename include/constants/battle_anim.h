@@ -307,6 +307,7 @@
 #define ANIM_TAG_QUICK_GUARD_HAND           (ANIM_SPRITES_START + 297)
 #define ANIM_TAG_WONDER_SEED                (ANIM_SPRITES_START + 298)
 #define ANIM_TAG_SMALL_CLOUD                (ANIM_SPRITES_START + 299)
+#define ANIM_TAG_PUNISHMENT_BLADES          (ANIM_SPRITES_START + 300)
 
 // battlers
 #define ANIM_ATTACKER    0

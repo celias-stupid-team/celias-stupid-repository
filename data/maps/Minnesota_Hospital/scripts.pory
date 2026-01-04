@@ -12,6 +12,7 @@ script MinnesotaHospital_Billionaires {
 
 script MinnesotaHospital_Nurse {
     lock
+	textcolor(NPC_TEXT_COLOR_RED)
     msgbox(
 	"Welcome to the MINNESOTA Hospital.\n"
 	"Would you like an appointment?", MSGBOX_YESNO)
@@ -137,4 +138,14 @@ script Hospital_XRay {
 	"It's a MOON STONE-powered\n"
 	"X-Ray machine!", MSGBOX_SIGN)
 
+}
+
+
+script Hospital_Gentleman {
+	msgbox(
+	"Feel free to check yourself into\n"
+	"the hospital.\p"
+
+	"I'm sure no one will install a\n"
+	"virus on you!", MSGBOX_NPC)
 }

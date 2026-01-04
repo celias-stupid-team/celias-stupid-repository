@@ -5,6 +5,7 @@ mapscripts ViridianGym_HubRoom_9_MapScripts {
 script ViridianGym_StatueFisher {
     lock
     faceplayer
+    setflag(FLAG_CSR_HINT_GYM_STATUES)
     msgbox(
 	"Shh!\n"
 	"Don't bother me!\p"

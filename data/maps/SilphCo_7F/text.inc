@@ -1,12 +1,17 @@
 SilphCo_7F_Text_HaveMonForSavingUs::
-	.string "here's bidoof\n$"
+	.string "Thank you for saving us from the\n"
+	.string "DMCA!\p"
+	.string "Here, I have a gift for you.\n$"
 
 SilphCo_7F_Text_ObtainedLaprasFromEmployee::
     .string "{PLAYER} obtained a BIDOOF from\n"
     .string "the SILPH employee!$"
 
 SilphCo_7F_Text_ExplainLapras::
-	.string "it's bidoof\n$"
+    .string "This BIDOOF is a very special\n"
+	.string "POKéMON.\p"
+	.string "It's designed to be compatible\n"
+	.string "with any HM you want to teach it.$"
 
 SilphCo_7F_Text_RocketBossWentToBoardroom::
     .string "TEAM ROCKET's BOSS went to the\n"

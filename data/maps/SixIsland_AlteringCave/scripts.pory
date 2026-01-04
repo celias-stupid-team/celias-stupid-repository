@@ -10,7 +10,9 @@ SixIsland_AlteringCave_OnTransition::
 
 script AlteringCave_ABC {
 	lockall
-	braillemessage(Braille_Text_ABC)
+	braillemessage(AlteringCave_Braille_DEFGHI)
+	waitbuttonpress
+	braillemessage(Braille_Text_JKLMNO)
 	waitbuttonpress
 	releaseall
 }

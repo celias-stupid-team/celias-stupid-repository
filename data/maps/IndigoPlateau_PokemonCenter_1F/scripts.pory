@@ -70,3 +70,130 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Nurse::
 	release
 	end
 `
+
+
+script PokemonLeague_GiveHistoryBook {
+	lock
+	faceplayer
+	if(checkitem(ITEM_HISTORY_BOOK)) {
+		msgbox(
+		"Remember to read that HISTORY BOOK\n"
+		"you have.\p"
+
+		"Looking into the past is the best\n"
+		"way to move forward.\p"
+
+		"Remember all that you've learned,\n"
+		"and the next step will come easily.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Take this\n"
+		"placeholder", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} recieved the\nHISTORY BOOK!", ITEM_HISTORY_BOOK)
+		msgbox(
+		"Looking into the past is the best\n"
+		"way to move forward.\p"
+
+		"Remember all that you've learned,\n"
+		"and the next step will come easily.", MSGBOX_DEFAULT)
+	}
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+
+script PokemonLeague_GiveCandyDispenser {
+	lock
+	faceplayer
+	if(checkitem(ITEM_CANDY_DISPENSER)) {
+		msgbox(
+		"That CANDY DISPENSER will help\n"
+		"your POKéMON grow.\p"
+
+		"If you ever feel that you aren't\n"
+		"up to a challenge, take a few\l"
+		"steps back and re-evaluate.\p"
+
+		"Oftentimes, you'll find that you\n"
+		"have what it takes all along.", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Take this\n"
+		"placeholder", MSGBOX_DEFAULT)
+		giveitem_msg("{PLAYER} recieved the\nCANDY DISPENSER!", ITEM_CANDY_DISPENSER)
+		msgbox(
+		"That CANDY DISPENSER will help\n"
+		"your POKéMON grow.\p"
+
+		"If you ever feel that you aren't\n"
+		"up to a challenge, take a few\l"
+		"steps back and re-evaluate.\p"
+
+		"Oftentimes, you'll find that you\n"
+		"have what it takes all along.", MSGBOX_DEFAULT)
+	}
+	closemessage
+	release
+}
+
+script PokemonLeague_DadHeal {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"Wow! You've made it all the way\n"
+	"to the POKéMON LEAGUE!\p"
+
+	"As your father, I couldn't be more\n"
+	"proud of you.\p"
+
+	"Now, come along.\n"
+	"Let's take one final rest.", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+
+script EventScript_FinalCutTree {
+	goto_if_questlog(EventScript_ReleaseEnd)
+	lockall
+	goto_if_unset(FLAG_BADGE02_GET, EventScript_CantCutTree)
+	checkfieldmove(MOVE_CUT)
+	goto_if_eq(VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_FinalCutTreeAfterBuffer)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
+	setfieldeffectargument(0, VAR_RESULT)
+	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+}
+
+script EventScript_FinalCutTreeAfterBuffer {
+	buffermovename(STR_VAR_2, MOVE_CUT)
+	msgbox(Text_CutTreeDown, MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"A lone tree stands in the path.\p"
+
+	"Would you like to use CUT?\n"
+	"", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, EventScript_DontCutTree)
+	msgbox(Text_MonUsedMove)
+	closemessage
+	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
+	waitstate
+	goto(EventScript_CutTreeDown)
+	end
+}
+
+script EventScript_CantCutFinalTree {
+	msgbox(
+	"A lone tree stands in the path.\n"
+	"", MSGBOX_SIGN)
+	releaseall
+}

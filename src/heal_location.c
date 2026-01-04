@@ -162,6 +162,7 @@ bool8 DoesHealLocationSkipCutscene(void) {
         HEAL_LOCATION_FUSHCIA_OUTSIDE,
         HEAL_LOCATION_ROUTE12,
         HEAL_LOCATION_SAFARI_ZONE,
+        HEAL_LOCATION_POKEMON_LEAGUE_AGATHAS_ROOM,
         // HEAL_LOCATION_NONE,
     };
     u32 i;

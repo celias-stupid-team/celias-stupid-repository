@@ -518,6 +518,19 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_CAR_DAD  0x115B
 #define OBJ_EVENT_PAL_TAG_JUMPLUFF  0x115C
 #define OBJ_EVENT_PAL_TAG_BILL_BOARD  0x115D
+#define OBJ_EVENT_PAL_TAG_HERDIER  0x115E
+#define OBJ_EVENT_PAL_TAG_LUXRAY  0x115F
+#define OBJ_EVENT_PAL_TAG_TRUBBISH_2  0x1160
+#define OBJ_EVENT_PAL_TAG_DIGLETT  0x1161
+#define OBJ_EVENT_PAL_TAG_GIRAFFE_CAGE  0x1162
+#define OBJ_EVENT_PAL_TAG_FARIG  0x1163
+#define OBJ_EVENT_PAL_TAG_FLAMES_BETTER  0x1164
+#define OBJ_EVENT_PAL_TAG_CYNTHIA_BETTER  0x1165
+#define OBJ_EVENT_PAL_TAG_KINGLER_ROCK  0x1166
+#define OBJ_EVENT_PAL_TAG_MUDKIP  0x1167
+#define OBJ_EVENT_PAL_TAG_GROUDON_HIDDEN  0x1168
+#define OBJ_EVENT_PAL_TAG_HOOTHOOT  0x1169
+#define OBJ_EVENT_PAL_TAG_MAGNEMITE  0x116A
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -609,6 +622,19 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_car_dad,             OBJ_EVENT_PAL_TAG_CAR_DAD},
     {gObjectEventPal_JUMPLUFF,             OBJ_EVENT_PAL_TAG_JUMPLUFF},
     {gObjectEventPal_bill_board,             OBJ_EVENT_PAL_TAG_BILL_BOARD},
+    {gObjectEventPal_HERDIER,             OBJ_EVENT_PAL_TAG_HERDIER},
+    {gObjectEventPal_LUXRAY,             OBJ_EVENT_PAL_TAG_LUXRAY},
+    {gObjectEventPal_TRUBBISH_2,             OBJ_EVENT_PAL_TAG_TRUBBISH_2},
+    {gObjectEventPal_DIGLETT,             OBJ_EVENT_PAL_TAG_DIGLETT},
+    {gObjectEventPal_GIRAFFE_CAGE,             OBJ_EVENT_PAL_TAG_GIRAFFE_CAGE},
+    {gObjectEventPal_FARIG,             OBJ_EVENT_PAL_TAG_FARIG},
+    {gObjectEventPal_FLAMES_BETTER,             OBJ_EVENT_PAL_TAG_FLAMES_BETTER},
+    {gObjectEventPal_CYNTHIA_BETTER,             OBJ_EVENT_PAL_TAG_CYNTHIA_BETTER},
+    {gObjectEventPal_kingler_rock,             OBJ_EVENT_PAL_TAG_KINGLER_ROCK},
+    {gObjectEventPal_mudkip,             OBJ_EVENT_PAL_TAG_MUDKIP},
+    {gObjectEventPal_groudon_hidden,             OBJ_EVENT_PAL_TAG_GROUDON_HIDDEN},
+    {gObjectEventPal_HOOTHOOT,             OBJ_EVENT_PAL_TAG_HOOTHOOT},
+    {gObjectEventPal_MAGNEMITE,             OBJ_EVENT_PAL_TAG_MAGNEMITE},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -5474,7 +5500,7 @@ static void QuestLogObjectEventExecHeldMovementAction(struct ObjectEvent *object
     if (sMovementActionFuncs[objectEvent->movementActionId][sprite->data[2]](objectEvent, sprite))
     {
         objectEvent->heldMovementFinished = TRUE;
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+        if (IsObjectPushable(objectEvent->graphicsId))
             HandleBoulderFallThroughHole(objectEvent);
     }
 }

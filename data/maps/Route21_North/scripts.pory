@@ -3,8 +3,64 @@ Route21_North_MapScripts::
 	.byte 0
 `
 
-script Route21_StartAlomomolaBattle {
+script Route21_LassSign {
+	msgbox(
+	"TRAINER TIPS!\p"
+
+	"You can avoid battle by not letting\n"
+	"trainers see you.", MSGBOX_SIGN)
+
+}
+
+
+script Route21_AroundTheWorld {
 	lock
-	special(StartAlomomolaBattle)
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+		emote_exclamation_mark
+		delay_16 * 5
+		walk_right * 5
+		
+	))
+	waitmovement(0)
+	setobjectxy(LOCALID_AROUND_WORLD_LASS, 9, 41)
+	delay(60)
+	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+		walk_right * 7
+		
+	))
+	waitmovement(0)
+	delay(10)
+	applymovement(LOCALID_PLAYER, moves(
+		face_left
+	))
+	msgbox(
+	"Hey!\n"
+	"Don't look at me!", MSGBOX_DEFAULT)
+	fadedefaultbgm
+	msgbox(
+	"after battle\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_AROUND_WORLD_LASS, moves(
+		walk_left * 6
+		walk_down * 6
+		walk_fastest_left
+		walk_fastest_up * 12
+		walk_fastest_right
+		face_down
+	))
+	waitmovement(0)
+	copyobjectxytoperm(LOCALID_AROUND_WORLD_LASS)
+	setobjectmovementtype(LOCALID_AROUND_WORLD_LASS, MOVEMENT_TYPE_FACE_DOWN)
+	setvar(VAR_AROUND_THE_WORLD_LASS, 1)
 	release
+	end
+}
+
+
+script Route21_Lass {
+	msgbox(
+	"Hey!\n"
+	"Stop looking at me!", MSGBOX_NPC)
 }

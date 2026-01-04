@@ -641,9 +641,23 @@ bool8 ScrCmd_fadescreen(struct ScriptContext * ctx)
 
 bool8 ScrCmd_fadescreeninstant(struct ScriptContext * ctx)
 {
+    u8 mode = ScriptReadByte(ctx);
     gFadeScreenInstant = TRUE;
-    FadeScreen(ScriptReadByte(ctx), 0);
-    SetupNativeScript(ctx, IsPaletteNotActive);
+    switch (mode)
+    {
+    case FADE_TO_BLACK:
+    case FADE_TO_WHITE:
+    default:
+        CpuCopy32(gPlttBufferUnfaded, gPaletteDecompressionBuffer, PLTT_SIZE);
+        FadeScreen(mode, 0);
+        break;
+    case FADE_FROM_BLACK:
+    case FADE_FROM_WHITE:
+        CpuCopy32(gPaletteDecompressionBuffer, gPlttBufferUnfaded, PLTT_SIZE);
+        FadeScreen(mode, 0);
+        break;
+    }
+    SetupNativeScript(ctx, IsPaletteNotActive); //idk what this does
     gFadeScreenInstant = FALSE;
     return TRUE;
 }
@@ -651,7 +665,7 @@ bool8 ScrCmd_fadescreeninstant(struct ScriptContext * ctx)
 bool8 ScrCmd_fadescreenswapbuffers(struct ScriptContext *ctx)
 {
     u8 mode = ScriptReadByte(ctx);
-
+    
     switch (mode)
     {
     case FADE_TO_BLACK:
@@ -2594,6 +2608,26 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext * ctx)
             break;
         } else {
             //DebugPrintf("Not the pokemon");
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_checkpartymonslot(struct ScriptContext * ctx)
+{
+    u8 i;
+    u16 speciesId = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = PARTY_SIZE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
+        {
+            gSpecialVar_Result = i;
+            break;
         }
     }
     return FALSE;

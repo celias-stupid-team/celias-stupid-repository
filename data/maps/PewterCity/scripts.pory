@@ -978,13 +978,13 @@ script EventScript_PewterCity_AlolanOak {
 			textcolor(NPC_TEXT_COLOR_TREE)
 			msgbox("{FONT_SMALL}OAK?: Hey!\nWhat's the big idea?\pOne minute I'm sitting here,\nsoaking up the sun.\pThe next, some brat decides to dump\nsome water on me!\pAh, to heck with it.\nI'm outta here!", MSGBOX_DEFAULT)
 			closemessage
-			fadescreen(FADE_TO_BLACK)
+			fadescreenswapbuffers(FADE_TO_BLACK)
 			setflag(FLAG_CELIA_SECRET_PEWTER)
 			removeobject(IMPOSTER_OAK)
 			playse(SE_EXIT)
 			fadeoutbgm(1)
 			waitse
-			fadescreen(FADE_FROM_BLACK)
+			fadescreenswapbuffers(FADE_FROM_BLACK)
 			delay(90)
 			addobject(CELIA)
 			setobjectxy(CELIA, 9, 24)

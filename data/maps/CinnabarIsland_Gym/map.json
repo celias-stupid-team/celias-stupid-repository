@@ -19,7 +19,7 @@
       "local_id": "LOCALID_QUINN",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 3,
+      "x": 8,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -33,7 +33,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 11,
+      "x": 16,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -48,7 +48,7 @@
       "local_id": "LOCALID_AVERY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 11,
+      "x": 16,
       "y": 28,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -63,7 +63,7 @@
       "local_id": "LOCALID_RAMON",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 3,
+      "x": 8,
       "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -77,7 +77,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMNERD",
-      "x": 4,
+      "x": 9,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -92,7 +92,7 @@
       "local_id": "LOCALID_DUSTY",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SUPER_NERD",
-      "x": 3,
+      "x": 8,
       "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -107,7 +107,7 @@
       "local_id": "LOCALID_ZAC",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 11,
+      "x": 16,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -121,7 +121,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLAINE",
-      "x": 7,
+      "x": 12,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -135,7 +135,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GYM_GUY",
-      "x": 8,
+      "x": 13,
       "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -150,7 +150,7 @@
       "local_id": "LOCALID_DEREK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMNERD",
-      "x": 9,
+      "x": 14,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -164,35 +164,35 @@
   ],
   "warp_events": [
     {
-      "x": 6,
+      "x": 11,
       "y": 40,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "1"
     },
     {
-      "x": 7,
+      "x": 12,
       "y": 40,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "1"
     },
     {
-      "x": 8,
+      "x": 13,
       "y": 40,
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "1"
     },
     {
-      "x": 4,
+      "x": 9,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
       "dest_warp_id": "5"
     },
     {
-      "x": 6,
+      "x": 11,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_CINNABAR_ISLAND",
@@ -202,7 +202,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 5,
+      "x": 10,
       "y": 3,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -211,7 +211,7 @@
     },
     {
       "type": "trigger",
-      "x": 7,
+      "x": 12,
       "y": 37,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -220,7 +220,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 9,
       "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -229,7 +229,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 8,
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -238,7 +238,7 @@
     },
     {
       "type": "trigger",
-      "x": 2,
+      "x": 7,
       "y": 4,
       "elevation": 0,
       "var": "VAR_TEMP_C",
@@ -249,7 +249,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 5,
+      "x": 10,
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -257,7 +257,7 @@
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 14,
       "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -265,7 +265,7 @@
     },
     {
       "type": "sign",
-      "x": 24,
+      "x": 29,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -273,7 +273,7 @@
     },
     {
       "type": "sign",
-      "x": 25,
+      "x": 30,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -281,7 +281,7 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 22,
       "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -289,7 +289,7 @@
     },
     {
       "type": "sign",
-      "x": 18,
+      "x": 23,
       "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -297,7 +297,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 20,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -305,7 +305,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 21,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -313,7 +313,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 20,
       "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -321,7 +321,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 21,
       "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -329,7 +329,7 @@
     },
     {
       "type": "sign",
-      "x": 3,
+      "x": 8,
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -337,7 +337,7 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 9,
       "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -345,7 +345,7 @@
     },
     {
       "type": "sign",
-      "x": 3,
+      "x": 8,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -353,7 +353,7 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 9,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -361,7 +361,7 @@
     },
     {
       "type": "sign",
-      "x": 5,
+      "x": 10,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -369,7 +369,7 @@
     },
     {
       "type": "sign",
-      "x": 4,
+      "x": 9,
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

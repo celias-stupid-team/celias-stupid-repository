@@ -97,13 +97,13 @@ script BrendanMay_ImposterOak {
             delay(50)
             textcolor(NPC_TEXT_COLOR_TREE)
             msgbox("{FONT_SMALL}OAK?: Wha-\nHey!\lHow'd you get in here?\pI found this nice empty home to\nmove to, livin' all by myself.\pAnd then some self-important jerk\nshoves in and drenches me in water!\lWhat's up with that?\pMan, forget this.\nYou wanna go upstairs? Fine!\pI'll spread my roots somewhere\nelse!", MSGBOX_DEFAULT)
-            fadescreen(FADE_TO_BLACK)
+            fadescreenswapbuffers(FADE_TO_BLACK)
             fadedefaultbgm
             playse(SE_EXIT)
             call(BrendanMay_DrawStaircase)
             special(DrawWholeMapView)
             waitse
-            fadescreen(FADE_FROM_BLACK)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
             release
             end
         } else {

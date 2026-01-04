@@ -2,26 +2,7 @@ raw `
 SSAnne_CaptainsOffice_MapScripts::
 	.byte 0
 
-SSAnne_CaptainsOffice_EventScript_Captain::
-	lock
-	goto_if_set FLAG_GOT_HM01, SSAnne_CaptainsOffice_EventScript_AlreadyGotCut
-	msgbox SSAnne_CaptainsOffice_Text_CaptainIFeelSeasick
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-	message SSAnne_CaptainsOffice_Text_RubbedCaptainsBack
-	waitmessage
-	playfanfare MUS_HEAL
-	waitfanfare
-	call EventScript_RestorePrevTextColor
-	delay 50
-	applymovement LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SSAnne_CaptainsOffice_Text_ThankYouHaveHMForCut
-	giveitem_msg SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM
-	msgbox SSAnne_CaptainsOffice_Text_ExplainCut
-	setflag FLAG_GOT_HM01
-	setvar VAR_MAP_SCENE_VERMILION_CITY, 1
-	release
-	end
+
 
 @ Unused
 SSAnne_CaptainsOffice_EventScript_NoRoomForCut::
@@ -70,10 +51,126 @@ script SSAnne_TrashCan {
 
 }
 
+script SSAnne_Bookshelf {
+	msgbox(
+	"A collection of foreign literature.\p"
+
+	"“Mi Vida Secreta, capítulo tres”,\n"
+	"“Ma vie secrète, chapitre trois”,\l"
+	"“ワタシノヒミツノセイカツ, ダイサンショウ”…", MSGBOX_SIGN)
+
+}
+
 
 script SSAnne_CaptainLog {
-	msgbox(
-	"insert joke here\n"
-	"", MSGBOX_SIGN)
+	lock
+	braillemessage(Braille_Text_MySecretLife)
+	waitbuttonpress
+	braillemessage(Braille_Text_ChapterThree)
+	waitbuttonpress
+	release
+}
 
+
+script SSAnne_CaptainsOffice_EventScript_Captain {
+	lock
+	goto_if_set(FLAG_GOT_HM01, SSAnne_CaptainsOffice_EventScript_AlreadyGotCut)
+	msgbox(
+	"CAPTAIN: urrp…\p"
+
+	"My first day on the job and I\n"
+	"messed up this badly…?\p"
+
+	"How am I ever going to show my\n"
+	"face to the crew again?", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	message(SSAnne_CaptainsOffice_Text_RubbedCaptainsBack)
+	waitmessage
+	fadenewbgm(MUS_NONE)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	call(EventScript_RestorePrevTextColor)
+	delay(50)
+	closemessage
+	applymovement(LOCALID_SS_ANNE_CAPTAIN, Common_Movement_FacePlayer)
+	waitmovement(0)
+	delay(60)
+	msgbox(
+	"…{PAUSE 30}Hello?\p"
+
+	"Is there someone there?\n"
+	"", MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox(
+		"Oh, okay.\p"
+
+		"Never mind, then.\n"
+		"", MSGBOX_DEFAULT)
+		closemessage
+		applymovement(VAR_LAST_TALKED, moves(
+			face_up
+		))
+		fadedefaultbgm
+		waitmovement(0)
+		release
+		end
+	}
+	closemessage
+	waitse
+	playse(SE_PIN)
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	fadedefaultbgm
+	msgbox(
+	"Ah, hello!\n"
+	"Were you a passenger?\l"
+	"Or perhaps one of the crew?\p"
+
+	"…No?{PAUSE 30}\n"
+	"Just a trainer passing through?\p"
+
+	"Well met!\n"
+	"I am the CAPTAIN of this ship.\p"
+
+	"Sadly I…{PAUSE 30} fumbled a bit on my\n"
+	"maiden voyage.\l"
+	"I'm Blind, as you can see.\p"
+
+	"Here, take this HM.\n"
+	"", MSGBOX_DEFAULT)
+	giveitem_msg(SSAnne_CaptainsOffice_Text_ObtainedHM01FromCaptain, ITEM_HM01, 1, MUS_OBTAIN_KEY_ITEM)
+	msgbox(
+	"If we're going to get ourselves\n"
+	"out of this mess, we need to find\l"
+	"the rest of my crew.\p"
+
+	"Follow along, if you'd like!\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_NORTH) {
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_slow_left * 1
+			walk_slow_down * 3
+			walk_slow_left * 1
+			face_left
+	))
+
+	} else {
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_slow_down * 3
+			walk_slow_left * 2
+			face_left
+		))
+
+	}
+	waitmovement(0)
+	delay(20)
+	playse(SE_EXIT)
+	removeobject(VAR_LAST_TALKED)
+	setflag(FLAG_GOT_HM01)
+	release
 }

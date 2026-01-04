@@ -445,6 +445,17 @@ const struct SpriteTemplate gWillOWispFireSpriteTemplate =
     .callback = AnimWillOWispFire,
 };
 
+const struct SpriteTemplate gSpacialRendBladesTemplate =
+{
+    .tileTag = ANIM_TAG_PUNISHMENT_BLADES,
+    .paletteTag = ANIM_TAG_PINK_HEART_2, //ANIM_TAG_BERRY_EATEN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_BasicFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpiralOutward
+};
+
 // Directions for shaking up/down or left/right in AnimTask_ShakeTargetInPattern
 // Only first 10 values are ever accessed.
 // First pattern results in larger shakes, second results in faster oscillation

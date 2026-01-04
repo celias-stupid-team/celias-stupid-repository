@@ -804,6 +804,8 @@ const u8 gText_SecretBase[] = _("ひみつきち");
 const u8 gText_Hideout[] = _("アジト");
 const u8 gText_YourName[] = _("YOUR NAME?");
 const u8 gText_YourSSN[] = _("YOUR ID?");
+const u8 gText_GetAChansey[] = _("Get a CHANSEY?");
+const u8 gText_BerryPowderManFate[] = _("BERRY POWDER MAN is…?");
 const u8 gText_BoxName[] = _("BOX NAME?");
 const u8 gText_PkmnsNickname[] = _("'s nickname?");
 const u8 gText_RivalsName[] = _("RIVAL's NAME?");
@@ -938,6 +940,13 @@ const u8 gText_NoSaveFileCantSetTime[] = _("レポ-トが ないので\nじか�
 const u8 gText_InGameClockUsable[] = _("ゲ-ムない じかんの しゅうせい システムが\nつかえる ように なりました!");
 const u8 gText_SavingDontTurnOffThePower2[] = _("SAVING…\nDON'T TURN OFF THE POWER.");
 const u8 gText_Leekd[] = _("LEEKD");
+const u8 gText_DEAD[] = _("DEAD");
+const u8 gText_DeadLower[] = _("Dead");
+const u8 gText_DIED[] = _("DIED");
+const u8 gText_DiedLower[] = _("Died");
+const u8 gText_YesLower[] = _("Yes");
+const u8 gText_YUP[] = _("YUP");
+const u8 gText_YupLower[] = _("Yup");
 
 // Start menu option descriptions
 const u8 gStartMenuDesc_Pokedex[] = _("A device that records POKéMON secrets\nupon meeting or catching them.");

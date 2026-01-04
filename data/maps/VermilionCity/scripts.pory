@@ -387,44 +387,7 @@ script Vermillion_ChildMemorial {
 				msgbox("Ah.\n", MSGBOX_DEFAULT)
 			}
 			
-		} else {
-			msgbox("Kick the memorial?\n", MSGBOX_YESNO)
-			if(var(VAR_RESULT)) {
-				closemessage
-				delay(10)
-
-				addvar(VAR_VERMILLION_MEMORIAL, 1)
-
-				if(var(VAR_VERMILLION_MEMORIAL) >= 4) { //Break the sign
-					playse(SE_SUPER_EFFECTIVE)
-					setmetatile(40, 17, METATILE_General_Plain_Mowed, FALSE)
-					special(DrawWholeMapView)
-					setvar(VAR_0x8006, 8) // Number
-					setvar(VAR_0x8005, 2) // Y 
-					setvar(VAR_0x8004, 5) //X
-					setvar(VAR_0x8007, 5) //Duration
-					special(ShakeScreen)
-					waitse
-					addvar(VAR_VERMILLION_MEMORIAL, 1)
-					delay(45)
-					msgbox("The memorial broke.\n", MSGBOX_DEFAULT)
-					
-
-
-				} else {
-					playse(SE_EFFECTIVE)
-					setvar(VAR_0x8006, 8) // Number
-					setvar(VAR_0x8005, 2) // Y 
-					setvar(VAR_0x8004, 5) //X
-					setvar(VAR_0x8007, 5) //Duration
-					special(ShakeScreen)
-					waitse
-					delay(45)
-					msgbox("Ah.\n", MSGBOX_DEFAULT)
-				}
-			}
-
-		}
+		} 
 	} else {
 		msgbox("The memorial broke.\n", MSGBOX_DEFAULT)
 		closemessage
@@ -441,32 +404,7 @@ script Vermillion_ChildMemorial {
 				waitse
 				delay(60)
 				msgbox("Ouch.\n", MSGBOX_DEFAULT)
-		} else {
-			msgbox("Kick the ground?\n", MSGBOX_YESNO)
-			if(var(VAR_RESULT)) {
-				closemessage
-				addvar(VAR_TEMP_5, 1)
-				playse(SE_NOT_EFFECTIVE)
-				setvar(VAR_0x8006, 8) // Number
-				setvar(VAR_0x8005, 2) // Y 
-				setvar(VAR_0x8004, 5) //X
-				setvar(VAR_0x8007, 5) //Duration
-				special(ShakeScreen)
-				waitse
-				delay(60)
-				playmoncry(SPECIES_DIGLETT, CRY_MODE_NORMAL)
-				waitmoncry
-				if(var(VAR_TEMP_5) == 3) {
-					setflag(FLAG_SHINY_CREATION) //Diglett
-					setwildbattle(SPECIES_DIGLETT, 15)
-					dowildbattle
-				} else {
-					msgbox("Oh?\n", MSGBOX_DEFAULT)
-
-				}
-
-			}
-		}
+		} 
 	}
 	release
 

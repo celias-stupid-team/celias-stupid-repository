@@ -870,6 +870,10 @@ const u32 gItemIconPalette_CRMPLEDPAGE[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_PESTERBALL[] = INCBIN_U32("graphics/items/icons/pester_ball.4bpp.lz");
 const u32 gItemIconPalette_PESTERBALL[] = INCBIN_U32("graphics/items/icon_palettes/pester_ball.gbapal.lz");
 
+const u32 gItemIcon_BlueBall[] = INCBIN_U32("graphics/items/icons/blue_ball.4bpp.lz");
+const u32 gItemIconPalette_BlueBall[] = INCBIN_U32("graphics/items/icon_palettes/blue_ball.gbapal.lz");
+
+
 const u32 gItemIcon_BURNBALL[] = INCBIN_U32("graphics/items/icons/burn_ball.4bpp.lz");
 const u32 gItemIconPalette_BURNBALL[] = INCBIN_U32("graphics/items/icon_palettes/burn_ball.gbapal.lz");
 

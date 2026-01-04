@@ -225,6 +225,7 @@ script Route1_CeliaCrew_Sphyralg {
 }
 
 script Route1_CeliaCrew_Starlight {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"STARLIGHT: I tried to modify this\n"
 	"map to escape, but the PIT is too\l"

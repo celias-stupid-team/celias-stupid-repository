@@ -300,6 +300,11 @@ static const u8 sItemEffect_SoulDew[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+
+static const u8 sItemEffect_LetterW[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 static const u8 sItemEffect_WaterStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
@@ -426,6 +431,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_RUNNING_SHOES - ITEM_POTION] = sItemEffect_RunningShoes,
     [ITEM_SUPER_SCOPE - ITEM_POTION] = sItemEffect_SuperScope,
     [ITEM_SOUL_DEW - ITEM_POTION] = sItemEffect_SoulDew,
+    [ITEM_LETTER_W - ITEM_POTION] = sItemEffect_LetterW,
     //LAST_BERRY_INDEX commented becaus it is equal to ITEM_LIBERRY
     //[LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };
