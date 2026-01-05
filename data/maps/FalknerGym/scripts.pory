@@ -107,8 +107,9 @@ script FalknerGym_Falkner {
         playfanfare(MUS_OBTAIN_BADGE)
         msgbox(
         "{PLAYER} obtained the\n"
-        "ZEPHYRBADGE!", MSGBOX_DEFAULT)
+        "FEATHERBADGE!", MSGBOX_DEFAULT)
         waitfanfare
         setflag(FLAG_OBTAINED_ZEPHYRBADGE)
     }
+    release
 }

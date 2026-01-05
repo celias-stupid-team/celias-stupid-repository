@@ -3393,12 +3393,12 @@
       "secondaryId": 0
     },
     {
-      "english": "NEVERMELTICE",
+      "english": "TWISTEDICE",
       "itemId": "ITEM_NEVER_MELT_ICE",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_ICE_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item to be held by a POKéMON.\\nA piece of ice that repels heat\\nand boosts ICE-type moves.",
+      "description_english": "CASTELIA CITY's famous ice cream,\\neaten with a NEVERMELTSPOON.\\nMay induce evolution with a trade.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -3425,12 +3425,12 @@
       "secondaryId": 0
     },
     {
-      "english": "TWISTEDSPOON",
+      "english": "NEVRMLTSPOON",
       "itemId": "ITEM_TWISTED_SPOON",
       "price": 100,
       "holdEffect": "HOLD_EFFECT_PSYCHIC_POWER",
       "holdEffectParam": 10,
-      "description_english": "An item to be held by a POKéMON.\\nA spoon imbued with telekinetic\\npower boosts PSYCHIC-type moves.",
+      "description_english": "A spoon which repels all twisting.\\nTrading with this item may cause\\na POKéMON to evolve.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
@@ -6880,7 +6880,7 @@
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "CASTELIA CITY's local ice cream.\\nIt heals all the status problems of\\none POKéMON.",
+      "description_english": "CASTELIA CITY's local ice cream.\\nHolding it during a trade may\\ninduce an evolution.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

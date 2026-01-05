@@ -531,6 +531,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_GROUDON_HIDDEN  0x1168
 #define OBJ_EVENT_PAL_TAG_HOOTHOOT  0x1169
 #define OBJ_EVENT_PAL_TAG_MAGNEMITE  0x116A
+#define OBJ_EVENT_PAL_TAG_BRENDAN  0x116B
+#define OBJ_EVENT_PAL_TAG_MANTYKE  0x116C
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -635,6 +637,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_groudon_hidden,             OBJ_EVENT_PAL_TAG_GROUDON_HIDDEN},
     {gObjectEventPal_HOOTHOOT,             OBJ_EVENT_PAL_TAG_HOOTHOOT},
     {gObjectEventPal_MAGNEMITE,             OBJ_EVENT_PAL_TAG_MAGNEMITE},
+    {gObjectEventPal_Brendan,             OBJ_EVENT_PAL_TAG_BRENDAN},
+    {gObjectEventPal_MANTYKE,             OBJ_EVENT_PAL_TAG_MANTYKE},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

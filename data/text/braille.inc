@@ -118,7 +118,7 @@ Braille_Text_ForYou::
 
 
 AlteringCave_Braille_DEFGHI::
-	.braille "ABCDEFGHIJKLM$"
+	.braille "W$"
 
 Braille_Text_JKLMNO::
 	.braille "NOPQRSTUV XYZ$"

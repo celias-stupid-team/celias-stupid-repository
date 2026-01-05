@@ -56,3 +56,10 @@ script AetherParadise_FoundGroudon {
 script AetherParadise_Groudon {
     release
 }
+
+
+script AetherParadise_Sophacles {
+	msgbox(
+	"Festival Plaza\n"
+	"", MSGBOX_NPC)
+}

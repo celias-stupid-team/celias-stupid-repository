@@ -91,3 +91,95 @@ script Yes_SewerSignGirl {
 	"commit SEWER SIGN.", MSGBOX_NPC)
 
 }
+
+script Yes_Brendan {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"BRENDAN: Oh…\n"
+	"Hey, there.\l"
+	"My name's BRENDAN.\p"
+
+	"My family just moved out, but it\n"
+	"looks like they forgot me…\p"
+
+	"Say, could you do me a favor?\p"
+
+	"They took my favorite hat there.\n"
+	"I don't feel right without it.\p"
+
+	"Could you go to my family's new\n"
+	"house and find it for me?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"No,{PAUSE 30} it's in FUSHCIA CITY actually.\p"
+
+		"Because they{PAUSE 30} moved.\n"
+		"{PAUSE 60}Away from here.", MSGBOX_DEFAULT)
+		release
+	} else {
+		msgbox(
+		"Aww, darn.\n"
+		"I understand, though.\p"
+
+		"I guess…{PAUSE 30} I'm back to being\n"
+		"alone and forgotten.\l"
+		"Sigh…", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script Yes_BrendanShirt {
+	msgbox(
+	"They didn't even leave him a\n"
+	"copy of his favorite shirt…", MSGBOX_SIGN)
+
+}
+
+
+script Yes_BrendanHouseSign {
+	msgbox(
+	"BRENDAN's house.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script Yes_CenterNPC1 {
+	lock
+	faceplayer
+	msgbox(
+	"Placeholder NPC 1\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Yes dialogue\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"No dialogue\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script Yes_CenterNPC2 {
+	lock
+	faceplayer
+	msgbox(
+	"Placeholder NPC 2\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Yes dialogue\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"No dialogue\n"
+		"", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}

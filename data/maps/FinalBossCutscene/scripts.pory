@@ -1,0 +1,15 @@
+mapscripts FinalBossCutscene_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_0, 1 {
+            delay(30)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            playse(SE_BALL_THROW)
+            waitse
+            delay(20)
+            playse(SE_BALL_OPEN)
+            delay(60)
+            // load image one
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+        }
+    ]
+}

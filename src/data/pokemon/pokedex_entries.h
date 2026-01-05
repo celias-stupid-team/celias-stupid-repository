@@ -5402,7 +5402,7 @@ const struct PokedexEntry gPokedexEntries[] =
     },
     [NATIONAL_DEX_MELMETAL] =
     {
-        .categoryName = _("PLACEHOLDER"),
+        .categoryName = _("HESTU'S"),
         .height = 25,
         .weight = 800,
         .description = gMelmanurePokedexText,

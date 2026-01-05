@@ -179,7 +179,12 @@ script WardensHouse_TalkToWarden {
 				waitmovement(0)
 
 			} else {
-				msgbox(FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_DEFAULT)
+				if(checkmoncaught(SPECIES_REMORAID)) {
+					msgbox("WARDEN: The DMCA kidnapped my good\nfriend, the FISHING GURU'S BROTHER.\lHe's somewhere in the SAFARI ZONE.\pIf you can find him, he might know\nwhat they're looking for.\pGood luck.\nI'm sure you can save us!", MSGBOX_DEFAULT)
+				} else {
+					msgbox(FushciaCity_WardensHouse_Text_HifFuffHefifoo, MSGBOX_DEFAULT)
+
+				}
 			}
 		}
 

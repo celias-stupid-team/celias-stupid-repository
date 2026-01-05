@@ -33,7 +33,7 @@
     {
       "local_id": "LOCALID_CHAMPIONS_ROOM_PROF_OAK",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
       "x": 6,
       "y": 15,
       "elevation": 0,
@@ -93,7 +93,7 @@
     {
       "local_id": "LOCALID_CHAMPIONS_ROOM_MARY",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 9,
       "y": 6,
       "elevation": 3,

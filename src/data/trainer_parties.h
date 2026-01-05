@@ -4271,7 +4271,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DMCAGrunt19[] = {
     {
         .iv = 0,
         .lvl = 25,
-        .species = SPECIES_IRON_BUNDLE,
+        .species = SPECIES_SCREAM_TAIL,
     },
 };
 

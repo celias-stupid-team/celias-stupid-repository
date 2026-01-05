@@ -53,3 +53,14 @@ script GreatSea_ShrineIsland {
 	"", MSGBOX_DEFAULT)
     release
 }
+
+
+script GreatSea_SpindaFamilyReuinion {
+	msgbox(
+	"SPINDA\n"
+	"Family Reuinion!\p"
+
+	"All SPINDAS welcome!\n"
+	"", MSGBOX_SIGN)
+
+}

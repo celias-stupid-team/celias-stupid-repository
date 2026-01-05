@@ -93,7 +93,7 @@
     {
       "local_id": "LOCALID_CREDITS_RIVAL5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "graphics_id": "OBJ_EVENT_GFX_LARRY",
       "x": 84,
       "y": 6,
       "elevation": 0,

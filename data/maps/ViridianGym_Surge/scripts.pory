@@ -92,8 +92,8 @@ script ViridianGym_Surge_DrawFirstGateOpen {
     setmetatile(6, 15, METATILE_VermilionGym_Floor, FALSE)
     setmetatile(7, 14, METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off, FALSE)
     setmetatile(7, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off, FALSE)
-    setmetatile(7, 14, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
-    setmetatile(7, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
+    setmetatile(8, 14, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
+    setmetatile(8, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
     special(DrawWholeMapView)
     return
 }
@@ -109,8 +109,8 @@ script ViridianGym_Surge_DrawSecondGateOpen {
     setmetatile(6, 7, METATILE_VermilionGym_Floor, FALSE)
     setmetatile(7, 6, METATILE_VermilionGym_Beam_Node_TopRight_Edge_Off, FALSE)
     setmetatile(7, 7, METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off, FALSE)
-    setmetatile(7, 6, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
-    setmetatile(7, 7, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
+    setmetatile(8, 6, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
+    setmetatile(8, 7, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
     special(DrawWholeMapView)
     return
 }

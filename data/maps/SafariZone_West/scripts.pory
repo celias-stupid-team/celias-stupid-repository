@@ -70,3 +70,22 @@ movement SafariZone_ChucksterApproaches {
 	walk_up * 2
 	face_up
 }
+
+script SafariZone_GruncleStan {
+	msgbox(
+	"My EX-WIFE still misses me…\p"
+
+	"{PAUSE 30}…But her aim is gettin' better!\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SafariZone_Remoraid {
+	lock
+	playmoncry(SPECIES_OCTILLERY, CRY_MODE_DEFAULT)
+	msgbox(
+	"REMORAID used LOCK-ON!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+}
