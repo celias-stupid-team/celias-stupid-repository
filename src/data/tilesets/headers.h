@@ -1150,3 +1150,14 @@ const struct Tileset gTileset_pkmnzeroisland =
     .metatileAttributes = gMetatileAttributes_pkmnzeroisland,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Route12Again =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route12Again,
+    .palettes = gTilesetPalettes_Route12Again,
+    .metatiles = gMetatiles_Route12Again,
+    .metatileAttributes = gMetatileAttributes_Route12Again,
+    .callback = NULL,
+};

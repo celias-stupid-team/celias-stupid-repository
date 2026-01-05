@@ -310,3 +310,6 @@ const u32 gMetatileAttributes_RainbowCloud[] = INCBIN_U32("data/tilesets/seconda
 
 const u16 gMetatiles_pkmnzeroisland[] = INCBIN_U16("data/tilesets/secondary/pkmnzeroisland/metatiles.bin");
 const u32 gMetatileAttributes_pkmnzeroisland[] = INCBIN_U32("data/tilesets/secondary/pkmnzeroisland/metatile_attributes.bin");
+
+const u16 gMetatiles_Route12Again[] = INCBIN_U16("data/tilesets/secondary/route_12again/metatiles.bin");
+const u32 gMetatileAttributes_Route12Again[] = INCBIN_U32("data/tilesets/secondary/route_12again/metatile_attributes.bin");
