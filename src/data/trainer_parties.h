@@ -10338,3 +10338,39 @@ static const struct TrainerMonItemCustomMoves sParty_FuckPirate[] = {
         .moves = {MOVE_RAZOR_WIND_CANCEL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
+
+
+
+
+static const struct TrainerMonNoItemDefaultMoves sParty_AbsolFisher[] = {
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_ABSOL,
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_ABSOL,
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_ABSOL,
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_ABSOL,
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_DRAGAPULT,
+    },
+    {
+        .iv = 0,
+        .lvl = 16,
+        .species = SPECIES_ABSOL,
+    },
+};

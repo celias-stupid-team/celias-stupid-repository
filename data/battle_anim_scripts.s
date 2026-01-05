@@ -571,7 +571,7 @@ gBattleAnims_Moves::
 	.4byte Move_EVIL_METRONOME
 	.4byte Move_SHADOW_FORCE
 	.4byte Move_DARK_PULSE
-	.4byte Move_CSR_DUMMY_2
+	.4byte Move_TRUMP_CARD
 	.4byte Move_DRAGON_PULSE
 	.4byte Move_HEAL_PULSE
 	.4byte Move_ORIGIN_PULSE
@@ -15340,7 +15340,7 @@ Move_DARK_PULSE:
 	end
 
 
-Move_CSR_DUMMY_2:
+Move_TRUMP_CARD:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	setalpha 12, 8

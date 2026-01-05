@@ -63,7 +63,7 @@
 #define TRAINER_WALLY                             58
 #define TRAINER_BRENDAN                           59
 #define TRAINER_CSR_MT_MOON_END_LASS 60
-#define TRAINER_CSR_DUMMY_2 61
+#define TRAINER_ABSOL_FISHER 61
 #define TRAINER_MAY                               62
 #define TRAINER_CSR_DUMMY_3 63
 #define TRAINER_CSR_DUMMY_4 64
