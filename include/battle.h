@@ -564,6 +564,7 @@ struct BattleScripting
     u8 reshowMainState;
     u8 reshowHelperState;
     u8 levelUpHP;
+    s32 savedData;
 };
 
 struct BattleSpriteInfo

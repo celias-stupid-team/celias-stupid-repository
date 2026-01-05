@@ -265,12 +265,14 @@ BattleScript_LeftoverWallyPrepToThrow::
 	end2
 
 BattleScript_TrainerASlideMsgRet::
-	trainerslidein BS_OPPONENT1
+	trainerslidesavebattler B_POSITION_OPPONENT_LEFT
+	trainerslidein BS_ATTACKER @ vanilla macro uses BS_ATTACKER instead of positional data
 	waitstate
-	handletrainerslidemsg
+	handletrainerslidemsg B_POSITION_OPPONENT_LEFT
 	waitmessage B_WAIT_TIME_LONGEST
-	trainerslideout BS_OPPONENT1
+	trainerslideout B_POSITION_OPPONENT_LEFT
 	waitstate
+	trainersliderestorebattler B_POSITION_OPPONENT_LEFT
 	return
 
 BattleScript_TrainerASlideMsgEnd2::

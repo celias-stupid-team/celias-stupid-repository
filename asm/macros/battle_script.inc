@@ -1593,18 +1593,27 @@
 	callnative BS_SetUsed108TupleTeam
 	.endm
 
-	.macro handletrainerslidemsg
+	.macro trainerslidesavebattler position:req
+	callnative BS_TrainerSlideSaveBattler
+	.byte \position
+	.endm
+
+	.macro handletrainerslidemsg position:req
 	callnative BS_HandleTrainerSlideMsg
+	.byte \position
 	.endm
 
-	.macro trytrainerslidemsgfirstoff battler:req
+	.macro trainersliderestorebattler position:req
+	callnative BS_TrainerSlideRestoreBattler
+	.byte \position
+	.endm
+
+	.macro trytrainerslidemsgfirstoff
 	callnative BS_TryTrainerSlideMsgFirstOff
-	.byte \battler
 	.endm
 
-	.macro trytrainerslidemsglaston battler:req
+	.macro trytrainerslidemsglaston
 	callnative BS_TryTrainerSlideMsgLastOn
-	.byte \battler
 	.endm
 	
 	.macro trainerslideout position:req
@@ -1612,7 +1621,6 @@
 	.byte \position
 	.endm
 
-	.macro trytrainerslidemsgswitchin battler:req
+	.macro trytrainerslidemsgswitchin
 	callnative BS_TryTrainerSlideMsgSwitchIn
-	.byte \battler
 	.endm
