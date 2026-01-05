@@ -74,3 +74,20 @@ script Yes_ChanseyNPC {
 		release
 	}
 }
+
+script Yes_SewerSign {
+	msgbox(
+	"CELADON CITY\n"
+	"SEWERS", MSGBOX_SIGN)
+
+}
+
+
+script Yes_SewerSignGirl {
+	msgbox(
+	"Oh, please don't do any vandalism.\p"
+
+	"I can't stand to see another soul\n"
+	"commit SEWER SIGN.", MSGBOX_NPC)
+
+}

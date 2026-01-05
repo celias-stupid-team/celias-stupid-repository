@@ -255,3 +255,29 @@ script Minnesota_GouldenSam {
 	"placeholder", MSGBOX_SIGN)
 
 }
+
+
+script Minnesota_FootballCoach {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Y'know…{PAUSE 30}\n"
+	"I've done a lot of thinking in life.\p"
+
+	"And after some reflection{PAUSE 15} I clearly\n"
+	"know that deep down,{PAUSE 45} I am a FOOTBALL  {PAUSE 30}\l"
+	"{PAUSE 30}COACH.", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script Minnesota_FakeCage {
+	msgbox(
+	"You know what you did.\n"
+	"", MSGBOX_SIGN)
+
+}

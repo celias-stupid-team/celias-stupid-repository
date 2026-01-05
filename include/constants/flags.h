@@ -444,7 +444,7 @@
 #define FLAG_GOT_GOLD_TEETH                   0x189
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_POTION                   0x18A
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE                   0x18B
-#define FLAG_0x18C                      0x18C
+#define FLAG_GOT_SHINY_SYLVEON                      0x18C
 #define FLAG_0x18D                        0x18D
 #define FLAG_0x18E                       0x18E
 #define FLAG_0x18F                         0x18F
@@ -1546,7 +1546,7 @@
 #define FLAG_CSR_MAP_NATIONAL_PARK                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM                                                  (SYS_FLAGS + 0xD9)
-#define FLAG_CSR_MAP_DUMMY_5                                                  (SYS_FLAGS + 0xDA)
+#define FLAG_WORLD_MAP_PIRATE_BAY                                                  (SYS_FLAGS + 0xDA)
 #define FLAG_CSR_MAP_DUMMY_6                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
 #define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)

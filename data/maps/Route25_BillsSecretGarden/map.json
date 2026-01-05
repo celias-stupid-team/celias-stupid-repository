@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE25_BILLS_SECRET_GARDEN",
   "name": "Route25_BillsSecretGarden",
   "layout": "LAYOUT_ROUTE25_BILLS_SECRET_GARDEN",
-  "music": "MUS_NONE",
+  "music": "MUS_DELIVERY",
   "region_map_section": "MAPSEC_SECRET_GARDEN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

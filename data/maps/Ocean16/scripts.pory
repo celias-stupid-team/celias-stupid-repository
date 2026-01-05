@@ -1,3 +1,32 @@
 mapscripts Ocean16_MapScripts {
 
 }
+
+
+script Desert_RelicCastle {
+	msgbox(
+	"RELIC CASTLE\n"
+	"{PAUSE 30}Ruins", MSGBOX_SIGN)
+
+}
+
+
+script Desert_DMCAFuckhead {
+	msgbox(
+	"Serves them right.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Desert_DavidHasselhoff {
+	msgbox(
+	"I am david hasselhoff\n"
+	"", MSGBOX_NPC)
+}
+
+
+script Desert_AlienInDisguise {
+	msgbox(
+	"Please bring me STEEL WING\n"
+	"", MSGBOX_NPC)
+}

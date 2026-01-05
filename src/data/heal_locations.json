@@ -431,6 +431,22 @@
       "y": 9,
       "respawn_map": "MAP_POKEMON_LEAGUE_AGATHAS_ROOM",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_GREAT_SEA_PIRATE_BAY",
+      "map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "x": 41,
+      "y": 6,
+      "respawn_map": "MAP_GREAT_SEA_PIRATE_BAY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_MINNESOTA",
+      "map": "MAP_MINNESOTA",
+      "x": 22,
+      "y": 35,
+      "respawn_map": "MAP_MINNESOTA",
+      "respawn_npc": "1"
     }
   ]
 }

@@ -18,3 +18,80 @@ CeladonCity_Hotel_EventScript_BeautyBrother::
 	msgbox CeladonCity_Hotel_Text_SisBroughtMeOnVacation, MSGBOX_NPC
 	end
 `
+
+
+script CeladonHotel_WomanWhoAsks {
+	lock
+	faceplayer
+	msgbox(
+	"Heya, fellow citizen!\p"
+
+	"I came to visit CELADON CITY on\n"
+	"vacation, but when I stepped out\l"
+	"I found it a bit…{PAUSE 30} trashy.\p"
+
+	"Do you know what's outside?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"Ohhh, it's YES?\n"
+		"That{PAUSE 30} makes sense.\p"
+
+		"Thank you!\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"Hmm, you don't either?\n"
+		"Strange…", MSGBOX_DEFAULT)
+	}
+	release
+}
+
+script CeladonHotel_SylveonPC {
+	lock
+	playse(SE_PC_ON)
+	if(flag(FLAG_GOT_SHINY_SYLVEON)) {
+		msgbox(
+		"{PLAYER} booted up the PC!\p"
+
+		"Nope!\n"
+		"Nothing but trash!", MSGBOX_DEFAULT)
+		release
+		end
+	}
+	msgbox(
+	"{PLAYER} booted up the PC!\p"
+
+	"Hey!\n"
+	"It's there's a POKéMON in here!", MSGBOX_DEFAULT)
+	setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SYLVEON)
+	setflag(FLAG_SHINY_CREATION)
+	msgbox(
+	"{PLAYER} withdrew someone's\n"
+	"SYLVEON!", MSGBOX_DEFAULT)
+	waitfanfare
+	closemessage
+	setflag(FLAG_GOT_SHINY_SYLVEON)
+	call(Common_Script_GiftPokemon)
+	release
+	end
+}
+
+
+script CeladonHotel_Lilycove {
+	msgbox(
+	"Looking out the window, you see\n"
+	"the skyline of LILYCOVE CITY.", MSGBOX_SIGN)
+
+}
+
+
+script CeladonHotel_AcrossCounter {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"What's that?\p"
+
+	"I can't hear you from across the\n"
+	"counter.", MSGBOX_SIGN)
+
+}
