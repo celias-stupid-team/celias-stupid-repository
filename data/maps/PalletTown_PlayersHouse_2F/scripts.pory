@@ -117,7 +117,7 @@ script PalletTown_Truck_Opening {
 
 script PlayerRoom_TruckShapedHole {
 	if(flag(FLAG_DRILLED_PALLET_HOLE)) {
-			msgbox("The wall is now adorned with twice\nas many holes.", MSGBOX_DEFAULT)
+			msgbox("The wall is now adorned with twice\nas many holes.", MSGBOX_SIGN)
 			end
 
 	}

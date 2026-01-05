@@ -298,3 +298,24 @@ script MayRoom_LassDead {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script MayRoom_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"There you are!\l"
+	"I saw you a minute ago.\p"
+
+	"That girl who ran through here\n"
+	"really made a mess.\l"
+	"I think all the doors are open!\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
