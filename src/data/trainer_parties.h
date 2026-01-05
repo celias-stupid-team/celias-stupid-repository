@@ -9550,13 +9550,13 @@ static const struct TrainerMonNoItemCustomMoves sParty_PokerapTrainer29[] = {
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_KOFFING_POKERAP,
+        .species = SPECIES_PINSIR_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
         .iv = 0,
         .lvl = 15,
-        .species = SPECIES_PINSIR_POKERAP,
+        .species = SPECIES_KOFFING_POKERAP,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

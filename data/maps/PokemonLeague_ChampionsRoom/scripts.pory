@@ -42,7 +42,6 @@ PokemonLeague_ChampionsRoom_EventScript_TurnPlayerNorth::
 
 PokemonLeague_ChampionsRoom_OnFrame::
 	map_script_2 VAR_TEMP_1, 0, PokemonLeague_ChampionsRoom_EventScript_EnterRoom
-	map_script_2 VAR_TEMP_1, 1, PokemonLeague_ChampionsRoom_EventScript_EnterRoom
 	.2byte 0
 
 
@@ -179,6 +178,9 @@ PokemonLeague_ChampionsRoom_Movement_RivalWatchOakEnter::
 script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	lockall
 	textcolor (NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_DEFEATED_FINAL_BOSS)) {
+		goto(PokemonLeagueChampionsRoom_FinishedBattle)
+	}
 	setflag (FLAG_TEMP_2)
 	applymovement (LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerEnter)
 	waitmovement (0)
@@ -229,7 +231,7 @@ script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 	delay(20)
 	msgbox(
 	"HARRY: When my rat got killed,{PAUSE 20}\n"
-	"you just stood there and watched!", MSGBOX_DEFAULT)
+	"you just stood there and watched.", MSGBOX_DEFAULT)
 	closemessage
 
 	
@@ -295,6 +297,10 @@ script PokemonLeague_ChampionsRoom_EventScript_EnterRoom {
 
 script PokemonLeagueChampionsRoom_FinishedBattle {
 	lockall
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	special(DrawWholeMapView)
 	textcolor (NPC_TEXT_COLOR_MALE)
 	setflag (FLAG_TEMP_2)
 	setflag (FLAG_TEMP_3)
@@ -304,32 +310,73 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	setflag (FLAG_DEFEATED_CHAMP)
 	setflag (FLAG_TEMP_4)
 	msgbox (PokemonLeague_ChampionsRoom_Text_PostBattle)
-	playbgm (MUS_SLOW_PALLET, 0)
 	addobject (LOCALID_CHAMPIONS_ROOM_PROF_OAK)
-	msgbox (PokemonLeague_ChampionsRoom_Text_OakPlayer)
 	closemessage
-	applymovement (LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerWatchOakEnter)
-	applymovement (LOCALID_CHAMPIONS_ROOM_RIVAL, PokemonLeague_ChampionsRoom_Movement_RivalWatchOakEnter)
-	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, PokemonLeague_ChampionsRoom_Movement_OakEnter)
-	waitmovement (0)
+	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		walk_up * 8
+		face_right
+		delay_16 * 2
+	))
+	waitmovement(0)
+	closemessage
+	applymovement(LOCALID_CHAMPIONS_ROOM_RIVAL, moves(
+		face_left
+		lock_facing_direction
+		slide_right * 8
+	))
+	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		walk_right
+		delay_16 * 4
+		face_down
+	))
+	waitmovement(LOCALID_CHAMPIONS_ROOM_RIVAL)
+	waitmovement(LOCALID_CHAMPIONS_ROOM_PROF_OAK)
 	delay (25)
-	specialvar (VAR_RESULT, GetStarterSpecies)
-	bufferspeciesname (STR_VAR_1, VAR_RESULT)
-	msgbox (PokemonLeague_ChampionsRoom_Text_OakCongratulations)
-	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, Common_Movement_WalkInPlaceFasterRight)
-	applymovement (LOCALID_CHAMPIONS_ROOM_RIVAL, Common_Movement_WalkInPlaceFasterLeft)
-	waitmovement (0)
-	msgbox (PokemonLeague_ChampionsRoom_Text_OakImDisappointedRival)
+	playbgm (MUS_SLOW_PALLET, 0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox(
+	"Hiya, {PLAYER}.\n"
+	"It's me, CELIA!\p"
+
+	"You've done it!\n"
+	"That was your final trial!\p"
+
+	"Every hurdle in your path, I put\n"
+	"here to build you up.\l"
+	"I hope you now understand.\p"
+
+	"Now, come along.\n"
+	"It's time to see the end.", MSGBOX_DEFAULT)
 	closemessage
-	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, Common_Movement_WalkInPlaceFasterDown)
-	waitmovement (0)
-	delay (20)
-	msgbox (PokemonLeague_ChampionsRoom_Text_OakPlayerComeWithMe)
-	closemessage
-	delay (13)
-	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, PokemonLeague_ChampionsRoom_Movement_OakExit)
-	applymovement (LOCALID_PLAYER, PokemonLeague_ChampionsRoom_Movement_PlayerExit)
-	waitmovement (0)
+	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		walk_slow_up * 4
+		face_right
+	))
+	applymovement (LOCALID_PLAYER, moves(
+		walk_slow_up * 6
+		delay_16
+		face_down
+
+	))
+	applymovement(LOCALID_CHAMPIONS_ROOM_HARRY, moves(
+		delay_16 * 2
+		emote_exclamation_mark
+		delay_16 * 4
+		walk_fast_right * 2
+		face_left
+	))
+	waitmovement (LOCALID_PLAYER)
+	applymovement(LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		walk_right
+		face_up
+		walk_in_place_up * 2
+		face_up
+	))
+	waitmovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up
+	))
+	waitmovement(LOCALID_PLAYER)
 	setvar(VAR_TEMP_1, 2)
 	warp(MAP_POKEMON_LEAGUE_HALL_OF_FAME, 5, 12)
 	waitstate

@@ -1,15 +1,420 @@
 mapscripts FinalBossCutscene_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_0, 1 {
+        VAR_TEMP_0, 0 {
             delay(30)
             fadescreenswapbuffers(FADE_TO_BLACK)
             playse(SE_BALL_THROW)
             waitse
             delay(20)
+            applymovement(LOCALID_PLAYER, moves(
+                face_up
+            ))
             playse(SE_BALL_OPEN)
             delay(60)
             // load image one
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_2, 0,0,0,0,14, 10)
+            playse(SE_M_STRENGTH)
             fadescreenswapbuffers(FADE_FROM_BLACK)
+            delay(60)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            delay(30)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_3, 0,0,0,0,14, 10)
+            playse(SE_M_STRENGTH)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            delay(60)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            delay(30)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_FULL, 0,0,0,0,14, 10)
+            delay(60)
+            playse(SE_EFFECTIVE)
+            fadescreeninstant(FADE_FROM_BLACK)
+            setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+            setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+            setvar(VAR_SHAKESCREEN_NUM_SHAKES, 10)
+            setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+            special(ShakeScreen)
+            playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
+            waitmoncry
+            delay(30)
+            playse(SE_WALL_HIT)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP, 0,0,0,0,14, 10)
+            delay(20)
+            playse(SE_WALL_HIT)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL, 0,0,0,0,14, 10)
+            delay(20)
+            playse(SE_WALL_HIT)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO, 0,0,0,0,14, 10)
+            delay(30)
+            playse(SE_WALL_HIT)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH, 0,0,0,0,14, 10)
+            delay(30)
+            playse(SE_WALL_HIT)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH_GIA, 0,0,0,0,14, 10)
+            delay(60)
+            setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE, 0,0,0,0,14, 10)
+            playbgm(MUS_SV_ELITE_FOUR, TRUE)
+            setvar(VAR_TEMP_0, 1)
+            release
+            //trainerbattle_no_intro(TRAINER_CHAMPION_FIRST_CHARMANDER, "end of battle")
+            //setvar(VAR_FINAL_BATTLE_FINISHED, 1)
+            //warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
         }
     ]
+}
+
+
+script FinalBattle_Simualtion {
+    lock
+    switch(var(VAR_FINAL_BATTLE_PHASE)) {
+        case 0:
+            msgbox(
+            "LARRY, JERRY, HARRY, LARRY, and\n"
+            "GARY sent out ZAPMOLCUNO-OHGIA!", MSGBOX_DEFAULT)
+            addvar(VAR_FINAL_BATTLE_PHASE, 1)
+            release
+            end
+        case 1:
+            msgbox(
+            "LUGIA used\n"
+            "SHADOW SKY!\p"
+
+            "All non-SHADOW POKéMON will\n"
+            "FAINT at the end of the turn!", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "LUGIA used\n"
+            "SHADOW SHIELD!\p"
+
+            "ZAPMOLCUNO-OHGIA\n"
+            "was protected!", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "(your POKéMON) was afflicted\n"
+            "by the SHADOW SKY!", MSGBOX_DEFAULT)
+            addvar(VAR_FINAL_BATTLE_PHASE, 1)
+            release
+            end
+        case 2:
+            fadenewbgm(MUS_NONE)
+            msgbox(
+            "{PLAYER} is out of usable\n"
+            "POKéMON!", MSGBOX_DEFAULT)
+            msgbox(
+            "GARY: Yeah!\n"
+            "Are we great or what?", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            playmoncry(SPECIES_ROTOM, CRY_MODE_DEFAULT)
+            waitmoncry
+            playbgm(MUS_PRELUDE_TO_FINALE, TRUE)
+            delay(120)
+            msgbox(
+            "…?\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "It's your ROTOM POKéDEX!\n"
+            "", MSGBOX_DEFAULT)
+            delay(40)
+            fadenewbgm(MUS_NONE)
+            msgbox(
+            "(rotom comes down, attaches itself\n"
+            "to battle UI)", MSGBOX_DEFAULT)
+            closemessage
+            delay(30)
+            msgbox(
+            "Awesome! You can now access your\n"
+            "BOX during battle!", MSGBOX_DEFAULT)
+            playbgm(MUS_THE_GAME_IS_AFOOT, TRUE)
+            setflag(FLAG_SYS_ROTOM_MENU)
+            addvar(VAR_FINAL_BATTLE_PHASE, 1)
+            release
+            end
+        
+        case 3:
+            msgbox(
+            "Open your start menu to play along!\n"
+            "", MSGBOX_DEFAULT)
+            addvar(VAR_FINAL_BATTLE_PHASE, 1)
+                release
+                end
+        case 4:
+            msgbox(
+            "LUGIA used\n"
+            "SHADOW SHIELD!", MSGBOX_DEFAULT)
+            closemessage
+            if(checkpartymon(SPECIES_CASTFORM)) {
+                msgbox(
+                "CASTFORM became\n"
+                "SHADOW-TYPE!\p"
+
+                "CASTFORM used\n"
+                "RAINBOW BEAM!", MSGBOX_DEFAULT)
+                addvar(VAR_FINAL_BATTLE_PHASE, 1)
+                playmoncry(SPECIES_LUGIA, CRY_MODE_FAINT)
+                waitmoncry
+                msgbox(
+                "Foe LUGIA fainted!\n"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                delay(60)
+                msgbox(
+                "ARTICUNO used\n"
+                "QUINTUPLE WINGBEAT!", MSGBOX_DEFAULT)
+                msgbox(
+                "CASTFORM fainted!\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                msgbox(
+                "Your POKéMON fainted!\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            }
+        case 5:
+            msgbox(
+            "ARTICUNO used\n"
+            "QUINTUPLE WINGBEAT!", MSGBOX_DEFAULT)
+            closemessage
+            if(checkpartymon(SPECIES_ONIX)) {
+                msgbox(
+                "It doesn't affect ONIX!\p"
+
+                "ONIX used\n"
+                "BROCK THROW!", MSGBOX_DEFAULT)
+                addvar(VAR_FINAL_BATTLE_PHASE, 1)
+                playmoncry(SPECIES_ARTICUNO, CRY_MODE_FAINT)
+                waitmoncry
+                msgbox(
+                "Foe ARTICUNO fainted!\n"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                delay(60)
+                msgbox(
+                "HO-OH hung on with its\n"
+                "REVENGE ability!", MSGBOX_DEFAULT)
+                msgbox(
+                "HO-OH used\n"
+                "VOLCANIC HEALING!\p"
+
+                "HO-OH's HP is maxed out!\p"
+
+                "ONIX fainted!\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                msgbox(
+                "Your POKéMON fainted!\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            }
+        case 6:
+            msgbox(
+            "HO-OH used\n"
+            "VOLCANIC HEALING!"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            if(checkpartymon(SPECIES_MR_MIME)) {
+                msgbox(
+                "DAD's RESTLESS\n"
+                "prevents taking a REST!", MSGBOX_DEFAULT)
+                addvar(VAR_FINAL_BATTLE_PHASE, 1)
+                playmoncry(SPECIES_HO_OH, CRY_MODE_FAINT)
+                waitmoncry
+                msgbox(
+                "Foe HO-OH fainted!\n"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                delay(60)
+                msgbox(
+                "ZAPDOS is charging energy.\p"
+
+                "DAD used\n"
+                "(attack)!\p"
+
+                "ZAPDOS unleashed its energy!\p"
+
+                "DAD fainted!\p"
+
+                "ZAPDOS took 50% recoil!\p"
+
+                "ZAPDOS's RECHARGE\n"
+                "healed it to full!", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                msgbox(
+                "HO-OH's HP is maxed out!\p"
+
+                "ONIX fainted!\n"
+                "", MSGBOX_DEFAULT)
+                release
+                end
+            }
+        case 7:
+            msgbox(
+            "ZAPDOS is charging energy.\n"
+            "", MSGBOX_DEFAULT)
+            if(checkpartymon(SPECIES_RATTATA) || checkpartymon(SPECIES_RATTATA_SHINY)) {
+                msgbox(
+                "RATTATA used\n"
+                "ENDEAVOR!\p"
+
+                "ZAPDOS goes down to 10% HP!\p"
+
+                "ZAPDOS unleashed its energy!\n"
+                "RATTATA fainted!\p"
+
+                "ZAPDOS hit itself in recoil!"
+	            "", MSGBOX_DEFAULT)
+                addvar(VAR_FINAL_BATTLE_PHASE, 1)
+                playmoncry(SPECIES_ZAPDOS, CRY_MODE_FAINT)
+                waitmoncry
+                msgbox(
+                "Foe ZAPDOS fainted!\n"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                delay(60)
+                msgbox(
+                "(screen fades out)\n"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                fadenewbgm(MUS_NONE)
+                msgbox(
+                "Oh, shoot!\n"
+                "The lights went out!", MSGBOX_DEFAULT)
+                playmoncry(SPECIES_ROTOM, CRY_MODE_FAINT)
+                msgbox(
+                "You've lost connection with\n"
+                "the ROTOM POKéDEX!", MSGBOX_DEFAULT)
+                release
+                end
+            } else {
+                msgbox(
+                "Your POKéMON attacks!\n"
+                "ZAPDOS takes 10 percent Damage!\p"
+
+                "ZAPDOS unleashed its energy!\p"
+
+                "Your POKéMON fainted!\n"
+                "ZAPDOS took 50% recoil!\p"
+
+                "ZAPDOS's RECHARGE\n"
+                "healed it to full!", MSGBOX_DEFAULT)
+            }
+        case 8:
+            msgbox(
+            "FIGHT does not work.\n"
+            "BOX does not work.\l"
+            "RUN does not work.\p"
+
+            "You open your BAG.\n"
+            "", MSGBOX_DEFAULT)
+
+            closemessage
+            delay(30)
+            msgbox(
+            "You select{PAUSE 30} your BIKE.\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            playbgm(MUS_GRAND_FINALE, TRUE)
+            msgbox(
+            "{PLAYER} send out BIKE!\n"
+            "", MSGBOX_DEFAULT)
+            playse(SE_BIKE_BELL)
+            waitse
+            msgbox(
+            "BIKE used\n"
+            "COLLISION COURSE!\p"
+
+            "Foe MOLTRES fainted!\n"
+            "", MSGBOX_DEFAULT)
+            playmoncry(SPECIES_MOLTRES, CRY_MODE_FAINT)
+            addvar(VAR_FINAL_BATTLE_PHASE, 1)
+            release
+            end
+        case 9:
+            msgbox(
+            "RIVAL GARY sent out\n"
+            "WARTORTLE!\p"
+
+            "{PAUSE 30}Go!\n"
+            "CHARMANDER!", MSGBOX_DEFAULT)
+            playmoncry(SPECIES_CHARMANDER, CRY_MODE_DEFAULT)
+            waitmoncry
+            msgbox(
+            "{PAUSE 30}CHARMANDER used\n"
+            "SCRATCH!\l"
+            "(15 health)\p"
+
+            "WARTORTLE used\n"
+            "HYPER BEAM!\l"
+            "(40 health.)\p"
+
+            "{PAUSE 30}CHARMANDER used\n"
+            "SCRATCH!\l"
+            "(15 health)\p"
+
+            "WARTORTLE used\n"
+            "HYPER BEAM!\l"
+            "(40 health. Low health beep)", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "Don't give up!\n"
+            "Trust your instincts!", MSGBOX_DEFAULT)
+            delay(30)
+            msgbox(
+            "DAD!?\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "CHARMANDER used\n"
+            "SCRATCH!\l"
+            "(60 health!!)\p"
+
+            "WARTORTLE used\n"
+            "HYPER BEAM!\l"
+            "{PAUSE 30}CHARMANDER's HP was restored!", MSGBOX_DEFAULT)
+            msgbox(
+            "CHARMANDER used\n"
+            "SCRATCH!", MSGBOX_DEFAULT)
+            playse(SE_M_SCRATCH)
+            playbgm(MUS_NONE, TRUE)
+            delay(30)
+            msgbox(
+            "Foe WARTORTLE fainted!\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
+            msgbox(
+            "CHARMANDER gained\n"
+            "60 EXP!", MSGBOX_DEFAULT)
+            playse(SE_EXP)
+            waitse
+            playse(SE_EXP_MAX)
+            waitse
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(
+            "CHARMANDER grew to\n"
+            "LEVEL 5!", MSGBOX_DEFAULT)
+            waitfanfare
+            playfanfare(MUS_LEVEL_UP)
+            msgbox(
+            "CHARMANDER learned\n"
+            "EMBER!", MSGBOX_DEFAULT)
+            waitfanfare
+            closemessage
+            delay(30)
+            setflag(FLAG_DEFEATED_FINAL_BOSS)
+            warpsilent(MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM, 2)
+
+    }
 }

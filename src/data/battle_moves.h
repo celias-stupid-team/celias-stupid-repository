@@ -7061,10 +7061,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_BROCK_TOMB] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .type = TYPE_BROCK,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -7074,10 +7074,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_BROCK_BLAST] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
+        .effect = EFFECT_HIT, // Placeholder Effect
         .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .type = TYPE_BROCK,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
@@ -7087,10 +7087,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_BROCK_WRECKER] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
+        .effect = EFFECT_HIT, // Placeholder Effect
+        .power = 50,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
         .pp = 35,
         .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,

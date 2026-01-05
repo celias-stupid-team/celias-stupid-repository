@@ -6816,6 +6816,102 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/FinalBossCutscene/border.bin",
       "blockdata_filepath": "data/layouts/FinalBossCutscene/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH_GIA",
+      "name": "FinalBossCutscene_Layout_ZapMolCuno_OhGia",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno_OhGia/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno_OhGia/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP",
+      "name": "FinalBossCutscene_Layout_Zap",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_Zap/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_Zap/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH",
+      "name": "FinalBossCutscene_Layout_ZapMolCuno_Oh",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno_Oh/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno_Oh/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_FULL",
+      "name": "FinalBossCutscene_Layout_Full",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_Full/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_Full/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL",
+      "name": "FinalBossCutscene_Layout_ZapMol",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMol/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMol/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO",
+      "name": "FinalBossCutscene_Layout_ZapMolCuno",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_ZapMolCuno/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_3",
+      "name": "FinalBossCutscene_Layout_3",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_3/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_2",
+      "name": "FinalBossCutscene_Layout_2",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter8",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/FinalBossCutscene_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_2/map.bin"
     }
   ]
 }
