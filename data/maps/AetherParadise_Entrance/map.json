@@ -145,6 +145,20 @@
       "elevation": 0,
       "dest_map": "MAP_AETHER_PARADISE_NEBBY_ROOM",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_AETHER_PARADISE_ISLAND",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
@@ -320,5 +334,22 @@
       "script": "AetherParadise_DMCA_StopsYou"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_EmergencyExit"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_WimpOut"
+    }
+  ]
 }

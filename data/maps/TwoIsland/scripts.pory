@@ -690,6 +690,23 @@ script TwoIsland_BurnHeal {
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
 		playbgm(MUS_MEGALOVANIA, TRUE)
+		closemessage
+		delay(120)
+		msgbox(
+		"(fight here)\n"
+		"", MSGBOX_DEFAULT)
+		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
+			fadedefaultbgm
+			msgbox(
+			"{FONT_COMIC_SANS}I am dead\n"
+			"", MSGBOX_DEFAULT)
+			giveitem(ITEM_BURN_HEAL)
+		}
+		msgbox(
+		"{FONT_COMIC_SANS}you lose\p"
+
+		"no burn heal for you\n"
+		"", MSGBOX_DEFAULT)
 		release
 		end
 	} else {

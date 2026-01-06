@@ -405,6 +405,9 @@ void StartLegendaryBattle(void)
     case SPECIES_MEWTWO:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_MEWTWO);
         break;
+    case SPECIES_SKUNTANK:
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_CSR_DMCA_ADMIN);
+        break;
     case SPECIES_DEOXYS:
     case SPECIES_ORTHWORM:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_DEOXYS);

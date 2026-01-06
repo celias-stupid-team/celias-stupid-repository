@@ -536,7 +536,8 @@
 #define ITEM_POTION_EXE 454
 #define ITEM_MAGIC_MUFFLER 455
 #define ITEM_COPYCAT_TM 456
-#define ITEMS_COUNT 457
+#define ITEM_TOP 457
+#define ITEMS_COUNT 458
 
 #define ITEM_TO_BERRY(itemId) (((itemId - FIRST_BERRY_INDEX) + 1))
 #define MAIL_NONE 0xFF

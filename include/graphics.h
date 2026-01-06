@@ -12684,3 +12684,6 @@ extern const u32 gMonShinyPalette_ZAPMOLCUNO[];
 extern const u8 gMonFootprint_ZAPMOLCUNO[];
 extern const u8 gMonIcon_ZAPMOLCUNO[];
 
+
+extern const u32 gItemIcon_Top[];
+extern const u32 gItemIconPalette_Top[];

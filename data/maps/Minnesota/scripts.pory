@@ -281,3 +281,20 @@ script Minnesota_FakeCage {
 	"", MSGBOX_SIGN)
 
 }
+
+
+script Minnesota_WalMartSign {
+	msgbox(
+	"WAL MART\p"
+
+	"We sell walls.\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Minnesota_Hospital {
+	msgbox(
+	"HOSPITAL\n"
+	"Bankruptcy capital of the world!", MSGBOX_SIGN)
+
+}

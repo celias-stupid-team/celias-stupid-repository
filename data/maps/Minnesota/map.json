@@ -437,6 +437,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
       "script": "Minnesota_FakeCage"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_WalMartSign"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_WalMartSign"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_Hospital"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_Hospital"
     }
   ]
 }

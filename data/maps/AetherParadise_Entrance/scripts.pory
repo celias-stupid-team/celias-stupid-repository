@@ -26,6 +26,7 @@ script AetherParadise_SkuntankHint {
 }
 
 script AetherParadise_Guzma {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"GUZMA: Those phoney TEAM SKULL\n"
 	"guys are rough!\p"
@@ -42,6 +43,7 @@ script AetherParadise_Guzma {
 }
 
 script AetherParadise_SkullGruntHint {
+	textcolor(NPC_TEXT_COLOR_RED)
 	msgbox(
 	"Man!\n"
 	"That SKUNTANK is real nasty, yo!\p"
@@ -120,11 +122,11 @@ script AetherParadise_SkuntankBattle {
 	"I am skuntank\n"
 	"fuck you", MSGBOX_DEFAULT)
 	setflag(FLAG_SYS_KANGA_FIGHT)
-	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
+	seteventbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
 	playbgm(MUS_DUMMY, TRUE)
-	setflag(FLAG_SYS_KANGA_FIGHT)
+	//setflag(FLAG_SYS_KANGA_FIGHT)
 	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
-	dowildbattle
+	special(DoLegendaryBattle)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
@@ -147,6 +149,7 @@ script AetherParadise_SkuntankBattle {
 
 
 script AetherParadise_SkullGruntDmca {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"be careful the dmca is here\n"
 	"", MSGBOX_NPC)

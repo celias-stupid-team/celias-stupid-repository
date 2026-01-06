@@ -939,3 +939,6 @@ const u32 gItemIconPalette_MagicMuffler[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_CopycatTm[] = INCBIN_U32("graphics/items/icons/copycat_tm.4bpp.lz");
 const u32 gItemIconPalette_CopycatTm[] = INCBIN_U32("graphics/items/icon_palettes/copycat_tm.gbapal.lz");
+
+const u32 gItemIcon_Top[] = INCBIN_U32("graphics/items/icons/top.4bpp.lz");
+const u32 gItemIconPalette_Top[] = INCBIN_U32("graphics/items/icon_palettes/top.gbapal.lz");
