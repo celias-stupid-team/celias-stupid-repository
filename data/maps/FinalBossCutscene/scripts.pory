@@ -1,7 +1,7 @@
 mapscripts FinalBossCutscene_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TEMP_0, 0 {
-            delay(30)
+            delay(10)
             fadescreenswapbuffers(FADE_TO_BLACK)
             playse(SE_BALL_THROW)
             waitse
@@ -10,20 +10,20 @@ mapscripts FinalBossCutscene_MapScripts {
                 face_up
             ))
             playse(SE_BALL_OPEN)
-            delay(60)
+            delay(90)
             // load image one
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_2, 0,0,0,0,14, 10)
             playse(SE_M_STRENGTH)
             fadescreenswapbuffers(FADE_FROM_BLACK)
             delay(60)
             fadescreenswapbuffers(FADE_TO_BLACK)
-            delay(30)
+            delay(45)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_3, 0,0,0,0,14, 10)
             playse(SE_M_STRENGTH)
             fadescreenswapbuffers(FADE_FROM_BLACK)
             delay(60)
             fadescreenswapbuffers(FADE_TO_BLACK)
-            delay(30)
+            delay(15)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_FULL, 0,0,0,0,14, 10)
             delay(60)
             playse(SE_EFFECTIVE)
@@ -387,13 +387,18 @@ script FinalBattle_Simualtion {
             msgbox(
             "CHARMANDER used\n"
             "SCRATCH!", MSGBOX_DEFAULT)
+            delay(30)
             playse(SE_M_SCRATCH)
+            waitse
+            playse(SE_EFFECTIVE)
             playbgm(MUS_NONE, TRUE)
+            waitse
             delay(30)
             msgbox(
             "Foe WARTORTLE fainted!\n"
             "", MSGBOX_DEFAULT)
             closemessage
+            delay(40)
             msgbox(
             "CHARMANDER gained\n"
             "60 EXP!", MSGBOX_DEFAULT)
@@ -401,6 +406,7 @@ script FinalBattle_Simualtion {
             waitse
             playse(SE_EXP_MAX)
             waitse
+            delay(10)
             playfanfare(MUS_LEVEL_UP)
             msgbox(
             "CHARMANDER grew to\n"

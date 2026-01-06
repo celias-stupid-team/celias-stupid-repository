@@ -311,14 +311,16 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	setflag (FLAG_TEMP_4)
 	msgbox (PokemonLeague_ChampionsRoom_Text_PostBattle)
 	addobject (LOCALID_CHAMPIONS_ROOM_PROF_OAK)
-	closemessage
+	fadenewbgm(MUS_NONE)
 	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		delay_16 * 2
 		walk_up * 8
 		face_right
 		delay_16 * 2
 	))
 	waitmovement(0)
 	closemessage
+	playse(SE_WALL_HIT)
 	applymovement(LOCALID_CHAMPIONS_ROOM_RIVAL, moves(
 		face_left
 		lock_facing_direction
@@ -327,12 +329,17 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
 		walk_right
 		delay_16 * 4
+		walk_down
 		face_down
 	))
+	delay(10)
+	playse(SE_FALL)
 	waitmovement(LOCALID_CHAMPIONS_ROOM_RIVAL)
 	waitmovement(LOCALID_CHAMPIONS_ROOM_PROF_OAK)
+	
 	delay (25)
-	playbgm (MUS_SLOW_PALLET, 0)
+	waitse
+	playbgm (MUS_SLOW_PALLET, TRUE)
 	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox(
 	"Hiya, {PLAYER}.\n"
@@ -341,39 +348,57 @@ script PokemonLeagueChampionsRoom_FinishedBattle {
 	"You've done it!\n"
 	"That was your final trial!\p"
 
-	"Every hurdle in your path, I put\n"
-	"here to build you up.\l"
-	"I hope you now understand.\p"
+	"Every hurdle along your way,{PAUSE 20} I\n"
+	"placed so I could build you up.\l"
+	"I hope you understand.\p"
 
-	"Now, come along.\n"
+	"You've come so far.\n"
+	"You should be proud of yourself.\p"
+
+	"Now, come along!{PAUSE 20}\n"
 	"It's time to see the end.", MSGBOX_DEFAULT)
 	closemessage
+	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
+		walk_slow_left
+		walk_slow_down
+		face_up
+		delay_16 * 2
+	))
+	waitmovement(LOCALID_CHAMPIONS_ROOM_PROF_OAK)
 	applymovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
 		walk_slow_up * 4
 		face_right
 	))
 	applymovement (LOCALID_PLAYER, moves(
 		walk_slow_up * 6
-		delay_16
+		delay_8
+		face_up
+		delay_16 * 2
 		face_down
 
 	))
 	applymovement(LOCALID_CHAMPIONS_ROOM_HARRY, moves(
-		delay_16 * 2
+		delay_16 * 1
+		delay_8
 		emote_exclamation_mark
-		delay_16 * 4
+		delay_16 * 2
 		walk_fast_right * 2
 		face_left
 	))
 	waitmovement (LOCALID_PLAYER)
+	delay(30)
 	applymovement(LOCALID_CHAMPIONS_ROOM_PROF_OAK, moves(
 		walk_right
 		face_up
+		delay_16
 		walk_in_place_up * 2
 		face_up
 	))
 	waitmovement (LOCALID_CHAMPIONS_ROOM_PROF_OAK)
+	delay(30)
 	applymovement(LOCALID_PLAYER, moves(
+		face_up
+		delay_16 * 3
 		walk_up
 	))
 	waitmovement(LOCALID_PLAYER)

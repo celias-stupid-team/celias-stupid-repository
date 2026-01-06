@@ -152,7 +152,7 @@
     },
     {
       "x": 6,
-      "y": 5,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
       "dest_warp_id": "0"

@@ -6939,12 +6939,12 @@
       "secondaryId": "SEAL_CASE_BALL"
     },
     {
-      "english": "LETTER W",
+      "english": "LETTER",
       "itemId": "ITEM_LETTER_W",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A mysterious letter W.\\nIt appears to have a special\\nfunction.",
+      "description_english": "An extremely important letter to\\nSTEVEN from the PRESIDENT of the\\nDEVON CORPORATION.",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

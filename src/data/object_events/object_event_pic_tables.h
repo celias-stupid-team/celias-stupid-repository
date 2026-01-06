@@ -4874,3 +4874,14 @@ const struct SpriteFrameImage gObjectEventPicTable_SHIELDFUCK[] = {
     overworld_frame(gObjectEventPic_SHIELDFUCK, 2, 4, 2),
     overworld_frame(gObjectEventPic_SHIELDFUCK, 2, 4, 2),
 };
+const struct SpriteFrameImage gObjectEventPicTable_BRENDANHAT[] = {
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BRENDANHAT, 4, 4, 2),
+};

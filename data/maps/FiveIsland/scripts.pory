@@ -96,21 +96,100 @@ script Yes_Brendan {
 	lock
 	faceplayer
 	textcolor(NPC_TEXT_COLOR_BLUE)
-	msgbox(
-	"BRENDAN: Oh…\n"
-	"Hey, there.\l"
-	"My name's BRENDAN.\p"
+	if(var(VAR_TRADING_QUEST_PHASE) > 0) {
+		msgbox(
+		"BRENDAN: I love my hat.\n"
+		"", MSGBOX_DEFAULT)
+	}
+	if(flag(FLAG_TALKED_TO_BRENDAN)) {
+		if(checkitem(ITEM_HAT)) {
+			msgbox(
+			"BRENDAN: Oh, wow!\n"
+			"That's my HAT!\p"
 
-	"My family just moved out, but it\n"
-	"looks like they forgot me…\p"
+			"Thanks so much!\n"
+			"Let me just…", MSGBOX_DEFAULT)
+			closemessage
+			delay(10)
+			playse(SE_CLICK)
+			setobjectxy(LOCALID_BRENDANHAT, 8, 4)
+			applymovement(VAR_LAST_TALKED, moves(
+				face_left
+				delay_16 * 3
+			))
+			waitmovement(0)
+			applymovement(VAR_LAST_TALKED, moves(
+				face_left
+				set_invisible
+			))
+			applymovement(LOCALID_BRENDANHAT, moves(
+				face_down
+				set_visible
+				delay_16
+				face_up
+				delay_16
+				face_left
+				delay_16
+				
+			))
+			waitmovement(LOCALID_BRENDANHAT)
+			applymovement(LOCALID_BRENDANHAT, moves(
+				set_invisible
+			))
+			applymovement(VAR_LAST_TALKED, moves(
+				set_visible
+			))
+			playse(SE_M_SPIT_UP)
+			delay(45)
+			faceplayer
+			removeitem(ITEM_HAT)
+			setvar(VAR_TRADING_QUEST_PHASE, 1)
+			msgbox(
+			"Ah, perfect!\n"
+			"Fits like a glove!\p"
 
-	"Say, could you do me a favor?\p"
+			"Thank you for finding that for me.\p"
 
-	"They took my favorite hat there.\n"
-	"I don't feel right without it.\p"
+			"By the way, I have one more favor.\p"
 
-	"Could you go to my family's new\n"
-	"house and find it for me?", MSGBOX_YESNO)
+			"I was supposed to deliver a letter\n"
+			"to a man called STEVEN STONE.\l"
+			"He's on CINNABAR right now.\p"
+
+			"Here, you can have it.\n"
+			"I wanna enjoy my hat for a bit.", MSGBOX_DEFAULT)
+			giveitem_msg("{PLAYER} was given the\nLETTER!", ITEM_LETTER_W)
+			waitfanfare
+			release
+			end
+
+		}
+		msgbox(
+		"BRENDAN: My family just moved away,\n"
+		"but they left me behind.\l"
+		"They took my favorite hat, though.\p"
+
+		"Could you go to their new house\n"
+		"and find it for me?", MSGBOX_YESNO)
+
+	} else {
+		msgbox(
+		"BRENDAN: Oh…\n"
+		"Hey, there.\l"
+		"My name's BRENDAN.\p"
+
+		"My family just moved out, but it\n"
+		"looks like they forgot me…\p"
+
+		"Say, could you do me a favor?\p"
+
+		"They took my favorite hat there.\n"
+		"I don't feel right without it.\p"
+
+		"Could you go to my family's new\n"
+		"house and find it for me?", MSGBOX_YESNO)
+
+	}
 	if(var(VAR_RESULT)) {
 		msgbox(
 		"No,{PAUSE 30} it's in FUSHCIA CITY actually.\p"
@@ -127,8 +206,11 @@ script Yes_Brendan {
 		"alone and forgotten.\l"
 		"Sigh…", MSGBOX_DEFAULT)
 	}
+	setflag(FLAG_TALKED_TO_BRENDAN)
 	release
 }
+
+
 
 script Yes_BrendanShirt {
 	msgbox(

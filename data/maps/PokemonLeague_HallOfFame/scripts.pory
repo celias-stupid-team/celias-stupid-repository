@@ -41,7 +41,7 @@ script PokemonLeague_HallOfFame_EventScript_EnterRoom {
 	while(var(VAR_RESULT) != 2) {
 		dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "BOY", "GIRL", "CUT")
 		if(var(VAR_RESULT) != 2) {
-			playse(SE_BOO)
+			waitse
 		}
 	}
 	closemessage

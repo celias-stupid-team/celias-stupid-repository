@@ -775,17 +775,32 @@ script TwoIsland_HouseSalesman {
 	faceplayer
 	if(flag(FLAG_BOUGHT_A_HOUSE)) {
 		msgbox(
-		"I think I'm homeless\n"
+		"Wha-\n"
+		"Hey!\l"
+		"This HOUSE VOUCHER is expired!\p"
+
+		"…{PAUSE 30}I think I'm homeless now.\n"
 		"", MSGBOX_DEFAULT)
 		release
 		end
 	}
 	msgbox(
-	"I'm selling a house\n"
-	"", MSGBOX_DEFAULT)
+	"Hey, hey!\n"
+	"Would you like to buy a HOUSE?\l"
+	"I'm selling one for 7500 Dollars.\p"
+
+	"It's right on the mainland, and\n"
+	"the sunsets are beautiful!\l"
+	"You could have a place of your own!\p"
+
+	"So?\n"
+	"How about it?", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_HOUSEVOUCHER)) {
 		msgbox(
-		"Buy a house!\n"
+		"Hey!\n"
+		"That's a HOUSE VOUCHER!\p"
+
+		"Give it here!\n"
 		"", MSGBOX_DEFAULT)
 		removeitem(ITEM_HOUSEVOUCHER)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
@@ -794,7 +809,23 @@ script TwoIsland_HouseSalesman {
 		"{PLAYER} became a homeowner!\n"
 		"", MSGBOX_DEFAULT)
 		waitfanfare
+		msgbox(
+		"Go visit your house on\n"
+		"ROUTE 4!\l"
+		"South of CERULEAN CITY!", MSGBOX_DEFAULT)
 		setflag(FLAG_BOUGHT_A_HOUSE)
+	} else {
+		closemessage
+		delay(30)
+		msgbox(
+		"…What?\n"
+		"Huh?\p"
+
+		"You don't have even one single\n"
+		"dollar?\p"
+
+		"Then it was a waste of time talking\n"
+		"to you!", MSGBOX_DEFAULT)
 	}
 	release
 	end
