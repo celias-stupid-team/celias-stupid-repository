@@ -6995,3 +6995,14 @@ bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies
 
     return FALSE;
 }
+
+u32 PartyHasMon(u16 species)
+{
+    u32 i;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) == species) return i;
+    }
+    
+    return PARTY_SIZE;
+}
