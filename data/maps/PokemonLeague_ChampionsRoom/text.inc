@@ -55,14 +55,15 @@ PokemonLeague_ChampionsRoom_Text_Victory::
     .string "はーッ！　はーはッはッ！$"
 
 PokemonLeague_ChampionsRoom_Text_PostBattle::
-    .string "Why?\n"
-    .string "Why did I lose?\p"
-    .string "I never made any mistakes raising\n"
-    .string "my POKéMON…\p"
-    .string "Darn it! You're the new POKéMON\n"
-    .string "LEAGUE CHAMPION!\p"
-    .string "Although I don't like to admit it…$"
+	.string "Why…\n"
+	.string "Why did we lose?\p"
+	.string "It's not fair!\n"
+	.string "You don't deserve this!\p"
+	.string "I'm supposed to kick you down and\n"
+	.string "make you give up!\l"
+	.string "I won't accept this!$"
 
+    
 PokemonLeague_ChampionsRoom_Text_OakPlayer::
     .string "OAK: {PLAYER}!$"
 

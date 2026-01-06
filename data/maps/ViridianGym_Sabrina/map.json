@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SABRINA",
-      "x": 5,
-      "y": 3,
+      "x": 9,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -32,20 +32,86 @@
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 9,
+      "x": 9,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
-      "x": 5,
-      "y": 1,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_GYM_BLAINE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 14,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_GYM_SABRINA",
+      "dest_warp_id": "2"
+    },
+    {
+      "warp_id": "WARP_ID_SABRINA_SILPH_HUB",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_SILPH_HUB_ROOM",
+      "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_ThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_ThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_ThreeIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SilphCo_Activate_Warp_ThreeIsland"
+    }
+  ],
   "bg_events": []
 }

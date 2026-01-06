@@ -68,7 +68,8 @@
     "LostTower",
     "Chapter8",
     "Credits",
-    "HouseOfOldManWhoTeachesTrendySayings"
+    "HouseOfOldManWhoTeachesTrendySayings",
+    "FinalBossCutscene"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -744,6 +745,7 @@
     "Ocean14",
     "Ocean15",
     "Ocean16",
-    "Ocean17"
+    "Ocean17",
+    "SpindaFamilyRuinion"
   ]
 }

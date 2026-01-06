@@ -150,3 +150,53 @@ SaffronCity_Dojo_EventScript_DefeatedMasterKoichi::
 	release
 	end
 `
+
+
+script SaffronDojo_James {
+	lock
+	faceplayer
+	msgbox(
+	"there is a fight\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+
+	msgbox(
+	"But you've only just defeated me!\p"
+
+	"If you want the GYM BADGE, you'll\n"
+	"have to travel into the back room\l"
+	"and defeat the biggest nerd of all!", MSGBOX_NPC)
+}
+
+script SaffronDojo_Toaster {
+	lock
+	msgbox(
+	"It looks like a toaster, but it's\n"
+	"actually very a fancy NES!\l"
+	"Wanna jump in?", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		msgbox(
+		"here is where a cool sequence\n"
+		"would go", MSGBOX_DEFAULT)
+	}
+	release
+	end
+}
+
+script SaffronDojo_IrateGamer {
+	msgbox(
+	"I am the IRATE GAMER\n"
+	"", MSGBOX_NPC)
+}
+
+script SaffronDojo_Nerd1 {
+	msgbox(
+	"my pokemon sing the AVGN theme\n"
+	"", MSGBOX_NPC)
+}
+
+script SaffronDojo_Nerd2 {
+	msgbox(
+	"SIXTY FOUR BIT\n"
+	"", MSGBOX_NPC)
+}

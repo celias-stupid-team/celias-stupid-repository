@@ -46,3 +46,11 @@ mart SilphCo_BallShop_Mart {
 	ITEM_BIG_MUSHROOM
 	ITEM_SLUGMA_BALL
 }
+
+
+script SilphCo_BallShop_Elevator {
+	msgbox(
+	"Rats!\n"
+	"The ladies are being indecisive!", MSGBOX_SIGN)
+
+}

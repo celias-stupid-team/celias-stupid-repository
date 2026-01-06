@@ -997,6 +997,7 @@ CRY_TREECKO     = 251,
  CRY_MEWTWOW      = 1240,
  CRY_CHARIZARDQ      = 1241,
  CRY_HOOT      = 1242,
+ CRY_ZAPMOLCUNO      = 1243,
 
 
 };

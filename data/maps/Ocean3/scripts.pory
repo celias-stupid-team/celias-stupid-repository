@@ -53,3 +53,23 @@ script GreatSea_ShrineIsland {
 	"", MSGBOX_DEFAULT)
     release
 }
+
+
+script GreatSea_SpindaFamilyReuinion {
+	msgbox(
+	"SPINDA Family Reunion!\p"
+
+	"All SPINDAS welcome!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script GreatSea_AquaGrunt {
+	msgbox(
+	"Well…\n"
+	"We always wanted to expand the sea.\p"
+
+	"I guess we got what we wished for.\n"
+	"", MSGBOX_NPC)
+}

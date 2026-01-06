@@ -8,3 +8,17 @@ script Silph_CallCenter_Sign {
 	"CALL CENTER", MSGBOX_SIGN)
 
 }
+
+script Silph_CallCenter_Elevator {
+	lock
+	msgbox(
+	"{PLAYER} knocked on the door…\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_BLUE)
+	msgbox(
+	"Rats!\n"
+	"I didn't make it!", MSGBOX_DEFAULT)
+	closemessage
+}

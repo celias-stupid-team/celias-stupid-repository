@@ -275,7 +275,7 @@ It is reset after every battle.
 #define VAR_NEBBY_COUNTER                 0x40AF
 #define VAR_START_SILPH_MUSIC                 0x40B0
 #define VAR_TWO_ISLAND_STARMAN                 0x40B1
-#define VAR_0x40B2                 0x40B2
+#define VAR_FINAL_BATTLE_PHASE                 0x40B2
 #define VAR_0x40B3                 0x40B3
 #define VAR_PORTHOLE               0x40B4
 #define VAR_EVENT_PICHU_SLOT       0x40B5
@@ -298,7 +298,7 @@ It is reset after every battle.
 #define VAR_0x40C6                 0x40C6
 #define VAR_0x40C7                 0x40C7
 #define VAR_0x40C8                 0x40C8
-#define VAR_0x40C9                 0x40C9
+#define VAR_TRADING_QUEST_PHASE                 0x40C9
 #define VAR_CSR_CYNTHIA_BATTLE     0x40CA // start with 0, increment for every defeated Pokémon
 #define VAR_COPYCAT_USED                 0x40CB
 #define VAR_CURRENT_DMCA_PHASE                 0x40CC

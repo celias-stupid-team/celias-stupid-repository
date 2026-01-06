@@ -1,0 +1,10 @@
+mapscripts SpindaFamilyRuinion_MapScripts {
+
+}
+
+script SpindaFamilyReunion_Spinda {
+    lock
+    playmoncry(SPECIES_SPINDA, CRY_MODE_DEFAULT)
+    release
+    end
+}

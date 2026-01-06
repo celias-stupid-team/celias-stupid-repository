@@ -30,7 +30,9 @@ mapscripts ViridianGym_Falkner_MapScripts {
 script ViridianGym_Falkner {
     textcolor(NPC_TEXT_COLOR_MALE)
 	msgbox(
-	"SILVER: … {PAUSE 30}… {PAUSE 30}…{PAUSE 30}I see.\n"
-	"{PAUSE 60}I-…{PAUSE 30} …{PAUSE 60} I-…{PAUSE 30} I am-…{PAUSE 30} …{PAUSE 60} I am{PAUSE 30} a monster      \l"
-	"{PAUSE 60}coach.", MSGBOX_NPC)
+	"Your silly bullets won't work on\n"
+	"me!\p"
+
+	"You'll need something with REAL\n"
+	"IP infringement to take me down!", MSGBOX_NPC)
 }

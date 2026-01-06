@@ -450,6 +450,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_mudkip;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_groudon_hidden;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HOOTHOOT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAGNEMITE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brendan;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_REMORAID;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MANTYKE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SWORDBERT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHIELDFUCK;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDANHAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LUCCA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOUY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GOURL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPINDAS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AQUA_MEMBER_M;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UNAGI;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_POKEBALL_STORAGE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -901,4 +914,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GROUDON_HIDDEN] = &gObjectEventGraphicsInfo_groudon_hidden,
     [OBJ_EVENT_GFX_HOOTHOOT] = &gObjectEventGraphicsInfo_HOOTHOOT,
     [OBJ_EVENT_GFX_MAGNEMITE] = &gObjectEventGraphicsInfo_MAGNEMITE,
+    [OBJ_EVENT_GFX_BRENDAN] = &gObjectEventGraphicsInfo_Brendan,
+    [OBJ_EVENT_GFX_REMORAID] = &gObjectEventGraphicsInfo_REMORAID,
+    [OBJ_EVENT_GFX_MANTYKE] = &gObjectEventGraphicsInfo_MANTYKE,
+    [OBJ_EVENT_GFX_SWORDBERT] = &gObjectEventGraphicsInfo_SWORDBERT,
+    [OBJ_EVENT_GFX_SHIELDFUCK] = &gObjectEventGraphicsInfo_SHIELDFUCK,
+    [OBJ_EVENT_GFX_BRENDANHAT] = &gObjectEventGraphicsInfo_BRENDANHAT,
+    [OBJ_EVENT_GFX_LUCCA] = &gObjectEventGraphicsInfo_LUCCA,
+    [OBJ_EVENT_GFX_BOUY] = &gObjectEventGraphicsInfo_BOUY,
+    [OBJ_EVENT_GFX_GOURL] = &gObjectEventGraphicsInfo_GOURL,
+    [OBJ_EVENT_GFX_SPINDAS] = &gObjectEventGraphicsInfo_SPINDAS,
+    [OBJ_EVENT_GFX_AQUA_MEMBER_M] = &gObjectEventGraphicsInfo_AQUA_MEMBER_M,
+    [OBJ_EVENT_GFX_UNAGI] = &gObjectEventGraphicsInfo_UNAGI,
+    [OBJ_EVENT_GFX_POKEBALL_STORAGE] = &gObjectEventGraphicsInfo_POKEBALL_STORAGE,
 };

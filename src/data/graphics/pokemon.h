@@ -9692,3 +9692,11 @@ const u32 gMonShinyPalette_HOOT[] = INCBIN_U32("graphics/pokemon/hoot/shiny.gbap
 const u8 gMonIcon_HOOT[] = INCBIN_U8("graphics/pokemon/hoot/icon.4bpp");
 const u8 gMonFootprint_HOOT[] = INCBIN_U8("graphics/pokemon/hoot/footprint.1bpp");
 
+// ZAPMOLCUNO
+const u32 gMonFrontPic_ZAPMOLCUNO[] = INCBIN_U32("graphics/pokemon/zapmolcuno/front.4bpp.lz");
+const u32 gMonPalette_ZAPMOLCUNO[] = INCBIN_U32("graphics/pokemon/zapmolcuno/normal.gbapal.lz");
+const u32 gMonBackPic_ZAPMOLCUNO[] = INCBIN_U32("graphics/pokemon/zapmolcuno/back.4bpp.lz");
+const u32 gMonShinyPalette_ZAPMOLCUNO[] = INCBIN_U32("graphics/pokemon/zapmolcuno/shiny.gbapal.lz");
+const u8 gMonIcon_ZAPMOLCUNO[] = INCBIN_U8("graphics/pokemon/zapmolcuno/icon.4bpp");
+const u8 gMonFootprint_ZAPMOLCUNO[] = INCBIN_U8("graphics/pokemon/zapmolcuno/footprint.1bpp");
+

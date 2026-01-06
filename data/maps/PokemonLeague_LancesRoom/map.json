@@ -33,7 +33,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_DAD",
-      "x": 3,
+      "x": 10,
       "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -41,14 +41,14 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MayRoom_Dad",
       "flag": "0"
     },
     {
       "local_id": "LANCE_LASS",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 2,
+      "x": 6,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -58,6 +58,35 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LANCE_FALLENLASS",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DEADLASS",
+      "x": 5,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MayRoom_LassDead",
+      "flag": "FLAG_TEMP_6"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_MEW",
+      "x": 1,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_POKE_DOLL",
+      "script": "EventScript_FindItem",
+      "flag": "FLAG_TEMP_A"
     }
   ],
   "warp_events": [
@@ -80,7 +109,7 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_LANCE_LASS_ATTACK",
       "var_value": "1",
@@ -89,7 +118,7 @@
     {
       "type": "trigger",
       "x": 7,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_LANCE_LASS_ATTACK",
       "var_value": "1",
@@ -98,7 +127,7 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_LANCE_LASS_ATTACK",
       "var_value": "1",

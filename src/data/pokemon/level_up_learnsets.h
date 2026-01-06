@@ -1129,14 +1129,7 @@ static const struct LevelUpMove sDodrioLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSeelLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
-    LEVEL_UP_MOVE(9, MOVE_GROWL),
-    LEVEL_UP_MOVE(17, MOVE_ICY_WIND),
-    LEVEL_UP_MOVE(21, MOVE_AURORA_BEAM),
-    LEVEL_UP_MOVE(29, MOVE_REST),
-    LEVEL_UP_MOVE(37, MOVE_TAKE_DOWN),
-    LEVEL_UP_MOVE(41, MOVE_ICEBEAM),
-    LEVEL_UP_MOVE(49, MOVE_SAFEGUARD),
+    LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
     LEVEL_UP_END
 };
 
@@ -1248,15 +1241,10 @@ static const struct LevelUpMove sGengarLevelUpLearnset[] = {
 static const struct LevelUpMove sOnixLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
     LEVEL_UP_MOVE(1, MOVE_SCREECH),
-    LEVEL_UP_MOVE(1, MOVE_ROCK_THROW),
-    LEVEL_UP_MOVE(19, MOVE_HARDEN),
-    LEVEL_UP_MOVE(23, MOVE_RAGE),
-    LEVEL_UP_MOVE(30, MOVE_DRAGON_BREATH),
-    LEVEL_UP_MOVE(34, MOVE_SANDSTORM),
-    LEVEL_UP_MOVE(41, MOVE_SLAM),
-    LEVEL_UP_MOVE(45, MOVE_IRON_TAIL),
-    LEVEL_UP_MOVE(52, MOVE_SAND_TOMB),
-    LEVEL_UP_MOVE(56, MOVE_DOUBLE_EDGE),
+    LEVEL_UP_MOVE(1, MOVE_EARTHQUAKE),
+    LEVEL_UP_MOVE(20, MOVE_BROCK_TOMB),
+    LEVEL_UP_MOVE(20, MOVE_BROCK_BLAST),
+    LEVEL_UP_MOVE(20, MOVE_BROCK_WRECKER),
     LEVEL_UP_END
 };
 
@@ -5133,7 +5121,7 @@ static const struct LevelUpMove sCastformLevelUpLearnset[] = {
     LEVEL_UP_MOVE(20, MOVE_RAIN_DANCE),
     LEVEL_UP_MOVE(20, MOVE_SUNNY_DAY),
     LEVEL_UP_MOVE(20, MOVE_HAIL),
-    LEVEL_UP_MOVE(30, MOVE_WEATHER_BALL),
+    LEVEL_UP_MOVE(30, MOVE_RAINBOW_BEAM),
     LEVEL_UP_END
 };
 
@@ -7283,6 +7271,7 @@ static const struct LevelUpMove sDiancieLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sHoopaLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(0, MOVE_TRUMP_CARD),
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };
@@ -10025,6 +10014,11 @@ static const struct LevelUpMove sCHARIZARDQLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sHOOTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sZAPMOLCUNOLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

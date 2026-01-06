@@ -27,9 +27,9 @@
 #define TUTOR_MOVE_SUBSTITUTE      14
 #define TUTOR_MOVE_COUNT           15 // regular tutor move count
 
-#define TUTOR_MOVE_FRENZY_PLANT    15
-#define TUTOR_MOVE_BLAST_BURN      16
-#define TUTOR_MOVE_HYDRO_CANNON    17
+#define TUTOR_MOVE_GRASS_PLEDGE    15
+#define TUTOR_MOVE_FIRE_PLEDGE      16
+#define TUTOR_MOVE_WATER_PLEDGE    17
 
 #define FIELD_MOVE_STRENGTH        0
 #define FIELD_MOVE_CUT          1

@@ -3650,42 +3650,42 @@
             "encounter_rate": 7,
             "mons": [
               {
-                "min_level": 49,
-                "max_level": 49,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 49,
-                "max_level": 49,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 46,
-                "max_level": 46,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 46,
-                "max_level": 46,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 52,
-                "max_level": 52,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 52,
-                "max_level": 52,
+                "min_level": 55,
+                "max_level": 55,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 58,
+                "min_level": 55,
                 "max_level": 58,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 58,
+                "min_level": 55,
                 "max_level": 58,
                 "species": "SPECIES_ABRA"
               },
@@ -3700,12 +3700,12 @@
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 61,
+                "min_level": 55,
                 "max_level": 61,
                 "species": "SPECIES_ABRA"
               },
               {
-                "min_level": 61,
+                "min_level": 55,
                 "max_level": 61,
                 "species": "SPECIES_ABRA"
               }

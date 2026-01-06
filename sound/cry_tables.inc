@@ -1243,6 +1243,7 @@ gCryTable::
 	cry Cry_MEWTWOW
 	cry Cry_CHARIZARDQ
 	cry Cry_HOOT
+	cry Cry_ZAPMOLCUNO
 
 
 
@@ -2496,6 +2497,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_MEWTWOW
 	cry_reverse Cry_CHARIZARDQ
 	cry_reverse Cry_HOOT
+	cry_reverse Cry_ZAPMOLCUNO
 
 
 

@@ -47,7 +47,8 @@ script Route21_AroundTheWorld {
 		walk_down * 6
 		walk_fastest_left
 		walk_fastest_up * 12
-		walk_fastest_right
+		walk_fastest_right * 2
+		walk_down * 2
 		face_down
 	))
 	waitmovement(0)

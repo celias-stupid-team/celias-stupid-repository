@@ -98,13 +98,7 @@ VermilionCity_PokemonFanClub_EventScript_Pikachu::
 	release
 	end
 
-VermilionCity_PokemonFanClub_EventScript_Seel::
-	lock
-	faceplayer
-	waitse
-	msgbox VermilionCity_PokemonFanClub_Text_Seel
-	release
-	end
+
 
 VermilionCity_PokemonFanClub_EventScript_RulesSign1::
 	msgbox VermilionCity_PokemonFanClub_Text_ListenPolitelyToOtherTrainers, MSGBOX_SIGN
@@ -116,7 +110,14 @@ VermilionCity_PokemonFanClub_EventScript_RulesSign2::
 `
 
 script VermilionCity_FanClub_SealGirl {
-	msgbox(VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive, MSGBOX_NPC)
+	if(flag(FLAG_CAUGHT_VERMILION_SEAL)) {
+		msgbox(
+		"Hey, where'd my Seal go?\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(VermilionCity_PokemonFanClub_Text_SeelFarMoreAttractive, MSGBOX_NPC)
+
+	}
 }
 
 script VermilionCity_FanClub_RaichuGuy {
@@ -127,4 +128,32 @@ mapscripts VermilionCity_PokemonFanClub_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setescapewarp(MAP_VERMILION_CITY_FAN_CLUB_BASEMENT, 0)
 	}
+}
+
+
+script VermilionCity_PokemonFanClub_EventScript_Seel {
+	lock
+	faceplayer
+	waitse
+	msgbox(VermilionCity_PokemonFanClub_Text_Seel)
+	if(checkitem(ITEM_SEAL_CASE)) {
+		msgbox(
+		"Would you like to use\n"
+		"the SEAL CASE?", MSGBOX_YESNO)
+		if(var(VAR_RESULT)) {
+			removeobject(VAR_LAST_TALKED)
+			playfanfare(MUS_LEVEL_UP)
+			msgbox(
+			"{PLAYER} obtained the\n"
+			"Seal!", MSGBOX_DEFAULT)
+			waitfanfare
+			setvar(VAR_CSR_GIFT_POKEMON, SPECIES_SEEL)
+			setflag(FLAG_SHINY_CREATION)
+			call(Common_Script_GiftPokemon)
+			release
+			end
+
+		}
+	}
+	release
 }

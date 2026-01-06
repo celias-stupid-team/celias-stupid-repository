@@ -47,7 +47,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MinnesotaZoo_FirstCage",
+      "script": "MinnesotaZoo_Mongoose",
       "flag": "0"
     },
     {
@@ -81,8 +81,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FOOTBALL_VIKING",
-      "x": 33,
-      "y": 29,
+      "x": 32,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -95,15 +95,15 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FOOTBALL_VIKING",
-      "x": 42,
-      "y": 14,
+      "x": 38,
+      "y": 21,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Minnesota_FootballPlayer",
+      "script": "Minnesota_FootballCoach",
       "flag": "0"
     },
     {
@@ -429,6 +429,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Minnesota_LaundromatSign"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
+      "script": "Minnesota_FakeCage"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_WalMartSign"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_WalMartSign"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_Hospital"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Minnesota_Hospital"
     }
   ]
 }

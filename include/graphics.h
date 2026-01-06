@@ -12676,3 +12676,14 @@ extern const u8 gMonIcon_HOOT[];
 
 extern const u32 gTrainerFrontPic_Short[];
 extern const u32 gTrainerPalette_Short[];
+// ZAPMOLCUNO
+extern const u32 gMonFrontPic_ZAPMOLCUNO[];
+extern const u32 gMonPalette_ZAPMOLCUNO[];
+extern const u32 gMonBackPic_ZAPMOLCUNO[];
+extern const u32 gMonShinyPalette_ZAPMOLCUNO[];
+extern const u8 gMonFootprint_ZAPMOLCUNO[];
+extern const u8 gMonIcon_ZAPMOLCUNO[];
+
+
+extern const u32 gItemIcon_Top[];
+extern const u32 gItemIconPalette_Top[];

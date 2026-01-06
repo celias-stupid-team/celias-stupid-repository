@@ -455,6 +455,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_FourIslandNorth_Bouy",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -703,8 +717,8 @@
     },
     {
       "type": "sign",
-      "x": 28,
-      "y": 11,
+      "x": 30,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FourIsland_CombeeSign"
@@ -719,15 +733,7 @@
     },
     {
       "type": "sign",
-      "x": 30,
-      "y": 12,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FourIsland_HoneyTree"
-    },
-    {
-      "type": "sign",
-      "x": 26,
+      "x": 25,
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -736,6 +742,14 @@
     {
       "type": "sign",
       "x": 27,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FourIsland_HoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 28,
       "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

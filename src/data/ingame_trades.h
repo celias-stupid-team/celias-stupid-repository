@@ -1,14 +1,14 @@
 static const struct InGameTrade sInGameTrades[] = {
     [INGAME_TRADE_MR_MIME] = 
     {
-        .nickname = _("GELLER"),
+        .nickname = _("DAD!"),
         .species = SPECIES_ABRA,
         .ivs = {20, 15, 17, 24, 23, 22},
         .abilityNum = 0,
         .otId = 1985,
         .conditions = {5, 5, 5, 30, 5},
         .personality = 0x00009cae,
-        .heldItem = ITEM_NONE, //TODO make this ITEM_CASTELIACONE
+        .heldItem = ITEM_NEVER_MELT_ICE, //TODO make this ITEM_CASTELIACONE
         .mailNum = 255,
         .otName = _("REYLEY"),
         .otGender = MALE,
@@ -156,7 +156,7 @@ static const struct InGameTrade sInGameTrades[] = {
         .otId = 60042,
         .conditions = {5, 5, 30, 5, 5},
         .personality = 0x5c77ecfa,
-        .heldItem = ITEM_STARDUST,
+        .heldItem = ITEM_TOP,
         .mailNum = 255,
         .otName = _("JOEY"),
         .otGender = FEMALE,

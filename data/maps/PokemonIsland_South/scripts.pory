@@ -1,3 +1,11 @@
 mapscripts PokemonIsland_South_MapScripts {
 
 }
+
+
+script PokemonIsland_PhotoLabSign {
+	msgbox(
+	"POKéMON ISLAND\n"
+	"PHOTO LAB", MSGBOX_SIGN)
+
+}

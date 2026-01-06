@@ -1,12 +1,4 @@
 raw `
-SilphCo_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SilphCo_1F_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, SilphCo_1F_OnLoad
-	.byte 0
-
-SilphCo_1F_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SILPH_CO_1F
-	end
 
 SilphCo_1F_EventScript_Receptionist::
 	msgbox SilphCo_1F_Text_WelcomePresidentInBoardroom, MSGBOX_NPC
@@ -16,6 +8,30 @@ SilphCo_1F_EventScript_FloorSign::
 	msgbox SilphCo_1F_Text_FloorSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts SilphCo_1F_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(var(VAR_CURRENT_CHAPTER) == 7 && !flag(FLAG_CHAPTER_7_CHAPTER_2)) {
+			getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_SILPH_CO_1F)
+	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_B, 20 {
+			msgbox(
+			"Chapter 7{PAUSE 60}\n"
+			"Chatper 2\p"
+
+			"We Stand Together\n"
+			"(name pending)", MSGBOX_DEFAULT)
+			setvar(VAR_TEMP_B, 0)
+			setflag(FLAG_CHAPTER_7_CHAPTER_2)
+			release
+		}
+	]
+}
 script SilphCo_1F_OnLoad {
 	
 }

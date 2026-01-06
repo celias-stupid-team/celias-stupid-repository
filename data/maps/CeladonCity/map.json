@@ -254,6 +254,7 @@
       "flag": "FLAG_CSR_CELIA_BONUS"
     },
     {
+      "local_id": "LOCALID_CELADON_FAKE_ITEM",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 8,
@@ -350,6 +351,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash",
       "flag": "FLAG_TEMP_3"
+    },
+    {
+      "local_id": "LOCALID_CELADON_FAKE_BOULDER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -478,6 +494,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE16",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CELADON_CITY_CONDOMINIUMS_1F",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

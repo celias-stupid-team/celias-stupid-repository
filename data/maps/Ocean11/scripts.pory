@@ -78,3 +78,36 @@ script GreatSea_EggDeliveryBattle {
 	}
 	release
 }
+
+
+script GreatSea_Ocean11Sign {
+	msgbox(
+	"OCEAN 11\n"
+	"NEW WILD POKéMON: 2", MSGBOX_SIGN)
+
+}
+
+
+script GreatSea_Mantyke {
+	lock
+	playmoncry(SPECIES_MANTYKE, CRY_MODE_DEFAULT)
+	msgbox(
+	"MANTYKE: Maaa-!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"Aww!\n"
+	"He's playing with his friend!", MSGBOX_DEFAULT)
+	release
+	end
+}
+script GreatSea_BabyRemoraid {
+	lock
+	playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+
+	waitmoncry
+	release
+	end
+}

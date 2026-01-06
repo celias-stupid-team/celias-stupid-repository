@@ -70,7 +70,7 @@
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SILPH_HUB_ROOM",
-      "dest_warp_id": "WARP_ID_SILPH_HUB_THREE_ISLAND"
+      "dest_warp_id": "WARP_ID_SABRINA_SILPH_HUB"
     },
     {
       "warp_id": "WARP_ID_SILPH_HUB_LARRY",
@@ -146,6 +146,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SilphCo_Warp_Three_Island_Label"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SilphCo_Hubroom_Elevator"
     }
   ]
 }

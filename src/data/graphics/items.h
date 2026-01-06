@@ -521,8 +521,8 @@ const u32 gItemIconPalette_SharpBeak[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_PoisonBarb[] = INCBIN_U32("graphics/items/icons/poison_barb.4bpp.lz");
 const u32 gItemIconPalette_PoisonBarb[] = INCBIN_U32("graphics/items/icon_palettes/poison_barb.gbapal.lz");
 
-const u32 gItemIcon_NeverMeltIce[] = INCBIN_U32("graphics/items/icons/never_melt_ice.4bpp.lz");
-const u32 gItemIconPalette_NeverMeltIce[] = INCBIN_U32("graphics/items/icon_palettes/never_melt_ice.gbapal.lz");
+const u32 gItemIcon_NeverMeltIce[] = INCBIN_U32("graphics/items/icons/casteliacone.4bpp.lz"); //this is just easier for me i'm sorry
+const u32 gItemIconPalette_NeverMeltIce[] = INCBIN_U32("graphics/items/icon_palettes/casteliacone.gbapal.lz");
 
 const u32 gItemIcon_SpellTag[] = INCBIN_U32("graphics/items/icons/spell_tag.4bpp.lz");
 const u32 gItemIconPalette_SpellTag[] = INCBIN_U32("graphics/items/icon_palettes/spell_tag.gbapal.lz");
@@ -939,3 +939,6 @@ const u32 gItemIconPalette_MagicMuffler[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_CopycatTm[] = INCBIN_U32("graphics/items/icons/copycat_tm.4bpp.lz");
 const u32 gItemIconPalette_CopycatTm[] = INCBIN_U32("graphics/items/icon_palettes/copycat_tm.gbapal.lz");
+
+const u32 gItemIcon_Top[] = INCBIN_U32("graphics/items/icons/top.4bpp.lz");
+const u32 gItemIconPalette_Top[] = INCBIN_U32("graphics/items/icon_palettes/top.gbapal.lz");

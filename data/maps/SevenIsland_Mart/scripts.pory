@@ -39,9 +39,23 @@ script SevenIsland_Mart_EventScript_Clerk {
 	"What do you want?", MSGBOX_DEFAULT)
 	waitmessage
 	pokemart(Walmart_Mart)
+	if(checkitem(ITEM_GUN)) {
+		while(checkitem(ITEM_GUN)) {
+			removeitem(ITEM_GUN)
+		}
+		closemessage
+		playfanfare(MUS_LEVEL_UP)
+		msgbox(
+		"{PLAYER} bought a GUN!\n"
+		"", MSGBOX_DEFAULT)
+		waitfanfare
+		setvar(VAR_CSR_GIFT_POKEMON, SPECIES_REMORAID)
+		call(Common_Script_GiftPokemon)
+	}
 	msgbox(
 	"I make minimum wage.\n"
 	"", MSGBOX_DEFAULT)
+	
 	release
 }
 

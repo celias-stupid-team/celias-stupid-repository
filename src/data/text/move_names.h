@@ -310,8 +310,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_HYPER_VOICE]   = _("HYPER VOICE"),
     [MOVE_POISON_FANG]   = _("POISON FANG"),
     [MOVE_CRUSH_CLAW]    = _("CRUSH GRIP"),
-    [MOVE_BLAST_BURN]    = _("BLAST BURN"),
-    [MOVE_HYDRO_CANNON]  = _("HYDRO CANNON"),
+    [MOVE_FIRE_PLEDGE]    = _("FIRE PLEDGE"),
+    [MOVE_WATER_PLEDGE]  = _("WATER PLEDGE"),
     [MOVE_METEOR_MASH]   = _("METEOR MASH"),
     [MOVE_ASTONISH]      = _("ASTONISH"),
     [MOVE_WEATHER_BALL]  = _("WEATHER BALL"),
@@ -341,7 +341,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_BLOCK]         = _("BLOCK"),
     [MOVE_HOWL]          = _("HOWL"),
     [MOVE_DRAGON_CLAW]   = _("DRAGON CLAW"),
-    [MOVE_FRENZY_PLANT]  = _("FRENZY PLANT"),
+    [MOVE_GRASS_PLEDGE]  = _("GRASS PLEDGE"),
     [MOVE_BULK_UP]       = _("BULK UP"),
     [MOVE_BOUNCE]        = _("BOUNCE"),
     [MOVE_MUD_SHOT]      = _("MUD SHOT"),
@@ -634,6 +634,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_108_TUPLE_TEAM]     = _("108 TEAM"),
     [MOVE_THUNDER_WAVE_CYNTHIA]  = _("THUNDER WAVE"),
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
+    [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
+    [MOVE_TRIPLE_WINGBEAT]     = _("FALSE"),
 };
 
 
@@ -949,8 +951,8 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_HYPER_VOICE]   = _("HYPER VOICE"),
     [MOVE_POISON_FANG]   = _("POISON FANG"),
     [MOVE_CRUSH_CLAW]    = _("CRUSH CLAW"),
-    [MOVE_BLAST_BURN]    = _("BLAST BURN"),
-    [MOVE_HYDRO_CANNON]  = _("HYDRO CANNON"),
+    [MOVE_FIRE_PLEDGE]    = _("FIRE PLEDGE"),
+    [MOVE_WATER_PLEDGE]  = _("WATER PLEDGE"),
     [MOVE_METEOR_MASH]   = _("METEOR MASH"),
     [MOVE_ASTONISH]      = _("ASTONISH"),
     [MOVE_WEATHER_BALL]  = _("WEATHER BALL"),
@@ -980,7 +982,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_BLOCK]         = _("BLOCK"),
     [MOVE_HOWL]          = _("HOWL"),
     [MOVE_DRAGON_CLAW]   = _("DRAGON CLAW"),
-    [MOVE_FRENZY_PLANT]  = _("FRENZY PLANT"),
+    [MOVE_GRASS_PLEDGE]  = _("GRASS PLEDGE"),
     [MOVE_BULK_UP]       = _("BULK UP"),
     [MOVE_BOUNCE]        = _("BOUNCE"),
     [MOVE_MUD_SHOT]      = _("MUD SHOT"),
@@ -1274,5 +1276,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_108_TUPLE_TEAM]     = _("108-TUPLE TEAM"),
     [MOVE_THUNDER_WAVE_CYNTHIA]  = _("THUNDER WAVE"),
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
+    [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
+    [MOVE_TRIPLE_WINGBEAT]     = _("TRIPLE WINGBEAT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

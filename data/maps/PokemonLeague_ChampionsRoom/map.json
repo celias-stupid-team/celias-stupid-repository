@@ -33,8 +33,8 @@
     {
       "local_id": "LOCALID_CHAMPIONS_ROOM_PROF_OAK",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
-      "x": 6,
+      "graphics_id": "OBJ_EVENT_GFX_CELIA",
+      "x": 5,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -93,7 +93,7 @@
     {
       "local_id": "LOCALID_CHAMPIONS_ROOM_MARY",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 9,
       "y": 6,
       "elevation": 3,
@@ -148,6 +148,13 @@
       "y": 2,
       "elevation": 3,
       "dest_map": "MAP_POKEMON_LEAGUE_HALL_OF_FAME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM",
       "dest_warp_id": "0"
     }
   ],

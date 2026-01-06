@@ -43,7 +43,18 @@ script FourIsland_Mart_EventScript_Clerk {
 	} else {
 		pokemart(FourIsland_Mart_Items)
 	}
-	fadeinbgm(0)
+
+	if(checkitem(ITEM_ODD_MULCH)) {
+		while(checkitem(ITEM_ODD_MULCH)) {
+			removeitem(ITEM_ODD_MULCH)
+		}
+		closemessage
+		if(!flag(FLAG_FOUR_ISLAND_CANDY)) {
+			setflag(FLAG_FOUR_ISLAND_CANDY)
+			giveitem(ITEM_ODD_CANDY)
+		}
+		fadeinbgm(0)
+	}
 	msgbox(Text_PleaseComeAgain)
 	release
 }

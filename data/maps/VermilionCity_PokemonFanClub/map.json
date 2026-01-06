@@ -69,7 +69,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermilionCity_PokemonFanClub_EventScript_Seel",
-      "flag": "0"
+      "flag": "FLAG_CAUGHT_VERMILION_SEAL"
     },
     {
       "local_id": "LOCALID_POKEMON_FAN_CLUB_WOMAN",

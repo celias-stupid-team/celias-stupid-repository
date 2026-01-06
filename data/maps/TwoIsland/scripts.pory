@@ -1,7 +1,5 @@
 raw `
-TwoIsland_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, TwoIsland_OnTransition
-	.byte 0
+
 
 
 
@@ -212,6 +210,28 @@ TwoIsland_EventScript_FastCurrentSign::
 	msgbox TwoIsland_Text_DangerFastCurrent, MSGBOX_SIGN
 	end
 `
+mapscripts TwoIsland_MapScripts {
+	MAP_SCRIPT_ON_LOAD {
+		if(flag(FLAG_CSR_HINT_MOVE_REMINDER) && !flag(FLAG_CSR_BERRY_POWDER_MAN) && !flag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)) {
+			setvar(VAR_TEMP_A, 1)
+			setflag(FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1)
+		}
+	}
+	MAP_SCRIPT_ON_TRANSITION: TwoIsland_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_A, 1 {
+			message(
+			"Chapter 7 -{PAUSE 30} Chapter 2\n"
+			"{PAUSE 60}Intermission 1")
+			delay(200)
+			message("The Quest for the\nBERRY POWDER MAN!")
+			delay(200)
+			setvar(VAR_TEMP_A, 0)
+			release
+		}
+	]
+}
+
 script TwoIsland_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_TWO_ISLAND)
 	setflag(FLAG_VISITED_TWO_ISLAND)
@@ -670,6 +690,23 @@ script TwoIsland_BurnHeal {
 		"{FONT_COMIC_SANS}eat shit and die, thief\n"
 		"", MSGBOX_DEFAULT)
 		playbgm(MUS_MEGALOVANIA, TRUE)
+		closemessage
+		delay(120)
+		msgbox(
+		"(fight here)\n"
+		"", MSGBOX_DEFAULT)
+		if(checkpartymove(MOVE_MAGICAL_LEAF) != PARTY_SIZE) {
+			fadedefaultbgm
+			msgbox(
+			"{FONT_COMIC_SANS}I am dead\n"
+			"", MSGBOX_DEFAULT)
+			giveitem(ITEM_BURN_HEAL)
+		}
+		msgbox(
+		"{FONT_COMIC_SANS}you lose\p"
+
+		"no burn heal for you\n"
+		"", MSGBOX_DEFAULT)
 		release
 		end
 	} else {
@@ -775,17 +812,32 @@ script TwoIsland_HouseSalesman {
 	faceplayer
 	if(flag(FLAG_BOUGHT_A_HOUSE)) {
 		msgbox(
-		"I think I'm homeless\n"
+		"Wha-\n"
+		"Hey!\l"
+		"This HOUSE VOUCHER is expired!\p"
+
+		"…{PAUSE 30}I think I'm homeless now.\n"
 		"", MSGBOX_DEFAULT)
 		release
 		end
 	}
 	msgbox(
-	"I'm selling a house\n"
-	"", MSGBOX_DEFAULT)
+	"Hey, hey!\n"
+	"Would you like to buy a HOUSE?\l"
+	"I'm selling one for 7500 Dollars.\p"
+
+	"It's right on the mainland, and\n"
+	"the sunsets are beautiful!\l"
+	"You could have a place of your own!\p"
+
+	"So?\n"
+	"How about it?", MSGBOX_DEFAULT)
 	if(checkitem(ITEM_HOUSEVOUCHER)) {
 		msgbox(
-		"Buy a house!\n"
+		"Hey!\n"
+		"That's a HOUSE VOUCHER!\p"
+
+		"Give it here!\n"
 		"", MSGBOX_DEFAULT)
 		removeitem(ITEM_HOUSEVOUCHER)
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
@@ -794,7 +846,23 @@ script TwoIsland_HouseSalesman {
 		"{PLAYER} became a homeowner!\n"
 		"", MSGBOX_DEFAULT)
 		waitfanfare
+		msgbox(
+		"Go visit your house on\n"
+		"ROUTE 5!\l"
+		"South of CERULEAN CITY!", MSGBOX_DEFAULT)
 		setflag(FLAG_BOUGHT_A_HOUSE)
+	} else {
+		closemessage
+		delay(30)
+		msgbox(
+		"…What?\n"
+		"Huh?\p"
+
+		"You don't have even one single\n"
+		"dollar?\p"
+
+		"Then it was a waste of time talking\n"
+		"to you!", MSGBOX_DEFAULT)
 	}
 	release
 	end

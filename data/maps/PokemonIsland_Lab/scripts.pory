@@ -287,3 +287,29 @@ script PokemonIslandLab_IvyLeagueSchool {
 	"It's from an IVY LEAGUE school!", MSGBOX_SIGN)
 
 }
+
+
+script PokemonIslandLab_Cameron {
+	msgbox(
+	"cameron the photographer\n"
+	"", MSGBOX_NPC)
+}
+
+
+script PokemonIslandLab_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"I'm enjoying being a model!\n"
+	"something something\p"
+
+	"Well, never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

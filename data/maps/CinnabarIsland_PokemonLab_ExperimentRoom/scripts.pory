@@ -409,3 +409,76 @@ script CinnabarIsland_Pigmask {
 	"yeah I love putting stuff together\n"
 	"placeholder", MSGBOX_NPC)
 }
+
+
+script CinnabarIsland_Sword {
+	lock
+	applymovement(LOCALID_SWORDBERT, moves(
+		face_down
+	))
+	msgbox(
+	"hi i'm swordbert\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_SHIELDFUCK, moves(
+		face_down
+	))
+	msgbox(
+	"hi i'm shieldfuck\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_SWORDBERT, moves(
+		face_original_direction
+	))
+	applymovement(LOCALID_SHIELDFUCK, moves(
+		face_original_direction
+	))
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_down
+	))
+	msgbox(
+	"SWORDBERT: We were supposed to\n"
+	"have another friend too, but…", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script CinnabarIsland_Shield {
+	lock
+	applymovement(LOCALID_SWORDBERT, moves(
+		face_down
+	))
+	msgbox(
+	"hi i'm swordbert\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_SHIELDFUCK, moves(
+		face_down
+	))
+	msgbox(
+	"hi i'm shieldfuck\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(LOCALID_SWORDBERT, moves(
+		face_original_direction
+	))
+	applymovement(LOCALID_SHIELDFUCK, moves(
+		face_original_direction
+	))
+	delay(30)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_down
+	))
+	msgbox(
+	"SHIELDFUCK: That guy's a dickhead.\n"
+	"", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}

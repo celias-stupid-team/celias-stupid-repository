@@ -188,3 +188,9 @@ SeafoamIslands_B4F_EventScript_FastCurrentSign::
 	msgbox SeafoamIslands_B4F_Text_DangerFastCurrent, MSGBOX_SIGN
 	end
 `
+
+
+script SeafoamIslands_WarpToAlteringCave {
+	lock
+	warp(MAP_SIX_ISLAND_ALTERING_CAVE, 0)
+}

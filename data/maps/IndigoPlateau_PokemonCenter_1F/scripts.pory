@@ -162,21 +162,21 @@ script PokemonLeague_DadHeal {
 }
 
 
+
+
+
 script EventScript_FinalCutTree {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	lockall
-	goto_if_unset(FLAG_BADGE02_GET, EventScript_CantCutTree)
-	checkfieldmove(MOVE_CUT)
-	goto_if_eq(VAR_RESULT, FIELD_MOVE_USE_PC_MON, EventScript_FinalCutTreeAfterBuffer)
-	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutTree)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	if(!flag(FLAG_BADGE02_GET)) {
+		goto(EventScript_CantCutTree)
+	}
+	checkpartymove(MOVE_CUT)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, EventScript_CantCutFinalTree)
 	setfieldeffectargument(0, VAR_RESULT)
 	bufferpartymonnick(STR_VAR_1, VAR_RESULT)
-}
-
-script EventScript_FinalCutTreeAfterBuffer {
 	buffermovename(STR_VAR_2, MOVE_CUT)
-	msgbox(Text_CutTreeDown, MSGBOX_DEFAULT)
-	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(
 	"A lone tree stands in the path.\p"
 
@@ -188,7 +188,6 @@ script EventScript_FinalCutTreeAfterBuffer {
 	dofieldeffect(FLDEFF_USE_CUT_ON_TREE)
 	waitstate
 	goto(EventScript_CutTreeDown)
-	end
 }
 
 script EventScript_CantCutFinalTree {

@@ -274,7 +274,7 @@ script Route23_GetNationalDexRotomLeaves {
 script IndigoPlateau_RockClimbUp {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
@@ -291,7 +291,7 @@ script IndigoPlateau_RockClimbUp {
 script IndigoPlateau_RockClimbDown {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
@@ -304,4 +304,82 @@ script IndigoPlateau_RockClimbDown {
 	}
 	releaseall
 
+}
+
+
+script IndigoPlateau_Theater {
+	msgbox(
+	"Coming soon!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script IndigoPlateau_TheaterSign {
+	msgbox(
+	"VICTORY ROAD{PAUSE 60}\n"
+	"Performed by the EMBER SPA PLAYERS!", MSGBOX_SIGN)
+
+}
+
+
+script IndigoPlateau_Lucca {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_GREEN)
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"LUCCA: No… No, I got this.\n"
+		"I don't need any help.\p"
+
+		"Just gotta…\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"LUCCA: So, I get that this place\n"
+		"is for the pinnacle of TRAINERS.\p"
+
+		"But…{PAUSE 30} don'tcha think they could've\n"
+		"installed a few ramps?", MSGBOX_DEFAULT)
+		setflag(FLAG_TEMP_1)
+	}
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_SOUTH) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_left
+			face_right
+		))
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		delay_16 * 2
+		walk_up
+		walk_slow_up
+		face_up
+		walk_in_place_up * 2
+		walk_slow_up
+		face_up
+		walk_in_place_up * 2
+		walk_slower_up
+		walk_in_place_up * 2
+		walk_in_place_slow_up * 3
+		lock_facing_direction
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_FALL)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_faster_down * 5
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		jump_up
+		unlock_facing_direction
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
+	release
+	end
 }

@@ -16,7 +16,7 @@ script SixIsland_Zygarde {
     playmoncry(SPECIES_ZYGARDE, CRY_MODE_ENCOUNTER)
     setwildbattle(SPECIES_ZYGARDE, 50)
     dowildbattle
-    delay(120)
+    delay(20)
     removeobject(VAR_LAST_TALKED)
     release
 

@@ -12,6 +12,7 @@ PokemonLeague_LancesRoom_OnResume::
 	end
 
 PokemonLeague_LancesRoom_OnLoad::
+	setflag FLAG_TEMP_6
 	call_if_eq VAR_POKEMON_LEAGUE_PHASE, 4, PokemonLeague_LancesRoom_EventScript_CloseEntry
 	call_if_set FLAG_DEFEATED_LANCE, PokemonLeague_LancesRoom_EventScript_SetDoorOpen
 	end
@@ -42,6 +43,7 @@ PokemonLeague_LancesRoom_EventScript_EnterRoom::
 	waitmovement 0
 	setflag FLAG_TEMP_2
 	call PokemonLeague_LancesRoom_EventScript_SetEntryClosed
+	delay 30
 	playse SE_UNLOCK
 	special DrawWholeMapView
 	waitse
@@ -190,11 +192,12 @@ script MayRoom_LassAttack {
     textcolor(NPC_TEXT_COLOR_FEMALE)
     setvar(VAR_LANCE_LASS_ATTACK, 2)
     textcolor(NPC_TEXT_COLOR_FEMALE)
-    setobjectxyperm(LANCE_LASS, 6, 19)
+    
     applymovement(LANCE_LASS, moves(
         face_up
     ))
-    playbgm(MUS_NONE, TRUE)    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
+    playbgm(MUS_NONE, TRUE)    
+	setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 2)
     setvar(VAR_SHAKESCREEN_NUM_SHAKES, 3)
     setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
@@ -202,9 +205,9 @@ script MayRoom_LassAttack {
     delay(60)
 	special(SpawnCameraObject)
 	applymovement(LOCALID_CAMERA, moves(
-		walk_slow_down * 7
+		walk_slow_down * 9
 	))
-	delay(30)
+	delay(45)
     playse(SE_M_STRENGTH)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
@@ -219,7 +222,6 @@ script MayRoom_LassAttack {
     setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
     special(ShakeScreen)
     delay(60)
-    playse(SE_EFFECTIVE)
     setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 4)
     setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 4)
     setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
@@ -227,9 +229,12 @@ script MayRoom_LassAttack {
     special(ShakeScreen)
 	waitmovement(0)
 	delay(30)
+    playse(SE_EFFECTIVE)
 	fadescreeninstant(FADE_TO_WHITE)
-	//change wall
+	addobject(LANCE_LASS)
+	setobjectxy(LANCE_LASS, 6, 19)
 	setlayouttiles(LAYOUT_POKEMON_LEAGUE_LANCES_ROOM, 0, 0, 0, 0, 26, 29)
+	special(DrawWholeMapView)
 	applymovement(LANCE_LASS, moves(
 		face_up
 		set_visible
@@ -237,35 +242,80 @@ script MayRoom_LassAttack {
 	delay(10)
 	fadescreeninstant(FADE_FROM_WHITE)
 	//sound effect
+	playse(SE_BANG)
+	delay(60)
 	applymovement(LANCE_LASS, moves(
 		walk_slow_up * 2
-		delay_16
+		face_up
+		delay_16 * 2
 		walk_slow_up * 2
+		face_up
+		delay_16 * 2
+		walk_slow_up * 2
+		face_up
 		delay_16
 	))
-	msgbox(
-		"Don't…{PAUSE 60} look…{PAUSE 60} at…{PAUSE 120}\n"
-		"", MSGBOX_DEFAULT)
-	waitmovement(0)
-	applymovement(LANCE_LASS, moves(
-		walk_slow_up * 2
-		delay_16
-		)
-	)
 	applymovement(LOCALID_CAMERA, moves(
+		delay_16 * 10
 		walk_slow_up * 2
 		delay_16
 		)
 	)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	delay(30)
+	message(
+		"Don't…{PAUSE 60} look…{PAUSE 60} at…{PAUSE 60}\n"
+		"")
+	waitmovement(LANCE_LASS)
 	waitmovement(0)
+	delay(30)
 	closemessage
-	delay(60)
+	delay(30)
 	//sound effect
 	fadescreeninstant(FADE_TO_WHITE)
-	delay(10)
+	delay(40)
 	removeobject(LANCE_LASS)
+	addobject(LOCALID_LANCE_FALLENLASS)
 	//add fallen lass
+	playse(SE_EFFECTIVE)
 	fadescreeninstant(FADE_FROM_WHITE)
+	delay(120)
+	waitmovement(LOCALID_CAMERA)
+	call(PokemonLeague_EventScript_OpenDoorLance)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_slow_up * 7
+	))
+	waitmovement(LOCALID_CAMERA)
+	special(RemoveCameraObject)
 	release
 }
 
+script MayRoom_LassDead {
+	msgbox(
+	"She's not moving…\p"
+
+	"Now you can look at her!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script MayRoom_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"There you are!\l"
+	"I saw you a minute ago.\p"
+
+	"That girl who ran through here\n"
+	"really made a mess.\l"
+	"I think all the doors are open!\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}

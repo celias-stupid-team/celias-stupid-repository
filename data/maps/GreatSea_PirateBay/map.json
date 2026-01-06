@@ -96,8 +96,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 25,
-      "y": 8,
+      "x": 26,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -211,7 +211,7 @@
       "x": 9,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -264,10 +264,10 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
-      "x": 20,
-      "y": 1,
+      "x": 16,
+      "y": -1,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -505,16 +505,16 @@
     },
     {
       "type": "sign",
-      "x": 21,
-      "y": 5,
+      "x": 15,
+      "y": -1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbUp"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 5,
+      "x": 15,
+      "y": -1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbUp"
@@ -537,16 +537,16 @@
     },
     {
       "type": "sign",
-      "x": 21,
-      "y": 4,
+      "x": 15,
+      "y": -1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbDown"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 4,
+      "x": 15,
+      "y": -1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PirateBay_RockClimbDown"

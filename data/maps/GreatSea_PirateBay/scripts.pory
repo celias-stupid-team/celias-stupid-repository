@@ -9,6 +9,9 @@ mapscripts GreatSea_PirateBay_MapScripts {
 
 		}
 	]
+	MAP_SCRIPT_ON_TRANSITION {
+		setworldmapflag(FLAG_WORLD_MAP_PIRATE_BAY)
+	}
 	
 }
 
@@ -120,9 +123,22 @@ script PirateBay_WarehouseGuard {
 
 script PirateBay_SkyTower {
 	lock
+	faceplayer
 	msgbox(
-	"sky tower\n"
-	"", MSGBOX_DEFAULT)
+	"Hello, adventurer.\n"
+	"Do you know the TOWER to the west?\p"
+
+	"It's been locked all my life, but\n"
+	"I have a feeling deep in my bones.\l"
+	"Soon, the door will finally open.\p"
+
+	"Follow the path of the dark water.\n"
+	"It'll lead you there.", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
 	release
 }
 
@@ -256,12 +272,12 @@ script PirateBay_DontGoToWarehouse {
 script PirateBay_RockClimbUp {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			applymovement(LOCALID_PLAYER, moves(
-				walk_fast_up * 1
+				walk_fast_up * 2
 				jump_up
 			))
 			waitmovement(0)
@@ -273,12 +289,12 @@ script PirateBay_RockClimbUp {
 script PirateBay_RockClimbDown {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
 			applymovement(LOCALID_PLAYER, moves(
-				walk_fast_down * 1
+				walk_fast_down * 2
 				jump_down
 			))
 			waitmovement(0)

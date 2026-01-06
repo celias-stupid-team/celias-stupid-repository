@@ -158,17 +158,17 @@ script OneIsland_MysticCrestPedestal {
 }
 
 script OneIsland_SetArticunoStatue {
-	setmetatile(25, 4, 0x394, FALSE)
-	setmetatile(26, 4, 0x395, FALSE)
-	setmetatile(27, 4, 0x396, FALSE)
+	setmetatile(25, 9, 0x394, FALSE)
+	setmetatile(26, 9, 0x395, FALSE)
+	setmetatile(27, 9, 0x396, FALSE)
 	
-	setmetatile(25, 5, 0x39C, FALSE)
-	setmetatile(26, 5, 0x39D, FALSE)
-	setmetatile(27, 5, 0x39E, FALSE)
+	setmetatile(25, 10, 0x39C, FALSE)
+	setmetatile(26, 10, 0x39D, FALSE)
+	setmetatile(27, 10, 0x39E, FALSE)
 	
-	setmetatile(25, 6, 0x3A4, FALSE)
-	setmetatile(26, 6, 0x3A5, FALSE)
-	setmetatile(27, 6, 0x3A6, FALSE)
+	setmetatile(25, 11, 0x3A4, FALSE)
+	setmetatile(26, 11, 0x3A5, FALSE)
+	setmetatile(27, 11, 0x3A6, FALSE)
 	return
 }
 
@@ -281,7 +281,7 @@ script OneIsland_ArticunoEgg {
 script OneIsland_RockClimbUp {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
@@ -298,7 +298,7 @@ script OneIsland_RockClimbUp {
 script OneIsland_RockClimbDown {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {

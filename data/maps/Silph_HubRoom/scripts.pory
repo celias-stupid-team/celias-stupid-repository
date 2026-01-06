@@ -154,3 +154,10 @@ script SilphCo_Warp_Exit_Label {
 	"SILPH CO\n"
 	"Welcome Desk", MSGBOX_SIGN)
 }
+
+script SilphCo_Hubroom_Elevator {
+	msgbox(
+	"Rats!\n"
+	"The door's been bolted shut!", MSGBOX_SIGN)
+
+}

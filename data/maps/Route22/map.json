@@ -110,6 +110,35 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeliaSecrets_Bonus_CandyGuy",
       "flag": "FLAG_CSR_CELIA_BONUS"
+    },
+    {
+      "local_id": "LOCALID_ROUTE22_RIVAL_LATE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+      "x": 25,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROUTE_22_RIVAL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
+      "x": 39,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route15_Chuckster",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -244,6 +273,16 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route22_EventScript_RouteSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 41,
+      "y": 2,
+      "elevation": 0,
+      "item": "ITEM_NOTHING",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE22_NOTHING",
+      "quantity": 1,
+      "underfoot": false
     }
   ]
 }

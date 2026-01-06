@@ -1340,7 +1340,9 @@ These used to be dex mons; now they're random mons that I've dexited
 
 #define SPECIES_HOOT 1269
 
-#define SPECIES_EGG 1270
+#define SPECIES_ZAPMOLCUNO 1270
+
+#define SPECIES_EGG 1271
 
 #define NUM_SPECIES SPECIES_EGG
 

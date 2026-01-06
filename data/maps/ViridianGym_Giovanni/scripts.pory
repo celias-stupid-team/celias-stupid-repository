@@ -39,6 +39,7 @@ script ViridianGym_GiovanniBody {
         "Looking closer at the body, it\n"
         "appears that he is lemons.", MSGBOX_DEFAULT)
     } else {
+        setvar(VAR_MAP_SCENE_ROUTE22, 3)
         setflag(FLAG_BADGE08_GET)
         msgbox(
         "He's not moving…\p"

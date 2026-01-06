@@ -267,6 +267,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMultiHitFive           @ EFFECT_MULTI_HIT_FIVE
 	.4byte BattleScript_EffectEvasionMax             @ EFFECT_EVASION_MAX
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
+	.4byte BattleScript_EffectMultiHitThree              @ EFFECT_TOXIC_SEED
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -2999,7 +3000,7 @@ BattleScript_FaintTarget::
 	printstring STRINGID_TARGETFAINTED
 	printstring STRINGID_EMPTYSTRING3
 	waitanimation
-	trytrainerslidemsgfirstoff BS_TARGET
+	trytrainerslidemsgfirstoff
 	return
 
 BattleScript_VanishedFromExistence::
@@ -3085,8 +3086,8 @@ BattleScript_FaintedMonSendOutNew::
 	switchinanim BS_FAINTED, FALSE
 	waitstate
 	resetplayerfainted
-	trytrainerslidemsglaston BS_FAINTED
-	trytrainerslidemsgswitchin BS_FAINTED
+	trytrainerslidemsglaston
+	trytrainerslidemsgswitchin
 	switchineffects BS_FAINTED
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_FaintedMonEnd
 	cancelallactions
@@ -5228,3 +5229,13 @@ BattleScript_DoToxic::
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectMultiHitThree::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setbyte sMULTIHIT_EFFECT, MOVE_EFFECT_POISON
+	attackstring
+	ppreduce
+	setmultihitcounter 3
+	initmultihitstring
+	goto BattleScript_MultiHitLoop

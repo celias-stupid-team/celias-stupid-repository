@@ -2617,16 +2617,20 @@ bool8 ScrCmd_checkpartymonslot(struct ScriptContext * ctx)
 {
     u8 i;
     u16 speciesId = ScriptReadHalfword(ctx);
-
+    u16 species;
     gSpecialVar_Result = PARTY_SIZE;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
-        if (!species)
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species) {
             break;
+        }
+        
         if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
         {
+            DebugPrintf("Yes");
             gSpecialVar_Result = i;
+            DebugPrintf("Var Result %d", gSpecialVar_Result);
             break;
         }
     }

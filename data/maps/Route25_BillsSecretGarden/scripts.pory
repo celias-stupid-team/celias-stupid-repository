@@ -5,6 +5,14 @@ mapscripts Route25_BillsSecretGarden_MapScripts {
 }
 
 
+script SecretGarden_Sign {
+	msgbox(
+	"BILL's SECRET GARDEN\n"
+	"NEW WILD POKéMON: 1", MSGBOX_SIGN)
+
+}
+
+
 script SecretGarden_GivePikabluPlaceholder {
     lock
     playfanfare(MUS_LEVEL_UP)
@@ -71,7 +79,7 @@ script SecretGarden_PCMonitor {
         waitmovement(0)
         delay(30)
         showmonpic(SPECIES_ABRA, 10, 3)
-        waitmoncry
+        waitbuttonpress
         hidemonpic
         setvar(VAR_VIEWING_PC, 1)
 

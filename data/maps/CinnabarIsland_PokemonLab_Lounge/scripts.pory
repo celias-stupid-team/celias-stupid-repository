@@ -95,6 +95,23 @@ script CinnabarIslandLab_StevenStone {
 
 	"It's a pleasure to meet you.\n"
 	"", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_LETTER_W)) {
+		msgbox(
+		"STEVEN: Ah, a letter for me?\p"
+
+		"something something\p"
+
+		"Take this\n"
+		"", MSGBOX_DEFAULT)
+		removeitem(ITEM_LETTER_W)
+		giveitem_msg("{PLAYER} received the\n"
+		"TM47!", ITEM_TM02_CSR_DUMMY, 1, MUS_OBTAIN_TMHM)
+		waitfanfare
+		msgbox(
+		"STEVEN: That is STEEL WING.\n"
+		"", MSGBOX_DEFAULT)
+		setvar(VAR_TRADING_QUEST_PHASE, 2)
+	}
 	release
 }
 

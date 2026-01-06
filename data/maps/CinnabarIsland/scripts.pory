@@ -654,3 +654,48 @@ script CinnabarIsland_WhatsAcrossTheSea {
 	waitmovement(0)
 	release
 }
+
+
+script CinnabarIsland_CenterNPC1 {
+	msgbox(
+	"Cinnabar Center NPC 1\n"
+	"", MSGBOX_NPC)
+}
+
+script CinnabarIsland_CenterNPC2 {
+	msgbox(
+	"Cinnabar Center NPC 2\n"
+	"", MSGBOX_NPC)
+}
+
+script CinnabarIsland_MartNPC1 {
+	msgbox(
+	"Cinnabar Mart NPC 1\n"
+	"", MSGBOX_NPC)
+}
+
+
+script CinnabarIsland_AbsolFisher {
+	trainerbattle_single(
+		TRAINER_ABSOL_FISHER, 
+		"Whoa, there!\n"
+		"Check out the POKéMON I fished up!",
+
+		"Hoo, nelly!"
+	)
+	msgbox(
+	"I KNOW ABSOL SUCKS ASS.{PAUSE 30}\n"
+	"I KNOW THE OTHER ABSOL SUCKS ASS.\p"
+
+	"I KNOW USING THEM PUTS ME AT A\n"
+	"DISADVANTAGE FOR NO REASON AT ALL.\p"
+
+	"I WILL NOT BE CHANGING THE SPECIES.\n"
+	"I KNOW MY TEAM SUCKS ASS.\p"
+
+	"I MIGHT CHANGE DRAGAPULT.\n"
+	"AND ONLY DRAGAPULT.\p"
+
+	"AND IF I CHANGE IT, I WILL PROBABLY\n"
+	"CHANGE IT{PAUSE 30}TO ABSOL.", MSGBOX_NPC)
+}

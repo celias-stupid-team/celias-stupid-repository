@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
       "x": 17,
-      "y": 24,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -45,6 +45,13 @@
     }
   ],
   "warp_events": [
+    {
+      "x": 17,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_ISLAND_LAB",
+      "dest_warp_id": "0"
+    },
     {
       "x": 17,
       "y": 32,

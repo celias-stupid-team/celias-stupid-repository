@@ -444,7 +444,7 @@
 #define FLAG_GOT_GOLD_TEETH                   0x189
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_POTION                   0x18A
 #define FLAG_HIDE_SAFARI_ZONE_WEST_MAX_REVIVE                   0x18B
-#define FLAG_0x18C                      0x18C
+#define FLAG_GOT_SHINY_SYLVEON                      0x18C
 #define FLAG_0x18D                        0x18D
 #define FLAG_0x18E                       0x18E
 #define FLAG_0x18F                         0x18F
@@ -596,9 +596,9 @@
 #define FLAG_BOWS_GIVES_SHINY_PINSIR               0x21E
 #define FLAG_CAPTAIN_DIRECTS_SPHEALS               0x21F
 #define FLAG_HALF_ISLAND_SHORT               0x220
-#define FLAG_0x221               0x221
-#define FLAG_0x222               0x222
-#define FLAG_0x223               0x223
+#define FLAG_TALKED_TO_BRENDAN               0x221
+#define FLAG_CHAPTER_7_CHAPTER_2               0x222
+#define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
 #define FLAG_0x224               0x224
 #define FLAG_0x225               0x225
 #define FLAG_0x226               0x226
@@ -608,8 +608,8 @@
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B
 #define FLAG_0x22C               0x22C
-#define FLAG_0x22D               0x22D
-#define FLAG_0x22E               0x22E
+#define FLAG_CAUGHT_MR_FUJI               0x22D
+#define FLAG_CAUGHT_VERMILION_SEAL               0x22E
 #define FLAG_CSR_CELIA_DEV_CREW               0x22F
 
 // Story flags
@@ -790,9 +790,9 @@
 #define FLAG_NO_ROOM_FOR_TOGEPI_EGG                      0x2DB
 #define FLAG_RECOVERED_SAPPHIRE                          0x2DC
 #define FLAG_GOT_RUBY                                    0x2DD
-#define FLAG_TUTOR_FRENZY_PLANT                          0x2DE
-#define FLAG_TUTOR_BLAST_BURN                            0x2DF
-#define FLAG_TUTOR_HYDRO_CANNON                          0x2E0
+#define FLAG_TUTOR_GRASS_PLEDGE                          0x2DE
+#define FLAG_TUTOR_FIRE_PLEDGE                            0x2DF
+#define FLAG_TUTOR_WATER_PLEDGE                          0x2E0
 #define FLAG_LEARNED_ALL_MOVES_AT_CAPE_BRINK             0x2E1
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
@@ -1112,8 +1112,8 @@
 #define FLAG_ROUTE19_DOLL_1                                     (FLAG_HIDDEN_ITEMS_START +  19)
 #define FLAG_ROUTE19_DOLL_2                                (FLAG_HIDDEN_ITEMS_START +  20)
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_15                     (FLAG_HIDDEN_ITEMS_START +  22)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_16                           (FLAG_HIDDEN_ITEMS_START +  23)
+#define FLAG_HIDDEN_ITEM_ROUTE22_NOTHING                     (FLAG_HIDDEN_ITEMS_START +  22)
+#define FLAG_HIDDEN_ITEM_SPONGEBOB                           (FLAG_HIDDEN_ITEMS_START +  23)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)
@@ -1406,7 +1406,7 @@
 #define FLAG_SYS_BILL_GARDEN                                                  (SYS_FLAGS + 0x10)
 #define FLAG_SYS_SKUNTANK_FIGHT                                                  (SYS_FLAGS + 0x11)
 #define FLAG_SYS_ROTOM_MENU                                         (SYS_FLAGS + 0x12)
-#define FLAG_0x813                                                  (SYS_FLAGS + 0x13)
+#define FLAG_DEFEATED_FINAL_BOSS                                                  (SYS_FLAGS + 0x13)
 #define FLAG_0x814                                                  (SYS_FLAGS + 0x14)
 #define FLAG_0x815                                                  (SYS_FLAGS + 0x15)
 #define FLAG_0x816                                                  (SYS_FLAGS + 0x16)
@@ -1546,7 +1546,7 @@
 #define FLAG_CSR_MAP_NATIONAL_PARK                                                  (SYS_FLAGS + 0xD7)
 #define FLAG_CSR_MAP_BALL_SHOP                                                  (SYS_FLAGS + 0xD8)
 #define FLAG_CSR_VIRIDIAN_GYM_BACK_ROOM                                                  (SYS_FLAGS + 0xD9)
-#define FLAG_CSR_MAP_DUMMY_5                                                  (SYS_FLAGS + 0xDA)
+#define FLAG_WORLD_MAP_PIRATE_BAY                                                  (SYS_FLAGS + 0xDA)
 #define FLAG_CSR_MAP_DUMMY_6                                                  (SYS_FLAGS + 0xDB)
 #define FLAG_CSR_MAP_PRIZE_EXCHANGE                                                  (SYS_FLAGS + 0xDC)
 #define FLAG_CSR_MAP_DUMMY_7                                                  (SYS_FLAGS + 0xDD)

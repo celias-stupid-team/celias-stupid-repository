@@ -321,5 +321,6 @@ u8 SmokescreenImpact(s16 x, s16 y, u8 a3);
 void InitStatsChangeAnimation(u8 taskId);
 void StartMonScrollingBgMask(u8 taskId, s32 unused, u16 arg2, u8 battler1, u8 arg4, u8 arg5, u8 arg6, u8 arg7, const u32 *gfx, const u32 *tilemap, const u32 *palette);
 void SpriteCB_SurroundingRing(struct Sprite *sprite);
+bool8 LoadBattlerSpriteGfx(u8 battlerId);
 
 #endif // GUARD_BATTLE_ANIM_H

@@ -12,8 +12,6 @@ script AlteringCave_ABC {
 	lockall
 	braillemessage(AlteringCave_Braille_DEFGHI)
 	waitbuttonpress
-	braillemessage(Braille_Text_JKLMNO)
-	waitbuttonpress
 	releaseall
 }
 

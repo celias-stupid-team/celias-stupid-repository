@@ -1,6 +1,5 @@
 raw `
-Route2_House_MapScripts::
-	.byte 0
+
 
 Route2_House_EventScript_Scientist::
 	lock
@@ -30,6 +29,22 @@ Route2_House_EventScript_AlreadyTraded::
 	release
 	end
 `
+
+mapscripts Route2_House_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_1, 1 {
+			checkpartymonslot(SPECIES_ALAKAZAM)
+			copyvar(VAR_0x8000, VAR_RESULT)
+			setvar(VAR_0x8001, 0)
+			setvar(VAR_0x8002, FALSE)
+			setvar(VAR_TEMP_1, 0)
+			callnative(EvolvePartyMon)
+			release
+			end
+		}
+	]
+}
+
 script Route2_House_EventScript_Reyley {
 	lock
 	faceplayer
@@ -42,12 +57,10 @@ script Route2_House_EventScript_Reyley {
 	goto_if_ge(VAR_0x8004, PARTY_SIZE, Route2_House_EventScript_DeclineTrade)
 	call(EventScript_GetInGameTradeSpecies)
 	goto_if_ne(VAR_RESULT, VAR_0x8009, Route2_House_EventScript_NotRequestedMon)
-	call(EventScript_DoInGameTrade)
-	checkpartymonslot(SPECIES_ALAKAZAM)
-	copyvar(VAR_RESULT, VAR_0x8004)
-	setvar(VAR_0x8001, 0)
-	setvar(VAR_0x8002, FALSE)
+	setvar(VAR_TEMP_1, 1)
 	setflag(FLAG_DID_MIMIEN_TRADE)
-	callnative(EvolvePartyMon)
+	call(EventScript_DoInGameTrade)
+	debugprintf("Alakazam's slot is checked")
+	
 	release
 }

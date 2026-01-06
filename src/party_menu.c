@@ -1948,12 +1948,12 @@ static u16 GetTutorMove(u8 tutor)
 {
     switch (tutor)
     {
-    case TUTOR_MOVE_FRENZY_PLANT:
-        return MOVE_FRENZY_PLANT;
-    case TUTOR_MOVE_BLAST_BURN:
-        return MOVE_BLAST_BURN;
-    case TUTOR_MOVE_HYDRO_CANNON:
-        return MOVE_HYDRO_CANNON;
+    case TUTOR_MOVE_GRASS_PLEDGE:
+        return MOVE_GRASS_PLEDGE;
+    case TUTOR_MOVE_FIRE_PLEDGE:
+        return MOVE_FIRE_PLEDGE;
+    case TUTOR_MOVE_WATER_PLEDGE:
+        return MOVE_WATER_PLEDGE;
     default:
         return sTutorMoves[tutor];
     }
@@ -1963,17 +1963,17 @@ static bool8 CanLearnTutorMove(u16 species, u8 tutor)
 {
     switch (tutor)
     {
-    case TUTOR_MOVE_FRENZY_PLANT:
+    case TUTOR_MOVE_GRASS_PLEDGE:
         if (species == SPECIES_VENUSAUR)
             return TRUE;
         else
             return FALSE;
-    case TUTOR_MOVE_BLAST_BURN:
+    case TUTOR_MOVE_FIRE_PLEDGE:
         if (species == SPECIES_CHARIZARD)
             return TRUE;
         else
             return FALSE;
-    case TUTOR_MOVE_HYDRO_CANNON:
+    case TUTOR_MOVE_WATER_PLEDGE:
         if (species == SPECIES_BLASTOISE)
             return TRUE;
         else
