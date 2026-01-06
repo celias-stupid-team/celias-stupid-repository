@@ -848,7 +848,7 @@ script TwoIsland_HouseSalesman {
 		waitfanfare
 		msgbox(
 		"Go visit your house on\n"
-		"ROUTE 4!\l"
+		"ROUTE 5!\l"
 		"South of CERULEAN CITY!", MSGBOX_DEFAULT)
 		setflag(FLAG_BOUGHT_A_HOUSE)
 	} else {
