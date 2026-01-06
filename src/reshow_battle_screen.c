@@ -11,7 +11,6 @@
 
 static void CB2_ReshowBattleScreenAfterMenu(void);
 static void ReshowBattleScreen_TurnOnDisplay(void);
-static bool8 LoadBattlerSpriteGfx(u8 battlerId);
 static void CreateBattlerSprite(u8 battlerId);
 static void CreateHealthboxSprite(u8 battlerId);
 
@@ -188,7 +187,7 @@ static void ReshowBattleScreen_TurnOnDisplay(void)
     SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON | DISPCNT_OBJWIN_ON);
 }
 
-static bool8 LoadBattlerSpriteGfx(u8 battler)
+bool8 LoadBattlerSpriteGfx(u8 battler)
 {
     if (battler < gBattlersCount)
     {

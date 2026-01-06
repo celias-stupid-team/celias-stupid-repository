@@ -11105,31 +11105,58 @@ void BS_SetBattleStringId(void)
 void BS_SetUsed108TupleTeam(void)
 {
     NATIVE_ARGS();
-    
+ 
     gDisableStructs[gBattlerAttacker].used108TupleTeam = TRUE;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TrainerSlideSaveBattler(void)
+{
+    NATIVE_ARGS(u8 position);
+    
+    gActiveBattler = GetBattlerAtPosition(cmd->position);
+    gBattleScripting.savedData = gBattlerSpriteIds[gActiveBattler];
+    HideBattlerShadowSprite(gActiveBattler);
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_HandleTrainerSlideMsg(void)
 {
-    NATIVE_ARGS();
+    NATIVE_ARGS(u8 position);
 
+    gActiveBattler = GetBattlerAtPosition(cmd->position);
     if (gBattleControllerExecFlags == 0)
     {
-        PrepareStringBattle(STRINGID_TRAINERSLIDE, gBattlerAttacker);
+        PrepareStringBattle(STRINGID_TRAINERSLIDE, gActiveBattler);
         gBattlescriptCurrInstr = cmd->nextInstr;
         gBattleCommunication[MSG_DISPLAY] = 1;
     }
 }
 
+void BS_TrainerSlideRestoreBattler(void)
+{
+    NATIVE_ARGS(u8 position);
+    
+    gActiveBattler = GetBattlerAtPosition(cmd->position);
+    gBattlerSpriteIds[gActiveBattler] = gBattleScripting.savedData;
+    if (IsBattlerAlive(gActiveBattler))
+    {
+        SetBattlerShadowSpriteCallback(gActiveBattler, gBattleMons[gActiveBattler].species);
+        BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_TryTrainerSlideMsgFirstOff(void)
 {
-    NATIVE_ARGS(u8 battler);
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    NATIVE_ARGS();
+    
     u32 shouldDoTrainerSlide = 0;
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
     {
-        gBattleScripting.battler = battler;
+        gBattleScripting.battler = gActiveBattler;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11141,12 +11168,13 @@ void BS_TryTrainerSlideMsgFirstOff(void)
 
 void BS_TryTrainerSlideMsgLastOn(void)
 {
-    NATIVE_ARGS(u8 battler);
+    NATIVE_ARGS();
+
     u32 shouldDoTrainerSlide = 0;
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_LAST_SWITCHIN)))
+    
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_LAST_SWITCHIN)))
     {
-        gBattleScripting.battler = battler;
+        gBattleScripting.battler = gActiveBattler;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11159,25 +11187,22 @@ void BS_TryTrainerSlideMsgLastOn(void)
 void BS_TrainerSlideOut(void)
 {
     NATIVE_ARGS(u8 position);
-    if (!cmd->position)
-        gActiveBattler = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-    else
-        gActiveBattler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+    
+    gActiveBattler = GetBattlerAtPosition(cmd->position);
     BtlController_EmitTrainerSlideBack(BUFFER_A);
     MarkBattlerForControllerExec(gActiveBattler);
 
-    // gBattlescriptCurrInstr += 2;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_TryTrainerSlideMsgSwitchIn(void)
 {
-    NATIVE_ARGS(u8 battler);
+    NATIVE_ARGS();
+
     u32 shouldDoTrainerSlide = 0;
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(battler, TRAINER_SLIDE_AFTER_SWITCHIN)))
+    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_AFTER_SWITCHIN)))
     {
-        gBattleScripting.battler = battler;
+        gBattleScripting.battler = gActiveBattler;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
