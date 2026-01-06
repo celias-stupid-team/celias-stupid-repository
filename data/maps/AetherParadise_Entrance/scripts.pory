@@ -122,11 +122,11 @@ script AetherParadise_SkuntankBattle {
 	"I am skuntank\n"
 	"fuck you", MSGBOX_DEFAULT)
 	setflag(FLAG_SYS_KANGA_FIGHT)
-	seteventbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
+	setwildbattle(SPECIES_SKUNTANK, 40, ITEM_AIR_BALLOON)
 	playbgm(MUS_DUMMY, TRUE)
 	//setflag(FLAG_SYS_KANGA_FIGHT)
 	//setvar(VAR_TEMP_START_EVENT_BATTLE, EVENT_BATTLE_ARIANA)
-	special(DoLegendaryBattle)
+	special(StartLegendaryBattle)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	switch(var(VAR_RESULT)) {
 		case B_OUTCOME_WON:
