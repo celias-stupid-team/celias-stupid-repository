@@ -264,20 +264,38 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 7,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "AetherParadise_SkuntankBattle"
+      "script": "AetherParadise_DMCA_StopsYou"
     },
     {
       "type": "trigger",
       "x": 7,
-      "y": 7,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "AetherParadise_SkuntankBattle"
+      "script": "AetherParadise_DMCA_StopsYou"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "AetherParadise_DMCA_StopsYou"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "AetherParadise_DMCA_StopsYou"
     },
     {
       "type": "trigger",
@@ -285,7 +303,7 @@
       "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "AetherParadise_SkuntankBattle"
     },
     {
@@ -294,44 +312,35 @@
       "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "AetherParadise_SkuntankBattle"
     },
     {
       "type": "trigger",
       "x": 8,
-      "y": 11,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "AetherParadise_DMCA_StopsYou"
+      "var_value": "1",
+      "script": "AetherParadise_SkuntankBattle"
     },
     {
       "type": "trigger",
       "x": 7,
-      "y": 11,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "AetherParadise_DMCA_StopsYou"
+      "var_value": "1",
+      "script": "AetherParadise_SkuntankBattle"
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 11,
+      "x": 6,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "AetherParadise_DMCA_StopsYou"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "AetherParadise_DMCA_StopsYou"
+      "var_value": "1",
+      "script": "AetherParadise_SkuntankBattle"
     }
   ],
   "bg_events": [
