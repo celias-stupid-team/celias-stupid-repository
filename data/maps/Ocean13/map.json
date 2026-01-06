@@ -68,7 +68,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "type": "object",
@@ -83,6 +83,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_OCEAN_MAZE_JUMPSCARE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 64,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [],
@@ -113,6 +128,33 @@
       "var": "VAR_CSR_OCEAN_LASS_MAZE",
       "var_value": "0",
       "script": "ThirtyEightIsland_LassMaze"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
+      "var_value": "1",
+      "script": "ThirtyEightIsland_LassMazeJumpscare"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
+      "var_value": "1",
+      "script": "ThirtyEightIsland_LassMazeJumpscare"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_CSR_OCEAN_LASS_MAZE",
+      "var_value": "1",
+      "script": "ThirtyEightIsland_LassMazeJumpscare"
     }
   ],
   "bg_events": []

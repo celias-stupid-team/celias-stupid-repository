@@ -497,9 +497,36 @@ script ThirtyEightIsland_LassMaze {
 	fadedefaultbgm
 	waitmovement(LOCALID_CAMERA)
 	special(RemoveCameraObject)
+	removeobject(LOCALID_OCEAN13_LASS)
 	setvar(VAR_CSR_OCEAN_LASS_MAZE, 1)
 	release
 	end
+
+
+}
+
+script ThirtyEightIsland_LassMazeJumpscare {
+	lock
+	playbgm(MUS_NONE, TRUE)
+	playse(SE_M_WATERFALL)
+	applymovement(LOCALID_OCEAN_MAZE_JUMPSCARE, moves(
+		face_left
+		set_visible
+		jump_in_place_left
+	))
+	waitmovement(0)
+	delay(90)
+	playbgm(MUS_ENCOUNTER_GIRL, TRUE)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	delay(60)
+	msgbox(
+	"LASS: Guh… … …\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	fadedefaultbgm
+	setvar(VAR_CSR_OCEAN_LASS_MAZE, 2)
+	removeobject(LOCALID_OCEAN_MAZE_JUMPSCARE)
+	release
 
 
 }
