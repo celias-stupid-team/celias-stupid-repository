@@ -5121,7 +5121,7 @@ static const struct LevelUpMove sCastformLevelUpLearnset[] = {
     LEVEL_UP_MOVE(20, MOVE_RAIN_DANCE),
     LEVEL_UP_MOVE(20, MOVE_SUNNY_DAY),
     LEVEL_UP_MOVE(20, MOVE_HAIL),
-    LEVEL_UP_MOVE(30, MOVE_WEATHER_BALL),
+    LEVEL_UP_MOVE(30, MOVE_RAINBOW_BEAM),
     LEVEL_UP_END
 };
 
@@ -10014,6 +10014,11 @@ static const struct LevelUpMove sCHARIZARDQLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sHOOTLevelUpLearnset[] = {
+	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_END
+};
+
+static const struct LevelUpMove sZAPMOLCUNOLevelUpLearnset[] = {
 	LEVEL_UP_MOVE(1, MOVE_TACKLE),
 	LEVEL_UP_END
 };

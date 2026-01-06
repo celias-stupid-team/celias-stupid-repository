@@ -267,6 +267,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMultiHitFive           @ EFFECT_MULTI_HIT_FIVE
 	.4byte BattleScript_EffectEvasionMax             @ EFFECT_EVASION_MAX
 	.4byte BattleScript_EffectToxicSeed              @ EFFECT_TOXIC_SEED
+	.4byte BattleScript_EffectMultiHitThree              @ EFFECT_TOXIC_SEED
 
 BattleScript_EffectReflect2::
 	attackcanceler
@@ -5228,3 +5229,13 @@ BattleScript_DoToxic::
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectMultiHitThree::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setbyte sMULTIHIT_EFFECT, MOVE_EFFECT_POISON
+	attackstring
+	ppreduce
+	setmultihitcounter 3
+	initmultihitstring
+	goto BattleScript_MultiHitLoop

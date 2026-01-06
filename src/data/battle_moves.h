@@ -1783,14 +1783,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_KINESIS] =
     {
-        .effect = EFFECT_ACCURACY_DOWN,
+        .effect = EFFECT_OHKO_FLASH,
         .power = 0,
         .type = TYPE_PSYCHIC,
-        .accuracy = 80,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MAGIC_COAT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
@@ -8047,7 +8047,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TRIPLE_WINGBEAT] =
     {
-        .effect = EFFECT_MULTI_HIT_FIVE,
+        .effect = EFFECT_MULTI_HIT_THREE,
         .power = 60,
         .type = TYPE_FLYING,
         .accuracy = 0,

@@ -1541,7 +1541,7 @@
       "id": "LAYOUT_POKEMON_MANSION_B1F",
       "name": "PokemonMansion_B1F_Layout",
       "width": 38,
-      "height": 35,
+      "height": 45,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

@@ -631,7 +631,7 @@ const u8 gMoveDescription_MagnetRise[] = _("Dummy");
 const u8 gMoveDescription_Shoot[] = _("bang");
 const u8 gMoveDescription_108TupleTeam[] = _("Dummy");
 const u8 gMoveDescription_ThornWhip[] = _("Dummy");
-const u8 gMoveDescription_RainbowBeam[] = _("Dummy");
+const u8 gMoveDescription_RainbowBeam[] = _("A bright burst\nof light that\ncan break through\nany SHADOW.");
 const u8 gMoveDescription_TripleWingbeat[] = _("Dummy");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {

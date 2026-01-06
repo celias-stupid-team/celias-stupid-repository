@@ -172,13 +172,13 @@ gPikachuIntro_Text_Page1::
     .string "the POKéDEX as you play!$"
 
 gPikachuIntro_Text_Page2::
-    .string "This hack will require a decent amount\n"
-    .string "of prior knowledge on the POKéMON\n"
-    .string "series to be fully enjoyed.\n"
+	.string "This hack will require a fair amount\n"
+	.string "of prior knowledge on the POKéMON\n"
+	.string "series to be fully enjoyed.\n"
     .string "\n"
-    .string "It's like 30% puzzles,\n"
-    .string "30% trivia, 30% comedy\n"
-    .string "and 10% complete nonsense.$"
+	.string "It's an equal blend of\n"
+	.string "puzzles, trivia, comedy,\n"
+	.string "and absolute nonsense!$"
 
 gPikachuIntro_Text_Page3::
     .string "Savestate frequently!\n"

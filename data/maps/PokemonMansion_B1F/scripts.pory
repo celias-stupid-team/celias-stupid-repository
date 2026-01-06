@@ -61,3 +61,45 @@ script PokemonMansion_ResearcherTree {
 	"I want to research but I can't\n"
 	"PLACEHOLDER", MSGBOX_NPC)
 }
+
+
+script PokemonMansion_Tabatha {
+	textcolor(NPC_TEXT_COLOR_RED)
+	msgbox(
+	"I'm TABATHA…{PAUSE 30}\n"
+	"Hey!\l"
+	"Why's my text red?", MSGBOX_NPC)
+}
+
+
+script PokemonMansion_MrFlamethrower {
+	msgbox(
+	"Here lies MR. FLAMETHROWER.\p"
+
+	"We have left a TM here in his\n"
+	"honor.", MSGBOX_SIGN)
+
+}
+script PokemonMansion_MrFlamethrowerGrave {
+	msgbox(
+	"mr flamethrower\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script PokemonMansion_FujiPhoto {
+	msgbox(
+	"It's a photograph of the MANSION's\n"
+	"owner…\l"
+	"…MR. FUJI?!", MSGBOX_SIGN)
+
+}
+
+script PokemonMansion_Pedestal {
+	msgbox(
+	"A pedestal sits on the wall.\p"
+
+	"There's a small indent to set\n"
+	"something in.", MSGBOX_SIGN)
+
+}

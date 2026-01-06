@@ -33,26 +33,25 @@ Route22_Text_RivalShouldCatchSomeMons::
 	.string "つかまえれば　いい　じゃん！$"
 
 Route22_Text_LateRivalIntro::
-	.string "MARY: What? {PLAYER}!\n"
-	.string "What a surprise to see you here!\p"
-	.string "So you're going to the POKéMON\n"
-	.string "LEAGUE?\p"
-	.string "You collected all the BADGES, too?\n"
-	.string "That's cool!\p"
-	.string "Then I'll whip you, {PLAYER}, as a\n"
-	.string "warm-up for the POKéMON LEAGUE!\p"
+	.string "MARY: Heyyyy!\n"
+	.string "You must be {PLAYER}!\p"
+	.string "You've collected all your badges?\n"
+	.string "That's certainly something.\p"
+	.string "I guess I have to whip you, then!\n"
 	.string "Come on!$"
 
 Route22_Text_LateRivalDefeat::
-	.string "What!?\p"
-	.string "I was just careless, you!$"
+	.string "What!?\n"
+	.string "How'd you do that?$"
 
+	
 Route22_Text_LateRivalPostBattle::
-	.string "That loosened me up.\n"
-	.string "I'm ready for the POKéMON LEAGUE!\p"
-	.string "{PLAYER}, you need more practice.\p"
-	.string "But hey, you know that!\n"
-	.string "I'm out of here. Smell ya!$"
+	.string "MARY: I thought for sure my unholy\n"
+	.string "amalgom could beat you!\l"
+	.string "Stupid rat!\p"
+	.string "Well anyway, that's all from me.\n"
+	.string "Hope you do well!\l"
+	.string "Taste ya later!$"
 
 @ Translated in RB as "{RIVAL}: Hahaha! {PLAYER}! That's your best? You're nowhere near as good as me, pal! Go train some more! You loser!"
 Route22_Text_LateRivalVictory::

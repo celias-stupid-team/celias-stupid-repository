@@ -320,3 +320,65 @@ script IndigoPlateau_TheaterSign {
 	"Performed by the EMBER SPA PLAYERS!", MSGBOX_SIGN)
 
 }
+
+
+script IndigoPlateau_Lucca {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_GREEN)
+	if(flag(FLAG_TEMP_1)) {
+		msgbox(
+		"LUCCA: No… No, I got this.\n"
+		"I don't need any help.\p"
+
+		"Just gotta…\n"
+		"", MSGBOX_DEFAULT)
+	} else {
+		msgbox(
+		"LUCCA: So, I get that this place\n"
+		"is for the pinnacle of TRAINERS.\p"
+
+		"But…{PAUSE 30} don'tcha think they could've\n"
+		"installed a few ramps?", MSGBOX_DEFAULT)
+		setflag(FLAG_TEMP_1)
+	}
+	closemessage
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if(var(VAR_RESULT) == DIR_SOUTH) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_left
+			face_right
+		))
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		delay_16 * 2
+		walk_up
+		walk_slow_up
+		face_up
+		walk_in_place_up * 2
+		walk_slow_up
+		face_up
+		walk_in_place_up * 2
+		walk_slower_up
+		walk_in_place_up * 2
+		walk_in_place_slow_up * 3
+		lock_facing_direction
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_FALL)
+	applymovement(VAR_LAST_TALKED, moves(
+		walk_faster_down * 5
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	playse(SE_LEDGE)
+	applymovement(VAR_LAST_TALKED, moves(
+		jump_up
+		unlock_facing_direction
+
+	))
+	waitmovement(VAR_LAST_TALKED)
+	release
+	end
+}

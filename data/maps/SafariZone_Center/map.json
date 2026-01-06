@@ -432,16 +432,6 @@
       "script": "SafariZone_Center_EventScript_TrainerTips"
     },
     {
-      "type": "hidden_item",
-      "x": 46,
-      "y": 9,
-      "elevation": 3,
-      "item": "ITEM_LEAF_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_15",
-      "quantity": 1,
-      "underfoot": false
-    },
-    {
       "type": "sign",
       "x": 33,
       "y": 20,

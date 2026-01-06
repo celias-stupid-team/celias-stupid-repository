@@ -78,7 +78,7 @@
     {
       "local_id": "LOCALID_CREDITS_RIVAL4",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "graphics_id": "OBJ_EVENT_GFX_LARRY",
       "x": 84,
       "y": 6,
       "elevation": 0,
@@ -93,7 +93,7 @@
     {
       "local_id": "LOCALID_CREDITS_RIVAL5",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LARRY",
+      "graphics_id": "OBJ_EVENT_GFX_BLUE",
       "x": 84,
       "y": 6,
       "elevation": 0,
@@ -153,11 +153,11 @@
     {
       "local_id": "LOCALID_CREDITS_ZAPDOS",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ZAPDOS",
-      "x": 81,
-      "y": 40,
+      "graphics_id": "OBJ_EVENT_GFX_ODD_CANDY",
+      "x": 82,
+      "y": 28,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",

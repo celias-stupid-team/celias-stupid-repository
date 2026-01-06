@@ -5372,3 +5372,7 @@ Cry_HOOT::
 	.incbin "sound/direct_sound_samples/cries/hoot.bin"
 
 	.align 2
+Cry_ZAPMOLCUNO::
+	.incbin "sound/direct_sound_samples/cries/zapmolcuno.bin"
+
+	.align 2
