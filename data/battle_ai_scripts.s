@@ -68,6 +68,7 @@ AI_CBM_CheckIfNegatesType::
 	goto AI_CheckBadMove_CheckSoundproof
 
 CheckIfVoltAbsorbCancelsElectric::
+	if_move MOVE_THUNDER_WAVE_CYNTHIA, AI_CheckBadMove_CheckSoundproof @ ignore for Thunder Wave from Cynthia
 	get_curr_move_type
 	if_equal_ TYPE_ELECTRIC, Score_Minus12
 	goto AI_CheckBadMove_CheckSoundproof
