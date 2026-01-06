@@ -4706,12 +4706,20 @@ static bool8 HealStatusConditions(struct Pokemon *mon, u32 unused, u32 healMask,
 {
     u32 status = GetMonData(mon, MON_DATA_STATUS, NULL);
 
+    if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON))
+    {
+        gStatuses3[gBattlerAttacker] &= ~STATUS3_PERMA_PARA;
+    }
+
     if (status & healMask)
     {
         status &= ~healMask;
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battleId != MAX_BATTLERS_COUNT)
+        {
             gBattleMons[battleId].status1 &= ~healMask;
+            gStatuses3[battleId] &= ~STATUS3_PERMA_PARA;
+        }
         return FALSE;
     }
     else
