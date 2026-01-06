@@ -1623,5 +1623,6 @@ extern const u8 gText_ReceivedPokemon[];
 extern const u8 gText_AllBoxesFull[];
 extern const u8 gText_GimmieghoulTMUsed[];
 extern const u8 gText_SentToPC[];
+extern const u8 gText_WEmblemEvolve[];
 
 #endif //GUARD_STRINGS_H
