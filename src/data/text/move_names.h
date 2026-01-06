@@ -634,6 +634,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_108_TUPLE_TEAM]     = _("108 TEAM"),
     [MOVE_THUNDER_WAVE_CYNTHIA]  = _("THUNDER WAVE"),
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
+    [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
+    [MOVE_TRIPLE_WINGBEAT]     = _("FALSE"),
 };
 
 
@@ -1274,5 +1276,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_108_TUPLE_TEAM]     = _("108-TUPLE TEAM"),
     [MOVE_THUNDER_WAVE_CYNTHIA]  = _("THUNDER WAVE"),
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
+    [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
+    [MOVE_TRIPLE_WINGBEAT]     = _("TRIPLE WINGBEAT"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

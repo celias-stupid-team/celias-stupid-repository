@@ -104,14 +104,17 @@ mapscripts CeladonCity_MapScripts {
 		if(!flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
 			setflag(FLAG_TEMP_3)
 		} 
+		if(checkitem(ITEM_HM06)) {
+			setmaplayoutindex(LAYOUT_CELADON_CITY_TROLL_LAYOUT)
+		}
 	
 	}
 
 	MAP_SCRIPT_ON_LOAD {
-		if(flag(FLAG_BADGE04_GET) && !(checkmoncaught(SPECIES_NIDOQUEEN) || checkmoncaught(SPECIES_NIDOKING)) && !flag(FLAG_GOT_SHINY_MANKEY_FROM_CELIA)) {
-			//setobjectxyperm(CELIA, 35, 15)
-			//setobjectmovementtype(CELIA, MOVEMENT_TYPE_FACE_UP)
-			//setvar(VAR_TEMP_1, 1)
+		
+		if(checkitem(ITEM_HM06)) {
+			setobjectxyperm(LOCALID_CELADON_FAKE_ITEM, 9, 12)
+			setobjectmovementtype(LOCALID_CELADON_FAKE_BOULDER, MOVEMENT_TYPE_FACE_DOWN)
 		}
 	}
 

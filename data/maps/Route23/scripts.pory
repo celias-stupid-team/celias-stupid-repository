@@ -305,3 +305,18 @@ script IndigoPlateau_RockClimbDown {
 	releaseall
 
 }
+
+
+script IndigoPlateau_Theater {
+	msgbox(
+	"Coming soon!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script IndigoPlateau_TheaterSign {
+	msgbox(
+	"VICTORY ROAD{PAUSE 60}\n"
+	"Performed by the EMBER SPA PLAYERS!", MSGBOX_SIGN)
+
+}

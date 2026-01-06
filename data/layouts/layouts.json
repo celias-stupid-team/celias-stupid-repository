@@ -6912,6 +6912,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/FinalBossCutscene_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/FinalBossCutscene_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_CITY_TROLL_LAYOUT",
+      "name": "CeladonCity_TrollLayout",
+      "width": 60,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeladonCity",
+      "border_filepath": "data/layouts/CeladonCity_TrollLayout/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonCity_TrollLayout/map.bin"
     }
   ]
 }
