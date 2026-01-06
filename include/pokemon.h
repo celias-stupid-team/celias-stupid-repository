@@ -441,7 +441,7 @@ void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability);
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove);
 void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 bool8 IsMoveHm(u16 move);
-
 u32 GetCurrentLevelCap(u16 species);
+void HealPokemon(struct Pokemon *mon);
 
 #endif // GUARD_POKEMON_H

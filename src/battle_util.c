@@ -1209,7 +1209,7 @@ bool8 HandleFaintedMonActions(void)
     u8 cynthia_state = 0;
     u8 cynthia_membersCount = 0;
     u8 cynthia_membersCountAlive = 0;
-    u8 i = 0;
+    s32 i = 0;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return FALSE;
@@ -1232,12 +1232,29 @@ bool8 HandleFaintedMonActions(void)
         }
         
         if (cynthia_membersCountAlive < (cynthia_membersCount - cynthia_state))
+        {
+            // Cynthia party member fainted
             VarSet(VAR_CSR_CYNTHIA_BATTLE, cynthia_state + 1);
+
+            // heal full party after each Cynthia battle phase
+            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA)
+            {
+                for (i = 0; i < PARTY_SIZE; i++)
+                {
+                    u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+                    if (!species)
+                        continue;
+                    if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+                    {
+                        HealPokemon(&gPlayerParty[i]);
+                    }
+                }
+            }
+        }
     }
 
     do
     {
-        s32 i;
         switch (gBattleStruct->faintedActionsState)
         {
         case 0:

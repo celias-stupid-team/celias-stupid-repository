@@ -6847,3 +6847,17 @@ bool8 IsMoveHm(u16 move)
     }
     return FALSE;
 }
+
+void HealPokemon(struct Pokemon *mon)
+{
+    u32 data;
+
+    data = GetMonData(mon, MON_DATA_MAX_HP);
+    SetMonData(mon, MON_DATA_HP, &data);
+
+    data = STATUS1_NONE;
+    SetMonData(mon, MON_DATA_STATUS, &data);
+
+    MonRestorePP(mon);
+    CalculateMonStats(mon);
+}
