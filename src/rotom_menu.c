@@ -1790,7 +1790,7 @@ static void RotomStartMenu_DisableSpriteAffineModes(void)
                 gSprites[spriteID].y += (ROTOM_ICON_SIZE / 2);
             }
 
-            gSprites[spriteID].oam.affineMode = ST_OAM_AFFINE_OFF;
+            FreeSpriteOamMatrix(&gSprites[spriteID]);
         }
     }
 }
