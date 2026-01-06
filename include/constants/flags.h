@@ -790,9 +790,9 @@
 #define FLAG_NO_ROOM_FOR_TOGEPI_EGG                      0x2DB
 #define FLAG_RECOVERED_SAPPHIRE                          0x2DC
 #define FLAG_GOT_RUBY                                    0x2DD
-#define FLAG_TUTOR_FRENZY_PLANT                          0x2DE
-#define FLAG_TUTOR_BLAST_BURN                            0x2DF
-#define FLAG_TUTOR_HYDRO_CANNON                          0x2E0
+#define FLAG_TUTOR_GRASS_PLEDGE                          0x2DE
+#define FLAG_TUTOR_FIRE_PLEDGE                            0x2DF
+#define FLAG_TUTOR_WATER_PLEDGE                          0x2E0
 #define FLAG_LEARNED_ALL_MOVES_AT_CAPE_BRINK             0x2E1
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3

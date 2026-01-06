@@ -2335,23 +2335,23 @@ bool8 CapeBrinkGetMoveToTeachLeadPokemon(void)
         return FALSE;
     if (tutorMonId == 0)
     {
-        StringCopy(gStringVar2, gLongMoveNames[MOVE_FRENZY_PLANT]);
-        gSpecialVar_0x8005 = MOVETUTOR_FRENZY_PLANT;
-        if (FlagGet(FLAG_TUTOR_FRENZY_PLANT) == TRUE)
+        StringCopy(gStringVar2, gLongMoveNames[MOVE_GRASS_PLEDGE]);
+        gSpecialVar_0x8005 = MOVETUTOR_GRASS_PLEDGE;
+        if (FlagGet(FLAG_TUTOR_GRASS_PLEDGE) == TRUE)
             return FALSE;
     }
     else if (tutorMonId == 1)
     {
-        StringCopy(gStringVar2, gLongMoveNames[MOVE_BLAST_BURN]);
-        gSpecialVar_0x8005 = MOVETUTOR_BLAST_BURN;
-        if (FlagGet(FLAG_TUTOR_BLAST_BURN) == TRUE)
+        StringCopy(gStringVar2, gLongMoveNames[MOVE_FIRE_PLEDGE]);
+        gSpecialVar_0x8005 = MOVETUTOR_FIRE_PLEDGE;
+        if (FlagGet(FLAG_TUTOR_FIRE_PLEDGE) == TRUE)
             return FALSE;
     }
     else
     {
-        StringCopy(gStringVar2, gLongMoveNames[MOVE_HYDRO_CANNON]);
-        gSpecialVar_0x8005 = MOVETUTOR_HYDRO_CANNON;
-        if (FlagGet(FLAG_TUTOR_HYDRO_CANNON) == TRUE)
+        StringCopy(gStringVar2, gLongMoveNames[MOVE_WATER_PLEDGE]);
+        gSpecialVar_0x8005 = MOVETUTOR_WATER_PLEDGE;
+        if (FlagGet(FLAG_TUTOR_WATER_PLEDGE) == TRUE)
             return FALSE;
     }
     if (GetMonData(&gPlayerParty[leadMonSlot], MON_DATA_MOVE1) != MOVE_NONE)
@@ -2370,17 +2370,17 @@ bool8 HasLearnedAllMovesFromCapeBrinkTutor(void)
 {
     // 8005 is set by CapeBrinkGetMoveToTeachLeadPokemon
     u8 r4 = 0;
-    if (gSpecialVar_0x8005 == MOVETUTOR_FRENZY_PLANT)
-        FlagSet(FLAG_TUTOR_FRENZY_PLANT);
-    else if (gSpecialVar_0x8005 == MOVETUTOR_BLAST_BURN)
-        FlagSet(FLAG_TUTOR_BLAST_BURN);
+    if (gSpecialVar_0x8005 == MOVETUTOR_GRASS_PLEDGE)
+        FlagSet(FLAG_TUTOR_GRASS_PLEDGE);
+    else if (gSpecialVar_0x8005 == MOVETUTOR_FIRE_PLEDGE)
+        FlagSet(FLAG_TUTOR_FIRE_PLEDGE);
     else
-        FlagSet(FLAG_TUTOR_HYDRO_CANNON);
-    if (FlagGet(FLAG_TUTOR_FRENZY_PLANT) == TRUE)
+        FlagSet(FLAG_TUTOR_WATER_PLEDGE);
+    if (FlagGet(FLAG_TUTOR_GRASS_PLEDGE) == TRUE)
         r4++;
-    if (FlagGet(FLAG_TUTOR_BLAST_BURN) == TRUE)
+    if (FlagGet(FLAG_TUTOR_FIRE_PLEDGE) == TRUE)
         r4++;
-    if (FlagGet(FLAG_TUTOR_HYDRO_CANNON) == TRUE)
+    if (FlagGet(FLAG_TUTOR_WATER_PLEDGE) == TRUE)
         r4++;
     if (r4 == 3)
         return TRUE;

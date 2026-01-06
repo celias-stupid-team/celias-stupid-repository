@@ -457,6 +457,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SWORDBERT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHIELDFUCK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDANHAT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LUCCA;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BOUY;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GOURL;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPINDAS;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AQUA_MEMBER_M;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -915,4 +919,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SHIELDFUCK] = &gObjectEventGraphicsInfo_SHIELDFUCK,
     [OBJ_EVENT_GFX_BRENDANHAT] = &gObjectEventGraphicsInfo_BRENDANHAT,
     [OBJ_EVENT_GFX_LUCCA] = &gObjectEventGraphicsInfo_LUCCA,
+    [OBJ_EVENT_GFX_BOUY] = &gObjectEventGraphicsInfo_BOUY,
+    [OBJ_EVENT_GFX_GOURL] = &gObjectEventGraphicsInfo_GOURL,
+    [OBJ_EVENT_GFX_SPINDAS] = &gObjectEventGraphicsInfo_SPINDAS,
+    [OBJ_EVENT_GFX_AQUA_MEMBER_M] = &gObjectEventGraphicsInfo_AQUA_MEMBER_M,
 };

@@ -380,3 +380,78 @@ script GreatSea_GoodNoTentacool {
 	"Thank goodness there's no wild\n"
 	"TENTACOOL anywhere!", MSGBOX_NPC)
 }
+
+
+script GreatSea_WetFloor {
+	msgbox(
+	"CAUTION!\n"
+	"Wet Floor", MSGBOX_SIGN)
+
+}
+
+
+script GreatSea_Route19_Bouy {
+	lock
+	msgbox(
+	"It's a bouy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} ONE ISLAND\n"
+	"{DOWN_ARROW} MEMORIAL PILLAR", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_Seafoam_Bouy {
+	lock
+	msgbox(
+	"It's a bouy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} ONE ISLAND\n"
+	"{DOWN_ARROW} SEAFOAM ISLANDS", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+
+script GreatSea_MemorialPillar_Bouy {
+	lock
+	msgbox(
+	"It's a bouy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{LEFT_ARROW} SEAFOAM ISLANDS\n"
+	"{RIGHT_ARROW} FOUR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_FourIslandNorth_Bouy {
+	lock
+	msgbox(
+	"It's a bouy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} KANTO SHORELINE\n"
+	"{DOWN_ARROW} FOUR ISLAND", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}
+
+script GreatSea_MinnesotaNorth_Bouy {
+	lock
+	msgbox(
+	"It's a bouy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} THIRTY EIGHT ISLAND\n"
+	"{DOWN_ARROW} MINNESOTA", MSGBOX_DEFAULT)
+	normalmsg
+	release
+}

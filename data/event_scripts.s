@@ -1877,3 +1877,6 @@ Text_TestMsg::
 
 	.include "data/maps/FinalBossCutscene/scripts.inc"
 	.include "data/maps/FinalBossCutscene/text.inc"
+
+	.include "data/maps/SpindaFamilyRuinion/scripts.inc"
+	.include "data/maps/SpindaFamilyRuinion/text.inc"

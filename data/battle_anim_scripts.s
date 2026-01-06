@@ -330,8 +330,8 @@ gBattleAnims_Moves::
 	.4byte Move_HYPER_VOICE
 	.4byte Move_POISON_FANG
 	.4byte Move_CRUSH_CLAW
-	.4byte Move_BLAST_BURN
-	.4byte Move_HYDRO_CANNON
+	.4byte Move_FIRE_PLEDGE
+	.4byte Move_WATER_PLEDGE
 	.4byte Move_METEOR_MASH
 	.4byte Move_ASTONISH
 	.4byte Move_WEATHER_BALL
@@ -361,7 +361,7 @@ gBattleAnims_Moves::
 	.4byte Move_BLOCK
 	.4byte Move_HOWL
 	.4byte Move_DRAGON_CLAW
-	.4byte Move_FRENZY_PLANT
+	.4byte Move_GRASS_PLEDGE
 	.4byte Move_BULK_UP
 	.4byte Move_BOUNCE
 	.4byte Move_MUD_SHOT
@@ -9273,7 +9273,7 @@ Move_SUBSTITUTE:
 	createvisualtask AnimTask_MonToSubstitute, 2
 	end
 
-Move_FRENZY_PLANT:
+Move_GRASS_PLEDGE:
 	loadspritegfx ANIM_TAG_ROOTS
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -9574,7 +9574,7 @@ Move_COSMIC_POWER:
 	waitforvisualfinish
 	end
 
-Move_BLAST_BURN:
+Move_FIRE_PLEDGE:
 	loadspritegfx ANIM_TAG_FIRE_PLUME
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
@@ -9862,7 +9862,7 @@ Move_OVERHEAT:
 	waitforvisualfinish
 	end
 
-Move_HYDRO_CANNON:
+Move_WATER_PLEDGE:
 	loadspritegfx ANIM_TAG_WATER_ORB
 	loadspritegfx ANIM_TAG_WATER_IMPACT
 	monbg ANIM_DEF_PARTNER

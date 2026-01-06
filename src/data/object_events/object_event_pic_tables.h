@@ -4896,3 +4896,47 @@ const struct SpriteFrameImage gObjectEventPicTable_LUCCA[] = {
     overworld_frame(gObjectEventPic_LUCCA, 2, 4, 7),
     overworld_frame(gObjectEventPic_LUCCA, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_BOUY[] = {
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 2),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 3),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 4),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 5),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 6),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 7),
+    overworld_frame(gObjectEventPic_BOUY, 2, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_GOURL[] = {
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 3),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 4),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 5),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 6),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 7),
+    overworld_frame(gObjectEventPic_GOURL, 2, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_SPINDAS[] = {
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 4),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 5),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 6),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 7),
+    overworld_frame(gObjectEventPic_SPINDAS, 4, 4, 8),
+};
+const struct SpriteFrameImage gObjectEventPicTable_AQUA_MEMBER_M[] = {
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 8),
+};

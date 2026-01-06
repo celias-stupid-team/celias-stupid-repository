@@ -97,6 +97,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FiveIsland_MemorialPillar_EventScript_ItemMetalCoat",
       "flag": "NULL"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 32,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_MemorialPillar_Bouy",
+      "flag": "0"
     }
   ],
   "warp_events": [],

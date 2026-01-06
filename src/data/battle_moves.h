@@ -4044,11 +4044,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = 0,
     },
 
-    [MOVE_BLAST_BURN] =
+    [MOVE_FIRE_PLEDGE] =
     {
         .effect = EFFECT_RECHARGE,
         .power = 150,
-        .type = TYPE_FIRE,
+        .type = TYPE_WATER,
         .accuracy = 90,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -4057,7 +4057,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
-    [MOVE_HYDRO_CANNON] =
+    [MOVE_WATER_PLEDGE] =
     {
         .effect = EFFECT_RECHARGE,
         .power = 150,
@@ -4447,11 +4447,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
 
-    [MOVE_FRENZY_PLANT] =
+    [MOVE_GRASS_PLEDGE] =
     {
         .effect = EFFECT_RECHARGE,
         .power = 150,
-        .type = TYPE_GRASS,
+        .type = TYPE_WATER,
         .accuracy = 90,
         .pp = 5,
         .secondaryEffectChance = 0,
