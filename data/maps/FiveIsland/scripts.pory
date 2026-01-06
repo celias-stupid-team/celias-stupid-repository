@@ -111,11 +111,10 @@ script Yes_Brendan {
 			"Let me just…", MSGBOX_DEFAULT)
 			closemessage
 			delay(10)
-			playse(SE_CLICK)
 			setobjectxy(LOCALID_BRENDANHAT, 8, 4)
 			applymovement(VAR_LAST_TALKED, moves(
 				face_left
-				delay_16 * 3
+				delay_16 * 2
 			))
 			waitmovement(0)
 			applymovement(VAR_LAST_TALKED, moves(
@@ -127,9 +126,10 @@ script Yes_Brendan {
 				set_visible
 				delay_16
 				face_up
-				delay_16
+				delay_4
 				face_left
 				delay_16
+				delay_8
 				
 			))
 			waitmovement(LOCALID_BRENDANHAT)

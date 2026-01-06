@@ -597,8 +597,8 @@
 #define FLAG_CAPTAIN_DIRECTS_SPHEALS               0x21F
 #define FLAG_HALF_ISLAND_SHORT               0x220
 #define FLAG_TALKED_TO_BRENDAN               0x221
-#define FLAG_GAVE_BRENDAN_HAT               0x222
-#define FLAG_0x223               0x223
+#define FLAG_CHAPTER_7_CHAPTER_2               0x222
+#define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
 #define FLAG_0x224               0x224
 #define FLAG_0x225               0x225
 #define FLAG_0x226               0x226

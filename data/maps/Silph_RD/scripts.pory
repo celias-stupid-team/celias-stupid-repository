@@ -37,3 +37,38 @@ script SilphCo_RD_OranKid {
 	"I am oran kid\n"
 	"", MSGBOX_NPC)
 }
+
+
+script SilphCo_RD_Elevator {
+	msgbox(
+	"Rats!\n", MSGBOX_SIGN)
+
+}
+
+script SilphCo_MakeElevatorDisappear {
+	lock
+	applymovement(LOCALID_APPLE_KID, moves(
+		face_up
+	))
+	playse(SE_CLICK)
+	delay(60)
+	setmetatile(5, 0, 0x330, TRUE)
+	setmetatile(6, 0, 0x330, TRUE)
+	setmetatile(7, 0, 0x330, TRUE)
+	
+	setmetatile(5, 1, 0x330, TRUE)
+	setmetatile(6, 1, 0x330, TRUE)
+	setmetatile(7, 1, 0x330, TRUE)
+	special(DrawWholeMapView)
+	
+			    setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+				setvar(VAR_SHAKESCREEN_NUM_SHAKES, 2)
+				setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 1)
+				special(ShakeScreen)
+	delay(60)
+	msgbox(
+	"APPLIN KID: Excellent!\n"
+	"My ELEVATOR ERASER is working!", MSGBOX_DEFAULT)
+	setvar(VAR_TEMP_1, 1)
+}
