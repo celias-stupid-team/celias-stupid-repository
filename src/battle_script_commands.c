@@ -7142,6 +7142,8 @@ static void Cmd_manipulatedamage(void)
     switch (gBattlescriptCurrInstr[1])
     {
     case DMG_CHANGE_SIGN:
+        if (gStatuses3[gBattlerAttacker] & STATUS3_TOXIC_SEED) //gBattlerAttacker = leeched Pokémon
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP; //gBattlerTarget = drain move HP receiver
         gBattleMoveDamage *= -1;
         break;
     case DMG_RECOIL_FROM_MISS:
