@@ -26,7 +26,7 @@ VermilionCity_PokemonFanClub_Text_Pikachu::
     .string "its childhood.$"
 
 VermilionCity_PokemonFanClub_Text_Seel::
-    .string "seal: Arf! Arf!$"
+    .string "Seal: Arf! Arf!$"
 
 VermilionCity_PokemonFanClub_Text_DidYouComeToHearAboutMyMons::
     .string "Welcome to the POKéMON Fan Club!\p"

@@ -641,3 +641,6 @@ const u32 gObjectEventPic_SPINDAS[] = INCBIN_U32("graphics/object_events/pics/st
 const u16 gObjectEventPal_SPINDAS[] = INCBIN_U16("graphics/object_events/palettes/SPINDAS.gbapal");
 const u32 gObjectEventPic_AQUA_MEMBER_M[] = INCBIN_U32("graphics/object_events/pics/stupid/AQUA_MEMBER_M.4bpp");
 const u16 gObjectEventPal_AQUA_MEMBER_M[] = INCBIN_U16("graphics/object_events/palettes/AQUA_MEMBER_M.gbapal");
+const u32 gObjectEventPic_UNAGI[] = INCBIN_U32("graphics/object_events/pics/stupid/UNAGI.4bpp");
+const u32 gObjectEventPic_POKEBALL_STORAGE[] = INCBIN_U32("graphics/object_events/pics/stupid/POKEBALL_STORAGE.4bpp");
+const u16 gObjectEventPal_POKEBALL_STORAGE[] = INCBIN_U16("graphics/object_events/palettes/POKEBALL_STORAGE.gbapal");

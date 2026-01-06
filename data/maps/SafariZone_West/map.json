@@ -332,7 +332,7 @@
       "y": 4,
       "elevation": 3,
       "item": "ITEM_REVIVE",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_16",
+      "flag": "FLAG_HIDDEN_ITEM_SPONGEBOB",
       "quantity": 1,
       "underfoot": false
     },

@@ -455,3 +455,19 @@ script GreatSea_MinnesotaNorth_Bouy {
 	normalmsg
 	release
 }
+
+
+script GreatSea_WomensSecret { // Swimmer Victoria
+	msgbox(
+	"Where do I keep my POKé BALLS?\p"
+
+	"Tee hee!\n"
+	"Women's secret!", MSGBOX_NPC)
+}
+
+script GreatSea_PokeBallStorage {
+	msgbox(
+	"FEMININE POKéBALL STORAGE DEVICE\n"
+	"", MSGBOX_SIGN)
+
+}

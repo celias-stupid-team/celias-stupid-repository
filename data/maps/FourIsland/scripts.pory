@@ -220,7 +220,7 @@ script FourIsland_PalParkDMCA {
 script FourIsland_RockClimbUp {
 	lock
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
@@ -237,7 +237,7 @@ script FourIsland_RockClimbUp {
 script FourIsland_RockClimbDown {
 	lock
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {

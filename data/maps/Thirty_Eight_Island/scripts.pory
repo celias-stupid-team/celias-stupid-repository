@@ -338,15 +338,38 @@ script ThirtyEightIsland_Intro {
 }
 
 script ThirtyEightIsland_Saltcureberry {
+	lock
+	removeobject(VAR_LAST_TALKED)
+	playfanfare(MUS_LEVEL_UP)
 	msgbox(
-	"I am a berry\n"
-	"", MSGBOX_NPC)
+	"you found\n"
+	"SALTCURBERRY", MSGBOX_DEFAULT)
+	waitfanfare
+	release
 }
 script ThirtyEightIsland_otherberry {
+	lock
+	removeobject(VAR_LAST_TALKED)
+	playfanfare(MUS_LEVEL_UP)
 	msgbox(
-	"I am a berry\n"
-	"", MSGBOX_NPC)
+	"you found\n"
+	"SALTCURECUREBERRY", MSGBOX_DEFAULT)
+	waitfanfare
+	release
 }
+script ThirtyEightIsland_thirdberry {
+	lock
+	removeobject(VAR_LAST_TALKED)
+	playfanfare(MUS_LEVEL_UP)
+	msgbox(
+	"you found\n"
+	"HPCURECONFUSEIFDISLIKEBITTERBERRY!", MSGBOX_DEFAULT)
+	waitfanfare
+	release
+
+}
+
+
 
 script ThirtyEightIsland_HeadbuttMan {
 	lock

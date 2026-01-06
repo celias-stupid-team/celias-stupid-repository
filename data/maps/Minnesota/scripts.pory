@@ -114,6 +114,14 @@ script MinnesotaZoo_FirstCage {
 
 }
 
+script MinnesotaZoo_Mongoose {
+	msgbox(
+	"(Mongoose dialogue)\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
 script MinnesotaZoo_ZooBat {
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox(

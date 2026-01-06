@@ -1,5 +1,9 @@
 mapscripts Ocean16_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+		if(var(VAR_TRADING_QUEST_PHASE) > 2) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
 }
 
 
@@ -26,7 +30,39 @@ script Desert_DavidHasselhoff {
 
 
 script Desert_AlienInDisguise {
+	lock
+	faceplayer
 	msgbox(
-	"Please bring me STEEL WING\n"
-	"", MSGBOX_NPC)
+	"I have forgotten everything\p"
+
+	"Bring me STEEL WING so I can\n"
+	"remember", MSGBOX_DEFAULT)
+	if(checkitem(ITEM_TM02)) {
+		msgbox(
+		"That's STEEL WING\p"
+
+		"Oh yeah I remember now\n"
+		"I'm an alien\p"
+
+		"Good bye\n"
+		"", MSGBOX_DEFAULT)
+		removeobject(VAR_LAST_TALKED)
+		closemessage
+		delay(30)
+		removeitem(ITEM_TM02)
+		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
+		waitfanfare
+		setvar(VAR_TRADING_QUEST_PHASE, 3)
+		release
+	}
+	release
+}
+
+
+script Desert_SquidwardHouse {
+	lock
+	showmonpic(SPECIES_NOSEPASS, 10, 3)
+	waitbuttonpress
+	hidemonpic
+	release
 }

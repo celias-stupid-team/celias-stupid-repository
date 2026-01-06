@@ -281,7 +281,7 @@ script OneIsland_ArticunoEgg {
 script OneIsland_RockClimbUp {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {
@@ -298,7 +298,7 @@ script OneIsland_RockClimbUp {
 script OneIsland_RockClimbDown {
 	lockall
 	msgbox("Jagged rocks line the wall.\n", MSGBOX_DEFAULT)
-	if(checkpartymove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
+	if(checkfieldmove(MOVE_ROCK_CLIMB) != PARTY_SIZE) {
 		msgbox("Would you like to use\nROCK CLIMB?", MSGBOX_YESNO)
 		closemessage
 		if(var(VAR_RESULT)) {

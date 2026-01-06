@@ -608,8 +608,8 @@
 #define FLAG_0x22A               0x22A
 #define FLAG_0x22B               0x22B
 #define FLAG_0x22C               0x22C
-#define FLAG_0x22D               0x22D
-#define FLAG_0x22E               0x22E
+#define FLAG_CAUGHT_MR_FUJI               0x22D
+#define FLAG_CAUGHT_VERMILION_SEAL               0x22E
 #define FLAG_CSR_CELIA_DEV_CREW               0x22F
 
 // Story flags
@@ -1112,8 +1112,8 @@
 #define FLAG_ROUTE19_DOLL_1                                     (FLAG_HIDDEN_ITEMS_START +  19)
 #define FLAG_ROUTE19_DOLL_2                                (FLAG_HIDDEN_ITEMS_START +  20)
 #define FLAG_HIDDEN_ITEM_POKE_DOLL_10                                (FLAG_HIDDEN_ITEMS_START +  21)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_15                     (FLAG_HIDDEN_ITEMS_START +  22)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_16                           (FLAG_HIDDEN_ITEMS_START +  23)
+#define FLAG_HIDDEN_ITEM_ROUTE22_NOTHING                     (FLAG_HIDDEN_ITEMS_START +  22)
+#define FLAG_HIDDEN_ITEM_SPONGEBOB                           (FLAG_HIDDEN_ITEMS_START +  23)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_17                                (FLAG_HIDDEN_ITEMS_START +  24)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_18                            (FLAG_HIDDEN_ITEMS_START +  25)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_19             (FLAG_HIDDEN_ITEMS_START +  26)

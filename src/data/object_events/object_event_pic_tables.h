@@ -4940,3 +4940,25 @@ const struct SpriteFrameImage gObjectEventPicTable_AQUA_MEMBER_M[] = {
     overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 7),
     overworld_frame(gObjectEventPic_AQUA_MEMBER_M, 2, 4, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_UNAGI[] = {
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 0),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 1),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 2),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 0),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 0),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 1),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 1),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 2),
+    overworld_frame(gObjectEventPic_UNAGI, 8, 8, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_POKEBALL_STORAGE[] = {
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 0),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 1),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 2),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 3),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 4),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 5),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 6),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 7),
+    overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 8),
+};
