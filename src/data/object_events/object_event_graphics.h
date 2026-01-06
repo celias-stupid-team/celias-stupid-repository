@@ -633,3 +633,5 @@ const u16 gObjectEventPal_MANTYKE[] = INCBIN_U16("graphics/object_events/palette
 const u32 gObjectEventPic_SWORDBERT[] = INCBIN_U32("graphics/object_events/pics/stupid/SWORDBERT.4bpp");
 const u32 gObjectEventPic_SHIELDFUCK[] = INCBIN_U32("graphics/object_events/pics/stupid/SHIELDFUCK.4bpp");
 const u32 gObjectEventPic_BRENDANHAT[] = INCBIN_U32("graphics/object_events/pics/stupid/BRENDANHAT.4bpp");
+const u32 gObjectEventPic_LUCCA[] = INCBIN_U32("graphics/object_events/pics/stupid/LUCCA.4bpp");
+const u16 gObjectEventPal_LUCCA[] = INCBIN_U16("graphics/object_events/palettes/LUCCA.gbapal");

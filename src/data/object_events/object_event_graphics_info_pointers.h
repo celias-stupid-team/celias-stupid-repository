@@ -456,6 +456,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MANTYKE;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SWORDBERT;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SHIELDFUCK;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDANHAT;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LUCCA;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -913,4 +914,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SWORDBERT] = &gObjectEventGraphicsInfo_SWORDBERT,
     [OBJ_EVENT_GFX_SHIELDFUCK] = &gObjectEventGraphicsInfo_SHIELDFUCK,
     [OBJ_EVENT_GFX_BRENDANHAT] = &gObjectEventGraphicsInfo_BRENDANHAT,
+    [OBJ_EVENT_GFX_LUCCA] = &gObjectEventGraphicsInfo_LUCCA,
 };

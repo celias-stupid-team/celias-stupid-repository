@@ -379,6 +379,7 @@ script IndigoPlateau_Lucca {
 
 	))
 	waitmovement(VAR_LAST_TALKED)
+	setobjectmovementtype(VAR_LAST_TALKED, MOVEMENT_TYPE_FACE_UP)
 	release
 	end
 }
