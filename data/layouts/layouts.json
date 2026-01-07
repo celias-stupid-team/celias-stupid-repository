@@ -2237,11 +2237,11 @@
       "id": "LAYOUT_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM",
       "name": "CinnabarIsland_PokemonLab_ResearchRoom_Layout",
       "width": 15,
-      "height": 11,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
+      "secondary_tileset": "gTileset_Museum",
       "border_filepath": "data/layouts/CinnabarIsland_PokemonLab_ResearchRoom/border.bin",
       "blockdata_filepath": "data/layouts/CinnabarIsland_PokemonLab_ResearchRoom/map.bin"
     },

@@ -12,6 +12,7 @@ FiveIsland_RocketWarehouse_OnTransition::
 	end
 
 FiveIsland_RocketWarehouse_OnLoad::
+	setrespawn HEAL_LOCATION_GREAT_SEA_PIRATE_BAY
 	call_if_defeated TRAINER_TEAM_ROCKET_ADMIN, FiveIsland_RocketWarehouse_EventScript_SetArrowsForReEntry
 	end
 

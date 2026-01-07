@@ -8,8 +8,10 @@ mapscripts AetherParadise_Entrance_MapScripts {
 		}
 		if(flag(FLAG_DMCA_SKUNTANK_FIGHT_COMPLETED)) {
 			setvar(VAR_TEMP_0, 2)
+			setbench(BENCH_AETHER_PARADISE)
 		}
-		setbench(BENCH_AETHER_PARADISE)
+		setrespawn(HEAL_LOCATION_AETHER_PARADISE_ENTRANCE)
+
     }
 }
 
@@ -141,6 +143,7 @@ script AetherParadise_SkuntankBattle {
 			release
 			end
 		case B_OUTCOME_RAN:
+			warp(MAP_AETHER_PARADISE_ENTRANCE, 0)
 		case B_OUTCOME_PLAYER_TELEPORTED:
 			break
 	}

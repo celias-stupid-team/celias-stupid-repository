@@ -3,6 +3,7 @@ mapscripts ViridianGym_Koga_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 5) {
             setvar(VAR_CURRENT_DMCA_PHASE, 5)
         }
+        setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_KOGA)
         switch(var(VAR_CURRENT_DMCA_PHASE)) {
             case 1:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 5)

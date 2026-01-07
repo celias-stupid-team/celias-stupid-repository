@@ -3,6 +3,7 @@ mapscripts ViridianGym_DMCA_Brock_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 1) {
             setvar(VAR_CURRENT_DMCA_PHASE, 1)
         }
+        setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_DMCA_BROCK)
     }
 
 }
