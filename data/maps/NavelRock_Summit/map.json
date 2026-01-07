@@ -49,7 +49,7 @@
   "warp_events": [
     {
       "x": 11,
-      "y": 20,
+      "y": 19,
       "elevation": 3,
       "dest_map": "MAP_NAVEL_ROCK_SUMMIT_PATH_5F",
       "dest_warp_id": "1"

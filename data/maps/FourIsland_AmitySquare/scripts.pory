@@ -49,6 +49,15 @@ script FourIsland_AmitySquare_Trapinch {
 }
 
 
+script AmitySquare_PokeKid {
+	msgbox(
+	"Shhh…\p"
+
+	"Don't tell anyone I snuck in!\n"
+	"", MSGBOX_NPC)
+}
+
+
 
 script AmitySquare_PokemonStatue {
 	lock

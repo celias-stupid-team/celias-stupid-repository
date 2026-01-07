@@ -18,8 +18,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 14,
-      "y": 12,
+      "x": 17,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -32,8 +32,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PIKA",
-      "x": 15,
-      "y": 12,
+      "x": 18,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -46,8 +46,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GEN4_STATUE",
-      "x": 19,
-      "y": 9,
+      "x": 22,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -60,36 +60,36 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PIKACHU",
-      "x": 2,
-      "y": 11,
+      "x": 7,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AmitySquare_PokeKid",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 18,
+      "x": 15,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND",
       "dest_warp_id": "11"
     },
     {
-      "x": 13,
-      "y": 18,
+      "x": 16,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "12"
     },
     {
-      "x": 8,
-      "y": 4,
+      "x": 11,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_SIX_ISLAND_CAVE",
       "dest_warp_id": "0"
@@ -99,64 +99,64 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 9,
-      "y": 6,
+      "x": 12,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_CaveSign"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 9,
+      "x": 23,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 9,
+      "x": 21,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 8,
+      "x": 21,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 7,
+      "x": 21,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 7,
+      "x": 23,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 8,
+      "x": 23,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"
     },
     {
       "type": "sign",
-      "x": 19,
-      "y": 8,
+      "x": 22,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AmitySquare_PokemonStatue"

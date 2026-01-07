@@ -6177,7 +6177,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_1F/map.bin"
     },
@@ -6189,15 +6189,15 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_2F/map.bin"
     },
     {
       "id": "LAYOUT_FOUR_ISLAND_AMITY_SQUARE",
       "name": "FourIsland_AmitySquare_Layout",
-      "width": 26,
-      "height": 26,
+      "width": 32,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -6213,7 +6213,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/SkyTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SkyTower_3F/map.bin"
     },

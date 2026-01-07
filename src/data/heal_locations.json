@@ -508,7 +508,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_ERIKA",
       "map": "MAP_VIRIDIAN_GYM_ERIKA",
       "x": 5,
-      "y": 7,
+      "y": 8,
       "respawn_map": "MAP_VIRIDIAN_GYM_ERIKA",
       "respawn_npc": "1"
     },
@@ -532,7 +532,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_MISTY",
       "map": "MAP_VIRIDIAN_GYM_MISTY",
       "x": 5,
-      "y": 7,
+      "y": 9,
       "respawn_map": "MAP_VIRIDIAN_GYM_MISTY",
       "respawn_npc": "1"
     },
@@ -548,7 +548,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_SURGE",
       "map": "MAP_VIRIDIAN_GYM_SURGE",
       "x": 6,
-      "y": 19,
+      "y": 21,
       "respawn_map": "MAP_VIRIDIAN_GYM_SURGE",
       "respawn_npc": "1"
     },

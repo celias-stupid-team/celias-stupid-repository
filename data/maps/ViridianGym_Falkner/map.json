@@ -5,7 +5,7 @@
   "music": "MUS_GYM",
   "region_map_section": "MAPSEC_VIRIDIAN_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN_THUNDERSTORM",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -47,5 +47,22 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ViridianCity_Gym_EventScript_GymStatue"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "ViridianCity_Gym_EventScript_GymStatue"
+    }
+  ]
 }
