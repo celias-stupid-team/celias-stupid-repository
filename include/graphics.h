@@ -12687,3 +12687,6 @@ extern const u8 gMonIcon_ZAPMOLCUNO[];
 
 extern const u32 gItemIcon_Top[];
 extern const u32 gItemIconPalette_Top[];
+
+extern const u32 gTrainerFrontPic_LightGary[];
+extern const u32 gTrainerPalette_LightGary[];

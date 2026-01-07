@@ -891,6 +891,7 @@ script CinnabarGym_GymQuestionLoop {
 
 script CinnabarGym_CheckBattleOutcome {
 	specialvar(VAR_TEMP_F, GetBattleOutcome)
+	setvar(VAR_TEMP_F, B_OUTCOME_WON) // TEMPORARY!!!! SWITCH THIS OUT YOU IDIOT
 	if(var(VAR_TEMP_F) == B_OUTCOME_WON) {
 		playse(SE_SUCCESS)
 		waitse

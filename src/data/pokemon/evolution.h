@@ -237,7 +237,6 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 
     //Krabby evolutions all listed together for my sanity
     [SPECIES_BUTTERFREE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
-    [SPECIES_RATICATE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_PRIMEAPE]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_SANDSLASH]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},
     [SPECIES_PIKABLU]     = {{EVO_LEVEL, 55, SPECIES_KRABBY}},

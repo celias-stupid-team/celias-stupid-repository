@@ -5472,6 +5472,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 359,
         .trainerOffset = 1,
     },
+    [NATIONAL_DEX_WOOBAT] =
+    {
+        .categoryName = _("WAA"),
+        .height = 50,
+        .weight = 620,
+        .description = gWoobatPokedexText,
+        .unusedDescription = gDummyPokedexTextUnused,
+        .pokemonScale = 100,
+        .pokemonOffset = 0,
+        .trainerScale = 359,
+        .trainerOffset = 1,
+    },
 
 
 };

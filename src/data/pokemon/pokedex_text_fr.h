@@ -2737,3 +2737,7 @@ const u8 gPokemonGunPokedexText[] = _(
 	"Fun fact:\n"
 	"This joke pre-dates PALWORLD by\n"
 	"over a year.");
+
+
+const u8 gWoobatPokedexText[] = _(
+	"Waaa");

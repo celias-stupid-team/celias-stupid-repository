@@ -5239,7 +5239,7 @@ static const struct TrainerMonItemCustomMoves sParty_EliteFourAgatha[] = {
         .lvl = 60,
         .species = SPECIES_TOGEKISS,
         .heldItem = ITEM_NONE,
-        .moves = {MOVE_THUNDER_WAVE_CYNTHIA, MOVE_NONE, MOVE_NONE, MOVE_NONE}, //Temporarily remove air slash for testing. I'll put it back later
+        .moves = {MOVE_THUNDER_WAVE_CYNTHIA, MOVE_AIR_SLASH, MOVE_NONE, MOVE_NONE}, //Temporarily remove air slash for testing. I'll put it back later
     },
     {
         .iv = 250,

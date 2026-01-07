@@ -6,8 +6,8 @@ mapscripts FourIsland_AmitySquare_MapScripts {
 
 script FourIsland_AmitySquare_Bows {
 	textcolor(NPC_TEXT_COLOR_RED)
-	if(flag(FLAG_BOWS_GIVES_SHINY_PINSIR)) {
-		clearflag(FLAG_BOWS_GIVES_SHINY_PINSIR)
+	if(flag(FLAG_SHINY_MEWTWO)) {
+		clearflag(FLAG_SHINY_MEWTWO)
 		setflag(FLAG_SHINY_CREATION)
 		msgbox(
 		"BOWS: Hey!\n"

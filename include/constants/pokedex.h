@@ -134,8 +134,8 @@ enum
     NATIONAL_DEX_PINSIR,           // 125
     NATIONAL_DEX_TAUROS,           // 126
     NATIONAL_DEX_OMANYTE,          // 127
-    NATIONAL_DEX_TYRANASTAR,       // 128
-    NATIONAL_DEX_SUDOWOODO,          // 129
+    NATIONAL_DEX_SUDOWOODO,       // 128
+    NATIONAL_DEX_TYRANASTAR,          // 129
     NATIONAL_DEX_LUVDISC,          // 130
     NATIONAL_DEX_ALOMOMOLA,        // 131
     NATIONAL_DEX_DITTO_MEW,        // 132

@@ -400,6 +400,7 @@ static const u8 sText_AlomomolaEvo[] = _("Look! LUVDISC is evolving!");
 static const u8 sText_AlomomolaEvolved[] = _("LUVDISC evolved to ALOMOMOLA!");
 static const u8 sText_PkmnSwitchedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} switched stat changes\nwith the target!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
+static const u8 sText_LightGaryAndDarkGary[] = _("LIGHT GARY & DARK GARY\nwould like to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
@@ -1737,7 +1738,10 @@ void BufferStringBattle(u16 stringId)
             }
             else
             {
-                stringPtr = sText_Trainer1WantsToBattle;
+                if(gTrainerBattleOpponent_A == TRAINER_DMCA_ERIKA)
+                    stringPtr = sText_LightGaryAndDarkGary;
+                else
+                    stringPtr = sText_Trainer1WantsToBattle;
             }
         }
         else

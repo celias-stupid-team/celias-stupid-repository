@@ -236,7 +236,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_DRAGONITE) && flag(FLAG_CSR_HINT_DRAGONITE)) { 
 		setobtainable(SPECIES_YOSHI) // 76
 	}
-	if(flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) {
+	if((flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_REMORAID)) {
 		setobtainable(SPECIES_REMORAID) // 77
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_RAICHU) && flag(FLAG_CSR_TALKED_TO_MINDY)) {
@@ -381,7 +381,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_TALKED_TO_JYNX_GUY) && checkmoncaught(SPECIES_POLIWAG)) {
 		setobtainable(SPECIES_JYNX) // 124
 	}
-	if(flag(FLAG_CSR_MAP_NATIONAL_PARK)) { //TODO figure out logic
+	if(flag(FLAG_CSR_MAP_NATIONAL_PARK) || flag(FLAG_TALKED_TO_NATIONAL_PARK_HINT)) { //TODO figure out logic
 		setobtainable(SPECIES_PINSIR) // 125
 	}
 	if(flag(FLAG_WORLD_MAP_FUSHCIA_CITY)) {
@@ -740,14 +740,6 @@ script GetOakPCPokedexMessage {
 			 msgbox(PokedexRating_Text_HintJynx)
 		case SPECIES_PINSIR: 
 			 msgbox(PokedexRating_Text_HintPinsir)
-			 closemessage
-			 textcolor(NPC_TEXT_COLOR_RED)
-			 msgbox(
-			"Hiya, I'm BOWS! :3\p"
-
-			"Come find me somewhere.\n"
-			"I have a gift for you!", MSGBOX_DEFAULT)
-			setflag(FLAG_BOWS_GIVES_SHINY_PINSIR)
 		case SPECIES_TAUROS: 
 			 msgbox(PokedexRating_Text_HintTauros)
 		case SPECIES_OMANYTE: 

@@ -557,11 +557,10 @@ PokedexRating_Text_HintSeal::
 	.string "Be sure to go back for it!\n$"
 
 PokedexRating_Text_HintPinsir::
-	.string "There's a BUG CATCHING CONTEST in\n"
-	.string "JOHTO?\p"
-	.string "Why don't you try looking in the\n"
-	.string "grass there… … …Wha-\l"
-	.string "Hey!$"
+	.string "On THIRTY EIGHT ISLAND, a young\n"
+	.string "man was feeling homesick.\p"
+	.string "I wonder if you could visit there!\n"
+	.string "What did he say he was missing?$"
 
 
 PokedexRating_Text_HintGrimer::
@@ -971,6 +970,4 @@ PokedexRating_Text_HintMewtwo::
 	.string "Placeholder!$"
 
 PokedexRating_Text_HintVenusaur::
-	.string "Your BULBASAUR can still evolve.\n"
-	.string "Try leveling it up!$"
-
+	.string "Did you know that POKéMON evolve?\n$"
