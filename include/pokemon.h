@@ -442,12 +442,12 @@ void SetBoxMonLockedAbility(struct BoxPokemon *boxMon, u8 ability);
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove);
 void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 bool8 IsMoveHm(u16 move);
-
 u32 GetCurrentLevelCap(u16 species);
 bool32 FindPartyMonWithMove(u16 move, u32 *outIndex, u16 *outSpecies);
 bool32 FindBoxMonWithMove(u16 move, u32 *outBox, u32 *outBoxPos, u16 *outSpecies);
 bool32 CheckBoxMonMovesFast(const struct BoxPokemon *boxMon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
 bool32 CheckMonMovesFast(const struct Pokemon *mon, u16 *moves, u16 *outKnownFlags, u16 *outSpecies);
 u32 PartyHasMon(u16 species);
+void HealPokemon(struct Pokemon *mon);
 
 #endif // GUARD_POKEMON_H

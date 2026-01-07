@@ -2639,6 +2639,8 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 break;
 
             statusChanged = TRUE;
+            if (gCurrentMove == MOVE_THUNDER_WAVE_CYNTHIA)
+                gStatuses3[gEffectBattler] |= STATUS3_PERMA_PARA;
             break;
         case STATUS1_TOXIC_POISON:
             if (gBattleMons[gEffectBattler].ability == ABILITY_IMMUNITY && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
@@ -3164,9 +3166,6 @@ static void Cmd_seteffectwithchance(void)
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance * 2;
     else
         percentChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
-
-    if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT)
-        percentChance = 100;
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_CERTAIN
         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
@@ -7142,6 +7141,8 @@ static void Cmd_manipulatedamage(void)
     switch (gBattlescriptCurrInstr[1])
     {
     case DMG_CHANGE_SIGN:
+        if (gStatuses3[gBattlerAttacker] & STATUS3_TOXIC_SEED) //gBattlerAttacker = leeched Pokémon
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP; //gBattlerTarget = drain move HP receiver
         gBattleMoveDamage *= -1;
         break;
     case DMG_RECOIL_FROM_MISS:
@@ -9493,6 +9494,7 @@ static void Cmd_cureifburnedparalysedorpoisoned(void)
 {
     if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON))
     {
+        gStatuses3[gBattlerAttacker] &= ~STATUS3_PERMA_PARA;
         gBattleMons[gBattlerAttacker].status1 = 0;
         gBattlescriptCurrInstr += 5;
         gActiveBattler = gBattlerAttacker;
@@ -11153,10 +11155,9 @@ void BS_TryTrainerSlideMsgFirstOff(void)
 {
     NATIVE_ARGS();
     
-    u32 shouldDoTrainerSlide = 0;
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11169,12 +11170,10 @@ void BS_TryTrainerSlideMsgFirstOff(void)
 void BS_TryTrainerSlideMsgLastOn(void)
 {
     NATIVE_ARGS();
-
-    u32 shouldDoTrainerSlide = 0;
     
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_LAST_SWITCHIN)))
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_LAST_SWITCHIN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11199,10 +11198,10 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
 {
     NATIVE_ARGS();
 
-    u32 shouldDoTrainerSlide = 0;
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_AFTER_SWITCHIN)))
+    
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_AFTER_SWITCHIN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }

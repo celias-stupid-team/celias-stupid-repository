@@ -1209,7 +1209,7 @@ bool8 HandleFaintedMonActions(void)
     u8 cynthia_state = 0;
     u8 cynthia_membersCount = 0;
     u8 cynthia_membersCountAlive = 0;
-    u8 i = 0;
+    s32 i = 0;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return FALSE;
@@ -1232,12 +1232,29 @@ bool8 HandleFaintedMonActions(void)
         }
         
         if (cynthia_membersCountAlive < (cynthia_membersCount - cynthia_state))
+        {
+            // Cynthia party member fainted
             VarSet(VAR_CSR_CYNTHIA_BATTLE, cynthia_state + 1);
+
+            // heal full party after each Cynthia battle phase
+            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA)
+            {
+                for (i = 0; i < PARTY_SIZE; i++)
+                {
+                    u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+                    if (!species)
+                        continue;
+                    if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+                    {
+                        HealPokemon(&gPlayerParty[i]);
+                    }
+                }
+            }
+        }
     }
 
     do
     {
-        s32 i;
         switch (gBattleStruct->faintedActionsState)
         {
         case 0:
@@ -1528,10 +1545,8 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_PARALYSED: // paralysis
-            if (gBattleTypeFlags & BATTLE_TYPE_CYNTHIA && GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER) {
-                paralysisChange = 1;
-            }
-            if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % paralysisChange) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+            if (((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && (Random() % 4) == 0 && !(GetCurrentWeather() == WEATHER_TRICK_ROOM))
+              || gStatuses3[gBattlerAttacker] & STATUS3_PERMA_PARA)
             {
                 gProtectStructs[gBattlerAttacker].prlzImmobility = 1;
                 // This is removed in FRLG and Emerald for some reason
@@ -2971,6 +2986,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 if (gBattleMons[battlerId].status1 & STATUS1_PARALYSIS)
                 {
                     gBattleMons[battlerId].status1 &= ~STATUS1_PARALYSIS;
+                    gStatuses3[battlerId] &= ~STATUS3_PERMA_PARA;
                     BattleScriptExecute(BattleScript_BerryCurePrlzEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
@@ -3133,6 +3149,7 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                 if (gBattleMons[battlerId].status1 & STATUS1_PARALYSIS)
                 {
                     gBattleMons[battlerId].status1 &= ~STATUS1_PARALYSIS;
+                    gStatuses3[battlerId] &= ~STATUS3_PERMA_PARA;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BerryCureParRet;
                     effect = ITEM_STATUS_CHANGE;
