@@ -11150,10 +11150,9 @@ void BS_TryTrainerSlideMsgFirstOff(void)
 {
     NATIVE_ARGS();
     
-    u32 shouldDoTrainerSlide = 0;
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_PLAYER_LANDS_FIRST_DOWN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11166,12 +11165,10 @@ void BS_TryTrainerSlideMsgFirstOff(void)
 void BS_TryTrainerSlideMsgLastOn(void)
 {
     NATIVE_ARGS();
-
-    u32 shouldDoTrainerSlide = 0;
     
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_LAST_SWITCHIN)))
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_LAST_SWITCHIN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
@@ -11196,10 +11193,10 @@ void BS_TryTrainerSlideMsgSwitchIn(void)
 {
     NATIVE_ARGS();
 
-    u32 shouldDoTrainerSlide = 0;
-    if ((shouldDoTrainerSlide = ShouldDoTrainerSlide(gActiveBattler, TRAINER_SLIDE_AFTER_SWITCHIN)))
+    
+    if ((ShouldDoTrainerSlide(gBattlerFainted, TRAINER_SLIDE_AFTER_SWITCHIN)))
     {
-        gBattleScripting.battler = gActiveBattler;
+        gBattleScripting.battler = gBattlerFainted;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_TrainerASlideMsgRet;
     }
