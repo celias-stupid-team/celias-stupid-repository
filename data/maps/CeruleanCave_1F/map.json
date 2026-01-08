@@ -202,15 +202,6 @@
   ],
   "coord_events": [],
   "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 12,
-      "y": 2,
-      "elevation": 3,
-      "item": "ITEM_ULTRA_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_CSR_DUMMY_31",
-      "quantity": 1,
-      "underfoot": false
-    }
+
   ]
 }

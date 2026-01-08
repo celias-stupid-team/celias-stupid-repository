@@ -469,6 +469,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GreatSea_FourIslandNorth_Bouy",
       "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 30,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_FourIslandTop",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 69,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_FourIslandTop",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -557,8 +585,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 26,
+      "x": 25,
+      "y": 41,
       "elevation": 0,
       "dest_map": "MAP_FOUR_ISLAND_LORELEIS_HOUSE",
       "dest_warp_id": "0"

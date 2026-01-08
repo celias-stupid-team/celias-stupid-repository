@@ -1129,7 +1129,7 @@
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_28                                 (FLAG_HIDDEN_ITEMS_START +  36)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_29                        (FLAG_HIDDEN_ITEMS_START +  37)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_30                      (FLAG_HIDDEN_ITEMS_START +  38)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_31                       (FLAG_HIDDEN_ITEMS_START +  39)
+#define FLAG_HIDDEN_ITEM_SHRINE_ISLAND_NOTHING                       (FLAG_HIDDEN_ITEMS_START +  39)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x28                                       (FLAG_HIDDEN_ITEMS_START +  40)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_32                               (FLAG_HIDDEN_ITEMS_START +  41)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_34                              (FLAG_HIDDEN_ITEMS_START +  42)
