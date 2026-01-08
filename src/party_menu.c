@@ -305,6 +305,7 @@ static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
 static void DisplayCantUseRetreatMessage(void);
 static void DisplayNoRetreatMessage(void);
+static void DisplayNoSurfMessage(void);
 static void DisplayButItFailedMessage(void);
 static void Task_CancelAfterAorBPress(u8 taskId);
 static void DisplayFieldMoveExitAreaMessage(u8 taskId);
@@ -4149,6 +4150,10 @@ static void DisplayNoRetreatMessage(void)
 {
     DisplayPartyMenuStdMessage(PARTY_MSG_NO_RETREAT);
 }
+static void DisplayNoSurfMessage(void)
+{
+    DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
+}
 
 static void DisplayButItFailedMessage(void)
 {
@@ -4202,6 +4207,9 @@ static void DisplayCantUseSurfMessage(void)
               && ((gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE17))
                  || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE18))))
             DisplayPartyMenuStdMessage(PARTY_MSG_ENJOY_CYCLING);
+        else if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
+              && ((gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))))
+            DisplayPartyMenuStdMessage(PARTY_MSG_NO_SURF);
         else
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
     }

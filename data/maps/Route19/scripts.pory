@@ -393,7 +393,7 @@ script GreatSea_WetFloor {
 script GreatSea_Route19_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -406,7 +406,7 @@ script GreatSea_Route19_Bouy {
 script GreatSea_Seafoam_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -420,7 +420,7 @@ script GreatSea_Seafoam_Bouy {
 script GreatSea_MemorialPillar_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -433,7 +433,7 @@ script GreatSea_MemorialPillar_Bouy {
 script GreatSea_FourIslandNorth_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -446,7 +446,7 @@ script GreatSea_FourIslandNorth_Bouy {
 script GreatSea_MinnesotaNorth_Bouy {
 	lock
 	msgbox(
-	"It's a bouy…\n"
+	"It's a buoy…\n"
 	"", MSGBOX_DEFAULT)
 	signmsg
 	msgbox(
@@ -470,4 +470,19 @@ script GreatSea_PokeBallStorage {
 	"FEMININE POKéBALL STORAGE DEVICE\n"
 	"", MSGBOX_SIGN)
 
+}
+
+
+
+script GreatSea_MinnesotaNorth_Buoy {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox(
+	"{UP_ARROW} THIRTY EIGHT ISLAND\n"
+	"{DOWN_ARROW} MINNESOTA", MSGBOX_DEFAULT)
+	normalmsg
+	release
 }

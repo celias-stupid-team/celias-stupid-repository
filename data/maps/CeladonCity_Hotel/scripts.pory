@@ -95,3 +95,50 @@ script CeladonHotel_AcrossCounter {
 	"counter.", MSGBOX_SIGN)
 
 }
+
+
+script CeladonHotel_GrandpaLady {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_4)) {
+		msgbox(
+			"Oh no!\p"
+
+			"Grandpa's bread!\n"
+			"", MSGBOX_DEFAULT)
+	}
+	msgbox(
+	"This hotel is so fancy.\n"
+	"It even serves breakfast!\p"
+
+	"I brought down some food for my\n"
+	"family.", MSGBOX_DEFAULT)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+
+}
+
+script CeladonHotel_Toast {
+	lock
+	msgbox(
+	"It looks like an NES, but it's\n"
+	"actually some very fancy toast.\p"
+
+	"Eat it?\n"
+	"", MSGBOX_YESNO)
+	if(var(VAR_RESULT)) {
+		removeobject(VAR_LAST_TALKED)
+		msgbox(
+		"{PLAYER} ate the toast.\n"
+		"", MSGBOX_DEFAULT)
+		
+	} else {
+		msgbox(
+		"{PLAYER} left the fancy toast\n"
+		"undevoured.", MSGBOX_DEFAULT)
+	}
+	release
+}

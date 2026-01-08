@@ -248,7 +248,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             "", MSGBOX_DEFAULT)
         case 1:
             msgbox(
-            "Hey, MITANK!\p"
+            "Hey, MILTANK!\p"
 
             "What Greek symbol represents the\n"
             "mean in statistical analysis?", MSGBOX_DEFAULT)
@@ -275,7 +275,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             "", MSGBOX_DEFAULT)
         case 3:
             msgbox(
-            "Hey, MITANK!\p"
+            "Hey, MILTANK!\p"
 
             "What sound does a cow make?\n"
             "", MSGBOX_DEFAULT)
@@ -616,4 +616,24 @@ script ThirtyEightIsland_GoldenRodPointer {
 	msgbox(
 	"Down by shore\n"
 	"placeholder", MSGBOX_NPC)
+}
+
+
+script ThirtyEightIsland_Entei {
+	lock
+	playmoncry(SPECIES_ENTEI, CRY_MODE_DEFAULT)
+	msgbox(
+	"Wow!{PAUSE 20}\n"
+	"It's the LEGENDARY…", MSGBOX_DEFAULT)
+	dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "DOG", "CAT", "HAMSTER")
+	closemessage
+	delay(60)
+	playse(SE_CLICK)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		delay_16 * 6
+		face_down
+	))
+	waitmovement(0)
+	release
 }

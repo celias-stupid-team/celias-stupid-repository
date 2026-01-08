@@ -8,7 +8,7 @@ script FadeSongAndPlayVictory {
 }
 
 script SetPlayerPokedexValues {
-	if(checkmoncaught(SPECIES_ZAPDOS) && checkmoncaught(SPECIES_MOLTRES) && checkmoncaught(SPECIES_ARTICUNO) && flag(FLAG_CSR_HINT_GYM_STATUES)) {
+	if(checkmoncaught(SPECIES_ZAPDOS) && checkmoncaught(SPECIES_MOLTRES) && checkmoncaught(SPECIES_ARTICUNO) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) {
     setobtainable(SPECIES_VICTINI)
 	}
 	if(flag(FLAG_CSR_MAP_SECRET_GARDEN)) {
@@ -116,10 +116,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_MT_MOON_1F)) {
 		setobtainable(SPECIES_CLEFAIRY) // 35
 	}
-	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && flag(FLAG_CSR_HINT_GYM_STATUES))) { 
+	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { 
 		setobtainable(SPECIES_CLEFABLE) // 36
 	}
-	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && flag(FLAG_CSR_HINT_GYM_STATUES))) { 
+	if((flag(FLAG_CSR_HINT_CLEFABLE_SHADOW) && checkmoncaught(SPECIES_CLEFAIRY)) || (checkmoncaught(SPECIES_CLEFABLE) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)))) { 
 		setobtainable(SPECIES_GENGAR) // 37
 	}
 	if(flag(FLAG_CSR_MAP_ROUTE_8_FAR)) {
@@ -239,7 +239,7 @@ script SetPlayerPokedexValues {
 	if((flag(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) && flag(FLAG_CSR_HINT_GOLD_TEETH) && checkmoncaught(SPECIES_GOLURK)) || checkmoncaught(SPECIES_REMORAID)) {
 		setobtainable(SPECIES_REMORAID) // 77
 	}
-	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_RAICHU) && flag(FLAG_CSR_TALKED_TO_MINDY)) {
+	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_RAICHU) && flag(FLAG_CSR_TALKED_TO_MINDY)) {
 		setobtainable(SPECIES_HAUNTER) // 78 
 	}
 	if(flag(FLAG_CSR_MAP_THIRTY_EIGHT_ISLAND)) {
@@ -309,10 +309,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_GOT_PAY_DAY) && checkmoncaught(SPECIES_GIMMIGHOUL)) {
 		setobtainable(SPECIES_GHOLDENGO) // 100
 	}
-	if(checkmoncaught(SPECIES_ETERNATUS) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_ETERNATUS) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS_MEGA) // 101
 	}
-	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out this logic
+	if(checkmoncaught(SPECIES_AMPHAROS_MEGA) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out this logic
 		setobtainable(SPECIES_AMPHAROS) // 102
 	}
 	if(checkmoncaught(SPECIES_COMBEE) && flag(FLAG_FOUR_ISLAND_ROCK_CLIMB)) { //TODO figure out this logic
@@ -327,7 +327,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_BRENDANMAY)) {
 		setobtainable(SPECIES_MACHOKE) // 106
 	}
-	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && flag(FLAG_CSR_HINT_GYM_STATUES)) { 
+	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { 
 		setobtainable(SPECIES_MACHAMP) // 107
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { 
@@ -336,7 +336,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_GEODUDE)) { 
 		setobtainable(SPECIES_GRAVELER) // 109
 	}
-	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && flag(FLAG_CSR_HINT_GYM_STATUES)) { 
+	if(flag(FLAG_TALKED_TO_LEFT_SCAMMER) && flag(FLAG_TALKED_TO_RIGHT_SCAMMER) && checkmoncaught(SPECIES_MACHOKE)  && checkmoncaught(SPECIES_GRAVELER)  && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { 
 		setobtainable(SPECIES_GOLEM) // 110
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
@@ -351,7 +351,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) {
 		setobtainable(SPECIES_TANGELA) // 114
 	}
-	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS_MEGA)) { //and if Tangela
+	if((flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && checkmoncaught(SPECIES_TANGELA) && checkmoncaught(SPECIES_AMPHAROS_MEGA)) { //and if Tangela
 		setobtainable(SPECIES_TRUBBISH_HAIRCUT) // 115
 	}
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { //and if Persian
@@ -414,10 +414,10 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_MAP_GAME_SHOP)) {
 		setobtainable(SPECIES_JIRACHI) // 135
 	}
-	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE) && checkmoncaught(SPECIES_SMEARGLE) && flag(FLAG_CSR_HINT_GYM_STATUES) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
+	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE) && checkmoncaught(SPECIES_SMEARGLE) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) && (checkmoncaught(SPECIES_JYNX) || checkmoncaught(SPECIES_ARTICUNO))) { //TODO figure out logic
 		setobtainable(SPECIES_ARTICUNO) // 136
 	}
-	if(((checkmoncaught(SPECIES_FLAREON) && checkmoncaught(SPECIES_ARTICUNO)) || checkmoncaught(SPECIES_ESPEON)) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_FLAREON) && checkmoncaught(SPECIES_ARTICUNO)) || checkmoncaught(SPECIES_ESPEON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
 		setobtainable(SPECIES_ESPEON) // 137
 	}
 	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
@@ -429,16 +429,16 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_WORLD_MAP_POKEMON_MANSION_1F)) { //TODO figure out logic
 		setobtainable(SPECIES_MOLTRES) // 140 
 	}
-	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || checkmoncaught(SPECIES_FLAREON)) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(((checkmoncaught(SPECIES_JOLTEON) && checkmoncaught(SPECIES_MOLTRES)) || checkmoncaught(SPECIES_FLAREON)) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
 		setobtainable(SPECIES_FLAREON) // 141
 	}
 	if(flag(FLAG_CSR_PHIONE_EGG)) {
 		setobtainable(SPECIES_PHIONE) // 142
 	}
-	if(checkmoncaught(SPECIES_HAUNTER) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(checkmoncaught(SPECIES_HAUNTER) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
 		setobtainable(SPECIES_ETERNATUS) // 143
 	}
-	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT) && flag(FLAG_CSR_HINT_GYM_STATUES)) { //TODO figure out logic
+	if(flag(FLAG_WORLD_MAP_FOUR_ISLAND) && checkmoncaught(SPECIES_TRUBBISH_HAIRCUT) && (flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN))) { //TODO figure out logic
 		setobtainable(SPECIES_ZYGARDE) // 144
 	}
 	if(flag(FLAG_BADGE08_GET)) { //TODO figure out logic
@@ -447,7 +447,7 @@ script SetPlayerPokedexValues {
 	if(checkmoncaught(SPECIES_SEAKING)) { //TODO figure out logic
 		setobtainable(SPECIES_ARCANINE) // 146
 	}
-	if(checkmoncaught(SPECIES_ARCANINE) && flag(FLAG_POKEMON_GUN_HINT) || checkmoncaught(SPECIES_POKEMON_GUN)) { //I need to figure out which one is THE hint. Probably multiple.
+	if(checkmoncaught(SPECIES_ARCANINE) || checkmoncaught(SPECIES_POKEMON_GUN)) { //I need to figure out which one is THE hint. Probably multiple.
 		setobtainable(SPECIES_POKEMON_GUN) // 147
 	}
 	if(flag(FLAG_DITTO_MEW_HINT) || checkmoncaught(SPECIES_DITTO_MEW)) { //TODO figure out logic

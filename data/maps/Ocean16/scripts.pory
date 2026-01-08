@@ -66,3 +66,15 @@ script Desert_SquidwardHouse {
 	hidemonpic
 	release
 }
+
+
+script Desert_YamaskGuy {
+	lock
+	msgbox(
+	"Hey!\n"
+	"Could you do me a favor?\p"
+
+	"Could you please deal exactly\n"
+	"37 damage to me?", MSGBOX_DEFAULT)
+	release
+}

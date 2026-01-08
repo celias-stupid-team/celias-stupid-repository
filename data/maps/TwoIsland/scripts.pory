@@ -553,7 +553,7 @@ script TwoIsland_IslandSign {
 
 script TwoIsland_GenevaConvention {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_NPC)
+	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally committed war\ncrimes, so it got shut down!", MSGBOX_NPC)
 
 }
 
@@ -856,13 +856,14 @@ script TwoIsland_HouseSalesman {
 		delay(30)
 		msgbox(
 		"…What?\n"
-		"Huh?\p"
+		"A POKéDOLLAR?\l"
+		"What kinda nonsense is that?\p"
 
-		"You don't have even one single\n"
-		"dollar?\p"
+		"Here on TWO ISLAND, we only accept\n"
+		"real dollars!\p"
 
-		"Then it was a waste of time talking\n"
-		"to you!", MSGBOX_DEFAULT)
+		"Come back when you can afford it!\n"
+		"", MSGBOX_DEFAULT)
 	}
 	release
 	end
@@ -880,4 +881,43 @@ script TwoIsland_TrumpetPlayer {
 	))
 	waitmovement(0)
 	release
+}
+
+script TwoIsalnd_WaterfallNPC {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"waterfalls exist\n"
+	"", MSGBOX_NPC)
+}
+
+
+script TwoIsland_RunawayFiveRat {
+	msgbox(
+	"I'm rattata\n"
+	"", MSGBOX_NPC)
+}
+
+script TwoIsland_RunawayFiveToedscool {
+	msgbox(
+	"I'm toedscool\n"
+	"", MSGBOX_NPC)
+}
+
+script TwoIsland_RunawayFiveChansey {
+	msgbox(
+	"I'm chansey\n"
+	"", MSGBOX_NPC)
+}
+
+
+script TwoIsland_RunawayFiveHDoduo {
+	msgbox(
+	"I'm doduo\n"
+	"", MSGBOX_NPC)
+}
+
+script TwoIsland_RunawayFiveVenonat {
+	msgbox(
+	"I'm venonat\n"
+	"", MSGBOX_NPC)
 }

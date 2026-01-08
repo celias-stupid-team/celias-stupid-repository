@@ -15,7 +15,13 @@ script NationalPark_Sign {
 
 script NationalPark_TrashCan {
 	msgbox(
-	"trash can flavor text\n"
+	"Did you really go all the way\n"
+	"around just to check the trash?", MSGBOX_SIGN)
+
+}
+script NationalPark_TrashCan2 {
+	msgbox(
+	"It's the JOHTO level curve!\n"
 	"", MSGBOX_SIGN)
 
 }

@@ -167,3 +167,14 @@ script CeruleanCave_ShortsDad {
 	release
 	end
 }
+
+script CeruleanCave_Gun {
+	lock
+	faceplayer
+	playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
+	waitmoncry
+	msgbox(
+	"{PAUSE 30}Gang violence…\n"
+	"", MSGBOX_DEFAULT)
+	release
+}

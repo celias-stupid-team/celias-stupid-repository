@@ -176,6 +176,7 @@ enum RotomMoveMessage
     ROTOM_MSG_CANT_USE_HERE,
     ROTOM_MSG_CANT_USE_RETREAT,
     ROTOM_MSG_NO_RETREAT,
+    ROTOM_MSG_NO_SURF,
     ROTOM_MSG_COUNT,
 };
 
@@ -280,6 +281,7 @@ static const u8 *const sRotomMoveMessages[ROTOM_MSG_COUNT] = {
     [ROTOM_MSG_CANT_USE_HERE] = gText_CantUseHere,
     [ROTOM_MSG_CANT_USE_RETREAT] = gText_CantUseRetreat,
     [ROTOM_MSG_NO_RETREAT] = gText_NoRetreat,
+    [ROTOM_MSG_NO_SURF] = gText_NoSurf,
 };
 
 struct RotomMove
@@ -2875,6 +2877,13 @@ static bool32 SetupFunc_Surf(void)
 {
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    
+
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12))
+    {
+        sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_SURF;
+        return FALSE;
+    }
 
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
@@ -2899,6 +2908,7 @@ static bool32 SetupFunc_Surf(void)
 
 static void FieldMoveFunc_Surf(void)
 {
+    
     FieldEffectStart(FLDEFF_USE_SURF);
 }
 

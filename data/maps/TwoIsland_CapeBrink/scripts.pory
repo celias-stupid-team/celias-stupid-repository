@@ -5,6 +5,7 @@ raw `
 mapscripts TwoIsland_CapeBrink_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_TEMP_3)
+		setbench(BENCH_TWO_ISLAND_CAVE)
 	}
 }
 

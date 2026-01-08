@@ -549,6 +549,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_SHADOW_FORCE]     = _("SHADOW FORCE"),
     [MOVE_DARK_PULSE]     = _("DARK_PULSE"),
     [MOVE_DRAGON_PULSE]     = _("DRAGON_PULSE"),
+    [MOVE_TRUMP_CARD]     = _("TRUMP CARD"),
     [MOVE_HEAL_PULSE]     = _("HEAL_PULSE"),
     [MOVE_ORIGIN_PULSE]     = _("ORIGIN_PULSE"),
     [MOVE_WICKED_TORQUE]     = _("WICKED T."),
@@ -636,6 +637,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] = {
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
     [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
     [MOVE_TRIPLE_WINGBEAT]     = _("FALSE"),
+    [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
+    [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
 };
 
 
@@ -1278,5 +1281,7 @@ const u8 gLongMoveNames[MOVES_COUNT][LONG_MOVE_NAME_LENGTH + 1] = {
     [MOVE_THORN_WHIP]  = _("THORN WHIP"),
     [MOVE_RAINBOW_BEAM]     = _("RAINBOW BEAM"),
     [MOVE_TRIPLE_WINGBEAT]     = _("TRIPLE WINGBEAT"),
+    [MOVE_DOUBLE_DIP]     = _("DOUBLE DIP"),
+    [MOVE_DOUBLE_DAD]     = _("DOUBLE DAD"),
 }; //For any move which needs its name lengthened, these will display in battle.
 

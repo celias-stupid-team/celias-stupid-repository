@@ -7,6 +7,9 @@ mapscripts ViridianGym_Giovanni_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 9) {
             setvar(VAR_CURRENT_DMCA_PHASE, 9)
         }
+        if(checkmoncaught(SPECIES_MEWTWO)) {
+            setflag(FLAG_TEMP_5)
+        }
         switch(var(VAR_CURRENT_DMCA_PHASE)) {
             case 1:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 9)

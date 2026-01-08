@@ -77,12 +77,30 @@ script FalknerGym_Falkner {
             msgbox(
             "birds\n"
             "", MSGBOX_DEFAULT)
+            release
+            end
+        } elif (checkmoncaught(SPECIES_PIDGEY)) {
+            msgbox(
+            "Darn you did it already\n"
+            "", MSGBOX_DEFAULT)
+            playfanfare(MUS_OBTAIN_BADGE)
+            msgbox(
+            "{PLAYER} obtained the\n"
+            "FEATHERBADGE!", MSGBOX_DEFAULT)
+            waitfanfare
+            setflag(FLAG_OBTAINED_ZEPHYRBADGE)
+            release
+            end
+
         } else {
+            
             msgbox(
             "I refuse to believe this!\p"
 
             "Go to the cave behind the city.\n"
             "something something start a quest", MSGBOX_DEFAULT)
+            release
+            end
 
 
         }

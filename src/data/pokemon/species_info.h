@@ -3436,7 +3436,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed = 63,
         .baseSpAttack = 35,
         .baseSpDefense = 50,
-        .types = {TYPE_BIRD, TYPE_BIRD},
+        .types = {TYPE_WATER, TYPE_WATER},
         .catchRate = 255,
         .expYield = 111,
         .evYield_HP = 0,
@@ -11838,7 +11838,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_ROSERADE] =
     {
-        .baseHP = 5,
+        .baseHP = 1,
         .baseAttack = 70,
         .baseDefense = 5,
         .baseSpeed = 90,
@@ -13607,12 +13607,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
     [SPECIES_TOGEKISS] =
     {
-        .baseHP = 20,
-        .baseAttack = 50,
-        .baseDefense = 20,
+        .baseHP = 10,
+        .baseAttack = 30,
+        .baseDefense = 10,
         .baseSpeed = 80,
-        .baseSpAttack = 120,
-        .baseSpDefense = 20,
+        .baseSpAttack = 30,
+        .baseSpDefense = 10,
         .types = {TYPE_FAIRY, TYPE_FLYING},
         .catchRate = 255,
         .expYield = 150,

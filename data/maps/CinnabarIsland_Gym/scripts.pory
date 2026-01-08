@@ -951,7 +951,7 @@ script CinnabarGym_IslandAppears {
 	delay(120)
 	setvar(VAR_TEMP_C, 0)
 	setflag(FLAG_MIRAGE_ISLAND_APPEARS)
-	setmetatile(4, 2, 0x16B, TRUE)
+	setmetatile(9, 2, 0x16B, TRUE)
 	release
 }
 
@@ -965,4 +965,46 @@ script CinnabarGym_BackDoor {
 		"A back door!\n"
 		"Neat!", MSGBOX_DEFAULT)
 	}
+}
+
+
+script CinnabarGym_Flint {
+	msgbox(
+	"Placeholder gym trainer\n"
+	"", MSGBOX_NPC)
+}
+
+script CinnabarGym_Skiier {
+	msgbox(
+	"Placeholder gym trainer\n"
+	"", MSGBOX_NPC)
+}
+
+script CinnabarGym_ThirdTrainer {
+	msgbox(
+	"Placeholder gym trainer\n"
+	"", MSGBOX_NPC)
+}
+
+script CinnabarGym_Dad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"Placeholder gym dad\n"
+	"", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
+}
+
+script CinnabarGym_FifthTrainer {
+	msgbox(
+	"Placeholder gym dad\n"
+	"", MSGBOX_NPC)
+}
+script CinnabarGym_SixthTrainer {
+	msgbox(
+	"Placeholder gym dad\n"
+	"", MSGBOX_NPC)
 }

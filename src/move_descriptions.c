@@ -633,6 +633,8 @@ const u8 gMoveDescription_108TupleTeam[] = _("Dummy");
 const u8 gMoveDescription_ThornWhip[] = _("Dummy");
 const u8 gMoveDescription_RainbowBeam[] = _("A bright burst\nof light that\ncan break through\nany SHADOW.");
 const u8 gMoveDescription_TripleWingbeat[] = _("Dummy");
+const u8 gMoveDescription_DoubleDip[] = _("Hits once before\nthe foe, then\nonce more at the\nend of the turn.");
+const u8 gMoveDescription_DoubleDad[] = _("Hits once before\nthe foe, then\nonce more at the\nend of the turn.");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -1271,4 +1273,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_THORN_WHIP - 1] = gMoveDescription_ThornWhip,
     [MOVE_RAINBOW_BEAM     -1 ] = gMoveDescription_RainbowBeam,
     [MOVE_TRIPLE_WINGBEAT     -1 ] = gMoveDescription_TripleWingbeat,
+    [MOVE_DOUBLE_DIP     -1 ] = gMoveDescription_DoubleDip,
+    [MOVE_DOUBLE_DAD     -1 ] = gMoveDescription_DoubleDad,
 };

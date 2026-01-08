@@ -4962,3 +4962,25 @@ const struct SpriteFrameImage gObjectEventPicTable_POKEBALL_STORAGE[] = {
     overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 7),
     overworld_frame(gObjectEventPic_POKEBALL_STORAGE, 6, 6, 8),
 };
+const struct SpriteFrameImage gObjectEventPicTable_entei_gun[] = {
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 0),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 1),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 2),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 0),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 0),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 1),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 1),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 2),
+    overworld_frame(gObjectEventPic_entei_gun, 6, 6, 2),
+};
+const struct SpriteFrameImage gObjectEventPicTable_GROWLITHE[] = {
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 0),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 1),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 2),
+    overworld_frame(gObjectEventPic_GROWLITHE, 4, 4, 2),
+};

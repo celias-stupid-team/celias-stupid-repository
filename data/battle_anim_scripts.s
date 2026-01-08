@@ -660,6 +660,8 @@ gBattleAnims_Moves::
 	.4byte Move_THORN_WHIP
 	.4byte Move_RAINBOW_BEAM
 	.4byte Move_TRIPLE_WINGBEAT
+	.4byte Move_DOUBLE_DIP
+	.4byte Move_DOUBLE_DAD
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -16919,5 +16921,34 @@ Move_TRIPLE_WINGBEAT:
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 11
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
+
+Move_DOUBLE_DIP:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+Move_DOUBLE_DAD:
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
 	blendoff
 	end

@@ -644,3 +644,7 @@ const u16 gObjectEventPal_AQUA_MEMBER_M[] = INCBIN_U16("graphics/object_events/p
 const u32 gObjectEventPic_UNAGI[] = INCBIN_U32("graphics/object_events/pics/stupid/UNAGI.4bpp");
 const u32 gObjectEventPic_POKEBALL_STORAGE[] = INCBIN_U32("graphics/object_events/pics/stupid/POKEBALL_STORAGE.4bpp");
 const u16 gObjectEventPal_POKEBALL_STORAGE[] = INCBIN_U16("graphics/object_events/palettes/POKEBALL_STORAGE.gbapal");
+const u32 gObjectEventPic_entei_gun[] = INCBIN_U32("graphics/object_events/pics/stupid/entei_gun.4bpp");
+const u16 gObjectEventPal_entei_gun[] = INCBIN_U16("graphics/object_events/palettes/entei_gun.gbapal");
+const u32 gObjectEventPic_GROWLITHE[] = INCBIN_U32("graphics/object_events/pics/stupid/GROWLITHE.4bpp");
+const u16 gObjectEventPal_GROWLITHE[] = INCBIN_U16("graphics/object_events/palettes/GROWLITHE.gbapal");

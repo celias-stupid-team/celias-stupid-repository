@@ -98,13 +98,18 @@ SilphCo_7F_Text_Grunt2PostBattle::
     .string "ticked off!$"
 
 SilphCo_7F_Text_RivalWhatKeptYou::
-    .string "LARRY: What kept you, {PLAYER}?$"
+	.string "LARRY: Hello.\n$"
+
 
 SilphCo_7F_Text_RivalIntro::
-	.string "i'm larry\n$"
+	.string "I'm very busy right now.\n"
+	.string "Can we please make this quick?$"
+
 
 SilphCo_7F_Text_RivalDefeat::
-	.string "no puzzle\n$"
+	.string "Sorry. I really don't have time\n"
+	.string "to make a puzzle for you.$"
+
 
 SilphCo_7F_Text_RivalVictory::
     .string "{RIVAL}“おまえなあ‥\p"
@@ -113,10 +118,11 @@ SilphCo_7F_Text_RivalVictory::
     .string "いちにんまえ　とは　いえないぜ$"
 
 SilphCo_7F_Text_RivalPostBattle::
-	.string "Oh no.\n"
-	.string "Looks like I lost.\p"
-	.string "…\p"
-	.string "{PAUSE 30}See ya later.\n$"
+	.string "LARRY: Oh no.\p"
+	.string "It looks like I lost.\p"
+	.string "{PAUSE 30}…\p"
+	.string "{PAUSE 30}See you later.\n$"
+
 
 SilphCo_7F_Text_FloorSign::
     .string "SILPH CO. HEAD OFFICE\n"

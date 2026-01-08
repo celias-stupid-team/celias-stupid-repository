@@ -463,6 +463,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPINDAS;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AQUA_MEMBER_M;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UNAGI;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_POKEBALL_STORAGE;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_entei_gun;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GROWLITHE;
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
@@ -927,4 +929,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AQUA_MEMBER_M] = &gObjectEventGraphicsInfo_AQUA_MEMBER_M,
     [OBJ_EVENT_GFX_UNAGI] = &gObjectEventGraphicsInfo_UNAGI,
     [OBJ_EVENT_GFX_POKEBALL_STORAGE] = &gObjectEventGraphicsInfo_POKEBALL_STORAGE,
+    [OBJ_EVENT_GFX_ENTEI_GUN] = &gObjectEventGraphicsInfo_entei_gun,
+    [OBJ_EVENT_GFX_GROWLITHE] = &gObjectEventGraphicsInfo_GROWLITHE,
 };

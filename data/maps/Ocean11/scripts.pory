@@ -111,3 +111,20 @@ script GreatSea_BabyRemoraid {
 	release
 	end
 }
+
+
+script GreatSea_BabyGrowlithe {
+	lock
+	playmoncry(SPECIES_GROWLITHE, CRY_MODE_DEFAULT)
+	msgbox(
+	"GROWLITHE: Grwwooo-!\n"
+	"", MSGBOX_DEFAULT)
+	waitmoncry
+	closemessage
+	delay(20)
+	msgbox(
+	"He wants to join in on the fun.\n"
+	"", MSGBOX_DEFAULT)
+	release
+	end
+}

@@ -174,7 +174,7 @@ script OneIsland_SetArticunoStatue {
 
 script OneIsland_Whirlpool {
 	lockall
-	checkpartymove(MOVE_WHIRLPOOL)
+	checkfieldmove(MOVE_WHIRLPOOL)
 	if(var(VAR_RESULT) == PARTY_SIZE) {
 		msgbox(
 		"it's a whirlpool\n"

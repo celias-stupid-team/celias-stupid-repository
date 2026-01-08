@@ -341,6 +341,7 @@ const u8 gText_AlreadySurfing[] = _("You're already SURFING.");
 const u8 gText_CantUseHere[] = _("Can't use that here.");
 const u8 gText_CantUseRetreat[] = _("There is no bench nearby!");
 const u8 gText_NoRetreat[] = _("FALINKS used NO RETREAT!");
+const u8 gText_NoSurf[] = _("FALINKS used NO SURF!");
 const u8 gText_ButItFailed[] = _("…But it failed!");
 const u8 gText_RestoreWhichMove[] = _("Restore which move?");
 const u8 gText_BoostPp[] = _("Boost PP of which?");

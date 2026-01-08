@@ -223,7 +223,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_TENTACOOL",
       "x": 57,
       "y": 8,
       "elevation": 0,
@@ -232,12 +232,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TwoIsland_RunawayFiveToedscool",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RATTATA",
+      "graphics_id": "OBJ_EVENT_GFX_CHANSEY",
       "x": 59,
       "y": 10,
       "elevation": 0,
@@ -246,26 +246,26 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TwoIsland_RunawayFiveChansey",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_DODUO",
       "x": 55,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TwoIsland_RunawayFiveHDoduo",
       "flag": "0"
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_RATTATA",
       "x": 56,
       "y": 12,
       "elevation": 0,
@@ -274,7 +274,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TwoIsland_RunawayFiveRat",
       "flag": "0"
     },
     {
@@ -288,7 +288,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "TwoIsland_RunawayFiveVenonat",
       "flag": "0"
     },
     {
@@ -437,6 +437,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TwoIsland_TerritorialOak",
       "flag": "FLAG_TWO_ISLAND_TERRITORIAL_OAK"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_HIPPIE",
+      "x": 42,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TwoIsalnd_WaterfallNPC",
+      "flag": "0"
     }
   ],
   "warp_events": [

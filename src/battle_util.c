@@ -1418,7 +1418,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_FROZEN: // check being frozen
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
             {
-                if (Random() % 50000000)
+                if (TRUE) //Cannot unfreeze
                 {
                     if (gBattleMoves[gCurrentMove].effect != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
                     {

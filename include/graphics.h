@@ -12690,3 +12690,6 @@ extern const u32 gItemIconPalette_Top[];
 
 extern const u32 gTrainerFrontPic_LightGary[];
 extern const u32 gTrainerPalette_LightGary[];
+
+extern const u32 gTrainerFrontPic_Larry[];
+extern const u32 gTrainerPalette_Larry[];

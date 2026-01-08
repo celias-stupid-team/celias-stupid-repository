@@ -1,5 +1,7 @@
 mapscripts Ocean5_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_HALF_ISLAND)
+    }
 }
 
 
