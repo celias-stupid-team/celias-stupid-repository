@@ -61,7 +61,7 @@ CeruleanCave_B1F_EventScript_RanFromMewtwo::
 
 
 script CeruleanCave_ShortsGang1 {
-	trainerbattle_single(TRAINER_SHORTS_GANG_1,
+	trainerbattle_single(TRAINER_SHORTS_GANG_2,
 	"Hey!\n"
 	"This is our hideout!\l"
 	"You can't be in here!",
@@ -76,7 +76,7 @@ script CeruleanCave_ShortsGang1 {
 }
 
 script CeruleanCave_ShortsGang2 {
-	trainerbattle_single(TRAINER_SHORTS_GANG_2,
+	trainerbattle_single(TRAINER_SHORTS_GANG_1,
 	"We're the SHORTS GANG, and don't\n"
 	"you forget it!\p",
 	//

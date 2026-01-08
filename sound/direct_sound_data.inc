@@ -319,12 +319,12 @@ DirectSoundWaveData_Rollout::
 
 	.align 2
 DirectSoundWaveData_Deskslam::
-	.incbin "sound/direct_sound_samples/rollout.bin"
+	.incbin "sound/direct_sound_samples/sfx-deskslam.bin"
 
 
 	.align 2
 DirectSoundWaveData_Guilty::
-	.incbin "sound/direct_sound_samples/rollout.bin"
+	.incbin "sound/direct_sound_samples/sfx-guilty.bin"
 
 
 	.align 2

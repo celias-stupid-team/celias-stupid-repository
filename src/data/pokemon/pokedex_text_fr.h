@@ -346,8 +346,7 @@ const u8 gGrowlithePokedexText[] = _(
 const u8 gGrowlithePokedexTextUnused[] = _("");
 
 const u8 gArcaninePokedexText[] = _(
-	"The Forbidden Fourth Box Legendary");
-
+	"The ninth legendary bird");
     
 const u8 gArcaninePokedexTextUnused[] = _("");
 

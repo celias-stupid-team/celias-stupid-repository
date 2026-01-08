@@ -758,18 +758,6 @@ script GreatSea_Buoy_Route18Down {
 	release
 }
 
-script GreatSea_Buoy_ {
-	lock
-	msgbox(
-	"It's a buoy…\n"
-	"", MSGBOX_DEFAULT)
-	signmsg
-	msgbox(
-	"{UP_ARROW} GREAT BAY\n"
-	"{LEFT_ARROW} TWO ISLAND", MSGBOX_DEFAULT)
-	normalmsg
-	release
-}
 
 script GreatSea_Buoy_TwoIslandBottomLeft {
 	lock
@@ -1034,7 +1022,7 @@ msgbox(
 	"{DOWN_ARROW} PIRATE BAY", MSGBOX_DEFAULT)	normalmsg
 	release
 }
-script GreatSea_Buoy_ {
+script GreatSea_Buoy_VermilionCity {
 	lock
 	msgbox(
 	"It's a buoy…\n"
@@ -1043,18 +1031,6 @@ script GreatSea_Buoy_ {
 	msgbox(
 	"{RIGHT_ARROW} VERMILION CITY\n"
 	"{DOWN_ARROW} PIRATE BAY", MSGBOX_DEFAULT)
-	normalmsg
-	release
-}
-script GreatSea_Buoy_ {
-	lock
-	msgbox(
-	"It's a buoy…\n"
-	"", MSGBOX_DEFAULT)
-	signmsg
-	msgbox(
-
-		
 	normalmsg
 	release
 }

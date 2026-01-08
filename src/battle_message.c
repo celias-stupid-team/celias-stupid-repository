@@ -561,6 +561,8 @@ static const u8 sText_PkmnRevived[] = _("{B_BUFF1} was revived and is ready\nto 
 static const u8 sText_VanishedFromExistence[] = _("{B_ATK_NAME_WITH_PREFIX} vanished\nfrom existence!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_FuckingDied[] = _("{B_DEF_NAME_WITH_PREFIX}\nfucking died!\p");
 static const u8 sText_ButItMist[] = _("But it mist!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SealHasBeenBroken[] = _("The Seal has been broken!");
+static const u8 sText_HoopaHasBeenReleased[] = _("HOOPA\nwas released!\p");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_START] = {
     [STRINGID_TRAINER1LOSETEXT - BATTLESTRINGS_TABLE_START]              = sText_Trainer1LoseText,
@@ -1000,6 +1002,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_NOTAFFECTEDBYSEEDING - BATTLESTRINGS_TABLE_START]          = COMPOUND_STRING("The seeds don't affect\n{B_DEF_NAME_WITH_PREFIX}…"),
     [STRINGID_PKMNIMMUNETOPOISON - BATTLESTRINGS_TABLE_START]            = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is immune to\nbeing poisoned!"),
     [STRINGID_PKMNALREADYSTATUSED - BATTLESTRINGS_TABLE_START]           = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is already\nstatused!"),
+    [STRINGID_SEAL_HAS_BEEN_BROKEN - BATTLESTRINGS_TABLE_START]         = sText_SealHasBeenBroken,
+    [STRINGID_HOOPA_WAS_RELEASED - BATTLESTRINGS_TABLE_START]         = sText_HoopaHasBeenReleased,
     [STRINGID_NONE - BATTLESTRINGS_TABLE_START]                          = sText_None
 };
 
