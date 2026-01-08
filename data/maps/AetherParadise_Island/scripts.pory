@@ -63,3 +63,127 @@ script AetherParadise_Sophacles {
 	"Festival Plaza\n"
 	"", MSGBOX_NPC)
 }
+
+
+
+script AetherParadise_SophaclesFindsYou {
+    lock
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    setobjectxy(LOCALID_SOPHACLES, VAR_TEMP_1, 52)
+    applymovement(LOCALID_SOPHACLES, moves(
+        set_visible
+        walk_down * 5
+    ))
+    waitmovement(0)
+    msgbox("SOPHOCLES: Hello!\nWelcome to FESTIVAL PLAZA!\pWe're holding a festival where\nTRAINERS can meet with each other.\lCome, take a look around!\pIn fact, if you have a couple hours\nto spare, I'll give you a tour!", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        msgbox("That's the spirit!\pCome along, now!\nThere's plenty to see!", MSGBOX_DEFAULT)
+    } else {
+        msgbox("Hahaha, that's cute.\nI bet you thought it was optional!\pNope, I'm showing you around\nwhether you want it or not!", MSGBOX_DEFAULT)
+    }
+    closemessage
+    special(SpawnCameraObject)
+    applymovement(LOCALID_SOPHACLES, moves(
+        walk_left * 5
+        walk_down
+        face_up
+        delay_16 * 8
+        walk_up
+        walk_right * 10
+        face_up
+        delay_16 * 8
+        walk_up
+        walk_left * 5
+        walk_up
+        face_down
+        delay_16 * 8
+        walk_up * 4
+        delay_16 * 8
+        walk_fastest_down * 4
+
+    ))
+    applymovement(LOCALID_PLAYER, moves(
+        walk_up
+        walk_left * 4
+        face_up
+        delay_16 * 8
+        delay_16 * 6
+        walk_up
+        walk_right * 9
+        face_up
+        delay_16 * 8
+        delay_16 * 6
+        walk_left * 4
+        face_up
+        delay_16 * 8
+        walk_up * 4
+        delay_16 * 8
+        walk_fastest_down * 4
+        face_up
+
+
+    ))
+    delay(60)
+    message(
+	"Now, over here is our\n"
+	"PLACEHOLDER")
+    delay(60)
+    closemessage
+    message(
+	"This is where we\n"
+	"PLACEHOLDER")
+    delay(120)
+    closemessage
+    delay(60)
+    message(
+	"Now, over here is our\n"
+	"PLACEHOLDER")
+    delay(60)
+    closemessage
+    message(
+	"This is where we\n"
+	"PLACEHOLDER")
+    delay(120)
+    closemessage
+    message(
+	"Now, over here is our\n"
+	"PLACEHOLDER")
+    delay(60)
+    closemessage
+    message(
+	"This is where we\n"
+	"PLACEHOLDER")
+    delay(120)
+    closemessage
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    msgbox("Several hours later…\n", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    msgbox("SOPHOCLES: …And that's just the\ntip of the iceberg!", MSGBOX_DEFAULT)
+    setvar(VAR_FESTIVAL_PLAZA_TRIGGER, 1)
+    special(RemoveCameraObject)
+    release
+    end
+
+}
+
+
+script AetherParadise_FestivalPlazaEstablishments {
+    lock
+    msgbox(
+	"There are only two establishments\n"
+	"on this island.", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    msgbox(
+	"You spent the entire time going\n"
+	"between them.", MSGBOX_DEFAULT)
+    closemessage
+    delay(60)
+    msgbox(
+	"You would deeply prefer to never\n"
+	"return here again.", MSGBOX_DEFAULT)
+    release
+}
+

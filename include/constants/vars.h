@@ -176,7 +176,7 @@
 #define VAR_CSR_DUMMY_15                             0x4076
 #define VAR_CSR_BILLS_TAKEN                                                             0x4077
 #define VAR_CSR_DUMMY_16                                               0x4078
-#define VAR_CSR_DUMMY_17                            0x4079
+#define VAR_FESTIVAL_PLAZA_TRIGGER                            0x4079
 #define VAR_MAP_SCENE_CSR_LASS_1                                                             0x407A
 #define VAR_CSR_JIRACHI_STATUS                                             0x407B
 #define VAR_CSR_DUMMY_19                                     0x407C

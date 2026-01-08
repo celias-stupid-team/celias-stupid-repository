@@ -11,7 +11,6 @@ ThreeIsland_Port_OnTransition::
 ThreeIsland_Port_EventScript_Woman::
 	lock
 	faceplayer
-	goto_if_ge VAR_CSR_DUMMY_17, 2, ThreeIsland_Port_EventScript_WomanLostelleFound
 	msgbox ThreeIsland_Port_Text_IllCallThePolice
 	release
 	end

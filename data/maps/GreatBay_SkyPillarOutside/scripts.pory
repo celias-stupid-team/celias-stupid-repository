@@ -127,3 +127,19 @@ script GreatBay_OpenDoor {
     }
     return
 }
+
+
+
+
+script GreatSea_Buoy_SkyTowerLookGirl {
+	lock
+	msgbox(
+	"It's a buoy…\n"
+	"", MSGBOX_DEFAULT)
+	signmsg
+	msgbox("TRAINER TIPS!\pTalk to her again!", MSGBOX_DEFAULT)
+
+		
+	normalmsg
+	release
+}
