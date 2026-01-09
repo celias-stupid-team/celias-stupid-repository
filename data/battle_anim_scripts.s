@@ -658,6 +658,7 @@ gBattleAnims_Moves::
 	.4byte Move_108_TUPLE_TEAM
 	.4byte Move_THUNDER_WAVE_CYNTHIA
 	.4byte Move_THORN_WHIP
+	.4byte Move_FLY_CYNTHIA
 	.4byte Move_COUNT @ cannot be reached
 
 	.align 2
@@ -6835,6 +6836,7 @@ WhirlpoolEffect:
 	delay 2
 	return
 
+Move_FLY_CYNTHIA:
 Move_FLY:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	loadspritegfx ANIM_TAG_IMPACT

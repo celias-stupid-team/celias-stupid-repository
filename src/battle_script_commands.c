@@ -9367,6 +9367,7 @@ static void Cmd_setsemiinvulnerablebit(void)
 {
     switch (gCurrentMove)
     {
+    case MOVE_FLY_CYNTHIA:
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:
@@ -9390,6 +9391,7 @@ static void Cmd_clearsemiinvulnerablebit(void)
 {
     switch (gCurrentMove)
     {
+    case MOVE_FLY_CYNTHIA:
     case MOVE_FLY:
     case MOVE_BOUNCE:
     case MOVE_DOUBLE_JUMP:

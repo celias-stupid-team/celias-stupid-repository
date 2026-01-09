@@ -243,7 +243,7 @@ struct SpeciesInfo
 struct BattleMove
 {
     u8 effect;
-    u8 power;
+    u16 power;
     u8 type;
     u8 accuracy;
     u8 pp;

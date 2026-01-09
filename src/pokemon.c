@@ -116,7 +116,8 @@ const u32 gProtectedMoves[] = {
     MOVE_GULP,
     MOVE_WHIRLPOOL,
     MOVE_MAGICAL_LEAF,
-    MOVE_BRICK_BREAK
+    MOVE_BRICK_BREAK,
+    MOVE_FLY_CYNTHIA
 };
 
 // NOTE: The order of the elements in the 3 arrays below is irrelevant.

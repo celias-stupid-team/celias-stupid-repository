@@ -2123,6 +2123,7 @@ BattleScript_EffectSemiInvulnerable::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SecondTurnSemiInvulnerable
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_SecondTurnSemiInvulnerable
 	jumpifmove MOVE_FLY, BattleScript_FirstTurnFly
+	jumpifmove MOVE_FLY_CYNTHIA, BattleScript_FirstTurnFly
 	jumpifmove MOVE_DIVE, BattleScript_FirstTurnDive
 	jumpifmove MOVE_BOUNCE, BattleScript_FirstTurnBounce
 	jumpifmove MOVE_DOUBLE_JUMP, BattleScript_FirstTurnBounce
