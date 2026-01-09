@@ -6948,6 +6948,18 @@
       "secondary_tileset": "gTileset_BurgledHouse",
       "border_filepath": "data/layouts/FiveIsland_House4/border.bin",
       "blockdata_filepath": "data/layouts/FiveIsland_House4/map.bin"
+    },
+    {
+      "id": "LAYOUT_YES_HOUSE3",
+      "name": "Yes_House3_Layout",
+      "width": 15,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/Yes_House3/border.bin",
+      "blockdata_filepath": "data/layouts/Yes_House3/map.bin"
     }
   ]
 }
