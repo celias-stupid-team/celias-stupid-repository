@@ -156,11 +156,10 @@ enum
     NATIONAL_DEX_ARCANINE,    // 146
     NATIONAL_DEX_POKEMON_GUN, // 147
                               // 148
-    NATIONAL_DEX_CASTFORM,         // 149 Make this Castform
+    NATIONAL_DEX_CASTFORM,    // 149 Make this Castform
     NATIONAL_DEX_MEWTWO,      // 150
     NATIONAL_DEX_VENUSAUR,    // 151
     // Post-National Dex
-    NATIONAL_DEX_SCIZOR,
     NATIONAL_DEX_RATTATA_SHINY,
     // Fill out 100 placeholder spots?
 
@@ -225,7 +224,7 @@ enum
     NATIONAL_DEX_SNUBBULL,
     NATIONAL_DEX_GRANBULL,
     NATIONAL_DEX_QWILFISH,
-    // NATIONAL_DEX_SCIZOR,
+    NATIONAL_DEX_SCIZOR,
     NATIONAL_DEX_SHUCKLE,
     NATIONAL_DEX_HERACROSS,
     NATIONAL_DEX_SNEASEL,
@@ -478,8 +477,8 @@ enum
 
 #define KANTO_DEX_COUNT NATIONAL_DEX_VENUSAUR
 #define JOHTO_DEX_COUNT NATIONAL_DEX_SCIZOR
-// #define NATIONAL_DEX_COUNT  NATIONAL_DEX_RATTATA_SHINY
-#define NATIONAL_DEX_COUNT 386 // placeholder to reserve space for the future
+#define NATIONAL_DEX_COUNT  NATIONAL_DEX_RATTATA_SHINY
+// #define NATIONAL_DEX_COUNT 386 // placeholder to reserve space for the future
 
 // Hoenn Pokedex order
 enum

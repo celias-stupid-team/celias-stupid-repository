@@ -1391,65 +1391,56 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
     s32 i;
     bool8 caught;
     bool8 seen;
-    bool8 VictiniSeen;
+    bool8 obtainable;
+    bool8 VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
+    u16 max_entries;
+    u16 max_entries_national;
+    u8 missingEntries = 1; // to account for the missing slot for Pikachu
+
+    if (!VictiniSeen)
+        missingEntries++; // to account for the missing slot for Victini
+
+    max_entries = KANTO_DEX_COUNT - missingEntries;
+    max_entries_national = NATIONAL_DEX_COUNT - missingEntries;
 
     switch (orderIdx)
     {
     default:
     case DEX_ORDER_NUMERICAL_KANTO:
-        VictiniSeen = DexScreen_GetSetPokedexFlag(1, FLAG_GET_SEEN, FALSE);
-
-        if(VictiniSeen) {
-            //start Pokedex list at 000
-            for (i = 0; i < KANTO_DEX_COUNT; i++)
-            {
+        for (i = 0; i < max_entries; i++)
+        {
+            if (VictiniSeen)
                 ndex_num = i + 1;
-                if(ndex_num >= NATIONAL_DEX_PIKACHU) {
-                    ndex_num++;
-                }
-                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
-                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
-                if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
-                    ndex_num = NATIONAL_DEX_MEW;
-                }
-                if (seen)
-                {
-                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
-                    ret = ndex_num;
-                }
-                else
-                {
-                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
-                }
-                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
-            }
-        }
-        else {
-            //start Pokedex list at 001
-            for (i = 0; i < KANTO_DEX_COUNT; i++)
-            {
-                
+            else
                 ndex_num = i + 2;
-                if(ndex_num >= NATIONAL_DEX_PIKACHU) {
-                    ndex_num++;
-                }
-                seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
-                caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
-                if(ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM)) {
-                    ndex_num = NATIONAL_DEX_MEW;
-                }
-                if (seen)
-                {
-                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
-                    ret = ndex_num;
-                }
+                
+            if(ndex_num >= NATIONAL_DEX_PIKACHU)
+                ndex_num++;
+
+            seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
+            caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
+            obtainable = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_OBTAINABLE, FALSE);
+            
+            if (seen || caught)
+            {
+                if (ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM))
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(NATIONAL_DEX_MEW)];
                 else
-                {
-                    sPokedexScreenData->listItems[i].label = gText_5Dashes;
-                }
-                sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
+                ret = i;
             }
+            else if (obtainable)
+            {
+                sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                ret = i;
+            }
+            else
+            {
+                sPokedexScreenData->listItems[i].label = gText_5Dashes;
+            }
+            sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
         }
+        ret++; // add 1 because we're returning the value for i which starts at 0
         break;
     case DEX_ORDER_ATOZ:
         for (i = 0; i < NUM_SPECIES - 1; i++)
@@ -1486,7 +1477,7 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
         }
         break;
     case DEX_ORDER_LIGHTEST:
-        for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+        for (i = 0; i < max_entries_national; i++)
         {
             ndex_num = gPokedexOrder_Weight[i];
             if (ndex_num <= max_n)
@@ -1503,7 +1494,7 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
         }
         break;
     case DEX_ORDER_SMALLEST:
-        for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+        for (i = 0; i < max_entries_national; i++)
         {
             ndex_num = gPokedexOrder_Height[i];
             if (ndex_num <= max_n)
@@ -1520,15 +1511,32 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
         }
         break;
     case DEX_ORDER_NUMERICAL_NATIONAL:
-        for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+        for (i = 0; i < max_entries_national; i++)
         {
-            ndex_num = i + 1;
+            if (VictiniSeen)
+                ndex_num = i + 1;
+            else
+                ndex_num = i + 2;
+                
+            if(ndex_num >= NATIONAL_DEX_PIKACHU)
+                ndex_num++;
+
             seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
             caught = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_CAUGHT, FALSE);
-            if (seen)
+            obtainable = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_OBTAINABLE, FALSE);
+            
+            if (seen || caught)
             {
-                sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)];
-                ret = ndex_num;
+                if (ndex_num == NATIONAL_DEX_CASTFORM && !FlagGet(FLAG_FOUGHT_CASTFORM))
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(NATIONAL_DEX_MEW)];
+                else
+                    sPokedexScreenData->listItems[i].label = gSpeciesNames[NationalPokedexNumToSpecies(ndex_num)]; //Name of the pokemon
+                ret = i;
+            }
+            else if (obtainable)
+            {
+                sPokedexScreenData->listItems[i].label = gText_5Dashes;
+                ret = i;
             }
             else
             {
@@ -1536,6 +1544,7 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
             }
             sPokedexScreenData->listItems[i].index = (caught << 17) + (seen << 16) + NationalPokedexNumToSpecies(ndex_num);
         }
+        ret++; // add 1 because we're returning the value for i which starts at 0
         break;
     }
     return ret;
@@ -2424,16 +2433,14 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     u8 mask;
     s8 retVal;
 
-
-
     if (indexIsSpecies)
         nationalDexNo = SpeciesToNationalPokedexNum(nationalDexNo);
 
-    if(nationalDexNo == NATIONAL_DEX_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
+    if (nationalDexNo == NATIONAL_DEX_SEEL && !FlagGet(FLAG_CSR_MAP_MINNESOTA)) {
         return 0;
     }
 
-    if (nationalDexNo > KANTO_DEX_COUNT)
+    if (nationalDexNo > NATIONAL_DEX_COUNT)
         return 0;
 
     nationalDexNo--;
@@ -3610,8 +3617,6 @@ u8 DexScreen_RegisterMonToPokedex(u16 species)
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SEEN, TRUE);
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_CAUGHT, TRUE);
         DexScreen_GetSetPokedexFlag(SPECIES_RATTATA, FLAG_SET_SHINY_FOUND, TRUE);
-        
-
     }
 
     if (!IsNationalPokedexEnabled() && SpeciesToNationalPokedexNum(species) > KANTO_DEX_COUNT)
