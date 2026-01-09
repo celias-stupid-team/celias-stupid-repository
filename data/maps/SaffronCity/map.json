@@ -160,7 +160,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_Youngster",
+      "script": "SaffronCity_NPC2",
       "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     },
     {
@@ -188,7 +188,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_Man",
+      "script": "SaffronCity_NPC4",
       "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     },
     {
@@ -202,7 +202,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_Boy",
+      "script": "SaffronCity_NPC5",
       "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     },
     {
@@ -221,7 +221,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 32,
       "y": 39,
       "elevation": 3,
@@ -230,22 +230,22 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_Lass",
+      "script": "SaffronCity_NPC1",
       "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
-      "x": 47,
-      "y": 24,
+      "x": 26,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SaffronCity_EventScript_BattleGirl",
-      "flag": "FLAG_HIDE_POSTGAME_GOSSIPERS"
+      "script": "SaffronCity_NPC3",
+      "flag": "FLAG_HIDE_SAFFRON_CIVILIANS"
     },
     {
       "type": "object",
@@ -273,7 +273,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SaffronCity_EventScript_RichFromPatentsDMCA",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SAFFRON_ROCKETS"
     },
     {
       "type": "object",

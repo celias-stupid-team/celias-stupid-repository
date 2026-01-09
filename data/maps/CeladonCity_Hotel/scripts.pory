@@ -106,6 +106,8 @@ script CeladonHotel_GrandpaLady {
 
 			"Grandpa's bread!\n"
 			"", MSGBOX_DEFAULT)
+			release
+			end
 	}
 	msgbox(
 	"This hotel is so fancy.\n"

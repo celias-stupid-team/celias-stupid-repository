@@ -1,3 +1,82 @@
 mapscripts ViridianGym_HubRoom_MapScripts {
     
 }
+
+
+script ViridianGym_HintManSwitch {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    msgbox(
+	"HINT MAN: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"It looks like you weren't ready\n"
+	"for that fight.\l"
+	"Would you like to have a hint?", MSGBOX_YESNO)
+    if(var(VAR_RESULT)) {
+        switch(var(VAR_CURRENT_DMCA_PHASE)){
+            case 0:
+                msgbox(
+                "I think you should try stepping\n"
+                "on the warp panel.", MSGBOX_DEFAULT)
+            case 1:
+                msgbox(
+                "Aether paradise\n"
+                "", MSGBOX_DEFAULT)
+            case 2:
+                msgbox(
+                "Legends speak of a POKéMON so\n"
+                "powerful, it had to be Sealed away.\p"
+
+                "Perhaps if you could Break the\n"
+                "Seal, you'd be able to get through!", MSGBOX_DEFAULT)
+            case 3:
+                msgbox(
+                "Virus\n"
+                "", MSGBOX_DEFAULT)
+            case 4:
+                msgbox(
+                "House on top of Two Island\n"
+                "", MSGBOX_DEFAULT)
+            case 5:
+                msgbox(
+                "Hey!\n"
+                "That's my brother in there!\p"
+
+                "Uh, I mean…\n"
+                "Yes, quite a formidable foe.\p"
+
+                "That SNOVER is especially irksome.\n"
+                "Maybe you could block him in?", MSGBOX_DEFAULT)
+            case 6:
+                msgbox(
+                "Spin\n"
+                "", MSGBOX_DEFAULT)
+            case 7:
+                msgbox(
+                "You were right!\n"
+                "", MSGBOX_DEFAULT)
+            case 8:
+                msgbox(
+                "Remember everything you've seen.\n"
+                "The answer won't be easy.", MSGBOX_DEFAULT)
+            case 9:
+                msgbox(
+                "I don't think I'm supposed to be\n"
+                "in this room.", MSGBOX_DEFAULT)
+        }
+    }
+    msgbox(
+	"Okay, then never mind that.\n"
+	"Why don't you take a rest?", MSGBOX_DEFAULT)
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	special(HealPlayerParty)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	msgbox(("HINT MAN: There!\nBest of luck to you!"), MSGBOX_DEFAULT)
+	release
+	end
+
+}

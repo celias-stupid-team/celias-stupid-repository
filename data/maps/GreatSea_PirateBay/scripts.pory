@@ -40,6 +40,7 @@ script PirateBay_Pokey {
 
 
 script PirateBay_PrePatchedPirate {
+	textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Arr…\n"
 	"What happened to me eye, ye ask?\p"

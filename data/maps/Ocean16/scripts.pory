@@ -42,16 +42,29 @@ script Desert_AlienInDisguise {
 		"That's STEEL WING\p"
 
 		"Oh yeah I remember now\n"
-		"I'm an alien\p"
-
-		"Good bye\n"
+		"I'm an alien"
 		"", MSGBOX_DEFAULT)
-		removeobject(VAR_LAST_TALKED)
+		closemessage
+		setobjectxy(LOCALID_DESERT_ALIEN, 24, 23)
+		applymovement(VAR_LAST_TALKED, moves(
+			set_invisible
+		))
+		applymovement(LOCALID_DESERT_ALIEN, moves(
+			set_visible
+		))
+		waitmovement(0)
+		delay(30)
+		msgbox(
+		"Goodbye\n"
+		"", MSGBOX_DEFAULT)
+		
 		closemessage
 		delay(30)
 		removeitem(ITEM_TM02)
 		giveitem_msg("{PLAYER} got a\nHOUSE VOUCHER!", ITEM_HOUSEVOUCHER)
 		waitfanfare
+		removeobject(VAR_LAST_TALKED)
+		removeobject(LOCALID_DESERT_ALIEN)
 		setvar(VAR_TRADING_QUEST_PHASE, 3)
 		release
 	}
@@ -77,4 +90,17 @@ script Desert_YamaskGuy {
 	"Could you please deal exactly\n"
 	"37 damage to me?", MSGBOX_DEFAULT)
 	release
+}
+
+script Desert_Bus {
+	msgbox(
+	"A bus is stalled on the side of\n"
+	"the road.\p"
+
+	"A single fly is squished on the\n"
+	"windshield.\p"
+
+	"The counter reads{PAUSE 30} “572.”\n"
+	"", MSGBOX_SIGN)
+
 }

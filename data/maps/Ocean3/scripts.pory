@@ -66,6 +66,7 @@ script GreatSea_SpindaFamilyReuinion {
 
 
 script GreatSea_AquaGrunt {
+    textcolor(NPC_TEXT_COLOR_BLUE)
 	msgbox(
 	"Well…\n"
 	"We always wanted to expand the sea.\p"

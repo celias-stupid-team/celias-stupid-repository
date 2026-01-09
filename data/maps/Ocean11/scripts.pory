@@ -103,6 +103,8 @@ script GreatSea_Mantyke {
 	release
 	end
 }
+
+
 script GreatSea_BabyRemoraid {
 	lock
 	playmoncry(SPECIES_REMORAID, CRY_MODE_DEFAULT)
@@ -127,4 +129,12 @@ script GreatSea_BabyGrowlithe {
 	"", MSGBOX_DEFAULT)
 	release
 	end
+}
+
+
+script GreatSea_ManaphyTrade {
+	msgbox(
+	"Hi I have an egg but I'm looking\n"
+	"for someone else with an egg\l"
+	"placeholder", MSGBOX_NPC)
 }

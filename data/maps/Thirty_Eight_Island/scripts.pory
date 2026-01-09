@@ -567,7 +567,7 @@ script ThirtyEightIsland_TalkingOnPhone {
 	"I'm talking on the POKéGEAR with my\n"
 	"friend.\p"
 
-	"She's playing POKéMON DIAMOND!\n"
+	"She's playing POKéMON JADE!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
@@ -636,4 +636,38 @@ script ThirtyEightIsland_Entei {
 	))
 	waitmovement(0)
 	release
+}
+
+
+script ThirtyEightIsland_CenterSign {
+	msgbox(
+	"Thirty Eight island sign\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script ThirtyEightIsland_FarmSign {
+	msgbox(
+	"Thirty Eight farm sign\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script ThirtyEightIsland_NorthDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"dad text\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }

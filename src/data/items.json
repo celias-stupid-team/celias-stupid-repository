@@ -2241,7 +2241,7 @@
       "secondaryId": 0
     },
     {
-      "english": "VERI BRERRY",
+      "english": "VERI BERRY",
       "itemId": "ITEM_PERSIM_BERRY",
       "price": 20,
       "holdEffect": "HOLD_EFFECT_CURE_CONFUSION",
@@ -5739,7 +5739,7 @@
       "secondaryId": 0
     },
     {
-      "english": "CARD KEY",
+      "english": "KEY CARD",
       "itemId": "ITEM_CARD_KEY",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
@@ -6875,12 +6875,12 @@
       "secondaryId": 0
     },
     {
-      "english": "CASTELIACONE",
+      "english": "RAGECANDYBAR",
       "itemId": "ITEM_CASTELIACONE",
       "price": 200,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "CASTELIA CITY's local ice cream.\\nHolding it during a trade may\\ninduce an evolution.",
+      "description_english": "There's a universe where this\\nitem was instead called the\\n“CAKE OF RAGE.”",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",

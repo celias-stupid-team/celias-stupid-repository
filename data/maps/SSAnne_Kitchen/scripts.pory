@@ -1,6 +1,5 @@
 raw `
-SSAnne_Kitchen_MapScripts::
-	.byte 0
+
 
 SSAnne_Kitchen_EventScript_Chef1::
 	msgbox SSAnne_Kitchen_Text_BusyOutOfTheWay, MSGBOX_NPC
@@ -50,3 +49,20 @@ SSAnne_Kitchen_EventScript_Chef7::
 	msgbox SSAnne_Kitchen_Text_OnlyGetToPeelOnions, MSGBOX_NPC
 	end
 `
+
+mapscripts SSAnne_Kitchen_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if(!flag(FLAG_HIDDEN_ITEM_SSANNE_KITCHEN_CHERI_BERRY)) {
+			setflag(FLAG_TEMP_1)
+		}
+	}
+}
+
+script SSAnne_Kitchen_BerryChef {
+	msgbox(
+	"Hey!\n"
+	"Who took my berries?\p"
+
+	"I was saving those for later…\n"
+	"", MSGBOX_NPC)
+}

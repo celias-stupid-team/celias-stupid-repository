@@ -290,3 +290,64 @@ script SaffronCity_ExistentialDude {
 	waitmovement(0)
 	release
 }
+
+
+script SaffronCity_TheLeekMan {
+	msgbox(
+	"I work at The Leek\n"
+	"", MSGBOX_NPC)
+}
+
+script TheLeek_Report1 {
+	msgbox(
+	"Mega Evolution suddenly exists\n"
+	"again", MSGBOX_SIGN)
+
+}
+script TheLeek_Report2 {
+	msgbox(
+	"funny news story\n"
+	"", MSGBOX_SIGN)
+
+}
+script TheLeek_Report3 {
+	msgbox(
+	"funny news story\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script SaffronCity_NPC1 {
+	msgbox(
+	"Saffron NPC 1\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SaffronCity_NPC2 {
+	msgbox(
+	"Saffron NPC 2\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SaffronCity_NPC3 {
+	msgbox(
+	"Saffron NPC 3\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SaffronCity_NPC4 {
+	msgbox(
+	"Saffron NPC 4\n"
+	"", MSGBOX_NPC)
+}
+
+
+script SaffronCity_NPC5 {
+	msgbox(
+	"Saffron NPC 5\n"
+	"", MSGBOX_NPC)
+}

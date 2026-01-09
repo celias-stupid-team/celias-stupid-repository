@@ -51,3 +51,9 @@ script SilphCo_1F_EventScript_ElevatorDoor {
 
 }
 
+
+script SilphCo_Celia {
+	msgbox(
+	"I am the legendary Red Celia\n"
+	"", MSGBOX_NPC)
+}

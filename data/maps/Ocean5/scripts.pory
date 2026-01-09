@@ -46,3 +46,11 @@ script GreatSea_ShortEnding {
     release
     end
 }
+
+
+script GreatSea_HalfWasland {
+	msgbox(
+	"HALF WASLAND\n"
+	"", MSGBOX_SIGN)
+
+}

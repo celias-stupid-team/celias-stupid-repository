@@ -1880,3 +1880,9 @@ Text_TestMsg::
 
 	.include "data/maps/SpindaFamilyRuinion/scripts.inc"
 	.include "data/maps/SpindaFamilyRuinion/text.inc"
+
+	.include "data/maps/Yes_House3/scripts.inc"
+	.include "data/maps/Yes_House3/text.inc"
+
+	.include "data/maps/FiveIsland_House4/scripts.inc"
+	.include "data/maps/FiveIsland_House4/text.inc"

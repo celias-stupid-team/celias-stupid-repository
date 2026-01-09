@@ -1,5 +1,7 @@
 mapscripts AetherParadise_Island_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_TEMP_9)
+    }
 }
 
 script AetherParadise_LargeOak {
@@ -68,6 +70,9 @@ script AetherParadise_Sophacles {
 
 script AetherParadise_SophaclesFindsYou {
     lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    addobject(LOCALID_SOPHACLES)
+    clearflag(FLAG_TEMP_9)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     setobjectxy(LOCALID_SOPHACLES, VAR_TEMP_1, 52)
     applymovement(LOCALID_SOPHACLES, moves(
@@ -79,26 +84,27 @@ script AetherParadise_SophaclesFindsYou {
     if(var(VAR_RESULT)) {
         msgbox("That's the spirit!\pCome along, now!\nThere's plenty to see!", MSGBOX_DEFAULT)
     } else {
-        msgbox("Hahaha, that's cute.\nI bet you thought it was optional!\pNope, I'm showing you around\nwhether you want it or not!", MSGBOX_DEFAULT)
+        msgbox("Hahaha, that's cute.\nI bet you thought it was optional!\pNow, c'mon!\nThere's plenty to see!", MSGBOX_DEFAULT)
     }
     closemessage
+    delay(20)
     special(SpawnCameraObject)
     applymovement(LOCALID_SOPHACLES, moves(
         walk_left * 5
         walk_down
         face_up
-        delay_16 * 8
+        delay_16 * 12
         walk_up
         walk_right * 10
         face_up
-        delay_16 * 8
+        delay_16 * 12
         walk_up
         walk_left * 5
         walk_up
         face_down
-        delay_16 * 8
+        delay_16 * 12
         walk_up * 4
-        delay_16 * 8
+        delay_16 * 3
         walk_fastest_down * 4
 
     ))
@@ -106,18 +112,18 @@ script AetherParadise_SophaclesFindsYou {
         walk_up
         walk_left * 4
         face_up
-        delay_16 * 8
-        delay_16 * 6
+        delay_16 * 12
+        delay_16 * 3
         walk_up
-        walk_right * 9
+        walk_right * 8
         face_up
-        delay_16 * 8
-        delay_16 * 6
+        delay_16 * 12
+        delay_16 * 3
         walk_left * 4
         face_up
-        delay_16 * 8
+        delay_16 * 12
         walk_up * 4
-        delay_16 * 8
+        delay_16 * 3
         walk_fastest_down * 4
         face_up
 
@@ -127,42 +133,52 @@ script AetherParadise_SophaclesFindsYou {
     message(
 	"Now, over here is our\n"
 	"PLACEHOLDER")
-    delay(60)
+    delay(120)
     closemessage
     message(
 	"This is where we\n"
 	"PLACEHOLDER")
     delay(120)
     closemessage
-    delay(60)
+
+    delay(120)
     message(
-	"Now, over here is our\n"
-	"PLACEHOLDER")
-    delay(60)
-    closemessage
-    message(
-	"This is where we\n"
+	"And over here is our\n"
 	"PLACEHOLDER")
     delay(120)
     closemessage
     message(
-	"Now, over here is our\n"
-	"PLACEHOLDER")
-    delay(60)
-    closemessage
-    message(
 	"This is where we\n"
 	"PLACEHOLDER")
+    delay(90)
+    closemessage
+    delay(90)
+    message(
+	"Now I know it's been a lot so far,\n"
+	"but don't worry!")
+    delay(120)
+    closemessage
+    message(
+	"There's still tons more to see\n"
+	"up ahead!")
     delay(120)
     closemessage
     fadescreenswapbuffers(FADE_TO_BLACK)
+    waitmovement(0)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_fastest_up * 2
+    ))
+    waitmovement(LOCALID_CAMERA)
+    special(RemoveCameraObject)
+    textcolor(NPC_TEXT_COLOR_NEUTRAL)
     msgbox("Several hours later…\n", MSGBOX_DEFAULT)
     closemessage
     delay(60)
     fadescreenswapbuffers(FADE_FROM_BLACK)
+    textcolor(NPC_TEXT_COLOR_BLUE)
     msgbox("SOPHOCLES: …And that's just the\ntip of the iceberg!", MSGBOX_DEFAULT)
+    setobjectmovementtype(LOCALID_SOPHACLES, MOVEMENT_TYPE_FACE_DOWN)
     setvar(VAR_FESTIVAL_PLAZA_TRIGGER, 1)
-    special(RemoveCameraObject)
     release
     end
 
@@ -187,3 +203,9 @@ script AetherParadise_FestivalPlazaEstablishments {
     release
 }
 
+script FestivalPlaza_Sophacles {
+	msgbox(
+	"Hey, hey!\n"
+	"I don't suppose you'd like to have\l"
+	"another tour?", MSGBOX_NPC)
+}

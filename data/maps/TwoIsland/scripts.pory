@@ -298,6 +298,15 @@ script TwoIsland_MrT {
 
 script TwoIsland_SmallChild {
 	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_TWO_ISLAND_PENCIL)) {
+		msgbox(
+		"Oh, good!\n"
+		"The PENCIL mysteriously vanished!\p"
+
+		"I can't wait to write about this\n"
+		"in my notebook!\l"
+		"Good thing I always keep one handy.", MSGBOX_NPC)
+	}
 	msgbox(
 	"Oh no-!\n"
 	"I have a MUSHROOM stuck to my head!  \p"
@@ -763,8 +772,8 @@ script TwoIsland_RibbonDrawer {
 
 script TwoIsland_PaulaBakemeat {
 	msgbox(
-	"An adept arranging for\n"
-	"PAULA.\l"
+	"This arranging for MOTHER 2 is\n"
+	"quite adept!\l"
 	"Volcano Bakemeat!", MSGBOX_SIGN)
 
 }
@@ -892,32 +901,42 @@ script TwoIsalnd_WaterfallNPC {
 
 
 script TwoIsland_RunawayFiveRat {
-	msgbox(
-	"I'm rattata\n"
-	"", MSGBOX_NPC)
+	lock
+	playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }
 
 script TwoIsland_RunawayFiveToedscool {
-	msgbox(
-	"I'm toedscool\n"
-	"", MSGBOX_NPC)
+	lock
+	playmoncry(SPECIES_TOEDSCOOL, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }
 
 script TwoIsland_RunawayFiveChansey {
-	msgbox(
-	"I'm chansey\n"
-	"", MSGBOX_NPC)
+	lock
+	playmoncry(SPECIES_CHANSEY, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }
 
 
 script TwoIsland_RunawayFiveHDoduo {
-	msgbox(
-	"I'm doduo\n"
-	"", MSGBOX_NPC)
+	lock
+	playmoncry(SPECIES_DODUO, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }
 
 script TwoIsland_RunawayFiveVenonat {
-	msgbox(
-	"I'm venonat\n"
-	"", MSGBOX_NPC)
+	lock
+	playmoncry(SPECIES_SLOWPOKE, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
 }

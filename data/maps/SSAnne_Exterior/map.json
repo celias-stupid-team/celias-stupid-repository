@@ -19,7 +19,7 @@
       "local_id": "LOCALID_SS_ANNE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 57,
+      "x": 48,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -33,7 +33,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 48,
+      "x": 66,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -47,7 +47,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 58,
+      "x": 66,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -61,8 +61,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MEW",
-      "x": 69,
-      "y": 2,
+      "x": 57,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -157,8 +157,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 68,
-      "y": 4,
+      "x": 69,
+      "y": 6,
       "elevation": 3,
       "item": "ITEM_LAVA_COOKIE",
       "flag": "FLAG_HIDDEN_ITEM_SSANNE_EXTERIOR_LAVA_COOKIE",

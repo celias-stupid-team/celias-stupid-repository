@@ -6924,6 +6924,30 @@
       "secondary_tileset": "gTileset_CeladonCity",
       "border_filepath": "data/layouts/CeladonCity_TrollLayout/border.bin",
       "blockdata_filepath": "data/layouts/CeladonCity_TrollLayout/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2",
+      "name": "ViridianGym_DMCA_Brock_Layout_2",
+      "width": 20,
+      "height": 24,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Wormhole",
+      "border_filepath": "data/layouts/ViridianGym_DMCA_Brock_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianGym_DMCA_Brock_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FIVE_ISLAND_HOUSE4",
+      "name": "FiveIsland_House4_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BurgledHouse",
+      "border_filepath": "data/layouts/FiveIsland_House4/border.bin",
+      "blockdata_filepath": "data/layouts/FiveIsland_House4/map.bin"
     }
   ]
 }

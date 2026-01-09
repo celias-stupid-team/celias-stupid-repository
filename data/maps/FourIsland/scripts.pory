@@ -859,7 +859,7 @@ script FourIsland_TalkingOnPhone {
 	"I'm talking on the phone with my\n"
 	"friend.\p"
 
-	"She's playing POKéMON JADE!\n"
+	"She's playing POKéMON DIAMOND!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
@@ -870,4 +870,45 @@ script FourIsland_TalkingOnPhone {
 	"So anyway like I was saying…\n"
 	"", MSGBOX_DEFAULT)
 	release
+}
+
+
+script FourIsland_MyPokemonRanch {
+	msgbox(
+	"Welcome to MY POKéMON RANCH!\n"
+	"placeholder", MSGBOX_NPC)
+}
+
+
+script FourIsland_RanchBreeder {
+	msgbox(
+	"I have been breeding for 20 hours.\n"
+	"", MSGBOX_NPC)
+}
+
+
+script FourIsland_ExcitedAboutMTCoronet {
+	msgbox(
+	"Oh, boy!\n"
+	"MT. CORONET!\p"
+
+	"That's my favorite part of living\n"
+	"on FOUR ISLAND!", MSGBOX_NPC)
+}
+
+
+script FourIsland_SkippedSomething {
+	msgbox(
+	"Hmm…\n"
+	"I feel like we skipped something.", MSGBOX_NPC)
+}
+
+
+script FourIsland_CoronetSign {
+	msgbox(
+	"MT CORONET\p"
+
+	"A vital part of the FOUR ISLAND\n"
+	"experience", MSGBOX_SIGN)
+
 }

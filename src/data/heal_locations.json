@@ -475,8 +475,8 @@
     {
       "id": "HEAL_LOCATION_SSANNE_KITCHEN",
       "map": "MAP_SSANNE_KITCHEN",
-      "x": 7,
-      "y": 3,
+      "x": 4,
+      "y": 5,
       "respawn_map": "MAP_SSANNE_KITCHEN",
       "respawn_npc": "1"
     },
@@ -492,7 +492,7 @@
       "id": "HEAL_LOCATION_VIRIDIAN_GYM_DMCA_BROCK",
       "map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
       "x": 9,
-      "y": 17,
+      "y": 16,
       "respawn_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
       "respawn_npc": "1"
     },

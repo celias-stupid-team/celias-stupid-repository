@@ -539,6 +539,9 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_POKEBALL_STORAGE  0x1170
 #define OBJ_EVENT_PAL_TAG_ENTEI_GUN  0x1171
 #define OBJ_EVENT_PAL_TAG_GROWLITHE  0x1172
+#define OBJ_EVENT_PAL_TAG_ROGGENROLA  0x1173
+#define OBJ_EVENT_PAL_TAG_DESERT_BUS  0x1174
+#define OBJ_EVENT_PAL_TAG_ALIEN  0x1175
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -651,6 +654,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_POKEBALL_STORAGE,             OBJ_EVENT_PAL_TAG_POKEBALL_STORAGE},
     {gObjectEventPal_entei_gun,             OBJ_EVENT_PAL_TAG_ENTEI_GUN},
     {gObjectEventPal_GROWLITHE,             OBJ_EVENT_PAL_TAG_GROWLITHE},
+    {gObjectEventPal_ROGGENROLA,             OBJ_EVENT_PAL_TAG_ROGGENROLA},
+    {gObjectEventPal_DESERT_BUS,             OBJ_EVENT_PAL_TAG_DESERT_BUS},
+    {gObjectEventPal_ALIEN,             OBJ_EVENT_PAL_TAG_ALIEN},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

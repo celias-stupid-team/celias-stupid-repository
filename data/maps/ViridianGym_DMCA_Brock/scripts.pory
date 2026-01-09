@@ -4,6 +4,10 @@ mapscripts ViridianGym_DMCA_Brock_MapScripts {
             setvar(VAR_CURRENT_DMCA_PHASE, 1)
         }
         setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_DMCA_BROCK)
+        if(var(VAR_CURRENT_DMCA_PHASE) > 1) {
+            setmaplayoutindex(LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2)
+            setflag(FLAG_TEMP_5)
+        }
     }
 
 }
@@ -12,4 +16,100 @@ script DMCA_Brock_Wolff {
     trainerbattle_single(TRAINER_DMCA_BROCK, "WOLFF: Grr…\pThat joke was used in a different\nromhack!\lYou'll pay for this!", "lol")
     release
     end
+}
+
+script DMCABrock_OrthwormEats {
+    lock
+    textcolor(NPC_TEXT_COLOR_BLUE)
+    playse(SE_PIN)
+    applymovement(LOCALID_DMCA_BROCK, moves(
+        emote_exclamation_mark
+    ))
+    waitmovement(0)
+    delay(40)
+    msgbox("WOLFF: Grr…\pThat joke was used in a different\nromhack!\lYou'll pay for this!", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_DMCA_BROCK, "lol")
+    delay(60)
+    addobject(LOCALID_HUNGRY_ORTHWORM)
+    addobject(LOCALID_ORTHWORM_BUTT)
+    applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
+        lock_facing_direction
+        walk_slow_right * 4
+        delay_16 * 4
+
+    ))
+    applymovement(LOCALID_ORTHWORM_BUTT, moves(
+        lock_facing_direction
+        walk_slow_right * 4
+        delay_16 * 4
+
+    ))
+    waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    fadescreeninstant(FADE_TO_WHITE)
+    applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
+        unlock_facing_direction
+        face_up
+        lock_facing_direction
+        walk_in_place_fast_up * 9
+        delay_16 * 3
+
+    ))
+    applymovement(LOCALID_ORTHWORM_BUTT, moves(
+        unlock_facing_direction
+        face_up
+        lock_facing_direction
+        walk_in_place_fast_up * 9
+        delay_16 * 3
+
+    ))
+    delay(5)
+    playmoncry(SPECIES_ORTHWORM, CRY_MODE_DEFAULT)
+    fadescreeninstant(FADE_FROM_WHITE)
+    waitmoncry
+    waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    delay(10)
+    playse(SE_M_BITE)
+    applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
+        unlock_facing_direction
+        face_left
+        lock_facing_direction
+        walk_faster_right * 2
+
+    ))
+    applymovement(LOCALID_ORTHWORM_BUTT, moves(
+        unlock_facing_direction
+        face_left
+        lock_facing_direction
+        walk_faster_right * 2
+
+    ))
+    waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    removeobject(LOCALID_DMCA_BROCK)
+    setlayouttiles(LAYOUT_VIRIDIAN_GYM_DMCA_BROCK_LAYOUT_2, 0,0, 0,0, 19, 23)
+    applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
+        unlock_facing_direction
+        face_down
+        delay_16 * 6
+
+    ))
+    applymovement(LOCALID_ORTHWORM_BUTT, moves(
+        unlock_facing_direction
+        face_down
+        delay_16 * 6
+
+    ))
+    playse(SE_M_STRENGTH)
+    waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    applymovement(LOCALID_HUNGRY_ORTHWORM, moves(
+        lock_facing_direction
+        walk_slow_left * 6
+
+    ))
+    applymovement(LOCALID_ORTHWORM_BUTT, moves(
+        lock_facing_direction
+        walk_slow_left * 6
+
+    ))
+    waitmovement(LOCALID_HUNGRY_ORTHWORM)
+    release
 }

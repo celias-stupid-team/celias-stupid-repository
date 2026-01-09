@@ -138,13 +138,13 @@ script VermilionHarbor_Item {
 			applymovement(VAR_LAST_TALKED, moves(
 				set_invisible
 			))
-			giveitem_msg("{PLAYER} found one CASTELIACONE!\n", ITEM_CASTELIACONE)
+			giveitem_msg("{PLAYER} found one RAGECANDYBAR!\n", ITEM_CASTELIACONE)
 		case 3:
 			goto(VermilionHarbor_FuckingFuck)
 	}
 	closemessage
 	addvar(VAR_LAVA_COOKIE, 1)
-	setobjectxy(VAR_LAST_TALKED, 58, 5)
+	setobjectxy(VAR_LAST_TALKED, 66, 5)
 	delay(30)
 	playse(SE_FALL)
 	applymovement(VAR_LAST_TALKED, moves(

@@ -5,9 +5,22 @@ mapscripts Silph_CallCenter_MapScripts {
 script Silph_CallCenter_Sign {
 	msgbox(
 	"SILPH CO\n"
-	"CALL CENTER", MSGBOX_SIGN)
+	"MARKETING", MSGBOX_SIGN)
 
 }
+
+script Silph_CallCenter_NPC1 {
+	msgbox(
+	"Youngster Joey Call Center\n"
+	"", MSGBOX_NPC)
+}
+
+script Silph_CallCenter_SlowpoketailMarketingGuy {
+	msgbox(
+	"Let's crash the slowpoketail\n"
+	"market.", MSGBOX_NPC)
+}
+
 
 script Silph_CallCenter_Elevator {
 	lock

@@ -15,11 +15,12 @@ CeruleanCave_B1F_EventScript_TryRemoveMewtwo::
 	return
 
 CeruleanCave_B1F_OnTransition::
+	setflag FLAG_TEMP_10
 	call_if_unset FLAG_FOUGHT_MEWTWO, CeruleanCave_B1F_EventScript_ShowMewtwo
 	end
 
 CeruleanCave_B1F_EventScript_ShowMewtwo::
-	clearflag FLAG_HIDE_MEWTWO
+	clearflag FLAG_TEMP_5
 	return
 
 CeruleanCave_B1F_EventScript_Mewtwo::
@@ -41,6 +42,7 @@ CeruleanCave_B1F_EventScript_Mewtwo::
 	waitstate
 	clearflag FLAG_SYS_SPECIAL_WILD_BATTLE
 	specialvar VAR_RESULT, GetBattleOutcome
+	addobject LOCALID_ARCANINE_GUN
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, CeruleanCave_B1F_EventScript_DefeatedMewtwo
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, CeruleanCave_B1F_EventScript_RanFromMewtwo
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, CeruleanCave_B1F_EventScript_RanFromMewtwo
@@ -78,7 +80,7 @@ script CeruleanCave_ShortsGang1 {
 script CeruleanCave_ShortsGang2 {
 	trainerbattle_single(TRAINER_SHORTS_GANG_1,
 	"We're the SHORTS GANG, and don't\n"
-	"you forget it!\p",
+	"you forget it!",
 	//
 	"I bet you think I'm weak,\n"
 	"don't you?")
