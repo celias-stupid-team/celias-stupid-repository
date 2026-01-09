@@ -5551,7 +5551,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAKE_HEART] =    {
         .effect = EFFECT_THIEF,
-        .power = 0,
+        .power = 60,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
         .pp = 35,

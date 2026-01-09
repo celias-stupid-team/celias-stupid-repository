@@ -213,14 +213,14 @@ const u8 gClefablePokedexText[] = _(
 const u8 gClefablePokedexTextUnused[] = _("");
 
 const u8 gVulpixPokedexText[] = _(
-	"Good thing I brought my umbrella!");
+	"This infinite storm represents\n"
+	"my unending pain and suffering.");
 
 
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"This infinite storm represents\n"
-	"my unending pain and suffering.");
+	"Good thing I brought my umbrella!");
 
 const u8 gNinetalesPokedexTextUnused[] = _("");
 

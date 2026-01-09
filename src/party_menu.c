@@ -4040,8 +4040,10 @@ static void CursorCB_FieldMove(u8 taskId)
                 else
                 {
                     
-                    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_NUM(MAP_ROUTE12)) { //Route12
-                        DisplayButItFailedMessage();
+                    DebugPrintf("Num %d Group %d", gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+                    DebugPrintf("Route 12 is %d and %d", MAP_NUM(MAP_ROUTE12));
+                    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) { //Route12
+                        
                         DisplayNoRetreatMessage();
 
                     } else {//no bench around

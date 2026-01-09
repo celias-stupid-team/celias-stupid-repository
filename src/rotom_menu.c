@@ -2879,7 +2879,7 @@ static bool32 SetupFunc_Surf(void)
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     
 
-    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_NUM(MAP_ROUTE12))
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
     {
         sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_SURF;
         return FALSE;
@@ -3125,7 +3125,7 @@ static bool32 SetupFunc_Retreat(void)
     }
     else
     {
-        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_NUM(MAP_ROUTE12))
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12))
         {
             sRotomStartMenu->rotomMoveMsgID = ROTOM_MSG_NO_RETREAT;
         }

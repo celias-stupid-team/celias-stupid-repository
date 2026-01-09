@@ -177,17 +177,18 @@ script OneIsland_Whirlpool {
 	checkfieldmove(MOVE_WHIRLPOOL)
 	if(var(VAR_RESULT) == PARTY_SIZE) {
 		msgbox(
-		"it's a whirlpool\n"
-		"", MSGBOX_SIGN)
+		"A torrent of water is swirling\n"
+		"in the path.", MSGBOX_SIGN)
 
 	} else {
 		msgbox(
-		"it's a whirlpool?\n"
-		"", MSGBOX_YESNO)
+		"A torrent of water is swirling\n"
+		"in the path.\l"
+		"Would you like to use WHIRLPOOL?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			specialvar(VAR_RESULT, GetPlayerFacingDirection)
 			msgbox(
-			"zoom\n"
+			"Zoom\n"
 			"", MSGBOX_DEFAULT)
 			closemessage
 			switch(var(VAR_RESULT)) {
@@ -222,17 +223,22 @@ script OneIsland_Kaylee {
 	"KAYLEE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAILEE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAILIE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAYLEIGH: hello\n"
 	"", MSGBOX_DEFAULT)
+	delay(10)
+	closemessage
 	if(checkpartymon(SPECIES_JYNX)) {
 		msgbox(
 		"our friend!\n"

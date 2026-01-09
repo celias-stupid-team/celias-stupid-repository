@@ -6061,7 +6061,7 @@
     {
       "english": "FOCUS SASH",
       "itemId": "ITEM_FOCUS_SASH",
-      "price": 4000,
+      "price": 50,
       "holdEffect": "HOLD_EFFECT_FOCUS_SASH",
       "holdEffectParam": 10,
       "description_english": "If the holder has\\nfull HP, it endures\\nKO hits with 1 HP.",

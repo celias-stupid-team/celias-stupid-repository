@@ -772,8 +772,8 @@ script CinnabarGym_GymQuestionLoop {
 			msgbox(
 			"QUESTION 5!\p"
 
-			"The winner of Smash Summit 7 Semi-\n"
-			"Finals featuring Zain was…?", MSGBOX_DEFAULT)
+			"Who was the winner in the SMASH\n"
+			"SUMMIT 7 WINNERS QUARTERFINALS?", MSGBOX_DEFAULT)
 		
 		case 6:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 6)
@@ -785,13 +785,19 @@ script CinnabarGym_GymQuestionLoop {
 		
 		case 7:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 7)
+			msgbox(
+			"QUESTION 7!\p"
+
+			"A TRADE evolution can occur on\n"
+			"this island.\l"
+			"Which POKéMON will it become?", MSGBOX_DEFAULT)
 		
 		case 8:
 			setvar(VAR_CURRENT_BLAINE_ANSWER, 8)
 			msgbox(
 			"QUESTION 8!\p"
 
-			"Who is the last POKéMON?", MSGBOX_DEFAULT)
+			"Who is{PAUSE 30} the last POKéMON?", MSGBOX_DEFAULT)
 	}
 	special(ChoosePartyMon)
 	closemessage
@@ -816,72 +822,102 @@ script CinnabarGym_GymQuestionLoop {
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_1, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 2:
-			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_HITMONCHAN_SHIT || var(VAR_RESULT) == SPECIES_HITMONCHIN) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_2, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 3:
-			if(var(VAR_RESULT) == SPECIES_ALOMOMOLA || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_ALOMOMOLA || var(VAR_RESULT) == SPECIES_EEVEE) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_3, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 4:
-			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_KENYA || var(VAR_RESULT) == SPECIES_DUGTRIO) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_4, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 5:
-			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_JIGGLYPUFF || var(VAR_RESULT) == SPECIES_JIGGLYPUFF_ABOVE) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_5, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 6:
-			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_RHYDON) {
+			if(var(VAR_RESULT) == SPECIES_AMOONGUSS || var(VAR_RESULT) == SPECIES_DITTO_MEW) {
 				msgbox(
 				"Ah, so that's your answer?\p"
 
 				"Let's see if it's correct!\n"
 				"", MSGBOX_DEFAULT)
 				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_6, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
 				goto(CinnabarGym_CheckBattleOutcome)
 			} else {
 				goto(CinnabarGym_IncorrectAnswer)
 			}
 		case 7:
+			if(var(VAR_RESULT) == SPECIES_MEOWTH || var(VAR_RESULT) == SPECIES_MEOWTH) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_7, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
 		case 8:
+			if(var(VAR_RESULT) == SPECIES_VENUSAUR || var(VAR_RESULT) == SPECIES_KRABBY) {
+				msgbox(
+				"Ah, so that's your answer?\p"
+
+				"Let's see if it's correct!\n"
+				"", MSGBOX_DEFAULT)
+				// battle
+				trainerbattle_earlyrival(TRAINER_BLAINE_PHASE_8, TRUE, "Nicely done!\nThat's completely correct!", "Hmm...\nLet's see!")
+				goto(CinnabarGym_CheckBattleOutcome)
+			} else {
+				goto(CinnabarGym_IncorrectAnswer)
+			}
 	}
 
 	// Keep track of if you've been secret the whole time
@@ -896,7 +932,7 @@ script CinnabarGym_CheckBattleOutcome {
 		playse(SE_SUCCESS)
 		waitse
 		addvar(VAR_CINNABAR_GYM_PHASE, 1)
-		if(var(VAR_CINNABAR_GYM_PHASE) == 7) {
+		if(var(VAR_CINNABAR_GYM_PHASE) == 9) {
 			msgbox(
 			"That's absolutely CORRECT!\n"
 			"Nicely done!", MSGBOX_DEFAULT)

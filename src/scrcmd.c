@@ -2645,7 +2645,7 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
     u16 moveId = ScriptReadHalfword(ctx);
     gSpecialVar_Result = PARTY_SIZE;
 
-    if(moveId == MOVE_SURF && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_NUM(MAP_ROUTE12)) {
+    if(moveId == MOVE_SURF && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) {
         gSpecialVar_Result = PARTY_SIZE;
         return FALSE;
     }
