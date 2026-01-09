@@ -30,6 +30,7 @@ script DMCABrock_OrthwormEats {
     msgbox("WOLFF: Grr…\pThat joke was used in a different\nromhack!\lYou'll pay for this!", MSGBOX_DEFAULT)
     trainerbattle_no_intro(TRAINER_DMCA_BROCK, "lol")
     delay(60)
+    setvar(VAR_EARTH_EATER, 0)
     addobject(LOCALID_HUNGRY_ORTHWORM)
     addobject(LOCALID_ORTHWORM_BUTT)
     applymovement(LOCALID_HUNGRY_ORTHWORM, moves(

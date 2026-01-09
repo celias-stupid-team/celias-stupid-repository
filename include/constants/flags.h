@@ -600,7 +600,7 @@
 #define FLAG_CHAPTER_7_CHAPTER_2               0x222
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
 #define FLAG_TALKED_TO_NATIONAL_PARK_HINT               0x224
-#define FLAG_0x225               0x225
+#define FLAG_SAFFRON_IS_TRAINS               0x225
 #define FLAG_0x226               0x226
 #define FLAG_0x227               0x227
 #define FLAG_0x228               0x228

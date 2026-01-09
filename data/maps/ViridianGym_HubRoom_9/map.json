@@ -3,7 +3,7 @@
   "name": "ViridianGym_HubRoom_9",
   "layout": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_9",
   "music": "MUS_GYM",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

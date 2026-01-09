@@ -542,6 +542,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_ROGGENROLA  0x1173
 #define OBJ_EVENT_PAL_TAG_DESERT_BUS  0x1174
 #define OBJ_EVENT_PAL_TAG_ALIEN  0x1175
+#define OBJ_EVENT_PAL_TAG_BOY_CLOTHES  0x1176
+#define OBJ_EVENT_PAL_TAG_GIRL_CLOTHES  0x1177
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -657,6 +659,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_ROGGENROLA,             OBJ_EVENT_PAL_TAG_ROGGENROLA},
     {gObjectEventPal_DESERT_BUS,             OBJ_EVENT_PAL_TAG_DESERT_BUS},
     {gObjectEventPal_ALIEN,             OBJ_EVENT_PAL_TAG_ALIEN},
+    {gObjectEventPal_BOY_CLOTHES,             OBJ_EVENT_PAL_TAG_BOY_CLOTHES},
+    {gObjectEventPal_GIRL_CLOTHES,             OBJ_EVENT_PAL_TAG_GIRL_CLOTHES},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

@@ -3,7 +3,7 @@
   "name": "SevenIsland_TrainerTower",
   "layout": "LAYOUT_SEVEN_ISLAND_TRAINER_TOWER",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_TRAINER_TOWER",
+  "region_map_section": "MAPSEC_VIRIDIAN_GYM",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

@@ -220,8 +220,8 @@ const u8 gVulpixPokedexText[] = _(
 const u8 gVulpixPokedexTextUnused[] = _("");
 
 const u8 gNinetalesPokedexText[] = _(
-	"Good thing I brought my umbrella!");
-
+	"I want my wife back, TALES.");
+    
 const u8 gNinetalesPokedexTextUnused[] = _("");
 
 const u8 gJigglypuffPokedexText[] = _(

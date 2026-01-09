@@ -3,7 +3,7 @@
   "name": "FushciaGym_DrillRoom",
   "layout": "LAYOUT_FUSHCIA_GYM_DRILL_ROOM",
   "music": "MUS_BATTLE_FRONTIER",
-  "region_map_section": "MAPSEC_FUSHCIA_CITY",
+  "region_map_section": "MAPSEC_FUSHCIA_GYM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

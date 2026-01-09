@@ -3,7 +3,7 @@
   "name": "ViridianGym_Misty",
   "layout": "LAYOUT_VIRIDIAN_GYM_MISTY",
   "music": "MUS_YUGIOH",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

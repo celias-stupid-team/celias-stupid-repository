@@ -7832,6 +7832,10 @@ static void Cmd_tryKO(void)
     else if (gBattleMons[gBattlerTarget].ability == ABILITY_NO_GUARD
       || gBattleMons[gBattlerAttacker].ability == ABILITY_NO_GUARD)
         chance = TRUE;
+    else if (gBattleMons[gBattlerTarget].ability == ABILITY_EARTH_EATER)
+    {
+        chance = FALSE;
+    }
     else
     {
         chance = gBattleMoves[gCurrentMove].accuracy + (gBattleMons[gBattlerAttacker].level - gBattleMons[gBattlerTarget].level);
@@ -7871,12 +7875,18 @@ static void Cmd_tryKO(void)
     }
     else
     {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        if (gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_MISS;
-        else
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_UNAFFECTED;
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        if(VarGet(VAR_EARTH_EATER) > 0) {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_EARTH_EATER;
+            
+        } else {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            if (gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_MISS;
+            else
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_KO_UNAFFECTED;
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+
+        }
     }
 }
 

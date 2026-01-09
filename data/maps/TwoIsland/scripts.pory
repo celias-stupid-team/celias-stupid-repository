@@ -836,8 +836,8 @@ script TwoIsland_HouseSalesman {
 	"I'm selling one for 7500 Dollars.\p"
 
 	"It's right on the mainland, and\n"
-	"the sunsets are beautiful!\l"
-	"You could have a place of your own!\p"
+	"there's a lovely bench out front!\l"
+	"You can have a place of your own!\p"
 
 	"So?\n"
 	"How about it?", MSGBOX_DEFAULT)

@@ -1,9 +1,4 @@
 raw `
-SaffronCity_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SAFFRON_CITY
-	call_if_unset FLAG_RESCUED_CUBONES_MOM, SaffronCity_EventScript_MoveDoorGuardGrunt
-	end
-
 SaffronCity_EventScript_MoveDoorGuardGrunt::
 	setobjectxyperm LOCALID_SAFFRON_DOOR_GUARD_GRUNT, 33, 31
 	return
@@ -123,7 +118,19 @@ SaffronCity_EventScript_TrainerFanClubSign::
 
 const SneakyGuy = 20
 mapscripts SaffronCity_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION: SaffronCity_OnTransition
+	MAP_SCRIPT_ON_TRANSITION {
+		
+	setworldmapflag(FLAG_WORLD_MAP_SAFFRON_CITY)
+	if(flag(FLAG_SAFFRON_IS_TRAINS)) {
+		setmaplayoutindex(LAYOUT_SAFFRON_CITY_TRAINS)
+	} else {
+		if(checkmoncaught(SPECIES_MIMIKYU)) {
+			setvar(VAR_TEMP_9, 1)
+			setflag(FLAG_SAFFRON_IS_TRAINS)
+		}
+	}
+
+	}
 	MAP_SCRIPT_ON_LOAD {
 		if(checkmoncaught(SPECIES_GEODUDE) && checkmoncaught(SPECIES_MACHOKE)) {
 			//oops did the logic backwards again
@@ -131,6 +138,21 @@ mapscripts SaffronCity_MapScripts {
 			setflag(FLAG_TEMP_1)
 		}
 	}
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_9, 1 {
+			delay(30)
+			setlayouttiles(LAYOUT_SAFFRON_CITY_TRAINS, 0, 0, 0, 0, 65, 54)
+			playse(SE_CLICK)
+			setvar(VAR_SHAKESCREEN_VERTICAL_PAN, 3)
+			setvar(VAR_SHAKESCREEN_HORIZONTAL_PAN, 3)
+			setvar(VAR_SHAKESCREEN_NUM_SHAKES, 5)
+			setvar(VAR_SHAKESCREEN_SHAKE_DELAY, 2)
+			special(ShakeScreen)
+			delay(60)
+			setvar(VAR_TEMP_9, 0)
+			release
+		}
+	]
 }
 
 
@@ -350,4 +372,51 @@ script SaffronCity_NPC5 {
 	msgbox(
 	"Saffron NPC 5\n"
 	"", MSGBOX_NPC)
+}
+
+
+
+script SaffronCity_Furrets {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"FURRET is violating the copyright\n"
+	"of the ones in PEWTER and FUSHCIA!", MSGBOX_DEFAULT)
+	release
+}
+script SaffronCity_Furrets2 {
+	lock
+	faceplayer
+	textcolor(NPC_TEXT_COLOR_MALE)
+	waitse
+	playmoncry(SPECIES_FURRET, CRY_MODE_NORMAL)
+	msgbox("FURRET: Bwaah!\n", MSGBOX_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox(
+	"FURRET is violating the copyright\n"
+	"of the ones in PEWTER and FUSHCIA!", MSGBOX_DEFAULT)
+	release
+}
+
+
+script SaffronCity_TrainHouses {
+	if(flag(FLAG_SAFFRON_IS_TRAINS)) {
+		msgbox(
+		"Oh cool!\n"
+		"A new TRAIN STATION!\p"
+
+		"Good thing no one important\n"
+		"lived there.", MSGBOX_SIGN)
+	} else {
+		msgbox(
+		"Oh wow, a perfectly normal house.\n"
+		"", MSGBOX_SIGN)
+
+	}
+
 }

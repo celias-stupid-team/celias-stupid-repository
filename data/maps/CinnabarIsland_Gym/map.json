@@ -3,7 +3,7 @@
   "name": "CinnabarIsland_Gym",
   "layout": "LAYOUT_CINNABAR_ISLAND_GYM",
   "music": "MUS_BLAINE_GYM",
-  "region_map_section": "MAPSEC_CINNABAR_ISLAND",
+  "region_map_section": "MAPSEC_CINNABAR_GYM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
