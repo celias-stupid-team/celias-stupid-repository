@@ -3,6 +3,7 @@ mapscripts GreatBay_SkyPillarOutside_MapScripts {
         if(!flag(FLAG_HIDE_BIRTH_ISLAND_METEORITE)) {
             setflag(FLAG_TEMP_1)
         }
+        setvar(VAR_TEMP_5, 19)
     }
 }
 
@@ -87,9 +88,23 @@ movement GreatBay_CameraComesDown {
 
 script GreatBay_TruckGoesInHole {
     lock
+    waitse
+    playse(SE_M_EARTHQUAKE)
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_in_place_faster_down * 25
+    ))
+    waitmovement(VAR_LAST_TALKED)
+    playse(SE_FALL)
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_faster_left * 3
+    ))
+    waitmovement(0)
+    delay(20)
+    removeobject(VAR_LAST_TALKED)
+    delay(60)
     msgbox(
-	"it goes in the square hole\n"
-	"", MSGBOX_DEFAULT)
+	"The truck went into the square\n"
+	"hole.", MSGBOX_DEFAULT)
     setflag(FLAG_TRUCK_PUT_IN_HOLE)
     call(GreatBay_OpenDoor)
     release
@@ -109,9 +124,41 @@ script GreatBay_GirlGoesInHole {
 
 script GreatBay_TriangleGoesInHole {
     lock
-    msgbox(
-	"it goes in the square hole\n"
-	"", MSGBOX_DEFAULT)
+    fadenewbgm(MUS_NONE)
+    delay(30)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_slow_up * 3
+        delay_16 * 3
+        walk_faster_left * 10
+        delay_16
+        walk_fastest_down * 4
+    ))
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_slow_up * 3
+        delay_16 * 3
+        walk_faster_left * 10
+        delay_16
+        walk_fastest_down * 4
+
+    ))
+    waitmovement(VAR_LAST_TALKED)
+    playse(SE_FALL)
+    applymovement(VAR_LAST_TALKED, moves(
+        walk_fastest_down * 4
+
+    ))
+    waitmovement(VAR_LAST_TALKED)
+    removeobject(VAR_LAST_TALKED)
+    delay(60)
+    applymovement(LOCALID_CAMERA, moves(
+        walk_right * 10
+        walk_up
+    ))
+    delay(60)
+    fadedefaultbgm
+    waitmovement(LOCALID_CAMERA)
+    special(RemoveCameraObject)
     setflag(FLAG_TRIANGLE_PUT_IN_HOLE)
     setflag(FLAG_TEMP_1)
     call(GreatBay_OpenDoor)
@@ -120,14 +167,55 @@ script GreatBay_TriangleGoesInHole {
 
 script GreatBay_OpenDoor {
     if(flag(FLAG_TRIANGLE_PUT_IN_HOLE) && flag(FLAG_GIRL_PUT_IN_HOLE) && flag(FLAG_TRUCK_PUT_IN_HOLE)) {
+        delay(30)
+        playse(SE_UNLOCK)
+        waitse
         msgbox(
-        "the door opens\n"
+        "A door has opened…\n"
         "", MSGBOX_DEFAULT)
         setflag(FLAG_OPENED_SKY_TOWER)
     }
     return
 }
 
+script GreatBay_LookGirl {
+	    lock
+		msgbox(format("Hmm...\nIs that right..."), MSGBOX_DEFAULT)
+		applymovement(VAR_LAST_TALKED, Common_Movement_FacePlayer)
+		waitmovement(0)
+		playse(SE_PIN)
+		applymovement(VAR_LAST_TALKED, DT_exclmark)
+		waitmovement(0)
+		delay(48)
+		msgbox(format("Oh!\nLook, look!"), MSGBOX_DEFAULT)
+		closemessage
+		switch(var(VAR_FACING)) {
+			case DIR_EAST:
+                    addvar(VAR_TEMP_5, 1)
+					applymovement(VAR_LAST_TALKED, DT_walkbackRight)
+					waitmovement(0)
+					break
+				default:
+                    subvar(VAR_TEMP_5, 1)
+					applymovement(VAR_LAST_TALKED, DT_walkbackLeft)
+					waitmovement(0)
+					break
+        }
+    copyobjectxytoperm(VAR_LAST_TALKED)
+    if(var(VAR_TEMP_5) == 2) {
+        delay(30)
+        playse(SE_FALL)
+        removeobject(VAR_LAST_TALKED)
+        waitse
+        textcolor(NPC_TEXT_COLOR_NEUTRAL)
+        msgbox(
+        "She went in the square hole.\n"
+        "", MSGBOX_DEFAULT)
+        release
+
+    }
+	release
+}
 
 
 

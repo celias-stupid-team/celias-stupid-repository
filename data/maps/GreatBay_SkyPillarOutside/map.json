@@ -96,7 +96,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 8,
+      "x": 6,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -110,8 +110,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_METEORITE",
-      "x": 16,
-      "y": 6,
+      "x": 13,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -124,7 +124,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 22,
+      "x": 20,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -132,7 +132,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GreatBay_GirlGoesInHole",
+      "script": "GreatBay_LookGirl",
       "flag": "FLAG_GIRL_PUT_IN_HOLE"
     },
     {
@@ -166,7 +166,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOUY",
-      "x": 22,
+      "x": 20,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
