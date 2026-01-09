@@ -43,7 +43,7 @@ static const union AffineAnimCmd *const sAffineAnims_Bonemerang[] =
     sAffineAnim_Bonemerang,
 };
 
-static const union AffineAnimCmd *const sAffineAnims_SpinningBone[] =
+const union AffineAnimCmd *const gAffineAnims_SpinningBone[] =
 {
     sAffineAnim_SpinningBone,
 };
@@ -66,7 +66,7 @@ const struct SpriteTemplate gSpinningBoneSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAffineAnims_SpinningBone,
+    .affineAnims = gAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -77,7 +77,7 @@ const struct SpriteTemplate gSpinningCrabSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAffineAnims_SpinningBone,
+    .affineAnims = gAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 
@@ -88,7 +88,7 @@ const struct SpriteTemplate gSpinningVineSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAffineAnims_SpinningBone,
+    .affineAnims = gAffineAnims_SpinningBone,
     .callback = AnimBoneHitProjectile,
 };
 

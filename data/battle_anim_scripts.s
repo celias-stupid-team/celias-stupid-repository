@@ -15323,19 +15323,39 @@ Move_SHADOW_FORCE:
 	end
 
 
-Move_DARK_PULSE:
-	loadspritegfx ANIM_TAG_IMPACT
+Move_DARK_PULSE:loadspritegfx ANIM_TAG_PURPLE_RING
 	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
-	delay 6
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	fadetobg BG_DARK
+	waitbgfadein
+	loopsewithpan SE_M_PSYBEAM, SOUND_PAN_TARGET, 20, 3
+	createvisualtask AnimTask_SwayMon, ANIM_TARGET, 0, 6, 0x0800, 8, ANIM_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 4, 0, 12, RGB(30, 10, 13)
+	call DarkPulseParticle
+	call DarkPulseParticle
+	call DarkPulseParticle
 	waitforvisualfinish
-	clearmonbg ANIM_TARGET
 	blendoff
+	clearmonbg ANIM_TARGET
+	restorebg
+	waitbgfadein
 	end
+DarkPulseParticle:
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	delay 2
+	createsprite gDarkPulseSpriteTemplate, ANIM_TARGET, 2, 0, 0, 16
+	return
 
 
 Move_CSR_DUMMY_2:

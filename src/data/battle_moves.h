@@ -6903,15 +6903,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     
 
 [MOVE_DARK_PULSE] =    {
-        .effect = EFFECT_ASSIST, // Placeholder Effect
-        .power = 90,
-        .type = TYPE_NORMAL,
-        .accuracy = 80,
-        .pp = 35,
-        .secondaryEffectChance = 10,
+        .effect = EFFECT_FLINCH_HIT,
+        .power = 80,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MAKES_CONTACT
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED
     },
     
 
