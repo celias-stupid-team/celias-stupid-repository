@@ -61,6 +61,7 @@ script ViridianGym_Surge_TrashCan {
     playse(SE_UNLOCK)
     setflag(FLAG_DMCA_SURGE_FIRST_GATE)
     call(ViridianGym_Surge_DrawFirstGateOpen)
+    special(DrawWholeMapView)
     release
 }
 
@@ -71,7 +72,7 @@ script ViridianGym_SurgeBattle {
     trainerbattle_single(TRAINER_DMCA_SURGE, ViridianGym_SurgeBattle_Start, ViridianGym_SurgeBattle_End, ViridianGym_Surge_DrawSecondGateOpen)
     msgbox(
 	"i'm dead\n"
-	"", MSGBOX_DEFAULT)
+	"", MSGBOX_NPC)
 }
 
 text ViridianGym_SurgeBattle_Start {
@@ -95,7 +96,7 @@ script ViridianGym_Surge_DrawFirstGateOpen {
     setmetatile(7, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Edge_Off, FALSE)
     setmetatile(8, 14, METATILE_VermilionGym_Beam_Node_TopRight_Off, FALSE)
     setmetatile(8, 15, METATILE_VermilionGym_Beam_Node_BottomRight_Off, FALSE)
-    special(DrawWholeMapView)
+    
     return
 }
 

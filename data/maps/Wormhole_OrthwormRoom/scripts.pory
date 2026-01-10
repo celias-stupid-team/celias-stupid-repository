@@ -136,7 +136,7 @@ script Wormhole_OrthwormRises {
 script Wormhole_Falling {
     lock
     msgbox(
-	"it is implied that you fall\n"
+	"You go in the square hole.\n"
 	"", MSGBOX_DEFAULT)
     closemessage
     setobjectxy(LOCALID_PLAYER, 23, 30)

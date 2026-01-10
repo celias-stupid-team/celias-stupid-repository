@@ -322,6 +322,13 @@ script OneIsland_RockClimbDown {
 script OneIsland_ClamperlTrainer {
 	lock
 	faceplayer
+	if(checkpartymove(MOVE_WHIRLPOOL) != PARTY_SIZE) {
+		msgbox(
+		"JACK: Wha-\n"
+		"Hey!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE)) {
 		msgbox(
 		"JACK: What, did you think I was\n"

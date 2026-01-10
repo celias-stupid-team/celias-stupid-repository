@@ -6245,7 +6245,7 @@
       "id": "LAYOUT_OCEAN3",
       "name": "Ocean3_Layout",
       "width": 19,
-      "height": 17,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",

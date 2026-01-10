@@ -34,6 +34,14 @@ script GreatSea_LuvdiscHint {
 	release
 }
 
+script GreatSea_EggDeliverySign {
+	msgbox(
+	"KANTO EGG DELIVERY SERVICE\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
 script GreatSea_EggDeliveryHint {
 	setflag(FLAG_HEART_SWAP_HINT)
 	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 1)
