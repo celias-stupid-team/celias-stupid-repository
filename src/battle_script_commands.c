@@ -2452,7 +2452,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
 {
     bool32 statusChanged = FALSE;
     u8 affectsUser = 0; // 0x40 otherwise
-    bool32 noSunCanFreeze = TRUE;
+    // bool32 noSunCanFreeze = TRUE;
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] & MOVE_EFFECT_AFFECTS_USER)
     {
@@ -2596,14 +2596,14 @@ void SetMoveEffect(bool8 primary, u8 certain)
             statusChanged = TRUE;
             break;
         case STATUS1_FREEZE:
-            if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
-                noSunCanFreeze = TRUE; //You can freeze through sun
+            // if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN)
+            //     noSunCanFreeze = FALSE;
             if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ICE))
                 break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
-            if (noSunCanFreeze == TRUE)
-                break;
+            // if (noSunCanFreeze == FALSE)
+            //     break;
             if (gBattleMons[gEffectBattler].ability == ABILITY_MAGMA_ARMOR)
                 break;
 
