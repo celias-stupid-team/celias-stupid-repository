@@ -309,9 +309,10 @@ const u8 gMeowthPokedexText[] = _(
 const u8 gMeowthPokedexTextUnused[] = _("");
 
 const u8 gPersianPokedexText[] = _(
-	"Wait if this guy is here, what about\n"
-	"the other statues?");
+	"Wait if this guy's here, then\n"
+	"what about…?");
 
+    
 const u8 gPersianPokedexTextUnused[] = _("");
 
 const u8 gPsyduckPokedexText[] = _( //The Blue One

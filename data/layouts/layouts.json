@@ -6172,8 +6172,8 @@
     {
       "id": "LAYOUT_SKY_TOWER_1F",
       "name": "SkyTower_1F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 29,
+      "height": 33,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
