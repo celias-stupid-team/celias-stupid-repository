@@ -1446,7 +1446,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_RHYDON] =
     {
-        .categoryName = _("DRILL"),
+        .categoryName = _("LIGMA"),
         .height = 19,
         .weight = 1200,
         .description = gRhydonPokedexText,

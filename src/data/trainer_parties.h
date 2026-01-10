@@ -10320,7 +10320,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine2[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_ONIX,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -10330,7 +10330,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine3[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_MALAMAR,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -10340,7 +10340,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine4[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_UNITEDKINGDOM,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -10350,7 +10350,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine5[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_NICKIT,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };
@@ -10360,7 +10360,7 @@ static const struct TrainerMonItemCustomMoves sParty_Blaine6[] = {
         .iv = 0,
         .lvl = 30,
         .heldItem = ITEM_NONE,
-        .species = SPECIES_ARCEUS,
+        .species = SPECIES_DEOXYS,
         .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
 };

@@ -36,6 +36,7 @@ script GreatSea_LuvdiscHint {
 
 script GreatSea_EggDeliveryHint {
 	setflag(FLAG_HEART_SWAP_HINT)
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 1)
 	msgbox(
 	"Hi! I'm a representative for the\n"
 	"KANTO EGG DELIVERY SERVICE.\p"

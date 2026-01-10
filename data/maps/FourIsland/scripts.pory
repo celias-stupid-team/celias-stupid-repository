@@ -253,6 +253,7 @@ script FourIsland_RockClimbDown {
 }
 
 script FourIsland_Rock {
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 3)
 	msgbox(
 	"It's a rock.\p"
 
@@ -271,7 +272,7 @@ script FourIsland_CenterOfTown {
 }
 
 script FourIsland_CombeeSign {
-	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evovles into a bee!", MSGBOX_SIGN)
+	msgbox("TRAINER TIPS\pCATERPIE evolves into a butterfly,\nand WEEDLE evolves into a bee!", MSGBOX_SIGN)
 }
 
 script FourIsland_OldLady {
@@ -487,6 +488,7 @@ script FourIsland_DrFootstep {
 script FourIsland_SealCase {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 1)
 	if(flag(FLAG_GOT_SEAL_CASE)) {
 		msgbox(
 		"after message\n"
@@ -609,6 +611,7 @@ script FourIsland_TurnbackCaveSign {
 script FourIsland_AmitySquareLady {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 4)
 	msgbox(
 	"Hello!\n"
 	"Welcome to AMITY SQUARE.\p"

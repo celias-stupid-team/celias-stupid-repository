@@ -5376,3 +5376,7 @@ Cry_ZAPMOLCUNO::
 	.incbin "sound/direct_sound_samples/cries/zapmolcuno.bin"
 
 	.align 2
+Cry_UNITEDKINGDOM::
+	.incbin "sound/direct_sound_samples/cries/unitedkingdom.bin"
+
+	.align 2

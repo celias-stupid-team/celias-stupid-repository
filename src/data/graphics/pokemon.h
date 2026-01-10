@@ -9700,3 +9700,11 @@ const u32 gMonShinyPalette_ZAPMOLCUNO[] = INCBIN_U32("graphics/pokemon/zapmolcun
 const u8 gMonIcon_ZAPMOLCUNO[] = INCBIN_U8("graphics/pokemon/zapmolcuno/icon.4bpp");
 const u8 gMonFootprint_ZAPMOLCUNO[] = INCBIN_U8("graphics/pokemon/zapmolcuno/footprint.1bpp");
 
+// UNITED_KINGDOM
+const u32 gMonFrontPic_UNITEDKINGDOM[] = INCBIN_U32("graphics/pokemon/unitedkingdom/front.4bpp.lz");
+const u32 gMonPalette_UNITEDKINGDOM[] = INCBIN_U32("graphics/pokemon/unitedkingdom/normal.gbapal.lz");
+const u32 gMonBackPic_UNITEDKINGDOM[] = INCBIN_U32("graphics/pokemon/unitedkingdom/back.4bpp.lz");
+const u32 gMonShinyPalette_UNITEDKINGDOM[] = INCBIN_U32("graphics/pokemon/unitedkingdom/shiny.gbapal.lz");
+const u8 gMonIcon_UNITEDKINGDOM[] = INCBIN_U8("graphics/pokemon/unitedkingdom/icon.4bpp");
+const u8 gMonFootprint_UNITEDKINGDOM[] = INCBIN_U8("graphics/pokemon/unitedkingdom/footprint.1bpp");
+

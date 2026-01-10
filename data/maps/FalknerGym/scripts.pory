@@ -72,6 +72,7 @@ script FalknerGym_TeamSkyGrunt2 {
 script FalknerGym_Falkner {
     lock
     faceplayer
+    famechecker(FAMECHECKER_GREAT_SEA_WEST, 5)
     if(flag(FLAG_FOUGHT_FALKNER)) {
         if(flag(FLAG_OBTAINED_ZEPHYRBADGE)) {
             msgbox(

@@ -661,3 +661,5 @@ const u32 gObjectEventPic_BOY_CLOTHES[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_BOY_CLOTHES[] = INCBIN_U16("graphics/object_events/palettes/BOY_CLOTHES.gbapal");
 const u32 gObjectEventPic_GIRL_CLOTHES[] = INCBIN_U32("graphics/object_events/pics/stupid/GIRL_CLOTHES.4bpp");
 const u16 gObjectEventPal_GIRL_CLOTHES[] = INCBIN_U16("graphics/object_events/palettes/GIRL_CLOTHES.gbapal");
+const u32 gObjectEventPic_SOPHACLES[] = INCBIN_U32("graphics/object_events/pics/stupid/SOPHACLES.4bpp");
+const u16 gObjectEventPal_SOPHACLES[] = INCBIN_U16("graphics/object_events/palettes/SOPHACLES.gbapal");

@@ -29,9 +29,10 @@ script AetherParadise_SkuntankHint {
 
 script AetherParadise_Guzma {
 	textcolor(NPC_TEXT_COLOR_BLUE)
+	famechecker(FAMECHECKER_GREAT_BAY, 1)
 	msgbox(
 	"GUZMA: Those phoney TEAM SKULL\n"
-	"guys are rough!\p"
+	"guys are tough!\p"
 
 	"Ever since the Gen 1 TYPE CHART,\n"
 	"things have been real rough.\p"
@@ -167,7 +168,7 @@ script AetherParadise_SkullGruntDmca {
 
 script AetherParadise_WimpOut {
 	msgbox(
-	"It's labeled “Door for WIMPS!”\n"
+	"It's labeled WIMP OUT!”\n"
 	"", MSGBOX_SIGN)
 
 }
@@ -182,6 +183,7 @@ script AetherParadise_PotionLady {
 }
 
 script AetherParadise_NebbyGuy {
+	famechecker(FAMECHECKER_GREAT_BAY, 0)
 	msgbox(
 	"Somewhere in KANTO, there exists\n"
 	"the ALTAR OF THE MOONE.\p"

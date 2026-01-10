@@ -383,8 +383,8 @@ const u8 gKadabraPokedexText[] = _(
 const u8 gKadabraPokedexTextUnused[] = _("");
 
 const u8 gAlakazamPokedexText[] = _(
-	"Where's KADABRA? Uh, look.\n"
-	"I didn't wanna get sued.");
+	"Unfortunately blacklisted for\n"
+	"creating Al-generated music.");
 
 const u8 gAlakazamPokedexTextUnused[] = _("");
 

@@ -1337,11 +1337,11 @@ const u8 gFameCheckerLavenderName[] = _("LAVENDER");
 const u8 gFameCheckerCeladonName[] = _("CELADON");
 const u8 gFameCheckerFushciaName[] = _("FUSHCIA");
 const u8 gFameCheckerKantoShorelineName[] = _("SHORE");
-const u8 gFameCheckerSaffronName[] = _("SAFFRON");
-const u8 gFameCheckerGreatSeaName[] = _("GREAT SEA");
-const u8 gFameCheckerGreatSeaNorthName[] = _("GREAT SEA N");
-const u8 gFameCheckerGreatSeaWestName[] = _("GREAT SEA W");
-const u8 gFameCheckerCinnabarName[] = _("CINNABAR");
+const u8 gFameCheckerSaffronName[] = _("GR8.C. WEST");
+const u8 gFameCheckerGreatSeaName[] = _("GR8 SEA");
+const u8 gFameCheckerGreatSeaNorthName[] = _("GR8.C. EAST");
+const u8 gFameCheckerGreatSeaWestName[] = _("GREAT BAY");
+const u8 gFameCheckerCinnabarName[] = _("SAFFRON");
 
 
 

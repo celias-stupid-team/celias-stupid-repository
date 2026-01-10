@@ -363,7 +363,7 @@ script SetPlayerPokedexValues {
 	if(flag(FLAG_CSR_HINT_GYM_STATUES) && checkmoncaught(SPECIES_PERSIAN)) { // and if Persian
 		setobtainable(SPECIES_RHYDON) // 118
 	}
-	if(flag(FLAG_CSR_HINT_GYM_STATUES)) {
+	if(flag(FLAG_BADGE08_GET)) {
 		setobtainable(SPECIES_PERSIAN) // 119
 	}
 	if(checkmoncaught(SPECIES_LUVDISC) || flag(FLAG_LUVDISC_HINT)) { //TODO figure out logic

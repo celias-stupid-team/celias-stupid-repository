@@ -95,7 +95,7 @@
     {
       "local_id": "LOCALID_SOPHACLES",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_SOPHACLES",
       "x": 57,
       "y": 52,
       "elevation": 0,

@@ -232,6 +232,7 @@ script DMCAWarehouse_MirorB {
 }
 
 script DMCAWarehouse_N {
+	famechecker(FAMECHECKER_GREAT_BAY, 5)
 	msgbox(
 	"They're holding a letter hostage\n"
 	"", MSGBOX_NPC)

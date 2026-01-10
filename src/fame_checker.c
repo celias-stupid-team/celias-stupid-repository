@@ -171,11 +171,11 @@ static const u16 sTrainerIdxs[] = {
     [FAMECHECKER_CELADON]   = FAME_CHECKER_CELADON, //Celadon
     [FAMECHECKER_FUSHCIA]  = FAME_CHECKER_FUSHCIA, // Fushcia
     [FAMECHECKER_KANTO_SHORELINE]    = FAME_CHECKER_KANTO_SHORELINE, // Kanto Shoreline
-    [FAMECHECKER_SAFFRON]   = FAME_CHECKER_SAFFRON, //Saffron
-    [FAMECHECKER_GREAT_SEA]    = FAME_CHECKER_GREAT_SEA, // Great Sea
-    [FAMECHECKER_GREAT_SEA_NORTH]     = FAME_CHECKER_GREAT_SEA_NORTH, // Great Sea North
-    [FAMECHECKER_GREAT_SEA_WEST]   = FAME_CHECKER_GREAT_SEA_WEST, // Great Sea West
-    [FAMECHECKER_CINNABAR] = FAME_CHECKER_CINNABAR_ISLAND // Cinnabar Island
+    [FAMECHECKER_GREAT_SEA_WEST]   = FAME_CHECKER_SAFFRON, //Saffron
+    [FAMECHECKER_GREAT_SEA_CENTER]    = FAME_CHECKER_GREAT_SEA, // Great Sea
+    [FAMECHECKER_GREAT_SEA_EAST]     = FAME_CHECKER_GREAT_SEA_NORTH, // Great Sea North
+    [FAMECHECKER_GREAT_BAY]   = FAME_CHECKER_GREAT_SEA_WEST, // Great Sea West
+    [FAMECHECKER_SAFFRON] = FAME_CHECKER_CINNABAR_ISLAND // Cinnabar Island
 };
 
 static const u8 *const sNonTrainerNamePointers[] = {
@@ -209,11 +209,11 @@ static const u8 sFameCheckerTrainerPicIdxs[] = {
     [FAMECHECKER_CELADON]   = TRAINER_PIC_LEADER_ERIKA,
     [FAMECHECKER_FUSHCIA]  = TRAINER_PIC_ELITE_FOUR_LORELEI,
     [FAMECHECKER_KANTO_SHORELINE]    = TRAINER_PIC_ELITE_FOUR_BRUNO,
-    [FAMECHECKER_SAFFRON]   = TRAINER_PIC_ELITE_FOUR_AGATHA,
-    [FAMECHECKER_GREAT_SEA]    = TRAINER_PIC_ELITE_FOUR_LANCE,
-    [FAMECHECKER_GREAT_SEA_NORTH]     = TRAINER_PIC_PSYCHIC_M,
-    [FAMECHECKER_GREAT_SEA_WEST]   = TRAINER_PIC_GENTLEMAN,
-    [FAMECHECKER_CINNABAR] = TRAINER_PIC_LEADER_GIOVANNI,
+    [FAMECHECKER_GREAT_SEA_WEST]   = TRAINER_PIC_ELITE_FOUR_AGATHA,
+    [FAMECHECKER_GREAT_SEA_CENTER]    = TRAINER_PIC_ELITE_FOUR_LANCE,
+    [FAMECHECKER_GREAT_SEA_EAST]     = TRAINER_PIC_PSYCHIC_M,
+    [FAMECHECKER_GREAT_BAY]   = TRAINER_PIC_GENTLEMAN,
+    [FAMECHECKER_SAFFRON] = TRAINER_PIC_LEADER_GIOVANNI,
 };
 
 static const u8 sFameCheckerTrainerGenders_Unused[] = {
@@ -228,11 +228,11 @@ static const u8 sFameCheckerTrainerGenders_Unused[] = {
     [FAMECHECKER_CELADON]   = MALE,
     [FAMECHECKER_FUSHCIA]  = FEMALE,
     [FAMECHECKER_KANTO_SHORELINE]    = MALE,
-    [FAMECHECKER_SAFFRON]   = FEMALE,
-    [FAMECHECKER_GREAT_SEA]    = MALE,
-    [FAMECHECKER_GREAT_SEA_NORTH]     = MALE,
-    [FAMECHECKER_GREAT_SEA_WEST]   = MALE,
-    [FAMECHECKER_CINNABAR] = MALE,
+    [FAMECHECKER_GREAT_SEA_WEST]   = FEMALE,
+    [FAMECHECKER_GREAT_SEA_CENTER]    = MALE,
+    [FAMECHECKER_GREAT_SEA_EAST]     = MALE,
+    [FAMECHECKER_GREAT_BAY]   = MALE,
+    [FAMECHECKER_SAFFRON] = MALE,
 };
 
 static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PERSONS] =
@@ -284,11 +284,11 @@ static const u8 *const sFameCheckerFlavorTextPointers[] = {
     gFameCheckerFlavorText_Celadon0, gFameCheckerFlavorText_Celadon1, gFameCheckerFlavorText_Celadon2, gFameCheckerFlavorText_Celadon3, gFameCheckerFlavorText_Celadon4, gFameCheckerFlavorText_Celadon5,
     gFameCheckerFlavorText_Fuchsia0, gFameCheckerFlavorText_Fuchsia1, gFameCheckerFlavorText_Fuchsia2, gFameCheckerFlavorText_Fuchsia3, gFameCheckerFlavorText_Fuchsia4, gFameCheckerFlavorText_Fuchsia5,
     gFameCheckerFlavorText_Bruno0, gFameCheckerFlavorText_Bruno1, gFameCheckerFlavorText_Bruno2, gFameCheckerFlavorText_Bruno3, gFameCheckerFlavorText_Bruno4, gFameCheckerFlavorText_Bruno5,
-    gFameCheckerFlavorText_Agatha0, gFameCheckerFlavorText_Agatha1, gFameCheckerFlavorText_Agatha2, gFameCheckerFlavorText_Agatha3, gFameCheckerFlavorText_Agatha4, gFameCheckerFlavorText_Agatha5,
-    gFameCheckerFlavorText_Lance0, gFameCheckerFlavorText_Lance1, gFameCheckerFlavorText_Lance2, gFameCheckerFlavorText_Lance3, gFameCheckerFlavorText_Lance4, gFameCheckerFlavorText_Lance5,
-    gFameCheckerFlavorText_Bill0, gFameCheckerFlavorText_Bill1, gFameCheckerFlavorText_Bill2, gFameCheckerFlavorText_Bill3, gFameCheckerFlavorText_Bill4, gFameCheckerFlavorText_Bill5,
-    gFameCheckerFlavorText_MrFuji0, gFameCheckerFlavorText_MrFuji1, gFameCheckerFlavorText_MrFuji2, gFameCheckerFlavorText_MrFuji3, gFameCheckerFlavorText_MrFuji4, gFameCheckerFlavorText_MrFuji5,
-    gFameCheckerFlavorText_Giovanni0, gFameCheckerFlavorText_Giovanni1, gFameCheckerFlavorText_Giovanni2, gFameCheckerFlavorText_Giovanni3, gFameCheckerFlavorText_Giovanni4, gFameCheckerFlavorText_Giovanni5
+    gFameCheckerFlavorText_GreatSeaWest0, gFameCheckerFlavorText_GreatSeaWest1, gFameCheckerFlavorText_GreatSeaWest2, gFameCheckerFlavorText_GreatSeaWest3, gFameCheckerFlavorText_GreatSeaWest4, gFameCheckerFlavorText_GreatSeaWest5,
+    gFameCheckerFlavorText_GreatSeaCenter0, gFameCheckerFlavorText_GreatSeaCenter1, gFameCheckerFlavorText_GreatSeaCenter2, gFameCheckerFlavorText_GreatSeaCenter3, gFameCheckerFlavorText_GreatSeaCenter4, gFameCheckerFlavorText_GreatSeaCenter5,
+    gFameCheckerFlavorText_GreatSeaEast0, gFameCheckerFlavorText_GreatSeaEast1, gFameCheckerFlavorText_GreatSeaEast2, gFameCheckerFlavorText_GreatSeaEast3, gFameCheckerFlavorText_GreatSeaEast4, gFameCheckerFlavorText_GreatSeaEast5,
+    gFameCheckerFlavorText_GreatBay0, gFameCheckerFlavorText_GreatBay1, gFameCheckerFlavorText_GreatBay2, gFameCheckerFlavorText_GreatBay3, gFameCheckerFlavorText_GreatBay4, gFameCheckerFlavorText_GreatBay5,
+    gFameCheckerFlavorText_Saffron0, gFameCheckerFlavorText_Saffron1, gFameCheckerFlavorText_Saffron2, gFameCheckerFlavorText_Saffron3, gFameCheckerFlavorText_Saffron4, gFameCheckerFlavorText_Saffron5
 };
 
 static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
@@ -369,35 +369,35 @@ static const u16 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_GBA_KID,
     OBJ_EVENT_GFX_BIRDCULTIST,
     OBJ_EVENT_GFX_WOMAN_2,
-    // AGATHA
+    // Great Sea West
     OBJ_EVENT_GFX_AGATHA,
     OBJ_EVENT_GFX_BLACKBELT,
     OBJ_EVENT_GFX_BLACKBELT,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_AGATHA,
     OBJ_EVENT_GFX_OLD_WOMAN,
-    // LANCE
+    // Great Sea Center
     OBJ_EVENT_GFX_LANCE,
     OBJ_EVENT_GFX_LANCE,
     OBJ_EVENT_GFX_BATTLE_GIRL,
     OBJ_EVENT_GFX_WOMAN_1,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_COOLTRAINER_M,
-    // BILL
+    // Great Sea East
     OBJ_EVENT_GFX_BLUE,
     OBJ_EVENT_GFX_YOUNGSTER,
     OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_BUGSY_FAKE,
     OBJ_EVENT_GFX_BUGSY_FAKE,
     OBJ_EVENT_GFX_BUGSY_FAKE,
-    // MRFUJI
+    // Great Bay
     OBJ_EVENT_GFX_LITTLE_GIRL,
     OBJ_EVENT_GFX_ROCKET_M,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_BALDING_MAN,
     OBJ_EVENT_GFX_CLIPBOARD,
     OBJ_EVENT_GFX_CLIPBOARD,
-    // GIOVANNI
+    // Saffron
     OBJ_EVENT_GFX_GIOVANNI,
     OBJ_EVENT_GFX_SCIENTIST,
     OBJ_EVENT_GFX_SCIENTIST,
@@ -1103,7 +1103,7 @@ static u8 AdjustGiovanniIndexIfBeatenInGym(u8 a0)
     if (HasTrainerBeenFought(TRAINER_LEADER_GIOVANNI) == TRUE)
     {
         if (a0 == 9)
-            return FAMECHECKER_CINNABAR;
+            return FAMECHECKER_SAFFRON;
         if (a0 > 9)
             return a0 - 1;
     }
@@ -1526,7 +1526,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                     break;
             }
         break;
-        case FAMECHECKER_SAFFRON:
+        case FAMECHECKER_GREAT_SEA_WEST:
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
@@ -1555,7 +1555,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                     break;
             }
         break;
-        case FAMECHECKER_GREAT_SEA:
+        case FAMECHECKER_GREAT_SEA_CENTER:
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
@@ -1584,7 +1584,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                     break;
             }
         break;
-        case FAMECHECKER_GREAT_SEA_NORTH:
+        case FAMECHECKER_GREAT_SEA_EAST:
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
@@ -1613,7 +1613,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                     break;
             }
         break;
-        case FAMECHECKER_GREAT_SEA_WEST:
+        case FAMECHECKER_GREAT_BAY:
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
@@ -1642,7 +1642,7 @@ static bool8 IsRumorLogQuestCompleted(u8 who, u8 index) {
                     break;
             }
         break;
-        case FAMECHECKER_CINNABAR:
+        case FAMECHECKER_SAFFRON:
         DebugPrintf("Current check: %d", currentRumorQuestLocation);
             switch(currentRumorQuestIndex) {
                 case 0:
@@ -1889,7 +1889,7 @@ static u8 CreatePersonPicSprite(u8 fcPersonIdx)
         LoadPalette(sDaisySpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sDaisySpritePalette));
         gSprites[spriteId].oam.paletteNum = PERSON_PAL_NUM;
     }
-    else if (fcPersonIdx == FAMECHECKER_GREAT_SEA_WEST)
+    else if (fcPersonIdx == FAMECHECKER_GREAT_BAY)
     {
         spriteId = CreateSprite(&sFujiSpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sFujiSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sFujiSpritePalette));
@@ -1901,7 +1901,7 @@ static u8 CreatePersonPicSprite(u8 fcPersonIdx)
         LoadPalette(sOakSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sOakSpritePalette));
         gSprites[spriteId].oam.paletteNum = PERSON_PAL_NUM;
     }
-    else if (fcPersonIdx == FAMECHECKER_GREAT_SEA_NORTH)
+    else if (fcPersonIdx == FAMECHECKER_GREAT_SEA_CENTER)
     {
         spriteId = CreateSprite(&sBillSpriteTemplate, PERSON_X, PERSON_Y, 0);
         LoadPalette(sBillSpritePalette, OBJ_PLTT_ID(PERSON_PAL_NUM), sizeof(sBillSpritePalette));
@@ -1924,9 +1924,9 @@ static void DestroyPersonPicSprite(u8 taskId, u16 who)
     if (who == sFameCheckerData->numUnlockedPersons - 1)
         who_copy = who - 1;
     if (   sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_VIRIDIAN
-        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_SEA_WEST
+        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_BAY
         || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_PALLET
-        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_SEA_NORTH
+        || sFameCheckerData->unlockedPersons[who_copy] == FAMECHECKER_GREAT_SEA_CENTER
     )
         DestroySprite(&gSprites[data[2]]);
     else

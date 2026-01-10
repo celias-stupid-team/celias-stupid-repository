@@ -384,10 +384,11 @@ script OneIsland_ClamperlTrainer {
 }
 
 script OneIsland_ClamperlGirl {
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 0)
 	msgbox(
 	"That guy up there's a real\n"
 	"jerk!\p"
 
 	"He knows how to cross WHIRLPOOLS,\n"
-	"but he won't tell anyone else how!", MSGBOX_NPC)
+	"but he won't teach anyone else!", MSGBOX_NPC)
 }
