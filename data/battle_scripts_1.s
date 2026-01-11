@@ -4124,6 +4124,20 @@ BattleScript_AlomomolaMidBattleEvo::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_SeelHoopaTransform::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_SEELHOOPATRANSFORMSTART
+	waitstate
+	playanimation BS_FAINTED, B_ANIM_SEEL_HOOPA_TRANSFORM
+	pause B_WAIT_TIME_LONG
+    updatebattlerdata BS_FAINTED
+	redrawhealthbox BS_FAINTED
+	healthbarupdate BS_FAINTED
+	datahpupdate BS_FAINTED
+	@ printstring STRINGID_SEELHOOPATRANSFORMEND
+	@ waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_MoveEffectSleep::
 	statusanimation BS_EFFECT_BATTLER
 	printfromtable gFellAsleepStringIds

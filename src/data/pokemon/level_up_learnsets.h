@@ -1130,14 +1130,7 @@ static const struct LevelUpMove sDodrioLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSeelLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(1, MOVE_HEADBUTT),
-    LEVEL_UP_MOVE(9, MOVE_GROWL),
-    LEVEL_UP_MOVE(17, MOVE_ICY_WIND),
-    LEVEL_UP_MOVE(21, MOVE_AURORA_BEAM),
-    LEVEL_UP_MOVE(29, MOVE_REST),
-    LEVEL_UP_MOVE(37, MOVE_TAKE_DOWN),
-    LEVEL_UP_MOVE(41, MOVE_ICEBEAM),
-    LEVEL_UP_MOVE(49, MOVE_SAFEGUARD),
+    LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
     LEVEL_UP_END
 };
 
@@ -7287,7 +7280,8 @@ static const struct LevelUpMove sDiancieLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sHoopaLevelUpLearnset[] = {
-	LEVEL_UP_MOVE(1, MOVE_TACKLE),
+	LEVEL_UP_MOVE(1, MOVE_BELLY_DRUM),
+    LEVEL_UP_MOVE(1, MOVE_108_TUPLE_TEAM),
 	LEVEL_UP_END
 };
 

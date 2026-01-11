@@ -394,6 +394,7 @@
 #define B_ANIM_TERA_CHARGE              30
 #define B_ANIM_TERA_ACTIVATE            31
 #define B_ANIM_TRICK_ROOM_CONTINUES     32
+#define B_ANIM_SEEL_HOOPA_TRANSFORM     33
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

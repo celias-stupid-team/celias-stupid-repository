@@ -1809,6 +1809,12 @@ void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFix
     arg = MAIL_NONE;
     SetMonData(mon, MON_DATA_MAIL, &arg);
     CalculateMonStats(mon);
+
+    if (species == SPECIES_HOOPA) // Hoopa starts at 1 HP to allow the HP bar animation to play properly
+    {
+        u32 hp = 1;
+        SetMonData(mon, MON_DATA_HP, &hp);
+    }
 }
 
 void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)

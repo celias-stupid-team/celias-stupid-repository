@@ -708,6 +708,7 @@ gBattleAnims_General::
 	.4byte General_TeraCharge               @ B_ANIM_TERA_CHARGE
 	.4byte General_TeraActivate             @ B_ANIM_TERA_ACTIVATE
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
+	.4byte General_SeelHoopaTransform       @ B_ANIM_SEEL_HOOPA_TRANSFORM
 
 	.align 2
 gBattleAnims_Special::
@@ -11280,6 +11281,16 @@ General_SilphScoped:
 	end
 
 General_AlomomolaEvolve:
+	monbg ANIM_ATTACKER
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
+	createvisualtask AnimTask_TransformMon, 2, 255
+	waitsound
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+
+General_SeelHoopaTransform:
 	monbg ANIM_ATTACKER
 	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
 	waitplaysewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER, 48
