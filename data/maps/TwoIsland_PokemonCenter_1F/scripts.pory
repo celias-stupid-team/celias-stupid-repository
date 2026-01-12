@@ -22,3 +22,16 @@ TwoIsland_PokemonCenter_1F_EventScript_BugCatcher::
 	msgbox TwoIsland_PokemonCenter_1F_Text_OldLadyLivesOutOnCape, MSGBOX_NPC
 	end
 `
+
+
+script TwoIsland_HotelReceptionist {
+	msgbox(
+	"Ohohoho!\n"
+	"Welcome to ze TWO ISLAND 'OTEL!\p"
+
+	"Do you have ze reservation?\n"
+	"{PAUSE 30}No?\p"
+
+	"Zen get ze fuck out of 'ere!\n"
+	"", MSGBOX_NPC)
+}

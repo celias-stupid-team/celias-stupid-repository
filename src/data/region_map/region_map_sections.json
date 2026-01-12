@@ -769,8 +769,8 @@
       "height": 6
     },
     {
-      "id": "MAPSEC_TREASURE_BEACH",
-      "name": "TREASURE BEACH",
+      "id": "MAPSEC_PEWTER_GYM",
+      "name": "PEWTER GYM",
       "x": 1,
       "y": 9,
       "width": 1,
@@ -785,16 +785,16 @@
       "height": 2
     },
     {
-      "id": "MAPSEC_BOND_BRIDGE",
-      "name": "BOND BRIDGE",
+      "id": "MAPSEC_CERULEAN_GYM",
+      "name": "CERULEAN CLUB",
       "x": 13,
       "y": 12,
       "width": 4,
       "height": 1
     },
     {
-      "id": "MAPSEC_THREE_ISLE_PORT",
-      "name": "THREE ISLE PORT",
+      "id": "MAPSEC_VERMILION_GYM",
+      "name": "VERMILION GYM",
       "x": 18,
       "y": 13,
       "width": 2,
@@ -833,8 +833,8 @@
       "height": 2
     },
     {
-      "id": "MAPSEC_RESORT_GORGEOUS",
-      "name": "RESORT GORGEOUS",
+      "id": "MAPSEC_CELADON_GYM",
+      "name": "CELADON GYM",
       "x": 16,
       "y": 9,
       "width": 3,
@@ -849,8 +849,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_FIVE_ISLE_MEADOW",
-      "name": "FIVE ISLE MEADOW",
+      "id": "MAPSEC_FUSHCIA_GYM",
+      "name": "FUSHCIA GYM",
       "x": 17,
       "y": 10,
       "width": 1,
@@ -865,16 +865,16 @@
       "height": 3
     },
     {
-      "id": "MAPSEC_OUTCAST_ISLAND",
-      "name": "OUTCAST ISLAND",
+      "id": "MAPSEC_SAFFRON_GYM",
+      "name": "SAFFRON GYM",
       "x": 15,
       "y": 0,
       "width": 1,
       "height": 3
     },
     {
-      "id": "MAPSEC_GREEN_PATH",
-      "name": "GREEN PATH",
+      "id": "MAPSEC_CINNABAR_GYM",
+      "name": "CINNABAR GYM",
       "x": 15,
       "y": 3,
       "width": 3,
@@ -897,8 +897,8 @@
       "height": 2
     },
     {
-      "id": "MAPSEC_TRAINER_TOWER",
-      "name": "TRAINER TOWER",
+      "id": "MAPSEC_VIRIDIAN_GYM",
+      "name": "VIRIDIAN GYM",
       "x": 5,
       "y": 6,
       "width": 1,
@@ -993,8 +993,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_TRAINER_TOWER_2",
-      "name": "TRAINER TOWER",
+      "id": "MAPSEC_VIRIDIAN_GYM_2",
+      "name": "VIRIDIAN GYM",
       "x": 0,
       "y": 0,
       "width": 1,

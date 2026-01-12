@@ -11,6 +11,7 @@ script TwoIsland_WaterfallHouse_Message {
 	if(var(VAR_TWO_ISLAND_STARMAN) == 0) {
 		setvar(VAR_TWO_ISLAND_STARMAN, 1)
 	}
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 2)
 	msgbox(
 	"If you'd like to learn my secret\n"
 	"Moves, find me under the WATERFALL.\p"

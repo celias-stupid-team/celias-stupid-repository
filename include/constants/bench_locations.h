@@ -33,5 +33,6 @@
 #define BENCH_AETHER_PARADISE                30
 #define BENCH_POKEMON_LEAGUE                31
 #define BENCH_TWO_ISLAND_CAVE                32
+#define BENCH_HALF_ISLAND                33
 
 #endif // GUARD_CONSTANTS_BENCH_LOCATIONS

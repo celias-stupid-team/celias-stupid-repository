@@ -1,3 +1,9 @@
 mapscripts TwoIsland_WaterfallCave_MapScripts {
 
 }
+
+script WaterfallCave_MoveTutor {
+	msgbox(
+	"I teach the starters GRASS PLEDGE,\n"
+	"FIRE PLEDGE, and WATER PLEDGE.", MSGBOX_NPC)
+}

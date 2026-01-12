@@ -1244,6 +1244,7 @@ gCryTable::
 	cry Cry_CHARIZARDQ
 	cry Cry_HOOT
 	cry Cry_ZAPMOLCUNO
+	cry Cry_UNITEDKINGDOM
 
 
 
@@ -2498,6 +2499,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_CHARIZARDQ
 	cry_reverse Cry_HOOT
 	cry_reverse Cry_ZAPMOLCUNO
+	cry_reverse Cry_UNITEDKINGDOM
 
 
 

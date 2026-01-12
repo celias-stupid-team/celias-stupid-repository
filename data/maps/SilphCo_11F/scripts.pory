@@ -105,7 +105,7 @@ SilphCo_11F_EventScript_Grunt2::
 `
 
 script SilphCo_11F_OnLoad {
-
+	setrespawn(HEAL_LOCATION_SILPH_CO_11F)
 }
 script SilphCo_11F_EventScript_ElevatorDoor {
 	msgbox("Rats!\nThe elevator door's been glued shut!", MSGBOX_SIGN)

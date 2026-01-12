@@ -17,5 +17,6 @@ mapscripts SSAnne_1F_Corridor_MapScripts {
 		if(!flag(FLAG_HIDE_HARRY_RAT)) {
 			setflag(FLAG_TEMP_1)
 		}
+		setrespawn(HEAL_LOCATION_SSANNE_KITCHEN)
 	}
 }

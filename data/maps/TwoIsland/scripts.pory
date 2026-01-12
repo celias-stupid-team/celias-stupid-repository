@@ -298,6 +298,15 @@ script TwoIsland_MrT {
 
 script TwoIsland_SmallChild {
 	textcolor(NPC_TEXT_COLOR_MALE)
+	if(flag(FLAG_TWO_ISLAND_PENCIL)) {
+		msgbox(
+		"Oh, good!\n"
+		"The PENCIL mysteriously vanished!\p"
+
+		"I can't wait to write about this\n"
+		"in my notebook!\l"
+		"Good thing I always keep one handy.", MSGBOX_NPC)
+	}
 	msgbox(
 	"Oh no-!\n"
 	"I have a MUSHROOM stuck to my head!  \p"
@@ -506,6 +515,7 @@ script TwoIsland_ForSaleSign2 {
 }
 
 script TwoIsland_PencilHippie {
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 3)
 	textcolor(NPC_TEXT_COLOR_MALE)
 	if(flag(FLAG_TWO_ISLAND_PENCIL)) {
 		msgbox(
@@ -553,7 +563,7 @@ script TwoIsland_IslandSign {
 
 script TwoIsland_GenevaConvention {
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally comitted war\ncrimes, so it got shut down!", MSGBOX_NPC)
+	msgbox("Shh! Don't tell anyone, but we used\nto have a HOSPITAL here.\pSadly we literally committed war\ncrimes, so it got shut down!", MSGBOX_NPC)
 
 }
 
@@ -701,6 +711,8 @@ script TwoIsland_BurnHeal {
 			"{FONT_COMIC_SANS}I am dead\n"
 			"", MSGBOX_DEFAULT)
 			giveitem(ITEM_BURN_HEAL)
+			release
+			end
 		}
 		msgbox(
 		"{FONT_COMIC_SANS}you lose\p"
@@ -763,8 +775,8 @@ script TwoIsland_RibbonDrawer {
 
 script TwoIsland_PaulaBakemeat {
 	msgbox(
-	"An adept arranging for\n"
-	"PAULA.\l"
+	"This arranging for MOTHER 2 is\n"
+	"quite adept!\l"
 	"Volcano Bakemeat!", MSGBOX_SIGN)
 
 }
@@ -810,6 +822,7 @@ script TwoIsland_TerritorialOak {
 script TwoIsland_HouseSalesman {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 4)
 	if(flag(FLAG_BOUGHT_A_HOUSE)) {
 		msgbox(
 		"Wha-\n"
@@ -827,8 +840,8 @@ script TwoIsland_HouseSalesman {
 	"I'm selling one for 7500 Dollars.\p"
 
 	"It's right on the mainland, and\n"
-	"the sunsets are beautiful!\l"
-	"You could have a place of your own!\p"
+	"there's a lovely bench out front!\l"
+	"You can have a place of your own!\p"
 
 	"So?\n"
 	"How about it?", MSGBOX_DEFAULT)
@@ -856,14 +869,78 @@ script TwoIsland_HouseSalesman {
 		delay(30)
 		msgbox(
 		"…What?\n"
-		"Huh?\p"
+		"A POKéDOLLAR?\l"
+		"What kinda nonsense is that?\p"
 
-		"You don't have even one single\n"
-		"dollar?\p"
+		"Here on TWO ISLAND, we only accept\n"
+		"real dollars!\p"
 
-		"Then it was a waste of time talking\n"
-		"to you!", MSGBOX_DEFAULT)
+		"Come back when you can afford it!\n"
+		"", MSGBOX_DEFAULT)
 	}
+	release
+	end
+}
+
+script TwoIsland_TrumpetPlayer {
+	lock
+	faceplayer
+	msgbox(
+	"I play hoenn trumpet\n"
+	"", MSGBOX_DEFAULT)
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+}
+
+script TwoIsalnd_WaterfallNPC {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox(
+	"waterfalls exist\n"
+	"", MSGBOX_NPC)
+}
+
+
+script TwoIsland_RunawayFiveRat {
+	lock
+	playmoncry(SPECIES_RATTATA, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script TwoIsland_RunawayFiveToedscool {
+	lock
+	playmoncry(SPECIES_TOEDSCOOL, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script TwoIsland_RunawayFiveChansey {
+	lock
+	playmoncry(SPECIES_CHANSEY, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+
+script TwoIsland_RunawayFiveHDoduo {
+	lock
+	playmoncry(SPECIES_DODUO, CRY_MODE_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script TwoIsland_RunawayFiveVenonat {
+	lock
+	playmoncry(SPECIES_SLOWPOKE, CRY_MODE_DEFAULT)
+	waitmoncry
 	release
 	end
 }

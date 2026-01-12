@@ -151,12 +151,14 @@ script ThirtyEightIsland_Chuck {
 }
 
 script ThirtyEightIsland_NationalParkGuy {
+	setflag(FLAG_TALKED_TO_NATIONAL_PARK_HINT)
+	famechecker(FAMECHECKER_GREAT_SEA_WEST, 1)
 	msgbox(
 	"This island is great, but I really\n"
 	"miss being home in JOHTO.\p"
 
 	"I'd visit the NATIONAL PARK just\n"
-	"to relax on the BENCHES all day.\l"
+	"to relax on the benches all day.\l"
 	"Ah, if only I could go back…!\n", MSGBOX_NPC)
 }
 
@@ -247,7 +249,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             "", MSGBOX_DEFAULT)
         case 1:
             msgbox(
-            "Hey, MITANK!\p"
+            "Hey, MILTANK!\p"
 
             "What Greek symbol represents the\n"
             "mean in statistical analysis?", MSGBOX_DEFAULT)
@@ -274,7 +276,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
             "", MSGBOX_DEFAULT)
         case 3:
             msgbox(
-            "Hey, MITANK!\p"
+            "Hey, MILTANK!\p"
 
             "What sound does a cow make?\n"
             "", MSGBOX_DEFAULT)
@@ -299,6 +301,7 @@ script ThirtyEightIsland_MiltankPhilosophy {
 script ThirtyEightIsland_GoldenRod {
     lock
     faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_WEST, 3)
 	if(flag(FLAG_CSR_GOT_GOLDEN_ROD)) {
 		msgbox(
 		"goldenrod\n"
@@ -566,7 +569,7 @@ script ThirtyEightIsland_TalkingOnPhone {
 	"I'm talking on the POKéGEAR with my\n"
 	"friend.\p"
 
-	"She's playing POKéMON DIAMOND!\n"
+	"She's playing POKéMON JADE!\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	delay(20)
@@ -615,4 +618,58 @@ script ThirtyEightIsland_GoldenRodPointer {
 	msgbox(
 	"Down by shore\n"
 	"placeholder", MSGBOX_NPC)
+}
+
+
+script ThirtyEightIsland_Entei {
+	lock
+	playmoncry(SPECIES_ENTEI, CRY_MODE_DEFAULT)
+	msgbox(
+	"Wow!{PAUSE 20}\n"
+	"It's the LEGENDARY…", MSGBOX_DEFAULT)
+	dynmultichoice(19, 6, TRUE, 3, 0, DYN_MULTICHOICE_CB_NONE, "DOG", "CAT", "HAMSTER")
+	closemessage
+	delay(60)
+	playse(SE_CLICK)
+	applymovement(VAR_LAST_TALKED, moves(
+		face_up
+		delay_16 * 6
+		face_down
+	))
+	waitmovement(0)
+	release
+}
+
+
+script ThirtyEightIsland_CenterSign {
+	msgbox(
+	"Thirty Eight island sign\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script ThirtyEightIsland_FarmSign {
+	msgbox(
+	"Thirty Eight farm sign\n"
+	"", MSGBOX_SIGN)
+
+}
+
+
+script ThirtyEightIsland_NorthDad {
+	lock
+	faceplayer
+	textcolor(0)
+	msgbox(
+	"DAD: {PLAYER}!\n"
+	"What are you doing out here?\p"
+
+	"dad text\p"
+
+	"Well, never mind that.\n"
+	"How about you take a rest?", MSGBOX_DEFAULT)
+	call(EventScript_DadHeal)
+	release
+	end
 }

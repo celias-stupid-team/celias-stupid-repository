@@ -341,6 +341,7 @@ const u8 gText_AlreadySurfing[] = _("You're already SURFING.");
 const u8 gText_CantUseHere[] = _("Can't use that here.");
 const u8 gText_CantUseRetreat[] = _("There is no bench nearby!");
 const u8 gText_NoRetreat[] = _("FALINKS used NO RETREAT!");
+const u8 gText_NoSurf[] = _("FALINKS used NO SURF!");
 const u8 gText_ButItFailed[] = _("…But it failed!");
 const u8 gText_RestoreWhichMove[] = _("Restore which move?");
 const u8 gText_BoostPp[] = _("Boost PP of which?");
@@ -1336,11 +1337,11 @@ const u8 gFameCheckerLavenderName[] = _("LAVENDER");
 const u8 gFameCheckerCeladonName[] = _("CELADON");
 const u8 gFameCheckerFushciaName[] = _("FUSHCIA");
 const u8 gFameCheckerKantoShorelineName[] = _("SHORE");
-const u8 gFameCheckerSaffronName[] = _("SAFFRON");
-const u8 gFameCheckerGreatSeaName[] = _("GREAT SEA");
-const u8 gFameCheckerGreatSeaNorthName[] = _("GREAT SEA N");
-const u8 gFameCheckerGreatSeaWestName[] = _("GREAT SEA W");
-const u8 gFameCheckerCinnabarName[] = _("CINNABAR");
+const u8 gFameCheckerSaffronName[] = _("GR8.C. WEST");
+const u8 gFameCheckerGreatSeaName[] = _("GR8 SEA");
+const u8 gFameCheckerGreatSeaNorthName[] = _("GR8.C. EAST");
+const u8 gFameCheckerGreatSeaWestName[] = _("GREAT BAY");
+const u8 gFameCheckerCinnabarName[] = _("SAFFRON");
 
 
 

@@ -306,3 +306,18 @@ script Minnesota_Hospital {
 	"Bankruptcy capital of the world!", MSGBOX_SIGN)
 
 }
+
+
+script Minnesota_Giraffe {
+	msgbox(
+	"It's a giraffe!\n"
+	"", MSGBOX_SIGN)
+
+}
+
+script Minnesota_Farig {
+	msgbox(
+	"It's a farig!\n"
+	"", MSGBOX_SIGN)
+
+}

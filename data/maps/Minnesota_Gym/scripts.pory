@@ -101,12 +101,13 @@ script MinnesotaGym_SafetySign {
 }
 
 script MinnesotaGym_BenchClue {
+    famechecker(FAMECHECKER_GREAT_SEA_EAST, 2)
 	msgbox(
 	"One thing I hate about this gym\n"
 	"is how crowded it gets.\p"
 
 	"Everyone's hoping to get their\n"
-	"turn using the BENCH press.\p"
+	"turn using the bench.\p"
 
 	"Why's there only one setup anyway?", MSGBOX_NPC)
 }

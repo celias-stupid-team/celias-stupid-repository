@@ -46,6 +46,7 @@
 #include "constants/maps.h"
 #include "constants/sound.h"
 #include "constants/layouts.h"
+#include "constants/moves.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -2643,6 +2644,11 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext * ctx)
     u16 species;
     u16 moveId = ScriptReadHalfword(ctx);
     gSpecialVar_Result = PARTY_SIZE;
+
+    if(moveId == MOVE_SURF && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE12) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE12)) {
+        gSpecialVar_Result = PARTY_SIZE;
+        return FALSE;
+    }
 
     if (!FlagGet(FLAG_SYS_ROTOM_MENU))
     {

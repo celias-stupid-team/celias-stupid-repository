@@ -174,20 +174,21 @@ script OneIsland_SetArticunoStatue {
 
 script OneIsland_Whirlpool {
 	lockall
-	checkpartymove(MOVE_WHIRLPOOL)
+	checkfieldmove(MOVE_WHIRLPOOL)
 	if(var(VAR_RESULT) == PARTY_SIZE) {
 		msgbox(
-		"it's a whirlpool\n"
-		"", MSGBOX_SIGN)
+		"A torrent of water is swirling\n"
+		"in the path.", MSGBOX_SIGN)
 
 	} else {
 		msgbox(
-		"it's a whirlpool?\n"
-		"", MSGBOX_YESNO)
+		"A torrent of water is swirling\n"
+		"in the path.\l"
+		"Would you like to use WHIRLPOOL?", MSGBOX_YESNO)
 		if(var(VAR_RESULT)) {
 			specialvar(VAR_RESULT, GetPlayerFacingDirection)
 			msgbox(
-			"zoom\n"
+			"Zoom\n"
 			"", MSGBOX_DEFAULT)
 			closemessage
 			switch(var(VAR_RESULT)) {
@@ -222,17 +223,22 @@ script OneIsland_Kaylee {
 	"KAYLEE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAILEE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAILIE: hello\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
+	delay(10)
 	msgbox(
 	"KAYLEIGH: hello\n"
 	"", MSGBOX_DEFAULT)
+	delay(10)
+	closemessage
 	if(checkpartymon(SPECIES_JYNX)) {
 		msgbox(
 		"our friend!\n"
@@ -316,6 +322,13 @@ script OneIsland_RockClimbDown {
 script OneIsland_ClamperlTrainer {
 	lock
 	faceplayer
+	if(checkpartymove(MOVE_WHIRLPOOL) != PARTY_SIZE) {
+		msgbox(
+		"JACK: Wha-\n"
+		"Hey!", MSGBOX_DEFAULT)
+		release
+		end
+	}
 	if(flag(FLAG_TRIED_WHIRLPOOL_BATTLE)) {
 		msgbox(
 		"JACK: What, did you think I was\n"
@@ -378,10 +391,11 @@ script OneIsland_ClamperlTrainer {
 }
 
 script OneIsland_ClamperlGirl {
+	famechecker(FAMECHECKER_GREAT_SEA_CENTER, 0)
 	msgbox(
 	"That guy up there's a real\n"
 	"jerk!\p"
 
 	"He knows how to cross WHIRLPOOLS,\n"
-	"but he won't tell anyone else how!", MSGBOX_NPC)
+	"but he won't teach anyone else!", MSGBOX_NPC)
 }

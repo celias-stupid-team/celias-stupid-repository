@@ -3,6 +3,7 @@ mapscripts ViridianGym_Falkner_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 8) {
             setvar(VAR_CURRENT_DMCA_PHASE, 8)
         }
+        setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_FALKNER)
         switch(var(VAR_CURRENT_DMCA_PHASE)) {
             case 1:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 8)

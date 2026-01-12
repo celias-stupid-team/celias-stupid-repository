@@ -124,8 +124,9 @@ define FIELD_MOVE_GUILLOTINE   13
 #define PARTY_MSG_DO_WHAT_WITH_MAIL         26
 #define PARTY_MSG_CANT_USE_RETREAT          27
 #define PARTY_MSG_NO_RETREAT          28
-#define PARTY_MSG_BUT_IT_FAILED          29
-#define PARTY_MSG_NO_RELEARNS               30
+#define PARTY_MSG_NO_SURF          29
+#define PARTY_MSG_BUT_IT_FAILED          30
+#define PARTY_MSG_NO_RELEARNS               31
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

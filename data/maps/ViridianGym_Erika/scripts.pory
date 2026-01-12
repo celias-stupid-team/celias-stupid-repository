@@ -3,6 +3,7 @@ mapscripts ViridianGym_Erika_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 4) {
             setvar(VAR_CURRENT_DMCA_PHASE, 4)
         }
+        setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_ERIKA)
         switch(var(VAR_CURRENT_DMCA_PHASE)) {
             case 1:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 4)

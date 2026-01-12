@@ -108,6 +108,7 @@ script Walmart_HamburgerGuy {
 }
 
 script Walmart_GunClue {
+	famechecker(FAMECHECKER_GREAT_SEA_EAST, 5)
 	msgbox(
 	"If you ask me, second amendment\n"
 	"rights aren't going far enough!\p"

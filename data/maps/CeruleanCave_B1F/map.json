@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CeruleanCave_B1F_EventScript_Mewtwo",
-      "flag": "FLAG_HIDE_MEWTWO"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "type": "object",
@@ -238,6 +238,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route_3_EventScript_CSR_ItemOddCandy",
       "flag": "FLAG_CERULEAN_CAVE_CANDY"
+    },
+    {
+      "local_id": "LOCALID_ARCANINE_GUN",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_REMORAID",
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CeruleanCave_Gun",
+      "flag": "FLAG_TEMP_10"
     }
   ],
   "warp_events": [

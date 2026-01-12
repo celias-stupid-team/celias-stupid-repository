@@ -1035,7 +1035,7 @@ static u16 GetLocationMusic(struct WarpData * warp)
     }
     if(FlagGet(FLAG_SILPH_DMCA_DEFEATED) // don't make fun of me
     && ((warp->mapGroup == MAP_GROUP(MAP_SAFFRON_CITY) && warp->mapNum == MAP_NUM(MAP_SAFFRON_CITY)))) {
-        return MUS_PEWTER;
+        return MUS_CSR_FURRET;
     }
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }

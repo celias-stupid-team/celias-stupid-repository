@@ -3,7 +3,7 @@
   "name": "FushciaGym_LassMaze",
   "layout": "LAYOUT_FUSHCIA_GYM_LASS_MAZE",
   "music": "MUS_TRICK_HOUSE",
-  "region_map_section": "MAPSEC_FUSHCIA_CITY",
+  "region_map_section": "MAPSEC_FUSHCIA_GYM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

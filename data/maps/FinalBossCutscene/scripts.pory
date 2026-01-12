@@ -36,21 +36,21 @@ mapscripts FinalBossCutscene_MapScripts {
             playmoncry(SPECIES_ZAPDOS, CRY_MODE_DEFAULT)
             waitmoncry
             delay(30)
-            playse(SE_WALL_HIT)
+            playse(MUS_SE_DESKSLAM)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP, 0,0,0,0,14, 10)
             delay(20)
-            playse(SE_WALL_HIT)
+            playse(MUS_SE_DESKSLAM)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL, 0,0,0,0,14, 10)
             delay(20)
-            playse(SE_WALL_HIT)
+            playse(MUS_SE_DESKSLAM)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO, 0,0,0,0,14, 10)
             delay(30)
-            playse(SE_WALL_HIT)
+            playse(MUS_SE_DESKSLAM)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH, 0,0,0,0,14, 10)
             delay(30)
-            playse(SE_WALL_HIT)
+            playse(MUS_SE_GUILTY)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE_LAYOUT_ZAP_MOL_CUNO_OH_GIA, 0,0,0,0,14, 10)
-            delay(60)
+            delay(120)
             setlayouttiles(LAYOUT_FINAL_BOSS_CUTSCENE, 0,0,0,0,14, 10)
             playbgm(MUS_SV_ELITE_FOUR, TRUE)
             setvar(VAR_TEMP_0, 1)
@@ -84,6 +84,12 @@ script FinalBattle_Simualtion {
             delay(60)
             msgbox(
             "LUGIA used\n"
+            "SHADOW SPIKES!\p"
+
+            "All POKéMON will be hurt\n"
+            "upon switching in!", MSGBOX_DEFAULT)
+            msgbox(
+            "LUGIA used\n"
             "SHADOW SHIELD!\p"
 
             "ZAPMOLCUNO-OHGIA\n"
@@ -93,6 +99,12 @@ script FinalBattle_Simualtion {
             msgbox(
             "(your POKéMON) was afflicted\n"
             "by the SHADOW SKY!", MSGBOX_DEFAULT)
+            closemessage
+            delay(60)
+            msgbox(
+            "This repeats six times\n"
+            "", MSGBOX_DEFAULT)
+            closemessage
             addvar(VAR_FINAL_BATTLE_PHASE, 1)
             release
             end
@@ -118,7 +130,7 @@ script FinalBattle_Simualtion {
             msgbox(
             "It's your ROTOM POKéDEX!\n"
             "", MSGBOX_DEFAULT)
-            delay(40)
+            delay(120)
             fadenewbgm(MUS_NONE)
             msgbox(
             "(rotom comes down, attaches itself\n"
@@ -178,6 +190,9 @@ script FinalBattle_Simualtion {
             }
         case 5:
             msgbox(
+            "Your pokemon was hurt\n"
+            "by SHADOW SPIKES!", MSGBOX_DEFAULT)
+            msgbox(
             "ARTICUNO used\n"
             "QUINTUPLE WINGBEAT!", MSGBOX_DEFAULT)
             closemessage
@@ -196,6 +211,9 @@ script FinalBattle_Simualtion {
                 closemessage
                 delay(60)
                 msgbox(
+                "ONIX used\n"
+                "BROCK THROW!", MSGBOX_DEFAULT)
+                msgbox(
                 "HO-OH hung on with its\n"
                 "REVENGE ability!", MSGBOX_DEFAULT)
                 msgbox(
@@ -204,7 +222,7 @@ script FinalBattle_Simualtion {
 
                 "HO-OH's HP is maxed out!\p"
 
-                "ONIX fainted!\n"
+                "ONIX fainted from SHADOW SKY!\n"
                 "", MSGBOX_DEFAULT)
                 release
                 end
@@ -216,15 +234,22 @@ script FinalBattle_Simualtion {
                 end
             }
         case 6:
-            msgbox(
-            "HO-OH used\n"
-            "VOLCANIC HEALING!"
-            "", MSGBOX_DEFAULT)
-            closemessage
             if(checkpartymon(SPECIES_MR_MIME)) {
                 msgbox(
+                "DAD! used DOUBLE DIP!\p"
+
+                "HO-OH hung on with its\n"
+                "REVENGE ABILITY!\p"
+
+                "HO-OH used VOLCANIC HEALING!\p"
+
+                "But it failed!\p"
+
                 "DAD's RESTLESS\n"
-                "prevents taking a REST!", MSGBOX_DEFAULT)
+                "prevents taking a REST!\p"
+
+                "DAD! used DOUBLE DIP!\n"
+	"", MSGBOX_DEFAULT)
                 addvar(VAR_FINAL_BATTLE_PHASE, 1)
                 playmoncry(SPECIES_HO_OH, CRY_MODE_FAINT)
                 waitmoncry
@@ -237,7 +262,7 @@ script FinalBattle_Simualtion {
                 "ZAPDOS is charging energy.\p"
 
                 "DAD used\n"
-                "(attack)!\p"
+                "DOUBLE DAD!\p"
 
                 "ZAPDOS unleashed its energy!\p"
 
@@ -251,9 +276,19 @@ script FinalBattle_Simualtion {
                 end
             } else {
                 msgbox(
+                "Your Pokemon attacks\p"
+
+                "HO-OH hung on with its\n"
+                "REVENGE ABILITY!", MSGBOX_DEFAULT)
+                msgbox(
+                "HO-OH used\n"
+                "VOLCANIC HEALING!"
+                "", MSGBOX_DEFAULT)
+                closemessage
+                msgbox(
                 "HO-OH's HP is maxed out!\p"
 
-                "ONIX fainted!\n"
+                "Your pokemon fainted!\n"
                 "", MSGBOX_DEFAULT)
                 release
                 end
@@ -309,6 +344,8 @@ script FinalBattle_Simualtion {
                 "ZAPDOS's RECHARGE\n"
                 "healed it to full!", MSGBOX_DEFAULT)
             }
+            release
+            end
         case 8:
             msgbox(
             "FIGHT does not work.\n"

@@ -3,5 +3,6 @@ mapscripts Wormhole_Entrance_MapScripts {
         if(flag(FLAG_ORTHWORM_POTION)) {
             setmaplayoutindex(LAYOUT_WORMHOLE_ENTRANCE_LAYOUT_2)
         }
+        setrespawn(HEAL_LOCATION_WORMHOLE_ENTRANCE)
     }
 }

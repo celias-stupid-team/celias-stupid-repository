@@ -3,6 +3,7 @@ mapscripts ViridianGym_Blaine_MapScripts {
         if(var(VAR_CURRENT_DMCA_PHASE) < 7) {
             setvar(VAR_CURRENT_DMCA_PHASE, 7)
         }
+        setrespawn(HEAL_LOCATION_VIRIDIAN_GYM_BLAINE)
         switch(var(VAR_CURRENT_DMCA_PHASE)) {
             case 1:
                 setdynamicwarp(MAP_VIRIDIAN_GYM_HUB_ROOM, 7)

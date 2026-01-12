@@ -537,6 +537,14 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_SPINDAS  0x116E
 #define OBJ_EVENT_PAL_TAG_AQUA_MEMBER_M  0x116F
 #define OBJ_EVENT_PAL_TAG_POKEBALL_STORAGE  0x1170
+#define OBJ_EVENT_PAL_TAG_ENTEI_GUN  0x1171
+#define OBJ_EVENT_PAL_TAG_GROWLITHE  0x1172
+#define OBJ_EVENT_PAL_TAG_ROGGENROLA  0x1173
+#define OBJ_EVENT_PAL_TAG_DESERT_BUS  0x1174
+#define OBJ_EVENT_PAL_TAG_ALIEN  0x1175
+#define OBJ_EVENT_PAL_TAG_BOY_CLOTHES  0x1176
+#define OBJ_EVENT_PAL_TAG_GIRL_CLOTHES  0x1177
+#define OBJ_EVENT_PAL_TAG_SOPHACLES  0x1178
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -647,6 +655,14 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SPINDAS,             OBJ_EVENT_PAL_TAG_SPINDAS},
     {gObjectEventPal_AQUA_MEMBER_M,             OBJ_EVENT_PAL_TAG_AQUA_MEMBER_M},
     {gObjectEventPal_POKEBALL_STORAGE,             OBJ_EVENT_PAL_TAG_POKEBALL_STORAGE},
+    {gObjectEventPal_entei_gun,             OBJ_EVENT_PAL_TAG_ENTEI_GUN},
+    {gObjectEventPal_GROWLITHE,             OBJ_EVENT_PAL_TAG_GROWLITHE},
+    {gObjectEventPal_ROGGENROLA,             OBJ_EVENT_PAL_TAG_ROGGENROLA},
+    {gObjectEventPal_DESERT_BUS,             OBJ_EVENT_PAL_TAG_DESERT_BUS},
+    {gObjectEventPal_ALIEN,             OBJ_EVENT_PAL_TAG_ALIEN},
+    {gObjectEventPal_BOY_CLOTHES,             OBJ_EVENT_PAL_TAG_BOY_CLOTHES},
+    {gObjectEventPal_GIRL_CLOTHES,             OBJ_EVENT_PAL_TAG_GIRL_CLOTHES},
+    {gObjectEventPal_SOPHACLES,             OBJ_EVENT_PAL_TAG_SOPHACLES},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -1651,7 +1667,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
 
-    if (objectEvent->graphicsId == OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN || objectEvent->graphicsId == OBJ_EVENT_GFX_BUGSY_FAKE)
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN || objectEvent->graphicsId == OBJ_EVENT_GFX_BUGSY_FAKE || objectEvent->graphicsId == OBJ_EVENT_GFX_BENCH)
     //if (objectEvent->graphicsId == OBJ_EVENT_GFX_OLD_MAN_LYING_DOWN)
     {
         sprite->oam.priority = 2;

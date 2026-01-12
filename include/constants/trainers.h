@@ -209,6 +209,8 @@
 #define TRAINER_PIC_BOARDER   187
 #define TRAINER_PIC_FLINT   188
 #define TRAINER_PIC_SHORT   189
+#define TRAINER_PIC_LIGHT_GARY   190
+#define TRAINER_PIC_LARRY   191
 // TRAINER_PIC_END
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)

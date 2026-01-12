@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_GREAT_BAY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_INDOOR",
+  "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -93,17 +93,74 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SOPHACLES",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_SOPHACLES",
       "x": 57,
-      "y": 57,
+      "y": 52,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AetherParadise_Sophacles",
+      "script": "FestivalPlaza_Sophacles",
+      "flag": "FLAG_TEMP_9"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 41,
+      "y": 59,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_AetherSouth",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 63,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_AetherRight",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 33,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_AetherLeft",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BOUY",
+      "x": 62,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GreatSea_Buoy_AetherTop",
       "flag": "0"
     }
   ],
@@ -130,7 +187,35 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 59,
+      "elevation": 0,
+      "var": "VAR_FESTIVAL_PLAZA_TRIGGER",
+      "var_value": "0",
+      "script": "AetherParadise_SophaclesFindsYou"
+    },
+    {
+      "type": "trigger",
+      "x": 56,
+      "y": 59,
+      "elevation": 0,
+      "var": "VAR_FESTIVAL_PLAZA_TRIGGER",
+      "var_value": "0",
+      "script": "AetherParadise_SophaclesFindsYou"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
+      "y": 59,
+      "elevation": 0,
+      "var": "VAR_FESTIVAL_PLAZA_TRIGGER",
+      "var_value": "0",
+      "script": "AetherParadise_SophaclesFindsYou"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -147,6 +232,54 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AetherParadise_FoundGroudon"
+    },
+    {
+      "type": "sign",
+      "x": 60,
+      "y": 55,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 61,
+      "y": 55,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 62,
+      "y": 55,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 56,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 51,
+      "y": 56,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 56,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AetherParadise_FestivalPlazaEstablishments"
     }
   ]
 }

@@ -593,14 +593,14 @@
 #define FLAG_FOUR_ISLAND_ROCK_CLIMB               0x21B
 #define FLAG_GOT_GYM_MEMBERSHIP_BADGE               0x21C
 #define FLAG_GOT_BURN_DRIVE               0x21D
-#define FLAG_BOWS_GIVES_SHINY_PINSIR               0x21E
+#define FLAG_SHINY_MEWTWO               0x21E
 #define FLAG_CAPTAIN_DIRECTS_SPHEALS               0x21F
 #define FLAG_HALF_ISLAND_SHORT               0x220
 #define FLAG_TALKED_TO_BRENDAN               0x221
 #define FLAG_CHAPTER_7_CHAPTER_2               0x222
 #define FLAG_CHAPTER_7_CHAPTER_2_INTERMISSION_1               0x223
-#define FLAG_0x224               0x224
-#define FLAG_0x225               0x225
+#define FLAG_TALKED_TO_NATIONAL_PARK_HINT               0x224
+#define FLAG_SAFFRON_IS_TRAINS               0x225
 #define FLAG_0x226               0x226
 #define FLAG_0x227               0x227
 #define FLAG_0x228               0x228
@@ -1129,12 +1129,12 @@
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_28                                 (FLAG_HIDDEN_ITEMS_START +  36)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_29                        (FLAG_HIDDEN_ITEMS_START +  37)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_30                      (FLAG_HIDDEN_ITEMS_START +  38)
-#define FLAG_HIDDEN_ITEM_CSR_DUMMY_31                       (FLAG_HIDDEN_ITEMS_START +  39)
-#define FLAG_HIDDEN_ITEM_UNUSED_0x28                                       (FLAG_HIDDEN_ITEMS_START +  40)
+#define FLAG_HIDDEN_ITEM_SHRINE_ISLAND_NOTHING                       (FLAG_HIDDEN_ITEMS_START +  39)
+#define FLAG_HIDDEN_ITEM_POMEG_BERRY                                       (FLAG_HIDDEN_ITEMS_START +  40)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_32                               (FLAG_HIDDEN_ITEMS_START +  41)
 #define FLAG_HIDDEN_ITEM_CSR_DUMMY_34                              (FLAG_HIDDEN_ITEMS_START +  42)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2B                                       (FLAG_HIDDEN_ITEMS_START +  43)
-#define FLAG_HIDDEN_ITEM_UNUSED_0x2C                                       (FLAG_HIDDEN_ITEMS_START +  44)
+#define FLAG_HIDDEN_ITEM_MAY_BIDE                                       (FLAG_HIDDEN_ITEMS_START +  44)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2D                                       (FLAG_HIDDEN_ITEMS_START +  45)
 #define FLAG_HIDDEN_ITEM_UNUSED_0x2E                                       (FLAG_HIDDEN_ITEMS_START +  46)
 #define FLAG_HIDDEN_ITEM_CELADON_CITY_PP_UP                                (FLAG_HIDDEN_ITEMS_START +  47)

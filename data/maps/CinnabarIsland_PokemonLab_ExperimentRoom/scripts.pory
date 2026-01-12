@@ -424,7 +424,7 @@ script CinnabarIsland_Sword {
 		face_down
 	))
 	msgbox(
-	"hi i'm shieldfuck\n"
+	"SHIELDFUCK: He's a dickhead.\n"
 	"", MSGBOX_DEFAULT)
 	closemessage
 	applymovement(LOCALID_SWORDBERT, moves(
@@ -474,8 +474,8 @@ script CinnabarIsland_Shield {
 		face_down
 	))
 	msgbox(
-	"SHIELDFUCK: That guy's a dickhead.\n"
-	"", MSGBOX_DEFAULT)
+	"SHIELDFUCK: We were supposed to\n"
+	"have another friend too, but…", MSGBOX_DEFAULT)
 	applymovement(VAR_LAST_TALKED, moves(
 		face_original_direction
 	))

@@ -1,5 +1,7 @@
 mapscripts Ocean5_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        setbench(BENCH_HALF_ISLAND)
+    }
 }
 
 
@@ -43,4 +45,12 @@ script GreatSea_ShortEnding {
     fadescreenswapbuffers(FADE_FROM_BLACK)
     release
     end
+}
+
+
+script GreatSea_HalfWasland {
+	msgbox(
+	"HALF WASLAND\n"
+	"", MSGBOX_SIGN)
+
 }

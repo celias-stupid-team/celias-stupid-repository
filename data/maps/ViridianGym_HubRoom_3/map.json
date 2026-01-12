@@ -3,13 +3,13 @@
   "name": "ViridianGym_HubRoom_3",
   "layout": "LAYOUT_VIRIDIAN_GYM_HUB_ROOM_3",
   "music": "MUS_GYM",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "region_map_section": "MAPSEC_VIRIDIAN_GYM_2",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "ViridianGym_HintManSwitch",
       "flag": "0"
     }
   ],
@@ -42,7 +42,7 @@
       "x": 9,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_GYM_DMCA_BROCK",
+      "dest_map": "MAP_VIRIDIAN_GYM_ENTRANCE",
       "dest_warp_id": "0"
     },
     {

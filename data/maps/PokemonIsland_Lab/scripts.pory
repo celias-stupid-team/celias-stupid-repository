@@ -244,6 +244,7 @@ script PokemonIslandLab_GSBallCutscene {
 script PokemonIslandLab_Todd {
     lock
     faceplayer
+    famechecker(FAMECHECKER_GREAT_SEA_WEST, 0)
     if(flag(FLAG_DUGTRIO_SIGN) && flag(FLAG_GROWLITHE_SIGN) && flag(FLAG_ELECTIVIRE_SIGN) && flag(FLAG_AMBIGUOUS_STATUE_SIGN) && flag(FLAG_ONIX_TAIL_SIGN) && flag(FLAG_KINGLER_SIGN) && flag(FLAG_IVY_SIGN)) {
         msgbox(
         "There will be a cutscene here\n"
@@ -261,7 +262,7 @@ script PokemonIslandLab_Todd {
 
     if(flag(FLAG_TALKED_TO_TODD)) {
         msgbox(
-        "TODD: find signs\p"
+        "TODD: find 7 signs\p"
 
         "placeholder\n"
         "", MSGBOX_DEFAULT)

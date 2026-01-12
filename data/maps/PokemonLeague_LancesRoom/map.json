@@ -134,5 +134,16 @@
       "script": "MayRoom_LassAttack"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_TM34",
+      "flag": "FLAG_HIDDEN_ITEM_MAY_BIDE",
+      "quantity": 1,
+      "underfoot": false
+    }
+  ]
 }

@@ -71,6 +71,7 @@ script Route10_PokemonCenter_LittleGirl {
 script Route10_PokemonCenter_MindyTrade {
 	lock
 	faceplayer
+	famechecker(FAMECHECKER_GREAT_SEA_WEST, 4)
 	setvar(VAR_0x8008, INGAME_TRADE_HAUNTER) //Set to Haunter trade
 	setflag(FLAG_CSR_TALKED_TO_MINDY)
 	call(SetPlayerPokedexValues)

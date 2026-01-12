@@ -40,7 +40,7 @@ script FourthTrial_Woman {
 script FourthTrial_Man {
     lock
     faceplayer
-    if(flag(FLAG_BADGE08_GET)) {
+    if(flag(FLAG_BADGE07_GET)) {
     msgbox(
         "Ohhhh…\p"
 
