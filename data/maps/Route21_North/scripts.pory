@@ -5,6 +5,7 @@ Route21_North_MapScripts::
 
 script Route21_StartAlomomolaBattle {
 	lock
-	special(StartAlomomolaBattle)
+	setwildbattle(SPECIES_LUVDISC, 20)
+	dowildbattle
 	release
 }

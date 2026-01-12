@@ -1751,8 +1751,6 @@ void BufferStringBattle(u16 stringId)
                 else
                     stringPtr = sText_GhostAppearedCantId;
             }
-            else if (gBattleTypeFlags & BATTLE_TYPE_ALOMOMOLA)
-                stringPtr = sText_LuvdiscAppeared;
             else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
                 stringPtr = sText_WildPkmnAppeared2;
             else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) // interesting, looks like they had something planned for wild double battles

@@ -65,7 +65,7 @@
 #define BATTLE_TYPE_WILD_SCRIPTED      (1 << 17) // Used in pokeemerald as BATTLE_TYPE_PALACE.
 #define BATTLE_TYPE_LEGENDARY_FRLG     (1 << 18) // Used in pokeemerald as BATTLE_TYPE_ARENA.
 #define BATTLE_TYPE_TRAINER_TOWER      (1 << 19) // Used in pokeemerald as BATTLE_TYPE_FACTORY.
-#define BATTLE_TYPE_ALOMOMOLA          (1 << 20) // Used for Alomomola special fight
+#define BATTLE_TYPE_UNUSED             (1 << 20) // unused
 #define BATTLE_TYPE_INGAME_PARTNER     (1 << 21)
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 22)
 #define BATTLE_TYPE_ARENA              (1 << 23)

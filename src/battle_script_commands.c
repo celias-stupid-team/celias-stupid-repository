@@ -4286,7 +4286,12 @@ static void Cmd_playanimation(void)
         //create Alomomola right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_ALOMOMOLA_EVOLVE)
         {
-            CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_ALOMOMOLA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+            gBattleMons[gActiveBattler].species = SPECIES_ALOMOMOLA;
+
+            if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+                CreateMonWithGenderNatureLetter(gPlayerParty, SPECIES_ALOMOMOLA, GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
+            else
+                CreateMonWithGenderNatureLetter(gEnemyParty, SPECIES_ALOMOMOLA, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_LEVEL), USE_RANDOM_IVS, GetMonGender(mon), GetNature(mon), 0);
         }
         //create Hoopa right before form change
         if (gBattlescriptCurrInstr[2] == B_ANIM_SEEL_HOOPA_TRANSFORM)
@@ -10777,17 +10782,23 @@ static void Cmd_jumpifnotspeciescondition(void)
 {
     CMD_ARGS(u8 battler, u32 species, bool8 jumpIfTrue, const u8 *jumpInstr);
 
+    struct Pokemon *mon;
     u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
     if (cmd->jumpIfTrue)
     {
-        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+        if (GetMonData(mon, MON_DATA_SPECIES) != cmd->species)
             gBattlescriptCurrInstr = cmd->nextInstr;
         else
             gBattlescriptCurrInstr = cmd->jumpInstr;
     }
     else
     {
-        if (GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_SPECIES) != cmd->species)
+        if (GetMonData(mon, MON_DATA_SPECIES) != cmd->species)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;

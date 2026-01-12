@@ -358,11 +358,8 @@ BattleScript_EffectHeartSwap::
 	waitanimation
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
-	//only trigger form change effect, when Battle Type is BATTLE_TYPE_ALOMOMOLA
-	jumpifbattletype BATTLE_TYPE_ALOMOMOLA, BattleScript_EvolveAlomomola
-	goto BattleScript_MoveEnd
 BattleScript_EvolveAlomomola::
-	//only trigger form change effect, when opponent is SPECIES_LUVDISC
+	@ only trigger form change effect, when opponent is SPECIES_LUVDISC
 	jumpifnotspecies BS_TARGET, SPECIES_LUVDISC, BattleScript_MoveEnd
 	call BattleScript_AlomomolaMidBattleEvo
 	goto BattleScript_MoveEnd
@@ -4118,10 +4115,14 @@ BattleScript_AlomomolaMidBattleEvo::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_ALOMOMOLAEVO
 	waitstate
-	playanimation BS_OPPONENT1, B_ANIM_ALOMOMOLA_EVOLVE
+	playanimation BS_TARGET, B_ANIM_ALOMOMOLA_EVOLVE
 	pause B_WAIT_TIME_LONG
 	printstring STRINGID_ALOMOMOLAEVOLVED
 	waitmessage B_WAIT_TIME_LONG
+    updatebattlerdata BS_TARGET
+	redrawhealthbox BS_TARGET
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
 	end2
 
 BattleScript_SeelHoopaTransform::
