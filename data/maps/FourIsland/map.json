@@ -15,14 +15,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
-      "offset": 29,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_MINNESOTA",
-      "offset": 0,
-      "direction": "right"
+      "map": "MAP_OCEAN9",
+      "offset": 49,
+      "direction": "up"
     },
     {
       "map": "MAP_ROUTE15",
@@ -30,19 +25,19 @@
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN1",
-      "offset": -12,
-      "direction": "up"
+      "map": "MAP_MINNESOTA",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
+      "offset": 29,
+      "direction": "left"
     },
     {
       "map": "MAP_OCEAN2",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_OCEAN9",
-      "offset": 49,
-      "direction": "up"
     }
   ],
   "object_events": [

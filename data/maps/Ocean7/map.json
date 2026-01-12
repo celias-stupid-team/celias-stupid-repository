@@ -20,16 +20,6 @@
       "direction": "up"
     },
     {
-      "map": "MAP_OCEAN5",
-      "offset": -32,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN6",
-      "offset": 2,
-      "direction": "right"
-    },
-    {
       "map": "MAP_POKEMON_ISLAND_SOUTH",
       "offset": 0,
       "direction": "left"
@@ -37,6 +27,11 @@
     {
       "map": "MAP_OCEAN3",
       "offset": -15,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 2,
       "direction": "right"
     }
   ],

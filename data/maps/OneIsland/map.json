@@ -16,13 +16,8 @@
   "connections": [
     {
       "map": "MAP_ROUTE19",
-      "offset": -1,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_OCEAN5",
       "offset": 0,
-      "direction": "left"
+      "direction": "right"
     },
     {
       "map": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
@@ -35,19 +30,24 @@
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN6",
-      "offset": -19,
-      "direction": "down"
-    },
-    {
       "map": "MAP_ROUTE18",
       "offset": -44,
       "direction": "up"
     },
     {
+      "map": "MAP_OCEAN5",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
       "map": "MAP_OCEAN3",
       "offset": 17,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": -19,
+      "direction": "down"
     }
   ],
   "object_events": [

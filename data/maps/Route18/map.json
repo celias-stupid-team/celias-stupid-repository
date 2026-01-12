@@ -45,13 +45,13 @@
       "direction": "left"
     },
     {
-      "map": "MAP_OCEAN5",
-      "offset": 25,
+      "map": "MAP_ONE_ISLAND",
+      "offset": 44,
       "direction": "down"
     },
     {
-      "map": "MAP_ONE_ISLAND",
-      "offset": 44,
+      "map": "MAP_OCEAN5",
+      "offset": 25,
       "direction": "down"
     }
   ],

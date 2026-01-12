@@ -35,19 +35,9 @@
       "direction": "down"
     },
     {
-      "map": "MAP_OCEAN5",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
       "map": "MAP_OCEAN7",
       "offset": 17,
       "direction": "down"
-    },
-    {
-      "map": "MAP_OCEAN6",
-      "offset": 32,
-      "direction": "right"
     },
     {
       "map": "MAP_OCEAN11",
@@ -55,8 +45,18 @@
       "direction": "left"
     },
     {
+      "map": "MAP_OCEAN5",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
       "map": "MAP_OCEAN3",
       "offset": 17,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_OCEAN6",
+      "offset": 34,
       "direction": "right"
     }
   ],

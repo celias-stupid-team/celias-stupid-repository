@@ -20,11 +20,6 @@
       "direction": "left"
     },
     {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": -49,
-      "direction": "down"
-    },
-    {
       "map": "MAP_MINNESOTA",
       "offset": 26,
       "direction": "down"
@@ -48,6 +43,11 @@
       "map": "MAP_CINNABAR_ISLAND",
       "offset": 7,
       "direction": "right"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": -49,
+      "direction": "down"
     }
   ],
   "object_events": [

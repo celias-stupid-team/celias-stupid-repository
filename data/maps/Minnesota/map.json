@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FOUR_ISLAND",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_CINNABAR_ISLAND",
       "offset": -5,
       "direction": "right"
@@ -33,6 +28,11 @@
       "map": "MAP_HI",
       "offset": 18,
       "direction": "down"
+    },
+    {
+      "map": "MAP_FOUR_ISLAND",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
