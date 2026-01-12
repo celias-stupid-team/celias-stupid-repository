@@ -121,7 +121,7 @@ Debug_EventScript_Script_6::
 	end
 
 Debug_EventScript_Script_7::
-	setwildbattle SPECIES_LUVDISC, 10
+	setwildbattle SPECIES_SEEL, 10
 	dowildbattle
 	end
 
