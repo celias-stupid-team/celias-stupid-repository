@@ -1293,7 +1293,7 @@ static void Cmd_if_type_effectiveness(void)
     // Store gBattleMoveDamage in a u8 variable because sAIScriptPtr[1] is a u8.
     damageVar = gBattleMoveDamage;
 
-    if (damageVar == sAIScriptPtr[1])
+    if (damageVar == sAIScriptPtr[1] && gBattleMoves[gCurrentMove].power != 0)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
     else
         sAIScriptPtr += 6;
