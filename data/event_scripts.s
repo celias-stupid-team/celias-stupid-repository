@@ -1886,3 +1886,6 @@ Text_TestMsg::
 
 	.include "data/maps/FiveIsland_House4/scripts.inc"
 	.include "data/maps/FiveIsland_House4/text.inc"
+
+	.include "data/maps/Chapter7_Chapter2/scripts.inc"
+	.include "data/maps/Chapter7_Chapter2/text.inc"

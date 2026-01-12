@@ -6972,6 +6972,18 @@
       "secondary_tileset": "gTileset_SaffronCity",
       "border_filepath": "data/layouts/SaffronCity_Trains/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity_Trains/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAPTER7_CHAPTER2",
+      "name": "Chapter7_Chapter2_Layout",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Chapter7Chaper2",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Chapter7_Chapter2/border.bin",
+      "blockdata_filepath": "data/layouts/Chapter7_Chapter2/map.bin"
     }
   ]
 }
