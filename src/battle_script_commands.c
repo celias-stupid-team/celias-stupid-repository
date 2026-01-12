@@ -11247,8 +11247,6 @@ void BS_UpdateBattlerData(void)
     u8 battler = GetBattlerForBattleScript(cmd->battler);
     u8 i;
 
-    DebugPrintf("Updating data for battler %d", battler);
-
     if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
         mon = &gEnemyParty[gBattlerPartyIndexes[battler]];
     else
@@ -11264,8 +11262,6 @@ void BS_UpdateBattlerData(void)
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, FALSE);
-    gBattleMons[battler].item = GetMonData(mon, MON_DATA_HELD_ITEM);
-    DebugPrintf("item = %d", gBattleMons[battler].item);
 
     for (i = 0; i < MAX_MON_MOVES; ++i)
     {
